@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-15 09:14-0300\n"
+"PO-Revision-Date: 2010-03-20 23:00-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5102,7 +5102,7 @@ msgstr ""
 
 #. (title)
 msgid "Ignoring Files And Directories"
-msgstr ""
+msgstr "Ignorando Arquivos e Diretórios"
 
 #. (primary)
 msgid "ignore"
@@ -5110,51 +5110,51 @@ msgstr "ignorar"
 
 #. (primary)
 msgid "unversioned files/folders"
-msgstr ""
+msgstr "arquivos/diretório não versionados"
 
 #. (para)
 msgid "<placeholder-1/> In most projects you will have files and folders that should not be subject to version control. These might include files created by the compiler, <filename>*.obj, *.lst</filename>, maybe an output folder used to store the executable. Whenever you commit changes, TortoiseSVN shows your unversioned files, which fills up the file list in the commit dialog. Of course you can turn off this display, but then you might forget to add a new source file."
-msgstr ""
+msgstr "<placeholder-1/>Na maioria dos projetos você terá arquivos e diretórios que não deverão ser controlados. Entre eles estão arquivos criados pelo compilador, <nome_do_arquivo>*.obj, *.lst</nome_do_arquivo>, talvez um diretório de saída usado para gravar o executável. Não importa que você submeta alterações, TortoiseSVN mostrará seus arquivos não controlados, os quais serão apresentados na lista da janela de submissão. Claro, você pode optar por não mostrá-los, mas então você poderá esquecer de adicionar alguma novo arquivo de código."
 
 #. (para)
 msgid "The best way to avoid these problems is to add the derived files to the project's ignore list. That way they will never show up in the commit dialog, but genuine unversioned source files will still be flagged up."
-msgstr ""
+msgstr "A melhor maneira de se livrar desses problemas é adicionar esses arquivos na lista de arquivos ignorados do projeto. Dessa forma eles nunca serão mostrados na lista da janela de submissão, mas arquivos genuinos de código não controlados aparecerão para serem adicionados."
 
 #. (para)
 msgid "If you <action>right click</action> on a single unversioned file, and select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to Ignore List</guimenuitem></menuchoice> from the context menu, a submenu appears allowing you to select just that file, or all files with the same extension. If you select multiple files, there is no submenu and you can only add those specific files/folders."
-msgstr ""
+msgstr "Se você <action>clicar com o botão direito</action> em um único arquivo não controlado, e selecionar o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Adicionar à lista de ignorados</guimenuitem></menuchoice> do menu de contexto, um submenu aparecerá permitindo que você selecione apenas o arquivo, ou todos os arquivos com a mesma extensão. Se você selecionar vários arquivos, não aparecerá o submenu e você poderá somente adicionar os arquivos/diretórios selecionados."
 
 #. (para)
 msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. That allows you to specify more general patterns using filename globbing, described in the section below. Read <xref linkend=\"tsvn-dug-propertypage\"/> for more information on setting properties directly. Please be aware that each ignore pattern has to be placed on a separate line. Separating them by spaces does not work."
-msgstr ""
+msgstr "Se você quer remover um ou mais itens da lista de arquivos ignorados, <action>clique com o botão direito</action> sobre os itens e selecione <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remover da lista de ignorados</guimenuitem></menuchoice>. Você pode também acessar a propriedade <literal>svn:ignore</literal> do diretório diretamente. Isto lhe permite especificar regras gerais usando o nome dos arquivos globais, descrito na próxima seção. Leia <xref linkend=\"tsvn-dug-propertypage\"/> para mais informações sobre como definir as propriedades diretamente. Por favor tenha o cuidado de colocar cada regra em uma linha separada. Separá-las por espaço não funciona."
 
 #. (title)
 msgid "The Global Ignore List"
-msgstr ""
+msgstr "A Lista Global de Arquivos Ignorados"
 
 #. (para)
 msgid "Another way to ignore files is to add them to the <firstterm>global ignore list</firstterm>. The big difference here is that the global ignore list is a client property. It applies to <emphasis>all</emphasis> Subversion projects, but on the client PC only. In general it is better to use the <filename>svn:ignore</filename> property where possible, because it can be applied to specific project areas, and it works for everyone who checks out the project. Read <xref linkend=\"tsvn-dug-settings-main\"/> for more information."
-msgstr ""
+msgstr "Outra forma de ignorar arquivos é adicionar eles para a <firstterm>lista global de arquivo</firstterm>. A grande diferença é que a lista global de arquivos ignorados é uma propriedade no cliente. Isto é aplicado parar <emphasis>todos</emphasis> projetos no Subversion, but somente no PC cliente. Em geral o melhor é usar a propriedade <filename>svn:ignore</filename> onde possível, porque pode ser aplicado para áreas específicas do projeto, e isto funciona para todos que obterem o projeto. Leia <xref linkend=\"tsvn-dug-settings-main\"/> para mais informações."
 
 #. (title)
 msgid "Ignoring Versioned Items"
-msgstr ""
+msgstr "Ignorando Arquivos Controlados"
 
 #. (para)
 msgid "Versioned files and folders can never be ignored - that's a feature of Subversion. If you versioned a file by mistake, read <xref linkend=\"tsvn-howto-unversion\"/> for instructions on how to <quote>unversion</quote> it."
-msgstr ""
+msgstr "Arquivos e diretórios controlados nunca devem ser ignorados - esta é uma característica do Subversion. Se você está controlando um arquivo mas não deveria, leia <xref linkend=\"tsvn-howto-unversion\"/> para instruções de como <quote>não controlar</quote> o arquivo."
 
 #. (title)
 msgid "Pattern Matching in Ignore Lists"
-msgstr ""
+msgstr "Padrões de Filtro na Lista de Arquivos Ignorados"
 
 #. (primary)
 msgid "globbing"
-msgstr ""
+msgstr "globais"
 
 #. (primary)
 msgid "pattern matching"
-msgstr ""
+msgstr "padrões de filtro"
 
 #. (term)
 msgid "*"
@@ -5162,7 +5162,7 @@ msgstr "*"
 
 #. (para)
 msgid "Matches any string of characters, including the empty string (no characters)."
-msgstr ""
+msgstr "Filtra por qualquer texto de caracteres, incluindo um texto vazio (nenhum caracter)."
 
 #. (term)
 msgid "?"
@@ -5170,7 +5170,7 @@ msgstr "?"
 
 #. (para)
 msgid "Matches any single character."
-msgstr ""
+msgstr "Filtra por qualquer caracter simples."
 
 #. (term)
 msgid "[...]"
@@ -5178,43 +5178,43 @@ msgstr "[...]"
 
 #. (para)
 msgid "Matches any one of the characters enclosed in the square brackets. Within the brackets, a pair of characters separated by <quote>-</quote> matches any character lexically between the two. For example <literal>[AGm-p]</literal> matches any one of <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> or <literal>p</literal>."
-msgstr ""
+msgstr "Filtra por qualquer um dos caracteres dentro dos colchetes. Dentro de colchetes, um par de caracteres separados por <quote>-</quote> filtra qualquer caracter léxico entre os dois. Por exemplo <literal>[AGm-p]</literal> flitra por qualquer um dos caracteres <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> or <literal>p</literal>."
 
 #. (para)
 msgid "Subversion's ignore patterns make use of filename globbing, a technique originally used in Unix to specify files using meta-characters as wildcards. The following characters have special meaning: <placeholder-1/>"
-msgstr ""
+msgstr "Os padrões para ingorar arquivos do Subversion fazem uso do nome de arquivo global, uma técnica originalmente usada no Unix para especificar arquivos usando meta-caracteres como coringas. Os caracteres a seguir tem um significado especial: <placeholder-1/>"
 
 #. (para)
 msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, eg. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
-msgstr ""
+msgstr "Padrões de filtro são sensíveis à caixa, o que pode causar problemas no Windows. Você pode forçar o uso não sensível da maneira difícil usando pares de caracteres, por exemplo para ignorar <literal>*.tmp</literal> independente do caso, você poderá usar um padrão como <literal>*.[Tt][Mm][Pp]</literal>."
 
 #. (para)
 msgid "If you want an official definition for globbing, you can find it in the IEEE specifications for the shell command language <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
-msgstr ""
+msgstr "Se você quer uma definição oficial para nomes de arquivos globais, você pode encontrar nas especificações IEEE para linguagem de comando de integração <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
 
 #. (title)
 msgid "No Paths in Global Ignore List"
-msgstr ""
+msgstr "Nenhum Caminho na Lista Global de Arquivos Ignorados"
 
 #. (para)
 msgid "You should not include path information in your pattern. The pattern matching is intended to be used against plain file names and folder names. If you want to ignore all <literal>CVS</literal> folders, just add <literal>CVS</literal> to the ignore list. There is no need to specify <literal>CVS */CVS</literal> as you did in earlier versions. If you want to ignore all <literal>tmp</literal> folders when they exist within a <literal>prog</literal> folder but not within a <literal>doc</literal> folder you should use the <literal>svn:ignore</literal> property instead. There is no reliable way to achieve this using global ignore patterns."
-msgstr ""
+msgstr "Você não deverá incluir caminhos no seu padrão. O padrão de filtro tem a intensão de ser usado apenas para nomes de arquivos e diretórios. Se você quer ignorar todos os diretórios <literal>CVS</literal>, apenas adicione o diretório <literal>CVS</literal> na lista de arquivos ignorados. Não é necessário especificar <literal>CVS */CVS</literal> como você faria em versões anteriores. Se você quer ignorar todos os diretórios <literal>tmp</literal> quando existirem dentro de um diretório <literal>prog</literal> mas não quer quando estiverem dentro de um diretório </literal>doc</literal> você deverá usar a propriedade <literal>svn:ignore</literal>. Não existe uma maneira confiável de fazê-lo usando padrões globais para ignorar."
 
 #. (title)
 msgid "Deleting, Moving and Renaming"
-msgstr ""
+msgstr "Apagando, Movendo e Renomeando"
 
 #. (title)
 msgid "Explorer context menu for versioned files"
-msgstr ""
+msgstr "Menu de contexto do Explorerer para arquivos controlados"
 
 #. (para)
 msgid "Unlike CVS, Subversion allows renaming and moving of files and folders. So there are menu entries for delete and rename in the TortoiseSVN submenu. <placeholder-1/>"
-msgstr ""
+msgstr "Ao contrário do CVS, Subversion permite renomear e mover arquivos e diretórios. Assim há menu para excluir e renomear no submenu do TortoiseSVN. <placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
-msgstr ""
+msgstr "Apagando arquivos e diretórios"
 
 #. (primary)
 msgid "delete"
@@ -5226,39 +5226,39 @@ msgstr "remover"
 
 #. (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> to remove files or folders from subversion."
-msgstr ""
+msgstr "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Excluir</guimenuitem></menuchoice> para remover arquivos ou diretórios do repositório."
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a file, it is removed from your working copy immediately as well as being marked for deletion in the repository on next commit. The file's parent folder shows a <quote>deleted</quote> icon overlay. Up until you commit the change, you can get the file back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the parent folder."
-msgstr ""
+msgstr "Quando vocë <menuchoice><guimenu>TortoiseSVN</guimenu></guimenuitem>Excluir</guimenuitem></menuchoice> um arquivo, ele será removido da sua cópia de trabalho imediatamente assim como será identificado para exclusão no repositório na próxima submissão. O diretório do arquivo é identificado com um ícone indicando indicando a <quoted>exclusão</quoted>. Até que você faça a submissão da alteração, você poderá recuperar o arquivo usando a opção <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> no diretório do arquivo."
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a folder, it remains in your working copy, but the overlay changes to indicate that it is marked for deletion. Up until you commit the change, you can get the folder back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the folder itself. This difference in behaviour between files and folders is a part of Subversion, not TortoiseSVN."
-msgstr ""
+msgstr "Quando você <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Excluir</guimenuitem></menuchoice> um diretório, ele não será apagado da sua cópia de trabalho, mas a exclusão será apresentada através de um ícone no diretório. Até que você faça a submissão da alteração, você poderá recuperar o diretório usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> no próprio diretório. A diferença entre os comportamentos de arquivos e diretórios faz parte do Subversion, e não do TortoiseSVN."
 
 #. (para)
 msgid "If you want to delete an item from the repository, but keep it locally as an unversioned file/folder, use <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> key while right clicking on the item in the explorer list pane (right pane) in order to see this in the extended context menu."
-msgstr ""
+msgstr "Se você quer apagar um item do repositório, mas manter uma versão local não versionada do arquivo/diretório, use <menuchoice><guimenu>Menu de Contexto Estendido</guimenu><guimenuitem>Excluir (manter local)</guimenuitem></menuchoice>. Você deve manter a tecla <keycap>Shift</keycap> pressionada enquando clica com o botão direito no item desejado no painel direito do \"explorer\" para ver este menu de contexto estendido."
 
 #. (para)
 msgid "If a <emphasis>file</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, the commit dialog shows those files and lets you remove them from version control too before the commit. However, if you update your working copy, Subversion will spot the missing file and replace it with the latest version from the repository. If you need to delete a version-controlled file, always use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> so that Subversion doesn't have to guess what you really want to do."
-msgstr ""
+msgstr "Se um <emphasis>arquivo</emphasis> é excluido usando o \"explorer\" ao invés do menu de contexto do TortoiseSVN, a janela de submissão apresentará estes arquivos e permitirá a você removê-los do controle antes da submissão. Entretanto, se você fizer uma atualização da sua cópia de trabalho, Subversion marcará o arquivo perdido e o substituirá com a versão mais recente do repositório. Se você precisa apagar um arquivo controlado, deve usar sempre <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Excluir</guimenuitem></menuchoice> para que o Subversion não tenha que adivinhar o que você realmente quer fazer."
 
 #. (para)
 msgid "If a <emphasis>folder</emphasis> is deleted via the explorer instead of using the TortoiseSVN context menu, your working copy will be broken and you will be unable to commit. If you update your working copy, Subversion will replace the missing folder with the latest version from the repository and you can then delete it the correct way using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se um <emphasis>diretório</emphasis> é excluido através do \"explorer\" ao invés do menu de contexto do TortoiseSVN, sua cópia de trabalho estará corrompida e você não conseguirá fazer uma submissão. Se você atualizar sua cópia de trabalho, Subversion substituirá o diretório perdido com a última revisão do repositório e você então precisará excluir da maneira correta usando <menuchoise><guimenu>TortoiseSVN</guimenu><guimenuitem>Excluir</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Getting a deleted file or folder back"
-msgstr ""
+msgstr "Recuperando arquivos e diretórios excluidos"
 
 #. (para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right-click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
-msgstr ""
+msgstr "Se você apagou um arquivo ou diretório e já submeteu essa exclusão para o repositório, então a maneira normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> não recuperará nada. Mas o arquivo ou diretório não estão totalmente perdidos. Se você sabe a revisão em que o arquivo ou diretório foi excluido (se você não sabe, use a janela de log para descobrir) abra o navegador de repositório e alterne para a revisão. Então selecione o arquivo ou diretório que você apagou, clique com o botão direito sobre e escolha <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Copiar para...</guimenu></menuchoice> e como destino da cópia escolha o local da sua cópia de trabalho."
 
 #. (title)
 msgid "Moving files and folders"
-msgstr ""
+msgstr "Movendo arquivos e diretórios"
 
 #. (primary)
 #. (primary)
@@ -5272,152 +5272,152 @@ msgstr "mover"
 
 #. (para)
 msgid "If you want to do a simple in-place rename of a file or folder, use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Rename...</guimenuitem></menuchoice> Enter the new name for the item and you're done."
-msgstr ""
+msgstr "Se você quer fazer uma simples renomeação de arquivo ou diretório, use <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Renomear...</guimenuitem></menuchoice> e entre com o novo nome para o item e estará feito."
 
 #. (para)
 msgid "select the files or directories you want to move"
-msgstr ""
+msgstr "selecione os arquivos ou diretórios que você quer mover"
 
 #. (para)
 msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "no menu que se abre escolha <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>SVN Mover itens sob controle de versão para cá</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "If you want to move files around inside your working copy, perhaps to a different sub-folder, use the right-mouse drag-and-drop handler: <placeholder-1/>"
-msgstr ""
+msgstr "Se você quer mover arquivos dentro da sua cópia de trabalho, talvez para um sub-diretório, use o manipulador de arrasto do botão direito: <placeholder-1/>"
 
 #. (title)
 msgid "Commit the parent folder"
-msgstr ""
+msgstr "Submetendo o diretório pai"
 
 #. (para)
 msgid "Since renames and moves are done as a delete followed by an add you must commit the parent folder of the renamed/moved file so that the deleted part of the rename/move will show up in the commit dialog. If you don't commit the removed part of the rename/move, it will stay behind in the repository and when your co-workers update, the old file will not be removed. i.e. they will have <emphasis>both</emphasis> the old and the new copies."
-msgstr ""
+msgstr "Já que renomear e mover arquivos está feito assim como a exclusão como complemento você deve submeter o diretório pai dos arquivos renomeados/movidos assim como os excluídos/movidos que aparecerão na janela de submissão. Se você não submeteu a parte removida da ação de renomear/mover, ela continuará no repositório e quando algum outro participante do projeto atualizar sua cópia, os velhos arquivos não serão removidos. Por exemplo eles <emphasis>ambas</emphasis> as cópias, velhas e novas."
 
 #. (para)
 msgid "You <emphasis>must</emphasis> commit a folder rename before changing any of the files inside the folder, otherwise your working copy can get really messed up."
-msgstr ""
+msgstr "Você <emphasis>deve</emphasis> submeter um diretório renomeado antes de alterar qualquer arquivo dentro dele, caso contrário sua cópia de trabalho pode realmente se corromper."
 
 #. (para)
 msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right-click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right-click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Outra forma de mover ou copiar arquivos é os comandos de cópia/recorte do Windows. Selecione os arquivos que voê quer copiar, clique com o botão direito e escolha <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Copiar</guimenuitem></menuchoice> do menu de contexto do \"explorer\". Então vá até o diretório destino, clique com o botão direito e escolha <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Colar</guimenuitem></menuchoice>. Para mover arquivos, escolha <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Recortar</guimenuitem></menuchoice> ao invés de <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Copiar</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
-msgstr ""
+msgstr "Você pode também usar o navegador de repositório para mover itens. Leia <xref linkend=\"tsvn-dug-repobrowser\"/> para descobrir mais."
 
 #. (title)
 msgid "Do Not SVN Move Externals"
-msgstr ""
+msgstr "Não Mova Arquivos Externos"
 
 #. (para)
 msgid "You should <emphasis>not</emphasis> use the TortoiseSVN <guilabel>Move</guilabel> or <guilabel>Rename</guilabel> commands on a folder which has been created using <literal>svn:externals</literal>. This action would cause the external item to be deleted from its parent repository, probably upsetting many other people. If you need to move an externals folder you should use an ordinary shell move, then adjust the <literal>svn:externals</literal> properties of the source and destination parent folders."
-msgstr ""
+msgstr "Você <emphasis>não</emphasis> deverá  usar os comandos do TortoiseSVN <guilabel>Mover</guilabel> ou <guilabel>Renomear</guilabel> em um diretório que tenha sido criado usando <literal>svn:externals</literal>. Esta ação poderá causar a exclusão de um item externo em seu repositório, provavelmente chateando muitas outras pessoas. Se você precisa mover um diretório externo você deverá usar uma outra ferramenta para mover, e então ajustar as propriedades <literal>svn:externals</literal> do diretório de origem e de destino."
 
 #. (title)
 msgid "Changing case in a filename"
-msgstr ""
+msgstr "Alterando a caixa do nome do arquivo"
 
 #. (primary)
 msgid "case change"
-msgstr ""
+msgstr "alteração de caixa"
 
 #. (para)
 msgid "Making case-only changes to a filename is tricky with Subversion on Windows, because for a short time during a rename, both filenames have to exist. As Windows has a case-insensitive file system, this does not work using the usual Rename command."
-msgstr ""
+msgstr "Alterando apenas a caixa do nome do arquivo é difícil no Subversion em ambiente Windows, porque por um curto período de tempo durante a renomeação, ambos os arquivos devem existir. Como o Windows utiliza um sistema de arquivos não sensível à caixa, ele simplesmente não permite utilizar o comando padrão Renomear."
 
 #. (para)
 msgid "Fortunately there are (at least) two possible methods to rename a file without losing its log history. It is important to rename it within subversion. Just renaming in the explorer will corrupt your working copy!"
-msgstr ""
+msgstr "Felismente existem (pelo menos) dois possiveis meios de renomear um arquivo sem perder sua histórico de log. Por isso é importante renomear usando o subversion. Apenas renomear no \"explorer\" vai corrompear sua cópia de trabalho!"
 
 #. (para)
 msgid "Commit the changes in your working copy."
-msgstr ""
+msgstr "Submetendo as alterações da sua cópia de trabalho"
 
 #. (para)
 msgid "Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser."
-msgstr ""
+msgstr "Renomear o arquivo de CAIXAalta para caixaALTA diretamente no repositório usando o navegador do repositório."
 
 #. (para)
 msgid "Update your working copy."
-msgstr ""
+msgstr "Atualizar sua cópia de trabalho."
 
 #. (para)
 msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr ""
+msgstr "Solução A) (recomendada) <placeholder-1/>"
 
 #. (para)
 msgid "Rename from UPPERcase to UPPERcase_ with the rename command in the TortoiseSVN submenu."
-msgstr ""
+msgstr "Renomear de CAIXAalta para CAIXAalta_ com o comando de renomeação do submenu do TortoiseSVN."
 
 #. (para)
 #. (para)
 msgid "Commit the changes."
-msgstr ""
+msgstr "Submeter as alterações."
 
 #. (para)
 msgid "Rename from UPPERcase_ to upperCASE."
-msgstr ""
+msgstr "Renomear de CAIXAalta_ para caixaALTA."
 
 #. (para)
 msgid "Solution B) <placeholder-1/>"
-msgstr ""
+msgstr "Solução B) <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
-msgstr ""
+msgstr "Procedimento em caso de conflito com o nome do arquivo"
 
 #. (para)
 msgid "If the repository already contains two files with the same name but differing only in case (e.g. <filename>TEST.TXT</filename> and <filename>test.txt</filename>), you will not be able to update or checkout the parent directory on a Windows client. Whilst Subversion supports case-sensitive filenames, Windows does not."
-msgstr ""
+msgstr "Se o repositório atualmente já contém dois arquivos com o mesmo nome diferenciados apenas pela caixa (exemplo: <filename>TEST.TXT</filename> e <filename>test.txt</filename>, você não poderá atualizar ou obter o diretório em um cliente Windows.Embora o Subversion suporte diferenciação na caixa no nome dos arquivos, o Windows não suporta."
 
 #. (para)
 msgid "This sometimes happens when two people commit, from separate working copies, files which happen to have the same name, but with a case difference. It can also happen when files are committed from a system with a case-sensitive file system, like Linux."
-msgstr ""
+msgstr "Isto algumas vezes acontece quando duas pessoas submetem, de diferentes cópias de trabalho, arquivos salvos com o mesmo nome, mas com caixa diferente. Isto pode também acontecer quando os arquivos forem submetidos de um sistema de arquivos que trata a caixa do nome dos arquivos, como Linux."
 
 #. (para)
 msgid "In that case, you have to decide which one of them you want to keep and delete (or rename) the other one from the repository."
-msgstr ""
+msgstr "Nestes casos, você precisa decidir qual dos arquivos você quer manter e então apagar (ou renomear) o outro arquivo no repositório."
 
 #. (title)
 msgid "Preventing two files with the same name"
-msgstr ""
+msgstr "Prevenindo dois arquivos com o mesmo nome"
 
 #. (para)
 msgid "There is a server hook script available at: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> that will prevent checkins which result in case conflicts."
-msgstr ""
+msgstr "Existe um script para servidor disponível em: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> que previne submissões que resultem em conflito de caixa."
 
 #. (title)
 msgid "Repairing File Renames"
-msgstr ""
+msgstr "Reparando Renomeação de Arquivos"
 
 #. (para)
 msgid "Sometimes your friendly IDE will rename files for you as part of a refactoring exercise, and of course it doesn't tell Subversion. If you try to commit your changes, Subversion will see the old filename as missing and the new one as an unversioned file. You could just check the new filename to get it added in, but you would then lose the history tracing, as Subversion does not know the files are related."
-msgstr ""
+msgstr "Algumas vezes seu amigável IDE vai renomear arquivos para você como parte de uma refatoração, e é claro isto não é o Subversion. Se você tentar submeter suas alterações, Subversion verá que há velhos arquivos perdidos e que há novos arquivos não controlados. Você poderá apenas verificar o novo nome para adicioná-lo, mas você então perderá o histórico, já que o Subversion não conhece a relação dos arquivos."
 
 #. (para)
 msgid "A better way is to notify Subversion that this change is actually a rename, and you can do this within the <guilabel>Commit</guilabel> and <guilabel>Check for Modifications</guilabel> dialogs. Simply select both the old name (missing) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Move</guimenuitem></menuchoice> to pair the two files as a rename."
-msgstr ""
+msgstr "Uma maneira melhor de notificar o Subversion é identificar a alteração como uma renomeação, e você pode fazer isso usando as janelas de <guilabel>Submeter</guilabel> e <guilabel>Verificar alterações</guilabel>. Apenas selecione ambos os arquivos (perdido e não controlado) e use <menuchocie><guimenu>Menu de Contexto</guimenu><guimenuitem>Reparar movimento</guimenuitem></menuchoice> para identificar os dois arquivos como uma renomeação."
 
 #. (title)
 msgid "Deleting Unversioned Files"
-msgstr ""
+msgstr "Apagando Arquivos não Controlados"
 
 #. (para)
 msgid "Usually you set your ignore list such that all generated files are ignored in Subversion. But what if you want to clear all those ignored items to produce a clean build? Usually you would set that in your makefile, but if you are debugging the makefile, or changing the build system it is useful to have a way of clearing the decks."
-msgstr ""
+msgstr "Normalmente você define sua lista de arquivos ignorados para que todos os arquivos criados sejam ignorados pelo Subversion. Mas e se você quer remover todos os arquivos ignorados para produzir uma compilação limpa? Normalmente você definie isso no arquivo makefile, mas e se você está depurando o arquivo makefile, ou alterando o sistema de compilação é útil ter uma forma de limpar tudo."
 
 #. (para)
 msgid "TortoiseSVN provides just such an option using <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete unversioned items...</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> while right clicking on a folder in the explorer list pane (right pane) in order to see this in the extended context menu. This will produce a dialog which lists all unversioned files anywhere in your working copy. You can then select or deselect items to be removed."
-msgstr ""
+msgstr "TortoiseSVN provê justamente uma opção usando <menuchoice><guimenu>Menu de Contexto Estendido</guimenu><guimenuitem>Apagar arquivos não controlados...<guimenuitem></menuchoice>. Você precisa segurar a tecla <keycap>Shift</keycap> enquando clica o botão direito em um diretório na lista no painel do explorador (painel direito) em questão para ver este menu de contexto estendido. Isto irá mostrar uma janela que listará todos os arquivos não controlados em qualquer lugar na sua cópia de trabalho. Você pode selecionar ou desmarcar itens que serão removidos."
 
 #. (para)
 msgid "When such items are deleted, the recycle bin is used, so if you make a mistake here and delete a file that should have been versioned, you can still recover it."
-msgstr ""
+msgstr "Quando tais arquivos são removidos, a lixeira é usada, então se você cometeu algum erro ao excluir um arquivo que não estava sendo controlado, você ainda poderá restaurar o arquivo."
 
 #. (title)
 msgid "Undo Changes"
-msgstr ""
+msgstr "Desfazendo Alterações"
 
 #. (primary)
 #. (primary)
@@ -5438,32 +5438,32 @@ msgstr "Janela de Reversão"
 
 #. (para)
 msgid "If you want to undo all changes you made in a file since the last update you need to select the file, <action>right click</action> to pop up the context menu and then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> A dialog will pop up showing you the files that you've changed and can revert. Select those you want to revert and click on <guibutton>OK</guibutton>. <placeholder-1/>"
-msgstr ""
+msgstr "Se você quer desfazer todas as alterações feitas em um arquivo desde a última atualização você precisa selecionar o arquivo, <action>clique com o botão direito</action> para abrir o menu de contexto e então selecione a opção <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice>. Uma janela será apresentada com os arquivos que você alterou e que podem ser revertidos. Selecione os arquivos que você reverter e clique em <guibutton>Ok</guibutton>. <placeholder-1/>"
 
 #. (para)
 msgid "If you want to undo a deletion or a rename, you need to use Revert on the parent folder as the deleted item does not exist for you to right-click on."
-msgstr ""
+msgstr "Se você quer desfazer uma exclusão ou uma renomeação, você precisa usar o Reverter no diretório em que o arquivo foi excluido/renomeado já que não existe mais para usar o clique com o botão direito."
 
 #. (para)
 msgid "If you want to undo the addition of an item, this appears in the context menu as <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>. This is really a revert as well, but the name has been changed to make it more obvious."
-msgstr ""
+msgstr "Se você quer desfazer a adição de um item, ele aparece no menu de contexto como <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Desfazer adição...</guimenu></menuchoice>. Esta opção também é como a opção reverter, mas o nome foi alterado para deixar a sua funcionalidade mais óbvia."
 
 #. (para)
 #. (para)
 msgid "The columns in this dialog can be customized in the same way as the columns in the <guilabel>Check for modifications</guilabel> dialog. Read <xref linkend=\"tsvn-dug-wcstatus-2\"/> for further details."
-msgstr ""
+msgstr "As colunas nesta janela podem ser personalizadas da mesma forma como as colunas da janela <guilabel>Verificar alterações</guilabel>. Leia <xref linkend=\"tsvn-dug-wcstatus-2\"/> para mais detalhes."
 
 #. (para)
 msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
-msgstr ""
+msgstr "Já que algumas vezes a opção reverter é usada para limpar uma cópia de trabalho, existe uma botão extra o qual também permite a você excluir arquivos não controlados. Quando você clicar neste botão outra janela será mostrada listando todos os arquivos não controlados, os quais você poderá selecionar para exclusão."
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
-msgstr ""
+msgstr "Desfazendo Alterações que já foram Submetidas"
 
 #. (para)
 msgid "<menuchoice><guimenuitem>Revert</guimenuitem></menuchoice> will only undo your local changes. It does <emphasis>not</emphasis> undo any changes which have already been committed. If you want to undo all the changes which were committed in a particular revision, read <xref linkend=\"tsvn-dug-showlog\"/> for further information."
-msgstr ""
+msgstr "<menuchoice><guimenuitem>Reverter</guimenuitem></menuchoice> irá somente desfazer alterações locais. A opção reverter <emphasis>não</emphasis> desfará alterações que já foram submetidas. Se você quer desfazer todas as alterações que foram submetidas em uma revisão em particular, leia <xref linkend=\"tsvn-dug-showlog\"/> para informações adicionais."
 
 #. (title)
 msgid "Revert is Slow"
@@ -5471,7 +5471,7 @@ msgstr "Reversão está Lenta"
 
 #. (para)
 msgid "When you revert changes you may find that the operation takes a lot longer than you expect. This is because the modified version of the file is sent to the recycle bin, so you can retrieve your changes if you reverted by mistake. However, if your recycle bin is full, Windows takes a long time to find a place to put the file. The solution is simple: either empty the recycle bin or deactivate the <guilabel>Use recycle bin when reverting</guilabel> box in TortoiseSVN's settings."
-msgstr ""
+msgstr "Quando você reverter alteracões você pode achar que a operação levou mais tempo que o esperado. Isto acontece porque a versão da modificação do arquivo foi enviado para a lixeira, então você pode recuperar suas alterações se você reverter algo por engano. Entretanto, se sua lixeira estiver cheia, Windows vai levar um longo tempo para encontrar um lugar para colocar o seu arquivo. A solução é simples: mantenha a lixeira vazia ou desative a opção <guilabel>Usar lixeira para fazer reversão</guilabel> nas configurações do TortoiseSVN."
 
 #. (title)
 #. (entry)
