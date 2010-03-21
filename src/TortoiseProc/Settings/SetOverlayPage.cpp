@@ -42,8 +42,6 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bUnversionedAsModified(FALSE)
 	, m_bFloppy(FALSE)
 	, m_bShowExcludedAsNormal(TRUE)
-	, m_bShowIgnoredOverlay(TRUE)
-	, m_bShowUnversionedOverlay(TRUE)
 {
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\LoadDllOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
@@ -58,8 +56,6 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regCacheType = CRegDWORD(_T("Software\\TortoiseSVN\\CacheType"), GetSystemMetrics(SM_REMOTESESSION) ? 2 : 1);
 	m_regUnversionedAsModified = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 	m_regShowExcludedAsNormal = CRegDWORD(_T("Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal"), FALSE);
-	m_regShowIgnoredOverlay = CRegDWORD(_T("Software\\TortoiseOverlays\\ShowIgnoredOverlay"), TRUE);
-	m_regShowUnversionedOverlay = CRegDWORD(_T("Software\\TortoiseOverlays\\ShowUnversionedOverlay"), TRUE);
 
 	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
@@ -70,8 +66,6 @@ CSetOverlayPage::CSetOverlayPage()
 	m_bRAM = m_regDriveMaskRAM;
 	m_bUnknown = m_regDriveMaskUnknown;
 	m_bUnversionedAsModified = m_regUnversionedAsModified;
-	m_bShowIgnoredOverlay = m_regShowIgnoredOverlay;
-	m_bShowUnversionedOverlay = m_regShowUnversionedOverlay;
 	m_bShowExcludedAsNormal = m_regShowExcludedAsNormal;
 	m_sExcludePaths = m_regExcludePaths;
 	m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
@@ -99,8 +93,6 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_UNVERSIONEDASMODIFIED, m_bUnversionedAsModified);
 	DDX_Check(pDX, IDC_FLOPPY, m_bFloppy);
 	DDX_Check(pDX, IDC_SHOWEXCLUDEDASNORMAL, m_bShowExcludedAsNormal);
-	DDX_Check(pDX, IDC_SHOWIGNOREDOVERLAY, m_bShowIgnoredOverlay);
-	DDX_Check(pDX, IDC_SHOWUNVERSIONEDOVERLAY, m_bShowUnversionedOverlay);
 }
 
 BEGIN_MESSAGE_MAP(CSetOverlayPage, ISettingsPropPage)
@@ -119,8 +111,6 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, ISettingsPropPage)
 	ON_BN_CLICKED(IDC_CACHENONE, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_UNVERSIONEDASMODIFIED, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_SHOWEXCLUDEDASNORMAL, &CSetOverlayPage::OnChange)
-	ON_BN_CLICKED(IDC_SHOWIGNOREDOVERLAY, &CSetOverlayPage::OnChange)
-	ON_BN_CLICKED(IDC_SHOWUNVERSIONEDOVERLAY, &CSetOverlayPage::OnChange)
 END_MESSAGE_MAP()
 
 BOOL CSetOverlayPage::OnInitDialog()
@@ -251,12 +241,6 @@ BOOL CSetOverlayPage::OnApply()
 		}
 		m_restart = Restart_None;
 	}
-	if (DWORD(m_regShowIgnoredOverlay) != DWORD(m_bShowIgnoredOverlay))
-		m_restart = Restart_System;
-	Store (m_bShowIgnoredOverlay, m_regShowIgnoredOverlay);
-	if (DWORD(m_regShowUnversionedOverlay) != DWORD(m_bShowUnversionedOverlay))
-		m_restart = Restart_System;
-	Store (m_bShowUnversionedOverlay, m_regShowUnversionedOverlay);
 	SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
 }
