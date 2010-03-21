@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-14 20:47-0000\n"
+"PO-Revision-Date: 2010-03-20 17:12-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1092,16 +1092,8 @@ msgstr "Î&n Revizie"
 msgid "&To URL:"
 msgstr "&La URL:"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&La URL:"
-
 #. Resource IDs: (1384)
 msgid "&To path:"
-msgstr "&La calea:"
-
-#. Resource IDs: (1305)
-msgid "&To path: "
 msgstr "&La calea:"
 
 #. Resource IDs: (1495)
@@ -1398,18 +1390,20 @@ msgstr "O listă de proprietăţi definite de utilizator pentru dosare afişate 
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "O versiune nouă este disponibilă.\r\n"
-"Vizitaţi http://tortoisesvn.tigris.org şi descărcaţi versiunea curentă."
+"Vizitaţi http://tortoisesvn.net şi descărcaţi versiunea actuală."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "O listă de căi, separate de linie nouă, pentru care sunt afişate suprapuneri de iconiţe.\r\n"
-"Dacă adăugaţi un '*' la sfârşitul unei căi, toate fişierele şi sub-dosarele în acea cale sunt incluse de asemenea."
+"Dacă adăugați un '?' la sfârșitul unei căi, numai aceasta va fi inclusă.\r\n"
+"Dacă nu adăugați nimic sau adăugaţi un '*'  la sfârşitul unei căi, toate fişierele şi sub-dosarele în acea cale vor fi incluse de asemenea."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1424,11 +1418,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "O listă de căi, separate de linie nouă, pentru care nu sunt afişate suprapuneri de iconiţe.\r\n"
-"Dacă adăugaţi un '*' la sfârşitul unei căi, toate fişierele şi sub-dosarele în acea cale sunt excluse de asemenea.\r\n"
+"Dacă adăugați un '?' la sfârșitul unei căi, numai aceasta va fi inclusă.\r\n"
+"Dacă nu adăugați nimic sau adăugaţi un '*' la sfârşitul unei căi, toate fişierele şi sub-dosarele în acea cale vor fi excluse de asemenea.\r\n"
 "O listă goală va permite suprapuneri de iconiţe pentru toate căile."
 
 #. Resource IDs: (3843)
@@ -3580,6 +3576,10 @@ msgstr ""
 "Activaţi numai dacă lucraţi cu proiecte web în VS.NET2003!\r\n"
 "Trebuie să reporniţi calculatorul pentru ca aceasta preferinţă să aibă efect."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr ""
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4105,6 +4105,11 @@ msgstr ""
 "Umple"
 
 #. Resource IDs: (65535)
+#, fuzzy
+msgid "Filter match"
+msgstr "Căi de filtre"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4602,6 +4607,11 @@ msgstr "Suprapuneri de iconiţe / Coloane de stare"
 msgid "Icon Overlays::Icon Set"
 msgstr "Suprapuneri de iconiţe::Set de iconiţe"
 
+#. Resource IDs: (308)
+#, fuzzy
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Suprapuneri de iconiţe::Set de iconiţe"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Iconiţe/Design/Cod:\t\tLuebbe Onken"
@@ -4790,6 +4800,10 @@ msgstr "Ignoră schimbările din &spaţii goale"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Ignoră schimbări în spaţii goale"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Ignorat"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5278,6 +5292,10 @@ msgstr "Proprietarul blocării:"
 msgid "Lock stolen by %s"
 msgstr "Blocarea furată de către %s"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Blocat"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5746,6 +5764,10 @@ msgstr "Opţiuni pentru panoul de navigare..."
 msgid "Needs lock"
 msgstr "Are nevoie de blocare"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Are nevoie de blocare"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Imbricat"
@@ -5938,6 +5960,10 @@ msgstr "Nota: dosarul conţine elemente neversionate"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Notiţă: schimbarea preferinţelor de font afectează şi vizualizatorul TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Acesta afectează toți clienții Tortoise, nu numai TortoiseSVN!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7290,6 +7316,11 @@ msgstr "Revizie SVN"
 msgid "SVN Status"
 msgstr "Stare SVN"
 
+#. Resource IDs: (20)
+#, fuzzy
+msgid "SVN Statusnumber"
+msgstr "Stare SVN"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "URL SVN"
@@ -7821,14 +7852,6 @@ msgid ""
 msgstr ""
 "Afişează sau ascunde bara de unelte\n"
 "Comută bara de unelte"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Afişează suprapunere pentru elemente ignorate"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Afişează suprapunere pentru elemente neversionate"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9354,6 +9377,10 @@ msgstr "Elimină versionarea"
 msgid "Unversion and add to &ignore list"
 msgstr "Elimină versionarea şi adaugă la lista de &ignorări"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Neversionat"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Fişierele neversionate marchează dosarul părinte ca modificat"
@@ -9848,6 +9875,12 @@ msgstr ""
 "Incercaţi să mutaţi dosarul trunchi!\n"
 "Sunteţi absolut sigur că doriţi să mutaţi\n"
 "dosarul trunchi?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10876,6 +10909,14 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "&La URL:"
+#~ msgid "&To path: "
+#~ msgstr "&La calea:"
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Afişează suprapunere pentru elemente ignorate"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Afişează suprapunere pentru elemente neversionate"
 #~ msgid "%s [Recovered]"
 #~ msgstr "%s [Recuperat]"
 #~ msgid "&Luminence:"
@@ -10941,8 +10982,6 @@ msgstr "{BugTraq}"
 #~ msgstr ""
 #~ "URL-ul de adus referă un fişier dar\n"
 #~ "copia de lucru este un director."
-#~ msgid "Unversioned"
-#~ msgstr "Neversionat"
 #~ msgid "Show &properties"
 #~ msgstr "Afişează &proprietăţi"
 #~ msgid "Show i&gnored files"
