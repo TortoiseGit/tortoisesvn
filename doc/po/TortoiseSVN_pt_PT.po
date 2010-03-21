@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-20 23:52-0000\n"
+"PO-Revision-Date: 2010-03-21 00:15-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6930,7 +6930,7 @@ msgstr "Por vezes quando tentas abrir um caminho és recebido com uma mensagem d
 
 #. (title)
 msgid "Revision Graphs"
-msgstr ""
+msgstr "Gráficos de Revisões"
 
 #. (primary)
 msgid "graph"
@@ -6942,23 +6942,23 @@ msgstr ""
 
 #. (title)
 msgid "A Revision Graph"
-msgstr ""
+msgstr "O Gráfico de Revisões"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "<placeholder-1/> Necessitas, por vezes, de saber de onde os ramos e etiquetas foram retirados do trunk, e a forma ideal para visualizar este tipo de informação é um gráfico ou uma estrutura em árvore. É quando necessitas de usar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Grafico de revisões...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
-msgstr ""
+msgstr "Este comando analisa a história das revisões e tenta criar uma árvore que mostra os pontos em que as cópias foram feitas, e quando os ramos/etiquetas foram removidos."
 
 #. (para)
 msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <emphasis>Apache</emphasis> project which currently has over 500,000 revisions you could be waiting for some time."
-msgstr ""
+msgstr "De modo a gerar o gráfico, o TortoiseSVN precisa de carregar da raiz do repositório todas as mensagens de registo. Não será necessário dizer que isto irá levar vários minutos, mesmo com um repositório com alguns milhares de revisões, dependendo da rapidez do servidor, largura de banda da rede, etc. Se tentares isto com algo como o projecto  <emphasis>Apache</emphasis>, que actualmente tem acima de 500.000 revisões, poderás ter de esperar por algum tempo."
 
 #. (para)
 msgid "The good news is that if you are using log caching, you only have to suffer this delay once. After that, log data is held locally. Log caching is enabled in TortoiseSVN's settings."
-msgstr ""
+msgstr "As boas notícias é que estás a usar cache de registo, pelo que apenas terás de sofrer este atraso uma vez. Depois disso os dados de registo são armazenados localmente. O provisionamento de registo (cache) está activo nas preferências do TortoiseSVN."
 
 #. (title)
 msgid "Revision Graph Nodes"
