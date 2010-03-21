@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-21 00:15-0000\n"
+"PO-Revision-Date: 2010-03-21 23:19-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6906,7 +6906,7 @@ msgstr "Se seleccionares 2 etiquetas que foram copiadas a partir da mesma origem
 
 #. (para)
 msgid "You can use <keycap>F5</keycap> to refresh the view as usual. This will refresh everything which is currently displayed. If you want to pre-fetch or refresh the information for nodes which have not been opened yet, use <keycap>Ctrl-F5</keycap>. After that, expanding any node will happen instantly without a network delay while the information is fetched."
-msgstr "Podes usar <keycap>F5</keycap> para refrescar a vista, como usual. Isto refrescará tudo o que é actualmente visualizado. Se queres efectuar uma pré-busca ou refrescar a informação de nodos que não foram ainda abertos, usa <keycap>Ctrl-F5</keycap>. Depois disso a expansão de qualquer nodo será instantânea, sem atrasos de rede enquanto a informação é recebida."
+msgstr "Podes usar <keycap>F5</keycap> para refrescar a vista, como usual. Isto refrescará tudo o que é actualmente visualizado. Se queres efectuar uma pré-busca ou refrescar a informação de nós que não foram ainda abertos, usa <keycap>Ctrl-F5</keycap>. Depois disso a expansão de qualquer nodo será instantânea, sem atrasos de rede enquanto a informação é recebida."
 
 #. (para)
 msgid "You can also use the repository browser for drag-and-drop operations. If you drag a folder from explorer into the repo-browser, it will be imported into the repository. Note that if you drag multiple items, they will be imported in separate commits."
@@ -6962,75 +6962,75 @@ msgstr "As boas notícias é que estás a usar cache de registo, pelo que apenas
 
 #. (title)
 msgid "Revision Graph Nodes"
-msgstr ""
+msgstr "Nós do Gráfico de Revisões"
 
 #. (term)
 msgid "Added or copied items"
-msgstr ""
+msgstr "Itens adicionados ou copiados"
 
 #. (para)
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags and trunks are treated as a special case and use a different shade, depending on the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Os itens que foram adicionados ou criados pela cópia de outro ficheiro/pasta, são mostrados como um rectângulo de cantos arredondados. A sua cor por defeito é o verde. Etiquetas e trunks são tratados como um caso especial, e usam uma forma diferente dependendo de <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Preferências</guimenuitem></menuchoice>"
 
 #. (term)
 msgid "Deleted items"
-msgstr ""
+msgstr "Itens removidos"
 
 #. (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off). The default colour is red."
-msgstr ""
+msgstr "Itens removidos, e.g. um ramo que não é mais necessário, são mostrados como um octógono (rectângulo com os cantos cortados). A cor por defeito é o vermelho."
 
 #. (term)
 msgid "Renamed items"
-msgstr ""
+msgstr "Itens renomeados"
 
 #. (para)
 msgid "Renamed items are also shown using an octagon, but the default colour is blue."
-msgstr ""
+msgstr "Itens renomeados são também mostrados como um octógono, mas a cor por defeito é o azul."
 
 #. (term)
 msgid "Branch tip revision"
-msgstr ""
+msgstr "Revisão da extremidade do ramo"
 
 #. (para)
 msgid "The graph is normally restricted to showing branch points, but it is often useful to be able to see the respective HEAD revision for each branch too. If you select <guilabel>Show HEAD revisions</guilabel>, each HEAD revision nodes will be shown as an ellipse. Note that HEAD here refers to the last revision committed on that path, not to the HEAD revision of the repository."
-msgstr ""
+msgstr "O gráfico está normalmente restringido a mostrar pontos de ramo, mas é também útil e comum, ter a possibilidade de ver a respectiva revisão HEAD para cada ramo. Se seleccionares <guilabel>Mostrar revisões HEAD (mais recentes)</guilabel>, cada nó de revisão HEAD será mostrado como uma elipse. De notar que a HEAD aqui refere-se à última revisão submetida nesse caminho e não a revisão HEAD do repositório"
 
 #. (term)
 msgid "Working copy revision"
-msgstr ""
+msgstr "Revisão da cópia de trabalho"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
-msgstr ""
+msgstr "Se invocaste o gráfico de revisões a partir da cópia de trabalho podes optar por mostrar a revisão BASE no gráfico usando <guilabel>Show WC revision</guilabel>, que marca o nó BASE com uma moldura a negrito."
 
 #. (term)
 msgid "Modified working copy"
-msgstr ""
+msgstr "Cópia de trabalho modificada"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
-msgstr ""
+msgstr "Se invocaste o gráfico de revisões a partir de uma cópia de trabalho podes optar por mostrar um nó adicional, que representa a cópia de trabalho modificada usando <guilabel>Mostrar modificações do WC</guilabel>. Este será um nó elíptico com uma moldura a negrito, em vermelho por defeito."
 
 #. (term)
 msgid "Normal item"
-msgstr ""
+msgstr "Item normal"
 
 #. (para)
 msgid "All other items are shown using a plain rectangle."
-msgstr ""
+msgstr "Todos os outros itens são mostrados como um rectângulo simples."
 
 #. (para)
 msgid "Each revision graph node represents a revision in the repository where something changed in the tree you are looking at. Different types of node can be distinguished by shape and colour. The shapes are fixed, but colours can be set using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice><placeholder-1/>"
-msgstr ""
+msgstr "Cada nó do gráfico de revisões representa uma revisão no repositório onde algo foi alterado, na árvore que estás a observar. Diferentes tipos de nós podem ser distinguidos através da forma e cor. As formas são fixas, mas as cores podem ser alteradas usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>preferências</guimenuitem></menuchoice><placeholder-1/>"
 
 #. (para)
 msgid "Note that by default the graph only shows the points at which items were added, copied or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
-msgstr ""
+msgstr "De notar que por defeito, o gráfico só mostra os pontos onde itens foram adicionados, copiados ou removidos. Mostrando cada revisão do projecto irá gerar um gráfico muito extenso para casos não triviais. Se queres realmente ver <emphasis>todas</emphasis> as revisões onde foram feitas alterações, existe uma opção para o fazer no menu <guilabel>Ver</guilabel> e na barra de ferramentas."
 
 #. (para)
 msgid "The default view (grouping off) places the nodes such that their vertical position is in strict revision order, so you have a visual cue for the order in which things were done. Where two nodes are in the same column the order is very obvious. When two nodes are in adjacent columns the offset is much smaller because there is no need to prevent the nodes from overlapping, and as a result the order is a little less obvious. Such optimisations are necessary to keep complex graphs to a reasonable size. Please note that this ordering uses the <emphasis>edge</emphasis> of the node on the <emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the node when the graph is shown with oldest node at the bottom. The reference edge is significant because the node shapes are not all the same height."
-msgstr ""
+msgstr "A vista por defeito (sem agrupamento) coloca os nós de modo que a sua posição vertical fique na ordem estrita de revisões, para que tenhas uma dica visual da ordem em que as coisas foram feitas. Quando estão na mesma coluna dois nós, a ordem é muito óbvia. Quando estão em colunas adjacentes dois nós, o deslocamento é muito menor porque não há necessidade de evitar que os nós se sobreponham, e como resultado a ordem é um pouco menos óbvia. Tais optimizações são necessárias de modo a manter a complexidade dos gráficos numa dimensão aceitável. Ter em atenção que esta ordenação usa o <emphasis>canto</emphasis> do nó no lado <emphasis>mais antigo</emphasis> como referência, i.e. o canto inferior do nó, quando o gráfico é mostrado com os nós mais antigos no fundo. O canto de referência é significativo porque todas as formas de nós não são da mesma altura."
 
 #. (title)
 msgid "Changing the View"
