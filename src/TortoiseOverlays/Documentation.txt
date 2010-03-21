@@ -113,12 +113,22 @@ those clients who use all icons.
 
 Settings:
 ---------
-There are two registry values a user can set:
-HKCU\Software\TortoiseOverlays\ShowUnversionedOverlay
+As of version 1.1.1, it is possible to disable overlay handlers
+and prevent them from getting loaded and use up an overlay slot.
+To do that, create the registry DWORD values and set the values
+to zero. If the value is not zero or the registry entries don't
+exist, the handlers are loaded as usual.
+
 HKCU\Software\TortoiseOverlays\ShowIgnoredOverlay
-If those are set to zero, the corresponding overlay handler is not
-loaded and therefore won't show the icons, but it also won't use up
-an overlay slot.
+HKCU\Software\TortoiseOverlays\ShowUnversionedOverlay
+HKCU\Software\TortoiseOverlays\ShowAddedOverlay
+HKCU\Software\TortoiseOverlays\ShowLockedOverlay
+HKCU\Software\TortoiseOverlays\ShowReadonlyOverlay
+HKCU\Software\TortoiseOverlays\ShowDeletedOverlay
+
+If you provide an UI in your Tortoise client to disable the
+handlers, inform the user that this affects *all* Tortoise clients!
+
 Since this setting affects the loading of the overlay handlers, a restart
 of the shell (at least a logoff/logon) is required for the changes
 to take effect.

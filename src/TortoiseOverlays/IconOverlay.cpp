@@ -23,6 +23,47 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 
 	const int nOverlayLimit = 12;
 
+
+	bool dropIgnored = DropHandler(_T("ShowIgnoredOverlay"));
+	if (dropIgnored)
+		nInstalledOverlays--;
+
+	bool dropUnversioned = DropHandler(_T("ShowUnversionedOverlay"));
+	if (dropUnversioned)
+		nInstalledOverlays--;
+
+	bool dropAdded = DropHandler(_T("ShowAddedOverlay"));
+	if (dropAdded)
+		nInstalledOverlays--;
+
+	bool dropLocked = DropHandler(_T("ShowLockedOverlay"));
+	if (dropLocked)
+		nInstalledOverlays--;
+
+	bool dropReadonly = DropHandler(_T("ShowReadonlyOverlay"));
+	if (dropReadonly)
+		nInstalledOverlays--;
+
+	bool dropDeleted = DropHandler(_T("ShowDeletedOverlay"));
+	if (dropDeleted)
+		nInstalledOverlays--;
+	// The conflict, modified and normal overlays must not be disabled since
+	// those are essential for Tortoise clients.
+
+
+	if (dropIgnored		&& (m_State == FileStateIgnored))
+		return S_FALSE;
+	if (dropUnversioned && (m_State == FileStateUnversioned))
+		return S_FALSE;
+	if (dropAdded		&& (m_State == FileStateAdded))
+		return S_FALSE;
+	if (dropLocked		&& (m_State == FileStateLocked))
+		return S_FALSE;
+	if (dropReadonly	&& (m_State == FileStateReadOnly))
+		return S_FALSE;
+	if (dropDeleted		&& (m_State == FileStateDeleted))
+		return S_FALSE;
+
 	//
 	// If there are more than the maximum number of handlers registered, then
 	// we have to drop some of our handlers to make sure that
@@ -32,39 +73,6 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	// max + 1 registered: drop the locked and the ignored overlay
 	// max + 2 registered: drop the locked, ignored and readonly overlay
 	// max + 3 or more registered: drop the locked, ignored, readonly and unversioned overlay
-
-	bool dropUnversioned = false;
-	bool dropIgnored = false;
-	DWORD dwType = 0;
-	DWORD dwData = 0;
-	DWORD dwDataSize = 4;
-	if (SHGetValue(HKEY_CURRENT_USER, _T("Software\\TortoiseOverlays"), _T("ShowUnversionedOverlay"), &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
-	{
-		if (dwType == REG_DWORD)
-		{
-			if (dwData == 0)
-			{
-				dropUnversioned = true;
-				nInstalledOverlays--;
-			}
-		}
-	}
-	if (SHGetValue(HKEY_CURRENT_USER, _T("Software\\TortoiseOverlays"), _T("ShowIgnoredOverlay"), &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
-	{
-		if (dwType == REG_DWORD)
-		{
-			if (dwData == 0)
-			{
-				dropIgnored = true;
-				nInstalledOverlays--;
-			}
-		}
-	}
-
-	if (dropIgnored && (m_State == FileStateIgnored))
-		return S_FALSE;
-	if (dropUnversioned && (m_State == FileStateUnversioned))
-		return S_FALSE;
 
 	if ((m_State == FileStateUnversioned)&&(nInstalledOverlays > nOverlayLimit + 3))
 		return S_FALSE;		// don't use the 'unversioned' overlay
@@ -335,4 +343,23 @@ void CShellExt::LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR clsid, LPWSTR pwszIc
 	}
 
 	m_dllpointers.push_back(pointers);
+}
+
+bool CShellExt::DropHandler(LPCWSTR registryKey)
+{
+	bool drop = false;
+	DWORD dwType = 0;
+	DWORD dwData = 0;
+	DWORD dwDataSize = 4;
+	if (SHGetValue(HKEY_CURRENT_USER, _T("Software\\TortoiseOverlays"), registryKey, &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+	{
+		if (dwType == REG_DWORD)
+		{
+			if (dwData == 0)
+			{
+				drop = true;
+			}
+		}
+	}
+	return drop;
 }

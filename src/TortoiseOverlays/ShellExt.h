@@ -58,6 +58,7 @@ private:
 	int				GetInstalledOverlays(void);		///< returns the maximum number of overlays TSVN shall use
 	void			LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR clsid, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
 	void			LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
+	bool			DropHandler(LPCWSTR registryKey);
 public:
 	CShellExt(FileState state);
 	virtual ~CShellExt();
