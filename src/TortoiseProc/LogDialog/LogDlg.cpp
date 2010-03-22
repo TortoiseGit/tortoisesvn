@@ -2494,414 +2494,425 @@ void CLogDlg::OnBnClickedStatbutton()
 
 void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
-	// Take the default processing unless we set this to something else below.
-	*pResult = CDRF_DODEFAULT;
+    NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
+    // Take the default processing unless we set this to something else below.
+    *pResult = CDRF_DODEFAULT;
 
-	if (m_bLogThreadRunning)
-		return;
+    if (m_bLogThreadRunning)
+        return;
 
-	static COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+    static COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
-	switch (pLVCD->nmcd.dwDrawStage)
-	{
-	case CDDS_PREPAINT:
-		{
-			*pResult = CDRF_NOTIFYITEMDRAW;
-			return;
-		}
-		break;
-	case CDDS_ITEMPREPAINT:
-		{
-			// This is the prepaint stage for an item. Here's where we set the
-			// item's text color. 
+    switch (pLVCD->nmcd.dwDrawStage)
+    {
+    case CDDS_PREPAINT:
+        {
+            *pResult = CDRF_NOTIFYITEMDRAW;
+            return;
+        }
+        break;
+    case CDDS_ITEMPREPAINT:
+        {
+            // This is the prepaint stage for an item. Here's where we set the
+            // item's text color. 
 
-			// Tell Windows to send draw notifications for each subitem.
-			*pResult = CDRF_NOTIFYSUBITEMDRAW;
-			crText = GetSysColor(COLOR_WINDOWTEXT);
-			if (m_logEntries.GetVisibleCount() > pLVCD->nmcd.dwItemSpec)
-			{
-				PLOGENTRYDATA data = m_logEntries.GetVisible (pLVCD->nmcd.dwItemSpec);
-				if (data)
-				{
-					if (data->GetChangedPaths().ContainsSelfCopy())
-					{
-						// only change the background color if the item is not 'hot' (on vista with themes enabled)
-						if (!theme.IsAppThemed() || !SysInfo::Instance().IsVistaOrLater() || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
-							pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
-					}
-					if (data->GetChangedPaths().ContainsCopies())
-						crText = m_Colors.GetColor(CColors::Modified);
-					if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
-						crText = GetSysColor(COLOR_GRAYTEXT);
-					if (data->GetRevision() == m_wcRev)
-					{
-						SelectObject(pLVCD->nmcd.hdc, m_boldFont);
-						// We changed the font, so we're returning CDRF_NEWFONT. This
-						// tells the control to recalculate the extent of the text.
-						*pResult = CDRF_NOTIFYSUBITEMDRAW | CDRF_NEWFONT;
-					}
-				}
-			}
-			if (m_logEntries.GetVisibleCount() == pLVCD->nmcd.dwItemSpec)
-			{
-				if (m_bStrictStopped)
-					crText = GetSysColor(COLOR_GRAYTEXT);
-			}
-			// Store the color back in the NMLVCUSTOMDRAW struct.
-			pLVCD->clrText = crText;
-			return;
-		}
-		break;
-	case CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM:
-		{
-			*pResult = CDRF_DODEFAULT;
-			pLVCD->clrText = crText;
-			PLOGENTRYDATA pLogEntry = NULL;
-			if (m_logEntries.GetVisibleCount() > pLVCD->nmcd.dwItemSpec)
-				pLogEntry = m_logEntries.GetVisible (pLVCD->nmcd.dwItemSpec);
-			if ((m_bStrictStopped)&&(m_logEntries.GetVisibleCount() == pLVCD->nmcd.dwItemSpec))
-			{
-				pLVCD->nmcd.uItemState &= ~(CDIS_SELECTED|CDIS_FOCUS);
-			}
-			switch (pLVCD->iSubItem)
-			{
-			case 0:	// revision
-				if (pLogEntry == NULL)
-					return;
-				if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))&&(!m_sFilterText.IsEmpty()))
-				{
-					*pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
-					return;
-				}
-				break;
-			case 1: // actions
-				{
-					if (pLogEntry == NULL)
-						return;
+            // Tell Windows to send draw notifications for each subitem.
+            *pResult = CDRF_NOTIFYSUBITEMDRAW;
+            crText = GetSysColor(COLOR_WINDOWTEXT);
+            if (m_logEntries.GetVisibleCount() > pLVCD->nmcd.dwItemSpec)
+            {
+                PLOGENTRYDATA data = m_logEntries.GetVisible (pLVCD->nmcd.dwItemSpec);
+                if (data)
+                {
+                    if (data->GetChangedPaths().ContainsSelfCopy())
+                    {
+                        // only change the background color if the item is not 'hot' (on vista with themes enabled)
+                        if (!theme.IsAppThemed() || !SysInfo::Instance().IsVistaOrLater() || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
+                            pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
+                    }
+                    if (data->GetChangedPaths().ContainsCopies())
+                        crText = m_Colors.GetColor(CColors::Modified);
+                    if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
+                        crText = GetSysColor(COLOR_GRAYTEXT);
+                    if (data->GetRevision() == m_wcRev)
+                    {
+                        SelectObject(pLVCD->nmcd.hdc, m_boldFont);
+                        // We changed the font, so we're returning CDRF_NEWFONT. This
+                        // tells the control to recalculate the extent of the text.
+                        *pResult = CDRF_NOTIFYSUBITEMDRAW | CDRF_NEWFONT;
+                    }
+                }
+            }
+            if (m_logEntries.GetVisibleCount() == pLVCD->nmcd.dwItemSpec)
+            {
+                if (m_bStrictStopped)
+                    crText = GetSysColor(COLOR_GRAYTEXT);
+            }
+            // Store the color back in the NMLVCUSTOMDRAW struct.
+            pLVCD->clrText = crText;
+            return;
+        }
+        break;
+    case CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM:
+        {
+            *pResult = CDRF_DODEFAULT;
+            pLVCD->clrText = crText;
+            PLOGENTRYDATA pLogEntry = NULL;
+            if (m_logEntries.GetVisibleCount() > pLVCD->nmcd.dwItemSpec)
+                pLogEntry = m_logEntries.GetVisible (pLVCD->nmcd.dwItemSpec);
+            if ((m_bStrictStopped)&&(m_logEntries.GetVisibleCount() == pLVCD->nmcd.dwItemSpec))
+            {
+                pLVCD->nmcd.uItemState &= ~(CDIS_SELECTED|CDIS_FOCUS);
+            }
+            switch (pLVCD->iSubItem)
+            {
+            case 0:	// revision
+                if (pLogEntry == NULL)
+                    return;
+                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))&&(!m_sFilterText.IsEmpty()))
+                {
+                    *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
+                    return;
+                }
+                break;
+            case 1: // actions
+                {
+                    if (pLogEntry == NULL)
+                        return;
 
-					int		nIcons = 0;
-					int		iconwidth = ::GetSystemMetrics(SM_CXSMICON);
-					int		iconheight = ::GetSystemMetrics(SM_CYSMICON);
+                    int		nIcons = 0;
+                    int		iconwidth = ::GetSystemMetrics(SM_CXSMICON);
+                    int		iconheight = ::GetSystemMetrics(SM_CYSMICON);
 
-					CRect rect = DrawListColumnBackground(m_LogList, pLVCD, pLogEntry);
+                    CRect rect = DrawListColumnBackground(m_LogList, pLVCD, pLogEntry);
 
-					// Draw the icon(s) into the compatible DC
+                    // Draw the icon(s) into the compatible DC
 
-					DWORD actions = pLogEntry->GetChangedPaths().GetActions();
-					if (actions & LOGACTIONS_MODIFIED)
-						::DrawIconEx(pLVCD->nmcd.hdc, rect.left + ICONITEMBORDER, rect.top, m_hModifiedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
-					nIcons++;
+                    DWORD actions = pLogEntry->GetChangedPaths().GetActions();
+                    if (actions & LOGACTIONS_MODIFIED)
+                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left + ICONITEMBORDER, rect.top, m_hModifiedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    nIcons++;
 
-					if (actions & LOGACTIONS_ADDED)
-						::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hAddedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
-					nIcons++;
+                    if (actions & LOGACTIONS_ADDED)
+                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hAddedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    nIcons++;
 
-					if (actions & LOGACTIONS_DELETED)
-						::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hDeletedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
-					nIcons++;
+                    if (actions & LOGACTIONS_DELETED)
+                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hDeletedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    nIcons++;
 
-					if (actions & LOGACTIONS_REPLACED)
-						::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
-					nIcons++;
+                    if (actions & LOGACTIONS_REPLACED)
+                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    nIcons++;
 
-					if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
-						::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
-					nIcons++;
+                    if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
+                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    nIcons++;
 
-					*pResult = CDRF_SKIPDEFAULT;
-					return;
-				}
-				break;
-			case 2: // author
-				if (pLogEntry == NULL)
-					return;
-				if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))&&(!m_sFilterText.IsEmpty()))
-				{
-					*pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
-					return;
-				}
-				break;
-			case 3: // date
-				if (pLogEntry == NULL)
-					return;
-				if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_DATE))&&(!m_sFilterText.IsEmpty()))
-				{
-					*pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
-					return;
-				}
-				break;
-			case 4: //message or bug id
-				if (pLogEntry == NULL)
-					return;
-				if (m_bShowBugtraqColumn)
-				{
-					if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))&&(!m_sFilterText.IsEmpty()))
-					{
-						*pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
-						return;
-					}
-					break;
-				}
-				// fall through here!
-			case 5: // log msg
-				if (pLogEntry == NULL)
-					return;
-				if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))&&(!m_sFilterText.IsEmpty()))
-				{
-					*pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
-					return;
-				}
-				break;
-			}
-		}
-		break;
-	}
-	*pResult = CDRF_DODEFAULT;
+                    *pResult = CDRF_SKIPDEFAULT;
+                    return;
+                }
+                break;
+            case 2: // author
+                if (pLogEntry == NULL)
+                    return;
+                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))&&(!m_sFilterText.IsEmpty()))
+                {
+                    *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
+                    return;
+                }
+                break;
+            case 3: // date
+                if (pLogEntry == NULL)
+                    return;
+                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_DATE))&&(!m_sFilterText.IsEmpty()))
+                {
+                    *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
+                    return;
+                }
+                break;
+            case 4: //message or bug id
+                if (pLogEntry == NULL)
+                    return;
+                if (m_bShowBugtraqColumn)
+                {
+                    if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))&&(!m_sFilterText.IsEmpty()))
+                    {
+                        *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
+                        return;
+                    }
+                    break;
+                }
+                // fall through here!
+            case 5: // log msg
+                if (pLogEntry == NULL)
+                    return;
+                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))&&(!m_sFilterText.IsEmpty()))
+                {
+                    *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
+                    return;
+                }
+                break;
+            }
+        }
+        break;
+    }
+    *pResult = CDRF_DODEFAULT;
 }
 
 void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
-	// Take the default processing unless we set this to something else below.
-	*pResult = CDRF_DODEFAULT;
+    NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
+    // Take the default processing unless we set this to something else below.
+    *pResult = CDRF_DODEFAULT;
 
-	if (m_bLogThreadRunning)
-		return;
+    if (m_bLogThreadRunning)
+        return;
 
-	// First thing - check the draw stage. If it's the control's prepaint
-	// stage, then tell Windows we want messages for every item.
+    // First thing - check the draw stage. If it's the control's prepaint
+    // stage, then tell Windows we want messages for every item.
 
-	if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
-	{
-		*pResult = CDRF_NOTIFYITEMDRAW;
-	}
-	else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
-	{
-		// Tell Windows to send draw notifications for each subitem.
-		*pResult = CDRF_NOTIFYSUBITEMDRAW;
+    if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+    {
+        *pResult = CDRF_NOTIFYITEMDRAW;
+    }
+    else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
+    {
+        // Tell Windows to send draw notifications for each subitem.
+        *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
-		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
-		bool bGrayed = false;
-		if ((m_cShowPaths.GetState() & 0x0003)==BST_UNCHECKED)
-		{
-			if (m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec)
-			{
+        COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+        bool bGrayed = false;
+        if ((m_cShowPaths.GetState() & 0x0003)==BST_UNCHECKED)
+        {
+            if (m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec)
+            {
                 if (!m_currentChangedArray[pLVCD->nmcd.dwItemSpec].IsRelevantForStartPath())
-				{
-					crText = GetSysColor(COLOR_GRAYTEXT);
-					bGrayed = true;
-				}
-			}
-			else if ((DWORD_PTR)m_currentChangedPathList.GetCount() > pLVCD->nmcd.dwItemSpec)
-			{
-				if (m_currentChangedPathList[pLVCD->nmcd.dwItemSpec].GetSVNPathString().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
-				{
-					crText = GetSysColor(COLOR_GRAYTEXT);
-					bGrayed = true;
-				}
-			}
-		}
+                {
+                    crText = GetSysColor(COLOR_GRAYTEXT);
+                    bGrayed = true;
+                }
+            }
+            else if ((DWORD_PTR)m_currentChangedPathList.GetCount() > pLVCD->nmcd.dwItemSpec)
+            {
+                if (m_currentChangedPathList[pLVCD->nmcd.dwItemSpec].GetSVNPathString().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)!=0)
+                {
+                    crText = GetSysColor(COLOR_GRAYTEXT);
+                    bGrayed = true;
+                }
+            }
+        }
 
-		if ((!bGrayed)&&(m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec))
-		{
-			DWORD action = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetAction();
-			if (action == LOGACTIONS_MODIFIED)
-				crText = m_Colors.GetColor(CColors::Modified);
-			if (action == LOGACTIONS_REPLACED)
-				crText = m_Colors.GetColor(CColors::Deleted);
-			if (action == LOGACTIONS_ADDED)
-				crText = m_Colors.GetColor(CColors::Added);
-			if (action == LOGACTIONS_DELETED)
-				crText = m_Colors.GetColor(CColors::Deleted);
-		}
+        if ((!bGrayed)&&(m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec))
+        {
+            DWORD action = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetAction();
+            if (action == LOGACTIONS_MODIFIED)
+                crText = m_Colors.GetColor(CColors::Modified);
+            if (action == LOGACTIONS_REPLACED)
+                crText = m_Colors.GetColor(CColors::Deleted);
+            if (action == LOGACTIONS_ADDED)
+                crText = m_Colors.GetColor(CColors::Added);
+            if (action == LOGACTIONS_DELETED)
+                crText = m_Colors.GetColor(CColors::Deleted);
+        }
 
-		// Store the color back in the NMLVCUSTOMDRAW struct.
-		pLVCD->clrText = crText;
-	}
-	else if ( pLVCD->nmcd.dwDrawStage == (CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM))
-	{
-		if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))&&(!m_sFilterText.IsEmpty()))
-		{
-			*pResult = DrawListItemWithMatches(m_ChangedFileListCtrl, pLVCD, NULL);
-			return;
-		}
-	}
+        // Store the color back in the NMLVCUSTOMDRAW struct.
+        pLVCD->clrText = crText;
+    }
+    else if ( pLVCD->nmcd.dwDrawStage == (CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM))
+    {
+        if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))&&(!m_sFilterText.IsEmpty()))
+        {
+            *pResult = DrawListItemWithMatches(m_ChangedFileListCtrl, pLVCD, NULL);
+            return;
+        }
+    }
 }
 
 CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry)
 {
-	// Get the selected state of the
-	// item being drawn.
-	LVITEM   rItem;
-	SecureZeroMemory(&rItem, sizeof(LVITEM));
-	rItem.mask  = LVIF_STATE;
-	rItem.iItem = (int)pLVCD->nmcd.dwItemSpec;
-	rItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;
-	listCtrl.GetItem(&rItem);
+    // Get the selected state of the
+    // item being drawn.
+    LVITEM   rItem;
+    SecureZeroMemory(&rItem, sizeof(LVITEM));
+    rItem.mask  = LVIF_STATE;
+    rItem.iItem = (int)pLVCD->nmcd.dwItemSpec;
+    rItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;
+    listCtrl.GetItem(&rItem);
 
-	CRect rect;
-	listCtrl.GetSubItemRect((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
+    CRect rect;
+    listCtrl.GetSubItemRect((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
-	// Fill the background
-	if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
-	{
-		theme.Open(m_hWnd, L"Explorer");
-		int state = LISS_NORMAL;
-		if (rItem.state & LVIS_SELECTED)
-		{
-			if (::GetFocus() == m_LogList.m_hWnd)
-				state |= LISS_SELECTED;
-			else
-				state |= LISS_SELECTEDNOTFOCUS;
-		}
-		else
-		{
-			if (pLogEntry && (pLogEntry->GetChangedPaths().ContainsSelfCopy()))
-			{
-				// unfortunately, the pLVCD->nmcd.uItemState does not contain valid
-				// information at this drawing stage. But we can check the whether the
-				// previous stage changed the background color of the item
-				if (pLVCD->clrTextBk == GetSysColor(COLOR_MENU))
-				{
-					HBRUSH brush;
-					brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
-					if (brush)
-					{
-						::FillRect(pLVCD->nmcd.hdc, &rect, brush);
-						::DeleteObject(brush);
-					}
-				}
-			}
-		}
+    // Fill the background
+    if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
+    {
+        theme.Open(m_hWnd, L"Explorer");
+        int state = LISS_NORMAL;
+        if (rItem.state & LVIS_SELECTED)
+        {
+            if (::GetFocus() == m_LogList.m_hWnd)
+                state |= LISS_SELECTED;
+            else
+                state |= LISS_SELECTEDNOTFOCUS;
+        }
+        else
+        {
+            if (pLogEntry && (pLogEntry->GetChangedPaths().ContainsSelfCopy()))
+            {
+                // unfortunately, the pLVCD->nmcd.uItemState does not contain valid
+                // information at this drawing stage. But we can check the whether the
+                // previous stage changed the background color of the item
+                if (pLVCD->clrTextBk == GetSysColor(COLOR_MENU))
+                {
+                    HBRUSH brush;
+                    brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
+                    if (brush)
+                    {
+                        ::FillRect(pLVCD->nmcd.hdc, &rect, brush);
+                        ::DeleteObject(brush);
+                    }
+                }
+            }
+        }
 
-		if (theme.IsBackgroundPartiallyTransparent(LVP_LISTDETAIL, state))
-			theme.DrawParentBackground(m_hWnd, pLVCD->nmcd.hdc, &rect);
+        if (theme.IsBackgroundPartiallyTransparent(LVP_LISTDETAIL, state))
+            theme.DrawParentBackground(m_hWnd, pLVCD->nmcd.hdc, &rect);
 
-		theme.DrawBackground(pLVCD->nmcd.hdc, LVP_LISTDETAIL, state, &rect, NULL);
-		theme.Close();
-	}
-	else
-	{
-		HBRUSH brush;
-		if (rItem.state & LVIS_SELECTED)
-		{
-			if (::GetFocus() == m_LogList.m_hWnd)
-				brush = ::CreateSolidBrush(::GetSysColor(COLOR_HIGHLIGHT));
-			else
-				brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
-		}
-		else
-		{
-			if (pLogEntry && pLogEntry->GetChangedPaths().ContainsSelfCopy())
-				brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
-			else
-				brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
-		}
-		if (brush == NULL)
-			return rect;
+        theme.DrawBackground(pLVCD->nmcd.hdc, LVP_LISTDETAIL, state, &rect, NULL);
+        theme.Close();
+    }
+    else
+    {
+        HBRUSH brush;
+        if (rItem.state & LVIS_SELECTED)
+        {
+            if (::GetFocus() == m_LogList.m_hWnd)
+                brush = ::CreateSolidBrush(::GetSysColor(COLOR_HIGHLIGHT));
+            else
+                brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
+        }
+        else
+        {
+            if (pLogEntry && pLogEntry->GetChangedPaths().ContainsSelfCopy())
+                brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
+            else
+                brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
+        }
+        if (brush == NULL)
+            return rect;
 
-		::FillRect(pLVCD->nmcd.hdc, &rect, brush);
-		::DeleteObject(brush);
-	}
+        ::FillRect(pLVCD->nmcd.hdc, &rect, brush);
+        ::DeleteObject(brush);
+    }
 
-	return rect;
+    return rect;
 }
 
 LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry)
 {
-	wstring text;
-	text = (LPCTSTR)listCtrl.GetItemText(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem);
-	if (text.size() == 0)
-		return CDRF_DODEFAULT;
+    wstring text;
+    text = (LPCTSTR)listCtrl.GetItemText(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem);
+    if (text.size() == 0)
+        return CDRF_DODEFAULT;
 
-	wstring matchtext = text;
-	std::vector<CHARRANGE> ranges = m_filter.GetMatchRanges(matchtext);
-	if (ranges.size())
-	{
-		int drawPos = 0;
-		DrawListColumnBackground(listCtrl, pLVCD, pLogEntry);
-		CRect rect = pLVCD->nmcd.rc;
+    wstring matchtext = text;
+    std::vector<CHARRANGE> ranges = m_filter.GetMatchRanges(matchtext);
+    if (ranges.size())
+    {
+        int drawPos = 0;
+        DrawListColumnBackground(listCtrl, pLVCD, pLogEntry);
 
-		// find the margin where the text label starts
-		RECT labelRC, boundsRC, iconRC;
-		listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &labelRC, LVIR_LABEL);
-		listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &iconRC, LVIR_ICON);
-		listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &boundsRC, LVIR_BOUNDS);
-		int leftmargin = labelRC.left - boundsRC.left;
+        // even though we initialize the 'rect' here with nmcd.rc,
+        // we must not use it but use the rects from GetItemRect()
+        // and GetSubItemRect(). Because on XP, the nmcd.rc has
+        // bogus data in it.
+        CRect rect = pLVCD->nmcd.rc;
 
-		// draw the icon for the first column
-		if (pLVCD->iSubItem == 0)
-		{
-			LVITEM item = {0};
-			item.iItem = pLVCD->nmcd.dwItemSpec;
-			item.iSubItem = pLVCD->iSubItem;
-			item.mask = LVIF_IMAGE;
-			listCtrl.GetItem(&item);
-			if (item.iImage)
-			{
-				POINT pt;
-				pt.x = rect.left;
-				pt.y = rect.top;
-				CDC dc;
-				dc.Attach(pLVCD->nmcd.hdc);
-				listCtrl.GetImageList(LVSIL_SMALL)->Draw(&dc, item.iImage, pt, ILD_TRANSPARENT);
-				dc.Detach();
-				leftmargin -= iconRC.left;
-			}
-		}
+        // find the margin where the text label starts
+        RECT labelRC, boundsRC, iconRC;
+        listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &labelRC, LVIR_LABEL);
+        listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &iconRC, LVIR_ICON);
+        listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &boundsRC, LVIR_BOUNDS);
+        int leftmargin = labelRC.left - boundsRC.left;
+        if (pLVCD->iSubItem != 0)
+            listCtrl.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
-		if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
-		{
-			theme.Open(m_hWnd, L"LISTVIEW");
-			int borderWidth = 0;
-			theme.GetMetric(pLVCD->nmcd.hdc, LVP_LISTITEM, LISS_NORMAL, TMT_BORDERSIZE, &borderWidth);
-			InflateRect(&rect, -(2*borderWidth), -(2*borderWidth));
-			theme.Close();
-		}
-		else
-		{
-			InflateRect(&rect, -(2*GetSystemMetrics(SM_CXBORDER)), -(2*GetSystemMetrics(SM_CYBORDER)));
-		}
-		rect.left += leftmargin;
-		RECT rc = rect;
+        int borderWidth = 0;
+        if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
+        {
+            theme.Open(m_hWnd, L"LISTVIEW");
+            theme.GetMetric(pLVCD->nmcd.hdc, LVP_LISTITEM, LISS_NORMAL, TMT_BORDERSIZE, &borderWidth);
+            theme.Close();
+        }
+        else
+        {
+            borderWidth = GetSystemMetrics(SM_CXBORDER);
+        }
+        
+        // draw the icon for the first column
+        if (pLVCD->iSubItem == 0)
+        {
+            rect = boundsRC;
+            rect.right = rect.left + listCtrl.GetColumnWidth(0) - 2*borderWidth;
+            rect.left = iconRC.left;
+            LVITEM item = {0};
+            item.iItem = pLVCD->nmcd.dwItemSpec;
+            item.iSubItem = pLVCD->iSubItem;
+            item.mask = LVIF_IMAGE;
+            listCtrl.GetItem(&item);
+            if (item.iImage >= 0)
+            {
+                POINT pt;
+                pt.x = rect.left;
+                pt.y = rect.top;
+                CDC dc;
+                dc.Attach(pLVCD->nmcd.hdc);
+                listCtrl.GetImageList(LVSIL_SMALL)->Draw(&dc, item.iImage, pt, ILD_TRANSPARENT);
+                dc.Detach();
+                leftmargin -= iconRC.left;
+            }
+        }
+        InflateRect(&rect, -(2*borderWidth), -(2*borderWidth));
 
-		// is the column left- or right-aligned? (we don't handle centered (yet))
-		LVCOLUMN Column;
-		Column.mask = LVCF_FMT;
-		listCtrl.GetColumn(pLVCD->iSubItem, &Column);
-		if (Column.fmt & LVCFMT_RIGHT)
-		{
-			DrawText(pLVCD->nmcd.hdc, text.c_str(), -1, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER);
-			rect.left = rect.right-(rc.right-rc.left);
-		}
-		SetTextColor(pLVCD->nmcd.hdc, pLVCD->clrText);
-		for (std::vector<CHARRANGE>::iterator it = ranges.begin(); it != ranges.end(); ++it)
-		{
-			rc = rect;
-			if (it->cpMin-drawPos)
-			{
-				DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMin-drawPos, &rc, DT_SINGLELINE|DT_VCENTER);
-				DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMin-drawPos, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER);
-				rect.left = rc.right;
-			}
-			rc = rect;
-			drawPos = it->cpMin;
-			if (it->cpMax-drawPos)
-			{
-				SetTextColor(pLVCD->nmcd.hdc, m_Colors.GetColor(CColors::FilterMatch));
-				DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMax-drawPos, &rc, DT_SINGLELINE|DT_VCENTER);
-				DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMax-drawPos, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER);
-				rect.left = rc.right;
-				SetTextColor(pLVCD->nmcd.hdc, pLVCD->clrText);
-			}
-			rc = rect;
-			drawPos = it->cpMax;							
-		}
-		DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), -1, &rc, DT_SINGLELINE|DT_VCENTER);
-		return CDRF_SKIPDEFAULT;
-	}
-	return CDRF_DODEFAULT;
+        rect.left += leftmargin;
+        RECT rc = rect;
+
+        // is the column left- or right-aligned? (we don't handle centered (yet))
+        LVCOLUMN Column;
+        Column.mask = LVCF_FMT;
+        listCtrl.GetColumn(pLVCD->iSubItem, &Column);
+        if (Column.fmt & LVCFMT_RIGHT)
+        {
+            DrawText(pLVCD->nmcd.hdc, text.c_str(), -1, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER);
+            rect.left = rect.right-(rc.right-rc.left);
+        }
+        SetTextColor(pLVCD->nmcd.hdc, pLVCD->clrText);
+        for (std::vector<CHARRANGE>::iterator it = ranges.begin(); it != ranges.end(); ++it)
+        {
+            rc = rect;
+            if (it->cpMin-drawPos)
+            {
+                DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMin-drawPos, &rc, DT_SINGLELINE|DT_VCENTER);
+                DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMin-drawPos, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER);
+                rect.left = rc.right;
+            }
+            rc = rect;
+            drawPos = it->cpMin;
+            if (it->cpMax-drawPos)
+            {
+                SetTextColor(pLVCD->nmcd.hdc, m_Colors.GetColor(CColors::FilterMatch));
+                DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMax-drawPos, &rc, DT_SINGLELINE|DT_VCENTER);
+                DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMax-drawPos, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER);
+                rect.left = rc.right;
+                SetTextColor(pLVCD->nmcd.hdc, pLVCD->clrText);
+            }
+            rc = rect;
+            drawPos = it->cpMax;							
+        }
+        DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), -1, &rc, DT_SINGLELINE|DT_VCENTER);
+        return CDRF_SKIPDEFAULT;
+    }
+    return CDRF_DODEFAULT;
 }
 
 void CLogDlg::DoSizeV1(int delta)
