@@ -1,19 +1,71 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Chinese (simplified) translation for TortoiseSVN
+# Copyright (C) 2004-2010 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
+#
+# Last commit by:
+# $Author$
+# $Date$
+# $Rev$
+#
+# Authors:
+# Dongsheng Song <dongsheng.song@gmail.com>, 2006-2009
+# Garfield Yao <field977@gmail.com>, 2009
+# NetCobra <netcobra@gmail.com>
+# Cecil Sheng <zcecil@csie.org>
+# Xingyu.Wang <xingyu.wang@gmail.com>
+# Wang Yanning <wangyn@gmail.com>
+#
+# Update to new pot:
+#    msgmerge --update Tortoise_zh_CN.po Tortoise.pot
+#
+# Check translation:
+#    msgfmt --statistics -c --check-accelerators Tortoise_zh_CN.po
+#
+# Please format your translation before commit:
+#    msgmerge --no-wrap -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
+#    mv -f Tortoise_zh_CN_new.po Tortoise_zh_CN.po
+#
+# Dictionary:
+# add               增加
+# age               年代
+# BASE revision     基础版本
+# blame             追溯
+# branch            分支
+# checkout          检出
+# default           默认
+# HEAD revision     最新版本
+# lock              锁定
+# locking           锁定
+# log               日志
+# message           信息
+# overlay           重载
+# owner             所有者
+# remove            删除
+# rename            改名
+# repository        版本库
+# revert            恢复
+# revision          版本
+# Subversion book   Subversion 手册
+# undo              撤销
+# unified diff      标准差异
+# unversioned       未版本控制
+# versioned         已版本控制
+# working copy      工作副本
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-17 23:04+0800\n"
-"Last-Translator: xingyu.wang <xingyu.wang@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2010-02-01 17:35+0830\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
+"Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
 
 #. Resource IDs: (10, 126)
 msgid " "
