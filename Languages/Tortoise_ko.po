@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-17 16:39+0900\n"
+"PO-Revision-Date: 2010-03-23 08:10+0900\n"
 "Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1381,18 +1381,20 @@ msgstr "콤보 박스에 보이기 위한, 폴더에 대해 사용자가 정의�
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "새로운 버전이 나왔습니다.\r\n"
-"http://tortoisesvn.tigris.org 방문해서 현재 버전을 다운로드하십시오."
+"http://tortoisesvn.net을 방문해서 현재 버전을 다운로드하십시오."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "아이콘을 겹쳐 보일 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
-"'*'을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리를 포함시킵니다."
+"만약 '?' 문자를 경로의 뒤에 추가하면, 단지 이 경로만 포함될 것입니다.\r\n"
+"만약 '*' 문자를 경로의 뒤에 추가하면, 그 디렉토리내의 모든 파일들과 서브디렉토리들도 포함될 것입니다."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1407,11 +1409,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "아이콘을 겹쳐 쓰지 않을 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
-"'*' 문자를 경로뒤에 추가하면, 그 디렉토리의 모든 파일들과 서브디렉토리들도 제외됩니다.\r\n"
+"만약 '?' 문자를 경로의 뒤에 추가하면, 단지 이 경로만 제외될 것입니다.\r\n"
+"만약 '*' 문자를 경로의 뒤에 추가하면, 그 디렉토리내의 모든 파일들과 서브디렉토리들도 제외될 것입니다.\r\n"
 "리스트를 비워둘 경우 모든 경로에 대해 아이콘을 겹쳐 쓰게 됩니다."
 
 #. Resource IDs: (3843)
@@ -3558,6 +3562,10 @@ msgstr ""
 "VS.NET2003으로 웹프로젝트를 진행중에만 사용하십시오!\r\n"
 "이 값을 적용하려면 시스템을 재시작해야합니다."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "활성화된 오버레이 핸들러"
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4083,6 +4091,10 @@ msgstr ""
 "채우기"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "필터 일치"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4593,6 +4605,10 @@ msgstr "아이콘 오버레이 / 상태 컬럼"
 msgid "Icon Overlays::Icon Set"
 msgstr "아이콘 오버레이::아이콘 모음"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "아이콘 오버레이::아이콘 핸들"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "아이콘/디자인/코드:\t\tLuebbe Onken"
@@ -4779,6 +4795,10 @@ msgstr "공백 변경 무시(&H)"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "공백의 차이는 무시함"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "무시됨"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5263,6 +5283,10 @@ msgstr "잠금 소유자:"
 msgid "Lock stolen by %s"
 msgstr "잠금 소유자가 %s(으)로 바뀌었습니다."
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "잠김"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5730,6 +5754,10 @@ msgstr "네비게이션 창 옵션..."
 msgid "Needs lock"
 msgstr "잠금이 요구됨"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "잠금 요구"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "중첩됨"
@@ -5920,6 +5948,10 @@ msgstr "주의: 폴더가 버전관리되지 않는 아이템들을 포함하고
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "주의: 글꼴 설정은 TortoiseUDiff 뷰어에도 영향을 미칩니다."
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "주의: 이것은 TortoiseSVN뿐만 아니라 모든 Tortoise 클라이언트들에게 영향을 미칩니다!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7272,6 +7304,10 @@ msgstr "SVN 리비전"
 msgid "SVN Status"
 msgstr "SVN 상태"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN 상태번호"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -7801,14 +7837,6 @@ msgid ""
 msgstr ""
 "툴바 보기/숨기기\n"
 "툴바 토글"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "무시되는 파일에 오버레이를 보이기"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "버전관리 대상이 아닌 파일에 오버레이를 보이기"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9326,6 +9354,10 @@ msgstr "관리대상아님"
 msgid "Unversion and add to &ignore list"
 msgstr "버전 관리에서 삭제하고 무시 리스트에 추가하기(&I)"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "버전관리아님"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "버전 관리 대상이 아닌 파일들이 있으면 상위 폴더를 수정된 것으로 표시합니다."
@@ -9821,6 +9853,14 @@ msgstr ""
 "Trunk 폴더를 옮기려고 합니다\n"
 "정말 Trunk 폴더를 옮기는 것이\n"
 "확실합니까?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"여기에서 특정 오버레이 핸들러를 비활성화시킬 수 있습니다.\n"
+"비활성화된 핸들러는 오버레이 슬롯에서 사용되지 않을 것이며 오버레이를 보여줄 기회를 다른 쉘 확장에게 넘겨줍니다."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10849,6 +10889,10 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "무시되는 파일에 오버레이를 보이기"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "버전관리 대상이 아닌 파일에 오버레이를 보이기"
 #~ msgid "&To URL: "
 #~ msgstr "대상 URL(&T): "
 #~ msgid "&To path: "
@@ -10868,8 +10912,6 @@ msgstr "{버그트랙}"
 #~ msgstr "시작 URL:"
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "관련없는 변경된 경로를 숨기기(&I)"
-#~ msgid "Unversioned"
-#~ msgstr "버전관리아님"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
