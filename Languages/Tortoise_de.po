@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-17 07:55+0100\n"
+"PO-Revision-Date: 2010-03-22 10:40+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1384,18 +1384,20 @@ msgstr "Eine Liste von benutzerdefinierten Eigenschaften für Ordner, die in der
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "Eine neue Version steht zur Verfügung.\r\n"
-"Bitte gehen Sie zu http://tortoisesvn.tigris.org, um sich die aktuelle Version herunterzuladen."
+"Bitte gehen Sie zu http://tortoisesvn.net, um sich die aktuelle Version herunterzuladen."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die überlagerte Symbole angezeigt werden.\r\n"
-"Wenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades eingeschlossen."
+"Wenn Sie ein '?' Zeichen an einen Pfad anhängen, wird nur dieser Pfad eingeschlossen.\r\n"
+"Wenn Sie ein '*' oder gar kein Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades eingeschlossen."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1409,11 +1411,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die keine überlagerten Symbole angezeigt werden.\r\n"
-"Wenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
+"Wenn Sie ein '?' Zeichen an einen Pfad anhängen, wird nur dieser Pfad ausgeschlossen.\r\n"
+"Wenn Sie ein '*' oder gar kein Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -3569,6 +3573,10 @@ msgstr ""
 "Aktivieren Sie diese Option nur wenn Sie mit Web-Projekten unter VS.Net 2003 arbeiten wollen!\r\n"
 "Sie müssen Ihren Rechner neu starten, damit die Änderungen wirksam werden."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Aktivierte überlagerte Symbole"
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4094,6 +4102,10 @@ msgstr ""
 "Füllen"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Suchtreffer"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4604,6 +4616,10 @@ msgstr "Überlagerte Symbole / Statusspalten"
 msgid "Icon Overlays::Icon Set"
 msgstr "Überlagerte Symbole::Auswahl"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Überlagerte Symbole::Aktivieren"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Icons/Design/Code:\t\tLübbe Onken"
@@ -4800,6 +4816,10 @@ msgstr "Ignoriere Änderungen in der &Anzahl von Leerzeichen"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Ignoriere Änderungen in der Anzahl von Leerzeichen"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Ignoriert"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5288,6 +5308,10 @@ msgstr "Eigner der Sperre:"
 msgid "Lock stolen by %s"
 msgstr "Sperre von %s gestohlen "
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Gesperrt"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5755,6 +5779,10 @@ msgstr "Optionen der Navigationsfläche..."
 msgid "Needs lock"
 msgstr "Benötigt Sperre"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Benötigt Sperre"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Verschachtelt"
@@ -5950,6 +5978,10 @@ msgstr "Hinweis: Der Ordner enthält nicht versionierte Objekte"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Hinweis: Die Schrifteinstellungen gelten auch für den TortoiseUDiff Betrachter"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Hinweise: Diese Einstellung beeinflusst allre Tortoise Clients, nicht nur TortoiseSVN!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7302,6 +7334,10 @@ msgstr "SVN Revision"
 msgid "SVN Status"
 msgstr "SVN Status"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN Statusnummer"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -7833,14 +7869,6 @@ msgid ""
 msgstr ""
 "Verberge/Zeige die Werkzeugleiste\n"
 "Verbirgt oder zeigt die Werkzeugleiste"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Überlagerte Symbole für ignorierte Objekte zeigen"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Überlagerte Symbole für nicht versionierte Objekte zeigen"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9378,6 +9406,10 @@ msgstr "Versionierung aufheben"
 msgid "Unversion and add to &ignore list"
 msgstr "Aus SVN entfernen und &ignorieren"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Unversioniert"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Nicht versionierte Dateien markieren Elternordner als modifiziert"
@@ -9873,6 +9905,14 @@ msgid ""
 msgstr ""
 "Sie sind dabei, den 'trunk' Ordner zu verschieben!\n"
 "Sind Sie sich absolut sicher, dass Sie das tun wollen?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Sie können in diesem Dialog bestimmte überlagerte Symbole deaktivieren.\n"
+"Deaktivierte Symbole belegen keinen der dafür reservierten Plätze und lassen anderen Shell-Erweiterungen die Chance, ihre eigenen überlagerten Symbole anzuzeigen."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10908,6 +10948,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Überlagerte Symbole für ignorierte Objekte zeigen"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Überlagerte Symbole für nicht versionierte Objekte zeigen"
 #~ msgid "&To URL: "
 #~ msgstr "Zu &URL:"
 #~ msgid "&To path: "
@@ -10942,8 +10986,6 @@ msgstr "{BugTraq}"
 #~ msgstr "&Geänderte Pfade ohne Bezug ausblenden"
 #~ msgid "Edit conflict"
 #~ msgstr "Konflikt bearbeiten"
-#~ msgid "Unversioned"
-#~ msgstr "Unversioniert"
 #~ msgid "From URL:"
 #~ msgstr "Von URL:"
 #~ msgid ""
