@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-21 23:19-0000\n"
+"PO-Revision-Date: 2010-03-22 00:19-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7034,75 +7034,75 @@ msgstr "A vista por defeito (sem agrupamento) coloca os nós de modo que a sua p
 
 #. (title)
 msgid "Changing the View"
-msgstr ""
+msgstr "Alterando a Vista"
 
 #. (term)
 msgid "Group branches"
-msgstr ""
+msgstr "Agrupar ramos"
 
 #. (para)
 msgid "The default behavior (grouping off) has all rows sorted strictly by revision. As a result, long-living branches with sparse commits occupy a whole column for only a few changes and the graph becomes very broad."
-msgstr ""
+msgstr "O comportamento por defeito (sem agrupamento) é ter todas as linhas ordenadas estrictamente por revisão. Como resultado, ramos com vida longa e submissões dispersas, ocupam uma coluna inteira para apenas poucas alterações tornando o gráfico muito amplo."
 
 #. (para)
 msgid "This mode groups changes by branch, so that there is no global revision ordering: Consecutive revisions on a branch will be shown in (often) consecutive lines. Sub-branches, however, are arranged in such a way that later branches will be shown in the same column above older branches to keep the graph slim. As a result, a given row may contain changes from different revisions."
-msgstr ""
+msgstr "Este modo agrupa as alterações por ramo para que não exista uma ordenação global de revisões: Revisões consecutivas num ramo serão (normalmente) mostradas em linhas consecutivas. Sub-ramos no entanto, são arrumados de tal maneira que ramos posteriores serão mostrados na mesma coluna, acima dos ramos mais antigos, de modo a manter o gráfico esguio. Como resultado uma dada linha poderá conter alterações de diferentes revisões."
 
 #. (term)
 msgid "Oldest on top"
-msgstr ""
+msgstr "Mais antigo no topo"
 
 #. (para)
 msgid "Normally the graph shows the oldest revision at the bottom, and the tree grows upwards. Use this option to grow down from the top instead."
-msgstr ""
+msgstr "Normalmente o gráfico mostra a revisão mais antiga no fundo e a árvore cresce para cima. Usa esta opção para em alternativa crescer para baixo a partir do topo"
 
 #. (term)
 msgid "Align trees on top"
-msgstr ""
+msgstr "Alinhar árvores no topo"
 
 #. (para)
 msgid "When a graph is broken into several smaller trees, the trees may appear either in natural revision order, or aligned at the bottom of the window, depending on whether you are using the <guilabel>Group Branches</guilabel> option. Use this option to grow all trees down from the top instead."
-msgstr ""
+msgstr "Quando um gráfico está partido em várias árvores pequenas, as árvores podem aparecer na ordem natural de revisão ou alinhadas no fundo da janela, dependendo se estás a usar a opção  <guilabel>Agrupar ramos</guilabel>. Usa esta opção para todas as árvores em alternativa crescerem a partir do topo."
 
 #. (term)
 msgid "Reduce cross lines"
-msgstr ""
+msgstr "Reduzir linhas cruzadas"
 
 #. (para)
 msgid "If the layout of the graph has produced a lot of crossing lines, use this option to clean it up. This may make the layout columns appear in less logical places, for example in a diagonal line rather than a column, and the graph may require a larger area to draw."
-msgstr ""
+msgstr "Se a disposição do gráfico produziu muitas linhas cruzadas, usa esta opção para limpá-las. Isto poderá fazer com que as colunas de disposição apareçam em locais menos lógicos, por exemplo numa linha diagonal em vez de uma coluna, e o gráfico pode requerer mais área de desenho."
 
 #. (term)
 msgid "Differential path names"
-msgstr ""
+msgstr "Nomes de caminhos diferenciais"
 
 #. (para)
 msgid "Long path names can take a lot of space and make the node boxes very large. Use this option to show only the changed part of a path, replacing the common part with dots. E.g. if you create a branch <literal>/branches/1.2.x/doc/html</literal> from <literal>/trunk/doc/html</literal> the branch could be shown in compact form as <literal>/branches/1.2.x/..</literal> because the last two levels, <literal>doc</literal> and <literal>html</literal>, did not change."
-msgstr ""
+msgstr "Nomes de caminhos longos podem ocupar muito espaço e tornar muito largas as caixas dos nós. Usa esta opção para mostrar só a parte diferente de um caminho, substituindo a parte comum com pontos. E.g. se criares um ramo <literal>/branches/1.2.x/doc/html</literal> a partir de <literal>/trunk/doc/html</literal>, o ramo pode ser mostrado na forma compacta como <literal>/branches/1.2.x/..</literal> porque os dois últimos niveis <literal>doc</literal> e  <literal>html</literal> não se alteraram."
 
 #. (term)
 msgid "Show all revisions"
-msgstr ""
+msgstr "Mostrar todas as revisões"
 
 #. (para)
 msgid "This does just what you expect and shows every revision where something (in the tree that you are graphing) has changed. For long histories this can produce a truly huge graph."
-msgstr ""
+msgstr "Isto faz apenas aquilo que estás á espera, e mostra cada revisão em que algo (na árvore em que estás a construir o gráfico) foi alterado. Para históricos longos isto pode produzir um gráfico realmente gigante."
 
 #. (term)
 msgid "Show HEAD revisions"
-msgstr ""
+msgstr "Mostrar revisões HEAD"
 
 #. (para)
 msgid "This ensures that the latest revision on every branch is always shown on the graph."
-msgstr ""
+msgstr "Isto assegura que a última revisão de cada ramo é sempre mostrada no gráfico."
 
 #. (term)
 msgid "Exact copy sources"
-msgstr ""
+msgstr "Fontes exactas de cópia"
 
 #. (para)
 msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy. Note that this revision may be younger than the HEAD revision of the source branch."
-msgstr ""
+msgstr "Quando um ramo/etiqueta é criado, o comportamento por defeito é mostrar o ramo como retirado do último nó onde foi efectuada uma alteração. Estritamente falando isto não é exacto, visto que os ramos são normalmente criados a partir da HEAD corrente em vez de uma revisão específica. É possível então mostrar a revisão mais correcta (mas menos útil) que foi usada para criar a cópia. De notar que esta revisão pode ser mais recente que a revisão HEAD do ramo fonte."
 
 #. (term)
 msgid "Fold tags"
@@ -7170,7 +7170,7 @@ msgstr ""
 
 #. (para)
 msgid "Because a revision graph is often quite complex, there are a number of features which can be used to tailor the view the way you want it. These are available in the <guilabel>View</guilabel> menu and from the toolbar. <placeholder-1/>"
-msgstr ""
+msgstr "Porque o gráfico de revisões é normalmente bastante complexo, existem um número de funcionalidades que podem ser usadas para moldar a vista á tua maneira. Estas estão disponiveis no menu <guilabel>Ver</guilabel> e a partir da barra de ferramentas. <placeholder-1/>"
 
 #. (title)
 msgid "Using the Graph"
