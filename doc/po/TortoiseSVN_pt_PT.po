@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-23 00:03-0000\n"
+"PO-Revision-Date: 2010-03-23 01:03-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7174,43 +7174,43 @@ msgstr "Porque o gráfico de revisões é normalmente bastante complexo, existem
 
 #. (title)
 msgid "Using the Graph"
-msgstr ""
+msgstr "Utilizar o Gráfico"
 
 #. (para)
 msgid "To make it easier to navigate a large graph, use the overview window. This shows the entire graph in a small window, with the currently displayed portion highlighted. You can drag the highlighted area to change the displayed region."
-msgstr ""
+msgstr "Usa a janela de vista global para tornar mais fácil a navegação em grandes gráficos. Este mostra o gráfico inteiro numa janela pequena, com a parcela correntemente mostrada salientada. Podes arrastar a área salientada de forma a alterar a região visualizada."
 
 #. (para)
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
-msgstr ""
+msgstr "A data da revisão, o autor e os comentários são mostrados numa caixa de dica, quando o rato passa sobre a caixa de revisão."
 
 #. (para)
 msgid "If you select two revisions (Use <keycap>Ctrl</keycap>-<action>left click</action>), you can use the context menu to show the differences between these revisions. You can choose to show differences as at the branch creation points, but usually you will want to show the differences at the branch end points, i.e. at the HEAD revision."
-msgstr ""
+msgstr "Se seleccionares duas revisões ( Usa <keycap>Ctrl</keycap>-<action>clique com o botão direito</action>), podes usar o menu de contexto para mostrar as diferenças entre estas revisões. Podes optar por mostrar as diferenças nos pontos de criação de ramos, mas usualmente quererás mostrar as alterações nas pontas dos ramos, i.e. na revisão HEAD."
 
 #. (para)
 msgid "You can view the differences as a Unified-Diff file, which shows all differences in a single file with minimal context. If you opt to <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice> you will be presented with a list of changed files. <action>Double click</action> on a file name to fetch both revisions of the file and compare them using the visual difference tool."
-msgstr ""
+msgstr "Podes ver as diferenças como um ficheiro de Comparação-Unificada que mostra todas as diferenças num único ficheiro com contexto mínimo. Se optares por <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Comparar Revisões</guimenuitem></menuchoice> serás presenteado com uma lista de ficheiros alterados. Efectua <action>duplo clique</action> num nome de ficheiro de modo a obter ambas as revisões do ficheiro e compará-las recorrendo à ferramenta de comparação visual."
 
 #. (para)
 msgid "If you <action>right click</action> on a revision you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to view the history."
-msgstr ""
+msgstr "Se tu <action>clicas com o botão direito</action> numa revisão, podes usar <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Mostrar registo</guimenuitem></menuchoice> para ver o histórico."
 
 #. (para)
 msgid "You can also merge changes in the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
-msgstr ""
+msgstr "Podes também integrar as alterações nas revisões seleccionadas, numa cópia de trabalho diferente. A caixa de diálogo selecção de pasta, permite-te escolher a cópia de trabalho para onde integrar, mas após esta não existe caixa de confirmação nem uma oportunidade para tentar uma integração de teste. Será uma boa ideia integrar numa cópia de trabalho não modificada, para que possas reverter as alterações se não resultar! Esta é uma funcionalidade útil se pretendes integrar as revisões seleccionadas, de um ramo para outro."
 
 #. (title)
 msgid "Learn to Read the Revision Graph"
-msgstr ""
+msgstr "Aprender a Ler o Gráfico de Revisões"
 
 #. (para)
 msgid "First-time users may be surprised by the fact that the revision graph shows something that does not match the user's mental model. If a revision changes multiple copies or branches of a file or folder, for instance, then there will be multiple nodes for that single revision. It is a good practice to start with the leftmost options in the toolbar and customize the graph step-by-step until it comes close to your mental model."
-msgstr ""
+msgstr "Utilizadores pela primeira vez, podem ser surpreendidos pelo facto de que, o gráfico de revisões mostra algo que não corresponde ao seu modelo mental. Se uma revisão altera múltiplas cópias ou ramos de um ficheiro ou pasta, por exemplo, então irão existir múltiplos nós para essa simples revisão. É uma boa prática começar com as opções mais à esquerda, na barra de ferramentas, e customizar o gráfico passo a passo até este chega perto do teu modelo mental."
 
 #. (para)
 msgid "All filter options try lose as little information as possible. That may cause some nodes to change their color, for instance. Whenever the result is unexpected, undo the last filter operation and try to understand what is special about that particular revision or branch. In most cases, the initially expected outcome of the filter operation would either be inaccurate or misleading."
-msgstr ""
+msgstr "Todas as opções de filtro tentam perder o mínimo de informação possível, isso poderá fazer com que alguns nós mudem de cor. Sempre que o resultado seja inesperado, desfaz a última operação de filtragem e, tenta compreender o que essa revisão ou ramo tem de especial. Na maior parte dos casos o resultado, inicialmente esperado da operação de filtragem, terá sido impreciso ou enganador."
 
 #. (para)
 msgid "If you want to check the server again for newer information, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer commits and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
