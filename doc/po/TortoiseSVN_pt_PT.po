@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-22 00:19-0000\n"
+"PO-Revision-Date: 2010-03-23 00:03-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7106,67 +7106,67 @@ msgstr "Quando um ramo/etiqueta é criado, o comportamento por defeito é mostra
 
 #. (term)
 msgid "Fold tags"
-msgstr ""
+msgstr "Etiquetas dobradas"
 
 #. (para)
 msgid "When a project has many tags, showing every tag as a separate node on the graph takes a lot of space and obscures the more interesting development branch structure. At the same time you may need to be able to access the tag content easily so that you can compare revisions. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
-msgstr ""
+msgstr "Quando um projecto tem muitas etiquetas, mostrar cada etiqueta como um nó separado no gráfico ocupa muito espaço e ofusca a mais interessante estrutura do ramo de desenvolvimento. Ao mesmo tempo poderás necessitar de facilmente aceder ao conteúdo da etiqueta, para que possas efectuar comparações de revisões. Esta opção esconde os nós das etiquetas e em alternativa, mostra-os na etiqueta de dica do nó de onde foram copiadas. Um ícone de etiqueta no lado direito do nó fonte indica que foram criadas tags."
 
 #. (term)
 msgid "Hide deleted paths"
-msgstr ""
+msgstr "Esconder caminhos removidos"
 
 #. (para)
 msgid "Hides paths which are no longer present at the HEAD revision of the repository, e.g. deleted branches."
-msgstr ""
+msgstr "Esconde caminhos que já não estão presentes na revisão HEAD do repositório, e.g. ramos removidos."
 
 #. (term)
 msgid "Hide unchanged branches"
-msgstr ""
+msgstr "Esconder ramos não modificados"
 
 #. (para)
 msgid "Hides branches where no changes were committed to the respective file or sub-folder. This does not necessarily indicate that the branch was not used, just that no changes were made to <emphasis>this</emphasis> part of it."
-msgstr ""
+msgstr "Esconde ramos onde não foram submetidas alterações, no respectivo ficheiro ou subpasta. Isto não indica necessariamente que o ramo não foi usado, apenas que não foram feitas alterações <emphasis>nesta</emphasis> parte."
 
 #. (term)
 msgid "Show WC revision"
-msgstr ""
+msgstr "Mostra a revisão da CT"
 
 #. (para)
 msgid "Marks the revision on the graph which corresponds to the update revision of the item you fetched the graph for. If you have just updated, this will be HEAD, but if others have committed changes since your last update your WC may be a few revisions lower down. The node is marked by giving it a bold outline."
-msgstr ""
+msgstr "Marca no gráfico a revisão que corresponde à revisão actualizada do item, para o qual obtiveste o gráfico. Se acabaste de actualizar, esta será a revisão HEAD, mas se outros submeteram alterações desde a tua última actualização, a tua CT poderá estar algumas revisões abaixo da HEAD. O nó é marcado com uma moldura a negrito."
 
 #. (term)
 msgid "Show WC modifications"
-msgstr ""
+msgstr "Mostrar modificações da CT"
 
 #. (para)
 msgid "If your WC contains local changes, this option draws it as a separate elliptical node, linked back to the node that your WC was last updated to. The default outline colour is red. You may need to refresh the graph using <keycap>F5</keycap> to capture recent changes."
-msgstr ""
+msgstr "Se a tua CT contém alterações locais, esta opção desenha-as como um nó elíptico separado e ligado ao nó a que a tua CT foi pela última vez actualizada. A cor de contorno por defeito é o vermelho. Para capturar as alterações mais recentes, poderás necessitar de refrescar o gráfico usando <keycap>F5</keycap>."
 
 #. (term)
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 #. (para)
 msgid "Sometimes the revision graph contains more revisions than you want to see. This option opens a dialog which allows you to restrict the range of revisions displayed, and to hide particular paths by name."
-msgstr ""
+msgstr "Por vezes o gráfico de revisões contém mais revisões do que aquelas que queres ver. Esta opção abre a caixa de diálogo que permite restringir o intervalo de revisões mostradas e esconder caminhos particulares pelo nome."
 
 #. (term)
 msgid "Tree stripes"
-msgstr ""
+msgstr "Listas de árvore"
 
 #. (para)
 msgid "Where the graph contains several trees, it is sometimes useful to use alternating colours on the background to help distinguish between trees."
-msgstr ""
+msgstr "Quando o gráfico contém várias árvores, é por vezes útil usar cores de fundo alternadas para ajudar à distinção entre elas. "
 
 #. (term)
 msgid "Show overview"
-msgstr ""
+msgstr "Mostra visão geral"
 
 #. (para)
 msgid "Shows a small picture of the entire graph, with the current view window as a rectangle which you can drag. This allows you to navigate the graph more easily. Note that for very large graphs the overview may become useless due to the extreme zoom factor and will therefore not be shown in such cases."
-msgstr ""
+msgstr "Mostra uma pequena figura do gráfico inteiro com a janela da vista corrente como um rectângulo que podes arrastar. Isto permite-te navegar pelo gráfico de forma mais fácil. De notar que para gráficos muito grandes a visão global pode-se tornar inutil, devido ao factor de ampliação (zoom) extremo, e por isso não ser mostrado nesses casos."
 
 #. (para)
 msgid "Because a revision graph is often quite complex, there are a number of features which can be used to tailor the view the way you want it. These are available in the <guilabel>View</guilabel> menu and from the toolbar. <placeholder-1/>"
