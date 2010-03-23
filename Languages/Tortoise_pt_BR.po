@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-20 23:23-0300\n"
+"PO-Revision-Date: 2010-03-23 14:50-0300\n"
 "Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3578,6 +3578,10 @@ msgstr ""
 "Ative apenas se estiver trabalhando com projetos web no VS.NET2003!\r\n"
 "Terá de reiniciar o sistema para que esta configuração faça efeito."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr ""
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4105,6 +4109,10 @@ msgstr ""
 "Preencher"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Correspondência de filtro"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4617,6 +4625,10 @@ msgstr "Sobreposição de Ícones / Colunas de Estado"
 msgid "Icon Overlays::Icon Set"
 msgstr "Sobreposição de Ícones::Conjunto de Ícones"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Sobreposição de Ícones::Controladores de Sobreposição"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Ícones/Interface/Código:\t\tLuebbe Onken"
@@ -4806,6 +4818,10 @@ msgstr "&Ignorar alterações em espaços em branco"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Ignorar alterações em espaços em branco"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Ignorados"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5294,6 +5310,10 @@ msgstr "Proprietário do bloqueio:"
 msgid "Lock stolen by %s"
 msgstr "Bloqueio roubada por %s"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Bloqueado"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5761,6 +5781,10 @@ msgstr "Opções do Painel de Navegação..."
 msgid "Needs lock"
 msgstr "Requer bloqueio"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Requer bloqueio"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Aninhado"
@@ -5952,6 +5976,10 @@ msgstr "Nota: a pasta contém itens sem controle de versão"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Note: as configurações da fonte também afetam o visualizador TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Nota: isto afeta todos os clientes Tortoise, não apenas o TortoiseSVN!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7306,6 +7334,10 @@ msgstr "SVN Revisão"
 msgid "SVN Status"
 msgstr "SVN Status"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN Número do Estado"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -7839,14 +7871,6 @@ msgid ""
 msgstr ""
 "Mostrar ou ocultar a barra de ferramentas\n"
 "Alternar Barra de Ferramentas"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Mostrar sobreposição para itens ignorados"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Mostrar sobreposição para itens sem controle de versão"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9376,6 +9400,10 @@ msgstr "Retirar do controle de versões"
 msgid "Unversion and add to &ignore list"
 msgstr "Retirar do controle de versões e adicionar à lista de &ignorados"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Não versionado"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Arquivos retirados do controle de versão marcam o diretório pai como modificado"
@@ -9871,6 +9899,14 @@ msgid ""
 msgstr ""
 "Você está tentando mover uma pasta tronco!\n"
 "Você tem certeza que deseja mover a pasta tronco?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Você pode desabilitar os controladores específicos de sobreposição de ícones aqui.\n"
+"Desabilitar o controlador não usará o espaço de sobreposição e dará a outro aplicativo de extensão a chance de sobrepor com seus ícones."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10902,6 +10938,10 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Mostrar sobreposição para itens ignorados"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Mostrar sobreposição para itens sem controle de versão"
 #~ msgid "&To URL: "
 #~ msgstr "&Para a URL:"
 #~ msgid "Author:                                    Stefan Kueng"
@@ -10917,8 +10957,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Editar conflitos"
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "Ocultar cam&inhos alterados não relacionados"
-#~ msgid "Unversioned"
-#~ msgstr "Não versionado"
 #~ msgid "From URL:"
 #~ msgstr "A partir da URL:"
 #~ msgid ""
