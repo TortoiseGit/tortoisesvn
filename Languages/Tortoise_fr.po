@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-16 14:43-0000\n"
-"Last-Translator: Frédéric Bodin <grokwik@gmail.com>\n"
+"PO-Revision-Date: 2010-03-24 23:12+0100\n"
+"Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1383,18 +1383,20 @@ msgstr "Une liste de propriétés utilisateur pour dossiers à afficher dans la 
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "Une nouvelle version est disponible.\r\n"
-"Veuillez aller sur http://tortoisesvn.tigris.org et téléchargez la version courante."
+"Veuillez aller sur http://tortoisesvn.net et téléchargez la version actuelle."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Une liste de chemins séparés par saut de ligne pour lesquels le recouvrement d'icônes sera affiché.\r\n"
-"Si vous ajoutez un caractère '*' à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront inclus aussi."
+"Une liste de chemins séparés par des sauts de ligne pour lesquels le recouvrement d'icônes sera affiché.\r\n"
+"Si vous ajoutez un caractère '?' à la fin d'un chemin, alors seul ce chemin sera inclus.\r\n"
+"Si vous ajoutez un caractère '*' ou aucun caractère du tout à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront inclus aussi."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1409,11 +1411,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Une liste de chemins séparés par saut de ligne pour lesquels le recouvrement d'icônes ne sera pas affiché.\r\n"
-"Si vous ajoutez un caractère '*' à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront exclus aussi.\r\n"
+"Une liste de chemins séparés par des sauts de ligne pour lesquels le recouvrement d'icônes ne sera pas affiché.\r\n"
+"Si vous ajoutez un caractère '?' à la fin d'un chemin, alors seul ce chemin sera exclus.\r\n"
+"Si vous ajoutez un caractère '*' ou aucun caractère du tout à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront exclus aussi.\r\n"
 "Une liste vide autorise le recouvrement sur tous les chemins."
 
 #. Resource IDs: (3843)
@@ -3565,6 +3569,10 @@ msgstr ""
 "N'utiliser cette option que si vous travailler avec des projets web de VS.NET2003!\r\n"
 "Vous devez redémarrer votre système pour que les modifications soient prises en compte."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Gestionnaires de Recouvrement Activés"
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4090,6 +4098,10 @@ msgstr ""
 "Remplir"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Correspondance du filtre"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4596,6 +4608,10 @@ msgstr "Recouvrements d'icône / Colonnes de statut"
 msgid "Icon Overlays::Icon Set"
 msgstr "Recouvrements d'icône::Jeu d'icônes"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Recouvrements d'icône::Gestionnaires de Recouvrement"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Icônes/Design/Code :\t\tLuebbe Onken"
@@ -4785,6 +4801,10 @@ msgstr "Ignorer les &changements de caractères d'espacement"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Ignorer les changements d'espaces"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Ignoré"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5272,6 +5292,10 @@ msgstr "Propriétaire du verrou :"
 msgid "Lock stolen by %s"
 msgstr "Verrou volé par %s"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Verrouillé"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5739,6 +5763,10 @@ msgstr "Options du Panneau de Navigation..."
 msgid "Needs lock"
 msgstr "Nécessite un verrou"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Nécessitant un verrou"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Niché"
@@ -5930,6 +5958,10 @@ msgstr "Note: ce répertoire contient des fichiers n'étant pas sous contrôle d
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Note : les réglages de police de caractères affectent également TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Note : cela affecte tous les clients Tortoise, pas seulement TortoiseSVN !"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7283,6 +7315,10 @@ msgstr "SVN Révision"
 msgid "SVN Status"
 msgstr "SVN Statut"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "Numéro de statut SVN"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -7814,14 +7850,6 @@ msgid ""
 msgstr ""
 "Voir ou cacher la barre d'outils\n"
 "Barre d'outils"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Affiche le recouvrement pour les éléments ignorés"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Afficher le recouvrement pour les éléments non-versionnés"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9349,6 +9377,10 @@ msgstr "Rendre non-versionné"
 msgid "Unversion and add to &ignore list"
 msgstr "Rendre non-versionné et ajouter à la liste des &ignorés"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Non-versionné"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Les fichiers non versionnés marquent le dossier parent comme modifié"
@@ -9845,6 +9877,14 @@ msgstr ""
 "Vous essayez de déplacer le répertoire trunk !\n"
 "Êtes-vous absolument certain de vouloir déplacer\n"
 "le répertoire trunk ?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Vous pouvez désactiver des gestionnaires spécifiques de Recouvrement ici.\n"
+"Les gestionnaires désactivés n'utiliseront pas de slot de recouvrement et donneront aux autres extensions de l'explorateur une chance d'afficher leurs recouvrements."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10873,59 +10913,83 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Affiche le recouvrement pour les éléments ignorés"
+
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Afficher le recouvrement pour les éléments non-versionnés"
+
 #~ msgid "&To URL: "
 #~ msgstr "&Vers l'URL : "
 
 #, fuzzy
 #~ msgid "&To path: "
 #~ msgstr "chemins:"
+
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Auteur :                                    Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Vérifier automatiquement les &nouvelles versions chaque semaine"
+
 #~ msgid ""
 #~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr ""
 #~ "Si activé, TortoiseSVN contrôle une fois par semaine si une nouvelle "
 #~ "version est disponible"
+
 #~ msgid "Edit conflict"
 #~ msgstr "Editer les conflits"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "Cacher les chem&ins changés sans relation"
-#~ msgid "Unversioned"
-#~ msgstr "Non-versionné"
+
 #~ msgid "From URL:"
 #~ msgstr "Depuis l'URL :"
+
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "L'URL à extraire fait référence à une fichier\n"
 #~ "mais le chemin de cette copie de travail est un répertoire existant."
+
 #~ msgid "Show &properties"
 #~ msgstr "Afficher les &propriétés"
+
 #~ msgid "Show i&gnored files"
 #~ msgstr "Afficher les fichiers &ignorés"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "Afficher les fichiers non &modifiés"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "Afficher les fichiers non &versionnés"
+
 #~ msgid "&Annoter..."
 #~ msgstr "Con&damner..."
+
 #~ msgid "Cleaning up."
 #~ msgstr "Nettoyage en cours."
+
 #~ msgid "General::Revision Graph"
 #~ msgstr "Général::Graphe des Révisions"
+
 #~ msgid "General::Revision Graph Colors"
 #~ msgstr "Général::Couleur du Graphe des Révisions"
+
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, mais le fichier local a déjà été modifié."
+
 #~ msgid "Go offline?"
 #~ msgstr "Passer hors-ligne ?"
+
 #~ msgid "Replaced node"
 #~ msgstr "Noeud remplacé"
+
 #~ msgid "copy source only"
 #~ msgstr "ne copier que la source"
+
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -10940,57 +11004,80 @@ msgstr "{BugTraq}"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a></u>"
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Lecteurs de disquettes (A: B:)"
+
 #~ msgid ""
 #~ "On copy and rename nodes, show only the changed parts of the path name"
 #~ msgstr ""
 #~ "Sur les noeuds copie et renommage, n'affiche que les parties modifiées du "
 #~ "chemin"
+
 #~ msgid "Only record the merge"
 #~ msgstr "Enregistrer uniquement la fusion"
+
 #~ msgid "(deleted) %s"
 #~ msgstr "(supprimé) %s"
+
 #~ msgid "alias (deleted): %s"
 #~ msgstr "alias (supprimé): %s"
+
 #~ msgid "&?"
 #~ msgstr "&?"
+
 #~ msgid "Merge all..."
 #~ msgstr "Tout fusionner..."
+
 #~ msgid "SVN Export to here"
 #~ msgstr "SVN Exporter ici"
+
 #~ msgid "Bro&wse..."
 #~ msgstr "Par&courir..."
+
 #~ msgid "Brows&e..."
 #~ msgstr "&Parcourir..."
+
 #~ msgid "Force blame"
 #~ msgstr "Forcer une annotation"
+
 #~ msgid "Bug Tracker..."
 #~ msgstr "Pisteur de bogues..."
+
 #~ msgid "Remove..."
 #~ msgstr "Supprimer..."
+
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Ouvrir Ctrl-O"
+
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Enregistrer Ctrl-S"
+
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "&Annuler\tCtrl+Z"
+
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Utiliser la &mise en évidence sur la barre de positionnement"
+
 #~ msgid "Analyze revision data..."
 #~ msgstr "Analyser les données de révision..."
+
 #~ msgid "Checking for forward copies"
 #~ msgstr "Vérification les copies vers l'avant"
+
 #~ msgid "Groups branches together"
 #~ msgstr "Regrouper les branches ensemble"
+
 #~ msgid "Number of changed cached revisions"
 #~ msgstr "Nombre de révisions modifiées dans le cache"
+
 #~ msgid ""
 #~ "Number of path elements. This is an internal value indicating the "
 #~ "compression level."
 #~ msgstr ""
 #~ "Nombre d'éléments de chemin. Il s'agit d'une valeur interne indiquant le "
 #~ "niveau de compression."
+
 #~ msgid ""
 #~ "This method covers the case when you have made a feature branch as "
 #~ "discussed in the Subversion book. All trunk changes have been ported to "
@@ -11009,51 +11096,72 @@ msgstr "{BugTraq}"
 #~ "et du tronc seront absolument identiques sauf en ce qui concerne les "
 #~ "modifications de la branche. Dans ce cas spécial, vous allez pouvoir "
 #~ "effectuer une fusion en comparant la branche avec le tronc."
+
 #~ msgid "Totall number of merge informations"
 #~ msgstr "Nombre total d'informations de fusion"
+
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 contient un chemin invalide."
+
 #~ msgid "&Berkeley database (BDB)"
 #~ msgstr "&Base de données Berkeley (BDB)"
+
 #~ msgid "&Dry run"
 #~ msgstr "&Exécution fictive"
+
 #~ msgid "&Native filesystem (FSFS)"
 #~ msgstr "Système de fichier &natif (FSFS)"
+
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "Un argument invalide a été rencontré."
+
 #~ msgid "Cache log messages"
 #~ msgstr "Mettre en cache les commentaires"
+
 #~ msgid "Cleanup has finished"
 #~ msgstr "Le nettoyage est terminé"
+
 #~ msgid "Commit threshold:"
 #~ msgstr "Seuil de livraison :"
+
 #~ msgid "D&iff"
 #~ msgstr "&Comparer"
+
 #~ msgid "Diff With URL"
 #~ msgstr "Diff avec l'URL"
+
 #~ msgid "Dry Run"
 #~ msgstr "Exécution fictive"
+
 #~ msgid "Look and Feel"
 #~ msgstr "Apparence et comportement"
+
 #~ msgid "Look and Feel::Colors"
 #~ msgstr "Apparence et comportement::Couleurs"
+
 #~ msgid "Not descending"
 #~ msgstr "Non descendant"
+
 #~ msgid "Select the type of repository you want to create:"
 #~ msgstr "Sélectionnez le type de référentiel que vous voulez créer :"
+
 #~ msgid "Specify the revision range which you want to merge:"
 #~ msgstr "Spécifiez la plage de révisions que vous voulez fusionner :"
+
 #~ msgid "Split long, inactive branches into segments"
 #~ msgstr "Séparer les branches longues et inactives en segments"
+
 #~ msgid "Target"
 #~ msgstr "Ciblle"
+
 #~ msgid "Two-way &Diff"
 #~ msgstr "&Différenciation bidirectionnel"
+
 #~ msgid ""
 #~ "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 #~ msgstr ""
 #~ "Utiliser \"Depuis :\" URL (la plage de révisions est sélectionnable dans "
 #~ "la boîte de dialogue de journal au-dessus)"
+
 #~ msgid "which points to the repository at URL:"
 #~ msgstr "qui pointe vers le référentiel à l'URL :"
-
