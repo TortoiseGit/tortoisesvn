@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-14 18:14+0100\n"
+"PO-Revision-Date: 2010-03-24 13:32+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -699,7 +699,7 @@ msgstr "&Incluir informação de integração"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
-msgstr "Pasta &inicial:"
+msgstr "Directório &inicial:"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -1086,9 +1086,9 @@ msgstr "&Para a Revisão"
 msgid "&To URL:"
 msgstr "&Para o URL:"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&Para o URL:"
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "&Para caminho:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -1383,18 +1383,20 @@ msgstr "Uma lista de propriedades de pastas definidas pelo utilizador a mostrar 
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "Uma nova versão está disponível.\r\n"
-"Por favor vá a http://tortoisesvn.tigris.org/ e descarregue a versão mais recente!"
+"Por favor vá a http://tortoisesvn.net e descarregue a versão mais recente."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Uma lista de caminhos separados por fins-de-linha para os quais será utilizada a sobreposição de ícones. Se adicionar\r\n"
-"um carácter '*' ao final de um caminho, todos os arquivos e pastas abaixo desse caminho serão também incluídos."
+"Uma lista de caminhos separados por fins-de-linha para os quais será utilizada a sobreposição de ícones.\r\n"
+"Se addicionar im carácter '?' ao final de um caminho, só o caminho indicado é incluído.\r\n"
+"Se adicionar um carácter '*' ao final de um caminho, todos os ficheiros e sub-directórios sob o caminho são incluídos."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1409,12 +1411,14 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Uma lista de caminhos separados por fins-de-linha para os quais não será utilizada a sobreposição de ícones.\r\n"
-"Se adicionar um caractere '*' ao final de um caminho, todos os arquivos e pastas abaixo desse caminho serão.\r\n"
-"também excluídos. Uma lista vazia permitirá a sobreposição de ícones em todos os caminhos."
+"Se addicionar im carácter '?' ao final de um caminho, só o caminho indicado é excluído.\r\n"
+"Se adicionar um carácter '*' ao final de um caminho, todos os ficheiros e sub-directórios sob o caminho são excluídos.\r\n"
+"Uma lista vazia permite a sobreposição em todos os caminhos."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -2199,7 +2203,7 @@ msgstr "A transformar externos em revisão fixa"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
-msgstr "&Exportar..."
+msgstr "Chec&kout..."
 
 #. Resource IDs: (3887)
 msgid "Check"
@@ -2235,7 +2239,7 @@ msgstr "Procurar actualizações"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
-msgstr "Exportar uma cópia de trabalho a partir de um repositório"
+msgstr "Fazer checkout de uma cópia de trabalho a partir de um repositório"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2279,15 +2283,15 @@ msgstr "Verificando se está disponível uma versão mais recente do TortoiseSVN
 
 #. Resource IDs: (133, 65535)
 msgid "Checkout"
-msgstr "Exportar"
+msgstr "Checkout"
 
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
-msgstr "Pasta para a &exportação:"
+msgstr "&Directório de &checkout:"
 
 #. Resource IDs: (77)
 msgid "Checkout - TortoiseSVN"
-msgstr "Exportar - TortoiseSVN"
+msgstr "Checkout - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
@@ -2296,7 +2300,7 @@ msgstr "&Profundidade de Checkout"
 #. Resource IDs: (229)
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Exportar de %s, revisão %s, %s, %s"
+msgstr "Checkout de %s, revisão %s, %s, %s"
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2317,7 +2321,7 @@ msgstr "Limpando"
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory \"%1!s!\""
-msgstr "Limpando directório \"%1!s!\""
+msgstr "A limpar o directório \"%1!s!\""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2859,7 +2863,7 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not create %1 because the directory is full."
-msgstr "%1 não pôde ser criado porque a pasta está cheia."
+msgstr "%1 não pôde ser criado porque o directório está cheio."
 
 #. Resource IDs: (582)
 #, c-format
@@ -2906,7 +2910,7 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not remove %1 because it is the current directory."
-msgstr "Não foi possível remover %1, uma vez que é a pasta corrente."
+msgstr "Não foi possível remover %1, uma vez que é o directório corrente."
 
 #. Resource IDs: (82)
 #, c-format
@@ -3010,7 +3014,7 @@ msgid ""
 "Create new directory:\r\n"
 "%s"
 msgstr ""
-"Criar nova pasta:\r\n"
+"Criar novo directório:\r\n"
 "%s"
 
 #. Resource IDs: (8)
@@ -3220,6 +3224,10 @@ msgstr "Descrição:"
 msgid "Deselect changelist"
 msgstr "Desmarcar lista de alterações"
 
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "URL de Destino:"
+
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "O disco de destino está cheio."
@@ -3416,8 +3424,8 @@ msgid ""
 "working copies next to each other.\n"
 "This works for directory URLs only."
 msgstr ""
-"Não faça do directório de exportação uma cópia de trabalho escasso.\n"
-"Exporte todas os URLs para cópias de trabalho\n"
+"Não faças do directório de checkout uma cópia de trabalho escasso.\n"
+"Faz checkout de todas as URLs para cópias de trabalho\n"
 "ao lado umas das outras. Isto só funciona para URLs de directórios."
 
 #. Resource IDs: (73, 80)
@@ -3561,6 +3569,10 @@ msgid ""
 msgstr ""
 "Active apenas se estiver a trabalhar com projectos Web no VS.NET2003!\r\n"
 "Terá de reiniciar o sistema para que esta configuração faça efeito."
+
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Manipuladores de Sobreposição Activados"
 
 #. Resource IDs: (195)
 msgid ""
@@ -3787,7 +3799,7 @@ msgstr "Exportar - TortoiseSVN"
 
 #. Resource IDs: (94)
 msgid "Export directory:"
-msgstr "Exportar pasta:"
+msgstr "Exportar directório:"
 
 #. Resource IDs: (345)
 msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
@@ -4085,6 +4097,10 @@ msgid ""
 msgstr ""
 "Ferramenta de Preenchimento\n"
 "Preencher"
+
+#. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Filtrar iguais"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -4598,6 +4614,10 @@ msgstr "Sobreposição de Ícones / Colunas de Estado"
 msgid "Icon Overlays::Icon Set"
 msgstr "Sobreposição de Ícones::Conjunto de Ícones"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Sobreposição de Ícones::Manipuladores de Sobreposição"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Ícones/Design/Código:\t\tLuebbe Onken"
@@ -4712,8 +4732,8 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"Se atribuído, arquivos sem controlo de versão alterarão o estado da pasta pai para modificada,\r\n"
-"i.e., ficarão com o ícone de modificação sobreposto."
+"Se definido, os arquivos sem controlo de versão marcam o estado do directório pai como modificado,\r\n"
+"i.e., ficão com o ícone de modificação sobreposto."
 
 #. Resource IDs: (2052)
 msgid "If the graph contains multiple trees, separate them by slight variations in background color."
@@ -4787,6 +4807,10 @@ msgstr "Ignorar &alterações de espaços em branco"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Ignorar alterações em espaços em branco"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Ignorado"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -4889,7 +4913,7 @@ msgstr "A importar o ficheiro %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
-msgstr "Importa a pasta para um repositório"
+msgstr "Importa a directório para um repositório"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -5103,7 +5127,7 @@ msgstr "Manter listas de &alterações"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
-msgstr "Mantenha o directório fora do repositório"
+msgstr "Mantém o directório fora do repositório"
 
 #. Resource IDs: (610)
 msgid "Keep the file from the repository"
@@ -5111,7 +5135,7 @@ msgstr "Mantenha o ficheiro fora do repositório"
 
 #. Resource IDs: (610)
 msgid "Keep the local directory"
-msgstr "Mantenha o directório local"
+msgstr "Mantém o directório local"
 
 #. Resource IDs: (610)
 msgid "Keep the local file"
@@ -5274,6 +5298,10 @@ msgstr "Proprietário do bloqueio:"
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Bloqueio roubado por %s"
+
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Bloqueado"
 
 #. Resource IDs: (263)
 #, c-format
@@ -5742,6 +5770,10 @@ msgstr "Opções do Painel de Navegação..."
 msgid "Needs lock"
 msgstr "Requer bloqueio"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Requer bloqueio"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Aninhado"
@@ -5933,6 +5965,10 @@ msgstr "Nota: a pasta contém itens sem controlo de versões"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Nota: as preferências de tipo de letra também afectam o visualizador TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Nota: Isto afecta todos os clientes do Tortoise, e nã apenas o TortoiseSVN!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7287,6 +7323,10 @@ msgstr "SVN Revisão"
 msgid "SVN Status"
 msgstr "SVN Estado"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN Número de Estado"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -7468,7 +7508,7 @@ msgstr "Seleccionar arquivo de comparação..."
 
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
-msgstr "Seleccionar pasta para a qual exportar"
+msgstr "Seleccionar a directório para checkout"
 
 #. Resource IDs: (276)
 msgid "Select end revision"
@@ -7820,14 +7860,6 @@ msgstr ""
 "Mostrar ou ocultar a barra de ferramentas\n"
 "Alternar Barra de Ferramentas"
 
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Mostrar sobreposição para itens ignorados"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Mostrar sobreposição para itens sem controlo de versão"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Mostrar propriedades da revisão"
@@ -7897,7 +7929,7 @@ msgstr "Mostra o valor da propriedade estilo de fim-de-linha"
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
-msgstr "Mostra o registo do arquivo / pasta seleccionado"
+msgstr "Mostra o registo do ficheiro / pasta seleccionado"
 
 #. Resource IDs: (14)
 msgid "Shows the mime type of the versioned file"
@@ -8194,6 +8226,10 @@ msgstr "Trocar %s para %s, Revisão %s"
 msgid "Switch - TortoiseSVN"
 msgstr "Trocar - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Profundidade de Troca"
+
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
 msgstr "Trocar Esquerda<->Direita"
@@ -8470,7 +8506,7 @@ msgstr "A última integração tentou adicionar o ficheiro '%s'"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the directory '%s'"
-msgstr "A última integração tentou apagar/mover/alterar o nome do directório '%s'"
+msgstr "A última operação de integração tentou apagar/mover/alterar o nome do directório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8500,7 +8536,7 @@ msgstr "A última comutação tentou adicionar o ficheiro '%s'"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to delete/move/rename the directory '%s'"
-msgstr "A última comutação tentou apagar/mover/alterar o nome do directório '%s'"
+msgstr "A última operação de comutação tentou apagar/mover/alterar o nome do directório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8510,7 +8546,7 @@ msgstr "A última comutação tentou apagar/mover/alterar o nome do ficheiro '%s
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr "A última comutação tentou modificar o directório '%s'"
+msgstr "A última operação de comutação tentou modificar o directório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8520,7 +8556,7 @@ msgstr "A última tentativa de comutação tentou modificar o ficheiro '%s'"
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr "A última actualização tentou adicionar o directório '%s'"
+msgstr "A última operação de actualização tentou adicionar o directório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8530,7 +8566,7 @@ msgstr "A última actualização tentou adicionar o ficheiro '%s'"
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the directory '%s'"
-msgstr "A última actualização tentou apagar/mover/alterar o nome do directório '%s'"
+msgstr "A última operação de actualização tentou apagar/mover/alterar o nome do directório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8540,7 +8576,7 @@ msgstr "A última actualização tentou apagar/mover/alterar o nome do ficheiro 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr "A última actualização tentou alterar o directório '%s'"
+msgstr "A última operação de actualização tentou alterar o directório '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8652,7 +8688,7 @@ msgstr ""
 "no arquivo de correcção não existe.\n"
 "O TortoiseMerge encontrou o caminho relativo\n"
 "<i>%2!s!</i>\n"
-"que parece corresponder à pasta à qual está a aplicar a correcção.\n"
+"que parece corresponder ao directório à qual estás a aplicar a correcção.\n"
 "\n"
 "Queres usar o caminho sugerido? Responder 'não' fecha o TortoiseMerge."
 
@@ -8944,7 +8980,7 @@ msgstr ""
 "assegure-se de que todos os itens filhos de uma pasta seleccionada\n"
 "também estão seleccionados na caixa de diálogo de submissão.\n"
 "Se isso não acontecer, o TortoiseSVN terá de fazer uma submissão não recursiva,\n"
-"que não permite a remoção de pastas."
+"que não permite a remoção de directórios ."
 
 #. Resource IDs: (284)
 msgid ""
@@ -9352,6 +9388,10 @@ msgstr "Retirar o controlo de versões"
 #. Resource IDs: (14)
 msgid "Unversion and add to &ignore list"
 msgstr "Remover controle de versão e adicionar á lista dos &ignorados"
+
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Sem contolo de versão"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -9850,6 +9890,14 @@ msgstr ""
 "Tem certeza absoluta de que deseja mover\n"
 "a pasta tronco?"
 
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Podes desactivar manipuladores de Sobreposição específicos aqui.\n"
+"Os manipuladores desactivados não consomem um recurso de sobreposição e permitem a outras extensões de shell mostrar as suas sobreposições."
+
 #. Resource IDs: (1001)
 #, c-format
 msgid "You can paste bitmap with the size (%d x %d) only!"
@@ -9878,7 +9926,7 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
-"Largou mais do que um arquivo ou pasta com a intenção de os adicionar ao repositório.\n"
+"Largou mais do que um ficheiro ou pasta com a intenção de os adicionar ao repositório.\n"
 "Não é possível fazê-lo num único passo, pelo que o TortoiseSVN\n"
 "adicionará cada arquivo/pasta individualmente, criando uma nova revisão\n"
 "para cada item adicionado.\n"
@@ -10879,6 +10927,12 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "&Para o URL:"
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Mostrar sobreposição para itens ignorados"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Mostrar sobreposição para itens sem controlo de versão"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Autor:                                     Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
@@ -10895,8 +10949,6 @@ msgstr "{BugTraq}"
 #~ msgstr "A partir de URL:"
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "Ocultar cam&inhos alterados não relacionados"
-#~ msgid "Unversioned"
-#~ msgstr "Sem contolo de versão"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
