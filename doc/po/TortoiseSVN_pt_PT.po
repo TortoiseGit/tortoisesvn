@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-23 01:03-0000\n"
+"PO-Revision-Date: 2010-03-24 23:34-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7214,39 +7214,39 @@ msgstr "Todas as opções de filtro tentam perder o mínimo de informação poss
 
 #. (para)
 msgid "If you want to check the server again for newer information, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer commits and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr ""
+msgstr "Se quiseres consultar novamente o servidor por nova informação poderás simplesmente refrescar a vista usando o  <keycap>F5</keycap>. Se estiveres a usar a cache de registo (activada por defeito) o repositório será consultado para verificar novas submissões e buscará somente as novas. Se a cache de registo está em modo fora-de-linha, esta operação irá também tentar retornar ao modo em-linha."
 
 #. (para)
 msgid "If you are using the log cache and you think the message content or author may have changed, you should use the log dialog to refresh the messages you need. Since the revision graph works from the repository root, we would have to invalidate the entire log cache, and refilling it could take a <emphasis>very</emphasis> long time."
-msgstr ""
+msgstr "Se estás a usar a cache de registo, e desconfias que o conteúdo da mensagem ou o autor foram alterados, então deverás recorrer à caixa de diálogo de registo para refrescar as mensagens de que necessitas. Desde que o gráfico de revisões funciona a partir da raiz do repositório, teríamos de invalidar toda a cache de registo, e uma recarga poderia levar um tempo <emphasis>muito</emphasis> longo."
 
 #. (title)
 msgid "Pruning Trees"
-msgstr ""
+msgstr "Podar as Árvores"
 
 #. (para)
 msgid "A large tree can be difficult to navigate and sometimes you will want to hide parts of it, or break it down into a forest of smaller trees. If you hover the mouse over the point where a node link enters or leaves the node you will see one or more popup buttons which allow you to do this."
-msgstr ""
+msgstr "Uma árvore grande pode-se tornar difícil de navegar e por vezes tu quererás esconder algumas partes, ou parti-la numa floresta de árvores mais pequenas. Se manteres o rato sobre o ponto onde um nó de ligação entra ou sai do nó, irás ver um ou mais botões de aparição que te permitiram fazer isso."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Click on the minus button to collapse the attached sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Clica no botão de subtracção para colapsar a sub-árvore anexada."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphExpand.png\"/> Click on the plus button to expand a collapsed tree. When a tree has been collapsed, this button remains visible to indicate the hidden sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphExpand.png\"/> Clica no botão de adição para expandir a árvore colapsada. Quando uma árvore está colapsada este botão mantém-se visível para sinalizar a sub-árvore escondida."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphSplit.png\"/> Click on the cross button to split the attached sub-tree and show it as a separate tree on the graph."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphSplit.png\"/> Clica no botão da cruz para dividir a sub-árvore anexada e mostrá-la no gráfico como uma árvore separada."
 
 #. (para)
 msgid "<graphic fileref=\"../images/RevGraphJoin.png\"/> Click on the circle button to reattach a split tree. When a tree has been split away, this button remains visible to indicate that there is a separate sub-tree."
-msgstr ""
+msgstr "<graphic fileref=\"../images/RevGraphJoin.png\"/> Clica no botão com o círculo para re-anexar a árvore dividida. Quando uma árvore foi dividida este botão permanece visível para indicar que existe uma sub-árvore separada."
 
 #. (para)
 msgid "Click on the graph background for the main context menu, which offers options to <guilabel>Expand all</guilabel> and <guilabel>Join all</guilabel>. If no branch has been collapsed or split, the context menu will not be shown."
-msgstr ""
+msgstr "Clica no fundo do gráfico para obteres o menu de contexto que te oferece opções para <guilabel>Expandir todosl</guilabel> e <guilabel>Juntar todos</guilabel>. Se não existem nenhum ramo colapsado ou dividido, o menu de contexto não será mostrado."
 
 #. (title)
 msgid "Exporting a Subversion Working Copy"
