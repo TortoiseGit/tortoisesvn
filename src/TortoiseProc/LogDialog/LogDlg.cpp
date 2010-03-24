@@ -315,7 +315,7 @@ BOOL CLogDlg::OnInitDialog()
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
 	// make the log message rich edit control send a message when the mouse pointer is over a link
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK);
-	DWORD dwStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_SUBITEMIMAGES;
+	DWORD dwStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER;
 
 	// we *could* enable checkboxes on pre Vista OS too, but those don't have
 	// the LVS_EX_AUTOCHECKSELECT style. Without that style, users could get
@@ -2740,8 +2740,16 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
     rItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;
     listCtrl.GetItem(&rItem);
 
+
     CRect rect;
     listCtrl.GetSubItemRect((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
+
+    // the rect we get for column 0 always extends over the whole row instead of just
+    // the column itself. Since we must not redraw the background for the whole row (other columns
+    // might not be asked to redraw), we have to find the right border of the column
+    // another way.
+    if (pLVCD->iSubItem == 0)
+        rect.right = listCtrl.GetColumnWidth(0);
 
     // Fill the background
     if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
@@ -2820,7 +2828,6 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
     if (ranges.size())
     {
         int drawPos = 0;
-        DrawListColumnBackground(listCtrl, pLVCD, pLogEntry);
 
         // even though we initialize the 'rect' here with nmcd.rc,
         // we must not use it but use the rects from GetItemRect()
@@ -2829,11 +2836,18 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         CRect rect = pLVCD->nmcd.rc;
 
         // find the margin where the text label starts
-        RECT labelRC, boundsRC, iconRC;
+        CRect labelRC, boundsRC, iconRC;
+
         listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &labelRC, LVIR_LABEL);
         listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &iconRC, LVIR_ICON);
         listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &boundsRC, LVIR_BOUNDS);
+
+        DrawListColumnBackground(listCtrl, pLVCD, pLogEntry);
         int leftmargin = labelRC.left - boundsRC.left;
+        if (pLVCD->iSubItem)
+        {
+            leftmargin -= iconRC.Width();
+        }
         if (pLVCD->iSubItem != 0)
             listCtrl.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
@@ -2848,7 +2862,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         {
             borderWidth = GetSystemMetrics(SM_CXBORDER);
         }
-        
+
         // draw the icon for the first column
         if (pLVCD->iSubItem == 0)
         {
@@ -2872,7 +2886,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
                 leftmargin -= iconRC.left;
             }
         }
-        InflateRect(&rect, -(2*borderWidth), -(2*borderWidth));
+        InflateRect(&rect, -(2*borderWidth), 0);
 
         rect.left += leftmargin;
         RECT rc = rect;
@@ -2885,8 +2899,14 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         {
             DrawText(pLVCD->nmcd.hdc, text.c_str(), -1, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER|DT_NOPREFIX);
             rect.left = rect.right-(rc.right-rc.left);
+            if (!theme.IsAppThemed() || SysInfo::Instance().IsXP())
+            {
+                rect.left += 2*borderWidth;
+                rect.right += 2*borderWidth;
+            }
         }
         SetTextColor(pLVCD->nmcd.hdc, pLVCD->clrText);
+        SetBkMode(pLVCD->nmcd.hdc, TRANSPARENT);
         for (std::vector<CHARRANGE>::iterator it = ranges.begin(); it != ranges.end(); ++it)
         {
             rc = rect;
