@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-25 00:46-0000\n"
+"PO-Revision-Date: 2010-03-25 01:22-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7327,7 +7327,7 @@ msgstr "A resposta é surpreendente simples - exportar a própria pasta! O Torto
 
 #. (title)
 msgid "Relocating a working copy"
-msgstr ""
+msgstr "Reposicionar uma cópia de trabalho"
 
 #. (primary)
 msgid "relocate"
@@ -7355,11 +7355,11 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all <filename>entries</filename> files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
-msgstr ""
+msgstr "<placeholder-1/> Se o teu repositório por alguma razão mudou a sua localização (IP/URL). Talvez estejas emperrado e não consigas submeter e não queres SVN exporta outra vez a tua cópia de trabalho a partir da nova localização, e mover todas as tuas alterações para a tua nova cópia de trabalho, o comando  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reposicionar</guimenuitem></menuchoice> é o que procuras. Basicamente não faz muito: pesquisa todas as <filename>entradas</filename> de ficheiros na pasta <filename>.svn</filename> e altera o URL das entradas para o novo valor."
 
 #. (para)
 msgid "You may be surprised to find that TortoiseSVN contacts the repository as part of this operation. All it is doing is performing some simple checks to make sure that the new URL really does refer to the same repository as the existing working copy."
-msgstr ""
+msgstr "Poderás ficar surpreendido por descobrires que o TortoiseSVN contacta o repositório como parte desta operação. Tudo o que faz é executar algumas simples verificações para ter a certeza que o novo URL refere-se realmente ao mesmo repositório da cópia de trabalho existente."
 
 #. (para)
 msgid "The IP address of the server has changed."
@@ -7375,23 +7375,23 @@ msgstr ""
 
 #. (para)
 msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
-msgstr ""
+msgstr "<emphasis>Esta é uma operação muito raramente usada</emphasis>. O comando reposicionar é <emphasis>só</emphasis> usado se o URL da raiz do repositório foi alterado. Possíveis razões: <placeholder-1/> Posto de outra maneira, necessitas de reposicionar quando a tua cópia de trabalho se refere à mesma localização no mesmo repositório, mas o próprio repositório foi deslocado."
 
 #. (para)
 msgid "You want to move to a different Subversion repository. In that case you should perform a clean checkout from the new repository location."
-msgstr ""
+msgstr "Se queres mover para um repositório do Subversion diferente. Nesse caso deverás executar um SVN exportar limpo a partir da localização do novo repositório."
 
 #. (para)
 msgid "You want to switch to a different branch or directory within the same repository. To do that you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>. Read <xref linkend=\"tsvn-dug-switch-1\"/> for more information."
-msgstr ""
+msgstr "Se queres trocar para um ramo diferente ou pasta dentro do mesmo repositório. Para o fazeres deverás usar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Trocar...</guimenuitem></menuchoice>. Consulta <xref linkend=\"tsvn-dug-switch-1\"/> para mais informação."
 
 #. (para)
 msgid "It does not apply if: <placeholder-1/>"
-msgstr ""
+msgstr "Não se aplica se: <placeholder-1/>"
 
 #. (para)
 msgid "If you use relocate in either of the cases above, it <emphasis>will corrupt your working copy</emphasis> and you will get many unexplainable error messages while updating, committing, etc. Once that has happened, the only fix is a fresh checkout."
-msgstr ""
+msgstr "Se reposicionares em qualquer dos casos acima citados, irás <emphasis>corromper a tua cópia de trabalho</emphasis>, e irás obter muitas mensagens de erro inexplicáveis enquanto actualizares, submeteres, etc. Uma vez que isso acontecer a única reparação a fazer é efectuar um SVN exportar de fresco. "
 
 #. (title)
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
