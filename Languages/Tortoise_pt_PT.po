@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-24 13:32+0100\n"
+"PO-Revision-Date: 2010-03-25 12:04+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -223,7 +223,7 @@ msgstr "%s, mas foi apagado, movido or renomeado localmente."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, mas foi obstruido na cópia de trabalho."
+msgstr "%s, mas foi obstruído na cópia de trabalho."
 
 #. Resource IDs: (3850)
 #, c-format
@@ -526,7 +526,7 @@ msgstr "&Comparar com revisão anterior"
 
 #. Resource IDs: (1528)
 msgid "&Directories"
-msgstr "&Diretórios"
+msgstr "&Directórios"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
@@ -1152,11 +1152,11 @@ msgstr "&Actualizar"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr "At&ualizar item para revisão"
+msgstr "Act&ualizar item para revisão"
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
-msgstr "At&ualizar para revisão..."
+msgstr "Act&ualizar para revisão..."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1395,7 +1395,7 @@ msgid ""
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Uma lista de caminhos separados por fins-de-linha para os quais será utilizada a sobreposição de ícones.\r\n"
-"Se addicionar im carácter '?' ao final de um caminho, só o caminho indicado é incluído.\r\n"
+"Se adicionar im carácter '?' ao final de um caminho, só o caminho indicado é incluído.\r\n"
 "Se adicionar um carácter '*' ao final de um caminho, todos os ficheiros e sub-directórios sob o caminho são incluídos."
 
 #. Resource IDs: (197)
@@ -1405,7 +1405,7 @@ msgid ""
 "An empty list will allow the context menu on all paths."
 msgstr ""
 "Uma lista de caminhos separados por fins-de-linha para os quais não será utilizada a sobreposição de ícones.\r\n"
-"Se adicionar um caractere '*' ao final de um caminho, todos os arquivos e pastas dentro desse caminho serão\r\n"
+"Se adicionar um carácter '*' ao final de um caminho, todos os arquivos e pastas dentro desse caminho serão\r\n"
 "também excluídos. Uma lista vazia permitirá a sobreposição de ícones em todos os caminhos."
 
 #. Resource IDs: (194)
@@ -1416,7 +1416,7 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Uma lista de caminhos separados por fins-de-linha para os quais não será utilizada a sobreposição de ícones.\r\n"
-"Se addicionar im carácter '?' ao final de um caminho, só o caminho indicado é excluído.\r\n"
+"Se adicionar im carácter '?' ao final de um caminho, só o caminho indicado é excluído.\r\n"
 "Se adicionar um carácter '*' ao final de um caminho, todos os ficheiros e sub-directórios sob o caminho são excluídos.\r\n"
 "Uma lista vazia permite a sobreposição em todos os caminhos."
 
@@ -2287,7 +2287,7 @@ msgstr "Checkout"
 
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
-msgstr "&Directório de &checkout:"
+msgstr "&Directório de checkout:"
 
 #. Resource IDs: (77)
 msgid "Checkout - TortoiseSVN"
@@ -2453,7 +2453,7 @@ msgstr ""
 
 #. Resource IDs: (32870)
 msgid "Collapsed"
-msgstr "Contraido"
+msgstr "Contraído"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3274,7 +3274,7 @@ msgstr "Compara o arquivo da cópia de trabalho com o que existia antes da últi
 
 #. Resource IDs: (1513)
 msgid "Directories"
-msgstr "Diretórios"
+msgstr "Directórios"
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -3393,7 +3393,7 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr ""
-"Queres recarregar os documentos para que reflitam as alterações das preferências?\n"
+"Queres recarregar os documentos para que reflictam as alterações das preferências?\n"
 "Nota: perdes todas as alterações feitas!"
 
 #. Resource IDs: (563)
@@ -4108,7 +4108,7 @@ msgid ""
 "(separate multiple paths with the '*' char):"
 msgstr ""
 "Filtrar os caminhos que contém um dos strings seguintes\n"
-"(separe múltiplos caminhos com o caractér '*'):"
+"(separe múltiplos caminhos com o carácter '*'):"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
@@ -4733,7 +4733,7 @@ msgid ""
 "i.e. they get the modified overlay icon."
 msgstr ""
 "Se definido, os arquivos sem controlo de versão marcam o estado do directório pai como modificado,\r\n"
-"i.e., ficão com o ícone de modificação sobreposto."
+"i.e., ficam com o ícone de modificação sobreposto."
 
 #. Resource IDs: (2052)
 msgid "If the graph contains multiple trees, separate them by slight variations in background color."
@@ -6280,7 +6280,7 @@ msgstr "Correcção seleccionada"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr "Arquivos de Correção (*.diff, *.patch)|*.diff;*.patch|Todos (*.*)|*.*||"
+msgstr "Ficheiros de correção (*.diff, *.patch)|*.diff;*.patch|Todos (*.*)|*.*||"
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -7650,7 +7650,7 @@ msgstr "Shell"
 
 #. Resource IDs: (145)
 msgid "Shell Icon Cache was rebuilt!"
-msgstr "Cache de Ícones de Shell reconstruída!"
+msgstr "A Cache de Ícones de Shell foi reconstruída!"
 
 #. Resource IDs: (2052)
 msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
@@ -8889,7 +8889,7 @@ msgstr "Não há nada para adicionar. Ou os arquivos e pastas já estão todos s
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
-msgstr "Não há nada para desbloquear. Não há arquivos com bloqueio nesta cópia de trabalho."
+msgstr "Não há nada para desbloquear. Não há arquivos bloqueados nesta cópia de trabalho."
 
 #. Resource IDs: (188)
 msgid "Thesaurus"
