@@ -2758,10 +2758,10 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
         int state = LISS_NORMAL;
         if (rItem.state & LVIS_SELECTED)
         {
-            if (::GetFocus() == m_LogList.m_hWnd)
-                state |= LISS_SELECTED;
+            if (::GetFocus() == listCtrl.m_hWnd)
+                state = LISS_SELECTED;
             else
-                state |= LISS_SELECTEDNOTFOCUS;
+                state = LISS_SELECTEDNOTFOCUS;
         }
         else
         {
@@ -2794,7 +2794,7 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
         HBRUSH brush;
         if (rItem.state & LVIS_SELECTED)
         {
-            if (::GetFocus() == m_LogList.m_hWnd)
+            if (::GetFocus() == listCtrl.m_hWnd)
                 brush = ::CreateSolidBrush(::GetSysColor(COLOR_HIGHLIGHT));
             else
                 brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
@@ -2872,18 +2872,21 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             // increased font sizes
             leftmargin = 4;
         }
+
+        LVITEM item = {0};
+        item.iItem = pLVCD->nmcd.dwItemSpec;
+        item.iSubItem = 0;
+        item.mask = LVIF_IMAGE | LVIF_STATE;
+        item.stateMask = (UINT)-1;
+        listCtrl.GetItem(&item);
+
         // draw the icon for the first column
         if (pLVCD->iSubItem == 0)
         {
             rect = boundsRC;
             rect.right = rect.left + listCtrl.GetColumnWidth(0) - 2*borderWidth;
             rect.left = iconRC.left;
-            LVITEM item = {0};
-            item.iItem = pLVCD->nmcd.dwItemSpec;
-            item.iSubItem = pLVCD->iSubItem;
-            item.mask = LVIF_IMAGE | LVIF_STATE;
-            item.stateMask = (UINT)-1;
-            listCtrl.GetItem(&item);
+
             if (item.iImage >= 0)
             {
                 POINT pt;
@@ -2914,7 +2917,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
                     if (listCtrl.GetHotItem() == item.iItem)
                         state = CBS_UNCHECKEDHOT;
                 }
-                if (state)
+                if ((state)&&(listCtrl.GetExtendedStyle() & LVS_EX_CHECKBOXES))
                 {
                     theme.Open(m_hWnd, L"BUTTON");
                     theme.DrawBackground(pLVCD->nmcd.hdc, BP_CHECKBOX, state, &irc, NULL);
@@ -2927,6 +2930,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         rect.left += leftmargin;
         RECT rc = rect;
 
+        theme.Open(listCtrl.GetSafeHwnd(), L"Explorer");
         // is the column left- or right-aligned? (we don't handle centered (yet))
         LVCOLUMN Column;
         Column.mask = LVCF_FMT;
@@ -2941,7 +2945,26 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
                 rect.right += 2*borderWidth;
             }
         }
-        SetTextColor(pLVCD->nmcd.hdc, pLVCD->clrText);
+        COLORREF textColor = pLVCD->clrText;
+        if ((item.state & LVIS_SELECTED)&&(::GetFocus() == listCtrl.m_hWnd))
+        {
+            // the theme API really is ridiculous. Instead of returning
+            // what was asked for, in most cases we get an "unsupported" error
+            // and have to fall back ourselves to the plain windows API to get
+            // whatever we want (colors, metrics, ...)
+            // What the API should do is to do the fallback automatically and
+            // return that value - Windows knows best to what it falls back
+            // if something isn't defined in the .msstyles file!
+            if (SysInfo::Instance().IsXP())
+            {
+                // we only do that on XP, because on Vista/Win7, the COLOR_HIGHLIGHTTEXT
+                // is *not* used but some other color I don't know where to get from
+                if (FAILED(theme.GetColor(LVP_LISTITEM, 0, TMT_HIGHLIGHTTEXT, &textColor)))
+                    textColor = GetSysColor(COLOR_HIGHLIGHTTEXT);
+            }
+        }
+
+        SetTextColor(pLVCD->nmcd.hdc, textColor);
         SetBkMode(pLVCD->nmcd.hdc, TRANSPARENT);
         for (std::vector<CHARRANGE>::iterator it = ranges.begin(); it != ranges.end(); ++it)
         {
@@ -2960,12 +2983,13 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
                 DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMax-drawPos, &rc, DT_SINGLELINE|DT_VCENTER|DT_NOPREFIX|DT_END_ELLIPSIS);
                 DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMax-drawPos, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER|DT_NOPREFIX|DT_END_ELLIPSIS);
                 rect.left = rc.right;
-                SetTextColor(pLVCD->nmcd.hdc, pLVCD->clrText);
+                SetTextColor(pLVCD->nmcd.hdc, textColor);
             }
             rc = rect;
             drawPos = it->cpMax;							
         }
         DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), -1, &rc, DT_SINGLELINE|DT_VCENTER|DT_NOPREFIX|DT_END_ELLIPSIS);
+        theme.Close();       
         return CDRF_SKIPDEFAULT;
     }
     return CDRF_DODEFAULT;
