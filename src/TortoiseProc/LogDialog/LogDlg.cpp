@@ -2863,6 +2863,15 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             borderWidth = GetSystemMetrics(SM_CXBORDER);
         }
 
+        if (listCtrl.GetExtendedStyle() & LVS_EX_CHECKBOXES)
+        {
+            // I'm not very happy about this fixed margin here
+            // but I haven't found a way to ask the system what
+            // the margin really is.
+            // At least it works on XP/Vista/win7, and even with
+            // increased font sizes
+            leftmargin = 4;
+        }
         // draw the icon for the first column
         if (pLVCD->iSubItem == 0)
         {
@@ -2872,7 +2881,8 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             LVITEM item = {0};
             item.iItem = pLVCD->nmcd.dwItemSpec;
             item.iSubItem = pLVCD->iSubItem;
-            item.mask = LVIF_IMAGE;
+            item.mask = LVIF_IMAGE | LVIF_STATE;
+            item.stateMask = (UINT)-1;
             listCtrl.GetItem(&item);
             if (item.iImage >= 0)
             {
@@ -2884,6 +2894,32 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
                 listCtrl.GetImageList(LVSIL_SMALL)->Draw(&dc, item.iImage, pt, ILD_TRANSPARENT);
                 dc.Detach();
                 leftmargin -= iconRC.left;
+            }
+            else
+            {
+                RECT irc = boundsRC;
+                irc.left += borderWidth;
+                irc.right = iconRC.left;
+
+                int state = 0;
+                if (item.state & LVIS_SELECTED)
+                {
+                    if (listCtrl.GetHotItem() == item.iItem)
+                        state = CBS_CHECKEDHOT;
+                    else
+                        state = CBS_CHECKEDNORMAL;
+                }
+                else
+                {
+                    if (listCtrl.GetHotItem() == item.iItem)
+                        state = CBS_UNCHECKEDHOT;
+                }
+                if (state)
+                {
+                    theme.Open(m_hWnd, L"BUTTON");
+                    theme.DrawBackground(pLVCD->nmcd.hdc, BP_CHECKBOX, state, &irc, NULL);
+                    theme.Close();
+                }
             }
         }
         InflateRect(&rect, -(2*borderWidth), 0);
