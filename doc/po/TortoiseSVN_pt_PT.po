@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-25 01:22-0000\n"
+"PO-Revision-Date: 2010-03-25 23:44-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7395,7 +7395,7 @@ msgstr "Se reposicionares em qualquer dos casos acima citados, irás <emphasis>c
 
 #. (title)
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
-msgstr ""
+msgstr "Integração com Sistemas de identificação de Bugs/Gestores de Problemas"
 
 #. (primary)
 msgid "bug tracking"
@@ -7416,55 +7416,55 @@ msgstr ""
 
 #. (para)
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
-msgstr ""
+msgstr "É muito comum no desenvolvimento de Software que as alterações possam ser relacionadas com um problema ou bug específico. Os utilizadores dos sistemas de identificação de bugs (gestores de problemas) gostariam de associar a alterações que fazem no Subversion, com um ID específico, no seu sistema de gestão de problemas. A maioria dos gestores de problemas providencia um script de gancho pre-commit que analisa a mensagem de registo de modo a encontrar o ID do bug, com o qual a submissão está associada. Isto é algo sujeito a erros, visto que confia que o utilizador escreva uma mensagem de registo correcta, para que o script de gancho pre-commit o possa analisar correctamente."
 
 #. (para)
 msgid "When the user enters a log message, a well defined line including the issue number associated with the commit can be added automatically. This reduces the risk that the user enters the issue number in a way the bug tracking tools can't parse correctly."
-msgstr ""
+msgstr "Quando o utilizador introduz a mensagem de registo, pode ser automaticamente adicionada uma linha bem definida, que incluí o número de problema associado com a submissão. Isto irá reduzir o risco de que o utilizador introduza um número de problema de uma maneira tal que, as ferramentas de identificação de bugs não o consigam analisar correctamente."
 
 #. (para)
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
-msgstr ""
+msgstr "Ou o TortoiseSVN poderá salientar a parte da mensagem inserida, que é reconhecida pelo gestor de problemas. Dessa maneira o utilizador saberá que a mensagem de erro pode ser correctamente analisada."
 
 #. (para)
 msgid "When the user browses the log messages, TortoiseSVN creates a link out of each bug ID in the log message which fires up the browser to the issue mentioned."
-msgstr ""
+msgstr "Quando o utilizador navega nas mensagens de registo, o TortoiseSVN cria uma hiperligação a partir de cada ID de bug na mensagem de erro, que aponta o navegador de internet para o problema mencionado."
 
 #. (para)
 msgid "TortoiseSVN can help the user in two ways: <placeholder-1/>"
-msgstr ""
+msgstr "O TortoiseSVN pode ajudar o utilizador de duas maneiras: <placeholder-1/>"
 
 #. (title)
 msgid "Adding Issue Numbers to Log Messages"
-msgstr ""
+msgstr "Adicionar Números de Problemas nas Mensagens de Registo"
 
 #. (para)
 msgid "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr ""
+msgstr "Tu podes integrar a ferramenta de identificação de bugs da tua escolha com o TortoiseSVN. Para o fazer, terás de definir algumas propriedades que começam por <literal>bugtraq:</literal>. Estas deverão ser colocadas nas pastas: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 msgid "Set this property to the URL of your bug tracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issue number you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bug tracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issue number and not the link to it. e.g the TortoiseSVN project is using <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
-msgstr ""
+msgstr "Configura esta propriedade com o URL da tua ferramenta de identificação de bugs. Deverá ser um URI propriamente codificado e terá de conter <literal>%BUGID%</literal>. O <literal>%BUGID%</literal> é substituído pelo número de problema que introduzires. Isto permite ao TortoiseSVN mostrar uma hiperligação na caixa de diálogo de registo, para que quando estiveres a olhar para o registo de revisões, possas saltar directamente para a tua ferramenta de identificação de bugs. Tu não precisas de providenciar essa propriedade, mas então o TortoiseSVN apenas mostrará o número do problema, e não a hiperligação para este. E.g. o projecto TortoiseSVN usa <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful when your issue tracker is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>bugtraq:url</literal> property. There are two ways to specify a relative URL:"
-msgstr ""
+msgstr "Poderás também usar URLs relativos em vez de absolutos. Isto é útil quando o teu gestor de problemas está no mesmo domínio/servidor que o teu repositório de fontes. No caso do nome de domínio se alterar, tu não precisarás de ajustar a propriedade <literal>bugtraq:url</literal>. Existem então duas maneiras de especificar um URL relativo:"
 
 #. (para)
 msgid "If it begins with the string <literal>^/</literal> it is assumed to be relative to the repository root. For example, <literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located on <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
-msgstr ""
+msgstr "Se começa com a cadeia de caracteres <literal>^/</literal> é assumido que é relativo à raiz do repositório. Por exemplo, <literal>^/../?do=details&amp;id=%BUGID%</literal> irá ser resolvido para <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> se o teu repositório está localizado em <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
 
 #. (para)
 msgid "A URL beginning with the string <literal>/</literal> is assumed to be relative to the server's hostname. For example <literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located anywhere on <systemitem class=\"url\">http://tortoisesvn.net</systemitem>."
-msgstr ""
+msgstr "Um URL que comece pela cadeia de caracteres <literal>/</literal> é assumido como sendo relativo ao nome do servidor. Por exemplo <literal>/?do=details&amp;id=%BUGID%</literal> será resolvido para <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> se o teu repositório está localizado em qualquer ponto do dominio <systemitem class=\"url\">http://tortoisesvn.net</systemitem>."
 
 #. (para)
 msgid "Set this to <literal>true</literal>, if you want TortoiseSVN to warn you because of an empty issue-number text field. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>false</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr "Fixa este a <literal>true</literal> se queres que o TortoiseSVN te avise, que o campo de texto do número-de-problema está vazio. Valores válidos são <literal>true/false</literal>. <emphasis> Se não definido é assumido o valor <literal>false</literal>. </emphasis>"
 
 #. (para)
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <emphasis>regular expressions</emphasis>. The properties used by both approaches are: <placeholder-1/>"
-msgstr ""
+msgstr "Existem duas maneiras de integrar o TortoiseSVN com os gestores de problemas. Um é baseado em cadeias de caracteres simples, a outra é baseado em <emphasis>expressões regulares</emphasis>. As propriedades usadas em ambas as abordagens são: <placeholder-1/>"
 
 #. (title)
 msgid "Issue Number in Text Box"
