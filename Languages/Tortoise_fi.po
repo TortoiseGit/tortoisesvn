@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-16 19:12+0200\n"
+"PO-Revision-Date: 2010-03-26 23:37+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1447,18 +1447,21 @@ msgstr "Kokoelma käyttäjän kansioille määrittämiä ominaisuuksia näytett�
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "Uudempi versio on saatavilla.\r\n"
-"Siirry osoitteeseen http://tortoisesvn.tigris.org ladataksesi uusimman version."
+"Siirry osoitteeseen http://tortoisesvn.net ladataksesi uusimman version."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Rivinvaihdoin eroteltu lista polkuja, joille kuvakepäällys näytetään.\r\n"
-"Jos lisäät '*' -merkin polun loppuun, kaikki tiedostot ja alikansiot polun sisällä otetaan myös mukaan."
+"Oletusarvoisesti kaikki tiedostot ja alikansiot polun sisällä otetaan myös mukaan.\r\n"
+"(voit myös halutessasi lisätä '*'-merkin polun loppuun).\r\n"
+"Jos lisäät '?' -merkin polun loppuun, vain kyseinen polku otetaan mukaan."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1473,11 +1476,14 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Rivinvaihdoin eroteltu lista polkuja, joille kuvakepäällystä ei näytetä.\r\n"
-"Jos lisäät '*'-merkin polun loppuun, kaikki tiedostot ja alikansiot polun sisällä jätetään myös pois.\r\n"
+"Oletusarvoisesti kaikki tiedostot ja alikansiot polun sisällä jätetään myös pois.\r\n"
+"(voit myös halutessasi lisätä '*'-merkin polun loppuun).\r\n"
+"Jos lisäät '?' -merkin polun loppuun, vain kyseinen polku jätetään pois.\r\n"
 "Tyhjä lista sallii kuvakepäällykset kaikilla poluilla."
 
 #. Resource IDs: (3843)
@@ -3625,6 +3631,10 @@ msgstr ""
 "Salli tämä vain jos työskentelet web-projektien kanssa VS.NET 2003:lla!\r\n"
 "Sinun täytyy käynnistää tietokone uudelleen, jotta asetus tulisi voimaan."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Aktiiviset kuvakepäällyskäsittelijät"
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4150,6 +4160,10 @@ msgstr ""
 "Täytä"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Suodatuksen tulokset"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4662,6 +4676,10 @@ msgstr "Kuvakepäällykset / Tilasarakkeet"
 msgid "Icon Overlays::Icon Set"
 msgstr "Kuvakepäällykset::Kuvakejoukko"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Kuvakepäällykset::Kuvakekäsittelijät"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Kuvakkeet/Suunnittelu/Koodi:\t\tLuebbe Onken"
@@ -4846,6 +4864,10 @@ msgstr "Ohita muuttuneet &tyhjämerkit"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Ohita muuttuneet tyhjämerkit"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Ohitettu"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5334,6 +5356,10 @@ msgstr "Lukon omistaja:"
 msgid "Lock stolen by %s"
 msgstr "%s varasti lukon"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Lukittu"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5801,6 +5827,10 @@ msgstr "Navigointipaneelin asetukset..."
 msgid "Needs lock"
 msgstr "Tarvitsee lukon"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Tarvitsee lukon"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Sisäkkäinen"
@@ -5990,6 +6020,10 @@ msgstr "Huomaa: kansio sisältää versioimattomia kohteita"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Huomaa: kirjasinasetukset vaikuttavat myös TortoiseUDiff-ohjelmaan"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Huomaa: tämä vaikuttaa kaikkiin TortoiseOverlays-komponenttia käyttäviin ohjelmiin!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7344,6 +7378,10 @@ msgstr "SVN-versio"
 msgid "SVN Status"
 msgstr "SVN-tila"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN-tila"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN-paikannin"
@@ -7873,14 +7911,6 @@ msgid ""
 msgstr ""
 "Näytä tai kätke työkalurivi\n"
 "Työkalurivin tilanvaihto"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Näytä kuvakepäällys ohitetuille kohteille"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Näytä kuvakepäällys versioimattomille kohteille"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9409,6 +9439,10 @@ msgstr "Poista versiointi"
 msgid "Unversion and add to &ignore list"
 msgstr "Poista versiointi ja lisää &ohituslistaan"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Versioimaton"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Versioimattomat tiedostot merkitsevät yläkansion muutetuksi"
@@ -9899,6 +9933,14 @@ msgid ""
 msgstr ""
 "Olet siirtämässä päähaaraa (trunk-hakemistoa)!\n"
 "Oletko täysin varma että haluat siirtää trunk-hakemiston?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Täällä voit ottaa haluamasi kuvakepäällyskäsittelijät pois käytöstä.\n"
+"Käytöstä poistetut käsittelijät sallivat muiden laajennosten näyttää omia kuvakepäällyksiään."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10925,6 +10967,10 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Näytä kuvakepäällys ohitetuille kohteille"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Näytä kuvakepäällys versioimattomille kohteille"
 #~ msgid "&To URL: "
 #~ msgstr "Paikantim&een:"
 #~ msgid "&To path: "
@@ -10942,8 +10988,6 @@ msgstr "{BugTraq}"
 #~ msgstr "P&iilota riippumattomat muuttuneet polut"
 #~ msgid "Edit conflict"
 #~ msgstr "Muokkaa ristiriitaa"
-#~ msgid "Unversioned"
-#~ msgstr "Versioimaton"
 #~ msgid "From URL:"
 #~ msgstr "Paikantimesta:"
 #~ msgid ""
