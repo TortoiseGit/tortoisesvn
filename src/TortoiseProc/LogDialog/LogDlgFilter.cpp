@@ -460,3 +460,8 @@ bool CLogDlgFilter::BenefitsFromMT() const
 
 	return true;
 }
+
+bool CLogDlgFilter::IsFilterActive() const
+{
+    return !(patterns.empty() && subStrings.empty());
+}

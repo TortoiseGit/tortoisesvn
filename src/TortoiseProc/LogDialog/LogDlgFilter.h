@@ -122,4 +122,8 @@ public:
     /// in multiple threads. Empty filters don't need MT as well.
 
     bool BenefitsFromMT() const;
+
+    /// returns true if there's something to filter for
+    
+    bool IsFilterActive() const;
 };
