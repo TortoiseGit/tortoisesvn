@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-25 23:44-0000\n"
+"PO-Revision-Date: 2010-03-26 00:18-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7468,27 +7468,27 @@ msgstr "Existem duas maneiras de integrar o TortoiseSVN com os gestores de probl
 
 #. (title)
 msgid "Issue Number in Text Box"
-msgstr ""
+msgstr "Número de Problema numa Caixa de Texto"
 
 #. (para)
 msgid "This property activates the bug tracking system in <emphasis>Input field</emphasis> mode. If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the log message. It must contain <literal>%BUGID%</literal>, which is replaced with the issue number on commit. This ensures that your commit log contains a reference to the issue number which is always in a consistent format and can be parsed by your bug tracking tool to associate the issue number with a particular commit. As an example you might use <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
-msgstr ""
+msgstr "Esta propriedade activa o sistema de identificação de bugs no modo <emphasis>Campo de Entrada</emphasis>. Se esta propriedade é fixada então o TrotoiseSVN ir-te-á pedir para introduzires o número de problema quando submeteres as tuas alterações. Será usado para adicionar uma linha no fim da mensagem de registo. Deverá conter <literal>%BUGID%</literal>, que será substituído pelo número de problema que introduzires ao submeter. Isto garante que teu registo de submissão contém uma referência ao número de problema, que estará sempre num formato consistente e poderá ser analisado pela tua ferramenta de identificação de problemas, de forma a associar o número de problema com uma submissão particular. Como exemplo poderás usar <literal>Issue : %BUGID%</literal>, mas tal dependerá da tua ferramenta."
 
 #. (para)
 msgid "This property defines if the bug-ID is appended (true) to the end of the log message or inserted (false) at the start of the log message. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed, so that existing projects don't break. </emphasis>"
-msgstr ""
+msgstr "Esta propriedade define se o bug-ID é anexado (true) ao fim da mensagem de registo ou inserido (false) no início da mensagem de registo. Valores válidos são <literal>true/false</literal>. <emphasis>Se não definido, é assumido o valor<literal>true</literal> para que os projectos já existentes não sejam danificados.</emphasis>"
 
 #. (para)
 msgid "This text is shown by TortoiseSVN on the commit dialog to label the edit box where you enter the issue number. If it's not set, <literal>Bug-ID / Issue-Nr:</literal> will be displayed. Keep in mind though that the window will not be resized to fit this label, so keep the size of the label below 20-25 characters."
-msgstr ""
+msgstr "Este texto é mostrado pelo TortoiseSVN na caixa de diálogo submeter, para etiquetar a caixa de edição onde irás introduzir o número do problema. Se não fixado, será mostrado <literal>Bug-ID / Issue-Nr:</literal>. Tem em mente que a janela não será redimensionada para acomodar esta etiqueta, pelo que, mantém o tamanho da etiqueta abaixo dos 20-25 caracteres."
 
 #. (para)
 msgid "If set to <literal>true</literal> only numbers are allowed in the issue-number text field. An exception is the comma, so you can comma separate several numbers. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed. </emphasis>"
-msgstr ""
+msgstr "Se configurado a <literal>true</literal> só serão permitidos números no campo de texto do número-de-problema. Uma excepção é a vírgula para que possas separar vários números. Valores válidos são <literal>true/false</literal>. <emphasis> Se não definido, é assumido <literal>true</literal>. </emphasis>"
 
 #. (para)
 msgid "In the simple approach, TortoiseSVN shows the user a separate input field where a bug ID can be entered. Then a separate line is appended/prepended to the log message the user entered. <placeholder-1/>"
-msgstr ""
+msgstr "Na abordagem mais simples o TortoiseSVN mostra ao utilizador um campo de entrada separado onde o ID do bug pode ser introduzido. Então uma linha separada é pre/pós anexada à mensagem de registo que o utilizador introduziu. <placeholder-1/>"
 
 #. (title)
 msgid "Issue Numbers Using Regular Expressions"
