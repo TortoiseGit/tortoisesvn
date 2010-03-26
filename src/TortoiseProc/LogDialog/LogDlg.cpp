@@ -2569,7 +2569,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             case 0:	// revision
                 if (pLogEntry == NULL)
                     return;
-                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))&&(!m_sFilterText.IsEmpty()))
+                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))&&(m_filter.IsFilterActive()))
                 {
                     *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                     return;
@@ -2616,7 +2616,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             case 2: // author
                 if (pLogEntry == NULL)
                     return;
-                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))&&(!m_sFilterText.IsEmpty()))
+                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))&&(m_filter.IsFilterActive()))
                 {
                     *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                     return;
@@ -2625,7 +2625,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             case 3: // date
                 if (pLogEntry == NULL)
                     return;
-                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_DATE))&&(!m_sFilterText.IsEmpty()))
+                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_DATE))&&(m_filter.IsFilterActive()))
                 {
                     *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                     return;
@@ -2636,7 +2636,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                     return;
                 if (m_bShowBugtraqColumn)
                 {
-                    if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))&&(!m_sFilterText.IsEmpty()))
+                    if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))&&(m_filter.IsFilterActive()))
                     {
                         *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                         return;
@@ -2647,7 +2647,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             case 5: // log msg
                 if (pLogEntry == NULL)
                     return;
-                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))&&(!m_sFilterText.IsEmpty()))
+                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))&&(m_filter.IsFilterActive()))
                 {
                     *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                     return;
@@ -2721,7 +2721,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
     }
     else if ( pLVCD->nmcd.dwDrawStage == (CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM))
     {
-        if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))&&(!m_sFilterText.IsEmpty()))
+        if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))&&(m_filter.IsFilterActive()))
         {
             *pResult = DrawListItemWithMatches(m_ChangedFileListCtrl, pLVCD, NULL);
             return;
@@ -3198,6 +3198,8 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_DateTo.SetTime(&m_timTo);
 	m_DateFrom.SetRange(&m_timFrom, &m_timTo);
 	m_DateTo.SetRange(&m_timFrom, &m_timTo);
+    
+    m_filter = CLogDlgFilter();
 
     m_LogList.SetItemCountEx(0);
     m_LogList.SetItemCountEx(ShownCountWithStopped());
@@ -3205,6 +3207,8 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols(true);
 	m_LogList.SetRedraw(true);
+    m_LogList.Invalidate();
+    m_ChangedFileListCtrl.Invalidate();
 
     theApp.DoWaitCursor(-1);
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
@@ -3458,6 +3462,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(false);
+        m_filter = CLogDlgFilter();
         m_logEntries.Filter (m_tFrom, m_tTo);
 		m_LogList.SetItemCountEx(0);
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
@@ -3465,6 +3470,8 @@ void CLogDlg::OnEnChangeSearchedit()
 		m_LogList.SetRedraw(false);
 		ResizeAllListCtrlCols(true);
 		m_LogList.SetRedraw(true);
+        m_LogList.Invalidate();
+        m_ChangedFileListCtrl.Invalidate();
 		theApp.DoWaitCursor(-1);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
