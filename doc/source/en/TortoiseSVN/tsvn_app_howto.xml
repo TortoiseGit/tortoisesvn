@@ -531,7 +531,7 @@ TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
 			TortoiseSVN has a convenient shortcut for doing this.
 			<menuchoice>
 				<guimenu>TortoiseSVN</guimenu>
-				<guimenuitem>Delete and add to ignore list</guimenuitem>
+				<guimenuitem>Unversion and add to ignore list</guimenuitem>
 			</menuchoice>
 			will first mark the file/folder for deletion from the repository,
 			keeping the local copy. It also adds this item to the ignore list
