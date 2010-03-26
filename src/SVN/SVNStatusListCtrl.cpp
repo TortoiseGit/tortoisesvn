@@ -2354,7 +2354,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						// reverting missing folders is not possible
 						if (!entry->IsFolder() || (wcStatus != svn_wc_status_missing))
 						{
-							popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUREVERT, IDI_REVERT);
+                            if (wcStatus == svn_wc_status_added)
+                                popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUUNDOADD, IDI_REVERT);
+                            else
+                                popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUREVERT, IDI_REVERT);
 						}
 					}
 				}
