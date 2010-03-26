@@ -58,6 +58,7 @@ enum
 
 	// size of the expand / collapse / split / join square gylphs
 
+    GLYPH_BITMAP_SIZE = 16,
     GLYPH_SIZE = 12,
 
 	// glyph display delay definitions

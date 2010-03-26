@@ -482,7 +482,7 @@ void CRevisionGraphWnd::DrawGlyph
 
     // bitmap source area
 
-    REAL x = ((REAL)position + (REAL)glyph) * GLYPH_SIZE;
+    REAL x = ((REAL)position + (REAL)glyph) * GLYPH_BITMAP_SIZE;
 
     // screen target area
 
@@ -493,7 +493,7 @@ void CRevisionGraphWnd::DrawGlyph
 
     graphics.DrawImage ( glyphs
                        , target
-                       , x, 0.0f, GLYPH_SIZE, GLYPH_SIZE
+                       , x, 0.0f, GLYPH_BITMAP_SIZE, GLYPH_BITMAP_SIZE
                        , UnitPixel, NULL, NULL, NULL);
 }
 
