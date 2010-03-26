@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-26 00:18-0000\n"
+"PO-Revision-Date: 2010-03-26 22:25-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7567,23 +7567,23 @@ msgstr ""
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
-msgstr ""
+msgstr "Obter Informações do Gestor de Problemas"
 
 #. (para)
 msgid "The previous section deals with adding issue information to the log messages. But what if you need to get information from the issue tracker? The commit dialog has a COM interface which allows integration an external program that can talk to your tracker. Typically you might want to query the tracker to get a list of open issues assigned to you, so that you can pick the issues that are being addressed in this commit."
-msgstr ""
+msgstr "A secção anterior ocupa-se com a adição da informação do problema nas mensagens de registo. Mas se tu precisares de obter informações do teu gestor de problemas? A caixa de diálogo submeter tem um interface COM que permite a integração com um programa externo, que consegue comunicar com o teu gestor. Tipicamente tu poderás querer consultar o gestor para obter a lista de problemas abertos atribuídos a ti, de modo a que possas seleccionar os problemas que estarão a ser tratados nesta submissão."
 
 #. (para)
 msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr ""
+msgstr "Qualquer que seja esse interface, é claro que será extremamente específico ao teu sistema de gestão de problemas pelo que não poderemos fornecer esta parte, e descrever o modo de obter tal programa, está fora do âmbito deste manual. A definição do interface e amostras de plugins em C# e C++/ATL pode ser obtido através da pasta <literal>contrib</literal> no  <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>repositório do TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório). Um resumo da API é também dado em <xref linkend=\"tsvn-ibugtraqprovider\"/> Outro exemplo (funcional) de plugin  em C# é <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> que implementa o interface COM requerido para interagir com o gestor de problemas do <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
 
 #. (title)
 msgid "Example issue tracker query dialog"
-msgstr ""
+msgstr "Caixa de diálogo de exemplo da consulta ao gestor de problemas"
 
 #. (para)
 msgid "For illustration purposes, let's suppose that your system administrator has provided you with an issue tracker plugin which you have installed, and that you have set up some of your working copies to use the plugin in TortoiseSVN's settings dialog. When you open the commit dialog from a working copy to which the plugin has been assigned, you will see a new button at the top of the dialog. <placeholder-1/> In this example you can select one or more open issues. The plugin can then generate specially formatted text which it adds to your log message."
-msgstr ""
+msgstr "Para efeitos de demonstração, vamos supor que o teu administrador de sistemas providenciou-te um plugin de gestor de problemas que tu instalaste, e entretanto configuraste algumas das tuas cópias de trabalho para usar o plugin, na caixa de diálogo de preferências do TortoiseSVN. Quando abres a caixa de diálogo Submeter a partir de uma cópia de trabalho para a qual o plugin foi atribuído, verás um novo botão no topo da caixa de diálogo. <placeholder-1/> Neste exemplo tu podes seleccionar um ou mais problemas abertos. O plugin pode então gerar um texto, especialmente formatado, que adicionará à tua mensagem de registo."
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"
