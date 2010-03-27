@@ -82,7 +82,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	BOOL bFoundWebViewPathRev = FALSE;
 	BOOL bFoundAutoProps = FALSE;
 	BOOL bFoundLogSummary = FALSE;
-	BOOL bFoundBugtraqProviderUuid = FALSE;
+    BOOL bFoundBugtraqProviderUuid = FALSE;
+    BOOL bFoundBugtraqProviderUuid64 = FALSE;
 	BOOL bFoundBugtraqProviderParams = FALSE;
 	BOOL bFoundLogRevRegex = FALSE;
 
@@ -158,11 +159,16 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 					bAppend = FALSE;
 				bFoundBugtraqAppend = TRUE;
 			}
-			if ((!bFoundBugtraqProviderUuid)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERUUID)==0))
-			{
-				sProviderUuid = sPropVal;
-				bFoundBugtraqProviderUuid = TRUE;
-			}
+            if ((!bFoundBugtraqProviderUuid)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERUUID)==0))
+            {
+                sProviderUuid = sPropVal;
+                bFoundBugtraqProviderUuid = TRUE;
+            }
+            if ((!bFoundBugtraqProviderUuid64)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERUUID64)==0))
+            {
+                sProviderUuid64 = sPropVal;
+                bFoundBugtraqProviderUuid64 = TRUE;
+            }
 			if ((!bFoundBugtraqProviderParams)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERPARAMS)==0))
 			{
 				sProviderParams = sPropVal;
@@ -277,7 +283,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize
 				| bFoundUserFileProps | bFoundUserDirProps | bFoundAutoProps
 				| bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary | bFoundLogRevRegex
-				| bFoundBugtraqProviderUuid | bFoundBugtraqProviderParams)
+				| bFoundBugtraqProviderUuid | bFoundBugtraqProviderUuid64
+                | bFoundBugtraqProviderParams)
 			{
 				if (!bFoundLogRevRegex)
 					sLogRevRegex = LOG_REVISIONREGEX;
@@ -754,8 +761,10 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
 		bRet = props.Add(BUGTRAQPROPNAME_WARNIFNOISSUE, "true") && bRet;
 	if (!bAppend)
 		bRet = props.Add(BUGTRAQPROPNAME_APPEND, "false") && bRet;
-	if (!sProviderUuid.IsEmpty())
-		bRet = props.Add(BUGTRAQPROPNAME_PROVIDERUUID, WideToUTF8((LPCTSTR)sProviderUuid)) && bRet;
+    if (!sProviderUuid.IsEmpty())
+        bRet = props.Add(BUGTRAQPROPNAME_PROVIDERUUID, WideToUTF8((LPCTSTR)sProviderUuid)) && bRet;
+    if (!sProviderUuid64.IsEmpty())
+        bRet = props.Add(BUGTRAQPROPNAME_PROVIDERUUID64, WideToUTF8((LPCTSTR)sProviderUuid64)) && bRet;
 	if (!sProviderParams.IsEmpty())
 		bRet = props.Add(BUGTRAQPROPNAME_PROVIDERPARAMS, WideToUTF8((LPCTSTR)sProviderParams)) && bRet;
 	if (nLogWidthMarker)

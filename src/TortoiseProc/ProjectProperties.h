@@ -34,6 +34,7 @@ using namespace std;
 #define BUGTRAQPROPNAME_WARNIFNOISSUE     "bugtraq:warnifnoissue"
 #define BUGTRAQPROPNAME_APPEND		      "bugtraq:append"
 #define BUGTRAQPROPNAME_PROVIDERUUID      "bugtraq:provideruuid"
+#define BUGTRAQPROPNAME_PROVIDERUUID64    "bugtraq:provideruuid64"
 #define BUGTRAQPROPNAME_PROVIDERPARAMS    "bugtraq:providerparams"
 
 #define PROJECTPROPNAME_LOGTEMPLATE		  "tsvn:logtemplate"
@@ -152,6 +153,8 @@ public:
 	/** used to extract the bug ID from the string matched by sCheckRe */
     const CString& GetBugIDRe() const {return sBugIDRe;}
 
+    const CString& GetProviderUUID() const { return (sProviderUuid64.IsEmpty() ? sProviderUuid : sProviderUuid64); }
+
 public:
 	/** The label to show in the commit dialog where the issue number/bug id
 	 * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
@@ -177,10 +180,6 @@ public:
 	/** If set to FALSE, then the bug tracking entry is inserted at the top of the
 	   log message instead of at the bottom. Default is TRUE */
 	BOOL		bAppend;
-
-	/** the COM uuid of the bugtraq provider which implements the IBugTraqProvider
-	   interface. */
-	CString		sProviderUuid;
 
 	/** the parameters passed to the COM bugtraq provider which implements the
 	    IBugTraqProvider interface */
@@ -249,7 +248,12 @@ private:
 	friend class PropTest;
 #endif
 
-	/** replaces bNumer: a regular expression string to check the validity of
+    /** the COM uuid of the bugtraq provider which implements the IBugTraqProvider
+    interface. */
+    CString		sProviderUuid;
+    CString		sProviderUuid64;
+
+    /** replaces bNumer: a regular expression string to check the validity of
 	  * the entered bug ID. */
 	CString		sCheckRe;
 	

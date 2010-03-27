@@ -164,7 +164,7 @@ BOOL CCommitDlg::OnInitDialog()
 	GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
 
 	CBugTraqAssociations bugtraq_associations;
-	bugtraq_associations.Load(m_ProjectProperties.sProviderUuid, m_ProjectProperties.sProviderParams);
+	bugtraq_associations.Load(m_ProjectProperties.GetProviderUUID(), m_ProjectProperties.sProviderParams);
 
 	if (bugtraq_associations.FindProvider(m_pathList, &m_bugtraq_association))
 	{

@@ -164,7 +164,7 @@ BOOL CCopyDlg::OnInitDialog()
     GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
     CBugTraqAssociations bugtraq_associations;
-    bugtraq_associations.Load(m_ProjectProperties.sProviderUuid, m_ProjectProperties.sProviderParams);
+    bugtraq_associations.Load(m_ProjectProperties.GetProviderUUID(), m_ProjectProperties.sProviderParams);
 
     if (bugtraq_associations.FindProvider(CTSVNPathList(m_path), &m_bugtraq_association))
     {
