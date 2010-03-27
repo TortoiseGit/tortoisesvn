@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "../../dtd/dblite.dtd">
+<book id="tsvn" lang="en" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Getting Started with TortoiseSVN</title>
+	<subtitle>A Guide for New Users</subtitle>
+	<xi:include href="../version.xml"/>
+	<bookinfo>
+		<edition>First</edition>
+		<authorgroup>
+			<author>
+				<firstname>Simon</firstname>
+				<surname>Large</surname>
+			</author>
+		</authorgroup>
+		<xi:include href="../pubdate.xml"/>
+	</bookinfo>
+	<!-- include external files -->
+	<xi:include href="./qs_introduction.xml"/>
+	<index id="qs-index"/>
+</book>
