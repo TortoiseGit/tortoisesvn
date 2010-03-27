@@ -582,8 +582,8 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
 			bFound = true;
 		else if (_tcsstr(sLine.c_str(), szWhat))
 		{
-			textSelStart = (int)SendEditor(SCI_POSITIONFROMLINE, i) + (_tcsstr(sLine.c_str(), szWhat) - sLine.c_str());
-			textSelEnd = textSelStart + CUnicodeUtils::StdGetUTF8(szWhat).size();
+			textSelStart = (int)SendEditor(SCI_POSITIONFROMLINE, i) + int(_tcsstr(sLine.c_str(), szWhat) - sLine.c_str());
+			textSelEnd = textSelStart + (int)CUnicodeUtils::StdGetUTF8(szWhat).size();
 			if ((line != i)||(textSelEnd != pos))
 				bFound = true;
 		}
@@ -611,8 +611,8 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
 			else if (_tcsstr(sLine.c_str(), szWhat))
 			{
 				bFound = true;
-				textSelStart = (int)SendEditor(SCI_POSITIONFROMLINE, i) + (_tcsstr(sLine.c_str(), szWhat) - sLine.c_str());
-				textSelEnd = textSelStart + CUnicodeUtils::StdGetUTF8(szWhat).size();
+				textSelStart = (int)SendEditor(SCI_POSITIONFROMLINE, i) + int(_tcsstr(sLine.c_str(), szWhat) - sLine.c_str());
+				textSelEnd = textSelStart + (int)CUnicodeUtils::StdGetUTF8(szWhat).size();
 			}
 		}
 	}

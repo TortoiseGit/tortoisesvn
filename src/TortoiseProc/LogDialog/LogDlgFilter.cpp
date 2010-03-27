@@ -106,8 +106,8 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
 				while (pFound)
 				{
 					CHARRANGE range;
-					range.cpMin = pFound - text.c_str();
-					range.cpMax = range.cpMin + subStrings[i].size();
+					range.cpMin = (LONG)(pFound - text.c_str());
+					range.cpMax = (LONG)(range.cpMin + subStrings[i].size());
 					ranges.push_back(range);
 					pFound = wcsstr (pFound+1, subStrings[i].c_str());
 				}

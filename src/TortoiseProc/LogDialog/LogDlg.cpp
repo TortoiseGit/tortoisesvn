@@ -995,7 +995,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& messag
 
     if (m_limit != 0)
 	{
-        m_LogProgress.SetPos ((int)m_logEntries.size() - m_prevLogEntriesSize);
+        m_LogProgress.SetPos ((int)(m_logEntries.size() - m_prevLogEntriesSize));
 		if (m_pTaskbarList)
 		{
 			int l,u;
@@ -2819,7 +2819,7 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
 LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry)
 {
     wstring text;
-    text = (LPCTSTR)listCtrl.GetItemText(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem);
+    text = (LPCTSTR)listCtrl.GetItemText((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem);
     if (text.size() == 0)
         return CDRF_DODEFAULT;
 
@@ -2838,9 +2838,9 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         // find the margin where the text label starts
         CRect labelRC, boundsRC, iconRC;
 
-        listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &labelRC, LVIR_LABEL);
-        listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &iconRC, LVIR_ICON);
-        listCtrl.GetItemRect(pLVCD->nmcd.dwItemSpec, &boundsRC, LVIR_BOUNDS);
+        listCtrl.GetItemRect((int)pLVCD->nmcd.dwItemSpec, &labelRC, LVIR_LABEL);
+        listCtrl.GetItemRect((int)pLVCD->nmcd.dwItemSpec, &iconRC, LVIR_ICON);
+        listCtrl.GetItemRect((int)pLVCD->nmcd.dwItemSpec, &boundsRC, LVIR_BOUNDS);
 
         DrawListColumnBackground(listCtrl, pLVCD, pLogEntry);
         int leftmargin = labelRC.left - boundsRC.left;
@@ -2849,7 +2849,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             leftmargin -= iconRC.Width();
         }
         if (pLVCD->iSubItem != 0)
-            listCtrl.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
+            listCtrl.GetSubItemRect((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
         int borderWidth = 0;
         if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
@@ -2874,7 +2874,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         }
 
         LVITEM item = {0};
-        item.iItem = pLVCD->nmcd.dwItemSpec;
+        item.iItem = (int)pLVCD->nmcd.dwItemSpec;
         item.iSubItem = 0;
         item.mask = LVIF_IMAGE | LVIF_STATE;
         item.stateMask = (UINT)-1;
@@ -3951,10 +3951,10 @@ void CLogDlg::OnBnClickedIncludemerge()
 
 void CLogDlg::UpdateLogInfoLabel()
 {
-	svn_revnum_t rev1 = 0;
-	svn_revnum_t rev2 = 0;
-	long selectedrevs = 0;
-	long changedPaths = 0;
+	svn_revnum_t rev1   = 0;
+	svn_revnum_t rev2   = 0;
+	long selectedrevs   = 0;
+	size_t changedPaths = 0;
 	if (m_logEntries.GetVisibleCount())
 	{
 		PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(0);
