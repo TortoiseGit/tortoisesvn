@@ -119,22 +119,35 @@ HRESULT GetCommitMessage (
   [out, retval] BSTR *newMessage
 );
 </programlisting>
+	</para>
+	<para>
       This is the main method of the plugin. This method is called from
       the TortoiseSVN commit dialog when the user clicks on the plugin
       button.
+	</para>
+	<para>
       The <literal>parameters</literal> string is the string the
       user has to enter in the settings dialog when he configures
       the plugin. Usually a plugin would use this to find the URL
       of the issue tracker and/or login information or more.
+	</para>
+	<para>
       The <literal>commonRoot</literal> string contains the parent path
       of all items selected to bring up the commit dialog. Note that this
       is <emphasis>not</emphasis> the root path of all items which the user has selected in
       the commit dialog.
+	  For the branch/tag dialog, this is the path which is to be copied.
+	</para>
+	<para>
       The <literal>pathList</literal> parameter contains an array of paths
       (as strings) which the user has selected for the commit.
+	</para>
+	<para>
       The <literal>originalMessage</literal> parameter contains the text
       entered in the log message box in the commit dialog. If the user
       has not yet entered any text, this string will be empty.
+	</para>
+	<para>
       The <literal>newMessage</literal> return string is copied into
       the log message edit box in the commit dialog, replacing whatever
       is already there. If a plugin does not modify the <literal>originalMessage</literal>
@@ -192,19 +205,29 @@ HRESULT GetCommitMessage2 (
   [out, retval] BSTR * newMessage
 );
 </programlisting>
+	</para>
+	<para>
       This method is called from the TortoiseSVN commit dialog
       when the user clicks on the plugin button. This method is called
       instead of <literal>GetCommitMessage()</literal>. Please refer
       to the documentation for <literal>GetCommitMessage</literal>
       for the parameters that are also used there.
+	</para>
+	<para>
       The parameter <literal>commonURL</literal> is the parent URL
       of all items selected to bring up the commit dialog. This is basically
       the URL of the <literal>commonRoot</literal> path.
+	</para>
+	<para>
       The parameter <literal>bugID</literal> contains the content of
       the bug-ID field (if it is shown, configured with the property
       <literal>bugtraq:message</literal>).
+	</para>
+	<para>
       The return parameter <literal>bugIDOut</literal> is used to fill
       the bug-ID field when the method returns.
+	</para>
+	<para>
       The <literal>revPropNames</literal> and <literal>revPropValues</literal>
       return parameters can contain name/value pairs for revision properties
       that the commit should set. A plugin must make sure that both arrays
@@ -224,6 +247,8 @@ HRESULT CheckCommit (
   [out, retval] BSTR * errorMessage
 );
 </programlisting>
+	</para>
+	<para>
       This method is called right before the commit dialog is closed
       and the commit begins. A plugin can use this method to validate
       the selected files/folders for the commit and/or the commit
@@ -232,6 +257,13 @@ HRESULT CheckCommit (
       <literal>commonURL</literal> is now the common URL of all
       <emphasis>checked</emphasis> items, and <literal>commonRoot</literal>
       the root path of all checked items.
+	</para>
+	<para>
+	  For the branch/tag dialog, the <literal>commonURL</literal> is the source
+	  url of the copy, and <literal>commonRoot</literal> is set to the
+	  target url of the copy.
+	</para>
+	<para>
       The return parameter <literal>errorMessage</literal> must
       either contain an error message which TortoiseSVN shows to the
       user or be empty for the commit to start.
@@ -266,6 +298,8 @@ HRESULT  OnCommitFinished (
   [out, retval] BSTR * error
 );
 </programlisting>
+	</para>
+	<para>
       This method is called after a successful commit. A plugin
       can use this method to e.g., close the selected issue or add
       information about the commit to the issue.
@@ -278,6 +312,8 @@ HRESULT HasOptions(
   [out, retval] VARIANT_BOOL *ret
 );
 </programlisting>
+	</para>
+	<para>
       This method is called from the settings dialog where the user
       can configure the plugins. If a plugin provides its own
       configuration dialog with <literal>ShowOptionsDialog</literal>, it must
@@ -296,13 +332,19 @@ HRESULT ShowOptionsDialog(
   [out, retval] BSTR * newparameters
 );
 </programlisting>
+	</para>
+	<para>
       This method is called from the settings dialog when the user
       clicks on the "Options" button that is shown if <literal>HasOptions</literal>
       returns TRUE.
       A plugin can show an options dialog to make it easier for the user
       to configure the plugin.
+	</para>
+	<para>
       The <literal>parameters</literal> string contains the plugin
       parameters string that is already set/entered.
+	</para>
+	<para>
       The <literal>newparameters</literal> return parameter must contain
       the parameters string which the plugin constructed from the info
       it gathered in its options dialog. That <literal>paramameters</literal>
