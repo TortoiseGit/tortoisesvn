@@ -1934,6 +1934,45 @@ void CSVNProgressDlg::OnSize(UINT nType, int cx, int cy)
 	}
 }
 
+void CSVNProgressDlg::OnCommitFinished()
+{
+    if (m_BugTraqProvider)
+    {
+        CComPtr<IBugTraqProvider2> pProvider;
+        HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
+        if (SUCCEEDED(hr))
+        {
+            ATL::CComBSTR commonRoot(m_selectedPaths.GetCommonRoot().GetDirectory().GetWinPath());
+            CBstrSafeVector pathList(m_selectedPaths.GetCount());
+
+            for (LONG index = 0; index < m_selectedPaths.GetCount(); ++index)
+                pathList.PutElement(index, m_selectedPaths[index].GetSVNPathString());
+
+            ATL::CComBSTR logMessage;
+            logMessage.Attach(m_sMessage.AllocSysString());
+
+            ATL::CComBSTR temp;
+            if (FAILED(hr = pProvider->OnCommitFinished(GetSafeHwnd(), 
+                commonRoot,
+                pathList,
+                logMessage,
+                (LONG)m_RevisionEnd,
+                &temp)))
+            {
+                CString sErr = temp;
+                if (!sErr.IsEmpty())
+                    ReportError(sErr);
+                else
+                {
+                    COMError ce(hr);
+                    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
+                    ReportError(sErr);
+                }
+            }
+        }
+    }
+}
+
 //////////////////////////////////////////////////////////////////////////
 /// commands
 //////////////////////////////////////////////////////////////////////////
@@ -2139,41 +2178,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	if (commitSuccessful)
 	{
-		if (m_BugTraqProvider)
-		{
-			CComPtr<IBugTraqProvider2> pProvider;
-			HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
-			if (SUCCEEDED(hr))
-			{
-				ATL::CComBSTR commonRoot(m_selectedPaths.GetCommonRoot().GetDirectory().GetWinPath());
-				CBstrSafeVector pathList(m_selectedPaths.GetCount());
-
-				for (LONG index = 0; index < m_selectedPaths.GetCount(); ++index)
-					pathList.PutElement(index, m_selectedPaths[index].GetSVNPathString());
-
-				ATL::CComBSTR logMessage;
-				logMessage.Attach(m_sMessage.AllocSysString());
-
-				ATL::CComBSTR temp;
-				if (FAILED(hr = pProvider->OnCommitFinished(GetSafeHwnd(), 
-					commonRoot,
-					pathList,
-					logMessage,
-					(LONG)m_RevisionEnd,
-					&temp)))
-				{
-					CString sErr = temp;
-					if (!sErr.IsEmpty())
-						ReportError(sErr);
-					else
-					{
-						COMError ce(hr);
-						sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
-						ReportError(sErr);
-					}
-				}
-			}
-		}
+        OnCommitFinished();
 	}
 	if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error))
 	{
@@ -2199,6 +2204,17 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 		// the actual copy
 		m_externals.TagExternals(false);
 	}
+
+    DWORD exitcode = 0;
+    CString error;
+    if (CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
 
 	CString sCmdInfo;
 	sCmdInfo.Format(IDS_PROGRS_CMD_COPY, 
@@ -2258,7 +2274,18 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 			ReportNotification(sMsg);
 		}
 	}
-	return true;
+
+    OnCommitFinished();
+
+    if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
+    return true;
 }
 
 bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)

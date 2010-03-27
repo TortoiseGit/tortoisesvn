@@ -246,6 +246,7 @@ private:
 	CString		BuildInfoString();
 	CString		GetPathFromColumnText(const CString& sColumnText);
 	bool		IsCommittingToTag();
+    void        OnCommitFinished();
 
 	/**
 	 * Resizes the columns of the progress list so that the headings are visible.
