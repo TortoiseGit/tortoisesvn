@@ -31,6 +31,8 @@
 #include "SVNExternals.h"
 #include "HintListCtrl.h"
 #include "LinkControl.h"
+#include "BugTraqAssociations.h"
+#include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 
 #define WM_TSVN_MAXREVFOUND			(WM_APP + 1)
 
@@ -79,12 +81,14 @@ protected:
 	afx_msg void OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnKeydownExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMClickExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnBnClickedBugtraqbutton();
 	afx_msg LRESULT OnCheck(WPARAM count, LPARAM);
 	DECLARE_MESSAGE_MAP()
 
 	virtual BOOL	Cancel() {return m_bCancelled;}
 	void			SetRevision(const SVNRev& rev);
 	void			ToggleCheckbox(int index);
+    void            OnComError( HRESULT hr );
 
 public:
 	CString			m_URL;
@@ -92,6 +96,7 @@ public:
 	CString			m_sLogMessage;
 	SVNRev			m_CopyRev;
 	BOOL			m_bDoSwitch;
+    std::map<CString, CString> m_revProps;
 
 private:
 	CLogDlg *		m_pLogDlg;
@@ -110,6 +115,8 @@ private:
 	CHintListCtrl	m_ExtList;
 	TCHAR			m_columnbuf[MAX_PATH];
 	AeroControlBase m_aeroControls;
+    CBugTraqAssociation m_bugtraq_association;
+    CComPtr<IBugTraqProvider> m_BugTraqProvider;
 
 	svn_revnum_t	m_maxrev;
 	bool			m_bmodified;

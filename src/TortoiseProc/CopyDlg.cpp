@@ -30,6 +30,9 @@
 #include "HistoryDlg.h"
 #include "SVNStatus.h"
 #include "SVNProperties.h"
+#include "BstrSafeVector.h"
+#include "COMError.h"
+
 
 IMPLEMENT_DYNAMIC(CCopyDlg, CResizableStandAloneDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
@@ -81,6 +84,7 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_EXTERNALSLIST, &CCopyDlg::OnLvnKeydownExternalslist)
 	ON_NOTIFY(NM_CLICK, IDC_EXTERNALSLIST, &CCopyDlg::OnNMClickExternalslist)
 	ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CCopyDlg::OnCheck)
+    ON_BN_CLICKED(IDC_BUGTRAQBUTTON, &CCopyDlg::OnBnClickedBugtraqbutton)
 END_MESSAGE_MAP()
 
 
@@ -156,7 +160,34 @@ BOOL CCopyDlg::OnInitDialog()
 
 	m_cLogMessage.Init(m_ProjectProperties);
 	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
-	if (m_ProjectProperties.sMessage.IsEmpty())
+
+    GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
+    GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
+    CBugTraqAssociations bugtraq_associations;
+    bugtraq_associations.Load(m_ProjectProperties.sProviderUuid, m_ProjectProperties.sProviderParams);
+
+    if (bugtraq_associations.FindProvider(CTSVNPathList(m_path), &m_bugtraq_association))
+    {
+        CComPtr<IBugTraqProvider> pProvider;
+        HRESULT hr = pProvider.CoCreateInstance(m_bugtraq_association.GetProviderClass());
+        if (SUCCEEDED(hr))
+        {
+            m_BugTraqProvider = pProvider;
+            ATL::CComBSTR temp;
+            ATL::CComBSTR parameters;
+            parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+            hr = pProvider->GetLinkText(GetSafeHwnd(), parameters, &temp);
+            if (SUCCEEDED(hr))
+            {
+                SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? _T("") : temp);
+                GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(TRUE);
+                GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
+            }
+        }
+
+        GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
+    }
+    if (m_ProjectProperties.sMessage.IsEmpty())
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
@@ -170,8 +201,9 @@ BOOL CCopyDlg::OnInitDialog()
 			SetDlgItemText(IDC_BUGIDLABEL, m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
-	if (!m_sLogMessage.IsEmpty())
-		m_cLogMessage.SetText(m_sLogMessage);
+
+    if (!m_sLogMessage.IsEmpty())
+        m_cLogMessage.SetText(m_sLogMessage);
 
 	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKALL);
 	m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKNONE);
@@ -202,6 +234,7 @@ BOOL CCopyDlg::OnInitDialog()
 	AddAnchor(IDC_HISTORY, TOP_LEFT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
 	AddAnchor(IDC_BUGID, TOP_RIGHT);
+    AddAnchor(IDC_BUGTRAQBUTTON, TOP_RIGHT);
 	AddAnchor(IDC_INVISIBLE, TOP_RIGHT);
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, MIDDLE_RIGHT);
 	AddAnchor(IDC_FROMGROUP, MIDDLE_LEFT, MIDDLE_RIGHT);
@@ -352,6 +385,42 @@ void CCopyDlg::OnOK()
 			return;
 	}
 
+    // now let the bugtraq plugin check the commit message
+    CComPtr<IBugTraqProvider2> pProvider2 = NULL;
+    if (m_BugTraqProvider)
+    {
+        HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
+        if (SUCCEEDED(hr))
+        {
+            ATL::CComBSTR temp;
+            ATL::CComBSTR sourceURL;
+            sourceURL.Attach(m_wcURL.AllocSysString());
+            ATL::CComBSTR parameters;
+            parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+            ATL::CComBSTR targetURL;
+            targetURL.Attach(m_URL.AllocSysString());
+            ATL::CComBSTR commitMessage;
+            commitMessage.Attach(m_sLogMessage.AllocSysString());
+            CBstrSafeVector pathList(1);
+            pathList.PutElement(0, m_path.GetSVNPathString());
+
+            hr = pProvider2->CheckCommit(GetSafeHwnd(), parameters, sourceURL, targetURL, pathList, commitMessage, &temp);
+            if (FAILED(hr))
+            {
+                OnComError(hr);
+            }
+            else
+            {
+                CString sError = temp == 0 ? _T("") : temp;
+                if (!sError.IsEmpty())
+                {
+                    CMessageBox::Show(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
+                    return;
+                }
+            }
+        }
+    }
+
 	m_History.AddEntry(m_sLogMessage);
 	m_History.Save();
 
@@ -369,6 +438,112 @@ void CCopyDlg::OnOK()
 		UpdateData(FALSE);		
 	}
 	CResizableStandAloneDialog::OnOK();
+}
+
+void CCopyDlg::OnBnClickedBugtraqbutton()
+{
+    m_tooltips.Pop();	// hide the tooltips
+    CString sMsg = m_cLogMessage.GetText();
+
+    if (m_BugTraqProvider == NULL)
+        return;
+
+    ATL::CComBSTR parameters;
+    parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+    ATL::CComBSTR commonRoot;
+    commonRoot.Attach(m_path.GetWinPathString().AllocSysString());
+    CBstrSafeVector pathList(1);
+    pathList.PutElement(0, m_path.GetSVNPathString());
+
+    ATL::CComBSTR originalMessage;
+    originalMessage.Attach(sMsg.AllocSysString());
+    ATL::CComBSTR temp;
+    m_revProps.clear();
+
+    // first try the IBugTraqProvider2 interface
+    CComPtr<IBugTraqProvider2> pProvider2 = NULL;
+    HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
+    if (SUCCEEDED(hr))
+    {
+        ATL::CComBSTR repositoryRoot;
+        repositoryRoot.Attach(m_wcURL.AllocSysString());
+        ATL::CComBSTR bugIDOut;
+        GetDlgItemText(IDC_BUGID, m_sBugID);
+        ATL::CComBSTR bugID;
+        bugID.Attach(m_sBugID.AllocSysString());
+        CBstrSafeVector revPropNames;
+        CBstrSafeVector revPropValues;
+        if (FAILED(hr = pProvider2->GetCommitMessage2(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, originalMessage, bugID, &bugIDOut, &revPropNames, &revPropValues, &temp)))
+        {
+            OnComError(hr);
+        }
+        else
+        {
+            if (bugIDOut)
+            {
+                m_sBugID = bugIDOut;
+                SetDlgItemText(IDC_BUGID, m_sBugID);
+            }
+            m_cLogMessage.SetText((LPCTSTR)temp);
+            BSTR HUGEP *pbRevNames;
+            BSTR HUGEP *pbRevValues;
+
+            HRESULT hr1 = SafeArrayAccessData(revPropNames, (void HUGEP**)&pbRevNames);
+            if (SUCCEEDED(hr1))
+            {
+                HRESULT hr2 = SafeArrayAccessData(revPropValues, (void HUGEP**)&pbRevValues);
+                if (SUCCEEDED(hr2))
+                {
+                    if (revPropNames->rgsabound->cElements == revPropValues->rgsabound->cElements)
+                    {
+                        for (ULONG i = 0; i < revPropNames->rgsabound->cElements; i++)
+                        {
+                            m_revProps[pbRevNames[i]] = pbRevValues[i];
+                        }
+                    }
+                    SafeArrayUnaccessData(revPropValues);
+                }
+                SafeArrayUnaccessData(revPropNames);
+            }
+        }
+    }
+    else
+    {
+        // if IBugTraqProvider2 failed, try IBugTraqProvider
+        CComPtr<IBugTraqProvider> pProvider = NULL;
+        hr = m_BugTraqProvider.QueryInterface(&pProvider);
+        if (FAILED(hr))
+        {
+            OnComError(hr);
+            return;
+        }
+
+        if (FAILED(hr = pProvider->GetCommitMessage(GetSafeHwnd(), parameters, commonRoot, pathList, originalMessage, &temp)))
+        {
+            OnComError(hr);
+        }
+        else
+            m_cLogMessage.SetText((LPCTSTR)temp);
+    }
+    m_sLogMessage = m_cLogMessage.GetText();
+    if (!m_ProjectProperties.sMessage.IsEmpty())
+    {
+        CString sBugID = m_ProjectProperties.FindBugID(m_sLogMessage);
+        if (!sBugID.IsEmpty())
+        {
+            SetDlgItemText(IDC_BUGID, sBugID);
+        }
+    }
+
+    m_cLogMessage.SetFocus();
+}
+
+void CCopyDlg::OnComError( HRESULT hr )
+{
+    COMError ce(hr);
+    CString sErr;
+    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
+    CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 }
 
 void CCopyDlg::OnBnClickedBrowse()
@@ -553,7 +728,7 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_ExtList.InsertColumn(1, temp);
 	temp.LoadString(IDS_STATUSLIST_COLREVISION);
 	m_ExtList.InsertColumn(2, temp);
-	m_ExtList.SetItemCountEx(m_externals.size());
+	m_ExtList.SetItemCountEx((int)m_externals.size());
 
 	CRect rect;
 	m_ExtList.GetClientRect(&rect);
