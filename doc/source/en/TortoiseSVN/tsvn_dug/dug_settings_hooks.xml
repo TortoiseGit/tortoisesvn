@@ -346,8 +346,8 @@
 		</para>
 		<para>
 			If you want all users to use the same COM plugin for your project, you
-			can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>
-			and <literal>bugtraq:providerparams</literal>.
+			can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>,	
+			<literal>bugtraq:provideruuid64</literal> and <literal>bugtraq:providerparams</literal>.
 
 			<variablelist>
 				<varlistentry>
@@ -365,6 +365,15 @@
 								<citetitle>Google Code</citetitle>
 							</ulink>
 							issue tracker).
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term condition="pot">bugtraq:provideruuid64</term>
+					<listitem>
+						<para>
+							This is the same as <literal>bugtraq:provideruuid</literal>, but
+							for the 64-bit version of the IBugtraqProvider.
 						</para>
 					</listitem>
 				</varlistentry>
