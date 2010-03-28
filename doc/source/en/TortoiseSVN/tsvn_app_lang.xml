@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
+<appendix id="tsvn-lang" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>Language Packs and Spell Checkers</title>
+	<simplesect>
+		<para>
+			The standard installer has support only for English, but you
+			can download separate language packs and spell check dictionaries
+			separately after installation.
+		</para>
+	</simplesect>
+	<sect1 id="tsvn-intro-install-lang">
+		<title>Language Packs</title>
+		<indexterm>
+			<primary>language packs</primary>
+		</indexterm>
+		<indexterm>
+			<primary>translations</primary>
+		</indexterm>
+		<para>
+			The TortoiseSVN user interface has been translated into many
+			different languages, so you may be able to download a language
+			pack to suit your needs.
+			You can find the language packs on our 
+			<ulink url="http://tortoisesvn.net/translation_status">
+				<citetitle>translation status page</citetitle>
+			</ulink>.
+			And if there is no language pack available yet, why not join
+			the team and submit your own translation ;-)
+		</para>
+		<para>
+			Each language pack is packaged as a <literal>.exe</literal> installer.
+			Just run the install program and follow the instructions.
+			Next time you restart, the translation will be available.
+		</para>
+		<para>
+			The documentation has also been translated into several different
+			languages. You can download translated manuals from the
+			<ulink url="http://tortoisesvn.net/support">
+				<citetitle>support page</citetitle>
+			</ulink>
+			on our website.
+		</para>
+	</sect1>
+	<sect1 id="tsvn-intro-install-spell">
+		<title>Spellchecker</title>
+		<indexterm>
+			<primary>spellchecker</primary>
+		</indexterm>
+		<indexterm>
+			<primary>dictionary</primary>
+		</indexterm>
+		<para>
+			TortoiseSVN includes a spell checker which allows you to check your
+			commit log messages. This is especially useful if the project language
+			is not your native language.
+			The spell checker uses the same dictionary files as
+			<ulink url="http://openoffice.org">
+				<citetitle>OpenOffice</citetitle>
+			</ulink>
+			and 
+			<ulink url="http://mozilla.org">
+				<citetitle>Mozilla</citetitle>
+			</ulink>.
+		</para>
+		<para>
+			The installer automatically adds the US and UK English dictionaries.
+			If you want other languages, the easiest option is simply to
+			install one of TortoiseSVN's language packs. This will install
+			the appropriate dictionary files as well as the TortoiseSVN local
+			user interface.
+			Next time you restart, the dictionary will be available too.
+		</para>
+		<para>
+			Or you can install the dictionaries yourself. If you have OpenOffice or
+			Mozilla installed, you can copy those dictionaries, which are located
+			in the installation folders for those applications.
+			Otherwise, you need to download the required dictionary files from
+			<ulink url="http://wiki.services.openoffice.org/wiki/Dictionaries">
+				<citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle>
+			</ulink>
+		</para>
+		<para>
+			Once you have got the dictionary files, you
+			probably need to rename them so that the filenames only have
+			the locale chars in it.
+			Example:
+			<itemizedlist>
+				<listitem>
+					<para>
+						<filename>en_US.aff</filename>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<filename>en_US.dic</filename>
+					</para>
+				</listitem>
+			</itemizedlist>
+			Then just copy them to the <filename>bin</filename> sub-folder of
+			the TortoiseSVN installation folder. Normally this will be
+			<filename>C:\Program Files\TortoiseSVN\bin</filename>.
+			If you don't want to litter the <filename>bin</filename> sub-folder,
+			you can instead place your spell checker files in
+			<filename>C:\Program Files\TortoiseSVN\Languages</filename>. If that folder isn't
+			there, you have to create it first.
+			The next time you start TortoiseSVN, the spell checker will be available.
+		</para>
+		<para>
+			If you install multiple dictionaries, TortoiseSVN uses these rules
+			to select which one to use.
+			<orderedlist>
+				<listitem>
+					<para>
+					Check the <literal>tsvn:projectlanguage</literal> setting.
+					Refer to <xref linkend="tsvn-dug-propertypage"/> for information
+					about setting project properties.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					If no project language is set, or that language is not
+					installed, try the language corresponding to the Windows locale.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					If the exact Windows locale doesn't work, try the
+					<quote>Base</quote> language, eg.
+					<literal>de_CH</literal> (Swiss-German) falls back to
+					<literal>de_DE</literal> (German).
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					If none of the above works, then the default language
+					is English, which is included with the standard installation.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</sect1>
+</appendix>
+<!--
+local variables:
+sgml-parent-document: ("book.xml" "chapter")
+end:
+-->
