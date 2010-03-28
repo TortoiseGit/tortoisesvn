@@ -1138,12 +1138,18 @@ void CLogDlg::LogThread()
 
 		    if (mergeinfo)
 		    {
+                // unfortunately it's not defined whether the urls have a trailing
+                // slash or not, so we have to trim such a slash before comparing
+                // the sUrl with the mergeinfo url
 				CStringA sUrl = CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_sURL));
+                sUrl.TrimRight('/');
 
 			    for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
 			    {
 				    apr_hash_this(hi, &key, NULL, &val);
-				    if (sUrl.Compare((char*)key) == 0)
+                    CStringA sKey = (char*)key;
+                    sKey.TrimRight('/');
+				    if (sUrl.Compare(sKey) == 0)
 				    {
 					    apr_array_header_t * arr = (apr_array_header_t*)val;
 					    if (val)
