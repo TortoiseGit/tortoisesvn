@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-26 22:25-0000\n"
+"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
+"PO-Revision-Date: 2010-03-28 23:25-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -154,7 +154,7 @@ msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it 
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
 msgstr ""
 
 #. (title)
@@ -1935,7 +1935,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
+msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
 msgstr ""
 
 #. (para)
@@ -7541,12 +7541,12 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Set the Properties on Folders"
-msgstr ""
+msgstr "Configurar Propriedades em Pastas"
 
 #. (para)
 #. (para)
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr ""
+msgstr "Essas propriedades devem ser configuradas em pastas para o sistema funcionar. Quando submetes um ficheiro ou pasta, as propriedades são lidas dessa pasta. Se as propriedades não são aí encontradas, o TortoiseSVN irá pesquisar através, e em direcção do topo, da árvore de pastas para as encontrar, até encontrar uma pasta não versionada, ou a raiz da árvore (eg. <literal>C:\\</literal>). Se tens a certeza que cada utilizador só checou-a, a partir do e.g. <filename>trunk/</filename> e não de alguma subpasta, é suficiente configurar as propriedades na pasta <filename>trunk/</filename>. Se não tens a certeza deverás configurar as propriedades em cada subpasta, recursivamente. Configurar uma propriedade na profundidade da hierarquia do projecto sobrepõem-se à configuração em níveis superiores (mais perto do <filename>trunk/</filename> )."
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
@@ -7562,7 +7562,7 @@ msgid "For the same reason, project properties will not be propagated automatica
 msgstr ""
 
 #. (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr ""
 
 #. (title)
@@ -7574,7 +7574,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "A secção anterior ocupa-se com a adição da informação do problema nas mensagens de registo. Mas se tu precisares de obter informações do teu gestor de problemas? A caixa de diálogo submeter tem um interface COM que permite a integração com um programa externo, que consegue comunicar com o teu gestor. Tipicamente tu poderás querer consultar o gestor para obter a lista de problemas abertos atribuídos a ti, de modo a que possas seleccionar os problemas que estarão a ser tratados nesta submissão."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+#, fuzzy
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
 msgstr "Qualquer que seja esse interface, é claro que será extremamente específico ao teu sistema de gestão de problemas pelo que não poderemos fornecer esta parte, e descrever o modo de obter tal programa, está fora do âmbito deste manual. A definição do interface e amostras de plugins em C# e C++/ATL pode ser obtido através da pasta <literal>contrib</literal> no  <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>repositório do TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório). Um resumo da API é também dado em <xref linkend=\"tsvn-ibugtraqprovider\"/> Outro exemplo (funcional) de plugin  em C# é <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> que implementa o interface COM requerido para interagir com o gestor de problemas do <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
 
 #. (title)
@@ -7587,7 +7588,7 @@ msgstr "Para efeitos de demonstração, vamos supor que o teu administrador de s
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"
-msgstr ""
+msgstr "Integração com visualizadores de repositório Web-based"
 
 #. (primary)
 msgid "web view"
@@ -7607,27 +7608,27 @@ msgstr ""
 
 #. (para)
 msgid "There are several web-based repository viewers available for use with Subversion such as <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> and <ulink url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. TortoiseSVN provides a means to link with these viewers."
-msgstr ""
+msgstr "Existem disponíveis vários visualizadores de repositório web-based para o uso com o Subversion, tais como o <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> e o <ulink url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. O TortoiseSVN providência um meio de ligar-se com esses visualizadores."
 
 #. (para)
 msgid "You can integrate a repo viewer of your choice in TortoiseSVN. To do this, you have to define some properties which define the linkage. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr ""
+msgstr "Tu podes integrar um visualizador de repositório, da tua escolha, com o TortoiseSVN. Para o fazeres terás de configurar algumas propriedades que definem a ligação. Estas têm de ser configuradas nas pastas: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 msgid "Set this property to the URL of your repo viewer to view all changes in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal>. <literal>%REVISION%</literal> is replaced with the revision number in question. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision in webviewer</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Configura esta propriedade com o URL do teu visualizador de repositório, para veres todas as alterações numa revisão específica. O URL deverá ser devidamente codificado e terá de conter <literal>%REVISION%</literal>. O <literal>%REVISION%</literal> será substituido com o número de revisão em questão. Isto permite ao TortoiseSVN mostrar uma entrada do menu de contexto na caixa de diálogo registo <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Ver revisão no visualizador web</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision for path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr ""
+msgstr "Configura esta propriedade com o URL do teu visualizador de repositório, para veres as alterações num ficheiro específico e numa determinada revisão. Este deverá ser um URI devidamente codificado, que terá de conter <literal>%REVISION%</literal> e <literal>%PATH%</literal>. O <literal>%PATH%</literal> será substituído pelo caminho relativo para a raiz do repositório. Isto permite ao TortoiseSVN visualizar uma entrada no menu de contexto da caixa de diálogo de registo,  <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Ver revisão de caminho no webviewer</guimenuitem></menuchoice> Por exemplo, se clicas com o botão direito no painel de fundo da caixa de diálogo de registo, numa entrada de ficheiro <literal>/trunk/src/file</literal> então o<literal>%PATH%</literal> no URL será substituido por <literal>/trunk/src/file</literal>."
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
+msgstr "Podes também usar URLs relativos em vez de absolutos. Isto é útil no caso do teu visualizador web estar no mesmo domínio/servidor que o teu repositório fonte. No caso de o nome de domínio alguma vez for alterado, não terás de ajustar as propriedades <literal>webviewer:revision</literal> e <literal>webviewer:pathrevision</literal>. O formato é o mesmo para a propriedade <literal>bugtraq:url</literal>. Consultar <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
 msgid "Because the repo viewer integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
-msgstr ""
+msgstr "Porque a integração com o visualizador do repo. depende do acesso às propriedades do Subversion, tu só verás os resultados, quando usares uma cópia de trabalho controlada. Recolher remotamente as propriedades é um processo lento, pelo que não verás esta funcionalidsde em acção a partir do navegador do repositório, a não ser que, arranques o navegador de repo. a partir da tua cópia de trabalho. Se arrancares o navegador de repo. ao introduzires o URL do repositório, não verás esta funcionalidade."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -9002,7 +9003,7 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr ""
 
 #. (para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr ""
 
 #. (title)
@@ -10364,19 +10365,7 @@ msgid "If you have not yet committed the add, then all you have to do is use <me
 msgstr ""
 
 #. (para)
-msgid "Hold the <keycap>Shift</keycap> key to get the extended context menu and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice> to mark the file/folder for deletion from the repository without losing the local copy."
-msgstr ""
-
-#. (para)
-msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder."
-msgstr ""
-
-#. (para)
-msgid "Add the file/folder to the ignore list so you don't get into the same trouble again."
-msgstr ""
-
-#. (para)
-msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
+msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
 msgstr ""
 
 #. (title)
@@ -11307,7 +11296,7 @@ msgid "Conventions and Basic Rules"
 msgstr ""
 
 #. (para)
-msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
 msgstr ""
 
 #. (para)
@@ -11840,7 +11829,7 @@ msgid "In this appendix we assume that you already have the subversion tools ins
 msgstr ""
 
 #. (para)
-msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
+msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which has been archived at <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
 msgstr ""
 
 #. (para)
