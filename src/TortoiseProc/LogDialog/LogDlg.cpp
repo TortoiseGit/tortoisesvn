@@ -656,21 +656,24 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 			// the rich edit control doesn't count the CR char!
 			// to be exact: CRLF is treated as one char.
 			sText.Replace(_T("\r"), _T(""));
-			wstring text = sText;
-			std::vector<CHARRANGE> ranges = filter.GetMatchRanges(text);
-			if (ranges.size())
-			{
-				for (std::vector<CHARRANGE>::iterator it = ranges.begin(); it != ranges.end(); ++it)
-				{
-					pMsgView->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&(*it));
-					CHARFORMAT2 format;
-					SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-					format.cbSize = sizeof(CHARFORMAT2);
-					format.dwMask = CFM_COLOR;
-					format.crTextColor = m_Colors.GetColor(CColors::FilterMatch);
-					pMsgView->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
-				}
-			}
+            if (!sText.IsEmpty())
+            {
+                wstring text = sText;
+                std::vector<CHARRANGE> ranges = filter.GetMatchRanges(text);
+                if (ranges.size())
+                {
+                    for (std::vector<CHARRANGE>::iterator it = ranges.begin(); it != ranges.end(); ++it)
+                    {
+                        pMsgView->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&(*it));
+                        CHARFORMAT2 format;
+                        SecureZeroMemory(&format, sizeof(CHARFORMAT2));
+                        format.cbSize = sizeof(CHARFORMAT2);
+                        format.dwMask = CFM_COLOR;
+                        format.crTextColor = m_Colors.GetColor(CColors::FilterMatch);
+                        pMsgView->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+                    }
+                }
+            }
 		}
 
 		if (((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\StyleCommitMessages"), TRUE))==TRUE)
