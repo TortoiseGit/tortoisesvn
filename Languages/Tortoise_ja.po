@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-11 10:49+0900\n"
+"PO-Revision-Date: 2010-03-29 15:30+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1091,9 +1091,9 @@ msgstr "先リビジョン(&T)"
 msgid "&To URL:"
 msgstr "先 URL(&T):"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "先 URL(&T):"
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "先パス(&T): "
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -1388,18 +1388,20 @@ msgstr "コンボボックスに表示するフォルダに対するユーザー
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "新しいバージョンが利用可能です。\r\n"
-"http://tortoisesvn.tigris.org から最新のバージョンをダウンロードしてください。"
+"http://tortoisesvn.net から最新のバージョンをダウンロードしてください。"
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "アイコンのオーバーレイを表示するパス（改行で分割）を入力する。\r\n"
-"'*' 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが含まれる。"
+"'?' 文字をパスの最後に追加した場合は、このパスのみが含まれる。\r\n"
+"'*' 文字をパスの最後に追加もしくは何も追加しない場合は、パス内のすべてのファイルとサブディレクトリが含まれる。"
 
 #. Resource IDs: (197)
 msgid ""
@@ -1414,11 +1416,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "アイコンのオーバーレイを非表示にするパス（改行で分割）を入力する。\r\n"
-"'*' 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが除外される。\r\n"
+"'?' 文字をパスの最後に追加した場合は、このパスのみがが除外される。\r\n"
+"'*' 文字をパスの最後に追加もしくは何も追加しない場合は、パス内のすべてのファイルとサブディレクトリが除外される。\r\n"
 "何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となる。"
 
 #. Resource IDs: (3843)
@@ -3219,6 +3223,10 @@ msgstr "説明:"
 msgid "Deselect changelist"
 msgstr "変更リストを選択解除する"
 
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "目的 URL:"
+
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "送り先ディスクドライブはいっぱいです。"
@@ -3564,6 +3572,10 @@ msgid ""
 msgstr ""
 "VS.NET2003 上で WEB プロジェクトの開発を行っている場合にのみこれを有効にしてください！\r\n"
 "この設定を有効にするためには、システムの再起動を行ってください。"
+
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "オーバーレイハンドラを有効にする"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4090,6 +4102,10 @@ msgstr ""
 "塗りつぶし"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "適合するフィルター"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4600,6 +4616,10 @@ msgstr "アイコンオーバーレイ／状態"
 msgid "Icon Overlays::Icon Set"
 msgstr "アイコンオーバーレイ::アイコンセット"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "アイコンオーバーレイ::オーバーレイハンドラ"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "アイコン／デザイン／コード:\t\tLuebbe Onken"
@@ -4788,6 +4808,10 @@ msgstr "空白の変更を無視する(&H)"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "空白の変更を無視する"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "無視"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5273,6 +5297,10 @@ msgstr "ロック所持者:"
 msgid "Lock stolen by %s"
 msgstr "%s にロックを横取りされました"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "ロック"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5740,6 +5768,10 @@ msgstr "ナビゲーション領域の設定 ..."
 msgid "Needs lock"
 msgstr "ロックが必要"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "ロックが必要"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "入れ子"
@@ -5929,6 +5961,10 @@ msgstr "注意書き: フォルダはバージョン管理外の項目を含ん�
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "注意： フォントの設定は TortoiseUDiff ビューアにも影響します"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "注意: これは TortoiseSVN だけでなく、すべての Tortoise クライアントに影響を与えます！"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7279,6 +7315,10 @@ msgstr "SVN リビジョン"
 msgid "SVN Status"
 msgstr "SVN 状態"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN 状態番号"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -7811,14 +7851,6 @@ msgstr ""
 "ツールバーを表示／非表示にする\n"
 "ツールバーを表示"
 
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "無視項目にオーバーレイ表示をする"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "バージョン管理外の項目にオーバーレイ表示をする"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "リビジョンの属性を表示"
@@ -8184,6 +8216,10 @@ msgstr "%s から %s への切り替え、リビジョン %s"
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
 msgstr "切り替え - TortoiseSVN"
+
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "切り替えの深さ"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
@@ -9342,6 +9378,10 @@ msgstr "バージョン管理を解除"
 msgid "Unversion and add to &ignore list"
 msgstr "バージョン管理から除外し、無視リストに追加(&I)"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "バージョン管理外"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "バージョン管理外のファイルを含むフォルダに変更マークを付ける"
@@ -9836,6 +9876,12 @@ msgid ""
 msgstr ""
 "trunk フォルダを移動しようとしています！\n"
 "本当に trunk フォルダを移動してもよろしいですか？"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr "ここに指定したオーバーレイハンドラを無効にすることができます。無効化されたハンドラは、オーバーレイスロットを使用せず、他のシェルにオーバーレイ表示の機会を提供します。"
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10862,6 +10908,12 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "先 URL(&T):"
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "無視項目にオーバーレイ表示をする"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "バージョン管理外の項目にオーバーレイ表示をする"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "作者:                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
@@ -10877,8 +10929,6 @@ msgstr "{BugTraq}"
 #~ msgstr "元 URL:"
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "変更されたパスで無関係なものは表示しない(&I)"
-#~ msgid "Unversioned"
-#~ msgstr "バージョン管理外"
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
