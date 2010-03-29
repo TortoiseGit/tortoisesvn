@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-03-29 01:10-0000\n"
+"PO-Revision-Date: 2010-03-29 23:21-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7756,23 +7756,23 @@ msgstr "Deves ter em conta que ao mudar esta opção, não irás converter autom
 
 #. (title)
 msgid "Context Menu Settings"
-msgstr ""
+msgstr "Menu de Contexto preferências"
 
 #. (title)
 msgid "The Settings Dialog, Context Menu Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Menu de Contexto"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to specify which of the TortoiseSVN context menu entries will show up in the main context menu, and which will appear in the TortoiseSVN submenu. By default most items are unchecked and appear in the submenu."
-msgstr ""
+msgstr "<placeholder-1/> Esta página permite-te especificar, quais das entradas do menu de contexto do TortoiseSVN, que irão aparecer no menu de contexto principal, e quais aparecerão no submenu do TortoiseSVN. Por defeito a maioria dos itens estão desseleccionados e aparecem no submenu."
 
 #. (para)
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
-msgstr ""
+msgstr "Há um caso especial para o <guilabel>Obter Bloqueio</guilabel>. É claro que podes promovê-lo ao nível de topo, usando a lista acima mostrada, mas como a maioria dos ficheiros não precisam de bloqueios, isto só adiciona mais confusão. No entanto um ficheiro que tenha a propriedade <literal>svn:needs-lock</literal> necessitará sempre desta acção de cada vez que é editado, então nesse caso será muito útil tê-lo no nivel de topo. Verificando a caixa aqui, significa que quando o ficheiro for seleccionado e tenha a propriedade <literal>svn:needs-lock</literal> configurada, o <guilabel>Obter Bloqueio</guilabel> irá aparecer sempre no nível de topo."
 
 #. (para)
 msgid "If there are some paths on your computer where you just don't want TortoiseSVN's context menu to appear at all, you can list them in the box at the bottom."
-msgstr ""
+msgstr "Se existem alguns caminhos no teu computador onde não queres que o menu de contexto do TortoiseSVN apareça de modo algum, podes listá-los na caixa de texto ao fundo."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 1"
