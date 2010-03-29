@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-03-28 23:25-0000\n"
+"PO-Revision-Date: 2010-03-29 01:10-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7632,7 +7632,7 @@ msgstr "Porque a integração com o visualizador do repo. depende do acesso às 
 
 #. (title)
 msgid "TortoiseSVN's Settings"
-msgstr ""
+msgstr "Preferências do TortoiseSVN"
 
 #. (primary)
 msgid "settings"
@@ -7640,11 +7640,11 @@ msgstr ""
 
 #. (para)
 msgid "To find out what the different settings are for, just leave your mouse pointer a second on the editbox/checkbox... and a helpful tooltip will popup."
-msgstr ""
+msgstr "Para descobrires para que servem as diferentes preferências deixa, por um segundo, o ponteiro do rato sobre as caixas-edição/caixas-verificação... e uma etiqueta com uma útil dica, irá aparecer. "
 
 #. (title)
 msgid "General Settings"
-msgstr ""
+msgstr "Preferências Gerais"
 
 #. (primary)
 msgid "sounds"
@@ -7652,51 +7652,51 @@ msgstr ""
 
 #. (title)
 msgid "The Settings Dialog, General Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Geral"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to specify your preferred language, and the Subversion-specific settings."
-msgstr ""
+msgstr "<placeholder-1/> Esta caixa de diálogo permite-te especificar a tua língua de preferência, e preferências específicas do Subversion."
 
 #. (term)
 msgid "Language"
-msgstr ""
+msgstr "Língua"
 
 #. (para)
 msgid "Selects your user interface language. What else did you expect?"
-msgstr ""
+msgstr "Selecciona a língua do teu interface de utilizador. O que é que esperavas?"
 
 #. (term)
 msgid "Automatically check for newer versions every week"
-msgstr ""
+msgstr "Verifica automaticamente, cada semana, a existência de novas versões"
 
 #. (para)
 msgid "If checked, TortoiseSVN will contact its download site once a week to see if there is a newer version of the program available. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
-msgstr ""
+msgstr "Se verifcada, o TortoiseSVN irá contactar, uma vez por semana, o seu sítio de descarga para ver se existe disponível uma versão mais nova do programa. Usa <guibutton>Verificar agora</guibutton>  se queres uma resposta imediata. A nova versão, se existir, não será logo descarregada; receberás simplesmente uma caixa de diálogo de informação, que te dirá que, tens disponível uma nova versão."
 
 #. (term)
 msgid "System sounds"
-msgstr ""
+msgstr "Sons do sistema"
 
 #. (para)
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #. (para)
 msgid "Notice"
-msgstr ""
+msgstr "Anúncio"
 
 #. (para)
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #. (para)
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel. <guibutton>Configure</guibutton> is a shortcut to the Control Panel."
-msgstr ""
+msgstr "O TortoiseSVN tem três sons personalizados que estãos instalados por defeito. <placeholder-1/> Podes seleccionar diferentes sons (ou desligá-los completamente) usando o Painel de Controlo do Windows.  <guibutton>Configurar</guibutton> é uma atalho para o Painel de Controlo."
 
 #. (term)
 msgid "Global ignore pattern"
-msgstr ""
+msgstr "Padrão global para ignorar arquivos"
 
 #. (primary)
 msgid "exclude pattern"
@@ -7708,51 +7708,51 @@ msgstr ""
 
 #. (para)
 msgid "Global ignore patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Ignore files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. These patterns should not include any path separators. Note also that there is no way to differentiate between files and directories. Read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more information on the pattern-matching syntax."
-msgstr ""
+msgstr "Padrões globais para ignorar são usados para evitar que ficheiros não versionados apareçam, por exemplo, na caixa de diálogo submeter. Os ficheiros que correspondam ao padrão são também ignorados ao importar. Ignora ficheiros ou pastas apenas ao digitares o seu nome ou extensão. Os padrões são separados por espaços e.g. <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. Esses padrões não devem incluir qualquer separador de caminho. De salientar  que, também não existe maneira de diferenciar pastas de ficheiros. Consultar <xref linkend=\"tsvn-dug-ignore-glob\"/> para mais informação sobre a sintaxe de correspondência-de-padrões."
 
 #. (para)
 msgid "Note that the ignore patterns you specify here will also affect other Subversion clients running on your PC, including the command line client."
-msgstr ""
+msgstr "Nota que os padrões de ignorar que aqui especificas também afectaram outros clientes do Subversion, que correres no teu PC, incluindo o cliente de linha de comando."
 
 #. (para)
 msgid "If you use the Subversion configuration file to set a <literal>global-ignores</literal> pattern, it will override the settings you make here. The Subversion configuration file is accessed using the <guibutton>Edit</guibutton> as described below."
-msgstr ""
+msgstr "Se usares o ficheiro de configuração do Subversion para configurares o padrão <literal>global-ignores</literal>, ele ir-se-á sobrepor à preferência que efectuaste aqui. O ficheiros de configuração do Subversion pode ser acedido usando o <guibutton>Editar</guibutton>, como aqui descrito."
 
 #. (para)
 msgid "This ignore pattern will affect all your projects. It is not versioned, so it will not affect other users. By contrast you can also use the versioned <literal>svn:ignore</literal> property to exclude files or directories from version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr ""
+msgstr "Este padrão de ignorar irá afectar todos os teus projectos. Não é versionado pelo que não afectará outros utilizadores. Por contraste podes também usar a propriedade versionada <literal>svn:ignore</literal> para excluir ficheiros ou pastas do controlo de versões. Consulta <xref linkend=\"tsvn-dug-ignore\"/> para mais informações."
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
-msgstr ""
+msgstr "Alterar datas de ficheiros para a <quote>hora da última submissão</quote>"
 
 #. (para)
 msgid "This option tells TortoiseSVN to set the file dates to the last commit time when doing a checkout or an update. Otherwise TortoiseSVN will use the current date. If you are developing software it is generally best to use the current date because build systems normally look at the date stamps to decide which files need compiling. If you use <quote>last commit time</quote> and revert to an older file revision, your project may not compile as you expect it to."
-msgstr ""
+msgstr "Esta opção diz ao TortoiseSVN para alterar a data dos ficheiros para a hora da última submissão, quando efectuares um checkout ou actualização. De outra maneira o TortoiseSVN  irá usar a data corrente. Se fores um programador é geralmente melhor usar a data corrente, porque os sistemas de construção olham normalmente para os carimbos de tempo, para decidir que ficheiros precisam de ser compilados. Se usares a <quote>hora da última submissão</quote>, e reverteres para uma revisão anterior de ficheiro, o teu projecto poderá não compilar como esperado."
 
 #. (term)
 msgid "Subversion configuration file"
-msgstr ""
+msgstr "Ficheiro de configuração do Subversion"
 
 #. (para)
 msgid "Use <guibutton>Edit</guibutton> to edit the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here. Note that Subversion can read configuration information from several places, and you need to know which one takes priority. Refer to <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> to find out more."
-msgstr ""
+msgstr "Usa  <guibutton>Editar</guibutton> para editar directamente o ficheiro de configuração do Subversion. Algumas preferências não podem ser editadas directamente pelo TortoiseSVN e necessitam então de ser aqui configuradas. Para mais informações sobre o ficheiro <filename>config</filename> do Subversion consulta o <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. é de interesse particular a secção no <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink>, e é configurada aqui. De notar que o Subversion pode ler a informação d configuração de vários locais, e necessitas de conhecer qual deles tem prioridade. Consulta o <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> para mais informações."
 
 #. (term)
 msgid "Use <filename>_svn</filename> instead of <filename>.svn</filename> directories"
-msgstr ""
+msgstr "Usa pastas <filename>_svn</filename> em vez de <filename>.svn</filename>"
 
 #. (para)
 msgid "VS.NET when used with web projects can't handle the <literal>.svn</literal> folders that Subversion uses to store its internal information. This is not a bug in Subversion. The bug is in VS.NET and the frontpage extensions it uses. Read <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/> to find out more about this issue."
-msgstr ""
+msgstr "O VS.NET quando usado com projectos web não consegue lidar com as pastas <literal>.svn</literal> que o Subversion usa para armazenar a sua informação interna. Isto não é um bug no Subversion. O bug é no VS.NET e nas extensões frontpage que usa. Consulta <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/> para descobrires mais sobre este problema."
 
 #. (para)
 msgid "If you want to change the behaviour of Subversion and TortoiseSVN, you can use this checkbox to set the environment variable which controls this."
-msgstr ""
+msgstr "Se quiseres alterar o comportamento do Subversion e do TortoiseSVN, podes usar esta caixa-de-verificação para configurar a variavel de ambiente que controla isto."
 
 #. (para)
 msgid "You should note that changing this option will not automatically convert existing working copies to use the new admin directory. You will have to do that yourself using a script (See our FAQ) or simply check out a fresh working copy."
-msgstr ""
+msgstr "Deves ter em conta que ao mudar esta opção, não irás converter automaticamente as cópias de trabalho existentes, para usar a nova pasta de administração. Terás de o fazer por ti usando um script (Lê as nossas FAQ) ou simplesmente cria uma cópia de trabalho de fresco."
 
 #. (title)
 msgid "Context Menu Settings"
