@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-15 13:56+0100\n"
+"PO-Revision-Date: 2010-03-29 13:28+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1098,16 +1098,8 @@ msgstr "&Till revision"
 msgid "&To URL:"
 msgstr "&Till URL:"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&Till URL: "
-
 #. Resource IDs: (1384)
 msgid "&To path:"
-msgstr "&Till sökväg:"
-
-#. Resource IDs: (1305)
-msgid "&To path: "
 msgstr "&Till sökväg:"
 
 #. Resource IDs: (1495)
@@ -1408,17 +1400,19 @@ msgstr "En lista av användardefinerade egenskaper för mappar som visas i kombo
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "En nyare version finns tillgänglig.\r\n"
-"Surfa till http://tortoisesvn.tigris.org och ladda hem den nya versionen."
+"Surfa till http://tortoisesvn.net och ladda hem den nya versionen."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "En lista med sökvägar (en per rad), för vilka statusikoner ska visas.\r\n"
+"Om du avslutar en sökväg med frågetecken (\"?\"), exkluderas endast denna sökvägen.\r\n"
 "Om du avslutar en sökväg med en asterisk (\"*\"), inkluderas även alla filer och undermappar."
 
 #. Resource IDs: (197)
@@ -1434,10 +1428,12 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "En lista med sökvägar (en per rad), för vilka inga statusikoner ska visas.\r\n"
+"Om du avslutar en sökväg med frågetecken (\"?\"), exkluderas endast denna sökvägen.\r\n"
 "Om du avslutar en sökväg med en asterisk (\"*\"), exkluderas även alla filer och undermappar.\r\n"
 "En tom lista tillåter visning av statussymboler för alla sökvägar."
 
@@ -3605,6 +3601,10 @@ msgstr ""
 "Aktivera endast detta om du arbetar med web projekt i VS.NET2003!\r\n"
 "Du måste starta om systemet för att ändringen ska börja gälla."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Aktivera statusikonhanterare"
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4131,6 +4131,10 @@ msgstr ""
 "Fyll"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Filter match"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4651,6 +4655,11 @@ msgstr "Statusikoner / statuskolumner"
 msgid "Icon Overlays::Icon Set"
 msgstr "Statusikoner::Statusikonuppsättning"
 
+# Hantering?
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Ikon Overlays::Overlay Hanterare"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Ikoner/Design/Kodning: \t\tLuebbe Onken"
@@ -4835,6 +4844,10 @@ msgstr "&Ignorera ändringar av tomrum"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Ignorera ändringar av tomrum"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Ignorerad"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5326,6 +5339,10 @@ msgstr "Ägare av låset:"
 msgid "Lock stolen by %s"
 msgstr "Lås stulet av %s"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Låst"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5793,6 +5810,10 @@ msgstr "Alternativ för navigeringspanelen..."
 msgid "Needs lock"
 msgstr "Behöver lås"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Behöver lås"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Nästlad"
@@ -5984,6 +6005,10 @@ msgstr "Notering: Katalogen innehåller icke versionshanterade objekt"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "OBS! Font inställningen påverkar också TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "OBS: detta påverkar alla Tortoise klienter, inte bara TortoiseSVN!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7341,6 +7366,10 @@ msgstr "SVN Revision"
 msgid "SVN Status"
 msgstr "SVN Status"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN Statusnummer"
+
 # Var används denna?
 #. Resource IDs: (12)
 msgid "SVN URL"
@@ -7881,14 +7910,6 @@ msgid ""
 msgstr ""
 "Visa eller dölj verktygsrad\n"
 "Växla verktygsrad"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Visa statussymbol för ignorerade objekt"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Visa statussymbol för objekt som inte versionshanteras"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9417,6 +9438,10 @@ msgstr "Koppla loss"
 msgid "Unversion and add to &ignore list"
 msgstr "Radera från arkivet och lägg till på undantagsl&istan"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Icke versionshanterad"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Mappar med filer som inte är versionshanterade visas som ändrade"
@@ -9917,6 +9942,14 @@ msgid ""
 msgstr ""
 "Du försöker flytta mappen som innehåller huvudgrenen!\n"
 "Är du helt säker på att du vill flytta den?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Du kan inaktivera specifika statusikonhanterare här. \n"
+"Avaktiverade hanterare kommer inte att använda en statusikonplats och ger andra verktyg en chans att visa sina statusikoner."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10945,6 +10978,14 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "&Till URL: "
+#~ msgid "&To path: "
+#~ msgstr "&Till sökväg:"
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Visa statussymbol för ignorerade objekt"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Visa statussymbol för objekt som inte versionshanteras"
 #~ msgid "y"
 #~ msgstr "y"
 #~ msgid "Author:                                    Stefan Kueng"
@@ -10968,8 +11009,6 @@ msgstr "{BugTraq}"
 #~ msgstr ""
 #~ "Sökvägen för hämtning refererar till en fil men\n"
 #~ "denna arbetskopia är en existerande katalog."
-#~ msgid "Unversioned"
-#~ msgstr "Icke versionshanterad"
 #~ msgid "Show &properties"
 #~ msgstr "Visa &egenskaper"
 #~ msgid "Show i&gnored files"
