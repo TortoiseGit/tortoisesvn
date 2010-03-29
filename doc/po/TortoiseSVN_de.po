@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-01 09:10+0100\n"
+"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
+"PO-Revision-Date: 2010-03-29 08:23+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -167,8 +167,8 @@ msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it 
 msgstr "TortoiseSVN ist freie Software. Sie brauchen nichts dafür zu bezahlen. Sie können das Programm benutzen wie Sie wollen. TortoiseSVN wird unter der GNU <quote>General Public License (GPL)</quote> entwickelt."
 
 #. (para)
-msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseSVN ist ein Open Source Projekt. Das bedeutet, dass sie Zugang zum Quellcode des Programms haben. Sie können den Quellcode unter folgender URL <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> ansehen. Sie werden nach einem Benutzernamen und Passwort gefragt. Der Benutzername ist <literal>guest</literal> und das Passwort muss leer gelassen werden. Die aktuellste Version (an der wir gerade arbeiten) ist immer im Ordner <filename>/trunk/</filename> zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <filename>/tags/</filename>."
+msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "TortoiseSVN ist ein Open Source Projekt. Das bedeutet, dass sie Zugang zum Quellcode des Programms haben. Sie können den Quellcode unter folgender URL <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink> ansehen. Die aktuellste Version (an der wir gerade arbeiten) ist immer im Ordner <filename>/trunk/</filename> zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <filename>/tags/</filename>."
 
 #. (title)
 msgid "Community"
@@ -1431,7 +1431,7 @@ msgstr ""
 
 #. (para)
 msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <placeholder-1/>"
-msgstr "Selbstverständlich würde es noch besser aussehen, wenn der Verweis ein passendes Bild enthielte. Sie können folgendes Bild verwenden <ulink url=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/logo/TortoiseCheckout.png\"> <citetitle>TortoiseSVN Logo</citetitle> </ulink> oder Ihr eigenes Bild angeben. <placeholder-1/>"
+msgstr "Selbstverständlich würde es noch besser aussehen, wenn der Verweis ein passendes Bild enthielte. Sie können folgendes Bild verwenden <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"> <citetitle>TortoiseSVN Logo</citetitle> </ulink> oder Ihr eigenes Bild angeben. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2125,8 +2125,8 @@ msgstr ""
 "aus und kopieren die Dateien <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> und <filename>menucheckout.ico</filename> in das Document Root Verzeichnis des Apache Servers (normalerweise <filename>C:/Programme/Apache Group/Apache2/htdocs</filename>). Dieses Verzeichnis wird mit der <literal>DocumentRoot</literal> Anweisung in der Apache Konfigurationsdatei eingestellt."
 
 #. (para)
-msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
-msgstr "Sie können diese drei Dateien direkt aus unserem Projektarchiv <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink> herunterladen. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift)."
+msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
+msgstr "Sie können diese drei Dateien direkt aus unserem Projektarchiv <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink> herunterladen. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift)."
 
 #. (para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
@@ -7921,8 +7921,8 @@ msgid "For the same reason, project properties will not be propagated automatica
 msgstr "Aus dem selben Grund werden Projekteigenschaften nicht automatisch weitergereicht, wenn ein Unterordner im Projektarchivbetrachter angelegt wird."
 
 #. (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Die Integration mit Fehlerverfolgungssystemen ist nicht auf TortoiseSVN limitiert, sie kann von jedem Subversion Client benutzt werden. Für weitere Informationen hierzu lesen Sie bitte die <ulink url=\"tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink> im TortoiseSVN Projektarchiv. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Die Integration mit Fehlerverfolgungssystemen ist nicht auf TortoiseSVN limitiert, sie kann von jedem Subversion Client benutzt werden. Für weitere Informationen hierzu lesen Sie bitte die <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink> im TortoiseSVN Projektarchiv. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift)."
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -7933,8 +7933,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Der vorherige Abschnitt befasste sich damit, Eintragsnummern zu den Logmeldungen hinzuzufügen. Aber wie bekommt man Informationen aus dem Fehlerverfolgungssystem? Der Übertragen-Dialog besitzt eine Windows COM Schnittstelle mit deren Hilfe ein externes Programm eingebunden werden kann, das mit dem Fehlerverfolgungssystem kommuniziert. Ein typischer Fall wäre, das Fehlerverfolgungssystem nach einer Liste der Ihnen zugeordneten offenen Aufgaben zu fragen, die Sie beim Übertragen als erledigt markieren wollen."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Jede solche Schnittstelle ist natürlich sehr spezifisch für Ihr System, so dass wir diesen Teil nicht zur Verfügung stellen können und die Beschreibung eines solchen Programms sprengt den Rahmen dieses Handbuchs. Die Schnittstellendefinition und Beispielanwendungen können Sie im <literal>contrib</literal> Verzeichnis des <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN Projektarchivs</citetitle></ulink> finden. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift). Eine Zusammenfassung der API findet sich in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Ein weiteres, funktionierendes Beispiel in C# ist <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, das die COM Schnittstelle für den Zugriff auf das <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> Fehlerverfolgungssystem implementiert."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Jede solche Schnittstelle ist natürlich sehr spezifisch für Ihr System, so dass wir diesen Teil nicht zur Verfügung stellen können und die Beschreibung eines solchen Programms sprengt den Rahmen dieses Handbuchs. Die Schnittstellendefinition und Beispielanwendungen können Sie im <literal>contrib</literal> Verzeichnis des <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN Projektarchivs</citetitle></ulink> finden. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift). Eine Zusammenfassung der API findet sich in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Ein weiteres, funktionierendes Beispiel in C# ist <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, das die COM Schnittstelle für den Zugriff auf das <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> Fehlerverfolgungssystem implementiert."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9395,8 +9395,8 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr "Normalerweise wollen Sie bestimmt die hässlichen DOS-Fenster verbergen während das Aktionsskript läuft, weshalb <guilabel>Skript beim Ablauf verbergen</guilabel> standardmäßig gewählt ist."
 
 #. (para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Beispielaktionsskripte finden sich im <literal>contrib</literal> Verzeichnis des <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN Projektarchivs</citetitle></ulink> finden. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Beispielaktionsskripte finden sich im <literal>contrib</literal> Verzeichnis des <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN Projektarchivs</citetitle></ulink> finden. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift)."
 
 #. (title)
 msgid "Issue Tracker Integration"
@@ -11072,20 +11072,8 @@ msgid "If you have not yet committed the add, then all you have to do is use <me
 msgstr "Wenn Sie die hinzugefügte Datei noch nicht übertragen haben, dann müssen Sie nur den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Rückgängig...</guimenuitem> </menuchoice> ausführen. Sie sollten dann die Datei(en) zur Liste der ignorierten Dateien hinzufügen damit dies nicht nochmals fälschlicherweise hinzugefügt werden können."
 
 #. (para)
-msgid "Hold the <keycap>Shift</keycap> key to get the extended context menu and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice> to mark the file/folder for deletion from the repository without losing the local copy."
-msgstr "Halten Sie die <keycap>Umsch</keycap> Taste gedrückt, um das erweiterte Kontextmenü zu erhalten und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Löschen (Lokal behalten)</guimenuitem> </menuchoice>, um die Datei aus dem Projektarchiv, nicht aber aus der Arbeitskopie zu löschen."
-
-#. (para)
-msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder."
-msgstr "<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen</guimenuitem></menuchoice> Sie den Elternordner."
-
-#. (para)
-msgid "Add the file/folder to the ignore list so you don't get into the same trouble again."
-msgstr "Fügen Sie die Datei bzw. den Ordner zur Ignorieren-Liste hinzu, damit Sie nicht nochmals in die gleiche Situation geraten."
-
-#. (para)
-msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
-msgstr "Wenn die Dateien jedoch schon im Projektarchiv gespeichert sind, ist ein wenig mehr Arbeit notwendig. <placeholder-1/>"
+msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
+msgstr "Falls sich die Dateien bereits im Projektarchiv befinden, müssen sie daraus gelöscht und zur Liste der ignorierten Dateien hinzugefügt werden. Glücklicherweise stellt TortoiseSVN eine Funktion dafür zur Verfügung. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aus SVN entfernen und ignorieren</guimenuitem></menuchoice> wird zunächst die Datei/den Ordner zum Löschen aus dem Projektarchiv markieren und die lokale Kopie beibehalten. Sie fügt das Objekt zur Liste der ignorierten Dateien hinzu, so dass es nicht versehentlich wieder zu Subversion hinzugefügt wird. Nachdem dies geschehen ist, müssen Sie lediglich den Elternordner wieder übertragen."
 
 #. (title)
 msgid "Unversion a working copy"
@@ -12049,8 +12037,8 @@ msgid "Conventions and Basic Rules"
 msgstr "Grundregeln und Konventionen"
 
 #. (para)
-msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr "In der folgenden Beschreibung wird die URL eines Projektarchivs einfach als <literal>URL</literal> geschrieben. Ein Beispiel wäre <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. Der Pfad der Arbeitskopie wird stets als <literal>PFAD</literal> geschrieben. Ein Beispiel wäre <systemitem class=\"url\">C:\\TortoiseSVN\\trunk</systemitem>."
+msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgstr "In der folgenden Beschreibung wird die URL eines Projektarchivs einfach als <literal>URL</literal> geschrieben. Ein Beispiel wäre <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk</systemitem>. Der Pfad der Arbeitskopie wird stets als <literal>PFAD</literal> geschrieben. Ein Beispiel wäre <systemitem class=\"url\">C:\\TortoiseSVN\\trunk</systemitem>."
 
 #. (para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
@@ -12668,8 +12656,8 @@ msgid "In this appendix we assume that you already have the subversion tools ins
 msgstr "In diesem Anhang setzen wir voraus, dass Sie bereits Subversion installiert und, wie anderweitig im Handbuch beschrieben, ein Projektarchiv angelegt haben. Beachten Sie bitte, dass Sie bei Verwendung von SSH svnserve <emphasis>nicht</emphasis> als Dämon oder Dienst starten sollten."
 
 #. (para)
-msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
-msgstr "Ein Großteil der folgenden Informationen stammt aus einer Anleitung von Marc Logemann, die sich unter <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> findet. Weitere Hinweise zum Einrichten eines Windows Servers stammen von Thorsten Müller. Danke Jungs!"
+msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which has been archived at <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
+msgstr "Ein Großteil der folgenden Informationen stammt aus einer Anleitung von Marc Logemann, die unter <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> archiviert wurde. Weitere Hinweise zum Einrichten eines Windows Servers stammen von Thorsten Müller. Danke Jungs!"
 
 #. (para)
 msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
@@ -13151,6 +13139,35 @@ msgstr ""
 msgid "translator-translation"
 msgstr "Übersetzung"
 
+#~ msgid ""
+#~ "Hold the <keycap>Shift</keycap> key to get the extended context menu and "
+#~ "use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep "
+#~ "local)</guimenuitem></menuchoice> to mark the file/folder for deletion "
+#~ "from the repository without losing the local copy."
+#~ msgstr ""
+#~ "Halten Sie die <keycap>Umsch</keycap> Taste gedrückt, um das erweiterte "
+#~ "Kontextmenü zu erhalten und wählen Sie <menuchoice> <guimenu>TortoiseSVN</"
+#~ "guimenu> <guimenuitem>Löschen (Lokal behalten)</guimenuitem> </"
+#~ "menuchoice>, um die Datei aus dem Projektarchiv, nicht aber aus der "
+#~ "Arbeitskopie zu löschen."
+#~ msgid ""
+#~ "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</"
+#~ "guimenuitem></menuchoice> the parent folder."
+#~ msgstr ""
+#~ "<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Übertragen</"
+#~ "guimenuitem></menuchoice> Sie den Elternordner."
+#~ msgid ""
+#~ "Add the file/folder to the ignore list so you don't get into the same "
+#~ "trouble again."
+#~ msgstr ""
+#~ "Fügen Sie die Datei bzw. den Ordner zur Ignorieren-Liste hinzu, damit Sie "
+#~ "nicht nochmals in die gleiche Situation geraten."
+#~ msgid ""
+#~ "If the files are already in the repository, you have to do a little more "
+#~ "work. <placeholder-1/>"
+#~ msgstr ""
+#~ "Wenn die Dateien jedoch schon im Projektarchiv gespeichert sind, ist ein "
+#~ "wenig mehr Arbeit notwendig. <placeholder-1/>"
 #~ msgid ""
 #~ "If <guilabel>Only checkout the top folder</guilabel> is checked, use the "
 #~ "<literal>-N</literal> switch."
