@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-03-01 21:40+0100\n"
+"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
+"PO-Revision-Date: 2010-03-29 21:18+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -154,8 +154,8 @@ msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it 
 msgstr "ТортоисеСВН је бесплатан. Ви не морате да платите да би га користили, можете га користити како год желите. Развијен је под ГНУ Генерлном Јавном Лиценцом (ГЈЛ)"
 
 #. (para)
-msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "ТортоисеСВН је пројекат Отвореног Кода. То значи да имате пун приступ изворном коду програма. Можете га потражити на линку <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. Бићете питани да унесете корисника и лозинку. Корисник<literal>guest</literal>, а лозинка мора остати празна. Најскорија верзија (где је израда у току)лоцирана је на <filename>/trunk/</filename> реализована верзија је под <filename>/tags/</filename>."
+msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "ТортоисеСВН је пројекат Отвореног Кода. То значи да имате пун приступ изворном коду програма. Можете га потражити на линку <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>.  Најскорија верзија (где је израда у току) лоцирана је на <filename>/trunk/</filename> реализована верзија је под <filename>/tags/</filename>."
 
 #. (title)
 msgid "Community"
@@ -2105,8 +2105,8 @@ msgstr ""
 "</screen>  и ставите фајлве <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> и <filename>menucheckout.ico</filename> у ваш корени именик докумената (обично <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). Именик је подешен са <literal>DocumentRoot</literal> директивом у Апаш конфигурационом фајлу."
 
 #. (para)
-msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
-msgstr "Можете узети ова три фајла директно са нашег изворног спремишта на  <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити ТортоисеСВН изворном спремишту)."
+msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
+msgstr "Можете узети ова три фајла директно са нашег изворног спремишта на  <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити ТортоисеСВН изворном спремишту)."
 
 #. (para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
@@ -7890,8 +7890,8 @@ msgid "For the same reason, project properties will not be propagated automatica
 msgstr "Из неких разлога особине пројекта неће се преносити аутоматски када се потомачки именик дода коришћењем репо претраживача."
 
 #. (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Проблем трагач интеграција није ограничена на ТортоисеСВН; то може бити коришћено са било којим Субверзионим клијентом. За више информација прочитајте потпуније <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Проблем Трагач Интеграција Спецификација</citetitle></ulink> у ТортоисеСВН изворно спремиште. (<xref linkend=\"tsvn-preface-source\"/> објашњава како да приступите спремишту)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Проблем трагач интеграција није ограничена на ТортоисеСВН; то може бити коришћено са било којим Субверзионим клијентом. За више информација прочитајте потпуније <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Проблем Трагач Интеграција Спецификација</citetitle></ulink> у ТортоисеСВН изворно спремиште. (<xref linkend=\"tsvn-preface-source\"/> објашњава како да приступите спремишту)."
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -7902,8 +7902,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Претходни параграф разматра додавање проблем информација у дневник порука. Али шта ако вам треба да добијете информацију од проблем трагача? Дијалог урезивања има ЦОМ интерфејс који дозвољава интеграцију спољашњих програма који могу говорити вашем трагачу. Типично можете желети да тражите трагачу да да листу отворених проблема придружених вама, тако да можете одабрати проблем који ће бити адресиран при урезивању."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Сваки такав интерфејс је свакако јако специфично за ваш систем праћења, тако да вам не можемо дати  ово поглавље и описати како да креирате такав програм јер је ван разматрања овог упутства. Дефиниција интерфејса и једноставни додаци у C# и C++/ATL  могу бити добијени из <literal>contrib</literal> именика у <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>ТортоисеСВН спремиште</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити спремишту). Резултат за АПИ је такође дат у <xref linkend=\"tsvn-ibugtraqprovider\"/>  Следећи (радни) пример  плагин у C# је <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> који имплементира жељени ЦОМ интерфејс са <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> проблем трагачем."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Сваки такав интерфејс је свакако јако специфично за ваш систем праћења, тако да вам не можемо дати  ово поглавље и описати како да креирате такав програм јер је ван разматрања овог упутства. Дефиниција интерфејса и једноставни додаци у C# и C++/ATL  могу бити добијени из <literal>contrib</literal> именика у <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>ТортоисеСВН спремиште</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити спремишту). Резултат за АПИ је такође дат у <xref linkend=\"tsvn-ibugtraqprovider\"/>  Следећи (радни) пример  плагин у C# је <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> који имплементира жељени ЦОМ интерфејс са <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> проблем трагачем."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9366,8 +9366,8 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr "Нормално желте да сакријете ружне ДОС боксове док скрипт ради, тако <guilabel>Сакри скрипт док ради</guilabel> је чекиран уобичајено."
 
 #. (para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Једноставна клијент закачаљка скрипта може бити нађено у  <literal>контриб</literal> именику у <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>ТортоисеСВН спремиште</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашљава како приступити спремишту)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Једноставна клијент закачаљка скрипта може бити нађено у  <literal>контриб</literal> именику у <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>ТортоисеСВН спремиште</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашљава како приступити спремишту)."
 
 #. (title)
 msgid "Issue Tracker Integration"
@@ -11045,20 +11045,8 @@ msgid "If you have not yet committed the add, then all you have to do is use <me
 msgstr "Ако још нисте урезали додавање, тада имате да користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Врати...</guimenuitem></menuchoice> да поништите додавање. Затим треба да додате фајл(ове) у листу занемарених тако да их грешком не додате поново касније."
 
 #. (para)
-msgid "Hold the <keycap>Shift</keycap> key to get the extended context menu and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice> to mark the file/folder for deletion from the repository without losing the local copy."
-msgstr "Држите <keycap>Shift</keycap> тастер да добијете проширени контекст мени и користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Бриши(држи локалноl)</guimenuitem></menuchoice> да означите фајл/именик за брисање из спремишта без губљења локалне копије."
-
-#. (para)
-msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder."
-msgstr "<menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Урежи</guimenuitem></menuchoice> предачки именик."
-
-#. (para)
-msgid "Add the file/folder to the ignore list so you don't get into the same trouble again."
-msgstr "Додајте фајл/именик у листу занемарених тако да не дођете у исти проблем поново."
-
-#. (para)
-msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
-msgstr "Ако су фајлови већ у спремишту, морате урадити мало више посла. <placeholder-1/>"
+msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
+msgstr "Ако су фајлови већ у спремишту, они ће бити обрисани изспремишта и додатина листу избегавања.Срећом ТортоисеСВН има уобичајене скраћеницеда то уради. <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem> Разверзионисање и додавање листи занемаривања </guimenuitem></menuchoice> ће најпре означити фајл/именик за брисање изспремишта,чувањем локалне копије. Такођедодаје ову ставку листи занемаривања да не бибило додавањаназад у Субверзију. Када јеједном урађено потребно је даурежетепредачкиименик."
 
 #. (title)
 msgid "Unversion a working copy"
@@ -12020,8 +12008,8 @@ msgid "Conventions and Basic Rules"
 msgstr "Конвенције и основна правила"
 
 #. (para)
-msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr "У опису који следи, УРЛ за локацију спремишта приказан је једноставно као <literal>УРЛ</literal>, и пример може бити <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. Путања радне копије је приказана једноставно као <literal>ПУТАЊА</literal>, и пример може бити <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgstr "У опису који следи, УРЛ за локацију спремишта приказан је једноставно као <literal>УРЛ</literal>, и пример може бити <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. Путања радне копије је приказана једноставно као <literal>ПУТАЊА</literal>, и пример може бити <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
@@ -12626,8 +12614,8 @@ msgid "In this appendix we assume that you already have the subversion tools ins
 msgstr "У овом додатку узимамо да већ имате субверзиони алат инсталиран, и имате креирано спремиште како је детаљно објашњено негде у овом упутству. Приметимо да <emphasis>не</emphasis> треба покренути свсерв као сервис или даемон када га користите са ССХ."
 
 #. (para)
-msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
-msgstr "Много од информација овде долази од Марк Логемана, које се могу наћи на <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Додатне информације о подешавању Виндоуз сервера обезбедио је Торстон Милер. Хвала људи!"
+msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which has been archived at <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
+msgstr "Много од информација овде долази од Марк Логемана, које се могу наћи на <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Додатне информације о подешавању Виндоуз сервера обезбедио је Торстон Милер. Хвала људи!"
 
 #. (para)
 msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
@@ -13111,6 +13099,34 @@ msgstr "Милорад Поповић <MiloradSPopovic@gmail.com>"
 msgid "translator-translation"
 msgstr "Превод"
 
+#~ msgid ""
+#~ "Hold the <keycap>Shift</keycap> key to get the extended context menu and "
+#~ "use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep "
+#~ "local)</guimenuitem></menuchoice> to mark the file/folder for deletion "
+#~ "from the repository without losing the local copy."
+#~ msgstr ""
+#~ "Држите <keycap>Shift</keycap> тастер да добијете проширени контекст мени "
+#~ "и користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Бриши"
+#~ "(држи локалноl)</guimenuitem></menuchoice> да означите фајл/именик за "
+#~ "брисање из спремишта без губљења локалне копије."
+#~ msgid ""
+#~ "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</"
+#~ "guimenuitem></menuchoice> the parent folder."
+#~ msgstr ""
+#~ "<menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Урежи</"
+#~ "guimenuitem></menuchoice> предачки именик."
+#~ msgid ""
+#~ "Add the file/folder to the ignore list so you don't get into the same "
+#~ "trouble again."
+#~ msgstr ""
+#~ "Додајте фајл/именик у листу занемарених тако да не дођете у исти проблем "
+#~ "поново."
+#~ msgid ""
+#~ "If the files are already in the repository, you have to do a little more "
+#~ "work. <placeholder-1/>"
+#~ msgstr ""
+#~ "Ако су фајлови већ у спремишту, морате урадити мало више посла. "
+#~ "<placeholder-1/>"
 #~ msgid ""
 #~ "If <guilabel>Only checkout the top folder</guilabel> is checked, use the "
 #~ "<literal>-N</literal> switch."
