@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-03-30 01:15-0000\n"
+"PO-Revision-Date: 2010-03-31 00:29-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7872,23 +7872,23 @@ msgstr "URL por omissão de colonização "
 
 #. (para)
 msgid "You can also specify the default URL for checkouts. If you often checkout sub-projects of some very large project, it can be useful to have the URL pre-filled so you only have to add the sub-project name to the end."
-msgstr "Podes também especificar o URL por omissão para colonizações. Se, com frequência, colonizas subprojectos de algum grande projecto, poderá ser útil ter um URL pré-preenchido para que só tenhas de adicionar o nome do subprojecto no fim."
+msgstr "Podes também especificar o URL por omissão para colonizações. Se, com frequência, colonizas subprojectos de algum grande projecto, poderá ser útil ter um URL pré-preenchido, para que só tenhas de adicionar o nome do subprojecto no fim."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 2"
-msgstr ""
+msgstr "Preferências das Caixas de Diálogo TortoiseSVN 2"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 2 Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Diálogos 2"
 
 #. (term)
 msgid "Recurse into unversioned folders"
-msgstr ""
+msgstr "Usar recursividade para entrar em pastas sem controlo de versões"
 
 #. (para)
 msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
-msgstr ""
+msgstr "Se esta caixa for verificada (estado por defeito), então sempre que o estado de uma pasta não versionada é mostrado na caixa de diálogo <guilabel>Adicionar</guilabel>, <guilabel>Submeter</guilabel> ou <guilabel>Verificar alterações</guilabel>, cada ficheiro ou pasta filho é também mostrado. Se desmarcares esta caixa, apenas o pai não versionado é mostrado. Desmarcar, reduz a confusão nestas caixas de diálogo. Nesse caso se seleccionares uma pasta não versionada para Adicionar, esta é adicionada recursivamente."
 
 #. (para)
 msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
@@ -7896,79 +7896,79 @@ msgstr ""
 
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
-msgstr ""
+msgstr "Usar auto-completamento para caminhos de arquivo e palavras-chave"
 
 #. (para)
 msgid "The commit dialog includes a facility to parse the list of filenames being committed. When you type the first 3 letters of an item in the list, the auto-completion box pops up, and you can press Enter to complete the filename. Check the box to enable this feature."
-msgstr ""
+msgstr "A caixa de diálogo submeter inclui a facilidade de analisar uma lista de nomes de ficheiros a submeter. Quando tu digitas as 3 primeiras letras de um item da lista, a caixa de auto-completamento aparecerá, e podes premir o Enter para completar o nome do ficheiro. Verifica a caixa para activar esta funcionalidade."
 
 #. (term)
 msgid "Timeout in seconds to stop the auto-completion parsing"
-msgstr ""
+msgstr "Prazo em segundos até para a análise para o auto-completamento"
 
 #. (para)
 msgid "The auto-completion parser can be quite slow if there are a lot of large files to check. This timeout stops the commit dialog being held up for too long. If you are missing important auto-completion information, you can extend the timeout."
-msgstr ""
+msgstr "O analisador do auto-completamento pode ser algo lento se existe um grande número de ficheiros a analisar. Este prazo evita que a caixa de submissão seja mantida presa por demasiado tempo. Se estás a perder informação importante de auto-completamento, poderás então estender o valor deste prazo."
 
 #. (term)
 msgid "Only use spellchecker when <literal>tsvn:projectlanguage</literal> is set"
-msgstr ""
+msgstr "Usar o verificador ortográfico apenas quando a <literal>tsvn:projectlanguage</literal> estiver definida"
 
 #. (para)
 msgid "If you don't wish to use the spellchecker for all commits, check this box. The spellchecker will still be enabled where the project properties require it."
-msgstr ""
+msgstr "Se não desejas utilizar o verificador ortográfico para todas as submissões, verifica esta caixa. O verificador ortográfico ainda estará activo nos projectos onde as suas propriedades o requerer."
 
 #. (term)
 msgid "Max. items to keep in the log message history"
-msgstr ""
+msgstr "Máximo de itens a preservar no histórico de mensagens de registo"
 
 #. (para)
 msgid "When you type in a log message in the commit dialog, TortoiseSVN stores it for possible re-use later. By default it will keep the last 25 log messages for each repository, but you can customize that number here. If you have many different repositories, you may wish to reduce this to avoid filling your registry."
-msgstr ""
+msgstr "Quando digitas uma mensagem de registo, na caixa de diálogo de registo, o TortoiseSVN armazena-a para possível reutilização futuro. Por defeito irá manter as últimas 25 mensagens de registo para cada repositório, mas tu podes personalizar aqui esse valor. Se tens muitos repositórios diferentes poderás querer reduzir este valor de modo a evitar encher o teu cartório de registo."
 
 #. (para)
 msgid "Note that this setting applies only to messages that you type in on this computer. It has nothing to do with the log cache."
-msgstr ""
+msgstr "De notar que esta preferência se aplica só a mensagens digitadas neste computador. Não tem nada a ver com a cache de registo."
 
 #. (term)
 msgid "Re-open commit and branch/tag dialog after a commit failed"
-msgstr ""
+msgstr "Reabrir a caixa de diálogo de submissão e ramificação/etiquetagem após uma submissão falhada"
 
 #. (para)
 msgid "When a commit fails for some reason (working copy needs updating, pre-commit hook rejects commit, network error, etc), you can select this option to keep the commit dialog open ready to try again. However, you should be aware that this can lead to problems. If the failure means you need to update your working copy, and that update leads to conflicts you must resolve those first."
-msgstr ""
+msgstr "Quando uma submissão falha por alguma razão (a cópia de trabalho precisa de actualização, gancho de pre-commit rejeita a submissão, error de rede, etc.), tu podes seleccionar esta opção para manter a caixa de diálogo de submeter aberta para nova tentativa. No entanto, deverás estar ciente de que isto poderá levar a problemas. Se a falha significar que necessitas de actualizar a tua cópia de trabalho e essa actualização pode levar a conflitos, que tens de resolver primeiro."
 
 #. (term)
 msgid "Select items automatically"
-msgstr ""
+msgstr "Seleccionar itens automaticamente"
 
 #. (para)
 msgid "The normal behaviour in the commit dialog is for all modified (versioned) items to be selected for commit automatically. If you prefer to start with nothing selected and pick the items for commit manually, uncheck this box."
-msgstr ""
+msgstr "O comportamento normal na caixa de diálogo submeter é para todos os itens (versionados) modificados serem seleccionados automaticamente para submissão. Se preferires começar com nada seleccionado, e escolher manualmente os itens a submeter, desmarca esta caixa."
 
 #. (term)
 msgid "Contact the repository on startup"
-msgstr ""
+msgstr "Contactar o repositório ao iniciar"
 
 #. (para)
 msgid "The Check for Modifications dialog checks the working copy by default, and only contacts the repository when you click <guibutton>Check repository</guibutton>. If you always want to check the repository, you can use this setting to make that action happen automatically."
-msgstr ""
+msgstr "A caixa de diálogo Verificar alterações, verifica a cópia de trabalho por defeito, e só contacta o repositório quando tu clicas <guibutton>Verificar o repositório</guibutton>. Se queres verificar sempre o repositório, podes usar esta preferência para executar automaticamente essa acção."
 
 #. (term)
 msgid "Show Lock dialog before locking files"
-msgstr ""
+msgstr "Mostrar caixa de diálogo de Bloqueio antes de bloquear arquivos"
 
 #. (para)
 msgid "When you select one or more files and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Lock</guimenuitem></menuchoice> to take out a lock on those files, on some projects it is customary to write a lock message explaining why you have locked the files. If you do not use lock messages, you can uncheck this box to skip that dialog and lock the files immediately."
-msgstr ""
+msgstr "Quando seleccionas um ou mais ficheiros e de seguida usas <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Bloquear</guimenuitem></menuchoice> para bloquear esses ficheiros, nalguns projectos é costume de escrever uma mensagem de bloqueio a explicar a razão porque os bloqueastes. Se não usares mensagens de bloqueio poderás desmarcar esta caixa, de modo a saltares esta caixa de diálogo, e bloquear de imediato os ficheiros."
 
 #. (para)
 msgid "If you use the lock command on a folder, you are always presented with the lock dialog as that also gives you the option to select files for locking."
-msgstr ""
+msgstr "Se usares o comando de bloqueio numa pasta, serás sempre levado à presença de uma caixa de diálogo de bloqueio, já que também te dará a opção de seleccionar os ficheiros a bloquear."
 
 #. (para)
 msgid "If your project is using the <literal>tsvn:lockmsgminsize</literal> property, you will see the lock dialog regardless of this setting because the project <emphasis>requires</emphasis> lock messages."
-msgstr ""
+msgstr "Se o teu projecto está a usar a propriedade <literal>tsvn:lockmsgminsize</literal> verás a caixa de diálogo bloquear, independentemente desta preferência, porque o projecto <emphasis>requer</emphasis> mensagens de bloqueio."
 
 #. (title)
 msgid "TortoiseSVN Colour Settings"
