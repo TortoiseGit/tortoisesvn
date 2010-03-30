@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-03-29 23:21-0000\n"
+"PO-Revision-Date: 2010-03-30 01:15-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7776,103 +7776,103 @@ msgstr "Se existem alguns caminhos no teu computador onde não queres que o menu
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 1"
-msgstr ""
+msgstr "Preferências das Caixas de Diálogo TortoiseSVN 1"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 1 Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Diálogos 1"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to configure some of TortoiseSVN's dialogs the way you like them."
-msgstr ""
+msgstr "<placeholder-1/> Esta caixa de diálogo permite-te configurar algumas das caixas de diálogo do TortoiseSVN, da maneira que mais gostas delas."
 
 #. (term)
 msgid "Default number of log messages"
-msgstr ""
+msgstr "Número de mensagens de registo por omissão"
 
 #. (para)
 msgid "Limits the number of log messages that TortoiseSVN fetches when you first select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> Useful for slow server connections. You can always use <guibutton>Show All</guibutton> or <guibutton>Next 100</guibutton> to get more messages."
-msgstr ""
+msgstr "Limita o número de mensagens de registo que o TortoiseSVN adquire quando tu seleccionas primeiro o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mostrar Registo</guimenuitem></menuchoice> Útil para conexões lentas com o servidor. Tu podes sempre usar o <guibutton>Mostrar Todos</guibutton> ou <guibutton>Próximos 100</guibutton> para obter mais mensagens."
 
 #. (term)
 msgid "Font for log messages"
-msgstr ""
+msgstr "Tipo de letra para mensagens de registo"
 
 #. (para)
 msgid "Selects the font face and size used to display the log message itself in the middle pane of the Revision Log dialog, and when composing log messages in the Commit dialog."
-msgstr ""
+msgstr "Selecciona o tipo de letra e o tamanho usado para mostrar a própria mensagem de registo, no painel ao meio da caixa de diálogo de Registo de Revisão, e quando na composição das mensagens na caixa de diálogo Submeter."
 
 #. (term)
 msgid "Short date / time format in log messages"
-msgstr ""
+msgstr "Formato conciso de data/hora nas mensagens de registo"
 
 #. (para)
 msgid "If the standard long messages use up too much space on your screen use the short format."
-msgstr ""
+msgstr "Se as longas mensagens padrão ocupam muito espaço no teu écran, usa o formato conciso. "
 
 #. (term)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr ""
+msgstr "Faça um duplo clique na lista de mensagens de registo para comparar com uma revisão anterior"
 
 #. (para)
 msgid "If you frequently find yourself comparing revisions in the top pane of the log dialog, you can use this option to allow that action on double-click. It is not enabled by default because fetching the diff is often a long process, and many people prefer to avoid the wait after an accidental double-click, which is why this option is not enabled by default."
-msgstr ""
+msgstr "Se te encontras frequentemente a comparar revisões no painel de topo da caixa de diálogo Registo, podes usar esta opção para permitir essa acção ao duplo clique. O que não está activo por defeito, porque adquirir as diferenças é normalmente um processo moroso e a maior parte das pessoas prefere evitar esperar após um duplo-clique acidental, que é a razão por que esta opção não está activa por defeito."
 
 #. (term)
 msgid "Progress Dialog"
-msgstr ""
+msgstr "Caixas de Diálogo de Progresso"
 
 #. (para)
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
-msgstr ""
+msgstr "O TortoiseSVN pode fechar automaticamente todas as caixas de diálogo de progresso, quando uma acção é finalizada sem erros. Esta preferência permite-te seleccionar as condições para fechar as caixas de diálogo. A preferência por defeito (recomendada) é <guilabel>Fechar manualmente</guilabel> o que te permite rever todas as mensagens e rever o que aconteceu. No entanto tu podes decidir que queres ignorar alguns tipos de mensagens, e teres a opção da caixa de diálogo a fechar automaticamente, se não existirem alterações críticas."
 
 #. (para)
 msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that the progress dialog will close if there were simple updates, but if changes from the repository were merged with yours, or if any files were added or deleted, the dialog will remain open. It will also stay open if there were any conflicts or errors during the operation."
-msgstr ""
+msgstr "<guilabel>Fechar automáticamente se não houver integrações, adições ou remoções</guilabel> significa que a caixa de diálogo progresso irá fechar-se no caso de actualizações simples, mas se alterações do repositório foram integradas com as tuas, ou se qualquer ficheiros foi adicionado ou removido, a caixa de diálogo permanecerá aberta. Irá também permanecer aberta se existir algum conflito ou erro durante a operação."
 
 #. (para)
 msgid "<guilabel>Auto-close if no merges, adds or deletes for local operations</guilabel> means that the progress dialog will close as for <guilabel>Auto-close if no merges, adds or deletes</guilabel> but only for local operations like adding files or reverting changes. For remote operations the dialog will stay open."
-msgstr ""
+msgstr "<guilabel>Fechar automáticamente se não houver integrações, adições ou remoções para operações locais</guilabel> significa que a caixa de progresso irá fechar como para <guilabel>Fechar automáticamente se não houver integrações, adições ou remoções</guilabel>, mas só para operações locais como adicionar ficheiros ou reverter alterações. Para operações remotas a caixa permanecerá aberta."
 
 #. (para)
 msgid "<guilabel>Auto-close if no conflicts</guilabel> relaxes the criteria further and will close the dialog even if there were merges, adds or deletes. However, if there were any conflicts or errors, the dialog remains open."
-msgstr ""
+msgstr "<guilabel>Fechar automáticamente se não houver conflitos</guilabel> relaxa ainda mais o critério e fechará a caixa de diálogo mesmo se existem integrações, adições ou remoções. No entanto se existir algum conflito ou erro, a caixa permanecerá aberta."
 
 #. (para)
 msgid "<guilabel>Auto-close if no errors</guilabel> always closes the dialog even if there were conflicts. The only condition that keeps the dialog open is an error condition, which occurs when Subversion is unable to complete the task. For example, an update fails because the server is inaccessible, or a commit fails because the working copy is out-of-date."
-msgstr ""
+msgstr "<guilabel>Fechar automaticamente se não houver erros</guilabel> fecha sempre a caixa de diálogo mesmo se existirem conflitos. A única condição que mantém a caixa de diálogo aberta é se existir uma condição de erro, que ocorre quando o Subversion não consegue finalizar a tarefa. Por exemplo se uma actualização falha, porque o servidor não está acessível, ou uma submissão falha, porque a cópia de trabalho está desactualizada."
 
 #. (term)
 msgid "Use recycle bin when reverting"
-msgstr ""
+msgstr "Usar a reciclagem quando a reverter"
 
 #. (para)
 msgid "When you revert local modifications, your changes are discarded. TortoiseSVN gives you an extra safety net by sending the modified file to the recycle bin before bringing back the pristine copy. If you prefer to skip the recycle bin, uncheck this option."
-msgstr ""
+msgstr "Quando revertes as modificações locais, as tuas alterações são descartadas. O TortoiseSVN dá-te uma rede de segurança extra, enviando o ficheiro modificado para o cesto de reciclagem, antes de trazer de volta a cópia pura. Se preferires saltar o cesto de reciclagem desselecciona esta opção."
 
 #. (term)
 msgid "Use URL of WC as the default <quote>From:</quote> URL"
-msgstr ""
+msgstr "Usar o URL da cópia de trabalho como o URL <quote>De:</quote> por omissão"
 
 #. (para)
 msgid "In the merge dialog, the default behaviour is for the <guilabel>From:</guilabel> URL to be remembered between merges. However, some people like to perform merges from many different points in their hierarchy, and find it easier to start out with the URL of the current working copy. This can then be edited to refer to a parallel path on another branch."
-msgstr ""
+msgstr "Na caixa de diálogo integrar, o comportamento por defeito é o URL <guilabel>De:</guilabel> ser recordado entre integrações. No entanto, algumas pessoas gostam de executar integrações a partir de muitos pontos diferentes da sua hierarquia, e acham mais fácil começar com o URL da cópia de trabalho corrente. Isto pode ser editado para se referir a um caminho paralelo noutro ramo."
 
 #. (term)
 msgid "Default checkout path"
-msgstr ""
+msgstr "Caminho por defeito para colonizar"
 
 #. (para)
 msgid "You can specify the default path for checkouts. If you keep all your checkouts in one place, it is useful to have the drive and folder pre-filled so you only have to add the new folder name to the end."
-msgstr ""
+msgstr "Tu podes especificar o caminho, por defeito, para as colonizações. Se manteres todas as tuas colonizações num único local, será útil ter uma unidade e pasta pré-preenchida, para que só tenhas de adicionar no fim o nome da nova pasta."
 
 #. (term)
 msgid "Default checkout URL"
-msgstr ""
+msgstr "URL por omissão de colonização "
 
 #. (para)
 msgid "You can also specify the default URL for checkouts. If you often checkout sub-projects of some very large project, it can be useful to have the URL pre-filled so you only have to add the sub-project name to the end."
-msgstr ""
+msgstr "Podes também especificar o URL por omissão para colonizações. Se, com frequência, colonizas subprojectos de algum grande projecto, poderá ser útil ter um URL pré-preenchido para que só tenhas de adicionar o nome do subprojecto no fim."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 2"
