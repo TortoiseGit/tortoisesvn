@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-19 12:32+0100\n"
+"PO-Revision-Date: 2010-03-30 08:25+0100\n"
 "Last-Translator: Miha Nahtigal <miha.nahtigal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1407,18 +1407,20 @@ msgstr "Seznam uporabniško določenih lastnosti map, ki se prikažejo v spustne
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "Na voljo je novejša različica.\r\n"
-"Pojdite na http://tortoisesvn.tigris.org in prenesite željeno različico."
+"Pojdite na http://tortoisesvn.net in prenesite željeno različico."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Vrstični seznam poti, pri katerih se prikažejo prekrivne ikone.\r\n"
-"Če dodate na konec poti znak '*', se zajamejo tudi vse datoteke in podmape znotraj te poti."
+"Če na konec poti dodate znak '?', bo uporabljena samo ta pot.\r\n"
+"Če na konec poti dodate znak '*', se zajamejo tudi vse datoteke in podmape znotraj te poti."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1433,10 +1435,12 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Vrstični seznam poti, za katere se prekrivne ikone ne prikažejo.\r\n"
+"Če na konec poti dodate znak '?', bo izključena samo ta pot.\r\n"
 "Če dodate na konec poti znak '*', se izključijo tudi vse datoteke in podmape znotraj te poti.\r\n"
 "Prazen seznam omogoča prekrivanje na vseh poteh."
 
@@ -3588,6 +3592,10 @@ msgstr ""
 "To možnost vključite, če delate s spletnimi projekti v VS.NET2003!\r\n"
 "Za uveljavitev spremembe morate sistem ponovno zagnati."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Omogočeni načini prekrivanja ikon"
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4113,6 +4121,10 @@ msgstr ""
 "Zapolnitev"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Filter poti"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4610,6 +4622,10 @@ msgstr "Prekrivanje ikon / Stolpci stanja"
 msgid "Icon Overlays::Icon Set"
 msgstr "Prekrivanje ikon::Nabor ikon"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Načini prekrivanja ikon"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Ikone/Oblikovanje/Koda:\t\tLuebbe Onken"
@@ -4796,6 +4812,10 @@ msgstr "Prezri razlike presledkov"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Prezri razlike presledkov"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Prezrto"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5281,6 +5301,10 @@ msgstr "Lastnik zaklepa:"
 msgid "Lock stolen by %s"
 msgstr "Zaklep ukradel %s"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Zaklenjeno"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5748,6 +5772,10 @@ msgstr "Možnosti navigacijskega podokna..."
 msgid "Needs lock"
 msgstr "Potrebuje zaklep"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Potrebuje zaklep"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Vgnezdeno"
@@ -5938,6 +5966,10 @@ msgstr "Opozorilo: mapa vsebuje elemente, ki niso v skladišču"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Opomba: nastavitve pisave vplivajo tudi na pregledovalnik TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Opozorilo: nastavitev velja za vse Tortoise kliente, ne le za TortoiseSVN!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7289,6 +7321,10 @@ msgstr "SVN - Revizija"
 msgid "SVN Status"
 msgstr "SVN - Status"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN - Št.Statusa"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN - URL"
@@ -7820,14 +7856,6 @@ msgid ""
 msgstr ""
 "Pokaži ali skrij orodno vrstico\n"
 "Preklopi orodno vrstico"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Pokaži prekrivne ikone za prezrte elemente"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Pokaži prekrivne ikone za elemente brez različic"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9354,6 +9382,10 @@ msgstr "Brez različic"
 msgid "Unversion and add to &ignore list"
 msgstr "Odstrani iz skladišča in dodaj na seznam prezrt&ih elementov"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Brez različice"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "V primeru datotek brez različic označi nadrejeno mapo kot spremenjeno."
@@ -9848,6 +9880,14 @@ msgstr ""
 "Premakniti želite mapo osnovnega debla.\n"
 "Ali ste popolnoma prepričani, da želite\n"
 "premakniti mapo?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Tukaj lahko onemogočite posamezne načine prekrivanje ikon.\n"
+"Onemogočeni načini prekrivanja ne bodo zasedali mest v lupini (shell-u), ki so na voljo za razširitve. S tem bodo lahko tudi ostale razširitve lupine prikazovale svoje ikone."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10877,6 +10917,10 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Pokaži prekrivne ikone za prezrte elemente"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Pokaži prekrivne ikone za elemente brez različic"
 #~ msgid "&To URL: "
 #~ msgstr "&Na URL"
 #~ msgid "Author:                                    Stefan Kueng"
@@ -10900,8 +10944,6 @@ msgstr "{BugTraq}"
 #~ msgstr ""
 #~ "Povezava za prevzem se sklicuje na datoteko,\n"
 #~ "pod delovne verzije pa je obstoječ direktorij."
-#~ msgid "Unversioned"
-#~ msgstr "Brez različice"
 #~ msgid "Show &properties"
 #~ msgstr "Pokaži &lastnosti"
 #~ msgid "Show i&gnored files"
