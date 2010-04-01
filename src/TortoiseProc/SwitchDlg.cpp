@@ -98,6 +98,7 @@ BOOL CSwitchDlg::OnInitDialog()
 		m_URLCombo.SelectString(-1, relPath);
 		m_URL = url;
 
+        SetDlgItemText(IDC_SRCURL, m_URL);
 		SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, relPath));
 	}
 
@@ -128,8 +129,10 @@ BOOL CSwitchDlg::OnInitDialog()
 	AddAnchor(IDC_URLLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
-	AddAnchor(IDC_DESTLABEL, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_DESTURL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_SRCLABEL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_SRCURL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_DESTLABEL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_DESTURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_REVGROUP, TOP_LEFT);
 	AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
 	AddAnchor(IDC_REVISION_N, TOP_LEFT);
