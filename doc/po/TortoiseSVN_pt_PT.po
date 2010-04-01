@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-03-31 01:05-0000\n"
+"PO-Revision-Date: 2010-04-01 23:36-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8060,147 +8060,147 @@ msgstr "O item original foi removido e um novo item com o mesmo nome substitui-o
 
 #. (title)
 msgid "Revision Graph Settings"
-msgstr ""
+msgstr "Preferências do Gráfico de Revisões"
 
 #. (title)
 msgid "The Settings Dialog, Revision Graph Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Gráfico de Revisões"
 
 #. (term)
 msgid "Classification Patterns"
-msgstr ""
+msgstr "Padrões de classificação"
 
 #. (para)
 msgid "The revision graph attempts to show a clearer picture of your repository structure by distinguishing between trunk, branches and tags. As there is no such classification built into Subversion, this information is extracted from the path names. The default settings assume that you use the conventional English names as suggested in the Subversion documentation, but of course your usage may vary."
-msgstr ""
+msgstr "O gráfico de revisões tenta mostrar uma imagem mais nítida da estrutura do teu repositório, distinguindo entre o trunk, ramos e etiquetas. Como não existe tal classificação instalada no Subversion, esta informação é então extraída a partir de nomes dos caminhos. As preferências por defeito assumem que irás utilizar os nomes convencionais em Inglês, como sugerido na documentação do Subversion, mas é claro que o uso que lhe dás pode ser diverso."
 
 #. (para)
 msgid "Specify the patterns used to recognise these paths in the three boxes provided. The patterns will be matched case-insensitively, but you must specify them in lower case. Wild cards <literal>*</literal> and <literal>?</literal> will work as usual, and you can use <literal>;</literal> to separate multiple patterns. Do not include any extra white space as it will be included in the matching specification."
-msgstr ""
+msgstr "Especifica os padrões usados para reconhecer esses caminhos, para tal usa as três caixas providenciadas. Os padrões serão correspondidos, sem distinção de maiúsculas e minúsculas, mas deverás especificá-los em minúsculas. Os caracteres livres <literal>*</literal> e <literal>?</literal> funcionaram como de costume e podes usar <literal>;</literal> para separar vários padrões. Não necessitas incluir qualquer carácter em branco adicional, já que tal irá ser incluído na especificação da correspondência."
 
 #. (term)
 msgid "Modify Colors"
-msgstr ""
+msgstr "Modificar Cores"
 
 #. (para)
 msgid "Colors are used in the revision graph to indicate the node type, i.e. whether a node is added, deleted, renamed. In order to help pick out node classifications, you can allow the revision graph to blend colors to give an indication of both node type and classification. If the box is checked, blending is used. If the box is unchecked, color is used to indicate node type only. Use the color selection dialog to allocate the specific colors used."
-msgstr ""
+msgstr "São usadas cores no gráfico de revisões para indicar o tipo do nó, i.e. se o nó foi adicionado, removido ou renomeado. De modo a te ajudar a identificar as classificações dos nós, tu podes permitir que o gráfico de revisões misture cores de modo a te dar tanto a indicação do tipo do nó como da classificação. Se a caixa está desmarcada, a cor é usada só para indicar o tipo do nó. Utiliza a caixa de diálogo de selecção de cor para atribuir as cores específicas usadas."
 
 #. (title)
 msgid "Revision Graph Colors"
-msgstr ""
+msgstr "Cores do Gráfico de Revisões"
 
 #. (title)
 msgid "The Settings Dialog, Revision Graph Colors Page"
-msgstr ""
+msgstr "A Caixa de Diálogo preferências,Página Cores do Gráfico de Revisões"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to configure the colors used. Note that the color specified here is the solid color. Most nodes are colored using a blend of the node type color, the background color and optionally the classification color."
-msgstr ""
+msgstr "<placeholder-1/> Esta página permite-te configurar as cores usadas. Tomar atenção que a cor aqui especificar é uma cor sólida. A maior parte dos nós é colorido usando uma mistura da cor do tipo do nó, a cor de fundo, e opcionalmente, a cor de classificação."
 
 #. (term)
 msgid "Deleted Node"
-msgstr ""
+msgstr "Nó Removido"
 
 #. (para)
 msgid "Items which have been deleted and not copied anywhere else in the same revision."
-msgstr ""
+msgstr "Itens que foram removidos, e não copiados para outro lado, na mesma revisão."
 
 #. (term)
 msgid "Added Node"
-msgstr ""
+msgstr "Nó Adicionado"
 
 #. (para)
 msgid "Items newly added, or copied (add with history)."
-msgstr ""
+msgstr "Itens recentemente adicionados ou copiados (adicionar com histórico)."
 
 #. (term)
 msgid "Renamed Node"
-msgstr ""
+msgstr "Nome do Nó Alterado"
 
 #. (para)
 msgid "Items deleted from one location and added in another in the same revision."
-msgstr ""
+msgstr "Itens removidos de uma localização e adicionados noutra, na mesma revisão."
 
 #. (term)
 msgid "Modified Node"
-msgstr ""
+msgstr "Nó Alterado"
 
 #. (para)
 msgid "Simple modifications without any add or delete."
-msgstr ""
+msgstr "Alterações simples, sem qualquer adição ou remoção."
 
 #. (term)
 msgid "Unchanged Node"
-msgstr ""
+msgstr "Nó não Alterado"
 
 #. (para)
 msgid "May be used to show the revision used as the source of a copy, even when no change (to the item being graphed) took place in that revision."
-msgstr ""
+msgstr "Poderá ser utilizada para mostrar a revisão usada como origem da cópia, mesmo quando nenhuma alteração (ao item objecto do gráfico) tenha ocorrido nessa revisão."
 
 #. (term)
 msgid "HEAD node"
-msgstr ""
+msgstr "Nó HEAD"
 
 #. (para)
 msgid "Current HEAD revision in the repository."
-msgstr "Revisão corrente HEAD no repositório."
+msgstr "Revisão corrente HEAD, no repositório."
 
 #. (term)
 msgid "WC Node"
-msgstr ""
+msgstr "Nó WC"
 
 #. (para)
 msgid "If you opt to show an extra node for your modified working copy, attached to its last-commit revision on the graph, use this color."
-msgstr ""
+msgstr "Se optares por mostrar um nó extra para a tua cópia de trabalho modificada, anexado à tua revisão da última submissão no gráfico, usa esta cor."
 
 #. (term)
 msgid "WC Node Border"
-msgstr ""
+msgstr "Limite do Nó WC"
 
 #. (para)
 msgid "If you opt to show whether the working copy is modified, use this color border on the WC node when modifications are found."
-msgstr ""
+msgstr "Se optares por mostrar se a cópia de trabalho foi modificada, usa esta cor de moldura no nó WC, para o caso de serem encontradas alterações."
 
 #. (term)
 msgid "Tag Nodes"
-msgstr ""
+msgstr "Nós Etiquetas"
 
 #. (para)
 msgid "Nodes classified as tags may be blended with this color."
-msgstr ""
+msgstr "Nós classificados como etiquetas podem ser misturados com esta cor."
 
 #. (term)
 msgid "Trunk Nodes"
-msgstr ""
+msgstr "Nós do Tronco"
 
 #. (para)
 msgid "Nodes classified as trunk may be blended with this color."
-msgstr ""
+msgstr "Nós classificados com tronco poder ser misturados com esta cor."
 
 #. (term)
 msgid "Folded Tag Markers"
-msgstr ""
+msgstr "Marcadores de Etiqueta Dobrada"
 
 #. (para)
 msgid "If you use tag folding to save space, tags are marked on the copy source using a block in this color."
-msgstr ""
+msgstr "Se usares etiquetas dobradas, para poupares espaço, as etiquetas são marcadas na cópia de origem como um bloco desta cor."
 
 #. (term)
 msgid "Selected Node Markers"
-msgstr ""
+msgstr "Marcadores de Nó Seleccionado"
 
 #. (para)
 msgid "When you left click on a node to select it, the marker used to indicate selection is a block in this color."
-msgstr ""
+msgstr "Quando clicas com o botão esquerdo num nó seleccionando-o, o marcador usado para indicar esta selecção é um bloco desta cor."
 
 #. (term)
 msgid "Stripes"
-msgstr ""
+msgstr "Tiras"
 
 #. (para)
 msgid "These colors are used when the graph is split into sub-trees and the background is colored in alternating stripes to help pick out the separate trees."
-msgstr ""
+msgstr "Essas cores são usadas quando o gráfico é dividido em sub-árvores, e o fundo é colorido com tiras alternadas, para ajudar a identificar as árvores separadas."
 
 #. (title)
 msgid "Icon Overlay Settings"
