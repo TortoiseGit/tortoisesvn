@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-15 09:17+0100\n"
+"PO-Revision-Date: 2010-04-01 22:44+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1134,16 +1134,8 @@ msgstr "&Tot en met revisie"
 msgid "&To URL:"
 msgstr "&Naar URL:"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&Naar URL: "
-
 #. Resource IDs: (1384)
 msgid "&To path:"
-msgstr "&Naar pad: "
-
-#. Resource IDs: (1305)
-msgid "&To path: "
 msgstr "&Naar pad: "
 
 #. Resource IDs: (1495)
@@ -1439,15 +1431,19 @@ msgstr "Een lijst met gebruikers-eigenschappen voor mappen die getoond moeten wo
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
-msgstr "Een nieuwere versie is beschikbaar. Ga naar http://tortoisesvn.tigris.org om de nieuwste versie te downloaden."
+"Please go to http://tortoisesvn.net and download the current version."
+msgstr ""
+"Een nieuwere versie is beschikbaar.\r\n"
+"Ga naar http://tortoisesvn.net om de nieuwste versie te downloaden."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Een met regelovergangen gescheiden lijst paden waarvoor overlays getoond worden.\r\n"
+"Als u een '?' karakter aan het einde van het pad toevoegt, wordt alleen dit pad opgenomen.\r\n"
 "Als u een '*' karakter aan het einde van het pad toevoegt, worden alle bestanden en submappen onder dat pad ook opgenomen."
 
 #. Resource IDs: (197)
@@ -1463,11 +1459,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Een met regelovergangen gescheiden lijst paden waarvoor geen overlays getoond worden.\r\n"
-"Als u een '*' karakter aan het einde van het pad toevoegt, worden alle bestanden en submappen onder dat pad ook opgenomen.\r\n"
+"Als u een '?' karakter aan het einde van het pad toevoegt, wordt alleen dit pad uitgesloten.\r\n"
+"Als u een '*' karakter aan het einde van het pad toevoegt, worden alle bestanden en submappen onder dat pad ook uitgesloten.\r\n"
 "Een lege lijst laat overlays op alle paden toe."
 
 #. Resource IDs: (3843)
@@ -3615,6 +3613,10 @@ msgstr ""
 "Activeer dit alleen als u web-projecten in VS.NET2003 gebruikt!\r\n"
 "U moet het systeem herstarten om deze instelling te activeren."
 
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Ingeschakelde overlay handlers"
+
 #. Resource IDs: (195)
 msgid ""
 "Enables the spellchecker only if the\n"
@@ -4140,6 +4142,10 @@ msgstr ""
 "Vullen"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Filter resultaat"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4637,6 +4643,10 @@ msgstr "Overlays voor Pictogrammen / Status Kolommen"
 msgid "Icon Overlays::Icon Set"
 msgstr "Overlay iconen::Iconen set"
 
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Overlay iconen::Overlay handlers"
+
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr "Iconen/Ontwerp/Code:\t\tLuebbe Onken"
@@ -4825,6 +4835,10 @@ msgstr "Negeer &wijzigingen in spaties en witregels"
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Negeer wijzigingen in spaties en witregels"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Genegeerd"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -5314,6 +5328,10 @@ msgstr "Blokkade-eigenaar:"
 msgid "Lock stolen by %s"
 msgstr "Blokkade gestolen door %s"
 
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Geblokkeerd"
+
 #. Resource IDs: (263)
 #, c-format
 msgid "Locked by %s"
@@ -5781,6 +5799,10 @@ msgstr "Opties voor navigatievenster..."
 msgid "Needs lock"
 msgstr "Heeft blokkade nodig"
 
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Heeft blokkade nodig"
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Genest"
@@ -5972,6 +5994,10 @@ msgstr "Let op: de map bevat bestanden zonder versiebeheer"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "N.B.: de lettertype instellingen gelden ook voor TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Let op: dit heeft gevolgen voor alle Tortoise programma's, niet alleen TortoiseSVN!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7323,6 +7349,10 @@ msgstr "SVN Revisie"
 msgid "SVN Status"
 msgstr "SVN Status"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN Statusnummer"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "URL van SVN"
@@ -7855,14 +7885,6 @@ msgstr ""
 "Toon of verberg de werkbalk\n"
 "Wissel werkbalk"
 
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Toon overlay bij genegeerde bestanden"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Toon overlay bij bestanden zonder versiebeheer"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Toon revisie-eigenschappen"
@@ -7981,6 +8003,10 @@ msgstr "Bronbestand Links:"
 #. Resource IDs: (1502)
 msgid "Source Right:"
 msgstr "Bronbestand Rechts:"
+
+#. Resource IDs: (1552)
+msgid "Source URL:"
+msgstr "Bron URL:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -9393,6 +9419,10 @@ msgstr "Verwijder versiebeheer"
 msgid "Unversion and add to &ignore list"
 msgstr "Stop versiebeheer en voeg toe aan &negeerlijst"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Zonder versiebeheer"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Bestanden zonder versiebeheer markeren map als gewijzigd"
@@ -9891,6 +9921,14 @@ msgstr ""
 "U probeert de basislijn te verplaatsen!\n"
 "Weet u echt zeker dat u de basislijn wilt\n"
 "verplaatsen?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Hier kunnen overlay handlers uitgeschakeld worden.\n"
+"Uitgeschakelde handlers gebruiken geen overlay posities en geven daarmee andere shell-extensies de ruimte om hun overlays te tonen."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10924,6 +10962,14 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "&Naar URL: "
+#~ msgid "&To path: "
+#~ msgstr "&Naar pad: "
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Toon overlay bij genegeerde bestanden"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Toon overlay bij bestanden zonder versiebeheer"
 #~ msgid "%s [Recovered]"
 #~ msgstr "%s [Herstelt]"
 #~ msgid "&Luminence:"
@@ -10989,8 +11035,6 @@ msgstr "{BugTraq}"
 #~ msgstr "&Verberg ongerelateerde wijzigingspaden"
 #~ msgid "Edit conflict"
 #~ msgstr "Bewerk conflict"
-#~ msgid "Unversioned"
-#~ msgstr "Zonder versiebeheer"
 #~ msgid "From URL:"
 #~ msgstr "Van URL:"
 #~ msgid ""
