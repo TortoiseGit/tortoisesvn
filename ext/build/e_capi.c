@@ -567,7 +567,11 @@ void ENGINE_load_capi(void)
 	DWORD dwData = 0;
 	DWORD dwDataSize = 4;
 	int bLoad = 1;
+#ifdef _WIN64
 	if (SHGetValue(HKEY_CURRENT_USER, L"Software\\TortoiseSVN", L"OpenSSLCapi", &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+#else
+	if (SHGetValue(HKEY_CURRENT_USER, "Software\\TortoiseSVN", "OpenSSLCapi", &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+#endif
 	{
 		if (dwType == REG_DWORD)
 		{
