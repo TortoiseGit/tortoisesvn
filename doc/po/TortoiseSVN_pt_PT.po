@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-04-01 23:36-0000\n"
+"PO-Revision-Date: 2010-04-02 01:23-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8204,107 +8204,107 @@ msgstr "Essas cores são usadas quando o gráfico é dividido em sub-árvores, e
 
 #. (title)
 msgid "Icon Overlay Settings"
-msgstr ""
+msgstr "Preferências de Sobreposição de Ícones"
 
 #. (title)
 msgid "The Settings Dialog, Icon Overlays Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Sobreposição de Ícones"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays."
-msgstr ""
+msgstr "<placeholder-1/> Esta página permite-te escolher os itens para os quais o TortoiseSVN irá mostrar sobreposições de ícones."
 
 #. (para)
 msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
-msgstr ""
+msgstr "Por defeito as sobreposições de ícones e menus de contexto irão aparecer em todas as caixas de abrir/guardar, tal como no Explorador do Windows. Se queres que apareçam <emphasis>só</emphasis> no Explorador do Windows verifica a caixa <guilabel>Mostrar sobreposições e menu de atalho apenas no explorador</guilabel>."
 
 #. (para)
 msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr ""
+msgstr "Aos itens ignorados e não versionados não é normalmente dada uma sobreposição. Se queres mostrar sobreposições nesses casos, basta verificares as caixas."
 
 #. (para)
 msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr ""
+msgstr "Podes também optar por marcar as pastas como modificadas, se estas contêm itens não versionados. Isto pode ser útil para te lembrar que criaste novos ficheiros que não foram ainda adicionados ao controlo de versões. Esta opção só está disponível quando usas  a opção de cache (ver abaixo) de estado <emphasis>por defeito</emphasis>."
 
 #. (term)
 msgid "Default"
-msgstr ""
+msgstr "Por omissão"
 
 #. (para)
 msgid "Caches all status information in a separate process (<filename>TSVNCache.exe</filename>). That process watches all drives for changes and fetches the status again if files inside a working copy get modified. The process runs with the least possible priority so other programs don't get hogged because of it. That also means that the status information is not <emphasis>real time</emphasis> but it can take a few seconds for the overlays to change."
-msgstr ""
+msgstr "Armazena na cache toda a informação num processo separado  (<filename>TSVNCache.exe</filename>). Esse processo monitoriza todas as unidades à procura de alterações, e adquire de novo o estado, se algum ficheiro dentro da cópia de trabalho foi modificado. O processo corre com a prioridade mais baixa para que os outros programas não fiquem pendurados por sua causa. Isso também significa que a informação do estado não é dada em  <emphasis>tempo real</emphasis>, mas pode levar alguns segundos até as sobreposições serem actualizadas."
 
 #. (para)
 msgid "Advantage: the overlays show the status recursively, i.e. if a file deep inside a working copy is modified, all folders up to the working copy root will also show the modified overlay. And since the process can send notifications to the shell, the overlays on the left tree view usually change too."
-msgstr ""
+msgstr "Vantagem: As sobreposições mostram o estado recursivamente, i.e. se um ficheiro, bem no interior da tua cópia de trabalho é alterado, todas as pastas até à raiz da cópia de trabalho irão também mostrar a sobreposição modificado. E visto que o processo pode enviar notificações para a shell, as sobreposições na árvore da vista à esquerda, também serão normalmente alteradas."
 
 #. (para)
 msgid "Disadvantage: the process runs constantly, even if you're not working on your projects. It also uses around 10-50 MB of RAM depending on number and size of your working copies."
-msgstr ""
+msgstr "Desvantagem: O processo corre continuamente mesmo que não estejas a trabalhar nos teus projectos. E também usa cerca de 10-50 MB de RAM, dependendo do número e tamanho das tuas cópias de trabalho."
 
 #. (term)
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #. (para)
 msgid "Caching is done directly inside the shell extension dll, but only for the currently visible folder. Each time you navigate to another folder, the status information is fetched again."
-msgstr ""
+msgstr "A cache é executada directamente do interior da dll da extensão da shell, mas apenas para a pasta correntemente visível. De cada vez que navegas para outra pasta, a informação de estado é novamente adquirida."
 
 #. (para)
 msgid "Advantage: needs only very little memory (around 1 MB of RAM) and can show the status in <emphasis>real time</emphasis>."
-msgstr ""
+msgstr "Vantagem: necessita apenas de muito pouca memória ( à volta de 1MB de RAM) e pode mostrar o estado em <emphasis>tempo real</emphasis>."
 
 #. (para)
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
-msgstr ""
+msgstr "Desvantagem: Visto que só uma pasta é posta em cache, as sobreposições não mostram recursivamente o estado. Para cópias de trabalho grandes, pode demorar mais tempo a mostrar uma pasta no explorador do que a opção por omissão. A coluna mime-type também não está disponível."
 
 #. (term)
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #. (para)
 msgid "With this setting, the TortoiseSVN does not fetch the status at all in Explorer. Because of that, files don't get an overlay and folders only get a 'normal' overlay if they're versioned. No other overlays are shown, and no extra columns are available either."
-msgstr ""
+msgstr "Com esta preferência o TortoiseSVN não adquire de modo algum o estado no Explorador. Devido a isso, os ficheiros não obtêm uma sobreposição e as pastas só obtêm a sobreposição 'normal', se estiverem versionadas. Nenhuma outra sobreposição é mostrada, e também não está disponíveis colunas extra."
 
 #. (para)
 msgid "Advantage: uses absolutely no additional memory and does not slow down the Explorer at all while browsing."
-msgstr ""
+msgstr "Vantagem: Não usa absolutamente nenhuma memória adicional e não desacelera o Explorador ao navegar."
 
 #. (para)
 msgid "Disadvantage: Status information of files and folders is not shown in Explorer. To see if your working copies are modified, you have to use the <quote>Check for modifications</quote> dialog."
-msgstr ""
+msgstr "Desvantagem: Não é mostrada no Explorador a informação de estado de ficheiros e pastas.Para veres se as tuas cópias de trabalho foram modificadas terás de usar a caixa de diálogo <quote>Verificar alterações</quote>."
 
 #. (para)
 msgid "Since it takes quite a while to fetch the status of a working copy, TortoiseSVN uses a cache to store the status so the explorer doesn't get hogged too much when showing the overlays. You can choose which type of cache TortoiseSVN should use according to your system and working copy size here: <placeholder-1/>"
-msgstr ""
+msgstr "Sendo que demora algum tempo a adquirir o estado da cópia de trabalho, o TortoiseSVN usa a cache para armazenar o estado, par que o explorador não fique muito tempo pendurado a mostrar as sobreposições. Podes escolher o tipo da cache que o TortoiseSVN deverá usar, de acordo com o teu sistema e tamanho de cópia de trabalho: <placeholder-1/>"
 
 #. (para)
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
-msgstr ""
+msgstr "O próximo grupo permite-te seleccionar quais as classes de armazenamento que devem mostrar sobreposições. Por defeito só unidades fixas estão seleccionadas. Podes mesmos desactivar todas as sobreposições de ícones, mas qual seria a piada?"
 
 #. (para)
 msgid "Network drives can be very slow, so by default icons are not shown for working copies located on network shares."
-msgstr ""
+msgstr "Unidades de rede podem ser muito lentas, pelo que por defeito, os ícones não são mostrados para cópias de trabalho localizadas em partilhas de rede."
 
 #. (para)
 msgid "USB Flash drives appear to be a special case in that the drive type is identified by the device itself. Some appear as fixed drives, and some as removable drives."
-msgstr ""
+msgstr "Unidades Flash USB parecem ser um caso especial em que o tipo de unidade é identificado pelo próprio dispositivo. Algumas aparecem como unidades fixas e outra como amovíveis."
 
 #. (para)
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
-msgstr ""
+msgstr "O <guilabel>Excluir caminhos</guilabel> é usado para comunicar ao TortoiseSVN que esses caminhos para os quais <emphasis>não</emphasis> deve ser mostrado sobreposições de ícones e colunas de estado. Isto é útil se tens algumas cópias de trabalho muito grandes, contendo só bibliotecas que não irás alterar e por isso não necessitam de sobreposições. por exemplo:"
 
 #. (para)
 msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays <emphasis>only</emphasis> on that specific folder. You still can see the overlays on all files and folder inside that folder."
-msgstr ""
+msgstr "<filename>f:\\development\\SVN\\Subversion</filename> irá desactivar as sobreposições <emphasis>só</emphasis> nessa pasta específica. Podes no entanto ver ainda as sobreposições, em todas as pastas e ficheiros, dentro dessa pasta."
 
 #. (para)
 msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
-msgstr ""
+msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> irá desactivar as sobreposições em <emphasis>todos</emphasis> os ficheiros e pastas cujos caminhos comecem por <filename>f:\\development\\SVN\\Subversion</filename>. Isso significa que não verás sobreposições para qualquer ficheiro ou pasta debaixo desse caminho."
 
 #. (para)
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
-msgstr ""
+msgstr "O mesmo se aplica para o <guilabel>Incluir caminhos</guilabel>. À excepção de que para esses caminhos as sobreposições são mostradas mesmo se estiverem desactivadas para esse tipo de unidade, ou por um caminho de exclusão, especificado acima."
 
 #. (para)
 msgid ""
@@ -8315,14 +8315,20 @@ msgid ""
 "  show overlays\n"
 "</screen> The include list <emphasis>always</emphasis> makes the overlays show. Otherwise, overlays are shown for all marked drive types <emphasis>unless</emphasis> the path is excluded."
 msgstr ""
+"Os utilizadores por vezes perguntam como essas preferências interagem, e a resposta definitiva é: <screen>\n"
+"if (path is in include list)\n"
+"  show overlays\n"
+"if (path is allowed drive type) AND (path is not in exclude list)\n"
+"  show overlays\n"
+"</screen> A lista de incluidos mostrará <emphasis>sempre</emphasis> as sobreposições. De outro modo as sobreposições  são sempre mostradas para todas as unidades marcadas <emphasis>a não ser que</emphasis> o caminho esteja excluído."
 
 #. (para)
 msgid "TSVNCache.exe also uses these paths to restrict its scanning. If you want it to look only in particular folders, disable all drive types and include only the folders you specifically want to be scanned."
-msgstr ""
+msgstr "O TSVNCache.exe também usa esses caminhos para restringir a sua monitorização. Se tu queres olhar só para algumas pastas em particular, desactiva todos os tipos de unidades e inclui apenas as pastas que tu queres que sejam especificamente monitoradas."
 
 #. (title)
 msgid "Exclude <literal>SUBST</literal> Drives"
-msgstr ""
+msgstr "Excluir unidades <literal>SUBST</literal> "
 
 #. (primary)
 msgid "SUBST drives"
@@ -8334,14 +8340,17 @@ msgid ""
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
 "</screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
 msgstr ""
+"É conveniente usar uma unidade <literal>SUBST</literal> para aceder ás tuas cópias de trabalho, e.g. usando o comando <screen>\n"
+"subst T: C:\\TortoiseSVN\\trunk\\doc\n"
+"</screen> No entanto isto pode provocar a não actualização das sobreposições, já que o <literal>TSVNCache</literal> só receberá uma notificação quando o ficheiro é alterado, e essa é normalmente o caminho original. Isto significa que as tuas sobreposições no caminho <literal>subst</literal> poderá nunca ser actualizado."
 
 #. (para)
 msgid "An easy way to work around this is to exclude the original path from showing overlays, so that the overlays show up on the <literal>subst</literal> path instead."
-msgstr ""
+msgstr "Uma maneira fácil de dar a volta a isto é excluir o caminho original de mostrar sobreposições, para que as sobreposições apareçam, por sua vez, no caminho <literal>subst</literal>."
 
 #. (para)
 msgid "Sometimes you will exclude areas that contain working copies, which saves TSVNCache from scanning and monitoring for changes, but you still want a visual indication that such folders are versioned. The <guilabel>Show excluded folders as 'normal'</guilabel> checkbox allows you to do this. With this option, versioned folders in any excluded area (drive type not checked, or specifically excluded) will show up as normal and up-to-date, with a green check mark. This reminds you that you are looking at a working copy, even though the folder overlays may not be correct. Files do not get an overlay at all. Note that the context menus still work, even though the overlays are not shown."
-msgstr ""
+msgstr "Por vezes tu excluirás áreas que contêm cópias de trabalho, que poupam o TSVNCache de monitorar e pesquisar por alterações, mas quererás à mesma a indicação visual que tais pastas são versionadas. A caixa de verificação <guilabel>mostrar pastas excluídas como normais</guilabel> te irá permitir fazer isso. Com esta opção as pastas versionadas em qualquer área excluída (tipo de unidade não verificada, ou especificamente excluída) será mostrada como normal e actualizada, com uma marca de verificação verde. Isto lembrar-te-á que estás a olhar para uma cópia de trabalho, mesmo que as sobreposições da pasta não estejam correctas. Os ficheiros não obterão nenhuma sobreposição. Ter em atenção que os menus de contexto ainda funcionaram, mesmo que as sobreposições, não sejam mostradas."
 
 #. (para)
 msgid "As a special exception to this, drives <literal>A:</literal> and <literal>B:</literal> are never considered for the <guilabel>Show excluded folders as 'normal'</guilabel> option. This is because Windows is forced to look on the drive, which can result in a delay of several seconds when starting Explorer, even if your PC does have a floppy drive."
