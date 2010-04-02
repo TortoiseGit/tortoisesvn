@@ -111,7 +111,8 @@ private:
 	CButton			m_butBrowse;
 	CRegHistory		m_History;
 	CToolTips		m_tooltips;
-	CPathEdit		m_FromUrl;
+    CPathEdit		m_FromUrl;
+    CPathEdit		m_DestUrl;
 	CHintListCtrl	m_ExtList;
 	TCHAR			m_columnbuf[MAX_PATH];
 	AeroControlBase m_aeroControls;

@@ -63,7 +63,8 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 	DDX_Check(pDX, IDC_DOSWITCH, m_bDoSwitch);
-	DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
+    DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
+    DDX_Control(pDX, IDC_DESTURL, m_DestUrl);
 	DDX_Control(pDX, IDC_EXTERNALSLIST, m_ExtList);
 }
 

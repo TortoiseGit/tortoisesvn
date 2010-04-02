@@ -83,7 +83,9 @@ protected:
 	CLogDlg *		m_pLogDlg;
 	CComboBox		m_depthCombo;
 	int				m_height;
-	CPathEdit		m_SwitchPath;
+    CPathEdit		m_SwitchPath;
+    CPathEdit		m_DestUrl;
+    CPathEdit		m_SrcUrl;
 	AeroControlBase m_aeroControls;
 
 public:
