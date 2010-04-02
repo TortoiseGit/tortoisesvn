@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-04-02 01:37-0000\n"
+"POT-Creation-Date: 2010-04-01 18:58 +0000\n"
+"PO-Revision-Date: 2010-04-02 23:30-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -456,82 +456,6 @@ msgstr "O TortoiseSVN vem com um instalador de fácil uso. Efectua duplo clique 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
 msgstr "Necessitas de previlégios de administrador para instalar o TortoiseSVN."
-
-#. (title)
-msgid "Language Packs"
-msgstr "Pacotes de Linguas"
-
-#. (primary)
-msgid "language packs"
-msgstr "pacotes de linguas"
-
-#. (primary)
-msgid "translations"
-msgstr "traduções"
-
-#. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "O interface gráfico do TortoiseSVN tem sido traduzido em muitoas e variadas línguas, sendo então possível descarregar um pacote de línguas que sirva as tuas necessidades. Tu podes encontrar os pacotes de línguas no nosso <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status página de ponto de situação da tradução</citetitle></ulink>. Se não existir um pacote de lingua ainda disponível porque não juntares-te á equipa e submeteres a tua própria tradução ;-)"
-
-#. (para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
-msgstr "Cada pacote de língua está empacotado como um instalador com extensão <literal>.exe</literal>. Apenas precisas de correr o ficheiro de instalação e seguir as instruções. Da próxima vez que reiniciares o computador, a tradução estará disponível."
-
-#. (title)
-msgid "Spellchecker"
-msgstr "Corretor Ortográfico"
-
-#. (primary)
-msgid "spellchecker"
-msgstr "corretor ortográfico"
-
-#. (primary)
-msgid "dictionary"
-msgstr "dicionário"
-
-#. (para)
-msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr "O TortoiseSVN ínclui um corretor ortográfico que permite verificar as messagens de log de submissão. Isto é de utilidade especial se a língua do projecto não é a língua nativa. O verificador ortográfico usa os mesmos ficheiros de dicionário que o <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> e <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-
-#. (para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
-msgstr "O instalador instala automáticamente os dicionários de Inglês UK e US. Se quiseres outras línguas, a opção mais simples é instalar um dos pacotes de línguas do TortoiseSVN. Este irá instalar os ficheiros de dicionário apropriados bem como o interface local do TortoiseSVN. Da próxima vez que reiniciares o computadoe, o dicionário estará tambem disponível."
-
-#. (para)
-msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
-msgstr "Ou poderás instalar os dicionários manualmente. Se tens o OpenOffice ou Mozilla instalado, podes copiar esses dicionários, que estão localizados nas pastas de instalação dessas aplicações. De outro modo, necessitarás de descarregar os ficheiros de dicionário necessários a partir de <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
-
-#. (filename)
-msgid "en_US.aff"
-msgstr "en_US.aff"
-
-#. (filename)
-msgid "en_US.dic"
-msgstr "en_US.dic"
-
-#. (para)
-msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr "Após obteres os ficheiros de dicionário, provavelmente necessitarás de renomeá-los para que os ficheiros só tenham os códigos de localização no nome. Exemplo: <placeholder-1/> Então copia-os apenas para a sub-pasta <filename>bin</filename> da pasta de instalação do TortoiseSVN. Normalmente esta será <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. No entanto se não quiseres lixo na sub-pasta <filename>bin</filename> poderás colocar os teus ficheiros de correção ortográfica na pasta <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. Se essa pasta não existe, terás de a criar primeiro. Da próxima vez que iniciares o TortoiseSVN o corrector ortográfica estará disponível."
-
-#. (para)
-msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
-msgstr "Verificar o parametro de configuração <literal>tsvn:projectlanguage</literal>. Ver a  secção <xref linkend=\"tsvn-dug-propertypage\"/> para mais  informações sobre configuração das propriedades do projecto"
-
-#. (para)
-msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
-msgstr "Se não é seleccionada nenhuma língua para o projecto, ou essa língua não está instalada, tente por favor a língua local do Windows."
-
-#. (para)
-msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
-msgstr "Se a configuração local do Windows não funciona, esperimente a língua <quote>Base</quote>, i.e. <literal>de_CH</literal> (Alemão-Suiço) cairá por defeito para <literal>de_DE</literal> (German)."
-
-#. (para)
-msgid "If none of the above works, then the default language is English, which is included with the standard installation."
-msgstr "Se nenhuma das abordagens anteriores funcionou, então a língua por defeito será o Inglês, que está íncluido na instalação standard."
-
-#. (para)
-msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
-msgstr "Se quiseres instalar múltiplos dicionários, o TortoiseSVN utiliza estas regras para seleccionar o dicionário em uso. <placeholder-1/>"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -8382,15 +8306,15 @@ msgstr "A Caixa de Diálogo Preferências, Página de Rede"
 
 #. (para)
 msgid "<placeholder-1/> Here you can configure your proxy server, if you need one to get through your company's firewall."
-msgstr ""
+msgstr "<placeholder-1/> Aqui podes configurar o teu servidor proxy, se necessitas de passar através da firewall da tua empresa."
 
 #. (para)
 msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <filename>servers</filename> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr ""
+msgstr "Se necessitas de configurar as preferências do proxy por repositório, precisas de configurar isso no ficheiro <filename>servers</filename> do Subversion. Usa o <guibutton>Editar</guibutton> para ir lá directamente. Consulta o <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> para mais detalhes em como utilizar este ficheiro."
 
 #. (para)
 msgid "You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository. We recommend that you use TortoisePlink.exe. This is a version of the popular Plink program, and is included with TortoiseSVN, but it is compiled as a Windowless app, so you don't get a DOS box popping up every time you authenticate."
-msgstr ""
+msgstr "Podes também especificar qual o programa que o TortoiseSVN deverá usar para estabelecer uma ligação segura com um repositório svn+ssh. Nós recomendamos que uses o TortoisePlink.exe. Este é uma versão do popular programa Plink e é incluído com o TortoiseSVN, mas é compilado como uma aplicação sem janelas, para que não tenhas uma caixa de diálogo de DOS a aparecer-te sempre que te autentiques."
 
 #. (para)
 msgid ""
@@ -8398,42 +8322,45 @@ msgid ""
 "\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
 "</screen>"
 msgstr ""
+"Deverás especificar o caminho completo para o executável. Que no caso do TortoisePlink.exe será, por defeito, a pasta bin do TortoiseSVN. Usa o botão <guibutton>Navegar</guibutton> para te ajudar a localizá-lo. Tem em conta que, se o caminho contiver espaços deverás pô-los entre aspas, e.g. <screen>\n"
+"\"C:\\Program Files\\TortoiseSVN\\bin\\TortoisePlink.exe\"\n"
+"</screen>"
 
 #. (para)
 msgid "One side-effect of not having a window is that there is nowhere for any error messages to go, so if authentication fails you will simply get a message saying something like <quote>Unable to write to standard output</quote>. For this reason we recommend that you first set up using standard Plink. When everything is working, you can use TortoisePlink with exactly the same parameters."
-msgstr ""
+msgstr "Um efeito secundário de não ter uma janela é que não há sitio para onde irem as mensagens de erro, pelo que se a autenticação falha, irás receber apenas uma mensagem dizendo algo como <quote>Não foi possivel escerver para o destino por defeito</quote>. Por essa razão, nós recomendamos que primeiro configure usando o Plink padrão. Quando tudo já está a funcionar, podes então usar o TortoisePlink com exactamente os mesmos parâmetros."
 
 #. (para)
 msgid "TortoisePlink does not have any documentation of its own because it is just a minor variant of Plink. Find out about command line parameters from the <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY website</citetitle></ulink>"
-msgstr ""
+msgstr "O TortoisePlink não tem nenhuma documentação sua, porque é apenas uma variante menor do Plink. Descobre mais sobre os parâmetros de linha de comandos a partir de <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY website</citetitle></ulink>"
 
 #. (para)
 msgid "To avoid being prompted for a password repeatedly, you might also consider using a password caching tool such as Pageant. This is also available for download from the PuTTY website."
-msgstr ""
+msgstr "Para evitares estares sempre a ser interrompido para inserires a palavra-passe, poderás considerar o uso de uma ferramenta de cache da palavra-passe como o Pageant. Esta está também disponível para descarga no sítio do PuTTY."
 
 #. (para)
 msgid "Finally, setting up SSH on server and clients is a non-trivial process which is beyond the scope of this help file. However, you can find a guide in the TortoiseSVN FAQ listed under <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "Finalmente, configurar o SSH no servidor e clientes é um processo não trivial, que está para além do âmbito deste documento. No entanto poderás encontrar um manual nas FAQs so TortoiseSVN, listadas em <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
 
 #. (title)
 msgid "External Program Settings"
-msgstr ""
+msgstr "Preferências de Programas Externos"
 
 #. (title)
 msgid "The Settings Dialog, Diff Viewer Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Visualizador de Comparação"
 
 #. (para)
 msgid "<placeholder-1/> Here you can define your own diff/merge programs that TortoiseSVN should use. The default setting is to use TortoiseMerge which is installed alongside TortoiseSVN."
-msgstr ""
+msgstr "<placeholder-1/> Aqui, poderás definir os teus próprios programas de Comparação/Integração que o TortoiseSVN deverá usar. A preferência por defeito é a utilização do TortoiseMerge, que está instalado juntamente com o TortoiseSVN."
 
 #. (para)
 msgid "Read <xref linkend=\"tsvn-dug-diff-tools\"/> for a list of some of the external diff/merge programs that people are using with TortoiseSVN."
-msgstr ""
+msgstr "Consulta o <xref linkend=\"tsvn-dug-diff-tools\"/>, para uma lista de alguns programas de Comparação/Integração que as pessoas podem usar com o TortoiseSVN."
 
 #. (title)
 msgid "Diff Viewer"
-msgstr ""
+msgstr "Visualizador de Comparações"
 
 #. (para)
 msgid "The original file without your changes"
@@ -9036,11 +8963,15 @@ msgid "This property specifies the COM UUID of the IBugtraqProvider, for example
 msgstr ""
 
 #. (para)
+msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
+msgstr ""
+
+#. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
 msgstr ""
 
 #. (para)
-msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
+msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
 msgstr ""
 
 #. (title)
@@ -9879,7 +9810,27 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgid "This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button."
+msgstr ""
+
+#. (para)
+msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
+msgstr ""
+
+#. (para)
+msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
+msgstr ""
+
+#. (para)
+msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
+msgstr ""
+
+#. (para)
+msgid "The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty."
+msgstr ""
+
+#. (para)
+msgid "The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
 msgstr ""
 
 #. (title)
@@ -9934,7 +9885,23 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgid "This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there."
+msgstr ""
+
+#. (para)
+msgid "The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path."
+msgstr ""
+
+#. (para)
+msgid "The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>)."
+msgstr ""
+
+#. (para)
+msgid "The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns."
+msgstr ""
+
+#. (para)
+msgid "The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
 msgstr ""
 
 #. (programlisting)
@@ -9953,7 +9920,15 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgid "This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items."
+msgstr ""
+
+#. (para)
+msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source url of the copy, and <literal>commonRoot</literal> is set to the target url of the copy."
+msgstr ""
+
+#. (para)
+msgid "The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
 msgstr ""
 
 #. (programlisting)
@@ -9985,7 +9960,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgid "This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
 msgstr ""
 
 #. (programlisting)
@@ -9999,7 +9974,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgid "This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
 msgstr ""
 
 #. (programlisting)
@@ -10019,7 +9994,15 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgid "This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin."
+msgstr ""
+
+#. (para)
+msgid "The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered."
+msgstr ""
+
+#. (para)
+msgid "The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
 msgstr ""
 
 #. (title)
@@ -10493,7 +10476,7 @@ msgid "ASP projects"
 msgstr ""
 
 #. (para)
-msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusions with users which always install <emphasis>everything</emphasis> no matter if they know what it is for."
+msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
 msgstr ""
 
 #. (para)
@@ -12052,6 +12035,94 @@ msgstr ""
 #. (para)
 msgid "If you use this last method, be sure you do not have a default username set in PuTTY. We have had reports of a bug in PuTTY causing connections to close in this case. To remove the default user, simply clear <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
 msgstr ""
+
+#. (title)
+msgid "Language Packs and Spell Checkers"
+msgstr ""
+
+#. (para)
+msgid "The standard installer has support only for English, but you can download separate language packs and spell check dictionaries separately after installation."
+msgstr ""
+
+#. (title)
+msgid "Language Packs"
+msgstr "Pacotes de Linguas"
+
+#. (primary)
+msgid "language packs"
+msgstr "pacotes de linguas"
+
+#. (primary)
+msgid "translations"
+msgstr "traduções"
+
+#. (para)
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
+msgstr "O interface gráfico do TortoiseSVN tem sido traduzido em muitoas e variadas línguas, sendo então possível descarregar um pacote de línguas que sirva as tuas necessidades. Tu podes encontrar os pacotes de línguas no nosso <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status página de ponto de situação da tradução</citetitle></ulink>. Se não existir um pacote de lingua ainda disponível porque não juntares-te á equipa e submeteres a tua própria tradução ;-)"
+
+#. (para)
+msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
+msgstr "Cada pacote de língua está empacotado como um instalador com extensão <literal>.exe</literal>. Apenas precisas de correr o ficheiro de instalação e seguir as instruções. Da próxima vez que reiniciares o computador, a tradução estará disponível."
+
+#. (para)
+msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
+msgstr ""
+
+#. (title)
+msgid "Spellchecker"
+msgstr "Corretor Ortográfico"
+
+#. (primary)
+msgid "spellchecker"
+msgstr "corretor ortográfico"
+
+#. (primary)
+msgid "dictionary"
+msgstr "dicionário"
+
+#. (para)
+msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgstr "O TortoiseSVN ínclui um corretor ortográfico que permite verificar as messagens de log de submissão. Isto é de utilidade especial se a língua do projecto não é a língua nativa. O verificador ortográfico usa os mesmos ficheiros de dicionário que o <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> e <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+
+#. (para)
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
+msgstr "O instalador instala automáticamente os dicionários de Inglês UK e US. Se quiseres outras línguas, a opção mais simples é instalar um dos pacotes de línguas do TortoiseSVN. Este irá instalar os ficheiros de dicionário apropriados bem como o interface local do TortoiseSVN. Da próxima vez que reiniciares o computadoe, o dicionário estará tambem disponível."
+
+#. (para)
+msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
+msgstr "Ou poderás instalar os dicionários manualmente. Se tens o OpenOffice ou Mozilla instalado, podes copiar esses dicionários, que estão localizados nas pastas de instalação dessas aplicações. De outro modo, necessitarás de descarregar os ficheiros de dicionário necessários a partir de <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
+
+#. (filename)
+msgid "en_US.aff"
+msgstr "en_US.aff"
+
+#. (filename)
+msgid "en_US.dic"
+msgstr "en_US.dic"
+
+#. (para)
+msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
+msgstr "Após obteres os ficheiros de dicionário, provavelmente necessitarás de renomeá-los para que os ficheiros só tenham os códigos de localização no nome. Exemplo: <placeholder-1/> Então copia-os apenas para a sub-pasta <filename>bin</filename> da pasta de instalação do TortoiseSVN. Normalmente esta será <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. No entanto se não quiseres lixo na sub-pasta <filename>bin</filename> poderás colocar os teus ficheiros de correção ortográfica na pasta <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. Se essa pasta não existe, terás de a criar primeiro. Da próxima vez que iniciares o TortoiseSVN o corrector ortográfica estará disponível."
+
+#. (para)
+msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
+msgstr "Verificar o parametro de configuração <literal>tsvn:projectlanguage</literal>. Ver a  secção <xref linkend=\"tsvn-dug-propertypage\"/> para mais  informações sobre configuração das propriedades do projecto"
+
+#. (para)
+msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
+msgstr "Se não é seleccionada nenhuma língua para o projecto, ou essa língua não está instalada, tente por favor a língua local do Windows."
+
+#. (para)
+msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
+msgstr "Se a configuração local do Windows não funciona, esperimente a língua <quote>Base</quote>, i.e. <literal>de_CH</literal> (Alemão-Suiço) cairá por defeito para <literal>de_DE</literal> (German)."
+
+#. (para)
+msgid "If none of the above works, then the default language is English, which is included with the standard installation."
+msgstr "Se nenhuma das abordagens anteriores funcionou, então a língua por defeito será o Inglês, que está íncluido na instalação standard."
+
+#. (para)
+msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
+msgstr "Se quiseres instalar múltiplos dicionários, o TortoiseSVN utiliza estas regras para seleccionar o dicionário em uso. <placeholder-1/>"
 
 #. (title)
 msgid "Glossary"
