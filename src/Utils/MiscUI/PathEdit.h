@@ -29,19 +29,23 @@
  */
 class CPathEdit : public CEdit
 {
-	DECLARE_DYNAMIC(CPathEdit)
+    DECLARE_DYNAMIC(CPathEdit)
 
 public:
-	CPathEdit();
-	virtual ~CPathEdit();
+    CPathEdit();
+    virtual ~CPathEdit();
+    void    SetBold();
 
 protected:
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 public:
-	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+    virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
 private:
-	CString		m_sRealText;
-	bool		m_bInternalCall;
-	void FitPathToWidth(CString& path);
+    CString		m_sRealText;
+    bool		m_bInternalCall;
+    bool        m_bBold;
+    CFont       m_boldFont;
+    void        FitPathToWidth(CString& path);
+    CFont *     GetFont();
 };
