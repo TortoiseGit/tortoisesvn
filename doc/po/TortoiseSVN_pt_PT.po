@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-04-02 01:23-0000\n"
+"PO-Revision-Date: 2010-04-02 01:37-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8350,27 +8350,27 @@ msgstr "Uma maneira fácil de dar a volta a isto é excluir o caminho original d
 
 #. (para)
 msgid "Sometimes you will exclude areas that contain working copies, which saves TSVNCache from scanning and monitoring for changes, but you still want a visual indication that such folders are versioned. The <guilabel>Show excluded folders as 'normal'</guilabel> checkbox allows you to do this. With this option, versioned folders in any excluded area (drive type not checked, or specifically excluded) will show up as normal and up-to-date, with a green check mark. This reminds you that you are looking at a working copy, even though the folder overlays may not be correct. Files do not get an overlay at all. Note that the context menus still work, even though the overlays are not shown."
-msgstr "Por vezes tu excluirás áreas que contêm cópias de trabalho, que poupam o TSVNCache de monitorar e pesquisar por alterações, mas quererás à mesma a indicação visual que tais pastas são versionadas. A caixa de verificação <guilabel>mostrar pastas excluídas como normais</guilabel> te irá permitir fazer isso. Com esta opção as pastas versionadas em qualquer área excluída (tipo de unidade não verificada, ou especificamente excluída) será mostrada como normal e actualizada, com uma marca de verificação verde. Isto lembrar-te-á que estás a olhar para uma cópia de trabalho, mesmo que as sobreposições da pasta não estejam correctas. Os ficheiros não obterão nenhuma sobreposição. Ter em atenção que os menus de contexto ainda funcionaram, mesmo que as sobreposições, não sejam mostradas."
+msgstr "Por vezes tu excluirás áreas que contêm cópias de trabalho, que poupam o TSVNCache de monitorar e pesquisar por alterações, mas quererás à mesma a indicação visual que tais pastas são versionadas. A caixa de verificação <guilabel>mostrar pastas excluídas como normais</guilabel> te irá permitir fazer isso. Com esta opção as pastas versionadas em qualquer área excluída (tipo de unidade não verificada, ou especificamente excluída) será mostrada como normal e actualizada, com uma marca de verificação verde. Isto lembrar-te-á que estás a olhar para uma cópia de trabalho, mesmo que as sobreposições da pasta não estejam correctas. Os ficheiros não obterão nenhuma sobreposição. Ter em atenção que os menus de contexto ainda funcionarão mesmo que as sobreposições não sejam mostradas."
 
 #. (para)
 msgid "As a special exception to this, drives <literal>A:</literal> and <literal>B:</literal> are never considered for the <guilabel>Show excluded folders as 'normal'</guilabel> option. This is because Windows is forced to look on the drive, which can result in a delay of several seconds when starting Explorer, even if your PC does have a floppy drive."
-msgstr ""
+msgstr "Como excepção especial a isto, as unidades <literal>A:</literal> e <literal>B:</literal> nunca são consideradas para a opção <guilabel>Mostrar pastas excluídas como 'normais'</guilabel>. Isto é porque o Windows força a busca na unidade, o que pode resultar num atraso de vários segundos quando o Explorador arranca, mesmo se o teu PC não tem uma unidade de disquete."
 
 #. (title)
 msgid "Icon Set Selection"
-msgstr ""
+msgstr "Selecção de Conjunto de Ícones"
 
 #. (title)
 msgid "The Settings Dialog, Icon Set Page"
-msgstr ""
+msgstr "A Caixa de Diálogo preferências, Página Conjunto de Ícones"
 
 #. (para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
-msgstr ""
+msgstr "<placeholder-1/> Podes alterar o conjunto de sobreposições para o que mais gostares. De notar que se alterares o conjunto de sobreposições, poderás ter de reiniciar o teu computador para as alterações surtam efeito."
 
 #. (title)
 msgid "Network Settings"
-msgstr ""
+msgstr "Preferências de Rede"
 
 #. (primary)
 msgid "proxy server"
@@ -8378,7 +8378,7 @@ msgstr ""
 
 #. (title)
 msgid "The Settings Dialog, Network Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página de Rede"
 
 #. (para)
 msgid "<placeholder-1/> Here you can configure your proxy server, if you need one to get through your company's firewall."
