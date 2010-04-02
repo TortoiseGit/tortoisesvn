@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "EditPropBase.h"
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
 #include "Tooltip.h"
@@ -29,7 +30,7 @@
  * Helper dialog to edit the Subversion properties.
  */
 
-class CEditPropertyValueDlg : public CResizableStandAloneDialog
+class CEditPropertyValueDlg : public CResizableStandAloneDialog, public EditPropBase
 {
 	DECLARE_DYNAMIC(CEditPropertyValueDlg)
 
@@ -41,18 +42,6 @@ public:
 
 	void			SetPropertyName(const std::string& sName);
 	void			SetPropertyValue(const std::string& sValue);
-	std::string		GetPropertyValue() {return m_PropValue;}
-	std::string		GetPropertyName() {return m_PropName;}
-	bool			GetRecursive() {return !!m_bRecursive;}
-	bool			IsBinary() {return m_bIsBinary;}
-	bool			IsChanged() { return m_bChanged;}
-
-	void			SetFolder() {m_bFolder = true;}
-	void			SetMultiple() {m_bMultiple = true;}
-	void			SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
-	void			SetPathList(const CTSVNPathList& pathlist) {m_pathList = pathlist;}
-
-	void			RevProps(bool bRevProps = false) {m_bRevProps = bRevProps;}
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
@@ -66,22 +55,13 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	void CheckRecursive();
+    INT_PTR DoModal() { return CResizableStandAloneDialog::DoModal(); }
 protected:
 	CToolTips	m_tooltips;
 	CComboBox	m_PropNames;
 	CFont		m_valueFont;
-	std::string m_PropValue;
-	std::string m_PropName;
 	CString		m_sPropValue;
 	CString		m_sPropName;
-	CString		m_sTitle;
-	BOOL		m_bRecursive;
-	bool		m_bFolder;
-	bool		m_bMultiple;
-	bool		m_bIsBinary;
-	bool		m_bRevProps;
-	bool		m_bChanged;
-	CTSVNPathList		m_pathList;
 	ProjectProperties	m_ProjectProperties;
 	AeroControlBase		m_aeroControls;
 };

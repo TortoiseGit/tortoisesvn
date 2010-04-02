@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010 - TortoiseSVN
+// Copyright (C) 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,15 +16,46 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include "PropertiesCommand.h"
+#include "stdafx.h"
+#include "TortoiseProc.h"
+#include "SVNProperties.h"
+#include "UnicodeUtils.h"
+#include "AppUtils.h"
+#include "StringUtils.h"
+#include "EditPropBase.h"
+#include "auto_buffer.h"
 
-#include "Properties/EditPropertiesDlg.h"
 
-bool PropertiesCommand::Execute()
+EditPropBase::EditPropBase()
+    : m_bFolder(false)
+    , m_bMultiple(false)
+    , m_bIsBinary(false)
+    , m_bChanged(false)
+    , m_bRevProps(false)
+    , m_bRecursive(false)
 {
-	CEditPropertiesDlg dlg;
-	dlg.SetPathList(pathList);
-	dlg.DoModal();
-	return true;
 }
+
+EditPropBase::~EditPropBase()
+{
+}
+
+void EditPropBase::SetPropertyName(const std::string& sName)
+{
+    m_PropName = sName;
+}
+
+void EditPropBase::SetPropertyValue(const std::string& sValue)
+{
+    if (SVNProperties::IsBinary(sValue))
+    {
+        m_bIsBinary = true;
+    }
+    else
+    {
+        m_bIsBinary = false;
+    }
+    m_PropValue = sValue;
+}
+
+

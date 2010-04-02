@@ -274,6 +274,10 @@ msgstr ""
 msgid "&Add..."
 msgstr ""
 
+#. Resource IDs: (32849)
+msgid "&Advanced"
+msgstr ""
+
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr ""
@@ -284,6 +288,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Application Look"
+msgstr ""
+
+#. Resource IDs: (1294)
+msgid "&Apply property recursively"
 msgstr ""
 
 #. Resource IDs: (1013)
@@ -316,6 +324,10 @@ msgstr ""
 
 #. Resource IDs: (1015)
 msgid "&Backup original file"
+msgstr ""
+
+#. Resource IDs: (1559)
+msgid "&Binary"
 msgstr ""
 
 #. Resource IDs: (114)
@@ -526,6 +538,10 @@ msgstr ""
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr ""
 
+#. Resource IDs: (1554)
+msgid "&Executable"
+msgstr ""
+
 #. Resource IDs: (32782)
 msgid "&Exit"
 msgstr ""
@@ -707,6 +723,10 @@ msgstr ""
 msgid "&Load..."
 msgstr ""
 
+#. Resource IDs: (1554)
+msgid "&Locking required (read-only update)"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr ""
@@ -741,6 +761,10 @@ msgstr ""
 
 #. Resource IDs: (1012)
 msgid "&Merging"
+msgstr ""
+
+#. Resource IDs: (32847)
+msgid "&Mime-Type"
 msgstr ""
 
 #. Resource IDs: (16925)
@@ -790,6 +814,14 @@ msgstr ""
 
 #. Resource IDs: (16632)
 msgid "&No double-click event"
+msgstr ""
+
+#. Resource IDs: (1555)
+msgid "&No locking required"
+msgstr ""
+
+#. Resource IDs: (1555)
+msgid "&Not executable"
 msgstr ""
 
 #. Resource IDs: (1)
@@ -1662,10 +1694,6 @@ msgstr ""
 
 #. Resource IDs: (345)
 msgid "Apply 'Power User' defaults. Those will provide a smoother experience.\nYou should know the meaning of all the settings above."
-msgstr ""
-
-#. Resource IDs: (1294)
-msgid "Apply property recursively"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -3147,6 +3175,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "E&xclude paths:"
+msgstr ""
+
+#. Resource IDs: (32839)
+msgid "E&xecutable"
 msgstr ""
 
 #. Resource IDs: (105, 57665)
@@ -5058,6 +5090,10 @@ msgstr ""
 msgid "Needs lock"
 msgstr ""
 
+#. Resource IDs: (32845)
+msgid "Needs-&Lock"
+msgstr ""
+
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr ""
@@ -5220,6 +5256,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr ""
+
+#. Resource IDs: (1557)
+msgid "Note: this property has no effect on Windows"
 msgstr ""
 
 #. Resource IDs: (88)
@@ -8945,6 +8985,10 @@ msgstr ""
 msgid "svn:eol-style\r\nOne of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 
+#. Resource IDs: (312)
+msgid "svn:executable"
+msgstr ""
+
 #. Resource IDs: (576)
 msgid "svn:executable\r\nIf present, make the file executable. This property cannot be set on a directory.\r\nA non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
@@ -8965,8 +9009,16 @@ msgstr ""
 msgid "svn:mergeinfo\r\nA newline separated list of merge tracking info. Each line consists of an absolute\r\npath followed by a colon and a list of comma separated revision numbers.\r\nFor example\r\n/trunk:123-125,129"
 msgstr ""
 
+#. Resource IDs: (314)
+msgid "svn:mime-type"
+msgstr ""
+
 #. Resource IDs: (576)
 msgid "svn:mime-type\r\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\nAnything else is treated as binary."
+msgstr ""
+
+#. Resource IDs: (313)
+msgid "svn:needs-lock"
 msgstr ""
 
 #. Resource IDs: (576)

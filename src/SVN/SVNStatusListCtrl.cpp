@@ -46,7 +46,7 @@
 #include "SVNAdminDir.h"
 #include "IconMenu.h"
 #include "AddDlg.h"
-#include "EditPropertiesDlg.h"
+#include "Properties/EditPropertiesDlg.h"
 #include "CreateChangelistDlg.h"
 #include "SysInfo.h"
 #include "ProgressDlg.h"

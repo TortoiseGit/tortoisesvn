@@ -21,7 +21,6 @@
 #include "MessageBox.h"
 #include "TortoiseProc.h"
 #include "EditPropertiesDlg.h"
-#include "EditPropertyValueDlg.h"
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "AppUtils.h"
@@ -32,6 +31,11 @@
 #include "auto_buffer.h"
 #include "JobScheduler.h"
 #include "AsyncCall.h"
+
+#include "EditPropertyValueDlg.h"
+#include "EditPropExecutable.h"
+#include "EditPropNeedsLock.h"
+#include "EditPropMimeType.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -52,7 +56,9 @@ void CEditPropertiesDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_EDITPROPLIST, m_propList);
-	DDX_Control(pDX, IDC_PROPPATH, m_PropPath);
+    DDX_Control(pDX, IDC_PROPPATH, m_PropPath);
+    DDX_Control(pDX, IDC_ADDPROPS, m_btnNew);
+    DDX_Control(pDX, IDC_EDITPROPS, m_btnEdit);
 }
 
 
@@ -120,6 +126,17 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 		GetDlgItem(IDC_IMPORT)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_EXPORT)->ShowWindow(SW_HIDE);
 	}
+
+    m_newMenu.LoadMenu(IDR_PROPNEWMENU);
+    m_btnNew.m_hMenu = m_newMenu.GetSubMenu(0)->GetSafeHmenu();
+    m_btnNew.m_bOSMenu = TRUE;
+    m_btnNew.m_bRightArrow = TRUE;
+
+    m_editMenu.LoadMenu(IDR_PROPEDITMENU);
+    m_btnEdit.m_hMenu = m_editMenu.GetSubMenu(0)->GetSafeHmenu();
+    m_btnEdit.m_bOSMenu = TRUE;
+    m_btnEdit.m_bRightArrow = TRUE;
+    m_btnEdit.m_bDefaultClick = TRUE;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_IMPORT, IDS_PROP_TT_IMPORT);
@@ -339,58 +356,105 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 void CEditPropertiesDlg::OnNMDblclkEditproplist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	if (m_propList.GetSelectedCount() == 1)
-		EditProps();
+		EditProps(true);
 
 	*pResult = 0;
 }
 
 void CEditPropertiesDlg::OnBnClickedEditprops()
 {
-	EditProps();
+    switch (m_btnEdit.m_nMenuResult)
+    {
+    case ID_EDIT_ADVANCED:
+        EditProps(false);
+        break;
+    default:
+        EditProps(true);
+        break;
+    }
 }
 
 void CEditPropertiesDlg::OnBnClickedAddprops()
 {
-	EditProps(true);
+    switch (m_btnNew.m_nMenuResult)
+    {
+    case ID_NEW_EXECUTABLE:
+        EditProps(true, "svn:executable", true);
+        break;
+    case ID_NEW_NEEDSLOCK:
+        EditProps(true, "svn:needs-lock", true);
+        break;
+    case ID_NEW_MIMETYPE:
+        EditProps(true, "svn:mime-type", true);
+        break;
+    case ID_NEW_ADVANCED:
+    default:
+        EditProps(false, "", true);
+        break;
+    }
 }
 
-void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
+EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::string& sName)
+{
+    if (!bDefault)
+    {
+        return new CEditPropertyValueDlg(this);
+    }
+
+    EditPropBase * dlg = NULL;
+    if (sName.compare("svn:executable") == 0)
+        dlg = new CEditPropExecutable(this);
+    else if (sName.compare("svn:needs-lock") == 0)
+        dlg = new CEditPropNeedsLock(this);
+    else if (sName.compare("svn:mime-type") == 0)
+        dlg = new CEditPropMimeType(this);
+    else
+        dlg = new CEditPropertyValueDlg(this);
+
+    return dlg;
+}
+
+void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /* = "" */, bool bAdd /* = false*/)
 {
 	m_tooltips.Pop();	// hide the tooltips
 	int selIndex = m_propList.GetSelectionMark();
 
-	CEditPropertyValueDlg dlg;
-	std::string sName;
+    EditPropBase * dlg = NULL;
+	std::string sName = propName;
 
 	if ((!bAdd)&&(selIndex >= 0)&&(m_propList.GetSelectedCount()))
 	{
 		sName = StringToUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+        dlg = GetPropDialog(bDefault, sName);
 		PropValue& prop = m_properties[sName];
-		dlg.SetPropertyName(sName);
+		dlg->SetPropertyName(sName);
 		if (prop.allthesamevalue)
-			dlg.SetPropertyValue(prop.value);
-		dlg.SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITTITLE)));
+			dlg->SetPropertyValue(prop.value);
+		dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITTITLE)));
 	}
 	else
 	{
-		dlg.SetPathList(m_pathlist);  // this is the problem
-		dlg.SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDTITLE)));
+        dlg = GetPropDialog(bDefault, propName);
+        if (propName.size())
+            dlg->SetPropertyName(sName);
+        dlg->SetPathList(m_pathlist);  // this is the problem
+        dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDTITLE)));
 	}
 
 	if (m_pathlist.GetCount() > 1)
-		dlg.SetMultiple();
+		dlg->SetMultiple();
 	else if (m_pathlist.GetCount() == 1)
 	{
 		if (PathIsDirectory(m_pathlist[0].GetWinPath()))
-			dlg.SetFolder();
+			dlg->SetFolder();
 	}
 
-	dlg.RevProps(m_bRevProps);
-	if ( dlg.DoModal()==IDOK )
+	dlg->RevProps(m_bRevProps);
+	if ( dlg->DoModal()==IDOK )
 	{
-		if(dlg.IsChanged())
+		if(dlg->IsChanged())
 		{
-			sName = dlg.GetPropertyName();
+			sName = dlg->GetPropertyName();
 			if (!sName.empty())
 			{
 				CString sMsg;
@@ -425,8 +489,8 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 					{
 						prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
 						SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
-						if (!props.Add(sName, dlg.IsBinary() ? dlg.GetPropertyValue() : dlg.GetPropertyValue().c_str(), 
-							dlg.GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg))
+						if (!props.Add(sName, dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str(), 
+							dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg))
 						{
 							CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
@@ -444,6 +508,8 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 			}
 		}
 	}
+
+    delete dlg;
 }
 
 void CEditPropertiesDlg::RemoveProps()

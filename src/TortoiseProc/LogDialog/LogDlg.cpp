@@ -46,7 +46,7 @@
 #include "LogDlgHelper.h"
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
-#include "EditPropertiesDlg.h"
+#include "Properties/EditPropertiesDlg.h"
 #include "LogCacheSettings.h"
 #include "SysInfo.h"
 #include "SysImageList.h"

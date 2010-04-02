@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010 - TortoiseSVN
+// Copyright (C) 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,15 +16,32 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include "PropertiesCommand.h"
+#pragma once
+#include "EditPropBase.h"
+#include "StandAloneDlg.h"
+#include "AeroControls.h"
 
-#include "Properties/EditPropertiesDlg.h"
 
-bool PropertiesCommand::Execute()
+class CEditPropNeedsLock : public CStandAloneDialog, public EditPropBase
 {
-	CEditPropertiesDlg dlg;
-	dlg.SetPathList(pathList);
-	dlg.DoModal();
-	return true;
-}
+    DECLARE_DYNAMIC(CEditPropNeedsLock)
+
+public:
+    CEditPropNeedsLock(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropNeedsLock();
+
+    enum { IDD = IDD_EDITPROPNEEDSLOCK };
+
+protected:
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    afx_msg void OnBnClickedProprecursive();
+
+    DECLARE_MESSAGE_MAP()
+
+    INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
+
+private:
+    AeroControlBase     m_aeroControls;
+};

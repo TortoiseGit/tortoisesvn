@@ -22,7 +22,7 @@
 #include "MessageBox.h"
 #include "InputLogDlg.h"
 #include "PropDlg.h"
-#include "EditPropertiesDlg.h"
+#include "Properties/EditPropertiesDlg.h"
 #include "Blame.h"
 #include "BlameDlg.h"
 #include "WaitCursorEx.h"
