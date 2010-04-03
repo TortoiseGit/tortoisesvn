@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-01 18:58 +0000\n"
-"PO-Revision-Date: 2010-04-02 23:30-0000\n"
+"PO-Revision-Date: 2010-04-03 01:23-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8364,29 +8364,29 @@ msgstr "Visualizador de Comparações"
 
 #. (para)
 msgid "The original file without your changes"
-msgstr ""
+msgstr "O ficheiro original sem as tuas alterações"
 
 #. (para)
 #. (para)
 msgid "The window title for the base file"
-msgstr ""
+msgstr "O título da janela para o ficheiro base"
 
 #. (para)
 msgid "Your own file, with your changes"
-msgstr ""
+msgstr "O teu ficheiro, com as tuas alterações."
 
 #. (para)
 #. (para)
 msgid "The window title for your file"
-msgstr ""
+msgstr "O título da janela do teu ficheiro"
 
 #. (para)
 msgid "An external diff program may be used for comparing different revisions of files. The external program will need to obtain the filenames from the command line, along with any other command line options. TortoiseSVN uses substitution parameters prefixed with <literal>%</literal>. When it encounters one of these it will substitute the appropriate value. The order of the parameters will depend on the Diff program you use. <placeholder-1/>"
-msgstr ""
+msgstr "Um programa de comparação externo pode ser usado para comparar diferentes revisões de ficheiros. O programa externo irá necessitar de obter os nomes dos ficheiros, a partir da linha de comandos juntamente como outras opções. O TortoiseSVN usa parâmetros de substituição prefixados com <literal>%</literal>.  Quando encontra um desses, irá substitui-lo pelo valor apropriado. A order dos parâmetros irá depender do programa de comparação que usares. <placeholder-1/>"
 
 #. (para)
 msgid "The window titles are not pure filenames. TortoiseSVN treats that as a name to display and creates the names accordingly. So e.g. if you're doing a diff from a file in revision 123 with a file in your working copy, the names will be <filename>filename : revision 123</filename> and <filename>filename : working copy</filename>"
-msgstr ""
+msgstr "Os títulos das janelas não são nomes de ficheiros puros. O TortoiseSVN trata-os como nomes a mostrar e cria os nomes de acordo com tal. Pelo que e.g. se fores efectuar uma comparação de um ficheiro na revisão 123 com um ficheiro da tua cópia de trabalho, os nomes serão <filename>Nome do ficheiro : revisão  123</filename> e <filename>Nome do ficheiro : cópia de trabalho </filename>"
 
 #. (para)
 msgid ""
@@ -8404,50 +8404,63 @@ msgid ""
 "C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 msgstr ""
+"Por exemplo, com o ExamDiffPro: <screen>\n"
+"C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
+"    --right_display_name:%yname\n"
+"</screen> or with KDiff3: <screen>\n"
+"C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
+"</screen> ou com o WinMerge: <screen>\n"
+"C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
+"</screen> ou com o Araxis: <screen>\n"
+"C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
+"    %base %mine\n"
+"</screen> ou com o UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
+"</screen>"
 
 #. (para)
 msgid "If you use the <literal>svn:keywords</literal> property to expand keywords, and in particular the <emphasis>revision</emphasis> of a file, then there may be a difference between files which is purely due to the current value of the keyword. Also if you use <literal>svn:eol-style = native</literal> the BASE file will have pure <literal>LF</literal> line endings whereas your file will have <literal>CR-LF</literal> line endings. TortoiseSVN will normally hide these differences automatically by first parsing the BASE file to expand keywords and line endings before doing the diff operation. However, this can take a long time with large files. If <guilabel>Convert files when diffing against BASE</guilabel> is unchecked then TortoiseSVN will skip pre-processing the files."
-msgstr ""
+msgstr "Se usares a propriedade <literal>svn:keywords</literal> para expandir as plavras-chave, e em particular a <emphasis>revisão</emphasis> do ficheiro, então poderá haver diferenças entre ficheiros, que são puramente devido a valor corrente da palavra-chave. Também se usares a <literal>svn:eol-style = native</literal> o ficheiro BASE irá ter fins-de-linha <literal>LF</literal> puros, enquanto o teu ficheiro irá ter fins-de-linha <literal>CR-LF</literal>. O TortoiseSVN irá, normalmente e automaticamente, esconder essas diferenças ao analisar primeiro o ficheiro BASE, de modo a expandir as palavras-chave e fins de linha antes de efectuar a operação de comparação. No entanto isto poder levar bastante tempo com grandes ficheiros. Se <guilabel>Converter arquivos ao comparar com a BASE</guilabel> está desmarcado então o TortoiseSVN irá saltar o pré-processamento dos ficheiros."
 
 #. (para)
 msgid "You can also specify a different diff tool to use on Subversion properties. Since these tend to be short simple text strings, you may want to use a simpler more compact viewer."
-msgstr ""
+msgstr "Podes também especificar uma ferramenta diferente de comparação para usares nas propriedades do Subversion. Visto que essas tendem a ser pequenas peças de texto simples, poderás querer usar um visualizador mais simples e compacto."
 
 #. (para)
 msgid "If you have configured an alternate diff tool, you can access TortoiseMerge <emphasis>and</emphasis> the third party tool from the context menus. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the primary diff tool, and <keycap>Shift</keycap>+ <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the secondary diff tool."
-msgstr ""
+msgstr "Se configuraste uma ferramenta alternativa de comparação, poderás aceder ao TortoiseMerge <emphasis>e</emphasis> a ferramenta de terceiros a partir dos menus de contexto.<menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Comparar</guimenuitem></menuchoice> usa a ferramenta de comparação primária,e <keycap>Shift</keycap>+ <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>Comparar</guimenuitem></menuchoice> usa a ferramenta de comparação secundária."
 
 #. (title)
 msgid "Merge Tool"
-msgstr ""
+msgstr "Ferramenta de Integração"
 
 #. (para)
 msgid "the original file without your or the others changes"
-msgstr ""
+msgstr "O ficheiro original, sem as tuas alterações ou as dos outros"
 
 #. (para)
 msgid "your own file, with your changes"
-msgstr ""
+msgstr "O teu ficheiro, com as tuas alterações"
 
 #. (para)
 msgid "the file as it is in the repository"
-msgstr ""
+msgstr "o ficheiro, como está no repositório"
 
 #. (para)
 msgid "The window title for the file in the repository"
-msgstr ""
+msgstr "O titulo da janela para o ficheiro no repositório"
 
 #. (para)
 msgid "the conflicted file, the result of the merge operation"
-msgstr ""
+msgstr "o ficheiro em conflito, o resultado da operação de integração"
 
 #. (para)
 msgid "The window title for the merged file"
-msgstr ""
+msgstr "O titulo da janela para o ficheiro integrado"
 
 #. (para)
 msgid "An external merge program used to resolve conflicted files. Parameter substitution is used in the same way as with the Diff Program. <placeholder-1/>"
-msgstr ""
+msgstr "Um programa de integração externo usado para solucionar ficheiros em conflito. A substituição de parâmetros é usada da mesma maneira que com o Programa de Comparação. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8463,34 +8476,45 @@ msgid ""
 "C:\\Path-To\\WinMerge.exe %merged\n"
 "</screen>"
 msgstr ""
+"Po exemplo para o Perforce Merge: <screen>\n"
+"C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
+"</screen> ou com o KDiff3: <screen>\n"
+"C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
+"    --L1 %bname --L2 %yname --L3 %tname\n"
+"</screen> ou com o Araxis: <screen>\n"
+"C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
+"    /title3:%yname %theirs %base %mine %merged /a2\n"
+"</screen> ou com o WinMerge (2.8 ou superior): <screen>\n"
+"C:\\Path-To\\WinMerge.exe %merged\n"
+"</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
-msgstr ""
+msgstr "Preferências Avançadas de Comparar/Integrar"
 
 #. (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Caixa de Diálogo Comparar/Integrar Avançados"
 
 #. (para)
 msgid "<placeholder-1/> In the advanced settings, you can define a different diff and merge program for every file extension. For instance you could associate Photoshop as the <quote>Diff</quote> Program for <filename>.jpg</filename> files :-) You can also associate the <literal>svn:mime-type</literal> property with a diff or merge program."
-msgstr ""
+msgstr "<placeholder-1/> Nas preferências avançadas, poderás definir um programa diferente para comparar e integrar por cada extensão de ficheiro. Por exemplo poderás associar o Photoshop como o programa de <quote>Comparar</quote> para ficheiros <filename>.jpg</filename> :-) Podes também associar a propriedade <literal>svn:mime-type</literal> com um programa de comparação ou integração."
 
 #. (para)
 msgid "To associate using a file extension, you need to specify the extension. Use <literal>.bmp</literal> to describe Windows bitmap files. To associate using the <literal>svn:mime-type</literal> property, specify the mime type, including a slash, for example <literal>text/xml</literal>."
-msgstr ""
+msgstr "Para associar usando uma extensão de ficheiro, necessitarás de associar a extensão. Usa o <literal>.bmp</literal> para descrever ficheiros de bitmap do Windows. Para associar usando a propriedade <literal>svn:mime-type</literal>, especifica o tipo mime incluindo a barrar, por exemplo <literal>text/xml</literal>."
 
 #. (title)
 msgid "Unified Diff Viewer"
-msgstr ""
+msgstr "Visualizador de Comparações Unificadas"
 
 #. (para)
 msgid "A viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> option is to check for a file association for <filename>.diff</filename> files, and then for <filename>.txt</filename> files. If you don't have a viewer for <filename>.diff</filename> files, you will most likely get NotePad."
-msgstr ""
+msgstr "Um programa de visualização para ficheiros de comparação-unificada (ficheiros remendo). Não são requeridos parâmetros. A opção <guilabel>por defeito</guilabel> verifica por uma associação para ficheiros <filename>.diff</filename>, e então para ficheiros <filename>.txt</filename>. Se não tens um visualizador para ficheiros <filename>.diff</filename> irás, com muita probabilidade, obter o Notepad."
 
 #. (para)
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
-msgstr ""
+msgstr "O programa NotePad original do Windows não se comporta bem com ficheiros que não têm o fim-de-linha padrão CR-LF. Visto que a maioria dos ficheiros de comparação-unificada têm fins-de-linha com LF puro, eles não são visualizados correctamente no NotePad. No entanto podes descarregar uma substituição gratuita para o NotePad em <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink>, que não apenas mostra os fins-de-linha correctamente, mas também colora as linhas adicionadas e removidas."
 
 #. (title)
 msgid "Saved Data Settings"
