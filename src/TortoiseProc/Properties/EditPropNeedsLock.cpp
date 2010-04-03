@@ -27,6 +27,7 @@ IMPLEMENT_DYNAMIC(CEditPropNeedsLock, CStandAloneDialog)
 
 CEditPropNeedsLock::CEditPropNeedsLock(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CEditPropNeedsLock::IDD, pParent)
+    , EditPropBase()
 {
 
 }

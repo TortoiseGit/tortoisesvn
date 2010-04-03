@@ -21,6 +21,22 @@
 #include "Tooltip.h"
 #include "AeroControls.h"
 
+class PropValue
+{
+public:
+    PropValue(void) : count(0), allthesamevalue(true), isbinary(false), remove(false) {};
+
+    std::string	value;
+    tstring		value_without_newlines;
+    int			count;
+    bool		allthesamevalue;
+    bool		isbinary;
+    bool        remove;
+};
+
+typedef std::map<std::string, PropValue> TProperties;
+typedef TProperties::iterator IT;
+
 /**
  * \ingroup TortoiseProc
  * Base class for all the edit dialogs for properties.
@@ -39,6 +55,9 @@ public:
     virtual bool            IsBinary() const {return m_bIsBinary;}
     virtual bool            IsChanged() const { return m_bChanged;}
     virtual bool            GetRecursive() const {return !!m_bRecursive;}
+    virtual void            SetProperties(const TProperties& props) { m_properties = props; }
+    virtual TProperties     GetProperties() const { return m_properties; }
+    virtual bool            HasMultipleProperties() { return false; }
 
     virtual void            SetFolder() {m_bFolder = true;}
     virtual void            SetMultiple() {m_bMultiple = true;}
@@ -59,4 +78,5 @@ protected:
     bool                    m_bRevProps;
     CTSVNPathList           m_pathList;
     CString                 m_sTitle;
+    TProperties             m_properties;
 };

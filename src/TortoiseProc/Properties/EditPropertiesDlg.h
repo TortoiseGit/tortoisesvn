@@ -79,17 +79,6 @@ private:
     EditPropBase * GetPropDialog(bool bDefault, const std::string& sName);
 
 protected:
-	class PropValue
-	{
-	public:
-		PropValue(void) : count(0), allthesamevalue(true), isbinary(false) {};
-
-		std::string	value;
-		tstring		value_without_newlines;
-		int			count;
-		bool		allthesamevalue;
-		bool		isbinary;
-	};
 
 	async::CCriticalSection m_mutex;
 	CTSVNPathList	m_pathlist;
@@ -99,8 +88,6 @@ protected:
 	bool			m_bRevProps;
 	volatile LONG	m_bThreadRunning;
 
-	typedef std::map<std::string, PropValue> TProperties;
-	typedef TProperties::iterator IT;
 	TProperties		m_properties;
 	SVNRev			m_revision;
 	CToolTips		m_tooltips;

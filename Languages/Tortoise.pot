@@ -354,6 +354,10 @@ msgstr ""
 msgid "&Blue:"
 msgstr ""
 
+#. Resource IDs: (1568)
+msgid "&Bottom"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Branches"
 msgstr ""
@@ -364,6 +368,10 @@ msgstr ""
 
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
+msgstr ""
+
+#. Resource IDs: (32850)
+msgid "&Bugtraq (Issue tracker integration)"
 msgstr ""
 
 #. Resource IDs: (16913)
@@ -824,6 +832,10 @@ msgstr ""
 msgid "&Not executable"
 msgstr ""
 
+#. Resource IDs: (1566)
+msgid "&Numeric"
+msgstr ""
+
 #. Resource IDs: (1)
 msgid "&OK"
 msgstr ""
@@ -902,6 +914,10 @@ msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Refresh"
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Remind me to enter a bug-ID"
 msgstr ""
 
 #. Resource IDs: (1100, 1285, 16646)
@@ -1102,6 +1118,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
+msgstr ""
+
+#. Resource IDs: (1567)
+msgid "&Top"
 msgstr ""
 
 #. Resource IDs: (1091, 1093, 1094)
@@ -1700,6 +1720,10 @@ msgstr ""
 msgid "Apply unified diff"
 msgstr ""
 
+#. Resource IDs: (1565)
+msgid "Arb&itrary text"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr ""
@@ -1909,6 +1933,14 @@ msgstr ""
 
 #. Resource IDs: (1119)
 msgid "Bug-ID / &Issue-Nr:"
+msgstr ""
+
+#. Resource IDs: (1578)
+msgid "Bug-ID e&xpression:"
+msgstr ""
+
+#. Resource IDs: (1119)
+msgid "Bug-ID is:"
 msgstr ""
 
 #. Resource IDs: (117)
@@ -3233,6 +3265,10 @@ msgstr ""
 msgid "Edit author name"
 msgstr ""
 
+#. Resource IDs: (315)
+msgid "Edit bugtraq properties"
+msgstr ""
+
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr ""
@@ -3404,6 +3440,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
+msgstr ""
+
+#. Resource IDs: (1577)
+msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
 msgstr ""
 
 #. Resource IDs: (3603)
@@ -4022,6 +4062,10 @@ msgstr ""
 msgid "I&nclude paths:"
 msgstr ""
 
+#. Resource IDs: (1580)
+msgid "IBugTraqProvider"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr ""
@@ -4412,6 +4456,10 @@ msgstr ""
 msgid "Insert Clipboard contents\nPaste"
 msgstr ""
 
+#. Resource IDs: (1575)
+msgid "Insert message at:"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr ""
@@ -4442,6 +4490,10 @@ msgstr ""
 
 #. Resource IDs: (83)
 msgid "Invalid revision range!\nValid revisions are numbers and HEAD, separated by commas.\nA range can be specified with a dash.\nExample: 2-5,7,10,44-70,300-HEAD"
+msgstr ""
+
+#. Resource IDs: (1571)
+msgid "Issue tracker"
 msgstr ""
 
 #. Resource IDs: (145)
@@ -4911,6 +4963,18 @@ msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
+msgstr ""
+
+#. Resource IDs: (1574)
+msgid "Message &label:"
+msgstr ""
+
+#. Resource IDs: (1573)
+msgid "Message &pattern:"
+msgstr ""
+
+#. Resource IDs: (1579)
+msgid "Message part expr&ession:"
 msgstr ""
 
 #. Resource IDs: (1241)
@@ -5817,6 +5881,14 @@ msgstr ""
 msgid "Provider"
 msgstr ""
 
+#. Resource IDs: (1586)
+msgid "Provider para&meters:"
+msgstr ""
+
+#. Resource IDs: (1581)
+msgid "Provider uuid win&32:"
+msgstr ""
+
 #. Resource IDs: (1475)
 msgid "Provider:"
 msgstr ""
@@ -5944,6 +6016,10 @@ msgstr ""
 
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
+msgstr ""
+
+#. Resource IDs: (1576)
+msgid "Regular Expression"
 msgstr ""
 
 #. Resource IDs: (117)
@@ -7066,8 +7142,16 @@ msgstr ""
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr ""
 
+#. Resource IDs: (1572)
+msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgstr ""
+
 #. Resource IDs: (79)
 msgid "Specify the files or folders which TortoiseSVN\r\nshould ignore in all working copies.\r\nSeparate the patterns with a space."
+msgstr ""
+
+#. Resource IDs: (1305)
+msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
 msgstr ""
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
@@ -7569,6 +7653,10 @@ msgstr ""
 #. Resource IDs: (314)
 #, c-format
 msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgstr ""
+
+#. Resource IDs: (84)
+msgid "The regular expression is invalid!\nPlease enter a valid regular expression."
 msgstr ""
 
 #. Resource IDs: (80)
@@ -9123,6 +9211,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
+msgstr ""
+
+#. Resource IDs: (1583)
+msgid "uuid x6&4:"
 msgstr ""
 
 #. Resource IDs: (563)

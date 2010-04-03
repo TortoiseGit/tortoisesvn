@@ -36,6 +36,7 @@
 #include "EditPropExecutable.h"
 #include "EditPropNeedsLock.h"
 #include "EditPropMimeType.h"
+#include "EditPropBugtraq.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -387,6 +388,9 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
     case ID_NEW_MIMETYPE:
         EditProps(true, "svn:mime-type", true);
         break;
+    case ID_NEW_BUGTRAQ:
+        EditProps(true, "bugtraq:", true);
+        break;
     case ID_NEW_ADVANCED:
     default:
         EditProps(false, "", true);
@@ -408,6 +412,8 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
         dlg = new CEditPropNeedsLock(this);
     else if (sName.compare("svn:mime-type") == 0)
         dlg = new CEditPropMimeType(this);
+    else if (sName.substr(0, 8).compare("bugtraq:") == 0)
+        dlg = new CEditPropBugtraq(this);
     else
         dlg = new CEditPropertyValueDlg(this);
 
@@ -426,6 +432,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
 	{
 		sName = StringToUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         dlg = GetPropDialog(bDefault, sName);
+        dlg->SetProperties(m_properties);
 		PropValue& prop = m_properties[sName];
 		dlg->SetPropertyName(sName);
 		if (prop.allthesamevalue)
@@ -435,6 +442,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
 	else
 	{
         dlg = GetPropDialog(bDefault, propName);
+        dlg->SetProperties(m_properties);
         if (propName.size())
             dlg->SetPropertyName(sName);
         dlg->SetPathList(m_pathlist);  // this is the problem
@@ -455,7 +463,8 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
 		if(dlg->IsChanged())
 		{
 			sName = dlg->GetPropertyName();
-			if (!sName.empty())
+            TProperties dlgprops = dlg->GetProperties();
+			if (!sName.empty() || (dlg->HasMultipleProperties()&&dlgprops.size()))
 			{
 				CString sMsg;
 				bool bDoIt = true;
@@ -489,18 +498,44 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
 					{
 						prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
 						SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
-						if (!props.Add(sName, dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str(), 
-							dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg))
-						{
-							CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-						}
-						else
-						{
-							m_bChanged = true;
-							// bump the revision number since we just did a commit
-							if (!m_bRevProps && m_revision.IsNumber())
-								m_revision = LONG(m_revision)+1;
-						}
+                        if (dlg->HasMultipleProperties())
+                        {
+                            for (IT propsit = dlgprops.begin(); propsit != dlgprops.end(); ++propsit)
+                            {
+                                BOOL ret = FALSE;
+                                if (propsit->second.remove)
+                                    ret = props.Remove(propsit->first, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                else
+                                    ret = props.Add(propsit->first, SVNProperties::IsBinary(propsit->second.value) ? propsit->second.value : propsit->second.value.c_str(), 
+                                                    dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                if (!ret)
+                                {
+                                    CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                                }
+                                else
+                                {
+                                    m_bChanged = true;
+                                    // bump the revision number since we just did a commit
+                                    if (!m_bRevProps && m_revision.IsNumber())
+                                        m_revision = LONG(m_revision)+1;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (!props.Add(sName, dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str(), 
+                                dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg))
+                            {
+                                CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                            }
+                            else
+                            {
+                                m_bChanged = true;
+                                // bump the revision number since we just did a commit
+                                if (!m_bRevProps && m_revision.IsNumber())
+                                    m_revision = LONG(m_revision)+1;
+                            }
+                        }
 					}
 					prog.Stop();
 					Refresh();

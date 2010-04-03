@@ -27,6 +27,7 @@ IMPLEMENT_DYNAMIC(CEditPropExecutable, CStandAloneDialog)
 
 CEditPropExecutable::CEditPropExecutable(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CEditPropExecutable::IDD, pParent)
+    , EditPropBase()
 {
 
 }
