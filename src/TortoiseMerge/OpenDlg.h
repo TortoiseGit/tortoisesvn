@@ -19,7 +19,6 @@
 #pragma once
 #include "FileDropEdit.h"
 #include "AeroBaseDlg.h"
-#include "AeroControls.h"
 
 // COpenDlg dialog
 
@@ -76,5 +75,4 @@ protected:
 	BOOL	m_bFromClipboard;
 	UINT	m_cFormat;
 	HWND	m_nextViewer;
-	AeroControlBase m_aeroControls;
 };

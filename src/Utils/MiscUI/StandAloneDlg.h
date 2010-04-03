@@ -21,6 +21,7 @@
 #include "ResizableDialog.h"
 #include "registry.h"
 #include "AeroGlass.h"
+#include "AeroControls.h"
 #include "CreateProcessHelper.h"
 #pragma comment(lib, "htmlhelp.lib")
 
@@ -358,6 +359,7 @@ protected:
 	CDwmApiImpl		m_Dwm;
 	MARGINS			m_margins;
 	CRegDWORD		m_regEnableDWMFrame;
+    AeroControlBase m_aeroControls;
 
 	DECLARE_MESSAGE_MAP()
 private:

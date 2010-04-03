@@ -21,7 +21,6 @@
 #include "HistoryCombo.h"
 #include "SVNRev.h"
 #include "PathEdit.h"
-#include "AeroControls.h"
 
 /// forward declarations
 
@@ -86,7 +85,6 @@ protected:
     CPathEdit		m_SwitchPath;
     CPathEdit		m_DestUrl;
     CPathEdit		m_SrcUrl;
-	AeroControlBase m_aeroControls;
 
 public:
 	CString			m_path;

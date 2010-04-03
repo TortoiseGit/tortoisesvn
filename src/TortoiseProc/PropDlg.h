@@ -20,7 +20,6 @@
 
 #include "StandAloneDlg.h"
 #include "SVNRev.h"
-#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -55,6 +54,5 @@ public:
 private:
 	HANDLE		m_hThread;
 	CListCtrl	m_proplist;
-	AeroControlBase m_aeroControls;
 };
 

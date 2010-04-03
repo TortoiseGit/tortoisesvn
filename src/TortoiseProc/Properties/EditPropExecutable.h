@@ -19,7 +19,6 @@
 #pragma once
 #include "EditPropBase.h"
 #include "StandAloneDlg.h"
-#include "AeroControls.h"
 
 
 class CEditPropExecutable : public CStandAloneDialog, public EditPropBase
@@ -41,7 +40,4 @@ protected:
     DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
-
-private:
-    AeroControlBase     m_aeroControls;
 };

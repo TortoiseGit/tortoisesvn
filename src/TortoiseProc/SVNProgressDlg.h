@@ -26,7 +26,6 @@
 #include "SVNExternals.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 #include "Win7.h"
-#include "AeroControls.h"
 
 class CCmdLineParser;
 
@@ -342,7 +341,6 @@ private:
 
 	CComPtr<IBugTraqProvider> m_BugTraqProvider;
 	CComPtr<ITaskbarList3>	m_pTaskbarList;
-	AeroControlBase			m_aeroControls;
 
 	// some strings different methods can use
 	CString					sIgnoredIncluded;

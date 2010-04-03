@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
-#include "AeroControls.h"
 
 // CEditPropConflictDlg dialog
 
@@ -51,5 +50,4 @@ private:
 	CTSVNPath		m_prejFile;
 	CTSVNPath		m_conflictItem;
 	CString			m_sPrejText;
-	AeroControlBase m_aeroControls;
 };

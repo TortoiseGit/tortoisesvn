@@ -19,7 +19,6 @@
 #pragma once
 #include "Hooks.h"
 #include "StandAloneDlg.h"
-#include "AeroControls.h"
 #include "Tooltip.h"
 
 /**
@@ -57,6 +56,5 @@ protected:
 	BOOL			m_bWait;
 	BOOL			m_bHide;
 	CComboBox		m_cHookTypeCombo;
-	AeroControlBase	m_aeroControls;
 	CToolTips		m_tooltips;
 };

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2009 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #include "SVNStatusListCtrl.h"
 #include "Registry.h"
 #include "Tooltip.h"
-#include "AeroControls.h"
 
 
 /**
@@ -88,6 +87,5 @@ private:
 	bool					m_bDepthInfinity;
 	CToolTips				m_tooltips;
 	bool					m_bContactRepository;
-	AeroControlBase			m_aeroControls;
 };
 

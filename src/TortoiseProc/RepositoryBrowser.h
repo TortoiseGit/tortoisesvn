@@ -25,7 +25,6 @@
 #include "LogDialog\LogDlg.h"
 #include "HintListCtrl.h"
 #include "RepositoryLister.h"
-#include "AeroControls.h"
 
 #define REPOBROWSER_CTRL_MIN_WIDTH	20
 #define REPOBROWSER_FETCHTIMER		101
@@ -271,7 +270,6 @@ private:
 	CString				m_origDlgTitle;
 
     CRepositoryLister   m_lister;
-	AeroControlBase		m_aeroControls;
 };
 
 static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));

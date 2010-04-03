@@ -35,7 +35,6 @@
 #include "HintListCtrl.h"
 #include "JobScheduler.h"
 #include "ListViewAccServer.h"
-#include "AeroControls.h"
 #include "Win7.h"
 
 using namespace std;
@@ -298,7 +297,6 @@ private:
 	CComPtr<ITaskbarList3>	m_pTaskbarList;
 
 	CXPTheme			theme;
-	AeroControlBase		m_aeroControls;
 
 	async::CJobScheduler netScheduler;
 	async::CJobScheduler diskScheduler;

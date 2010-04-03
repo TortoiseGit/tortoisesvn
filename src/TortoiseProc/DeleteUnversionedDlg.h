@@ -20,7 +20,6 @@
 
 #include "StandAloneDlg.h"
 #include "SVNStatusListCtrl.h"
-#include "AeroControls.h"
 
 /**
 * \ingroup TortoiseProc
@@ -65,5 +64,4 @@ private:
 	CSVNStatusListCtrl	m_StatusList;
 	CButton				m_SelectAll;
 	bool				m_bCancelled;
-	AeroControlBase		m_aeroControls;
 };

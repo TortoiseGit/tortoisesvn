@@ -19,7 +19,6 @@
 #pragma once
 #include "EditPropBase.h"
 #include "StandAloneDlg.h"
-#include "AeroControls.h"
 
 class CEditPropMimeType : public CStandAloneDialog, public EditPropBase
 {
@@ -44,6 +43,5 @@ protected:
     INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
 
 private:
-    AeroControlBase     m_aeroControls;
     CString             m_sCustomMimeType;
 };

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2009 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,6 @@
 #include "HistoryCombo.h"
 #include "FileDropEdit.h"
 #include "Tooltip.h"
-#include "AeroControls.h"
 
 /// forward declarations
 
@@ -70,7 +69,7 @@ protected:
 	CString			m_sExportDirOrig;
 	bool			m_bAutoCreateTargetName;
 	CComboBox		m_depthCombo;
-	AeroControlBase m_aeroControls;
+
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;

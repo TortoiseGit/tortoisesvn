@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009 - Stefan Kueng
+// Copyright (C) 2003-2006, 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #include "Dib.h"
 #include "HyperLink.h"
 #include "StandAloneDlg.h"
-#include "AeroControls.h"
 
 #define ID_EFFECTTIMER 1111
 #define ID_DROPTIMER 1112
@@ -60,5 +59,4 @@ private:
 	CDib m_renderDest;
 	CHyperLink m_cWebLink;
 	CHyperLink m_cSupportLink;
-	AeroControlBase m_aeroControls;
 };

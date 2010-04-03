@@ -23,7 +23,6 @@
 #include "SVNRev.h"
 #include "TSVNPath.h"
 #include "StandAloneDlg.h"
-#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -56,5 +55,4 @@ protected:
 	CTSVNPath		m_logPath;
 	SVNRev			m_logRev;
 	bool			m_bAllowWCRevs;
-	AeroControlBase m_aeroControls;
 };

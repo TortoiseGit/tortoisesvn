@@ -32,7 +32,6 @@
 #include "Tooltip.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 #include "PathEdit.h"
-#include "AeroControls.h"
 
 #include <regex>
 using namespace std;
@@ -145,7 +144,6 @@ private:
 	CPathWatcher		m_pathwatcher;
 	CLinkControl		m_linkControl;
 	CPathEdit			m_CommitTo;
-	AeroControlBase		m_aeroControls;
 	CBugTraqAssociation m_bugtraq_association;
 	CHyperLink			m_cUpdateLink;
 

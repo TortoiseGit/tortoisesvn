@@ -21,7 +21,6 @@
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
 #include "Tooltip.h"
-#include "AeroControls.h"
 
 #define	MAX_TT_LENGTH			10000
 
@@ -63,5 +62,4 @@ protected:
 	CString		m_sPropValue;
 	CString		m_sPropName;
 	ProjectProperties	m_ProjectProperties;
-	AeroControlBase		m_aeroControls;
 };

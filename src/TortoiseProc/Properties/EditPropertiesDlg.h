@@ -24,7 +24,6 @@
 #include "Tooltip.h"
 #include "tstring.h"
 #include "PathEdit.h"
-#include "AeroControls.h"
 #include "CriticalSection.h"
 
 /**
@@ -115,5 +114,4 @@ protected:
 
 	CString			m_sUUID;
 	ProjectProperties *	m_pProjectProperties;
-	AeroControlBase m_aeroControls;
 };

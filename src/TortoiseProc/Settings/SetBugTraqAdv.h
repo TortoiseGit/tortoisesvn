@@ -19,7 +19,6 @@
 #pragma once
 #include "resource.h"
 #include "StandAloneDlg.h"
-#include "AeroControls.h"
 #include "Tooltip.h"
 
 class CBugTraqAssociation;
@@ -62,6 +61,5 @@ protected:
 	CLSID			m_provider_clsid;
 	CString			m_sParameters;
 	CComboBox		m_cProviderCombo;
-	AeroControlBase	m_aeroControls;
 	CToolTips		m_tooltips;
 };

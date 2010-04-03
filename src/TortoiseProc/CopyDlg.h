@@ -27,7 +27,6 @@
 #include "SVN.h"
 #include "Tooltip.h"
 #include "PathEdit.h"
-#include "AeroControls.h"
 #include "SVNExternals.h"
 #include "HintListCtrl.h"
 #include "LinkControl.h"
@@ -115,7 +114,6 @@ private:
     CPathEdit		m_DestUrl;
 	CHintListCtrl	m_ExtList;
 	TCHAR			m_columnbuf[MAX_PATH];
-	AeroControlBase m_aeroControls;
     CBugTraqAssociation m_bugtraq_association;
     CComPtr<IBugTraqProvider> m_BugTraqProvider;
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
 #include "SciEdit.h"
-#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -65,5 +64,4 @@ private:
 	CString				m_sUUID;
 	CString				m_sActionText;
     bool                m_bForceFocus;
-	AeroControlBase		m_aeroControls;
 };

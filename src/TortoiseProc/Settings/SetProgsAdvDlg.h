@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 
 #include "Registry.h"
 #include "StandAloneDlg.h"
-#include "AeroControls.h"
 
 /**
  * \ingroup TortoiseProc
@@ -72,5 +71,4 @@ private:
 	typedef std::map<CString,CString> TOOL_MAP;
 	TOOL_MAP		m_Tools;				///< internal storage of all tools
 	bool			m_ToolsValid;			///< true if m_Tools was ever read
-	AeroControlBase	m_aeroControls;
 };
