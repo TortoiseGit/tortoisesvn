@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-21 20:02+0100\n"
+"PO-Revision-Date: 2010-04-03 19:53+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -327,6 +327,10 @@ msgstr "&Додај или избаци дугмиће"
 msgid "&Add..."
 msgstr "&Додај..."
 
+#. Resource IDs: (32849)
+msgid "&Advanced"
+msgstr "Н&апредно"
+
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Напредно..."
@@ -338,6 +342,10 @@ msgstr "&Дозволи вишезначне УРЛ-ове"
 #. Resource IDs: (65535)
 msgid "&Application Look"
 msgstr "&Изглед апликације"
+
+#. Resource IDs: (1294)
+msgid "&Apply property recursively"
+msgstr "Примени особине пон&ављајући"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -370,6 +378,10 @@ msgstr "&Аутозатварање:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "&Направи сигурносну копију оригиналног фајла"
+
+#. Resource IDs: (1559)
+msgid "&Binary"
+msgstr "&Бинарно"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -621,6 +633,11 @@ msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Унети поруку која описује зашто закључавате фајл(ове)"
 
 #
+#. Resource IDs: (1554)
+msgid "&Executable"
+msgstr "И&звршно"
+
+#
 #. Resource IDs: (32782)
 msgid "&Exit"
 msgstr "&Излаз"
@@ -842,6 +859,10 @@ msgstr "&Преглед листе"
 msgid "&Load..."
 msgstr "&Напуни..."
 
+#. Resource IDs: (1554)
+msgid "&Locking required (read-only update)"
+msgstr "&Закључавање потребно (само за читање ажурирање)"
+
 #
 #. Resource IDs: (65535)
 msgid "&Lum:"
@@ -884,6 +905,10 @@ msgstr "&Стопи"
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Сједињавање"
+
+#. Resource IDs: (32847)
+msgid "&Mime-Type"
+msgstr "&Миме-тип"
 
 #
 #. Resource IDs: (16925)
@@ -942,6 +967,14 @@ msgstr "&Следећа страна"
 #. Resource IDs: (16632)
 msgid "&No double-click event"
 msgstr "&Без двоструки-клик догађаја"
+
+#. Resource IDs: (1555)
+msgid "&No locking required"
+msgstr "&Не закључавати се захтева"
+
+#. Resource IDs: (1555)
+msgid "&Not executable"
+msgstr "&Није извршно"
 
 #
 #. Resource IDs: (1)
@@ -1993,10 +2026,6 @@ msgid ""
 msgstr ""
 "Примените 'Главни Корисник' уобичајено. То ће омогућити гушење искуства.\n"
 "Треба да знате значење горњег подешавања."
-
-#. Resource IDs: (1294)
-msgid "Apply property recursively"
-msgstr "Примени особине понављајући"
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -3666,6 +3695,10 @@ msgstr "Т&ачна копија извора"
 #. Resource IDs: (65535)
 msgid "E&xclude paths:"
 msgstr "И&зостави путање:"
+
+#. Resource IDs: (32839)
+msgid "E&xecutable"
+msgstr "И&звршно"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -5979,6 +6012,10 @@ msgstr "Опције Навигационог Панела..."
 msgid "Needs lock"
 msgstr "Захтева закључавање"
 
+#. Resource IDs: (32845)
+msgid "Needs-&Lock"
+msgstr "Захтева-за&кључавање"
+
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr "Захтева-закључавање"
@@ -6178,6 +6215,10 @@ msgstr "Напомена: подешавања фонта утичу и на Т�
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
 msgstr "Примедба: ово се односинасвеТортоисе клиенте, несамоТортоисеСВН"
+
+#. Resource IDs: (1557)
+msgid "Note: this property has no effect on Windows"
+msgstr "Примедба: ова особина не утиче на Виндоуз"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -8184,6 +8225,10 @@ msgstr "Извор Леви:"
 #. Resource IDs: (1502)
 msgid "Source Right:"
 msgstr "Извор Десни:"
+
+#. Resource IDs: (1552)
+msgid "Source URL:"
+msgstr "Извор УРЛ:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -10808,6 +10853,10 @@ msgstr ""
 "svn:eol-style\r\n"
 "Један од 'природан', 'LF', 'CR', 'CRLF'."
 
+#. Resource IDs: (312)
+msgid "svn:executable"
+msgstr "свн:извршно"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:executable\r\n"
@@ -10886,6 +10935,10 @@ msgstr ""
 "На пример\r\n"
 "/trunk:123-125,129"
 
+#. Resource IDs: (314)
+msgid "svn:mime-type"
+msgstr "свн:миме-тип"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:mime-type\r\n"
@@ -10897,6 +10950,10 @@ msgstr ""
 "Миме тип фајлови. Користи се за одређивање да ли фајл спајати и како га опослужити преко Апача.\r\n"
 "Миме тип који почиње са 'текст/' (или ако миме тип није постављен) обрађује се као текст.\r\n"
 "Све друго се обрађује као бинарни фајл."
+
+#. Resource IDs: (313)
+msgid "svn:needs-lock"
+msgstr "свн:захтева-закључавање"
 
 #. Resource IDs: (576)
 msgid ""

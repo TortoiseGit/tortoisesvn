@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-03-29 21:18+0100\n"
+"POT-Creation-Date: 2010-04-01 18:58 +0000\n"
+"PO-Revision-Date: 2010-04-03 21:39+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -454,82 +454,6 @@ msgstr "ТортоисеСВН долази са инсталатором кој
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
 msgstr "Потребне су вам Администраторске привелегије да инсталирате ТортоисеСВН."
-
-#. (title)
-msgid "Language Packs"
-msgstr "Језички пакети"
-
-#. (primary)
-msgid "language packs"
-msgstr "језички пакети"
-
-#. (primary)
-msgid "translations"
-msgstr "преводи"
-
-#. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "ТортоисеСВН кориснички интерфејс је преведен на многе различите језике, тако да можете да пренесете језички пакет који вам је потребан. Језичке пакете можете наћи на <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>страна статуса превода</citetitle></ulink>. И ако језички пакет још није доступан, зашто да се не прикључите тиму и поднесете свој лични превод; -)"
-
-#. (para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
-msgstr "Сваки језички пакет је спаковану као <literal>.еxе</literal> инсталација. Само извршите инсталациони програм и следите инструкције. Следећи пут кад рестартује компјутер превод ће бити доступан. "
-
-#. (title)
-msgid "Spellchecker"
-msgstr "Правопис контрола"
-
-#. (primary)
-msgid "spellchecker"
-msgstr "правопис контрола"
-
-#. (primary)
-msgid "dictionary"
-msgstr "речник"
-
-#. (para)
-msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr "ТортоисеСВН укључује контролу правописа која вам дозвољава да контролишете ваше  дневник поруке урезивања. Ово је нарочито корисно ако језик пројекта није ваш матерњи језик. Контролор правописа користи исте фајлове речника као <ulink url=\"http://openoffice.org\"><citetitle>ОпенОффице</citetitle></ulink> и <ulink url=\"http://mozilla.org\"><citetitle>Мозилла</citetitle></ulink>."
-
-#. (para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
-msgstr "Инсталација аутоматски додаје УС и УК Енглески речник. Ако желите друге језике, најлакша могућност је да инсталирате један од ТортоисеСВН језичких пакета. То ће инсталирати одговарајуће фајлове речника као и ТортоисеСВН локални кориснички интерфејс. По рестартовању компјутера речник ће такође бити доступан."
-
-#. (para)
-msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
-msgstr "Или можете инсталирати речник сами. Ако имате ОпенОфис или Мозилу инсталиране можете копирати њихове речнике, који су смештени у инсталационом именику тих апликација. Иначе, потребно је да пренесете жељене фајлове речника са <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
-
-#. (filename)
-msgid "en_US.aff"
-msgstr "ен_УС.афф"
-
-#. (filename)
-msgid "en_US.dic"
-msgstr "ен_УС.диц"
-
-#. (para)
-msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr "Једном кад имате фајлове речника, вероватно ће требати да их преименујете тако имена фајлова имају само локалне карактере. Пример:<placeholder-1/> Затим само их копирајте у <filename>бин</filename> суб-именик ТортоисеСВН инсталационог именика. Нормално то ће бити <filename>Ц:\\Програм Филес\\ТортоисеСВН\\бин</filename>. Ако не желите да оптерећујете <filename>бин</filename> суб-именик, уместо тога можете сместити контролне фајлове у <filename>Ц:\\Програм Филес\\ТортоисеСВН\\Лангуагес</filename>. Ако нема тог именика, креирајте га. Када следећи пут покренете ТортоисеСВН, правописна контрола ће бити доступна."
-
-#. (para)
-msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
-msgstr "Проверите <literal>tsvn:projectlanguage</literal> подешавање. Погледајте <xref linkend=\"tsvn-dug-propertypage\"/> за информације о подешавању особина пројекта."
-
-#. (para)
-msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
-msgstr "Ако језик пројекта није означен, или тај језик није инсталиран, пробајте језик који одговара Виндоуз локалном језику."
-
-#. (para)
-msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
-msgstr "Ако прави Виндоуз локални језик не функционише, пробајте <quote>Основни</quote> језик, нпр. <literal>de_CH</literal> (Швајцарска-Немачки) иде на  <literal>de_DE</literal> (Немачки)."
-
-#. (para)
-msgid "If none of the above works, then the default language is English, which is included with the standard installation."
-msgstr "Ако ништа од наведеног не ради, тада је уобичајени језик Енглески, који је укључен у стандардну инсталацију."
-
-#. (para)
-msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
-msgstr "Ако инсталирате више речника. ТортоисеСВН користи ова правила да изабере један за коришћење.<placeholder-1/>"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -1703,7 +1627,7 @@ msgstr "Друго, креирајте фајл који се зове <filename
 
 #. (para)
 msgid "Thirdly, create two new registry entries to tell SASL where to find things. Create a registry key named <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> and place two new string values inside it: <literal>SearchPath</literal> set to the directory path containing the <filename>sasl*.dll</filename> plug-ins (normally in the Subversion install directory), and <literal>ConfFile</literal> set to the directory containing the <filename>svn.conf</filename> file. If you used the CollabNet installer, these registry keys will already have been created for you."
-msgstr "Треће, креирајте два нова регистар улаза да кажете САСЛ где да нађе потребне стварчице. Креирајте регистар кључ под именом <literal>[ХКЕY_ЛОЦАЛ_МАЦХИНЕ\\СОФТWАРЕ\\Царнегие Меллон\\Пројецт Цyрус\\САСЛ Либрарy]</literal> и ставите два нова стринга унутар њега: <literal>СеарцхПатх</literal> подесите на путању именика који садржи <filename>сасл*.длл</filename> плагин (нормално у Субверзиони инсталациони именик), и <literal>ЦонфФиле</literal> подешен на именик који саџи <filename>свн.цонф</filename> фајл. Ако користите КолабНет инсталатор, ови регистар кључеви ће бити већ креирани за вас."
+msgstr "Треће, креирајте два нова регистар улаза да кажете САСЛ где да нађе потребне стварчице. Креирајте регистар кључ под именом <literal>[ХКЕY_ЛОЦАЛ_МАЦХИНЕ\\СОФТWАРЕ\\Царнегие Меллон\\Пројецт Цyрус\\САСЛ Либрарy]</literal> и ставите два нова стринга унутар њега: <literal>СеарцхПатх</literal> подесите на путању именика који садржи <filename>сасл*.длл</filename> језичак (нормално у Субверзиони инсталациони именик), и <literal>ЦонфФиле</literal> подешен на именик који саџи <filename>свн.цонф</filename> фајл. Ако користите КолабНет инсталатор, ови регистар кључеви ће бити већ креирани за вас."
 
 #. (para)
 msgid ""
@@ -7903,7 +7827,7 @@ msgstr "Претходни параграф разматра додавање п
 
 #. (para)
 msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Сваки такав интерфејс је свакако јако специфично за ваш систем праћења, тако да вам не можемо дати  ово поглавље и описати како да креирате такав програм јер је ван разматрања овог упутства. Дефиниција интерфејса и једноставни додаци у C# и C++/ATL  могу бити добијени из <literal>contrib</literal> именика у <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>ТортоисеСВН спремиште</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити спремишту). Резултат за АПИ је такође дат у <xref linkend=\"tsvn-ibugtraqprovider\"/>  Следећи (радни) пример  плагин у C# је <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> који имплементира жељени ЦОМ интерфејс са <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> проблем трагачем."
+msgstr "Сваки такав интерфејс је свакако јако специфично за ваш систем праћења, тако да вам не можемо дати  ово поглавље и описати како да креирате такав програм јер је ван разматрања овог упутства. Дефиниција интерфејса и једноставни додаци у C# и C++/ATL  могу бити добијени из <literal>contrib</literal> именика у <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>ТортоисеСВН спремиште</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашњава како приступити спремишту). Резултат за АПИ је такође дат у <xref linkend=\"tsvn-ibugtraqprovider\"/>  Следећи (радни) пример  језичак у C# је <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> који имплементира жељени ЦОМ интерфејс са <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> проблем трагачем."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -7911,7 +7835,7 @@ msgstr "Пример дијалога захтева проблем трагач
 
 #. (para)
 msgid "For illustration purposes, let's suppose that your system administrator has provided you with an issue tracker plugin which you have installed, and that you have set up some of your working copies to use the plugin in TortoiseSVN's settings dialog. When you open the commit dialog from a working copy to which the plugin has been assigned, you will see a new button at the top of the dialog. <placeholder-1/> In this example you can select one or more open issues. The plugin can then generate specially formatted text which it adds to your log message."
-msgstr "У илустративне сврхе, претпоставимо да је ваш ситем администратор обезбедио проблем трагач плагин који сте инсталирали, и да сте подесили неке ваше радне копије да користе плагин у ТортоисеСВН дијалогу подешавања. Када отворите дијалог урезивање из радне копије на коју је асоциран плагин можете видети ново дугме на врху дијалога. <placeholder-1/> У овом примеру можете изабрати један или више отворених проблема. Плагин можете генерисати специјално форматирани текст који сте додали вашем дневнику порке."
+msgstr "У илустративне сврхе, претпоставимо да је ваш ситем администратор обезбедио проблем трагач језичак који сте инсталирали, и да сте подесили неке ваше радне копије да користе језичак у ТортоисеСВН дијалогу подешавања. Када отворите дијалог урезивање из радне копије на коју је асоциран језичак можете видети ново дугме на врху дијалога. <placeholder-1/> У овом примеру можете изабрати један или више отворених проблема. Језичак можете генерисати специјално форматирани текст који сте додали вашем дневнику порке."
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"
@@ -9375,7 +9299,7 @@ msgstr "Интеграција проблем трагача"
 
 #. (para)
 msgid "TortoiseSVN can use a COM plugin to query issue trackers when in the commit dialog. The use of such plugins is described in <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. If your system administrator has provided you with a plugin, which you have already installed and registered, this is the place to specify how it integrates with your working copy."
-msgstr "ТортоисеСВН може користити ЦОМ плагин да нађе проблем трагач када је у дијалогу урезивања. Коришћење таквих плагина описано је у  <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. Ако је систем администатор снабдео плагин који сте већ инсталирали и регистровали, ово је место да се специфицира како се интегрише са вашом радном копијом."
+msgstr "ТортоисеСВН може користити ЦОМ језичак да нађе проблем трагач када је у дијалогу урезивања. Коришћење таквих језичка описано је у  <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. Ако је систем администатор снабдео језичак који сте већ инсталирали и регистровали, ово је место да се специфицира како се интегрише са вашом радном копијом."
 
 #. (title)
 msgid "The Settings Dialog, Issue Tracker Integration Page"
@@ -9383,19 +9307,23 @@ msgstr "Дијалог подешавања, Страница интеграци
 
 #. (para)
 msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin with a particular working copy. Here you can specify the working copy path, choose which plugin to use from a drop down list of all registered issue tracker plugins, and any parameters to pass. The parameters will be specific to the plugin, but might include your user name on the issue tracker so that the plugin can query for issues which are assigned to you."
-msgstr "<placeholder-1/> Кликните на <guibutton>Додај...</guibutton> да користите плагин са посебном радном копијом. Овде можете специфицирати путању радне копије, изаберите који плагин да се користи из падајуће листе свих регистрованих проблем трагача, и неке параметре да дода. Параметри ће бити специфицирани плагину, али могу укључити ваше корисничко име за проблем трагач  тако да плагин може тражити проблеме који су вама озанчени. "
+msgstr "<placeholder-1/> Кликните на <guibutton>Додај...</guibutton> да користите језичак са посебном радном копијом. Овде можете специфицирати путању радне копије, изаберите који језичак да се користи из падајуће листе свих регистрованих проблем трагача, и неке параметре да дода. Параметри ће бити специфицирани језичку, али могу укључити ваше корисничко име за проблем трагач  тако да језичак може тражити проблеме који су вама озанчени. "
 
 #. (para)
 msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
 msgstr "Ову особину одређује ЦОМ УУИД из ИБагтрагачСнабдевач, на пример <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (овај пример је УУИД од <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, који је снабдевач за <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> проблем трагач)."
 
 #. (para)
+msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
+msgstr "Ово је исто као <literal>bugtraq:provideruuid</literal>, али за64-битну верзију ИбугтракПровајдер."
+
+#. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
 msgstr "Ова особина одређује параметре послате у  IBагтрагачСнабдевач."
 
 #. (para)
-msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
-msgstr "Ако желите да сви корисници користе исте ЦОМ плагин за ваш пројекат, можете специфицирати плагин такође са особинама <literal>bugtraq:provideruuid</literal> и <literal>bugtraq:providerparams</literal>. <placeholder-1/> Молимо проверите документацију вашег  IBагтрагачСнабдевача плагина да нађете шта специфицирати у ове две особине."
+msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
+msgstr "Ако желите да сви корисници користе исте ЦОМ језичак за ваш пројекат, можете специфицирати језичак такође са особинама <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> и <literal>bugtraq:providerparams</literal>. <placeholder-1/> Молимо проверите документацију вашег  IБагтрагачСнабдевача језичка да нађете шта специфицирати у ове две особине."
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -10310,7 +10238,7 @@ msgstr "ИБагтрагачСнабдевач интерфејс"
 
 #. (primary)
 msgid "plugin"
-msgstr "плагин"
+msgstr "језичак"
 
 #. (primary)
 msgid "IBugtraqProvider"
@@ -10318,15 +10246,15 @@ msgstr "ИБагтрагачСнабдевач"
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr "Да би добили чвршћу интеграцију са проблем трагачем једноставним коришћењем <literal>bugtraq:</literal> особина, ТортоисеСВН може учинити коришћење ЦОМ плагина. Са таквим плагином могуће је наћи информацију директно из проблем трагача, интеракција са корисником и обезбеђивање информациони повратак на ТортоисеСВН о отвореним проблемима, верификује дневник поруке које унео корисник и чак извршне акције после успешног урезивања нпр. затварање проблема."
+msgstr "Да би добили чвршћу интеграцију са проблем трагачем једноставним коришћењем <literal>bugtraq:</literal> особина, ТортоисеСВН може учинити коришћење ЦОМ језичка. Са таквим језичком могуће је наћи информацију директно из проблем трагача, интеракција са корисником и обезбеђивање информациони повратак на ТортоисеСВН о отвореним проблемима, верификује дневник поруке које унео корисник и чак извршне акције после успешног урезивања нпр. затварање проблема."
 
 #. (para)
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Не можемо обезбедити информацију и туторијале о томе како да примените ЦОМ објекте у вашим изабраним програмским језицима, али имамо примере плагина у Ц++/АТЛ и Ц# у вашем спремишту у <filename>contrib/issue-tracker-plugins</filename>  именик. У именику можете такође наћи жељене фајлове за укључивање који су вам потребни да направите плагин. (<xref linkend=\"tsvn-preface-source\"/>  објашњава како приступити спремишту)."
+msgstr "Не можемо обезбедити информацију и туторијале о томе како да примените ЦОМ објекте у вашим изабраним програмским језицима, али имамо примере језичкаа у Ц++/АТЛ и Ц# у вашем спремишту у <filename>contrib/issue-tracker-plugins</filename>  именик. У именику можете такође наћи жељене фајлове за укључивање који су вам потребни да направите језичак. (<xref linkend=\"tsvn-preface-source\"/>  објашњава како приступити спремишту)."
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
-msgstr "Треба обезбедити  обе верзије плагина, и 32-битну и 64-битну. Пошто х64-Верзија ТортоисеСВН не може користити 32-битне плагине и обратно."
+msgstr "Треба обезбедити  обе верзије језичкаа, и 32-битну и 64-битну. Пошто х64-Верзија ТортоисеСВН не може користити 32-битне језичке и обратно."
 
 #. (title)
 msgid "The IBugtraqProvider interface"
@@ -10334,7 +10262,7 @@ msgstr "ИБагтрагачСнабдевач интерфејс"
 
 #. (para)
 msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr "ТортоисеСВН 1.5 и касније могу користити плагине који имплементирају ИБагтагачСнабдевач интерфејс. Интерфејс обезбеђује неколико метода чији плагини се могу користити да интерагују са проблем трагачем."
+msgstr "ТортоисеСВН 1.5 и касније могу користити језичке који имплементирају ИБагтагачСнабдевач интерфејс. Интерфејс обезбеђује неколико метода чији језичци се могу користити да интерагују са проблем трагачем."
 
 #. (programlisting)
 #, no-wrap
@@ -10367,7 +10295,7 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr "<placeholder-1/> Овај метод је позван из дијалога подешавања где корисник може додати и конфигурисати плагин. Стринг  <literal>параметри</literal>  се могу користити плагином да се добије додатна захтевана информација, нпр. УРЛ ка проблем трагачу, дневник информација, итд. Плагин треба да верификује стринг <literal>параметрима</literal> и приказује дијалог грешке ако стринг није ваљан. Параметар <literal>hParentWnd</literal> треба да се користи за сваки  дијалог плагин се приказује као предачки прозор. Плагин мора вратити ИСТИНУ ако вредновање  стринг <literal>параметара</literal> буде задовољавајуће. Ако плагин врати ЛАЖ дијалог подешавања не може допустити кориснику да дода плагин у путању радне копије."
+msgstr "<placeholder-1/> Овај метод је позван из дијалога подешавања где корисник може додати и конфигурисати језичак. Стринг  <literal>параметри</literal>  се могу користити језичком да се добије додатна захтевана информација, нпр. УРЛ ка проблем трагачу, дневник информација, итд. Језичак треба да верификује стринг <literal>параметрима</literal> и приказује дијалог грешке ако стринг није ваљан. Параметар <literal>hParentWnd</literal> треба да се користи за сваки  дијалог језичак се приказује као предачки прозор. Плагин мора вратити ИСТИНУ ако вредновање  стринг <literal>параметара</literal> буде задовољавајуће. Ако плагин врати ЛАЖ дијалог подешавања не може допустити кориснику да дода плагин у путању радне копије."
 
 #. (programlisting)
 #, no-wrap
@@ -10402,7 +10330,7 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr "<placeholder-1/> Плагин може дати стринг који се користи у ТортоисеСВН дијалогу урезивања за дугмиће који позивају плагине, нпр. \"Изабери проблем\" или \"Изабери карту\". Будите сигурни да стринг није сувише дугачак, другачије то не може бити убачено у дугме. Ако метод враћа грешку (нпр. <literal>E_NOTIMPL</literal>), уобичајени текст се користи за дугме."
+msgstr "<placeholder-1/> Језичак може дати стринг који се користи у ТортоисеСВН дијалогу урезивања за дугмиће који позивају језичке, нпр. \"Изабери проблем\" или \"Изабери карту\". Будите сигурни да стринг није сувише дугачак, другачије то не може бити убачено у дугме. Ако метод враћа грешку (нпр. <literal>E_NOTIMPL</literal>), уобичајени текст се користи за дугме."
 
 #. (programlisting)
 #, no-wrap
@@ -10448,8 +10376,28 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr "<placeholder-1/> Ово је главни метод плагина. Овај метод се позива из ТортоисеСВН дијалога урезивања када корисник кликне на дугме плагина. Стринг <literal>параметара</literal> је стринг који је корисник унео у дијалог подешавања када је конфигурисао плагин. Обично плагин ово користи да нађе УРЛ проблем трагача и/или логин информације или нешто више. Стринг <literal>commonRoot</literal> садржи предачку путању свих ставки изабраних да прикаже дијалог урезивања. Приметимо да ово <emphasis>није</emphasis>  корена путања свих ставки које је корисник изабрао у дијалогу урезивања. Параметар <literal>pathList</literal> садржи скуп путањи (као стрингове) које је корисник изабрао у дијалогу урезивања. Параметар <literal>originalMessage</literal> садржи текст унет у бокс поруке дневника у дијалогу урезивања, замењујући све што је већ тамо. Ако корисник још није унео било који текст, овај стринг ће бити празан. <literal>newMessage</literal> повратни стринг је копиран у дневник порука бокс уређења у дијалогу урезивања, замењујући штогод је тамо. Ако плагин не мења <literal>originalMessage</literal>  стринг, мора овде вратити исти стринг, иначе ће сваки текст, који корисник унесе,бити изгубљен."
+msgid "This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button."
+msgstr "Ово је главниметод за језичке.Овај метод се позива из ТортоисеСВНдијалога урезивања када корисниккликне на дугме језичка."
+
+#. (para)
+msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
+msgstr "Стринг <literal>параметри</literal>је стринг који је корисник унеоу дијалогу подешавања када конфигурише језичак. Обично језичак ће користити ово данађе УРЛ проблем трагача и/или логин информације или више. "
+
+#. (para)
+msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
+msgstr "Стринг <literal>заједничкиКорен</literal> садржи предачку путању свих ставки изабраних да сакупе дијалог урезивања. Приметимо да то <emphasis>није</emphasis>  корена путања свих ставки које је корисник изабраоудијалогу урезивања.За грана/знак дијалогово је путања која ћебити копирана."
+
+#. (para)
+msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
+msgstr "Параметар <literal>путањаЛиста</literal> садржи област путања (као стрингове) које је корисник изабрао за урезивање."
+
+#. (para)
+msgid "The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty."
+msgstr "Парамета <literal>оригиналнаПорука</literal> садржи текст унет у бокс дневника порука у дијалогу урезивања.Ако корисник још није унеобило какав текст овај стрингће бити празан. "
+
+#. (para)
+msgid "The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgstr "Повратни стринг <literal>новаПорука</literal> је копирана у бокс уређења дневника порука удијалогу урезивања, замењујући штгод да је тамо. Ако језичак не мења стринг <literal>оригинална Порука</literal> мора опет вратити исти стринг, с друге стране сваки текст који је корисник унео биће изгубљен.  "
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
@@ -10457,7 +10405,7 @@ msgstr "ИБагтрагачСнабдевач2 интерфејс"
 
 #. (para)
 msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
-msgstr "У ТортоисеСВН 1.6 нови интерфејс је додат да омогући већу функционалност плагина. Овај ИБагтрагачСнабдевач2 интерфејс произилази из ИБагтрагачСнабдевач."
+msgstr "У ТортоисеСВН 1.6 нови интерфејс је додат да омогући већу функционалност језичка. Овај ИБагтрагачСнабдевач2 интерфејс произилази из ИБагтрагачСнабдевач."
 
 #. (programlisting)
 #, no-wrap
@@ -10541,8 +10489,24 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr "<placeholder-1/> Овај метод се позива из ТортоисеСВН дијалога урезивања када корисник кликне на плагин дугме. Метод је позван уместо <literal>GetCommitMessage()</literal>. Молим упоредите са документацијом за <literal>GetCommitMessage</literal> за параметре који се такође овде користе. Параметар <literal>commonURL</literal> је предак УРЛ свих ставки изабраних да се појави дијалог урезивања. Ово је основни УРЛ <literal>commonRoot</literal> путање. Параметар <literal>багИД</literal>  садржи садржај баг-ИД поља када метод врати резултат. Повратни параметри <literal>revPropNames</literal> и <literal>revPropValues</literal> могу садржати име/вредност пар ревизионих особинакоје урезивање треба да подеси. Плагин мора да осигура оба поља да имају исту величину при повратку! Свако име особине у <literal>revPropNames</literal> такође мора да има одговарајућу вредност у <literal>revPropValues</literal>. Ако нису подешене ревизионе особине плагин мора да врати празно поље."
+msgid "This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there."
+msgstr "Овај метод је позван из ТортоисеСВН дијалогаурезивања када корисник кликне на дугме језичка. Метод се позива уместо <literal>GetCommitMessage()</literal>. Молим упоредите са документацијом за <literal>GetCommitMessage</literal> запараметре који су овде коришћени."
+
+#. (para)
+msgid "The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path."
+msgstr "Параметар <literal>заједничкиУРЛ</literal> је предачки УРЛ свих ставки изабраних да доведу дијалог урезивања. Ово је основни УРЛ <literal>заједничкиКорен</literal> путања."
+
+#. (para)
+msgid "The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>)."
+msgstr "Параметар <literal>бугИД</literal> садржи  садржај буг-ИД поља (ако је приказано, конфигурисано са особином <literal>бугтрак:порука</literal>)."
+
+#. (para)
+msgid "The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns."
+msgstr "Повратни параметар <literal>бугИДОут</literal> искоришћен је да попуни буг-ИД поље када метод врати вредност."
+
+#. (para)
+msgid "The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgstr "Повратни параметри <literal>ревПропИмена</literal> и <literal>ревПропВредности</literal> могу садржати име/вредност парове за ревизионе особине које ће урезивање подесити. Језичак мора бити сигуран да обе површине имају истувеличину!Свако име особине  <literal>ревПропИмена</literal> морају такође имати одговарајуће вредности у <literal>ревПропВредности</literal>. Ако нема ревизионих особина да суподешена језичак мора да врати празну област."
 
 #. (programlisting)
 #, no-wrap
@@ -10570,8 +10534,16 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr "<placeholder-1/> Овај метод се позива тачно пре затварања дијалога урезивања када почиње урезивање. Плагин може користити овај метод да провери изабране фајлове/именике за урезивање и/или  поруке урезивања које је унео корисник. Параметри су исти за <literal>GetCommitMessage2()</literal>, са разликама што је тај <literal>commonURL</literal>  сада заједнички УРЛ свих <emphasis>преузетих</emphasis> ставки, и <literal>commonRoot</literal> корена путања свих преузетих ставки. Повратни параметар <literal>errorMessage</literal> мора да садржи или поруку о грешци коју је ТортоисеСВН приказао кориснику или да буде празан да би урезивање почело. Ако је враћена порука о грешци, ТортоисеСВН приказује стринг грешке у дијалогу и држи дијалог урезивања отвореним док корисник не исправи што год је неисправно. Плагин би зато требало да врати стринг грешке који информише корисника <emphasiјеs>шта</emphasis> је неисправно и како да се то коригује."
+msgid "This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items."
+msgstr "Овај метод је позван баш пре него се дијалог урезивања затвори и урезивање почне. Језичак може користити овај метод да се вреднују изабрани фајлови/именициза урезивање и/или поруке урезивање које је унео корисник. Параметри су исти као за  <literal>GetCommitMessage2()</literal>,  са разликом да је <literal>заједничкиУРЛ</literal> сада заједнички УРЛ свих   <emphasis>изабраних</emphasis> ставки, и <literal>заједничкиКорен</literal> је корена путањасвих изабраних ставки."
+
+#. (para)
+msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source url of the copy, and <literal>commonRoot</literal> is set to the target url of the copy."
+msgstr "За грана/знак дијалог <literal>заједничкиУРЛ</literal> је изворни урл копије, и <literal>заједничкиКорен</literal> је подешен за циљни урл копије."
+
+#. (para)
+msgid "The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr "Повратни параметар <literal>грешкаПорука</literal> мора да садржи или поруку грешке коју ТортоисеСВН приказује корисницима или да буде празан при старту урезивања. Ако се врати порука о грешциТортоисеСВН приказује стринг грешке у дијалогу и чува дијалогурезивања отвореним тако да корисник може направити исправке када је нешто погрешно. Језичак трба да врати стринг грешке који обавештава корисника  <emphasis>шта</emphasis> је лоше икако да се то исправи."
 
 #. (programlisting)
 #, no-wrap
@@ -10626,8 +10598,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr "<placeholder-1/> Овај метод се позива после успешног урезивања. Плагин може користири овај метод да нпр. затвори изабрану ставку и дода информацију о урезивању уз ставку. Параметри су исти као за <literal>GetCommitMessage2</literal>."
+msgid "This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgstr "Овај метод се позива после успешног урезивања. Језичак може користити овај метод да нпр. затвори изабрану ставку и дода информацију о урезивању уз ставку. Параметри су исти као за <literal>GetCommitMessage2</literal>."
 
 #. (programlisting)
 #, no-wrap
@@ -10645,8 +10617,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr "<placeholder-1/> Овај метод се позива из дијалога подешавања где корисник може да конфигурише плагине. Ако сам плагин обезбеђује сопствени дијалог конфигурисања са <literal>ShowOptionsDialog</literal>, он мора овде да врати ИСТИНА, у другом случају мора да врати ЛАЖ."
+msgid "This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgstr "Овај метод се позива из дијалога подешавања где корисник може да конфигурише језичке. Ако сам језичак обезбеђује сопствени дијалог конфигурисања са <literal>ShowOptionsDialog</literal>, он мора овде да врати ИСТИНА, у другом случају мора да врати ЛАЖ."
 
 #. (programlisting)
 #, no-wrap
@@ -10676,8 +10648,16 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr "<placeholder-1/>  Овај метод се позива из дијалога подешавања када корисник кликне на  дугме \"Опције\"   које је приказано ако <literal>HasOptions</literal>  врати ИСТИНА. Плагин може приказати дијалог да олакша кориснику да конфигурише плагин. Стринг <literal>параметара</literal>  садржи плагин стринг параметара који је већ подешен/унет. Повратни параметар <literal>newparameters</literal> мора да садржи стринг параметара које плагин конструише из информација сакупљених у дијалогу опција. Стринг <literal>параметара</literal> се шаље свим другим ИБагтрагачСнабдевачима и ИБагтрагачСнабдевач2 методима."
+msgid "This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin."
+msgstr "Овај метод се позива из дијалога подешавањакада корисник кликне на дугме  \"Опције\"  што је приказано ако <literal>ИмаОпција</literal> врати ИСТИНА. Језичак може приказати дијалог опција да кориснику олакша конфигурисање језичка."
+
+#. (para)
+msgid "The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered."
+msgstr "Стринг <literal>параметри</literal> садржи стринг параметара језичка који су  подешени/унети."
+
+#. (para)
+msgid "The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr "Повратни параметар <literal>newparameters</literal> мора да садржи стринг параметара које језичак конструише из информација сакупљених у дијалогу опција. Стринг <literal>параметара</literal> се шаље свим другим ИБагтрагачСнабдевачима и ИБагтрагачСнабдевач2 методима."
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
@@ -11169,8 +11149,8 @@ msgid "ASP projects"
 msgstr "АСП пројекти"
 
 #. (para)
-msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusions with users which always install <emphasis>everything</emphasis> no matter if they know what it is for."
-msgstr "Од верзије 1.4.0 и даље, инсталација ТортоисеСВН више не омогућава кориснику да подеси  <literal>SVN_ASP_DOT_NET_HACK</literal> променљиву окружења, јер је то узроковало многе проблеме и конфузију код корисника који увек инсталирају <emphasis>све</emphasis>  не бринући шта то у ствари значи."
+msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
+msgstr "Од верзије 1.4.0 и даље, инсталација ТортоисеСВН не омогућава више кориснику да подеси  <literal>SVN_ASP_DOT_NET_HACK</literal> променљиву окружења, јер је то узроковало многе проблеме и конфузију код корисника који увек инсталирају <emphasis>све</emphasis>  не бринући шта то у ствари значи."
 
 #. (para)
 msgid ""
@@ -12874,6 +12854,94 @@ msgid "If you use this last method, be sure you do not have a default username s
 msgstr "Ако користите последњи метод, будите сигурни да немате подразумевано име корисника подешено у PuTTY. Имали смо извештаје о багу у PuTTY који су узроковали затварање конекције у овом случају. Да уклоните подразумеваног корисника, једноставно очистите <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
 
 #. (title)
+msgid "Language Packs and Spell Checkers"
+msgstr "Језички пакет и провера синтаксе"
+
+#. (para)
+msgid "The standard installer has support only for English, but you can download separate language packs and spell check dictionaries separately after installation."
+msgstr "Стандардни инсталатор подржавасамо енглескиали можете скинути пакете посебних језика и речнике за проверу синтаксе после инсталације. "
+
+#. (title)
+msgid "Language Packs"
+msgstr "Језички пакети"
+
+#. (primary)
+msgid "language packs"
+msgstr "језички пакети"
+
+#. (primary)
+msgid "translations"
+msgstr "преводи"
+
+#. (para)
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
+msgstr "ТортоисеСВН кориснички интерфејс је преведен на многе различите језике, тако да можете да пренесете језички пакет који вам је потребан. Језичке пакете можете наћи на <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>страна статуса превода</citetitle></ulink>. И ако језички пакет још није доступан, зашто да се не прикључите тиму и поднесете свој лични превод; -)"
+
+#. (para)
+msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
+msgstr "Сваки језички пакет је спаковану као <literal>.еxе</literal> инсталација. Само извршите инсталациони програм и следите инструкције. Следећи пут кад рестартује компјутер превод ће бити доступан. "
+
+#. (para)
+msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
+msgstr "Документација је преведена на више разних језика. Можете скинути преведене мануале са <ulink url=\"http://tortoisesvn.net/support\"><citetitle>странаподршке</citetitle></ulink> на нашем вебсајту."
+
+#. (title)
+msgid "Spellchecker"
+msgstr "Правопис контрола"
+
+#. (primary)
+msgid "spellchecker"
+msgstr "правопис контрола"
+
+#. (primary)
+msgid "dictionary"
+msgstr "речник"
+
+#. (para)
+msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgstr "ТортоисеСВН укључује контролу правописа која вам дозвољава да контролишете ваше  дневник поруке урезивања. Ово је нарочито корисно ако језик пројекта није ваш матерњи језик. Контролор правописа користи исте фајлове речника као <ulink url=\"http://openoffice.org\"><citetitle>ОпенОффице</citetitle></ulink> и <ulink url=\"http://mozilla.org\"><citetitle>Мозилла</citetitle></ulink>."
+
+#. (para)
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
+msgstr "Инсталација аутоматски додаје УС и УК Енглески речник. Ако желите друге језике, најлакша могућност је да инсталирате један од ТортоисеСВН језичких пакета. То ће инсталирати одговарајуће фајлове речника као и ТортоисеСВН локални кориснички интерфејс. По рестартовању компјутера речник ће такође бити доступан."
+
+#. (para)
+msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
+msgstr "Или можете инсталирати речник сами. Ако имате ОпенОфис или Мозилу инсталиране можете копирати њихове речнике, који су смештени у инсталационом именику тих апликација. Иначе, потребно је да пренесете жељене фајлове речника са <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
+
+#. (filename)
+msgid "en_US.aff"
+msgstr "ен_УС.афф"
+
+#. (filename)
+msgid "en_US.dic"
+msgstr "ен_УС.диц"
+
+#. (para)
+msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
+msgstr "Једном кад имате фајлове речника, вероватно ће требати да их преименујете тако имена фајлова имају само локалне карактере. Пример:<placeholder-1/> Затим само их копирајте у <filename>бин</filename> суб-именик ТортоисеСВН инсталационог именика. Нормално то ће бити <filename>Ц:\\Програм Филес\\ТортоисеСВН\\бин</filename>. Ако не желите да оптерећујете <filename>бин</filename> суб-именик, уместо тога можете сместити контролне фајлове у <filename>Ц:\\Програм Филес\\ТортоисеСВН\\Лангуагес</filename>. Ако нема тог именика, креирајте га. Када следећи пут покренете ТортоисеСВН, правописна контрола ће бити доступна."
+
+#. (para)
+msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
+msgstr "Проверите <literal>tsvn:projectlanguage</literal> подешавање. Погледајте <xref linkend=\"tsvn-dug-propertypage\"/> за информације о подешавању особина пројекта."
+
+#. (para)
+msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
+msgstr "Ако језик пројекта није означен, или тај језик није инсталиран, пробајте језик који одговара Виндоуз локалном језику."
+
+#. (para)
+msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
+msgstr "Ако прави Виндоуз локални језик не функционише, пробајте <quote>Основни</quote> језик, нпр. <literal>de_CH</literal> (Швајцарска-Немачки) иде на  <literal>de_DE</literal> (Немачки)."
+
+#. (para)
+msgid "If none of the above works, then the default language is English, which is included with the standard installation."
+msgstr "Ако ништа од наведеног не ради, тада је уобичајени језик Енглески, који је укључен у стандардну инсталацију."
+
+#. (para)
+msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
+msgstr "Ако инсталирате више речника. ТортоисеСВН користи ова правила да изабере један за коришћење.<placeholder-1/>"
+
+#. (title)
 msgid "Glossary"
 msgstr "Појмовник"
 
@@ -13099,6 +13167,77 @@ msgstr "Милорад Поповић <MiloradSPopovic@gmail.com>"
 msgid "translator-translation"
 msgstr "Превод"
 
+#~ msgid ""
+#~ "<placeholder-1/> This is the main method of the plugin. This method is "
+#~ "called from the TortoiseSVN commit dialog when the user clicks on the "
+#~ "plugin button. The <literal>parameters</literal> string is the string the "
+#~ "user has to enter in the settings dialog when he configures the plugin. "
+#~ "Usually a plugin would use this to find the URL of the issue tracker and/"
+#~ "or login information or more. The <literal>commonRoot</literal> string "
+#~ "contains the parent path of all items selected to bring up the commit "
+#~ "dialog. Note that this is <emphasis>not</emphasis> the root path of all "
+#~ "items which the user has selected in the commit dialog. The "
+#~ "<literal>pathList</literal> parameter contains an array of paths (as "
+#~ "strings) which the user has selected for the commit. The "
+#~ "<literal>originalMessage</literal> parameter contains the text entered in "
+#~ "the log message box in the commit dialog. If the user has not yet entered "
+#~ "any text, this string will be empty. The <literal>newMessage</literal> "
+#~ "return string is copied into the log message edit box in the commit "
+#~ "dialog, replacing whatever is already there. If a plugin does not modify "
+#~ "the <literal>originalMessage</literal> string, it must return the same "
+#~ "string again here, otherwise any text the user has entered will be lost."
+#~ msgstr ""
+#~ "<placeholder-1/> Ово је главни метод плагина. Овај метод се позива из "
+#~ "ТортоисеСВН дијалога урезивања када корисник кликне на дугме плагина. "
+#~ "Стринг <literal>параметара</literal> је стринг који је корисник унео у "
+#~ "дијалог подешавања када је конфигурисао плагин. Обично плагин ово користи "
+#~ "да нађе УРЛ проблем трагача и/или логин информације или нешто више. "
+#~ "Стринг <literal>commonRoot</literal> садржи предачку путању свих ставки "
+#~ "изабраних да прикаже дијалог урезивања. Приметимо да ово <emphasis>није</"
+#~ "emphasis>  корена путања свих ставки које је корисник изабрао у дијалогу "
+#~ "урезивања. Параметар <literal>pathList</literal> садржи скуп путањи (као "
+#~ "стрингове) које је корисник изабрао у дијалогу урезивања. Параметар "
+#~ "<literal>originalMessage</literal> садржи текст унет у бокс поруке "
+#~ "дневника у дијалогу урезивања, замењујући све што је већ тамо. Ако "
+#~ "корисник још није унео било који текст, овај стринг ће бити празан. "
+#~ "<literal>newMessage</literal> повратни стринг је копиран у дневник порука "
+#~ "бокс уређења у дијалогу урезивања, замењујући штогод је тамо. Ако плагин "
+#~ "не мења <literal>originalMessage</literal>  стринг, мора овде вратити "
+#~ "исти стринг, иначе ће сваки текст, који корисник унесе,бити изгубљен."
+#~ msgid ""
+#~ "<placeholder-1/> This method is called from the TortoiseSVN commit dialog "
+#~ "when the user clicks on the plugin button. This method is called instead "
+#~ "of <literal>GetCommitMessage()</literal>. Please refer to the "
+#~ "documentation for <literal>GetCommitMessage</literal> for the parameters "
+#~ "that are also used there. The parameter <literal>commonURL</literal> is "
+#~ "the parent URL of all items selected to bring up the commit dialog. This "
+#~ "is basically the URL of the <literal>commonRoot</literal> path. The "
+#~ "parameter <literal>bugID</literal> contains the content of the bug-ID "
+#~ "field (if it is shown, configured with the property <literal>bugtraq:"
+#~ "message</literal>). The return parameter <literal>bugIDOut</literal> is "
+#~ "used to fill the bug-ID field when the method returns. The "
+#~ "<literal>revPropNames</literal> and <literal>revPropValues</literal> "
+#~ "return parameters can contain name/value pairs for revision properties "
+#~ "that the commit should set. A plugin must make sure that both arrays have "
+#~ "the same size on return! Each property name in <literal>revPropNames</"
+#~ "literal> must also have a corresponding value in <literal>revPropValues</"
+#~ "literal>. If no revision properties are to be set, the plugin must return "
+#~ "empty arrays."
+#~ msgstr ""
+#~ "<placeholder-1/> Овај метод се позива из ТортоисеСВН дијалога урезивања "
+#~ "када корисник кликне на плагин дугме. Метод је позван уместо "
+#~ "<literal>GetCommitMessage()</literal>. Молим упоредите са документацијом "
+#~ "за <literal>GetCommitMessage</literal> за параметре који се такође овде "
+#~ "користе. Параметар <literal>commonURL</literal> је предак УРЛ свих ставки "
+#~ "изабраних да се појави дијалог урезивања. Ово је основни УРЛ "
+#~ "<literal>commonRoot</literal> путање. Параметар <literal>багИД</literal>  "
+#~ "садржи садржај баг-ИД поља када метод врати резултат. Повратни параметри "
+#~ "<literal>revPropNames</literal> и <literal>revPropValues</literal> могу "
+#~ "садржати име/вредност пар ревизионих особинакоје урезивање треба да "
+#~ "подеси. Плагин мора да осигура оба поља да имају исту величину при "
+#~ "повратку! Свако име особине у <literal>revPropNames</literal> такође мора "
+#~ "да има одговарајућу вредност у <literal>revPropValues</literal>. Ако нису "
+#~ "подешене ревизионе особине плагин мора да врати празно поље."
 #~ msgid ""
 #~ "Hold the <keycap>Shift</keycap> key to get the extended context menu and "
 #~ "use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep "
