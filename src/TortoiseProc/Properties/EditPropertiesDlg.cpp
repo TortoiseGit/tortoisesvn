@@ -37,6 +37,8 @@
 #include "EditPropNeedsLock.h"
 #include "EditPropMimeType.h"
 #include "EditPropBugtraq.h"
+#include "EditPropEOL.h"
+#include "EditPropKeywords.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -391,6 +393,12 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
     case ID_NEW_BUGTRAQ:
         EditProps(true, "bugtraq:", true);
         break;
+    case ID_NEW_EOL:
+        EditProps(true, "svn:eol-style", true);
+        break;
+    case ID_NEW_KEYWORDS:
+        EditProps(true, "svn:keywords", true);
+        break;
     case ID_NEW_ADVANCED:
     default:
         EditProps(false, "", true);
@@ -414,6 +422,10 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
         dlg = new CEditPropMimeType(this);
     else if (sName.substr(0, 8).compare("bugtraq:") == 0)
         dlg = new CEditPropBugtraq(this);
+    else if (sName.compare("svn:eol-style") == 0)
+        dlg = new CEditPropEOL(this);
+    else if (sName.compare("svn:keywords") == 0)
+        dlg = new CEditPropKeywords(this);
     else
         dlg = new CEditPropertyValueDlg(this);
 
