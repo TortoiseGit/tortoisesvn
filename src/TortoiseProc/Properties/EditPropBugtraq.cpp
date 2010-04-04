@@ -139,6 +139,13 @@ BOOL CEditPropBugtraq::OnInitDialog()
 
     UpdateData(false);
 
+    AdjustControlSize(IDC_BUGTRAQWARN);
+    AdjustControlSize(IDC_TEXTRADIO);
+    AdjustControlSize(IDC_NUMERICRADIO);
+    AdjustControlSize(IDC_TOPRADIO);
+    AdjustControlSize(IDC_BOTTOMRADIO);
+    AdjustControlSize(IDC_PROPRECURSIVE);
+
     RECT rect;
     GetWindowRect(&rect);
     m_height = rect.bottom - rect.top;
@@ -215,25 +222,11 @@ void CEditPropBugtraq::OnOK()
 
     // bugtraq:url
     std::string propVal = WideToUTF8((LPCTSTR)m_sBugtraqUrl);
-    IT it = m_properties.find("bugtraq:url");
-    if ((it != m_properties.end())&&(it->second.value.compare(propVal)))
-        m_bChanged = true;
-    else if ((it == m_properties.end())&&(propVal.size()))
-        m_bChanged = true;
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps["bugtraq:url"] = pVal;
 
     // bugtraq:warnifnoissue
-    it = m_properties.find("bugtraq:warnifnoissue");
-    if ((it != m_properties.end())&&
-        ((it->second.value.compare("true") == 0) || (it->second.value.compare("yes") == 0)))
-    {
-        if (!m_bWarnIfNoIssue)
-            m_bChanged = true;
-    }
-    else if (m_bWarnIfNoIssue)
-        m_bChanged = true;
     if (m_bWarnIfNoIssue)
         pVal.value = "true";
     else
@@ -243,37 +236,18 @@ void CEditPropBugtraq::OnOK()
 
     // bugtraq:message
     propVal = WideToUTF8((LPCTSTR)m_sBugtraqMessage);
-    it = m_properties.find("bugtraq:message");
-    if ((it != m_properties.end())&&(it->second.value.compare(propVal)))
-        m_bChanged = true;
-    else if ((it == m_properties.end())&&(propVal.size()))
-        m_bChanged = true;
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps["bugtraq:message"] = pVal;
 
     // bugtraq:label
     propVal = WideToUTF8((LPCTSTR)m_sBugtraqLabel);
-    it = m_properties.find("bugtraq:label");
-    if ((it != m_properties.end())&&(it->second.value.compare(propVal)))
-        m_bChanged = true;
-    else if ((it == m_properties.end())&&(propVal.size()))
-        m_bChanged = true;
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps["bugtraq:label"] = pVal;
 
     // bugtraq:number
     int checked = GetCheckedRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO);
-    it = m_properties.find("bugtraq:number");
-    if ((it != m_properties.end())&&
-        ((it->second.value.compare("true") == 0) || (it->second.value.compare("yes") == 0)))
-    {
-        if (checked != IDC_NUMERICRADIO)
-            m_bChanged = true;
-    }
-    else if (checked == IDC_NUMERICRADIO)
-        m_bChanged = true;
     if (checked == IDC_NUMERICRADIO)
         pVal.value = "true";
     pVal.remove = (pVal.value.size() == 0);
@@ -281,15 +255,6 @@ void CEditPropBugtraq::OnOK()
 
     // bugtraq:append
     checked = GetCheckedRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO);
-    it = m_properties.find("bugtraq:append");
-    if ((it != m_properties.end())&&
-        ((it->second.value.compare("true") == 0) || (it->second.value.compare("yes") == 0)))
-    {
-        if (checked != IDC_BOTTOMRADIO)
-            m_bChanged = true;
-    }
-    else if (checked == IDC_BOTTOMRADIO)
-        m_bChanged = true;
     if (checked == IDC_BOTTOMRADIO)
         pVal.value = "true";
     pVal.remove = (pVal.value.size() == 0);
@@ -300,44 +265,24 @@ void CEditPropBugtraq::OnOK()
     if (m_sBugtraqRegex1.IsEmpty() && m_sBugtraqRegex2.IsEmpty())
         sLogRegex.Empty();
     propVal = WideToUTF8((LPCTSTR)sLogRegex);
-    it = m_properties.find("bugtraq:logregex");
-    if ((it != m_properties.end())&&(it->second.value.compare(propVal)))
-    {
-        m_bChanged = true;
-    }
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps["bugtraq:logregex"] = pVal;
 
     // bugtraq:providerparams
     propVal = WideToUTF8((LPCTSTR)m_sProviderParams);
-    it = m_properties.find("bugtraq:providerparams");
-    if ((it != m_properties.end())&&(it->second.value.compare(propVal)))
-        m_bChanged = true;
-    else if ((it == m_properties.end())&&(propVal.size()))
-        m_bChanged = true;
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps["bugtraq:providerparams"] = pVal;
 
     // bugtraq:provideruuid
     propVal = WideToUTF8((LPCTSTR)m_sProviderUUID);
-    it = m_properties.find("bugtraq:provideruuid");
-    if ((it != m_properties.end())&&(it->second.value.compare(propVal)))
-        m_bChanged = true;
-    else if ((it == m_properties.end())&&(propVal.size()))
-        m_bChanged = true;
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps["bugtraq:provideruuid"] = pVal;
 
     // bugtraq:provideruuid64
     propVal = WideToUTF8((LPCTSTR)m_sProviderUUID64);
-    it = m_properties.find("bugtraq:provideruuid64");
-    if ((it != m_properties.end())&&(it->second.value.compare(propVal)))
-        m_bChanged = true;
-    else if ((it == m_properties.end())&&(propVal.size()))
-        m_bChanged = true;
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps["bugtraq:provideruuid64"] = pVal;

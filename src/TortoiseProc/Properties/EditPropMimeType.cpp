@@ -41,6 +41,7 @@ CEditPropMimeType::~CEditPropMimeType()
 void CEditPropMimeType::DoDataExchange(CDataExchange* pDX)
 {
     CStandAloneDialog::DoDataExchange(pDX);
+    DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
     DDX_Text(pDX, IDC_CUSTOMMIMETYPE, m_sCustomMimeType);
 }
 
@@ -66,6 +67,7 @@ BOOL CEditPropMimeType::OnInitDialog()
     AdjustControlSize(IDC_MIMETEXT);
     AdjustControlSize(IDC_MIMEBIN);
     AdjustControlSize(IDC_MIMECUSTOM);
+    AdjustControlSize(IDC_PROPRECURSIVE);
 
     DialogEnableWindow(IDC_CUSTOMMIMETYPE, false);
     if (m_PropValue.compare("application/octet-stream") == 0)
@@ -108,6 +110,8 @@ void CEditPropMimeType::OnOK()
         m_PropValue = "application/octet-stream";
         break;
     }
+    m_bChanged = true;
+
     CStandAloneDialog::OnOK();
 }
 
