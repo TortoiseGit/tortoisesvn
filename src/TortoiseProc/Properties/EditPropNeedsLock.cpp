@@ -79,15 +79,11 @@ void CEditPropNeedsLock::OnOK()
 
     bool bSet = (GetCheckedRadioButton(IDC_PROPSET, IDC_PROPNOTSET) == IDC_PROPSET);
 
-    if (bSet && m_PropValue.size() == 0)
-        m_bChanged = true;
-    if (!bSet && m_PropValue.size())
-        m_bChanged = true;
-
     if (bSet)
         m_PropValue = "*";
     else
         m_PropValue.empty();
+    m_bChanged = true;
 
     CStandAloneDialog::OnOK();
 }
