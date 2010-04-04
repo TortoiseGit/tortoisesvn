@@ -109,7 +109,7 @@ public:
 	 * \param recurse TRUE if the property should be added to subdirectories/files as well
 	 * \return TRUE if the property is added successfully
 	 */
-	BOOL Add(const std::string& Name, const std::string& Value, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
+	BOOL Add(const std::string& Name, const std::string& Value, bool force = false, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
 	/**
 	 * Removes an existing property from the file/directory specified in the constructor.
 	 * \remark After using this method the indexes of the properties may change!

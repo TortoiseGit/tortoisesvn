@@ -507,7 +507,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                     ret = props.Remove(propsit->first, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                                 else
                                     ret = props.Add(propsit->first, SVNProperties::IsBinary(propsit->second.value) ? propsit->second.value : propsit->second.value.c_str(), 
-                                                    dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                                    false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                                 if (!ret)
                                 {
                                     CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -536,7 +536,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                 ret = props.Remove(sName, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                             else
                                 ret = props.Add(sName, dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str(), 
-                                                dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                                false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                             if (!ret)
                             {
                                 CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -839,7 +839,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
 							{
 								prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
 								SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
-								if (!props.Add(sName, propertyvalue, svn_depth_empty, (LPCTSTR)sMsg))
+								if (!props.Add(sName, propertyvalue, false, svn_depth_empty, (LPCTSTR)sMsg))
 								{
 									prog.Stop();
 									CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);

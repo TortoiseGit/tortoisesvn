@@ -305,7 +305,7 @@ std::string SVNProperties::GetItemValue(int index) const
 	return SVNProperties::GetItem(index, false);
 }
 
-BOOL SVNProperties::Add(const std::string& name, const std::string& Value, svn_depth_t depth, const TCHAR * message)
+BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool force, svn_depth_t depth, const TCHAR * message)
 {
 	svn_string_t*	pval;
 	m_error = NULL;
@@ -399,14 +399,14 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, svn_d
 		{
 			svn_revnum_t rev_set;
             SVNTRACE (
-			    m_error = svn_client_revprop_set2(name.c_str(), pval, NULL, svnPath, m_rev, &rev_set, false, m_pctx, subpool),
+			    m_error = svn_client_revprop_set2(name.c_str(), pval, NULL, svnPath, m_rev, &rev_set, force, m_pctx, subpool),
                 svnPath
             )
 		}
 		else
 		{
             SVNTRACE (
-    			m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
+    			m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, depth, force, m_rev, NULL, NULL, m_pctx, subpool),
                 svnPath
             )
 		}
