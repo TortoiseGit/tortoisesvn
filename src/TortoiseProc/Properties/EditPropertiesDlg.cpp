@@ -523,8 +523,21 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                         }
                         else
                         {
-                            if (!props.Add(sName, dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str(), 
-                                dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg))
+                            bool bRemove = false;
+                            if ((sName.substr(0, 4).compare("svn:") == 0) || 
+                                (sName.substr(0, 5).compare("tsvn:") == 0) ||
+                                (sName.substr(0, 10).compare("webviewer:") == 0))
+                            {
+                                if (dlg->GetPropertyValue().size() == 0)
+                                    bRemove = true;
+                            }
+                            BOOL ret = FALSE;
+                            if (bRemove)
+                                ret = props.Remove(sName, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                            else
+                                ret = props.Add(sName, dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str(), 
+                                                dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                            if (!ret)
                             {
                                 CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
                             }
