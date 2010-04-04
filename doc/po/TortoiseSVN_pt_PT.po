@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-01 18:58 +0000\n"
-"PO-Revision-Date: 2010-04-03 01:23-0000\n"
+"PO-Revision-Date: 2010-04-04 22:32-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8518,79 +8518,79 @@ msgstr "O programa NotePad original do Windows não se comporta bem com ficheiro
 
 #. (title)
 msgid "Saved Data Settings"
-msgstr ""
+msgstr "Preferências de Dados Guardados"
 
 #. (title)
 msgid "The Settings Dialog, Saved Data Page"
-msgstr ""
+msgstr "A Caixa de Diálogo, Página de Dados Guardados"
 
 #. (para)
 msgid "<placeholder-1/> For your convenience, TortoiseSVN saves many of the settings you use, and remembers where you have been lately. If you want to clear out that cache of data, you can do it here."
-msgstr ""
+msgstr "<placeholder-1/> Para tua comodidade o TortoiseSVN guarda muitas das preferências que usas, e lembra-se de onde andaste ultimamente. Se quiseres limpar essa cache de dado poderás o fazer aqui."
 
 #. (term)
 msgid "URL history"
-msgstr ""
+msgstr "Histórico de URL"
 
 #. (para)
 msgid "Whenever you checkout a working copy, merge changes or use the repository browser, TortoiseSVN keeps a record of recently used URLs and offers them in a combo box. Sometimes that list gets cluttered with outdated URLs so it is useful to flush it out periodically."
-msgstr ""
+msgstr "Sempre que povoas uma cópia de trabalho, integras alterações ou usas o navegador de repositório, o TortoiseSVN mantém um registo dos URLs recentemente usados e oferece-lhes uma combo box. Por vezes a lista é povoada com URLs desactualizados pelo que será útil periodicamente limpá-la."
 
 #. (para)
 msgid "If you want to remove a single item from one of the combo boxes you can do that in-place. Just click on the arrow to drop the combo box down, move the mouse over the item you want to remove and type <keycap>Shift+Del</keycap>."
-msgstr ""
+msgstr "Se queres remover um único item de uma das combo boxes, poderás fazê-lo no local. Clica apenas na seta para abrir a lista da combo box, move o rato por cima do item que desejas remover e digita  <keycap>Shift+Del</keycap>."
 
 #. (term)
 msgid "Log messages (Input dialog)"
-msgstr ""
+msgstr "Mensagens de registo (Caixa de diálogo de entrada)"
 
 #. (para)
 msgid "TortoiseSVN stores recent commit log messages that you enter. These are stored per repository, so if you access many repositories this list can grow quite large."
-msgstr ""
+msgstr "O TortoiseSVN armazena as mensagens de registo recentes, que tu introduziste. Elas são armazenadas por repositório pelo que se acederes a muitos repositórios, essa lista poderá crescer bastante."
 
 #. (term)
 msgid "Log messages (Show log dialog)"
-msgstr ""
+msgstr "Mensagens de registo (Mostrar caixa de diálogo de registo)"
 
 #. (para)
 msgid "TortoiseSVN caches log messages fetched by the Show Log dialog to save time when you next show the log. If someone else edits a log message and you already have that message cached, you will not see the change until you clear the cache. Log message caching is enabled on the <guilabel>Log Cache</guilabel> tab."
-msgstr ""
+msgstr "O TortoiseSVN faz cache das mensagens de registo trazidas pela caixa de diálogo Mostrar Registo, para te poupar tempo quando a seguir vês o registo. Se alguém editar uma mensagem de registo e tens essa mensagem em cache, não irás ver a alteração até limpares a mesma. O uso da cache de mensagens está activado na página <guilabel>Caches de Registos</guilabel>."
 
 #. (term)
 msgid "Dialog sizes and positions"
-msgstr ""
+msgstr "Dimensões e posições de caixas de diálogo"
 
 #. (para)
 msgid "Many dialogs remember the size and screen position that you last used."
-msgstr ""
+msgstr "Muitas caixas de diálogo lembram-se do tamanho e posição com que tu as usaste por último."
 
 #. (term)
 msgid "Authentication data"
-msgstr ""
+msgstr "Dados de autenticação"
 
 #. (para)
 msgid "When you authenticate with a Subversion server, the username and password are cached locally so you don't have to keep entering them. You may want to clear this for security reasons, or because you want to access the repository under a different username ... does John know you are using his PC?"
-msgstr ""
+msgstr "Quando te autenticas num servidor Subversion o nome de utilizador e a palavra-chave são guardadas localmente na cache, para que não tenhas de estar sempre a introduzi-las. Poderás querer limpar esta informação, por razões de segurança, ou porque queres aceder ao repositório com um nome de utilizador diferente... o João sabe que estás a usar este PC?"
 
 #. (para)
 msgid "If you want to clear authentication data for one particular server only, read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to find the cached data."
-msgstr ""
+msgstr "Se queres limpar os dados de autenticação para um servidor em particular, consulta <xref linkend=\"tsvn-dug-general-auth\"/> para mais instruções em como encontrar os dados na cache."
 
 #. (term)
 msgid "Action log"
-msgstr ""
+msgstr "Registo de acções"
 
 #. (para)
 msgid "TortoiseSVN keeps a log of everything written to its progress dialogs. This can be useful when, for example, you want to check what happened in a recent update command."
-msgstr ""
+msgstr "O TortoiseSVN mantém um registo de tudo o que foi escrito nas caixas de diálogo de progresso. Isto pode ser útil para quando, por exemplo, quiseres verificar o que aconteceu num comando recente de actualização."
 
 #. (para)
 msgid "The log file is limited in length and when it grows too big the oldest content is discarded. By default 4000 lines are kept, but you can customize that number."
-msgstr ""
+msgstr "O ficheiro de registo é limitado no seu tamanho e quando cresce demasiado, é descartado o conteúdo mais antigo. Por defeito são mantidas 4000 linhas, mas podes personalizar este número."
 
 #. (para)
 msgid "From here you can view the log file content, and also clear it."
-msgstr ""
+msgstr "Daqui podes ver o conteúdo do ficheiro de registo, e também limpá-lo."
 
 #. (title)
 msgid "Log Caching"
