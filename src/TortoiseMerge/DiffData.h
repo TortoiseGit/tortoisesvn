@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,8 +55,14 @@ public:
 private:
 	bool DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool);
 	bool DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, apr_pool_t * pool);
-	void HideUnchangedSections(CViewData * data1, CViewData * data2, CViewData * data3);
 
+	void HideUnchangedSections(CViewData * data1, CViewData * data2, CViewData * data3);
+	void AddLines(LONG baseline, LONG yourline, LONG theirline);
+
+	svn_diff_file_ignore_space_t GetIgnoreSpaceMode(DWORD dwIgnoreWS);
+	svn_diff_file_options_t * CreateDiffFileOptions(DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool); 
+	bool HandleSvnError(svn_error_t * svnerr);
+	bool CompareWithIgnoreWS(CString s1, CString s2, DWORD dwIgnoreWS);
 public:
 	CWorkingFile				m_baseFile;
 	CWorkingFile				m_theirFile;
@@ -81,7 +87,7 @@ public:
 	CViewData					m_TheirBaseLeft;			///< two-pane view, diff between 'theirs' and 'base', left view
 	CViewData					m_TheirBaseRight;			///< two-pane view, diff between 'theirs' and 'base', right view
 
-	CViewData					m_Diff3;					///< thee-pane view, bottom pane
+	CViewData					m_Diff3;					///< three-pane view, bottom pane
 
 	// the following three arrays are used to check for conflicts even in case the
 	// user has ignored spaces/eols.
