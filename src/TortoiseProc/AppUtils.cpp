@@ -846,8 +846,14 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 
 bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, CWnd * pParent, SVNRev& rev)
 {
+    bool bExternalUrl = false;
 	CString strUrl;
 	combo.GetWindowText(strUrl);
+    if (strUrl.GetLength() && strUrl[0] == '^')
+    {
+        bExternalUrl = true;
+        strUrl = strUrl.Mid(1);
+    }
 	strUrl.Replace('\\', '/');
 	strUrl.Replace(_T("%"), _T("%25"));
 	strUrl.TrimLeft('/');
@@ -865,7 +871,10 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
 		if (browser.DoModal() == IDOK)
 		{
 			combo.SetCurSel(-1);
-			combo.SetWindowText(browser.GetPath().Mid(repoRoot.GetLength()));
+            if (bExternalUrl)
+                combo.SetWindowText(_T("^") + browser.GetPath().Mid(repoRoot.GetLength()));
+            else
+			    combo.SetWindowText(browser.GetPath().Mid(repoRoot.GetLength()));
 			combo.SetFocus();
 			rev = browser.GetRevision();
 			return true;
@@ -881,7 +890,10 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
 		if (browser.DoModal() == IDOK)
 		{
 			combo.SetCurSel(-1);
-			combo.SetWindowText(browser.GetPath().Mid(repoRoot.GetLength()));
+            if (bExternalUrl)
+                combo.SetWindowText(_T("^") + browser.GetPath().Mid(repoRoot.GetLength()));
+            else
+                combo.SetWindowText(browser.GetPath().Mid(repoRoot.GetLength()));
 			combo.SetFocus();
 			rev = browser.GetRevision();
 			return true;

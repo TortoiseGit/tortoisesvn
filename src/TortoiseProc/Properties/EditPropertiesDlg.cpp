@@ -39,6 +39,7 @@
 #include "EditPropBugtraq.h"
 #include "EditPropEOL.h"
 #include "EditPropKeywords.h"
+#include "EditPropExternals.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -399,6 +400,9 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
     case ID_NEW_KEYWORDS:
         EditProps(true, "svn:keywords", true);
         break;
+    case ID_NEW_EXTERNALS:
+        EditProps(true, "svn:externals", true);
+        break;
     case ID_NEW_ADVANCED:
     default:
         EditProps(false, "", true);
@@ -426,6 +430,8 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
         dlg = new CEditPropEOL(this);
     else if (sName.compare("svn:keywords") == 0)
         dlg = new CEditPropKeywords(this);
+    else if (sName.compare("svn:externals") == 0)
+        dlg = new CEditPropExternals(this);
     else
         dlg = new CEditPropertyValueDlg(this);
 
@@ -449,6 +455,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
 		dlg->SetPropertyName(sName);
 		if (prop.allthesamevalue)
 			dlg->SetPropertyValue(prop.value);
+        dlg->SetPathList(m_pathlist);
 		dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITTITLE)));
 	}
 	else
