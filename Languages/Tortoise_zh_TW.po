@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-16 20:25+0800\n"
+"PO-Revision-Date: 2010-04-05 19:15+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -306,6 +306,10 @@ msgstr "新增或移除按鈕(&A)"
 msgid "&Add..."
 msgstr "加入(&A)..."
 
+#. Resource IDs: (32849)
+msgid "&Advanced"
+msgstr "進階(&A)"
+
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "進階設定(&A)..."
@@ -317,6 +321,10 @@ msgstr "允許模糊的URL(&A)"
 #. Resource IDs: (65535)
 msgid "&Application Look"
 msgstr "應用程式外觀(&A)"
+
+#. Resource IDs: (1294)
+msgid "&Apply property recursively"
+msgstr "套用性質至子資料夾(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -350,6 +358,10 @@ msgstr "自動關閉(&A):"
 msgid "&Backup original file"
 msgstr "備份原始檔(&B)"
 
+#. Resource IDs: (1559)
+msgid "&Binary"
+msgstr "二進位(&B)"
+
 #. Resource IDs: (114)
 msgid "&Blame changes"
 msgstr "譴責變更(&B)"
@@ -374,6 +386,10 @@ msgstr "藍色樣式(&B)"
 msgid "&Blue:"
 msgstr "藍(&B):"
 
+#. Resource IDs: (1568)
+msgid "&Bottom"
+msgstr "下方(&B)"
+
 #. Resource IDs: (65535)
 msgid "&Branches"
 msgstr "分支(&B)"
@@ -385,6 +401,10 @@ msgstr "瀏覽檔案庫(&B)"
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "瀏覽(&B)..."
+
+#. Resource IDs: (32850)
+msgid "&Bugtraq (Issue tracker integration)"
+msgstr "問題追蹤系統整合(&B)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -557,6 +577,10 @@ msgstr "啟動訊息快取(&E)"
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "請輸入鎖定檔案的原因(&E)."
+
+#. Resource IDs: (1554)
+msgid "&Executable"
+msgstr "可執行檔(&E)"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -739,6 +763,10 @@ msgstr "清單檢視(&L)"
 msgid "&Load..."
 msgstr "載入(&L)..."
 
+#. Resource IDs: (1554)
+msgid "&Locking required (read-only update)"
+msgstr "需要鎖定[唯讀更新](&L)"
+
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "亮度(&L):"
@@ -774,6 +802,10 @@ msgstr "合併(&M)..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "合併(&M)"
+
+#. Resource IDs: (32847)
+msgid "&Mime-Type"
+msgstr "&MIME 類型"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
@@ -823,6 +855,18 @@ msgstr "下一頁(&N)"
 #. Resource IDs: (16632)
 msgid "&No double-click event"
 msgstr "無雙擊事件(&N)"
+
+#. Resource IDs: (1555)
+msgid "&No locking required"
+msgstr "不需要鎖定(&N)"
+
+#. Resource IDs: (1555)
+msgid "&Not executable"
+msgstr "非執行檔(&N)"
+
+#. Resource IDs: (1566)
+msgid "&Numeric"
+msgstr "數值(&N)"
 
 #. Resource IDs: (1)
 msgid "&OK"
@@ -903,6 +947,10 @@ msgstr "取消復原(&R)"
 #. Resource IDs: (1382)
 msgid "&Refresh"
 msgstr "重新整理(&R)"
+
+#. Resource IDs: (1562)
+msgid "&Remind me to enter a bug-ID"
+msgstr "提醒我輸入bug編號(&R)"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -1103,6 +1151,10 @@ msgstr "工具列名稱(&T):"
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
 msgstr "工具列(&T):"
+
+#. Resource IDs: (1567)
+msgid "&Top"
+msgstr "上方(&T)"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
@@ -1381,18 +1433,20 @@ msgstr "在 combo box 中顯示的資料夾使用者自訂性質列表"
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "發現更新的版本. \r\n"
-"請至 http://tortoisesvn.tigris.org 下載最新的版本! "
+"請至 http://tortoisesvn.net 下載最新的版本! "
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"以換行分隔的列表, 包含要顯示圖示覆蓋的目錄.\r\n"
-"如果你在路徑後面加上 '*', 那麼此路徑下的所有檔案及子目錄也都會顯示."
+"要顯示覆蓋圖示的路徑列表, 以換行分隔.\r\n"
+"如果在路徑最後加上 '?', 僅有此路徑下會作用.\r\n"
+"如果在路徑最後沒有其它字元或是加上 '*', 那麼此路徑下的所有檔案及子目錄也都會顯示."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1407,11 +1461,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"以換行分隔的列表, 列出的目錄不顯示圖示覆蓋.\r\n"
-"如果你在路徑後面加上 '*', 那麼此路徑下的所有檔案及子目錄也都不會顯示.\r\n"
+"不顯示覆蓋圖示的路徑列表, 以換行分隔.\r\n"
+"如果在路徑最後加上 '?', 僅有此路徑下會作用.\r\n"
+"如果在路徑最後沒有其它字元或是加上 '*', 那麼此路徑下的所有檔案及子目錄也都不會顯示.\r\n"
 "列表為空時表示所有路徑都顯示圖示覆蓋."
 
 #. Resource IDs: (3843)
@@ -1780,13 +1836,13 @@ msgstr ""
 "套用進階使用者設定. 可提供較順暢的使用經驗.\n"
 "建議您了解各項設定作用後使用."
 
-#. Resource IDs: (1294)
-msgid "Apply property recursively"
-msgstr "套用性質至子資料夾"
-
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
 msgstr "套用單一差異檔"
+
+#. Resource IDs: (1565)
+msgid "Arb&itrary text"
+msgstr "任意文字(&I)"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -2010,6 +2066,14 @@ msgstr "Bug編號"
 #. Resource IDs: (1119)
 msgid "Bug-ID / &Issue-Nr:"
 msgstr "Bug編號 / 問題編號(&I):"
+
+#. Resource IDs: (1578)
+msgid "Bug-ID e&xpression:"
+msgstr "Bug編號表示式(&X)"
+
+#. Resource IDs: (1119)
+msgid "Bug-ID is:"
+msgstr "Bug編號:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -3453,6 +3517,10 @@ msgstr "完整複製來源(&X)"
 msgid "E&xclude paths:"
 msgstr "除外路徑(&X):"
 
+#. Resource IDs: (32839)
+msgid "E&xecutable"
+msgstr "可執行檔(&X)"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "離開(&X)"
@@ -3504,6 +3572,10 @@ msgstr "編輯作者"
 #. Resource IDs: (115)
 msgid "Edit author name"
 msgstr "編輯作者姓名"
+
+#. Resource IDs: (315)
+msgid "Edit bugtraq properties"
+msgstr "編輯問題追蹤性質"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -3561,6 +3633,10 @@ msgid ""
 msgstr ""
 "如果你使用 TSVN 與 VS.NET2003的網頁專案, 請啟用本選項.\r\n"
 "必須要重新開機後這項設定才會生效."
+
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "啟動中的覆蓋處理程式"
 
 #. Resource IDs: (195)
 msgid ""
@@ -3689,6 +3765,10 @@ msgstr "請勿輸入超過 %1 個字."
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
 msgstr "輸入 regex 指令:"
+
+#. Resource IDs: (1577)
+msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
+msgstr "請輸入從送交紀錄中過濾出 bug 編號的正規表示式."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4087,6 +4167,10 @@ msgstr ""
 "填滿"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "過濾符合的"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4450,6 +4534,10 @@ msgstr "忽略(&G)"
 msgid "I&nclude paths:"
 msgstr "包含路徑(&N):"
 
+#. Resource IDs: (1580)
+msgid "IBugTraqProvider"
+msgstr "IBugTraqProvider"
+
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4596,6 +4684,10 @@ msgstr "圖示覆蓋 / 狀態列"
 #. Resource IDs: (184)
 msgid "Icon Overlays::Icon Set"
 msgstr "圖示覆蓋::圖示集"
+
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "圖示覆蓋::圖示覆蓋處理程式"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -4782,6 +4874,10 @@ msgstr "無視空白字元變更(&H)"
 msgid "Ignore whitespace changes"
 msgstr "無視空白字元變更"
 
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "忽略"
+
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "包含忽略的項目"
@@ -4929,6 +5025,10 @@ msgstr ""
 "插入剪貼簿內容\n"
 "貼上"
 
+#. Resource IDs: (1575)
+msgid "Insert message at:"
+msgstr "插入紀錄訊息於:"
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "記憶體不足, 無法完成作業."
@@ -5028,6 +5128,10 @@ msgstr ""
 "正確的版本包括數字或 HEAD, 以逗號分隔.\n"
 "可以使用 - 號來表示範圍.\n"
 "例如: 2-5,7,10,44-70,300-HEAD"
+
+#. Resource IDs: (1571)
+msgid "Issue tracker"
+msgstr "問題追蹤系統"
 
 #. Resource IDs: (145)
 msgid ""
@@ -5267,6 +5371,10 @@ msgstr "鎖定持有人:"
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "鎖定被 %s 取得"
+
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "鎖定"
 
 #. Resource IDs: (263)
 #, c-format
@@ -5550,6 +5658,18 @@ msgstr "合併版本 %s 至 %s, 併入 %s, %s%s%s"
 msgid "Message"
 msgstr "訊息"
 
+#. Resource IDs: (1574)
+msgid "Message &label:"
+msgstr "訊息標籤(&L):"
+
+#. Resource IDs: (1573)
+msgid "Message &pattern:"
+msgstr "訊息樣式(&P):"
+
+#. Resource IDs: (1579)
+msgid "Message part expr&ession:"
+msgstr "訊息正規表示式(&E)"
+
 #. Resource IDs: (1241)
 msgid "Message:"
 msgstr "訊息:"
@@ -5733,6 +5853,14 @@ msgstr "導覽面板選項..."
 
 #. Resource IDs: (208)
 msgid "Needs lock"
+msgstr "需要鎖定"
+
+#. Resource IDs: (32845)
+msgid "Needs-&Lock"
+msgstr "需要鎖定(&L)"
+
+#. Resource IDs: (1550)
+msgid "Needs-lock"
 msgstr "需要鎖定"
 
 #. Resource IDs: (213)
@@ -5926,6 +6054,14 @@ msgstr "注意: 資料夾含有無版本控制的檔案"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "注意: 字型設定也會影響 TortoiseDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "注意: 這項設定不僅對 TortoiseSVN 有作用, 而是影響所有 Tortoise 程式!"
+
+#. Resource IDs: (1557)
+msgid "Note: this property has no effect on Windows"
+msgstr "注意: 這項設定在 Windows 上無效"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -6539,6 +6675,14 @@ msgstr "性質值:"
 msgid "Provider"
 msgstr "提供者"
 
+#. Resource IDs: (1586)
+msgid "Provider para&meters:"
+msgstr "IBugTraqProvider 參數(&M):"
+
+#. Resource IDs: (1581)
+msgid "Provider uuid win&32:"
+msgstr "IBugTraqProvider uuid win&32:"
+
 #. Resource IDs: (1475)
 msgid "Provider:"
 msgstr "提供者:"
@@ -6679,6 +6823,10 @@ msgstr "縮小視窗為圖示"
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
 msgstr "重新整理"
+
+#. Resource IDs: (1576)
+msgid "Regular Expression"
+msgstr "正規表示式"
 
 #. Resource IDs: (117)
 msgid ""
@@ -7277,6 +7425,10 @@ msgstr "SVN 版本"
 msgid "SVN Status"
 msgstr "SVN 狀態"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN 狀態編號"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -7809,14 +7961,6 @@ msgstr ""
 "顯示或隱藏工具列\n"
 "開關工具列"
 
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "在忽略的檔案上也顯示覆蓋圖示"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "在無版本控制的檔案上也顯示覆蓋圖示"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "顯示版本性質"
@@ -7936,9 +8080,17 @@ msgstr "左側原始碼:"
 msgid "Source Right:"
 msgstr "右側原始碼:"
 
+#. Resource IDs: (1552)
+msgid "Source URL:"
+msgstr "原始碼 URL:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "指定最近訊息紀錄要保留幾筆資料."
+
+#. Resource IDs: (1572)
+msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgstr "指定如何由輸入的 Bug 編號產生送交紀錄. 使用 %BUGID% 表示輸入的 Bug 編號. 如果沒有設定, TortoiseSVN 會使用正規表示式."
 
 #. Resource IDs: (79)
 msgid ""
@@ -7949,6 +8101,10 @@ msgstr ""
 "指定 TortoiseSVN 不需要納入版本控制的\r\n"
 "目錄或檔案名稱(對*所有*工作複本都有效).\r\n"
 "請以空白分隔項目."
+
+#. Resource IDs: (1305)
+msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "指定問題追蹤系統的 URL. 使用 %BUGID% 代表輸入的 Bug 編號."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -8676,6 +8832,14 @@ msgstr ""
 "不存在.\n"
 "TortoiseMerge 嘗試找出相對路徑但是失敗了."
 
+#. Resource IDs: (84)
+msgid ""
+"The regular expression is invalid!\n"
+"Please enter a valid regular expression."
+msgstr ""
+"正規表示式有錯誤!\n"
+"請輸入正確的正規表示式."
+
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
 msgstr "檔案庫建立成功."
@@ -9342,6 +9506,10 @@ msgstr "清除版本控制"
 msgid "Unversion and add to &ignore list"
 msgstr "取消版本控制並加入忽略列表(&I)"
 
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "無版本控制"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "含有無版本控制的檔案時, 上層資料夾顯示為異動"
@@ -9834,6 +10002,14 @@ msgstr ""
 "你正嘗試移動主幹資料夾!\n"
 "你確定真的要移動主幹資料\n"
 "夾嗎?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"您可以在此停用特定的覆蓋處理程式.\n"
+"停用的處理程式不會產生覆蓋圖示, 以便其它程式也能夠顯示它們的覆蓋圖示."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10538,6 +10714,10 @@ msgstr ""
 "svn:eol-style\r\n"
 "'native', 'LF', 'CR', 'CRLF' 四者之一."
 
+#. Resource IDs: (312)
+msgid "svn:executable"
+msgstr "svn:executable"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:executable\r\n"
@@ -10616,6 +10796,10 @@ msgstr ""
 "例如:\r\n"
 "/trunk:123-125,129"
 
+#. Resource IDs: (314)
+msgid "svn:mime-type"
+msgstr "svn:mime-type"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:mime-type\r\n"
@@ -10627,6 +10811,10 @@ msgstr ""
 "此檔案的 mime 類型. 用來決定檔案是否要合併, 以及由 Apache 傳送時要怎麼處理.\r\n"
 " 以 'text/' 開頭(或沒有設定)的 mime 類型視為文字. \r\n"
 "其它則視為二進位檔."
+
+#. Resource IDs: (313)
+msgid "svn:needs-lock"
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10810,6 +10998,10 @@ msgstr ""
 msgid "user revprops total: "
 msgstr "用戶版本性質總數:"
 
+#. Resource IDs: (1583)
+msgid "uuid x6&4:"
+msgstr "uuid x6&4:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "不同的值"
@@ -10862,6 +11054,10 @@ msgstr "是"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "在忽略的檔案上也顯示覆蓋圖示"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "在無版本控制的檔案上也顯示覆蓋圖示"
 #~ msgid "&To URL: "
 #~ msgstr "至URL(&T):"
 #~ msgid "Author:                                    Stefan Kueng"
@@ -10883,8 +11079,6 @@ msgstr "{BugTraq}"
 #~ msgstr ""
 #~ "要取出的 URL 是個檔案但是當前工作\n"
 #~ "複本中已經有同名目錄."
-#~ msgid "Unversioned"
-#~ msgstr "無版本控制"
 #~ msgid "Show &properties"
 #~ msgstr "顯示性質(&P)"
 #~ msgid "Show i&gnored files"
