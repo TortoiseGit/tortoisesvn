@@ -62,8 +62,17 @@ bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool 
 				ext.path = path;
 				ext.pathurl = pathurl;
 				ext.pegrevision = e->peg_revision;
-				ext.revision = e->revision;
-				ext.origrevision = e->revision;
+                if ((e->peg_revision.kind != e->revision.kind)||
+                    (e->peg_revision.value.number != e->revision.value.number))
+                {
+                    ext.revision = e->revision;
+                    ext.origrevision = e->revision;
+                }
+                else
+                {
+                    ext.revision.kind = svn_opt_revision_head;
+                    ext.origrevision.kind = svn_opt_revision_head;
+                }
 				if (headrev >= 0)
 				{
 					ext.revision.kind = svn_opt_revision_number;
@@ -116,15 +125,15 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
 		if (pegrev.IsValid() && !pegrev.IsHead())
 			peg = _T("@") + pegrev.ToString();
 		else if (it->adjust)
-			peg = rev.ToString();
+			peg = _T("@") + rev.ToString();
 		else
 			peg.Empty();
 
 		CString temp;
 		if (it->adjust)
-			temp.Format(_T("-r %s %s@%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
+			temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
 		else if (origrev.IsValid())
-			temp.Format(_T("-r %s %s@%s %s"), origrev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
+			temp.Format(_T("-r %s %s%s %s"), origrev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
 		else
 			temp.Format(_T("%s%s %s"), it->url, (LPCTSTR)peg, it->targetDir);
 
@@ -172,6 +181,35 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
 	}
 
 	return true;
+}
+
+std::string SVNExternals::GetValue(const CTSVNPath& path)
+{
+    std::string ret;
+    for (std::vector<SVNExternal>::iterator it = begin(); it != end(); ++it)
+    {
+        if (path.IsEquivalentToWithoutCase(it->path))
+        {
+            SVNRev rev = it->revision;
+            SVNRev pegrev = it->pegrevision;
+            CString peg;
+            if (pegrev.IsValid() && !pegrev.IsHead())
+                peg = _T("@") + pegrev.ToString();
+            else
+                peg.Empty();
+
+            CString temp;
+            if (rev.IsValid() && !rev.IsHead())
+                temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
+            else
+                temp.Format(_T("%s%s %s"), it->url, (LPCTSTR)peg, it->targetDir);
+            if (ret.size())
+                ret += "\n";
+            ret += CUnicodeUtils::StdGetUTF8((LPCTSTR)temp);
+        }
+    }
+
+    return ret;
 }
 
 bool SVNExternals::RestoreExternals()

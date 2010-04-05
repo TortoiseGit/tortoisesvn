@@ -72,7 +72,9 @@ public:
 	/// Restores all svn:external properties
 	bool RestoreExternals();
 	/// returns the original svn:externals value, without modifications
-	std::string GetOriginalValue(const CTSVNPath& path) { return m_originals[path]; }
+    std::string GetOriginalValue(const CTSVNPath& path) { return m_originals[path]; }
+    /// returns the svn:externals value for the specified \c path
+    std::string GetValue(const CTSVNPath& path);
 
 private:
 	std::map<CTSVNPath, std::string>	m_originals;
