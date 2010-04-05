@@ -829,8 +829,14 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 				case 1:	// url
 					{
 						lstrcpyn(m_columnbuf, ext.url, pDispInfo->item.cchTextMax);
-						int cWidth = m_ExtList.GetColumnWidth(0);
-						cWidth = max(28, cWidth-28);
+                        SVNRev peg(ext.pegrevision);
+                        if (peg.IsValid() && !peg.IsHead())
+                        {
+                            _tcscat_s(m_columnbuf, _countof(m_columnbuf), _T("@"));
+                            _tcscat_s(m_columnbuf, _countof(m_columnbuf), peg.ToString());
+                        }
+						int cWidth = m_ExtList.GetColumnWidth(1);
+						cWidth = max(14, cWidth-14);
 						CDC * pDC = m_ExtList.GetDC();
 						if (pDC != NULL)
 						{
