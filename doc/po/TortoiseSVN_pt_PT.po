@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-01 18:58 +0000\n"
-"PO-Revision-Date: 2010-04-04 23:29-0000\n"
+"PO-Revision-Date: 2010-04-05 23:42-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8678,119 +8678,119 @@ msgstr "Número máximo de falhas de ferramentas até à remoção da cache"
 
 #. (para)
 msgid "Occasionally something goes wrong with the caching and causes a crash. If this happens the cache is normally deleted automatically to prevent a recurrence of the problem. If you use the less stable nightly build you may opt to keep the cache anyway."
-msgstr ""
+msgstr "Ocasionalmente algo corre mal com a cache e é provocado um estoiro. Se isto acontecer a cache é normalmente automaticamente removida de modo a prevenir novas ocorrências do problema. Se usares as, menos estáveis, construções nocturnas poderás optar por manter a cache de qualquer modo. "
 
 #. (title)
 msgid "Cached Repositories"
-msgstr ""
+msgstr "Repositórios em Cache"
 
 #. (para)
 msgid "On this page you can see a list of the repositories that are cached locally, and the space used for the cache. If you select one of the repositories you can then use the buttons underneath."
-msgstr ""
+msgstr "Nesta página, tu podes ver a lista de repositórios que estão localmente em cache e o espaço usado na cache. Se seleccionares um dos repositórios poderás então usar os botões por debaixo da lista."
 
 #. (para)
 msgid "Click on the <guibutton>Update</guibutton> to completely refresh the cache and fill in any holes. For a large repository this could be very time consuming, but useful if you are about to go offline and want the best available cache."
-msgstr ""
+msgstr "Clica no <guibutton>Actualizar</guibutton> para refrescar completamente a cache e preencher qualquer lacuna. Para um grande repositório isto poderá consumir muito tempo, mas será útil se estiveres prestes a entrar em modo fora-de-linha e queres a melhor cache disponível."
 
 #. (para)
 msgid "Click on the <guibutton>Export</guibutton> button to export the entire cache as a set of CSV files. This could be useful if you want to process the log data using an external program, although it is mainly useful to the developers."
-msgstr ""
+msgstr "Clica no botão <guibutton>Exportar</guibutton> para exportar a cache inteira como um conjunto de ficheiros CSV. Isto poderá ser útil se quiseres processar os dados de registo usando um programa externo, embora seja maioritariamente útil aos programadores."
 
 #. (para)
 msgid "Click on <guibutton>Delete</guibutton> to remove all cached data for the selected repositories. This does not disable caching for the repository so the next time you request log data, a new cache will be created."
-msgstr ""
+msgstr "Clica no <guibutton>Remover</guibutton> para remover todos os dados em cache, para os repositórios seleccionados. Isto não desactiva a cache para o repositório, pelo que a próxima vez que requisitares dados de registo, a nova cache será criada."
 
 #. (title)
 msgid "Log Cache Statistics"
-msgstr ""
+msgstr "Estatísticas da Cache de Registo"
 
 #. (title)
 msgid "The Settings Dialog, Log Cache Statistics"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Estatísticas da Cache de Registo"
 
 #. (term)
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #. (para)
 msgid "The amount of memory required to service this cache."
-msgstr ""
+msgstr "A quantidade de memória requerida para o serviço desta cache."
 
 #. (term)
 msgid "Disk"
-msgstr ""
+msgstr "Disco"
 
 #. (para)
 msgid "The amount of disk space used for the cache. Data is compressed, so disk usage is generally fairly modest."
-msgstr ""
+msgstr "A quantidade de espaço em disco usado pela cache. Os dados são comprimidos pelo que a utilização de disco é geralmente razoavelmente modesta."
 
 #. (term)
 msgid "Connection"
-msgstr ""
+msgstr "ligação"
 
 #. (para)
 msgid "Shows whether the repository was available last time the cache was used."
-msgstr ""
+msgstr "Mostra se o repositório estava disponível, da última vez que a cache foi usada."
 
 #. (term)
 msgid "Last update"
-msgstr ""
+msgstr "última actualização"
 
 #. (para)
 msgid "The last time the cache content was changed."
-msgstr ""
+msgstr "A última vez que o conteúdo da cache foi alterado."
 
 #. (term)
 msgid "Last head update"
-msgstr ""
+msgstr "última actualização da head"
 
 #. (para)
 msgid "The last time we requested the HEAD revision from the server."
-msgstr ""
+msgstr "A última vez que requisitámos a revisão HEAD do servidor."
 
 #. (term)
 msgid "Authors"
-msgstr ""
+msgstr "Autores"
 
 #. (para)
 msgid "The number of different authors with messages recorded in the cache."
-msgstr ""
+msgstr "O número de diferentes autores com mensagens gravadas na cache."
 
 #. (term)
 msgid "Paths"
-msgstr ""
+msgstr "Caminhos"
 
 #. (para)
 msgid "The number of paths listed, as you would see using <literal>svn log -v</literal>."
-msgstr ""
+msgstr "O número de caminhos listados, como verias ao usar <literal>svn log -v</literal>."
 
 #. (term)
 msgid "Skip ranges"
-msgstr ""
+msgstr "Intervalos omitidos"
 
 #. (para)
 msgid "The number of revision ranges which we have not fetched, simply because they haven't been requested. This is a measure of the number of holes in the cache."
-msgstr ""
+msgstr "O número de intervalos de revisões que não adquiridas porque não foram simplesmente requisitadas. Esta é uma medida do número de lacunas na cache."
 
 #. (term)
 msgid "Max revision"
-msgstr ""
+msgstr "Revisão máxima"
 
 #. (para)
 msgid "The highest revision number stored in the cache."
-msgstr ""
+msgstr "O número de revisão mais alto armazenado na cache."
 
 #. (term)
 msgid "Revision count"
-msgstr ""
+msgstr "Número de revisões"
 
 #. (para)
 msgid "The number of revisions stored in the cache. This is another measure of cache completeness."
-msgstr ""
+msgstr "O número de revisões armazenadas na cache. Esta é outra medida da completude da cache."
 
 #. (para)
 msgid "<placeholder-1/> Click on the <guibutton>Details</guibutton> button to see detailed statistics for a particular cache. Many of the fields shown here are mainly of interest to the developers of TortoiseSVN, so they are not all described in detail. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Clica no botão <guibutton>Pormenores</guibutton> para veres as estatísticas detalhadas para uma cache em particular. Muitos dos campos aqui mostrados são de especial interesse apenas para os programadores do TortoiseSVN, pelo que não serão descritos em detalhe. <placeholder-2/>"
 
 #. (title)
 msgid "Client Side Hook Scripts"
