@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-01 18:58 +0000\n"
-"PO-Revision-Date: 2010-04-05 23:42-0000\n"
+"PO-Revision-Date: 2010-04-05 23:59-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8794,7 +8794,7 @@ msgstr "<placeholder-1/> Clica no botão <guibutton>Pormenores</guibutton> para 
 
 #. (title)
 msgid "Client Side Hook Scripts"
-msgstr ""
+msgstr "Scripts de Gancho do Lado do Cliente"
 
 #. (primary)
 msgid "client hooks"
@@ -8802,27 +8802,27 @@ msgstr ""
 
 #. (title)
 msgid "The Settings Dialog, Hook Scripts Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Scripts de Gancho"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to set up hook scripts which will be executed automatically when certain Subversion actions are performed. As opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-hooks\"/>, these scripts are executed locally on the client."
-msgstr ""
+msgstr "<placeholder-1/> Esta caixa de diálogo permite-te configurar scripts de gancho, que serão executados automaticamente, quando certas acções do Subversion são executadas. Ao contrário dos scripts de gancho explicados em <xref linkend=\"tsvn-repository-hooks\"/>, estes são executados localmente no cliente."
 
 #. (para)
 msgid "One application for such hooks might be to call a program like <literal>SubWCRev.exe</literal> to update version numbers after a commit, and perhaps to trigger a rebuild."
-msgstr ""
+msgstr "Uma aplicação para tais ganchos poderia ser, chamar um programa como <literal>SubWCRev.exe</literal> para actualizar os números de versão após uma submissão, e talvez disparar uma reconstrução."
 
 #. (para)
 msgid "For various security and implementation reasons, hook scripts are defined locally on a machine, rather than as project properties. You define what happens, no matter what someone else commits to the repository. Of course you can always choose to call a script which is itself under version control."
-msgstr ""
+msgstr "Por várias razoes de segurança e implementação, os scripts de gancho são definidos localmente na máquina, em vez de propriedades do projecto. Tu defines o que acontece independentemente do que alguém submete para o repositório. é claro que tu podes sempre escolher chamar um script que por sua vez está sob controlo de versões."
 
 #. (title)
 msgid "The Settings Dialog, Configure Hook Scripts"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Configurar Scripts de Gancho"
 
 #. (para)
 msgid "<placeholder-1/> To add a new hook script, simply click <guibutton>Add</guibutton> and fill in the details."
-msgstr ""
+msgstr "<placeholder-1/> Para adicionar um novo script de gancho, clica simplesmente em <guibutton>Adicionar</guibutton> e preenche os detalhes."
 
 #. (term)
 #. (term)
