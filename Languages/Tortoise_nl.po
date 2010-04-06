@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-06 21:20+0100\n"
+"PO-Revision-Date: 2010-04-06 22:08+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -436,6 +436,10 @@ msgstr "&Blauwe stijl"
 msgid "&Blue:"
 msgstr "&Blauw:"
 
+#. Resource IDs: (65535)
+msgid "&Border:"
+msgstr "&Rand:"
+
 #. Resource IDs: (1568)
 msgid "&Bottom"
 msgstr "&Onder"
@@ -599,6 +603,10 @@ msgstr "&Mappen"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Docking"
+
+#. Resource IDs: (32851)
+msgid "&EOL"
+msgstr "&EOL"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -789,6 +797,10 @@ msgstr "&Samennemen met sub-bomen"
 msgid "&Jump to first difference when loading"
 msgstr "&Spring naar eerste verschil bij het laden"
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr "&Sleutelwoorden"
+
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "&Taal:"
@@ -801,9 +813,17 @@ msgstr "&Grote iconen"
 msgid "&Limit search to modified lines"
 msgstr "&Alleen zoeken in gewijzigde regels"
 
+#. Resource IDs: (65535)
+msgid "&Limit:"
+msgstr "&Limiet:"
+
 #. Resource IDs: (32797)
 msgid "&Link image positions"
 msgstr "&Koppel afbeeldingsposities"
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -817,9 +837,17 @@ msgstr "&Laden..."
 msgid "&Locking required (read-only update)"
 msgstr "&Blokkade nodig (alleen lezen bijwerken)"
 
+#. Resource IDs: (32854)
+msgid "&Log Sizes"
+msgstr "&Logboek afmetingen"
+
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lum:"
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -950,9 +978,17 @@ msgstr "&Wachtwoord:"
 msgid "&Paste"
 msgstr "&Plakken"
 
+#. Resource IDs: (1600)
+msgid "&Peg revision:"
+msgstr "&Uitgangs-revisie:"
+
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "&Permanent niet verbonden"
+
+#. Resource IDs: (1588)
+msgid "&Platform dependent (native)"
+msgstr "&Platformafhankelijk (native)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1083,8 +1119,8 @@ msgid "&Save list of selected files to..."
 msgstr "&Sla lijst van geselecteerde bestanden op in..."
 
 #. Resource IDs: (1308)
-msgid "&Save..."
-msgstr "&Opslaan..."
+msgid "&Save value..."
+msgstr "&Waarde opslaan..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1285,6 +1321,10 @@ msgstr "&Spaties en lege regels"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Heel woord"
+
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1911,6 +1951,10 @@ msgstr "Weet u zeker dat u %d onderde(e)l(en) wilt herstellen? U raakt <b>alle</
 msgid "Arrange &Vertical"
 msgstr "&Vertikaal rangschikken"
 
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr "Huidig (geen specifieke EOL)"
+
 #. Resource IDs: (199)
 msgid "Ask the user"
 msgstr "Vraag gebruiker"
@@ -2304,6 +2348,10 @@ msgstr "Gemaakte wijzigingen (dubbelklik op het bestand voor details):"
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
 msgstr "Externen aan het wijzigen naar een vastgestelde revisie"
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
+msgstr "Karakterpositie waar een rand getoond wordt in tekstvakken:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3342,6 +3390,10 @@ msgstr ""
 "Device onafhankelijke bitmap\n"
 "een device onafhankelijke bitmap"
 
+#. Resource IDs: (320)
+msgid "Dialog"
+msgstr "Dialoog"
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Venster afmetingen en posities"
@@ -3600,6 +3652,10 @@ msgstr "Wijzigen"
 msgid "Edit Button Image"
 msgstr "Wijzig knop-afbeelding"
 
+#. Resource IDs: (319)
+msgid "Edit External"
+msgstr "Extern wijzigen"
+
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "Eigenschappen wijzigen"
@@ -3854,6 +3910,10 @@ msgid ""
 msgstr ""
 "Fout bij het lezen/schrijven van registersleutel %1!s!\n"
 "%2!s!"
+
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
+msgstr "Ex&ternen"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -4484,6 +4544,10 @@ msgstr "HEAD knoop"
 msgid "Head revision is %s"
 msgstr "Head revisie is %s"
 
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr "Kop"
+
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "Help"
@@ -4584,6 +4648,10 @@ msgstr "&Inclusief paden:"
 #. Resource IDs: (1580)
 msgid "IBugTraqProvider"
 msgstr "IBugTraqProvider"
+
+#. Resource IDs: (1592)
+msgid "ID"
+msgstr "ID"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
@@ -5267,6 +5335,14 @@ msgid "Keys"
 msgstr "Toetsen"
 
 #. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr "L&imiet:"
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr "L&okaal pad: "
+
+#. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "Laatste commit revisie:"
 
@@ -5707,7 +5783,7 @@ msgid "Message &pattern:"
 msgstr "Boodschap &patroon:"
 
 #. Resource IDs: (1579)
-msgid "Message part expr&ession:"
+msgid "Message part &expression:"
 msgstr "Boodschap-deel &expressie:"
 
 #. Resource IDs: (1241)
@@ -5737,6 +5813,14 @@ msgstr "Van mij"
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
 msgstr "Minimaliseer het lint"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr "Minimum aantal karakters voor een logboekboodschap"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
+msgstr "Minimum aantal karakters voor een blokkade-boodschap:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -10757,6 +10841,10 @@ msgstr "scan pad:"
 msgid "skip ranges: "
 msgstr "bereiken overslaan: "
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr "svn:eol-style"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
@@ -10778,6 +10866,10 @@ msgstr ""
 "svn:executable\r\n"
 "Indien beschikbaar, maak het bestand uitvoerbaar. Deze eigenschap kan niet aan een map worden gegeven.\r\n"
 "Een niet-recursieve poging gaat fout; een recursieve poging zet de eigenschap alleen voor bestanden in de map."
+
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10814,6 +10906,10 @@ msgid ""
 msgstr ""
 "svn:ignore\r\n"
 "Een met nieuwe regels gescheiden lijst van bestandsfilters die genegeerd moet worden."
+
+#. Resource IDs: (317)
+msgid "svn:keywords"
+msgstr "svn:keywords"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11110,6 +11206,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Save..."
+#~ msgstr "&Opslaan..."
 #~ msgid "&To URL: "
 #~ msgstr "&Naar URL: "
 #~ msgid "&To path: "
