@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-03 19:53+0100\n"
+"PO-Revision-Date: 2010-04-06 19:15+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -407,6 +407,10 @@ msgstr "&Плави стил"
 msgid "&Blue:"
 msgstr "&Плави"
 
+#. Resource IDs: (1568)
+msgid "&Bottom"
+msgstr "&Дно"
+
 #. Resource IDs: (65535)
 msgid "&Branches"
 msgstr "&Гране"
@@ -420,6 +424,10 @@ msgstr "&Претражи спремиште"
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "&Претражи..."
+
+#. Resource IDs: (32850)
+msgid "&Bugtraq (Issue tracker integration)"
+msgstr "&Багтрак (Проблем трагач интеграција)"
 
 #
 #. Resource IDs: (16913)
@@ -976,6 +984,10 @@ msgstr "&Не закључавати се захтева"
 msgid "&Not executable"
 msgstr "&Није извршно"
 
+#. Resource IDs: (1566)
+msgid "&Numeric"
+msgstr "&Нумерик"
+
 #
 #. Resource IDs: (1)
 msgid "&OK"
@@ -1072,6 +1084,10 @@ msgstr "&Понови"
 #. Resource IDs: (1382)
 msgid "&Refresh"
 msgstr "&Освежи"
+
+#. Resource IDs: (1562)
+msgid "&Remind me to enter a bug-ID"
+msgstr "&Подсети ме да унесем баг-ИД"
 
 #
 #. Resource IDs: (1100, 1285, 16646)
@@ -1313,6 +1329,11 @@ msgstr "&Име алатпулта:"
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
 msgstr "&Алатпулти:"
+
+#
+#. Resource IDs: (1567)
+msgid "&Top"
+msgstr "&Врх"
 
 #
 #. Resource IDs: (1091, 1093, 1094)
@@ -2031,6 +2052,10 @@ msgstr ""
 msgid "Apply unified diff"
 msgstr "Примена обједињених разл"
 
+#. Resource IDs: (1565)
+msgid "Arb&itrary text"
+msgstr "Про&извољан текст"
+
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Јесте ли сигурни да желите означити фајл(е) у сукобу као решену(е)?"
@@ -2253,6 +2278,14 @@ msgstr "ИД бага"
 #. Resource IDs: (1119)
 msgid "Bug-ID / &Issue-Nr:"
 msgstr "ИД бага / &Бр. спорног питања:"
+
+#. Resource IDs: (1578)
+msgid "Bug-ID e&xpression:"
+msgstr "Баг-ИД и&зраз"
+
+#. Resource IDs: (1119)
+msgid "Bug-ID is:"
+msgstr "Баг-ИД је:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -3753,6 +3786,10 @@ msgstr "Измени аутора"
 msgid "Edit author name"
 msgstr "Упиши име аутора"
 
+#. Resource IDs: (315)
+msgid "Edit bugtraq properties"
+msgstr "Уреди багтрек особине"
+
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr "Уреди дифф програм завистан од екстензије"
@@ -3941,6 +3978,10 @@ msgstr "Молим унесите не више од %1 знака(ова)."
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
 msgstr "Унесите регекс текст доле:"
+
+#. Resource IDs: (1577)
+msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
+msgstr "Унеси модел регуларног израза за филтрирање баг-ИД из поруке урезивања."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4708,6 +4749,10 @@ msgstr "&Занемарен"
 msgid "I&nclude paths:"
 msgstr "У&кључи путање:"
 
+#. Resource IDs: (1580)
+msgid "IBugTraqProvider"
+msgstr "ИБагТракДобављач"
+
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -5200,6 +5245,10 @@ msgstr ""
 "Уметни садржај клипборда\n"
 "Залепи"
 
+#. Resource IDs: (1575)
+msgid "Insert message at:"
+msgstr "Убаци  поруку у:"
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "Недовољна меморија за извршавање операције."
@@ -5299,6 +5348,10 @@ msgstr ""
 "Исправне ревизије су бројеви и ГЛАВНА, одвојени зарезима.\n"
 "Распон може бити написан помоћу цртице.\n"
 "На пример: 2-5,7,10,44-70,300-ГЛАВНА"
+
+#. Resource IDs: (1571)
+msgid "Issue tracker"
+msgstr "Проблемт трагач"
 
 #. Resource IDs: (145)
 msgid ""
@@ -5826,6 +5879,18 @@ msgstr "Стапање ревизија %s од ревизије %s у %s, %s%s%
 #. Resource IDs: (76, 1359)
 msgid "Message"
 msgstr "Порука"
+
+#. Resource IDs: (1574)
+msgid "Message &label:"
+msgstr "&Лабела поруке:"
+
+#. Resource IDs: (1573)
+msgid "Message &pattern:"
+msgstr "&Модел поруке:"
+
+#. Resource IDs: (1579)
+msgid "Message part expr&ession:"
+msgstr "И&зраз дела поруке"
 
 #. Resource IDs: (1241)
 msgid "Message:"
@@ -6833,6 +6898,14 @@ msgstr "Вредност својства:"
 msgid "Provider"
 msgstr "Добављач"
 
+#. Resource IDs: (1586)
+msgid "Provider para&meters:"
+msgstr "Снабдевач пара&метара:"
+
+#. Resource IDs: (1581)
+msgid "Provider uuid win&32:"
+msgstr "Добављач ууид вин&32:"
+
 #. Resource IDs: (1475)
 msgid "Provider:"
 msgstr "Добављач:"
@@ -6973,6 +7046,10 @@ msgstr "Смањи прозор у икону"
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
 msgstr "Освежи"
+
+#. Resource IDs: (1576)
+msgid "Regular Expression"
+msgstr "Регуларни израз"
 
 #. Resource IDs: (117)
 msgid ""
@@ -8234,6 +8311,10 @@ msgstr "Извор УРЛ:"
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Одређује колико порука желите држати у приручној меморији недавно уписаних порука дневника."
 
+#. Resource IDs: (1572)
+msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgstr "Одреди како ће порука урезивања бити изграђена од унетог баг-ИД. Користите држач  %BUGID% за стварни баг-ИД.Ако оставите ово подешавање празно, ТортоисеСВН ће користити регуларни израз уместо тога."
+
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
@@ -8243,6 +8324,10 @@ msgstr ""
 "Одредите фајлове или именике које би ТортоисеСВН\r\n"
 "требало да изостави из <b>свих</b> радних копија.\r\n"
 "Моделе раставите размаком."
+
+#. Resource IDs: (1305)
+msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "Одреди ту УРЛ да приступите проблем трагачу. Користите %BUGID% држач за стварни проблем број."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -8969,6 +9054,14 @@ msgstr ""
 "<i>%s</i>\n"
 "у закрпи не постоји.\n"
 "ТортоисеМерге је покушао применити закрпу али одговарајући именик  није пронађена."
+
+#. Resource IDs: (84)
+msgid ""
+"The regular expression is invalid!\n"
+"Please enter a valid regular expression."
+msgstr ""
+"Регуларни израз је неисправан!\n"
+"Молимунесите исправан регуларни израз."
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -11136,6 +11229,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "user revprops total: "
 msgstr "корисничка особина укупно:"
+
+#. Resource IDs: (1583)
+msgid "uuid x6&4:"
+msgstr "ууид x6&4:"
 
 #. Resource IDs: (563)
 msgid "values are different"
