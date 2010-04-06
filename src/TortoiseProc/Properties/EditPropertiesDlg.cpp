@@ -40,6 +40,7 @@
 #include "EditPropEOL.h"
 #include "EditPropKeywords.h"
 #include "EditPropExternals.h"
+#include "EditPropTSVNSizes.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -403,6 +404,9 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
     case ID_NEW_EXTERNALS:
         EditProps(true, "svn:externals", true);
         break;
+    case ID_NEW_LOGSIZES:
+        EditProps(true, "tsvn:log", true);
+        break;
     case ID_NEW_ADVANCED:
     default:
         EditProps(false, "", true);
@@ -432,6 +436,10 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
         dlg = new CEditPropKeywords(this);
     else if (sName.compare("svn:externals") == 0)
         dlg = new CEditPropExternals(this);
+    else if ((sName.compare("tsvn:logminsize") == 0) ||
+             (sName.compare("tsvn:lockminsize") == 0) ||
+             (sName.compare("tsvn:logwidthmarker") == 0))
+        dlg = new CEditPropTSVNSizes(this);
     else
         dlg = new CEditPropertyValueDlg(this);
 
