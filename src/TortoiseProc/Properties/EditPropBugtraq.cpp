@@ -287,6 +287,8 @@ void CEditPropBugtraq::OnOK()
     pVal.remove = (pVal.value.size() == 0);
     newProps["bugtraq:provideruuid64"] = pVal;
 
+    m_bChanged = true;
+
     m_properties = newProps;
 
     CResizableStandAloneDialog::OnOK();
