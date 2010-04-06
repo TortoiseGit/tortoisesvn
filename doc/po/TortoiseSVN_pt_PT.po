@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-01 18:58 +0000\n"
-"PO-Revision-Date: 2010-04-05 23:59-0000\n"
+"PO-Revision-Date: 2010-04-07 00:10-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8827,80 +8827,80 @@ msgstr "<placeholder-1/> Para adicionar um novo script de gancho, clica simplesm
 #. (term)
 #. (term)
 msgid "Start-commit"
-msgstr ""
+msgstr "Início-submissão"
 
 #. (para)
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed and/or commit message. However you should note that because the hook is called at an early stage, the full list of objects selected for commit is not available."
-msgstr ""
+msgstr "Chamado antes de aparecer a caixa de diálogo submeter. Poderás querer usa-lo, se o gancho modificar um ficheiro versionado e afectar uma lista de ficheiros que necessitam de ser submetidos e/ou de uma mensagem de submissão. No entanto deverás ter em conta que, devido ao gancho ser chamado num estágio inicial, a lista completa de objectos seleccionados para submissão não está ainda disponível."
 
 #. (term)
 #. (term)
 msgid "Pre-commit"
-msgstr ""
+msgstr "Pré-Submissão"
 
 #. (para)
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins. This hook has a list of exactly what will be committed."
-msgstr ""
+msgstr "Chamado depois de o utilizador clicar no <guibutton>OK</guibutton> na caixa de diálogo submeter, e antes de realmente começar a submissão. Este gancho tem a lista do que será exactamente submetido."
 
 #. (term)
 #. (term)
 msgid "Post-commit"
-msgstr ""
+msgstr "Pós-submissão"
 
 #. (para)
 msgid "Called after the commit finishes (whether successful or not)."
-msgstr ""
+msgstr "Chamado após a submissão finalizar ( com sucesso ou não)."
 
 #. (term)
 #. (term)
 msgid "Start-update"
-msgstr ""
+msgstr "Início-actualização"
 
 #. (para)
 msgid "Called before the update-to-revision dialog is shown."
-msgstr ""
+msgstr "Chamado antes da caixa de diálogo actualizar-para-revisão aparecer."
 
 #. (term)
 #. (term)
 msgid "Pre-update"
-msgstr ""
+msgstr "Pré-actualização"
 
 #. (para)
 msgid "Called before the actual Subversion update begins."
-msgstr ""
+msgstr "Chamado antes da actualização do Subversion realmente começar."
 
 #. (term)
 #. (term)
 msgid "Post-update"
-msgstr ""
+msgstr "Pós-actualização"
 
 #. (para)
 msgid "Called after the update finishes (whether successful or not)."
-msgstr ""
+msgstr "Chamado após a actualização finalizar ( com sucesso ou não)."
 
 #. (para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
-msgstr ""
+msgstr "Existem correntemente, seis tipos de scripts de gancho disponíveis <placeholder-1/>"
 
 #. (para)
 msgid "A hook is defined for a particular working copy path. You only need to specify the top level path; if you perform an operation in a sub-folder, TortoiseSVN will automatically search upwards for a matching path."
-msgstr ""
+msgstr "Um gancho é definido para um caminho em particular na cópia de trabalho. Tu só necessitas de especificar o caminho de nível superior; se executares uma operação numa subpasta, o TortoiseSVN irá procurar automaticamente para cima, por um caminho que corresponda."
 
 #. (para)
 msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
-msgstr ""
+msgstr "A seguir, deverás especificar a linha de comando a executar, a começar pelo caminho para o script de gancho ou executável. Isto poderá ser um ficheiro batch, executável, ou outro qualquer ficheiro que tenha uma associação de ficheiro válida no Windows, e.g. um script de perl."
 
 #. (para)
 msgid "The command line includes several parameters which get filled in by TortoiseSVN. The parameters passed depend upon which hook is called. Each hook has its own parameters which are passed in the following order: <placeholder-1/>"
-msgstr ""
+msgstr "A linha de comando inclui vários parâmetros que serão preenchidos pelo TortoiseSVN. Os parâmetros passados dependem do gancho que for invocado. Cada gancho tem os seus próprios parâmetros, que são passados na seguinte ordem: <placeholder-1/>"
 
 #. (para)
 msgid "A path to a temporary file which contains all the paths for which the operation was started. Each path is on a separate line in the temp file."
-msgstr ""
+msgstr "O caminho para um ficheiro temporário, que contém todos os caminhos para o qual a operação foi iniciada. Cada caminho está numa linha separada, no ficheiro temporário."
 
 #. (para)
 msgid "The depth with which the commit/update is done."
-msgstr ""
+msgstr "A profundidade com que a submissão/actualização é executada."
 
 #. (literal)
 msgid "svn_depth_unknown"
@@ -8928,15 +8928,15 @@ msgstr ""
 
 #. (para)
 msgid "Possible values are: <placeholder-1/>"
-msgstr ""
+msgstr "Valores possíveis são: <placeholder-1/>"
 
 #. (para)
 msgid "Path to a file containing the log message for the commit. The file contains the text in UTF-8 encoding. After successful execution of the start-commit hook, the log message is read back, giving the hook a chance to modify it."
-msgstr ""
+msgstr "Caminho para um ficheiro que contém a mensagem de registo para a submissão. O ficheiro contém texto codificado em UTF-8. Após execução com sucesso do gancho Início-de-submissão, a mensagem de registo é novamente lida, dando ao gancho a oportunidade de modificá-la."
 
 #. (para)
 msgid "The repository revision to which the update should be done or after a commit completes."
-msgstr ""
+msgstr "A revisão do repositório para a qual a actualização deverá ser feita, ou a revisão após a conclusão da submissão."
 
 #. (para)
 msgid "Path to a file containing the error message. If there was no error, the file will be empty."
@@ -8948,7 +8948,7 @@ msgstr ""
 
 #. (para)
 msgid "The meaning of each of these parameters is described here: <placeholder-1/>"
-msgstr ""
+msgstr "O significado de cada um desses parâmetros é descrito aqui: <placeholder-1/>"
 
 #. (para)
 msgid "Note that although we have given these parameters names for convenience, you do not have to refer to those names in the hook settings. All parameters listed for a particular hook are always passed, whether you want them or not ;-)"
