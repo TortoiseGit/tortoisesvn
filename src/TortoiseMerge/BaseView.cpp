@@ -1912,7 +1912,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					if (state != lineState && !LinesInOneChange(1, state, lineState))
 						break;
 				}
-				if ((nIndex == (m_pViewData->GetCount()-1))&&(state == m_pViewData->GetState(nIndex)))
+				if ((nIndex == (m_pViewData->GetCount()-1)) && LinesInOneChange(1, state, m_pViewData->GetState(nIndex)))
 					m_nSelBlockEnd = nIndex;
 				else
 					m_nSelBlockEnd = nIndex-1;
