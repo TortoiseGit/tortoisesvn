@@ -354,6 +354,10 @@ msgstr ""
 msgid "&Blue:"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "&Border:"
+msgstr ""
+
 #. Resource IDs: (1568)
 msgid "&Bottom"
 msgstr ""
@@ -516,6 +520,10 @@ msgstr ""
 
 #. Resource IDs: (1066)
 msgid "&Docking"
+msgstr ""
+
+#. Resource IDs: (32851)
+msgid "&EOL"
 msgstr ""
 
 #. Resource IDs: (1031, 65535)
@@ -707,6 +715,10 @@ msgstr ""
 msgid "&Jump to first difference when loading"
 msgstr ""
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr ""
@@ -719,8 +731,16 @@ msgstr ""
 msgid "&Limit search to modified lines"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "&Limit:"
+msgstr ""
+
 #. Resource IDs: (32797)
 msgid "&Link image positions"
+msgstr ""
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
 msgstr ""
 
 #. Resource IDs: (1172)
@@ -735,8 +755,16 @@ msgstr ""
 msgid "&Locking required (read-only update)"
 msgstr ""
 
+#. Resource IDs: (32854)
+msgid "&Log Sizes"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Lum:"
+msgstr ""
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
 msgstr ""
 
 #. Resource IDs: (1282)
@@ -868,8 +896,16 @@ msgstr ""
 msgid "&Paste"
 msgstr ""
 
+#. Resource IDs: (1600)
+msgid "&Peg revision:"
+msgstr ""
+
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
+msgstr ""
+
+#. Resource IDs: (1588)
+msgid "&Platform dependent (native)"
 msgstr ""
 
 #. Resource IDs: (1414)
@@ -1001,7 +1037,7 @@ msgid "&Save list of selected files to..."
 msgstr ""
 
 #. Resource IDs: (1308)
-msgid "&Save..."
+msgid "&Save value..."
 msgstr ""
 
 #. Resource IDs: (9)
@@ -1202,6 +1238,10 @@ msgstr ""
 
 #. Resource IDs: (1066)
 msgid "&Whole word"
+msgstr ""
+
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
 msgstr ""
 
 #. Resource IDs: (32846)
@@ -1742,6 +1782,10 @@ msgstr ""
 msgid "Arrange &Vertical"
 msgstr ""
 
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Ask the user"
 msgstr ""
@@ -2115,6 +2159,10 @@ msgstr ""
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
 msgstr ""
 
 #. Resource IDs: (8)
@@ -3041,6 +3089,10 @@ msgstr ""
 msgid "Device Independent Bitmap\na device independent bitmap"
 msgstr ""
 
+#. Resource IDs: (320)
+msgid "Dialog"
+msgstr ""
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr ""
@@ -3243,6 +3295,10 @@ msgstr ""
 
 #. Resource IDs: (16133)
 msgid "Edit Button Image"
+msgstr ""
+
+#. Resource IDs: (319)
+msgid "Edit External"
 msgstr ""
 
 #. Resource IDs: (227, 564)
@@ -3470,6 +3526,10 @@ msgstr ""
 #. Resource IDs: (70)
 #, c-format
 msgid "Error while reading/writing the registry key %1!s!\n%2!s!"
+msgstr ""
+
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
 msgstr ""
 
 #. Resource IDs: (1413)
@@ -3969,6 +4029,10 @@ msgstr ""
 msgid "Head revision is %s"
 msgstr ""
 
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr ""
+
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr ""
@@ -4064,6 +4128,10 @@ msgstr ""
 
 #. Resource IDs: (1580)
 msgid "IBugTraqProvider"
+msgstr ""
+
+#. Resource IDs: (1592)
+msgid "ID"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
@@ -4562,6 +4630,14 @@ msgid "Keys"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr ""
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr ""
 
@@ -4974,7 +5050,7 @@ msgid "Message &pattern:"
 msgstr ""
 
 #. Resource IDs: (1579)
-msgid "Message part expr&ession:"
+msgid "Message part &expression:"
 msgstr ""
 
 #. Resource IDs: (1241)
@@ -5003,6 +5079,14 @@ msgstr ""
 
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
 msgstr ""
 
 #. Resource IDs: (1023, 65535)
@@ -9069,6 +9153,10 @@ msgstr ""
 msgid "skip ranges: "
 msgstr ""
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr ""
+
 #. Resource IDs: (576)
 msgid "svn:eol-style\r\nOne of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
@@ -9081,12 +9169,20 @@ msgstr ""
 msgid "svn:executable\r\nIf present, make the file executable. This property cannot be set on a directory.\r\nA non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr ""
+
 #. Resource IDs: (576)
 msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
 msgstr ""
 
 #. Resource IDs: (576)
 msgid "svn:ignore\r\nA newline separated list of file patterns to ignore."
+msgstr ""
+
+#. Resource IDs: (317)
+msgid "svn:keywords"
 msgstr ""
 
 #. Resource IDs: (576)
