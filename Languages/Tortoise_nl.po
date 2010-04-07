@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-06 22:08+0100\n"
+"PO-Revision-Date: 2010-04-07 21:45+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2156,10 +2156,6 @@ msgstr "Bug-&ID / Issue-Nr:"
 msgid "Bug-ID"
 msgstr "Bug-ID"
 
-#. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
-msgstr "Bug-ID / &Issue-Nr:"
-
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
 msgstr "Bug-ID e&xpressie:"
@@ -3389,10 +3385,6 @@ msgid ""
 msgstr ""
 "Device onafhankelijke bitmap\n"
 "een device onafhankelijke bitmap"
-
-#. Resource IDs: (320)
-msgid "Dialog"
-msgstr "Dialoog"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -8176,6 +8168,10 @@ msgstr "Grootte en status"
 msgid "Size of all cached text information"
 msgstr "Grootte van alle tekstinformatie in de cache"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "Grootte van logboekboodschappen"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "Grootte van cache-bestand op schijf"
@@ -8216,6 +8212,10 @@ msgstr "Geeft aan hoeveel boodschappen bewaard worden in de geschiedenis van log
 msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
 msgstr "Geef aan hoe de logboekboodschap moet worden samengesteld uit het bug-ID. Gebruik %BUGID% om de plaats van het bug-ID aan te geven. Als u deze waardes leeg laat zal TortoiseSVN de reguliere expressies gebruiken."
 
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "Geef de URL voor het benaderen van de Issue Tracker. Gebruik %BUGID% om de plaats van het bug-ID weer te geven."
+
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
@@ -8225,10 +8225,6 @@ msgstr ""
 "Geef de bestanden of mappen die TortoiseSVN\r\n"
 "moet negeren in <b>alle</b> werkkopieën.\r\n"
 "De lijst moet worden gescheiden met spaties."
-
-#. Resource IDs: (1305)
-msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
-msgstr "Geef de URL voor het benaderen van de Issue Tracker. Gebruik %BUGID% om de plaats van het bug-ID weer te geven."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -11206,6 +11202,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bug-ID / &Issue-Nr:"
+#~ msgstr "Bug-ID / &Issue-Nr:"
+#~ msgid "Dialog"
+#~ msgstr "Dialoog"
 #~ msgid "&Save..."
 #~ msgstr "&Opslaan..."
 #~ msgid "&To URL: "
