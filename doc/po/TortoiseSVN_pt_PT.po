@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-01 18:58 +0000\n"
-"PO-Revision-Date: 2010-04-08 00:07-0000\n"
+"PO-Revision-Date: 2010-04-08 00:27-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8992,7 +8992,7 @@ msgstr ""
 
 #. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
-msgstr ""
+msgstr "Esta propriedade especifica os parâmetros passados para o IBugtraqProvider."
 
 #. (para)
 msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
@@ -9000,39 +9000,39 @@ msgstr "Se queres que todos os utilizadores usem o mesmo plugin COM para teu pro
 
 #. (title)
 msgid "TortoiseBlame Settings"
-msgstr ""
+msgstr "Preferências do TortoiseBlame"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseBlame Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página do TortoiseBlame"
 
 #. (para)
 msgid "<placeholder-1/> The settings used by TortoiseBlame are controlled from the main context menu, not directly with TortoiseBlame itself."
-msgstr ""
+msgstr "<placeholder-1/> As preferências usadas pelo TortoiseBlame são controladas a partir do menu de contexto principal, e não directamente com o próprio TortoiseBlame."
 
 #. (term)
 msgid "Colors"
-msgstr ""
+msgstr "Cores"
 
 #. (para)
 msgid "TortoiseBlame can use the background colour to indicate the age of lines in a file. You set the endpoints by specifying the colours for the newest and oldest revisions, and TortoiseBlame uses a linear interpolation between these colours according to the repository revision indicated for each line."
-msgstr ""
+msgstr "O TortoiseBlame  pode usar cores de fundo para indicar a idade das linhas num ficheiro. Tu configuras as pontas ao especificar as cores para a revisão mais nova e para a mais velha, e o TortoiseBlame usa uma interpolação linear entre essas duas cores de acordo com a revisão do repositório, indicada para cada linha."
 
 #. (term)
 msgid "Font"
-msgstr ""
+msgstr "Tipo de letra"
 
 #. (para)
 msgid "You can select the font used to display the text, and the point size to use. This applies both to the file content, and to the author and revision information shown in the left pane."
-msgstr ""
+msgstr "Tu podes seleccionar o tipo de letra usada para mostrar o texto e também o tamanho do ponto a usar. Isto aplica-se também ao conteúdo do ficheiro, ao autor e informação de revisão mostrada no painel esquerdo."
 
 #. (term)
 msgid "Tabs"
-msgstr ""
+msgstr "Tabuladores"
 
 #. (para)
 msgid "Defines how many spaces to use for expansion when a tab character is found in the file content."
-msgstr ""
+msgstr "Define quantos espaços deverão ser usados na expansão, quando um caracter de tabulação for encontrado no conteúdo do ficheiro."
 
 #. (title)
 msgid "Subversion Working Folders"
