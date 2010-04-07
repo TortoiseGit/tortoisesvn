@@ -1900,7 +1900,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 						break;
 					}
 					const DiffStates lineState = m_pViewData->GetState(--nIndex);
-					if (state != lineState && !LinesInOneChange(-1, state, lineState))
+					if (!LinesInOneChange(-1, state, lineState))
 						break;
 				}
 				m_nSelBlockStart = nIndex+1;
@@ -1909,7 +1909,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				while (nIndex < (m_pViewData->GetCount()-1))
 				{
 					const DiffStates lineState = m_pViewData->GetState(++nIndex);
-					if (state != lineState && !LinesInOneChange(1, state, lineState))
+					if (!LinesInOneChange(1, state, lineState))
 						break;
 				}
 				if ((nIndex == (m_pViewData->GetCount()-1)) && LinesInOneChange(1, state, m_pViewData->GetState(nIndex)))
@@ -2049,7 +2049,12 @@ bool CBaseView::LinesInOneChange(int direction,
 {
 	// Checks whether all the adjacent lines starting from the initial line
 	// and up to the current line form the single change
-	
+
+	// First of all, if the two lines have identical states, they surely
+	// belong to one change.
+	if (initialLineState == currentLineState)
+		return true;
+
 	// Either we move down and initial line state is "added" or "removed" and
 	// current line state is "empty"...
 	if (direction > 0)
@@ -2101,11 +2106,8 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 		while (nCenterPos != nLimit)
 		{
 			const DiffStates lineState = m_pViewData->GetState(nCenterPos);
-			if (lineState != state)
-			{
-				if (!LinesInOneChange(nDirection, state, lineState))
-					break;
-			}
+			if (!LinesInOneChange(nDirection, state, lineState))
+				break;
 			nCenterPos += nDirection;
 		}
 	}
@@ -2146,11 +2148,8 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 		if (lineIndex >= linesCount)
 			break;
 		DiffStates lineState = m_pViewData->GetState(lineIndex);
-		if (lineState != state)
-		{
-			if (!LinesInOneChange(nDirection, state, lineState))
-				break;
-		}
+		if (!LinesInOneChange(nDirection, state, lineState))
+			break;
 		nBlockEnd += nDirection;
 	}
 
