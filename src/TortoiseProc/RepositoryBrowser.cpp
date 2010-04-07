@@ -281,6 +281,11 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_INITWAIT)));
 
 	m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
+    if (SysInfo::Instance().IsVistaOrLater())
+    {
+        DWORD exStyle = 0x0040 /*TVS_EX_FADEINOUTEXPANDOS*/ | 0x0020 /*TVS_EX_AUTOHSCROLL*/;
+        m_RepoTree.SetExtendedStyle(exStyle, exStyle);
+    }
 
 	CXPTheme theme;
 	theme.SetWindowTheme(m_RepoList.GetSafeHwnd(), L"Explorer", NULL);
