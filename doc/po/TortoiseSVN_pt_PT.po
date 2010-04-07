@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-01 18:58 +0000\n"
-"PO-Revision-Date: 2010-04-07 00:10-0000\n"
+"PO-Revision-Date: 2010-04-08 00:07-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8936,15 +8936,15 @@ msgstr "Caminho para um ficheiro que contém a mensagem de registo para a submis
 
 #. (para)
 msgid "The repository revision to which the update should be done or after a commit completes."
-msgstr "A revisão do repositório para a qual a actualização deverá ser feita, ou a revisão após a conclusão da submissão."
+msgstr "A revisão do repositório para a qual a actualização deverá ser feita, ou a revisão após a conclusão de uma submissão."
 
 #. (para)
 msgid "Path to a file containing the error message. If there was no error, the file will be empty."
-msgstr ""
+msgstr "Caminho para um ficheiro contendo a mensagem de erro. Se não houve nenhum erro, o ficheiro estará vazio."
 
 #. (para)
 msgid "The current working directory with which the script is run. This is set to the common root directory of all affected paths."
-msgstr ""
+msgstr "A pasta de trabalho corrente com a qual o script está a correr. Esta é configurada para a pasta raiz comum a todos os caminhos afectados."
 
 #. (para)
 msgid "The meaning of each of these parameters is described here: <placeholder-1/>"
@@ -8952,39 +8952,39 @@ msgstr "O significado de cada um desses parâmetros é descrito aqui: <placehold
 
 #. (para)
 msgid "Note that although we have given these parameters names for convenience, you do not have to refer to those names in the hook settings. All parameters listed for a particular hook are always passed, whether you want them or not ;-)"
-msgstr ""
+msgstr "Ter em conta que apesar de termos dado nomes por conveniência a esses parâmetros, tu não terás de te referir a esses nomes nas configurações dos ganchos. Todos os parâmetros listados para um gancho em particular são sempre passados, quer os queiras ou não ;-)"
 
 #. (para)
 msgid "If you want the Subversion operation to hold off until the hook has completed, check <guilabel>Wait for the script to finish</guilabel>."
-msgstr ""
+msgstr "Se queres que ao funcionamento do Subversion espere até a execução do gancho finalizar, verifica <guilabel>Espere que o script termine</guilabel>."
 
 #. (para)
 msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default."
-msgstr ""
+msgstr "Normalmente tu quererás esconder as caixas feias de DOS, enquanto o script corre, então a <guilabel>Ocultar o script durante a sua execução</guilabel> está verificada por defeito."
 
 #. (para)
 msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
+msgstr "Exemplos de scripts de gancho de cliente podem ser encontrados na pasta <literal>contrib</literal> no <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>repositório TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório)."
 
 #. (title)
 msgid "Issue Tracker Integration"
-msgstr ""
+msgstr "Integração do Controlador de Problemas"
 
 #. (para)
 msgid "TortoiseSVN can use a COM plugin to query issue trackers when in the commit dialog. The use of such plugins is described in <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. If your system administrator has provided you with a plugin, which you have already installed and registered, this is the place to specify how it integrates with your working copy."
-msgstr ""
+msgstr "O TortoiseSVN pode usar um plugin COM para consultar os controladores de problemas quando estiver na caixa de diálogo submeter. O uso de tais plugins está descrito em  <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. Se o teu administrador de sistemas forneceu-te um plugin, que já instalaste e registaste, aqui é o local para especificares como ele se integra com a tua cópia de trabalho."
 
 #. (title)
 msgid "The Settings Dialog, Issue Tracker Integration Page"
-msgstr ""
+msgstr "A Caixa de Diálogo Preferências, Página Integração com Controlador de Problemas"
 
 #. (para)
 msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin with a particular working copy. Here you can specify the working copy path, choose which plugin to use from a drop down list of all registered issue tracker plugins, and any parameters to pass. The parameters will be specific to the plugin, but might include your user name on the issue tracker so that the plugin can query for issues which are assigned to you."
-msgstr ""
+msgstr "<placeholder-1/> Clica no <guibutton>Adicionar...</guibutton> para utilizar o plugin com uma cópia de trabalho em particular. Aqui podes especificar o caminho da cópia de trabalho, escolher qual o plugin a usar a partir de um lista drop-down com todos os controladores de problemas registados, e qualquer parâmetro a passar. Os parâmetros serão específicos ao plugin, mas poderão incluir o teu nome de utilizador no controlador de problemas, para que o plugin possa consultar os problemas que te estão atribuídos."
 
 #. (para)
 msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr ""
+msgstr "Esta propriedade especifica o UUID COM do IBugtraqProvider, por exemplo <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (Neste exemplo é o UUID do <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>fornecedor Gurtle bugtraq</citetitle></ulink>, que é o fornecedor para o controlador de problemas <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>)."
 
 #. (para)
 msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
@@ -8996,7 +8996,7 @@ msgstr ""
 
 #. (para)
 msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
-msgstr ""
+msgstr "Se queres que todos os utilizadores usem o mesmo plugin COM para teu projecto, poderás especificá-lo também com as seguintes propriedades <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> e <literal>bugtraq:providerparams</literal>. <placeholder-1/> Por favor consulta a documentação para o teu plugin IBugtraqProvider para saberes o que especificar nessas duas propriedades."
 
 #. (title)
 msgid "TortoiseBlame Settings"
