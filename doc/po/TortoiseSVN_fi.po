@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-02-19 21:36 +0000\n"
-"PO-Revision-Date: 2010-02-23 23:49+0200\n"
+"POT-Creation-Date: 2010-04-01 18:58 +0000\n"
+"PO-Revision-Date: 2010-04-08 00:24+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -154,8 +154,8 @@ msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it 
 msgstr "TortoiseSVN on ilmainen. Sinun ei tarvitse maksaa sen käyttämisestä, ja voit käyttää sitä kuten haluat. Ohjelmisto käyttää GNUn yleistä lisenssiä (GNU General Public License)."
 
 #. (para)
-msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseSVN on avoimen lähdekoodin projekti. Se tarkoittaa, että voit vapaasti tutkia ohjelman lähdetekstiä. Lähdekoodi on saatavissa osoitteesta <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. Sinulta kysytään käyttäjätunnusta ja salasanaa. Käyttäjätunnus on <literal>guest</literal> ja salasana jätetään tyhjäksi.  Viimeisin versio (jonka parissa työskentelemme parasta aikaa) sijaitsee hakemistossa <filename>/trunk/</filename>.  Julkaistut versiot sijaitsevat hakemistossa <filename>/tags/</filename>."
+msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "TortoiseSVN on avoimen lähdekoodin projekti. Tämä tarkoittaa, että voit vapaasti tutkia ohjelmatekstiä. Lähdekoodi on saatavissa osoitteesta <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. Sinulta kysytään käyttäjätunnusta ja salasanaa. Käyttäjätunnus on <literal>guest</literal> ja salasana jätetään tyhjäksi.  Viimeisin versio (jonka parissa työskentelemme parasta aikaa) sijaitsee hakemistossa <filename>/trunk/</filename>.  Julkaistut versiot sijaitsevat hakemistossa <filename>/tags/</filename>."
 
 #. (title)
 msgid "Community"
@@ -454,82 +454,6 @@ msgstr "TortoiseSVN asentuu helppokäyttöisen asennusohjelman avulla. Kaksoisna
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
 msgstr "TortoiseSVN-asennukseen tarvitaan pääkäyttäjän oikeudet."
-
-#. (title)
-msgid "Language Packs"
-msgstr "Kielimodulit"
-
-#. (primary)
-msgid "language packs"
-msgstr "kielimodulit"
-
-#. (primary)
-msgid "translations"
-msgstr "käännökset"
-
-#. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "TortoiseSVN-ohjelman käyttöliittymä on käännetty useille kielille, joten saatat hyvinkin löytää tarvitsemasi kielimodulin. Löydät kielimodulit <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>käännöksen tila</citetitle></ulink>-sivultamme. Jos tarvitsemaasi kielimodulia ei ole vielä saatavilla, miksi et liittyisi joukkoon ja tekisi omaa käännöstä ;-)"
-
-#. (para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
-msgstr "Jokainen kielimoduli on paketoitu <literal>.msi</literal>-muodossa olevaan asennusohjelmaan.  Asennus tapahtuu käynnistämällä asennusohjelma ja seuraamalla ohjeita. Seuraavan uudelleenkäynnistyksen jälkeen käännös on saatavilla."
-
-#. (title)
-msgid "Spellchecker"
-msgstr "Oikeinkirjoituksen tarkistus"
-
-#. (primary)
-msgid "spellchecker"
-msgstr "oikeinkirjoituksen tarkistus"
-
-#. (primary)
-msgid "dictionary"
-msgstr "sanasto"
-
-#. (para)
-msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr "TortoiseSVN sisältää oikeinkirjoituksen tarkistajan, jonka avulla voit tarkistaa lokiviestisi arkistoon toimituksen yhteydessä. Tämä on erityisen hyödyllistä, mikäli projektin kieli ei ole äidinkielesi. Oikeinkirjoituksen tarkistin käyttää samoja sanastotiedostoja kuin <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> ja <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-
-#. (para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
-msgstr "Asennusohjelma lisää automaattisesti US ja UK -englannin sanastot. Mikäli haluat muita kieliä, helpoin vaihtoehto on yksinkertaisesti asentaa jokin TortoiseSVN-kielimoduli. Se asentaa tarpeelliset sanastotiedostot samoin kuin lokalisoidun käyttöliittymän TortoiseSVN-ohjelmalle. Seuraavan uudelleenkäynnistyksen jälkeen myös sanasto on saatavilla."
-
-#. (para)
-msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
-msgstr "Voit myös asentaa sanastot itse. Mikäli OpenOffice tai Mozilla on asennettu, voit kopioida sanastot näiden ohjelmien asennushakemistoista. Sanakirjat ovat myös noudettavissa osoitteesta  <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>."
-
-#. (filename)
-msgid "en_US.aff"
-msgstr "en_US.aff"
-
-#. (filename)
-msgid "en_US.dic"
-msgstr "en_US.dic"
-
-#. (para)
-msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr "Kun olet saanut sanastotiedostot, joudut luultavasti nimeämään ne uudelleen siten, että tiedostonimissä on vain kielialuetunnus. Esimerkki: <placeholder-1/> Lopuksi vain kopioit tiedostot TortoiseSVN-asennushakemiston <filename>bin</filename>-alihakemistoon (normaalisti <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>). Mikäli et halua koskea <filename>bin</filename>-kansioon, voit sijoittaa sanastotiedostosi myös kansioon <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. Jos kansiota ei ole olemassa, sinun pitää luoda se ensin. Kun seuraavan kerran käynnistät TortoiseSVN-ohjelman, oikeinkirjoituksen tarkistus on saatavilla."
-
-#. (para)
-msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
-msgstr "Tarkista <literal>tsvn:projectlanguage</literal> -asetus. Katso <xref linkend=\"tsvn-dug-propertypage\"/> saadaksesi lisätietoa projektin ominaisuuksien asettamisesta."
-
-#. (para)
-msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
-msgstr "Mikäli projektikieltä ei ole asetettu, tai kyseistä kieltä ei ole asennettu, yritä Windows-asennuskieltä."
-
-#. (para)
-msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
-msgstr "Jos Windows-asennuskieli ei toimi, koeta <quote>Base</quote>-kieltä, esim. <literal>de_CH</literal> (Sveitsi-Saksa) palautuu takaisin kieleen <literal>de_DE</literal> (Saksa)."
-
-#. (para)
-msgid "If none of the above works, then the default language is English, which is included with the standard installation."
-msgstr "Mikäli mikään yllä olevista ei toimi, oletuskieleksi asetetaan englanti, joka kuuluu vakioasennukseen."
-
-#. (para)
-msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
-msgstr "Jos asennat useita sanastoja, TortoiseSVN käyttää seuraavia sääntöjä valitakseen käytettävän sanaston.  <placeholder-1/>"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -2105,8 +2029,8 @@ msgstr ""
 "</screen> ja sijoita tiedostot <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> ja <filename>menucheckout.ico</filename> dokumenttien juurikansioon (tavallisesti <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). Juurikansio asetetaan komennolla <literal>DocumentRoot</literal> Apache-määrittelytiedostossasi."
 
 #. (para)
-msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
-msgstr "Voit hakea nuo kolme tiedostoa TortoiseSVN-arkistosta osoitteesta <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex</citetitle></ulink>.(Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään)."
+msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
+msgstr "Voit hakea nämä kolme tiedostoa TortoiseSVN-arkistosta osoitteesta <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>.(Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään)."
 
 #. (para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
@@ -7888,8 +7812,8 @@ msgid "For the same reason, project properties will not be propagated automatica
 msgstr "Samasta syystä projektiominaisuudet eivät leviä automaattisesti, kun alikansio lisätään arkistoselaimen kautta."
 
 #. (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Virheenjäljitysintegraatio ei ole TortoiseSVN-riippuvaista; sitä voi käyttää minkä tahansa Subversion-asiakkaan kanssa. Katso kaikki yksityiskohdat dokumentista <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Virheenjäljitysintegraatio ei ole TortoiseSVN-riippuvaista; sitä voi käyttää minkä tahansa Subversion-asiakkaan kanssa. Katso kaikki yksityiskohdat dokumentista <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> TortoiseSVN-arkistossa (kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään)."
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -7900,8 +7824,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Edellinen luku käsitteli vikatietojen lisäämistä lokiviesteihin. Entäpä jos tarvitset tietoja vikaseurantaohjelmasta? Toimitusikkunalla on COM-rajapinta, johon voidaan kytkeä ulkoinen ohjelma, joka keskustelee vikaseurantaohjelmasi kanssa. Saatat esimerkiksi haluta luettelon korjattavaksesi määrätyistä vioista, jotta voit poimia ne, joihin käsillä oleva toimitus liittyy."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Tällainen rajapinta on tietysti hyvin järjestelmäkohtainen, joten emme voi toimittaa sitä. Integrointiohjelman tekoa ei myöskään kuvata tässä dokumentissa. Rajapintamääritys ja joukko C#- ja C++/ATL -kielisiä esimerkkilisäosia löytyy <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN-arkistosta</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten  arkistoon kytkeydytään). Rajapinnan yhteenveto on kuvattu myös luvussa <xref linkend=\"tsvn-ibugtraqprovider\"/>. Vielä eräs (toimiva) C# -esimerkkiohjelma on <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, joka toteuttaa COM-rajapinnan <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Tällainen rajapinta on tietysti hyvin järjestelmäsidonnainen, joten emme toimita sitä. Integrointiohjelman tekoa ei myöskään kuvata tässä dokumentissa. Rajapintamääritys ja joukko C#- ja C++/ATL -kielisiä esimerkkilisäosia löytyy <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN-arkistosta</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten  arkistoon kytkeydytään). Rajapinnan yhteenveto on kuvattu myös luvussa <xref linkend=\"tsvn-ibugtraqprovider\"/>. Vielä eräs (toimiva) C# -esimerkkiohjelma on <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, joka toteuttaa COM-rajapinnan <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9364,8 +9288,8 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr "Tavallisesti DOS-ikkunaa ei ole tarpeen näyttää, kun komentoa suoritetaan, joten valinta <guilabel>Piilota komento sen suorituksen ajaksi</guilabel> on oletusarvoisesti päällä."
 
 #. (para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Esimerkkejä asiakaspään komentojonoista löytyy kansiosta <literal>contrib</literal> <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN-arkistossa</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten arkistoon kytkeydytään)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr "Esimerkkejä asiakaspään komentojonoista löytyy kansiosta <literal>contrib</literal> <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN-arkistossa</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten arkistoon kytkeydytään)."
 
 #. (title)
 msgid "Issue Tracker Integration"
@@ -9388,12 +9312,16 @@ msgid "This property specifies the COM UUID of the IBugtraqProvider, for example
 msgstr "Tämä ominaisuus määrittää IBugTraqProvider-komponentin COM-tunnisteen (UUID). Esimerkiksi UUID <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal> kuuluu komponentille <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, joka toteuttaa kytkennän <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
 
 #. (para)
+msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
+msgstr "Kuten <literal>bugtraq:provideruuid</literal>, mutta IBugtraqProvider-rajapinnan 64-bittiselle versiolle."
+
+#. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
 msgstr "Tämä ominaisuus määrittää IBugTraqProvider-rajapinnan parametrit."
 
 #. (para)
-msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
-msgstr "Jos haluat kaikkien projektin käyttäjien jakavan saman COM-komponentin, voit määrittää laajennuksen myös ominaisuuksien <literal>bugtraq:provideruuid</literal> ja <literal>bugtraq:providerparams</literal> avulla. <placeholder-1/> Tarkista IBugTraqProvider-laajennoksesi käyttöohjeista, mitkä arvot näihin ominaisuuksiin tulee sijoittaa."
+msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
+msgstr "Jos haluat kaikkien projektin käyttäjien jakavan saman COM-komponentin, voit määrittää laajennuksen myös ominaisuuksien <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> ja <literal>bugtraq:providerparams</literal> avulla. <placeholder-1/> Tarkista IBugTraqProvider-laajennoksesi ohjeista, mitkä arvot näihin ominaisuuksiin tulee sijoittaa."
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -10441,8 +10369,28 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr "<placeholder-1/> Lisäosan päätoiminto. Toimintoa kutsutaan TortoiseSVN-toimitusikkunasta, kun käyttäjä painaa lisäosan painiketta. Merkkijono <literal>parameters</literal> on käyttäjän asetusikkunassa lisäosalle määrittelemä arvo. Tavallisesti lisäosa käyttää tätä vikaseurannan paikantimen löytämiseksi, kirjautumiseen, jne. Merkkijono <literal>commonRoot</literal> sisältää kaikkien toimitusikkunan avaamiseksi valittujen polkujen isäkansion. Huomaa, että tämä <emphasis>ei</emphasis> ole kaikkien käyttäjän toimitusikkunasta valitsemien kohteiden juuripolku. Parametri <literal>pathList</literal> sisältää polut, jotka käyttäjä on valinnut toimitettaviksi arkistoon. Parametri <literal>originalMessage</literal> sisältää toimitusikkunaan syötetyn lokiviestin. Jos käyttäjä ei ole vielä syöttänyt tekstiä, parametri on tyhjä. Paluuparametri <literal>newMessage</literal> kopioidaan lokiviestiksi toimitusikkunaan. Jos lisäosa ei muokkaa merkkijonoa <literal>originalMessage</literal>, sen on palautettava tässä sama merkkijono, muuten jo syötetty lokiviesti katoaa."
+msgid "This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button."
+msgstr "Kytköksen päämenetelmä. Menetelmää kutsutaan TortoiseSVN-toimitusikkunasta, kun käyttäjä napsauttaa kytköksen painiketta."
+
+#. (para)
+msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
+msgstr "Merkkijono <literal>parameters</literal> on käyttäjän kytköksen asetusikkunassa syöttämä arvo. Tavallisesti kytkös käyttää tätä vikaseurantajärjestelmän paikantimen ja/tai autentikointitietojen välittämiseen."
+
+#. (para)
+msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
+msgstr "Merkkijono <literal>commonRoot</literal> sisältää kaikkien toimitusikkunaan valittujen kohteiden kantapolun. Huomaa, että tämä <emphasis>ei</emphasis> ole käyttäjän valitsemien kohteiden kantaipolku . Haaran tai merkityn version luonti-ikkunassa merkkijono vastaa kopioitavaa polkua."
+
+#. (para)
+msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
+msgstr "Parametri <literal>pathList</literal> on taulukko, joka sisältää käyttäjän toimitettaviksi valitsemien kohteiden polut (merkkijonoina)."
+
+#. (para)
+msgid "The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty."
+msgstr "Parametri <literal>originalMessage</literal> sisältää toimitusikkunan lokiviestikenttään syötetyn tekstin. Mikäli käyttäjä ei ole vielä syöttänyt tekstiä, merkkijono on tyhjä."
+
+#. (para)
+msgid "The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgstr "Paluumerkkijono <literal>newMessage</literal> korvaa toimitusikkunan lokiviestikentän aiemman sisällön. Mikäli kytkös ei muuta <literal>originalMessage</literal>-parametria, sen on palautettava sama merkkijono tässä; muuten käyttäjän syöttämä teksti katoaa."
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
@@ -10528,8 +10476,24 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr "<placeholder-1/> Toimintoa kutsutaan TortoiseSVN-toimitusikkunasta, kun käyttäjä painaa laajennuspainiketta. Tämä toiminto korvaa alkuperäisen <literal>GetCommitMessage()</literal>-toiminnon; osa parametreista on kuvattu sen yhteydessä.  Uudet parametrit: <literal>commonURL</literal> on kaikkien toimitettavien kohteiden yhteinen paikannin. Tämä on käytännössä <literal>commonRoot</literal>-polun paikannin. Parametri <literal>bugID</literal> sisältää käyttöliittymän bug-ID -kentän sisällön (mikäli näytetty, ks. ominaisuus <literal>bugtraq:message</literal>). Paluuparametria <literal>bugIDOut</literal> sijoitetaan bug-ID -kenttään. Paluuparametrit <literal>revPropNames</literal> ja <literal>revPropValues</literal> voivat sisältää nimi/arvo -pareja arkistoon toimitettaville versio-ominaisuuksille. Laajennuksen on varmistettava, että molemmat taulukot ovat yhtä pitkiä! Kullakin taulukon <literal>revPropNames</literal> alkiolla on myös oltava vastaava arvo taulukossa <literal>revPropValues</literal>. Laajennoksen on palautettava tyhjät taulukot, vaikka versio-ominaisuuksia ei tarvittaisi."
+msgid "This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there."
+msgstr "Tätä menetelmää kutsutaan TortoiseSVN-toimitusikkunasta käyttäjän napsauttaessa kytköksen painiketta. Menetelmää kutsutaan menetelmän <literal>GetCommitMessage()</literal> sijaan. Katso menetelmän <literal>GetCommitMessage</literal> ohjeista kuvaus parametreista, joita käytetään myös siellä."
+
+#. (para)
+msgid "The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path."
+msgstr "Parametri <literal>commonURL</literal> on kaikkien toimitusikkunaan valittujen kohteiden kantapaikannin. Tämä on suurin piirtein sama kuin <literal>commonRoot</literal> -polun paikannin."
+
+#. (para)
+msgid "The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>)."
+msgstr "Parametri <literal>bugID</literal> sisältää bug-ID -kentän arvon (mikäli se on säädetty näytettäväksi ominaisuudella <literal>bugtraq:message</literal>)."
+
+#. (para)
+msgid "The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns."
+msgstr "Paluuparametrin <literal>bugIDOut</literal> arvo asetetaan vikatunnuskenttään metodista palattaessa."
+
+#. (para)
+msgid "The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgstr "Paluuparametrit <literal>revPropNames</literal> ja <literal>revPropValues</literal> voivat sisältää nimi/arvo -pareja niille versio-ominaisuuksille, jotka toimituksen tulisi asettaa.  Kytköksen on varmistettava, että molemmissa taulukoissa on saman verran alkioita palattaessa! Kullakin taulukon <literal>revPropNames</literal> ominaisuusnimellä on oltava vastaava arvo taulukossa <literal>revPropValues</literal>. Mikäli versio-ominaisuuksia ei tarvita, kytköksen on palautettava tyhjät taulukot."
 
 #. (programlisting)
 #, no-wrap
@@ -10557,8 +10521,16 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr "<placeholder-1/> Tätä toimintoa kutsutaan juuri ennen kuin toimitusikkuna sulkeutuu ja toimitus alkaa. Lisäosa voi käyttää toimintoa validoidakseen toimitettaviksi valitut tiedostot/kansiot ja toimitusviestin. Parametrit ovat samat kuin toiminnolla <literal>GetCommitMessage2()</literal> sillä erotuksella, että <literal>commonURL</literal> sisältää nyt kaikkien <emphasis>toimitettavaksi valittujen</emphasis> kohteiden yhteisen paikantimen, ja  <literal>commonRoot</literal> on valittujen kohteiden juuripolku. Paluuparametrin <literal>errorMessage</literal> on oltava tyhjä, jotta arkistotoimitus voi alkaa. Muussa tapauksessa TortoiseSVN näyttää käyttäjälle virheilmoituksen ja pitää toimitusikkunan avoimena, jotta käyttäjä voi korjata mahdolliset virheet. Lisäosan tulisi siten palauttaa virheilmoitus, joka kertoo, <emphasis>mikä</emphasis> on väärin, ja miten tilanne korjataan."
+msgid "This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items."
+msgstr "Tätä toimintoa kutsutaan juuri ennen kuin toimitusikkuna sulkeutuu ja toimitus alkaa. Lisäosa voi käyttää toimintoa validoidakseen toimitettaviksi valitut tiedostot/kansiot ja toimitusviestin. Parametrit ovat samat kuin toiminnolla <literal>GetCommitMessage2()</literal> sillä erotuksella, että <literal>commonURL</literal> sisältää nyt kaikkien <emphasis>toimitettavaksi valittujen</emphasis> kohteiden yhteisen paikantimen, ja  <literal>commonRoot</literal> on valittujen kohteiden juuripolku."
+
+#. (para)
+msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source url of the copy, and <literal>commonRoot</literal> is set to the target url of the copy."
+msgstr "Haaran tai merkityn version luonti-ikkunassa <literal>commonURL</literal> viittaa kopion lähdepaikantimeen ja <literal>commonRoot</literal> puolestaan kopion kohdepaikantimeen."
+
+#. (para)
+msgid "The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgstr "Paluuparametrin <literal>errorMessage</literal> on oltava tyhjä, jotta arkistotoimitus voi alkaa. Muussa tapauksessa TortoiseSVN näyttää virheilmoituksen käyttäjälle ja pitää toimitusikkunan avoimena, jotta käyttäjä voi korjata mahdolliset virheet. Lisäosan tulisi siten palauttaa virheilmoitus, joka kertoo, <emphasis>mikä</emphasis> on väärin, ja miten tilanne korjataan."
 
 #. (programlisting)
 #, no-wrap
@@ -10611,8 +10583,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr "<placeholder-1/> Tätä toimintoa kutsutaan onnistuneen arkistotoimituksen jälkeen. Laajonnos voi käyttää toimintoa esim. valitun vian sulkemiseen tai lisätäkseen vikaan tietoa arkistotoimituksesta. Parametrit ovat samoja kuin toiminnolla <literal>GetCommitMessage2</literal>."
+msgid "This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgstr "Tätä toimintoa kutsutaan onnistuneen arkistotoimituksen jälkeen. Laajonnos voi käyttää toimintoa esim. valitun vian sulkemiseen tai lisätäkseen vikaan tietoa arkistotoimituksesta. Parametrit ovat samoja kuin toiminnolla <literal>GetCommitMessage2</literal>."
 
 #. (programlisting)
 #, no-wrap
@@ -10630,8 +10602,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr "<placeholder-1/> Tätä toimintoa kutsutaan asetusikkunasta, missä käyttäjä voi määritellä lisäosat. Jos lisäosa toteuttaa oman määrittelyikkunan funktion <literal>ShowOptionsDialog</literal> avulla, sen on palautettava tässä TRUE (muutoin FALSE)."
+msgid "This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgstr "Tätä toimintoa kutsutaan asetusikkunasta, missä käyttäjä voi määritellä lisäosat. Jos lisäosa toteuttaa oman määrittelyikkunan funktion <literal>ShowOptionsDialog</literal> avulla, sen on palautettava tässä TRUE (muutoin FALSE)."
 
 #. (programlisting)
 #, no-wrap
@@ -10661,8 +10633,16 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr "<placeholder-1/> Tätä toimintoa kutsutaan asetusikkunasta, kun käyttäjä napsauttaa painiketta \"Asetukset\", joka puolestaan näytetään, jos funktio <literal>HasOptions</literal> palauttaa TRUE. Lisäosa voi näyttää oman asetusikkunan tehdäkseen määärittelyn helpommaksi käyttäjälle. Parametri <literal>parameters</literal> sisältää käyttäjän jo antaman parametrit. Paluuparametrin <literal>newparameters</literal> täytyy sisältää lisäosan valintaikkunan perusteella määrittämä uusi parametri. Tämä parametri välitetään jatkossa kaikille muille IBugtraqProvider- ja IBugtraqProvider2-toiminnoille."
+msgid "This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin."
+msgstr "Tätä toimintoa kutsutaan asetusikkunasta, kun käyttäjä napsauttaa painiketta \"Asetukset\", joka puolestaan näytetään, jos funktio <literal>HasOptions</literal> palauttaa TRUE. Lisäosa voi käyttää omaa asetusikkunaa tehdäkseen määrittelystä käyttäjälle helpompaa."
+
+#. (para)
+msgid "The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered."
+msgstr "Merkkijono <literal>parameters</literal> sisältää käyttäjän jo antamat parametrit."
+
+#. (para)
+msgid "The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgstr "Paluuparametrin <literal>newparameters</literal> täytyy sisältää merkkijono, jonka lisäosa rakensi asetusikkunansa tietojen perusteella. Tämä <literal>parameters</literal> -merkkijono välitetään jatkossa kaikille muille IBugtraqProvider- ja IBugtraqProvider2-toiminnoille."
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
@@ -11030,20 +11010,8 @@ msgid "If you have not yet committed the add, then all you have to do is use <me
 msgstr "Jos et ole vielä toimittanut lisäystä, riittää kun annan komennon <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Palauta...</guimenuitem></menuchoice> peruaksesi lisäyksen. Tiedosto(t) kannattaa lisätä ohituslistaan, jotta niitä ei lisätä myöhemmin vahingossa uudestaan."
 
 #. (para)
-msgid "Hold the <keycap>Shift</keycap> key to get the extended context menu and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice> to mark the file/folder for deletion from the repository without losing the local copy."
-msgstr "Pidä pohjassa <keycap>Shift</keycap>-näppäintä avataksesi laajennetun kontekstivalikon ja anna komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Poista (säilytä paikallinen)</guimenuitem></menuchoice> merkitäksesi tiedoston/kansion poistettavaksi arkistosta menettämättä paikallista kopiota."
-
-#. (para)
-msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Toimita</guimenuitem></menuchoice> ylempi kansio."
-
-#. (para)
-msgid "Add the file/folder to the ignore list so you don't get into the same trouble again."
-msgstr "Lisää tiedosto/kansio ohituslistaan, jotta et joudu samaan pulaan uudelleen."
-
-#. (para)
-msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
-msgstr "Jos tiedostot ovat jo arkistossa, joudut tekemään hieman enemmän työtä. <placeholder-1/>"
+msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
+msgstr "Jos tiedostot ovat jo arkistossa, ne on poistettava sieltä ja lisättävä ohituslistaan.  TortoiseSVN sisältää näppärän komennon tätä tarkoitusta varten. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Poista versiointi ja lisää ohituslistaan</guimenuitem></menuchoice> merkitsee ensin tiedoston/kansion poistettavaksi arkistosta, säilyttäen paikallisen version. Lopuksi kohde lisätään ohituslistaan, jolloin se ei enää päädy vahingossa versioiduksi. Tehtyäsi tämän kohteen isäkansio on toimitettava arkistoon."
 
 #. (title)
 msgid "Unversion a working copy"
@@ -11166,8 +11134,8 @@ msgid "ASP projects"
 msgstr "ASP-projektit"
 
 #. (para)
-msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusions with users which always install <emphasis>everything</emphasis> no matter if they know what it is for."
-msgstr "Versiosta 1.4 alkaen TortoiseSVN-asennusohjelma ei enää tue <literal>SVN_ASP_DOT_NET_HACK</literal>-ympäristömuuttujan asetusta, koska se aiheutti ongelmia ja hämmennystä niille käyttäjille, jotka aina asentavat <emphasis>kaiken</emphasis>, vaikka eivät tietäisi mitä varten mikin on."
+msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
+msgstr "Versiosta 1.4.0 alkaen TortoiseSVN-asennusohjelma ei enää tue <literal>SVN_ASP_DOT_NET_HACK</literal>-ympäristömuuttujan asetusta, koska se aiheutti ongelmia ja hämmennystä niille käyttäjille, jotka tapaavat aina asentaa <emphasis>kaiken</emphasis>, vaikka eivät tietäisi, mitä tarkoitusta varten mikäkin asetus on."
 
 #. (para)
 msgid ""
@@ -12005,8 +11973,8 @@ msgid "Conventions and Basic Rules"
 msgstr "Merkintätavat ja perussäännöt"
 
 #. (para)
-msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr "Seuraavissa kuvauksissa arkiston paikannin esitetään muodossa <literal>URL</literal>, esimerkiksi <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. Työkopion polu esitetään muodossa <literal>PATH</literal>, esimerkiksi  <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgstr "Seuraavissa kuvauksissa <literal>URL</literal> viittaa arkiston paikantimeen, esimerkiksi <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. <literal>PATH</literal> puolestaan viittaa työkopion polkuun, esimerkiksi  <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
@@ -12611,8 +12579,8 @@ msgid "In this appendix we assume that you already have the subversion tools ins
 msgstr "Oletamme, että olet jo asentanut Subversion-työkalut ja luonut arkiston tässä käyttöohjeessa toisaalla kuvatulla tavalla. Huomaa, että sinun  <emphasis>ei</emphasis> tule käynnistää svnserve-ohjelmaa palveluna tai demonina, kun sitä käytetään yhdessä SSH:n kanssa."
 
 #. (para)
-msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
-msgstr "Seuraava teksti on suurelta osin peräisin Marc Logemannin kirjoittamasta ohjeesta, joka löytyy sivustosta <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink>.  Windows-palvelimen määrittelyyn liittyvät ohjeet on kirjoittanut Thorsten Müller. Kiitos molemmille!"
+msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which has been archived at <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
+msgstr "Seuraava teksti on suurelta osin peräisin Marc Logemannin kirjoittamasta ohjeesta, joka löytyy sivustosta <ulink url=\"http://tortoisesvn.net/ssh_howto/\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink>.  Windows-palvelimen määrittelyyn liittyvät ohjeet on kirjoittanut Thorsten Müller. Kiitos molemmille!"
 
 #. (para)
 msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
@@ -12871,6 +12839,94 @@ msgid "If you use this last method, be sure you do not have a default username s
 msgstr "Jos käytät viimeistä menetelmää, varmista, ettet ole asettanut oletuskäyttäjänimeä PuTTY-ohjelmalle. Olemme saaneet virheraportteja, joiden mukaan ohjelmassa oleva virhe aiheuttaa tässä tapauksessa yhteyksien katkeamisia. Poistaaksesi oletuskäyttäjän, tyhjennä rekisteriavain <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>."
 
 #. (title)
+msgid "Language Packs and Spell Checkers"
+msgstr "Kielipaketit ja tavutuksen tarkastus"
+
+#. (para)
+msgid "The standard installer has support only for English, but you can download separate language packs and spell check dictionaries separately after installation."
+msgstr "Vakioasennuspaketti sisältää vain englanninkielisen version, mutta voit noutaa ja asentaa erillisiä kielipaketteja sekä tavutussanastoja asennuksen jälkeen."
+
+#. (title)
+msgid "Language Packs"
+msgstr "Kielimodulit"
+
+#. (primary)
+msgid "language packs"
+msgstr "kielimodulit"
+
+#. (primary)
+msgid "translations"
+msgstr "käännökset"
+
+#. (para)
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
+msgstr "TortoiseSVN-ohjelman käyttöliittymä on käännetty useille kielille, joten saatat hyvinkin löytää tarvitsemasi kielimodulin. Löydät kielimodulit <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>käännöksen tila</citetitle></ulink>-sivultamme. Jos tarvitsemaasi kielimodulia ei ole vielä saatavilla, miksi et liittyisi joukkoon ja tekisi omaa käännöstä ;-)"
+
+#. (para)
+msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
+msgstr "Jokainen kielimoduli on paketoitu <literal>.msi</literal>-muodossa olevaan asennusohjelmaan.  Asennus tapahtuu käynnistämällä asennusohjelma ja seuraamalla ohjeita. Seuraavan uudelleenkäynnistyksen jälkeen käännös on saatavilla."
+
+#. (para)
+msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
+msgstr "Käyttöohjeet on myös käännetty useille eri kielille. Voit noutaa käännetyt ohjeet <ulink url=\"http://tortoisesvn.net/support\"><citetitle>tukisivulta</citetitle></ulink> verkkosivustoltamme."
+
+#. (title)
+msgid "Spellchecker"
+msgstr "Oikeinkirjoituksen tarkistus"
+
+#. (primary)
+msgid "spellchecker"
+msgstr "oikeinkirjoituksen tarkistus"
+
+#. (primary)
+msgid "dictionary"
+msgstr "sanasto"
+
+#. (para)
+msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgstr "TortoiseSVN sisältää oikeinkirjoituksen tarkistajan, jonka avulla voit tarkistaa lokiviestisi arkistoon toimituksen yhteydessä. Tämä on erityisen hyödyllistä, mikäli projektin kieli ei ole äidinkielesi. Oikeinkirjoituksen tarkistin käyttää samoja sanastotiedostoja kuin <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> ja <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+
+#. (para)
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
+msgstr "Asennusohjelma lisää automaattisesti US ja UK -englannin sanastot. Mikäli haluat muita kieliä, helpoin vaihtoehto on yksinkertaisesti asentaa jokin TortoiseSVN-kielimoduli. Se asentaa tarpeelliset sanastotiedostot samoin kuin lokalisoidun käyttöliittymän TortoiseSVN-ohjelmalle. Seuraavan uudelleenkäynnistyksen jälkeen myös sanasto on saatavilla."
+
+#. (para)
+msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
+msgstr "Voit myös asentaa sanastot itse. Mikäli OpenOffice tai Mozilla on asennettu, voit kopioida sanastot näiden ohjelmien asennushakemistoista. Sanakirjat ovat myös noudettavissa osoitteesta  <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>."
+
+#. (filename)
+msgid "en_US.aff"
+msgstr "en_US.aff"
+
+#. (filename)
+msgid "en_US.dic"
+msgstr "en_US.dic"
+
+#. (para)
+msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
+msgstr "Kun olet saanut sanastotiedostot, joudut luultavasti nimeämään ne uudelleen siten, että tiedostonimissä on vain kielialuetunnus. Esimerkki: <placeholder-1/> Lopuksi vain kopioit tiedostot TortoiseSVN-asennushakemiston <filename>bin</filename>-alihakemistoon (normaalisti <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>). Mikäli et halua koskea <filename>bin</filename>-kansioon, voit sijoittaa sanastotiedostosi myös kansioon <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. Jos kansiota ei ole olemassa, sinun pitää luoda se ensin. Kun seuraavan kerran käynnistät TortoiseSVN-ohjelman, oikeinkirjoituksen tarkistus on saatavilla."
+
+#. (para)
+msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
+msgstr "Tarkista <literal>tsvn:projectlanguage</literal> -asetus. Katso <xref linkend=\"tsvn-dug-propertypage\"/> saadaksesi lisätietoa projektin ominaisuuksien asettamisesta."
+
+#. (para)
+msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
+msgstr "Mikäli projektikieltä ei ole asetettu, tai kyseistä kieltä ei ole asennettu, yritä Windows-asennuskieltä."
+
+#. (para)
+msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
+msgstr "Jos Windows-asennuskieli ei toimi, koeta <quote>Base</quote>-kieltä, esim. <literal>de_CH</literal> (Sveitsi-Saksa) palautuu takaisin kieleen <literal>de_DE</literal> (Saksa)."
+
+#. (para)
+msgid "If none of the above works, then the default language is English, which is included with the standard installation."
+msgstr "Mikäli mikään yllä olevista ei toimi, oletuskieleksi asetetaan englanti, joka kuuluu vakioasennukseen."
+
+#. (para)
+msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
+msgstr "Jos asennat useita sanastoja, TortoiseSVN käyttää seuraavia sääntöjä valitakseen käytettävän sanaston.  <placeholder-1/>"
+
+#. (title)
 msgid "Glossary"
 msgstr "Sanasto"
 
@@ -13096,6 +13152,107 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "<placeholder-1/> This is the main method of the plugin. This method is "
+#~ "called from the TortoiseSVN commit dialog when the user clicks on the "
+#~ "plugin button. The <literal>parameters</literal> string is the string the "
+#~ "user has to enter in the settings dialog when he configures the plugin. "
+#~ "Usually a plugin would use this to find the URL of the issue tracker and/"
+#~ "or login information or more. The <literal>commonRoot</literal> string "
+#~ "contains the parent path of all items selected to bring up the commit "
+#~ "dialog. Note that this is <emphasis>not</emphasis> the root path of all "
+#~ "items which the user has selected in the commit dialog. The "
+#~ "<literal>pathList</literal> parameter contains an array of paths (as "
+#~ "strings) which the user has selected for the commit. The "
+#~ "<literal>originalMessage</literal> parameter contains the text entered in "
+#~ "the log message box in the commit dialog. If the user has not yet entered "
+#~ "any text, this string will be empty. The <literal>newMessage</literal> "
+#~ "return string is copied into the log message edit box in the commit "
+#~ "dialog, replacing whatever is already there. If a plugin does not modify "
+#~ "the <literal>originalMessage</literal> string, it must return the same "
+#~ "string again here, otherwise any text the user has entered will be lost."
+#~ msgstr ""
+#~ "<placeholder-1/> Lisäosan päätoiminto. Toimintoa kutsutaan TortoiseSVN-"
+#~ "toimitusikkunasta, kun käyttäjä painaa lisäosan painiketta. Merkkijono "
+#~ "<literal>parameters</literal> on käyttäjän asetusikkunassa lisäosalle "
+#~ "määrittelemä arvo. Tavallisesti lisäosa käyttää tätä vikaseurannan "
+#~ "paikantimen löytämiseksi, kirjautumiseen, jne. Merkkijono "
+#~ "<literal>commonRoot</literal> sisältää kaikkien toimitusikkunan "
+#~ "avaamiseksi valittujen polkujen isäkansion. Huomaa, että tämä "
+#~ "<emphasis>ei</emphasis> ole kaikkien käyttäjän toimitusikkunasta "
+#~ "valitsemien kohteiden juuripolku. Parametri <literal>pathList</literal> "
+#~ "sisältää polut, jotka käyttäjä on valinnut toimitettaviksi arkistoon. "
+#~ "Parametri <literal>originalMessage</literal> sisältää toimitusikkunaan "
+#~ "syötetyn lokiviestin. Jos käyttäjä ei ole vielä syöttänyt tekstiä, "
+#~ "parametri on tyhjä. Paluuparametri <literal>newMessage</literal> "
+#~ "kopioidaan lokiviestiksi toimitusikkunaan. Jos lisäosa ei muokkaa "
+#~ "merkkijonoa <literal>originalMessage</literal>, sen on palautettava tässä "
+#~ "sama merkkijono, muuten jo syötetty lokiviesti katoaa."
+#~ msgid ""
+#~ "<placeholder-1/> This method is called from the TortoiseSVN commit dialog "
+#~ "when the user clicks on the plugin button. This method is called instead "
+#~ "of <literal>GetCommitMessage()</literal>. Please refer to the "
+#~ "documentation for <literal>GetCommitMessage</literal> for the parameters "
+#~ "that are also used there. The parameter <literal>commonURL</literal> is "
+#~ "the parent URL of all items selected to bring up the commit dialog. This "
+#~ "is basically the URL of the <literal>commonRoot</literal> path. The "
+#~ "parameter <literal>bugID</literal> contains the content of the bug-ID "
+#~ "field (if it is shown, configured with the property <literal>bugtraq:"
+#~ "message</literal>). The return parameter <literal>bugIDOut</literal> is "
+#~ "used to fill the bug-ID field when the method returns. The "
+#~ "<literal>revPropNames</literal> and <literal>revPropValues</literal> "
+#~ "return parameters can contain name/value pairs for revision properties "
+#~ "that the commit should set. A plugin must make sure that both arrays have "
+#~ "the same size on return! Each property name in <literal>revPropNames</"
+#~ "literal> must also have a corresponding value in <literal>revPropValues</"
+#~ "literal>. If no revision properties are to be set, the plugin must return "
+#~ "empty arrays."
+#~ msgstr ""
+#~ "<placeholder-1/> Toimintoa kutsutaan TortoiseSVN-toimitusikkunasta, kun "
+#~ "käyttäjä painaa laajennuspainiketta. Tämä toiminto korvaa alkuperäisen "
+#~ "<literal>GetCommitMessage()</literal>-toiminnon; osa parametreista on "
+#~ "kuvattu sen yhteydessä.  Uudet parametrit: <literal>commonURL</literal> "
+#~ "on kaikkien toimitettavien kohteiden yhteinen paikannin. Tämä on "
+#~ "käytännössä <literal>commonRoot</literal>-polun paikannin. Parametri "
+#~ "<literal>bugID</literal> sisältää käyttöliittymän bug-ID -kentän sisällön "
+#~ "(mikäli näytetty, ks. ominaisuus <literal>bugtraq:message</literal>). "
+#~ "Paluuparametria <literal>bugIDOut</literal> sijoitetaan bug-ID -kenttään. "
+#~ "Paluuparametrit <literal>revPropNames</literal> ja "
+#~ "<literal>revPropValues</literal> voivat sisältää nimi/arvo -pareja "
+#~ "arkistoon toimitettaville versio-ominaisuuksille. Laajennuksen on "
+#~ "varmistettava, että molemmat taulukot ovat yhtä pitkiä! Kullakin taulukon "
+#~ "<literal>revPropNames</literal> alkiolla on myös oltava vastaava arvo "
+#~ "taulukossa <literal>revPropValues</literal>. Laajennoksen on palautettava "
+#~ "tyhjät taulukot, vaikka versio-ominaisuuksia ei tarvittaisi."
+#~ msgid ""
+#~ "Hold the <keycap>Shift</keycap> key to get the extended context menu and "
+#~ "use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep "
+#~ "local)</guimenuitem></menuchoice> to mark the file/folder for deletion "
+#~ "from the repository without losing the local copy."
+#~ msgstr ""
+#~ "Pidä pohjassa <keycap>Shift</keycap>-näppäintä avataksesi laajennetun "
+#~ "kontekstivalikon ja anna komento <menuchoice><guimenu>TortoiseSVN</"
+#~ "guimenu><guimenuitem>Poista (säilytä paikallinen)</guimenuitem></"
+#~ "menuchoice> merkitäksesi tiedoston/kansion poistettavaksi arkistosta "
+#~ "menettämättä paikallista kopiota."
+#~ msgid ""
+#~ "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</"
+#~ "guimenuitem></menuchoice> the parent folder."
+#~ msgstr ""
+#~ "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Toimita</"
+#~ "guimenuitem></menuchoice> ylempi kansio."
+#~ msgid ""
+#~ "Add the file/folder to the ignore list so you don't get into the same "
+#~ "trouble again."
+#~ msgstr ""
+#~ "Lisää tiedosto/kansio ohituslistaan, jotta et joudu samaan pulaan "
+#~ "uudelleen."
+#~ msgid ""
+#~ "If the files are already in the repository, you have to do a little more "
+#~ "work. <placeholder-1/>"
+#~ msgstr ""
+#~ "Jos tiedostot ovat jo arkistossa, joudut tekemään hieman enemmän työtä. "
+#~ "<placeholder-1/>"
 #~ msgid ""
 #~ "If <guilabel>Only checkout the top folder</guilabel> is checked, use the "
 #~ "<literal>-N</literal> switch."

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-26 23:37+0200\n"
+"PO-Revision-Date: 2010-04-08 00:27+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -371,6 +371,10 @@ msgstr "&Lisää tai poista painikkeita"
 msgid "&Add..."
 msgstr "&Lisää..."
 
+#. Resource IDs: (32849)
+msgid "&Advanced"
+msgstr "&Lisäominaisuudet"
+
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Lisäasetukset..."
@@ -382,6 +386,10 @@ msgstr "&Salli moniselitteiset paikantimet"
 #. Resource IDs: (65535)
 msgid "&Application Look"
 msgstr "&Ulkoasu"
+
+#. Resource IDs: (1294)
+msgid "&Apply property recursively"
+msgstr "Aseta ominaisuus &palautuvasti"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -415,6 +423,10 @@ msgstr "&Sulkeminen:"
 msgid "&Backup original file"
 msgstr "Tee alkuperäisestä tiedostosta &varmuuskopio"
 
+#. Resource IDs: (1559)
+msgid "&Binary"
+msgstr "&Binaarinen"
+
 #. Resource IDs: (114)
 msgid "&Blame changes"
 msgstr "&Vertaa ja selvitä tekijät"
@@ -440,6 +452,14 @@ msgid "&Blue:"
 msgstr "&Sininen:"
 
 #. Resource IDs: (65535)
+msgid "&Border:"
+msgstr "&Reuna:"
+
+#. Resource IDs: (1568)
+msgid "&Bottom"
+msgstr "&Alhaalla"
+
+#. Resource IDs: (65535)
 msgid "&Branches"
 msgstr "&Haarat"
 
@@ -450,6 +470,10 @@ msgstr "&Selaa arkistoa"
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "&Selaa..."
+
+#. Resource IDs: (32850)
+msgid "&Bugtraq (Issue tracker integration)"
+msgstr "Kytkös vikaseurantaohjelmaan (&bugtraq:)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -595,6 +619,10 @@ msgstr "&Hakemistot"
 msgid "&Docking"
 msgstr "&Ankkurointi"
 
+#. Resource IDs: (32851)
+msgid "&EOL"
+msgstr "Rivinlopetus (svn:&eol-style)"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Muokkaa"
@@ -622,6 +650,10 @@ msgstr "&Talleta lokiviestit paikallisesti"
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "Kerro, &miksi lukitsit tiedostot."
+
+#. Resource IDs: (1554)
+msgid "&Executable"
+msgstr "&Suoritettava"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -780,6 +812,10 @@ msgstr "&Yhdistä alipuut"
 msgid "&Jump to first difference when loading"
 msgstr "&Siirry automaattisesti ensimmäiseen eroon"
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr "Avainsanat (svn:&keywords)"
+
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "&Kieli:"
@@ -792,9 +828,17 @@ msgstr "&Suuret kuvakkeet"
 msgid "&Limit search to modified lines"
 msgstr "&Rajoita haku muutettuihin riveihin"
 
+#. Resource IDs: (65535)
+msgid "&Limit:"
+msgstr "&Raja:"
+
 #. Resource IDs: (32797)
 msgid "&Link image positions"
 msgstr "&Kytke kuvien paikat"
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -804,9 +848,21 @@ msgstr "&Listanäkymä"
 msgid "&Load..."
 msgstr "&Lataa..."
 
+#. Resource IDs: (1554)
+msgid "&Locking required (read-only update)"
+msgstr "&Lukitus tarvitaan"
+
+#. Resource IDs: (32854)
+msgid "&Log Sizes"
+msgstr "Lokin koot (tsvn:&log)"
+
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Luminanssi:"
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -839,6 +895,10 @@ msgstr "&Yhdistä..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Yhdistäminen"
+
+#. Resource IDs: (32847)
+msgid "&Mime-Type"
+msgstr "MIME-tyyppi (svn:&mime-type)"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
@@ -889,6 +949,18 @@ msgstr "&Seuraava sivu"
 msgid "&No double-click event"
 msgstr "&Ei kaksoisnapsautuksia"
 
+#. Resource IDs: (1555)
+msgid "&No locking required"
+msgstr "Lukitusta &ei tarvita"
+
+#. Resource IDs: (1555)
+msgid "&Not executable"
+msgstr "&Ei suoritettava"
+
+#. Resource IDs: (1566)
+msgid "&Numeric"
+msgstr "&Numeerinen"
+
 #. Resource IDs: (1)
 msgid "&OK"
 msgstr "&OK"
@@ -921,9 +993,17 @@ msgstr "&Salasana:"
 msgid "&Paste"
 msgstr "&Liitä"
 
+#. Resource IDs: (1600)
+msgid "&Peg revision:"
+msgstr "&Ankkuriversio:"
+
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "&Pysyvästi"
+
+#. Resource IDs: (1588)
+msgid "&Platform dependent (native)"
+msgstr "&Alustariippuva"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -968,6 +1048,10 @@ msgstr "Tee &uudelleen"
 #. Resource IDs: (1382)
 msgid "&Refresh"
 msgstr "&Päivitä"
+
+#. Resource IDs: (1562)
+msgid "&Remind me to enter a bug-ID"
+msgstr "&Muistuta minua vikatunnuksen syöttämisestä"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -1050,8 +1134,8 @@ msgid "&Save list of selected files to..."
 msgstr "&Tallenna lista valituista tiedostoista..."
 
 #. Resource IDs: (1308)
-msgid "&Save..."
-msgstr "&Tallenna..."
+msgid "&Save value..."
+msgstr "&Tallenna arvo..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1170,6 +1254,10 @@ msgstr "&Valintapalkin nimi:"
 msgid "&Toolbars:"
 msgstr "&Valintapalkit:"
 
+#. Resource IDs: (1567)
+msgid "&Top"
+msgstr "&Ylhäällä"
+
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -1249,6 +1337,10 @@ msgstr "&Tyhjämerkit"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Kokonaiset sanat"
+
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1852,13 +1944,13 @@ msgstr ""
 "Ota käyttöön 'tehokäyttäjän asetukset', joiden avulla käyttö on sujuvampaa.\n"
 "Sinun tulee tuntea kaikkien yllä olevien asetusten merkitys."
 
-#. Resource IDs: (1294)
-msgid "Apply property recursively"
-msgstr "Aseta ominaisuus palautuvasti"
-
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
 msgstr "Sovella unified diff"
+
+#. Resource IDs: (1565)
+msgid "Arb&itrary text"
+msgstr "&Vapaata tekstiä"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -1877,6 +1969,10 @@ msgstr "Oletko varma, että haluat palauttaa %d kohdetta? Menetät <b>kaikki</b>
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "Järjestä &pystysuunnassa"
+
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr "&Muuttumaton (ei erityistä rivinloppumerkkiä)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2077,9 +2173,13 @@ msgstr "Vi&katunnus:"
 msgid "Bug-ID"
 msgstr "Vikatunnus"
 
+#. Resource IDs: (1578)
+msgid "Bug-ID e&xpression:"
+msgstr "Vikatunnus&lauseke:"
+
 #. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
-msgstr "&Vikatunnus:"
+msgid "Bug-ID is:"
+msgstr "Vikatunnuksen tyyppi:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2262,6 +2362,10 @@ msgstr "Muutokset (tiedoston kaksoisnapsautus käynnistää vertailun):"
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
 msgstr "Kiinnitä ulkoiset viittaukset kiinteään versioon"
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
+msgstr "Merkkipositio, jonka kohdalla näytetään reunaviiva toimituskentissä:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3522,6 +3626,10 @@ msgstr "&Täsmälliset kopiolähteet"
 msgid "E&xclude paths:"
 msgstr "&Pois jätettävät polut:"
 
+#. Resource IDs: (32839)
+msgid "E&xecutable"
+msgstr "Suoritettava (svn:&executable)"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Lopeta"
@@ -3554,6 +3662,10 @@ msgstr "Muokkaa"
 msgid "Edit Button Image"
 msgstr "Muokkaa painikkeen kuvaa"
 
+#. Resource IDs: (319)
+msgid "Edit External"
+msgstr "Muokkaa ulkoisia viitteitä"
+
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "Muokkaa ominaisuuksia"
@@ -3573,6 +3685,10 @@ msgstr "Muokkaa tekijää"
 #. Resource IDs: (115)
 msgid "Edit author name"
 msgstr "Muokkaa tekijän nimeä"
+
+#. Resource IDs: (315)
+msgid "Edit bugtraq properties"
+msgstr "Muokkaa bugtraq-ominaisuuksia"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -3763,6 +3879,10 @@ msgstr "Lisää korkeintaani %1 merkkiä."
 msgid "Enter the regex string below:"
 msgstr "Syötä säännöllinen lauseke:"
 
+#. Resource IDs: (1577)
+msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
+msgstr "Anna säännölliset lausekkeet, joilla vikatunnus suodatetaan pois toimitusviestistä."
+
 #. Resource IDs: (3603)
 msgid ""
 "Erase everything\n"
@@ -3800,6 +3920,10 @@ msgid ""
 msgstr ""
 "Virhe luettaessa/kirjoitettaessa rekisteriavainta %1!s!\n"
 "%2!s!"
+
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
+msgstr "Ulkonen viite (svn:ex&ternals)"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -4432,6 +4556,10 @@ msgstr "HEAD-solmu"
 msgid "Head revision is %s"
 msgstr "Uusin versio (HEAD) on %s"
 
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr "Otsake"
+
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "Ohje"
@@ -4528,6 +4656,14 @@ msgstr "&Ohitetut"
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
 msgstr "&Sisällytettävät polut:"
+
+#. Resource IDs: (1580)
+msgid "IBugTraqProvider"
+msgstr "IBugTraqProvider"
+
+#. Resource IDs: (1592)
+msgid "ID"
+msgstr "ID"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -5017,6 +5153,10 @@ msgstr ""
 "Lisää leikepöydän sisältö\n"
 "Liitä"
 
+#. Resource IDs: (1575)
+msgid "Insert message at:"
+msgstr "Viestin näyttöpaikka:"
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "Liian vähän muistia operaation suorittamiseen."
@@ -5117,6 +5257,10 @@ msgstr ""
 "Väli määritellään väliviivan avulla.\n"
 "Esimerkki: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (1571)
+msgid "Issue tracker"
+msgstr "Vikaseurantaohjelma"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -5210,6 +5354,14 @@ msgstr "Pikanäppäimet:"
 #. Resource IDs: (1002)
 msgid "Keys"
 msgstr "Näppäimet"
+
+#. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr "R&aja."
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr "Paikallinen &polku:"
 
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
@@ -5642,6 +5794,18 @@ msgstr "Yhdistetään versiot %s polusta %s -> %s, %s%s%s"
 msgid "Message"
 msgstr "Viesti"
 
+#. Resource IDs: (1574)
+msgid "Message &label:"
+msgstr "Viestin &teksti:"
+
+#. Resource IDs: (1573)
+msgid "Message &pattern:"
+msgstr "Viestin &hahmo:"
+
+#. Resource IDs: (1579)
+msgid "Message part &expression:"
+msgstr "Viestiosan &lauseke:"
+
 #. Resource IDs: (1241)
 msgid "Message:"
 msgstr "Viesti:"
@@ -5669,6 +5833,14 @@ msgstr "Minun"
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
 msgstr "Pienennä valintanauha"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr "Minimimäärä merkkejä toimitusviestissä:"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
+msgstr "Minimimäärä merkkejä lukitusviestissä:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -5826,6 +5998,10 @@ msgstr "Navigointipaneelin asetukset..."
 #. Resource IDs: (208)
 msgid "Needs lock"
 msgstr "Tarvitsee lukon"
+
+#. Resource IDs: (32845)
+msgid "Needs-&Lock"
+msgstr "Lukitustarve (svn:needs-&lock)"
 
 #. Resource IDs: (1550)
 msgid "Needs-lock"
@@ -6024,6 +6200,10 @@ msgstr "Huomaa: kirjasinasetukset vaikuttavat myös TortoiseUDiff-ohjelmaan"
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
 msgstr "Huomaa: tämä vaikuttaa kaikkiin TortoiseOverlays-komponenttia käyttäviin ohjelmiin!"
+
+#. Resource IDs: (1557)
+msgid "Note: this property has no effect on Windows"
+msgstr "Huomaa: Tämä ominaisuus ei toimi Windowsissa"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -6638,6 +6818,14 @@ msgstr "Ominaisuuden sisältö:"
 msgid "Provider"
 msgstr "Kytkös"
 
+#. Resource IDs: (1586)
+msgid "Provider para&meters:"
+msgstr "Tarjoajan para&metrit:"
+
+#. Resource IDs: (1581)
+msgid "Provider uuid win&32:"
+msgstr "Tarjoajan uuid win&32:"
+
 #. Resource IDs: (1475)
 msgid "Provider:"
 msgstr "Kytkös:"
@@ -6778,6 +6966,10 @@ msgstr "Pienennä ikkuna kuvakkeeksi"
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
 msgstr "Päivitä"
+
+#. Resource IDs: (1576)
+msgid "Regular Expression"
+msgstr "Säännöllinen lauseke"
 
 #. Resource IDs: (117)
 msgid ""
@@ -8003,6 +8195,10 @@ msgstr "Koko ja tila"
 msgid "Size of all cached text information"
 msgstr "Välimuistissa olevan tekstin koko"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "Lokiviestien koko"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "Välimuistitiedoston koko levyllä"
@@ -8031,9 +8227,21 @@ msgstr "Vasen tiedosto:"
 msgid "Source Right:"
 msgstr "Oikea tiedosto:"
 
+#. Resource IDs: (1552)
+msgid "Source URL:"
+msgstr "Lähdepaikannin:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Määrittää kuinka monta viestiä säilytetään viimeisimpien lokiviestien listassa."
+
+#. Resource IDs: (1572)
+msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgstr "Määritä, miten toimitusviesti rakennetaan syötetystä vikatunnuksesta. Käytä symbolia %BUGID% todellisen vikatunnuksen paikalla. Jos jätät asetukset tyhjäksi, TortoiseSVN käyttää niiden sijaan säännöllisiä lausekkeita."
+
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "Määritä vikaseurantaohjelman paikannin. Käytä symbolia %BUGID% merkitsemään todellista vikanumeroa."
 
 #. Resource IDs: (79)
 msgid ""
@@ -8773,6 +8981,14 @@ msgstr ""
 "<i>%s</i>\n"
 "ei ole olemassa.\n"
 "TortoiseMerge koetti käyttää paikan poistamalla polusta erilaisia alkuosia, mutta ei onnistunut."
+
+#. Resource IDs: (84)
+msgid ""
+"The regular expression is invalid!\n"
+"Please enter a valid regular expression."
+msgstr ""
+"Säännöllinen lauseke ei ole kelvollinen!\n"
+"Syötä kelvollinen säännöllinen lauseke."
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -10636,6 +10852,10 @@ msgstr "tutkitaan polkua:"
 msgid "skip ranges: "
 msgstr "ohitettuja välejä:"
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr "svn:eol-style"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
@@ -10643,6 +10863,10 @@ msgid ""
 msgstr ""
 "svn:eol-style\r\n"
 "Jokin arvoista 'native', 'LF', 'CR' tai 'CRLF'."
+
+#. Resource IDs: (312)
+msgid "svn:executable"
+msgstr "svn:executable"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10653,6 +10877,10 @@ msgstr ""
 "svn:executable\r\n"
 "Mikäli määritelty, tekee tiedostosta suoritettavan.  Tätä ominaisuutta ei voi asettaa hakemistolle.\r\n"
 "Voidaan asettaa vain palautuvasti; tällöin ominaisuus asetetaan pelkästään hakemistojen sisältämille tiedostoille."
+
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10689,6 +10917,10 @@ msgstr ""
 "svn:ignore\r\n"
 "Rivinvaihdoin eroteltu lista ohitettavista tiedostohahmoista."
 
+#. Resource IDs: (317)
+msgid "svn:keywords"
+msgstr "svn:keywords"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:keywords\r\n"
@@ -10721,6 +10953,10 @@ msgstr ""
 "Esimerkki:\r\n"
 "/trunk:123-125,129"
 
+#. Resource IDs: (314)
+msgid "svn:mime-type"
+msgstr "svn:mime-type"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:mime-type\r\n"
@@ -10732,6 +10968,10 @@ msgstr ""
 "Tiedoston MIME-tyyppi. Määrittää, yhdistetäänkö tiedosto, ja kuinka se haetaan Apachesta.\r\n"
 "MIME-tyyppiä, jonka alussa on 'text/' (tai puuttuvaa MIME-tyyppiä) kohdellaan tekstinä.\r\n"
 "Kaikkea muuta kohdellaan binäärisenä."
+
+#. Resource IDs: (313)
+msgid "svn:needs-lock"
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10915,6 +11155,10 @@ msgstr ""
 msgid "user revprops total: "
 msgstr "omia ominaisuuksia:"
 
+#. Resource IDs: (1583)
+msgid "uuid x6&4:"
+msgstr "uuid x6&4:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "arvot eroavat toisistaan"
@@ -10967,6 +11211,12 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bug-ID / &Issue-Nr:"
+#~ msgstr "&Vikatunnus:"
+#~ msgid "Dialog"
+#~ msgstr "tsvn:log*"
+#~ msgid "&Save..."
+#~ msgstr "&Tallenna..."
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "Näytä kuvakepäällys ohitetuille kohteille"
 #~ msgid "Show overlay for unversioned items"
