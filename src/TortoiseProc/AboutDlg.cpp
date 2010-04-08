@@ -45,6 +45,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CStandAloneDialog)
 	ON_WM_TIMER()
 	ON_WM_MOUSEMOVE()
 	ON_BN_CLICKED(IDC_UPDATE, OnBnClickedUpdate)
+    ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 BOOL CAboutDlg::OnInitDialog()
@@ -141,4 +142,12 @@ void CAboutDlg::OnBnClickedUpdate()
 	_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck /visible"));
 
 	CAppUtils::LaunchApplication(com, 0, false);
+}
+
+void CAboutDlg::OnClose()
+{
+    KillTimer(ID_EFFECTTIMER);
+    KillTimer(ID_DROPTIMER);
+
+    CStandAloneDialog::OnClose();
 }

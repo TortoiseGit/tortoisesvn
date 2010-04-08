@@ -48,6 +48,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAboutDlg, CStandAloneDialog)
 	ON_WM_TIMER()
 	ON_WM_MOUSEMOVE()
+    ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 
@@ -129,4 +130,11 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 	}
 
 	CStandAloneDialog::OnMouseMove(nFlags, point);
+}
+
+void CAboutDlg::OnClose()
+{
+    KillTimer(ID_EFFECTTIMER);
+    KillTimer(ID_DROPTIMER);
+    CStandAloneDialog::OnClose();
 }
