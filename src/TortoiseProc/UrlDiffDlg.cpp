@@ -98,7 +98,7 @@ BOOL CUrlDiffDlg::OnInitDialog()
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("SwitchDlg"));
+	EnableSaveRestore(_T("URLDiff"));
 	return TRUE;
 }
 
