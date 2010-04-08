@@ -48,7 +48,7 @@ BOOL CURLDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_URLCOMBO);
+	ExtendFrameIntoClientArea(IDC_DWM);
 	m_aeroControls.SubclassOkCancel(this);
 
 	m_URLCombo.SetURLHistory(TRUE);
