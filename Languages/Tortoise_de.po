@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-07 16:02+0100\n"
+"PO-Revision-Date: 2010-04-08 08:54+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "Autoren separat auflisten:"
+msgstr "Separat aufgelistete Autoren:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -2112,10 +2112,6 @@ msgstr "Bug-&ID / Issue-Nr:"
 msgid "Bug-ID"
 msgstr "Bug-ID"
 
-#. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
-msgstr "Bug-&ID / Issue-Nr:"
-
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
 msgstr "Bug-ID &RegEx:"
@@ -3349,10 +3345,6 @@ msgid ""
 msgstr ""
 "Geräteunabhängiges Bitmap\n"
 "Ein geräteunabhängiges Bild"
-
-#. Resource IDs: (320)
-msgid "Dialog"
-msgstr "Länge der Logmeldungen"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -8161,6 +8153,10 @@ msgstr "Größe und Status"
 msgid "Size of all cached text information"
 msgstr "Gesamtgröße der gepufferten Textinformation"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "Länge der Logmeldungen"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "Größe des Puffers auf der Festplatte"
@@ -8201,6 +8197,10 @@ msgstr "Legt fest, wie viele Einträge in der Liste der letzten Logmeldungen ges
 msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
 msgstr "Geben Sie an, wie die Logmeldung aus der angegebenen Bug-ID zusammengesetzt werden soll. Verwenden Sie %BUGID% als Platzhalter für die Bug-ID. Falls Sie diese Felder leer lassen, wird TortoiseSVN stattdessen die regulären Ausdrücke verwenden"
 
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "Geben Sie die URL zum Zugriff auf das Fehlerverfolgungssystem an. Verwenden Sie %BUGID% als Platzhalter für die Bug-ID."
+
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
@@ -8211,10 +8211,6 @@ msgstr ""
 "Projektarchiven von der Versionskontrolle ausschließen soll.\r\n"
 "Trennen Sie die Muster mit einem Leerzeichen.\r\n"
 "Beispiel: *.bak *.[Tt]mp"
-
-#. Resource IDs: (1305)
-msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
-msgstr "Geben Sie die URL zum Zugriff auf das Fehlerverfolgungssystem an. Verwenden Sie %BUGID% als Platzhalter für die Bug-ID."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -11196,6 +11192,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bug-ID / &Issue-Nr:"
+#~ msgstr "Bug-&ID / Issue-Nr:"
+#~ msgid "Dialog"
+#~ msgstr "Länge der Logmeldungen"
 #~ msgid "&Save..."
 #~ msgstr "&Speichern..."
 #~ msgid "Show overlay for ignored items"
