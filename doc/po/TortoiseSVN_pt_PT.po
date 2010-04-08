@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-08 07:29 +0000\n"
-"PO-Revision-Date: 2010-04-08 23:12-0000\n"
+"PO-Revision-Date: 2010-04-09 00:20-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9062,7 +9062,7 @@ msgstr ""
 
 #. (title)
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Preferências Avançadas"
 
 #. (primary)
 msgid "registry"
@@ -9070,11 +9070,11 @@ msgstr ""
 
 #. (para)
 msgid "A few infrequently used settings are available only in the advanced page of the settings dialog. These settings modify the registry directly and you have to know what each of these settings is used for and what it does. Do not modify these settings unless you are sure you need to change them."
-msgstr ""
+msgstr "Algumas preferências raramente usadas estão só disponíveis na página avançada da caixa de diálogo de preferências. Essas preferências modificam directamente o registo, e tens de saber para o que cada uma dessas preferências é usada, e o que isso implica. Não modifiques essas preferências a não ser que tenhas a certeza que necessitas realmente de as alterar."
 
 #. (para)
 msgid "You can specify a different location for the Subversion configuration file here. This will affect all TortoiseSVN operations."
-msgstr ""
+msgstr "Tu podes especificar aqui uma localização diferente para o teu ficheiro de configuração do Subversion. Isto irá afectar todas as operações do TortoiseSVN."
 
 #. (para)
 msgid "Set this to <literal>true</literal> if you want a dialog to pop up for every command showing the command line used to start TortoiseProc.exe"
@@ -9082,11 +9082,11 @@ msgstr ""
 
 #. (para)
 msgid "To add a cache tray icon for the TSVNCache program, set this value to <literal>true</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
-msgstr ""
+msgstr "Para adicionar um ícone de bandeja de cache para o programa TSVNCache, fixa este valor a <literal>true</literal>. Isto só é realmente útil aos programadores já que permite terminar o programa graciosamente."
 
 #. (para)
 msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying incorrectly. Set this value to <literal>false</literal> if you don't want TortoiseSVN to show icons for the shell context menu items. Set this value to <literal>true</literal> to show the icons again."
-msgstr ""
+msgstr "Isto pode ser útil se usares algo mais antigo que o explorador do Windows, ou se tiveres problemas com a visualização incorrecta do menu de contexto. Fxa este valor a <literal>false</literal> se não queres que o TortoiseSVN mostre ícones para os itens do menu de contexto da shell. Fixa este valor a <literal>true</literal> para mostrar os ícones outra vez."
 
 #. (para)
 msgid "If you don't want TortoiseSVN to show icons for the context menus in its own dialogs, set this value to <literal>false</literal>."
@@ -9114,15 +9114,15 @@ msgstr ""
 
 #. (para)
 msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then set this value to <literal>true</literal>."
-msgstr ""
+msgstr "Se não queres que o explorador actualize o estado das sobreposições enquanto outro comando do TortoiseSVN está a correr (e.g. Actualizar, Submeter, ...) e fixa este valor a <literal>true</literal>."
 
 #. (para)
 msgid "This value contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
-msgstr ""
+msgstr "Este valor contém o URL a partir do qual o TortoiseSVN tenta descarregar um ficheiro de texto, para tentar descobrir se existem actualizações disponíveis. Isto poderá ser útil a administradores de empresas, que não quererão que os seus utilizadores actualizem o TortoiseSVN sem a sua autorização."
 
 #. (para)
 msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, set this value to <literal>true</literal>. Note that the extra columns are only available in XP. Vista and later doesn't support that feature any more."
-msgstr ""
+msgstr "As colunas extra que o TortoiseSVN adiciona, à vista de detalhes no Explorador do Windows, só estão normalmente activas na cópia de trabalho. Se queres que essas estejam também acessíveis em todo o lado, e não apenas na cópia de trabalho, fixa este valor a <literal>true</literal>. Ter em conta que as colunas extra só estão disponíveis no XP. O Vista e superiores já não suportam esta funcionalidade."
 
 #. (para)
 msgid "If an update adds a new file from the repository which already exists in the local working copy as an unversioned file, the default action is to keep the local file, showing it as a (possibly) modified version of the new file from the repository. If you would prefer TortoiseSVN to create a conflict in such situations, set this value to <literal>false</literal>."
@@ -9138,15 +9138,15 @@ msgstr ""
 
 #. (para)
 msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, set this value to <literal>true</literal>."
-msgstr ""
+msgstr "A lista de preenchimento automático, do editor de mensagem de submissão, mostra os nomes dos ficheiros listados para submissão. Para também incluir esses nomes com extensões removidas, fica este valor a <literal>true</literal>."
 
 #. (para)
 msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can set this to a value containing a separator string of your choice."
-msgstr ""
+msgstr "Quando tu integras revisões de outro ramo, e a informação de seguimento de integração está disponível, as mensagens de registo das revisões que integras serão colhidas de modo a construir uma mensagem de registo de submissão. A cadeia de caracteres pré-definida é usada para separar mensagens de registo individuais das revisões integradas. Se preferires, podes fixar isto a um valor que contenha uma cadeia de caracteres de separação da tua escolha."
 
 #. (para)
 msgid "TortoiseSVN allows you to assign an external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, set this value to <literal>true</literal>."
-msgstr ""
+msgstr "O TortoiseSVN permite-te atribuir um visualizador de comparações externo. No entanto, a maior parte desses visualizadores não são adequados para modificar responsabilidades (<xref linkend=\"tsvn-dug-blame-diffs\"/>), pelo que tu poderás desejar voltar neste caso ao TortoiseMerge. Para o fazer, fixa este valor a <literal>true</literal>."
 
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
