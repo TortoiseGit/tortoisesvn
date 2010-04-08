@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-08 07:29 +0000\n"
-"PO-Revision-Date: 2010-04-09 00:20-0000\n"
+"PO-Revision-Date: 2010-04-09 00:38-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9034,7 +9034,7 @@ msgstr "Define quantos espaços deverão ser usados na expansão, quando um cara
 
 #. (title)
 msgid "Subversion Working Folders"
-msgstr ""
+msgstr "Pastas de Trabalho do Subversion"
 
 #. (primary)
 msgid ".svn folder"
@@ -9046,19 +9046,19 @@ msgstr ""
 
 #. (para)
 msgid "VS.NET 2003 when used with web projects can't handle the <literal>.svn</literal> folders that Subversion uses to store its internal information. This is not a bug in Subversion. The bug is in VS.NET 2003 and the frontpage extensions it uses."
-msgstr ""
+msgstr "O VS.NET 2003 quando usado com projectos web não consegue lidar com as pastas  <literal>.svn</literal> que o Subversion usa para armazenar a sua informação interna. Isto não é um bug do Subversion. O bug é do VS.NET 2003 e das extensões frontpage que ele usa."
 
 #. (para)
 msgid "Note that the bug is fixed in VS2005 and later versions."
-msgstr ""
+msgstr "Ter em atenção que o bug está reparado no VS2005 e posteriores versões."
 
 #. (para)
 msgid "As of Version 1.3.0 of Subversion and TortoiseSVN, you can set the environment variable <literal>SVN_ASP_DOT_NET_HACK</literal>. If that variable is set, then Subversion will use <literal>_svn</literal> folders instead of <literal>.svn</literal> folders. You must restart your shell for that environment variable to take effect. Normally that means rebooting your PC. To make this easier, you can now do this from the general settings page using a simple checkbox - refer to <xref linkend=\"tsvn-dug-settings-main\"/>."
-msgstr ""
+msgstr "A partir da versão 1.3.0 do Subversion e TortoiseSVN, tu podes configurar a variável de ambiente <literal>SVN_ASP_DOT_NET_HACK</literal>. Se essa variável estiver configurada, o Subversion irá usar as pastas <literal>_svn</literal> em vez das <literal>.svn</literal>. Tu terás de reiniciar a tua shell para que essa variável de ambiente tome efeito. Normalmente isso significa reiniciar o PC. Para tornar isto mais fácil, tu podes fazer isto agora a partir da página de preferências gerais, usando uma simples caixa de verificação - consulta <xref linkend=\"tsvn-dug-settings-main\"/>."
 
 #. (para)
 msgid "For more information, and other ways to avoid this problem in the first place, check out the article about this in our <ulink url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
-msgstr ""
+msgstr "Para mais informações, e outras formas de evitar este problema em primeiro lugar, verifica o artigo sobre este assunto nas nossas <ulink url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQs</citetitle></ulink>."
 
 #. (title)
 msgid "Advanced Settings"
