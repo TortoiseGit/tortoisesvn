@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-08 07:29 +0000\n"
-"PO-Revision-Date: 2010-04-09 22:59-0000\n"
+"PO-Revision-Date: 2010-04-09 23:47-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9293,7 +9293,7 @@ msgstr "Existem um número de opções que afectam a maneira como o SubWCRev fun
 
 #. (title)
 msgid "Keyword Substitution"
-msgstr ""
+msgstr "Substituição de Palavra-Chave"
 
 #. (entry)
 msgid "Keyword"
@@ -9301,7 +9301,7 @@ msgstr ""
 
 #. (entry)
 msgid "Replaced with the highest commit revision in the working copy."
-msgstr ""
+msgstr "Substituída pela mais alta revisão de submissão da cópia de trabalho."
 
 #. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
@@ -9313,7 +9313,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
-msgstr ""
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -9321,25 +9321,25 @@ msgstr ""
 
 #. (entry)
 msgid "Replaced with the commit date/time of the highest commit revision. By default, international format is used: <placeholder-1/>. Alternatively, you can specify a custom format which will be used with <placeholder-2/>, for example: <placeholder-3/>. For a list of available formatting characters, look at the <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
-msgstr ""
+msgstr "Substituída pela data/tempo de submissão da mais alta revisão submetida. Por defeito é usado o formato internacional: <placeholder-1/>. Em alternativa poderás especificar um formato personalizado que poderá ser usado com <placeholder-2/>, por exemplo: <placeholder-3/>. Para uma lista de caracteres de formatação disponíveis, consulta o <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
 
 #. (literal)
 #. (literal)
 #. (literal)
 msgid "$WCDATE$"
-msgstr ""
+msgstr "$WCDATE$"
 
 #. (entry)
 msgid "Replaced with the current system date/time. This can be used to indicate the build time. Time formatting can be used as described for <placeholder-1/>."
-msgstr ""
+msgstr "Substituída pela data/tempo corrente do sistema. Isto poderá ser usado para indicar a altura de construção. A formatação do tempo pode ser usada como descrita para o <placeholder-1/>."
 
 #. (entry)
 msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
-msgstr ""
+msgstr "Substituída pelo intervalo de revisões actualizada na cópia de trabalho. Se a cópia de trabalho está num estado inconsistente, isto poderá ser apenas uma revisão. Se a cópia de trabalho contem revisões misturadas, seja devido a estar desactualizada, ou devido a uma actualização para revisão deliberada, então o intervalo de revisões será mostrado no formato 100:200"
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
-msgstr ""
+msgstr "$WCMIXED?TText:FText$"
 
 #. (literal)
 #. (literal)
@@ -9347,7 +9347,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "TText"
-msgstr ""
+msgstr "TText"
 
 #. (literal)
 #. (literal)
@@ -9355,35 +9355,35 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "FText"
-msgstr ""
+msgstr "FText"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are mixed update revisions, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> é substituída por <placeholder-2/> se existem revisões de actualização misturadas, ou <placeholder-3/> se não for o caso."
 
 #. (literal)
 msgid "$WCMODS?TText:FText$"
-msgstr ""
+msgstr "$WCMODS?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are local modifications, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> é substituída por <placeholder-2/> se existem alterações locais, ou <placeholder-3/> se não for o caso."
 
 #. (entry)
 msgid "Replaced with the repository URL of the working copy path passed to SubWCRev."
-msgstr ""
+msgstr "Substituída pelo URL do repositório correspondente ao caminho da cópia de trabalho passada ao SubWCRev."
 
 #. (literal)
 msgid "$WCINSVN?TText:FText$"
-msgstr ""
+msgstr "$WCINSVN?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versioned, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> é substituída pelo <placeholder-2/> se a entrada é versionada, ou <placeholder-3/> se não o é."
 
 #. (literal)
 msgid "$WCNEEDSLOCK?TText:FText$"
-msgstr ""
+msgstr "$WCNEEDSLOCK?TText:FText$"
 
 #. (literal)
 #. (literal)
@@ -9392,35 +9392,35 @@ msgstr ""
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
-msgstr ""
+msgstr "<placeholder-1/> é substituída por <placeholder-2/> se a entrada tiver a propriedade <placeholder-3/> configurada, ou por <placeholder-4/> se não for o caso."
 
 #. (literal)
 msgid "$WCISLOCKED?TText:FText$"
-msgstr ""
+msgstr "$WCISLOCKED?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is locked, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> é substituída por <placeholder-2/> se a entrada estiver bloqueada, ou por <placeholder-3/> se não o estiver."
 
 #. (entry)
 msgid "Replaced with the lock date. Time formatting can be used as described for <placeholder-1/>."
-msgstr ""
+msgstr "Substituída pela data de bloqueio. A formatação do tempo poderá ser usada de acordo com o descrito para o <placeholder-1/>."
 
 #. (entry)
 msgid "Replaced with the name of the lock owner."
-msgstr ""
+msgstr "Substituída pelo nome do autor do bloqueio."
 
 #. (entry)
 msgid "Replaced with the comment of the lock."
-msgstr ""
+msgstr "Substituída pelo comentário do bloqueio."
 
 #. (para)
 msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <placeholder-1/>"
-msgstr ""
+msgstr "Se forem fornecidos os ficheiros de origem e destino, o SubWCRev copia da fonte para o destino, efectuando a substituição de palavras-chave da seguinte forma: <placeholder-1/>"
 
 #. (para)
 msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
-msgstr ""
+msgstr "Algumas dessas palavras-chave só se aplicam a só um ficheiro, em vez de a toda a cópia de trabalho, pelo que só fará sentido usá-los quando o SubWCRev for chamado a examinar um único ficheiro. Isto aplica-se ao <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> e <literal>$WCLOCKCOMMENT$</literal>."
 
 #. (title)
 msgid "Keyword Example"
