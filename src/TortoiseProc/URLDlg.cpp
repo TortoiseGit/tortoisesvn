@@ -53,8 +53,6 @@ BOOL CURLDlg::OnInitDialog()
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
-	m_URLCombo.SetCurSel(0);
-	m_URLCombo.SetFocus();
 
 	RECT rect;
 	GetWindowRect(&rect);
@@ -64,6 +62,14 @@ BOOL CURLDlg::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("URLDlg"));
+
+	// Now, after the combo size might have changed, select the proper string and
+	// put focus into it so that if the text was too wide to be displayed with
+	// the original size but it fits into the restored size it is no longer scrolled
+	// in the edit box of the combo.
+	m_URLCombo.SetCurSel(0);
+	m_URLCombo.SetFocus();
+
 	return FALSE;
 }
 
