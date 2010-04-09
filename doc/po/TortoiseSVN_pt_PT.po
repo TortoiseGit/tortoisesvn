@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-08 07:29 +0000\n"
-"PO-Revision-Date: 2010-04-09 00:53-0000\n"
+"PO-Revision-Date: 2010-04-09 22:59-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9174,7 +9174,7 @@ msgstr "Enquanto trabalhamos no TortoiseSVN adoramos ouvir música. E visto que 
 
 #. (title)
 msgid "The SubWCRev Program"
-msgstr ""
+msgstr "O Programa SubWCRev"
 
 #. (primary)
 msgid "version extraction"
@@ -9195,15 +9195,15 @@ msgstr ""
 
 #. (para)
 msgid "SubWCRev is Windows console program which can be used to read the status of a Subversion working copy and optionally perform keyword substitution in a template file. This is often used as part of the build process as a means of incorporating working copy information into the object you are building. Typically it might be used to include the revision number in an <quote>About</quote> box."
-msgstr ""
+msgstr "O SubWCRev é um programa de consola do Windows que pode ser usado para ler o estado da cópia de trabalho do Subversion, e opcionalmente executar substituição de palavras-chave num ficheiro template. Isto é frequentemente usado como parte do processo de construção, como meio de incorporar informação da cópia de trabalho no objecto que estás a construir. Poderá ser usado tipicamente para incluir o número de revisão numa caixa <quote>Sobre</quote>."
 
 #. (title)
 msgid "The SubWCRev Command Line"
-msgstr ""
+msgstr "A Linha de Comando SubWCRev"
 
 #. (para)
 msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
-msgstr ""
+msgstr "O SubWCRev, por defeito, lê o estado Subversion de todos os ficheiros numa cópia de trabalho, incluindo os externos. Ele grava o número da mais alta revisão submetida que foi encontrada e a marca temporal dessa revisão, também grava se existem alterações locais na cópia de trabalho ou misturadas, revisões actualizadas."
 
 #. (para)
 msgid ""
@@ -9211,26 +9211,29 @@ msgid ""
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
 "</screen>"
 msgstr ""
+"O SubWCRev.exe é chamado a partir da linha de comando ou de um script e, é configurado através de parâmetros na linha de comandos. <screen>\n"
+"SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
+"</screen>"
 
 #. (para)
 msgid "<literal>WorkingCopyPath</literal> is the path to the working copy being checked. You can only use SubWCRev on working copies, not directly on the repository. The path may be absolute or relative to the current working directory."
-msgstr ""
+msgstr "O <literal>WorkingCopyPath</literal> representa o caminho para a cópia de trabalho a ser verificada. Tu só podes usar o SubWCRev em cópias de trabalho e não directamente no repositório. O caminho pode ser absoluto ou relativo à pasta da cópia de trabalho corrente."
 
 #. (para)
 msgid "If you want SubWCRev to perform keyword substitution, so that fields like repository revision and URL are saved to a text file, you need to supply a template file <literal>SrcVersionFile</literal> and an output file <literal>DstVersionFile</literal> which contains the substituted version of the template."
-msgstr ""
+msgstr "Se queres que o SubWCRev execute substituição de palavras-chave, para que campos como a revisão do repositório e URL sejam gravados num ficheiro de texto, irás necessitar de fornecer um ficheiro template <literal>SrcVersionFile</literal> e um ficheiro de destino  <literal>DstVersionFile</literal> que contém a versão substituída do template."
 
 #. (title)
 #. (title)
 msgid "List of available command line switches"
-msgstr ""
+msgstr "Lista de opções de linha de comando disponíveis"
 
 #. (entry)
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Switch"
-msgstr ""
+msgstr "Opção"
 
 #. (entry)
 #. (entry)
@@ -9238,35 +9241,35 @@ msgstr ""
 #. (entry)
 #. (entry)
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #. (literal)
 msgid "ERRORLEVEL 7"
-msgstr ""
+msgstr "ERRORLEVEL 7"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
-msgstr ""
+msgstr "Se é usada esta opção o SubWCRev irá sair com <placeholder-1/> se a cópia de trabalho contiver alterações locais. Isto pode ser usado para evitar construir com alterações não submetidas presentes."
 
 #. (literal)
 msgid "ERRORLEVEL 8"
-msgstr ""
+msgstr "ERRORLEVEL 8"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
-msgstr ""
+msgstr "Se esta opção for usada o SubWCRev irá sair com <placeholder-1/> se a cópia de trabalho contiver revisões misturadas. Isto pode ser útil para evitar construir com uma cópia de trabalho parcialmente actualizada."
 
 #. (literal)
 msgid "ERRORLEVEL 9"
-msgstr ""
+msgstr "ERRORLEVEL 9"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the destination file already exists."
-msgstr ""
+msgstr "Se esta opção for usada o SubWCRev irá sair com <placeholder-1/> se o ficheiro de destino já existe."
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
-msgstr ""
+msgstr "Se esta opção for usada o SubWCRev irá incluir a última revisão alterada de pastas. O comportamento por defeito será usar só ficheiros quando a obter os números de revisão."
 
 #. (literal)
 msgid "svn:externals"
@@ -9274,19 +9277,19 @@ msgstr ""
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with <placeholder-1/>, but only if they are from the same repository. The default behaviour is to ignore externals."
-msgstr ""
+msgstr "Se esta opção for usada o SubWCRev irá examinar as pastas que estão incluídas com <placeholder-1/>, mas só se elas forem do mesmo repositório. O comportamento por defeito é ignorar os externos."
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will output the revision numbers in HEX."
-msgstr ""
+msgstr "Se esta opção for usada o SubWCRev irá produzir os números de revisão em HEX."
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will output the revision numbers in HEX, with '0X' prepended."
-msgstr ""
+msgstr "Se esta opção for usada o SubWCRev irá produzir os números de revisão em HEX, com o prefixo '0X' "
 
 #. (para)
 msgid "There are a number of optional switches which affect the way SubWCRev works. If you use more than one, they must be specified as a single group, eg. <literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
-msgstr ""
+msgstr "Existem um número de opções que afectam a maneira como o SubWCRev funciona. Se usares mais do que um, eles devem ser especificados como um único grupo, e.g. teral>-nm</literal>, e não <literal>-n -m</literal>. <placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"
