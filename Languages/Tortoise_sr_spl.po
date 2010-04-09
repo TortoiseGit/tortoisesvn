@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-06 19:15+0100\n"
+"PO-Revision-Date: 2010-04-09 20:26+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -407,6 +407,10 @@ msgstr "&Plavi stil"
 msgid "&Blue:"
 msgstr "&Plavi"
 
+#. Resource IDs: (65535)
+msgid "&Border:"
+msgstr "&Granica"
+
 #. Resource IDs: (1568)
 msgid "&Bottom"
 msgstr "&Dno"
@@ -604,6 +608,10 @@ msgstr "&Imenici"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Uglavljivanje"
+
+#. Resource IDs: (32851)
+msgid "&EOL"
+msgstr "&EOL"
 
 #
 #. Resource IDs: (1031, 65535)
@@ -837,6 +845,10 @@ msgstr "&Spoji sa pod-stablom"
 msgid "&Jump to first difference when loading"
 msgstr "&Skoči na prvu razliku pri učitavanju"
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr "&Ključnereči"
+
 #
 #. Resource IDs: (65535)
 msgid "&Language:"
@@ -853,9 +865,18 @@ msgid "&Limit search to modified lines"
 msgstr "&Ograničeno traženje u izmenjenim linijama"
 
 #
+#. Resource IDs: (65535)
+msgid "&Limit:"
+msgstr "&Granica:"
+
+#
 #. Resource IDs: (32797)
 msgid "&Link image positions"
 msgstr "&Spoji pozicije slike"
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
+msgstr "&Linuks(LF)"
 
 #
 #. Resource IDs: (1172)
@@ -871,10 +892,18 @@ msgstr "&Napuni..."
 msgid "&Locking required (read-only update)"
 msgstr "&Zaključavanje potrebno (samo za čitanje ažuriranje)"
 
+#. Resource IDs: (32854)
+msgid "&Log Sizes"
+msgstr "Ve&ličine dnevnika"
+
 #
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lum"
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
+msgstr "&Mak(CR)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1027,10 +1056,18 @@ msgstr "&Lozinka"
 msgid "&Paste"
 msgstr "&Nalepi"
 
+#. Resource IDs: (1600)
+msgid "&Peg revision:"
+msgstr "&Vezana revizija"
+
 #
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "&Stalno isključen"
+
+#. Resource IDs: (1588)
+msgid "&Platform dependent (native)"
+msgstr "Zavisan od &platforme (priridni)"
 
 #
 #. Resource IDs: (1414)
@@ -1186,10 +1223,9 @@ msgstr "&Sačuvaj graf kao..."
 msgid "&Save list of selected files to..."
 msgstr "&Sačuvaj list izabranih fajlova u..."
 
-#
 #. Resource IDs: (1308)
-msgid "&Save..."
-msgstr "&Sačuvaj..."
+msgid "&Save value..."
+msgstr "&Sačuvaj vrednost..."
 
 #
 #. Resource IDs: (9)
@@ -1431,6 +1467,11 @@ msgstr "&Razmaci"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Cela reč"
+
+#
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
+msgstr "&Vindous (CRLF)"
 
 #
 #. Resource IDs: (32846)
@@ -2074,6 +2115,10 @@ msgstr "Jeste li sigurni da želite vratiti na staro %d stavku(i)? Izgubićete <
 msgid "Arrange &Vertical"
 msgstr "Uredi &uspravno"
 
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr "Kao što &je (nemaspecifičnog EOL)"
+
 #. Resource IDs: (199)
 msgid "Ask the user"
 msgstr "Pitaj korisnika"
@@ -2275,10 +2320,6 @@ msgstr "&ID baga / Br. spornog pitanja:"
 msgid "Bug-ID"
 msgstr "ID baga"
 
-#. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
-msgstr "ID baga / &Br. spornog pitanja:"
-
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
 msgstr "Bag-ID i&zraz"
@@ -2468,6 +2509,10 @@ msgstr "Izmenjeno (dvostruki klik na fajl za razl):"
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
 msgstr "Izmena eksternala prema fiksnoj reviziji"
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
+msgstr "Položaj karaktera gde prikazati granične linije u tekst boksu urezivanja:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3765,6 +3810,10 @@ msgstr "Uredi"
 msgid "Edit Button Image"
 msgstr "Uredi sliku dugmeta"
 
+#. Resource IDs: (319)
+msgid "Edit External"
+msgstr "Uredi spoljašnji"
+
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "Uredi osobina"
@@ -4020,6 +4069,10 @@ msgid ""
 msgstr ""
 "Greška prilikom čitanja/zapisivanja u ključ registra %1!s!\n"
 "%2!s!"
+
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
+msgstr "&Spoljašnji"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -4652,6 +4705,10 @@ msgstr "GLAVNI čvor"
 msgid "Head revision is %s"
 msgstr "Glavna revizija je %s"
 
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr "Zaglavlje"
+
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "Pomoć"
@@ -4752,6 +4809,10 @@ msgstr "U&ključi putanje:"
 #. Resource IDs: (1580)
 msgid "IBugTraqProvider"
 msgstr "IBagTrakDobavljač"
+
+#. Resource IDs: (1592)
+msgid "ID"
+msgstr "ID"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -5449,6 +5510,14 @@ msgid "Keys"
 msgstr "Tasteri"
 
 #. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr "Gran&ica:"
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr "L&okalna putanja:"
+
+#. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "Poslednja urezana rev.:"
 
@@ -5889,8 +5958,8 @@ msgid "Message &pattern:"
 msgstr "&Model poruke:"
 
 #. Resource IDs: (1579)
-msgid "Message part expr&ession:"
-msgstr "I&zraz dela poruke"
+msgid "Message part &expression:"
+msgstr "Izraz d&ela poruke:"
 
 #. Resource IDs: (1241)
 msgid "Message:"
@@ -5919,6 +5988,14 @@ msgstr "Moj"
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
 msgstr "Minimizirati traku"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr "Minimalni broj karktera poruke urezivanja:"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
+msgstr "Minimalni broj karktera za poruku zaključavanja:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -8275,6 +8352,10 @@ msgstr "Veličina i status"
 msgid "Size of all cached text information"
 msgstr "Veličina svih tekst informacija u kešu"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "Veličina dnevnika poruke"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "Veličina keš na disku"
@@ -8315,6 +8396,10 @@ msgstr "Određuje koliko poruka želite držati u priručnoj memoriji nedavno up
 msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
 msgstr "Odredi kako će poruka urezivanja biti izgrađena od unetog bag-ID. Koristite držač  %BUGID% za stvarni bag-ID.Ako ostavite ovo podešavanje prazno, TortoiseSVN će koristiti regularni izraz umesto toga."
 
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "Određuje URL da pristupite problem tragaču. Koristite %BUGID% držač za stvarni problem broj."
+
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
@@ -8324,10 +8409,6 @@ msgstr ""
 "Odredite fajlove ili imenike koje bi TortoiseSVN\r\n"
 "trebalo da izostavi iz <b>svih</b> radnih kopija.\r\n"
 "Modele rastavite razmakom."
-
-#. Resource IDs: (1305)
-msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
-msgstr "Odredi tu URL da pristupite problem tragaču. Koristite %BUGID% držač za stvarni problem broj."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -10938,6 +11019,10 @@ msgstr "traži putanju:"
 msgid "skip ranges: "
 msgstr "preskoči raspone:"
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr "svn:eol-stil"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
@@ -10959,6 +11044,10 @@ msgstr ""
 "svn:executable\r\n"
 "Ukoliko je prisutno, označava izvršni fajl. Ovo svojstvo se ne može postaviti za imenik.\r\n"
 "Ne-rekurzivni pokušaj biće neuspešan, rekurzivni pokušaj će postaviti svojstvo samo na fajlove potomke imenika."
+
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr "svn:spoljašnji"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10995,6 +11084,10 @@ msgid ""
 msgstr ""
 "svn:ignore\r\n"
 "Lista fajl oznaka izdvojena sa novired za zanemarivanje ."
+
+#. Resource IDs: (317)
+msgid "svn:keywords"
+msgstr "svn:ključnareč"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11285,9 +11378,4 @@ msgstr "da"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
-
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "Прикажи покривач за занемарене фајлови"
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "Прикажи покривач за фајлови без верзија"
 
