@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-08 07:29 +0000\n"
-"PO-Revision-Date: 2010-04-09 23:47-0000\n"
+"PO-Revision-Date: 2010-04-10 00:04-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9420,15 +9420,15 @@ msgstr "Se forem fornecidos os ficheiros de origem e destino, o SubWCRev copia d
 
 #. (para)
 msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
-msgstr "Algumas dessas palavras-chave só se aplicam a só um ficheiro, em vez de a toda a cópia de trabalho, pelo que só fará sentido usá-los quando o SubWCRev for chamado a examinar um único ficheiro. Isto aplica-se ao <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> e <literal>$WCLOCKCOMMENT$</literal>."
+msgstr "Algumas dessas palavras-chave só se aplicam a um único ficheiro, em vez de a toda a cópia de trabalho, pelo que só fará sentido usá-los quando o SubWCRev for chamado a examinar um único ficheiro. Isto aplica-se ao <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> e <literal>$WCLOCKCOMMENT$</literal>."
 
 #. (title)
 msgid "Keyword Example"
-msgstr ""
+msgstr "Exemplo de Palavra-Chave"
 
 #. (para)
 msgid "The example below shows how keywords in a template file are substituted in the output file."
-msgstr ""
+msgstr "O exemplo abaixo mostra como palavras-chave num ficheiro template são substituídas no ficheiro de saída."
 
 #. (programlisting)
 #, no-wrap
@@ -9449,10 +9449,25 @@ msgid ""
 "\n"
 "// End of file\n"
 msgstr ""
+"\n"
+"// Ficheiro de teste para o SubWCRev: testfile.tmpl\n"
+"\n"
+"char *Revision = \"$WCREV$\";\n"
+"char *Modified = \"$WCMODS?Modificado:Não modificado$\";\n"
+"char *Date     = \"$WCDATE$\";\n"
+"char *Range    = \"$WCRANGE$\";\n"
+"char *Mixed    = \"$WCMIXED?Revisão misturada CT:Não misturada$\";\n"
+"char *URL      = \"$WCURL$\";\n"
+"\n"
+"#if $WCMODS?1:0$\n"
+"#error A fonte está modificada\n"
+"#endif\n"
+"\n"
+"// Fim de ficheiro\n"
 
 #. (para)
 msgid "After running <literal>SubWCRev.exe path\\to\\workingcopy testfile.tmpl testfile.txt</literal>, the output file <literal>testfile.txt</literal> would looks like this:"
-msgstr ""
+msgstr "Depois de correr o <literal>SubWCRev.exe path\\to\\workingcopy testfile.tmpl testfile.txt</literal>, o ficheiro de saída <literal>testfile.txt</literal> irá ficar assim:"
 
 #. (programlisting)
 #, no-wrap
@@ -9473,10 +9488,25 @@ msgid ""
 "\n"
 "// End of file\n"
 msgstr ""
+"\n"
+"// Ficheiro de teste para o SubWCRev: testfile.txt\n"
+"\n"
+"char *Revision = \"3701\";\n"
+"char *Modified = \"Modificado\";\n"
+"char *Date     = \"2005/06/15 11:15:12\";\n"
+"char *Range    = \"3699:3701\";\n"
+"char *Mixed    = \"Revisão misturada CT\";\n"
+"char *URL      = \"http://project.domain.org/svn/trunk/src\";\n"
+"\n"
+"#if 1\n"
+"#error A fonte está modificada\n"
+"#endif\n"
+"\n"
+"//Fim de ficheiro\n"
 
 #. (para)
 msgid "A file like this will be included in the build so you would expect it to be versioned. Be sure to version the template file, not the generated file, otherwise each time you regenerate the version file you need to commit the change, which in turn means the version file needs to be updated."
-msgstr ""
+msgstr "Um ficheiro como este será incluído na construção, pelo que tu esperas que ele esteja sob controlo de versões. Tem a certeza de versionares o ficheiro template e não o gerado, de outra maneira de cada vez que regenerares o ficheiro de versão, terás de submeter a alteração o que por sua vez significa que o ficheiro de versão necessita então de ser actualizado."
 
 #. (title)
 msgid "COM interface"
