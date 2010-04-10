@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-10 23:16-0000\n"
+"PO-Revision-Date: 2010-04-11 00:04-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9912,7 +9912,7 @@ msgstr ""
 
 #. (title)
 msgid "IBugtraqProvider interface"
-msgstr "Interface do IBugtraqProvider2"
+msgstr "Interface IBugtraqProvider"
 
 #. (primary)
 msgid "plugin"
@@ -9924,11 +9924,11 @@ msgstr "IBugtraqProvider"
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr ""
+msgstr "Para obter uma integração mais intima com os seguidores de problemas, do que usar simplesmente as propriedades <literal>bugtraq:</literal>, o TortoiseSVN pode fazer uso de plugins COM. Com tais plugins é possível adquirir informação directamente do seguidor de problemas, interagir com o utilizador e providenciar informação de volta ao TortoiseSVN sobre problemas abertos, verificar mensagens de registo introduzidas pelo utilizador, ou mesmo correr acções, após uma submissão com sucesso, para e.g. fechar um problema."
 
 #. (para)
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
+msgstr "Nós não podemos fornecer informação e tutoriais em como implementar um objecto COM na tua linguagem de programação preferida, mas temos exemplos de plugins em C++/ATL e C#, no nosso repositório na pasta  <filename>contrib/issue-tracker-plugins</filename>. Nessa pasta poderás também encontrar requeridos ficheiros de include que necessitas para construir o teu plugin. . (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório)."
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
@@ -9940,7 +9940,7 @@ msgstr "O interface do IBugtraqProvider"
 
 #. (para)
 msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr ""
+msgstr "O TortoiseSVN 1.5 e superior pode usar os plugins que implementam a interface IBugtraqProvider. A interface providencia alguns métodos que os plugins podem usar para interagir com o seguidor de problemas."
 
 #. (programlisting)
 #, no-wrap
@@ -9958,10 +9958,22 @@ msgid ""
 "  [out, retval] VARIANT_BOOL *valid\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT ValidateParameters (\n"
+" // Janela Pai para cada UI que necessita de ser\n"
+" // mostrada durante a validação.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+" // O parametro de string que necessita de ser validada. \n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // A string é valida?\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
 
 #. (para)
 msgid "This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr ""
+msgstr "Este método é chamado a partir da caixa de diálogo preferências, onde o utilizador pode adicionar e configurar o plugin. A string <literal>parameters</literal>pode ser usada pelo plugin para obter informação adicional requerida, e.g., o URL para o seguidor de problemas, informação de login, etc. O plugin deverá verificar a string <literal>parameters</literal> e mostrar uma mensagem de erro se a string não é valida. O parâmetro  <literal>hParentWnd</literal> deverá ser usado por qualquer caixa de diálogo que o plugin mostre, como a janela pai. O plugin deverá retornar TRUE se a validação da string <literal>parameters</literal> for efectuada com sucesso. Se o plugin retornar FALSE, a janela de preferências não permitirá ao utilizador adicionar o plugin ao caminho da cópia de trabalho."
 
 #. (programlisting)
 #, no-wrap
@@ -9980,10 +9992,23 @@ msgid ""
 "  [out, retval] BSTR *linkText\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // Janela pai para qualquer (erro) de UI que necessite de ser mostrado.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // O parametro string, para o caso de necessitares de falar com o teu\n"
+"  // web service (e.g.) para descobrires qual é o texto correcto.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // Que texto queres mostrar?\n"
+"  // Use the current thread locale.\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
 
 #. (para)
 msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr ""
+msgstr "O plugin pode providenciar aqui uma string, que é usada pela caixa de diálogo de submissão do TortoiseSVN, para o botão que invoca o plugin, e.g., \"Escolhe o problema\" ou \"Selecciona bilhete\". Tem a certeza que a string não é muito longa, de outro modo poderá não caber no botão. Se o método retornar um erro (e.g., <literal>E_NOTIMPL</literal>), o texto por defeito será usado para o botão."
 
 #. (programlisting)
 #, no-wrap
@@ -10008,10 +10033,29 @@ msgid ""
 "  [out, retval] BSTR *newMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetCommitMessage (\n"
+"  // Janela pai para o UI do teu fornecedor.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parâmetros para o teu fornecedor.\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // O texto já presente na mensagem de registo.\n"
+"  // O teu fornecedor deverá incluir este texto na nova mensagem,\n"
+"  // quando apropriado.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // O novo texto para a mensagem de registo.\n"
+"  // Isto substituirá a mensagem original.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
 
 #. (para)
 msgid "This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button."
-msgstr ""
+msgstr "Este é o método principal do plugin. Este método é chamado a partir da caixa de diálogo submeter do TortoiseSVN, quando o utilizador clica no botão do plugin."
 
 #. (para)
 msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
