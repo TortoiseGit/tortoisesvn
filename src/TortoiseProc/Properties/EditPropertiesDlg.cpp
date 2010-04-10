@@ -41,6 +41,7 @@
 #include "EditPropKeywords.h"
 #include "EditPropExternals.h"
 #include "EditPropTSVNSizes.h"
+#include "EditPropTSVNLang.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -407,6 +408,9 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
     case ID_NEW_LOGSIZES:
         EditProps(true, "tsvn:log", true);
         break;
+    case ID_NEW_LANGUAGES:
+        EditProps(true, "tsvn:lang", true);
+        break;
     case ID_NEW_ADVANCED:
     default:
         EditProps(false, "", true);
@@ -437,9 +441,14 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
     else if (sName.compare("svn:externals") == 0)
         dlg = new CEditPropExternals(this);
     else if ((sName.compare("tsvn:logminsize") == 0) ||
-             (sName.compare("tsvn:lockminsize") == 0) ||
-             (sName.compare("tsvn:logwidthmarker") == 0))
+        (sName.compare("tsvn:lockminsize") == 0) ||
+        (sName.compare("tsvn:logwidthmarker") == 0) ||
+        (sName.compare("tsvn:log") == 0))
         dlg = new CEditPropTSVNSizes(this);
+    else if ((sName.compare("tsvn:logfilelistenglish") == 0) ||
+        (sName.compare("tsvn:projectlanguage") == 0) ||
+        (sName.compare("tsvn:lang") == 0))
+        dlg = new CEditPropTSVNLang(this);
     else
         dlg = new CEditPropertyValueDlg(this);
 
