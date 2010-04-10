@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-04-08 07:29 +0000\n"
+"POT-Creation-Date: 2010-04-10 07:10 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -314,7 +314,7 @@ msgid "This <xref linkend=\"tsvn-preface\"/> explains what TortoiseSVN is, a lit
 msgstr ""
 
 #.(para)
-msgid "The <xref linkend=\"tsvn-introduction\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
+msgid "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
 msgstr ""
 
 #.(para)
@@ -391,8 +391,15 @@ msgstr ""
 
 #.(title)
 #.(title)
-#.(title)
-msgid "Introduction"
+msgid "Getting Started"
+msgstr ""
+
+#.(para)
+msgid "This section is aimed at people who would like to find out what TortoiseSVN is all about and give it a test drive. It explains how to install TortoiseSVN and set up a local repository, and it walks you through the most commonly used operations."
+msgstr ""
+
+#.(para)
+msgid "Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
 msgstr ""
 
 #.(title)
@@ -404,11 +411,11 @@ msgid "System requirements"
 msgstr ""
 
 #.(para)
-msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
+msgid "TortoiseSVN runs on Windows XP or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
 msgstr ""
 
 #.(para)
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
+msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
 msgstr ""
 
 #.(title)
@@ -420,11 +427,19 @@ msgid "install"
 msgstr ""
 
 #.(para)
-msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest."
+msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. Don't forget to reboot after installation."
 msgstr ""
 
 #.(para)
 msgid "You need Administrator privileges to install TortoiseSVN."
+msgstr ""
+
+#.(para)
+msgid "Language packs are available which translate the TortoiseSVN user interface into many different languages. Please check <xref linkend=\"tsvn-lang\"/> for more information on how to install these."
+msgstr ""
+
+#.(para)
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
 msgstr ""
 
 #.(title)
@@ -941,7 +956,7 @@ msgid "TortoiseSVN no longer offers the option to create BDB repositories, altho
 msgstr ""
 
 #.(para)
-msgid "Future versions of TortoiseSVN will not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file://</literal> protocol is created as FSFS."
+msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
 msgstr ""
 
 #.(para)
@@ -1068,7 +1083,7 @@ msgid "create your desired top-level folder structure inside that folder - don't
 msgstr ""
 
 #.(para)
-msgid "import this structure into the repository via a <action>right click</action> on the folder and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> This will import your temp folder into the repository root to create the basic repository layout."
+msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the url to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
 msgstr ""
 
 #.(para)
@@ -1221,6 +1236,11 @@ msgstr ""
 
 #.(title)
 msgid "Svnserve Based Server"
+msgstr ""
+
+#.(title)
+#.(title)
+msgid "Introduction"
 msgstr ""
 
 #.(para)
@@ -1938,10 +1958,6 @@ msgstr ""
 
 #.(para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
-msgstr ""
-
-#.(title)
-msgid "Getting Started"
 msgstr ""
 
 #.(title)

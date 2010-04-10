@@ -108,16 +108,13 @@ svnadmin create --fs-type fsfs MyNewRepository
 				issues between the different BDB versions.
 			</para>
 			<para>
-				Future versions of TortoiseSVN will not support
+				TortoiseSVN does not support
 				<literal>file://</literal> access to BDB repositories due to these
 				compatibility issues, although it will of course always support
 				this repository format when accessed via a server through the
 				<literal>svn://</literal>,
 				<literal>http://</literal> or
 				<literal>https://</literal> protocols.
-				For this reason, we strongly recommend that any new repository
-				which must be accessed using <literal>file://</literal>
-				protocol is created as FSFS.
 			</para>
 			<para>
 				Of course we also recommend that you don't use <literal>file://</literal>
@@ -309,12 +306,14 @@ svnadmin create --fs-type fsfs MyNewRepository
 				<listitem>
 					<para>
 						import this structure into the repository via a 
-						<action>right click</action> on the folder and
-						selecting
+						<action>right click</action> on the folder that contains
+						this folder structure and selecting
 						<menuchoice>
 							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Import...</guimenuitem>
 						</menuchoice>
+						In the import dialog enter the url to your repository
+						and click OK.
 						This will import your temp
 						folder into the repository root to create the basic
 						repository layout.
