@@ -70,11 +70,11 @@ BOOL CEditPropTSVNLang::OnInitDialog()
     DWORD projLang = 0;
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
-        if (it->first.compare("tsvn:logfilelistenglish") == 0)
+        if (it->first.compare(PROJECTPROPNAME_LOGFILELISTLANG) == 0)
         {
             m_bKeepEnglish = it->second.value.size() == 0;
         }
-        else if (it->first.compare("tsvn:projectlanguage") == 0)
+        else if (it->first.compare(PROJECTPROPNAME_PROJECTLANGUAGE) == 0)
         {
             projLang = atoi(it->second.value.c_str());
         }
@@ -105,11 +105,11 @@ void CEditPropTSVNLang::OnOK()
     sprintf_s(numBuf, _countof(numBuf), "%ld", m_langCombo.GetItemData(m_langCombo.GetCurSel()));
     pVal.value = numBuf;
     pVal.remove = (m_langCombo.GetItemData(m_langCombo.GetCurSel()) == 0);
-    newProps["tsvn:projectlanguage"] = pVal;
+    newProps[PROJECTPROPNAME_PROJECTLANGUAGE] = pVal;
 
     pVal.value = m_bKeepEnglish ? "" : "false";
     pVal.remove = !!m_bKeepEnglish;
-    newProps["tsvn:logfilelistenglish"] = pVal;
+    newProps[PROJECTPROPNAME_LOGFILELISTLANG] = pVal;
 
     m_bChanged = true;
     m_properties = newProps;

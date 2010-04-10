@@ -385,25 +385,25 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
     switch (m_btnNew.m_nMenuResult)
     {
     case ID_NEW_EXECUTABLE:
-        EditProps(true, "svn:executable", true);
+        EditProps(true, SVN_PROP_EXECUTABLE, true);
         break;
     case ID_NEW_NEEDSLOCK:
-        EditProps(true, "svn:needs-lock", true);
+        EditProps(true, SVN_PROP_NEEDS_LOCK, true);
         break;
     case ID_NEW_MIMETYPE:
-        EditProps(true, "svn:mime-type", true);
+        EditProps(true, SVN_PROP_MIME_TYPE, true);
         break;
     case ID_NEW_BUGTRAQ:
         EditProps(true, "bugtraq:", true);
         break;
     case ID_NEW_EOL:
-        EditProps(true, "svn:eol-style", true);
+        EditProps(true, SVN_PROP_EOL_STYLE, true);
         break;
     case ID_NEW_KEYWORDS:
-        EditProps(true, "svn:keywords", true);
+        EditProps(true, SVN_PROP_KEYWORDS, true);
         break;
     case ID_NEW_EXTERNALS:
-        EditProps(true, "svn:externals", true);
+        EditProps(true, SVN_PROP_EXTERNALS, true);
         break;
     case ID_NEW_LOGSIZES:
         EditProps(true, "tsvn:log", true);
@@ -426,27 +426,27 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
     }
 
     EditPropBase * dlg = NULL;
-    if (sName.compare("svn:executable") == 0)
+    if (sName.compare(SVN_PROP_EXECUTABLE) == 0)
         dlg = new CEditPropExecutable(this);
-    else if (sName.compare("svn:needs-lock") == 0)
+    else if (sName.compare(SVN_PROP_NEEDS_LOCK) == 0)
         dlg = new CEditPropNeedsLock(this);
-    else if (sName.compare("svn:mime-type") == 0)
+    else if (sName.compare(SVN_PROP_MIME_TYPE) == 0)
         dlg = new CEditPropMimeType(this);
     else if (sName.substr(0, 8).compare("bugtraq:") == 0)
         dlg = new CEditPropBugtraq(this);
-    else if (sName.compare("svn:eol-style") == 0)
+    else if (sName.compare(SVN_PROP_EOL_STYLE) == 0)
         dlg = new CEditPropEOL(this);
-    else if (sName.compare("svn:keywords") == 0)
+    else if (sName.compare(SVN_PROP_KEYWORDS) == 0)
         dlg = new CEditPropKeywords(this);
-    else if (sName.compare("svn:externals") == 0)
+    else if (sName.compare(SVN_PROP_EXTERNALS) == 0)
         dlg = new CEditPropExternals(this);
-    else if ((sName.compare("tsvn:logminsize") == 0) ||
-        (sName.compare("tsvn:lockminsize") == 0) ||
-        (sName.compare("tsvn:logwidthmarker") == 0) ||
+    else if ((sName.compare(PROJECTPROPNAME_LOGMINSIZE) == 0) ||
+        (sName.compare(PROJECTPROPNAME_LOCKMSGMINSIZE) == 0) ||
+        (sName.compare(PROJECTPROPNAME_LOGWIDTHLINE) == 0) ||
         (sName.compare("tsvn:log") == 0))
         dlg = new CEditPropTSVNSizes(this);
-    else if ((sName.compare("tsvn:logfilelistenglish") == 0) ||
-        (sName.compare("tsvn:projectlanguage") == 0) ||
+    else if ((sName.compare(PROJECTPROPNAME_LOGFILELISTLANG) == 0) ||
+        (sName.compare(PROJECTPROPNAME_PROJECTLANGUAGE) == 0) ||
         (sName.compare("tsvn:lang") == 0))
         dlg = new CEditPropTSVNLang(this);
     else

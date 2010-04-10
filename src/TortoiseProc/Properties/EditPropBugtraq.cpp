@@ -82,31 +82,31 @@ BOOL CEditPropBugtraq::OnInitDialog()
 
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
-        if (it->first.compare("bugtraq:url") == 0)
+        if (it->first.compare(BUGTRAQPROPNAME_URL) == 0)
         {
             m_sBugtraqUrl = UTF8ToWide(it->second.value).c_str();
         }
-        else if (it->first.compare("bugtraq:message") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_MESSAGE) == 0)
         {
             m_sBugtraqMessage = UTF8ToWide(it->second.value).c_str();
         }
-        else if (it->first.compare("bugtraq:label") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_LABEL) == 0)
         {
             m_sBugtraqLabel = UTF8ToWide(it->second.value).c_str();
         }
-        else if (it->first.compare("bugtraq:provideruuid") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERUUID) == 0)
         {
             m_sProviderUUID = UTF8ToWide(it->second.value).c_str();
         }
-        else if (it->first.compare("bugtraq:provideruuid64") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERUUID64) == 0)
         {
             m_sProviderUUID64 = UTF8ToWide(it->second.value).c_str();
         }
-        else if (it->first.compare("bugtraq:providerparams") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERPARAMS) == 0)
         {
             m_sProviderParams = UTF8ToWide(it->second.value).c_str();
         }
-        else if (it->first.compare("bugtraq:logregex") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_LOGREGEX) == 0)
         {
             CString sRegex = UTF8ToWide(it->second.value).c_str();
             int nl = sRegex.Find('\n');
@@ -118,18 +118,18 @@ BOOL CEditPropBugtraq::OnInitDialog()
             else
                 m_sBugtraqRegex1 = sRegex;
         }
-        else if (it->first.compare("bugtraq:warnifnoissue") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_WARNIFNOISSUE) == 0)
         {
             CString sYesNo = UTF8ToWide(it->second.value).c_str();
             m_bWarnIfNoIssue = ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)));
         }
-        else if (it->first.compare("bugtraq:append") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_APPEND) == 0)
         {
             CString sYesNo = UTF8ToWide(it->second.value).c_str();
             if ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)))
                 CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_BOTTOMRADIO);
         }
-        else if (it->first.compare("bugtraq:number") == 0)
+        else if (it->first.compare(BUGTRAQPROPNAME_NUMBER) == 0)
         {
             CString sYesNo = UTF8ToWide(it->second.value).c_str();
             if ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)))
@@ -224,7 +224,7 @@ void CEditPropBugtraq::OnOK()
     std::string propVal = WideToUTF8((LPCTSTR)m_sBugtraqUrl);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:url"] = pVal;
+    newProps[BUGTRAQPROPNAME_URL] = pVal;
 
     // bugtraq:warnifnoissue
     if (m_bWarnIfNoIssue)
@@ -232,33 +232,33 @@ void CEditPropBugtraq::OnOK()
     else
         pVal.value = "";
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:warnifnoissue"] = pVal;
+    newProps[BUGTRAQPROPNAME_WARNIFNOISSUE] = pVal;
 
     // bugtraq:message
     propVal = WideToUTF8((LPCTSTR)m_sBugtraqMessage);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:message"] = pVal;
+    newProps[BUGTRAQPROPNAME_MESSAGE] = pVal;
 
     // bugtraq:label
     propVal = WideToUTF8((LPCTSTR)m_sBugtraqLabel);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:label"] = pVal;
+    newProps[BUGTRAQPROPNAME_LABEL] = pVal;
 
     // bugtraq:number
     int checked = GetCheckedRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO);
     if (checked == IDC_NUMERICRADIO)
         pVal.value = "true";
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:number"] = pVal;
+    newProps[BUGTRAQPROPNAME_NUMBER] = pVal;
 
     // bugtraq:append
     checked = GetCheckedRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO);
     if (checked == IDC_BOTTOMRADIO)
         pVal.value = "true";
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:append"] = pVal;
+    newProps[BUGTRAQPROPNAME_APPEND] = pVal;
 
     // bugtraq:logregex
     CString sLogRegex = m_sBugtraqRegex2 + _T("\n") + m_sBugtraqRegex1;
@@ -267,25 +267,25 @@ void CEditPropBugtraq::OnOK()
     propVal = WideToUTF8((LPCTSTR)sLogRegex);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:logregex"] = pVal;
+    newProps[BUGTRAQPROPNAME_LOGREGEX] = pVal;
 
     // bugtraq:providerparams
     propVal = WideToUTF8((LPCTSTR)m_sProviderParams);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:providerparams"] = pVal;
+    newProps[BUGTRAQPROPNAME_PROVIDERPARAMS] = pVal;
 
     // bugtraq:provideruuid
     propVal = WideToUTF8((LPCTSTR)m_sProviderUUID);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:provideruuid"] = pVal;
+    newProps[BUGTRAQPROPNAME_PROVIDERUUID] = pVal;
 
     // bugtraq:provideruuid64
     propVal = WideToUTF8((LPCTSTR)m_sProviderUUID64);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
-    newProps["bugtraq:provideruuid64"] = pVal;
+    newProps[BUGTRAQPROPNAME_PROVIDERUUID64] = pVal;
 
     m_bChanged = true;
 

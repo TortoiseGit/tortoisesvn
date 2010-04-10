@@ -68,15 +68,15 @@ BOOL CEditPropTSVNSizes::OnInitDialog()
 
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
-        if (it->first.compare("tsvn:logminsize") == 0)
+        if (it->first.compare(PROJECTPROPNAME_LOGMINSIZE) == 0)
         {
             m_LogMinSize = atoi(it->second.value.c_str());
         }
-        else if (it->first.compare("tsvn:lockminsize") == 0)
+        else if (it->first.compare(PROJECTPROPNAME_LOCKMSGMINSIZE) == 0)
         {
             m_LockMinSize = atoi(it->second.value.c_str());
         }
-        else if (it->first.compare("tsvn:logwidthmarker") == 0)
+        else if (it->first.compare(PROJECTPROPNAME_LOGWIDTHLINE) == 0)
         {
             m_Border = atoi(it->second.value.c_str());
         }
@@ -98,17 +98,17 @@ void CEditPropTSVNSizes::OnOK()
     sprintf_s(numBuf, _countof(numBuf), "%ld", m_LogMinSize);
     pVal.value = numBuf;
     pVal.remove = (m_LogMinSize == 0);
-    newProps["tsvn:logminsize"] = pVal;
+    newProps[PROJECTPROPNAME_LOGMINSIZE] = pVal;
 
     sprintf_s(numBuf, _countof(numBuf), "%ld", m_LockMinSize);
     pVal.value = numBuf;
     pVal.remove = (m_LockMinSize == 0);
-    newProps["tsvn:lockminsize"] = pVal;
+    newProps[PROJECTPROPNAME_LOCKMSGMINSIZE] = pVal;
 
     sprintf_s(numBuf, _countof(numBuf), "%ld", m_Border);
     pVal.value = numBuf;
     pVal.remove = (m_Border == 0);
-    newProps["tsvn:logwidthmarker"] = pVal;
+    newProps[PROJECTPROPNAME_LOGWIDTHLINE] = pVal;
 
     m_bChanged = true;
     m_properties = newProps;
