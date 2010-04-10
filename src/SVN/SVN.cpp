@@ -1988,25 +1988,21 @@ bool SVN::IsRepository(const CTSVNPath& path)
 {
 	svn_error_clear(Err);
 	Err = NULL;
-	// The URL we get here is per definition properly encoded and escaped.
-	svn_repos_t* pRepos;
-	CString url = path.GetSVNPathString();
-	url += _T("/");
-	int pos = url.GetLength();
-	while ((pos = url.ReverseFind('/'))>=0)
-	{
-		url = url.Left(pos);
-		if (PathFileExists(url))
-		{
-			Err = svn_repos_open (&pRepos, CUnicodeUtils::GetUTF8(url), pool);
-			if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
-				return true;
-			if (Err == NULL)
-				return true;
-		}
-	}
+    SVNPool subPool(pool);
 
-	return false;
+	// The URL we get here is per definition properly encoded and escaped.
+    const char * rootPath = svn_repos_find_root_path(path.GetSVNApiPath(subPool), subPool);
+    if (rootPath)
+    {
+        svn_repos_t* pRepos = NULL;
+        Err = svn_repos_open (&pRepos, path.GetSVNApiPath(subPool), subPool);
+        if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
+            return true;
+        if (Err == NULL)
+            return true;
+    }
+
+    return false;
 }
 
 CString SVN::GetRepositoryRoot(const CTSVNPath& url)
