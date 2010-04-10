@@ -300,6 +300,15 @@ UINT CEditPropertiesDlg::PropsThread()
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	m_propList.SetRedraw(TRUE);
+    if (!PathIsDirectory(m_pathlist[0].GetWinPath()))
+    {
+        // properties for one or more files:
+        // remove the menu entries which are only useful for folders
+        RemoveMenu(m_btnNew.m_hMenu, ID_NEW_EXTERNALS, MF_BYCOMMAND);
+        RemoveMenu(m_btnNew.m_hMenu, ID_NEW_LOGSIZES, MF_BYCOMMAND);
+        RemoveMenu(m_btnNew.m_hMenu, ID_NEW_BUGTRAQ, MF_BYCOMMAND);
+        RemoveMenu(m_btnNew.m_hMenu, ID_NEW_LANGUAGES, MF_BYCOMMAND);
+    }
 	return 0;
 }
 
