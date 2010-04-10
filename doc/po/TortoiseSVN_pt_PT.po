@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-10 22:06-0000\n"
+"PO-Revision-Date: 2010-04-10 23:16-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9529,7 +9529,7 @@ msgstr "Um ficheiro como este será incluído na construção, pelo que tu esper
 
 #. (title)
 msgid "COM interface"
-msgstr ""
+msgstr "Interface COM"
 
 #. (primary)
 msgid "COM SubWCRev interface"
@@ -9537,11 +9537,11 @@ msgstr ""
 
 #. (title)
 msgid "COM/automation methods supported"
-msgstr ""
+msgstr "Métodos COM/automação suportados"
 
 #. (entry)
 msgid "Method"
-msgstr ""
+msgstr "Método"
 
 #. (literal)
 msgid "-f"
@@ -9553,7 +9553,7 @@ msgstr ""
 
 #. (entry)
 msgid "This method traverses the working copy gathering the revision information. Naturally you must call this before you can access the information using the remaining methods. The first parameter is the path. The second parameter should be true if you want to include folder revisions. Equivalent to the <placeholder-1/> command line switch. The third parameter should be true if you want to include svn:externals. Equivalent to the <placeholder-2/> command line switch."
-msgstr ""
+msgstr "Este método percorre a cópia de trabalho, reunindo a informação de revisão. Naturalmente, deverás chamar este método antes de poderes aceder à informação usando os restantes métodos. O primeiro parâmetro é o caminho. O segundo parâmetro deverá ser true se queres incluir as revisões das pastas. Equivalente à opção de linha de comando <placeholder-1/>. O terceiro parâmetro deverá ser true se queres incluir svn:externals. Equivalente à opção de linha de comando <placeholder-2/>."
 
 #. (literal)
 msgid "$WCREV$"
@@ -9561,15 +9561,15 @@ msgstr ""
 
 #. (entry)
 msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
-msgstr ""
+msgstr "A mais alta revisão de submissão na cópia de trabalho. Equivalente ao <placeholder-1/>"
 
 #. (entry)
 msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
-msgstr ""
+msgstr "A data/tempo de submissão da mais alta revisão de submissão. Equivalente ao <placeholder-1/>"
 
 #. (entry)
 msgid "The author of the highest commit revision, that is, the last person to commit changes to the working copy."
-msgstr ""
+msgstr "O autor da mais alta revisão de submissão, isto é, a última pessoa que submeteu alterações na cópia de trabalho."
 
 #. (literal)
 #. (literal)
@@ -9578,15 +9578,15 @@ msgstr ""
 
 #. (entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
-msgstr ""
+msgstr "A revisão de actualização mínima, como mostrada em <placeholder-1/>"
 
 #. (entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
-msgstr ""
+msgstr "A revisão de actualização máxima, como mostrado em <placeholder-1/>"
 
 #. (entry)
 msgid "True if there are local modifications"
-msgstr ""
+msgstr "True se existem modificações locais"
 
 #. (literal)
 msgid "GetWCInfo"
@@ -9598,35 +9598,35 @@ msgstr ""
 
 #. (entry)
 msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
-msgstr ""
+msgstr "Substituído com o URL do repositório, do caminho de cópia de trabalho, usado em <placeholder-1/>. Equivalente a <placeholder-2/>"
 
 #. (entry)
 msgid "True if the item is versioned."
-msgstr ""
+msgstr "True se o item é versionado."
 
 #. (entry)
 msgid "True if the item has the <placeholder-1/> property set."
-msgstr ""
+msgstr "True se o item tem a propriedade <placeholder-1/> configurada."
 
 #. (entry)
 msgid "True if the item is locked."
-msgstr ""
+msgstr "True se o item está bloqueado."
 
 #. (entry)
 msgid "String representing the date when the lock was created, or an empty string if the item is not locked."
-msgstr ""
+msgstr "String que representa a data em que o bloqueio foi criado, ou uma string vazia se o item não está bloqueado."
 
 #. (entry)
 msgid "String representing the lock owner, or an empty string if the item is not locked."
-msgstr ""
+msgstr "String que representa o autor do bloqueio, ou uma string vazia se o item não está bloqueado."
 
 #. (entry)
 msgid "The message entered when the lock was created."
-msgstr ""
+msgstr "A mensagem introduzida quando o bloqueio foi criado."
 
 #. (para)
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object</literal>, and the following methods are supported: <placeholder-1/>"
-msgstr ""
+msgstr "Se necessitas de aceder à informação de revisão do Subversion a partir de outros programas, podes usar a interface COM do SubWCRev. O objecto a criar é o <literal>SubWCRev.object</literal> e os métodos suportados são os seguintes: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -9758,10 +9758,136 @@ msgid ""
 "WScript.Echo(wcInfoString4);\n"
 "\n"
 msgstr ""
+"\n"
+"// testCOM.js - ficheiro javascript\n"
+"// script de teste para o SubWCRev objecto-COM/Automação\n"
+"\n"
+"filesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n"
+"\n"
+"revObject1 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject2 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject3 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject4 = new ActiveXObject(\"SubWCRev.object\");\n"
+"\n"
+"revObject1.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\".\"), 1, 1);\n"
+"revObject2.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
+"revObject3.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\n"
+"revObject4.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
+"\n"
+"wcInfoString1 = \"Revisão = \" + revObject1.Revision + \n"
+"\t\t\t\t\"\\n"
+"Min Revisão = \" + revObject1.MinRev + \n"
+"\t\t\t\t\"\\n"
+"Max Revisão = \" + revObject1.MaxRev + \n"
+"\t\t\t\t\"\\n"
+"Data = \" + revObject1.Date + \n"
+"\t\t\t\t\"\\n"
+"URL = \" + revObject1.Url + \"\\n"
+"Autor = \" + \n"
+"\t\t\t\trevObject1.Author + \"\\n"
+"TemMod = \" + \n"
+"\t\t\t\trevObject1.HasModifications + \"\\n"
+"EsItemSvn = \" + \n"
+"\t\t\t\trevObject1.IsSvnItem + \"\\n"
+"Necessita bloqueio = \" + \n"
+"\t\t\t\trevObject1.NeedsLocking + \"\\n"
+"EstáBloqueado = \" + \n"
+"\t\t\t\trevObject1.IsLocked + \"\\n"
+"DataCriaçãoBloqueio = \" + \n"
+"\t\t\t\trevObject1.LockCreationDate + \"\\n"
+"AutorBloqueio = \" + \n"
+"\t\t\t\trevObject1.LockOwner + \"\\n"
+"ComentárioBloqueio = \" + \n"
+"\t\t\t\trevObject1.LockComment;\n"
+"wcInfoString2 = \"Revisão = \" + revObject2.Revision + \n"
+"\t\t\t\t\"\\n"
+"Min Revisão = \" + revObject2.MinRev + \n"
+"\t\t\t\t\"\\n"
+"Max Revisão = \" + revObject2.MaxRev + \n"
+"\t\t\t\t\"\\n"
+"Data = \" + revObject2.Date + \n"
+"\t\t\t\t\"\\n"
+"URL = \" + revObject2.Url + \"\\n"
+"Autor = \" + \n"
+"\t\t\t\trevObject2.Author + \"\\n"
+"TemMod = \" + \n"
+"\t\t\t\trevObject2.HasModifications + \"\\n"
+"ÉsItemSvn = \" + \n"
+"\t\t\t\trevObject2.IsSvnItem + \"\\n"
+"NecessitaBloqueio = \" + \n"
+"\t\t\t\trevObject2.NeedsLocking + \"\\n"
+"EstáBloqueado = \" + \n"
+"\t\t\t\trevObject2.IsLocked + \"\\n"
+"DataCriaçãoBloqueio = \" + \n"
+"\t\t\t\trevObject2.LockCreationDate + \"\\n"
+"AutorBloqueio = \" + \n"
+"\t\t\t\trevObject2.LockOwner + \"\\n"
+"ComentárioBloqueio = \" + \n"
+"\t\t\t\trevObject2.LockComment;\n"
+"wcInfoString3 = \"Revisão = \" + revObject3.Revision + \n"
+"\t\t\t\t\"\\n"
+"Min Revisão = \" + revObject3.MinRev + \n"
+"\t\t\t\t\"\\n"
+"Max Revisão = \" + revObject3.MaxRev + \n"
+"\t\t\t\t\"\\n"
+"Data = \" + revObject3.Date + \n"
+"\t\t\t\t\"\\n"
+"URL = \" + revObject3.Url + \"\\n"
+"Autor = \" + \n"
+"\t\t\t\trevObject3.Author + \"\\n"
+"TemMod = \" + \n"
+"\t\t\t\trevObject3.HasModifications + \"\\n"
+"EsItemSvn = \" + \n"
+"\t\t\t\trevObject3.IsSvnItem + \"\\n"
+"NecessitaBloqueio = \" + \n"
+"\t\t\t\trevObject3.NeedsLocking + \"\\n"
+"EstáBloqueado = \" + \n"
+"\t\t\t\trevObject3.IsLocked + \"\\n"
+"DataCriaçãoBloqueio = \" + \n"
+"\t\t\t\trevObject3.LockCreationDate + \"\\n"
+"AutorBloqueio = \" + \n"
+"\t\t\t\trevObject3.LockOwner + \"\\n"
+"ComentárioBloqueio = \" + \n"
+"\t\t\t\trevObject3.LockComment;\n"
+"wcInfoString4 = \"Revisão = \" + revObject4.Revision + \n"
+"\t\t\t\t\"\\n"
+"Min Revisão = \" + revObject4.MinRev + \n"
+"\t\t\t\t\"\\n"
+"Max Revisão = \" + revObject4.MaxRev + \n"
+"\t\t\t\t\"\\n"
+"Data = \" + revObject4.Date + \n"
+"\t\t\t\t\"\\n"
+"URL = \" + revObject4.Url + \"\\n"
+"Autor = \" + \n"
+"\t\t\t\trevObject4.Author + \"\\n"
+"TemMod = \" + \n"
+"\t\t\t\trevObject4.HasModifications + \"\\n"
+"EsItemSvn = \" + \n"
+"\t\t\t\trevObject4.IsSvnItem + \"\\n"
+"NecessitaBloqueio = \" + \n"
+"\t\t\t\trevObject4.NeedsLocking + \"\\n"
+"EstáBloqueado = \" + \n"
+"\t\t\t\trevObject4.IsLocked + \"\\n"
+"DataCriaçãoBloqueio = \" + \n"
+"\t\t\t\trevObject4.LockCreationDate + \"\\n"
+"AutorBloqueio = \" + \n"
+"\t\t\t\trevObject4.LockOwner + \"\\n"
+"ComentarioBloqueio = \" + \n"
+"\t\t\t\trevObject4.LockComment;\n"
+"\n"
+"WScript.Echo(wcInfoString1);\n"
+"WScript.Echo(wcInfoString2);\n"
+"WScript.Echo(wcInfoString3);\n"
+"WScript.Echo(wcInfoString4);\n"
+"\n"
 
 #. (para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
-msgstr ""
+msgstr "O seguinte exemplo mostra como a interface pode ser usada. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
