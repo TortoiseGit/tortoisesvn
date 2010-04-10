@@ -217,9 +217,9 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				val = sPropVal;
 				val = val.Trim(_T(" \n\r\t"));
 				if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
-					bFileListInEnglish = TRUE;
-				else
 					bFileListInEnglish = FALSE;
+				else
+					bFileListInEnglish = TRUE;
 				bFoundFileListEnglish = TRUE;
 			}
 			if ((!bFoundProjectLanguage)&&(sPropName.compare(PROJECTPROPNAME_PROJECTLANGUAGE)==0))
