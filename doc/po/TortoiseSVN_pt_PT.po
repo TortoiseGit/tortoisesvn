@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-04-08 07:29 +0000\n"
-"PO-Revision-Date: 2010-04-10 00:04-0000\n"
+"POT-Creation-Date: 2010-04-10 07:10 +0000\n"
+"PO-Revision-Date: 2010-04-10 22:06-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -342,7 +342,7 @@ msgid "This <xref linkend=\"tsvn-preface\"/> explains what TortoiseSVN is, a lit
 msgstr ""
 
 #. (para)
-msgid "The <xref linkend=\"tsvn-introduction\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
+msgid "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
 msgstr ""
 
 #. (para)
@@ -419,9 +419,16 @@ msgstr ""
 
 #. (title)
 #. (title)
-#. (title)
-msgid "Introduction"
-msgstr "Introdução"
+msgid "Getting Started"
+msgstr "Começando"
+
+#. (para)
+msgid "This section is aimed at people who would like to find out what TortoiseSVN is all about and give it a test drive. It explains how to install TortoiseSVN and set up a local repository, and it walks you through the most commonly used operations."
+msgstr ""
+
+#. (para)
+msgid "Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
+msgstr ""
 
 #. (title)
 msgid "Installing TortoiseSVN"
@@ -432,12 +439,13 @@ msgid "System requirements"
 msgstr "Requesitos de sistema"
 
 #. (para)
-msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
-msgstr "O TortoiseSVN corre no Windows 2000 SP2, Windows XP ou superior. O Windows 98, Windows ME e Windows NT4 não são mais suportados desde o TortoiseSVN 1.2.0. No entanto é ainda possível descarregar versões antigas, se ainda precisares delas."
+msgid "TortoiseSVN runs on Windows XP or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
+msgstr ""
 
 #. (para)
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
-msgstr "Se encontrares algum problema durante ou após a instalação do TortoiseSVN, recorre por favor primeiro às <xref linkend=\"tsvn-faq\"/>."
+#, fuzzy
+msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
+msgstr "O TortoiseSVN corre no Windows 2000 SP2, Windows XP ou superior. O Windows 98, Windows ME e Windows NT4 não são mais suportados desde o TortoiseSVN 1.2.0. No entanto é ainda possível descarregar versões antigas, se ainda precisares delas."
 
 #. (title)
 msgid "Installation"
@@ -448,12 +456,22 @@ msgid "install"
 msgstr "instalar"
 
 #. (para)
-msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest."
+#, fuzzy
+msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. Don't forget to reboot after installation."
 msgstr "O TortoiseSVN vem com um instalador de fácil uso. Efectua duplo clique no ficheiro do instalador e segue as instruções. O instalador tomará conta do resto do processo de instalação."
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
 msgstr "Necessitas de previlégios de administrador para instalar o TortoiseSVN."
+
+#. (para)
+msgid "Language packs are available which translate the TortoiseSVN user interface into many different languages. Please check <xref linkend=\"tsvn-lang\"/> for more information on how to install these."
+msgstr ""
+
+#. (para)
+#, fuzzy
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
+msgstr "Se encontrares algum problema durante ou após a instalação do TortoiseSVN, recorre por favor primeiro às <xref linkend=\"tsvn-faq\"/>."
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -991,7 +1009,7 @@ msgid "TortoiseSVN no longer offers the option to create BDB repositories, altho
 msgstr ""
 
 #. (para)
-msgid "Future versions of TortoiseSVN will not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file://</literal> protocol is created as FSFS."
+msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
 msgstr ""
 
 #. (para)
@@ -1136,7 +1154,7 @@ msgid "create your desired top-level folder structure inside that folder - don't
 msgstr ""
 
 #. (para)
-msgid "import this structure into the repository via a <action>right click</action> on the folder and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> This will import your temp folder into the repository root to create the basic repository layout."
+msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the url to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
 msgstr ""
 
 #. (para)
@@ -1317,6 +1335,11 @@ msgstr ""
 #. (title)
 msgid "Svnserve Based Server"
 msgstr ""
+
+#. (title)
+#. (title)
+msgid "Introduction"
+msgstr "Introdução"
 
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
@@ -2286,10 +2309,6 @@ msgstr "Deverás ter o servidor configurado e/ou ter acesso a um repositório do
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
 msgstr "De modo a conseguir o máximo proveito do Guia de Uso Diário: <placeholder-1/>"
-
-#. (title)
-msgid "Getting Started"
-msgstr "Começando"
 
 #. (title)
 #. (title)
