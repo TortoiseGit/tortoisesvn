@@ -481,7 +481,15 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         dlg->SetProperties(m_properties);
         if (propName.size())
             dlg->SetPropertyName(sName);
-        dlg->SetPathList(m_pathlist);  // this is the problem
+        dlg->SetPathList(m_pathlist);
+        if (m_properties.find(sName) != m_properties.end())
+        {
+            // the property already exists: switch to "edit" instead of "add"
+            PropValue& prop = m_properties[sName];
+            dlg->SetPropertyName(sName);
+            if (prop.allthesamevalue)
+                dlg->SetPropertyValue(prop.value);
+        }
         dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDTITLE)));
 	}
 
