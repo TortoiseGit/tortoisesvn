@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-04-08 07:29 +0000\n"
-"PO-Revision-Date: 2010-04-09 21:22+0100\n"
+"POT-Creation-Date: 2010-04-10 07:10 +0000\n"
+"PO-Revision-Date: 2010-04-11 22:10+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -330,8 +330,8 @@ msgid "This <xref linkend=\"tsvn-preface\"/> explains what TortoiseSVN is, a lit
 msgstr "Овај <xref linkend=\"tsvn-preface\"/> објашњава шта јеТортоисеСВН, мало оТортоисеСВН пројекту и заједницу људи који раде на њему, и услове лиценце за коришћење и дистрибуцију. "
 
 #. (para)
-msgid "The <xref linkend=\"tsvn-introduction\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
-msgstr " <xref linkend=\"tsvn-introduction\"/> објашњава како инсталирати ТортоисеСВН на ваш ПЦ, и како покренути исправно коришћење."
+msgid "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
+msgstr " <xref linkend=\"tsvn-quick-start\"/>  објашњава како инсталирати ТортоисеСВН на ваш ПЦ, и како покренути исправно коришћење."
 
 #. (para)
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
@@ -407,9 +407,16 @@ msgstr "Где је изузетна брига предузета. Уништа
 
 #. (title)
 #. (title)
-#. (title)
-msgid "Introduction"
-msgstr "Увод"
+msgid "Getting Started"
+msgstr "Кренимо од почетка"
+
+#. (para)
+msgid "This section is aimed at people who would like to find out what TortoiseSVN is all about and give it a test drive. It explains how to install TortoiseSVN and set up a local repository, and it walks you through the most commonly used operations."
+msgstr "Овај парграф помаже људима који би да пронађу шта је уопште ТортоисеСВН и даје им тест драјв. Он објашњава како инсталирати ТортоисеСВН и подесити локално спремиште, и проводи их кроз већину обично коришћених операција."
+
+#. (para)
+msgid "Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
+msgstr "Приридно је да он не објашњава све - то је само Брзи Почетни Водич у ствари. Када га покренете треба да искористите време да прочитате остатак овог водича, који вас води кроз ствари са много више детаља. Он такође објашњава више о подешавању одговарајући Субверзиони сервер."
 
 #. (title)
 msgid "Installing TortoiseSVN"
@@ -420,12 +427,12 @@ msgid "System requirements"
 msgstr "Захтеви система"
 
 #. (para)
-msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
-msgstr "ТортоисеСВН ради на  Windows 2000 СП2,  Windows XP  или виши, Windows МЕ и Windows НТ4 више нису подржани од ТортоисеСВН 1.2.0, али још можете пренети старе верзије ако су вам стварно потребне."
+msgid "TortoiseSVN runs on Windows XP or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
+msgstr "ТортоисеСВН ради на Виндоуз ХП или вишим оперативним системима и доступан је на 32-битним и 64-битним системима. Ако радите на 64-битном Виндоузу можда желите да инсталирате обе верзије."
 
 #. (para)
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
-msgstr "Ако наиђете на било какав проблем после инсталирања ТортоисеСВН молим обратите се <xref linkend=\"tsvn-faq\"/> најпре. "
+msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
+msgstr "Подршка за Виндоуз 98, Виндоус МЕ и Виндоус НТ4 избачена је у верзији 1.2.0 и  Виндоус 2000 подршка је избачена у 1.7.0. Можете још увек скинуту и инсталиратистарију верзију ако вам је потребна."
 
 #. (title)
 msgid "Installation"
@@ -436,12 +443,20 @@ msgid "install"
 msgstr "инсталирај"
 
 #. (para)
-msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest."
-msgstr "ТортоисеСВН долази са инсталатором који је лак за употребу. Двоструко кликните на инсталатор фајл  и пратите инструкције. Инсталатор ће бринути о осталом."
+msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. Don't forget to reboot after installation."
+msgstr "ТортоисеСВН долази са инсталатором који је лак за употребу. Двоструко кликните на инсталатор фајл  и пратите инструкције. Инсталатор ће бринути о осталом. Немојте заборавити да ребутујете систем после инсталације."
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
 msgstr "Потребне су вам Администраторске привелегије да инсталирате ТортоисеСВН."
+
+#. (para)
+msgid "Language packs are available which translate the TortoiseSVN user interface into many different languages. Please check <xref linkend=\"tsvn-lang\"/> for more information on how to install these."
+msgstr "Језички пакети су доступни и преводе ТортоисеСВН кориснички интерфејс у много различитих језика. Молим проверите <xref linkend=\"tsvn-lang\"/> за више информација како да их инсталирате."
+
+#. (para)
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
+msgstr "Ако наиђете на било какав проблем после инсталирања ТортоисеСВН молим обратите се на наш онлајн ФАК на <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -1001,8 +1016,8 @@ msgid "TortoiseSVN no longer offers the option to create BDB repositories, altho
 msgstr "ТортоисеСВН више не нуди опцију да се креира БДБ спремиште, али још можете користити клијента командне линије да га креирате. ФСФС спремишта су генерално једноставнија за руковање и нама лакша да одржавамо ТортоисеСВН преко компатибилних проблема између разних БДБ верзја."
 
 #. (para)
-msgid "Future versions of TortoiseSVN will not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file://</literal> protocol is created as FSFS."
-msgstr "Будуће верзије ТортоисеСВН неће подржати <literal>филе://</literal> приступ БДБ спремиштима због компатибилних проблема, али ће свакако увек подржавати тај формат спремишта када се приступа преко сервера кроз <literal>свн://</literal>, <literal>хттп://</literal> или <literal>хттпс://</literal> протоколе. Из тог разлога чврсто препоручујемо да свако ново спремиште којем се мора приступати користећи <literal>филе://</literal> протокол буде креирано као ФСФС."
+msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
+msgstr "Будуће верзије ТортоисеСВН неће подржати <literal>филе://</literal> приступ БДБ спремиштима због компатибилних проблема, али ће свакако увек подржавати тај формат спремишта када се приступа преко сервера кроз <literal>свн://</literal>, <literal>хттп://</literal> или <literal>хттпс://</literal> протоколе."
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
@@ -1164,8 +1179,8 @@ msgid "create your desired top-level folder structure inside that folder - don't
 msgstr "креирајте жељени вршни-ниво именик структуру унутар тог именика - немојте стављати ниједан фајл још!"
 
 #. (para)
-msgid "import this structure into the repository via a <action>right click</action> on the folder and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> This will import your temp folder into the repository root to create the basic repository layout."
-msgstr "увеите ову структуру у спремиште преко <action>десни клик</action> на именик и избором <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Увези...</guimenuitem></menuchoice> Ово ће увести ваш привремени именик у корен спремишта да креира основни изглед спремишта."
+msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the url to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
+msgstr "увеите ову структуру у спремиште преко <action>десни клик</action> на именик и избором <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Увези...</guimenuitem></menuchoice> У импорт дијалогу унесите урл вашег спремишта и кликните ОК. Ово ће увести ваш привремени именик у корен спремишта да креира основни изглед спремишта."
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
@@ -1372,6 +1387,11 @@ msgstr "Следећи део је корак по корак водич как�
 #. (title)
 msgid "Svnserve Based Server"
 msgstr "Свнсерв заснован сервер"
+
+#. (title)
+#. (title)
+msgid "Introduction"
+msgstr "Увод"
 
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
@@ -2593,10 +2613,6 @@ msgstr "Требало би да имате подешен сервер и-ил�
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
 msgstr "Да би добили највише од Водича дневног коришћења: <placeholder-1/>"
-
-#. (title)
-msgid "Getting Started"
-msgstr "Кренимо од почетка"
 
 #. (title)
 #. (title)
