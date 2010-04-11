@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-11 00:04-0000\n"
+"PO-Revision-Date: 2010-04-12 00:13-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10059,31 +10059,31 @@ msgstr "Este é o método principal do plugin. Este método é chamado a partir 
 
 #. (para)
 msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
-msgstr ""
+msgstr "A string <literal>parameters</literal> é a string que o utilizador tem de introduzir na caixa de diálogo preferências, quando configura o plugin. Normalmente o plugin irá fazer uso disto para encontrar o URL do seguidor de problemas e/ou informação de login ou outros."
 
 #. (para)
 msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
-msgstr ""
+msgstr "A string <literal>commonRoot</literal> contém o caminho pai de todos os itens seleccionados, ao abrir a caixa de diálogo submeter. Ter em atenção que este <emphasis>não</emphasis> é o caminho raiz de todos os itens que o utilizador seleccionou na janela de submissão. Para a caixa de diálogo ramo/etiqueta, este é o caminho que será copiado."
 
 #. (para)
 msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
-msgstr ""
+msgstr "O parâmetro <literal>pathList</literal> contém um array de caminhos (como strings) que o utilizador tem de seleccionar para a submissão."
 
 #. (para)
 msgid "The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty."
-msgstr ""
+msgstr "O parâmetro <literal>originalMessage</literal> contém o texto introduzido na caixa de diálogo mensagem de registo, na caixa de diálogo submeter. Se o utilizador não introduziu ainda qualquer texto, a string estará vazia."
 
 #. (para)
 msgid "The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr ""
+msgstr "A string de retorno <literal>newMessage</literal> é copiada para a caixa de edição mensagem de registo na caixa de diálogo submeter, substituindo o que já lá esteja. Se o plugin não modificar a string <literal>originalMessage</literal>, deverá retornar de novo a mesma string, de outro modo qualquer texto que o utilizador introduziu será perdido."
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
-msgstr "O interface do IBugtraqProvider2"
+msgstr "A interface IBugtraqProvider2"
 
 #. (para)
 msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
-msgstr ""
+msgstr "No TortoiseSVN 1.6 foi adicionada uma nova interface que providência mais funcionalidades aos plugins. Esta interface IBugtraqProvider2  herda da IBugtraqProvider."
 
 #. (programlisting)
 #, no-wrap
@@ -10127,26 +10127,64 @@ msgid ""
 "  [out, retval] BSTR * newMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetCommitMessage2 (\n"
+"  // Janela pai para o UI do teu fornecedor.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parametros do teu fornecedor.\n"
+"  [in] BSTR parameters,\n"
+"  // O URL comum da submissão\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // O Texto já presente na tua mensagem de submissão.\n"
+"  // O teu fornecedor deverá incluir este texto na nova mensagem,\n"
+"  // quando apropriado.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  //Tu podes atribuir a uma submissão propriedades de revisão personalisadas\n"
+"  // através da configuração dos dois próximos parâmetros.\n"
+"  // nota: Ambos os safearrays deverão ser do mesmo comprimento.\n"
+"  //       Para cada nome de propriedade deverá existir um valor de propriedade!\n"
+"\n"
+"  // O conteúdo do campo bugID (se mostrado)\n"
+"  [in] BSTR bugID,\n"
+"\n"
+"  // Conteúdo modificado do campo bugID\n"
+"  [out] BSTR * bugIDOut,\n"
+"\n"
+"  // A lista de nomes das propriedades de revisão.\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
+"\n"
+"  // A lista de valores de propriedades de revisão.\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
+"\n"
+"  // O novo texto para a mensagem de submissão.\n"
+"  // Isto substitui a mensagem original\n"
+"  [out, retval] BSTR * newMessage\n"
+");\n"
 
 #. (para)
 msgid "This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there."
-msgstr ""
+msgstr "Este método é chamado a partir da caixa de diálogo submeter do TortoiseSVN, quando o utilizador clica no botão do plugin. Este método é chamado em vez do <literal>GetCommitMessage()</literal>. Consultar, por favor, a documentação do <literal>GetCommitMessage</literal> para informação sobre os parâmetros que também são usados aqui."
 
 #. (para)
 msgid "The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path."
-msgstr ""
+msgstr "O parâmetro <literal>commonURL</literal> representa o URL pai de todos os itens seleccionados para serem mostrados na caixa de diálogo submeter. Isto é basicamente o URL do caminho <literal>commonRoot</literal>."
 
 #. (para)
 msgid "The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>)."
-msgstr ""
+msgstr "O parâmetro <literal>bugID</literal> contém o conteúdo do campo bug-ID ( se for mostrado, configurado com a propriedade <literal>bugtraq:message</literal>)."
 
 #. (para)
 msgid "The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns."
-msgstr ""
+msgstr "O parâmetro de retorno <literal>bugIDOut</literal> é usado para preencher o campo bug-ID, quando o método retorna."
 
 #. (para)
 msgid "The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr ""
+msgstr "Os parâmetros de retorno <literal>revPropNames</literal> e <literal>revPropValues</literal> podem conter pares nome/valor de propriedades de revisão que a submissão deverá usar. Um plugin deverá ter a certeza que ambos os arrays têm o mesmo tamanho, ao retornar! Cada nome de propriedade no <literal>revPropNames</literal> deverá ter também o correspondente valor no <literal>revPropValues</literal>. Se não forem configuradas nenhumas propriedades de revisão, o plugin deverá retornar arrays vazios."
 
 #. (programlisting)
 #, no-wrap
@@ -10162,10 +10200,20 @@ msgid ""
 "  [out, retval] BSTR * errorMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT CheckCommit (\n"
+"  [in] HWND hParentWnd,\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"  [in] BSTR commitMessage,\n"
+"  [out, retval] BSTR * errorMessage\n"
+");\n"
 
 #. (para)
 msgid "This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items."
-msgstr ""
+msgstr "Este método é chamado, mesmo antes de ser fechada a caixa de diálogo submeter, e a submissão começar. O plugin pode usar este método para validar os ficheiros/pastas seleccionados para a submissão e/ou a mensagem de submissão introduzida pelo utilizador. Os parâmetros são os mesmos do <literal>GetCommitMessage2()</literal>, com a diferença que o <literal>commonURL</literal> é agora o URL comum de todos os itens <emphasis>verificados</emphasis>, e o <literal>commonRoot</literal> o caminho raiz de todos os itens verificados."
 
 #. (para)
 msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source URL of the copy, and <literal>commonRoot</literal> is set to the target URL of the copy."
@@ -10173,7 +10221,7 @@ msgstr ""
 
 #. (para)
 msgid "The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr ""
+msgstr "O parâmetro de retorno <literal>errorMessage</literal> deverá conter uma mensagem de erro, que o TortoiseSVN mostra ao utilizador, ou então ser vazio para começar a submissão. Se for retornada uma mensagem de erro, o TortoiseSVN mostra a mensagem numa caixa de diálogo e mantém a caixa de diálogo submeter aberta, para que o utilizador possa corrigir o que quer que esteja errado. Um plugin deverá por isso retornar uma string que informe o utilizador <emphasis>do que</emphasis> está errado e como o corrigir."
 
 #. (programlisting)
 #, no-wrap
@@ -10202,10 +10250,33 @@ msgid ""
 "  [out, retval] BSTR * error\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT  OnCommitFinished (\n"
+"  // Janela pai para qualquer (erro) UI que precisa de ser mostrado.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // A raiz comum para todos os caminhos que foram submetidos.\n"
+"  [in] BSTR commonRoot,\n"
+"\n"
+"  // Todos os caminhos que foram submetidos.\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"\n"
+"  // O texto já presente na mensagem de submissão.\n"
+"  [in] BSTR logMessage,\n"
+"\n"
+"  // A revisão da submissão.\n"
+"  [in] ULONG revision,\n"
+"\n"
+"\n"
+"  // Um erro a mostrar ao utilizador se esta função\n"
+"  // retorna algo para além de S_OK\n"
+"  [out, retval] BSTR * error\n"
+");\n"
 
 #. (para)
 msgid "This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr ""
+msgstr "Este método é chamado após uma submissão com sucesso. Um plugin pode usar este método para, e.g. fechar o problema seleccionado ou adicionar-lhe informação sobre a submissão. Os parâmetros são os mesmos do <literal>GetCommitMessage2</literal>."
 
 #. (programlisting)
 #, no-wrap
@@ -10216,10 +10287,15 @@ msgid ""
 "  [out, retval] VARIANT_BOOL *ret\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT HasOptions(\n"
+"  // Para quando o fornecedor providenciar opções\n"
+"  [out, retval] VARIANT_BOOL *ret\n"
+");\n"
 
 #. (para)
 msgid "This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr ""
+msgstr "Este método é chamado a partir da caixa de diálogo preferências, onde o utilizador pode configurar os plugins. Se um plugin fornecer a sua própria caixa de diálogo de configuração com o <literal>ShowOptionsDialog</literal>, este deverá retornar TRUE aqui, ou de outro modo retornar FALSE."
 
 #. (programlisting)
 #, no-wrap
@@ -10236,18 +10312,29 @@ msgid ""
 "  [out, retval] BSTR * newparameters\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT ShowOptionsDialog(\n"
+"  // Janela pai para a caixa de diálogo opções\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parâmetros para o teu fornecedor.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // A string parâmetros\n"
+"  [out, retval] BSTR * newparameters\n"
+");\n"
 
 #. (para)
 msgid "This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin."
-msgstr ""
+msgstr "Este método é chamado a partir da caixa de diálogo preferências quando o utilizador clica no botão \"Opções\" , que é mostrado se a <literal>HasOptions</literal> retorna TRUE. Um plugin poderá mostrar uma caixa de diálogo opções, de modo a facilitar ao utilizador a configuração do plugin."
 
 #. (para)
 msgid "The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered."
-msgstr ""
+msgstr "A string <literal>parameters</literal> contém a string dos parâmetros do plugin que forma já configurados/introduzidos."
 
 #. (para)
 msgid "The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr ""
+msgstr "O parâmetro de retorno <literal>newparameters</literal> deverá conter a string de parâmetros que o plugin construiu a partir da informação recolhida na sua caixa de diálogo opções. Essa string <literal>parameters</literal> será passada a todos os outros métodos IBugtraqProvider e IBugtraqProvider2."
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
