@@ -31,6 +31,7 @@
 #include "auto_buffer.h"
 #include "JobScheduler.h"
 #include "AsyncCall.h"
+#include "IconMenu.h"
 
 #include "EditPropertyValueDlg.h"
 #include "EditPropExecutable.h"
@@ -42,6 +43,12 @@
 #include "EditPropExternals.h"
 #include "EditPropTSVNSizes.h"
 #include "EditPropTSVNLang.h"
+
+
+#define ID_CMD_PROP_SAVEVALUE   1
+#define ID_CMD_PROP_REMOVE      2
+#define ID_CMD_PROP_EDIT        3
+
 
 IMPLEMENT_DYNAMIC(CEditPropertiesDlg, CResizableStandAloneDialog)
 
@@ -80,6 +87,7 @@ BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_EXPORT, &CEditPropertiesDlg::OnBnClickedExport)
 	ON_BN_CLICKED(IDC_IMPORT, &CEditPropertiesDlg::OnBnClickedImport)
 	ON_WM_SETCURSOR()
+    ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 void CEditPropertiesDlg::OnBnClickedHelp()
@@ -956,4 +964,41 @@ BOOL CEditPropertiesDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	SetCursor(hCur);
 
 	return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
+}
+
+void CEditPropertiesDlg::OnContextMenu(CWnd* pWnd, CPoint point)
+{
+    if ((pWnd == &m_propList)&&(m_propList.GetSelectedCount() == 1))
+    {
+        int selIndex = m_propList.GetSelectionMark();
+        if (selIndex < 0)
+            return;	// nothing selected, nothing to do with a context menu
+        if ((point.x == -1) && (point.y == -1))
+        {
+            CRect rect;
+            m_propList.GetItemRect(selIndex, &rect, LVIR_LABEL);
+            m_propList.ClientToScreen(&rect);
+            point = rect.CenterPoint();
+        }
+        CIconMenu popup;
+        if (popup.CreatePopupMenu())
+        {
+            popup.AppendMenuIcon(ID_CMD_PROP_SAVEVALUE, IDS_PROP_SAVEVALUE);
+            popup.AppendMenuIcon(ID_CMD_PROP_REMOVE, IDS_PROP_REMOVE);
+            popup.AppendMenuIcon(ID_CMD_PROP_EDIT, IDS_PROP_EDIT);
+            int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+            switch (cmd)
+            {
+            case ID_CMD_PROP_SAVEVALUE:
+                OnBnClickedSaveprop();
+                break;
+            case ID_CMD_PROP_REMOVE:
+                OnBnClickedRemoveProps();
+                break;
+            case ID_CMD_PROP_EDIT:
+                OnBnClickedEditprops();
+                break;
+            }
+        }
+    }
 }

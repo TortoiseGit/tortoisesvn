@@ -67,6 +67,7 @@ protected:
 	afx_msg void OnBnClickedExport();
 	afx_msg void OnBnClickedImport();
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+    afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 
 	DECLARE_MESSAGE_MAP()
 private:
