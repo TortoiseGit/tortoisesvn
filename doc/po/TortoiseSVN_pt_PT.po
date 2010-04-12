@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-12 22:26-0000\n"
+"PO-Revision-Date: 2010-04-12 23:34-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10358,7 +10358,7 @@ msgstr "<email>users@tortoisesvn.tigris.org</email> será aquela a usar se tens 
 
 #. (para)
 msgid "If you want to help out with the development of TortoiseSVN, then you should take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
-msgstr ""
+msgstr "Se necessitas de ajuda com o desenvolvimento do TortoiseSVN então deverás tomar parte nas discussões da lista <email>dev@tortoisesvn.tigris.org</email>."
 
 #. (para)
 msgid "If you want to help with the translation of the TortoiseSVN user interface or the documentation, send an e-mail to <email>translators@tortoisesvn.tigris.org</email>."
@@ -10370,15 +10370,15 @@ msgstr "Se tens uma questão que ainda não foi respondida em nenhum lado, o mel
 
 #. (title)
 msgid "How Do I..."
-msgstr ""
+msgstr "Como Farei Para..."
 
 #. (para)
 msgid "This appendix contains solutions to problems/questions you might have when using TortoiseSVN."
-msgstr ""
+msgstr "Este apêndice contém soluções para problemas/questões que poderás ter tido ao usar o TortoiseSVN."
 
 #. (title)
 msgid "Move/copy a lot of files at once"
-msgstr ""
+msgstr "Mover/copiar muitos ficheiros de uma vez só"
 
 #. (primary)
 msgid "moving"
@@ -10390,15 +10390,15 @@ msgstr ""
 
 #. (para)
 msgid "Moving/Copying single files can be done by using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rename...</guimenuitem></menuchoice>. But if you want to move/copy a lot of files, this way is just too slow and too much work."
-msgstr ""
+msgstr "Mover/Copiar ficheiros simples poderá ser feito usando o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Renomear...</guimenuitem></menuchoice>. Mas se pretendes mover/copiar muitos ficheiros, desta maneira será muito lento e trabalhoso."
 
 #. (para)
 msgid "The recommended way is by <action>right-dragging</action> the files to the new location. Simply <action>right-click</action> on the files you want to move/copy without releasing the mouse button. Then drag the files to the new location and release the mouse button. A context menu will appear where you can either choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Copy versioned files here</guimenuitem></menuchoice>. or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "A forma recomendada será através do <action>arrastar com o botão direito</action> dos ficheiros para uma nova localização. Simplesmente <action>clica com o botão direito</action> nos ficheiros que queres mover/copiar, sem largar o botão do rato. Então arrasta os ficheiros para uma nova localização e então larga o botão do rato. O menu de contexto irá aparecer, onde poderás escolher <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>SVN Copiar para aqui arquivos com controlo de versões</guimenuitem></menuchoice> ou <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>SVN Mover para aqui item(s) com controlo de versões</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Force users to enter a log message"
-msgstr ""
+msgstr "Forçar utilizadores a introduzir uma mensagem de registo"
 
 #. (primary)
 msgid "log message"
@@ -10414,39 +10414,39 @@ msgstr ""
 
 #. (para)
 msgid "There are two ways to prevent users from committing with an empty log message. One is specific to TortoiseSVN, the other works for all Subversion clients, but requires access to the server directly."
-msgstr ""
+msgstr "Existem duas maneiras de impedir os utilizadores de submeter com uma mensagem de registo vazia. Uma é específica ao TortoiseSVN, a outra funciona para todos os clientes do Subversion mas requerendo acesso directo ao servidor."
 
 #. (title)
 msgid "Hook-script on the server"
-msgstr ""
+msgstr "Script-gancho no servidor"
 
 #. (para)
 msgid "If you have direct access to the repository server, you can install a pre-commit hook script which rejects all commits with an empty or too short log message."
-msgstr ""
+msgstr "Se tens acesso directo ao servidor do repositório, poderás instalar um script de gancho pre-commit, que rejeita todas as submissões com uma mensagem de registo vazia ou muito curta."
 
 #. (para)
 msgid "In the repository folder on the server, there's a sub-folder <filename>hooks</filename> which contains some example hook scripts you can use. The file <filename>pre-commit.tmpl</filename> contains a sample script which will reject commits if no log message is supplied, or the message is too short. The file also contains comments on how to install/use this script. Just follow the instructions in that file."
-msgstr ""
+msgstr "Na pasta do repositório no servidor, existe uma subpasta <filename>hooks</filename> que contém alguns exemplos de scripts de gancho que podes usar. O ficheiro <filename>pre-commit.tmpl</filename> contém uma amostra de script que irá rejeitar submissões se não for fornecida mensagem de registo, ou a mesma for muito curta. O ficheiro também contém comentários em como instalar/usar este script. Segue apenas as instruções nesse ficheiro."
 
 #. (para)
 msgid "This method is the recommended way if your users also use other Subversion clients than TortoiseSVN. The drawback is that the commit is rejected by the server and therefore users will get an error message. The client can't know before the commit that it will be rejected. If you want to make TortoiseSVN have the <guibutton>OK</guibutton> button disabled until the log message is long enough then please use the method described below."
-msgstr ""
+msgstr "Este método é o método recomendado se os teus utilizadores, para além do TortoiseSVN, também usam outros clientes de Subversion. A desvantagem é que a submissão é rejeitada pelo servidor, e por isso os utilizadores irão obter uma mensagem de erro. O cliente não pode saber, antes da submissão, que ela será rejeitada. Se queres que o TortoiseSVN tenha o botão <guibutton>OK</guibutton> desactivado, até que a mensagem de registo seja suficientemente longa, então usa por favor o método descrito abaixo."
 
 #. (title)
 msgid "Project properties"
-msgstr ""
+msgstr "Propriedades do projecto"
 
 #. (para)
 msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:logminsize</literal> property."
-msgstr ""
+msgstr "O TortoiseSVN usa propriedades para controlar algumas das suas funcionalidades. Uma dessas propriedades é a propriedade <literal>tsvn:logminsize</literal>."
 
 #. (para)
 msgid "If you set that property on a folder, then TortoiseSVN will disable the <guibutton>OK</guibutton> button in all commit dialogs until the user has entered a log message with at least the length specified in the property."
-msgstr ""
+msgstr "Se tu configuras essa propriedade numa pasta, então o TortoiseSVN irá desactivar o botão <guibutton>OK</guibutton> em todas as caixas de diálogo submeter, até o utilizador introduza uma mensagem de registo com pelo menos um comprimento igual ao especificado na propriedade."
 
 #. (para)
 msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-dug-propertypage\"/>"
-msgstr ""
+msgstr "Para informação detalhada sobre essas propriedades de projecto, por favor consulte <xref linkend=\"tsvn-dug-propertypage\"/>"
 
 #. (title)
 msgid "Update selected files from the repository"
