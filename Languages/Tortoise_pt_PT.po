@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-25 12:16+0100\n"
+"PO-Revision-Date: 2010-04-12 23:32+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -308,6 +308,10 @@ msgstr "&Adicionar ou Remover Botões"
 msgid "&Add..."
 msgstr "&Adicionar..."
 
+#. Resource IDs: (32849)
+msgid "&Advanced"
+msgstr "&Avançado"
+
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Avançado..."
@@ -319,6 +323,10 @@ msgstr "Permitir URL &ambíguos"
 #. Resource IDs: (65535)
 msgid "&Application Look"
 msgstr "&Aparência da Aplicação"
+
+#. Resource IDs: (1294)
+msgid "&Apply property recursively"
+msgstr "&Aplicar a propriedade recursivamente"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -352,6 +360,10 @@ msgstr "Fechar &Automaticamente:"
 msgid "&Backup original file"
 msgstr "Fazer &cópia de segurança do arquivo original"
 
+#. Resource IDs: (1559)
+msgid "&Binary"
+msgstr "&Binário"
+
 #. Resource IDs: (114)
 msgid "&Blame changes"
 msgstr "&Responsabilizar pelas alterações"
@@ -377,6 +389,14 @@ msgid "&Blue:"
 msgstr "&Azul:"
 
 #. Resource IDs: (65535)
+msgid "&Border:"
+msgstr "&Margem:"
+
+#. Resource IDs: (1568)
+msgid "&Bottom"
+msgstr "&Rodapé"
+
+#. Resource IDs: (65535)
 msgid "&Branches"
 msgstr "&Ramos"
 
@@ -387,6 +407,10 @@ msgstr "&Navegar repositório"
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "&Navegar..."
+
+#. Resource IDs: (32850)
+msgid "&Bugtraq (Issue tracker integration)"
+msgstr "&Bugtraq (Integração do dontrolador de problemas)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -532,6 +556,10 @@ msgstr "&Directórios"
 msgid "&Docking"
 msgstr "&Ancoragem"
 
+#. Resource IDs: (32851)
+msgid "&EOL"
+msgstr "&EOL"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Editar"
@@ -559,6 +587,10 @@ msgstr "&Activar cache de registos"
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Introduza uma mensagem explicando a razão para o seu bloqueamento do(s) arquivo(s)."
+
+#. Resource IDs: (1554)
+msgid "&Executable"
+msgstr "&Executável"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -717,6 +749,10 @@ msgstr "&Junta com sub-árvores"
 msgid "&Jump to first difference when loading"
 msgstr "&Saltar para a primeira diferença ao carregar"
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr "&Palavras chave"
+
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "&Língua:"
@@ -729,9 +765,17 @@ msgstr "Ícones &Grandes"
 msgid "&Limit search to modified lines"
 msgstr "&Limitar procura às linhas alteradas"
 
+#. Resource IDs: (65535)
+msgid "&Limit:"
+msgstr "&Limite:"
+
 #. Resource IDs: (32797)
 msgid "&Link image positions"
 msgstr "&Ligar posições das imagens"
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -741,9 +785,21 @@ msgstr "Vista em &Lista"
 msgid "&Load..."
 msgstr "&Carregar..."
 
+#. Resource IDs: (1554)
+msgid "&Locking required (read-only update)"
+msgstr "&Bloqueio necessário (actualização só-de-leitura)"
+
+#. Resource IDs: (32854)
+msgid "&Log Sizes"
+msgstr "&Tamanho dos Registos"
+
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lum:"
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -776,6 +832,10 @@ msgstr "&Integrar..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Integrando"
+
+#. Resource IDs: (32847)
+msgid "&Mime-Type"
+msgstr "Tipo &Mime"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
@@ -826,6 +886,18 @@ msgstr "Próxima Pági&na"
 msgid "&No double-click event"
 msgstr "Sem eve&nto de duplo clique"
 
+#. Resource IDs: (1555)
+msgid "&No locking required"
+msgstr "Bloqueio &desnecessário"
+
+#. Resource IDs: (1555)
+msgid "&Not executable"
+msgstr "&Não executável"
+
+#. Resource IDs: (1566)
+msgid "&Numeric"
+msgstr "&Numérico"
+
 #. Resource IDs: (1)
 msgid "&OK"
 msgstr "&OK"
@@ -858,9 +930,17 @@ msgstr "&Palavra-passe:"
 msgid "&Paste"
 msgstr "&Colar"
 
+#. Resource IDs: (1600)
+msgid "&Peg revision:"
+msgstr "&Fixar revisão:"
+
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "&Permanentemente fora de linha"
+
+#. Resource IDs: (1588)
+msgid "&Platform dependent (native)"
+msgstr "Dependente da &plataforma (nativa)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -905,6 +985,10 @@ msgstr "&Refazer"
 #. Resource IDs: (1382)
 msgid "&Refresh"
 msgstr "&Refrescar"
+
+#. Resource IDs: (1562)
+msgid "&Remind me to enter a bug-ID"
+msgstr "&Lembra-me de digitar um bug-ID"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -987,8 +1071,8 @@ msgid "&Save list of selected files to..."
 msgstr "&Guardar a  lista de arquivos seleccionados em..."
 
 #. Resource IDs: (1308)
-msgid "&Save..."
-msgstr "&Guardar..."
+msgid "&Save value..."
+msgstr "&Guardar valor..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1106,6 +1190,10 @@ msgstr "Nome da &Barra de Ferramentas:"
 msgid "&Toolbars:"
 msgstr "&Barras de Ferramentas:"
 
+#. Resource IDs: (1567)
+msgid "&Top"
+msgstr "&Cima"
+
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -1185,6 +1273,10 @@ msgstr "&Espaços em branco"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Palavra inteira"
+
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1788,13 +1880,13 @@ msgstr ""
 "Aplicar preferências por omissão de 'Power User'. Estas proporcionarão uma experiência mais agradável.\n"
 "É importante que conheças o significados de todas as preferências acima."
 
-#. Resource IDs: (1294)
-msgid "Apply property recursively"
-msgstr "Aplicar propriedade recursivamente"
-
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
 msgstr "Aplicar comparação unificada"
+
+#. Resource IDs: (1565)
+msgid "Arb&itrary text"
+msgstr "Texto arb&itrário"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -1813,6 +1905,10 @@ msgstr "Tem a certeza de que quer reverter %d item(s)? Perderá <b>todas</b> as 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "Organizar &Verticalmente"
+
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr "&Como é (sem EOL especifica)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2015,9 +2111,13 @@ msgstr "&ID de Erro / N.º de Problema:"
 msgid "Bug-ID"
 msgstr "ID de Erro"
 
+#. Resource IDs: (1578)
+msgid "Bug-ID e&xpression:"
+msgstr "E&xpressão Bug-ID:"
+
 #. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
-msgstr "ID de Erro / N.º de &Problema:"
+msgid "Bug-ID is:"
+msgstr "Bug-ID é:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2200,6 +2300,10 @@ msgstr "Alterações feitas (duplo clique no arquivo para comparar):"
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
 msgstr "A transformar externos em revisão fixa"
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
+msgstr "Posição onde visualizar uma linha de margem nas caixas de texto de submissão:  "
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3461,6 +3565,10 @@ msgstr "Cópia e&xacta das fontes"
 msgid "E&xclude paths:"
 msgstr "E&xcluir caminhos:"
 
+#. Resource IDs: (32839)
+msgid "E&xecutable"
+msgstr "E&xecutável"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "Sai&r"
@@ -3493,6 +3601,10 @@ msgstr "Editar"
 msgid "Edit Button Image"
 msgstr "Editar Imagem do Botão"
 
+#. Resource IDs: (319)
+msgid "Edit External"
+msgstr "Editar Externo"
+
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "Editar Propriedades"
@@ -3512,6 +3624,10 @@ msgstr "Editar autor"
 #. Resource IDs: (115)
 msgid "Edit author name"
 msgstr "Editar nome do autor"
+
+#. Resource IDs: (315)
+msgid "Edit bugtraq properties"
+msgstr "Editar propriedades bugtraq"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -3702,6 +3818,10 @@ msgstr "Não insira mais do que %1 caracteres."
 msgid "Enter the regex string below:"
 msgstr "Especifique a expressão regular alfabética:"
 
+#. Resource IDs: (1577)
+msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
+msgstr "Digite as expressões regulares padrão para filtrar (excluir) o bug-ID das mensagens de submissão."
+
 #. Resource IDs: (3603)
 msgid ""
 "Erase everything\n"
@@ -3739,6 +3859,10 @@ msgid ""
 msgstr ""
 "Erro durante leitura/escrita de uma chave de registo %1!s!\n"
 "%2!s!"
+
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
+msgstr "Ex&ternos"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -4370,6 +4494,10 @@ msgstr "Nó HEAD"
 msgid "Head revision is %s"
 msgstr "A revisão HEAD (mais recente) é %s"
 
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr "Cabeçalho"
+
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "Ajuda"
@@ -4466,6 +4594,14 @@ msgstr "&Ignorado"
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
 msgstr "I&ncluir caminhos:"
+
+#. Resource IDs: (1580)
+msgid "IBugTraqProvider"
+msgstr "IBugTraqProvider"
+
+#. Resource IDs: (1592)
+msgid "ID"
+msgstr "ID"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4959,6 +5095,10 @@ msgstr ""
 "Inserir conteúdo da Área de Transferência\n"
 "Colar"
 
+#. Resource IDs: (1575)
+msgid "Insert message at:"
+msgstr "Inserir mensagem em:"
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "Memória insuficiente para realizar a operação."
@@ -5060,6 +5200,10 @@ msgstr ""
 "Podem especificar-se intervalos usando um hífen.\n"
 "Exemplo: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (1571)
+msgid "Issue tracker"
+msgstr "Controlador de problemas"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -5152,6 +5296,14 @@ msgstr "Atalhos de teclado:"
 #. Resource IDs: (1002)
 msgid "Keys"
 msgstr "Teclas"
+
+#. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr "L&imite:"
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr "Caminho l&ocal:"
 
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
@@ -5585,6 +5737,18 @@ msgstr "A integrar as revisões %s de %s em %s, %s%s%s"
 msgid "Message"
 msgstr "Mensagem"
 
+#. Resource IDs: (1574)
+msgid "Message &label:"
+msgstr "Etiqueta de mensagem:"
+
+#. Resource IDs: (1573)
+msgid "Message &pattern:"
+msgstr "&Padrão de mensagem:"
+
+#. Resource IDs: (1579)
+msgid "Message part &expression:"
+msgstr "Mensagenm parte expressão:"
+
 #. Resource IDs: (1241)
 msgid "Message:"
 msgstr "Mensagem:"
@@ -5612,6 +5776,14 @@ msgstr "Meu"
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
 msgstr "Minimizar o Friso"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr "Número mínimo de caractéres das mensagens de submissão:"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
+msgstr "Número mínimo de caractéres das mensagens de bloqueio."
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -5769,6 +5941,10 @@ msgstr "Opções do Painel de Navegação..."
 #. Resource IDs: (208)
 msgid "Needs lock"
 msgstr "Requer bloqueio"
+
+#. Resource IDs: (32845)
+msgid "Needs-&Lock"
+msgstr "Requer &Bloqueio"
 
 #. Resource IDs: (1550)
 msgid "Needs-lock"
@@ -5969,6 +6145,10 @@ msgstr "Nota: as preferências de tipo de letra também afectam o visualizador T
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
 msgstr "Nota: Isto afecta todos os clientes do Tortoise, e nã apenas o TortoiseSVN!"
+
+#. Resource IDs: (1557)
+msgid "Note: this property has no effect on Windows"
+msgstr "Nota: Esta propriedade não tem nenhum efeito em Windows"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -6584,6 +6764,14 @@ msgstr "Valor da propriedade:"
 msgid "Provider"
 msgstr "Fornecedor"
 
+#. Resource IDs: (1586)
+msgid "Provider para&meters:"
+msgstr "Fornecedor de parâ&metros:"
+
+#. Resource IDs: (1581)
+msgid "Provider uuid win&32:"
+msgstr "Fornecedor uuid win&32:"
+
 #. Resource IDs: (1475)
 msgid "Provider:"
 msgstr "Fornecedor:"
@@ -6724,6 +6912,10 @@ msgstr "Reduzir a janela a um ícone"
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
 msgstr "Refrescar"
+
+#. Resource IDs: (1576)
+msgid "Regular Expression"
+msgstr "Expressão Regular"
 
 #. Resource IDs: (117)
 msgid ""
@@ -7951,6 +8143,10 @@ msgstr "Tamanho e estado"
 msgid "Size of all cached text information"
 msgstr "Tamanho de toda a informação textual em cache"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "Tamanho das mensagens de registo"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "Tamanho do arquivo de cache em disco"
@@ -7979,9 +8175,21 @@ msgstr "Fonte à Esquerda:"
 msgid "Source Right:"
 msgstr "Fonte à Direita:"
 
+#. Resource IDs: (1552)
+msgid "Source URL:"
+msgstr "URL fonte:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Especifica quantos itens quer manter na caixa de diálogo das mensagens de registo mais recentes."
+
+#. Resource IDs: (1572)
+msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgstr "Espcifica como é que a mensagem é construida a partir do bug-ID. Utiliza o substituto %BUGID% para o bug-ID. Se deixares estas definições vazias, o TortoiseSVN utiliza expressões regulares."
+
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "Especifica a URL para aceder ao controlador de problemas. Usa %BUGID% como substituto do número do problema."
 
 #. Resource IDs: (79)
 msgid ""
@@ -8721,6 +8929,14 @@ msgstr ""
 "<i>%s</i>\n"
 "no arquivo de correção, não existe.\n"
 "O TortoiseMerge tentou aplicar a correção retirando prefixos, mas nenhum caminho correspondente foi encontrado."
+
+#. Resource IDs: (84)
+msgid ""
+"The regular expression is invalid!\n"
+"Please enter a valid regular expression."
+msgstr ""
+"A expressão regular é inválida!\n"
+"Por favor digite uma expressão regular válida."
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -10594,6 +10810,10 @@ msgstr "a explorar o caminho:"
 msgid "skip ranges: "
 msgstr "intervalos omitidos:"
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr "svn:eol-style"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
@@ -10601,6 +10821,10 @@ msgid ""
 msgstr ""
 "svn:eol-style\r\n"
 "Um de 'native', 'LF', 'CR' ou 'CRLF'."
+
+#. Resource IDs: (312)
+msgid "svn:executable"
+msgstr "svn:executable"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10611,6 +10835,10 @@ msgstr ""
 "svn:executable\r\n"
 "Se presente, torna o arquivo executável. Esta propriedade não pode ser aplicada a uma pasta.\r\n"
 "Tentar aplicá-la não recursivamente falhará. Uma aplicação recursiva ajustará a propriedade apenas nos arquivos pertencentes à pasta."
+
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10648,6 +10876,10 @@ msgstr ""
 "svn:ignore\r\n"
 "Uma lista com padrões de nomes de arquivo separados por fins-de-linha especificando arquivos a ignorar ."
 
+#. Resource IDs: (317)
+msgid "svn:keywords"
+msgstr "svn:keywords"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:keywords\r\n"
@@ -10680,6 +10912,10 @@ msgstr ""
 "Por exemplo:\r\n"
 "/trunk:123-125,129"
 
+#. Resource IDs: (314)
+msgid "svn:mime-type"
+msgstr "svn:mime-type"
+
 # XXX: This is no longer truth, application/xml and others are also treated as text. -- jr
 #. Resource IDs: (576)
 msgid ""
@@ -10692,6 +10928,10 @@ msgstr ""
 "O tipo MIME do arquivo. Usado para determinar se o arquivo deve ser integrado e como deve ser disponibilizado a partir do Apache.\r\n"
 "Um tipo MIME começado com 'text/' (ou um tipo MIME omitido) é tratado como texto.\r\n"
 "Qualquer outro valor é tratado como binário."
+
+#. Resource IDs: (313)
+msgid "svn:needs-lock"
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10875,6 +11115,10 @@ msgstr ""
 msgid "user revprops total: "
 msgstr "total de revprops do utilizador:"
 
+#. Resource IDs: (1583)
+msgid "uuid x6&4:"
+msgstr "uuid x6&4:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "os valores são diferentes"
@@ -10927,6 +11171,10 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Save..."
+#~ msgstr "&Guardar..."
+#~ msgid "Bug-ID / &Issue-Nr:"
+#~ msgstr "ID de Erro / N.º de &Problema:"
 #~ msgid "&To URL: "
 #~ msgstr "&Para o URL:"
 #~ msgid "Show overlay for ignored items"
@@ -11046,8 +11294,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Sistema de Arquivos &Nativo (FSFS)"
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "Um parâmetro inválido foi encontrado."
-#~ msgid "Cache log messages"
-#~ msgstr "Armazenar mensagens de log"
 #~ msgid "Cleanup has finished"
 #~ msgstr "Limpeza finalizada"
 #~ msgid "Commit threshold:"
