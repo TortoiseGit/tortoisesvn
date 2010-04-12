@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-12 23:34-0000\n"
+"PO-Revision-Date: 2010-04-13 00:16-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10450,19 +10450,19 @@ msgstr "Para informação detalhada sobre essas propriedades de projecto, por fa
 
 #. (title)
 msgid "Update selected files from the repository"
-msgstr ""
+msgstr "Actualizar ficheiros seleccionados a partir do repositório"
 
 #. (para)
 msgid "Normally you update your working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. But if you only want to pick up some new files that a colleague has added without merging in any changes to other files at the same time, you need a different approach."
-msgstr ""
+msgstr "Normalmente tu actualizas a tua cópia de trabalho usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. Mas se tu só queres seleccionar alguns ficheiros novos que um colega adicionou, sem simultaneamente integrar quaisquer alterações em outros ficheiros, necessitas então de uma abordagem diferente."
 
 #. (para)
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice>. and click on <guibutton>Check repository</guibutton> to see what has changed in the repository. Select the files you want to update locally, then use the context menu to update just those files."
-msgstr ""
+msgstr "Usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verificar alterações</guimenuitem></menuchoice>, e clica em <guibutton>Verificar repositório</guibutton> para veres o que foi alterado no repositório. Selecciona os ficheiros que queres actualizar localmente e usa o menu de contexto para actualizar apenas esses ficheiros."
 
 #. (title)
 msgid "Roll back (Undo) revisions in the repository"
-msgstr ""
+msgstr "Reverter (Anular) revisões no repositório"
 
 #. (primary)
 msgid "rollback"
@@ -10478,23 +10478,23 @@ msgstr ""
 
 #. (title)
 msgid "Use the revision log dialog"
-msgstr ""
+msgstr "Usar a caixa de diálogo registo de revisão"
 
 #. (para)
 msgid "The easiest way to revert the changes from a single revision, or from a range of revisions, is to use the revision log dialog. This is also the method to use of you want to discard recent changes and make an earlier revision the new HEAD."
-msgstr ""
+msgstr "A maneira mais fácil para reverter as alterações de uma única revisão, ou de um intervalo de revisões, é usar a caixa de diálogo registo de revisões. Este é também o método a usar, se tu queres descartar alterações recentes e criar uma revisão anterior à nova HEAD."
 
 #. (para)
 msgid "Select the file or folder in which you need to revert the changes. If you want to revert all changes, this should be the top level folder."
-msgstr ""
+msgstr "Selecciona o ficheiro ou pasta na qual tu necessitas de reverter as alterações. Se queres reverter todas as alterações, esta deverá ser a pasta de nível de topo."
 
 #. (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to display a list of revisions. You may need to use <guibutton>Show All</guibutton> or <guibutton>Next 100</guibutton> to show the revision(s) you are interested in."
-msgstr ""
+msgstr "Selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mostrar registo</guimenuitem></menuchoice> para mostrar uma lista de revisões. Poderás necessitar de usar os botões <guibutton>Mostrar Todos</guibutton> ou <guibutton>Próximos 100</guibutton> para mostrar as revisões em que estás interessado."
 
 #. (para)
 msgid "Select the revision you wish to revert. If you want to undo a range of revisions, select the first one and hold the <keycap>Shift</keycap> key while selecting the last one. Note that for multiple revisions, the range must be unbroken with no gaps. <action>Right click</action> on the selected revision(s), then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Selecciona a revisão que queres reverter. Se queres anular um intervalo de revisões, selecciona o primeiro e mantém premida a tecla <keycap>Shift</keycap> enquanto seleccionas a última. Ter em conta que, para revisões múltiplas, o intervalo deverá ser continuo e sem falhas. <action>Clicar com o botão direito</action> nas revisões seleccionadas e então selecciona <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Reverter alterações a partir desta revisão</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "Or if you want to make an earlier revision the new HEAD revision, <action>right click</action> on the selected revision, then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert to this revision</guimenuitem></menuchoice>. This will discard <emphasis>all</emphasis> changes after the selected revision."
