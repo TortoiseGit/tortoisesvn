@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-13 23:25-0000\n"
+"PO-Revision-Date: 2010-04-13 23:45-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10551,7 +10551,7 @@ msgstr "A única maneira de remover dados do repositório é usar a ferramenta d
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
-msgstr ""
+msgstr "Comparar duas revisões de um ficheiro ou pasta"
 
 #. (primary)
 msgid "compare files"
@@ -10567,15 +10567,15 @@ msgstr ""
 
 #. (para)
 msgid "If you want to compare two revisions in an item's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se queres comparar duas revisões na história de um item, por exemplo as revisões 100 e 200 do mesmo ficheiro, usa apenas <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Mostrar registo</guimenuitem></menuchoice> para listar a história de revisões desse ficheiro. Selecciona duas revisões que queres comparar e então usa <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Comparar Revisões</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to compare the same item in two different trees, for example the trunk and a branch, you can use the repository browser to open up both trees, select the file in both places, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se queres comparar o mesmo item em duas árvores diferentes, por exemplo o trunk e um ramo, podes usar o navegador de repositório para abrir ambas as árvores e seleccionar o ficheiro em ambos os locais, e então usar <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Comparar Revisões</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. You can also export a tree structure containing all the changed files, or simply a list of all changed files. Read <xref linkend=\"tsvn-dug-compare-revs\"/> for more information. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
-msgstr ""
+msgstr "Se tu queres comparar duas árvores para ver o que foi alterado, por exemplo o trunk e uma entrega etiquetada, podes usar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Navegador de Repositório</guimenuitem></menuchoice> Selecciona os dois nós a comparar e usa <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Comparar revisões HEAD</guimenuitem></menuchoice>. Isto irá mostrar uma lista de ficheiros alterados, e tu podes então seleccionar ficheiros individuais para ver as alterações em detalhe. Tu podes também exportar a estrutura de árvore contendo todos os ficheiros alterados, ou simplesmente uma lista de ficheiros alterados. Consulta <xref linkend=\"tsvn-dug-compare-revs\"/> para mais informações. Em alternativa usa <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Comparação Unificada de Revisões HEAD</guimenuitem></menuchoice> para ver um sumário de todas as diferenças com um contexto minimal."
 
 #. (title)
 msgid "Include a common sub-project"
