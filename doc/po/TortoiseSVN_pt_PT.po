@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-13 23:45-0000\n"
+"PO-Revision-Date: 2010-04-13 23:52-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10579,7 +10579,7 @@ msgstr "Se tu queres comparar duas árvores para ver o que foi alterado, por exe
 
 #. (title)
 msgid "Include a common sub-project"
-msgstr ""
+msgstr "Incluir um subprojecto comum"
 
 #. (primary)
 msgid "common projects"
@@ -10591,11 +10591,11 @@ msgstr ""
 
 #. (para)
 msgid "Sometimes you will want to include another project within your working copy, perhaps some library code. You don't want to make a duplicate of this code in your repository because then you would lose connection with the original (and maintained) code. Or maybe you have several projects which share core code. There are at least 3 ways of dealing with this."
-msgstr ""
+msgstr "Por vezes tu quererás incluir outro projecto na tua cópia de trabalho, talvez uma biblioteca de código. Tu não quererás criar um duplicado deste código no teu repositório, porque então, tu irás perder ligação com o código original (e mantido). Ou talvez tenhas vários projectos que partilham código aqui. Existem pelo menos 3 maneiras de lidar com isto."
 
 #. (title)
 msgid "Use svn:externals"
-msgstr ""
+msgstr "Usa svn:externals"
 
 #. (para)
 msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-externals\"/>."
