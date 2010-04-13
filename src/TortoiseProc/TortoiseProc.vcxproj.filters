@@ -275,9 +275,6 @@
     <ClCompile Include="..\Utils\MiscUI\AeroGlass.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\Balloon.cpp">
-      <Filter>Utils\UI</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
@@ -908,12 +905,6 @@
     <ClCompile Include="UnlockDlg.cpp">
       <Filter>Commands\%28Un%29Lock</Filter>
     </ClCompile>
-    <ClCompile Include="EditPropertiesDlg.cpp">
-      <Filter>Commands\Properties</Filter>
-    </ClCompile>
-    <ClCompile Include="EditPropertyValueDlg.cpp">
-      <Filter>Commands\Properties</Filter>
-    </ClCompile>
     <ClCompile Include="Commands\PropertiesCommand.cpp">
       <Filter>Commands\Properties</Filter>
     </ClCompile>
@@ -991,6 +982,48 @@
     </ClCompile>
     <ClCompile Include="TortoiseProc.cpp">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropertyValueDlg.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropExecutable.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropExternals.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropExternalsValue.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropKeywords.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropMimeType.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropNeedsLock.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropTSVNLang.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropTSVNSizes.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropBase.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropBugtraq.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropEOL.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropertiesDlg.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings\SetOverlayHandlers.cpp">
+      <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1121,9 +1154,6 @@
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\AeroGlass.h">
-      <Filter>Utils\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\Balloon.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\BrowseFolder.h">
@@ -1798,12 +1828,6 @@
     <ClInclude Include="UnlockDlg.h">
       <Filter>Commands\%28Un%29Lock</Filter>
     </ClInclude>
-    <ClInclude Include="EditPropertiesDlg.h">
-      <Filter>Commands\Properties</Filter>
-    </ClInclude>
-    <ClInclude Include="EditPropertyValueDlg.h">
-      <Filter>Commands\Properties</Filter>
-    </ClInclude>
     <ClInclude Include="Commands\PropertiesCommand.h">
       <Filter>Commands\Properties</Filter>
     </ClInclude>
@@ -1884,6 +1908,48 @@
     </ClInclude>
     <ClInclude Include="TortoiseProc.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropertiesDlg.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropertyValueDlg.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropExecutable.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropExternals.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropExternalsValue.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropKeywords.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropMimeType.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropNeedsLock.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropTSVNLang.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropTSVNSizes.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropBase.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropBugtraq.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropEOL.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings\SetOverlayHandlers.h">
+      <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

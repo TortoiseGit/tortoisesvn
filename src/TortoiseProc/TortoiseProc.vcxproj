@@ -172,7 +172,7 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
     </Midl>
     <ClCompile>
-      <Optimization>MinSpace</Optimization>
+      <Optimization>Full</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>../../ext/apr-util/include;../../ext/apr-util/xml/expat/lib;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;../../ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;../../ext/cyrus-sasl/include;../../../common/openssl/inc32;.\RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -306,7 +306,6 @@
     <ClCompile Include="..\Utils\Win7.cpp" />
     <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp" />
     <ClCompile Include="..\Utils\MiscUI\AeroGlass.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\Balloon.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BufferDC.cpp" />
     <ClCompile Include="..\Utils\MiscUI\DIB.cpp" />
@@ -540,6 +539,20 @@
     <ClCompile Include="Commands\ImportCommand.cpp" />
     <ClCompile Include="ImportDlg.cpp" />
     <ClCompile Include="Commands\UpdateCommand.cpp" />
+    <ClCompile Include="Properties\EditPropBase.cpp" />
+    <ClCompile Include="Properties\EditPropBugtraq.cpp" />
+    <ClCompile Include="Properties\EditPropEOL.cpp" />
+    <ClCompile Include="Properties\EditPropertiesDlg.cpp" />
+    <ClCompile Include="Properties\EditPropertyValueDlg.cpp" />
+    <ClCompile Include="Properties\EditPropExecutable.cpp" />
+    <ClCompile Include="Properties\EditPropExternals.cpp" />
+    <ClCompile Include="Properties\EditPropExternalsValue.cpp" />
+    <ClCompile Include="Properties\EditPropKeywords.cpp" />
+    <ClCompile Include="Properties\EditPropMimeType.cpp" />
+    <ClCompile Include="Properties\EditPropNeedsLock.cpp" />
+    <ClCompile Include="Properties\EditPropTSVNLang.cpp" />
+    <ClCompile Include="Properties\EditPropTSVNSizes.cpp" />
+    <ClCompile Include="Settings\SetOverlayHandlers.cpp" />
     <ClCompile Include="UpdateDlg.cpp" />
     <ClCompile Include="Commands\AddCommand.cpp" />
     <ClCompile Include="AddDlg.cpp" />
@@ -670,8 +683,6 @@
     <ClCompile Include="LockDlg.cpp" />
     <ClCompile Include="Commands\UnLockCommand.cpp" />
     <ClCompile Include="UnlockDlg.cpp" />
-    <ClCompile Include="EditPropertiesDlg.cpp" />
-    <ClCompile Include="EditPropertyValueDlg.cpp" />
     <ClCompile Include="Commands\PropertiesCommand.cpp" />
     <ClCompile Include="DeleteUnversionedDlg.cpp" />
     <ClCompile Include="Commands\DelUnversionedCommand.cpp" />
@@ -748,7 +759,6 @@
     <ClInclude Include="..\Utils\Win7.h" />
     <ClInclude Include="..\Utils\MiscUI\AeroControls.h" />
     <ClInclude Include="..\Utils\MiscUI\AeroGlass.h" />
-    <ClInclude Include="..\Utils\MiscUI\Balloon.h" />
     <ClInclude Include="..\Utils\MiscUI\BrowseFolder.h" />
     <ClInclude Include="..\Utils\MiscUI\BufferDC.h" />
     <ClInclude Include="..\Utils\MiscUI\Cursor.h" />
@@ -841,6 +851,20 @@
     <ClInclude Include="Commands\ImportCommand.h" />
     <ClInclude Include="ImportDlg.h" />
     <ClInclude Include="Commands\UpdateCommand.h" />
+    <ClInclude Include="Properties\EditPropBase.h" />
+    <ClInclude Include="Properties\EditPropBugtraq.h" />
+    <ClInclude Include="Properties\EditPropEOL.h" />
+    <ClInclude Include="Properties\EditPropertiesDlg.h" />
+    <ClInclude Include="Properties\EditPropertyValueDlg.h" />
+    <ClInclude Include="Properties\EditPropExecutable.h" />
+    <ClInclude Include="Properties\EditPropExternals.h" />
+    <ClInclude Include="Properties\EditPropExternalsValue.h" />
+    <ClInclude Include="Properties\EditPropKeywords.h" />
+    <ClInclude Include="Properties\EditPropMimeType.h" />
+    <ClInclude Include="Properties\EditPropNeedsLock.h" />
+    <ClInclude Include="Properties\EditPropTSVNLang.h" />
+    <ClInclude Include="Properties\EditPropTSVNSizes.h" />
+    <ClInclude Include="Settings\SetOverlayHandlers.h" />
     <ClInclude Include="UpdateDlg.h" />
     <ClInclude Include="Commands\AddCommand.h" />
     <ClInclude Include="AddDlg.h" />
@@ -973,8 +997,6 @@
     <ClInclude Include="LockDlg.h" />
     <ClInclude Include="Commands\UnLockCommand.h" />
     <ClInclude Include="UnlockDlg.h" />
-    <ClInclude Include="EditPropertiesDlg.h" />
-    <ClInclude Include="EditPropertyValueDlg.h" />
     <ClInclude Include="Commands\PropertiesCommand.h" />
     <ClInclude Include="DeleteUnversionedDlg.h" />
     <ClInclude Include="Commands\DelUnversionedCommand.h" />

@@ -445,6 +445,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SVN\SVNHelpers.cpp" />
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="BaseView.cpp" />
     <ClCompile Include="BottomView.cpp" />
@@ -522,6 +523,7 @@
     <ClCompile Include="XSplitter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\SVN\SVNHelpers.h" />
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="BaseView.h" />
     <ClInclude Include="BottomView.h" />

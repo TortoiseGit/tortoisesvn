@@ -116,9 +116,6 @@
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AssemblerListingLocation>..\..\obj\TortoiseShell\Debug/</AssemblerListingLocation>
-      <ObjectFileName>..\..\obj\TortoiseShell\Debug/</ObjectFileName>
-      <ProgramDataBaseFileName>..\..\obj\TortoiseShell\Debug/</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -165,9 +162,6 @@
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AssemblerListingLocation>..\..\obj\TortoiseShell\Debug64/</AssemblerListingLocation>
-      <ObjectFileName>..\..\obj\TortoiseShell\Debug64/</ObjectFileName>
-      <ProgramDataBaseFileName>..\..\obj\TortoiseShell\Debug64/</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -216,9 +210,6 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AssemblerListingLocation>..\..\obj\TortoiseShell\Release/</AssemblerListingLocation>
-      <ObjectFileName>..\..\obj\TortoiseShell\Release/</ObjectFileName>
-      <ProgramDataBaseFileName>..\..\obj\TortoiseShell\Release/</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -270,9 +261,6 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AssemblerListingLocation>..\..\obj\TortoiseShell\Release64/</AssemblerListingLocation>
-      <ObjectFileName>..\..\obj\TortoiseShell\Release64/</ObjectFileName>
-      <ProgramDataBaseFileName>..\..\obj\TortoiseShell\Release64/</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -315,6 +303,7 @@
     <ClCompile Include="PreserveChdir.cpp" />
     <ClCompile Include="..\Utils\Registry.cpp" />
     <ClCompile Include="RemoteCacheLink.cpp" />
+    <ClCompile Include="ShellCache.cpp" />
     <ClCompile Include="ShellExt.cpp" />
     <ClCompile Include="ShellExtClassFactory.cpp" />
     <ClCompile Include="ShellObjects.cpp" />
