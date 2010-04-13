@@ -23,10 +23,16 @@
           <?endif ?>
           <?endif ?>
 
-					<?if $(env.Platform) = "x64" ?>
-					<Merge Id='CRT' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_CRT_x86_x64.msm' DiskId='1' />
-					<Merge Id='MFC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFC_x86_x64.msm' DiskId='1' />
-					<Merge Id='MFCLOC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFCLOC_x86_x64.msm' DiskId='1' />
+          <?if $(env.Platform) = "x64" ?>
+          <?if $(env.VCVERSION) = "100" ?>
+          <Merge Id='CRT' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_CRT_x64.msm' DiskId='1' />
+          <Merge Id='MFC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFC_x64.msm' DiskId='1' />
+          <Merge Id='MFCLOC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFCLOC_x64.msm' DiskId='1' />
+          <?else ?>
+          <Merge Id='CRT' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_CRT_x86_x64.msm' DiskId='1' />
+          <Merge Id='MFC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFC_x86_x64.msm' DiskId='1' />
+          <Merge Id='MFCLOC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFCLOC_x86_x64.msm' DiskId='1' />
+          <?endif ?>
           <?ifdef env.VCPOLICYVERSION ?>
           <Merge Id='CRT Policy' Language='0' SourceFile='$(env.MergeModules)\policy_$(env.VCPOLICYVERSION)_Microsoft_VC$(env.VCVERSION)_CRT_x86_x64.msm' DiskId='1' />
           <Merge Id='MFC Policy' Language='0' SourceFile='$(env.MergeModules)\policy_$(env.VCPOLICYVERSION)_Microsoft_VC$(env.VCVERSION)_MFC_x86_x64.msm' DiskId='1' />
@@ -34,7 +40,7 @@
           <?endif ?>
           <?endif ?>
 
-					<?if $(env.Platform) = "win32" ?>
+          <?if $(env.Platform) = "win32" ?>
 					<Merge Id='Ovlays' Language='0' SourceFile='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.1.1.19039-win32.msm' DiskId='1' />
 					<?endif ?>
 
