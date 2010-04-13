@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-13 00:16-0000\n"
+"PO-Revision-Date: 2010-04-13 23:25-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10498,28 +10498,28 @@ msgstr "Selecciona a revisão que queres reverter. Se queres anular um intervalo
 
 #. (para)
 msgid "Or if you want to make an earlier revision the new HEAD revision, <action>right click</action> on the selected revision, then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert to this revision</guimenuitem></menuchoice>. This will discard <emphasis>all</emphasis> changes after the selected revision."
-msgstr ""
+msgstr "Ou se tu queres tornar uma revisão anterior a nova revisão HEAD, <action>clica com o botão direito</action> na revisão seleccionada e selecciona o <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Reverter para esta revisão</guimenuitem></menuchoice>. Isto irá descartar <emphasis>todas</emphasis> as alterações após a revisão seleccionada."
 
 #. (para)
 #. (para)
 msgid "You have reverted the changes within your working copy. Check the results, then commit the changes."
-msgstr ""
+msgstr "Tu reverteste as alterações na tua cópia de trabalho. Verifica os resultados, e então submete as alterações."
 
 #. (title)
 msgid "Use the merge dialog"
-msgstr ""
+msgstr "Usa a caixa de diálogo integrar"
 
 #. (para)
 msgid "To undo a larger range of revisions, you can use the Merge dialog. The previous method uses merging behind the scenes; this method uses it explicitly."
-msgstr ""
+msgstr "Para anular um grande intervalo de revisões poderás usar a caixa de diálogo Integrar. O método anterior usa a integração por detrás do pano; este método usa-a explicitamente."
 
 #. (para)
 msgid "In your working copy select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Na tua cópia de trabalho selecciona  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Integrar</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
-msgstr ""
+msgstr "No campo <guilabel>De:</guilabel> introduz o URL completo da pasta do ramo ou etiqueta, contendo as alterações que tu queres reverter na tua cópia de trabalho. Este deverá surgir como o URL por defeito."
 
 #. (para)
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
@@ -10539,15 +10539,15 @@ msgstr ""
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"
-msgstr ""
+msgstr "Usa o <literal>svndumpfilter</literal>"
 
 #. (para)
 msgid "Since TortoiseSVN never loses data, your <quote>rolled back</quote> revisions still exist as intermediate revisions in the repository. Only the HEAD revision was changed to a previous state. If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
-msgstr ""
+msgstr "Visto que o TortoiseSVN nunca perde dados, as tuas revisões <quote>revertidas</quote> ainda existem como revisões intermédias no repositório. Só a revisão HEAD foi alterada para um estado anterior. Se tu queres fazer desaparecer completamente revisões do teu repositório, apagando todos os vestígios de qualquer existência, terás de usar medidas mais extremas. A não ser que exista uma razão muito boa para o fazer, <emphasis>não é recomendado</emphasis>. Uma possível razão seria a que alguém submetesse um documento confidencial num repositório público."
 
 #. (para)
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
-msgstr ""
+msgstr "A única maneira de remover dados do repositório é usar a ferramenta de linha de comando do Subversion <literal>svnadmin</literal>. Tu poderás encontrar a descrição de como isto se processa em <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
 
 #. (title)
 msgid "Compare two revisions of a file or folder"
