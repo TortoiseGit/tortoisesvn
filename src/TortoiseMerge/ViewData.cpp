@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007,2009 - TortoiseSVN
+// Copyright (C) 2007,2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@ CViewData::~CViewData(void)
 {
 }
 
-void CViewData::AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide)
+void CViewData::AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedIndex)
 {
 	viewdata data;
 	data.sLine = sLine;
@@ -35,6 +35,7 @@ void CViewData::AddData(const CString& sLine, DiffStates state, int linenumber, 
 	data.linenumber = linenumber;
 	data.ending = ending;
 	data.hidestate = hide;
+    data.movedIndex = movedIndex;
 	return AddData(data);
 }
 
@@ -43,7 +44,7 @@ void CViewData::AddData(const viewdata& data)
 	return m_data.push_back(data);
 }
 
-void CViewData::InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide)
+void CViewData::InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedIndex)
 {
 	viewdata data;
 	data.sLine = sLine;
@@ -51,6 +52,7 @@ void CViewData::InsertData(int index, const CString& sLine, DiffStates state, in
 	data.linenumber = linenumber;
 	data.ending = ending;
 	data.hidestate = hide;
+    data.movedIndex = movedIndex;
 	return InsertData(index, data);
 }
 

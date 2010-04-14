@@ -37,7 +37,8 @@ typedef struct
 {
 	CString						sLine;
 	DiffStates					state;
-	int							linenumber; 
+	int							linenumber;
+    int                         movedIndex;
 	EOL							ending;
 	HIDESTATE					hidestate;
 } viewdata;
@@ -52,9 +53,9 @@ public:
 	CViewData(void);
 	~CViewData(void);
 
-	void			AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide);
+	void			AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline = -1);
 	void			AddData(const viewdata& data);
-	void			InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide);
+	void			InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline = -1);
 	void			InsertData(int index, const viewdata& data);
 	void			RemoveData(int index) {m_data.erase(m_data.begin() + index);}
 
@@ -63,6 +64,7 @@ public:
 	DiffStates		GetState(int index) const {return m_data[index].state;}
 	HIDESTATE		GetHideState(int index) {return m_data[index].hidestate;}
 	int				GetLineNumber(int index) {return m_data.size() ? m_data[index].linenumber : 0;}
+    int             GetMovedIndex(int index) {return m_data.size() ? m_data[index].movedIndex: 0;}
 	int				FindLineNumber(int number);
 	EOL				GetLineEnding(int index) const {return m_data[index].ending;}
 
@@ -72,6 +74,7 @@ public:
 	void			SetLine(int index, const CString& sLine) {m_data[index].sLine = sLine;}
 	void			SetLineNumber(int index, int linenumber) {m_data[index].linenumber = linenumber;}
 	void			SetLineEnding(int index, EOL ending) {m_data[index].ending = ending;}
+    void            SetMovedIndex(int index, int movedIndex) {m_data[index].movedIndex = movedIndex;}
 	void			SetLineHideState(int index, HIDESTATE state) {m_data[index].hidestate = state;}
 
 	void			Clear() {m_data.clear();}

@@ -72,6 +72,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
 	ON_COMMAND(ID_VIEW_LINEDOWN, OnViewLinedown)
 	ON_COMMAND(ID_VIEW_LINEUP, OnViewLineup)
+    ON_COMMAND(ID_VIEW_MOVEDBLOCKS, OnViewMovedBlocks)
+    ON_UPDATE_COMMAND_UI(ID_VIEW_MOVEDBLOCKS, OnUpdateViewMovedBlocks)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_MARKASRESOLVED, OnUpdateMergeMarkasresolved)
 	ON_COMMAND(ID_EDIT_MARKASRESOLVED, OnMergeMarkasresolved)
 	ON_UPDATE_COMMAND_UI(ID_NAVIGATE_NEXTCONFLICT, OnUpdateMergeNextconflict)
@@ -145,7 +147,7 @@ CMainFrame::CMainFrame()
 	m_nSearchIndex = 0;
 	m_bInitSplitter = FALSE;
 	m_bOneWay = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"))));
-	m_bReversedPatch = FALSE;
+    m_bReversedPatch = FALSE;
 	m_bHasConflicts = false;
 	m_bInlineWordDiff = true;
 	m_bLineDiff = true;
@@ -153,6 +155,7 @@ CMainFrame::CMainFrame()
 	m_nMoveMovesToIgnore = 0;
 	theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
 	m_bCollapsed = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
+    m_bViewMovedBlocks = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\ViewMovedBlocks"), 0);
 }
 
 CMainFrame::~CMainFrame()
@@ -602,6 +605,7 @@ void CMainFrame::ClearViewNamesAndPaths()
 bool CMainFrame::LoadViews(int line)
 {
 	m_Data.SetBlame(m_bBlame);
+    m_Data.SetMovedBlocks(m_bViewMovedBlocks);
 	m_bHasConflicts = false;
 	CBaseView* pwndActiveView = m_pwndLeftView;
 	int nOldLine = m_pwndLeftView ? m_pwndLeftView->m_nTopLine : -1;
@@ -2106,6 +2110,26 @@ void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
 	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
 	DWORD dwIgnoreWS = regIgnoreWS;
 	pCmdUI->SetCheck(dwIgnoreWS == 1);
+}
+
+void CMainFrame::OnViewMovedBlocks()
+{
+    CRegDWORD regShowMovedBlocks = CRegDWORD(_T("Software\\TortoiseMerge\\ViewMovedBlocks"), 0);
+    m_bViewMovedBlocks = !(DWORD)regShowMovedBlocks;
+    regShowMovedBlocks = m_bViewMovedBlocks;
+    LoadViews(-1);
+}
+
+void CMainFrame::OnUpdateViewMovedBlocks(CCmdUI *pCmdUI)
+{
+    pCmdUI->SetCheck(m_bViewMovedBlocks);
+    BOOL bEnable = TRUE;
+    if (m_pwndBottomView)
+    {
+        if (m_pwndBottomView->IsWindowVisible())
+            bEnable = FALSE;
+    }
+    pCmdUI->Enable(bEnable);
 }
 
 bool CMainFrame::HasConflictsWontKeep()

@@ -108,7 +108,8 @@ CBaseView::CBaseView()
 	m_hLineEndingCRLF = LoadIcon(IDI_LINEENDINGCRLF);
 	m_hLineEndingLF = LoadIcon(IDI_LINEENDINGLF);
 	m_hEditedIcon = LoadIcon(IDI_LINEEDITED);
-
+    m_hMovedIcon = LoadIcon(IDI_MOVEDLINE);
+    
 	for (int i=0; i<1024; ++i)
 		m_sConflictedText += _T("??");
 	m_sNoLineNr.LoadString(IDS_EMPTYLINETT);
@@ -129,6 +130,7 @@ CBaseView::~CBaseView()
 	DestroyIcon(m_hLineEndingCRLF);
 	DestroyIcon(m_hLineEndingLF);
 	DestroyIcon(m_hEditedIcon);
+    DestroyIcon(m_hMovedIcon);
 }
 
 BEGIN_MESSAGE_MAP(CBaseView, CView)
@@ -217,6 +219,7 @@ void CBaseView::UpdateStatusBar()
 			{
 			case DIFFSTATE_ADDED:
 			case DIFFSTATE_IDENTICALADDED:
+            case DIFFSTATE_MOVED_TO:
 			case DIFFSTATE_THEIRSADDED:
 			case DIFFSTATE_YOURSADDED:
 			case DIFFSTATE_CONFLICTADDED:
@@ -224,6 +227,7 @@ void CBaseView::UpdateStatusBar()
 				break;
 			case DIFFSTATE_IDENTICALREMOVED:
 			case DIFFSTATE_REMOVED:
+            case DIFFSTATE_MOVED_FROM:
 			case DIFFSTATE_THEIRSREMOVED:
 			case DIFFSTATE_YOURSREMOVED:
 				nRemovedLines++;
@@ -1057,6 +1061,10 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 		case DIFFSTATE_EDITED:
 			icon = m_hEditedIcon;
 			break;
+        case DIFFSTATE_MOVED_TO:
+        case DIFFSTATE_MOVED_FROM:
+            icon = m_hMovedIcon;
+            break;
 		default:
 			break;
 		}
@@ -1236,6 +1244,7 @@ BOOL CBaseView::IsLineRemoved(int nLineIndex)
 	switch (state)
 	{
 	case DIFFSTATE_REMOVED:
+    case DIFFSTATE_MOVED_FROM:
 	case DIFFSTATE_THEIRSREMOVED:
 	case DIFFSTATE_YOURSREMOVED:
 	case DIFFSTATE_IDENTICALREMOVED:
@@ -2414,6 +2423,14 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 	}
 	int nClickedLine = nLineFromTop + m_nTopLine;
 	nClickedLine--;		//we need the index
+    if((m_pViewData)&&(nClickedLine < m_pViewData->GetCount())) // a double click on moved line scrolls to corresponding line
+    { 
+        if((m_pViewData->GetState(nClickedLine)==DIFFSTATE_MOVED_FROM)||
+           (m_pViewData->GetState(nClickedLine)==DIFFSTATE_MOVED_TO))
+        {
+            ScrollAllToLine(m_pViewData->GetMovedIndex(nClickedLine));
+        }
+    }
 	if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed)&&(m_pViewData->GetHideState(nClickedLine) == HIDESTATE_MARKER))
 	{
 		// a double click on a marker expands the hidden text
@@ -2507,6 +2524,8 @@ void CBaseView::OnEditCopy()
 		case DIFFSTATE_IDENTICALADDED:
 		case DIFFSTATE_THEIRSREMOVED:
 		case DIFFSTATE_THEIRSADDED:
+        case DIFFSTATE_MOVED_FROM:
+        case DIFFSTATE_MOVED_TO:
 		case DIFFSTATE_YOURSREMOVED:
 		case DIFFSTATE_YOURSADDED:
 		case DIFFSTATE_EDITED:

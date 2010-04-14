@@ -174,6 +174,9 @@
     <ClCompile Include="..\SVN\SVNHelpers.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MovedBlocks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AboutDlg.h">
@@ -332,6 +335,9 @@
     <ClInclude Include="..\SVN\SVNHelpers.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MovedBlocks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\download.avi">
@@ -383,6 +389,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\ttf_glyph.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\moved.ico">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

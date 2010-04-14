@@ -314,6 +314,8 @@ protected:
 	HICON			m_hLineEndingCRLF;
 	HICON			m_hLineEndingLF;
 
+    HICON           m_hMovedIcon;
+
 	LOGFONT			m_lfBaseFont;
 	static const int fontsCount = 8;
 	CFont *			m_apFonts[fontsCount];

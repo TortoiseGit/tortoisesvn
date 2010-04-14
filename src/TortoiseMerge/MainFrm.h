@@ -131,6 +131,8 @@ protected:
 	afx_msg void	OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI);
+    afx_msg void    OnViewMovedBlocks();
+    afx_msg void    OnUpdateViewMovedBlocks(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -198,6 +200,7 @@ public:
 	bool			m_bBlame;
 	int				m_nMoveMovesToIgnore;
 	bool			m_bCollapsed;
+    bool            m_bViewMovedBlocks;
 
 	void			ShowDiffBar(bool bShow);
 };

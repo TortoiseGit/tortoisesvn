@@ -459,6 +459,7 @@
     <ClCompile Include="LocatorBar.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp" />
+    <ClCompile Include="MovedBlocks.cpp" />
     <ClCompile Include="OpenDlg.cpp" />
     <ClCompile Include="Patch.cpp" />
     <ClCompile Include="..\Utils\MiscUI\ProgressDlg.cpp" />
@@ -538,6 +539,7 @@
     <ClInclude Include="LineDiffBar.h" />
     <ClInclude Include="LocatorBar.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MovedBlocks.h" />
     <ClInclude Include="OpenDlg.h" />
     <ClInclude Include="Patch.h" />
     <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h" />
@@ -588,6 +590,7 @@
     <None Include="..\Resources\lineequal.ico" />
     <None Include="..\Resources\lineremoved.ico" />
     <None Include="..\Resources\linewhitespace.ico" />
+    <None Include="..\Resources\moved.ico" />
     <None Include="..\Resources\Toolbar.bmp" />
     <None Include="..\Resources\TortoiseMerge.ico" />
     <None Include="..\Resources\TortoiseMerge.rc2" />

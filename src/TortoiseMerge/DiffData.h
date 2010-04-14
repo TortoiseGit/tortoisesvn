@@ -26,6 +26,7 @@
 #include "Registry.h"
 #include "WorkingFile.h"
 #include "ViewData.h"
+#include "MovedBlocks.h"
 
 
 
@@ -43,6 +44,7 @@ public:
 
 	BOOL						Load();
 	void						SetBlame(bool bBlame = true) {m_bBlame = bBlame;}
+    void                        SetMovedBlocks(bool bViewMovedBlocks = true);
 	int							GetLineCount();
 	int							GetLineActualLength(int index);
 	LPCTSTR						GetLineChars(int index);
@@ -54,7 +56,16 @@ public:
 
 private:
 	bool DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool);
-	bool DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, apr_pool_t * pool);
+
+    void StickAndSkip(svn_diff_t * &tempdiff, apr_off_t &original_length_sticked, apr_off_t &modified_length_sticked);
+    bool DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, apr_pool_t * pool);
+/**
+* Moved blocks detection for further highlighting, 
+* implemented exclusively for TwoWayDiff
+**/    
+    tsvn_svn_diff_t_extension * MovedBlocksDetect(svn_diff_t * diffYourBase, apr_pool_t * pool);
+
+    void TieMovedBlocks(int from, int to, apr_off_t length);
 
 	void HideUnchangedSections(CViewData * data1, CViewData * data2, CViewData * data3);
 	void AddLines(LONG baseline, LONG yourline, LONG theirline);
@@ -100,4 +111,5 @@ public:
 	static int					abort_on_pool_failure (int retcode);
 protected:
 	bool						m_bBlame;
+    bool                        m_bViewMovedBlocks;
 };

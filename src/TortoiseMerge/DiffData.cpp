@@ -25,6 +25,7 @@
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"
 #include "svn_dso.h"
+#include "MovedBlocks.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4702) // unreachable code
@@ -51,6 +52,11 @@ CDiffData::~CDiffData(void)
 {
 	g_SVNAdminDir.Close();
 	apr_terminate();
+}
+
+void CDiffData::SetMovedBlocks(bool bViewMovedBlocks/* = true*/) 
+{ 
+    m_bViewMovedBlocks = bViewMovedBlocks;
 }
 
 int CDiffData::GetLineCount()
@@ -123,6 +129,44 @@ bool CDiffData::HandleSvnError(svn_error_t * svnerr)
 	return false;
 }
 
+void CDiffData::TieMovedBlocks(int from, int to, apr_off_t length) 
+{
+    for(int i=0; i<length; i++, to++, from++)
+    {
+        int fromIndex = m_YourBaseLeft.FindLineNumber(from);
+        int toIndex = m_YourBaseRight.FindLineNumber(to);
+        m_YourBaseLeft.SetState(fromIndex, DIFFSTATE_MOVED_FROM);
+        m_YourBaseLeft.SetMovedIndex(fromIndex, toIndex);
+        m_YourBaseRight.SetState(toIndex, DIFFSTATE_MOVED_TO);
+        m_YourBaseRight.SetMovedIndex(toIndex, fromIndex);
+
+        toIndex = m_YourBaseBoth.FindLineNumber(to);
+        while((toIndex < m_YourBaseBoth.GetCount())&&
+              ((m_YourBaseBoth.GetState(toIndex) != DIFFSTATE_ADDED)&& 
+              (m_YourBaseBoth.GetState(toIndex) != DIFFSTATE_MOVED_TO)||
+              (m_YourBaseBoth.GetLineNumber(toIndex) != to)))
+        {
+            toIndex++;
+        }
+
+        fromIndex = m_YourBaseBoth.FindLineNumber(from);
+        while((fromIndex < m_YourBaseBoth.GetCount())&&
+              ((m_YourBaseBoth.GetState(fromIndex) != DIFFSTATE_REMOVED)&&
+              (m_YourBaseBoth.GetState(fromIndex) != DIFFSTATE_MOVED_FROM)||
+              (m_YourBaseBoth.GetLineNumber(fromIndex) != from)))
+        {
+            fromIndex++;
+        }
+        if ((fromIndex < m_YourBaseBoth.GetCount())&&(toIndex < m_YourBaseBoth.GetCount()))
+        {
+            m_YourBaseBoth.SetState(fromIndex, DIFFSTATE_MOVED_FROM);
+            m_YourBaseBoth.SetMovedIndex(fromIndex, toIndex);
+            m_YourBaseBoth.SetState(toIndex, DIFFSTATE_MOVED_TO);
+            m_YourBaseBoth.SetMovedIndex(toIndex, fromIndex);
+        }
+    }
+}
+
 bool CDiffData::CompareWithIgnoreWS(CString s1, CString s2, DWORD dwIgnoreWS)
 {
 	if (dwIgnoreWS == 2)
@@ -144,6 +188,21 @@ void CDiffData::AddLines(LONG baseline, LONG yourline, LONG theirline)
 	m_arDiff3LinesBase.Add(baseline);
 	m_arDiff3LinesYour.Add(yourline);
 	m_arDiff3LinesTheir.Add(theirline);
+}
+
+void CDiffData::StickAndSkip(svn_diff_t * &tempdiff, apr_off_t &original_length_sticked, apr_off_t &modified_length_sticked) 
+{
+    if((m_bViewMovedBlocks)&&(tempdiff->type == svn_diff__type_diff_modified))
+    {
+        svn_diff_t * nextdiff = tempdiff->next;
+        while((nextdiff)&&(nextdiff->type == svn_diff__type_diff_modified))
+        {
+            original_length_sticked += nextdiff->original_length;
+            modified_length_sticked += nextdiff->modified_length;
+            tempdiff = nextdiff;
+            nextdiff = tempdiff->next;
+        }
+    }
 }
 
 BOOL CDiffData::Load()
@@ -302,16 +361,26 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 
 	svn_diff_t * diffYourBase = NULL;
 	svn_error_t * svnerr = svn_diff_file_diff_2(&diffYourBase, sBaseFilenameUtf8, sYourFilenameUtf8, options, pool);
-	if (svnerr)
-        return HandleSvnError(svnerr);
 	
+    if (svnerr)
+        return HandleSvnError(svnerr);
+    
+    tsvn_svn_diff_t_extension * movedBlocks = NULL;
+	if(m_bViewMovedBlocks)
+        movedBlocks = MovedBlocksDetect(diffYourBase, pool); // Side effect is that diffs are now splitted
+    
 	svn_diff_t * tempdiff = diffYourBase;
 	LONG baseline = 0;
 	LONG yourline = 0;
+    while (tempdiff)
+    {   
+        svn_diff__type_e diffType = tempdiff->type;
+        // Side effect described above overcoming - sticking together
+        apr_off_t original_length_sticked = tempdiff->original_length;
+        apr_off_t modified_length_sticked = tempdiff->modified_length;
+        StickAndSkip(tempdiff, original_length_sticked, modified_length_sticked);
 
-	while (tempdiff)
-	{
-		for (int i=0; i<tempdiff->original_length; i++)
+		for (int i=0; i<original_length_sticked; i++)
 		{
 			if (baseline >= m_arBaseFile.GetCount())
 			{
@@ -320,7 +389,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 			}
 			const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
 			EOL endingBase = m_arBaseFile.GetLineEnding(baseline);
-			if (tempdiff->type == svn_diff__type_common)
+			if (diffType == svn_diff__type_common)
 			{
 				if (yourline >= m_arYourFile.GetCount())
 				{
@@ -349,17 +418,17 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				{
 					m_YourBaseBoth.AddData(sCurrentYourLine, DIFFSTATE_NORMAL, yourline, endingBase, HIDESTATE_HIDDEN);
 				}
-				yourline++;		//in both files
+    			yourline++;		//in both files
 			}
 			else
-			{
-				m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVED, yourline, endingBase, HIDESTATE_SHOWN);
-			}
+			{ // small trick - we need here a baseline, but we fix it back to yourline at the end of routine
+				m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVED, baseline, endingBase, HIDESTATE_SHOWN);
+    		}
 			baseline++;
 		}
-		if (tempdiff->type == svn_diff__type_diff_modified)
+		if (diffType == svn_diff__type_diff_modified)
 		{
-			for (int i=0; i<tempdiff->modified_length; i++)
+			for (int i=0; i<modified_length_sticked; i++)
 			{
 				if (m_arYourFile.GetCount() > yourline)
 				{
@@ -413,8 +482,13 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 		}
 		if (tempdiff->type == svn_diff__type_diff_modified)
 		{
-			apr_off_t original_length = tempdiff->original_length;
-			for (int i=0; i<tempdiff->modified_length; i++)
+            // now we trying to stick together parts, that were splitted by MovedBlocks
+            apr_off_t original_length_sticked = tempdiff->original_length;
+            apr_off_t modified_length_sticked = tempdiff->modified_length;
+            StickAndSkip(tempdiff, original_length_sticked, modified_length_sticked);
+
+            apr_off_t original_length = original_length_sticked;
+			for (int i=0; i<modified_length_sticked; i++)
 			{
 				if (m_arYourFile.GetCount() > yourline)
 				{
@@ -433,8 +507,8 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 					yourline++;
 				}
 			}
-			apr_off_t modified_length = tempdiff->modified_length;
-			for (int i=0; i<tempdiff->original_length; i++)
+			apr_off_t modified_length = modified_length_sticked;
+			for (int i=0; i<original_length_sticked; i++)
 			{
 				if ((modified_length-- <= 0)&&(m_arBaseFile.GetCount() > baseline))
 				{
@@ -447,6 +521,39 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 		}
 		tempdiff = tempdiff->next;
 	}
+    // Fixing results for conforming moved blocks 
+   
+    while(movedBlocks)
+    {
+		tempdiff = movedBlocks->base;
+		if(movedBlocks->moved_to != -1)
+        {
+            // set states in a block original:length -> moved_to:length
+            TieMovedBlocks((int)tempdiff->original_start, movedBlocks->moved_to, tempdiff->original_length);
+        }
+        if(movedBlocks->moved_from != -1)
+        {
+            // set states in a block modified:length -> moved_from:length
+            TieMovedBlocks(movedBlocks->moved_from, (int)tempdiff->modified_start, tempdiff->modified_length);
+        }
+        movedBlocks = movedBlocks->next;
+    }
+
+    // replace baseline with the yourline in m_YourBaseBoth
+    yourline = 0;
+    for(int i=0; i<m_YourBaseBoth.GetCount(); i++)
+    {
+        DiffStates state = m_YourBaseBoth.GetState(i);
+        if((state == DIFFSTATE_REMOVED)||(state == DIFFSTATE_MOVED_FROM))
+        {
+            m_YourBaseBoth.SetLineNumber(i, yourline);
+        }
+        else
+        {    
+            yourline++;
+        }
+    }
+
 	TRACE(_T("done with 2-way diff\n"));
 
 	HideUnchangedSections(&m_YourBaseLeft, &m_YourBaseRight, NULL);
@@ -898,4 +1005,4 @@ void CDiffData::HideUnchangedSections(CViewData * data1, CViewData * data2, CVie
 			lastHideState = hideState;
 		}
 	}
-}                                                         
+}
