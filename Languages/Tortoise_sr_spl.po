@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-09 20:26+0100\n"
+"PO-Revision-Date: 2010-04-14 21:40+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -213,6 +213,11 @@ msgstr "%s : Radna osnova"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Radna kopija"
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Vraćeno na staro]"
 
 #. Resource IDs: (609)
 #, c-format
@@ -898,8 +903,8 @@ msgstr "Ve&ličine dnevnika"
 
 #
 #. Resource IDs: (65535)
-msgid "&Lum:"
-msgstr "&Lum"
+msgid "&Luminence:"
+msgstr "&Sjajnost:"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -959,6 +964,10 @@ msgstr "&Izmeni boju za kopije znački"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "&Izmeni boju za kopiju debla"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "&Pomereniblokovi"
 
 #
 #. Resource IDs: (65535)
@@ -1198,10 +1207,9 @@ msgstr "&SSH klijent"
 msgid "&SVN"
 msgstr "&SVN"
 
-#
 #. Resource IDs: (65535)
-msgid "&Sat:"
-msgstr "&Sat"
+msgid "&Saturation:"
+msgstr "Za&sićenje"
 
 #
 #. Resource IDs: (16921, 57603)
@@ -2414,8 +2422,8 @@ msgid "Can't create a new image!"
 msgstr "Ne može se kreirati nova slika!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
-msgstr "Me mogu se podesiti meniji!"
+msgid "Can't customize menus!"
+msgstr "Me mogu se pojednostaviti meniji!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -2438,8 +2446,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Ne može se prikazati diff zbog neusklađenih znakova za novired u fajlu."
 
 #. Resource IDs: (16926)
-msgid "Cascade"
-msgstr "Kaskada"
+msgid "Casca&de"
+msgstr "Kaska&da"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -3544,6 +3552,10 @@ msgstr "Destinacioni URL:"
 msgid "Destination disk drive is full."
 msgstr "Odredišni disk je pun."
 
+#. Resource IDs: (2056)
+msgid "Detect and highlight moved blocks"
+msgstr "Detektuje i podvlači pomerene blokove"
+
 #. Resource IDs: (3849)
 msgid ""
 "Device Independent Bitmap\n"
@@ -3700,6 +3712,10 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "Želite li nastaviti?"
 
+#. Resource IDs: (3887)
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "Želite li da vratite ove auto-sačuvana dokumenta?"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3740,6 +3756,14 @@ msgstr ""
 "Umesto toga, svi URLovi su preuzeti u izdvojene\n"
 "radne kopije jedan za drugim.\n"
 "Ovo radi samo za URL imenike."
+
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+"Ne vraćajte auto-sačuvana dokumenta\n"
+"Koristite poslednju sačuvanu verziju dokumenata"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3846,6 +3870,10 @@ msgstr "Uredi diff program zavistan od ekstenzije"
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
 msgstr "Uredi program za stapanje zavistan od ekstenzije"
+
+#. Resource IDs: (321)
+msgid "Edit language properties"
+msgstr "Uredite parametre jezika"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -4204,6 +4232,10 @@ msgstr "Spoljašnji uključeni"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "F&orsira stapanje"
+
+#. Resource IDs: (1070)
+msgid "Fade"
+msgstr "Bledo"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -5517,6 +5549,16 @@ msgstr "Gran&ica:"
 msgid "L&ocal path:"
 msgstr "L&okalna putanja:"
 
+#
+#. Resource IDs: (32855)
+msgid "Lan&guages"
+msgstr "&Jezici"
+
+#
+#. Resource IDs: (65535)
+msgid "Language:"
+msgstr "Jezik:"
+
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "Poslednja urezana rev.:"
@@ -6346,6 +6388,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Nije rekurzivno"
 
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr "Primetite da ako izaberete da vratite auto-sačuvana dokumenta, morate eksplicitno da ih sačuvate prepisivanjem originalnih dokumenata. Ako izabereteda ne vraćate auto-sačuvane verzije one će biti obrisane."
+
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "Primedba: imenik sadrži neverzionisane stavke"
@@ -6478,6 +6524,10 @@ msgstr ""
 "(neka od 'grana', 'oznaka' ili 'stablo').\n"
 "\n"
 "Da li ste sigurni da želite premestiti odabrane putanje?"
+
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr "Jedan ili više auto-sačuvanih dokumenata je nađeno."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -7088,6 +7138,14 @@ msgstr "Nedavno izmenjene linije"
 msgid "Record Only"
 msgstr "Samo snimanje"
 
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+"Vraća auto-sačuvana dokumenta\n"
+"Otvori auto-sačuvane verzije umesto eksplicitno sačuvanih verzija"
+
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
@@ -7645,6 +7703,14 @@ msgstr "Red %d od %d"
 msgid "Row %d-%d of %d"
 msgstr "Red %d-%d od %d"
 
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "Red dole"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "Red gore"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "I&zabrati..."
@@ -7983,6 +8049,10 @@ msgid ""
 msgstr ""
 "Označite celi dokument\n"
 "Označi sve"
+
+#. Resource IDs: (65535)
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgstr "Bira jezik koji koristi projekat. Podešavanje se odnosi na proveru pravopisa korišćenog za poruke urezivanja."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -8371,6 +8441,10 @@ msgstr "Preskočeno"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "Preskočena je meta koja nedostaje"
+
+#. Resource IDs: (1070)
+msgid "Slide"
+msgstr "Slajd"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9317,6 +9391,10 @@ msgstr "Nema ništa da se otključa. Nijedan fajl nije zaključan u ovoj radnoj 
 msgid "Thesaurus"
 msgstr "Sinonimi"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr "Ovo su skorašnje sačuvani zatim tekuće otvoreni dokumenti i sadrže izmene pre nego se aplikacija zatvori."
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -9377,13 +9455,13 @@ msgstr "Ovo svojstvo ne sme imati više linija. Samo je jedna linija dozvoljena.
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "Ovo će izbrisati zapis komandi koje ste koristili u ovoj aplikaciji i vratiće uobičajen skup komandi u menijima i alatpultu. To neće poništiti bilo koje izričito prilagođenje. Da li ste sigurni da želite da uradite to?"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "Presloži &horizontalno"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "Presloži &vertikalno"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "Složi hori&zontalno"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9743,6 +9821,10 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "Neočekivani format fajlovi."
+
+#. Resource IDs: (1070)
+msgid "Unfold"
+msgstr "Razviti"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -10565,6 +10647,10 @@ msgstr "Zumiraj da se uklopi po visini"
 msgid "Zoom to fit in width"
 msgstr "Zumiraj da se uklopi po širini"
 
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[Uobičajeno]"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Neoznačen]"
@@ -10826,6 +10912,10 @@ msgstr "to je bez verzije."
 #. Resource IDs: (214)
 msgid "item kept locally"
 msgstr "stavka sačuvana lokalno"
+
+#. Resource IDs: (1562)
+msgid "keep the file lists in English"
+msgstr "čuvajte listu fajlova na engleskom"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
