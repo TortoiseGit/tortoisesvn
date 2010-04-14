@@ -1951,6 +1951,9 @@
     <ClInclude Include="Settings\SetOverlayHandlers.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\ControlsBridge.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">

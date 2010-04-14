@@ -22,6 +22,7 @@
 #include "TSVNPath.h"
 #include "RenameDlg.h"
 #include ".\renamedlg.h"
+#include "ControlsBridge.h"
 
 
 IMPLEMENT_DYNAMIC(CRenameDlg, CResizableStandAloneDialog)
@@ -65,6 +66,8 @@ BOOL CRenameDlg::OnInitDialog()
 	AddAnchor(IDC_DWM, TOP_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+
+	CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_NAME);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("RenameDlg"));

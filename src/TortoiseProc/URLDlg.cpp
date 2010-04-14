@@ -21,6 +21,7 @@
 #include "TortoiseProc.h"
 #include "URLDlg.h"
 #include ".\urldlg.h"
+#include "ControlsBridge.h"
 
 IMPLEMENT_DYNAMIC(CURLDlg, CResizableStandAloneDialog)
 CURLDlg::CURLDlg(CWnd* pParent /*=NULL*/)
@@ -53,6 +54,8 @@ BOOL CURLDlg::OnInitDialog()
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+
+    CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_URLCOMBO);
 
 	RECT rect;
 	GetWindowRect(&rect);
