@@ -425,7 +425,7 @@ NAnt build script for the TortoiseSVN language pack installers
   <target name="resourcedlls">
     <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
 
-    <zip zipfile="..\bin\TortoiseSVN_${verstring}${devrelease}-${platform}--LanguageDlls.zip" ziplevel="9">
+    <zip zipfile="..\bin\TortoiseSVN_${verstring}${devrelease}_${platform}_LanguageDlls.zip" ziplevel="9">
       <fileset>
         <include name="..\bin\release${bindirextension}\bin\*Lang.dll" />
       </fileset>
