@@ -631,12 +631,14 @@ void CStatGraphDlg::FilterSkippedAuthors(std::list<tstring>& included_authors,
 	}
 }
 
-void CStatGraphDlg::ShowCommitsByAuthor()
+bool  CStatGraphDlg::PreViewStat(bool fShowLabels)
 {
 	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
-		return;
-	ShowLabels(FALSE);
-	ClearGraph();
+		return false;
+	ShowLabels(fShowLabels);
+
+	//If view graphic
+	if (!fShowLabels) ClearGraph();
 
 	// This function relies on a previous call of GatherData(). 
 	// This can be detected by checking the week count. 
@@ -645,7 +647,14 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 		GatherData();
 	// If week count is still -1, something bad has happened, probably invalid data!
 	if (m_nWeeks == -1)
-		return;
+		return false;
+
+	return true;
+}
+
+void CStatGraphDlg::ShowCommitsByAuthor()
+{
+	if(!PreViewStat(false)) return;
 
 	// We need at least one author
 	if (m_authorNames.empty()) 
@@ -706,19 +715,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 
 void CStatGraphDlg::ShowCommitsByDate()
 {
-	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
-		return;
-	ShowLabels(FALSE);
-	ClearGraph();
-
-	// This function relies on a previous call of GatherData(). 
-	// This can be detected by checking the week count. 
-	// If the week count is equal to -1, it hasn't been called before.
-	if (m_nWeeks == -1)
-		GatherData();
-	// If week count is still -1, something bad has happened, probably invalid data!
-	if (m_nWeeks == -1)
-		return;
+	if(!PreViewStat(false)) return;
 
 	// We need at least one author
 	if (m_authorNames.empty()) return;
@@ -810,18 +807,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 
 void CStatGraphDlg::ShowStats()
 {
-	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
-		return;
-	ShowLabels(TRUE);
-
-	// This function relies on a previous call of GatherData(). 
-	// This can be detected by checking the week count. 
-	// If the week count is equal to -1, it hasn't been called before.
-	if (m_nWeeks == -1)
-		GatherData();
-	// If week count is still -1, something bad has happened, probably invalid data!
-	if (m_nWeeks == -1)
-		return;
+	if(!PreViewStat(true)) return;
 
 	// Now we can use the gathered data to update the stats dialog.
 	size_t nAuthors = m_authorNames.size();
@@ -1138,19 +1124,7 @@ void CStatGraphDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	if (nSBCode == TB_THUMBTRACK)
 		return CDialog::OnHScroll(nSBCode, nPos, pScrollBar);
 
-	switch (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()))
-	{
-	case 1:
-		ShowStats();
-		break;
-	case 2:
-		ShowCommitsByDate();
-		break;
-	case 3:
-		ShowCommitsByAuthor();
-		break;
-	}
-
+	ShowSelectStat((Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel()));
 	CDialog::OnHScroll(nSBCode, nPos, pScrollBar);
 }
 
@@ -1232,18 +1206,7 @@ void CStatGraphDlg::RedrawGraph()
 
 
 	UpdateData();
-	switch (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()))
-	{
-	case 1:
-		ShowStats();
-		break;
-	case 2:
-		ShowCommitsByDate();
-		break;
-	case 3:
-		ShowCommitsByAuthor();
-		break;
-	}
+	ShowSelectStat( (Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel()));
 }
 void CStatGraphDlg::OnBnClickedGraphbarbutton()
 {
@@ -1502,4 +1465,22 @@ void CStatGraphDlg::ShowErrorMessage()
 	CFormatMessageWrapper errorDetails;
 	if (errorDetails)
     	MessageBox( errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
+}
+
+void CStatGraphDlg::ShowSelectStat(Metrics SelectedMetric)
+{
+	switch (SelectedMetric)
+	{
+	case AllStat:
+		ShowStats();
+		break;
+	case CommitsByDate:
+		ShowCommitsByDate();
+		break;
+	case CommitsByAuthor:
+		ShowCommitsByAuthor();
+		break;
+	default:
+		ShowErrorMessage();
+	}
 }

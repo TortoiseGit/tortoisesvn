@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,6 +85,14 @@ protected:
 		Years
 	};
 
+	// Available next metrics
+	enum Metrics 
+	{ 
+		AllStat,
+		CommitsByAuthor,
+		CommitsByDate,
+	};
+
 	/// The mapping type used to store data per interval/week and author.
 	typedef std::map<int, std::map<tstring, LONG> >	IntervalDataMap;
 	/// The mapping type used to store data per author.
@@ -127,6 +135,12 @@ protected:
 	/// Shows the initial statistics page.
 	void ShowStats();
 
+	/// PreShowStat functions
+	bool PreViewStat(bool fShowLabels);
+
+	//Show Selected Static metric
+	void ShowSelectStat(Metrics  SelectedMetric);
+	
 
 	/// Called when user checks/unchecks the "Authors case sensitive" checkbox.
 	/// Recalculates statistical data because the number and names of authors 
