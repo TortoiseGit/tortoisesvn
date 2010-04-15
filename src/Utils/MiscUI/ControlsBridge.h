@@ -15,9 +15,10 @@ inline void CControlsBridge::AlignHorizontally(CWnd* parent, int labelId, int co
 	CString labelText;
 	parent->GetDlgItemText(labelId, labelText);
 
-    CDC* dc = parent->GetDC();
-	dc->SelectObject(parent->GetDlgItem(labelId )->GetFont());
-	CSize textSize(dc->GetTextExtent( labelText ));
+	CDC dc;
+	dc.CreateCompatibleDC(parent->GetDC());
+	dc.SelectObject(parent->GetDlgItem(labelId)->GetFont());
+	CSize textSize(dc.GetTextExtent(labelText));
 
 	CRect labelRect;
 	parent->GetDlgItem(labelId )->GetWindowRect(labelRect);
