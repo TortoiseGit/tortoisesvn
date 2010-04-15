@@ -663,7 +663,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			}
 			for (int i=0; i<length; i++)
 			{
-				EOL endingBase = m_arBaseFile.GetLineEnding(baseline);
+                EOL endingBase = m_arBaseFile.GetCount() > baseline ? m_arBaseFile.GetLineEnding(baseline) : EOL_AUTOLINE;
 				if (original)
 				{
 					if (m_arBaseFile.GetCount() > baseline)
