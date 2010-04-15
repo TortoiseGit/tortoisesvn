@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-12 23:40+0100\n"
+"PO-Revision-Date: 2010-04-15 10:45+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -194,6 +194,11 @@ msgstr "%s : Base de Trabalho"
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Cópia de Trabalho"
+
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Recuperado]"
 
 #. Resource IDs: (609)
 #, c-format
@@ -794,8 +799,8 @@ msgid "&Log Sizes"
 msgstr "&Tamanho dos Registos"
 
 #. Resource IDs: (65535)
-msgid "&Lum:"
-msgstr "&Lum:"
+msgid "&Luminence:"
+msgstr "&Luminescência:"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -848,6 +853,10 @@ msgstr "&Modificar cor das etiquetas copiadas"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "&Modificar cor das copias do tronco"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "Blocos &movidos"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1051,8 +1060,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Sat:"
-msgstr "&Sat:"
+msgid "&Saturation:"
+msgstr "&Saturação:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -2205,8 +2214,8 @@ msgid "Can't create a new image!"
 msgstr "Impossível criar uma nova imagem!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
-msgstr "Impossível editar os menus!"
+msgid "Can't customize menus!"
+msgstr "Impossível personalizar os menus!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -2229,8 +2238,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Impossível mostrar a comparação devido à inconsistência dos fins-de-linha no arquivo."
 
 #. Resource IDs: (16926)
-msgid "Cascade"
-msgstr "Cascata"
+msgid "Casca&de"
+msgstr "Casca&ta"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -3336,6 +3345,10 @@ msgstr "URL de Destino:"
 msgid "Destination disk drive is full."
 msgstr "O disco de destino está cheio."
 
+#. Resource IDs: (2056)
+msgid "Detect and highlight moved blocks"
+msgstr "Detectar e marcar os blocos movidos"
+
 #. Resource IDs: (3849)
 msgid ""
 "Device Independent Bitmap\n"
@@ -3492,6 +3505,10 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "Deseja continuar?"
 
+#. Resource IDs: (3887)
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "Queres recuperar estes documentos automáticament salvos?"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3531,6 +3548,14 @@ msgstr ""
 "Não faças do directório de checkout uma cópia de trabalho escasso.\n"
 "Faz checkout de todas as URLs para cópias de trabalho\n"
 "ao lado umas das outras. Isto só funciona para URLs de directórios."
+
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+"Não recuperar os documentos salvos automáticamente\n"
+"Utilizar as últimas versões explicitamente salvas dos documentos"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3636,6 +3661,10 @@ msgstr "Editar programa de comparação para extensões específicas"
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
 msgstr "Editar programa de integração para extensões específicas"
+
+#. Resource IDs: (321)
+msgid "Edit language properties"
+msgstr "Editar propriedades da língua"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -3993,6 +4022,10 @@ msgstr "Externos incluídos"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "F&orçar integração"
+
+#. Resource IDs: (1070)
+msgid "Fade"
+msgstr "Desvanecer"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -5305,6 +5338,14 @@ msgstr "L&imite:"
 msgid "L&ocal path:"
 msgstr "Caminho l&ocal:"
 
+#. Resource IDs: (32855)
+msgid "Lan&guages"
+msgstr "Lín&guas"
+
+#. Resource IDs: (65535)
+msgid "Language:"
+msgstr "Língua:"
+
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "Última revisão submetida:"
@@ -6134,6 +6175,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Não recursivo"
 
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr "Nota que se decidires recuperar os documentos salvos automáticamente, tems que os salvar explícitamente para sobreescreveres os originais. Se decidires não os recuperar, são apagados."
+
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "Nota: a pasta contém itens sem controlo de versões"
@@ -6266,6 +6311,10 @@ msgstr ""
 "(um entre 'ramos', 'etiquetas' ou 'tronco').\n"
 "\n"
 "Tem a certeza de que deseja mover os caminhos seleccionados?"
+
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr "Foram encontrados um ou mais documentos salvos autmáticamente."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6877,6 +6926,14 @@ msgstr "Linhas recentemente modificadas"
 msgid "Record Only"
 msgstr "Gravar Apenas"
 
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+"Recuperar os documentos salvos automáticamente\n"
+"Abrir as versões salvas automáticamente em vez das explícitamente salvas"
+
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
@@ -7435,6 +7492,14 @@ msgstr "Linha %d de %d"
 msgid "Row %d-%d of %d"
 msgstr "Linha %d-%d de %d"
 
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "Linha Seguinte"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "Linha Anterior"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "S&eleccionar..."
@@ -7773,6 +7838,10 @@ msgid ""
 msgstr ""
 "Selecciona o documento inteiro\n"
 "Seleccionar Tudo"
+
+#. Resource IDs: (65535)
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgstr "Selecionar a língua utilizada por este projecto. Esta properiedade afecta overificador ortográfico utilizado para submeter mensagens."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -8162,6 +8231,10 @@ msgstr "Omitido"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "Arquivo em falta omitido"
+
+#. Resource IDs: (1070)
+msgid "Slide"
+msgstr "Slide"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9111,6 +9184,10 @@ msgstr "Não há nada para desbloquear. Não há arquivos bloqueados nesta cópi
 msgid "Thesaurus"
 msgstr "Sinónimos"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr "Estes documentos são mais recentes que os que estão abertos e contém modificações que foram feitas antes da aplicação fechar."
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -9172,13 +9249,13 @@ msgstr "Essa propriedade não deve possuir múltiplas linhas. Só é permitida u
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "Isto removerá o registo dos comandos que usou nesta aplicação e restaurará o conjunto padrão de comandos visíveis no menus e barras de ferramentas. Não desfará nenhuma personalização explícita. Tem a certeza de que o quer fazer?"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "Organizar &Horizontalmente"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "Organizar &Verticalmente"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "Telhar Hori&zontalmente"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9537,6 +9614,10 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "Formato de arquivo inesperado."
+
+#. Resource IDs: (1070)
+msgid "Unfold"
+msgstr "Desdobrar"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -10357,6 +10438,10 @@ msgstr "Zoom para ajustar a altura"
 msgid "Zoom to fit in width"
 msgstr "Zoom até ajustar a largura"
 
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[Por omissão]"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Não atribuído]"
@@ -10617,6 +10702,10 @@ msgstr "está sem controlo de versões."
 #. Resource IDs: (214)
 msgid "item kept locally"
 msgstr "item mantido localmente"
+
+#. Resource IDs: (1562)
+msgid "keep the file lists in English"
+msgstr "mantém as listas de ficheiros em Inglês"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
@@ -11171,6 +11260,8 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Sat:"
+#~ msgstr "&Sat:"
 #~ msgid "&Save..."
 #~ msgstr "&Guardar..."
 #~ msgid "Bug-ID / &Issue-Nr:"
