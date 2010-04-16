@@ -221,7 +221,9 @@ protected:
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
 	LRESULT			OnShowConflictResolver(WPARAM, LPARAM);
 	afx_msg LRESULT	OnTaskbarBtnCreated(WPARAM wParam, LPARAM lParam);
-	DECLARE_MESSAGE_MAP()
+    afx_msg LRESULT OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/);
+
+    DECLARE_MESSAGE_MAP()
 
 	void			Sort();
 	static bool		SortCompare(const NotificationData* pElem1, const NotificationData* pElem2);
@@ -354,3 +356,4 @@ private:
 };
 
 static UINT	WM_TASKBARBTNCREATED = RegisterWindowMessage(_T("TaskbarButtonCreated"));
+static UINT TORTOISESVN_CLOSEONEND_MSG = RegisterWindowMessage(_T("TORTOISESVN_CLOSEONEND_MSG"));

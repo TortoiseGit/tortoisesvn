@@ -130,6 +130,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_WM_SETCURSOR()
 	ON_WM_CONTEXTMENU()
 	ON_REGISTERED_MESSAGE(WM_SVNPROGRESS, OnSVNProgress)
+    ON_REGISTERED_MESSAGE(TORTOISESVN_CLOSEONEND_MSG, &CSVNProgressDlg::OnCloseOnEnd)
 	ON_WM_TIMER()
 	ON_NOTIFY(LVN_BEGINDRAG, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnBegindragSvnprogress)
 	ON_WM_SIZE()
@@ -1118,7 +1119,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		sendClose = true;
 
 	if (sendClose)
-		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+		PostMessage(TORTOISESVN_CLOSEONEND_MSG, 0, 0);
 	else if (m_hidden)
 		SetWindowPos(NULL, 0, 0, 0, 0, SWP_SHOWWINDOW|
 			SWP_NOSIZE|SWP_NOMOVE|SWP_NOACTIVATE|SWP_NOZORDER);
@@ -1176,6 +1177,24 @@ void CSVNProgressDlg::OnOK()
 	}
 	m_bCancelled = TRUE;
 }
+
+LRESULT CSVNProgressDlg::OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    m_bCancelled = TRUE;
+    if (m_bThreadRunning)
+    {
+        if (WaitForSingleObject(m_pThread->m_hThread, 1000) != WAIT_OBJECT_0)
+        {
+            // end the process the hard way
+            TerminateProcess(GetCurrentProcess(), 0);
+        }
+    }
+    else
+        __super::OnOK();
+
+    return 0;
+}
+
 
 void CSVNProgressDlg::OnCancel()
 {
