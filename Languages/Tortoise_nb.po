@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-04 09:16+0100\n"
+"PO-Revision-Date: 2010-04-06 13:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -346,6 +346,10 @@ msgstr "&Om TortoiseMerge..."
 msgid "&Activate"
 msgstr "&Aktiver"
 
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Legg til"
+
 #. Resource IDs: (17075)
 msgid "&Add >>"
 msgstr "&Legg til >>"
@@ -358,6 +362,10 @@ msgstr "&Legg til eller Fjern Knapper"
 msgid "&Add..."
 msgstr "&Legg til..."
 
+#. Resource IDs: (32849)
+msgid "&Advanced"
+msgstr "&Avansert"
+
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Avansert..."
@@ -369,6 +377,10 @@ msgstr "Tillat flertydige &URLer"
 #. Resource IDs: (65535)
 msgid "&Application Look"
 msgstr "&Applikasjons-utseende"
+
+#. Resource IDs: (1294)
+msgid "&Apply property recursively"
+msgstr "&Sett egenskapen rekursivt"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -402,6 +414,10 @@ msgstr "Lukk &automatisk:"
 msgid "&Backup original file"
 msgstr "Sikkerhets&kopiér originalfilen"
 
+#. Resource IDs: (1559)
+msgid "&Binary"
+msgstr "&Binær"
+
 #. Resource IDs: (114)
 msgid "&Blame changes"
 msgstr "Vis &skyld for endringer"
@@ -426,6 +442,10 @@ msgstr "&Blå Stil"
 msgid "&Blue:"
 msgstr "&Blå:"
 
+#. Resource IDs: (1568)
+msgid "&Bottom"
+msgstr "&Bunn"
+
 #. Resource IDs: (65535)
 msgid "&Branches"
 msgstr "&Grener"
@@ -437,6 +457,10 @@ msgstr "&Bla gjennom depotet"
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "&Bla gjennom..."
+
+#. Resource IDs: (32850)
+msgid "&Bugtraq (Issue tracker integration)"
+msgstr "&Bugtraq (Saksporingsintegrasjon)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -609,6 +633,10 @@ msgstr "Slå på &mellomlagring av logg"
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "Angi en &beskrivelse om hvorfor du sperrer filen(e)."
+
+#. Resource IDs: (1554)
+msgid "&Executable"
+msgstr "&Eksekverbar"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -791,6 +819,10 @@ msgstr "&Listevisning"
 msgid "&Load..."
 msgstr "&Last..."
 
+#. Resource IDs: (1554)
+msgid "&Locking required (read-only update)"
+msgstr "&Låsing kreves (oppdatering med kun lesing)"
+
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lys:"
@@ -826,6 +858,10 @@ msgstr "&Flett..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Fletting"
+
+#. Resource IDs: (32847)
+msgid "&Mime-Type"
+msgstr "&Mime-type"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
@@ -875,6 +911,18 @@ msgstr "&Neste Side"
 #. Resource IDs: (16632)
 msgid "&No double-click event"
 msgstr "&Ingen dobbeltklikk-hendelse"
+
+#. Resource IDs: (1555)
+msgid "&No locking required"
+msgstr "&Ingen låsing kreves"
+
+#. Resource IDs: (1555)
+msgid "&Not executable"
+msgstr "&Ikke eksekverbar"
+
+#. Resource IDs: (1566)
+msgid "&Numeric"
+msgstr "&Numerisk"
 
 #. Resource IDs: (1)
 msgid "&OK"
@@ -955,6 +1003,10 @@ msgstr "&Gjenta"
 #. Resource IDs: (1382)
 msgid "&Refresh"
 msgstr "&Gjenoppfrisk"
+
+#. Resource IDs: (1562)
+msgid "&Remind me to enter a bug-ID"
+msgstr "&Minn meg på å angi en sak-ID"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -1136,9 +1188,9 @@ msgstr "&Til revisjon"
 msgid "&To URL:"
 msgstr "&Til adresse:"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&Til adresse:"
+#. Resource IDs: (1384)
+msgid "&To path:"
+msgstr "&Til-sti:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -1155,6 +1207,10 @@ msgstr "&Verktøylinjenavn:"
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
 msgstr "&Verktøylinjer:"
+
+#. Resource IDs: (1567)
+msgid "&Top"
+msgstr "&Topp"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
@@ -1433,18 +1489,20 @@ msgstr "En liste av brukerdefinerte egenskaper for mapper som vises i kombobokse
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "En ny versjon er tilgjengelig.\r\n"
-"Vennligst gå til http://tortoisesvn.tigris.org og last ned gjeldende versjon."
+"Vennligst gå til http://tortoisesvn.net og last ned gjeldende versjon."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "En linjeskift-delt liste over stier hvor ikonlag vises.\r\n"
-"Hvis du legger til tegnet '*' på enden av stien, inkluderes alle filer og undermapper i stien også."
+"Hvis du legger til tegnet '?' på slutten av stien, inkluderes bare denne stien.\r\n"
+"Hvis du legger til tegnet '*' eller ingenting på slutten av stien, inkluderes alle filer og undermapper i stien også."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1459,11 +1517,13 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "En linjeskift-delt liste over filstier hvor ikonlag ikke vises.\r\n"
-"Hvis du legger til et '*'-tegn på enden av stien, utelukkes alle filer og undermapper under stien også.\r\n"
+"Hvis du legger til tegnet '?' på slutten av stien, ekskluderes bare denne stien.\r\n"
+"Hvis du legger til tegnet '*' eller ingenting på slutten av stien, ekskluderes alle filer og undermapper i stien også.\r\n"
 "En tom liste tillater ikonlag for alle stier."
 
 #. Resource IDs: (3843)
@@ -1832,13 +1892,13 @@ msgstr ""
 "Bruk standard for avanserte brukere. Dette gir en bedre opplevelse.\n"
 "Du bør kjenne innholdet i alle innstillingene over."
 
-#. Resource IDs: (1294)
-msgid "Apply property recursively"
-msgstr "Sett egenskapen rekursivt"
-
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
 msgstr "Flett inn enhetlig diff"
+
+#. Resource IDs: (1565)
+msgid "Arb&itrary text"
+msgstr "&Vilkårlig tekst"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -2062,6 +2122,14 @@ msgstr "Feil-ID"
 #. Resource IDs: (1119)
 msgid "Bug-ID / &Issue-Nr:"
 msgstr "Feil-ID / &Saksnr.:"
+
+#. Resource IDs: (1578)
+msgid "Bug-ID e&xpression:"
+msgstr "Sak-ID &uttrykk:"
+
+#. Resource IDs: (1119)
+msgid "Bug-ID is:"
+msgstr "Feil-ID er:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -3199,10 +3267,6 @@ msgid "Delete and &ignore %d items by name"
 msgstr "Slett og &ignorer %d elementer ved navn"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Slett og legg til i &ignoreringslisten"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slett og ignorer %d elementer etter &filendelse"
@@ -3270,6 +3334,10 @@ msgstr "Beskrivelse:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Av-velg endringsliste"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "Mål-URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -3505,6 +3573,10 @@ msgstr "E&ksakt kilde for kopi"
 msgid "E&xclude paths:"
 msgstr "Stier å &ekskludere:"
 
+#. Resource IDs: (32839)
+msgid "E&xecutable"
+msgstr "&Eksekverbar"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Avslutt"
@@ -3556,6 +3628,10 @@ msgstr "Rediger forfatter"
 #. Resource IDs: (115)
 msgid "Edit author name"
 msgstr "Rediger forfatternavn"
+
+#. Resource IDs: (315)
+msgid "Edit bugtraq properties"
+msgstr "Rediger bugtraq-egenskaper"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -3613,6 +3689,10 @@ msgid ""
 msgstr ""
 "Slå denne på bare hvis du arbeider med web-prosjekter i VS.NET2003!\r\n"
 "Du må omstarte systemet før innstillingen har effekt."
+
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Aktiverte Ikoner"
 
 #. Resource IDs: (195)
 msgid ""
@@ -3741,6 +3821,10 @@ msgstr "Skriv maks %1 tegn."
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
 msgstr "Skriv inn regulært uttrykk under:"
+
+#. Resource IDs: (1577)
+msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
+msgstr "Angi regulære uttrykk for å filtrere ut sak-ID fra en innsendingsmelding."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4139,6 +4223,10 @@ msgstr ""
 "Fyll"
 
 #. Resource IDs: (65535)
+msgid "Filter match"
+msgstr "Filter-treff"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4502,6 +4590,10 @@ msgstr "I&gnorert"
 msgid "I&nclude paths:"
 msgstr "Stier å &inkludere:"
 
+#. Resource IDs: (1580)
+msgid "IBugTraqProvider"
+msgstr "IBugTraqProvider"
+
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -4635,6 +4727,10 @@ msgstr "Ikon-lag / Statuskolonner"
 #. Resource IDs: (184)
 msgid "Icon Overlays::Icon Set"
 msgstr "Ikonlag::Ikonsett"
+
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Ikonlag::Aktiverte ikoner"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -4825,6 +4921,10 @@ msgstr "Ignorer endringer i &blanktegn"
 msgid "Ignore whitespace changes"
 msgstr "Ignorer endringer i blanktegn"
 
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Ignorert"
+
 #. Resource IDs: (226)
 msgid "Ignored items included"
 msgstr "Ignorerte elementer inkludert"
@@ -4972,6 +5072,10 @@ msgstr ""
 "Lim inn fra utklippstavlen\n"
 "Lim inn"
 
+#. Resource IDs: (1575)
+msgid "Insert message at:"
+msgstr "Sett inn melding på:"
+
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
 msgstr "For lite minne for å utføre operasjonen."
@@ -5071,6 +5175,10 @@ msgstr ""
 "Gyldige revisjoner er tall og HEAD, delt med komma.\n"
 "Et intervall kan angis med en bindestrek.\n"
 "Eksempel: 2-5,7,10,44-70,300-HEAD"
+
+#. Resource IDs: (1571)
+msgid "Issue tracker"
+msgstr "Saksporer"
 
 #. Resource IDs: (145)
 msgid ""
@@ -5310,6 +5418,10 @@ msgstr "Sperrens eier:"
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Sperren er stjålet av %s"
+
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Låst"
 
 #. Resource IDs: (263)
 #, c-format
@@ -5593,6 +5705,18 @@ msgstr "Fletter revisjoner %s av %s inn i %s, %s%s%s"
 msgid "Message"
 msgstr "Melding"
 
+#. Resource IDs: (1574)
+msgid "Message &label:"
+msgstr "&Meldingsmerke:"
+
+#. Resource IDs: (1573)
+msgid "Message &pattern:"
+msgstr "Meldingsmø&nster:"
+
+#. Resource IDs: (1579)
+msgid "Message part expr&ession:"
+msgstr "&Uttrykk for meldingsdel:"
+
 #. Resource IDs: (1241)
 msgid "Message:"
 msgstr "Melding:"
@@ -5777,6 +5901,14 @@ msgstr "Navigasjonspanel-opsjoner..."
 #. Resource IDs: (208)
 msgid "Needs lock"
 msgstr "Krever sperre"
+
+#. Resource IDs: (32845)
+msgid "Needs-&Lock"
+msgstr "Needs-&Lock"
+
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Needs-lock"
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -5969,6 +6101,14 @@ msgstr "Merk: Mappen inneholder ikke-versjonerte elementer"
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Merk: Innstillinger for skrift påvirker også TortoiseUDiff-viseren"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Merk: Dette påvirker alle Tortoise-klienter, ikke bare TortioseSVN!"
+
+#. Resource IDs: (1557)
+msgid "Note: this property has no effect on Windows"
+msgstr "Merk: Denne egenskapen har ingen effekt under Windows"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -6583,6 +6723,14 @@ msgstr "Egenskapsverdi:"
 msgid "Provider"
 msgstr "Leverandør"
 
+#. Resource IDs: (1586)
+msgid "Provider para&meters:"
+msgstr "Leverandørpara&metre:"
+
+#. Resource IDs: (1581)
+msgid "Provider uuid win&32:"
+msgstr "Leverandør-uuid win&32:"
+
 #. Resource IDs: (1475)
 msgid "Provider:"
 msgstr "Leverandør:"
@@ -6723,6 +6871,10 @@ msgstr "Minimer vinduet til et ikon"
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
 msgstr "Gjenoppfrisk"
+
+#. Resource IDs: (1576)
+msgid "Regular Expression"
+msgstr "Regulært Uttrykk"
 
 #. Resource IDs: (117)
 msgid ""
@@ -7321,6 +7473,10 @@ msgstr "SVN Revisjon"
 msgid "SVN Status"
 msgstr "SVN-Status"
 
+#. Resource IDs: (20)
+msgid "SVN Statusnumber"
+msgstr "SVN Statusnummer"
+
 #. Resource IDs: (12)
 msgid "SVN URL"
 msgstr "SVN URL"
@@ -7853,14 +8009,6 @@ msgstr ""
 "Vis/skjul verktøylinje\n"
 "Bytt verktøylinje-visning"
 
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Vis ikonlag for ignorerte filer"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Vis ikonlag for ikke-versjonerte filer"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Vis revisjonsegenskaper"
@@ -7980,9 +8128,17 @@ msgstr "Venstre Kilde:"
 msgid "Source Right:"
 msgstr "Høyre Kilde:"
 
+#. Resource IDs: (1552)
+msgid "Source URL:"
+msgstr "Kilde-URL:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Angir hvor mange elementer du vil beholde i siste loggmeldinger-dialogen."
+
+#. Resource IDs: (1572)
+msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgstr "Spesifiser hvordan innsendingsmeldingen skal bygges fra den angitte sak-ID. Bruk markøren %BUGID% for den faktiske sak-IDen. Hvis du lar disse instillingene være tomme, vil TortoiseSVN bruke de regulære uttrykkene i stedet."
 
 #. Resource IDs: (79)
 msgid ""
@@ -7993,6 +8149,10 @@ msgstr ""
 "Angi filene eller mappene som TortoiseSVN\r\n"
 "skal ignorere i alle arbeidskopier.\r\n"
 "Del stiene med mellomrom."
+
+#. Resource IDs: (1305)
+msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "Angi URL for å kontakte saksporeren. Bruk %BUGID% som markør for det faktiske saknummeret."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -8226,6 +8386,10 @@ msgstr "Bytt %s til %s, Revisjon %s"
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
 msgstr "Bytt - TortoiseSVN"
+
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Bytt Dybde"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
@@ -8716,6 +8880,14 @@ msgstr ""
 "<i>%s</i>\n"
 "i korreksjonsfilen finnes ikke.\n"
 "TortoiseMerge prøvde å anvende korreksjonen ved å ta vekk innledende deler av stien, men fant ingen passende sti."
+
+#. Resource IDs: (84)
+msgid ""
+"The regular expression is invalid!\n"
+"Please enter a valid regular expression."
+msgstr ""
+"Det regulære uttrykket er ugyldig!\n"
+"Vennligst angi et gyldig regulært uttrykk."
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -9379,6 +9551,14 @@ msgstr ""
 msgid "Unversion"
 msgstr "Av-versjoner"
 
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Gjør ikke-versjonert og legg til i &ignoreringslisten"
+
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Ikke-versjonert"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Ikke-versjonerte filer markerer mappen over som endret"
@@ -9875,6 +10055,14 @@ msgstr ""
 "Du forsøker å flytte stamme-mappen!\n"
 "Er du absolutt sikker på at du ønsker å flytte\n"
 "stamme-mappen?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Du kan deaktivere spesifikke ikoner her.\n"
+"Deaktiverte ikoner bruker ikke en ikonlag-plass og gir andre skallutvidelser mulighet til å vise sine ikoner."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10580,6 +10768,10 @@ msgstr ""
 "svn:eol-style\r\n"
 "En av 'native', 'LF', 'CR' eller 'CRLF'."
 
+#. Resource IDs: (312)
+msgid "svn:executable"
+msgstr "svn:executable"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:executable\r\n"
@@ -10658,6 +10850,10 @@ msgstr ""
 "For eksempel\r\n"
 "/trunk:123-125,129"
 
+#. Resource IDs: (314)
+msgid "svn:mime-type"
+msgstr "svn:mime-type"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:mime-type\r\n"
@@ -10669,6 +10865,10 @@ msgstr ""
 "Filens MIME-type. Brukes for å bestemme om filen skal flettes og hvordan filen sendes via Apache.\r\n"
 "En MIME-type som begynner med 'text/' (eller manglende MIME-type), behandles som tekst.\r\n"
 "Alt annet behandles binært."
+
+#. Resource IDs: (313)
+msgid "svn:needs-lock"
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10852,6 +11052,10 @@ msgstr ""
 msgid "user revprops total: "
 msgstr "brukers revisjonsegenskaper totalt: "
 
+#. Resource IDs: (1583)
+msgid "uuid x6&4:"
+msgstr "uuid x6&4:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "verdier er forskjellige"
@@ -10904,6 +11108,12 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&To URL: "
+#~ msgstr "&Til adresse:"
+#~ msgid "Show overlay for ignored items"
+#~ msgstr "Vis ikonlag for ignorerte filer"
+#~ msgid "Show overlay for unversioned items"
+#~ msgstr "Vis ikonlag for ikke-versjonerte filer"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Forfatter:                                 Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
