@@ -960,7 +960,7 @@ void CBaseView::ScrollSide(int delta)
 		nNewOffset = nMaxLineLength - 1;
 	if (nNewOffset < 0)
 		nNewOffset = 0;
-	ScrollToChar(nNewOffset, TRUE);
+	ScrollAllToChar(nNewOffset, TRUE);
 	if (m_pwndLineDiffBar)
 		m_pwndLineDiffBar->Invalidate();
 	UpdateCaret();
@@ -2663,12 +2663,12 @@ void CBaseView::OnTimer(UINT_PTR nIDEvent)
 			int charIndex = CalculateCharIndex(saveMouseLine, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
 			if (nMouseLine < m_nTopLine)
 			{
-				ScrollToLine(m_nTopLine-1, TRUE);
+				ScrollAllToLine(m_nTopLine-1, TRUE);
 				SetTimer(IDT_SCROLLTIMER, 20, NULL);
 			}
 			if (nMouseLine >= m_nTopLine + GetFullScreenLines())
 			{
-				ScrollToLine(m_nTopLine+1, TRUE);
+				ScrollAllToLine(m_nTopLine+1, TRUE);
 				SetTimer(IDT_SCROLLTIMER, 20, NULL);
 			}
 			if (charIndex <= m_nOffsetChar)
