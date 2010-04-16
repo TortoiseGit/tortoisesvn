@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -271,27 +271,27 @@ bool ConflictEditorCommand::Execute()
 				switch (pInfoData->treeconflict_reason)
 				{ 
 				case svn_wc_conflict_reason_edited:
-					uReasonID = IDS_TREECONFLICT_REASON_EDITED;
+					uReasonID = pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_EDITED : IDS_TREECONFLICT_REASON_FILE_EDITED;
 					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
 					break;
 				case svn_wc_conflict_reason_obstructed:
-					uReasonID = IDS_TREECONFLICT_REASON_OBSTRUCTED;
+					uReasonID = pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_OBSTRUCTED : IDS_TREECONFLICT_REASON_FILE_OBSTRUCTED;
 					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
 					break;
 				case svn_wc_conflict_reason_deleted:
-					uReasonID = IDS_TREECONFLICT_REASON_DELETED;
+					uReasonID = pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_DELETED : IDS_TREECONFLICT_REASON_FILE_DELETED;
 					sResolveMine.LoadString(IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED);
 					break;
 				case svn_wc_conflict_reason_added:
-					uReasonID = IDS_TREECONFLICT_REASON_ADDED;
+					uReasonID = pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_ADDED : IDS_TREECONFLICT_REASON_FILE_ADDED;
 					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
 					break;
 				case svn_wc_conflict_reason_missing:
-					uReasonID = IDS_TREECONFLICT_REASON_MISSING;
+					uReasonID = pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_MISSING : IDS_TREECONFLICT_REASON_FILE_MISSING;
 					sResolveMine.LoadString(IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED);
 					break;
 				case svn_wc_conflict_reason_unversioned:
-					uReasonID = IDS_TREECONFLICT_REASON_UNVERSIONED;
+					uReasonID = pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_UNVERSIONED : IDS_TREECONFLICT_REASON_FILE_UNVERSIONED;
 					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
 					break;
 				}
