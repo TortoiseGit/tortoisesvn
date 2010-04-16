@@ -115,6 +115,16 @@ BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_FILE_SAVESTATGRAPHAS, &CStatGraphDlg::OnFileSavestatgraphas)
 END_MESSAGE_MAP()
 
+void CStatGraphDlg::LoadStatQueries (__in UINT curStr, Metrics loadMetric, bool setDef /* = false */)
+{
+	CString temp;
+	temp.LoadString(curStr);
+	int sel = m_cGraphType.AddString(temp);
+	m_cGraphType.SetItemData(sel, loadMetric);
+
+	if (setDef) m_cGraphType.SetCurSel(sel);
+}
+
 BOOL CStatGraphDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
@@ -134,27 +144,17 @@ BOOL CStatGraphDlg::OnInitDialog()
 	m_bAuthorsCaseSensitive = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\StatAuthorsCaseSensitive")));
 	m_bSortByCommitCount = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\StatSortByCommitCount")));
 	UpdateData(FALSE);
-
-	CString temp;
-	int sel = 0;
-	temp.LoadString(IDS_STATGRAPH_STATS);
-	sel = m_cGraphType.AddString(temp);
-	m_cGraphType.SetItemData(sel, 1);
-	m_cGraphType.SetCurSel(sel);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATE);
-	sel = m_cGraphType.AddString(temp);
-	m_cGraphType.SetItemData(sel, 2);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHOR);
-	sel = m_cGraphType.AddString(temp);
-	m_cGraphType.SetItemData(sel, 3);
+	
+	//Load statistical queries
+	LoadStatQueries(IDS_STATGRAPH_STATS, AllStat, true);
+	LoadStatQueries(IDS_STATGRAPH_COMMITSBYDATE, CommitsByDate);
+	LoadStatQueries(IDS_STATGRAPH_COMMITSBYAUTHOR, CommitsByAuthor);
 
 	// set the dialog title to "Statistics - path/to/whatever/we/show/the/statistics/for"
 	CString sTitle;
 	GetWindowText(sTitle);
-	if(m_path.IsDirectory())
-		SetWindowText(sTitle + _T(" - ") + m_path.GetWinPathString());
-	else
-		SetWindowText(sTitle + _T(" - ") + m_path.GetFilename());
+	SetWindowText(sTitle + _T(" - ") + 
+		( m_path.IsDirectory() ? m_path.GetWinPathString() : m_path.GetFilename()));
 
 	m_hGraphBarIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBAR), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hGraphBarStackedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBARSTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
@@ -275,10 +275,7 @@ BOOL CStatGraphDlg::OnInitDialog()
 	TCHAR l = 0;
 	GetLocaleInfo(locale, LOCALE_IDATE, &l, sizeof(TCHAR));
 
-	if (l > 0)
-		m_langOrder = l-'0';
-	else
-		m_langOrder = -1;
+	m_langOrder = (l > 0) ? l - '0' : -1;
 
 	RedrawGraph();
 
@@ -289,9 +286,9 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 {
 	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
 		return;
-	int nCmdShow = SW_SHOW;
-	if (!bShow)
-		nCmdShow = SW_HIDE;
+	
+	int nCmdShow = bShow ? SW_SHOW : SW_HIDE;
+
 	GetDlgItem(IDC_GRAPH)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 	GetDlgItem(IDC_NUMWEEK)->ShowWindow(nCmdShow);
 	GetDlgItem(IDC_NUMWEEKVALUE)->ShowWindow(nCmdShow);
@@ -338,9 +335,8 @@ void CStatGraphDlg::UpdateWeekCount()
 {
 	// Sanity check
 	if ((!m_parDates)||(m_parDates->GetCount()==0))
-	{
 		return;
-	}
+	
 	// Already updated? No need to do it again.
 	if (m_nWeeks >= 0)
 		return;
@@ -364,10 +360,9 @@ void CStatGraphDlg::UpdateWeekCount()
 
 	// Get time difference between start and end date
 	double secs = _difftime64(max_date, m_minDate);
-	// ... a week has 604800 seconds
-	m_nWeeks = (int)ceil(secs / 604800.0);
-	// ... a day has 86400.0 seconds
-	m_nDays = (int)ceil(secs / 86400.0);
+	
+	m_nWeeks = (int)ceil(secs / (double) m_SecondsInWeek);
+	m_nDays =  (int)ceil(secs / (double) m_SecondsInDay);
 }
 
 int CStatGraphDlg::GetCalendarWeek(const CTime& time)
@@ -424,7 +419,7 @@ int CStatGraphDlg::GetCalendarWeek(const CTime& time)
 			CTime dStartOfWeek = time-CTimeSpan(iDayOfWeek,0,0,0);
 
 			// If this week spans over to 1/1 this is week 1
-			if (dStartOfWeek+CTimeSpan(6,0,0,0)>=dDateFirstJanuary)
+			if (dStartOfWeek + CTimeSpan(6,0,0,0) >= dDateFirstJanuary)
 			{
 				// we are in the last week of the year that spans over 1/1
 				iWeekOfYear = 1;
@@ -433,9 +428,9 @@ int CStatGraphDlg::GetCalendarWeek(const CTime& time)
 			{
 				// Get week day of 1/1
 				dDateFirstJanuary = CTime(iYear,1,1,0,0,0);
-				iDayOfWeek = (dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
+				iDayOfWeek = (dDateFirstJanuary.GetDayOfWeek() +5 + iFirstDayOfWeek) % 7;
 				// Just count from 1/1
-				iWeekOfYear = (int)(((time-dDateFirstJanuary).GetDays()+iDayOfWeek) / 7) + 1;
+				iWeekOfYear = (int)(((time-dDateFirstJanuary).GetDays() + iDayOfWeek) / 7) + 1;
 			}
 		}
 		break;
@@ -446,7 +441,7 @@ int CStatGraphDlg::GetCalendarWeek(const CTime& time)
 			// If the 1.1 is the start of the week everything is ok
 			// else we need the next week is the correct result
 			iWeekOfYear =
-				(int)(((time-dDateFirstJanuary).GetDays()+iDayOfWeek) / 7) +
+				(int)(((time-dDateFirstJanuary).GetDays() + iDayOfWeek) / 7) +
 				(iDayOfWeek==0 ? 1:0);
 
 			// If we are in week 0 we are in the first not full week
@@ -963,29 +958,29 @@ void CStatGraphDlg::ShowStats()
 void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 {
 	UpdateData();
-	DWORD_PTR graphtype = m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
-	switch (graphtype)
-	{
-	case 1:
-		// labels
-		// intended fall through
-	case 2:
-		// by date
-		m_btnGraphLine.EnableWindow(TRUE);
-		m_btnGraphLineStacked.EnableWindow(TRUE);
-		m_btnGraphPie.EnableWindow(TRUE);
-		m_GraphType = MyGraph::Line;
-		m_bStacked = false;
-		break;
-	case 3:
-		// by author
-		m_btnGraphLine.EnableWindow(FALSE);
-		m_btnGraphLineStacked.EnableWindow(FALSE);
-		m_btnGraphPie.EnableWindow(TRUE);
-		m_GraphType = MyGraph::Bar;
-		m_bStacked = false;
-		break;
-	}
+
+	Metrics useMetric = (Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
+	//if (useMetric > GraphicStatStart && useMetric < GraphicStatEnd) // else labels // intended fall through
+		switch (useMetric )  
+		{			
+		case AllStat:
+		case CommitsByDate:
+			// by date
+			m_btnGraphLine.EnableWindow(TRUE);
+			m_btnGraphLineStacked.EnableWindow(TRUE);
+			m_btnGraphPie.EnableWindow(TRUE);
+			m_GraphType = MyGraph::Line;
+			m_bStacked = false;
+			break;
+		case CommitsByAuthor:
+			// by author
+			m_btnGraphLine.EnableWindow(FALSE);
+			m_btnGraphLineStacked.EnableWindow(FALSE);
+			m_btnGraphPie.EnableWindow(TRUE);
+			m_GraphType = MyGraph::Bar;
+			m_bStacked = false;
+			break;
+		}
 	RedrawGraph();
 }
 
@@ -1203,10 +1198,9 @@ void CStatGraphDlg::RedrawGraph()
 	{
 		m_btnGraphPie.SetState(BST_CHECKED);
 	}
-
-
+	
 	UpdateData();
-	ShowSelectStat( (Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel()));
+	ShowSelectStat((Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel()));
 }
 void CStatGraphDlg::OnBnClickedGraphbarbutton()
 {
@@ -1254,10 +1248,12 @@ BOOL CStatGraphDlg::PreTranslateMessage(MSG* pMsg)
 void CStatGraphDlg::EnableDisableMenu()
 {
 	UINT nEnable = MF_BYCOMMAND;
-	if (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()) == 1)
-		nEnable |= (MF_DISABLED | MF_GRAYED);
-	else
-		nEnable |= MF_ENABLED;
+
+	Metrics SelectMetric = (Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
+
+	nEnable |= (SelectMetric > TextStatStart && SelectMetric < TextStatEnd)  
+				? (MF_DISABLED | MF_GRAYED) : MF_ENABLED;
+	
 	GetMenu()->EnableMenuItem(ID_FILE_SAVESTATGRAPHAS, nEnable);
 }
 

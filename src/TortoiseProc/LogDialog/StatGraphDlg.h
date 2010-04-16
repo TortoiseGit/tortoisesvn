@@ -73,6 +73,10 @@ public:
 
 protected:
 
+	// ** Constants ** 
+	static	const long int		m_SecondsInWeek = 604800; // ... a week has 604800 seconds
+	static	const long int		m_SecondsInDay = 86400;  // ... a day has 86400.0 seconds
+
 	// ** Data types **
 
 	/// The types of units used in the various graphs.
@@ -88,9 +92,14 @@ protected:
 	// Available next metrics
 	enum Metrics 
 	{ 
-		AllStat,
-		CommitsByAuthor,
-		CommitsByDate,
+		TextStatStart,
+			AllStat, 
+			PercentageOfAuthorship,
+		TextStatEnd,
+		GraphicStatStart,
+			CommitsByAuthor,
+			CommitsByDate,
+		GraphicStatEnd,
 	};
 
 	/// The mapping type used to store data per interval/week and author.
@@ -168,6 +177,9 @@ protected:
 	void StoreCurrentGraphType();
 	void ShowErrorMessage();
 
+	//Load statistical queries
+	void LoadStatQueries(__in UINT curStr, Metrics loadMetric, bool setDef = false);
+
 	CPtrArray		m_graphDataArray;
 	MyGraph			m_graph;
 	CComboBox		m_cGraphType;
@@ -223,5 +235,4 @@ protected:
 	std::list<tstring>	m_authorNames;
 	/// unit names by week/month/quarter
 	std::map<LONG, tstring> m_unitNames;
-
 };
