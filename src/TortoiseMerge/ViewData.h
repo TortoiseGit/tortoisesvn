@@ -53,9 +53,9 @@ public:
 	CViewData(void);
 	~CViewData(void);
 
-	void			AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline = -1);
+	void			AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
 	void			AddData(const viewdata& data);
-	void			InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline = -1);
+	void			InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
 	void			InsertData(int index, const viewdata& data);
 	void			RemoveData(int index) {m_data.erase(m_data.begin() + index);}
 

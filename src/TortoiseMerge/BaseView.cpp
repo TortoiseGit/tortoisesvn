@@ -2777,8 +2777,8 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		rightstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndRight->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
+		m_pwndRight->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
 		leftstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
 	RecalcAllVertScrollBars();
@@ -2838,8 +2838,8 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
-		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
 
@@ -2880,7 +2880,7 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
 	}
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
@@ -2899,7 +2899,7 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		rightstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndRight->m_pViewData->InsertData(i, m_pwndLeft->m_pViewData->GetLine(i), DIFFSTATE_THEIRSADDED, linenumber++, m_pwndLeft->m_pViewData->GetLineEnding(i), HIDESTATE_SHOWN);
+		m_pwndRight->m_pViewData->InsertData(i, m_pwndLeft->m_pViewData->GetLine(i), DIFFSTATE_THEIRSADDED, linenumber++, m_pwndLeft->m_pViewData->GetLineEnding(i), HIDESTATE_SHOWN, -1);
 	}
 	// adjust line numbers
 	for (int i=m_nSelBlockEnd+1; i<m_pwndRight->GetLineCount(); ++i)
@@ -2913,7 +2913,7 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockEnd + 1);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd + 1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd + 1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
 	}
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
@@ -3094,10 +3094,10 @@ void CBaseView::AddEmptyLine(int nLineIndex)
 		CString sPartLine = GetLineChars(nLineIndex);
 		m_pViewData->SetLine(nLineIndex, sPartLine.Left(m_ptCaretPos.x));
 		sPartLine = sPartLine.Mid(m_ptCaretPos.x);
-		m_pViewData->InsertData(nLineIndex+1, sPartLine, DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(nLineIndex), HIDESTATE_SHOWN);
+		m_pViewData->InsertData(nLineIndex+1, sPartLine, DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(nLineIndex), HIDESTATE_SHOWN, -1);
 	}
 	else
-		m_pViewData->InsertData(nLineIndex+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(nLineIndex), HIDESTATE_SHOWN);
+		m_pViewData->InsertData(nLineIndex+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(nLineIndex), HIDESTATE_SHOWN, -1);
 	Invalidate(FALSE);
 }
 

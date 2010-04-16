@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -153,7 +153,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 	}
 	for (std::map<int, viewdata>::const_iterator it = state.removedlines.begin(); it != state.removedlines.end(); ++it)
 	{
-		viewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending, it->second.hidestate);
+		viewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending, it->second.hidestate, it->second.movedIndex);
 	}
 }
 
