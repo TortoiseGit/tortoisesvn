@@ -33,15 +33,25 @@ enum HIDESTATE
  * \ingroup TortoiseMerge
  * Holds the information which is required to define a single line of text.
  */
-typedef struct
+class viewdata
 {
+public:
+    viewdata()
+        : state(DIFFSTATE_UNKNOWN)
+        , linenumber(-1)
+        , movedIndex(-1)
+        , ending(EOL_AUTOLINE)
+        , hidestate(HIDESTATE_HIDDEN)
+    {
+    }
+
 	CString						sLine;
 	DiffStates					state;
 	int							linenumber;
     int                         movedIndex;
 	EOL							ending;
 	HIDESTATE					hidestate;
-} viewdata;
+};
 
 /**
  * \ingroup TortoiseMerge
