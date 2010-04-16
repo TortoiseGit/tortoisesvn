@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-16 14:56+0200\n"
+"PO-Revision-Date: 2010-04-16 15:33+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "Language: de\n"
@@ -196,33 +196,66 @@ msgstr "%s [wieder hergestellt]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, aber es existiert lokal bereits unversioniert."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, aber das Verzeichnis existiert lokal bereits unversioniert."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, aber es fehlt lokal."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, aber das Verzeichnis fehlt lokal."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, aber es wurde lokal bereits hinzugefügt."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, aber das Verzeichnis wurde lokal bereits hinzugefügt."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, aber es wurde lokal bereits bearbeitet."
+msgid "%s, but the directory was already edited."
+msgstr "%s, aber das Verzeichnis wurde lokal bereits bearbeitet."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, aber es wurde lokal bereits gelöscht, verschoben oder umbenannt."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr ""
+"%s, aber das Verzeichnis wurde lokal bereits gelöscht, verschoben oder "
+"umbenannt."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, aber es war in der Arbeitskopie behindert."
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, aber das Verzeichnis war in der Arbeitskopie versperrt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, aber die Datei existiert lokal bereits unversioniert."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, aber die Datei fehlt lokal."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, aber die Datei wurde lokal bereits hinzugefügt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, aber die Datei wurde lokal bereits bearbeitet."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr ""
+"%s, aber die Datei wurde lokal bereits gelöscht, verschoben oder umbenannt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, aber die Datei war in der Arbeitskopie versperrt."
 
 #. Resource IDs: (3850)
 #, c-format
@@ -3466,9 +3499,7 @@ msgstr ""
 "Funktioniert nur bei Verzeichnis-URLs."
 
 #. Resource IDs: (3887)
-msgid ""
-"Don't recover the auto-saved documents\n"
-"Use the last explicitly saved versions of the documents"
+msgid "Don't recover the auto-saved documents\nUse the last explicitly saved versions of the documents"
 msgstr ""
 "Automatisch gespeicherte Dokumente nicht wieder herstellen\n"
 "Verwende die letzte manuell gespeicherte Version der Dokumente"
@@ -5947,10 +5978,7 @@ msgid "Not recursive"
 msgstr "Nicht rekursiv"
 
 #. Resource IDs: (3887)
-msgid ""
-"Note that if you choose to recover the auto-saved documents, you must "
-"explicitly save them to overwrite the original documents.  If you choose to "
-"not recover the auto-saved versions, they will be deleted."
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
 msgstr ""
 "Wenn Sie die automatisch gespeicherten Dokumente wieder herstellen, müssen "
 "Sie diese explizit speichern, um die Originale zu überschreiben. Falls Sie "
@@ -6697,9 +6725,7 @@ msgid "Record Only"
 msgstr "Nur aufzeichnen"
 
 #. Resource IDs: (3887)
-msgid ""
-"Recover the auto-saved documents\n"
-"Open the auto-saved versions instead of the explicitly saved versions"
+msgid "Recover the auto-saved documents\nOpen the auto-saved versions instead of the explicitly saved versions"
 msgstr ""
 "Stellt die automatisch gespeicherten Dokumente wieder her\n"
 "Öffnet die automatisch gespeicherten Dokumente anstelle der manuell "
@@ -7564,9 +7590,7 @@ msgstr ""
 "Alles markieren"
 
 #. Resource IDs: (65535)
-msgid ""
-"Select the language this project is using. This settings affects the spell "
-"checker used for commit messages."
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
 msgstr ""
 "Legt die im Projekt verwendete Sprache fest. Diese Einstellung beeinflusst "
 "die Rechtschreibprüfung der Logmeldungen."
@@ -8811,9 +8835,7 @@ msgid "Thesaurus"
 msgstr "Thesaurus"
 
 #. Resource IDs: (3887)
-msgid ""
-"These are more recently saved than the currently open documents and contain "
-"changes that were made before the application closed."
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
 msgstr ""
 "Diese wurden nach den derzeit geöffneten Dokumenten gespeichert und "
 "enthalten Änderungen, die vorgenommen wurden, bevor die Anwendung "
@@ -10294,7 +10316,7 @@ msgstr "Normal"
 
 #. Resource IDs: (11)
 msgid "obstructed"
-msgstr "Behindert"
+msgstr "Versperrt"
 
 #. Resource IDs: (601)
 msgid "offline"
@@ -10331,7 +10353,7 @@ msgstr "Pixel"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr "Möglicher oder echter Konflikt / Behindert"
+msgstr "Möglicher oder echter Konflikt / Versperrt"
 
 #. Resource IDs: (3845)
 msgid "prn"
@@ -10690,6 +10712,30 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#, c-format
+#~ msgid "%s, but it already exists unversioned locally."
+#~ msgstr "%s, aber es existiert lokal bereits unversioniert."
+
+#, c-format
+#~ msgid "%s, but it is missing locally."
+#~ msgstr "%s, aber es fehlt lokal."
+
+#, c-format
+#~ msgid "%s, but it was already added locally."
+#~ msgstr "%s, aber es wurde lokal bereits hinzugefügt."
+
+#, c-format
+#~ msgid "%s, but it was already edited."
+#~ msgstr "%s, aber es wurde lokal bereits bearbeitet."
+
+#, c-format
+#~ msgid "%s, but it was deleted, moved or renamed locally."
+#~ msgstr "%s, aber es wurde lokal bereits gelöscht, verschoben oder umbenannt."
+
+#, c-format
+#~ msgid "%s, but it was obstructed in the working copy."
+#~ msgstr "%s, aber es war in der Arbeitskopie behindert."
 
 # Ein einzelnes Leerzeichen
 #~ msgid " "
