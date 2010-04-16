@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-06 13:02+0100\n"
+"PO-Revision-Date: 2010-04-16 14:03+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -249,6 +249,11 @@ msgstr "%s : Arbeidskopiens Basis"
 msgid "%s : Working Copy"
 msgstr "%s : Arbeidskopi"
 
+#. Resource IDs: (3887)
+#, c-format
+msgid "%s [Recovered]"
+msgstr "%s [Tilbakestilt]"
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it already exists unversioned locally."
@@ -442,6 +447,10 @@ msgstr "&Blå Stil"
 msgid "&Blue:"
 msgstr "&Blå:"
 
+#. Resource IDs: (65535)
+msgid "&Border:"
+msgstr "&Ramme:"
+
 #. Resource IDs: (1568)
 msgid "&Bottom"
 msgstr "&Bunn"
@@ -605,6 +614,10 @@ msgstr "&Kataloger"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Dokking"
+
+#. Resource IDs: (32851)
+msgid "&EOL"
+msgstr "&EOL"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -795,6 +808,10 @@ msgstr "&Sammenføy med undertrær"
 msgid "&Jump to first difference when loading"
 msgstr "&Hopp til første forskjell ved innlasting"
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr "&Nøkkelord"
+
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "Språ&k:"
@@ -807,9 +824,17 @@ msgstr "&Store Ikoner"
 msgid "&Limit search to modified lines"
 msgstr "&Begrens søket til endrede linjer"
 
+#. Resource IDs: (65535)
+msgid "&Limit:"
+msgstr "&Grense:"
+
 #. Resource IDs: (32797)
 msgid "&Link image positions"
 msgstr "&Knytt sammen bildeposisjoner"
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -823,9 +848,17 @@ msgstr "&Last..."
 msgid "&Locking required (read-only update)"
 msgstr "&Låsing kreves (oppdatering med kun lesing)"
 
+#. Resource IDs: (32854)
+msgid "&Log Sizes"
+msgstr "&Loggstørrelser"
+
 #. Resource IDs: (65535)
-msgid "&Lum:"
+msgid "&Luminence:"
 msgstr "&Lys:"
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -874,6 +907,10 @@ msgstr "&Endre farge for merkekopier"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "&Endre farge for stammekopier"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "&Flyttede blokker"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -956,9 +993,17 @@ msgstr "Passor&d:"
 msgid "&Paste"
 msgstr "&Lim inn"
 
+#. Resource IDs: (1600)
+msgid "&Peg revision:"
+msgstr "&Spikret revisjon:"
+
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "&Permanent frakoblet"
+
+#. Resource IDs: (1588)
+msgid "&Platform dependent (native)"
+msgstr "&Plattform-avhengig (native)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1069,8 +1114,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Sat:"
-msgstr "&Metn:"
+msgid "&Saturation:"
+msgstr "&Metning:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -1089,8 +1134,8 @@ msgid "&Save list of selected files to..."
 msgstr "&Lagre liste over valgte filer til..."
 
 #. Resource IDs: (1308)
-msgid "&Save..."
-msgstr "&Lagre..."
+msgid "&Save value..."
+msgstr "&Lagre verdi..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1291,6 +1336,10 @@ msgstr "&Blanktegn"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Hele ord"
+
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1918,6 +1967,10 @@ msgstr "Er du sikker på at du vil tilbakestille %d element(er)? Du vil miste <b
 msgid "Arrange &Vertical"
 msgstr "Ordne &vertikalt"
 
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr "Som den &er (ingen bestemt EOL)"
+
 #. Resource IDs: (199)
 msgid "Ask the user"
 msgstr "Spør brukeren"
@@ -2119,10 +2172,6 @@ msgstr "Feil-&ID / Saksnr.:"
 msgid "Bug-ID"
 msgstr "Feil-ID"
 
-#. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
-msgstr "Feil-ID / &Saksnr.:"
-
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
 msgstr "Sak-ID &uttrykk:"
@@ -2217,7 +2266,7 @@ msgid "Can't create a new image!"
 msgstr "Kan ikke lage et nytt bilde!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
+msgid "Can't customize menus!"
 msgstr "Kan ikke tilpasse menyer!"
 
 #. Resource IDs: (1001)
@@ -2241,8 +2290,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Kan ikke vise forskjeller pga. forskjellige typer linjeskift i filen."
 
 #. Resource IDs: (16926)
-msgid "Cascade"
-msgstr "Kaskade"
+msgid "Casca&de"
+msgstr "&Kaskade"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -2312,6 +2361,10 @@ msgstr "Endringer (dobbelt-klikk på en fil for å se diff):"
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
 msgstr "Endrer eksterne til fiksert revisjon"
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
+msgstr "Tegnposisjon hvor en rammelinje vises i tekstbokser for innsending:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3343,6 +3396,10 @@ msgstr "Mål-URL:"
 msgid "Destination disk drive is full."
 msgstr "Måldisken er full."
 
+#. Resource IDs: (2056)
+msgid "Detect and highlight moved blocks"
+msgstr "Finn og marker flyttede blokker"
+
 #. Resource IDs: (3849)
 msgid ""
 "Device Independent Bitmap\n"
@@ -3499,6 +3556,10 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "Vil du fortsette?"
 
+#. Resource IDs: (3887)
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "Vil du gjenvinne disse autolagrede dokumentene?"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3539,6 +3600,14 @@ msgstr ""
 "I stedet blir alle URLene sjekket ut til adskilte\n"
 "arbeidskopier ved siden av hverandre.\n"
 "Dette virker kun for katalog-URLer."
+
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+"Ikke gjenvinn de autolagrede dokumentene\n"
+"Bruk de siste eksplisitt lagrede versjonene av dokumentene"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3609,6 +3678,10 @@ msgstr "Rediger"
 msgid "Edit Button Image"
 msgstr "Rediger Knappebilde"
 
+#. Resource IDs: (319)
+msgid "Edit External"
+msgstr "Rediger Ekstern"
+
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "Rediger Egenskaper"
@@ -3640,6 +3713,10 @@ msgstr "Rediger et filendelse-spesifikt diff-program"
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
 msgstr "Rediger et filendelse-spesifikt flette-program"
+
+#. Resource IDs: (321)
+msgid "Edit language properties"
+msgstr "Rediger språk-egenskaper"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -3864,6 +3941,10 @@ msgstr ""
 "Feil ved lesing/skriving av registernøkkelen %1!s!\n"
 "%2!s!"
 
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
+msgstr "&Eksterne"
+
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Unntak:"
@@ -3993,6 +4074,10 @@ msgstr "Eksterne inkludert"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "&Tving flettingen"
+
+#. Resource IDs: (1070)
+msgid "Fade"
+msgstr "Blekne"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4493,6 +4578,10 @@ msgstr "Hode-node"
 msgid "Head revision is %s"
 msgstr "Hoderevisjon er %s"
 
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr "Hode"
+
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "Hjelp"
@@ -4593,6 +4682,10 @@ msgstr "Stier å &inkludere:"
 #. Resource IDs: (1580)
 msgid "IBugTraqProvider"
 msgstr "IBugTraqProvider"
+
+#. Resource IDs: (1592)
+msgid "ID"
+msgstr "ID"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
@@ -5274,6 +5367,22 @@ msgid "Keys"
 msgstr "Taster"
 
 #. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr "&Grense:"
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr "&Lokal sti:"
+
+#. Resource IDs: (32855)
+msgid "Lan&guages"
+msgstr "Språ&k"
+
+#. Resource IDs: (65535)
+msgid "Language:"
+msgstr "Språk:"
+
+#. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "Siste innsendte rev.:"
 
@@ -5714,7 +5823,7 @@ msgid "Message &pattern:"
 msgstr "Meldingsmø&nster:"
 
 #. Resource IDs: (1579)
-msgid "Message part expr&ession:"
+msgid "Message part &expression:"
 msgstr "&Uttrykk for meldingsdel:"
 
 #. Resource IDs: (1241)
@@ -5744,6 +5853,14 @@ msgstr "Min"
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
 msgstr "Minimer Båndet"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr "Minste antall tegn for en innsendingsmelding:"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
+msgstr "Minste antall tegn for en låsemelding:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -6094,6 +6211,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Ikke rekursivt"
 
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr "Merk at hvis du velger å gjenvinne de autolagrede dokumentene, må du eksplisitt lagre dem for å overskrive de originale dokumentene. Hvis du velger å ikke gjenvinne de autolagrede versjonene, vil de bli slettet."
+
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "Merk: Mappen inneholder ikke-versjonerte elementer"
@@ -6226,6 +6347,10 @@ msgstr ""
 "(en av 'branches', 'tags', eller 'trunk').\n"
 "\n"
 "Er du sikker på at du vil flytte de valgte stiene?"
+
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr "Ett eller flere autolagrede dokumenter ble funnet."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6836,6 +6961,14 @@ msgstr "Nylig endrede linjer"
 msgid "Record Only"
 msgstr "Kun Ta Opp"
 
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+"Gjenvinn de autolagrede dokumentene\n"
+"Åpner de autolagrede versjonene i stedet for de ekplisitt lagrede versjonene"
+
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
@@ -7393,6 +7526,14 @@ msgstr "Rad %d av %d"
 msgid "Row %d-%d of %d"
 msgstr "Rad %d-%d av %d"
 
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "Rad Ned"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "Rad Opp"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "V&elg..."
@@ -7731,6 +7872,10 @@ msgid ""
 msgstr ""
 "Merk hele dokumentet\n"
 "Merk alt"
+
+#. Resource IDs: (65535)
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgstr "Velg språk for dette prosjektet. Denne innstillingen påvirker stavekontrollen for innsendingsmeldinger."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -8100,6 +8245,10 @@ msgstr "Størrelse og status"
 msgid "Size of all cached text information"
 msgstr "Størrelsen på all mellomlagret tekstinformasjon"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "Størrelse av loggmeldinger"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "Mellomlagerets størrelse på disk"
@@ -8115,6 +8264,10 @@ msgstr "Hoppet over"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "Hoppet over manglende mål"
+
+#. Resource IDs: (1070)
+msgid "Slide"
+msgstr "Gli"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -8140,6 +8293,10 @@ msgstr "Angir hvor mange elementer du vil beholde i siste loggmeldinger-dialogen
 msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
 msgstr "Spesifiser hvordan innsendingsmeldingen skal bygges fra den angitte sak-ID. Bruk markøren %BUGID% for den faktiske sak-IDen. Hvis du lar disse instillingene være tomme, vil TortoiseSVN bruke de regulære uttrykkene i stedet."
 
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "Angi URL for å kontakte saksporeren. Bruk %BUGID% som markør for det faktiske saknummeret."
+
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
@@ -8149,10 +8306,6 @@ msgstr ""
 "Angi filene eller mappene som TortoiseSVN\r\n"
 "skal ignorere i alle arbeidskopier.\r\n"
 "Del stiene med mellomrom."
-
-#. Resource IDs: (1305)
-msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
-msgstr "Angi URL for å kontakte saksporeren. Bruk %BUGID% som markør for det faktiske saknummeret."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -9060,6 +9213,10 @@ msgstr "Det er ingen sperre å fjerne. Ingen fil har en sperre i denne arbeidsko
 msgid "Thesaurus"
 msgstr "Synonymordbok"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr "Disse er lagret senere enn de dokumentene som nå er åpne og inneholder endringer som ble gjort før applikasjonen ble lukket."
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -9120,13 +9277,13 @@ msgstr "Denne egenskapen kan ikke ha flere linjer. Kun én er tillatt."
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "Dette vil slette historien over kommandoer du har brukt i denne applikasjonen og gjenopprette standardsettet av synlige kommandoer i menyer og verktøylinjer. Det vil ikke endre noen eksplisitte tilpasninger. Er du sikker på at du vil gjøre dette?"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "Ordne &Horisontalt"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "Ordne &Vertikalt"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "Ordne &Horisontalt"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9487,6 +9644,10 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "Uventet filformat."
+
+#. Resource IDs: (1070)
+msgid "Unfold"
+msgstr "Brett ut"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -10306,6 +10467,10 @@ msgstr "Zoom så høyden passer"
 msgid "Zoom to fit in width"
 msgstr "Zoom så bredden passer"
 
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[Standard]"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Ikke tilordnet]"
@@ -10568,6 +10733,10 @@ msgstr "den er ikke versjonert."
 msgid "item kept locally"
 msgstr "elementet holdes lokalt"
 
+#. Resource IDs: (1562)
+msgid "keep the file lists in English"
+msgstr "behold fillistene på engelsk"
+
 #. Resource IDs: (65535)
 msgid "last head update: "
 msgstr "siste oppdatering av hode: "
@@ -10760,6 +10929,10 @@ msgstr "skanner sti:"
 msgid "skip ranges: "
 msgstr "oversette intervaller: "
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr "svn:eol-style"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
@@ -10781,6 +10954,10 @@ msgstr ""
 "svn:executable\r\n"
 "Gjør en fil kjørebar hvis den er til stede. Denne egenskapen kan ikke settes på kataloger.\r\n"
 " Et ikke-rekursivt forsøk vil feile, og et rekursivt setter egenskapen bare på filene i katalogen."
+
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10817,6 +10994,10 @@ msgid ""
 msgstr ""
 "svn:ignore\r\n"
 "En linjedelt liste over søkestrenger (jokertegn er tilatt) som skal ignoreres."
+
+#. Resource IDs: (317)
+msgid "svn:keywords"
+msgstr "svn:keywords"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11108,6 +11289,12 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Sat:"
+#~ msgstr "&Metn:"
+#~ msgid "&Save..."
+#~ msgstr "&Lagre..."
+#~ msgid "Bug-ID / &Issue-Nr:"
+#~ msgstr "Feil-ID / &Saksnr.:"
 #~ msgid "&To URL: "
 #~ msgstr "&Til adresse:"
 #~ msgid "Show overlay for ignored items"
