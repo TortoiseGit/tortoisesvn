@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-17 23:56-0000\n"
+"PO-Revision-Date: 2010-04-18 00:36-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10665,7 +10665,7 @@ msgstr "Este método só irá funcionar num ambiente apenas-PCs, e precisarás d
 
 #. (title)
 msgid "Create a shortcut to a repository"
-msgstr ""
+msgstr "Criar um atalho para um repositório"
 
 #. (primary)
 msgid "shortcut"
@@ -10677,10 +10677,13 @@ msgid ""
 "TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
 "</screen> Of course you need to include the real repository URL."
 msgstr ""
+"Se precisas com frequência de abrir o navegador de repositório numa localização específica, podes criar um atalho de ambiente de trabalho, usando o interface de automação para o TortoiseProc. Cria apenas um novo atalho e aponta-o para: <screen>\n"
+"TortoiseProc.exe /command:repobrowser /path:\"url/to/repository\"\n"
+"</screen> É claro que necessitas de inserir o URL do repositório real."
 
 #. (title)
 msgid "Ignore files which are already versioned"
-msgstr ""
+msgstr "Ignorar ficheiros que já estão versionados"
 
 #. (primary)
 msgid "remove versioning"
@@ -10692,11 +10695,11 @@ msgstr ""
 
 #. (para)
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
-msgstr ""
+msgstr "Se tu acidentalmente adicionaste alguns ficheiros que deveriam ter sido ignorados, como é que os tiras do controlo de versões sem os perderes? Talvez tenhas o teu próprio ficheiro de configuração do IDE, que não faz parte do projecto, mas que levou bastante tempo a configurar ao teu modo."
 
 #. (para)
 msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
-msgstr ""
+msgstr "Se ainda não submeteste a adição, então tudo o que tens de fazer é usa o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter...</guimenuitem></menuchoice>  para anular a adição. Deverás então adicionar o(s) ficheiro(s) à lista de ignorados, para que eles não sejam adicionados outra vez por engano."
 
 #. (para)
 msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
@@ -10704,19 +10707,19 @@ msgstr ""
 
 #. (title)
 msgid "Unversion a working copy"
-msgstr ""
+msgstr "Remover uma cópia de trabalho do controlo de versões"
 
 #. (para)
 msgid "If you have a working copy which you want to convert back to a plain folder tree without the <literal>.svn</literal> directories, you can simply export it to itself. Read <xref linkend=\"tsvn-dug-export-unversion\"/> to find out how."
-msgstr ""
+msgstr "Se tu tens uma cópia de trabalho que queres converter de volta a uma pasta simples, sem as pastas <literal>.svn</literal>, podes simplesmente exportá-la para ela própria. Consulta <xref linkend=\"tsvn-dug-export-unversion\"/> para descobrir como o fazer."
 
 #. (title)
 msgid "Remove a working copy"
-msgstr ""
+msgstr "Remover uma cópia de trabalho"
 
 #. (para)
 msgid "If you have a working copy which you no longer need, how do you get rid of it cleanly? Easy - just delete it in Windows Explorer! Working copies are private local entities, and they are self-contained."
-msgstr ""
+msgstr "Se tu tens uma cópia de trabalho que já não necessitas, como te livrares dela de modo correcto? Fácil - apenas apaga-a no Explorador do Windows! Cópias de trabalho são entidades locais privadas auto contidas."
 
 #. (title)
 msgid "Useful Tips For Administrators"
