@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-13 23:52-0000\n"
+"PO-Revision-Date: 2010-04-17 23:56-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10595,23 +10595,23 @@ msgstr "Por vezes tu quererás incluir outro projecto na tua cópia de trabalho,
 
 #. (title)
 msgid "Use svn:externals"
-msgstr "Usa svn:externals"
+msgstr "Usa o svn:externals"
 
 #. (para)
 msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr ""
+msgstr "Configurar a propriedade <literal>svn:externals</literal> para uma pasta no teu projecto. Esta propriedade consiste em uma ou mais linhas; cada linha tem o nome de uma subpasta que quererás usar como pasta de checkout para código comum, e o URL do repositório do qual queres efectuar aqui checkout. Para mais detalhes consultar <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (para)
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The sub-folders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
-msgstr ""
+msgstr "Submeter a nova pasta. Agora quando actualizares, o Subversion trará uma cópia desse projecto do seu repositório para a tua cópia de trabalho. As subpastas, se necessário, serão automaticamente criadas. De cada vez que actualizares a tua principal cópia de trabalho, irás também receber a última versão de todos os projectos externos."
 
 #. (para)
 msgid "Of the three methods described, this is the only one which needs no setup on the client side. Once externals are specified in the folder properties, all clients will get populated folders when they update."
-msgstr ""
+msgstr "Dos três métodos descritos, este é o único que não requer instalação no lado do cliente. Assim que os externos sejam especificados nas propriedades da pasta, todos os clientes irão adquirir pastas povoadas, assim que actualizarem. "
 
 #. (title)
 msgid "Use a nested working copy"
-msgstr ""
+msgstr "Usar uma cópia de trabalho aninhada."
 
 #. (para)
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion"
@@ -10619,15 +10619,15 @@ msgstr ""
 
 #. (para)
 msgid "Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> for the new folder and checkout a copy of the common code into it. You now have a separate working copy nested within your main working copy."
-msgstr ""
+msgstr "Selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout</guimenuitem></menuchoice> para a nova pasta e efectua o checkout da cópia do código comum lá para dentro. Agora tu tens uma cópia de trabalho separada, aninhada na tua cópia de trabalho principal."
 
 #. (para)
 msgid "The two working copies are independent. When you commit changes to the parent, changes to the nested WC are ignored. Likewise when you update the parent, the nested WC is not updated."
-msgstr ""
+msgstr "As duas cópias de trabalho são independentes. Quando tu submetes alterações na cópia pai as alterações na CT aninhada são ignoradas. por sua vez quando tu actualizas o pai a CT aninhada não será actualizada."
 
 #. (title)
 msgid "Use a relative location"
-msgstr ""
+msgstr "Usa uma localização relativa"
 
 #. (para)
 msgid ""
@@ -10638,6 +10638,12 @@ msgid ""
 "C:\\Projects\\Common\n"
 "</screen> and refer to the common code using a relative path, eg. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr ""
+"Se usas o mesmo núcleo de código comum em vários projectos, e não queres manter múltiplas cópias de trabalho em cada projecto que o usa, poderás apenas efectuar um checkout numa localização separada que estará relacionada com todos os outros projectos que a usam. Por exemplo: <screen>\n"
+"C:\\Projects\\Proj1\n"
+"C:\\Projects\\Proj2\n"
+"C:\\Projects\\Proj3\n"
+"C:\\Projects\\Common\n"
+"</screen> e referência o código comum recorrendo a um caminho relativo, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
 
 #. (para)
 msgid ""
@@ -10647,10 +10653,15 @@ msgid ""
 "#include \"X:\\superio\\superio.h\"\n"
 "</screen>"
 msgstr ""
+"Se os teus projectos estão espalhados por localizações não relacionadas, poderás usar uma variante que consiste em, colocar o código comum numa localização e usar uma letra de unidade de rede para mapear essa localização para algo que possas fixar nos teus projectos, e.g. Efectuar checkout do código comum para <filename>D:\\Documents\\Framework</filename> ou <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> e então usar <screen>\n"
+"SUBST X: \"D:\\Documents\\framework\"\n"
+"</screen> para criar o mapeamento de unidade usado no teu código. Então o teu código poderá usar localizações absolutas. <screen>\n"
+"#include \"X:\\superio\\superio.h\"\n"
+"</screen>"
 
 #. (para)
 msgid "This method will only work in an all-PC environment, and you will need to document the required drive mappings so your team know where these mysterious files are. This method is strictly for use in closed development environments, and not recommended for general use."
-msgstr ""
+msgstr "Este método só irá funcionar num ambiente apenas-PCs, e precisarás de documentar os mapeamentos de unidade de rede, para que a tua equipa saiba onde estão esses ficheiros misteriosos. Este método é para uso estrito em ambientes de desenvolvimento fechado e não é recomendado para uso geral."
 
 #. (title)
 msgid "Create a shortcut to a repository"
