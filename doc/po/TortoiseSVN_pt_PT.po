@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-18 00:36-0000\n"
+"PO-Revision-Date: 2010-04-18 00:47-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10723,15 +10723,15 @@ msgstr "Se tu tens uma cópia de trabalho que já não necessitas, como te livra
 
 #. (title)
 msgid "Useful Tips For Administrators"
-msgstr ""
+msgstr "Dicas Úteis para Administradores"
 
 #. (para)
 msgid "This appendix contains solutions to problems/questions you might have when you are responsible for deploying TortoiseSVN to multiple client computers."
-msgstr ""
+msgstr "Este anexo contém soluções para problemas/questões que tu possas ter quando és responsável por instalar o TortoiseSVN em múltiplos computadores clientes."
 
 #. (title)
 msgid "Deploy TortoiseSVN via group policies"
-msgstr ""
+msgstr "Instalar o TortoiseSVN via politicas de grupo"
 
 #. (primary)
 #. (primary)
@@ -10757,11 +10757,11 @@ msgstr ""
 
 #. (para)
 msgid "The TortoiseSVN installer comes as an MSI file, which means you should have no problems adding that MSI file to the group policies of your domain controller."
-msgstr ""
+msgstr "O instalador do TortoiseSVN é um ficheiro MSI, o que significa que não deverás ter problemas a adicionar esse ficheiro MSI às políticas de grupo do teu controlador de domínio."
 
 #. (para)
 msgid "A good walk-through on how to do that can be found in the knowledge base article 314934 from Microsoft: <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
-msgstr ""
+msgstr "Uma boa abordagem de como fazer isso poderá ser encontrada no artigo 314934 da base de conhecimento da Microsoft: <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
 
 #. (para)
 msgid "Versions 1.3.0 and later of TortoiseSVN must be installed under <emphasis>Computer Configuration</emphasis> and not under <emphasis>User Configuration</emphasis>. This is because those versions need the new CRT and MFC DLLs, which can only be deployed <emphasis>per computer</emphasis> and not <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a per user basis, then you must first install the MFC and CRT package version 8 from Microsoft on each computer you want to install TortoiseSVN as per user."
