@@ -21,7 +21,7 @@
 //-----------------------------------------------------------------------------
 // CZLib::CZLib
 //
-// 
+//
 //
 CZLib::CZLib()
 {
@@ -94,18 +94,18 @@ BOOL CZLib::AddFile(string f_file)
       string sFileName = f_file.substr(f_file.find_last_of(_T('\\')) + 1);
 
       // Start a new file in Zip
-      if (ZIP_OK == zipOpenNewFileInZip(m_zf, 
-                                        sFileName.c_str(), 
-                                        &zi, 
-                                        NULL, 
-                                        0, 
-                                        NULL, 
-                                        0, 
-                                        NULL, 
-                                        Z_DEFLATED, 
+      if (ZIP_OK == zipOpenNewFileInZip(m_zf,
+                                        sFileName.c_str(),
+                                        &zi,
+                                        NULL,
+                                        0,
+                                        NULL,
+                                        0,
+                                        NULL,
+                                        Z_DEFLATED,
                                         Z_BEST_COMPRESSION))
       {
-         // Write file to Zip in 4 KB chunks 
+         // Write file to Zip in 4 KB chunks
          const DWORD BUFFSIZE    = 4096;
          TCHAR buffer[BUFFSIZE]  = _T("");
          DWORD dwBytesRead       = 0;
@@ -123,7 +123,7 @@ BOOL CZLib::AddFile(string f_file)
 
          bReturn &= (ZIP_OK == zipCloseFileInZip(m_zf));
       }
-      
+
       bReturn &= CloseHandle(hFile);
    }
 

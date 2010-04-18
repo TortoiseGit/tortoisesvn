@@ -206,48 +206,48 @@ public:
 
     // construct futures for all sorts of callable items
 
-    CAsyncCall (void (*func)(), CJobScheduler* scheduler = NULL) 
-        : call (NULL) 
+    CAsyncCall (void (*func)(), CJobScheduler* scheduler = NULL)
+        : call (NULL)
     {
         call = new CCall0 (func);
         Schedule (true, scheduler);
     }
 
     template<class C>
-    CAsyncCall (C* instance, void (C::*func)(), CJobScheduler* scheduler = NULL) 
-        : call (NULL) 
+    CAsyncCall (C* instance, void (C::*func)(), CJobScheduler* scheduler = NULL)
+        : call (NULL)
     {
         call = new CCallMember0<C>(instance, func);
         Schedule (true, scheduler);
     }
 
     template<class T1>
-    CAsyncCall (void (*func)(T1), T1 parameter1, CJobScheduler* scheduler = NULL) 
-        : call (NULL) 
+    CAsyncCall (void (*func)(T1), T1 parameter1, CJobScheduler* scheduler = NULL)
+        : call (NULL)
     {
         call = new CCall1<T1>(func, parameter1);
         Schedule (true, scheduler);
     }
 
     template<class C, class T1>
-    CAsyncCall (C* instance, void (C::*func)(T1), T1 parameter1, CJobScheduler* scheduler = NULL) 
-        : call (NULL) 
+    CAsyncCall (C* instance, void (C::*func)(T1), T1 parameter1, CJobScheduler* scheduler = NULL)
+        : call (NULL)
     {
         call = new CCallMember1<C, T1>(instance, func, parameter1);
         Schedule (true, scheduler);
     }
 
     template<class T1, class T2>
-    CAsyncCall (void (*func)(T1,T2), T1 parameter1, T2 parameter2, CJobScheduler* scheduler = NULL) 
-        : call (NULL) 
+    CAsyncCall (void (*func)(T1,T2), T1 parameter1, T2 parameter2, CJobScheduler* scheduler = NULL)
+        : call (NULL)
     {
         call = new CCall2<T1, T2>(func, parameter1, parameter2);
         Schedule (true, scheduler);
     }
 
     template<class C, class T1, class T2>
-    CAsyncCall (C* instance, void (C::*func)(T1,T2), T1 parameter1, T2 parameter2, CJobScheduler* scheduler = NULL) 
-        : call (NULL) 
+    CAsyncCall (C* instance, void (C::*func)(T1,T2), T1 parameter1, T2 parameter2, CJobScheduler* scheduler = NULL)
+        : call (NULL)
     {
         call = new CCallMember2<C, T1, T2>(instance, func, parameter1, parameter2);
         Schedule (true, scheduler);

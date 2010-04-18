@@ -285,60 +285,60 @@ public:
 
     // construct futures for all sorts of callable items
 
-    CFuture (R (*func)(), CJobScheduler* scheduler = NULL) 
-        : job (NULL) 
+    CFuture (R (*func)(), CJobScheduler* scheduler = NULL)
+        : job (NULL)
     {
         job = new CFuture0(func, result, scheduler);
     }
 
     template<class C>
-    CFuture (C* instance, R (C::*func)(), CJobScheduler* scheduler = NULL) 
-        : job (NULL) 
+    CFuture (C* instance, R (C::*func)(), CJobScheduler* scheduler = NULL)
+        : job (NULL)
     {
         job = new CFutureMember0<C>(instance, func, result, scheduler);
     }
 
     template<class T1>
-    CFuture (R (*func)(T1), T1 parameter1, CJobScheduler* scheduler = NULL) 
-        : job (NULL) 
+    CFuture (R (*func)(T1), T1 parameter1, CJobScheduler* scheduler = NULL)
+        : job (NULL)
     {
         job = new CFuture1<T1>(func, result, parameter1, scheduler);
     }
 
     template<class C, class T1>
-    CFuture (C* instance, R (C::*func)(T1), T1 parameter1, CJobScheduler* scheduler = NULL) 
-        : job (NULL) 
+    CFuture (C* instance, R (C::*func)(T1), T1 parameter1, CJobScheduler* scheduler = NULL)
+        : job (NULL)
     {
         job = new CFutureMember1<C, T1>(instance, func, result, parameter1, scheduler);
     }
 
     template<class T1, class T2>
-    CFuture (R (*func)(T1, T2), T1 parameter1, T2 parameter2, CJobScheduler* scheduler = NULL) 
-        : job (NULL) 
+    CFuture (R (*func)(T1, T2), T1 parameter1, T2 parameter2, CJobScheduler* scheduler = NULL)
+        : job (NULL)
     {
         job = new CFuture2<T1, T2>
                     (func, result, parameter1, parameter2, scheduler);
     }
 
     template<class C, class T1, class T2>
-    CFuture (C* instance, R (C::*func)(T1, T2), T1 parameter1, T2 parameter2, CJobScheduler* scheduler = NULL) 
-        : job (NULL) 
+    CFuture (C* instance, R (C::*func)(T1, T2), T1 parameter1, T2 parameter2, CJobScheduler* scheduler = NULL)
+        : job (NULL)
     {
         job = new CFutureMember2<C, T1, T2>
                     (instance, func, result, parameter1, parameter2, scheduler);
     }
 
     template<class T1, class T2, class T3>
-    CFuture (R (*func)(T1, T2, T3), T1 parameter1, T2 parameter2, T3 parameter3, CJobScheduler* scheduler = NULL) 
-        : job (NULL) 
+    CFuture (R (*func)(T1, T2, T3), T1 parameter1, T2 parameter2, T3 parameter3, CJobScheduler* scheduler = NULL)
+        : job (NULL)
     {
         job = new CFuture3<T1, T2, T3>
                     (func, result, parameter1, parameter2, parameter3, scheduler);
     }
 
     template<class C, class T1, class T2, class T3>
-    CFuture (C* instance, R (C::*func)(T1, T2, T3), T1 parameter1, T2 parameter2, T3 parameter3, CJobScheduler* scheduler = NULL) 
-        : job (NULL) 
+    CFuture (C* instance, R (C::*func)(T1, T2, T3), T1 parameter1, T2 parameter2, T3 parameter3, CJobScheduler* scheduler = NULL)
+        : job (NULL)
     {
         job = new CFutureMember3<C, T1, T2, T3>
                     (instance, func, result, parameter1, parameter2, parameter3, scheduler);

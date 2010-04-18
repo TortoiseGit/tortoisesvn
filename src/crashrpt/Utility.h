@@ -17,13 +17,13 @@
 
 // ===========================================================================
 // CUtility
-// 
+//
 // See the module comment at top of file.
 //
-namespace CUtility 
+namespace CUtility
 {
 
-	BSTR AllocSysString(string s);
+    BSTR AllocSysString(string s);
 
    //-----------------------------------------------------------------------------
    // getLastWriteFileTime
@@ -37,14 +37,14 @@ namespace CUtility
    //
    // Remarks
    //
-   FILETIME 
+   FILETIME
    getLastWriteFileTime(
       string sFile
       );
    FILETIME
-	   getLastWriteFileTime(
-	   WCHAR * wszFile
-	   );
+       getLastWriteFileTime(
+       WCHAR * wszFile
+       );
    //-----------------------------------------------------------------------------
    // getAppName
    //    Returns the application module's file name
@@ -58,7 +58,7 @@ namespace CUtility
    // Remarks
    //    none
    //
-   string 
+   string
    getAppName();
 
    //-----------------------------------------------------------------------------
@@ -74,9 +74,9 @@ namespace CUtility
    // Remarks
    //    none
    //
-   string 
+   string
    getSaveFileName();
-	
+
    //-----------------------------------------------------------------------------
    // getTempFileName
    //    Returns a generated temporary file name
@@ -89,7 +89,7 @@ namespace CUtility
    //
    // Remarks
    //
-   string 
+   string
    getTempFileName();
 };
 

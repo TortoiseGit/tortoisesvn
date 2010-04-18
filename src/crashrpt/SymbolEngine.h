@@ -178,7 +178,7 @@ public      :
             dwLS = lpVerInfo->dwFileVersionLS ;
         }
 
-		return bRet;
+        return bRet;
     }
 
 /*----------------------------------------------------------------------

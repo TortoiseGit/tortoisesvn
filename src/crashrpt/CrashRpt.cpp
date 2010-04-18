@@ -17,7 +17,7 @@
 #ifdef _DEBUG
 #define CRASH_ASSERT(pObj)          \
    if (!pObj || sizeof(*pObj) != sizeof(CCrashHandler))  \
-      DebugBreak()                                       
+      DebugBreak()
 #else
 #define CRASH_ASSERT(pObj)
 #endif // _DEBUG
@@ -33,7 +33,7 @@ CRASHRPTAPI LPVOID GetInstance()
 CRASHRPTAPI LPVOID InstallEx(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
 #ifdef _DEBUG
-	OutputDebugString("InstallEx\n");
+    OutputDebugString("InstallEx\n");
 #endif
    CCrashHandler *pImpl = CCrashHandler::GetInstance();
    CRASH_ASSERT(pImpl);
@@ -52,30 +52,30 @@ CRASHRPTAPI void UninstallEx(LPVOID lpState)
 
 CRASHRPTAPI void EnableUIEx(LPVOID lpState)
 {
-	CCrashHandler *pImpl = (CCrashHandler*)lpState;
-	CRASH_ASSERT(pImpl);
-	pImpl->EnableUI();
+    CCrashHandler *pImpl = (CCrashHandler*)lpState;
+    CRASH_ASSERT(pImpl);
+    pImpl->EnableUI();
 }
 
 CRASHRPTAPI void DisableUIEx(LPVOID lpState)
 {
-	CCrashHandler *pImpl = (CCrashHandler*)lpState;
-	CRASH_ASSERT(pImpl);
-	pImpl->DisableUI();
+    CCrashHandler *pImpl = (CCrashHandler*)lpState;
+    CRASH_ASSERT(pImpl);
+    pImpl->DisableUI();
 }
 
 CRASHRPTAPI void EnableHandlerEx(LPVOID lpState)
 {
-	CCrashHandler *pImpl = (CCrashHandler*)lpState;
-	CRASH_ASSERT(pImpl);
-	pImpl->EnableHandler();
+    CCrashHandler *pImpl = (CCrashHandler*)lpState;
+    CRASH_ASSERT(pImpl);
+    pImpl->EnableHandler();
 }
 
 CRASHRPTAPI void DisableHandlerEx(LPVOID lpState)
 {
-	CCrashHandler *pImpl = (CCrashHandler*)lpState;
-	CRASH_ASSERT(pImpl);
-	pImpl->DisableHandler();
+    CCrashHandler *pImpl = (CCrashHandler*)lpState;
+    CRASH_ASSERT(pImpl);
+    pImpl->DisableHandler();
 }
 
 CRASHRPTAPI void AddFileEx(LPVOID lpState, LPCTSTR lpFile, LPCTSTR lpDesc)
@@ -133,13 +133,13 @@ CRASHRPTAPI void GenerateErrorReportEx(LPVOID lpState, PEXCEPTION_POINTERS pExIn
    CRASH_ASSERT(pImpl);
 
    if (!pImpl->GenerateErrorReport(pExInfo, message)) {
-	   DebugBreak();
+       DebugBreak();
    }
 }
 
 CRASHRPTAPI void StackTrace ( int numSkip, int depth, TraceCallbackFunction pFunction, CONTEXT *pContext, void *data)
 {
-	DoStackTrace(numSkip, depth > 0 ? depth : 9999, pFunction, pContext, data);
+    DoStackTrace(numSkip, depth > 0 ? depth : 9999, pFunction, pContext, data);
 }
 
 // DLL Entry Points usable from Visual Basic
@@ -156,12 +156,12 @@ extern "C" void __stdcall UninstallExVB(LPVOID lpState)
 
 extern "C" void __stdcall EnableUIVB(void)
 {
-	EnableUI();
+    EnableUI();
 }
 
 extern "C" void __stdcall DisableUIVB()
 {
-	DisableUI();
+    DisableUI();
 }
 
 extern "C" void __stdcall AddFileExVB(LPVOID lpState, LPCTSTR lpFile, LPCTSTR lpDesc)
@@ -191,28 +191,28 @@ extern "C" void __stdcall GenerateErrorReportExVB(LPVOID lpState, PEXCEPTION_POI
 
 extern "C" void  __stdcall StackTraceVB(int numSkip, int depth, TraceCallbackFunction pFunction, CONTEXT *pContext, void *data)
 {
-	StackTrace(numSkip, depth, pFunction, pContext, data);
+    StackTrace(numSkip, depth, pFunction, pContext, data);
 }
 
 // Compatibility interfaces
 CRASHRPTAPI void Install(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
-	(void) InstallEx(pfn, lpcszTo, lpcszSubject, bUseUI);
+    (void) InstallEx(pfn, lpcszTo, lpcszSubject, bUseUI);
 }
 
 CRASHRPTAPI void Uninstall()
 {
-	UninstallEx(CCrashHandler::GetInstance());
+    UninstallEx(CCrashHandler::GetInstance());
 }
 
 CRASHRPTAPI void EnableUI()
 {
-	EnableUIEx(CCrashHandler::GetInstance());
+    EnableUIEx(CCrashHandler::GetInstance());
 }
 
 CRASHRPTAPI void DisableUI()
 {
-	DisableUIEx(CCrashHandler::GetInstance());
+    DisableUIEx(CCrashHandler::GetInstance());
 }
 
 CRASHRPTAPI void AddFile(LPCTSTR lpFile, LPCTSTR lpDesc)
@@ -251,46 +251,46 @@ CRASHRPTAPI void GenerateErrorReport(BSTR message)
 
 extern "C" void __stdcall InstallVB(LPGETLOGFILE pfn, LPCTSTR lpTo, LPCTSTR lpSubject, BOOL bUseUI)
 {
-	Install(pfn, lpTo, lpSubject, bUseUI);
+    Install(pfn, lpTo, lpSubject, bUseUI);
 }
 
 extern "C" void __stdcall UninstallVB()
 {
-	Uninstall();
+    Uninstall();
 }
 
 extern "C" void __stdcall AddFileVB(LPCTSTR lpFile, LPCTSTR lpDesc)
 {
-	AddFile(lpFile, lpDesc);
+    AddFile(lpFile, lpDesc);
 }
 
 extern "C" void __stdcall RemoveFileVB(LPCTSTR lpFile)
 {
-	RemoveFile(lpFile);
+    RemoveFile(lpFile);
 }
 
 extern "C" void __stdcall AddRegistryHiveVB(LPCTSTR lpRegistryHive, LPCTSTR lpDesc)
 {
-	AddRegistryHive(lpRegistryHive, lpDesc);
+    AddRegistryHive(lpRegistryHive, lpDesc);
 }
 
 extern "C" void __stdcall RemoveRegistryHiveVB(LPCTSTR lpRegistryHive)
 {
-	RemoveRegistryHive(lpRegistryHive);
+    RemoveRegistryHive(lpRegistryHive);
 }
 
 extern "C" void __stdcall AddEventLogVB(LPCTSTR lpEventLog, LPCTSTR lpDesc)
 {
-	AddEventLog(lpEventLog, lpDesc);
+    AddEventLog(lpEventLog, lpDesc);
 }
 
 extern "C" void __stdcall RemoveEventLogVB(LPCTSTR lpEventLog)
 {
-	RemoveEventLog(lpEventLog);
+    RemoveEventLog(lpEventLog);
 }
 
 extern "C" void __stdcall GenerateErrorReportVB(BSTR message)
 {
-	GenerateErrorReport(message);
+    GenerateErrorReport(message);
 }
 

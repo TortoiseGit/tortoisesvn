@@ -35,9 +35,9 @@
 typedef BOOL (CALLBACK *LPGETLOGFILE) (LPVOID lpvState);
 // Stack trace callback
 typedef void (*TraceCallbackFunction)(DWORD_PTR address, const char *ImageName,
-									  const char *FunctionName, DWORD_PTR functionDisp,
-									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
-									  void *data);
+                                      const char *FunctionName, DWORD_PTR functionDisp,
+                                      const char *Filename, DWORD LineNumber, DWORD lineDisp,
+                                      void *data);
 
 
 //-----------------------------------------------------------------------------
@@ -56,8 +56,8 @@ typedef void (*TraceCallbackFunction)(DWORD_PTR address, const char *ImageName,
 // Remarks
 //    none
 //
-CRASHRPTAPI 
-LPVOID 
+CRASHRPTAPI
+LPVOID
 GetInstance();
 
 //-----------------------------------------------------------------------------
@@ -79,7 +79,7 @@ GetInstance();
 //    void
 //
 // Remarks
-//    Passing NULL for lpTo will disable the email feature and cause the crash 
+//    Passing NULL for lpTo will disable the email feature and cause the crash
 //    report to be saved to disk.
 //
 CRASHRPTAPI
@@ -90,8 +90,8 @@ Install(
    IN LPCSTR lpSubject OPTIONAL,               // Email:subject
    IN BOOL bUseUI OPTIONAL                     // UI or console
    );
-CRASHRPTAPI 
-LPVOID 
+CRASHRPTAPI
+LPVOID
 InstallEx(
    IN LPGETLOGFILE pfn OPTIONAL,               // client crash callback
    IN LPCSTR lpTo OPTIONAL,                    // Email:to
@@ -110,13 +110,13 @@ InstallEx(
 //    void
 //
 // Remarks
-//    This call is optional.  The crash report library will automatically 
+//    This call is optional.  The crash report library will automatically
 //    deinitialize when the library is unloaded.  Call this function to
 //    unhook the exception filter manually.
 //
 CRASHRPTAPI void Uninstall();
-CRASHRPTAPI 
-void 
+CRASHRPTAPI
+void
 UninstallEx(
    IN LPVOID lpState                            // State from Install()
    );
@@ -146,8 +146,8 @@ AddFile(
    IN LPCSTR lpFile,                           // File name
    IN LPCSTR lpDesc                            // File desc
    );
-CRASHRPTAPI 
-void 
+CRASHRPTAPI
+void
 AddFileEx(
    IN LPVOID lpState,                           // State from Install()
    IN LPCSTR lpFile,                           // File name
@@ -173,8 +173,8 @@ void
 RemoveFile(
    IN LPCSTR lpFile                            // File name
    );
-CRASHRPTAPI 
-void 
+CRASHRPTAPI
+void
 RemoveFileEx(
    IN LPVOID lpState,                           // State from Install()
    IN LPCSTR lpFile                            // File name
@@ -203,8 +203,8 @@ AddRegistryHive(
    IN LPCSTR lpRegistryHive,                   // RegistryHive name
    IN LPCSTR lpDesc                            // RegistryHive desc
    );
-CRASHRPTAPI 
-void 
+CRASHRPTAPI
+void
 AddRegistryHiveEx(
    IN LPVOID lpState,                           // State from Install()
    IN LPCSTR lpRegistryHive,                   // RegistryHive name
@@ -226,12 +226,12 @@ AddRegistryHiveEx(
 //    The RegistryHive name must exactly match that provided to AddRegistryHive.
 //
 CRASHRPTAPI
-void 
+void
 RemoveRegistryHive(
    IN LPCSTR lpRegistryHive                    // RegistryHive name
    );
-CRASHRPTAPI 
-void 
+CRASHRPTAPI
+void
 RemoveRegistryHiveEx(
    IN LPVOID lpState,                           // State from Install()
    IN LPCSTR lpRegistryHive                    // RegistryHive name
@@ -260,8 +260,8 @@ AddEventLog(
    IN LPCSTR lpEventLog,                       // Event Log name
    IN LPCSTR lpDesc                            // Event Log desc
    );
-CRASHRPTAPI 
-void 
+CRASHRPTAPI
+void
 AddEventLogEx(
    IN LPVOID lpState,                           // State from Install()
    IN LPCSTR lpEventLog,                       // Event Log name
@@ -283,12 +283,12 @@ AddEventLogEx(
 //    The EventLog name must exactly match that provided to AddEventLog.
 //
 CRASHRPTAPI
-void 
+void
 RemoveEventLog(
    IN LPCSTR lpEventLog                    // EventLog name
    );
-CRASHRPTAPI 
-void 
+CRASHRPTAPI
+void
 RemoveEventLogEx(
    IN LPVOID lpState,                           // State from Install()
    IN LPCSTR lpEventLog                    // EventLog name
@@ -301,7 +301,7 @@ RemoveEventLogEx(
 // Parameters
 //    lpState     State information returned from Install()
 //    pExInfo     Optional; pointer to an EXCEPTION_POINTERS structure
-//	  message     Optional; message to include in report
+//    message     Optional; message to include in report
 //
 // Return Values
 //    void
@@ -318,8 +318,8 @@ void
 GenerateErrorReport(
    IN BSTR message OPTIONAL
    );
-CRASHRPTAPI 
-void 
+CRASHRPTAPI
+void
 GenerateErrorReportEx(
    IN LPVOID lpState,
    IN PEXCEPTION_POINTERS pExInfo OPTIONAL,
@@ -333,7 +333,7 @@ GenerateErrorReportEx(
 // Parameters
 //    numSkip     Number of initial stack frames to skip
 //    depth       Number of stack frames to process
-//	  pFunction   Optional; function to call for each frame
+//    pFunction   Optional; function to call for each frame
 //    pContext    Optional; stack context to trace
 //
 // Return Values

@@ -33,7 +33,7 @@ class CThread;
 
 /**
  * Central job execution management class. It encapsulates
- * a private worker thread pool and a \ref queue of \ref IJob 
+ * a private worker thread pool and a \ref queue of \ref IJob
  * instance to be executed.
  *
  * There may be many instances of this class. One should use
@@ -54,28 +54,28 @@ class CThread;
  * allocated from the shared pool, the suspended thread will
  * be moved to that shared pool.
  *
- * Upon construction, a fixed number (may be 0) of private 
- * worker threads gets created. On top of that, additional 
+ * Upon construction, a fixed number (may be 0) of private
+ * worker threads gets created. On top of that, additional
  * threads may be allocated from a singleton shared thread pool.
  * This number is specified by the second constructor parameter.
  *
  * The instance returned by \ref GetDefault() is created with
  * (0, INT_MAX, false), thus is suitable for short-running
- * CPU-heavy jobs. Under high load, it will utilize all CPU 
+ * CPU-heavy jobs. Under high load, it will utilize all CPU
  * resources but not exceed them, i.e. the number of shared
- * worker threads. 
+ * worker threads.
  *
  * Please note that the job queue must be empty upon destruction.
  * You may call \ref WaitForEmptyQueue() to achive this.
- * If you use multiple job schedulers, you may also use that 
+ * If you use multiple job schedulers, you may also use that
  * method to wait efficiently for a whole group of jobs
  * to be finished.
- * 
+ *
  * Another related method is \ref WaitForSomeJobs. It will
  * effiently wait for at least one job to be finished unless
  * the job queue is almost empty (so you don't deadlock waiting
- * for yourself to finish). Call it if some *previous* job must 
- * still provide some information that you are waiting for but 
+ * for yourself to finish). Call it if some *previous* job must
+ * still provide some information that you are waiting for but
  * you don't know the particular job instance. Usually you will
  * need to call this method in a polling loop.
  */
@@ -94,21 +94,21 @@ private:
 
     /**
      * Very low-overhead job queue class.
-     * All method calls are amortized O(1) with an 
+     * All method calls are amortized O(1) with an
      * average execution time of <10 ticks.
      *
      * Methods have been named and modeled similar
      * to std::queue<>.
      *
      * The data is stored in a single memory buffer.
-     * Valid data is [\ref first, \ref last) and is 
-     * not moved around unless there is an overflow. 
+     * Valid data is [\ref first, \ref last) and is
+     * not moved around unless there is an overflow.
      * Overflow condition is \ref last reaching \ref end,
      * i.e. there is no space to add another entry.
      *
      * In that case, all content will either be shifted
      * to the beginning of the buffer (if less than 50%
-     * are currently being used) or the buffer itself 
+     * are currently being used) or the buffer itself
      * gets doubled in size.
      */
 
@@ -132,10 +132,10 @@ private:
 
         TJob* end;
 
-		/// if set, \ref pop removes entries at the front (\ref first).
-		/// Otherwise, it will remove them from the back (\ref last).
+        /// if set, \ref pop removes entries at the front (\ref first).
+        /// Otherwise, it will remove them from the back (\ref last).
 
-		bool fifo;
+        bool fifo;
 
         /// size management
 
@@ -151,7 +151,7 @@ private:
             , first (NULL)
             , last (NULL)
             , end (NULL)
-			, fifo (true)
+            , fifo (true)
         {
             Grow (1024);
         }
@@ -170,19 +170,19 @@ private:
         }
         const TJob& pop()
         {
-			return fifo ? *(first++) : *--last;
+            return fifo ? *(first++) : *--last;
         }
 
-		/// I/O order
+        /// I/O order
 
-		bool get_fifo() const
-		{
-			return fifo;
-		}
-		void set_fifo (bool newValue)
-		{
-			fifo = newValue;
-		}
+        bool get_fifo() const
+        {
+            return fifo;
+        }
+        void set_fifo (bool newValue)
+        {
+            fifo = newValue;
+        }
 
         /// size info
 
@@ -223,11 +223,11 @@ private:
      * Global pool of shared threads. This is a singleton class.
      *
      * Job schedulers will borrow from this pool via \ref TryAlloc
-     * and release (not necessarily the same) threads via 
+     * and release (not necessarily the same) threads via
      * \ref Release as as they are no longer used.
      *
-     * The number of threads handed out to job scheudulers 
-     * (\ref allocCount) plus the number of threads still in the 
+     * The number of threads handed out to job scheudulers
+     * (\ref allocCount) plus the number of threads still in the
      * \ref pool will not exceed \ref maxCount. Surplus threads
      * may appear if \ref maxCount has been reduced through
      * \ref SetThreadCount. Such threads will be removed
@@ -306,14 +306,14 @@ private:
 
         size_t GetThreadCount();
 
-        /// manage starving schedulers 
+        /// manage starving schedulers
         /// (must be notified as soon as there is an idle thread)
 
         /// entry will be auto-removed upon notification
 
         void AddStarving (CJobScheduler* scheduler);
 
-        /// must be called before destroying the \ref scheduler. 
+        /// must be called before destroying the \ref scheduler.
         /// No-op, if not in \ref starved list.
         /// \returns true if it was found.
 
@@ -387,9 +387,9 @@ private:
 
     CWaitableEvent threadIsIdle;
 
-    /// if this is set, worker threads will be resumed 
+    /// if this is set, worker threads will be resumed
     /// unconditionally whenever a new job gets added.
-    /// Also, worker threads will be destroyed 
+    /// Also, worker threads will be destroyed
     /// as soon as the job queue runs low (i.e. threads
     /// won't be kept around in suspended state).
 
@@ -428,7 +428,7 @@ public:
     CJobScheduler ( size_t threadCount
                   , size_t sharedThreads
                   , bool aggressiveThreading = false
-				  , bool fifo = true);
+                  , bool fifo = true);
 
     /// End threads. Job queue must have run empty before calling this.
 
@@ -448,15 +448,15 @@ public:
 
     /// wait for all current and follow-up jobs to terminate
 
-	void WaitForEmptyQueue();
-	
+    void WaitForEmptyQueue();
+
     /// wait until either all current and follow-up jobs terminated
     /// or the specified timeout has passed. Returns false in case
     /// of a timeout.
     /// Please note that in cases of high contention, internal
     /// retries may cause the timeout to elapse more than once.
 
-	bool WaitForEmptyQueueOrTimeout(DWORD milliSeconds);
+    bool WaitForEmptyQueueOrTimeout(DWORD milliSeconds);
 
     /// Wait for some jobs to be finished.
     /// This function may return immediately if there are
@@ -464,26 +464,26 @@ public:
 
     void WaitForSomeJobs();
 
-	/// Returns the number of jobs waiting for execution.
+    /// Returns the number of jobs waiting for execution.
 
-	size_t GetQueueDepth() const;
+    size_t GetQueueDepth() const;
 
-	/// Returns the number of threads that currently execute
-	/// jobs for this scheduler
+    /// Returns the number of threads that currently execute
+    /// jobs for this scheduler
 
-	size_t GetRunningThreadCount() const;
+    size_t GetRunningThreadCount() const;
 
-	/// remove waiting entries from the queue until their 
-	/// number drops to or below the given watermark.
+    /// remove waiting entries from the queue until their
+    /// number drops to or below the given watermark.
 
-	std::vector<IJob*> RemoveJobFromQueue (size_t watermark, bool oldest = true);
+    std::vector<IJob*> RemoveJobFromQueue (size_t watermark, bool oldest = true);
 
     /// access properties of the \ref CThreadPool instances.
 
     static void SetSharedThreadCount (size_t count);
     static size_t GetSharedThreadCount();
 
-    /// set number of shared threads to the number of 
+    /// set number of shared threads to the number of
     /// HW threads (#CPUs x #Core/CPU x #SMT/Core)
 
     static void UseAllCPUs();

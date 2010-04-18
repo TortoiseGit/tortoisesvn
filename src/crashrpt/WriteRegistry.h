@@ -81,6 +81,6 @@ bool WriteRegistryTreeToFile(const char *key, const char *filename);
 //    none
 //
 bool WriteRegistryTreeToFile(HKEY section, const char *subkey, const char *filename);
-  
+
 
 #endif

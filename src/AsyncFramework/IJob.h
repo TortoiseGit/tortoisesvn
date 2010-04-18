@@ -24,7 +24,7 @@ namespace async
 {
 
 // forward declaration
-   
+
 class CJobScheduler;
 
 /**
@@ -73,30 +73,30 @@ public:
 
     virtual Status GetStatus() const = 0;
 
-    /// Efficiently wait for instance to reach the 
+    /// Efficiently wait for instance to reach the
     /// \ref done \ref Status.
-	/// If \ref inlineExecution is set, the job will be
-	/// executed in the current thread if it is still waiting.
+    /// If \ref inlineExecution is set, the job will be
+    /// executed in the current thread if it is still waiting.
 
     virtual void WaitUntilDone (bool inlineExecution = false) = 0;
 
 private:
 
-	/// Called by the \ref CJobScheduler instance before
-	/// it actually add this job to its execution list.
+    /// Called by the \ref CJobScheduler instance before
+    /// it actually add this job to its execution list.
 
-	virtual void OnSchedule (CJobScheduler* scheduler) = 0;
+    virtual void OnSchedule (CJobScheduler* scheduler) = 0;
 
-	/// Called by the \ref CJobScheduler instance after
-	/// it removed this job from its execution list.
-	/// The job must not be deleted before this function
-	/// has been called.
+    /// Called by the \ref CJobScheduler instance after
+    /// it removed this job from its execution list.
+    /// The job must not be deleted before this function
+    /// has been called.
 
-	virtual void OnUnSchedule (CJobScheduler* scheduler) = 0;
+    virtual void OnUnSchedule (CJobScheduler* scheduler) = 0;
 
-	// callbacks are ment to be used by \ref CJobScheduler only
+    // callbacks are ment to be used by \ref CJobScheduler only
 
-	friend class CJobScheduler;
+    friend class CJobScheduler;
 };
 
 }

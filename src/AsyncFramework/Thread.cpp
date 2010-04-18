@@ -41,7 +41,7 @@ void CThread::ThreadFunc (void* arg)
     {
         if ((*self->func)(self->args))
         {
-            // auto-deletion 
+            // auto-deletion
 
             self->terminated = true;
             self->done.Set();

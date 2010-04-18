@@ -38,7 +38,7 @@ private:
 
 public:
 
-    /// construction 
+    /// construction
 
     CCriticalSection(void);
 

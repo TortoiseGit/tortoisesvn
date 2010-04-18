@@ -5,9 +5,9 @@
 typedef BOOL (CALLBACK *LPGETLOGFILE) (LPVOID lpvState);
 // Stack trace callback
 typedef void (*TraceCallbackFunction)(DWORD_PTR address, const char *ImageName,
-									  const char *FunctionName, DWORD functionDisp,
-									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
-									  void *data);
+                                      const char *FunctionName, DWORD functionDisp,
+                                      const char *Filename, DWORD LineNumber, DWORD lineDisp,
+                                      void *data);
 
 typedef LPVOID (*InstallEx)(LPGETLOGFILE pfn, LPCSTR lpcszTo, LPCSTR lpcszSubject, BOOL bUseUI);
 typedef void (*UninstallEx)(LPVOID lpState);
@@ -25,7 +25,7 @@ typedef void (*AddEventLogEx)(LPVOID lpState, LPCSTR lpEventLog, LPCSTR lpDesc);
  * offers. To learn more about the CrashRpt-library go to
  * http://www.codeproject.com/debug/crash_report.asp \n
  * To compile the library you need the WTL. You can get the WTL
- * directly from Microsoft: 
+ * directly from Microsoft:
  * http://www.microsoft.com/downloads/details.aspx?FamilyID=128e26ee-2112-4cf7-b28e-7727d9a1f288&DisplayLang=en \n
  * \n
  * Many changes were made to the library so if you read the
@@ -58,147 +58,147 @@ typedef void (*AddEventLogEx)(LPVOID lpState, LPCSTR lpEventLog, LPCSTR lpDesc);
  *
  *
  * \remark the dll is dynamically linked at runtime. So the main application
- * will still work even if the dll is not shipped. 
+ * will still work even if the dll is not shipped.
  *
  */
 class CCrashReport
 {
 public:
-	/**
-	 * Construct the CrashReport-Object. This loads the dll
-	 * and initializes it.
-	 * \param lpTo the mail address the crash report should be sent to
-	 * \param lpSubject the mail subject
-	 */
-	CCrashReport(LPCSTR lpTo = NULL, LPCSTR lpSubject = NULL, BOOL bUseUI = TRUE)
-	{
-		// the crash handler is enabled by default, but we disable it
-		// after 3 months after a release
+    /**
+     * Construct the CrashReport-Object. This loads the dll
+     * and initializes it.
+     * \param lpTo the mail address the crash report should be sent to
+     * \param lpSubject the mail subject
+     */
+    CCrashReport(LPCSTR lpTo = NULL, LPCSTR lpSubject = NULL, BOOL bUseUI = TRUE)
+    {
+        // the crash handler is enabled by default, but we disable it
+        // after 3 months after a release
 
 #define YEAR ((((__DATE__ [7] - '0') * 10 + (__DATE__ [8] - '0')) * 10  \
-	+ (__DATE__ [9] - '0')) * 10 + (__DATE__ [10] - '0'))
+    + (__DATE__ [9] - '0')) * 10 + (__DATE__ [10] - '0'))
 
 #define MONTH (__DATE__ [2] == 'n' ? (__DATE__ [1] == 'a' ? 1 : 6)      \
-	: __DATE__ [2] == 'b' ? 2                               \
-	: __DATE__ [2] == 'r' ? (__DATE__ [0] == 'M' ? 3 : 4)   \
-	: __DATE__ [2] == 'y' ? 5								\
-	: __DATE__ [2] == 'l' ? 7                               \
-	: __DATE__ [2] == 'g' ? 8                               \
-	: __DATE__ [2] == 'p' ? 9                               \
-	: __DATE__ [2] == 't' ? 10                               \
-	: __DATE__ [2] == 'v' ? 11 : 12)
+    : __DATE__ [2] == 'b' ? 2                               \
+    : __DATE__ [2] == 'r' ? (__DATE__ [0] == 'M' ? 3 : 4)   \
+    : __DATE__ [2] == 'y' ? 5                               \
+    : __DATE__ [2] == 'l' ? 7                               \
+    : __DATE__ [2] == 'g' ? 8                               \
+    : __DATE__ [2] == 'p' ? 9                               \
+    : __DATE__ [2] == 't' ? 10                               \
+    : __DATE__ [2] == 'v' ? 11 : 12)
 
 #define DAY ((__DATE__ [4] == ' ' ? 0 : __DATE__ [4] - '0') * 10       \
-	+ (__DATE__ [5] - '0'))
+    + (__DATE__ [5] - '0'))
 
 #define DATE_AS_INT (((YEAR - 2000) * 12 + MONTH) * 31 + DAY)
 
-		CTime compiletime(YEAR, MONTH, DAY, 0, 0, 0);
-		CTime now = CTime::GetCurrentTime();
+        CTime compiletime(YEAR, MONTH, DAY, 0, 0, 0);
+        CTime now = CTime::GetCurrentTime();
 
-		CTimeSpan timediff = now-compiletime;
-		if (timediff.GetDays() < 3*31)
-		{
-			InstallEx pfnInstallEx;
-			TCHAR szFileName[_MAX_PATH];
-			GetModuleFileName(NULL, szFileName, _MAX_FNAME);
+        CTimeSpan timediff = now-compiletime;
+        if (timediff.GetDays() < 3*31)
+        {
+            InstallEx pfnInstallEx;
+            TCHAR szFileName[_MAX_PATH];
+            GetModuleFileName(NULL, szFileName, _MAX_FNAME);
 
-			// C:\Programme\TortoiseSVN\bin\TortoiseProc.exe -> C:\Programme\TortoiseSVN\bin\CrashRpt.dll
-			CString strFilename = szFileName;
-			strFilename = strFilename.Left(strFilename.ReverseFind(_T('\\')) + 1);
-			strFilename += _T("CrashRpt.dll");
+            // C:\Programme\TortoiseSVN\bin\TortoiseProc.exe -> C:\Programme\TortoiseSVN\bin\CrashRpt.dll
+            CString strFilename = szFileName;
+            strFilename = strFilename.Left(strFilename.ReverseFind(_T('\\')) + 1);
+            strFilename += _T("CrashRpt.dll");
 
-			m_hDll = LoadLibrary(strFilename);
-			if (m_hDll)
-			{
-				pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
-				if ( pfnInstallEx )
-				{
-					m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject, bUseUI);
-				}
-			}
-		}
-	}
-	~CCrashReport()
-	{
-		UninstallEx pfnUninstallEx;
-		if (m_hDll)
-		{
-			if (m_lpvState)
-			{
-				pfnUninstallEx = (UninstallEx)GetProcAddress(m_hDll, "UninstallEx");
-				pfnUninstallEx(m_lpvState);
-			}
-			FreeLibrary(m_hDll);
-		}
-	}
-	/**
-	 * Adds a file which will be included in the crash report. Use this
-	 * if your application generates log-files or the like.
-	 * \param lpFile the full path to the file
-	 * \param lpDesc a description of the file, used in the crash report dialog
-	 */
-	void AddFile(LPCSTR lpFile, LPCSTR lpDesc)
-	{
-		AddFileEx pfnAddFileEx;
-		if ((m_hDll)&&(m_lpvState))
-		{
-			pfnAddFileEx = (AddFileEx)GetProcAddress(m_hDll, "AddFileEx");
-			(pfnAddFileEx)(m_lpvState, lpFile, lpDesc);
-		}
-	}
-	/**
-	 * Adds a whole registry tree to the crash report. 
-	 * \param lpFile the full registry path, e.g. "HKLM\\Software\\MyApplication"
-	 * \param lpDesc a description of the generated registry file, used in the crash report dialog
-	 */
-	void AddRegistry(LPCSTR lpFile, LPCSTR lpDesc)
-	{
-		AddRegistryEx pfnAddRegistryEx;
-		if ((m_hDll)&&(m_lpvState))
-		{
-			pfnAddRegistryEx = (AddRegistryEx)GetProcAddress(m_hDll, "AddRegistryHiveEx");
-			(pfnAddRegistryEx)(m_lpvState, lpFile, lpDesc);
-		}
-	}
-	/**
-	 * Adds a system Event Log to the crash report.
-	 * \param lpFile 
-	 * \param lpDesc 
-	 */
-	void AddEventLog(LPCSTR lpFile, LPCSTR lpDesc)
-	{
-		AddEventLogEx pfnAddEventLogEx;
-		if ((m_hDll)&&(m_lpvState))
-		{
-			pfnAddEventLogEx = (AddEventLogEx)GetProcAddress(m_hDll, "AddEventLogEx");
-			(pfnAddEventLogEx)(m_lpvState, lpFile, lpDesc);
-		}
-	}
+            m_hDll = LoadLibrary(strFilename);
+            if (m_hDll)
+            {
+                pfnInstallEx = (InstallEx)GetProcAddress(m_hDll, "InstallEx");
+                if ( pfnInstallEx )
+                {
+                    m_lpvState = pfnInstallEx(NULL, lpTo, lpSubject, bUseUI);
+                }
+            }
+        }
+    }
+    ~CCrashReport()
+    {
+        UninstallEx pfnUninstallEx;
+        if (m_hDll)
+        {
+            if (m_lpvState)
+            {
+                pfnUninstallEx = (UninstallEx)GetProcAddress(m_hDll, "UninstallEx");
+                pfnUninstallEx(m_lpvState);
+            }
+            FreeLibrary(m_hDll);
+        }
+    }
+    /**
+     * Adds a file which will be included in the crash report. Use this
+     * if your application generates log-files or the like.
+     * \param lpFile the full path to the file
+     * \param lpDesc a description of the file, used in the crash report dialog
+     */
+    void AddFile(LPCSTR lpFile, LPCSTR lpDesc)
+    {
+        AddFileEx pfnAddFileEx;
+        if ((m_hDll)&&(m_lpvState))
+        {
+            pfnAddFileEx = (AddFileEx)GetProcAddress(m_hDll, "AddFileEx");
+            (pfnAddFileEx)(m_lpvState, lpFile, lpDesc);
+        }
+    }
+    /**
+     * Adds a whole registry tree to the crash report.
+     * \param lpFile the full registry path, e.g. "HKLM\\Software\\MyApplication"
+     * \param lpDesc a description of the generated registry file, used in the crash report dialog
+     */
+    void AddRegistry(LPCSTR lpFile, LPCSTR lpDesc)
+    {
+        AddRegistryEx pfnAddRegistryEx;
+        if ((m_hDll)&&(m_lpvState))
+        {
+            pfnAddRegistryEx = (AddRegistryEx)GetProcAddress(m_hDll, "AddRegistryHiveEx");
+            (pfnAddRegistryEx)(m_lpvState, lpFile, lpDesc);
+        }
+    }
+    /**
+     * Adds a system Event Log to the crash report.
+     * \param lpFile
+     * \param lpDesc
+     */
+    void AddEventLog(LPCSTR lpFile, LPCSTR lpDesc)
+    {
+        AddEventLogEx pfnAddEventLogEx;
+        if ((m_hDll)&&(m_lpvState))
+        {
+            pfnAddEventLogEx = (AddEventLogEx)GetProcAddress(m_hDll, "AddEventLogEx");
+            (pfnAddEventLogEx)(m_lpvState, lpFile, lpDesc);
+        }
+    }
 
 
-	void Enable(BOOL bEnable)
-	{
-		EnableHandler pfnEnableHandler;
-		DisableHandler pfnDisableHandler;
-		if ((m_hDll)&&(m_lpvState))
-		{
-			if (bEnable)
-			{
-				pfnEnableHandler = (EnableHandler)GetProcAddress(m_hDll, "EnableHandlerEx");
-				(pfnEnableHandler)();
-			}
-			else
-			{
-				OutputDebugString(_T("Calling DisableHandlerEx\n"));
+    void Enable(BOOL bEnable)
+    {
+        EnableHandler pfnEnableHandler;
+        DisableHandler pfnDisableHandler;
+        if ((m_hDll)&&(m_lpvState))
+        {
+            if (bEnable)
+            {
+                pfnEnableHandler = (EnableHandler)GetProcAddress(m_hDll, "EnableHandlerEx");
+                (pfnEnableHandler)();
+            }
+            else
+            {
+                OutputDebugString(_T("Calling DisableHandlerEx\n"));
 
-				pfnDisableHandler = (DisableHandler)GetProcAddress(m_hDll, "DisableHandlerEx");
-				(pfnDisableHandler)();
-			}
-		}
-	}
+                pfnDisableHandler = (DisableHandler)GetProcAddress(m_hDll, "DisableHandlerEx");
+                (pfnDisableHandler)();
+            }
+        }
+    }
 
 private:
-	HMODULE			m_hDll;
-	LPVOID			m_lpvState;
+    HMODULE         m_hDll;
+    LPVOID          m_lpvState;
 };

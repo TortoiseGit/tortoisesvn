@@ -18,15 +18,15 @@ namespace CUtility {
 BSTR CUtility::AllocSysString(string s)
 {
 #if defined(_UNICODE) || defined(OLE2ANSI)
-	BSTR bstr = ::SysAllocStringLen(s.c_str(), s.size());
+    BSTR bstr = ::SysAllocStringLen(s.c_str(), s.size());
 #else
-	int nLen = MultiByteToWideChar(CP_ACP, 0, s.c_str(),
-		(int)s.size(), NULL, NULL);
-	BSTR bstr = ::SysAllocStringLen(NULL, nLen);
-	if(bstr != NULL)
-		MultiByteToWideChar(CP_ACP, 0, s.c_str(), (int)s.size(), bstr, nLen);
+    int nLen = MultiByteToWideChar(CP_ACP, 0, s.c_str(),
+        (int)s.size(), NULL, NULL);
+    BSTR bstr = ::SysAllocStringLen(NULL, nLen);
+    if(bstr != NULL)
+        MultiByteToWideChar(CP_ACP, 0, s.c_str(), (int)s.size(), bstr, nLen);
 #endif
-	return bstr;
+    return bstr;
 }
 
 FILETIME CUtility::getLastWriteFileTime(string sFile)
@@ -38,23 +38,23 @@ FILETIME CUtility::getLastWriteFileTime(string sFile)
    if (INVALID_HANDLE_VALUE != hFind)
    {
       FileTimeToLocalFileTime(&(ff32.ftLastWriteTime), &ftLocal);
-      FindClose(hFind);        
+      FindClose(hFind);
    }
    return ftLocal;
 }
 
 FILETIME CUtility::getLastWriteFileTime(WCHAR * wszFile)
 {
-	FILETIME          ftLocal = {0};
-	HANDLE            hFind;
-	WIN32_FIND_DATAW  ff32;
-	hFind = FindFirstFileW(wszFile, &ff32);
-	if (INVALID_HANDLE_VALUE != hFind)
-	{
-		FileTimeToLocalFileTime(&(ff32.ftLastWriteTime), &ftLocal);
-		FindClose(hFind);        
-	}
-	return ftLocal;
+    FILETIME          ftLocal = {0};
+    HANDLE            hFind;
+    WIN32_FIND_DATAW  ff32;
+    hFind = FindFirstFileW(wszFile, &ff32);
+    if (INVALID_HANDLE_VALUE != hFind)
+    {
+        FileTimeToLocalFileTime(&(ff32.ftLastWriteTime), &ftLocal);
+        FindClose(hFind);
+    }
+    return ftLocal;
 }
 
 string CUtility::getAppName()
@@ -88,8 +88,8 @@ string CUtility::getSaveFileName()
 {
    string sFilter = _T("Zip Files (*.zip)");
 
-   OPENFILENAME ofn = {0};			// common dialog box structure
-   TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
+   OPENFILENAME ofn = {0};          // common dialog box structure
+   TCHAR szFile[MAX_PATH] = {0};    // buffer for file name
    // Initialize OPENFILENAME
    ofn.lStructSize = sizeof(OPENFILENAME);
    ofn.hwndOwner = NULL;
@@ -99,7 +99,7 @@ string CUtility::getSaveFileName()
 
    ofn.lpstrFilter = sFilter.c_str();
    ofn.nFilterIndex = 1;
-   // Display the Open dialog box. 
+   // Display the Open dialog box.
    bool bTargetSelected = !!GetSaveFileName(&ofn);
 
    DeleteFile(ofn.lpstrFile);  // Just in-case it already exist

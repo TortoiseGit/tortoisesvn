@@ -44,12 +44,12 @@
 class CExceptionReport  
 {
 public:
-	CExceptionReport(PEXCEPTION_POINTERS ExceptionInfo, BSTR message);
+    CExceptionReport(PEXCEPTION_POINTERS ExceptionInfo, BSTR message);
 
    string getSymbolFile(int index);
-	int getNumSymbolFiles();
-	string getCrashLog();
-	string getCrashFile();
+    int getNumSymbolFiles();
+    string getCrashLog();
+    string getCrashFile();
    string getModuleName() { return m_sModule; };
    string getExceptionCode() { return m_sException; };
    string getExceptionAddr() { return m_sAddress; };
@@ -73,7 +73,7 @@ private:
    MSXML2::IXMLDOMElement*  m_exception_element;
 
    // used by dump callback
-   std::vector<MINIDUMP_MODULE_CALLBACK>	m_modules;
+   std::vector<MINIDUMP_MODULE_CALLBACK>    m_modules;
 
    static void writeDumpFile(HANDLE file, PEXCEPTION_POINTERS m_excpInfo, void *data);
 
@@ -84,9 +84,9 @@ private:
    MSXML2::IXMLDOMNode* CreateExceptionRecordNode(MSXML2::IXMLDOMDocument* pDoc, 
                                                         EXCEPTION_RECORD* pExceptionRecord);
    static void CreateExceptionSymbolAttributes(DWORD_PTR address, const char *ImageName,
-									  const char *FunctionName, DWORD_PTR functionDisp,
-									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
-									  void *data);
+                                      const char *FunctionName, DWORD_PTR functionDisp,
+                                      const char *Filename, DWORD LineNumber, DWORD lineDisp,
+                                      void *data);
 
    MSXML2::IXMLDOMNode* CreateProcessorNode(MSXML2::IXMLDOMDocument* pDoc);
 
@@ -99,9 +99,9 @@ private:
    MSXML2::IXMLDOMNode* CreateWalkbackNode(MSXML2::IXMLDOMDocument* pDoc, CONTEXT *pContext);
 
    static void CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageName,
-									  const char *FunctionName, DWORD_PTR functionDisp,
-									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
-									  void *data);
+                                      const char *FunctionName, DWORD_PTR functionDisp,
+                                      const char *Filename, DWORD LineNumber, DWORD lineDisp,
+                                      void *data);
 
    static BOOL CALLBACK miniDumpCallback(PVOID CallbackParam,
                                          CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,

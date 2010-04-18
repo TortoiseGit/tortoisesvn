@@ -54,14 +54,14 @@ typedef CMC_return_code (FAR PASCAL *LPCMCQUERY) \
 
 // ===========================================================================
 // CMailMsg
-// 
+//
 // See the module comment at top of file.
 //
-class CMailMsg  
+class CMailMsg
 {
 public:
-	CMailMsg();
-	virtual ~CMailMsg();
+    CMailMsg();
+    virtual ~CMailMsg();
 
    //-----------------------------------------------------------------------------
    // SetTo
@@ -78,9 +78,9 @@ public:
    //    Only one To address can be set.  If called more than once
    //    the last address will be used.
    //
-   CMailMsg& 
+   CMailMsg&
    SetTo(
-      string sAddress, 
+      string sAddress,
       string sName = _T("")
       );
 
@@ -98,9 +98,9 @@ public:
    // Remarks
    //    Multiple Cc addresses can be set.
    //
-   CMailMsg& 
+   CMailMsg&
    SetCc(
-      string sAddress, 
+      string sAddress,
       string sName = _T("")
       );
 
@@ -118,9 +118,9 @@ public:
    // Remarks
    //    Multiple Bcc addresses can be set.
    //
-   CMailMsg& 
+   CMailMsg&
    SetBc(
-      string sAddress, 
+      string sAddress,
       string sName = _T("")
       );
 
@@ -139,9 +139,9 @@ public:
    //    Only one From address can be set.  If called more than once
    //    the last address will be used.
    //
-   CMailMsg& 
+   CMailMsg&
    SetFrom(
-      string sAddress, 
+      string sAddress,
       string sName = _T("")
       );
 
@@ -158,7 +158,7 @@ public:
    // Remarks
    //    none
    //
-   CMailMsg& 
+   CMailMsg&
    SetSubject(
       string sSubject
       ) {m_sSubject = sSubject; return *this;};
@@ -176,7 +176,7 @@ public:
    // Remarks
    //    none
    //
-   CMailMsg& 
+   CMailMsg&
    SetMessage(
       string sMessage
       ) {m_sMessage = sMessage; return *this;};
@@ -195,9 +195,9 @@ public:
    // Remarks
    //    none
    //
-   CMailMsg& 
+   CMailMsg&
    AddAttachment(
-      string sAttachment, 
+      string sAttachment,
       string sTitle = _T("")
       );
 
@@ -278,23 +278,23 @@ protected:
    //
    void Uninitialize();
 
-	/*
-	+------------------------------------------------------------------------------
-	|
-	|	Function:	cResolveName()
-	|
-	|	Parameters:	[IN]	lpszName = Name of e-mail recipient to resolve.
-	|				[OUT]	ppRecips = Pointer to a pointer to an lpMapiRecipDesc
-	|
-	|	Purpose:	Resolves an e-mail address and returns a pointer to a 
-	|				MapiRecipDesc structure filled with the recipient information
-	|				contained in the address book.
-	|
-	|	Note:		ppRecips is allocated off the heap using MAPIAllocateBuffer.
-	|				Any user of this method must be sure to release ppRecips when 
-	|				done with it using either MAPIFreeBuffer or cFreeBuffer.
-	+-------------------------------------------------------------------------------
-	*/
+    /*
+    +------------------------------------------------------------------------------
+    |
+    |   Function:   cResolveName()
+    |
+    |   Parameters: [IN]    lpszName = Name of e-mail recipient to resolve.
+    |               [OUT]   ppRecips = Pointer to a pointer to an lpMapiRecipDesc
+    |
+    |   Purpose:    Resolves an e-mail address and returns a pointer to a
+    |               MapiRecipDesc structure filled with the recipient information
+    |               contained in the address book.
+    |
+    |   Note:       ppRecips is allocated off the heap using MAPIAllocateBuffer.
+    |               Any user of this method must be sure to release ppRecips when
+    |               done with it using either MAPIFreeBuffer or cFreeBuffer.
+    +-------------------------------------------------------------------------------
+    */
    int cResolveName( LHANDLE m_lhSession, const char * lpszName, lpMapiRecipDesc *ppRecip );
 
    TStrStrVector  m_from;                       // From <address,name>
@@ -315,9 +315,9 @@ protected:
    LPMAPILOGOFF   m_lpMapiLogoff;               // Mapi func pointer
    LPMAPIRESOLVENAME m_lpMapiResolveName;       // Mapi func pointer
    LPMAPIFREEBUFFER m_lpMapiFreeBuffer;         // Mapi func pointer
-   
+
    BOOL           m_bReady;                     // MAPI is loaded
 
 private:
-	bool initIfNeeded();
+    bool initIfNeeded();
 };

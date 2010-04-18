@@ -22,14 +22,14 @@
 
 #include "WaitableEvent.h"
 
-/** 
+/**
 * Repeatedly executes a function until \ref Terminate
 * is called. The function should not be long-running.
 * If the function returns \a true, the thread will terminate
 * automatically and delete the CThread instance.
 *
 * \ref Suspend and \ref Resume will not wait until the
-* thread actually enters the respective state. 
+* thread actually enters the respective state.
 * \ref Terminate, however, will only return when \ref func
 * has exited and will not be called again.
 *

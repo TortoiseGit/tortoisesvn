@@ -23,17 +23,17 @@
 #include "zip.h"
 #endif // _zip_H
 
-class CZLib  
+class CZLib
 {
 public:
-	CZLib();
-	virtual ~CZLib();
+    CZLib();
+    virtual ~CZLib();
 
-	BOOL Open(string f_file, int f_nAppend = 0);
+    BOOL Open(string f_file, int f_nAppend = 0);
    BOOL AddFile(string f_file);
-	void Close();
+    void Close();
 protected:
-	zipFile m_zf;
+    zipFile m_zf;
 };
 
 #endif // !_ZLIBCPP_H

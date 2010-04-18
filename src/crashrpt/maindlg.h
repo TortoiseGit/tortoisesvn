@@ -9,18 +9,18 @@
 
 // ===========================================================================
 // CMainDlg
-// 
+//
 // See the module comment at top of file.
 //
 class CMainDlg : public CDialog
 {
 public:
-	CMainDlg(void);
-	~CMainDlg(void);
+    CMainDlg(void);
+    ~CMainDlg(void);
 
 protected:
-	LRESULT CALLBACK		DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
-	LRESULT					DoCommand(int id);
+    LRESULT CALLBACK        DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
+    LRESULT                 DoCommand(int id);
 
 public:
 

@@ -29,19 +29,19 @@ namespace async
 
 void CJobBase::OnSchedule (CJobScheduler*)
 {
-	if (InterlockedExchange (&scheduled, TRUE) == TRUE)
-		assert (0);
+    if (InterlockedExchange (&scheduled, TRUE) == TRUE)
+        assert (0);
 }
 
 // For now, update the internal @a scheduled flag only.
 
 void CJobBase::OnUnSchedule (CJobScheduler*)
 {
-	if (InterlockedExchange (&scheduled, FALSE) == FALSE)
-		assert (0);
-	else
-		if (executionDone.Test())
-			deletable.Set();
+    if (InterlockedExchange (&scheduled, FALSE) == FALSE)
+        assert (0);
+    else
+        if (executionDone.Test())
+            deletable.Set();
 }
 
 // nothing special during construction / destuction
@@ -49,7 +49,7 @@ void CJobBase::OnUnSchedule (CJobScheduler*)
 CJobBase::CJobBase(void)
     : waiting (TRUE)
     , terminated (FALSE)
-	, scheduled (FALSE)
+    , scheduled (FALSE)
 {
 }
 
@@ -73,19 +73,19 @@ void CJobBase::Schedule (bool transferOwnership, CJobScheduler* scheduler)
 void CJobBase::Execute()
 {
     // intended for one-shot execution only
-	// skip jobs that have already been executed or
-	// are already/still being executed.
+    // skip jobs that have already been executed or
+    // are already/still being executed.
 
-	if (InterlockedExchange (&waiting, FALSE) == TRUE)
-	{
-		if (terminated == FALSE)
-			InternalExecute();
+    if (InterlockedExchange (&waiting, FALSE) == TRUE)
+    {
+        if (terminated == FALSE)
+            InternalExecute();
 
-	    executionDone.Set();
+        executionDone.Set();
 
-		if (scheduled == FALSE)
-			deletable.Set();
-	}
+        if (scheduled == FALSE)
+            deletable.Set();
+    }
 }
 
 // may be called by other (observing) threads
@@ -100,15 +100,15 @@ IJob::Status CJobBase::GetStatus() const
 
 void CJobBase::WaitUntilDone (bool inlineExecution)
 {
-	if (inlineExecution)
-		Execute();
+    if (inlineExecution)
+        Execute();
 
     executionDone.WaitFor();
 }
 
 bool CJobBase::WaitUntilDoneOrTimeout(DWORD milliSeconds)
 {
-	return executionDone.WaitForEndOrTimeout(milliSeconds);
+    return executionDone.WaitForEndOrTimeout(milliSeconds);
 }
 
 // handle early termination
@@ -127,14 +127,14 @@ bool CJobBase::HasBeenTerminated() const
 
 void CJobBase::Delete (bool terminate)
 {
-	if (terminate)
-		Terminate();
+    if (terminate)
+        Terminate();
 
-	if (waiting)
-		Execute();
+    if (waiting)
+        Execute();
 
-	deletable.WaitFor();
-	delete this;
+    deletable.WaitFor();
+    delete this;
 }
 
 }

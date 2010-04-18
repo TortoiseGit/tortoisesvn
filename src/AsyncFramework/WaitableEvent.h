@@ -54,9 +54,9 @@ public:
     bool Test() const;
     void WaitFor();
 
-	/// returns false in case of a timeout
+    /// returns false in case of a timeout
 
-	bool WaitForEndOrTimeout(DWORD milliSeconds);
+    bool WaitForEndOrTimeout(DWORD milliSeconds);
 };
 
 /**
@@ -88,9 +88,9 @@ public:
     bool Test() const;
     void WaitFor();
 
-	/// returns false in case of a timeout
+    /// returns false in case of a timeout
 
-	bool WaitForEndOrTimeout(DWORD milliSeconds);
+    bool WaitForEndOrTimeout(DWORD milliSeconds);
 };
 
 }

@@ -36,7 +36,7 @@ class CJobBase : public IJob
 {
 private:
 
-	/// waitable event. Will be set after \ref Execute() finished.
+    /// waitable event. Will be set after \ref Execute() finished.
 
     COneShotEvent executionDone;
 
@@ -52,18 +52,18 @@ private:
 
     volatile LONG terminated;
 
-	/// if set, \ref finished will not be signalled unless
-	/// \ref Execute is called from the scheduler.
+    /// if set, \ref finished will not be signalled unless
+    /// \ref Execute is called from the scheduler.
 
-	volatile LONG scheduled;
+    volatile LONG scheduled;
 
-	/// For now, update the internal @a scheduled flag only.
+    /// For now, update the internal @a scheduled flag only.
 
-	void OnSchedule (CJobScheduler* scheduler);
+    void OnSchedule (CJobScheduler* scheduler);
 
-	/// For now, update the internal @a scheduled flag only.
+    /// For now, update the internal @a scheduled flag only.
 
-	void OnUnSchedule (CJobScheduler* scheduler);
+    void OnUnSchedule (CJobScheduler* scheduler);
 
 protected:
 
@@ -93,17 +93,17 @@ public:
 
     virtual Status GetStatus() const;
 
-	/// wait until job execution finished.
-	/// If @ref inlineExecution is set, the job will be
-	/// executed in the current thread if it is still waiting.
+    /// wait until job execution finished.
+    /// If @ref inlineExecution is set, the job will be
+    /// executed in the current thread if it is still waiting.
 
     virtual void WaitUntilDone (bool inlineExecution = false);
 
-	/// returns false in case of a timeout
+    /// returns false in case of a timeout
 
-	virtual bool WaitUntilDoneOrTimeout(DWORD milliSeconds);
+    virtual bool WaitUntilDoneOrTimeout(DWORD milliSeconds);
 
-    /// request early termination. 
+    /// request early termination.
     /// Will even prevent execution if not yet started.
     /// Execution will still finish 'successfully', i.e
     /// results in \ref IJob::done state.
