@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-14 21:40+0100\n"
+"PO-Revision-Date: 2010-04-18 21:33+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,33 +221,63 @@ msgstr "%s [Враћено на старо]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, али то већ постоји неверзионисано локално."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, али именик већ постоји локално неверзионисано."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, али то недостаје локално."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, али именик  недостаје локално."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, али то је већ додато локално."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, али именик је већ додат локално."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, али то је већ уређено."
+msgid "%s, but the directory was already edited."
+msgstr "%s, али именик је већ уређен."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, али то је већ обрисано,померено или преименовано локално."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s, али именик је већ обрисан, померен или преименован локално."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, али то је спречено у радној копији."
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, али именик је спречен у радној копији."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, али именик већ постоји неверзионисано локално."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, али фајл недостаје локално."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, али фајл је већ додат локално."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, али фајл је већ уређен."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s, али фајл је већ обрисан, померен или преименован локално."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, али фајл је спречен у радној копији."
 
 #. Resource IDs: (3850)
 #, c-format
