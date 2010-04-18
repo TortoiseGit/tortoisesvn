@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-serversetup">
-	<title>Accessing the Repository</title>
-	<para>
-		To use TortoiseSVN (or any other Subversion client), you need a place where your 
-		repositories are located. You can either store your repositories locally and access 
-		them using the <literal>file://</literal> protocol or you can place them on a 
-		server and access them with the <literal>http://</literal> or 
-		<literal>svn://</literal> protocols.
-		The two server protocols can also be encrypted. 
-		You use <literal>https://</literal> or <literal>svn+ssh://</literal>,
-		or you can use <literal>svn://</literal> with SASL.
-	</para>
-	<para>
-		If you are using a public hosting service such as
-		<ulink url="http://code.google.com/hosting/">
-			<citetitle>Google Code</citetitle>
-		</ulink>
-		or your server has already been setup by someone else then there is
-		nothing else you need to do. Move along to <xref linkend="tsvn-dug"/>.
-	</para>
-	<para>
-		If you don't have a server and you work alone, or if you are just evaluating
-		Subversion and TortoiseSVN in isolation, then local repositories are 
-		probably your best choice. Just create a repository on your own PC as
-		described earlier in <xref linkend="tsvn-repository"/>. You can skip the
-		rest of this chapter and go directly to <xref linkend="tsvn-dug"/> to find
-		out how to start using it.
-	</para>
-	<para>
-		If you were thinking about setting up a multi-user repository on a network
-		share, think again. Read <xref linkend="tsvn-repository-local-share"/>
-		to find out why we think this is a bad idea. Setting up a server is not as
-		hard as it sounds, and will give you better reliability and probably speed too.
-	</para>
-	<para>
-		The next sections are a step-by-step guide on how you can set up such
-		a server on a Windows machine. Of course you can also set up a
-		server on a Linux machine, but that is beyond the scope of this guide.
-		More detailed information on the Subversion server options, and how
-		to choose the best architecture for your situation, can be
-		found in the Subversion book under
-		<ulink url="http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html">
-			<citetitle>Server Configuration</citetitle>
-		</ulink>.
-	</para>
+    <title>Accessing the Repository</title>
+    <para>
+        To use TortoiseSVN (or any other Subversion client), you need a place where your
+        repositories are located. You can either store your repositories locally and access
+        them using the <literal>file://</literal> protocol or you can place them on a
+        server and access them with the <literal>http://</literal> or
+        <literal>svn://</literal> protocols.
+        The two server protocols can also be encrypted.
+        You use <literal>https://</literal> or <literal>svn+ssh://</literal>,
+        or you can use <literal>svn://</literal> with SASL.
+    </para>
+    <para>
+        If you are using a public hosting service such as
+        <ulink url="http://code.google.com/hosting/">
+            <citetitle>Google Code</citetitle>
+        </ulink>
+        or your server has already been setup by someone else then there is
+        nothing else you need to do. Move along to <xref linkend="tsvn-dug"/>.
+    </para>
+    <para>
+        If you don't have a server and you work alone, or if you are just evaluating
+        Subversion and TortoiseSVN in isolation, then local repositories are
+        probably your best choice. Just create a repository on your own PC as
+        described earlier in <xref linkend="tsvn-repository"/>. You can skip the
+        rest of this chapter and go directly to <xref linkend="tsvn-dug"/> to find
+        out how to start using it.
+    </para>
+    <para>
+        If you were thinking about setting up a multi-user repository on a network
+        share, think again. Read <xref linkend="tsvn-repository-local-share"/>
+        to find out why we think this is a bad idea. Setting up a server is not as
+        hard as it sounds, and will give you better reliability and probably speed too.
+    </para>
+    <para>
+        The next sections are a step-by-step guide on how you can set up such
+        a server on a Windows machine. Of course you can also set up a
+        server on a Linux machine, but that is beyond the scope of this guide.
+        More detailed information on the Subversion server options, and how
+        to choose the best architecture for your situation, can be
+        found in the Subversion book under
+        <ulink url="http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html">
+            <citetitle>Server Configuration</citetitle>
+        </ulink>.
+    </para>
 </sect1>

@@ -1,477 +1,477 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE preface SYSTEM "../../dtd/dblite.dtd">
 <preface id="tsvn-preface">
-	<title>Preface</title>
-	<simplesect>
-		<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
-	</simplesect>
-	<?dbhh topicname="HIDD_ABOUT"?>
-	<simplesect>
-		<indexterm>
-			<primary>version control</primary>
-		</indexterm>
-		<para>
-			Version control is the art of managing changes to
-			information. It has long been a critical tool for programmers,
-			who typically spend their time making small changes to software
-			and then undoing or checking some of those changes the next day.  
-			Imagine a team of such developers working concurrently - and perhaps even
-			simultaneously on the very same files! - and you can see why
-			a good system is needed to <emphasis>manage the potential chaos</emphasis>.
-		</para>
-	</simplesect>
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-preface-about">
-		<title>What is TortoiseSVN?</title>
-		<para>
-			TortoiseSVN is a free open-source Windows client for the
-			<firstterm>Subversion</firstterm> version control system.
-			That is, TortoiseSVN manages files and directories over time.
-			Files are stored in a central <firstterm>repository</firstterm>.
-			The repository is much like an ordinary file server, except that it
-			remembers every change ever made to your files and directories.
-			This allows you to recover older versions of your files and examine
-			the history of how and when your data changed, and who changed it.
-			This is why many people think of Subversion and version control
-			systems in general as a sort of <quote>time machine</quote>.
-		</para>
-		<para>
-			Some version control systems are also software configuration
-			management (SCM) systems.  These systems are specifically
-			tailored to manage trees of source code, and have many features
-			that are specific to software development - such as natively
-			understanding programming languages, or supplying tools for
-			building software.  Subversion, however, is not one of these
-			systems; it is a general system that can be used to manage
-			<emphasis>any</emphasis> collection of files, including
-			source code.
-		</para>
-	</sect1>
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-preface-features">
-		<title>TortoiseSVN's Features</title>
-		<para>
-			What makes TortoiseSVN such a good Subversion client?
-			Here's a short list of features.
-		</para>
-		<variablelist>
-			<varlistentry>
-				<term>Shell integration</term>
-				<listitem>
-					<indexterm>
-						<primary>Windows shell</primary>
-					</indexterm>
-					<indexterm>
-						<primary>explorer</primary>
-					</indexterm>
-					<para>
-						TortoiseSVN integrates seamlessly into the Windows shell
-						(i.e. the explorer). This means you can keep working
-						with the tools you're already familiar with. And you
-						do not have to change into a different application
-						each time you need the functions of version control.
-					</para>
-					<para>
-						And you are not limited to using the Windows Explorer;
-						TortoiseSVN's context menus work in many other file managers,
-						and also in the File/Open dialog which is common to most
-						standard Windows applications.
-						You should, however, bear in mind that TortoiseSVN
-						is intentionally developed as an extension for the Windows
-						Explorer. Thus it is possible that in other applications
-						the integration is not as complete and e.g. the icon
-						overlays may not be shown.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Icon overlays</term>
-				<listitem>
-					<para>
-						The status of every versioned file and folder is
-						indicated by small overlay icons. That way you can see
-						right away what the status of your working copy is.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Graphical User Interface</term>
-				<listitem>
-					<para>
-						When you list the changes to a file or folder, you can click
-						on a revision to see the comments for that commit. You can also
-						see a list of changed files - just double click on a file to
-						see exactly what changed.
-					</para>
-					<para>
-						The commit dialog lists all the items that will be included
-						in a commit, and each item has a checkbox so you can choose
-						which items you want to include. Unversioned files can also be
-						listed, in case you forgot to add that new file.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Easy access to Subversion commands</term>
-				<listitem>
-					<para>
-						All Subversion commands are available from the explorer
-						context menu. TortoiseSVN adds its own submenu there.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-		<para>
-			Since TortoiseSVN is a Subversion client, we would also like to show you
-			some of the features of Subversion itself:
-		</para>
-		<variablelist>
-			<varlistentry>
-				<term>Directory versioning</term>
-				<listitem>
-					<para>
-						CVS only tracks the history of individual files, but
-						Subversion implements a <quote>virtual</quote>
-						versioned filesystem that tracks changes to whole
-						directory trees over time.
-						Files <emphasis>and</emphasis> directories are
-						versioned. As a result, there are real client-side
-						<command>move</command> and <command>copy</command>
-						commands that operate on files and directories.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Atomic commits</term>
-				<listitem>
-					<para>
-						A commit either goes into the repository completely,
-						or not at all.  This allows developers to construct and
-						commit changes as logical chunks.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Versioned metadata</term>
-				<listitem>
-					<para>
-						Each file and directory has an invisible set of
-						<quote>properties</quote> attached. You can invent and
-						store any arbitrary key/value pairs you wish.
-						Properties are versioned over time, just like file
-						contents.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Choice of network layers</term>
-				<listitem>
-					<para>
-						Subversion has an abstracted notion of repository
-						access, making it easy for people to implement new
-						network mechanisms. Subversion's <quote>advanced</quote>
-						network server is a module for the Apache web server,
-						which speaks a variant of HTTP called WebDAV/DeltaV.
-						This gives Subversion a big advantage in stability and
-						interoperability, and provides various key features for
-						free: authentication, authorization, wire compression,
-						and repository browsing, for example. A smaller,
-						standalone Subversion server process is also available.
-						This server speaks a custom protocol which can be
-						easily tunneled over ssh.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Consistent data handling</term>
-				<listitem>
-					<para>
-						Subversion expresses file differences using a binary
-						differencing algorithm, which works identically on both
-						text (human-readable) and binary (human-unreadable) files.
-						Both types of files are stored equally compressed in the
-						repository, and differences are transmitted in both
-						directions across the network.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Efficient branching and tagging</term>
-				<listitem>
-					<para>
-						The cost of branching and tagging need not be
-						proportional to the project size. Subversion creates
-						branches and tags by simply copying the project, using
-						a mechanism similar to a hard-link.
-						Thus these operations take only a very small,
-						constant amount of time, and very little space in the repository.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-	</sect1>
-	<!-- =================================================================== -->
-	<sect1 id="tsvn-preface-source">
-		<title>License</title>
-		<para>
-			TortoiseSVN is an Open Source project developed under the GNU
-			General Public License (GPL). It is free to download and free to use,
-			either personally or commercially, on any number of PCs.
-		</para>
-		<para>
-			Although most people just download the installer, you also have full
-			read access to the source code of this program.
-			You can browse it on this link
-			<ulink url="http://code.google.com/p/tortoisesvn/source/browse/">
-				<citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle>
-			</ulink>.
-			The current development line is located under
-			<filename>/trunk/</filename>,
-			and the released versions are located under
-			<filename>/tags/</filename>.
-		</para>
-	</sect1>
-	<!-- =================================================================== -->
-	<sect1 id="tsvn-preface-development">
-		<title>Development</title>
-		<para>
-			Both TortoiseSVN and Subversion are developed by a community of
-			people who are working on those projects. They come from different
-			countries all over the world, working together to create great
-			software.
-		</para>
-		<sect2 id="tsvn-preface-history">
-			<title>TortoiseSVN's History</title>
-			<para>
-				In 2002, Tim Kemp found that Subversion was a very good version
-				control system, but it lacked a good GUI client. The idea for a
-				Subversion client as a Windows shell integration was inspired by
-				the similar client for CVS named TortoiseCVS.
-				Tim studied the source code of TortoiseCVS and used it as a base for
-				TortoiseSVN. He then started the project, registered the domain
-				<literal>tortoisesvn.org</literal> and put the source code online.
-			</para>
-			<para>
-				Around that time, Stefan Küng was looking for a good and free version
-				control system and found Subversion and the source for TortoiseSVN.
-				Since TortoiseSVN was still not ready for use, he joined the project
-				and started programming. He soon rewrote most of the existing code and
-				started adding commands and features, up to a point where nothing of
-				the original code remained.
-			</para>
-			<para>
-				As Subversion became more stable it attracted more and more users
-				who also started using TortoiseSVN as their Subversion client.
-				The user base grew quickly (and is still growing every day).
-				That's when Lübbe Onken offered to help out with some nice icons
-				and a logo for TortoiseSVN. He now takes care of the website
-				and manages the many translations.
-			</para>
-		</sect2>
-		<sect2 id="tsvn-preface-acknowledgements">
-			<title>Acknowledgments</title>
-			<variablelist>
-				<varlistentry>
-					<term>Tim Kemp</term>
-					<listitem>
-						<para>
-							for founding the TortoiseSVN project
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Stefan Küng</term>
-					<listitem>
-						<para>
-							for the hard work to get TortoiseSVN to what it is now,
-							and his leadership of the project
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Lübbe Onken</term>
-					<listitem>
-						<para>
-							for the beautiful icons, logo, bug hunting, translating and
-							managing the translations
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Simon Large</term>
-					<listitem>
-						<para>
-							for maintaining the documentation
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Stefan Fuhrmann</term>
-					<listitem>
-						<para>
-							for the log cache and revision graph
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>The Subversion Book</term>
-					<listitem>
-						<para>
-							for the great introduction to Subversion and its
-							chapter 2 which we copied here
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>The Tigris Style project</term>
-					<listitem>
-						<para>
-							for some of the styles which are reused in this documentation
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Our Contributors</term>
-					<listitem>
-						<para>
-							for the patches, bug reports and new ideas, and for
-							helping others by answering questions on our mailing list
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Our Donators</term>
-					<listitem>
-						<para>
-							for many hours of joy with the music they sent us
-						</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
-		</sect2>
-	</sect1>
-	<!-- =================================================================== -->
-	<sect1 id="tsvn-preface-readingguide">
-		<title>Reading Guide</title>
-		<para>
-			This book is written for computer-literate folk who want to use
-			Subversion to manage their data, but prefer to use a GUI client rather
-			than a command line client. TortoiseSVN is a windows shell extension
-			and it is assumed that the user is familiar with the windows
-			explorer and how to use it.
-		</para>
-		<para>
-			This <xref linkend="tsvn-preface"/> explains what TortoiseSVN is,
-			a little about the TortoiseSVN project and the community of people who
-			work on it, and the licensing conditions for using it and distributing it.
-		</para>
-		<para>
-			The <xref linkend="tsvn-quick-start"/> explains how to install TortoiseSVN
-			on your PC, and how to start using it straight away.
-		</para>
-		<para>
-			In <xref linkend="tsvn-basics"/> we give a short introduction
-			to the <emphasis>Subversion</emphasis> revision control system which
-			underlies TortoiseSVN. This is borrowed from the documentation for the
-			Subversion project and explains the different approaches to version
-			control, and how Subversion works.
-		</para>
-		<para>
-			The chapter on <xref linkend="tsvn-repository"/> explains how to set up
-			a local repository, which is useful for testing Subversion and TortoiseSVN
-			using a single PC. It also explains a bit about repository administration
-			which is also relevant to repositories located on a server.
-			There is also a section here on how to setup a server if you need one.
-		</para>
-		<para>
-			The <xref linkend="tsvn-dug"/> is the most important section as
-			it explains all the main features of TortoiseSVN and how to use them.
-			It takes the form of a tutorial, starting with checking out a working copy,
-			modifying it, committing your changes, etc. It then progresses to more
-			advanced topics.
-		</para>
-		<para>
-			<xref linkend="tsvn-subwcrev"/> is a separate program included with TortoiseSVN
-			which can extract the information from your working copy and write it into a
-			file. This is useful for including build information in your projects.
-		</para>
-		<para>
-			The <xref linkend="tsvn-howto"/> section answers some common questions
-			about performing tasks which are not explicitly covered elsewhere.
-		</para>
-		<para>
-			The section on <xref linkend="tsvn-automation"/> shows how the
-			TortoiseSVN GUI dialogs can be called from the command line. This is useful
-			for scripting where you still need user interaction.
-		</para>
-		<para>
-			The <xref linkend="tsvn-cli"/> give a correlation
-			between TortoiseSVN commands and their equivalents in the Subversion
-			command line client <literal>svn.exe</literal>.
-		</para>
-	</sect1>
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-preface-terminology">
-		<title>Terminology used in this document</title>
-		<para>
-			To make reading the docs easier, the names of all the screens and Menus 
-			from TortoiseSVN are marked up in a different font.
-			The <guilabel>Log Dialog</guilabel> for instance.
-		</para>
-		<para>
-			A menu choice is indicated with an arrow.
-			<menuchoice>
-				<guimenu>TortoiseSVN</guimenu>
-				<guimenuitem>Show Log</guimenuitem>
-			</menuchoice>
-			means: select <emphasis>Show Log</emphasis> from the
-			<emphasis>TortoiseSVN</emphasis> context menu.
-		</para>
-		<para>
-			Where a local context menu appears within one of the TortoiseSVN
-			dialogs, it is shown like this:
-			<menuchoice>
-				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Save As ...</guimenuitem>
-			</menuchoice>
-		</para>
-		<para>
-			User Interface Buttons are indicated like this:
-			Press <guibutton>OK</guibutton> to continue.
-		</para>
-		<para>
-			User Actions are indicated using a bold font.
-			<keycap>Alt+A</keycap>: press the
-			<keycap>Alt</keycap>-Key on your keyboard and while holding it down
-			press the <keycap>A</keycap>-Key as well.
-			<action>Right-drag</action>: press the right mouse button and while
-			holding it down <emphasis>drag</emphasis> the items to the new location.
-		</para>
-		<para>
-			System output and keyboard input is indicated with a
-			<literal>different</literal> font as well.
-		</para>
-		<important>
-			<para>
-				Important notes are marked with an icon.
-			</para>
-		</important>
-		<tip>
-			<para>
-				Tips that make your life easier.
-			</para>
-		</tip>
-		<caution>
-			<para>
-				Places where you have to be careful what you are doing.
-			</para>
-		</caution>
-		<warning>
-			<para>
-				Where extreme care has to be taken. Data corruption or other
-				nasty things may occur if these warnings are ignored.
-			</para>
-		</warning>
-		<graphic srccredit="hide" fileref="images/background.png" scalefit="1" width="100%"/>
-	</sect1>
+    <title>Preface</title>
+    <simplesect>
+        <graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
+    </simplesect>
+    <?dbhh topicname="HIDD_ABOUT"?>
+    <simplesect>
+        <indexterm>
+            <primary>version control</primary>
+        </indexterm>
+        <para>
+            Version control is the art of managing changes to
+            information. It has long been a critical tool for programmers,
+            who typically spend their time making small changes to software
+            and then undoing or checking some of those changes the next day.
+            Imagine a team of such developers working concurrently - and perhaps even
+            simultaneously on the very same files! - and you can see why
+            a good system is needed to <emphasis>manage the potential chaos</emphasis>.
+        </para>
+    </simplesect>
+    <!-- ================================================================= -->
+    <sect1 id="tsvn-preface-about">
+        <title>What is TortoiseSVN?</title>
+        <para>
+            TortoiseSVN is a free open-source Windows client for the
+            <firstterm>Subversion</firstterm> version control system.
+            That is, TortoiseSVN manages files and directories over time.
+            Files are stored in a central <firstterm>repository</firstterm>.
+            The repository is much like an ordinary file server, except that it
+            remembers every change ever made to your files and directories.
+            This allows you to recover older versions of your files and examine
+            the history of how and when your data changed, and who changed it.
+            This is why many people think of Subversion and version control
+            systems in general as a sort of <quote>time machine</quote>.
+        </para>
+        <para>
+            Some version control systems are also software configuration
+            management (SCM) systems.  These systems are specifically
+            tailored to manage trees of source code, and have many features
+            that are specific to software development - such as natively
+            understanding programming languages, or supplying tools for
+            building software.  Subversion, however, is not one of these
+            systems; it is a general system that can be used to manage
+            <emphasis>any</emphasis> collection of files, including
+            source code.
+        </para>
+    </sect1>
+    <!-- ================================================================= -->
+    <sect1 id="tsvn-preface-features">
+        <title>TortoiseSVN's Features</title>
+        <para>
+            What makes TortoiseSVN such a good Subversion client?
+            Here's a short list of features.
+        </para>
+        <variablelist>
+            <varlistentry>
+                <term>Shell integration</term>
+                <listitem>
+                    <indexterm>
+                        <primary>Windows shell</primary>
+                    </indexterm>
+                    <indexterm>
+                        <primary>explorer</primary>
+                    </indexterm>
+                    <para>
+                        TortoiseSVN integrates seamlessly into the Windows shell
+                        (i.e. the explorer). This means you can keep working
+                        with the tools you're already familiar with. And you
+                        do not have to change into a different application
+                        each time you need the functions of version control.
+                    </para>
+                    <para>
+                        And you are not limited to using the Windows Explorer;
+                        TortoiseSVN's context menus work in many other file managers,
+                        and also in the File/Open dialog which is common to most
+                        standard Windows applications.
+                        You should, however, bear in mind that TortoiseSVN
+                        is intentionally developed as an extension for the Windows
+                        Explorer. Thus it is possible that in other applications
+                        the integration is not as complete and e.g. the icon
+                        overlays may not be shown.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Icon overlays</term>
+                <listitem>
+                    <para>
+                        The status of every versioned file and folder is
+                        indicated by small overlay icons. That way you can see
+                        right away what the status of your working copy is.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Graphical User Interface</term>
+                <listitem>
+                    <para>
+                        When you list the changes to a file or folder, you can click
+                        on a revision to see the comments for that commit. You can also
+                        see a list of changed files - just double click on a file to
+                        see exactly what changed.
+                    </para>
+                    <para>
+                        The commit dialog lists all the items that will be included
+                        in a commit, and each item has a checkbox so you can choose
+                        which items you want to include. Unversioned files can also be
+                        listed, in case you forgot to add that new file.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Easy access to Subversion commands</term>
+                <listitem>
+                    <para>
+                        All Subversion commands are available from the explorer
+                        context menu. TortoiseSVN adds its own submenu there.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <para>
+            Since TortoiseSVN is a Subversion client, we would also like to show you
+            some of the features of Subversion itself:
+        </para>
+        <variablelist>
+            <varlistentry>
+                <term>Directory versioning</term>
+                <listitem>
+                    <para>
+                        CVS only tracks the history of individual files, but
+                        Subversion implements a <quote>virtual</quote>
+                        versioned filesystem that tracks changes to whole
+                        directory trees over time.
+                        Files <emphasis>and</emphasis> directories are
+                        versioned. As a result, there are real client-side
+                        <command>move</command> and <command>copy</command>
+                        commands that operate on files and directories.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Atomic commits</term>
+                <listitem>
+                    <para>
+                        A commit either goes into the repository completely,
+                        or not at all.  This allows developers to construct and
+                        commit changes as logical chunks.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Versioned metadata</term>
+                <listitem>
+                    <para>
+                        Each file and directory has an invisible set of
+                        <quote>properties</quote> attached. You can invent and
+                        store any arbitrary key/value pairs you wish.
+                        Properties are versioned over time, just like file
+                        contents.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Choice of network layers</term>
+                <listitem>
+                    <para>
+                        Subversion has an abstracted notion of repository
+                        access, making it easy for people to implement new
+                        network mechanisms. Subversion's <quote>advanced</quote>
+                        network server is a module for the Apache web server,
+                        which speaks a variant of HTTP called WebDAV/DeltaV.
+                        This gives Subversion a big advantage in stability and
+                        interoperability, and provides various key features for
+                        free: authentication, authorization, wire compression,
+                        and repository browsing, for example. A smaller,
+                        standalone Subversion server process is also available.
+                        This server speaks a custom protocol which can be
+                        easily tunneled over ssh.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Consistent data handling</term>
+                <listitem>
+                    <para>
+                        Subversion expresses file differences using a binary
+                        differencing algorithm, which works identically on both
+                        text (human-readable) and binary (human-unreadable) files.
+                        Both types of files are stored equally compressed in the
+                        repository, and differences are transmitted in both
+                        directions across the network.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Efficient branching and tagging</term>
+                <listitem>
+                    <para>
+                        The cost of branching and tagging need not be
+                        proportional to the project size. Subversion creates
+                        branches and tags by simply copying the project, using
+                        a mechanism similar to a hard-link.
+                        Thus these operations take only a very small,
+                        constant amount of time, and very little space in the repository.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </sect1>
+    <!-- =================================================================== -->
+    <sect1 id="tsvn-preface-source">
+        <title>License</title>
+        <para>
+            TortoiseSVN is an Open Source project developed under the GNU
+            General Public License (GPL). It is free to download and free to use,
+            either personally or commercially, on any number of PCs.
+        </para>
+        <para>
+            Although most people just download the installer, you also have full
+            read access to the source code of this program.
+            You can browse it on this link
+            <ulink url="http://code.google.com/p/tortoisesvn/source/browse/">
+                <citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle>
+            </ulink>.
+            The current development line is located under
+            <filename>/trunk/</filename>,
+            and the released versions are located under
+            <filename>/tags/</filename>.
+        </para>
+    </sect1>
+    <!-- =================================================================== -->
+    <sect1 id="tsvn-preface-development">
+        <title>Development</title>
+        <para>
+            Both TortoiseSVN and Subversion are developed by a community of
+            people who are working on those projects. They come from different
+            countries all over the world, working together to create great
+            software.
+        </para>
+        <sect2 id="tsvn-preface-history">
+            <title>TortoiseSVN's History</title>
+            <para>
+                In 2002, Tim Kemp found that Subversion was a very good version
+                control system, but it lacked a good GUI client. The idea for a
+                Subversion client as a Windows shell integration was inspired by
+                the similar client for CVS named TortoiseCVS.
+                Tim studied the source code of TortoiseCVS and used it as a base for
+                TortoiseSVN. He then started the project, registered the domain
+                <literal>tortoisesvn.org</literal> and put the source code online.
+            </para>
+            <para>
+                Around that time, Stefan Küng was looking for a good and free version
+                control system and found Subversion and the source for TortoiseSVN.
+                Since TortoiseSVN was still not ready for use, he joined the project
+                and started programming. He soon rewrote most of the existing code and
+                started adding commands and features, up to a point where nothing of
+                the original code remained.
+            </para>
+            <para>
+                As Subversion became more stable it attracted more and more users
+                who also started using TortoiseSVN as their Subversion client.
+                The user base grew quickly (and is still growing every day).
+                That's when Lübbe Onken offered to help out with some nice icons
+                and a logo for TortoiseSVN. He now takes care of the website
+                and manages the many translations.
+            </para>
+        </sect2>
+        <sect2 id="tsvn-preface-acknowledgements">
+            <title>Acknowledgments</title>
+            <variablelist>
+                <varlistentry>
+                    <term>Tim Kemp</term>
+                    <listitem>
+                        <para>
+                            for founding the TortoiseSVN project
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Stefan Küng</term>
+                    <listitem>
+                        <para>
+                            for the hard work to get TortoiseSVN to what it is now,
+                            and his leadership of the project
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Lübbe Onken</term>
+                    <listitem>
+                        <para>
+                            for the beautiful icons, logo, bug hunting, translating and
+                            managing the translations
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Simon Large</term>
+                    <listitem>
+                        <para>
+                            for maintaining the documentation
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Stefan Fuhrmann</term>
+                    <listitem>
+                        <para>
+                            for the log cache and revision graph
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>The Subversion Book</term>
+                    <listitem>
+                        <para>
+                            for the great introduction to Subversion and its
+                            chapter 2 which we copied here
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>The Tigris Style project</term>
+                    <listitem>
+                        <para>
+                            for some of the styles which are reused in this documentation
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Our Contributors</term>
+                    <listitem>
+                        <para>
+                            for the patches, bug reports and new ideas, and for
+                            helping others by answering questions on our mailing list
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Our Donators</term>
+                    <listitem>
+                        <para>
+                            for many hours of joy with the music they sent us
+                        </para>
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </sect2>
+    </sect1>
+    <!-- =================================================================== -->
+    <sect1 id="tsvn-preface-readingguide">
+        <title>Reading Guide</title>
+        <para>
+            This book is written for computer-literate folk who want to use
+            Subversion to manage their data, but prefer to use a GUI client rather
+            than a command line client. TortoiseSVN is a windows shell extension
+            and it is assumed that the user is familiar with the windows
+            explorer and how to use it.
+        </para>
+        <para>
+            This <xref linkend="tsvn-preface"/> explains what TortoiseSVN is,
+            a little about the TortoiseSVN project and the community of people who
+            work on it, and the licensing conditions for using it and distributing it.
+        </para>
+        <para>
+            The <xref linkend="tsvn-quick-start"/> explains how to install TortoiseSVN
+            on your PC, and how to start using it straight away.
+        </para>
+        <para>
+            In <xref linkend="tsvn-basics"/> we give a short introduction
+            to the <emphasis>Subversion</emphasis> revision control system which
+            underlies TortoiseSVN. This is borrowed from the documentation for the
+            Subversion project and explains the different approaches to version
+            control, and how Subversion works.
+        </para>
+        <para>
+            The chapter on <xref linkend="tsvn-repository"/> explains how to set up
+            a local repository, which is useful for testing Subversion and TortoiseSVN
+            using a single PC. It also explains a bit about repository administration
+            which is also relevant to repositories located on a server.
+            There is also a section here on how to setup a server if you need one.
+        </para>
+        <para>
+            The <xref linkend="tsvn-dug"/> is the most important section as
+            it explains all the main features of TortoiseSVN and how to use them.
+            It takes the form of a tutorial, starting with checking out a working copy,
+            modifying it, committing your changes, etc. It then progresses to more
+            advanced topics.
+        </para>
+        <para>
+            <xref linkend="tsvn-subwcrev"/> is a separate program included with TortoiseSVN
+            which can extract the information from your working copy and write it into a
+            file. This is useful for including build information in your projects.
+        </para>
+        <para>
+            The <xref linkend="tsvn-howto"/> section answers some common questions
+            about performing tasks which are not explicitly covered elsewhere.
+        </para>
+        <para>
+            The section on <xref linkend="tsvn-automation"/> shows how the
+            TortoiseSVN GUI dialogs can be called from the command line. This is useful
+            for scripting where you still need user interaction.
+        </para>
+        <para>
+            The <xref linkend="tsvn-cli"/> give a correlation
+            between TortoiseSVN commands and their equivalents in the Subversion
+            command line client <literal>svn.exe</literal>.
+        </para>
+    </sect1>
+    <!-- ================================================================= -->
+    <sect1 id="tsvn-preface-terminology">
+        <title>Terminology used in this document</title>
+        <para>
+            To make reading the docs easier, the names of all the screens and Menus
+            from TortoiseSVN are marked up in a different font.
+            The <guilabel>Log Dialog</guilabel> for instance.
+        </para>
+        <para>
+            A menu choice is indicated with an arrow.
+            <menuchoice>
+                <guimenu>TortoiseSVN</guimenu>
+                <guimenuitem>Show Log</guimenuitem>
+            </menuchoice>
+            means: select <emphasis>Show Log</emphasis> from the
+            <emphasis>TortoiseSVN</emphasis> context menu.
+        </para>
+        <para>
+            Where a local context menu appears within one of the TortoiseSVN
+            dialogs, it is shown like this:
+            <menuchoice>
+                <guimenu>Context Menu</guimenu>
+                <guimenuitem>Save As ...</guimenuitem>
+            </menuchoice>
+        </para>
+        <para>
+            User Interface Buttons are indicated like this:
+            Press <guibutton>OK</guibutton> to continue.
+        </para>
+        <para>
+            User Actions are indicated using a bold font.
+            <keycap>Alt+A</keycap>: press the
+            <keycap>Alt</keycap>-Key on your keyboard and while holding it down
+            press the <keycap>A</keycap>-Key as well.
+            <action>Right-drag</action>: press the right mouse button and while
+            holding it down <emphasis>drag</emphasis> the items to the new location.
+        </para>
+        <para>
+            System output and keyboard input is indicated with a
+            <literal>different</literal> font as well.
+        </para>
+        <important>
+            <para>
+                Important notes are marked with an icon.
+            </para>
+        </important>
+        <tip>
+            <para>
+                Tips that make your life easier.
+            </para>
+        </tip>
+        <caution>
+            <para>
+                Places where you have to be careful what you are doing.
+            </para>
+        </caution>
+        <warning>
+            <para>
+                Where extreme care has to be taken. Data corruption or other
+                nasty things may occur if these warnings are ignored.
+            </para>
+        </warning>
+        <graphic srccredit="hide" fileref="images/background.png" scalefit="1" width="100%"/>
+    </sect1>
 </preface>

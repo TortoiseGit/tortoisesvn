@@ -1,263 +1,263 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter SYSTEM "../../dtd/dblite.dtd">
 <chapter id="tsvn-quick-start">
-	<title>Getting Started</title>
-	<simplesect>
-		<para>
-			This section is aimed at people who would like to find out what
-			TortoiseSVN is all about and give it a test drive. It explains
-			how to install TortoiseSVN and set up a local repository, and
-			it walks you through the most commonly used operations.
-		</para>
-	</simplesect>
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-qs-install">
-		<title>Installing TortoiseSVN</title>
-		<sect2>
-			<title>System requirements</title>
-			<para>
-				TortoiseSVN runs on Windows XP or higher and is available in both
-				32-bit and 64-bit flavours. If you are running 64-bit Windows you
-				may want to install both versions.
-			</para>
-			<para>
-				Support for Windows 98, Windows ME and Windows NT4 was dropped in
-				version 1.2.0 and Windows 2000 support was dropped in 1.7.0.
-				You can still download and install older versions if you need them.
-			</para>
-		</sect2>
-		<sect2>
-			<title>Installation</title>
-			<indexterm>
-				<primary>install</primary>
-			</indexterm>
-			<para>
-				TortoiseSVN comes with an easy to use installer. Double click on
-				the installer file and follow the instructions. The installer
-				will take care of the rest. Don't forget to reboot after installation.
-			</para>
-			<important>
-				<para>
-					You need Administrator privileges to install TortoiseSVN.
-				</para>
-			</important>
-			<para>
-				Language packs are available which translate the TortoiseSVN
-				user interface into many different languages. Please check
-				<xref linkend="tsvn-lang"/> for more information on how to
-				install these.
-			</para>
-			<para>
-				If you encounter any problems during or after installing
-				TortoiseSVN please refer to our online FAQ at
-				<ulink url="http://tortoisesvn.tigris.org/faq.html">
-					<citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle>
-				</ulink>
-			</para>
-		</sect2>
-	</sect1>
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-qs-basics">
-		<title>Basic Concepts</title>
-		<para>
-			Before we get stuck into working with some real files, it is important
-			to get an overview of how subversion works and the terms that are used.
-		</para>
-		<variablelist>
-			<varlistentry>
-				<term>The Repository</term>
-				<listitem>
-					<para>
-						Subversion uses a central database which contains all your
-						version-controlled files with their complete history. This
-						database is referred to as the <emphasis>repository</emphasis>.
-						The repository normally lives on a file server running the
-						Subversion server program, which supplies content to Subversion
-						clients (like TortoiseSVN) on request.
-						If you only back up one thing, back up your repository as it is
-						the definitive master copy of all your data.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Working Copy</term>
-				<listitem>
-					<para>
-						This is where you do the real work. Every developer has his
-						own working copy, sometimes known as a sandbox, on his local
-						PC. You can pull down the latest version from the repository,
-						work on it locally without affecting anyone else, then when
-						you are happy with the changes you made commit them back to
-						the repository.
-					</para>
-					<para>
-						A Subversion working copy does not contain the history of
-						the project, but it does keep a copy of the files as they
-						exist in the repository before you started making changes.
-						This means that it is easy to check exactly what changes
-						you have made.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-		<para>
-			You also need to know where to find TortoiseSVN because there is not
-			much to see from the Start Menu. This is because TortoiseSVN is a
-			Shell extension, so first of all, start Windows Explorer. Right click
-			on a folder in Explorer and you should see some new entries in the
-			context menu like this:
-			<figure id="tsvn-qs-basics-context">
-				<title>The TortoiseSVN menu for unversioned folders</title>
-				<graphic fileref="images/ContextMenuDirNoControl.png"/>
-			</figure>
-		</para>
-	</sect1>
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-qs-guide">
-		<title>Go for a Test Drive</title>
-		<para>
-			This section shows you how to try out some of the most commonly
-			used features on a small test repository.
-			Naturally it doesn't explain everything - this is just the Quick
-			Start Guide after all. Once you are up and running you should take
-			the time to read the rest of this user guide, which takes you
-			through things in much more detail. It also explains more about
-			setting up a proper Subversion server.
-		</para>
-		<sect2 id="tsvn-qs-repo">
-			<title>Creating a Repository</title>
-			<para>
-				For a real project you will have a repository set up somewhere safe
-				and a Subversion server to control it. For the purposes of this tutorial
-				we are going to use Subversion's local repository feature which allows
-				direct access to a repository created on your hard drive without needing
-				a server at all.
-			</para>
-			<para>
-				First create a new empty directory on your PC. It can go anywhere, but
-				in this tutorial we are going to call it <filename>C:\svn_repos</filename>.
-				Now right click on the new folder and from the context menu choose
-				<menuchoice>
-					<guimenu>TortoiseSVN</guimenu>
-					<guimenuitem>Create Repository here...</guimenuitem>
-				</menuchoice>.
-				The repository is then created inside the folder, ready for you to use.
-			</para>
-			<important>
-				<para>
-					The local repository feature is very useful for test and evaluation
-					but unless you are working as a sole developer on one PC you should
-					always use a proper Subversion server. It is tempting in a small company
-					to avoid the work of setting up a server and just access your repository
-					on a network share. Don't ever do that. You will lose data. Read
-					<xref linkend="tsvn-repository-local-share"/> to find out why this is
-					a bad idea, and how to set up a server.
-				</para>
-			</important>
-		</sect2>
-		<sect2 id="tsvn-qs-import">
-			<title>Importing a Project</title>
-			<para>
-				Now we have a repository, but it is completely empty at the moment.
-				Let's assume I have a set of files in <filename>C:\Projects\Widget1</filename>
-				that I would like to add. Navigate to the <filename>Widget1</filename> folder
-				in Explorer and right click on it. Now select
-				<menuchoice>
-					<guimenu>TortoiseSVN</guimenu>
-					<guimenuitem>Import...</guimenuitem>
-				</menuchoice> which brings up a dialog
-				<figure id="tsvn-qs-import-dia">
-					<title>The Import dialog</title>
-					<graphic fileref="images/Import.png"/>
-				</figure>
-				A Subversion repository is referred to by URL, which allows us to specify
-				a repository anywhere on the Internet. In this case we need to point to our
-				own local repository which has a URL of <filename>file:///c:/svn_repos/Widget1</filename>
-				Note that there are 3 slashes after <filename>file:</filename> and that
-				the forward slashes are used throughout.
-			</para>
-			<para>
-				The other important feature of this dialog is the <guilabel>Import Message</guilabel>
-				box which allows you to enter a message describing what you are doing.
-				When you come to look through your project history, these commit messages
-				are a valuable guide to what changes have been made and why. In this case
-				we can say something simple like <quote>Import the Widget1 project</quote>.
-				Click on <guibutton>OK</guibutton> and the folder is added to your repository.
-			</para>
-		</sect2>
-		<sect2 id="tsvn-qs-wc">
-			<title>Checking out a Working Copy</title>
-			<para>
-				Now that we have a project in our repository, we need to create a working
-				copy to use for day-to-day work. Note that the act of importing a folder
-				does not automatically turn that folder into a working copy. The Subversion
-				term for creating a fresh working copy is <literal>Checkout</literal>.
-				We are going to checkout the Widget1 folder of our repository into a
-				development folder on the PC called <filename>C:\Projects\Widget1-Dev</filename>.
-				Create that folder, then right click on it and select
-				<menuchoice>
-					<guimenu>TortoiseSVN</guimenu>
-					<guimenuitem>Checkout...</guimenuitem>
-				</menuchoice>.
-				Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename>
-				and click on <guibutton>OK</guibutton>. Our development folder is then populated
-				with files from the repository.
-			</para>
-			<para>
-				You will notice that the appearance of this folder is different from our
-				original folder. Every file has a green check mark in the bottom left corner.
-				These are TortoiseSVN's status icons which are only present in a working copy.
-				The green state indicates that the file is unchanged from the version in the
-				repository.
-			</para>
-		</sect2>
-		<sect2 id="tsvn-qs-changes">
-			<title>Making Changes</title>
-			<para>
-				Time to get to work. In the <filename>Widget1-Dev</filename> we start editing
-				files - lets say we make changes to <filename>Widget1.c</filename> and
-				<filename>ReadMe.txt</filename>. Notice that the icon overlays on these files
-				have now changed to red, indicating that changes have been made locally.
-			</para>
-			<para>
-				But what are the changes? Right click on one of the changed files and select
-				<menuchoice>
-					<guimenu>TortoiseSVN</guimenu>
-					<guimenuitem>Diff</guimenuitem>
-				</menuchoice>.
-				TortoiseSVN's file compare tool starts, showing you exactly which lines have
-				changed.
-				<figure id="tsvn-qs-diff-2pane">
-					<title>File Difference Viewer</title>
-					<graphic fileref="images/TMerge_TwoPane.png"/>
-				</figure>
-			</para>
-			<para>
-				OK, so we are happy with the changes, let's update the repository. This
-				action is referred to as a <literal>Commit</literal> of the changes.
-				Right click on the <filename>Widget1-Dev</filename> folder and select
-				<menuchoice>
-					<guimenu>TortoiseSVN</guimenu>
-					<guimenuitem>Commit</guimenuitem>
-				</menuchoice>.
-				The commit dialog lists the changed files, each with a checkbox.
-				You might want to choose only a subset of those files, but in this
-				case we are going to commit the changes to both files.
-				Enter up a message to describe what the change is all about and
-				click on <guibutton>OK</guibutton>. The progress dialog shows the
-				files being uploaded to the repository and you're done.
-			</para>
-		</sect2>
-		<sect2 id="tsvn-qs-add">
-			<title>Adding More Files</title>
-		</sect2>
-		<sect2 id="tsvn-qs-log">
-			<title>Viewing the Project History</title>
-		</sect2>
-		<sect2 id="tsvn-qs-revert">
-			<title>Undoing Changes</title>
-		</sect2>
-	</sect1>
+    <title>Getting Started</title>
+    <simplesect>
+        <para>
+            This section is aimed at people who would like to find out what
+            TortoiseSVN is all about and give it a test drive. It explains
+            how to install TortoiseSVN and set up a local repository, and
+            it walks you through the most commonly used operations.
+        </para>
+    </simplesect>
+    <!-- ================================================================= -->
+    <sect1 id="tsvn-qs-install">
+        <title>Installing TortoiseSVN</title>
+        <sect2>
+            <title>System requirements</title>
+            <para>
+                TortoiseSVN runs on Windows XP or higher and is available in both
+                32-bit and 64-bit flavours. If you are running 64-bit Windows you
+                may want to install both versions.
+            </para>
+            <para>
+                Support for Windows 98, Windows ME and Windows NT4 was dropped in
+                version 1.2.0 and Windows 2000 support was dropped in 1.7.0.
+                You can still download and install older versions if you need them.
+            </para>
+        </sect2>
+        <sect2>
+            <title>Installation</title>
+            <indexterm>
+                <primary>install</primary>
+            </indexterm>
+            <para>
+                TortoiseSVN comes with an easy to use installer. Double click on
+                the installer file and follow the instructions. The installer
+                will take care of the rest. Don't forget to reboot after installation.
+            </para>
+            <important>
+                <para>
+                    You need Administrator privileges to install TortoiseSVN.
+                </para>
+            </important>
+            <para>
+                Language packs are available which translate the TortoiseSVN
+                user interface into many different languages. Please check
+                <xref linkend="tsvn-lang"/> for more information on how to
+                install these.
+            </para>
+            <para>
+                If you encounter any problems during or after installing
+                TortoiseSVN please refer to our online FAQ at
+                <ulink url="http://tortoisesvn.tigris.org/faq.html">
+                    <citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle>
+                </ulink>
+            </para>
+        </sect2>
+    </sect1>
+    <!-- ================================================================= -->
+    <sect1 id="tsvn-qs-basics">
+        <title>Basic Concepts</title>
+        <para>
+            Before we get stuck into working with some real files, it is important
+            to get an overview of how subversion works and the terms that are used.
+        </para>
+        <variablelist>
+            <varlistentry>
+                <term>The Repository</term>
+                <listitem>
+                    <para>
+                        Subversion uses a central database which contains all your
+                        version-controlled files with their complete history. This
+                        database is referred to as the <emphasis>repository</emphasis>.
+                        The repository normally lives on a file server running the
+                        Subversion server program, which supplies content to Subversion
+                        clients (like TortoiseSVN) on request.
+                        If you only back up one thing, back up your repository as it is
+                        the definitive master copy of all your data.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Working Copy</term>
+                <listitem>
+                    <para>
+                        This is where you do the real work. Every developer has his
+                        own working copy, sometimes known as a sandbox, on his local
+                        PC. You can pull down the latest version from the repository,
+                        work on it locally without affecting anyone else, then when
+                        you are happy with the changes you made commit them back to
+                        the repository.
+                    </para>
+                    <para>
+                        A Subversion working copy does not contain the history of
+                        the project, but it does keep a copy of the files as they
+                        exist in the repository before you started making changes.
+                        This means that it is easy to check exactly what changes
+                        you have made.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+        <para>
+            You also need to know where to find TortoiseSVN because there is not
+            much to see from the Start Menu. This is because TortoiseSVN is a
+            Shell extension, so first of all, start Windows Explorer. Right click
+            on a folder in Explorer and you should see some new entries in the
+            context menu like this:
+            <figure id="tsvn-qs-basics-context">
+                <title>The TortoiseSVN menu for unversioned folders</title>
+                <graphic fileref="images/ContextMenuDirNoControl.png"/>
+            </figure>
+        </para>
+    </sect1>
+    <!-- ================================================================= -->
+    <sect1 id="tsvn-qs-guide">
+        <title>Go for a Test Drive</title>
+        <para>
+            This section shows you how to try out some of the most commonly
+            used features on a small test repository.
+            Naturally it doesn't explain everything - this is just the Quick
+            Start Guide after all. Once you are up and running you should take
+            the time to read the rest of this user guide, which takes you
+            through things in much more detail. It also explains more about
+            setting up a proper Subversion server.
+        </para>
+        <sect2 id="tsvn-qs-repo">
+            <title>Creating a Repository</title>
+            <para>
+                For a real project you will have a repository set up somewhere safe
+                and a Subversion server to control it. For the purposes of this tutorial
+                we are going to use Subversion's local repository feature which allows
+                direct access to a repository created on your hard drive without needing
+                a server at all.
+            </para>
+            <para>
+                First create a new empty directory on your PC. It can go anywhere, but
+                in this tutorial we are going to call it <filename>C:\svn_repos</filename>.
+                Now right click on the new folder and from the context menu choose
+                <menuchoice>
+                    <guimenu>TortoiseSVN</guimenu>
+                    <guimenuitem>Create Repository here...</guimenuitem>
+                </menuchoice>.
+                The repository is then created inside the folder, ready for you to use.
+            </para>
+            <important>
+                <para>
+                    The local repository feature is very useful for test and evaluation
+                    but unless you are working as a sole developer on one PC you should
+                    always use a proper Subversion server. It is tempting in a small company
+                    to avoid the work of setting up a server and just access your repository
+                    on a network share. Don't ever do that. You will lose data. Read
+                    <xref linkend="tsvn-repository-local-share"/> to find out why this is
+                    a bad idea, and how to set up a server.
+                </para>
+            </important>
+        </sect2>
+        <sect2 id="tsvn-qs-import">
+            <title>Importing a Project</title>
+            <para>
+                Now we have a repository, but it is completely empty at the moment.
+                Let's assume I have a set of files in <filename>C:\Projects\Widget1</filename>
+                that I would like to add. Navigate to the <filename>Widget1</filename> folder
+                in Explorer and right click on it. Now select
+                <menuchoice>
+                    <guimenu>TortoiseSVN</guimenu>
+                    <guimenuitem>Import...</guimenuitem>
+                </menuchoice> which brings up a dialog
+                <figure id="tsvn-qs-import-dia">
+                    <title>The Import dialog</title>
+                    <graphic fileref="images/Import.png"/>
+                </figure>
+                A Subversion repository is referred to by URL, which allows us to specify
+                a repository anywhere on the Internet. In this case we need to point to our
+                own local repository which has a URL of <filename>file:///c:/svn_repos/Widget1</filename>
+                Note that there are 3 slashes after <filename>file:</filename> and that
+                the forward slashes are used throughout.
+            </para>
+            <para>
+                The other important feature of this dialog is the <guilabel>Import Message</guilabel>
+                box which allows you to enter a message describing what you are doing.
+                When you come to look through your project history, these commit messages
+                are a valuable guide to what changes have been made and why. In this case
+                we can say something simple like <quote>Import the Widget1 project</quote>.
+                Click on <guibutton>OK</guibutton> and the folder is added to your repository.
+            </para>
+        </sect2>
+        <sect2 id="tsvn-qs-wc">
+            <title>Checking out a Working Copy</title>
+            <para>
+                Now that we have a project in our repository, we need to create a working
+                copy to use for day-to-day work. Note that the act of importing a folder
+                does not automatically turn that folder into a working copy. The Subversion
+                term for creating a fresh working copy is <literal>Checkout</literal>.
+                We are going to checkout the Widget1 folder of our repository into a
+                development folder on the PC called <filename>C:\Projects\Widget1-Dev</filename>.
+                Create that folder, then right click on it and select
+                <menuchoice>
+                    <guimenu>TortoiseSVN</guimenu>
+                    <guimenuitem>Checkout...</guimenuitem>
+                </menuchoice>.
+                Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename>
+                and click on <guibutton>OK</guibutton>. Our development folder is then populated
+                with files from the repository.
+            </para>
+            <para>
+                You will notice that the appearance of this folder is different from our
+                original folder. Every file has a green check mark in the bottom left corner.
+                These are TortoiseSVN's status icons which are only present in a working copy.
+                The green state indicates that the file is unchanged from the version in the
+                repository.
+            </para>
+        </sect2>
+        <sect2 id="tsvn-qs-changes">
+            <title>Making Changes</title>
+            <para>
+                Time to get to work. In the <filename>Widget1-Dev</filename> we start editing
+                files - lets say we make changes to <filename>Widget1.c</filename> and
+                <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files
+                have now changed to red, indicating that changes have been made locally.
+            </para>
+            <para>
+                But what are the changes? Right click on one of the changed files and select
+                <menuchoice>
+                    <guimenu>TortoiseSVN</guimenu>
+                    <guimenuitem>Diff</guimenuitem>
+                </menuchoice>.
+                TortoiseSVN's file compare tool starts, showing you exactly which lines have
+                changed.
+                <figure id="tsvn-qs-diff-2pane">
+                    <title>File Difference Viewer</title>
+                    <graphic fileref="images/TMerge_TwoPane.png"/>
+                </figure>
+            </para>
+            <para>
+                OK, so we are happy with the changes, let's update the repository. This
+                action is referred to as a <literal>Commit</literal> of the changes.
+                Right click on the <filename>Widget1-Dev</filename> folder and select
+                <menuchoice>
+                    <guimenu>TortoiseSVN</guimenu>
+                    <guimenuitem>Commit</guimenuitem>
+                </menuchoice>.
+                The commit dialog lists the changed files, each with a checkbox.
+                You might want to choose only a subset of those files, but in this
+                case we are going to commit the changes to both files.
+                Enter up a message to describe what the change is all about and
+                click on <guibutton>OK</guibutton>. The progress dialog shows the
+                files being uploaded to the repository and you're done.
+            </para>
+        </sect2>
+        <sect2 id="tsvn-qs-add">
+            <title>Adding More Files</title>
+        </sect2>
+        <sect2 id="tsvn-qs-log">
+            <title>Viewing the Project History</title>
+        </sect2>
+        <sect2 id="tsvn-qs-revert">
+            <title>Undoing Changes</title>
+        </sect2>
+    </sect1>
 </chapter>
 <!--
 local variables:
