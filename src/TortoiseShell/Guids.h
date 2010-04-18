@@ -20,7 +20,7 @@
 
 // The class IDs of these Shell extension class.
 //
-// class ids: 
+// class ids:
 //
 // 30351346-7B7D-4FCC-81B4-1E394CA267EB
 // 30351347-7B7D-4FCC-81B4-1E394CA267EB
@@ -34,7 +34,7 @@
 // 3035134F-7B7D-4FCC-81B4-1E394CA267EB
 //
 //
-// NOTE!!!  If you use this shell extension as a starting point, 
+// NOTE!!!  If you use this shell extension as a starting point,
 //          you MUST change the GUID below.  Simply run UUIDGEN.EXE
 //          to generate a new GUID.
 //

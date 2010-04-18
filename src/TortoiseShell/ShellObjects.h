@@ -25,14 +25,14 @@ typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 class ShellObjects
 {
 public:
-	ShellObjects();
-	~ShellObjects();
+    ShellObjects();
+    ~ShellObjects();
 
-	void Insert(CShellExt * obj);
-	void Erase(CShellExt * obj);
-	void DeleteAll();
+    void Insert(CShellExt * obj);
+    void Erase(CShellExt * obj);
+    void DeleteAll();
 
 private:
-	std::set<CShellExt *>	m_exts;
-	CComCriticalSection		m_critSec;
+    std::set<CShellExt *>   m_exts;
+    CComCriticalSection     m_critSec;
 };

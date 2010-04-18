@@ -185,20 +185,20 @@
  * modifications or work under the terms of Section 1 above, provided that you 
  * also meet all of these conditions: 
  *   - You must cause the modified files to carry prominent notices stating 
- *	  that you changed the files and the date of any change. 
+ *     that you changed the files and the date of any change. 
  *   - You must cause any work that you distribute or publish, that in whole 
- *   or in part contains or is derived from the Program or any part thereof, 
- *   to be licensed as a whole at no charge to all third parties under the terms 
- *   of this License. 
+ *     or in part contains or is derived from the Program or any part thereof, 
+ *     to be licensed as a whole at no charge to all third parties under the terms 
+ *     of this License. 
  *   - If the modified program normally reads commands interactively when run,
- *   you must cause it, when started running for such interactive use in the most 
- *   ordinary way, to print or display an announcement including an appropriate 
- *   copyright notice and a notice that there is no warranty (or else, saying that 
- *   you provide a warranty) and that users may redistribute the program under these 
- *   conditions, and telling the user how to view a copy of this License. (Exception: 
- *   if the Program itself is interactive but does not normally print such an 
- *   announcement, your work based on the Program is not required to print an 
- *   announcement.) 
+ *     you must cause it, when started running for such interactive use in the most 
+ *     ordinary way, to print or display an announcement including an appropriate 
+ *     copyright notice and a notice that there is no warranty (or else, saying that 
+ *     you provide a warranty) and that users may redistribute the program under these 
+ *     conditions, and telling the user how to view a copy of this License. (Exception: 
+ *     if the Program itself is interactive but does not normally print such an 
+ *     announcement, your work based on the Program is not required to print an 
+ *     announcement.) 
  *   .
  *   These requirements apply to the modified work as a whole. If identifiable 
  *   sections of that work are not derived from the Program, and can be reasonably 

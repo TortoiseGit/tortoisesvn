@@ -33,8 +33,8 @@
 class PreserveChdir
 {
 public:
-	PreserveChdir();
-	~PreserveChdir();
+    PreserveChdir();
+    ~PreserveChdir();
 
 private:
     auto_buffer<TCHAR> originalCurrentDirectory;

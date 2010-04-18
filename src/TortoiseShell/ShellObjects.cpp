@@ -22,36 +22,36 @@
 
 ShellObjects::ShellObjects()
 {
-	m_critSec.Init();
+    m_critSec.Init();
 }
 
 ShellObjects::~ShellObjects()
 {
-	m_critSec.Term();
+    m_critSec.Term();
 }
 
 void ShellObjects::Insert(CShellExt * obj)
 {
-	AutoLocker lock(m_critSec);
-	m_exts.insert(obj);
+    AutoLocker lock(m_critSec);
+    m_exts.insert(obj);
 }
 
 void ShellObjects::Erase(CShellExt * obj)
 {
-	AutoLocker lock(m_critSec);
-	m_exts.erase(obj);
+    AutoLocker lock(m_critSec);
+    m_exts.erase(obj);
 }
 
 void ShellObjects::DeleteAll()
 {
-	AutoLocker lock(m_critSec);
-	if (m_exts.size())
-	{
-		std::set<CShellExt *>::iterator it = m_exts.begin();
-		while (it != m_exts.end())
-		{
-			delete *it;
-			it = m_exts.begin();
-		}
-	}
+    AutoLocker lock(m_critSec);
+    if (m_exts.size())
+    {
+        std::set<CShellExt *>::iterator it = m_exts.begin();
+        while (it != m_exts.end())
+        {
+            delete *it;
+            it = m_exts.begin();
+        }
+    }
 }

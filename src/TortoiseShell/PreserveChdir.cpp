@@ -21,31 +21,31 @@
 
 PreserveChdir::PreserveChdir()
 {
-	DWORD len = GetCurrentDirectory(0, NULL);
-	if (len)
-	{
+    DWORD len = GetCurrentDirectory(0, NULL);
+    if (len)
+    {
         originalCurrentDirectory.reset (len);
-		if (GetCurrentDirectory(len, originalCurrentDirectory) !=0)
+        if (GetCurrentDirectory(len, originalCurrentDirectory) !=0)
             return;
-	}
-		
+    }
+
     originalCurrentDirectory.reset();
 }
 
 PreserveChdir::~PreserveChdir()
 {
-	if (originalCurrentDirectory)
-	{
-		DWORD len = GetCurrentDirectory(0, NULL);
-		auto_buffer<TCHAR> currentDirectory (len);
+    if (originalCurrentDirectory)
+    {
+        DWORD len = GetCurrentDirectory(0, NULL);
+        auto_buffer<TCHAR> currentDirectory (len);
 
-		// _tchdir is an expensive function - don't call it unless we really have to
-		GetCurrentDirectory(len, currentDirectory);
-		if(_tcscmp(currentDirectory, originalCurrentDirectory) != 0)
-		{
-			SetCurrentDirectory(originalCurrentDirectory);
-		}
+        // _tchdir is an expensive function - don't call it unless we really have to
+        GetCurrentDirectory(len, currentDirectory);
+        if(_tcscmp(currentDirectory, originalCurrentDirectory) != 0)
+        {
+            SetCurrentDirectory(originalCurrentDirectory);
+        }
 
         originalCurrentDirectory.reset();
-	}
+    }
 }

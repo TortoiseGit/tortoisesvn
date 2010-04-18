@@ -25,7 +25,7 @@
 #define REGISTRYTIMEOUT 2000
 #define EXCLUDELISTTIMEOUT 5000
 #define ADMINDIRTIMEOUT 10000
-#define DRIVETYPETIMEOUT 300000		// 5 min
+#define DRIVETYPETIMEOUT 300000     // 5 min
 #define NUMBERFMTTIMEOUT 300000
 #define MENUTIMEOUT 100
 
@@ -39,48 +39,48 @@ typedef CComCritSecLock<CComCriticalSection> Locker;
 class ShellCache
 {
 public:
-	enum CacheType
-	{
-		none,
-		exe,
-		dll
-	};
-	ShellCache();
+    enum CacheType
+    {
+        none,
+        exe,
+        dll
+    };
+    ShellCache();
 
-	void ForceRefresh();
-	CacheType GetCacheType();
-	DWORD BlockStatus();
-	unsigned __int64 GetMenuLayout();
-	unsigned __int64 GetMenuMask();
+    void ForceRefresh();
+    CacheType GetCacheType();
+    DWORD BlockStatus();
+    unsigned __int64 GetMenuLayout();
+    unsigned __int64 GetMenuMask();
 
     BOOL IsRecursive();
-	BOOL IsFolderOverlay();
-	BOOL IsSimpleContext();
-	BOOL HasShellMenuAccelerators();
-	BOOL IsUnversionedAsModified();
-	BOOL IsGetLockTop();
-	BOOL ShowExcludedAsNormal();
-	BOOL AlwaysExtended();
+    BOOL IsFolderOverlay();
+    BOOL IsSimpleContext();
+    BOOL HasShellMenuAccelerators();
+    BOOL IsUnversionedAsModified();
+    BOOL IsGetLockTop();
+    BOOL ShowExcludedAsNormal();
+    BOOL AlwaysExtended();
 
     BOOL IsRemote();
-	BOOL IsFixed();
-	BOOL IsCDRom();
-	BOOL IsRemovable();
-	BOOL IsRAM();
+    BOOL IsFixed();
+    BOOL IsCDRom();
+    BOOL IsRemovable();
+    BOOL IsRAM();
     BOOL IsUnknown();
 
-	BOOL IsContextPathAllowed(LPCTSTR path);
-	BOOL IsPathAllowed(LPCTSTR path);
-	DWORD GetLangID();
-	NUMBERFMT * GetNumberFmt();
-	BOOL HasSVNAdminDir(LPCTSTR path, BOOL bIsDir);
-	bool IsColumnsEveryWhere();
+    BOOL IsContextPathAllowed(LPCTSTR path);
+    BOOL IsPathAllowed(LPCTSTR path);
+    DWORD GetLangID();
+    NUMBERFMT * GetNumberFmt();
+    BOOL HasSVNAdminDir(LPCTSTR path, BOOL bIsDir);
+    bool IsColumnsEveryWhere();
 
 private:
 
-	void DriveValid();
-	void ExcludeContextValid();
-	void ValidatePathFilter();
+    void DriveValid();
+    void ExcludeContextValid();
+    void ValidatePathFilter();
 
     class CPathFilter
     {
@@ -122,14 +122,14 @@ private:
             bool operator<(const SEntry& rhs) const
             {
                 int diff = _tcsicmp (path.c_str(), rhs.path.c_str());
-                return (diff < 0) 
+                return (diff < 0)
                     || ((diff == 0) && recursive && !rhs.recursive);
             }
 
-            friend bool operator< 
+            friend bool operator<
                 ( const SEntry& rhs
                 , const std::pair<LPCTSTR, size_t>& lhs);
-            friend bool operator< 
+            friend bool operator<
                 ( const std::pair<LPCTSTR
                 , size_t>& lhs, const SEntry& rhs);
         };
@@ -144,10 +144,10 @@ private:
         /// registry keys plus cached last content
 
         CRegStdString excludelist;
-	    tstring excludeliststr;
+        tstring excludeliststr;
 
-	    CRegStdString includelist;
-	    tstring includeliststr;
+        CRegStdString includelist;
+        tstring includeliststr;
 
         /// construct \ref data content
 
@@ -164,7 +164,7 @@ private:
         /// include: C:\some\path
         /// lookup for C:\some\deeper\path
 
-        bool IsPathAllowed 
+        bool IsPathAllowed
             ( LPCTSTR path
             , TData::const_iterator begin
             , TData::const_iterator end) const;
@@ -174,88 +174,88 @@ private:
         /// construction
 
         CPathFilter();
-        
+
         /// notify of (potential) registry settings
 
         void Refresh();
 
         /// data access
 
-    	bool IsPathAllowed (LPCTSTR path) const;
+        bool IsPathAllowed (LPCTSTR path) const;
     };
 
     friend bool operator< (const CPathFilter::SEntry& rhs, const std::pair<LPCTSTR, size_t>& lhs);
     friend bool operator< (const std::pair<LPCTSTR, size_t>& lhs, const CPathFilter::SEntry& rhs);
 
-	CRegStdDWORD cachetype;
-	CRegStdDWORD blockstatus;
-	CRegStdDWORD langid;
-	CRegStdDWORD showrecursive;
-	CRegStdDWORD folderoverlay;
-	CRegStdDWORD getlocktop;
-	CRegStdDWORD driveremote;
-	CRegStdDWORD drivefixed;
-	CRegStdDWORD drivecdrom;
-	CRegStdDWORD driveremove;
-	CRegStdDWORD drivefloppy;
-	CRegStdDWORD driveram;
-	CRegStdDWORD driveunknown;
-	CRegStdDWORD menulayoutlow;
-	CRegStdDWORD menulayouthigh;
-	CRegStdDWORD simplecontext;
-	CRegStdDWORD shellmenuaccelerators;
-	CRegStdDWORD menumasklow_lm;
-	CRegStdDWORD menumaskhigh_lm;
-	CRegStdDWORD menumasklow_cu;
-	CRegStdDWORD menumaskhigh_cu;
-	CRegStdDWORD unversionedasmodified;
-	CRegStdDWORD excludedasnormal;
-	CRegStdDWORD alwaysextended;
-	CRegStdDWORD columnseverywhere;
+    CRegStdDWORD cachetype;
+    CRegStdDWORD blockstatus;
+    CRegStdDWORD langid;
+    CRegStdDWORD showrecursive;
+    CRegStdDWORD folderoverlay;
+    CRegStdDWORD getlocktop;
+    CRegStdDWORD driveremote;
+    CRegStdDWORD drivefixed;
+    CRegStdDWORD drivecdrom;
+    CRegStdDWORD driveremove;
+    CRegStdDWORD drivefloppy;
+    CRegStdDWORD driveram;
+    CRegStdDWORD driveunknown;
+    CRegStdDWORD menulayoutlow;
+    CRegStdDWORD menulayouthigh;
+    CRegStdDWORD simplecontext;
+    CRegStdDWORD shellmenuaccelerators;
+    CRegStdDWORD menumasklow_lm;
+    CRegStdDWORD menumaskhigh_lm;
+    CRegStdDWORD menumasklow_cu;
+    CRegStdDWORD menumaskhigh_cu;
+    CRegStdDWORD unversionedasmodified;
+    CRegStdDWORD excludedasnormal;
+    CRegStdDWORD alwaysextended;
+    CRegStdDWORD columnseverywhere;
 
     CPathFilter pathFilter;
 
-	DWORD cachetypeticker;
-	DWORD recursiveticker;
-	DWORD folderoverlayticker;
-	DWORD getlocktopticker;
-	DWORD driveticker;
-	DWORD drivetypeticker;
-	DWORD layoutticker;
-	DWORD menumaskticker;
-	DWORD langticker;
-	DWORD blockstatusticker;
-	DWORD columnrevformatticker;
-	DWORD pathfilterticker;
-	DWORD simplecontextticker;
-	DWORD shellmenuacceleratorsticker;
-	DWORD unversionedasmodifiedticker;
-	DWORD excludedasnormalticker;
-	DWORD alwaysextendedticker;
-	DWORD columnseverywhereticker;
-	UINT  drivetypecache[27];
-	TCHAR drivetypepathcache[MAX_PATH];		// MAX_PATH ok.
-	NUMBERFMT columnrevformat;
-	TCHAR szDecSep[5];
-	TCHAR szThousandsSep[5];
-	std::map<tstring, BOOL> admindircache;
-	tstring sAdminDirCacheKey;
-	CRegStdString nocontextpaths;
-	tstring excludecontextstr;
-	std::vector<tstring> excontextvector;
-	DWORD excontextticker;
-	DWORD admindirticker;
-	CComCriticalSection m_critSec;
+    DWORD cachetypeticker;
+    DWORD recursiveticker;
+    DWORD folderoverlayticker;
+    DWORD getlocktopticker;
+    DWORD driveticker;
+    DWORD drivetypeticker;
+    DWORD layoutticker;
+    DWORD menumaskticker;
+    DWORD langticker;
+    DWORD blockstatusticker;
+    DWORD columnrevformatticker;
+    DWORD pathfilterticker;
+    DWORD simplecontextticker;
+    DWORD shellmenuacceleratorsticker;
+    DWORD unversionedasmodifiedticker;
+    DWORD excludedasnormalticker;
+    DWORD alwaysextendedticker;
+    DWORD columnseverywhereticker;
+    UINT  drivetypecache[27];
+    TCHAR drivetypepathcache[MAX_PATH];     // MAX_PATH ok.
+    NUMBERFMT columnrevformat;
+    TCHAR szDecSep[5];
+    TCHAR szThousandsSep[5];
+    std::map<tstring, BOOL> admindircache;
+    tstring sAdminDirCacheKey;
+    CRegStdString nocontextpaths;
+    tstring excludecontextstr;
+    std::vector<tstring> excontextvector;
+    DWORD excontextticker;
+    DWORD admindirticker;
+    CComCriticalSection m_critSec;
 };
 
-inline bool operator< 
+inline bool operator<
     ( const ShellCache::CPathFilter::SEntry& lhs
     , const std::pair<LPCTSTR, size_t>& rhs)
 {
     return _tcsnicmp (lhs.path.c_str(), rhs.first, rhs.second) < 0;
 }
 
-inline bool operator< 
+inline bool operator<
     ( const std::pair<LPCTSTR, size_t>& lhs
     , const ShellCache::CPathFilter::SEntry& rhs)
 {
