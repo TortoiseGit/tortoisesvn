@@ -76,6 +76,7 @@ protected:
     // ** Constants **
     static  const long int      m_SecondsInWeek = 604800; // ... a week has 604800 seconds
     static  const long int      m_SecondsInDay = 86400;  // ... a day has 86400.0 seconds
+    static  const int           m_CoeffAuthorShip = 2;
 
     // ** Data types **
 
@@ -94,18 +95,23 @@ protected:
     {
         TextStatStart,
             AllStat,
-            PercentageOfAuthorship,
         TextStatEnd,
         GraphicStatStart,
+            PercentageOfAuthorship,
             CommitsByAuthor,
             CommitsByDate,
         GraphicStatEnd,
     };
 
+    //TODO: try substitute map to hash_map
     /// The mapping type used to store data per interval/week and author.
     typedef std::map<int, std::map<tstring, LONG> > IntervalDataMap;
+    
+    //TODO: try substitute few Maps to one map, that store needs informations about Authors
     /// The mapping type used to store data per author.
     typedef std::map<tstring, LONG>                 AuthorDataMap;
+    /// The mapping type used to store data per Percentage Of Authorship
+    typedef std::map<tstring, double>                AuthorshipDataMap;
 
     // *** Re-implemented member functions from CDialog
     virtual void OnOK();
@@ -137,6 +143,8 @@ protected:
     void GatherData();
     /// Populates the lists passed as arguments based on the commit threshold set with the skipper.
     void FilterSkippedAuthors(std::list<tstring>& included_authors, std::list<tstring>& skipped_authors);
+    /// Shows the graph Percentage Of Authorship
+    void ShowPercentageOfAuthorship();
     /// Shows the graph with commit counts per author.
     void ShowCommitsByAuthor();
     /// Shows the graph with commit counts per author and date.
@@ -144,11 +152,15 @@ protected:
     /// Shows the initial statistics page.
     void ShowStats();
 
-    /// PreShowStat functions
-    bool PreViewStat(bool fShowLabels);
+    /// Rolling Percentage Of Authorship of author to integer
+    int RollPercentageOfAuthorship(const tstring &it);
+    
+    /// Load list of drawing authors
+    template <class MAP> void LoadListOfAuthors (MAP &map, bool compare = false);
 
-    //Show Selected Static metric
-    void ShowSelectStat(Metrics  SelectedMetric);
+    // If we have other authors, count them and their commits.
+    template <class MAP>
+    void DrawOthers(const std::list<tstring> &others, MyGraphSeries *graphData, MAP &map);
 
 
     /// Called when user checks/unchecks the "Authors case sensitive" checkbox.
@@ -162,6 +174,13 @@ protected:
     void ClearGraph();
     /// Updates the currently shown statistics page.
     void RedrawGraph();
+
+    /// PreShow Statistic function
+    bool  PreViewStat(bool fShowLabels);
+    /// PreShow Graphic function
+    MyGraphSeries * PreViewGraph(__in UINT GraphTitle, __in UINT YAxisLabel, __in UINT XAxisLabel = NULL);
+	/// Show Selected Static metric
+	void ShowSelectStat(Metrics  SelectedMetric);
 
     int                     GetUnitCount();
     int                     GetUnit(const CTime& time);
@@ -179,6 +198,9 @@ protected:
 
     //Load statistical queries
     void LoadStatQueries(__in UINT curStr, Metrics loadMetric, bool setDef = false);
+
+    //Considers coefficient contribution author
+    double CoeffContribution(int distFromEnd);
 
     CPtrArray       m_graphDataArray;
     MyGraph         m_graph;
@@ -230,6 +252,9 @@ protected:
     int                     m_lastInterval;
     /// Mapping of total commits per author, access data via
     AuthorDataMap           m_commitsPerAuthor;
+    /// Mapping of Percentage Of Authorship per author
+    AuthorshipDataMap          m_PercentageOfAuthorship;
+
     /// The list of author names sorted based on commit count
     /// (author with most commits is first in list).
     std::list<tstring>  m_authorNames;

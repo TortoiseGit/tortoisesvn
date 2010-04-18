@@ -35,16 +35,18 @@
 using namespace Gdiplus;
 
 // BinaryPredicate for comparing authors based on their commit count
+template<class DataType>
 class MoreCommitsThan : public std::binary_function<tstring, tstring, bool> {
 public:
-    MoreCommitsThan(std::map<tstring, LONG> * author_commits) : m_authorCommits(author_commits) {}
+    typedef std::map<tstring, DataType> MapType;
+    MoreCommitsThan(MapType &author_commits) : m_authorCommits(author_commits) {}
 
     bool operator()(const tstring& lhs, const tstring& rhs) {
-        return (*m_authorCommits)[lhs] > (*m_authorCommits)[rhs];
+        return (m_authorCommits)[lhs] > (m_authorCommits)[rhs];
     }
 
 private:
-    std::map<tstring, LONG> * m_authorCommits;
+    MapType &m_authorCommits;
 };
 
 
@@ -149,6 +151,7 @@ BOOL CStatGraphDlg::OnInitDialog()
     LoadStatQueries(IDS_STATGRAPH_STATS, AllStat, true);
     LoadStatQueries(IDS_STATGRAPH_COMMITSBYDATE, CommitsByDate);
     LoadStatQueries(IDS_STATGRAPH_COMMITSBYAUTHOR, CommitsByAuthor);
+    LoadStatQueries(IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP, PercentageOfAuthorship);
 
     // set the dialog title to "Statistics - path/to/whatever/we/show/the/statistics/for"
     CString sTitle;
@@ -533,6 +536,8 @@ void CStatGraphDlg::GatherData()
     int interval = 0;
     __time64_t d = (__time64_t)m_parDates->GetAt(0);
     int nLastUnit = GetUnit(d);
+    double AllContributionAuthor = 0;
+
     // Now loop over all weeks and gather the info
     for (LONG i=0; i<m_nTotalCommits; ++i)
     {
@@ -557,6 +562,11 @@ void CStatGraphDlg::GatherData()
         int fileChanges = m_parFileChanges->GetAt(i);
         m_filechangesPerUnitAndAuthor[interval][author] += fileChanges;
         m_nTotalFileChanges += fileChanges;
+
+        //calculate Contribution Author
+        double  contributionAuthor = CoeffContribution(m_nTotalCommits - i -1) * fileChanges;
+        AllContributionAuthor += contributionAuthor;
+        m_PercentageOfAuthorship[author] += contributionAuthor;
     }
 
     // Find first and last interval number.
@@ -577,21 +587,17 @@ void CStatGraphDlg::GatherData()
     }
 
     // Get a list of authors names
-    m_authorNames.clear();
-    if (m_commitsPerAuthor.size())
+    LoadListOfAuthors(m_commitsPerAuthor);
+
+    // Calculate percent of Contribution Authors
+    for (std::list<tstring>::iterator it = m_authorNames.begin(); it != m_authorNames.end(); ++it)
     {
-        for (std::map<tstring, LONG>::iterator it = m_commitsPerAuthor.begin();
-            it != m_commitsPerAuthor.end(); ++it)
-        {
-            m_authorNames.push_back(it->first);
-        }
+        m_PercentageOfAuthorship[*it] =  (m_PercentageOfAuthorship[*it] *100)/ AllContributionAuthor;
     }
 
-    // Sort the list of authors based on commit count
-    m_authorNames.sort( MoreCommitsThan(&m_commitsPerAuthor) );
-
-    // All done, now the statistics pages can retrieve the data and
+    // All done, now the statistics pages can retrieve the data and 
     // extract the information to be shown.
+
 }
 
 void CStatGraphDlg::FilterSkippedAuthors(std::list<tstring>& included_authors,
@@ -621,9 +627,7 @@ void CStatGraphDlg::FilterSkippedAuthors(std::list<tstring>& included_authors,
 
     // Sort authors alphabetically if user wants that.
     if (!m_bSortByCommitCount)
-    {
         included_authors.sort();
-    }
 }
 
 bool  CStatGraphDlg::PreViewStat(bool fShowLabels)
@@ -635,8 +639,8 @@ bool  CStatGraphDlg::PreViewStat(bool fShowLabels)
     //If view graphic
     if (!fShowLabels) ClearGraph();
 
-    // This function relies on a previous call of GatherData().
-    // This can be detected by checking the week count.
+    // This function relies on a previous call of GatherData(). 
+    // This can be detected by checking the week count. 
     // If the week count is equal to -1, it hasn't been called before.
     if (m_nWeeks == -1)
         GatherData();
@@ -647,13 +651,14 @@ bool  CStatGraphDlg::PreViewStat(bool fShowLabels)
     return true;
 }
 
-void CStatGraphDlg::ShowCommitsByAuthor()
+MyGraphSeries *CStatGraphDlg::PreViewGraph(__in UINT GraphTitle, __in UINT YAxisLabel, __in UINT XAxisLabel /*= NULL*/)
 {
-    if(!PreViewStat(false)) return;
+    if(!PreViewStat(false)) 
+        return NULL;
 
     // We need at least one author
-    if (m_authorNames.empty())
-        return;
+    if (m_authorNames.empty()) 
+        return NULL;
 
     // Add a single series to the chart
     MyGraphSeries * graphData = new MyGraphSeries();
@@ -664,19 +669,67 @@ void CStatGraphDlg::ShowCommitsByAuthor()
     CString temp;
     UpdateData();
     m_graph.SetGraphType(m_GraphType, m_bStacked);
-    temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORY);
+    temp.LoadString(YAxisLabel);
     m_graph.SetYAxisLabel(temp);
-    temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORX);
+    temp.LoadString(XAxisLabel);
     m_graph.SetXAxisLabel(temp);
-    temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHOR);
+    temp.LoadString(GraphTitle);
     m_graph.SetGraphTitle(temp);
+
+    return graphData;
+}
+
+void CStatGraphDlg::ShowPercentageOfAuthorship()
+{
+    // Set up the graph.
+    MyGraphSeries * graphData = PreViewGraph(IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP, 
+        IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIPY, 
+        IDS_STATGRAPH_COMMITSBYAUTHORX);
+    if(graphData == NULL) return;
 
     // Find out which authors are to be shown and which are to be skipped.
     std::list<tstring> authors;
     std::list<tstring> others;
+
+    LoadListOfAuthors(m_PercentageOfAuthorship, true);
+
     FilterSkippedAuthors(authors, others);
 
     // Loop over all authors in the authors list and
+    // add them to the graph.
+
+    if (authors.size())
+    {
+        for (std::list<tstring>::iterator it = authors.begin(); it != authors.end(); ++it)
+        {
+            int group = m_graph.AppendGroup(it->c_str());
+            graphData->SetData(group,  RollPercentageOfAuthorship(*it));
+        }
+    }
+
+    //     If we have other authors, count them and their commits.
+    if (others.size() != 0)
+        DrawOthers(others, graphData, m_PercentageOfAuthorship);
+
+    // Paint the graph now that we're through.
+    m_graph.Invalidate();
+}
+
+void CStatGraphDlg::ShowCommitsByAuthor()
+{
+    // Set up the graph.
+    MyGraphSeries * graphData = PreViewGraph(IDS_STATGRAPH_COMMITSBYAUTHOR, 
+        IDS_STATGRAPH_COMMITSBYAUTHORY, 
+        IDS_STATGRAPH_COMMITSBYAUTHORX);
+    if(graphData == NULL) return;
+
+    // Find out which authors are to be shown and which are to be skipped.
+    std::list<tstring> authors;
+    std::list<tstring> others;
+    LoadListOfAuthors(m_commitsPerAuthor);
+    FilterSkippedAuthors(authors, others);
+
+    // Loop over all authors in the authors list and 
     // add them to the graph.
 
     if (authors.size())
@@ -688,21 +741,9 @@ void CStatGraphDlg::ShowCommitsByAuthor()
         }
     }
 
-    // If we have other authors, count them and their commits.
-    size_t nOthers = others.size();
-    if (nOthers != 0)
-    {
-        int nCommits = 0;
-        for (std::list<tstring>::iterator it = others.begin(); it != others.end(); ++it)
-        {
-            nCommits += m_commitsPerAuthor[*it];
-        }
-        CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
-        temp.Format(_T(" (%ld)"), nOthers);
-        sOthers += temp;
-        int group = m_graph.AppendGroup(sOthers);
-        graphData->SetData(group, nCommits);
-    }
+    //     If we have other authors, count them and their commits.
+    if (others.size() != 0)
+        DrawOthers(others, graphData, m_commitsPerAuthor);
 
     // Paint the graph now that we're through.
     m_graph.Invalidate();
@@ -729,6 +770,7 @@ void CStatGraphDlg::ShowCommitsByDate()
     // Find out which authors are to be shown and which are to be skipped.
     std::list<tstring> authors;
     std::list<tstring> others;
+    LoadListOfAuthors(m_commitsPerAuthor);
     FilterSkippedAuthors(authors, others);
 
     // Add a graph series for each author.
@@ -955,12 +997,14 @@ void CStatGraphDlg::ShowStats()
     }
 }
 
+int CStatGraphDlg::RollPercentageOfAuthorship(const tstring &it) 
+{ return (int)m_PercentageOfAuthorship[it] + (m_PercentageOfAuthorship[it] - (int)m_PercentageOfAuthorship[it] >= 0.5);}
+
 void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 {
     UpdateData();
 
     Metrics useMetric = (Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
-    //if (useMetric > GraphicStatStart && useMetric < GraphicStatEnd) // else labels // intended fall through
         switch (useMetric )
         {
         case AllStat:
@@ -1476,7 +1520,53 @@ void CStatGraphDlg::ShowSelectStat(Metrics SelectedMetric)
     case CommitsByAuthor:
         ShowCommitsByAuthor();
         break;
+    case PercentageOfAuthorship:
+        ShowPercentageOfAuthorship();
+        break;
     default:
         ShowErrorMessage();
     }
 }
+
+double CStatGraphDlg::CoeffContribution(int distFromEnd) { return distFromEnd  ? 1.0 / m_CoeffAuthorShip * distFromEnd : 1;} 
+
+
+template <class MAP>
+void CStatGraphDlg::DrawOthers(const std::list<tstring> &others, MyGraphSeries *graphData, MAP &map)
+{    
+    int  nCommits = 0;
+    for (std::list<tstring>::const_iterator it = others.begin(); it != others.end(); ++it)
+    {
+        nCommits += (int) map[*it];
+    }
+
+    CString temp;
+    temp.Format(_T(" (%ld)"), others.size());
+
+    CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
+    sOthers += temp;
+    int group = m_graph.AppendGroup(sOthers);
+    graphData->SetData(group, (int)nCommits);
+}
+
+
+template <class MAP>
+void CStatGraphDlg::LoadListOfAuthors (MAP &map, bool compare /*= false*/)
+{
+    m_authorNames.clear();
+    if (map.size())
+    {
+        for (MAP::const_iterator it = map.begin(); it != map.end(); ++it) 
+        {
+            if ((compare && RollPercentageOfAuthorship(it->first) != 0) || !compare)
+                m_authorNames.push_back(it->first);
+        }
+    }
+
+    // Sort the list of authors based on commit count
+    m_authorNames.sort(MoreCommitsThan< MAP::referent_type>(map));
+
+    // Set Skipper
+    m_Skipper.SetRange(1, m_authorNames.size());
+}
+
