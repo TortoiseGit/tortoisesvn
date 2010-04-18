@@ -21,7 +21,7 @@
 class IListCtrlTooltipProvider
 {
 public:
-	virtual CString GetToolTipText(int nItem, int nSubItem) = 0;
+    virtual CString GetToolTipText(int nItem, int nSubItem) = 0;
 };
 
 /**
@@ -32,23 +32,23 @@ public:
  */
 class CHintListCtrl : public CListCtrl
 {
-public: 
-	CHintListCtrl();
-	~CHintListCtrl();
+public:
+    CHintListCtrl();
+    ~CHintListCtrl();
 
-	void ShowText(const CString& sText, bool forceupdate = false);
-	void ClearText();
-	bool HasText() const {return !m_sText.IsEmpty();}
-	void SetTooltipProvider(IListCtrlTooltipProvider * provider) {pProvider = provider;}
+    void ShowText(const CString& sText, bool forceupdate = false);
+    void ClearText();
+    bool HasText() const {return !m_sText.IsEmpty();}
+    void SetTooltipProvider(IListCtrlTooltipProvider * provider) {pProvider = provider;}
 
 
 protected:
-	DECLARE_MESSAGE_MAP()
-	afx_msg void OnPaint();
-	virtual afx_msg BOOL OnToolTipText(UINT id, NMHDR * pNMHDR, LRESULT * pResult); 
-	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO * pTI) const;
+    DECLARE_MESSAGE_MAP()
+    afx_msg void OnPaint();
+    virtual afx_msg BOOL OnToolTipText(UINT id, NMHDR * pNMHDR, LRESULT * pResult);
+    virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO * pTI) const;
 
 private:
-	CString			m_sText;
-	IListCtrlTooltipProvider * pProvider;
+    CString         m_sText;
+    IListCtrlTooltipProvider * pProvider;
 };

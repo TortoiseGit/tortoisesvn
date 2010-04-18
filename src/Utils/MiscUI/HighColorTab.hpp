@@ -70,14 +70,14 @@ namespace HighColorTab
            typename TListCreator>
     bool UpdateImageListFull(TSheet& rSheet)
   {
-	  // Get the tab control...
-	  CTabCtrl* pTab = rSheet.GetTabControl();
-	  if (!IsWindow(pTab->GetSafeHwnd()))
-	  {
+      // Get the tab control...
+      CTabCtrl* pTab = rSheet.GetTabControl();
+      if (!IsWindow(pTab->GetSafeHwnd()))
+      {
       // ASSERT: Tab control could not be retrieved or it is not a valid window.
       ASSERT( FALSE );
-		  return false;
-	  }
+          return false;
+      }
 
     // Create the replacement image list via policy.
     std::auto_ptr<CImageList> apILNew( TListCreator::CreateImageList() );

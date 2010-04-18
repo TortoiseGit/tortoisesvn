@@ -25,16 +25,16 @@
 class CSoundUtils
 {
 public:
-	CSoundUtils(void);
-	~CSoundUtils(void);
-	
-	/**
-	 * Registers our own sounds under the available sound schemes
-	 * Users then can customize the TSVN sounds in the sounds panel of Windows.
-	 */
-	static void RegisterTSVNSounds();
+    CSoundUtils(void);
+    ~CSoundUtils(void);
+    
+    /**
+     * Registers our own sounds under the available sound schemes
+     * Users then can customize the TSVN sounds in the sounds panel of Windows.
+     */
+    static void RegisterTSVNSounds();
 
-	static void PlayTSVNWarning();
-	static void PlayTSVNError();
-	static void PlayTSVNNotification();
+    static void PlayTSVNWarning();
+    static void PlayTSVNError();
+    static void PlayTSVNNotification();
 };

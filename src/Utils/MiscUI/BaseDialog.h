@@ -29,34 +29,34 @@
 class CDialog
 {
 public:
-	INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent);
-	INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent, UINT idAccel);
+    INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent);
+    INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent, UINT idAccel);
     HWND    Create(HINSTANCE hInstance, int resID, HWND hWndParent);
-	BOOL	EndDialog(HWND hDlg, INT_PTR nResult);
-	void	AddToolTip(UINT ctrlID, LPTSTR text);
+    BOOL    EndDialog(HWND hDlg, INT_PTR nResult);
+    void    AddToolTip(UINT ctrlID, LPTSTR text);
 
-	virtual LRESULT CALLBACK DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;
-	virtual bool PreTranslateMessage(MSG* pMsg);
+    virtual LRESULT CALLBACK DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;
+    virtual bool PreTranslateMessage(MSG* pMsg);
 
-	operator HWND() {return m_hwnd;}
+    operator HWND() {return m_hwnd;}
 protected:
-	HINSTANCE hResource;
-	HWND m_hwnd;
+    HINSTANCE hResource;
+    HWND m_hwnd;
 
-	void InitDialog(HWND hwndDlg, UINT iconID);
+    void InitDialog(HWND hwndDlg, UINT iconID);
 
-	// the real message handler
-	static INT_PTR CALLBACK stDlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
+    // the real message handler
+    static INT_PTR CALLBACK stDlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-	// returns a pointer the dialog (stored as the WindowLong)
-	inline static CDialog * GetObjectFromWindow(HWND hWnd)
-	{
-		return (CDialog *)GetWindowLongPtr(hWnd, GWLP_USERDATA);
-	}
+    // returns a pointer the dialog (stored as the WindowLong)
+    inline static CDialog * GetObjectFromWindow(HWND hWnd)
+    {
+        return (CDialog *)GetWindowLongPtr(hWnd, GWLP_USERDATA);
+    }
 private:
-	bool		m_bPseudoModal;
-	bool		m_bPseudoEnded;
-	INT_PTR		m_iPseudoRet;
-	HWND		m_hToolTips;
+    bool        m_bPseudoModal;
+    bool        m_bPseudoEnded;
+    INT_PTR     m_iPseudoRet;
+    HWND        m_hToolTips;
 };
 

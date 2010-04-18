@@ -31,21 +31,21 @@
 class CIconMenu : public CMenu
 {
 public:
-	CIconMenu(void);
-	~CIconMenu(void);
+    CIconMenu(void);
+    ~CIconMenu(void);
 
     BOOL CreateMenu();
     BOOL CreatePopupMenu();
-	BOOL AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon = 0);
-	BOOL AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon = 0);
-	void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
-	void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct);
+    BOOL AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon = 0);
+    BOOL AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon = 0);
+    void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
+    void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 
 private:
     BOOL SetMenuStyle(void);
 
 private:
-	IconBitmapUtils				bitmapUtils;
-	std::map<UINT_PTR, UINT>	icons;
-	bool						bShowIcons;
+    IconBitmapUtils             bitmapUtils;
+    std::map<UINT_PTR, UINT>    icons;
+    bool                        bShowIcons;
 };

@@ -39,19 +39,19 @@ bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
     {
         // create the tooltip window
         if (!CreateEx(WS_EX_TOPMOST,
-					 TOOLTIPS_CLASS,
-					 NULL,
-					 TTS_NOPREFIX | TTS_ALWAYSTIP,      
-					 CW_USEDEFAULT,
-					 CW_USEDEFAULT,
-					 CW_USEDEFAULT,
-					 CW_USEDEFAULT,
-					 NULL,
-					 NULL,
-					 NULL))
-		{
-			return false;
-		}
+                     TOOLTIPS_CLASS,
+                     NULL,
+                     TTS_NOPREFIX | TTS_ALWAYSTIP,      
+                     CW_USEDEFAULT,
+                     CW_USEDEFAULT,
+                     CW_USEDEFAULT,
+                     CW_USEDEFAULT,
+                     NULL,
+                     NULL,
+                     NULL))
+        {
+            return false;
+        }
 
         ti.cbSize = sizeof(TOOLINFO);
         ti.uFlags = TTF_TRACK;
@@ -60,7 +60,7 @@ bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
         ti.uId = 0;
         ti.lpszText = _T(" ");
 
-		// ToolTip control will cover the whole window
+        // ToolTip control will cover the whole window
         ti.rect.left = 0;
         ti.rect.top = 0;
         ti.rect.right = 0;
@@ -71,13 +71,13 @@ bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
 
         SendMessage(TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);
 
-		SendMessage(TTM_TRACKPOSITION, 0, (LPARAM)(DWORD) MAKELONG(point.x, point.y));
+        SendMessage(TTM_TRACKPOSITION, 0, (LPARAM)(DWORD) MAKELONG(point.x, point.y));
         SendMessage(TTM_TRACKACTIVATE, true, (LPARAM)(LPTOOLINFO) &ti);
-		SendMessage(TTM_TRACKPOSITION, 0, MAKELONG(pos->x, pos->y));
-		m_bRightAligned = bRightAligned;
+        SendMessage(TTM_TRACKPOSITION, 0, MAKELONG(pos->x, pos->y));
+        m_bRightAligned = bRightAligned;
         m_bInitCalled = true;
     }
-	return true;
+    return true;
 }
 
 void CScrollTool::SetText(LPPOINT pos, const TCHAR * fmt, ...)
@@ -88,35 +88,35 @@ void CScrollTool::SetText(LPPOINT pos, const TCHAR * fmt, ...)
     va_start( marker, fmt );
     s.FormatV(fmt, marker);
     va_end( marker );
-	
-	CSize textsize(0);
-	if (m_bRightAligned)
-	{
-		CDC *pDC = GetDC();
-		textsize = pDC->GetTextExtent(s);
-		ReleaseDC(pDC);
-	}
+    
+    CSize textsize(0);
+    if (m_bRightAligned)
+    {
+        CDC *pDC = GetDC();
+        textsize = pDC->GetTextExtent(s);
+        ReleaseDC(pDC);
+    }
 
-	ti.lpszText = s.GetBuffer();       
+    ti.lpszText = s.GetBuffer();       
     SendMessage(TTM_UPDATETIPTEXT, 0, (LPARAM)(LPTOOLINFO) &ti);
-	SendMessage(TTM_TRACKPOSITION, 0, MAKELONG(pos->x-textsize.cx, pos->y));
-	s.ReleaseBuffer();
+    SendMessage(TTM_TRACKPOSITION, 0, MAKELONG(pos->x-textsize.cx, pos->y));
+    s.ReleaseBuffer();
 }
 
 void CScrollTool::Clear()
 {
-	if (m_bInitCalled)
-	{
-		SendMessage(TTM_DELTOOL, 0, (LPARAM)(LPTOOLINFO) &ti);
-		DestroyWindow();
-	}
+    if (m_bInitCalled)
+    {
+        SendMessage(TTM_DELTOOL, 0, (LPARAM)(LPTOOLINFO) &ti);
+        DestroyWindow();
+    }
     m_bInitCalled = false;
 }
 
 LONG CScrollTool::GetTextWidth(LPCTSTR szText)
 {
-	CDC *pDC = GetDC();
-	CSize textsize = pDC->GetTextExtent(szText, (int)_tcslen(szText));
-	ReleaseDC(pDC);
-	return textsize.cx;
+    CDC *pDC = GetDC();
+    CSize textsize = pDC->GetTextExtent(szText, (int)_tcslen(szText));
+    ReleaseDC(pDC);
+    return textsize.cx;
 }

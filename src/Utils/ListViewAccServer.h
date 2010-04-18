@@ -26,13 +26,13 @@
 class ListViewAccProvider
 {
 public:
-	/**
-	 * Called to retrieve the help string text.
-	 * \param hControl the HWND of the list view control
-	 * \param index the list view index the help string is asked for
-	 * \return a help string for the list view index
-	 */
-	virtual CString GetListviewHelpString(HWND hControl, int index) = 0;
+    /**
+     * Called to retrieve the help string text.
+     * \param hControl the HWND of the list view control
+     * \param index the list view index the help string is asked for
+     * \return a help string for the list view index
+     */
+    virtual CString GetListviewHelpString(HWND hControl, int index) = 0;
 };
 
 /**
@@ -43,29 +43,29 @@ public:
 class ListViewAccServer: public IAccPropServer
 {
 public:
-	ListViewAccServer(IAccPropServices * pAccPropSvc)
-		: m_Ref( 1 ),
-		m_pAccPropSvc( pAccPropSvc )
-	{
-		m_pAccPropSvc->AddRef();
-	}
+    ListViewAccServer(IAccPropServices * pAccPropSvc)
+        : m_Ref( 1 ),
+        m_pAccPropSvc( pAccPropSvc )
+    {
+        m_pAccPropSvc->AddRef();
+    }
 
-	~ListViewAccServer()
-	{
-		m_pAccPropSvc->Release();
-	}
+    ~ListViewAccServer()
+    {
+        m_pAccPropSvc->Release();
+    }
 
-	static ListViewAccServer * CreateProvider(HWND hControl, ListViewAccProvider * provider);
+    static ListViewAccServer * CreateProvider(HWND hControl, ListViewAccProvider * provider);
 
-	HRESULT STDMETHODCALLTYPE GetPropValue(const BYTE * pIDString, DWORD dwIDStringLen,	MSAAPROPID idProp, VARIANT * pvarValue, BOOL * pfGotProp);
+    HRESULT STDMETHODCALLTYPE GetPropValue(const BYTE * pIDString, DWORD dwIDStringLen, MSAAPROPID idProp, VARIANT * pvarValue, BOOL * pfGotProp);
 
-	// IUnknown
-	virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppvObject);        
-	virtual ULONG STDMETHODCALLTYPE AddRef(void);
-	virtual ULONG STDMETHODCALLTYPE Release(void);
+    // IUnknown
+    virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppvObject);
+    virtual ULONG STDMETHODCALLTYPE AddRef(void);
+    virtual ULONG STDMETHODCALLTYPE Release(void);
 
 private:
-	ULONG					m_Ref;
-	IAccPropServices *		m_pAccPropSvc;
-	ListViewAccProvider *	m_pAccProvider;
+    ULONG                   m_Ref;
+    IAccPropServices *      m_pAccPropSvc;
+    ListViewAccProvider *   m_pAccProvider;
 };

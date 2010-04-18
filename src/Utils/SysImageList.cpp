@@ -26,90 +26,90 @@ CSysImageList * CSysImageList::instance = 0;
 
 CSysImageList::CSysImageList()
 {
-	SHFILEINFO ssfi;
-	TCHAR windir[MAX_PATH];
-	GetWindowsDirectory(windir, MAX_PATH);	// MAX_PATH ok.
-	HIMAGELIST hSystemImageList =
-		(HIMAGELIST)SHGetFileInfo(
-			windir,
-			0,
-			&ssfi, sizeof ssfi,
-			SHGFI_SYSICONINDEX | SHGFI_SMALLICON);
-	Attach(hSystemImageList);
+    SHFILEINFO ssfi;
+    TCHAR windir[MAX_PATH];
+    GetWindowsDirectory(windir, MAX_PATH);  // MAX_PATH ok.
+    HIMAGELIST hSystemImageList =
+        (HIMAGELIST)SHGetFileInfo(
+            windir,
+            0,
+            &ssfi, sizeof ssfi,
+            SHGFI_SYSICONINDEX | SHGFI_SMALLICON);
+    Attach(hSystemImageList);
 }
 
 CSysImageList::~CSysImageList()
 {
-	Detach();
+    Detach();
 }
 
 // Singleton specific operations
 
 CSysImageList& CSysImageList::GetInstance()
 {
-	if (instance == 0)
-		instance = new CSysImageList;
-	return *instance;
+    if (instance == 0)
+        instance = new CSysImageList;
+    return *instance;
 }
 
 void CSysImageList::Cleanup()
 {
-	delete instance;
-	instance = 0;
+    delete instance;
+    instance = 0;
 }
 
 // Operations
 
 int CSysImageList::AddIcon(const HICON hIcon)
 {
-	return this->Add(hIcon);
+    return this->Add(hIcon);
 }
 
 int CSysImageList::GetDirIconIndex() const
 {
-	return GetFileIcon(_T("Doesn't matter"), FILE_ATTRIBUTE_DIRECTORY, 0);
+    return GetFileIcon(_T("Doesn't matter"), FILE_ATTRIBUTE_DIRECTORY, 0);
 }
 
 int CSysImageList::GetDirOpenIconIndex() const
 {
-	return GetFileIcon(_T("Doesn't matter"), FILE_ATTRIBUTE_DIRECTORY, SHGFI_OPENICON);
+    return GetFileIcon(_T("Doesn't matter"), FILE_ATTRIBUTE_DIRECTORY, SHGFI_OPENICON);
 }
 
 int CSysImageList::GetDefaultIconIndex() const
 {
-	return GetFileIcon(_T(""), FILE_ATTRIBUTE_NORMAL, 0);
+    return GetFileIcon(_T(""), FILE_ATTRIBUTE_NORMAL, 0);
 }
 
 int CSysImageList::GetFileIconIndex(const CString& file) const
 {
-	return GetFileIcon(file, FILE_ATTRIBUTE_NORMAL, 0);
+    return GetFileIcon(file, FILE_ATTRIBUTE_NORMAL, 0);
 }
 
 int CSysImageList::GetPathIconIndex(const CTSVNPath& filePath) const
 {
-	CString strExtension = filePath.GetFileExtension();
-	strExtension.MakeUpper();
-	IconIndexMap::iterator it = m_indexCache.lower_bound(strExtension);
-	if (it == m_indexCache.end() || strExtension < it->first)
-	{
-		// We don't have this extension in the map
-		int iconIndex = GetFileIconIndex(filePath.GetFilename());
-		it = m_indexCache.insert(it, std::make_pair(strExtension, iconIndex));
-	}
-	// We must have found it
-	return it->second;
+    CString strExtension = filePath.GetFileExtension();
+    strExtension.MakeUpper();
+    IconIndexMap::iterator it = m_indexCache.lower_bound(strExtension);
+    if (it == m_indexCache.end() || strExtension < it->first)
+    {
+        // We don't have this extension in the map
+        int iconIndex = GetFileIconIndex(filePath.GetFilename());
+        it = m_indexCache.insert(it, std::make_pair(strExtension, iconIndex));
+    }
+    // We must have found it
+    return it->second;
 }
 
 int CSysImageList::GetFileIcon( LPCTSTR file, DWORD attributes, UINT extraFlags ) const
 {
-	SHFILEINFO sfi;
-	SecureZeroMemory(&sfi, sizeof sfi);
+    SHFILEINFO sfi;
+    SecureZeroMemory(&sfi, sizeof sfi);
 
-	SHGetFileInfo(
-		file,
-		attributes,
-		&sfi, sizeof sfi,
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | extraFlags);
+    SHGetFileInfo(
+        file,
+        attributes,
+        &sfi, sizeof sfi,
+        SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | extraFlags);
 
-	return sfi.iIcon;
+    return sfi.iIcon;
 }

@@ -250,7 +250,7 @@ public:
     *
     * @param dirName The directory to search in.
     */
-	CDirFileEnum(const CString& dirName);
+    CDirFileEnum(const CString& dirName);
 
    /**
     * Destructor.  Frees all resources.
@@ -263,9 +263,9 @@ public:
     * \param  result On successful return, holds the full path to the found
     *                file. (If this function returns FALSE, the value of
     *                result is unspecified).
-	* \param  pbIsDirectory Pointer to a bool variable which will hold
-	*                TRUE if the \c result path is a directory, FALSE
-	*				 if it's a file. Pass NULL if you don't need that information.
+    * \param  pbIsDirectory Pointer to a bool variable which will hold
+    *                TRUE if the \c result path is a directory, FALSE
+    *                if it's a file. Pass NULL if you don't need that information.
     * \return TRUE iff a file was found, false at end of the iteration.
     */
    BOOL NextFile(CString &result, bool* pbIsDirectory);

@@ -23,35 +23,35 @@
 
 COMError::COMError(HRESULT hr)
 {
-	_com_error e(hr);
-	IErrorInfo *pIErrorInfo = NULL;
-	GetErrorInfo(0, &pIErrorInfo);
+    _com_error e(hr);
+    IErrorInfo *pIErrorInfo = NULL;
+    GetErrorInfo(0, &pIErrorInfo);
 
-	if (pIErrorInfo == NULL)
-	{
-		e = _com_error(hr);
-		message = e.ErrorMessage();
-	}
-	else
-	{
-		e = _com_error(hr, pIErrorInfo);
-		message = e.ErrorMessage();
-		IErrorInfo *ptrIErrorInfo = e.ErrorInfo();
-		if (ptrIErrorInfo != NULL)
-		{
-			// IErrorInfo Interface located
-			description = (WCHAR *)e.Description();
-			source = (WCHAR *)e.Source();
-			GUID tmpGuid = e.GUID();
-			RPC_WSTR guidStr = NULL;
-			// must link in Rpcrt4.lib for UuidToString
-			UuidToString(&tmpGuid, &guidStr);
-			uuid = (WCHAR*)guidStr;
-			RpcStringFree(&guidStr);
+    if (pIErrorInfo == NULL)
+    {
+        e = _com_error(hr);
+        message = e.ErrorMessage();
+    }
+    else
+    {
+        e = _com_error(hr, pIErrorInfo);
+        message = e.ErrorMessage();
+        IErrorInfo *ptrIErrorInfo = e.ErrorInfo();
+        if (ptrIErrorInfo != NULL)
+        {
+            // IErrorInfo Interface located
+            description = (WCHAR *)e.Description();
+            source = (WCHAR *)e.Source();
+            GUID tmpGuid = e.GUID();
+            RPC_WSTR guidStr = NULL;
+            // must link in Rpcrt4.lib for UuidToString
+            UuidToString(&tmpGuid, &guidStr);
+            uuid = (WCHAR*)guidStr;
+            RpcStringFree(&guidStr);
 
-			ptrIErrorInfo->Release();
-		}
-	}
+            ptrIErrorInfo->Release();
+        }
+    }
 }
 
 COMError::~COMError()

@@ -19,30 +19,30 @@
 
 #pragma once
 
-class CClipboardHelper 
+class CClipboardHelper
 {
 public:
-	CClipboardHelper() : bClipBoardOpen(false) {}
-	~CClipboardHelper();
-	bool Open(HWND hOwningWnd);
-	static HGLOBAL GlobalAlloc(SIZE_T dwBytes);
+    CClipboardHelper() : bClipBoardOpen(false) {}
+    ~CClipboardHelper();
+    bool Open(HWND hOwningWnd);
+    static HGLOBAL GlobalAlloc(SIZE_T dwBytes);
 private:
-	bool bClipBoardOpen;
+    bool bClipBoardOpen;
 };
 
 inline CClipboardHelper::~CClipboardHelper()
 {
-	if (bClipBoardOpen)
-		CloseClipboard();
+    if (bClipBoardOpen)
+        CloseClipboard();
 }
 
 inline bool CClipboardHelper::Open(HWND hOwningWnd)
 {
-	bClipBoardOpen = (OpenClipboard(hOwningWnd) != 0);
-	return bClipBoardOpen;
+    bClipBoardOpen = (OpenClipboard(hOwningWnd) != 0);
+    return bClipBoardOpen;
 }
 
 inline HGLOBAL CClipboardHelper::GlobalAlloc(SIZE_T dwBytes)
 {
-	return ::GlobalAlloc(GMEM_MOVEABLE, dwBytes);
+    return ::GlobalAlloc(GMEM_MOVEABLE, dwBytes);
 }

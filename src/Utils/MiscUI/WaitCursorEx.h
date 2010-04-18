@@ -34,14 +34,14 @@
 class CWaitCursorEx
 {
 public:
-	CWaitCursorEx(bool start_visible = true);
-	~CWaitCursorEx();
+    CWaitCursorEx(bool start_visible = true);
+    ~CWaitCursorEx();
 
-	void Show();	//!< Show the hourglass cursor if not already visible
-	void Hide();	//!< Hide the hourglass cursor if not already hidden
+    void Show();    //!< Show the hourglass cursor if not already visible
+    void Hide();    //!< Hide the hourglass cursor if not already hidden
 
 private:
-	bool m_bVisible;
+    bool m_bVisible;
 };
 
 #endif /*__WaitCursorEx_h*/

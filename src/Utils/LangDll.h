@@ -25,12 +25,12 @@
 class CLangDll
 {
 public:
-	CLangDll();
-	~CLangDll();
+    CLangDll();
+    ~CLangDll();
 
-	HINSTANCE	Init(LPCTSTR appname, unsigned long langID);
-	void		Close();
+    HINSTANCE   Init(LPCTSTR appname, unsigned long langID);
+    void        Close();
 private:
-	bool		DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll);
-	HINSTANCE	m_hInstance;
+    bool        DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll);
+    HINSTANCE   m_hInstance;
 };

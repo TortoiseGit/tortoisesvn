@@ -28,24 +28,24 @@
 // COddButton window
 
 /*!
-	\brief Owner-Draw Default Button is a base class for owner-draw buttons that provides basic 
-	support for default state handling.
+    \brief Owner-Draw Default Button is a base class for owner-draw buttons that provides basic 
+    support for default state handling.
 
-	Derived class can indicate the default state when appropriate simply by calling 
-	COddButton::IsDefault method to determine the default state and using 
-	any visual effect (e.g. a thin black frame around the button) when it becomes default.
+    Derived class can indicate the default state when appropriate simply by calling 
+    COddButton::IsDefault method to determine the default state and using 
+    any visual effect (e.g. a thin black frame around the button) when it becomes default.
 
-	\note A special static method COddButton::SetDefID can be used to set the default button 
-	for the dialog to work around the problems with using a CDialog::SetDefID described in MS kb Q67655 
-	(<A HREF="http://support.microsoft.com/default.aspx?scid=KB;EN-US;Q67655&">
-	HOWTO: Change or Set the Default Push Button in a Dialog Box
-	</A>)
+    \note A special static method COddButton::SetDefID can be used to set the default button 
+    for the dialog to work around the problems with using a CDialog::SetDefID described in MS kb Q67655 
+    (<A HREF="http://support.microsoft.com/default.aspx?scid=KB;EN-US;Q67655&">
+    HOWTO: Change or Set the Default Push Button in a Dialog Box
+    </A>)
 */
 class COddButton : public CButton
 {
 // Construction
 public:
-	COddButton();
+    COddButton();
 
 // Attributes
 public:
@@ -54,46 +54,46 @@ public:
 public:
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(COddButton)
-	protected:
-	virtual void PreSubclassWindow();
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(COddButton)
+    protected:
+    virtual void PreSubclassWindow();
+    //}}AFX_VIRTUAL
 
 // Implementation
 public:
-	virtual ~COddButton();
+    virtual ~COddButton();
 
 // Generated message map functions
 protected:
-	//{{AFX_MSG(COddButton)
-	afx_msg UINT OnGetDlgCode();
-	//}}AFX_MSG
-	afx_msg LRESULT OnSetStyle(WPARAM wParam, LPARAM lParam);
-	
-	DECLARE_MESSAGE_MAP()
+    //{{AFX_MSG(COddButton)
+    afx_msg UINT OnGetDlgCode();
+    //}}AFX_MSG
+    afx_msg LRESULT OnSetStyle(WPARAM wParam, LPARAM lParam);
+    
+    DECLARE_MESSAGE_MAP()
 
 private:
-	// Data members
-	BOOL m_bCanBeDefault;	/*!< TRUE to enable default state handling */
-	BOOL m_bDefault;		/*!< Set to TRUE when control has default state */
-	UINT m_nTypeStyle;		/*!< Type of control */
+    // Data members
+    BOOL m_bCanBeDefault;   /*!< TRUE to enable default state handling */
+    BOOL m_bDefault;        /*!< Set to TRUE when control has default state */
+    UINT m_nTypeStyle;      /*!< Type of control */
 
 protected:
 // Interface
-	
-	/// Use to enable or disable default state handling	
-	void EnableDefault(BOOL bEnable);
+    
+    /// Use to enable or disable default state handling 
+    void EnableDefault(BOOL bEnable);
 
-	/// Use to know whether the control has a default state
-	BOOL IsDefault() const;
+    /// Use to know whether the control has a default state
+    BOOL IsDefault() const;
 
-	/// Use to know the type of control to draw
-	UINT GetControlType() const;
+    /// Use to know the type of control to draw
+    UINT GetControlType() const;
 
 public:
-	/// Use to set the dialog's default pushbutton
-	static void SetDefID(CDialog* pDialog, const UINT nID);
+    /// Use to set the dialog's default pushbutton
+    static void SetDefID(CDialog* pDialog, const UINT nID);
 };
 
 /////////////////////////////////////////////////////////////////////////////

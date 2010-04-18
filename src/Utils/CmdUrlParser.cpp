@@ -32,58 +32,58 @@ CmdUrlParser::~CmdUrlParser()
 
 CString CmdUrlParser::GetCommandLine()
 {
-	CString sCmdLine;
-	CString temp;
-	int pos = 0;
-	for(;;)
-	{
-		temp = m_cmdUrl.Tokenize(_T("?"), pos);
-		if (temp.IsEmpty())
-		{
-			break;
-		}
-		else if (temp.Left(8).CompareNoCase(_T("tsvncmd:")) == 0)
-			temp = temp.Mid(8);
+    CString sCmdLine;
+    CString temp;
+    int pos = 0;
+    for(;;)
+    {
+        temp = m_cmdUrl.Tokenize(_T("?"), pos);
+        if (temp.IsEmpty())
+        {
+            break;
+        }
+        else if (temp.Left(8).CompareNoCase(_T("tsvncmd:")) == 0)
+            temp = temp.Mid(8);
 
-		if (temp.Left(8).CompareNoCase(_T("command:")) == 0)
-		{
-			CString cmd = temp.Mid(8);
-			bool isCmdAllowed = false;
+        if (temp.Left(8).CompareNoCase(_T("command:")) == 0)
+        {
+            CString cmd = temp.Mid(8);
+            bool isCmdAllowed = false;
 
-			if (cmd.CompareNoCase(_T("update")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("commit")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("diff")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("repobrowser")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("checkout")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("export")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("blame")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("repostatus")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("revisiongraph")) == 0)
-				isCmdAllowed = true;
-			else if (cmd.CompareNoCase(_T("showcompare")) == 0)
-				isCmdAllowed = true;
+            if (cmd.CompareNoCase(_T("update")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("commit")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("diff")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("repobrowser")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("checkout")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("export")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("blame")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("repostatus")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("revisiongraph")) == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(_T("showcompare")) == 0)
+                isCmdAllowed = true;
 
-			if (!isCmdAllowed)
-				return CString();	// command is not on the allowed list, return empty command line
-		}
-		temp = CPathUtils::PathUnescape(temp);
-		// if the param has spaces in it, enquote it
-		if (temp.Find(_T(" ")) >= 0)
-		{
-			temp.Replace(_T(":"), _T(":\""));
-			temp = temp + _T("\"");
-		}
-		sCmdLine += _T(" /");
-		sCmdLine += temp;
-	} 
+            if (!isCmdAllowed)
+                return CString();   // command is not on the allowed list, return empty command line
+        }
+        temp = CPathUtils::PathUnescape(temp);
+        // if the param has spaces in it, enquote it
+        if (temp.Find(_T(" ")) >= 0)
+        {
+            temp.Replace(_T(":"), _T(":\""));
+            temp = temp + _T("\"");
+        }
+        sCmdLine += _T(" /");
+        sCmdLine += temp;
+    } 
 
-	return sCmdLine;
+    return sCmdLine;
 }

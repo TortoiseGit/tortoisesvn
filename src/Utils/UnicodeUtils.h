@@ -29,23 +29,23 @@
 class CUnicodeUtils
 {
 public:
-	CUnicodeUtils(void);
-	~CUnicodeUtils(void);
+    CUnicodeUtils(void);
+    ~CUnicodeUtils(void);
 #if defined(_MFC_VER) || defined(CSTRING_AVAILABLE)
-	static CStringA GetUTF8(const CStringW& string);
-	static CStringA GetUTF8(const CStringA& string);
-	static CString GetUnicode(const CStringA& string);
+    static CStringA GetUTF8(const CStringW& string);
+    static CStringA GetUTF8(const CStringA& string);
+    static CString GetUnicode(const CStringA& string);
     static wchar_t* UTF8ToUTF16 (const char* source, size_t size, wchar_t* target);
     static CString UTF8ToUTF16 (const std::string& string);
     static void UTF8ToUTF16 (const std::string& source, std::wstring& target);
-	static CStringA ConvertWCHARStringToUTF8(const CString& string);
+    static CStringA ConvertWCHARStringToUTF8(const CString& string);
 #endif
 #ifdef UNICODE
-	static std::string StdGetUTF8(const std::wstring& wide);
-	static std::wstring StdGetUnicode(const std::string& multibyte);
+    static std::string StdGetUTF8(const std::wstring& wide);
+    static std::wstring StdGetUnicode(const std::string& multibyte);
 #else
-	static std::string StdGetUTF8(std::string str) {return str;}
-	static std::string StdGetUnicode(std::string multibyte) {return multibyte;}
+    static std::string StdGetUTF8(std::string str) {return str;}
+    static std::string StdGetUnicode(std::string multibyte) {return multibyte;}
 #endif
 };
 
@@ -55,11 +55,11 @@ std::wstring MultibyteToWide(const std::string& multibyte);
 std::wstring UTF8ToWide(const std::string& multibyte);
 
 #ifdef UNICODE
-	tstring UTF8ToString(const std::string& string); 
-	std::string StringToUTF8(const tstring& string); 
+    tstring UTF8ToString(const std::string& string);
+    std::string StringToUTF8(const tstring& string);
 #else
-	tstring UTF8ToString(const std::string& string); 
-	std::string StringToUTF8(const tstring& string);
+    tstring UTF8ToString(const std::string& string);
+    std::string StringToUTF8(const tstring& string);
 #endif
 
 int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);

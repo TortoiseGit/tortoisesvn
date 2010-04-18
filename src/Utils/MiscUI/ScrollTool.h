@@ -34,42 +34,42 @@
  *    m_ScrollTool.SetText(&thumbpoint, _T("Line: %*ld"), maxchars, nTrackPos);
  *    break;
  * }
- * 
+ *
  */
 class CScrollTool : public CWnd
 {
 public:
-	CScrollTool();
+    CScrollTool();
 
 public:
-	/**
-	 * Initializes the tooltip control.
-	 * \param pos the position in screen coordinates where the tooltip should be shown
-	 * \param bRightAligned if set to true, the tooltip is right aligned with pos,
-	 *        depending on the text width shown in the tooltip
-	 */
+    /**
+     * Initializes the tooltip control.
+     * \param pos the position in screen coordinates where the tooltip should be shown
+     * \param bRightAligned if set to true, the tooltip is right aligned with pos,
+     *        depending on the text width shown in the tooltip
+     */
     bool Init(LPPOINT pos, bool bRightAligned = false);
-	/**
-	 * Sets the text which should be shown in the tooltip.
-	 * \param pos the position in screen coordinates where the tooltip should be shown
-	 * \fmt a format string
-	 */
-	void SetText(LPPOINT pos, const TCHAR * fmt, ...);
-	/**
-	 * Removes the tooltip control.
-	 */
-	void Clear();
-	/**
-	 * Returns the width of \c szText in pixels for the tooltip control
-	 */
-	LONG GetTextWidth(LPCTSTR szText);
+    /**
+     * Sets the text which should be shown in the tooltip.
+     * \param pos the position in screen coordinates where the tooltip should be shown
+     * \fmt a format string
+     */
+    void SetText(LPPOINT pos, const TCHAR * fmt, ...);
+    /**
+     * Removes the tooltip control.
+     */
+    void Clear();
+    /**
+     * Returns the width of \c szText in pixels for the tooltip control
+     */
+    LONG GetTextWidth(LPCTSTR szText);
 
-	virtual ~CScrollTool();
+    virtual ~CScrollTool();
 
 protected:
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
     TOOLINFO ti;
     bool m_bInitCalled;
-	bool m_bRightAligned;
+    bool m_bRightAligned;
 };

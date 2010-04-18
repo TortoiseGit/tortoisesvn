@@ -28,18 +28,18 @@
 class CPersonalDictionary
 {
 public:
-	CPersonalDictionary(LONG lLanguage = 0);
-	~CPersonalDictionary();
+    CPersonalDictionary(LONG lLanguage = 0);
+    ~CPersonalDictionary();
 
 public:
-	bool AddWord(const CString& sWord);
-	bool FindWord(const CString& sWord);
-	bool Save();
-	void Init(LONG lLanguage = 0) {m_lLanguage = lLanguage;}
+    bool AddWord(const CString& sWord);
+    bool FindWord(const CString& sWord);
+    bool Save();
+    void Init(LONG lLanguage = 0) {m_lLanguage = lLanguage;}
 private:
-	bool Load();
+    bool Load();
 private:
-	LONG m_lLanguage;
-	bool m_bLoaded;
-	std::set<CString> dict;
+    LONG m_lLanguage;
+    bool m_bLoaded;
+    std::set<CString> dict;
 };

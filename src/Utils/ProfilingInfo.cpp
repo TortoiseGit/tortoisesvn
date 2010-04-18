@@ -41,8 +41,8 @@ CRecordProfileEvent::CRecordProfileEvent (CProfilingRecord* aRecord)
 
 CRecordProfileEvent::~CRecordProfileEvent()
 {
-	if (record)
-		record->Add (__rdtsc() - start);
+    if (record)
+        record->Add (__rdtsc() - start);
 }
 
 #endif
@@ -102,38 +102,38 @@ CProfilingInfo::CProfilingInfo()
 
 CProfilingInfo::~CProfilingInfo(void)
 {
-	if (records.size() > 0)
-	{
-		// write profile to file
+    if (records.size() > 0)
+    {
+        // write profile to file
 
 #ifdef _WIN32
         char buffer [MAX_PATH];
-		if (GetModuleFileNameExA (GetCurrentProcess(), NULL, buffer, MAX_PATH) > 0)
+        if (GetModuleFileNameExA (GetCurrentProcess(), NULL, buffer, MAX_PATH) > 0)
 #else
         const char* buffer = "application";
 #endif
-			try
-			{
-				std::string fileName (buffer);
-				fileName += ".profile";
+            try
+            {
+                std::string fileName (buffer);
+                fileName += ".profile";
 
-				std::string report = GetInstance()->GetReport();
+                std::string report = GetInstance()->GetReport();
 
                 std::ofstream file;
                 file.open (fileName.c_str(), std::ios::binary | std::ios::out);
                 file.write (report.c_str(), report.size());
-			}
-			catch (...)
-			{
-				// ignore all file errors etc.
-			}
+            }
+            catch (...)
+            {
+                // ignore all file errors etc.
+            }
 
 
-		// free data
+        // free data
 
-		for (size_t i = 0; i < records.size(); ++i)
-			delete records[i];
-	}
+        for (size_t i = 0; i < records.size(); ++i)
+            delete records[i];
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -152,14 +152,14 @@ CProfilingInfo* CProfilingInfo::GetInstance()
 
 static std::string IntToStr (unsigned __int64 value)
 {
-	char buffer[100];
-	_ui64toa_s (value, buffer, 100, 10);
+    char buffer[100];
+    _ui64toa_s (value, buffer, 100, 10);
 
-	std::string result = buffer;
-	for (size_t i = 3; i < result.length(); i += 4)
-		result.insert (result.length() - i, 1, ',');
+    std::string result = buffer;
+    for (size_t i = 3; i < result.length(); i += 4)
+        result.insert (result.length() - i, 1, ',');
 
-	return result;
+    return result;
 };
 
 std::string CProfilingInfo::GetReport() const

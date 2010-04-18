@@ -27,14 +27,14 @@
 class IFilterEditValidator
 {
 public:
-	virtual bool	Validate(LPCTSTR string) = 0;
+    virtual bool    Validate(LPCTSTR string) = 0;
 };
 
 /**
  * \ingroup Utils
  * Filter edit control.
  * An edit control with a 'close' button on the right which clears the text
- * in the control, and an info button on the left (optional) where a context 
+ * in the control, and an info button on the left (optional) where a context
  * menu or other selection window can be shown.
  * \image html "filterEdit.jpg"
  *
@@ -63,90 +63,90 @@ public:
  */
 class CFilterEdit : public CEdit
 {
-	DECLARE_DYNAMIC(CFilterEdit)
+    DECLARE_DYNAMIC(CFilterEdit)
 public:
-	CFilterEdit();
-	virtual ~CFilterEdit();
+    CFilterEdit();
+    virtual ~CFilterEdit();
 
-	static const UINT WM_FILTEREDIT_INFOCLICKED;
-	static const UINT WM_FILTEREDIT_CANCELCLICKED;
+    static const UINT WM_FILTEREDIT_INFOCLICKED;
+    static const UINT WM_FILTEREDIT_CANCELCLICKED;
 
-	/**
-	 * Sets the icons to show for the cancel button. The first icon represents
-	 * the normal state, the second one when the button is pressed.
-	 * if \c bShowAlways is true, then the cancel button is shown even if there
-	 * is no text in the control.
-	 * \note To catch the WM_FILTEREDIT_CANCELCLICKED notification, handle the message directly (or use the 
-	 * WM_MESSAGE() macro). The LPARAM parameter of the message contains the
-	 * rectangle (pointer to RECT) of the info icon in screen coordinates.
-	 */
-	BOOL SetCancelBitmaps(UINT uCancelNormal, UINT uCancelPressed, BOOL bShowAlways = FALSE);
+    /**
+     * Sets the icons to show for the cancel button. The first icon represents
+     * the normal state, the second one when the button is pressed.
+     * if \c bShowAlways is true, then the cancel button is shown even if there
+     * is no text in the control.
+     * \note To catch the WM_FILTEREDIT_CANCELCLICKED notification, handle the message directly (or use the
+     * WM_MESSAGE() macro). The LPARAM parameter of the message contains the
+     * rectangle (pointer to RECT) of the info icon in screen coordinates.
+     */
+    BOOL SetCancelBitmaps(UINT uCancelNormal, UINT uCancelPressed, BOOL bShowAlways = FALSE);
 
-	/**
-	 * Sets the info icon shown on the left.
-	 * A notification is sent when the user clicks on that icon.
-	 * The notification is either WM_FILTEREDIT_INFOCLICKED or the one
-	 * set with SetButtonClickedMessageId().
-	 *
-	 * To catch the notification, handle the message directly (or use the 
-	 * WM_MESSAGE() macro). The LPARAM parameter of the message contains the
-	 * rectangle (pointer to RECT) of the info icon in screen coordinates.
-	 */
-	BOOL SetInfoIcon(UINT uInfo);
+    /**
+     * Sets the info icon shown on the left.
+     * A notification is sent when the user clicks on that icon.
+     * The notification is either WM_FILTEREDIT_INFOCLICKED or the one
+     * set with SetButtonClickedMessageId().
+     *
+     * To catch the notification, handle the message directly (or use the
+     * WM_MESSAGE() macro). The LPARAM parameter of the message contains the
+     * rectangle (pointer to RECT) of the info icon in screen coordinates.
+     */
+    BOOL SetInfoIcon(UINT uInfo);
 
-	/**
-	 * Sets the message Id which is sent when the user clicks on the info
-	 * button.
-	 */
-	void SetButtonClickedMessageId(UINT iButtonClickedMessageId, UINT iCancelClickedMessageId);
+    /**
+     * Sets the message Id which is sent when the user clicks on the info
+     * button.
+     */
+    void SetButtonClickedMessageId(UINT iButtonClickedMessageId, UINT iCancelClickedMessageId);
 
-	/**
-	 * To provide a cue banner even though we require the edit control to be multi line
-	 */
-	BOOL SetCueBanner(LPCWSTR lpcwText);
+    /**
+     * To provide a cue banner even though we require the edit control to be multi line
+     */
+    BOOL SetCueBanner(LPCWSTR lpcwText);
 
-	void SetValidator(IFilterEditValidator * pValidator) {m_pValidator = pValidator;}
+    void SetValidator(IFilterEditValidator * pValidator) {m_pValidator = pValidator;}
 protected:
-	virtual void	PreSubclassWindow( );
-	virtual BOOL	PreTranslateMessage( MSG* pMsg );
+    virtual void    PreSubclassWindow( );
+    virtual BOOL    PreTranslateMessage( MSG* pMsg );
 
-	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
-	afx_msg void	OnLButtonUp(UINT nFlags, CPoint point);
-	afx_msg int		OnCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg void	OnSize(UINT nType, int cx, int cy);
-	afx_msg LRESULT OnSetFont(WPARAM wParam, LPARAM lParam);
-	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
-	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
-	afx_msg BOOL	OnEnChange();
-	afx_msg HBRUSH	CtlColor(CDC* /*pDC*/, UINT /*nCtlColor*/);
-	afx_msg void	OnPaint();
-	afx_msg void	OnEnKillfocus();
-	afx_msg void	OnEnSetfocus();
-	DECLARE_MESSAGE_MAP()
+    afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
+    afx_msg void    OnLButtonUp(UINT nFlags, CPoint point);
+    afx_msg int     OnCreate(LPCREATESTRUCT lpCreateStruct);
+    afx_msg void    OnSize(UINT nType, int cx, int cy);
+    afx_msg LRESULT OnSetFont(WPARAM wParam, LPARAM lParam);
+    afx_msg BOOL    OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+    afx_msg void    OnLButtonDown(UINT nFlags, CPoint point);
+    afx_msg BOOL    OnEnChange();
+    afx_msg HBRUSH  CtlColor(CDC* /*pDC*/, UINT /*nCtlColor*/);
+    afx_msg void    OnPaint();
+    afx_msg void    OnEnKillfocus();
+    afx_msg void    OnEnSetfocus();
+    DECLARE_MESSAGE_MAP()
 
 
-	void			ResizeWindow();
-	CSize			GetIconSize(HICON hIcon);
-	void			Validate();
-	void			DrawDimText();
+    void            ResizeWindow();
+    CSize           GetIconSize(HICON hIcon);
+    void            Validate();
+    void            DrawDimText();
 
 protected:
-	HICON					m_hIconCancelNormal;
-	HICON					m_hIconCancelPressed;
-	HICON					m_hIconInfo;
-	CSize					m_sizeCancelIcon;
-	CSize					m_sizeInfoIcon;
-	CRect					m_rcEditArea;
-	CRect					m_rcButtonArea;
-	CRect					m_rcInfoArea;
-	BOOL					m_bShowCancelButtonAlways;
-	BOOL					m_bPressed;
-	UINT					m_iButtonClickedMessageId;
-	UINT					m_iCancelClickedMessageId;
-	COLORREF				m_backColor;
-	HBRUSH					m_brBack;
-	IFilterEditValidator *	m_pValidator;
-	auto_buffer<TCHAR>		m_pCueBanner;
+    HICON                   m_hIconCancelNormal;
+    HICON                   m_hIconCancelPressed;
+    HICON                   m_hIconInfo;
+    CSize                   m_sizeCancelIcon;
+    CSize                   m_sizeInfoIcon;
+    CRect                   m_rcEditArea;
+    CRect                   m_rcButtonArea;
+    CRect                   m_rcInfoArea;
+    BOOL                    m_bShowCancelButtonAlways;
+    BOOL                    m_bPressed;
+    UINT                    m_iButtonClickedMessageId;
+    UINT                    m_iCancelClickedMessageId;
+    COLORREF                m_backColor;
+    HBRUSH                  m_brBack;
+    IFilterEditValidator *  m_pValidator;
+    auto_buffer<TCHAR>      m_pCueBanner;
 };
 
 

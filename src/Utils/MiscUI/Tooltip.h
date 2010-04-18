@@ -31,32 +31,32 @@ class CToolTips : public CToolTipCtrl
 {
 // Construction
 public:
-	virtual BOOL Create(CWnd* pParentWnd, DWORD dwStyle = 0) 
-	{ 
-		m_pParentWnd = pParentWnd;
-		m_pParentWnd->EnableToolTips();
-		BOOL bRet = CToolTipCtrl::Create(pParentWnd, dwStyle);
-		SetMaxTipWidth(600);
+    virtual BOOL Create(CWnd* pParentWnd, DWORD dwStyle = 0)
+    {
+        m_pParentWnd = pParentWnd;
+        m_pParentWnd->EnableToolTips();
+        BOOL bRet = CToolTipCtrl::Create(pParentWnd, dwStyle);
+        SetMaxTipWidth(600);
         SetDelayTime (TTDT_AUTOPOP, 30000);
-		return bRet;
-	}
-	CToolTips() : CToolTipCtrl(), m_pParentWnd(NULL) {}
-	virtual ~CToolTips() {}
+        return bRet;
+    }
+    CToolTips() : CToolTipCtrl(), m_pParentWnd(NULL) {}
+    virtual ~CToolTips() {}
 
-	BOOL AddTool(CWnd* pWnd, UINT nIDText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
-	BOOL AddTool(CWnd* pWnd, LPCTSTR lpszText = LPSTR_TEXTCALLBACK, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
-	void AddTool(int nIdWnd, UINT nIdText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
-	void AddTool(int nIdWnd, CString sBalloonTipText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
+    BOOL AddTool(CWnd* pWnd, UINT nIDText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
+    BOOL AddTool(CWnd* pWnd, LPCTSTR lpszText = LPSTR_TEXTCALLBACK, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
+    void AddTool(int nIdWnd, UINT nIdText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
+    void AddTool(int nIdWnd, CString sBalloonTipText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
 
-	static BOOL ShowBalloon(CWnd* pWnd, UINT nIDText, UINT nIDTitle, UINT icon = 0);
-	void ShowBalloon(int nIdWnd, UINT nIdText, UINT nIDTitle, UINT icon = 0);
+    static BOOL ShowBalloon(CWnd* pWnd, UINT nIDText, UINT nIDTitle, UINT icon = 0);
+    void ShowBalloon(int nIdWnd, UINT nIdText, UINT nIDTitle, UINT icon = 0);
 
-	DECLARE_MESSAGE_MAP()
-	afx_msg BOOL OnTtnNeedText(NMHDR *pNMHDR, LRESULT *pResult);
+    DECLARE_MESSAGE_MAP()
+    afx_msg BOOL OnTtnNeedText(NMHDR *pNMHDR, LRESULT *pResult);
 
 private:
-	CWnd *	m_pParentWnd;
-	std::map<UINT, CString>		toolTextMap;
+    CWnd *  m_pParentWnd;
+    std::map<UINT, CString>     toolTextMap;
 };
 
 

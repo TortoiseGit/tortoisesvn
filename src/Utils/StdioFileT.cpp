@@ -25,85 +25,85 @@ CStdioFileT::CStdioFileT() : CStdioFile()
 
 CStdioFileT::CStdioFileT(LPCTSTR lpszFileName, UINT nOpenFlags)
 {
-	ASSERT(lpszFileName != NULL);
-	ASSERT(AfxIsValidString(lpszFileName));
+    ASSERT(lpszFileName != NULL);
+    ASSERT(AfxIsValidString(lpszFileName));
 
-	CFileException e;
-	if (!Open(lpszFileName, nOpenFlags, &e))
-		AfxThrowFileException(e.m_cause, e.m_lOsError, e.m_strFileName);
+    CFileException e;
+    if (!Open(lpszFileName, nOpenFlags, &e))
+        AfxThrowFileException(e.m_cause, e.m_lOsError, e.m_strFileName);
 }
 
 
 void CStdioFileT::WriteString(LPCSTR lpsz)
 {
-	ASSERT(lpsz != NULL);
-	ASSERT(m_pStream != NULL);
+    ASSERT(lpsz != NULL);
+    ASSERT(m_pStream != NULL);
 
-	if (lpsz == NULL)
-	{
-		AfxThrowInvalidArgException();
-	}
+    if (lpsz == NULL)
+    {
+        AfxThrowInvalidArgException();
+    }
 
-	if (fputs(lpsz, m_pStream) == EOF)
-		AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
+    if (fputs(lpsz, m_pStream) == EOF)
+        AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
 }
 
 
 void CStdioFileT::WriteString(LPCWSTR lpsz)
 {
-	ASSERT(lpsz != NULL);
-	ASSERT(m_pStream != NULL);
+    ASSERT(lpsz != NULL);
+    ASSERT(m_pStream != NULL);
 
-	if (lpsz == NULL)
-	{
-		AfxThrowInvalidArgException();
-	}
+    if (lpsz == NULL)
+    {
+        AfxThrowInvalidArgException();
+    }
 
-	if (fputws(lpsz, m_pStream) == EOF)
-		AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
+    if (fputws(lpsz, m_pStream) == EOF)
+        AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
 }
 
 BOOL CStdioFileT::ReadString(CStringA& rString)
 {
-	ASSERT_VALID(this);
+    ASSERT_VALID(this);
 
 #ifndef afxChNil
-	static TCHAR afxChNil = '\0';
+    static TCHAR afxChNil = '\0';
 #endif
 
-	rString = &afxChNil;    // empty string without deallocating
-	const int nMaxSize = 128;
-	LPSTR lpsz = rString.GetBuffer(nMaxSize);
-	LPSTR lpszResult;
-	int nLen = 0;
-	for (;;)
-	{
-		lpszResult = fgets(lpsz, nMaxSize+1, m_pStream);
-		rString.ReleaseBuffer();
+    rString = &afxChNil;    // empty string without deallocating
+    const int nMaxSize = 128;
+    LPSTR lpsz = rString.GetBuffer(nMaxSize);
+    LPSTR lpszResult;
+    int nLen = 0;
+    for (;;)
+    {
+        lpszResult = fgets(lpsz, nMaxSize+1, m_pStream);
+        rString.ReleaseBuffer();
 
-		// handle error/eof case
-		if (lpszResult == NULL && !feof(m_pStream))
-		{
-			clearerr(m_pStream);
-			AfxThrowFileException(CFileException::genericException, _doserrno,
-				m_strFileName);
-		}
+        // handle error/eof case
+        if (lpszResult == NULL && !feof(m_pStream))
+        {
+            clearerr(m_pStream);
+            AfxThrowFileException(CFileException::genericException, _doserrno,
+                m_strFileName);
+        }
 
-		// if string is read completely or EOF
-		if (lpszResult == NULL ||
-			(nLen = (int)strlen(lpsz)) < nMaxSize ||
-			lpsz[nLen-1] == '\n')
-			break;
+        // if string is read completely or EOF
+        if (lpszResult == NULL ||
+            (nLen = (int)strlen(lpsz)) < nMaxSize ||
+            lpsz[nLen-1] == '\n')
+            break;
 
-		nLen = rString.GetLength();
-		lpsz = rString.GetBuffer(nMaxSize + nLen) + nLen;
-	}
+        nLen = rString.GetLength();
+        lpsz = rString.GetBuffer(nMaxSize + nLen) + nLen;
+    }
 
-	// remove '\n' from end of string if present
-	lpsz = rString.GetBuffer(0);
-	nLen = rString.GetLength();
-	if (nLen != 0 && lpsz[nLen-1] == '\n')
-		rString.GetBufferSetLength(nLen-1);
+    // remove '\n' from end of string if present
+    lpsz = rString.GetBuffer(0);
+    nLen = rString.GetLength();
+    if (nLen != 0 && lpsz[nLen-1] == '\n')
+        rString.GetBufferSetLength(nLen-1);
 
-	return lpszResult != NULL;
+    return lpszResult != NULL;
 }

@@ -33,60 +33,60 @@ class CSysImageList : public CImageList
 {
 // Singleton constructor and destructor (private)
 private:
-	CSysImageList();
-	~CSysImageList();
+    CSysImageList();
+    ~CSysImageList();
 
 // Singleton specific operations
 public:
-	/**
-	 * Returns a reference to the one and only instance of this class.
-	 */
-	static CSysImageList& GetInstance();
-	/**
-	 * Frees all allocated resources (if necessary). Don't call this
-	 * function when the image list is currently bound to any control!
-	 */
-	static void Cleanup();
+    /**
+     * Returns a reference to the one and only instance of this class.
+     */
+    static CSysImageList& GetInstance();
+    /**
+     * Frees all allocated resources (if necessary). Don't call this
+     * function when the image list is currently bound to any control!
+     */
+    static void Cleanup();
 
 // Operations
 public:
-	/**
-	 * Returns the icon index for a directory.
-	 */
-	int GetDirIconIndex() const;
-	/**
-	 * Returns the icon index for a directory that's open (e.g. for a tree control)
-	 */
-	int GetDirOpenIconIndex() const;
-	/**
-	 * Returns the icon index for a file which has no special icon associated.
-	 */
-	int GetDefaultIconIndex() const;
-	/**
-	 * Returns the icon index for the specified \a file. Only the file extension
-	 * is used to determine the file's icon.
-	 */
-	int GetFileIconIndex(const CString& file) const;
+    /**
+     * Returns the icon index for a directory.
+     */
+    int GetDirIconIndex() const;
+    /**
+     * Returns the icon index for a directory that's open (e.g. for a tree control)
+     */
+    int GetDirOpenIconIndex() const;
+    /**
+     * Returns the icon index for a file which has no special icon associated.
+     */
+    int GetDefaultIconIndex() const;
+    /**
+     * Returns the icon index for the specified \a file. Only the file extension
+     * is used to determine the file's icon.
+     */
+    int GetFileIconIndex(const CString& file) const;
 
-	/**
-	 * Get the index for a SVN-style path file.  
-	 * Uses a cache to speed things up
-	 */
-	int GetPathIconIndex(const CTSVNPath& file) const;
+    /**
+     * Get the index for a SVN-style path file.  
+     * Uses a cache to speed things up
+     */
+    int GetPathIconIndex(const CTSVNPath& file) const;
 
-	/**
-	 * Adds an icon to the image list and returns the index of the
-	 * added icon (or -1 if adding the icon fails)
-	 */
-	int AddIcon(const HICON hIcon);
+    /**
+     * Adds an icon to the image list and returns the index of the
+     * added icon (or -1 if adding the icon fails)
+     */
+    int AddIcon(const HICON hIcon);
 
 private:
-	static CSysImageList *instance;
+    static CSysImageList *instance;
 
-	typedef std::map<CString, int> IconIndexMap;
-	mutable IconIndexMap m_indexCache;
+    typedef std::map<CString, int> IconIndexMap;
+    mutable IconIndexMap m_indexCache;
 
-	int GetFileIcon( LPCTSTR file, DWORD attributes, UINT extraFlags ) const;
+    int GetFileIcon( LPCTSTR file, DWORD attributes, UINT extraFlags ) const;
 };
 
 

@@ -11,21 +11,21 @@
  */
 class CXPImageButton : public CButton
 {
-	DECLARE_DYNAMIC(CXPImageButton)
+    DECLARE_DYNAMIC(CXPImageButton)
 
 public:
-	CXPImageButton();
-	virtual ~CXPImageButton();
+    CXPImageButton();
+    virtual ~CXPImageButton();
 
 protected:
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	afx_msg void OnNotifyCustomDraw ( NMHDR * pNotifyStruct, LRESULT* result );
+    afx_msg void OnNotifyCustomDraw ( NMHDR * pNotifyStruct, LRESULT* result );
 
-	void DrawBitmap (HDC hDC, const CRect& Rect, DWORD style);
-	void DrawIcon (HDC hDC, const CRect& Rect, DWORD style);
-	int ImageLeft(int cx, const CRect& Rect, DWORD style) const;
-	int ImageTop(int cy, const CRect& Rect, DWORD style) const;
-	CXPTheme m_xpButton;
+    void DrawBitmap (HDC hDC, const CRect& Rect, DWORD style);
+    void DrawIcon (HDC hDC, const CRect& Rect, DWORD style);
+    int ImageLeft(int cx, const CRect& Rect, DWORD style) const;
+    int ImageTop(int cy, const CRect& Rect, DWORD style) const;
+    CXPTheme m_xpButton;
 };
 

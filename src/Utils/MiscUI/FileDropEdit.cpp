@@ -42,17 +42,17 @@ END_MESSAGE_MAP()
 
 void CFileDropEdit::PreSubclassWindow()
 {
-	m_pDropTarget.reset (new CFileDropTarget (m_hWnd));
-	RegisterDragDrop(m_hWnd, m_pDropTarget.get());
-	// create the supported formats:
-	FORMATETC ftetc={0}; 
-	ftetc.cfFormat = CF_TEXT; 
-	ftetc.dwAspect = DVASPECT_CONTENT; 
-	ftetc.lindex = -1; 
-	ftetc.tymed = TYMED_HGLOBAL; 
-	m_pDropTarget->AddSuportedFormat(ftetc); 
-	ftetc.cfFormat=CF_HDROP; 
-	m_pDropTarget->AddSuportedFormat(ftetc);
+    m_pDropTarget.reset (new CFileDropTarget (m_hWnd));
+    RegisterDragDrop(m_hWnd, m_pDropTarget.get());
+    // create the supported formats:
+    FORMATETC ftetc={0}; 
+    ftetc.cfFormat = CF_TEXT; 
+    ftetc.dwAspect = DVASPECT_CONTENT; 
+    ftetc.lindex = -1; 
+    ftetc.tymed = TYMED_HGLOBAL; 
+    m_pDropTarget->AddSuportedFormat(ftetc); 
+    ftetc.cfFormat=CF_HDROP; 
+    m_pDropTarget->AddSuportedFormat(ftetc);
 
-	CEdit::PreSubclassWindow();
+    CEdit::PreSubclassWindow();
 }

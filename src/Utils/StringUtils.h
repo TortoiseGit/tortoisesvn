@@ -19,7 +19,7 @@
 #pragma once
 
 #ifdef UNICODE
-#define _tcswildcmp	wcswildcmp
+#define _tcswildcmp wcswildcmp
 #else
 #define _tcswildcmp strwildcmp
 #endif
@@ -31,7 +31,7 @@
  * \param string the string to compare the wild card to
  * \return TRUE if the wild card matches the string, 0 otherwise
  * \par example
- * \code 
+ * \code
  * if (strwildcmp("bl?hblah.*", "bliblah.jpeg"))
  *  printf("success\n");
  * else
@@ -59,59 +59,59 @@ class CStringUtils
 {
 public:
 #ifdef _MFC_VER
-	static BOOL WildCardMatch(const CString& wildcard, const CString& string);
-	static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
-	static CString WordWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
+    static BOOL WildCardMatch(const CString& wildcard, const CString& string);
+    static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
+    static CString WordWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
 
-	/**
-	 * Removes all '&' chars from a string.
-	 */
-	static void RemoveAccelerators(CString& text);
+    /**
+     * Removes all '&' chars from a string.
+     */
+    static void RemoveAccelerators(CString& text);
 
-	/**
-	 * Writes an ASCII CString to the clipboard in CF_TEXT format
-	 */
-	static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID lcid, HWND hOwningWnd = NULL);
-	/**
-	 * Writes a String to the clipboard in both CF_UNICODETEXT and CF_TEXT format
-	 */
-	static bool WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd = NULL);
+    /**
+     * Writes an ASCII CString to the clipboard in CF_TEXT format
+     */
+    static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID lcid, HWND hOwningWnd = NULL);
+    /**
+     * Writes a String to the clipboard in both CF_UNICODETEXT and CF_TEXT format
+     */
+    static bool WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd = NULL);
 
-	/**
-	* Writes an ASCII CString to the clipboard in TSVN_UNIFIEDDIFF format, which is basically the patch file
-	* as a ASCII string.
-	*/
-	static bool WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
+    /**
+    * Writes an ASCII CString to the clipboard in TSVN_UNIFIEDDIFF format, which is basically the patch file
+    * as a ASCII string.
+    */
+    static bool WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
 
-	/**
-	 * Reads the string \text from the file \path in utf8 encoding.
-	 */
-	static bool ReadStringFromTextFile(const CString& path, CString& text);
+    /**
+     * Reads the string \text from the file \path in utf8 encoding.
+     */
+    static bool ReadStringFromTextFile(const CString& path, CString& text);
 
 #endif
 #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
-	/**
-	 * Find and return the number n of starting characters equal between 
-	 * \ref lhs and \ref rhs. (max n: lhs.Left(n) == rhs.Left(n))
-	 */
-	static int GetMatchingLength (const CString& lhs, const CString& rhs);
+    /**
+     * Find and return the number n of starting characters equal between
+     * \ref lhs and \ref rhs. (max n: lhs.Left(n) == rhs.Left(n))
+     */
+    static int GetMatchingLength (const CString& lhs, const CString& rhs);
 
-	/**
-	 * Optimizing wrapper around CompareNoCase.
-	 */
-	static int FastCompareNoCase (const CStringW& lhs, const CStringW& rhs);
+    /**
+     * Optimizing wrapper around CompareNoCase.
+     */
+    static int FastCompareNoCase (const CStringW& lhs, const CStringW& rhs);
 #endif
-	/**
-	 * Writes the string \text to the file \path, either in utf16 or utf8 encoding,
-	 * depending on the \c bUTF8 param.
-	 */
-	static bool WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 = true);
+    /**
+     * Writes the string \text to the file \path, either in utf16 or utf8 encoding,
+     * depending on the \c bUTF8 param.
+     */
+    static bool WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 = true);
 
-	/**
-	 * Replace all pipe (|) character in the string with a NULL character. Used
-	 * for passing into Win32 functions that require such representation
-	 */
-	static void PipesToNulls(TCHAR* buffer, size_t length);
-	static void PipesToNulls(TCHAR* buffer);
+    /**
+     * Replace all pipe (|) character in the string with a NULL character. Used
+     * for passing into Win32 functions that require such representation
+     */
+    static void PipesToNulls(TCHAR* buffer, size_t length);
+    static void PipesToNulls(TCHAR* buffer);
 };
 

@@ -23,7 +23,7 @@
 
 CIconMenu::CIconMenu(void) : CMenu()
 {
-	bShowIcons = !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowAppContextMenuIcons"), TRUE));
+    bShowIcons = !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowAppContextMenuIcons"), TRUE));
 }
 
 CIconMenu::~CIconMenu(void)
@@ -32,7 +32,7 @@ CIconMenu::~CIconMenu(void)
 
 BOOL CIconMenu::CreateMenu()
 {
-	if (__super::CreateMenu() == FALSE)
+    if (__super::CreateMenu() == FALSE)
         return FALSE;
 
     SetMenuStyle();
@@ -42,7 +42,7 @@ BOOL CIconMenu::CreateMenu()
 
 BOOL CIconMenu::CreatePopupMenu()
 {
-	if (__super::CreatePopupMenu() == FALSE)
+    if (__super::CreatePopupMenu() == FALSE)
         return FALSE;
 
     SetMenuStyle();
@@ -52,78 +52,78 @@ BOOL CIconMenu::CreatePopupMenu()
 
 BOOL CIconMenu::SetMenuStyle(void)
 {
-	if (!SysInfo::Instance().IsVistaOrLater())
-		return FALSE;
+    if (!SysInfo::Instance().IsVistaOrLater())
+        return FALSE;
 
-	MENUINFO MenuInfo;
+    MENUINFO MenuInfo;
 
-	memset(&MenuInfo, 0, sizeof(MenuInfo));
-	
-	MenuInfo.cbSize  = sizeof(MenuInfo);
-	MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;
-	MenuInfo.dwStyle = MNS_CHECKORBMP;
-	
-	SetMenuInfo(&MenuInfo);
+    memset(&MenuInfo, 0, sizeof(MenuInfo));
+
+    MenuInfo.cbSize  = sizeof(MenuInfo);
+    MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;
+    MenuInfo.dwStyle = MNS_CHECKORBMP;
+
+    SetMenuInfo(&MenuInfo);
 
     return TRUE;
 }
 
 BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon /* = 0 */)
 {
-	TCHAR menutextbuffer[255] = {0};
-	_tcscpy_s(menutextbuffer, 255, lpszNewItem);
+    TCHAR menutextbuffer[255] = {0};
+    _tcscpy_s(menutextbuffer, 255, lpszNewItem);
 
-	if ((uIcon == 0)||(!bShowIcons))
-		return CMenu::AppendMenu(MF_STRING | MF_ENABLED, nIDNewItem, menutextbuffer);
+    if ((uIcon == 0)||(!bShowIcons))
+        return CMenu::AppendMenu(MF_STRING | MF_ENABLED, nIDNewItem, menutextbuffer);
 
-	MENUITEMINFO info = {0};
-	info.cbSize = sizeof(info);
-	info.fMask = MIIM_STRING | MIIM_FTYPE | MIIM_ID | MIIM_BITMAP;
-	info.fType = MFT_STRING;
-	info.wID = (UINT)nIDNewItem;
-	info.dwTypeData = menutextbuffer;
-	if (SysInfo::Instance().IsVistaOrLater())
-	{
-		info.hbmpItem = bitmapUtils.IconToBitmapPARGB32(AfxGetResourceHandle(), uIcon);
-	}
-	else
-	{
-		info.hbmpItem = HBMMENU_CALLBACK;
-	}
-	icons[nIDNewItem] = uIcon;
-	
-	return InsertMenuItem((UINT)nIDNewItem, &info);
+    MENUITEMINFO info = {0};
+    info.cbSize = sizeof(info);
+    info.fMask = MIIM_STRING | MIIM_FTYPE | MIIM_ID | MIIM_BITMAP;
+    info.fType = MFT_STRING;
+    info.wID = (UINT)nIDNewItem;
+    info.dwTypeData = menutextbuffer;
+    if (SysInfo::Instance().IsVistaOrLater())
+    {
+        info.hbmpItem = bitmapUtils.IconToBitmapPARGB32(AfxGetResourceHandle(), uIcon);
+    }
+    else
+    {
+        info.hbmpItem = HBMMENU_CALLBACK;
+    }
+    icons[nIDNewItem] = uIcon;
+
+    return InsertMenuItem((UINT)nIDNewItem, &info);
 }
 
 BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon /* = 0 */)
 {
-	CString temp;
-	temp.LoadString((UINT)nNewItem);
+    CString temp;
+    temp.LoadString((UINT)nNewItem);
 
-	return AppendMenuIcon(nIDNewItem, temp, uIcon);
+    return AppendMenuIcon(nIDNewItem, temp, uIcon);
 }
 
 void CIconMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-	if ((lpDrawItemStruct==NULL)||(lpDrawItemStruct->CtlType != ODT_MENU))
-		return;		//not for a menu
-	HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(icons[lpDrawItemStruct->itemID]), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	if (hIcon == NULL)
-		return;
-	DrawIconEx(lpDrawItemStruct->hDC,
-		lpDrawItemStruct->rcItem.left - 16,
-		lpDrawItemStruct->rcItem.top + (lpDrawItemStruct->rcItem.bottom - lpDrawItemStruct->rcItem.top - 16) / 2,
-		hIcon, 16, 16,
-		0, NULL, DI_NORMAL);
-	DestroyIcon(hIcon);
+    if ((lpDrawItemStruct==NULL)||(lpDrawItemStruct->CtlType != ODT_MENU))
+        return;     //not for a menu
+    HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(icons[lpDrawItemStruct->itemID]), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+    if (hIcon == NULL)
+        return;
+    DrawIconEx(lpDrawItemStruct->hDC,
+        lpDrawItemStruct->rcItem.left - 16,
+        lpDrawItemStruct->rcItem.top + (lpDrawItemStruct->rcItem.bottom - lpDrawItemStruct->rcItem.top - 16) / 2,
+        hIcon, 16, 16,
+        0, NULL, DI_NORMAL);
+    DestroyIcon(hIcon);
 }
 
 void CIconMenu::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 {
-	if (lpMeasureItemStruct==NULL)
-		return;
-	lpMeasureItemStruct->itemWidth += 2;
-	if (lpMeasureItemStruct->itemHeight < 16)
-		lpMeasureItemStruct->itemHeight = 16;
+    if (lpMeasureItemStruct==NULL)
+        return;
+    lpMeasureItemStruct->itemWidth += 2;
+    if (lpMeasureItemStruct->itemHeight < 16)
+        lpMeasureItemStruct->itemHeight = 16;
 }
 

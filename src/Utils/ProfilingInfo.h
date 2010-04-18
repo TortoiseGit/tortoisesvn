@@ -68,7 +68,7 @@ private:
 
 public:
 
-    /// construction 
+    /// construction
 
     CProfilingRecord ( const char* name
                      , const char* file
@@ -84,13 +84,13 @@ public:
 
     /// data access
 
-	const char* GetName() const {return name;}
-	const char* GetFile() const {return file;}
-	int GetLine() const {return line;}
+    const char* GetName() const {return name;}
+    const char* GetFile() const {return file;}
+    int GetLine() const {return line;}
 
-	size_t GetCount() const {return count;}
+    size_t GetCount() const {return count;}
     unsigned __int64 GetSum() const {return sum;}
-	unsigned __int64 GetMinValue() const {return minValue;}
+    unsigned __int64 GetMinValue() const {return minValue;}
     unsigned __int64 GetMaxValue() const {return maxValue;}
 };
 
@@ -105,7 +105,7 @@ private:
 
     CProfilingRecord* record;
 
-	/// the initial CPU counter value
+    /// the initial CPU counter value
 
     unsigned __int64 start;
 
@@ -115,14 +115,14 @@ public:
 
     CRecordProfileEvent (CProfilingRecord* aRecord);
 
-	/// destruction: time interval to profiling record, 
-	/// if Stop() had not been called before
+    /// destruction: time interval to profiling record,
+    /// if Stop() had not been called before
 
-	~CRecordProfileEvent();
+    ~CRecordProfileEvent();
 
-	/// don't wait for destruction
+    /// don't wait for destruction
 
-	void Stop();
+    void Stop();
 };
 
 #ifndef _DEBUG
@@ -137,8 +137,8 @@ inline CRecordProfileEvent::CRecordProfileEvent (CProfilingRecord* aRecord)
 
 inline CRecordProfileEvent::~CRecordProfileEvent()
 {
-	if (record)
-		record->Add (__rdtsc() - start);
+    if (record)
+        record->Add (__rdtsc() - start);
 }
 
 #endif
@@ -147,11 +147,11 @@ inline CRecordProfileEvent::~CRecordProfileEvent()
 
 inline void CRecordProfileEvent::Stop()
 {
-	if (record)
-	{
-		record->Add (__rdtsc() - start);
-		record = NULL;
-	}
+    if (record)
+    {
+        record->Add (__rdtsc() - start);
+        record = NULL;
+    }
 }
 
 /**
@@ -171,9 +171,9 @@ private:
     CProfilingInfo();
     ~CProfilingInfo(void);
 
-	/// create report
+    /// create report
 
-	std::string GetReport() const;
+    std::string GetReport() const;
 
 public:
 

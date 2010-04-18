@@ -94,7 +94,7 @@ void CPathEdit::FitPathToWidth(CString& path)
 {
     CRect rect;
     GetClientRect(&rect);
-    rect.right -= 5;	// assume a border size of 5 pixels
+    rect.right -= 5;    // assume a border size of 5 pixels
     
     CDC * pDC = GetDC();
     if (pDC)

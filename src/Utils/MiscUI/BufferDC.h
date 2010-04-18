@@ -2,30 +2,30 @@
 #include "afxwin.h"
 
 class CBufferDC :
-	public CPaintDC
+    public CPaintDC
 {
-	DECLARE_DYNAMIC(CBufferDC)
+    DECLARE_DYNAMIC(CBufferDC)
 
 private:
-	HDC m_hOutputDC;
-	HDC m_hAttributeDC;
-	HDC m_hMemoryDC;
+    HDC m_hOutputDC;
+    HDC m_hAttributeDC;
+    HDC m_hMemoryDC;
 
-	HBITMAP  m_hPaintBitmap;
-	HBITMAP  m_hOldBitmap;
+    HBITMAP  m_hPaintBitmap;
+    HBITMAP  m_hOldBitmap;
 
-	RECT m_ClientRect;
+    RECT m_ClientRect;
 
-	BOOL m_bBoundsUpdated;
+    BOOL m_bBoundsUpdated;
 
 public:
-	CBufferDC(CWnd* pWnd);
-	~CBufferDC(void);
+    CBufferDC(CWnd* pWnd);
+    ~CBufferDC(void);
 
 private:
-	void Flush();
+    void Flush();
 
 public:
-	UINT SetBoundsRect(LPCRECT lpRectBounds, UINT flags);
-	virtual BOOL RestoreDC(int nSavedDC);
+    UINT SetBoundsRect(LPCRECT lpRectBounds, UINT flags);
+    virtual BOOL RestoreDC(int nSavedDC);
 };

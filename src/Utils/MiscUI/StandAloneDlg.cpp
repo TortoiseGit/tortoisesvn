@@ -22,10 +22,10 @@
 #include "MessageBox.h"
 
 BEGIN_TEMPLATE_MESSAGE_MAP(CStandAloneDialogTmpl, BaseType, BaseType)
-	ON_WM_ERASEBKGND()
-	ON_WM_PAINT()
-	ON_WM_NCHITTEST()
-	ON_WM_DWMCOMPOSITIONCHANGED()
+    ON_WM_ERASEBKGND()
+    ON_WM_PAINT()
+    ON_WM_NCHITTEST()
+    ON_WM_DWMCOMPOSITIONCHANGED()
 END_MESSAGE_MAP()
 
 IMPLEMENT_DYNAMIC(CStandAloneDialog, CStandAloneDialogTmpl<CDialog>)
@@ -47,113 +47,113 @@ END_MESSAGE_MAP()
 
 IMPLEMENT_DYNAMIC(CResizableStandAloneDialog, CStandAloneDialogTmpl<CResizableDialog>)
 CResizableStandAloneDialog::CResizableStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd /*= NULL*/)
-	: CStandAloneDialogTmpl<CResizableDialog>(nIDTemplate, pParentWnd)
-	, m_bVertical(false)
-	, m_bHorizontal(false)
+    : CStandAloneDialogTmpl<CResizableDialog>(nIDTemplate, pParentWnd)
+    , m_bVertical(false)
+    , m_bHorizontal(false)
 {
 }
 
 BEGIN_MESSAGE_MAP(CResizableStandAloneDialog, CStandAloneDialogTmpl<CResizableDialog>)
-	ON_WM_SIZING()
-	ON_WM_MOVING()
-	ON_WM_NCMBUTTONUP()
-	ON_WM_NCRBUTTONUP()
+    ON_WM_SIZING()
+    ON_WM_MOVING()
+    ON_WM_NCMBUTTONUP()
+    ON_WM_NCRBUTTONUP()
 END_MESSAGE_MAP()
 
 void CResizableStandAloneDialog::OnSizing(UINT fwSide, LPRECT pRect)
 {
-	m_bVertical = m_bVertical && (fwSide == WMSZ_LEFT || fwSide == WMSZ_RIGHT);
-	m_bHorizontal = m_bHorizontal && (fwSide == WMSZ_TOP || fwSide == WMSZ_BOTTOM);
-	CStandAloneDialogTmpl<CResizableDialog>::OnSizing(fwSide, pRect);
+    m_bVertical = m_bVertical && (fwSide == WMSZ_LEFT || fwSide == WMSZ_RIGHT);
+    m_bHorizontal = m_bHorizontal && (fwSide == WMSZ_TOP || fwSide == WMSZ_BOTTOM);
+    CStandAloneDialogTmpl<CResizableDialog>::OnSizing(fwSide, pRect);
 }
 
 void CResizableStandAloneDialog::OnMoving(UINT fwSide, LPRECT pRect)
 {
-	m_bVertical = m_bHorizontal = false;
-	CStandAloneDialogTmpl<CResizableDialog>::OnMoving(fwSide, pRect);
+    m_bVertical = m_bHorizontal = false;
+    CStandAloneDialogTmpl<CResizableDialog>::OnMoving(fwSide, pRect);
 }
 
-void CResizableStandAloneDialog::OnNcMButtonUp(UINT nHitTest, CPoint point) 
+void CResizableStandAloneDialog::OnNcMButtonUp(UINT nHitTest, CPoint point)
 {
-	WINDOWPLACEMENT windowPlacement;
-	if ((nHitTest == HTMAXBUTTON) && GetWindowPlacement(&windowPlacement) && windowPlacement.showCmd == SW_SHOWNORMAL)
-	{
-		CRect rcWindowRect;
-		GetWindowRect(&rcWindowRect);
+    WINDOWPLACEMENT windowPlacement;
+    if ((nHitTest == HTMAXBUTTON) && GetWindowPlacement(&windowPlacement) && windowPlacement.showCmd == SW_SHOWNORMAL)
+    {
+        CRect rcWindowRect;
+        GetWindowRect(&rcWindowRect);
 
-		MONITORINFO mi = {0};
-		mi.cbSize = sizeof(MONITORINFO);
+        MONITORINFO mi = {0};
+        mi.cbSize = sizeof(MONITORINFO);
 
-		if (m_bVertical)
-		{
-			rcWindowRect.top = m_rcOrgWindowRect.top;
-			rcWindowRect.bottom = m_rcOrgWindowRect.bottom;
-		}
-		else if (GetMonitorInfo(MonitorFromWindow(m_hWnd, MONITOR_DEFAULTTONEAREST), &mi))
-		{
-			m_rcOrgWindowRect.top = rcWindowRect.top;
-			m_rcOrgWindowRect.bottom = rcWindowRect.bottom;
-			rcWindowRect.top = mi.rcWork.top;
-			rcWindowRect.bottom = mi.rcWork.bottom;
-		}
-		m_bVertical = !m_bVertical;
-		m_bHorizontal = m_bHorizontal;
-		MoveWindow(&rcWindowRect);
-	}
-	CStandAloneDialogTmpl<CResizableDialog>::OnNcMButtonUp(nHitTest, point);
+        if (m_bVertical)
+        {
+            rcWindowRect.top = m_rcOrgWindowRect.top;
+            rcWindowRect.bottom = m_rcOrgWindowRect.bottom;
+        }
+        else if (GetMonitorInfo(MonitorFromWindow(m_hWnd, MONITOR_DEFAULTTONEAREST), &mi))
+        {
+            m_rcOrgWindowRect.top = rcWindowRect.top;
+            m_rcOrgWindowRect.bottom = rcWindowRect.bottom;
+            rcWindowRect.top = mi.rcWork.top;
+            rcWindowRect.bottom = mi.rcWork.bottom;
+        }
+        m_bVertical = !m_bVertical;
+        m_bHorizontal = m_bHorizontal;
+        MoveWindow(&rcWindowRect);
+    }
+    CStandAloneDialogTmpl<CResizableDialog>::OnNcMButtonUp(nHitTest, point);
 }
 
-void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point) 
+void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point)
 {
-	WINDOWPLACEMENT windowPlacement;
-	if ((nHitTest == HTMAXBUTTON) && GetWindowPlacement(&windowPlacement) && windowPlacement.showCmd == SW_SHOWNORMAL)
-	{
-		CRect rcWindowRect;
-		GetWindowRect(&rcWindowRect);
+    WINDOWPLACEMENT windowPlacement;
+    if ((nHitTest == HTMAXBUTTON) && GetWindowPlacement(&windowPlacement) && windowPlacement.showCmd == SW_SHOWNORMAL)
+    {
+        CRect rcWindowRect;
+        GetWindowRect(&rcWindowRect);
 
-		MONITORINFO mi = {0};
-		mi.cbSize = sizeof(MONITORINFO);
+        MONITORINFO mi = {0};
+        mi.cbSize = sizeof(MONITORINFO);
 
-		if (m_bHorizontal)
-		{
-			rcWindowRect.left = m_rcOrgWindowRect.left;
-			rcWindowRect.right = m_rcOrgWindowRect.right;
-		}
-		else if (GetMonitorInfo(MonitorFromWindow(m_hWnd, MONITOR_DEFAULTTONEAREST), &mi))
-		{
-			m_rcOrgWindowRect.left = rcWindowRect.left;
-			m_rcOrgWindowRect.right = rcWindowRect.right;
-			rcWindowRect.left = mi.rcWork.left;
-			rcWindowRect.right = mi.rcWork.right;
-		}
-		m_bVertical = m_bVertical;
-		m_bHorizontal = !m_bHorizontal;
-		MoveWindow(&rcWindowRect);
-		// WORKAROUND
-		// for some reasons, when the window is resized horizontally, its menu size is not get adjusted.
-		// so, we force it to happen.
-		SetMenu(GetMenu());
-	}
-	CStandAloneDialogTmpl<CResizableDialog>::OnNcRButtonUp(nHitTest, point);
+        if (m_bHorizontal)
+        {
+            rcWindowRect.left = m_rcOrgWindowRect.left;
+            rcWindowRect.right = m_rcOrgWindowRect.right;
+        }
+        else if (GetMonitorInfo(MonitorFromWindow(m_hWnd, MONITOR_DEFAULTTONEAREST), &mi))
+        {
+            m_rcOrgWindowRect.left = rcWindowRect.left;
+            m_rcOrgWindowRect.right = rcWindowRect.right;
+            rcWindowRect.left = mi.rcWork.left;
+            rcWindowRect.right = mi.rcWork.right;
+        }
+        m_bVertical = m_bVertical;
+        m_bHorizontal = !m_bHorizontal;
+        MoveWindow(&rcWindowRect);
+        // WORKAROUND
+        // for some reasons, when the window is resized horizontally, its menu size is not get adjusted.
+        // so, we force it to happen.
+        SetMenu(GetMenu());
+    }
+    CStandAloneDialogTmpl<CResizableDialog>::OnNcRButtonUp(nHitTest, point);
 }
 
 void CResizableStandAloneDialog::OnCantStartThread()
 {
-	CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+    CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 }
 
 bool CResizableStandAloneDialog::OnEnterPressed()
 {
-	if (GetAsyncKeyState(VK_CONTROL)&0x8000)
-	{
-		if ( GetDlgItem(IDOK)->IsWindowEnabled() )
-		{
-			if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
-				PostMessage(WM_COMMAND, IDOK);
-		}
-		return true;
-	}
-	return false;
+    if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+    {
+        if ( GetDlgItem(IDOK)->IsWindowEnabled() )
+        {
+            if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
+                PostMessage(WM_COMMAND, IDOK);
+        }
+        return true;
+    }
+    return false;
 }
 
 BEGIN_MESSAGE_MAP(CStateDialog, CDialog)

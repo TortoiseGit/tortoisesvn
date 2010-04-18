@@ -26,11 +26,11 @@
 class CmdUrlParser
 {
 public:
-	CmdUrlParser(const CString& url);
-	~CmdUrlParser();
+    CmdUrlParser(const CString& url);
+    ~CmdUrlParser();
 
-	CString GetCommandLine();
+    CString GetCommandLine();
 
 private:
-	CString			m_cmdUrl;
+    CString         m_cmdUrl;
 };

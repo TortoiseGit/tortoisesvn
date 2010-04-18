@@ -28,9 +28,9 @@ volatile LONG CSVNTrace::counter = 0;
 
 // construction: write call description to ODS and start clock
 
-CSVNTrace::CSVNTrace 
+CSVNTrace::CSVNTrace
     ( const wchar_t* name
-    , int lineNo     
+    , int lineNo
     , const wchar_t* line
     , const char* svnPath)
     : id (InterlockedIncrement (&counter))
@@ -44,9 +44,9 @@ CSVNTrace::CSVNTrace
     svnAPI = svnAPI.TrimLeft().SpanExcluding (_T(" \r\n\t("));
     CString path;
     if (svnPath)
-		path = CString (_T("Path=")) + CUnicodeUtils::GetUnicode(svnPath);
+        path = CString (_T("Path=")) + CUnicodeUtils::GetUnicode(svnPath);
 
-	CTraceToOutputDebugString::Instance()(_T("#%d Thread:%d %s(%d) %s %s\n")
+    CTraceToOutputDebugString::Instance()(_T("#%d Thread:%d %s(%d) %s %s\n")
              , id
              , threadID
              , name
@@ -76,6 +76,6 @@ void CSVNTrace::Stop()
              , id
              , threadID
              , clock.GetMusecsTaken());
-    
+
     id = -1;
 }

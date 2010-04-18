@@ -22,32 +22,32 @@
 
 
 CWaitCursorEx::CWaitCursorEx(bool start_visible) :
-	m_bVisible(start_visible)
+    m_bVisible(start_visible)
 {
-	if (start_visible)
-		theApp.DoWaitCursor(1);
+    if (start_visible)
+        theApp.DoWaitCursor(1);
 }
 
 CWaitCursorEx::~CWaitCursorEx()
 {
-	if (m_bVisible)
-		theApp.DoWaitCursor(-1);
+    if (m_bVisible)
+        theApp.DoWaitCursor(-1);
 }
 
 void CWaitCursorEx::Show()
 {
-	if (!m_bVisible)
-	{
-		theApp.DoWaitCursor(1);
-		m_bVisible = true;
-	}
+    if (!m_bVisible)
+    {
+        theApp.DoWaitCursor(1);
+        m_bVisible = true;
+    }
 }
 
 void CWaitCursorEx::Hide()
 {
-	if (m_bVisible)
-	{
-		theApp.DoWaitCursor(-1);
-		m_bVisible = false;
-	}
+    if (m_bVisible)
+    {
+        theApp.DoWaitCursor(-1);
+        m_bVisible = false;
+    }
 }

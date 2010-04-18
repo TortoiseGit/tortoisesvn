@@ -26,56 +26,56 @@
 class CCreateProcessHelper
 {
 public:
-	static bool CreateProcess(LPCTSTR lpApplicationName,
-					LPTSTR lpCommandLine,
-					LPCTSTR lpCurrentDirectory,
-					LPPROCESS_INFORMATION lpProcessInformation);
-	static bool CreateProcess(LPCTSTR lpApplicationName,
-					LPTSTR lpCommandLine,
-					LPPROCESS_INFORMATION lpProcessInformation);
+    static bool CreateProcess(LPCTSTR lpApplicationName,
+                    LPTSTR lpCommandLine,
+                    LPCTSTR lpCurrentDirectory,
+                    LPPROCESS_INFORMATION lpProcessInformation);
+    static bool CreateProcess(LPCTSTR lpApplicationName,
+                    LPTSTR lpCommandLine,
+                    LPPROCESS_INFORMATION lpProcessInformation);
 
-	static bool CreateProcessDetached(LPCTSTR lpApplicationName,
-					LPTSTR lpCommandLine,
-					LPCTSTR lpCurrentDirectory);
-	static bool CreateProcessDetached(LPCTSTR lpApplicationName,
-					LPTSTR lpCommandLine);
+    static bool CreateProcessDetached(LPCTSTR lpApplicationName,
+                    LPTSTR lpCommandLine,
+                    LPCTSTR lpCurrentDirectory);
+    static bool CreateProcessDetached(LPCTSTR lpApplicationName,
+                    LPTSTR lpCommandLine);
 };
 
 inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
-	LPTSTR commandLine, LPCTSTR currentDirectory,
-	LPPROCESS_INFORMATION processInfo)
+    LPTSTR commandLine, LPCTSTR currentDirectory,
+    LPPROCESS_INFORMATION processInfo)
 {
-	STARTUPINFO startupInfo;
-	memset(&startupInfo, 0, sizeof(STARTUPINFO));
-	startupInfo.cb = sizeof(STARTUPINFO);
+    STARTUPINFO startupInfo;
+    memset(&startupInfo, 0, sizeof(STARTUPINFO));
+    startupInfo.cb = sizeof(STARTUPINFO);
 
-	memset(processInfo, 0, sizeof(PROCESS_INFORMATION));
-	const BOOL result = ::CreateProcess( applicationName,
-					commandLine, NULL, NULL, FALSE, 0, 0, currentDirectory,
-					&startupInfo, processInfo );
-	return result != 0;
+    memset(processInfo, 0, sizeof(PROCESS_INFORMATION));
+    const BOOL result = ::CreateProcess( applicationName,
+                    commandLine, NULL, NULL, FALSE, 0, 0, currentDirectory,
+                    &startupInfo, processInfo );
+    return result != 0;
 }
 
 inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
-	LPTSTR commandLine, LPPROCESS_INFORMATION processInformation)
+    LPTSTR commandLine, LPPROCESS_INFORMATION processInformation)
 {
-	return CreateProcess( applicationName, commandLine, 0, processInformation );
+    return CreateProcess( applicationName, commandLine, 0, processInformation );
 }
 
 inline bool CCreateProcessHelper::CreateProcessDetached(LPCTSTR lpApplicationName,
-	LPTSTR lpCommandLine, LPCTSTR lpCurrentDirectory)
+    LPTSTR lpCommandLine, LPCTSTR lpCurrentDirectory)
 {
-	PROCESS_INFORMATION process;
-	if (!CreateProcess(lpApplicationName, lpCommandLine, lpCurrentDirectory, &process))
-		return false;
+    PROCESS_INFORMATION process;
+    if (!CreateProcess(lpApplicationName, lpCommandLine, lpCurrentDirectory, &process))
+        return false;
 
-	CloseHandle(process.hThread);
-	CloseHandle(process.hProcess);
-	return true;
+    CloseHandle(process.hThread);
+    CloseHandle(process.hProcess);
+    return true;
 }
 
 inline bool CCreateProcessHelper::CreateProcessDetached(LPCTSTR lpApplicationName,
-	LPTSTR lpCommandLine)
+    LPTSTR lpCommandLine)
 {
-	return CreateProcessDetached(lpApplicationName, lpCommandLine, 0);
+    return CreateProcessDetached(lpApplicationName, lpCommandLine, 0);
 }

@@ -21,9 +21,9 @@
 
 SysInfo::SysInfo(void)
 {
-	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
+    SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+    inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+    GetVersionEx((OSVERSIONINFO *)&inf);
 }
 
 SysInfo::~SysInfo(void)
@@ -32,8 +32,8 @@ SysInfo::~SysInfo(void)
 
 const SysInfo& SysInfo::Instance()
 {
-	static SysInfo instance;
-	return instance;
+    static SysInfo instance;
+    return instance;
 }
 
 

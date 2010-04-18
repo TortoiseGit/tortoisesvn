@@ -42,8 +42,8 @@ public:
     virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
 private:
-    CString		m_sRealText;
-    bool		m_bInternalCall;
+    CString     m_sRealText;
+    bool        m_bInternalCall;
     bool        m_bBold;
     CFont       m_boldFont;
     void        FitPathToWidth(CString& path);

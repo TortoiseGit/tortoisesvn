@@ -27,12 +27,12 @@
 class CStdioFileT : public CStdioFile
 {
 public:
-	CStdioFileT();
-	CStdioFileT(LPCTSTR lpszFileName, UINT nOpenFlags);
+    CStdioFileT();
+    CStdioFileT(LPCTSTR lpszFileName, UINT nOpenFlags);
 
-	BOOL ReadString(CStringA& rString);
-	BOOL ReadString(CString& rString) {return CStdioFile::ReadString(rString);}
+    BOOL ReadString(CStringA& rString);
+    BOOL ReadString(CString& rString) {return CStdioFile::ReadString(rString);}
 
-	void WriteString(LPCSTR lpsz);
-	void WriteString(LPCWSTR lpsz);
+    void WriteString(LPCSTR lpsz);
+    void WriteString(LPCWSTR lpsz);
 };

@@ -40,110 +40,110 @@ class CHistoryCombo : public CComboBoxEx
 {
 // Construction
 public:
-	CHistoryCombo(BOOL bAllowSortStyle = FALSE);
-	virtual ~CHistoryCombo();
+    CHistoryCombo(BOOL bAllowSortStyle = FALSE);
+    virtual ~CHistoryCombo();
 
 // Operations
 public:
-	/**
-	 * Adds the string \a str to both the combobox and the history.
-	 * If \a pos is specified, insert the string at the specified
-	 * position, otherwise add it to the end of the list.
-	 */
-	int AddString(CString str, INT_PTR pos = -1);
+    /**
+     * Adds the string \a str to both the combobox and the history.
+     * If \a pos is specified, insert the string at the specified
+     * position, otherwise add it to the end of the list.
+     */
+    int AddString(CString str, INT_PTR pos = -1);
 
 protected:
-	DECLARE_MESSAGE_MAP()
-	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual void PreSubclassWindow();
+    DECLARE_MESSAGE_MAP()
+    virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual void PreSubclassWindow();
 
-	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+    afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
+    afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 
-	void CreateToolTip();
+    void CreateToolTip();
 
 // Implementation
 public:
-	/**
-	 * Clears the history in the registry/inifile and the ComboBox.
-	 * \param bDeleteRegistryEntries if this value is true then the registry key
-	 * itself is deleted.
-	 */
-	void ClearHistory(BOOL bDeleteRegistryEntries = TRUE);
-	/**
-	 * When \a bURLHistory is TRUE, treat the combo box entries
-	 * as URLs. This activates Shell URL auto completion and
-	 * the display of special icons in front of the combobox
-	 * entries. Default is FALSE.
-	 */
-	void SetURLHistory(BOOL bURLHistory);
-	/**
-	 * When \a bPathHistory is TRUE, treat the combo box entries
-	 * as Paths. This activates Shell Path auto completion and
-	 * the display of special icons in front of the combobox
-	 * entries. Default is FALSE.
-	 */
-	void SetPathHistory(BOOL bPathHistory);
-	/**
-	 * Sets the maximum numbers of entries in the history list.
-	 * If the history is larger as \em nMaxItems then the last
-	 * items in the history are deleted.
-	 */
-	void SetMaxHistoryItems(int nMaxItems);
-	/**
-	 * Saves the history to the registry/inifile.
-	 * \remark if you haven't called LoadHistory() before this method
-	 * does nothing!
-	 */
-	void SaveHistory();
-	/**
-	 * Loads the history from the registry/inifile and fills in the
-	 * ComboBox.
-	 * \param lpszSection a section name where to put the entries, e.g. "lastloadedfiles"
-	 * \param lpszKeyPrefix a prefix to use for the history entries in registry/inifiles. E.g. "file" or "entry"
-	 */
-	CString LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix);
+    /**
+     * Clears the history in the registry/inifile and the ComboBox.
+     * \param bDeleteRegistryEntries if this value is true then the registry key
+     * itself is deleted.
+     */
+    void ClearHistory(BOOL bDeleteRegistryEntries = TRUE);
+    /**
+     * When \a bURLHistory is TRUE, treat the combo box entries
+     * as URLs. This activates Shell URL auto completion and
+     * the display of special icons in front of the combobox
+     * entries. Default is FALSE.
+     */
+    void SetURLHistory(BOOL bURLHistory);
+    /**
+     * When \a bPathHistory is TRUE, treat the combo box entries
+     * as Paths. This activates Shell Path auto completion and
+     * the display of special icons in front of the combobox
+     * entries. Default is FALSE.
+     */
+    void SetPathHistory(BOOL bPathHistory);
+    /**
+     * Sets the maximum numbers of entries in the history list.
+     * If the history is larger as \em nMaxItems then the last
+     * items in the history are deleted.
+     */
+    void SetMaxHistoryItems(int nMaxItems);
+    /**
+     * Saves the history to the registry/inifile.
+     * \remark if you haven't called LoadHistory() before this method
+     * does nothing!
+     */
+    void SaveHistory();
+    /**
+     * Loads the history from the registry/inifile and fills in the
+     * ComboBox.
+     * \param lpszSection a section name where to put the entries, e.g. "lastloadedfiles"
+     * \param lpszKeyPrefix a prefix to use for the history entries in registry/inifiles. E.g. "file" or "entry"
+     */
+    CString LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix);
 
-	/**
-	 * Returns the string in the combobox which is either selected or the user has entered.
-	 */
-	CString GetString() const;
+    /**
+     * Returns the string in the combobox which is either selected or the user has entered.
+     */
+    CString GetString() const;
 
-	/**
-	 * Returns the string in the combobox which is shown in the edit control.
-	 */
-	CString GetWindowString() const;
-
-protected:
-	/**
-	 * Will be called whenever the return key is pressed while the
-	 * history combo has the input focus. A derived class may implement
-	 * a special behavior for the return key by overriding this method.
-	 * It must return true to prevent the default processing for the
-	 * return key. The default implementation returns false.
-	 */
-	virtual bool OnReturnKeyPressed() { return false; }
-
-	/**
-	 * Removes the selected item from the combo box and updates
-	 * the registry settings. Returns TRUE if successful.
-	 */
-	BOOL RemoveSelectedItem();
+    /**
+     * Returns the string in the combobox which is shown in the edit control.
+     */
+    CString GetWindowString() const;
 
 protected:
-	CStringArray	m_arEntries;
-	CString			m_sSection;
-	CString			m_sKeyPrefix;
-	int				m_nMaxHistoryItems;
-	BOOL			m_bAllowSortStyle;
-	BOOL			m_bURLHistory;
-	BOOL			m_bPathHistory;
-	HWND			m_hWndToolTip;
-	TOOLINFO		m_ToolInfo;
-	BOOL			m_ttShown;
-	BOOL			m_bDyn;
+    /**
+     * Will be called whenever the return key is pressed while the
+     * history combo has the input focus. A derived class may implement
+     * a special behavior for the return key by overriding this method.
+     * It must return true to prevent the default processing for the
+     * return key. The default implementation returns false.
+     */
+    virtual bool OnReturnKeyPressed() { return false; }
+
+    /**
+     * Removes the selected item from the combo box and updates
+     * the registry settings. Returns TRUE if successful.
+     */
+    BOOL RemoveSelectedItem();
+
+protected:
+    CStringArray    m_arEntries;
+    CString         m_sSection;
+    CString         m_sKeyPrefix;
+    int             m_nMaxHistoryItems;
+    BOOL            m_bAllowSortStyle;
+    BOOL            m_bURLHistory;
+    BOOL            m_bPathHistory;
+    HWND            m_hWndToolTip;
+    TOOLINFO        m_ToolInfo;
+    BOOL            m_ttShown;
+    BOOL            m_bDyn;
 };
 
 

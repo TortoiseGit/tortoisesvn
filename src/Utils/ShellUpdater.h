@@ -28,35 +28,35 @@
 class CShellUpdater
 {
 private:
-	CShellUpdater(void);
-	~CShellUpdater(void);
+    CShellUpdater(void);
+    ~CShellUpdater(void);
 public:
-	static CShellUpdater& Instance();
+    static CShellUpdater& Instance();
 
 public:
-	/** 
-	 * Add a single path for updating.
-	 * The update will happen at some suitable time in the future
-	 */
-	void AddPathForUpdate(const CTSVNPath& path);
-	/** 
-	 * Add a list of paths for updating.
-	 * The update will happen at some suitable time in the future
-	 */
-	void AddPathsForUpdate(const CTSVNPathList& pathList);
-	/**
-	 * Do the update, and clear the list of items waiting
-	 */
-	void Flush();
-	
-	static bool RebuildIcons();
+    /**
+     * Add a single path for updating.
+     * The update will happen at some suitable time in the future
+     */
+    void AddPathForUpdate(const CTSVNPath& path);
+    /**
+     * Add a list of paths for updating.
+     * The update will happen at some suitable time in the future
+     */
+    void AddPathsForUpdate(const CTSVNPathList& pathList);
+    /**
+     * Do the update, and clear the list of items waiting
+     */
+    void Flush();
+
+    static bool RebuildIcons();
 
 private:
-	void UpdateShell();
+    void UpdateShell();
 
 private:
-	// The list of paths which will need updating
-	CTSVNPathList m_pathsForUpdating;
-	// A handle to an event which, when set, tells the ShellExtension to purge its status cache
-	HANDLE			m_hInvalidationEvent;
+    // The list of paths which will need updating
+    CTSVNPathList m_pathsForUpdating;
+    // A handle to an event which, when set, tells the ShellExtension to purge its status cache
+    HANDLE          m_hInvalidationEvent;
 };

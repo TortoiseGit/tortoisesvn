@@ -21,12 +21,12 @@ class CDlgTemplate
 
 public:
 
-	CDlgTemplate()
-	{
-		usedBufferLength = 0;
-		totalBufferLength = 0;
-		dialogTemplate = 0;
-	};
+    CDlgTemplate()
+    {
+        usedBufferLength = 0;
+        totalBufferLength = 0;
+        dialogTemplate = 0;
+    };
     CDlgTemplate(LPCTSTR caption, DWORD style, short x, short y, short w, short h,
         LPCTSTR font = NULL, LONG fontSize = 8)
     {
@@ -36,32 +36,32 @@ public:
 
         dialogTemplate = (DLGTEMPLATE*)malloc(totalBufferLength);
 
-		if (dialogTemplate)
-		{
-			dialogTemplate->style = style;
+        if (dialogTemplate)
+        {
+            dialogTemplate->style = style;
 
-			dialogTemplate->style |= DS_SETFONT;
+            dialogTemplate->style |= DS_SETFONT;
 
-			dialogTemplate->x     = x;
-			dialogTemplate->y     = y;
-			dialogTemplate->cx    = w;
-			dialogTemplate->cy    = h;
-			dialogTemplate->cdit  = 0;
+            dialogTemplate->x     = x;
+            dialogTemplate->y     = y;
+            dialogTemplate->cx    = w;
+            dialogTemplate->cy    = h;
+            dialogTemplate->cdit  = 0;
 
-			dialogTemplate->dwExtendedStyle = 0;
+            dialogTemplate->dwExtendedStyle = 0;
 
-			//the dialog box doesn't have a menu or a special class
+            //the dialog box doesn't have a menu or a special class
 
-			AppendData(_T("\0"), 2);
-			AppendData(_T("\0"), 2);
+            AppendData(_T("\0"), 2);
+            AppendData(_T("\0"), 2);
 
-			//add the dialog's caption to the template
+            //add the dialog's caption to the template
 
-			AppendString(caption);
+            AppendString(caption);
 
-			AppendData(&fontSize, sizeof(WORD));
-			AppendString(font);
-		}
+            AppendData(&fontSize, sizeof(WORD));
+            AppendString(font);
+        }
     }
 
     void AddComponent(LPCTSTR type, LPCTSTR caption, DWORD style, DWORD exStyle,
@@ -229,19 +229,19 @@ protected:
 #ifndef _UNICODE
         int length = MultiByteToWideChar(CP_ACP, 0, string, -1, NULL, 0);
 #else
-		int length = (int)wcslen(string)+1;
+        int length = (int)wcslen(string)+1;
 #endif
         WCHAR* wideString = (WCHAR*)malloc(sizeof(WCHAR) * length);
-		if (wideString)
-		{
+        if (wideString)
+        {
 #ifndef _UNICODE
-			MultiByteToWideChar(CP_ACP, 0, string, -1, wideString, length);
+            MultiByteToWideChar(CP_ACP, 0, string, -1, wideString, length);
 #else
-			wcscpy_s(wideString, length, string);
+            wcscpy_s(wideString, length, string);
 #endif
-			AppendData(wideString, length * sizeof(WCHAR));
-			free(wideString);
-		}
+            AppendData(wideString, length * sizeof(WCHAR));
+            free(wideString);
+        }
     }
 
     void AppendData(void* data, int dataLength)
