@@ -23,138 +23,138 @@
 
 CShellUpdater::CShellUpdater(void)
 {
-	m_hWakeEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
-	m_hTerminationEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
-	m_hThread = INVALID_HANDLE_VALUE;
-	m_bRunning = FALSE;
-	m_bItemsAddedSinceLastUpdate = false;
+    m_hWakeEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
+    m_hTerminationEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
+    m_hThread = INVALID_HANDLE_VALUE;
+    m_bRunning = FALSE;
+    m_bItemsAddedSinceLastUpdate = false;
 }
 
 CShellUpdater::~CShellUpdater(void)
 {
-	Stop();
+    Stop();
 }
 
 void CShellUpdater::Stop()
 {
-	InterlockedExchange(&m_bRunning, FALSE);
-	if (m_hTerminationEvent != INVALID_HANDLE_VALUE)
-	{
-		SetEvent(m_hTerminationEvent);
-		if(WaitForSingleObject(m_hThread, 200) != WAIT_OBJECT_0)
-		{
-			ATLTRACE("Error terminating shell updater thread\n");
-		}
-		CloseHandle(m_hThread);
-		m_hThread = INVALID_HANDLE_VALUE;
-		CloseHandle(m_hTerminationEvent);
-		m_hTerminationEvent = INVALID_HANDLE_VALUE;
-		CloseHandle(m_hWakeEvent);
-		m_hWakeEvent = INVALID_HANDLE_VALUE;
-	}
+    InterlockedExchange(&m_bRunning, FALSE);
+    if (m_hTerminationEvent != INVALID_HANDLE_VALUE)
+    {
+        SetEvent(m_hTerminationEvent);
+        if(WaitForSingleObject(m_hThread, 200) != WAIT_OBJECT_0)
+        {
+            ATLTRACE("Error terminating shell updater thread\n");
+        }
+        CloseHandle(m_hThread);
+        m_hThread = INVALID_HANDLE_VALUE;
+        CloseHandle(m_hTerminationEvent);
+        m_hTerminationEvent = INVALID_HANDLE_VALUE;
+        CloseHandle(m_hWakeEvent);
+        m_hWakeEvent = INVALID_HANDLE_VALUE;
+    }
 }
 
 void CShellUpdater::Initialise()
 {
-	// Don't call Initialize more than once
-	ATLASSERT(m_hThread == INVALID_HANDLE_VALUE);
+    // Don't call Initialize more than once
+    ATLASSERT(m_hThread == INVALID_HANDLE_VALUE);
 
-	// Just start the worker thread. 
-	// It will wait for event being signaled.
-	// If m_hWakeEvent is already signaled the worker thread 
-	// will behave properly (with normal priority at worst).
+    // Just start the worker thread. 
+    // It will wait for event being signaled.
+    // If m_hWakeEvent is already signaled the worker thread 
+    // will behave properly (with normal priority at worst).
 
-	InterlockedExchange(&m_bRunning, TRUE);
-	unsigned int threadId = 0;
-	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
-	SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
+    InterlockedExchange(&m_bRunning, TRUE);
+    unsigned int threadId = 0;
+    m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
+    SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
 }
 
 void CShellUpdater::AddPathForUpdate(const CTSVNPath& path)
 {
-	{
-		AutoLocker lock(m_critSec);
-		m_pathsToUpdate.push_back(path);
-		
-		// set this flag while we are synced 
-		// with the worker thread
-		m_bItemsAddedSinceLastUpdate = true;
-	}
+    {
+        AutoLocker lock(m_critSec);
+        m_pathsToUpdate.push_back(path);
+        
+        // set this flag while we are synced 
+        // with the worker thread
+        m_bItemsAddedSinceLastUpdate = true;
+    }
 
-	SetEvent(m_hWakeEvent);
+    SetEvent(m_hWakeEvent);
 }
 
 
 unsigned int CShellUpdater::ThreadEntry(void* pContext)
 {
-	((CShellUpdater*)pContext)->WorkerThread();
-	return 0;
+    ((CShellUpdater*)pContext)->WorkerThread();
+    return 0;
 }
 
 void CShellUpdater::WorkerThread()
 {
-	HANDLE hWaitHandles[2];
-	hWaitHandles[0] = m_hTerminationEvent;	
-	hWaitHandles[1] = m_hWakeEvent;
+    HANDLE hWaitHandles[2];
+    hWaitHandles[0] = m_hTerminationEvent;  
+    hWaitHandles[1] = m_hWakeEvent;
 
-	for(;;)
-	{
-		DWORD waitResult = WaitForMultipleObjects(sizeof(hWaitHandles)/sizeof(hWaitHandles[0]), hWaitHandles, FALSE, INFINITE);
-		
-		// exit event/working loop if the first event (m_hTerminationEvent)
-		// has been signaled or if one of the events has been abandoned
-		// (i.e. ~CShellUpdater() is being executed)
-		if(waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0+1)
-		{
-			// Termination event
-			break;
-		}
-		// wait some time before we notify the shell
-		Sleep(50);
-		for(;;)
-		{
-			CTSVNPath workingPath;
-			if (!m_bRunning)
-				return;
-			Sleep(0);
-			{
-				AutoLocker lock(m_critSec);
-				if(m_pathsToUpdate.empty())
-				{
-					// Nothing left to do 
-					break;
-				}
+    for(;;)
+    {
+        DWORD waitResult = WaitForMultipleObjects(sizeof(hWaitHandles)/sizeof(hWaitHandles[0]), hWaitHandles, FALSE, INFINITE);
+        
+        // exit event/working loop if the first event (m_hTerminationEvent)
+        // has been signaled or if one of the events has been abandoned
+        // (i.e. ~CShellUpdater() is being executed)
+        if(waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0+1)
+        {
+            // Termination event
+            break;
+        }
+        // wait some time before we notify the shell
+        Sleep(50);
+        for(;;)
+        {
+            CTSVNPath workingPath;
+            if (!m_bRunning)
+                return;
+            Sleep(0);
+            {
+                AutoLocker lock(m_critSec);
+                if(m_pathsToUpdate.empty())
+                {
+                    // Nothing left to do 
+                    break;
+                }
 
-				if(m_bItemsAddedSinceLastUpdate)
-				{
-					m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_pathsToUpdate.end());
-					m_bItemsAddedSinceLastUpdate = false;
-				}
+                if(m_bItemsAddedSinceLastUpdate)
+                {
+                    m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_pathsToUpdate.end());
+                    m_bItemsAddedSinceLastUpdate = false;
+                }
 
-				workingPath = m_pathsToUpdate.front();
-				m_pathsToUpdate.pop_front();
-			}
-			if (workingPath.IsEmpty())
-				continue;
-			CTraceToOutputDebugString::Instance()(_T("ShellUpdater.cpp: shell notification for %s\n"), workingPath.GetWinPath());
-			if (workingPath.IsDirectory())
-			{
-				// first send a notification about a sub folder change, so explorer doesn't discard
-				// the folder notification. Since we only know for sure that the subversion admin
-				// dir is present, we send a notification for that folder.
-				CString admindir = workingPath.GetWinPathString() + _T("\\") + g_SVNAdminDir.GetAdminDirName();
-				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, (LPCTSTR)admindir, NULL);
-				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
-				// Sending an UPDATEDIR notification somehow overwrites/deletes the UPDATEITEM message. And without
-				// that message, the folder overlays in the current view don't get updated without hitting F5.
-				// Drawback is, without UPDATEDIR, the left tree view isn't always updated...
-				
-				//SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
-			}
-			else
-				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
-		}
-	}
-	_endthread();
+                workingPath = m_pathsToUpdate.front();
+                m_pathsToUpdate.pop_front();
+            }
+            if (workingPath.IsEmpty())
+                continue;
+            CTraceToOutputDebugString::Instance()(_T("ShellUpdater.cpp: shell notification for %s\n"), workingPath.GetWinPath());
+            if (workingPath.IsDirectory())
+            {
+                // first send a notification about a sub folder change, so explorer doesn't discard
+                // the folder notification. Since we only know for sure that the subversion admin
+                // dir is present, we send a notification for that folder.
+                CString admindir = workingPath.GetWinPathString() + _T("\\") + g_SVNAdminDir.GetAdminDirName();
+                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, (LPCTSTR)admindir, NULL);
+                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+                // Sending an UPDATEDIR notification somehow overwrites/deletes the UPDATEITEM message. And without
+                // that message, the folder overlays in the current view don't get updated without hitting F5.
+                // Drawback is, without UPDATEDIR, the left tree view isn't always updated...
+                
+                //SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+            }
+            else
+                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+        }
+    }
+    _endthread();
 }
 

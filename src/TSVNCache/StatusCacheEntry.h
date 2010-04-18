@@ -19,7 +19,7 @@
 #pragma once
 
 struct TSVNCacheResponse;
-#define CACHETIMEOUT	0x7FFFFFFF
+#define CACHETIMEOUT    0x7FFFFFFF
 extern DWORD cachetimeout;
 
 /**
@@ -29,41 +29,41 @@ extern DWORD cachetimeout;
 class CStatusCacheEntry
 {
 public:
-	CStatusCacheEntry();
-	CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal);
-	bool HasExpired(long now) const;
-	void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
-	bool IsVersioned() const;
-	bool DoesFileTimeMatch(__int64 testTime) const;
-	bool ForceStatus(svn_wc_status_kind forcedStatus);
-	svn_wc_status_kind GetEffectiveStatus() const { return m_highestPriorityLocalStatus; }
-	bool IsKindKnown() const { return ((m_kind != svn_node_none)&&(m_kind != svn_node_unknown)); }
-	void SetStatus(const svn_wc_status2_t* pSVNStatus, bool forceNormal);
-	bool HasBeenSet() const;
-	void Invalidate();
-	bool IsDirectory() const {return ((m_kind == svn_node_dir)&&(m_highestPriorityLocalStatus != svn_wc_status_ignored));}
-	bool SaveToDisk(FILE * pFile);
-	bool LoadFromDisk(FILE * pFile);
-	void SetKind(svn_node_kind_t kind) {m_kind = kind;}
+    CStatusCacheEntry();
+    CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal);
+    bool HasExpired(long now) const;
+    void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
+    bool IsVersioned() const;
+    bool DoesFileTimeMatch(__int64 testTime) const;
+    bool ForceStatus(svn_wc_status_kind forcedStatus);
+    svn_wc_status_kind GetEffectiveStatus() const { return m_highestPriorityLocalStatus; }
+    bool IsKindKnown() const { return ((m_kind != svn_node_none)&&(m_kind != svn_node_unknown)); }
+    void SetStatus(const svn_wc_status2_t* pSVNStatus, bool forceNormal);
+    bool HasBeenSet() const;
+    void Invalidate();
+    bool IsDirectory() const {return ((m_kind == svn_node_dir)&&(m_highestPriorityLocalStatus != svn_wc_status_ignored));}
+    bool SaveToDisk(FILE * pFile);
+    bool LoadFromDisk(FILE * pFile);
+    void SetKind(svn_node_kind_t kind) {m_kind = kind;}
 private:
-	void SetAsUnversioned();
+    void SetAsUnversioned();
 
 private:
-	long				m_discardAtTime;
-	svn_wc_status_kind	m_highestPriorityLocalStatus;
-	svn_wc_status2_t	m_svnStatus;
-	__int64				m_lastWriteTime;
-	bool				m_bSet;
-	svn_node_kind_t		m_kind;
-	bool				m_treeconflict;
+    long                m_discardAtTime;
+    svn_wc_status_kind  m_highestPriorityLocalStatus;
+    svn_wc_status2_t    m_svnStatus;
+    __int64             m_lastWriteTime;
+    bool                m_bSet;
+    svn_node_kind_t     m_kind;
+    bool                m_treeconflict;
 
-	// Values copied from the 'entries' structure
-	bool				m_bSVNEntryFieldSet;
-	CStringA			m_sUrl;
-	CStringA			m_sOwner;
-	CStringA			m_sAuthor;
-	CStringA			m_sPresentProps;
-	svn_revnum_t		m_commitRevision;
+    // Values copied from the 'entries' structure
+    bool                m_bSVNEntryFieldSet;
+    CStringA            m_sUrl;
+    CStringA            m_sOwner;
+    CStringA            m_sAuthor;
+    CStringA            m_sPresentProps;
+    svn_revnum_t        m_commitRevision;
 
-//	friend class CSVNStatusCache;
+//  friend class CSVNStatusCache;
 };

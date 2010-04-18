@@ -28,17 +28,17 @@
 class CFindBar : public CDialog
 {
 public:
-	CFindBar();
-	~CFindBar(void);
+    CFindBar();
+    ~CFindBar(void);
 
     void                    SetParent(HWND hParent) {m_hParent = hParent;}
 protected:
-	LRESULT CALLBACK		DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
-	LRESULT					DoCommand(int id, int msg);
+    LRESULT CALLBACK        DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
+    LRESULT                 DoCommand(int id, int msg);
 
-	void					DoFind(bool bFindPrev);
+    void                    DoFind(bool bFindPrev);
 
 private:
-	HWND					m_hParent;
-	HICON					m_hIcon;
+    HWND                    m_hParent;
+    HICON                   m_hIcon;
 };

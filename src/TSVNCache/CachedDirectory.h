@@ -29,72 +29,72 @@
 class CCachedDirectory
 {
 public:
-	typedef std::map<CTSVNPath, CCachedDirectory *> CachedDirMap; 
-	typedef CachedDirMap::iterator ItDir;
+    typedef std::map<CTSVNPath, CCachedDirectory *> CachedDirMap;
+    typedef CachedDirMap::iterator ItDir;
 
 public:
 
-	CCachedDirectory();
-	CCachedDirectory(const CTSVNPath& directoryPath);
-	~CCachedDirectory(void);
-	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive, bool bFetch = true);
-	CStatusCacheEntry GetOwnStatus(bool bRecursive);
-	bool IsOwnStatusValid() const;
-	void Invalidate();
-	void RefreshStatus(bool bRecursive);
-	void RefreshMostImportant(bool bUpdateShell = true);
-	BOOL SaveToDisk(FILE * pFile);
-	BOOL LoadFromDisk(FILE * pFile);
-	/// Get the current full status of this folder
-	svn_wc_status_kind GetCurrentFullStatus() {return m_currentFullStatus;}
+    CCachedDirectory();
+    CCachedDirectory(const CTSVNPath& directoryPath);
+    ~CCachedDirectory(void);
+    CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive, bool bFetch = true);
+    CStatusCacheEntry GetOwnStatus(bool bRecursive);
+    bool IsOwnStatusValid() const;
+    void Invalidate();
+    void RefreshStatus(bool bRecursive);
+    void RefreshMostImportant(bool bUpdateShell = true);
+    BOOL SaveToDisk(FILE * pFile);
+    BOOL LoadFromDisk(FILE * pFile);
+    /// Get the current full status of this folder
+    svn_wc_status_kind GetCurrentFullStatus() {return m_currentFullStatus;}
 private:
-	static svn_error_t* GetStatusCallback(void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
-	void AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus, bool forceNormal);
-	CString GetCacheKey(const CTSVNPath& path);
-	CString GetFullPathString(const CString& cacheKey);
-	CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);
-	void UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus);
-	bool SvnUpdateMembersStatus();
+    static svn_error_t* GetStatusCallback(void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
+    void AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus, bool forceNormal);
+    CString GetCacheKey(const CTSVNPath& path);
+    CString GetFullPathString(const CString& cacheKey);
+    CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);
+    void UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus);
+    bool SvnUpdateMembersStatus();
 
-	// Calculate the complete, composite status from ourselves, our files, and our descendants
-	svn_wc_status_kind CalculateRecursiveStatus();
+    // Calculate the complete, composite status from ourselves, our files, and our descendants
+    svn_wc_status_kind CalculateRecursiveStatus();
 
-	// Update our composite status and deal with things if it's changed
-	void UpdateCurrentStatus();
+    // Update our composite status and deal with things if it's changed
+    void UpdateCurrentStatus();
 
 
 private:
-	CComAutoCriticalSection m_critSec;
-	CComAutoCriticalSection m_critSecPath;
+    CComAutoCriticalSection m_critSec;
+    CComAutoCriticalSection m_critSecPath;
 
-	CTSVNPath	m_currentStatusFetchingPath;
-	// The cache of files and directories within this directory
-	typedef std::map<CString, CStatusCacheEntry> CacheEntryMap; 
-	CacheEntryMap m_entryCache; 
+    CTSVNPath   m_currentStatusFetchingPath;
+    // The cache of files and directories within this directory
+    typedef std::map<CString, CStatusCacheEntry> CacheEntryMap;
+    CacheEntryMap m_entryCache;
 
-	/// A vector if iterators to child directories - used to put-together recursive status
-	typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
-	ChildDirStatus m_childDirectories;
+    /// A vector if iterators to child directories - used to put-together recursive status
+    typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
+    ChildDirStatus m_childDirectories;
 
-	// The timestamp of the .SVN\entries file.  For an unversioned directory, this will be zero
-	__int64 m_entriesFileTime;
-	// The timestamp of the .SVN\props dir.  For an unversioned directory, this will be zero
-	__int64 m_propsFileTime;
-	DWORD	m_lastFileTimeCheck;
-	
-	// The path of the directory with this object looks after
-	CTSVNPath	m_directoryPath;
+    // The timestamp of the .SVN\entries file.  For an unversioned directory, this will be zero
+    __int64 m_entriesFileTime;
+    // The timestamp of the .SVN\props dir.  For an unversioned directory, this will be zero
+    __int64 m_propsFileTime;
+    DWORD   m_lastFileTimeCheck;
 
-	// The status of THIS directory (not a composite of children or members)
-	CStatusCacheEntry m_ownStatus;
+    // The path of the directory with this object looks after
+    CTSVNPath   m_directoryPath;
 
-	// Our current fully recursive status
-	svn_wc_status_kind  m_currentFullStatus;
-	bool m_bCurrentFullStatusValid;
+    // The status of THIS directory (not a composite of children or members)
+    CStatusCacheEntry m_ownStatus;
 
-	// The most important status from all our file entries
-	svn_wc_status_kind m_mostImportantFileStatus;
+    // Our current fully recursive status
+    svn_wc_status_kind  m_currentFullStatus;
+    bool m_bCurrentFullStatusValid;
 
-	friend class CSVNStatusCache;		
+    // The most important status from all our file entries
+    svn_wc_status_kind m_mostImportantFileStatus;
+
+    friend class CSVNStatusCache;
 };
 

@@ -9,7 +9,7 @@
 #define _WIN32_WINNT 0x0600
 
 #include <tchar.h>
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS  // some CString constructors will be explicit
 
 #include <WinSock2.h>
 #include <Ws2tcpip.h>
@@ -26,7 +26,7 @@
 using namespace ATL;
 
 #pragma warning(push)
-#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
+#pragma warning(disable: 4702)  // Unreachable code warnings in xtree
 #include <string>
 #include <vector>
 #include <map>
@@ -59,7 +59,7 @@ typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
 #endif
 
 #ifdef _WIN64
-#	define APP_X64_STRING	"x64"
+#   define APP_X64_STRING   "x64"
 #else
-#	define APP_X64_STRING ""
+#   define APP_X64_STRING ""
 #endif
