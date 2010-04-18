@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-15 10:45+0100\n"
+"PO-Revision-Date: 2010-04-18 11:50+0100\n"
 "Last-Translator: Luis X. B. Mourão <luisxbm@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -202,33 +202,63 @@ msgstr "%s [Recuperado]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, mas já existe localmente sem versão."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, mas o diretório já existe localmente sem versão."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, mas não existe localmente."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, mas o diretório não existe localmente."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, mas já existe localmente."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, mas o diretório já existe localmente."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, mas já foi editado."
+msgid "%s, but the directory was already edited."
+msgstr "%s, mas o diretório já foi editado."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, mas foi apagado, movido or renomeado localmente."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s, mas o diretório foi apagado, movido or renomeado localmente."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, mas foi obstruído na cópia de trabalho."
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, mas o diretório foi obstruído na cópia de trabalho."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, mas o ficheiro já existe localmente sem versão."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, mas o ficheiro não existe localmente."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, mas o ficheiro já existe localmente."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, mas o ficheiro já foi editado."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s, mas o ficheiro foi apagado, movido or renomeado localmente."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, mas o ficheiro foi obstruído na cópia de trabalho."
 
 #. Resource IDs: (3850)
 #, c-format
