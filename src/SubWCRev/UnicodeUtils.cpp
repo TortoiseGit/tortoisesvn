@@ -19,23 +19,23 @@
 
 char * AnsiToUtf8(const char * pszAnsi, apr_pool_t *pool)
 {
-	// convert ANSI --> UTF16
-	int utf16_count = MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, NULL, 0);
-	auto_buffer<WCHAR> pwc(utf16_count);
-	MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, pwc, utf16_count);
+    // convert ANSI --> UTF16
+    int utf16_count = MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, NULL, 0);
+    auto_buffer<WCHAR> pwc(utf16_count);
+    MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, pwc, utf16_count);
 
-	// and now from URF16 --> UTF-8
-	int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, NULL, 0, NULL, NULL);
-	char * pch = (char*) apr_palloc(pool, utf8_count);
-	WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, pch, utf8_count, NULL, NULL);
-	return pch;
+    // and now from URF16 --> UTF-8
+    int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, NULL, 0, NULL, NULL);
+    char * pch = (char*) apr_palloc(pool, utf8_count);
+    WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, pch, utf8_count, NULL, NULL);
+    return pch;
 }
 
 char * Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool)
 {
-	// from URF16 --> UTF-8
-	int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, NULL, 0, NULL, NULL);
-	char * pch = (char*) apr_palloc(pool, utf8_count);
-	WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, pch, utf8_count, NULL, NULL);
-	return pch;
+    // from URF16 --> UTF-8
+    int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, NULL, 0, NULL, NULL);
+    char * pch = (char*) apr_palloc(pool, utf8_count);
+    WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, pch, utf8_count, NULL, NULL);
+    return pch;
 }

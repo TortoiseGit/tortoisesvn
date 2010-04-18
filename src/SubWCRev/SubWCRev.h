@@ -23,9 +23,9 @@
 #include "svn_client.h"
 #include "svn_path.h"
 
-#define URL_BUF	2048
-#define OWNER_BUF	2048
-#define COMMENT_BUF	4096
+#define URL_BUF 2048
+#define OWNER_BUF   2048
+#define COMMENT_BUF 4096
 
 /**
  * \ingroup SubWCRev
@@ -34,12 +34,12 @@
  */
 typedef struct SubWcLockData_t
 {
-	BOOL NeedsLocks;			// TRUE if a lock can be applied in generally; if FALSE, the values of the other parms in this struct are invalid
-	BOOL IsLocked;				// TRUE if the file or folder is locked
-	char Owner[OWNER_BUF];		// the username which owns the lock
-	char Comment[COMMENT_BUF];	// lock comment
-	apr_time_t CreationDate;    // when lock was made
-	
+    BOOL NeedsLocks;            // TRUE if a lock can be applied in generally; if FALSE, the values of the other parms in this struct are invalid
+    BOOL IsLocked;              // TRUE if the file or folder is locked
+    char Owner[OWNER_BUF];      // the username which owns the lock
+    char Comment[COMMENT_BUF];  // lock comment
+    apr_time_t CreationDate;    // when lock was made
+
 } SubWcLockData_t;
 
 /**
@@ -49,20 +49,20 @@ typedef struct SubWcLockData_t
  */
 typedef struct SubWCRev_t
 {
-	svn_revnum_t MinRev;	// Lowest update revision found
-	svn_revnum_t MaxRev;	// Highest update revision found
-	svn_revnum_t CmtRev;	// Highest commit revision found
-	apr_time_t CmtDate;		// Date of highest commit revision
-	BOOL HasMods;			// True if local modifications found
-	BOOL bFolders;			// If TRUE, status of folders is included
-	BOOL bExternals;		// If TRUE, status of externals is included
-	BOOL bHexPlain;			// If TRUE, revision numbers are output in HEX
-	BOOL bHexX;				// If TRUE, revision numbers are output in HEX with '0x'
-	char Url[URL_BUF];		// URL of working copy
-	char UUID[1024];		// The repository UUID of the working copy
-	char Author[URL_BUF];	// The author of the wcPath
-	BOOL  bIsSvnItem;			// True if the item is under SVN
-	SubWcLockData_t LockData;	// Data regarding the lock of the file
+    svn_revnum_t MinRev;    // Lowest update revision found
+    svn_revnum_t MaxRev;    // Highest update revision found
+    svn_revnum_t CmtRev;    // Highest commit revision found
+    apr_time_t CmtDate;     // Date of highest commit revision
+    BOOL HasMods;           // True if local modifications found
+    BOOL bFolders;          // If TRUE, status of folders is included
+    BOOL bExternals;        // If TRUE, status of externals is included
+    BOOL bHexPlain;         // If TRUE, revision numbers are output in HEX
+    BOOL bHexX;             // If TRUE, revision numbers are output in HEX with '0x'
+    char Url[URL_BUF];      // URL of working copy
+    char UUID[1024];        // The repository UUID of the working copy
+    char Author[URL_BUF];   // The author of the wcPath
+    BOOL  bIsSvnItem;           // True if the item is under SVN
+    SubWcLockData_t LockData;   // Data regarding the lock of the file
 } SubWCRev_t;
 
 /**
@@ -71,9 +71,9 @@ typedef struct SubWCRev_t
  */
 typedef struct SubWCRev_StatusBaton_t
 {
-	SubWCRev_t * SubStat;
-	std::vector<const char *> * extarray;
-	apr_pool_t *pool;
+    SubWCRev_t * SubStat;
+    std::vector<const char *> * extarray;
+    apr_pool_t *pool;
 } SubWCRev_StatusBaton_t;
 
 /**

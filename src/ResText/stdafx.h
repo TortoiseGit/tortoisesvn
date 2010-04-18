@@ -6,7 +6,7 @@
 #pragma once
 
 #pragma warning(push)
-#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
+#pragma warning(disable: 4702)  // Unreachable code warnings in xtree
 #include <iostream>
 #include <tchar.h>
 #include <windows.h>

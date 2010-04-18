@@ -23,12 +23,12 @@
 
 typedef struct tagResourceEntry
 {
-	WORD						menuID;
-	std::vector<std::wstring>	translatorcomments;
-	std::vector<std::wstring>	automaticcomments;
-	std::set<DWORD>				resourceIDs;
-	std::wstring				flag;
-	std::wstring				msgstr;
+    WORD                        menuID;
+    std::vector<std::wstring>   translatorcomments;
+    std::vector<std::wstring>   automaticcomments;
+    std::set<DWORD>             resourceIDs;
+    std::wstring                flag;
+    std::wstring                msgstr;
 } RESOURCEENTRY, * LPRESOURCEENTRY;
 
 /**
@@ -42,12 +42,12 @@ typedef struct tagResourceEntry
 class CPOFile : public std::map<std::wstring, RESOURCEENTRY>
 {
 public:
-	CPOFile();
-	~CPOFile(void);
+    CPOFile();
+    ~CPOFile(void);
 
-	BOOL ParseFile(LPCTSTR szPath, BOOL bUpdateExisting = TRUE);
-	BOOL SaveFile(LPCTSTR szPath);
-	void SetQuiet(BOOL bQuiet = TRUE) {m_bQuiet = bQuiet;}
+    BOOL ParseFile(LPCTSTR szPath, BOOL bUpdateExisting = TRUE);
+    BOOL SaveFile(LPCTSTR szPath);
+    void SetQuiet(BOOL bQuiet = TRUE) {m_bQuiet = bQuiet;}
 private:
-	BOOL m_bQuiet;
+    BOOL m_bQuiet;
 };
