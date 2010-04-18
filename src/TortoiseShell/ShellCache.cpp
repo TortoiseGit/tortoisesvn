@@ -48,7 +48,6 @@ ShellCache::ShellCache()
     simplecontextticker = cachetypeticker;
     shellmenuacceleratorsticker = cachetypeticker;
     unversionedasmodifiedticker = cachetypeticker;
-    admindirticker = cachetypeticker;
     columnseverywhereticker = cachetypeticker;
     getlocktopticker = cachetypeticker;
     excludedasnormalticker = cachetypeticker;
@@ -81,7 +80,6 @@ ShellCache::ShellCache()
     columnrevformat.Grouping = _ttoi(szBuffer);
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer)/sizeof(TCHAR));
     columnrevformat.NegativeOrder = _ttoi(szBuffer);
-    sAdminDirCacheKey.reserve(MAX_PATH);        // MAX_PATH as buffer reservation ok.
     nocontextpaths = CRegStdString(_T("Software\\TortoiseSVN\\NoContextPaths"), _T(""));
     m_critSec.Init();
 }
@@ -408,19 +406,19 @@ BOOL ShellCache::HasSVNAdminDir(LPCTSTR path, BOOL bIsDir)
         if (pos != tstring::npos)
             folder.erase (pos);
     }
-    if ((GetTickCount() - admindirticker) < ADMINDIRTIMEOUT)
+    std::map<tstring, BoolTimeout>::iterator iter;
+    if ((iter = admindircache.find(folder)) != admindircache.end())
     {
-        std::map<tstring, BOOL>::iterator iter;
-        sAdminDirCacheKey = folder;
-        if ((iter = admindircache.find(sAdminDirCacheKey)) != admindircache.end())
-            return iter->second;
+        if ((GetTickCount() - iter->second.timeout) < ADMINDIRTIMEOUT)
+            return iter->second.bBool;
     }
 
-    BOOL hasAdminDir = g_SVNAdminDir.HasAdminDir (folder.c_str(), true);
-    admindirticker = GetTickCount();
+    BoolTimeout bt;
+    bt.bBool = g_SVNAdminDir.HasAdminDir (folder.c_str(), true);
+    bt.timeout = GetTickCount();
     Locker lock(m_critSec);
-    admindircache[folder] = hasAdminDir;
-    return hasAdminDir;
+    admindircache[folder] = bt;
+    return bt.bBool;
 }
 
 bool ShellCache::IsColumnsEveryWhere()

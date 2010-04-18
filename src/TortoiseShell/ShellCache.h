@@ -31,6 +31,12 @@
 
 typedef CComCritSecLock<CComCriticalSection> Locker;
 
+struct BoolTimeout
+{
+    bool    bBool;
+    DWORD   timeout;
+};
+
 /**
  * \ingroup TortoiseShell
  * Helper class which caches access to the registry. Also provides helper methods
@@ -238,13 +244,11 @@ private:
     NUMBERFMT columnrevformat;
     TCHAR szDecSep[5];
     TCHAR szThousandsSep[5];
-    std::map<tstring, BOOL> admindircache;
-    tstring sAdminDirCacheKey;
+    std::map<tstring, BoolTimeout> admindircache;
     CRegStdString nocontextpaths;
     tstring excludecontextstr;
     std::vector<tstring> excontextvector;
     DWORD excontextticker;
-    DWORD admindirticker;
     CComCriticalSection m_critSec;
 };
 
