@@ -27,56 +27,56 @@
  */
 class CSetOverlayIcons : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSetOverlayIcons)
+    DECLARE_DYNAMIC(CSetOverlayIcons)
 
 public:
-	CSetOverlayIcons();
-	virtual ~CSetOverlayIcons();
+    CSetOverlayIcons();
+    virtual ~CSetOverlayIcons();
 
-	UINT GetIconID() {return IDI_ICONSET;}
+    UINT GetIconID() {return IDI_ICONSET;}
 
 // Dialog Data
-	enum { IDD = IDD_OVERLAYICONS };
+    enum { IDD = IDD_OVERLAYICONS };
 
 protected:
-	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL			OnInitDialog();
-	virtual BOOL			OnApply();
-	afx_msg void			OnBnClickedListradio();
-	afx_msg void			OnBnClickedSymbolradio();
-	afx_msg void			OnCbnSelchangeIconsetcombo();
+    virtual void            DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL            OnInitDialog();
+    virtual BOOL            OnApply();
+    afx_msg void            OnBnClickedListradio();
+    afx_msg void            OnBnClickedSymbolradio();
+    afx_msg void            OnCbnSelchangeIconsetcombo();
 
-	void					ShowIconSet(bool bSmallIcons);
-	void					AddFileTypeGroup(CString sFileType, bool bSmallIcons);
-	HICON					GetFileIcon(LPCTSTR fileType, bool smallIcons, DWORD attributes);
-	DECLARE_MESSAGE_MAP()
+    void                    ShowIconSet(bool bSmallIcons);
+    void                    AddFileTypeGroup(CString sFileType, bool bSmallIcons);
+    HICON                   GetFileIcon(LPCTSTR fileType, bool smallIcons, DWORD attributes);
+    DECLARE_MESSAGE_MAP()
 protected:
-	int				m_selIndex;
-	CString			m_sIconSet;
-	CComboBox		m_cIconSet;
-	CListCtrl		m_cIconList;
+    int             m_selIndex;
+    CString         m_sIconSet;
+    CComboBox       m_cIconSet;
+    CListCtrl       m_cIconList;
 
-	CString			m_sIconPath;
-	CString			m_sOriginalIconSet;
-	CString			m_sNormal;
-	CString			m_sModified;
-	CString			m_sConflicted;
-	CString			m_sReadOnly;
-	CString			m_sDeleted;
-	CString			m_sAdded;
-	CString			m_sLocked;
-	CString			m_sIgnored;
-	CString			m_sUnversioned;
-	CImageList		m_ImageList;
-	CImageList		m_ImageListBig;
+    CString         m_sIconPath;
+    CString         m_sOriginalIconSet;
+    CString         m_sNormal;
+    CString         m_sModified;
+    CString         m_sConflicted;
+    CString         m_sReadOnly;
+    CString         m_sDeleted;
+    CString         m_sAdded;
+    CString         m_sLocked;
+    CString         m_sIgnored;
+    CString         m_sUnversioned;
+    CImageList      m_ImageList;
+    CImageList      m_ImageListBig;
 
-	CRegString		m_regNormal;
-	CRegString		m_regModified;
-	CRegString		m_regConflicted;
-	CRegString		m_regReadOnly;
-	CRegString		m_regDeleted;
-	CRegString		m_regLocked;
-	CRegString		m_regAdded;
-	CRegString		m_regIgnored;
-	CRegString		m_regUnversioned;
+    CRegString      m_regNormal;
+    CRegString      m_regModified;
+    CRegString      m_regConflicted;
+    CRegString      m_regReadOnly;
+    CRegString      m_regDeleted;
+    CRegString      m_regLocked;
+    CRegString      m_regAdded;
+    CRegString      m_regIgnored;
+    CRegString      m_regUnversioned;
 };

@@ -26,11 +26,11 @@
 IMPLEMENT_DYNAMIC(CMergeWizardStart, CMergeWizardBasePage)
 
 CMergeWizardStart::CMergeWizardStart()
-	: CMergeWizardBasePage(CMergeWizardStart::IDD)
+    : CMergeWizardBasePage(CMergeWizardStart::IDD)
 {
-	m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
-	m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_STARTTITLE);
-	m_psp.pszHeaderSubTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_STARTSUBTITLE);
+    m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
+    m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_STARTTITLE);
+    m_psp.pszHeaderSubTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_STARTSUBTITLE);
 }
 
 CMergeWizardStart::~CMergeWizardStart()
@@ -39,7 +39,7 @@ CMergeWizardStart::~CMergeWizardStart()
 
 void CMergeWizardStart::DoDataExchange(CDataExchange* pDX)
 {
-	CMergeWizardBasePage::DoDataExchange(pDX);
+    CMergeWizardBasePage::DoDataExchange(pDX);
 }
 
 
@@ -49,82 +49,82 @@ END_MESSAGE_MAP()
 
 LRESULT CMergeWizardStart::OnWizardNext()
 {
-	int nButton = GetCheckedRadioButton(IDC_MERGE_REVRANGE, IDC_MERGE_TREE);
+    int nButton = GetCheckedRadioButton(IDC_MERGE_REVRANGE, IDC_MERGE_TREE);
 
-	CMergeWizard* wiz = (CMergeWizard*)GetParent();
-	switch (nButton)
-	{
-	case IDC_MERGE_REVRANGE:
-		wiz->nRevRangeMerge = MERGEWIZARD_REVRANGE;
-		break;
-	case IDC_MERGE_TREE:
-		wiz->nRevRangeMerge = MERGEWIZARD_TREE;
-		break;
-	case IDC_MERGE_REINTEGRATE:
-		wiz->nRevRangeMerge = MERGEWIZARD_REINTEGRATE;
-		break;
-	}
+    CMergeWizard* wiz = (CMergeWizard*)GetParent();
+    switch (nButton)
+    {
+    case IDC_MERGE_REVRANGE:
+        wiz->nRevRangeMerge = MERGEWIZARD_REVRANGE;
+        break;
+    case IDC_MERGE_TREE:
+        wiz->nRevRangeMerge = MERGEWIZARD_TREE;
+        break;
+    case IDC_MERGE_REINTEGRATE:
+        wiz->nRevRangeMerge = MERGEWIZARD_REINTEGRATE;
+        break;
+    }
 
-	wiz->SaveMode();
+    wiz->SaveMode();
 
-	return wiz->GetSecondPage();
+    return wiz->GetSecondPage();
 }
 
 BOOL CMergeWizardStart::OnInitDialog()
 {
-	CMergeWizardBasePage::OnInitDialog();
+    CMergeWizardBasePage::OnInitDialog();
 
-	CString sLabel;
-	sLabel.LoadString(IDS_MERGEWIZARD_REVRANGELABEL);
-	SetDlgItemText(IDC_MERGERANGELABEL, sLabel);
-	CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_REVRANGE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
+    CString sLabel;
+    sLabel.LoadString(IDS_MERGEWIZARD_REVRANGELABEL);
+    SetDlgItemText(IDC_MERGERANGELABEL, sLabel);
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_REVRANGE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
 
-	sLabel.LoadString(IDS_MERGEWIZARD_REINTEGRATELABEL);
-	SetDlgItemText(IDC_MERGEREINTEGRATELABEL, sLabel);
-	CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_REINTEGRATE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
-	sLabel.LoadString(IDS_MERGEWIZARD_TREELABEL);
-	SetDlgItemText(IDC_TREELABEL, sLabel);
-	CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_TREE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
+    sLabel.LoadString(IDS_MERGEWIZARD_REINTEGRATELABEL);
+    SetDlgItemText(IDC_MERGEREINTEGRATELABEL, sLabel);
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_REINTEGRATE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
+    sLabel.LoadString(IDS_MERGEWIZARD_TREELABEL);
+    SetDlgItemText(IDC_TREELABEL, sLabel);
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_MERGE_TREE)->GetSafeHwnd(), PROPID_ACC_DESCRIPTION, sLabel);
 
-	AdjustControlSize(IDC_MERGE_REVRANGE);
-	AdjustControlSize(IDC_MERGE_REINTEGRATE);
-	AdjustControlSize(IDC_MERGE_TREE);
+    AdjustControlSize(IDC_MERGE_REVRANGE);
+    AdjustControlSize(IDC_MERGE_REINTEGRATE);
+    AdjustControlSize(IDC_MERGE_TREE);
 
-	AddAnchor(IDC_MERGETYPEGROUP, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_MERGE_REVRANGE, TOP_LEFT);
-	AddAnchor(IDC_MERGERANGELABEL, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_MERGE_REINTEGRATE, TOP_LEFT);
-	AddAnchor(IDC_MERGEREINTEGRATELABEL, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_MERGE_TREE, TOP_LEFT);
-	AddAnchor(IDC_TREELABEL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_MERGETYPEGROUP, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_MERGE_REVRANGE, TOP_LEFT);
+    AddAnchor(IDC_MERGERANGELABEL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_MERGE_REINTEGRATE, TOP_LEFT);
+    AddAnchor(IDC_MERGEREINTEGRATELABEL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_MERGE_TREE, TOP_LEFT);
+    AddAnchor(IDC_TREELABEL, TOP_LEFT, TOP_RIGHT);
 
 
-	return TRUE;
+    return TRUE;
 }
 
 BOOL CMergeWizardStart::OnSetActive()
 {
-	CMergeWizard* wiz = (CMergeWizard*)GetParent();
+    CMergeWizard* wiz = (CMergeWizard*)GetParent();
 
-	wiz->SetWizardButtons(PSWIZB_NEXT);
-	SetButtonTexts();
+    wiz->SetWizardButtons(PSWIZB_NEXT);
+    SetButtonTexts();
 
-	int nButton = IDC_MERGE_REVRANGE;
-	switch (wiz->nRevRangeMerge)
-	{
-	case MERGEWIZARD_REVRANGE:
-		nButton = IDC_MERGE_REVRANGE;
-		break;
-	case MERGEWIZARD_REINTEGRATE:
-		nButton = IDC_MERGE_REINTEGRATE;
-		break;
-	case MERGEWIZARD_TREE:
-		nButton = IDC_MERGE_TREE;
-		break;
-	}
-	CheckRadioButton(
-		IDC_MERGE_REVRANGE, IDC_MERGE_TREE,
-		nButton);
+    int nButton = IDC_MERGE_REVRANGE;
+    switch (wiz->nRevRangeMerge)
+    {
+    case MERGEWIZARD_REVRANGE:
+        nButton = IDC_MERGE_REVRANGE;
+        break;
+    case MERGEWIZARD_REINTEGRATE:
+        nButton = IDC_MERGE_REINTEGRATE;
+        break;
+    case MERGEWIZARD_TREE:
+        nButton = IDC_MERGE_TREE;
+        break;
+    }
+    CheckRadioButton(
+        IDC_MERGE_REVRANGE, IDC_MERGE_TREE,
+        nButton);
 
-	return CMergeWizardBasePage::OnSetActive();
+    return CMergeWizardBasePage::OnSetActive();
 }

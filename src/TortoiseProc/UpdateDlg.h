@@ -33,32 +33,32 @@ class CLogDlg;
  */
 class CUpdateDlg : public CStandAloneDialog
 {
-	DECLARE_DYNAMIC(CUpdateDlg)
+    DECLARE_DYNAMIC(CUpdateDlg)
 
 public:
-	CUpdateDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CUpdateDlg();
+    CUpdateDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CUpdateDlg();
 
 // Dialog Data
-	enum { IDD = IDD_UPDATE };
+    enum { IDD = IDD_UPDATE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	afx_msg void OnBnClickedShowLog();
-	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnEnChangeRevnum();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    afx_msg void OnBnClickedShowLog();
+    afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
+    afx_msg void OnEnChangeRevnum();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	CLogDlg *	m_pLogDlg;
-	CString		m_sRevision;
-	CComboBox	m_depthCombo;
+    CLogDlg *   m_pLogDlg;
+    CString     m_sRevision;
+    CComboBox   m_depthCombo;
 
 public:
-	SVNRev		Revision;
-	CTSVNPath	m_wcPath;
-	BOOL		m_bNoExternals;
-	svn_depth_t	m_depth;
+    SVNRev      Revision;
+    CTSVNPath   m_wcPath;
+    BOOL        m_bNoExternals;
+    svn_depth_t m_depth;
 };

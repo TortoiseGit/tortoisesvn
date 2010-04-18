@@ -29,43 +29,43 @@
  */
 class CSetMainPage : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSetMainPage)
+    DECLARE_DYNAMIC(CSetMainPage)
 
 public:
-	CSetMainPage();
-	virtual ~CSetMainPage();
-	
-	UINT GetIconID() {return IDI_GENERAL;}
+    CSetMainPage();
+    virtual ~CSetMainPage();
 
-	enum { IDD = IDD_SETTINGSMAIN };
+    UINT GetIconID() {return IDI_GENERAL;}
+
+    enum { IDD = IDD_SETTINGSMAIN };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	DECLARE_MESSAGE_MAP()
-	
-	CString GetVersionFromFile(const CString & p_strDateiname);
+    DECLARE_MESSAGE_MAP()
+
+    CString GetVersionFromFile(const CString & p_strDateiname);
 
 private:
-	CRegString		m_regExtensions;
-	CString			m_sTempExtensions;
-	CToolTips		m_tooltips;
-	CComboBox		m_LanguageCombo;
-	CRegDWORD		m_regLanguage;
-	DWORD			m_dwLanguage;
-	CRegString		m_regLastCommitTime;
-	BOOL			m_bLastCommitTime;
-	CRegDWORD		m_regUseAero;
-	BOOL			m_bUseAero;
-	BOOL			m_bUseDotNetHack;
+    CRegString      m_regExtensions;
+    CString         m_sTempExtensions;
+    CToolTips       m_tooltips;
+    CComboBox       m_LanguageCombo;
+    CRegDWORD       m_regLanguage;
+    DWORD           m_dwLanguage;
+    CRegString      m_regLastCommitTime;
+    BOOL            m_bLastCommitTime;
+    CRegDWORD       m_regUseAero;
+    BOOL            m_bUseAero;
+    BOOL            m_bUseDotNetHack;
 
 public:
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
-	afx_msg void OnModified();
-	afx_msg void OnASPHACK();
-	afx_msg void OnBnClickedEditconfig();
-	afx_msg void OnBnClickedChecknewerbutton();
-	afx_msg void OnBnClickedSounds();
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnApply();
+    afx_msg void OnModified();
+    afx_msg void OnASPHACK();
+    afx_msg void OnBnClickedEditconfig();
+    afx_msg void OnBnClickedChecknewerbutton();
+    afx_msg void OnBnClickedSounds();
 };

@@ -35,25 +35,25 @@ class SCopyInfo
 {
 public:
 
-	revision_t fromRevision;
-	index_t fromPathIndex;
-	revision_t toRevision;
-	index_t toPathIndex;
+    revision_t fromRevision;
+    index_t fromPathIndex;
+    revision_t toRevision;
+    index_t toPathIndex;
 
-	struct STarget
-	{
-		CFullGraphNode* source;
-		CDictionaryBasedTempPath path;
+    struct STarget
+    {
+        CFullGraphNode* source;
+        CDictionaryBasedTempPath path;
 
-		STarget ( CFullGraphNode* source
-				, const CDictionaryBasedTempPath& path)
-			: source (source)
-			, path (path)
-		{
-		}
-	};
+        STarget ( CFullGraphNode* source
+                , const CDictionaryBasedTempPath& path)
+            : source (source)
+            , path (path)
+        {
+        }
+    };
 
-	std::vector<STarget> targets;
+    std::vector<STarget> targets;
 
     static SCopyInfo* Create (boost::pool<>& copyInfoPool)
     {
@@ -72,7 +72,7 @@ public:
 /**
  * \ingroup TortoiseProc
  * Handles and analyzes log data to produce a revision graph.
- * 
+ *
  * Since Subversion only stores information where each entry is copied \b from
  * and not where it is copied \b to, the first thing we do here is crawl all
  * revisions and create separate CRevisionEntry objects where we store the
@@ -87,60 +87,60 @@ class CFullHistory : private ILogReceiver
 {
 public:
 
-	/**
-	 * \ingroup TortoiseProc
-	 * Contains all WC status relevant for the revision graph.
-	 */
+    /**
+     * \ingroup TortoiseProc
+     * Contains all WC status relevant for the revision graph.
+     */
 
-	struct SWCInfo
-	{
-		revision_t minAtRev;
-		revision_t maxAtRev;
-		revision_t minCommit;
-		revision_t maxCommit;
+    struct SWCInfo
+    {
+        revision_t minAtRev;
+        revision_t maxAtRev;
+        revision_t minCommit;
+        revision_t maxCommit;
 
-		bool modified;
+        bool modified;
 
-		SWCInfo (revision_t rev = -1)
-			: minAtRev (rev)
-			, maxAtRev (rev)
-			, minCommit (rev)
-			, maxCommit (rev)
-			, modified (false)
-		{
-		}
-	};
+        SWCInfo (revision_t rev = -1)
+            : minAtRev (rev)
+            , maxAtRev (rev)
+            , minCommit (rev)
+            , maxCommit (rev)
+            , modified (false)
+        {
+        }
+    };
 
     /// construction / destruction
 
-	CFullHistory(void);
-	~CFullHistory(void);
+    CFullHistory(void);
+    ~CFullHistory(void);
 
     /// query data
 
-	bool						FetchRevisionData ( CString path
+    bool                        FetchRevisionData ( CString path
                                                   , SVNRev pegRev
                                                   , bool showWCRev
                                                   , bool showWCModification
                                                   , CProgressDlg* progress
-												  , ITaskbarList3 * pTaskBarList
-												  , HWND hWnd);
+                                                  , ITaskbarList3 * pTaskBarList
+                                                  , HWND hWnd);
 
     /// data access
 
-	CString						GetLastErrorMessage() const;
+    CString                     GetLastErrorMessage() const;
 
-	svn_revnum_t				GetHeadRevision() const {return headRevision;}
-	svn_revnum_t				GetPegRevision() const {return pegRevision;}
-	CString						GetRepositoryRoot() const {return CString (repoRoot);}
-	CString						GetRepositoryUUID() const {return uuid;}
-	CString						GetRelativePath() const {return CString (relPath);}
+    svn_revnum_t                GetHeadRevision() const {return headRevision;}
+    svn_revnum_t                GetPegRevision() const {return pegRevision;}
+    CString                     GetRepositoryRoot() const {return CString (repoRoot);}
+    CString                     GetRepositoryUUID() const {return uuid;}
+    CString                     GetRelativePath() const {return CString (relPath);}
 
     const CDictionaryBasedTempPath* GetStartPath() const {return startPath.get();}
     revision_t                  GetStartRevision() const {return startRevision;}
 
     const CDictionaryBasedTempPath* GetWCPath() const {return wcPath.get();}
-    const SWCInfo&				GetWCInfo() const {return wcInfo;}
+    const SWCInfo&              GetWCInfo() const {return wcInfo;}
 
     SCopyInfo**                 GetFirstCopyFrom() const {return copyFromRelation;}
     SCopyInfo**                 GetFirstCopyTo() const {return copyToRelation;}
@@ -154,43 +154,43 @@ private:
 
     /// data members
 
-    CProgressDlg* 	            progress;
-	ITaskbarList3*				taskbarlist;
-	HWND						hwnd;
+    CProgressDlg*               progress;
+    ITaskbarList3*              taskbarlist;
+    HWND                        hwnd;
 
-    CStringA					repoRoot;
-	CStringA					relPath;
+    CStringA                    repoRoot;
+    CStringA                    relPath;
     CString                     uuid;
-	revision_t					headRevision;
-	revision_t					pegRevision;
+    revision_t                  headRevision;
+    revision_t                  pegRevision;
     revision_t                  firstRevision;
 
-	svn_client_ctx_t 			ctx;
-	SVNPrompt					prompt;
-	SVN							svn;
+    svn_client_ctx_t            ctx;
+    SVNPrompt                   prompt;
+    SVN                         svn;
 
-	svn_error_t *				Err;			///< Global error object struct
-	apr_pool_t *				parentpool;
-	apr_pool_t *				pool;			///< memory pool
+    svn_error_t *               Err;            ///< Global error object struct
+    apr_pool_t *                parentpool;
+    apr_pool_t *                pool;           ///< memory pool
 
-	bool						cancelled;
+    bool                        cancelled;
 
     CCachedLogInfo*             cache;
-	std::auto_ptr<CSVNLogQuery> svnQuery;
-	std::auto_ptr<CCacheLogQuery> query;
+    std::auto_ptr<CSVNLogQuery> svnQuery;
+    std::auto_ptr<CCacheLogQuery> query;
 
     std::auto_ptr<CDictionaryBasedTempPath> startPath;
     revision_t                  startRevision;
 
-	std::auto_ptr<CDictionaryBasedTempPath> wcPath;
-    SWCInfo						wcInfo;
+    std::auto_ptr<CDictionaryBasedTempPath> wcPath;
+    SWCInfo                     wcInfo;
 
     boost::pool<>               copyInfoPool;
-	std::vector<SCopyInfo*>		copiesContainer;
-	SCopyInfo**		            copyToRelation;
-	SCopyInfo**		            copyToRelationEnd;
-	SCopyInfo**		            copyFromRelation;
-	SCopyInfo**		            copyFromRelationEnd;
+    std::vector<SCopyInfo*>     copiesContainer;
+    SCopyInfo**                 copyToRelation;
+    SCopyInfo**                 copyToRelationEnd;
+    SCopyInfo**                 copyFromRelation;
+    SCopyInfo**                 copyFromRelationEnd;
 
     /// asynchronuous execution queues
     /// (one per independent resource)
@@ -200,19 +200,19 @@ private:
 
     /// SVN callback
 
-	static svn_error_t*			cancel(void *baton);
+    static svn_error_t*         cancel(void *baton);
 
     /// utility methods
 
     bool                        ClearCopyInfo();
     void                        QueryWCRevision (bool doQuery, CString path);
-	void						AnalyzeRevisionData();
-	void						BuildForwardCopies();
-	
-	/// implement ILogReceiver
+    void                        AnalyzeRevisionData();
+    void                        BuildForwardCopies();
 
-	void ReceiveLog ( TChangedPaths* changes
-					, svn_revnum_t rev
+    /// implement ILogReceiver
+
+    void ReceiveLog ( TChangedPaths* changes
+                    , svn_revnum_t rev
                     , const StandardRevProps* stdRevProps
                     , UserRevPropArray* userRevProps
                     , bool mergesFollow);

@@ -29,19 +29,19 @@
 class RTFMCommand : public Command
 {
 public:
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute()
-	{
-		// If the user tries to start TortoiseProc from the link in the programs start menu
-		// show an explanation about what TSVN is (shell extension) and open up an explorer window
-		CMessageBox::Show(hwndExplorer, IDS_PROC_RTFM, IDS_APPNAME, MB_ICONINFORMATION);
-		TCHAR path[MAX_PATH];
-		SHGetFolderPath(hwndExplorer, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
-		ShellExecute(0, _T("explore"), path, NULL, NULL, SW_SHOWNORMAL);
-		return true;
-	}
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute()
+    {
+        // If the user tries to start TortoiseProc from the link in the programs start menu
+        // show an explanation about what TSVN is (shell extension) and open up an explorer window
+        CMessageBox::Show(hwndExplorer, IDS_PROC_RTFM, IDS_APPNAME, MB_ICONINFORMATION);
+        TCHAR path[MAX_PATH];
+        SHGetFolderPath(hwndExplorer, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
+        ShellExecute(0, _T("explore"), path, NULL, NULL, SW_SHOWNORMAL);
+        return true;
+    }
 };
 
 

@@ -23,9 +23,9 @@
 
 bool RepoStatusCommand::Execute()
 {
-	CChangedDlg dlg;
-	dlg.m_pathList = pathList;
-	dlg.ContactRepository(!!parser.HasKey(_T("remote")));
-	dlg.DoModal();
-	return true;
+    CChangedDlg dlg;
+    dlg.m_pathList = pathList;
+    dlg.ContactRepository(!!parser.HasKey(_T("remote")));
+    dlg.DoModal();
+    return true;
 }

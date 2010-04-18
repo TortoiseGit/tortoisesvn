@@ -31,10 +31,10 @@ class CLogDlg;
 class CStoreSelection
 {
 public:
-	CStoreSelection(CLogDlg* dlg);
-	~CStoreSelection();
+    CStoreSelection(CLogDlg* dlg);
+    ~CStoreSelection();
 protected:
-	CLogDlg* m_logdlg;
+    CLogDlg* m_logdlg;
     quick_hash_set<long> m_SetSelectedRevisions;
 };
 
@@ -59,7 +59,7 @@ public:
 
     /// construction
 
-    CLogCacheUtility 
+    CLogCacheUtility
         ( LogCache::CCachedLogInfo* cache
         , ProjectProperties* projectProperties = NULL);
 
@@ -69,9 +69,9 @@ public:
     bool IsCached (svn_revnum_t revision) const;
 
     /// \returns NULL if \ref IsCached returns false for that \ref revision.
-    /// Otherwise, all cached log information for the respective revisin 
-    /// will be returned. 
-    /// The bCopiedSelf, bChecked and hasChildren members will always be 
+    /// Otherwise, all cached log information for the respective revisin
+    /// will be returned.
+    /// The bCopiedSelf, bChecked and hasChildren members will always be
     /// @a FALSE; childStackDepth will be 0.
 
     PLOGENTRYDATA GetRevisionData (svn_revnum_t revision);

@@ -27,33 +27,33 @@
  */
 class CSetBugTraq : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSetBugTraq)
+    DECLARE_DYNAMIC(CSetBugTraq)
 
 public:
-	CSetBugTraq();   // standard constructor
-	virtual ~CSetBugTraq();
+    CSetBugTraq();   // standard constructor
+    virtual ~CSetBugTraq();
 
-	UINT GetIconID() {return IDI_BUGTRAQ;}
+    UINT GetIconID() {return IDI_BUGTRAQ;}
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSBUGTRAQ };
+    enum { IDD = IDD_SETTINGSBUGTRAQ };
 
 protected:
-	virtual BOOL OnInitDialog();
-	virtual BOOL OnApply();
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnBnClickedRemovebutton();
-	afx_msg void OnBnClickedEditbutton();
-	afx_msg void OnBnClickedAddbutton();
-	afx_msg void OnLvnItemchangedBugTraqlist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMDblclkBugTraqlist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedBugTraqcopybutton();
+    virtual BOOL OnInitDialog();
+    virtual BOOL OnApply();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    afx_msg void OnBnClickedRemovebutton();
+    afx_msg void OnBnClickedEditbutton();
+    afx_msg void OnBnClickedAddbutton();
+    afx_msg void OnLvnItemchangedBugTraqlist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMDblclkBugTraqlist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnBnClickedBugTraqcopybutton();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	void			RebuildBugTraqList();
+    void            RebuildBugTraqList();
 
 protected:
-	CBugTraqAssociations m_associations;
-	CListCtrl m_cBugTraqList;
+    CBugTraqAssociations m_associations;
+    CListCtrl m_cBugTraqList;
 };

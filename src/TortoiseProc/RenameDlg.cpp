@@ -27,8 +27,8 @@
 
 IMPLEMENT_DYNAMIC(CRenameDlg, CResizableStandAloneDialog)
 CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CRenameDlg::IDD, pParent)
-	, m_name(_T(""))
+    : CResizableStandAloneDialog(CRenameDlg::IDD, pParent)
+    , m_name(_T(""))
 {
 }
 
@@ -38,79 +38,79 @@ CRenameDlg::~CRenameDlg()
 
 void CRenameDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_NAME, m_name);
+    CResizableStandAloneDialog::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_NAME, m_name);
 }
 
 
 BEGIN_MESSAGE_MAP(CRenameDlg, CResizableStandAloneDialog)
-	ON_WM_SIZING()
-	ON_EN_CHANGE(IDC_NAME, OnEnChangeName)
+    ON_WM_SIZING()
+    ON_EN_CHANGE(IDC_NAME, OnEnChangeName)
 END_MESSAGE_MAP()
 
 BOOL CRenameDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+    CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_DWM);
-	m_aeroControls.SubclassOkCancel(this);
+    ExtendFrameIntoClientArea(IDC_DWM);
+    m_aeroControls.SubclassOkCancel(this);
 
-	SHAutoComplete(GetDlgItem(IDC_NAME)->m_hWnd, SHACF_DEFAULT);
+    SHAutoComplete(GetDlgItem(IDC_NAME)->m_hWnd, SHACF_DEFAULT);
 
-	if (!m_windowtitle.IsEmpty())
-		this->SetWindowText(m_windowtitle);
-	if (!m_label.IsEmpty())
-		SetDlgItemText(IDC_LABEL, m_label);
-	AddAnchor(IDC_LABEL, TOP_LEFT);
-	AddAnchor(IDC_NAME, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_DWM, TOP_LEFT);
-	AddAnchor(IDOK, BOTTOM_RIGHT);
-	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    if (!m_windowtitle.IsEmpty())
+        this->SetWindowText(m_windowtitle);
+    if (!m_label.IsEmpty())
+        SetDlgItemText(IDC_LABEL, m_label);
+    AddAnchor(IDC_LABEL, TOP_LEFT);
+    AddAnchor(IDC_NAME, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_DWM, TOP_LEFT);
+    AddAnchor(IDOK, BOTTOM_RIGHT);
+    AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 
-	CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_NAME);
-	if (hWndExplorer)
-		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("RenameDlg"));
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
-	return TRUE;
+    CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_NAME);
+    if (hWndExplorer)
+        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    EnableSaveRestore(_T("RenameDlg"));
+    GetDlgItem(IDOK)->EnableWindow(FALSE);
+    return TRUE;
 }
 
 void CRenameDlg::OnOK()
 {
-	UpdateData();
-	m_name.Trim();
-	CTSVNPath path(m_name);
-	if (!path.IsValidOnWindows())
-	{
-		if (CMessageBox::Show(GetSafeHwnd(), IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONWARNING | MB_OKCANCEL)==IDCANCEL)
-			return;
-	}
-	CResizableDialog::OnOK();
+    UpdateData();
+    m_name.Trim();
+    CTSVNPath path(m_name);
+    if (!path.IsValidOnWindows())
+    {
+        if (CMessageBox::Show(GetSafeHwnd(), IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONWARNING | MB_OKCANCEL)==IDCANCEL)
+            return;
+    }
+    CResizableDialog::OnOK();
 }
 
 void CRenameDlg::OnSizing(UINT fwSide, LPRECT pRect)
 {
-	// don't allow the dialog to be changed in height
-	CRect rcWindowRect;
-	GetWindowRect(&rcWindowRect);
-	switch (fwSide)
-	{
-	case WMSZ_BOTTOM:
-	case WMSZ_BOTTOMLEFT:
-	case WMSZ_BOTTOMRIGHT:
-		pRect->bottom = pRect->top + rcWindowRect.Height();
-		break;
-	case WMSZ_TOP:
-	case WMSZ_TOPLEFT:
-	case WMSZ_TOPRIGHT:
-		pRect->top = pRect->bottom - rcWindowRect.Height();
-		break;
-	}
-	CResizableStandAloneDialog::OnSizing(fwSide, pRect);
+    // don't allow the dialog to be changed in height
+    CRect rcWindowRect;
+    GetWindowRect(&rcWindowRect);
+    switch (fwSide)
+    {
+    case WMSZ_BOTTOM:
+    case WMSZ_BOTTOMLEFT:
+    case WMSZ_BOTTOMRIGHT:
+        pRect->bottom = pRect->top + rcWindowRect.Height();
+        break;
+    case WMSZ_TOP:
+    case WMSZ_TOPLEFT:
+    case WMSZ_TOPRIGHT:
+        pRect->top = pRect->bottom - rcWindowRect.Height();
+        break;
+    }
+    CResizableStandAloneDialog::OnSizing(fwSide, pRect);
 }
 
 void CRenameDlg::OnEnChangeName()
 {
-	UpdateData();
-	GetDlgItem(IDOK)->EnableWindow(!m_name.IsEmpty());
+    UpdateData();
+    GetDlgItem(IDOK)->EnableWindow(!m_name.IsEmpty());
 }

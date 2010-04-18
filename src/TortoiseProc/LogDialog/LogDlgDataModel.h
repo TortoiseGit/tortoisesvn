@@ -33,15 +33,15 @@ class CLogChangedPath
 private:
 
     CDictionaryBasedPath path;
-	CDictionaryBasedPath copyFromPath;
-	svn_revnum_t copyFromRev;
-	svn_node_kind_t nodeKind;
-	DWORD action;
+    CDictionaryBasedPath copyFromPath;
+    svn_revnum_t copyFromRev;
+    svn_node_kind_t nodeKind;
+    DWORD action;
 
     /// true, if it affects the content of the path that
     /// the log was originally shown for
 
-    bool relevantForStartPath;  
+    bool relevantForStartPath;
 
     // conversion utility
 
@@ -51,7 +51,7 @@ public:
 
     /// construction
 
-    CLogChangedPath 
+    CLogChangedPath
         ( const CRevisionInfoContainer::CChangesIterator& iter
         , const CDictionaryBasedTempPath& logPath);
 
@@ -68,10 +68,10 @@ public:
 
     bool IsRelevantForStartPath() const {return relevantForStartPath;}
 
-	/// returns the action as a string
+    /// returns the action as a string
 
-	static const CString& GetActionString (DWORD action);
-	const CString& GetActionString() const;
+    static const CString& GetActionString (DWORD action);
+    const CString& GetActionString() const;
 };
 
 /**
@@ -86,7 +86,7 @@ private:
     /// \ref MarkRelevantChanges found that the log path
     /// has been copied in this revision
 
-	bool copiedSelf;
+    bool copiedSelf;
 
     /// cached actions info
 
@@ -131,23 +131,23 @@ public:
  */
 
 class CLogEntryData
-{   
+{
 private:
 
     /// encapsulate data
 
-	CLogChangedPathArray changedPaths;
+    CLogChangedPathArray changedPaths;
 
-	mutable CString sDate;
-	CString sAuthor;
-	CString sMessage;
-	CString sBugIDs;
+    mutable CString sDate;
+    CString sAuthor;
+    CString sMessage;
+    CString sBugIDs;
     svn_revnum_t revision;
-	__time64_t tmDate;
+    __time64_t tmDate;
 
     CLogEntryData* parent;
-	bool hasChildren;
-	DWORD childStackDepth;
+    bool hasChildren;
+    DWORD childStackDepth;
 
     ProjectProperties* projectProperties;
 
@@ -175,9 +175,9 @@ public:
 
     /// modification
 
-    void SetAuthor 
+    void SetAuthor
         ( const CString& author);
-    void SetMessage 
+    void SetMessage
         ( const CString& message
         , ProjectProperties* projectProperties);
     void SetChecked
@@ -200,10 +200,10 @@ public:
     __time64_t GetDate() const {return tmDate;}
 
     const CString& GetDateString() const;
-	const CString& GetAuthor() const {return sAuthor;}
-	const CString& GetMessage() const {return sMessage;}
-	const CString& GetBugIDs() const {return sBugIDs;}
-	CString GetShortMessage() const;
+    const CString& GetAuthor() const {return sAuthor;}
+    const CString& GetMessage() const {return sMessage;}
+    const CString& GetBugIDs() const {return sBugIDs;}
+    CString GetShortMessage() const;
 
     const CLogChangedPathArray& GetChangedPaths() const {return changedPaths;}
 
@@ -229,25 +229,25 @@ private:
 
     /// max of LogEntryData::GetDepth
 
-	DWORD maxDepth;
+    DWORD maxDepth;
 
-	__time64_t minDate;
-	__time64_t maxDate;
+    __time64_t minDate;
+    __time64_t maxDate;
 
     svn_revnum_t minRevision;
     svn_revnum_t maxRevision;
 
     /// used temporarily when fetching logs with merge info
 
-    std::vector<PLOGENTRYDATA> logParents;   
-	
+    std::vector<PLOGENTRYDATA> logParents;
+
     /// the query used to fill this container
 
     std::auto_ptr<const CCacheLogQuery> query;
 
     /// filter utiltiy method
 
-    std::vector<size_t> FilterRange 
+    std::vector<size_t> FilterRange
         ( const CLogDlgFilter* filter
         , size_t first
         , size_t last);
@@ -258,9 +258,9 @@ public:
 
     CLogDataVector();
 
-	/// De-allocates log items.
+    /// De-allocates log items.
 
-	void ClearAll();
+    void ClearAll();
 
     /// add / remove items
 
@@ -287,7 +287,7 @@ public:
 
     DWORD GetMaxDepth() const {return maxDepth;}
     __time64_t GetMinDate() const {return minDate;}
-	__time64_t GetMaxDate() const {return maxDate;}
+    __time64_t GetMaxDate() const {return maxDate;}
     svn_revnum_t GetMinRevision() const {return minRevision;}
     svn_revnum_t GetMaxRevision() const {return maxRevision;}
 

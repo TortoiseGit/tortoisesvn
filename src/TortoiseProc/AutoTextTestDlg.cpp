@@ -29,10 +29,10 @@ using namespace std;
 IMPLEMENT_DYNAMIC(CAutoTextTestDlg, CDialog)
 
 CAutoTextTestDlg::CAutoTextTestDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CAutoTextTestDlg::IDD, pParent)
-	, m_sRegex(_T(""))
-	, m_sResult(_T(""))
-	, m_sTimingLabel(_T(""))
+    : CDialog(CAutoTextTestDlg::IDD, pParent)
+    , m_sRegex(_T(""))
+    , m_sResult(_T(""))
+    , m_sTimingLabel(_T(""))
 {
 
 }
@@ -43,76 +43,76 @@ CAutoTextTestDlg::~CAutoTextTestDlg()
 
 void CAutoTextTestDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_AUTOTEXTREGEX, m_sRegex);
-	DDX_Text(pDX, IDC_TESTRESULT, m_sResult);
-	DDX_Text(pDX, IDC_TIMINGLABEL, m_sTimingLabel);
-	DDX_Control(pDX, IDC_AUTOTEXTCONTENT, m_cContent);
+    CDialog::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_AUTOTEXTREGEX, m_sRegex);
+    DDX_Text(pDX, IDC_TESTRESULT, m_sResult);
+    DDX_Text(pDX, IDC_TIMINGLABEL, m_sTimingLabel);
+    DDX_Control(pDX, IDC_AUTOTEXTCONTENT, m_cContent);
 }
 
 
 BEGIN_MESSAGE_MAP(CAutoTextTestDlg, CDialog)
-	ON_BN_CLICKED(IDC_AUTOTEXTSCAN, &CAutoTextTestDlg::OnBnClickedAutotextscan)
+    ON_BN_CLICKED(IDC_AUTOTEXTSCAN, &CAutoTextTestDlg::OnBnClickedAutotextscan)
 END_MESSAGE_MAP()
 
 
 BOOL CAutoTextTestDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+    CDialog::OnInitDialog();
 
-	m_cContent.LimitText(200*1024);
+    m_cContent.LimitText(200*1024);
 
-	return TRUE;
+    return TRUE;
 }
 
 void CAutoTextTestDlg::OnBnClickedAutotextscan()
 {
-	UpdateData();
+    UpdateData();
 
-	m_sResult.Empty();
-	m_sTimingLabel.Empty();
-	m_cContent.GetTextRange(0, m_cContent.GetTextLength(), m_sContent);
-	if ((!m_sContent.IsEmpty())&&(!m_sRegex.IsEmpty()))
-	{
-		try
-		{
-			std::set<CString> autolist;
-			wstring s = m_sContent;
-			CHighResClock timer;
+    m_sResult.Empty();
+    m_sTimingLabel.Empty();
+    m_cContent.GetTextRange(0, m_cContent.GetTextLength(), m_sContent);
+    if ((!m_sContent.IsEmpty())&&(!m_sRegex.IsEmpty()))
+    {
+        try
+        {
+            std::set<CString> autolist;
+            wstring s = m_sContent;
+            CHighResClock timer;
 
-			tr1::wregex regCheck;
-			std::map<CString, tr1::wregex>::const_iterator regIt;
-			regCheck = tr1::wregex(m_sRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-			const tr1::wsregex_iterator end;
-			for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
-			{
-				const tr1::wsmatch match = *it;
-				for (size_t i=1; i<match.size(); ++i)
-				{
-					if (match[i].second-match[i].first)
-					{
-						ATLTRACE(_T("matched keyword : %s\n"), wstring(match[i]).c_str());
-						wstring result = wstring(match[i]);
-						if (!result.empty())
-						{
-							autolist.insert(result.c_str());
-						}
-					}
-				}
-			}
-			timer.Stop();
-			for (std::set<CString>::iterator it = autolist.begin(); it != autolist.end(); ++it)
-			{
-				m_sResult += *it;
-				m_sResult += _T("\r\n");
-			}
-			m_sTimingLabel.Format(_T("Parse time: %ld uSecs"), timer.GetMusecsTaken());
-		}
-		catch (exception) 
-		{
-			m_sResult = _T("Regex is invalid!");
-		}
-	}
-	UpdateData(FALSE);
+            tr1::wregex regCheck;
+            std::map<CString, tr1::wregex>::const_iterator regIt;
+            regCheck = tr1::wregex(m_sRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+            const tr1::wsregex_iterator end;
+            for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
+            {
+                const tr1::wsmatch match = *it;
+                for (size_t i=1; i<match.size(); ++i)
+                {
+                    if (match[i].second-match[i].first)
+                    {
+                        ATLTRACE(_T("matched keyword : %s\n"), wstring(match[i]).c_str());
+                        wstring result = wstring(match[i]);
+                        if (!result.empty())
+                        {
+                            autolist.insert(result.c_str());
+                        }
+                    }
+                }
+            }
+            timer.Stop();
+            for (std::set<CString>::iterator it = autolist.begin(); it != autolist.end(); ++it)
+            {
+                m_sResult += *it;
+                m_sResult += _T("\r\n");
+            }
+            m_sTimingLabel.Format(_T("Parse time: %ld uSecs"), timer.GetMusecsTaken());
+        }
+        catch (exception)
+        {
+            m_sResult = _T("Regex is invalid!");
+        }
+    }
+    UpdateData(FALSE);
 }
 

@@ -26,15 +26,15 @@
 class RenameCommand : public Command
 {
 public:
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute();
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute();
 private:
-	bool					RenameWithReplace(HWND hWnd, const CTSVNPathList& srcPathList, 
-											const CTSVNPath& destPath, 
-											bool force, const CString& message = _T(""), 
-											bool move_as_child = false, bool make_parents = false);
+    bool                    RenameWithReplace(HWND hWnd, const CTSVNPathList& srcPathList, 
+                                            const CTSVNPath& destPath, 
+                                            bool force, const CString& message = _T(""), 
+                                            bool move_as_child = false, bool make_parents = false);
 };
 
 

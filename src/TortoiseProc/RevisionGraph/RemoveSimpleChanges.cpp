@@ -37,7 +37,7 @@ bool CRemoveSimpleChanges::IsActive() const
 
 // implement ICopyFilterOption (pre-filter most nodes)
 
-ICopyFilterOption::EResult 
+ICopyFilterOption::EResult
 CRemoveSimpleChanges::ShallRemove (const CFullGraphNode* node) const
 {
     // "M", not a branch point and will not become one due to removed copy-froms
@@ -63,7 +63,7 @@ void CRemoveSimpleChanges::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 {
     // "M", not a branch point, not the HEAD
 
-    if (   (node->GetClassification().Matches 
+    if (   (node->GetClassification().Matches
                 ( CNodeClassification::IS_MODIFIED
                 , static_cast<DWORD>(CNodeClassification::MUST_BE_PRESERVED)))
         && (node->GetFirstTag() == NULL)

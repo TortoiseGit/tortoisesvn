@@ -27,7 +27,7 @@
 IMPLEMENT_DYNAMIC(CEditPropEOL, CStandAloneDialog)
 
 CEditPropEOL::CEditPropEOL(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CEditPropEOL::IDD, pParent)
+    : CStandAloneDialog(CEditPropEOL::IDD, pParent)
     , EditPropBase()
 {
 
@@ -39,7 +39,7 @@ CEditPropEOL::~CEditPropEOL()
 
 void CEditPropEOL::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 

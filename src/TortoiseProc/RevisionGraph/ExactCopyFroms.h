@@ -26,13 +26,13 @@
 /** Remove all "copy-from" nodes.
 */
 
-class CExactCopyFroms 
+class CExactCopyFroms
     : public CModificationOptionImpl
                 < IModificationOption
                 , 50
                 , ID_VIEW_EXACTCOPYSOURCE
                 , true          // fold branches first
-                , true          // root first      
+                , true          // root first
                 , true>         // this is a cyclic option
 {
 public:
@@ -43,7 +43,7 @@ public:
 
     /// implement IRevisionGraphOption: This option must always be applied.
 
-    virtual bool IsActive() const; 
+    virtual bool IsActive() const;
 
     /// implement IModificationOption
 

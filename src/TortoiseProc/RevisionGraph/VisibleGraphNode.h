@@ -34,7 +34,7 @@ class CVisibleGraphNode
 public:
 
     /**
-    * Represents a branch that has been recognized as "tag" 
+    * Represents a branch that has been recognized as "tag"
     * and folded into the copy source node.
     */
 
@@ -50,7 +50,7 @@ public:
 
         /// construction
 
-	    CFoldedTag ( const CFullGraphNode* tagNode
+        CFoldedTag ( const CFullGraphNode* tagNode
                    , size_t depth
                    , CFoldedTag* next = NULL);
 
@@ -118,29 +118,29 @@ public:
 
 private:
 
-	/// members
+    /// members
 
     const CFullGraphNode* base;
 
-	CCopyTarget*	    firstCopyTarget;
+    CCopyTarget*        firstCopyTarget;
     CFoldedTag*         firstTag;
 
-	CVisibleGraphNode*  prev;
-	CVisibleGraphNode*  next;
+    CVisibleGraphNode*  prev;
+    CVisibleGraphNode*  next;
 
-	CVisibleGraphNode*  copySource;
+    CVisibleGraphNode*  copySource;
 
     CNodeClassification classification;
 
-	index_t			    index;
+    index_t             index;
 
     /// construction / destruction via pool
 
 protected:
 
-	/// protect construction / destruction to force usage of pool
+    /// protect construction / destruction to force usage of pool
 
-	CVisibleGraphNode ( const CFullGraphNode* base
+    CVisibleGraphNode ( const CFullGraphNode* base
                       , CVisibleGraphNode* prev
                       , CCopyTarget::factory& copyTargetFactory
                       , bool preserveNode);
@@ -158,23 +158,23 @@ public:
 
     const CFullGraphNode* GetBase() const;
 
-	const CDictionaryBasedTempPath& GetPath() const;
-	CDictionaryBasedPath GetRealPath() const;
-	const CFoldedTag* GetFirstTag() const;
+    const CDictionaryBasedTempPath& GetPath() const;
+    CDictionaryBasedPath GetRealPath() const;
+    const CFoldedTag* GetFirstTag() const;
 
-	const CVisibleGraphNode* GetCopySource() const;
+    const CVisibleGraphNode* GetCopySource() const;
     const CCopyTarget* GetFirstCopyTarget() const;
 
-	const CVisibleGraphNode* GetPrevious() const;
-	CVisibleGraphNode* GetPrevious();
-	const CVisibleGraphNode* GetNext() const;
-	CVisibleGraphNode* GetNext();
+    const CVisibleGraphNode* GetPrevious() const;
+    CVisibleGraphNode* GetPrevious();
+    const CVisibleGraphNode* GetNext() const;
+    CVisibleGraphNode* GetNext();
 
-	revision_t GetRevision() const;
-	CNodeClassification GetClassification() const;
-	void SetClassification (CNodeClassification newValue);
+    revision_t GetRevision() const;
+    CNodeClassification GetClassification() const;
+    void SetClassification (CNodeClassification newValue);
 
-	index_t GetIndex() const;
+    index_t GetIndex() const;
 
     bool IsRoot() const;
 
@@ -190,7 +190,7 @@ public:
 
     void DropNode (CVisibleGraph* graph, bool preserveTags);
 
-    /// remove node and sub-tree 
+    /// remove node and sub-tree
 
     void DropSubTree (CVisibleGraph* graph);
 
@@ -205,11 +205,11 @@ public:
 
 /// CVisibleGraphNode::CFoldedTag construction
 
-inline CVisibleGraphNode::CFoldedTag::CFoldedTag 
+inline CVisibleGraphNode::CFoldedTag::CFoldedTag
     ( const CFullGraphNode* tagNode
     , size_t depth
     , CFoldedTag* next)
-	: tagNode (tagNode), depth (depth), next (next)
+    : tagNode (tagNode), depth (depth), next (next)
 {
 }
 
@@ -220,7 +220,7 @@ inline const CFullGraphNode* CVisibleGraphNode::CFoldedTag::GetTag() const
     return tagNode;
 }
 
-inline const CVisibleGraphNode::CFoldedTag* 
+inline const CVisibleGraphNode::CFoldedTag*
 CVisibleGraphNode::CFoldedTag::GetNext() const
 {
     return next;
@@ -277,7 +277,7 @@ inline const CVisibleGraphNode* CVisibleGraphNode::GetCopySource() const
     return copySource;
 }
 
-inline const CVisibleGraphNode::CCopyTarget* 
+inline const CVisibleGraphNode::CCopyTarget*
 CVisibleGraphNode::GetFirstCopyTarget() const
 {
     return firstCopyTarget;
@@ -298,7 +298,7 @@ inline const CVisibleGraphNode* CVisibleGraphNode::GetNext() const
     return next;
 }
 
-inline CVisibleGraphNode* CVisibleGraphNode::GetNext() 
+inline CVisibleGraphNode* CVisibleGraphNode::GetNext()
 {
     return next;
 }

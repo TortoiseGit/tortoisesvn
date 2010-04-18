@@ -25,50 +25,50 @@
 
 CStoreSelection::CStoreSelection(CLogDlg* dlg)
 {
-	m_logdlg = dlg;
+    m_logdlg = dlg;
 
-	int selIndex = m_logdlg->m_LogList.GetSelectionMark();
-	if ( selIndex>=0 )
-	{
+    int selIndex = m_logdlg->m_LogList.GetSelectionMark();
+    if ( selIndex>=0 )
+    {
         int shownRows = static_cast<int>(m_logdlg->m_logEntries.GetVisibleCount());
 
-		POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
-		int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-		if ( nIndex!=-1 && nIndex < shownRows )
-		{
+        POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
+        int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
+        if ( nIndex!=-1 && nIndex < shownRows )
+        {
             PLOGENTRYDATA pLogEntry = m_logdlg->m_logEntries.GetVisible (nIndex);
             m_SetSelectedRevisions.auto_insert (pLogEntry->GetRevision());
-			while (pos)
-			{
-				nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-				if ( nIndex!=-1 && nIndex < shownRows )
-				{
+            while (pos)
+            {
+                nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
+                if ( nIndex!=-1 && nIndex < shownRows )
+                {
                     pLogEntry = m_logdlg->m_logEntries.GetVisible (nIndex);
-					m_SetSelectedRevisions.auto_insert(pLogEntry->GetRevision());
-				}
-			}
-		}
-	}
+                    m_SetSelectedRevisions.auto_insert(pLogEntry->GetRevision());
+                }
+            }
+        }
+    }
 }
 
 CStoreSelection::~CStoreSelection()
 {
-	if ( m_SetSelectedRevisions.size()>0 )
-	{
+    if ( m_SetSelectedRevisions.size()>0 )
+    {
         // inhibit UI event processing (and combined path list updates)
 
-	    InterlockedExchange (&m_logdlg->m_bLogThreadRunning, TRUE);
+        InterlockedExchange (&m_logdlg->m_bLogThreadRunning, TRUE);
 
         int firstSelected = INT_MAX;
         int lastSelected = INT_MIN;
 
-		for (int i=0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
-		{
-			LONG nRevision = m_logdlg->m_logEntries.GetVisible(i)->GetRevision();
-			if ( m_SetSelectedRevisions.contains (nRevision) )
-			{
-				m_logdlg->m_LogList.SetSelectionMark(i);
-				m_logdlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+        for (int i=0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
+        {
+            LONG nRevision = m_logdlg->m_logEntries.GetVisible(i)->GetRevision();
+            if ( m_SetSelectedRevisions.contains (nRevision) )
+            {
+                m_logdlg->m_LogList.SetSelectionMark(i);
+                m_logdlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
 
                 // record range of selected items.
                 // We must not call EnsureVisible here because it will scroll
@@ -76,8 +76,8 @@ CStoreSelection::~CStoreSelection()
 
                 firstSelected = min (firstSelected, i);
                 lastSelected = max (lastSelected, i);
-			}
-		}
+            }
+        }
 
         // ensure that the selected items are visible and
         // prefer the first one to be visible
@@ -90,19 +90,19 @@ CStoreSelection::~CStoreSelection()
 
         // UI updates are allowed, again
 
-	    InterlockedExchange (&m_logdlg->m_bLogThreadRunning, FALSE);
+        InterlockedExchange (&m_logdlg->m_bLogThreadRunning, FALSE);
 
         // manually trigger UI processing that had been blocked before
 
-		m_logdlg->FillLogMessageCtrl();
-	    m_logdlg->UpdateLogInfoLabel();
-	}
+        m_logdlg->FillLogMessageCtrl();
+        m_logdlg->UpdateLogInfoLabel();
+    }
 }
 
-CLogCacheUtility::CLogCacheUtility 
+CLogCacheUtility::CLogCacheUtility
     ( LogCache::CCachedLogInfo* cache
     , ProjectProperties* projectProperties)
-    : cache (cache) 
+    : cache (cache)
     , projectProperties (projectProperties)
 {
 };
@@ -120,7 +120,7 @@ bool CLogCacheUtility::IsCached (svn_revnum_t revision) const
 
     // std-revprops and changed paths available?
 
-    enum 
+    enum
     {
         MASK = LogCache::CRevisionInfoContainer::HAS_STANDARD_INFO
     };
@@ -149,7 +149,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     // construct result
 
-    std::auto_ptr<LOGENTRYDATA> result 
+    std::auto_ptr<LOGENTRYDATA> result
         (new CLogEntryData
             ( NULL
             , revision

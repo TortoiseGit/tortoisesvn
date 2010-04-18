@@ -49,16 +49,16 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    BOOL			m_bShowIgnoredOverlay;
-    BOOL			m_bShowUnversionedOverlay;
-    BOOL			m_bShowAddedOverlay;
-    BOOL			m_bShowLockedOverlay;
-    BOOL			m_bShowReadonlyOverlay;
-    BOOL			m_bShowDeletedOverlay;
-    CRegDWORD		m_regShowIgnoredOverlay;
-    CRegDWORD		m_regShowUnversionedOverlay;
-    CRegDWORD		m_regShowAddedOverlay;
-    CRegDWORD		m_regShowLockedOverlay;
-    CRegDWORD		m_regShowReadonlyOverlay;
-    CRegDWORD		m_regShowDeletedOverlay;
+    BOOL            m_bShowIgnoredOverlay;
+    BOOL            m_bShowUnversionedOverlay;
+    BOOL            m_bShowAddedOverlay;
+    BOOL            m_bShowLockedOverlay;
+    BOOL            m_bShowReadonlyOverlay;
+    BOOL            m_bShowDeletedOverlay;
+    CRegDWORD       m_regShowIgnoredOverlay;
+    CRegDWORD       m_regShowUnversionedOverlay;
+    CRegDWORD       m_regShowAddedOverlay;
+    CRegDWORD       m_regShowLockedOverlay;
+    CRegDWORD       m_regShowReadonlyOverlay;
+    CRegDWORD       m_regShowDeletedOverlay;
 };

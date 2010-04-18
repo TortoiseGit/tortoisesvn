@@ -25,12 +25,12 @@
 
 IMPLEMENT_DYNAMIC(CSettingsProgsMerge, ISettingsPropPage)
 CSettingsProgsMerge::CSettingsProgsMerge()
-	: ISettingsPropPage(CSettingsProgsMerge::IDD)
-	, m_sMergePath(_T(""))
-	, m_iExtMerge(0)
-	, m_dlgAdvMerge(_T("Merge"))
+    : ISettingsPropPage(CSettingsProgsMerge::IDD)
+    , m_sMergePath(_T(""))
+    , m_iExtMerge(0)
+    , m_dlgAdvMerge(_T("Merge"))
 {
-	m_regMergePath = CRegString(_T("Software\\TortoiseSVN\\Merge"));
+    m_regMergePath = CRegString(_T("Software\\TortoiseSVN\\Merge"));
 }
 
 CSettingsProgsMerge::~CSettingsProgsMerge()
@@ -39,107 +39,107 @@ CSettingsProgsMerge::~CSettingsProgsMerge()
 
 void CSettingsProgsMerge::DoDataExchange(CDataExchange* pDX)
 {
-	ISettingsPropPage::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
-	DDX_Radio(pDX, IDC_EXTMERGE_OFF, m_iExtMerge);
+    ISettingsPropPage::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
+    DDX_Radio(pDX, IDC_EXTMERGE_OFF, m_iExtMerge);
 
-	DialogEnableWindow(IDC_EXTMERGE, m_iExtMerge == 1);
-	DialogEnableWindow(IDC_EXTMERGEBROWSE, m_iExtMerge == 1);
-	DDX_Control(pDX, IDC_EXTMERGE, m_cMergeEdit);
+    DialogEnableWindow(IDC_EXTMERGE, m_iExtMerge == 1);
+    DialogEnableWindow(IDC_EXTMERGEBROWSE, m_iExtMerge == 1);
+    DDX_Control(pDX, IDC_EXTMERGE, m_cMergeEdit);
 }
 
 
 BEGIN_MESSAGE_MAP(CSettingsProgsMerge, ISettingsPropPage)
-	ON_BN_CLICKED(IDC_EXTMERGE_OFF, OnBnClickedExtmergeOff)
-	ON_BN_CLICKED(IDC_EXTMERGE_ON, OnBnClickedExtmergeOn)
-	ON_BN_CLICKED(IDC_EXTMERGEBROWSE, OnBnClickedExtmergebrowse)
-	ON_BN_CLICKED(IDC_EXTMERGEADVANCED, OnBnClickedExtmergeadvanced)
-	ON_EN_CHANGE(IDC_EXTMERGE, OnEnChangeExtmerge)
+    ON_BN_CLICKED(IDC_EXTMERGE_OFF, OnBnClickedExtmergeOff)
+    ON_BN_CLICKED(IDC_EXTMERGE_ON, OnBnClickedExtmergeOn)
+    ON_BN_CLICKED(IDC_EXTMERGEBROWSE, OnBnClickedExtmergebrowse)
+    ON_BN_CLICKED(IDC_EXTMERGEADVANCED, OnBnClickedExtmergeadvanced)
+    ON_EN_CHANGE(IDC_EXTMERGE, OnEnChangeExtmerge)
 END_MESSAGE_MAP()
 
 
 BOOL CSettingsProgsMerge::OnInitDialog()
 {
-	ISettingsPropPage::OnInitDialog();
+    ISettingsPropPage::OnInitDialog();
 
-	EnableToolTips();
+    EnableToolTips();
 
-	m_sMergePath = m_regMergePath;
-	m_iExtMerge = IsExternal(m_sMergePath);
+    m_sMergePath = m_regMergePath;
+    m_iExtMerge = IsExternal(m_sMergePath);
 
-	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_EXTMERGE), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
+    SHAutoComplete(::GetDlgItem(m_hWnd, IDC_EXTMERGE), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
-	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_EXTMERGE, IDS_SETTINGS_EXTMERGE_TT);
+    m_tooltips.Create(this);
+    m_tooltips.AddTool(IDC_EXTMERGE, IDS_SETTINGS_EXTMERGE_TT);
 
-	UpdateData(FALSE);
-	return TRUE;
+    UpdateData(FALSE);
+    return TRUE;
 }
 
 BOOL CSettingsProgsMerge::PreTranslateMessage(MSG* pMsg)
 {
-	m_tooltips.RelayEvent(pMsg);
-	return ISettingsPropPage::PreTranslateMessage(pMsg);
+    m_tooltips.RelayEvent(pMsg);
+    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
 BOOL CSettingsProgsMerge::OnApply()
 {
-	UpdateData();
-	if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != _T("#"))
-		m_sMergePath = _T("#") + m_sMergePath;
+    UpdateData();
+    if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != _T("#"))
+        m_sMergePath = _T("#") + m_sMergePath;
 
-	m_regMergePath = m_sMergePath;
+    m_regMergePath = m_sMergePath;
 
-	m_dlgAdvMerge.SaveData();
-	SetModified(FALSE);
-	return ISettingsPropPage::OnApply();
+    m_dlgAdvMerge.SaveData();
+    SetModified(FALSE);
+    return ISettingsPropPage::OnApply();
 }
 
 void CSettingsProgsMerge::OnBnClickedExtmergeOff()
 {
-	m_iExtMerge = 0;
-	SetModified();
-	DialogEnableWindow(IDC_EXTMERGE, false);
-	DialogEnableWindow(IDC_EXTMERGEBROWSE, false);
-	CheckProgComment();
+    m_iExtMerge = 0;
+    SetModified();
+    DialogEnableWindow(IDC_EXTMERGE, false);
+    DialogEnableWindow(IDC_EXTMERGEBROWSE, false);
+    CheckProgComment();
 }
 
 void CSettingsProgsMerge::OnBnClickedExtmergeOn()
 {
-	m_iExtMerge = 1;
-	SetModified();
-	DialogEnableWindow(IDC_EXTMERGE, true);
-	DialogEnableWindow(IDC_EXTMERGEBROWSE, true);
-	GetDlgItem(IDC_EXTMERGE)->SetFocus();
-	CheckProgComment();
+    m_iExtMerge = 1;
+    SetModified();
+    DialogEnableWindow(IDC_EXTMERGE, true);
+    DialogEnableWindow(IDC_EXTMERGEBROWSE, true);
+    GetDlgItem(IDC_EXTMERGE)->SetFocus();
+    CheckProgComment();
 }
 
 void CSettingsProgsMerge::OnEnChangeExtmerge()
 {
-	SetModified();
+    SetModified();
 }
 
 void CSettingsProgsMerge::OnBnClickedExtmergebrowse()
 {
-	if (CAppUtils::FileOpenSave(m_sMergePath, NULL, IDS_SETTINGS_SELECTMERGE, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
-	{
-		UpdateData(FALSE);
-		SetModified();
-	}
+    if (CAppUtils::FileOpenSave(m_sMergePath, NULL, IDS_SETTINGS_SELECTMERGE, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
+    {
+        UpdateData(FALSE);
+        SetModified();
+    }
 }
 
 void CSettingsProgsMerge::OnBnClickedExtmergeadvanced()
 {
-	if (m_dlgAdvMerge.DoModal() == IDOK)
-		SetModified();
+    if (m_dlgAdvMerge.DoModal() == IDOK)
+        SetModified();
 }
 
 void CSettingsProgsMerge::CheckProgComment()
 {
-	UpdateData();
-	if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != _T("#"))
-		m_sMergePath = _T("#") + m_sMergePath;
-	else if (m_iExtMerge == 1)
-		m_sMergePath.TrimLeft('#');
-	UpdateData(FALSE);
+    UpdateData();
+    if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != _T("#"))
+        m_sMergePath = _T("#") + m_sMergePath;
+    else if (m_iExtMerge == 1)
+        m_sMergePath.TrimLeft('#');
+    UpdateData(FALSE);
 }

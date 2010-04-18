@@ -96,7 +96,7 @@ public:
 
     /// construction
 
-	CLogDlgFilter();
+    CLogDlgFilter();
     CLogDlgFilter 
         ( const CString& filter
         , bool filterWithRegex
@@ -111,12 +111,12 @@ public:
 
     bool operator() (const CLogEntryData& entry) const;
 
-	/// returns a vector with all the ranges where a match
-	/// was found.
-	std::vector<CHARRANGE> GetMatchRanges (wstring& text) const;
+    /// returns a vector with all the ranges where a match
+    /// was found.
+    std::vector<CHARRANGE> GetMatchRanges (wstring& text) const;
 
-	/// filter utiltiy method
-	bool Match (wstring& text) const;
+    /// filter utiltiy method
+    bool Match (wstring& text) const;
 
     /// tr1::regex is very slow when running concurrently 
     /// in multiple threads. Empty filters don't need MT as well.

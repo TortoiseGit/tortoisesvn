@@ -27,12 +27,12 @@ private:
 
     const CCachedLogInfo* cache;
     const std::vector<CStandardLayoutNodeInfo>& nodes;
-	CFullHistory::SWCInfo wcInfo;
+    CFullHistory::SWCInfo wcInfo;
 
-	/// utilities
+    /// utilities
 
-	index_t GetStyle (const CVisibleGraphNode* node) const;
-	DWORD GetStyleFlags (const CVisibleGraphNode* node) const;
+    index_t GetStyle (const CVisibleGraphNode* node) const;
+    DWORD GetStyleFlags (const CVisibleGraphNode* node) const;
 
 public:
 
@@ -40,7 +40,7 @@ public:
 
     CStandardLayoutNodeList ( const std::vector<CStandardLayoutNodeInfo>& nodes
                             , const CCachedLogInfo* cache
-							, const CFullHistory::SWCInfo& wcInfo);
+                            , const CFullHistory::SWCInfo& wcInfo);
 
     /// implement ILayoutItemList
 

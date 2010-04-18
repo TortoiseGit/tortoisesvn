@@ -28,35 +28,35 @@
  */
 class CBlameDlg : public CStandAloneDialog
 {
-	DECLARE_DYNAMIC(CBlameDlg)
+    DECLARE_DYNAMIC(CBlameDlg)
 
 public:
-	CBlameDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CBlameDlg();
+    CBlameDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CBlameDlg();
 
 // Dialog Data
-	enum { IDD = IDD_BLAME };
+    enum { IDD = IDD_BLAME };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnEnChangeRevisionEnd();
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnEnChangeRevisionEnd();
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 protected:
-	CString m_sStartRev;
-	CString m_sEndRev;
-	CRegDWORD m_regTextView;
-	CRegDWORD m_regIncludeMerge;
+    CString m_sStartRev;
+    CString m_sEndRev;
+    CRegDWORD m_regTextView;
+    CRegDWORD m_regIncludeMerge;
 
 public:
-	SVNRev	StartRev;
-	SVNRev	EndRev;
-	BOOL	m_bTextView;
-	BOOL	m_bIgnoreEOL;
-	BOOL	m_bIncludeMerge;
-	svn_diff_file_ignore_space_t	m_IgnoreSpaces;
+    SVNRev  StartRev;
+    SVNRev  EndRev;
+    BOOL    m_bTextView;
+    BOOL    m_bIgnoreEOL;
+    BOOL    m_bIncludeMerge;
+    svn_diff_file_ignore_space_t    m_IgnoreSpaces;
 };

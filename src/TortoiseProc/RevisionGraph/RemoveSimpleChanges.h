@@ -28,15 +28,15 @@
 /** Remove all "M" nodes that are neither HEAD nor the root of sub-paths.
 */
 
-class CRemoveSimpleChanges 
+class CRemoveSimpleChanges
     : public CModificationOptionImpl
-                < CCombineInterface 
+                < CCombineInterface
                     < ICopyFilterOption
                     , IModificationOption>
                 , 200
                 , ID_VIEW_SHOWALLREVISIONS
                 , true           // crawl branches first
-                , true           // root first      
+                , true           // root first
                 , true>          // this is a cyclic option
 {
 public:
@@ -47,7 +47,7 @@ public:
 
     /// implement IRevisionGraphOption: This option is negated.
 
-    virtual bool IsActive() const; 
+    virtual bool IsActive() const;
 
     /// implement ICopyFilterOption (pre-filter most nodes)
 

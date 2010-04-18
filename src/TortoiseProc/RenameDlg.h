@@ -25,27 +25,27 @@
  */
 class CRenameDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CRenameDlg)
+    DECLARE_DYNAMIC(CRenameDlg)
 
 public:
-	CRenameDlg(CWnd* pParent = NULL);
-	virtual ~CRenameDlg();
+    CRenameDlg(CWnd* pParent = NULL);
+    virtual ~CRenameDlg();
 
-	enum { IDD = IDD_RENAME };
+    enum { IDD = IDD_RENAME };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
 
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
-	afx_msg void OnEnChangeName();
+    afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
+    afx_msg void OnEnChangeName();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 public:
-	CString m_name;
-	CString m_windowtitle;
-	CString m_label;
+    CString m_name;
+    CString m_windowtitle;
+    CString m_label;
 };

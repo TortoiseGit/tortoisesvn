@@ -26,13 +26,13 @@
 class CreatePatchCommand : public Command
 {
 public:
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute();
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute();
 protected:
-	static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
-	bool					CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, const CTSVNPath& savepath);
+    static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
+    bool                    CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, const CTSVNPath& savepath);
 
 };
 

@@ -25,16 +25,16 @@
 
 class CEditPropExternals : public CResizableStandAloneDialog, public EditPropBase
 {
-	DECLARE_DYNAMIC(CEditPropExternals)
+    DECLARE_DYNAMIC(CEditPropExternals)
 
 public:
-	CEditPropExternals(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropExternals();
+    CEditPropExternals(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropExternals();
 
-	enum { IDD = IDD_EDITPROPEXTERNALS };
+    enum { IDD = IDD_EDITPROPEXTERNALS };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
     virtual void OnOK();
 
@@ -44,13 +44,13 @@ protected:
     afx_msg void OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() { return CResizableStandAloneDialog::DoModal(); }
 
 private:
     CListCtrl       m_ExtList;
-    SVNExternals	m_externals;
+    SVNExternals    m_externals;
     TCHAR           m_columnbuf[MAX_PATH];
     CTSVNPath       m_url;
     CTSVNPath       m_repoRoot;

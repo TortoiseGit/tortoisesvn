@@ -30,34 +30,34 @@ class CLogDlg;
  */
 class CMergeWizardRevRange : public CMergeWizardBasePage
 {
-	DECLARE_DYNAMIC(CMergeWizardRevRange)
+    DECLARE_DYNAMIC(CMergeWizardRevRange)
 
 public:
-	CMergeWizardRevRange();
-	virtual ~CMergeWizardRevRange();
+    CMergeWizardRevRange();
+    virtual ~CMergeWizardRevRange();
 
-	enum { IDD = IDD_MERGEWIZARD_REVRANGE };
+    enum { IDD = IDD_MERGEWIZARD_REVRANGE };
 
 protected:
-	virtual void		DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual LRESULT		OnWizardBack();
-	virtual BOOL		OnInitDialog();
-	virtual LRESULT		OnWizardNext();
-	virtual BOOL		OnSetActive();
+    virtual void        DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual LRESULT     OnWizardBack();
+    virtual BOOL        OnInitDialog();
+    virtual LRESULT     OnWizardNext();
+    virtual BOOL        OnSetActive();
 
-	afx_msg void		OnBnClickedShowlog();
-	afx_msg void		OnBnClickedBrowse();
-	afx_msg LRESULT		OnRevSelected(WPARAM wParam, LPARAM lParam);
-	afx_msg LRESULT		OnRevSelectedOneRange(WPARAM wParam, LPARAM lParam);
-	afx_msg void		OnBnClickedShowlogwc();
-	afx_msg LRESULT		OnWCStatus(WPARAM wParam, LPARAM lParam);
+    afx_msg void        OnBnClickedShowlog();
+    afx_msg void        OnBnClickedBrowse();
+    afx_msg LRESULT     OnRevSelected(WPARAM wParam, LPARAM lParam);
+    afx_msg LRESULT     OnRevSelectedOneRange(WPARAM wParam, LPARAM lParam);
+    afx_msg void        OnBnClickedShowlogwc();
+    afx_msg LRESULT     OnWCStatus(WPARAM wParam, LPARAM lParam);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	CString				m_sRevRange;
-	CHistoryCombo		m_URLCombo;
-	CLogDlg	*			m_pLogDlg;
-	CLogDlg	*			m_pLogDlg2;
-	SVNRev				m_HEAD;
-	CPathEdit			m_WC;
+    CString             m_sRevRange;
+    CHistoryCombo       m_URLCombo;
+    CLogDlg *           m_pLogDlg;
+    CLogDlg *           m_pLogDlg2;
+    SVNRev              m_HEAD;
+    CPathEdit           m_WC;
 };

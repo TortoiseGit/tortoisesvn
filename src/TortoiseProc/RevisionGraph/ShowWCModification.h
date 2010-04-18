@@ -24,8 +24,8 @@
 #include "revisiongraphoptionsimpl.h"
 #include "Resource.h"
 
-/** 
-* "Pin" current working copy revision, 
+/**
+* "Pin" current working copy revision,
 * i.e. keep it from being removed by other rules.
 */
 

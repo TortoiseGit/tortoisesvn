@@ -27,41 +27,41 @@
  */
 class CInputLogDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CInputLogDlg)
+    DECLARE_DYNAMIC(CInputLogDlg)
 
 public:
-	CInputLogDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CInputLogDlg();
+    CInputLogDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CInputLogDlg();
 
-	void SetProjectProperties(ProjectProperties * pProps) {m_pProjectProperties = pProps;}
-	void SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
-	void SetActionText(const CString& sAction) {m_sActionText = sAction;}
-	CString GetLogMessage() {return m_sLogMsg;}
+    void SetProjectProperties(ProjectProperties * pProps) {m_pProjectProperties = pProps;}
+    void SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
+    void SetActionText(const CString& sAction) {m_sActionText = sAction;}
+    CString GetLogMessage() {return m_sLogMsg;}
     void SetForceFocus(bool force) {m_bForceFocus = force;}
 
 protected:
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual void OnOK();
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual void OnOK();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	afx_msg void OnEnChangeLogmessage();
-	afx_msg void OnBnClickedHistory();
-	DECLARE_MESSAGE_MAP()
+    afx_msg void OnEnChangeLogmessage();
+    afx_msg void OnBnClickedHistory();
+    DECLARE_MESSAGE_MAP()
 
 // Dialog Data
-	enum { IDD = IDD_INPUTLOGDLG };
+    enum { IDD = IDD_INPUTLOGDLG };
 
 private:
-	void		UpdateOKButton();
+    void        UpdateOKButton();
 
 
 private:
-	CSciEdit			m_cInput;
-	ProjectProperties * m_pProjectProperties;
-	CFont				m_logFont;
-	CString				m_sLogMsg;
-	CString				m_sUUID;
-	CString				m_sActionText;
+    CSciEdit            m_cInput;
+    ProjectProperties * m_pProjectProperties;
+    CFont               m_logFont;
+    CString             m_sLogMsg;
+    CString             m_sUUID;
+    CString             m_sActionText;
     bool                m_bForceFocus;
 };

@@ -20,7 +20,7 @@
 
 
 ISettingsPropPage::ISettingsPropPage() : CPropertyPage()
-	, m_restart(Restart_None)
+    , m_restart(Restart_None)
 {
 }
 

@@ -28,7 +28,7 @@ CFullGraphNode::CFactory::CFactory()
 {
 }
 
-CFullGraphNode* CFullGraphNode::CFactory::Create 
+CFullGraphNode* CFullGraphNode::CFactory::Create
     ( const CDictionaryBasedTempPath& path
     , revision_t revision
     , CNodeClassification classification
@@ -46,7 +46,7 @@ void CFullGraphNode::CFactory::Replace ( CFullGraphNode* toReplace
     // remove the old node
 
     CFullGraphNode* previousNode = toReplace->GetPrevious();
-	previousNode->next = toReplace->next;
+    previousNode->next = toReplace->next;
     Destroy (toReplace);
 
     // extract the new node
@@ -67,9 +67,9 @@ void CFullGraphNode::CFactory::Destroy (CFullGraphNode* node)
     nodePool.free (node);
 }
 
-// CVisibleGraphNode construction / destruction 
+// CVisibleGraphNode construction / destruction
 
-CFullGraphNode::CFullGraphNode 
+CFullGraphNode::CFullGraphNode
     ( const CDictionaryBasedTempPath& path
     , revision_t revision
     , CNodeClassification classification
@@ -77,7 +77,7 @@ CFullGraphNode::CFullGraphNode
     , CCopyTarget::factory& copyTargetFactory)
     : path (path)
     , realPathID (path.GetBasePath().GetIndex())
-	, firstCopyTarget(NULL)
+    , firstCopyTarget(NULL)
     , prev (NULL)
     , next (NULL)
     , copySource (NULL)
@@ -87,7 +87,7 @@ CFullGraphNode::CFullGraphNode
     InsertAt (source, copyTargetFactory);
 }
 
-CFullGraphNode::~CFullGraphNode() 
+CFullGraphNode::~CFullGraphNode()
 {
     assert (next == NULL);
     assert (firstCopyTarget == NULL);
@@ -105,11 +105,11 @@ void CFullGraphNode::InsertAt ( CFullGraphNode* source
         }
         else
         {
-			// link the node into existing chain, 
-			// if it isn't already part of a chain
+            // link the node into existing chain,
+            // if it isn't already part of a chain
 
-			if ((source->next != NULL) && (next == NULL))
-				next = source->next;
+            if ((source->next != NULL) && (next == NULL))
+                next = source->next;
 
             copySource = NULL;
             source->next = this;
@@ -117,13 +117,13 @@ void CFullGraphNode::InsertAt ( CFullGraphNode* source
         }
 }
 
-void CFullGraphNode::DestroySubNodes 
+void CFullGraphNode::DestroySubNodes
     ( CFactory& factory
     , CCopyTarget::factory& copyTargetFactory)
 {
     while (next != NULL)
     {
-        CFullGraphNode* toDestroy = next; 
+        CFullGraphNode* toDestroy = next;
         next = toDestroy->next;
         toDestroy->next = NULL;
 

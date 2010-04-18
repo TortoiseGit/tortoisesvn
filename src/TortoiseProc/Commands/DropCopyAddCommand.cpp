@@ -24,65 +24,65 @@
 
 bool DropCopyAddCommand::Execute()
 {
-	bool bRet = false;
-	CString droppath = parser.GetVal(_T("droptarget"));
-	if (CTSVNPath(droppath).IsAdminDir())
-		return FALSE;
+    bool bRet = false;
+    CString droppath = parser.GetVal(_T("droptarget"));
+    if (CTSVNPath(droppath).IsAdminDir())
+        return FALSE;
 
-	pathList.RemoveAdminPaths();
-	CTSVNPathList copiedFiles;
-	for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
-	{
-		if (pathList[nPath].IsEquivalentTo(CTSVNPath(droppath)))
-			continue;
+    pathList.RemoveAdminPaths();
+    CTSVNPathList copiedFiles;
+    for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+    {
+        if (pathList[nPath].IsEquivalentTo(CTSVNPath(droppath)))
+            continue;
 
-		//copy the file to the new location
-		CString name = pathList[nPath].GetFileOrDirectoryName();
-		if (::PathFileExists(droppath+_T("\\")+name))
-		{
-			CString strMessage;
-			strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)(droppath+_T("\\")+name));
-			const int ret = CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_YESNOCANCEL | MB_ICONQUESTION);
-			if (ret == IDCANCEL)
-			{
-				return FALSE;		//cancel the whole operation
-			}
-			if (ret == IDYES)
-			{
-				if (!::CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
-				{
-					//the copy operation failed! Get out of here!
-					ShowErrorMessage();
-					return FALSE;
-				}
-			}
-		}
-		else if (!CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
-		{
-			//the copy operation failed! Get out of here!
-			ShowErrorMessage();
-			return FALSE;
-		}
-		copiedFiles.AddPath(CTSVNPath(droppath+_T("\\")+name));		//add the new filepath
-	}
-	//now add all the newly copied files to the working copy
-	CSVNProgressDlg progDlg;
-	theApp.m_pMainWnd = &progDlg;
-	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
-	progDlg.SetAutoClose (parser);
-	progDlg.SetPathList(copiedFiles);
-	ProjectProperties props;
-	props.ReadPropsPathList(copiedFiles);
-	progDlg.SetProjectProperties(props);
-	progDlg.DoModal();
-	bRet = !progDlg.DidErrorsOccur();
-	return bRet;
+        //copy the file to the new location
+        CString name = pathList[nPath].GetFileOrDirectoryName();
+        if (::PathFileExists(droppath+_T("\\")+name))
+        {
+            CString strMessage;
+            strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)(droppath+_T("\\")+name));
+            const int ret = CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_YESNOCANCEL | MB_ICONQUESTION);
+            if (ret == IDCANCEL)
+            {
+                return FALSE;       //cancel the whole operation
+            }
+            if (ret == IDYES)
+            {
+                if (!::CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
+                {
+                    //the copy operation failed! Get out of here!
+                    ShowErrorMessage();
+                    return FALSE;
+                }
+            }
+        }
+        else if (!CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
+        {
+            //the copy operation failed! Get out of here!
+            ShowErrorMessage();
+            return FALSE;
+        }
+        copiedFiles.AddPath(CTSVNPath(droppath+_T("\\")+name));     //add the new filepath
+    }
+    //now add all the newly copied files to the working copy
+    CSVNProgressDlg progDlg;
+    theApp.m_pMainWnd = &progDlg;
+    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
+    progDlg.SetAutoClose (parser);
+    progDlg.SetPathList(copiedFiles);
+    ProjectProperties props;
+    props.ReadPropsPathList(copiedFiles);
+    progDlg.SetProjectProperties(props);
+    progDlg.DoModal();
+    bRet = !progDlg.DidErrorsOccur();
+    return bRet;
 }
 
 void DropCopyAddCommand::ShowErrorMessage()
 {
-	CFormatMessageWrapper errorDetails;
-	CString strMessage;
-	strMessage.Format(IDS_ERR_COPYFILES, errorDetails);
-	CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+    CFormatMessageWrapper errorDetails;
+    CString strMessage;
+    strMessage.Format(IDS_ERR_COPYFILES, errorDetails);
+    CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 }

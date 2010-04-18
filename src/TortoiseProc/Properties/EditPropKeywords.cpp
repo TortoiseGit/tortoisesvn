@@ -25,7 +25,7 @@
 IMPLEMENT_DYNAMIC(CEditPropKeywords, CStandAloneDialog)
 
 CEditPropKeywords::CEditPropKeywords(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CEditPropKeywords::IDD, pParent)
+    : CStandAloneDialog(CEditPropKeywords::IDD, pParent)
     , EditPropBase()
     , m_bAuthor(FALSE)
     , m_bDate(FALSE)

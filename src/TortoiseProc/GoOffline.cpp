@@ -11,7 +11,7 @@
 IMPLEMENT_DYNAMIC(CGoOffline, CDialog)
 
 CGoOffline::CGoOffline(CWnd* pParent /*=NULL*/)
-	: CDialog(CGoOffline::IDD, pParent)
+    : CDialog(CGoOffline::IDD, pParent)
     , asDefault(false)
     , selection(LogCache::online)
 {
@@ -24,9 +24,9 @@ CGoOffline::~CGoOffline()
 
 void CGoOffline::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+    CDialog::DoDataExchange(pDX);
 
-	DDX_Check(pDX, IDC_ASDEFAULTOFFLINE, asDefault);
+    DDX_Check(pDX, IDC_ASDEFAULTOFFLINE, asDefault);
 }
 
 

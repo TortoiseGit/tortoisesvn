@@ -26,28 +26,28 @@
  */
 class CHistoryDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CHistoryDlg)
+    DECLARE_DYNAMIC(CHistoryDlg)
 public:
-	CHistoryDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CHistoryDlg();
+    CHistoryDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CHistoryDlg();
 
-	/// Returns the text of the selected entry.
-	CString GetSelectedText() const {return m_SelectedText;}
-	/// Sets the history object to use
-	void SetHistory(CRegHistory& history) {m_history = &history;}
-	// Dialog Data
-	enum { IDD = IDD_HISTORYDLG };
+    /// Returns the text of the selected entry.
+    CString GetSelectedText() const {return m_SelectedText;}
+    /// Sets the history object to use
+    void SetHistory(CRegHistory& history) {m_history = &history;}
+    // Dialog Data
+    enum { IDD = IDD_HISTORYDLG };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedOk();
-	afx_msg void OnLbnDblclkHistorylist();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    afx_msg void OnBnClickedOk();
+    afx_msg void OnLbnDblclkHistorylist();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
-	CListBox		m_List;
-	CString			m_SelectedText;
-	CRegHistory*	m_history;
+    CListBox        m_List;
+    CString         m_SelectedText;
+    CRegHistory*    m_history;
 };

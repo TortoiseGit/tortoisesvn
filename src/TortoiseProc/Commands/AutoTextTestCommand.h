@@ -27,15 +27,15 @@
 class AutoTextTestCommand : public Command
 {
 public:
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute()
-	{
-		CAutoTextTestDlg dlg;
-		dlg.DoModal();
-		return true;
-	}
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute()
+    {
+        CAutoTextTestDlg dlg;
+        dlg.DoModal();
+        return true;
+    }
 };
 
 

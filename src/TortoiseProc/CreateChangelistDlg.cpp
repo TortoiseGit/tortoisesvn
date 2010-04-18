@@ -26,8 +26,8 @@
 IMPLEMENT_DYNAMIC(CCreateChangelistDlg, CDialog)
 
 CCreateChangelistDlg::CCreateChangelistDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CCreateChangelistDlg::IDD, pParent)
-	, m_sName(_T(""))
+    : CDialog(CCreateChangelistDlg::IDD, pParent)
+    , m_sName(_T(""))
 {
 
 }
@@ -38,13 +38,13 @@ CCreateChangelistDlg::~CCreateChangelistDlg()
 
 void CCreateChangelistDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_NAME, m_sName);
+    CDialog::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_NAME, m_sName);
 }
 
 
 BEGIN_MESSAGE_MAP(CCreateChangelistDlg, CDialog)
-	ON_EN_CHANGE(IDC_NAME, &CCreateChangelistDlg::OnEnChangeName)
+    ON_EN_CHANGE(IDC_NAME, &CCreateChangelistDlg::OnEnChangeName)
 END_MESSAGE_MAP()
 
 
@@ -52,16 +52,16 @@ END_MESSAGE_MAP()
 
 BOOL CCreateChangelistDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+    CDialog::OnInitDialog();
 
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
-	GetDlgItem(IDC_NAME)->SetFocus();
+    GetDlgItem(IDOK)->EnableWindow(FALSE);
+    GetDlgItem(IDC_NAME)->SetFocus();
 
-	return FALSE;
+    return FALSE;
 }
 
 void CCreateChangelistDlg::OnEnChangeName()
 {
-	UpdateData();
-	GetDlgItem(IDOK)->EnableWindow(!m_sName.IsEmpty());
+    UpdateData();
+    GetDlgItem(IDOK)->EnableWindow(!m_sName.IsEmpty());
 }

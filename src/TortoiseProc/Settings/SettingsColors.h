@@ -26,31 +26,31 @@
  */
 class CSettingsColors : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsColors)
+    DECLARE_DYNAMIC(CSettingsColors)
 
 public:
-	CSettingsColors();
-	virtual ~CSettingsColors();
+    CSettingsColors();
+    virtual ~CSettingsColors();
 
-	UINT GetIconID() {return IDI_LOOKANDFEEL;}
+    UINT GetIconID() {return IDI_LOOKANDFEEL;}
 
-	enum { IDD = IDD_SETTINGSCOLORS };
+    enum { IDD = IDD_SETTINGSCOLORS };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedColor();
-	afx_msg void OnBnClickedRestore();
-	virtual BOOL OnApply();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    afx_msg void OnBnClickedColor();
+    afx_msg void OnBnClickedRestore();
+    virtual BOOL OnApply();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
-	CMFCColorButton m_cConflict;
-	CMFCColorButton m_cAdded;
-	CMFCColorButton m_cDeleted;
-	CMFCColorButton m_cMerged;
-	CMFCColorButton m_cModified;
-	CMFCColorButton m_cFilterMatch;
-	CColors			m_Colors;
+    CMFCColorButton m_cConflict;
+    CMFCColorButton m_cAdded;
+    CMFCColorButton m_cDeleted;
+    CMFCColorButton m_cMerged;
+    CMFCColorButton m_cModified;
+    CMFCColorButton m_cFilterMatch;
+    CColors         m_Colors;
 public:
 };

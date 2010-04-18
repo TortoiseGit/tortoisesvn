@@ -26,17 +26,17 @@ class IRevisionGraphLayout;
 class IStandardLayoutNodeAccess;
 class CStandardLayoutNodeInfo;
 
-class CTopAlignTrees 
+class CTopAlignTrees
     : public CRevisionGraphOptionImpl<ILayoutOption, 1100, ID_VIEW_TOPALIGNTREES>
 {
 private:
 
     /// the individual placement stages
 
-    void GetMinMaxY 
+    void GetMinMaxY
         ( IStandardLayoutNodeAccess* nodeAccess
         , std::vector<int>& minY);
-    void MirrorY 
+    void MirrorY
         ( IStandardLayoutNodeAccess* nodeAccess
         , const std::vector<int>& minY);
 

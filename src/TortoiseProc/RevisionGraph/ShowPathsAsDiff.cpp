@@ -35,9 +35,9 @@ void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
 {
     // we need access to actual data
 
-    IStandardLayoutNodeAccess* nodeAccess 
+    IStandardLayoutNodeAccess* nodeAccess
         = dynamic_cast<IStandardLayoutNodeAccess*>(layout);
-    if (nodeAccess == NULL) 
+    if (nodeAccess == NULL)
         return;
 
     // calculate the path diffs for each node
@@ -64,7 +64,7 @@ void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
             {
                 // determine the lengths of the unchanged head and tail
 
-                CDictionaryBasedTempPath commonRoot 
+                CDictionaryBasedTempPath commonRoot
                     = nodePath.GetCommonRoot (sourcePath);
 
                 size_t nodeDepth = nodePath.GetDepth();
@@ -74,7 +74,7 @@ void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
                 size_t maxTail = min (nodeDepth, sourceDepth) - commonDepth;
                 size_t tail = 0;
                 for (; tail < maxTail; ++tail)
-                    if (   nodePath[nodeDepth - tail - 1] 
+                    if (   nodePath[nodeDepth - tail - 1]
                         != sourcePath[sourceDepth - tail - 1])
                         break;
 

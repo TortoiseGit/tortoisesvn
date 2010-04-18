@@ -24,7 +24,7 @@
 
 /**
 * Contains a filtered copy of some \ref CFullGraph instance.
-* 
+*
 * Acts as factory and container for all nodes and their sub-structres.
 */
 
@@ -102,7 +102,7 @@ inline size_t CVisibleGraph::GetInsertionIndex() const
     return insertionIndex;
 }
 
-inline void CVisibleGraph::SetInsertionIndex (size_t index) 
+inline void CVisibleGraph::SetInsertionIndex (size_t index)
 {
     insertionIndex = index;
 }

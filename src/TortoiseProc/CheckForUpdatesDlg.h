@@ -28,37 +28,37 @@
  */
 class CCheckForUpdatesDlg : public CStandAloneDialog
 {
-	DECLARE_DYNAMIC(CCheckForUpdatesDlg)
+    DECLARE_DYNAMIC(CCheckForUpdatesDlg)
 
 public:
-	CCheckForUpdatesDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CCheckForUpdatesDlg();
+    CCheckForUpdatesDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CCheckForUpdatesDlg();
 
-	enum { IDD = IDD_CHECKFORUPDATES };
+    enum { IDD = IDD_CHECKFORUPDATES };
 
 protected:
-	afx_msg void OnStnClickedCheckresult();
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	virtual void OnCancel();
+    afx_msg void OnStnClickedCheckresult();
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
+    afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
+    afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    virtual void OnCancel();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
-	static UINT CheckThreadEntry(LPVOID pVoid);
-	UINT		CheckThread();
+    static UINT CheckThreadEntry(LPVOID pVoid);
+    UINT        CheckThread();
 
 public:
-	BOOL		m_bThreadRunning;
-	BOOL		m_bShowInfo;
-	BOOL		m_bVisible;
+    BOOL        m_bThreadRunning;
+    BOOL        m_bShowInfo;
+    BOOL        m_bVisible;
 
 private:
-	CString		m_sUpdateDownloadLink;			///< Where to send a user looking to download a update
-	CHyperLink	m_link;
+    CString     m_sUpdateDownloadLink;          ///< Where to send a user looking to download a update
+    CHyperLink  m_link;
 };
 

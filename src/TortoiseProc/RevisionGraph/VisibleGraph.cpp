@@ -51,7 +51,7 @@ CVisibleGraphNode* CVisibleGraph::Add ( const CFullGraphNode* base
 
     assert ((source == NULL) || !roots.empty());
 
-    CVisibleGraphNode* result 
+    CVisibleGraphNode* result
         = nodeFactory.Create (base, source, preserveNode);
 
     if (source == NULL)

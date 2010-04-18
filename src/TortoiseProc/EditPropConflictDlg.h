@@ -24,30 +24,30 @@
 
 class CEditPropConflictDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CEditPropConflictDlg)
+    DECLARE_DYNAMIC(CEditPropConflictDlg)
 
 public:
-	CEditPropConflictDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropConflictDlg();
+    CEditPropConflictDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropConflictDlg();
 
-	bool	SetPrejFile(const CTSVNPath& prejFile);
-	void	SetConflictedItem(const CTSVNPath& conflictItem) {m_conflictItem = conflictItem;}
+    bool    SetPrejFile(const CTSVNPath& prejFile);
+    void    SetConflictedItem(const CTSVNPath& conflictItem) {m_conflictItem = conflictItem;}
 
 
 // Dialog Data
-	enum { IDD = IDD_EDITPROPCONFLICT };
+    enum { IDD = IDD_EDITPROPCONFLICT };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	afx_msg void OnBnClickedResolve();
-	afx_msg void OnBnClickedEditprops();
+    afx_msg void OnBnClickedResolve();
+    afx_msg void OnBnClickedEditprops();
 
 private:
-	CTSVNPath		m_prejFile;
-	CTSVNPath		m_conflictItem;
-	CString			m_sPrejText;
+    CTSVNPath       m_prejFile;
+    CTSVNPath       m_conflictItem;
+    CString         m_sPrejText;
 };

@@ -22,11 +22,11 @@
 
 IMPLEMENT_DYNAMIC(CSimplePrompt, CStandAloneDialog)
 CSimplePrompt::CSimplePrompt(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CSimplePrompt::IDD, pParent)
-	, m_sUsername(_T(""))
-	, m_sPassword(_T(""))
-	, m_bSaveAuthentication(FALSE)
-	, m_sRealm(_T(""))
+    : CStandAloneDialog(CSimplePrompt::IDD, pParent)
+    , m_sUsername(_T(""))
+    , m_sPassword(_T(""))
+    , m_bSaveAuthentication(FALSE)
+    , m_sRealm(_T(""))
 {
 }
 
@@ -36,11 +36,11 @@ CSimplePrompt::~CSimplePrompt()
 
 void CSimplePrompt::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_USEREDIT, m_sUsername);
-	DDX_Text(pDX, IDC_PASSEDIT, m_sPassword);
-	DDX_Check(pDX, IDC_SAVECHECK, m_bSaveAuthentication);
-	DDX_Text(pDX, IDC_REALM, m_sRealm);
+    CStandAloneDialog::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_USEREDIT, m_sUsername);
+    DDX_Text(pDX, IDC_PASSEDIT, m_sPassword);
+    DDX_Check(pDX, IDC_SAVECHECK, m_bSaveAuthentication);
+    DDX_Text(pDX, IDC_REALM, m_sRealm);
 }
 
 
@@ -49,14 +49,14 @@ END_MESSAGE_MAP()
 
 BOOL CSimplePrompt::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_PASSEDIT);
-	m_aeroControls.SubclassControl(this, IDC_SAVECHECK);
-	m_aeroControls.SubclassOkCancel(this);
+    ExtendFrameIntoClientArea(IDC_PASSEDIT);
+    m_aeroControls.SubclassControl(this, IDC_SAVECHECK);
+    m_aeroControls.SubclassOkCancel(this);
 
-	GetDlgItem(IDC_USEREDIT)->SetFocus();
-	if ((m_hParentWnd==NULL)&&(hWndExplorer))
-		CenterWindow(CWnd::FromHandle(m_hParentWnd));
-	return FALSE;
+    GetDlgItem(IDC_USEREDIT)->SetFocus();
+    if ((m_hParentWnd==NULL)&&(hWndExplorer))
+        CenterWindow(CWnd::FromHandle(m_hParentWnd));
+    return FALSE;
 }

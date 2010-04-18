@@ -34,38 +34,38 @@ class CLogDlg;
  */
 class CUrlDiffDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CUrlDiffDlg)
+    DECLARE_DYNAMIC(CUrlDiffDlg)
 
 public:
-	CUrlDiffDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CUrlDiffDlg();
+    CUrlDiffDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CUrlDiffDlg();
 
 // Dialog Data
-	enum { IDD = IDD_URLDIFF };
+    enum { IDD = IDD_URLDIFF };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	afx_msg void OnBnClickedBrowse();
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnEnChangeRevisionNum();
-	afx_msg void OnBnClickedLog();
-	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
-	afx_msg void OnCbnEditchangeUrlcombo();
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    afx_msg void OnBnClickedBrowse();
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnEnChangeRevisionNum();
+    afx_msg void OnBnClickedLog();
+    afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
+    afx_msg void OnCbnEditchangeUrlcombo();
 
-	void		SetRevision(const SVNRev& rev);
+    void        SetRevision(const SVNRev& rev);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	CString			m_rev;
-	CHistoryCombo	m_URLCombo;
-	BOOL			m_bFolder;
-	CLogDlg *		m_pLogDlg;
+    CString         m_rev;
+    CHistoryCombo   m_URLCombo;
+    BOOL            m_bFolder;
+    CLogDlg *       m_pLogDlg;
 
 public:
-	CString			m_path;
-	CString			m_URL;
-	SVNRev			Revision;
+    CString         m_path;
+    CString         m_URL;
+    SVNRev          Revision;
 };

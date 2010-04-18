@@ -32,8 +32,8 @@ class CRepositoryTree;
 class IRepo
 {
 public:
-	virtual bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked) = 0;
-	virtual CString GetRepoRoot() = 0;
+    virtual bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked) = 0;
+    virtual CString GetRepoRoot() = 0;
 };
 
 /**
@@ -46,92 +46,92 @@ public:
  */
 class CRepositoryBar : public CReBarCtrl
 {
-	DECLARE_DYNAMIC(CRepositoryBar)
+    DECLARE_DYNAMIC(CRepositoryBar)
 
 public:
-	CRepositoryBar();
-	virtual ~CRepositoryBar();
+    CRepositoryBar();
+    virtual ~CRepositoryBar();
 
 public:
-	/**
-	 * Creates the repository bar. Set \a in_dialog to TRUE when the bar
-	 * is placed inside of a dialog. Otherwise it is assumed that the
-	 * bar is placed in a frame window.
-	 */
-	bool Create(CWnd* parent, UINT id, bool in_dialog = true);
+    /**
+     * Creates the repository bar. Set \a in_dialog to TRUE when the bar
+     * is placed inside of a dialog. Otherwise it is assumed that the
+     * bar is placed in a frame window.
+     */
+    bool Create(CWnd* parent, UINT id, bool in_dialog = true);
 
-	/**
-	 * Show the given \a svn_url in the URL combo and the revision button.
-	 */
-	void ShowUrl(const CString& url, SVNRev rev);
+    /**
+     * Show the given \a svn_url in the URL combo and the revision button.
+     */
+    void ShowUrl(const CString& url, SVNRev rev);
 
-	/**
-	 * Show the given \a svn_url in the URL combo and the revision button,
-	 * and select it in the associated repository tree. If no \a svn_url
-	 * is given, the current values are used (which effectively refreshes
-	 * the tree).
-	 */
-	void GotoUrl(const CString& url = CString(), SVNRev rev = SVNRev(), bool bAlreadyChecked = false);
+    /**
+     * Show the given \a svn_url in the URL combo and the revision button,
+     * and select it in the associated repository tree. If no \a svn_url
+     * is given, the current values are used (which effectively refreshes
+     * the tree).
+     */
+    void GotoUrl(const CString& url = CString(), SVNRev rev = SVNRev(), bool bAlreadyChecked = false);
 
-	/**
-	 * Returns the current URL.
-	 */
-	CString GetCurrentUrl() const;
+    /**
+     * Returns the current URL.
+     */
+    CString GetCurrentUrl() const;
 
-	/**
-	 * Returns the current revision
-	 */
-	SVNRev GetCurrentRev() const;
+    /**
+     * Returns the current revision
+     */
+    SVNRev GetCurrentRev() const;
 
-	/**
-	 * Saves the URL history of the HistoryCombo.
-	 */
-	void SaveHistory();
-	
-	/**
-	 * Set the revision
-	 */
-	void SetRevision(SVNRev rev);
+    /**
+     * Saves the URL history of the HistoryCombo.
+     */
+    void SaveHistory();
+    
+    /**
+     * Set the revision
+     */
+    void SetRevision(SVNRev rev);
 
-	/**
-	 * Sets the head revision for the tooltip
-	 */
-	void SetHeadRevision(svn_revnum_t rev);
+    /**
+     * Sets the head revision for the tooltip
+     */
+    void SetHeadRevision(svn_revnum_t rev);
 
-	void SetFocusToURL();
+    void SetFocusToURL();
 
-	void SetIRepo(IRepo * pRepo) {m_pRepo = pRepo;}
+    void SetIRepo(IRepo * pRepo) {m_pRepo = pRepo;}
 
-	SVNRev GetHeadRevision() {return m_headRev;}
-	afx_msg void OnGoUp();
+    SVNRev GetHeadRevision() {return m_headRev;}
+    afx_msg void OnGoUp();
 protected:
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnCbnSelEndOK();
-	afx_msg void OnBnClicked();
-	afx_msg void OnDestroy();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnCbnSelEndOK();
+    afx_msg void OnBnClicked();
+    afx_msg void OnDestroy();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
-	CString m_url;
-	SVNRev m_rev;
+    CString m_url;
+    SVNRev m_rev;
 
-	IRepo * m_pRepo;
+    IRepo * m_pRepo;
 
-	class CRepositoryCombo : public CHistoryCombo 
-	{
-		CRepositoryBar *m_bar;
-	public:
-		CRepositoryCombo(CRepositoryBar *bar) : m_bar(bar) {}
-		virtual bool OnReturnKeyPressed();
-	} m_cbxUrl;
+    class CRepositoryCombo : public CHistoryCombo 
+    {
+        CRepositoryBar *m_bar;
+    public:
+        CRepositoryCombo(CRepositoryBar *bar) : m_bar(bar) {}
+        virtual bool OnReturnKeyPressed();
+    } m_cbxUrl;
 
-	CButton m_btnRevision;
-	CXPImageButton m_btnUp;
+    CButton m_btnRevision;
+    CXPImageButton m_btnUp;
 
-	SVNRev	m_headRev;
-	CToolTips m_tooltips;
-	HICON	m_UpIcon;
+    SVNRev  m_headRev;
+    CToolTips m_tooltips;
+    HICON   m_UpIcon;
 };
 
 
@@ -143,25 +143,25 @@ private:
  */
 class CRepositoryBarCnr : public CStatic
 {
-	DECLARE_DYNAMIC(CRepositoryBarCnr)
+    DECLARE_DYNAMIC(CRepositoryBarCnr)
 
 public:
-	CRepositoryBarCnr(CRepositoryBar *repository_bar);
-	~CRepositoryBarCnr();
+    CRepositoryBarCnr(CRepositoryBar *repository_bar);
+    ~CRepositoryBarCnr();
 
-	// Generated message map functions
+    // Generated message map functions
 protected:
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg UINT OnGetDlgCode();
-	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+    afx_msg void OnSize(UINT nType, int cx, int cy);
+    afx_msg UINT OnGetDlgCode();
+    afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 
-	virtual void DrawItem(LPDRAWITEMSTRUCT);
+    virtual void DrawItem(LPDRAWITEMSTRUCT);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
-	CRepositoryBar *m_pbarRepository;
+    CRepositoryBar *m_pbarRepository;
 
 };
 

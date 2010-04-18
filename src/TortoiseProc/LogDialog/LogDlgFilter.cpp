@@ -47,10 +47,10 @@ namespace
 
 bool CLogDlgFilter::Match (wstring& text) const
 {
-	// empty text does not match
+    // empty text does not match
 
-	if (text.size() == 0)
-		return false;
+    if (text.size() == 0)
+        return false;
 
     if (patterns.empty())
     {
@@ -65,7 +65,7 @@ bool CLogDlgFilter::Match (wstring& text) const
         // require all strings to be present
 
         assert (subStrings.size() == exclude.size());
-	    for (size_t i = 0, count = subStrings.size(); i < count; ++i)
+        for (size_t i = 0, count = subStrings.size(); i < count; ++i)
         {
             bool found = wcsstr (text.c_str(), subStrings[i].c_str()) != NULL;
             if (found == exclude[i])
@@ -74,8 +74,8 @@ bool CLogDlgFilter::Match (wstring& text) const
     }
     else
     {
-	    for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
-		    if (!regex_search(text, *it, tr1::regex_constants::match_any))
+        for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+            if (!regex_search(text, *it, tr1::regex_constants::match_any))
                 return false;
     }
 
@@ -84,71 +84,71 @@ bool CLogDlgFilter::Match (wstring& text) const
 
 std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
 {
-	std::vector<CHARRANGE> ranges;
-	if (patterns.empty())
-	{
-		// normalize to lower case
+    std::vector<CHARRANGE> ranges;
+    if (patterns.empty())
+    {
+        // normalize to lower case
 
-		if (!caseSensitive)
-			if (fastLowerCase)
-				FastLowerCaseConversion (&text.at(0));
-			else
-				_wcslwr_s (&text.at(0), text.length()+1);
+        if (!caseSensitive)
+            if (fastLowerCase)
+                FastLowerCaseConversion (&text.at(0));
+            else
+                _wcslwr_s (&text.at(0), text.length()+1);
 
-		// require all strings to be present
+        // require all strings to be present
 
-		assert (subStrings.size() == exclude.size());
-		for (size_t i = 0, count = subStrings.size(); i < count; ++i)
-		{
-			if (!exclude[i])
-			{
-				const wchar_t * pFound = wcsstr (text.c_str(), subStrings[i].c_str());
-				while (pFound)
-				{
-					CHARRANGE range;
-					range.cpMin = (LONG)(pFound - text.c_str());
-					range.cpMax = (LONG)(range.cpMin + subStrings[i].size());
-					ranges.push_back(range);
-					pFound = wcsstr (pFound+1, subStrings[i].c_str());
-				}
-			}
-		}
-	}
-	else
-	{
-		for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
-		{
-			const tr1::wsregex_iterator end;
-			for (tr1::wsregex_iterator it2(text.begin(), text.end(), *it); it2 != end; ++it2)
-			{
-				ptrdiff_t matchposID = it2->position(0);
-				CHARRANGE range = {(LONG)(matchposID), (LONG)(matchposID+(*it2)[0].str().size())};
-				ranges.push_back(range);
-			}
-		}
-	}
+        assert (subStrings.size() == exclude.size());
+        for (size_t i = 0, count = subStrings.size(); i < count; ++i)
+        {
+            if (!exclude[i])
+            {
+                const wchar_t * pFound = wcsstr (text.c_str(), subStrings[i].c_str());
+                while (pFound)
+                {
+                    CHARRANGE range;
+                    range.cpMin = (LONG)(pFound - text.c_str());
+                    range.cpMax = (LONG)(range.cpMin + subStrings[i].size());
+                    ranges.push_back(range);
+                    pFound = wcsstr (pFound+1, subStrings[i].c_str());
+                }
+            }
+        }
+    }
+    else
+    {
+        for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+        {
+            const tr1::wsregex_iterator end;
+            for (tr1::wsregex_iterator it2(text.begin(), text.end(), *it); it2 != end; ++it2)
+            {
+                ptrdiff_t matchposID = it2->position(0);
+                CHARRANGE range = {(LONG)(matchposID), (LONG)(matchposID+(*it2)[0].str().size())};
+                ranges.push_back(range);
+            }
+        }
+    }
 
-	return ranges;
+    return ranges;
 }
 
 // called to parse a (potentially incorrect) regex spec
 
 bool CLogDlgFilter::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& patterns)
 {
-	try
-	{
-		tr1::wregex pat;
-		tr1::regex_constants::syntax_option_type type 
+    try
+    {
+        tr1::wregex pat;
+        tr1::regex_constants::syntax_option_type type
             = caseSensitive
             ? tr1::regex_constants::ECMAScript
             : tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
 
-		pat = tr1::wregex(regexp_str, type);
-		patterns.push_back(pat);
-		return true;
-	}
-	catch (exception) {}
-	return false;
+        pat = tr1::wregex(regexp_str, type);
+        patterns.push_back(pat);
+        return true;
+    }
+    catch (exception) {}
+    return false;
 }
 
 // construction utility
@@ -162,9 +162,9 @@ void CLogDlgFilter::AddSubString (CString token, bool negate)
     {
         token.MakeLower();
 
-        // If the search string (UTF16!) is pure ASCII-7, 
+        // If the search string (UTF16!) is pure ASCII-7,
         // no locale specifics should apply.
-        // Exceptions to C-locale are usually either limited 
+        // Exceptions to C-locale are usually either limited
         // to lowercase -> uppercase conversion or they map
         // their lowercase chars beyond U+0x80.
 
@@ -183,19 +183,19 @@ void CLogDlgFilter::AddSubString (CString token, bool negate)
 // construction
 
 CLogDlgFilter::CLogDlgFilter()
-	: attributeSelector(UINT_MAX)
-	, caseSensitive(false)
-	, from(0)
-	, to(0)
-	, scanRelevantPathsOnly(false)
-	, revToKeep(0)
-	, negate(false)
+    : attributeSelector(UINT_MAX)
+    , caseSensitive(false)
+    , from(0)
+    , to(0)
+    , scanRelevantPathsOnly(false)
+    , revToKeep(0)
+    , negate(false)
 {
 }
 
-CLogDlgFilter::CLogDlgFilter 
+CLogDlgFilter::CLogDlgFilter
     ( const CString& filter
-	, bool filterWithRegex
+    , bool filterWithRegex
     , int selectedFilter
     , bool caseSensitive
     , __time64_t from
@@ -204,7 +204,7 @@ CLogDlgFilter::CLogDlgFilter
     , svn_revnum_t revToKeep)
 
     : negate (false)
-    , attributeSelector ( selectedFilter == LOGFILTER_ALL 
+    , attributeSelector ( selectedFilter == LOGFILTER_ALL
                         ? UINT_MAX
                         : (1 << selectedFilter))
     , caseSensitive (caseSensitive)
@@ -222,24 +222,24 @@ CLogDlgFilter::CLogDlgFilter
 
     // decode string matching spec
 
-	bool useRegex = filterWithRegex && !filter.IsEmpty();
-	CString filterText = filter;
+    bool useRegex = filterWithRegex && !filter.IsEmpty();
+    CString filterText = filter;
 
-	// if the first char is '!', negate the filter
-	if (filter.GetLength() && filter[0] == '!')
-	{
-		negate = true;
-		filterText = filterText.Mid(1);
-	}
+    // if the first char is '!', negate the filter
+    if (filter.GetLength() && filter[0] == '!')
+    {
+        negate = true;
+        filterText = filterText.Mid(1);
+    }
 
-	if (useRegex)
+    if (useRegex)
         useRegex = ValidateRegexp (filterText, patterns);
 
-	if (!useRegex)
-	{
+    if (!useRegex)
+    {
         fastLowerCase = !caseSensitive;
 
-		// now split the search string into words so we can search for each of them
+        // now split the search string into words so we can search for each of them
 
         int curPos = 0;
         int length = filterText.GetLength();
@@ -308,9 +308,9 @@ CLogDlgFilter::CLogDlgFilter
 
             // ordinary sub-string
 
-		    AddSubString (filterText.Tokenize (_T(" "), curPos), negation);
+            AddSubString (filterText.Tokenize (_T(" "), curPos), negation);
         }
-	}
+    }
 }
 
  // apply filter
@@ -319,7 +319,7 @@ namespace
 {
     // concatenate strings
 
-    void AppendString 
+    void AppendString
         ( wstring& target
         , const wchar_t* toAppend
         , size_t length
@@ -354,10 +354,10 @@ namespace
 
     // convert path objects
 
-    void GetPath 
+    void GetPath
         ( const LogCache::CDictionaryBasedPath& path
         , std::string& utf8Path
-        , std::wstring& utf16Path) 
+        , std::wstring& utf16Path)
     {
         path.GetPath (utf8Path);
 
@@ -389,76 +389,76 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
     // we need to perform expensive string / pattern matching
 
     scratch.clear();
-	if (attributeSelector & (1 << LOGFILTER_BUGID))
+    if (attributeSelector & (1 << LOGFILTER_BUGID))
         AppendString (scratch, entry.GetBugIDs());
 
     if (attributeSelector & (1 << LOGFILTER_MESSAGES))
-		AppendString (scratch, entry.GetMessage());
+        AppendString (scratch, entry.GetMessage());
 
     if (attributeSelector & (1 << LOGFILTER_PATHS))
-	{
-		const CLogChangedPathArray& paths = entry.GetChangedPaths();
-		for ( size_t cpPathIndex = 0, pathCount = paths.GetCount()
+    {
+        const CLogChangedPathArray& paths = entry.GetChangedPaths();
+        for ( size_t cpPathIndex = 0, pathCount = paths.GetCount()
             ; cpPathIndex < pathCount
             ; ++cpPathIndex)
-		{
-			const CLogChangedPath& cpath = paths[cpPathIndex];
-			if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
+        {
+            const CLogChangedPath& cpath = paths[cpPathIndex];
+            if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
             {
                 GetPath (cpath.GetCachedPath(), utf8PathScratch, utf16PathScratch);
-			    AppendPath (scratch, utf16PathScratch);
-			    AppendPath (scratch, cpath.GetActionString());
+                AppendPath (scratch, utf16PathScratch);
+                AppendPath (scratch, cpath.GetActionString());
 
                 if (cpath.GetCopyFromRev() > 0)
                 {
                     GetPath (cpath.GetCachedCopyFromPath(), utf8PathScratch, utf16PathScratch);
-	    		    AppendPath (scratch, utf16PathScratch);
+                    AppendPath (scratch, utf16PathScratch);
 
-		            scratch.push_back ('|');
+                    scratch.push_back ('|');
 
                     wchar_t buffer[10];
                     _itow_s (cpath.GetCopyFromRev(), buffer, 10);
-		            scratch.append (buffer);
+                    scratch.append (buffer);
                 }
             }
-		}
-	}
+        }
+    }
 
     if (attributeSelector & (1 << LOGFILTER_AUTHORS))
-		AppendString (scratch, entry.GetAuthor());
-	if (attributeSelector & (1 << LOGFILTER_DATE))
+        AppendString (scratch, entry.GetAuthor());
+    if (attributeSelector & (1 << LOGFILTER_DATE))
         AppendString (scratch, entry.GetDateString());
 
     if (attributeSelector & (1 << LOGFILTER_REVS))
-	{
-		scratch.push_back (' ');
+    {
+        scratch.push_back (' ');
 
         wchar_t buffer[10];
         _itow_s (entry.GetRevision(), buffer, 10);
-		scratch.append (buffer);
-	}
-			
+        scratch.append (buffer);
+    }
+
     return Match (scratch) ^ negate;
 }
 
-// tr1::regex is very slow when running concurrently 
+// tr1::regex is very slow when running concurrently
 // in multiple threads. Empty filters don't need MT as well.
 
 bool CLogDlgFilter::BenefitsFromMT() const
 {
-	// case-insensitive regular expressions don't like MT
+    // case-insensitive regular expressions don't like MT
 
-	if (!patterns.empty() && !caseSensitive)
-		return false;
+    if (!patterns.empty() && !caseSensitive)
+        return false;
 
-	// empty filters don't need MT (and its potential overhead)
+    // empty filters don't need MT (and its potential overhead)
 
-	if (patterns.empty() && subStrings.empty())
-		return false;
+    if (patterns.empty() && subStrings.empty())
+        return false;
 
-	// otherwise, go mult-threading!
+    // otherwise, go mult-threading!
 
-	return true;
+    return true;
 }
 
 bool CLogDlgFilter::IsFilterActive() const

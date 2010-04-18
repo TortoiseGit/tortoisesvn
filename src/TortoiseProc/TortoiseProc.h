@@ -19,11 +19,11 @@
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error include 'stdafx.h' before including this file for PCH
+    #error include 'stdafx.h' before including this file for PCH
 #endif
 
 
-#include "resource.h"		// main symbols
+#include "resource.h"       // main symbols
 
 
 #include "..\\TortoiseShell\\resource.h"
@@ -37,7 +37,7 @@ class CTSVNPathList;
  * Main class of the TortoiseProc.exe\n
  * It is the entry point when calling the TortoiseProc.exe and
  * handles the command line. Depending on the command line
- * other 'modules' are called, usually dialog boxes which 
+ * other 'modules' are called, usually dialog boxes which
  * themselves then execute a specific function.\n\n
  * Many commands are executed using the CSVNProgressDlg which
  * just displays the common notify callbacks of the Subversion commands.
@@ -47,24 +47,24 @@ class CTSVNPathList;
 class CTortoiseProcApp : public CWinAppEx
 {
 public:
-	CTortoiseProcApp();
-	~CTortoiseProcApp();
+    CTortoiseProcApp();
+    ~CTortoiseProcApp();
 
 // Overrides
 public:
-	virtual BOOL InitInstance();
-	virtual int ExitInstance();
+    virtual BOOL InitInstance();
+    virtual int ExitInstance();
 
-	void CheckUpgrade();
-	void InitializeJumpList();
-	void DoInitializeJumpList();
+    void CheckUpgrade();
+    void InitializeJumpList();
+    void DoInitializeJumpList();
 
 // Implementation
 
 private:
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
-	bool	retSuccess;
+    bool    retSuccess;
 };
 
 extern CTortoiseProcApp theApp;

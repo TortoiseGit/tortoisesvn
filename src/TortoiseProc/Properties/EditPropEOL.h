@@ -23,22 +23,22 @@
 
 class CEditPropEOL : public CStandAloneDialog, public EditPropBase
 {
-	DECLARE_DYNAMIC(CEditPropEOL)
+    DECLARE_DYNAMIC(CEditPropEOL)
 
 public:
-	CEditPropEOL(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropEOL();
+    CEditPropEOL(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropEOL();
 
-	enum { IDD = IDD_EDITPROPEOL };
+    enum { IDD = IDD_EDITPROPEOL };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
     virtual void OnOK();
 
     afx_msg void OnBnClickedProprecursive();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
 };

@@ -45,7 +45,7 @@ CFullGraphNode* CFullGraph::Add ( const CDictionaryBasedTempPath& path
 
     assert ((source == NULL) == (root == NULL));
 
-    CFullGraphNode* result 
+    CFullGraphNode* result
         = nodeFactory.Create (path, revision, classification, source);
 
     ++nodeCount;

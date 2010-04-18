@@ -31,37 +31,37 @@
 class CLogFile
 {
 public:
-	CLogFile(void);
-	~CLogFile(void);
+    CLogFile(void);
+    ~CLogFile(void);
 
-	/**
-	 * Opens the log file and reads its contents
-	 */
-	bool	Open(const CTSVNPath& logfile);
-	/**
-	 * Opens the default log file for TortoiseSVN and reads its contents
-	 */
-	bool	Open();
-	/**
-	 * Adds one line to the log file. The file is \b not yet written back to disk.
-	 */
-	bool	AddLine(const CString& line);
-	/**
-	 * Writes the contents to the disk.
-	 */
-	bool	Close();
+    /**
+     * Opens the log file and reads its contents
+     */
+    bool    Open(const CTSVNPath& logfile);
+    /**
+     * Opens the default log file for TortoiseSVN and reads its contents
+     */
+    bool    Open();
+    /**
+     * Adds one line to the log file. The file is \b not yet written back to disk.
+     */
+    bool    AddLine(const CString& line);
+    /**
+     * Writes the contents to the disk.
+     */
+    bool    Close();
 
-	/**
-	 * Inserts a line with the current time and date to the log file.
-	 */
-	bool	AddTimeLine();
+    /**
+     * Inserts a line with the current time and date to the log file.
+     */
+    bool    AddTimeLine();
 
 protected:
 
-	void	TrimFile (DWORD maxLines);
+    void    TrimFile (DWORD maxLines);
 
 private:
-	CRegStdDWORD			m_maxlines;
-	CTSVNPath				m_logfile;
-	std::deque<CString>		m_newLines;
+    CRegStdDWORD            m_maxlines;
+    CTSVNPath               m_logfile;
+    std::deque<CString>     m_newLines;
 };

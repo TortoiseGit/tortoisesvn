@@ -27,7 +27,7 @@
 * no surviving copy.
 */
 
-class CFoldTags 
+class CFoldTags
     : public CModificationOptionImpl< IModificationOption
                                     , 100
                                     , ID_VIEW_FOLDTAGS

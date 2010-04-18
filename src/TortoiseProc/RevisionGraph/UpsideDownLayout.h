@@ -26,16 +26,16 @@ class IRevisionGraphLayout;
 class IStandardLayoutNodeAccess;
 class CStandardLayoutNodeInfo;
 
-class CUpsideDownLayout 
+class CUpsideDownLayout
     : public CRevisionGraphOptionImpl<ILayoutOption, 1000, ID_VIEW_TOPDOWN>
 {
 private:
 
     /// the individual placement stages
 
-    std::pair<int, int> GetMinMaxY 
+    std::pair<int, int> GetMinMaxY
         ( IStandardLayoutNodeAccess* nodeAccess);
-    void MirrorY 
+    void MirrorY
         ( IStandardLayoutNodeAccess* nodeAccess
         , std::pair<int, int> minMaxY);
 
@@ -47,7 +47,7 @@ public:
 
     /// implement IRevisionGraphOption: Active if top-down is not selected.
 
-    virtual bool IsActive() const; 
+    virtual bool IsActive() const;
 
     /// cast @a layout pointer to the respective modification
     /// interface and write the data.

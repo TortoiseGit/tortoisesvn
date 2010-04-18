@@ -23,48 +23,48 @@
 
 /**
  * \ingroup TortoiseProc
- * Settings page to configure miscellaneous stuff. 
+ * Settings page to configure miscellaneous stuff.
  */
 class CSetMisc : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSetMisc)
+    DECLARE_DYNAMIC(CSetMisc)
 
 public:
-	CSetMisc();
-	virtual ~CSetMisc();
-	
-	UINT GetIconID() {return IDI_DIALOGS;}
+    CSetMisc();
+    virtual ~CSetMisc();
+
+    UINT GetIconID() {return IDI_DIALOGS;}
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSMISC };
+    enum { IDD = IDD_SETTINGSMISC };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnChanged();
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    afx_msg void OnChanged();
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnApply();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
-	CToolTips		m_tooltips;
+    CToolTips       m_tooltips;
 
-	CRegDWORD		m_regUnversionedRecurse;
-	BOOL			m_bUnversionedRecurse;
-	CRegDWORD		m_regAutocompletion;
-	BOOL			m_bAutocompletion;
-	CRegDWORD		m_regAutocompletionTimeout;
-	DWORD			m_dwAutocompletionTimeout;
-	CRegDWORD		m_regSpell;
-	BOOL			m_bSpell;
-	CRegDWORD		m_regCheckRepo;
-	BOOL			m_bCheckRepo;
-	CRegDWORD		m_regMaxHistory;
-	DWORD			m_dwMaxHistory;
-	CRegDWORD		m_regCommitReopen;
-	BOOL			m_bCommitReopen;
-	CRegDWORD		m_regShowLockDlg;
-	BOOL			m_bShowLockDlg;
-	CRegDWORD		m_regAutoSelect;
-	BOOL			m_bAutoSelect;
+    CRegDWORD       m_regUnversionedRecurse;
+    BOOL            m_bUnversionedRecurse;
+    CRegDWORD       m_regAutocompletion;
+    BOOL            m_bAutocompletion;
+    CRegDWORD       m_regAutocompletionTimeout;
+    DWORD           m_dwAutocompletionTimeout;
+    CRegDWORD       m_regSpell;
+    BOOL            m_bSpell;
+    CRegDWORD       m_regCheckRepo;
+    BOOL            m_bCheckRepo;
+    CRegDWORD       m_regMaxHistory;
+    DWORD           m_dwMaxHistory;
+    CRegDWORD       m_regCommitReopen;
+    BOOL            m_bCommitReopen;
+    CRegDWORD       m_regShowLockDlg;
+    BOOL            m_bShowLockDlg;
+    CRegDWORD       m_regAutoSelect;
+    BOOL            m_bAutoSelect;
 };

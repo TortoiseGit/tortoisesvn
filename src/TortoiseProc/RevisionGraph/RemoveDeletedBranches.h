@@ -29,9 +29,9 @@
 * no surviving copy.
 */
 
-class CRemoveDeletedBranches 
+class CRemoveDeletedBranches
     : public CModificationOptionImpl
-                < CCombineInterface 
+                < CCombineInterface
                     < ICopyFilterOption
                     , IModificationOption>
                 , 250

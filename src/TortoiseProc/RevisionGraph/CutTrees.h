@@ -28,11 +28,11 @@
 class CGraphNodeStates;
 
 /**
-* Make nodes a root node if the respective node state says 
+* Make nodes a root node if the respective node state says
 * that the node was cut from the graph.
 */
 
-class CCutTrees 
+class CCutTrees
     : public CModificationOptionImpl< IModificationOption
                                     , 2000
                                     , 0

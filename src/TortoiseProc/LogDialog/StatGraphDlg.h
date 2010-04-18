@@ -34,10 +34,10 @@
 class CMyMetaFileDC : public CMetaFileDC
 {
 public:
-	HGDIOBJ CMyMetaFileDC::SelectObject(HGDIOBJ hObject) 
-	{
-		return (hObject != NULL) ? ::SelectObject(m_hDC, hObject) : NULL; 
-	}
+    HGDIOBJ CMyMetaFileDC::SelectObject(HGDIOBJ hObject)
+    {
+        return (hObject != NULL) ? ::SelectObject(m_hDC, hObject) : NULL;
+    }
 };
 
 /**
@@ -57,182 +57,182 @@ public:
  */
 class CStatGraphDlg : public CResizableStandAloneDialog//CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CStatGraphDlg)
+    DECLARE_DYNAMIC(CStatGraphDlg)
 
 public:
-	CStatGraphDlg(CWnd* pParent = NULL);
-	virtual ~CStatGraphDlg();
+    CStatGraphDlg(CWnd* pParent = NULL);
+    virtual ~CStatGraphDlg();
 
-	enum { IDD = IDD_STATGRAPH };
+    enum { IDD = IDD_STATGRAPH };
 
-	// Data passed from the caller of the dialog.
-	CDWordArray	*	m_parDates;
-	CDWordArray	*	m_parFileChanges;
-	CStringArray *	m_parAuthors;
-	CTSVNPath		m_path;
+    // Data passed from the caller of the dialog.
+    CDWordArray *   m_parDates;
+    CDWordArray *   m_parFileChanges;
+    CStringArray *  m_parAuthors;
+    CTSVNPath       m_path;
 
 protected:
 
-	// ** Constants ** 
-	static	const long int		m_SecondsInWeek = 604800; // ... a week has 604800 seconds
-	static	const long int		m_SecondsInDay = 86400;  // ... a day has 86400.0 seconds
+    // ** Constants **
+    static  const long int      m_SecondsInWeek = 604800; // ... a week has 604800 seconds
+    static  const long int      m_SecondsInDay = 86400;  // ... a day has 86400.0 seconds
 
-	// ** Data types **
+    // ** Data types **
 
-	/// The types of units used in the various graphs.
-	enum UnitType
-	{
-		Days,
-		Weeks,
-		Months,
-		Quarters,
-		Years
-	};
+    /// The types of units used in the various graphs.
+    enum UnitType
+    {
+        Days,
+        Weeks,
+        Months,
+        Quarters,
+        Years
+    };
 
-	// Available next metrics
-	enum Metrics 
-	{ 
-		TextStatStart,
-			AllStat, 
-			PercentageOfAuthorship,
-		TextStatEnd,
-		GraphicStatStart,
-			CommitsByAuthor,
-			CommitsByDate,
-		GraphicStatEnd,
-	};
+    // Available next metrics
+    enum Metrics
+    {
+        TextStatStart,
+            AllStat,
+            PercentageOfAuthorship,
+        TextStatEnd,
+        GraphicStatStart,
+            CommitsByAuthor,
+            CommitsByDate,
+        GraphicStatEnd,
+    };
 
-	/// The mapping type used to store data per interval/week and author.
-	typedef std::map<int, std::map<tstring, LONG> >	IntervalDataMap;
-	/// The mapping type used to store data per author.
-	typedef std::map<tstring, LONG>					AuthorDataMap;
+    /// The mapping type used to store data per interval/week and author.
+    typedef std::map<int, std::map<tstring, LONG> > IntervalDataMap;
+    /// The mapping type used to store data per author.
+    typedef std::map<tstring, LONG>                 AuthorDataMap;
 
-	// *** Re-implemented member functions from CDialog
-	virtual void OnOK();
-	virtual void OnCancel();
+    // *** Re-implemented member functions from CDialog
+    virtual void OnOK();
+    virtual void OnCancel();
 
-	virtual void DoDataExchange(CDataExchange* pDX);
-	virtual BOOL OnInitDialog();
-	void ShowLabels(BOOL bShow);
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnCbnSelchangeGraphcombo();
-	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
-	afx_msg void OnBnClickedStacked();
-	afx_msg void OnNeedText(NMHDR *pnmh, LRESULT *pResult);
-	afx_msg void OnBnClickedGraphbarbutton();
-	afx_msg void OnBnClickedGraphbarstackedbutton();
-	afx_msg void OnBnClickedGraphlinebutton();
-	afx_msg void OnBnClickedGraphlinestackedbutton();
-	afx_msg void OnBnClickedGraphpiebutton();
-	afx_msg void OnFileSavestatgraphas();
-	DECLARE_MESSAGE_MAP()
+    virtual void DoDataExchange(CDataExchange* pDX);
+    virtual BOOL OnInitDialog();
+    void ShowLabels(BOOL bShow);
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnCbnSelchangeGraphcombo();
+    afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
+    afx_msg void OnBnClickedStacked();
+    afx_msg void OnNeedText(NMHDR *pnmh, LRESULT *pResult);
+    afx_msg void OnBnClickedGraphbarbutton();
+    afx_msg void OnBnClickedGraphbarstackedbutton();
+    afx_msg void OnBnClickedGraphlinebutton();
+    afx_msg void OnBnClickedGraphlinestackedbutton();
+    afx_msg void OnBnClickedGraphpiebutton();
+    afx_msg void OnFileSavestatgraphas();
+    DECLARE_MESSAGE_MAP()
 
-	// ** Member functions **
+    // ** Member functions **
 
-	/// Updates the variables m_nWeeks, m_nDays and m_minDate
-	void UpdateWeekCount();
-	/// Returns the week-of-the-year for the given time.
-	int	GetCalendarWeek(const CTime& time);
-	/// Parses the data given to the dialog and generates mappings with statistical data. 
-	void GatherData();
-	/// Populates the lists passed as arguments based on the commit threshold set with the skipper.
-	void FilterSkippedAuthors(std::list<tstring>& included_authors, std::list<tstring>& skipped_authors);
-	/// Shows the graph with commit counts per author.
-	void ShowCommitsByAuthor();
-	/// Shows the graph with commit counts per author and date.
-	void ShowCommitsByDate();
-	/// Shows the initial statistics page.
-	void ShowStats();
+    /// Updates the variables m_nWeeks, m_nDays and m_minDate
+    void UpdateWeekCount();
+    /// Returns the week-of-the-year for the given time.
+    int GetCalendarWeek(const CTime& time);
+    /// Parses the data given to the dialog and generates mappings with statistical data.
+    void GatherData();
+    /// Populates the lists passed as arguments based on the commit threshold set with the skipper.
+    void FilterSkippedAuthors(std::list<tstring>& included_authors, std::list<tstring>& skipped_authors);
+    /// Shows the graph with commit counts per author.
+    void ShowCommitsByAuthor();
+    /// Shows the graph with commit counts per author and date.
+    void ShowCommitsByDate();
+    /// Shows the initial statistics page.
+    void ShowStats();
 
-	/// PreShowStat functions
-	bool PreViewStat(bool fShowLabels);
+    /// PreShowStat functions
+    bool PreViewStat(bool fShowLabels);
 
-	//Show Selected Static metric
-	void ShowSelectStat(Metrics  SelectedMetric);
-	
+    //Show Selected Static metric
+    void ShowSelectStat(Metrics  SelectedMetric);
 
-	/// Called when user checks/unchecks the "Authors case sensitive" checkbox.
-	/// Recalculates statistical data because the number and names of authors 
-	/// can have changed. Also calls RedrawGraph().
-	void AuthorsCaseSensitiveChanged();
-	/// Called when user checks/unchecks the "Sort by commit count" checkbox.
-	/// Calls RedrawGraph().
-	void SortModeChanged();
-	/// Clears the current graph and frees all data series.
-	void ClearGraph();
-	/// Updates the currently shown statistics page.
-	void RedrawGraph();
 
-	int						GetUnitCount();
-	int						GetUnit(const CTime& time);
-	CStatGraphDlg::UnitType	GetUnitType();
-	CString					GetUnitString();
-	CString					GetUnitLabel(int unit, CTime &lasttime);
+    /// Called when user checks/unchecks the "Authors case sensitive" checkbox.
+    /// Recalculates statistical data because the number and names of authors
+    /// can have changed. Also calls RedrawGraph().
+    void AuthorsCaseSensitiveChanged();
+    /// Called when user checks/unchecks the "Sort by commit count" checkbox.
+    /// Calls RedrawGraph().
+    void SortModeChanged();
+    /// Clears the current graph and frees all data series.
+    void ClearGraph();
+    /// Updates the currently shown statistics page.
+    void RedrawGraph();
 
-	void EnableDisableMenu();
+    int                     GetUnitCount();
+    int                     GetUnit(const CTime& time);
+    CStatGraphDlg::UnitType GetUnitType();
+    CString                 GetUnitString();
+    CString                 GetUnitLabel(int unit, CTime &lasttime);
 
-	void SaveGraph(CString sFilename);
-	int	 GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
+    void EnableDisableMenu();
 
-	void StoreCurrentGraphType();
-	void ShowErrorMessage();
+    void SaveGraph(CString sFilename);
+    int  GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
-	//Load statistical queries
-	void LoadStatQueries(__in UINT curStr, Metrics loadMetric, bool setDef = false);
+    void StoreCurrentGraphType();
+    void ShowErrorMessage();
 
-	CPtrArray		m_graphDataArray;
-	MyGraph			m_graph;
-	CComboBox		m_cGraphType;
-	CSliderCtrl		m_Skipper;
-	BOOL			m_bAuthorsCaseSensitive;
-	BOOL			m_bSortByCommitCount;
+    //Load statistical queries
+    void LoadStatQueries(__in UINT curStr, Metrics loadMetric, bool setDef = false);
 
-	CXPImageButton	m_btnGraphBar;
-	CXPImageButton	m_btnGraphBarStacked;
-	CXPImageButton	m_btnGraphLine;
-	CXPImageButton	m_btnGraphLineStacked;
-	CXPImageButton	m_btnGraphPie;
+    CPtrArray       m_graphDataArray;
+    MyGraph         m_graph;
+    CComboBox       m_cGraphType;
+    CSliderCtrl     m_Skipper;
+    BOOL            m_bAuthorsCaseSensitive;
+    BOOL            m_bSortByCommitCount;
 
-	HICON			m_hGraphBarIcon;
-	HICON			m_hGraphBarStackedIcon;
-	HICON			m_hGraphLineIcon;
-	HICON			m_hGraphLineStackedIcon;
-	HICON			m_hGraphPieIcon;
+    CXPImageButton  m_btnGraphBar;
+    CXPImageButton  m_btnGraphBarStacked;
+    CXPImageButton  m_btnGraphLine;
+    CXPImageButton  m_btnGraphLineStacked;
+    CXPImageButton  m_btnGraphPie;
 
-	MyGraph::GraphType	m_GraphType;
-	bool				m_bStacked;
+    HICON           m_hGraphBarIcon;
+    HICON           m_hGraphBarStackedIcon;
+    HICON           m_hGraphLineIcon;
+    HICON           m_hGraphLineStackedIcon;
+    HICON           m_hGraphPieIcon;
 
-	CToolTipCtrl*	m_pToolTip;
+    MyGraph::GraphType  m_GraphType;
+    bool                m_bStacked;
 
-	int				m_langOrder;
+    CToolTipCtrl*   m_pToolTip;
 
-	// ** Member variables holding the statistical data **
+    int             m_langOrder;
 
-	/// Number of days in the revision interval.
-	int						m_nDays;
-	/// Number of weeks in the revision interval.
-	int						m_nWeeks;		
-	/// The starting date/time for the revision interval.
-	__time64_t				m_minDate;
-	/// The ending date/time for the revision interval.
-	__time64_t				m_maxDate;		
-	/// The total number of commits (equals size of the m_parXXX arrays).
-	INT_PTR					m_nTotalCommits;
-	/// The total number of file changes.
-	LONG					m_nTotalFileChanges;
-	/// Holds the number of commits per unit and author.
-	IntervalDataMap			m_commitsPerUnitAndAuthor;		
-	/// Holds the number of file changes per unit and author.
-	IntervalDataMap			m_filechangesPerUnitAndAuthor;
-	/// First interval number (key) in the mappings.
-	int						m_firstInterval;
-	/// Last interval number (key) in the mappings.
-	int						m_lastInterval;
-	/// Mapping of total commits per author, access data via
-	AuthorDataMap			m_commitsPerAuthor;
-	/// The list of author names sorted based on commit count 
-	/// (author with most commits is first in list).
-	std::list<tstring>	m_authorNames;
-	/// unit names by week/month/quarter
-	std::map<LONG, tstring> m_unitNames;
+    // ** Member variables holding the statistical data **
+
+    /// Number of days in the revision interval.
+    int                     m_nDays;
+    /// Number of weeks in the revision interval.
+    int                     m_nWeeks;
+    /// The starting date/time for the revision interval.
+    __time64_t              m_minDate;
+    /// The ending date/time for the revision interval.
+    __time64_t              m_maxDate;
+    /// The total number of commits (equals size of the m_parXXX arrays).
+    INT_PTR                 m_nTotalCommits;
+    /// The total number of file changes.
+    LONG                    m_nTotalFileChanges;
+    /// Holds the number of commits per unit and author.
+    IntervalDataMap         m_commitsPerUnitAndAuthor;
+    /// Holds the number of file changes per unit and author.
+    IntervalDataMap         m_filechangesPerUnitAndAuthor;
+    /// First interval number (key) in the mappings.
+    int                     m_firstInterval;
+    /// Last interval number (key) in the mappings.
+    int                     m_lastInterval;
+    /// Mapping of total commits per author, access data via
+    AuthorDataMap           m_commitsPerAuthor;
+    /// The list of author names sorted based on commit count
+    /// (author with most commits is first in list).
+    std::list<tstring>  m_authorNames;
+    /// unit names by week/month/quarter
+    std::map<LONG, tstring> m_unitNames;
 };

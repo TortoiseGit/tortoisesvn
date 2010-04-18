@@ -28,46 +28,46 @@
  */
 class CSetLookAndFeelPage : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSetLookAndFeelPage)
+    DECLARE_DYNAMIC(CSetLookAndFeelPage)
 
 public:
-	CSetLookAndFeelPage();
-	virtual ~CSetLookAndFeelPage();
+    CSetLookAndFeelPage();
+    virtual ~CSetLookAndFeelPage();
 
-	UINT GetIconID() {return IDI_MISC;}
+    UINT GetIconID() {return IDI_MISC;}
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSLOOKANDFEEL };
+    enum { IDD = IDD_SETTINGSLOOKANDFEEL };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
-	afx_msg void OnBnClickedOnlyexplorer();
-	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnChange();
-	afx_msg void OnEnChangeNocontextpaths();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnApply();
+    afx_msg void OnBnClickedOnlyexplorer();
+    afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnChange();
+    afx_msg void OnEnChangeNocontextpaths();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 public:
-	virtual BOOL OnInitDialog();
+    virtual BOOL OnInitDialog();
 
 private:
-	void InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags);
+    void InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags);
 
-	CToolTips			m_tooltips;
-	CRegDWORD			m_regTopmenu;
-	CRegDWORD			m_regTopmenuhigh;
+    CToolTips           m_tooltips;
+    CRegDWORD           m_regTopmenu;
+    CRegDWORD           m_regTopmenuhigh;
 
-	CImageList			m_imgList;
-	CListCtrl			m_cMenuList;
-	BOOL				m_bModified;
-	unsigned __int64	m_topmenu;
-	bool				m_bBlock;
-	
-	CRegDWORD			m_regGetLockTop;
-	BOOL				m_bGetLockTop;
+    CImageList          m_imgList;
+    CListCtrl           m_cMenuList;
+    BOOL                m_bModified;
+    unsigned __int64    m_topmenu;
+    bool                m_bBlock;
 
-	CString				m_sNoContextPaths;
-	CRegString			m_regNoContextPaths;
+    CRegDWORD           m_regGetLockTop;
+    BOOL                m_bGetLockTop;
+
+    CString             m_sNoContextPaths;
+    CRegString          m_regNoContextPaths;
 };

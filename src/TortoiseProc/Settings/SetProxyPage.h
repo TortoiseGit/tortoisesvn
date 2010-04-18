@@ -31,51 +31,51 @@
  */
 class CSetProxyPage : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSetProxyPage)
+    DECLARE_DYNAMIC(CSetProxyPage)
 
 public:
-	CSetProxyPage();
-	virtual ~CSetProxyPage();
+    CSetProxyPage();
+    virtual ~CSetProxyPage();
 
-	UINT GetIconID() {return IDI_PROXY;}
+    UINT GetIconID() {return IDI_PROXY;}
 
-	enum { IDD = IDD_SETTINGSPROXY };
+    enum { IDD = IDD_SETTINGSPROXY };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnApply();
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnChange();
-	afx_msg void OnBnClickedEnable();
-	afx_msg void OnBnClickedSshbrowse();
-	afx_msg void OnBnClickedEditservers();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnApply();
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnChange();
+    afx_msg void OnBnClickedEnable();
+    afx_msg void OnBnClickedSshbrowse();
+    afx_msg void OnBnClickedEditservers();
 
-	void EnableGroup(BOOL b);
+    void EnableGroup(BOOL b);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
-	CToolTips	m_tooltips;
-	CString		m_serveraddress;
-	CRegString	m_regServeraddress;
-	CRegString	m_regServeraddress_copy;
-	UINT		m_serverport;
-	CRegString	m_regServerport;
-	CRegString	m_regServerport_copy;
-	CString		m_username;
-	CRegString	m_regUsername;
-	CRegString	m_regUsername_copy;
-	CString		m_password;
-	CRegString	m_regPassword;
-	CRegString	m_regPassword_copy;
-	UINT		m_timeout;
-	CRegString	m_regTimeout;
-	CRegString	m_regTimeout_copy;
-	BOOL		m_isEnabled;
-	CRegString	m_regSSHClient;
-	CString		m_SSHClient;
-	CRegString	m_regExceptions;
-	CRegString	m_regExceptions_copy;
-	CString		m_Exceptions;
-	CFileDropEdit m_cSSHClientEdit;
+    CToolTips   m_tooltips;
+    CString     m_serveraddress;
+    CRegString  m_regServeraddress;
+    CRegString  m_regServeraddress_copy;
+    UINT        m_serverport;
+    CRegString  m_regServerport;
+    CRegString  m_regServerport_copy;
+    CString     m_username;
+    CRegString  m_regUsername;
+    CRegString  m_regUsername_copy;
+    CString     m_password;
+    CRegString  m_regPassword;
+    CRegString  m_regPassword_copy;
+    UINT        m_timeout;
+    CRegString  m_regTimeout;
+    CRegString  m_regTimeout_copy;
+    BOOL        m_isEnabled;
+    CRegString  m_regSSHClient;
+    CString     m_SSHClient;
+    CRegString  m_regExceptions;
+    CRegString  m_regExceptions_copy;
+    CString     m_Exceptions;
+    CFileDropEdit m_cSSHClientEdit;
 };

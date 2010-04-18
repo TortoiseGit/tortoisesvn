@@ -28,157 +28,157 @@
 #include "ProgressDlg.h"
 #include "SelectFileFilter.h"
 
-#define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME		_T(".TSVNPatchToClipboard")
+#define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME      _T(".TSVNPatchToClipboard")
 
 
 bool CreatePatchCommand::Execute()
 {
-	bool bRet = false;
-	CString savepath = CPathUtils::GetLongPathname(parser.GetVal(_T("savepath")));
-	CCreatePatch dlg;
-	dlg.m_pathList = pathList;
-	if (parser.HasKey(_T("noui"))||(dlg.DoModal()==IDOK))
-	{
-		if (cmdLinePath.IsEmpty())
-		{
-			cmdLinePath = pathList.GetCommonRoot();
-		}
-		bRet = CreatePatch(cmdLinePath.GetDirectory(), dlg.m_pathList, CTSVNPath(savepath));
-		SVN svn;
-		svn.Revert(dlg.m_filesToRevert, CStringArray(), false);
-	}
-	return bRet;
+    bool bRet = false;
+    CString savepath = CPathUtils::GetLongPathname(parser.GetVal(_T("savepath")));
+    CCreatePatch dlg;
+    dlg.m_pathList = pathList;
+    if (parser.HasKey(_T("noui"))||(dlg.DoModal()==IDOK))
+    {
+        if (cmdLinePath.IsEmpty())
+        {
+            cmdLinePath = pathList.GetCommonRoot();
+        }
+        bRet = CreatePatch(cmdLinePath.GetDirectory(), dlg.m_pathList, CTSVNPath(savepath));
+        SVN svn;
+        svn.Revert(dlg.m_filesToRevert, CStringArray(), false);
+    }
+    return bRet;
 }
 
 UINT_PTR CALLBACK CreatePatchCommand::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM /*lParam*/)
 {
-	if(uiMsg ==	WM_COMMAND && LOWORD(wParam) == IDC_PATCH_TO_CLIPBOARD)
-	{
-		HWND hFileDialog = GetParent(hDlg);
+    if(uiMsg == WM_COMMAND && LOWORD(wParam) == IDC_PATCH_TO_CLIPBOARD)
+    {
+        HWND hFileDialog = GetParent(hDlg);
 
-		CString strFilename = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString() + PATCH_TO_CLIPBOARD_PSEUDO_FILENAME;
+        CString strFilename = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString() + PATCH_TO_CLIPBOARD_PSEUDO_FILENAME;
 
-		CommDlg_OpenSave_SetControlText(hFileDialog, edt1, (LPCTSTR)strFilename);   
+        CommDlg_OpenSave_SetControlText(hFileDialog, edt1, (LPCTSTR)strFilename);   
 
-		PostMessage(hFileDialog, WM_COMMAND, MAKEWPARAM(IDOK, BM_CLICK), (LPARAM)(GetDlgItem(hDlg, IDOK)));
-	}
-	return 0;
+        PostMessage(hFileDialog, WM_COMMAND, MAKEWPARAM(IDOK, BM_CLICK), (LPARAM)(GetDlgItem(hDlg, IDOK)));
+    }
+    return 0;
 }
 
 bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& paths, const CTSVNPath& cmdLineSavePath)
 {
-	CTSVNPath savePath;
+    CTSVNPath savePath;
 
-	if (cmdLineSavePath.IsEmpty())
-	{
-		TCHAR szFile[MAX_PATH] = {0};	// buffer for file name
-		OPENFILENAME ofn = {0};			// common dialog box structure
-		// Initialize OPENFILENAME
-		ofn.lStructSize = sizeof(OPENFILENAME);
-		ofn.hwndOwner = hwndExplorer;
-		ofn.lpstrFile = szFile;
-		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-		ofn.lpstrInitialDir = root.GetWinPath();
+    if (cmdLineSavePath.IsEmpty())
+    {
+        TCHAR szFile[MAX_PATH] = {0};   // buffer for file name
+        OPENFILENAME ofn = {0};         // common dialog box structure
+        // Initialize OPENFILENAME
+        ofn.lStructSize = sizeof(OPENFILENAME);
+        ofn.hwndOwner = hwndExplorer;
+        ofn.lpstrFile = szFile;
+        ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+        ofn.lpstrInitialDir = root.GetWinPath();
 
-		CString temp;
-		temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-		CStringUtils::RemoveAccelerators(temp);
-		if (temp.IsEmpty())
-			ofn.lpstrTitle = NULL;
-		else
-			ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_OVERWRITEPROMPT | OFN_ENABLETEMPLATE | OFN_EXPLORER | OFN_ENABLEHOOK;
+        CString temp;
+        temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+        CStringUtils::RemoveAccelerators(temp);
+        if (temp.IsEmpty())
+            ofn.lpstrTitle = NULL;
+        else
+            ofn.lpstrTitle = temp;
+        ofn.Flags = OFN_OVERWRITEPROMPT | OFN_ENABLETEMPLATE | OFN_EXPLORER | OFN_ENABLEHOOK;
 
-		ofn.hInstance = AfxGetResourceHandle();
-		ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
-		ofn.lpfnHook = CreatePatchFileOpenHook;
+        ofn.hInstance = AfxGetResourceHandle();
+        ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
+        ofn.lpfnHook = CreatePatchFileOpenHook;
 
-		CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
-		ofn.lpstrFilter = fileFilter;
-		ofn.nFilterIndex = 1;
-		// Display the Open dialog box. 
-		if (GetSaveFileName(&ofn)==FALSE)
-		{
-			return FALSE;
-		}
-		savePath = CTSVNPath(ofn.lpstrFile);
-		if (ofn.nFilterIndex == 1)
-		{
-			if (savePath.GetFileExtension().IsEmpty())
-				savePath.AppendRawString(_T(".patch"));
-		}
-	}
-	else
-	{
-		savePath = cmdLineSavePath;
-	}
+        CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
+        ofn.lpstrFilter = fileFilter;
+        ofn.nFilterIndex = 1;
+        // Display the Open dialog box. 
+        if (GetSaveFileName(&ofn)==FALSE)
+        {
+            return FALSE;
+        }
+        savePath = CTSVNPath(ofn.lpstrFile);
+        if (ofn.nFilterIndex == 1)
+        {
+            if (savePath.GetFileExtension().IsEmpty())
+                savePath.AppendRawString(_T(".patch"));
+        }
+    }
+    else
+    {
+        savePath = cmdLineSavePath;
+    }
 
-	// This is horrible and I should be ashamed of myself, but basically, the 
-	// the file-open dialog writes ".TSVNPatchToClipboard" to its file field if the user clicks
-	// the "Save To Clipboard" button.
-	bool bToClipboard = _tcsstr(savePath.GetWinPath(), PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
+    // This is horrible and I should be ashamed of myself, but basically, the 
+    // the file-open dialog writes ".TSVNPatchToClipboard" to its file field if the user clicks
+    // the "Save To Clipboard" button.
+    bool bToClipboard = _tcsstr(savePath.GetWinPath(), PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
 
-	CProgressDlg progDlg;
-	progDlg.SetTitle(IDS_PROC_PATCHTITLE);
-	progDlg.SetShowProgressBar(false);
-	progDlg.ShowModeless(CWnd::FromHandle(hwndExplorer));
-	progDlg.FormatNonPathLine(1, IDS_PROC_SAVEPATCHTO);
-	if(bToClipboard)
-	{
-		progDlg.FormatNonPathLine(2, IDS_CLIPBOARD_PROGRESS_DEST);
-	}
-	else
-	{
-		progDlg.SetLine(2, savePath.GetUIPathString(), true);
-	}
-	//progDlg.SetAnimation(IDR_ANIMATION);
+    CProgressDlg progDlg;
+    progDlg.SetTitle(IDS_PROC_PATCHTITLE);
+    progDlg.SetShowProgressBar(false);
+    progDlg.ShowModeless(CWnd::FromHandle(hwndExplorer));
+    progDlg.FormatNonPathLine(1, IDS_PROC_SAVEPATCHTO);
+    if(bToClipboard)
+    {
+        progDlg.FormatNonPathLine(2, IDS_CLIPBOARD_PROGRESS_DEST);
+    }
+    else
+    {
+        progDlg.SetLine(2, savePath.GetUIPathString(), true);
+    }
+    //progDlg.SetAnimation(IDR_ANIMATION);
 
-	CTSVNPath tempPatchFilePath;
-	if (bToClipboard)
-		tempPatchFilePath = CTempFiles::Instance().GetTempFilePath(true);
-	else
-		tempPatchFilePath = savePath;
+    CTSVNPath tempPatchFilePath;
+    if (bToClipboard)
+        tempPatchFilePath = CTempFiles::Instance().GetTempFilePath(true);
+    else
+        tempPatchFilePath = savePath;
 
-	::DeleteFile(tempPatchFilePath.GetWinPath());
+    ::DeleteFile(tempPatchFilePath.GetWinPath());
 
-	CTSVNPath sDir = root;
-	if (sDir.IsEmpty())
-		sDir = paths.GetCommonRoot();
+    CTSVNPath sDir = root;
+    if (sDir.IsEmpty())
+        sDir = paths.GetCommonRoot();
 
-	SVN svn;
-	for (int fileindex = 0; fileindex < paths.GetCount(); ++fileindex)
-	{
-		svn_depth_t depth = paths[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-		if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
-		{
-			progDlg.Stop();
-			::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			return FALSE;
-		}
-	}
+    SVN svn;
+    for (int fileindex = 0; fileindex < paths.GetCount(); ++fileindex)
+    {
+        svn_depth_t depth = paths[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
+        if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
+        {
+            progDlg.Stop();
+            ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            return FALSE;
+        }
+    }
 
-	if(bToClipboard)
-	{
-		// The user actually asked for the patch to be written to the clipboard
-		CStringA sClipdata;
-		FILE * inFile;
-		_tfopen_s(&inFile, tempPatchFilePath.GetWinPath(), _T("rb"));
-		if(inFile)
-		{
-			char chunkBuffer[16384];
-			while(!feof(inFile))
-			{
-				size_t readLength = fread(chunkBuffer, 1, sizeof(chunkBuffer), inFile);
-				sClipdata.Append(chunkBuffer, (int)readLength);
-			}
-			fclose(inFile);
+    if(bToClipboard)
+    {
+        // The user actually asked for the patch to be written to the clipboard
+        CStringA sClipdata;
+        FILE * inFile;
+        _tfopen_s(&inFile, tempPatchFilePath.GetWinPath(), _T("rb"));
+        if(inFile)
+        {
+            char chunkBuffer[16384];
+            while(!feof(inFile))
+            {
+                size_t readLength = fread(chunkBuffer, 1, sizeof(chunkBuffer), inFile);
+                sClipdata.Append(chunkBuffer, (int)readLength);
+            }
+            fclose(inFile);
 
-			CStringUtils::WriteDiffToClipboard(sClipdata);
-		}
-	}
-	else
-		CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath, tempPatchFilePath.GetFilename());
+            CStringUtils::WriteDiffToClipboard(sClipdata);
+        }
+    }
+    else
+        CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath, tempPatchFilePath.GetFilename());
 
-	progDlg.Stop();
-	return TRUE;
+    progDlg.Stop();
+    return TRUE;
 }

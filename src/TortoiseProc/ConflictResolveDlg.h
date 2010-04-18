@@ -26,35 +26,35 @@
  */
 class CConflictResolveDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CConflictResolveDlg)
+    DECLARE_DYNAMIC(CConflictResolveDlg)
 
 public:
-	CConflictResolveDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CConflictResolveDlg();
+    CConflictResolveDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CConflictResolveDlg();
 
-	void SetConflictDescription(const svn_wc_conflict_description_t * description) {m_pConflictDescription = description;}
-	svn_wc_conflict_choice_t GetResult() {return m_choice;}
-	const CString& GetMergedFile() {return m_mergedfile;}
-	bool IsCancelled() const {return m_bCancelled;}
-	enum { IDD = IDD_CONFLICTRESOLVE };
+    void SetConflictDescription(const svn_wc_conflict_description_t * description) {m_pConflictDescription = description;}
+    svn_wc_conflict_choice_t GetResult() {return m_choice;}
+    const CString& GetMergedFile() {return m_mergedfile;}
+    bool IsCancelled() const {return m_bCancelled;}
+    enum { IDD = IDD_CONFLICTRESOLVE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual void OnCancel();
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedUselocal();
-	afx_msg void OnBnClickedUserepo();
-	afx_msg void OnBnClickedEditconflict();
-	afx_msg void OnBnClickedResolved();
-	afx_msg void OnBnClickedResolvealllater();
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnBnClickedAbort();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void OnCancel();
+    virtual BOOL OnInitDialog();
+    afx_msg void OnBnClickedUselocal();
+    afx_msg void OnBnClickedUserepo();
+    afx_msg void OnBnClickedEditconflict();
+    afx_msg void OnBnClickedResolved();
+    afx_msg void OnBnClickedResolvealllater();
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnBnClickedAbort();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
-	const svn_wc_conflict_description_t *	m_pConflictDescription;
-	svn_wc_conflict_choice_t				m_choice;
-	CString									m_mergedfile;
-	bool									m_bCancelled;
+    const svn_wc_conflict_description_t *   m_pConflictDescription;
+    svn_wc_conflict_choice_t                m_choice;
+    CString                                 m_mergedfile;
+    bool                                    m_bCancelled;
 };

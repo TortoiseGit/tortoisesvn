@@ -27,41 +27,41 @@
 */
 class CDeleteUnversionedDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CDeleteUnversionedDlg)
+    DECLARE_DYNAMIC(CDeleteUnversionedDlg)
 
 public:
-	CDeleteUnversionedDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CDeleteUnversionedDlg();
+    CDeleteUnversionedDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CDeleteUnversionedDlg();
 
-	enum { IDD = IDD_DELUNVERSIONED };
+    enum { IDD = IDD_DELUNVERSIONED };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	virtual void OnCancel();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnBnClickedSelectall();
-	afx_msg LRESULT	OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    virtual void OnCancel();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnBnClickedSelectall();
+    afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	void StartDiff(int fileindex);
+    void StartDiff(int fileindex);
 
 private:
-	static UINT StatusThreadEntry(LPVOID pVoid);
-	UINT		StatusThread();
+    static UINT StatusThreadEntry(LPVOID pVoid);
+    UINT        StatusThread();
 
 public:
-	CTSVNPathList 		m_pathList;
-	BOOL				m_bUseRecycleBin;
+    CTSVNPathList       m_pathList;
+    BOOL                m_bUseRecycleBin;
 
 private:
-	BOOL				m_bSelectAll;
-	CString				m_sWindowTitle;
-	volatile LONG		m_bThreadRunning;
-	CSVNStatusListCtrl	m_StatusList;
-	CButton				m_SelectAll;
-	bool				m_bCancelled;
+    BOOL                m_bSelectAll;
+    CString             m_sWindowTitle;
+    volatile LONG       m_bThreadRunning;
+    CSVNStatusListCtrl  m_StatusList;
+    CButton             m_SelectAll;
+    bool                m_bCancelled;
 };

@@ -25,31 +25,31 @@
  */
 class CSetHooks : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSetHooks)
+    DECLARE_DYNAMIC(CSetHooks)
 
 public:
-	CSetHooks();   // standard constructor
-	virtual ~CSetHooks();
+    CSetHooks();   // standard constructor
+    virtual ~CSetHooks();
 
-	UINT GetIconID() {return IDI_HOOK;}
+    UINT GetIconID() {return IDI_HOOK;}
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSHOOKS };
+    enum { IDD = IDD_SETTINGSHOOKS };
 
 protected:
-	virtual BOOL OnInitDialog();
-	virtual BOOL OnApply();
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnBnClickedRemovebutton();
-	afx_msg void OnBnClickedEditbutton();
-	afx_msg void OnBnClickedAddbutton();
-	afx_msg void OnLvnItemchangedHooklist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMDblclkHooklist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedHookcopybutton();
+    virtual BOOL OnInitDialog();
+    virtual BOOL OnApply();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    afx_msg void OnBnClickedRemovebutton();
+    afx_msg void OnBnClickedEditbutton();
+    afx_msg void OnBnClickedAddbutton();
+    afx_msg void OnLvnItemchangedHooklist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMDblclkHooklist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnBnClickedHookcopybutton();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	void			RebuildHookList();
+    void            RebuildHookList();
 protected:
-	CListCtrl m_cHookList;
+    CListCtrl m_cHookList;
 };

@@ -27,7 +27,7 @@
 * no surviving copy.
 */
 
-class CRemoveUnchangedBranches 
+class CRemoveUnchangedBranches
     : public CModificationOptionImpl< IModificationOption
                                     , 200
                                     , ID_VIEW_REMOVEUNCHANGEDBRANCHES

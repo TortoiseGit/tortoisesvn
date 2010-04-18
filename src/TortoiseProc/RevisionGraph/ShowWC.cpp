@@ -28,7 +28,7 @@ CShowWC::CShowWC (CRevisionGraphOptionList& list)
 {
 }
 
-// implement IRevisionGraphOption: 
+// implement IRevisionGraphOption:
 // this one must always be executed
 // (ICopyFilterOption, if selected; IModificationOption is not)
 
@@ -39,7 +39,7 @@ bool CShowWC::IsActive() const
 
 // implement ICopyFilterOption
 
-ICopyFilterOption::EResult 
+ICopyFilterOption::EResult
 CShowWC::ShallRemove (const CFullGraphNode* node) const
 {
     // "Pin" HEAD nodes

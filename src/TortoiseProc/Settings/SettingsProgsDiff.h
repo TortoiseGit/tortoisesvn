@@ -29,51 +29,51 @@
  */
 class CSettingsProgsDiff : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsProgsDiff)
+    DECLARE_DYNAMIC(CSettingsProgsDiff)
 
 public:
-	CSettingsProgsDiff();
-	virtual ~CSettingsProgsDiff();
+    CSettingsProgsDiff();
+    virtual ~CSettingsProgsDiff();
 
-	UINT GetIconID() {return IDI_DIFF;}
+    UINT GetIconID() {return IDI_DIFF;}
 
-	enum { IDD = IDD_SETTINGSPROGSDIFF };
+    enum { IDD = IDD_SETTINGSPROGSDIFF };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 protected:
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
-	afx_msg void OnBnClickedExtdiffOff();
-	afx_msg void OnBnClickedExtdiffOn();
-	afx_msg void OnBnClickedExtdiffbrowse();
-	afx_msg void OnBnClickedExtdiffpropsOff();
-	afx_msg void OnBnClickedExtdiffpropsOn();
-	afx_msg void OnBnClickedExtdiffpropsbrowse();
-	afx_msg void OnBnClickedExtdiffadvanced();
-	afx_msg void OnBnClickedDontconvert();
-	afx_msg void OnEnChangeExtdiff();
-	afx_msg void OnEnChangeExtdiffprops();
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnApply();
+    afx_msg void OnBnClickedExtdiffOff();
+    afx_msg void OnBnClickedExtdiffOn();
+    afx_msg void OnBnClickedExtdiffbrowse();
+    afx_msg void OnBnClickedExtdiffpropsOff();
+    afx_msg void OnBnClickedExtdiffpropsOn();
+    afx_msg void OnBnClickedExtdiffpropsbrowse();
+    afx_msg void OnBnClickedExtdiffadvanced();
+    afx_msg void OnBnClickedDontconvert();
+    afx_msg void OnEnChangeExtdiff();
+    afx_msg void OnEnChangeExtdiffprops();
 
-	bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
-	void CheckProgComment();
-	void CheckProgCommentProps();
+    bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
+    void CheckProgComment();
+    void CheckProgCommentProps();
 
 private:
-	CString			m_sDiffPath;
-	CString			m_sDiffPropsPath;
-	CRegString		m_regDiffPath;
-	CRegString		m_regDiffPropsPath;
-	int             m_iExtDiff;
-	int             m_iExtDiffProps;
-	CSetProgsAdvDlg m_dlgAdvDiff;
-	CToolTips		m_tooltips;
-	CRegDWORD		m_regConvertBase;	///< registry value for the "Don't Convert" flag
-	BOOL			m_bConvertBase;		///< don't convert files when diffing against BASE
+    CString         m_sDiffPath;
+    CString         m_sDiffPropsPath;
+    CRegString      m_regDiffPath;
+    CRegString      m_regDiffPropsPath;
+    int             m_iExtDiff;
+    int             m_iExtDiffProps;
+    CSetProgsAdvDlg m_dlgAdvDiff;
+    CToolTips       m_tooltips;
+    CRegDWORD       m_regConvertBase;   ///< registry value for the "Don't Convert" flag
+    BOOL            m_bConvertBase;     ///< don't convert files when diffing against BASE
 
-	CFileDropEdit	m_cDiffEdit;
-	CFileDropEdit	m_cDiffPropsEdit;
+    CFileDropEdit   m_cDiffEdit;
+    CFileDropEdit   m_cDiffPropsEdit;
 };

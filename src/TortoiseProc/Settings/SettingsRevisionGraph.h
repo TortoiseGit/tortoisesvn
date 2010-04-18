@@ -26,35 +26,35 @@ class CProgressDlg;
 
 /**
  * \ingroup TortoiseProc
- * Settings page to configure miscellaneous stuff. 
+ * Settings page to configure miscellaneous stuff.
  */
-class CSettingsRevisionGraph 
+class CSettingsRevisionGraph
     : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsRevisionGraph)
+    DECLARE_DYNAMIC(CSettingsRevisionGraph)
 
 public:
-	CSettingsRevisionGraph();
-	virtual ~CSettingsRevisionGraph();
-	
-	UINT GetIconID() {return IDI_SETTINGSREVGRAPH;}
+    CSettingsRevisionGraph();
+    virtual ~CSettingsRevisionGraph();
+
+    UINT GetIconID() {return IDI_SETTINGSREVGRAPH;}
 
     virtual BOOL OnApply();
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSREVGRAPH };
+    enum { IDD = IDD_SETTINGSREVGRAPH };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
-	afx_msg void OnChanged();
+    afx_msg void OnChanged();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-	CToolTips		m_tooltips;
+    CToolTips       m_tooltips;
 
     CRegString      regTrunkPattern;
     CRegString      regBranchesPattern;

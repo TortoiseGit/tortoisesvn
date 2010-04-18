@@ -31,7 +31,7 @@ public:
 
     /// construction
 
-    CStandardLayoutConnectionList 
+    CStandardLayoutConnectionList
         ( const std::vector<CStandardLayoutNodeInfo>& nodes
         , const std::vector<std::pair<index_t, index_t> >& connections);
 

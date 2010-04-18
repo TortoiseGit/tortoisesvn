@@ -24,16 +24,16 @@
 
 bool RebuildIconCacheCommand::Execute()
 {
-	bool bQuiet = !!parser.HasKey(_T("noquestion"));
-	if (CShellUpdater::RebuildIcons())
-	{
-		if (!bQuiet)
-			CMessageBox::Show(hwndExplorer, IDS_PROC_ICONCACHEREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
-	}
-	else
-	{
-		if (!bQuiet)
-			CMessageBox::Show(hwndExplorer, IDS_PROC_ICONCACHENOTREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
-	}
-	return true;
+    bool bQuiet = !!parser.HasKey(_T("noquestion"));
+    if (CShellUpdater::RebuildIcons())
+    {
+        if (!bQuiet)
+            CMessageBox::Show(hwndExplorer, IDS_PROC_ICONCACHEREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+    }
+    else
+    {
+        if (!bQuiet)
+            CMessageBox::Show(hwndExplorer, IDS_PROC_ICONCACHENOTREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+    }
+    return true;
 }

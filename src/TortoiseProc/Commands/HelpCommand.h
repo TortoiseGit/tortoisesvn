@@ -27,13 +27,13 @@
 class HelpCommand : public Command
 {
 public:
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute()
-	{
-		return ((int)ShellExecute(hwndExplorer, _T("open"), theApp.m_pszHelpFilePath, NULL, NULL, SW_SHOWNORMAL) > 32);
-	}
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute()
+    {
+        return ((int)ShellExecute(hwndExplorer, _T("open"), theApp.m_pszHelpFilePath, NULL, NULL, SW_SHOWNORMAL) > 32);
+    }
 };
 
 

@@ -24,7 +24,7 @@
 class IRevisionGraphLayout;
 class CGraphNodeStates;
 
-class CStandardNodeSizeAssignment 
+class CStandardNodeSizeAssignment
     : public CRevisionGraphOptionImpl<ILayoutOption, 100, 0>
 {
 private:

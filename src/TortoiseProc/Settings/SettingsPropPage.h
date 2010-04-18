@@ -26,39 +26,39 @@
 class ISettingsPropPage : public CPropertyPage
 {
 public:
-	// simple construction
-	ISettingsPropPage();
-	explicit ISettingsPropPage(UINT nIDTemplate, UINT nIDCaption = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
-	explicit ISettingsPropPage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
+    // simple construction
+    ISettingsPropPage();
+    explicit ISettingsPropPage(UINT nIDTemplate, UINT nIDCaption = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
+    explicit ISettingsPropPage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
 
-	// extended construction
-	ISettingsPropPage(UINT nIDTemplate, UINT nIDCaption, 
-		UINT nIDHeaderTitle, UINT nIDHeaderSubTitle = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
-	ISettingsPropPage(LPCTSTR lpszTemplateName, UINT nIDCaption, 
-		UINT nIDHeaderTitle, UINT nIDHeaderSubTitle = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
+    // extended construction
+    ISettingsPropPage(UINT nIDTemplate, UINT nIDCaption, 
+        UINT nIDHeaderTitle, UINT nIDHeaderSubTitle = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
+    ISettingsPropPage(LPCTSTR lpszTemplateName, UINT nIDCaption, 
+        UINT nIDHeaderTitle, UINT nIDHeaderSubTitle = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
 
-	virtual ~ISettingsPropPage();
+    virtual ~ISettingsPropPage();
 
-	enum SettingsRestart
-	{
-		Restart_None = 0,
-		Restart_System = 1,
-		Restart_Cache = 2
-	};
+    enum SettingsRestart
+    {
+        Restart_None = 0,
+        Restart_System = 1,
+        Restart_Cache = 2
+    };
 
-	/**
-	 * Returns the icon ID
-	 */
-	virtual UINT GetIconID() = 0;
+    /**
+     * Returns the icon ID
+     */
+    virtual UINT GetIconID() = 0;
 
-	/**
-	 * Returns the restart code
-	 */
-	virtual SettingsRestart GetRestart() {return m_restart;}
+    /**
+     * Returns the restart code
+     */
+    virtual SettingsRestart GetRestart() {return m_restart;}
 
 protected:
 
-	SettingsRestart m_restart;
+    SettingsRestart m_restart;
 
     /**
      * Utility method:
@@ -69,36 +69,36 @@ protected:
     template<class T, class Reg>
     void Store (const T& value, Reg& registryKey)
     {
-    	registryKey = value;
-	    if (registryKey.GetLastError() != ERROR_SUCCESS)
-		    CMessageBox::Show (m_hWnd, registryKey.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+        registryKey = value;
+        if (registryKey.GetLastError() != ERROR_SUCCESS)
+            CMessageBox::Show (m_hWnd, registryKey.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
     }
 
-	/**
-	 * Wrapper around the CWnd::EnableWindow() method, but
-	 * makes sure that a control that has the focus is not disabled
-	 * before the focus is passed on to the next control.
-	 */
-	BOOL DialogEnableWindow(UINT nID, BOOL bEnable)
-	{
-		CWnd * pwndDlgItem = GetDlgItem(nID);
-		return DialogEnableWindow(pwndDlgItem, bEnable);
-	}
-	/**
-	 * Wrapper around the CWnd::EnableWindow() method, but
-	 * makes sure that a control that has the focus is not disabled
-	 * before the focus is passed on to the next control.
-	 */
-	BOOL DialogEnableWindow(CWnd * pwndDlgItem, BOOL bEnable)
-	{
-		if (pwndDlgItem == NULL)
-			return FALSE;
-		if (bEnable)
-			return pwndDlgItem->EnableWindow(bEnable);
-		if (GetFocus() == pwndDlgItem)
-		{
-			SendMessage(WM_NEXTDLGCTL, 0, FALSE);
-		}
-		return pwndDlgItem->EnableWindow(bEnable);
-	}
+    /**
+     * Wrapper around the CWnd::EnableWindow() method, but
+     * makes sure that a control that has the focus is not disabled
+     * before the focus is passed on to the next control.
+     */
+    BOOL DialogEnableWindow(UINT nID, BOOL bEnable)
+    {
+        CWnd * pwndDlgItem = GetDlgItem(nID);
+        return DialogEnableWindow(pwndDlgItem, bEnable);
+    }
+    /**
+     * Wrapper around the CWnd::EnableWindow() method, but
+     * makes sure that a control that has the focus is not disabled
+     * before the focus is passed on to the next control.
+     */
+    BOOL DialogEnableWindow(CWnd * pwndDlgItem, BOOL bEnable)
+    {
+        if (pwndDlgItem == NULL)
+            return FALSE;
+        if (bEnable)
+            return pwndDlgItem->EnableWindow(bEnable);
+        if (GetFocus() == pwndDlgItem)
+        {
+            SendMessage(WM_NEXTDLGCTL, 0, FALSE);
+        }
+        return pwndDlgItem->EnableWindow(bEnable);
+    }
 };

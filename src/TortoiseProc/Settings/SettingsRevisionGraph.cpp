@@ -24,7 +24,7 @@
 IMPLEMENT_DYNAMIC(CSettingsRevisionGraph, ISettingsPropPage)
 
 CSettingsRevisionGraph::CSettingsRevisionGraph()
-	: ISettingsPropPage(CSettingsRevisionGraph::IDD)
+    : ISettingsPropPage(CSettingsRevisionGraph::IDD)
     , regTrunkPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TrunkPattern"), _T("trunk"))
     , regBranchesPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\BranchPattern"), _T("branches"))
     , regTagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"))
@@ -46,34 +46,34 @@ CSettingsRevisionGraph::~CSettingsRevisionGraph()
 
 void CSettingsRevisionGraph::DoDataExchange(CDataExchange* pDX)
 {
-	ISettingsPropPage::DoDataExchange(pDX);
+    ISettingsPropPage::DoDataExchange(pDX);
 
-	DDX_Text(pDX, IDC_TRUNKPATTERN, trunkPattern);
-	DDX_Text(pDX, IDC_BRANCHESPATTERN, branchesPattern);
-	DDX_Text(pDX, IDC_TAGSPATTERN, tagsPattern);
+    DDX_Text(pDX, IDC_TRUNKPATTERN, trunkPattern);
+    DDX_Text(pDX, IDC_BRANCHESPATTERN, branchesPattern);
+    DDX_Text(pDX, IDC_TAGSPATTERN, tagsPattern);
 
-	DDX_Check(pDX, IDC_TWEAKTRUNKCOLORS, tweakTrunkColors);
-	DDX_Check(pDX, IDC_TWEAKTAGSCOLORS, tweakTagsColors);
+    DDX_Check(pDX, IDC_TWEAKTRUNKCOLORS, tweakTrunkColors);
+    DDX_Check(pDX, IDC_TWEAKTAGSCOLORS, tweakTagsColors);
 }
 
 
 BEGIN_MESSAGE_MAP(CSettingsRevisionGraph, ISettingsPropPage)
-	ON_EN_CHANGE(IDC_TRUNKPATTERN, OnChanged)
-	ON_EN_CHANGE(IDC_BRANCHESPATTERN, OnChanged)
-	ON_EN_CHANGE(IDC_TAGSPATTERN, OnChanged)
+    ON_EN_CHANGE(IDC_TRUNKPATTERN, OnChanged)
+    ON_EN_CHANGE(IDC_BRANCHESPATTERN, OnChanged)
+    ON_EN_CHANGE(IDC_TAGSPATTERN, OnChanged)
 
-	ON_BN_CLICKED(IDC_TWEAKTRUNKCOLORS, OnChanged)
-	ON_BN_CLICKED(IDC_TWEAKTAGSCOLORS, OnChanged)
+    ON_BN_CLICKED(IDC_TWEAKTRUNKCOLORS, OnChanged)
+    ON_BN_CLICKED(IDC_TWEAKTAGSCOLORS, OnChanged)
 END_MESSAGE_MAP()
 
 void CSettingsRevisionGraph::OnChanged()
 {
-	SetModified();
+    SetModified();
 }
 
 BOOL CSettingsRevisionGraph::OnApply()
 {
-	UpdateData();
+    UpdateData();
 
     Store (trunkPattern, regTrunkPattern);
     Store (branchesPattern, regBranchesPattern);
@@ -82,16 +82,16 @@ BOOL CSettingsRevisionGraph::OnApply()
     Store (tweakTagsColors, regTweakTagsColors);
 
     SetModified(FALSE);
-	return ISettingsPropPage::OnApply();
+    return ISettingsPropPage::OnApply();
 }
 
 BOOL CSettingsRevisionGraph::OnInitDialog()
 {
-	ISettingsPropPage::OnInitDialog();
+    ISettingsPropPage::OnInitDialog();
 
     // tooltips
 
-	m_tooltips.Create(this);
+    m_tooltips.Create(this);
 
     CString patternInfo;
     patternInfo.LoadString (IDS_SETTINGS_PATTERN_INFO);
@@ -103,18 +103,18 @@ BOOL CSettingsRevisionGraph::OnInitDialog()
     CString tagTipText;
     tagTipText.LoadString (IDS_SETTINGS_TAGSPATTERN);
 
-	m_tooltips.AddTool(IDC_TRUNKPATTERN, trunkTipText + patternInfo);
-	m_tooltips.AddTool(IDC_BRANCHESPATTERN, branchTipText + patternInfo);
-	m_tooltips.AddTool(IDC_TAGSPATTERN, tagTipText + patternInfo);
+    m_tooltips.AddTool(IDC_TRUNKPATTERN, trunkTipText + patternInfo);
+    m_tooltips.AddTool(IDC_BRANCHESPATTERN, branchTipText + patternInfo);
+    m_tooltips.AddTool(IDC_TAGSPATTERN, tagTipText + patternInfo);
 
     m_tooltips.AddTool(IDC_TWEAKTRUNKCOLORS, IDS_SETTINGS_TWEAKTRUNKCOLORS);
     m_tooltips.AddTool(IDC_TWEAKTAGSCOLORS, IDS_SETTINGS_TWEAKTAGSCOLORS);
 
-	return TRUE;
+    return TRUE;
 }
 
 BOOL CSettingsRevisionGraph::PreTranslateMessage(MSG* pMsg)
 {
-	m_tooltips.RelayEvent(pMsg);
-	return ISettingsPropPage::PreTranslateMessage(pMsg);
+    m_tooltips.RelayEvent(pMsg);
+    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }

@@ -40,31 +40,31 @@ class CFullGraphBuilder
 {
 public:
 
-	CFullGraphBuilder (const CFullHistory& history, CFullGraph& graph);
-	~CFullGraphBuilder(void);
+    CFullGraphBuilder (const CFullHistory& history, CFullGraph& graph);
+    ~CFullGraphBuilder(void);
 
-	void Run();
+    void Run();
 
 private:
 
-	void AnalyzeReplacements ( revision_t revision
-						     , CRevisionInfoContainer::CChangesIterator first
-						     , CRevisionInfoContainer::CChangesIterator last
-						     , CSearchPathTree* startNode
-						     , std::vector<CSearchPathTree*>& toRemove);
-	void AnalyzeRevisions ( revision_t revision
-						  , CRevisionInfoContainer::CChangesIterator first
-						  , CRevisionInfoContainer::CChangesIterator last
-						  , CSearchPathTree* startNode
-						  , std::vector<CSearchPathTree*>& toRemove);
+    void AnalyzeReplacements ( revision_t revision
+                             , CRevisionInfoContainer::CChangesIterator first
+                             , CRevisionInfoContainer::CChangesIterator last
+                             , CSearchPathTree* startNode
+                             , std::vector<CSearchPathTree*>& toRemove);
+    void AnalyzeRevisions ( revision_t revision
+                          , CRevisionInfoContainer::CChangesIterator first
+                          , CRevisionInfoContainer::CChangesIterator last
+                          , CSearchPathTree* startNode
+                          , std::vector<CSearchPathTree*>& toRemove);
     void AnalyzeAsChanges ( revision_t revision
-    					  , CSearchPathTree* searchNode);
-	void AddCopiedPaths ( revision_t revision
-					    , CSearchPathTree* rootNode
-					    , SCopyInfo**& lastToCopy);
-	void FillCopyTargets ( revision_t revision
-					     , CSearchPathTree* rootNode
-					     , SCopyInfo**& lastFromCopy);
+                          , CSearchPathTree* searchNode);
+    void AddCopiedPaths ( revision_t revision
+                        , CSearchPathTree* rootNode
+                        , SCopyInfo**& lastToCopy);
+    void FillCopyTargets ( revision_t revision
+                         , CSearchPathTree* rootNode
+                         , SCopyInfo**& lastFromCopy);
     bool IsLatestCopySource ( revision_t fromRevision
                             , revision_t toRevision
                             , const CDictionaryBasedPath& fromPath

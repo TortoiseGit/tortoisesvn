@@ -23,8 +23,8 @@
 
 bool PropertiesCommand::Execute()
 {
-	CEditPropertiesDlg dlg;
-	dlg.SetPathList(pathList);
-	dlg.DoModal();
-	return true;
+    CEditPropertiesDlg dlg;
+    dlg.SetPathList(pathList);
+    dlg.DoModal();
+    return true;
 }

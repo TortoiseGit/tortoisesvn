@@ -35,29 +35,29 @@
  */
 class CAboutDlg : public CStandAloneDialog
 {
-	DECLARE_DYNAMIC(CAboutDlg)
+    DECLARE_DYNAMIC(CAboutDlg)
 
 public:
-	CAboutDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CAboutDlg();
+    CAboutDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CAboutDlg();
 
-	enum { IDD = IDD_ABOUT };
+    enum { IDD = IDD_ABOUT };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
 
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
-	afx_msg void OnBnClickedUpdate();
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
+    afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+    afx_msg void OnBnClickedUpdate();
     afx_msg void OnClose();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
-	CWaterEffect m_waterEffect;
-	CDib m_renderSrc;
-	CDib m_renderDest;
-	CHyperLink m_cWebLink;
-	CHyperLink m_cSupportLink;
+    CWaterEffect m_waterEffect;
+    CDib m_renderSrc;
+    CDib m_renderDest;
+    CHyperLink m_cWebLink;
+    CHyperLink m_cSupportLink;
 };

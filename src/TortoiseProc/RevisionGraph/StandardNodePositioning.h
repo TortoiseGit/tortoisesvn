@@ -25,7 +25,7 @@
 class IRevisionGraphLayout;
 class CStandardLayoutNodeInfo;
 
-class CStandardNodePositioning 
+class CStandardNodePositioning
     : public CRevisionGraphOptionImpl<ILayoutOption, 200, ID_VIEW_GROUPBRANCHES>
 {
 private:
@@ -36,27 +36,27 @@ private:
 
     /// the individual placement stages
 
-    void StackSubTree 
+    void StackSubTree
         ( CStandardLayoutNodeInfo* node
         , std::vector<long>& branchColumnStarts
         , std::vector<long>& branchColumnEnds
         , std::vector<long>& localColumnStarts
         , std::vector<long>& localColumnEnds);
-    void AppendBranch 
+    void AppendBranch
         ( CStandardLayoutNodeInfo* start
         , std::vector<long>& columnStarts
         , std::vector<long>& columnEnds
         , std::vector<long>& localColumnStarts
         , std::vector<long>& localColumnEnds);
-    void PlaceBranch 
+    void PlaceBranch
         ( CStandardLayoutNodeInfo* start
         , std::vector<long>& columnStarts
         , std::vector<long>& columnEnds);
 
-    void ShiftNodes 
+    void ShiftNodes
         ( CStandardLayoutNodeInfo* node
         , CSize delta);
-    CRect BoundingRect 
+    CRect BoundingRect
         (const CStandardLayoutNodeInfo* node);
 
 public:

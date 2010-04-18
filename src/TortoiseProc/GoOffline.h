@@ -6,19 +6,19 @@
 
 class CGoOffline : public CDialog
 {
-	DECLARE_DYNAMIC(CGoOffline)
+    DECLARE_DYNAMIC(CGoOffline)
 
 public:
-	CGoOffline(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CGoOffline();
+    CGoOffline(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CGoOffline();
 
 // Dialog Data
-	enum { IDD = IDD_GOOFFLINE };
+    enum { IDD = IDD_GOOFFLINE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 public:
 
     LogCache::ConnectionState selection;

@@ -41,8 +41,8 @@ void CExactCopyFroms::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 {
     // remove node, if it is neither "M", "A", "D" nor "R"
 
-	const DWORD forbiddenMask = DWORD(CNodeClassification::IS_OPERATION_MASK
-					          | CNodeClassification::MUST_BE_PRESERVED);
+    const DWORD forbiddenMask = DWORD(CNodeClassification::IS_OPERATION_MASK
+                              | CNodeClassification::MUST_BE_PRESERVED);
 
     if (node->GetClassification().Matches (0, forbiddenMask))
     {
@@ -52,8 +52,8 @@ void CExactCopyFroms::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 
         bool isCopySource =    (node->GetFirstTag() != NULL)
                             || (node->GetFirstCopyTarget() != NULL)
-                            || (   (next != NULL) 
-                                && (next->GetClassification().Is 
+                            || (   (next != NULL)
+                                && (next->GetClassification().Is
                                         (CNodeClassification::IS_RENAMED)));
 
         // remove it, if it is either no longer necessary or not wanted at all

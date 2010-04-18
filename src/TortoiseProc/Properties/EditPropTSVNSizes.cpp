@@ -26,7 +26,7 @@
 IMPLEMENT_DYNAMIC(CEditPropTSVNSizes, CStandAloneDialog)
 
 CEditPropTSVNSizes::CEditPropTSVNSizes(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CEditPropTSVNSizes::IDD, pParent)
+    : CStandAloneDialog(CEditPropTSVNSizes::IDD, pParent)
     , EditPropBase()
     , m_LogMinSize(0)
     , m_LockMinSize(0)

@@ -25,7 +25,7 @@
 
 // construction
 
-CStandardNodeSizeAssignment::CStandardNodeSizeAssignment 
+CStandardNodeSizeAssignment::CStandardNodeSizeAssignment
     ( CRevisionGraphOptionList& list
     , const CGraphNodeStates* nodeStates)
     : CRevisionGraphOptionImpl<ILayoutOption, 100, 0> (list)
@@ -40,9 +40,9 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
 {
     // we need access to actual data
 
-    IStandardLayoutNodeAccess* nodeAccess 
+    IStandardLayoutNodeAccess* nodeAccess
         = dynamic_cast<IStandardLayoutNodeAccess*>(layout);
-    if (nodeAccess == NULL) 
+    if (nodeAccess == NULL)
         return;
 
     // run
@@ -54,13 +54,13 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
         // expand node to show the path, if necessary
 
         node->requiresPath =   (node->previousInBranch == NULL)
-                            || (   node->previousInBranch->node->GetPath() 
+                            || (   node->previousInBranch->node->GetPath()
                                 != node->node->GetPath());
 
         int height = 21;
         if (node->requiresPath)
         {
-            size_t visibleElementCount = node->node->GetPath().GetDepth() 
+            size_t visibleElementCount = node->node->GetPath().GetDepth()
                                        - node->skipStartPathElements
                                        - node->skipTailPathElements;
             height += (int)(3 + visibleElementCount * 16);
@@ -70,12 +70,12 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
         // (otherwise, glyphs would be partly hidden)
 
         DWORD state = nodeStates->GetFlags (node->node);
-        int shift = (state & ( CGraphNodeStates::COLLAPSED_ABOVE 
+        int shift = (state & ( CGraphNodeStates::COLLAPSED_ABOVE
                              | CGraphNodeStates::SPLIT_ABOVE)) == 0
                   ? 0
                   : 6;
 
-        int extension = (state & ( CGraphNodeStates::COLLAPSED_BELOW 
+        int extension = (state & ( CGraphNodeStates::COLLAPSED_BELOW
                                  | CGraphNodeStates::SPLIT_BELOW)) == 0
                       ? 0
                       : 6;

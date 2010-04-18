@@ -34,9 +34,9 @@ void CRemoveUnchangedBranches::Apply (CVisibleGraph* graph, CVisibleGraphNode* n
     // We will not remove tags and trunks as well as those branches
     // that have been modified.
 
-    DWORD forbidden = CNodeClassification::IS_MODIFIED 
-                    | CNodeClassification::PATH_ONLY_MODIFIED 
-                    | CNodeClassification::IS_TRUNK 
+    DWORD forbidden = CNodeClassification::IS_MODIFIED
+                    | CNodeClassification::PATH_ONLY_MODIFIED
+                    | CNodeClassification::IS_TRUNK
                     | CNodeClassification::IS_TAG;
 
     // is this node part of a non-modified branch?

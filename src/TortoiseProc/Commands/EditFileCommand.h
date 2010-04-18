@@ -31,42 +31,42 @@ class EditFileCommand : public Command
 {
 private:
 
-	/// "revision" parameter, if specified
+    /// "revision" parameter, if specified
 
-	SVNRev revision;
+    SVNRev revision;
 
-	/// where the file can be found in a WC after \ref AutoCheckout
+    /// where the file can be found in a WC after \ref AutoCheckout
 
-	CTSVNPath path;
+    CTSVNPath path;
 
-	/// if set, we must unlock the file upon cleanup
+    /// if set, we must unlock the file upon cleanup
 
-	bool needsUnLock; 
+    bool needsUnLock; 
 
-	/// status check
+    /// status check
 
-	bool IsModified();
-	bool IsLocked();
+    bool IsModified();
+    bool IsLocked();
 
-	/// the individual steps of the sequence 
+    /// the individual steps of the sequence 
 
-	bool AutoCheckout();
-	bool AutoLock();
-	bool Edit();
-	bool AutoCheckin();
-	bool AutoUnLock();
+    bool AutoCheckout();
+    bool AutoLock();
+    bool Edit();
+    bool AutoCheckin();
+    bool AutoUnLock();
 
 public:
 
-	/// construction / destruction
+    /// construction / destruction
 
-	EditFileCommand();
-	virtual ~EditFileCommand();
+    EditFileCommand();
+    virtual ~EditFileCommand();
 
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute();
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute();
 };
 
 

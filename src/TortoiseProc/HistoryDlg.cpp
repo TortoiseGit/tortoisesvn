@@ -25,7 +25,7 @@
 
 IMPLEMENT_DYNAMIC(CHistoryDlg, CResizableStandAloneDialog)
 CHistoryDlg::CHistoryDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CHistoryDlg::IDD, pParent)
+    : CResizableStandAloneDialog(CHistoryDlg::IDD, pParent)
 {
 }
 
@@ -35,87 +35,87 @@ CHistoryDlg::~CHistoryDlg()
 
 void CHistoryDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_HISTORYLIST, m_List);
+    CResizableStandAloneDialog::DoDataExchange(pDX);
+    DDX_Control(pDX, IDC_HISTORYLIST, m_List);
 }
 
 
 BEGIN_MESSAGE_MAP(CHistoryDlg, CResizableStandAloneDialog)
-	ON_BN_CLICKED(IDOK, OnBnClickedOk)
-	ON_LBN_DBLCLK(IDC_HISTORYLIST, OnLbnDblclkHistorylist)
-	ON_WM_KEYDOWN()
+    ON_BN_CLICKED(IDOK, OnBnClickedOk)
+    ON_LBN_DBLCLK(IDC_HISTORYLIST, OnLbnDblclkHistorylist)
+    ON_WM_KEYDOWN()
 END_MESSAGE_MAP()
 
 
 void CHistoryDlg::OnBnClickedOk()
 {
-	int pos = m_List.GetCurSel();
-	if (pos != LB_ERR)
-	{
-		m_SelectedText = m_history->GetEntry(pos);
-	}
-	else
-		m_SelectedText.Empty();
-	OnOK();
+    int pos = m_List.GetCurSel();
+    if (pos != LB_ERR)
+    {
+        m_SelectedText = m_history->GetEntry(pos);
+    }
+    else
+        m_SelectedText.Empty();
+    OnOK();
 }
 
 BOOL CHistoryDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+    CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_HISTORYLIST, IDC_HISTORYLIST, IDC_HISTORYLIST, IDC_HISTORYLIST);
-	m_aeroControls.SubclassOkCancel(this);
+    ExtendFrameIntoClientArea(IDC_HISTORYLIST, IDC_HISTORYLIST, IDC_HISTORYLIST, IDC_HISTORYLIST);
+    m_aeroControls.SubclassOkCancel(this);
 
-	// calculate and set listbox width
-	CDC* pDC=m_List.GetDC();
-	CSize itemExtent;
-	int horizExtent = 1;
-	for (size_t i = 0; i < m_history->GetCount(); ++i)
-	{
-		CString sEntry = m_history->GetEntry(i);
-		sEntry.Replace(_T("\r"), _T(""));
-		sEntry.Replace('\n', ' ');
-		m_List.AddString(sEntry);
-		itemExtent = pDC->GetTextExtent(sEntry);
-		horizExtent = max(horizExtent, itemExtent.cx+5);
-	}
-	m_List.SetHorizontalExtent(horizExtent);
-	ReleaseDC(pDC); 
+    // calculate and set listbox width
+    CDC* pDC=m_List.GetDC();
+    CSize itemExtent;
+    int horizExtent = 1;
+    for (size_t i = 0; i < m_history->GetCount(); ++i)
+    {
+        CString sEntry = m_history->GetEntry(i);
+        sEntry.Replace(_T("\r"), _T(""));
+        sEntry.Replace('\n', ' ');
+        m_List.AddString(sEntry);
+        itemExtent = pDC->GetTextExtent(sEntry);
+        horizExtent = max(horizExtent, itemExtent.cx+5);
+    }
+    m_List.SetHorizontalExtent(horizExtent);
+    ReleaseDC(pDC);
 
-	AddAnchor(IDC_HISTORYLIST, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDOK, BOTTOM_RIGHT);
-	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("HistoryDlg"));
-	m_List.SetFocus();
-	return FALSE;
+    AddAnchor(IDC_HISTORYLIST, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDOK, BOTTOM_RIGHT);
+    AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    EnableSaveRestore(_T("HistoryDlg"));
+    m_List.SetFocus();
+    return FALSE;
 }
 
 void CHistoryDlg::OnLbnDblclkHistorylist()
 {
-	int pos = m_List.GetCurSel();
-	if (pos != LB_ERR)
-	{
-		m_SelectedText = m_history->GetEntry(pos);
-		OnOK();
-	}
-	else
-		m_SelectedText.Empty();
+    int pos = m_List.GetCurSel();
+    if (pos != LB_ERR)
+    {
+        m_SelectedText = m_history->GetEntry(pos);
+        OnOK();
+    }
+    else
+        m_SelectedText.Empty();
 }
 
 BOOL CHistoryDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if ((pMsg->message == WM_KEYDOWN) && (pMsg->wParam == VK_DELETE))
-	{
-		int pos = m_List.GetCurSel();
-		if (pos != LB_ERR)
-		{
-			m_List.DeleteString(pos);
-			m_List.SetCurSel(min(pos, m_List.GetCount() - 1));
-			m_history->RemoveEntry(pos);
-			m_history->Save();
-			return TRUE;
-		}
-	}
+    if ((pMsg->message == WM_KEYDOWN) && (pMsg->wParam == VK_DELETE))
+    {
+        int pos = m_List.GetCurSel();
+        if (pos != LB_ERR)
+        {
+            m_List.DeleteString(pos);
+            m_List.SetCurSel(min(pos, m_List.GetCount() - 1));
+            m_history->RemoveEntry(pos);
+            m_history->Save();
+            return TRUE;
+        }
+    }
 
-	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }

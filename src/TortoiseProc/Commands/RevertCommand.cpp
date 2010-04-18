@@ -25,22 +25,22 @@
 
 bool RevertCommand::Execute()
 {
-	CRevertDlg dlg;
-	dlg.m_pathList = pathList;
-	if (dlg.DoModal() == IDOK)
-	{
-		if (dlg.m_pathList.GetCount() == 0)
-			return FALSE;
-		CSVNProgressDlg progDlg;
-		theApp.m_pMainWnd = &progDlg;
-		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Revert);
-		progDlg.SetAutoClose (parser);
-		progDlg.SetOptions(dlg.m_bRecursive ? ProgOptRecursive : ProgOptNonRecursive);
-		progDlg.SetPathList(dlg.m_pathList);
-		progDlg.SetItemCount(dlg.m_selectedPathList.GetCount());
-		progDlg.SetSelectedList(dlg.m_selectedPathList);
-		progDlg.DoModal();
-		return !progDlg.DidErrorsOccur();
-	}
-	return false;
+    CRevertDlg dlg;
+    dlg.m_pathList = pathList;
+    if (dlg.DoModal() == IDOK)
+    {
+        if (dlg.m_pathList.GetCount() == 0)
+            return FALSE;
+        CSVNProgressDlg progDlg;
+        theApp.m_pMainWnd = &progDlg;
+        progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Revert);
+        progDlg.SetAutoClose (parser);
+        progDlg.SetOptions(dlg.m_bRecursive ? ProgOptRecursive : ProgOptNonRecursive);
+        progDlg.SetPathList(dlg.m_pathList);
+        progDlg.SetItemCount(dlg.m_selectedPathList.GetCount());
+        progDlg.SetSelectedList(dlg.m_selectedPathList);
+        progDlg.DoModal();
+        return !progDlg.DidErrorsOccur();
+    }
+    return false;
 }

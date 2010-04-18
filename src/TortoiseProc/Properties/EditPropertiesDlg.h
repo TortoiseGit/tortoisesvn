@@ -32,67 +32,67 @@
  */
 class CEditPropertiesDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CEditPropertiesDlg)
+    DECLARE_DYNAMIC(CEditPropertiesDlg)
 
 public:
-	CEditPropertiesDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropertiesDlg();
+    CEditPropertiesDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropertiesDlg();
 
-	void	SetPathList(const CTSVNPathList& pathlist) {m_pathlist = pathlist;}
-	void	SetRevision(const SVNRev& rev) {m_revision = rev;}
-	void	Refresh();
-	bool	HasChanged() {return m_bChanged;}
+    void    SetPathList(const CTSVNPathList& pathlist) {m_pathlist = pathlist;}
+    void    SetRevision(const SVNRev& rev) {m_revision = rev;}
+    void    Refresh();
+    bool    HasChanged() {return m_bChanged;}
 
-	void	SetProjectProperties(ProjectProperties * pProps) {m_pProjectProperties = pProps;}
-	void	SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
-	void	RevProps(bool bRevProps = false) {m_bRevProps = bRevProps;}
+    void    SetProjectProperties(ProjectProperties * pProps) {m_pProjectProperties = pProps;}
+    void    SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
+    void    RevProps(bool bRevProps = false) {m_bRevProps = bRevProps;}
 
 // Dialog Data
-	enum { IDD = IDD_EDITPROPERTIES };
+    enum { IDD = IDD_EDITPROPERTIES };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	virtual void OnCancel();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedRemoveProps();
-	afx_msg void OnBnClickedEditprops();
-	afx_msg void OnLvnItemchangedEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMDblclkEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedSaveprop();
-	afx_msg void OnBnClickedAddprops();
-	afx_msg void OnBnClickedExport();
-	afx_msg void OnBnClickedImport();
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    virtual void OnCancel();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnBnClickedRemoveProps();
+    afx_msg void OnBnClickedEditprops();
+    afx_msg void OnLvnItemchangedEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMDblclkEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnBnClickedSaveprop();
+    afx_msg void OnBnClickedAddprops();
+    afx_msg void OnBnClickedExport();
+    afx_msg void OnBnClickedImport();
+    afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
     afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
-	static UINT PropsThreadEntry(LPVOID pVoid);
+    static UINT PropsThreadEntry(LPVOID pVoid);
 
-	void ReadProperties (int first, int last);
-	UINT PropsThread();
+    void ReadProperties (int first, int last);
+    UINT PropsThread();
     void EditProps(bool bDefault, const std::string& propName = "", bool bAdd = false);
-	void RemoveProps();
+    void RemoveProps();
     EditPropBase * GetPropDialog(bool bDefault, const std::string& sName);
 
 protected:
 
-	async::CCriticalSection m_mutex;
-	CTSVNPathList	m_pathlist;
-	CListCtrl		m_propList;
-	BOOL			m_bRecursive;
-	bool			m_bChanged;
-	bool			m_bRevProps;
-	volatile LONG	m_bThreadRunning;
+    async::CCriticalSection m_mutex;
+    CTSVNPathList   m_pathlist;
+    CListCtrl       m_propList;
+    BOOL            m_bRecursive;
+    bool            m_bChanged;
+    bool            m_bRevProps;
+    volatile LONG   m_bThreadRunning;
 
-	TProperties		m_properties;
-	SVNRev			m_revision;
-	CToolTips		m_tooltips;
-	CPathEdit		m_PropPath;
+    TProperties     m_properties;
+    SVNRev          m_revision;
+    CToolTips       m_tooltips;
+    CPathEdit       m_PropPath;
 
     CMFCMenuButton  m_btnNew;
     CMFCMenuButton  m_btnEdit;
@@ -100,6 +100,6 @@ protected:
     CMenu           m_newMenu;
 
 
-	CString			m_sUUID;
-	ProjectProperties *	m_pProjectProperties;
+    CString         m_sUUID;
+    ProjectProperties * m_pProjectProperties;
 };

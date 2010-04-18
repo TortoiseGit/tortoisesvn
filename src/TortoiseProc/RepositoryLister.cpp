@@ -34,7 +34,7 @@
 
 // auto-schedule upon construction
 
-CRepositoryLister::CQuery::CQuery 
+CRepositoryLister::CQuery::CQuery
     ( const CTSVNPath& path
     , const SRepositoryInfo& repository)
     : path (path)
@@ -110,11 +110,11 @@ BOOL CRepositoryLister::CListQuery::ReportList
 
     // store dir entry
 
-	bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
+    bool abspath_has_slash = (absolutepath.GetAt(absolutepath.GetLength()-1) == '/');
     CString relPath = absolutepath + (abspath_has_slash ? _T("") : _T("/"));
     CItem entry
         ( path
-		, CString()
+        , CString()
         , kind
         , size
         , has_props
@@ -160,26 +160,26 @@ void CRepositoryLister::CListQuery::InternalExecute()
         if (error.IsEmpty())
             error.LoadString (IDS_REPOBROWSE_ERR_UNKNOWN);
     }
-    else 
+    else
     {
         // add results from the sub-query
 
         if (externalsQuery != NULL)
             if (externalsQuery->Succeeded())
             {
-                const std::deque<CItem>& externals 
+                const std::deque<CItem>& externals
                     = externalsQuery->GetResult();
 
-				for ( std::deque<CItem>::const_iterator iter = externals.begin()
-					, end = externals.end()
-					; iter != end
-					; ++iter)
-				{
-					if (iter->external_position == 0)
-						result.push_back (*iter);
-					else
-						subPathExternals.push_back (*iter);
-				}
+                for ( std::deque<CItem>::const_iterator iter = externals.begin()
+                    , end = externals.end()
+                    ; iter != end
+                    ; ++iter)
+                {
+                    if (iter->external_position == 0)
+                        result.push_back (*iter);
+                    else
+                        subPathExternals.push_back (*iter);
+                }
             }
             else
             {
@@ -194,18 +194,18 @@ void CRepositoryLister::CListQuery::InternalExecute()
 CRepositoryLister::CListQuery::~CListQuery()
 {
     if (externalsQuery != NULL)
-		externalsQuery->Delete (true);
+        externalsQuery->Delete (true);
 }
 
 // auto-schedule upon construction
 
-CRepositoryLister::CListQuery::CListQuery 
+CRepositoryLister::CListQuery::CListQuery
     ( const CTSVNPath& path
     , const SRepositoryInfo& repository
     , bool includeExternals
     , async::CJobScheduler* scheduler)
     : CQuery (path, repository)
-    , externalsQuery 
+    , externalsQuery
         (includeExternals
             ? new CExternalsQuery (path, repository, scheduler)
             : NULL)
@@ -243,7 +243,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
     static const std::string svnExternals (SVN_PROP_EXTERNALS);
 
-	SVNProperties properties (path, GetRevision(), false);
+    SVNProperties properties (path, GetRevision(), false);
 
     std::string externals;
     for (int i = 0, count = properties.GetCount(); i < count; ++i)
@@ -260,8 +260,8 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
     SVNPool pool;
 
     apr_array_header_t* parsedExternals = NULL;
-    SVNError svnError 
-        (svn_wc_parse_externals_description3 
+    SVNError svnError
+        (svn_wc_parse_externals_description3
             ( &parsedExternals
             , path.GetSVNApiPath (pool)
             , externals.c_str()
@@ -274,36 +274,36 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
         // copy the parser output
 
-	    for (long i=0; i < parsedExternals->nelts; ++i)
-	    {
-		    svn_wc_external_item2_t * external 
+        for (long i=0; i < parsedExternals->nelts; ++i)
+        {
+            svn_wc_external_item2_t * external
                 = APR_ARRAY_IDX( parsedExternals, i, svn_wc_external_item2_t*);
 
             if (   (external != NULL)
                 && (external->peg_revision.kind == svn_opt_revision_head))
-		    {
-                // get target repositiory 
+            {
+                // get target repositiory
 
-				CStringA absoluteURL 
-					= CPathUtils::GetAbsoluteURL 
-						( external->url
-						, CUnicodeUtils::GetUTF8 (repository.root)
-						, CUnicodeUtils::GetUTF8 (path.GetSVNPathString()));
+                CStringA absoluteURL
+                    = CPathUtils::GetAbsoluteURL
+                        ( external->url
+                        , CUnicodeUtils::GetUTF8 (repository.root)
+                        , CUnicodeUtils::GetUTF8 (path.GetSVNPathString()));
 
                 SRepositoryInfo externalRepository;
 
                 CTSVNPath url;
                 url.SetFromSVN (absoluteURL);
-				externalRepository.root 
-					= svn.GetRepositoryRootAndUUID (url, true, externalRepository.uuid);
+                externalRepository.root
+                    = svn.GetRepositoryRootAndUUID (url, true, externalRepository.uuid);
                 externalRepository.revision = external->revision;
 
                 // add the new entry
 
-				CString relPath = CUnicodeUtils::GetUnicode (external->target_dir);
+                CString relPath = CUnicodeUtils::GetUnicode (external->target_dir);
                 CItem entry
-					( relPath.Mid (relPath.ReverseFind ('/') + 1)
-					, relPath
+                    ( relPath.Mid (relPath.ReverseFind ('/') + 1)
+                    , relPath
 
                       // even file externals will be treated as folders because
                       // this is a safe default
@@ -312,7 +312,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
                       // actually, we don't know for sure whether the target
                       // URL has props but its the safe default to say 'yes'
-                    , true  
+                    , true
 
                       // explicit revision, HEAD or DATE
                     , external->revision.kind == svn_opt_revision_number
@@ -330,13 +330,13 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                     , false
                     , 0
                     , 0
-                    , CPathUtils::PathUnescape 
+                    , CPathUtils::PathUnescape
                         (CUnicodeUtils::GetUnicode (absoluteURL))
                     , externalRepository);
 
                 result.push_back (entry);
-		    }
-	    }
+            }
+        }
     }
     else
     {
@@ -346,7 +346,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
 // auto-schedule upon construction
 
-CRepositoryLister::CExternalsQuery::CExternalsQuery 
+CRepositoryLister::CExternalsQuery::CExternalsQuery
     ( const CTSVNPath& path
     , const SRepositoryInfo& repository
     , async::CJobScheduler* scheduler)
@@ -369,7 +369,7 @@ void CRepositoryLister::CompactDumpster()
 
     for (IT iter = target; iter != end; ++iter)
         if ((*iter)->GetStatus() == async::IJob::done)
-			(*iter)->Delete (true);
+            (*iter)->Delete (true);
         else
             *(target++) = *iter;
 
@@ -380,7 +380,7 @@ void CRepositoryLister::ClearDumpster()
 {
     std::for_each ( dumpster.begin()
                   , dumpster.end()
-				  , std::bind2nd (std::mem_fun1 (&CQuery::WaitUntilDone), true));
+                  , std::bind2nd (std::mem_fun1 (&CQuery::WaitUntilDone), true));
 
     CompactDumpster();
 }
@@ -390,8 +390,8 @@ void CRepositoryLister::ClearDumpster()
 CTSVNPath CRepositoryLister::EscapeUrl (const CString& url)
 {
     CStringA prepUrl = CUnicodeUtils::GetUTF8 (CTSVNPath(url).GetSVNPathString());
-	prepUrl.Replace("%", "%25");
-	return CTSVNPath (CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(prepUrl)));
+    prepUrl.Replace("%", "%25");
+    return CTSVNPath (CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(prepUrl)));
 }
 
 // simple construction
@@ -412,7 +412,7 @@ CRepositoryLister::~CRepositoryLister()
 
 // we probably will call \ref GetList() on that \ref url soon
 
-void CRepositoryLister::Enqueue 
+void CRepositoryLister::Enqueue
     ( const CString& url
     , const SRepositoryInfo& repository
     , bool includeExternals)
@@ -424,83 +424,83 @@ void CRepositoryLister::Enqueue
 
     TPathAndRev key (escapedURL, repository.revision);
     if (queries.find (key) == queries.end())
-	{
-		// trim list of SVN requests
+    {
+        // trim list of SVN requests
 
-		if (scheduler.GetQueueDepth() > MAX_QUEUE_DEPTH)
-		{
-			// reduce the number of SVN requests to half the limit by 
-			// extracting the oldest (and least probably needed) ones
+        if (scheduler.GetQueueDepth() > MAX_QUEUE_DEPTH)
+        {
+            // reduce the number of SVN requests to half the limit by
+            // extracting the oldest (and least probably needed) ones
 
-			std::vector<async::IJob*> removed 
-				= scheduler.RemoveJobFromQueue (MAX_QUEUE_DEPTH / 2, true);
+            std::vector<async::IJob*> removed
+                = scheduler.RemoveJobFromQueue (MAX_QUEUE_DEPTH / 2, true);
 
-			// we can only delete CListQuery instances
-			// -> (temp.) re-add all others.
-			// Terminate the list queries, so the embedded externals
-			// queries get terminated as well and we don't have
-			// to re-add them again.
-			
-			std::vector<CListQuery*> deletedQueries; 
-			deletedQueries.reserve (removed.size());
+            // we can only delete CListQuery instances
+            // -> (temp.) re-add all others.
+            // Terminate the list queries, so the embedded externals
+            // queries get terminated as well and we don't have
+            // to re-add them again.
 
-			for (size_t i = 0, count = removed.size(); i < count; ++i)
-			{
-				CListQuery* query = dynamic_cast<CListQuery*>(removed[i]);
-				if (query != NULL)
-				{
-					query->Terminate();
-					deletedQueries.push_back (query);
-				}
-			}
+            std::vector<CListQuery*> deletedQueries;
+            deletedQueries.reserve (removed.size());
 
-			// return the externals queries that have not been cancelled
+            for (size_t i = 0, count = removed.size(); i < count; ++i)
+            {
+                CListQuery* query = dynamic_cast<CListQuery*>(removed[i]);
+                if (query != NULL)
+                {
+                    query->Terminate();
+                    deletedQueries.push_back (query);
+                }
+            }
 
-			for (size_t i = 0, count = removed.size(); i < count; ++i)
-				if (!dynamic_cast<CQuery*>(removed[i])->HasBeenTerminated())
-					scheduler.Schedule (removed[i], false);
+            // return the externals queries that have not been cancelled
 
-			// remove terminated queries from our lookup tables
+            for (size_t i = 0, count = removed.size(); i < count; ++i)
+                if (!dynamic_cast<CQuery*>(removed[i])->HasBeenTerminated())
+                    scheduler.Schedule (removed[i], false);
 
-			for (size_t i = 0, count = deletedQueries.size(); i < count; ++i)
-			{
-				// remove query from list of "valid" queries
-				// (note: there might be a new query for the same key)
+            // remove terminated queries from our lookup tables
 
-				CListQuery* query = deletedQueries[i];
+            for (size_t i = 0, count = deletedQueries.size(); i < count; ++i)
+            {
+                // remove query from list of "valid" queries
+                // (note: there might be a new query for the same key)
 
-				TPathAndRev key (query->GetPath(), query->GetRevision());
-				TQueries::iterator iter = queries.find (key);
-				if ((iter != queries.end()) && (iter->second == query))
-					queries.erase (iter);
-			}
+                CListQuery* query = deletedQueries[i];
 
-			// if the dumpster has not been empty before for some reason,
-			// then the removed queries might already have been dumped.
-			// Now, they would be dumped twice -> fix that.
+                TPathAndRev key (query->GetPath(), query->GetRevision());
+                TQueries::iterator iter = queries.find (key);
+                if ((iter != queries.end()) && (iter->second == query))
+                    queries.erase (iter);
+            }
 
-			std::sort (dumpster.begin(), dumpster.end());
-			std::sort (deletedQueries.begin(), deletedQueries.end());
-			dumpster.erase 
-				( std::set_difference 
-					( dumpster.begin(), dumpster.end()
-				    , deletedQueries.begin(), deletedQueries.end()
-					, dumpster.begin())
-				, dumpster.end());
+            // if the dumpster has not been empty before for some reason,
+            // then the removed queries might already have been dumped.
+            // Now, they would be dumped twice -> fix that.
 
-			dumpster.insert 
-				( dumpster.end()
-				, deletedQueries.begin()
-				, deletedQueries.end());
-		}
+            std::sort (dumpster.begin(), dumpster.end());
+            std::sort (deletedQueries.begin(), deletedQueries.end());
+            dumpster.erase
+                ( std::set_difference
+                    ( dumpster.begin(), dumpster.end()
+                    , deletedQueries.begin(), deletedQueries.end()
+                    , dumpster.begin())
+                , dumpster.end());
 
-		// add the query whose result we will probably need
+            dumpster.insert
+                ( dumpster.end()
+                , deletedQueries.begin()
+                , deletedQueries.end());
+        }
+
+        // add the query whose result we will probably need
 
         queries[key] = new CListQuery ( escapedURL
                                       , repository
                                       , includeExternals
                                       , &scheduler);
-	}
+    }
 }
 
 // remove all unfinished entries from the job queue
@@ -582,10 +582,10 @@ void CRepositoryLister::Refresh (const SVNRev& revision)
     CompactDumpster();
 }
 
-// like \ref Refresh() but may only affect those nodes in the 
+// like \ref Refresh() but may only affect those nodes in the
 // sub-tree starting at the specified \ref url.
 
-void CRepositoryLister::RefreshSubTree 
+void CRepositoryLister::RefreshSubTree
     ( const SVNRev& revision
     , const CString& url)
 {
@@ -616,22 +616,22 @@ void CRepositoryLister::RefreshSubTree
     CompactDumpster();
 }
 
-CRepositoryLister::CListQuery* CRepositoryLister::FindQuery 
+CRepositoryLister::CListQuery* CRepositoryLister::FindQuery
     ( const CString& url
     , const SRepositoryInfo& repository
-	, bool includeExternals)
+    , bool includeExternals)
 {
-	// ensure there is a suitable query
+    // ensure there is a suitable query
 
-	Enqueue (url, repository, includeExternals);
+    Enqueue (url, repository, includeExternals);
 
-	// return that query
+    // return that query
 
     TPathAndRev key (EscapeUrl (url), repository.revision);
     return queries[key];
 }
 
-CString CRepositoryLister::GetList 
+CString CRepositoryLister::GetList
     ( const CString& url
     , const SRepositoryInfo& repository
     , bool includeExternals
@@ -641,16 +641,16 @@ CString CRepositoryLister::GetList
 
     // find that query
 
-	CListQuery* query = FindQuery (url, repository, includeExternals);
+    CListQuery* query = FindQuery (url, repository, includeExternals);
 
     // wait for the results to come in and return them
-	// get "ordinary" list plus direct externals 
+    // get "ordinary" list plus direct externals
 
-	items = query->GetResult();
-	return query->GetError();
+    items = query->GetResult();
+    return query->GetError();
 }
 
-CString CRepositoryLister::AddSubTreeExternals 
+CString CRepositoryLister::AddSubTreeExternals
     ( const CString& url
     , const SRepositoryInfo& repository
     , const CString& externalsRelPath
@@ -660,30 +660,30 @@ CString CRepositoryLister::AddSubTreeExternals
 
     // auto-create / find that query
 
-	CListQuery* query = FindQuery (url, repository, true);
+    CListQuery* query = FindQuery (url, repository, true);
 
-	// add unfiltered externals?
+    // add unfiltered externals?
 
-	typedef std::deque<CItem>::const_iterator TI;
-	TI begin = query->GetSubPathExternals().begin();
-	TI end = query->GetSubPathExternals().end();
+    typedef std::deque<CItem>::const_iterator TI;
+    TI begin = query->GetSubPathExternals().begin();
+    TI end = query->GetSubPathExternals().end();
 
-	if (externalsRelPath.IsEmpty())
-	{
-		std::copy (begin, end, std::back_inserter (items));
-	}
-	else
-	{
-		// filtered externals
+    if (externalsRelPath.IsEmpty())
+    {
+        std::copy (begin, end, std::back_inserter (items));
+    }
+    else
+    {
+        // filtered externals
 
-		int levels = CItem::Levels (externalsRelPath);
-		for (TI iter = begin; iter != end; ++iter)
-			if (   (iter->external_position == levels)
-				&& (iter->external_rel_path.Find (externalsRelPath) == 0))
-			{
-				items.push_back (*iter);
-			}
-	}
+        int levels = CItem::Levels (externalsRelPath);
+        for (TI iter = begin; iter != end; ++iter)
+            if (   (iter->external_position == levels)
+                && (iter->external_rel_path.Find (externalsRelPath) == 0))
+            {
+                items.push_back (*iter);
+            }
+    }
 
-	return query->GetError();
+    return query->GetError();
 }

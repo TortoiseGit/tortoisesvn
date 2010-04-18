@@ -28,7 +28,7 @@ CRemovePathsBySubString::Classify (const std::string& path) const
     // we have to attempt full string searches as we look for 
     // arbitrary sub-strings
 
-	for ( std::set<std::string>::const_iterator iter = filterPaths.begin()
+    for ( std::set<std::string>::const_iterator iter = filterPaths.begin()
         , end = filterPaths.end()
         ; iter != end
         ; ++iter)

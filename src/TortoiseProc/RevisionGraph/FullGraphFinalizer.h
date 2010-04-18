@@ -33,21 +33,21 @@ class CFullGraphFinalizer
 {
 public:
 
-	CFullGraphFinalizer (const CFullHistory& history, CFullGraph& graph);
-	~CFullGraphFinalizer (void);
+    CFullGraphFinalizer (const CFullHistory& history, CFullGraph& graph);
+    ~CFullGraphFinalizer (void);
 
-	void Run();
+    void Run();
 
 private:
 
-	/// revisions that are part of the WC status
-	/// (i.e. min, max etc.)
+    /// revisions that are part of the WC status
+    /// (i.e. min, max etc.)
 
-	std::vector<std::pair<revision_t, CDictionaryBasedPath> > wcRevs;
+    std::vector<std::pair<revision_t, CDictionaryBasedPath> > wcRevs;
 
-	/// fill @ref wcRevs list
+    /// fill @ref wcRevs list
 
-	void InitWCRevs();
+    void InitWCRevs();
 
     /// simplify graph
 

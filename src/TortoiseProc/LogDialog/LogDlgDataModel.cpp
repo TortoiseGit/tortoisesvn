@@ -28,13 +28,13 @@
 #include "PathUtils.h"
 
 ///////////////////////////////////////////////////////////////
-// data structures to accommodate the change list 
+// data structures to accommodate the change list
 // (taken from the SVN class)
 ///////////////////////////////////////////////////////////////
 
 // conversion utility
 
-CString CLogChangedPath::GetUIPath (const CDictionaryBasedPath& path) const 
+CString CLogChangedPath::GetUIPath (const CDictionaryBasedPath& path) const
 {
     std::string utf8Path = path.GetPath();
 
@@ -50,7 +50,7 @@ CString CLogChangedPath::GetUIPath (const CDictionaryBasedPath& path) const
 
 // construction
 
-CLogChangedPath::CLogChangedPath 
+CLogChangedPath::CLogChangedPath
     ( const CRevisionInfoContainer::CChangesIterator& iter
     , const CDictionaryBasedTempPath& logPath)
     : path (iter.GetPath())
@@ -75,12 +75,12 @@ CLogChangedPath::CLogChangedPath
 
 // r/o data access
 
-CString CLogChangedPath::GetPath() const 
+CString CLogChangedPath::GetPath() const
 {
     return GetUIPath (path);
 }
 
-CString CLogChangedPath::GetCopyFromPath() const 
+CString CLogChangedPath::GetCopyFromPath() const
 {
     return copyFromPath.IsValid()
         ? GetUIPath (copyFromPath)
@@ -91,43 +91,43 @@ CString CLogChangedPath::GetCopyFromPath() const
 
 const CString& CLogChangedPath::GetActionString (DWORD action)
 {
-	static CString addActionString;
-	static CString deleteActionString;
-	static CString replacedActionString;
-	static CString modifiedActionString;
-	static CString empty;
+    static CString addActionString;
+    static CString deleteActionString;
+    static CString replacedActionString;
+    static CString modifiedActionString;
+    static CString empty;
 
-	switch (action)
-	{
-	case LOGACTIONS_MODIFIED: 
-		if (modifiedActionString.IsEmpty())
-			modifiedActionString.LoadString(IDS_SVNACTION_MODIFIED);
+    switch (action)
+    {
+    case LOGACTIONS_MODIFIED:
+        if (modifiedActionString.IsEmpty())
+            modifiedActionString.LoadString(IDS_SVNACTION_MODIFIED);
 
-		return modifiedActionString;
+        return modifiedActionString;
 
-	case LOGACTIONS_ADDED: 
-		if (addActionString.IsEmpty())
-			addActionString.LoadString(IDS_SVNACTION_ADD);
+    case LOGACTIONS_ADDED:
+        if (addActionString.IsEmpty())
+            addActionString.LoadString(IDS_SVNACTION_ADD);
 
-		return addActionString;
+        return addActionString;
 
-	case LOGACTIONS_DELETED: 
-		if (deleteActionString.IsEmpty())
-			deleteActionString.LoadString(IDS_SVNACTION_DELETE);
+    case LOGACTIONS_DELETED:
+        if (deleteActionString.IsEmpty())
+            deleteActionString.LoadString(IDS_SVNACTION_DELETE);
 
-		return deleteActionString;
+        return deleteActionString;
 
-	case LOGACTIONS_REPLACED: 
-		if (replacedActionString.IsEmpty())
-			replacedActionString.LoadString(IDS_SVNACTION_REPLACED);
+    case LOGACTIONS_REPLACED:
+        if (replacedActionString.IsEmpty())
+            replacedActionString.LoadString(IDS_SVNACTION_REPLACED);
 
-		return replacedActionString;
+        return replacedActionString;
 
-	default:
-		// there should always be an action
-		assert (0);
+    default:
+        // there should always be an action
+        assert (0);
 
-	}
+    }
 
     return empty;
 }
@@ -160,9 +160,9 @@ void CLogChangedPathArray::Add
     // because it will also be the closed one (parent may
     // have copied from somewhere else)
 
-	for (size_t i = size(); i > 0; --i)
-	{
-		CLogChangedPath& change = at(i-1);
+    for (size_t i = size(); i > 0; --i)
+    {
+        CLogChangedPath& change = at(i-1);
 
         // relevant for this path and
         // has the log path be renamed?
@@ -171,17 +171,17 @@ void CLogChangedPathArray::Add
             && (change.GetCopyFromRev() > 0)
             && logPath.IsSameOrChildOf (change.GetCachedPath()))
         {
-			// note: this only works if the log is fetched top-to-bottom
-			// but since we do that, it shouldn't be a problem
+            // note: this only works if the log is fetched top-to-bottom
+            // but since we do that, it shouldn't be a problem
 
-			logPath = logPath.ReplaceParent 
-						 ( change.GetCachedPath()
+            logPath = logPath.ReplaceParent
+                         ( change.GetCachedPath()
                          , change.GetCachedCopyFromPath());
-			copiedSelf = true;
+            copiedSelf = true;
 
             return;
-		}
-	}
+        }
+    }
 
     actions = 0;
 }
@@ -235,31 +235,31 @@ void CLogChangedPathArray::Sort (int column, bool ascending)
         bool operator()(const CLogChangedPath& lhs, const CLogChangedPath& rhs) const
         {
             const CLogChangedPath* cpath1 = ascending ? &lhs : &rhs;
-	        const CLogChangedPath* cpath2 = ascending ? &rhs : &lhs;
+            const CLogChangedPath* cpath2 = ascending ? &rhs : &lhs;
 
-	        int cmp = 0;
-	        switch (column)
-	        {
-	        case 0:	// path
-			        cmp = cpath2->GetPath().CompareNoCase (cpath1->GetPath());
-			        if (cmp)
-				        return cmp > 0;
-			        // fall through
-	        case 1:	// action
-			        cmp = cpath2->GetActionString().Compare (cpath1->GetActionString());
-			        if (cmp)
-				        return cmp > 0;
-			        // fall through
-	        case 2:	// copy from path
-			        cmp = cpath2->GetCopyFromPath().CompareNoCase (cpath1->GetCopyFromPath());
-			        if (cmp)
-				        return cmp > 0;
-			        // fall through
-	        case 3:	// copy from revision
-			        return cpath2->GetCopyFromRev() > cpath1->GetCopyFromRev();
-	        }
+            int cmp = 0;
+            switch (column)
+            {
+            case 0: // path
+                    cmp = cpath2->GetPath().CompareNoCase (cpath1->GetPath());
+                    if (cmp)
+                        return cmp > 0;
+                    // fall through
+            case 1: // action
+                    cmp = cpath2->GetActionString().Compare (cpath1->GetActionString());
+                    if (cmp)
+                        return cmp > 0;
+                    // fall through
+            case 2: // copy from path
+                    cmp = cpath2->GetCopyFromPath().CompareNoCase (cpath1->GetCopyFromPath());
+                    if (cmp)
+                        return cmp > 0;
+                    // fall through
+            case 3: // copy from revision
+                    return cpath2->GetCopyFromRev() > cpath1->GetCopyFromRev();
+            }
 
-	        return false;
+            return false;
         }
     };
 
@@ -271,22 +271,22 @@ void CLogChangedPathArray::Sort (int column, bool ascending)
 DWORD CLogChangedPathArray::GetActions() const
 {
     if (actions == 0)
-	    for (size_t i = 0, count = size(); i < count; ++i)
-	        actions |= (*this)[i].GetAction();
+        for (size_t i = 0, count = size(); i < count; ++i)
+            actions |= (*this)[i].GetAction();
 
     return actions;
 }
 
 bool CLogChangedPathArray::ContainsCopies() const
 {
-	for (size_t i = 0, count = size(); i < count; ++i)
-	    if ((*this)[i].GetCopyFromRev() != 0)
+    for (size_t i = 0, count = size(); i < count; ++i)
+        if ((*this)[i].GetCopyFromRev() != 0)
             return true;
 
     return false;
 }
 
-CLogEntryData::CLogEntryData 
+CLogEntryData::CLogEntryData
     ( CLogEntryData* parent
     , svn_revnum_t revision
     , __time64_t tmDate
@@ -316,13 +316,13 @@ CLogEntryData::~CLogEntryData()
 {
 }
 
-void CLogEntryData::SetAuthor 
+void CLogEntryData::SetAuthor
     ( const CString& author)
 {
     sAuthor = author;
 }
 
-void CLogEntryData::SetMessage 
+void CLogEntryData::SetMessage
     ( const CString& message
     , ProjectProperties* projectProperties)
 {
@@ -339,8 +339,8 @@ void CLogEntryData::SetMessage
             sMessage.Replace(_T("\r\n"), _T("\n"));
         }
         if (sMessage[0] == _T('\n'))
-	        sMessage = sMessage.Left (sMessage.GetLength()-1);
-    } 
+            sMessage = sMessage.Left (sMessage.GetLength()-1);
+    }
 
     // derived data
 
@@ -360,18 +360,18 @@ void CLogEntryData::Finalize
     ( const CCachedLogInfo* cache
     , CDictionaryBasedTempPath& logPath)
 {
-	// don't finalize twice
+    // don't finalize twice
 
-	if (changedPaths.GetCount() == 0)
-	{
-		index_t index = cache->GetRevisions()[revision];
-		const CRevisionInfoContainer& info = cache->GetLogInfo();
+    if (changedPaths.GetCount() == 0)
+    {
+        index_t index = cache->GetRevisions()[revision];
+        const CRevisionInfoContainer& info = cache->GetLogInfo();
 
-		CRevisionInfoContainer::CChangesIterator first = info.GetChangesBegin (index);
-		CRevisionInfoContainer::CChangesIterator last = info.GetChangesEnd (index);
+        CRevisionInfoContainer::CChangesIterator first = info.GetChangesBegin (index);
+        CRevisionInfoContainer::CChangesIterator last = info.GetChangesEnd (index);
 
-		changedPaths.Add (first, last, logPath);
-	}
+        changedPaths.Add (first, last, logPath);
+    }
 }
 
 // r/o access to the data
@@ -380,15 +380,15 @@ const CString& CLogEntryData::GetDateString() const
 {
     if (sDate.IsEmpty())
     {
-	    TCHAR date_native[SVN_DATE_BUFFER] = {0};
+        TCHAR date_native[SVN_DATE_BUFFER] = {0};
         if (tmDate == 0)
         {
-		    _tcscpy_s (date_native, SVN_DATE_BUFFER, _T("(no date)"));
+            _tcscpy_s (date_native, SVN_DATE_BUFFER, _T("(no date)"));
         }
         else
         {
-	        FILETIME ft = {0};
-	        AprTimeToFileTime (&ft, tmDate * 1000000L);
+            FILETIME ft = {0};
+            AprTimeToFileTime (&ft, tmDate * 1000000L);
             SVN::formatDate (date_native, ft);
         }
 
@@ -398,7 +398,7 @@ const CString& CLogEntryData::GetDateString() const
     return sDate;
 }
 
-CString CLogEntryData::GetShortMessage() const 
+CString CLogEntryData::GetShortMessage() const
 {
     return projectProperties
         ? projectProperties->MakeShortMessage (sMessage)
@@ -420,10 +420,10 @@ CLogDataVector::CLogDataVector()
 
 void CLogDataVector::ClearAll()
 {
-	if (size() > 0)
-	{
-		for(iterator it=begin(); it!=end(); ++it)
-			delete *it;
+    if (size() > 0)
+    {
+        for(iterator it=begin(); it!=end(); ++it)
+            delete *it;
 
         clear();
         visible.clear();
@@ -436,7 +436,7 @@ void CLogDataVector::ClearAll()
         minDate = LLONG_MAX;
         maxRevision = -1;
         minRevision = INT_MAX;
-	}
+    }
 }
 
 // add items
@@ -450,7 +450,7 @@ void CLogDataVector::Add ( svn_revnum_t revision
 {
     // end of child list?
 
-	if (revision == SVN_INVALID_REVNUM)
+    if (revision == SVN_INVALID_REVNUM)
     {
         logParents.pop_back();
         return;
@@ -487,28 +487,28 @@ void CLogDataVector::Add ( svn_revnum_t revision
         logParents.push_back (item);
 }
 
-void CLogDataVector::AddSorted 
+void CLogDataVector::AddSorted
     ( PLOGENTRYDATA item
     , ProjectProperties* projectProperties)
 {
     svn_revnum_t revision = item->GetRevision();
-	for (iterator iter = begin(), last = end(); iter != last; ++iter)
-	{
+    for (iterator iter = begin(), last = end(); iter != last; ++iter)
+    {
         int diff = revision - (*iter)->GetRevision();
         if (diff == 0)
-		{
-			// avoid inserting duplicates which could happen if a filter is active
-    		delete item;
-            return;
-		}
-		if (diff > 0)
         {
-    		insert (iter, item);
+            // avoid inserting duplicates which could happen if a filter is active
+            delete item;
+            return;
+        }
+        if (diff > 0)
+        {
+            insert (iter, item);
             visible.clear();
 
             return;
         }
-	}
+    }
 
     // append entry
 
@@ -527,26 +527,26 @@ void CLogDataVector::RemoveLast()
     visible.clear();
 }
 
-void CLogDataVector::Finalize 
+void CLogDataVector::Finalize
     ( std::auto_ptr<const CCacheLogQuery> aQuery
     , const CString& startLogPath, bool bMerge)
 {
-	if ((bMerge)&&(query.get()))
-	{
-		CCacheLogQuery * tempQuery = const_cast<CCacheLogQuery *>(query.get());
-		aQuery->UpdateCache(tempQuery);
-	}
-	else
-		query = aQuery;
+    if ((bMerge)&&(query.get()))
+    {
+        CCacheLogQuery * tempQuery = const_cast<CCacheLogQuery *>(query.get());
+        aQuery->UpdateCache(tempQuery);
+    }
+    else
+        query = aQuery;
 
     // construct an object for the path that 'log' was called for
 
     CStringA utf8Path = CUnicodeUtils::GetUTF8 (startLogPath);
-	CStringA relPath = CPathUtils::PathUnescape (utf8Path);
+    CStringA relPath = CPathUtils::PathUnescape (utf8Path);
 
     const CCachedLogInfo* cache = query->GetCache();
-	const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
-	CDictionaryBasedTempPath logPath (paths, (const char*)relPath);
+    const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
+    CDictionaryBasedTempPath logPath (paths, (const char*)relPath);
 
     // finalize all data
 
@@ -554,12 +554,12 @@ void CLogDataVector::Finalize
         inherited::operator[](i)->Finalize (cache, logPath);
 }
 
-size_t CLogDataVector::GetVisibleCount() const 
+size_t CLogDataVector::GetVisibleCount() const
 {
     return visible.size();
 }
 
-PLOGENTRYDATA CLogDataVector::GetVisible (size_t index) const 
+PLOGENTRYDATA CLogDataVector::GetVisible (size_t index) const
 {
     return at (visible.at (index));
 }
@@ -568,12 +568,12 @@ namespace
 {
 
 /**
- * Wrapper around a stateless predicate. 
+ * Wrapper around a stateless predicate.
  *
- * The function operator adds handling of revision nesting to the "flat" 
+ * The function operator adds handling of revision nesting to the "flat"
  * comparison provided by the predicate.
  *
- * The \ref ColumnCond predicate is expected to sort in ascending order 
+ * The \ref ColumnCond predicate is expected to sort in ascending order
  * (i.e. to act like operator< ).
  */
 
@@ -590,8 +590,8 @@ private:
     /// - (ascending) order according to \ref ColumnSort
     /// - put merged revisions below merge target revision
 
-	bool InternalCompare (PLOGENTRYDATA pStart, PLOGENTRYDATA pEnd)
-	{
+    bool InternalCompare (PLOGENTRYDATA pStart, PLOGENTRYDATA pEnd)
+    {
         // are both entry sibblings on the same node level?
         // (root -> both have NULL as parent)
 
@@ -618,7 +618,7 @@ private:
             return InternalCompare (pStart, pEnd->GetParent());
         else
             return InternalCompare (pStart->GetParent(), pEnd);
-	}
+    }
 
 public:
 
@@ -632,108 +632,108 @@ public:
     /// asjust parameter order according to sort order
 
     bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-	{
-        return ascending 
+    {
+        return ascending
             ? InternalCompare (pStart, pEnd)
             : InternalCompare (pEnd, pStart);
-	}
+    }
 };
 
 }
 
 void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
 {
-	/// Ascending date sorting.
-	struct DateSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			return pStart->GetDate() < pEnd->GetDate();
-		}
-	};
+    /// Ascending date sorting.
+    struct DateSort
+    {
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        {
+            return pStart->GetDate() < pEnd->GetDate();
+        }
+    };
 
-	/// Ascending revision sorting.
-	struct RevSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
+    /// Ascending revision sorting.
+    struct RevSort
+    {
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        {
             return pStart->GetRevision() < pEnd->GetRevision();
-		}
-	};
+        }
+    };
 
-	/// Ascending author sorting.
-	struct AuthorSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			int ret = pStart->GetAuthor().CompareNoCase(pEnd->GetAuthor());
-			if (ret == 0)
-				return pStart->GetRevision() < pEnd->GetRevision();
-			return ret<0;
-		}
-	};
+    /// Ascending author sorting.
+    struct AuthorSort
+    {
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        {
+            int ret = pStart->GetAuthor().CompareNoCase(pEnd->GetAuthor());
+            if (ret == 0)
+                return pStart->GetRevision() < pEnd->GetRevision();
+            return ret<0;
+        }
+    };
 
-	/// Ascending bugID sorting.
-	struct BugIDSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			int ret = pStart->GetBugIDs().CompareNoCase(pEnd->GetBugIDs());
-			if (ret == 0)
-				return pStart->GetRevision() < pEnd->GetRevision();
-			return ret<0;
-		}
-	};
+    /// Ascending bugID sorting.
+    struct BugIDSort
+    {
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        {
+            int ret = pStart->GetBugIDs().CompareNoCase(pEnd->GetBugIDs());
+            if (ret == 0)
+                return pStart->GetRevision() < pEnd->GetRevision();
+            return ret<0;
+        }
+    };
 
-	/// Ascending message sorting.
-	struct MessageSort
-	{
-		bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
-			return pStart->GetShortMessage().CompareNoCase(pEnd->GetShortMessage())<0;
-		}
-	};
+    /// Ascending message sorting.
+    struct MessageSort
+    {
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        {
+            return pStart->GetShortMessage().CompareNoCase(pEnd->GetShortMessage())<0;
+        }
+    };
 
-	/// Ascending action sorting
-	struct ActionSort
-	{
-		bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
-		{
+    /// Ascending action sorting
+    struct ActionSort
+    {
+        bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        {
             int diff = pStart->GetChangedPaths().GetActions()
                      - pEnd->GetChangedPaths().GetActions();
 
             if (diff == 0)
-				return pStart->GetRevision() < pEnd->GetRevision();
+                return pStart->GetRevision() < pEnd->GetRevision();
 
-			return diff < 0;
-		}
-	};
+            return diff < 0;
+        }
+    };
 
-	switch(column)
-	{
-	case RevisionCol: // Revision
+    switch(column)
+    {
+    case RevisionCol: // Revision
             std::sort (begin(), end(), ColumnSort<RevSort>(ascending));
-    		break;
-	case ActionCol: // action
-    		std::sort (begin(), end(), ColumnSort<ActionSort>(ascending));
-    		break;
-	case AuthorCol: // Author
-			std::sort (begin(), end(), ColumnSort<AuthorSort>(ascending));
-    		break;
-	case DateCol: // Date
-			std::sort (begin(), end(), ColumnSort<DateSort>(ascending));
-    		break;
-	case BugTraqCol: // Message or bug id
-			std::sort (begin(), end(), ColumnSort<BugIDSort>(ascending));
-			break;
-	case MessageCol: // Message
-    		std::sort (begin(), end(), ColumnSort<MessageSort>(ascending));
-	    	break;
-	}
+            break;
+    case ActionCol: // action
+            std::sort (begin(), end(), ColumnSort<ActionSort>(ascending));
+            break;
+    case AuthorCol: // Author
+            std::sort (begin(), end(), ColumnSort<AuthorSort>(ascending));
+            break;
+    case DateCol: // Date
+            std::sort (begin(), end(), ColumnSort<DateSort>(ascending));
+            break;
+    case BugTraqCol: // Message or bug id
+            std::sort (begin(), end(), ColumnSort<BugIDSort>(ascending));
+            break;
+    case MessageCol: // Message
+            std::sort (begin(), end(), ColumnSort<MessageSort>(ascending));
+            break;
+    }
 }
 
-std::vector<size_t> 
-CLogDataVector::FilterRange 
+std::vector<size_t>
+CLogDataVector::FilterRange
     ( const CLogDlgFilter* filter
     , size_t first
     , size_t last)
@@ -750,7 +750,7 @@ CLogDataVector::FilterRange
     return result;
 }
 
-void CLogDataVector::Filter (const CLogDlgFilter& filter) 
+void CLogDataVector::Filter (const CLogDlgFilter& filter)
 {
     size_t count = size();
 
@@ -759,10 +759,10 @@ void CLogDataVector::Filter (const CLogDlgFilter& filter)
 
     if (filter.BenefitsFromMT())
     {
-        // run approx. 4 jobs per core / HW thread to even out 
+        // run approx. 4 jobs per core / HW thread to even out
         // changed commit policies. Don't make the jobs too small, though.
 
-        size_t itemsPerJob 
+        size_t itemsPerJob
             = max ( 1 + count / (4 * async::CJobScheduler::GetSharedThreadCount())
                   , 1000);
 
@@ -799,14 +799,14 @@ void CLogDataVector::Filter (const CLogDlgFilter& filter)
 void CLogDataVector::Filter (__time64_t from, __time64_t to)
 {
     visible.clear();
-	for (size_t i=0, count = size(); i < count; ++i)
-	{
+    for (size_t i=0, count = size(); i < count; ++i)
+    {
         const PLOGENTRYDATA entry = inherited::operator[](i);
         __time64_t date = entry->GetDate();
 
-    	if ((date >= from) && (date <= to))
+        if ((date >= from) && (date <= to))
             visible.push_back (i);
-	}
+    }
 }
 
 void CLogDataVector::ClearFilter()
@@ -814,7 +814,7 @@ void CLogDataVector::ClearFilter()
     visible.clear();
     visible.reserve (size());
 
-	for (size_t i=0, count = size(); i < count; ++i)
+    for (size_t i=0, count = size(); i < count; ++i)
         visible.push_back (i);
 }
 

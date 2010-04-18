@@ -29,25 +29,25 @@ using namespace std;
 #define BUGTRAQPROPNAME_LABEL             "bugtraq:label"
 #define BUGTRAQPROPNAME_MESSAGE           "bugtraq:message"
 #define BUGTRAQPROPNAME_NUMBER            "bugtraq:number"
-#define BUGTRAQPROPNAME_LOGREGEX		  "bugtraq:logregex"
+#define BUGTRAQPROPNAME_LOGREGEX          "bugtraq:logregex"
 #define BUGTRAQPROPNAME_URL               "bugtraq:url"
 #define BUGTRAQPROPNAME_WARNIFNOISSUE     "bugtraq:warnifnoissue"
-#define BUGTRAQPROPNAME_APPEND		      "bugtraq:append"
+#define BUGTRAQPROPNAME_APPEND            "bugtraq:append"
 #define BUGTRAQPROPNAME_PROVIDERUUID      "bugtraq:provideruuid"
 #define BUGTRAQPROPNAME_PROVIDERUUID64    "bugtraq:provideruuid64"
 #define BUGTRAQPROPNAME_PROVIDERPARAMS    "bugtraq:providerparams"
 
-#define PROJECTPROPNAME_LOGTEMPLATE		  "tsvn:logtemplate"
-#define PROJECTPROPNAME_LOGWIDTHLINE	  "tsvn:logwidthmarker"
-#define PROJECTPROPNAME_LOGMINSIZE		  "tsvn:logminsize"
-#define PROJECTPROPNAME_LOCKMSGMINSIZE	  "tsvn:lockmsgminsize"
-#define PROJECTPROPNAME_LOGFILELISTLANG	  "tsvn:logfilelistenglish"
-#define PROJECTPROPNAME_LOGSUMMARY		  "tsvn:logsummary"
+#define PROJECTPROPNAME_LOGTEMPLATE       "tsvn:logtemplate"
+#define PROJECTPROPNAME_LOGWIDTHLINE      "tsvn:logwidthmarker"
+#define PROJECTPROPNAME_LOGMINSIZE        "tsvn:logminsize"
+#define PROJECTPROPNAME_LOCKMSGMINSIZE    "tsvn:lockmsgminsize"
+#define PROJECTPROPNAME_LOGFILELISTLANG   "tsvn:logfilelistenglish"
+#define PROJECTPROPNAME_LOGSUMMARY        "tsvn:logsummary"
 #define PROJECTPROPNAME_PROJECTLANGUAGE   "tsvn:projectlanguage"
 #define PROJECTPROPNAME_USERFILEPROPERTY  "tsvn:userfileproperties"
 #define PROJECTPROPNAME_USERDIRPROPERTY   "tsvn:userdirproperties"
-#define PROJECTPROPNAME_AUTOPROPS		  "tsvn:autoprops"
-#define PROJECTPROPNAME_LOGREVREGEX		  "tsvn:logrevregex"
+#define PROJECTPROPNAME_AUTOPROPS         "tsvn:autoprops"
+#define PROJECTPROPNAME_LOGREVREGEX       "tsvn:logrevregex"
 
 #define PROJECTPROPNAME_WEBVIEWER_REV     "webviewer:revision"
 #define PROJECTPROPNAME_WEBVIEWER_PATHREV "webviewer:pathrevision"
@@ -64,76 +64,76 @@ struct svn_config_t;
 class ProjectProperties
 {
 public:
-	ProjectProperties(void);
-	~ProjectProperties(void);
+    ProjectProperties(void);
+    ~ProjectProperties(void);
 
-	/**
-	 * Reads the properties from a path. If the path is a file
-	 * then the properties are read from the parent folder of that file.
-	 * \param path path to a file or a folder
-	 */
-	BOOL ReadProps(CTSVNPath path);
-	/**
-	 * Reads the properties from all paths found in a path list.
-	 * This method calls ReadProps() for each path .
-	 * \param list of paths
-	 */
-	BOOL ReadPropsPathList(const CTSVNPathList& pathList);
+    /**
+     * Reads the properties from a path. If the path is a file
+     * then the properties are read from the parent folder of that file.
+     * \param path path to a file or a folder
+     */
+    BOOL ReadProps(CTSVNPath path);
+    /**
+     * Reads the properties from all paths found in a path list.
+     * This method calls ReadProps() for each path .
+     * \param list of paths
+     */
+    BOOL ReadPropsPathList(const CTSVNPathList& pathList);
 
-	/**
-	 * Searches for the BugID inside a log message. If one is found,
-	 * the method returns TRUE. The rich edit control is used to set
-	 * the CFE_LINK effect on the BugID's.
-	 * \param msg the log message
-	 * \param pWnd Pointer to a rich edit control
-	 */
-	BOOL FindBugID(const CString& msg, CWnd * pWnd);
+    /**
+     * Searches for the BugID inside a log message. If one is found,
+     * the method returns TRUE. The rich edit control is used to set
+     * the CFE_LINK effect on the BugID's.
+     * \param msg the log message
+     * \param pWnd Pointer to a rich edit control
+     */
+    BOOL FindBugID(const CString& msg, CWnd * pWnd);
 
-	CString FindBugID(const CString& msg);
-	std::set<CString> FindBugIDs(const CString& msg);
-	/**
-	 * Searches for the BugID inside a log message. If one is found,
-	 * that BugID is returned. If none is found, an empty string is returned.
-	 * The \c msg is trimmed off the BugID.
-	 */
-	CString GetBugIDFromLog(CString& msg);
-	
-	/**
-	 * Checks if the bug ID is valid. If bugtraq:number is 'true', then the
-	 * functions checks if the bug ID doesn't contain any non-number chars in it.
-	 */
-	BOOL CheckBugID(const CString& sID);
-	
-	/**
-	 * Checks if the log message \c sMessage contains a bug ID. This is done by
-	 * using the bugtraq:checkre property.
-	 */
-	BOOL HasBugID(const CString& sMessage);
-	
-	/**
-	 * Returns the URL pointing to the Issue in the issue tracker. The URL is
-	 * created from the bugtraq:url property and the BugID found in the log message.
-	 * \param msg the BugID extracted from the log message
-	 */
-	CString GetBugIDUrl(const CString& sBugID);
+    CString FindBugID(const CString& msg);
+    std::set<CString> FindBugIDs(const CString& msg);
+    /**
+     * Searches for the BugID inside a log message. If one is found,
+     * that BugID is returned. If none is found, an empty string is returned.
+     * The \c msg is trimmed off the BugID.
+     */
+    CString GetBugIDFromLog(CString& msg);
 
-	/**
-	 * Inserts the tsvn:autoprops into the Subversion config section.
-	 * Call this before an import or an add operation.
-	 */
-	void InsertAutoProps(svn_config_t *cfg);
+    /**
+     * Checks if the bug ID is valid. If bugtraq:number is 'true', then the
+     * functions checks if the bug ID doesn't contain any non-number chars in it.
+     */
+    BOOL CheckBugID(const CString& sID);
 
-	/**
-	 * Adds all the project properties to the specified entry
-	 */
-	bool AddAutoProps(const CTSVNPath& path);
+    /**
+     * Checks if the log message \c sMessage contains a bug ID. This is done by
+     * using the bugtraq:checkre property.
+     */
+    BOOL HasBugID(const CString& sMessage);
 
-	/**
-	 * Returns the log message summary if the tsvn:logsummaryregex property is
-	 * set and there are actually some matches.
-	 * Otherwise, an empty string is returned.
-	 */
-	CString GetLogSummary(const CString& sMessage);
+    /**
+     * Returns the URL pointing to the Issue in the issue tracker. The URL is
+     * created from the bugtraq:url property and the BugID found in the log message.
+     * \param msg the BugID extracted from the log message
+     */
+    CString GetBugIDUrl(const CString& sBugID);
+
+    /**
+     * Inserts the tsvn:autoprops into the Subversion config section.
+     * Call this before an import or an add operation.
+     */
+    void InsertAutoProps(svn_config_t *cfg);
+
+    /**
+     * Adds all the project properties to the specified entry
+     */
+    bool AddAutoProps(const CTSVNPath& path);
+
+    /**
+     * Returns the log message summary if the tsvn:logsummaryregex property is
+     * set and there are actually some matches.
+     * Otherwise, an empty string is returned.
+     */
+    CString GetLogSummary(const CString& sMessage);
 
     /**
      * Transform the log message using \ref GetLogSummary and post-process it
@@ -141,95 +141,95 @@ public:
      */
     CString MakeShortMessage(const CString& message);
 
-	/**
-	 * Returns the path from which the properties were read.
-	 */
-	CTSVNPath GetPropsPath() {return propsPath;}
+    /**
+     * Returns the path from which the properties were read.
+     */
+    CTSVNPath GetPropsPath() {return propsPath;}
 
-	/** replaces bNumer: a regular expression string to check the validity of
-	  * the entered bug ID. */
+    /** replaces bNumer: a regular expression string to check the validity of
+      * the entered bug ID. */
     const CString& GetCheckRe() const {return sCheckRe;}
-	
-	/** used to extract the bug ID from the string matched by sCheckRe */
+
+    /** used to extract the bug ID from the string matched by sCheckRe */
     const CString& GetBugIDRe() const {return sBugIDRe;}
 
     const CString& GetProviderUUID() const { return (sProviderUuid64.IsEmpty() ? sProviderUuid : sProviderUuid64); }
 
 public:
-	/** The label to show in the commit dialog where the issue number/bug id
-	 * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
-	CString		sLabel;
+    /** The label to show in the commit dialog where the issue number/bug id
+     * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
+    CString     sLabel;
 
-	/** The message string to add below the log message the user entered.
-	 * It must contain the string "%BUGID%" which gets replaced by the client 
-	 * with the issue number / bug id the user entered. */
-	CString		sMessage;
+    /** The message string to add below the log message the user entered.
+     * It must contain the string "%BUGID%" which gets replaced by the client
+     * with the issue number / bug id the user entered. */
+    CString     sMessage;
 
-	/** If this is set, then the bug-id / issue number must be a number, no text */
-	BOOL		bNumber;
+    /** If this is set, then the bug-id / issue number must be a number, no text */
+    BOOL        bNumber;
 
-	/** The url pointing to the issue tracker. If the url contains the string
-	 * "%BUGID% the client has to replace it with the issue number / bug id
-	 * the user entered. */
-	CString		sUrl;
-	
-	/** If set to TRUE, show a warning dialog if the user forgot to enter
-	 * an issue number in the commit dialog. */
-	BOOL		bWarnIfNoIssue;
+    /** The url pointing to the issue tracker. If the url contains the string
+     * "%BUGID% the client has to replace it with the issue number / bug id
+     * the user entered. */
+    CString     sUrl;
 
-	/** If set to FALSE, then the bug tracking entry is inserted at the top of the
-	   log message instead of at the bottom. Default is TRUE */
-	BOOL		bAppend;
+    /** If set to TRUE, show a warning dialog if the user forgot to enter
+     * an issue number in the commit dialog. */
+    BOOL        bWarnIfNoIssue;
 
-	/** the parameters passed to the COM bugtraq provider which implements the
-	    IBugTraqProvider interface */
-	CString		sProviderParams;
+    /** If set to FALSE, then the bug tracking entry is inserted at the top of the
+       log message instead of at the bottom. Default is TRUE */
+    BOOL        bAppend;
 
-	/** The number of chars the width marker should be shown at. If the property
-	 * is not set, then this value is 80 by default. */
-	int			nLogWidthMarker;
+    /** the parameters passed to the COM bugtraq provider which implements the
+        IBugTraqProvider interface */
+    CString     sProviderParams;
 
-	/** The template to use for log messages. */
-	CString		sLogTemplate;
+    /** The number of chars the width marker should be shown at. If the property
+     * is not set, then this value is 80 by default. */
+    int         nLogWidthMarker;
 
-	/** Minimum size a log message must have in chars */
-	int			nMinLogSize;
+    /** The template to use for log messages. */
+    CString     sLogTemplate;
 
-	/** Minimum size a lock message must have in chars */
-	int			nMinLockMsgSize;
+    /** Minimum size a log message must have in chars */
+    int         nMinLogSize;
 
-	/** TRUE if the file list to be inserted in the commit dialog should be in
-	 * English and not in the localized language. Default is TRUE */
-	BOOL		bFileListInEnglish;
-	
-	/** The language identifier this project uses for log messages. */
-	LONG		lProjectLanguage;
+    /** Minimum size a lock message must have in chars */
+    int         nMinLockMsgSize;
 
-	/** holds user defined properties for files. */
-	CString		sFPPath;
+    /** TRUE if the file list to be inserted in the commit dialog should be in
+     * English and not in the localized language. Default is TRUE */
+    BOOL        bFileListInEnglish;
 
-	/** holds user defined properties for directories. */
-	CString		sDPPath;
+    /** The language identifier this project uses for log messages. */
+    LONG        lProjectLanguage;
 
-	/** The url pointing to the web viewer. The string %REVISION% is replaced
-	 *  with the revision number, "HEAD", or a date */
-	CString		sWebViewerRev;
+    /** holds user defined properties for files. */
+    CString     sFPPath;
 
-	/** The url pointing to the web viewer. The string %REVISION% is replaced
-	 *  with the revision number, "HEAD", or a date. The string %PATH% is replaced
-	 *  with the path relative to the repository root, e.g. "/trunk/src/file" */
-	CString		sWebViewerPathRev;
+    /** holds user defined properties for directories. */
+    CString     sDPPath;
 
-	/**
-	 * The regex string to extract a summary from a log message. The summary
-	 * is the first matching regex group.
-	 */
-	CString		sLogSummaryRe;
+    /** The url pointing to the web viewer. The string %REVISION% is replaced
+     *  with the revision number, "HEAD", or a date */
+    CString     sWebViewerRev;
 
-	/**
-	 * A regex string to extract revisions from a log message.
-	 */
-	CString		sLogRevRegex;
+    /** The url pointing to the web viewer. The string %REVISION% is replaced
+     *  with the revision number, "HEAD", or a date. The string %PATH% is replaced
+     *  with the path relative to the repository root, e.g. "/trunk/src/file" */
+    CString     sWebViewerPathRev;
+
+    /**
+     * The regex string to extract a summary from a log message. The summary
+     * is the first matching regex group.
+     */
+    CString     sLogSummaryRe;
+
+    /**
+     * A regex string to extract revisions from a log message.
+     */
+    CString     sLogRevRegex;
 
 private:
 
@@ -242,22 +242,22 @@ private:
     tr1::wregex regCheck;
     tr1::wregex regBugID;
 
-	CString		sAutoProps;
-	CTSVNPath	propsPath;
+    CString     sAutoProps;
+    CTSVNPath   propsPath;
 #ifdef DEBUG
-	friend class PropTest;
+    friend class PropTest;
 #endif
 
     /** the COM uuid of the bugtraq provider which implements the IBugTraqProvider
     interface. */
-    CString		sProviderUuid;
-    CString		sProviderUuid64;
+    CString     sProviderUuid;
+    CString     sProviderUuid64;
 
     /** replaces bNumer: a regular expression string to check the validity of
-	  * the entered bug ID. */
-	CString		sCheckRe;
-	
-	/** used to extract the bug ID from the string matched by sCheckRe */
-	CString		sBugIDRe;
-	static void SetLinkCharFormat(CWnd* window);
+      * the entered bug ID. */
+    CString     sCheckRe;
+
+    /** used to extract the bug ID from the string matched by sCheckRe */
+    CString     sBugIDRe;
+    static void SetLinkCharFormat(CWnd* window);
 };

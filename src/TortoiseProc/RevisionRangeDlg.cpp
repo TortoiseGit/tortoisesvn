@@ -24,10 +24,10 @@
 IMPLEMENT_DYNAMIC(CRevisionRangeDlg, CStandAloneDialog)
 
 CRevisionRangeDlg::CRevisionRangeDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CRevisionRangeDlg::IDD, pParent)
-	, m_bAllowWCRevs(true)
-	, m_StartRev(_T("HEAD"))
-	, m_EndRev(_T("HEAD"))
+    : CStandAloneDialog(CRevisionRangeDlg::IDD, pParent)
+    , m_bAllowWCRevs(true)
+    , m_StartRev(_T("HEAD"))
+    , m_EndRev(_T("HEAD"))
 {
 }
 
@@ -37,117 +37,117 @@ CRevisionRangeDlg::~CRevisionRangeDlg()
 
 void CRevisionRangeDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_REVNUM, m_sStartRevision);
-	DDX_Text(pDX, IDC_REVNUM2, m_sEndRevision);
+    CStandAloneDialog::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_REVNUM, m_sStartRevision);
+    DDX_Text(pDX, IDC_REVNUM2, m_sEndRevision);
 }
 
 
 BEGIN_MESSAGE_MAP(CRevisionRangeDlg, CStandAloneDialog)
-	ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
-	ON_EN_CHANGE(IDC_REVNUM2, OnEnChangeRevnum2)
+    ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
+    ON_EN_CHANGE(IDC_REVNUM2, OnEnChangeRevnum2)
 END_MESSAGE_MAP()
 
 BOOL CRevisionRangeDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_ENDREVGROUP);
-	m_aeroControls.SubclassOkCancel(this);
+    ExtendFrameIntoClientArea(IDC_ENDREVGROUP);
+    m_aeroControls.SubclassOkCancel(this);
 
-	if (m_StartRev.IsHead())
-	{
-		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
-	}
-	else
-	{
-		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
-		CString sRev;
-		if (m_StartRev.IsDate())
-			sRev = m_StartRev.GetDateString();
-		else
-			sRev.Format(_T("%ld"), (LONG)(m_StartRev));
-		SetDlgItemText(IDC_REVNUM, sRev);
-	}
-	if (m_EndRev.IsHead())
-	{
-		CheckRadioButton(IDC_NEWEST2, IDC_REVISION_N2, IDC_NEWEST2);
-	}
-	else
-	{
-		CheckRadioButton(IDC_NEWEST2, IDC_REVISION_N2, IDC_REVISION_N2);
-		CString sRev;
-		if (m_EndRev.IsDate())
-			sRev = m_EndRev.GetDateString();
-		else
-			sRev.Format(_T("%ld"), (LONG)(m_EndRev));
-		SetDlgItemText(IDC_REVNUM2, sRev);
-	}
+    if (m_StartRev.IsHead())
+    {
+        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+    }
+    else
+    {
+        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+        CString sRev;
+        if (m_StartRev.IsDate())
+            sRev = m_StartRev.GetDateString();
+        else
+            sRev.Format(_T("%ld"), (LONG)(m_StartRev));
+        SetDlgItemText(IDC_REVNUM, sRev);
+    }
+    if (m_EndRev.IsHead())
+    {
+        CheckRadioButton(IDC_NEWEST2, IDC_REVISION_N2, IDC_NEWEST2);
+    }
+    else
+    {
+        CheckRadioButton(IDC_NEWEST2, IDC_REVISION_N2, IDC_REVISION_N2);
+        CString sRev;
+        if (m_EndRev.IsDate())
+            sRev = m_EndRev.GetDateString();
+        else
+            sRev.Format(_T("%ld"), (LONG)(m_EndRev));
+        SetDlgItemText(IDC_REVNUM2, sRev);
+    }
 
-	if ((m_pParentWnd==NULL)&&(hWndExplorer))
-		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	GetDlgItem(IDC_REVNUM)->SetFocus();
-	return FALSE;
+    if ((m_pParentWnd==NULL)&&(hWndExplorer))
+        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    GetDlgItem(IDC_REVNUM)->SetFocus();
+    return FALSE;
 }
 
 void CRevisionRangeDlg::OnOK()
 {
-	if (!UpdateData(TRUE))
-		return; // don't dismiss dialog (error message already shown by MFC framework)
+    if (!UpdateData(TRUE))
+        return; // don't dismiss dialog (error message already shown by MFC framework)
 
-	m_StartRev = SVNRev(m_sStartRevision);
-	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
-	{
-		m_StartRev = SVNRev(_T("HEAD"));
-		m_sStartRevision = _T("HEAD");
-	}
-	if ((!m_StartRev.IsValid())||((!m_bAllowWCRevs)&&(m_StartRev.IsPrev() || m_StartRev.IsCommitted() || m_StartRev.IsBase())))
-	{
-		ShowEditBalloon(IDC_REVNUM, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, IDS_ERR_ERROR, TTI_ERROR);
-		return;
-	}
+    m_StartRev = SVNRev(m_sStartRevision);
+    if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
+    {
+        m_StartRev = SVNRev(_T("HEAD"));
+        m_sStartRevision = _T("HEAD");
+    }
+    if ((!m_StartRev.IsValid())||((!m_bAllowWCRevs)&&(m_StartRev.IsPrev() || m_StartRev.IsCommitted() || m_StartRev.IsBase())))
+    {
+        ShowEditBalloon(IDC_REVNUM, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, IDS_ERR_ERROR, TTI_ERROR);
+        return;
+    }
 
-	m_EndRev = SVNRev(m_sEndRevision);
-	if (GetCheckedRadioButton(IDC_NEWEST2, IDC_REVISION_N2) == IDC_NEWEST2)
-	{
-		m_EndRev = SVNRev(_T("HEAD"));
-		m_sEndRevision = _T("HEAD");
-	}
-	if ((!m_EndRev.IsValid())||((!m_bAllowWCRevs)&&(m_EndRev.IsPrev() || m_EndRev.IsCommitted() || m_EndRev.IsBase())))
-	{
-		ShowEditBalloon(IDC_REVNUM2, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, IDS_ERR_ERROR, TTI_ERROR);
-		return;
-	}
+    m_EndRev = SVNRev(m_sEndRevision);
+    if (GetCheckedRadioButton(IDC_NEWEST2, IDC_REVISION_N2) == IDC_NEWEST2)
+    {
+        m_EndRev = SVNRev(_T("HEAD"));
+        m_sEndRevision = _T("HEAD");
+    }
+    if ((!m_EndRev.IsValid())||((!m_bAllowWCRevs)&&(m_EndRev.IsPrev() || m_EndRev.IsCommitted() || m_EndRev.IsBase())))
+    {
+        ShowEditBalloon(IDC_REVNUM2, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, IDS_ERR_ERROR, TTI_ERROR);
+        return;
+    }
 
-	UpdateData(FALSE);
+    UpdateData(FALSE);
 
-	CStandAloneDialog::OnOK();
+    CStandAloneDialog::OnOK();
 }
 
 void CRevisionRangeDlg::OnEnChangeRevnum()
 {
-	CString sText;
-	GetDlgItemText(IDC_REVNUM, sText);
-	if (sText.IsEmpty())
-	{
-		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
-	}
-	else
-	{
-		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
-	}
+    CString sText;
+    GetDlgItemText(IDC_REVNUM, sText);
+    if (sText.IsEmpty())
+    {
+        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+    }
+    else
+    {
+        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+    }
 }
 
 void CRevisionRangeDlg::OnEnChangeRevnum2()
 {
-	CString sText;
-	GetDlgItemText(IDC_REVNUM2, sText);
-	if (sText.IsEmpty())
-	{
-		CheckRadioButton(IDC_NEWEST2, IDC_REVISION_N2, IDC_NEWEST2);
-	}
-	else
-	{
-		CheckRadioButton(IDC_NEWEST2, IDC_REVISION_N2, IDC_REVISION_N2);
-	}
+    CString sText;
+    GetDlgItemText(IDC_REVNUM2, sText);
+    if (sText.IsEmpty())
+    {
+        CheckRadioButton(IDC_NEWEST2, IDC_REVISION_N2, IDC_NEWEST2);
+    }
+    else
+    {
+        CheckRadioButton(IDC_NEWEST2, IDC_REVISION_N2, IDC_REVISION_N2);
+    }
 }

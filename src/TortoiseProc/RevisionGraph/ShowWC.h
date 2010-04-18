@@ -25,14 +25,14 @@
 #include "revisiongraphoptionsimpl.h"
 #include "Resource.h"
 
-/** 
-* "Pin" current working copy revision, 
+/**
+* "Pin" current working copy revision,
 * i.e. keep it from being removed by other rules.
 */
 
 class CShowWC
     : public CModificationOptionImpl
-                < CCombineInterface 
+                < CCombineInterface
                     < ICopyFilterOption
                     , IModificationOption>
                 , 100
@@ -47,11 +47,11 @@ public:
 
     CShowWC (CRevisionGraphOptionList& list);
 
-    /// implement IRevisionGraphOption: 
+    /// implement IRevisionGraphOption:
     /// this one must always be executed
     /// (ICopyFilterOption, if selected; IModificationOption is not)
 
-    virtual bool IsActive() const; 
+    virtual bool IsActive() const;
 
     /// implement ICopyFilterOption (pre-filter most nodes)
 

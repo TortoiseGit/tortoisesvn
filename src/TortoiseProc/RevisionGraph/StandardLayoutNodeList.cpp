@@ -26,40 +26,40 @@
 
 /// utilities
 
-index_t CStandardLayoutNodeList::GetStyle 
-	(const CVisibleGraphNode* node) const
+index_t CStandardLayoutNodeList::GetStyle
+    (const CVisibleGraphNode* node) const
 {
-	CNodeClassification classification = node->GetClassification();
+    CNodeClassification classification = node->GetClassification();
 
-	if (classification.Is (CNodeClassification::IS_ADDED))
-		return ILayoutNodeList::SNode::STYLE_ADDED;
-	else if (classification.Is (CNodeClassification::IS_DELETED))
-		return ILayoutNodeList::SNode::STYLE_DELETED;
-	else if (classification.Is (CNodeClassification::IS_RENAMED))
-		return ILayoutNodeList::SNode::STYLE_RENAMED;
-	else if (classification.Is (CNodeClassification::IS_LAST))
-		return ILayoutNodeList::SNode::STYLE_LAST;
+    if (classification.Is (CNodeClassification::IS_ADDED))
+        return ILayoutNodeList::SNode::STYLE_ADDED;
+    else if (classification.Is (CNodeClassification::IS_DELETED))
+        return ILayoutNodeList::SNode::STYLE_DELETED;
+    else if (classification.Is (CNodeClassification::IS_RENAMED))
+        return ILayoutNodeList::SNode::STYLE_RENAMED;
+    else if (classification.Is (CNodeClassification::IS_LAST))
+        return ILayoutNodeList::SNode::STYLE_LAST;
     else if (classification.Is (CNodeClassification::IS_MODIFIED))
-		return ILayoutNodeList::SNode::STYLE_MODIFIED;
-	else
-		return ILayoutNodeList::SNode::STYLE_DEFAULT;
+        return ILayoutNodeList::SNode::STYLE_MODIFIED;
+    else
+        return ILayoutNodeList::SNode::STYLE_DEFAULT;
 }
 
-DWORD CStandardLayoutNodeList::GetStyleFlags 
-	(const CVisibleGraphNode* /*node*/) const
+DWORD CStandardLayoutNodeList::GetStyleFlags
+    (const CVisibleGraphNode* /*node*/) const
 {
-	return 0;
+    return 0;
 }
 
 // construction
 
-CStandardLayoutNodeList::CStandardLayoutNodeList 
+CStandardLayoutNodeList::CStandardLayoutNodeList
     ( const std::vector<CStandardLayoutNodeInfo>& nodes
     , const CCachedLogInfo* cache
-	, const CFullHistory::SWCInfo& wcInfo)
+    , const CFullHistory::SWCInfo& wcInfo)
     : cache (cache)
     , nodes (nodes)
-	, wcInfo (wcInfo)
+    , wcInfo (wcInfo)
 {
 }
 
@@ -72,14 +72,14 @@ index_t CStandardLayoutNodeList::GetCount() const
 
 namespace
 {
-	void AddString (CString& target, int id)
-	{
-		CString toAdd;
-		toAdd.Format (id);
-		target = target.IsEmpty()
-			   ? toAdd
-			   : target + _T(", ") + toAdd;
-	}
+    void AddString (CString& target, int id)
+    {
+        CString toAdd;
+        toAdd.Format (id);
+        target = target.IsEmpty()
+               ? toAdd
+               : target + _T(", ") + toAdd;
+    }
 }
 
 CString CStandardLayoutNodeList::GetToolTip (index_t index) const
@@ -93,24 +93,24 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
     // node properties
 
-	CNodeClassification classification = node->GetClassification();
+    CNodeClassification classification = node->GetClassification();
     revision_t revision = node->GetRevision();
 
-    CString path 
-        = CUnicodeUtils::StdGetUnicode 
+    CString path
+        = CUnicodeUtils::StdGetUnicode
             (node->GetPath().GetPath()).c_str();
 
     // special case: the "workspace is modified" node
 
     if (classification.Is (CNodeClassification::IS_MODIFIED_WC))
     {
-	    strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_WC
-								  , revision-1
-								  , (LPCTSTR)path);
+        strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_WC
+                                  , revision-1
+                                  , (LPCTSTR)path);
         return strTipText;
     }
 
-    // find the revision in our cache. 
+    // find the revision in our cache.
     // Might not be present if this is the WC / HEAD revision
     // (but should not happen).
 
@@ -121,107 +121,107 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
     // get standard revprops
 
-	TCHAR date[SVN_DATE_BUFFER];
-	apr_time_t timeStamp = revisionInfo.GetTimeStamp (revisionIndex);
-	SVN::formatDate(date, timeStamp);
+    TCHAR date[SVN_DATE_BUFFER];
+    apr_time_t timeStamp = revisionInfo.GetTimeStamp (revisionIndex);
+    SVN::formatDate(date, timeStamp);
 
-    CString author 
-        = CUnicodeUtils::StdGetUnicode 
+    CString author
+        = CUnicodeUtils::StdGetUnicode
             (revisionInfo.GetAuthor (revisionIndex)).c_str();
-    CString comment 
-        = CUnicodeUtils::StdGetUnicode 
+    CString comment
+        = CUnicodeUtils::StdGetUnicode
             (revisionInfo.GetComment (revisionIndex)).c_str();
 
     // description of the operation represented by this node
 
     CString revisionDescription;
-	if (classification.Is (CNodeClassification::IS_COPY_TARGET))
+    if (classification.Is (CNodeClassification::IS_COPY_TARGET))
     {
         if (classification.Is (CNodeClassification::IS_TAG))
             revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_TAG);
-	    else if (classification.Is (CNodeClassification::IS_BRANCH))
+        else if (classification.Is (CNodeClassification::IS_BRANCH))
             revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_BRANCH);
-	    else
+        else
             revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_COPY);
     }
-	else if (classification.Is (CNodeClassification::IS_ADDED))
+    else if (classification.Is (CNodeClassification::IS_ADDED))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_ADDED);
-	else if (classification.Is (CNodeClassification::IS_DELETED))
+    else if (classification.Is (CNodeClassification::IS_DELETED))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_DELETE);
-	else if (classification.Is (CNodeClassification::IS_RENAMED))
+    else if (classification.Is (CNodeClassification::IS_RENAMED))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_RENAME);
-	else if (classification.Is (CNodeClassification::IS_LAST))
+    else if (classification.Is (CNodeClassification::IS_LAST))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_HEAD);
     else if (classification.Is (CNodeClassification::IS_MODIFIED))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_MODIFIED);
-	else if (classification.Is (CNodeClassification::IS_COPY_SOURCE))
+    else if (classification.Is (CNodeClassification::IS_COPY_SOURCE))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_COPYSOURCE);
-	else
+    else
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_WORKINGCOPY);
 
-	// working copy info
+    // working copy info
 
-	CString workingCopyLine;
-	if (classification.Is (CNodeClassification::IS_WORKINGCOPY))
-	{
-		CString status;
+    CString workingCopyLine;
+    if (classification.Is (CNodeClassification::IS_WORKINGCOPY))
+    {
+        CString status;
 
-		// "w/c at rev"
+        // "w/c at rev"
 
-		if (node->GetRevision() == wcInfo.maxAtRev)
-		{
-			AddString (status, node->GetRevision() == wcInfo.minAtRev
-							 ? IDS_REVGRAPH_NODEWC_AT
-							 : IDS_REVGRAPH_NODEWC_MAX_AT);
-		}
-		else if (node->GetRevision() == wcInfo.minAtRev)
-		{
-			AddString (status, IDS_REVGRAPH_NODEWC_MIN_AT);
-		}
+        if (node->GetRevision() == wcInfo.maxAtRev)
+        {
+            AddString (status, node->GetRevision() == wcInfo.minAtRev
+                             ? IDS_REVGRAPH_NODEWC_AT
+                             : IDS_REVGRAPH_NODEWC_MAX_AT);
+        }
+        else if (node->GetRevision() == wcInfo.minAtRev)
+        {
+            AddString (status, IDS_REVGRAPH_NODEWC_MIN_AT);
+        }
 
-		// "last commit rev"
+        // "last commit rev"
 
-		if (node->GetRevision() == wcInfo.maxCommit)
-		{
-			AddString (status, node->GetRevision() == wcInfo.minCommit
-							 ? IDS_REVGRAPH_NODEWC_COMMITTED
-							 : IDS_REVGRAPH_NODEWC_MAX_COMMITTED);
-		}
-		else if (node->GetRevision() == wcInfo.minCommit)
-		{
-			AddString (status, IDS_REVGRAPH_NODEWC_MIN_COMMITTED);
-		}
+        if (node->GetRevision() == wcInfo.maxCommit)
+        {
+            AddString (status, node->GetRevision() == wcInfo.minCommit
+                             ? IDS_REVGRAPH_NODEWC_COMMITTED
+                             : IDS_REVGRAPH_NODEWC_MAX_COMMITTED);
+        }
+        else if (node->GetRevision() == wcInfo.minCommit)
+        {
+            AddString (status, IDS_REVGRAPH_NODEWC_MIN_COMMITTED);
+        }
 
-		// complete line
+        // complete line
 
-		workingCopyLine.Format (IDS_REVGRAPH_NODEWC_LINE, (LPCTSTR)status);
-	}
+        workingCopyLine.Format (IDS_REVGRAPH_NODEWC_LINE, (LPCTSTR)status);
+    }
 
     // copy-from info, if available
 
     CString copyFromLine;
     const CFullGraphNode* copySource = node->GetBase()->GetCopySource();
-	if (copySource != NULL)
+    if (copySource != NULL)
     {
-        CString copyFromPath 
-            = CUnicodeUtils::StdGetUnicode 
+        CString copyFromPath
+            = CUnicodeUtils::StdGetUnicode
                 (copySource->GetPath().GetPath()).c_str();
         revision_t copyFromRevision = copySource->GetRevision();
 
         copyFromLine.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_COPYSOURCE
-									, (LPCTSTR)copyFromPath
-									, copyFromRevision);
+                                    , (LPCTSTR)copyFromPath
+                                    , copyFromRevision);
     }
 
     // construct the tooltip
 
-	CString additionalInfo = workingCopyLine + copyFromLine;
+    CString additionalInfo = workingCopyLine + copyFromLine;
     if (node->GetFirstTag() == NULL)
     {
-	    strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP
-								  , revision, (LPCTSTR)revisionDescription
-								  , (LPCTSTR)path, (LPCTSTR)additionalInfo
-								  , (LPCTSTR)author, date, (LPCTSTR)comment);
+        strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP
+                                  , revision, (LPCTSTR)revisionDescription
+                                  , (LPCTSTR)path, (LPCTSTR)additionalInfo
+                                  , (LPCTSTR)author, date, (LPCTSTR)comment);
     }
     else
     {
@@ -252,30 +252,30 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
             if (attributes.IsEmpty())
             {
-                tagInfo.Format (   tag->IsAlias() 
-                                 ? IDS_REVGRAPH_TAGALIAS 
+                tagInfo.Format (   tag->IsAlias()
+                                 ? IDS_REVGRAPH_TAGALIAS
                                  : IDS_REVGRAPH_TAG
                                , CUnicodeUtils::StdGetUnicode (tagPath).c_str());
             }
             else
             {
-                tagInfo.FormatMessage (   tag->IsAlias() 
-										? IDS_REVGRAPH_TAGALIASATTRIBUTED
-										: IDS_REVGRAPH_TAGATTRIBUTED
-										, (LPCTSTR)attributes
-										, CUnicodeUtils::StdGetUnicode (tagPath).c_str());
+                tagInfo.FormatMessage (   tag->IsAlias()
+                                        ? IDS_REVGRAPH_TAGALIASATTRIBUTED
+                                        : IDS_REVGRAPH_TAGATTRIBUTED
+                                        , (LPCTSTR)attributes
+                                        , CUnicodeUtils::StdGetUnicode (tagPath).c_str());
             }
 
             tags +=   _T("\r\n")
-                    + CString (' ', (int)tag->GetDepth() * 6) 
+                    + CString (' ', (int)tag->GetDepth() * 6)
                     + tagInfo;
         }
 
-	    strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_TAGGED
-								  , revision, (LPCTSTR)revisionDescription
-								  , (LPCTSTR)path, (LPCTSTR)additionalInfo
-								  , (LPCTSTR)author, date, tagCount, (LPCTSTR)tags
-								  , (LPCTSTR)comment);
+        strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_TAGGED
+                                  , revision, (LPCTSTR)revisionDescription
+                                  , (LPCTSTR)path, (LPCTSTR)additionalInfo
+                                  , (LPCTSTR)author, date, tagCount, (LPCTSTR)tags
+                                  , (LPCTSTR)comment);
     }
 
     // ready
@@ -317,12 +317,12 @@ index_t CStandardLayoutNodeList::GetAt (const CPoint& point, CSize delta) const
 
 // implement ILayoutNodeList
 
-CStandardLayoutNodeList::SNode 
+CStandardLayoutNodeList::SNode
 CStandardLayoutNodeList::GetNode (index_t index) const
 {
     SNode result;
 
-	const CVisibleGraphNode* node = nodes[index].node;
+    const CVisibleGraphNode* node = nodes[index].node;
 
     result.rect = nodes[index].rect;
     result.node = node;

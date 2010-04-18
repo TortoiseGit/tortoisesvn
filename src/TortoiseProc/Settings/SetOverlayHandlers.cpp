@@ -112,7 +112,7 @@ BOOL CSetOverlayHandlers::OnApply()
         m_restart = Restart_System;
     Store (m_bShowDeletedOverlay, m_regShowDeletedOverlay);
 
-    
+
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
 }

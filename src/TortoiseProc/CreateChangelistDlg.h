@@ -25,20 +25,20 @@
  */
 class CCreateChangelistDlg : public CDialog
 {
-	DECLARE_DYNAMIC(CCreateChangelistDlg)
+    DECLARE_DYNAMIC(CCreateChangelistDlg)
 
 public:
-	CCreateChangelistDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CCreateChangelistDlg();
+    CCreateChangelistDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CCreateChangelistDlg();
 
-	enum { IDD = IDD_CREATECHANGELIST };
+    enum { IDD = IDD_CREATECHANGELIST };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	afx_msg void OnEnChangeName();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    afx_msg void OnEnChangeName();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 public:
-	CString m_sName;
+    CString m_sName;
 };

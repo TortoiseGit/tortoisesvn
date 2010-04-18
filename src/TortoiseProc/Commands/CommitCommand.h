@@ -29,14 +29,14 @@ class CSVNProgressDlg;
 class CommitCommand : public Command
 {
 private:
-	CString LoadLogMessage();
+    CString LoadLogMessage();
     void InitProgressDialog (CCommitDlg& commitDlg, CSVNProgressDlg& progDlg);
-	bool IsOutOfDate(const svn_error_t* err ) const;
-	bool AskToUpdate(CSVNProgressDlg& progDlg) const;
+    bool IsOutOfDate(const svn_error_t* err ) const;
+    bool AskToUpdate(CSVNProgressDlg& progDlg) const;
 
 public:
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute();
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute();
 };

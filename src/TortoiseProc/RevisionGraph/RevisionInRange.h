@@ -31,7 +31,7 @@
 
 using namespace LogCache;
 
-class CRevisionInRange 
+class CRevisionInRange
     : public CRevisionGraphOptionImpl< ICopyFilterOption
                                      , 50
                                      , 0>
@@ -59,7 +59,7 @@ public:
 
     /// implement IRevisionGraphOption
 
-    virtual bool IsActive() const; 
+    virtual bool IsActive() const;
 
     /// implement ICopyFilterOption
 

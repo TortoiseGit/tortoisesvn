@@ -20,46 +20,46 @@
 
 class CBstrSafeVector {
 public:
-	CBstrSafeVector() : controlled( 0 ) {}
-	CBstrSafeVector( ULONG count );
-	~CBstrSafeVector() { release(); }
-	
-	const SAFEARRAY* operator ->() { return controlled; }
-	operator SAFEARRAY*() { return controlled; }
-	operator const SAFEARRAY*() const { return controlled; }
+    CBstrSafeVector() : controlled( 0 ) {}
+    CBstrSafeVector( ULONG count );
+    ~CBstrSafeVector() { release(); }
 
-	SAFEARRAY** operator&();
+    const SAFEARRAY* operator ->() { return controlled; }
+    operator SAFEARRAY*() { return controlled; }
+    operator const SAFEARRAY*() const { return controlled; }
 
-	HRESULT PutElement( LONG index, const CString& value );
+    SAFEARRAY** operator&();
+
+    HRESULT PutElement( LONG index, const CString& value );
 
 private:
-	SAFEARRAY* controlled;
+    SAFEARRAY* controlled;
 
-	void release();
+    void release();
 };
 
 inline CBstrSafeVector::CBstrSafeVector( ULONG count )
 {
-	controlled = SafeArrayCreateVector(VT_BSTR, 0, count);
+    controlled = SafeArrayCreateVector(VT_BSTR, 0, count);
 }
 
 inline SAFEARRAY** CBstrSafeVector::operator&()
 {
-	release();
-	return &controlled;
+    release();
+    return &controlled;
 }
 
 inline HRESULT CBstrSafeVector::PutElement( LONG index, const CString& value )
 {
-	ATL::CComBSTR valueBstr;
-	valueBstr.Attach( value.AllocSysString() );
-	return SafeArrayPutElement(controlled, &index, valueBstr);
+    ATL::CComBSTR valueBstr;
+    valueBstr.Attach( value.AllocSysString() );
+    return SafeArrayPutElement(controlled, &index, valueBstr);
 }
 
 inline void CBstrSafeVector::release()
 {
-	if(controlled == 0)
-		return;
-	SafeArrayDestroy(controlled);
-	controlled = 0;
+    if(controlled == 0)
+        return;
+    SafeArrayDestroy(controlled);
+    controlled = 0;
 }

@@ -22,15 +22,15 @@
 
 // construction
 
-CCopyFilterOptions::CCopyFilterOptions 
+CCopyFilterOptions::CCopyFilterOptions
     ( const std::vector<ICopyFilterOption*>& options)
     : options (options)
 {
 }
 
-// apply all filters 
+// apply all filters
 
-ICopyFilterOption::EResult 
+ICopyFilterOption::EResult
 CCopyFilterOptions::ShallRemove (const CFullGraphNode* node) const
 {
     typedef std::vector<ICopyFilterOption*>::const_iterator IT;

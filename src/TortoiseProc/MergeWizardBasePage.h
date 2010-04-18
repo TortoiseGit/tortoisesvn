@@ -21,7 +21,7 @@
 #include "ResizablePageEx.h"
 #include "AppUtils.h"
 
-#define WM_TSVN_MAXREVFOUND			(WM_APP + 1)
+#define WM_TSVN_MAXREVFOUND         (WM_APP + 1)
 
 /**
  * base class for the merge wizard property pages
@@ -29,28 +29,28 @@
 class CMergeWizardBasePage : public CResizablePageEx, public SVN
 {
 public:
-	CMergeWizardBasePage() : CResizablePageEx() {;}
-	explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0) 
-		: CResizablePageEx(nIDTemplate, nIDCaption, 0) {;}
-	explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
-		: CResizablePageEx(lpszTemplateName, nIDCaption, 0) {;}
+    CMergeWizardBasePage() : CResizablePageEx() {;}
+    explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0) 
+        : CResizablePageEx(nIDTemplate, nIDCaption, 0) {;}
+    explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
+        : CResizablePageEx(lpszTemplateName, nIDCaption, 0) {;}
 
-	virtual ~CMergeWizardBasePage() {;}
+    virtual ~CMergeWizardBasePage() {;}
 
 protected:
-	virtual void	SetButtonTexts();
-	void			AdjustControlSize(UINT nID);
-	void			StartWCCheckThread(const CTSVNPath& path);
-	void			StopWCCheckThread();
-	void			ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING);
+    virtual void    SetButtonTexts();
+    void            AdjustControlSize(UINT nID);
+    void            StartWCCheckThread(const CTSVNPath& path);
+    void            StopWCCheckThread();
+    void            ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING);
 
-	static UINT		FindRevThreadEntry(LPVOID pVoid);
-	UINT			FindRevThread();
-	virtual BOOL	Cancel() {return m_bCancelled;}
+    static UINT     FindRevThreadEntry(LPVOID pVoid);
+    UINT            FindRevThread();
+    virtual BOOL    Cancel() {return m_bCancelled;}
 
 private:
-	CTSVNPath		m_path;
-	bool			m_bCancelled;
-	CWinThread *	m_pThread;
-	volatile LONG	m_bThreadRunning;
+    CTSVNPath       m_path;
+    bool            m_bCancelled;
+    CWinThread *    m_pThread;
+    volatile LONG   m_bThreadRunning;
 };

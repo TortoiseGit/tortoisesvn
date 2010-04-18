@@ -23,11 +23,11 @@
 
 bool SettingsCommand::Execute()
 {
-	CSettings dlg(IDS_PROC_SETTINGS_TITLE);
-	dlg.SetTreeViewMode(TRUE, TRUE, TRUE);
-	dlg.SetTreeWidth(220);
+    CSettings dlg(IDS_PROC_SETTINGS_TITLE);
+    dlg.SetTreeViewMode(TRUE, TRUE, TRUE);
+    dlg.SetTreeWidth(220);
 
-	dlg.DoModal();
-	dlg.HandleRestart();
-	return true;
+    dlg.DoModal();
+    dlg.HandleRestart();
+    return true;
 }

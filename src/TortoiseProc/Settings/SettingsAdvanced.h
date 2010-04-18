@@ -22,51 +22,51 @@
 
 class CSettingsAdvanced : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsAdvanced)
+    DECLARE_DYNAMIC(CSettingsAdvanced)
 
 public:
-	CSettingsAdvanced();
-	virtual ~CSettingsAdvanced();
+    CSettingsAdvanced();
+    virtual ~CSettingsAdvanced();
 
-	UINT GetIconID() {return IDI_GENERAL;}
+    UINT GetIconID() {return IDI_GENERAL;}
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGS_CONFIG };
+    enum { IDD = IDD_SETTINGS_CONFIG };
 
-	typedef enum SettingType
-	{
-		SettingTypeBoolean,
-		SettingTypeNumber,
-		SettingTypeString,
-		SettingTypeNone,
-	};
+    typedef enum SettingType
+    {
+        SettingTypeBoolean,
+        SettingTypeNumber,
+        SettingTypeString,
+        SettingTypeNone,
+    };
 
-	typedef union defaultValue
-	{
-		bool		b;
-		LPCTSTR		s;
-		DWORD		l;
-	};
+    typedef union defaultValue
+    {
+        bool        b;
+        LPCTSTR     s;
+        DWORD       l;
+    };
 
-	typedef struct AdvancedSetting
-	{
-		CString			sName;
-		SettingType		type;
-		defaultValue	def;
-	};
+    typedef struct AdvancedSetting
+    {
+        CString         sName;
+        SettingType     type;
+        defaultValue    def;
+    };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnApply();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnInitDialog();
-	afx_msg void OnLvnBeginlabeledit(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnLvnEndlabeledit(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMDblclkConfig(NMHDR *pNMHDR, LRESULT *pResult);
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnApply();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnInitDialog();
+    afx_msg void OnLvnBeginlabeledit(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnLvnEndlabeledit(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMDblclkConfig(NMHDR *pNMHDR, LRESULT *pResult);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
-	CListCtrl		m_ListCtrl;
-	static AdvancedSetting settings[];
+    CListCtrl       m_ListCtrl;
+    static AdvancedSetting settings[];
 };

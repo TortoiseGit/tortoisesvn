@@ -38,7 +38,7 @@ protected:
     afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
     afx_msg void OnBnClickedHelp();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() { return CResizableStandAloneDialog::DoModal(); }
 

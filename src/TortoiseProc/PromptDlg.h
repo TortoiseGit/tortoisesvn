@@ -29,26 +29,26 @@
  */
 class CPromptDlg : public CStandAloneDialog
 {
-	DECLARE_DYNAMIC(CPromptDlg)
+    DECLARE_DYNAMIC(CPromptDlg)
 
 public:
-	CPromptDlg(CWnd* pParent = NULL);
-	virtual ~CPromptDlg();
+    CPromptDlg(CWnd* pParent = NULL);
+    virtual ~CPromptDlg();
 
-	void	SetHide(BOOL hide);
+    void    SetHide(BOOL hide);
 
-	enum { IDD = IDD_PROMPT };
+    enum { IDD = IDD_PROMPT };
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 public:
-	CString		m_info;
-	CString		m_sPass;
-	CEdit		m_pass;
-	BOOL		m_hide;
-	BOOL		m_saveCheck;
-	HWND		m_hParentWnd;
+    CString     m_info;
+    CString     m_sPass;
+    CEdit       m_pass;
+    BOOL        m_hide;
+    BOOL        m_saveCheck;
+    HWND        m_hParentWnd;
 };

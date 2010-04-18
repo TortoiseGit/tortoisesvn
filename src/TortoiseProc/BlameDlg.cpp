@@ -23,18 +23,18 @@
 
 IMPLEMENT_DYNAMIC(CBlameDlg, CStandAloneDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CBlameDlg::IDD, pParent)
-	, StartRev(1)
-	, EndRev(0)
-	, m_sStartRev(_T("1"))
-	, m_bTextView(FALSE)
-	, m_bIgnoreEOL(TRUE)
-	, m_bIncludeMerge(TRUE)
+    : CStandAloneDialog(CBlameDlg::IDD, pParent)
+    , StartRev(1)
+    , EndRev(0)
+    , m_sStartRev(_T("1"))
+    , m_bTextView(FALSE)
+    , m_bIgnoreEOL(TRUE)
+    , m_bIncludeMerge(TRUE)
 {
-	m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
-	m_bTextView = m_regTextView;
-	m_regIncludeMerge = CRegDWORD(_T("Software\\TortoiseSVN\\BlameIncludeMerge"), FALSE);
-	m_bIncludeMerge = m_regIncludeMerge;
+    m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
+    m_bTextView = m_regTextView;
+    m_regIncludeMerge = CRegDWORD(_T("Software\\TortoiseSVN\\BlameIncludeMerge"), FALSE);
+    m_bIncludeMerge = m_regIncludeMerge;
 }
 
 CBlameDlg::~CBlameDlg()
@@ -43,115 +43,115 @@ CBlameDlg::~CBlameDlg()
 
 void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
-	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
-	DDX_Check(pDX, IDC_USETEXTVIEWER, m_bTextView);
-	DDX_Check(pDX, IDC_IGNOREEOL2, m_bIgnoreEOL);
-	DDX_Check(pDX, IDC_INCLUDEMERGEINFO, m_bIncludeMerge);
+    CStandAloneDialog::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
+    DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
+    DDX_Check(pDX, IDC_USETEXTVIEWER, m_bTextView);
+    DDX_Check(pDX, IDC_IGNOREEOL2, m_bIgnoreEOL);
+    DDX_Check(pDX, IDC_INCLUDEMERGEINFO, m_bIncludeMerge);
 }
 
 
 BEGIN_MESSAGE_MAP(CBlameDlg, CStandAloneDialog)
-	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-	ON_EN_CHANGE(IDC_REVISION_END, &CBlameDlg::OnEnChangeRevisionEnd)
+    ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+    ON_EN_CHANGE(IDC_REVISION_END, &CBlameDlg::OnEnChangeRevisionEnd)
 END_MESSAGE_MAP()
 
 
 
 BOOL CBlameDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_DIFFGROUP);
-	m_aeroControls.SubclassControl(this, IDC_USETEXTVIEWER);
-	m_aeroControls.SubclassControl(this, IDC_INCLUDEMERGEINFO);
-	m_aeroControls.SubclassOkCancelHelp(this);
+    ExtendFrameIntoClientArea(IDC_DIFFGROUP);
+    m_aeroControls.SubclassControl(this, IDC_USETEXTVIEWER);
+    m_aeroControls.SubclassControl(this, IDC_INCLUDEMERGEINFO);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
-	AdjustControlSize(IDC_USETEXTVIEWER);
-	AdjustControlSize(IDC_IGNOREEOL);
-	AdjustControlSize(IDC_COMPAREWHITESPACES);
-	AdjustControlSize(IDC_IGNOREWHITESPACECHANGES);
-	AdjustControlSize(IDC_IGNOREALLWHITESPACES);
-	AdjustControlSize(IDC_INCLUDEMERGEINFO);
+    AdjustControlSize(IDC_USETEXTVIEWER);
+    AdjustControlSize(IDC_IGNOREEOL);
+    AdjustControlSize(IDC_COMPAREWHITESPACES);
+    AdjustControlSize(IDC_IGNOREWHITESPACECHANGES);
+    AdjustControlSize(IDC_IGNOREALLWHITESPACES);
+    AdjustControlSize(IDC_INCLUDEMERGEINFO);
 
-	m_bTextView = m_regTextView;
-	m_bIncludeMerge = m_regIncludeMerge;
-	// set head revision as default revision
-	if (EndRev.IsHead())
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-	else
-	{
-		m_sEndRev = EndRev.ToString();
-		UpdateData(FALSE);
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-	}
+    m_bTextView = m_regTextView;
+    m_bIncludeMerge = m_regIncludeMerge;
+    // set head revision as default revision
+    if (EndRev.IsHead())
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+    else
+    {
+        m_sEndRev = EndRev.ToString();
+        UpdateData(FALSE);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+    }
 
-	CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
+    CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
 
-	if ((m_pParentWnd==NULL)&&(hWndExplorer))
-		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	return TRUE;
+    if ((m_pParentWnd==NULL)&&(hWndExplorer))
+        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    return TRUE;
 }
 
 void CBlameDlg::OnOK()
 {
-	if (!UpdateData(TRUE))
-		return; // don't dismiss dialog (error message already shown by MFC framework)
+    if (!UpdateData(TRUE))
+        return; // don't dismiss dialog (error message already shown by MFC framework)
 
-	m_regTextView = m_bTextView;
-	m_regIncludeMerge = m_bIncludeMerge;
-	StartRev = SVNRev(m_sStartRev);
-	EndRev = SVNRev(m_sEndRev);
-	if (!StartRev.IsValid())
-	{
-		ShowEditBalloon(IDC_REVISON_START, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
-		return;
-	}
-	EndRev = SVNRev(m_sEndRev);
-	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
-	{
-		EndRev = SVNRev(_T("HEAD"));
-	}
-	if (!EndRev.IsValid())
-	{
-		ShowEditBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
-		return;
-	}
-	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
-	if (extBlame)
-		m_bTextView = true;
+    m_regTextView = m_bTextView;
+    m_regIncludeMerge = m_bIncludeMerge;
+    StartRev = SVNRev(m_sStartRev);
+    EndRev = SVNRev(m_sEndRev);
+    if (!StartRev.IsValid())
+    {
+        ShowEditBalloon(IDC_REVISON_START, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
+        return;
+    }
+    EndRev = SVNRev(m_sEndRev);
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
+    {
+        EndRev = SVNRev(_T("HEAD"));
+    }
+    if (!EndRev.IsValid())
+    {
+        ShowEditBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
+        return;
+    }
+    BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
+    if (extBlame)
+        m_bTextView = true;
 
-	int rb = GetCheckedRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES);
-	switch (rb)
-	{
-	case IDC_IGNOREWHITESPACECHANGES:
-		m_IgnoreSpaces = svn_diff_file_ignore_space_change;
-		break;
-	case IDC_IGNOREALLWHITESPACES:
-		m_IgnoreSpaces = svn_diff_file_ignore_space_all;
-		break;
-	case IDC_COMPAREWHITESPACES:
-	default:
-		m_IgnoreSpaces = svn_diff_file_ignore_space_none;
-		break;
-	}
+    int rb = GetCheckedRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES);
+    switch (rb)
+    {
+    case IDC_IGNOREWHITESPACECHANGES:
+        m_IgnoreSpaces = svn_diff_file_ignore_space_change;
+        break;
+    case IDC_IGNOREALLWHITESPACES:
+        m_IgnoreSpaces = svn_diff_file_ignore_space_all;
+        break;
+    case IDC_COMPAREWHITESPACES:
+    default:
+        m_IgnoreSpaces = svn_diff_file_ignore_space_none;
+        break;
+    }
 
-	UpdateData(FALSE);
+    UpdateData(FALSE);
 
-	CStandAloneDialog::OnOK();
+    CStandAloneDialog::OnOK();
 }
 
 void CBlameDlg::OnBnClickedHelp()
 {
-	OnHelp();
+    OnHelp();
 }
 
 void CBlameDlg::OnEnChangeRevisionEnd()
 {
-	UpdateData();
-	if (m_sEndRev.IsEmpty())
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-	else
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+    UpdateData();
+    if (m_sEndRev.IsEmpty())
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+    else
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 }

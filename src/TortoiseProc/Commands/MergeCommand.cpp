@@ -26,86 +26,86 @@
 
 bool MergeCommand::Execute()
 {
-	DWORD nMergeWizardMode =
-		(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
+    DWORD nMergeWizardMode =
+        (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
 
-	if (parser.HasVal(_T("fromurl")))
-	{
-		// fromurl means merging a revision range
-		nMergeWizardMode = 2;
-	}
-	if (parser.HasVal(_T("fromurl2")))
-	{
-		// fromurl2 means merging a tree
-		nMergeWizardMode = 1;
-	}
+    if (parser.HasVal(_T("fromurl")))
+    {
+        // fromurl means merging a revision range
+        nMergeWizardMode = 2;
+    }
+    if (parser.HasVal(_T("fromurl2")))
+    {
+        // fromurl2 means merging a tree
+        nMergeWizardMode = 1;
+    }
 
-	CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, nMergeWizardMode);
-	wizard.wcPath = cmdLinePath;
+    CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, nMergeWizardMode);
+    wizard.wcPath = cmdLinePath;
 
-	if (parser.HasVal(_T("fromurl")))
-	{
-		wizard.URL1 = parser.GetVal(_T("fromurl"));
-		wizard.url = parser.GetVal(_T("fromurl"));
-		wizard.revRangeArray.FromListString(parser.GetVal(_T("revrange")));
-	}
-	if (parser.HasVal(_T("fromurl2")))
-	{
-		wizard.URL2 = parser.GetVal(_T("tourl"));
-		wizard.startRev = SVNRev(parser.GetVal(_T("fromrev")));
-		wizard.endRev = SVNRev(parser.GetVal(_T("torev")));
-	}
-	if (wizard.DoModal() == ID_WIZFINISH)
-	{
-		CSVNProgressDlg progDlg;
-		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
-		int options = wizard.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
-		options |= wizard.m_bRecordOnly ? ProgOptRecordOnly : 0;
-		options |= wizard.m_bForce ? ProgOptForce : 0;
-		progDlg.SetOptions(options);
-		progDlg.SetPathList(CTSVNPathList(wizard.wcPath));
-		progDlg.SetUrl(wizard.URL1);
-		progDlg.SetSecondUrl(wizard.URL2);
-		switch (wizard.nRevRangeMerge)
-		{
-		case MERGEWIZARD_REVRANGE:
-			{
-				if (wizard.revRangeArray.GetCount())
-				{
-					wizard.revRangeArray.AdjustForMerge(!!wizard.bReverseMerge);
-					progDlg.SetRevisionRanges(wizard.revRangeArray);
-				}
-				else
-				{
-					SVNRevRangeArray tempRevArray;
-					tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
-					progDlg.SetRevisionRanges(tempRevArray);
-				}
-			}
-			break;
-		case MERGEWIZARD_TREE:
-			{
-				progDlg.SetRevision(wizard.startRev);
-				progDlg.SetRevisionEnd(wizard.endRev);
-				if (wizard.URL1.Compare(wizard.URL2) == 0)
-				{
-					SVNRevRangeArray tempRevArray;
-					tempRevArray.AdjustForMerge(!!wizard.bReverseMerge);
-					tempRevArray.AddRevRange(wizard.startRev, wizard.endRev);
-					progDlg.SetRevisionRanges(tempRevArray);
-				}
-			}
-			break;
-		case MERGEWIZARD_REINTEGRATE:
-			{
-				progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
-			}
-			break;
-		}
-		progDlg.SetDepth(wizard.m_depth);
-		progDlg.SetDiffOptions(SVN::GetOptionsString(!!wizard.m_bIgnoreEOL, !!wizard.m_IgnoreSpaces));
-		progDlg.DoModal();
-		return !progDlg.DidErrorsOccur();
-	}
-	return false;
+    if (parser.HasVal(_T("fromurl")))
+    {
+        wizard.URL1 = parser.GetVal(_T("fromurl"));
+        wizard.url = parser.GetVal(_T("fromurl"));
+        wizard.revRangeArray.FromListString(parser.GetVal(_T("revrange")));
+    }
+    if (parser.HasVal(_T("fromurl2")))
+    {
+        wizard.URL2 = parser.GetVal(_T("tourl"));
+        wizard.startRev = SVNRev(parser.GetVal(_T("fromrev")));
+        wizard.endRev = SVNRev(parser.GetVal(_T("torev")));
+    }
+    if (wizard.DoModal() == ID_WIZFINISH)
+    {
+        CSVNProgressDlg progDlg;
+        progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+        int options = wizard.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
+        options |= wizard.m_bRecordOnly ? ProgOptRecordOnly : 0;
+        options |= wizard.m_bForce ? ProgOptForce : 0;
+        progDlg.SetOptions(options);
+        progDlg.SetPathList(CTSVNPathList(wizard.wcPath));
+        progDlg.SetUrl(wizard.URL1);
+        progDlg.SetSecondUrl(wizard.URL2);
+        switch (wizard.nRevRangeMerge)
+        {
+        case MERGEWIZARD_REVRANGE:
+            {
+                if (wizard.revRangeArray.GetCount())
+                {
+                    wizard.revRangeArray.AdjustForMerge(!!wizard.bReverseMerge);
+                    progDlg.SetRevisionRanges(wizard.revRangeArray);
+                }
+                else
+                {
+                    SVNRevRangeArray tempRevArray;
+                    tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
+                    progDlg.SetRevisionRanges(tempRevArray);
+                }
+            }
+            break;
+        case MERGEWIZARD_TREE:
+            {
+                progDlg.SetRevision(wizard.startRev);
+                progDlg.SetRevisionEnd(wizard.endRev);
+                if (wizard.URL1.Compare(wizard.URL2) == 0)
+                {
+                    SVNRevRangeArray tempRevArray;
+                    tempRevArray.AdjustForMerge(!!wizard.bReverseMerge);
+                    tempRevArray.AddRevRange(wizard.startRev, wizard.endRev);
+                    progDlg.SetRevisionRanges(tempRevArray);
+                }
+            }
+            break;
+        case MERGEWIZARD_REINTEGRATE:
+            {
+                progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
+            }
+            break;
+        }
+        progDlg.SetDepth(wizard.m_depth);
+        progDlg.SetDiffOptions(SVN::GetOptionsString(!!wizard.m_bIgnoreEOL, !!wizard.m_IgnoreSpaces));
+        progDlg.DoModal();
+        return !progDlg.DidErrorsOccur();
+    }
+    return false;
 }

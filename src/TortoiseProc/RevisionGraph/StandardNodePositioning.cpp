@@ -23,7 +23,7 @@
 
 #include "VisibleGraph.h"
 
-void CStandardNodePositioning::StackSubTree 
+void CStandardNodePositioning::StackSubTree
     ( CStandardLayoutNodeInfo* node
     , std::vector<long>& branchColumnStarts
     , std::vector<long>& branchColumnEnds
@@ -93,7 +93,7 @@ void CStandardNodePositioning::StackSubTree
     }
 }
 
-void CStandardNodePositioning::AppendBranch 
+void CStandardNodePositioning::AppendBranch
     ( CStandardLayoutNodeInfo* start
     , std::vector<long>& columnStarts
     , std::vector<long>& columnEnds
@@ -137,7 +137,7 @@ void CStandardNodePositioning::AppendBranch
     for (size_t i = 0; i < offset; ++i)
         columnStarts [i + insertionIndex] = localColumnStarts[i];
 
-    // just append the column y-ranges 
+    // just append the column y-ranges
     // (column 0 is for the chain that starts at the "start" node)
 
     columnStarts.insert ( columnStarts.end()
@@ -148,7 +148,7 @@ void CStandardNodePositioning::AppendBranch
                       , localColumnEnds.end());
 }
 
-void CStandardNodePositioning::PlaceBranch 
+void CStandardNodePositioning::PlaceBranch
     ( CStandardLayoutNodeInfo* start
     , std::vector<long>& columnStarts
     , std::vector<long>& columnEnds)
@@ -200,7 +200,7 @@ void CStandardNodePositioning::PlaceBranch
                  , localColumnStarts, localColumnEnds);
 }
 
-void CStandardNodePositioning::ShiftNodes 
+void CStandardNodePositioning::ShiftNodes
     ( CStandardLayoutNodeInfo* node
     , CSize delta)
 {
@@ -223,7 +223,7 @@ void CStandardNodePositioning::ShiftNodes
     }
 }
 
-CRect CStandardNodePositioning::BoundingRect 
+CRect CStandardNodePositioning::BoundingRect
     (const CStandardLayoutNodeInfo* node)
 {
     // walk along this branch
@@ -248,7 +248,7 @@ CRect CStandardNodePositioning::BoundingRect
 
 // construction
 
-CStandardNodePositioning::CStandardNodePositioning 
+CStandardNodePositioning::CStandardNodePositioning
     ( CRevisionGraphOptionList& list)
     : CRevisionGraphOptionImpl<ILayoutOption, 200, ID_VIEW_GROUPBRANCHES> (list)
     , reduceCrossLines (NULL)
@@ -257,7 +257,7 @@ CStandardNodePositioning::CStandardNodePositioning
 
 // link to sub-option
 
-void CStandardNodePositioning::SetReduceCrossLines 
+void CStandardNodePositioning::SetReduceCrossLines
     (IRevisionGraphOption* reduceCrossLines)
 {
     this->reduceCrossLines = reduceCrossLines;
@@ -270,9 +270,9 @@ void CStandardNodePositioning::ApplyTo (IRevisionGraphLayout* layout)
 {
     // we need access to actual data
 
-    IStandardLayoutNodeAccess* nodeAccess 
+    IStandardLayoutNodeAccess* nodeAccess
         = dynamic_cast<IStandardLayoutNodeAccess*>(layout);
-    if (nodeAccess == NULL) 
+    if (nodeAccess == NULL)
         return;
 
     // calculate the displacement for every node (member subTreeShift)

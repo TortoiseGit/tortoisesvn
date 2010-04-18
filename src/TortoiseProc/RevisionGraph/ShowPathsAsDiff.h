@@ -24,7 +24,7 @@
 
 class IRevisionGraphLayout;
 
-class CShowPathsAsDiff 
+class CShowPathsAsDiff
     : public CRevisionGraphOptionImpl<ILayoutOption, 50, ID_VIEW_SHOWDIFFPATHS>
 {
 public:

@@ -24,9 +24,9 @@
 
 IMPLEMENT_DYNAMIC(CRevisionDlg, CStandAloneDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CRevisionDlg::IDD, pParent)
-	, SVNRev(_T("HEAD"))
-	, m_bAllowWCRevs(true)
+    : CStandAloneDialog(CRevisionDlg::IDD, pParent)
+    , SVNRev(_T("HEAD"))
+    , m_bAllowWCRevs(true)
 {
 }
 
@@ -36,107 +36,107 @@ CRevisionDlg::~CRevisionDlg()
 
 void CRevisionDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
+    CStandAloneDialog::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 }
 
 
 BEGIN_MESSAGE_MAP(CRevisionDlg, CStandAloneDialog)
-	ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
-	ON_BN_CLICKED(IDC_LOG, &CRevisionDlg::OnBnClickedLog)
-	ON_BN_CLICKED(IDC_REVISION_N, &CRevisionDlg::OnBnClickedRevisionN)
+    ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
+    ON_BN_CLICKED(IDC_LOG, &CRevisionDlg::OnBnClickedLog)
+    ON_BN_CLICKED(IDC_REVISION_N, &CRevisionDlg::OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 BOOL CRevisionDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_REVGROUP);
-	m_aeroControls.SubclassOkCancel(this);
+    ExtendFrameIntoClientArea(IDC_REVGROUP);
+    m_aeroControls.SubclassOkCancel(this);
 
-	if (IsHead())
-	{
-		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
-	}
-	else
-	{
-		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
-		CString sRev;
-		if (IsDate())
-			sRev = GetDateString();
-		else
-			sRev.Format(_T("%ld"), (LONG)(*this));
-		SetDlgItemText(IDC_REVNUM, sRev);
-	}
-	if (!m_logPath.IsEmpty())
-		GetDlgItem(IDC_LOG)->ShowWindow(SW_SHOW);
+    if (IsHead())
+    {
+        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+    }
+    else
+    {
+        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+        CString sRev;
+        if (IsDate())
+            sRev = GetDateString();
+        else
+            sRev.Format(_T("%ld"), (LONG)(*this));
+        SetDlgItemText(IDC_REVNUM, sRev);
+    }
+    if (!m_logPath.IsEmpty())
+        GetDlgItem(IDC_LOG)->ShowWindow(SW_SHOW);
 
-	if ((m_pParentWnd==NULL)&&(hWndExplorer))
-		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	GetDlgItem(IDC_REVNUM)->SetFocus();
-	return FALSE;
+    if ((m_pParentWnd==NULL)&&(hWndExplorer))
+        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    GetDlgItem(IDC_REVNUM)->SetFocus();
+    return FALSE;
 }
 
 void CRevisionDlg::OnOK()
 {
-	if (!UpdateData(TRUE))
-		return; // don't dismiss dialog (error message already shown by MFC framework)
+    if (!UpdateData(TRUE))
+        return; // don't dismiss dialog (error message already shown by MFC framework)
 
-	SVNRev::Create(m_sRevision);
-	// if head revision, set revision as -1
-	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
-	{
-		SVNRev::Create(_T("HEAD"));
-		m_sRevision = _T("HEAD");
-	}
-	if ((!IsValid())||((!m_bAllowWCRevs)&&(IsPrev() || IsCommitted() || IsBase())))
-	{
-		ShowEditBalloon(IDC_REVNUM, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, IDS_ERR_ERROR, TTI_ERROR);
-		return;
-	}
+    SVNRev::Create(m_sRevision);
+    // if head revision, set revision as -1
+    if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
+    {
+        SVNRev::Create(_T("HEAD"));
+        m_sRevision = _T("HEAD");
+    }
+    if ((!IsValid())||((!m_bAllowWCRevs)&&(IsPrev() || IsCommitted() || IsBase())))
+    {
+        ShowEditBalloon(IDC_REVNUM, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, IDS_ERR_ERROR, TTI_ERROR);
+        return;
+    }
 
-	UpdateData(FALSE);
+    UpdateData(FALSE);
 
-	CStandAloneDialog::OnOK();
+    CStandAloneDialog::OnOK();
 }
 
 void CRevisionDlg::OnEnChangeRevnum()
 {
-	CString sText;
-	GetDlgItemText(IDC_REVNUM, sText);
-	if (sText.IsEmpty())
-	{
-		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
-	}
-	else
-	{
-		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
-	}
+    CString sText;
+    GetDlgItemText(IDC_REVNUM, sText);
+    if (sText.IsEmpty())
+    {
+        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+    }
+    else
+    {
+        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+    }
 }
 
 void CRevisionDlg::SetLogPath(const CTSVNPath& path, const SVNRev& rev /* = SVNRev::REV_HEAD */)
 {
-	m_logPath = path;
-	m_logRev = rev;
+    m_logPath = path;
+    m_logRev = rev;
 }
 
 void CRevisionDlg::OnBnClickedLog()
 {
-	CString sCmd;
-	sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"), 
-		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)m_logPath.GetSVNPathString(), (LPCTSTR)m_logRev.ToString());
+    CString sCmd;
+    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"),
+        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)m_logPath.GetSVNPathString(), (LPCTSTR)m_logRev.ToString());
 
-	if (!m_logPath.IsUrl())
-	{
-		sCmd += _T(" /propspath:\"");
-		sCmd += m_logPath.GetWinPathString();
-		sCmd += _T("\"");
-	}	
+    if (!m_logPath.IsUrl())
+    {
+        sCmd += _T(" /propspath:\"");
+        sCmd += m_logPath.GetWinPathString();
+        sCmd += _T("\"");
+    }
 
-	CAppUtils::LaunchApplication(sCmd, NULL, false);
+    CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
 
 void CRevisionDlg::OnBnClickedRevisionN()
 {
-	GetDlgItem(IDC_REVNUM)->SetFocus();
+    GetDlgItem(IDC_REVNUM)->SetFocus();
 }

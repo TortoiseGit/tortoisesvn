@@ -24,7 +24,7 @@
 
 // apply a filter using differnt traversal orders
 
-void CModificationOptions::TraverseFromRootCopiesFirst 
+void CModificationOptions::TraverseFromRootCopiesFirst
     ( IModificationOption* option
     , CVisibleGraph* graph
     , CVisibleGraphNode* node)
@@ -39,7 +39,7 @@ void CModificationOptions::TraverseFromRootCopiesFirst
             , *nextCopy = NULL
             ; copy != NULL
             ; copy = nextCopy)
-	    {
+        {
             nextCopy = copy->next();
             TraverseFromRootCopiesFirst (option, graph, copy->value());
         }
@@ -50,7 +50,7 @@ void CModificationOptions::TraverseFromRootCopiesFirst
     }
 }
 
-void CModificationOptions::TraverseToRootCopiesFirst 
+void CModificationOptions::TraverseToRootCopiesFirst
     ( IModificationOption* option
     , CVisibleGraph* graph
     , CVisibleGraphNode* node)
@@ -70,7 +70,7 @@ void CModificationOptions::TraverseToRootCopiesFirst
             , *nextCopy = NULL
             ; copy != NULL
             ; copy = nextCopy)
-	    {
+        {
             nextCopy = copy->next();
             TraverseToRootCopiesFirst (option, graph, copy->value());
         }
@@ -81,7 +81,7 @@ void CModificationOptions::TraverseToRootCopiesFirst
     }
 }
 
-void CModificationOptions::TraverseFromRootCopiesLast 
+void CModificationOptions::TraverseFromRootCopiesLast
     ( IModificationOption* option
     , CVisibleGraph* graph
     , CVisibleGraphNode* node)
@@ -100,14 +100,14 @@ void CModificationOptions::TraverseFromRootCopiesLast
             , *nextCopy = NULL
             ; copy != NULL
             ; copy = nextCopy)
-	    {
+        {
             nextCopy = copy->next();
             TraverseFromRootCopiesLast (option, graph, copy->value());
         }
     }
 }
 
-void CModificationOptions::TraverseToRootCopiesLast 
+void CModificationOptions::TraverseToRootCopiesLast
     ( IModificationOption* option
     , CVisibleGraph* graph
     , CVisibleGraphNode* node)
@@ -131,7 +131,7 @@ void CModificationOptions::TraverseToRootCopiesLast
             , *nextCopy = NULL
             ; copy != NULL
             ; copy = nextCopy)
-	    {
+        {
             nextCopy = copy->next();
             TraverseToRootCopiesLast (option, graph, copy->value());
         }
@@ -197,13 +197,13 @@ void CModificationOptions::InternalApply (CVisibleGraph* graph, bool cyclicFilte
 
 // construction
 
-CModificationOptions::CModificationOptions 
+CModificationOptions::CModificationOptions
     ( const std::vector<IModificationOption*>& options)
     : options (options)
 {
 }
 
-// apply all filters 
+// apply all filters
 
 void CModificationOptions::Apply (CVisibleGraph* graph)
 {

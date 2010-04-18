@@ -25,38 +25,38 @@
 
 bool ImportCommand::Execute()
 {
-	bool bRet = false;
-	CString msg;
-	if (parser.HasKey(_T("logmsg")))
-	{
-		msg = parser.GetVal(_T("logmsg"));
-	}
-	if (parser.HasKey(_T("logmsgfile")))
-	{
-		CString logmsgfile = parser.GetVal(_T("logmsgfile"));
-		CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
-	}
-	CImportDlg dlg;
-	dlg.m_path = cmdLinePath;
-	dlg.m_sMessage = msg;
-	if (parser.HasVal(_T("url")))
-		dlg.m_url = parser.GetVal(_T("url"));
-	if (dlg.DoModal() == IDOK)
-	{
-		TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_url);
-		CSVNProgressDlg progDlg;
-		theApp.m_pMainWnd = &progDlg;
-		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Import);
-		progDlg.SetAutoClose (parser);
-		progDlg.SetOptions(dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : ProgOptNone);
-		progDlg.SetPathList(pathList);
-		progDlg.SetUrl(dlg.m_url);
-		progDlg.SetCommitMessage(dlg.m_sMessage);
-		ProjectProperties props;
-		props.ReadPropsPathList(pathList);
-		progDlg.SetProjectProperties(props);
-		progDlg.DoModal();
-		bRet = !progDlg.DidErrorsOccur();
-	}
-	return bRet;
+    bool bRet = false;
+    CString msg;
+    if (parser.HasKey(_T("logmsg")))
+    {
+        msg = parser.GetVal(_T("logmsg"));
+    }
+    if (parser.HasKey(_T("logmsgfile")))
+    {
+        CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+        CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
+    }
+    CImportDlg dlg;
+    dlg.m_path = cmdLinePath;
+    dlg.m_sMessage = msg;
+    if (parser.HasVal(_T("url")))
+        dlg.m_url = parser.GetVal(_T("url"));
+    if (dlg.DoModal() == IDOK)
+    {
+        TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_url);
+        CSVNProgressDlg progDlg;
+        theApp.m_pMainWnd = &progDlg;
+        progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Import);
+        progDlg.SetAutoClose (parser);
+        progDlg.SetOptions(dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : ProgOptNone);
+        progDlg.SetPathList(pathList);
+        progDlg.SetUrl(dlg.m_url);
+        progDlg.SetCommitMessage(dlg.m_sMessage);
+        ProjectProperties props;
+        props.ReadPropsPathList(pathList);
+        progDlg.SetProjectProperties(props);
+        progDlg.DoModal();
+        bRet = !progDlg.DidErrorsOccur();
+    }
+    return bRet;
 }

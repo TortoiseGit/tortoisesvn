@@ -31,20 +31,20 @@ namespace LogCache
 
 class CLogCacheStatisticsDlg : public CDialog
 {
-	DECLARE_DYNAMIC(CLogCacheStatisticsDlg)
+    DECLARE_DYNAMIC(CLogCacheStatisticsDlg)
 
 public:
     CLogCacheStatisticsDlg (const LogCache::CLogCacheStatisticsData& data, CWnd * pParentWnd = NULL); 
-	virtual ~CLogCacheStatisticsDlg();
+    virtual ~CLogCacheStatisticsDlg();
 
-	enum { IDD = IDD_LOGCACHESTATISTICS };
+    enum { IDD = IDD_LOGCACHESTATISTICS };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX); 
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual void DoDataExchange(CDataExchange* pDX); 
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
 
@@ -77,5 +77,5 @@ private:
     CString DateToString (__time64_t time);
     CString ToString (__int64 value);
 
-	CToolTips m_tooltips;
+    CToolTips m_tooltips;
 };

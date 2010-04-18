@@ -78,10 +78,10 @@ public:
     size_t GetRepositoryCount() const;
     bool IsEmpty() const;
 
-	/// lookup
+    /// lookup
 
-	std::pair<size_t, size_t> FindURL (const CTSVNPath& url) const;
-	bool Contains (const CTSVNPath& url) const;
+    std::pair<size_t, size_t> FindURL (const CTSVNPath& url) const;
+    bool Contains (const CTSVNPath& url) const;
 
     /// access repository bucket properties
 
@@ -100,7 +100,7 @@ public:
     bool IsExternal (size_t repositoryIndex, size_t index) const;
     bool IsLocked (size_t repositoryIndex, size_t index) const;
     bool IsRoot (size_t repositoryIndex, size_t index) const;
-   
+
     /// convenience methods
 
     CTSVNPathList GetURLs (size_t repositoryIndex) const;

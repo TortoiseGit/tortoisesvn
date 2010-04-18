@@ -28,23 +28,23 @@
  */
 class CURLDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CURLDlg)
+    DECLARE_DYNAMIC(CURLDlg)
 
 public:
-	CURLDlg(CWnd* pParent = NULL);
-	virtual ~CURLDlg();
+    CURLDlg(CWnd* pParent = NULL);
+    virtual ~CURLDlg();
 
-	CString m_url;
+    CString m_url;
 
-	enum { IDD = IDD_URL };
+    enum { IDD = IDD_URL };
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
+    virtual void DoDataExchange(CDataExchange* pDX);
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	CHistoryCombo	m_URLCombo;
-	int				m_height;
+    CHistoryCombo   m_URLCombo;
+    int             m_height;
 };

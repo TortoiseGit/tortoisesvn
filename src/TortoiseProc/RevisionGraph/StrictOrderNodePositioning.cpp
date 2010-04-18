@@ -26,7 +26,7 @@
 // return a vector of all nodes sorted by revision.
 // Also, sort all sub-node lists by revision.
 
-void CStrictOrderNodePositioning::SortRevisions 
+void CStrictOrderNodePositioning::SortRevisions
     ( IStandardLayoutNodeAccess* nodeAccess
     , std::vector<std::pair<revision_t, CStandardLayoutNodeInfo*> >& nodes)
 {
@@ -43,7 +43,7 @@ void CStrictOrderNodePositioning::SortRevisions
 
         // more than 1 sub-branch?
 
-        if (   (node->firstSubBranch != NULL) 
+        if (   (node->firstSubBranch != NULL)
             && (node->firstSubBranch != node->firstSubBranch->lastBranch))
         {
             // sort them by revision
@@ -92,7 +92,7 @@ void CStrictOrderNodePositioning::SortRevisions
     std::sort (nodes.begin(), nodes.end());
 }
 
-void CStrictOrderNodePositioning::AssignColumns 
+void CStrictOrderNodePositioning::AssignColumns
     ( CStandardLayoutNodeInfo* start
     , size_t column
     , std::vector<revision_t>& startRevisions
@@ -114,7 +114,7 @@ void CStrictOrderNodePositioning::AssignColumns
     // find a suitable column
 
     for (; column < columCount; ++column)
-        if (   (firstRevision > endRevisions[column]) 
+        if (   (firstRevision > endRevisions[column])
             || (lastRevision < startRevisions[column]))
         {
             break;
@@ -148,7 +148,7 @@ void CStrictOrderNodePositioning::AssignColumns
     }
 
     // assign colum to this branch and proceed with sub-branches
-    // (as X coordinates, actual coordinates to be assigned in a second run) 
+    // (as X coordinates, actual coordinates to be assigned in a second run)
 
     int maxWidth = 0;
     for ( CStandardLayoutNodeInfo* node = start->lastInBranch
@@ -178,7 +178,7 @@ void CStrictOrderNodePositioning::AssignColumns
     maxWidths[column] = max (maxWidth, maxWidths[column]);
 }
 
-void CStrictOrderNodePositioning::AssignColumns 
+void CStrictOrderNodePositioning::AssignColumns
     ( std::vector<std::pair<revision_t, CStandardLayoutNodeInfo*> >& nodes
     , std::vector<int>& maxWidths)
 {
@@ -233,7 +233,7 @@ void CStrictOrderNodePositioning::AssignRows
 
         for (size_t i = rangeStart; i < rangeEnd; ++i)
         {
-            // row must be larger than the top of any column changed 
+            // row must be larger than the top of any column changed
             // in that revision
 
             const CStandardLayoutNodeInfo* node = nodes[i].second;
@@ -288,7 +288,7 @@ void CStrictOrderNodePositioning::AssignRows
     }
 }
 
-void CStrictOrderNodePositioning::ShiftNodes 
+void CStrictOrderNodePositioning::ShiftNodes
     ( std::vector<std::pair<revision_t, CStandardLayoutNodeInfo*> >& nodes
     , std::vector<int>& columWidths)
 {
@@ -316,7 +316,7 @@ void CStrictOrderNodePositioning::ShiftNodes
 
 // construction
 
-CStrictOrderNodePositioning::CStrictOrderNodePositioning 
+CStrictOrderNodePositioning::CStrictOrderNodePositioning
     ( CRevisionGraphOptionList& list
     , IRevisionGraphOption* standardNodePositioning
     , IRevisionGraphOption* reduceCrossLines)
@@ -340,9 +340,9 @@ void CStrictOrderNodePositioning::ApplyTo (IRevisionGraphLayout* layout)
 {
     // we need access to actual data
 
-    IStandardLayoutNodeAccess* nodeAccess 
+    IStandardLayoutNodeAccess* nodeAccess
         = dynamic_cast<IStandardLayoutNodeAccess*>(layout);
-    if (nodeAccess == NULL) 
+    if (nodeAccess == NULL)
         return;
 
     // assign columns and rows

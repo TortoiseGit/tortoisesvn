@@ -179,8 +179,8 @@ BOOL CSettings::OnInitDialog()
 {
     BOOL bResult = CTreePropSheet::OnInitDialog();
 
-    SetIcon(m_hIcon, TRUE);			// Set big icon
-    SetIcon(m_hIcon, FALSE);		// Set small icon
+    SetIcon(m_hIcon, TRUE);         // Set big icon
+    SetIcon(m_hIcon, FALSE);        // Set small icon
 
     MARGINS margs;
     margs.cxLeftWidth = 0;
@@ -233,7 +233,7 @@ HCURSOR CSettings::OnQueryDragIcon()
 BOOL CSettings::OnEraseBkgnd(CDC* pDC)
 {
     CTreePropSheet::OnEraseBkgnd(pDC);
-    
+
     if (m_Dwm.IsDwmCompositionEnabled())
     {
         // draw the frame margins in black

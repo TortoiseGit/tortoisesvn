@@ -32,164 +32,164 @@
 
 bool EditFileCommand::IsModified()
 {
-	return SVNStatus::GetAllStatus(path) != svn_wc_status_normal;
+    return SVNStatus::GetAllStatus(path) != svn_wc_status_normal;
 }
 
 bool EditFileCommand::IsLocked()
 {
-	CTSVNPath dummy;
-	SVNStatus status;
+    CTSVNPath dummy;
+    SVNStatus status;
 
-	svn_wc_status2_t *fileStatus
-		= status.GetFirstFileStatus (path, dummy, false, svn_depth_empty);
-	return (fileStatus->entry != NULL) && (fileStatus->entry->lock_creation_date != 0);
+    svn_wc_status2_t *fileStatus
+        = status.GetFirstFileStatus (path, dummy, false, svn_depth_empty);
+    return (fileStatus->entry != NULL) && (fileStatus->entry->lock_creation_date != 0);
 }
 
-// the individual steps of the sequence 
+// the individual steps of the sequence
 
 bool EditFileCommand::AutoCheckout()
 {
-	// if a non-WC revision is given for an existing w/c, use a temp. w/c
+    // if a non-WC revision is given for an existing w/c, use a temp. w/c
 
-	if (!cmdLinePath.IsUrl() && revision.IsValid() && !revision.IsWorking())
-		cmdLinePath.SetFromSVN (SVN().GetURLFromPath (cmdLinePath));
+    if (!cmdLinePath.IsUrl() && revision.IsValid() && !revision.IsWorking())
+        cmdLinePath.SetFromSVN (SVN().GetURLFromPath (cmdLinePath));
 
-	// c/o only required for URLs
+    // c/o only required for URLs
 
-	if (cmdLinePath.IsUrl())
-	{
-		if (!revision.IsValid())
-			revision = SVNRev::REV_HEAD;
+    if (cmdLinePath.IsUrl())
+    {
+        if (!revision.IsValid())
+            revision = SVNRev::REV_HEAD;
 
-		bool isFile = SVNInfo::IsFile (cmdLinePath, revision);
+        bool isFile = SVNInfo::IsFile (cmdLinePath, revision);
 
-		// create a temp. wc for the path to edit
+        // create a temp. wc for the path to edit
 
-		CTSVNPath tempWC = CTempFiles::Instance().GetTempDirPath 
-			(true, isFile ? cmdLinePath.GetContainingDirectory()
-						  : cmdLinePath);
+        CTSVNPath tempWC = CTempFiles::Instance().GetTempDirPath
+            (true, isFile ? cmdLinePath.GetContainingDirectory()
+                          : cmdLinePath);
 
-		path = tempWC;
-		if (isFile)
-			path.AppendPathString (cmdLinePath.GetFilename());
+        path = tempWC;
+        if (isFile)
+            path.AppendPathString (cmdLinePath.GetFilename());
 
-		// check out
+        // check out
 
-		CSVNProgressDlg progDlg;
+        CSVNProgressDlg progDlg;
 
-		progDlg.SetCommand 
-			(isFile
-				? CSVNProgressDlg::SVNProgress_SingleFileCheckout
-				: CSVNProgressDlg::SVNProgress_Checkout);
+        progDlg.SetCommand
+            (isFile
+                ? CSVNProgressDlg::SVNProgress_SingleFileCheckout
+                : CSVNProgressDlg::SVNProgress_Checkout);
 
-		progDlg.SetAutoClose(parser);
-		progDlg.SetOptions(ProgOptIgnoreExternals);
-		progDlg.SetPathList(CTSVNPathList(tempWC));
-		progDlg.SetUrl(cmdLinePath.GetSVNPathString());
-		progDlg.SetRevision(revision);
-		progDlg.SetDepth(svn_depth_infinity);
-		progDlg.DoModal();
+        progDlg.SetAutoClose(parser);
+        progDlg.SetOptions(ProgOptIgnoreExternals);
+        progDlg.SetPathList(CTSVNPathList(tempWC));
+        progDlg.SetUrl(cmdLinePath.GetSVNPathString());
+        progDlg.SetRevision(revision);
+        progDlg.SetDepth(svn_depth_infinity);
+        progDlg.DoModal();
 
-		return !progDlg.DidErrorsOccur();
-	}
-	else
-	{
-		path = cmdLinePath;
-		return true;
-	}
+        return !progDlg.DidErrorsOccur();
+    }
+    else
+    {
+        path = cmdLinePath;
+        return true;
+    }
 }
 
 bool EditFileCommand::AutoLock()
 {
-	// needs lock?
+    // needs lock?
 
-	SVNProperties properties (path, SVNRev::REV_WC, false);
-	if (!properties.HasProperty (SVN_PROP_NEEDS_LOCK))
-		return true;
+    SVNProperties properties (path, SVNRev::REV_WC, false);
+    if (!properties.HasProperty (SVN_PROP_NEEDS_LOCK))
+        return true;
 
-	// try to lock
+    // try to lock
 
-	if (IsLocked())
-	{
-		needsUnLock = false;
-		return true;
-	}
-	else
-	{
-		LockCommand command;
-		command.SetParser (parser);
-		command.SetPaths (CTSVNPathList (path), path);
-		needsUnLock = command.Execute();
+    if (IsLocked())
+    {
+        needsUnLock = false;
+        return true;
+    }
+    else
+    {
+        LockCommand command;
+        command.SetParser (parser);
+        command.SetPaths (CTSVNPathList (path), path);
+        needsUnLock = command.Execute();
 
-		return needsUnLock;
-	}
+        return needsUnLock;
+    }
 }
 
 bool EditFileCommand::Edit()
 {
-	CString cmdLine 
-		= CAppUtils::GetAppForFile ( path.GetWinPathString()
-								   , _T("")
-								   , _T("edit")
-								   , true
-								   , true);
+    CString cmdLine
+        = CAppUtils::GetAppForFile ( path.GetWinPathString()
+                                   , _T("")
+                                   , _T("edit")
+                                   , true
+                                   , true);
 
-	return CAppUtils::LaunchApplication (cmdLine, NULL, false, true);
+    return CAppUtils::LaunchApplication (cmdLine, NULL, false, true);
 }
 
 bool EditFileCommand::AutoCheckin()
 {
-	// no-op, if not modified
+    // no-op, if not modified
 
-	if (!IsModified())
-		return true;
+    if (!IsModified())
+        return true;
 
-	// check-in
+    // check-in
 
-	CommitCommand command;
-	command.SetParser (parser);
-	command.SetPaths (CTSVNPathList (path), path);
-	return command.Execute();
+    CommitCommand command;
+    command.SetParser (parser);
+    command.SetPaths (CTSVNPathList (path), path);
+    return command.Execute();
 }
 
 bool EditFileCommand::AutoUnLock()
 {
-	if (!needsUnLock || !IsLocked())
-		return true;
+    if (!needsUnLock || !IsLocked())
+        return true;
 
-	CSVNProgressDlg progDlg;
-	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
-	progDlg.SetOptions(ProgOptNone);
-	progDlg.SetPathList (CTSVNPathList (cmdLinePath));
-	progDlg.SetAutoClose (parser);
-	progDlg.DoModal();
+    CSVNProgressDlg progDlg;
+    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
+    progDlg.SetOptions(ProgOptNone);
+    progDlg.SetPathList (CTSVNPathList (cmdLinePath));
+    progDlg.SetAutoClose (parser);
+    progDlg.DoModal();
 
-	return !progDlg.DidErrorsOccur();
+    return !progDlg.DidErrorsOccur();
 }
 
 /// construction / destruction
 
 EditFileCommand::EditFileCommand()
-	: needsUnLock (false)
+    : needsUnLock (false)
 {
 }
 
 EditFileCommand::~EditFileCommand()
 {
-	AutoUnLock();
+    AutoUnLock();
 }
 
 bool EditFileCommand::Execute()
 {
-	// make sure, the data is in a wc
+    // make sure, the data is in a wc
 
-	if (parser.HasKey (_T("revision")))
-		revision = SVNRev(parser.GetVal (_T("revision")));
+    if (parser.HasKey (_T("revision")))
+        revision = SVNRev(parser.GetVal (_T("revision")));
 
-	// the sequence
+    // the sequence
 
-	return AutoCheckout()
-		&& AutoLock()
-		&& Edit()
-		&& AutoCheckin();
+    return AutoCheckout()
+        && AutoLock()
+        && Edit()
+        && AutoCheckin();
 }

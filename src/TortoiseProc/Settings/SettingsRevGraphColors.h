@@ -27,25 +27,25 @@
  */
 class CSettingsRevisionGraphColors : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsRevisionGraphColors)
+    DECLARE_DYNAMIC(CSettingsRevisionGraphColors)
 
 public:
-	CSettingsRevisionGraphColors();
-	virtual ~CSettingsRevisionGraphColors();
+    CSettingsRevisionGraphColors();
+    virtual ~CSettingsRevisionGraphColors();
 
-	UINT GetIconID() {return IDI_LOOKANDFEEL;}
+    UINT GetIconID() {return IDI_LOOKANDFEEL;}
 
-	enum { IDD = IDD_SETTINGSREVGRAPHCOLORS };
+    enum { IDD = IDD_SETTINGSREVGRAPHCOLORS };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedColor();
-	afx_msg void OnBnClickedRestore();
-	virtual BOOL OnApply();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    afx_msg void OnBnClickedColor();
+    afx_msg void OnBnClickedRestore();
+    virtual BOOL OnApply();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
 
     // utility methods
@@ -61,11 +61,11 @@ private:
     // controls
 
     CMFCColorButton m_cAddedNode;
-	CMFCColorButton m_cDeletedNode;
-	CMFCColorButton m_cRenamedNode;
+    CMFCColorButton m_cDeletedNode;
+    CMFCColorButton m_cRenamedNode;
     CMFCColorButton m_cModifiedNode;
     CMFCColorButton m_cUnchangedNode;
-	CMFCColorButton m_cLastCommitNode;
+    CMFCColorButton m_cLastCommitNode;
     CMFCColorButton m_cWCNode;
     CMFCColorButton m_cWCNodeBorder;
 
@@ -81,8 +81,8 @@ private:
     BYTE m_sStripeAlpha1;
     BYTE m_sStripeAlpha2;
 
-    CColors			m_Colors;
+    CColors         m_Colors;
 
-	CToolTips		m_tooltips;
+    CToolTips       m_tooltips;
 public:
 };

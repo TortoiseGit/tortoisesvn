@@ -38,7 +38,7 @@ public:
         IS_ADDED           = 0x00000010,
         IS_MODIFIED        = 0x00000020,
         IS_DELETED         = 0x00000040,
-        IS_RENAMED         = 0x00000080,     
+        IS_RENAMED         = 0x00000080,
 
         COPIES_TO_TRUNK    = 0x00000100,
         COPIES_TO_BRANCH   = 0x00000200,
@@ -74,7 +74,7 @@ public:
         MUST_BE_PRESERVED  = 0x80000000
     };
 
-    enum 
+    enum
     {
         IS_MASK            = 0x000000ff,
         IS_OPERATION_MASK  = 0x000000f0,
@@ -121,12 +121,12 @@ public:
 /// empty construction
 
 inline CNodeClassification::CNodeClassification()
-    : flags (0) 
+    : flags (0)
 {
 }
 
 inline CNodeClassification::CNodeClassification (DWORD flags)
-    : flags (flags) 
+    : flags (flags)
 {
 }
 

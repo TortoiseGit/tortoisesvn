@@ -50,11 +50,11 @@ static inline bool CompareCI (char lhs, char rhs)
     return true;
 }
 
-bool CPathClassificator::CWildCardPattern::WildCardMatch 
+bool CPathClassificator::CWildCardPattern::WildCardMatch
     (const char* s, const char* pattern) const
 {
 #pragma warning(push)
-#pragma warning(disable: 4127)	// conditional expression is constant
+#pragma warning(disable: 4127)  // conditional expression is constant
     while (1)
 #pragma warning(pop)
     {
@@ -110,7 +110,7 @@ bool CPathClassificator::CWildCardPattern::WildCardMatch
                     return false;
             }
         }
-        
+
         // next source char
 
         ++s;
@@ -122,7 +122,7 @@ bool CPathClassificator::CWildCardPattern::WildCardMatch
     return false;
 }
 
-bool CPathClassificator::CWildCardPattern::StraightMatch 
+bool CPathClassificator::CWildCardPattern::StraightMatch
     (const char* s, size_t length) const
 {
     // that will short-cut most comparisons
@@ -159,17 +159,17 @@ void CPathClassificator::CWildCardPattern::NormalizePattern()
     size_t i = 0;
     while (i+1 < pattern.length())
     {
-        if ((pattern[i] == '*') && (   (pattern[i+1] == '*') 
+        if ((pattern[i] == '*') && (   (pattern[i+1] == '*')
                                     || (pattern[i+1] == '?')))
             pattern.erase (i+1);
-        else 
+        else
             ++i;
     }
 }
 
 // construction
 
-CPathClassificator::CWildCardPattern::CWildCardPattern 
+CPathClassificator::CWildCardPattern::CWildCardPattern
     ( const std::string& pattern)
     : pattern (pattern)
     , hasWildCards (pattern.find_first_of ("?*") != std::string::npos)
@@ -180,7 +180,7 @@ CPathClassificator::CWildCardPattern::CWildCardPattern
 
 // match s against the pattern
 
-bool CPathClassificator::CWildCardPattern::Match 
+bool CPathClassificator::CWildCardPattern::Match
     (const char* s, size_t length) const
 {
     return hasWildCards
@@ -190,7 +190,7 @@ bool CPathClassificator::CWildCardPattern::Match
 
 // construction utility
 
-CPathClassificator::TPatterns 
+CPathClassificator::TPatterns
 CPathClassificator::ParsePatterns (const std::string& patterns) const
 {
     TPatterns result;
@@ -216,7 +216,7 @@ CPathClassificator::ParsePatterns (const std::string& patterns) const
     return result;
 }
 
-bool CPathClassificator::Matches 
+bool CPathClassificator::Matches
     ( TPatterns::const_iterator firstPattern
     , TPatterns::const_iterator lastPattern
     , const char* element
@@ -233,7 +233,7 @@ bool CPathClassificator::Matches
     return false;
 }
 
-void CPathClassificator::ClassifyPathElements 
+void CPathClassificator::ClassifyPathElements
     ( const LogCache::CStringDictionary& elements
     , const TPatterns& patterns
     , unsigned char classification)
@@ -243,12 +243,12 @@ void CPathClassificator::ClassifyPathElements
 
     // classify
 
-	for (LogCache::index_t i = 0, count = elements.size(); i < count; ++i)
+    for (LogCache::index_t i = 0, count = elements.size(); i < count; ++i)
         if (Matches (firstPattern, lastPattern, elements[i], elements.GetLength(i)))
             pathElementClassification[i] |= classification;
 }
 
-void CPathClassificator::ClassifyPathElements 
+void CPathClassificator::ClassifyPathElements
     (const LogCache::CStringDictionary& elements)
 {
     // initialize
@@ -285,7 +285,7 @@ void CPathClassificator::ClassifyPaths (const LogCache::CPathDictionary& paths)
 
         unsigned char parentClassification = pathClassification [parentID];
         pathClassification[i] = parentClassification != 0
-                              ? parentClassification 
+                              ? parentClassification
                               : pathElementClassification [elementID];
     }
 
@@ -323,7 +323,7 @@ CPathClassificator::~CPathClassificator(void)
 
 // get the classification for a given path
 
-unsigned char CPathClassificator::GetClassification 
+unsigned char CPathClassificator::GetClassification
     (const LogCache::CDictionaryBasedTempPath& path) const
 {
     // use the path classification we already have
@@ -341,9 +341,9 @@ unsigned char CPathClassificator::GetClassification
 
     // try to classify the remaining elements as efficient as possible
 
-    const std::vector<std::string>& relPathElements 
+    const std::vector<std::string>& relPathElements
         = path.GetRelPathElements();
-    const LogCache::CStringDictionary& pathElements 
+    const LogCache::CStringDictionary& pathElements
         = path.GetDictionary()->GetPathElements();
 
     for ( size_t i = 0, count = relPathElements.size()
@@ -375,7 +375,7 @@ unsigned char CPathClassificator::GetClassification
 
     // say "other" only if no classification was made
 
-    return result == 0 
-        ? (unsigned char)CNodeClassification::IS_OTHER 
+    return result == 0
+        ? (unsigned char)CNodeClassification::IS_OTHER
         : result;
 }

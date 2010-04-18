@@ -22,22 +22,22 @@
 
 class CEditPropTSVNLang : public CStandAloneDialog, public EditPropBase
 {
-	DECLARE_DYNAMIC(CEditPropTSVNLang)
+    DECLARE_DYNAMIC(CEditPropTSVNLang)
 
 public:
-	CEditPropTSVNLang(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropTSVNLang();
+    CEditPropTSVNLang(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropTSVNLang();
 
     virtual bool            HasMultipleProperties() { return true; }
 
-	enum { IDD = IDD_EDITPROPTSVNLANG };
+    enum { IDD = IDD_EDITPROPTSVNLANG };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
     virtual void OnOK();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
 

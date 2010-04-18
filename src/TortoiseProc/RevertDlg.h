@@ -28,46 +28,46 @@
  */
 class CRevertDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CRevertDlg)
+    DECLARE_DYNAMIC(CRevertDlg)
 
 public:
-	CRevertDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CRevertDlg();
+    CRevertDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CRevertDlg();
 
-	enum { IDD = IDD_REVERT };
+    enum { IDD = IDD_REVERT };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	virtual void OnCancel();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnBnClickedSelectall();
-	afx_msg LRESULT	OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
-	afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	afx_msg void OnBnClickedDelunversioned();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    virtual void OnCancel();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnBnClickedSelectall();
+    afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+    afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
+    afx_msg void OnBnClickedDelunversioned();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	void StartDiff(int fileindex);
+    void StartDiff(int fileindex);
 
 private:
-	static UINT RevertThreadEntry(LPVOID pVoid);
-	UINT		RevertThread();
+    static UINT RevertThreadEntry(LPVOID pVoid);
+    UINT        RevertThread();
 
 public:
-	CTSVNPathList 		m_pathList;
-	CTSVNPathList 		m_selectedPathList;
-	BOOL				m_bRecursive;
+    CTSVNPathList       m_pathList;
+    CTSVNPathList       m_selectedPathList;
+    BOOL                m_bRecursive;
 
 private:
-	BOOL				m_bSelectAll;
-	CString				m_sWindowTitle;
-	volatile LONG		m_bThreadRunning;
-	CSVNStatusListCtrl	m_RevertList;
-	CButton				m_SelectAll;
-	bool				m_bCancelled;
+    BOOL                m_bSelectAll;
+    CString             m_sWindowTitle;
+    volatile LONG       m_bThreadRunning;
+    CSVNStatusListCtrl  m_RevertList;
+    CButton             m_SelectAll;
+    bool                m_bCancelled;
 };
 

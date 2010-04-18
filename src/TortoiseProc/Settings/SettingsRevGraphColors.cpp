@@ -23,7 +23,7 @@
 
 IMPLEMENT_DYNAMIC(CSettingsRevisionGraphColors, ISettingsPropPage)
 CSettingsRevisionGraphColors::CSettingsRevisionGraphColors()
-	: ISettingsPropPage(CSettingsRevisionGraphColors::IDD)
+    : ISettingsPropPage(CSettingsRevisionGraphColors::IDD)
 {
 }
 
@@ -33,12 +33,12 @@ CSettingsRevisionGraphColors::~CSettingsRevisionGraphColors()
 
 void CSettingsRevisionGraphColors::DoDataExchange(CDataExchange* pDX)
 {
-	ISettingsPropPage::DoDataExchange(pDX);
+    ISettingsPropPage::DoDataExchange(pDX);
 
-	DDX_Control(pDX, IDC_DELETEDNODECOLOR, m_cDeletedNode);
-	DDX_Control(pDX, IDC_ADDEDNODECOLOR, m_cAddedNode);
-	DDX_Control(pDX, IDC_RENAMEDNODECOLOR, m_cRenamedNode);
-	DDX_Control(pDX, IDC_MODIFIEDNODECOLOR, m_cModifiedNode);
+    DDX_Control(pDX, IDC_DELETEDNODECOLOR, m_cDeletedNode);
+    DDX_Control(pDX, IDC_ADDEDNODECOLOR, m_cAddedNode);
+    DDX_Control(pDX, IDC_RENAMEDNODECOLOR, m_cRenamedNode);
+    DDX_Control(pDX, IDC_MODIFIEDNODECOLOR, m_cModifiedNode);
     DDX_Control(pDX, IDC_UNCHANGEDNODECOLOR, m_cUnchangedNode);
     DDX_Control(pDX, IDC_LASTCOMMITNODECOLOR, m_cLastCommitNode);
     DDX_Control(pDX, IDC_WCNODECOLOR, m_cWCNode);
@@ -52,18 +52,18 @@ void CSettingsRevisionGraphColors::DoDataExchange(CDataExchange* pDX)
 
     DDX_Control(pDX, IDC_STRIPECOLOR1, m_cStripeColor1);
     DDX_Control(pDX, IDC_STRIPECOLOR2, m_cStripeColor2);
-	DDX_Text(pDX, IDC_STRIPEALPHA1, m_sStripeAlpha1);
-	DDX_Text(pDX, IDC_STRIPEALPHA2, m_sStripeAlpha2);
+    DDX_Text(pDX, IDC_STRIPEALPHA1, m_sStripeAlpha1);
+    DDX_Text(pDX, IDC_STRIPEALPHA2, m_sStripeAlpha2);
 }
 
 
 BEGIN_MESSAGE_MAP(CSettingsRevisionGraphColors, ISettingsPropPage)
-	ON_BN_CLICKED(IDC_RESTORE, OnBnClickedRestore)
+    ON_BN_CLICKED(IDC_RESTORE, OnBnClickedRestore)
 
-	ON_BN_CLICKED(IDC_DELETEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
-	ON_BN_CLICKED(IDC_ADDEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
-	ON_BN_CLICKED(IDC_RENAMEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
-	ON_BN_CLICKED(IDC_MODIFIEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_DELETEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_ADDEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_RENAMEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_MODIFIEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_UNCHANGEDNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_LASTCOMMITNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_WCNODECOLOR, &CSettingsRevisionGraphColors::OnBnClickedColor)
@@ -77,42 +77,42 @@ BEGIN_MESSAGE_MAP(CSettingsRevisionGraphColors, ISettingsPropPage)
 
     ON_BN_CLICKED(IDC_STRIPECOLOR1, &CSettingsRevisionGraphColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_STRIPECOLOR2, &CSettingsRevisionGraphColors::OnBnClickedColor)
-	ON_EN_CHANGE(IDC_STRIPEALPHA1, &CSettingsRevisionGraphColors::OnBnClickedColor)
-	ON_EN_CHANGE(IDC_STRIPEALPHA2, &CSettingsRevisionGraphColors::OnBnClickedColor)
+    ON_EN_CHANGE(IDC_STRIPEALPHA1, &CSettingsRevisionGraphColors::OnBnClickedColor)
+    ON_EN_CHANGE(IDC_STRIPEALPHA2, &CSettingsRevisionGraphColors::OnBnClickedColor)
 END_MESSAGE_MAP()
 
-void CSettingsRevisionGraphColors::InitColorPicker 
+void CSettingsRevisionGraphColors::InitColorPicker
     ( CMFCColorButton& button
     , CColors::GDIPlusColor color)
 {
-	CString sDefaultText;
+    CString sDefaultText;
     CString sCustomText;
-	sDefaultText.LoadString (IDS_COLOURPICKER_DEFAULTTEXT);
-	sCustomText.LoadString (IDS_COLOURPICKER_CUSTOMTEXT);
+    sDefaultText.LoadString (IDS_COLOURPICKER_DEFAULTTEXT);
+    sCustomText.LoadString (IDS_COLOURPICKER_CUSTOMTEXT);
 
-	button.SetColor (m_Colors.GetColor (color).ToCOLORREF());
-	button.EnableAutomaticButton (sDefaultText, m_Colors.GetColor (color, true).ToCOLORREF());
-	button.EnableOtherButton (sCustomText);
+    button.SetColor (m_Colors.GetColor (color).ToCOLORREF());
+    button.EnableAutomaticButton (sDefaultText, m_Colors.GetColor (color, true).ToCOLORREF());
+    button.EnableOtherButton (sCustomText);
 }
 
-void CSettingsRevisionGraphColors::InitColorPicker 
+void CSettingsRevisionGraphColors::InitColorPicker
     ( CMFCColorButton& button
     , CColors::GDIPlusColorTable table
     , int index)
 {
-	CString sDefaultText;
+    CString sDefaultText;
     CString sCustomText;
-	sDefaultText.LoadString (IDS_COLOURPICKER_DEFAULTTEXT);
-	sCustomText.LoadString (IDS_COLOURPICKER_CUSTOMTEXT);
+    sDefaultText.LoadString (IDS_COLOURPICKER_DEFAULTTEXT);
+    sCustomText.LoadString (IDS_COLOURPICKER_CUSTOMTEXT);
 
-	button.SetColor (m_Colors.GetColor (table, index).ToCOLORREF());
-	button.EnableAutomaticButton (sDefaultText, m_Colors.GetColor (table, index, true).ToCOLORREF());
-	button.EnableOtherButton (sCustomText);
+    button.SetColor (m_Colors.GetColor (table, index).ToCOLORREF());
+    button.EnableAutomaticButton (sDefaultText, m_Colors.GetColor (table, index, true).ToCOLORREF());
+    button.EnableOtherButton (sCustomText);
 }
 
 BOOL CSettingsRevisionGraphColors::OnInitDialog()
 {
-	ISettingsPropPage::OnInitDialog();
+    ISettingsPropPage::OnInitDialog();
 
     InitColorPicker (m_cAddedNode, CColors::gdpAddedNode);
     InitColorPicker (m_cDeletedNode, CColors::gdpDeletedNode);
@@ -138,26 +138,26 @@ BOOL CSettingsRevisionGraphColors::OnInitDialog()
 
     // tooltips
 
-	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_STRIPEALPHA1, IDS_SETTINGS_REVGRAPH_OPACITY);
-	m_tooltips.AddTool(IDC_STRIPEALPHA2, IDS_SETTINGS_REVGRAPH_OPACITY);
+    m_tooltips.Create(this);
+    m_tooltips.AddTool(IDC_STRIPEALPHA1, IDS_SETTINGS_REVGRAPH_OPACITY);
+    m_tooltips.AddTool(IDC_STRIPEALPHA2, IDS_SETTINGS_REVGRAPH_OPACITY);
 
-	return TRUE;
+    return TRUE;
 }
 
-void CSettingsRevisionGraphColors::ResetColor 
+void CSettingsRevisionGraphColors::ResetColor
     ( CMFCColorButton& button
     , CColors::GDIPlusColor color)
 {
-	button.SetColor (m_Colors.GetColor (color, true).ToCOLORREF());
+    button.SetColor (m_Colors.GetColor (color, true).ToCOLORREF());
 }
 
-void CSettingsRevisionGraphColors::ResetColor 
+void CSettingsRevisionGraphColors::ResetColor
     ( CMFCColorButton& button
     , CColors::GDIPlusColorTable table
     , int index)
 {
-	button.SetColor (m_Colors.GetColor (table, index, true).ToCOLORREF());
+    button.SetColor (m_Colors.GetColor (table, index, true).ToCOLORREF());
 }
 
 void CSettingsRevisionGraphColors::OnBnClickedRestore()
@@ -185,35 +185,35 @@ void CSettingsRevisionGraphColors::OnBnClickedRestore()
 
     UpdateData (FALSE);
 
-	SetModified(TRUE);
+    SetModified(TRUE);
 }
 
-void CSettingsRevisionGraphColors::ApplyColor 
+void CSettingsRevisionGraphColors::ApplyColor
     ( CMFCColorButton& button
     , CColors::GDIPlusColor color
     , DWORD alpha)
 {
-    COLORREF value = button.GetColor() == -1 
-                   ? button.GetAutomaticColor() 
+    COLORREF value = button.GetColor() == -1
+                   ? button.GetAutomaticColor()
                    : button.GetColor();
 
     Gdiplus::Color temp;
     temp.SetFromCOLORREF (value);
-	m_Colors.SetColor (color, (temp.GetValue() & 0xffffff) + (alpha << 24));
+    m_Colors.SetColor (color, (temp.GetValue() & 0xffffff) + (alpha << 24));
 }
 
-void CSettingsRevisionGraphColors::ApplyColor 
+void CSettingsRevisionGraphColors::ApplyColor
     ( CMFCColorButton& button
     , CColors::GDIPlusColorTable table
     , int index)
 {
-    COLORREF value = button.GetColor() == -1 
-                   ? button.GetAutomaticColor() 
+    COLORREF value = button.GetColor() == -1
+                   ? button.GetAutomaticColor()
                    : button.GetColor();
 
     Gdiplus::Color temp;
     temp.SetFromCOLORREF (value);
-	m_Colors.SetColor (table, index, (temp.GetValue() & 0xffffff) + 0xff000000);
+    m_Colors.SetColor (table, index, (temp.GetValue() & 0xffffff) + 0xff000000);
 }
 
 BOOL CSettingsRevisionGraphColors::OnApply()
@@ -243,11 +243,11 @@ BOOL CSettingsRevisionGraphColors::OnApply()
 
 void CSettingsRevisionGraphColors::OnBnClickedColor()
 {
-	SetModified();
+    SetModified();
 }
 
 BOOL CSettingsRevisionGraphColors::PreTranslateMessage(MSG* pMsg)
 {
-	m_tooltips.RelayEvent(pMsg);
-	return ISettingsPropPage::PreTranslateMessage(pMsg);
+    m_tooltips.RelayEvent(pMsg);
+    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }

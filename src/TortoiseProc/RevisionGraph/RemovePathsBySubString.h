@@ -36,7 +36,7 @@ namespace LogCache
 
 using namespace LogCache;
 
-class CRemovePathsBySubString 
+class CRemovePathsBySubString
     : public CRevisionGraphOptionImpl< ICopyFilterOption
                                      , 55
                                      , 0>
@@ -55,8 +55,8 @@ private:
 
     enum PathClassification
     {
-        UNKNOWN = 0, 
-        KEEP = 1, 
+        UNKNOWN = 0,
+        KEEP = 1,
         REMOVE = 3
     };
 
@@ -85,7 +85,7 @@ public:
 
     /// implement IRevisionGraphOption
 
-    virtual bool IsActive() const; 
+    virtual bool IsActive() const;
 
     /// implement ICopyFilterOption
 

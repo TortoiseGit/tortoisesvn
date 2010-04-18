@@ -30,7 +30,7 @@ static char THIS_FILE[] = __FILE__;
 
 // construction / destruction (nothing to do here)
 
-CVisibleGraphBuilder::CVisibleGraphBuilder 
+CVisibleGraphBuilder::CVisibleGraphBuilder
     ( const CFullGraph& fullGraph
     , CVisibleGraph& visibleGraph
     , const CCopyFilterOptions& copyFilter)

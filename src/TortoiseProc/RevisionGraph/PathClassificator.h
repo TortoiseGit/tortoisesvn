@@ -24,7 +24,7 @@
 
 /**
  * Efficiently classifies a path as "trunk", "branches" or "tags".
- * For every class, a list of wild card patterns separated by semicolon 
+ * For every class, a list of wild card patterns separated by semicolon
  * can be specified. Example "tags;qa ?;qa ?.*". String comparison
  * is case-insensitive for latin chars ('a' .. 'z').
  * A given path may be assigned to multiple classes.
@@ -114,19 +114,19 @@ public:
 
 /// get the classification for a given path
 
-inline unsigned char 
+inline unsigned char
 CPathClassificator::GetClassification (const LogCache::index_t pathID) const
 {
     return pathClassification[pathID];
 }
 
-inline unsigned char 
+inline unsigned char
 CPathClassificator::operator[](const LogCache::CDictionaryBasedPath& path) const
 {
     return GetClassification (path.GetIndex());
 }
 
-inline unsigned char 
+inline unsigned char
 CPathClassificator::operator[](const LogCache::CDictionaryBasedTempPath& path) const
 {
     return GetClassification (path);

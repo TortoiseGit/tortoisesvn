@@ -27,34 +27,34 @@
  */
 class CSetHooksAdv : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CSetHooksAdv)
+    DECLARE_DYNAMIC(CSetHooksAdv)
 
 public:
-	CSetHooksAdv(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CSetHooksAdv();
+    CSetHooksAdv(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CSetHooksAdv();
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSHOOKCONFIG };
+    enum { IDD = IDD_SETTINGSHOOKCONFIG };
 
-	hookkey key;
-	hookcmd cmd;
-
-protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedHookbrowse();
-	afx_msg void OnBnClickedHookcommandbrowse();
-	afx_msg void OnBnClickedHelp();
-
-	DECLARE_MESSAGE_MAP()
+    hookkey key;
+    hookcmd cmd;
 
 protected:
-	CString			m_sPath;
-	CString			m_sCommandLine;
-	BOOL			m_bWait;
-	BOOL			m_bHide;
-	CComboBox		m_cHookTypeCombo;
-	CToolTips		m_tooltips;
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnBnClickedHookbrowse();
+    afx_msg void OnBnClickedHookcommandbrowse();
+    afx_msg void OnBnClickedHelp();
+
+    DECLARE_MESSAGE_MAP()
+
+protected:
+    CString         m_sPath;
+    CString         m_sCommandLine;
+    BOOL            m_bWait;
+    BOOL            m_bHide;
+    CComboBox       m_cHookTypeCombo;
+    CToolTips       m_tooltips;
 };

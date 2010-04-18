@@ -23,20 +23,20 @@
 
 class CEditPropKeywords : public CStandAloneDialog, public EditPropBase
 {
-	DECLARE_DYNAMIC(CEditPropKeywords)
+    DECLARE_DYNAMIC(CEditPropKeywords)
 
 public:
-	CEditPropKeywords(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropKeywords();
+    CEditPropKeywords(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropKeywords();
 
-	enum { IDD = IDD_EDITPROPKEYWORDS };
+    enum { IDD = IDD_EDITPROPKEYWORDS };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual void OnOK();
     virtual BOOL OnInitDialog();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
     afx_msg void OnBnClickedProprecursive();

@@ -64,7 +64,7 @@ public:
     CLayoutOptions (const std::vector<ILayoutOption*>& options);
     virtual ~CLayoutOptions() {}
 
-    /// apply all filters 
+    /// apply all filters
 
     void Apply (IRevisionGraphLayout* layout) const;
 };

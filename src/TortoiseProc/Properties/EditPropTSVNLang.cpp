@@ -25,7 +25,7 @@ CComboBox    CEditPropTSVNLang::m_langCombo;
 IMPLEMENT_DYNAMIC(CEditPropTSVNLang, CStandAloneDialog)
 
 CEditPropTSVNLang::CEditPropTSVNLang(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CEditPropTSVNLang::IDD, pParent)
+    : CStandAloneDialog(CEditPropTSVNLang::IDD, pParent)
     , m_bKeepEnglish(TRUE)
 {
 

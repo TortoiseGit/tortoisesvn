@@ -30,7 +30,7 @@ CRemoveDeletedBranches::CRemoveDeletedBranches (CRevisionGraphOptionList& list)
 
 // implement ICopyFilterOption
 
-ICopyFilterOption::EResult 
+ICopyFilterOption::EResult
 CRemoveDeletedBranches::ShallRemove (const CFullGraphNode* node) const
 {
     // "M", not a branch point, not the HEAD
@@ -44,7 +44,7 @@ CRemoveDeletedBranches::ShallRemove (const CFullGraphNode* node) const
 
 void CRemoveDeletedBranches::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 {
-    if (   (node->GetNext() == NULL) 
+    if (   (node->GetNext() == NULL)
         && (node->GetFirstCopyTarget() == NULL)
         && (node->GetFirstTag() == NULL)
         && (node->GetClassification().Is (CNodeClassification::PATH_ONLY_DELETED)))

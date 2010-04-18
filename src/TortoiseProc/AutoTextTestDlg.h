@@ -24,26 +24,26 @@
 
 class CAutoTextTestDlg : public CDialog
 {
-	DECLARE_DYNAMIC(CAutoTextTestDlg)
+    DECLARE_DYNAMIC(CAutoTextTestDlg)
 
 public:
-	CAutoTextTestDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CAutoTextTestDlg();
+    CAutoTextTestDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CAutoTextTestDlg();
 
 // Dialog Data
-	enum { IDD = IDD_AUTOTEXTTESTDLG };
+    enum { IDD = IDD_AUTOTEXTTESTDLG };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedAutotextscan();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    afx_msg void OnBnClickedAutotextscan();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
-	CString m_sContent;
-	CString m_sRegex;
-	CString m_sResult;
-	CString m_sTimingLabel;
-	CRichEditCtrl m_cContent;
+    CString m_sContent;
+    CString m_sRegex;
+    CString m_sResult;
+    CString m_sTimingLabel;
+    CRichEditCtrl m_cContent;
 };

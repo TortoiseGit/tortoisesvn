@@ -22,13 +22,13 @@
 
 // construction
 
-CLayoutOptions::CLayoutOptions 
+CLayoutOptions::CLayoutOptions
     ( const std::vector<ILayoutOption*>& options)
     : options (options)
 {
 }
 
-// apply all filters 
+// apply all filters
 
 void CLayoutOptions::Apply (IRevisionGraphLayout* layout) const
 {

@@ -22,7 +22,7 @@
 #include "ProjectProperties.h"
 #include "Tooltip.h"
 
-#define	MAX_TT_LENGTH			10000
+#define MAX_TT_LENGTH           10000
 
 /**
  * \ingroup TortoiseProc
@@ -31,35 +31,35 @@
 
 class CEditPropertyValueDlg : public CResizableStandAloneDialog, public EditPropBase
 {
-	DECLARE_DYNAMIC(CEditPropertyValueDlg)
+    DECLARE_DYNAMIC(CEditPropertyValueDlg)
 
 public:
-	CEditPropertyValueDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropertyValueDlg();
+    CEditPropertyValueDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropertyValueDlg();
 
-	enum { IDD = IDD_EDITPROPERTYVALUE };
+    enum { IDD = IDD_EDITPROPERTYVALUE };
 
-	void			SetPropertyName(const std::string& sName);
-	void			SetPropertyValue(const std::string& sValue);
+    void            SetPropertyName(const std::string& sName);
+    void            SetPropertyValue(const std::string& sValue);
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	virtual void OnCancel();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnBnClickedLoadprop();
-	afx_msg void OnEnChangePropvalue();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    virtual void OnCancel();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnBnClickedLoadprop();
+    afx_msg void OnEnChangePropvalue();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	void CheckRecursive();
+    void CheckRecursive();
     INT_PTR DoModal() { return CResizableStandAloneDialog::DoModal(); }
 protected:
-	CToolTips	m_tooltips;
-	CComboBox	m_PropNames;
-	CFont		m_valueFont;
-	CString		m_sPropValue;
-	CString		m_sPropName;
-	ProjectProperties	m_ProjectProperties;
+    CToolTips   m_tooltips;
+    CComboBox   m_PropNames;
+    CFont       m_valueFont;
+    CString     m_sPropValue;
+    CString     m_sPropName;
+    ProjectProperties   m_ProjectProperties;
 };

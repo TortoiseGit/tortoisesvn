@@ -27,61 +27,61 @@
 #include "AeroGlass.h"
 #include "AeroControls.h"
 
-#define MERGEWIZARD_REVRANGE	0
-#define MERGEWIZARD_TREE		1
-#define MERGEWIZARD_REINTEGRATE	2
+#define MERGEWIZARD_REVRANGE    0
+#define MERGEWIZARD_TREE        1
+#define MERGEWIZARD_REINTEGRATE 2
 
 class CMergeWizard : public CResizableSheetEx
 {
-	DECLARE_DYNAMIC(CMergeWizard)
+    DECLARE_DYNAMIC(CMergeWizard)
 
 public:
-	CMergeWizard(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
-	virtual ~CMergeWizard();
+    CMergeWizard(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
+    virtual ~CMergeWizard();
 
 protected:
-	DECLARE_MESSAGE_MAP()
-	virtual BOOL OnInitDialog();
+    DECLARE_MESSAGE_MAP()
+    virtual BOOL OnInitDialog();
 
-	afx_msg void OnPaint();
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	afx_msg HCURSOR OnQueryDragIcon();
+    afx_msg void OnPaint();
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+    afx_msg HCURSOR OnQueryDragIcon();
 
-	CMergeWizardStart				page1;
-	CMergeWizardTree				tree;
-	CMergeWizardRevRange			revrange;
-	CMergeWizardOptions				options;
-	CMergeWizardReintegrate			reintegrate;
+    CMergeWizardStart               page1;
+    CMergeWizardTree                tree;
+    CMergeWizardRevRange            revrange;
+    CMergeWizardOptions             options;
+    CMergeWizardReintegrate         reintegrate;
 
 public:
-	CTSVNPath						wcPath;
-	CString							url;
-	CString							sUUID;
-	int								nRevRangeMerge;
+    CTSVNPath                       wcPath;
+    CString                         url;
+    CString                         sUUID;
+    int                             nRevRangeMerge;
 
-	CString							URL1;
-	CString							URL2;
-	SVNRev							startRev;
-	SVNRev							endRev;
-	SVNRevRangeArray				revRangeArray;
-	BOOL							bReverseMerge;
+    CString                         URL1;
+    CString                         URL2;
+    SVNRev                          startRev;
+    SVNRev                          endRev;
+    SVNRevRangeArray                revRangeArray;
+    BOOL                            bReverseMerge;
 
-	BOOL							m_bRecordOnly;
+    BOOL                            m_bRecordOnly;
 
-	BOOL							m_bIgnoreAncestry;
-	svn_depth_t						m_depth;
-	BOOL							m_bIgnoreEOL;
-	svn_diff_file_ignore_space_t	m_IgnoreSpaces;
-	BOOL							m_bForce;
-	
-	void		SaveMode();
-	LRESULT		GetSecondPage();
+    BOOL                            m_bIgnoreAncestry;
+    svn_depth_t                     m_depth;
+    BOOL                            m_bIgnoreEOL;
+    svn_diff_file_ignore_space_t    m_IgnoreSpaces;
+    BOOL                            m_bForce;
+
+    void        SaveMode();
+    LRESULT     GetSecondPage();
 
 private:
-	bool							m_FirstPageActivation;
-	HICON							m_hIcon;
-	CDwmApiImpl						m_Dwm;
-	AeroControlBase					m_aeroControls;
+    bool                            m_FirstPageActivation;
+    HICON                           m_hIcon;
+    CDwmApiImpl                     m_Dwm;
+    AeroControlBase                 m_aeroControls;
 };
 
 

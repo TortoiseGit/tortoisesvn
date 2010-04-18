@@ -28,40 +28,40 @@
  */
 class CUnlockDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CUnlockDlg)
+    DECLARE_DYNAMIC(CUnlockDlg)
 
 public:
-	CUnlockDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CUnlockDlg();
+    CUnlockDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CUnlockDlg();
 
 // Dialog Data
-	enum { IDD = IDD_UNLOCK };
+    enum { IDD = IDD_UNLOCK };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnBnClickedSelectall();
-	afx_msg void OnBnClickedHelp();
-	afx_msg LRESULT	OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
-	afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	virtual void OnCancel();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    afx_msg void OnBnClickedSelectall();
+    afx_msg void OnBnClickedHelp();
+    afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+    afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    virtual void OnCancel();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
-	static UINT UnlockThreadEntry(LPVOID pVoid);
-	UINT UnlockThread();
+    static UINT UnlockThreadEntry(LPVOID pVoid);
+    UINT UnlockThread();
 
 public:
-	/** holds all the selected files/folders the user wants to unlock 
-	 *  on exit */
-	CTSVNPathList	m_pathList;
+    /** holds all the selected files/folders the user wants to unlock
+     *  on exit */
+    CTSVNPathList   m_pathList;
 
 private:
-	CSVNStatusListCtrl	m_unlockListCtrl;
-	volatile LONG	m_bThreadRunning;
-	CButton			m_SelectAll;
-	bool			m_bCancelled;
+    CSVNStatusListCtrl  m_unlockListCtrl;
+    volatile LONG   m_bThreadRunning;
+    CButton         m_SelectAll;
+    bool            m_bCancelled;
 };

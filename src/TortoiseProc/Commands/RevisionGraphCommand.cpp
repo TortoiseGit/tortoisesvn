@@ -23,13 +23,13 @@
 
 bool RevisionGraphCommand::Execute()
 {
-	CString val = parser.GetVal(_T("pegrev"));
-	SVNRev pegrev = val.IsEmpty() ? SVNRev() : SVNRev(val);
+    CString val = parser.GetVal(_T("pegrev"));
+    SVNRev pegrev = val.IsEmpty() ? SVNRev() : SVNRev(val);
 
-	CRevisionGraphDlg dlg;
-	dlg.SetPath(cmdLinePath.GetUIPathString());
-	dlg.SetPegRevision(pegrev);
-	dlg.DoModal();
+    CRevisionGraphDlg dlg;
+    dlg.SetPath(cmdLinePath.GetUIPathString());
+    dlg.SetPegRevision(pegrev);
+    dlg.DoModal();
 
-	return true;
+    return true;
 }

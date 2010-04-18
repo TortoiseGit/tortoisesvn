@@ -20,7 +20,7 @@
 #include "UpsideDownLayout.h"
 #include "StandardLayout.h"
 
-std::pair<int, int> CUpsideDownLayout::GetMinMaxY 
+std::pair<int, int> CUpsideDownLayout::GetMinMaxY
     (IStandardLayoutNodeAccess* nodeAccess)
 {
     int minY = INT_MAX;
@@ -36,7 +36,7 @@ std::pair<int, int> CUpsideDownLayout::GetMinMaxY
     return std::make_pair (minY, maxY);
 }
 
-void CUpsideDownLayout::MirrorY 
+void CUpsideDownLayout::MirrorY
     ( IStandardLayoutNodeAccess* nodeAccess
     , std::pair<int, int> minMaxY)
 {
@@ -52,7 +52,7 @@ void CUpsideDownLayout::MirrorY
 
 // construction
 
-CUpsideDownLayout::CUpsideDownLayout 
+CUpsideDownLayout::CUpsideDownLayout
     ( CRevisionGraphOptionList& list)
     : CRevisionGraphOptionImpl<ILayoutOption, 1000, ID_VIEW_TOPDOWN> (list)
 {
@@ -72,9 +72,9 @@ void CUpsideDownLayout::ApplyTo (IRevisionGraphLayout* layout)
 {
     // we need access to actual data
 
-    IStandardLayoutNodeAccess* nodeAccess 
+    IStandardLayoutNodeAccess* nodeAccess
         = dynamic_cast<IStandardLayoutNodeAccess*>(layout);
-    if (nodeAccess == NULL) 
+    if (nodeAccess == NULL)
         return;
 
     // get dimensions

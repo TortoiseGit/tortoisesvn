@@ -29,36 +29,36 @@
  */
 class CSettingsProgsUniDiff : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsProgsUniDiff)
+    DECLARE_DYNAMIC(CSettingsProgsUniDiff)
 
 public:
-	CSettingsProgsUniDiff();
-	virtual ~CSettingsProgsUniDiff();
+    CSettingsProgsUniDiff();
+    virtual ~CSettingsProgsUniDiff();
 
-	UINT GetIconID() {return IDI_DIFF;}
+    UINT GetIconID() {return IDI_DIFF;}
 
-	enum { IDD = IDD_SETTINGSPROGSUNIDIFF };
+    enum { IDD = IDD_SETTINGSPROGSUNIDIFF };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
-	afx_msg void OnBnClickedDiffviewerOff();
-	afx_msg void OnBnClickedDiffviewerOn();
-	afx_msg void OnBnClickedDiffviewerbrowse();
-	afx_msg void OnEnChangeDiffviewer();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnApply();
+    afx_msg void OnBnClickedDiffviewerOff();
+    afx_msg void OnBnClickedDiffviewerOn();
+    afx_msg void OnBnClickedDiffviewerbrowse();
+    afx_msg void OnEnChangeDiffviewer();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 private:
-	bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
-	void CheckProgComment();
+    bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
+    void CheckProgComment();
 private:
-	CString			m_sDiffViewerPath;
-	CRegString		m_regDiffViewerPath;
-	int             m_iDiffViewer;
-	CToolTips		m_tooltips;
+    CString         m_sDiffViewerPath;
+    CRegString      m_regDiffViewerPath;
+    int             m_iDiffViewer;
+    CToolTips       m_tooltips;
 
-	CFileDropEdit	m_cUnifiedDiffEdit;
+    CFileDropEdit   m_cUnifiedDiffEdit;
 };

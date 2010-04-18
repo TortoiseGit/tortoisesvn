@@ -30,8 +30,8 @@ bool CVisibleGraphNode::CFoldedTag::IsAlias() const
     // skip all non-modifying nodes and make prev point to
     // either the copy node or the last modification
 
-    while (   (prev != NULL) 
-           && (!prev->GetClassification().IsAnyOf 
+    while (   (prev != NULL)
+           && (!prev->GetClassification().IsAnyOf
                   (CNodeClassification::IS_OPERATION_MASK)))
     {
         prev = prev->GetPrevious();
@@ -40,7 +40,7 @@ bool CVisibleGraphNode::CFoldedTag::IsAlias() const
     // it's an alias if the previous node is a tag and has
     // not been modified since
 
-    return    (prev != NULL) 
+    return    (prev != NULL)
            && prev->GetClassification().Is (CNodeClassification::IS_TAG)
            && prev->GetClassification().IsAnyOf (  CNodeClassification::IS_ADDED
                                                  + CNodeClassification::IS_RENAMED);
@@ -65,7 +65,7 @@ CVisibleGraphNode::CFactory::~CFactory()
 
 // factory interface
 
-CVisibleGraphNode* CVisibleGraphNode::CFactory::Create 
+CVisibleGraphNode* CVisibleGraphNode::CFactory::Create
     ( const CFullGraphNode* base
     , CVisibleGraphNode* prev
     , bool preserveNode)
@@ -95,7 +95,7 @@ void CVisibleGraphNode::CFactory::Destroy (CCopyTarget*& copyTarget)
         Destroy (node);
 }
 
-CVisibleGraphNode::CFoldedTag* CVisibleGraphNode::CFactory::Create 
+CVisibleGraphNode::CFoldedTag* CVisibleGraphNode::CFactory::Create
     ( const CFullGraphNode* tagNode
     , size_t depth
     , CFoldedTag* next)
@@ -111,21 +111,21 @@ void CVisibleGraphNode::CFactory::Destroy (CFoldedTag* tag)
     tagPool.free (tag);
 }
 
-// CVisibleGraphNode construction / destruction 
+// CVisibleGraphNode construction / destruction
 
-CVisibleGraphNode::CVisibleGraphNode 
+CVisibleGraphNode::CVisibleGraphNode
     ( const CFullGraphNode* base
     , CVisibleGraphNode* prev
     , CCopyTarget::factory& copyTargetFactory
     , bool preserveNode)
-	: base (base)
-	, firstCopyTarget (NULL), firstTag (NULL)
-	, prev (NULL), next (NULL), copySource (NULL)
-    , classification (  preserveNode 
-                      ? (   base->GetClassification().GetFlags() 
+    : base (base)
+    , firstCopyTarget (NULL), firstTag (NULL)
+    , prev (NULL), next (NULL), copySource (NULL)
+    , classification (  preserveNode
+                      ? (   base->GetClassification().GetFlags()
                           | CNodeClassification::MUST_BE_PRESERVED)
                       : base->GetClassification().GetFlags())
-	, index ((index_t)NO_INDEX) 
+    , index ((index_t)NO_INDEX)
 {
     if (prev != NULL)
         if (classification.Is (CNodeClassification::IS_COPY_TARGET))
@@ -142,7 +142,7 @@ CVisibleGraphNode::CVisibleGraphNode
         }
 }
 
-CVisibleGraphNode::~CVisibleGraphNode() 
+CVisibleGraphNode::~CVisibleGraphNode()
 {
     assert (next == NULL);
     assert (firstCopyTarget == NULL);
@@ -151,13 +151,13 @@ CVisibleGraphNode::~CVisibleGraphNode()
 
 // destruction utilities
 
-void CVisibleGraphNode::DestroySubNodes 
+void CVisibleGraphNode::DestroySubNodes
     ( CFactory& factory
     , CCopyTarget::factory& copyTargetFactory)
 {
     while (next != NULL)
     {
-        CVisibleGraphNode* toDestroy = next; 
+        CVisibleGraphNode* toDestroy = next;
         next = toDestroy->next;
         toDestroy->next = NULL;
 
@@ -176,7 +176,7 @@ void CVisibleGraphNode::DestroyTags (CFactory& factory)
 {
     while (firstTag != NULL)
     {
-        CFoldedTag* toDestroy = firstTag; 
+        CFoldedTag* toDestroy = firstTag;
         firstTag = toDestroy->next;
         factory.Destroy (toDestroy);
     }
@@ -326,7 +326,7 @@ void CVisibleGraphNode::DropNode (CVisibleGraph* graph, bool preserveTags)
     graph->GetFactory().Destroy (this);
 }
 
-// remove node and sub-tree 
+// remove node and sub-tree
 
 void CVisibleGraphNode::DropSubTree (CVisibleGraph* graph)
 {
@@ -368,7 +368,7 @@ void CVisibleGraphNode::DropSubTree (CVisibleGraph* graph)
 
 void CVisibleGraphNode::FoldTag (CVisibleGraph* graph)
 {
-    assert ((   copySource 
+    assert ((   copySource
              || (   classification.Is (CNodeClassification::IS_RENAMED))
                  && prev)
             && "This operation is only valid for copy nodes!");
@@ -415,7 +415,7 @@ void CVisibleGraphNode::FoldTag (CVisibleGraph* graph)
 
     // create a tag for this node
 
-    CFoldedTag* newTag 
+    CFoldedTag* newTag
         = graph->GetFactory().Create (base, 0, source->firstTag);
     source->firstTag = newTag;
 

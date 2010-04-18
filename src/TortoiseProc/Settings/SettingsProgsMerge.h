@@ -28,38 +28,38 @@
  */
 class CSettingsProgsMerge : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsProgsMerge)
+    DECLARE_DYNAMIC(CSettingsProgsMerge)
 
 public:
-	CSettingsProgsMerge();
-	virtual ~CSettingsProgsMerge();
+    CSettingsProgsMerge();
+    virtual ~CSettingsProgsMerge();
 
-	UINT GetIconID() {return IDI_MERGE;}
+    UINT GetIconID() {return IDI_MERGE;}
 // Dialog Data
-	enum { IDD = IDD_SETTINGSPROGSMERGE };
+    enum { IDD = IDD_SETTINGSPROGSMERGE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 public:
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
-	afx_msg void OnBnClickedExtmergeOff();
-	afx_msg void OnBnClickedExtmergeOn();
-	afx_msg void OnBnClickedExtmergebrowse();
-	afx_msg void OnBnClickedExtmergeadvanced();
-	afx_msg void OnEnChangeExtmerge();
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnApply();
+    afx_msg void OnBnClickedExtmergeOff();
+    afx_msg void OnBnClickedExtmergeOn();
+    afx_msg void OnBnClickedExtmergebrowse();
+    afx_msg void OnBnClickedExtmergeadvanced();
+    afx_msg void OnEnChangeExtmerge();
 private:
-	bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
-	void CheckProgComment();
+    bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
+    void CheckProgComment();
 private:
-	CString			m_sMergePath;
-	CRegString		m_regMergePath;
-	int             m_iExtMerge;
-	CSetProgsAdvDlg m_dlgAdvMerge;
-	CToolTips		m_tooltips;
+    CString         m_sMergePath;
+    CRegString      m_regMergePath;
+    int             m_iExtMerge;
+    CSetProgsAdvDlg m_dlgAdvMerge;
+    CToolTips       m_tooltips;
 
-	CFileDropEdit	m_cMergeEdit;
+    CFileDropEdit   m_cMergeEdit;
 };

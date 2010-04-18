@@ -22,7 +22,7 @@
 #include "RevisionGraphOptions.h"
 #include "RevisionGraphOptionsImpl.h"
 
-class CShowTreeStripes 
+class CShowTreeStripes
     : public CRevisionGraphOptionImpl<IRevisionGraphOption, 0, ID_VIEW_SHOWTREESTRIPES>
 {
 public:

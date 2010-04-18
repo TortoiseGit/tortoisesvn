@@ -51,11 +51,11 @@ public:
     /// implement IRevisionGraphOption
 
     virtual UINT CommandID() const;
-    virtual int Priority() const; 
+    virtual int Priority() const;
 
     virtual bool IsAvailable() const;
     virtual bool IsSelected() const;
-    virtual bool IsActive() const; 
+    virtual bool IsActive() const;
 
     virtual void ToggleSelection();
 
@@ -65,7 +65,7 @@ public:
 // construction
 
 template<class Base>
-IRevisionGraphOptionImpl<Base>::IRevisionGraphOptionImpl 
+IRevisionGraphOptionImpl<Base>::IRevisionGraphOptionImpl
     ( CRevisionGraphOptionList& list
     , int priority
     , UINT id)
@@ -143,7 +143,7 @@ public:
 */
 
 template<class Base, int Prio, UINT ID, bool CopyiesFirst, bool RootFirst>
-class COrderedTraversalOptionImpl 
+class COrderedTraversalOptionImpl
     : public CRevisionGraphOptionImpl<Base, Prio, ID>
 {
 protected:
@@ -182,7 +182,7 @@ public:
 */
 
 template<class I1, class I2>
-class CCombineInterface 
+class CCombineInterface
     : public virtual I1
     , public virtual I2
 {

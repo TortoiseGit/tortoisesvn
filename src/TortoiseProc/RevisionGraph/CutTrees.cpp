@@ -23,7 +23,7 @@
 
 // construction
 
-CCutTrees::CCutTrees 
+CCutTrees::CCutTrees
     ( CRevisionGraphOptionList& list
     , const CGraphNodeStates* nodeStates)
     : inherited (list)

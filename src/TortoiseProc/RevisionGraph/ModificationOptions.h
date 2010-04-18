@@ -53,7 +53,7 @@ public:
  */
 
 template<class Base, int Prio, UINT ID, bool CopyiesFirst, bool RootFirst, bool Cyclic>
-class CModificationOptionImpl 
+class CModificationOptionImpl
     : public COrderedTraversalOptionImpl<Base, Prio, ID, CopyiesFirst, RootFirst>
 {
 protected:
@@ -119,7 +119,7 @@ public:
     CModificationOptions (const std::vector<IModificationOption*>& options);
     virtual ~CModificationOptions() {}
 
-    /// apply all filters 
+    /// apply all filters
 
     void Apply (CVisibleGraph* graph);
 };

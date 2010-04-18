@@ -23,38 +23,38 @@
 
 bool ShowCompareCommand::Execute()
 {
-	bool		bRet = false;
-	SVNDiff		diff(NULL, hwndExplorer);
+    bool        bRet = false;
+    SVNDiff     diff(NULL, hwndExplorer);
 
-	SVNRev		rev1;
-	SVNRev		rev2;
-	SVNRev		pegrev;
-	SVNRev		headpeg;
-	svn_node_kind_t nodekind = svn_node_unknown;
+    SVNRev      rev1;
+    SVNRev      rev2;
+    SVNRev      pegrev;
+    SVNRev      headpeg;
+    svn_node_kind_t nodekind = svn_node_unknown;
 
-	CTSVNPath	url1 = CTSVNPath(parser.GetVal(_T("url1")));
-	CTSVNPath	url2 = CTSVNPath(parser.GetVal(_T("url2")));
-	bool		ignoreancestry = !!parser.HasKey(_T("ignoreancestry"));
-	bool		blame = !!parser.HasKey(_T("blame"));
-	bool		unified = !!parser.HasKey(_T("unified"));
+    CTSVNPath   url1 = CTSVNPath(parser.GetVal(_T("url1")));
+    CTSVNPath   url2 = CTSVNPath(parser.GetVal(_T("url2")));
+    bool        ignoreancestry = !!parser.HasKey(_T("ignoreancestry"));
+    bool        blame = !!parser.HasKey(_T("blame"));
+    bool        unified = !!parser.HasKey(_T("unified"));
 
-	if (parser.HasVal(_T("revision1")))
-		rev1 = SVNRev(parser.GetVal(_T("revision1")));
-	if (parser.HasVal(_T("revision2")))
-		rev2 = SVNRev(parser.GetVal(_T("revision2")));
-	if (parser.HasVal(_T("pegrevision")))
-		pegrev = SVNRev(parser.GetVal(_T("pegrevision")));
-	if (parser.HasVal(_T("headpegrevision")))
-		diff.SetHEADPeg(SVNRev(parser.GetVal(_T("headpegrevision"))));
-	diff.SetAlternativeTool(!!parser.HasKey(_T("alternatediff")));
-	if (parser.HasVal(_T("nodekind")))
-		nodekind = (svn_node_kind_t)parser.GetLongVal(_T("nodekind"));
-	diff.SetJumpLine(parser.GetLongVal(_T("line")));
+    if (parser.HasVal(_T("revision1")))
+        rev1 = SVNRev(parser.GetVal(_T("revision1")));
+    if (parser.HasVal(_T("revision2")))
+        rev2 = SVNRev(parser.GetVal(_T("revision2")));
+    if (parser.HasVal(_T("pegrevision")))
+        pegrev = SVNRev(parser.GetVal(_T("pegrevision")));
+    if (parser.HasVal(_T("headpegrevision")))
+        diff.SetHEADPeg(SVNRev(parser.GetVal(_T("headpegrevision"))));
+    diff.SetAlternativeTool(!!parser.HasKey(_T("alternatediff")));
+    if (parser.HasVal(_T("nodekind")))
+        nodekind = (svn_node_kind_t)parser.GetLongVal(_T("nodekind"));
+    diff.SetJumpLine(parser.GetLongVal(_T("line")));
 
-	if (unified)
-		bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, ignoreancestry);
-	else
-		bRet = diff.ShowCompare(url1, rev1, url2, rev2, pegrev, ignoreancestry, blame, nodekind);
+    if (unified)
+        bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, ignoreancestry);
+    else
+        bRet = diff.ShowCompare(url1, rev1, url2, rev2, pegrev, ignoreancestry, blame, nodekind);
 
-	return bRet;
+    return bRet;
 }

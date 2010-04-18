@@ -32,7 +32,7 @@ class CGraphNodeStates;
 * make those nodes roots and remove the remaining parent trees.
 */
 
-class CCollapseTreeUpward 
+class CCollapseTreeUpward
     : public CModificationOptionImpl< IModificationOption
                                     , 2200
                                     , 0

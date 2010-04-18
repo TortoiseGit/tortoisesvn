@@ -24,7 +24,7 @@
 
 // restore state from saved data
 
-void CGraphNodeStates::RestoreStates 
+void CGraphNodeStates::RestoreStates
     ( const TSavedStates& saved
     , const CFullGraphNode* node)
 {
@@ -36,7 +36,7 @@ void CGraphNodeStates::RestoreStates
     {
         // breadth-first
 
-        for ( const CFullGraphNode::CCopyTarget* target 
+        for ( const CFullGraphNode::CCopyTarget* target
                 = node->GetFirstCopyTarget()
             ; target != NULL
             ; target = target->next())
@@ -184,11 +184,11 @@ CGraphNodeStates::FindPreviousRelevant ( const CVisibleGraphNode* node
 
     const CVisibleGraphNode* source = node->GetSource();
     if (!withinAsWell && (source != NULL))
-        return std::pair<const CFullGraphNode*, DWORD> 
-					((const CFullGraphNode*)NULL, 0);
+        return std::pair<const CFullGraphNode*, DWORD>
+                    ((const CFullGraphNode*)NULL, 0);
 
-    const CFullGraphNode* last = source != NULL 
-                               ? source->GetBase() 
+    const CFullGraphNode* last = source != NULL
+                               ? source->GetBase()
                                : NULL;
 
     // walk up the (unfiltered) tree until we find something relevant
@@ -210,8 +210,8 @@ CGraphNodeStates::FindPreviousRelevant ( const CVisibleGraphNode* node
 
     // nothing found
 
-    return std::pair<const CFullGraphNode*, DWORD> 
-				((const CFullGraphNode*)NULL, 0);
+    return std::pair<const CFullGraphNode*, DWORD>
+                ((const CFullGraphNode*)NULL, 0);
 }
 
 std::pair<const CFullGraphNode*, DWORD>
@@ -238,11 +238,11 @@ CGraphNodeStates::FindNextRelevant ( const CVisibleGraphNode* node
 
     const CVisibleGraphNode* next = node->GetNext();
     if (!withinAsWell && (next != NULL))
-        return std::pair<const CFullGraphNode*, DWORD> 
-					((const CFullGraphNode*)NULL, 0);
+        return std::pair<const CFullGraphNode*, DWORD>
+                    ((const CFullGraphNode*)NULL, 0);
 
-    const CFullGraphNode* last = next != NULL 
-                               ? next->GetBase() 
+    const CFullGraphNode* last = next != NULL
+                               ? next->GetBase()
                                : NULL;
 
     // walk down the (unfiltered) tree until we find something relevant
@@ -260,8 +260,8 @@ CGraphNodeStates::FindNextRelevant ( const CVisibleGraphNode* node
 
     // nothing found
 
-    return std::pair<const CFullGraphNode*, DWORD> 
-				((const CFullGraphNode*)NULL, 0);
+    return std::pair<const CFullGraphNode*, DWORD>
+                ((const CFullGraphNode*)NULL, 0);
 }
 
 std::pair<const CFullGraphNode*, DWORD>
@@ -279,12 +279,12 @@ CGraphNodeStates::FindRightRelevant (const CVisibleGraphNode* node) const
 
     const CVisibleGraphNode* next = node->GetNext();
     const CFullGraphNode* first = node->GetBase();
-    const CFullGraphNode* last = next != NULL 
-                               ? next->GetBase() 
+    const CFullGraphNode* last = next != NULL
+                               ? next->GetBase()
                                : NULL;
 
     for ( const CFullGraphNode* base = first
-        ;    (base != last) 
+        ;    (base != last)
           && (   (base->GetFirstCopyTarget() != NULL)  // stop on the first non-copy-source
               || (base == first))                      // but allow the start node to be non-copy-source
         ; base = base->GetNext())
@@ -308,8 +308,8 @@ CGraphNodeStates::FindRightRelevant (const CVisibleGraphNode* node) const
 
     // nothing found
 
-    return std::pair<const CFullGraphNode*, DWORD> 
-				((const CFullGraphNode*)NULL, 0);
+    return std::pair<const CFullGraphNode*, DWORD>
+                ((const CFullGraphNode*)NULL, 0);
 }
 
 std::vector<const CFullGraphNode*>
@@ -327,13 +327,13 @@ CGraphNodeStates::FindSplitSubtrees (const CVisibleGraphNode* node) const
 
     const CVisibleGraphNode* next = node->GetNext();
     const CFullGraphNode* first = node->GetBase();
-    const CFullGraphNode* last = next != NULL 
-                               ? next->GetBase() 
+    const CFullGraphNode* last = next != NULL
+                               ? next->GetBase()
                                : NULL;
 
     TFlaggedNodes result;
     for ( const CFullGraphNode* base = first
-        ;    (base != last) 
+        ;    (base != last)
           && (   (base->GetFirstCopyTarget() != NULL)  // stop on the first non-copy-source
               || (base == first))                      // but allow the start node to be non-copy-source
         ; base = base->GetNext())
@@ -371,15 +371,15 @@ DWORD CGraphNodeStates::GetFlags ( const CVisibleGraphNode* node
 
     // combine results
 
-    result |= (previousFlags.second & (SPLIT_BELOW | SPLIT_RIGHT)) 
-            ? SPLIT_ABOVE 
+    result |= (previousFlags.second & (SPLIT_BELOW | SPLIT_RIGHT))
+            ? SPLIT_ABOVE
             : previousFlags.second;
 
-    result |= (nextFlags.second & SPLIT_ABOVE) 
+    result |= (nextFlags.second & SPLIT_ABOVE)
             ? SPLIT_BELOW
             : nextFlags.second;
 
-    result |= (rightFlags.second & SPLIT_ABOVE) 
+    result |= (rightFlags.second & SPLIT_ABOVE)
             ? SPLIT_RIGHT
             : rightFlags.second;
 

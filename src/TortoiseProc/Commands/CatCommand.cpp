@@ -24,21 +24,21 @@
 
 bool CatCommand::Execute()
 {
-	CString savepath = CPathUtils::GetLongPathname(parser.GetVal(_T("savepath")));
-	CString revision = parser.GetVal(_T("revision"));
-	CString pegrevision = parser.GetVal(_T("pegrevision"));
-	SVNRev rev = SVNRev(revision);
-	if (!rev.IsValid())
-		rev = SVNRev::REV_HEAD;
-	SVNRev pegrev = SVNRev(pegrevision);
-	if (!pegrev.IsValid())
-		pegrev = SVNRev::REV_HEAD;
-	SVN svn;
-	if (!svn.Cat(cmdLinePath, pegrev, rev, CTSVNPath(savepath)))
-	{
-		::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-		::DeleteFile(savepath);
-		return false;
-	} 
-	return true;
+    CString savepath = CPathUtils::GetLongPathname(parser.GetVal(_T("savepath")));
+    CString revision = parser.GetVal(_T("revision"));
+    CString pegrevision = parser.GetVal(_T("pegrevision"));
+    SVNRev rev = SVNRev(revision);
+    if (!rev.IsValid())
+        rev = SVNRev::REV_HEAD;
+    SVNRev pegrev = SVNRev(pegrevision);
+    if (!pegrev.IsValid())
+        pegrev = SVNRev::REV_HEAD;
+    SVN svn;
+    if (!svn.Cat(cmdLinePath, pegrev, rev, CTSVNPath(savepath)))
+    {
+        ::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ::DeleteFile(savepath);
+        return false;
+    }
+    return true;
 }

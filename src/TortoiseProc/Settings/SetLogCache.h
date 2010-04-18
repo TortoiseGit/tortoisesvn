@@ -26,44 +26,44 @@ class CProgressDlg;
 
 /**
  * \ingroup TortoiseProc
- * Settings page to configure miscellaneous stuff. 
+ * Settings page to configure miscellaneous stuff.
  */
-class CSetLogCache 
+class CSetLogCache
     : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSetLogCache)
+    DECLARE_DYNAMIC(CSetLogCache)
 
 public:
-	CSetLogCache();
-	virtual ~CSetLogCache();
-	
-	UINT GetIconID() {return IDI_CACHE;}
+    CSetLogCache();
+    virtual ~CSetLogCache();
+
+    UINT GetIconID() {return IDI_CACHE;}
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSLOGCACHE };
+    enum { IDD = IDD_SETTINGSLOGCACHE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnChanged();
-	afx_msg void OnStandardDefaults();
-	afx_msg void OnPowerDefaults();
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    afx_msg void OnChanged();
+    afx_msg void OnStandardDefaults();
+    afx_msg void OnPowerDefaults();
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnApply();
 
     DECLARE_MESSAGE_MAP()
 private:
-	CToolTips		m_tooltips;
+    CToolTips       m_tooltips;
 
-	BOOL			m_bEnableLogCaching;
-	BOOL			m_bSupportAmbiguousURL;
-	BOOL			m_bSupportAmbiguousUUID;
+    BOOL            m_bEnableLogCaching;
+    BOOL            m_bSupportAmbiguousURL;
+    BOOL            m_bSupportAmbiguousUUID;
 
-	CComboBox       m_cDefaultConnectionState;
+    CComboBox       m_cDefaultConnectionState;
 
-	DWORD			m_dwMaxHeadAge;
-	DWORD			m_dwCacheDropAge;
-	DWORD			m_dwCacheDropMaxSize;
+    DWORD           m_dwMaxHeadAge;
+    DWORD           m_dwCacheDropAge;
+    DWORD           m_dwCacheDropMaxSize;
 
-	DWORD			m_dwMaxFailuresUntilDrop;
+    DWORD           m_dwMaxFailuresUntilDrop;
 };

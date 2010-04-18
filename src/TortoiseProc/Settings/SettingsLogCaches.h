@@ -26,48 +26,48 @@ class CProgressDlg;
 
 /**
  * \ingroup TortoiseProc
- * Settings page to configure miscellaneous stuff. 
+ * Settings page to configure miscellaneous stuff.
  */
-class CSettingsLogCaches 
+class CSettingsLogCaches
     : public ISettingsPropPage
     , private ILogReceiver
 {
-	DECLARE_DYNAMIC(CSettingsLogCaches)
+    DECLARE_DYNAMIC(CSettingsLogCaches)
 
 public:
-	CSettingsLogCaches();
-	virtual ~CSettingsLogCaches();
-	
-	UINT GetIconID() {return IDI_CACHELIST;}
+    CSettingsLogCaches();
+    virtual ~CSettingsLogCaches();
+
+    UINT GetIconID() {return IDI_CACHELIST;}
 
     // update cache list
 
-	virtual BOOL OnSetActive();
+    virtual BOOL OnSetActive();
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSLOGCACHELIST };
+    enum { IDD = IDD_SETTINGSLOGCACHELIST };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnKillActive();
-	virtual BOOL OnQueryCancel();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnKillActive();
+    virtual BOOL OnQueryCancel();
 
-	afx_msg void OnBnClickedDetails();
-	afx_msg void OnBnClickedUpdate();
-	afx_msg void OnBnClickedExport();
-	afx_msg void OnBnClickedDelete();
+    afx_msg void OnBnClickedDetails();
+    afx_msg void OnBnClickedUpdate();
+    afx_msg void OnBnClickedExport();
+    afx_msg void OnBnClickedDelete();
 
-	afx_msg LRESULT OnRefeshRepositoryList (WPARAM wParam, LPARAM lParam);
-	afx_msg void OnNMDblclkRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnLvnItemchangedRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg LRESULT OnRefeshRepositoryList (WPARAM wParam, LPARAM lParam);
+    afx_msg void OnNMDblclkRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnLvnItemchangedRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
 
     DECLARE_MESSAGE_MAP()
 private:
-	CToolTips		m_tooltips;
+    CToolTips       m_tooltips;
 
-	CListCtrl       m_cRepositoryList;
+    CListCtrl       m_cRepositoryList;
 
     /// current repository list
 
@@ -81,7 +81,7 @@ private:
 
     static UINT WorkerThread(LPVOID pVoid);
 
-	volatile LONG	m_bThreadRunning;
+    volatile LONG   m_bThreadRunning;
 
     /// used by cache update
 
@@ -89,7 +89,7 @@ private:
     svn_revnum_t    headRevision;
 
     void ReceiveLog ( TChangedPaths* changes
-	                , svn_revnum_t rev
+                    , svn_revnum_t rev
                     , const StandardRevProps* stdRevProps
                     , UserRevPropArray* userRevProps
                     , bool mergesFollow);

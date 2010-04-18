@@ -32,106 +32,106 @@ class CSearchPathTree
 {
 private:
 
-	CDictionaryBasedTempPath path;
+    CDictionaryBasedTempPath path;
 
-	/// when this entry becomes valid / active
+    /// when this entry becomes valid / active
 
-	revision_t startRevision;
+    revision_t startRevision;
 
-	/// previous node for this path (or its copy source)
+    /// previous node for this path (or its copy source)
 
-	CFullGraphNode* lastEntry;
+    CFullGraphNode* lastEntry;
 
-	/// tree pointers
+    /// tree pointers
 
-	CSearchPathTree* parent;
-	CSearchPathTree* firstChild;
-	CSearchPathTree* lastChild;
-	CSearchPathTree* previous;
-	CSearchPathTree* next;
+    CSearchPathTree* parent;
+    CSearchPathTree* firstChild;
+    CSearchPathTree* lastChild;
+    CSearchPathTree* previous;
+    CSearchPathTree* next;
 
-	/// utilities: handle node insertion / removal
+    /// utilities: handle node insertion / removal
 
-	void DeLink();
-	void Link (CSearchPathTree* newParent);
+    void DeLink();
+    void Link (CSearchPathTree* newParent);
 
 public:
 
-	/// construction / destruction
+    /// construction / destruction
 
-	CSearchPathTree (const CPathDictionary* dictionary);
-	CSearchPathTree ( const CDictionaryBasedTempPath& path
-					, revision_t startrev
-					, CSearchPathTree* parent);
+    CSearchPathTree (const CPathDictionary* dictionary);
+    CSearchPathTree ( const CDictionaryBasedTempPath& path
+                    , revision_t startrev
+                    , CSearchPathTree* parent);
 
-	~CSearchPathTree();
+    ~CSearchPathTree();
 
-	/// add a node for the given path and rev. to the tree
+    /// add a node for the given path and rev. to the tree
 
-	CSearchPathTree* Insert ( const CDictionaryBasedTempPath& path
-							, revision_t startrev);
-	void Remove();
+    CSearchPathTree* Insert ( const CDictionaryBasedTempPath& path
+                            , revision_t startrev);
+    void Remove();
 
-	/// there is a new revision entry for this path
+    /// there is a new revision entry for this path
 
-	void ChainEntries (CFullGraphNode* entry);
+    void ChainEntries (CFullGraphNode* entry);
 
-	/// property access
+    /// property access
 
-	const CDictionaryBasedTempPath& GetPath() const
-	{
-		return path;
-	}
+    const CDictionaryBasedTempPath& GetPath() const
+    {
+        return path;
+    }
 
-	revision_t GetStartRevision() const
-	{
-		return startRevision;
-	}
+    revision_t GetStartRevision() const
+    {
+        return startRevision;
+    }
 
-	void SetStartRevision (revision_t revision)
-	{
-		startRevision = revision;
-	}
+    void SetStartRevision (revision_t revision)
+    {
+        startRevision = revision;
+    }
 
-	CFullGraphNode* GetLastEntry() const
-	{
-		return lastEntry;
-	}
+    CFullGraphNode* GetLastEntry() const
+    {
+        return lastEntry;
+    }
 
-	CSearchPathTree* GetParent() const
-	{
-		return parent;
-	}
+    CSearchPathTree* GetParent() const
+    {
+        return parent;
+    }
 
-	CSearchPathTree* GetFirstChild() const
-	{
-		return firstChild;
-	}
+    CSearchPathTree* GetFirstChild() const
+    {
+        return firstChild;
+    }
 
-	CSearchPathTree* GetLastChild() const
-	{
-		return lastChild;
-	}
+    CSearchPathTree* GetLastChild() const
+    {
+        return lastChild;
+    }
 
-	CSearchPathTree* GetNext() const
-	{
-		return next;
-	}
+    CSearchPathTree* GetNext() const
+    {
+        return next;
+    }
 
-	CSearchPathTree* GetPrevious() const
-	{
-		return previous;
-	}
+    CSearchPathTree* GetPrevious() const
+    {
+        return previous;
+    }
 
-	bool IsActive() const
-	{
-		return startRevision != NO_REVISION;
-	}
+    bool IsActive() const
+    {
+        return startRevision != NO_REVISION;
+    }
 
-	bool IsEmpty() const
-	{
-		return !IsActive() && (firstChild == NULL);
-	}
+    bool IsEmpty() const
+    {
+        return !IsActive() && (firstChild == NULL);
+    }
 
     /// return true for active paths that don't have a revEntry for this revision
 
@@ -145,8 +145,8 @@ public:
 
     CSearchPathTree* GetSkipSubTreeNext (CSearchPathTree* lastNode = NULL);
 
-	/// find sub-tree of pathID  
-	/// (return closet match if there is no such node)
+    /// find sub-tree of pathID
+    /// (return closet match if there is no such node)
 
-	CSearchPathTree* FindCommonParent (index_t pathID);
+    CSearchPathTree* FindCommonParent (index_t pathID);
 };

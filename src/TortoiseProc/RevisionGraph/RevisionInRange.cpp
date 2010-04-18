@@ -61,7 +61,7 @@ bool CRevisionInRange::IsActive() const
 
 // implement ICopyFilterOption
 
-ICopyFilterOption::EResult 
+ICopyFilterOption::EResult
 CRevisionInRange::ShallRemove (const CFullGraphNode* node) const
 {
     // out of revision range?

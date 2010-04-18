@@ -24,35 +24,35 @@
 
 bool DelUnversionedCommand::Execute()
 {
-	bool bRet = false;
-	CDeleteUnversionedDlg dlg;
-	dlg.m_pathList = pathList;
-	if (dlg.DoModal() == IDOK)
-	{
-		if (dlg.m_pathList.GetCount() == 0)
-			return FALSE;
-		// now remove all items by moving them to the trash bin
-		dlg.m_pathList.RemoveChildren();
-		CString filelist;
-		for (INT_PTR i=0; i<dlg.m_pathList.GetCount(); ++i)
-		{
-			filelist += dlg.m_pathList[i].GetWinPathString();
-			filelist += _T("|");
-		}
-		filelist += _T("|");
-		int len = filelist.GetLength();
-		auto_buffer<TCHAR> buf(len+2);
-		_tcscpy_s(buf, len+2, filelist);
-		CStringUtils::PipesToNulls(buf, len);
-		SHFILEOPSTRUCT fileop;
-		fileop.hwnd = hwndExplorer;
-		fileop.wFunc = FO_DELETE;
-		fileop.pFrom = buf;
-		fileop.pTo = NULL;
-		fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS;
-		fileop.fFlags |= dlg.m_bUseRecycleBin ? FOF_ALLOWUNDO : 0;
-		fileop.lpszProgressTitle = (LPCTSTR)CString(MAKEINTRESOURCE(IDS_DELUNVERSIONED));
-		bRet = (SHFileOperation(&fileop) == 0);
-	}
-	return true;
+    bool bRet = false;
+    CDeleteUnversionedDlg dlg;
+    dlg.m_pathList = pathList;
+    if (dlg.DoModal() == IDOK)
+    {
+        if (dlg.m_pathList.GetCount() == 0)
+            return FALSE;
+        // now remove all items by moving them to the trash bin
+        dlg.m_pathList.RemoveChildren();
+        CString filelist;
+        for (INT_PTR i=0; i<dlg.m_pathList.GetCount(); ++i)
+        {
+            filelist += dlg.m_pathList[i].GetWinPathString();
+            filelist += _T("|");
+        }
+        filelist += _T("|");
+        int len = filelist.GetLength();
+        auto_buffer<TCHAR> buf(len+2);
+        _tcscpy_s(buf, len+2, filelist);
+        CStringUtils::PipesToNulls(buf, len);
+        SHFILEOPSTRUCT fileop;
+        fileop.hwnd = hwndExplorer;
+        fileop.wFunc = FO_DELETE;
+        fileop.pFrom = buf;
+        fileop.pTo = NULL;
+        fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS;
+        fileop.fFlags |= dlg.m_bUseRecycleBin ? FOF_ALLOWUNDO : 0;
+        fileop.lpszProgressTitle = (LPCTSTR)CString(MAKEINTRESOURCE(IDS_DELUNVERSIONED));
+        bRet = (SHFileOperation(&fileop) == 0);
+    }
+    return true;
 }

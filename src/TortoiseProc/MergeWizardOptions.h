@@ -25,28 +25,28 @@
  */
 class CMergeWizardOptions : public CMergeWizardBasePage
 {
-	DECLARE_DYNAMIC(CMergeWizardOptions)
+    DECLARE_DYNAMIC(CMergeWizardOptions)
 
 public:
-	CMergeWizardOptions();
-	virtual ~CMergeWizardOptions();
+    CMergeWizardOptions();
+    virtual ~CMergeWizardOptions();
 
 
-	enum { IDD = IDD_MERGEWIZARD_OPTIONS };
+    enum { IDD = IDD_MERGEWIZARD_OPTIONS };
 
 protected:
-	virtual void		DoDataExchange(CDataExchange* pDX);
-	virtual BOOL		OnInitDialog();
-	virtual LRESULT		OnWizardBack();
-	virtual BOOL		OnWizardFinish();
-	virtual BOOL		OnSetActive();
-	virtual BOOL		PreTranslateMessage(MSG* pMsg);
-	afx_msg void		OnBnClickedDryrun();
+    virtual void        DoDataExchange(CDataExchange* pDX);
+    virtual BOOL        OnInitDialog();
+    virtual LRESULT     OnWizardBack();
+    virtual BOOL        OnWizardFinish();
+    virtual BOOL        OnSetActive();
+    virtual BOOL        PreTranslateMessage(MSG* pMsg);
+    afx_msg void        OnBnClickedDryrun();
 
-	DECLARE_MESSAGE_MAP()
-	
-	svn_diff_file_ignore_space_t GetIgnores();
-	
-	CComboBox						m_depthCombo;
-	CToolTips						m_tooltips;
+    DECLARE_MESSAGE_MAP()
+
+    svn_diff_file_ignore_space_t GetIgnores();
+
+    CComboBox                       m_depthCombo;
+    CToolTips                       m_tooltips;
 };

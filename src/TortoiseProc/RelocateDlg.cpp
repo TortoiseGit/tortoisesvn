@@ -25,9 +25,9 @@
 
 IMPLEMENT_DYNAMIC(CRelocateDlg, CResizableStandAloneDialog)
 CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CRelocateDlg::IDD, pParent)
-	, m_sToUrl(_T(""))
-	, m_sFromUrl(_T(""))
+    : CResizableStandAloneDialog(CRelocateDlg::IDD, pParent)
+    , m_sToUrl(_T(""))
+    , m_sFromUrl(_T(""))
 {
 }
 
@@ -37,94 +37,94 @@ CRelocateDlg::~CRelocateDlg()
 
 void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_TOURL, m_URLCombo);
-	DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
+    CResizableStandAloneDialog::DoDataExchange(pDX);
+    DDX_Control(pDX, IDC_TOURL, m_URLCombo);
+    DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
 }
 
 
 BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableStandAloneDialog)
-	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
-	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-	ON_WM_SIZING()
-	ON_CBN_EDITCHANGE(IDC_TOURL, &CRelocateDlg::OnCbnEditchangeTourl)
+    ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
+    ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+    ON_WM_SIZING()
+    ON_CBN_EDITCHANGE(IDC_TOURL, &CRelocateDlg::OnCbnEditchangeTourl)
 END_MESSAGE_MAP()
 
 BOOL CRelocateDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+    CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_DWM);
-	m_aeroControls.SubclassOkCancelHelp(this);
+    ExtendFrameIntoClientArea(IDC_DWM);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
-	m_URLCombo.SetURLHistory(TRUE);
-	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
-	m_URLCombo.SetCurSel(0);
+    m_URLCombo.SetURLHistory(TRUE);
+    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+    m_URLCombo.SetCurSel(0);
 
-	RECT rect;
-	GetWindowRect(&rect);
-	m_height = rect.bottom - rect.top;
+    RECT rect;
+    GetWindowRect(&rect);
+    m_height = rect.bottom - rect.top;
 
-	AddAnchor(IDC_FROMURLLABEL, TOP_LEFT);
-	AddAnchor(IDC_FROMURL, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_TOURLLABEL, TOP_LEFT);
-	AddAnchor(IDC_TOURL, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_BROWSE, TOP_RIGHT);
-	AddAnchor(IDC_DWM, TOP_LEFT);
-	AddAnchor(IDOK, BOTTOM_RIGHT);
-	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-	AddAnchor(IDHELP, BOTTOM_RIGHT);
+    AddAnchor(IDC_FROMURLLABEL, TOP_LEFT);
+    AddAnchor(IDC_FROMURL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_TOURLLABEL, TOP_LEFT);
+    AddAnchor(IDC_TOURL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_BROWSE, TOP_RIGHT);
+    AddAnchor(IDC_DWM, TOP_LEFT);
+    AddAnchor(IDOK, BOTTOM_RIGHT);
+    AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    AddAnchor(IDHELP, BOTTOM_RIGHT);
 
-	SetDlgItemText(IDC_FROMURL, m_sFromUrl);
-	m_URLCombo.SetWindowText(m_sFromUrl);
-	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
-	if ((m_pParentWnd==NULL)&&(hWndExplorer))
-		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("RelocateDlg"));
-	return TRUE;
+    SetDlgItemText(IDC_FROMURL, m_sFromUrl);
+    m_URLCombo.SetWindowText(m_sFromUrl);
+    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+    if ((m_pParentWnd==NULL)&&(hWndExplorer))
+        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    EnableSaveRestore(_T("RelocateDlg"));
+    return TRUE;
 }
 
 void CRelocateDlg::OnBnClickedBrowse()
 {
-	SVNRev rev(SVNRev::REV_HEAD);
-	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+    SVNRev rev(SVNRev::REV_HEAD);
+    CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 }
 
 void CRelocateDlg::OnOK()
 {
-	UpdateData(TRUE);
-	m_URLCombo.SaveHistory();
-	m_sToUrl = m_URLCombo.GetString();
-	UpdateData(FALSE);
+    UpdateData(TRUE);
+    m_URLCombo.SaveHistory();
+    m_sToUrl = m_URLCombo.GetString();
+    UpdateData(FALSE);
 
-	CResizableStandAloneDialog::OnOK();
+    CResizableStandAloneDialog::OnOK();
 }
 
 void CRelocateDlg::OnBnClickedHelp()
 {
-	OnHelp();
+    OnHelp();
 }
 
 void CRelocateDlg::OnSizing(UINT fwSide, LPRECT pRect)
 {
-	// don't allow the dialog to be changed in height
-	switch (fwSide)
-	{
-	case WMSZ_BOTTOM:
-	case WMSZ_BOTTOMLEFT:
-	case WMSZ_BOTTOMRIGHT:
-		pRect->bottom = pRect->top + m_height;
-		break;
-	case WMSZ_TOP:
-	case WMSZ_TOPLEFT:
-	case WMSZ_TOPRIGHT:
-		pRect->top = pRect->bottom - m_height;
-		break;
-	}
-	CResizableStandAloneDialog::OnSizing(fwSide, pRect);
+    // don't allow the dialog to be changed in height
+    switch (fwSide)
+    {
+    case WMSZ_BOTTOM:
+    case WMSZ_BOTTOMLEFT:
+    case WMSZ_BOTTOMRIGHT:
+        pRect->bottom = pRect->top + m_height;
+        break;
+    case WMSZ_TOP:
+    case WMSZ_TOPLEFT:
+    case WMSZ_TOPRIGHT:
+        pRect->top = pRect->bottom - m_height;
+        break;
+    }
+    CResizableStandAloneDialog::OnSizing(fwSide, pRect);
 }
 
 void CRelocateDlg::OnCbnEditchangeTourl()
 {
-	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 }

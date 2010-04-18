@@ -22,22 +22,22 @@
 
 class CEditPropTSVNSizes : public CStandAloneDialog, public EditPropBase
 {
-	DECLARE_DYNAMIC(CEditPropTSVNSizes)
+    DECLARE_DYNAMIC(CEditPropTSVNSizes)
 
 public:
-	CEditPropTSVNSizes(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropTSVNSizes();
+    CEditPropTSVNSizes(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropTSVNSizes();
 
-	enum { IDD = IDD_EDITPROPTSVNSIZES };
+    enum { IDD = IDD_EDITPROPTSVNSIZES };
 
     virtual bool            HasMultipleProperties() { return true; }
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual void OnOK();
     virtual BOOL OnInitDialog();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
 

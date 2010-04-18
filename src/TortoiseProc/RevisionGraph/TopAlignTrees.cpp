@@ -20,7 +20,7 @@
 #include "TopAlignTrees.h"
 #include "StandardLayout.h"
 
-void CTopAlignTrees::GetMinMaxY 
+void CTopAlignTrees::GetMinMaxY
     ( IStandardLayoutNodeAccess* nodeAccess
     , std::vector<int>& minY)
 {
@@ -37,7 +37,7 @@ void CTopAlignTrees::GetMinMaxY
     }
 }
 
-void CTopAlignTrees::MirrorY 
+void CTopAlignTrees::MirrorY
     ( IStandardLayoutNodeAccess* nodeAccess
     , const std::vector<int>& minY)
 {
@@ -55,7 +55,7 @@ void CTopAlignTrees::MirrorY
 
 // construction
 
-CTopAlignTrees::CTopAlignTrees 
+CTopAlignTrees::CTopAlignTrees
     ( CRevisionGraphOptionList& list)
     : CRevisionGraphOptionImpl<ILayoutOption, 1100, ID_VIEW_TOPALIGNTREES> (list)
 {
@@ -68,9 +68,9 @@ void CTopAlignTrees::ApplyTo (IRevisionGraphLayout* layout)
 {
     // we need access to actual data
 
-    IStandardLayoutNodeAccess* nodeAccess 
+    IStandardLayoutNodeAccess* nodeAccess
         = dynamic_cast<IStandardLayoutNodeAccess*>(layout);
-    if (nodeAccess == NULL) 
+    if (nodeAccess == NULL)
         return;
 
     // get the sub-tree dimensions

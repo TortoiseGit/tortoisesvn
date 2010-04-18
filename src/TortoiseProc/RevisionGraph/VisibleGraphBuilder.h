@@ -27,7 +27,7 @@ class CFullGraphNode;
  * \ingroup TortoiseProc
  *
  * Create a filtered copy of the given full graph.
- * The \a copyFilter determines what nodes and branches 
+ * The \a copyFilter determines what nodes and branches
  * will be removed.
  */
 
@@ -37,14 +37,14 @@ public:
 
     /// construction / destruction (nothing to do here)
 
-	CVisibleGraphBuilder ( const CFullGraph& fullGraph
+    CVisibleGraphBuilder ( const CFullGraph& fullGraph
                          , CVisibleGraph& visibleGraph
                          , const CCopyFilterOptions& copyFilter);
-	~CVisibleGraphBuilder (void);
+    ~CVisibleGraphBuilder (void);
 
     /// copy
 
-	void Run();
+    void Run();
 
 private:
 
@@ -55,7 +55,7 @@ private:
 
     /// data members
 
-	const CFullGraph& fullGraph;
+    const CFullGraph& fullGraph;
     CVisibleGraph& visibleGraph;
     CCopyFilterOptions copyFilter;
 };

@@ -28,7 +28,7 @@ static char THIS_FILE[] = __FILE__;
 // construction / destruction
 
 CRevisionGraphState::CRevisionGraphState()
-	: fetchedWCState(false)
+    : fetchedWCState(false)
     , options (&nodeStates)
 {
 }
@@ -122,7 +122,7 @@ CString CRevisionGraphState::GetLastErrorMessage() const
     return lastErrorMessage;
 }
 
-CSyncPointer<CAllRevisionGraphOptions> CRevisionGraphState::GetOptions() 
+CSyncPointer<CAllRevisionGraphOptions> CRevisionGraphState::GetOptions()
 {
     CSingleLock lock (&mutex);
     return CSyncPointer<CAllRevisionGraphOptions>
@@ -178,7 +178,7 @@ CSyncPointer<SVN> CRevisionGraphState::GetSVN()
 
 // basic, synchronized data write access
 
-void CRevisionGraphState::SetQueryResult 
+void CRevisionGraphState::SetQueryResult
     ( std::auto_ptr<CFullHistory>& newHistory
     , std::auto_ptr<CFullGraph>& newFullGraph
     , bool newFetchedWCState)
@@ -205,7 +205,7 @@ void CRevisionGraphState::SetQueryResult
     nodeStates.LoadData (oldStates, fullGraph.get());
 }
 
-void CRevisionGraphState::SetAnalysisResult 
+void CRevisionGraphState::SetAnalysisResult
     ( std::auto_ptr<CVisibleGraph>& newVisibleGraph
     , std::auto_ptr<CStandardLayout>& newLayout)
 {

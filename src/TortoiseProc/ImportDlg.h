@@ -33,39 +33,39 @@
  */
 class CImportDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CImportDlg)
+    DECLARE_DYNAMIC(CImportDlg)
 
 public:
-	CImportDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CImportDlg();
+    CImportDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CImportDlg();
 
 // Dialog Data
-	enum { IDD = IDD_IMPORT };
+    enum { IDD = IDD_IMPORT };
 
 protected:
-	CFont		m_logFont;
-	CToolTips	m_tooltips;
-	CButton		m_butBrowse;
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual void OnOK();
-	virtual void OnCancel();
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedBrowse();
-	afx_msg void OnBnClickedSelectall();
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnEnChangeLogmessage();
-	afx_msg void OnBnClickedHistory();
-	afx_msg void OnCbnEditchangeUrlcombo();
-	DECLARE_MESSAGE_MAP()
+    CFont       m_logFont;
+    CToolTips   m_tooltips;
+    CButton     m_butBrowse;
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual void OnOK();
+    virtual void OnCancel();
+    virtual BOOL OnInitDialog();
+    afx_msg void OnBnClickedBrowse();
+    afx_msg void OnBnClickedSelectall();
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnEnChangeLogmessage();
+    afx_msg void OnBnClickedHistory();
+    afx_msg void OnCbnEditchangeUrlcombo();
+    DECLARE_MESSAGE_MAP()
 public:
-	CTSVNPath			m_path;
-	CString				m_url;
-	BOOL				m_bIncludeIgnored;
-	CString				m_sMessage;
+    CTSVNPath           m_path;
+    CString             m_url;
+    BOOL                m_bIncludeIgnored;
+    CString             m_sMessage;
 private:
-	CSciEdit			m_cMessage;
-	CHistoryCombo		m_URLCombo;
-	ProjectProperties	m_ProjectProperties;
-	CRegHistory			m_History;
+    CSciEdit            m_cMessage;
+    CHistoryCombo       m_URLCombo;
+    ProjectProperties   m_ProjectProperties;
+    CRegHistory         m_History;
 };

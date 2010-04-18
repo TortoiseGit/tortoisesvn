@@ -31,7 +31,7 @@ class CGraphNodeStates;
 * Delete collapsed sub-trees.
 */
 
-class CCollapseTreeDownward 
+class CCollapseTreeDownward
     : public CModificationOptionImpl< IModificationOption
                                     , 2100
                                     , 0

@@ -219,7 +219,7 @@ public:
 
     /// convenience methods
 
-	CRect        GetGraphRect();
+    CRect        GetGraphRect();
     int          GetNodeCount();
 
     svn_revnum_t GetHeadRevision() const;             

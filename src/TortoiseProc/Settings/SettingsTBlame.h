@@ -27,38 +27,38 @@
  */
 class CSettingsTBlame : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsTBlame)
+    DECLARE_DYNAMIC(CSettingsTBlame)
 
 public:
-	CSettingsTBlame();
-	virtual ~CSettingsTBlame();
+    CSettingsTBlame();
+    virtual ~CSettingsTBlame();
 
-	UINT GetIconID() {return IDI_TORTOISEBLAME;}
+    UINT GetIconID() {return IDI_TORTOISEBLAME;}
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSTBLAME };
+    enum { IDD = IDD_SETTINGSTBLAME };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual BOOL OnApply();
-	afx_msg void OnBnClickedColor();
-	afx_msg void OnChange();
-	afx_msg void OnBnClickedRestore();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL OnApply();
+    afx_msg void OnBnClickedColor();
+    afx_msg void OnChange();
+    afx_msg void OnBnClickedRestore();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 private:
-	CMFCColorButton m_cNewLinesColor;
-	CMFCColorButton m_cOldLinesColor;
-	CRegDWORD		m_regNewLinesColor;
-	CRegDWORD		m_regOldLinesColor;
+    CMFCColorButton m_cNewLinesColor;
+    CMFCColorButton m_cOldLinesColor;
+    CRegDWORD       m_regNewLinesColor;
+    CRegDWORD       m_regOldLinesColor;
 
-	CMFCFontComboBox	m_cFontNames;
-	CComboBox		m_cFontSizes;
-	CRegDWORD		m_regFontSize;
-	DWORD			m_dwFontSize;
-	CRegString		m_regFontName;
-	CString			m_sFontName;
-	DWORD			m_dwTabSize;
-	CRegDWORD		m_regTabSize;
+    CMFCFontComboBox    m_cFontNames;
+    CComboBox       m_cFontSizes;
+    CRegDWORD       m_regFontSize;
+    DWORD           m_dwFontSize;
+    CRegString      m_regFontName;
+    CString         m_sFontName;
+    DWORD           m_dwTabSize;
+    CRegDWORD       m_regTabSize;
 };

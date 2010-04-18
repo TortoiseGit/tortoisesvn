@@ -28,7 +28,7 @@ class CStandardLayoutNodeInfo;
 
 using namespace LogCache;
 
-class CStrictOrderNodePositioning 
+class CStrictOrderNodePositioning
     : public CRevisionGraphOptionImpl<ILayoutOption, 200, 0>
 {
 private:
@@ -43,36 +43,36 @@ private:
 
     /// the individual placement stages
 
-    void SortRevisions 
+    void SortRevisions
         ( IStandardLayoutNodeAccess* nodeAccess
         , std::vector<std::pair<revision_t, CStandardLayoutNodeInfo*> >& nodes);
-    void AssignColumns 
+    void AssignColumns
         ( CStandardLayoutNodeInfo* start
         , size_t column
         , std::vector<revision_t>& startRevisions
         , std::vector<revision_t>& endRevisions
         , std::vector<int>& maxWidths);
-    void AssignColumns 
+    void AssignColumns
         ( std::vector<std::pair<revision_t, CStandardLayoutNodeInfo*> >& nodes
         , std::vector<int>& maxWidths);
     void AssignRows
         (std::vector<std::pair<revision_t, CStandardLayoutNodeInfo*> >& nodes);
-    void ShiftNodes 
+    void ShiftNodes
         ( std::vector<std::pair<revision_t, CStandardLayoutNodeInfo*> >& nodes
         , std::vector<int>& columWidths);
-    
+
 public:
 
     /// construction
 
-    CStrictOrderNodePositioning 
+    CStrictOrderNodePositioning
         ( CRevisionGraphOptionList& list
         , IRevisionGraphOption* standardNodePositioning
         , IRevisionGraphOption* reduceCrossLines);
 
     /// implement IRevisionGraphOption: Active if standard layout is disabled.
 
-    virtual bool IsActive() const; 
+    virtual bool IsActive() const;
 
     /// cast @a layout pointer to the respective modification
     /// interface and write the data.

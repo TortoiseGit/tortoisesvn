@@ -36,7 +36,7 @@ bool CShowWCModification::IsActive() const
 
 // implement ICopyFilterOption
 
-ICopyFilterOption::EResult 
+ICopyFilterOption::EResult
 CShowWCModification::ShallRemove (const CFullGraphNode* node) const
 {
     // "Pin" HEAD nodes

@@ -27,29 +27,29 @@
  */
 class CRelocateDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CRelocateDlg)
+    DECLARE_DYNAMIC(CRelocateDlg)
 
 public:
-	CRelocateDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CRelocateDlg();
+    CRelocateDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CRelocateDlg();
 
-	enum { IDD = IDD_RELOCATE };
+    enum { IDD = IDD_RELOCATE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual void OnOK();
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedBrowse();
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
-	afx_msg void OnCbnEditchangeTourl();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void OnOK();
+    virtual BOOL OnInitDialog();
+    afx_msg void OnBnClickedBrowse();
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
+    afx_msg void OnCbnEditchangeTourl();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	int				m_height;
-	CPathEdit		m_FromUrl;
+    int             m_height;
+    CPathEdit       m_FromUrl;
 public:
-	CHistoryCombo m_URLCombo;
-	CString m_sToUrl;
-	CString m_sFromUrl;
+    CHistoryCombo m_URLCombo;
+    CString m_sToUrl;
+    CString m_sFromUrl;
 };
