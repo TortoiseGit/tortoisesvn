@@ -40,7 +40,7 @@ CString CommitCommand::LoadLogMessage()
     return msg;
 }
 
-void CommitCommand::InitProgressDialog 
+void CommitCommand::InitProgressDialog
     ( CCommitDlg& commitDlg
     , CSVNProgressDlg& progDlg)
 {
@@ -159,17 +159,17 @@ bool CommitCommand::Execute()
                     // (don't pass update errors to caller and *never*
                     // auto-reopen commit dialog upon error)
 
-                    bFailed =    !updateProgDlg.DidErrorsOccur() 
+                    bFailed =    !updateProgDlg.DidErrorsOccur()
                               && !updateProgDlg.DidConflictsOccur();
                     bRet = bFailed;
-                    CRegDWORD (_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE) 
+                    CRegDWORD (_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE)
                         = bRet ? TRUE : FALSE;
 
                     continue;
                 }
             }
 
-            // If there was an error and the user set the 
+            // If there was an error and the user set the
             // "automatically re-open commit dialog" option, do so.
 
             CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);

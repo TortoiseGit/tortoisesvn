@@ -31,36 +31,36 @@ class CLogDlg;
  */
 class CMergeWizardReintegrate : public CMergeWizardBasePage
 {
-	DECLARE_DYNAMIC(CMergeWizardReintegrate)
+    DECLARE_DYNAMIC(CMergeWizardReintegrate)
 
 public:
-	CMergeWizardReintegrate();
-	virtual ~CMergeWizardReintegrate();
+    CMergeWizardReintegrate();
+    virtual ~CMergeWizardReintegrate();
 
-	enum { IDD = IDD_MERGEWIZARD_REINTEGRATE };
+    enum { IDD = IDD_MERGEWIZARD_REINTEGRATE };
 
 protected:
-	virtual void		DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL		OnInitDialog();
-	virtual LRESULT		OnWizardNext();
-	virtual LRESULT		OnWizardBack();
-	virtual BOOL		OnSetActive();
+    virtual void        DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL        OnInitDialog();
+    virtual LRESULT     OnWizardNext();
+    virtual LRESULT     OnWizardBack();
+    virtual BOOL        OnSetActive();
 
-	BOOL				CheckData(bool bShowErrors = true);
+    BOOL                CheckData(bool bShowErrors = true);
 
-	afx_msg void		OnBnClickedShowmergelog();
-	afx_msg void		OnBnClickedBrowse();
-	afx_msg void		OnBnClickedShowlogwc();
-	afx_msg void		OnCbnEditchangeUrlcombo();
-	afx_msg LRESULT		OnWCStatus(WPARAM wParam, LPARAM lParam);
+    afx_msg void        OnBnClickedShowmergelog();
+    afx_msg void        OnBnClickedBrowse();
+    afx_msg void        OnBnClickedShowlogwc();
+    afx_msg void        OnCbnEditchangeUrlcombo();
+    afx_msg LRESULT     OnWCStatus(WPARAM wParam, LPARAM lParam);
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	CHistoryCombo		m_URLCombo;
-	CLogDlg	*			m_pLogDlg;
-	CLogDlg	*			m_pLogDlg2;
-	CPathEdit			m_WCPath;
+    CHistoryCombo       m_URLCombo;
+    CLogDlg *           m_pLogDlg;
+    CLogDlg *           m_pLogDlg2;
+    CPathEdit           m_WCPath;
 
 public:
-	CString				m_URL;
+    CString             m_URL;
 };

@@ -131,7 +131,7 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
     if (ppvOut == 0 )
         return E_POINTER;
     *ppvOut = NULL;
-    
+
     FileState state = FileStateInvalid;
     if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UPTODATE))
         state = FileStateVersioned;
@@ -155,14 +155,14 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
         state = FileStateIgnoredOverlay;
     else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UNVERSIONED))
         state = FileStateUnversionedOverlay;
-    
+
     if (state != FileStateInvalid)
     {
         apr_initialize();
         svn_dso_initialize2();
         g_SVNAdminDir.Init();
         g_cAprInit++;
-        
+
         CShellExtClassFactory *pcf = new (std::nothrow) CShellExtClassFactory(state);
         if (pcf == NULL)
             return E_OUTOFMEMORY;
@@ -172,7 +172,7 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
             delete pcf;
         return hr;
     }
-    
+
     return CLASS_E_CLASSNOTAVAILABLE;
 
 }

@@ -27,7 +27,7 @@ class CTSVNPath;
  *
  * \note This class is implemented as a singleton.
  * The singleton instance is created when first accessed. See SYS_IMAGE_LIST() function
- * easy access of the singleton instance. All 
+ * easy access of the singleton instance. All
  */
 class CSysImageList : public CImageList
 {
@@ -69,7 +69,7 @@ public:
     int GetFileIconIndex(const CString& file) const;
 
     /**
-     * Get the index for a SVN-style path file.  
+     * Get the index for a SVN-style path file.
      * Uses a cache to speed things up
      */
     int GetPathIconIndex(const CTSVNPath& file) const;

@@ -22,7 +22,7 @@
 
 // construction
 
-CStandardLayoutRectList::CStandardLayoutRectList 
+CStandardLayoutRectList::CStandardLayoutRectList
     ( const std::vector<CRect>& rects)
     : rects (rects)
 {

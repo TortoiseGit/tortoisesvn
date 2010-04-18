@@ -27,25 +27,25 @@
  */
 class CSimplePrompt : public CStandAloneDialog
 {
-	DECLARE_DYNAMIC(CSimplePrompt)
+    DECLARE_DYNAMIC(CSimplePrompt)
 
 public:
-	CSimplePrompt(CWnd* pParent = NULL);
-	virtual ~CSimplePrompt();
+    CSimplePrompt(CWnd* pParent = NULL);
+    virtual ~CSimplePrompt();
 
-	enum { IDD = IDD_SIMPLEPROMPT };
+    enum { IDD = IDD_SIMPLEPROMPT };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);
-	virtual BOOL OnInitDialog();
+    virtual void DoDataExchange(CDataExchange* pDX);
+    virtual BOOL OnInitDialog();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 public:
-	CString		m_sUsername;
-	CString		m_sPassword;
-	CString		m_sRealm;
-	BOOL		m_bSaveAuthentication;
-	HWND		m_hParentWnd;
+    CString     m_sUsername;
+    CString     m_sPassword;
+    CString     m_sRealm;
+    BOOL        m_bSaveAuthentication;
+    HWND        m_hParentWnd;
 
 };

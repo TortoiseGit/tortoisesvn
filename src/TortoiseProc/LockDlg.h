@@ -34,47 +34,47 @@
  */
 class CLockDlg : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CLockDlg)
+    DECLARE_DYNAMIC(CLockDlg)
 
 public:
-	CLockDlg(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CLockDlg();
+    CLockDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CLockDlg();
 
-	void	SetProjectProperties(ProjectProperties * pProps) {m_ProjectProperties = pProps;}
+    void    SetProjectProperties(ProjectProperties * pProps) {m_ProjectProperties = pProps;}
 private:
-	static UINT StatusThreadEntry(LPVOID pVoid);
-	UINT StatusThread();
+    static UINT StatusThreadEntry(LPVOID pVoid);
+    UINT StatusThread();
 
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnOK();
-	virtual void OnCancel();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedHelp();
-	afx_msg void OnEnChangeLockmessage();
-	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
-	afx_msg void OnBnClickedSelectall();
-	afx_msg void OnBnClickedHistory();
-	afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	void Refresh();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual void OnOK();
+    virtual void OnCancel();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnBnClickedHelp();
+    afx_msg void OnEnChangeLockmessage();
+    afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+    afx_msg void OnBnClickedSelectall();
+    afx_msg void OnBnClickedHistory();
+    afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
+    void Refresh();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
-	enum { IDD = IDD_LOCK };
+    enum { IDD = IDD_LOCK };
 public:
-	CString				m_sLockMessage;
-	BOOL				m_bStealLocks;
-	CTSVNPathList		m_pathList;
+    CString             m_sLockMessage;
+    BOOL                m_bStealLocks;
+    CTSVNPathList       m_pathList;
 
 private:
-	CWinThread*			m_pThread;
-	BOOL				m_bBlock;
-	CSVNStatusListCtrl	m_cFileList;
-	CSciEdit			m_cEdit;
-	ProjectProperties *	m_ProjectProperties;
-	bool				m_bCancelled;
-	CToolTips			m_tooltips;
-	CButton				m_SelectAll;
-	CRegHistory			m_History;
+    CWinThread*         m_pThread;
+    BOOL                m_bBlock;
+    CSVNStatusListCtrl  m_cFileList;
+    CSciEdit            m_cEdit;
+    ProjectProperties * m_ProjectProperties;
+    bool                m_bCancelled;
+    CToolTips           m_tooltips;
+    CButton             m_SelectAll;
+    CRegHistory         m_History;
 };

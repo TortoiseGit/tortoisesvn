@@ -42,7 +42,7 @@ class CLogDlg;
 /**
  * \ingroup TortoiseProc
  * Prompts the user for the required information needed for a copy command.
- * The required information is a single URL to copy the current URL of the 
+ * The required information is a single URL to copy the current URL of the
  * working copy to.
  */
 class CCopyDlg : public CResizableStandAloneDialog, public SVN

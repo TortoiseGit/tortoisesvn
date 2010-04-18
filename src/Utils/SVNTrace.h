@@ -26,7 +26,7 @@
 #include "HighResClock.h"
 
 /**
-* RAII class that encapsulates a single execution of a profiled block / line. 
+* RAII class that encapsulates a single execution of a profiled block / line.
 * Writes the results to TSVN's OutputDebugString wrapper.
 */
 
@@ -55,19 +55,19 @@ public:
 
     /// construction: write call description to ODS and start clock
 
-    CSVNTrace ( const wchar_t* name		///< name of the calling function
-              , int lineNo				///< line number in the same source file
-              , const wchar_t* line		///< svn API call
+    CSVNTrace ( const wchar_t* name     ///< name of the calling function
+              , int lineNo              ///< line number in the same source file
+              , const wchar_t* line     ///< svn API call
               , const char* svnPath = NULL  ///< usually the main parameter
               );
 
-	/// destruction: call \ref Stop, if it has not been called, yet
+    /// destruction: call \ref Stop, if it has not been called, yet
 
-	~CSVNTrace();
+    ~CSVNTrace();
 
-	/// write 'call finished' info and time taken to ODS
+    /// write 'call finished' info and time taken to ODS
 
-	void Stop();
+    void Stop();
 };
 
 /**

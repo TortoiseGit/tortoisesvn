@@ -29,51 +29,51 @@
 class CGradient
 {
 public:
-	CGradient(void);
-	~CGradient(void);
+    CGradient(void);
+    ~CGradient(void);
 
-	/**
-	 * Fills a rectangle with a two color gradient.
-	 * \param pDC the device context to draw on
-	 * \param rect the rectangle to fill
-	 * \param colorStart the starting color. This is either the color used on the left (if bHorz == TRUE) or top
-	 * \param colorEnd the ending color. This is either the color used on the right (if bHorz == TRUE) or bottom
-	 * \param bHorz if TRUE then the gradient is drawn from left to right, otherwise from top to bottom
-	 * \param nSteps the steps the gradient shall have. The more the smoother the gradient will be but also slower.
-	 */
-	static void Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz = TRUE, UINT nSteps = 64);
-	/**
-	 * Fills a rectangle with a three color gradient.
-	 * \param pDC the device context to draw on
-	 * \param rect the rectangle to fill
-	 * \param colorStart the starting color. This is either the color used on the left (if bHorz == TRUE) or top
-	 * \param colorMid the middle color.
-	 * \param colorEnd the ending color. This is either the color used on the right (if bHorz == TRUE) or bottom
-	 * \param bHorz if TRUE then the gradient is drawn from left to right, otherwise from top to bottom
-	 * \param nSteps the steps the gradient shall have. The more the smoother the gradient will be but also slower.
-	 */
-	static void Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorFinish, BOOL bHorz = TRUE, UINT nSteps = 64);
+    /**
+     * Fills a rectangle with a two color gradient.
+     * \param pDC the device context to draw on
+     * \param rect the rectangle to fill
+     * \param colorStart the starting color. This is either the color used on the left (if bHorz == TRUE) or top
+     * \param colorEnd the ending color. This is either the color used on the right (if bHorz == TRUE) or bottom
+     * \param bHorz if TRUE then the gradient is drawn from left to right, otherwise from top to bottom
+     * \param nSteps the steps the gradient shall have. The more the smoother the gradient will be but also slower.
+     */
+    static void Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz = TRUE, UINT nSteps = 64);
+    /**
+     * Fills a rectangle with a three color gradient.
+     * \param pDC the device context to draw on
+     * \param rect the rectangle to fill
+     * \param colorStart the starting color. This is either the color used on the left (if bHorz == TRUE) or top
+     * \param colorMid the middle color.
+     * \param colorEnd the ending color. This is either the color used on the right (if bHorz == TRUE) or bottom
+     * \param bHorz if TRUE then the gradient is drawn from left to right, otherwise from top to bottom
+     * \param nSteps the steps the gradient shall have. The more the smoother the gradient will be but also slower.
+     */
+    static void Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorFinish, BOOL bHorz = TRUE, UINT nSteps = 64);
 #ifdef USE_GDI_GRADIENT
-	/**
-	 * Fills a rectangle with a two color gradient.
-	 * \param pDC the device context to draw on
-	 * \param rect the rectangle to fill
-	 * \param colorStart the starting color. This is either the color used on the left (if bHorz == TRUE) or top
-	 * \param colorEnd the ending color. This is either the color used on the right (if bHorz == TRUE) or bottom
-	 * \param bHorz if TRUE then the gradient is drawn from left to right, otherwise from top to bottom
-	 */
-	static void DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz = TRUE);
-	/**
-	 * Fills a rectangle with a three color gradient.
-	 * \param pDC the device context to draw on
-	 * \param rect the rectangle to fill
-	 * \param colorStart the starting color. This is either the color used on the left (if bHorz == TRUE) or top
-	 * \param colorMid the middle color.
-	 * \param colorEnd the ending color. This is either the color used on the right (if bHorz == TRUE) or bottom
-	 * \param bHorz if TRUE then the gradient is drawn from left to right, otherwise from top to bottom
-	 */
-	static void DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz = TRUE);
+    /**
+     * Fills a rectangle with a two color gradient.
+     * \param pDC the device context to draw on
+     * \param rect the rectangle to fill
+     * \param colorStart the starting color. This is either the color used on the left (if bHorz == TRUE) or top
+     * \param colorEnd the ending color. This is either the color used on the right (if bHorz == TRUE) or bottom
+     * \param bHorz if TRUE then the gradient is drawn from left to right, otherwise from top to bottom
+     */
+    static void DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz = TRUE);
+    /**
+     * Fills a rectangle with a three color gradient.
+     * \param pDC the device context to draw on
+     * \param rect the rectangle to fill
+     * \param colorStart the starting color. This is either the color used on the left (if bHorz == TRUE) or top
+     * \param colorMid the middle color.
+     * \param colorEnd the ending color. This is either the color used on the right (if bHorz == TRUE) or bottom
+     * \param bHorz if TRUE then the gradient is drawn from left to right, otherwise from top to bottom
+     */
+    static void DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz = TRUE);
 #endif
 private:
-	static void SplitRect(const CRect& rSource, CRect& rHalf1, CRect& rHalf2, BOOL bHorz);
+    static void SplitRect(const CRect& rSource, CRect& rHalf1, CRect& rHalf2, BOOL bHorz);
 };

@@ -30,7 +30,7 @@
 //
 // IHierarchicalInStream
 //
-//      the generic read stream interface. 
+//      the generic read stream interface.
 //      Streams form a tree.
 //
 ///////////////////////////////////////////////////////////////
@@ -53,10 +53,10 @@ public:
 
     // for simplified access
     // The last parameter is only present for technical reasons
-    // (different type overloads must have different signatures) 
+    // (different type overloads must have different signatures)
     // and neither needs to be specified nor will it not be used.
 
-    template<class S> 
+    template<class S>
     S* GetSubStream ( SUB_STREAM_ID subStreamID
                     , bool autoOpen = true
                     , S* = NULL);
@@ -66,8 +66,8 @@ public:
     virtual ~IHierarchicalInStream() {};
 };
 
-template<class S> 
-S* IHierarchicalInStream::GetSubStream 
+template<class S>
+S* IHierarchicalInStream::GetSubStream
     ( SUB_STREAM_ID subStreamID
     , bool autoOpen
     , S*)
@@ -84,7 +84,7 @@ S* IHierarchicalInStream::GetSubStream
 // CHierachicalInStreamBase
 //
 //      implements IHierarchicalInStream except for GetTypeID().
-//      It mainly manages the sub-streams. 
+//      It mainly manages the sub-streams.
 //
 //      For details of the stream format see CHierachicalOutStreamBase.
 //
@@ -102,7 +102,7 @@ private:
 protected:
 
     // stream content
-    // (sub-stream info will be excluded after ReadSubStreams()) 
+    // (sub-stream info will be excluded after ReadSubStreams())
 
     typedef unsigned char BYTE;
     const BYTE* first;
@@ -140,16 +140,16 @@ public:
     virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const;
     virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
                                                 , bool autoOpen = true);
-    template<class S> 
+    template<class S>
     S* GetSubStream ( SUB_STREAM_ID subStreamID
                     , bool autoOpen = true
                     , S* = NULL);
 };
 
-template<class S> 
-inline S* CHierachicalInStreamBase::GetSubStream 
+template<class S>
+inline S* CHierachicalInStreamBase::GetSubStream
     ( SUB_STREAM_ID subStreamID
-    , bool autoOpen 
+    , bool autoOpen
     , S*)
 {
     return IHierarchicalInStream::GetSubStream<S>(subStreamID, autoOpen);
@@ -165,7 +165,7 @@ inline S* CHierachicalInStreamBase::GetSubStream
 //
 ///////////////////////////////////////////////////////////////
 
-template<class T, class B, STREAM_TYPE_ID type> 
+template<class T, class B, STREAM_TYPE_ID type>
 class CInStreamImplBase : public B
 {
 public:
@@ -186,7 +186,7 @@ public:
                       , STREAM_INDEX index)
         : B (buffer, index)
     {
-        // trick the compiler: 
+        // trick the compiler:
         // use a dummy reference to factoryCreator
         // to force its creation
 
@@ -198,20 +198,20 @@ public:
 
 // stream factory creator
 
-template<class T, class B, STREAM_TYPE_ID type> 
-typename CInStreamImplBase<T, B, type>::TFactory::CCreator 
+template<class T, class B, STREAM_TYPE_ID type>
+typename CInStreamImplBase<T, B, type>::TFactory::CCreator
     CInStreamImplBase<T, B, type>::factoryCreator;
 
 ///////////////////////////////////////////////////////////////
 //
 // CInStreamImpl<>
 //
-//      enhances CInStreamImplBase<> for the case that there 
+//      enhances CInStreamImplBase<> for the case that there
 //      is no further sub-class.
 //
 ///////////////////////////////////////////////////////////////
 
-template<class B, STREAM_TYPE_ID type> 
+template<class B, STREAM_TYPE_ID type>
 class CInStreamImpl : public CInStreamImplBase< CInStreamImpl<B, type>
                                               , B
                                               , type>

@@ -315,14 +315,14 @@ xor virtual while __file__ __line__ __sleep __wakeup"));
             // This light blue is found in the windows system palette so is safe to use even in 256 colour modes.
             // Show the whole section of VBScript with light blue background
             for (int bstyle=SCE_HB_DEFAULT; bstyle<=SCE_HB_STRINGEOL; bstyle++) {
-                SendEditor(SCI_STYLESETFONT, bstyle, 
+                SendEditor(SCI_STYLESETFONT, bstyle,
                     reinterpret_cast<LPARAM>("Lucida Console"));
                 SendEditor(SCI_STYLESETBACK, bstyle, lightBlue);
                 // This call extends the backround colour of the last style on the line to the edge of the window
                 SendEditor(SCI_STYLESETEOLFILLED, bstyle, 1);
             }
             SendEditor(SCI_STYLESETBACK, SCE_HB_STRINGEOL, RGB(0x7F,0x7F,0xFF));
-            SendEditor(SCI_STYLESETFONT, SCE_HB_COMMENTLINE, 
+            SendEditor(SCI_STYLESETFONT, SCE_HB_COMMENTLINE,
                 reinterpret_cast<LPARAM>("Lucida Console"));
 
             SetAStyle(SCE_HBA_DEFAULT, black);
@@ -335,14 +335,14 @@ xor virtual while __file__ __line__ __sleep __wakeup"));
 
             // Show the whole section of ASP VBScript with bright yellow background
             for (int bastyle=SCE_HBA_DEFAULT; bastyle<=SCE_HBA_STRINGEOL; bastyle++) {
-                SendEditor(SCI_STYLESETFONT, bastyle, 
+                SendEditor(SCI_STYLESETFONT, bastyle,
                     reinterpret_cast<LPARAM>("Lucida Console"));
                 SendEditor(SCI_STYLESETBACK, bastyle, RGB(0xFF, 0xFF, 0));
                 // This call extends the backround colour of the last style on the line to the edge of the window
                 SendEditor(SCI_STYLESETEOLFILLED, bastyle, 1);
             }
             SendEditor(SCI_STYLESETBACK, SCE_HBA_STRINGEOL, RGB(0xCF,0xCF,0x7F));
-            SendEditor(SCI_STYLESETFONT, SCE_HBA_COMMENTLINE, 
+            SendEditor(SCI_STYLESETFONT, SCE_HBA_COMMENTLINE,
                 reinterpret_cast<LPARAM>("Lucida Console"));
 
             // If there is no need to support embedded Javascript, the following code can be dropped.
@@ -386,7 +386,7 @@ xor virtual while __file__ __line__ __sleep __wakeup"));
 
             // Show the whole section of Javascript with off white background
             for (int jstyle=SCE_HJ_DEFAULT; jstyle<=SCE_HJ_SYMBOLS; jstyle++) {
-                SendEditor(SCI_STYLESETFONT, jstyle, 
+                SendEditor(SCI_STYLESETFONT, jstyle,
                     reinterpret_cast<LPARAM>("Lucida Console"));
                 SendEditor(SCI_STYLESETBACK, jstyle, offWhite);
                 SendEditor(SCI_STYLESETEOLFILLED, jstyle, 1);
@@ -396,7 +396,7 @@ xor virtual while __file__ __line__ __sleep __wakeup"));
 
             // Show the whole section of Javascript with brown background
             for (int jastyle=SCE_HJA_DEFAULT; jastyle<=SCE_HJA_SYMBOLS; jastyle++) {
-                SendEditor(SCI_STYLESETFONT, jastyle, 
+                SendEditor(SCI_STYLESETFONT, jastyle,
                     reinterpret_cast<LPARAM>("Lucida Console"));
                 SendEditor(SCI_STYLESETBACK, jastyle, RGB(0xDF, 0xDF, 0x7F));
                 SendEditor(SCI_STYLESETEOLFILLED, jastyle, 1);

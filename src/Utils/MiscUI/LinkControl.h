@@ -22,46 +22,46 @@
 class CLinkControl
 {
 public:
-	CLinkControl(void);
-	virtual ~CLinkControl(void);
+    CLinkControl(void);
+    virtual ~CLinkControl(void);
 
-	bool ConvertStaticToLink(HWND hwndCtl);
-	bool ConvertStaticToLink(HWND hwndParent, UINT uiCtlId);
+    bool ConvertStaticToLink(HWND hwndCtl);
+    bool ConvertStaticToLink(HWND hwndParent, UINT uiCtlId);
 
-	static const UINT LK_LINKITEMCLICKED;
+    static const UINT LK_LINKITEMCLICKED;
 
 protected:
 private:
-	static HCURSOR  g_hLinkCursor;                  // Cursor for hyperlink
-	static HFONT    g_UnderlineFont;                // Font for underline display
-	static HFONT    g_NormalFont;					// Font for default display
-	static int      g_counter;						// Global resources user counter
-	bool			m_bOverControl;					// cursor over control?
-	HFONT			m_StdFont;						// Standard font
-	WNDPROC			m_pfnOrigCtlProc;
+    static HCURSOR  g_hLinkCursor;                  // Cursor for hyperlink
+    static HFONT    g_UnderlineFont;                // Font for underline display
+    static HFONT    g_NormalFont;                   // Font for default display
+    static int      g_counter;                      // Global resources user counter
+    bool            m_bOverControl;                 // cursor over control?
+    HFONT           m_StdFont;                      // Standard font
+    WNDPROC         m_pfnOrigCtlProc;
 
-	void createUnderlineFont(void);
-	static void createLinkCursor(void);
-	void createGlobalResources(void)
-	{
-		createUnderlineFont();
-		createLinkCursor();
-	}
-	static void destroyGlobalResources(void)
-	{
-		/*
-		 * No need to call DestroyCursor() for cursors acquired through
-		 * LoadCursor().
-		 */
-		g_hLinkCursor   = NULL;
-		DeleteObject(g_UnderlineFont);
-		g_UnderlineFont = NULL;
-	}
+    void createUnderlineFont(void);
+    static void createLinkCursor(void);
+    void createGlobalResources(void)
+    {
+        createUnderlineFont();
+        createLinkCursor();
+    }
+    static void destroyGlobalResources(void)
+    {
+        /*
+         * No need to call DestroyCursor() for cursors acquired through
+         * LoadCursor().
+         */
+        g_hLinkCursor   = NULL;
+        DeleteObject(g_UnderlineFont);
+        g_UnderlineFont = NULL;
+    }
 
-	static void DrawFocusRect(HWND hwnd);
-	static LRESULT CALLBACK _HyperlinkParentProc(HWND hwnd, UINT message,
-												 WPARAM wParam, LPARAM lParam);
-	static LRESULT CALLBACK _HyperlinkProc(HWND hwnd, UINT message,
-										   WPARAM wParam, LPARAM lParam);
+    static void DrawFocusRect(HWND hwnd);
+    static LRESULT CALLBACK _HyperlinkParentProc(HWND hwnd, UINT message,
+                                                 WPARAM wParam, LPARAM lParam);
+    static LRESULT CALLBACK _HyperlinkProc(HWND hwnd, UINT message,
+                                           WPARAM wParam, LPARAM lParam);
 };
 

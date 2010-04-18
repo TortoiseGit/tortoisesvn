@@ -29,18 +29,18 @@ CGradient::~CGradient(void)
 
 void CGradient::SplitRect(const CRect& rSource, CRect& rHalf1, CRect& rHalf2, BOOL bHorz)
 {
-	rHalf1 = rSource;
-	rHalf2 = rSource;
-	if (!bHorz)
-	{
-		rHalf1.bottom = (rSource.bottom + rSource.top) / 2;
-		rHalf2.top = rHalf1.bottom;
-	}
-	else
-	{
-		rHalf1.right = (rSource.left + rSource.right) / 2;
-		rHalf2.left = rHalf1.right;
-	}
+    rHalf1 = rSource;
+    rHalf2 = rSource;
+    if (!bHorz)
+    {
+        rHalf1.bottom = (rSource.bottom + rSource.top) / 2;
+        rHalf2.top = rHalf1.bottom;
+    }
+    else
+    {
+        rHalf1.right = (rSource.left + rSource.right) / 2;
+        rHalf2.left = rHalf1.right;
+    }
 }
 
 void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)
@@ -51,7 +51,7 @@ void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorE
         BYTE bG = (BYTE) ((GetGValue(colorStart) * (nSteps - i) + GetGValue(colorEnd) * i) / nSteps);
         BYTE bB = (BYTE) ((GetBValue(colorStart) * (nSteps - i) + GetBValue(colorEnd) * i) / nSteps);
 
-		CBrush br (RGB(bR, bG, bB));
+        CBrush br (RGB(bR, bG, bB));
 
         CRect r2 = rect;
         if (!bHorz)
@@ -73,49 +73,49 @@ void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorE
 
 void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)
 {
-	CRect rect1, rect2;
-	SplitRect(rect, rect1, rect2, bHorz);
+    CRect rect1, rect2;
+    SplitRect(rect, rect1, rect2, bHorz);
 
-	Draw(pDC, rect1, colorStart, colorMid, bHorz, nSteps/2);
-	Draw(pDC, rect2, colorMid, colorEnd, bHorz, nSteps/2);
+    Draw(pDC, rect1, colorStart, colorMid, bHorz, nSteps/2);
+    Draw(pDC, rect2, colorMid, colorEnd, bHorz, nSteps/2);
 }
 
 #ifdef USE_GDI_GRADIENT
 
 void CGradient::DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz/* = TRUE*/)
 {
-	TRIVERTEX        vert[2] ;
-	GRADIENT_RECT    gRect;
-	vert [0] .x      = rect.left;
-	vert [0] .y      = rect.top;
-	vert [0] .Red    = GetRValue(colorStart)<<8;
-	vert [0] .Green  = GetGValue(colorStart)<<8;
-	vert [0] .Blue   = GetBValue(colorStart)<<8;
-	vert [0] .Alpha  = 0x0000;
+    TRIVERTEX        vert[2] ;
+    GRADIENT_RECT    gRect;
+    vert [0] .x      = rect.left;
+    vert [0] .y      = rect.top;
+    vert [0] .Red    = GetRValue(colorStart)<<8;
+    vert [0] .Green  = GetGValue(colorStart)<<8;
+    vert [0] .Blue   = GetBValue(colorStart)<<8;
+    vert [0] .Alpha  = 0x0000;
 
-	vert [1] .x      = rect.right;
-	vert [1] .y      = rect.bottom; 
-	vert [1] .Red    = GetRValue(colorEnd)<<8;
-	vert [1] .Green  = GetGValue(colorEnd)<<8;
-	vert [1] .Blue   = GetBValue(colorEnd)<<8;
-	vert [1] .Alpha  = 0x0000;
+    vert [1] .x      = rect.right;
+    vert [1] .y      = rect.bottom;
+    vert [1] .Red    = GetRValue(colorEnd)<<8;
+    vert [1] .Green  = GetGValue(colorEnd)<<8;
+    vert [1] .Blue   = GetBValue(colorEnd)<<8;
+    vert [1] .Alpha  = 0x0000;
 
-	gRect.UpperLeft  = 0;
-	gRect.LowerRight = 1;
-	if (bHorz)
-		pDC->GradientFill(vert, 2, &gRect, 1, GRADIENT_FILL_RECT_H);
-	else
-		pDC->GradientFill(vert, 2, &gRect, 1, GRADIENT_FILL_RECT_V);
+    gRect.UpperLeft  = 0;
+    gRect.LowerRight = 1;
+    if (bHorz)
+        pDC->GradientFill(vert, 2, &gRect, 1, GRADIENT_FILL_RECT_H);
+    else
+        pDC->GradientFill(vert, 2, &gRect, 1, GRADIENT_FILL_RECT_V);
 
 }
 
 void CGradient::DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/)
 {
-	CRect rect1, rect2;
-	SplitRect(rect, rect1, rect2, bHorz);
+    CRect rect1, rect2;
+    SplitRect(rect, rect1, rect2, bHorz);
 
-	DrawGDI(pDC, rect1, colorStart, colorMid, bHorz);
-	DrawGDI(pDC, rect2, colorMid, colorEnd, bHorz);
+    DrawGDI(pDC, rect1, colorStart, colorMid, bHorz);
+    DrawGDI(pDC, rect2, colorMid, colorEnd, bHorz);
 }
 
 #endif

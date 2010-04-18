@@ -26,7 +26,7 @@
 IMPLEMENT_DYNAMIC(CEditPropBugtraq, CResizableStandAloneDialog)
 
 CEditPropBugtraq::CEditPropBugtraq(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CEditPropBugtraq::IDD, pParent)
+    : CResizableStandAloneDialog(CEditPropBugtraq::IDD, pParent)
     , EditPropBase()
     , m_bWarnIfNoIssue(FALSE)
     , m_sBugtraqUrl(_T(""))
@@ -200,7 +200,7 @@ void CEditPropBugtraq::OnOK()
         std::tr1::wregex r1 = std::tr1::wregex(m_sBugtraqRegex1);
         UNREFERENCED_PARAMETER(r1);
     }
-    catch (exception) 
+    catch (exception)
     {
         ShowEditBalloon(IDC_BUGTRAQLOGREGEX1, IDS_ERR_INVALIDREGEX, IDS_ERR_ERROR);
         return;
@@ -210,7 +210,7 @@ void CEditPropBugtraq::OnOK()
         std::tr1::wregex r2 = std::tr1::wregex(m_sBugtraqRegex2);
         UNREFERENCED_PARAMETER(r2);
     }
-    catch (exception) 
+    catch (exception)
     {
         ShowEditBalloon(IDC_BUGTRAQLOGREGEX2, IDS_ERR_INVALIDREGEX, IDS_ERR_ERROR);
         return;
@@ -310,7 +310,7 @@ void CEditPropBugtraq::OnSizing(UINT fwSide, LPRECT pRect)
         pRect->top = pRect->bottom - m_height;
         break;
     }
-    CResizableStandAloneDialog::OnSizing(fwSide, pRect);	
+    CResizableStandAloneDialog::OnSizing(fwSide, pRect);
 }
 
 void CEditPropBugtraq::OnBnClickedHelp()

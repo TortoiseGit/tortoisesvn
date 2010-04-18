@@ -22,12 +22,12 @@
  * \ingroup TortoiseShell
  * Represents one entry of the class ItemIDList.
  */
-class PIDL  
+class PIDL
 {
 public:
-	PIDL();
-	virtual ~PIDL();
+    PIDL();
+    virtual ~PIDL();
 private:
-	LPMALLOC malloc_;
+    LPMALLOC malloc_;
 };
 

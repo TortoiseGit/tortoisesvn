@@ -116,7 +116,7 @@ void CEditPropMimeType::OnOK()
 }
 
 void CEditPropMimeType::OnBnClickedType()
-{    
+{
     int checked = GetCheckedRadioButton(IDC_MIMETEXT, IDC_MIMECUSTOM);
     DialogEnableWindow(IDC_CUSTOMMIMETYPE, checked == IDC_MIMECUSTOM);
     if (checked == IDC_MIMECUSTOM)

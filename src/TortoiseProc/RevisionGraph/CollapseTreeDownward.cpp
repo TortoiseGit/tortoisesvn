@@ -23,7 +23,7 @@
 
 // construction
 
-CCollapseTreeDownward::CCollapseTreeDownward 
+CCollapseTreeDownward::CCollapseTreeDownward
     ( CRevisionGraphOptionList& list
     , const CGraphNodeStates* nodeStates)
     : inherited (list)

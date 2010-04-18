@@ -22,102 +22,102 @@
 
 CString GetCachePipeName()
 {
-	return TSVN_CACHE_PIPE_NAME + GetCacheID();
+    return TSVN_CACHE_PIPE_NAME + GetCacheID();
 }
 
 CString GetCacheCommandPipeName()
 {
-	return TSVN_CACHE_COMMANDPIPE_NAME + GetCacheID();
+    return TSVN_CACHE_COMMANDPIPE_NAME + GetCacheID();
 }
 
 CString GetCacheMutexName()
 {
-	return TSVN_CACHE_MUTEX_NAME + GetCacheID();
+    return TSVN_CACHE_MUTEX_NAME + GetCacheID();
 }
 
 CString GetCacheID()
 {
     CString t;
-	HANDLE token;
-	DWORD len;
-	BOOL result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token);
-	if(result)
-	{
-		GetTokenInformation(token, TokenStatistics, NULL, 0, &len);
+    HANDLE token;
+    DWORD len;
+    BOOL result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token);
+    if(result)
+    {
+        GetTokenInformation(token, TokenStatistics, NULL, 0, &len);
         if (len >= sizeof (TOKEN_STATISTICS))
         {
             auto_buffer<BYTE> data (len);
-		    GetTokenInformation(token, TokenStatistics, data, len, &len);
-		    LUID uid = ((PTOKEN_STATISTICS)data.get())->AuthenticationId;
-		    t.Format(_T("-%08x%08x"), uid.HighPart, uid.LowPart);
+            GetTokenInformation(token, TokenStatistics, data, len, &len);
+            LUID uid = ((PTOKEN_STATISTICS)data.get())->AuthenticationId;
+            t.Format(_T("-%08x%08x"), uid.HighPart, uid.LowPart);
         }
 
         CloseHandle(token);
-	}
+    }
     return t;
 }
 
 bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 {
-	HANDLE hPipe = CreateFile( 
-		GetCacheCommandPipeName(),		// pipe name 
-		GENERIC_READ |					// read and write access 
-		GENERIC_WRITE, 
-		0,								// no sharing 
-		NULL,							// default security attributes
-		OPEN_EXISTING,					// opens existing pipe 
-		FILE_FLAG_OVERLAPPED,			// default attributes 
-		NULL);							// no template file 
+    HANDLE hPipe = CreateFile( 
+        GetCacheCommandPipeName(),      // pipe name 
+        GENERIC_READ |                  // read and write access 
+        GENERIC_WRITE, 
+        0,                              // no sharing 
+        NULL,                           // default security attributes
+        OPEN_EXISTING,                  // opens existing pipe 
+        FILE_FLAG_OVERLAPPED,           // default attributes 
+        NULL);                          // no template file 
 
-	if (hPipe == INVALID_HANDLE_VALUE)
-		return false;
+    if (hPipe == INVALID_HANDLE_VALUE)
+        return false;
 
-	// The pipe connected; change to message-read mode. 
-	DWORD dwMode = PIPE_READMODE_MESSAGE; 
-	if (SetNamedPipeHandleState( 
-		hPipe,    // pipe handle 
-		&dwMode,  // new pipe mode 
-		NULL,     // don't set maximum bytes 
-		NULL))    // don't set maximum time 
-	{
-		DWORD cbWritten; 
-		TSVNCacheCommand cmd;
-		SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
-		cmd.command = command;
-		if (path)
-			_tcsncpy_s(cmd.path, MAX_PATH+1, path, _TRUNCATE);
-		BOOL fSuccess = WriteFile( 
-			hPipe,			// handle to pipe 
-			&cmd,			// buffer to write from 
-			sizeof(cmd),	// number of bytes to write 
-			&cbWritten,		// number of bytes written 
-			NULL);			// not overlapped I/O 
+    // The pipe connected; change to message-read mode. 
+    DWORD dwMode = PIPE_READMODE_MESSAGE; 
+    if (SetNamedPipeHandleState( 
+        hPipe,    // pipe handle 
+        &dwMode,  // new pipe mode 
+        NULL,     // don't set maximum bytes 
+        NULL))    // don't set maximum time 
+    {
+        DWORD cbWritten; 
+        TSVNCacheCommand cmd;
+        SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+        cmd.command = command;
+        if (path)
+            _tcsncpy_s(cmd.path, MAX_PATH+1, path, _TRUNCATE);
+        BOOL fSuccess = WriteFile( 
+            hPipe,          // handle to pipe 
+            &cmd,           // buffer to write from 
+            sizeof(cmd),    // number of bytes to write 
+            &cbWritten,     // number of bytes written 
+            NULL);          // not overlapped I/O 
 
-		if (! fSuccess || sizeof(cmd) != cbWritten)
-		{
-			DisconnectNamedPipe(hPipe); 
-			CloseHandle(hPipe); 
-			hPipe = INVALID_HANDLE_VALUE;
-			return false;
-		}
-		// now tell the cache we don't need it's command thread anymore
-		SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
-		cmd.command = TSVNCACHECOMMAND_END;
-		WriteFile( 
-			hPipe,			// handle to pipe 
-			&cmd,			// buffer to write from 
-			sizeof(cmd),	// number of bytes to write 
-			&cbWritten,		// number of bytes written 
-			NULL);			// not overlapped I/O 
-		DisconnectNamedPipe(hPipe); 
-		CloseHandle(hPipe); 
-	}
-	else
-	{
-		ATLTRACE("SetNamedPipeHandleState failed"); 
-		CloseHandle(hPipe);
-		return false;
-	}
+        if (! fSuccess || sizeof(cmd) != cbWritten)
+        {
+            DisconnectNamedPipe(hPipe); 
+            CloseHandle(hPipe); 
+            hPipe = INVALID_HANDLE_VALUE;
+            return false;
+        }
+        // now tell the cache we don't need it's command thread anymore
+        SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+        cmd.command = TSVNCACHECOMMAND_END;
+        WriteFile( 
+            hPipe,          // handle to pipe 
+            &cmd,           // buffer to write from 
+            sizeof(cmd),    // number of bytes to write 
+            &cbWritten,     // number of bytes written 
+            NULL);          // not overlapped I/O 
+        DisconnectNamedPipe(hPipe); 
+        CloseHandle(hPipe); 
+    }
+    else
+    {
+        ATLTRACE("SetNamedPipeHandleState failed"); 
+        CloseHandle(hPipe);
+        return false;
+    }
 
-	return true;
+    return true;
 }

@@ -26,61 +26,61 @@
 
 bool UpdateCommand::Execute()
 {
-	CRegDWORD updateExternals(_T("Software\\TortoiseSVN\\IncludeExternals"), true);
-	SVNRev rev = SVNRev(_T("HEAD"));
-	int options = DWORD(updateExternals) ? 0 : ProgOptIgnoreExternals;
-	svn_depth_t depth = svn_depth_unknown;
-	DWORD exitcode = 0;
-	CString error;
-	if (pathList.GetCount() == 0)
-		return false;
-	if (CHooks::Instance().StartUpdate(pathList, exitcode, error))
-	{
-		if (exitcode)
-		{
-			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-			CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
-			return FALSE;
-		}
-	}
-	if ((parser.HasKey(_T("rev")))&&(!parser.HasVal(_T("rev"))))
-	{
-		CUpdateDlg dlg;
-		if (pathList.GetCount()>0)
-			dlg.m_wcPath = pathList[0];
-		if (dlg.DoModal() == IDOK)
-		{
-			rev = dlg.Revision;
-			depth = dlg.m_depth;
-			if (dlg.m_bNoExternals)
-				options |= ProgOptIgnoreExternals;
-			else
-				options &= ~ProgOptIgnoreExternals;
-		}
-		else 
-			return FALSE;
-	}
-	else
-	{
-		if (parser.HasVal(_T("rev")))
-			rev = SVNRev(parser.GetVal(_T("rev")));
-		if (parser.HasKey(_T("nonrecursive")))
-			depth = svn_depth_empty;
-		if (parser.HasKey(_T("ignoreexternals")))
-			options |= ProgOptIgnoreExternals;
-		if (parser.HasKey(_T("updateexternals")))
-			options &= ~ProgOptIgnoreExternals;
-	}
+    CRegDWORD updateExternals(_T("Software\\TortoiseSVN\\IncludeExternals"), true);
+    SVNRev rev = SVNRev(_T("HEAD"));
+    int options = DWORD(updateExternals) ? 0 : ProgOptIgnoreExternals;
+    svn_depth_t depth = svn_depth_unknown;
+    DWORD exitcode = 0;
+    CString error;
+    if (pathList.GetCount() == 0)
+        return false;
+    if (CHooks::Instance().StartUpdate(pathList, exitcode, error))
+    {
+        if (exitcode)
+        {
+            CString temp;
+            temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
+            CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
+            return FALSE;
+        }
+    }
+    if ((parser.HasKey(_T("rev")))&&(!parser.HasVal(_T("rev"))))
+    {
+        CUpdateDlg dlg;
+        if (pathList.GetCount()>0)
+            dlg.m_wcPath = pathList[0];
+        if (dlg.DoModal() == IDOK)
+        {
+            rev = dlg.Revision;
+            depth = dlg.m_depth;
+            if (dlg.m_bNoExternals)
+                options |= ProgOptIgnoreExternals;
+            else
+                options &= ~ProgOptIgnoreExternals;
+        }
+        else
+            return FALSE;
+    }
+    else
+    {
+        if (parser.HasVal(_T("rev")))
+            rev = SVNRev(parser.GetVal(_T("rev")));
+        if (parser.HasKey(_T("nonrecursive")))
+            depth = svn_depth_empty;
+        if (parser.HasKey(_T("ignoreexternals")))
+            options |= ProgOptIgnoreExternals;
+        if (parser.HasKey(_T("updateexternals")))
+            options &= ~ProgOptIgnoreExternals;
+    }
 
-	CSVNProgressDlg progDlg;
-	theApp.m_pMainWnd = &progDlg;
-	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
-	progDlg.SetAutoClose (parser);
-	progDlg.SetOptions(options);
-	progDlg.SetPathList(pathList);
-	progDlg.SetRevision(rev);
-	progDlg.SetDepth(depth);
-	progDlg.DoModal();
-	return !progDlg.DidErrorsOccur();
+    CSVNProgressDlg progDlg;
+    theApp.m_pMainWnd = &progDlg;
+    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+    progDlg.SetAutoClose (parser);
+    progDlg.SetOptions(options);
+    progDlg.SetPathList(pathList);
+    progDlg.SetRevision(rev);
+    progDlg.SetDepth(depth);
+    progDlg.DoModal();
+    return !progDlg.DidErrorsOccur();
 }

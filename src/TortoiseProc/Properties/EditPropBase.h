@@ -26,11 +26,11 @@ class PropValue
 public:
     PropValue(void) : count(0), allthesamevalue(true), isbinary(false), remove(false) {};
 
-    std::string	value;
-    tstring		value_without_newlines;
-    int			count;
-    bool		allthesamevalue;
-    bool		isbinary;
+    std::string value;
+    tstring     value_without_newlines;
+    int         count;
+    bool        allthesamevalue;
+    bool        isbinary;
     bool        remove;
 };
 

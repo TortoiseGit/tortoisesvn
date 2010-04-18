@@ -22,7 +22,7 @@
 // construction: nothing special to do
 
 CCompositeOutStreamBase::CCompositeOutStreamBase ( CCacheFileOutBuffer* aBuffer
-												 , SUB_STREAM_ID anID)
-	: CHierachicalOutStreamBase (aBuffer, anID)
+                                                 , SUB_STREAM_ID anID)
+    : CHierachicalOutStreamBase (aBuffer, anID)
 {
 }

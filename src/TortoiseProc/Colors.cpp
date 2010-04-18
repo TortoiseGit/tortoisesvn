@@ -29,33 +29,33 @@ static DWORD SysColorAsColor (int index)
 }
 
 CColors::CColors(void) : m_regAdded(_T("Software\\TortoiseSVN\\Colors\\Added"), RGB(100, 0, 100))
-	, m_regCmd(_T("Software\\TortoiseSVN\\Colors\\Cmd"), ::GetSysColor(COLOR_GRAYTEXT))
-	, m_regConflict(_T("Software\\TortoiseSVN\\Colors\\Conflict"), RGB(255, 0, 0))
-	, m_regModified(_T("Software\\TortoiseSVN\\Colors\\Modified"), RGB(0, 50, 160))
-	, m_regMerged(_T("Software\\TortoiseSVN\\Colors\\Merged"), RGB(0, 100, 0))
-	, m_regDeleted(_T("Software\\TortoiseSVN\\Colors\\Deleted"), RGB(100, 0, 0))
-	, m_regLastCommit(_T("Software\\TortoiseSVN\\Colors\\LastCommit"), RGB(100, 100, 100))
-	, m_regDeletedNode(_T("Software\\TortoiseSVN\\Colors\\DeletedNode"), RGB(255, 0, 0))
-	, m_regAddedNode(_T("Software\\TortoiseSVN\\Colors\\AddedNode"), RGB(0, 255, 0))
-	, m_regReplacedNode(_T("Software\\TortoiseSVN\\Colors\\ReplacedNode"), RGB(0, 255, 0))
-	, m_regRenamedNode(_T("Software\\TortoiseSVN\\Colors\\RenamedNode"), RGB(0, 0, 255))
-	, m_regLastCommitNode(_T("Software\\TortoiseSVN\\Colors\\LastCommitNode"), RGB(200, 200, 200))
-	, m_regPropertyChanged(_T("Software\\TortoiseSVN\\Colors\\PropertyChanged"), RGB(0, 50, 160))
-	, m_regFilterMatch(_T("Software\\TortoiseSVN\\Colors\\FilterMatch"), RGB(200, 0, 0))
+    , m_regCmd(_T("Software\\TortoiseSVN\\Colors\\Cmd"), ::GetSysColor(COLOR_GRAYTEXT))
+    , m_regConflict(_T("Software\\TortoiseSVN\\Colors\\Conflict"), RGB(255, 0, 0))
+    , m_regModified(_T("Software\\TortoiseSVN\\Colors\\Modified"), RGB(0, 50, 160))
+    , m_regMerged(_T("Software\\TortoiseSVN\\Colors\\Merged"), RGB(0, 100, 0))
+    , m_regDeleted(_T("Software\\TortoiseSVN\\Colors\\Deleted"), RGB(100, 0, 0))
+    , m_regLastCommit(_T("Software\\TortoiseSVN\\Colors\\LastCommit"), RGB(100, 100, 100))
+    , m_regDeletedNode(_T("Software\\TortoiseSVN\\Colors\\DeletedNode"), RGB(255, 0, 0))
+    , m_regAddedNode(_T("Software\\TortoiseSVN\\Colors\\AddedNode"), RGB(0, 255, 0))
+    , m_regReplacedNode(_T("Software\\TortoiseSVN\\Colors\\ReplacedNode"), RGB(0, 255, 0))
+    , m_regRenamedNode(_T("Software\\TortoiseSVN\\Colors\\RenamedNode"), RGB(0, 0, 255))
+    , m_regLastCommitNode(_T("Software\\TortoiseSVN\\Colors\\LastCommitNode"), RGB(200, 200, 200))
+    , m_regPropertyChanged(_T("Software\\TortoiseSVN\\Colors\\PropertyChanged"), RGB(0, 50, 160))
+    , m_regFilterMatch(_T("Software\\TortoiseSVN\\Colors\\FilterMatch"), RGB(200, 0, 0))
 
     , m_regGDPDeletedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+DeletedNode"), (DWORD)Color::Red)
     , m_regGDPAddedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+AddedNode"), (DWORD)0xff00ff00)
     , m_regGDPRenamedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+RenamedNode"), (DWORD)Color::Blue)
-	, m_regGDPLastCommit (_T("Software\\TortoiseSVN\\Colors\\GDI+LastCommitNode"), SysColorAsColor(COLOR_WINDOW))
+    , m_regGDPLastCommit (_T("Software\\TortoiseSVN\\Colors\\GDI+LastCommitNode"), SysColorAsColor(COLOR_WINDOW))
 
-	, m_regGDPModifiedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+ModifiedNode"), SysColorAsColor(COLOR_WINDOWTEXT))
-	, m_regGDPWCNode (_T("Software\\TortoiseSVN\\Colors\\GDI+WCNode"), SysColorAsColor(COLOR_WINDOW))
-	, m_regGDPUnchangedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+UnchangedNode"), SysColorAsColor(COLOR_WINDOW))
-	, m_regGDPTagOverlay (_T("Software\\TortoiseSVN\\Colors\\GDI+TagOverlay"), 0x80fafa60)
-	, m_regGDPTrunkOverlay (_T("Software\\TortoiseSVN\\Colors\\GDI+TrunkOverlay"), 0x4040FF40)
+    , m_regGDPModifiedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+ModifiedNode"), SysColorAsColor(COLOR_WINDOWTEXT))
+    , m_regGDPWCNode (_T("Software\\TortoiseSVN\\Colors\\GDI+WCNode"), SysColorAsColor(COLOR_WINDOW))
+    , m_regGDPUnchangedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+UnchangedNode"), SysColorAsColor(COLOR_WINDOW))
+    , m_regGDPTagOverlay (_T("Software\\TortoiseSVN\\Colors\\GDI+TagOverlay"), 0x80fafa60)
+    , m_regGDPTrunkOverlay (_T("Software\\TortoiseSVN\\Colors\\GDI+TrunkOverlay"), 0x4040FF40)
 
-	, m_regGDPStripeColor1 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe1"), 0x18F0F0C0)
-	, m_regGDPStripeColor2 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe2"), 0x18A0D0E0)
+    , m_regGDPStripeColor1 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe1"), 0x18F0F0C0)
+    , m_regGDPStripeColor2 (_T("Software\\TortoiseSVN\\Colors\\GDI+Stripe2"), 0x18A0D0E0)
 
     , m_regGDPWCNodeBorder (_T("Software\\TortoiseSVN\\Colors\\GDI+WCBorder"), 0xFFD00000)
 
@@ -71,35 +71,35 @@ CColors::~CColors(void)
 
 CRegDWORD* CColors::GetRegistrySetting (Colors id)
 {
-	switch (id)
-	{
-	case Cmd:               return &m_regCmd;
-	case Conflict:          return &m_regConflict;
-	case Modified:	        return &m_regModified;
-	case Merged:	        return &m_regMerged;
-	case Deleted:	        return &m_regDeleted;
-	case Added:		        return &m_regAdded;
-	case LastCommit:	    return &m_regAdded;
-	case DeletedNode:	    return &m_regDeletedNode;
-	case AddedNode: 	    return &m_regAddedNode;
-	case ReplacedNode:	    return &m_regReplacedNode;
-	case RenamedNode:   	return &m_regRenamedNode;
-	case LastCommitNode:    return &m_regLastCommitNode;
-	case PropertyChanged:	return &m_regPropertyChanged;
-	case FilterMatch:		return &m_regFilterMatch;
-	}
+    switch (id)
+    {
+    case Cmd:               return &m_regCmd;
+    case Conflict:          return &m_regConflict;
+    case Modified:          return &m_regModified;
+    case Merged:            return &m_regMerged;
+    case Deleted:           return &m_regDeleted;
+    case Added:             return &m_regAdded;
+    case LastCommit:        return &m_regAdded;
+    case DeletedNode:       return &m_regDeletedNode;
+    case AddedNode:         return &m_regAddedNode;
+    case ReplacedNode:      return &m_regReplacedNode;
+    case RenamedNode:       return &m_regRenamedNode;
+    case LastCommitNode:    return &m_regLastCommitNode;
+    case PropertyChanged:   return &m_regPropertyChanged;
+    case FilterMatch:       return &m_regFilterMatch;
+    }
 
-	return NULL;
+    return NULL;
 }
 
 CRegDWORD* CColors::GetRegistrySetting (GDIPlusColor id)
 {
-	switch (id)
-	{
-	case gdpDeletedNode:    return &m_regGDPDeletedNode;
-	case gdpAddedNode:      return &m_regGDPAddedNode;
-	case gdpRenamedNode:    return &m_regGDPRenamedNode;
-	case gdpLastCommitNode: return &m_regGDPLastCommit;
+    switch (id)
+    {
+    case gdpDeletedNode:    return &m_regGDPDeletedNode;
+    case gdpAddedNode:      return &m_regGDPAddedNode;
+    case gdpRenamedNode:    return &m_regGDPRenamedNode;
+    case gdpLastCommitNode: return &m_regGDPLastCommit;
     case gdpModifiedNode:   return &m_regGDPModifiedNode;
     case gdpWCNode:         return &m_regGDPWCNode;
     case gdpUnchangedNode:  return &m_regGDPUnchangedNode;
@@ -108,30 +108,30 @@ CRegDWORD* CColors::GetRegistrySetting (GDIPlusColor id)
     case gdpStripeColor1:   return &m_regGDPStripeColor1;
     case gdpStripeColor2:   return &m_regGDPStripeColor2;
     case gdpWCNodeBorder:   return &m_regGDPWCNodeBorder;
-	}
+    }
 
     return NULL;
 }
 
 CRegDWORDList* CColors::GetRegistrySetting (GDIPlusColorTable id)
 {
-	switch (id)
-	{
+    switch (id)
+    {
     case ctMarkers:         return &m_regCTMarkers;
-	}
+    }
 
     return NULL;
 }
 
 CRegDWORD* CColors::GetLegacyRegistrySetting (GDIPlusColor id)
 {
-	switch (id)
-	{
-	case gdpDeletedNode:    return &m_regDeletedNode;
-	case gdpAddedNode:      return &m_regAddedNode;
-	case gdpRenamedNode:    return &m_regRenamedNode;
-	case gdpLastCommitNode: return &m_regLastCommit;
-	}
+    switch (id)
+    {
+    case gdpDeletedNode:    return &m_regDeletedNode;
+    case gdpAddedNode:      return &m_regAddedNode;
+    case gdpRenamedNode:    return &m_regRenamedNode;
+    case gdpLastCommitNode: return &m_regLastCommit;
+    }
 
     return NULL;
 }

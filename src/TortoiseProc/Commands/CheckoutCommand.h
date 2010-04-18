@@ -26,10 +26,10 @@
 class CheckoutCommand : public Command
 {
 public:
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute();
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute();
 };
 
 

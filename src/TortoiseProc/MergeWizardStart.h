@@ -25,19 +25,19 @@
  */
 class CMergeWizardStart : public CMergeWizardBasePage
 {
-	DECLARE_DYNAMIC(CMergeWizardStart)
+    DECLARE_DYNAMIC(CMergeWizardStart)
 
 public:
-	CMergeWizardStart();
-	virtual ~CMergeWizardStart();
+    CMergeWizardStart();
+    virtual ~CMergeWizardStart();
 
-	enum { IDD = IDD_MERGEWIZARD_START };
-	
+    enum { IDD = IDD_MERGEWIZARD_START };
+
 protected:
-	virtual void		DoDataExchange(CDataExchange* pDX);
-	virtual LRESULT		OnWizardNext();
-	virtual BOOL		OnInitDialog();
-	virtual BOOL		OnSetActive();
+    virtual void        DoDataExchange(CDataExchange* pDX);
+    virtual LRESULT     OnWizardNext();
+    virtual BOOL        OnInitDialog();
+    virtual BOOL        OnSetActive();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 };

@@ -60,7 +60,7 @@ bool DiffCommand::Execute()
                 bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev);
             }
         }
-    } 
+    }
     else
         bRet = CAppUtils::StartExtDiff(
             CTSVNPath(path2), cmdLinePath, CString(), CString(),

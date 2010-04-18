@@ -41,7 +41,7 @@ bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
         if (!CreateEx(WS_EX_TOPMOST,
                      TOOLTIPS_CLASS,
                      NULL,
-                     TTS_NOPREFIX | TTS_ALWAYSTIP,      
+                     TTS_NOPREFIX | TTS_ALWAYSTIP,
                      CW_USEDEFAULT,
                      CW_USEDEFAULT,
                      CW_USEDEFAULT,
@@ -88,7 +88,7 @@ void CScrollTool::SetText(LPPOINT pos, const TCHAR * fmt, ...)
     va_start( marker, fmt );
     s.FormatV(fmt, marker);
     va_end( marker );
-    
+
     CSize textsize(0);
     if (m_bRightAligned)
     {
@@ -97,7 +97,7 @@ void CScrollTool::SetText(LPPOINT pos, const TCHAR * fmt, ...)
         ReleaseDC(pDC);
     }
 
-    ti.lpszText = s.GetBuffer();       
+    ti.lpszText = s.GetBuffer();
     SendMessage(TTM_UPDATETIPTEXT, 0, (LPARAM)(LPTOOLINFO) &ti);
     SendMessage(TTM_TRACKPOSITION, 0, MAKELONG(pos->x-textsize.cx, pos->y));
     s.ReleaseBuffer();

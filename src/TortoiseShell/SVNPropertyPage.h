@@ -27,25 +27,25 @@
   _ms_lvi.iSubItem = iSubItem_;\
   do\
   {\
-	nLen += 2;\
-	_ms_lvi.cchTextMax = nLen;\
-	delete[] __buf;\
-	__buf = new TCHAR[nLen];\
-	_ms_lvi.pszText = __buf;\
+    nLen += 2;\
+    _ms_lvi.cchTextMax = nLen;\
+    delete[] __buf;\
+    __buf = new TCHAR[nLen];\
+    _ms_lvi.pszText = __buf;\
     nRes  = (int)::SendMessage((hwndLV), LVM_GETITEMTEXT, (WPARAM)(i), (LPARAM)(LV_ITEM *)&_ms_lvi);\
   } while (nRes == nLen-1);\
 }
 #define GetDlgItemTextEx(hwndDlg, _id, __buf) \
 {\
-	int nLen = 1024;\
-	int nRes;\
-	do\
-	{\
-		nLen *= 2;\
-		delete [] __buf;\
-		__buf = new TCHAR[nLen];\
-		nRes = GetDlgItemText(hwndDlg, _id, __buf, nLen);\
-	} while (nRes == nLen-1);\
+    int nLen = 1024;\
+    int nRes;\
+    do\
+    {\
+        nLen *= 2;\
+        delete [] __buf;\
+        __buf = new TCHAR[nLen];\
+        nRes = GetDlgItemText(hwndDlg, _id, __buf, nLen);\
+    } while (nRes == nLen-1);\
 }
 
 /**
@@ -56,38 +56,38 @@
 class CSVNPropertyPage
 {
 public:
-	CSVNPropertyPage(const std::vector<tstring> &filenames);
-	virtual ~CSVNPropertyPage();
+    CSVNPropertyPage(const std::vector<tstring> &filenames);
+    virtual ~CSVNPropertyPage();
 
-	/**
-	 * Sets the window handle.
-	 * \param hwnd the handle.
-	 */
-	virtual void SetHwnd(HWND hwnd);
-	/**
-	 * Callback function which receives the window messages of the
-	 * property page. See the Win32 API for PropertySheets for details.
-	 */
-	virtual BOOL PageProc(HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
+    /**
+     * Sets the window handle.
+     * \param hwnd the handle.
+     */
+    virtual void SetHwnd(HWND hwnd);
+    /**
+     * Callback function which receives the window messages of the
+     * property page. See the Win32 API for PropertySheets for details.
+     */
+    virtual BOOL PageProc(HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
 
 protected:
-	/**
-	 * Initializes the property page.
-	 */
-	virtual void InitWorkfileView();
-	void Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen);
-	static void RunCommand(const tstring& command);
-	
-	struct listproperty
-	{
-		tstring name;
-		std::string value;
-		int		  count;
-	};
-	HWND m_hwnd;
-	std::vector<tstring> filenames;
-	std::map<tstring, std::string> propmap;
-	TCHAR stringtablebuffer[255];
+    /**
+     * Initializes the property page.
+     */
+    virtual void InitWorkfileView();
+    void Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen);
+    static void RunCommand(const tstring& command);
+
+    struct listproperty
+    {
+        tstring name;
+        std::string value;
+        int       count;
+    };
+    HWND m_hwnd;
+    std::vector<tstring> filenames;
+    std::map<tstring, std::string> propmap;
+    TCHAR stringtablebuffer[255];
 };
 
 

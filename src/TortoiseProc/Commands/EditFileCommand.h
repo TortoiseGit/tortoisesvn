@@ -22,8 +22,8 @@
 
 /**
  * \ingroup TortoiseProc
- * - Checks out a file (if it hasn't yet), 
- * - locks it, if required 
+ * - Checks out a file (if it hasn't yet),
+ * - locks it, if required
  * - opens file in editor (via Windows Shell)
  * - commit changes & clean up.
  */
@@ -41,14 +41,14 @@ private:
 
     /// if set, we must unlock the file upon cleanup
 
-    bool needsUnLock; 
+    bool needsUnLock;
 
     /// status check
 
     bool IsModified();
     bool IsLocked();
 
-    /// the individual steps of the sequence 
+    /// the individual steps of the sequence
 
     bool AutoCheckout();
     bool AutoLock();

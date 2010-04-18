@@ -25,37 +25,37 @@
 
 bool PrevDiffCommand::Execute()
 {
-	bool bRet = false;
-	bool bAlternativeTool = !!parser.HasKey(_T("alternative"));
-	if (cmdLinePath.IsDirectory())
-	{
-		CChangedDlg dlg;
-		dlg.m_pathList = CTSVNPathList(cmdLinePath);
-		dlg.DoModal();
-		bRet = true;
-	}
-	else
-	{
-		SVNDiff diff(NULL, hWndExplorer);
-		diff.SetAlternativeTool(bAlternativeTool);
-		diff.SetJumpLine(parser.GetLongVal(_T("line")));
-		SVNStatus st;
-		st.GetStatus(cmdLinePath);
-		if (st.status && st.status->entry && st.status->entry->cmt_rev)
-		{
-			bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->entry->cmt_rev - 1, st.status->entry->cmt_rev, false, false, st.status->entry->kind);
-		}
-		else
-		{
-			if (st.GetLastErrorMsg().IsEmpty())
-			{
-				CMessageBox::Show(hWndExplorer, IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
-			}
-			else
-			{
-				CMessageBox::Show(hWndExplorer, IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
-			}
-		}
-	}
-	return bRet;
+    bool bRet = false;
+    bool bAlternativeTool = !!parser.HasKey(_T("alternative"));
+    if (cmdLinePath.IsDirectory())
+    {
+        CChangedDlg dlg;
+        dlg.m_pathList = CTSVNPathList(cmdLinePath);
+        dlg.DoModal();
+        bRet = true;
+    }
+    else
+    {
+        SVNDiff diff(NULL, hWndExplorer);
+        diff.SetAlternativeTool(bAlternativeTool);
+        diff.SetJumpLine(parser.GetLongVal(_T("line")));
+        SVNStatus st;
+        st.GetStatus(cmdLinePath);
+        if (st.status && st.status->entry && st.status->entry->cmt_rev)
+        {
+            bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->entry->cmt_rev - 1, st.status->entry->cmt_rev, false, false, st.status->entry->kind);
+        }
+        else
+        {
+            if (st.GetLastErrorMsg().IsEmpty())
+            {
+                CMessageBox::Show(hWndExplorer, IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
+            }
+            else
+            {
+                CMessageBox::Show(hWndExplorer, IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
+            }
+        }
+    }
+    return bRet;
 }

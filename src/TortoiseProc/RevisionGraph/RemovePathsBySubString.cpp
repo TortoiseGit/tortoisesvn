@@ -22,10 +22,10 @@
 
 // path classification by cache
 
-CRemovePathsBySubString::PathClassification 
+CRemovePathsBySubString::PathClassification
 CRemovePathsBySubString::Classify (const std::string& path) const
 {
-    // we have to attempt full string searches as we look for 
+    // we have to attempt full string searches as we look for
     // arbitrary sub-strings
 
     for ( std::set<std::string>::const_iterator iter = filterPaths.begin()
@@ -42,10 +42,10 @@ CRemovePathsBySubString::Classify (const std::string& path) const
     return KEEP;
 }
 
-CRemovePathsBySubString::PathClassification 
+CRemovePathsBySubString::PathClassification
 CRemovePathsBySubString::QuickClassification (const CDictionaryBasedPath& path) const
 {
-    // ensure the index is valid within classification cache 
+    // ensure the index is valid within classification cache
 
     if (pathClassification.size() <= path.GetIndex())
     {
@@ -108,7 +108,7 @@ bool CRemovePathsBySubString::IsActive() const
 
 // implement ICopyFilterOption
 
-ICopyFilterOption::EResult 
+ICopyFilterOption::EResult
 CRemovePathsBySubString::ShallRemove (const CFullGraphNode* node) const
 {
     // short-cut
@@ -132,7 +132,7 @@ CRemovePathsBySubString::ShallRemove (const CFullGraphNode* node) const
     // return the result
 
     return classification == REMOVE
-        ? removeSubTrees ? ICopyFilterOption::REMOVE_SUBTREE 
+        ? removeSubTrees ? ICopyFilterOption::REMOVE_SUBTREE
                          : ICopyFilterOption::REMOVE_NODE
         : ICopyFilterOption::KEEP_NODE;
 }

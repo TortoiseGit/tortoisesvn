@@ -93,7 +93,7 @@ public:
 
     CRepositoryInfo& GetRepositoryInfo();
 
-    /// return the size of the repository cache file 
+    /// return the size of the repository cache file
     /// (returns 0 for new files)
 
     size_t FileSize (const CString& uuid, const CString& root);
@@ -111,7 +111,7 @@ public:
     std::multimap<CString, CString> GetRepositoryURLs() const;
 
     /// cache management
-    
+
     /// write all changes to disk
 
     void Flush();

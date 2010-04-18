@@ -83,7 +83,7 @@ CString CmdUrlParser::GetCommandLine()
         }
         sCmdLine += _T(" /");
         sCmdLine += temp;
-    } 
+    }
 
     return sCmdLine;
 }

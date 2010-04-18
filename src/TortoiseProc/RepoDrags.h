@@ -31,18 +31,18 @@ class CRepositoryBrowser;
 class CBaseDropTarget : public CIDropTarget
 {
 public:
-	CBaseDropTarget(CRepositoryBrowser * pRepoBrowser, HWND hTargetWnd);
+    CBaseDropTarget(CRepositoryBrowser * pRepoBrowser, HWND hTargetWnd);
 
-	void HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt, const CString& targetUrl, const CString& root);
+    void HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt, const CString& targetUrl, const CString& root);
 
 protected:
-	CRepositoryBrowser * m_pRepoBrowser;
+    CRepositoryBrowser * m_pRepoBrowser;
 
-	bool m_bFiles;
-	CString sNoDrop;
-	CString sImportDrop;
-	CString sCopyDrop;
-	CString sMoveDrop;
+    bool m_bFiles;
+    CString sNoDrop;
+    CString sImportDrop;
+    CString sCopyDrop;
+    CString sMoveDrop;
 };
 
 /**
@@ -52,16 +52,16 @@ protected:
 class CTreeDropTarget : public CBaseDropTarget
 {
 public:
-	CTreeDropTarget(CRepositoryBrowser * pRepoBrowser);
-	
-	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt);
-	virtual HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
-	virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
-	virtual HRESULT STDMETHODCALLTYPE DragLeave(void);
+    CTreeDropTarget(CRepositoryBrowser * pRepoBrowser);
+
+    virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt);
+    virtual HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
+    virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
+    virtual HRESULT STDMETHODCALLTYPE DragLeave(void);
 
 private:
-	DWORD					m_dwHoverStartTicks;
-	HTREEITEM				hLastItem;
+    DWORD                   m_dwHoverStartTicks;
+    HTREEITEM               hLastItem;
 };
 
 /**
@@ -71,12 +71,12 @@ private:
 class CListDropTarget : public CBaseDropTarget
 {
 public:
-	CListDropTarget(CRepositoryBrowser * pRepoBrowser);
+    CListDropTarget(CRepositoryBrowser * pRepoBrowser);
 
-	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt);
-	virtual HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
-	virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
-	virtual HRESULT STDMETHODCALLTYPE DragLeave(void);
+    virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt);
+    virtual HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
+    virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
+    virtual HRESULT STDMETHODCALLTYPE DragLeave(void);
 };
 
 

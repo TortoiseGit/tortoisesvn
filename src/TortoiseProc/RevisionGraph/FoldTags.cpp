@@ -45,8 +45,8 @@ void CFoldTags::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
     // We will not remove tags that get copied to non-tags
     // that have not yet been removed from the graph.
 
-    DWORD forbidden = CNodeClassification::COPIES_TO_TRUNK 
-                    | CNodeClassification::COPIES_TO_BRANCH 
+    DWORD forbidden = CNodeClassification::COPIES_TO_TRUNK
+                    | CNodeClassification::COPIES_TO_BRANCH
                     | CNodeClassification::COPIES_TO_OTHER;
 
     CNodeClassification classification = node->GetClassification();

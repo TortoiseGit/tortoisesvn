@@ -41,7 +41,7 @@ protected:
 
 public:
 
-    // construction / destruction 
+    // construction / destruction
     // (nothing special to do)
 
     CStrictLogIterator ( const CCachedLogInfo* cachedLog

@@ -27,25 +27,25 @@
 
 class CEditPropExternalsValue : public CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CEditPropExternalsValue)
+    DECLARE_DYNAMIC(CEditPropExternalsValue)
 
 public:
-	CEditPropExternalsValue(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CEditPropExternalsValue();
+    CEditPropExternalsValue(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CEditPropExternalsValue();
 
     void         SetURL(const CTSVNPath& url) { m_URL = url; }
     void         SetRepoRoot(const CTSVNPath& root) { m_RepoRoot = root; }
     void         SetExternal(const SVNExternal& ext) { m_External = ext; }
     SVNExternal  GetExternal() { return m_External; }
 
-	enum { IDD = IDD_EDITPROPEXTERNALSVALUE };
+    enum { IDD = IDD_EDITPROPEXTERNALSVALUE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
     virtual void OnOK();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
     afx_msg void OnBnClickedBrowse();
     afx_msg void OnBnClickedShowLog();
@@ -57,11 +57,11 @@ private:
     CTSVNPath       m_URL;
     CTSVNPath       m_RepoRoot;
     SVNExternal     m_External;
-    CLogDlg *		m_pLogDlg;
-    int				m_height;
+    CLogDlg *       m_pLogDlg;
+    int             m_height;
 
-    CHistoryCombo	m_URLCombo;
-    CString			m_sRevision;
-    CString			m_sWCPath;
+    CHistoryCombo   m_URLCombo;
+    CString         m_sRevision;
+    CString         m_sWCPath;
     CString         m_sPegRev;
 };

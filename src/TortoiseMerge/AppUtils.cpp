@@ -70,7 +70,7 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
     } while ((ret == WAIT_TIMEOUT) && (!progDlg->HasUserCancelled()));
     CloseHandle(process.hThread);
     CloseHandle(process.hProcess);
-    
+
     if (progDlg->HasUserCancelled())
     {
         return FALSE;
@@ -97,11 +97,11 @@ bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, 
             svn_diff_file_options_t * opts = svn_diff_file_options_create(pool);
             opts->ignore_eol_style = false;
             opts->ignore_space = svn_diff_file_ignore_space_none;
-            err = svn_diff_file_diff_2(&diff, svn_path_internal_style(CUnicodeUtils::GetUTF8(orig), pool), 
+            err = svn_diff_file_diff_2(&diff, svn_path_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
                 svn_path_internal_style(CUnicodeUtils::GetUTF8(modified), pool), opts, pool);
             if (err == NULL)
             {
-                err = svn_diff_file_output_unified(stream, diff, svn_path_internal_style(CUnicodeUtils::GetUTF8(orig), pool), 
+                err = svn_diff_file_output_unified(stream, diff, svn_path_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
                     svn_path_internal_style(CUnicodeUtils::GetUTF8(modified), pool),
                     NULL, NULL, pool);
                 svn_stream_close(stream);
@@ -196,7 +196,7 @@ bool CAppUtils::HasClipboardFormat(UINT format)
     if (OpenClipboard(NULL))
     {
         UINT enumFormat = 0;
-        do 
+        do
         {
             if (enumFormat == format)
             {

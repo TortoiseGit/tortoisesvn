@@ -25,60 +25,60 @@
 
 bool CopyCommand::Execute()
 {
-	bool bRet = false;
-	CString msg;
-	if (parser.HasKey(_T("logmsg")))
-	{
-		msg = parser.GetVal(_T("logmsg"));
-	}
-	if (parser.HasKey(_T("logmsgfile")))
-	{
-		CString logmsgfile = parser.GetVal(_T("logmsgfile"));
-		CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
-	}
+    bool bRet = false;
+    CString msg;
+    if (parser.HasKey(_T("logmsg")))
+    {
+        msg = parser.GetVal(_T("logmsg"));
+    }
+    if (parser.HasKey(_T("logmsgfile")))
+    {
+        CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+        CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
+    }
 
-	BOOL repeat = FALSE;
-	CCopyDlg dlg;
+    BOOL repeat = FALSE;
+    CCopyDlg dlg;
 
-	dlg.m_path = cmdLinePath;
-	CString url = parser.GetVal(_T("url"));
-	CString logmessage = msg;
-	SVNRev copyRev = SVNRev::REV_HEAD;
-	BOOL doSwitch = FALSE;
-	do 
-	{
-		repeat = FALSE;
-		dlg.m_URL = url;
-		dlg.m_sLogMessage = logmessage;
-		dlg.m_CopyRev = copyRev;
-		dlg.m_bDoSwitch = doSwitch;
-		if (dlg.DoModal() == IDOK)
-		{
-			theApp.m_pMainWnd = NULL;
-			TRACE(_T("copy %s to %s\n"), (LPCTSTR)cmdLinePath.GetWinPathString(), (LPCTSTR)dlg.m_URL);
-			CSVNProgressDlg progDlg;
-			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Copy);
-			progDlg.SetAutoClose (parser);
-			DWORD options = dlg.m_bDoSwitch ? ProgOptSwitchAfterCopy : ProgOptNone;
-			progDlg.SetOptions(options);
-			progDlg.SetPathList(pathList);
-			progDlg.SetUrl(dlg.m_URL);
-			progDlg.SetCommitMessage(dlg.m_sLogMessage);
-			progDlg.SetRevision(dlg.m_CopyRev);
-			progDlg.SetExternals(dlg.GetExternalsToTag());
-			url = dlg.m_URL;
-			logmessage = dlg.m_sLogMessage;
-			copyRev = dlg.m_CopyRev;
-			doSwitch = dlg.m_bDoSwitch;
-			progDlg.DoModal();
-			CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
-			err = (DWORD)progDlg.DidErrorsOccur();
-			bRet = !progDlg.DidErrorsOccur();
-			repeat = progDlg.DidErrorsOccur();
-			CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
-			if (DWORD(bFailRepeat) == FALSE)
-				repeat = false;		// do not repeat if the user chose not to in the settings.
-		}
-	} while(repeat);
-	return bRet;
+    dlg.m_path = cmdLinePath;
+    CString url = parser.GetVal(_T("url"));
+    CString logmessage = msg;
+    SVNRev copyRev = SVNRev::REV_HEAD;
+    BOOL doSwitch = FALSE;
+    do
+    {
+        repeat = FALSE;
+        dlg.m_URL = url;
+        dlg.m_sLogMessage = logmessage;
+        dlg.m_CopyRev = copyRev;
+        dlg.m_bDoSwitch = doSwitch;
+        if (dlg.DoModal() == IDOK)
+        {
+            theApp.m_pMainWnd = NULL;
+            TRACE(_T("copy %s to %s\n"), (LPCTSTR)cmdLinePath.GetWinPathString(), (LPCTSTR)dlg.m_URL);
+            CSVNProgressDlg progDlg;
+            progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Copy);
+            progDlg.SetAutoClose (parser);
+            DWORD options = dlg.m_bDoSwitch ? ProgOptSwitchAfterCopy : ProgOptNone;
+            progDlg.SetOptions(options);
+            progDlg.SetPathList(pathList);
+            progDlg.SetUrl(dlg.m_URL);
+            progDlg.SetCommitMessage(dlg.m_sLogMessage);
+            progDlg.SetRevision(dlg.m_CopyRev);
+            progDlg.SetExternals(dlg.GetExternalsToTag());
+            url = dlg.m_URL;
+            logmessage = dlg.m_sLogMessage;
+            copyRev = dlg.m_CopyRev;
+            doSwitch = dlg.m_bDoSwitch;
+            progDlg.DoModal();
+            CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
+            err = (DWORD)progDlg.DidErrorsOccur();
+            bRet = !progDlg.DidErrorsOccur();
+            repeat = progDlg.DidErrorsOccur();
+            CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
+            if (DWORD(bFailRepeat) == FALSE)
+                repeat = false;     // do not repeat if the user chose not to in the settings.
+        }
+    } while(repeat);
+    return bRet;
 }

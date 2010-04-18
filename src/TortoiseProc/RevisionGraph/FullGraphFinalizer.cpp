@@ -62,11 +62,11 @@ void CFullGraphFinalizer::Run()
     if (graph.GetRoot() == NULL)
         return;
 
-	// init internal structures
+    // init internal structures
 
-	InitWCRevs();
+    InitWCRevs();
 
-	// say "renamed" for "Deleted"/"Added" entries
+    // say "renamed" for "Deleted"/"Added" entries
 
     FindRenames (graph.GetRoot());
 
@@ -82,71 +82,71 @@ void CFullGraphFinalizer::Run()
 
 void CFullGraphFinalizer::InitWCRevs()
 {
-	// collect revisions to show
+    // collect revisions to show
 
-	std::vector<revision_t> revisions;
+    std::vector<revision_t> revisions;
 
-	revisions.push_back (history.GetWCInfo().minCommit);
-	revisions.push_back (history.GetWCInfo().maxCommit);
-	revisions.push_back (history.GetWCInfo().minAtRev);
-	revisions.push_back (history.GetWCInfo().maxAtRev);
+    revisions.push_back (history.GetWCInfo().minCommit);
+    revisions.push_back (history.GetWCInfo().maxCommit);
+    revisions.push_back (history.GetWCInfo().minAtRev);
+    revisions.push_back (history.GetWCInfo().maxAtRev);
 
-	std::sort (revisions.begin(), revisions.end());
-	revisions.erase ( std::unique_copy ( revisions.begin()
-									   , revisions.end()
-									   , revisions.begin())
-				    , revisions.end());
+    std::sort (revisions.begin(), revisions.end());
+    revisions.erase ( std::unique_copy ( revisions.begin()
+                                       , revisions.end()
+                                       , revisions.begin())
+                    , revisions.end());
 
-	// assign paths
+    // assign paths
 
-	CDictionaryBasedTempPath path = *history.GetWCPath();
-	revision_t pathRevision = history.GetPegRevision();
+    CDictionaryBasedTempPath path = *history.GetWCPath();
+    revision_t pathRevision = history.GetPegRevision();
 
-	while (!revisions.empty() && (revisions.back() >= pathRevision))
-	{
-		wcRevs.insert ( wcRevs.begin()
-					  , std::make_pair (revisions.back(), path.GetBasePath()));
-		revisions.pop_back();
-	}
+    while (!revisions.empty() && (revisions.back() >= pathRevision))
+    {
+        wcRevs.insert ( wcRevs.begin()
+                      , std::make_pair (revisions.back(), path.GetBasePath()));
+        revisions.pop_back();
+    }
 
-	while (!revisions.empty())
-	{
-		revision_t revision = revisions.back();
-		revisions.pop_back();
+    while (!revisions.empty())
+    {
+        revision_t revision = revisions.back();
+        revisions.pop_back();
 
-		// efficiently follow path changes only
+        // efficiently follow path changes only
 
-		const CCachedLogInfo* cache = history.GetCache();
-		const CRevisionIndex& revisionIndices = cache->GetRevisions();
-		const CRevisionInfoContainer& info = cache->GetLogInfo();
+        const CCachedLogInfo* cache = history.GetCache();
+        const CRevisionIndex& revisionIndices = cache->GetRevisions();
+        const CRevisionInfoContainer& info = cache->GetLogInfo();
 
-		while (revision < pathRevision)
-		{
-			index_t index = revisionIndices[pathRevision];
-			if (   (index != NO_INDEX)
-				&& (info.GetSumChanges (index) & CRevisionInfoContainer::HAS_COPY_FROM)
-				&& (info.GetRootPath (index).IsSameOrParentOf (path.GetBasePath())))
-			{
-			    CCopyFollowingLogIterator iterator (cache, pathRevision, path);
-				iterator.Advance();
+        while (revision < pathRevision)
+        {
+            index_t index = revisionIndices[pathRevision];
+            if (   (index != NO_INDEX)
+                && (info.GetSumChanges (index) & CRevisionInfoContainer::HAS_COPY_FROM)
+                && (info.GetRootPath (index).IsSameOrParentOf (path.GetBasePath())))
+            {
+                CCopyFollowingLogIterator iterator (cache, pathRevision, path);
+                iterator.Advance();
 
-				pathRevision = iterator.GetRevision();
-				path = iterator.GetPath();
-			}
-			else
-			{
-				--pathRevision;
-			}
-		}
+                pathRevision = iterator.GetRevision();
+                path = iterator.GetPath();
+            }
+            else
+            {
+                --pathRevision;
+            }
+        }
 
-		wcRevs.insert ( wcRevs.begin()
-					  , std::make_pair (revision, path.GetBasePath()));
-	}
+        wcRevs.insert ( wcRevs.begin()
+                      , std::make_pair (revision, path.GetBasePath()));
+    }
 }
 
 void CFullGraphFinalizer::FindRenames (CFullGraphNode* node)
 {
-	// say "renamed" for "Deleted"/"Added" entries
+    // say "renamed" for "Deleted"/"Added" entries
 
     for ( CFullGraphNode * next = node->GetNext()
         ; node != NULL
@@ -154,9 +154,9 @@ void CFullGraphFinalizer::FindRenames (CFullGraphNode* node)
     {
         if (   (next != NULL) 
             && (next->GetClassification().Is (CNodeClassification::IS_DELETED)))
-	    {
+        {
             // this line will be deleted. 
-		    // will it be continued exactly once under a different name?
+            // will it be continued exactly once under a different name?
 
             CFullGraphNode* renameTarget = NULL;
             CFullGraphNode::CCopyTarget** renameCopy = NULL;
@@ -164,13 +164,13 @@ void CFullGraphFinalizer::FindRenames (CFullGraphNode* node)
             for ( CFullGraphNode::CCopyTarget** copy = &node->GetFirstCopyTarget()
                 ; *copy != NULL
                 ; copy = &(*copy)->next())
-		    {
+            {
                 CFullGraphNode * target = (*copy)->value();
                 assert (target->GetClassification().Is (CNodeClassification::IS_COPY_TARGET));
 
-			    if (target->GetRevision() == next->GetRevision())
-			    {
-				    // that actually looks like a rename
+                if (target->GetRevision() == next->GetRevision())
+                {
+                    // that actually looks like a rename
 
                     if (renameTarget != NULL)
                     {
@@ -203,7 +203,7 @@ void CFullGraphFinalizer::FindRenames (CFullGraphNode* node)
                 // "next" has just been destroyed
 
                 next = node->GetNext();
-		    }
+            }
         }
 
         // recourse
@@ -211,7 +211,7 @@ void CFullGraphFinalizer::FindRenames (CFullGraphNode* node)
         for ( const CFullGraphNode::CCopyTarget* copy = node->GetFirstCopyTarget()
             ; copy != NULL
             ; copy = copy->next())
-	    {
+        {
             FindRenames (copy->value());
         }
     }
@@ -233,57 +233,57 @@ void CFullGraphFinalizer::MarkCopySource (CFullGraphNode* node)
 
 void CFullGraphFinalizer::MarkWCRevisions (CFullGraphNode* node)
 {
-	if (wcRevs.empty())
-		return;
+    if (wcRevs.empty())
+        return;
 
     // if this the same revision and path as the WC?
 
-	if (   (node->GetRevision() == wcRevs.front().first)
+    if (   (node->GetRevision() == wcRevs.front().first)
         && (node->GetPath().GetBasePath().Intersects (wcRevs.front().second)))
     {
         node->AddClassification (CNodeClassification::IS_WORKINGCOPY);
-		wcRevs.erase (wcRevs.begin());
+        wcRevs.erase (wcRevs.begin());
     }
 
-	// maybe, we need to insert more nodes
+    // maybe, we need to insert more nodes
 
-	while (!wcRevs.empty())
-	{
-		revision_t wcRev = wcRevs.front().first;
-		const CDictionaryBasedPath& path = wcRevs.front().second;
+    while (!wcRevs.empty())
+    {
+        revision_t wcRev = wcRevs.front().first;
+        const CDictionaryBasedPath& path = wcRevs.front().second;
 
-		// maybe, we have to insert the WC node first?
-		// (the sub-tree may not have been modified in that revision)
+        // maybe, we have to insert the WC node first?
+        // (the sub-tree may not have been modified in that revision)
 
-		if (// between this ...
-			   (node->GetRevision() < wcRev)
-			// ... and the next node (if there is one) ...
-			&& (   (node->GetNext() == NULL) 
-				|| (node->GetNext()->GetRevision() > wcRev))
-			// ... on the right path ...
-			&& node->GetPath().GetBasePath().Intersects (path)
-			// ... and not deleted, yet
-			&& !node->GetClassification().Is (CNodeClassification::IS_DELETED))
-		{
-			// WC rev lies behind this node and before the next one 
+        if (// between this ...
+               (node->GetRevision() < wcRev)
+            // ... and the next node (if there is one) ...
+            && (   (node->GetNext() == NULL) 
+                || (node->GetNext()->GetRevision() > wcRev))
+            // ... on the right path ...
+            && node->GetPath().GetBasePath().Intersects (path)
+            // ... and not deleted, yet
+            && !node->GetClassification().Is (CNodeClassification::IS_DELETED))
+        {
+            // WC rev lies behind this node and before the next one 
 
             graph.Add ( node->GetPath()
-					  , wcRev
-					  , CNodeClassification::IS_WORKINGCOPY
-					  , node);
+                      , wcRev
+                      , CNodeClassification::IS_WORKINGCOPY
+                      , node);
 
-			wcRevs.erase (wcRevs.begin());
-		}
-		else
-		{
-			return;
-		}
-	}
+            wcRevs.erase (wcRevs.begin());
+        }
+        else
+        {
+            return;
+        }
+    }
 }
 
 void CFullGraphFinalizer::MarkHead (CFullGraphNode* node)
 {
-	// scan all "latest" nodes 
+    // scan all "latest" nodes 
     // (they must be either HEADs or special nodes)
 
     if (   (node->GetNext() != NULL)
@@ -294,9 +294,9 @@ void CFullGraphFinalizer::MarkHead (CFullGraphNode* node)
     // look for the latest change
     // (there may be several "copy-source-only" nodes trailing HEAD
 
-	const DWORD forbidden = CNodeClassification::IS_OPERATION_MASK;
+    const DWORD forbidden = CNodeClassification::IS_OPERATION_MASK;
     while (   (node->GetClassification().Matches (0, forbidden))
-		   && (node->GetPrevious() != NULL))
+           && (node->GetPrevious() != NULL))
         node = node->GetPrevious();
 
     node->AddClassification (CNodeClassification::IS_LAST);
@@ -305,7 +305,7 @@ void CFullGraphFinalizer::MarkHead (CFullGraphNode* node)
 void CFullGraphFinalizer::AddWCModification (CFullGraphNode* node)
 {
     if (!history.GetWCInfo().modified)
-		return;
+        return;
 
     // is this the BASE node for our WC?
 
@@ -313,13 +313,13 @@ void CFullGraphFinalizer::AddWCModification (CFullGraphNode* node)
             ( CNodeClassification::IS_WORKINGCOPY
             , CNodeClassification::IS_MODIFIED_WC))
     {
-		if (node->GetRevision() == history.GetWCInfo().maxAtRev)
+        if (node->GetRevision() == history.GetWCInfo().maxAtRev)
         {
             // add the modification node
 
             CNodeClassification classification 
-				= CNodeClassification::IS_MODIFIED_WC
-				| CNodeClassification::IS_WORKINGCOPY
+                = CNodeClassification::IS_MODIFIED_WC
+                | CNodeClassification::IS_WORKINGCOPY
                 | (node->GetNext() == NULL
                      ? 0
                      : CNodeClassification::IS_COPY_TARGET);
@@ -351,7 +351,7 @@ void CFullGraphFinalizer::ForwardClassification (CFullGraphNode* node)
         for ( const CFullGraphNode::CCopyTarget* copy = node->GetFirstCopyTarget()
             ; copy != NULL
             ; copy = copy->next())
-	    {
+        {
             ForwardClassification (copy->value());
         }
 
@@ -385,7 +385,7 @@ DWORD CFullGraphFinalizer::BackwardClassification (CFullGraphNode* node)
         for ( const CFullGraphNode::CCopyTarget* copy = node->GetFirstCopyTarget()
             ; copy != NULL
             ; copy = copy->next())
-	    {
+        {
             DWORD classification = BackwardClassification (copy->value());
             commonCopyClassfication &= classification;
             aggregatedCopyClassification |= classification;

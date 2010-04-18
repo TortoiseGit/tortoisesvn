@@ -87,7 +87,7 @@ public:
      * Saves the URL history of the HistoryCombo.
      */
     void SaveHistory();
-    
+
     /**
      * Set the revision
      */
@@ -118,7 +118,7 @@ private:
 
     IRepo * m_pRepo;
 
-    class CRepositoryCombo : public CHistoryCombo 
+    class CRepositoryCombo : public CHistoryCombo
     {
         CRepositoryBar *m_bar;
     public:

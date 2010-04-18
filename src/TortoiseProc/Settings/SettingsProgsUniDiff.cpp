@@ -25,11 +25,11 @@
 
 IMPLEMENT_DYNAMIC(CSettingsProgsUniDiff, ISettingsPropPage)
 CSettingsProgsUniDiff::CSettingsProgsUniDiff()
-	: ISettingsPropPage(CSettingsProgsUniDiff::IDD)
-	, m_sDiffViewerPath(_T(""))
-	, m_iDiffViewer(0)
+    : ISettingsPropPage(CSettingsProgsUniDiff::IDD)
+    , m_sDiffViewerPath(_T(""))
+    , m_iDiffViewer(0)
 {
-	m_regDiffViewerPath = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
+    m_regDiffViewerPath = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
 }
 
 CSettingsProgsUniDiff::~CSettingsProgsUniDiff()
@@ -38,97 +38,97 @@ CSettingsProgsUniDiff::~CSettingsProgsUniDiff()
 
 void CSettingsProgsUniDiff::DoDataExchange(CDataExchange* pDX)
 {
-	ISettingsPropPage::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_DIFFVIEWER, m_sDiffViewerPath);
-	DDX_Radio(pDX, IDC_DIFFVIEWER_OFF, m_iDiffViewer);
+    ISettingsPropPage::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_DIFFVIEWER, m_sDiffViewerPath);
+    DDX_Radio(pDX, IDC_DIFFVIEWER_OFF, m_iDiffViewer);
 
-	DialogEnableWindow(IDC_DIFFVIEWER, m_iDiffViewer == 1);
-	DialogEnableWindow(IDC_DIFFVIEWERBROWSE, m_iDiffViewer == 1);
-	DDX_Control(pDX, IDC_DIFFVIEWER, m_cUnifiedDiffEdit);
+    DialogEnableWindow(IDC_DIFFVIEWER, m_iDiffViewer == 1);
+    DialogEnableWindow(IDC_DIFFVIEWERBROWSE, m_iDiffViewer == 1);
+    DDX_Control(pDX, IDC_DIFFVIEWER, m_cUnifiedDiffEdit);
 }
 
 
 BEGIN_MESSAGE_MAP(CSettingsProgsUniDiff, ISettingsPropPage)
-	ON_BN_CLICKED(IDC_DIFFVIEWER_OFF, OnBnClickedDiffviewerOff)
-	ON_BN_CLICKED(IDC_DIFFVIEWER_ON, OnBnClickedDiffviewerOn)
-	ON_BN_CLICKED(IDC_DIFFVIEWERBROWSE, OnBnClickedDiffviewerbrowse)
-	ON_EN_CHANGE(IDC_DIFFVIEWER, OnEnChangeDiffviewer)
+    ON_BN_CLICKED(IDC_DIFFVIEWER_OFF, OnBnClickedDiffviewerOff)
+    ON_BN_CLICKED(IDC_DIFFVIEWER_ON, OnBnClickedDiffviewerOn)
+    ON_BN_CLICKED(IDC_DIFFVIEWERBROWSE, OnBnClickedDiffviewerbrowse)
+    ON_EN_CHANGE(IDC_DIFFVIEWER, OnEnChangeDiffviewer)
 END_MESSAGE_MAP()
 
 void CSettingsProgsUniDiff::OnBnClickedDiffviewerOff()
 {
-	m_iDiffViewer = 0;
-	SetModified();
-	DialogEnableWindow(IDC_DIFFVIEWER, false);
-	DialogEnableWindow(IDC_DIFFVIEWERBROWSE, false);
-	CheckProgComment();
+    m_iDiffViewer = 0;
+    SetModified();
+    DialogEnableWindow(IDC_DIFFVIEWER, false);
+    DialogEnableWindow(IDC_DIFFVIEWERBROWSE, false);
+    CheckProgComment();
 }
 
 void CSettingsProgsUniDiff::OnBnClickedDiffviewerOn()
 {
-	m_iDiffViewer = 1;
-	SetModified();
-	DialogEnableWindow(IDC_DIFFVIEWER, true);
-	DialogEnableWindow(IDC_DIFFVIEWERBROWSE, true);
-	GetDlgItem(IDC_DIFFVIEWER)->SetFocus();
-	CheckProgComment();
+    m_iDiffViewer = 1;
+    SetModified();
+    DialogEnableWindow(IDC_DIFFVIEWER, true);
+    DialogEnableWindow(IDC_DIFFVIEWERBROWSE, true);
+    GetDlgItem(IDC_DIFFVIEWER)->SetFocus();
+    CheckProgComment();
 }
 
 void CSettingsProgsUniDiff::OnEnChangeDiffviewer()
 {
-	SetModified();
+    SetModified();
 }
 
 void CSettingsProgsUniDiff::OnBnClickedDiffviewerbrowse()
 {
-	if (CAppUtils::FileOpenSave(m_sDiffViewerPath, NULL, IDS_SETTINGS_SELECTDIFFVIEWER, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
-	{
-		UpdateData(FALSE);
-		SetModified();
-	}
+    if (CAppUtils::FileOpenSave(m_sDiffViewerPath, NULL, IDS_SETTINGS_SELECTDIFFVIEWER, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
+    {
+        UpdateData(FALSE);
+        SetModified();
+    }
 }
 
 BOOL CSettingsProgsUniDiff::OnInitDialog()
 {
-	ISettingsPropPage::OnInitDialog();
+    ISettingsPropPage::OnInitDialog();
 
-	EnableToolTips();
+    EnableToolTips();
 
-	m_sDiffViewerPath = m_regDiffViewerPath;
-	m_iDiffViewer = IsExternal(m_sDiffViewerPath);
+    m_sDiffViewerPath = m_regDiffViewerPath;
+    m_iDiffViewer = IsExternal(m_sDiffViewerPath);
 
-	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_DIFFVIEWER), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
+    SHAutoComplete(::GetDlgItem(m_hWnd, IDC_DIFFVIEWER), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
-	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_DIFFVIEWER, IDS_SETTINGS_DIFFVIEWER_TT);
+    m_tooltips.Create(this);
+    m_tooltips.AddTool(IDC_DIFFVIEWER, IDS_SETTINGS_DIFFVIEWER_TT);
 
-	UpdateData(FALSE);
-	return TRUE;
+    UpdateData(FALSE);
+    return TRUE;
 }
 
 BOOL CSettingsProgsUniDiff::PreTranslateMessage(MSG* pMsg)
 {
-	m_tooltips.RelayEvent(pMsg);
-	return ISettingsPropPage::PreTranslateMessage(pMsg);
+    m_tooltips.RelayEvent(pMsg);
+    return ISettingsPropPage::PreTranslateMessage(pMsg);
 }
 
 BOOL CSettingsProgsUniDiff::OnApply()
 {
-	UpdateData();
-	if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != _T("#"))
-		m_sDiffViewerPath = _T("#") + m_sDiffViewerPath;
+    UpdateData();
+    if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != _T("#"))
+        m_sDiffViewerPath = _T("#") + m_sDiffViewerPath;
 
-	m_regDiffViewerPath = m_sDiffViewerPath;
-	SetModified(FALSE);
-	return ISettingsPropPage::OnApply();
+    m_regDiffViewerPath = m_sDiffViewerPath;
+    SetModified(FALSE);
+    return ISettingsPropPage::OnApply();
 }
 
 void CSettingsProgsUniDiff::CheckProgComment()
 {
-	UpdateData();
-	if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != _T("#"))
-		m_sDiffViewerPath = _T("#") + m_sDiffViewerPath;
-	else if (m_iDiffViewer == 1)
-		m_sDiffViewerPath.TrimLeft('#');
-	UpdateData(FALSE);
+    UpdateData();
+    if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != _T("#"))
+        m_sDiffViewerPath = _T("#") + m_sDiffViewerPath;
+    else if (m_iDiffViewer == 1)
+        m_sDiffViewerPath.TrimLeft('#');
+    UpdateData(FALSE);
 }

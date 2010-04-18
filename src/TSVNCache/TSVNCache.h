@@ -24,13 +24,13 @@
 #define MAX_CRAWLEDPATHS 15
 #define MAX_CRAWLEDPATHSLEN (MAX_PATH * 2)
 
-extern HWND				hWnd;
-extern TCHAR			szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
+extern HWND             hWnd;
+extern TCHAR            szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
 
 extern int nCurrentCrawledpathIndex;
 extern CComAutoCriticalSection critSec;
 
-#define TRAY_CALLBACK	(WM_APP + 1)
-#define TRAYPOP_EXIT	(WM_APP + 1)
-#define TRAY_ID			101
+#define TRAY_CALLBACK   (WM_APP + 1)
+#define TRAYPOP_EXIT    (WM_APP + 1)
+#define TRAY_ID         101
 

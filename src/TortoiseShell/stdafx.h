@@ -40,12 +40,12 @@
 #include <atlstr.h>
 
 #pragma warning(push)
-#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
+#pragma warning(disable: 4702)  // Unreachable code warnings in xtree
 #include <string>
 #include <set>
 #include <map>
-#include <vector> 
-#include <algorithm> 
+#include <vector>
+#include <algorithm>
 #pragma warning(pop)
 
 #pragma warning(push)

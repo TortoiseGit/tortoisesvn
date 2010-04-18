@@ -178,11 +178,11 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 {
     // read the string offsets
 
-    CDiffIntegerInStream* indexStream 
-        = stream.GetSubStream<CDiffIntegerInStream> 
+    CDiffIntegerInStream* indexStream
+        = stream.GetSubStream<CDiffIntegerInStream>
             (CRevisionIndex::INDEX_STREAM_ID);
 
-    container.firstRevision 
+    container.firstRevision
         = static_cast<revision_t>(indexStream->GetSizeValue());
     *indexStream >> container.indices;
 
@@ -196,8 +196,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 {
     // the string positions
 
-    CDiffIntegerOutStream* indexStream 
-        = stream.OpenSubStream<CDiffIntegerOutStream> 
+    CDiffIntegerOutStream* indexStream
+        = stream.OpenSubStream<CDiffIntegerOutStream>
             (CRevisionIndex::INDEX_STREAM_ID);
 
     indexStream->AddSizeValue (container.firstRevision);

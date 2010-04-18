@@ -49,7 +49,7 @@ private:
 
     bool negate;
 
-    /// attribute selector 
+    /// attribute selector
     /// (i.e. what members of LogEntryData shall be used for comparison)
 
     DWORD attributeSelector;
@@ -75,7 +75,7 @@ private:
 
     svn_revnum_t revToKeep;
 
-    /// temp / scratch objects to minimize the number memory 
+    /// temp / scratch objects to minimize the number memory
     /// allocation operations
 
     mutable wstring scratch;
@@ -84,7 +84,7 @@ private:
 
     /// called to parse a (potentially incorrect) regex spec
 
-    bool ValidateRegexp 
+    bool ValidateRegexp
         ( LPCTSTR regexp_str
         , vector<tr1::wregex>& patterns);
 
@@ -97,7 +97,7 @@ public:
     /// construction
 
     CLogDlgFilter();
-    CLogDlgFilter 
+    CLogDlgFilter
         ( const CString& filter
         , bool filterWithRegex
         , int selectedFilter
@@ -118,12 +118,12 @@ public:
     /// filter utiltiy method
     bool Match (wstring& text) const;
 
-    /// tr1::regex is very slow when running concurrently 
+    /// tr1::regex is very slow when running concurrently
     /// in multiple threads. Empty filters don't need MT as well.
 
     bool BenefitsFromMT() const;
 
     /// returns true if there's something to filter for
-    
+
     bool IsFilterActive() const;
 };

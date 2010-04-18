@@ -65,9 +65,9 @@ public:
      * This is used for the "recursive" status functions on folders - i.e. which status
      * should be returned for a folder which has several files with different statuses
      * in it.
-     */                 
+     */
     static svn_wc_status_kind GetMoreImportant(svn_wc_status_kind status1, svn_wc_status_kind status2);
-    
+
     /**
      * Checks if a status is "important", i.e. if the status indicates that the user should know about it.
      * E.g. a "normal" status is not important, but "modified" is.
@@ -80,7 +80,7 @@ public:
      * recurse is done, even if the entry is a directory.
      * The result is stored in the public member variable status.
      * Use this method if you need detailed information about a file/folder, not just the raw status (like "normal", "modified").
-     * 
+     *
      * \param path the pathname of the entry
      * \param update true if the status should be updated with the repository. Default is false.
      * \return If update is set to true the HEAD revision of the repository is returned. If update is false then -1 is returned.
@@ -161,7 +161,7 @@ friend class SVN;   // So that SVN can get to our m_err
      */
     CString GetLastErrorMsg() const;
 
-    /** 
+    /**
      * Set a list of paths which will be considered when calling GetFirstFileStatus.
      * If a filter is set, then GetFirstFileStatus/GetNextFileStatus will only return items which are in the filter list
      */
@@ -207,7 +207,7 @@ private:
 #endif
 
     /**
-     * Returns a numeric value indicating the importance of a status. 
+     * Returns a numeric value indicating the importance of a status.
      * A higher number indicates a more important status.
      */
     static int GetStatusRanking(svn_wc_status_kind status);
@@ -252,7 +252,7 @@ private:
     static int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
     static svn_error_t* cancel(void *baton);
 
-    // A sorted list of filenames (in SVN format, in lowercase) 
+    // A sorted list of filenames (in SVN format, in lowercase)
     // when this list is set, we only pick-up files during a GetStatus which are found in this list
     typedef std::vector<std::string> StdStrAVector;
     StdStrAVector m_filterFileList;

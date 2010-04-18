@@ -68,26 +68,26 @@ public:
 
 private:
 
-	///members
+    ///members
 
-	CDictionaryBasedTempPath path;
-	index_t              realPathID;
+    CDictionaryBasedTempPath path;
+    index_t              realPathID;
 
-	CCopyTarget*         firstCopyTarget;
+    CCopyTarget*         firstCopyTarget;
 
-	CFullGraphNode*      prev;
-	CFullGraphNode*      next;
+    CFullGraphNode*      prev;
+    CFullGraphNode*      next;
 
-	CFullGraphNode*      copySource;
+    CFullGraphNode*      copySource;
 
-	revision_t		     revision;
+    revision_t           revision;
     CNodeClassification  classification;
 
 protected:
 
-	/// protect construction / destruction to force usage of pool
+    /// protect construction / destruction to force usage of pool
 
-	CFullGraphNode ( const CDictionaryBasedTempPath& path
+    CFullGraphNode ( const CDictionaryBasedTempPath& path
                    , revision_t revision
                    , CNodeClassification classification
                    , CFullGraphNode* source
@@ -109,20 +109,20 @@ public:
 
     /// data access
 
-	const CDictionaryBasedTempPath& GetPath() const;
-	CDictionaryBasedPath GetRealPath() const;
+    const CDictionaryBasedTempPath& GetPath() const;
+    CDictionaryBasedPath GetRealPath() const;
 
-	const CFullGraphNode* GetCopySource() const;
-	const CCopyTarget* GetFirstCopyTarget() const;
-	CCopyTarget*& GetFirstCopyTarget();
+    const CFullGraphNode* GetCopySource() const;
+    const CCopyTarget* GetFirstCopyTarget() const;
+    CCopyTarget*& GetFirstCopyTarget();
 
-	const CFullGraphNode* GetPrevious() const;
-	CFullGraphNode* GetPrevious();
-	const CFullGraphNode* GetNext() const;
-	CFullGraphNode* GetNext();
+    const CFullGraphNode* GetPrevious() const;
+    CFullGraphNode* GetPrevious();
+    const CFullGraphNode* GetNext() const;
+    CFullGraphNode* GetNext();
 
-	revision_t GetRevision() const;
-	CNodeClassification GetClassification() const;
+    revision_t GetRevision() const;
+    CNodeClassification GetClassification() const;
 
     // combined info (copySource | previous)
 
@@ -154,7 +154,7 @@ inline const CFullGraphNode* CFullGraphNode::GetCopySource() const
     return copySource;
 }
 
-inline const CFullGraphNode::CCopyTarget* 
+inline const CFullGraphNode::CCopyTarget*
 CFullGraphNode::GetFirstCopyTarget() const
 {
     return firstCopyTarget;

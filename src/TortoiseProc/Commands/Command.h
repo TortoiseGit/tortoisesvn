@@ -32,21 +32,21 @@ class Command
 {
 public:
 
-	/// allow sub-classes to execute code during destruction
-	virtual ~Command() {};
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute() = 0;
+    /// allow sub-classes to execute code during destruction
+    virtual ~Command() {};
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute() = 0;
 
-	void					SetParser(const CCmdLineParser& p) {parser = p;}
-	void					SetPaths(const CTSVNPathList& plist, const CTSVNPath path) {pathList = plist; cmdLinePath = path;}
-	void					SetExplorerHwnd(HWND hWnd) {hwndExplorer = hWnd;}
+    void                    SetParser(const CCmdLineParser& p) {parser = p;}
+    void                    SetPaths(const CTSVNPathList& plist, const CTSVNPath path) {pathList = plist; cmdLinePath = path;}
+    void                    SetExplorerHwnd(HWND hWnd) {hwndExplorer = hWnd;}
 protected:
-	CCmdLineParser			parser;
-	CTSVNPathList			pathList;
-	CTSVNPath				cmdLinePath;
-	HWND					hwndExplorer;
+    CCmdLineParser          parser;
+    CTSVNPathList           pathList;
+    CTSVNPath               cmdLinePath;
+    HWND                    hwndExplorer;
 };
 
 /**
@@ -58,5 +58,5 @@ class CommandServer
 {
 public:
 
-	Command *				GetCommand(const CString& sCmd);
+    Command *               GetCommand(const CString& sCmd);
 };

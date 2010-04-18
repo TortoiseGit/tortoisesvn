@@ -74,7 +74,7 @@ BOOL CUpdateDlg::OnInitDialog()
     GetDlgItem(IDC_REVNUM)->SetFocus();
     if ((m_pParentWnd==NULL)&&(hWndExplorer))
         CenterWindow(CWnd::FromHandle(hWndExplorer));
-    return FALSE;  
+    return FALSE;
 }
 
 void CUpdateDlg::OnOK()

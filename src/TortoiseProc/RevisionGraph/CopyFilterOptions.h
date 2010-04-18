@@ -44,7 +44,7 @@ public:
 
 /**
 * Filtered sub-set of \ref CAllRevisionGraphOptions.
-* It allows the aggregated application of all copy options 
+* It allows the aggregated application of all copy options
 * at once during the copy process.
 *
 * Contains only \ref ICopyFilterOption instances.
@@ -61,7 +61,7 @@ public:
     CCopyFilterOptions (const std::vector<ICopyFilterOption*>& options);
     virtual ~CCopyFilterOptions() {}
 
-    /// apply all filters 
+    /// apply all filters
 
     ICopyFilterOption::EResult ShallRemove (const CFullGraphNode* node) const;
 };

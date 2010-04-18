@@ -25,39 +25,39 @@ int strwildcmp(const char *wild, const char *string)
 {
     const char *cp = NULL;
     const char *mp = NULL;
-    while ((*string) && (*wild != '*')) 
+    while ((*string) && (*wild != '*'))
     {
-        if ((*wild != *string) && (*wild != '?')) 
+        if ((*wild != *string) && (*wild != '?'))
         {
-            return 0; 
+            return 0;
         }
-        wild++; 
-        string++; 
+        wild++;
+        string++;
     }
-    while (*string) 
+    while (*string)
     {
-        if (*wild == '*') 
+        if (*wild == '*')
         {
-            if (!*++wild) 
+            if (!*++wild)
             {
-                return 1; 
-            } 
-            mp = wild; 
+                return 1;
+            }
+            mp = wild;
             cp = string+1;
         }
-        else if ((*wild == *string) || (*wild == '?')) 
+        else if ((*wild == *string) || (*wild == '?'))
         {
             wild++;
             string++;
-        } 
-        else 
+        }
+        else
         {
             wild = mp;
             string = cp++;
         }
     }
 
-    while (*wild == '*') 
+    while (*wild == '*')
     {
         wild++;
     }
@@ -68,39 +68,39 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 {
     const wchar_t *cp = NULL;
     const wchar_t *mp = NULL;
-    while ((*string) && (*wild != '*')) 
+    while ((*string) && (*wild != '*'))
     {
-        if ((*wild != *string) && (*wild != '?')) 
+        if ((*wild != *string) && (*wild != '?'))
         {
-            return 0; 
+            return 0;
         }
-        wild++; 
-        string++; 
+        wild++;
+        string++;
     }
-    while (*string) 
+    while (*string)
     {
-        if (*wild == '*') 
+        if (*wild == '*')
         {
-            if (!*++wild) 
+            if (!*++wild)
             {
-                return 1; 
-            } 
-            mp = wild; 
+                return 1;
+            }
+            mp = wild;
             cp = string+1;
         }
-        else if ((*wild == *string) || (*wild == '?')) 
+        else if ((*wild == *string) || (*wild == '?'))
         {
             wild++;
             string++;
-        } 
-        else 
+        }
+        else
         {
             wild = mp;
             string = cp++;
         }
     }
 
-    while (*wild == '*') 
+    while (*wild == '*')
     {
         wild++;
     }
@@ -175,7 +175,7 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, 
                     TCHAR buf[MAX_PATH];
                     PathCompactPathEx(buf, longline, limit+1, 0);
                     longline = buf;
-                }               
+                }
             }
 
             retString += longline;
@@ -229,7 +229,7 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
                         if (plcid)
                         {
                             *plcid = lcid;
-                            SetClipboardData(CF_LOCALE, static_cast<HANDLE>(plcid));    
+                            SetClipboardData(CF_LOCALE, static_cast<HANDLE>(plcid));
                         }
                         GlobalUnlock(hlocmem);
                     }
@@ -314,7 +314,7 @@ bool CStringUtils::ReadStringFromTextFile(const CString& path, CString& text)
         filecontent.ReleaseBuffer(bytesread);
         text = CUnicodeUtils::GetUnicode(filecontent);
         file.Close();
-    } 
+    }
     catch (CFileException* pE)
     {
         text.Empty();

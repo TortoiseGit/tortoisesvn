@@ -34,13 +34,13 @@ class CLogCacheStatisticsDlg : public CDialog
     DECLARE_DYNAMIC(CLogCacheStatisticsDlg)
 
 public:
-    CLogCacheStatisticsDlg (const LogCache::CLogCacheStatisticsData& data, CWnd * pParentWnd = NULL); 
+    CLogCacheStatisticsDlg (const LogCache::CLogCacheStatisticsData& data, CWnd * pParentWnd = NULL);
     virtual ~CLogCacheStatisticsDlg();
 
     enum { IDD = IDD_LOGCACHESTATISTICS };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX); 
+    virtual void DoDataExchange(CDataExchange* pDX);
     virtual BOOL OnInitDialog();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
 

@@ -28,47 +28,47 @@
 class SVNLineDiff
 {
 public:
-	SVNLineDiff();
-	~SVNLineDiff();
+    SVNLineDiff();
+    ~SVNLineDiff();
 
-	bool Diff(svn_diff_t** diff, LPCTSTR line1, apr_size_t len1, LPCTSTR line2, apr_size_t len2, bool bWordDiff);
-	/** Checks if we really should show inline diffs.
-	 * Inline diffs are only useful if the two lines are not
-	 * completely different but at least a little bit similar.
-	 */
-	static bool ShowInlineDiff(svn_diff_t* diff);
+    bool Diff(svn_diff_t** diff, LPCTSTR line1, apr_size_t len1, LPCTSTR line2, apr_size_t len2, bool bWordDiff);
+    /** Checks if we really should show inline diffs.
+     * Inline diffs are only useful if the two lines are not
+     * completely different but at least a little bit similar.
+     */
+    static bool ShowInlineDiff(svn_diff_t* diff);
 
-	std::vector<std::wstring>	m_line1tokens;
-	std::vector<std::wstring>	m_line2tokens;
+    std::vector<std::wstring>   m_line1tokens;
+    std::vector<std::wstring>   m_line2tokens;
 private:
 
-	apr_pool_t *		m_pool;
-	apr_pool_t *		m_subpool;
-	LPCTSTR				m_line1;
-	apr_size_t		    m_line1length;
-	LPCTSTR				m_line2;
-	apr_size_t		    m_line2length;
-	apr_size_t	    	m_line1pos;
-	apr_size_t  		m_line2pos;
+    apr_pool_t *        m_pool;
+    apr_pool_t *        m_subpool;
+    LPCTSTR             m_line1;
+    apr_size_t          m_line1length;
+    LPCTSTR             m_line2;
+    apr_size_t          m_line2length;
+    apr_size_t          m_line1pos;
+    apr_size_t          m_line2pos;
 
-	bool				m_bWordDiff;
+    bool                m_bWordDiff;
 
-	static svn_error_t * datasource_open(void *baton, svn_diff_datasource_e datasource);
-	static svn_error_t * datasource_close(void *baton, svn_diff_datasource_e datasource);
-	static svn_error_t * next_token(apr_uint32_t * hash, void ** token, void * baton, svn_diff_datasource_e datasource);
-	static svn_error_t * compare_token(void * baton, void * token1, void * token2, int * compare);
-	static void discard_token(void * baton, void * token);
-	static void discard_all_token(void *baton);
-	static bool IsCharWhiteSpace(TCHAR c);
+    static svn_error_t * datasource_open(void *baton, svn_diff_datasource_e datasource);
+    static svn_error_t * datasource_close(void *baton, svn_diff_datasource_e datasource);
+    static svn_error_t * next_token(apr_uint32_t * hash, void ** token, void * baton, svn_diff_datasource_e datasource);
+    static svn_error_t * compare_token(void * baton, void * token1, void * token2, int * compare);
+    static void discard_token(void * baton, void * token);
+    static void discard_all_token(void *baton);
+    static bool IsCharWhiteSpace(TCHAR c);
 
-	static apr_uint32_t Adler32(apr_uint32_t checksum, const WCHAR *data, apr_size_t len);
-	static void ParseLineWords(
-		LPCTSTR line, apr_size_t lineLength, std::vector<std::wstring>& tokens);
-	static void ParseLineChars(
-		LPCTSTR line, apr_size_t lineLength, std::vector<std::wstring>& tokens);
-	static void NextTokenWords(
-		apr_uint32_t* hash, void** token, apr_size_t& linePos, const std::vector<std::wstring>& tokens);
-	static void NextTokenChars(
-		apr_uint32_t* hash, void** token, apr_size_t& linePos, LPCTSTR line, apr_size_t lineLength);
-	static const svn_diff_fns_t SVNLineDiff_vtable;
+    static apr_uint32_t Adler32(apr_uint32_t checksum, const WCHAR *data, apr_size_t len);
+    static void ParseLineWords(
+        LPCTSTR line, apr_size_t lineLength, std::vector<std::wstring>& tokens);
+    static void ParseLineChars(
+        LPCTSTR line, apr_size_t lineLength, std::vector<std::wstring>& tokens);
+    static void NextTokenWords(
+        apr_uint32_t* hash, void** token, apr_size_t& linePos, const std::vector<std::wstring>& tokens);
+    static void NextTokenChars(
+        apr_uint32_t* hash, void** token, apr_size_t& linePos, LPCTSTR line, apr_size_t lineLength);
+    static const svn_diff_fns_t SVNLineDiff_vtable;
 };

@@ -25,32 +25,32 @@
 class SVNConfig
 {
 private:
-	SVNConfig(const SVNConfig&){}
+    SVNConfig(const SVNConfig&){}
 public:
-	SVNConfig(void);
-	~SVNConfig(void);
+    SVNConfig(void);
+    ~SVNConfig(void);
 
-	/**
-	 * Reads the global ignore patterns which will be used later in
-	 * MatchIgnorePattern().
-	 * \return TRUE if the function is successful
-	 */
-	BOOL GetDefaultIgnores();
+    /**
+     * Reads the global ignore patterns which will be used later in
+     * MatchIgnorePattern().
+     * \return TRUE if the function is successful
+     */
+    BOOL GetDefaultIgnores();
 
-	/**
-	 * Checks if the \c name matches a pattern in the array of
-	 * ignore patterns.
-	 * \param name the name to check 
-	 * \param *patterns the array of ignore patterns. Get this array with GetDefaultIgnores()
-	 * \return TRUE if the name matches a pattern, FALSE if it doesn't.
-	 */
-	BOOL MatchIgnorePattern(const CString& name);
+    /**
+     * Checks if the \c name matches a pattern in the array of
+     * ignore patterns.
+     * \param name the name to check
+     * \param *patterns the array of ignore patterns. Get this array with GetDefaultIgnores()
+     * \return TRUE if the name matches a pattern, FALSE if it doesn't.
+     */
+    BOOL MatchIgnorePattern(const CString& name);
 
-	BOOL KeepLocks();
+    BOOL KeepLocks();
 private:
-	apr_pool_t *				parentpool;
-	apr_pool_t *				pool;			///< memory pool
-	svn_client_ctx_t 			ctx;
-	apr_array_header_t *		patterns;
+    apr_pool_t *                parentpool;
+    apr_pool_t *                pool;           ///< memory pool
+    svn_client_ctx_t            ctx;
+    apr_array_header_t *        patterns;
 
 };

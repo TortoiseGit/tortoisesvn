@@ -70,12 +70,12 @@ int _tmain(int argc, _TCHAR* argv[])
             tstring sDllFile;
             tstring sPoFile;
             ++arg;
-            
+
             std::vector<std::wstring> filelist = arguments;
             filelist.erase(filelist.begin());
             sPoFile = tstring((--filelist.end())->c_str());
             filelist.erase(--filelist.end());
-            
+
             CResModule module;
             module.SetQuiet(bQuiet);
             if (!module.ExtractResources(filelist, sPoFile.c_str(), bNoUpdate))

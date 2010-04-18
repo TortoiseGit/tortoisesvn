@@ -29,7 +29,7 @@ CShowHead::CShowHead (CRevisionGraphOptionList& list)
 
 // implement ICopyFilterOption
 
-ICopyFilterOption::EResult 
+ICopyFilterOption::EResult
 CShowHead::ShallRemove (const CFullGraphNode* node) const
 {
     // "Pin" HEAD nodes

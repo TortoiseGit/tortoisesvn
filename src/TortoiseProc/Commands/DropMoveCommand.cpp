@@ -37,7 +37,7 @@ bool DropMoveCommand::Execute()
     if ((parser.HasKey(_T("rename")))&&(pathList.GetCount()==1))
     {
         // ask for a new name of the source item
-        do 
+        do
         {
             CRenameDlg renDlg;
             renDlg.m_windowtitle.LoadString(IDS_PROC_MOVERENAME);
@@ -78,7 +78,7 @@ bool DropMoveCommand::Execute()
                 return FALSE;
             }
             destPath.SetFromWin(droppath+_T("\\")+dlg.m_name);
-        } 
+        }
         if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath, FALSE))
         {
             if (svn.Err && (svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE ||
@@ -124,7 +124,7 @@ bool DropMoveCommand::Execute()
                 CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 return FALSE;       //get out of here
             }
-        } 
+        }
         else
             CShellUpdater::Instance().AddPathForUpdate(destPath);
         count++;

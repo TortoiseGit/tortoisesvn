@@ -29,7 +29,7 @@
 IMPLEMENT_DYNAMIC(CEditPropConflictDlg, CResizableStandAloneDialog)
 
 CEditPropConflictDlg::CEditPropConflictDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CEditPropConflictDlg::IDD, pParent)
+    : CResizableStandAloneDialog(CEditPropConflictDlg::IDD, pParent)
 {
 
 }
@@ -40,40 +40,40 @@ CEditPropConflictDlg::~CEditPropConflictDlg()
 
 void CEditPropConflictDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+    CResizableStandAloneDialog::DoDataExchange(pDX);
 }
 
 bool CEditPropConflictDlg::SetPrejFile(const CTSVNPath& prejFile)
 {
-	m_prejFile = prejFile;
-	m_sPrejText.Empty();
-	// open the prej file to get the info text
-	char contentbuf[10000+1];
-	FILE * File;
-	_tfopen_s(&File, m_prejFile.GetWinPath(), _T("rb, ccs=UTF-8"));
-	if (File == NULL)
-	{
-		return false;
-	}
-	size_t len = 0;
-	for (;;)
-	{
-		len = fread(contentbuf, sizeof(char), 10000, File);
-		m_sPrejText += CUnicodeUtils::GetUnicode(CStringA(contentbuf, (int)len));
-		if (len < 10000)
-		{
-			fclose(File);
-			// we've read the whole file
-			m_sPrejText.Replace(_T("\n"), _T("\r\n"));
-			return true;
-		}
-	}
-	return false;
+    m_prejFile = prejFile;
+    m_sPrejText.Empty();
+    // open the prej file to get the info text
+    char contentbuf[10000+1];
+    FILE * File;
+    _tfopen_s(&File, m_prejFile.GetWinPath(), _T("rb, ccs=UTF-8"));
+    if (File == NULL)
+    {
+        return false;
+    }
+    size_t len = 0;
+    for (;;)
+    {
+        len = fread(contentbuf, sizeof(char), 10000, File);
+        m_sPrejText += CUnicodeUtils::GetUnicode(CStringA(contentbuf, (int)len));
+        if (len < 10000)
+        {
+            fclose(File);
+            // we've read the whole file
+            m_sPrejText.Replace(_T("\n"), _T("\r\n"));
+            return true;
+        }
+    }
+    return false;
 }
 
 BEGIN_MESSAGE_MAP(CEditPropConflictDlg, CResizableStandAloneDialog)
-	ON_BN_CLICKED(IDC_RESOLVE, &CEditPropConflictDlg::OnBnClickedResolve)
-	ON_BN_CLICKED(IDC_EDITPROPS, &CEditPropConflictDlg::OnBnClickedEditprops)
+    ON_BN_CLICKED(IDC_RESOLVE, &CEditPropConflictDlg::OnBnClickedResolve)
+    ON_BN_CLICKED(IDC_EDITPROPS, &CEditPropConflictDlg::OnBnClickedEditprops)
 END_MESSAGE_MAP()
 
 
@@ -81,46 +81,46 @@ END_MESSAGE_MAP()
 
 BOOL CEditPropConflictDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+    CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_DIFFGROUP);
-	m_aeroControls.SubclassControl(this, IDC_RESOLVE);
-	m_aeroControls.SubclassControl(this, IDC_EDITPROPS);
-	m_aeroControls.SubclassControl(this, IDCANCEL);
+    ExtendFrameIntoClientArea(IDC_DIFFGROUP);
+    m_aeroControls.SubclassControl(this, IDC_RESOLVE);
+    m_aeroControls.SubclassControl(this, IDC_EDITPROPS);
+    m_aeroControls.SubclassControl(this, IDCANCEL);
 
-	CString sInfo;
-	sInfo.Format(IDS_PROPCONFLICT_INFO, (LPCTSTR)m_conflictItem.GetFileOrDirectoryName());
-	SetDlgItemText(IDC_PROPINFO, sInfo);
-	SetDlgItemText(IDC_PROPCONFLICTINFO, m_sPrejText);
+    CString sInfo;
+    sInfo.Format(IDS_PROPCONFLICT_INFO, (LPCTSTR)m_conflictItem.GetFileOrDirectoryName());
+    SetDlgItemText(IDC_PROPINFO, sInfo);
+    SetDlgItemText(IDC_PROPCONFLICTINFO, m_sPrejText);
 
 
-	AddAnchor(IDC_PROPINFO, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_PROPCONFLICTINFO, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_RESOLVE, BOTTOM_LEFT);
-	AddAnchor(IDC_EDITPROPS, BOTTOM_LEFT);
-	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    AddAnchor(IDC_PROPINFO, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_PROPCONFLICTINFO, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_RESOLVE, BOTTOM_LEFT);
+    AddAnchor(IDC_EDITPROPS, BOTTOM_LEFT);
+    AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+    return TRUE;  // return TRUE unless you set the focus to a control
+    // EXCEPTION: OCX Property Pages should return FALSE
 }
 
 void CEditPropConflictDlg::OnBnClickedResolve()
 {
-	// remove the prej file to 'resolve' the conflict
-	m_prejFile.Delete(false);
-	
-	EndDialog(IDC_RESOLVE);
+    // remove the prej file to 'resolve' the conflict
+    m_prejFile.Delete(false);
+
+    EndDialog(IDC_RESOLVE);
 }
 
 void CEditPropConflictDlg::OnBnClickedEditprops()
 {
-	// start the properties dialog
-	CString sCmd;
+    // start the properties dialog
+    CString sCmd;
 
-	sCmd.Format(_T("%s /command:properties /path:\"%s\""),
-		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
-		(LPCTSTR)m_conflictItem.GetWinPath());
-	CAppUtils::LaunchApplication(sCmd, NULL, false);
+    sCmd.Format(_T("%s /command:properties /path:\"%s\""),
+        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+        (LPCTSTR)m_conflictItem.GetWinPath());
+    CAppUtils::LaunchApplication(sCmd, NULL, false);
 
-	EndDialog(IDC_EDITPROPS);
+    EndDialog(IDC_EDITPROPS);
 }

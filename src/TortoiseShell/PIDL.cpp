@@ -21,10 +21,10 @@
 
 PIDL::PIDL()
 {
-	::SHGetMalloc(&malloc_);
+    ::SHGetMalloc(&malloc_);
 }
 
 PIDL::~PIDL()
 {
-	malloc_->Release();
+    malloc_->Release();
 }

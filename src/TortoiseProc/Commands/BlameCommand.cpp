@@ -28,81 +28,81 @@
 
 bool BlameCommand::Execute()
 {
-	bool bRet = false;
-	bool bShowDialog = true;
-	CBlameDlg dlg;
-	CString options;
-	dlg.EndRev = SVNRev::REV_HEAD;
-	if (parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")))
-	{
-		bShowDialog = false;
-		dlg.StartRev = parser.GetLongVal(_T("startrev"));
-		dlg.EndRev = parser.GetLongVal(_T("endrev"));
-		if (parser.HasKey(_T("ignoreeol")) || parser.HasKey(_T("ignorespaces")) || parser.HasKey(_T("ignoreallspaces")))
-		{
-			options = SVN::GetOptionsString(!!parser.HasKey(_T("ignoreeol")), !!parser.HasKey(_T("ignorespaces")), !!parser.HasKey(_T("ignoreallspaces")));
-		}
-	}
-	if ((!bShowDialog)||(dlg.DoModal() == IDOK))
-	{
-		CString tempfile;
-		CString logfile;
-		{
-			CBlame blame;
-			if (bShowDialog)
-				options = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces);
+    bool bRet = false;
+    bool bShowDialog = true;
+    CBlameDlg dlg;
+    CString options;
+    dlg.EndRev = SVNRev::REV_HEAD;
+    if (parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")))
+    {
+        bShowDialog = false;
+        dlg.StartRev = parser.GetLongVal(_T("startrev"));
+        dlg.EndRev = parser.GetLongVal(_T("endrev"));
+        if (parser.HasKey(_T("ignoreeol")) || parser.HasKey(_T("ignorespaces")) || parser.HasKey(_T("ignoreallspaces")))
+        {
+            options = SVN::GetOptionsString(!!parser.HasKey(_T("ignoreeol")), !!parser.HasKey(_T("ignorespaces")), !!parser.HasKey(_T("ignoreallspaces")));
+        }
+    }
+    if ((!bShowDialog)||(dlg.DoModal() == IDOK))
+    {
+        CString tempfile;
+        CString logfile;
+        {
+            CBlame blame;
+            if (bShowDialog)
+                options = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces);
 
-			tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, 
-				cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, 
-				options, dlg.m_bIncludeMerge, TRUE, TRUE);
-			if (tempfile.IsEmpty())
-			{
-				CMessageBox::Show(hwndExplorer, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			}
-		}
-		if (!tempfile.IsEmpty())
-		{
-			if (dlg.m_bTextView)
-			{
-				//open the default text editor for the result file
-				bRet = !!CAppUtils::StartTextViewer(tempfile);
-			}
-			else
-			{
-				CString sVal;
-				if (parser.HasVal(_T("line")))
-				{
-					sVal = _T("/line:");
-					sVal += parser.GetVal(_T("line"));
-					sVal += _T(" ");
-				}
-				sVal += _T("/path:\"") + cmdLinePath.GetSVNPathString() + _T("\" ");
-				if (bShowDialog)
-				{
-					if (dlg.m_bIgnoreEOL)
-						sVal += _T("/ignoreeol ");
-					switch (dlg.m_IgnoreSpaces)
-					{
-					case svn_diff_file_ignore_space_change:
-						sVal += _T("/ignorespaces ");
-						break;
-					case svn_diff_file_ignore_space_all:
-						sVal += _T("/ignoreallspaces ");
-					}
-				}
-				else 
-				{
-					if (parser.HasKey(_T("ignoreeol")))
-						sVal += _T("/ignoreeol ");
-					if (parser.HasKey(_T("ignorespaces")))
-						sVal += _T("/ignorespaces ");
-					if (parser.HasKey(_T("ignoreallspaces")))
-						sVal += _T("/ignoreallspaces ");
-				}
+            tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev,
+                cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile,
+                options, dlg.m_bIncludeMerge, TRUE, TRUE);
+            if (tempfile.IsEmpty())
+            {
+                CMessageBox::Show(hwndExplorer, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            }
+        }
+        if (!tempfile.IsEmpty())
+        {
+            if (dlg.m_bTextView)
+            {
+                //open the default text editor for the result file
+                bRet = !!CAppUtils::StartTextViewer(tempfile);
+            }
+            else
+            {
+                CString sVal;
+                if (parser.HasVal(_T("line")))
+                {
+                    sVal = _T("/line:");
+                    sVal += parser.GetVal(_T("line"));
+                    sVal += _T(" ");
+                }
+                sVal += _T("/path:\"") + cmdLinePath.GetSVNPathString() + _T("\" ");
+                if (bShowDialog)
+                {
+                    if (dlg.m_bIgnoreEOL)
+                        sVal += _T("/ignoreeol ");
+                    switch (dlg.m_IgnoreSpaces)
+                    {
+                    case svn_diff_file_ignore_space_change:
+                        sVal += _T("/ignorespaces ");
+                        break;
+                    case svn_diff_file_ignore_space_all:
+                        sVal += _T("/ignoreallspaces ");
+                    }
+                }
+                else
+                {
+                    if (parser.HasKey(_T("ignoreeol")))
+                        sVal += _T("/ignoreeol ");
+                    if (parser.HasKey(_T("ignorespaces")))
+                        sVal += _T("/ignorespaces ");
+                    if (parser.HasKey(_T("ignoreallspaces")))
+                        sVal += _T("/ignoreallspaces ");
+                }
 
-				bRet = CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal, dlg.StartRev, dlg.EndRev);
-			}
-		}
-	}
-	return bRet;
+                bRet = CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal, dlg.StartRev, dlg.EndRev);
+            }
+        }
+    }
+    return bRet;
 }

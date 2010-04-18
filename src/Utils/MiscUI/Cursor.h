@@ -43,67 +43,67 @@
 class CCursor
 {
 public:
-	/**
-	 * Constructs a CCursor object.
-	 */
-	CCursor(LPCTSTR CursorName)
-	{
-		ASSERT(this);
-		m_bInitialized = FALSE;
-		SetCursor(CursorName);
-	}
+    /**
+     * Constructs a CCursor object.
+     */
+    CCursor(LPCTSTR CursorName)
+    {
+        ASSERT(this);
+        m_bInitialized = FALSE;
+        SetCursor(CursorName);
+    }
 
-	CCursor()
-	{
-		ASSERT(this);
-		m_bInitialized = FALSE;
-	}
-	~CCursor(void)
-	{
-		ASSERT(this);
-		Restore();
-	}
-	/**
-	 * Sets a new cursor. If you previously set a new cursor then
-	 * before setting a second cursor the old one is restored and
-	 * then the new one is set.
-	 */
-	HCURSOR SetCursor(LPCTSTR CursorName)
-	{
-		//first restore possible old cursor before setting new one
-		Restore();
-		//try to load system cursor
-		HCURSOR NewCursor = ::LoadCursor(NULL, CursorName);
-		if(!NewCursor)
-			//try to load application cursor
-			NewCursor = ::LoadCursor(AfxGetResourceHandle(), CursorName);
-		if(NewCursor)
-		{
-			m_hOldCursor = ::SetCursor(NewCursor);
-			m_bInitialized = TRUE;
-		}
-		else
-		{
-			m_bInitialized = FALSE;
-			TRACE("cursor not found!\n");
-		}
-		return m_hOldCursor;
-	}
-	/**
-	 * Restores the cursor.
-	 */
-	void Restore()
-	{
-		ASSERT(this);
-		if(m_bInitialized)
-		{
-			::SetCursor(m_hOldCursor);
-			m_hOldCursor = NULL;
-		}
-		m_bInitialized = FALSE;
-	}
+    CCursor()
+    {
+        ASSERT(this);
+        m_bInitialized = FALSE;
+    }
+    ~CCursor(void)
+    {
+        ASSERT(this);
+        Restore();
+    }
+    /**
+     * Sets a new cursor. If you previously set a new cursor then
+     * before setting a second cursor the old one is restored and
+     * then the new one is set.
+     */
+    HCURSOR SetCursor(LPCTSTR CursorName)
+    {
+        //first restore possible old cursor before setting new one
+        Restore();
+        //try to load system cursor
+        HCURSOR NewCursor = ::LoadCursor(NULL, CursorName);
+        if(!NewCursor)
+            //try to load application cursor
+            NewCursor = ::LoadCursor(AfxGetResourceHandle(), CursorName);
+        if(NewCursor)
+        {
+            m_hOldCursor = ::SetCursor(NewCursor);
+            m_bInitialized = TRUE;
+        }
+        else
+        {
+            m_bInitialized = FALSE;
+            TRACE("cursor not found!\n");
+        }
+        return m_hOldCursor;
+    }
+    /**
+     * Restores the cursor.
+     */
+    void Restore()
+    {
+        ASSERT(this);
+        if(m_bInitialized)
+        {
+            ::SetCursor(m_hOldCursor);
+            m_hOldCursor = NULL;
+        }
+        m_bInitialized = FALSE;
+    }
 
 private:
-	HCURSOR m_hOldCursor;
-	BOOL m_bInitialized;
+    HCURSOR m_hOldCursor;
+    BOOL m_bInitialized;
 };

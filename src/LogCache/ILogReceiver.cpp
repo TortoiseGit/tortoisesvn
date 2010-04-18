@@ -21,7 +21,7 @@
 
 // construction
 
-StandardRevProps::StandardRevProps 
+StandardRevProps::StandardRevProps
     ( const CString& author
     , const CString& message
     , apr_time_t timeStamp)

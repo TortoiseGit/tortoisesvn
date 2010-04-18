@@ -53,7 +53,7 @@ CAllRevisionGraphOptions::CAllRevisionGraphOptions (const CGraphNodeStates* node
     // The order is critical as it determines the option bit position
     // in the registry DWORD.
 
-    CStandardNodePositioning* standardNodePositioning 
+    CStandardNodePositioning* standardNodePositioning
         = new CStandardNodePositioning (*this);
     new CRemoveSimpleChanges (*this);
     new CUpsideDownLayout (*this);

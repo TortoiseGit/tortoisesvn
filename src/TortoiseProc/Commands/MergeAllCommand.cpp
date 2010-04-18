@@ -24,26 +24,26 @@
 
 bool MergeAllCommand::Execute()
 {
-	CMergeAllDlg dlg;
-	if (dlg.DoModal() == IDOK)
-	{
-		CSVNProgressDlg progDlg;
-		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeAll);
-		progDlg.SetAutoClose (parser);
-		progDlg.SetPathList(pathList);
-		progDlg.SetDepth(dlg.m_depth);
-		progDlg.SetDiffOptions(SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces));
-		int options = dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
-		options |= dlg.m_bForce ? ProgOptForce : 0;
-		progDlg.SetOptions(options);
+    CMergeAllDlg dlg;
+    if (dlg.DoModal() == IDOK)
+    {
+        CSVNProgressDlg progDlg;
+        progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeAll);
+        progDlg.SetAutoClose (parser);
+        progDlg.SetPathList(pathList);
+        progDlg.SetDepth(dlg.m_depth);
+        progDlg.SetDiffOptions(SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces));
+        int options = dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
+        options |= dlg.m_bForce ? ProgOptForce : 0;
+        progDlg.SetOptions(options);
 
-		SVNRevRangeArray tempRevArray;
-		tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
-		progDlg.SetRevisionRanges(tempRevArray);
+        SVNRevRangeArray tempRevArray;
+        tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
+        progDlg.SetRevisionRanges(tempRevArray);
 
-		progDlg.DoModal();
-		return !progDlg.DidErrorsOccur();
-	}
+        progDlg.DoModal();
+        return !progDlg.DidErrorsOccur();
+    }
 
-	return false;
+    return false;
 }

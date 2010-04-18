@@ -41,7 +41,7 @@ class CCachedLogInfo;
 
 /**
  * A simple exporter class that writes (most of) the
- * cached log info to a series of CSV files. 
+ * cached log info to a series of CSV files.
  */
 
 class CCSVWriter

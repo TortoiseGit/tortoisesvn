@@ -109,7 +109,7 @@ public:
     virtual CStandardLayoutNodeInfo* GetNode (index_t index) = 0;
 };
 
-class CStandardLayout 
+class CStandardLayout
     : public IRevisionGraphLayout
     , public IStandardLayoutNodeAccess
 {
@@ -122,7 +122,7 @@ public:
 
         STextInfo (index_t nodeIndex, int subPathIndex)
             : nodeIndex (nodeIndex)
-            , subPathIndex (subPathIndex) 
+            , subPathIndex (subPathIndex)
         {
         }
     };
@@ -181,8 +181,8 @@ public:
     /// construction / destruction
 
     CStandardLayout ( const CCachedLogInfo* cache
-					, const CVisibleGraph* graph
-					, const CFullHistory::SWCInfo& wcInfo);
+                    , const CVisibleGraph* graph
+                    , const CFullHistory::SWCInfo& wcInfo);
     virtual ~CStandardLayout(void);
 
     /// call this after executing the format options

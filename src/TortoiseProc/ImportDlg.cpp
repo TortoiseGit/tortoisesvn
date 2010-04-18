@@ -76,7 +76,7 @@ BOOL CImportDlg::OnInitDialog()
 
     m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
-    
+
     m_History.Load(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
     m_ProjectProperties.ReadProps(m_path);
     m_cMessage.Init(m_ProjectProperties);

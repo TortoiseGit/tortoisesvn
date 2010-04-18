@@ -131,7 +131,7 @@ BOOL CSetLogCache::OnApply()
     CSettings::SetAllowAmbiguousURL (m_bSupportAmbiguousURL != FALSE);
     CSettings::SetAllowAmbiguousUUID (m_bSupportAmbiguousUUID != FALSE);
 
-    ConnectionState state 
+    ConnectionState state
         = static_cast<ConnectionState>
             (m_cDefaultConnectionState.GetCurSel());
     CSettings::SetDefaultConnectionState (state);

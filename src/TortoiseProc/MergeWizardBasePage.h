@@ -30,7 +30,7 @@ class CMergeWizardBasePage : public CResizablePageEx, public SVN
 {
 public:
     CMergeWizardBasePage() : CResizablePageEx() {;}
-    explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0) 
+    explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0)
         : CResizablePageEx(nIDTemplate, nIDCaption, 0) {;}
     explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
         : CResizablePageEx(lpszTemplateName, nIDCaption, 0) {;}

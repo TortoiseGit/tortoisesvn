@@ -29,22 +29,22 @@
 class CreateRepositoryCommand : public Command
 {
 public:
-	/**
-	 * Executes the command.
-	 */
-	virtual bool			Execute()
-	{
-		if (!SVN::CreateRepository(cmdLinePath))
-		{
-			CMessageBox::Show(hwndExplorer, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
-			return false;
-		}
-		else
-		{
-			CMessageBox::Show(hwndExplorer, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
-		}
-		return true;
-	}
+    /**
+     * Executes the command.
+     */
+    virtual bool            Execute()
+    {
+        if (!SVN::CreateRepository(cmdLinePath))
+        {
+            CMessageBox::Show(hwndExplorer, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
+            return false;
+        }
+        else
+        {
+            CMessageBox::Show(hwndExplorer, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
+        }
+        return true;
+    }
 };
 
 

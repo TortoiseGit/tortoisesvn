@@ -42,58 +42,58 @@
 class CDirectoryWatcher
 {
 public:
-	CDirectoryWatcher(void);
-	~CDirectoryWatcher(void);
-	
-	/**
-	 * Adds a new path to be watched. The path \b must point to a directory.
-	 * If the path is already watched because a parent of that path is already
-	 * watched recursively, then the new path is just ignored and the method
-	 * returns false.
-	 */
-	bool AddPath(const CTSVNPath& path, bool bCloseInfoMap = true);
-	/**
-	 * Removes a path and all its children from the watched list.
-	 */
-	bool RemovePathAndChildren(const CTSVNPath& path);
-	/**
-	 * Checks if a path is watched
-	 */
-	bool IsPathWatched(const CTSVNPath& path);
-	
-	/**
-	 * Returns the number of recursively watched paths.
-	 */
-	int GetNumberOfWatchedPaths() {return watchedPaths.GetCount();}
-	
-	/**
-	 * Sets the CFolderCrawler object which the change notifications are sent to.
-	 */
-	void SetFolderCrawler(CFolderCrawler * crawler);
-	
-	/**
-	 * Stops the watching thread.
-	 */
-	void Stop();
+    CDirectoryWatcher(void);
+    ~CDirectoryWatcher(void);
 
-	CTSVNPath CloseInfoMap(HDEVNOTIFY hdev);
-	void ClearInfoMap();
-	bool CloseHandlesForPath(const CTSVNPath& path);
+    /**
+     * Adds a new path to be watched. The path \b must point to a directory.
+     * If the path is already watched because a parent of that path is already
+     * watched recursively, then the new path is just ignored and the method
+     * returns false.
+     */
+    bool AddPath(const CTSVNPath& path, bool bCloseInfoMap = true);
+    /**
+     * Removes a path and all its children from the watched list.
+     */
+    bool RemovePathAndChildren(const CTSVNPath& path);
+    /**
+     * Checks if a path is watched
+     */
+    bool IsPathWatched(const CTSVNPath& path);
+
+    /**
+     * Returns the number of recursively watched paths.
+     */
+    int GetNumberOfWatchedPaths() {return watchedPaths.GetCount();}
+
+    /**
+     * Sets the CFolderCrawler object which the change notifications are sent to.
+     */
+    void SetFolderCrawler(CFolderCrawler * crawler);
+
+    /**
+     * Stops the watching thread.
+     */
+    void Stop();
+
+    CTSVNPath CloseInfoMap(HDEVNOTIFY hdev);
+    void ClearInfoMap();
+    bool CloseHandlesForPath(const CTSVNPath& path);
 
 private:
-	static unsigned int __stdcall ThreadEntry(void* pContext);
-	void WorkerThread();
+    static unsigned int __stdcall ThreadEntry(void* pContext);
+    void WorkerThread();
 
     void CloseWatchHandles();
 
-	void BlockPath(const CTSVNPath& path);
+    void BlockPath(const CTSVNPath& path);
 
     // close handle (if open) and
     // release all async I/O objects
 
     void CloseCompletionPort();
 
-    // enqueue the info object for deletion as soon as the 
+    // enqueue the info object for deletion as soon as the
     // completion port is no longer used
 
     class CDirWatchInfo;
@@ -101,48 +101,48 @@ private:
     void CleanupWatchInfo();
 
 private:
-	CComAutoCriticalSection	m_critSec;
-	HANDLE					m_hThread;
-	HANDLE					m_hCompPort;
-	volatile LONG			m_bRunning;
+    CComAutoCriticalSection m_critSec;
+    HANDLE                  m_hThread;
+    HANDLE                  m_hCompPort;
+    volatile LONG           m_bRunning;
 
-	CFolderCrawler *		m_FolderCrawler;	///< where the change reports go to
-	
-	CTSVNPathList			watchedPaths;	///< list of watched paths.
+    CFolderCrawler *        m_FolderCrawler;    ///< where the change reports go to
 
-	CTSVNPath				blockedPath;
-	DWORD					blockTickCount;
+    CTSVNPathList           watchedPaths;   ///< list of watched paths.
 
-	/**
-	 * \ingroup TSVNCache
-	 * Helper class: provides information about watched directories.
-	 */
-	class CDirWatchInfo 
-	{
-	private:
-		CDirWatchInfo();	// private & not implemented
-		CDirWatchInfo & operator=(const CDirWatchInfo & rhs);//so that they're aren't accidentally used. -- you'll get a linker error
-	public:
-		CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName);
-		~CDirWatchInfo();
+    CTSVNPath               blockedPath;
+    DWORD                   blockTickCount;
 
-	protected:
-	public:
-		bool	CloseDirectoryHandle();
+    /**
+     * \ingroup TSVNCache
+     * Helper class: provides information about watched directories.
+     */
+    class CDirWatchInfo
+    {
+    private:
+        CDirWatchInfo();    // private & not implemented
+        CDirWatchInfo & operator=(const CDirWatchInfo & rhs);//so that they're aren't accidentally used. -- you'll get a linker error
+    public:
+        CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName);
+        ~CDirWatchInfo();
 
-		HANDLE		m_hDir;			///< handle to the directory that we're watching
-		CTSVNPath	m_DirName;		///< the directory that we're watching
-		CHAR		m_Buffer[READ_DIR_CHANGE_BUFFER_SIZE]; ///< buffer for ReadDirectoryChangesW
-		DWORD		m_dwBufLength;	///< length or returned data from ReadDirectoryChangesW -- ignored?...
-		OVERLAPPED  m_Overlapped;
-		CString		m_DirPath;		///< the directory name we're watching with a backslash at the end
-		HDEVNOTIFY	m_hDevNotify;	///< Notification handle
-	};
+    protected:
+    public:
+        bool    CloseDirectoryHandle();
+
+        HANDLE      m_hDir;         ///< handle to the directory that we're watching
+        CTSVNPath   m_DirName;      ///< the directory that we're watching
+        CHAR        m_Buffer[READ_DIR_CHANGE_BUFFER_SIZE]; ///< buffer for ReadDirectoryChangesW
+        DWORD       m_dwBufLength;  ///< length or returned data from ReadDirectoryChangesW -- ignored?...
+        OVERLAPPED  m_Overlapped;
+        CString     m_DirPath;      ///< the directory name we're watching with a backslash at the end
+        HDEVNOTIFY  m_hDevNotify;   ///< Notification handle
+    };
 
     typedef std::map<HANDLE, CDirWatchInfo *> TInfoMap;
-	TInfoMap watchInfoMap;
-	
-	HDEVNOTIFY		m_hdev;
+    TInfoMap watchInfoMap;
+
+    HDEVNOTIFY      m_hdev;
 
     // scheduled for deletion upon the next CleanupWatchInfo()
 

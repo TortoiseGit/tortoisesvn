@@ -22,95 +22,95 @@
 #include "StreamException.h"
 
 void CHierachicalInStreamBase::ReadSubStreams ( CCacheFileInBuffer* buffer
-											  , STREAM_INDEX index)
+                                              , STREAM_INDEX index)
 {
-	// get the raw stream data
+    // get the raw stream data
 
-	buffer->GetStreamBuffer (index, first, last);
+    buffer->GetStreamBuffer (index, first, last);
 
-	// get the number of sub-streams
+    // get the number of sub-streams
 
-	size_t size = last - first;
-	if (sizeof (DWORD) > size)
-		throw CStreamException ("stream too short");
+    size_t size = last - first;
+    if (sizeof (DWORD) > size)
+        throw CStreamException ("stream too short");
 
-	const DWORD *source = reinterpret_cast<const DWORD*>(first);
-	DWORD subStreamCount = *source;
-	size_t directorySize = (subStreamCount + 1) * sizeof (DWORD);
-	if (directorySize > size)
-		throw CStreamException ("stream too short for sub-stream list");
+    const DWORD *source = reinterpret_cast<const DWORD*>(first);
+    DWORD subStreamCount = *source;
+    size_t directorySize = (subStreamCount + 1) * sizeof (DWORD);
+    if (directorySize > size)
+        throw CStreamException ("stream too short for sub-stream list");
 
-	// read the sub-streams
+    // read the sub-streams
 
-	for (DWORD i = 0; i < subStreamCount; ++i)
-	{
-		STREAM_INDEX subStreamIndex = *++source;
-		SUB_STREAM_ID subStreamID = *++source;
-		STREAM_TYPE_ID subStreamType = *++source;
+    for (DWORD i = 0; i < subStreamCount; ++i)
+    {
+        STREAM_INDEX subStreamIndex = *++source;
+        SUB_STREAM_ID subStreamID = *++source;
+        STREAM_TYPE_ID subStreamType = *++source;
 
-		const IInStreamFactory* factory 
-			= CInStreamFactoryPool::GetInstance()->GetFactory (subStreamType);
-		IHierarchicalInStream* subStream 
-			= factory->CreateStream (buffer, subStreamIndex);
+        const IInStreamFactory* factory
+            = CInStreamFactoryPool::GetInstance()->GetFactory (subStreamType);
+        IHierarchicalInStream* subStream
+            = factory->CreateStream (buffer, subStreamIndex);
 
-		subStreams.insert (std::make_pair (subStreamID, subStream));
-	}
+        subStreams.insert (std::make_pair (subStreamID, subStream));
+    }
 
-	// adjust buffer pointer
+    // adjust buffer pointer
 
-	first += directorySize;
+    first += directorySize;
 }
 
 void CHierachicalInStreamBase::DecodeThisStream()
 {
-	// allocate a sufficiently large buffer to receive the decoded data
+    // allocate a sufficiently large buffer to receive the decoded data
 
     packedLast = last;
     packedFirst = first;
 
-	DWORD decodedSize = *(reinterpret_cast<const DWORD*>(last)-1);
-	BYTE* target = new BYTE [decodedSize];
+    DWORD decodedSize = *(reinterpret_cast<const DWORD*>(last)-1);
+    BYTE* target = new BYTE [decodedSize];
 
-	// Huffman-compress the raw stream data
+    // Huffman-compress the raw stream data
 
-	CHuffmanDecoder decoder;
-	const BYTE* source = first;
-	first = target;
-	last = target + decodedSize;
+    CHuffmanDecoder decoder;
+    const BYTE* source = first;
+    first = target;
+    last = target + decodedSize;
 
-	while (target != last)
-		decoder.Decode (source, target);
+    while (target != last)
+        decoder.Decode (source, target);
 }
 
 // construction / destruction
 
 CHierachicalInStreamBase::CHierachicalInStreamBase()
-	: first (NULL)
-	, last (NULL)
+    : first (NULL)
+    , last (NULL)
     , packedFirst (NULL)
     , packedLast (NULL)
 {
 }
 
 CHierachicalInStreamBase::CHierachicalInStreamBase ( CCacheFileInBuffer* buffer
-												   , STREAM_INDEX index)
-	: first (NULL)
-	, last (NULL)
+                                                   , STREAM_INDEX index)
+    : first (NULL)
+    , last (NULL)
     , packedFirst (NULL)
     , packedLast (NULL)
 {
-	ReadSubStreams (buffer, index);
+    ReadSubStreams (buffer, index);
 }
 
 CHierachicalInStreamBase::~CHierachicalInStreamBase()
 {
-	for ( TSubStreams::iterator iter = subStreams.begin()
-		, end = subStreams.end()
-		; iter != end
-		; ++iter)
-		delete iter->second;
+    for ( TSubStreams::iterator iter = subStreams.begin()
+        , end = subStreams.end()
+        ; iter != end
+        ; ++iter)
+        delete iter->second;
 
-	AutoClose();
+    AutoClose();
 }
 
 // implement IHierarchicalOutStream
@@ -149,22 +149,22 @@ void CHierachicalInStreamBase::Prefetch()
     }
 }
 
-bool 
+bool
 CHierachicalInStreamBase::HasSubStream (SUB_STREAM_ID subStreamID) const
 {
-	return subStreams.find (subStreamID) != subStreams.end();
+    return subStreams.find (subStreamID) != subStreams.end();
 }
 
-IHierarchicalInStream* 
+IHierarchicalInStream*
 CHierachicalInStreamBase::GetSubStream ( SUB_STREAM_ID subStreamID
                                        , bool autoOpen)
 {
-	TSubStreams::const_iterator iter = subStreams.find (subStreamID);
-	if (iter == subStreams.end())
-		throw CStreamException ("no such sub-stream");
+    TSubStreams::const_iterator iter = subStreams.find (subStreamID);
+    if (iter == subStreams.end())
+        throw CStreamException ("no such sub-stream");
 
     if (autoOpen)
         iter->second->AutoOpen();
 
-	return iter->second;
+    return iter->second;
 }

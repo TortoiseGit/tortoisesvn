@@ -23,53 +23,53 @@
 class CTraceToOutputDebugString
 {
 public:
-	static CTraceToOutputDebugString& Instance()
-	{
-		if (m_pInstance == NULL)
-			m_pInstance = new CTraceToOutputDebugString;
-		return *m_pInstance;
-	}
+    static CTraceToOutputDebugString& Instance()
+    {
+        if (m_pInstance == NULL)
+            m_pInstance = new CTraceToOutputDebugString;
+        return *m_pInstance;
+    }
 
     // Non Unicode output helper
     void operator()(PCSTR pszFormat, ...)
     {
-		if (m_bActive)
-		{
-			va_list ptr;
-			va_start(ptr, pszFormat);
-			TraceV(pszFormat,ptr);
-			va_end(ptr);
-		}
+        if (m_bActive)
+        {
+            va_list ptr;
+            va_start(ptr, pszFormat);
+            TraceV(pszFormat,ptr);
+            va_end(ptr);
+        }
     }
- 
+
     // Unicode output helper
     void operator()(PCWSTR pszFormat, ...)
     {
-		if (m_bActive)
-		{
-			va_list ptr;
-			va_start(ptr, pszFormat);
-			TraceV(pszFormat,ptr);
-			va_end(ptr);
-		}
+        if (m_bActive)
+        {
+            va_list ptr;
+            va_start(ptr, pszFormat);
+            TraceV(pszFormat,ptr);
+            va_end(ptr);
+        }
     }
- 
+
 private:
-	CTraceToOutputDebugString() 
-	{
-		m_LastTick = GetTickCount();
-		m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\DebugOutputString"), FALSE);
-	}
-	~CTraceToOutputDebugString()
-	{
-		delete m_pInstance;
-	}
+    CTraceToOutputDebugString()
+    {
+        m_LastTick = GetTickCount();
+        m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\DebugOutputString"), FALSE);
+    }
+    ~CTraceToOutputDebugString()
+    {
+        delete m_pInstance;
+    }
 
-	DWORD m_LastTick;
-	bool	m_bActive;
-	static CTraceToOutputDebugString * m_pInstance;
+    DWORD m_LastTick;
+    bool    m_bActive;
+    static CTraceToOutputDebugString * m_pInstance;
 
-	// Non Unicode output helper
+    // Non Unicode output helper
     void TraceV(PCSTR pszFormat, va_list args)
     {
         // Format the output buffer
@@ -77,7 +77,7 @@ private:
         _vsnprintf_s(szBuffer, 1024, _countof(szBuffer), pszFormat, args);
         OutputDebugStringA(szBuffer);
     }
- 
+
     // Unicode output helper
     void TraceV(PCWSTR pszFormat, va_list args)
     {
@@ -86,17 +86,17 @@ private:
         OutputDebugStringW(szBuffer);
     }
 
-	bool IsActive()
-	{
+    bool IsActive()
+    {
 #ifdef DEBUG
-		return true;
+        return true;
 #else
-		if (GetTickCount() - m_LastTick > 10000)
-		{
-			m_LastTick = GetTickCount();
-			m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\DebugOutputString"), FALSE);
-		}
-		return m_bActive;
+        if (GetTickCount() - m_LastTick > 10000)
+        {
+            m_LastTick = GetTickCount();
+            m_bActive = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\DebugOutputString"), FALSE);
+        }
+        return m_bActive;
 #endif
-	}
+    }
 };

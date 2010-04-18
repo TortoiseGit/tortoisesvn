@@ -70,31 +70,31 @@ private:
     void RemovePropPages();
 
 private:
-    CSetMainPage *			        m_pMainPage;
-    CSetProxyPage *			        m_pProxyPage;
-    CSetOverlayPage *		        m_pOverlayPage;
-    CSetOverlayIcons *		        m_pOverlaysPage;
+    CSetMainPage *                  m_pMainPage;
+    CSetProxyPage *                 m_pProxyPage;
+    CSetOverlayPage *               m_pOverlayPage;
+    CSetOverlayIcons *              m_pOverlaysPage;
     CSetOverlayHandlers *           m_pOverlayHandlersPage;
     CSettingsProgsDiff *            m_pProgsDiffPage;
-    CSettingsProgsMerge *	        m_pProgsMergePage;
+    CSettingsProgsMerge *           m_pProgsMergePage;
     CSettingsProgsUniDiff *         m_pProgsUniDiffPage;
-    CSetLookAndFeelPage *	        m_pLookAndFeelPage;
-    CSetDialogs *			        m_pDialogsPage;
+    CSetLookAndFeelPage *           m_pLookAndFeelPage;
+    CSetDialogs *                   m_pDialogsPage;
     CSettingsRevisionGraph *        m_pRevisionGraphPage;
     CSettingsRevisionGraphColors *  m_pRevisionGraphColorsPage;
-    CSettingsColors *		        m_pColorsPage;
-    CSetMisc *				        m_pMiscPage;
-    CSetLogCache *			        m_pLogCachePage;
+    CSettingsColors *               m_pColorsPage;
+    CSetMisc *                      m_pMiscPage;
+    CSetLogCache *                  m_pLogCachePage;
     CSettingsLogCaches*             m_pLogCacheListPage;
-    CSetSavedDataPage *		        m_pSavedPage;
-    CSetHooks *				        m_pHooksPage;
-    CSetBugTraq *			        m_pBugTraqPage;
-    CSettingsTBlame *		        m_pTBlamePage;
-    CSettingsAdvanced *		        m_pAdvanced;
+    CSetSavedDataPage *             m_pSavedPage;
+    CSetHooks *                     m_pHooksPage;
+    CSetBugTraq *                   m_pBugTraqPage;
+    CSettingsTBlame *               m_pTBlamePage;
+    CSettingsAdvanced *             m_pAdvanced;
 
-    HICON					        m_hIcon;
-    CDwmApiImpl				        m_Dwm;
-    AeroControlBase			        m_aeroControls;
+    HICON                           m_hIcon;
+    CDwmApiImpl                     m_Dwm;
+    AeroControlBase                 m_aeroControls;
 public:
     CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
     virtual ~CSettings();

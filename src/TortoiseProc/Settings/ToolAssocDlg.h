@@ -26,27 +26,27 @@
  */
 class CToolAssocDlg : public CDialog
 {
-	DECLARE_DYNAMIC(CToolAssocDlg)
+    DECLARE_DYNAMIC(CToolAssocDlg)
 
 public:
-	CToolAssocDlg(const CString& type, bool add, CWnd* pParent = NULL);
-	virtual ~CToolAssocDlg();
+    CToolAssocDlg(const CString& type, bool add, CWnd* pParent = NULL);
+    virtual ~CToolAssocDlg();
 
-	enum { IDD = IDD_TOOLASSOC };
+    enum { IDD = IDD_TOOLASSOC };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnBnClickedToolbrowse();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnBnClickedToolbrowse();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 public:
-	CString     m_sType;
-	bool        m_bAdd;
-	CString		m_sExtension;
-	CString		m_sTool;
-	CToolTips	m_tooltips;
+    CString     m_sType;
+    bool        m_bAdd;
+    CString     m_sExtension;
+    CString     m_sTool;
+    CToolTips   m_tooltips;
 };
 

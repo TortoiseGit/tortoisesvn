@@ -21,7 +21,7 @@
 
 // construction
 
-CStandardLayoutConnectionList::CStandardLayoutConnectionList 
+CStandardLayoutConnectionList::CStandardLayoutConnectionList
     ( const std::vector<CStandardLayoutNodeInfo>& nodes
     , const std::vector<std::pair<index_t, index_t> >& connections)
     : nodes (nodes)
@@ -41,13 +41,13 @@ CString CStandardLayoutConnectionList::GetToolTip (index_t /* index */) const
     return CString();
 }
 
-index_t CStandardLayoutConnectionList::GetFirstVisible 
+index_t CStandardLayoutConnectionList::GetFirstVisible
     (const CRect& viewRect) const
 {
     return GetNextVisible (static_cast<index_t>(-1), viewRect);
 }
 
-index_t CStandardLayoutConnectionList::GetNextVisible 
+index_t CStandardLayoutConnectionList::GetNextVisible
     ( index_t prev
     , const CRect& viewRect) const
 {
@@ -65,7 +65,7 @@ index_t CStandardLayoutConnectionList::GetNextVisible
     return static_cast<index_t>(NO_INDEX);
 }
 
-index_t CStandardLayoutConnectionList::GetAt 
+index_t CStandardLayoutConnectionList::GetAt
     ( const CPoint& /* point */
     , CSize /* delta */) const
 {
@@ -74,7 +74,7 @@ index_t CStandardLayoutConnectionList::GetAt
 
 // implement ILayoutConnectionList
 
-CStandardLayoutConnectionList::SConnection 
+CStandardLayoutConnectionList::SConnection
 CStandardLayoutConnectionList::GetConnection (index_t index) const
 {
     // determine the end points of the connection
@@ -86,8 +86,8 @@ CStandardLayoutConnectionList::GetConnection (index_t index) const
     if (source->left > dest->right)
         std::swap (source, dest);
 
-	CPoint startPoint;
-	CPoint endPoint;
+    CPoint startPoint;
+    CPoint endPoint;
 
     if (source->right < dest->left)
     {
@@ -109,17 +109,17 @@ CStandardLayoutConnectionList::GetConnection (index_t index) const
 
     endPoint.x = (dest->left + dest->right) / 2;
     endPoint.y = dest->top > startPoint.y ? dest->top : dest->bottom;
-    
+
     // Bezier points
 
     static CPoint points[4];
 
-	points[0] = startPoint;
-	points[1].x = (startPoint.x + endPoint.x) / 2;		// first control point
-	points[1].y = startPoint.y;
-	points[2].x = endPoint.x;							// second control point
-	points[2].y = startPoint.y;
-	points[3] = endPoint;
+    points[0] = startPoint;
+    points[1].x = (startPoint.x + endPoint.x) / 2;      // first control point
+    points[1].y = startPoint.y;
+    points[2].x = endPoint.x;                           // second control point
+    points[2].y = startPoint.y;
+    points[3] = endPoint;
 
     // construct result
 

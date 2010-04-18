@@ -39,8 +39,8 @@ struct SRepositoryInfo
 
     bool operator== (const SRepositoryInfo& rhs) const
     {
-        return (root == rhs.root) 
-            && (uuid == rhs.uuid) 
+        return (root == rhs.root)
+            && (uuid == rhs.uuid)
             && ((LONG)revision == (LONG)rhs.revision);
     }
 
@@ -59,86 +59,86 @@ struct SRepositoryInfo
 class CItem
 {
 public:
-	CItem() 
+    CItem()
         : kind(svn_node_none)
-		, size(0)
-		, has_props(false)
-		, is_external(false)
-		, external_position(-1)
-		, created_rev(SVN_IGNORED_REVNUM)
-		, time(0)
-		, is_dav_comment(false)
-		, lock_creationdate(0)
-		, lock_expirationdate(0)
-	{
-	}
-	CItem 
+        , size(0)
+        , has_props(false)
+        , is_external(false)
+        , external_position(-1)
+        , created_rev(SVN_IGNORED_REVNUM)
+        , time(0)
+        , is_dav_comment(false)
+        , lock_creationdate(0)
+        , lock_expirationdate(0)
+    {
+    }
+    CItem
         ( const CString& path
-		, const CString& external_rel_path
-		, svn_node_kind_t kind
-		, svn_filesize_t size
-		, bool has_props
+        , const CString& external_rel_path
+        , svn_node_kind_t kind
+        , svn_filesize_t size
+        , bool has_props
         , svn_revnum_t created_rev
-		, apr_time_t time
-		, const CString& author
-		, const CString& locktoken
-		, const CString& lockowner
-		, const CString& lockcomment
-		, bool is_dav_comment
-		, apr_time_t lock_creationdate
-		, apr_time_t lock_expirationdate
-		, const CString& absolutepath
+        , apr_time_t time
+        , const CString& author
+        , const CString& locktoken
+        , const CString& lockowner
+        , const CString& lockcomment
+        , bool is_dav_comment
+        , apr_time_t lock_creationdate
+        , apr_time_t lock_expirationdate
+        , const CString& absolutepath
         , const SRepositoryInfo& repository)
 
         : path (path)
-		, external_rel_path (external_rel_path)
-		, kind (kind)
-		, size (size)
-		, has_props (has_props)
+        , external_rel_path (external_rel_path)
+        , kind (kind)
+        , size (size)
+        , has_props (has_props)
         , is_external (!external_rel_path.IsEmpty())
-		, external_position (is_external ? Levels (external_rel_path) : -1)
-		, created_rev (created_rev)
-		, time (time)
-		, author (author)
-		, locktoken (locktoken)
-		, lockowner (lockowner)
-		, lockcomment (lockcomment)
-		, is_dav_comment (is_dav_comment)
-		, lock_creationdate (lock_creationdate)
-		, lock_expirationdate (lock_expirationdate)
-		, absolutepath (absolutepath)
+        , external_position (is_external ? Levels (external_rel_path) : -1)
+        , created_rev (created_rev)
+        , time (time)
+        , author (author)
+        , locktoken (locktoken)
+        , lockowner (lockowner)
+        , lockcomment (lockcomment)
+        , is_dav_comment (is_dav_comment)
+        , lock_creationdate (lock_creationdate)
+        , lock_expirationdate (lock_expirationdate)
+        , absolutepath (absolutepath)
         , repository (repository)
     {
-	}
+    }
 
-	static int Levels (const CString& relPath)
-	{
-		LPCTSTR start = relPath;
-		LPCTSTR end = start + relPath.GetLength();
-		return static_cast<int>(std::count (start, end, _T('/')));
-	}
+    static int Levels (const CString& relPath)
+    {
+        LPCTSTR start = relPath;
+        LPCTSTR end = start + relPath.GetLength();
+        return static_cast<int>(std::count (start, end, _T('/')));
+    }
 
 public:
-	CString				path;
-	CString				external_rel_path;
-	svn_node_kind_t		kind;
-	svn_filesize_t		size;
-	bool				has_props;
+    CString             path;
+    CString             external_rel_path;
+    svn_node_kind_t     kind;
+    svn_filesize_t      size;
+    bool                has_props;
     bool                is_external;
 
-	/// number of levels up the local path hierarchy to find the external spec.
-	/// -1, if this is not an external
-	int					external_position; 
-	svn_revnum_t		created_rev;
-	apr_time_t			time;
-	CString				author;
-	CString				locktoken;
-	CString				lockowner;
-	CString				lockcomment;
-	bool				is_dav_comment;
-	apr_time_t			lock_creationdate;
-	apr_time_t			lock_expirationdate;
-	CString				absolutepath;			
+    /// number of levels up the local path hierarchy to find the external spec.
+    /// -1, if this is not an external
+    int                 external_position;
+    svn_revnum_t        created_rev;
+    apr_time_t          time;
+    CString             author;
+    CString             locktoken;
+    CString             lockowner;
+    CString             lockcomment;
+    bool                is_dav_comment;
+    apr_time_t          lock_creationdate;
+    apr_time_t          lock_expirationdate;
+    CString             absolutepath;
     SRepositoryInfo     repository;
 };
 
@@ -164,7 +164,7 @@ private:
 
         /// additional qeuery parameters
 
-	    SRepositoryInfo repository;
+        SRepositoryInfo repository;
 
         /// here, the result will be placed once we are done
 
@@ -179,9 +179,9 @@ private:
         CQuery (const CQuery&);
         CQuery& operator=(const CQuery&);
 
-		/// not meant to be destroyed directly
+        /// not meant to be destroyed directly
 
-		virtual ~CQuery() {};
+        virtual ~CQuery() {};
 
     public:
 
@@ -215,9 +215,9 @@ private:
 
         virtual void InternalExecute();
 
-		/// not meant to be destroyed directly
+        /// not meant to be destroyed directly
 
-		virtual ~CExternalsQuery() {};
+        virtual ~CExternalsQuery() {};
 
     public:
 
@@ -225,7 +225,7 @@ private:
 
         CExternalsQuery ( const CTSVNPath& path
                         , const SRepositoryInfo& repository
-						, async::CJobScheduler* scheduler);
+                        , async::CJobScheduler* scheduler);
     };
 
     /**
@@ -245,14 +245,14 @@ private:
 
         std::deque<CItem> subPathExternals;
 
-		/// callback from the SVN::List() method which stores all the information
+        /// callback from the SVN::List() method which stores all the information
 
-	    virtual BOOL ReportList(const CString& path, svn_node_kind_t kind, 
-		    svn_filesize_t size, bool has_props, svn_revnum_t created_rev, 
-		    apr_time_t time, const CString& author, const CString& locktoken, 
-		    const CString& lockowner, const CString& lockcomment, 
-		    bool is_dav_comment, apr_time_t lock_creationdate, 
-		    apr_time_t lock_expirationdate, const CString& absolutepath);
+        virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
+            svn_filesize_t size, bool has_props, svn_revnum_t created_rev,
+            apr_time_t time, const CString& author, const CString& locktoken,
+            const CString& lockowner, const CString& lockcomment,
+            bool is_dav_comment, apr_time_t lock_creationdate,
+            apr_time_t lock_expirationdate, const CString& absolutepath);
 
         /// early termination
 
@@ -264,16 +264,16 @@ private:
 
         virtual void InternalExecute();
 
-		/// not meant to be destroyed directly
+        /// not meant to be destroyed directly
 
-		virtual ~CListQuery();
+        virtual ~CListQuery();
 
     public:
 
         /// auto-schedule upon construction
 
         CListQuery ( const CTSVNPath& path
-            	   , const SRepositoryInfo& repository
+                   , const SRepositoryInfo& repository
                    , bool includeExternals
                    , async::CJobScheduler* scheduler);
 
@@ -281,7 +281,7 @@ private:
 
         virtual void Terminate();
 
-		/// access additional results
+        /// access additional results
 
         const std::deque<CItem>& GetSubPathExternals();
     };
@@ -293,11 +293,11 @@ private:
 
     TQueries queries;
 
-	/// maximum number of outstanding SVN requests.
-	/// The higher this number is, the longer we will
-	/// keep the server under load.
+    /// maximum number of outstanding SVN requests.
+    /// The higher this number is, the longer we will
+    /// keep the server under load.
 
-	enum { MAX_QUEUE_DEPTH = 100 };
+    enum { MAX_QUEUE_DEPTH = 100 };
 
     /// move superseeded queries here
     /// (so they can finish quietly without us waiting for them)
@@ -325,13 +325,13 @@ private:
 
     static CTSVNPath EscapeUrl (const CString& url);
 
-	/// data lookup utility:
-	/// auto-insert & return query 
+    /// data lookup utility:
+    /// auto-insert & return query
 
-	CListQuery* FindQuery 
-		( const CString& url
-		, const SRepositoryInfo& repository
-		, bool includeExternals);
+    CListQuery* FindQuery
+        ( const CString& url
+        , const SRepositoryInfo& repository
+        , bool includeExternals);
 
     /// copy copying supported
 
@@ -371,18 +371,18 @@ public:
 
     void Refresh (const SVNRev& revision);
 
-    /// like \ref Refresh() but may only affect those nodes in the 
+    /// like \ref Refresh() but may only affect those nodes in the
     /// sub-tree starting at the specified \ref url.
 
     void RefreshSubTree (const SVNRev& revision, const CString& url);
 
     /// get an already stored query result, if available.
     /// Otherwise, get the list directly.
-	/// \ref treePath is the relative path from the repository root
-	/// dir to the given URL as shown in the repo browser tree, 
-	/// including all intermittend externals (i.e. the rel. path 
-	/// in a w/c if we checked out at the root). If this is empty 
-	/// all externals will be reported as immediate children.
+    /// \ref treePath is the relative path from the repository root
+    /// dir to the given URL as shown in the repo browser tree,
+    /// including all intermittend externals (i.e. the rel. path
+    /// in a w/c if we checked out at the root). If this is empty
+    /// all externals will be reported as immediate children.
     /// \ref includeExternals will be ignored, if there is already
     /// a query running or result available.
     /// It should be set to @a false only if it is certain that
@@ -396,15 +396,15 @@ public:
 
     /// get an already stored query result, if available.
     /// Otherwise, get the list directly.
-	/// \ref externalsRelPath must be set to the sub-tree path 
-	/// for which we want to find externals. If this is empty 
-	/// all externals will be reported as immediate children.
+    /// \ref externalsRelPath must be set to the sub-tree path
+    /// for which we want to find externals. If this is empty
+    /// all externals will be reported as immediate children.
     /// \returns the error or an empty string
 
-	CString AddSubTreeExternals 
-		( const CString& url
-		, const SRepositoryInfo& repository
-		, const CString& externalsRelPath
-		, std::deque<CItem>& items);
+    CString AddSubTreeExternals
+        ( const CString& url
+        , const SRepositoryInfo& repository
+        , const CString& externalsRelPath
+        , std::deque<CItem>& items);
 };
 

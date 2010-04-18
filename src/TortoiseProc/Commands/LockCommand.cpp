@@ -24,35 +24,35 @@
 
 bool LockCommand::Execute()
 {
-	bool bRet = false;
-	CLockDlg lockDlg;
-	lockDlg.m_pathList = pathList;
-	ProjectProperties props;
-	props.ReadPropsPathList(pathList);
-	lockDlg.SetProjectProperties(&props);
-	if (pathList.AreAllPathsFiles() && !DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE)) && !props.nMinLockMsgSize)
-	{
-		// just lock the requested files
-		CSVNProgressDlg progDlg;
-		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
-		progDlg.SetPathList(pathList);
-		progDlg.SetAutoClose (parser);
-		progDlg.DoModal();
-		bRet = !progDlg.DidErrorsOccur();
-	}
-	else if (lockDlg.DoModal()==IDOK)
-	{
-		if (lockDlg.m_pathList.GetCount() != 0)
-		{
-			CSVNProgressDlg progDlg;
-			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
-			progDlg.SetOptions(lockDlg.m_bStealLocks ? ProgOptForce : ProgOptNone);
-			progDlg.SetPathList(lockDlg.m_pathList);
-			progDlg.SetCommitMessage(lockDlg.m_sLockMessage);
-			progDlg.SetAutoClose (parser);
-			progDlg.DoModal();
-			bRet = !progDlg.DidErrorsOccur();
-		}
-	}
-	return bRet;
+    bool bRet = false;
+    CLockDlg lockDlg;
+    lockDlg.m_pathList = pathList;
+    ProjectProperties props;
+    props.ReadPropsPathList(pathList);
+    lockDlg.SetProjectProperties(&props);
+    if (pathList.AreAllPathsFiles() && !DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE)) && !props.nMinLockMsgSize)
+    {
+        // just lock the requested files
+        CSVNProgressDlg progDlg;
+        progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
+        progDlg.SetPathList(pathList);
+        progDlg.SetAutoClose (parser);
+        progDlg.DoModal();
+        bRet = !progDlg.DidErrorsOccur();
+    }
+    else if (lockDlg.DoModal()==IDOK)
+    {
+        if (lockDlg.m_pathList.GetCount() != 0)
+        {
+            CSVNProgressDlg progDlg;
+            progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
+            progDlg.SetOptions(lockDlg.m_bStealLocks ? ProgOptForce : ProgOptNone);
+            progDlg.SetPathList(lockDlg.m_pathList);
+            progDlg.SetCommitMessage(lockDlg.m_sLockMessage);
+            progDlg.SetAutoClose (parser);
+            progDlg.DoModal();
+            bRet = !progDlg.DidErrorsOccur();
+        }
+    }
+    return bRet;
 }

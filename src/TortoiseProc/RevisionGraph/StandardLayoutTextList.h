@@ -31,7 +31,7 @@ public:
 
     /// construction
 
-    CStandardLayoutTextList 
+    CStandardLayoutTextList
         ( const std::vector<CStandardLayoutNodeInfo>& nodes
         , const std::vector<CStandardLayout::STextInfo>& texts);
 

@@ -21,18 +21,18 @@
 class COMError
 {
 public:
-	COMError(HRESULT hr);
-	virtual ~COMError();
+    COMError(HRESULT hr);
+    virtual ~COMError();
 
-	std::wstring GetMessage() {return message;}
-	std::wstring GetDescription() {return description;}
-	std::wstring GetMessageAndDescription() {return message + _T("\n") + description;}
-	std::wstring GetSource() {return source;}
-	std::wstring GetUUID() {return uuid;}
+    std::wstring GetMessage() {return message;}
+    std::wstring GetDescription() {return description;}
+    std::wstring GetMessageAndDescription() {return message + _T("\n") + description;}
+    std::wstring GetSource() {return source;}
+    std::wstring GetUUID() {return uuid;}
 
 private:
-	std::wstring message;
-	std::wstring description;
-	std::wstring source;
-	std::wstring uuid;
+    std::wstring message;
+    std::wstring description;
+    std::wstring source;
+    std::wstring uuid;
 };

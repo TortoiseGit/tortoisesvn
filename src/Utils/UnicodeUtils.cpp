@@ -32,45 +32,45 @@ CUnicodeUtils::~CUnicodeUtils(void)
 
 CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
 {
-	char * buf;
-	CStringA retVal;
-	int len = string.GetLength();
-	if (len==0)
-		return retVal;
-	buf = retVal.GetBuffer(len*4 + 1);
-	int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, len*4, NULL, NULL);
-	retVal.ReleaseBuffer(lengthIncTerminator == 0 ? 0 : lengthIncTerminator-1);
-	return retVal;
+    char * buf;
+    CStringA retVal;
+    int len = string.GetLength();
+    if (len==0)
+        return retVal;
+    buf = retVal.GetBuffer(len*4 + 1);
+    int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, len*4, NULL, NULL);
+    retVal.ReleaseBuffer(lengthIncTerminator == 0 ? 0 : lengthIncTerminator-1);
+    return retVal;
 }
 
 CStringA CUnicodeUtils::GetUTF8(const CStringA& string)
 {
-	int len = string.GetLength();
-	if (len==0)
-		return CStringA();
+    int len = string.GetLength();
+    if (len==0)
+        return CStringA();
 
-	auto_buffer<WCHAR> buf (len*4 + 1);
-	int ret = MultiByteToWideChar(CP_ACP, 0, string, -1, buf, len*4);
-	if (ret == 0)
-		return CStringA();
+    auto_buffer<WCHAR> buf (len*4 + 1);
+    int ret = MultiByteToWideChar(CP_ACP, 0, string, -1, buf, len*4);
+    if (ret == 0)
+        return CStringA();
     return (CUnicodeUtils::GetUTF8 (CStringW(buf)));
 }
 
 CString CUnicodeUtils::GetUnicode(const CStringA& string)
 {
-	int len = string.GetLength();
-	if (len==0)
-		return CString();
+    int len = string.GetLength();
+    if (len==0)
+        return CString();
 
-	auto_buffer<WCHAR> buf (len*4 + 1);
-	int ret = MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, len*4);
-	if (ret == 0)
-		return CString();
+    auto_buffer<WCHAR> buf (len*4 + 1);
+    int ret = MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, len*4);
+    if (ret == 0)
+        return CString();
 
     return buf.get();
 }
 
-wchar_t* CUnicodeUtils::UTF8ToUTF16 
+wchar_t* CUnicodeUtils::UTF8ToUTF16
     (const char* source, size_t size, wchar_t* target)
 {
     const unsigned char* s = reinterpret_cast<const unsigned char*>(source);
@@ -106,7 +106,7 @@ wchar_t* CUnicodeUtils::UTF8ToUTF16
                     + (s[2] & 0x3f);
                 s += 3;
             }
-            else 
+            else
             {
                 c =   ((c & 0x1f) << 12)
                     + (static_cast<unsigned>(s[1] & 0x3f) << 6)
@@ -146,7 +146,7 @@ CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
     enum {FIXED_BUFFER_SIZE = 1024};
 
     wchar_t fixedBuffer[FIXED_BUFFER_SIZE];
-    auto_buffer<wchar_t> dynamicBuffer; 
+    auto_buffer<wchar_t> dynamicBuffer;
 
     wchar_t* result = NULL;
 
@@ -175,16 +175,16 @@ void CUnicodeUtils::UTF8ToUTF16 (const std::string& source, std::wstring& target
 
 CStringA CUnicodeUtils::ConvertWCHARStringToUTF8(const CString& string)
 {
-	auto_buffer<char> buf (string.GetLength()+1);
+    auto_buffer<char> buf (string.GetLength()+1);
 
-	int i=0;
-	for ( ; i<string.GetLength(); ++i)
-	{
-		buf[i] = (char)string.GetAt(i);
-	}
-	buf[i] = 0;
-	CStringA sRet = buf.get();
-	return sRet;
+    int i=0;
+    for ( ; i<string.GetLength(); ++i)
+    {
+        buf[i] = (char)string.GetAt(i);
+    }
+    buf[i] = 0;
+    CStringA sRet = buf.get();
+    return sRet;
 }
 
 #endif //_MFC_VER
@@ -192,26 +192,26 @@ CStringA CUnicodeUtils::ConvertWCHARStringToUTF8(const CString& string)
 #ifdef UNICODE
 std::string CUnicodeUtils::StdGetUTF8(const std::wstring& wide)
 {
-	int len = (int)wide.size();
-	if (len==0)
-		return std::string();
-	int size = len*4;
-	
+    int len = (int)wide.size();
+    if (len==0)
+        return std::string();
+    int size = len*4;
+
     auto_buffer<char> narrow (size);
-	int ret = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), len, narrow, size-1, NULL, NULL);
+    int ret = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), len, narrow, size-1, NULL, NULL);
 
     return std::string (narrow.get(), ret);
 }
 
 std::wstring CUnicodeUtils::StdGetUnicode(const std::string& multibyte)
 {
-	int len = (int)multibyte.size();
-	if (len==0)
-		return std::wstring();
-	int size = len*4;
+    int len = (int)multibyte.size();
+    if (len==0)
+        return std::wstring();
+    int size = len*4;
 
     auto_buffer<wchar_t> wide (size);
-	int ret = MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), len, wide, size - 1);
+    int ret = MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), len, wide, size - 1);
 
     return std::wstring (wide.get(), ret);
 }
@@ -220,28 +220,28 @@ std::wstring CUnicodeUtils::StdGetUnicode(const std::string& multibyte)
 std::string WideToMultibyte(const std::wstring& wide)
 {
     auto_buffer<char> narrow (wide.length()*3+2);
-	BOOL defaultCharUsed;
-	int ret = (int)WideCharToMultiByte(CP_ACP, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, ".", &defaultCharUsed);
+    BOOL defaultCharUsed;
+    int ret = (int)WideCharToMultiByte(CP_ACP, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, ".", &defaultCharUsed);
 
     return std::string (narrow.get(), ret);
 }
 
 std::string WideToUTF8(const std::wstring& wide)
 {
-	auto_buffer<char> narrow (wide.length()*3+2);
-	int ret = (int)WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, NULL, NULL);
+    auto_buffer<char> narrow (wide.length()*3+2);
+    int ret = (int)WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, NULL, NULL);
 
     return std::string (narrow.get(), ret);
 }
 
 std::wstring MultibyteToWide(const std::string& multibyte)
 {
-	size_t length = multibyte.length();
-	if (length == 0)
-		return std::wstring();
+    size_t length = multibyte.length();
+    if (length == 0)
+        return std::wstring();
 
-	auto_buffer<wchar_t> wide (multibyte.length()*2+2);
-	int ret = wide.get() == NULL
+    auto_buffer<wchar_t> wide (multibyte.length()*2+2);
+    int ret = wide.get() == NULL
         ? 0
         : (int)MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)length*2 - 1);
 
@@ -250,12 +250,12 @@ std::wstring MultibyteToWide(const std::string& multibyte)
 
 std::wstring UTF8ToWide(const std::string& multibyte)
 {
-	size_t length = multibyte.length();
-	if (length == 0)
-		return std::wstring();
+    size_t length = multibyte.length();
+    if (length == 0)
+        return std::wstring();
 
-	auto_buffer<wchar_t> wide (length*2+2);
-	int ret = wide.get() == NULL
+    auto_buffer<wchar_t> wide (length*2+2);
+    int ret = wide.get() == NULL
         ? 0
         : (int)MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)length*2 - 1);
 
@@ -274,63 +274,63 @@ std::string StringToUTF8(const tstring& string) {return WideToUTF8(MultibyteToWi
 #pragma warning(disable: 4200)
 struct STRINGRESOURCEIMAGE
 {
-	WORD nLength;
-	WCHAR achString[];
+    WORD nLength;
+    WCHAR achString[];
 };
-#pragma warning(pop)	// C4200
+#pragma warning(pop)    // C4200
 
 int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage)
 {
-	const STRINGRESOURCEIMAGE* pImage;
-	const STRINGRESOURCEIMAGE* pImageEnd;
-	ULONG nResourceSize;
-	HGLOBAL hGlobal;
-	UINT iIndex;
+    const STRINGRESOURCEIMAGE* pImage;
+    const STRINGRESOURCEIMAGE* pImageEnd;
+    ULONG nResourceSize;
+    HGLOBAL hGlobal;
+    UINT iIndex;
 #ifndef UNICODE
-	BOOL defaultCharUsed;
+    BOOL defaultCharUsed;
 #endif
-	int ret;
+    int ret;
 
-	if (lpBuffer == NULL)
-		return 0;
-	lpBuffer[0] = 0;
-	HRSRC hResource =  FindResourceEx(hInstance, RT_STRING, MAKEINTRESOURCE(((uID>>4)+1)), wLanguage);
-	if (!hResource)
-	{
-		//try the default language before giving up!
-		hResource = FindResource(hInstance, MAKEINTRESOURCE(((uID>>4)+1)), RT_STRING);
-		if (!hResource)
-			return 0;
-	}
-	hGlobal = LoadResource(hInstance, hResource);
-	if (!hGlobal)
-		return 0;
-	pImage = (const STRINGRESOURCEIMAGE*)::LockResource(hGlobal);
-	if(!pImage)
-		return 0;
+    if (lpBuffer == NULL)
+        return 0;
+    lpBuffer[0] = 0;
+    HRSRC hResource =  FindResourceEx(hInstance, RT_STRING, MAKEINTRESOURCE(((uID>>4)+1)), wLanguage);
+    if (!hResource)
+    {
+        //try the default language before giving up!
+        hResource = FindResource(hInstance, MAKEINTRESOURCE(((uID>>4)+1)), RT_STRING);
+        if (!hResource)
+            return 0;
+    }
+    hGlobal = LoadResource(hInstance, hResource);
+    if (!hGlobal)
+        return 0;
+    pImage = (const STRINGRESOURCEIMAGE*)::LockResource(hGlobal);
+    if(!pImage)
+        return 0;
 
-	nResourceSize = ::SizeofResource(hInstance, hResource);
-	pImageEnd = (const STRINGRESOURCEIMAGE*)(LPBYTE(pImage)+nResourceSize);
-	iIndex = uID&0x000f;
+    nResourceSize = ::SizeofResource(hInstance, hResource);
+    pImageEnd = (const STRINGRESOURCEIMAGE*)(LPBYTE(pImage)+nResourceSize);
+    iIndex = uID&0x000f;
 
-	while ((iIndex > 0) && (pImage < pImageEnd))
-	{
-		pImage = (const STRINGRESOURCEIMAGE*)(LPBYTE(pImage)+(sizeof(STRINGRESOURCEIMAGE)+(pImage->nLength*sizeof(WCHAR))));
-		iIndex--;
-	}
-	if (pImage >= pImageEnd)
-		return 0;
-	if (pImage->nLength == 0)
-		return 0;
+    while ((iIndex > 0) && (pImage < pImageEnd))
+    {
+        pImage = (const STRINGRESOURCEIMAGE*)(LPBYTE(pImage)+(sizeof(STRINGRESOURCEIMAGE)+(pImage->nLength*sizeof(WCHAR))));
+        iIndex--;
+    }
+    if (pImage >= pImageEnd)
+        return 0;
+    if (pImage->nLength == 0)
+        return 0;
 #ifdef UNICODE
-	ret = pImage->nLength;
-	if (ret > nBufferMax)
-		ret = nBufferMax;
-	wcsncpy_s((wchar_t *)lpBuffer, nBufferMax, pImage->achString, ret);
-	lpBuffer[ret] = 0;
+    ret = pImage->nLength;
+    if (ret > nBufferMax)
+        ret = nBufferMax;
+    wcsncpy_s((wchar_t *)lpBuffer, nBufferMax, pImage->achString, ret);
+    lpBuffer[ret] = 0;
 #else
-	ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);
-	lpBuffer[ret] = 0;
+    ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);
+    lpBuffer[ret] = 0;
 #endif
-	return ret;
+    return ret;
 }

@@ -23,8 +23,8 @@
 
 bool AboutCommand::Execute()
 {
-	CAboutDlg dlg;
-	theApp.m_pMainWnd = &dlg;
-	dlg.DoModal();
-	return true;
+    CAboutDlg dlg;
+    theApp.m_pMainWnd = &dlg;
+    dlg.DoModal();
+    return true;
 }

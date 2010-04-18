@@ -30,7 +30,7 @@ bool CheckoutCommand::Execute()
     bool bRet = false;
     // Get the directory supplied in the command line. If there isn't
     // one then we should use first the default checkout path
-    // specified in the settings dialog, and fall back to the current 
+    // specified in the settings dialog, and fall back to the current
     // working directory instead if no such path was specified.
     CTSVNPath checkoutDirectory;
     CRegString regDefCheckoutPath(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
@@ -119,11 +119,11 @@ bool CheckoutCommand::Execute()
         CSVNProgressDlg progDlg;
         theApp.m_pMainWnd = &progDlg;
 
-        bool useStandardCheckout 
-            =    dlg.m_standardCheckout 
+        bool useStandardCheckout
+            =    dlg.m_standardCheckout
               || ((dlg.m_URLs.GetCount() > 1) && dlg.m_bIndependentWCs);
 
-        progDlg.SetCommand 
+        progDlg.SetCommand
             (useStandardCheckout
                 ? CSVNProgressDlg::SVNProgress_Checkout
                 : dlg.m_parentExists && (dlg.m_URLs.GetCount() == 1)

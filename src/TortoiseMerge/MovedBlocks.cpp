@@ -34,7 +34,7 @@ public:
     int GetSingle() const;
 private:
     CMap<int, int, int, int> m_map;
-};                   
+};
 
 struct EquivalencyGroup
 {
@@ -53,37 +53,37 @@ public:
 };
 
 void IntSet::Add(int val)
-{ 
+{
     m_map.SetAt(val, 1);
 }
 
 void IntSet::Remove(int val)
-{ 
+{
     m_map.RemoveKey(val);
 }
 
-int IntSet::Count() const 
-{ 
+int IntSet::Count() const
+{
     return (int)m_map.GetCount();
 }
 
-bool IntSet::IsPresent(int val) const 
-{ 
+bool IntSet::IsPresent(int val) const
+{
     int parm;
     return !!m_map.Lookup(val, parm);
 }
 
-int IntSet::GetSingle() const 
+int IntSet::GetSingle() const
 {
     int val, parm;
     POSITION pos = m_map.GetStartPosition();
-    m_map.GetNextAssoc(pos, val, parm); 
-    return val; 
+    m_map.GetNextAssoc(pos, val, parm);
+    return val;
 }
 
 bool EquivalencyGroup::IsPerfectMatch() const
 {
-    return (m_LinesLeft.Count() == 1)&&(m_LinesRight.Count() == 1); 
+    return (m_LinesLeft.Count() == 1)&&(m_LinesRight.Count() == 1);
 }
 
 void LineToGroupMap::Add(int lineno, const CString &line, int nside)
@@ -157,18 +157,18 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
     {
         if(tempdiff->type != svn_diff__type_diff_modified)
             continue;
-        
+
         baseLine = (LONG)tempdiff->original_start;
         for(int i = 0; i < tempdiff->original_length; ++i, ++baseLine)
         {
-            map.Add(baseLine, m_arBaseFile.GetAt(baseLine), 0);            
+            map.Add(baseLine, m_arBaseFile.GetAt(baseLine), 0);
         }
         yourLine = (LONG)tempdiff->modified_start;
         for(int i = 0; i < tempdiff->modified_length; ++i, ++yourLine)
         {
-            map.Add(yourLine, m_arYourFile.GetAt(yourLine), 1);            
-        }                                
-    } 
+            map.Add(yourLine, m_arYourFile.GetAt(yourLine), 1);
+        }
+    }
     for(tempdiff = diffYourBase; tempdiff; tempdiff = tempdiff->next)
     {
     // Scan through diff blocks, finding moved sections from left side
@@ -177,7 +177,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
         if(tempdiff->type != svn_diff__type_diff_modified)
             continue;
 
-        EquivalencyGroup * pGroup = NULL;                  
+        EquivalencyGroup * pGroup = NULL;
 
         int i;
         for(i = (int)tempdiff->original_start; (i - tempdiff->original_start)< tempdiff->original_length; ++i)
@@ -271,7 +271,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
         }
 
         tail->moved_to = j1;
-        
+
         apr_off_t suffix = (tempdiff->original_length) - (i2- (tempdiff->original_start)) - 1;
         if (suffix)
         {
@@ -304,7 +304,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
             continue;
 
         EquivalencyGroup * pGroup = NULL;
-        int j = 0; 
+        int j = 0;
         for(j = (int)tempdiff->modified_start; (j - tempdiff->modified_start) < tempdiff->modified_length; ++j)
         {
             EquivalencyGroup * group = map.find(m_arYourFile.GetAt(j));
@@ -378,7 +378,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
             }
         }
         tail = newTail;
-        
+
         apr_off_t prefix = j1 - (tempdiff->modified_start);
         if (prefix)
         {
@@ -393,7 +393,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
             svn_diff_t * newob = (svn_diff_t *) apr_palloc(pool, sizeof (*newob));
             memset(newob, 0, sizeof(*newob));
             newob->type = svn_diff__type_diff_modified;
-     
+
             if(existing == newTail)
             {
                 newTail = CreateDiffExtension(newob, pool);

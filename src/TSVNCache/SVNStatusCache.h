@@ -39,98 +39,98 @@
 class CSVNStatusCache
 {
 private:
-	CSVNStatusCache(void);
-	~CSVNStatusCache(void);
+    CSVNStatusCache(void);
+    ~CSVNStatusCache(void);
 
 public:
-	static CSVNStatusCache& Instance();
-	static void Create();
-	static void Destroy();
-	static bool SaveCache();
+    static CSVNStatusCache& Instance();
+    static void Create();
+    static void Destroy();
+    static bool SaveCache();
 
 public:
-	/// Refreshes the cache.
-	void Refresh();
+    /// Refreshes the cache.
+    void Refresh();
 
-	/// Get the status for a single path (main entry point, called from named-pipe code
-	CStatusCacheEntry GetStatusForPath(const CTSVNPath& path, DWORD flags,  bool bFetch = true);
+    /// Get the status for a single path (main entry point, called from named-pipe code
+    CStatusCacheEntry GetStatusForPath(const CTSVNPath& path, DWORD flags,  bool bFetch = true);
 
-	/// Find a directory in the cache (a new entry will be created if there isn't an existing entry)
-	CCachedDirectory * GetDirectoryCacheEntry(const CTSVNPath& path);
-	CCachedDirectory * GetDirectoryCacheEntryNoCreate(const CTSVNPath& path);
+    /// Find a directory in the cache (a new entry will be created if there isn't an existing entry)
+    CCachedDirectory * GetDirectoryCacheEntry(const CTSVNPath& path);
+    CCachedDirectory * GetDirectoryCacheEntryNoCreate(const CTSVNPath& path);
 
-	/// Add a folder to the background crawler's work list
-	void AddFolderForCrawling(const CTSVNPath& path);
+    /// Add a folder to the background crawler's work list
+    void AddFolderForCrawling(const CTSVNPath& path);
 
-	/// Removes the cache for a specific path, e.g. if a folder got deleted/renamed
-	void RemoveCacheForPath(const CTSVNPath& path);
+    /// Removes the cache for a specific path, e.g. if a folder got deleted/renamed
+    void RemoveCacheForPath(const CTSVNPath& path);
 
-	/// Removes all items from the cache
-	void ClearCache();
-	
-	/// Call this method before getting the status for a shell request
-	void StartRequest(const CTSVNPath& path);
-	/// Call this method after the data for the shell request has been gathered
-	void EndRequest(const CTSVNPath& path);
-	
-	/// Notifies the shell about file/folder status changes.
-	/// A notification is only sent for paths which aren't currently
-	/// in the list of handled shell requests to avoid deadlocks.
-	void UpdateShell(const CTSVNPath& path);
+    /// Removes all items from the cache
+    void ClearCache();
 
-	size_t GetCacheSize() {return m_directoryCache.size();}
-	int GetNumberOfWatchedPaths() {return watcher.GetNumberOfWatchedPaths();}
+    /// Call this method before getting the status for a shell request
+    void StartRequest(const CTSVNPath& path);
+    /// Call this method after the data for the shell request has been gathered
+    void EndRequest(const CTSVNPath& path);
 
-	void Init();
-	void Stop();
+    /// Notifies the shell about file/folder status changes.
+    /// A notification is only sent for paths which aren't currently
+    /// in the list of handled shell requests to avoid deadlocks.
+    void UpdateShell(const CTSVNPath& path);
 
-	void CloseWatcherHandles(HDEVNOTIFY hdev);
-	void CloseWatcherHandles(const CTSVNPath& path);
+    size_t GetCacheSize() {return m_directoryCache.size();}
+    int GetNumberOfWatchedPaths() {return watcher.GetNumberOfWatchedPaths();}
 
-	bool WaitToRead(DWORD waitTime = INFINITE) {return m_rwSection.WaitToRead(waitTime);}
-	bool WaitToWrite(DWORD waitTime = INFINITE) {return m_rwSection.WaitToWrite(waitTime);}
-	void Done() {m_rwSection.Done();}
-	bool IsWriter() {return m_rwSection.IsWriter();}
+    void Init();
+    void Stop();
+
+    void CloseWatcherHandles(HDEVNOTIFY hdev);
+    void CloseWatcherHandles(const CTSVNPath& path);
+
+    bool WaitToRead(DWORD waitTime = INFINITE) {return m_rwSection.WaitToRead(waitTime);}
+    bool WaitToWrite(DWORD waitTime = INFINITE) {return m_rwSection.WaitToWrite(waitTime);}
+    void Done() {m_rwSection.Done();}
+    bool IsWriter() {return m_rwSection.IsWriter();}
 #if defined (DEBUG) || defined (_DEBUG)
-	void AssertLock() {m_rwSection.AssertLock();}
-	void AssertWriting() {m_rwSection.AssertWriting();}
+    void AssertLock() {m_rwSection.AssertLock();}
+    void AssertWriting() {m_rwSection.AssertWriting();}
 #else
-	void AssertLock() {;}
-	void AssertWriting() {;}
+    void AssertLock() {;}
+    void AssertWriting() {;}
 #endif
-	bool IsPathAllowed(const CTSVNPath& path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
-	bool IsUnversionedAsModified() {return !!m_shellCache.IsUnversionedAsModified();}
-	bool IsPathGood(const CTSVNPath& path);
-	bool IsPathWatched(const CTSVNPath& path) {return watcher.IsPathWatched(path);}
-	bool AddPathToWatch(const CTSVNPath& path) {return watcher.AddPath(path);}
-	bool BlockPath(const CTSVNPath& path, DWORD timeout = 0);
-	bool UnBlockPath(const CTSVNPath& path);
-	bool RemoveTimedoutBlocks();
+    bool IsPathAllowed(const CTSVNPath& path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
+    bool IsUnversionedAsModified() {return !!m_shellCache.IsUnversionedAsModified();}
+    bool IsPathGood(const CTSVNPath& path);
+    bool IsPathWatched(const CTSVNPath& path) {return watcher.IsPathWatched(path);}
+    bool AddPathToWatch(const CTSVNPath& path) {return watcher.AddPath(path);}
+    bool BlockPath(const CTSVNPath& path, DWORD timeout = 0);
+    bool UnBlockPath(const CTSVNPath& path);
+    bool RemoveTimedoutBlocks();
 
-	bool m_bClearMemory;
+    bool m_bClearMemory;
 private:
-	bool RemoveCacheForDirectory(CCachedDirectory * cdir);
-	CRWSection m_rwSection;
-	CAtlList<CString> m_askedList;
-	CCachedDirectory::CachedDirMap m_directoryCache;
+    bool RemoveCacheForDirectory(CCachedDirectory * cdir);
+    CRWSection m_rwSection;
+    CAtlList<CString> m_askedList;
+    CCachedDirectory::CachedDirMap m_directoryCache;
 
-	CComAutoCriticalSection m_NoWatchPathCritSec;
-	std::map<CTSVNPath, DWORD> m_NoWatchPaths;	///< paths to block from getting crawled, and the time in ms until they're unblocked
+    CComAutoCriticalSection m_NoWatchPathCritSec;
+    std::map<CTSVNPath, DWORD> m_NoWatchPaths;  ///< paths to block from getting crawled, and the time in ms until they're unblocked
 
-	SVNHelper m_svnHelp;
-	ShellCache	m_shellCache;
+    SVNHelper m_svnHelp;
+    ShellCache  m_shellCache;
 
-	static CSVNStatusCache* m_pInstance;
+    static CSVNStatusCache* m_pInstance;
 
-	CFolderCrawler m_folderCrawler;
-	CShellUpdater m_shellUpdater;
+    CFolderCrawler m_folderCrawler;
+    CShellUpdater m_shellUpdater;
 
-	CComAutoCriticalSection m_critSec;
-	CTSVNPath m_mostRecentAskedPath;
-	CStatusCacheEntry m_mostRecentStatus;
-	long m_mostRecentExpiresAt;
+    CComAutoCriticalSection m_critSec;
+    CTSVNPath m_mostRecentAskedPath;
+    CStatusCacheEntry m_mostRecentStatus;
+    long m_mostRecentExpiresAt;
 
-	CDirectoryWatcher watcher;
+    CDirectoryWatcher watcher;
 
-	friend class CCachedDirectory;  // Needed for access to the SVN helpers
+    friend class CCachedDirectory;  // Needed for access to the SVN helpers
 };
