@@ -6,39 +6,39 @@
 
 #include "resource.h"
 
-extern	volatile LONG		g_cRefThisDll;			// Reference count of this DLL.
-extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
+extern  volatile LONG       g_cRefThisDll;          // Reference count of this DLL.
+extern  HINSTANCE           g_hmodThisDll;          // Instance handle for this DLL
 
 using namespace std;
 
 enum FileState
 {
-	FileStateNormal,
-	FileStateModified,
-	FileStateConflict,
-	FileStateLocked,
-	FileStateReadOnly,
-	FileStateDeleted,
-	FileStateAdded,
-	FileStateIgnored,
-	FileStateUnversioned,
-	FileStateInvalid
+    FileStateNormal,
+    FileStateModified,
+    FileStateConflict,
+    FileStateLocked,
+    FileStateReadOnly,
+    FileStateDeleted,
+    FileStateAdded,
+    FileStateIgnored,
+    FileStateUnversioned,
+    FileStateInvalid
 };
 
 class DLLPointers
 {
 public:
-	DLLPointers() : hDll(NULL)
-		, pDllGetClassObject(NULL)
-		, pDllCanUnloadNow(NULL)
-		, pShellIconOverlayIdentifier(NULL)
-	{
-	}
+    DLLPointers() : hDll(NULL)
+        , pDllGetClassObject(NULL)
+        , pDllCanUnloadNow(NULL)
+        , pShellIconOverlayIdentifier(NULL)
+    {
+    }
 
-	HINSTANCE hDll;
-	LPFNGETCLASSOBJECT pDllGetClassObject;
-	LPFNCANUNLOADNOW pDllCanUnloadNow;
-	IShellIconOverlayIdentifier * pShellIconOverlayIdentifier;
+    HINSTANCE hDll;
+    LPFNGETCLASSOBJECT pDllGetClassObject;
+    LPFNCANUNLOADNOW pDllCanUnloadNow;
+    IShellIconOverlayIdentifier * pShellIconOverlayIdentifier;
 };
 
 // The actual OLE Shell context menu handler
@@ -49,37 +49,37 @@ public:
 class CShellExt : public IShellIconOverlayIdentifier
 {
 protected:
-	FileState m_State;
-	ULONG	m_cRef;
+    FileState m_State;
+    ULONG   m_cRef;
 
-	vector<DLLPointers>			m_dllpointers;
+    vector<DLLPointers>         m_dllpointers;
 
 private:
-	int				GetInstalledOverlays(void);		///< returns the maximum number of overlays TSVN shall use
-	void			LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR clsid, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
-	void			LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
-	bool			DropHandler(LPCWSTR registryKey);
+    int             GetInstalledOverlays(void);     ///< returns the maximum number of overlays TSVN shall use
+    void            LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR clsid, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
+    void            LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
+    bool            DropHandler(LPCWSTR registryKey);
 public:
-	CShellExt(FileState state);
-	virtual ~CShellExt();
+    CShellExt(FileState state);
+    virtual ~CShellExt();
 
-	/** \name IUnknown 
-	 * IUnknown members
-	 */
-	//@{
-	STDMETHODIMP         QueryInterface(REFIID, LPVOID FAR *);
-	STDMETHODIMP_(ULONG) AddRef();
-	STDMETHODIMP_(ULONG) Release();
-	//@}
+    /** \name IUnknown
+     * IUnknown members
+     */
+    //@{
+    STDMETHODIMP         QueryInterface(REFIID, LPVOID FAR *);
+    STDMETHODIMP_(ULONG) AddRef();
+    STDMETHODIMP_(ULONG) Release();
+    //@}
 
 
-	/** \name IShellIconOverlayIdentifier 
-	 * IShellIconOverlayIdentifier methods
-	 */
-	//@{
-	STDMETHODIMP	GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
-	STDMETHODIMP	GetPriority(int *pPriority); 
-	STDMETHODIMP	IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib);
-	//@}
+    /** \name IShellIconOverlayIdentifier
+     * IShellIconOverlayIdentifier methods
+     */
+    //@{
+    STDMETHODIMP    GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
+    STDMETHODIMP    GetPriority(int *pPriority);
+    STDMETHODIMP    IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib);
+    //@}
 
 };

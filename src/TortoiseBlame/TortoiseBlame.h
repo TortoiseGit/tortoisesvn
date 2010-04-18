@@ -56,111 +56,111 @@ typedef long int svn_revnum_t;
 class TortoiseBlame
 {
 public:
-	TortoiseBlame();
-	~TortoiseBlame();
+    TortoiseBlame();
+    ~TortoiseBlame();
 
-	HINSTANCE hInstance;
-	HINSTANCE hResource;
-	HWND currentDialog;
-	HWND wMain;
-	HWND wEditor;
-	HWND wBlame;
-	HWND wHeader;
-	HWND wLocator;
-	HWND hwndTT;
+    HINSTANCE hInstance;
+    HINSTANCE hResource;
+    HWND currentDialog;
+    HWND wMain;
+    HWND wEditor;
+    HWND wBlame;
+    HWND wHeader;
+    HWND wLocator;
+    HWND hwndTT;
 
-	BOOL bIgnoreEOL;
-	BOOL bIgnoreSpaces;
-	BOOL bIgnoreAllSpaces;
+    BOOL bIgnoreEOL;
+    BOOL bIgnoreSpaces;
+    BOOL bIgnoreAllSpaces;
 
-	LRESULT SendEditor(UINT Msg, WPARAM wParam=0, LPARAM lParam=0);
+    LRESULT SendEditor(UINT Msg, WPARAM wParam=0, LPARAM lParam=0);
 
-	void SetTitle();
-	BOOL OpenFile(const TCHAR *fileName);
-	BOOL OpenLogFile(const TCHAR *fileName);
+    void SetTitle();
+    BOOL OpenFile(const TCHAR *fileName);
+    BOOL OpenLogFile(const TCHAR *fileName);
 
-	void Command(int id);
-	void Notify(SCNotification *notification);
+    void Command(int id);
+    void Notify(SCNotification *notification);
 
-	void SetAStyle(int style, COLORREF fore, COLORREF back=::GetSysColor(COLOR_WINDOW), int size=-1, const char *face=0);
-	void InitialiseEditor();
+    void SetAStyle(int style, COLORREF fore, COLORREF back=::GetSysColor(COLOR_WINDOW), int size=-1, const char *face=0);
+    void InitialiseEditor();
     void InitSize();
-	LONG GetBlameWidth();
-	void DrawBlame(HDC hDC);
-	void DrawHeader(HDC hDC);
-	void DrawLocatorBar(HDC hDC);
-	void StartSearch();
-	void CopySelectedLogToClipboard();
-	void BlamePreviousRevision();
-	void DiffPreviousRevision();
-	void ShowLog();
-	bool DoSearch(LPTSTR what, DWORD flags);
-	bool GotoLine(long line);
-	bool ScrollToLine(long line);
-	void GotoLineDlg();
-	void SelectLine(int yPos, bool bAlwaysSelect);
-	static INT_PTR CALLBACK GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
+    LONG GetBlameWidth();
+    void DrawBlame(HDC hDC);
+    void DrawHeader(HDC hDC);
+    void DrawLocatorBar(HDC hDC);
+    void StartSearch();
+    void CopySelectedLogToClipboard();
+    void BlamePreviousRevision();
+    void DiffPreviousRevision();
+    void ShowLog();
+    bool DoSearch(LPTSTR what, DWORD flags);
+    bool GotoLine(long line);
+    bool ScrollToLine(long line);
+    void GotoLineDlg();
+    void SelectLine(int yPos, bool bAlwaysSelect);
+    static INT_PTR CALLBACK GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-	void SetSelectedLine(LONG line) { m_selectedLine=line;};
+    void SetSelectedLine(LONG line) { m_selectedLine=line;};
 
-	LONG						m_mouseRev;
-	tstring						m_mouseAuthor;
-	LONG						m_selectedRev;
-	LONG						m_selectedOrigRev;
-	tstring						m_selectedAuthor;
-	tstring						m_selectedDate;
-	static long					m_gotoLine;
-	long						m_lowestRev;
-	long						m_highestRev;
-	bool						m_colorAge;
+    LONG                        m_mouseRev;
+    tstring                     m_mouseAuthor;
+    LONG                        m_selectedRev;
+    LONG                        m_selectedOrigRev;
+    tstring                     m_selectedAuthor;
+    tstring                     m_selectedDate;
+    static long                 m_gotoLine;
+    long                        m_lowestRev;
+    long                        m_highestRev;
+    bool                        m_colorAge;
 
-	std::vector<svn_revnum_t>	m_revs;
-	std::vector<svn_revnum_t>	m_mergedRevs;
-	std::vector<tstring>		m_dates;
-	std::vector<tstring>		m_mergedDates;
-	std::vector<tstring>		m_authors;
-	std::vector<tstring>		m_mergedAuthors;
-	std::vector<tstring>		m_mergedPaths;
-	std::map<LONG, tstring>		m_logMessages;
-	char						m_szTip[MAX_LOG_LENGTH*2+6];
-	wchar_t						m_wszTip[MAX_LOG_LENGTH*2+6];
-	void StringExpand(LPSTR str);
-	void StringExpand(LPWSTR str);
-	BOOL						m_ttVisible;
+    std::vector<svn_revnum_t>   m_revs;
+    std::vector<svn_revnum_t>   m_mergedRevs;
+    std::vector<tstring>        m_dates;
+    std::vector<tstring>        m_mergedDates;
+    std::vector<tstring>        m_authors;
+    std::vector<tstring>        m_mergedAuthors;
+    std::vector<tstring>        m_mergedPaths;
+    std::map<LONG, tstring>     m_logMessages;
+    char                        m_szTip[MAX_LOG_LENGTH*2+6];
+    wchar_t                     m_wszTip[MAX_LOG_LENGTH*2+6];
+    void StringExpand(LPSTR str);
+    void StringExpand(LPWSTR str);
+    BOOL                        m_ttVisible;
 protected:
-	void CreateFont();
-	void SetupLexer(LPCTSTR fileName);
-	void SetupCppLexer();
-	COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider);
-	static std::wstring GetAppDirectory();
-	//std::vector<COLORREF>		m_colors;
-	HFONT						m_font;
-	HFONT						m_italicFont;
-	LONG						m_blameWidth;
-	LONG						m_revWidth;
-	LONG						m_dateWidth;
-	LONG						m_authorWidth;
-	LONG						m_pathWidth;
-	LONG						m_lineWidth;
-	LONG						m_selectedLine; ///< zero-based
+    void CreateFont();
+    void SetupLexer(LPCTSTR fileName);
+    void SetupCppLexer();
+    COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider);
+    static std::wstring GetAppDirectory();
+    //std::vector<COLORREF>     m_colors;
+    HFONT                       m_font;
+    HFONT                       m_italicFont;
+    LONG                        m_blameWidth;
+    LONG                        m_revWidth;
+    LONG                        m_dateWidth;
+    LONG                        m_authorWidth;
+    LONG                        m_pathWidth;
+    LONG                        m_lineWidth;
+    LONG                        m_selectedLine; ///< zero-based
 
-	COLORREF					m_mouseRevColor;
-	COLORREF					m_mouseAuthorColor;
-	COLORREF					m_selectedRevColor;
-	COLORREF					m_selectedAuthorColor;
-	COLORREF					m_windowColor;
-	COLORREF					m_textColor;
-	COLORREF					m_textHighLightColor;
+    COLORREF                    m_mouseRevColor;
+    COLORREF                    m_mouseAuthorColor;
+    COLORREF                    m_selectedRevColor;
+    COLORREF                    m_selectedAuthorColor;
+    COLORREF                    m_windowColor;
+    COLORREF                    m_textColor;
+    COLORREF                    m_textHighLightColor;
 
-	LRESULT						m_directFunction;
-	LRESULT						m_directPointer;
-	FINDREPLACE					m_fr;
-	TCHAR						m_szFindWhat[80];
+    LRESULT                     m_directFunction;
+    LRESULT                     m_directPointer;
+    FINDREPLACE                 m_fr;
+    TCHAR                       m_szFindWhat[80];
 
-	CRegStdDWORD				m_regOldLinesColor;
-	CRegStdDWORD				m_regNewLinesColor;
+    CRegStdDWORD                m_regOldLinesColor;
+    CRegStdDWORD                m_regNewLinesColor;
 
 private:
-	static void MakeLower(TCHAR* buffer, size_t length );
-	static void RunCommand(const tstring& command);
+    static void MakeLower(TCHAR* buffer, size_t length );
+    static void RunCommand(const tstring& command);
 };

@@ -20,6 +20,6 @@
 class BlameLexer
 {
 public:
-	BlameLexer(); {}
+    BlameLexer(); {}
 
 };
