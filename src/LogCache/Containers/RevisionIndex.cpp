@@ -28,7 +28,7 @@ namespace LogCache
 // construction / destruction
 
 CRevisionIndex::CRevisionIndex(void)
-	: firstRevision(0)
+    : firstRevision(0)
 {
 }
 
@@ -74,12 +74,12 @@ revision_t CRevisionIndex::GetFirstMissingRevision (revision_t start) const
     // find first gap
 
     for ( size_t i = start - firstRevision, count = indices.size()
-		; i < count
-		; ++i)
-	{
+        ; i < count
+        ; ++i)
+    {
         if (indices[i] == NO_INDEX)
             return firstRevision + static_cast<revision_t>(i);
-	}
+    }
 
     // first gap is last entry+1
 
@@ -90,58 +90,58 @@ revision_t CRevisionIndex::GetFirstMissingRevision (revision_t start) const
 
 void CRevisionIndex::SetRevisionIndex (revision_t revision, index_t index)
 {
-	// parameter check
+    // parameter check
 
-	assert (operator[](revision) == NO_INDEX);
-	assert (index != NO_INDEX);
+    assert (operator[](revision) == NO_INDEX);
+    assert (index != NO_INDEX);
 
-	if (revision == NO_REVISION)
-		throw CContainerException ("Invalid revision");
+    if (revision == NO_REVISION)
+        throw CContainerException ("Invalid revision");
 
-	// special cases
+    // special cases
 
-	if (indices.empty())
-	{
-		indices.push_back (index);
-		firstRevision = revision;
-		return;
-	}
+    if (indices.empty())
+    {
+        indices.push_back (index);
+        firstRevision = revision;
+        return;
+    }
 
-	if (revision == GetLastRevision())
-	{
-		indices.push_back (index);
-		return;
-	}
+    if (revision == GetLastRevision())
+    {
+        indices.push_back (index);
+        return;
+    }
 
-	// make sure, there is an entry in indices for that revision
+    // make sure, there is an entry in indices for that revision
 
-	if (revision < firstRevision)
-	{
-		// efficiently grow on the lower end
+    if (revision < firstRevision)
+    {
+        // efficiently grow on the lower end
 
-		revision_t indexSize = (revision_t)indices.size();
-		revision_t newFirstRevision = firstRevision < indexSize
-			? 0
-			: std::min (firstRevision - indexSize, revision);
+        revision_t indexSize = (revision_t)indices.size();
+        revision_t newFirstRevision = firstRevision < indexSize
+            ? 0
+            : std::min (firstRevision - indexSize, revision);
 
-		indices.insert (indices.begin(), firstRevision - newFirstRevision, (index_t)NO_INDEX);
-		firstRevision = newFirstRevision;
-	}
-	else
-	{
-		revision_t size = (revision_t)indices.size();
-		if (revision - firstRevision >= size)
-		{
-			// efficiently grow on the upper end
+        indices.insert (indices.begin(), firstRevision - newFirstRevision, (index_t)NO_INDEX);
+        firstRevision = newFirstRevision;
+    }
+    else
+    {
+        revision_t size = (revision_t)indices.size();
+        if (revision - firstRevision >= size)
+        {
+            // efficiently grow on the upper end
 
-			size_t toAdd = std::max (size, revision + 1 - firstRevision - size);
-			indices.insert (indices.end(), toAdd, (index_t)NO_INDEX);
-		}
-	}
+            size_t toAdd = std::max (size, revision + 1 - firstRevision - size);
+            indices.insert (indices.end(), toAdd, (index_t)NO_INDEX);
+        }
+    }
 
-	// bucket exists -> just write the value
+    // bucket exists -> just write the value
 
-	indices [revision - firstRevision] = index;
+    indices [revision - firstRevision] = index;
 }
 
 // return false if concurrent read accesses
@@ -149,63 +149,63 @@ void CRevisionIndex::SetRevisionIndex (revision_t revision, index_t index)
 
 bool CRevisionIndex::CanSetRevisionIndexThreadSafely (revision_t revision) const
 {
-	// special cases
+    // special cases
 
-	if (indices.empty())
+    if (indices.empty())
         return false;
 
-	// make sure, there is an entry in indices for that revision
+    // make sure, there is an entry in indices for that revision
 
-	if (revision < firstRevision)
+    if (revision < firstRevision)
         return false;
 
-	return revision - firstRevision < (revision_t)indices.capacity();
+    return revision - firstRevision < (revision_t)indices.capacity();
 }
 
 // reset content
 
 void CRevisionIndex::Clear()
 {
-	indices.clear();
+    indices.clear();
 
-	firstRevision = 0;
+    firstRevision = 0;
 }
 
 // stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CRevisionIndex& container)
+                                  , CRevisionIndex& container)
 {
-	// read the string offsets
+    // read the string offsets
 
-	CDiffIntegerInStream* indexStream 
-		= stream.GetSubStream<CDiffIntegerInStream> 
-			(CRevisionIndex::INDEX_STREAM_ID);
+    CDiffIntegerInStream* indexStream 
+        = stream.GetSubStream<CDiffIntegerInStream> 
+            (CRevisionIndex::INDEX_STREAM_ID);
 
-	container.firstRevision 
-		= static_cast<revision_t>(indexStream->GetSizeValue());
-	*indexStream >> container.indices;
+    container.firstRevision 
+        = static_cast<revision_t>(indexStream->GetSizeValue());
+    *indexStream >> container.indices;
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CRevisionIndex& container)
+                                   , const CRevisionIndex& container)
 {
-	// the string positions
+    // the string positions
 
-	CDiffIntegerOutStream* indexStream 
-		= stream.OpenSubStream<CDiffIntegerOutStream> 
-			(CRevisionIndex::INDEX_STREAM_ID);
+    CDiffIntegerOutStream* indexStream 
+        = stream.OpenSubStream<CDiffIntegerOutStream> 
+            (CRevisionIndex::INDEX_STREAM_ID);
 
-	indexStream->AddSizeValue (container.firstRevision);
-	*indexStream << container.indices;
+    indexStream->AddSizeValue (container.firstRevision);
+    *indexStream << container.indices;
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 // end namespace LogCache

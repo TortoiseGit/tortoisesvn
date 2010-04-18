@@ -24,123 +24,123 @@
 
 void CHierachicalOutStreamBase::CloseLatestSubStream()
 {
-	if (!subStreams.empty())
-		subStreams.back()->AutoClose();
+    if (!subStreams.empty())
+        subStreams.back()->AutoClose();
 }
 
 void CHierachicalOutStreamBase::WriteSubStreamList()
 {
-	// first, the count
+    // first, the count
 
-	buffer->Add ((DWORD)subStreams.size());
+    buffer->Add ((DWORD)subStreams.size());
 
-	// for each sub-stream: (index, id, type)
+    // for each sub-stream: (index, id, type)
 
-	for (size_t i = 0, count = subStreams.size(); i < count; ++i)
-	{
-		IHierarchicalOutStream* subStream = subStreams[i];
-		buffer->Add (subStream->AutoClose());
-		buffer->Add (subStream->GetID());
-		buffer->Add (subStream->GetTypeID());
-	}
+    for (size_t i = 0, count = subStreams.size(); i < count; ++i)
+    {
+        IHierarchicalOutStream* subStream = subStreams[i];
+        buffer->Add (subStream->AutoClose());
+        buffer->Add (subStream->GetID());
+        buffer->Add (subStream->GetTypeID());
+    }
 }
 
 void CHierachicalOutStreamBase::AutoOpen()
 {
-	if (!isOpen)
-	{
-		isOpen = true;
-		CloseLatestSubStream();
+    if (!isOpen)
+    {
+        isOpen = true;
+        CloseLatestSubStream();
 
-		index = buffer->OpenStream();
-		WriteSubStreamList();
-	}
+        index = buffer->OpenStream();
+        WriteSubStreamList();
+    }
 }
 
 void CHierachicalOutStreamBase::WriteThisStream()
 {
-	AutoOpen();
+    AutoOpen();
 
-	// Huffman-compress the raw stream data
+    // Huffman-compress the raw stream data
 
-	CHuffmanEncoder packer;
-	std::pair<unsigned char*, DWORD> packedData
-		= packer.Encode (GetStreamData(), GetStreamSize());
+    CHuffmanEncoder packer;
+    std::pair<unsigned char*, DWORD> packedData
+        = packer.Encode (GetStreamData(), GetStreamSize());
 
-	decodedSize += GetStreamSize();
+    decodedSize += GetStreamSize();
 
-	// add it to the target file
+    // add it to the target file
 
-	buffer->Add (packedData.first, packedData.second);
-	delete[] packedData.first;
+    buffer->Add (packedData.first, packedData.second);
+    delete[] packedData.first;
 }
 
 void CHierachicalOutStreamBase::Close()
 {
-	FlushData();
-	WriteThisStream();
-	buffer->Add (static_cast<DWORD>(decodedSize));
-	ReleaseStreamData();
+    FlushData();
+    WriteThisStream();
+    buffer->Add (static_cast<DWORD>(decodedSize));
+    ReleaseStreamData();
 
-	buffer->CloseStream();
-	isOpen = false;
+    buffer->CloseStream();
+    isOpen = false;
 }
 
 // construction / destruction (Close() must have been called before)
 
 CHierachicalOutStreamBase::CHierachicalOutStreamBase ( CCacheFileOutBuffer* aBuffer
-													 , SUB_STREAM_ID anID)
-	: id (anID)
-	, buffer (aBuffer)
-	, index (-1)
-	, isOpen (false)
-	, decodedSize (0)
+                                                     , SUB_STREAM_ID anID)
+    : id (anID)
+    , buffer (aBuffer)
+    , index (-1)
+    , isOpen (false)
+    , decodedSize (0)
 {
 }
 
 CHierachicalOutStreamBase::~CHierachicalOutStreamBase()
 {
-	assert (index != -1);
+    assert (index != -1);
 
-	for (size_t i = 0, count = subStreams.size(); i < count; ++i)
-		delete subStreams[i];
+    for (size_t i = 0, count = subStreams.size(); i < count; ++i)
+        delete subStreams[i];
 }
 
 // implement IHierarchicalOutStream
 
 SUB_STREAM_ID CHierachicalOutStreamBase::GetID() const
 {
-	return id;
+    return id;
 }
 
-IHierarchicalOutStream* 
+IHierarchicalOutStream*
 CHierachicalOutStreamBase::OpenSubStream ( SUB_STREAM_ID subStreamID
-										 , STREAM_TYPE_ID type)
+                                         , STREAM_TYPE_ID type)
 {
-	// close existing sub-streams
+    // close existing sub-streams
 
-	CloseLatestSubStream();
+    CloseLatestSubStream();
 
-	// open a new one
+    // open a new one
 
-	const IOutStreamFactory* factory 
-		= COutStreamFactoryPool::GetInstance()->GetFactory(type);
-	IHierarchicalOutStream* subStream 
-		= factory->CreateStream (buffer, subStreamID);
+    const IOutStreamFactory* factory
+        = COutStreamFactoryPool::GetInstance()->GetFactory(type);
+    IHierarchicalOutStream* subStream
+        = factory->CreateStream (buffer, subStreamID);
 
-	// add it to our list
+    // add it to our list
 
-	subStreams.push_back (subStream);
+    subStreams.push_back (subStream);
 
-	return subStream;
+    return subStream;
 }
 
 STREAM_INDEX CHierachicalOutStreamBase::AutoClose()
 {
-	// still open or not open yet?
+    // still open or not open yet?
 
-	if (isOpen || (index == -1))
-		Close();
+    if (isOpen || (index == -1))
+        Close();
 
-	return index;
+    return index;
 }

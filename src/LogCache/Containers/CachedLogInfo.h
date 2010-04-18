@@ -63,7 +63,7 @@ private:
      *
      *    * {repoCacheFile}.lock will be opened exclusively by the
      *      "first" TSVN instance -> OwnsFile() is true
-     *    * write cache file only if OwnsFile() is true 
+     *    * write cache file only if OwnsFile() is true
      *      (conflict resolution when multiple TSVN instances use
      *      the same cache)
      *    * set Hidden flag when OwnsFile() is true and reset it
@@ -104,7 +104,7 @@ private:
         void SetMark (const TFileName& name);
         void ResetMark();
 
-        /// allow for multiple failures 
+        /// allow for multiple failures
 
         bool ShouldDrop (const TFileName& name, int maxFailures);
         void UpdateMark (const TFileName& name);
@@ -137,123 +137,123 @@ private:
         bool OwnsFile() const;
     };
 
-	/// where we load / save our cached data
+    /// where we load / save our cached data
 
-	TFileName fileName;
+    TFileName fileName;
 
-	/// crash detection.
-	
-	CCacheFileManager fileManager;
+    /// crash detection.
 
-	/// revision index and the log info itself
+    CCacheFileManager fileManager;
 
-	CRevisionIndex revisions;
-	CRevisionInfoContainer logInfo;
-	CSkipRevisionInfo skippedRevisions;
+    /// revision index and the log info itself
 
-	/// revision has been added or Clear() has been called
+    CRevisionIndex revisions;
+    CRevisionInfoContainer logInfo;
+    CSkipRevisionInfo skippedRevisions;
 
-	bool modified;
+    /// revision has been added or Clear() has been called
 
-	/// revision has been added (otherwise, AddChange is forbidden)
+    bool modified;
 
-	bool revisionAdded;
+    /// revision has been added (otherwise, AddChange is forbidden)
 
-	/// stream IDs
+    bool revisionAdded;
 
-	enum
-	{
-		REVISIONS_STREAM_ID = 1,
-		LOG_INFO_STREAM_ID = 2,
-		SKIP_REVISIONS_STREAM_ID = 3
-	};
+    /// stream IDs
+
+    enum
+    {
+        REVISIONS_STREAM_ID = 1,
+        LOG_INFO_STREAM_ID = 2,
+        SKIP_REVISIONS_STREAM_ID = 3
+    };
 
 public:
 
-	/// for convenience
+    /// for convenience
 
-	typedef CRevisionInfoContainer::TChangeAction TChangeAction;
+    typedef CRevisionInfoContainer::TChangeAction TChangeAction;
 
-	/// construction / destruction (nothing to do)
+    /// construction / destruction (nothing to do)
 
-	CCachedLogInfo();
-	CCachedLogInfo (const TFileName& aFileName);
-	~CCachedLogInfo (void);
+    CCachedLogInfo();
+    CCachedLogInfo (const TFileName& aFileName);
+    ~CCachedLogInfo (void);
 
-	/// cache persistence
+    /// cache persistence
 
-	void Load (int maxFailures);
-	bool IsModified() const;
-	bool IsEmpty() const;
-	void Save();
-	void Save (const TFileName& newFileName);
+    void Load (int maxFailures);
+    bool IsModified() const;
+    bool IsEmpty() const;
+    void Save();
+    void Save (const TFileName& newFileName);
 
-	/// data access
+    /// data access
 
-	const TFileName& GetFileName() const;
-	const CRevisionIndex& GetRevisions() const;
-	const CRevisionInfoContainer& GetLogInfo() const;
-	const CSkipRevisionInfo& GetSkippedRevisions() const;
+    const TFileName& GetFileName() const;
+    const CRevisionIndex& GetRevisions() const;
+    const CRevisionInfoContainer& GetLogInfo() const;
+    const CSkipRevisionInfo& GetSkippedRevisions() const;
 
-	/// find the highest revision not exceeding the given timestamp
-	
-	revision_t FindRevisionByDate (__time64_t maxTimeStamp) const;
+    /// find the highest revision not exceeding the given timestamp
 
-	/// data modification 
-	/// (mirrors CRevisionInfoContainer and CSkipRevisionInfo)
+    revision_t FindRevisionByDate (__time64_t maxTimeStamp) const;
 
-	void Insert ( revision_t revision
-				, const std::string& author
-				, const std::string& comment
-				, __time64_t timeStamp
+    /// data modification
+    /// (mirrors CRevisionInfoContainer and CSkipRevisionInfo)
+
+    void Insert ( revision_t revision
+                , const std::string& author
+                , const std::string& comment
+                , __time64_t timeStamp
                 , char flags = CRevisionInfoContainer::HAS_STANDARD_INFO);
 
-	void AddChange ( TChangeAction action
+    void AddChange ( TChangeAction action
                    , node_kind_t pathType
-				   , const std::string& path
-				   , const std::string& fromPath
-				   , revision_t fromRevision);
+                   , const std::string& path
+                   , const std::string& fromPath
+                   , revision_t fromRevision);
 
-	void AddMergedRevision ( const std::string& fromPath
-				           , const std::string& toPath
-				           , revision_t revisionStart
-				           , revision_t revisionDelta);
+    void AddMergedRevision ( const std::string& fromPath
+                           , const std::string& toPath
+                           , revision_t revisionStart
+                           , revision_t revisionDelta);
 
-	void AddRevProp ( const std::string& revProp
-			        , const std::string& value);
+    void AddRevProp ( const std::string& revProp
+                    , const std::string& value);
 
-	void AddSkipRange ( const CDictionaryBasedPath& path
-					  , revision_t startRevision
-					  , revision_t count);
+    void AddSkipRange ( const CDictionaryBasedPath& path
+                      , revision_t startRevision
+                      , revision_t count);
 
-	void Clear();
+    void Clear();
 
     /// return false if concurrent read accesses
     /// would potentially access invalid data.
 
-	bool CanInsertThreadSafely ( revision_t revision
-				               , const std::string& author
-				               , const std::string& comment
-				               , __time64_t timeStamp) const;
+    bool CanInsertThreadSafely ( revision_t revision
+                               , const std::string& author
+                               , const std::string& comment
+                               , __time64_t timeStamp) const;
 
-	bool CanAddChangeThreadSafely ( TChangeAction action
+    bool CanAddChangeThreadSafely ( TChangeAction action
                                   , node_kind_t pathType
-   				                  , const std::string& path
-				                  , const std::string& fromPath
-				                  , revision_t fromRevision) const;
+                                  , const std::string& path
+                                  , const std::string& fromPath
+                                  , revision_t fromRevision) const;
 
-	bool CanAddRevPropThreadSafely ( const std::string& revProp
-            			           , const std::string& value) const;
+    bool CanAddRevPropThreadSafely ( const std::string& revProp
+                                   , const std::string& value) const;
 
-	/// update / modify existing data
+    /// update / modify existing data
 
-	void Update ( const CCachedLogInfo& newData
+    void Update ( const CCachedLogInfo& newData
                 , char flags = CRevisionInfoContainer::HAS_ALL
                 , bool keepOldDataForMissingNew = true);
 
-	/// for statistics
+    /// for statistics
 
-	friend class CLogCacheStatistics;
+    friend class CLogCacheStatistics;
 };
 
 ///////////////////////////////////////////////////////////////
@@ -262,12 +262,12 @@ public:
 
 inline bool CCachedLogInfo::IsModified() const
 {
-	return modified;
+    return modified;
 }
 
 inline void CCachedLogInfo::Save()
 {
-	Save (fileName);
+    Save (fileName);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -276,22 +276,22 @@ inline void CCachedLogInfo::Save()
 
 inline const TFileName& CCachedLogInfo::GetFileName() const
 {
-	return fileName;
+    return fileName;
 }
 
 inline const CRevisionIndex& CCachedLogInfo::GetRevisions() const
 {
-	return revisions;
+    return revisions;
 }
 
 inline const CRevisionInfoContainer& CCachedLogInfo::GetLogInfo() const
 {
-	return logInfo;
+    return logInfo;
 }
 
 inline const CSkipRevisionInfo& CCachedLogInfo::GetSkippedRevisions() const
 {
-	return skippedRevisions;
+    return skippedRevisions;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -300,35 +300,35 @@ inline const CSkipRevisionInfo& CCachedLogInfo::GetSkippedRevisions() const
 
 inline void CCachedLogInfo::AddChange ( TChangeAction action
                                       , node_kind_t pathType
-								      , const std::string& path
-									  , const std::string& fromPath
-									  , revision_t fromRevision)
+                                      , const std::string& path
+                                      , const std::string& fromPath
+                                      , revision_t fromRevision)
 {
-	assert (revisionAdded);
-	logInfo.AddChange (action, pathType, path, fromPath, fromRevision);
+    assert (revisionAdded);
+    logInfo.AddChange (action, pathType, path, fromPath, fromRevision);
 }
 
 inline void CCachedLogInfo::AddMergedRevision ( const std::string& fromPath
-				                              , const std::string& toPath
-				                              , revision_t revisionStart
-				                              , revision_t revisionDelta)
+                                              , const std::string& toPath
+                                              , revision_t revisionStart
+                                              , revision_t revisionDelta)
 {
-	assert (revisionAdded);
-	logInfo.AddMergedRevision (fromPath, toPath, revisionStart, revisionDelta);
+    assert (revisionAdded);
+    logInfo.AddMergedRevision (fromPath, toPath, revisionStart, revisionDelta);
 }
 
 inline void CCachedLogInfo::AddRevProp ( const std::string& revProp
-				                       , const std::string& value)
+                                       , const std::string& value)
 {
-	assert (revisionAdded);
-	logInfo.AddRevProp (revProp, value);
+    assert (revisionAdded);
+    logInfo.AddRevProp (revProp, value);
 }
 
 ///////////////////////////////////////////////////////////////
 // 'pseudo-thread-safe' variants of the above:
 ///////////////////////////////////////////////////////////////
 
-inline bool 
+inline bool
 CCachedLogInfo::CanAddChangeThreadSafely
     ( TChangeAction action
     , node_kind_t pathType
@@ -336,18 +336,18 @@ CCachedLogInfo::CanAddChangeThreadSafely
     , const std::string& fromPath
     , revision_t fromRevision) const
 {
-	assert (revisionAdded);
-	return logInfo.CanAddChangeThreadSafely 
+    assert (revisionAdded);
+    return logInfo.CanAddChangeThreadSafely
         (action, pathType, path, fromPath, fromRevision);
 }
 
-inline bool 
-CCachedLogInfo::CanAddRevPropThreadSafely 
+inline bool
+CCachedLogInfo::CanAddRevPropThreadSafely
     ( const std::string& revProp
- 	, const std::string& value) const
+    , const std::string& value) const
 {
-	assert (revisionAdded);
-	return logInfo.CanAddRevPropThreadSafely (revProp, value);
+    assert (revisionAdded);
+    return logInfo.CanAddRevPropThreadSafely (revProp, value);
 }
 
 ///////////////////////////////////////////////////////////////

@@ -36,14 +36,14 @@ typedef int STREAM_INDEX;
 
 enum
 {
-	OLDEST_LOG_CACHE_FILE_VERSION = 0x20070607,
-	NEWEST_LOG_CACHE_FILE_VERSION = 0x20090623
+    OLDEST_LOG_CACHE_FILE_VERSION = 0x20070607,
+    NEWEST_LOG_CACHE_FILE_VERSION = 0x20090623
 };
 
 /**
  * class that maps files created by CCacheFileOutBuffer (see there for format
  * details) into memory.
- * 
+ *
  * The file must be small enough to fit into your address space (i.e., less than
  * about 1GB on win32).
  *
@@ -54,36 +54,36 @@ class CCacheFileInBuffer : private CMappedInFile
 {
 private:
 
-	// start-addresses of all streams (i.e. streamCount + 1 entry)
+    // start-addresses of all streams (i.e. streamCount + 1 entry)
 
-	std::vector<const unsigned char*> streamContents;
+    std::vector<const unsigned char*> streamContents;
 
-	// construction utilities
+    // construction utilities
 
-	void ReadStreamOffsets();
+    void ReadStreamOffsets();
 
-	// data access utility
+    // data access utility
 
-	const unsigned* GetDWORD (size_t offset) const
-	{
-		// ranges should have been checked before
+    const unsigned* GetDWORD (size_t offset) const
+    {
+        // ranges should have been checked before
 
-		assert ((offset < GetSize()) && (offset + sizeof (unsigned) <= GetSize()));
-		return reinterpret_cast<const unsigned*>(GetBuffer() + offset);
-	}
+        assert ((offset < GetSize()) && (offset + sizeof (unsigned) <= GetSize()));
+        return reinterpret_cast<const unsigned*>(GetBuffer() + offset);
+    }
 
 public:
 
-	// construction / destruction: auto- open/close
+    // construction / destruction: auto- open/close
 
-	CCacheFileInBuffer (const TFileName& fileName);
-	~CCacheFileInBuffer();
+    CCacheFileInBuffer (const TFileName& fileName);
+    ~CCacheFileInBuffer();
 
-	// access streams
+    // access streams
 
-	STREAM_INDEX GetLastStream();
-	void GetStreamBuffer ( STREAM_INDEX index
-						 , const unsigned char* &first
-						 , const unsigned char* &last);
+    STREAM_INDEX GetLastStream();
+    void GetStreamBuffer ( STREAM_INDEX index
+                         , const unsigned char* &first
+                         , const unsigned char* &last);
 };
 

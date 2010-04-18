@@ -46,7 +46,7 @@ void CPathToStringMap::Clear()
 // auto-inserting lookup
 ///////////////////////////////////////////////////////////////
 
-const CString& 
+const CString&
 CPathToStringMap::AsString (const LogCache::CDictionaryBasedPath& path)
 {
     TMap::const_iterator iter (data.find (path.GetIndex()));
@@ -59,6 +59,6 @@ CPathToStringMap::AsString (const LogCache::CDictionaryBasedPath& path)
         data.insert (path.GetIndex(), s);
         iter = data.find (path.GetIndex());
     }
-        
+
     return *iter;
 }

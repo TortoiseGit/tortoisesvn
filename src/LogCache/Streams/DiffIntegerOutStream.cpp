@@ -28,8 +28,8 @@
 // construction: nothing special to do
 
 CDiffDWORDOutStream::CDiffDWORDOutStream ( CCacheFileOutBuffer* aBuffer
-										 , SUB_STREAM_ID anID)
-	: TBase (aBuffer, anID)
+                                         , SUB_STREAM_ID anID)
+    : TBase (aBuffer, anID)
 {
 }
 
@@ -42,7 +42,7 @@ CDiffDWORDOutStream::CDiffDWORDOutStream ( CCacheFileOutBuffer* aBuffer
 // construction: nothing special to do
 
 CDiffIntegerOutStream::CDiffIntegerOutStream ( CCacheFileOutBuffer* aBuffer
-										     , SUB_STREAM_ID anID)
-	: TBase (aBuffer, anID)
+                                             , SUB_STREAM_ID anID)
+    : TBase (aBuffer, anID)
 {
 }

@@ -22,7 +22,7 @@
 //
 // CHuffmanBase
 //
-//		Common definitions for Huffman compression.
+//      Common definitions for Huffman compression.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -34,64 +34,64 @@ class CHuffmanBase
 {
 public:
 
-	// aliases for 8 and 64 bit chunks
+    // aliases for 8 and 64 bit chunks
 
-	typedef unsigned long long QWORD;
-	typedef unsigned char BYTE;
+    typedef unsigned long long QWORD;
+    typedef unsigned char BYTE;
 
-	// encoded char type
-	// encoded data chunk type
-	// value counting chunk type
-	// plain text data chunk type
+    // encoded char type
+    // encoded data chunk type
+    // value counting chunk type
+    // plain text data chunk type
 
 #ifdef _64BITS
-	typedef WORD key_type;
-	typedef QWORD key_block_type;
-	typedef QWORD count_block_type;
-	typedef DWORD encode_block_type;
+    typedef WORD key_type;
+    typedef QWORD key_block_type;
+    typedef QWORD count_block_type;
+    typedef DWORD encode_block_type;
 #else
-	typedef WORD key_type;
-	typedef DWORD key_block_type;
-	typedef DWORD count_block_type;
-	typedef WORD encode_block_type;
+    typedef WORD key_type;
+    typedef DWORD key_block_type;
+    typedef DWORD count_block_type;
+    typedef WORD encode_block_type;
 #endif
 
-	// global constants
+    // global constants
 
-	enum 
-	{
-		// number of different plain text tokens 
-		// (256 because we encode full bytes)
+    enum
+    {
+        // number of different plain text tokens
+        // (256 because we encode full bytes)
 
-		BUCKET_COUNT = 1 << (8 * sizeof (BYTE)), 
+        BUCKET_COUNT = 1 << (8 * sizeof (BYTE)),
 
-		// length of the key_type in bits
-		// i.e. capacity of a "register" that can be used w/o 
-		// writing to the target buffer or be read at once
+        // length of the key_type in bits
+        // i.e. capacity of a "register" that can be used w/o
+        // writing to the target buffer or be read at once
 
-		KEY_BLOCK_BITS = sizeof (key_block_type) * 8,
+        KEY_BLOCK_BITS = sizeof (key_block_type) * 8,
 
-		// max *actual* key length.
-		// we limit it to 12 to minimize decoding effort and
-		// decoding table size. Impact on compression ratio is 
-		// marginal.
-		// also, allows to hold 2 keys plus a fraction of one byte
-		// (odd bits that cannot yet be written to the target)
-		// in a single DWORD.
+        // max *actual* key length.
+        // we limit it to 12 to minimize decoding effort and
+        // decoding table size. Impact on compression ratio is
+        // marginal.
+        // also, allows to hold 2 keys plus a fraction of one byte
+        // (odd bits that cannot yet be written to the target)
+        // in a single DWORD.
 
-		MAX_ENCODING_LENGTH = 12,	
+        MAX_ENCODING_LENGTH = 12,
 
-		// mask to extract MAX_ENCODING_LENGTH bits from a 
-		// chunk of data.
+        // mask to extract MAX_ENCODING_LENGTH bits from a
+        // chunk of data.
 
-		MAX_KEY_VALUE = (1 << MAX_ENCODING_LENGTH) -1,
+        MAX_KEY_VALUE = (1 << MAX_ENCODING_LENGTH) -1,
 
         // minimum length of the header
 
         MIN_HEADER_LENGTH = 2 * sizeof (DWORD) + sizeof (BYTE)
-	};
+    };
 
-	// utility function that reverses the bit order of a given key
+    // utility function that reverses the bit order of a given key
 
-	static key_type ReverseBits (key_type v, BYTE length);
+    static key_type ReverseBits (key_type v, BYTE length);
 };

@@ -334,8 +334,8 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     // read the string data
 
     CBLOBInStream* packedBlobsStream
-        = stream.GetSubStream<CBLOBInStream> 
-			(CBlobDictionary::PACKED_BLOBS_STREAM_ID);
+        = stream.GetSubStream<CBLOBInStream>
+            (CBlobDictionary::PACKED_BLOBS_STREAM_ID);
 
     if (packedBlobsStream->GetSize() >= NO_INDEX)
         throw CContainerException ("data stream to large");

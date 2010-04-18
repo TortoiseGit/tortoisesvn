@@ -36,12 +36,12 @@ namespace LogCache
 
 void CCSVWriter::Escape (std::string& value)
 {
-	size_t pos = value.find ('"');
-	while (pos != std::string::npos)
-	{
-		value.insert (pos+1, 1, '"');
-		pos = value.find ('"', pos+2);
-	}
+    size_t pos = value.find ('"');
+    while (pos != std::string::npos)
+    {
+        value.insert (pos+1, 1, '"');
+        pos = value.find ('"', pos+2);
+    }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -49,271 +49,271 @@ void CCSVWriter::Escape (std::string& value)
 ///////////////////////////////////////////////////////////////
 
 void CCSVWriter::WriteStringList ( std::ostream& os
-								 , const CStringDictionary& strings)
+                                 , const CStringDictionary& strings)
 {
-	// header
+    // header
 
-	os << "ID,Name\n";
+    os << "ID,Name\n";
 
-	// content
+    // content
 
-	for (index_t i = 0, count = strings.size(); i < count; ++i)
-		os << i << ",\"" << strings[i] << "\"\n";
+    for (index_t i = 0, count = strings.size(); i < count; ++i)
+        os << i << ",\"" << strings[i] << "\"\n";
 }
 
 void CCSVWriter::WritePathList (std::ostream& os, const CPathDictionary& dictionary)
 {
-	// header
+    // header
 
-	os << "ID,ParentID,Element,FullPath\n";
+    os << "ID,ParentID,Element,FullPath\n";
 
-	// content
+    // content
 
-	for (index_t i = 0, count = dictionary.size(); i < count; ++i)
-	{
-		os << i << ',' 
-		   << (int)dictionary.GetParent(i) << ",\"" 
-		   << dictionary.GetPathElement(i) << "\",\"" 
-		   << CDictionaryBasedPath (&dictionary, i).GetPath().c_str()
-		   << "\"\n";
-	}
+    for (index_t i = 0, count = dictionary.size(); i < count; ++i)
+    {
+        os << i << ','
+           << (int)dictionary.GetParent(i) << ",\""
+           << dictionary.GetPathElement(i) << "\",\""
+           << CDictionaryBasedPath (&dictionary, i).GetPath().c_str()
+           << "\"\n";
+    }
 }
 
 void CCSVWriter::WriteChanges (std::ostream& os, const CCachedLogInfo& cache)
 {
-	// header
+    // header
 
-	os << "ID,Revision,Change,PathID,CopyFromRev,CopyFromPathID\n";
+    os << "ID,Revision,Change,PathID,CopyFromRev,CopyFromPathID\n";
 
-	// content
+    // content
 
-	const CRevisionIndex& revisions = cache.GetRevisions();
-	const CRevisionInfoContainer& logInfo = cache.GetLogInfo();
+    const CRevisionIndex& revisions = cache.GetRevisions();
+    const CRevisionInfoContainer& logInfo = cache.GetLogInfo();
 
-	// ids will be added on-the-fly
+    // ids will be added on-the-fly
 
-	size_t id = 0;
-	for ( revision_t revision = revisions.GetFirstRevision()
-		, last = revisions.GetLastRevision()
-		; revision < last
-		; ++revision)
-	{
-		index_t index = revisions[revision];
+    size_t id = 0;
+    for ( revision_t revision = revisions.GetFirstRevision()
+        , last = revisions.GetLastRevision()
+        ; revision < last
+        ; ++revision)
+    {
+        index_t index = revisions[revision];
         if (index == NO_INDEX)
             continue;
 
-		typedef CRevisionInfoContainer::CChangesIterator CI;
+        typedef CRevisionInfoContainer::CChangesIterator CI;
 
-		if (  logInfo.GetPresenceFlags (index) 
-			& CRevisionInfoContainer::HAS_CHANGEDPATHS)
-		{
-			// we actually have a valid (possibly empty) change list 
-			// for this revision
+        if (  logInfo.GetPresenceFlags (index)
+            & CRevisionInfoContainer::HAS_CHANGEDPATHS)
+        {
+            // we actually have a valid (possibly empty) change list
+            // for this revision
 
-			for ( CI iter = logInfo.GetChangesBegin (index)
-				, end = logInfo.GetChangesEnd (index)
-				; iter != end
-				; ++iter)
-			{
-				static const char actions[9] = "AM R   D";
-				char change = actions [iter->GetAction() /4 - 1];
+            for ( CI iter = logInfo.GetChangesBegin (index)
+                , end = logInfo.GetChangesEnd (index)
+                ; iter != end
+                ; ++iter)
+            {
+                static const char actions[9] = "AM R   D";
+                char change = actions [iter->GetAction() /4 - 1];
 
-				os << id++ << ',' 
-				   << revision << ','
-				   << change << ','
-				   << iter->GetPathID() << ',';
+                os << id++ << ','
+                   << revision << ','
+                   << change << ','
+                   << iter->GetPathID() << ',';
 
-				if (iter->HasFromPath())
-				{
-					os << iter->GetFromRevision() << ','
-					   << iter->GetFromPathID() 
-					   << "\n";
-				}
-				else
-				{
-					os << -1 << ','
-					   << -1 
-					   << "\n";
-				}
-			}
-		}
-	}
+                if (iter->HasFromPath())
+                {
+                    os << iter->GetFromRevision() << ','
+                       << iter->GetFromPathID()
+                       << "\n";
+                }
+                else
+                {
+                    os << -1 << ','
+                       << -1
+                       << "\n";
+                }
+            }
+        }
+    }
 }
 
 void CCSVWriter::WriteMerges (std::ostream& os, const CCachedLogInfo& cache)
 {
-	// header
+    // header
 
-	os << "ID,Revision,FromPathID,ToPathID,StartRevision,RangeLength\n";
+    os << "ID,Revision,FromPathID,ToPathID,StartRevision,RangeLength\n";
 
-	// content
+    // content
 
-	const CRevisionIndex& revisions = cache.GetRevisions();
-	const CRevisionInfoContainer& logInfo = cache.GetLogInfo();
+    const CRevisionIndex& revisions = cache.GetRevisions();
+    const CRevisionInfoContainer& logInfo = cache.GetLogInfo();
 
-	// ids will be added on-the-fly
+    // ids will be added on-the-fly
 
-	size_t id = 0;
-	for ( revision_t revision = revisions.GetFirstRevision()
-		, last = revisions.GetLastRevision()
-		; revision < last
-		; ++revision)
-	{
-		index_t index = revisions[revision];
+    size_t id = 0;
+    for ( revision_t revision = revisions.GetFirstRevision()
+        , last = revisions.GetLastRevision()
+        ; revision < last
+        ; ++revision)
+    {
+        index_t index = revisions[revision];
         if (index == NO_INDEX)
             continue;
 
-		typedef CRevisionInfoContainer::CMergedRevisionsIterator MI;
+        typedef CRevisionInfoContainer::CMergedRevisionsIterator MI;
 
-		if (  logInfo.GetPresenceFlags (index) 
-			& CRevisionInfoContainer::HAS_MERGEINFO)
-		{
-			// we actually have a valid (possibly empty) merge list 
-			// for this revision
+        if (  logInfo.GetPresenceFlags (index)
+            & CRevisionInfoContainer::HAS_MERGEINFO)
+        {
+            // we actually have a valid (possibly empty) merge list
+            // for this revision
 
-			for ( MI iter = logInfo.GetMergedRevisionsBegin (index)
-				, end = logInfo.GetMergedRevisionsEnd (index)
-				; iter != end
-				; ++iter)
-			{
-				os << id++ << ',' 
-				   << revision << ','
-				   << iter->GetFromPathID() << ','
-				   << iter->GetToPathID() << ','
-				   << iter->GetRangeStart() << ','
-				   << iter->GetRangeDelta()
-				   << "\n";
-			}
-		}
-	}
+            for ( MI iter = logInfo.GetMergedRevisionsBegin (index)
+                , end = logInfo.GetMergedRevisionsEnd (index)
+                ; iter != end
+                ; ++iter)
+            {
+                os << id++ << ','
+                   << revision << ','
+                   << iter->GetFromPathID() << ','
+                   << iter->GetToPathID() << ','
+                   << iter->GetRangeStart() << ','
+                   << iter->GetRangeDelta()
+                   << "\n";
+            }
+        }
+    }
 }
 
 void CCSVWriter::WriteRevProps (std::ostream& os, const CCachedLogInfo& cache)
 {
-	// header
+    // header
 
-	os << "ID,Revision,RevPropID,Value\n";
+    os << "ID,Revision,RevPropID,Value\n";
 
-	// content
+    // content
 
-	const CRevisionIndex& revisions = cache.GetRevisions();
-	const CRevisionInfoContainer& logInfo = cache.GetLogInfo();
+    const CRevisionIndex& revisions = cache.GetRevisions();
+    const CRevisionInfoContainer& logInfo = cache.GetLogInfo();
 
-	// ids will be added on-the-fly
+    // ids will be added on-the-fly
 
-	size_t id = 0;
-	for ( revision_t revision = revisions.GetFirstRevision()
-		, last = revisions.GetLastRevision()
-		; revision < last
-		; ++revision)
-	{
-		index_t index = revisions[revision];
+    size_t id = 0;
+    for ( revision_t revision = revisions.GetFirstRevision()
+        , last = revisions.GetLastRevision()
+        ; revision < last
+        ; ++revision)
+    {
+        index_t index = revisions[revision];
         if (index == NO_INDEX)
             continue;
 
-		typedef CRevisionInfoContainer::CUserRevPropsIterator RI;
+        typedef CRevisionInfoContainer::CUserRevPropsIterator RI;
 
-		if (  logInfo.GetPresenceFlags (index) 
+        if (  logInfo.GetPresenceFlags (index)
             & CRevisionInfoContainer::HAS_USERREVPROPS)
-		{
-			// we actually have a valid (possibly empty) merge list 
-			// for this revision
+        {
+            // we actually have a valid (possibly empty) merge list
+            // for this revision
 
-			for ( RI iter = logInfo.GetUserRevPropsBegin (index)
-				, end = logInfo.GetUserRevPropsEnd (index)
-				; iter != end
-				; ++iter)
-			{
-				std::string value = iter->GetValue();
-				Escape (value);
+            for ( RI iter = logInfo.GetUserRevPropsBegin (index)
+                , end = logInfo.GetUserRevPropsEnd (index)
+                ; iter != end
+                ; ++iter)
+            {
+                std::string value = iter->GetValue();
+                Escape (value);
 
-				os << id++ << ',' 
-				   << revision << ','
-				   << iter->GetNameID()<< ",\""
-				   << value.c_str()
-				   << "\"\n";
-			}
-		}
-	}
+                os << id++ << ','
+                   << revision << ','
+                   << iter->GetNameID()<< ",\""
+                   << value.c_str()
+                   << "\"\n";
+            }
+        }
+    }
 }
 
 void CCSVWriter::WriteRevisions (std::ostream& os, const CCachedLogInfo& cache)
 {
-	// header
+    // header
 
-	os << "Revision,AuthorID,TimeStamp,Comment,"
-	   << "HasStdInfo,HasChangeInfo,HasMergeInfo,HasUserRevPropInfo\n";
+    os << "Revision,AuthorID,TimeStamp,Comment,"
+       << "HasStdInfo,HasChangeInfo,HasMergeInfo,HasUserRevPropInfo\n";
 
-	// content
+    // content
 
-	const CRevisionIndex& revisions = cache.GetRevisions();
-	const CRevisionInfoContainer& logInfo = cache.GetLogInfo();
+    const CRevisionIndex& revisions = cache.GetRevisions();
+    const CRevisionInfoContainer& logInfo = cache.GetLogInfo();
 
-	for ( revision_t revision = revisions.GetFirstRevision()
-		, last = revisions.GetLastRevision()
-		; revision < last
-		; ++revision)
-	{
-		index_t index = revisions[revision];
+    for ( revision_t revision = revisions.GetFirstRevision()
+        , last = revisions.GetLastRevision()
+        ; revision < last
+        ; ++revision)
+    {
+        index_t index = revisions[revision];
         if (index == NO_INDEX)
             continue;
 
-		std::string comment = logInfo.GetComment (index);
-		Escape (comment);
+        std::string comment = logInfo.GetComment (index);
+        Escape (comment);
 
-		char presenceFlags = logInfo.GetPresenceFlags (index);
-		bool hasStdInfo 
-			= (presenceFlags & CRevisionInfoContainer::HAS_STANDARD_INFO) != 0;
-		bool hasChangeInfo
-			= (presenceFlags & CRevisionInfoContainer::HAS_CHANGEDPATHS) != 0;
-		bool hasMergeInfo 
-			= (presenceFlags & CRevisionInfoContainer::HAS_MERGEINFO) != 0;
-		bool hasRevPropInfo 
-			= (presenceFlags & CRevisionInfoContainer::HAS_USERREVPROPS) != 0;
+        char presenceFlags = logInfo.GetPresenceFlags (index);
+        bool hasStdInfo
+            = (presenceFlags & CRevisionInfoContainer::HAS_STANDARD_INFO) != 0;
+        bool hasChangeInfo
+            = (presenceFlags & CRevisionInfoContainer::HAS_CHANGEDPATHS) != 0;
+        bool hasMergeInfo
+            = (presenceFlags & CRevisionInfoContainer::HAS_MERGEINFO) != 0;
+        bool hasRevPropInfo
+            = (presenceFlags & CRevisionInfoContainer::HAS_USERREVPROPS) != 0;
 
         enum {BUFFER_SIZE = 100};
         char buffer[BUFFER_SIZE];
 
         __time64_t timestamp = logInfo.GetTimeStamp(index);
 
-		os << revision << ','
-		   << logInfo.GetAuthorID(index) << ','
-		   << Time64ToZuluString (buffer, timestamp) << ",\""
-		   << comment.c_str() << "\","
-		   << hasStdInfo << ','
-		   << hasChangeInfo << ','
-		   << hasMergeInfo << ','
-		   << hasRevPropInfo
-		   << "\n";
-	}
+        os << revision << ','
+           << logInfo.GetAuthorID(index) << ','
+           << Time64ToZuluString (buffer, timestamp) << ",\""
+           << comment.c_str() << "\","
+           << hasStdInfo << ','
+           << hasChangeInfo << ','
+           << hasMergeInfo << ','
+           << hasRevPropInfo
+           << "\n";
+    }
 }
 
 void CCSVWriter::WriteSkipRanges (std::ostream& os, const CCachedLogInfo& cache)
 {
-	// header
+    // header
 
-	os << "PathID,Path,StartRevision,Length\n";
+    os << "PathID,Path,StartRevision,Length\n";
 
-	// content
+    // content
 
     const CSkipRevisionInfo& info = cache.GetSkippedRevisions();
 
-	// ids will be added on-the-fly
+    // ids will be added on-the-fly
 
-	for (size_t i = 0; i < info.GetPathCount(); ++i)
-	{
+    for (size_t i = 0; i < info.GetPathCount(); ++i)
+    {
         CDictionaryBasedPath path = info.GetPath(i);
         CSkipRevisionInfo::TRanges ranges = info.GetRanges(i);
 
         for (size_t k = 0, count = ranges.size(); k < count; ++k)
         {
-            os << path.GetIndex() << ",\"" 
+            os << path.GetIndex() << ",\""
                << path.GetPath().c_str() << "\","
-			   << ranges[k].first << ','
-			   << ranges[k].second
-			   << "\n";
-		}
-	}
+               << ranges[k].first << ','
+               << ranges[k].second
+               << "\n";
+        }
+    }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -336,23 +336,23 @@ CCSVWriter::~CCSVWriter(void)
 void CCSVWriter::Write ( const CCachedLogInfo& cache
                        , const TFileName& fileName)
 {
-	std::ofstream authors ((fileName + _T(".authors.csv")).c_str());
-	WriteStringList (authors, cache.GetLogInfo().GetAuthors());
-	std::ofstream userRevPropNames ((fileName + _T(".revpropnames.csv")).c_str());
-	WriteStringList (userRevPropNames, cache.GetLogInfo().GetUserRevProps());
-	std::ofstream paths ((fileName + _T(".paths.csv")).c_str());
-	WritePathList (paths, cache.GetLogInfo().GetPaths());
+    std::ofstream authors ((fileName + _T(".authors.csv")).c_str());
+    WriteStringList (authors, cache.GetLogInfo().GetAuthors());
+    std::ofstream userRevPropNames ((fileName + _T(".revpropnames.csv")).c_str());
+    WriteStringList (userRevPropNames, cache.GetLogInfo().GetUserRevProps());
+    std::ofstream paths ((fileName + _T(".paths.csv")).c_str());
+    WritePathList (paths, cache.GetLogInfo().GetPaths());
 
-	std::ofstream changes ((fileName + _T(".changes.csv")).c_str());
-	WriteChanges (changes, cache);
-	std::ofstream merges ((fileName + _T(".merges.csv")).c_str());
-	WriteMerges (merges, cache);
-	std::ofstream userRevProps ((fileName + _T(".userrevprops.csv")).c_str());
-	WriteRevProps (userRevProps, cache);
+    std::ofstream changes ((fileName + _T(".changes.csv")).c_str());
+    WriteChanges (changes, cache);
+    std::ofstream merges ((fileName + _T(".merges.csv")).c_str());
+    WriteMerges (merges, cache);
+    std::ofstream userRevProps ((fileName + _T(".userrevprops.csv")).c_str());
+    WriteRevProps (userRevProps, cache);
 
-	std::ofstream revisions ((fileName + _T(".revisions.csv")).c_str());
-	WriteRevisions (revisions, cache);
-	std::ofstream skipranges ((fileName + _T(".skipranges.csv")).c_str());
+    std::ofstream revisions ((fileName + _T(".revisions.csv")).c_str());
+    WriteRevisions (revisions, cache);
+    std::ofstream skipranges ((fileName + _T(".skipranges.csv")).c_str());
     WriteSkipRanges (skipranges, cache);
 }
 

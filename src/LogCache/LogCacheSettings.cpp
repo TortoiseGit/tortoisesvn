@@ -69,7 +69,7 @@ void CSettings::Migrate()
     CRegDWORD oldSupportAmbiguousURL (REGKEY15 ("SupportAmbiguousURL"), FALSE);
     if (oldSupportAmbiguousURL.exists())
     {
-//      Since the old default differs from the new one, 
+//      Since the old default differs from the new one,
 //      we will not migrate this setting.
 //
 //      SetAllowAmbiguousURL ((DWORD)oldSupportAmbiguousURL != FALSE);
@@ -80,7 +80,7 @@ void CSettings::Migrate()
     CRegDWORD oldDefaultConnectionState (REGKEY15 ("DefaultConnectionState"), 0);
     if (oldDefaultConnectionState.exists())
     {
-        ConnectionState state 
+        ConnectionState state
             = static_cast<ConnectionState>
                 ((DWORD)oldDefaultConnectionState);
 
@@ -147,7 +147,7 @@ void CSettings::SetDefaultConnectionState (ConnectionState state)
     Store (state, GetInstance().defaultConnectionState);
 }
 
-/// controls when to bypass the repository HEAD lookup 
+/// controls when to bypass the repository HEAD lookup
 
 int CSettings::GetMaxHeadAge()
 {

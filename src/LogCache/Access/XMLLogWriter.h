@@ -41,8 +41,8 @@ namespace LogCache
 //
 // CXMLLogReader
 //
-//		utility class to create an XML formatted log from
-//		the given changed log info.
+//      utility class to create an XML formatted log from
+//      the given changed log info.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -50,46 +50,46 @@ class CXMLLogWriter
 {
 private:
 
-	// for convenience
+    // for convenience
 
-	typedef CRevisionInfoContainer::TChangeAction TChangeAction;
-	typedef CRevisionInfoContainer::CChangesIterator CChangesIterator;
+    typedef CRevisionInfoContainer::TChangeAction TChangeAction;
+    typedef CRevisionInfoContainer::CChangesIterator CChangesIterator;
 
-	// write <date> tag
+    // write <date> tag
 
-	static void WriteTimeStamp ( CBufferedOutFile& file
-							   , __time64_t timeStamp);
+    static void WriteTimeStamp ( CBufferedOutFile& file
+                               , __time64_t timeStamp);
 
-	// write <paths> tag
-	
-	static void WriteChanges ( CBufferedOutFile& file
-							 , CChangesIterator iter	
-							 , const CChangesIterator& last);
+    // write <paths> tag
 
-	// write <logentry> tag
+    static void WriteChanges ( CBufferedOutFile& file
+                             , CChangesIterator iter
+                             , const CChangesIterator& last);
 
-	static void WriteRevisionInfo ( CBufferedOutFile& file
-								  , const CRevisionInfoContainer& info
-								  , revision_t revision
-								  , index_t index);
+    // write <logentry> tag
 
-	// dump the revisions in descending order
+    static void WriteRevisionInfo ( CBufferedOutFile& file
+                                  , const CRevisionInfoContainer& info
+                                  , revision_t revision
+                                  , index_t index);
 
-	static void WriteRevionsTopDown ( CBufferedOutFile& file
-									, const CCachedLogInfo& source);
+    // dump the revisions in descending order
 
-	// dump the revisions in ascending order
+    static void WriteRevionsTopDown ( CBufferedOutFile& file
+                                    , const CCachedLogInfo& source);
 
-	static void WriteRevionsBottomUp ( CBufferedOutFile& file
-									 , const CCachedLogInfo& source);
+    // dump the revisions in ascending order
+
+    static void WriteRevionsBottomUp ( CBufferedOutFile& file
+                                     , const CCachedLogInfo& source);
 
 public:
 
-	// write the whole change content
+    // write the whole change content
 
-	static void SaveToXML ( const TFileName& xmlFileName
-						  , const CCachedLogInfo& source
-						  , bool topDown);
+    static void SaveToXML ( const TFileName& xmlFileName
+                          , const CCachedLogInfo& source
+                          , bool topDown);
 };
 
 ///////////////////////////////////////////////////////////////

@@ -26,13 +26,13 @@ namespace LogCache
 {
 
 /**
- * Per-repository server connectivity state: Default is 
+ * Per-repository server connectivity state: Default is
  * @a online, user can switch to one of the other states
- * upon connection failure. Refreshing a view will always 
+ * upon connection failure. Refreshing a view will always
  * reset to default.
  */
 
-enum ConnectionState 
+enum ConnectionState
 {
     /// call the server whenever necessary (default)
 

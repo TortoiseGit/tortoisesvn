@@ -28,12 +28,12 @@
 //
 // CRootInStream
 //
-//		The mother of all streams: represents the root of the
-//		stream hierarchy but has no content of its own. It also
-//		opens and closes the read buffer.
+//      The mother of all streams: represents the root of the
+//      stream hierarchy but has no content of its own. It also
+//      opens and closes the read buffer.
 //
-//		In contrast to all other stream types, there is no 
-//		factory to create an instance of this class.
+//      In contrast to all other stream types, there is no
+//      factory to create an instance of this class.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -41,12 +41,12 @@ class CRootInStream : public CHierachicalInStreamBase
 {
 private:
 
-	CCacheFileInBuffer buffer;
+    CCacheFileInBuffer buffer;
 
 public:
 
-	// construction / destruction: manage file buffer
+    // construction / destruction: manage file buffer
 
-	CRootInStream (const TFileName& fileName);
-	virtual ~CRootInStream();
+    CRootInStream (const TFileName& fileName);
+    virtual ~CRootInStream();
 };

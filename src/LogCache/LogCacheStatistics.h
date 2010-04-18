@@ -54,42 +54,42 @@ struct CLogCacheStatisticsData
 {
 public:
 
-	/// all the data we can get ...
+    /// all the data we can get ...
 
-	size_t fileSize;
-	size_t ramSize;
+    size_t fileSize;
+    size_t ramSize;
 
     ConnectionState connectionState;
 
-	__time64_t headTimeStamp; 
-	__time64_t lastWriteAccess;
-	__time64_t lastReadAccess;
-	bool dirty;
+    __time64_t headTimeStamp;
+    __time64_t lastWriteAccess;
+    __time64_t lastReadAccess;
+    bool dirty;
 
-	revision_t revisionCount;
-	revision_t maxRevision;
+    revision_t revisionCount;
+    revision_t maxRevision;
 
-	index_t authorCount;
-	index_t pathElementCount;
-	index_t pathCount;
-	index_t skipDeltaCount;
+    index_t authorCount;
+    index_t pathElementCount;
+    index_t pathCount;
+    index_t skipDeltaCount;
 
-	index_t wordTokenCount;
-	index_t pairTokenCount;
-	index_t textSize;
-	size_t uncompressedSize;
+    index_t wordTokenCount;
+    index_t pairTokenCount;
+    index_t textSize;
+    size_t uncompressedSize;
 
-	revision_t changesRevisionCount;
-	revision_t changesMissingRevisionCount;
-	size_t changesCount;
+    revision_t changesRevisionCount;
+    revision_t changesMissingRevisionCount;
+    size_t changesCount;
 
-	revision_t mergeInfoRevisionCount;
-	revision_t mergeInfoMissingRevisionCount;
-	size_t mergeInfoCount;
+    revision_t mergeInfoRevisionCount;
+    revision_t mergeInfoMissingRevisionCount;
+    size_t mergeInfoCount;
 
-	revision_t userRevPropRevisionCount;
-	revision_t userRevPropMissingRevisionCount;
-	size_t userRevPropCount;
+    revision_t userRevPropRevisionCount;
+    revision_t userRevPropMissingRevisionCount;
+    size_t userRevPropCount;
 };
 
 /**
@@ -106,41 +106,41 @@ private:
 
     /// utilities
 
-	static size_t GetSizeOf (const CStringDictionary& container);
-	static size_t GetSizeOf (const CIndexPairDictionary& container);
-	static size_t GetSizeOf (const CPathDictionary& container);
-	static size_t GetSizeOf (const CTokenizedStringContainer& container);
-	static size_t GetSizeOf (const CRevisionInfoContainer& container);
-	static size_t GetSizeOf (const CRevisionIndex& container);
-	static size_t GetSizeOf (const CSkipRevisionInfo& container);
-	static size_t GetSizeOf (const CCachedLogInfo& container);
+    static size_t GetSizeOf (const CStringDictionary& container);
+    static size_t GetSizeOf (const CIndexPairDictionary& container);
+    static size_t GetSizeOf (const CPathDictionary& container);
+    static size_t GetSizeOf (const CTokenizedStringContainer& container);
+    static size_t GetSizeOf (const CRevisionInfoContainer& container);
+    static size_t GetSizeOf (const CRevisionIndex& container);
+    static size_t GetSizeOf (const CSkipRevisionInfo& container);
+    static size_t GetSizeOf (const CCachedLogInfo& container);
 
-	template<class T>
-	static size_t GetSizeOf (const std::vector<T>& container);
-	template<class T>
-	static size_t GetSizeOf (const quick_hash<T>& container);
+    template<class T>
+    static size_t GetSizeOf (const std::vector<T>& container);
+    template<class T>
+    static size_t GetSizeOf (const quick_hash<T>& container);
 
-	bool CacheExists() const;
+    bool CacheExists() const;
 
-	static __time64_t GetTime (FILETIME& fileTime);
+    static __time64_t GetTime (FILETIME& fileTime);
 
-	/// data collection
+    /// data collection
 
-	void CollectData (CLogCachePool& pool, const CString& uuid, const CString& root);
-	void CollectData (const CCachedLogInfo& source);
+    void CollectData (CLogCachePool& pool, const CString& uuid, const CString& root);
+    void CollectData (const CCachedLogInfo& source);
 
 public:
 
-	/// construction / destruction:
-	/// collect data during construction
+    /// construction / destruction:
+    /// collect data during construction
 
-	CLogCacheStatistics();
-	CLogCacheStatistics (CLogCachePool& pool, const CString& uuid, const CString& root);
-	~CLogCacheStatistics();
+    CLogCacheStatistics();
+    CLogCacheStatistics (CLogCachePool& pool, const CString& uuid, const CString& root);
+    ~CLogCacheStatistics();
 
-	/// all back to zero
+    /// all back to zero
 
-	void Reset();
+    void Reset();
 
     /// data access
 
@@ -154,16 +154,16 @@ public:
 template<class T>
 static size_t CLogCacheStatistics::GetSizeOf (const std::vector<T>& container)
 {
-	return container.capacity() * sizeof(T[1]) + sizeof (container);
+    return container.capacity() * sizeof(T[1]) + sizeof (container);
 }
 
 template<class T>
 static size_t CLogCacheStatistics::GetSizeOf (const quick_hash<T>& container)
 {
-	typedef T::index_type index_type;
+    typedef T::index_type index_type;
 
-	return container.statistics().capacity * sizeof(index_type[1]) 
-		 + sizeof (container);
+    return container.statistics().capacity * sizeof(index_type[1])
+         + sizeof (container);
 }
 
 ///////////////////////////////////////////////////////////////

@@ -38,8 +38,8 @@ typedef int STREAM_INDEX;
 
 enum
 {
-	OUR_LOG_CACHE_FILE_VERSION = 0x20090623,
-	MIN_LOG_CACHE_FILE_VERSION = 0x20090623
+    OUR_LOG_CACHE_FILE_VERSION = 0x20090623,
+    MIN_LOG_CACHE_FILE_VERSION = 0x20090623
 };
 
 /**
@@ -68,28 +68,28 @@ class CCacheFileOutBuffer : public CBufferedOutFile
 {
 private:
 
-	// offsets of all streams
+    // offsets of all streams
 
-	std::vector<size_t> streamOffsets;
+    std::vector<size_t> streamOffsets;
 
-	// check that we don't open two streams at once
+    // check that we don't open two streams at once
 
-	bool streamIsOpen;
+    bool streamIsOpen;
 
 public:
 
-	// construction / destruction: auto- open/close
+    // construction / destruction: auto- open/close
 
 #ifdef WIN32
-	CCacheFileOutBuffer (const std::wstring& fileName);
+    CCacheFileOutBuffer (const std::wstring& fileName);
 #else
-	CCacheFileOutBuffer (const std::string& fileName);
+    CCacheFileOutBuffer (const std::string& fileName);
 #endif
-	virtual ~CCacheFileOutBuffer();
+    virtual ~CCacheFileOutBuffer();
 
-	// write data to file
+    // write data to file
 
-	STREAM_INDEX OpenStream();
-	void CloseStream();
+    STREAM_INDEX OpenStream();
+    void CloseStream();
 };
 

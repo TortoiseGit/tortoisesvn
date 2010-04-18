@@ -24,50 +24,50 @@
 
 void CCacheFileInBuffer::ReadStreamOffsets()
 {
-	// minimum size: 3 DWORDs
+    // minimum size: 3 DWORDs
 
-	if (GetSize() < 3 * sizeof (DWORD))
-		throw CStreamException ("log cache file too small");
+    if (GetSize() < 3 * sizeof (DWORD))
+        throw CStreamException ("log cache file too small");
 
-	// extract version numbers
+    // extract version numbers
 
-	DWORD creatorVersion = *GetDWORD (0);
-	DWORD requiredVersion = *GetDWORD (sizeof (DWORD));
+    DWORD creatorVersion = *GetDWORD (0);
+    DWORD requiredVersion = *GetDWORD (sizeof (DWORD));
 
-	// check version number
+    // check version number
 
-	if (creatorVersion < OLDEST_LOG_CACHE_FILE_VERSION)
-		throw CStreamException ("log cache file format too old");
+    if (creatorVersion < OLDEST_LOG_CACHE_FILE_VERSION)
+        throw CStreamException ("log cache file format too old");
 
-	if (requiredVersion > NEWEST_LOG_CACHE_FILE_VERSION)
-		throw CStreamException ("log cache file format too new");
+    if (requiredVersion > NEWEST_LOG_CACHE_FILE_VERSION)
+        throw CStreamException ("log cache file format too new");
 
     // number of streams in file
 
-	DWORD streamCount = *GetDWORD (GetSize() - sizeof (DWORD));
-	if (GetSize() < (3 + streamCount) * sizeof (DWORD))
-		throw CStreamException ("log cache file too small to hold stream directory");
+    DWORD streamCount = *GetDWORD (GetSize() - sizeof (DWORD));
+    if (GetSize() < (3 + streamCount) * sizeof (DWORD))
+        throw CStreamException ("log cache file too small to hold stream directory");
 
-	// read stream sizes and ranges list
+    // read stream sizes and ranges list
 
-	const unsigned char* lastStream = GetBuffer() + 2* sizeof (DWORD);
+    const unsigned char* lastStream = GetBuffer() + 2* sizeof (DWORD);
 
-	streamContents.reserve (streamCount+1);
-	streamContents.push_back (lastStream);
+    streamContents.reserve (streamCount+1);
+    streamContents.push_back (lastStream);
 
-	size_t contentEnd = GetSize() - (streamCount+1) * sizeof (DWORD);
-	const unsigned* streamSizes = GetDWORD (contentEnd);
+    size_t contentEnd = GetSize() - (streamCount+1) * sizeof (DWORD);
+    const unsigned* streamSizes = GetDWORD (contentEnd);
 
-	for (unsigned i = 0; i < streamCount; ++i)
-	{
-		lastStream += streamSizes[i];
-		streamContents.push_back (lastStream);
-	}
+    for (unsigned i = 0; i < streamCount; ++i)
+    {
+        lastStream += streamSizes[i];
+        streamContents.push_back (lastStream);
+    }
 
-	// consistency check
+    // consistency check
 
-	if ((size_t)(lastStream - GetBuffer()) != contentEnd)
-		throw CStreamException ("stream directory corrupted");
+    if ((size_t)(lastStream - GetBuffer()) != contentEnd)
+        throw CStreamException ("stream directory corrupted");
 }
 
 
@@ -76,7 +76,7 @@ void CCacheFileInBuffer::ReadStreamOffsets()
 CCacheFileInBuffer::CCacheFileInBuffer (const TFileName& fileName)
     : CMappedInFile (fileName)
 {
-	ReadStreamOffsets();
+    ReadStreamOffsets();
 }
 
 CCacheFileInBuffer::~CCacheFileInBuffer()
@@ -87,16 +87,16 @@ CCacheFileInBuffer::~CCacheFileInBuffer()
 
 STREAM_INDEX CCacheFileInBuffer::GetLastStream()
 {
-	return (STREAM_INDEX)(streamContents.size()-2);
+    return (STREAM_INDEX)(streamContents.size()-2);
 }
 
 void CCacheFileInBuffer::GetStreamBuffer ( STREAM_INDEX index
-										 , const unsigned char* &first
-										 , const unsigned char* &last)
+                                         , const unsigned char* &first
+                                         , const unsigned char* &last)
 {
-	if ((size_t)index >= streamContents.size()-1)
-		throw CStreamException ("invalid stream index");
+    if ((size_t)index >= streamContents.size()-1)
+        throw CStreamException ("invalid stream index");
 
-	first = streamContents[index];
-	last = streamContents[index+1];
+    first = streamContents[index];
+    last = streamContents[index+1];
 }

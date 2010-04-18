@@ -28,7 +28,7 @@
 //
 // CCompositeOutStreamBase
 //
-//		Base class for write streams without local stream content.
+//      Base class for write streams without local stream content.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -36,25 +36,25 @@ class CCompositeOutStreamBase : public CHierachicalOutStreamBase
 {
 private:
 
-	// this stream does not have any local stream data
+    // this stream does not have any local stream data
 
-	virtual const unsigned char* GetStreamData() {return NULL;}
-	virtual size_t GetStreamSize() {return 0;}
+    virtual const unsigned char* GetStreamData() {return NULL;}
+    virtual size_t GetStreamSize() {return 0;}
 
 public:
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CCompositeOutStreamBase ( CCacheFileOutBuffer* aBuffer
-							, SUB_STREAM_ID anID);
-	virtual ~CCompositeOutStreamBase() {};
+    CCompositeOutStreamBase ( CCacheFileOutBuffer* aBuffer
+                            , SUB_STREAM_ID anID);
+    virtual ~CCompositeOutStreamBase() {};
 };
 
 ///////////////////////////////////////////////////////////////
 //
 // CCompositeOutStream
 //
-//		instantiable sub-class of CCompositeOutStreamBase.
+//      instantiable sub-class of CCompositeOutStreamBase.
 //
 ///////////////////////////////////////////////////////////////
 

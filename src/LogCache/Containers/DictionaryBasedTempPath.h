@@ -33,17 +33,17 @@ namespace LogCache
 
 /**
  * Represents a path that may not be stored explicitly
- * in a path dictionary. This will happen frequently 
+ * in a path dictionary. This will happen frequently
  * when following a path's copy history, for instance.
  *
- * For that, it extends the CDictionaryBasedPath class with 
+ * For that, it extends the CDictionaryBasedPath class with
  * a list of plain string path elements. So, it is always as
  * sub-path of some dictionary based path.
  *
  * IsFullyCachedPath() returns true, if this list is empty.
  *
  * Use RepeatLookup() when the path dictionary got extended.
- * This method will try to find and use a dictionary based path 
+ * This method will try to find and use a dictionary based path
  * that is closer to this one (i.e. requires less additional
  * path elements).
  */
@@ -51,11 +51,11 @@ class CDictionaryBasedTempPath : private CDictionaryBasedPath
 {
 private:
 
-	typedef CDictionaryBasedPath inherited;
+    typedef CDictionaryBasedPath inherited;
 
-	// path elements to be added to the directory based path
+    // path elements to be added to the directory based path
 
-	std::vector<std::string> relPathElements;
+    std::vector<std::string> relPathElements;
 
 #ifdef _DEBUG
     /// the path expanded into a string - for easier debugging only
@@ -65,101 +65,101 @@ private:
     /// debug-only extension: update the _path member as well
     /// (the base class will not take relPathElements into account)
 
-    void SetIndex (index_t newIndex) 
-	{
+    void SetIndex (index_t newIndex)
+    {
         inherited::SetIndex (newIndex);
         _path = GetPath();
-	}
+    }
 #endif
 
 public:
 
-	// construction / destruction
+    // construction / destruction
 
-	explicit CDictionaryBasedTempPath (const CPathDictionary* dictionary)
-		: inherited (dictionary, (index_t)NO_INDEX)
-	{
-	}
+    explicit CDictionaryBasedTempPath (const CPathDictionary* dictionary)
+        : inherited (dictionary, (index_t)NO_INDEX)
+    {
+    }
 
-	explicit CDictionaryBasedTempPath (const CDictionaryBasedPath& path)
-		: inherited (path)
+    explicit CDictionaryBasedTempPath (const CDictionaryBasedPath& path)
+        : inherited (path)
     #ifdef _DEBUG
         , _path (GetPath())
     #endif
-	{
-	}
+    {
+    }
 
-	CDictionaryBasedTempPath ( const CPathDictionary* aDictionary
-					  	     , const std::string& path);
+    CDictionaryBasedTempPath ( const CPathDictionary* aDictionary
+                             , const std::string& path);
 
-	~CDictionaryBasedTempPath() 
-	{
-	}
+    ~CDictionaryBasedTempPath()
+    {
+    }
 
-	// data access
+    // data access
 
-	const CPathDictionary* GetDictionary() const
-	{
-		return inherited::GetDictionary();
-	}
+    const CPathDictionary* GetDictionary() const
+    {
+        return inherited::GetDictionary();
+    }
 
-	const CDictionaryBasedPath& GetBasePath() const
-	{
-		return *this;
-	}
+    const CDictionaryBasedPath& GetBasePath() const
+    {
+        return *this;
+    }
 
     const std::vector<std::string>& GetRelPathElements() const
     {
         return relPathElements;
     }
 
-	// path operations
+    // path operations
 
-	bool IsValid() const
-	{
-		return inherited::IsValid();
-	}
+    bool IsValid() const
+    {
+        return inherited::IsValid();
+    }
 
-	bool IsFullyCachedPath() const
-	{
-		return relPathElements.empty();
-	}
+    bool IsFullyCachedPath() const
+    {
+        return relPathElements.empty();
+    }
 
-	bool IsRoot() const
-	{
-		return inherited::IsRoot() && relPathElements.empty();
-	}
+    bool IsRoot() const
+    {
+        return inherited::IsRoot() && relPathElements.empty();
+    }
 
     index_t GetDepth() const
     {
-        return inherited::GetDepth() 
+        return inherited::GetDepth()
              + static_cast<index_t>(relPathElements.size());
     }
 
     std::string operator[](size_t index) const;
 
-	CDictionaryBasedTempPath GetCommonRoot 
-		(const CDictionaryBasedTempPath& rhs) const;
+    CDictionaryBasedTempPath GetCommonRoot
+        (const CDictionaryBasedTempPath& rhs) const;
 
-	bool IsSameOrParentOf (const CDictionaryBasedPath& rhs) const
-	{
-		return IsFullyCachedPath() && inherited::IsSameOrParentOf (rhs);
-	}
+    bool IsSameOrParentOf (const CDictionaryBasedPath& rhs) const
+    {
+        return IsFullyCachedPath() && inherited::IsSameOrParentOf (rhs);
+    }
 
-	bool IsSameOrParentOf (index_t rhsIndex) const
-	{
-		return IsFullyCachedPath() && inherited::IsSameOrParentOf (rhsIndex);
-	}
+    bool IsSameOrParentOf (index_t rhsIndex) const
+    {
+        return IsFullyCachedPath() && inherited::IsSameOrParentOf (rhsIndex);
+    }
 
-	bool IsSameOrChildOf (const CDictionaryBasedPath& rhs) const
-	{
-		return inherited::IsSameOrChildOf (rhs);
-	}
+    bool IsSameOrChildOf (const CDictionaryBasedPath& rhs) const
+    {
+        return inherited::IsSameOrChildOf (rhs);
+    }
 
-	bool IsSameOrChildOf (index_t rhsIndex) const
-	{
-		return inherited::IsSameOrChildOf (rhsIndex);
-	}
+    bool IsSameOrChildOf (index_t rhsIndex) const
+    {
+        return inherited::IsSameOrChildOf (rhsIndex);
+    }
 
     // general comparison
 
@@ -179,20 +179,20 @@ public:
         return !operator==(rhs);
     }
 
-	// create a path object with the parent renamed
+    // create a path object with the parent renamed
 
-	CDictionaryBasedTempPath ReplaceParent 
-		( const CDictionaryBasedPath& oldParent
-		, const CDictionaryBasedPath& newParent) const;
+    CDictionaryBasedTempPath ReplaceParent
+        ( const CDictionaryBasedPath& oldParent
+        , const CDictionaryBasedPath& newParent) const;
 
-	// call this after cache updates:
-	// try to remove the leading entries from relPathElements, if possible
+    // call this after cache updates:
+    // try to remove the leading entries from relPathElements, if possible
 
-	void RepeatLookup();
+    void RepeatLookup();
 
-	// convert to string
+    // convert to string
 
-	std::string GetPath() const;
+    std::string GetPath() const;
 };
 
 /// standard operator used by STL containers

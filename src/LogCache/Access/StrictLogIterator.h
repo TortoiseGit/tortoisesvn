@@ -31,23 +31,23 @@ namespace LogCache
  * copy history.
  */
 class CStrictLogIterator :
-	public CLogIteratorBase
+    public CLogIteratorBase
 {
 protected:
 
-	// implement as no-op
+    // implement as no-op
 
-	virtual bool HandleCopyAndDelete();
+    virtual bool HandleCopyAndDelete();
 
 public:
 
-	// construction / destruction 
-	// (nothing special to do)
+    // construction / destruction 
+    // (nothing special to do)
 
-	CStrictLogIterator ( const CCachedLogInfo* cachedLog
-						, revision_t startRevision
-						, const CDictionaryBasedTempPath& startPath);
-	virtual ~CStrictLogIterator(void);
+    CStrictLogIterator ( const CCachedLogInfo* cachedLog
+                        , revision_t startRevision
+                        , const CDictionaryBasedTempPath& startPath);
+    virtual ~CStrictLogIterator(void);
 };
 
 ///////////////////////////////////////////////////////////////

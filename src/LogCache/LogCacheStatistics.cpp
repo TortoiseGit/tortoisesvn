@@ -35,122 +35,122 @@ namespace LogCache
 
 size_t CLogCacheStatistics::GetSizeOf (const CStringDictionary& container)
 {
-	return GetSizeOf (container.packedStrings)
-		 + GetSizeOf (container.offsets)
-		 + GetSizeOf (container.hashIndex)
-		 + sizeof (container);
+    return GetSizeOf (container.packedStrings)
+         + GetSizeOf (container.offsets)
+         + GetSizeOf (container.hashIndex)
+         + sizeof (container);
 }
 
 size_t CLogCacheStatistics::GetSizeOf (const CIndexPairDictionary& container)
 {
-	return GetSizeOf (container.data)
-		 + GetSizeOf (container.hashIndex)
-		 + sizeof (container);
+    return GetSizeOf (container.data)
+         + GetSizeOf (container.hashIndex)
+         + sizeof (container);
 }
 
 size_t CLogCacheStatistics::GetSizeOf (const CPathDictionary& container)
 {
-	return GetSizeOf (container.pathElements)
-		 + GetSizeOf (container.paths)
-		 + sizeof (container);
+    return GetSizeOf (container.pathElements)
+         + GetSizeOf (container.paths)
+         + sizeof (container);
 }
 
 size_t CLogCacheStatistics::GetSizeOf (const CTokenizedStringContainer& container)
 {
-	return GetSizeOf (container.words)
-		 + GetSizeOf (container.pairs)
-		 + GetSizeOf (container.stringData)
-		 + GetSizeOf (container.offsets)
-		 + sizeof (container);
+    return GetSizeOf (container.words)
+         + GetSizeOf (container.pairs)
+         + GetSizeOf (container.stringData)
+         + GetSizeOf (container.offsets)
+         + sizeof (container);
 }
 
 size_t CLogCacheStatistics::GetSizeOf (const CRevisionInfoContainer& container)
 {
-	return GetSizeOf (container.presenceFlags)
-		 + GetSizeOf (container.authors)
-		 + GetSizeOf (container.timeStamps)
-		 + GetSizeOf (container.rootPaths)
-		 + GetSizeOf (container.sumChanges)
-		 + GetSizeOf (container.changesOffsets)
-		 + GetSizeOf (container.copyFromOffsets)
-		 + GetSizeOf (container.mergedRevisionsOffsets)
-		 + GetSizeOf (container.userRevPropOffsets)
-		 + GetSizeOf (container.changes)
-		 + GetSizeOf (container.changedPaths)
-		 + GetSizeOf (container.copyFromPaths)
-		 + GetSizeOf (container.copyFromRevisions)
-		 + GetSizeOf (container.mergedFromPaths)
-		 + GetSizeOf (container.mergedToPaths)
-		 + GetSizeOf (container.mergedRangeStarts)
-		 + GetSizeOf (container.mergedRangeDeltas)
-		 + GetSizeOf (container.userRevPropValues)
+    return GetSizeOf (container.presenceFlags)
+         + GetSizeOf (container.authors)
+         + GetSizeOf (container.timeStamps)
+         + GetSizeOf (container.rootPaths)
+         + GetSizeOf (container.sumChanges)
+         + GetSizeOf (container.changesOffsets)
+         + GetSizeOf (container.copyFromOffsets)
+         + GetSizeOf (container.mergedRevisionsOffsets)
+         + GetSizeOf (container.userRevPropOffsets)
+         + GetSizeOf (container.changes)
+         + GetSizeOf (container.changedPaths)
+         + GetSizeOf (container.copyFromPaths)
+         + GetSizeOf (container.copyFromRevisions)
+         + GetSizeOf (container.mergedFromPaths)
+         + GetSizeOf (container.mergedToPaths)
+         + GetSizeOf (container.mergedRangeStarts)
+         + GetSizeOf (container.mergedRangeDeltas)
+         + GetSizeOf (container.userRevPropValues)
 
-		 + GetSizeOf (container.authorPool)
-		 + GetSizeOf (container.paths)
-		 + GetSizeOf (container.comments)
-		 + GetSizeOf (container.userRevPropsPool)
-		 + GetSizeOf (container.userRevPropValues)
+         + GetSizeOf (container.authorPool)
+         + GetSizeOf (container.paths)
+         + GetSizeOf (container.comments)
+         + GetSizeOf (container.userRevPropsPool)
+         + GetSizeOf (container.userRevPropValues)
 
-		 + sizeof (container);
+         + sizeof (container);
 }
 
 size_t CLogCacheStatistics::GetSizeOf (const CRevisionIndex& container)
 {
-	return GetSizeOf (container.indices)
-		 + sizeof (container);
+    return GetSizeOf (container.indices)
+         + sizeof (container);
 }
 
 size_t CLogCacheStatistics::GetSizeOf (const CSkipRevisionInfo& container)
 {
-	size_t result = GetSizeOf (container.data)
-				  + GetSizeOf (container.index)
-				  + sizeof (container);
+    size_t result = GetSizeOf (container.data)
+                  + GetSizeOf (container.index)
+                  + sizeof (container);
 
-	for (size_t i = 0, count = container.data.size(); i < count; ++i)
-	{
-		const CSkipRevisionInfo::SPerPathRanges* entry = container.data[i];
-		if (entry != NULL)
-		{
-			typedef CSkipRevisionInfo::SPerPathRanges::TRanges::_Tree_val T;
-			result += entry->ranges.size() * sizeof (std::_Tree_val<T>)
-				    + sizeof (*entry);
-		}
-	}
+    for (size_t i = 0, count = container.data.size(); i < count; ++i)
+    {
+        const CSkipRevisionInfo::SPerPathRanges* entry = container.data[i];
+        if (entry != NULL)
+        {
+            typedef CSkipRevisionInfo::SPerPathRanges::TRanges::_Tree_val T;
+            result += entry->ranges.size() * sizeof (std::_Tree_val<T>)
+                    + sizeof (*entry);
+        }
+    }
 
-	return result;
+    return result;
 }
 
 size_t CLogCacheStatistics::GetSizeOf (const CCachedLogInfo& container)
 {
-	return GetSizeOf (container.revisions)
-		 + GetSizeOf (container.logInfo)
-		 + GetSizeOf (container.skippedRevisions)
+    return GetSizeOf (container.revisions)
+         + GetSizeOf (container.logInfo)
+         + GetSizeOf (container.skippedRevisions)
 
-		 + sizeof (container.fileName)
-		 + container.fileName.capacity() * sizeof (wchar_t)
+         + sizeof (container.fileName)
+         + container.fileName.capacity() * sizeof (wchar_t)
 
-		 + sizeof (container);
+         + sizeof (container);
 }
 
 bool CLogCacheStatistics::CacheExists() const
 {
-	return fileSize > 0;
+    return fileSize > 0;
 }
 
 __time64_t CLogCacheStatistics::GetTime (FILETIME& fileTime)
 {
-	SYSTEMTIME systemTime;
-	FileTimeToSystemTime (&fileTime, &systemTime);
+    SYSTEMTIME systemTime;
+    FileTimeToSystemTime (&fileTime, &systemTime);
 
-	tm time = {0,0,0, 0,0,0, 0,0,0};
-	time.tm_year = systemTime.wYear - 1900;
-	time.tm_mon = systemTime.wMonth - 1;
-	time.tm_mday = systemTime.wDay;
-	time.tm_hour = systemTime.wHour;
-	time.tm_min = systemTime.wMinute;
-	time.tm_sec = systemTime.wSecond;
+    tm time = {0,0,0, 0,0,0, 0,0,0};
+    time.tm_year = systemTime.wYear - 1900;
+    time.tm_mon = systemTime.wMonth - 1;
+    time.tm_mday = systemTime.wDay;
+    time.tm_hour = systemTime.wHour;
+    time.tm_min = systemTime.wMinute;
+    time.tm_sec = systemTime.wSecond;
 
-	return _mkgmtime64 (&time)*1000000 + systemTime.wMilliseconds * 1000;
+    return _mkgmtime64 (&time)*1000000 + systemTime.wMilliseconds * 1000;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -158,143 +158,143 @@ __time64_t CLogCacheStatistics::GetTime (FILETIME& fileTime)
 ///////////////////////////////////////////////////////////////
 
 void CLogCacheStatistics::CollectData ( CLogCachePool& pool
-									  , const CString& uuid
+                                      , const CString& uuid
                                       , const CString& root)
 {
-	fileSize = 0;
+    fileSize = 0;
 
-	headTimeStamp = 0; 
-	lastWriteAccess = 0;
-	lastReadAccess = 0;
+    headTimeStamp = 0;
+    lastWriteAccess = 0;
+    lastReadAccess = 0;
 
-	// file properties
+    // file properties
 
-    const CRepositoryInfo::SPerRepositoryInfo* info 
+    const CRepositoryInfo::SPerRepositoryInfo* info
         = pool.GetRepositoryInfo().data.Lookup (uuid, root);
     if (info == NULL)
         return;
 
     CString fileName = pool.GetCacheFolderPath() + info->fileName;
 
-	WIN32_FILE_ATTRIBUTE_DATA fileInfo;
-	if (GetFileAttributesEx ( fileName
-						    , GetFileExInfoStandard
-							, &fileInfo) != FALSE)
-	{
-		fileSize = fileInfo.nFileSizeLow;
-		lastReadAccess = GetTime (fileInfo.ftLastAccessTime);
-		lastWriteAccess = GetTime (fileInfo.ftLastWriteTime);
-	}
+    WIN32_FILE_ATTRIBUTE_DATA fileInfo;
+    if (GetFileAttributesEx ( fileName
+                            , GetFileExInfoStandard
+                            , &fileInfo) != FALSE)
+    {
+        fileSize = fileInfo.nFileSizeLow;
+        lastReadAccess = GetTime (fileInfo.ftLastAccessTime);
+        lastWriteAccess = GetTime (fileInfo.ftLastWriteTime);
+    }
 
-	// info from pool entry (and convert to apr_time_t)
+    // info from pool entry (and convert to apr_time_t)
 
-  	headTimeStamp = info->headLookupTime * 1000000L;
+    headTimeStamp = info->headLookupTime * 1000000L;
 }
 
 void CLogCacheStatistics::CollectData (const CCachedLogInfo& source)
 {
-	// run-time properties
+    // run-time properties
 
-	ramSize = GetSizeOf (source);
-	dirty = source.IsModified();
+    ramSize = GetSizeOf (source);
+    dirty = source.IsModified();
 
-	// revisions
+    // revisions
 
-	revisionCount 
+    revisionCount
         = (revision_t) (  source.revisions.indices.size()
                         - std::count ( source.revisions.indices.begin()
-									 , source.revisions.indices.end()
-									 , NO_INDEX));
-	maxRevision = source.revisions.GetLastCachedRevision()-1;
+                                     , source.revisions.indices.end()
+                                     , NO_INDEX));
+    maxRevision = source.revisions.GetLastCachedRevision()-1;
 
-	// container sizes
+    // container sizes
 
-	authorCount = source.logInfo.authorPool.size() -1;
-	pathElementCount = source.logInfo.paths.pathElements.size();
-	pathCount = source.logInfo.paths.size();
-	
-	skipDeltaCount = 0;
-	for ( size_t i = 0, count = source.skippedRevisions.data.size(); i < count; ++i)
-	{
-		const CSkipRevisionInfo::SPerPathRanges* entry 
-			= source.skippedRevisions.data[i];
-		if (entry != NULL)
-			skipDeltaCount += (index_t)entry->ranges.size();
-	}
+    authorCount = source.logInfo.authorPool.size() -1;
+    pathElementCount = source.logInfo.paths.pathElements.size();
+    pathCount = source.logInfo.paths.size();
 
-	wordTokenCount = source.logInfo.comments.words.size();
-	pairTokenCount = source.logInfo.comments.pairs.size();
-	textSize = (index_t)source.logInfo.comments.stringData.size();
-	uncompressedSize = source.logInfo.comments.UncompressedWordCount();
+    skipDeltaCount = 0;
+    for ( size_t i = 0, count = source.skippedRevisions.data.size(); i < count; ++i)
+    {
+        const CSkipRevisionInfo::SPerPathRanges* entry
+            = source.skippedRevisions.data[i];
+        if (entry != NULL)
+            skipDeltaCount += (index_t)entry->ranges.size();
+    }
 
-	// changes
+    wordTokenCount = source.logInfo.comments.words.size();
+    pairTokenCount = source.logInfo.comments.pairs.size();
+    textSize = (index_t)source.logInfo.comments.stringData.size();
+    uncompressedSize = source.logInfo.comments.UncompressedWordCount();
 
-	changesRevisionCount = 0;
-	changesMissingRevisionCount = 0;
-	changesCount = 0;
+    // changes
 
-	for (size_t i = 0, count = source.logInfo.size(); i < count; ++i)
-	{
-		index_t changeCount = source.logInfo.changesOffsets[i+1]
-							- source.logInfo.changesOffsets[i];
-		if (changeCount > 0)
-		{
-			++changesRevisionCount;
-			changesCount += changeCount;
-		}
-		else
-		{
-			if ((  source.logInfo.presenceFlags[i] 
-			     & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
-				++changesMissingRevisionCount;
-		}
-	}
+    changesRevisionCount = 0;
+    changesMissingRevisionCount = 0;
+    changesCount = 0;
 
-	// merge info
+    for (size_t i = 0, count = source.logInfo.size(); i < count; ++i)
+    {
+        index_t changeCount = source.logInfo.changesOffsets[i+1]
+                            - source.logInfo.changesOffsets[i];
+        if (changeCount > 0)
+        {
+            ++changesRevisionCount;
+            changesCount += changeCount;
+        }
+        else
+        {
+            if ((  source.logInfo.presenceFlags[i]
+                 & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
+                ++changesMissingRevisionCount;
+        }
+    }
 
-	mergeInfoRevisionCount = 0;
-	mergeInfoMissingRevisionCount = 0;
-	mergeInfoCount = 0;
+    // merge info
 
-	for (size_t i = 0, count = source.logInfo.size(); i < count; ++i)
-	{
-		index_t mergeCount = source.logInfo.mergedRevisionsOffsets[i+1]
-					       - source.logInfo.mergedRevisionsOffsets[i];
-		if (mergeCount > 0)
-		{
-			++mergeInfoRevisionCount;
-			mergeInfoCount += mergeCount;
-		}
-		else
-		{
-			if ((  source.logInfo.presenceFlags[i] 
-			     & CRevisionInfoContainer::HAS_MERGEINFO) == 0)
-				++mergeInfoMissingRevisionCount;
-		}
-	}
+    mergeInfoRevisionCount = 0;
+    mergeInfoMissingRevisionCount = 0;
+    mergeInfoCount = 0;
 
-	// user revision properties
+    for (size_t i = 0, count = source.logInfo.size(); i < count; ++i)
+    {
+        index_t mergeCount = source.logInfo.mergedRevisionsOffsets[i+1]
+                           - source.logInfo.mergedRevisionsOffsets[i];
+        if (mergeCount > 0)
+        {
+            ++mergeInfoRevisionCount;
+            mergeInfoCount += mergeCount;
+        }
+        else
+        {
+            if ((  source.logInfo.presenceFlags[i]
+                 & CRevisionInfoContainer::HAS_MERGEINFO) == 0)
+                ++mergeInfoMissingRevisionCount;
+        }
+    }
 
-	userRevPropRevisionCount = 0;
-	userRevPropMissingRevisionCount = 0;
-	userRevPropCount = 0;
+    // user revision properties
 
-	for (size_t i = 0, count = source.logInfo.size(); i < count; ++i)
-	{
-		index_t propCount = source.logInfo.userRevPropOffsets[i+1]
-					      - source.logInfo.userRevPropOffsets[i];
-		if (propCount > 0)
-		{
-			++userRevPropRevisionCount;
-			userRevPropCount += propCount;
-		}
-		else
-		{
-			if ((  source.logInfo.presenceFlags[i] 
-			     & CRevisionInfoContainer::HAS_USERREVPROPS) == 0)
-				++userRevPropMissingRevisionCount;
-		}
-	}
+    userRevPropRevisionCount = 0;
+    userRevPropMissingRevisionCount = 0;
+    userRevPropCount = 0;
+
+    for (size_t i = 0, count = source.logInfo.size(); i < count; ++i)
+    {
+        index_t propCount = source.logInfo.userRevPropOffsets[i+1]
+                          - source.logInfo.userRevPropOffsets[i];
+        if (propCount > 0)
+        {
+            ++userRevPropRevisionCount;
+            userRevPropCount += propCount;
+        }
+        else
+        {
+            if ((  source.logInfo.presenceFlags[i]
+                 & CRevisionInfoContainer::HAS_USERREVPROPS) == 0)
+                ++userRevPropMissingRevisionCount;
+        }
+    }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -304,20 +304,20 @@ void CLogCacheStatistics::CollectData (const CCachedLogInfo& source)
 
 CLogCacheStatistics::CLogCacheStatistics()
 {
-	Reset();
+    Reset();
 }
 
 CLogCacheStatistics::CLogCacheStatistics ( CLogCachePool& pool
-										 , const CString& uuid
+                                         , const CString& uuid
                                          , const CString& url)
 {
-	Reset();
+    Reset();
 
-	CollectData (pool, uuid, url);
-	if (CacheExists())
-		CollectData (*pool.GetCache (uuid, url));
+    CollectData (pool, uuid, url);
+    if (CacheExists())
+        CollectData (*pool.GetCache (uuid, url));
 
-    connectionState 
+    connectionState
         = pool.GetRepositoryInfo().GetConnectionState (uuid, url);
 }
 
@@ -331,38 +331,38 @@ CLogCacheStatistics::~CLogCacheStatistics()
 
 void CLogCacheStatistics::Reset()
 {
-	fileSize = 0;
-	ramSize = 0;
+    fileSize = 0;
+    ramSize = 0;
 
     connectionState = online;
 
-	headTimeStamp = 0; 
-	lastWriteAccess = 0;
-	lastReadAccess = 0;
-	dirty = false;
+    headTimeStamp = 0;
+    lastWriteAccess = 0;
+    lastReadAccess = 0;
+    dirty = false;
 
-	revisionCount = 0;
-	maxRevision = 0;
+    revisionCount = 0;
+    maxRevision = 0;
 
-	authorCount = 0;
-	pathCount = 0;
-	skipDeltaCount = 0;
+    authorCount = 0;
+    pathCount = 0;
+    skipDeltaCount = 0;
 
-	wordTokenCount = 0;
-	pairTokenCount = 0;
-	textSize = 0;
+    wordTokenCount = 0;
+    pairTokenCount = 0;
+    textSize = 0;
 
-	changesRevisionCount = 0;
-	changesMissingRevisionCount = 0;
-	changesCount = 0;
+    changesRevisionCount = 0;
+    changesMissingRevisionCount = 0;
+    changesCount = 0;
 
-	mergeInfoRevisionCount = 0;
-	mergeInfoMissingRevisionCount = 0;
-	mergeInfoCount = 0;
+    mergeInfoRevisionCount = 0;
+    mergeInfoMissingRevisionCount = 0;
+    mergeInfoCount = 0;
 
-	userRevPropRevisionCount = 0;
-	userRevPropMissingRevisionCount = 0;
-	userRevPropCount = 0;
+    userRevPropRevisionCount = 0;
+    userRevPropMissingRevisionCount = 0;
+    userRevPropCount = 0;
 }
 
 ///////////////////////////////////////////////////////////////

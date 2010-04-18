@@ -26,12 +26,12 @@
 
 CHuffmanBase::key_type CHuffmanBase::ReverseBits (key_type v, BYTE length)
 {
-	key_type result = 0;
-	for (; length > 0; --length)
-	{
-		result = 2*result + (v & 1);
-		v >>= 1;
-	}
+    key_type result = 0;
+    for (; length > 0; --length)
+    {
+        result = 2*result + (v & 1);
+        v >>= 1;
+    }
 
-	return result;
+    return result;
 }

@@ -46,12 +46,12 @@ public:
     CPathToStringMap();
 
     /// remove all entries.
-    /// Must be called whenever exisiting entries of 
+    /// Must be called whenever exisiting entries of
     /// the path dictionary get modified / invalidated.
 
     void Clear();
 
     /// auto-inserting lookup
 
-    const CString& AsString (const LogCache::CDictionaryBasedPath& path); 
+    const CString& AsString (const LogCache::CDictionaryBasedPath& path);
 };

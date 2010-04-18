@@ -51,27 +51,27 @@ class CLogCachePool
 {
 private:
 
-	/// where the log cache files are stored
+    /// where the log cache files are stored
 
-	CString cacheFolderPath;
+    CString cacheFolderPath;
 
     /// cached repository properties
 
     CRepositoryInfo* repositoryInfo;
 
-	/// cache per repository (file name)
+    /// cache per repository (file name)
 
-	typedef std::map<CString, CCachedLogInfo*> TCaches;
-	static TCaches caches;
+    typedef std::map<CString, CCachedLogInfo*> TCaches;
+    static TCaches caches;
     static long instanceCount;
 
-	/// utility
+    /// utility
 
-	static bool FileExists (const std::wstring& filePath);
+    static bool FileExists (const std::wstring& filePath);
 
-	/// minimize memory usage
+    /// minimize memory usage
 
-	void Clear();
+    void Clear();
 
     /// remove small, unused caches
 
@@ -79,42 +79,42 @@ private:
 
 public:
 
-	/// construction / destruction
-	/// (Flush() on destruction)
+    /// construction / destruction
+    /// (Flush() on destruction)
 
-	CLogCachePool (SVN& svn, const CString& cacheFolderPath);
-	virtual ~CLogCachePool(void);
+    CLogCachePool (SVN& svn, const CString& cacheFolderPath);
+    virtual ~CLogCachePool(void);
 
-	/// auto-create and return cache for given repository
+    /// auto-create and return cache for given repository
 
-	CCachedLogInfo* GetCache (const CString& uuid, const CString& root);
+    CCachedLogInfo* GetCache (const CString& uuid, const CString& root);
 
     /// cached repository info
 
     CRepositoryInfo& GetRepositoryInfo();
 
-	/// return the size of the repository cache file 
+    /// return the size of the repository cache file 
     /// (returns 0 for new files)
 
-	size_t FileSize (const CString& uuid, const CString& root);
+    size_t FileSize (const CString& uuid, const CString& root);
 
-	/// delete a cache along with all file(s)
+    /// delete a cache along with all file(s)
 
-	void DropCache (const CString& uuid, const CString& root);
+    void DropCache (const CString& uuid, const CString& root);
 
-	/// other data access
+    /// other data access
 
-	const CString& GetCacheFolderPath() const;
+    const CString& GetCacheFolderPath() const;
 
-	/// return as URL -> UUID map
+    /// return as URL -> UUID map
 
-	std::multimap<CString, CString> GetRepositoryURLs() const;
+    std::multimap<CString, CString> GetRepositoryURLs() const;
 
     /// cache management
-	
-	/// write all changes to disk
+    
+    /// write all changes to disk
 
-	void Flush();
+    void Flush();
 
     /// has log caching been enabled?
 
@@ -127,7 +127,7 @@ public:
 
 inline const CString& CLogCachePool::GetCacheFolderPath() const
 {
-	return cacheFolderPath;
+    return cacheFolderPath;
 }
 
 ///////////////////////////////////////////////////////////////

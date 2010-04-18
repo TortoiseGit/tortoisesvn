@@ -111,7 +111,7 @@ public:
     static ConnectionState GetDefaultConnectionState();
     static void SetDefaultConnectionState (ConnectionState state);
 
-    /// controls when to bypass the repository HEAD lookup 
+    /// controls when to bypass the repository HEAD lookup
 
     static int GetMaxHeadAge();
     static void SetMaxHeadAge (int limit);

@@ -30,29 +30,29 @@ namespace LogCache
 
 bool CCopyFollowingLogIterator::HandleCopyAndDelete()
 {
-	assert (!InternalDataIsMissing());
+    assert (!InternalDataIsMissing());
 
-	// revision data lookup
+    // revision data lookup
 
-	index_t index = revisionIndices[revision];
+    index_t index = revisionIndices[revision];
 
-	// switch to new path, if necessary
+    // switch to new path, if necessary
 
-	return InternalHandleCopyAndDelete ( revisionInfo.GetChangesBegin(index)
-									   , revisionInfo.GetChangesEnd(index)
-									   , revisionInfo.GetRootPath (index)
-									   , path
-									   , revision);
+    return InternalHandleCopyAndDelete ( revisionInfo.GetChangesBegin(index)
+                                       , revisionInfo.GetChangesEnd(index)
+                                       , revisionInfo.GetRootPath (index)
+                                       , path
+                                       , revision);
 }
 
-// construction / destruction 
+// construction / destruction
 // (nothing special to do)
 
-CCopyFollowingLogIterator::CCopyFollowingLogIterator 
-	( const CCachedLogInfo* cachedLog
-	, revision_t startRevision
-	, const CDictionaryBasedTempPath& startPath)
-	: CLogIteratorBase (cachedLog, startRevision, startPath)
+CCopyFollowingLogIterator::CCopyFollowingLogIterator
+    ( const CCachedLogInfo* cachedLog
+    , revision_t startRevision
+    , const CDictionaryBasedTempPath& startPath)
+    : CLogIteratorBase (cachedLog, startRevision, startPath)
 {
 }
 

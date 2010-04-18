@@ -30,8 +30,8 @@
 //
 // IHierarchicalInStream
 //
-//		the generic read stream interface. 
-//		Streams form a tree.
+//      the generic read stream interface. 
+//      Streams form a tree.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -45,48 +45,48 @@ public:
     virtual void AutoClose() = 0;
     virtual void Prefetch() = 0;
 
-	// access a sub-stream
+    // access a sub-stream
 
     virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const = 0;
-	virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
+    virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
                                                 , bool autoOpen = true) = 0;
 
-	// for simplified access
-	// The last parameter is only present for technical reasons
-	// (different type overloads must have different signatures) 
-	// and neither needs to be specified nor will it not be used.
+    // for simplified access
+    // The last parameter is only present for technical reasons
+    // (different type overloads must have different signatures) 
+    // and neither needs to be specified nor will it not be used.
 
-	template<class S> 
-	S* GetSubStream ( SUB_STREAM_ID subStreamID
+    template<class S> 
+    S* GetSubStream ( SUB_STREAM_ID subStreamID
                     , bool autoOpen = true
-					, S* = NULL);
+                    , S* = NULL);
 
-	// required for proper destruction of sub-class instances
+    // required for proper destruction of sub-class instances
 
-	virtual ~IHierarchicalInStream() {};
+    virtual ~IHierarchicalInStream() {};
 };
 
 template<class S> 
 S* IHierarchicalInStream::GetSubStream 
-	( SUB_STREAM_ID subStreamID
+    ( SUB_STREAM_ID subStreamID
     , bool autoOpen
-	, S*)
+    , S*)
 {
     S* result = dynamic_cast<S*>(GetSubStream (subStreamID, autoOpen));
-	if (result == NULL)
-		throw CStreamException ("stream type mismatch");
+    if (result == NULL)
+        throw CStreamException ("stream type mismatch");
 
-	return result;
+    return result;
 }
 
 ///////////////////////////////////////////////////////////////
 //
 // CHierachicalInStreamBase
 //
-//		implements IHierarchicalInStream except for GetTypeID().
-//		It mainly manages the sub-streams. 
+//      implements IHierarchicalInStream except for GetTypeID().
+//      It mainly manages the sub-streams. 
 //
-//		For details of the stream format see CHierachicalOutStreamBase.
+//      For details of the stream format see CHierachicalOutStreamBase.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -94,74 +94,74 @@ class CHierachicalInStreamBase : public IHierarchicalInStream
 {
 private:
 
-	// the sub-streams (in no particular order)
+    // the sub-streams (in no particular order)
 
-	typedef std::map<SUB_STREAM_ID, IHierarchicalInStream*> TSubStreams;
-	TSubStreams subStreams;
+    typedef std::map<SUB_STREAM_ID, IHierarchicalInStream*> TSubStreams;
+    TSubStreams subStreams;
 
 protected:
 
-	// stream content
-	// (sub-stream info will be excluded after ReadSubStreams()) 
+    // stream content
+    // (sub-stream info will be excluded after ReadSubStreams()) 
 
-	typedef unsigned char BYTE;
-	const BYTE* first;
-	const BYTE* last;
+    typedef unsigned char BYTE;
+    const BYTE* first;
+    const BYTE* last;
 
     // original stream data. NULL while not open
 
     const BYTE* packedLast;
     const BYTE* packedFirst;
 
-	// for usage with CRootInStream
+    // for usage with CRootInStream
 
-	CHierachicalInStreamBase();
+    CHierachicalInStreamBase();
 
-	// read stream content
+    // read stream content
 
-	void ReadSubStreams ( CCacheFileInBuffer* buffer
-				        , STREAM_INDEX index);
-	void DecodeThisStream();
+    void ReadSubStreams ( CCacheFileInBuffer* buffer
+                        , STREAM_INDEX index);
+    void DecodeThisStream();
 
 public:
 
-	// construction / destruction
+    // construction / destruction
 
-	CHierachicalInStreamBase ( CCacheFileInBuffer* buffer
-							 , STREAM_INDEX index);
-	virtual ~CHierachicalInStreamBase(void);
+    CHierachicalInStreamBase ( CCacheFileInBuffer* buffer
+                             , STREAM_INDEX index);
+    virtual ~CHierachicalInStreamBase(void);
 
-	// implement IHierarchicalInStream
+    // implement IHierarchicalInStream
 
     virtual void AutoOpen();
     virtual void AutoClose();
     virtual void Prefetch();
 
     virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const;
-	virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
+    virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
                                                 , bool autoOpen = true);
-	template<class S> 
-	S* GetSubStream ( SUB_STREAM_ID subStreamID
+    template<class S> 
+    S* GetSubStream ( SUB_STREAM_ID subStreamID
                     , bool autoOpen = true
-					, S* = NULL);
+                    , S* = NULL);
 };
 
 template<class S> 
 inline S* CHierachicalInStreamBase::GetSubStream 
-	( SUB_STREAM_ID subStreamID
-	, bool autoOpen 
-	, S*)
+    ( SUB_STREAM_ID subStreamID
+    , bool autoOpen 
+    , S*)
 {
-	return IHierarchicalInStream::GetSubStream<S>(subStreamID, autoOpen);
+    return IHierarchicalInStream::GetSubStream<S>(subStreamID, autoOpen);
 }
 
 ///////////////////////////////////////////////////////////////
 //
 // CInStreamImplBase<>
 //
-//		implements a read stream class based upon the non-
-//		creatable base class B. T is the actual stream class
-//		to create and type is the desired stream type id.
+//      implements a read stream class based upon the non-
+//      creatable base class B. T is the actual stream class
+//      to create and type is the desired stream type id.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -170,63 +170,63 @@ class CInStreamImplBase : public B
 {
 public:
 
-	// create our stream factory
+    // create our stream factory
 
-	typedef CStreamFactory< T
-						  , IHierarchicalInStream
-						  , CCacheFileInBuffer
-						  , type> TFactory;
-	static typename TFactory::CCreator factoryCreator;
+    typedef CStreamFactory< T
+                          , IHierarchicalInStream
+                          , CCacheFileInBuffer
+                          , type> TFactory;
+    static typename TFactory::CCreator factoryCreator;
 
 public:
 
-	// construction / destruction: nothing to do here
+    // construction / destruction: nothing to do here
 
-	CInStreamImplBase ( CCacheFileInBuffer* buffer
-					  , STREAM_INDEX index)
-		: B (buffer, index)
-	{
-		// trick the compiler: 
-		// use a dummy reference to factoryCreator
-		// to force its creation
+    CInStreamImplBase ( CCacheFileInBuffer* buffer
+                      , STREAM_INDEX index)
+        : B (buffer, index)
+    {
+        // trick the compiler: 
+        // use a dummy reference to factoryCreator
+        // to force its creation
 
-		&factoryCreator;
-	}
+        &factoryCreator;
+    }
 
-	virtual ~CInStreamImplBase() {};
+    virtual ~CInStreamImplBase() {};
 };
 
 // stream factory creator
 
 template<class T, class B, STREAM_TYPE_ID type> 
 typename CInStreamImplBase<T, B, type>::TFactory::CCreator 
-	CInStreamImplBase<T, B, type>::factoryCreator;
+    CInStreamImplBase<T, B, type>::factoryCreator;
 
 ///////////////////////////////////////////////////////////////
 //
 // CInStreamImpl<>
 //
-//		enhances CInStreamImplBase<> for the case that there 
-//		is no further sub-class.
+//      enhances CInStreamImplBase<> for the case that there 
+//      is no further sub-class.
 //
 ///////////////////////////////////////////////////////////////
 
 template<class B, STREAM_TYPE_ID type> 
 class CInStreamImpl : public CInStreamImplBase< CInStreamImpl<B, type>
-											  , B
-											  , type>
+                                              , B
+                                              , type>
 {
 public:
 
-	typedef CInStreamImplBase<CInStreamImpl<B, type>, B, type> TBase;
+    typedef CInStreamImplBase<CInStreamImpl<B, type>, B, type> TBase;
 
-	// construction / destruction: nothing to do here
+    // construction / destruction: nothing to do here
 
-	CInStreamImpl ( CCacheFileInBuffer* buffer
-				  , STREAM_INDEX index)
-		: TBase (buffer, index)
-	{
-	}
+    CInStreamImpl ( CCacheFileInBuffer* buffer
+                  , STREAM_INDEX index)
+        : TBase (buffer, index)
+    {
+    }
 
-	virtual ~CInStreamImpl() {};
+    virtual ~CInStreamImpl() {};
 };

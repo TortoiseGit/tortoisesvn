@@ -29,28 +29,28 @@
 
 void CPackedDWORDOutStreamBase::FlushLastValue() throw()
 {
-	if (count > 0)
-	{
-		InternalAdd (0);
-		InternalAdd (count);
-		InternalAdd (lastValue);
-	}
+    if (count > 0)
+    {
+        InternalAdd (0);
+        InternalAdd (count);
+        InternalAdd (lastValue);
+    }
 }
 
 // prepare our data for being written to the file
 
 void CPackedDWORDOutStreamBase::FlushData()
 {
-	FlushLastValue();
+    FlushLastValue();
 }
 
 // construction: nothing special to do
 
 CPackedDWORDOutStreamBase::CPackedDWORDOutStreamBase ( CCacheFileOutBuffer* aBuffer
-													 , SUB_STREAM_ID anID)
-	: CBinaryOutStreamBase (aBuffer, anID)
-	, lastValue (0)
-	, count (0)
+                                                     , SUB_STREAM_ID anID)
+    : CBinaryOutStreamBase (aBuffer, anID)
+    , lastValue (0)
+    , count (0)
 {
 }
 
@@ -63,7 +63,7 @@ CPackedDWORDOutStreamBase::CPackedDWORDOutStreamBase ( CCacheFileOutBuffer* aBuf
 // construction: nothing special to do
 
 CPackedDWORDOutStream::CPackedDWORDOutStream ( CCacheFileOutBuffer* aBuffer
-										     , SUB_STREAM_ID anID)
-	: TBase (aBuffer, anID)
+                                             , SUB_STREAM_ID anID)
+    : TBase (aBuffer, anID)
 {
 }

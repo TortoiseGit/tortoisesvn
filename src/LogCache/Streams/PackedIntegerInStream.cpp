@@ -28,8 +28,8 @@
 // construction: nothing to do here
 
 CPackedIntegerInStreamBase::CPackedIntegerInStreamBase (CCacheFileInBuffer* buffer
-													   , STREAM_INDEX index)
-	: CPackedDWORDInStreamBase (buffer, index)
+                                                       , STREAM_INDEX index)
+    : CPackedDWORDInStreamBase (buffer, index)
 {
 }
 
@@ -42,7 +42,7 @@ CPackedIntegerInStreamBase::CPackedIntegerInStreamBase (CCacheFileInBuffer* buff
 // construction: nothing special to do
 
 CPackedIntegerInStream::CPackedIntegerInStream ( CCacheFileInBuffer* buffer
-											   , STREAM_INDEX index)
-	: TBase (buffer, index)
+                                               , STREAM_INDEX index)
+    : TBase (buffer, index)
 {
 }

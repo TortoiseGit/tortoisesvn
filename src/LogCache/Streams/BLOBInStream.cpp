@@ -22,7 +22,7 @@
 // construction: nothing to do here
 
 CBLOBInStreamBase::CBLOBInStreamBase ( CCacheFileInBuffer* buffer
-								     , STREAM_INDEX index)
-	: CHierachicalInStreamBase (buffer, index)
+                                     , STREAM_INDEX index)
+    : CHierachicalInStreamBase (buffer, index)
 {
 }

@@ -37,7 +37,7 @@ namespace LogCache
 bool CCachedLogInfo::CCacheFileManager::IsMarked (const TFileName& name) const
 {
     DWORD attributes = GetFileAttributes (name.c_str());
-    return    (attributes != INVALID_FILE_ATTRIBUTES) 
+    return    (attributes != INVALID_FILE_ATTRIBUTES)
            && ((attributes & FILE_ATTRIBUTE_HIDDEN) != 0);
 }
 
@@ -57,9 +57,9 @@ void CCachedLogInfo::CCacheFileManager::ResetMark()
     SetFileAttributes (fileName.c_str(), attributes);
 }
 
-// allow for multiple failures 
+// allow for multiple failures
 
-bool CCachedLogInfo::CCacheFileManager::ShouldDrop 
+bool CCachedLogInfo::CCacheFileManager::ShouldDrop
     ( const TFileName& name
     , int maxFailures)
 {
@@ -106,10 +106,10 @@ bool CCachedLogInfo::CCacheFileManager::ShouldDrop
     }
     catch (CException* e)
     {
-		e->Delete();
+        e->Delete();
     }
 
-    // could not access the file or similar problem 
+    // could not access the file or similar problem
     // -> remove it if it's no longer in use
 
     CloseHandle (tempHandle);
@@ -138,7 +138,7 @@ void CCachedLogInfo::CCacheFileManager::UpdateMark (const TFileName& name)
         }
         catch (CException* e)
         {
-			e->Delete();
+            e->Delete();
         }
     }
 }
@@ -161,7 +161,7 @@ CCachedLogInfo::CCacheFileManager::~CCacheFileManager()
 /// call this *before* opening the file
 /// (will auto-drop crashed files etc.)
 
-void CCachedLogInfo::CCacheFileManager::AutoAcquire 
+void CCachedLogInfo::CCacheFileManager::AutoAcquire
     ( const TFileName& fileName
     , int maxFailures)
 {
@@ -207,13 +207,13 @@ void CCachedLogInfo::CCacheFileManager::AutoRelease()
 {
     if (OwnsFile())
     {
-        // reset the mark 
+        // reset the mark
         // (AutoAcquire() will no longer try to delete the file)
-        
+
         ResetMark();
 
         // now, we may close the file
-        // -> DeleteFile() would succeed afterwards 
+        // -> DeleteFile() would succeed afterwards
         //    but AutoAcquire() would no longer attempt it
 
         CloseHandle (fileHandle);
@@ -287,22 +287,22 @@ bool CCachedLogInfo::CCacheFileManager::OwnsFile() const
 // construction / destruction (nothing to do)
 
 CCachedLogInfo::CCachedLogInfo()
-	: fileName()
-	, revisions()
-	, logInfo()
-	, skippedRevisions (logInfo.GetPaths(), revisions, logInfo)
-	, modified (false)
-	, revisionAdded (false)
+    : fileName()
+    , revisions()
+    , logInfo()
+    , skippedRevisions (logInfo.GetPaths(), revisions, logInfo)
+    , modified (false)
+    , revisionAdded (false)
 {
 }
 
 CCachedLogInfo::CCachedLogInfo (const TFileName& aFileName)
-	: fileName (aFileName)
-	, revisions()
-	, logInfo()
-	, skippedRevisions (logInfo.GetPaths(), revisions, logInfo)
-	, modified (false)
-	, revisionAdded (false)
+    : fileName (aFileName)
+    , revisions()
+    , logInfo()
+    , skippedRevisions (logInfo.GetPaths(), revisions, logInfo)
+    , modified (false)
+    , revisionAdded (false)
 {
 }
 
@@ -315,47 +315,47 @@ CCachedLogInfo::~CCachedLogInfo (void)
 
 void CCachedLogInfo::Load (int maxFailures)
 {
-	assert (revisions.GetLastRevision() == 0);
+    assert (revisions.GetLastRevision() == 0);
 
-	try
-	{
-		// handle crashes and lock file
-	
-		fileManager.AutoAcquire (fileName, maxFailures);
-	
-		// does log cache file exist?
-	
-	#ifdef WIN32
-		if (GetFileAttributes (fileName.c_str()) != INVALID_FILE_ATTRIBUTES)
-		{
-	#else
-		FILE* file = fopen (fileName.c_str(), "r+");
-		if (file != NULL)
-		{
-			fclose (file);
-	#endif
-			// read the data
-	
-			CRootInStream stream (fileName);
-	
-			IHierarchicalInStream* revisionsStream
-				= stream.GetSubStream (REVISIONS_STREAM_ID);
-			*revisionsStream >> revisions;
-	
-			IHierarchicalInStream* logInfoStream
-				= stream.GetSubStream (LOG_INFO_STREAM_ID);
-			*logInfoStream >> logInfo;
-	
-			IHierarchicalInStream* skipRevisionsStream
-				= stream.GetSubStream (SKIP_REVISIONS_STREAM_ID);
-			*skipRevisionsStream >> skippedRevisions;
-		}
-	}
-	catch (...)
-	{
-		// if there was a problem, the cache file is probably corrupt
-		// -> don't use its data
-	}
+    try
+    {
+        // handle crashes and lock file
+
+        fileManager.AutoAcquire (fileName, maxFailures);
+
+        // does log cache file exist?
+
+    #ifdef WIN32
+        if (GetFileAttributes (fileName.c_str()) != INVALID_FILE_ATTRIBUTES)
+        {
+    #else
+        FILE* file = fopen (fileName.c_str(), "r+");
+        if (file != NULL)
+        {
+            fclose (file);
+    #endif
+            // read the data
+
+            CRootInStream stream (fileName);
+
+            IHierarchicalInStream* revisionsStream
+                = stream.GetSubStream (REVISIONS_STREAM_ID);
+            *revisionsStream >> revisions;
+
+            IHierarchicalInStream* logInfoStream
+                = stream.GetSubStream (LOG_INFO_STREAM_ID);
+            *logInfoStream >> logInfo;
+
+            IHierarchicalInStream* skipRevisionsStream
+                = stream.GetSubStream (SKIP_REVISIONS_STREAM_ID);
+            *skipRevisionsStream >> skippedRevisions;
+        }
+    }
+    catch (...)
+    {
+        // if there was a problem, the cache file is probably corrupt
+        // -> don't use its data
+    }
 }
 
 bool CCachedLogInfo::IsEmpty() const
@@ -373,28 +373,28 @@ void CCachedLogInfo::Save (const TFileName& newFileName)
         fileManager.AutoAcquire (newFileName, 0);
     }
 
-	// write the data file, if we were the first to open it
+    // write the data file, if we were the first to open it
 
     if (fileManager.OwnsFile())
     {
-	    CRootOutStream stream (newFileName);
+        CRootOutStream stream (newFileName);
 
-	    IHierarchicalOutStream* revisionsStream
-			= stream.OpenSubStream<CCompositeOutStream> (REVISIONS_STREAM_ID);
-	    *revisionsStream << revisions;
+        IHierarchicalOutStream* revisionsStream
+            = stream.OpenSubStream<CCompositeOutStream> (REVISIONS_STREAM_ID);
+        *revisionsStream << revisions;
 
-	    IHierarchicalOutStream* logInfoStream
-		    = stream.OpenSubStream<CCompositeOutStream> (LOG_INFO_STREAM_ID);
-	    *logInfoStream << logInfo;
+        IHierarchicalOutStream* logInfoStream
+            = stream.OpenSubStream<CCompositeOutStream> (LOG_INFO_STREAM_ID);
+        *logInfoStream << logInfo;
 
-	    IHierarchicalOutStream* skipRevisionsStream
-		    = stream.OpenSubStream<CCompositeOutStream> (SKIP_REVISIONS_STREAM_ID);
-	    *skipRevisionsStream << skippedRevisions;
+        IHierarchicalOutStream* skipRevisionsStream
+            = stream.OpenSubStream<CCompositeOutStream> (SKIP_REVISIONS_STREAM_ID);
+        *skipRevisionsStream << skippedRevisions;
     }
 
-	// all fine -> connect to the new file name
+    // all fine -> connect to the new file name
 
-	fileName = newFileName;
+    fileName = newFileName;
 
     // the data is no longer "modified"
 
@@ -428,41 +428,41 @@ revision_t CCachedLogInfo::FindRevisionByDate (__time64_t maxTimeStamp) const
 // data modification (mirrors CRevisionInfoContainer)
 
 void CCachedLogInfo::Insert ( revision_t revision
-							 , const std::string& author
-							 , const std::string& comment
-							 , __time64_t timeStamp
+                             , const std::string& author
+                             , const std::string& comment
+                             , __time64_t timeStamp
                              , char flags)
 {
-	// there will be a modification
+    // there will be a modification
 
-	modified = true;
+    modified = true;
 
-	// add entry to cache and update the revision index
+    // add entry to cache and update the revision index
 
-	index_t index = logInfo.Insert (author, comment, timeStamp, flags);
-	revisions.SetRevisionIndex (revision, index);
+    index_t index = logInfo.Insert (author, comment, timeStamp, flags);
+    revisions.SetRevisionIndex (revision, index);
 
-	// you may call AddChange() now
+    // you may call AddChange() now
 
-	revisionAdded = true;
+    revisionAdded = true;
 }
 
 void CCachedLogInfo::AddSkipRange ( const CDictionaryBasedPath& path
-								  , revision_t startRevision
-								  , revision_t count)
+                                  , revision_t startRevision
+                                  , revision_t count)
 {
-	modified = true;
+    modified = true;
 
-	skippedRevisions.Add (path, startRevision, count);
+    skippedRevisions.Add (path, startRevision, count);
 }
 
 void CCachedLogInfo::Clear()
 {
-	modified = revisions.GetLastRevision() != 0;
-	revisionAdded = false;
+    modified = revisions.GetLastRevision() != 0;
+    revisionAdded = false;
 
-	revisions.Clear();
-	logInfo.Clear();
+    revisions.Clear();
+    logInfo.Clear();
 }
 
 // return false if concurrent read accesses
@@ -483,7 +483,7 @@ bool CCachedLogInfo::CanInsertThreadSafely
 // update / modify existing data
 
 void CCachedLogInfo::Update ( const CCachedLogInfo& newData
-							, char flags
+                            , char flags
                             , bool keepOldDataForMissingNew)
 {
     // newData is often empty -> don't copy existing data around
@@ -492,41 +492,41 @@ void CCachedLogInfo::Update ( const CCachedLogInfo& newData
     if (newData.IsEmpty() && keepOldDataForMissingNew)
         return;
 
-	// build revision index map
+    // build revision index map
 
-	index_mapping_t indexMap;
+    index_mapping_t indexMap;
 
-	index_t newIndex = logInfo.size();
-	for ( revision_t i = newData.revisions.GetFirstRevision()
-		, last = newData.revisions.GetLastRevision()
-		; i < last
-		; ++i)
-	{
-		index_t sourceIndex = newData.revisions[i];
-		if (sourceIndex != NO_INDEX)
-		{
-			index_t destIndex = revisions[i];
-			if (destIndex == NO_INDEX)
-			{
-				destIndex = newIndex++;
-				revisions.SetRevisionIndex (i, destIndex);
-			}
+    index_t newIndex = logInfo.size();
+    for ( revision_t i = newData.revisions.GetFirstRevision()
+        , last = newData.revisions.GetLastRevision()
+        ; i < last
+        ; ++i)
+    {
+        index_t sourceIndex = newData.revisions[i];
+        if (sourceIndex != NO_INDEX)
+        {
+            index_t destIndex = revisions[i];
+            if (destIndex == NO_INDEX)
+            {
+                destIndex = newIndex++;
+                revisions.SetRevisionIndex (i, destIndex);
+            }
 
-			indexMap.insert (destIndex, sourceIndex);
-		}
-	}
+            indexMap.insert (destIndex, sourceIndex);
+        }
+    }
 
-	// update our log info
+    // update our log info
 
-	logInfo.Update ( newData.logInfo
-				   , indexMap
-				   , flags
+    logInfo.Update ( newData.logInfo
+                   , indexMap
+                   , flags
                    , keepOldDataForMissingNew);
 
-	// our skip ranges should still be valid
-	// but we check them anyway
+    // our skip ranges should still be valid
+    // but we check them anyway
 
-	skippedRevisions.Compress();
+    skippedRevisions.Compress();
 
     // this cache has been touched
 

@@ -48,34 +48,34 @@ class CCSVWriter
 {
 private:
 
-	/// utilities
+    /// utilities
 
-	void Escape (std::string& value);
+    void Escape (std::string& value);
 
-	/// write container content as CSV
-	/// every method writes exactly one file
+    /// write container content as CSV
+    /// every method writes exactly one file
 
-	void WriteStringList (std::ostream& os, const CStringDictionary& strings);
-	void WritePathList (std::ostream& os, const CPathDictionary& dictionary);
+    void WriteStringList (std::ostream& os, const CStringDictionary& strings);
+    void WritePathList (std::ostream& os, const CPathDictionary& dictionary);
 
-	void WriteChanges (std::ostream& os, const CCachedLogInfo& cache);
-	void WriteMerges (std::ostream& os, const CCachedLogInfo& cache);
-	void WriteRevProps (std::ostream& os, const CCachedLogInfo& cache);
+    void WriteChanges (std::ostream& os, const CCachedLogInfo& cache);
+    void WriteMerges (std::ostream& os, const CCachedLogInfo& cache);
+    void WriteRevProps (std::ostream& os, const CCachedLogInfo& cache);
 
-	void WriteRevisions (std::ostream& os, const CCachedLogInfo& cache);
-	void WriteSkipRanges (std::ostream& os, const CCachedLogInfo& cache);
+    void WriteRevisions (std::ostream& os, const CCachedLogInfo& cache);
+    void WriteSkipRanges (std::ostream& os, const CCachedLogInfo& cache);
 
 public:
 
-	/// construction / destruction (nothing to do)
+    /// construction / destruction (nothing to do)
 
-	CCSVWriter(void);
-	~CCSVWriter(void);
+    CCSVWriter(void);
+    ~CCSVWriter(void);
 
-	/// write cache content as CSV files (overwrite existing ones)
-	/// file names are extensions to the given fileName
+    /// write cache content as CSV files (overwrite existing ones)
+    /// file names are extensions to the given fileName
 
-	void Write (const CCachedLogInfo& cache, const TFileName& fileName);
+    void Write (const CCachedLogInfo& cache, const TFileName& fileName);
 };
 
 ///////////////////////////////////////////////////////////////

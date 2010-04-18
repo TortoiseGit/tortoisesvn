@@ -22,19 +22,19 @@
 // construction / destruction: manage file buffer
 
 CRootOutStream::CRootOutStream (const TFileName& fileName)
-	: CHierachicalOutStreamBase (&buffer, ROOT_STREAM_ID)
-	, buffer (fileName)
+    : CHierachicalOutStreamBase (&buffer, ROOT_STREAM_ID)
+    , buffer (fileName)
 {
 }
 
 CRootOutStream::~CRootOutStream()
 {
-	AutoClose();
+    AutoClose();
 }
 
 // implement the rest of IHierarchicalOutStream
 
 STREAM_TYPE_ID CRootOutStream::GetTypeID() const
 {
-	return ROOT_STREAM_TYPE_ID;
+    return ROOT_STREAM_TYPE_ID;
 };

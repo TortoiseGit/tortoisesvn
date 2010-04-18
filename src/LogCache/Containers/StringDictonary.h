@@ -55,113 +55,113 @@ class CStringDictionary
 {
 private:
 
-	/**
-	 * A simple string hash function that satisfies quick_hash'
-	 * interface requirements.
-	 * 
-	 * NULL strings are supported and are mapped to index 0.
-	 * Hence, the dictionary must contain the empty string at
-	 * index 0.
-	 */
+    /**
+     * A simple string hash function that satisfies quick_hash'
+     * interface requirements.
+     *
+     * NULL strings are supported and are mapped to index 0.
+     * Hence, the dictionary must contain the empty string at
+     * index 0.
+     */
 
-	class CHashFunction
-	{
-	private:
+    class CHashFunction
+    {
+    private:
 
-		/// the dictionary we index with the hash
-		/// (used to map index -> value)
+        /// the dictionary we index with the hash
+        /// (used to map index -> value)
 
-		CStringDictionary* dictionary;
+        CStringDictionary* dictionary;
 
-	public:
+    public:
 
-		/// simple construction
+        /// simple construction
 
-		CHashFunction (CStringDictionary* aDictionary);
+        CHashFunction (CStringDictionary* aDictionary);
 
-		/// required typedefs and constants
+        /// required typedefs and constants
 
-		typedef const char* value_type;
-		typedef index_t index_type;
+        typedef const char* value_type;
+        typedef index_t index_type;
 
-		enum {NO_INDEX = LogCache::NO_INDEX};
+        enum {NO_INDEX = LogCache::NO_INDEX};
 
-		/// the actual hash function
+        /// the actual hash function
 
-		size_t operator() (value_type value) const;
+        size_t operator() (value_type value) const;
 
-		/// dictionary lookup
+        /// dictionary lookup
 
-		value_type value (index_type index) const;
+        value_type value (index_type index) const;
 
-		/// lookup and comparison
+        /// lookup and comparison
 
-		bool equal (value_type value, index_type index) const;
-	};
+        bool equal (value_type value, index_type index) const;
+    };
 
-	/// sub-stream IDs
+    /// sub-stream IDs
 
-	enum
-	{
-		PACKED_STRING_STREAM_ID = 1,
-		OFFSETS_STREAM_ID = 2
-	};
+    enum
+    {
+        PACKED_STRING_STREAM_ID = 1,
+        OFFSETS_STREAM_ID = 2
+    };
 
-	/// the string data
+    /// the string data
 
-	std::vector<char> packedStrings;
-	std::vector<index_t> offsets;
+    std::vector<char> packedStrings;
+    std::vector<index_t> offsets;
 
     /// equivalent to &packedStrings.front()
 
     char* packedStringsStart;
 
-	/// the string index
+    /// the string index
 
-	quick_hash<CHashFunction> hashIndex;
+    quick_hash<CHashFunction> hashIndex;
 
-	friend class CHashFunction;
+    friend class CHashFunction;
 
-	/// test for the worst effects of data corruption
+    /// test for the worst effects of data corruption
 
-	void RebuildIndexes();
+    void RebuildIndexes();
 
-	/// construction utility
+    /// construction utility
 
-	void Initialize();
+    void Initialize();
 
 public:
 
-	/// construction / destruction
+    /// construction / destruction
 
-	CStringDictionary(void);
-	virtual ~CStringDictionary(void);
+    CStringDictionary(void);
+    virtual ~CStringDictionary(void);
 
-	/// dictionary operations
+    /// dictionary operations
 
-	index_t size() const
-	{
-		return (index_t)(offsets.size()-1);
-	}
+    index_t size() const
+    {
+        return (index_t)(offsets.size()-1);
+    }
 
-	const char* operator[](index_t index) const;
-	index_t GetLength (index_t index) const;
+    const char* operator[](index_t index) const;
+    index_t GetLength (index_t index) const;
     char* CopyTo (char* target, index_t index) const;
 
     void swap (CStringDictionary& rhs);
 
-	index_t Find (const char* string) const;
-	index_t Insert (const char* string);
-	index_t AutoInsert (const char* string);
+    index_t Find (const char* string) const;
+    index_t Insert (const char* string);
+    index_t AutoInsert (const char* string);
 
     /// return false if concurrent read accesses
     /// would potentially access invalid data.
 
     bool CanInsertThreadSafely (index_t elements, size_t chars) const;
 
-	/// reset content
+    /// reset content
 
-	void Clear();
+    void Clear();
 
     /// use this to minimize re-allocation and re-hashing
 
@@ -171,33 +171,33 @@ public:
 
     size_t GetPackedStringSize() const;
 
-	/// "merge" with another container:
-	/// add new entries and return ID mapping for source container
+    /// "merge" with another container:
+    /// add new entries and return ID mapping for source container
 
-	index_mapping_t Merge (const CStringDictionary& source);
+    index_mapping_t Merge (const CStringDictionary& source);
 
-	/// rearrange strings: put [sourceIndex[index]] into [index]
+    /// rearrange strings: put [sourceIndex[index]] into [index]
 
-	void Reorder (const std::vector<index_t>& sourceIndices);
+    void Reorder (const std::vector<index_t>& sourceIndices);
 
-	/// stream I/O
+    /// stream I/O
 
-	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-											 , CStringDictionary& dictionary);
-	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-											  , const CStringDictionary& dictionary);
+    friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
+                                             , CStringDictionary& dictionary);
+    friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
+                                              , const CStringDictionary& dictionary);
 
-	/// for statistics
+    /// for statistics
 
-	friend class CLogCacheStatistics;
+    friend class CLogCacheStatistics;
 };
 
 /// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CStringDictionary& dictionary);
+                                  , CStringDictionary& dictionary);
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CStringDictionary& dictionary);
+                                   , const CStringDictionary& dictionary);
 
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache

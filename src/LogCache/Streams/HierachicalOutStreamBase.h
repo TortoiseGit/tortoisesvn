@@ -30,8 +30,8 @@
 //
 // IHierarchicalOutStream
 //
-//		the generic write stream interface. 
-//		Streams form a tree.
+//      the generic write stream interface.
+//      Streams form a tree.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -39,67 +39,67 @@ class IHierarchicalOutStream
 {
 public:
 
-	// id, unique within the parent stream
+    // id, unique within the parent stream
 
-	virtual SUB_STREAM_ID GetID() const = 0;
+    virtual SUB_STREAM_ID GetID() const = 0;
 
-	// stream type (identifies the factory to use)
+    // stream type (identifies the factory to use)
 
-	virtual STREAM_TYPE_ID GetTypeID() const = 0;
+    virtual STREAM_TYPE_ID GetTypeID() const = 0;
 
-	// add a sub-stream
+    // add a sub-stream
 
-	virtual IHierarchicalOutStream* OpenSubStream ( SUB_STREAM_ID subStreamID
-												  , STREAM_TYPE_ID type) = 0;
+    virtual IHierarchicalOutStream* OpenSubStream ( SUB_STREAM_ID subStreamID
+                                                  , STREAM_TYPE_ID type) = 0;
 
-	// for simplified access
-	// The last parameter is only present for technical reasons
-	// (different type overloads must have different signatures) 
-	// and neither needs to be specified nor will it not be used.
+    // for simplified access
+    // The last parameter is only present for technical reasons
+    // (different type overloads must have different signatures)
+    // and neither needs to be specified nor will it not be used.
 
-	template<class S> 
-	S* OpenSubStream (SUB_STREAM_ID subStreamID, S* = NULL);
+    template<class S>
+    S* OpenSubStream (SUB_STREAM_ID subStreamID, S* = NULL);
 
-	// close the stream (returns a globally unique index)
+    // close the stream (returns a globally unique index)
 
-	virtual STREAM_INDEX AutoClose() = 0;
+    virtual STREAM_INDEX AutoClose() = 0;
 
-	// required for proper destruction of sub-class instances
+    // required for proper destruction of sub-class instances
 
-	virtual ~IHierarchicalOutStream() {};
+    virtual ~IHierarchicalOutStream() {};
 };
 
 ///////////////////////////////////////////////////////////////
 // for simplified access
 ///////////////////////////////////////////////////////////////
 
-template<class S> 
+template<class S>
 S* IHierarchicalOutStream::OpenSubStream (SUB_STREAM_ID subStreamID, S*)
 {
-	return dynamic_cast<S*>(OpenSubStream (subStreamID, S::TYPE_ID));
+    return dynamic_cast<S*>(OpenSubStream (subStreamID, S::TYPE_ID));
 }
 
 ///////////////////////////////////////////////////////////////
 //
 // CHierachicalOutStreamBase
 //
-//		implements IHierarchicalOutStream except for GetTypeID().
-//		It mainly manages the sub-streams. 
+//      implements IHierarchicalOutStream except for GetTypeID().
+//      It mainly manages the sub-streams.
 //
-//		Stream format:
+//      Stream format:
 //
-//		* number N of sub-streams (4 bytes)
-//		* sub-stream list: N triples (N * 3 * 4 bytes)
-//		  (index, id, type)
-//		* M bytes of local stream content
+//      * number N of sub-streams (4 bytes)
+//      * sub-stream list: N triples (N * 3 * 4 bytes)
+//        (index, id, type)
+//      * M bytes of local stream content
 //
-//		The local stream content is as follows:
+//      The local stream content is as follows:
 //
-//		* one or more Huffman compressed blocks
-//		  (block size depending on the chunk size
-//		   chosen by the respective sub-class)
-//		* cumulative size of the decoded local stream
-//		  content (4 bytes)
+//      * one or more Huffman compressed blocks
+//        (block size depending on the chunk size
+//         chosen by the respective sub-class)
+//      * cumulative size of the decoded local stream
+//        content (4 bytes)
 //
 ///////////////////////////////////////////////////////////////
 
@@ -107,148 +107,148 @@ class CHierachicalOutStreamBase : public IHierarchicalOutStream
 {
 private:
 
-	// our logical ID within the parent stream
+    // our logical ID within the parent stream
 
-	SUB_STREAM_ID id;
+    SUB_STREAM_ID id;
 
-	CCacheFileOutBuffer* buffer;
-	STREAM_INDEX index;	// (-1) while stream is open
-	bool isOpen;
+    CCacheFileOutBuffer* buffer;
+    STREAM_INDEX index; // (-1) while stream is open
+    bool isOpen;
 
-	// cumulated stream size *before* huffman-encoding it
+    // cumulated stream size *before* huffman-encoding it
 
-	size_t decodedSize;
+    size_t decodedSize;
 
-	// sub-streams
+    // sub-streams
 
-	std::vector<IHierarchicalOutStream*> subStreams;
+    std::vector<IHierarchicalOutStream*> subStreams;
 
-	// overwrite this in your class
+    // overwrite this in your class
 
-	virtual const unsigned char* GetStreamData() = 0;
-	virtual size_t GetStreamSize() = 0;
-	virtual void ReleaseStreamData() {};
-	virtual void FlushData() {};
+    virtual const unsigned char* GetStreamData() = 0;
+    virtual size_t GetStreamSize() = 0;
+    virtual void ReleaseStreamData() {};
+    virtual void FlushData() {};
 
-	// close (write) stream
+    // close (write) stream
 
-	void AutoOpen();
-	void CloseLatestSubStream();
-	void WriteSubStreamList();
-	void Close();
+    void AutoOpen();
+    void CloseLatestSubStream();
+    void WriteSubStreamList();
+    void Close();
 
 protected:
 
-	void WriteThisStream();
+    void WriteThisStream();
 
 public:
 
-	// construction / destruction (Close() must have been called before)
+    // construction / destruction (Close() must have been called before)
 
-	CHierachicalOutStreamBase ( CCacheFileOutBuffer* aBuffer
-							  , SUB_STREAM_ID anID);
-	virtual ~CHierachicalOutStreamBase(void);
+    CHierachicalOutStreamBase ( CCacheFileOutBuffer* aBuffer
+                              , SUB_STREAM_ID anID);
+    virtual ~CHierachicalOutStreamBase(void);
 
-	// implement most of IHierarchicalOutStream
+    // implement most of IHierarchicalOutStream
 
-	virtual SUB_STREAM_ID GetID() const;
-	virtual IHierarchicalOutStream* OpenSubStream ( SUB_STREAM_ID subStreamID
-												  , STREAM_TYPE_ID type);
-	template<class S> 
-	S* OpenSubStream (SUB_STREAM_ID subStreamID, S* = NULL);
+    virtual SUB_STREAM_ID GetID() const;
+    virtual IHierarchicalOutStream* OpenSubStream ( SUB_STREAM_ID subStreamID
+                                                  , STREAM_TYPE_ID type);
+    template<class S>
+    S* OpenSubStream (SUB_STREAM_ID subStreamID, S* = NULL);
 
-	virtual STREAM_INDEX AutoClose();
+    virtual STREAM_INDEX AutoClose();
 };
 
-template<class S> 
+template<class S>
 inline S* CHierachicalOutStreamBase::OpenSubStream (SUB_STREAM_ID subStreamID, S*)
 {
-	return IHierarchicalOutStream::OpenSubStream<S> (subStreamID);
+    return IHierarchicalOutStream::OpenSubStream<S> (subStreamID);
 }
 
 ///////////////////////////////////////////////////////////////
 //
 // COutStreamImplBase<>
 //
-//		implements a write stream class based upon the non-
-//		creatable base class B. T is the actual stream class
-//		to create and type is the desired stream type id.
+//      implements a write stream class based upon the non-
+//      creatable base class B. T is the actual stream class
+//      to create and type is the desired stream type id.
 //
 ///////////////////////////////////////////////////////////////
 
-template<class T, class B, STREAM_TYPE_ID type> 
+template<class T, class B, STREAM_TYPE_ID type>
 class COutStreamImplBase : public B
 {
 private:
 
-	// create our stream factory
+    // create our stream factory
 
-	typedef CStreamFactory< T
-						  , IHierarchicalOutStream
-						  , CCacheFileOutBuffer
-						  , type> TFactory;
-	static typename TFactory::CCreator factoryCreator;
+    typedef CStreamFactory< T
+                          , IHierarchicalOutStream
+                          , CCacheFileOutBuffer
+                          , type> TFactory;
+    static typename TFactory::CCreator factoryCreator;
 
 public:
 
-	// for reference in other templates
+    // for reference in other templates
 
-	enum {TYPE_ID = type};
+    enum {TYPE_ID = type};
 
-	// construction / destruction: nothing to do here
+    // construction / destruction: nothing to do here
 
-	COutStreamImplBase ( CCacheFileOutBuffer* aBuffer
-					   , SUB_STREAM_ID anID)
-		: B (aBuffer, anID)
-	{
-		// trick the compiler: 
-		// use a dummy reference to factoryCreator
-		// to force its creation
+    COutStreamImplBase ( CCacheFileOutBuffer* aBuffer
+                       , SUB_STREAM_ID anID)
+        : B (aBuffer, anID)
+    {
+        // trick the compiler:
+        // use a dummy reference to factoryCreator
+        // to force its creation
 
-		&factoryCreator;
-	}
+        &factoryCreator;
+    }
 
-	virtual ~COutStreamImplBase() {};
+    virtual ~COutStreamImplBase() {};
 
-	// implement the rest of IHierarchicalOutStream
+    // implement the rest of IHierarchicalOutStream
 
-	virtual STREAM_TYPE_ID GetTypeID() const
-	{
-		return TYPE_ID;
-	}
+    virtual STREAM_TYPE_ID GetTypeID() const
+    {
+        return TYPE_ID;
+    }
 };
 
 // stream factory creator
 
-template<class T, class B, STREAM_TYPE_ID type> 
-typename COutStreamImplBase<T, B, type>::TFactory::CCreator 
-	COutStreamImplBase<T, B, type>::factoryCreator;
+template<class T, class B, STREAM_TYPE_ID type>
+typename COutStreamImplBase<T, B, type>::TFactory::CCreator
+    COutStreamImplBase<T, B, type>::factoryCreator;
 
 ///////////////////////////////////////////////////////////////
 //
 // CInStreamImpl<>
 //
-//		enhances CInStreamImplBase<> for the case that there 
-//		is no further sub-class.
+//      enhances CInStreamImplBase<> for the case that there
+//      is no further sub-class.
 //
 ///////////////////////////////////////////////////////////////
 
-template<class B, STREAM_TYPE_ID type> 
+template<class B, STREAM_TYPE_ID type>
 class COutStreamImpl : public COutStreamImplBase< COutStreamImpl<B, type>
-												, B
-												, type>
+                                                , B
+                                                , type>
 {
 public:
 
-	typedef COutStreamImplBase<COutStreamImpl<B, type>, B, type> TBase;
+    typedef COutStreamImplBase<COutStreamImpl<B, type>, B, type> TBase;
 
-	// construction / destruction: nothing to do here
+    // construction / destruction: nothing to do here
 
-	COutStreamImpl ( CCacheFileOutBuffer* buffer
-				   , STREAM_INDEX index)
-		: TBase (buffer, index)
-	{
-	}
+    COutStreamImpl ( CCacheFileOutBuffer* buffer
+                   , STREAM_INDEX index)
+        : TBase (buffer, index)
+    {
+    }
 
-	virtual ~COutStreamImpl() {};
+    virtual ~COutStreamImpl() {};
 };

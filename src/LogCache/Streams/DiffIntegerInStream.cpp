@@ -28,8 +28,8 @@
 // construction: nothing special to do
 
 CDiffDWORDInStream::CDiffDWORDInStream ( CCacheFileInBuffer* buffer
-									   , STREAM_INDEX index)
-	: TBase (buffer, index)
+                                       , STREAM_INDEX index)
+    : TBase (buffer, index)
 {
 }
 
@@ -42,7 +42,7 @@ CDiffDWORDInStream::CDiffDWORDInStream ( CCacheFileInBuffer* buffer
 // construction: nothing special to do
 
 CDiffIntegerInStream::CDiffIntegerInStream ( CCacheFileInBuffer* buffer
-										   , STREAM_INDEX index)
-	: TBase (buffer, index)
+                                           , STREAM_INDEX index)
+    : TBase (buffer, index)
 {
 }

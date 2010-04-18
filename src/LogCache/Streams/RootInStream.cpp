@@ -22,11 +22,11 @@
 // construction / destruction: manage file buffer
 
 CRootInStream::CRootInStream (const TFileName& fileName)
-	: CHierachicalInStreamBase()
-	, buffer (fileName)
+    : CHierachicalInStreamBase()
+    , buffer (fileName)
 {
-	ReadSubStreams (&buffer, buffer.GetLastStream());
-	DecodeThisStream();
+    ReadSubStreams (&buffer, buffer.GetLastStream());
+    DecodeThisStream();
 }
 
 CRootInStream::~CRootInStream()

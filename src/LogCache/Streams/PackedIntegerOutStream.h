@@ -28,14 +28,14 @@
 //
 // CPackedIntegerOutStreamBase
 //
-//		enhances CPackedDWORDOutStreamBase to handle signed values.
+//      enhances CPackedDWORDOutStreamBase to handle signed values.
 //
-//		To minimize the number of significant bits, the value
-//		is folded as follows:
+//      To minimize the number of significant bits, the value
+//      is folded as follows:
 //
-//		unsignedValue = abs (signedValue) * 2 + sign (signedValue)
+//      unsignedValue = abs (signedValue) * 2 + sign (signedValue)
 //
-//		Note, that -0x7fffffff and - 0x80000000 CANNOT be stored!
+//      Note, that -0x7fffffff and - 0x80000000 CANNOT be stored!
 //
 ///////////////////////////////////////////////////////////////
 
@@ -43,54 +43,54 @@ class CPackedIntegerOutStreamBase : public CPackedDWORDOutStreamBase
 {
 protected:
 
-	// add data to the stream
+    // add data to the stream
 
-	void Add (int value) throw()
-	{
-		DWORD usignedValue = value >= 0
-			? 2* value
-			: 2 * (-value) + 1;
+    void Add (int value) throw()
+    {
+        DWORD usignedValue = value >= 0
+            ? 2* value
+            : 2 * (-value) + 1;
 
-		CPackedDWORDOutStreamBase::Add (usignedValue);
-	}
+        CPackedDWORDOutStreamBase::Add (usignedValue);
+    }
 
 public:
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CPackedIntegerOutStreamBase ( CCacheFileOutBuffer* aBuffer
-						        , SUB_STREAM_ID anID);
-	virtual ~CPackedIntegerOutStreamBase() {};
+    CPackedIntegerOutStreamBase ( CCacheFileOutBuffer* aBuffer
+                                , SUB_STREAM_ID anID);
+    virtual ~CPackedIntegerOutStreamBase() {};
 };
 
 ///////////////////////////////////////////////////////////////
 //
 // CPackedIntegerOutStream
 //
-//		instantiable sub-class of CPackedIntegerOutStreamBase.
+//      instantiable sub-class of CPackedIntegerOutStreamBase.
 //
 ///////////////////////////////////////////////////////////////
 
-class CPackedIntegerOutStream 
-	: public COutStreamImplBase< CPackedIntegerOutStream
-							   , CPackedIntegerOutStreamBase
-		                       , PACKED_INTEGER_STREAM_TYPE_ID>
+class CPackedIntegerOutStream
+    : public COutStreamImplBase< CPackedIntegerOutStream
+                               , CPackedIntegerOutStreamBase
+                               , PACKED_INTEGER_STREAM_TYPE_ID>
 {
 public:
 
-	typedef COutStreamImplBase< CPackedIntegerOutStream
-							  , CPackedIntegerOutStreamBase
-							  , PACKED_INTEGER_STREAM_TYPE_ID> TBase;
+    typedef COutStreamImplBase< CPackedIntegerOutStream
+                              , CPackedIntegerOutStreamBase
+                              , PACKED_INTEGER_STREAM_TYPE_ID> TBase;
 
-	typedef int value_type;
+    typedef int value_type;
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CPackedIntegerOutStream ( CCacheFileOutBuffer* aBuffer
-						    , SUB_STREAM_ID anID);
-	virtual ~CPackedIntegerOutStream() {};
+    CPackedIntegerOutStream ( CCacheFileOutBuffer* aBuffer
+                            , SUB_STREAM_ID anID);
+    virtual ~CPackedIntegerOutStream() {};
 
-	// public Add() methods
+    // public Add() methods
 
-	using TBase::Add;
+    using TBase::Add;
 };

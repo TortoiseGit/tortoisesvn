@@ -33,49 +33,49 @@ class CBufferedOutFile
 private:
 
 #ifdef WIN32
-	// the file
+    // the file
 
-	HANDLE file;
+    HANDLE file;
 #else
-	// fallback: STL stream
+    // fallback: STL stream
 
-	std::ofstream stream;
+    std::ofstream stream;
 #endif
 
-	// our local buffer
+    // our local buffer
 
-	enum {BUFFER_SIZE = 1024*1024};
+    enum {BUFFER_SIZE = 1024*1024};
 
-	auto_buffer<unsigned char> buffer;
-	unsigned used;
+    auto_buffer<unsigned char> buffer;
+    unsigned used;
 
-	// physical file size + used
+    // physical file size + used
 
-	size_t fileSize;
+    size_t fileSize;
 
 protected:
 
-	// write buffer content to disk
+    // write buffer content to disk
 
-	void Flush();
+    void Flush();
 
 public:
 
-	// construction / destruction: auto- open/close
+    // construction / destruction: auto- open/close
 
-	CBufferedOutFile (const TFileName& fileName);
-	virtual ~CBufferedOutFile();
+    CBufferedOutFile (const TFileName& fileName);
+    virtual ~CBufferedOutFile();
 
-	// write data to file
+    // write data to file
 
-	void Add (const unsigned char* data, unsigned bytes);
-	void Add (const char* data, unsigned bytes);
-	void Add (unsigned value);
+    void Add (const unsigned char* data, unsigned bytes);
+    void Add (const char* data, unsigned bytes);
+    void Add (unsigned value);
 
-	// file properties
+    // file properties
 
-	size_t GetFileSize() const;
-	bool IsOpen() const;
+    size_t GetFileSize() const;
+    bool IsOpen() const;
 };
 
 ///////////////////////////////////////////////////////////////
@@ -84,12 +84,12 @@ public:
 
 inline void CBufferedOutFile::Add (const char* data, unsigned bytes)
 {
-	Add (reinterpret_cast<const unsigned char*>(data), bytes);
+    Add (reinterpret_cast<const unsigned char*>(data), bytes);
 }
 
 inline void CBufferedOutFile::Add (unsigned value)
 {
-	Add ((unsigned char*)&value, sizeof (value));
+    Add ((unsigned char*)&value, sizeof (value));
 }
 
 ///////////////////////////////////////////////////////////////
@@ -98,15 +98,15 @@ inline void CBufferedOutFile::Add (unsigned value)
 
 inline size_t CBufferedOutFile::GetFileSize() const
 {
-	return fileSize;
+    return fileSize;
 }
 
 inline bool CBufferedOutFile::IsOpen() const
 {
 #ifdef WIN32
-	return file != INVALID_HANDLE_VALUE;
+    return file != INVALID_HANDLE_VALUE;
 #else
-	return stream.is_open();
+    return stream.is_open();
 #endif
 }
 
@@ -118,12 +118,12 @@ CBufferedOutFile& operator<< (CBufferedOutFile& dest, int value);
 
 inline CBufferedOutFile& operator<< (CBufferedOutFile& dest, const char* value)
 {
-	dest.Add (value, (unsigned)strlen (value));
-	return dest;
+    dest.Add (value, (unsigned)strlen (value));
+    return dest;
 }
 
 inline CBufferedOutFile& operator<< (CBufferedOutFile& dest, const std::string& value)
 {
-	dest.Add (value.c_str(), (unsigned)value.length());
-	return dest;
+    dest.Add (value.c_str(), (unsigned)value.length());
+    return dest;
 }

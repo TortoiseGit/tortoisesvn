@@ -34,10 +34,10 @@ namespace LogCache
 
 
 /**
- * A very efficient storage for file paths. Every path is decomposed into its 
+ * A very efficient storage for file paths. Every path is decomposed into its
  * elements (separated by '/').
  * Those elements are uniquely stored in a string dictionary.
- * Paths are stored as (parentPathID, elementID) pairs with index/ID 0 
+ * Paths are stored as (parentPathID, elementID) pairs with index/ID 0
  * designating the root path.
  *
  * Parent(root) == root.
@@ -46,37 +46,37 @@ class CPathDictionary
 {
 private:
 
-	/// sub-stream IDs
+    /// sub-stream IDs
 
-	enum
-	{
-		ELEMENTS_STREAM_ID = 1,
-		PATHS_STREAM_ID = 2
-	};
+    enum
+    {
+        ELEMENTS_STREAM_ID = 1,
+        PATHS_STREAM_ID = 2
+    };
 
-	/// string pool containing all used path elements
+    /// string pool containing all used path elements
 
-	CStringDictionary pathElements;
+    CStringDictionary pathElements;
 
-	/// the paths as (parent, sub-path) pairs
-	/// index 0 is always the root
+    /// the paths as (parent, sub-path) pairs
+    /// index 0 is always the root
 
-	CIndexPairDictionary paths;
+    CIndexPairDictionary paths;
 
-	/// index check utility
+    /// index check utility
 
-	void CheckParentIndex (index_t index) const;
+    void CheckParentIndex (index_t index) const;
 
-	/// construction utility
+    /// construction utility
 
-	void Initialize();
+    void Initialize();
 
 public:
 
-	/// construction (create root path) / destruction
+    /// construction (create root path) / destruction
 
-	CPathDictionary();
-	virtual ~CPathDictionary(void);
+    CPathDictionary();
+    virtual ~CPathDictionary(void);
 
     /// member access
 
@@ -85,59 +85,59 @@ public:
         return pathElements;
     }
 
-	/// dictionary operations
+    /// dictionary operations
 
-	index_t size() const
-	{
-		return (index_t)paths.size();
-	}
+    index_t size() const
+    {
+        return (index_t)paths.size();
+    }
 
-	index_t GetParent (index_t index) const;
-	const char* GetPathElement (index_t index) const;
+    index_t GetParent (index_t index) const;
+    const char* GetPathElement (index_t index) const;
     index_t GetPathElementSize (index_t index) const;
-	index_t GetPathElementID (index_t index) const;
+    index_t GetPathElementID (index_t index) const;
 
-	index_t Find (index_t parent, const char* pathElement) const;
-	index_t Insert (index_t parent, const char* pathElement);
-	index_t AutoInsert (index_t parent, const char* pathElement);
+    index_t Find (index_t parent, const char* pathElement) const;
+    index_t Insert (index_t parent, const char* pathElement);
+    index_t AutoInsert (index_t parent, const char* pathElement);
 
     /// return false if concurrent read accesses
     /// would potentially access invalid data.
 
     bool CanInsertThreadSafely (index_t elements, size_t chars) const;
 
-	/// reset content
+    /// reset content
 
-	void Clear();
+    void Clear();
 
-	/// "merge" with another container:
-	/// add new entries and return ID mapping for source container
+    /// "merge" with another container:
+    /// add new entries and return ID mapping for source container
 
-	index_mapping_t Merge (const CPathDictionary& source);
+    index_mapping_t Merge (const CPathDictionary& source);
 
-	/// stream I/O
+    /// stream I/O
 
-	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-											 , CPathDictionary& dictionary);
-	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-											  , const CPathDictionary& dictionary);
+    friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
+                                             , CPathDictionary& dictionary);
+    friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
+                                              , const CPathDictionary& dictionary);
 
-	/// for statistics
+    /// for statistics
 
-	friend class CLogCacheStatistics;
+    friend class CLogCacheStatistics;
 };
 
 /// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CPathDictionary& dictionary);
+                                  , CPathDictionary& dictionary);
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CPathDictionary& dictionary);
+                                   , const CPathDictionary& dictionary);
 
 /**
  * A path whose structure is (fully) represented in a @a dictionary.
  * Basically, this is a (@a dictionary, @a index) pair that identifies
- * the path unambiguously. All path operations are implemented using 
+ * the path unambiguously. All path operations are implemented using
  * the path dictionary.
  */
 
@@ -145,10 +145,10 @@ class CDictionaryBasedPath
 {
 private:
 
-	/// our dictionary and position within it
+    /// our dictionary and position within it
 
-	const CPathDictionary* dictionary;
-	index_t index;
+    const CPathDictionary* dictionary;
+    index_t index;
 
 #ifdef _DEBUG
     /// the path expanded into a string - for easier debugging only
@@ -158,32 +158,32 @@ private:
 
 protected:
 
-	/// index manipulation
+    /// index manipulation
 
-	void SetIndex (index_t newIndex) 
-	{
-		index = newIndex;
+    void SetIndex (index_t newIndex)
+    {
+        index = newIndex;
     #ifdef _DEBUG
         _path = GetPath();
     #endif
-	}
+    }
 
-	/// construction utility: lookup and optionally auto-insert
+    /// construction utility: lookup and optionally auto-insert
 
-	void ParsePath ( const std::string& path
-				   , CPathDictionary* writableDictionary = NULL
-				   , std::vector<std::string>* relPath = NULL);
+    void ParsePath ( const std::string& path
+                   , CPathDictionary* writableDictionary = NULL
+                   , std::vector<std::string>* relPath = NULL);
 
-	/// comparison utility
+    /// comparison utility
 
-	bool IsSameOrParentOf (index_t lhsIndex, index_t rhsIndex) const;
+    bool IsSameOrParentOf (index_t lhsIndex, index_t rhsIndex) const;
 
-	bool Intersects (index_t lhsIndex, index_t rhsIndex) const
-	{
-		return lhsIndex < rhsIndex
-			? IsSameOrParentOf (lhsIndex, rhsIndex)
-			: IsSameOrParentOf (rhsIndex, lhsIndex);
-	}
+    bool Intersects (index_t lhsIndex, index_t rhsIndex) const
+    {
+        return lhsIndex < rhsIndex
+            ? IsSameOrParentOf (lhsIndex, rhsIndex)
+            : IsSameOrParentOf (rhsIndex, lhsIndex);
+    }
 
     /// element access
 
@@ -191,52 +191,52 @@ protected:
 
 public:
 
-	/// construction / destruction
+    /// construction / destruction
 
-	CDictionaryBasedPath (const CPathDictionary* aDictionary, index_t anIndex)
-		: dictionary (aDictionary)
-		, index (anIndex)
-	{
+    CDictionaryBasedPath (const CPathDictionary* aDictionary, index_t anIndex)
+        : dictionary (aDictionary)
+        , index (anIndex)
+    {
     #ifdef _DEBUG
         _path = GetPath();
     #endif
-	}
+    }
 
-	CDictionaryBasedPath ( const CPathDictionary* aDictionary
-						 , const std::string& path);
+    CDictionaryBasedPath ( const CPathDictionary* aDictionary
+                         , const std::string& path);
 
-	CDictionaryBasedPath ( CPathDictionary* aDictionary
-						 , const std::string& path
-						 , bool nextParent);
+    CDictionaryBasedPath ( CPathDictionary* aDictionary
+                         , const std::string& path
+                         , bool nextParent);
 
-	~CDictionaryBasedPath() 
-	{
-	}
+    ~CDictionaryBasedPath()
+    {
+    }
 
     /// return false if concurrent read accesses
     /// would potentially access invalid data.
 
     static bool CanParsePathThreadSafely ( const CPathDictionary* dictionary
-						                 , const std::string& path);
+                                         , const std::string& path);
 
-	/// data access
+    /// data access
 
-	index_t GetIndex() const
-	{
-		return index;
-	}
+    index_t GetIndex() const
+    {
+        return index;
+    }
 
-	const CPathDictionary* GetDictionary() const
-	{
-		return dictionary;
-	}
+    const CPathDictionary* GetDictionary() const
+    {
+        return dictionary;
+    }
 
-	/// path operations
+    /// path operations
 
-	bool IsRoot() const
-	{
-		return index == 0;
-	}
+    bool IsRoot() const
+    {
+        return index == 0;
+    }
 
     index_t GetDepth() const;
 
@@ -245,53 +245,53 @@ public:
         return ReverseAt (GetDepth() - index - 1);
     }
 
-	bool IsValid() const
-	{
-		return index != NO_INDEX;
-	}
+    bool IsValid() const
+    {
+        return index != NO_INDEX;
+    }
 
-	CDictionaryBasedPath GetParent() const
-	{
-		return CDictionaryBasedPath ( dictionary
-									, dictionary->GetParent (index));
-	}
+    CDictionaryBasedPath GetParent() const
+    {
+        return CDictionaryBasedPath ( dictionary
+                                    , dictionary->GetParent (index));
+    }
 
-	CDictionaryBasedPath GetCommonRoot (const CDictionaryBasedPath& rhs) const
-	{
-		return GetCommonRoot (rhs.index);
-	}
+    CDictionaryBasedPath GetCommonRoot (const CDictionaryBasedPath& rhs) const
+    {
+        return GetCommonRoot (rhs.index);
+    }
 
-	CDictionaryBasedPath GetCommonRoot (index_t rhsIndex) const;
+    CDictionaryBasedPath GetCommonRoot (index_t rhsIndex) const;
 
-	bool IsSameOrParentOf (index_t rhsIndex) const
-	{
-		return IsSameOrParentOf (index, rhsIndex);
-	}
+    bool IsSameOrParentOf (index_t rhsIndex) const
+    {
+        return IsSameOrParentOf (index, rhsIndex);
+    }
 
-	bool IsSameOrParentOf (const CDictionaryBasedPath& rhs) const
-	{
-		return IsSameOrParentOf (index, rhs.index);
-	}
+    bool IsSameOrParentOf (const CDictionaryBasedPath& rhs) const
+    {
+        return IsSameOrParentOf (index, rhs.index);
+    }
 
-	bool IsSameOrChildOf (index_t rhsIndex) const
-	{
-		return IsSameOrParentOf (rhsIndex, index);
-	}
+    bool IsSameOrChildOf (index_t rhsIndex) const
+    {
+        return IsSameOrParentOf (rhsIndex, index);
+    }
 
-	bool IsSameOrChildOf (const CDictionaryBasedPath& rhs) const
-	{
-		return IsSameOrParentOf (rhs.index, index);
-	}
+    bool IsSameOrChildOf (const CDictionaryBasedPath& rhs) const
+    {
+        return IsSameOrParentOf (rhs.index, index);
+    }
 
-	bool Intersects (index_t rhsIndex) const
-	{
-		return Intersects (rhsIndex, index);
-	}
+    bool Intersects (index_t rhsIndex) const
+    {
+        return Intersects (rhsIndex, index);
+    }
 
-	bool Intersects (const CDictionaryBasedPath& rhs) const
-	{
-		return Intersects (rhs.index, index);
-	}
+    bool Intersects (const CDictionaryBasedPath& rhs) const
+    {
+        return Intersects (rhs.index, index);
+    }
 
     bool Contains (index_t pathElementID) const;
 
@@ -308,10 +308,10 @@ public:
         return !operator==(rhs);
     }
 
-	/// convert to string
+    /// convert to string
 
-	std::string GetPath() const;
-	void GetPath (std::string& result) const;
+    std::string GetPath() const;
+    void GetPath (std::string& result) const;
 };
 
 /// standard operator used by STL containers

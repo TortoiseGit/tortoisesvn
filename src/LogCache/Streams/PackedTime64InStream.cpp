@@ -28,9 +28,9 @@
 // construction: nothing to do here
 
 CPackedTime64InStreamBase::CPackedTime64InStreamBase (CCacheFileInBuffer* buffer
-												     , STREAM_INDEX index)
-	: CBinaryInStreamBase (buffer, index)
-	, lastValue (0)
+                                                     , STREAM_INDEX index)
+    : CBinaryInStreamBase (buffer, index)
+    , lastValue (0)
 {
 }
 
@@ -38,38 +38,38 @@ CPackedTime64InStreamBase::CPackedTime64InStreamBase (CCacheFileInBuffer* buffer
 
 __time64_t CPackedTime64InStreamBase::GetValue() throw()
 {
-	// get header info
+    // get header info
 
-	unsigned char head = GetByte();
+    unsigned char head = GetByte();
 
-	// read the following data bytes into
+    // read the following data bytes into
 
-	size_t count = ((head / 0x10) & 0x7) +1;
+    size_t count = ((head / 0x10) & 0x7) +1;
 
-	unsigned char buffer[8];
-	*reinterpret_cast<__time64_t*>(buffer) = 0;
-	for (size_t i = 0; i < count; ++i)
-		buffer[i] = GetByte();
+    unsigned char buffer[8];
+    *reinterpret_cast<__time64_t*>(buffer) = 0;
+    for (size_t i = 0; i < count; ++i)
+        buffer[i] = GetByte();
 
-	// now, the buffer contains bits 4 to 64 of the unsigned diff. value
-	// the lower 4 bits of the header are value bits 0 .. 3
+    // now, the buffer contains bits 4 to 64 of the unsigned diff. value
+    // the lower 4 bits of the header are value bits 0 .. 3
 
-	__time64_t value = *reinterpret_cast<__time64_t*>(buffer) * 0x10 
-					 + (head & 0xf);
+    __time64_t value = *reinterpret_cast<__time64_t*>(buffer) * 0x10
+                     + (head & 0xf);
 
-	// add sign info
+    // add sign info
 
-	if (head >= 0x80)
-		value = -value;
+    if (head >= 0x80)
+        value = -value;
 
-	// get absolute value
+    // get absolute value
 
-	value += lastValue;
-	lastValue = value;
+    value += lastValue;
+    lastValue = value;
 
-	// ready
+    // ready
 
-	return value;
+    return value;
 }
 
 // update members in this derived class as well
@@ -95,7 +95,7 @@ void CPackedTime64InStreamBase::AutoClose()
 // construction: nothing special to do
 
 CPackedTime64InStream::CPackedTime64InStream ( CCacheFileInBuffer* buffer
-								  		     , STREAM_INDEX index)
-	: TBase (buffer, index)
+                                             , STREAM_INDEX index)
+    : TBase (buffer, index)
 {
 }

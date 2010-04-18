@@ -92,7 +92,7 @@ __time64_t ZuluStringToTime64 (const char* buffer)
         timeStamp = mktime (&time);
         timeStamp = timeStamp * 1000000 + musecs;
     #endif
-	}
+    }
 
-	return timeStamp;
+    return timeStamp;
 }

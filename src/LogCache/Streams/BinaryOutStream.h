@@ -29,11 +29,11 @@
 //
 // CBinaryOutStreamBase
 //
-//		Base class for write streams that contain arbitrary
-//		binary data. All data gets buffered.
+//      Base class for write streams that contain arbitrary
+//      binary data. All data gets buffered.
 //
-//		If the stream grows to large (x64 only), it will
-//		throw an exception upon AutoClose().
+//      If the stream grows to large (x64 only), it will
+//      throw an exception upon AutoClose().
 //
 ///////////////////////////////////////////////////////////////
 
@@ -41,83 +41,83 @@ class CBinaryOutStreamBase : public CHierachicalOutStreamBase
 {
 private:
 
-	// size of the data chunk
-	// (flush & compress upon overflow or Close())
+    // size of the data chunk
+    // (flush & compress upon overflow or Close())
 
-	enum {CHUNK_SIZE = 128 * 1024};
+    enum {CHUNK_SIZE = 128 * 1024};
 
-	// data to write (may be NULL)
+    // data to write (may be NULL)
 
-	auto_buffer<unsigned char> data;
-	unsigned char* current;
-	unsigned char* last;
+    auto_buffer<unsigned char> data;
+    unsigned char* current;
+    unsigned char* last;
 
-	// buffer management
+    // buffer management
 
-	void Flush() throw();
+    void Flush() throw();
 
 protected:
 
-	// return the stream data
+    // return the stream data
 
-	virtual const unsigned char* GetStreamData();
-	virtual size_t GetStreamSize();
-	virtual void ReleaseStreamData();
+    virtual const unsigned char* GetStreamData();
+    virtual size_t GetStreamSize();
+    virtual void ReleaseStreamData();
 
-	// add data to the stream
+    // add data to the stream
 
-	void Add (const unsigned char* source, size_t byteCount) throw()
-	{
-		while (current + byteCount > last)
-			Flush();
+    void Add (const unsigned char* source, size_t byteCount) throw()
+    {
+        while (current + byteCount > last)
+            Flush();
 
-		memcpy (current, source, byteCount);
-		current += byteCount;
-	}
+        memcpy (current, source, byteCount);
+        current += byteCount;
+    }
 
-	void Add (unsigned char c) throw()
-	{
-		if (current == last)
-			Flush();
+    void Add (unsigned char c) throw()
+    {
+        if (current == last)
+            Flush();
 
-		*current = c;
-		++current;
-	};
+        *current = c;
+        ++current;
+    };
 
 public:
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CBinaryOutStreamBase ( CCacheFileOutBuffer* aBuffer
-					     , SUB_STREAM_ID anID);
-	virtual ~CBinaryOutStreamBase() {};
+    CBinaryOutStreamBase ( CCacheFileOutBuffer* aBuffer
+                         , SUB_STREAM_ID anID);
+    virtual ~CBinaryOutStreamBase() {};
 };
 
 ///////////////////////////////////////////////////////////////
 //
 // CBinaryOutStream
 //
-//		instantiable sub-class of CBinaryOutStreamBase.
+//      instantiable sub-class of CBinaryOutStreamBase.
 //
 ///////////////////////////////////////////////////////////////
 
 class CBinaryOutStream : public COutStreamImplBase< CBinaryOutStream
-												  , CBinaryOutStreamBase
-					                              , BINARY_STREAM_TYPE_ID>
+                                                  , CBinaryOutStreamBase
+                                                  , BINARY_STREAM_TYPE_ID>
 {
 public:
 
-	typedef COutStreamImplBase< CBinaryOutStream
-							  , CBinaryOutStreamBase
-							  , BINARY_STREAM_TYPE_ID> TBase;
+    typedef COutStreamImplBase< CBinaryOutStream
+                              , CBinaryOutStreamBase
+                              , BINARY_STREAM_TYPE_ID> TBase;
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CBinaryOutStream ( CCacheFileOutBuffer* aBuffer
-					 , SUB_STREAM_ID anID);
-	virtual ~CBinaryOutStream() {};
+    CBinaryOutStream ( CCacheFileOutBuffer* aBuffer
+                     , SUB_STREAM_ID anID);
+    virtual ~CBinaryOutStream() {};
 
-	// public Add() methods
+    // public Add() methods
 
-	using TBase::Add;
+    using TBase::Add;
 };

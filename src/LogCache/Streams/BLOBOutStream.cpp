@@ -22,23 +22,23 @@
 
 // return the (possible NULL) data we just got through Add()
 
-const unsigned char* CBLOBOutStreamBase::GetStreamData() 
+const unsigned char* CBLOBOutStreamBase::GetStreamData()
 {
-	return data;
+    return data;
 }
 
-size_t CBLOBOutStreamBase::GetStreamSize() 
+size_t CBLOBOutStreamBase::GetStreamSize()
 {
-	return size;
+    return size;
 }
 
 // construction: nothing special to do
 
 CBLOBOutStreamBase::CBLOBOutStreamBase ( CCacheFileOutBuffer* aBuffer
-									   , SUB_STREAM_ID anID)
-	: CHierachicalOutStreamBase (aBuffer, anID)
-	, data (NULL)
-	, size (0)
+                                       , SUB_STREAM_ID anID)
+    : CHierachicalOutStreamBase (aBuffer, anID)
+    , data (NULL)
+    , size (0)
 {
 }
 
@@ -46,19 +46,19 @@ CBLOBOutStreamBase::CBLOBOutStreamBase ( CCacheFileOutBuffer* aBuffer
 
 void CBLOBOutStreamBase::Add (const unsigned char* source, size_t byteCount)
 {
-	assert (data == NULL);
+    assert (data == NULL);
 
-	// this may fail under x64
+    // this may fail under x64
 
-	if (byteCount > (unsigned)(-1))
-		throw CStreamException ("BLOB to large for stream");
+    if (byteCount > (unsigned)(-1))
+        throw CStreamException ("BLOB to large for stream");
 
-	// remember the buffer & size just for a few moments
+    // remember the buffer & size just for a few moments
 
-	data = source;
-	size = (unsigned)byteCount;
+    data = source;
+    size = (unsigned)byteCount;
 
-	// write them (and all sub-streams) to file
+    // write them (and all sub-streams) to file
 
-	AutoClose();
+    AutoClose();
 }

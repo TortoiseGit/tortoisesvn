@@ -28,8 +28,8 @@
 // construction: nothing special to do
 
 CPackedIntegerOutStreamBase::CPackedIntegerOutStreamBase ( CCacheFileOutBuffer* aBuffer
-													     , SUB_STREAM_ID anID)
-	: CPackedDWORDOutStreamBase (aBuffer, anID)
+                                                         , SUB_STREAM_ID anID)
+    : CPackedDWORDOutStreamBase (aBuffer, anID)
 {
 }
 
@@ -42,7 +42,7 @@ CPackedIntegerOutStreamBase::CPackedIntegerOutStreamBase ( CCacheFileOutBuffer* 
 // construction: nothing special to do
 
 CPackedIntegerOutStream::CPackedIntegerOutStream ( CCacheFileOutBuffer* aBuffer
-											     , SUB_STREAM_ID anID)
-	: TBase (aBuffer, anID)
+                                                 , SUB_STREAM_ID anID)
+    : TBase (aBuffer, anID)
 {
 }

@@ -28,10 +28,10 @@
 // construction: nothing to do here
 
 CPackedDWORDInStreamBase::CPackedDWORDInStreamBase (CCacheFileInBuffer* buffer
-												   , STREAM_INDEX index)
-	: CBinaryInStreamBase (buffer, index)
-	, lastValue (0)
-	, count (0)
+                                                   , STREAM_INDEX index)
+    : CBinaryInStreamBase (buffer, index)
+    , lastValue (0)
+    , count (0)
 {
 }
 
@@ -39,22 +39,22 @@ CPackedDWORDInStreamBase::CPackedDWORDInStreamBase (CCacheFileInBuffer* buffer
 
 DWORD CPackedDWORDInStreamBase::InternalGetValue() throw()
 {
-	DWORD result = GetByte();
-	if (result < 0x80)
-		return result;
+    DWORD result = GetByte();
+    if (result < 0x80)
+        return result;
 
-	result -= 0x80;
+    result -= 0x80;
 
-	char shift = 7;
-	for (;;)
-	{
-		DWORD c = GetByte();
-		if (c < 0x80)
-			return result + (c << shift);
+    char shift = 7;
+    for (;;)
+    {
+        DWORD c = GetByte();
+        if (c < 0x80)
+            return result + (c << shift);
 
-		result += ((c - 0x80) << shift);
-		shift += 7;
-	}
+        result += ((c - 0x80) << shift);
+        shift += 7;
+    }
 }
 
 // update members in this derived class as well
@@ -82,7 +82,7 @@ void CPackedDWORDInStreamBase::AutoClose()
 // construction: nothing special to do
 
 CPackedDWORDInStream::CPackedDWORDInStream ( CCacheFileInBuffer* buffer
-										   , STREAM_INDEX index)
-	: TBase (buffer, index)
+                                           , STREAM_INDEX index)
+    : TBase (buffer, index)
 {
 }

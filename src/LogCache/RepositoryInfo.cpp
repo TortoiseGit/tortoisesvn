@@ -39,7 +39,7 @@ namespace LogCache
 
 bool IsParentDirectory (const CString& parent, const CString& dir)
 {
-    return (parent == dir) 
+    return (parent == dir)
         || (   (dir.GetLength() > parent.GetLength())
             && (dir.GetAt (parent.GetLength()) == '/'));
 }
@@ -56,15 +56,15 @@ CString UniqueFileName (const CString& fileName)
 
     int num = 0;
     CString result = base;
-	while (GetFileAttributes (result) != INVALID_FILE_ATTRIBUTES)
-        result.Format (_T("%s(%d)"), (LPCTSTR)result, ++num); 
+    while (GetFileAttributes (result) != INVALID_FILE_ATTRIBUTES)
+        result.Format (_T("%s(%d)"), (LPCTSTR)result, ++num);
 
     return result.MakeLower();
 }
 
 // a lookup utility that scans an index range
 
-CString CRepositoryInfo::CData::FindRoot 
+CString CRepositoryInfo::CData::FindRoot
     ( TPartialIndex::const_iterator begin
     , TPartialIndex::const_iterator end
     , const CString& url) const
@@ -128,13 +128,13 @@ CString CRepositoryInfo::CData::FindRoot (const CString& uuid, const CString& ur
     }
 }
 
-CRepositoryInfo::SPerRepositoryInfo* 
+CRepositoryInfo::SPerRepositoryInfo*
 CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
 {
     // the full index will only match if uuid and url are both given.
     // That repo info will be valid even if ambiguities are not allowed.
 
-    TFullIndex::const_iterator iter 
+    TFullIndex::const_iterator iter
         = fullIndex.find (std::make_pair (uuid, root));
     if (iter != fullIndex.end())
         return iter->second;
@@ -166,8 +166,8 @@ CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
 
 // modification
 
-CRepositoryInfo::SPerRepositoryInfo* 
-CRepositoryInfo::CData::AutoInsert (const CString& uuid, const CString& root) 
+CRepositoryInfo::SPerRepositoryInfo*
+CRepositoryInfo::CData::AutoInsert (const CString& uuid, const CString& root)
 {
     // do we already have a suitable entry?
 
@@ -191,7 +191,7 @@ void CRepositoryInfo::CData::Add (const SPerRepositoryInfo& info)
     fullIndex.insert (std::make_pair (std::make_pair (newInfo->uuid, newInfo->root), newInfo));
 }
 
-void CRepositoryInfo::CData::Add (const CString& uuid, const CString& root) 
+void CRepositoryInfo::CData::Add (const CString& uuid, const CString& root)
 {
     SPerRepositoryInfo info;
     info.headRevision = (revision_t)NO_REVISION;
@@ -251,18 +251,18 @@ void CRepositoryInfo::CData::Remove (SPerRepositoryInfo* info)
 
 void CRepositoryInfo::CData::Load (const CString& fileName)
 {
-	CFile file;
-	if (!file.Open (fileName, CFile::modeRead | CFile::shareDenyWrite))
-		return;
+    CFile file;
+    if (!file.Open (fileName, CFile::modeRead | CFile::shareDenyWrite))
+        return;
 
-	try
-	{
+    try
+    {
         CArchive stream (&file, CArchive::load);
 
         // format ID
 
         int version = 0;
-	    stream >> version;
+        stream >> version;
 
         // ignore newer formats
 
@@ -285,7 +285,7 @@ void CRepositoryInfo::CData::Load (const CString& fileName)
             int connectionState = online;
 
             SPerRepositoryInfo info;
-            stream >> info.root 
+            stream >> info.root
                    >> info.uuid
                    >> info.headURL
                    >> info.headRevision
@@ -310,38 +310,38 @@ void CRepositoryInfo::CData::Load (const CString& fileName)
                 Add (info);
             }
         }
-	}
-	catch (...)
-	{
-		return;
-	}
+    }
+    catch (...)
+    {
+        return;
+    }
 }
 
 void CRepositoryInfo::CData::Save (const CString& fileName) const
 {
-	CFile file (fileName, CFile::modeWrite | CFile::modeCreate);
-	CArchive stream (&file, CArchive::store);
+    CFile file (fileName, CFile::modeWrite | CFile::modeCreate);
+    CArchive stream (&file, CArchive::store);
 
-	stream << static_cast<int>(VERSION);
-	stream << static_cast<int>(data.size());
+    stream << static_cast<int>(VERSION);
+    stream << static_cast<int>(data.size());
 
-	for ( size_t i = 0, count = data.size(); i < count; ++i)
-	{
+    for ( size_t i = 0, count = data.size(); i < count; ++i)
+    {
         SPerRepositoryInfo* info = data[i];
 
-		// temp offline -> be online the next time
+        // temp offline -> be online the next time
 
-		ConnectionState connectionState 
-			= static_cast<ConnectionState>(info->connectionState & offline);
+        ConnectionState connectionState
+            = static_cast<ConnectionState>(info->connectionState & offline);
 
-		stream << info->root 
-			   << info->uuid 
-			   << info->headURL 
-			   << info->headRevision 
-			   << info->headLookupTime
-			   << connectionState
+        stream << info->root
+               << info->uuid
+               << info->headURL
+               << info->headRevision
+               << info->headLookupTime
+               << connectionState
                << info->fileName;
-	}
+    }
 }
 
 void CRepositoryInfo::CData::Clear()
@@ -365,13 +365,13 @@ bool CRepositoryInfo::CData::empty() const
 
 // data access
 
-const CRepositoryInfo::SPerRepositoryInfo* const * 
+const CRepositoryInfo::SPerRepositoryInfo* const *
 CRepositoryInfo::CData::begin() const
 {
     return data.empty() ? NULL : &data.front();
 }
 
-const CRepositoryInfo::SPerRepositoryInfo* const * 
+const CRepositoryInfo::SPerRepositoryInfo* const *
 CRepositoryInfo::CData::end() const
 {
     return begin() + data.size();
@@ -397,7 +397,7 @@ void CRepositoryInfo::Load()
 
     // any cached info at all?
 
-	if (GetFileAttributes (GetFileName()) == INVALID_FILE_ATTRIBUTES)
+    if (GetFileAttributes (GetFileName()) == INVALID_FILE_ATTRIBUTES)
         return;
 
     data.Load (GetFileName());
@@ -412,21 +412,21 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info)
     if (info->connectionState != online)
         return true;
 
-    // something went wrong. 
+    // something went wrong.
 
     if (CSettings::GetDefaultConnectionState() == online)
     {
         // Default behavior is "Ask the user what to do"
 
-		// TODO: improve the dialog with
-		// * the error message (why do we think the repository is offline?)
-		//   this could be shown in the dialog itself in a label, a separate popup
-		//   from a "show error" button or simply a tooltip
-		// * a button to retry
-		//
-		// for this, the IsOffline() method needs changing:
-		// * requires a param for the error message (or the SVNError exception object)
-		// * an int return type which tells either to cancel, go offline, retry, ...
+        // TODO: improve the dialog with
+        // * the error message (why do we think the repository is offline?)
+        //   this could be shown in the dialog itself in a label, a separate popup
+        //   from a "show error" button or simply a tooltip
+        // * a button to retry
+        //
+        // for this, the IsOffline() method needs changing:
+        // * requires a param for the error message (or the SVNError exception object)
+        // * an int return type which tells either to cancel, go offline, retry, ...
         CGoOffline dialog;
         dialog.DoModal();
         if (dialog.asDefault)
@@ -448,7 +448,7 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info)
 
 void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo* info)
 {
-	SVN svn;
+    SVN svn;
     CCachedLogInfo* cache = svn.GetLogCachePool()->GetCache (info->uuid, info->root);
     info->headRevision = cache != NULL
         ? cache->GetRevisions().GetLastCachedRevision()-1
@@ -476,7 +476,7 @@ CRepositoryInfo::~CRepositoryInfo(void)
 {
 }
 
-// look-up and ask SVN if the info is not in cache. 
+// look-up and ask SVN if the info is not in cache.
 // cache the result.
 
 CString CRepositoryInfo::GetRepositoryRoot (const CTSVNPath& url)
@@ -565,7 +565,7 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
         // if we couldn't connect to the server, ask the user
 
         bool cancelled = svn.Err && (svn.Err->apr_err == SVN_ERR_CANCELLED);
-        if (   !cancelled 
+        if (   !cancelled
             && (info->headRevision == NO_REVISION)
             && IsOffline (info))
         {
@@ -575,7 +575,7 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
 
             // we just ignore our latest error
 
-        	svn_error_clear (svn.Err);
+            svn_error_clear (svn.Err);
             svn.Err = NULL;
         }
 
@@ -606,44 +606,44 @@ void CRepositoryInfo::ResetHeadRevision (const CString& uuid, const CString& roo
     }
 }
 
-// is the repository offline? 
+// is the repository offline?
 // Don't modify the state if autoSet is false.
 
 bool CRepositoryInfo::IsOffline (const CString& uuid, const CString& root, bool autoSet)
 {
-	// find the info
+    // find the info
 
     SPerRepositoryInfo* info = data.Lookup (uuid, root);
 
-	// no info -> assume online (i.e. just try to reach the server)
+    // no info -> assume online (i.e. just try to reach the server)
 
-	if (info == NULL)
-		return false;
+    if (info == NULL)
+        return false;
 
-	// update the online/offline state by contacting the user?
-	// (the dialog will only be shown if online and no 
-	// offline-defaults have been set)
+    // update the online/offline state by contacting the user?
+    // (the dialog will only be shown if online and no
+    // offline-defaults have been set)
 
-	if (autoSet)
-		IsOffline (info);
+    if (autoSet)
+        IsOffline (info);
 
     // return state
 
-	return info->connectionState != online;
+    return info->connectionState != online;
 }
 
 // get the connection state (uninterpreted)
 
-ConnectionState 
+ConnectionState
 CRepositoryInfo::GetConnectionState (const CString& uuid, const CString& url)
 {
-	// find the info
+    // find the info
 
     SPerRepositoryInfo* info = data.Lookup (uuid, url);
 
-	// no info -> assume online (i.e. just try to reach the server)
+    // no info -> assume online (i.e. just try to reach the server)
 
-	return info == NULL
+    return info == NULL
         ? online
         : info->connectionState;
 }
@@ -671,17 +671,17 @@ void CRepositoryInfo::Flush()
         return;
     }
 
-	CString fileName = GetFileName();
-	CPathUtils::MakeSureDirectoryPathExists (fileName.Left (fileName.ReverseFind ('\\')));
-	try
-	{
+    CString fileName = GetFileName();
+    CPathUtils::MakeSureDirectoryPathExists (fileName.Left (fileName.ReverseFind ('\\')));
+    try
+    {
         data.Save (fileName);
-		modified = false;
-	}
-	catch (CException* e)
-	{
-		e->Delete();
-	}
+        modified = false;
+    }
+    catch (CException* e)
+    {
+        e->Delete();
+    }
 }
 
 // clear cache
@@ -695,7 +695,7 @@ void CRepositoryInfo::Clear()
 
 SVN& CRepositoryInfo::GetSVN() const
 {
-	return svn;
+    return svn;
 }
 
 // access to the result of the last SVN operation

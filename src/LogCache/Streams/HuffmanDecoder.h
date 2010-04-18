@@ -34,38 +34,38 @@ class CHuffmanDecoder : public CHuffmanBase
 {
 private:
 
-	// decoder table:
-	// for each possible key (i.e. encoded char), we store
-	// the plain text value and the length of the key in bits.
+    // decoder table:
+    // for each possible key (i.e. encoded char), we store
+    // the plain text value and the length of the key in bits.
 
-	// For keys that are shorter than MAX_ENCODING_LENGTH, 
-	// we store the plain text in for all possible bit
-	// combinations after the actual key.
+    // For keys that are shorter than MAX_ENCODING_LENGTH,
+    // we store the plain text in for all possible bit
+    // combinations after the actual key.
 
-	BYTE value[1 << MAX_ENCODING_LENGTH];
-	BYTE length[1 << MAX_ENCODING_LENGTH];
+    BYTE value[1 << MAX_ENCODING_LENGTH];
+    BYTE length[1 << MAX_ENCODING_LENGTH];
 
-	// read the encoding table from the beginning of the
-	// compressed data buffer and fill the value[] and
-	// length[] arrays.
+    // read the encoding table from the beginning of the
+    // compressed data buffer and fill the value[] and
+    // length[] arrays.
 
-	void BuildDecodeTable (const BYTE*& first);
+    void BuildDecodeTable (const BYTE*& first);
 
-	// efficiently decode the source stream until the
-	// plain text stream reaches decodedSize.
+    // efficiently decode the source stream until the
+    // plain text stream reaches decodedSize.
 
-	void WriteDecodedStream ( const BYTE* first
-							, BYTE* dest
-							, DWORD decodedSize);
+    void WriteDecodedStream ( const BYTE* first
+                            , BYTE* dest
+                            , DWORD decodedSize);
 
 public:
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CHuffmanDecoder() {};
-	virtual ~CHuffmanDecoder() {};
+    CHuffmanDecoder() {};
+    virtual ~CHuffmanDecoder() {};
 
-	// decompress the source data and return the target buffer.
+    // decompress the source data and return the target buffer.
 
-	void Decode (const BYTE*& source, BYTE*& target);
+    void Decode (const BYTE*& source, BYTE*& target);
 };

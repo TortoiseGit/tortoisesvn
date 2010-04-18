@@ -38,24 +38,24 @@ namespace LogCache
 
 revision_t CSkipRevisionInfo::SPerPathRanges::FindPrevious (revision_t revision) const
 {
-	// special case
+    // special case
 
-	if (ranges.empty())
-		return (revision_t)NO_REVISION;
+    if (ranges.empty())
+        return (revision_t)NO_REVISION;
 
-	// look for the first range *behind* revision
+    // look for the first range *behind* revision
 
-	TRanges::const_iterator iter = ranges.upper_bound (revision);
-	if (iter == ranges.begin())
-		return (revision_t)NO_REVISION;
+    TRanges::const_iterator iter = ranges.upper_bound (revision);
+    if (iter == ranges.begin())
+        return (revision_t)NO_REVISION;
 
-	// return start-1 of previous range, if revision is within this range
+    // return start-1 of previous range, if revision is within this range
 
-	--iter;
-	revision_t next = iter->first + iter->second;
-	return next <= revision 
-		? NO_REVISION
-		: iter->first-1;
+    --iter;
+    revision_t next = iter->first + iter->second;
+    return next <= revision
+        ? NO_REVISION
+        : iter->first-1;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -64,51 +64,51 @@ revision_t CSkipRevisionInfo::SPerPathRanges::FindPrevious (revision_t revision)
 
 void CSkipRevisionInfo::SPerPathRanges::Add (revision_t start, revision_t size)
 {
-	revision_t end = start + size;
+    revision_t end = start + size;
 
-	// insert the new range / enlarge existing range
+    // insert the new range / enlarge existing range
 
-	std::pair<TRanges::iterator,bool> insertionResult 
-		= ranges.insert (std::make_pair (start, size));
-	if (!insertionResult.second && (insertionResult.first->second < size))
-		insertionResult.first->second = size;
+    std::pair<TRanges::iterator,bool> insertionResult
+        = ranges.insert (std::make_pair (start, size));
+    if (!insertionResult.second && (insertionResult.first->second < size))
+        insertionResult.first->second = size;
 
-	// merge it with the previous one
+    // merge it with the previous one
 
-	if (insertionResult.first != ranges.begin())
-	{
-		TRanges::iterator iter = insertionResult.first;
-		--iter;
+    if (insertionResult.first != ranges.begin())
+    {
+        TRanges::iterator iter = insertionResult.first;
+        --iter;
 
-		revision_t previousEnd = iter->first + iter->second;
+        revision_t previousEnd = iter->first + iter->second;
 
-		if (previousEnd >= start)
-		{
-			if (end < previousEnd)
-				end = previousEnd;
+        if (previousEnd >= start)
+        {
+            if (end < previousEnd)
+                end = previousEnd;
 
-			iter->second = end - iter->first;
+            iter->second = end - iter->first;
 
-		#ifdef _MSC_VER
-			insertionResult.first = ranges.erase (insertionResult.first);
-		#else
-			revision_t revision = insertionResult.first->first;
-			ranges.erase (insertionResult.first);
-			insertionResult.first = ranges.lower_bound (revision);
-		#endif
-			--insertionResult.first;
-		}
-	}
+        #ifdef _MSC_VER
+            insertionResult.first = ranges.erase (insertionResult.first);
+        #else
+            revision_t revision = insertionResult.first->first;
+            ranges.erase (insertionResult.first);
+            insertionResult.first = ranges.lower_bound (revision);
+        #endif
+            --insertionResult.first;
+        }
+    }
 
-	// merge it with the next one
+    // merge it with the next one
 
-	TRanges::iterator iter = insertionResult.first;
-	if ((++iter != ranges.end()) && (iter->first <= end))
-	{
-		insertionResult.first->second = std::max (end, iter->first + iter->second) 
-									  - insertionResult.first->first;
-		ranges.erase (iter);
-	}
+    TRanges::iterator iter = insertionResult.first;
+    if ((++iter != ranges.end()) && (iter->first <= end))
+    {
+        insertionResult.first->second = std::max (end, iter->first + iter->second)
+                                      - insertionResult.first->first;
+        ranges.erase (iter);
+    }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -119,15 +119,15 @@ void CSkipRevisionInfo::SPerPathRanges::Add (revision_t start, revision_t size)
 
 void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 {
-	std::vector<SPerPathRanges*>& data = parent->data;
-	for (size_t i = data.size(); i > 0; --i)
-	{
-		SPerPathRanges::TRanges& ranges = data[i-1]->ranges;
-		for (IT iter = ranges.begin(), end = ranges.end(); iter != end; )
-		{
+    std::vector<SPerPathRanges*>& data = parent->data;
+    for (size_t i = data.size(); i > 0; --i)
+    {
+        SPerPathRanges::TRanges& ranges = data[i-1]->ranges;
+        for (IT iter = ranges.begin(), end = ranges.end(); iter != end; )
+        {
             revision_t start = iter->first;
             revision_t length = iter->second;
-            
+
             // remove known revisions from the beginning
             // of the skip range
 
@@ -166,7 +166,7 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 
                 ++iter;
             }
-		}
+        }
 
         // remove unused paths info containers
 
@@ -176,7 +176,7 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
             data[i-1] = data.back();
             data.pop_back();
         }
-	}
+    }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -185,13 +185,13 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 
 void CSkipRevisionInfo::CPacker::RebuildHash()
 {
-	std::vector<SPerPathRanges*>& data = parent->data;
-	quick_hash<CSkipRevisionInfo::CHashFunction>& index = parent->index;
+    std::vector<SPerPathRanges*>& data = parent->data;
+    quick_hash<CSkipRevisionInfo::CHashFunction>& index = parent->index;
 
     index.clear();
     index.reserve (data.size());
 
-	for (size_t i = 0, count = data.size(); i < count; ++i)
+    for (size_t i = 0, count = data.size(); i < count; ++i)
         index.insert (data[i]->pathID, (index_t)i);
 }
 
@@ -200,7 +200,7 @@ void CSkipRevisionInfo::CPacker::RebuildHash()
 ///////////////////////////////////////////////////////////////
 
 CSkipRevisionInfo::CPacker::CPacker()
-	: parent (NULL)
+    : parent (NULL)
 {
 }
 
@@ -214,9 +214,9 @@ CSkipRevisionInfo::CPacker::~CPacker()
 
 void CSkipRevisionInfo::CPacker::operator()(CSkipRevisionInfo* aParent)
 {
-	parent = aParent;
+    parent = aParent;
 
-	RemoveKnownRevisions();
+    RemoveKnownRevisions();
     RebuildHash();
 }
 
@@ -232,26 +232,26 @@ bool CSkipRevisionInfo::DataAvailable (revision_t revision)
     if (index == NO_INDEX)
         return false;
 
-    return (  logInfo.GetPresenceFlags (index) 
+    return (  logInfo.GetPresenceFlags (index)
             & CRevisionInfoContainer::HAS_CHANGEDPATHS) != 0;
 }
 
 void CSkipRevisionInfo::TryReduceRange (revision_t& revision, revision_t& size)
 {
-	// raise lower bound
+    // raise lower bound
 
-	while ((size > 0) && DataAvailable (revision))
-	{
-		++revision;
-		--size;
-	}
+    while ((size > 0) && DataAvailable (revision))
+    {
+        ++revision;
+        --size;
+    }
 
-	// lower upper bound
+    // lower upper bound
 
     while ((size > 0) && DataAvailable (revision + size-1))
-	{
-		--size;
-	}
+    {
+        --size;
+    }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -259,18 +259,18 @@ void CSkipRevisionInfo::TryReduceRange (revision_t& revision, revision_t& size)
 ///////////////////////////////////////////////////////////////
 
 CSkipRevisionInfo::CSkipRevisionInfo ( const CPathDictionary& aPathDictionary
-									 , const CRevisionIndex& aRevisionIndex
+                                     , const CRevisionIndex& aRevisionIndex
                                      , const CRevisionInfoContainer& logInfo)
-	: index (CHashFunction (&data))
-	, paths (aPathDictionary)
-	, revisions (aRevisionIndex)
+    : index (CHashFunction (&data))
+    , paths (aPathDictionary)
+    , revisions (aRevisionIndex)
     , logInfo (logInfo)
 {
 }
 
 CSkipRevisionInfo::~CSkipRevisionInfo(void)
 {
-	Clear();
+    Clear();
 }
 
 ///////////////////////////////////////////////////////////////
@@ -291,48 +291,48 @@ CSkipRevisionInfo& CSkipRevisionInfo::operator=(const CSkipRevisionInfo& rhs)
 }
 
 revision_t CSkipRevisionInfo::GetPreviousRevision ( const CDictionaryBasedPath& path
-												  , revision_t revision) const
+                                                  , revision_t revision) const
 {
-	// above the root or invalid parameter ?
+    // above the root or invalid parameter ?
 
-	if (!path.IsValid() || (revision == NO_REVISION))
-		return (revision_t)NO_REVISION;
+    if (!path.IsValid() || (revision == NO_REVISION))
+        return (revision_t)NO_REVISION;
 
-	// lookup the entry for this path
+    // lookup the entry for this path
 
-	index_t dataIndex = index.find (path.GetIndex());
-	SPerPathRanges* ranges = dataIndex == NO_INDEX
-						   ? NULL
-						   : data[dataIndex];
+    index_t dataIndex = index.find (path.GetIndex());
+    SPerPathRanges* ranges = dataIndex == NO_INDEX
+                           ? NULL
+                           : data[dataIndex];
 
-	// crawl this and the parent path data
-	// until we found a gap (i.e. could not improve further)
+    // crawl this and the parent path data
+    // until we found a gap (i.e. could not improve further)
 
-	revision_t startRevision = revision;
-	revision_t result = revision;
+    revision_t startRevision = revision;
+    revision_t result = revision;
 
-	do
-	{
-		result = revision;
+    do
+    {
+        result = revision;
 
-		revision_t parentNext = GetPreviousRevision (path.GetParent(), revision);
-		if (parentNext != NO_REVISION)
-			revision = parentNext;
+        revision_t parentNext = GetPreviousRevision (path.GetParent(), revision);
+        if (parentNext != NO_REVISION)
+            revision = parentNext;
 
-		if (ranges != NULL)
-		{
-			revision_t next = ranges->FindPrevious (revision);
-			if (next != NO_REVISION)
-				revision = next;
-		}
-	}
-	while (revision < result);
+        if (ranges != NULL)
+        {
+            revision_t next = ranges->FindPrevious (revision);
+            if (next != NO_REVISION)
+                revision = next;
+        }
+    }
+    while (revision < result);
 
-	// ready
+    // ready
 
-	return revision == startRevision 
-		? NO_REVISION
-		: result;
+    return revision == startRevision
+        ? NO_REVISION
+        : result;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -340,43 +340,43 @@ revision_t CSkipRevisionInfo::GetPreviousRevision ( const CDictionaryBasedPath& 
 ///////////////////////////////////////////////////////////////
 
 void CSkipRevisionInfo::Add ( const CDictionaryBasedPath& path
-							, revision_t revision
-							, revision_t size)
+                            , revision_t revision
+                            , revision_t size)
 {
-	// violating these assertions will break our lookup algorithms
+    // violating these assertions will break our lookup algorithms
 
-	assert (path.IsValid());
-	assert (revision != NO_REVISION);
-	assert (size != NO_REVISION);
-	assert (2*size > size);
+    assert (path.IsValid());
+    assert (revision != NO_REVISION);
+    assert (size != NO_REVISION);
+    assert (2*size > size);
 
-	// reduce the range, if we have revision info at the boundaries
+    // reduce the range, if we have revision info at the boundaries
 
-	TryReduceRange (revision, size);
-	if (size == 0)
-		return;
+    TryReduceRange (revision, size);
+    if (size == 0)
+        return;
 
-	// lookup / auto-insert entry for path
+    // lookup / auto-insert entry for path
 
-	SPerPathRanges* ranges = NULL;
-	index_t dataIndex = index.find (path.GetIndex());
+    SPerPathRanges* ranges = NULL;
+    index_t dataIndex = index.find (path.GetIndex());
 
-	if (dataIndex == NO_INDEX)
-	{
-		ranges = new SPerPathRanges;
-		ranges->pathID = path.GetIndex();
+    if (dataIndex == NO_INDEX)
+    {
+        ranges = new SPerPathRanges;
+        ranges->pathID = path.GetIndex();
 
-		data.push_back (ranges);
-		index.insert (path.GetIndex(), (index_t)data.size()-1);
-	}
-	else
-	{
-		ranges = data[dataIndex];
-	}
+        data.push_back (ranges);
+        index.insert (path.GetIndex(), (index_t)data.size()-1);
+    }
+    else
+    {
+        ranges = data[dataIndex];
+    }
 
-	// add range
+    // add range
 
-	ranges->Add (revision, size);
+    ranges->Add (revision, size);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -385,11 +385,11 @@ void CSkipRevisionInfo::Add ( const CDictionaryBasedPath& path
 
 void CSkipRevisionInfo::Clear()
 {
-	for (size_t i = 0, count = data.size(); i != count; ++i)
-		delete data[i];
+    for (size_t i = 0, count = data.size(); i != count; ++i)
+        delete data[i];
 
-	data.clear();
-	index.clear();
+    data.clear();
+    index.clear();
 }
 
 ///////////////////////////////////////////////////////////////
@@ -398,7 +398,7 @@ void CSkipRevisionInfo::Clear()
 
 void CSkipRevisionInfo::Compress()
 {
-	CPacker()(this);
+    CPacker()(this);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -424,7 +424,7 @@ CSkipRevisionInfo::TRanges CSkipRevisionInfo::GetRanges (size_t index) const
 
     for ( SPerPathRanges::TRanges::const_iterator iter = ranges.begin()
         , end = ranges.end()
-        ; iter != end 
+        ; iter != end
         ; ++iter)
     {
         result.push_back (std::make_pair (iter->first, iter->second));
@@ -438,122 +438,122 @@ CSkipRevisionInfo::TRanges CSkipRevisionInfo::GetRanges (size_t index) const
 ///////////////////////////////////////////////////////////////
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CSkipRevisionInfo& container)
+                                  , CSkipRevisionInfo& container)
 {
-	// open sub-streams
+    // open sub-streams
 
-	CPackedDWORDInStream* pathIDsStream 
-		= stream.GetSubStream<CPackedDWORDInStream> 
-			(CSkipRevisionInfo::PATHIDS_STREAM_ID);
+    CPackedDWORDInStream* pathIDsStream
+        = stream.GetSubStream<CPackedDWORDInStream>
+            (CSkipRevisionInfo::PATHIDS_STREAM_ID);
 
-	CPackedDWORDInStream* entryCountStream 
-		= stream.GetSubStream<CPackedDWORDInStream> 
-			(CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID);
+    CPackedDWORDInStream* entryCountStream
+        = stream.GetSubStream<CPackedDWORDInStream>
+            (CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID);
 
-	CDiffDWORDInStream* revisionsStream 
-		= stream.GetSubStream<CDiffDWORDInStream> 
-			(CSkipRevisionInfo::REVISIONS_STREAM_ID);
+    CDiffDWORDInStream* revisionsStream
+        = stream.GetSubStream<CDiffDWORDInStream>
+            (CSkipRevisionInfo::REVISIONS_STREAM_ID);
 
-	CDiffIntegerInStream* sizesStream 
-		= stream.GetSubStream<CDiffIntegerInStream> 
-			(CSkipRevisionInfo::SIZES_STREAM_ID);
+    CDiffIntegerInStream* sizesStream
+        = stream.GetSubStream<CDiffIntegerInStream>
+            (CSkipRevisionInfo::SIZES_STREAM_ID);
 
-	// read all data
+    // read all data
 
-	size_t count = pathIDsStream->GetValue();
+    size_t count = pathIDsStream->GetValue();
 
-	container.Clear();
-	container.data.reserve (count);
+    container.Clear();
+    container.data.reserve (count);
 
-	for (size_t i = 0; i < count; ++i)
-	{
-		std::auto_ptr<CSkipRevisionInfo::SPerPathRanges> perPathInfo 
-			(new CSkipRevisionInfo::SPerPathRanges);
+    for (size_t i = 0; i < count; ++i)
+    {
+        std::auto_ptr<CSkipRevisionInfo::SPerPathRanges> perPathInfo
+            (new CSkipRevisionInfo::SPerPathRanges);
 
-		perPathInfo->pathID = pathIDsStream->GetValue();
+        perPathInfo->pathID = pathIDsStream->GetValue();
 
-		size_t entryCount = entryCountStream->GetValue();
-		CSkipRevisionInfo::IT iter = perPathInfo->ranges.end();
-		for (size_t k = 0; k < entryCount; ++k)
-		{
-			iter = perPathInfo->ranges.insert 
-					(iter, std::make_pair ( revisionsStream->GetValue()
-										  , sizesStream->GetValue()));
-		}
+        size_t entryCount = entryCountStream->GetValue();
+        CSkipRevisionInfo::IT iter = perPathInfo->ranges.end();
+        for (size_t k = 0; k < entryCount; ++k)
+        {
+            iter = perPathInfo->ranges.insert
+                    (iter, std::make_pair ( revisionsStream->GetValue()
+                                          , sizesStream->GetValue()));
+        }
 
-		container.index.insert ( perPathInfo->pathID
-							   , (index_t)container.data.size());
-		container.data.push_back (perPathInfo.release());
-	}
+        container.index.insert ( perPathInfo->pathID
+                               , (index_t)container.data.size());
+        container.data.push_back (perPathInfo.release());
+    }
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CSkipRevisionInfo& container)
+                                   , const CSkipRevisionInfo& container)
 {
-	// minimize the data to write
+    // minimize the data to write
 
-	const_cast<CSkipRevisionInfo*>(&container)->Compress();
+    const_cast<CSkipRevisionInfo*>(&container)->Compress();
 
-	typedef std::vector<CSkipRevisionInfo::SPerPathRanges*>::const_iterator CIT;
-	CIT begin = container.data.begin();
-	CIT end = container.data.end();
+    typedef std::vector<CSkipRevisionInfo::SPerPathRanges*>::const_iterator CIT;
+    CIT begin = container.data.begin();
+    CIT end = container.data.end();
 
-	// write path IDs
+    // write path IDs
 
-	CPackedDWORDOutStream* pathIDsStream 
-		= stream.OpenSubStream<CPackedDWORDOutStream> 
-			(CSkipRevisionInfo::PATHIDS_STREAM_ID);
-	pathIDsStream->Add ((DWORD)container.data.size());
+    CPackedDWORDOutStream* pathIDsStream
+        = stream.OpenSubStream<CPackedDWORDOutStream>
+            (CSkipRevisionInfo::PATHIDS_STREAM_ID);
+    pathIDsStream->Add ((DWORD)container.data.size());
 
-	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
-		pathIDsStream->Add ((*dataIter)->pathID);
+    for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
+        pathIDsStream->Add ((*dataIter)->pathID);
 
-	// write number of ranges per path
+    // write number of ranges per path
 
-	CPackedDWORDOutStream* entryCountStream 
-		= stream.OpenSubStream<CPackedDWORDOutStream> 
-			(CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID);
+    CPackedDWORDOutStream* entryCountStream
+        = stream.OpenSubStream<CPackedDWORDOutStream>
+            (CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID);
 
-	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
-		entryCountStream->Add ((DWORD)(*dataIter)->ranges.size());
+    for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
+        entryCountStream->Add ((DWORD)(*dataIter)->ranges.size());
 
-	// write ranges start revisions
+    // write ranges start revisions
 
-	CDiffDWORDOutStream* revisionsStream 
-		= stream.OpenSubStream<CDiffDWORDOutStream> 
-			(CSkipRevisionInfo::REVISIONS_STREAM_ID);
+    CDiffDWORDOutStream* revisionsStream
+        = stream.OpenSubStream<CDiffDWORDOutStream>
+            (CSkipRevisionInfo::REVISIONS_STREAM_ID);
 
-	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
-		for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
-			, endlocal = (*dataIter)->ranges.end()
-			; iter != endlocal
-			; ++iter)
-		{
-			revisionsStream->Add (iter->first);
-		}
+    for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
+        for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
+            , endlocal = (*dataIter)->ranges.end()
+            ; iter != endlocal
+            ; ++iter)
+        {
+            revisionsStream->Add (iter->first);
+        }
 
-	// write ranges lengths
+    // write ranges lengths
 
-	CDiffIntegerOutStream* sizesStream 
-		= stream.OpenSubStream<CDiffIntegerOutStream> 
-			(CSkipRevisionInfo::SIZES_STREAM_ID);
+    CDiffIntegerOutStream* sizesStream
+        = stream.OpenSubStream<CDiffIntegerOutStream>
+            (CSkipRevisionInfo::SIZES_STREAM_ID);
 
-	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
-		for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
-			, endlocal = (*dataIter)->ranges.end()
-			; iter != endlocal
-			; ++iter)
-		{
-			sizesStream->Add (iter->second);
-		}
+    for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
+        for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
+            , endlocal = (*dataIter)->ranges.end()
+            ; iter != endlocal
+            ; ++iter)
+        {
+            sizesStream->Add (iter->second);
+        }
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 ///////////////////////////////////////////////////////////////

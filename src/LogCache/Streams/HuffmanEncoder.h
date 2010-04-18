@@ -36,70 +36,70 @@ class CHuffmanEncoder : public CHuffmanBase
 {
 private:
 
-	// for each plain text value:
-	// the compressed value (key), the length of that
-	// key in bits and the number of occurrences of the
-	// original characters.
+    // for each plain text value:
+    // the compressed value (key), the length of that
+    // key in bits and the number of occurrences of the
+    // original characters.
 
-	// \ref key and \ref keyLength are only valid if
-	// \ref count is > 0.
+    // \ref key and \ref keyLength are only valid if
+    // \ref count is > 0.
 
-	key_block_type key[BUCKET_COUNT];
-	BYTE keyLength[BUCKET_COUNT];
-	DWORD count[BUCKET_COUNT];
+    key_block_type key[BUCKET_COUNT];
+    BYTE keyLength[BUCKET_COUNT];
+    DWORD count[BUCKET_COUNT];
 
-	// plain text values ordered by frequency (most
-	// frequently used first). Only \ref sortedCount
-	// entries are valid.
+    // plain text values ordered by frequency (most
+    // frequently used first). Only \ref sortedCount
+    // entries are valid.
 
-	BYTE sorted [BUCKET_COUNT];
+    BYTE sorted [BUCKET_COUNT];
 
-	// number of byte values that *actually* occurred
-	// in the plain text buffer.
+    // number of byte values that *actually* occurred
+    // in the plain text buffer.
 
-	size_t sortedCount;
+    size_t sortedCount;
 
-	// Huffman encoding stages:
+    // Huffman encoding stages:
 
-	// (1) determine distribution
+    // (1) determine distribution
 
-	void CountValues ( const unsigned char* source
-					 , const unsigned char* end);
+    void CountValues ( const unsigned char* source
+                     , const unsigned char* end);
 
-	// (2) prepare for key assignment: sort by frequency
+    // (2) prepare for key assignment: sort by frequency
 
-	void SortByFrequency();
+    void SortByFrequency();
 
-	// (3) recursively construct & assign keys
+    // (3) recursively construct & assign keys
 
-	void AssignEncoding ( BYTE* first
-					    , BYTE* last
-					    , key_type encoding
-					    , BYTE bitCount);
+    void AssignEncoding ( BYTE* first
+                        , BYTE* last
+                        , key_type encoding
+                        , BYTE bitCount);
 
-	// (4) target buffer size calculation
+    // (4) target buffer size calculation
 
-	DWORD CalculatePackedSize();
+    DWORD CalculatePackedSize();
 
-	// (5) target buffer size calculation
+    // (5) target buffer size calculation
 
-	void WriteHuffmanTable (BYTE*& dest);
+    void WriteHuffmanTable (BYTE*& dest);
 
-	// (6) write encoded target stream
+    // (6) write encoded target stream
 
-	void WriteHuffmanEncoded ( const BYTE* source
-						     , const BYTE* end
-							 , BYTE* dest);
+    void WriteHuffmanEncoded ( const BYTE* source
+                             , const BYTE* end
+                             , BYTE* dest);
 
 public:
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CHuffmanEncoder();
-	virtual ~CHuffmanEncoder() {};
+    CHuffmanEncoder();
+    virtual ~CHuffmanEncoder() {};
 
-	// compress the source data and return the target buffer.
-	// The caller must delete the target buffer.
+    // compress the source data and return the target buffer.
+    // The caller must delete the target buffer.
 
-	std::pair<BYTE*, DWORD> Encode (const BYTE* source, size_t byteCount);
+    std::pair<BYTE*, DWORD> Encode (const BYTE* source, size_t byteCount);
 };

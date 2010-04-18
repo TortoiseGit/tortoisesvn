@@ -49,191 +49,191 @@ class CRevisionIndex;
 class CRevisionInfoContainer;
 
 /**
- * associates paths with a list of revision ranges. It will be used to store 
- * those ranges that definitely contain no log information for the respective 
+ * associates paths with a list of revision ranges. It will be used to store
+ * those ranges that definitely contain no log information for the respective
  * path. Hence, even if we have no cached log information for that range at all,
  * we don't need to ask the server for the log.
  *
- * Compress() should be called to reduce the number of entries in this data 
- * structure. CRevisionInfoContainer has been designed to allow for very fast 
+ * Compress() should be called to reduce the number of entries in this data
+ * structure. CRevisionInfoContainer has been designed to allow for very fast
  * scanning - eliminating the need to use CSkipRevisionInfo as an optimization.
  */
 class CSkipRevisionInfo
 {
 private:
 
-	/**
-	 * structure that stores a number of revision ranges
-	 * (start, size) to a given path ID.
-	 *
-	 * Revision ranges must not overlap.
-	 *
-	 * Convenience methods for adding and retrieving
-	 * ranges are provided.
-	 */
+    /**
+     * structure that stores a number of revision ranges
+     * (start, size) to a given path ID.
+     *
+     * Revision ranges must not overlap.
+     *
+     * Convenience methods for adding and retrieving
+     * ranges are provided.
+     */
 
-	struct SPerPathRanges
-	{
-		typedef std::map<revision_t, revision_t> TRanges;
-		TRanges ranges;
-		index_t pathID;
+    struct SPerPathRanges
+    {
+        typedef std::map<revision_t, revision_t> TRanges;
+        TRanges ranges;
+        index_t pathID;
 
-		/// find next / previous "gap"
+        /// find next / previous "gap"
 
-		revision_t FindPrevious (revision_t revision) const;
+        revision_t FindPrevious (revision_t revision) const;
 
-		/// update / insert range
+        /// update / insert range
 
-		void Add (revision_t start, revision_t size);
-	};
+        void Add (revision_t start, revision_t size);
+    };
 
-	typedef SPerPathRanges::TRanges::iterator IT;
+    typedef SPerPathRanges::TRanges::iterator IT;
 
-	/**
-	 * simple quick_hash<> hash function that maps pathIDs
-	 * onto vector indices.
-	 */
+    /**
+     * simple quick_hash<> hash function that maps pathIDs
+     * onto vector indices.
+     */
 
-	class CHashFunction
-	{
-	private:
+    class CHashFunction
+    {
+    private:
 
-		/// the dictionary we index with the hash
-		/// (used to map index -> value)
+        /// the dictionary we index with the hash
+        /// (used to map index -> value)
 
-		std::vector<SPerPathRanges*>* data;
+        std::vector<SPerPathRanges*>* data;
 
-	public:
+    public:
 
-		/// simple construction
+        /// simple construction
 
-		CHashFunction (std::vector<SPerPathRanges*>* aContainer)
-			: data (aContainer)
-		{
-		}
+        CHashFunction (std::vector<SPerPathRanges*>* aContainer)
+            : data (aContainer)
+        {
+        }
 
-		/// required typedefs and constants
+        /// required typedefs and constants
 
-		typedef index_t value_type;
-		typedef index_t index_type;
+        typedef index_t value_type;
+        typedef index_t index_type;
 
-		enum {NO_INDEX = LogCache::NO_INDEX};
+        enum {NO_INDEX = LogCache::NO_INDEX};
 
-		/// the actual hash function
+        /// the actual hash function
 
-		size_t operator() (const value_type& value) const
-		{
-			return value;
-		}
+        size_t operator() (const value_type& value) const
+        {
+            return value;
+        }
 
-		/// dictionary lookup
+        /// dictionary lookup
 
-		const value_type& value (index_type index) const
-		{
-			assert (data->size() >= index);
-			return (*data)[index]->pathID;
-		}
+        const value_type& value (index_type index) const
+        {
+            assert (data->size() >= index);
+            return (*data)[index]->pathID;
+        }
 
-		/// lookup and comparison
+        /// lookup and comparison
 
-		bool equal (const value_type& value, index_type index) const
-		{
-			assert (data->size() > index);
-			return (*data)[index]->pathID == value;
-		}
-	};
+        bool equal (const value_type& value, index_type index) const
+        {
+            assert (data->size() > index);
+            return (*data)[index]->pathID == value;
+        }
+    };
 
-	friend class CHashFunction;
+    friend class CHashFunction;
 
-	/**
-	 * utility class to remove duplicate ranges (parent paths)
-	 * as well as ranges now covered by cached revision info.
-	 */
+    /**
+     * utility class to remove duplicate ranges (parent paths)
+     * as well as ranges now covered by cached revision info.
+     */
 
-	class CPacker
-	{
-	private:
+    class CPacker
+    {
+    private:
 
-		CSkipRevisionInfo* parent;
+        CSkipRevisionInfo* parent;
 
-		/// individual compression steps
+        /// individual compression steps
 
-		void RemoveKnownRevisions();
+        void RemoveKnownRevisions();
         void RebuildHash();
 
-	public:
+    public:
 
-		/// construction / destruction
+        /// construction / destruction
 
-		CPacker();
-		~CPacker();
+        CPacker();
+        ~CPacker();
 
-		/// compress
+        /// compress
 
-		void operator()(CSkipRevisionInfo* aParent);
-	};
+        void operator()(CSkipRevisionInfo* aParent);
+    };
 
-	friend class CPacker;
+    friend class CPacker;
 
-	/**
-	 * predicate to order ranges by their start revisions.
-	 */
+    /**
+     * predicate to order ranges by their start revisions.
+     */
 
-	class CIterComp
-	{
-	public:
+    class CIterComp
+    {
+    public:
 
-		bool operator() (const IT& lhs, const IT& rhs) const
-		{
-			return lhs->first < rhs->first;
-		}
-	};
+        bool operator() (const IT& lhs, const IT& rhs) const
+        {
+            return lhs->first < rhs->first;
+        }
+    };
 
-	enum
-	{
-		PATHIDS_STREAM_ID = 1 ,
-		ENTRY_COUNT_STREAM_ID = 2,
-		REVISIONS_STREAM_ID = 3,
-		SIZES_STREAM_ID = 4
-	};
+    enum
+    {
+        PATHIDS_STREAM_ID = 1 ,
+        ENTRY_COUNT_STREAM_ID = 2,
+        REVISIONS_STREAM_ID = 3,
+        SIZES_STREAM_ID = 4
+    };
 
-	std::vector<SPerPathRanges*> data;
-	quick_hash<CHashFunction> index;
+    std::vector<SPerPathRanges*> data;
+    quick_hash<CHashFunction> index;
 
-	const CPathDictionary& paths;
-	const CRevisionIndex& revisions;
+    const CPathDictionary& paths;
+    const CRevisionIndex& revisions;
     const CRevisionInfoContainer& logInfo;
 
-	/// remove known revisions from the range
+    /// remove known revisions from the range
 
     bool DataAvailable (revision_t revision);
-	void TryReduceRange (revision_t& revision, revision_t& size);
+    void TryReduceRange (revision_t& revision, revision_t& size);
 
 public:
 
-	/// construction / destruction
+    /// construction / destruction
 
-	CSkipRevisionInfo ( const CPathDictionary& aPathDictionary
-					  , const CRevisionIndex& aRevisionIndex
+    CSkipRevisionInfo ( const CPathDictionary& aPathDictionary
+                      , const CRevisionIndex& aRevisionIndex
                       , const CRevisionInfoContainer& logInfo);
-	~CSkipRevisionInfo(void);
+    ~CSkipRevisionInfo(void);
 
     /// provide custom assignment operator to silence C4512
 
     CSkipRevisionInfo& operator=(const CSkipRevisionInfo& rhs);
 
-	/// query data (return NO_REVISION, if not found)
+    /// query data (return NO_REVISION, if not found)
 
-	revision_t GetPreviousRevision (const CDictionaryBasedPath& path, revision_t revision) const;
+    revision_t GetPreviousRevision (const CDictionaryBasedPath& path, revision_t revision) const;
 
-	/// add / remove data
+    /// add / remove data
 
-	void Add (const CDictionaryBasedPath& path, revision_t revision, revision_t size);
-	void Clear();
+    void Add (const CDictionaryBasedPath& path, revision_t revision, revision_t size);
+    void Clear();
 
-	/// remove unnecessary entries
+    /// remove unnecessary entries
 
-	void Compress();
+    void Compress();
 
     /// r/o data access
 
@@ -243,24 +243,24 @@ public:
     typedef std::vector<std::pair<revision_t, revision_t> > TRanges;
     TRanges GetRanges (size_t index) const;
 
-	/// stream I/O
+    /// stream I/O
 
-	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-											 , CSkipRevisionInfo& container);
-	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-											  , const CSkipRevisionInfo& container);
+    friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
+                                             , CSkipRevisionInfo& container);
+    friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
+                                              , const CSkipRevisionInfo& container);
 
-	/// for statistics
+    /// for statistics
 
-	friend class CLogCacheStatistics;
+    friend class CLogCacheStatistics;
 };
 
 /// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CSkipRevisionInfo& container);
+                                  , CSkipRevisionInfo& container);
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CSkipRevisionInfo& container);
+                                   , const CSkipRevisionInfo& container);
 
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache

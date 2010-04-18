@@ -69,7 +69,7 @@ struct SBlob
 
     bool operator==(const SBlob& rhs) const
     {
-        return (size == rhs.size) 
+        return (size == rhs.size)
             && ((size == 0) || (memcmp (data, rhs.data, size) == 0));
     }
 
@@ -110,13 +110,13 @@ struct SBlob
 
     bool StartsWith (const SBlob& rhs) const
     {
-        return (size >= rhs.size) 
+        return (size >= rhs.size)
             && (memcmp (data, rhs.data, rhs.size) == 0);
     }
 
     bool StartsWith (const std::string& rhs) const
     {
-        return (size >= rhs.size()) 
+        return (size >= rhs.size())
             && (memcmp (data, rhs.c_str(), rhs.size()) == 0);
     }
 };
@@ -131,106 +131,106 @@ class CBlobDictionary
 {
 private:
 
-	/**
-	 * A simple string hash function that satisfies quick_hash'
-	 * interface requirements.
-	 * 
-	 * NULL strings are supported and are mapped to index 0.
-	 * Hence, the dictionary must contain the empty string at
-	 * index 0.
-	 */
+    /**
+     * A simple string hash function that satisfies quick_hash'
+     * interface requirements.
+     *
+     * NULL strings are supported and are mapped to index 0.
+     * Hence, the dictionary must contain the empty string at
+     * index 0.
+     */
 
-	class CHashFunction
-	{
-	private:
+    class CHashFunction
+    {
+    private:
 
-		/// the dictionary we index with the hash
-		/// (used to map index -> value)
+        /// the dictionary we index with the hash
+        /// (used to map index -> value)
 
-		CBlobDictionary* dictionary;
+        CBlobDictionary* dictionary;
 
-	public:
+    public:
 
-		/// simple construction
+        /// simple construction
 
-		CHashFunction (CBlobDictionary* aDictionary);
+        CHashFunction (CBlobDictionary* aDictionary);
 
-		/// required typedefs and constants
+        /// required typedefs and constants
 
-		typedef SBlob value_type;
-		typedef index_t index_type;
+        typedef SBlob value_type;
+        typedef index_t index_type;
 
-		enum {NO_INDEX = LogCache::NO_INDEX};
+        enum {NO_INDEX = LogCache::NO_INDEX};
 
-		/// the actual hash function
+        /// the actual hash function
 
-		size_t operator() (const value_type& value) const;
+        size_t operator() (const value_type& value) const;
 
-		/// dictionary lookup
+        /// dictionary lookup
 
-		value_type value (index_type index) const;
+        value_type value (index_type index) const;
 
-		/// lookup and comparison
+        /// lookup and comparison
 
-		bool equal (const value_type& value, index_type index) const;
-	};
+        bool equal (const value_type& value, index_type index) const;
+    };
 
-	/// sub-stream IDs
+    /// sub-stream IDs
 
-	enum
-	{
-		PACKED_BLOBS_STREAM_ID = 1,
-		OFFSETS_STREAM_ID = 2
-	};
+    enum
+    {
+        PACKED_BLOBS_STREAM_ID = 1,
+        OFFSETS_STREAM_ID = 2
+    };
 
-	/// the string data
+    /// the string data
 
-	std::vector<char> packedBlobs;
-	std::vector<index_t> offsets;
+    std::vector<char> packedBlobs;
+    std::vector<index_t> offsets;
 
     /// equivalent to &packedStrings.front()
 
     char* packedBlobsStart;
 
-	/// the string index
+    /// the string index
 
-	quick_hash<CHashFunction> hashIndex;
+    quick_hash<CHashFunction> hashIndex;
 
-	friend class CHashFunction;
+    friend class CHashFunction;
 
-	/// test for the worst effects of data corruption
+    /// test for the worst effects of data corruption
 
-	void RebuildIndexes();
+    void RebuildIndexes();
 
-	/// construction utility
+    /// construction utility
 
-	void Initialize();
+    void Initialize();
 
 public:
 
-	/// construction / destruction
+    /// construction / destruction
 
-	CBlobDictionary(void);
-	virtual ~CBlobDictionary(void);
+    CBlobDictionary(void);
+    virtual ~CBlobDictionary(void);
 
-	/// dictionary operations
+    /// dictionary operations
 
-	index_t size() const
-	{
-		return (index_t)(offsets.size()-1);
-	}
+    index_t size() const
+    {
+        return (index_t)(offsets.size()-1);
+    }
 
-	SBlob operator[](index_t index) const;
+    SBlob operator[](index_t index) const;
 
     void swap (CBlobDictionary& rhs);
 
-	index_t Find (const SBlob& blob) const;
-	index_t Insert (const SBlob& blob);
-	index_t AutoInsert (const SBlob& blob);
+    index_t Find (const SBlob& blob) const;
+    index_t Insert (const SBlob& blob);
+    index_t AutoInsert (const SBlob& blob);
 
-	/// reset content
+    /// reset content
 
-	void Clear();
+    void Clear();
 
     /// use this to minimize re-allocation and re-hashing
 
@@ -240,33 +240,33 @@ public:
 
     size_t GetPackedBlobsSize() const;
 
-	/// "merge" with another container:
-	/// add new entries and return ID mapping for source container
+    /// "merge" with another container:
+    /// add new entries and return ID mapping for source container
 
-	index_mapping_t Merge (const CBlobDictionary& source);
+    index_mapping_t Merge (const CBlobDictionary& source);
 
-	/// rearrange strings: put [sourceIndex[index]] into [index]
+    /// rearrange strings: put [sourceIndex[index]] into [index]
 
-	void Reorder (const std::vector<index_t>& sourceIndices);
+    void Reorder (const std::vector<index_t>& sourceIndices);
 
-	/// stream I/O
+    /// stream I/O
 
-	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-											 , CBlobDictionary& dictionary);
-	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-											  , const CBlobDictionary& dictionary);
+    friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
+                                             , CBlobDictionary& dictionary);
+    friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
+                                              , const CBlobDictionary& dictionary);
 
-	/// for statistics
+    /// for statistics
 
-	friend class CLogCacheStatistics;
+    friend class CLogCacheStatistics;
 };
 
 /// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CBlobDictionary& dictionary);
+                                  , CBlobDictionary& dictionary);
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CBlobDictionary& dictionary);
+                                   , const CBlobDictionary& dictionary);
 
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache

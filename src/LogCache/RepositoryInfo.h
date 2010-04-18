@@ -48,13 +48,13 @@ namespace LogCache
  * However, there is a minor difference in how the head revision is
  * treated: if the head rev. of some parent path is already known,
  * it will be returned for every sub-path where SVN may return a
- * smaller number. However, this higher HEAD will still be valid 
+ * smaller number. However, this higher HEAD will still be valid
  * for the path (i.e. it didn't get deleted etc.). To determine the
  * head *change*, call the SVN method directly.
  *
  * Mimic some methods of the SVN class. Results will automatically
  * be put into this cache.
- * 
+ *
  * Store to disk as "Repositories.dat" in the log cache folder.
  */
 
@@ -100,7 +100,7 @@ private:
     class CData
     {
     private:
-        
+
         /// per-repository properties
 
         typedef std::vector<SPerRepositoryInfo*> TData;
@@ -128,7 +128,7 @@ private:
 
         // a lookup utility that scans an index range
 
-        CString FindRoot 
+        CString FindRoot
             ( TPartialIndex::const_iterator begin
             , TPartialIndex::const_iterator end
             , const CString& url) const;
@@ -204,12 +204,12 @@ public:
     CRepositoryInfo (SVN& svn, const CString& cacheFolderPath);
     ~CRepositoryInfo();
 
-    /// look-up and ask SVN if the info is not in cache. 
+    /// look-up and ask SVN if the info is not in cache.
     /// cache the result.
 
-	CString GetRepositoryRoot (const CTSVNPath& url);
-	CString GetRepositoryUUID (const CTSVNPath& url);
-	CString GetRepositoryRootAndUUID (const CTSVNPath& url, CString& uuid);
+    CString GetRepositoryRoot (const CTSVNPath& url);
+    CString GetRepositoryUUID (const CTSVNPath& url);
+    CString GetRepositoryRootAndUUID (const CTSVNPath& url, CString& uuid);
 
     revision_t GetHeadRevision (CString uuid, const CTSVNPath& url);
 
@@ -217,8 +217,8 @@ public:
 
     void ResetHeadRevision (const CString& uuid, const CString& root);
 
-    /// is the repository offline? 
-	/// Don't modify the state if autoSet is false.
+    /// is the repository offline?
+    /// Don't modify the state if autoSet is false.
 
     bool IsOffline (const CString& uuid, const CString& url, bool autoSet);
 

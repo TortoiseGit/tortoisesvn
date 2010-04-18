@@ -28,7 +28,7 @@
 //
 // CPackedIntegerInStreamBase
 //
-//		enhances CPackedDWORDInStreamBase to handle signed values.
+//      enhances CPackedDWORDInStreamBase to handle signed values.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -36,58 +36,58 @@ class CPackedIntegerInStreamBase : public CPackedDWORDInStreamBase
 {
 protected:
 
-	// not meant to be instantiated
+    // not meant to be instantiated
 
-	// construction: nothing to do here
+    // construction: nothing to do here
 
-	CPackedIntegerInStreamBase ( CCacheFileInBuffer* buffer
-						       , STREAM_INDEX index);
+    CPackedIntegerInStreamBase ( CCacheFileInBuffer* buffer
+                               , STREAM_INDEX index);
 
-	// data access
+    // data access
 
-	int GetValue() throw()
-	{
-		DWORD v = CPackedDWORDInStreamBase::GetValue();
-		return v & 1
-			? -(int)(v / 2)
-			: (int)(v / 2);
-	}
+    int GetValue() throw()
+    {
+        DWORD v = CPackedDWORDInStreamBase::GetValue();
+        return v & 1
+            ? -(int)(v / 2)
+            : (int)(v / 2);
+    }
 
 public:
 
-	// destruction
+    // destruction
 
-	virtual ~CPackedIntegerInStreamBase() {};
+    virtual ~CPackedIntegerInStreamBase() {};
 };
 
 ///////////////////////////////////////////////////////////////
 //
 // CPackedIntegerInStream
 //
-//		instantiable sub-class of CPackedIntegerInStreamBase.
+//      instantiable sub-class of CPackedIntegerInStreamBase.
 //
 ///////////////////////////////////////////////////////////////
 
-class CPackedIntegerInStream 
-	: public CInStreamImplBase< CPackedIntegerInStream
-							  , CPackedIntegerInStreamBase
-							  , PACKED_INTEGER_STREAM_TYPE_ID>
+class CPackedIntegerInStream
+    : public CInStreamImplBase< CPackedIntegerInStream
+                              , CPackedIntegerInStreamBase
+                              , PACKED_INTEGER_STREAM_TYPE_ID>
 {
 public:
 
-	typedef CInStreamImplBase< CPackedIntegerInStream
-							 , CPackedIntegerInStreamBase
-							 , PACKED_INTEGER_STREAM_TYPE_ID> TBase;
+    typedef CInStreamImplBase< CPackedIntegerInStream
+                             , CPackedIntegerInStreamBase
+                             , PACKED_INTEGER_STREAM_TYPE_ID> TBase;
 
-	typedef int value_type;
+    typedef int value_type;
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CPackedIntegerInStream ( CCacheFileInBuffer* buffer
-					       , STREAM_INDEX index);
-	virtual ~CPackedIntegerInStream() {};
+    CPackedIntegerInStream ( CCacheFileInBuffer* buffer
+                           , STREAM_INDEX index);
+    virtual ~CPackedIntegerInStream() {};
 
-	// public data access methods
+    // public data access methods
 
-	using TBase::GetValue;
+    using TBase::GetValue;
 };

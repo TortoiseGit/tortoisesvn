@@ -27,7 +27,7 @@ class SVNRev;
 
 class ILogReceiver;
 
-/** 
+/**
  * A container type for (user-defined) revision property names.
  */
 
@@ -43,24 +43,24 @@ class ILogQuery
 {
 public:
 
-	/** query a section from log for multiple paths
-	 * (special revisions, like "HEAD", supported)
+    /** query a section from log for multiple paths
+     * (special revisions, like "HEAD", supported)
      *
      * userRevProps will be ignored for if includeUserRevProps
-     * is not set. If it is set and userRevProps is empty 
+     * is not set. If it is set and userRevProps is empty
      * all user-defined revprops will be returned.
      *
      * userRevProps must not overlap with the standard revprops
      * (svn:log, svn:date and svn:author).
      */
 
-	virtual void Log ( const CTSVNPathList& targets
-					 , const SVNRev& peg_revision
-					 , const SVNRev& start
-					 , const SVNRev& end
-					 , int limit
-					 , bool strictNodeHistory
-					 , ILogReceiver* receiver
+    virtual void Log ( const CTSVNPathList& targets
+                     , const SVNRev& peg_revision
+                     , const SVNRev& start
+                     , const SVNRev& end
+                     , int limit
+                     , bool strictNodeHistory
+                     , ILogReceiver* receiver
                      , bool includeChanges
                      , bool includeMerges
                      , bool includeStandardRevProps

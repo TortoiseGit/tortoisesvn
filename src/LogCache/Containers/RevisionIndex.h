@@ -41,97 +41,97 @@ namespace LogCache
 /**
  * a simple class to map from revision number to revision index.
  *
- * To handle high revision counts efficiently, only the range of revisions is 
- * stored which actually maps to revision indices (i.e. revisions at the 
+ * To handle high revision counts efficiently, only the range of revisions is
+ * stored which actually maps to revision indices (i.e. revisions at the
  * upper and lower ends may be omitted).
  */
 class CRevisionIndex
 {
 private:
 
-	/// the mapping and its bias
+    /// the mapping and its bias
 
-	revision_t firstRevision;
-	std::vector<index_t> indices;
+    revision_t firstRevision;
+    std::vector<index_t> indices;
 
-	/// sub-stream IDs
+    /// sub-stream IDs
 
-	enum
-	{
-		INDEX_STREAM_ID = 1
-	};
+    enum
+    {
+        INDEX_STREAM_ID = 1
+    };
 
 public:
 
-	/// construction / destruction
+    /// construction / destruction
 
-	CRevisionIndex(void);
-	~CRevisionIndex(void);
+    CRevisionIndex(void);
+    ~CRevisionIndex(void);
 
-	/// range of (possibly available) revisions:
-	/// GetFirstRevision() .. GetLastRevision()-1
+    /// range of (possibly available) revisions:
+    /// GetFirstRevision() .. GetLastRevision()-1
 
-	revision_t GetFirstRevision() const
-	{
-		return firstRevision;
-	}
-	revision_t GetLastRevision() const
-	{
-		return firstRevision + (revision_t)indices.size();
-	}
+    revision_t GetFirstRevision() const
+    {
+        return firstRevision;
+    }
+    revision_t GetLastRevision() const
+    {
+        return firstRevision + (revision_t)indices.size();
+    }
 
-	/// range of actually available revisions:
-	/// GetFirstCachedRevision() .. GetLastCachedRevision()-1
+    /// range of actually available revisions:
+    /// GetFirstCachedRevision() .. GetLastCachedRevision()-1
 
-	revision_t GetFirstCachedRevision() const;
-	revision_t GetLastCachedRevision() const;
+    revision_t GetFirstCachedRevision() const;
+    revision_t GetLastCachedRevision() const;
 
-	/// first revision that is not cached
-	/// (returns start for empty caches)
+    /// first revision that is not cached
+    /// (returns start for empty caches)
 
-	revision_t GetFirstMissingRevision (revision_t start) const;
+    revision_t GetFirstMissingRevision (revision_t start) const;
 
     /// read
 
-	index_t operator[](revision_t revision) const
-	{
-		revision -= firstRevision;
-		return revision < indices.size()
-			? indices[revision]
-			: NO_INDEX;
-	}
+    index_t operator[](revision_t revision) const
+    {
+        revision -= firstRevision;
+        return revision < indices.size()
+            ? indices[revision]
+            : NO_INDEX;
+    }
 
-	/// insert info (must be NO_INDEX before)
+    /// insert info (must be NO_INDEX before)
 
-	void SetRevisionIndex (revision_t revision, index_t index);
+    void SetRevisionIndex (revision_t revision, index_t index);
 
     /// return false if concurrent read accesses
     /// would potentially access invalid data.
 
     bool CanSetRevisionIndexThreadSafely (revision_t revision) const;
 
-	/// reset content
+    /// reset content
 
-	void Clear();
+    void Clear();
 
-	/// stream I/O
+    /// stream I/O
 
-	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-											 , CRevisionIndex& container);
-	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-											  , const CRevisionIndex& container);
+    friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
+                                             , CRevisionIndex& container);
+    friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
+                                              , const CRevisionIndex& container);
 
-	/// for statistics
+    /// for statistics
 
-	friend class CLogCacheStatistics;
+    friend class CLogCacheStatistics;
 };
 
 /// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CRevisionIndex& container);
+                                  , CRevisionIndex& container);
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CRevisionIndex& container);
+                                   , const CRevisionIndex& container);
 
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache

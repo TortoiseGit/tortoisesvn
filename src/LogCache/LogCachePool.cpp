@@ -40,19 +40,19 @@ long CLogCachePool::instanceCount = 0;
 
 bool CLogCachePool::FileExists (const std::wstring& filePath)
 {
-	return GetFileAttributes (filePath.c_str()) != INVALID_FILE_ATTRIBUTES;
+    return GetFileAttributes (filePath.c_str()) != INVALID_FILE_ATTRIBUTES;
 }
 
 // minimize memory usage
 
 void CLogCachePool::Clear()
 {
-	while (!caches.empty())
-	{
-		CCachedLogInfo* toDelete = caches.begin()->second;
-		caches.erase (caches.begin());
-		delete toDelete;
-	}
+    while (!caches.empty())
+    {
+        CCachedLogInfo* toDelete = caches.begin()->second;
+        caches.erase (caches.begin());
+        delete toDelete;
+    }
 
     if (repositoryInfo != NULL)
         repositoryInfo->Clear();
@@ -80,10 +80,10 @@ void CLogCachePool::AutoRemoveUnused()
     __int64 ageLimit = now - 864000000000i64 * (CSettings::GetCacheDropAge() + 1);
     DWORD maxSize = CSettings::GetCacheDropMaxSize() * 1024;
 
-	// find all files in the cache and fill the above sets
+    // find all files in the cache and fill the above sets
 
     static const CString lockExtension = _T(".lock");
-    CString datFile 
+    CString datFile
         = repositoryInfo->GetFileName().Mid (cacheFolderPath.GetLength());
 
     WIN32_FIND_DATA dirEntry;
@@ -102,12 +102,12 @@ void CLogCachePool::AutoRemoveUnused()
 
             if ((fileName.GetLength() > 2) && (fileName != datFile))
             {
-                __int64 readTime 
+                __int64 readTime
                     = *reinterpret_cast<__int64*>(&dirEntry.ftLastAccessTime);
 
                 if (fileName.Right (5) == lockExtension)
                 {
-                    // remove obsolete locks 
+                    // remove obsolete locks
                     // (in case they had been left behind)
 
                     if (readTime < ageLimit)
@@ -154,10 +154,10 @@ void CLogCachePool::AutoRemoveUnused()
         }
     }
 
-    // update cache info list and also remove entries 
+    // update cache info list and also remove entries
     // that don't have a cache file anymore
 
-    for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter 
+    for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter
              = repositoryInfo->data.end()
         , * const *end = repositoryInfo->data.begin()
         ; iter != end
@@ -176,7 +176,7 @@ void CLogCachePool::AutoRemoveUnused()
 // (Flush() on destruction)
 
 CLogCachePool::CLogCachePool (SVN& svn, const CString& cacheFolderPath)
-	: cacheFolderPath (cacheFolderPath)
+    : cacheFolderPath (cacheFolderPath)
     , repositoryInfo (new CRepositoryInfo (svn, cacheFolderPath))
 {
     if (++instanceCount == 1)
@@ -196,29 +196,29 @@ CLogCachePool::~CLogCachePool()
 
 CCachedLogInfo* CLogCachePool::GetCache (const CString& uuid, const CString& root)
 {
-	// get / auto-create suitable entry in cache list
+    // get / auto-create suitable entry in cache list
 
-    CRepositoryInfo::SPerRepositoryInfo* info 
+    CRepositoryInfo::SPerRepositoryInfo* info
         = repositoryInfo->data.AutoInsert (uuid, root);
 
-	// cache hit?
+    // cache hit?
 
-	TCaches::const_iterator iter = caches.find (info->fileName);
-	if (iter != caches.end())
-		return iter->second;
+    TCaches::const_iterator iter = caches.find (info->fileName);
+    if (iter != caches.end())
+        return iter->second;
 
-	// load / create
+    // load / create
 
-	std::wstring fileName = (LPCTSTR)(cacheFolderPath + info->fileName);
-	std::auto_ptr<CCachedLogInfo> cache (new CCachedLogInfo (fileName));
+    std::wstring fileName = (LPCTSTR)(cacheFolderPath + info->fileName);
+    std::auto_ptr<CCachedLogInfo> cache (new CCachedLogInfo (fileName));
 
     cache->Load (CSettings::GetMaxFailuresUntilDrop());
 
-	caches[info->fileName] = cache.get();
+    caches[info->fileName] = cache.get();
 
-	// ready
+    // ready
 
-	return cache.release();
+    return cache.release();
 }
 
 // cached repository info
@@ -228,22 +228,22 @@ CRepositoryInfo& CLogCachePool::GetRepositoryInfo()
     return *repositoryInfo;
 }
 
-// return the size of the repository cache file 
+// return the size of the repository cache file
 // (returns 0 for new files)
 
 size_t CLogCachePool::FileSize (const CString& uuid, const CString& root)
 {
     // return 0 for unknown caches
 
-    CRepositoryInfo::SPerRepositoryInfo* info 
+    CRepositoryInfo::SPerRepositoryInfo* info
         = repositoryInfo->data.Lookup (uuid, root);
     if (info == NULL)
         return 0;
 
-	WIN32_FILE_ATTRIBUTE_DATA fileInfo;
+    WIN32_FILE_ATTRIBUTE_DATA fileInfo;
     if (GetFileAttributesEx ( cacheFolderPath + info->fileName
-						    , GetFileExInfoStandard
-							, &fileInfo) == FALSE)
+                            , GetFileExInfoStandard
+                            , &fileInfo) == FALSE)
         return 0;
 
     // return result
@@ -255,32 +255,32 @@ size_t CLogCachePool::FileSize (const CString& uuid, const CString& root)
 
 void CLogCachePool::DropCache (const CString& uuid, const CString& root)
 {
-	// delete cache object
+    // delete cache object
 
-    CRepositoryInfo::SPerRepositoryInfo* info 
+    CRepositoryInfo::SPerRepositoryInfo* info
         = repositoryInfo->data.Lookup (uuid, root);
     if (info == NULL)
-		return;
+        return;
 
     TCaches::iterator iter = caches.find (info->fileName);
-	if (iter != caches.end())
-	{
-		delete iter->second;
-		caches.erase (iter);
-	}
+    if (iter != caches.end())
+    {
+        delete iter->second;
+        caches.erase (iter);
+    }
 
-	// delete cache file
+    // delete cache file
 
-	std::wstring fileName = (LPCTSTR)(cacheFolderPath + info->fileName);
-	if (FileExists (fileName))
-		DeleteFile (fileName.c_str());
+    std::wstring fileName = (LPCTSTR)(cacheFolderPath + info->fileName);
+    if (FileExists (fileName))
+        DeleteFile (fileName.c_str());
 
-	if (FileExists (fileName + L".lock"))
+    if (FileExists (fileName + L".lock"))
         DeleteFile ((fileName + L".lock").c_str());
 
-	// remove from cache info list
+    // remove from cache info list
 
-	repositoryInfo->DropEntry (uuid, root);
+    repositoryInfo->DropEntry (uuid, root);
 }
 
 // other data access
@@ -288,9 +288,9 @@ void CLogCachePool::DropCache (const CString& uuid, const CString& root)
 
 std::multimap<CString, CString> CLogCachePool::GetRepositoryURLs() const
 {
-	std::multimap<CString, CString> result;
+    std::multimap<CString, CString> result;
 
-    for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter 
+    for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter
              = repositoryInfo->data.begin()
         , * const *end = repositoryInfo->data.end()
         ; iter != end
@@ -300,7 +300,7 @@ std::multimap<CString, CString> CLogCachePool::GetRepositoryURLs() const
         result.insert (std::make_pair (info->root, info->uuid));
     }
 
-	return result;
+    return result;
 }
 
 // cache management
@@ -309,23 +309,23 @@ std::multimap<CString, CString> CLogCachePool::GetRepositoryURLs() const
 
 void CLogCachePool::Flush()
 {
-	for ( TCaches::iterator iter = caches.begin(), end = caches.end()
-		; iter != end
-		; ++iter)
-	{
-		if (iter->second->IsModified())
-		{
-			try
-			{
-				iter->second->Save();
-			}
-			catch (...)
-			{
-				// cache file could not be written 
-				// (cache may be lost but that's o.k.)
-			}
-		}
-	}
+    for ( TCaches::iterator iter = caches.begin(), end = caches.end()
+        ; iter != end
+        ; ++iter)
+    {
+        if (iter->second->IsModified())
+        {
+            try
+            {
+                iter->second->Save();
+            }
+            catch (...)
+            {
+                // cache file could not be written
+                // (cache may be lost but that's o.k.)
+            }
+        }
+    }
 
     repositoryInfo->Flush();
 }

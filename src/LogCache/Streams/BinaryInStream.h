@@ -28,10 +28,10 @@
 //
 // CBinaryInStreamBase
 //
-//		Base class for all binary read streams. Data can
-//		be extracted in single bytes or chunks of data.
-//		Attempts to read beyond the stream's end return NULL
-//		values.
+//      Base class for all binary read streams. Data can
+//      be extracted in single bytes or chunks of data.
+//      Attempts to read beyond the stream's end return NULL
+//      values.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -39,63 +39,63 @@ class CBinaryInStreamBase : public CHierachicalInStreamBase
 {
 private:
 
-	// our current read position
+    // our current read position
 
-	const unsigned char* current;
+    const unsigned char* current;
 
 protected:
 
-	// not meant to be instantiated
+    // not meant to be instantiated
 
-	// construction: nothing to do here
+    // construction: nothing to do here
 
-	CBinaryInStreamBase ( CCacheFileInBuffer* buffer
-					    , STREAM_INDEX index);
+    CBinaryInStreamBase ( CCacheFileInBuffer* buffer
+                        , STREAM_INDEX index);
 
-	// data access
+    // data access
 
-	size_t GetSize() const
-	{
-		return last - first;
-	}
+    size_t GetSize() const
+    {
+        return last - first;
+    }
 
-	size_t GetRemaining() const
-	{
-		return last - current;
-	}
+    size_t GetRemaining() const
+    {
+        return last - current;
+    }
 
-	unsigned char GetByte() throw()
-	{
-		return *(current++);
-	}
+    unsigned char GetByte() throw()
+    {
+        return *(current++);
+    }
 
-	const unsigned char* GetData (size_t size)
-	{
-		if (GetRemaining() < size)
-			return NULL;
+    const unsigned char* GetData (size_t size)
+    {
+        if (GetRemaining() < size)
+            return NULL;
 
-		current += size;
+        current += size;
 
-		return current;
-	}
+        return current;
+    }
 
 public:
 
-	// destruction
+    // destruction
 
-	virtual ~CBinaryInStreamBase() {};
+    virtual ~CBinaryInStreamBase() {};
 
-	// data access
+    // data access
 
-	virtual void Reset()
-	{
-		current = first;
-	}
+    virtual void Reset()
+    {
+        current = first;
+    }
 
-	bool EndOfStream() const
-	{
-		return current == last;
-	}
+    bool EndOfStream() const
+    {
+        return current == last;
+    }
 
     // update members in this derived class as well
 
@@ -107,31 +107,31 @@ public:
 //
 // CBinaryInStream
 //
-//		instantiable sub-class of CBinaryInStreamBase.
+//      instantiable sub-class of CBinaryInStreamBase.
 //
 ///////////////////////////////////////////////////////////////
 
-class CBinaryInStream 
+class CBinaryInStream
     : public CInStreamImplBase< CBinaryInStream
                               , CBinaryInStreamBase
                               , BINARY_STREAM_TYPE_ID>
 {
 public:
 
-	typedef CInStreamImplBase< CBinaryInStream
-							 , CBinaryInStreamBase
-							 , BINARY_STREAM_TYPE_ID> TBase;
+    typedef CInStreamImplBase< CBinaryInStream
+                             , CBinaryInStreamBase
+                             , BINARY_STREAM_TYPE_ID> TBase;
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CBinaryInStream ( CCacheFileInBuffer* buffer
-				    , STREAM_INDEX index);
-	virtual ~CBinaryInStream() {};
+    CBinaryInStream ( CCacheFileInBuffer* buffer
+                    , STREAM_INDEX index);
+    virtual ~CBinaryInStream() {};
 
-	// public data access methods
+    // public data access methods
 
-	using TBase::GetSize;
-	using TBase::GetRemaining;
-	using TBase::GetByte;
-	using TBase::GetData;
+    using TBase::GetSize;
+    using TBase::GetRemaining;
+    using TBase::GetByte;
+    using TBase::GetData;
 };

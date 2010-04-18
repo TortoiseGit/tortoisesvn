@@ -32,9 +32,9 @@ namespace LogCache
 
 // simple construction
 
-CIndexPairDictionary::CHashFunction::CHashFunction 
-	( CIndexPairDictionary* aDictionary)
-	: data (&aDictionary->data)
+CIndexPairDictionary::CHashFunction::CHashFunction
+    ( CIndexPairDictionary* aDictionary)
+    : data (&aDictionary->data)
 {
 }
 
@@ -50,7 +50,7 @@ CIndexPairDictionary::CHashFunction::CHashFunction
 // passing 'this' during construction is fine here
 
 CIndexPairDictionary::CIndexPairDictionary(void)
-	: hashIndex (CHashFunction (this))
+    : hashIndex (CHashFunction (this))
 {
 }
 
@@ -64,45 +64,45 @@ CIndexPairDictionary::~CIndexPairDictionary(void)
 
 void CIndexPairDictionary::reserve (index_t min_capacity)
 {
-	data.reserve (min_capacity);
-	hashIndex.reserve (min_capacity);
+    data.reserve (min_capacity);
+    hashIndex.reserve (min_capacity);
 }
 
 index_t CIndexPairDictionary::Find (const std::pair<index_t, index_t>& value) const
 {
-	return hashIndex.find (value);
+    return hashIndex.find (value);
 }
 
 index_t CIndexPairDictionary::Insert (const std::pair<index_t, index_t>& value)
 {
-	assert (Find (value) == NO_INDEX);
+    assert (Find (value) == NO_INDEX);
 
-	index_t result = (index_t)data.size();
-	hashIndex.insert (value, result);
-	data.push_back (value);
+    index_t result = (index_t)data.size();
+    hashIndex.insert (value, result);
+    data.push_back (value);
 
-	return result;
+    return result;
 }
 
 index_t CIndexPairDictionary::AutoInsert (const std::pair<index_t, index_t>& value)
 {
-	index_t result = Find (value);
-	if (result == NO_INDEX)
-		result = Insert (value);
+    index_t result = Find (value);
+    if (result == NO_INDEX)
+        result = Insert (value);
 
-	return result;
+    return result;
 }
 
 void CIndexPairDictionary::Clear()
 {
-	data.clear();
-	hashIndex.clear();
+    data.clear();
+    hashIndex.clear();
 }
 
 void CIndexPairDictionary::Swap (CIndexPairDictionary& rhs)
 {
-	data.swap (rhs.data);
-	hashIndex.swap (rhs.hashIndex);
+    data.swap (rhs.data);
+    hashIndex.swap (rhs.hashIndex);
 }
 
 // return false if concurrent read accesses
@@ -117,75 +117,75 @@ bool CIndexPairDictionary::CanInsertThreadSafely (index_t count) const
 // stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CIndexPairDictionary& dictionary)
+                                  , CIndexPairDictionary& dictionary)
 {
     // read the first elements of all pairs
 
-	CDiffIntegerInStream* firstStream 
-		= stream.GetSubStream<CDiffIntegerInStream> 
-			(CIndexPairDictionary::FIRST_STREAM_ID);
+    CDiffIntegerInStream* firstStream
+        = stream.GetSubStream<CDiffIntegerInStream>
+            (CIndexPairDictionary::FIRST_STREAM_ID);
 
-	index_t count = firstStream->GetValue();
-	dictionary.data.resize (count);
+    index_t count = firstStream->GetValue();
+    dictionary.data.resize (count);
 
-	std::pair<index_t, index_t>* dataBegin 
-		= count > 0 ? &dictionary.data.front() : NULL;
+    std::pair<index_t, index_t>* dataBegin
+        = count > 0 ? &dictionary.data.front() : NULL;
 
-	for (index_t i = 0; i < count; ++i)
-		(dataBegin + i)->first = firstStream->GetValue();
+    for (index_t i = 0; i < count; ++i)
+        (dataBegin + i)->first = firstStream->GetValue();
 
-	// read the second elements
+    // read the second elements
 
-	CDiffIntegerInStream* secondStream 
-		= stream.GetSubStream<CDiffIntegerInStream> 
-			(CIndexPairDictionary::SECOND_STREAM_ID);
+    CDiffIntegerInStream* secondStream
+        = stream.GetSubStream<CDiffIntegerInStream>
+            (CIndexPairDictionary::SECOND_STREAM_ID);
 
-	for (index_t i = 0; i < count; ++i)
-		(dataBegin + i)->second = secondStream->GetValue();
+    for (index_t i = 0; i < count; ++i)
+        (dataBegin + i)->second = secondStream->GetValue();
 
-	// build the hash
+    // build the hash
 
-	dictionary.hashIndex 
-		= quick_hash<CIndexPairDictionary::CHashFunction>
-			(CIndexPairDictionary::CHashFunction (&dictionary));
+    dictionary.hashIndex
+        = quick_hash<CIndexPairDictionary::CHashFunction>
+            (CIndexPairDictionary::CHashFunction (&dictionary));
 
     dictionary.hashIndex.insert (dataBegin, dataBegin + count, 0);
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CIndexPairDictionary& dictionary)
+                                   , const CIndexPairDictionary& dictionary)
 {
-	size_t size = dictionary.data.size();
+    size_t size = dictionary.data.size();
 
-	// write string data
+    // write string data
 
-	CDiffIntegerOutStream* firstStream 
-		= stream.OpenSubStream<CDiffIntegerOutStream>
-			(CIndexPairDictionary::FIRST_STREAM_ID);
+    CDiffIntegerOutStream* firstStream
+        = stream.OpenSubStream<CDiffIntegerOutStream>
+            (CIndexPairDictionary::FIRST_STREAM_ID);
 
-	const std::pair<index_t, index_t>* dataBegin 
-		= size > 0 ? &dictionary.data.front() : NULL;
+    const std::pair<index_t, index_t>* dataBegin
+        = size > 0 ? &dictionary.data.front() : NULL;
 
-	firstStream->Add ((int)size);
-	for (size_t i = 0; i != size; ++i)
-		firstStream->Add ((dataBegin + i)->first);
+    firstStream->Add ((int)size);
+    for (size_t i = 0; i != size; ++i)
+        firstStream->Add ((dataBegin + i)->first);
 
-	// write offsets
+    // write offsets
 
-	CDiffIntegerOutStream* secondStream 
-		= stream.OpenSubStream<CDiffIntegerOutStream>
-			(CIndexPairDictionary::SECOND_STREAM_ID);
+    CDiffIntegerOutStream* secondStream
+        = stream.OpenSubStream<CDiffIntegerOutStream>
+            (CIndexPairDictionary::SECOND_STREAM_ID);
 
-	for (size_t i = 0; i != size; ++i)
-		secondStream->Add ((dataBegin + i)->second);
+    for (size_t i = 0; i != size; ++i)
+        secondStream->Add ((dataBegin + i)->second);
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 ///////////////////////////////////////////////////////////////

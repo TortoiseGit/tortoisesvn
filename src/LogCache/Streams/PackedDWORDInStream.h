@@ -28,9 +28,9 @@
 //
 // CPackedDWORDInStreamBase
 //
-//		Base class for all read streams containing packed 
-//		integer data. See CPackedDWORDOutStreamBase for details 
-//		of the storage format.
+//      Base class for all read streams containing packed 
+//      integer data. See CPackedDWORDOutStreamBase for details 
+//      of the storage format.
 //
 ///////////////////////////////////////////////////////////////
 
@@ -38,30 +38,30 @@ class CPackedDWORDInStreamBase : public CBinaryInStreamBase
 {
 protected:
 
-	DWORD lastValue;
-	DWORD count;
+    DWORD lastValue;
+    DWORD count;
 
-	// not meant to be instantiated
+    // not meant to be instantiated
 
-	// construction: nothing to do here
+    // construction: nothing to do here
 
-	CPackedDWORDInStreamBase ( CCacheFileInBuffer* buffer
-						     , STREAM_INDEX index);
+    CPackedDWORDInStreamBase ( CCacheFileInBuffer* buffer
+                             , STREAM_INDEX index);
 
-	// data access
+    // data access
 
-	DWORD InternalGetValue() throw();
-	DWORD GetValue() throw();
+    DWORD InternalGetValue() throw();
+    DWORD GetValue() throw();
 
 public:
 
-	// destruction
+    // destruction
 
-	virtual ~CPackedDWORDInStreamBase() {};
+    virtual ~CPackedDWORDInStreamBase() {};
 
-	// plain data access
+    // plain data access
 
-	size_t GetSizeValue();
+    size_t GetSizeValue();
 
     // update members in this derived class as well
 
@@ -75,92 +75,92 @@ public:
 
 inline DWORD CPackedDWORDInStreamBase::GetValue() throw()
 {
-	for (;;)
-	{
-		if (count != 0)
-		{
-			--count;
-			return lastValue;
-		}
-		else
-		{
-			DWORD result = InternalGetValue();
-			if (result != 0)
-				return result-1;
+    for (;;)
+    {
+        if (count != 0)
+        {
+            --count;
+            return lastValue;
+        }
+        else
+        {
+            DWORD result = InternalGetValue();
+            if (result != 0)
+                return result-1;
 
-			count = InternalGetValue();
-			lastValue = InternalGetValue();
-		}
-	}
+            count = InternalGetValue();
+            lastValue = InternalGetValue();
+        }
+    }
 }
 
 // plain data access
 
 inline size_t CPackedDWORDInStreamBase::GetSizeValue()
 {
-	return static_cast<size_t>(InternalGetValue());
+    return static_cast<size_t>(InternalGetValue());
 }
 
 ///////////////////////////////////////////////////////////////
 //
 // CPackedDWORDInStream
 //
-//		instantiable sub-class of CPackedDWORDInStreamBase.
+//      instantiable sub-class of CPackedDWORDInStreamBase.
 //
 ///////////////////////////////////////////////////////////////
 
 class CPackedDWORDInStream 
-	: public CInStreamImplBase< CPackedDWORDInStream
-							  , CPackedDWORDInStreamBase
-							  , PACKED_DWORD_STREAM_TYPE_ID>
+    : public CInStreamImplBase< CPackedDWORDInStream
+                              , CPackedDWORDInStreamBase
+                              , PACKED_DWORD_STREAM_TYPE_ID>
 {
 public:
 
-	typedef CInStreamImplBase< CPackedDWORDInStream
-							 , CPackedDWORDInStreamBase
-							 , PACKED_DWORD_STREAM_TYPE_ID> TBase;
+    typedef CInStreamImplBase< CPackedDWORDInStream
+                             , CPackedDWORDInStreamBase
+                             , PACKED_DWORD_STREAM_TYPE_ID> TBase;
 
-	typedef DWORD value_type;
+    typedef DWORD value_type;
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CPackedDWORDInStream ( CCacheFileInBuffer* buffer
-					     , STREAM_INDEX index);
-	virtual ~CPackedDWORDInStream() {};
+    CPackedDWORDInStream ( CCacheFileInBuffer* buffer
+                         , STREAM_INDEX index);
+    virtual ~CPackedDWORDInStream() {};
 
-	// public data access methods
+    // public data access methods
 
-	using TBase::GetValue;
+    using TBase::GetValue;
 };
 
 ///////////////////////////////////////////////////////////////
 //
 // operator>> 
 //
-//		for CPackedDWORDInStreamBase derived streams and vectors.
+//      for CPackedDWORDInStreamBase derived streams and vectors.
 //
 ///////////////////////////////////////////////////////////////
 
 template<class S, class V>
 S& operator>> (S& stream, std::vector<V>& data)
 {
-	// read the total entry count and entries
+    // read the total entry count and entries
 
-	size_t count = stream.GetSizeValue();
-	data.resize (count);
+    size_t count = stream.GetSizeValue();
+    data.resize (count);
 
-	// efficiently add all entries
-	// (don't use iterators here as they come with some index checking overhead)
+    // efficiently add all entries
+    // (don't use iterators here as they come with some index checking overhead)
 
-	if (count > 0)
-		for ( V* iter = &data.front(), *end = iter + count
-			; iter != end
-			; ++iter)
-		{
-			*iter = (V)stream.GetValue();
-		}
+    if (count > 0)
+        for ( V* iter = &data.front(), *end = iter + count
+            ; iter != end
+            ; ++iter)
+        {
+            *iter = (V)stream.GetValue();
+        }
 
-	return stream;
+    return stream;
 }
 
 template<class S, class T, class V>

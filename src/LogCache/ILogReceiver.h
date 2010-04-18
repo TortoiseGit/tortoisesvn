@@ -38,19 +38,19 @@
 
 struct SChangedPath
 {
-	CString path;
-	CString copyFromPath;
-	svn_revnum_t copyFromRev;
-	svn_node_kind_t nodeKind;
-	DWORD action;
+    CString path;
+    CString copyFromPath;
+    svn_revnum_t copyFromRev;
+    svn_node_kind_t nodeKind;
+    DWORD action;
 };
 
 enum
 {
-	LOGACTIONS_ADDED	= 0x00000001,
-	LOGACTIONS_MODIFIED	= 0x00000002,
-	LOGACTIONS_REPLACED	= 0x00000004,
-	LOGACTIONS_DELETED	= 0x00000008
+    LOGACTIONS_ADDED    = 0x00000001,
+    LOGACTIONS_MODIFIED = 0x00000002,
+    LOGACTIONS_REPLACED = 0x00000004,
+    LOGACTIONS_DELETED  = 0x00000008
 };
 
 /**
@@ -76,7 +76,7 @@ public:
 
     /// construction
 
-    StandardRevProps 
+    StandardRevProps
         ( const CString& author
         , const CString& message
         , apr_time_t timeStamp);
@@ -97,8 +97,8 @@ class UserRevProp
 {
 private:
 
-	CString name;
-	CString value;
+    CString name;
+    CString value;
 
     // construction is only allowed through the container
 
@@ -151,18 +151,18 @@ class ILogReceiver
 {
 public:
 
-	/// call-back for every revision found
-	/// (called at most once per revision)
+    /// call-back for every revision found
+    /// (called at most once per revision)
     ///
     /// the implementation may modify but not delete()
     /// the data containers passed to it
     ///
     /// any pointer may be NULL
-	///
-	/// may throw a SVNError to cancel the log
+    ///
+    /// may throw a SVNError to cancel the log
 
-	virtual void ReceiveLog ( TChangedPaths* changes
-							, svn_revnum_t rev
+    virtual void ReceiveLog ( TChangedPaths* changes
+                            , svn_revnum_t rev
                             , const StandardRevProps* stdRevProps
                             , UserRevPropArray* userRevProps
                             , bool mergesFollow) = 0;
