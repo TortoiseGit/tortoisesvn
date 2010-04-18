@@ -7,9 +7,9 @@
 ///////////////////////////////////////////////////////////////
 
 SVNError::SVNError (svn_errno_t code, const CStringA& message)
-	: std::exception()
-	, code (code)
-	, message (message)
+    : std::exception()
+    , code (code)
+    , message (message)
 {
 }
 
@@ -32,9 +32,9 @@ SVNError::SVNError (svn_error_t* error)
 
 void SVNError::ThrowLastError (DWORD lastError)
 {
-	// get formatted system error message
+    // get formatted system error message
 
-	CFormatMessageWrapper errorMessage(lastError);
-	CStringA errorText ((LPCTSTR)errorMessage);
-	throw SVNError (SVN_ERR_BASE, errorText);
+    CFormatMessageWrapper errorMessage(lastError);
+    CStringA errorText ((LPCTSTR)errorMessage);
+    throw SVNError (SVN_ERR_BASE, errorText);
 }

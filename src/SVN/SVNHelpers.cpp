@@ -25,61 +25,61 @@
 
 SVNPool::SVNPool()
 {
-	m_pool = svn_pool_create(NULL);
+    m_pool = svn_pool_create(NULL);
 }
 
 SVNPool::SVNPool(apr_pool_t* parentPool)
 {
-	m_pool = svn_pool_create(parentPool);
+    m_pool = svn_pool_create(parentPool);
 }
 
 SVNPool::~SVNPool()
 {
-	svn_pool_destroy(m_pool);
+    svn_pool_destroy(m_pool);
 }
 
 SVNPool::operator apr_pool_t*()
 {
-	return m_pool;
+    return m_pool;
 }
 
 
 // The time is not yet right for this base class, but I'm thinking about it...
 
 SVNHelper::SVNHelper(void)
-	: m_ctx(NULL)
-	, m_bCancelled(false)
+    : m_ctx(NULL)
+    , m_bCancelled(false)
 {
-	m_pool = svn_pool_create (NULL);				// create the memory pool
-	
-	svn_error_clear(svn_client_create_context(&m_ctx, m_pool));
-	m_ctx->cancel_func = cancelfunc;
-	m_ctx->cancel_baton = this;
-	svn_error_clear(svn_config_get_config(&(m_ctx->config), NULL, m_pool));
+    m_pool = svn_pool_create (NULL);                // create the memory pool
+
+    svn_error_clear(svn_client_create_context(&m_ctx, m_pool));
+    m_ctx->cancel_func = cancelfunc;
+    m_ctx->cancel_baton = this;
+    svn_error_clear(svn_config_get_config(&(m_ctx->config), NULL, m_pool));
 }
 
 SVNHelper::~SVNHelper(void)
 {
-	svn_pool_destroy (m_pool);
+    svn_pool_destroy (m_pool);
 }
 
 void SVNHelper::ReloadConfig()
 {
-	svn_error_clear(svn_config_get_config(&(m_ctx->config), NULL, m_pool));
+    svn_error_clear(svn_config_get_config(&(m_ctx->config), NULL, m_pool));
 }
 
 svn_error_t * SVNHelper::cancelfunc(void * cancelbaton)
 {
-	SVNHelper * helper = (SVNHelper*)cancelbaton;
-	if ((helper)&&(helper->m_bCancelled))
-	{
+    SVNHelper * helper = (SVNHelper*)cancelbaton;
+    if ((helper)&&(helper->m_bCancelled))
+    {
 #ifdef IDS_SVN_USERCANCELLED
-		CString temp;
-		temp.LoadString(IDS_SVN_USERCANCELLED);
-		return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
+        CString temp;
+        temp.LoadString(IDS_SVN_USERCANCELLED);
+        return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
 #else
-		return svn_error_create(SVN_ERR_CANCELLED, NULL, "");
+        return svn_error_create(SVN_ERR_CANCELLED, NULL, "");
 #endif
-	}
-	return NULL;
+    }
+    return NULL;
 }

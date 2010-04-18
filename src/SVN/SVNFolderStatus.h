@@ -27,67 +27,67 @@
  * stores unique copies of given string values,
  * i.e. for a given value, always the same const char*
  * will be returned.
- * 
+ *
  * The strings returned are owned by the pool!
  */
 class StringPool
 {
 public:
 
-	StringPool() {emptyString[0] = 0;}
-	~StringPool() {clear();}
-	
-	/**
-	 * Return a string equal to value from the internal pool.
-	 * If no such string is available, a new one is allocated.
-	 * NULL is valid for value.
-	 */
-	const char* GetString (const char* value);
-	
-	/**
-	 * invalidates all strings returned by GetString()
-	 * frees all internal data
-	 */
-	void clear();
-	
+    StringPool() {emptyString[0] = 0;}
+    ~StringPool() {clear();}
+
+    /**
+     * Return a string equal to value from the internal pool.
+     * If no such string is available, a new one is allocated.
+     * NULL is valid for value.
+     */
+    const char* GetString (const char* value);
+
+    /**
+     * invalidates all strings returned by GetString()
+     * frees all internal data
+     */
+    void clear();
+
 private:
 
-	// comparator: compare C-style strings
-	
-	struct LessString
-	{
-		bool operator()(const char* lhs, const char* rhs) const
-		{
-			return strcmp (lhs, rhs) < 0;
-		}
-	};
-	
-	// store the strings in a map
-	// caution: modifying the map must not modify the string pointers
-	
-	typedef std::set<const char*, LessString> pool_type;
-	pool_type pool;
-	char emptyString[1];
+    // comparator: compare C-style strings
+
+    struct LessString
+    {
+        bool operator()(const char* lhs, const char* rhs) const
+        {
+            return strcmp (lhs, rhs) < 0;
+        }
+    };
+
+    // store the strings in a map
+    // caution: modifying the map must not modify the string pointers
+
+    typedef std::set<const char*, LessString> pool_type;
+    pool_type pool;
+    char emptyString[1];
 };
 
 
 typedef struct FileStatusCacheEntry
 {
-	svn_wc_status_kind		status;
-	const char*				author;		///< points to a (possibly) shared value
-	const char*				url;		///< points to a (possibly) shared value
-	const char*				owner;		///< points to a (possible) lock owner
-	bool					needslock;
-	svn_revnum_t			rev;
-	int						askedcounter;
-	svn_lock_t *			lock;
-	bool					tree_conflict;
+    svn_wc_status_kind      status;
+    const char*             author;     ///< points to a (possibly) shared value
+    const char*             url;        ///< points to a (possibly) shared value
+    const char*             owner;      ///< points to a (possible) lock owner
+    bool                    needslock;
+    svn_revnum_t            rev;
+    int                     askedcounter;
+    svn_lock_t *            lock;
+    bool                    tree_conflict;
 } FileStatusCacheEntry;
 
-#define SVNFOLDERSTATUS_CACHETIMES				10
-#define SVNFOLDERSTATUS_CACHETIMEOUT			2000
-#define SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT	4000
-#define SVNFOLDERSTATUS_FOLDER					500
+#define SVNFOLDERSTATUS_CACHETIMES              10
+#define SVNFOLDERSTATUS_CACHETIMEOUT            2000
+#define SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT   4000
+#define SVNFOLDERSTATUS_FOLDER                  500
 /**
  * \ingroup TortoiseShell
  * This class represents a caching mechanism for the
@@ -105,44 +105,44 @@ typedef struct FileStatusCacheEntry
 class SVNFolderStatus
 {
 public:
-	SVNFolderStatus(void);
-	~SVNFolderStatus(void);
-	const FileStatusCacheEntry *	GetFullStatus(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
-	const FileStatusCacheEntry *	GetCachedItem(const CTSVNPath& filepath);
+    SVNFolderStatus(void);
+    ~SVNFolderStatus(void);
+    const FileStatusCacheEntry *    GetFullStatus(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
+    const FileStatusCacheEntry *    GetCachedItem(const CTSVNPath& filepath);
 
-	FileStatusCacheEntry		invalidstatus;
+    FileStatusCacheEntry        invalidstatus;
 
 private:
-	const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
-	DWORD				GetTimeoutValue();
-	static svn_error_t*	fillstatusmap (void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
-	static svn_error_t*	findfolderstatus (void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
-	static CTSVNPath	folderpath;
-	void				ClearCache();
-	
-	int					m_nCounter;
-	typedef std::map<tstring, FileStatusCacheEntry> FileStatusMap;
-	FileStatusMap			m_cache;
-	DWORD					m_TimeStamp;
-	FileStatusCacheEntry	dirstat;
-	FileStatusCacheEntry	filestat;
-	svn_wc_status2_t *		dirstatus;
-	apr_pool_t *			rootpool;
+    const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
+    DWORD               GetTimeoutValue();
+    static svn_error_t* fillstatusmap (void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
+    static svn_error_t* findfolderstatus (void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
+    static CTSVNPath    folderpath;
+    void                ClearCache();
 
-	// merging these pools won't save memory
-	// but access will become slower
-	
-	StringPool		authors;       
-	StringPool		urls;
-	StringPool		owners;
-	char			emptyString[1];
+    int                 m_nCounter;
+    typedef std::map<tstring, FileStatusCacheEntry> FileStatusMap;
+    FileStatusMap           m_cache;
+    DWORD                   m_TimeStamp;
+    FileStatusCacheEntry    dirstat;
+    FileStatusCacheEntry    filestat;
+    svn_wc_status2_t *      dirstatus;
+    apr_pool_t *            rootpool;
 
-	tstring		sCacheKey;
+    // merging these pools won't save memory
+    // but access will become slower
 
-	HANDLE			m_hInvalidationEvent;
+    StringPool      authors;
+    StringPool      urls;
+    StringPool      owners;
+    char            emptyString[1];
 
-	// The item we most recently supplied status for 
-	CTSVNPath		m_mostRecentPath;
-	const FileStatusCacheEntry* m_mostRecentStatus;
+    tstring     sCacheKey;
+
+    HANDLE          m_hInvalidationEvent;
+
+    // The item we most recently supplied status for
+    CTSVNPath       m_mostRecentPath;
+    const FileStatusCacheEntry* m_mostRecentStatus;
 };
 

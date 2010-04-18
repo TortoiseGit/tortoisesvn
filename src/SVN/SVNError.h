@@ -27,36 +27,36 @@ class SVNError : public std::exception
 {
 private:
 
-	// parameters required for svn_error_create
+    // parameters required for svn_error_create
 
-	svn_errno_t code;
-	CStringA message;
+    svn_errno_t code;
+    CStringA message;
 
 public:
 
-	// construction
+    // construction
 
-	SVNError (svn_errno_t code, const CStringA& message);
-	explicit SVNError (svn_error_t* error);
-	explicit SVNError (const svn_error_t* error);
+    SVNError (svn_errno_t code, const CStringA& message);
+    explicit SVNError (svn_error_t* error);
+    explicit SVNError (const svn_error_t* error);
 
-	// access internal info
+    // access internal info
 
-	svn_errno_t GetCode() const;
-	const CStringA& GetMessage() const;
+    svn_errno_t GetCode() const;
+    const CStringA& GetMessage() const;
 
-	// frequently used
+    // frequently used
 
-	static void ThrowLastError (DWORD lastError = GetLastError());
+    static void ThrowLastError (DWORD lastError = GetLastError());
 };
 
 inline svn_errno_t SVNError::GetCode() const
 {
-	return code;
+    return code;
 }
 
 inline const CStringA& SVNError::GetMessage() const
 {
-	return message;
+    return message;
 }
 

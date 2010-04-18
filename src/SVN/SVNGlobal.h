@@ -30,9 +30,9 @@ extern char * g_pConfigDir;
 class SVNGlobal
 {
 public:
-	SVNGlobal();
-	~SVNGlobal();
-	void SetConfigDir(CString sConfigDir);
+    SVNGlobal();
+    ~SVNGlobal();
+    void SetConfigDir(CString sConfigDir);
 };
 
 extern SVNGlobal g_SVNGlobal;

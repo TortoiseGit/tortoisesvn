@@ -25,28 +25,28 @@ SVNGlobal g_SVNGlobal;
 
 SVNGlobal::SVNGlobal()
 {
-	CRegStdString regConfigDir = CRegStdString(_T("Software\\TortoiseSVN\\ConfigDir"));
-	tstring sConfigDir = regConfigDir;
-	if (!sConfigDir.empty())
-	{
-		g_pConfigDir = StrDupA(CUnicodeUtils::StdGetUTF8(sConfigDir).c_str());
-	}
+    CRegStdString regConfigDir = CRegStdString(_T("Software\\TortoiseSVN\\ConfigDir"));
+    tstring sConfigDir = regConfigDir;
+    if (!sConfigDir.empty())
+    {
+        g_pConfigDir = StrDupA(CUnicodeUtils::StdGetUTF8(sConfigDir).c_str());
+    }
 }
 
 SVNGlobal::~SVNGlobal()
 {
-	if (g_pConfigDir)
-		LocalFree(g_pConfigDir);
+    if (g_pConfigDir)
+        LocalFree(g_pConfigDir);
 }
 
 void SVNGlobal::SetConfigDir(CString sConfigDir)
 {
-	if (g_pConfigDir)
-	{
-		LocalFree(g_pConfigDir);
-		g_pConfigDir = NULL;
-	}
-	if (sConfigDir.IsEmpty())
-		return;
-	g_pConfigDir = StrDupA((LPCSTR)CUnicodeUtils::GetUTF8(sConfigDir));
+    if (g_pConfigDir)
+    {
+        LocalFree(g_pConfigDir);
+        g_pConfigDir = NULL;
+    }
+    if (sConfigDir.IsEmpty())
+        return;
+    g_pConfigDir = StrDupA((LPCSTR)CUnicodeUtils::GetUTF8(sConfigDir));
 }

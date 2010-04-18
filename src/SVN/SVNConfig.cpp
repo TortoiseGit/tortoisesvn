@@ -23,59 +23,59 @@
 
 SVNConfig::SVNConfig(void)
 {
-	svn_error_t * err;
-	memset (&ctx, 0, sizeof (ctx));
-	parentpool = svn_pool_create(NULL);
+    svn_error_t * err;
+    memset (&ctx, 0, sizeof (ctx));
+    parentpool = svn_pool_create(NULL);
 
-	err = svn_config_ensure(NULL, parentpool);
-	pool = svn_pool_create (parentpool);
-	// set up the configuration
-	if (err == 0)
-		err = svn_config_get_config (&(ctx.config), g_pConfigDir, pool);
+    err = svn_config_ensure(NULL, parentpool);
+    pool = svn_pool_create (parentpool);
+    // set up the configuration
+    if (err == 0)
+        err = svn_config_get_config (&(ctx.config), g_pConfigDir, pool);
 
-	patterns = NULL;
+    patterns = NULL;
 
-	if (err != 0)
-	{
-		svn_error_clear(err);
-		svn_pool_destroy (pool);
-		svn_pool_destroy (parentpool);
-		exit(-1);
-	}
+    if (err != 0)
+    {
+        svn_error_clear(err);
+        svn_pool_destroy (pool);
+        svn_pool_destroy (parentpool);
+        exit(-1);
+    }
 }
 
 SVNConfig::~SVNConfig(void)
 {
-	svn_pool_destroy (pool);
-	svn_pool_destroy (parentpool);
+    svn_pool_destroy (pool);
+    svn_pool_destroy (parentpool);
 }
 
 BOOL SVNConfig::GetDefaultIgnores()
 {
-	svn_error_t * err;
-	patterns = NULL;
-	err = svn_wc_get_default_ignores (&(patterns), ctx.config, pool);
-	if (err)
-	{
-		svn_error_clear(err);
-		return FALSE;
-	}
+    svn_error_t * err;
+    patterns = NULL;
+    err = svn_wc_get_default_ignores (&(patterns), ctx.config, pool);
+    if (err)
+    {
+        svn_error_clear(err);
+        return FALSE;
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 BOOL SVNConfig::MatchIgnorePattern(const CString& name)
 {
-	if (patterns == NULL)
-		return FALSE;
-	return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), patterns, pool);
+    if (patterns == NULL)
+        return FALSE;
+    return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), patterns, pool);
 }
 
 BOOL SVNConfig::KeepLocks()
 {
-	svn_boolean_t no_unlock = FALSE;
-	svn_config_t * opt = (svn_config_t *)apr_hash_get (ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
-		APR_HASH_KEY_STRING);
-	svn_error_clear(svn_config_get_bool(opt, &no_unlock, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_NO_UNLOCK, FALSE));
-	return no_unlock;
+    svn_boolean_t no_unlock = FALSE;
+    svn_config_t * opt = (svn_config_t *)apr_hash_get (ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+        APR_HASH_KEY_STRING);
+    svn_error_clear(svn_config_get_bool(opt, &no_unlock, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_NO_UNLOCK, FALSE));
+    return no_unlock;
 }

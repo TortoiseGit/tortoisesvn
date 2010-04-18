@@ -30,25 +30,25 @@ struct svn_error_t;
 /**
  * \ingroup SVN
  * This class encapsulates an apr_pool taking care of destroying it at end of scope
- * Use this class in preference to doing svn_pool_create and then trying to remember all 
+ * Use this class in preference to doing svn_pool_create and then trying to remember all
  * the svn_pool_destroys which might be needed.
  */
 class SVNPool
 {
 public:
-	SVNPool();
-	explicit SVNPool(apr_pool_t* parentPool);
-	~SVNPool();
+    SVNPool();
+    explicit SVNPool(apr_pool_t* parentPool);
+    ~SVNPool();
 private:
-	// Not implemented - we don't want any copying of these objects
-	SVNPool(const SVNPool& rhs);
-	SVNPool& operator=(SVNPool& rhs);
+    // Not implemented - we don't want any copying of these objects
+    SVNPool(const SVNPool& rhs);
+    SVNPool& operator=(SVNPool& rhs);
 
 public:
-	operator apr_pool_t*();
+    operator apr_pool_t*();
 
 private:
-	apr_pool_t* m_pool;
+    apr_pool_t* m_pool;
 };
 
 
@@ -59,22 +59,22 @@ private:
 class SVNHelper
 {
 public:
-	SVNHelper(void);
-	~SVNHelper(void);
+    SVNHelper(void);
+    ~SVNHelper(void);
 private:
-	SVNHelper(const SVNHelper&){}
-	SVNHelper& operator=(SVNHelper&){};
+    SVNHelper(const SVNHelper&){}
+    SVNHelper& operator=(SVNHelper&){};
 
 public:
-	apr_pool_t*			Pool() const { return m_pool; }
-	svn_client_ctx_t*	ClientContext() const { return m_ctx; }
-	void				Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
-	void				ReloadConfig();
+    apr_pool_t*         Pool() const { return m_pool; }
+    svn_client_ctx_t*   ClientContext() const { return m_ctx; }
+    void                Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
+    void                ReloadConfig();
 protected:
-	apr_pool_t *		m_pool;	
-	svn_client_ctx_t *	m_ctx;
-	bool				m_bCancelled;
+    apr_pool_t *        m_pool;
+    svn_client_ctx_t *  m_ctx;
+    bool                m_bCancelled;
 
-	static svn_error_t * cancelfunc(void * cancelbaton);
+    static svn_error_t * cancelfunc(void * cancelbaton);
 };
 

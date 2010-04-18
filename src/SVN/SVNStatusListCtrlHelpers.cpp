@@ -30,72 +30,72 @@
 CSVNStatusListCtrl::PropertyList& 
 CSVNStatusListCtrl::PropertyList::operator= (const char* rhs)
 {
-	// do you really want to replace the property list?
+    // do you really want to replace the property list?
 
-	assert (properties.empty());
-	properties.clear();
+    assert (properties.empty());
+    properties.clear();
 
-	// add all properties in the list
+    // add all properties in the list
 
-	while ((rhs != NULL) && (*rhs != 0))
-	{
-		const char* next = strchr (rhs, ' ');
+    while ((rhs != NULL) && (*rhs != 0))
+    {
+        const char* next = strchr (rhs, ' ');
 
-		CString name (rhs, static_cast<int>(next == NULL ? strlen (rhs) : next - rhs));
-		properties.insert (std::make_pair (name, CString()));
+        CString name (rhs, static_cast<int>(next == NULL ? strlen (rhs) : next - rhs));
+        properties.insert (std::make_pair (name, CString()));
 
-		rhs = next == NULL ? NULL : next+1;
-	}
+        rhs = next == NULL ? NULL : next+1;
+    }
 
-	// done
+    // done
 
-	return *this;
+    return *this;
 }
 
 // collect property names in a set
 
 void CSVNStatusListCtrl::PropertyList::GetPropertyNames (std::set<CString>& names)
 {
-	for ( CIT iter = properties.begin(), end = properties.end()
-		; iter != end
-		; ++iter)
-	{
-		names.insert (iter->first);
-	}
+    for ( CIT iter = properties.begin(), end = properties.end()
+        ; iter != end
+        ; ++iter)
+    {
+        names.insert (iter->first);
+    }
 }
 
 // get a property value. 
 
 const CString& CSVNStatusListCtrl::PropertyList::operator[](const CString& name) const
 {
-	static const CString empty;
-	CIT iter = properties.find (name);
+    static const CString empty;
+    CIT iter = properties.find (name);
 
-	return iter == properties.end()
-		? empty
-		: iter->second;
+    return iter == properties.end()
+        ? empty
+        : iter->second;
 }
 
 // set a property value.
 
 CString& CSVNStatusListCtrl::PropertyList::operator[](const CString& name)
 {
-	return properties[name];
+    return properties[name];
 }
 
 /// check whether that property has been set on this item.
 
 bool CSVNStatusListCtrl::PropertyList::HasProperty (const CString& name) const
 {
-	return properties.find (name) != properties.end();
+    return properties.find (name) != properties.end();
 }
 
 // due to frequent use: special check for svn:needs-lock
 
 bool CSVNStatusListCtrl::PropertyList::IsNeedsLockSet() const
 {
-	static const CString svnNeedsLock (SVN_PROP_NEEDS_LOCK);
-	return HasProperty (svnNeedsLock);
+    static const CString svnNeedsLock (SVN_PROP_NEEDS_LOCK);
+    return HasProperty (svnNeedsLock);
 }
 
 
@@ -126,12 +126,12 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
         = _T("Software\\TortoiseSVN\\StatusColumns\\") + containerName;
 
     // we accept only the current version
-	bool valid = (DWORD)CRegDWORD (registryPrefix + _T("Version"), 0xff) == SVNSLC_COL_VERSION;
+    bool valid = (DWORD)CRegDWORD (registryPrefix + _T("Version"), 0xff) == SVNSLC_COL_VERSION;
     if (valid)
     {
         // read (possibly different) column selection
 
-		selectedStandardColumns 
+        selectedStandardColumns 
             = CRegDWORD (registryPrefix, selectedStandardColumns);
 
         // read user-prop lists
@@ -155,16 +155,16 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
 
     SetStandardColumnVisibility (selectedStandardColumns);
 
-	// clear all previously set header columns
+    // clear all previously set header columns
 
-	int c = ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount()-1;
-	while (c>=0)
-		control->DeleteColumn(c--);
+    int c = ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount()-1;
+    while (c>=0)
+        control->DeleteColumn(c--);
 
     // create columns
 
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
-		control->InsertColumn (i, GetName(i), LVCFMT_LEFT, IsVisible(i) ? -1 : GetVisibleWidth(i, false));
+        control->InsertColumn (i, GetName(i), LVCFMT_LEFT, IsVisible(i) ? -1 : GetVisibleWidth(i, false));
 
     // restore column ordering
 
@@ -180,14 +180,14 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
 
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
         if (IsVisible(i))
-		    control->SetColumnWidth (i, GetVisibleWidth (i, true));
+            control->SetColumnWidth (i, GetVisibleWidth (i, true));
 }
 
 void CSVNStatusListCtrl::ColumnManager::WriteSettings() const
 {
     // we are version 2
 
-	CRegDWORD regVersion (registryPrefix + _T("Version"), 0, TRUE);
+    CRegDWORD regVersion (registryPrefix + _T("Version"), 0, TRUE);
     regVersion = SVNSLC_COL_VERSION;
 
     // write (possibly different) column selection
@@ -231,13 +231,13 @@ bool CSVNStatusListCtrl::ColumnManager::IsVisible (int column) const
 
 int CSVNStatusListCtrl::ColumnManager::GetInvisibleCount() const
 {
-	int invisibleCount = 0;
-	for (std::vector<ColumnInfo>::const_iterator it = columns.begin(); it != columns.end(); ++it)
-	{
-		if (!it->visible)
-			invisibleCount++;
-	}
-	return invisibleCount;
+    int invisibleCount = 0;
+    for (std::vector<ColumnInfo>::const_iterator it = columns.begin(); it != columns.end(); ++it)
+    {
+        if (!it->visible)
+            invisibleCount++;
+    }
+    return invisibleCount;
 }
 
 bool CSVNStatusListCtrl::ColumnManager::IsRelevant (int column) const
@@ -263,42 +263,42 @@ const CString& CSVNStatusListCtrl::ColumnManager::GetName (int column) const
 
           , IDS_STATUSLIST_COLFILENAME
           , IDS_STATUSLIST_COLEXT
-		  , IDS_STATUSLIST_COLSTATUS
+          , IDS_STATUSLIST_COLSTATUS
 
-		  , IDS_STATUSLIST_COLREMOTESTATUS
-		  , IDS_STATUSLIST_COLTEXTSTATUS
-		  , IDS_STATUSLIST_COLPROPSTATUS
+          , IDS_STATUSLIST_COLREMOTESTATUS
+          , IDS_STATUSLIST_COLTEXTSTATUS
+          , IDS_STATUSLIST_COLPROPSTATUS
 
-		  , IDS_STATUSLIST_COLREMOTETEXTSTATUS
-		  , IDS_STATUSLIST_COLREMOTEPROPSTATUS
-		  , IDS_STATUSLIST_COLDEPTH
-		  , IDS_STATUSLIST_COLURL
+          , IDS_STATUSLIST_COLREMOTETEXTSTATUS
+          , IDS_STATUSLIST_COLREMOTEPROPSTATUS
+          , IDS_STATUSLIST_COLDEPTH
+          , IDS_STATUSLIST_COLURL
 
-		  , IDS_STATUSLIST_COLLOCK
-		  , IDS_STATUSLIST_COLLOCKCOMMENT
-		  , IDS_STATUSLIST_COLLOCKDATE
+          , IDS_STATUSLIST_COLLOCK
+          , IDS_STATUSLIST_COLLOCKCOMMENT
+          , IDS_STATUSLIST_COLLOCKDATE
 
-		  , IDS_STATUSLIST_COLAUTHOR
-		  , IDS_STATUSLIST_COLREVISION
-		  , IDS_STATUSLIST_COLREMOTEREVISION
-		  , IDS_STATUSLIST_COLDATE
-		  , IDS_STATUSLIST_COLSVNLOCK
+          , IDS_STATUSLIST_COLAUTHOR
+          , IDS_STATUSLIST_COLREVISION
+          , IDS_STATUSLIST_COLREMOTEREVISION
+          , IDS_STATUSLIST_COLDATE
+          , IDS_STATUSLIST_COLSVNLOCK
 
-		  , IDS_STATUSLIST_COLCOPYFROM
-		  , IDS_STATUSLIST_COLCOPYFROMREV
+          , IDS_STATUSLIST_COLCOPYFROM
+          , IDS_STATUSLIST_COLCOPYFROMREV
           , IDS_STATUSLIST_COLMODIFICATIONDATE
-		  , IDS_STATUSLIST_COLSIZE};
+          , IDS_STATUSLIST_COLSIZE};
 
     static CString standardColumnNameStrings[SVNSLC_NUMCOLUMNS];
 
-	// standard columns
+    // standard columns
 
     size_t index = static_cast<size_t>(column);
     if (index < SVNSLC_NUMCOLUMNS)
     {
         CString& result = standardColumnNameStrings[index];
-		if (result.IsEmpty())
-			result.LoadString (standardColumnNames[index]);
+        if (result.IsEmpty())
+            result.LoadString (standardColumnNames[index]);
 
         return result;
     }
@@ -310,7 +310,7 @@ const CString& CSVNStatusListCtrl::ColumnManager::GetName (int column) const
 
     // default: empty
 
-	static const CString empty;
+    static const CString empty;
     return empty;
 }
 
@@ -416,9 +416,9 @@ void CSVNStatusListCtrl::ColumnManager::ColumnResized (int column)
 void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList 
     (const std::vector<FileEntry*>& files)
 {
-	const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
+    const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
 
-	// collect all user-defined props
+    // collect all user-defined props
 
     std::set<CString> aggregatedProps;
     for (size_t i = 0, count = files.size(); i < count; ++i)
@@ -510,7 +510,7 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
 
         int result = control->InsertColumn (pos, *iter, LVCFMT_LEFT, GetVisibleWidth(pos, false));
         assert (result != -1);
-		UNREFERENCED_PARAMETER(result);
+        UNREFERENCED_PARAMETER(result);
     }
 
     // update column order
@@ -522,9 +522,9 @@ void CSVNStatusListCtrl::ColumnManager::UpdateRelevance
     ( const std::vector<FileEntry*>& files
     , const std::vector<size_t>& visibleFiles)
 {
-	const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
+    const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
 
-	// collect all user-defined props that belong to shown files
+    // collect all user-defined props that belong to shown files
 
     std::set<CString> aggregatedProps;
     for (size_t i = 0, count = visibleFiles.size(); i < count; ++i)
@@ -702,7 +702,7 @@ void CSVNStatusListCtrl::ColumnManager::ParseWidths (const CString& widths)
 {
     for (int i = 0, count = widths.GetLength() / 8; i < count; ++i)
     {
-		long width = _tcstol (widths.Mid (i*8, 8), NULL, 16);
+        long width = _tcstol (widths.Mid (i*8, 8), NULL, 16);
         if (i < SVNSLC_NUMCOLUMNS)
         {
             // a standard column
@@ -756,7 +756,7 @@ void CSVNStatusListCtrl::ColumnManager::ParseColumnOrder
     int limit = static_cast<int>(SVNSLC_USERPROPCOLOFFSET + userProps.size());
     for (int i = 0, count = widths.GetLength() / 2; i < count; ++i)
     {
-		int index = _tcstol (widths.Mid (i*2, 2), NULL, 16);
+        int index = _tcstol (widths.Mid (i*2, 2), NULL, 16);
         if (   (index < SVNSLC_NUMCOLUMNS)
             || ((index >= SVNSLC_USERPROPCOLOFFSET) && (index < limit)))
         {
@@ -819,12 +819,12 @@ void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
     SecureZeroMemory (order, sizeof (order));
 
     std::vector<int> gridColumnOrder = GetGridColumnOrder();
-	std::copy (gridColumnOrder.begin(), gridColumnOrder.end(), stdext::checked_array_iterator<int*>(&order[0], sizeof(order)));
+    std::copy (gridColumnOrder.begin(), gridColumnOrder.end(), stdext::checked_array_iterator<int*>(&order[0], sizeof(order)));
 
     // we must have placed all columns or something is really fishy ..
 
     assert (gridColumnOrder.size() == columns.size());
-	assert (GetColumnCount() == ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount());
+    assert (GetColumnCount() == ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount());
 
     // o.k., apply our column ordering
 
@@ -873,12 +873,12 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
 
     // regular columns
 
-	TCHAR buf[10];
+    TCHAR buf[10];
     for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
-	{
-		_stprintf_s (buf, 10, _T("%08X"), columns[i].width);
-		result += buf;
-	}
+    {
+        _stprintf_s (buf, 10, _T("%08X"), columns[i].width);
+        result += buf;
+    }
 
     // range with no column IDs
 
@@ -887,10 +887,10 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
     // user-prop columns
 
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
-	{
-		_stprintf_s (buf, 10, _T("%08X"), userProps[i].width);
-		result += buf;
-	}
+    {
+        _stprintf_s (buf, 10, _T("%08X"), userProps[i].width);
+        result += buf;
+    }
 
     return result;
 }
@@ -899,12 +899,12 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
 {
     CString result;
 
-	TCHAR buf[3];
+    TCHAR buf[3];
     for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
-	{
-		_stprintf_s (buf, 3, _T("%02X"), columnOrder[i]);
-		result += buf;
-	}
+    {
+        _stprintf_s (buf, 3, _T("%02X"), columnOrder[i]);
+        result += buf;
+    }
 
     return result;
 }
@@ -912,11 +912,11 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
 // sorter utility class
 
 CSVNStatusListCtrl::CSorter::CSorter ( ColumnManager* columnManager
-									  , int sortedColumn
-									  , bool ascending)
-									  : columnManager (columnManager)
-									  , sortedColumn (sortedColumn)
-									  , ascending (ascending)
+                                      , int sortedColumn
+                                      , bool ascending)
+                                      : columnManager (columnManager)
+                                      , sortedColumn (sortedColumn)
+                                      , ascending (ascending)
 {
 }
 
@@ -926,204 +926,204 @@ bool CSVNStatusListCtrl::CSorter::operator()
 {
 #define SGN(x) ((x)==0?0:((x)>0?1:-1))
 
-	int result = 0;
-	switch (sortedColumn)
-	{
-	case 22:
-		{
-			if (result == 0)
-			{
-				__int64 fileSize1 = entry1->isfolder ? 0 : entry1->working_size != (-1) ? entry1->working_size : entry1->GetPath().GetFileSize();
-				__int64 fileSize2 = entry2->isfolder ? 0 : entry2->working_size != (-1) ? entry2->working_size : entry2->GetPath().GetFileSize();
-				
-				result = int(fileSize1 - fileSize2);
-			}
-		}
-	case 21:
-		{
-			if (result == 0)
-			{
-				__int64 writetime1 = entry1->GetPath().GetLastWriteTime();
-				__int64 writetime2 = entry2->GetPath().GetLastWriteTime();
+    int result = 0;
+    switch (sortedColumn)
+    {
+    case 22:
+        {
+            if (result == 0)
+            {
+                __int64 fileSize1 = entry1->isfolder ? 0 : entry1->working_size != (-1) ? entry1->working_size : entry1->GetPath().GetFileSize();
+                __int64 fileSize2 = entry2->isfolder ? 0 : entry2->working_size != (-1) ? entry2->working_size : entry2->GetPath().GetFileSize();
+                
+                result = int(fileSize1 - fileSize2);
+            }
+        }
+    case 21:
+        {
+            if (result == 0)
+            {
+                __int64 writetime1 = entry1->GetPath().GetLastWriteTime();
+                __int64 writetime2 = entry2->GetPath().GetLastWriteTime();
 
-				FILETIME* filetime1 = (FILETIME*)(__int64*)&writetime1;
-				FILETIME* filetime2 = (FILETIME*)(__int64*)&writetime2;
+                FILETIME* filetime1 = (FILETIME*)(__int64*)&writetime1;
+                FILETIME* filetime2 = (FILETIME*)(__int64*)&writetime2;
 
-				result = CompareFileTime(filetime1,filetime2);
-			}
-		}
-	case 20:
-		{
-			if (result == 0)
-			{
-				result = entry1->copyfrom_rev - entry2->copyfrom_rev;
-			}
-		}
-	case 19:
-		{
-			if (result == 0)
-			{
-				result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
-			}
-		}
-	case 18:
-		{
-			if (result == 0)
-			{
-				result = SGN(entry1->needslock - entry2->needslock);
-			}
-		}
-	case 17:
-		{
-			if (result == 0)
-			{
-				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
-			}
-		}
-	case 16:
-		{
-			if (result == 0)
-			{
-				result = entry1->remoterev - entry2->remoterev;
-			}
-		}
-	case 15:
-		{
-			if (result == 0)
-			{
-				result = entry1->last_commit_rev - entry2->last_commit_rev;
-			}
-		}
-	case 14:
-		{
-			if (result == 0)
-			{
-				result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
-			}
-		}
-	case 13:
-		{
-			if (result == 0)
-			{
-				result = (int)(entry1->lock_date - entry2->lock_date);
-			}
-		}
-	case 12:
-		{
-			if (result == 0)
-			{
-				result = entry1->lock_comment.CompareNoCase(entry2->lock_comment);
-			}
-		}
-	case 11:
-		{
-			if (result == 0)
-			{
-				result = entry1->lock_owner.CompareNoCase(entry2->lock_owner);
-			}
-		}
-	case 10:
-		{
-			if (result == 0)
-			{
-				result = entry1->url.CompareNoCase(entry2->url);
-			}
-		}
-	case 9:
-		{
-			if (result == 0)
-			{
-				result = entry1->depth - entry2->depth;
-			}
-		}
-	case 8:
-		{
-			if (result == 0)
-			{
-				result = entry1->remotepropstatus - entry2->remotepropstatus;
-			}
-		}
-	case 7:
-		{
-			if (result == 0)
-			{
-				result = entry1->remotetextstatus - entry2->remotetextstatus;
-			}
-		}
-	case 6:
-		{
-			if (result == 0)
-			{
-				result = entry1->propstatus - entry2->propstatus;
-			}
-		}
-	case 5:
-		{
-			if (result == 0)
-			{
-				result = entry1->textstatus - entry2->textstatus;
-			}
-		}
-	case 4:
-		{
-			if (result == 0)
-			{
-				result = entry1->remotestatus - entry2->remotestatus;
-			}
-		}
-	case 3:
-		{
-			if (result == 0)
-			{
-				result = entry1->status - entry2->status;
-			}
-		}
-	case 2:
-		{
-			if (result == 0)
-			{
-				result = entry1->path.GetFileExtension().CompareNoCase(entry2->path.GetFileExtension());
-			}
-		}
-	case 1:
-		{
-			if (result == 0)
-			{
-				result = entry1->path.GetFileOrDirectoryName().CompareNoCase(entry2->path.GetFileOrDirectoryName());
-			}
-		}
-	case 0:		// path column
-		{
-			if (result == 0)
-			{
-				result = CTSVNPath::Compare(entry1->path, entry2->path);
-			}
-		}
-	default:
-		if ((result == 0) && (sortedColumn > 0))
-		{
-			// N/A props are "less than" empty props
+                result = CompareFileTime(filetime1,filetime2);
+            }
+        }
+    case 20:
+        {
+            if (result == 0)
+            {
+                result = entry1->copyfrom_rev - entry2->copyfrom_rev;
+            }
+        }
+    case 19:
+        {
+            if (result == 0)
+            {
+                result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
+            }
+        }
+    case 18:
+        {
+            if (result == 0)
+            {
+                result = SGN(entry1->needslock - entry2->needslock);
+            }
+        }
+    case 17:
+        {
+            if (result == 0)
+            {
+                result = SGN(entry1->last_commit_date - entry2->last_commit_date);
+            }
+        }
+    case 16:
+        {
+            if (result == 0)
+            {
+                result = entry1->remoterev - entry2->remoterev;
+            }
+        }
+    case 15:
+        {
+            if (result == 0)
+            {
+                result = entry1->last_commit_rev - entry2->last_commit_rev;
+            }
+        }
+    case 14:
+        {
+            if (result == 0)
+            {
+                result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
+            }
+        }
+    case 13:
+        {
+            if (result == 0)
+            {
+                result = (int)(entry1->lock_date - entry2->lock_date);
+            }
+        }
+    case 12:
+        {
+            if (result == 0)
+            {
+                result = entry1->lock_comment.CompareNoCase(entry2->lock_comment);
+            }
+        }
+    case 11:
+        {
+            if (result == 0)
+            {
+                result = entry1->lock_owner.CompareNoCase(entry2->lock_owner);
+            }
+        }
+    case 10:
+        {
+            if (result == 0)
+            {
+                result = entry1->url.CompareNoCase(entry2->url);
+            }
+        }
+    case 9:
+        {
+            if (result == 0)
+            {
+                result = entry1->depth - entry2->depth;
+            }
+        }
+    case 8:
+        {
+            if (result == 0)
+            {
+                result = entry1->remotepropstatus - entry2->remotepropstatus;
+            }
+        }
+    case 7:
+        {
+            if (result == 0)
+            {
+                result = entry1->remotetextstatus - entry2->remotetextstatus;
+            }
+        }
+    case 6:
+        {
+            if (result == 0)
+            {
+                result = entry1->propstatus - entry2->propstatus;
+            }
+        }
+    case 5:
+        {
+            if (result == 0)
+            {
+                result = entry1->textstatus - entry2->textstatus;
+            }
+        }
+    case 4:
+        {
+            if (result == 0)
+            {
+                result = entry1->remotestatus - entry2->remotestatus;
+            }
+        }
+    case 3:
+        {
+            if (result == 0)
+            {
+                result = entry1->status - entry2->status;
+            }
+        }
+    case 2:
+        {
+            if (result == 0)
+            {
+                result = entry1->path.GetFileExtension().CompareNoCase(entry2->path.GetFileExtension());
+            }
+        }
+    case 1:
+        {
+            if (result == 0)
+            {
+                result = entry1->path.GetFileOrDirectoryName().CompareNoCase(entry2->path.GetFileOrDirectoryName());
+            }
+        }
+    case 0:     // path column
+        {
+            if (result == 0)
+            {
+                result = CTSVNPath::Compare(entry1->path, entry2->path);
+            }
+        }
+    default:
+        if ((result == 0) && (sortedColumn > 0))
+        {
+            // N/A props are "less than" empty props
 
-			const CString& propName = columnManager->GetName (sortedColumn);
+            const CString& propName = columnManager->GetName (sortedColumn);
 
-			bool entry1HasProp = entry1->present_props.HasProperty (propName);
-			bool entry2HasProp = entry2->present_props.HasProperty (propName);
+            bool entry1HasProp = entry1->present_props.HasProperty (propName);
+            bool entry2HasProp = entry2->present_props.HasProperty (propName);
 
-			if (entry1HasProp)
-			{
-				result = entry2HasProp
-					? entry1->present_props[propName].Compare 
-					(entry2->present_props[propName])
-					: 1;
-			}
-			else
-			{
-				result = entry2HasProp ? -1 : 0;
-			}
-		}
-	} // switch (m_nSortedColumn)
-	if (!ascending)
-		result = -result;
+            if (entry1HasProp)
+            {
+                result = entry2HasProp
+                    ? entry1->present_props[propName].Compare 
+                    (entry2->present_props[propName])
+                    : 1;
+            }
+            else
+            {
+                result = entry2HasProp ? -1 : 0;
+            }
+        }
+    } // switch (m_nSortedColumn)
+    if (!ascending)
+        result = -result;
 
-	return result < 0;
+    return result < 0;
 }

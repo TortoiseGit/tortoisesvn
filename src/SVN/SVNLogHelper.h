@@ -26,7 +26,7 @@ using namespace std;
 /**
  * \ingroup SVN
  * helper class for retrieving log messages without the log dialog.
- * 
+ *
  * Can find the copy from revision of a tag/branch and the corresponding copy from URL.
  * Can also save log messages to a temp file for later use.
  */
@@ -34,12 +34,12 @@ class SVNLogHelper : public SVN
 {
 public:
     /**
-	 * Finds the copy from revision and URL of a branch/tag URL.
-	 * \param url			the url of the branch/tag to find the copy from data for (input)
-	 * \param pegrev		the peg revision to use to find the copy from data (input)
-	 * \param copyfromURL	the url the branch/tag was copied from (output)
-	 * \return				the copy from revision
-	 */
-	SVNRev GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyfromURL);
+     * Finds the copy from revision and URL of a branch/tag URL.
+     * \param url           the url of the branch/tag to find the copy from data for (input)
+     * \param pegrev        the peg revision to use to find the copy from data (input)
+     * \param copyfromURL   the url the branch/tag was copied from (output)
+     * \return              the copy from revision
+     */
+    SVNRev GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyfromURL);
 
 };

@@ -29,61 +29,61 @@
 class SVNInfoData
 {
 public:
-	SVNInfoData();
+    SVNInfoData();
 
-	CString				url;
-	SVNRev				rev;
-	svn_node_kind_t		kind;
-	CString				reposRoot;
-	CString				reposUUID;
-	SVNRev				lastchangedrev;
-	__time64_t			lastchangedtime;
-	CString				author;
+    CString             url;
+    SVNRev              rev;
+    svn_node_kind_t     kind;
+    CString             reposRoot;
+    CString             reposUUID;
+    SVNRev              lastchangedrev;
+    __time64_t          lastchangedtime;
+    CString             author;
 
-	CString				lock_path;
-	CString				lock_token;
-	CString				lock_owner;
-	CString				lock_comment;
-	bool				lock_davcomment;
-	__time64_t			lock_createtime;
-	__time64_t			lock_expirationtime;
-	svn_filesize_t		size64;
+    CString             lock_path;
+    CString             lock_token;
+    CString             lock_owner;
+    CString             lock_comment;
+    bool                lock_davcomment;
+    __time64_t          lock_createtime;
+    __time64_t          lock_expirationtime;
+    svn_filesize_t      size64;
 
-	bool				hasWCInfo;
-	svn_wc_schedule_t	schedule;
-	CString				copyfromurl;
-	SVNRev				copyfromrev;
-	__time64_t			texttime;
-	__time64_t			proptime;
-	CString				checksum;
-	CString				conflict_old;
-	CString				conflict_new;
-	CString				conflict_wrk;
-	CString				prejfile;
+    bool                hasWCInfo;
+    svn_wc_schedule_t   schedule;
+    CString             copyfromurl;
+    SVNRev              copyfromrev;
+    __time64_t          texttime;
+    __time64_t          proptime;
+    CString             checksum;
+    CString             conflict_old;
+    CString             conflict_new;
+    CString             conflict_wrk;
+    CString             prejfile;
 
-	CString				changelist;
-	svn_depth_t			depth;
-	svn_filesize_t		working_size64;
+    CString             changelist;
+    svn_depth_t         depth;
+    svn_filesize_t      working_size64;
 
-	// tree conflict data
-	CString				treeconflict_path;
-	svn_node_kind_t		treeconflict_nodekind;
-	svn_wc_conflict_kind_t treeconflict_kind;
-	CString				treeconflict_propertyname;
-	bool				treeconflict_binary;
-	CString				treeconflict_mimetype;
-	svn_wc_conflict_action_t treeconflict_action;
-	svn_wc_conflict_reason_t treeconflict_reason;
-	CString				treeconflict_basefile;
-	CString				treeconflict_theirfile;
-	CString				treeconflict_myfile;
-	CString				treeconflict_mergedfile;
-	svn_wc_operation_t	treeconflict_operation;
+    // tree conflict data
+    CString             treeconflict_path;
+    svn_node_kind_t     treeconflict_nodekind;
+    svn_wc_conflict_kind_t treeconflict_kind;
+    CString             treeconflict_propertyname;
+    bool                treeconflict_binary;
+    CString             treeconflict_mimetype;
+    svn_wc_conflict_action_t treeconflict_action;
+    svn_wc_conflict_reason_t treeconflict_reason;
+    CString             treeconflict_basefile;
+    CString             treeconflict_theirfile;
+    CString             treeconflict_myfile;
+    CString             treeconflict_mergedfile;
+    svn_wc_operation_t  treeconflict_operation;
 
 
-	// convenience methods:
+    // convenience methods:
 
-	bool IsValid() {return rev.IsValid() != FALSE;}
+    bool IsValid() {return rev.IsValid() != FALSE;}
 
 };
 
@@ -95,55 +95,55 @@ public:
 class SVNInfo
 {
 private:
-	SVNInfo(const SVNInfo&){}
-	SVNInfo& operator=(SVNInfo&){};
+    SVNInfo(const SVNInfo&){}
+    SVNInfo& operator=(SVNInfo&){};
 public:
-	SVNInfo(void);
-	~SVNInfo(void);
+    SVNInfo(void);
+    ~SVNInfo(void);
 
-	/**
-	 * returns the info for the \a path.
-	 * \param path a path or an url
-	 * \param pegrev the peg revision to use
-	 * \param revision the revision to get the info for
-	 * \param recurse if TRUE, then GetNextFileInfo() returns the info also
-	 * for all children of \a path.
-	 */
-	const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth = svn_depth_empty);
-	size_t GetFileCount() const {return m_arInfo.size();}
-	/**
-	 * Returns the info of the next file in the file list. If no more files are in the list then NULL is returned.
-	 * See GetFirstFileInfo() for details.
-	 */
-	const SVNInfoData * GetNextFileInfo();
+    /**
+     * returns the info for the \a path.
+     * \param path a path or an url
+     * \param pegrev the peg revision to use
+     * \param revision the revision to get the info for
+     * \param recurse if TRUE, then GetNextFileInfo() returns the info also
+     * for all children of \a path.
+     */
+    const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth = svn_depth_empty);
+    size_t GetFileCount() const {return m_arInfo.size();}
+    /**
+     * Returns the info of the next file in the file list. If no more files are in the list then NULL is returned.
+     * See GetFirstFileInfo() for details.
+     */
+    const SVNInfoData * GetNextFileInfo();
 
-	friend class SVN;	// So that SVN can get to our m_err
-	/**
-	 * Returns the last error message as a CString object.
-	 */
-	CString GetLastErrorMsg();
-	const svn_error_t * GetError() const { return m_err; }
+    friend class SVN;   // So that SVN can get to our m_err
+    /**
+     * Returns the last error message as a CString object.
+     */
+    CString GetLastErrorMsg();
+    const svn_error_t * GetError() const { return m_err; }
 
-	virtual BOOL Cancel();
-	virtual void Receiver(SVNInfoData * data);
+    virtual BOOL Cancel();
+    virtual void Receiver(SVNInfoData * data);
 
-	/// convenience methods
+    /// convenience methods
 
-	static bool IsFile (const CTSVNPath& path, const SVNRev& revision);
+    static bool IsFile (const CTSVNPath& path, const SVNRev& revision);
 
 protected:
-	apr_pool_t *				m_pool;			///< the memory pool
-	std::vector<SVNInfoData>	m_arInfo;		///< contains all gathered info structs.
+    apr_pool_t *                m_pool;         ///< the memory pool
+    std::vector<SVNInfoData>    m_arInfo;       ///< contains all gathered info structs.
 private:
-	svn_client_ctx_t * 			m_pctx;
-	svn_error_t *				m_err;			///< Subversion error baton
+    svn_client_ctx_t *          m_pctx;
+    svn_error_t *               m_err;          ///< Subversion error baton
 
-	unsigned int				m_pos;			///< the current position of the vector
+    unsigned int                m_pos;          ///< the current position of the vector
 
-	SVNPrompt					m_prompt;
-	
-	static svn_error_t *		cancel(void *baton);
-	static svn_error_t *		infoReceiver(void* baton, const char * path, const svn_info_t* info, apr_pool_t * pool);
-	
+    SVNPrompt                   m_prompt;
+
+    static svn_error_t *        cancel(void *baton);
+    static svn_error_t *        infoReceiver(void* baton, const char * path, const svn_info_t* info, apr_pool_t * pool);
+
 };
 

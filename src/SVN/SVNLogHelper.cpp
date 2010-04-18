@@ -40,22 +40,22 @@ SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyf
 
     assert (pegrev.IsNumber());
 
-	// construct the path object 
-	// (URLs are always escaped, so we must unescape them)
+    // construct the path object
+    // (URLs are always escaped, so we must unescape them)
 
     CStringA svnURLPath = CUnicodeUtils::GetUTF8 (url.GetSVNPathString());
-	if (svnURLPath.Left(9).CompareNoCase("file:///\\") == 0)
-		svnURLPath.Delete (7, 2);
+    if (svnURLPath.Left(9).CompareNoCase("file:///\\") == 0)
+        svnURLPath.Delete (7, 2);
 
     CStringA relPath = svnURLPath.Mid (query->GetRootURL().GetLength());
-	relPath = CPathUtils::PathUnescape (relPath);
+    relPath = CPathUtils::PathUnescape (relPath);
 
-	const CPathDictionary* paths = &query->GetCache()->GetLogInfo().GetPaths();
-	CDictionaryBasedTempPath path (paths, (const char*)relPath);
+    const CPathDictionary* paths = &query->GetCache()->GetLogInfo().GetPaths();
+    CDictionaryBasedTempPath path (paths, (const char*)relPath);
 
     // follow the log
 
-    LogCache::CStrictLogIterator iterator 
+    LogCache::CStrictLogIterator iterator
         ( query->GetCache()
         , pegrev
         , path);
@@ -70,8 +70,8 @@ SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyf
 
     // return the results
 
-    copyfromURL = MakeUIUrlOrPath (  query->GetRootURL() 
+    copyfromURL = MakeUIUrlOrPath (  query->GetRootURL()
                                    + iterator.GetPath().GetPath().c_str());
-	return result;
+    return result;
 }
 
