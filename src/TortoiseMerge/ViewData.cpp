@@ -29,42 +29,42 @@ CViewData::~CViewData(void)
 
 void CViewData::AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedIndex)
 {
-	viewdata data;
-	data.sLine = sLine;
-	data.state = state;
-	data.linenumber = linenumber;
-	data.ending = ending;
-	data.hidestate = hide;
+    viewdata data;
+    data.sLine = sLine;
+    data.state = state;
+    data.linenumber = linenumber;
+    data.ending = ending;
+    data.hidestate = hide;
     data.movedIndex = movedIndex;
-	return AddData(data);
+    return AddData(data);
 }
 
 void CViewData::AddData(const viewdata& data)
 {
-	return m_data.push_back(data);
+    return m_data.push_back(data);
 }
 
 void CViewData::InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedIndex)
 {
-	viewdata data;
-	data.sLine = sLine;
-	data.state = state;
-	data.linenumber = linenumber;
-	data.ending = ending;
-	data.hidestate = hide;
+    viewdata data;
+    data.sLine = sLine;
+    data.state = state;
+    data.linenumber = linenumber;
+    data.ending = ending;
+    data.hidestate = hide;
     data.movedIndex = movedIndex;
-	return InsertData(index, data);
+    return InsertData(index, data);
 }
 
 void CViewData::InsertData(int index, const viewdata& data)
 {
-	m_data.insert(m_data.begin()+index, data);
+    m_data.insert(m_data.begin()+index, data);
 }
 
 int CViewData::FindLineNumber(int number)
 {
-	for(size_t i = 0; i < m_data.size(); ++i)
-		if (m_data[i].linenumber >= number)
-			return (int)i;
-	return -1;
+    for(size_t i = 0; i < m_data.size(); ++i)
+        if (m_data[i].linenumber >= number)
+            return (int)i;
+    return -1;
 }

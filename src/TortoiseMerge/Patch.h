@@ -20,9 +20,9 @@
 #include "FileTextLines.h"
 
 
-#define PATCHSTATE_REMOVED	0
-#define PATCHSTATE_ADDED	1
-#define PATCHSTATE_CONTEXT	2
+#define PATCHSTATE_REMOVED  0
+#define PATCHSTATE_ADDED    1
+#define PATCHSTATE_CONTEXT  2
 
 /**
  * \ingroup TortoiseMerge
@@ -33,66 +33,66 @@
 class CPatch
 {
 public:
-	CPatch(void);
-	~CPatch(void);
+    CPatch(void);
+    ~CPatch(void);
 
-	BOOL		OpenUnifiedDiffFile(const CString& filename);
-	BOOL		PatchFile(const CString& sPath, const CString& sSavePath = _T(""), const CString& sBaseFile = _T(""));
-	int			GetNumberOfFiles() const  {return m_arFileDiffs.GetCount();}
-	CString		GetFilename(int nIndex);
-	CString		GetRevision(int nIndex);
-	CString		GetFilename2(int nIndex);
-	CString		GetRevision2(int nIndex);
-	CString		GetErrorMessage() const  {return m_sErrorMessage;}
-	CString		CheckPatchPath(const CString& path);
+    BOOL        OpenUnifiedDiffFile(const CString& filename);
+    BOOL        PatchFile(const CString& sPath, const CString& sSavePath = _T(""), const CString& sBaseFile = _T(""));
+    int         GetNumberOfFiles() const  {return m_arFileDiffs.GetCount();}
+    CString     GetFilename(int nIndex);
+    CString     GetRevision(int nIndex);
+    CString     GetFilename2(int nIndex);
+    CString     GetRevision2(int nIndex);
+    CString     GetErrorMessage() const  {return m_sErrorMessage;}
+    CString     CheckPatchPath(const CString& path);
 
-	/**
-	 * Returns TRUE if stripping prefixes from the paths in the patch file
-	 * allows the patch file to being applied. The variable m_nStrip is then set appropriately.
-	 * Returns FALSE if stripping prefixes doesn't help. The variable m_nStrip is set to 0.
-	 */
-	BOOL		StripPrefixes(const CString& path);
+    /**
+     * Returns TRUE if stripping prefixes from the paths in the patch file
+     * allows the patch file to being applied. The variable m_nStrip is then set appropriately.
+     * Returns FALSE if stripping prefixes doesn't help. The variable m_nStrip is set to 0.
+     */
+    BOOL        StripPrefixes(const CString& path);
 protected:
-	void		FreeMemory();
-	BOOL		HasExpandedKeyWords(const CString& line);
-	int			CountMatches(const CString& path);
-	int			CountDirMatches(const CString& path);
-	CString		RemoveUnicodeBOM(const CString& str);
+    void        FreeMemory();
+    BOOL        HasExpandedKeyWords(const CString& line);
+    int         CountMatches(const CString& path);
+    int         CountDirMatches(const CString& path);
+    CString     RemoveUnicodeBOM(const CString& str);
 
-	/**
-	 * Strips the filename by removing m_nStrip prefixes.
-	 */
-	CString		Strip(const CString& filename);
-	struct Chunk
-	{
-		LONG					lRemoveStart;
-		LONG					lRemoveLength;
-		LONG					lAddStart;
-		LONG					lAddLength;
-		CStdCStringArray		arLines;
-		CStdDWORDArray			arLinesStates;
-		std::vector<EOL>		arEOLs;
-	};
+    /**
+     * Strips the filename by removing m_nStrip prefixes.
+     */
+    CString     Strip(const CString& filename);
+    struct Chunk
+    {
+        LONG                    lRemoveStart;
+        LONG                    lRemoveLength;
+        LONG                    lAddStart;
+        LONG                    lAddLength;
+        CStdCStringArray        arLines;
+        CStdDWORDArray          arLinesStates;
+        std::vector<EOL>        arEOLs;
+    };
 
-	struct Chunks
-	{
-		CString					sFilePath;
-		CString					sRevision;
-		CString					sFilePath2;
-		CString					sRevision2;
-		CStdArray<Chunk*>		chunks;
-	};
+    struct Chunks
+    {
+        CString                 sFilePath;
+        CString                 sRevision;
+        CString                 sFilePath2;
+        CString                 sRevision2;
+        CStdArray<Chunk*>       chunks;
+    };
 
-	CStdArray<Chunks*>			m_arFileDiffs;
-	CString						m_sErrorMessage;
-	CFileTextLines::UnicodeType m_UnicodeType;
+    CStdArray<Chunks*>          m_arFileDiffs;
+    CString                     m_sErrorMessage;
+    CFileTextLines::UnicodeType m_UnicodeType;
 
-	/**
-	 * Defines how many prefixes are removed from the paths in the
-	 * patch file. This allows applying patches which contain absolute
-	 * paths or a prefix which differs in the patch and the working copy.
-	 * Example: A filename like "/home/ts/my-working-copy/dir/file.txt"
-	 * stripped by 4 prefixes is interpreted as "dir/file.txt"
-	 */
-	int							m_nStrip;
+    /**
+     * Defines how many prefixes are removed from the paths in the
+     * patch file. This allows applying patches which contain absolute
+     * paths or a prefix which differs in the patch and the working copy.
+     * Example: A filename like "/home/ts/my-working-copy/dir/file.txt"
+     * stripped by 4 prefixes is interpreted as "dir/file.txt"
+     */
+    int                         m_nStrip;
 };

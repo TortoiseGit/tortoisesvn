@@ -24,10 +24,10 @@
  */
 enum EOL
 {
-	EOL_AUTOLINE,
-	EOL_LF,
-	EOL_CRLF,
-	EOL_LFCR,
-	EOL_CR,
-	EOL_NOENDING,
+    EOL_AUTOLINE,
+    EOL_LF,
+    EOL_CRLF,
+    EOL_LFCR,
+    EOL_CR,
+    EOL_NOENDING,
 };

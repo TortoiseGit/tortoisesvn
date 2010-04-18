@@ -25,11 +25,11 @@
  */
 class CLeftView : public CBaseView
 {
-	DECLARE_DYNCREATE(CLeftView)
+    DECLARE_DYNCREATE(CLeftView)
 public:
-	CLeftView(void);
-	~CLeftView(void);
+    CLeftView(void);
+    ~CLeftView(void);
 protected:
-	bool	OnContextMenu(CPoint point, int nLine, DiffStates state);
-	
+    bool    OnContextMenu(CPoint point, int nLine, DiffStates state);
+
 };

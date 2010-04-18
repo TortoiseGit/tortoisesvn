@@ -25,17 +25,17 @@
  */
 class CBottomView : public CBaseView
 {
-	DECLARE_DYNCREATE(CBottomView)
+    DECLARE_DYNCREATE(CBottomView)
 public:
-	CBottomView(void);
-	~CBottomView(void);
-	
-	void UseMyTextBlock();
-	void UseMyThenTheirTextBlock();
-	void UseTheirTextBlock();
-	void UseTheirThenMyTextBlock();
+    CBottomView(void);
+    ~CBottomView(void);
+
+    void UseMyTextBlock();
+    void UseMyThenTheirTextBlock();
+    void UseTheirTextBlock();
+    void UseTheirThenMyTextBlock();
 
 protected:
-	bool	OnContextMenu(CPoint point, int nLine, DiffStates state);
-	
+    bool    OnContextMenu(CPoint point, int nLine, DiffStates state);
+
 };

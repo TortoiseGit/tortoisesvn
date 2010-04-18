@@ -27,45 +27,45 @@
  */
 class CSetColorPage : public CPropertyPage
 {
-	DECLARE_DYNAMIC(CSetColorPage)
+    DECLARE_DYNAMIC(CSetColorPage)
 
 public:
-	CSetColorPage();
-	virtual ~CSetColorPage();
-	/**
-	 * Saves the changed settings to the registry.
-	 * \remark If the dialog is closed/dismissed without calling
-	 * this method first then all settings the user made must be
-	 * discarded!
-	 */
-	void SaveData();
+    CSetColorPage();
+    virtual ~CSetColorPage();
+    /**
+     * Saves the changed settings to the registry.
+     * \remark If the dialog is closed/dismissed without calling
+     * this method first then all settings the user made must be
+     * discarded!
+     */
+    void SaveData();
 
-	BOOL	m_bReloadNeeded;
+    BOOL    m_bReloadNeeded;
 // Dialog Data
-	enum { IDD = IDD_SETCOLORPAGE };
+    enum { IDD = IDD_SETCOLORPAGE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual BOOL OnApply();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL OnApply();
 
-	afx_msg void OnBnClickedColor();
+    afx_msg void OnBnClickedColor();
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 
 protected:
-	BOOL m_bInit;
-	CRegDWORD		m_regInlineAdded;
-	CRegDWORD		m_regInlineRemoved;
-	CRegDWORD		m_regModifiedBackground;
-	CMFCColorButton m_cBkNormal;
-	CMFCColorButton m_cBkRemoved;
-	CMFCColorButton m_cBkAdded;
-	CMFCColorButton m_cBkInlineAdded;
-	CMFCColorButton m_cBkInlineRemoved;
-	CMFCColorButton m_cBkEmpty;
-	CMFCColorButton m_cBkConflict;
-	CMFCColorButton m_cBkConflictResolved;
-	CMFCColorButton m_cBkModified;
-	CMFCColorButton m_cFgWhitespaces;
+    BOOL m_bInit;
+    CRegDWORD       m_regInlineAdded;
+    CRegDWORD       m_regInlineRemoved;
+    CRegDWORD       m_regModifiedBackground;
+    CMFCColorButton m_cBkNormal;
+    CMFCColorButton m_cBkRemoved;
+    CMFCColorButton m_cBkAdded;
+    CMFCColorButton m_cBkInlineAdded;
+    CMFCColorButton m_cBkInlineRemoved;
+    CMFCColorButton m_cBkEmpty;
+    CMFCColorButton m_cBkConflict;
+    CMFCColorButton m_cBkConflictResolved;
+    CMFCColorButton m_cBkModified;
+    CMFCColorButton m_cFgWhitespaces;
 };

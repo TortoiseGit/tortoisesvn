@@ -24,29 +24,29 @@
  */
 enum DiffStates
 {
-	DIFFSTATE_UNKNOWN,					///< e.g. an empty file
-	DIFFSTATE_NORMAL,					///< no diffs found
-	DIFFSTATE_REMOVED,					///< line was removed
-	DIFFSTATE_REMOVEDWHITESPACE,		///< line was removed (whitespace diff)
-	DIFFSTATE_ADDED,					///< line was added
-	DIFFSTATE_ADDEDWHITESPACE,			///< line was added (whitespace diff)
-	DIFFSTATE_WHITESPACE,				///< line differs in whitespaces only
-	DIFFSTATE_WHITESPACE_DIFF,			///< the in-line diffs of whitespaces
-	DIFFSTATE_MOVED_TO,                 ///< line was moved here
+    DIFFSTATE_UNKNOWN,                  ///< e.g. an empty file
+    DIFFSTATE_NORMAL,                   ///< no diffs found
+    DIFFSTATE_REMOVED,                  ///< line was removed
+    DIFFSTATE_REMOVEDWHITESPACE,        ///< line was removed (whitespace diff)
+    DIFFSTATE_ADDED,                    ///< line was added
+    DIFFSTATE_ADDEDWHITESPACE,          ///< line was added (whitespace diff)
+    DIFFSTATE_WHITESPACE,               ///< line differs in whitespaces only
+    DIFFSTATE_WHITESPACE_DIFF,          ///< the in-line diffs of whitespaces
+    DIFFSTATE_MOVED_TO,                 ///< line was moved here
     DIFFSTATE_MOVED_FROM,               ///< line was moved from here
-    DIFFSTATE_EMPTY,					///< empty line
-	DIFFSTATE_CONFLICTED,				///< conflicted line
-	DIFFSTATE_CONFLICTED_IGNORED,		///< a conflict which isn't conflicted due to ignore settings
-	DIFFSTATE_CONFLICTADDED,			///< added line results in conflict
-	DIFFSTATE_CONFLICTEMPTY,			///< removed line results in conflict
-	DIFFSTATE_CONFLICTRESOLVED,			///< previously conflicted line, now resolved
-	DIFFSTATE_CONFLICTRESOLVEDEMPTY,	///< previously conflicted line, now resolved but empty line
-	DIFFSTATE_IDENTICALREMOVED,			///< identical removed lines in theirs and yours
-	DIFFSTATE_IDENTICALADDED,			///< identical added lines in theirs and yours
-	DIFFSTATE_THEIRSREMOVED,			///< removed line in theirs
-	DIFFSTATE_THEIRSADDED,				///< added line in theirs
-	DIFFSTATE_YOURSREMOVED,				///< removed line in yours
-	DIFFSTATE_YOURSADDED,				///< added line in yours
-	DIFFSTATE_EDITED,					///< manually edited line
-	DIFFSTATE_END						///< end marker for enum
+    DIFFSTATE_EMPTY,                    ///< empty line
+    DIFFSTATE_CONFLICTED,               ///< conflicted line
+    DIFFSTATE_CONFLICTED_IGNORED,       ///< a conflict which isn't conflicted due to ignore settings
+    DIFFSTATE_CONFLICTADDED,            ///< added line results in conflict
+    DIFFSTATE_CONFLICTEMPTY,            ///< removed line results in conflict
+    DIFFSTATE_CONFLICTRESOLVED,         ///< previously conflicted line, now resolved
+    DIFFSTATE_CONFLICTRESOLVEDEMPTY,    ///< previously conflicted line, now resolved but empty line
+    DIFFSTATE_IDENTICALREMOVED,         ///< identical removed lines in theirs and yours
+    DIFFSTATE_IDENTICALADDED,           ///< identical added lines in theirs and yours
+    DIFFSTATE_THEIRSREMOVED,            ///< removed line in theirs
+    DIFFSTATE_THEIRSADDED,              ///< added line in theirs
+    DIFFSTATE_YOURSREMOVED,             ///< removed line in yours
+    DIFFSTATE_YOURSADDED,               ///< added line in yours
+    DIFFSTATE_EDITED,                   ///< manually edited line
+    DIFFSTATE_END                       ///< end marker for enum
 };

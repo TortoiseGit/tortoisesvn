@@ -24,18 +24,18 @@
 template <typename T> class CStdArray
 {
 public:
-	int GetCount() const { return (int)m_vec.size(); }
-	const T& GetAt(int index) const { return m_vec[index]; }
-	void RemoveAt(int index)	{ m_vec.erase(m_vec.begin()+index); }
-	void InsertAt(int index, const T& strVal)	{ m_vec.insert(m_vec.begin()+index, strVal); }
-	void InsertAt(int index, const T& strVal, int nCopies)	{ m_vec.insert(m_vec.begin()+index, nCopies, strVal); }
-	void SetAt(int index, const T& strVal)	{ m_vec[index] = strVal; }
-	void Add(const T& strVal)	 { m_vec.push_back(strVal); }
-	void RemoveAll()				{ m_vec.clear(); }
-	void Reserve(int lengthHint)	{ m_vec.reserve(lengthHint); }
+    int GetCount() const { return (int)m_vec.size(); }
+    const T& GetAt(int index) const { return m_vec[index]; }
+    void RemoveAt(int index)    { m_vec.erase(m_vec.begin()+index); }
+    void InsertAt(int index, const T& strVal)   { m_vec.insert(m_vec.begin()+index, strVal); }
+    void InsertAt(int index, const T& strVal, int nCopies)  { m_vec.insert(m_vec.begin()+index, nCopies, strVal); }
+    void SetAt(int index, const T& strVal)  { m_vec[index] = strVal; }
+    void Add(const T& strVal)    { m_vec.push_back(strVal); }
+    void RemoveAll()                { m_vec.clear(); }
+    void Reserve(int lengthHint)    { m_vec.reserve(lengthHint); }
 
 private:
-	std::vector<T> m_vec;
+    std::vector<T> m_vec;
 };
 
 typedef CStdArray<CString> CStdCStringArray;
@@ -51,77 +51,77 @@ typedef CStdArray<DWORD> CStdDWORDArray;
 class CFileTextLines  : public CStdCStringArray
 {
 public:
-	CFileTextLines(void);
-	~CFileTextLines(void);
+    CFileTextLines(void);
+    ~CFileTextLines(void);
 
-	enum UnicodeType
-	{
-		AUTOTYPE,
-		BINARY,
-		ASCII,
-		UNICODE_LE,
-		UTF8,
-		UTF8BOM,
-	};
+    enum UnicodeType
+    {
+        AUTOTYPE,
+        BINARY,
+        ASCII,
+        UNICODE_LE,
+        UTF8,
+        UTF8BOM,
+    };
 
-	/**
-	 * Loads the text file and adds each line to the array
-	 * \param sFilePath the path to the file
-	 */
-	BOOL		Load(const CString& sFilePath, int lengthHint = 0);
-	/**
-	 * Saves the whole array of text lines to a file, preserving
-	 * the line endings detected at Load()
-	 * \param sFilePath the path to save the file to
-	 */
-	BOOL		Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreCase = FALSE, bool bBlame = false);
-	/**
-	 * Returns an error string of the last failed operation
-	 */
-	CString		GetErrorString() const  {return m_sErrorString;}
-	/**
-	 * Copies the settings of a file like the line ending styles
-	 * to another CFileTextLines object.
-	 */
-	void		CopySettings(CFileTextLines * pFileToCopySettingsTo);
+    /**
+     * Loads the text file and adds each line to the array
+     * \param sFilePath the path to the file
+     */
+    BOOL        Load(const CString& sFilePath, int lengthHint = 0);
+    /**
+     * Saves the whole array of text lines to a file, preserving
+     * the line endings detected at Load()
+     * \param sFilePath the path to save the file to
+     */
+    BOOL        Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreCase = FALSE, bool bBlame = false);
+    /**
+     * Returns an error string of the last failed operation
+     */
+    CString     GetErrorString() const  {return m_sErrorString;}
+    /**
+     * Copies the settings of a file like the line ending styles
+     * to another CFileTextLines object.
+     */
+    void        CopySettings(CFileTextLines * pFileToCopySettingsTo);
 
-	CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
-	EOL GetLineEndings() const {return m_LineEndings;}
+    CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
+    EOL GetLineEndings() const {return m_LineEndings;}
 
-	void		Add(const CString& sLine, EOL ending) {CStdCStringArray::Add(sLine); m_endings.push_back(ending);}
-	void		RemoveAt(int index)	{CStdCStringArray::RemoveAt(index); m_endings.erase(m_endings.begin()+index);}
-	void		InsertAt(int index, const CString& strVal, EOL ending) {CStdCStringArray::InsertAt(index, strVal); m_endings.insert(m_endings.begin()+index, ending);}
+    void        Add(const CString& sLine, EOL ending) {CStdCStringArray::Add(sLine); m_endings.push_back(ending);}
+    void        RemoveAt(int index) {CStdCStringArray::RemoveAt(index); m_endings.erase(m_endings.begin()+index);}
+    void        InsertAt(int index, const CString& strVal, EOL ending) {CStdCStringArray::InsertAt(index, strVal); m_endings.insert(m_endings.begin()+index, ending);}
 
-	EOL			GetLineEnding(int index) {return m_endings[index];}
-	void		SetLineEnding(int index, EOL ending) {m_endings[index] = ending;}
-	
-	void		RemoveAll() {CStdCStringArray::RemoveAll(); m_endings.clear();}
+    EOL         GetLineEnding(int index) {return m_endings[index];}
+    void        SetLineEnding(int index, EOL ending) {m_endings[index] = ending;}
+    
+    void        RemoveAll() {CStdCStringArray::RemoveAll(); m_endings.clear();}
 private:
-	/**
-	 * Checks the line endings in a text buffer
-	 * \param pBuffer pointer to the buffer containing text
-	 * \param cd size of the text buffer in bytes
-	 */
-	EOL CheckLineEndings(LPVOID pBuffer, int cb); 
-	/**
-	 * Checks the Unicode type in a text buffer
-	 * \param pBuffer pointer to the buffer containing text
-	 * \param cd size of the text buffer in bytes
-	 */
-	CFileTextLines::UnicodeType CheckUnicodeType(LPVOID pBuffer, int cb); 
+    /**
+     * Checks the line endings in a text buffer
+     * \param pBuffer pointer to the buffer containing text
+     * \param cd size of the text buffer in bytes
+     */
+    EOL CheckLineEndings(LPVOID pBuffer, int cb); 
+    /**
+     * Checks the Unicode type in a text buffer
+     * \param pBuffer pointer to the buffer containing text
+     * \param cd size of the text buffer in bytes
+     */
+    CFileTextLines::UnicodeType CheckUnicodeType(LPVOID pBuffer, int cb); 
 
-	void		SetErrorString();
+    void        SetErrorString();
 
-	void StripAsciiWhiteSpace(CStringA& sLine);
+    void StripAsciiWhiteSpace(CStringA& sLine);
 
-	void StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces, bool blame);
-	void StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespaces, bool blame);
+    void StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces, bool blame);
+    void StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespaces, bool blame);
 
 
 private:
-	std::vector<EOL>							m_endings;
-	CString										m_sErrorString;
-	CFileTextLines::UnicodeType					m_UnicodeType;
-	EOL											m_LineEndings;
-	bool										m_bReturnAtEnd;
+    std::vector<EOL>                            m_endings;
+    CString                                     m_sErrorString;
+    CFileTextLines::UnicodeType                 m_UnicodeType;
+    EOL                                         m_LineEndings;
+    bool                                        m_bReturnAtEnd;
 };

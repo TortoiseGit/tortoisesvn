@@ -25,8 +25,8 @@ IMPLEMENT_DYNCREATE(CLeftView, CBaseView)
 
 CLeftView::CLeftView(void)
 {
-	m_pwndLeft = this;
-	m_nStatusBarID = ID_INDICATOR_LEFTVIEW;
+    m_pwndLeft = this;
+    m_nStatusBarID = ID_INDICATOR_LEFTVIEW;
 }
 
 CLeftView::~CLeftView(void)
@@ -35,12 +35,12 @@ CLeftView::~CLeftView(void)
 
 bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 {
-	if (!m_pwndRight->IsWindowVisible())
-		return false;
+    if (!m_pwndRight->IsWindowVisible())
+        return false;
 
-	CMenu popup;
-	if (!popup.CreatePopupMenu())
-		return false;
+    CMenu popup;
+    if (!popup.CreatePopupMenu())
+        return false;
 
 #define ID_USEBLOCK 1
 #define ID_USEFILE 2
@@ -49,188 +49,188 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 #define ID_USEBOTHTHISFIRST 5
 #define ID_USEBOTHTHISLAST 6
 
-	const UINT uFlags = GetMenuFlags(state);
+    const UINT uFlags = GetMenuFlags(state);
 
-	CString temp;
+    CString temp;
 
-	temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-	popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
+    temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
+    popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
 
-	temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
-	popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
+    temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
+    popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
 
-	if (m_pwndBottom->IsWindowVisible())
-	{
-		temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-		popup.AppendMenu(uFlags, ID_USEYOURANDTHEIRBLOCK, temp);
-		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-		popup.AppendMenu(uFlags, ID_USETHEIRANDYOURBLOCK, temp);
-	}
-	else
-	{
-		temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
-		popup.AppendMenu(uFlags, ID_USEBOTHTHISFIRST, temp);
-		temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
-		popup.AppendMenu(uFlags, ID_USEBOTHTHISLAST, temp);
-	}
+    if (m_pwndBottom->IsWindowVisible())
+    {
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
+        popup.AppendMenu(uFlags, ID_USEYOURANDTHEIRBLOCK, temp);
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
+        popup.AppendMenu(uFlags, ID_USETHEIRANDYOURBLOCK, temp);
+    }
+    else
+    {
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
+        popup.AppendMenu(uFlags, ID_USEBOTHTHISFIRST, temp);
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
+        popup.AppendMenu(uFlags, ID_USEBOTHTHISLAST, temp);
+    }
 
-	AddCutCopyAndPaste(popup);
+    AddCutCopyAndPaste(popup);
 
-	CompensateForKeyboard(point);
+    CompensateForKeyboard(point);
 
-	int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-	viewstate leftstate;
-	viewstate bottomstate;
-	viewstate rightstate;
-	switch (cmd)
-	{
-	case ID_EDIT_COPY:
-		OnEditCopy();
-		return true;
-	case ID_EDIT_CUT:
-		OnEditCopy();
-		RemoveSelectedText();
-		return false;
-	case ID_EDIT_PASTE:
-		PasteText();
-		return false;
-	case ID_USEFILE:
-		if (m_pwndBottom->IsWindowVisible())
-		{
-			for (int i=0; i<GetLineCount(); i++)
-			{
-				bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
-				m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
-				bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
-				m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
-				m_pwndBottom->m_pViewData->SetLineEnding(i, m_pViewData->GetLineEnding(i));
-				if (m_pwndBottom->IsLineConflicted(i))
-				{
-					if (m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-						m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
-					else
-						m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
-				}
-			}
-			m_pwndBottom->SetModified();
-		}
-		else
-		{
-			for (int i=0; i<GetLineCount(); i++)
-			{
-				rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
-				m_pwndRight->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
-				m_pwndRight->m_pViewData->SetLineEnding(i, m_pViewData->GetLineEnding(i));
-				DiffStates state2 = m_pViewData->GetState(i);
-				switch (state2)
-				{
-				case DIFFSTATE_CONFLICTEMPTY:
-				case DIFFSTATE_UNKNOWN:
-				case DIFFSTATE_EMPTY:
-					rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-					m_pwndRight->m_pViewData->SetState(i, state2);
-					break;
-				case DIFFSTATE_YOURSADDED:
-				case DIFFSTATE_IDENTICALADDED:
-				case DIFFSTATE_NORMAL:
-				case DIFFSTATE_THEIRSADDED:
-				case DIFFSTATE_ADDED:
-				case DIFFSTATE_CONFLICTADDED:
-				case DIFFSTATE_CONFLICTED:
-				case DIFFSTATE_CONFLICTED_IGNORED:
-				case DIFFSTATE_IDENTICALREMOVED:
-				case DIFFSTATE_REMOVED:
-				case DIFFSTATE_THEIRSREMOVED:
-				case DIFFSTATE_YOURSREMOVED:
-					rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-					m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_NORMAL);
-					leftstate.linestates[i] = m_pViewData->GetState(i);
-					m_pViewData->SetState(i, DIFFSTATE_NORMAL);
-					break;
-				default:
-					break;
-				}
-			}
-			m_pwndRight->SetModified();
-			if (m_pwndLocator)
-				m_pwndLocator->DocumentUpdated();
-		}
-		break;
-	case ID_USEBLOCK:
-		if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-			break;
-		if (m_pwndBottom->IsWindowVisible())
-		{
-			for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-			{
-				bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
-				m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
-				bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
-				m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
-				m_pwndBottom->m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
-				if (m_pwndBottom->IsLineConflicted(i))
-				{
-					if (m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-						m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
-					else
-						m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
-				}
-			}
-			m_pwndBottom->SetModified();
-		}
-		else
-		{
-			for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-			{
-				rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
-				m_pwndRight->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
-				m_pwndRight->m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
-				DiffStates state2 = m_pViewData->GetState(i);
-				switch (state2)
-				{
-				case DIFFSTATE_ADDED:
-				case DIFFSTATE_CONFLICTADDED:
-				case DIFFSTATE_CONFLICTED:
-				case DIFFSTATE_CONFLICTED_IGNORED:
-				case DIFFSTATE_CONFLICTEMPTY:
-				case DIFFSTATE_IDENTICALADDED:
-				case DIFFSTATE_NORMAL:
-				case DIFFSTATE_THEIRSADDED:
-				case DIFFSTATE_UNKNOWN:
-				case DIFFSTATE_YOURSADDED:
-				case DIFFSTATE_EMPTY:
-					rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-					m_pwndRight->m_pViewData->SetState(i, state2);
-					break;
-				case DIFFSTATE_IDENTICALREMOVED:
-				case DIFFSTATE_REMOVED:
-				case DIFFSTATE_THEIRSREMOVED:
-				case DIFFSTATE_YOURSREMOVED:
-					rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-					m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_ADDED);
-					break;
-				default:
-					break;
-				}
-			}
-			m_pwndRight->SetModified();
-		}
-		break;
-	case ID_USEYOURANDTHEIRBLOCK:
-		UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
-		break;
-	case ID_USETHEIRANDYOURBLOCK:
-		UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
-		break;
-	case ID_USEBOTHTHISLAST:
-		UseBothRightFirst(rightstate, leftstate);
-		break;
-	case ID_USEBOTHTHISFIRST:
-		UseBothLeftFirst(rightstate, leftstate);
-		break;
-	default:
-		return false;
-	} // switch (cmd) 
-	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-	return false;
+    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+    viewstate leftstate;
+    viewstate bottomstate;
+    viewstate rightstate;
+    switch (cmd)
+    {
+    case ID_EDIT_COPY:
+        OnEditCopy();
+        return true;
+    case ID_EDIT_CUT:
+        OnEditCopy();
+        RemoveSelectedText();
+        return false;
+    case ID_EDIT_PASTE:
+        PasteText();
+        return false;
+    case ID_USEFILE:
+        if (m_pwndBottom->IsWindowVisible())
+        {
+            for (int i=0; i<GetLineCount(); i++)
+            {
+                bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
+                m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
+                bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
+                m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
+                m_pwndBottom->m_pViewData->SetLineEnding(i, m_pViewData->GetLineEnding(i));
+                if (m_pwndBottom->IsLineConflicted(i))
+                {
+                    if (m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+                        m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+                    else
+                        m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+                }
+            }
+            m_pwndBottom->SetModified();
+        }
+        else
+        {
+            for (int i=0; i<GetLineCount(); i++)
+            {
+                rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
+                m_pwndRight->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
+                m_pwndRight->m_pViewData->SetLineEnding(i, m_pViewData->GetLineEnding(i));
+                DiffStates state2 = m_pViewData->GetState(i);
+                switch (state2)
+                {
+                case DIFFSTATE_CONFLICTEMPTY:
+                case DIFFSTATE_UNKNOWN:
+                case DIFFSTATE_EMPTY:
+                    rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
+                    m_pwndRight->m_pViewData->SetState(i, state2);
+                    break;
+                case DIFFSTATE_YOURSADDED:
+                case DIFFSTATE_IDENTICALADDED:
+                case DIFFSTATE_NORMAL:
+                case DIFFSTATE_THEIRSADDED:
+                case DIFFSTATE_ADDED:
+                case DIFFSTATE_CONFLICTADDED:
+                case DIFFSTATE_CONFLICTED:
+                case DIFFSTATE_CONFLICTED_IGNORED:
+                case DIFFSTATE_IDENTICALREMOVED:
+                case DIFFSTATE_REMOVED:
+                case DIFFSTATE_THEIRSREMOVED:
+                case DIFFSTATE_YOURSREMOVED:
+                    rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
+                    m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_NORMAL);
+                    leftstate.linestates[i] = m_pViewData->GetState(i);
+                    m_pViewData->SetState(i, DIFFSTATE_NORMAL);
+                    break;
+                default:
+                    break;
+                }
+            }
+            m_pwndRight->SetModified();
+            if (m_pwndLocator)
+                m_pwndLocator->DocumentUpdated();
+        }
+        break;
+    case ID_USEBLOCK:
+        if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+            break;
+        if (m_pwndBottom->IsWindowVisible())
+        {
+            for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+            {
+                bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
+                m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
+                bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
+                m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
+                m_pwndBottom->m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
+                if (m_pwndBottom->IsLineConflicted(i))
+                {
+                    if (m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+                        m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+                    else
+                        m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+                }
+            }
+            m_pwndBottom->SetModified();
+        }
+        else
+        {
+            for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+            {
+                rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
+                m_pwndRight->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
+                m_pwndRight->m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
+                DiffStates state2 = m_pViewData->GetState(i);
+                switch (state2)
+                {
+                case DIFFSTATE_ADDED:
+                case DIFFSTATE_CONFLICTADDED:
+                case DIFFSTATE_CONFLICTED:
+                case DIFFSTATE_CONFLICTED_IGNORED:
+                case DIFFSTATE_CONFLICTEMPTY:
+                case DIFFSTATE_IDENTICALADDED:
+                case DIFFSTATE_NORMAL:
+                case DIFFSTATE_THEIRSADDED:
+                case DIFFSTATE_UNKNOWN:
+                case DIFFSTATE_YOURSADDED:
+                case DIFFSTATE_EMPTY:
+                    rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
+                    m_pwndRight->m_pViewData->SetState(i, state2);
+                    break;
+                case DIFFSTATE_IDENTICALREMOVED:
+                case DIFFSTATE_REMOVED:
+                case DIFFSTATE_THEIRSREMOVED:
+                case DIFFSTATE_YOURSREMOVED:
+                    rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
+                    m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_ADDED);
+                    break;
+                default:
+                    break;
+                }
+            }
+            m_pwndRight->SetModified();
+        }
+        break;
+    case ID_USEYOURANDTHEIRBLOCK:
+        UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
+        break;
+    case ID_USETHEIRANDYOURBLOCK:
+        UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
+        break;
+    case ID_USEBOTHTHISLAST:
+        UseBothRightFirst(rightstate, leftstate);
+        break;
+    case ID_USEBOTHTHISFIRST:
+        UseBothLeftFirst(rightstate, leftstate);
+        break;
+    default:
+        return false;
+    } // switch (cmd) 
+    CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+    return false;
 }

@@ -19,7 +19,7 @@
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error include 'stdafx.h' before including this file for PCH
+    #error include 'stdafx.h' before including this file for PCH
 #endif
 
 #include "resource.h"       // main symbols
@@ -33,24 +33,24 @@
 class CTortoiseMergeApp : public CWinAppEx
 {
 public:
-	CTortoiseMergeApp();
+    CTortoiseMergeApp();
 
 
 // Overrides
 public:
-	virtual BOOL InitInstance();
-	virtual int ExitInstance();
+    virtual BOOL InitInstance();
+    virtual int ExitInstance();
 
 // Implementation
-	UINT  m_nAppLook;
-	BOOL  m_bHiColorIcons;
+    UINT  m_nAppLook;
+    BOOL  m_bHiColorIcons;
 
 protected:
-	afx_msg void OnAppAbout();
-	DECLARE_MESSAGE_MAP()
+    afx_msg void OnAppAbout();
+    DECLARE_MESSAGE_MAP()
 private:
-	static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
-	bool HasClipboardPatch();
+    static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
+    bool HasClipboardPatch();
 };
 
 extern CTortoiseMergeApp theApp;

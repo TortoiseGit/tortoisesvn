@@ -27,124 +27,124 @@
 IMPLEMENT_DYNAMIC(CLineDiffBar, CPaneDialog)
 CLineDiffBar::CLineDiffBar() : CPaneDialog()
 {
-	m_pMainFrm = NULL;
-	m_pCacheBitmap = NULL;
-	m_nLineIndex = -1;
-	m_nLineHeight = 0;
-	m_bExclusiveRow = TRUE;
+    m_pMainFrm = NULL;
+    m_pCacheBitmap = NULL;
+    m_nLineIndex = -1;
+    m_nLineHeight = 0;
+    m_bExclusiveRow = TRUE;
 }
 
 CLineDiffBar::~CLineDiffBar()
 {
-	if (m_pCacheBitmap)
-	{
-		m_pCacheBitmap->DeleteObject();
-		delete m_pCacheBitmap;
-		m_pCacheBitmap = NULL;
-	}
+    if (m_pCacheBitmap)
+    {
+        m_pCacheBitmap->DeleteObject();
+        delete m_pCacheBitmap;
+        m_pCacheBitmap = NULL;
+    }
 }
 
 BEGIN_MESSAGE_MAP(CLineDiffBar, CPaneDialog)
-	ON_WM_PAINT()
-	ON_WM_SIZE()
-	ON_WM_ERASEBKGND()
+    ON_WM_PAINT()
+    ON_WM_SIZE()
+    ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 void CLineDiffBar::DocumentUpdated()
 {
-	//resize according to the font size
-	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
-	{
-		m_nLineHeight = m_pMainFrm->m_pwndLeftView->GetLineHeight();
-	}
-	CRect rect;
-	GetWindowRect(rect);
-	CSize size = rect.Size();
-	size.cy = 2 * m_nLineHeight;
-	SetMinSize(size);
-	SetWindowPos(NULL, 0, 0, size.cx, 2*m_nLineHeight, SWP_NOMOVE);
-	RecalcLayout();
-	if (m_pMainFrm)
-		m_pMainFrm->RecalcLayout();
+    //resize according to the font size
+    if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
+    {
+        m_nLineHeight = m_pMainFrm->m_pwndLeftView->GetLineHeight();
+    }
+    CRect rect;
+    GetWindowRect(rect);
+    CSize size = rect.Size();
+    size.cy = 2 * m_nLineHeight;
+    SetMinSize(size);
+    SetWindowPos(NULL, 0, 0, size.cx, 2*m_nLineHeight, SWP_NOMOVE);
+    RecalcLayout();
+    if (m_pMainFrm)
+        m_pMainFrm->RecalcLayout();
 }
 
 void CLineDiffBar::ShowLines(int nLineIndex)
 {
-	m_nLineIndex = nLineIndex;
-	Invalidate();
+    m_nLineIndex = nLineIndex;
+    Invalidate();
 }
 
 void CLineDiffBar::OnPaint()
 {
-	CPaintDC dc(this); // device context for painting
-	CRect rect;
-	GetClientRect(rect);
-	int height = rect.Height();
-	int width = rect.Width();
+    CPaintDC dc(this); // device context for painting
+    CRect rect;
+    GetClientRect(rect);
+    int height = rect.Height();
+    int width = rect.Width();
 
-	CDC cacheDC;
-	VERIFY(cacheDC.CreateCompatibleDC(&dc));
-	cacheDC.FillSolidRect(&rect, ::GetSysColor(COLOR_WINDOW));
-	if (m_pCacheBitmap == NULL)
-	{
-		m_pCacheBitmap = new CBitmap;
-		VERIFY(m_pCacheBitmap->CreateCompatibleBitmap(&dc, width, height));
-	}
-	CBitmap *pOldBitmap = cacheDC.SelectObject(m_pCacheBitmap);
+    CDC cacheDC;
+    VERIFY(cacheDC.CreateCompatibleDC(&dc));
+    cacheDC.FillSolidRect(&rect, ::GetSysColor(COLOR_WINDOW));
+    if (m_pCacheBitmap == NULL)
+    {
+        m_pCacheBitmap = new CBitmap;
+        VERIFY(m_pCacheBitmap->CreateCompatibleBitmap(&dc, width, height));
+    }
+    CBitmap *pOldBitmap = cacheDC.SelectObject(m_pCacheBitmap);
 
-	CRect upperrect = CRect(rect.left, rect.top, rect.right, rect.bottom/2);
-	CRect lowerrect = CRect(rect.left, rect.bottom/2, rect.right, rect.bottom);
+    CRect upperrect = CRect(rect.left, rect.top, rect.right, rect.bottom/2);
+    CRect lowerrect = CRect(rect.left, rect.bottom/2, rect.right, rect.bottom);
 
-	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView)&&(m_pMainFrm->m_pwndRightView))
-	{
-		CLeftView* leftView = m_pMainFrm->m_pwndLeftView;
-		CRightView* rightView = m_pMainFrm->m_pwndRightView;
-		if ((leftView->IsWindowVisible())&&(rightView->IsWindowVisible()))
-		{
-			BOOL bViewWhiteSpace = leftView->m_bViewWhitespace;
-			BOOL bInlineDiffs = leftView->m_bShowInlineDiff;
-			
-			leftView->m_bViewWhitespace = TRUE;
-			leftView->m_bShowInlineDiff = TRUE;
-			leftView->m_bShowSelection = false;
-			rightView->m_bViewWhitespace = TRUE;
-			rightView->m_bShowInlineDiff = TRUE;
-			rightView->m_bShowSelection = false;
+    if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView)&&(m_pMainFrm->m_pwndRightView))
+    {
+        CLeftView* leftView = m_pMainFrm->m_pwndLeftView;
+        CRightView* rightView = m_pMainFrm->m_pwndRightView;
+        if ((leftView->IsWindowVisible())&&(rightView->IsWindowVisible()))
+        {
+            BOOL bViewWhiteSpace = leftView->m_bViewWhitespace;
+            BOOL bInlineDiffs = leftView->m_bShowInlineDiff;
 
-			// Use left and right view to display lines next to each other
-			leftView->DrawSingleLine(&cacheDC, &upperrect, m_nLineIndex);
-			rightView->DrawSingleLine(&cacheDC, &lowerrect, m_nLineIndex);
+            leftView->m_bViewWhitespace = TRUE;
+            leftView->m_bShowInlineDiff = TRUE;
+            leftView->m_bShowSelection = false;
+            rightView->m_bViewWhitespace = TRUE;
+            rightView->m_bShowInlineDiff = TRUE;
+            rightView->m_bShowSelection = false;
 
-			leftView->m_bViewWhitespace = bViewWhiteSpace;
-			leftView->m_bShowInlineDiff = bInlineDiffs;
-			leftView->m_bShowSelection = true;
-			rightView->m_bViewWhitespace = bViewWhiteSpace;
-			rightView->m_bShowInlineDiff = bInlineDiffs;
-			rightView->m_bShowSelection = true;
-		}
-	} 
+            // Use left and right view to display lines next to each other
+            leftView->DrawSingleLine(&cacheDC, &upperrect, m_nLineIndex);
+            rightView->DrawSingleLine(&cacheDC, &lowerrect, m_nLineIndex);
 
-	VERIFY(dc.BitBlt(rect.left, rect.top, width, height, &cacheDC, 0, 0, SRCCOPY));
+            leftView->m_bViewWhitespace = bViewWhiteSpace;
+            leftView->m_bShowInlineDiff = bInlineDiffs;
+            leftView->m_bShowSelection = true;
+            rightView->m_bViewWhitespace = bViewWhiteSpace;
+            rightView->m_bShowInlineDiff = bInlineDiffs;
+            rightView->m_bShowSelection = true;
+        }
+    }
 
-	cacheDC.SelectObject(pOldBitmap);
-	cacheDC.DeleteDC();
+    VERIFY(dc.BitBlt(rect.left, rect.top, width, height, &cacheDC, 0, 0, SRCCOPY));
+
+    cacheDC.SelectObject(pOldBitmap);
+    cacheDC.DeleteDC();
 }
 
 void CLineDiffBar::OnSize(UINT nType, int cx, int cy)
 {
-	CPaneDialog::OnSize(nType, cx, cy);
+    CPaneDialog::OnSize(nType, cx, cy);
 
-	if (m_pCacheBitmap != NULL)
-	{
-		m_pCacheBitmap->DeleteObject();
-		delete m_pCacheBitmap;
-		m_pCacheBitmap = NULL;
-	}
-	SetWindowPos(NULL, 0, 0, cx, 2*m_nLineHeight, SWP_NOMOVE);
-	Invalidate();
+    if (m_pCacheBitmap != NULL)
+    {
+        m_pCacheBitmap->DeleteObject();
+        delete m_pCacheBitmap;
+        m_pCacheBitmap = NULL;
+    }
+    SetWindowPos(NULL, 0, 0, cx, 2*m_nLineHeight, SWP_NOMOVE);
+    Invalidate();
 }
 
 BOOL CLineDiffBar::OnEraseBkgnd(CDC* /*pDC*/)
 {
-	return TRUE;
+    return TRUE;
 }

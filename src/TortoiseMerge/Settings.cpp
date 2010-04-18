@@ -25,54 +25,54 @@
 
 IMPLEMENT_DYNAMIC(CSettings, CPropertySheet)
 CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
-	:CPropertySheet(nIDCaption, pParentWnd, iSelectPage)
+    :CPropertySheet(nIDCaption, pParentWnd, iSelectPage)
 {
 }
 
 CSettings::CSettings(LPCTSTR pszCaption, CWnd* pParentWnd, UINT iSelectPage)
-	:CPropertySheet(pszCaption, pParentWnd, iSelectPage)
+    :CPropertySheet(pszCaption, pParentWnd, iSelectPage)
 {
-	AddPropPages();
+    AddPropPages();
 }
 
 CSettings::~CSettings()
 {
-	RemovePropPages();
+    RemovePropPages();
 }
 
 void CSettings::AddPropPages()
 {
-	m_pMainPage = new CSetMainPage();
-	m_pColorPage = new CSetColorPage();
+    m_pMainPage = new CSetMainPage();
+    m_pColorPage = new CSetColorPage();
 
-	AddPage(m_pMainPage);
-	AddPage(m_pColorPage);
+    AddPage(m_pMainPage);
+    AddPage(m_pColorPage);
 }
 
 void CSettings::RemovePropPages()
 {
-	delete m_pMainPage;
-	m_pMainPage = NULL;
-	delete m_pColorPage;
-	m_pColorPage = NULL;
+    delete m_pMainPage;
+    m_pMainPage = NULL;
+    delete m_pColorPage;
+    m_pColorPage = NULL;
 }
 
 void CSettings::SaveData()
 {
-	m_pMainPage->SaveData();
-	m_pColorPage->SaveData();
+    m_pMainPage->SaveData();
+    m_pColorPage->SaveData();
 }
 
 BOOL CSettings::IsReloadNeeded() const
 {
-	BOOL bReload = FALSE;
-	bReload = (m_pMainPage->m_bReloadNeeded || bReload);
-	bReload = (m_pColorPage->m_bReloadNeeded || bReload);
-	return bReload;
+    BOOL bReload = FALSE;
+    bReload = (m_pMainPage->m_bReloadNeeded || bReload);
+    bReload = (m_pColorPage->m_bReloadNeeded || bReload);
+    return bReload;
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CPropertySheet)
-	ON_WM_ERASEBKGND()
+    ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 
@@ -80,30 +80,30 @@ END_MESSAGE_MAP()
 
 BOOL CSettings::OnInitDialog()
 {
-	BOOL bResult = CPropertySheet::OnInitDialog();
-	MARGINS margs;
-	margs.cxLeftWidth = 0;
-	margs.cyTopHeight = 0;
-	margs.cxRightWidth = 0;
-	margs.cyBottomHeight = BOTTOMMARG;
+    BOOL bResult = CPropertySheet::OnInitDialog();
+    MARGINS margs;
+    margs.cxLeftWidth = 0;
+    margs.cyTopHeight = 0;
+    margs.cxRightWidth = 0;
+    margs.cyBottomHeight = BOTTOMMARG;
 
-	m_Dwm.Initialize();
-	m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
-	m_aeroControls.SubclassOkCancelHelp(this);
-	m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
-	return bResult;
+    m_Dwm.Initialize();
+    m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+    m_aeroControls.SubclassOkCancelHelp(this);
+    m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
+    return bResult;
 }
 
 BOOL CSettings::OnEraseBkgnd(CDC* pDC)
 {
-	CPropertySheet::OnEraseBkgnd(pDC);
+    CPropertySheet::OnEraseBkgnd(pDC);
 
-	if (m_Dwm.IsDwmCompositionEnabled())
-	{
-		// draw the frame margins in black
-		RECT rc;
-		GetClientRect(&rc);
-		pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
-	}
-	return TRUE;
+    if (m_Dwm.IsDwmCompositionEnabled())
+    {
+        // draw the frame margins in black
+        RECT rc;
+        GetClientRect(&rc);
+        pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
+    }
+    return TRUE;
 }

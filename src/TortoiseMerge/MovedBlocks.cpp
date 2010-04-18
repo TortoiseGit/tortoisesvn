@@ -172,8 +172,8 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
     for(tempdiff = diffYourBase; tempdiff; tempdiff = tempdiff->next)
     {
     // Scan through diff blocks, finding moved sections from left side
-	// and splitting them out
-	// That is, we actually fragment diff blocks as we find moved sections
+    // and splitting them out
+    // That is, we actually fragment diff blocks as we find moved sections
         if(tempdiff->type != svn_diff__type_diff_modified)
             continue;
 
@@ -211,7 +211,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
         ++j1;
         // Ok, now our moved block is (i1..i, j1..j)
 
-		// extend moved block downward as far as possible
+        // extend moved block downward as far as possible
 
         int i2 = i + 1;
         int j2 = j + 1;

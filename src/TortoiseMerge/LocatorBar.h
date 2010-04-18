@@ -32,48 +32,48 @@ class CBaseView;
  */
 class CLocatorBar : public CPaneDialog
 {
-	DECLARE_DYNAMIC(CLocatorBar)
+    DECLARE_DYNAMIC(CLocatorBar)
 
 public:
-	CLocatorBar();
-	virtual ~CLocatorBar();
-	BOOL Create(CWnd* pParentWnd, UINT nIDTemplate, UINT nStyle, UINT nID)
-	{
-		BOOL bRet = CPaneDialog::Create(pParentWnd, nIDTemplate, nStyle, nID);
-		m_dwControlBarStyle = 0; // can't float, resize, close, slide
-		return bRet;
-	}
+    CLocatorBar();
+    virtual ~CLocatorBar();
+    BOOL Create(CWnd* pParentWnd, UINT nIDTemplate, UINT nStyle, UINT nID)
+    {
+        BOOL bRet = CPaneDialog::Create(pParentWnd, nIDTemplate, nStyle, nID);
+        m_dwControlBarStyle = 0; // can't float, resize, close, slide
+        return bRet;
+    }
 
-	void			DocumentUpdated();
+    void            DocumentUpdated();
 
 protected:
-	afx_msg void	OnPaint();
-	afx_msg void	OnSize(UINT nType, int cx, int cy);
-	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
-	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
-	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
-	LRESULT			OnMouseLeave(WPARAM, LPARAM);
-	void			ScrollOnMouseMove(const CPoint& point );
-	void			ScrollViewToLine(CBaseView* view, int nLine) const;
-	void			PaintView(CDC& cacheDC, CBaseView* view, CDWordArray& indents, CDWordArray& states,
-						const CRect& rect, int stripeIndex);
-	void			DrawFishEye(CDC& dc, const CRect& rect );
-	void			DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordArray& states);
+    afx_msg void    OnPaint();
+    afx_msg void    OnSize(UINT nType, int cx, int cy);
+    afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
+    afx_msg void    OnLButtonDown(UINT nFlags, CPoint point);
+    afx_msg void    OnMouseMove(UINT nFlags, CPoint point);
+    LRESULT         OnMouseLeave(WPARAM, LPARAM);
+    void            ScrollOnMouseMove(const CPoint& point );
+    void            ScrollViewToLine(CBaseView* view, int nLine) const;
+    void            PaintView(CDC& cacheDC, CBaseView* view, CDWordArray& indents, CDWordArray& states,
+                        const CRect& rect, int stripeIndex);
+    void            DrawFishEye(CDC& dc, const CRect& rect );
+    void            DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordArray& states);
 
-	CBitmap *		m_pCacheBitmap;
+    CBitmap *       m_pCacheBitmap;
 
-	int				m_nLines;
-	CPoint			m_MousePos;
-	BOOL			m_bMouseWithin;
-	CDWordArray		m_arLeftIdent;
-	CDWordArray		m_arLeftState;
-	CDWordArray		m_arRightIdent;
-	CDWordArray		m_arRightState;
-	CDWordArray		m_arBottomIdent;
-	CDWordArray		m_arBottomState;
+    int             m_nLines;
+    CPoint          m_MousePos;
+    BOOL            m_bMouseWithin;
+    CDWordArray     m_arLeftIdent;
+    CDWordArray     m_arLeftState;
+    CDWordArray     m_arRightIdent;
+    CDWordArray     m_arRightState;
+    CDWordArray     m_arBottomIdent;
+    CDWordArray     m_arBottomState;
 
-	CRegDWORD		m_regUseFishEye;
-	DECLARE_MESSAGE_MAP()
+    CRegDWORD       m_regUseFishEye;
+    DECLARE_MESSAGE_MAP()
 public:
-	CMainFrame *	m_pMainFrm;
+    CMainFrame *    m_pMainFrm;
 };

@@ -30,7 +30,7 @@
 
 
 
-#define DIFF_EMPTYLINENUMBER						((DWORD)-1)
+#define DIFF_EMPTYLINENUMBER                        ((DWORD)-1)
 /**
  * \ingroup TortoiseMerge
  * Main class for handling diffs.
@@ -38,78 +38,78 @@
 class CDiffData
 {
 public:
-	CDiffData(void);
-	virtual ~CDiffData(void);
+    CDiffData(void);
+    virtual ~CDiffData(void);
 
 
-	BOOL						Load();
-	void						SetBlame(bool bBlame = true) {m_bBlame = bBlame;}
+    BOOL                        Load();
+    void                        SetBlame(bool bBlame = true) {m_bBlame = bBlame;}
     void                        SetMovedBlocks(bool bViewMovedBlocks = true);
-	int							GetLineCount();
-	int							GetLineActualLength(int index);
-	LPCTSTR						GetLineChars(int index);
-	CString						GetError() const  {return m_sError;}
+    int                         GetLineCount();
+    int                         GetLineActualLength(int index);
+    LPCTSTR                     GetLineChars(int index);
+    CString                     GetError() const  {return m_sError;}
 
-	bool	IsBaseFileInUse() const		{ return m_baseFile.InUse(); }
-	bool	IsTheirFileInUse() const	{ return m_theirFile.InUse(); }
-	bool	IsYourFileInUse() const		{ return m_yourFile.InUse(); }
+    bool    IsBaseFileInUse() const     { return m_baseFile.InUse(); }
+    bool    IsTheirFileInUse() const    { return m_theirFile.InUse(); }
+    bool    IsYourFileInUse() const     { return m_yourFile.InUse(); }
 
 private:
-	bool DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool);
+    bool DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool);
 
     void StickAndSkip(svn_diff_t * &tempdiff, apr_off_t &original_length_sticked, apr_off_t &modified_length_sticked);
     bool DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, apr_pool_t * pool);
 /**
-* Moved blocks detection for further highlighting, 
+* Moved blocks detection for further highlighting,
 * implemented exclusively for TwoWayDiff
-**/    
+**/
     tsvn_svn_diff_t_extension * MovedBlocksDetect(svn_diff_t * diffYourBase, apr_pool_t * pool);
 
     void TieMovedBlocks(int from, int to, apr_off_t length);
 
-	void HideUnchangedSections(CViewData * data1, CViewData * data2, CViewData * data3);
-	void AddLines(LONG baseline, LONG yourline, LONG theirline);
+    void HideUnchangedSections(CViewData * data1, CViewData * data2, CViewData * data3);
+    void AddLines(LONG baseline, LONG yourline, LONG theirline);
 
-	svn_diff_file_ignore_space_t GetIgnoreSpaceMode(DWORD dwIgnoreWS);
-	svn_diff_file_options_t * CreateDiffFileOptions(DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool); 
-	bool HandleSvnError(svn_error_t * svnerr);
-	bool CompareWithIgnoreWS(CString s1, CString s2, DWORD dwIgnoreWS);
+    svn_diff_file_ignore_space_t GetIgnoreSpaceMode(DWORD dwIgnoreWS);
+    svn_diff_file_options_t * CreateDiffFileOptions(DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool);
+    bool HandleSvnError(svn_error_t * svnerr);
+    bool CompareWithIgnoreWS(CString s1, CString s2, DWORD dwIgnoreWS);
 public:
-	CWorkingFile				m_baseFile;
-	CWorkingFile				m_theirFile;
-	CWorkingFile				m_yourFile;
-	CWorkingFile				m_mergedFile;
+    CWorkingFile                m_baseFile;
+    CWorkingFile                m_theirFile;
+    CWorkingFile                m_yourFile;
+    CWorkingFile                m_mergedFile;
 
-	CString						m_sDiffFile;
-	CString						m_sPatchPath;
-	CString						m_sPatchOriginal;
-	CString						m_sPatchPatched;
+    CString                     m_sDiffFile;
+    CString                     m_sPatchPath;
+    CString                     m_sPatchOriginal;
+    CString                     m_sPatchPatched;
 
 public:
-	CFileTextLines				m_arBaseFile;
-	CFileTextLines				m_arTheirFile;
-	CFileTextLines				m_arYourFile;
+    CFileTextLines              m_arBaseFile;
+    CFileTextLines              m_arTheirFile;
+    CFileTextLines              m_arYourFile;
 
-	CViewData					m_YourBaseBoth;				///< one-pane view, diff between 'yours' and 'base' (in three-pane view: right view)
-	CViewData					m_YourBaseLeft;				///< two-pane view, diff between 'yours' and 'base', left view
-	CViewData					m_YourBaseRight;			///< two-pane view, diff between 'yours' and 'base', right view
+    CViewData                   m_YourBaseBoth;             ///< one-pane view, diff between 'yours' and 'base' (in three-pane view: right view)
+    CViewData                   m_YourBaseLeft;             ///< two-pane view, diff between 'yours' and 'base', left view
+    CViewData                   m_YourBaseRight;            ///< two-pane view, diff between 'yours' and 'base', right view
 
-	CViewData					m_TheirBaseBoth;			///< one-pane view, diff between 'theirs' and 'base' (in three-pane view: left view)
-	CViewData					m_TheirBaseLeft;			///< two-pane view, diff between 'theirs' and 'base', left view
-	CViewData					m_TheirBaseRight;			///< two-pane view, diff between 'theirs' and 'base', right view
+    CViewData                   m_TheirBaseBoth;            ///< one-pane view, diff between 'theirs' and 'base' (in three-pane view: left view)
+    CViewData                   m_TheirBaseLeft;            ///< two-pane view, diff between 'theirs' and 'base', left view
+    CViewData                   m_TheirBaseRight;           ///< two-pane view, diff between 'theirs' and 'base', right view
 
-	CViewData					m_Diff3;					///< three-pane view, bottom pane
+    CViewData                   m_Diff3;                    ///< three-pane view, bottom pane
 
-	// the following three arrays are used to check for conflicts even in case the
-	// user has ignored spaces/eols.
-	CStdDWORDArray				m_arDiff3LinesBase;
-	CStdDWORDArray				m_arDiff3LinesYour;
-	CStdDWORDArray				m_arDiff3LinesTheir;
+    // the following three arrays are used to check for conflicts even in case the
+    // user has ignored spaces/eols.
+    CStdDWORDArray              m_arDiff3LinesBase;
+    CStdDWORDArray              m_arDiff3LinesYour;
+    CStdDWORDArray              m_arDiff3LinesTheir;
 
-	CString						m_sError;
+    CString                     m_sError;
 
-	static int					abort_on_pool_failure (int retcode);
+    static int                  abort_on_pool_failure (int retcode);
 protected:
-	bool						m_bBlame;
+    bool                        m_bBlame;
     bool                        m_bViewMovedBlocks;
 };

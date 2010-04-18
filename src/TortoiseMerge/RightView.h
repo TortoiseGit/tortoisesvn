@@ -26,16 +26,16 @@
  */
 class CRightView : public CBaseView
 {
-	DECLARE_DYNCREATE(CRightView)
+    DECLARE_DYNCREATE(CRightView)
 public:
-	CRightView(void);
-	~CRightView(void);
+    CRightView(void);
+    ~CRightView(void);
 
-	void	UseFile(bool refreshViews = true);
-	void	UseBlock(bool refreshViews = true);
-	void	UseLeftBeforeRight(bool refreshViews = true);
-	void	UseRightBeforeLeft(bool refreshViews = true);
+    void    UseFile(bool refreshViews = true);
+    void    UseBlock(bool refreshViews = true);
+    void    UseLeftBeforeRight(bool refreshViews = true);
+    void    UseRightBeforeLeft(bool refreshViews = true);
 protected:
-	bool	OnContextMenu(CPoint point, int nLine, DiffStates state);
-	
+    bool    OnContextMenu(CPoint point, int nLine, DiffStates state);
+    
 };

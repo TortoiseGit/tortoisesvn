@@ -27,9 +27,9 @@
 class CTempFiles
 {
 public:
-	CTempFiles(void);
-	~CTempFiles(void);
-	CString GetTempFilePath();
+    CTempFiles(void);
+    ~CTempFiles(void);
+    CString GetTempFilePath();
 protected:
-	CStringArray		m_arTempFileList;
+    CStringArray        m_arTempFileList;
 };
