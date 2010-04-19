@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-05 19:15+0800\n"
+"PO-Revision-Date: 2010-04-19 20:59+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -193,35 +193,70 @@ msgstr "%s : 工作基礎版本"
 msgid "%s : Working Copy"
 msgstr "%s : 工作複本"
 
-#. Resource IDs: (609)
+#. Resource IDs: (3887)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, 但是本地端已經存在無版本控制的檔案了."
+msgid "%s [Recovered]"
+msgstr "%s [已復原]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, 但是本地端不存在."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, 但是本地端已經存在無版本控管的目錄了."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, 但是本地端已經新增過了."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, 但是本地端沒有這個目錄."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, 但是本地端已經被編輯了."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, 但是本地端已經新增過這個目錄了."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, 但是本地端已經刪除, 移動, 或被重新命名了."
+msgid "%s, but the directory was already edited."
+msgstr "%s, 但是本地端已經編輯過這個目錄了."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, 但是在工作複本中被阻擋."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s, 但是本地端已經刪除, 移動, 或重新命名過這個目錄了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, 但是這個目錄在工作複本中是被阻擋的狀態."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, 但是本地端已經存在無版本控管的檔案了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, 但是本地端沒有這個檔案."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, 但是本地端已經新增過這個檔案了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, 但是本地端已經編輯過這個檔案了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s, 但是本地端已經刪除, 移動, 或重新命名過這個檔案了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, 但是這個檔案在工作複本中是被阻擋的狀態."
 
 #. Resource IDs: (3850)
 #, c-format
@@ -386,6 +421,10 @@ msgstr "藍色樣式(&B)"
 msgid "&Blue:"
 msgstr "藍(&B):"
 
+#. Resource IDs: (65535)
+msgid "&Border:"
+msgstr "邊界(&B):"
+
 #. Resource IDs: (1568)
 msgid "&Bottom"
 msgstr "下方(&B)"
@@ -549,6 +588,10 @@ msgstr "目錄(&D)"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&視窗停駐"
+
+#. Resource IDs: (32851)
+msgid "&EOL"
+msgstr "&EOL"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -739,6 +782,10 @@ msgstr "與子目錄樹合併(&J)"
 msgid "&Jump to first difference when loading"
 msgstr "載入時跳至第一個差異處(&J)"
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr "關鍵字(&K)"
+
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "語系(&L)"
@@ -751,9 +798,17 @@ msgstr "大圖示(&L)"
 msgid "&Limit search to modified lines"
 msgstr "僅搜尋異動過的行(&L)"
 
+#. Resource IDs: (65535)
+msgid "&Limit:"
+msgstr "限制(&L):"
+
 #. Resource IDs: (32797)
 msgid "&Link image positions"
 msgstr "連結影像位置(&L)"
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -767,9 +822,17 @@ msgstr "載入(&L)..."
 msgid "&Locking required (read-only update)"
 msgstr "需要鎖定[唯讀更新](&L)"
 
+#. Resource IDs: (32854)
+msgid "&Log Sizes"
+msgstr "紀錄檔大小(&L)"
+
 #. Resource IDs: (65535)
-msgid "&Lum:"
+msgid "&Luminence:"
 msgstr "亮度(&L):"
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -818,6 +881,10 @@ msgstr "調整 tag 工作副本的顏色(&M)"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "調整 trunk 工作副本的顏色(&M)"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "移動過的區塊(&M)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -900,9 +967,17 @@ msgstr "密碼(&P):"
 msgid "&Paste"
 msgstr "貼上(&P)"
 
+#. Resource IDs: (1600)
+msgid "&Peg revision:"
+msgstr "&Peg 版本表示法:"
+
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "永久離線(&P)"
+
+#. Resource IDs: (1588)
+msgid "&Platform dependent (native)"
+msgstr "依平臺設定 (&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1013,8 +1088,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Sat:"
-msgstr "濃度(&S):"
+msgid "&Saturation:"
+msgstr "飽和度(&B):"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -1033,8 +1108,8 @@ msgid "&Save list of selected files to..."
 msgstr "儲存選擇的檔案清單至(&S)"
 
 #. Resource IDs: (1308)
-msgid "&Save..."
-msgstr "儲存(&S)..."
+msgid "&Save value..."
+msgstr "另存設定值(&S)..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1235,6 +1310,10 @@ msgstr "空白字元(&W)"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "符合全字(&W)"
+
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1862,6 +1941,10 @@ msgstr "確定要復原 %d 項目嗎? 從上一版本之後的<b>所有</b>變�
 msgid "Arrange &Vertical"
 msgstr "垂直調整(&V)"
 
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr "不作改變(&I)"
+
 #. Resource IDs: (199)
 msgid "Ask the user"
 msgstr "詢問使用者"
@@ -2063,10 +2146,6 @@ msgstr "Bug編號 / 問題編號(&I):"
 msgid "Bug-ID"
 msgstr "Bug編號"
 
-#. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
-msgstr "Bug編號 / 問題編號(&I):"
-
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
 msgstr "Bug編號表示式(&X)"
@@ -2161,7 +2240,7 @@ msgid "Can't create a new image!"
 msgstr "無法建立新影像!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
+msgid "Can't customize menus!"
 msgstr "無法自訂選單!"
 
 #. Resource IDs: (1001)
@@ -2185,8 +2264,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "無法比對差異, 因為檔案中的換行字元不一致."
 
 #. Resource IDs: (16926)
-msgid "Cascade"
-msgstr "顯層式顯示"
+msgid "Casca&de"
+msgstr "顯層式顯示(&D)"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -2256,6 +2335,10 @@ msgstr "異動(雙點可查詢細節):"
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
 msgstr "正在變更外部連結至固定版本"
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
+msgstr "送交訊息視窗中, 在第幾個字的位置顯示邊界線:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3287,6 +3370,10 @@ msgstr "目標 URL:"
 msgid "Destination disk drive is full."
 msgstr "目的磁碟已滿."
 
+#. Resource IDs: (2056)
+msgid "Detect and highlight moved blocks"
+msgstr "偵測並標示出移動過的區塊"
+
 #. Resource IDs: (3849)
 msgid ""
 "Device Independent Bitmap\n"
@@ -3443,6 +3530,10 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "確定要繼續嗎?"
 
+#. Resource IDs: (3887)
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "確定真的要回復自動儲存的文件嗎?"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3483,6 +3574,14 @@ msgstr ""
 "工作複本. 而是將所有 URL 取出\n"
 "至分別排列的工作複本. 這項設\n"
 "定僅對目錄URL 有作用."
+
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+"不回復自動儲存的文件\n"
+"使用最後一次手動儲存的版本"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3553,6 +3652,10 @@ msgstr "編輯"
 msgid "Edit Button Image"
 msgstr "編輯按鈕影像"
 
+#. Resource IDs: (319)
+msgid "Edit External"
+msgstr "編輯外部"
+
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "編輯性質"
@@ -3584,6 +3687,10 @@ msgstr "編輯根據副檔名的差異比對程式"
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
 msgstr "編輯根據副檔名的合併程式"
+
+#. Resource IDs: (321)
+msgid "Edit language properties"
+msgstr "編輯語系設定"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -3808,6 +3915,10 @@ msgstr ""
 "讀寫註冊樹時發生錯誤: %1!s!\n"
 "%2!s!"
 
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
+msgstr "外部(&T)"
+
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "例外:"
@@ -3937,6 +4048,10 @@ msgstr "包含外部"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "強制合併(&O)"
+
+#. Resource IDs: (1070)
+msgid "Fade"
+msgstr "淡出"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4437,6 +4552,10 @@ msgstr "最新版本節點"
 msgid "Head revision is %s"
 msgstr "最新版本是 %s"
 
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr "檔頭"
+
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "說明"
@@ -4537,6 +4656,10 @@ msgstr "包含路徑(&N):"
 #. Resource IDs: (1580)
 msgid "IBugTraqProvider"
 msgstr "IBugTraqProvider"
+
+#. Resource IDs: (1592)
+msgid "ID"
+msgstr "ID"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -5227,6 +5350,22 @@ msgid "Keys"
 msgstr "按鍵"
 
 #. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr "限制(&I)"
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr "本地路徑(&O):"
+
+#. Resource IDs: (32855)
+msgid "Lan&guages"
+msgstr "語系(&G)"
+
+#. Resource IDs: (65535)
+msgid "Language:"
+msgstr "語系:"
+
+#. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "上次送交版本:"
 
@@ -5667,8 +5806,8 @@ msgid "Message &pattern:"
 msgstr "訊息樣式(&P):"
 
 #. Resource IDs: (1579)
-msgid "Message part expr&ession:"
-msgstr "訊息正規表示式(&E)"
+msgid "Message part &expression:"
+msgstr "訊息正規表示式(&E):"
 
 #. Resource IDs: (1241)
 msgid "Message:"
@@ -5697,6 +5836,14 @@ msgstr "我的"
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
 msgstr "最小化功能區"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr "送交訊息最少字元數:"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
+msgstr "鎖定訊息最少字元數:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -6047,6 +6194,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "非遞迴"
 
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr "請注意: 如果您選擇回復自動儲存的文件, 您必須要手動再儲存一次才能保留下來. 如果您不回復自動儲存的文件, 它們會被刪除."
+
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "注意: 資料夾含有無版本控制的檔案"
@@ -6179,6 +6330,10 @@ msgstr ""
 "(例如 'branches', 'tags', 或 'trunk').\n"
 "\n"
 "確定要移動選定的路徑嗎?"
+
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr "找到自動儲存的文件."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6788,6 +6943,14 @@ msgstr "最近異動過的行"
 msgid "Record Only"
 msgstr "僅紀錄"
 
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+"回復自動儲存的文件\n"
+"開啟自動儲存的文件, 不使用手動儲存的版本."
+
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
@@ -7345,6 +7508,14 @@ msgstr "列 %d / %d"
 msgid "Row %d-%d of %d"
 msgstr "列 %d-%d / %d"
 
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "往下一行"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "往上一行"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "選擇(&E)..."
@@ -7683,6 +7854,10 @@ msgid ""
 msgstr ""
 "選取整份文件\n"
 "全選"
+
+#. Resource IDs: (65535)
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgstr "選擇這個專案使用的語系. 這項設定會影響到拼字檢查功能."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -8052,6 +8227,10 @@ msgstr "大小與狀態"
 msgid "Size of all cached text information"
 msgstr "所有快取中文字資訊的大小"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "紀錄訊息大小"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "快取檔案大小"
@@ -8067,6 +8246,10 @@ msgstr "略過"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "已跳過的缺少目標"
+
+#. Resource IDs: (1070)
+msgid "Slide"
+msgstr "滑動"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -8092,6 +8275,10 @@ msgstr "指定最近訊息紀錄要保留幾筆資料."
 msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
 msgstr "指定如何由輸入的 Bug 編號產生送交紀錄. 使用 %BUGID% 表示輸入的 Bug 編號. 如果沒有設定, TortoiseSVN 會使用正規表示式."
 
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "指定問題追蹤系統的 URL. 使用 %BUGID% 來代表真正的問題編號."
+
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
@@ -8101,10 +8288,6 @@ msgstr ""
 "指定 TortoiseSVN 不需要納入版本控制的\r\n"
 "目錄或檔案名稱(對*所有*工作複本都有效).\r\n"
 "請以空白分隔項目."
-
-#. Resource IDs: (1305)
-msgid "Specify ther URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
-msgstr "指定問題追蹤系統的 URL. 使用 %BUGID% 代表輸入的 Bug 編號."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -9013,6 +9196,10 @@ msgstr "目前工作複本中沒有需要解鎖的檔案. "
 msgid "Thesaurus"
 msgstr "倉庫"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr "這些是比目前版本還要更新的儲存檔, 並含有程式關閉前留下的變更."
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -9073,13 +9260,13 @@ msgstr "這個性質不能有分行. 只能輸入單行資料."
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "這個動作會刪除你在本程式中的所有命令紀錄, 並將所有選單和工具列設為預設值. 它不會消除任何外部設定值. 你確定要繼續嗎?"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "水平排列(&H)"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "垂直排列(&V)"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "水平排列(&Z)"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9438,6 +9625,10 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "預期外的檔案格式."
+
+#. Resource IDs: (1070)
+msgid "Unfold"
+msgstr "展開"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -10253,6 +10444,10 @@ msgstr "符合螢幕高度"
 msgid "Zoom to fit in width"
 msgstr "符合螢幕寬度"
 
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[預設]"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[未指定]"
@@ -10514,6 +10709,10 @@ msgstr "無版本控制."
 msgid "item kept locally"
 msgstr "檔案保留於本地端"
 
+#. Resource IDs: (1562)
+msgid "keep the file lists in English"
+msgstr "檔案列表繼續使用英語"
+
 #. Resource IDs: (65535)
 msgid "last head update: "
 msgstr "上次更新最新版本:"
@@ -10706,6 +10905,10 @@ msgstr "正在掃描路徑:"
 msgid "skip ranges: "
 msgstr "略過範圍:"
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr "svn:eol-style"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
@@ -10727,6 +10930,10 @@ msgstr ""
 "svn:executable\r\n"
 "如果有設定, 此檔案視為可執行. 這個性質不能設定在目錄上. \r\n"
 "非遞迴的設定會失敗, 遞迴設定則會將此性質設定在此目錄的所有檔案上."
+
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10763,6 +10970,10 @@ msgid ""
 msgstr ""
 "svn:ignore\r\n"
 "以換行字元分隔的檔案樣式列表, 列表中的檔案會被忽略."
+
+#. Resource IDs: (317)
+msgid "svn:keywords"
+msgstr "svn:keywords"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11054,6 +11265,12 @@ msgstr "是"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Sat:"
+#~ msgstr "濃度(&S):"
+#~ msgid "&Save..."
+#~ msgstr "儲存(&S)..."
+#~ msgid "Bug-ID / &Issue-Nr:"
+#~ msgstr "Bug編號 / 問題編號(&I):"
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "在忽略的檔案上也顯示覆蓋圖示"
 #~ msgid "Show overlay for unversioned items"
