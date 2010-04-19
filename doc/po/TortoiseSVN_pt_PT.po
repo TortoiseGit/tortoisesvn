@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-20 00:02-0000\n"
+"PO-Revision-Date: 2010-04-20 00:53-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11055,20 +11055,20 @@ msgstr "Para re-activar de novo as entradas do menu, simplesmente apaga as duas 
 
 #. (title)
 msgid "Automating TortoiseSVN"
-msgstr ""
+msgstr "Automatizar o TortoiseSVN"
 
 #. (para)
 msgid "Since all commands for TortoiseSVN are controlled through command line parameters, you can automate it with batch scripts or start specific commands and dialogs from other programs (e.g. your favourite text editor)."
-msgstr ""
+msgstr "Visto que todos os comandos do TortoiseSVN são controlados através de parâmetros de linha de comandos, tu podes automatizá-los com scripts de batch ou arrancar comandos específicos e caixas de diálogo a partir de outros comandos (e.g. o teu editor de texto preferido)."
 
 #. (para)
 msgid "Remember that TortoiseSVN is a GUI client, and this automation guide shows you how to make the TortoiseSVN dialogs appear to collect user input. If you want to write a script which requires no input, you should use the official Subversion command line client instead."
-msgstr ""
+msgstr "Lembra-te que o TortoiseSVN é um cliente de GUI e este guia de automação mostra-te como fazer as caixas de diálogo do TortoiseSVN aparecer, para colectar a entrada do utilizador. Se tu queres escrever um script que não requer entrada de dados, deverás usar em alternativa, o cliente de linha de comandos oficial do Subversion."
 
 #. (title)
 #. (title)
 msgid "TortoiseSVN Commands"
-msgstr ""
+msgstr "Comandos TortoiseSVN"
 
 #. (primary)
 #. (primary)
@@ -11083,15 +11083,15 @@ msgstr ""
 
 #. (para)
 msgid "The TortoiseSVN GUI program is called <literal>TortoiseProc.exe</literal>. All commands are specified with the parameter <option>/command:abcd</option> where <literal>abcd</literal> is the required command name. Most of these commands need at least one path argument, which is given with <option>/path:\"some\\path\"</option>. In the following table the command refers to the <option>/command:abcd</option> parameter and the path refers to the <option>/path:\"some\\path\"</option> parameter."
-msgstr ""
+msgstr "O programa de GUI do TortoiseSVN chama-se <literal>TortoiseProc.exe</literal>. Todos os comandos são especificados com o parâmetro <option>/command:abcd</option> onde  <literal>abcd</literal> é o nome do comando requerido. A maioria desses comandos necessitam pelo menos de um argumento de caminho, que é dado com <option>/path:\"some\\path\"</option>. Na tabela seguinte o comando refere-se ao parâmetro <option>/command:abcd</option> e o caminho refere-se ao parâmetro <option>/path:\"some\\path\"</option>."
 
 #. (para)
 msgid "Since some of the commands can take a list of target paths (e.g. committing several specific files) the <option>/path</option> parameter can take several paths, separated by a <literal>*</literal> character."
-msgstr ""
+msgstr "Visto que alguns dos comandos podem necessitar de uma lista de caminhos de destinos (e.g. submeter vários ficheiros específicos), o parâmetro <option>/path</option> pode requerer vários caminhos, separados pelo caracter <literal>*</literal>."
 
 #. (para)
 msgid "TortoiseSVN uses temporary files to pass multiple arguments between the shell extension and the main program. From TortoiseSVN 1.5.0 on and later, <option>/notempfile</option> parameter is obsolete and there is no need to add it anymore."
-msgstr ""
+msgstr "O TortoiseSVN usa ficheiros temporários para passar múltiplos argumentos entre a extensão da shell e o programa principal. A partir do TortoiseSVN 1.5.0 o parâmetro <option>/notempfile</option> é obsoleto e não é mais necessário adicioná-lo."
 
 #. (para)
 msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
@@ -11099,11 +11099,11 @@ msgstr ""
 
 #. (para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batch file or from the TortoiseSVN context menu."
-msgstr ""
+msgstr "A caixa de diálogo que é usada para submissões, actualizações e muitos mais comandos fica usualmente aberta depois do comando ter acabado até o utilizador premir o botão <guibutton>OK</guibutton>. Isto pode ser alterado ao verificar a opção correspondente na caixa de diálogo preferências. Mas ao usar essa preferência, ir-se-á fechar a caixa de diálogo de progresso independentemente de iniciares o comando a partir de um ficheiro de batch ou a partir do menu de contexto do TortoiseSVN."
 
 #. (para)
 msgid "To specify a different location of the configuration file, use the parameter <option>/configdir:\"path\\to\\config\\directory\"</option>. This will override the default path, including any registry setting."
-msgstr ""
+msgstr "Para especificar uma localização diferente para o ficheiro de configuração, usa o parâmetro <option>/configdir:\"path\\to\\config\\directory\"</option>. Isto irá substituir o caminho por defeito, incluindo qualquer configuração do registo."
 
 #. (para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
@@ -11123,7 +11123,7 @@ msgstr ""
 
 #. (para)
 msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/> To close the progress dialog for local operations if there were no errors or conflicts, pass the <option>/closeforlocal</option> parameter."
-msgstr ""
+msgstr "Para fechar a caixa de diálogo de progresso automaticamente no fim de um comando, sem usar a preferência permanente, tu podes passar o parâmetro <option>/closeonend</option>. <placeholder-1/> Para fechar a caixa de diálogo de progresso para operações locais, se não existem erros ou conflitos, passa o parâmetro <option>/closeforlocal</option>."
 
 #. (para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
