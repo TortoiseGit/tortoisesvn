@@ -1417,8 +1417,20 @@ void CBaseView::DrawText(
 		while ((findText = _tcsstr(findText, (LPCTSTR)m_sMarkedWord))!=0)
 		{
             int position = static_cast<int>(findText - text);
+            std::map<int, linecolors_t>::const_iterator replaceIt = lineCols.find(position);
+            if (replaceIt != lineCols.end())
+            {
+                crText = replaceIt->second.text;
+                crBkgnd = replaceIt->second.background;
+            }
 			lineCols.SetColor(position, CAppUtils::IntenseColor(200, crText), CAppUtils::IntenseColor(200, crBkgnd));
-			lineCols.SetColor(position + m_sMarkedWord.GetLength());
+            if (replaceIt == lineCols.end())
+			    lineCols.SetColor(position + m_sMarkedWord.GetLength());
+            else
+            {
+                if (lineCols.find(position + m_sMarkedWord.GetLength()) == lineCols.end())
+                    lineCols.SetColor(position + m_sMarkedWord.GetLength(), crText, crBkgnd);
+            }
 			findText += m_sMarkedWord.GetLength();
 		}
 	}
@@ -2465,16 +2477,31 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 		m_ptSelectionStartPos = m_ptCaretPos;
 		m_ptSelectionEndPos = m_ptCaretPos;
 		m_ptSelectionOrigin = m_ptCaretPos;
-		while (MoveCaretRight() && !IsCaretAtWordBoundary())
+		while (MoveCaretRight() && (m_ptSelectionStartPos.y == m_ptCaretPos.y) && !IsCaretAtWordBoundary())
 		{
 		}
+        if (m_ptSelectionStartPos.y != m_ptCaretPos.y)
+        {
+            MoveCaretLeft();
+            if (m_ptSelectionStartPos.x == m_ptCaretPos.x)
+                MoveCaretLeft();
+        }
 		m_ptSelectionEndPos = m_ptCaretPos;
 
 		LPCTSTR line = GetLineChars(m_ptCaretPos.y);
 		if ((m_ptSelectionEndPos.x - m_ptSelectionStartPos.x) > 0)
 			m_sMarkedWord = CString(&line[m_ptSelectionStartPos.x], m_ptSelectionEndPos.x - m_ptSelectionStartPos.x);
 		else
-			m_sMarkedWord.Empty();
+        {
+            m_sMarkedWord.Empty();
+            ClearSelection();
+        }
+        
+        m_sMarkedWord.Trim();
+        if (m_sMarkedWord.IsEmpty())
+        {
+            ClearSelection();
+        }
 
 		if (m_pwndLeft)
 			m_pwndLeft->SetMarkedWord(m_sMarkedWord);
