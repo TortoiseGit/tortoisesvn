@@ -153,10 +153,10 @@ protected:
     void ShowStats();
 
     /// Rolling Percentage Of Authorship of author to integer
-    int RollPercentageOfAuthorship(const tstring &it);
+    int RollPercentageOfAuthorship(double it);
     
     /// Load list of drawing authors
-    template <class MAP> void LoadListOfAuthors (MAP &map, bool compare = false);
+    template <class MAP> void LoadListOfAuthors (MAP &map, bool reloadSkiper = false, bool compare = false);
 
     // If we have other authors, count them and their commits.
     template <class MAP>
@@ -180,7 +180,7 @@ protected:
     /// PreShow Graphic function
     MyGraphSeries * PreViewGraph(__in UINT GraphTitle, __in UINT YAxisLabel, __in UINT XAxisLabel = NULL);
 	/// Show Selected Static metric
-	void ShowSelectStat(Metrics  SelectedMetric);
+	void ShowSelectStat(Metrics  SelectedMetric, bool reloadSkiper = false);
 
     int                     GetUnitCount();
     int                     GetUnit(const CTime& time);

@@ -691,7 +691,6 @@ void CStatGraphDlg::ShowPercentageOfAuthorship()
     std::list<tstring> authors;
     std::list<tstring> others;
 
-    LoadListOfAuthors(m_PercentageOfAuthorship, true);
 
     FilterSkippedAuthors(authors, others);
 
@@ -703,7 +702,7 @@ void CStatGraphDlg::ShowPercentageOfAuthorship()
         for (std::list<tstring>::iterator it = authors.begin(); it != authors.end(); ++it)
         {
             int group = m_graph.AppendGroup(it->c_str());
-            graphData->SetData(group,  RollPercentageOfAuthorship(*it));
+            graphData->SetData(group,  RollPercentageOfAuthorship(m_PercentageOfAuthorship[*it]));
         }
     }
 
@@ -726,7 +725,6 @@ void CStatGraphDlg::ShowCommitsByAuthor()
     // Find out which authors are to be shown and which are to be skipped.
     std::list<tstring> authors;
     std::list<tstring> others;
-    LoadListOfAuthors(m_commitsPerAuthor);
     FilterSkippedAuthors(authors, others);
 
     // Loop over all authors in the authors list and 
@@ -770,7 +768,6 @@ void CStatGraphDlg::ShowCommitsByDate()
     // Find out which authors are to be shown and which are to be skipped.
     std::list<tstring> authors;
     std::list<tstring> others;
-    LoadListOfAuthors(m_commitsPerAuthor);
     FilterSkippedAuthors(authors, others);
 
     // Add a graph series for each author.
@@ -997,8 +994,8 @@ void CStatGraphDlg::ShowStats()
     }
 }
 
-int CStatGraphDlg::RollPercentageOfAuthorship(const tstring &it) 
-{ return (int)m_PercentageOfAuthorship[it] + (m_PercentageOfAuthorship[it] - (int)m_PercentageOfAuthorship[it] >= 0.5);}
+int CStatGraphDlg::RollPercentageOfAuthorship(double it) 
+{ return (int)it + (it - (int)it >= 0.5);}
 
 void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 {
@@ -1016,6 +1013,7 @@ void CStatGraphDlg::OnCbnSelchangeGraphcombo()
             m_GraphType = MyGraph::Line;
             m_bStacked = false;
             break;
+        case PercentageOfAuthorship:
         case CommitsByAuthor:
             // by author
             m_btnGraphLine.EnableWindow(FALSE);
@@ -1244,7 +1242,7 @@ void CStatGraphDlg::RedrawGraph()
     }
 
     UpdateData();
-    ShowSelectStat((Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel()));
+    ShowSelectStat((Metrics) m_cGraphType.GetItemData(m_cGraphType.GetCurSel()), true);
 }
 void CStatGraphDlg::OnBnClickedGraphbarbutton()
 {
@@ -1507,20 +1505,24 @@ void CStatGraphDlg::ShowErrorMessage()
         MessageBox( errorDetails, _T("Error"), MB_OK | MB_ICONINFORMATION );
 }
 
-void CStatGraphDlg::ShowSelectStat(Metrics SelectedMetric)
+void CStatGraphDlg::ShowSelectStat(Metrics SelectedMetric, bool reloadSkiper /* = false */)
 {
     switch (SelectedMetric)
     {
     case AllStat:
+        LoadListOfAuthors(m_commitsPerAuthor, reloadSkiper);
         ShowStats();
         break;
     case CommitsByDate:
+        LoadListOfAuthors(m_commitsPerAuthor, reloadSkiper);
         ShowCommitsByDate();
         break;
     case CommitsByAuthor:
+        LoadListOfAuthors(m_commitsPerAuthor, reloadSkiper);
         ShowCommitsByAuthor();
         break;
     case PercentageOfAuthorship:
+		LoadListOfAuthors(m_PercentageOfAuthorship, reloadSkiper, true);
         ShowPercentageOfAuthorship();
         break;
     default:
@@ -1537,7 +1539,7 @@ void CStatGraphDlg::DrawOthers(const std::list<tstring> &others, MyGraphSeries *
     int  nCommits = 0;
     for (std::list<tstring>::const_iterator it = others.begin(); it != others.end(); ++it)
     {
-        nCommits += (int) map[*it];
+        nCommits += RollPercentageOfAuthorship(map[*it]);
     }
 
     CString temp;
@@ -1551,14 +1553,14 @@ void CStatGraphDlg::DrawOthers(const std::list<tstring> &others, MyGraphSeries *
 
 
 template <class MAP>
-void CStatGraphDlg::LoadListOfAuthors (MAP &map, bool compare /*= false*/)
+void CStatGraphDlg::LoadListOfAuthors (MAP &map, bool reloadSkiper/*= false*/,  bool compare /*= false*/)
 {
     m_authorNames.clear();
     if (map.size())
     {
         for (MAP::const_iterator it = map.begin(); it != map.end(); ++it) 
         {
-            if ((compare && RollPercentageOfAuthorship(it->first) != 0) || !compare)
+            if ((compare && RollPercentageOfAuthorship(map[it->first]) != 0) || !compare)
                 m_authorNames.push_back(it->first);
         }
     }
@@ -1568,5 +1570,6 @@ void CStatGraphDlg::LoadListOfAuthors (MAP &map, bool compare /*= false*/)
 
     // Set Skipper
     m_Skipper.SetRange(1, m_authorNames.size());
+    if (reloadSkiper) m_Skipper.SetPos(m_authorNames.size());
 }
 
