@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-18 01:04-0000\n"
+"PO-Revision-Date: 2010-04-20 00:02-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2508,7 +2508,7 @@ msgstr ""
 #. (title)
 #. (glossterm)
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 #. (primary)
 msgid "temporary files"
@@ -5312,7 +5312,7 @@ msgstr "Quando reverteres alterações, podes descobrir que essa operação demo
 #. (title)
 #. (glossterm)
 msgid "Cleanup"
-msgstr "Limpeza"
+msgstr "Limpar"
 
 #. (primary)
 msgid "cleanup"
@@ -9252,7 +9252,7 @@ msgstr "Lista de opções de linha de comando disponíveis"
 #. (title)
 #. (glossterm)
 msgid "Switch"
-msgstr "Opção"
+msgstr "Trocar"
 
 #. (entry)
 #. (entry)
@@ -10789,11 +10789,11 @@ msgstr "O TortoiseSVN, com a periodicidade de alguns dias, verifica se existe um
 
 #. (title)
 msgid "The upgrade dialog"
-msgstr ""
+msgstr "A Caixa de Diálogo Actualização"
 
 #. (para)
 msgid "If you're responsible for a lot of users in your domain, you might want your users to use only versions you have approved and not have them install always the latest version. You probably don't want that upgrade dialog to show up so your users don't go and upgrade immediately."
-msgstr ""
+msgstr "Se és responsável por muitos utilizadores num domínio poderás querer que os teus utilizadores só usem versões que tu aprovaste, e não tenham instalada a última versão. Provavelmente não quererás que apareça a caixa de diálogo de actualização, para que os teus utilizadores não vão imediatamente actualizar."
 
 #. (para)
 msgid ""
@@ -10803,10 +10803,15 @@ msgid ""
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
 "</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the upgrade dialog. You can write there whatever you want. Just note that the space in the upgrade dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the upgrade dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
 msgstr ""
+"As versões 1.4.0 e superior do TortoiseSVN permitem-te redireccionar a verificação de actualização para o teu servidor de intranec. Tu podes configurar a chave do registo <filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> (valor string) para um URL a apontar para um ficheiro de texto na tua intranet. Esse ficheiro de texto tem de ter o seguinte formato: <screen>\n"
+"1.4.1.6000\n"
+"Está disponível uma nova versão do TortoiseSVN para descarregares!!\n"
+"http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
+"</screen> A primeira linha desse ficheiro é a string da versão. Deverás ter a certeza que esta condiz com a string da versão exacta do pacote de instalação do TortoiseSVN. A segunda linha é um texto personalizado mostrado na caixa de diálogo de actualização. Podes escrever aqui o que entenderes. Tem apenas em atenção que o espaço é limitado, mensagens muito longas serão truncadas! A terceira linha é o URL para o pacote da nova instalação. Este URL é aberto quando o utilizador clica na mensagem personalizada na caixa de diálogo de actualização. Tu também podes apenas apontar o utilizador para uma página web em vez de directamente para um ficheiro MSI. O URL é aberto com o browser por defeito, pelo que se especificares uma página web, essa página é aberta e mostrada ao utilizador. Se especificares o pacote MSI o browser irá interrogar o utilizador a guardar o ficheiro MSI localmente."
 
 #. (title)
 msgid "Setting the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable"
-msgstr ""
+msgstr "Configurar a variável de ambiente <literal>SVN_ASP_DOT_NET_HACK</literal>"
 
 #. (primary)
 msgid "SVN_ASP_DOT_NET_HACK"
@@ -10822,7 +10827,7 @@ msgstr ""
 
 #. (para)
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
-msgstr ""
+msgstr "Como na versão 1.4.0 e superior, o instalador do TortoiseSVN não fornece mais ao utilizador a opção de configurar a variável de ambiente <literal>SVN_ASP_DOT_NET_HACK</literal>, visto que essa causava muitos problemas e confusão aos utilizadores que instalam sempre <emphasis>tudo</emphasis> independentemente de saberem para que é que serve."
 
 #. (para)
 msgid ""
@@ -10830,10 +10835,13 @@ msgid ""
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 msgstr ""
+"Mas essa opção está só escondida para o utilizador. Podes ainda forçar o instalador do TortoiseSVN a configurar essa variável de ambiente fixando a propriedade <literal>ASPDOTNETHACK</literal> a TRUE. Por exemplo, tu podes arrancar o instalador da seguinte forma: <screen>\n"
+"msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
+"</screen>"
 
 #. (title)
 msgid "Disable context menu entries"
-msgstr ""
+msgstr "Desactivar entradas do menu de contexto"
 
 #. (primary)
 msgid "context menu entries"
@@ -10845,185 +10853,185 @@ msgstr ""
 
 #. (para)
 msgid "As of version 1.5.0 and later, TortoiseSVN allows you to disable (actually, hide) context menu entries. Since this is a feature which should not be used lightly but only if there is a compelling reason, there is no GUI for this and it has to be done directly in the registry. This can be used to disable certain commands for users who should not use them. But please note that only the context menu entries in the <emphasis>explorer</emphasis> are hidden, and the commands are still available through other means, e.g. the command line or even other dialogs in TortoiseSVN itself!"
-msgstr ""
+msgstr "Como na versão 1.5.0 e superior, o TortoiseSVN permite-te desactivar (na realidade, esconder) entradas do menu de contexto. Visto que esta funcionalidade, que não deverá ser usada de ânimo leve mas só se existir uma razão forte, não tem GUI para isto e terá de ser feita directamente no registo. Isto pode ser usado para desactivar certos comandos para que os utilizadores não os usem. Mas por favor, tem em conta que só as entradas do menu de contexto no <emphasis>explorador</emphasis> são escondidos, e os comandos continuam disponíveis através de outros meios, e.g. a linha de comandos ou mesmo noutras caixas de diálogo no próprio TortoiseSVN!"
 
 #. (para)
 msgid "The registry keys which hold the information on which context menus to show are <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> and <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr ""
+msgstr "As chaves de registo que guardam a informação de que entradas de menu de contexto são mostradas, são <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> e <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 
 #. (para)
 msgid "Each of these registry entries is a <literal>DWORD</literal> value, with each bit corresponding to a specific menu entry. A set bit means the corresponding menu entry is deactivated."
-msgstr ""
+msgstr "Cada uma dessas entradas de registo é um valor <literal>DWORD</literal>, com cada bit a corresponder a uma entrada específica do menu. Um bit activo, significa que a entrada de menu correspondente está desactivada."
 
 #. (title)
 msgid "Menu entries and their values"
-msgstr ""
+msgstr "Entradas de menu e seus valores"
 
 #. (entry)
 msgid "Value"
-msgstr ""
+msgstr "Valor"
 
 #. (entry)
 msgid "Menu entry"
-msgstr ""
+msgstr "Entrada de menu"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Checkout"
-msgstr ""
+msgstr "Checkout"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Update"
-msgstr ""
+msgstr "Actualizar"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Commit"
-msgstr ""
+msgstr "Submeter"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Revert"
-msgstr ""
+msgstr "Reverter"
 
 #. (entry)
 #. (glossterm)
 msgid "Resolve"
-msgstr ""
+msgstr "Resolver"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #. (entry)
 msgid "Create Repository here"
-msgstr ""
+msgstr "Criar repositório aqui"
 
 #. (entry)
 #. (title)
 msgid "Branch/Tag"
-msgstr ""
+msgstr "Ramo/Etiqueta"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Merge"
-msgstr ""
+msgstr "Integrar"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Delete"
-msgstr ""
+msgstr "Remover"
 
 #. (entry)
 #. (title)
 msgid "Rename"
-msgstr ""
+msgstr "Alterar nome"
 
 #. (entry)
 msgid "Update to revision"
-msgstr ""
+msgstr "Actualizar para revisão"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Diff"
-msgstr ""
+msgstr "Comparar"
 
 #. (entry)
 #. (title)
 msgid "Show Log"
-msgstr ""
+msgstr "Mostrar Registo"
 
 #. (entry)
 #. (title)
 msgid "Edit Conflicts"
-msgstr ""
+msgstr "Editar Conflitos"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Relocate"
-msgstr ""
+msgstr "Reposicionar"
 
 #. (entry)
 msgid "Check for modifications"
-msgstr ""
+msgstr "Verificar alterações"
 
 #. (entry)
 msgid "Ignore"
-msgstr ""
+msgstr "Ignorar"
 
 #. (entry)
 msgid "Repository Browser"
-msgstr ""
+msgstr "Navegador de Repositório"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Blame"
-msgstr ""
+msgstr "Responsabilizar"
 
 #. (entry)
 #. (title)
 msgid "Create Patch"
-msgstr ""
+msgstr "Criar Correcção"
 
 #. (entry)
 #. (title)
 msgid "Apply Patch"
-msgstr ""
+msgstr "Aplicar Correcção"
 
 #. (entry)
 msgid "Revision graph"
-msgstr ""
+msgstr "Gráfico de revisões"
 
 #. (entry)
 #. (glossterm)
 msgid "Lock"
-msgstr ""
+msgstr "Bloquear"
 
 #. (entry)
 msgid "Remove Lock"
-msgstr ""
+msgstr "Libertar Bloqueio"
 
 #. (entry)
 msgid "Properties"
-msgstr ""
+msgstr "Propriedades"
 
 #. (entry)
 msgid "Diff with URL"
-msgstr ""
+msgstr "Comparar com URL"
 
 #. (entry)
 msgid "Delete unversioned items"
-msgstr ""
+msgstr "Remover itens não versionados"
 
 #. (entry)
 msgid "Settings"
-msgstr ""
+msgstr "Preferências"
 
 #. (entry)
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #. (entry)
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #. (para)
 msgid ""
@@ -11034,10 +11042,16 @@ msgid ""
 "= 0x2000000080080000\n"
 "</screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 msgstr ""
+"Exemplo: para desactivar as entradas de menu <quote>Reposicionar</quote>, o <quote>Remover itens não versionados</quote> e o <quote>Preferências</quote>, adiciona os valores atribuidos a essas entradas do seguinte modo: <screen>\n"
+"  0x0000000000080000\n"
+"+ 0x0000000080000000\n"
+"+ 0x2000000000000000\n"
+"= 0x2000000080080000\n"
+"</screen> o valor <literal>DWORD</literal>o mais baixo (<literal>0x80080000</literal>) deverá ser então armazenado na <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, o valor <literal>DWORD</literal> mais alto (<literal>0x20000000</literal>) em <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
-msgstr ""
+msgstr "Para re-activar de novo as entradas do menu, simplesmente apaga as duas chaves de registo."
 
 #. (title)
 msgid "Automating TortoiseSVN"
