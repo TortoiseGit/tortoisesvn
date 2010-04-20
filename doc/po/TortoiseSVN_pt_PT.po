@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-10 07:10 +0000\n"
-"PO-Revision-Date: 2010-04-20 00:53-0000\n"
+"PO-Revision-Date: 2010-04-21 00:12-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11107,19 +11107,19 @@ msgstr "Para especificar uma localização diferente para o ficheiro de configur
 
 #. (para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
-msgstr ""
+msgstr "<option>/closeonend:0</option> não fechar automaticamente a caixa de diálogo"
 
 #. (para)
 msgid "<option>/closeonend:1</option> auto close if no errors"
-msgstr ""
+msgstr "<option>/closeonend:1</option> fechar automaticamente se não existem erros"
 
 #. (para)
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
-msgstr ""
+msgstr "<option>/closeonend:2</option> fechar automaticamente se não existem erros e conflitos"
 
 #. (para)
 msgid "<option>/closeonend:3</option> auto close if no errors, conflicts and merges"
-msgstr ""
+msgstr "<option>/closeonend:3</option> fechar automaticamente se não existem erros, conflitos e integrações"
 
 #. (para)
 msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/> To close the progress dialog for local operations if there were no errors or conflicts, pass the <option>/closeforlocal</option> parameter."
@@ -11127,7 +11127,7 @@ msgstr "Para fechar a caixa de diálogo de progresso automaticamente no fim de u
 
 #. (para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
-msgstr ""
+msgstr "A tabela abaixo lista todos os comandos que podem ser acedidos usando a linha de comandos TortoiseProc.exe. Como descrito acima, esses deverão ser usados na forma <literal>/command:abcd</literal>. Na tabela é omitido o prefixo <literal>/command</literal> por questões de espaço. "
 
 #. (title)
 msgid "List of available commands and options"
@@ -11135,11 +11135,11 @@ msgstr ""
 
 #. (entry)
 msgid "Command"
-msgstr ""
+msgstr "Comando"
 
 #. (entry)
 msgid "Shows the about dialog. This is also shown if no command is given."
-msgstr ""
+msgstr "Mosta a caixa de diálogo Sobre. Esta é também mostrada se não é dado nenhum comando."
 
 #. (option)
 #. (option)
@@ -11234,7 +11234,7 @@ msgstr ""
 
 #. (entry)
 msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
-msgstr ""
+msgstr "Abre a caixa de diálogo de registo. O <placeholder-1/> específica o ficheiro ou pasta para o qual o registo deve ser mostrado. Seis opções adicionais podem ser introduzidas: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> activa a caixa de verificação  'parar-na-cópia', <placeholder-5/>  introduz o texto de filtro, <placeholder-6/> força o filtro a usar texto em vez de regex, ou <placeholder-7/> força o filtro a usar regex em vez de uma pesquisa de texto simples, e <placeholder-8/> com X sendo um número entre 1 e 7. Os números correspondem a: <placeholder-9/>"
 
 #. (option)
 #. (option)
@@ -11243,11 +11243,11 @@ msgstr ""
 
 #. (entry)
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
-msgstr ""
+msgstr "Abre a caixa de diálogo checkout. O <placeholder-1/> específica a directoria destino e o <placeholder-2/> específica o URL de onde efectuar o checkout."
 
 #. (entry)
 msgid "Opens the import dialog. The <placeholder-1/> specifies the directory with the data to import."
-msgstr ""
+msgstr "Abre a caixa de diálogo importar. O <placeholder-1/> específica a pasta com os dados a importar."
 
 #. (option)
 msgid "/rev"
@@ -11272,7 +11272,7 @@ msgstr "externos"
 
 #. (entry)
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
-msgstr ""
+msgstr "Actualiza a cópia de trabalho em <placeholder-1/> para a HEAD. Se for dada a opção <placeholder-2/>, então uma caixa de diálogo aparecerá a perguntar ao utilizador, qual será a revisão para que deverá actualizar. Para evitar que a caixa de diálogo especifique um número de revisão, usa <placeholder-3/>. Outras opções são <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
 
 #. (option)
 #. (option)
@@ -11295,15 +11295,15 @@ msgstr ""
 
 #. (entry)
 msgid "Opens the commit dialog. The <placeholder-1/> specifies the target directory or the list of files to commit. You can also specify the <placeholder-2/> switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-3/>, where <placeholder-4/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the <placeholder-5/> to do that."
-msgstr ""
+msgstr "Abre a caixa de diálogo submeter. O <placeholder-1/> específica a pasta de destino ou a lista de ficheiros a submeter. Tu podes também especificar a opção <placeholder-2/> para passar uma mensagem de registo pré-definida para a caixa de diálogo submeter. Ou se não queres passar a mensagem de registo na linha de comandos, usa <placeholder-3/>, onde o <placeholder-4/> aponta para um ficheiro que contém a mensagem de registo. Para pré-preencher a caixa do ID-Problema ( no caso de teres configurado correctamente a integração com os seguidores de bugs), podes usar para isso o <placeholder-5/>."
 
 #. (entry)
 msgid "Adds the files in <placeholder-1/> to version control."
-msgstr ""
+msgstr "Adiciona ao controlo de versões os ficheiros em <placeholder-1/>"
 
 #. (entry)
 msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells which items to revert."
-msgstr ""
+msgstr "Reverte as modificações locais de uma cópia de trabalho. O <placeholder-1/> diz quais os itens a reverter."
 
 #. (option)
 msgid "/noui"
@@ -11311,7 +11311,7 @@ msgstr ""
 
 #. (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
-msgstr ""
+msgstr "Limpa as operações interrompidas ou abortadas e desbloqueia a cópia de trabalho em <placeholder-1/>. Usa o <placeholder-2/> para evitar que apareça a caixa de diálogo resultado (dizendo que a limpeza terminou ou mostrando uma mensagem de erro)."
 
 #. (option)
 #. (option)
@@ -11321,19 +11321,19 @@ msgstr ""
 
 #. (entry)
 msgid "Marks a conflicted file specified in <placeholder-1/> as resolved. If <placeholder-2/> is given, then resolving is done without asking the user first if it really should be done."
-msgstr ""
+msgstr "Marca um ficheiro em conflito em <placeholder-1/> como resolvido. Se for dado o <placeholder-2/> então a resolução é feita sem perguntar primeiro ao utilizador se ela deverá ser mesmo feita."
 
 #. (entry)
 msgid "Creates a repository in <placeholder-1/>"
-msgstr ""
+msgstr "Cria um repositório em <placeholder-1/>"
 
 #. (entry)
 msgid "Opens the switch dialog. The <placeholder-1/> specifies the target directory."
-msgstr ""
+msgstr "Abre a caixa de diálogo trocar. O <placeholder-1/> específica a pasta destino."
 
 #. (entry)
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the directory in <placeholder-3/>."
-msgstr ""
+msgstr "Exporta a cópia de trabalho em <placeholder-1/> para outra pasta. Se o <placeholder-2/> apontar para uma pasta não versionada, a caixa de diálogo perguntará por um URL para exportar para a pasta em <placeholder-3/>."
 
 #. (option)
 #. (option)
@@ -11358,23 +11358,23 @@ msgstr ""
 
 #. (entry)
 msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. These pre-fill the relevant fields in the merge dialog."
-msgstr ""
+msgstr "Abre a caixa de diálogo integrar. O <placeholder-1/> específica a pasta de destino. Para integrar um intervalo de revisões estão disponíveis as seguintes opções: <placeholder-2/>, <placeholder-3/>. Para integrar duas árvores de repositório, estão disponíveis as seguintes opções: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> e <placeholder-7/>. Estas pré-preencher os campos relevantes na caixa de diálogo integrar."
 
 #. (entry)
 msgid "Opens the merge all dialog. The <placeholder-1/> specifies the target directory."
-msgstr ""
+msgstr "Abre a caixa de diálogo integrar todos. O <placeholder-1/> específica a pasta de destino."
 
 #. (entry)
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from. And the <placeholder-2/> is the target URL. You can also specify the <placeholder-3/> switch to pass a predefined log message to the branch/tag dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-4/>, where <placeholder-5/> points to a file containing the log message."
-msgstr ""
+msgstr "Mostra a caixa de diálogo ramo/etiqueta. O <placeholder-1/>  é a cópia de trabalho de onde efectuar o ramo/etiqueta. E o <placeholder-2/> é o URL destino. Tu também podes especificar a opção <placeholder-3/> para passar uma mensagem de registo pré-definida para a caixa de diálogo ramo/etiqueta. Ou se não queres passar a mensagem de registo na linha de comandos, usa o <placeholder-4/>, onde o <placeholder-5/> aponta para um ficheiro que contém a mensagem de registo."
 
 #. (entry)
 msgid "Opens the settings dialog."
-msgstr ""
+msgstr "Abre a caixa de diálogo preferências."
 
 #. (entry)
 msgid "Removes the file(s) in <placeholder-1/> from version control."
-msgstr ""
+msgstr "Remove do controlo de versões o(s) ficheiro(s) em <placeholder-1/>."
 
 #. (entry)
 msgid "Renames the file in <placeholder-1/>. The new name for the file is asked with a dialog. To avoid the question about renaming similar files in one step, pass <placeholder-2/>."
