@@ -215,7 +215,7 @@
             <title>Making Changes</title>
             <para>
                 Time to get to work. In the <filename>Widget1-Dev</filename> we start editing
-                files - lets say we make changes to <filename>Widget1.c</filename> and
+                files - let's say we make changes to <filename>Widget1.c</filename> and
                 <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files
                 have now changed to red, indicating that changes have been made locally.
             </para>
@@ -250,13 +250,101 @@
         </sect2>
         <sect2 id="tsvn-qs-add">
             <title>Adding More Files</title>
+            <para>
+                As the project develops you will need to add new files - let's say you add
+                some new features in <filename>Extras.c</filename> and add a reference in
+                the existing <filename>Makefile</filename>. Right click on the folder and
+                <menuchoice>
+                    <guimenu>TortoiseSVN</guimenu>
+                    <guimenuitem>Add</guimenuitem>
+                </menuchoice>.
+                The Add dialog now shows you all unversioned files and you can select
+                which ones you want to add. Another way of adding files would be to
+                right click on the file itself and select
+                <menuchoice>
+                    <guimenu>TortoiseSVN</guimenu>
+                    <guimenuitem>Add</guimenuitem>
+                </menuchoice>.
+            </para>
+            <para>
+                Now when you go to commit the folder, the new file shows up as
+                <emphasis>Added</emphasis> and the existing file as
+                <emphasis>Modified</emphasis>. Note that you can double click on
+                the modified file to check exactly what changes were made.
+            </para>
         </sect2>
         <sect2 id="tsvn-qs-log">
             <title>Viewing the Project History</title>
+            <para>
+                One of the most useful features of TortoiseSVN is the Log dialog.
+                This shows you a list of all the commits you made to a file or
+                folder, and shows those detailed commit messages that you entered ;-)
+                <figure id="tsvn-qs-log-image">
+                    <title>The Log Dialog</title>
+                    <graphic fileref="images/LogMessages.png"/>
+                </figure>
+            </para>
+            <para>
+                The top pane shows a list of revisions committed along with the start
+                of the commit message. If you select one of these revisions, the
+                middle pane will show the full log message for that revision and the
+                bottom pane will show a list of changed files and folders.
+            </para>
+            <para>
+                Each of these panes has a context menu which provides you with lots
+                more ways of using the information. In the bottom pane you can
+                <action>double click</action> on a file to see exactly what changes
+                were made in that revision. Read <xref linkend="tsvn-dug-showlog"/>
+                to get the full story.
+            </para>
         </sect2>
         <sect2 id="tsvn-qs-revert">
             <title>Undoing Changes</title>
+            <para>
+                One feature of all revision control systems is that they let you undo
+                changes that you made previously. As you would expect, TortoiseSVN
+                makes this easy to access.
+            </para>
+            <para>
+                If you want to get rid of changes that you have not yet committed
+                and reset your file to the way it was before you started editing,
+                <menuchoice>
+                    <guimenu>TortoiseSVN</guimenu>
+                    <guimenuitem>Revert</guimenuitem>
+                </menuchoice>
+                is your friend. This discards your changes (to the Recycle bin, just
+                in case) and reverts to the committed version you started with. If
+                you want to get rid of just some of the changes, you can use
+                TortoiseMerge to view the differences and selectively revert changed
+                lines.
+            </para>
+            <para>
+                If you want to undo the effects of a particular revision, start
+                with the Log dialog and find the offending revision. Select
+                <menuchoice>
+                    <guimenu>Context Menu</guimenu>
+                    <guimenuitem>Revert changes from this revision</guimenuitem>
+                </menuchoice>
+                and those changes will be undone.
+            </para>
         </sect2>
+    </sect1>
+    <sect1 id="tsvn-qs-end">
+        <title>Moving On ...</title>
+        <para>
+            This guide has given you a very quick tour of some of TortoiseSVN's
+            most important and useful features, but of course there is far
+            more that we haven't covered. We strongly recommend that you
+            take the time to read the rest of this manual, especially
+            <xref linkend="tsvn-dug"/> which gives you a lot more detail
+            on day-to-day operations.
+        </para>
+        <para>
+            We have taken a lot of trouble to make sure that it is both informative
+            and easy to read, but we recognise that there is a lot of it! Take your
+            time and don't be afraid to try things out on a test repository as you
+            go along. The best way to learn is by using it.
+        </para>
     </sect1>
 </chapter>
 <!--
