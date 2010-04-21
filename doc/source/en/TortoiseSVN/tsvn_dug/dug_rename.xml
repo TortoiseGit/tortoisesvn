@@ -28,7 +28,7 @@
             to remove files or folders from subversion.
         </para>
         <para>
-            When you 
+            When you
             <menuchoice>
                 <guimenu>TortoiseSVN</guimenu>
                 <guimenuitem>Delete</guimenuitem>
@@ -86,7 +86,7 @@
             you really want to do.
         </para>
         <para>
-            If a <emphasis>folder</emphasis> is deleted via the explorer instead 
+            If a <emphasis>folder</emphasis> is deleted via the explorer instead
             of using the TortoiseSVN context menu,  your working copy will be broken
             and you will be unable to commit. If you update your working copy,
             Subversion will replace the missing folder with the latest version
@@ -101,7 +101,7 @@
             <title>Getting a deleted file or folder back</title>
             <para>
                 If you have deleted a file or a folder and already committed
-                that delete operation to the repository, then a normal 
+                that delete operation to the repository, then a normal
                 <menuchoice>
                     <guimenu>TortoiseSVN</guimenu>
                     <guimenuitem>Revert</guimenuitem>
@@ -245,9 +245,9 @@
             this does not work using the usual Rename command.
         </para>
         <para>
-            Fortunately there are (at least) two possible methods to rename a file 
-            without losing its log history. It is important to rename it 
-            within subversion. Just renaming in the explorer will corrupt 
+            Fortunately there are (at least) two possible methods to rename a file
+            without losing its log history. It is important to rename it
+            within subversion. Just renaming in the explorer will corrupt
             your working copy!
         </para>
         <para>
@@ -260,7 +260,7 @@
                 </listitem>
                 <listitem>
                     <para>
-                        Rename the file from UPPERcase to upperCASE directly 
+                        Rename the file from UPPERcase to upperCASE directly
                         in the repository using the repository browser.
                     </para>
                 </listitem>
@@ -316,13 +316,13 @@
             file system, like Linux.
         </para>
         <para>
-            In that case, you have to decide which one of them you want to 
+            In that case, you have to decide which one of them you want to
             keep and delete (or rename) the other one from the repository.
         </para>
         <tip>
             <title>Preventing two files with the same name</title>
             <para>
-                There is a server hook script available at: 
+                There is a server hook script available at:
                 <ulink url="http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/">
                     <citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle>
                 </ulink>

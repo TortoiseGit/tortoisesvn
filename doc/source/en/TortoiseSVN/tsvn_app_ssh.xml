@@ -62,9 +62,9 @@ ps xa | grep sshd
             Subversion creates a <filename>bin</filename> directory under
             <filename>/usr/local</filename> and places its binaries there.
             If you want to use tunneling mode with SSH, you have to be aware
-            that the user logging in via SSH needs to execute the svnserve program 
-            and some other binaries. For this reason, either place 
-            <filename>/usr/local/bin</filename> into the <literal>PATH</literal> variable 
+            that the user logging in via SSH needs to execute the svnserve program
+            and some other binaries. For this reason, either place
+            <filename>/usr/local/bin</filename> into the <literal>PATH</literal> variable
             or create symbolic links of your binaries to the <filename>/usr/sbin</filename>
             directory, or to any other directory which is commonly in the
             <literal>PATH</literal>.
@@ -88,7 +88,7 @@ useradd -m svnuser
     <sect1 id="tsvn-ssh-windows-server">
         <title>Setting Up a Windows Server</title>
         <para>
-            Install Cygwin SSH daemon as described here: 
+            Install Cygwin SSH daemon as described here:
             <ulink url="http://pigtail.net/LRP/printsrv/cygwin-sshd.html">
                 <citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle>
             </ulink>
@@ -123,7 +123,7 @@ mkpasswd -l > /etc/passwd
         <title>Creating OpenSSH Certificates</title>
         <para>
             The next step is to create a key pair for authentication.
-            There are two possible ways to create keys. The first is to 
+            There are two possible ways to create keys. The first is to
             create the keys with PuTTYgen on the client, upload the public
             key to your server and use the private key with PuTTY.
             The other is to create the key pair with the OpenSSH tool
@@ -252,7 +252,7 @@ command="svnserve -t -r &lt;ReposRootPath&gt; --tunnel-user=&lt;author&gt;",
             its own access rights within <filename>svnserve.conf</filename>.
         </para>
         <para>
-            <literal>&lt;PublicKey&gt;</literal> should be replaced with the 
+            <literal>&lt;PublicKey&gt;</literal> should be replaced with the
             public key that you generated earlier.
         </para>
         <para>
@@ -270,18 +270,18 @@ command="svnserve -t -r &lt;ReposRootPath&gt; --tunnel-user=&lt;author&gt;",
 svn+ssh://svnuser@SvnConnection/repos
 </screen>
             What does this URL mean? The Schema name is <literal>svn+ssh</literal>
-            which tells TortoiseSVN how to handle the requests to the server. 
+            which tells TortoiseSVN how to handle the requests to the server.
             After the double slash, you specify the user to connect to the server,
             in our case <literal>svnuser</literal>. After the <literal>@</literal>
-            we supply our PuTTY session name. 
-            This session name contains all details like where to find 
-            the private key and the server's IP or DNS. Lastly we have to 
+            we supply our PuTTY session name.
+            This session name contains all details like where to find
+            the private key and the server's IP or DNS. Lastly we have to
             provide the path to the repository, relative to the repository root
             on the server, as specified in the <filename>authorized_keys</filename> file.
         </para>
         <para>
             Click on <guibutton>OK</guibutton> and you should be able to browse
-            the repository content. If so you now have a running SSH tunnel in 
+            the repository content. If so you now have a running SSH tunnel in
             conjunction with TortoiseSVN.
         </para>
         <para>
@@ -296,8 +296,8 @@ svn+ssh://svnuser@SvnConnection/repos
     <sect1 id="tsvn-ssh-configvariants">
         <title>SSH Configuration Variants</title>
         <para>
-            One way to simplify the URL in TortoiseSVN is to set the 
-            user inside the PuTTY session. For this you have to load 
+            One way to simplify the URL in TortoiseSVN is to set the
+            user inside the PuTTY session. For this you have to load
             your already defined session <literal>SvnConnection</literal>
             in PuTTY and in the <guilabel>Connection</guilabel> tab set
             <guilabel>Auto login user</guilabel> to the user name, e.g.
@@ -307,7 +307,7 @@ svn+ssh://svnuser@SvnConnection/repos
 svn+ssh://SvnConnection/repos
 </screen>
             This time we only provide the PuTTY session <literal>SvnConnection</literal>
-            to the SSH client TortoiseSVN uses (TortoisePlink.exe). 
+            to the SSH client TortoiseSVN uses (TortoisePlink.exe).
             This client will check the session for all necessary details.
         </para>
         <para>
@@ -320,9 +320,9 @@ svn+ssh://SvnConnection/repos
         <para>
             Many people like to use Pageant for storing all their keys.
             Because a PuTTY session is capable of storing a key, you don't
-            always need Pageant. But imagine you want to store keys for several 
+            always need Pageant. But imagine you want to store keys for several
             different servers; in that case you would have to edit the
-            PuTTY session over and over again, depending on the server you are 
+            PuTTY session over and over again, depending on the server you are
             trying to connect with. In this situation Pageant makes perfect sense,
             because when PuTTY, Plink, TortoisePlink or any other PuTTY-based tool
             is trying to connect to an SSH server, it checks all private keys that
@@ -336,9 +336,9 @@ svn+ssh://SvnConnection/repos
             You can add more keys for other servers, or other users of course.
         </para>
         <para>
-            If you don't want to repeat this procedure after every reboot of your 
+            If you don't want to repeat this procedure after every reboot of your
             client, you should place Pageant in the auto-start group of your
-            Windows installation. You can append the keys with 
+            Windows installation. You can append the keys with
             complete paths as command line arguments to Pageant.exe
         </para>
         <para>
@@ -349,8 +349,8 @@ svn+ssh://svnuser@100.101.102.103/repos
 svn+ssh://svnuser@mydomain.com/repos
 </screen>
             As you can see, we don't use a saved PuTTY session but an IP address
-            (or domain name) as the connection target. We also supply the user, 
-            but you might ask how the private key file will be found. 
+            (or domain name) as the connection target. We also supply the user,
+            but you might ask how the private key file will be found.
             Because TortoisePlink.exe is just a modified version of the standard
             Plink tool from the PuTTY suite, TortoiseSVN will also try all the keys
             stored in Pageant.
