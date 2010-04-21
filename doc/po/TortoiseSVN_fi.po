@@ -1,28 +1,27 @@
-#
 # Finnish translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
 # Authors:
 # Kari Granö kari.grano@gmail.com, 2007
-#
+# Kari Granö <kari.grano@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-04-01 18:58 +0000\n"
-"PO-Revision-Date: 2010-04-08 00:24+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-10 07:10 +0000\n"
+"PO-Revision-Date: 2010-04-22 00:07+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language-Team: TortoiseSVN Finnish translation\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Finnish\n"
-"X-Poedit-Country: FINLAND\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.5.2\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
@@ -77,212 +76,6 @@ msgstr "Large"
 msgid "Preface"
 msgstr "Aluksi"
 
-#. (para)
-msgid "Do you work in a team?"
-msgstr "Työskenteletkö ryhmässä?"
-
-#. (para)
-msgid "Has it ever happened that you were working on a file, and someone else was working on the same file at the same time? Did you lose your changes to that file because of that?"
-msgstr "Onko koskaan sattunut, että muokatessasi jotain tiedostoa joku toinen muuttaa myös samaista tiedostoa samaan aikaan?  Hävisivätkö muutoksesi sen vuoksi?"
-
-#. (para)
-msgid "Have you ever saved a file, and then wanted to revert the changes you made? Have you ever wished you could see what a file looked like some time ago?"
-msgstr "Oletko koskaan tallettanut tiedostoa, ja sitten myöhemmin halunnut perua tekemäsi muutokset?  Oletko koskaan toivonut voivasi tarkistaa, miltä tiedosto näytti aiemmin?"
-
-#. (para)
-msgid "Have you ever found a bug in your project and wanted to know when that bug got into your files?"
-msgstr "Oletko koskaan löytänyt virhettä projektissasi ja halunnut tietää, milloin virheellinen kohta lisättiin tiedostoon?"
-
-#. (para)
-msgid "If you answered <quote>yes</quote> to one of these questions, then TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help you in your work. It's not that difficult."
-msgstr "Jos vastasit <quote>kyllä</quote> yhteen näistä kysymyksistä, niin TortoiseSVN on sinua varten!  Jatkossa selviää, miten TortoiseSVN voi auttaa sinua. Sen käyttö ei ole kovin monimutkaista."
-
-#. (title)
-msgid "Audience"
-msgstr "Kohdeyleisö"
-
-#. (para)
-msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr "Tämä kirja on tarkoitettu tietokoneita ymmärtäville ihmisille, jotka haluavat käyttää Subversion-ohjelmistoa tietojensa hallintaan, mutta eivät halua käyttää siihen komentoriviä. Koska TortoiseSVN on Windows-komentotulkin laajennos, oletamme käyttäjän olevan sinut Windowsin Resurssienhallinnan kanssa ja osaavan käyttää sitä."
-
-#. (title)
-msgid "Reading Guide"
-msgstr "Ohje lukemiseen"
-
-#. (para)
-msgid "This <xref linkend=\"tsvn-preface\"/> explains a little about the TortoiseSVN project, the community of people who work on it, and the licensing conditions for using it and distributing it."
-msgstr "Luku <xref linkend=\"tsvn-preface\"/> kertoo hieman TortoiseSVN-projektista, yhteisöstä joka kehittää sitä sekä sen käyttämisen ja jakelun lisenssiehdoista."
-
-#. (para)
-msgid "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
-msgstr "<xref linkend=\"tsvn-introduction\"/> selvittää, mikä TortoiseSVN on, mitä se tekee, mistä se tulee, ja miten se asennetaan tietokoneellesi."
-
-#. (para)
-msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
-msgstr "<xref linkend=\"tsvn-basics\"/>-luvussa käydään lyhyesti läpi <emphasis>Subversion</emphasis>-versionhallintajärjestelmä, joka on TortoiseSVN-ohjelmiston perusta. Luku on lainaus Subversion-projektin käyttöohjeista; se hahmottaa erilaisia lähestymistapoja versionhallintaan ja selvittää Subversionin versiointiajattelua."
-
-#. (para)
-msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server. There is also a section here on how to setup a server if you need one."
-msgstr "Luku <xref linkend=\"tsvn-repository\"/> kuvaa, miten luodaan paikallinen arkisto, jolla on näppärää testata Subversion- ja TortoiseSVN-ohjelmia omalla työasemalla. Se kuvaa myös hieman arkiston hallinnointia, ja on siltä osin hyödyksi myös palvelimella sijaitsevien arkistojen käsittelyssä. Mukana on myös kappale palvelimen asentamisesta."
-
-#. (para)
-msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
-msgstr "<xref linkend=\"tsvn-dug\"/> on tärkein luku, koska siinä käydään läpi TortoiseSVN-ohjelman kaikki keskeiset toiminnot ja niiden käyttö. Se on kirjoitettu käyttöoppaan muotoon, alkaen työkopion hakemisesta, muuttamisesta, muutosten toimittamisesta arkistoon, jne. Näistä edetään kehittyneempiin toimintoihin."
-
-#. (para)
-msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
-msgstr "<xref linkend=\"tsvn-subwcrev\"/> on erillinen ohjelma, joka toimitetaan TortoiseSVN-ohjelman mukana.  Se osaa hakea tietoja työkopiostasi ja tallettaa ne tiedostoon. Tästä on hyötyä, mikäli haluat sisällyttää versiotietoja projekteihisi."
-
-#. (para)
-msgid "The <xref linkend=\"tsvn-howto\"/> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
-msgstr "<xref linkend=\"tsvn-howto\"/> -luku vastaa yleisimpiin kysymyksiin sellaisen käytön osalta, jota ei ole erikseen käsitelty muualla."
-
-#. (para)
-msgid "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
-msgstr "Luku <xref linkend=\"tsvn-automation\"/> näyttää, miten TortoiseSVN-ikkunoita voidaan käynnistää komentoriviltä. Tästä on hyötyä komentojonoissa, jotka tarvitsevat lisätietoja käyttäjältä."
-
-#. (para)
-msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
-msgstr "Luku <xref linkend=\"tsvn-cli\"/> luettelee TortoiseSVN-komentojen vastaavuudet Subversion -komentorivitulkin <literal>svn.exe</literal> kanssa."
-
-#. (title)
-msgid "TortoiseSVN is free!"
-msgstr "TortoiseSVN on ilmainen!"
-
-#. (para)
-msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it any way you want. It is developed under the GNU General Public License (GPL)."
-msgstr "TortoiseSVN on ilmainen. Sinun ei tarvitse maksaa sen käyttämisestä, ja voit käyttää sitä kuten haluat. Ohjelmisto käyttää GNUn yleistä lisenssiä (GNU General Public License)."
-
-#. (para)
-msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseSVN on avoimen lähdekoodin projekti. Tämä tarkoittaa, että voit vapaasti tutkia ohjelmatekstiä. Lähdekoodi on saatavissa osoitteesta <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. Sinulta kysytään käyttäjätunnusta ja salasanaa. Käyttäjätunnus on <literal>guest</literal> ja salasana jätetään tyhjäksi.  Viimeisin versio (jonka parissa työskentelemme parasta aikaa) sijaitsee hakemistossa <filename>/trunk/</filename>.  Julkaistut versiot sijaitsevat hakemistossa <filename>/tags/</filename>."
-
-#. (title)
-msgid "Community"
-msgstr "Yhteisö"
-
-#. (para)
-msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world and work together to create wonderful programs."
-msgstr "Sekä TortoiseSVN että Subversion -ohjelmia kehittää yhteisö, jonka jäsenet työskentelevät näitten projektien parissa. Kehittäjät ovat eri maista ympäri maailmaa ja tekevät yhteistyötä saadakseen aikaan parempia ohjelmia."
-
-#. (title)
-msgid "Acknowledgments"
-msgstr "Kiitokset"
-
-#. (term)
-msgid "Tim Kemp"
-msgstr "Tim Kemp"
-
-#. (para)
-msgid "for founding the TortoiseSVN project"
-msgstr "TortoiseSVN-projektin perustamisesta"
-
-#. (term)
-msgid "Stefan Küng"
-msgstr "Stefan Küng"
-
-#. (para)
-msgid "for the hard work to get TortoiseSVN to what it is now"
-msgstr "kovasta työstä, jonka ansiosta TortoiseSVN on nykyisenlainen"
-
-#. (term)
-msgid "Lübbe Onken"
-msgstr "Lübbe Onken"
-
-#. (para)
-msgid "for the beautiful icons, logo, bug hunting, translating and managing the translations"
-msgstr "tyylikkäistä kuvakkeista, logosta, virheiden etsinnästä, käännöksistä ja niiden hallinnasta"
-
-#. (term)
-msgid "Simon Large"
-msgstr "Simon Large"
-
-#. (para)
-msgid "for helping with the documentation and bug hunting"
-msgstr "avusta käyttöohjeiden teossa ja virheiden etsinnässä"
-
-#. (term)
-msgid "The Subversion Book"
-msgstr "Subversion-kirjalle"
-
-#. (para)
-msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
-msgstr "hienosta johdannosta Subversion-ohjelmaan ja sen luvusta 2, jonka kopioimme tänne"
-
-#. (term)
-msgid "The Tigris Style project"
-msgstr "Tigris Style -projektille"
-
-#. (para)
-msgid "for some of the styles which are reused in this documentation"
-msgstr "joistakin tyyleistä, joita hyödynnetään tässä dokumentaatiossa"
-
-#. (term)
-msgid "Our Contributors"
-msgstr "Avustajillemme"
-
-#. (para)
-msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr "korjauksista, virheraporteista ja ideoista sekä muitten käyttäjien auttamisesta postituslistoillamme"
-
-#. (term)
-msgid "Our Donators"
-msgstr "Lahjoittajillemme"
-
-#. (para)
-msgid "for many hours of joy with the music they sent us"
-msgstr "monista mukavista tunneista heidän meille lähettämänsä musiikin parissa"
-
-#. (title)
-msgid "Terminology used in this document"
-msgstr "Käytetyt termit"
-
-#. (para)
-msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
-msgstr "Tehdäksemme lukemisesta helpompaa, kaikkien TortoiseSVN-näyttöjen ja valikoiden nimet on merkitty omalla kirjasimella (esimerkiksi <guilabel>Loki-ikkuna</guilabel>)."
-
-#. (para)
-msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
-msgstr "Valikkovalinta näytetään nuolella. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Näytä loki</guimenuitem></menuchoice> tarkoittaa: valitse <emphasis>Näytä loki</emphasis> <emphasis>TortoiseSVN</emphasis> kontekstivalikosta."
-
-#. (para)
-msgid "Where a local context menu appears within one of the TortoiseSVN dialogs, it is shown like this: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
-msgstr "Kun jossain TortoiseSVN-ikkunassa on paikallinen valikko, se esitetään seuraavasti: <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Talleta nimellä...</guimenuitem></menuchoice>"
-
-#. (para)
-msgid "User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton> to continue."
-msgstr "Käyttöliittymän painikkeet esitetään seuraavasti: paina <guibutton>OK</guibutton> jatkaaksesi."
-
-#. (para)
-msgid "User Actions are indicated using a bold font. <keycap>Alt+A</keycap>: press the <keycap>Alt</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
-msgstr "Käyttäjän toimenpiteet esitetään lihavoituina.  <keycap>Alt+A</keycap>: paina <keycap>Alt</keycap>-näppäin alas ja sen ollessa painettuna paina <keycap>A</keycap>-näppäintä. <action>Oikea-raahaa</action>: paina oikea hiiren nappi alas ja sen ollessa painettuna <emphasis>raahaa</emphasis> kohteet uuteen paikkaan."
-
-#. (para)
-msgid "System output and keyboard input is indicated with a <literal>different</literal> font as well."
-msgstr "Tulokset ja näppäimistösyötteet esitetään myöskin <literal>erilaisella</literal> kirjasimella."
-
-#. (para)
-msgid "Important notes are marked with an icon."
-msgstr "Tärkeät huomiot on merkitty kuvakkeella."
-
-#. (para)
-msgid "Tips that make your life easier."
-msgstr "Vinkkejä, jotka tekevät elämäsi helpommaksi."
-
-#. (para)
-msgid "Places where you have to be careful what you are doing."
-msgstr "Tilanteita, joissa sinun pitää olla huolellinen."
-
-#. (para)
-msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
-msgstr "Kun tulee olla äärimmäisen huolellinen; tiedon häviämistä tai muita ikäviä asioita saattaa seurata, mikäli sivuutat nämä varoitukset."
-
-#. (title)
-#. (title)
-#. (title)
-msgid "Introduction"
-msgstr "Johdanto"
-
 #. (primary)
 msgid "version control"
 msgstr "versionhallinta"
@@ -296,28 +89,12 @@ msgid "What is TortoiseSVN?"
 msgstr "Mikä TortoiseSVN on?"
 
 #. (para)
-msgid "TortoiseSVN is a free open-source client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
-msgstr "TortoiseSVN on ilmainen avoimeen lähdekoodiin perustuva asiakassovellus <firstterm>Subversion</firstterm>-versionhallintajärjestelmälle. Toisin ilmaistuna TortoiseSVN pitää kirjaa tiedostoihin ja hakemistoihin ajan mittaan tehdyistä muutoksista.  Tiedostot talletetaan keskitettyyn <firstterm>arkistoon</firstterm>. Arkisto muistuttaa paljolti tiedostopalvelinta, mutta sen lisäksi se muistaa kaikki tiedostoihin ja hakemistoihin koskaan tehdyt muutokset. Tämän ansiosta voit palauttaa vanhoja versioita tiedostoistasi ja verrata sitä, miten ja milloin tiedot ovat muuttuneet, ja kenen toimesta.  Tästä syystä Subversionia (ja versionhallintajärjestelmiä yleensä) voidaan pitää eräänlaisena <quote>aikakoneena</quote>."
+msgid "TortoiseSVN is a free open-source Windows client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
+msgstr "TortoiseSVN on ilmainen, avoimeen lähdekoodiin perustuva Windows-käyttöliittymä <firstterm>Subversion</firstterm>-versionhallintaan. TortoiseSVN pitää siis kirjaa tiedostoihin ja hakemistoihin ajan mittaan tehdyistä muutoksista.  Tiedostot talletetaan keskitettyyn <firstterm>arkistoon</firstterm>. Arkisto muistuttaa paljolti tiedostopalvelinta, mutta muistaa lisäksi kaikki tiedostoihin ja hakemistoihin ajan mittaan tehdyt muutokset. Tämän ansiosta voit palauttaa vanhoja versioita tiedostoistasi ja tutkia, miten, milloin ja kenen toimesta tiedot ovat muuttuneet.  Tästä syystä Subversionia (ja versionhallintajärjestelmiä yleensä) voidaan pitää eräänlaisena <quote>aikakoneena</quote>.\t"
 
 #. (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
 msgstr "Jotkut versionhallintajärjestelmät ovat myös lähdekoodin konfigurointijärjestelmiä (software configuration management, SCM). Tällaiset järjestelmät on erityisesti räätälöity lähdekoodipuiden hallintaan, ja niillä on monia ohjelmistonkehitykseen liittyviä erityisominaisuuksia (esim. tuki ohjelmointikielten syntaksille tai työkaluja ohjelmistojen rakentamiseen).  Subversion ei kuitenkaan ole tällainen: se on yleinen järjestelmä, jota voidaan käyttää <emphasis>minkä tahansa</emphasis> tiedostokokoelman hallintaan (mukaan lukien lähdekooditiedostot)."
-
-#. (title)
-msgid "TortoiseSVN's History"
-msgstr "TortoiseSVN-ohjelman historia"
-
-#. (para)
-msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
-msgstr "Vuoden 2002 tienoilla Tim Kemp päätti kehittää graafisen käyttöliittymän Subversion-ohjelmalle. Ajatus Subversion-asiakasohjelmasta Windowsin Resurssienhallinnan laajennoksena sai alkunsa saman tyyppisestä CVS-asiakasohjelmasta nimeltä TortoiseCVS."
-
-#. (para)
-msgid "Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
-msgstr "Tim tutki TortoiseCVS-lähdekoodia ja käytti sitä TortoiseSVN-ohjelman pohjana. Sitten hän käynnisti projektin, rekisteröi nimialueen <literal>tortoisesvn.org</literal> ja julkaisi lähdekoodin. Samoihin aikoihin Stefan Küng etsiskeli hyvää ja ilmaista versionhallintajärjestelmää ja törmäsi Subversioniin sekä TortoiseSVN-lähdekoodeihin. Koska TortoiseSVN ei ollut vielä käyttövalmis, hän liittyi projektiin ja alkoi kehittää sitä. Pian hän kirjoitti suurimman osan olemassa olevasta koodista uudelleen ja alkoi lisätä ominaisuuksia siinä laajuudessa, että ennen pitkää alkuperäisestä koodista ei ollut mitään jäljellä."
-
-#. (para)
-msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
-msgstr "Subversionin tullessa vakaammaksi se alkoi kiinnostaa yhä useampia käyttäjiä, jotka myös ryhtyivät käyttämään TortoiseSVN-ohjelmaa asiakasohjelmanaan. Käyttäjien joukko kasvoi voimakkaasti (ja kasvaa yhä päivittäin). Tässä vaiheessa Lübbe Onken tarjoutui auttamaan kuvakkeiden ja TortoiseSVN-logon suunnittelussa. Hän huolehtii verkkosivustosta ja koordinoi käännöksiä eri kielille."
 
 #. (title)
 msgid "TortoiseSVN's Features"
@@ -340,12 +117,12 @@ msgid "explorer"
 msgstr "resurssienhallinta"
 
 #. (para)
-msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
+msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need the functions of version control."
 msgstr "TortoiseSVN integroituu täysin Windowsin Resurssienhallintaan. Tämän ansiosta voit jatkaa työskentelyä työkaluilla, jotka jo tunnet. Eikä ole tarvetta vaihtaa eri sovellukseen aina tarvitessasi versionhallintaa!"
 
 #. (para)
-msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "Edes Resurssienhallinnan avaaminen ei usein ole tarpeen. TortoiseSVN-ohjelman kontekstivalikot toimivat monissa muissa tiedostotyökaluissa, kuten myös Avaa tiedosto-ikkunassa, jota käytetään useimmissa Windows-sovelluksissa. Muista kuitenkin, että TortoiseSVN on tarkoituksella kehitetty Windowsin Resurssienhallinnan laajennukseksi.  On siten mahdollista, että muissa sovelluksissa integrointi ei ole täydellinen ja esimerkiksi kuvakepäällykset saattavat puuttua."
+msgid "And you are not limited to using the Windows Explorer; TortoiseSVN's context menus work in many other file managers, and also in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as an extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
+msgstr "Edes Resurssienhallinnan avaaminen ei usein ole tarpeen. TortoiseSVN-kontekstivalikot toimivat monissa muissa tiedostotyökaluissa, kuten myös Avaa tiedosto-ikkunassa, joka löytyy useimmista Windows-sovelluksista. Huomaa kuitenkin, että TortoiseSVN on tarkoituksella kehitetty Windowsin Resurssienhallinnan laajennukseksi.  On siten mahdollista, että muissa sovelluksissa integrointi ei ole täydellinen ja esimerkiksi kuvakepäällykset saattavat puuttua."
 
 #. (term)
 msgid "Icon overlays"
@@ -354,6 +131,18 @@ msgstr "Kuvakepäällykset"
 #. (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
 msgstr "Versioitujen tiedostojen ja kansioiden tila ilmaistaan pienillä kuvakepäällysteillä, jotka täydentävät tiedostojen varsinaisia kuvakkeita. Niiden ansiosta voit yhdellä vilkaisulla nähdä työkopiosi tilan."
+
+#. (term)
+msgid "Graphical User Interface"
+msgstr "Graafinen käyttöliittymä"
+
+#. (para)
+msgid "When you list the changes to a file or folder, you can click on a revision to see the comments for that commit. You can also see a list of changed files - just double click on a file to see exactly what changed."
+msgstr "Kun luettelet muutokset tiedostoon tai kansioon, voit napsauttaa versiota nähdäksesi siihen liittyvän kommentin. Voit myös nähdä luettelon muuttuneista tiedostoista - kaksoisnapsautus tiedoston päällä näyttää sen muutokset."
+
+#. (para)
+msgid "The commit dialog lists all the items that will be included in a commit, and each item has a checkbox so you can choose which items you want to include. Unversioned files can also be listed, in case you forgot to add that new file."
+msgstr "Toimitusikkuna näyttää kaikki toimitettavissa olevat kohteet: kullakin niistä on valintalaatikko, jonka avulla voit valita, toimitetaanko kohde arkistoon. Voit myös näyttää versioimattomat kohteet, jos unohdit vaikkapa lisätä sen uuden tiedoston."
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -415,13 +204,218 @@ msgstr "Tehokas haarautuminen ja merkintöjen teko"
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
 msgstr "Haarojen luonnin (engl. branching) ja versioiden merkitsemisen (engl. tagging) kustannusten ei tarvitse olla suhteessa projektin kokoon. Subversion luo haarat ja merkit yksinkertaisesti kopioimalla projektin linkittämällä. Tästä johtuen nämä toiminnot vievät vain vähän aikaa (vakioajan) ja varaavat vain vähän tilaa arkistosta."
 
-#. (term)
-msgid "Hackability"
-msgstr "Muunneltavuus"
+#. (title)
+msgid "License"
+msgstr "Lisenssi"
 
 #. (para)
-msgid "Subversion has no historical baggage; it is implemented as a collection of shared C libraries with well-defined APIs. This makes Subversion extremely maintainable and usable by other applications and languages."
-msgstr "Subversionilla ei ole historian painolastia (vrt. CVS); se on toteutettu joukkona jaettuja C-kirjastoja, joilla on selkeät ohjelmointirajapinnat. Tämä tekee Subversionista erittäin ylläpidettävän ja käyttökelpoisen muille sovelluksille ja kielille."
+msgid "TortoiseSVN is an Open Source project developed under the GNU General Public License (GPL). It is free to download and free to use, either personally or commercially, on any number of PCs."
+msgstr "TortoiseSVN on avoimeen lähdekoodiin perustuva projekti, joka käyttää GNU General Public License (GPL)-lisenssiä. Sen voi noutaa ja sitä voi käyttää ilmaiseksi, joko omiin tarpeisiin tai kaupallisesti, niin useassa tietokoneessa kuin on tarpeen."
+
+#. (para)
+msgid "Although most people just download the installer, you also have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The current development line is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "Vaikka useimmat ihmiset noutavat vain asennusohjelman, voit myös vapaasti tutkia itse ohjelmatekstiä. Lähdekoodi on saatavissa osoitteesta <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. Viimeisin kehitysversio sijaitsee hakemistossa <filename>/trunk/</filename>.  Julkaistut versiot sijaitsevat puolestaan hakemistossa <filename>/tags/</filename>."
+
+#. (title)
+msgid "Development"
+msgstr "Ohjelmakehitys"
+
+#. (para)
+msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world, working together to create great software."
+msgstr "Sekä TortoiseSVN- että Subversion-ohjelmistoja kehittää yhteisö, jonka jäsenet työskentelevät eri puolilla maailmaa yhdessä luodakseen hyvin toimivia ohjelmia."
+
+#. (title)
+msgid "TortoiseSVN's History"
+msgstr "TortoiseSVN: historia"
+
+#. (para)
+msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS. Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online."
+msgstr "Vuonna 2002 Tim Kemp havaitsi, että Subversion on tehokas versionhallintajärjestelmä, mutta ilman toimivaa graafista käyttöliittymää. Ajatus Subversion-asiakasohjelmasta Windowsin Resurssienhallinnan laajennoksena sai alkunsa saman tyyppisestä CVS-asiakasohjelmasta nimeltä TortoiseCVS. Tim tutki TortoiseCVS-lähdekoodia ja käytti sitä TortoiseSVN-ohjelman pohjana. Sittemmin hän käynnisti projektin, rekisteröi nimialueen <literal>tortoisesvn.org</literal> ja julkaisi lähdekoodin verkossa."
+
+#. (para)
+msgid "Around that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use, he joined the project and started programming. He soon rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
+msgstr "Samoihin aikoihin Stefan Küng etsiskeli hyvää ja ilmaista versionhallintajärjestelmää ja törmäsi Subversioniin sekä TortoiseSVN-lähdekoodeihin. Koska TortoiseSVN ei ollut vielä käyttövalmis, hän liittyi projektiin ja alkoi ohjelmoida. Pian hän oli kirjoittanut suurimman osan olemassa olevasta koodista uudelleen ja alkoi lisätä ominaisuuksia siinä laajuudessa, että ennen pitkää alkuperäisestä koodista ei ollut  jäljellä mitään."
+
+#. (para)
+msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. He now takes care of the website and manages the many translations."
+msgstr "Subversionin tullessa vakaammaksi se alkoi kiinnostaa yhä useampia käyttäjiä, jotka myös ryhtyivät TortoiseSVN-käyttäjiksi. Käyttäjien joukko kasvoi voimakkaasti (ja kasvaa yhä päivittäin). Tässä vaiheessa Lübbe Onken tarjoutui auttamaan kuvakkeiden ja TortoiseSVN-logon suunnittelussa. Hän huolehtii nykyisin verkkosivustosta ja koordinoi käännöksiä eri kielille."
+
+#. (title)
+msgid "Acknowledgments"
+msgstr "Kiitokset"
+
+#. (term)
+msgid "Tim Kemp"
+msgstr "Tim Kemp"
+
+#. (para)
+msgid "for founding the TortoiseSVN project"
+msgstr "TortoiseSVN-projektin perustamisesta"
+
+#. (term)
+msgid "Stefan Küng"
+msgstr "Stefan Küng"
+
+#. (para)
+msgid "for the hard work to get TortoiseSVN to what it is now, and his leadership of the project"
+msgstr "uraauurtavasta työstä, jonka ansiosta TortoiseSVN on nykyisenlainen, ja projektin johtamisesta"
+
+#. (term)
+msgid "Lübbe Onken"
+msgstr "Lübbe Onken"
+
+#. (para)
+msgid "for the beautiful icons, logo, bug hunting, translating and managing the translations"
+msgstr "tyylikkäistä kuvakkeista, logosta, virheiden etsinnästä, käännöksistä ja niiden hallinnasta"
+
+#. (term)
+msgid "Simon Large"
+msgstr "Simon Large"
+
+#. (para)
+msgid "for maintaining the documentation"
+msgstr "käyttöohjeiden ylläpitämisestä"
+
+#. (term)
+msgid "Stefan Fuhrmann"
+msgstr "Stefan Fuhrmann\t"
+
+#. (para)
+msgid "for the log cache and revision graph"
+msgstr "lokitietojen välimuistista ja versiograafista"
+
+#. (term)
+msgid "The Subversion Book"
+msgstr "Subversion-kirjalle"
+
+#. (para)
+msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
+msgstr "hienosta johdannosta Subversion-ohjelmaan ja sen luvusta 2, jonka kopioimme tänne"
+
+#. (term)
+msgid "The Tigris Style project"
+msgstr "Tigris Style -projektille"
+
+#. (para)
+msgid "for some of the styles which are reused in this documentation"
+msgstr "joistakin tyyleistä, joita hyödynnetään tässä dokumentaatiossa"
+
+#. (term)
+msgid "Our Contributors"
+msgstr "Avustajillemme"
+
+#. (para)
+msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list"
+msgstr "korjauksista, virheraporteista ja ideoista sekä muitten käyttäjien auttamisesta postituslistoillamme"
+
+#. (term)
+msgid "Our Donators"
+msgstr "Lahjoittajillemme"
+
+#. (para)
+msgid "for many hours of joy with the music they sent us"
+msgstr "monista mukavista tunneista heidän meille lähettämänsä musiikin parissa"
+
+#. (title)
+msgid "Reading Guide"
+msgstr "Ohje lukemiseen"
+
+#. (para)
+msgid "This book is written for computer-literate folk who want to use Subversion to manage their data, but prefer to use a GUI client rather than a command line client. TortoiseSVN is a windows shell extension and it is assumed that the user is familiar with the windows explorer and how to use it."
+msgstr "Tämä ohje on tarkoitettu tietokoneita ymmärtäville ihmisille, jotka haluavat käyttää Subversion-ohjelmistoa tietojensa hallintaan, mutta eivät halua tehdä sitä komentorivillä. TortoiseSVN on Windows-komentotulkin laajennos, ja oletamme käyttäjän olevan sinut Windowsin Resurssienhallinnan kanssa ja osaavan käyttää sitä."
+
+#. (para)
+msgid "This <xref linkend=\"tsvn-preface\"/> explains what TortoiseSVN is, a little about the TortoiseSVN project and the community of people who work on it, and the licensing conditions for using it and distributing it."
+msgstr "Luku <xref linkend=\"tsvn-preface\"/> kertoo, mikä TortoiseSVN on, kuvaa TortoiseSVN-projektia ja sen kehittäjäyhteisöä sekä selvittää sen käyttämiseen ja jakeluun liittyvät lisenssiehdot."
+
+#. (para)
+msgid "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
+msgstr "Luku <xref linkend=\"tsvn-quick-start\"/> kertoo, miten TortoiseSVN asennetaan tietokoneeseesi, ja kuinka pääset käyttämään sitä suoraan."
+
+#. (para)
+msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
+msgstr "<xref linkend=\"tsvn-basics\"/>-luvussa käydään lyhyesti läpi <emphasis>Subversion</emphasis>-versionhallintajärjestelmä, joka on TortoiseSVN-ohjelmiston perusta. Luku on lainaus Subversion-projektin käyttöohjeista; se hahmottaa erilaisia lähestymistapoja versionhallintaan ja selvittää Subversionin versiointiajattelua."
+
+#. (para)
+msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server. There is also a section here on how to setup a server if you need one."
+msgstr "Luku <xref linkend=\"tsvn-repository\"/> kuvaa, miten luodaan paikallinen arkisto, jolla on näppärää testata Subversion- ja TortoiseSVN-ohjelmia omalla työasemalla. Se kuvaa myös hieman arkiston hallinnointia, ja on siltä osin hyödyksi myös palvelimella sijaitsevien arkistojen käsittelyssä. Mukana on myös kappale palvelimen asentamisesta."
+
+#. (para)
+msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
+msgstr "<xref linkend=\"tsvn-dug\"/> on tärkein luku, koska siinä käydään läpi TortoiseSVN-ohjelman kaikki keskeiset toiminnot ja niiden käyttö. Se on kirjoitettu käyttöoppaan muotoon, alkaen työkopion hakemisesta, muuttamisesta, muutosten toimittamisesta arkistoon, jne. Näistä edetään kehittyneempiin toimintoihin."
+
+#. (para)
+msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
+msgstr "<xref linkend=\"tsvn-subwcrev\"/> on erillinen ohjelma, joka toimitetaan TortoiseSVN-ohjelman mukana.  Se osaa hakea tietoja työkopiostasi ja tallettaa ne tiedostoon. Tästä on hyötyä, mikäli haluat sisällyttää versiotietoja projekteihisi."
+
+#. (para)
+msgid "The <xref linkend=\"tsvn-howto\"/> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
+msgstr "<xref linkend=\"tsvn-howto\"/> -luku vastaa yleisimpiin kysymyksiin sellaisen käytön osalta, jota ei ole erikseen käsitelty muualla."
+
+#. (para)
+msgid "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
+msgstr "Luku <xref linkend=\"tsvn-automation\"/> näyttää, miten TortoiseSVN-ikkunoita voidaan käynnistää komentoriviltä. Tästä on hyötyä komentojonoissa, jotka tarvitsevat lisätietoja käyttäjältä."
+
+#. (para)
+msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
+msgstr "Luku <xref linkend=\"tsvn-cli\"/> luettelee TortoiseSVN-komentojen vastaavuudet Subversion -komentorivitulkin <literal>svn.exe</literal> kanssa."
+
+#. (title)
+msgid "Terminology used in this document"
+msgstr "Käytetyt termit"
+
+#. (para)
+msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
+msgstr "Tehdäksemme lukemisesta helpompaa, kaikkien TortoiseSVN-näyttöjen ja valikoiden nimet on merkitty omalla kirjasimella (esimerkiksi <guilabel>Loki-ikkuna</guilabel>)."
+
+#. (para)
+msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
+msgstr "Valikkovalinta näytetään nuolella. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Näytä loki</guimenuitem></menuchoice> tarkoittaa: valitse <emphasis>Näytä loki</emphasis> <emphasis>TortoiseSVN</emphasis> kontekstivalikosta."
+
+#. (para)
+msgid "Where a local context menu appears within one of the TortoiseSVN dialogs, it is shown like this: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
+msgstr "Kun jossain TortoiseSVN-ikkunassa on paikallinen valikko, se esitetään seuraavasti: <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Talleta nimellä...</guimenuitem></menuchoice>"
+
+#. (para)
+msgid "User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton> to continue."
+msgstr "Käyttöliittymän painikkeet esitetään seuraavasti: paina <guibutton>OK</guibutton> jatkaaksesi."
+
+#. (para)
+msgid "User Actions are indicated using a bold font. <keycap>Alt+A</keycap>: press the <keycap>Alt</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
+msgstr "Käyttäjän toimenpiteet esitetään lihavoituina.  <keycap>Alt+A</keycap>: paina <keycap>Alt</keycap>-näppäin alas ja sen ollessa painettuna paina <keycap>A</keycap>-näppäintä. <action>Oikea-raahaa</action>: paina oikea hiiren nappi alas ja sen ollessa painettuna <emphasis>raahaa</emphasis> kohteet uuteen paikkaan."
+
+#. (para)
+msgid "System output and keyboard input is indicated with a <literal>different</literal> font as well."
+msgstr "Tulokset ja näppäimistösyötteet esitetään myöskin <literal>erilaisella</literal> kirjasimella."
+
+#. (para)
+msgid "Important notes are marked with an icon."
+msgstr "Tärkeät huomiot on merkitty kuvakkeella."
+
+#. (para)
+msgid "Tips that make your life easier."
+msgstr "Vinkkejä, jotka tekevät elämäsi helpommaksi."
+
+#. (para)
+msgid "Places where you have to be careful what you are doing."
+msgstr "Tilanteita, joissa sinun pitää olla huolellinen."
+
+#. (para)
+msgid "Where extreme care has to be taken. Data corruption or other nasty things may occur if these warnings are ignored."
+msgstr "Kun tulee olla äärimmäisen huolellinen; tiedon häviämistä tai muita ikäviä asioita saattaa seurata, mikäli sivuutat nämä varoitukset."
+
+#. (title)
+#. (title)
+msgid "Getting Started"
+msgstr "Alkuun pääseminen"
+
+#. (para)
+msgid "This section is aimed at people who would like to find out what TortoiseSVN is all about and give it a test drive. It explains how to install TortoiseSVN and set up a local repository, and it walks you through the most commonly used operations."
+msgstr "Tämä luku on tarkoitettu ihmisille, jotka haluavat selvittää, mikä TortoiseSVN on ja testata sen. Siinä kuvataan asennukseen ja paikallisen arkiston luontiin liittyvät asiat sekä käydään läpi yleisimmät toiminnot."
+
+#. (para)
+msgid "Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
+msgstr "Luonnollisesti se ei selitä kaikkea - kyseessähän on pikaopas. Kun olet päässyt alkuun, kannattaa varata aikaa käyttöohjeen loppuosan lukemiseen, missä asiat käydään tarkemmin läpi. Siellä kerrotaan myös oikean Subversion-palvelimen asentamisesta."
 
 #. (title)
 msgid "Installing TortoiseSVN"
@@ -432,12 +426,12 @@ msgid "System requirements"
 msgstr "Järjestelmävaatimukset"
 
 #. (para)
-msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
-msgstr "TortoiseSVN toimii Windows 2000 SP2-, Windows XP SP2- tai uudemmissa käyttöjärjestelmissä.  Windows 98, Windows ME ja Windows NT4 eivät ole enää tuettujen käyttöjärjestelmien joukossa TortoiseSVN-version 1.2 jälkeen, mutta voit yhä tarvitessasi asentaa vanhemman version."
+msgid "TortoiseSVN runs on Windows XP or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
+msgstr "TortoiseSVN toimii Windows XP:ssä ja uudemmissa käyttöjärjestelmissä, ja on saatavana sekä 32- että 64-bittisenä versiona. Jos käytät 64-bittistä Windows-versiota, saatat haluta asentaa molemmat versiot."
 
 #. (para)
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
-msgstr "Jos törmäät ongelmiin TortoiseSVN-asennuksen aikana tai sen jälkeen, muista katsoa luku <xref linkend=\"tsvn-faq\"/>."
+msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
+msgstr "Tuki Windows 98, Windows ME ja Windows NT4 -käyttöjärjestelmille loppui versiossa 1.2.0; Windows 2000 -tuki puolestaan loppui versiossa 1.7.0. Voit yhä asentaa jonkun näistä vanhemmista versioista, mikäli tarvitset niitä."
 
 #. (title)
 msgid "Installation"
@@ -448,12 +442,20 @@ msgid "install"
 msgstr "asenna"
 
 #. (para)
-msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest."
-msgstr "TortoiseSVN asentuu helppokäyttöisen asennusohjelman avulla. Kaksoisnapsauta asennustiedostoa ja seuraa ohjeita - asennusohjelma huolehtii lopusta."
+msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. Don't forget to reboot after installation."
+msgstr "TortoiseSVN sisältää helppokäyttöisen asennusohjelman. Kaksoisnapsauta asennustiedostoa ja seuraa ohjeita - asennusohjelma huolehtii lopusta. Muista käynnistää tietokone uudelleen asennuksen jälkeen."
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
 msgstr "TortoiseSVN-asennukseen tarvitaan pääkäyttäjän oikeudet."
+
+#. (para)
+msgid "Language packs are available which translate the TortoiseSVN user interface into many different languages. Please check <xref linkend=\"tsvn-lang\"/> for more information on how to install these."
+msgstr "TortoiseSVN-käyttöliittymä voidaan kääntää eri kielille erikseen noudettavien kielipakettien avulla. Katso lisätietoa luvusta <xref linkend=\"tsvn-lang\"/>."
+
+#. (para)
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
+msgstr "Jos törmäät ongelmiin asennuksen aikana tai ohjelmaa käyttäessäsi, tarkista projektin FAQ paikantimesta <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -1013,8 +1015,8 @@ msgid "TortoiseSVN no longer offers the option to create BDB repositories, altho
 msgstr "TortoiseSVN ei enää sisällä valintaa BDB-arkistojen luomiseen, vaikka voit yhä käyttää komentoriviä niiden luomiseen. FSFS-arkistot ovat yleisesti ottaen helpompia ylläpitää; TortoiseSVN on myöskin helpompi ylläpitää, koska eri BDB-versioiden välinen yhteensopivuus ei ole aina ollut suoraviivaista."
 
 #. (para)
-msgid "Future versions of TortoiseSVN will not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file://</literal> protocol is created as FSFS."
-msgstr "Näistä yhteensopivuussyistä johtuen TortoiseSVN:n tulevat versiot eivät enää tue <literal>file://</literal> -yhteyskäytäntöä BDB-arkistoihin. Sen sijaan yhteyskäytäntöjä <literal>svn://</literal>, <literal>http://</literal> ja <literal>https://</literal> tullaan aina tukemaan myös BDB-arkistoille. Kaikki uudet arkistot, joihin kytkeydytään <literal>file://</literal> -yhteyskäytännöllä, kannattaa siis luoda FSFS-muodossa."
+msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
+msgstr "TortoiseSVN ei tue <literal>file://</literal> -yhteyskäytäntöä BDB-arkistoihin näistä yhteensopivuussyistä johtuen. Tätä arkistomuotoa tuetaan tietenkin aina, kun arkistoa käytetään palvelimen välityksellä yhteyskäytännöillä <literal>svn://</literal>, <literal>http://</literal> tai <literal>https://</literal>."
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
@@ -1176,8 +1178,8 @@ msgid "create your desired top-level folder structure inside that folder - don't
 msgstr "luo haluamasi ylätason rakenne juuri luomaasi kansioon - älä vielä lisää tiedostoja!"
 
 #. (para)
-msgid "import this structure into the repository via a <action>right click</action> on the folder and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> This will import your temp folder into the repository root to create the basic repository layout."
-msgstr "tuo tämä rakenne arkistoon <action>napsauttamalla hiiren oikeaa näppäintä</action> kansion päällä ja valitsemalla <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tuo arkistoon...</guimenuitem></menuchoice> Tämä tuo väliaikaisen kansiosi arkiston juureen arkiston perusrakenteen luomiseksi."
+msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the url to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
+msgstr "tuo tämä kansiorakenne arkistoon napsauttamalla hiiren <action>oikeaa nappia</action> sen kansion kohdalla, joka sisältää kansiorakenteen ja valitse komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tuo...</guimenuitem></menuchoice> Tuonti-ikkunassa voit syöttää arkistosi paikantimen. Kun napsautat lopuksi OK, kansiorakenteesi tuodaan arkiston juureen perusrakenteen luomiseksi."
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
@@ -1384,6 +1386,11 @@ msgstr "Seuraavat luvut kuvaavat yksityiskohtaisesti, kuinka tällainen palvelin
 #. (title)
 msgid "Svnserve Based Server"
 msgstr "Svnserve-palvelin"
+
+#. (title)
+#. (title)
+msgid "Introduction"
+msgstr "Johdanto"
 
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
@@ -2603,10 +2610,6 @@ msgstr "Sinulla pitäisi olla asennettu palvelin ja/tai pääsy Subversion-arkis
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
 msgstr "Saadaksesi eniten irti Päivittäisen käytön oppaasta: <placeholder-1/>"
-
-#. (title)
-msgid "Getting Started"
-msgstr "Alkuun pääseminen"
 
 #. (title)
 #. (title)
@@ -10291,8 +10294,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr "<placeholder-1/> Operaatiota kutsutaan asetusikkunasta, jossa käyttäjä voi lisätä ja määritellä lisäosan. Lisäosa voi käyttää merkkijonoa <literal>parameters</literal> tarvittavan lisätiedon (esim. vikaseurannan paikannin, kirjautumistiedot, jne.) saamiseksi. Lisäosan tulee tarkistaa markkijono <literal>parameters</literal> ja näyttää virhe, jos merkkijono ei ole validi. Parametria <literal>hParentWnd</literal> tulee käyttää isäikkunanan kaikissa lisäosan näyttämissä ikkunoissa. Lisäosan on palautettava TRUE, jos parametrin <literal>parameters</literal> validointi onnistui. Jos lisäosa palauttaa FALSE, asetusikkuna ei salli käyttäjän kytkeä lisäosaa työkopiopolkuun."
+msgid "This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
+msgstr "Tätä operaatiota kutsutaan asetusikkunasta, jossa käyttäjä voi lisätä ja määritellä lisäosan. Lisäosa voi käyttää merkkijonoa <literal>parameters</literal> tarvittavan lisätiedon (esim. vikaseurannan paikannin, kirjautumistiedot, jne.) saamiseksi. Lisäosan tulisi tarkistaa markkijono <literal>parameters</literal> ja näyttää virhe, jos merkkijono ei ole kelvollinen. Parametria <literal>hParentWnd</literal> tulee käyttää isäikkunana kaikissa lisäosan näyttämissä ikkunoissa. Lisäosan on palautettava TRUE, jos parametrin <literal>parameters</literal> tarkistus onnistui. Jos lisäosa palauttaa FALSE, asetusikkuna ei salli käyttäjän kytkeä lisäosaa työkopiopolkuun."
 
 #. (programlisting)
 #, no-wrap
@@ -10324,8 +10327,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr "<placeholder-1/> Lisäosa voi määritellä tekstin, jota TortoiseSVN käyttää toimitusikkunassaan painikkeelle, joka käynnistää lisäosan; esim. \"Valitse vika\" tai \"Valitse lipuke\". Varmista, ettei merkkijono ole liian pitkä, muuten se ei sovi painikkeeseen. Jos toiminto palauttaa virheen (esim. <literal>E_NOTIMPL</literal>), painikkeelle käytetään oletusarvoista tekstiä."
+msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgstr "Lisäosa voi määritellä tekstin, jota TortoiseSVN käyttää toimitusikkunassaan painikkeelle, joka käynnistää lisäosan; esim. \"Valitse vika\" tai \"Valitse lipuke\". Varmista, ettei merkkijono ole liian pitkä, muuten se ei sovi painikkeeseen. Jos toiminto palauttaa virheen (esim. <literal>E_NOTIMPL</literal>), painikkeelle käytetään oletusarvoista tekstiä."
 
 #. (programlisting)
 #, no-wrap
@@ -10525,7 +10528,7 @@ msgid "This method is called right before the commit dialog is closed and the co
 msgstr "Tätä toimintoa kutsutaan juuri ennen kuin toimitusikkuna sulkeutuu ja toimitus alkaa. Lisäosa voi käyttää toimintoa validoidakseen toimitettaviksi valitut tiedostot/kansiot ja toimitusviestin. Parametrit ovat samat kuin toiminnolla <literal>GetCommitMessage2()</literal> sillä erotuksella, että <literal>commonURL</literal> sisältää nyt kaikkien <emphasis>toimitettavaksi valittujen</emphasis> kohteiden yhteisen paikantimen, ja  <literal>commonRoot</literal> on valittujen kohteiden juuripolku."
 
 #. (para)
-msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source url of the copy, and <literal>commonRoot</literal> is set to the target url of the copy."
+msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source URL of the copy, and <literal>commonRoot</literal> is set to the target URL of the copy."
 msgstr "Haaran tai merkityn version luonti-ikkunassa <literal>commonURL</literal> viittaa kopion lähdepaikantimeen ja <literal>commonRoot</literal> puolestaan kopion kohdepaikantimeen."
 
 #. (para)
@@ -13152,6 +13155,79 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "The <xref linkend=\"tsvn-introduction\"/> explains how to install TortoiseSVN "
+#~ "on your PC, and how to start using it straight away."
+#~ msgstr ""
+#~ "Luku <xref linkend=\"tsvn-introduction\"/> selvittää, miten TortoiseSVN "
+#~ "asennetaan tietokoneellesi, ja miten sitä voi suoraan aloittaa käyttää."
+#~ msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
+#~ msgstr "TortoiseSVN toimii Windows 2000 SP2-, Windows XP SP2- tai uudemmissa käyttöjärjestelmissä.  Windows 98, Windows ME ja Windows NT4 eivät ole enää tuettujen käyttöjärjestelmien joukossa TortoiseSVN-version 1.2 jälkeen, mutta voit yhä tarvitessasi asentaa vanhemman version."
+#~ msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
+#~ msgstr "Jos törmäät ongelmiin TortoiseSVN-asennuksen aikana tai sen jälkeen, muista katsoa luku <xref linkend=\"tsvn-faq\"/>."
+#~ msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest."
+#~ msgstr "TortoiseSVN asentuu helppokäyttöisen asennusohjelman avulla. Kaksoisnapsauta asennustiedostoa ja seuraa ohjeita - asennusohjelma huolehtii lopusta."
+#~ msgid "Future versions of TortoiseSVN will not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file://</literal> protocol is created as FSFS."
+#~ msgstr "Näistä yhteensopivuussyistä johtuen TortoiseSVN:n tulevat versiot eivät enää tue <literal>file://</literal> -yhteyskäytäntöä BDB-arkistoihin. Sen sijaan yhteyskäytäntöjä <literal>svn://</literal>, <literal>http://</literal> ja <literal>https://</literal> tullaan aina tukemaan myös BDB-arkistoille. Kaikki uudet arkistot, joihin kytkeydytään <literal>file://</literal> -yhteyskäytännöllä, kannattaa siis luoda FSFS-muodossa."
+#~ msgid "import this structure into the repository via a <action>right click</action> on the folder and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> This will import your temp folder into the repository root to create the basic repository layout."
+#~ msgstr "tuo tämä rakenne arkistoon <action>napsauttamalla hiiren oikeaa näppäintä</action> kansion päällä ja valitsemalla <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tuo arkistoon...</guimenuitem></menuchoice> Tämä tuo väliaikaisen kansiosi arkiston juureen arkiston perusrakenteen luomiseksi."
+#~ msgid "Do you work in a team?"
+#~ msgstr "Työskenteletkö ryhmässä?"
+#~ msgid ""
+#~ "Has it ever happened that you were working on a file, and someone else "
+#~ "was working on the same file at the same time? Did you lose your changes "
+#~ "to that file because of that?"
+#~ msgstr ""
+#~ "Onko koskaan sattunut, että muokatessasi jotain tiedostoa joku toinen "
+#~ "muuttaa myös samaista tiedostoa samaan aikaan?  Hävisivätkö muutoksesi "
+#~ "sen vuoksi?"
+#~ msgid ""
+#~ "Have you ever saved a file, and then wanted to revert the changes you "
+#~ "made? Have you ever wished you could see what a file looked like some "
+#~ "time ago?"
+#~ msgstr ""
+#~ "Oletko koskaan tallettanut tiedostoa, ja sitten myöhemmin halunnut perua "
+#~ "tekemäsi muutokset?  Oletko koskaan toivonut voivasi tarkistaa, miltä "
+#~ "tiedosto näytti aiemmin?"
+#~ msgid ""
+#~ "Have you ever found a bug in your project and wanted to know when that "
+#~ "bug got into your files?"
+#~ msgstr ""
+#~ "Oletko koskaan löytänyt virhettä projektissasi ja halunnut tietää, "
+#~ "milloin virheellinen kohta lisättiin tiedostoon?"
+#~ msgid ""
+#~ "If you answered <quote>yes</quote> to one of these questions, then "
+#~ "TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help "
+#~ "you in your work. It's not that difficult."
+#~ msgstr ""
+#~ "Jos vastasit <quote>kyllä</quote> yhteen näistä kysymyksistä, niin "
+#~ "TortoiseSVN on sinua varten!  Jatkossa selviää, miten TortoiseSVN voi "
+#~ "auttaa sinua. Sen käyttö ei ole kovin monimutkaista."
+#~ msgid "Audience"
+#~ msgstr "Kohdeyleisö"
+#~ msgid "TortoiseSVN is free!"
+#~ msgstr "TortoiseSVN on ilmainen!"
+#~ msgid ""
+#~ "TortoiseSVN is free. You don't have to pay to use it, and you can use it "
+#~ "any way you want. It is developed under the GNU General Public License "
+#~ "(GPL)."
+#~ msgstr ""
+#~ "TortoiseSVN on ilmainen. Sinun ei tarvitse maksaa sen käyttämisestä, ja "
+#~ "voit käyttää sitä kuten haluat. Ohjelmisto käyttää GNUn yleistä lisenssiä "
+#~ "(GNU General Public License)."
+#~ msgid "Community"
+#~ msgstr "Yhteisö"
+#~ msgid "Hackability"
+#~ msgstr "Muunneltavuus"
+#~ msgid ""
+#~ "Subversion has no historical baggage; it is implemented as a collection "
+#~ "of shared C libraries with well-defined APIs. This makes Subversion "
+#~ "extremely maintainable and usable by other applications and languages."
+#~ msgstr ""
+#~ "Subversionilla ei ole historian painolastia (vrt. CVS); se on toteutettu "
+#~ "joukkona jaettuja C-kirjastoja, joilla on selkeät ohjelmointirajapinnat. "
+#~ "Tämä tekee Subversionista erittäin ylläpidettävän ja käyttökelpoisen "
+#~ "muille sovelluksille ja kielille."
 #~ msgid ""
 #~ "<placeholder-1/> This is the main method of the plugin. This method is "
 #~ "called from the TortoiseSVN commit dialog when the user clicks on the "
