@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-04-10 07:10 +0000\n"
+"POT-Creation-Date: 2010-04-21 22:39 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -398,10 +398,6 @@ msgstr ""
 msgid "This section is aimed at people who would like to find out what TortoiseSVN is all about and give it a test drive. It explains how to install TortoiseSVN and set up a local repository, and it walks you through the most commonly used operations."
 msgstr ""
 
-#.(para)
-msgid "Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
-msgstr ""
-
 #.(title)
 msgid "Installing TortoiseSVN"
 msgstr ""
@@ -443,6 +439,180 @@ msgid "If you encounter any problems during or after installing TortoiseSVN plea
 msgstr ""
 
 #.(title)
+msgid "Basic Concepts"
+msgstr ""
+
+#.(para)
+msgid "Before we get stuck into working with some real files, it is important to get an overview of how subversion works and the terms that are used."
+msgstr ""
+
+#.(term)
+#.(title)
+#.(title)
+#.(title)
+msgid "The Repository"
+msgstr ""
+
+#.(para)
+msgid "Subversion uses a central database which contains all your version-controlled files with their complete history. This database is referred to as the <emphasis>repository</emphasis>. The repository normally lives on a file server running the Subversion server program, which supplies content to Subversion clients (like TortoiseSVN) on request. If you only back up one thing, back up your repository as it is the definitive master copy of all your data."
+msgstr ""
+
+#.(term)
+#.(glossterm)
+msgid "Working Copy"
+msgstr ""
+
+#.(para)
+msgid "This is where you do the real work. Every developer has his own working copy, sometimes known as a sandbox, on his local PC. You can pull down the latest version from the repository, work on it locally without affecting anyone else, then when you are happy with the changes you made commit them back to the repository."
+msgstr ""
+
+#.(para)
+msgid "A Subversion working copy does not contain the history of the project, but it does keep a copy of the files as they exist in the repository before you started making changes. This means that it is easy to check exactly what changes you have made."
+msgstr ""
+
+#.(title)
+#.(title)
+msgid "The TortoiseSVN menu for unversioned folders"
+msgstr ""
+
+#.(para)
+msgid "You also need to know where to find TortoiseSVN because there is not much to see from the Start Menu. This is because TortoiseSVN is a Shell extension, so first of all, start Windows Explorer. Right click on a folder in Explorer and you should see some new entries in the context menu like this: <placeholder-1/>"
+msgstr ""
+
+#.(title)
+msgid "Go for a Test Drive"
+msgstr ""
+
+#.(para)
+msgid "This section shows you how to try out some of the most commonly used features on a small test repository. Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
+msgstr ""
+
+#.(title)
+msgid "Creating a Repository"
+msgstr ""
+
+#.(para)
+msgid "For a real project you will have a repository set up somewhere safe and a Subversion server to control it. For the purposes of this tutorial we are going to use Subversion's local repository feature which allows direct access to a repository created on your hard drive without needing a server at all."
+msgstr ""
+
+#.(para)
+msgid "First create a new empty directory on your PC. It can go anywhere, but in this tutorial we are going to call it <filename>C:\\svn_repos</filename>. Now right click on the new folder and from the context menu choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>. The repository is then created inside the folder, ready for you to use."
+msgstr ""
+
+#.(para)
+msgid "The local repository feature is very useful for test and evaluation but unless you are working as a sole developer on one PC you should always use a proper Subversion server. It is tempting in a small company to avoid the work of setting up a server and just access your repository on a network share. Don't ever do that. You will lose data. Read <xref linkend=\"tsvn-repository-local-share\"/> to find out why this is a bad idea, and how to set up a server."
+msgstr ""
+
+#.(title)
+msgid "Importing a Project"
+msgstr ""
+
+#.(title)
+#.(title)
+msgid "The Import dialog"
+msgstr ""
+
+#.(para)
+msgid "Now we have a repository, but it is completely empty at the moment. Let's assume I have a set of files in <filename>C:\\Projects\\Widget1</filename> that I would like to add. Navigate to the <filename>Widget1</filename> folder in Explorer and right click on it. Now select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog <placeholder-1/> A Subversion repository is referred to by URL, which allows us to specify a repository anywhere on the Internet. In this case we need to point to our own local repository which has a URL of <filename>file:///c:/svn_repos/Widget1</filename> Note that there are 3 slashes after <filename>file:</filename> and that the forward slashes are used throughout."
+msgstr ""
+
+#.(para)
+msgid "The other important feature of this dialog is the <guilabel>Import Message</guilabel> box which allows you to enter a message describing what you are doing. When you come to look through your project history, these commit messages are a valuable guide to what changes have been made and why. In this case we can say something simple like <quote>Import the Widget1 project</quote>. Click on <guibutton>OK</guibutton> and the folder is added to your repository."
+msgstr ""
+
+#.(title)
+msgid "Checking out a Working Copy"
+msgstr ""
+
+#.(para)
+msgid "Now that we have a project in our repository, we need to create a working copy to use for day-to-day work. Note that the act of importing a folder does not automatically turn that folder into a working copy. The Subversion term for creating a fresh working copy is <literal>Checkout</literal>. We are going to checkout the Widget1 folder of our repository into a development folder on the PC called <filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then right click on it and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename> and click on <guibutton>OK</guibutton>. Our development folder is then populated with files from the repository."
+msgstr ""
+
+#.(para)
+msgid "You will notice that the appearance of this folder is different from our original folder. Every file has a green check mark in the bottom left corner. These are TortoiseSVN's status icons which are only present in a working copy. The green state indicates that the file is unchanged from the version in the repository."
+msgstr ""
+
+#.(title)
+msgid "Making Changes"
+msgstr ""
+
+#.(para)
+msgid "Time to get to work. In the <filename>Widget1-Dev</filename> we start editing files - let's say we make changes to <filename>Widget1.c</filename> and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files have now changed to red, indicating that changes have been made locally."
+msgstr ""
+
+#.(title)
+msgid "File Difference Viewer"
+msgstr ""
+
+#.(para)
+msgid "But what are the changes? Right click on one of the changed files and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>. TortoiseSVN's file compare tool starts, showing you exactly which lines have changed. <placeholder-1/>"
+msgstr ""
+
+#.(para)
+msgid "OK, so we are happy with the changes, let's update the repository. This action is referred to as a <literal>Commit</literal> of the changes. Right click on the <filename>Widget1-Dev</filename> folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice>. The commit dialog lists the changed files, each with a checkbox. You might want to choose only a subset of those files, but in this case we are going to commit the changes to both files. Enter up a message to describe what the change is all about and click on <guibutton>OK</guibutton>. The progress dialog shows the files being uploaded to the repository and you're done."
+msgstr ""
+
+#.(title)
+msgid "Adding More Files"
+msgstr ""
+
+#.(para)
+msgid "As the project develops you will need to add new files - let's say you add some new features in <filename>Extras.c</filename> and add a reference in the existing <filename>Makefile</filename>. Right click on the folder and <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>. The Add dialog now shows you all unversioned files and you can select which ones you want to add. Another way of adding files would be to right click on the file itself and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
+msgstr ""
+
+#.(para)
+msgid "Now when you go to commit the folder, the new file shows up as <emphasis>Added</emphasis> and the existing file as <emphasis>Modified</emphasis>. Note that you can double click on the modified file to check exactly what changes were made."
+msgstr ""
+
+#.(title)
+msgid "Viewing the Project History"
+msgstr ""
+
+#.(title)
+msgid "The Log Dialog"
+msgstr ""
+
+#.(para)
+msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/>"
+msgstr ""
+
+#.(para)
+msgid "The top pane shows a list of revisions committed along with the start of the commit message. If you select one of these revisions, the middle pane will show the full log message for that revision and the bottom pane will show a list of changed files and folders."
+msgstr ""
+
+#.(para)
+msgid "Each of these panes has a context menu which provides you with lots more ways of using the information. In the bottom pane you can <action>double click</action> on a file to see exactly what changes were made in that revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
+msgstr ""
+
+#.(title)
+msgid "Undoing Changes"
+msgstr ""
+
+#.(para)
+msgid "One feature of all revision control systems is that they let you undo changes that you made previously. As you would expect, TortoiseSVN makes this easy to access."
+msgstr ""
+
+#.(para)
+msgid "If you want to get rid of changes that you have not yet committed and reset your file to the way it was before you started editing, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> is your friend. This discards your changes (to the Recycle bin, just in case) and reverts to the committed version you started with. If you want to get rid of just some of the changes, you can use TortoiseMerge to view the differences and selectively revert changed lines."
+msgstr ""
+
+#.(para)
+msgid "If you want to undo the effects of a particular revision, start with the Log dialog and find the offending revision. Select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> and those changes will be undone."
+msgstr ""
+
+#.(title)
+msgid "Moving On ..."
+msgstr ""
+
+#.(para)
+msgid "This guide has given you a very quick tour of some of TortoiseSVN's most important and useful features, but of course there is far more that we haven't covered. We strongly recommend that you take the time to read the rest of this manual, especially <xref linkend=\"tsvn-dug\"/> which gives you a lot more detail on day-to-day operations."
+msgstr ""
+
+#.(para)
+msgid "We have taken a lot of trouble to make sure that it is both informative and easy to read, but we recognise that there is a lot of it! Take your time and don't be afraid to try things out on a test repository as you go along. The best way to learn is by using it."
+msgstr ""
+
+#.(title)
 msgid "Basic Version-Control Concepts"
 msgstr ""
 
@@ -460,12 +630,6 @@ msgstr ""
 
 #.(para)
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr ""
-
-#.(title)
-#.(title)
-#.(title)
-msgid "The Repository"
 msgstr ""
 
 #.(primary)
@@ -931,10 +1095,6 @@ msgstr ""
 msgid "Creating The Repository With TortoiseSVN"
 msgstr ""
 
-#.(title)
-msgid "The TortoiseSVN menu for unversioned folders"
-msgstr ""
-
 #.(para)
 msgid "Open the windows explorer"
 msgstr ""
@@ -1083,7 +1243,7 @@ msgid "create your desired top-level folder structure inside that folder - don't
 msgstr ""
 
 #.(para)
-msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the url to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
+msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the URL to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
 msgstr ""
 
 #.(para)
@@ -1308,7 +1468,7 @@ msgid "Running svnserve as a user is usually not the best way. It means always h
 msgstr ""
 
 #.(para)
-msgid "To install svnserve as a native windows service, execute the following command all on one line to create a service which is automatically started when windows starts. <screen>\nsc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip \n    start= auto\n</screen> If any of the paths include spaces, you have to use (escaped) quotes around the path, like this: <screen>\nsc create svnserve binpath= \"\n    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n    --service --root c:\\repos\" displayname= \"Subversion\" \n    depend= tcpip start= auto\n</screen> You can also add a description after creating the service. This will show up in the Windows Services Manager. <screen>\nsc description svnserve \"Subversion server (svnserve)\"\n</screen>"
+msgid "To install svnserve as a native windows service, execute the following command all on one line to create a service which is automatically started when windows starts. <screen>\nsc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service\n    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip\n    start= auto\n</screen> If any of the paths include spaces, you have to use (escaped) quotes around the path, like this: <screen>\nsc create svnserve binpath= \"\n    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n    --service --root c:\\repos\" displayname= \"Subversion\"\n    depend= tcpip start= auto\n</screen> You can also add a description after creating the service. This will show up in the Windows Services Manager. <screen>\nsc description svnserve \"Subversion server (svnserve)\"\n</screen>"
 msgstr ""
 
 #.(para)
@@ -1921,7 +2081,7 @@ msgid "The solution is to add the following directive to the virtual host direct
 msgstr ""
 
 #.(para)
-msgid "To summarise, the relevant lines of the Apache configuration are: <screen>\nSSLVerifyClient Optional\n\n### Virtual host configuration for the PUBLIC host \n### (not requiring a certificate)\n\n&lt;VirtualHost 127.0.0.1:443&gt;\n  &lt;Directory \"pathtopublicfileroot\"&gt;\n  &lt;/Directory&gt;\n&lt;/VirtualHost&gt;\n\n### Virtual host configuration for SUBVERSION \n### (requiring a client certificate)\n&lt;VirtualHost 127.0.0.1:443&gt;\n  &lt;Directory \"subversion host root path\"&gt;\n    SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n  &lt;/Directory&gt;\n\n  &lt;Location /svn&gt;\n    DAV svn\n    SVNParentPath /pathtorepository\n  &lt;/Location&gt;\n&lt;/VirtualHost&gt;\n</screen>"
+msgid "To summarise, the relevant lines of the Apache configuration are: <screen>\nSSLVerifyClient Optional\n\n### Virtual host configuration for the PUBLIC host\n### (not requiring a certificate)\n\n&lt;VirtualHost 127.0.0.1:443&gt;\n  &lt;Directory \"pathtopublicfileroot\"&gt;\n  &lt;/Directory&gt;\n&lt;/VirtualHost&gt;\n\n### Virtual host configuration for SUBVERSION\n### (requiring a client certificate)\n&lt;VirtualHost 127.0.0.1:443&gt;\n  &lt;Directory \"subversion host root path\"&gt;\n    SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n  &lt;/Directory&gt;\n\n  &lt;Location /svn&gt;\n    DAV svn\n    SVNParentPath /pathtorepository\n  &lt;/Location&gt;\n&lt;/VirtualHost&gt;\n</screen>"
 msgstr ""
 
 #.(title)
@@ -2186,10 +2346,6 @@ msgstr ""
 
 #.(para)
 msgid "Before you import your project into a repository you should: <placeholder-1/>"
-msgstr ""
-
-#.(title)
-msgid "The Import dialog"
 msgstr ""
 
 #.(para)
@@ -2837,7 +2993,7 @@ msgid "This is the file that your Subversion client just received from the serve
 msgstr ""
 
 #.(para)
-msgid "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n\t\tyour changes\n\t=======\n\t\tcode merged from repository\n\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n\t</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
+msgid "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n    &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n        your changes\n    =======\n        code merged from repository\n    &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n    </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
 
 #.(para)
@@ -9044,7 +9200,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\n// testCOM.js - javascript file\n// test script for the SubWCRev COM/Automation-object\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n\nwcInfoString1 = \"Revision = \" + revObject1.Revision + \n\t\t\t\t\"\\nMin Revision = \" + revObject1.MinRev + \n\t\t\t\t\"\\nMax Revision = \" + revObject1.MaxRev + \n\t\t\t\t\"\\nDate = \" + revObject1.Date + \n\t\t\t\t\"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" + \n\t\t\t\trevObject1.Author + \"\\nHasMods = \" + \n\t\t\t\trevObject1.HasModifications + \"\\nIsSvnItem = \" + \n\t\t\t\trevObject1.IsSvnItem + \"\\nNeedsLocking = \" + \n\t\t\t\trevObject1.NeedsLocking + \"\\nIsLocked = \" + \n\t\t\t\trevObject1.IsLocked + \"\\nLockCreationDate = \" + \n\t\t\t\trevObject1.LockCreationDate + \"\\nLockOwner = \" + \n\t\t\t\trevObject1.LockOwner + \"\\nLockComment = \" + \n\t\t\t\trevObject1.LockComment;\nwcInfoString2 = \"Revision = \" + revObject2.Revision + \n\t\t\t\t\"\\nMin Revision = \" + revObject2.MinRev + \n\t\t\t\t\"\\nMax Revision = \" + revObject2.MaxRev + \n\t\t\t\t\"\\nDate = \" + revObject2.Date + \n\t\t\t\t\"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" + \n\t\t\t\trevObject2.Author + \"\\nHasMods = \" + \n\t\t\t\trevObject2.HasModifications + \"\\nIsSvnItem = \" + \n\t\t\t\trevObject2.IsSvnItem + \"\\nNeedsLocking = \" + \n\t\t\t\trevObject2.NeedsLocking + \"\\nIsLocked = \" + \n\t\t\t\trevObject2.IsLocked + \"\\nLockCreationDate = \" + \n\t\t\t\trevObject2.LockCreationDate + \"\\nLockOwner = \" + \n\t\t\t\trevObject2.LockOwner + \"\\nLockComment = \" + \n\t\t\t\trevObject2.LockComment;\nwcInfoString3 = \"Revision = \" + revObject3.Revision + \n\t\t\t\t\"\\nMin Revision = \" + revObject3.MinRev + \n\t\t\t\t\"\\nMax Revision = \" + revObject3.MaxRev + \n\t\t\t\t\"\\nDate = \" + revObject3.Date + \n\t\t\t\t\"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" + \n\t\t\t\trevObject3.Author + \"\\nHasMods = \" + \n\t\t\t\trevObject3.HasModifications + \"\\nIsSvnItem = \" + \n\t\t\t\trevObject3.IsSvnItem + \"\\nNeedsLocking = \" + \n\t\t\t\trevObject3.NeedsLocking + \"\\nIsLocked = \" + \n\t\t\t\trevObject3.IsLocked + \"\\nLockCreationDate = \" + \n\t\t\t\trevObject3.LockCreationDate + \"\\nLockOwner = \" + \n\t\t\t\trevObject3.LockOwner + \"\\nLockComment = \" + \n\t\t\t\trevObject3.LockComment;\nwcInfoString4 = \"Revision = \" + revObject4.Revision + \n\t\t\t\t\"\\nMin Revision = \" + revObject4.MinRev + \n\t\t\t\t\"\\nMax Revision = \" + revObject4.MaxRev + \n\t\t\t\t\"\\nDate = \" + revObject4.Date + \n\t\t\t\t\"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" + \n\t\t\t\trevObject4.Author + \"\\nHasMods = \" + \n\t\t\t\trevObject4.HasModifications + \"\\nIsSvnItem = \" + \n\t\t\t\trevObject4.IsSvnItem + \"\\nNeedsLocking = \" + \n\t\t\t\trevObject4.NeedsLocking + \"\\nIsLocked = \" + \n\t\t\t\trevObject4.IsLocked + \"\\nLockCreationDate = \" + \n\t\t\t\trevObject4.LockCreationDate + \"\\nLockOwner = \" + \n\t\t\t\trevObject4.LockOwner + \"\\nLockComment = \" + \n\t\t\t\trevObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
+msgid "\n// testCOM.js - javascript file\n// test script for the SubWCRev COM/Automation-object\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n\nwcInfoString1 = \"Revision = \" + revObject1.Revision +\n                \"\\nMin Revision = \" + revObject1.MinRev +\n                \"\\nMax Revision = \" + revObject1.MaxRev +\n                \"\\nDate = \" + revObject1.Date +\n                \"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" +\n                revObject1.Author + \"\\nHasMods = \" +\n                revObject1.HasModifications + \"\\nIsSvnItem = \" +\n                revObject1.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject1.NeedsLocking + \"\\nIsLocked = \" +\n                revObject1.IsLocked + \"\\nLockCreationDate = \" +\n                revObject1.LockCreationDate + \"\\nLockOwner = \" +\n                revObject1.LockOwner + \"\\nLockComment = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Revision = \" + revObject2.Revision +\n                \"\\nMin Revision = \" + revObject2.MinRev +\n                \"\\nMax Revision = \" + revObject2.MaxRev +\n                \"\\nDate = \" + revObject2.Date +\n                \"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" +\n                revObject2.Author + \"\\nHasMods = \" +\n                revObject2.HasModifications + \"\\nIsSvnItem = \" +\n                revObject2.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject2.NeedsLocking + \"\\nIsLocked = \" +\n                revObject2.IsLocked + \"\\nLockCreationDate = \" +\n                revObject2.LockCreationDate + \"\\nLockOwner = \" +\n                revObject2.LockOwner + \"\\nLockComment = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Revision = \" + revObject3.Revision +\n                \"\\nMin Revision = \" + revObject3.MinRev +\n                \"\\nMax Revision = \" + revObject3.MaxRev +\n                \"\\nDate = \" + revObject3.Date +\n                \"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" +\n                revObject3.Author + \"\\nHasMods = \" +\n                revObject3.HasModifications + \"\\nIsSvnItem = \" +\n                revObject3.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject3.NeedsLocking + \"\\nIsLocked = \" +\n                revObject3.IsLocked + \"\\nLockCreationDate = \" +\n                revObject3.LockCreationDate + \"\\nLockOwner = \" +\n                revObject3.LockOwner + \"\\nLockComment = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Revision = \" + revObject4.Revision +\n                \"\\nMin Revision = \" + revObject4.MinRev +\n                \"\\nMax Revision = \" + revObject4.MaxRev +\n                \"\\nDate = \" + revObject4.Date +\n                \"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" +\n                revObject4.Author + \"\\nHasMods = \" +\n                revObject4.HasModifications + \"\\nIsSvnItem = \" +\n                revObject4.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject4.NeedsLocking + \"\\nIsLocked = \" +\n                revObject4.IsLocked + \"\\nLockCreationDate = \" +\n                revObject4.LockCreationDate + \"\\nLockOwner = \" +\n                revObject4.LockOwner + \"\\nLockComment = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
 msgstr ""
 
 #.(para)
@@ -11378,10 +11534,6 @@ msgstr ""
 
 #.(para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr ""
-
-#.(glossterm)
-msgid "Working Copy"
 msgstr ""
 
 #.(para)
