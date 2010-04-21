@@ -139,7 +139,7 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
             LR_DEFAULTSIZE|LR_CREATEDIBSECTION));
         cBitmap.GetBitmap(&bmBitmap);
 
-        CSize       cSize(bmBitmap.bmWidth, bmBitmap.bmHeight); 
+        CSize       cSize(bmBitmap.bmWidth, bmBitmap.bmHeight);
         int         nNbBtn = cSize.cx/20;
         RGBTRIPLE * rgb = (RGBTRIPLE*)(bmBitmap.bmBits);
         COLORREF    rgbMask = RGB(rgb[0].rgbtRed, rgb[0].rgbtGreen, rgb[0].rgbtBlue);
@@ -147,7 +147,7 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
         cImageList.Create(20, cSize.cy, ILC_COLOR32|ILC_MASK, nNbBtn, 0);
         cImageList.Add(&cBitmap, rgbMask);
         m_ToolBar.SendMessage(TB_SETIMAGELIST, 0, (LPARAM)cImageList.m_hImageList);
-        cImageList.Detach(); 
+        cImageList.Detach();
         cBitmap.Detach();
     }
     RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
@@ -224,7 +224,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
     m_pTaskbarList.Release();
     m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList);
 
-    CSyncPointer<CAllRevisionGraphOptions> 
+    CSyncPointer<CAllRevisionGraphOptions>
         options (m_Graph.m_state.GetOptions());
 
     for (size_t i = 0; i < options->count(); ++i)
@@ -478,7 +478,7 @@ void CRevisionGraphDlg::UpdateFullHistory()
     m_Graph.SetDlgTitle (false);
 
     SVN svn;
-    LogCache::CRepositoryInfo& cachedProperties 
+    LogCache::CRepositoryInfo& cachedProperties
         = svn.GetLogCachePool()->GetRepositoryInfo();
     CString root = m_Graph.m_state.GetRepositoryRoot();
     CString uuid = m_Graph.m_state.GetRepositoryUUID();
@@ -548,7 +548,7 @@ BOOL CRevisionGraphDlg::ToggleOption (UINT controlID)
         m_ToolBar.GetToolBarCtrl().SetState(controlID, tbstate | TBSTATE_CHECKED);
     }
 
-    CSyncPointer<CAllRevisionGraphOptions> 
+    CSyncPointer<CAllRevisionGraphOptions>
         options (m_Graph.m_state.GetOptions());
     if (((state & MF_CHECKED) != 0) == options->IsSelected (controlID))
         options->ToggleSelection (controlID);
@@ -691,7 +691,7 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
     if (pNMHDR->code == TTN_NEEDTEXTA && (pTTTA->uFlags & TTF_IDISHWND) ||
         pNMHDR->code == TTN_NEEDTEXTW && (pTTTW->uFlags & TTF_IDISHWND))
     {
-        // idFrom is actually the HWND of the tool 
+        // idFrom is actually the HWND of the tool
         nID = ::GetDlgCtrlID((HWND)nID);
     }
 
@@ -727,7 +727,7 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 
 void CRevisionGraphDlg::OnViewFilter()
 {
-    CSyncPointer<CAllRevisionGraphOptions> 
+    CSyncPointer<CAllRevisionGraphOptions>
         options (m_Graph.m_state.GetOptions());
 
     CRevisionInRange* revisionRange = options->GetOption<CRevisionInRange>();

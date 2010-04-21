@@ -38,10 +38,10 @@
 
 // ===========================================================================
 // CExceptionReport
-// 
+//
 // See the module comment at top of file.
 //
-class CExceptionReport  
+class CExceptionReport
 {
 public:
     CExceptionReport(PEXCEPTION_POINTERS ExceptionInfo, BSTR message);
@@ -77,11 +77,11 @@ private:
 
    static void writeDumpFile(HANDLE file, PEXCEPTION_POINTERS m_excpInfo, void *data);
 
-   MSXML2::IXMLDOMNode* CreateDOMNode(MSXML2::IXMLDOMDocument* pDoc, 
-                                            int type, 
+   MSXML2::IXMLDOMNode* CreateDOMNode(MSXML2::IXMLDOMDocument* pDoc,
+                                            int type,
                                             BSTR bstrName);
 
-   MSXML2::IXMLDOMNode* CreateExceptionRecordNode(MSXML2::IXMLDOMDocument* pDoc, 
+   MSXML2::IXMLDOMNode* CreateExceptionRecordNode(MSXML2::IXMLDOMDocument* pDoc,
                                                         EXCEPTION_RECORD* pExceptionRecord);
    static void CreateExceptionSymbolAttributes(DWORD_PTR address, const char *ImageName,
                                       const char *FunctionName, DWORD_PTR functionDisp,

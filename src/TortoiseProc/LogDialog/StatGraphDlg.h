@@ -106,7 +106,7 @@ protected:
     //TODO: try substitute map to hash_map
     /// The mapping type used to store data per interval/week and author.
     typedef std::map<int, std::map<tstring, LONG> > IntervalDataMap;
-    
+
     //TODO: try substitute few Maps to one map, that store needs informations about Authors
     /// The mapping type used to store data per author.
     typedef std::map<tstring, LONG>                 AuthorDataMap;
@@ -154,7 +154,7 @@ protected:
 
     /// Rolling Percentage Of Authorship of author to integer
     int RollPercentageOfAuthorship(double it);
-    
+
     /// Load list of drawing authors
     template <class MAP> void LoadListOfAuthors (MAP &map, bool reloadSkiper = false, bool compare = false);
 
@@ -179,8 +179,8 @@ protected:
     bool  PreViewStat(bool fShowLabels);
     /// PreShow Graphic function
     MyGraphSeries * PreViewGraph(__in UINT GraphTitle, __in UINT YAxisLabel, __in UINT XAxisLabel = NULL);
-	/// Show Selected Static metric
-	void ShowSelectStat(Metrics  SelectedMetric, bool reloadSkiper = false);
+    /// Show Selected Static metric
+    void ShowSelectStat(Metrics  SelectedMetric, bool reloadSkiper = false);
 
     int                     GetUnitCount();
     int                     GetUnit(const CTime& time);

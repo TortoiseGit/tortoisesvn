@@ -25,19 +25,19 @@ static TSymbolEngineMap g_cSymMap;
 
 static CSymbolEngine & GetSymbolEngine()
 {
-	DWORD CurrProcessId = GetCurrentProcessId();
-	TSymbolEngineMap::iterator	iter;
-	iter = g_cSymMap.lower_bound(CurrProcessId);
-	if (iter == g_cSymMap.end() || iter->first != CurrProcessId) {
-		CSymbolEngine	cSym;
-	    HANDLE hProcess = GetCurrentProcess ( ) ;
+    DWORD CurrProcessId = GetCurrentProcessId();
+    TSymbolEngineMap::iterator  iter;
+    iter = g_cSymMap.lower_bound(CurrProcessId);
+    if (iter == g_cSymMap.end() || iter->first != CurrProcessId) {
+        CSymbolEngine   cSym;
+        HANDLE hProcess = GetCurrentProcess ( ) ;
         DWORD dwOpts = SymGetOptions ( ) ;
 
         // Turn on load lines.
         SymSetOptions ( dwOpts                |
-						SYMOPT_LOAD_LINES      ) ;
-		iter = g_cSymMap.insert(iter, std::make_pair(CurrProcessId, CSymbolEngine()));
-		if ( FALSE == iter->second.SymInitialize ( hProcess ,
+                        SYMOPT_LOAD_LINES      ) ;
+        iter = g_cSymMap.insert(iter, std::make_pair(CurrProcessId, CSymbolEngine()));
+        if ( FALSE == iter->second.SymInitialize ( hProcess ,
                                              NULL     ,
                                              TRUE     ) )
             {
@@ -49,14 +49,14 @@ static CSymbolEngine & GetSymbolEngine()
 #endif
             }
       }
-	return iter->second;
+    return iter->second;
 }
 
 static DWORD_PTR __stdcall GetModBase ( HANDLE hProcess , DWORD_PTR dwAddr )
 {
     // Check in the symbol engine first.
     IMAGEHLP_MODULE stIHM ;
-	CSymbolEngine	& cSym = GetSymbolEngine();
+    CSymbolEngine   & cSym = GetSymbolEngine();
     // This is what the MFC stack trace routines forgot to do so their
     //  code will not get the info out of the symbol engine.
     stIHM.SizeOfStruct = sizeof ( IMAGEHLP_MODULE ) ;
@@ -103,8 +103,8 @@ static DWORD_PTR __stdcall GetModBase ( HANDLE hProcess , DWORD_PTR dwAddr )
                                    NULL                             ,
                                    (DWORD)stMBI.AllocationBase      ,
                                    0                                 );
-			::CloseHandle(hFile);
-			
+            ::CloseHandle(hFile);
+
 #ifdef NOTDEF_DEBUG
             if ( 0 == dwRet )
             {
@@ -119,54 +119,54 @@ static DWORD_PTR __stdcall GetModBase ( HANDLE hProcess , DWORD_PTR dwAddr )
 }
 
 static void PrintAddress (DWORD_PTR address, const char *ImageName,
-									  const char *FunctionName, DWORD_PTR functionDisp,
-									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
-									  void * /* data, unused */ )
+                                      const char *FunctionName, DWORD_PTR functionDisp,
+                                      const char *Filename, DWORD LineNumber, DWORD lineDisp,
+                                      void * /* data, unused */ )
 {
     static char buffer [ MAX_PATH*2 + 512 ];
    LPTSTR pCurrPos = buffer ;
     // Always stick the address in first.
     pCurrPos += _snprintf ( pCurrPos ,  sizeof buffer - (pCurrPos - buffer), addressFormat , address ) ;
 
-	if (ImageName != NULL) {
-		LPCTSTR szName = strchr ( ImageName ,  ( '\\' ) ) ;
-		if ( NULL != szName ) {
-			szName++ ;
-		} else {
-			szName = const_cast<char *>(ImageName) ;
-		}
-		pCurrPos += _snprintf ( pCurrPos ,  sizeof buffer - (pCurrPos - buffer), ( "%s: " ) , szName ) ;
-	} else {
+    if (ImageName != NULL) {
+        LPCTSTR szName = strchr ( ImageName ,  ( '\\' ) ) ;
+        if ( NULL != szName ) {
+            szName++ ;
+        } else {
+            szName = const_cast<char *>(ImageName) ;
+        }
+        pCurrPos += _snprintf ( pCurrPos ,  sizeof buffer - (pCurrPos - buffer), ( "%s: " ) , szName ) ;
+    } else {
         pCurrPos += _snprintf ( pCurrPos , sizeof buffer - (pCurrPos - buffer),  ( "<unknown module>: " ) );
-	}
-	if (FunctionName != NULL) {
+    }
+    if (FunctionName != NULL) {
         if ( 0 == functionDisp ) {
             pCurrPos += _snprintf ( pCurrPos , sizeof buffer - (pCurrPos - buffer),  ( "%s" ) , FunctionName);
-		} else {
-            pCurrPos += _snprintf ( pCurrPos               , sizeof buffer - (pCurrPos - buffer), 
+        } else {
+            pCurrPos += _snprintf ( pCurrPos               , sizeof buffer - (pCurrPos - buffer),
                                     ( "%s + %d bytes" ) ,
                                    FunctionName             ,
                                    functionDisp                  ) ;
-		}
-		if (Filename != NULL) {
+        }
+        if (Filename != NULL) {
             // Put this on the next line and indented a bit.
-			pCurrPos += _snprintf( pCurrPos, sizeof buffer - (pCurrPos - buffer), "-\n");
+            pCurrPos += _snprintf( pCurrPos, sizeof buffer - (pCurrPos - buffer), "-\n");
             OutputDebugString(buffer);
             pCurrPos = buffer;
-            pCurrPos += _snprintf ( pCurrPos                  , sizeof buffer - (pCurrPos - buffer), 
+            pCurrPos += _snprintf ( pCurrPos                  , sizeof buffer - (pCurrPos - buffer),
                                    ( "\t\t%s, Line %d" ) ,
                                   Filename             ,
                                   LineNumber            ) ;
             if ( 0 != lineDisp )
                   {
-                pCurrPos += _snprintf ( pCurrPos             , sizeof buffer - (pCurrPos - buffer), 
+                pCurrPos += _snprintf ( pCurrPos             , sizeof buffer - (pCurrPos - buffer),
                                         ( " + %d bytes" ) ,
                                        lineDisp                ) ;
                   }
-		}
-	} else {
+        }
+    } else {
         pCurrPos += _snprintf ( pCurrPos , sizeof buffer - (pCurrPos - buffer),  ( "<unknown symbol>" ) ) ;
-	}
+    }
     // Tack on a CRLF.
     pCurrPos += _snprintf ( pCurrPos , sizeof buffer - (pCurrPos - buffer),  ( "\n" ) ) ;
     OutputDebugString ( buffer );
@@ -182,11 +182,11 @@ void AddressToSymbol(DWORD_PTR dwAddr, TraceCallbackFunction pFunction, LPVOID d
     IMAGEHLP_MODULE stIHM ;
     IMAGEHLP_LINE stIHL ;
 
- 	bool haveModule = false;
-	bool haveFunction = false;
-	bool haveLine = false;
+    bool haveModule = false;
+    bool haveFunction = false;
+    bool haveLine = false;
 
-	CSymbolEngine & cSym = GetSymbolEngine();
+    CSymbolEngine & cSym = GetSymbolEngine();
 
     SecureZeroMemory ( pIHS , MAX_PATH + sizeof ( IMAGEHLP_SYMBOL ) ) ;
     SecureZeroMemory ( &stIHM , sizeof ( IMAGEHLP_MODULE ) ) ;
@@ -200,14 +200,14 @@ void AddressToSymbol(DWORD_PTR dwAddr, TraceCallbackFunction pFunction, LPVOID d
 
 
     // Get the module name.
-	haveModule = (0 != cSym.SymGetModuleInfo ( dwAddr , &stIHM ));
+    haveModule = (0 != cSym.SymGetModuleInfo ( dwAddr , &stIHM ));
 
     // Get the function.
     DWORD_PTR dwFuncDisp=0 ;
-	DWORD dwLineDisp=0;
+    DWORD dwLineDisp=0;
     if ( 0 != cSym.SymGetSymFromAddr ( dwAddr , &dwFuncDisp , pIHS ) )
       {
-		haveFunction = true;
+        haveFunction = true;
 
 
         // If I got a symbol, give the source and line a whirl.
@@ -219,37 +219,37 @@ void AddressToSymbol(DWORD_PTR dwAddr, TraceCallbackFunction pFunction, LPVOID d
                                               &dwLineDisp ,
                                               &stIHL   );
       }
-	if (pFunction != NULL) {
+    if (pFunction != NULL) {
 
-		pFunction(dwAddr, haveModule ? stIHM.ImageName : NULL,
-			haveFunction ? pIHS->Name : NULL, dwFuncDisp,
-			haveLine ? stIHL.FileName : NULL, haveLine ? stIHL.LineNumber : 0, dwLineDisp,
-			data);
-	}
+        pFunction(dwAddr, haveModule ? stIHM.ImageName : NULL,
+            haveFunction ? pIHS->Name : NULL, dwFuncDisp,
+            haveLine ? stIHL.FileName : NULL, haveLine ? stIHL.LineNumber : 0, dwLineDisp,
+            data);
+    }
 }
 
 void DoStackTrace ( int numSkip, int depth, TraceCallbackFunction pFunction, CONTEXT *pContext, LPVOID data )
 {
     HANDLE hProcess = GetCurrentProcess ( ) ;
 
-	if (pFunction == NULL) {
-		pFunction = PrintAddress;
-	}
+    if (pFunction == NULL) {
+        pFunction = PrintAddress;
+    }
 
     // The symbol engine is initialized so do the stack walk.
 
     // The thread information - if not supplied.
     CONTEXT    stCtx  ;
-	if (pContext == NULL) {
+    if (pContext == NULL) {
 
-		stCtx.ContextFlags = CONTEXT_FULL ;
+        stCtx.ContextFlags = CONTEXT_FULL ;
 
-		if ( GetThreadContext ( GetCurrentThread ( ) , &stCtx ) )
-		  {
-			pContext = &stCtx;
-		}
-	}
-	if (pContext != NULL) {
+        if ( GetThreadContext ( GetCurrentThread ( ) , &stCtx ) )
+          {
+            pContext = &stCtx;
+        }
+    }
+    if (pContext != NULL) {
         STACKFRAME stFrame ;
         DWORD      dwMachine ;
 
@@ -286,7 +286,7 @@ void DoStackTrace ( int numSkip, int depth, TraceCallbackFunction pFunction, CON
             if ( FALSE == StackWalk ( dwMachine              ,
                                       hProcess               ,
                                       //hProcess               ,
-									  GetCurrentThread(),
+                                      GetCurrentThread(),
                                       &stFrame               ,
                                       pContext               ,
                                       NULL                   ,
@@ -302,7 +302,7 @@ void DoStackTrace ( int numSkip, int depth, TraceCallbackFunction pFunction, CON
                 //  StackWalk returns TRUE with a frame of zero.
                 if ( 0 != stFrame.AddrPC.Offset )
                         {
-			            AddressToSymbol ( stFrame.AddrPC.Offset, pFunction, data ) ;
+                        AddressToSymbol ( stFrame.AddrPC.Offset, pFunction, data ) ;
                         }
                   }
             }

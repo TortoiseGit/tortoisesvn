@@ -62,15 +62,15 @@ SVNDiff::~SVNDiff(void)
 }
 
 bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
-                        svn_wc_status_kind text_status /* = svn_wc_status_none */, 
-                        svn_wc_status_kind prop_status /* = svn_wc_status_none */, 
-                        svn_wc_status_kind remotetext_status /* = svn_wc_status_none */, 
+                        svn_wc_status_kind text_status /* = svn_wc_status_none */,
+                        svn_wc_status_kind prop_status /* = svn_wc_status_none */,
+                        svn_wc_status_kind remotetext_status /* = svn_wc_status_none */,
                         svn_wc_status_kind remoteprop_status /* = svn_wc_status_none */)
 {
     CTSVNPath basePath;
     CTSVNPath remotePath;
     svn_revnum_t baseRev = 0;
-    
+
     // first diff the remote properties against the wc props
     // TODO: should we attempt to do a three way diff with the properties too
     // if they're modified locally and remotely?
@@ -236,7 +236,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 {
     tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(_T("Test.diff")));
     bool bIsUrl = !!SVN::PathIsURL(url1);
-    
+
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
     progDlg.SetAnimation(IDR_DOWNLOAD);
@@ -279,10 +279,10 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     return true;
 }
 
-bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, 
-                              const CTSVNPath& url2, const SVNRev& rev2, 
-                              SVNRev peg /* = SVNRev() */, 
-                              bool bIgnoreAncestry /* = false */, 
+bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
+                              const CTSVNPath& url2, const SVNRev& rev2,
+                              SVNRev peg /* = SVNRev() */,
+                              bool bIgnoreAncestry /* = false */,
                               bool /*blame*/)
 {
     CTSVNPath tempfile;
@@ -306,15 +306,15 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
     return false;
 }
 
-bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, 
-                          const CTSVNPath& url2, const SVNRev& rev2, 
+bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
+                          const CTSVNPath& url2, const SVNRev& rev2,
                           SVNRev peg /* = SVNRev() */,
                           bool ignoreancestry /* = false */,
                           bool blame /* = false */,
                           svn_node_kind_t nodekind /* = svn_node_unknown */)
 {
     CTSVNPath tempfile;
-    
+
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
     progDlg.SetAnimation(IDR_DOWNLOAD);
@@ -328,7 +328,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
         // no working copy path!
         progDlg.ShowModeless(m_hWnd);
 
-        tempfile = CTempFiles::Instance().GetTempFilePath(false, url1);     
+        tempfile = CTempFiles::Instance().GetTempFilePath(false, url1);
         // first find out if the url points to a file or dir
         CString sRepoRoot;
         if ((nodekind != svn_node_dir)&&(nodekind != svn_node_file))
@@ -470,7 +470,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                 }
             }
             SetFileAttributes(tempfile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-            
+
             progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url2.GetUIPathString(), (LPCTSTR)rev2.ToString());
             if (blame)
             {
@@ -562,7 +562,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                 sWC.LoadString(IDS_DIFF_WORKINGCOPY);
                 sRev.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev2);
                 progDlg.Stop();
-                m_pSVN->SetAndClearProgressInfo((HWND)NULL);                
+                m_pSVN->SetAndClearProgressInfo((HWND)NULL);
                 return !!CAppUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, sRev, TRUE);
             }
         }
@@ -597,7 +597,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                         CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
-                } 
+                }
                 progDlg.Stop();
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);
                 SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
@@ -636,7 +636,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                         CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
-                } 
+                }
                 progDlg.Stop();
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);
                 SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);

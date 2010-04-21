@@ -36,7 +36,7 @@ BOOL CToolTips::OnTtnNeedText(NMHDR *pNMHDR, LRESULT *pResult)
 
         if (lpnmtdi->uFlags & TTF_IDISHWND)
         {
-            // idFrom is actually the HWND of the tool 
+            // idFrom is actually the HWND of the tool
             nID = ::GetDlgCtrlID((HWND)nID);
         }
         if (toolTextMap.find((unsigned int)nID) != toolTextMap.end())

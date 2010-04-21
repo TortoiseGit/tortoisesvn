@@ -73,7 +73,7 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev revi
             // the inner loop assures that the resulting path is < MAX_PATH
             // if that's not possible without reducing the 'filename' to less than 5 chars, use a path
             // that's longer than MAX_PATH (in that case, we can't really do much to avoid longer paths)
-            do 
+            do
             {
                 if (revision.IsValid())
                 {
@@ -85,7 +85,7 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev revi
                 }
                 tempfile.SetFromWin(possibletempfile);
                 filename = filename.Left(filename.GetLength()-1);
-            } while (   (filename.GetLength() > 4) 
+            } while (   (filename.GetLength() > 4)
                      && (revision.IsValid() || tempfile.GetWinPathString().GetLength() >= MAX_PATH));
             i++;
         } while (PathFileExists(tempfile.GetWinPath()));
@@ -104,7 +104,7 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
         CTSVNPath tempfile = ConstructTempPath (path, revision);
 
         // now create the temp file / directory, so that subsequent calls to GetTempFile() return
-        // different filenames. 
+        // different filenames.
         // Handle races, i.e. name collisions.
 
         if (directory)
@@ -124,7 +124,7 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
             else
             {
                 CloseHandle(hFile);
-                succeeded = true;           
+                succeeded = true;
             }
         }
 

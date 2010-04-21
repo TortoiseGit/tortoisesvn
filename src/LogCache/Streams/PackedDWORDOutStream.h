@@ -28,34 +28,34 @@
 //
 // CPackedDWORDOutStreamBase
 //
-//		Base class for write streams that store DWORD-sized
-//		data in a space efficient format. CBinaryOutStreamBase
-//		is used as a base class for stream data handling.
+//      Base class for write streams that store DWORD-sized
+//      data in a space efficient format. CBinaryOutStreamBase
+//      is used as a base class for stream data handling.
 //
-//		DWORDs are stored as follows:
+//      DWORDs are stored as follows:
 //
-//		* a sequence of 1 .. 5 bytes in 7/8 codes
-//		  (i.e. 7 data bits per byte)
-//		* the highest bit is used to indicate whether this
-//		  is the last byte of the value (0) or if more bytes
-//		  follow (1)
-//		* the data is stored in little-endian order
-//		  (i.e the first byte contains bits 0..6, the next
-//		   byte 7 .. 13 and so on)
+//      * a sequence of 1 .. 5 bytes in 7/8 codes
+//        (i.e. 7 data bits per byte)
+//      * the highest bit is used to indicate whether this
+//        is the last byte of the value (0) or if more bytes
+//        follow (1)
+//      * the data is stored in little-endian order
+//        (i.e the first byte contains bits 0..6, the next
+//         byte 7 .. 13 and so on)
 //
-//		However, the incoming data gets run-length encoded
-//		before being written to the stream. This is because 
-//		most integer streams have larger sections of constant
-//		values (saves approx. 10% of total log cache size).
+//      However, the incoming data gets run-length encoded
+//      before being written to the stream. This is because
+//      most integer streams have larger sections of constant
+//      values (saves approx. 10% of total log cache size).
 //
-//		Encoding scheme:
+//      Encoding scheme:
 //
-//		* 0 indicates a packed value. It is followed by the
-//		  the number of repetitions followed by the value itself
-//		* an compressed value is stored as value+1
-//		* initial lastValue is 0
+//      * 0 indicates a packed value. It is followed by the
+//        the number of repetitions followed by the value itself
+//      * an compressed value is stored as value+1
+//      * initial lastValue is 0
 //
-//		Note, that 0xffffffff CANNOT be stored!
+//      Note, that 0xffffffff CANNOT be stored!
 //
 ///////////////////////////////////////////////////////////////
 
@@ -63,35 +63,35 @@ class CPackedDWORDOutStreamBase : public CBinaryOutStreamBase
 {
 protected:
 
-	// differential storage:
-	// the last value we received through Add() and the
-	// how many times we already got that value in a row
+    // differential storage:
+    // the last value we received through Add() and the
+    // how many times we already got that value in a row
 
-	DWORD lastValue;
-	DWORD count;
+    DWORD lastValue;
+    DWORD count;
 
-	// add data to the stream
+    // add data to the stream
 
-	void InternalAdd (DWORD value) throw();
-	void FlushLastValue() throw();
+    void InternalAdd (DWORD value) throw();
+    void FlushLastValue() throw();
 
-	// compression (RLE) support
+    // compression (RLE) support
 
-	void Add (DWORD value) throw();
+    void Add (DWORD value) throw();
 
-	virtual void FlushData();
+    virtual void FlushData();
 
 public:
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CPackedDWORDOutStreamBase ( CCacheFileOutBuffer* aBuffer
-						      , SUB_STREAM_ID anID);
-	virtual ~CPackedDWORDOutStreamBase() {};
+    CPackedDWORDOutStreamBase ( CCacheFileOutBuffer* aBuffer
+                              , SUB_STREAM_ID anID);
+    virtual ~CPackedDWORDOutStreamBase() {};
 
-	// plain data access
+    // plain data access
 
-	void AddSizeValue (size_t value);
+    void AddSizeValue (size_t value);
 };
 
 ///////////////////////////////////////////////////////////////
@@ -100,17 +100,17 @@ public:
 
 inline void CPackedDWORDOutStreamBase::InternalAdd (DWORD value) throw()
 {
-	for (;;)
-	{
-		if (value < 0x80)
-		{
-			CBinaryOutStreamBase::Add ((unsigned char)value);
-			return;
-		}
-		
-		CBinaryOutStreamBase::Add ((unsigned char)(value & 0x7f) + 0x80);
-		value >>= 7;
-	}
+    for (;;)
+    {
+        if (value < 0x80)
+        {
+            CBinaryOutStreamBase::Add ((unsigned char)value);
+            return;
+        }
+
+        CBinaryOutStreamBase::Add ((unsigned char)(value & 0x7f) + 0x80);
+        value >>= 7;
+    }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -119,109 +119,109 @@ inline void CPackedDWORDOutStreamBase::InternalAdd (DWORD value) throw()
 
 inline void CPackedDWORDOutStreamBase::Add (DWORD value) throw()
 {
-	// that is the only value we cannot represent
+    // that is the only value we cannot represent
 
-	assert (value != (DWORD)-1);
+    assert (value != (DWORD)-1);
 
-	if (value == lastValue)
-	{
-		++count;
-	}
-	else
-	{
-		if (count == 1)
-		{
-			InternalAdd (lastValue+1);
-		}
-		else if ((count == 2) && (lastValue < 0x80))
-		{
-			InternalAdd (lastValue+1);
-			InternalAdd (lastValue+1);
-			count = 1;
-		}
-		else
-		{
-			FlushLastValue();
-			count = 1;
-		}
+    if (value == lastValue)
+    {
+        ++count;
+    }
+    else
+    {
+        if (count == 1)
+        {
+            InternalAdd (lastValue+1);
+        }
+        else if ((count == 2) && (lastValue < 0x80))
+        {
+            InternalAdd (lastValue+1);
+            InternalAdd (lastValue+1);
+            count = 1;
+        }
+        else
+        {
+            FlushLastValue();
+            count = 1;
+        }
 
-		lastValue = value;
-	}
+        lastValue = value;
+    }
 }
 
 // plain data access
 
 inline void CPackedDWORDOutStreamBase::AddSizeValue (size_t value)
 {
-	InternalAdd (static_cast<DWORD>(value));
+    InternalAdd (static_cast<DWORD>(value));
 }
 
 ///////////////////////////////////////////////////////////////
 //
 // CPackedDWORDOutStream
 //
-//		instantiable sub-class of CPackedDWORDOutStreamBase.
+//      instantiable sub-class of CPackedDWORDOutStreamBase.
 //
 ///////////////////////////////////////////////////////////////
 
-class CPackedDWORDOutStream 
-	: public COutStreamImplBase< CPackedDWORDOutStream
-							   , CPackedDWORDOutStreamBase
-		                       , PACKED_DWORD_STREAM_TYPE_ID>
+class CPackedDWORDOutStream
+    : public COutStreamImplBase< CPackedDWORDOutStream
+                               , CPackedDWORDOutStreamBase
+                               , PACKED_DWORD_STREAM_TYPE_ID>
 {
 public:
 
-	typedef COutStreamImplBase< CPackedDWORDOutStream
-							  , CPackedDWORDOutStreamBase
-							  , PACKED_DWORD_STREAM_TYPE_ID> TBase;
+    typedef COutStreamImplBase< CPackedDWORDOutStream
+                              , CPackedDWORDOutStreamBase
+                              , PACKED_DWORD_STREAM_TYPE_ID> TBase;
 
-	typedef DWORD value_type;
+    typedef DWORD value_type;
 
-	// construction / destruction: nothing special to do
+    // construction / destruction: nothing special to do
 
-	CPackedDWORDOutStream ( CCacheFileOutBuffer* aBuffer
-						  , SUB_STREAM_ID anID);
-	virtual ~CPackedDWORDOutStream() {};
+    CPackedDWORDOutStream ( CCacheFileOutBuffer* aBuffer
+                          , SUB_STREAM_ID anID);
+    virtual ~CPackedDWORDOutStream() {};
 
-	// public Add() methods
+    // public Add() methods
 
-	using TBase::Add;
+    using TBase::Add;
 };
 
 ///////////////////////////////////////////////////////////////
 //
-// operator<< 
+// operator<<
 //
-//		for CPackedDWORDOutStreamBase derived streams and vectors.
+//      for CPackedDWORDOutStreamBase derived streams and vectors.
 //
 ///////////////////////////////////////////////////////////////
 
 template<class S, class V>
 S& operator<< (S& stream, const std::vector<V>& data)
 {
-	// write total entry count and entries
+    // write total entry count and entries
 
-	size_t count = data.size();
-	stream.AddSizeValue (count);
+    size_t count = data.size();
+    stream.AddSizeValue (count);
 
-	// efficiently add all entries
-	// (don't use iterators here as they come with some index checking overhead)
+    // efficiently add all entries
+    // (don't use iterators here as they come with some index checking overhead)
 
-	if (count > 0)
-		for ( const V* iter = &data.front(), *end = iter + count
-			; iter != end
-			; ++iter)
-		{
-			stream.Add ((typename S::value_type)(*iter));
-		}
+    if (count > 0)
+        for ( const V* iter = &data.front(), *end = iter + count
+            ; iter != end
+            ; ++iter)
+        {
+            stream.Add ((typename S::value_type)(*iter));
+        }
 
 
-	// just close the stream 
-	// (i.e. flush to disk and empty internal buffers)
+    // just close the stream
+    // (i.e. flush to disk and empty internal buffers)
 
-	stream.AutoClose();
+    stream.AutoClose();
 
-	return stream;
+    return stream;
 }
 
 
@@ -245,7 +245,7 @@ S* WriteStream (S* stream, const std::vector<T>* data, V T::*member)
         }
 
 
-    // just close the stream 
+    // just close the stream
     // (i.e. flush to disk and empty internal buffers)
 
     stream->AutoClose();

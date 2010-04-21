@@ -46,12 +46,12 @@ bool CLogIteratorBase::PathInRevision
         ; iter != last
         ; ++iter)
     {
-        // if (and only if) path is a cached path, 
+        // if (and only if) path is a cached path,
         // it may be a parent of the changedPath
         // (i.e. report a change of this or some sub-path)
 
         CDictionaryBasedPath changedPath = iter->GetPath();
-        if (   path.IsFullyCachedPath() 
+        if (   path.IsFullyCachedPath()
             && path.GetBasePath().IsSameOrParentOf (changedPath))
             return true;
 
@@ -77,7 +77,7 @@ bool CLogIteratorBase::PathInRevision() const
 {
     assert (!InternalDataIsMissing());
 
-    // special case: repository root 
+    // special case: repository root
     // (report all revisions including empty ones)
 
     if (path.IsRoot())
@@ -105,7 +105,7 @@ bool CLogIteratorBase::PathInRevision() const
 
 // Test, whether InternalHandleCopyAndDelete() should be used
 
-bool CLogIteratorBase::ContainsCopyOrDelete 
+bool CLogIteratorBase::ContainsCopyOrDelete
     ( const CRevisionInfoContainer::CChangesIterator& first
     , const CRevisionInfoContainer::CChangesIterator& last)
 {
@@ -131,7 +131,7 @@ bool CLogIteratorBase::ContainsCopyOrDelete
 // if there is a copy / replace.
 // Set revision to NO_REVISION, if path is deleted.
 
-bool CLogIteratorBase::InternalHandleCopyAndDelete 
+bool CLogIteratorBase::InternalHandleCopyAndDelete
     ( const CRevisionInfoContainer::CChangesIterator& first
     , const CRevisionInfoContainer::CChangesIterator& last
     , const CDictionaryBasedPath& revisionRootPath
@@ -200,7 +200,7 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
                     // our path: /trunk/file
                     // renamed to
                     // /trunk/project/file
-                    // 
+                    //
                     // this can only happen if
                     // /trunk/project
                     // is added first (usually without a copy from path)
@@ -276,7 +276,7 @@ void CLogIteratorBase::AdvanceOneStep()
 
     while (InternalDataIsMissing())
     {
-        revision_t nextRevision = SkipNARevisions(); 
+        revision_t nextRevision = SkipNARevisions();
         if (nextRevision != NO_REVISION)
             revision = nextRevision;
         else
@@ -297,7 +297,7 @@ void CLogIteratorBase::InternalAdvance (revision_t last)
     while ((revision > last) && !InternalDataIsMissing() && !PathInRevision());
 }
 
-// construction 
+// construction
 // (copy construction & assignment use default methods)
 
 CLogIteratorBase::CLogIteratorBase ( const CCachedLogInfo* cachedLog
@@ -349,13 +349,13 @@ void CLogIteratorBase::Advance (revision_t last)
 
         if (HandleCopyAndDelete())
         {
-            // revision may have been set to NO_REVISION, 
+            // revision may have been set to NO_REVISION,
             // e.g. if a deletion has been found
 
             if (revision != NO_REVISION)
             {
                 // switched to a new path
-                // -> retry access on that new path 
+                // -> retry access on that new path
                 // (especially, we must try (copy-from-) revision)
 
                 Retry();

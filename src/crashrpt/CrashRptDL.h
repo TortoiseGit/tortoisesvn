@@ -48,22 +48,22 @@
 typedef BOOL (CALLBACK *LPGETLOGFILE) (LPVOID lpvState);
 // Stack trace callback
 typedef void (*TraceCallbackFunction)(DWORD address, const char *ImageName,
-									  const char *FunctionName, DWORD functionDisp,
-									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
-									  void *data);
+                                      const char *FunctionName, DWORD functionDisp,
+                                      const char *Filename, DWORD LineNumber, DWORD lineDisp,
+                                      void *data);
 
 // macro to create the inline forwarding function
 #define CRASHRPT_DECLARE(function, declare1, declare2, arguments) \
  __inline int function##DL declare1 \
  { \
-	 typedef void (*function##_t) declare2; \
-	 function##_t p##function; \
-	 p##function = (function##_t) GetProcAddress(hModule, #function); \
-	 if (p##function != NULL) { \
-		 p##function arguments; \
-		 return 1; \
-	 } \
-	 return 0; \
+     typedef void (*function##_t) declare2; \
+     function##_t p##function; \
+     p##function = (function##_t) GetProcAddress(hModule, #function); \
+     if (p##function != NULL) { \
+         p##function arguments; \
+         return 1; \
+     } \
+     return 0; \
  }
 
 
@@ -82,11 +82,11 @@ typedef void (*TraceCallbackFunction)(DWORD address, const char *ImageName,
 // Remarks
 //    none
 //
-__inline 
+__inline
 HMODULE
 GetInstanceDL()
 {
-	return LoadLibrary("CrashRpt");
+    return LoadLibrary("CrashRpt");
 }
 
 //-----------------------------------------------------------------------------
@@ -104,7 +104,7 @@ GetInstanceDL()
 //    non-zero if successful
 //
 // Remarks
-//    Passing NULL for lpTo will disable the email feature and cause the crash 
+//    Passing NULL for lpTo will disable the email feature and cause the crash
 //    report to be saved to disk.
 //
 CRASHRPT_DECLARE(Install, (IN HMODULE hModule, IN LPGETLOGFILE pfn, IN LPCTSTR lpTo OPTIONAL, IN LPCTSTR lpSubject OPTIONAL),  \
@@ -122,13 +122,13 @@ CRASHRPT_DECLARE(Install, (IN HMODULE hModule, IN LPGETLOGFILE pfn, IN LPCTSTR l
 //    non-zero if successful
 //
 // Remarks
-//    This call is optional.  The crash report library will automatically 
+//    This call is optional.  The crash report library will automatically
 //    deinitialize when the library is unloaded.  Call this function to
 //    unhook the exception filter manually.
 //
 CRASHRPT_DECLARE(Uninstall, (IN HMODULE hModule),  \
                             (), \
-							())
+                            ())
 //-----------------------------------------------------------------------------
 // ReleaseInstanceDL
 //    Releases the library.
@@ -142,12 +142,12 @@ CRASHRPT_DECLARE(Uninstall, (IN HMODULE hModule),  \
 // Remarks
 //    This will call UninstallDL before releasing the library.
 //
-__inline 
+__inline
 void
 ReleaseInstanceDL(IN HMODULE hModule)
 {
-	UninstallDL(hModule);
-	FreeLibrary(hModule);
+    UninstallDL(hModule);
+    FreeLibrary(hModule);
 }
 
 //-----------------------------------------------------------------------------
@@ -274,7 +274,7 @@ CRASHRPT_DECLARE(RemoveEventLog, (IN HMODULE hModule, IN LPCTSTR lpEventLog),  \
 // Parameters
 //    hModule     Module handle returned from GetInstanceDL()
 //    pExInfo     Optional; exception information
-//	  message     Optional; message to include in report
+//    message     Optional; message to include in report
 //
 // Return Values
 //    non-zero if successful
@@ -290,21 +290,21 @@ GenerateErrorReportDL(
    IN BSTR message OPTIONAL
    )
 {
-	// we can't use GenerateErrorReport(), because that is lacking the PEXCEPTION_POINTERS parameter
-	LPVOID instance;
+    // we can't use GenerateErrorReport(), because that is lacking the PEXCEPTION_POINTERS parameter
+    LPVOID instance;
     typedef LPVOID (*GetInstance_t) ();
     GetInstance_t pGetInstance;
     pGetInstance = (GetInstance_t) GetProcAddress(hModule, "GetInstance");
     if (pGetInstance != NULL) {
-		typedef void (*GenerateErrorReportEx_t)(LPVOID lpState, PEXCEPTION_POINTERS pExInfo, BSTR message);
-		GenerateErrorReportEx_t pGenerateErrorReportEx;
+        typedef void (*GenerateErrorReportEx_t)(LPVOID lpState, PEXCEPTION_POINTERS pExInfo, BSTR message);
+        GenerateErrorReportEx_t pGenerateErrorReportEx;
 
-		instance = pGetInstance();
-		pGenerateErrorReportEx = (GenerateErrorReportEx_t) GetProcAddress(hModule, "GenerateErrorReportEx");
-		if (pGenerateErrorReportEx != NULL) {
-			pGenerateErrorReportEx(instance, pExInfo, message);
-			return 1;
-		}
+        instance = pGetInstance();
+        pGenerateErrorReportEx = (GenerateErrorReportEx_t) GetProcAddress(hModule, "GenerateErrorReportEx");
+        if (pGenerateErrorReportEx != NULL) {
+            pGenerateErrorReportEx(instance, pExInfo, message);
+            return 1;
+        }
     }
     return 0;
 }
@@ -318,7 +318,7 @@ GenerateErrorReportDL(
 //    hModule     Module handle returned from GetInstanceDL()
 //    numSkip     Number of initial stack frames to skip
 //    depth       Number of stack frames to process
-//	  pFunction   Optional; function to call for each frame
+//    pFunction   Optional; function to call for each frame
 //    pContext    Optional; stack context to trace
 //
 // Return Values

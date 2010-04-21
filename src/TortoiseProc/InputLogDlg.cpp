@@ -30,8 +30,8 @@
 IMPLEMENT_DYNAMIC(CInputLogDlg, CResizableStandAloneDialog)
 
 CInputLogDlg::CInputLogDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CInputLogDlg::IDD, pParent)
-	, m_pProjectProperties(NULL)
+    : CResizableStandAloneDialog(CInputLogDlg::IDD, pParent)
+    , m_pProjectProperties(NULL)
     , m_bForceFocus(false)
 {
 
@@ -43,73 +43,73 @@ CInputLogDlg::~CInputLogDlg()
 
 void CInputLogDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_INPUTTEXT, m_cInput);
+    CResizableStandAloneDialog::DoDataExchange(pDX);
+    DDX_Control(pDX, IDC_INPUTTEXT, m_cInput);
 }
 
 
 BEGIN_MESSAGE_MAP(CInputLogDlg, CResizableStandAloneDialog)
-	ON_EN_CHANGE(IDC_INPUTTEXT, OnEnChangeLogmessage)
-	ON_BN_CLICKED(IDC_HISTORY, &CInputLogDlg::OnBnClickedHistory)
+    ON_EN_CHANGE(IDC_INPUTTEXT, OnEnChangeLogmessage)
+    ON_BN_CLICKED(IDC_HISTORY, &CInputLogDlg::OnBnClickedHistory)
 END_MESSAGE_MAP()
 
 
 BOOL CInputLogDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+    CResizableStandAloneDialog::OnInitDialog();
 
-	ExtendFrameIntoClientArea(IDC_GROUPBOX);
-	m_aeroControls.SubclassOkCancel(this);
+    ExtendFrameIntoClientArea(IDC_GROUPBOX);
+    m_aeroControls.SubclassOkCancel(this);
 
 #ifdef DEBUG
-	if (m_pProjectProperties == NULL)
-		TRACE("InputLogDlg: project properties not set\n");
-	if (m_sActionText.IsEmpty())
-		TRACE("InputLogDlg: action text not set\n");
-	if (m_sUUID.IsEmpty())
-		TRACE("InputLogDlg: repository UUID not set\n");
+    if (m_pProjectProperties == NULL)
+        TRACE("InputLogDlg: project properties not set\n");
+    if (m_sActionText.IsEmpty())
+        TRACE("InputLogDlg: action text not set\n");
+    if (m_sUUID.IsEmpty())
+        TRACE("InputLogDlg: repository UUID not set\n");
 #endif
 
-	if (m_pProjectProperties)
-		m_cInput.Init(*m_pProjectProperties);
-	else
-		m_cInput.Init();
+    if (m_pProjectProperties)
+        m_cInput.Init(*m_pProjectProperties);
+    else
+        m_cInput.Init();
 
-	m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+    m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
-	if (m_pProjectProperties)
-	{
-		if (m_pProjectProperties->nLogWidthMarker)
-		{
-			m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
-			m_cInput.Call(SCI_SETEDGEMODE, EDGE_LINE);
-			m_cInput.Call(SCI_SETEDGECOLUMN, m_pProjectProperties->nLogWidthMarker);
-		}
-		else
-		{
-			m_cInput.Call(SCI_SETEDGEMODE, EDGE_NONE);
-			m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
-		}
-		m_cInput.SetText(m_pProjectProperties->sLogTemplate);
-	}
+    if (m_pProjectProperties)
+    {
+        if (m_pProjectProperties->nLogWidthMarker)
+        {
+            m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
+            m_cInput.Call(SCI_SETEDGEMODE, EDGE_LINE);
+            m_cInput.Call(SCI_SETEDGECOLUMN, m_pProjectProperties->nLogWidthMarker);
+        }
+        else
+        {
+            m_cInput.Call(SCI_SETEDGEMODE, EDGE_NONE);
+            m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
+        }
+        m_cInput.SetText(m_pProjectProperties->sLogTemplate);
+    }
 
-	CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
-	CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
+    CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
+    CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
 
-	SetDlgItemText(IDC_ACTIONLABEL, m_sActionText);
+    SetDlgItemText(IDC_ACTIONLABEL, m_sActionText);
 
-	AddAnchor(IDC_ACTIONLABEL, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_GROUPBOX, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_HISTORY, TOP_LEFT);
-	AddAnchor(IDC_INPUTTEXT, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-	AddAnchor(IDOK, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("InputDlg"));
-	if (hWndExplorer)
-		CenterWindow(CWnd::FromHandle(hWndExplorer));
+    AddAnchor(IDC_ACTIONLABEL, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_GROUPBOX, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_HISTORY, TOP_LEFT);
+    AddAnchor(IDC_INPUTTEXT, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    AddAnchor(IDOK, BOTTOM_RIGHT);
+    EnableSaveRestore(_T("InputDlg"));
+    if (hWndExplorer)
+        CenterWindow(CWnd::FromHandle(hWndExplorer));
 
     // HACK! Under certain conditions, the dialog box
-    // will not get the input focus. 
+    // will not get the input focus.
     // Call SetForceFocus() to work around that problem.
 
     if (m_bForceFocus)
@@ -118,79 +118,79 @@ BOOL CInputLogDlg::OnInitDialog()
         ShowWindow (SW_SHOW);
     }
 
-	GetDlgItem(IDC_INPUTTEXT)->SetFocus();
-	return FALSE;
+    GetDlgItem(IDC_INPUTTEXT)->SetFocus();
+    return FALSE;
 }
 
 void CInputLogDlg::OnOK()
 {
-	UpdateData();
-	m_sLogMsg = m_cInput.GetText();
-	
-	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_sUUID);
+    UpdateData();
+    m_sLogMsg = m_cInput.GetText();
 
-	CRegHistory history;
-	history.Load(reg, _T("logmsgs"));
-	history.AddEntry(m_sLogMsg);
-	history.Save();
+    CString reg;
+    reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_sUUID);
 
-	CResizableStandAloneDialog::OnOK();
+    CRegHistory history;
+    history.Load(reg, _T("logmsgs"));
+    history.AddEntry(m_sLogMsg);
+    history.Save();
+
+    CResizableStandAloneDialog::OnOK();
 }
 
 BOOL CInputLogDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if (pMsg->message == WM_KEYDOWN)
-	{
-		switch (pMsg->wParam)
-		{
-		case VK_RETURN:
-			if (OnEnterPressed())
-				return TRUE;
-			break;
-		}
-	}
+    if (pMsg->message == WM_KEYDOWN)
+    {
+        switch (pMsg->wParam)
+        {
+        case VK_RETURN:
+            if (OnEnterPressed())
+                return TRUE;
+            break;
+        }
+    }
 
-	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CInputLogDlg::OnEnChangeLogmessage()
 {
-	UpdateOKButton();
+    UpdateOKButton();
 }
 
 void CInputLogDlg::UpdateOKButton()
 {
-	CString sTemp = m_cInput.GetText();
-	if (((m_pProjectProperties==NULL)||(sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)))
-	{
-		DialogEnableWindow(IDOK, TRUE);
-	}
-	else
-	{
-		DialogEnableWindow(IDOK, FALSE);
-	}
+    CString sTemp = m_cInput.GetText();
+    if (((m_pProjectProperties==NULL)||(sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)))
+    {
+        DialogEnableWindow(IDOK, TRUE);
+    }
+    else
+    {
+        DialogEnableWindow(IDOK, FALSE);
+    }
 }
 
 void CInputLogDlg::OnBnClickedHistory()
 {
-	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_sUUID);
-	CRegHistory history;
-	history.Load(reg, _T("logmsgs"));
-	CHistoryDlg HistoryDlg;
-	HistoryDlg.SetHistory(history);
-	if (HistoryDlg.DoModal()==IDOK)
-	{
-		if (HistoryDlg.GetSelectedText().Compare(m_cInput.GetText().Left(HistoryDlg.GetSelectedText().GetLength()))!=0)
-		{
-			if ((m_pProjectProperties)&&(m_pProjectProperties->sLogTemplate.Compare(m_cInput.GetText())!=0))
-				m_cInput.InsertText(HistoryDlg.GetSelectedText(), !m_cInput.GetText().IsEmpty());
-			else
-				m_cInput.SetText(HistoryDlg.GetSelectedText());
-		}
+    CString reg;
+    reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_sUUID);
+    CRegHistory history;
+    history.Load(reg, _T("logmsgs"));
+    CHistoryDlg HistoryDlg;
+    HistoryDlg.SetHistory(history);
+    if (HistoryDlg.DoModal()==IDOK)
+    {
+        if (HistoryDlg.GetSelectedText().Compare(m_cInput.GetText().Left(HistoryDlg.GetSelectedText().GetLength()))!=0)
+        {
+            if ((m_pProjectProperties)&&(m_pProjectProperties->sLogTemplate.Compare(m_cInput.GetText())!=0))
+                m_cInput.InsertText(HistoryDlg.GetSelectedText(), !m_cInput.GetText().IsEmpty());
+            else
+                m_cInput.SetText(HistoryDlg.GetSelectedText());
+        }
 
-		UpdateOKButton();
-		GetDlgItem(IDC_INPUTTEXT)->SetFocus();
-	}
+        UpdateOKButton();
+        GetDlgItem(IDC_INPUTTEXT)->SetFocus();
+    }
 }

@@ -26,7 +26,7 @@
 IMPLEMENT_DYNAMIC(CEditPropExternals, CResizableStandAloneDialog)
 
 CEditPropExternals::CEditPropExternals(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CEditPropExternals::IDD, pParent)
+    : CResizableStandAloneDialog(CEditPropExternals::IDD, pParent)
     , EditPropBase()
 {
 
@@ -202,12 +202,12 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
             {
                 switch (pDispInfo->item.iSubItem)
                 {
-                case 0:	// folder or file
+                case 0: // folder or file
                     {
                         lstrcpyn(m_columnbuf, ext.targetDir, pDispInfo->item.cchTextMax);
                     }
                     break;
-                case 1:	// url
+                case 1: // url
                     {
                         lstrcpyn(m_columnbuf, ext.url, pDispInfo->item.cchTextMax);
                         SVNRev peg(ext.pegrevision);

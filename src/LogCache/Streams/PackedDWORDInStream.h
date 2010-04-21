@@ -28,8 +28,8 @@
 //
 // CPackedDWORDInStreamBase
 //
-//      Base class for all read streams containing packed 
-//      integer data. See CPackedDWORDOutStreamBase for details 
+//      Base class for all read streams containing packed
+//      integer data. See CPackedDWORDOutStreamBase for details
 //      of the storage format.
 //
 ///////////////////////////////////////////////////////////////
@@ -109,7 +109,7 @@ inline size_t CPackedDWORDInStreamBase::GetSizeValue()
 //
 ///////////////////////////////////////////////////////////////
 
-class CPackedDWORDInStream 
+class CPackedDWORDInStream
     : public CInStreamImplBase< CPackedDWORDInStream
                               , CPackedDWORDInStreamBase
                               , PACKED_DWORD_STREAM_TYPE_ID>
@@ -135,7 +135,7 @@ public:
 
 ///////////////////////////////////////////////////////////////
 //
-// operator>> 
+// operator>>
 //
 //      for CPackedDWORDInStreamBase derived streams and vectors.
 //

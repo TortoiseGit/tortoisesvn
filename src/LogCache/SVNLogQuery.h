@@ -35,13 +35,13 @@ class CSVNLogQuery : public ILogQuery
 {
 private:
 
-	/// our client context info
+    /// our client context info
 
-	svn_client_ctx_t *context;
+    svn_client_ctx_t *context;
 
-	/// the memory pool to use
+    /// the memory pool to use
 
-	apr_pool_t *pool;
+    apr_pool_t *pool;
 
     /// callback baton structure
 
@@ -71,22 +71,22 @@ private:
 
 public:
 
-	/// construction / destruction
+    /// construction / destruction
 
-	CSVNLogQuery ( svn_client_ctx_t *context
-				 , apr_pool_t *pool);
-	virtual ~CSVNLogQuery(void);
+    CSVNLogQuery ( svn_client_ctx_t *context
+                 , apr_pool_t *pool);
+    virtual ~CSVNLogQuery(void);
 
-	/// query a section from log for multiple paths
-	/// (special revisions, like "HEAD", supported)
+    /// query a section from log for multiple paths
+    /// (special revisions, like "HEAD", supported)
 
-	virtual void Log ( const CTSVNPathList& targets
-					 , const SVNRev& peg_revision
-					 , const SVNRev& start
-					 , const SVNRev& end
-					 , int limit
-					 , bool strictNodeHistory
-					 , ILogReceiver* receiver
+    virtual void Log ( const CTSVNPathList& targets
+                     , const SVNRev& peg_revision
+                     , const SVNRev& start
+                     , const SVNRev& end
+                     , int limit
+                     , bool strictNodeHistory
+                     , ILogReceiver* receiver
                      , bool includeChanges
                      , bool includeMerges
                      , bool includeStandardRevProps

@@ -53,7 +53,7 @@ namespace
 
         static CWaitableEventPool* GetInstance();
 
-        // recycling interface: 
+        // recycling interface:
         // alloc at request
 
         HANDLE Alloc();
@@ -81,7 +81,7 @@ namespace
         return &instance;
     }
 
-    // recycling interface: 
+    // recycling interface:
     // alloc at request
 
     HANDLE CWaitableEventPool::Alloc()
@@ -173,13 +173,13 @@ void COneShotEvent::WaitFor()
 
 bool COneShotEvent::WaitForEndOrTimeout(DWORD milliSeconds)
 {
-	if (state == FALSE)
-	{
-		CWaitableEventPool::GetInstance()->AutoAlloc (event);
-		return WaitForSingleObject (event, milliSeconds) == WAIT_OBJECT_0;
-	}
+    if (state == FALSE)
+    {
+        CWaitableEventPool::GetInstance()->AutoAlloc (event);
+        return WaitForSingleObject (event, milliSeconds) == WAIT_OBJECT_0;
+    }
 
-	return true;
+    return true;
 }
 
 // construction / destruction: manage event handle
@@ -218,7 +218,7 @@ void CWaitableEvent::WaitFor()
 
 bool CWaitableEvent::WaitForEndOrTimeout(DWORD milliSeconds)
 {
-	return WaitForSingleObject (event, milliSeconds) == WAIT_OBJECT_0;
+    return WaitForSingleObject (event, milliSeconds) == WAIT_OBJECT_0;
 }
 
 

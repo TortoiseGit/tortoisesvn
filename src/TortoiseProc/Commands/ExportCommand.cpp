@@ -141,7 +141,7 @@ bool ExportCommand::Execute()
                 saveplace += _T("\\") + cmdLinePath.GetFileOrDirectoryName();
                 TRACE(_T("export %s to %s\n"), (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
                 SVN svn;
-                if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, 
+                if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC,
                     bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, svn_depth_infinity,
                     hwndExplorer, !!folderBrowser.m_bCheck))
                 {

@@ -595,7 +595,7 @@ void CStatGraphDlg::GatherData()
         m_PercentageOfAuthorship[*it] =  (m_PercentageOfAuthorship[*it] *100)/ AllContributionAuthor;
     }
 
-    // All done, now the statistics pages can retrieve the data and 
+    // All done, now the statistics pages can retrieve the data and
     // extract the information to be shown.
 
 }
@@ -639,8 +639,8 @@ bool  CStatGraphDlg::PreViewStat(bool fShowLabels)
     //If view graphic
     if (!fShowLabels) ClearGraph();
 
-    // This function relies on a previous call of GatherData(). 
-    // This can be detected by checking the week count. 
+    // This function relies on a previous call of GatherData().
+    // This can be detected by checking the week count.
     // If the week count is equal to -1, it hasn't been called before.
     if (m_nWeeks == -1)
         GatherData();
@@ -653,11 +653,11 @@ bool  CStatGraphDlg::PreViewStat(bool fShowLabels)
 
 MyGraphSeries *CStatGraphDlg::PreViewGraph(__in UINT GraphTitle, __in UINT YAxisLabel, __in UINT XAxisLabel /*= NULL*/)
 {
-    if(!PreViewStat(false)) 
+    if(!PreViewStat(false))
         return NULL;
 
     // We need at least one author
-    if (m_authorNames.empty()) 
+    if (m_authorNames.empty())
         return NULL;
 
     // Add a single series to the chart
@@ -682,8 +682,8 @@ MyGraphSeries *CStatGraphDlg::PreViewGraph(__in UINT GraphTitle, __in UINT YAxis
 void CStatGraphDlg::ShowPercentageOfAuthorship()
 {
     // Set up the graph.
-    MyGraphSeries * graphData = PreViewGraph(IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP, 
-        IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIPY, 
+    MyGraphSeries * graphData = PreViewGraph(IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP,
+        IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIPY,
         IDS_STATGRAPH_COMMITSBYAUTHORX);
     if(graphData == NULL) return;
 
@@ -717,8 +717,8 @@ void CStatGraphDlg::ShowPercentageOfAuthorship()
 void CStatGraphDlg::ShowCommitsByAuthor()
 {
     // Set up the graph.
-    MyGraphSeries * graphData = PreViewGraph(IDS_STATGRAPH_COMMITSBYAUTHOR, 
-        IDS_STATGRAPH_COMMITSBYAUTHORY, 
+    MyGraphSeries * graphData = PreViewGraph(IDS_STATGRAPH_COMMITSBYAUTHOR,
+        IDS_STATGRAPH_COMMITSBYAUTHORY,
         IDS_STATGRAPH_COMMITSBYAUTHORX);
     if(graphData == NULL) return;
 
@@ -727,7 +727,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
     std::list<tstring> others;
     FilterSkippedAuthors(authors, others);
 
-    // Loop over all authors in the authors list and 
+    // Loop over all authors in the authors list and
     // add them to the graph.
 
     if (authors.size())
@@ -994,7 +994,7 @@ void CStatGraphDlg::ShowStats()
     }
 }
 
-int CStatGraphDlg::RollPercentageOfAuthorship(double it) 
+int CStatGraphDlg::RollPercentageOfAuthorship(double it)
 { return (int)it + (it - (int)it >= 0.5);}
 
 void CStatGraphDlg::OnCbnSelchangeGraphcombo()
@@ -1522,7 +1522,7 @@ void CStatGraphDlg::ShowSelectStat(Metrics SelectedMetric, bool reloadSkiper /* 
         ShowCommitsByAuthor();
         break;
     case PercentageOfAuthorship:
-		LoadListOfAuthors(m_PercentageOfAuthorship, reloadSkiper, true);
+        LoadListOfAuthors(m_PercentageOfAuthorship, reloadSkiper, true);
         ShowPercentageOfAuthorship();
         break;
     default:
@@ -1530,12 +1530,12 @@ void CStatGraphDlg::ShowSelectStat(Metrics SelectedMetric, bool reloadSkiper /* 
     }
 }
 
-double CStatGraphDlg::CoeffContribution(int distFromEnd) { return distFromEnd  ? 1.0 / m_CoeffAuthorShip * distFromEnd : 1;} 
+double CStatGraphDlg::CoeffContribution(int distFromEnd) { return distFromEnd  ? 1.0 / m_CoeffAuthorShip * distFromEnd : 1;}
 
 
 template <class MAP>
 void CStatGraphDlg::DrawOthers(const std::list<tstring> &others, MyGraphSeries *graphData, MAP &map)
-{    
+{
     int  nCommits = 0;
     for (std::list<tstring>::const_iterator it = others.begin(); it != others.end(); ++it)
     {
@@ -1558,7 +1558,7 @@ void CStatGraphDlg::LoadListOfAuthors (MAP &map, bool reloadSkiper/*= false*/,  
     m_authorNames.clear();
     if (map.size())
     {
-        for (MAP::const_iterator it = map.begin(); it != map.end(); ++it) 
+        for (MAP::const_iterator it = map.begin(); it != map.end(); ++it)
         {
             if ((compare && RollPercentageOfAuthorship(map[it->first]) != 0) || !compare)
                 m_authorNames.push_back(it->first);

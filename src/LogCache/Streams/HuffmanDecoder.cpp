@@ -197,7 +197,7 @@ void CHuffmanDecoder::Decode (const BYTE*& source, BYTE*& target)
     }
     else
     {
-        // read all the decode-info 
+        // read all the decode-info
 
         BuildDecodeTable (localSource);
 

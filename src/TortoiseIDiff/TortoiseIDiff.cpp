@@ -26,8 +26,8 @@
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 // Global Variables:
-HINSTANCE hInst;								// current instance
-HINSTANCE hResource;							// the resource dll
+HINSTANCE hInst;                                // current instance
+HINSTANCE hResource;                            // the resource dll
 HCURSOR   curHand;
 HCURSOR   curHandDown;
 
@@ -36,82 +36,82 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                      LPTSTR    lpCmdLine,
                      int       nCmdShow)
 {
-	UNREFERENCED_PARAMETER(hPrevInstance);
+    UNREFERENCED_PARAMETER(hPrevInstance);
 
-	CRegStdDWORD loc = CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
-	long langId = loc;
+    CRegStdDWORD loc = CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
+    long langId = loc;
 
-	CLangDll langDLL;
-	hResource = langDLL.Init(_T("TortoiseIDiff"), langId);
-	if (hResource == NULL)
-		hResource = hInstance;
+    CLangDll langDLL;
+    hResource = langDLL.Init(_T("TortoiseIDiff"), langId);
+    if (hResource == NULL)
+        hResource = hInstance;
 
-	CCmdLineParser parser(lpCmdLine);
+    CCmdLineParser parser(lpCmdLine);
 
-	if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
-	{
-		TCHAR buf[1024];
-		LoadString(hResource, IDS_COMMANDLINEHELP, buf, sizeof(buf)/sizeof(TCHAR));
-		MessageBox(NULL, buf, _T("TortoiseIDiff"), MB_ICONINFORMATION);
-		langDLL.Close();
-		return 0;
-	}
+    if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
+    {
+        TCHAR buf[1024];
+        LoadString(hResource, IDS_COMMANDLINEHELP, buf, sizeof(buf)/sizeof(TCHAR));
+        MessageBox(NULL, buf, _T("TortoiseIDiff"), MB_ICONINFORMATION);
+        langDLL.Close();
+        return 0;
+    }
 
 
-	MSG msg;
-	HACCEL hAccelTable;
+    MSG msg;
+    HACCEL hAccelTable;
 
-	hInst = hInstance;
+    hInst = hInstance;
 
-	INITCOMMONCONTROLSEX used = {
-		sizeof(INITCOMMONCONTROLSEX),
-		ICC_STANDARD_CLASSES | ICC_BAR_CLASSES | ICC_WIN95_CLASSES
-	};
-	InitCommonControlsEx(&used);
+    INITCOMMONCONTROLSEX used = {
+        sizeof(INITCOMMONCONTROLSEX),
+        ICC_STANDARD_CLASSES | ICC_BAR_CLASSES | ICC_WIN95_CLASSES
+    };
+    InitCommonControlsEx(&used);
 
-	// load the cursors we need
-	curHand = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
-	curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
+    // load the cursors we need
+    curHand = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
+    curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
-	CMainWindow mainWindow(hResource);
-	mainWindow.SetRegistryPath(_T("Software\\TortoiseSVN\\TortoiseIDiffWindowPos"));
+    CMainWindow mainWindow(hResource);
+    mainWindow.SetRegistryPath(_T("Software\\TortoiseSVN\\TortoiseIDiffWindowPos"));
 
-	mainWindow.SetLeft(parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T(""), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
-	mainWindow.SetRight(parser.HasVal(_T("right")) ? parser.GetVal(_T("right")) : _T(""), parser.HasVal(_T("righttitle")) ? parser.GetVal(_T("righttitle")) : _T(""));
-	if (mainWindow.RegisterAndCreateWindow())
-	{
-		hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(IDR_TORTOISEIDIFF));
-		if (!parser.HasVal(_T("left")))
-		{
-			PostMessage(mainWindow, WM_COMMAND, ID_FILE_OPEN, 0);
-		}
-		if (parser.HasKey(_T("overlay")))
-		{
-			PostMessage(mainWindow, WM_COMMAND, ID_VIEW_OVERLAPIMAGES, 0);
-		}
-		if (parser.HasKey(_T("fit")))
-		{
-			PostMessage(mainWindow, WM_COMMAND, ID_VIEW_FITTOGETHER, 0);
-		}
-		if (parser.HasKey(_T("showinfo")))
-		{
-			PostMessage(mainWindow, WM_COMMAND, ID_VIEW_IMAGEINFO, 0);
-		}
-		// Main message loop:
-		while (GetMessage(&msg, NULL, 0, 0))
-		{
-			if (!TranslateAccelerator(mainWindow, hAccelTable, &msg))
-			{
-				TranslateMessage(&msg);
-				DispatchMessage(&msg);
-			}
-		}
-		return (int) msg.wParam;
-	}
-	langDLL.Close();
-	DestroyCursor(curHand);
-	DestroyCursor(curHandDown);
-	return 1;
+    mainWindow.SetLeft(parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T(""), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
+    mainWindow.SetRight(parser.HasVal(_T("right")) ? parser.GetVal(_T("right")) : _T(""), parser.HasVal(_T("righttitle")) ? parser.GetVal(_T("righttitle")) : _T(""));
+    if (mainWindow.RegisterAndCreateWindow())
+    {
+        hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(IDR_TORTOISEIDIFF));
+        if (!parser.HasVal(_T("left")))
+        {
+            PostMessage(mainWindow, WM_COMMAND, ID_FILE_OPEN, 0);
+        }
+        if (parser.HasKey(_T("overlay")))
+        {
+            PostMessage(mainWindow, WM_COMMAND, ID_VIEW_OVERLAPIMAGES, 0);
+        }
+        if (parser.HasKey(_T("fit")))
+        {
+            PostMessage(mainWindow, WM_COMMAND, ID_VIEW_FITTOGETHER, 0);
+        }
+        if (parser.HasKey(_T("showinfo")))
+        {
+            PostMessage(mainWindow, WM_COMMAND, ID_VIEW_IMAGEINFO, 0);
+        }
+        // Main message loop:
+        while (GetMessage(&msg, NULL, 0, 0))
+        {
+            if (!TranslateAccelerator(mainWindow, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        return (int) msg.wParam;
+    }
+    langDLL.Close();
+    DestroyCursor(curHand);
+    DestroyCursor(curHandDown);
+    return 1;
 }
 
 

@@ -187,7 +187,7 @@ size_t CJobScheduler::CThreadPool::GetThreadCount()
     return maxCount;
 }
 
-// manage starving schedulers 
+// manage starving schedulers
 
 void CJobScheduler::CThreadPool::AddStarving (CJobScheduler* scheduler)
 {
@@ -265,7 +265,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
                 }
                 else
                 {
-                    
+
                     // add to local pool
 
                     threads.suspended.push_back (info);
@@ -286,7 +286,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
 
     // extract one job
 
-	return queue.pop();
+    return queue.pop();
 }
 
 // try to get a thread from the shared pool.
@@ -341,15 +341,15 @@ bool CJobScheduler::ThreadFunc (void* arg)
     TJob job = info->owner->AssignJob (info);
     if (job.first != NULL)
     {
-		// run the job
+        // run the job
 
         job.first->Execute();
 
-		// it is no longer referenced by the scheduler
+        // it is no longer referenced by the scheduler
 
-		job.first->OnUnSchedule (info->owner);
+        job.first->OnUnSchedule (info->owner);
 
-		// is it our job to clean up this job?
+        // is it our job to clean up this job?
 
         if (job.second)
             delete job.first;
@@ -368,11 +368,11 @@ bool CJobScheduler::ThreadFunc (void* arg)
 
 // Create & remove threads
 
-CJobScheduler::CJobScheduler 
+CJobScheduler::CJobScheduler
     ( size_t threadCount
     , size_t sharedThreads
     , bool aggressiveThreading
-	, bool fifo)
+    , bool fifo)
     : waitingThreads (0)
     , aggressiveThreading (aggressiveThreading)
 {
@@ -387,7 +387,7 @@ CJobScheduler::CJobScheduler
 
     threads.starved = false;
 
-	queue.set_fifo (fifo);
+    queue.set_fifo (fifo);
 
     // auto-initialize shared threads
 
@@ -426,7 +426,7 @@ CJobScheduler* CJobScheduler::GetDefault()
 void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
 {
     TJob toAdd (job, transferOwnership);
-	job->OnSchedule (this);
+    job->OnSchedule (this);
 
     CCriticalSectionLock lock (mutex);
 
@@ -441,7 +441,7 @@ void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
 
     if (addThread)
     {
-        if (threads.suspendedCount > 0) 
+        if (threads.suspendedCount > 0)
         {
             // recycle suspended, private thread
 
@@ -520,22 +520,22 @@ void CJobScheduler::WaitForEmptyQueue()
 
 bool CJobScheduler::WaitForEmptyQueueOrTimeout(DWORD milliSeconds)
 {
-	while (true)
-	{
-		{
-			CCriticalSectionLock lock (mutex);
-			if ((threads.runningCount == 0) && queue.empty())
-				return true;
+    while (true)
+    {
+        {
+            CCriticalSectionLock lock (mutex);
+            if ((threads.runningCount == 0) && queue.empty())
+                return true;
 
-			// we will be woken up as soon as both containers are empty
+            // we will be woken up as soon as both containers are empty
 
-			emptyEvent.Reset();
-		}
+            emptyEvent.Reset();
+        }
 
-		if (!emptyEvent.WaitForEndOrTimeout(milliSeconds))
-			return false;
-	}
-	return true;
+        if (!emptyEvent.WaitForEndOrTimeout(milliSeconds))
+            return false;
+    }
+    return true;
 }
 
 // wait for some jobs to be finished.
@@ -548,7 +548,7 @@ void CJobScheduler::WaitForSomeJobs()
             < threads.runningCount)
         {
             // there are enough running job threads left
-            // -> wait for one of them to run idle *or* 
+            // -> wait for one of them to run idle *or*
             //    for too many of them to enter this method
 
             threadIsIdle.Reset();
@@ -584,50 +584,50 @@ size_t CJobScheduler::GetQueueDepth() const
 size_t CJobScheduler::GetRunningThreadCount() const
 {
     CCriticalSectionLock lock (mutex);
-	return threads.runningCount;
+    return threads.runningCount;
 }
 
-// remove waiting entries from the queue until their 
+// remove waiting entries from the queue until their
 // number drops to or below the given watermark.
 
-std::vector<IJob*> CJobScheduler::RemoveJobFromQueue 
-	( size_t watermark
-	, bool oldest)
+std::vector<IJob*> CJobScheduler::RemoveJobFromQueue
+    ( size_t watermark
+    , bool oldest)
 {
-	std::vector<IJob*> removed;
+    std::vector<IJob*> removed;
 
-	{
-	    CCriticalSectionLock lock (mutex);
-		if (queue.size() > watermark)
-		{
-			size_t toRemove = queue.size() - watermark;
-			removed.reserve (toRemove);
+    {
+        CCriticalSectionLock lock (mutex);
+        if (queue.size() > watermark)
+        {
+            size_t toRemove = queue.size() - watermark;
+            removed.reserve (toRemove);
 
-			// temporarily change the queue extraction strategy 
-			// such that we remove jobs from the requested end
-			// (fifo -> oldest are at front, otherwise they are
-			// at the back)
+            // temporarily change the queue extraction strategy
+            // such that we remove jobs from the requested end
+            // (fifo -> oldest are at front, otherwise they are
+            // at the back)
 
-			bool fifo = queue.get_fifo();
-			queue.set_fifo (oldest == fifo);
+            bool fifo = queue.get_fifo();
+            queue.set_fifo (oldest == fifo);
 
-			// remove 'em
+            // remove 'em
 
-			for (size_t i = 0; i < toRemove; ++i)
-			{
-				IJob* job = queue.pop().first;
-				job->OnUnSchedule (this);
+            for (size_t i = 0; i < toRemove; ++i)
+            {
+                IJob* job = queue.pop().first;
+                job->OnUnSchedule (this);
 
-				removed.push_back (job);
-			}
+                removed.push_back (job);
+            }
 
-			// restore job execution order
+            // restore job execution order
 
-			queue.set_fifo (fifo);
-		}
-	}
+            queue.set_fifo (fifo);
+        }
+    }
 
-	return removed;
+    return removed;
 }
 
 // set max. number of concurrent threads
@@ -652,7 +652,7 @@ size_t CJobScheduler::GetHWThreadCount()
 #ifdef WIN32
     SYSTEM_INFO si;
     GetSystemInfo(&si);
-    
+
     size_t sysNumProcs = si.dwNumberOfProcessors;
 #else
     size_t sysNumProcs = sysconf (_SC_NPROCESSORS_CONF);

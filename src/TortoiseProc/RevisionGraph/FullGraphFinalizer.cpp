@@ -31,7 +31,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-CFullGraphFinalizer::CFullGraphFinalizer 
+CFullGraphFinalizer::CFullGraphFinalizer
     ( const CFullHistory& history
     , CFullGraph& graph)
     : history (history)
@@ -44,7 +44,7 @@ CFullGraphFinalizer::CFullGraphFinalizer
     CRegStdString tagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
 
     const CPathDictionary& paths = history.GetCache()->GetLogInfo().GetPaths();
-    pathClassification.reset 
+    pathClassification.reset
         (new CPathClassificator ( paths
                                 , CUnicodeUtils::StdGetUTF8 (trunkPattern)
                                 , CUnicodeUtils::StdGetUTF8 (branchesPattern)
@@ -152,10 +152,10 @@ void CFullGraphFinalizer::FindRenames (CFullGraphNode* node)
         ; node != NULL
         ; node = next, next = (next == NULL ? NULL : next->GetNext()))
     {
-        if (   (next != NULL) 
+        if (   (next != NULL)
             && (next->GetClassification().Is (CNodeClassification::IS_DELETED)))
         {
-            // this line will be deleted. 
+            // this line will be deleted.
             // will it be continued exactly once under a different name?
 
             CFullGraphNode* renameTarget = NULL;
@@ -174,8 +174,8 @@ void CFullGraphFinalizer::FindRenames (CFullGraphNode* node)
 
                     if (renameTarget != NULL)
                     {
-                        // there is more than one copy target 
-                        // -> display all individual deletion and additions 
+                        // there is more than one copy target
+                        // -> display all individual deletion and additions
 
                         renameTarget = NULL;
                         break;
@@ -258,14 +258,14 @@ void CFullGraphFinalizer::MarkWCRevisions (CFullGraphNode* node)
         if (// between this ...
                (node->GetRevision() < wcRev)
             // ... and the next node (if there is one) ...
-            && (   (node->GetNext() == NULL) 
+            && (   (node->GetNext() == NULL)
                 || (node->GetNext()->GetRevision() > wcRev))
             // ... on the right path ...
             && node->GetPath().GetBasePath().Intersects (path)
             // ... and not deleted, yet
             && !node->GetClassification().Is (CNodeClassification::IS_DELETED))
         {
-            // WC rev lies behind this node and before the next one 
+            // WC rev lies behind this node and before the next one
 
             graph.Add ( node->GetPath()
                       , wcRev
@@ -283,11 +283,11 @@ void CFullGraphFinalizer::MarkWCRevisions (CFullGraphNode* node)
 
 void CFullGraphFinalizer::MarkHead (CFullGraphNode* node)
 {
-    // scan all "latest" nodes 
+    // scan all "latest" nodes
     // (they must be either HEADs or special nodes)
 
     if (   (node->GetNext() != NULL)
-        || (node->GetClassification().IsAnyOf 
+        || (node->GetClassification().IsAnyOf
                (CNodeClassification::SUBTREE_DELETED)))
         return;
 
@@ -309,7 +309,7 @@ void CFullGraphFinalizer::AddWCModification (CFullGraphNode* node)
 
     // is this the BASE node for our WC?
 
-    if (node->GetClassification().Matches 
+    if (node->GetClassification().Matches
             ( CNodeClassification::IS_WORKINGCOPY
             , CNodeClassification::IS_MODIFIED_WC))
     {
@@ -317,7 +317,7 @@ void CFullGraphFinalizer::AddWCModification (CFullGraphNode* node)
         {
             // add the modification node
 
-            CNodeClassification classification 
+            CNodeClassification classification
                 = CNodeClassification::IS_MODIFIED_WC
                 | CNodeClassification::IS_WORKINGCOPY
                 | (node->GetNext() == NULL
@@ -394,10 +394,10 @@ DWORD CFullGraphFinalizer::BackwardClassification (CFullGraphNode* node)
         // construct the common classification
 
         DWORD classification // aggregate changes along the branch
-            =   branchClassification 
+            =   branchClassification
               & ~CNodeClassification::ALL_COPIES_MASK;
 
-        classification      
+        classification
             |=  (node->GetClassification().GetFlags() * CNodeClassification::PATH_ONLY_SHIFT)
               & CNodeClassification::PATH_ONLY_MASK;
 
@@ -416,9 +416,9 @@ DWORD CFullGraphFinalizer::BackwardClassification (CFullGraphNode* node)
 
         // store and return the flags
 
-        DWORD nodeClassification 
-            =   classification 
-              & (  CNodeClassification::ALL_COPIES_MASK 
+        DWORD nodeClassification
+            =   classification
+              & (  CNodeClassification::ALL_COPIES_MASK
                  + CNodeClassification::COPIES_TO_MASK
                  + CNodeClassification::PATH_ONLY_MASK);
 

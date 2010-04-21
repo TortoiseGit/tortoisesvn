@@ -142,7 +142,7 @@ protected:
         GetWindowRect(&rc);
         GetClientRect(&rc2);
         ClientToScreen(&rc2);
-        
+
         RECT rccontrol;
         if (leftControl)
         {

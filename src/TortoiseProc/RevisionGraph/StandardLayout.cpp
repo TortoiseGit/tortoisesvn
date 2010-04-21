@@ -51,7 +51,7 @@ CStandardLayoutNodeInfo::CStandardLayoutNodeInfo()
     , subTreeShift (0, 0)
     , treeShift (0, 0)
     , rect (0, 0, 0, 0)
-	, parentBranch(NULL)
+    , parentBranch(NULL)
 {
 }
 
@@ -112,7 +112,7 @@ void CStandardLayout::SortNodes()
         }
 }
 
-// layout creation: 
+// layout creation:
 // * create a node info object for every node
 // * calculate branch and tree sizes (in nodes)
 
@@ -129,7 +129,7 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
     // measure subtree size, calculate branch length and back-link it
 
     index_t branchLength = 0;
-    for ( const CVisibleGraphNode* node = start 
+    for ( const CVisibleGraphNode* node = start
         ; node != NULL
         ; node = node->GetNext())
     {
@@ -145,7 +145,7 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
         nodeInfo.parentBranch = parentBranch;
         if (previousInBranch != NULL)
             previousInBranch->nextInBranch = &nodeInfo;
-        
+
         previousInBranch = &nodeInfo;
         lastInBranch = &nodeInfo;
 
@@ -154,9 +154,9 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
             CStandardLayoutNodeInfo* previousBranch = NULL;
             CStandardLayoutNodeInfo* lastBranch = NULL;
 
-            // measure sub-branches and back-link them 
+            // measure sub-branches and back-link them
 
-            for ( const CVisibleGraphNode::CCopyTarget* 
+            for ( const CVisibleGraphNode::CCopyTarget*
                     target = node->GetFirstCopyTarget()
                 ; target != NULL
                 ; target = target->next())
@@ -196,7 +196,7 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
 
             // link sub-branches forward
 
-            for ( const CVisibleGraphNode::CCopyTarget* 
+            for ( const CVisibleGraphNode::CCopyTarget*
                     target = node->GetFirstCopyTarget()
                 ; target != NULL
                 ; target = target->next())
@@ -208,7 +208,7 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
 
     // write branch lengths, adjust sub-tree heights and link forward
 
-    for ( const CVisibleGraphNode* node = start 
+    for ( const CVisibleGraphNode* node = start
         ; node != NULL
         ; node = node->GetNext())
     {
@@ -244,7 +244,7 @@ void CStandardLayout::InitializeNodes()
     {
         CStandardLayoutNodeInfo& node = nodes[i-1];
 
-        index_t weight = node.nextInBranch != NULL 
+        index_t weight = node.nextInBranch != NULL
                        ? node.nextInBranch->subTreeWeight+1
                        : 1;
 
@@ -303,7 +303,7 @@ void CStandardLayout::CreateTexts()
 
     texts.reserve (2*nodes.size());
 
-    // cover all node rects 
+    // cover all node rects
     // (connections and texts will lie within these bounds)
 
     for (index_t i = 0, count = (index_t)nodes.size(); i < count; ++i)
@@ -315,7 +315,7 @@ void CStandardLayout::CreateTexts()
 
         if (info.requiresPath)
         {
-            size_t visibleElementCount = info.node->GetPath().GetDepth() 
+            size_t visibleElementCount = info.node->GetPath().GetDepth()
                                        - info.skipStartPathElements
                                        - info.skipTailPathElements;
             for (index_t k = (index_t)visibleElementCount; k > 0; --k)
@@ -348,7 +348,7 @@ void CStandardLayout::CalculateTreeBoundingRects()
     // initialize with empty rect
 
     trees.resize (graph->GetRootCount());
-	std::fill_n (trees.begin(), graph->GetRootCount(), CRect(0, 0, 0, 0));
+    std::fill_n (trees.begin(), graph->GetRootCount(), CRect(0, 0, 0, 0));
 
     for (size_t i = 0, count = nodes.size(); i < count; ++i)
     {
@@ -379,7 +379,7 @@ void CStandardLayout::CalculateBoundingRect()
         return;
     }
 
-    // cover all node rects 
+    // cover all node rects
     // (connections and texts will lie within these bounds)
 
     boundingRect = trees[0];
@@ -390,10 +390,10 @@ void CStandardLayout::CalculateBoundingRect()
 // construction / destruction
 
 CStandardLayout::CStandardLayout ( const CCachedLogInfo* cache
-								 , const CVisibleGraph* graph
-								 , const CFullHistory::SWCInfo& wcInfo)
+                                 , const CVisibleGraph* graph
+                                 , const CFullHistory::SWCInfo& wcInfo)
     : cache (cache)
-	, wcInfo (wcInfo)
+    , wcInfo (wcInfo)
     , graph (graph)
 {
     InitializeNodes();

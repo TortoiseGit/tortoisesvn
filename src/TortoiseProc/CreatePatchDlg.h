@@ -27,49 +27,49 @@
  */
 class CCreatePatch : public CResizableStandAloneDialog //CResizableStandAloneDialog
 {
-	DECLARE_DYNAMIC(CCreatePatch)
+    DECLARE_DYNAMIC(CCreatePatch)
 
 public:
-	CCreatePatch(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CCreatePatch();
+    CCreatePatch(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CCreatePatch();
 
-	enum { IDD = IDD_CREATEPATCH };
+    enum { IDD = IDD_CREATEPATCH };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual void OnCancel();
-	virtual void OnOK();
-	afx_msg void OnBnClickedSelectall();
-	afx_msg void OnBnClickedShowunversioned();
-	afx_msg void OnBnClickedHelp();
-	afx_msg LRESULT	OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
-	afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual void OnCancel();
+    virtual void OnOK();
+    afx_msg void OnBnClickedSelectall();
+    afx_msg void OnBnClickedShowunversioned();
+    afx_msg void OnBnClickedHelp();
+    afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+    afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
 
-	DECLARE_MESSAGE_MAP()
-
-private:
-	static UINT PatchThreadEntry(LPVOID pVoid);
-	UINT PatchThread();
-	DWORD	ShowMask();
+    DECLARE_MESSAGE_MAP()
 
 private:
-	CSVNStatusListCtrl	m_PatchList;
-	LONG				m_bThreadRunning;
-	CButton				m_SelectAll;
-	bool				m_bCancelled;
-	BOOL				m_bShowUnversioned;
+    static UINT PatchThreadEntry(LPVOID pVoid);
+    UINT PatchThread();
+    DWORD   ShowMask();
+
+private:
+    CSVNStatusListCtrl  m_PatchList;
+    LONG                m_bThreadRunning;
+    CButton             m_SelectAll;
+    bool                m_bCancelled;
+    BOOL                m_bShowUnversioned;
 
 public:
-	/// the list of files to include in the patch
-	CTSVNPathList		m_pathList;
-	/**
-	 * The files which have to be reverted after the patch was created.
-	 * That's necessary if the user selected an unversioned file - such files
-	 * are added automatically to version control so they can be included in
-	 * the patch, but then must be reverted later.
-	 */
-	CTSVNPathList		m_filesToRevert;
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
+    /// the list of files to include in the patch
+    CTSVNPathList       m_pathList;
+    /**
+     * The files which have to be reverted after the patch was created.
+     * That's necessary if the user selected an unversioned file - such files
+     * are added automatically to version control so they can be included in
+     * the patch, but then must be reverted later.
+     */
+    CTSVNPathList       m_filesToRevert;
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
 };

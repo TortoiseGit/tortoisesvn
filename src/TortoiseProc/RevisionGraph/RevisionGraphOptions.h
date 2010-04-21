@@ -38,10 +38,10 @@ public:
 
     virtual UINT CommandID() const = 0;
 
-    /// controls the execution order. 
+    /// controls the execution order.
     /// Lower numbers take precedence before higher ones.
 
-    virtual int Priority() const = 0; 
+    virtual int Priority() const = 0;
 
     /// false -> currently grayed out
 
@@ -55,7 +55,7 @@ public:
     /// IsActive() should either *always* be equal to IsSelected()
     /// or *always* be equal to !IsSelected().
 
-    virtual bool IsActive() const = 0; 
+    virtual bool IsActive() const = 0;
 
     /// for simple "on-click" handling
 
@@ -170,7 +170,7 @@ bool AscendingPriority (I* lhs, I* rhs)
     return lhs->Priority() < rhs->Priority();
 }
 
-template<class T, class I> 
+template<class T, class I>
 T CRevisionGraphOptionList::GetFilteredList() const
 {
     // get filtered options
@@ -196,7 +196,7 @@ T CRevisionGraphOptionList::GetFilteredList() const
 
 // find a particular option
 
-template<class T> 
+template<class T>
 T* CRevisionGraphOptionList::GetOption() const
 {
     for (size_t i = 0, count = options.size(); i < count; ++i)
@@ -206,7 +206,7 @@ T* CRevisionGraphOptionList::GetOption() const
             return result;
     }
 
-    // should not happen 
+    // should not happen
 
     assert (0);
 

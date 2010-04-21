@@ -31,158 +31,158 @@ namespace LogCache
 // CPairPacker
 ///////////////////////////////////////////////////////////////
 
-// find all 
+// find all
 
 void CTokenizedStringContainer::CPairPacker::Initialize()
 {
-	strings.reserve (container->offsets.size());
-	newPairs.reserve (container->pairs.size());
-	counts.reserve (container->pairs.size());
+    strings.reserve (container->offsets.size());
+    newPairs.reserve (container->pairs.size());
+    counts.reserve (container->pairs.size());
 
-	IT first = container->offsets.begin();
-	IT last = container->offsets.end();
-	IT iter = first;
+    IT first = container->offsets.begin();
+    IT last = container->offsets.end();
+    IT iter = first;
 
-	assert (first != last);
+    assert (first != last);
 
-	index_t offset = *iter;
-	for (++iter; iter != last; ++iter)
-	{
-		index_t nextOffset = *iter;
-		if (offset + 2 <= nextOffset)
-			strings.push_back ((index_t)(iter - first - 1));
+    index_t offset = *iter;
+    for (++iter; iter != last; ++iter)
+    {
+        index_t nextOffset = *iter;
+        if (offset + 2 <= nextOffset)
+            strings.push_back ((index_t)(iter - first - 1));
 
-		offset = nextOffset;
-	}
+        offset = nextOffset;
+    }
 }
 
 // efficiently determine the iterator range that spans our string
 
 void CTokenizedStringContainer::CPairPacker::GetStringRange ( index_t stringIndex
-															, IT& first
-															, IT& last)
+                                                            , IT& first
+                                                            , IT& last)
 {
 
-	IT iter = container->offsets.begin() + stringIndex;
+    IT iter = container->offsets.begin() + stringIndex;
 
-	size_t offset = *iter;
-	size_t length = *(++iter) - offset;
+    size_t offset = *iter;
+    size_t length = *(++iter) - offset;
 
-	IT base = container->stringData.begin();
-	first = base + offset;
-	last = first + length;
+    IT base = container->stringData.begin();
+    first = base + offset;
+    last = first + length;
 }
 
 // add token pairs of one string to our counters
 
 void CTokenizedStringContainer::CPairPacker::AccumulatePairs (index_t stringIndex)
 {
-	IT iter;
-	IT end;
+    IT iter;
+    IT end;
 
-	GetStringRange (stringIndex, iter, end);
+    GetStringRange (stringIndex, iter, end);
 
-	index_t lastToken = *iter;
-	for ( ++iter; (iter != end) && container->IsToken (*iter); ++iter)
-	{
-		index_t token = *iter;
-		if ((token >= minimumToken) || (lastToken >= minimumToken))
-		{
-			// that pair could be compressible (i.e. wasn't tried before)
+    index_t lastToken = *iter;
+    for ( ++iter; (iter != end) && container->IsToken (*iter); ++iter)
+    {
+        index_t token = *iter;
+        if ((token >= minimumToken) || (lastToken >= minimumToken))
+        {
+            // that pair could be compressible (i.e. wasn't tried before)
 
-			std::pair<index_t, index_t> newPair (lastToken, token);
-			assert (container->pairs.Find (newPair) == NO_INDEX);
+            std::pair<index_t, index_t> newPair (lastToken, token);
+            assert (container->pairs.Find (newPair) == NO_INDEX);
 
-			index_t index = newPairs.AutoInsert (newPair);
-			if (index >= (index_t)counts.size())
-				counts.push_back (1);
-			else
-				++counts[index];
-		}
+            index_t index = newPairs.AutoInsert (newPair);
+            if (index >= (index_t)counts.size())
+                counts.push_back (1);
+            else
+                ++counts[index];
+        }
 
-		lastToken = token;
-	}
+        lastToken = token;
+    }
 }
 
 void CTokenizedStringContainer::CPairPacker::AddCompressablePairs()
 {
-	for (index_t i = 0, count = (index_t)counts.size(); i < count; ++i)
-	{
-		if (counts[i] > 4)
-			container->pairs.Insert (newPairs[i]);
-	}
+    for (index_t i = 0, count = (index_t)counts.size(); i < count; ++i)
+    {
+        if (counts[i] > 4)
+            container->pairs.Insert (newPairs[i]);
+    }
 }
 
 bool CTokenizedStringContainer::CPairPacker::CompressString (index_t stringIndex)
 {
-	size_t oldReplacementCount = replacements;
+    size_t oldReplacementCount = replacements;
 
-	IT iter;
-	IT end;
+    IT iter;
+    IT end;
 
-	GetStringRange (stringIndex, iter, end);
+    GetStringRange (stringIndex, iter, end);
 
-	IT target = iter;
+    IT target = iter;
 
-	index_t lastToken = *iter;
-	for ( ++iter; (iter != end) && container->IsToken (*iter); ++iter)
-	{
-		// can we combine last token with this one?
+    index_t lastToken = *iter;
+    for ( ++iter; (iter != end) && container->IsToken (*iter); ++iter)
+    {
+        // can we combine last token with this one?
 
-		index_t token = *iter;
-		if ((token >= minimumToken) || (lastToken >= minimumToken))
-		{
-			// that pair could be compressible (i.e. wasn't tried before)
+        index_t token = *iter;
+        if ((token >= minimumToken) || (lastToken >= minimumToken))
+        {
+            // that pair could be compressible (i.e. wasn't tried before)
 
-			std::pair<index_t, index_t> newPair (lastToken, token);
-			index_t pairIndex = container->pairs.Find (newPair);
+            std::pair<index_t, index_t> newPair (lastToken, token);
+            index_t pairIndex = container->pairs.Find (newPair);
 
-			if (pairIndex != NO_INDEX)
-			{
-				// replace token *pair* with new, compressed token
+            if (pairIndex != NO_INDEX)
+            {
+                // replace token *pair* with new, compressed token
 
-				lastToken = container->GetPairToken (pairIndex);
-				if (++iter == end)
-				{
-					token = (index_t)EMPTY_TOKEN;
-					--iter;
-				}
-				else
-					token = *iter;
+                lastToken = container->GetPairToken (pairIndex);
+                if (++iter == end)
+                {
+                    token = (index_t)EMPTY_TOKEN;
+                    --iter;
+                }
+                else
+                    token = *iter;
 
-				++replacements;
-			}
-		}
+                ++replacements;
+            }
+        }
 
-		// write to disk
+        // write to disk
 
-		*target = lastToken;
-		++target;
+        *target = lastToken;
+        ++target;
 
-		lastToken = token;
-	}
+        lastToken = token;
+    }
 
-	// store the last token in fly
+    // store the last token in fly
 
-	*target = lastToken;
+    *target = lastToken;
 
-	// fill up the empty space at the end
+    // fill up the empty space at the end
 
-	for (++target; (target != end); ++target)
-		*target = (unsigned long)EMPTY_TOKEN;
-	
-	// was there a compression?
+    for (++target; (target != end); ++target)
+        *target = (unsigned long)EMPTY_TOKEN;
 
-	return replacements > oldReplacementCount;
+    // was there a compression?
+
+    return replacements > oldReplacementCount;
 }
 
-CTokenizedStringContainer::CPairPacker::CPairPacker 
-	( CTokenizedStringContainer* aContainer)
-	: container (aContainer)
-	, minimumToken (0)
-	, replacements(0)
+CTokenizedStringContainer::CPairPacker::CPairPacker
+    ( CTokenizedStringContainer* aContainer)
+    : container (aContainer)
+    , minimumToken (0)
+    , replacements(0)
 {
-	Initialize();
+    Initialize();
 }
 
 CTokenizedStringContainer::CPairPacker::~CPairPacker()
@@ -193,105 +193,105 @@ CTokenizedStringContainer::CPairPacker::~CPairPacker()
 
 size_t CTokenizedStringContainer::CPairPacker::OneRound()
 {
-	// save current state
+    // save current state
 
-	index_t oldReplacementCount = replacements;
-	index_t oldPairsCount = container->pairs.size();
+    index_t oldReplacementCount = replacements;
+    index_t oldPairsCount = container->pairs.size();
 
-	// count pairs
+    // count pairs
 
-	for (IT iter = strings.begin(), end = strings.end(); iter != end; ++iter)
-		AccumulatePairs (*iter);
+    for (IT iter = strings.begin(), end = strings.end(); iter != end; ++iter)
+        AccumulatePairs (*iter);
 
-	// add new, compressible pairs to the container
+    // add new, compressible pairs to the container
 
-	AddCompressablePairs();
+    AddCompressablePairs();
 
-	// compress strings
+    // compress strings
 
-	IT target = strings.begin();
-	for (IT iter = target, end = strings.end(); iter != end; ++iter)
-	{
-		index_t stringIndex = *iter;
-		if (CompressString (stringIndex))
-		{
-			*target = stringIndex;
-			++target;
-		}
-	}
+    IT target = strings.begin();
+    for (IT iter = target, end = strings.end(); iter != end; ++iter)
+    {
+        index_t stringIndex = *iter;
+        if (CompressString (stringIndex))
+        {
+            *target = stringIndex;
+            ++target;
+        }
+    }
 
-	// keep only those we might compress further
+    // keep only those we might compress further
 
-	strings.erase (target, strings.end());
+    strings.erase (target, strings.end());
 
-	// update internal status
-	// (next round can find new pairs only with tokens we just added)
+    // update internal status
+    // (next round can find new pairs only with tokens we just added)
 
-	newPairs.Clear();
-	counts.clear();
-	minimumToken = container->GetPairToken (oldPairsCount);
+    newPairs.Clear();
+    counts.clear();
+    minimumToken = container->GetPairToken (oldPairsCount);
 
-	// report our results
+    // report our results
 
-	return replacements - oldReplacementCount;
+    return replacements - oldReplacementCount;
 }
 
 void CTokenizedStringContainer::CPairPacker::Compact()
 {
-	if (replacements == 0)
-		return;
+    if (replacements == 0)
+        return;
 
-	IT first = container->stringData.begin();
-	IT target = first;
+    IT first = container->stringData.begin();
+    IT target = first;
 
-	IT offsetIter = container->offsets.begin();
-	IT offsetsEnd = container->offsets.end();
-	IT nextStringStart = first + *offsetIter;
+    IT offsetIter = container->offsets.begin();
+    IT offsetsEnd = container->offsets.end();
+    IT nextStringStart = first + *offsetIter;
 
-	IT iter = target;
-	IT end = container->stringData.end();
+    IT iter = target;
+    IT end = container->stringData.end();
 
-	while (iter != end)
-	{
-		// update string boundaries 
-		// (use "while" loop to handle empty strings)
+    while (iter != end)
+    {
+        // update string boundaries
+        // (use "while" loop to handle empty strings)
 
-		while (iter == nextStringStart)
-		{
-			*offsetIter = (index_t)(target - first);
-			nextStringStart = first + *(++offsetIter);
-		}
+        while (iter == nextStringStart)
+        {
+            *offsetIter = (index_t)(target - first);
+            nextStringStart = first + *(++offsetIter);
+        }
 
-		// copy string token
+        // copy string token
 
-		if (container->IsToken (*iter))
-		{
-			*target = *iter;
-			++iter;
-			++target;
-		}
-		else
-		{
-			// jump to end of string
+        if (container->IsToken (*iter))
+        {
+            *target = *iter;
+            ++iter;
+            ++target;
+        }
+        else
+        {
+            // jump to end of string
 
-			iter = nextStringStart;
-		}
-	}
+            iter = nextStringStart;
+        }
+    }
 
-	// update string boundaries 
+    // update string boundaries
 
-	std::fill (offsetIter, offsetsEnd, (index_t)(target - first));
+    std::fill (offsetIter, offsetsEnd, (index_t)(target - first));
 
-	// remove trailing tokens
+    // remove trailing tokens
 
-	container->stringData.erase (target, end);
+    container->stringData.erase (target, end);
 }
 
 // CHashFunction
 
 // simple construction
 
-CTokenizedStringContainer::CHashFunction::CHashFunction 
+CTokenizedStringContainer::CHashFunction::CHashFunction
     ( CTokenizedStringContainer* parent)
     : parent (parent)
 {
@@ -299,7 +299,7 @@ CTokenizedStringContainer::CHashFunction::CHashFunction
 
 // the actual hash function
 
-size_t CTokenizedStringContainer::CHashFunction::operator() 
+size_t CTokenizedStringContainer::CHashFunction::operator()
     (value_type value) const
 {
     const index_t* tokensBegin = &parent->stringData[0];
@@ -315,7 +315,7 @@ size_t CTokenizedStringContainer::CHashFunction::operator()
 
 // dictionary lookup
 
-CTokenizedStringContainer::CHashFunction::value_type 
+CTokenizedStringContainer::CHashFunction::value_type
 CTokenizedStringContainer::CHashFunction::value (index_type index) const
 {
     return index;
@@ -323,7 +323,7 @@ CTokenizedStringContainer::CHashFunction::value (index_type index) const
 
 // lookup and comparison
 
-bool CTokenizedStringContainer::CHashFunction::equal 
+bool CTokenizedStringContainer::CHashFunction::equal
     ( value_type value
     , index_type index) const
 {
@@ -364,59 +364,59 @@ bool CTokenizedStringContainer::CHashFunction::equal
 // data access utility
 
 void CTokenizedStringContainer::AppendToken ( char*& target
-											, index_t token) const
+                                            , index_t token) const
 {
-	if (IsDictionaryWord (token))
-	{
-		// uncompressed token
+    if (IsDictionaryWord (token))
+    {
+        // uncompressed token
 
-		target = words.CopyTo (target, GetWordIndex (token));
-	}
-	else
-	{
-		// token is a compressed pair of tokens
+        target = words.CopyTo (target, GetWordIndex (token));
+    }
+    else
+    {
+        // token is a compressed pair of tokens
 
-		std::pair<index_t, index_t> subTokens = pairs [GetPairIndex (token)];
+        std::pair<index_t, index_t> subTokens = pairs [GetPairIndex (token)];
 
-		// add them recursively
+        // add them recursively
 
-		AppendToken (target, subTokens.first);
-		AppendToken (target, subTokens.second);
-	}
+        AppendToken (target, subTokens.first);
+        AppendToken (target, subTokens.second);
+    }
 }
 
 size_t CTokenizedStringContainer::GetTokenLength (index_t token) const
 {
-	if (IsDictionaryWord (token))
-	{
-		// uncompressed token
+    if (IsDictionaryWord (token))
+    {
+        // uncompressed token
 
-		return words.GetLength (GetWordIndex (token));
-	}
-	else
-	{
-		// token is a compressed pair of tokens
+        return words.GetLength (GetWordIndex (token));
+    }
+    else
+    {
+        // token is a compressed pair of tokens
 
-		std::pair<index_t, index_t> subTokens = pairs [GetPairIndex (token)];
+        std::pair<index_t, index_t> subTokens = pairs [GetPairIndex (token)];
 
-		// add them recursively
+        // add them recursively
 
-		return GetTokenLength (subTokens.first) 
+        return GetTokenLength (subTokens.first)
              + GetTokenLength (subTokens.second);
-	}
+    }
 }
 
 // insertion utilities
 
 void CTokenizedStringContainer::Append (index_t token)
 {
-	if (IsToken (token))
-	{
-		if (stringData.size() == NO_INDEX)
-			throw CContainerException ("string container overflow");
+    if (IsToken (token))
+    {
+        if (stringData.size() == NO_INDEX)
+            throw CContainerException ("string container overflow");
 
-		stringData.push_back (token);
-	}
+        stringData.push_back (token);
+    }
 }
 
 struct SDelimiterTable
@@ -439,16 +439,16 @@ void CTokenizedStringContainer::Append (const std::string& s)
     static const std::string delimiters (" \t\n\\/()<>{}\"\'.:=-+*^");
     static const SDelimiterTable delimiter (delimiters);
 
-	index_t lastToken = (index_t)EMPTY_TOKEN;
-	size_t nextPos = std::string::npos;
+    index_t lastToken = (index_t)EMPTY_TOKEN;
+    size_t nextPos = std::string::npos;
 
-	size_t stringStart = stringData.size();
+    size_t stringStart = stringData.size();
     bool inDelimiter = !s.empty() && delimiter[s[0]];
-	for (size_t pos = 0, length = s.length(); pos < length; pos = nextPos)
-	{
-		// extract the next word / token
+    for (size_t pos = 0, length = s.length(); pos < length; pos = nextPos)
+    {
+        // extract the next word / token
 
-		for (nextPos = pos+1; nextPos < length; ++nextPos)
+        for (nextPos = pos+1; nextPos < length; ++nextPos)
             if (delimiter[s[nextPos]] != inDelimiter)
                 break;
 
@@ -459,48 +459,48 @@ void CTokenizedStringContainer::Append (const std::string& s)
             inDelimiter = !inDelimiter;
         }
 
-		std::string word = s.substr (pos, nextPos - pos);
-		index_t token = GetWordToken (words.AutoInsert (word.c_str()));
+        std::string word = s.substr (pos, nextPos - pos);
+        index_t token = GetWordToken (words.AutoInsert (word.c_str()));
 
-		// auto-compress as long as we can fold token pairs
+        // auto-compress as long as we can fold token pairs
 
-		for ( index_t pairIndex = pairs.Find (std::make_pair (lastToken, token))
-			; pairIndex != NO_INDEX
-			; pairIndex = pairs.Find (std::make_pair (lastToken, token)))
-		{
-			// the current token can be paired up with lastToken
+        for ( index_t pairIndex = pairs.Find (std::make_pair (lastToken, token))
+            ; pairIndex != NO_INDEX
+            ; pairIndex = pairs.Find (std::make_pair (lastToken, token)))
+        {
+            // the current token can be paired up with lastToken
 
-			token = GetPairToken (pairIndex);
-			size_t dataSize = stringData.size();
-			if (dataSize == stringStart)
-			{
-				// there is no previous token -> end of compression chain
+            token = GetPairToken (pairIndex);
+            size_t dataSize = stringData.size();
+            if (dataSize == stringStart)
+            {
+                // there is no previous token -> end of compression chain
 
-				lastToken = (index_t)NO_INDEX;
-			}
-			else
-			{
-				// replace (lastToken,token) with pair token
-				// next try: combine with the token before lastToken
+                lastToken = (index_t)NO_INDEX;
+            }
+            else
+            {
+                // replace (lastToken,token) with pair token
+                // next try: combine with the token before lastToken
 
-				std::vector<index_t>::iterator dataIter
-					= stringData.begin() + dataSize-1;
+                std::vector<index_t>::iterator dataIter
+                    = stringData.begin() + dataSize-1;
 
-				lastToken = *dataIter;
-				stringData.erase (dataIter);
-			}
-		}
+                lastToken = *dataIter;
+                stringData.erase (dataIter);
+            }
+        }
 
-		// currently, we cannot compress lastToken anymore
+        // currently, we cannot compress lastToken anymore
 
-		Append (lastToken);
-		lastToken = token;
-	}
+        Append (lastToken);
+        lastToken = token;
+    }
 
-	// don't forget the last one 
-	// (will be EMPTY_TOKEN if s is empty -> will not be added in that case)
+    // don't forget the last one
+    // (will be EMPTY_TOKEN if s is empty -> will not be added in that case)
 
-	Append (lastToken);
+    Append (lastToken);
 }
 
 // range check
@@ -508,8 +508,8 @@ void CTokenizedStringContainer::Append (const std::string& s)
 void CTokenizedStringContainer::CheckIndex (index_t index) const
 {
 #if !defined (_SECURE_SCL)
-	if (index >= offsets.size()-1)
-		throw CContainerException ("string container index out of range");
+    if (index >= offsets.size()-1)
+        throw CContainerException ("string container index out of range");
 #else
     UNREFERENCED_PARAMETER(index);
 #endif
@@ -519,91 +519,91 @@ void CTokenizedStringContainer::CheckIndex (index_t index) const
 
 void CTokenizedStringContainer::OptimizePairs()
 {
-	// marks for all pairs that have already been processed
+    // marks for all pairs that have already been processed
 
-	std::vector<bool> done;
-	done.resize (pairs.size());
+    std::vector<bool> done;
+    done.resize (pairs.size());
 
-	// build new pair order: put directly used pairs in front
-	// and sort them by point of occurrence
+    // build new pair order: put directly used pairs in front
+    // and sort them by point of occurrence
 
-	std::vector<index_t> new2Old;
-	new2Old.reserve (pairs.size());
+    std::vector<index_t> new2Old;
+    new2Old.reserve (pairs.size());
 
-	for (IT iter = stringData.begin(), end = stringData.end()
-		; iter != end
-		; ++iter)
-	{
-		index_t token = *iter;
-		if (!IsDictionaryWord (token) && !done[token])
-		{
-			new2Old.push_back (token);
-			done[token] = true;
-		}
-	}
+    for (IT iter = stringData.begin(), end = stringData.end()
+        ; iter != end
+        ; ++iter)
+    {
+        index_t token = *iter;
+        if (!IsDictionaryWord (token) && !done[token])
+        {
+            new2Old.push_back (token);
+            done[token] = true;
+        }
+    }
 
-	// append all indirectly used pairs
+    // append all indirectly used pairs
 
-	for (index_t i = 0; i < new2Old.size(); ++i)
-	{
-		std::pair<index_t, index_t> tokens = pairs[new2Old[i]];
+    for (index_t i = 0; i < new2Old.size(); ++i)
+    {
+        std::pair<index_t, index_t> tokens = pairs[new2Old[i]];
 
-		if (!IsDictionaryWord (tokens.first) && !done[tokens.first])
-		{
-			new2Old.push_back (tokens.first);
-			done[tokens.first] = true;
-		}
-		if (!IsDictionaryWord (tokens.second) && !done[tokens.second])
-		{
-			new2Old.push_back (tokens.second);
-			done[tokens.second] = true;
-		}
-	}
+        if (!IsDictionaryWord (tokens.first) && !done[tokens.first])
+        {
+            new2Old.push_back (tokens.first);
+            done[tokens.first] = true;
+        }
+        if (!IsDictionaryWord (tokens.second) && !done[tokens.second])
+        {
+            new2Old.push_back (tokens.second);
+            done[tokens.second] = true;
+        }
+    }
 
-	// construct old->new mapping
+    // construct old->new mapping
 
-	std::vector<index_t> old2New;
-	old2New.resize (pairs.size());
+    std::vector<index_t> old2New;
+    old2New.resize (pairs.size());
 
-	for (index_t i = 0, count = (index_t)new2Old.size(); i < count; ++i)
-		old2New[new2Old[i]] = i;
+    for (index_t i = 0, count = (index_t)new2Old.size(); i < count; ++i)
+        old2New[new2Old[i]] = i;
 
-	// replace pair index
+    // replace pair index
 
-	CIndexPairDictionary temp;
-	temp.reserve (static_cast<index_t>(new2Old.size()));
+    CIndexPairDictionary temp;
+    temp.reserve (static_cast<index_t>(new2Old.size()));
 
-	for (index_t i = 0, count = (index_t)new2Old.size(); i < count; ++i)
-	{
-		std::pair<index_t, index_t> tokens = pairs[new2Old[i]];
+    for (index_t i = 0, count = (index_t)new2Old.size(); i < count; ++i)
+    {
+        std::pair<index_t, index_t> tokens = pairs[new2Old[i]];
 
-		if (!IsDictionaryWord (tokens.first))
-			tokens.first = old2New [tokens.first];
-		if (!IsDictionaryWord (tokens.second))
-			tokens.second = old2New [tokens.second];
+        if (!IsDictionaryWord (tokens.first))
+            tokens.first = old2New [tokens.first];
+        if (!IsDictionaryWord (tokens.second))
+            tokens.second = old2New [tokens.second];
 
-		temp.Insert (tokens);
-	}
+        temp.Insert (tokens);
+    }
 
-	pairs.Swap (temp);
+    pairs.Swap (temp);
 
-	// update token strings
+    // update token strings
 
-	for (IT iter = stringData.begin(), end = stringData.end()
-		; iter != end
-		; ++iter)
-	{
-		index_t token = *iter;
-		if (!IsDictionaryWord (token))
-			*iter = old2New [token];
-	}
+    for (IT iter = stringData.begin(), end = stringData.end()
+        ; iter != end
+        ; ++iter)
+    {
+        index_t token = *iter;
+        if (!IsDictionaryWord (token))
+            *iter = old2New [token];
+    }
 }
 
 // construction / destruction
 
 CTokenizedStringContainer::CTokenizedStringContainer(void)
 {
-	offsets.push_back (0);
+    offsets.push_back (0);
 }
 
 CTokenizedStringContainer::~CTokenizedStringContainer(void)
@@ -614,34 +614,34 @@ CTokenizedStringContainer::~CTokenizedStringContainer(void)
 
 void CTokenizedStringContainer::GetAt (index_t index, std::string& result) const
 {
-	// range check
+    // range check
 
-	CheckIndex (index);
+    CheckIndex (index);
 
-	// the iterators over the (compressed) tokens 
-	// to build the string from
+    // the iterators over the (compressed) tokens
+    // to build the string from
 
-	TSDIterator first = stringData.begin() + offsets[index];
-	TSDIterator last = stringData.begin() + offsets[index+1];
+    TSDIterator first = stringData.begin() + offsets[index];
+    TSDIterator last = stringData.begin() + offsets[index+1];
 
-	// re-construct the string token by token
+    // re-construct the string token by token
 
     size_t length = 0;
-	for (TSDIterator iter = first; (iter != last) && IsToken (*iter); ++iter)
+    for (TSDIterator iter = first; (iter != last) && IsToken (*iter); ++iter)
         length += GetTokenLength (*iter);
 
     result.resize (length);
 
     char* buffer = &result[0];
-	for (TSDIterator iter = first; (iter != last) && IsToken (*iter); ++iter)
-		AppendToken (buffer, *iter);
+    for (TSDIterator iter = first; (iter != last) && IsToken (*iter); ++iter)
+        AppendToken (buffer, *iter);
 }
 
 std::string CTokenizedStringContainer::operator[] (index_t index) const
 {
     std::string result;
     GetAt (index, result);
-	return result;
+    return result;
 }
 
 // STL-like behavior
@@ -649,24 +649,24 @@ std::string CTokenizedStringContainer::operator[] (index_t index) const
 void CTokenizedStringContainer::swap (CTokenizedStringContainer& rhs)
 {
     words.swap (rhs.words);
-	pairs.Swap (rhs.pairs);
+    pairs.Swap (rhs.pairs);
 
     stringData.swap (rhs.stringData);
-	offsets.swap (rhs.offsets);
+    offsets.swap (rhs.offsets);
 }
 
 // modification
 
 index_t CTokenizedStringContainer::Insert (const std::string& s)
 {
-	// tokenize and compress
+    // tokenize and compress
 
-	Append (s);
+    Append (s);
 
-	// no error -> we can add the new string to the index
+    // no error -> we can add the new string to the index
 
-	offsets.push_back ((index_t)stringData.size());
-	return (index_t)(offsets.size()-2);
+    offsets.push_back ((index_t)stringData.size());
+    return (index_t)(offsets.size()-2);
 }
 
 index_t CTokenizedStringContainer::Insert (const std::string& s, size_t count)
@@ -675,10 +675,10 @@ index_t CTokenizedStringContainer::Insert (const std::string& s, size_t count)
 
     if (count > 0)
     {
-	    // write entry once
+        // write entry once
 
         index_t oldSize = (index_t)stringData.size();
-	    Append (s);
+        Append (s);
         index_t newSize = (index_t)stringData.size();
         index_t itemSize = newSize - oldSize;
 
@@ -687,10 +687,10 @@ index_t CTokenizedStringContainer::Insert (const std::string& s, size_t count)
         for (size_t i = 0; i < itemSize * (count-1); ++i)
             stringData.push_back (stringData[oldSize + i]);
 
-	    // write the index info
+        // write the index info
 
         for (index_t i = 0; i < itemSize * count; i += itemSize)
-	        offsets.push_back (newSize + i);
+            offsets.push_back (newSize + i);
     }
 
     return result;
@@ -698,65 +698,65 @@ index_t CTokenizedStringContainer::Insert (const std::string& s, size_t count)
 
 void CTokenizedStringContainer::Remove (index_t index)
 {
-	// range check
+    // range check
 
-	CheckIndex (index);
+    CheckIndex (index);
 
-	// special case: last string
+    // special case: last string
 
-	if (index+2 == offsets.size())
-	{
-		offsets.pop_back();
-		return;
-	}
+    if (index+2 == offsets.size())
+    {
+        offsets.pop_back();
+        return;
+    }
 
-	// terminate the previous string 
+    // terminate the previous string
 
-	assert (offsets[index] != offsets[index+1]);
-	stringData[offsets[index]] = (index_t)EMPTY_TOKEN;
+    assert (offsets[index] != offsets[index+1]);
+    stringData[offsets[index]] = (index_t)EMPTY_TOKEN;
 
-	// remove string from index but keep its tokens
-	// (they remain hidden and will be removed upon
-	// the next "compress" run)
+    // remove string from index but keep its tokens
+    // (they remain hidden and will be removed upon
+    // the next "compress" run)
 
-	offsets.erase (offsets.begin()+index);
+    offsets.erase (offsets.begin()+index);
 }
 
 void CTokenizedStringContainer::Compress()
 {
-	CPairPacker packer (this);
+    CPairPacker packer (this);
 
-	while (packer.OneRound() > 0);
+    while (packer.OneRound() > 0);
 
-	packer.Compact();
+    packer.Compact();
 
-	OptimizePairs();
+    OptimizePairs();
 }
 
 void CTokenizedStringContainer::AutoCompress()
 {
-	// Compress only if "too few" pairs have been found yet.
+    // Compress only if "too few" pairs have been found yet.
 
-	// In typical repositories, the relation of string
-	// tokens to used token pairs is ~10:1.
-	
-	// We will favor compressing in small caches while
-	// making this expensive operation less likely for
-	// larger caches with already a reasonable number of
-	// token pairs. Threshold: log n > n / p
+    // In typical repositories, the relation of string
+    // tokens to used token pairs is ~10:1.
 
-	size_t relation = stringData.size() / ((size_t)pairs.size() + 1);
-	if (relation >= sizeof (size_t) * 8)
-		relation = sizeof (size_t) * 8-1;
+    // We will favor compressing in small caches while
+    // making this expensive operation less likely for
+    // larger caches with already a reasonable number of
+    // token pairs. Threshold: log n > n / p
 
-	if (stringData.size() < ((size_t)1 << relation))
-		Compress();
+    size_t relation = stringData.size() / ((size_t)pairs.size() + 1);
+    if (relation >= sizeof (size_t) * 8)
+        relation = sizeof (size_t) * 8-1;
+
+    if (stringData.size() < ((size_t)1 << relation))
+        Compress();
 }
 
 // return false if concurrent read accesses
 // would potentially access invalid data.
 
-bool CTokenizedStringContainer::CanInsertThreadSafely 
+bool CTokenizedStringContainer::CanInsertThreadSafely
     (const std::string& s) const
 {
     // behavior in non-trival cases is too hard to predict.
@@ -773,189 +773,189 @@ bool CTokenizedStringContainer::CanInsertThreadSafely
 
 void CTokenizedStringContainer::Clear()
 {
-	words.Clear();
-	pairs.Clear();
+    words.Clear();
+    pairs.Clear();
 
-	stringData.clear();
+    stringData.clear();
 
-	offsets.erase (offsets.begin()+1, offsets.end());
+    offsets.erase (offsets.begin()+1, offsets.end());
 }
 
 // batch modifications
 // indexes must be in ascending order
 
-// Replace() will append new entries, 
+// Replace() will append new entries,
 // if indices[] matches current size().
 
 void CTokenizedStringContainer::Remove (const std::vector<index_t>& indexes)
 {
-	// preparation
+    // preparation
 
-	CIT indexIter = indexes.begin();
-	CIT indexEnd = indexes.end();
+    CIT indexIter = indexes.begin();
+    CIT indexEnd = indexes.end();
 
-	IT firstToken = stringData.begin();
-	IT targetToken = firstToken;
+    IT firstToken = stringData.begin();
+    IT targetToken = firstToken;
 
-	// copy & drop strings ("remove_copy_if") in-situ 
+    // copy & drop strings ("remove_copy_if") in-situ
 
-	for ( index_t i = 0, target = 0, count = (index_t)offsets.size()-1
-		; i < count
-		; ++i)
-	{
-		if ((indexIter != indexEnd) && (*indexIter == i))
-		{
-			// skip / remove this token string
+    for ( index_t i = 0, target = 0, count = (index_t)offsets.size()-1
+        ; i < count
+        ; ++i)
+    {
+        if ((indexIter != indexEnd) && (*indexIter == i))
+        {
+            // skip / remove this token string
 
-			++indexIter;
-		}
-		else
-		{
-			// copy string tokens
+            ++indexIter;
+        }
+        else
+        {
+            // copy string tokens
 
-			targetToken = std::copy ( firstToken + offsets[i]
-								    , firstToken + offsets[i+1]
-									, targetToken);
+            targetToken = std::copy ( firstToken + offsets[i]
+                                    , firstToken + offsets[i+1]
+                                    , targetToken);
 
-			// update (end-)offset
+            // update (end-)offset
 
-			offsets[++target] = static_cast<index_t>(targetToken - firstToken);
-		}
-	}
+            offsets[++target] = static_cast<index_t>(targetToken - firstToken);
+        }
+    }
 
-	// trim containers
+    // trim containers
 
-	offsets.erase (offsets.end() - indexes.size(), offsets.end());
-	stringData.erase (targetToken, stringData.end());
+    offsets.erase (offsets.end() - indexes.size(), offsets.end());
+    stringData.erase (targetToken, stringData.end());
 }
 
 void CTokenizedStringContainer::Replace ( const CTokenizedStringContainer& source
-										, const index_mapping_t& indexMap)
+                                        , const index_mapping_t& indexMap)
 {
-	// we will fully rebuild the string token buffer
-	// -> save the old one and replace it with an empty buffer
+    // we will fully rebuild the string token buffer
+    // -> save the old one and replace it with an empty buffer
 
-	std::vector<index_t> oldData;
-	oldData.swap (stringData);
-	stringData.reserve (oldData.size() + source.stringData.size());
+    std::vector<index_t> oldData;
+    oldData.swap (stringData);
+    stringData.reserve (oldData.size() + source.stringData.size());
 
-	IT oldFirst = oldData.begin();
+    IT oldFirst = oldData.begin();
 
-	// splice the data
+    // splice the data
 
-	index_t oldOffset = offsets[0];
-	index_t count = (index_t)offsets.size()-1;
+    index_t oldOffset = offsets[0];
+    index_t count = (index_t)offsets.size()-1;
 
-	index_mapping_t::const_iterator mapEnd = indexMap.end();
+    index_mapping_t::const_iterator mapEnd = indexMap.end();
 
-	for (index_t i = 0; i < count; ++i)
-	{
-		index_mapping_t::const_iterator iter = indexMap.find (i);
-		if (iter != mapEnd)
-		{
-			// replace this token string
+    for (index_t i = 0; i < count; ++i)
+    {
+        index_mapping_t::const_iterator iter = indexMap.find (i);
+        if (iter != mapEnd)
+        {
+            // replace this token string
 
-			Append (source[iter->value]);
-		}
-		else
-		{
-			// copy string tokens
+            Append (source[iter->value]);
+        }
+        else
+        {
+            // copy string tokens
 
-			stringData.insert ( stringData.end()
-							  , oldFirst + oldOffset
-							  , oldFirst + offsets[i+1]);
-		}
+            stringData.insert ( stringData.end()
+                              , oldFirst + oldOffset
+                              , oldFirst + offsets[i+1]);
+        }
 
-		// update (end-)offset
+        // update (end-)offset
 
-		oldOffset = offsets[i+1];
-		offsets[i+1] = static_cast<index_t>(stringData.size());
-	}
+        oldOffset = offsets[i+1];
+        offsets[i+1] = static_cast<index_t>(stringData.size());
+    }
 
-	// append remaining strings
+    // append remaining strings
 
-	for ( index_mapping_t::const_iterator iter = indexMap.begin()
-		; iter != mapEnd
-		; ++iter)
-	{
-		if (iter->key >= count)
-			Insert (source[iter->value]);
-	}
+    for ( index_mapping_t::const_iterator iter = indexMap.begin()
+        ; iter != mapEnd
+        ; ++iter)
+    {
+        if (iter->key >= count)
+            Insert (source[iter->value]);
+    }
 }
 
 size_t CTokenizedStringContainer::UncompressedWordCount() const
 {
-	// fill this array with the number of word tokens 
-	// represented by each pair token
+    // fill this array with the number of word tokens
+    // represented by each pair token
 
-	std::vector<index_t> uncompressedTokenSize;
-	index_t pairCount = pairs.size();
-	uncompressedTokenSize.insert (uncompressedTokenSize.begin(), pairCount, 0);
+    std::vector<index_t> uncompressedTokenSize;
+    index_t pairCount = pairs.size();
+    uncompressedTokenSize.insert (uncompressedTokenSize.begin(), pairCount, 0);
 
-	// for the following tokens we don't know the uncompressed size:
+    // for the following tokens we don't know the uncompressed size:
 
-	std::vector<index_t> tokensToProcess = uncompressedTokenSize;
-	for (index_t i = 0; i < pairCount; ++i)
-		tokensToProcess[i] = i;
+    std::vector<index_t> tokensToProcess = uncompressedTokenSize;
+    for (index_t i = 0; i < pairCount; ++i)
+        tokensToProcess[i] = i;
 
-	// we may need to iterate multiple times 
+    // we may need to iterate multiple times
 
-	bool anyChanges = true;
-	while (anyChanges && !tokensToProcess.empty())
-	{
-		anyChanges = false;
+    bool anyChanges = true;
+    while (anyChanges && !tokensToProcess.empty())
+    {
+        anyChanges = false;
 
-		typedef std::vector<index_t>::iterator TI;
-		TI begin = tokensToProcess.begin();
-		TI end = tokensToProcess.end();
+        typedef std::vector<index_t>::iterator TI;
+        TI begin = tokensToProcess.begin();
+        TI end = tokensToProcess.end();
 
-		TI tokensLeft = begin;
-		for (TI iter = begin; iter != end; ++iter)
-		{
-			index_t token = *iter;
-			const std::pair<index_t, index_t>& sourceTokens = pairs[token];
+        TI tokensLeft = begin;
+        for (TI iter = begin; iter != end; ++iter)
+        {
+            index_t token = *iter;
+            const std::pair<index_t, index_t>& sourceTokens = pairs[token];
 
-			index_t leftSize = IsDictionaryWord (sourceTokens.first)
-							 ? 1
-							 : uncompressedTokenSize[sourceTokens.first];
-			index_t rightSize = IsDictionaryWord (sourceTokens.second)
-							  ? 1
-							  : uncompressedTokenSize[sourceTokens.second];
+            index_t leftSize = IsDictionaryWord (sourceTokens.first)
+                             ? 1
+                             : uncompressedTokenSize[sourceTokens.first];
+            index_t rightSize = IsDictionaryWord (sourceTokens.second)
+                              ? 1
+                              : uncompressedTokenSize[sourceTokens.second];
 
-			// can we determine the uncompressed size of this token?
+            // can we determine the uncompressed size of this token?
 
-			if ((leftSize > 0) && (rightSize > 0))
-			{
-				uncompressedTokenSize[token] = leftSize + rightSize;
-				anyChanges = true;
-			}
-			else
-			{
-				// retry in next run
+            if ((leftSize > 0) && (rightSize > 0))
+            {
+                uncompressedTokenSize[token] = leftSize + rightSize;
+                anyChanges = true;
+            }
+            else
+            {
+                // retry in next run
 
-				*tokensLeft = token;
-				++tokensLeft;
-			}
-		}
+                *tokensLeft = token;
+                ++tokensLeft;
+            }
+        }
 
-		tokensToProcess.erase (tokensLeft, end);
-	}
+        tokensToProcess.erase (tokensLeft, end);
+    }
 
-	// now, just sum all used token sizes
+    // now, just sum all used token sizes
 
-	size_t result = 0;
-	for (size_t i = 0, count = stringData.size(); i < count; ++i)
-	{
-		index_t token = stringData[i];
-		if (IsToken (token))
-			result += IsDictionaryWord (token)
-					? 1
-					: uncompressedTokenSize[token];
-	}
+    size_t result = 0;
+    for (size_t i = 0, count = stringData.size(); i < count; ++i)
+    {
+        index_t token = stringData[i];
+        if (IsToken (token))
+            result += IsDictionaryWord (token)
+                    ? 1
+                    : uncompressedTokenSize[token];
+    }
 
-	// ready
+    // ready
 
-	return result;
+    return result;
 }
 
 size_t CTokenizedStringContainer::CompressedWordCount() const
@@ -995,7 +995,7 @@ void CTokenizedStringContainer::Unify (std::vector<index_t>& newIndexes)
 
     // filter duplicates
 
-   	quick_hash<CHashFunction> hashIndex (CHashFunction (this));
+    quick_hash<CHashFunction> hashIndex (CHashFunction (this));
     for (index_t i = 0; i < count; ++i)
     {
         index_t index = hashIndex.find(i);
@@ -1038,74 +1038,74 @@ void CTokenizedStringContainer::Unify (std::vector<index_t>& newIndexes)
 // stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
-								  , CTokenizedStringContainer& container)
+                                  , CTokenizedStringContainer& container)
 {
-	// read the words
+    // read the words
 
-	IHierarchicalInStream* wordsStream
-		= stream.GetSubStream (CTokenizedStringContainer::WORDS_STREAM_ID);
-	*wordsStream >> container.words;
+    IHierarchicalInStream* wordsStream
+        = stream.GetSubStream (CTokenizedStringContainer::WORDS_STREAM_ID);
+    *wordsStream >> container.words;
 
-	// read the token pairs
+    // read the token pairs
 
-	IHierarchicalInStream* pairsStream
-		= stream.GetSubStream (CTokenizedStringContainer::PAIRS_STREAM_ID);
-	*pairsStream >> container.pairs;
+    IHierarchicalInStream* pairsStream
+        = stream.GetSubStream (CTokenizedStringContainer::PAIRS_STREAM_ID);
+    *pairsStream >> container.pairs;
 
-	// read the strings
+    // read the strings
 
-	CPackedIntegerInStream* stringsStream 
-		= stream.GetSubStream<CPackedIntegerInStream> 
-			(CTokenizedStringContainer::STRINGS_STREAM_ID);
-	*stringsStream >> container.stringData;
+    CPackedIntegerInStream* stringsStream
+        = stream.GetSubStream<CPackedIntegerInStream>
+            (CTokenizedStringContainer::STRINGS_STREAM_ID);
+    *stringsStream >> container.stringData;
 
-	// read the string offsets
+    // read the string offsets
 
-	CDiffDWORDInStream* offsetsStream 
-		= stream.GetSubStream<CDiffDWORDInStream> 
-			(CTokenizedStringContainer::OFFSETS_STREAM_ID);
-	*offsetsStream >> container.offsets;
+    CDiffDWORDInStream* offsetsStream
+        = stream.GetSubStream<CDiffDWORDInStream>
+            (CTokenizedStringContainer::OFFSETS_STREAM_ID);
+    *offsetsStream >> container.offsets;
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
-								   , const CTokenizedStringContainer& container)
+                                   , const CTokenizedStringContainer& container)
 {
-	// write the words
+    // write the words
 
-	CCompositeOutStream* wordsStream 
-		= stream.OpenSubStream<CCompositeOutStream> 
-			(CTokenizedStringContainer::WORDS_STREAM_ID);
-	const_cast<CTokenizedStringContainer*>(&container)->AutoCompress();
-	*wordsStream << container.words;
+    CCompositeOutStream* wordsStream
+        = stream.OpenSubStream<CCompositeOutStream>
+            (CTokenizedStringContainer::WORDS_STREAM_ID);
+    const_cast<CTokenizedStringContainer*>(&container)->AutoCompress();
+    *wordsStream << container.words;
 
-	// write the pairs
+    // write the pairs
 
-	IHierarchicalOutStream* pairsStream
-		= stream.OpenSubStream<CCompositeOutStream> 
-			(CTokenizedStringContainer::PAIRS_STREAM_ID);
-	*pairsStream << container.pairs;
+    IHierarchicalOutStream* pairsStream
+        = stream.OpenSubStream<CCompositeOutStream>
+            (CTokenizedStringContainer::PAIRS_STREAM_ID);
+    *pairsStream << container.pairs;
 
-	// the strings
+    // the strings
 
-	CPackedIntegerOutStream* stringsStream 
-		= stream.OpenSubStream<CPackedIntegerOutStream> 
-			(CTokenizedStringContainer::STRINGS_STREAM_ID);
-	*stringsStream << container.stringData;
+    CPackedIntegerOutStream* stringsStream
+        = stream.OpenSubStream<CPackedIntegerOutStream>
+            (CTokenizedStringContainer::STRINGS_STREAM_ID);
+    *stringsStream << container.stringData;
 
-	// the string positions
+    // the string positions
 
-	CDiffDWORDOutStream* offsetsStream 
-		= stream.OpenSubStream<CDiffDWORDOutStream> 
-			(CTokenizedStringContainer::OFFSETS_STREAM_ID);
-	*offsetsStream << container.offsets;
+    CDiffDWORDOutStream* offsetsStream
+        = stream.OpenSubStream<CDiffDWORDOutStream>
+            (CTokenizedStringContainer::OFFSETS_STREAM_ID);
+    *offsetsStream << container.offsets;
 
-	// ready
+    // ready
 
-	return stream;
+    return stream;
 }
 
 ///////////////////////////////////////////////////////////////

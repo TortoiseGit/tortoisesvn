@@ -29,10 +29,10 @@ extern BOOL g_bNoCrashHandler;// don't use the crash handler but let the system 
 
 // ===========================================================================
 // CCrashHandler
-// 
+//
 // See the module comment at top of file.
 //
-class CCrashHandler  
+class CCrashHandler
 {
 public:
 
@@ -65,7 +65,7 @@ public:
    //    none
    //
    // Remarks
-   //    Passing NULL for lpTo will disable the email feature and cause the crash 
+   //    Passing NULL for lpTo will disable the email feature and cause the crash
    //    report to be saved to disk.
    //
    void Install(
@@ -163,7 +163,7 @@ public:
    // Remarks
    //    none
    //
-   virtual 
+   virtual
    ~CCrashHandler();
 
    //-----------------------------------------------------------------------------
@@ -181,7 +181,7 @@ public:
    //    Call this function to include application specific file(s) in the crash
    //    report.  For example, application logs, initialization files, etc.
    //
-   void 
+   void
    AddFile(
       LPCTSTR lpFile,                     // File nae
       LPCTSTR lpDesc                      // File description
@@ -200,7 +200,7 @@ public:
    // Remarks
    //    lpFile must exactly match that passed to AddFile.
    //
-   void 
+   void
    RemoveFile(
       LPCTSTR lpFile                      // File nae
       );
@@ -220,7 +220,7 @@ public:
    //    Call this function to include application specific registry hive(s) in the crash
    //    report.
    //
-   void 
+   void
    AddRegistryHive(
       LPCTSTR lpKey,                      // Registry key
       LPCTSTR lpDesc                      // description
@@ -239,7 +239,7 @@ public:
    // Remarks
    //    lpKey must exactly match that passed to AddRegistryHive.
    //
-   void 
+   void
    RemoveRegistryHive(
       LPCTSTR lpKey                       // Registry key
       );
@@ -259,7 +259,7 @@ public:
    //    Call this function to include application specific registry hive(s) in the crash
    //    report.
    //
-   void 
+   void
    AddEventLog(
       LPCTSTR lpKey,                      // Event log name
       LPCTSTR lpDesc                      // description
@@ -278,7 +278,7 @@ public:
    // Remarks
    //    lpKey must exactly match that passed to AddEventLog.
    //
-   void 
+   void
    RemoveEventLog(
       LPCTSTR lpKey                       // Registry key
       );
@@ -299,10 +299,10 @@ public:
    // Remarks
    //    Call this function to manually generate a crash report.
    //
-   BOOL 
+   BOOL
    GenerateErrorReport(
       PEXCEPTION_POINTERS pExInfo,         // Exception pointers (see MSDN)
-	  BSTR message = NULL
+      BSTR message = NULL
       );
 
 
@@ -320,7 +320,7 @@ protected:
    //    none
    //
    // Remarks
-   //    Passing NULL for lpTo will disable the email feature and cause the crash 
+   //    Passing NULL for lpTo will disable the email feature and cause the crash
    //    report to be saved to disk.
    //
    CCrashHandler(
@@ -342,9 +342,9 @@ protected:
    // Remarks
    //    none
    //
-   BOOL 
+   BOOL
    SaveReport(
-      CExceptionReport &rpt, 
+      CExceptionReport &rpt,
       LPCTSTR lpcszFile
       );
 
@@ -356,7 +356,7 @@ protected:
    //    rpt         The report details
    //    lpcszFile   The zipped crash report
    //    lpcszEmail  The Email:To
-   //    lpcszDesc   
+   //    lpcszDesc
    //
    // Return Values
    //    TRUE is successful.
@@ -364,11 +364,11 @@ protected:
    // Remarks
    //    MAPI is used to send the report.
    //
-   BOOL 
+   BOOL
    MailReport(
-      CExceptionReport &rpt, 
-      LPCTSTR lpcszFile, 
-      LPCTSTR lpcszEmail, 
+      CExceptionReport &rpt,
+      LPCTSTR lpcszFile,
+      LPCTSTR lpcszEmail,
       LPCTSTR lpcszSubject
       );
 
@@ -394,16 +394,16 @@ protected:
    LPGETLOGFILE                  m_lpfnCallback;   // client crash callback
    int                           m_pid;            // process id
    TStrStrVector                 m_files;          // custom files to add
-   TStrStrVector				 m_registryHives;  // custom registry hives to save
-   TStrStrVector				 m_eventLogs;      // custom event logs to save
-   string						 m_sTo;            // Email:To
+   TStrStrVector                 m_registryHives;  // custom registry hives to save
+   TStrStrVector                 m_eventLogs;      // custom event logs to save
+   string                        m_sTo;            // Email:To
    string                        m_sSubject;       // Email:Subject
    HANDLE                        m_ipc_event;      // Event for dialog thread synchronization
    CExceptionReport              *m_rpt;            // Exception report for dialog
    bool                          m_installed;      // True if already installed
    HMODULE                       m_hModule;        // Module handle for loading resource strings
-   string						 m_userDataFile;   // file to save user input when m_sTo is empty
+   string                        m_userDataFile;   // file to save user input when m_sTo is empty
    bool                          m_wantDebug;      // user pushed Debug button
-   BOOL							 m_bUseUI;		   // use an UI or print to the error output
+   BOOL                          m_bUseUI;         // use an UI or print to the error output
 };
 

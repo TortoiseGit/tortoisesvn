@@ -26,7 +26,7 @@
 IMPLEMENT_DYNAMIC(CEditPropExternalsValue, CResizableStandAloneDialog)
 
 CEditPropExternalsValue::CEditPropExternalsValue(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CEditPropExternalsValue::IDD, pParent)
+    : CResizableStandAloneDialog(CEditPropExternalsValue::IDD, pParent)
     , m_pLogDlg(NULL)
 {
 
@@ -39,7 +39,7 @@ CEditPropExternalsValue::~CEditPropExternalsValue()
 
 void CEditPropExternalsValue::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+    CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
     DDX_Text(pDX, IDC_WCPATH, m_sWCPath);
     DDX_Text(pDX, IDC_REVISION_NUM, m_sRevision);

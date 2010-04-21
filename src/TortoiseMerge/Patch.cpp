@@ -120,7 +120,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
                 state = 2;
                 if (chunks)
                 {
-                    //this is a new file diff, so add the last one to 
+                    //this is a new file diff, so add the last one to
                     //our array.
                     m_arFileDiffs.Add(chunks);
                 }
@@ -147,7 +147,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
                         {
                             if (chunks)
                             {
-                                //this is a new file diff, so add the last one to 
+                                //this is a new file diff, so add the last one to
                                 //our array.
                                 m_arFileDiffs.Add(chunks);
                             }
@@ -182,7 +182,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
                         }
                     }
                 }
-            } 
+            }
         break;
         case 1: //====================
             {
@@ -362,7 +362,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
                 }
                 else if (type == '\\')
                 {
-                    //it's a context line (sort of): 
+                    //it's a context line (sort of):
                     //warnings start with a '\' char (e.g. "\ No newline at end of file")
                     //so just ignore this...
                 }
@@ -402,12 +402,12 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
                     nRemoveLineCount = 0;
                     state = 0;
                 }
-            } 
+            }
         break;
         default:
             ASSERT(FALSE);
-        } // switch (state) 
-    } // for ( ;nIndex<m_PatchLines.GetCount(); nIndex++) 
+        } // switch (state)
+    } // for ( ;nIndex<m_PatchLines.GetCount(); nIndex++)
     if (chunk)
     {
         m_sErrorMessage.LoadString(IDS_ERR_PATCH_CHUNKMISMATCH);
@@ -477,7 +477,7 @@ CString CPatch::GetRevision2(int nIndex)
     {
         Chunks * c = m_arFileDiffs.GetAt(nIndex);
         return c->sRevision2;
-    } 
+    }
     return 0;
 }
 
@@ -563,22 +563,22 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
                     if ((lAddLine > PatchLines.GetCount())||(PatchLines.GetCount()==0))
                     {
                         m_sErrorMessage.FormatMessage(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), (LPCTSTR)sPatchLine);
-                        return FALSE; 
+                        return FALSE;
                     }
                     if (lAddLine == 0)
                         lAddLine = 1;
                     if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0)&&(!HasExpandedKeyWords(sPatchLine)))
                     {
                         m_sErrorMessage.FormatMessage(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, (LPCTSTR)PatchLines.GetAt(lAddLine-1));
-                        return FALSE; 
+                        return FALSE;
                     }
                     if (lAddLine > PatchLines.GetCount())
                     {
                         m_sErrorMessage.FormatMessage(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, _T(""));
-                        return FALSE; 
+                        return FALSE;
                     }
                     PatchLines.RemoveAt(lAddLine-1);
-                } 
+                }
                 break;
             case PATCHSTATE_ADDED:
                 {
@@ -593,7 +593,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
                     if (lAddLine > PatchLines.GetCount())
                     {
                         m_sErrorMessage.FormatMessage(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), (LPCTSTR)sPatchLine);
-                        return FALSE; 
+                        return FALSE;
                     }
                     if (lAddLine == 0)
                         lAddLine++;
@@ -613,9 +613,9 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
                         else
                         {
                             m_sErrorMessage.FormatMessage(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, (LPCTSTR)PatchLines.GetAt(lAddLine-1));
-                            return FALSE; 
+                            return FALSE;
                         }
-                    } 
+                    }
                     lAddLine++;
                     lRemoveLine++;
                 }
@@ -623,9 +623,9 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
             default:
                 ASSERT(FALSE);
                 break;
-            } // switch (nPatchState) 
-        } // for (j=0; j<chunk->arLines.GetCount(); j++) 
-    } // for (int i=0; i<chunks->chunks.GetCount(); i++) 
+            } // switch (nPatchState)
+        } // for (j=0; j<chunk->arLines.GetCount(); j++)
+    } // for (int i=0; i<chunks->chunks.GetCount(); i++)
     if (!sSavePath.IsEmpty())
     {
         PatchLines.Save(sSavePath, false);
@@ -697,7 +697,7 @@ CString CPatch::CheckPatchPath(const CString& path)
         if (CountMatches(subpath) > (GetNumberOfFiles()/3))
             return subpath;
     }
-    
+
     // if a patch file only contains newly added files
     // we can't really find the correct path.
     // But: we can compare paths strings without the filenames
@@ -712,7 +712,7 @@ CString CPatch::CheckPatchPath(const CString& path)
         if (CountDirMatches(upperpath) > (GetNumberOfFiles()/3))
             return upperpath;
     }
-    
+
     return path;
 }
 

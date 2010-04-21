@@ -23,7 +23,7 @@
 //-----------------------------------------------------------------------------
 // CExceptionReport::CExceptionReport
 //
-// 
+//
 //
 CExceptionReport::CExceptionReport(PEXCEPTION_POINTERS ExceptionInfo, BSTR message)
 {
@@ -74,13 +74,13 @@ string CExceptionReport::getCrashFile()
 
 void CExceptionReport::writeDumpFile(HANDLE hFile, PEXCEPTION_POINTERS excpInfo, void *data)
 {
-	if (excpInfo == NULL) {
+    if (excpInfo == NULL) {
       // Generate exception to get proper context in dump
-	   __try {
-		   RaiseException(EXCEPTION_BREAKPOINT, 0, 0, NULL);
-	   } __except(writeDumpFile(hFile, GetExceptionInformation(), data), EXCEPTION_CONTINUE_EXECUTION) {
-	   }
-	} else {
+       __try {
+           RaiseException(EXCEPTION_BREAKPOINT, 0, 0, NULL);
+       } __except(writeDumpFile(hFile, GetExceptionInformation(), data), EXCEPTION_CONTINUE_EXECUTION) {
+       }
+    } else {
       MINIDUMP_EXCEPTION_INFORMATION eInfo;
       eInfo.ThreadId = GetCurrentThreadId();
       eInfo.ExceptionPointers = excpInfo;
@@ -96,7 +96,7 @@ void CExceptionReport::writeDumpFile(HANDLE hFile, PEXCEPTION_POINTERS excpInfo,
          hFile,
          MiniDumpWithIndirectlyReferencedMemory,
          excpInfo ? &eInfo : NULL,
-		 NULL,
+         NULL,
          &cbMiniDump);
    }
 }
@@ -120,10 +120,10 @@ string CExceptionReport::getCrashLog()
 
    // Create an empty XML document
    CHECKHR(CoCreateInstance(
-      MSXML2::CLSID_DOMDocument, 
-      NULL, 
+      MSXML2::CLSID_DOMDocument,
+      NULL,
       CLSCTX_INPROC_SERVER,
-      MSXML2::IID_IXMLDOMDocument, 
+      MSXML2::IID_IXMLDOMDocument,
       (void**)&pDoc));
 
    // Create root node
@@ -145,11 +145,11 @@ string CExceptionReport::getCrashLog()
    // Add optional message node
    //
    if (m_message != NULL) {
-	   node = CreateMsgNode(pDoc, m_message);
-	   CHECKHR(root->appendChild(node, &newNode));
-	   // The XML Document should now own the node.
-	   SAFERELEASE(node);
-	   SAFERELEASE(newNode);
+       node = CreateMsgNode(pDoc, m_message);
+       CHECKHR(root->appendChild(node, &newNode));
+       // The XML Document should now own the node.
+       SAFERELEASE(node);
+       SAFERELEASE(newNode);
    }
 
    //
@@ -244,11 +244,11 @@ string CExceptionReport::getSymbolFile(int index)
 //-----------------------------------------------------------------------------
 // CExceptionReport::CreateDOMNode
 //
-// Helper function 
+// Helper function
 //
 MSXML2::IXMLDOMNode*
-CExceptionReport::CreateDOMNode(MSXML2::IXMLDOMDocument* pDoc, 
-                                int type, 
+CExceptionReport::CreateDOMNode(MSXML2::IXMLDOMDocument* pDoc,
+                                int type,
                                 BSTR bstrName)
 {
     MSXML2::IXMLDOMNode * node;
@@ -267,57 +267,57 @@ CExceptionReport::CreateDOMNode(MSXML2::IXMLDOMDocument* pDoc,
 // Create attributes in the exception record with the symbolic info, if available
 //
 void  CExceptionReport::CreateExceptionSymbolAttributes(DWORD_PTR /*address*/, const char * /*ImageName*/,
-									  const char *FunctionName, DWORD_PTR functionDisp,
-									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
-									  void *data)
+                                      const char *FunctionName, DWORD_PTR functionDisp,
+                                      const char *Filename, DWORD LineNumber, DWORD lineDisp,
+                                      void *data)
 {
    string sAddr;
-   BSTR funcName					= ::SysAllocString(L"FunctionName");
-   BSTR funcDispName				= ::SysAllocString(L"FunctionDisplacement");
-   BSTR fileName					= ::SysAllocString(L"Filename");
-   BSTR lineName					= ::SysAllocString(L"LineNumber");
-   BSTR lineDispName				= ::SysAllocString(L"LineDisplacement");
-   CExceptionReport	*self = reinterpret_cast<CExceptionReport *>(data);
+   BSTR funcName                    = ::SysAllocString(L"FunctionName");
+   BSTR funcDispName                = ::SysAllocString(L"FunctionDisplacement");
+   BSTR fileName                    = ::SysAllocString(L"Filename");
+   BSTR lineName                    = ::SysAllocString(L"LineNumber");
+   BSTR lineDispName                = ::SysAllocString(L"LineDisplacement");
+   CExceptionReport *self = reinterpret_cast<CExceptionReport *>(data);
 
    VARIANT v;
 
    // don't need ImageName [module], as that is already done
    if (FunctionName != NULL) {
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(FunctionName);
-		self->m_exception_element->setAttribute(funcName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
-		TCHAR buf[MAX_PATH] = {0};
-		_tprintf_s(buf, offsetFormat, functionDisp);
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(buf);
-		self->m_exception_element->setAttribute(funcDispName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(FunctionName);
+        self->m_exception_element->setAttribute(funcName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
+        TCHAR buf[MAX_PATH] = {0};
+        _tprintf_s(buf, offsetFormat, functionDisp);
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(buf);
+        self->m_exception_element->setAttribute(funcDispName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
    }
 
    if (Filename != NULL) {
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(Filename);
-		self->m_exception_element->setAttribute(fileName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(Filename);
+        self->m_exception_element->setAttribute(fileName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
 
-		TCHAR buf[MAX_PATH] = {0};
-		_tprintf_s(buf, _T("%d"), LineNumber);
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(buf);
-		self->m_exception_element->setAttribute(lineName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        TCHAR buf[MAX_PATH] = {0};
+        _tprintf_s(buf, _T("%d"), LineNumber);
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(buf);
+        self->m_exception_element->setAttribute(lineName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
 
-		_tprintf_s(buf, offsetFormat, lineDisp);
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(buf);
-		self->m_exception_element->setAttribute(lineDispName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        _tprintf_s(buf, offsetFormat, lineDisp);
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(buf);
+        self->m_exception_element->setAttribute(lineDispName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
    }
    ::SysFreeString(funcName);
    ::SysFreeString(funcDispName);
@@ -332,7 +332,7 @@ void  CExceptionReport::CreateExceptionSymbolAttributes(DWORD_PTR /*address*/, c
 //
 //
 MSXML2::IXMLDOMNode*
-CExceptionReport::CreateExceptionRecordNode(MSXML2::IXMLDOMDocument* pDoc, 
+CExceptionReport::CreateExceptionRecordNode(MSXML2::IXMLDOMDocument* pDoc,
                                             EXCEPTION_RECORD* pExceptionRecord)
 {
    MSXML2::IXMLDOMNode*     pNode    = NULL;
@@ -342,8 +342,8 @@ CExceptionReport::CreateExceptionRecordNode(MSXML2::IXMLDOMDocument* pDoc,
    BSTR codeName                    = ::SysAllocString(L"ExceptionCode");
    BSTR descName                    = ::SysAllocString(L"ExceptionDescription");
    BSTR addrName                    = ::SysAllocString(L"ExceptionAddress");
-   BSTR commandlineName				= ::SysAllocString(L"CommandLine");
-   
+   BSTR commandlineName             = ::SysAllocString(L"CommandLine");
+
    VARIANT v;
    string sAddr;
 
@@ -477,8 +477,8 @@ CExceptionReport::CreateExceptionRecordNode(MSXML2::IXMLDOMDocument* pDoc,
    // Try to include symbolic information
    m_exception_element = pElement;
    AddressToSymbol(reinterpret_cast<DWORD_PTR>(pExceptionRecord->ExceptionAddress)-1,
-	   CreateExceptionSymbolAttributes,
-	   reinterpret_cast<void *>(this));
+       CreateExceptionSymbolAttributes,
+       reinterpret_cast<void *>(this));
 CleanUp:
    ::SysFreeString(nodeName);
    ::SysFreeString(modName);
@@ -613,7 +613,7 @@ CleanUp:
 //
 //
 //
-MSXML2::IXMLDOMNode* 
+MSXML2::IXMLDOMNode*
 CExceptionReport::CreateOSNode(MSXML2::IXMLDOMDocument* pDoc)
 {
    MSXML2::IXMLDOMNode*     pNode    = NULL;
@@ -683,7 +683,7 @@ CleanUp:
 //
 //
 //
-MSXML2::IXMLDOMNode* 
+MSXML2::IXMLDOMNode*
 CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
 {
    MSXML2::IXMLDOMNode*     pNode    = NULL;
@@ -709,12 +709,12 @@ CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
 
    //
    // Add module information (freeing storage as we go)
-   // 
+   //
    MINIDUMP_MODULE_CALLBACK item;
    std::vector<MINIDUMP_MODULE_CALLBACK>::iterator iter;
    for (iter = m_modules.begin(); iter != m_modules.end(); iter++)
    {
-	   item = *iter;
+       item = *iter;
       // Create module node
       pNode2 = CreateDOMNode(pDoc, MSXML2::NODE_ELEMENT, nodeName2);
 
@@ -725,7 +725,7 @@ CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
       // Set full path
       //
       V_VT(&v) = VT_BSTR;
-	  V_BSTR(&v) = SysAllocString(item.FullPath);
+      V_BSTR(&v) = SysAllocString(item.FullPath);
       pElement->setAttribute(fullPath, v);
       // Recycle variant
       SysFreeString(V_BSTR(&v));
@@ -733,10 +733,10 @@ CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
       //
       // Set base address
       //
-	  TCHAR buf[MAX_PATH] = {0};
-	  _tprintf_s(buf, addressFormat, item.BaseOfImage);
+      TCHAR buf[MAX_PATH] = {0};
+      _tprintf_s(buf, addressFormat, item.BaseOfImage);
       V_VT(&v) = VT_BSTR;
-	  V_BSTR(&v) = CUtility::AllocSysString(buf);
+      V_BSTR(&v) = CUtility::AllocSysString(buf);
       pElement->setAttribute(baseAddrName, v);
       // Recycle variant
       SysFreeString(V_BSTR(&v));
@@ -744,9 +744,9 @@ CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
       //
       // Set module size
       //
-	  _tprintf_s(buf, sizeFormat, item.SizeOfImage);
+      _tprintf_s(buf, sizeFormat, item.SizeOfImage);
       V_VT(&v) = VT_BSTR;
-	  V_BSTR(&v) = CUtility::AllocSysString(buf);
+      V_BSTR(&v) = CUtility::AllocSysString(buf);
       pElement->setAttribute(sizeName, v);
       // Recycle variant
       SysFreeString(V_BSTR(&v));
@@ -759,16 +759,16 @@ CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
 
       FileTimeToSystemTime(&ft, &st);
 
-	  _tprintf_s(buf, _T("%02u/%02u/%04u %02u:%02u:%02u"), 
-		  st.wMonth, 
-		  st.wDay, 
-		  st.wYear, 
-		  st.wHour, 
-		  st.wMinute, 
-		  st.wSecond);
+      _tprintf_s(buf, _T("%02u/%02u/%04u %02u:%02u:%02u"),
+          st.wMonth,
+          st.wDay,
+          st.wYear,
+          st.wHour,
+          st.wMinute,
+          st.wSecond);
 
       V_VT(&v) = VT_BSTR;
-	  V_BSTR(&v) = CUtility::AllocSysString(buf);
+      V_BSTR(&v) = CUtility::AllocSysString(buf);
       pElement->setAttribute(timeStampName, v);
       // Recycle variant
       SysFreeString(V_BSTR(&v));
@@ -776,14 +776,14 @@ CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
       //
       // Set file version
       //
-	  _tprintf_s(buf,"%d.%d.%d.%d", 
-		  HIWORD(item.VersionInfo.dwFileVersionMS),
-		  LOWORD(item.VersionInfo.dwFileVersionMS),
-		  HIWORD(item.VersionInfo.dwFileVersionLS),
-		  LOWORD(item.VersionInfo.dwFileVersionLS));
+      _tprintf_s(buf,"%d.%d.%d.%d",
+          HIWORD(item.VersionInfo.dwFileVersionMS),
+          LOWORD(item.VersionInfo.dwFileVersionMS),
+          HIWORD(item.VersionInfo.dwFileVersionLS),
+          LOWORD(item.VersionInfo.dwFileVersionLS));
 
-	  V_VT(&v) = VT_BSTR;
-	  V_BSTR(&v) = CUtility::AllocSysString(buf);
+      V_VT(&v) = VT_BSTR;
+      V_BSTR(&v) = CUtility::AllocSysString(buf);
       pElement->setAttribute(fileVerName, v);
       // Recycle variant
       SysFreeString(V_BSTR(&v));
@@ -791,14 +791,14 @@ CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
       //
       // Set product version
       //
-	  _tprintf_s(buf, "%d.%d.%d.%d", 
-		  HIWORD(item.VersionInfo.dwProductVersionMS),
-		  LOWORD(item.VersionInfo.dwProductVersionMS),
-		  HIWORD(item.VersionInfo.dwProductVersionLS),
-		  LOWORD(item.VersionInfo.dwProductVersionLS));
+      _tprintf_s(buf, "%d.%d.%d.%d",
+          HIWORD(item.VersionInfo.dwProductVersionMS),
+          LOWORD(item.VersionInfo.dwProductVersionMS),
+          HIWORD(item.VersionInfo.dwProductVersionLS),
+          LOWORD(item.VersionInfo.dwProductVersionLS));
 
-	  V_VT(&v) = VT_BSTR;
-	  V_BSTR(&v) = CUtility::AllocSysString(buf);
+      V_VT(&v) = VT_BSTR;
+      V_BSTR(&v) = CUtility::AllocSysString(buf);
       pElement->setAttribute(prodVerName, v);
       // Recycle variant
       SysFreeString(V_BSTR(&v));
@@ -812,7 +812,7 @@ CExceptionReport::CreateModulesNode(MSXML2::IXMLDOMDocument* pDoc)
       SAFERELEASE(pElement2);
       SAFERELEASE(pNewNode);
 
-	  free(item.FullPath);
+      free(item.FullPath);
    }
    m_modules.clear();
 
@@ -839,7 +839,7 @@ CleanUp:
 //
 // Builds the application-defined message node
 //
-MSXML2::IXMLDOMNode * 
+MSXML2::IXMLDOMNode *
 CExceptionReport::CreateMsgNode(MSXML2::IXMLDOMDocument* pDoc, BSTR message)
 {
    MSXML2::IXMLDOMNode*     pNode    = NULL;
@@ -868,24 +868,24 @@ CleanUp:
 //
 void
 CExceptionReport::CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageName,
-									  const char *FunctionName, DWORD_PTR functionDisp,
-									  const char *Filename, DWORD LineNumber, DWORD lineDisp,
-									  void *data)
+                                      const char *FunctionName, DWORD_PTR functionDisp,
+                                      const char *Filename, DWORD LineNumber, DWORD lineDisp,
+                                      void *data)
 {
    MSXML2::IXMLDOMNode*     pNode    = NULL;
    MSXML2::IXMLDOMElement*  pElement = NULL;
    MSXML2::IXMLDOMNode*     pNewNode = NULL;
    string sAddr;
    BSTR nodeName                    = ::SysAllocString(L"Frame");
-   BSTR frameName					= ::SysAllocString(L"FrameNumber");
-   BSTR addrName					= ::SysAllocString(L"ReturnAddress");
-   BSTR moduleName					= ::SysAllocString(L"ModuleName");
-   BSTR funcName					= ::SysAllocString(L"FunctionName");
-   BSTR funcDispName				= ::SysAllocString(L"FunctionDisplacement");
-   BSTR fileName					= ::SysAllocString(L"Filename");
-   BSTR lineName					= ::SysAllocString(L"LineNumber");
-   BSTR lineDispName				= ::SysAllocString(L"LineDisplacement");
-   CExceptionReport	*self = reinterpret_cast<CExceptionReport *>(data);
+   BSTR frameName                   = ::SysAllocString(L"FrameNumber");
+   BSTR addrName                    = ::SysAllocString(L"ReturnAddress");
+   BSTR moduleName                  = ::SysAllocString(L"ModuleName");
+   BSTR funcName                    = ::SysAllocString(L"FunctionName");
+   BSTR funcDispName                = ::SysAllocString(L"FunctionDisplacement");
+   BSTR fileName                    = ::SysAllocString(L"Filename");
+   BSTR lineName                    = ::SysAllocString(L"LineNumber");
+   BSTR lineDispName                = ::SysAllocString(L"LineDisplacement");
+   CExceptionReport *self = reinterpret_cast<CExceptionReport *>(data);
 
    // Create frame record node
    pNode = self->CreateDOMNode(self->m_stack_doc, MSXML2::NODE_ELEMENT, nodeName);
@@ -914,47 +914,47 @@ CExceptionReport::CreateWalkbackEntryNode(DWORD_PTR address, const char *ImageNa
    SysFreeString(V_BSTR(&v));
 
    if (ImageName != NULL) {
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(ImageName);
-		pElement->setAttribute(moduleName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(ImageName);
+        pElement->setAttribute(moduleName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
    }
 
    if (FunctionName != NULL) {
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(FunctionName);
-		pElement->setAttribute(funcName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
-		_tprintf_s(buf, offsetFormat, functionDisp);
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(buf);
-		pElement->setAttribute(funcDispName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(FunctionName);
+        pElement->setAttribute(funcName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
+        _tprintf_s(buf, offsetFormat, functionDisp);
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(buf);
+        pElement->setAttribute(funcDispName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
    }
 
    if (Filename != NULL) {
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(Filename);
-		pElement->setAttribute(fileName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(Filename);
+        pElement->setAttribute(fileName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
 
-		_tprintf_s(buf, _T("%d"), LineNumber);
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(buf);
-		pElement->setAttribute(lineName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        _tprintf_s(buf, _T("%d"), LineNumber);
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(buf);
+        pElement->setAttribute(lineName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
 
-		_tprintf_s(buf, offsetFormat, lineDisp);
-		V_VT(&v) = VT_BSTR;
-		V_BSTR(&v) = CUtility::AllocSysString(buf);
-		pElement->setAttribute(lineDispName, v);
-		// Recycle variant
-		SysFreeString(V_BSTR(&v));
+        _tprintf_s(buf, offsetFormat, lineDisp);
+        V_VT(&v) = VT_BSTR;
+        V_BSTR(&v) = CUtility::AllocSysString(buf);
+        pElement->setAttribute(lineDispName, v);
+        // Recycle variant
+        SysFreeString(V_BSTR(&v));
    }
    // add to walkback element
 
@@ -980,7 +980,7 @@ CleanUp:
 //
 // Builds the stack walkback list
 //
-MSXML2::IXMLDOMNode * 
+MSXML2::IXMLDOMNode *
 CExceptionReport::CreateWalkbackNode(MSXML2::IXMLDOMDocument* pDoc, CONTEXT *pContext)
 {
    MSXML2::IXMLDOMNode*     pNode    = NULL;
@@ -1018,7 +1018,7 @@ CleanUp:
 // MiniDumpWriteDump.  Builds a linked list of all module names which is
 // eventually used to create the <modules> node in the XML log file.
 //
-BOOL CALLBACK 
+BOOL CALLBACK
 CExceptionReport::miniDumpCallback(PVOID data,
                                    CONST PMINIDUMP_CALLBACK_INPUT CallbackInput,
                                    PMINIDUMP_CALLBACK_OUTPUT)
@@ -1030,7 +1030,7 @@ CExceptionReport::miniDumpCallback(PVOID data,
 
       item = CallbackInput->Module;
       item.FullPath = _wcsdup(CallbackInput->Module.FullPath);
-	  self->m_modules.push_back(item);
+      self->m_modules.push_back(item);
    }
 
    return TRUE;

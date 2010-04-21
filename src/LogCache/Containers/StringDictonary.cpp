@@ -254,7 +254,7 @@ index_t CStringDictionary::AutoInsert (const char* string)
 // return false if concurrent read accesses
 // would potentially access invalid data.
 
-bool CStringDictionary::CanInsertThreadSafely 
+bool CStringDictionary::CanInsertThreadSafely
     ( index_t elements
     , size_t chars) const
 {
@@ -359,7 +359,7 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
 
     CBLOBInStream* packedStringStream
         = stream.GetSubStream<CBLOBInStream>
-			(CStringDictionary::PACKED_STRING_STREAM_ID);
+            (CStringDictionary::PACKED_STRING_STREAM_ID);
 
     if (packedStringStream->GetSize() >= NO_INDEX)
         throw CContainerException ("data stream to large");
@@ -373,8 +373,8 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
     // build the hash and string offsets
 
     CDiffDWORDInStream* offsetsStream
-        = stream.GetSubStream<CDiffDWORDInStream> 
-			(CStringDictionary::OFFSETS_STREAM_ID);
+        = stream.GetSubStream<CDiffDWORDInStream>
+            (CStringDictionary::OFFSETS_STREAM_ID);
 
     size_t offsetCount = offsetsStream->GetSizeValue();
     dictionary.offsets.resize (offsetCount);

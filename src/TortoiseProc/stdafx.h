@@ -23,7 +23,7 @@
 #define _WIN32_IE 0x0700        // Change this to the appropriate value to target other versions of IE.
 #endif
 
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS  // some CString constructors will be explicit
 
 // turns off MFC's hiding of some common and often safely ignored warning messages
 #define _AFX_ALL_WARNINGS
@@ -34,9 +34,9 @@
 #include <Ws2tcpip.h>
 #include <Wspiapi.h>
 
-#include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls
+#include <afxdtctl.h>       // MFC support for Internet Explorer 4 Common Controls
 #ifndef _AFX_NO_AFXCMN_SUPPORT
-#include <afxcmn.h>			// MFC support for Windows Common Controls
+#include <afxcmn.h>         // MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 #include <afxdlgs.h>
 #include <afxctl.h>
@@ -67,7 +67,7 @@
 #pragma warning(pop)
 
 #pragma warning(push)
-#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
+#pragma warning(disable: 4702)  // Unreachable code warnings in xtree
 #include <string>
 #include <vector>
 #include <map>
@@ -78,7 +78,7 @@
 #pragma warning(pop)
 
 #pragma warning(push)
-#pragma warning(disable: 4201)	// nonstandard extension used : nameless struct/union (in MMSystem.h)
+#pragma warning(disable: 4201)  // nonstandard extension used : nameless struct/union (in MMSystem.h)
 #include <vfw.h>
 #include <shlobj.h>
 #include <Shlwapi.h>
@@ -93,7 +93,7 @@
 #pragma warning(pop)
 
 #pragma warning(push)
-#pragma warning(disable: 4005)	// macro redefinition
+#pragma warning(disable: 4005)  // macro redefinition
 #include "..\..\ext\apr\include\apr_version.h"
 #include "..\..\ext\apr-util\include\apu_version.h"
 //#include "..\..\ext\berkeley-db\db4.3-win32\include\db.h"
@@ -111,11 +111,11 @@
 #include "ProfilingInfo.h"
 
 #ifdef _WIN64
-#	define APP_X64_STRING	"x64"
+#   define APP_X64_STRING   "x64"
 #else
-#	define APP_X64_STRING ""
+#   define APP_X64_STRING ""
 #endif
 
-#pragma warning(disable: 4512)	// assignment operator could not be generated
-#pragma warning(disable: 4355)	// used in base member initializer list
+#pragma warning(disable: 4512)  // assignment operator could not be generated
+#pragma warning(disable: 4355)  // used in base member initializer list
 

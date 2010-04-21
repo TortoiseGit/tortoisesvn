@@ -98,7 +98,7 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
     ctx->auth_baton = auth_baton;
 }
 
-BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save) 
+BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save)
 {
     CPromptDlg dlg;
     dlg.SetHide(hide);
@@ -122,7 +122,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
     return FALSE;
 }
 
-BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString& Realm, BOOL& may_save) 
+BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString& Realm, BOOL& may_save)
 {
     CSimplePrompt dlg;
     dlg.m_hParentWnd = m_hParentWnd;
@@ -257,7 +257,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
             (*cred_p)->may_save = TRUE;
             (*cred_p)->accepted_failures = failures;
-        } 
+        }
         else if (ret == 2)
         {
             *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
@@ -310,7 +310,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
     ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLEHOOK | OFN_ENABLESIZING | OFN_EXPLORER;
     ofn.lpfnHook = SVNPrompt::OFNHookProc;
 
-    // Display the Open dialog box. 
+    // Display the Open dialog box.
     svn->m_server.Empty();
     if (GetOpenFileName(&ofn)==TRUE)
     {
@@ -323,7 +323,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 
         // the svn library doesn't have a save_credentials() function for cert files
         // (yet?). It would get implemented in subversion\libsvn_subr\ssl_client_cert_providers.c
-        // 
+        //
         // We do the saving here ourselves (until subversion implements its own saving)
         if ((*cred)->may_save)
         {
@@ -367,7 +367,7 @@ UINT_PTR CALLBACK SVNPrompt::OFNHookProc(HWND hdlg, UINT uiMsg, WPARAM /*wParam*
             SendMessage(::GetParent(hdlg), CDM_SETCONTROLTEXT, chx1, (LPARAM)(LPCTSTR)temp);
             return TRUE;
         }
-    } 
+    }
     return FALSE;
 }
 
