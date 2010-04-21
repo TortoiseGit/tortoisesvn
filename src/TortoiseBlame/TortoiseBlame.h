@@ -159,6 +159,8 @@ protected:
 
     CRegStdDWORD                m_regOldLinesColor;
     CRegStdDWORD                m_regNewLinesColor;
+    CRegStdDWORD                m_regLocatorOldLinesColor;
+    CRegStdDWORD                m_regLocatorNewLinesColor;
 
 private:
     static void MakeLower(TCHAR* buffer, size_t length );
