@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ class SVNRev
 public:
     SVNRev(LONG nRev);
     SVNRev(CString sRev);
-    SVNRev(svn_opt_revision_t revision) {rev = revision;}
+    SVNRev(svn_opt_revision_t revision) {rev = revision;m_bIsValid = (rev.kind != svn_opt_revision_unspecified);}
     SVNRev(){rev.kind = svn_opt_revision_unspecified;m_bIsValid = FALSE;}
     ~SVNRev();
 
