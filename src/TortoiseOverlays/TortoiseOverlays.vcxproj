@@ -307,8 +307,13 @@
     <None Include="ShellExt.def" />
     <None Include="resource.rc2" />
     <None Include="Includes.wxi" />
-    <None Include="TortoiseOverlaysDir.wxi" />
-    <None Include="TortoiseOverlaysMerge.wxs" />
+    <None Include="TortoiseOverlaysDir.wxi">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TortoiseOverlaysDirx64.wxi" />
+    <None Include="TortoiseOverlaysMerge.wxs">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="TortoiseOverlaysMSI.wxs" />
   </ItemGroup>
   <ItemGroup>
