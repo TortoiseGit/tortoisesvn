@@ -209,7 +209,7 @@ int MyGraphSeries::HitTest(const CPoint& pt, int searchStart = 0) const
 }
 
 // Get the series portion of the tip for this group in this series.
-CString MyGraphSeries::GetTipText(int nGroup) const
+CString MyGraphSeries::GetTipText(int nGroup, const CString &unitString) const
 {
     VALIDATE;
     _ASSERTE(0 <= nGroup);
@@ -217,7 +217,8 @@ CString MyGraphSeries::GetTipText(int nGroup) const
 
     CString sTip;
 
-    sTip.Format(_T("%d (%d%%)"), m_dwaValues.GetAt(nGroup),
+    sTip.Format(_T("%d %s (%d%%)"), m_dwaValues.GetAt(nGroup),
+		unitString,
         GetDataTotal() ? (int) (100.0 * (double) m_dwaValues.GetAt(nGroup) /
         (double) GetDataTotal()) : 0);
 
@@ -392,7 +393,7 @@ CString MyGraph::GetTipText() const
                         sTip += _T(", ");
                     }
                     sTip += m_saLegendLabels.GetAt(nGroup) + _T(": ");
-                    sTip += pSeries->GetTipText(nGroup);
+                    sTip += pSeries->GetTipText(nGroup, m_sYAxisLabel);
                     nGroup++;
                 }
             }while(-1 != nGroup);
