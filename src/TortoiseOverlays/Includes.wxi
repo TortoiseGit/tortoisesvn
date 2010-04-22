@@ -45,20 +45,12 @@
 
   <?if $(env.Platform) = "x64" ?>
 
-  <?define GuidShellRegistry="66B5044C-24D2-4fa4-B95A-88F0BE2A973D"?>
-  <?define GuidMachineRegistry="2CF4E92F-1DAB-4719-B278-756F50A966AC"?>
-  <?define GuidApproveShellComponents="3FB40350-DF8A-4442-AC40-ED475EDA8D9A"?>
-
-  <?define OverlayDll="26DC8384-C811-421b-BA3E-71E9897DB879"?>
+  <?define OverlayDll="BC54248D-096E-4EF0-A072-EE0C3113DB93"?>
   <?define GuidIconsXPStyle="5FDADF3B-9541-4bc1-8B4E-EA345CDBBFA4"?>
 
   <?else?>
 
-  <?define GuidShellRegistry="55ADC3EC-C30F-427e-9C4C-E79254E36A0D"?>
-  <?define GuidMachineRegistry="A0621092-5B86-46ea-8608-E121040D92B4"?>
-  <?define GuidApproveShellComponents="9007B61C-2CF7-4dee-9BF1-E73B9C7196D3"?>
-
-  <?define OverlayDll="B2BE5541-1B56-4b85-A047-ECBDD890092E"?>
+  <?define OverlayDll="8BBB749A-154B-4A35-ACC0-A48E26F2DE64"?>
   <?define GuidIconsXPStyle="9C4E4EF3-DC28-45e7-904F-54101784C57F"?>
 
   <?endif?>

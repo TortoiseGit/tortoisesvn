@@ -8,23 +8,23 @@
   <?define cf="CommonFiles64Folder" ?>
   <?endif ?>
   <Product
-		  UpgradeCode="$(var.UpgradeGuid)"
-		Name="TortoiseOverlays"
-		  Id="*"
-		  Version="$(var.VersionNumberInternal)"
-		  Manufacturer="TortoiseSVN"
-		  Language="1033">
+      UpgradeCode="$(var.UpgradeGuid)"
+    Name="TortoiseOverlays"
+      Id="*"
+      Version="$(var.VersionNumberInternal)"
+      Manufacturer="TortoiseSVN"
+      Language="1033">
     <Package
-				Id="*"
-				Keywords="Tortoise,Overlays"
-				Description="Overlayhandler for Tortoise clients"
-				Comments="Provided by TortoiseSVN"
-				Manufacturer="TortoiseSVN"
-				InstallerVersion="200"
-				Platform="$(var.PackagePlatforms)"
-				Languages="1033"
-				Compressed="yes"
-				SummaryCodepage="1252"/>
+        Id="*"
+        Keywords="Tortoise,Overlays"
+        Description="Overlayhandler for Tortoise clients"
+        Comments="Provided by TortoiseSVN"
+        Manufacturer="TortoiseSVN"
+        InstallerVersion="200"
+        Platform="$(var.PackagePlatforms)"
+        Languages="1033"
+        Compressed="yes"
+        SummaryCodepage="1252"/>
 
     <Media Id="1" Cabinet="TOVL.cab" EmbedCab="yes" CompressionLevel="high" />
 
@@ -38,14 +38,14 @@
           <Component Id="C__overlaydll" Guid="$(var.OverlayDll)" Win64="$(var.Win64YesNo)">
             <File Id="F__overlaydll" Name="TortoiseOverlays.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseOverlays.dll" KeyPath="yes" />
             <File Id="F__license" Name="License.txt" DiskId="1" Source="License.txt" />
-          </Component>
 
-          <?if $(env.Platform) = "win32" ?>
-          <?include TortoiseOverlaysDir.wxi?>
-          <?endif ?>
-          <?if $(env.Platform) = "x64" ?>
-          <?include TortoiseOverlaysDirx64.wxi?>
-          <?endif ?>
+            <?if $(env.Platform) = "win32" ?>
+            <?include TortoiseOverlaysDir.wxi?>
+            <?endif ?>
+            <?if $(env.Platform) = "x64" ?>
+            <?include TortoiseOverlaysDirx64.wxi?>
+            <?endif ?>
+          </Component>
 
           <Directory Id="D__icons" Name="icons" >
             <Directory Id="D__iconsxpstyle" Name="XPStyle" >
@@ -70,9 +70,6 @@
     <Feature Id='TortoiseOverlaysPackage' Title='TortoiseOverlays Package' Level='1'>
       <ComponentRef Id='C__overlaydll' />
       <ComponentRef Id='C__iconsxpstyle' />
-      <ComponentRef Id='OverlayRegistry' />
-      <ComponentRef Id='C__machineregistry' />
-      <ComponentRef Id='C__approveshellcomponents' />
     </Feature>
 
     <InstallExecuteSequence>

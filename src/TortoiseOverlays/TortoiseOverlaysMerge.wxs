@@ -8,10 +8,10 @@
   <?define cf="CommonFiles64Folder" ?>
   <?endif ?>
 
-  <Module Id='TortoiseOverlays' Language='0' Version='1.0.0.0'>
+  <Module Id='TortoiseOverlays' Language='0' Version='$(var.VersionNumberInternal)'>
     <Package Id="$(var.UpgradeGuid)" Description='Overlay handler for Tortoise clients'
-				  Comments='Provided by TortoiseSVN'
-				  Manufacturer='TortoiseSVN' InstallerVersion='200' />
+          Comments='Provided by TortoiseSVN'
+          Manufacturer='TortoiseSVN' InstallerVersion='200' />
 
     <Directory Id='TARGETDIR' Name='SourceDir'>
       <Directory Id='$(var.cf)' Name='Common'>
@@ -20,14 +20,14 @@
           <Component Id="C__overlaydll" Guid="$(var.OverlayDll)" Win64="$(var.Win64YesNo)">
             <File Id="F__overlaydll" Name="TortoiseOverlays.dll" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseOverlays.dll" KeyPath="yes" />
             <File Id="F__license" Name="License.txt" Source="License.txt" />
-          </Component>
 
-          <?if $(env.Platform) = "win32" ?>
-          <?include TortoiseOverlaysDir.wxi?>
-          <?endif ?>
-          <?if $(env.Platform) = "x64" ?>
-          <?include TortoiseOverlaysDirx64.wxi?>
-          <?endif ?>
+            <?if $(env.Platform) = "win32" ?>
+            <?include TortoiseOverlaysDir.wxi?>
+            <?endif ?>
+            <?if $(env.Platform) = "x64" ?>
+            <?include TortoiseOverlaysDirx64.wxi?>
+            <?endif ?>
+          </Component>
 
           <Directory Id="D__icons" Name="icons" >
             <Directory Id="D__iconsxpstyle" Name="XPStyle" >
