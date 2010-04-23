@@ -142,7 +142,7 @@ static const char iri_escape_chars[256] = {
 const char uri_autoescape_chars[256] = {
     0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0,
-    0, 1, 0, 0, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 0, 1, 1, 1, 1, 1,   1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 1, 1, 1, 1, 1,   1, 1, 1, 0, 0, 1, 0, 0,
 
     /* 64 */
@@ -681,7 +681,8 @@ private:
         ATLASSERT(test3.Compare("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
         CStringA test4 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS 1.0/Trunk/name with spaces/NewTest % NewTest");
         ATLASSERT(test4.Compare("file:///d:/REpos1/uCOS%201.0/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
-
+        CStringA test5 = CPathUtils::PathEscape("file:///d:/REpos1/#16");
+        ATLASSERT(test5.Compare("file:///d:/REpos1/#16") == 0);
     }
     void ExtTest()
     {

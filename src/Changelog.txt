@@ -94,7 +94,8 @@ Version 1.6.9
 - BUG: the menu icons on XP were not shown correctly. (Stefan)
 - BUG: the overlay icons could dissapear after upgrading from
        a previous version, a 'repair install' however would
-	   fix this issue. (Stefan)
+       fix this issue. (Stefan)
+- BUG: Urls with '#' in it were not escaped correctly. (Stefan)
 
 Version 1.6.8
 - BUG: Exporting via DnD from the repository browser could 
