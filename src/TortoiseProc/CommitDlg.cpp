@@ -733,8 +733,8 @@ UINT CCommitDlg::StatusThread()
             GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_SHOW);
             DialogEnableWindow(IDC_EXTERNALWARNING, TRUE);
         }
-        m_CommitTo.SetWindowText(m_ListCtrl.m_sURL);
         m_CommitTo.SetBold();
+        m_CommitTo.SetWindowText(m_ListCtrl.m_sURL);
         m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 
         {
