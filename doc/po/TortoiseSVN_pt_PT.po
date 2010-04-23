@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-22 05:31-0000\n"
+"PO-Revision-Date: 2010-04-23 01:18-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11299,7 +11299,7 @@ msgstr "A tabela abaixo lista todos os comandos que podem ser acedidos usando a 
 
 #. (title)
 msgid "List of available commands and options"
-msgstr ""
+msgstr "Lista de comandos e opções disponíveis"
 
 #. (entry)
 msgid "Command"
@@ -11546,7 +11546,7 @@ msgstr "Remove do controlo de versões o(s) ficheiro(s) em <placeholder-1/>."
 
 #. (entry)
 msgid "Renames the file in <placeholder-1/>. The new name for the file is asked with a dialog. To avoid the question about renaming similar files in one step, pass <placeholder-2/>."
-msgstr ""
+msgstr "Altera o nome do ficheiro em <placeholder-1/>. O novo nome do ficheiro será pedido numa caixa de diálogo. Para evitar a pergunta sobre alterar o nome a ficheiros similares num só passo, passa <placeholder-2/>."
 
 #. (option)
 #. (option)
@@ -11564,27 +11564,27 @@ msgstr ""
 
 #. (entry)
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
-msgstr ""
+msgstr "Arranca o programa externo de comparação especificado nas preferências do TortoiseSVN. O <placeholder-1/> especifica o primeiro ficheiro. Se for usada a opção <placeholder-2/>, o programa de comparação é então arrancado com esses dois ficheiros. Se for omitido o <placeholder-3/>, então a comparação é feita entre o ficheiro no <placeholder-4/> e a sua BASE. Para colocar explicitamente os números de revisão usa o <placeholder-5/> e o <placeholder-6/>. Se for usado o <placeholder-7/> ie não for o <placeholder-8/>, então a comparação é feita responsabilizando primeiro os ficheiros com as revisões dadas. O parâmetro <placeholder-9/> especifica a linha para que deve saltar quando a comparação for visualizada."
 
 #. (para)
 msgid "Depending on the URLs and revisions to compare, this either shows a unified diff (if the option <option>unified</option> is set), a dialog with a list of files that have changed or if the URLs point to files starts the diff viewer for those two files."
-msgstr ""
+msgstr "Dependendo dos URLs e revisões a comparar, isto ou mostra uma comparação unificada (se a opção <option>unified</option> for usada), uma caixa de diálogo com a lista de ficheiros que foram alterados, ou se os URLs apontam para ficheiros arranca o visualizador de comparação para esses dois ficheiros."
 
 #. (para)
 msgid "The options <option>url1</option>, <option>url2</option>, <option>revision1</option> and <option>revision2</option> must be specified. The options <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> and <option>unified</option> are optional."
-msgstr ""
+msgstr "As opções <option>url1</option>, <option>url2</option>, <option>revision1</option> e <option>revision2</option> devem ser especificadas. As opções <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> and <option>unified</option> são opcionais."
 
 #. (entry)
 msgid "Starts the conflict editor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
-msgstr ""
+msgstr "Arranca o editor de conflitos especificado nas preferências do TortoiseSVN com os ficheiros correctos para o ficheiro em conflito no <placeholder-1/>."
 
 #. (entry)
 msgid "Opens the relocate dialog. The <placeholder-1/> specifies the working copy path to relocate."
-msgstr ""
+msgstr "Abre a caixa de diálogo reposicionar. O <placeholder-1/> especifica o caminho da cópia de trabalho a reposicionar."
 
 #. (entry)
 msgid "Opens the help file."
-msgstr ""
+msgstr "Abre o ficheiro de ajuda."
 
 #. (option)
 msgid "/remote"
@@ -11597,7 +11597,7 @@ msgstr "O Repositório"
 
 #. (entry)
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
-msgstr ""
+msgstr "Abre a caixa de diálogo verificar-alterações. O <placeholder-1/> especifica a pasta da cópia de trabalho. Se for especificada a <placeholder-2/>, a caixa de diálogo contacta imediatamente o repositório no arranque, como se o utilizador clicasse no botão <placeholder-3/>."
 
 #. (option)
 #. (option)
@@ -11610,7 +11610,7 @@ msgstr ""
 
 #. (entry)
 msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, the <placeholder-6/> specifies the path from where to read and use the project properties."
-msgstr ""
+msgstr "Arranca o navegador de repositório apontando para o URL da cópia de trabalho dada pelo <placeholder-1/>, ou o <placeholder-2/> aponta directamente para um URL. Uma opção adicional <placeholder-3/>, pode ser usada para especificar qual a revisão que o navegador de repositório deve mostrar. Se for omitido o <placeholder-4/>, será por defeito HEAD. Se o <placeholder-5/> apontar para um URL, o <placeholder-6/> especifica o caminho de onde deve ler e usar as propriedades do projecto."
 
 #. (literal)
 msgid "svn:ignore"
@@ -11618,23 +11618,23 @@ msgstr ""
 
 #. (entry)
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the <placeholder-2/> property to those files."
-msgstr ""
+msgstr "Adiciona todos os objectos em <placeholder-1/> à lista de ignorados, i.e. adiciona a propriedade <placeholder-2/> a esses ficheiros."
 
 #. (para)
 msgid "Opens the blame dialog for the file specified in <option>/path</option>."
-msgstr ""
+msgstr "Abre a caixa de diálogo responsabilizar paa o ficheiro especificado em <option>/path</option>."
 
 #. (para)
 msgid "If the options <option>/startrev</option> and <option>/endrev</option> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead."
-msgstr ""
+msgstr "Se as opções <option>/startrev</option> e <option>/endrev</option> são usadas, então a caixa de diálogo que pergunta pelo intervalo de responsabilidade não será mostrada, e em alternativa será usado os valores dessas opções."
 
 #. (para)
 msgid "If the option <option>/line:nnn</option> is set, TortoiseBlame will open with the specified line number showing."
-msgstr ""
+msgstr "Se a opção <option>/line:nnn</option> for usada, o TortoiseBlame irá abrir mostrando a linha cujo número foi especificado."
 
 #. (para)
 msgid "The options <option>/ignoreeol</option>, <option>/ignorespaces</option> and <option>/ignoreallspaces</option> are also supported."
-msgstr ""
+msgstr "As opções <option>/ignoreeol</option>, <option>/ignorespaces</option> e <option>/ignoreallspaces</option> são também suportadas."
 
 #. (option)
 msgid "/savepath:path"
@@ -11646,31 +11646,31 @@ msgstr ""
 
 #. (entry)
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
-msgstr ""
+msgstr "Guarda um ficheiro de um URL ou cópia de trabalho dada em <placeholder-1/> para a localização especificada em <placeholder-2/>. A revisão é dada em <placeholder-3/>. Isto pode ser usado para obter um ficheiro com uma revisão específica."
 
 #. (entry)
 msgid "Creates a patch file for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "Cria um ficheiro de correção para o caminho dado em <placeholder-1/>."
 
 #. (entry)
 msgid "Shows the revision graph for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "Mostra o gráfico de revisões para o caminho dado em <placeholder-1/>."
 
 #. (entry)
 msgid "Locks a file or all files in a directory given in <placeholder-1/>. The 'lock' dialog is shown so the user can enter a comment for the lock."
-msgstr ""
+msgstr "Bloqueia um ficheiro ou todos os ficheiros numa pasta dada por <placeholder-1/>. É mostrada a caixa de diálogo 'Bloquear' para que o utilizador possa introduzir um comentário para o bloqueio."
 
 #. (entry)
 msgid "Unlocks a file or all files in a directory given in <placeholder-1/>."
-msgstr ""
+msgstr "Desbloqueia um ficheiro ou todos os ficheiros numa pasta dada por <placeholder-1/>."
 
 #. (entry)
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. To suppress the message box, pass <placeholder-1/>."
-msgstr ""
+msgstr "Reconstrói a cache de ícones do windows. Usa só isto no caso de os ícones do Windows ficarem corrompidos. Um efeito secundário disto (que não pode ser evitado) é que os ícones no ambiente de trabalho são reordenados. Para suprimir a caixa de mensagem, passa o <placeholder-1/>."
 
 #. (entry)
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr ""
+msgstr "Mostra a caixa de diálogo propriedades para o caminho dado por <placeholder-1/>."
 
 #. (para)
 msgid ""
@@ -11685,6 +11685,16 @@ msgid ""
 "                 /startrev:50 /endrev:60 /closeonend:0\n"
 "</screen>"
 msgstr ""
+"Exemplos (que deveram ser introduzidos numa só linha): <screen>\n"
+"TortoiseProc.exe /command:commit\n"
+"                 /path:\"c:\\svn_wc\\file1.txt*c:\\svn_wc\\file2.txt\"\n"
+"                 /logmsg:\"test log message\" /closeonend:0\n"
+"\n"
+"TortoiseProc.exe /command:update /path:\"c:\\svn_wc\\\" /closeonend:0\n"
+"\n"
+"TortoiseProc.exe /command:log /path:\"c:\\svn_wc\\file1.txt\"\n"
+"                 /startrev:50 /endrev:60 /closeonend:0\n"
+"</screen>"
 
 #. (title)
 msgid "Tsvncmd URL handler"
