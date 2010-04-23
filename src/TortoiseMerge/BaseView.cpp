@@ -2174,7 +2174,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
         nBlockEnd += nDirection;
     }
 
-    int nTopPos = nCenterPos - (GetFullScreenLines()/2);
+    int nTopPos = nCenterPos - (GetScreenLines()/2);
     if (nTopPos < 0)
         nTopPos = 0;
 
