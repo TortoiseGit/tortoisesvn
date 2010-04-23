@@ -2471,9 +2471,12 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
         UpdateGoalPos();
 
         ClearSelection();
-        while (!IsCaretAtWordBoundary() && MoveCaretLeft())
+        while (!IsCaretAtWordBoundary() && (m_ptSelectionStartPos.y == m_ptCaretPos.y) && MoveCaretLeft())
         {
         }
+        if (m_ptSelectionStartPos.y != m_ptCaretPos.y)
+            MoveCaretRight();
+
         m_ptSelectionStartPos = m_ptCaretPos;
         m_ptSelectionEndPos = m_ptCaretPos;
         m_ptSelectionOrigin = m_ptCaretPos;
