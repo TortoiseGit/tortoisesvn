@@ -4142,11 +4142,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             if (IsSelectionContinuous() || (m_LogList.GetSelectedCount() == 2))
             {
                 popup.AppendMenuIcon(ID_COMPARETWO, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
+                popup.AppendMenuIcon(ID_GNUDIFF2, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
             }
             if (m_LogList.GetSelectedCount() == 2)
             {
                 popup.AppendMenuIcon(ID_BLAMETWO, IDS_LOG_POPUP_BLAMEREVS, IDI_BLAME);
-                popup.AppendMenuIcon(ID_GNUDIFF2, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
                 bAddSeparator = true;
             }
             if (m_hasWC)
@@ -4197,14 +4197,21 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_GNUDIFF2:
             {
+                SVNRev r1 = revSelected;
+                SVNRev r2 = revSelected2;
+                if (m_LogList.GetSelectedCount() > 2)
+                {
+                    r1 = revHighest;
+                    r2 = revLowest;
+                }
                 if (PromptShown())
                 {
                     SVNDiff diff(this, this->m_hWnd, true);
                     diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowUnifiedDiff(m_path, revSelected2, m_path, revSelected);
+                    diff.ShowUnifiedDiff(m_path, r2, m_path, r1);
                 }
                 else
-                    CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, revSelected2, m_path, revSelected, SVNRev(), m_LogRevision);
+                    CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision);
             }
             break;
         case ID_REVERTREV:
