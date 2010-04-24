@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-24 23:38-0000\n"
+"PO-Revision-Date: 2010-04-25 00:14-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11803,7 +11803,7 @@ msgstr ""
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
-msgstr ""
+msgstr "Referência Cruzada da Interface de Linha de Comandos"
 
 #. (primary)
 msgid "command line client"
@@ -11815,31 +11815,31 @@ msgstr ""
 
 #. (para)
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
-msgstr ""
+msgstr "Por vezes este manual refere-se à principal documentação do Subversion, que descreve o Subversion em termos da Interface de Linha de Comandos (ILC). Para te ajudar a compreender o que o tortoise faz nos bastidores, nós compilámos uma lista mostrando os comandos ILC equivalentes, para cada comando do GUI do TortoiseSVN."
 
 #. (para)
 msgid "Even though there are CLI equivalents to what TortoiseSVN does, remember that TortoiseSVN does <emphasis>not</emphasis> call the CLI but uses the Subversion library directly."
-msgstr ""
+msgstr "Mesmo que hajam ILC equivalentes para o que o TortoiseSVN faz, lembra-te que o TortoiseSVN <emphasis>não</emphasis> chama o ILC mas usa directamente a biblioteca do Subversion."
 
 #. (para)
 msgid "If you think you have found a bug in TortoiseSVN, we may ask you to try to reproduce it using the CLI, so that we can distinguish TortoiseSVN issues from Subversion issues. This reference tells you which command to try."
-msgstr ""
+msgstr "Se pensas que encontraste um bug no TortoiseSVN, podemos pedir-te para o reproduzir, usando o ILC, para que possamos distinguir os problemas do TortoiseSVN dos do Subversion. Esta referência diz qual o comando a tentar."
 
 #. (title)
 msgid "Conventions and Basic Rules"
-msgstr ""
+msgstr "Convenções e Regras Básicas"
 
 #. (para)
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr ""
+msgstr "Nas descrições que se seguem, o URL de uma localização do repositório é simplesmente mostrado como <literal>URL</literal>, e um exemplo poderá ser <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. O caminho para a cópia de trabalho é mostrado simplesmente como <literal>PATH</literal>, e um exemplo poderá ser <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
-msgstr ""
+msgstr "Porque o TortoiseSVN é uma extensão da Shell do Windows, não é capaz de usar a noção de pasta corrente de trabalho. Todos os caminhos da cópia de trabalho deverão ser fornecidos usando o caminho absoluto e não o caminho relativo."
 
 #. (para)
 msgid "Certain items are optional, and these are often controlled by checkboxes or radio buttons in TortoiseSVN. These options are shown in [square brackets] in the command line definitions."
-msgstr ""
+msgstr "Certos itens são opcionais, e esses no TortoiseSVN são frequentemente controlados por caixas de verificação ou botões de rádio. Essas opções são mostradas em [parênteses rectos] nas definições da linha de comandos."
 
 #. (screen)
 #, no-wrap
