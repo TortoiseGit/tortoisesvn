@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-12-09 09:22 +0000\n"
-"PO-Revision-Date: 2010-04-22 22:23+0100\n"
+"PO-Revision-Date: 2010-04-24 17:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6929,16 +6929,15 @@ msgstr "Sauvegardez juste le fichier en utilisant un nom de fichier de votre cho
 
 #. (para)
 msgid "You can also save the patch to the clipboard instead of to a file. You might want to do this so that you can paste it into an email for review by others. Or if you have two working copies on one machine and you want to transfer changes from one to the other, a patch on the clipboard is a convenient way of doing this."
-msgstr ""
+msgstr "Vous pouvez aussi sauvegarder le patch dans le presse-papier plutôt que dans un fichier. Cela permet, par exemple, de le coller dans un mail afin de le transmettre à d'autres personnes pour une revue. Ou alors, si vous avez deux copies de travail sur une machine et que vous vouliez reporter des changements de l'une à l'autre, copier le patch dans le presse-papier est un moyen commode pour le faire. "
 
 #. (title)
 msgid "Applying a Patch File"
 msgstr "Appliquer un patch"
 
 #. (para)
-#, fuzzy
 msgid "Patch files are applied to your working copy. This should be done from the same folder level as was used to create the patch. If you are not sure what this is, just look at the first line of the patch file. For example, if the first file being worked on was <filename>doc/source/english/chapter1.xml</filename> and the first line in the patch file is <filename>Index: english/chapter1.xml</filename> then you need to apply the patch to the <filename>doc/source/</filename> folder. However, provided you are in the correct working copy, if you pick the wrong folder level, TortoiseSVN will notice and suggest the correct level."
-msgstr "Les fichiers patch s'appliquent à votre copie de travail. Cela devrait être fait au même niveau de dossier qui a été utilisé pour créer le patch. Si vous n'êtes pas sûr de le savoir, regardez simplement la première ligne du fichier patch. Par exemple, si le premier fichier travaillé était <filename>doc/source/english/chapter1.xml</filename> et la première ligne dans le patch est <filename>Index: english/chapter1.xml</filename> alors vous devez appliquer le patch sur le répertoire <filename>english</filename>. Cependant, pour le cas où vous êtes dans la bonne copie de travail, si vous choisissez le mauvais niveau de dossier, TSVN le remarquera et suggérera le niveau correct."
+msgstr "Les fichiers patch s'appliquent à votre copie de travail. Cela doit être fait au même niveau de dossier qui a été utilisé pour créer le patch. Si vous n'êtes pas sûr de le savoir, regardez simplement la première ligne du fichier patch. Par exemple, si le premier fichier travaillé était <filename>doc/source/english/chapter1.xml</filename> et la première ligne dans le patch est <filename>Index: english/chapter1.xml</filename> alors vous devez appliquer le patch sur le répertoire <filename>english</filename>. Cependant, pour le cas où vous êtes dans la bonne copie de travail, si vous choisissez le mauvais niveau de dossier, TSVN le remarquera et suggérera le niveau correct."
 
 #. (para)
 msgid "In order to apply a patch file to your working copy, you need to have at least read access to the repository. The reason for this is that the merge program must reference the changes back to the revision against which they were made by the remote developer."
@@ -9417,18 +9416,16 @@ msgid "The Settings Dialog, TortoiseBlame Page"
 msgstr "La boîte de dialogue ce configuration, page de bannissement."
 
 #. (para)
-#, fuzzy
 msgid "<placeholder-1/> The settings used by TortoiseBlame are controlled from the main context menu, not directly with TortoiseBlame itself."
-msgstr "Blame = Annoter"
+msgstr "<placeholder-1/> Les paramètres utilisés par TortoiseBlame sont contrôlés à partir du menu contextuel principal, et non directement par TortoiseBlame."
 
 #. (term)
 msgid "Colors"
 msgstr "Couleurs"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseBlame can use the background colour to indicate the age of lines in a file. You set the endpoints by specifying the colours for the newest and oldest revisions, and TortoiseBlame uses a linear interpolation between these colours according to the repository revision indicated for each line."
-msgstr "Blame = Annoter"
+msgstr "TortoiseBlame utilise la couleur de fond pour indiquer l'âge des lignes. Vous spécifiez les couleurs extrêmes en choisissant une couleur pour la révision la plus récente et une autre pour la révision la plus ancienne. TortoiseBlame applique une interpolation linéaire entre ces deux couleurs afin de colorer chaque ligne en fonction de son numéro de révision."
 
 #. (term)
 msgid "Font"
@@ -9532,9 +9529,8 @@ msgid "Always blame changes with TortoiseMerge"
 msgstr "Toujours bannir les modifications faites avec TortoiseMerge"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN allows you to assign external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
-msgstr "Blame = Annoter"
+msgstr "TortoiseSVN vous permet d'utiliser un comparateur de fichier tiers. Cependantn la plupart de ces logiciels ne sont pas adaptés à la gestion d'annotation (<xref linkend=\"tsvn-dug-blame-diffs\"/>), auquel cas, vous pourriez vouloir utiliser TortoiseMerge pour cela. Pour ce faire, créer une clé de type <literal>DWORD</literal> avec la valeur 1 dans la base de registre sous <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
 
 #. (term)
 msgid "Current revision highlighting for folders in log dialog"
