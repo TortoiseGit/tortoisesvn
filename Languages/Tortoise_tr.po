@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-24 12:12+0200\n"
+"PO-Revision-Date: 2010-04-24 13:30+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -871,7 +871,7 @@ msgstr "&Yükle..."
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
-msgstr ""
+msgstr "&Kilitleme gerekiyor (salt-okunur güncelleme)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
@@ -976,11 +976,11 @@ msgstr "&Çift tıklama yok"
 
 #. Resource IDs: (1555)
 msgid "&No locking required"
-msgstr ""
+msgstr "&Kilitleme gerekmiyor"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
-msgstr ""
+msgstr "Çalıştırılabilir &değil"
 
 #. Resource IDs: (1566)
 msgid "&Numeric"
@@ -1028,7 +1028,7 @@ msgstr "&Tamamen Çevrimdışı"
 
 #. Resource IDs: (1588)
 msgid "&Platform dependent (native)"
-msgstr ""
+msgstr "&Platform bağımlı (makina kodu)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1076,7 +1076,7 @@ msgstr "&Tazele"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr ""
+msgstr "&Bug-ID girmeyi hatırlat"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -1140,7 +1140,7 @@ msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Saturation:"
-msgstr ""
+msgstr "&Doygunluk:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -1994,7 +1994,7 @@ msgstr "Dikey& olarak sırala"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr ""
+msgstr "Olduğu &gibi (belirli bir EOL yok)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2199,7 +2199,7 @@ msgstr "Kusur-ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr ""
+msgstr "Bug-ID i&fadesi:"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
@@ -2388,7 +2388,7 @@ msgstr "Hariciler sabitlenmiş versiyona güncellendi."
 
 #. Resource IDs: (65535)
 msgid "Char position where to show a border line in commit text boxes:"
-msgstr ""
+msgstr "Teslim etme metin kutularında gösterilecek sınır çizgisi için karakter pozisyonu: "
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2412,11 +2412,11 @@ msgstr "Etiketlemek için haricileri kontrol et"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
-msgstr "&Değişiklikleri kontrol et"
+msgstr "&Modifikasyon ara"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
-msgstr "Mod&ifikasyon varmı diye kontrol et"
+msgstr "Modi&fikasyon ara"
 
 #. Resource IDs: (65535)
 msgid "Check for modifications"
@@ -3420,7 +3420,7 @@ msgstr "Hedef disk sürücüsü dolu."
 
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
-msgstr ""
+msgstr "Taşınmış blokları tespit et ve vurgula"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -3626,6 +3626,8 @@ msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
 msgstr ""
+"Otomatik kaydedilen belgeleri geri döndürme\n"
+"Belgelerin açık bir şekilde kaydedilen en son versiyonlarını kullan"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -6265,11 +6267,11 @@ msgstr "Not: yazı tipi ayarları TortoiseUDiff görüntüleyicisinide etkiler"
 
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
-msgstr ""
+msgstr "Uyarı: bu sadece TortoiseSVN'i değil, tüm Tortoise istemcilerini etkiler!"
 
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
-msgstr ""
+msgstr "Uyarı: bu özelliğin Windows üzerinde bir etkisi yok."
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7917,7 +7919,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
-msgstr ""
+msgstr "Projenin kullandığı dili seçin. Bu ayarlar teslim etme mesajları için kullanılan yazım kontrolcüsünü etkiler."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -8337,7 +8339,7 @@ msgstr ""
 
 #. Resource IDs: (1305)
 msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
-msgstr ""
+msgstr "Sorun takipçisine erşimek için gerekli olan URL'yi girin. %BUGID% ifadesini gerçek sorun numarası için bir yer tutucu olarak kullanın."
 
 #. Resource IDs: (79)
 msgid ""
@@ -9076,6 +9078,8 @@ msgid ""
 "The regular expression is invalid!\n"
 "Please enter a valid regular expression."
 msgstr ""
+"Düzenli ifade geçersiz!\n"
+"Lütfen geçerli bir düzenli ifade girin."
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -11482,7 +11486,7 @@ msgstr "{HataTakibi}"
 #~ msgid "Repository browser"
 #~ msgstr "Depo tarayıcısı"
 #~ msgid "SVN Export to here"
-#~ msgstr "SVN Buraya Export et"
+#~ msgstr "SVN Buraya İhraç et"
 #~ msgid "Show &differences"
 #~ msgstr "Tüm değ&işiklikleri göster"
 #~ msgid "Sort numerical"
