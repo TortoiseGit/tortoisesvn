@@ -148,7 +148,9 @@ private:
     CLogEntryData* parent;
     bool hasChildren;
     DWORD childStackDepth;
-
+	int   BugFixRating;
+	int   BugIncludeRating;
+	
     ProjectProperties* projectProperties;
 
     bool checked;
@@ -167,7 +169,9 @@ public:
                   , __time64_t tmDate
                   , const CString& sAuthor
                   , const CString& sMessage
-                  , ProjectProperties* projectProperties);
+                  , ProjectProperties* projectProperties
+                  , int  iBugFixRating =0
+                  , int  iBugIncludeRating =0);
 
     /// destruction
 
@@ -182,6 +186,14 @@ public:
         , ProjectProperties* projectProperties);
     void SetChecked
         ( bool newState);
+	void SetBugFixRating
+		(int BugFixRating);
+	void AddBugFixRating
+		(int BugFixRating);
+	void SetBugIncludeRating
+		(int BugIncludeRating);
+	void AddBugIncludeRating
+		(int BugIncludeRating);
 
     /// finalization (call this once the cache is available)
 
@@ -204,6 +216,8 @@ public:
     const CString& GetMessage() const {return sMessage;}
     const CString& GetBugIDs() const {return sBugIDs;}
     CString GetShortMessage() const;
+	int GetBugFixRating() const;
+	int GetBugIncludeRating() const;
 
     const CLogChangedPathArray& GetChangedPaths() const {return changedPaths;}
 

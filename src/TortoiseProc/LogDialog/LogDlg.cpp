@@ -117,6 +117,76 @@ enum LogDlgContextMenuCommands
 };
 
 
+int CLogDlg::Diff::Range::MaxRowInRange()
+{
+    return row + len;
+}
+
+//TODO:áüþþ
+
+CLogDlg::Diff::Diff (const CString& Road, bool iFirst /* = false */) : file(Road), first(iFirst), Position(0)
+{    
+    while (!file.eof() && mRange.row == 0)
+        NextLine();
+}
+
+std::string CLogDlg::Diff::NextLine()
+{    
+    Position++;
+    const int rowLenght =180;
+    char *t= new char[rowLenght];
+
+    do
+    {
+        file.getline(t, rowLenght);
+        readingString=t;
+    } 
+    while ( readingString[0] == (first ? '+' : '-'));
+
+    if (readingString[0]=='@')
+        mRange = GetRange();
+
+    delete t;
+
+    return readingString;
+}
+
+CLogDlg::Diff::Range CLogDlg::Diff::GetRange()
+{
+    mRange.row=0;
+    mRange.len=0;
+    char prewCh = first ? '-' : '+';
+
+    int i=0;
+    while (readingString[i]!= prewCh) i++;
+    i++;
+
+    while (readingString[i]!=',')
+        mRange.row = mRange.row*10 + (readingString[i++] - '0');
+
+    i++;
+    while (readingString[i]!=' ') mRange.len = mRange.len*10 + (readingString[i++] - '0');
+
+    NextLine();
+    //int y =( !(readingString[0] != (first ? '+' : '-')) ) ? 1: 0;
+    Position = mRange.row;
+    return mRange;
+}
+
+void CLogDlg::Diff::alignmentPositions(Diff& iDiff)
+{
+    if (Position < iDiff.Position)
+    {
+        while ( !file.eof() && Position < iDiff.Position)
+        {
+            NextLine();
+        }        
+    }
+    else(iDiff.alignmentPositions(*this));
+}
+
+
+
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableStandAloneDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CLogDlg::IDD, pParent)
@@ -150,10 +220,12 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_head(-1)
     , m_nSortColumnPathList(0)
     , m_bAscendingPathList(false)
-{
-    m_bFilterWithRegex =
+	, m_bHadFindedBugs(false)
+{   
+    m_SVN = new SVN;
+    m_bFilterWithRegex = 
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
-    m_bFilterCaseSensitively =
+    m_bFilterCaseSensitively =  
         !!CRegDWORD(_T("Software\\TortoiseSVN\\FilterCaseSensitively"), FALSE);
 }
 
@@ -179,6 +251,7 @@ CLogDlg::~CLogDlg()
         m_pLogListAccServer->Release();
     if (m_pChangedListAccServer)
         m_pChangedListAccServer->Release();
+    delete m_SVN;
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -197,6 +270,8 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_GETALL, m_btnShow);
     DDX_Text(pDX, IDC_LOGINFO, m_sLogInfo);
     DDX_Check(pDX, IDC_INCLUDEMERGE, m_bIncludeMerges);
+    DDX_Check(pDX, IDC_BUGSCOMMITS, m_bFindBugsIncudedRevs);
+    DDX_Check(pDX, IDC_BUGSFIXCOMMITS, m_bFindBugsFixRevs);
     DDX_Control(pDX, IDC_SEARCHEDIT, m_cFilter);
 }
 
@@ -230,6 +305,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_NOTIFY(DTN_DROPDOWN, IDC_DATEFROM, &CLogDlg::OnDtnDropdownDatefrom)
     ON_NOTIFY(DTN_DROPDOWN, IDC_DATETO, &CLogDlg::OnDtnDropdownDateto)
     ON_WM_SIZE()
+    ON_BN_CLICKED(IDC_BUGSCOMMITS, &CLogDlg::OnFindBugsRevs)
+    ON_BN_CLICKED(IDC_BUGSFIXCOMMITS, &CLogDlg::OnFindBugsFixRevs)
     ON_BN_CLICKED(IDC_INCLUDEMERGE, &CLogDlg::OnBnClickedIncludemerge)
     ON_BN_CLICKED(IDC_REFRESH, &CLogDlg::OnBnClickedRefresh)
     ON_COMMAND(ID_LOGDLG_REFRESH,&CLogDlg::OnRefresh)
@@ -273,6 +350,8 @@ BOOL CLogDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_STATBUTTON);
     m_aeroControls.SubclassControl(this, IDC_CHECK_STOPONCOPY);
     m_aeroControls.SubclassControl(this, IDC_INCLUDEMERGE);
+    m_aeroControls.SubclassControl(this, IDC_BUGSCOMMITS);
+    m_aeroControls.SubclassControl(this, IDC_BUGSFIXCOMMITS);
     m_aeroControls.SubclassControl(this, IDC_PROGRESS);
     m_aeroControls.SubclassControl(this, IDC_GETALL);
     m_aeroControls.SubclassControl(this, IDC_NEXTHUNDRED);
@@ -418,6 +497,8 @@ BOOL CLogDlg::OnInitDialog()
     AdjustControlSize(IDC_SHOWPATHS);
     AdjustControlSize(IDC_CHECK_STOPONCOPY);
     AdjustControlSize(IDC_INCLUDEMERGE);
+    AdjustControlSize(IDC_BUGSCOMMITS);
+    AdjustControlSize(IDC_BUGSFIXCOMMITS);
 
     GetClientRect(m_DlgOrigRect);
     m_LogList.GetClientRect(m_LogListOrigRect);
@@ -442,6 +523,8 @@ BOOL CLogDlg::OnInitDialog()
     AddAnchor(IDC_SHOWPATHS, BOTTOM_LEFT);
     AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT);
     AddAnchor(IDC_INCLUDEMERGE, BOTTOM_LEFT);
+    AddAnchor(IDC_BUGSCOMMITS, BOTTOM_LEFT);
+    AddAnchor(IDC_BUGSFIXCOMMITS, BOTTOM_LEFT);
     AddAnchor(IDC_GETALL, BOTTOM_LEFT);
     AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
     AddAnchor(IDC_REFRESH, BOTTOM_LEFT);
@@ -749,6 +832,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
         break;
     case 1: // show range
         {
+            m_bHadFindedBugs =false;
             // ask for a revision range
             CRevisionRangeDlg dlg;
             dlg.SetStartRevision(m_startrev);
@@ -804,6 +888,23 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
     GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 }
 
+void CLogDlg::OnFindBugsRevs()
+{
+    m_LogProgress.SetRange32(0, 100 * !m_bFindBugsIncudedRevs ? 2:1 );
+    m_LogProgress.SetPos(0);
+    m_nSelectedFilter = !m_bFindBugsIncudedRevs ? LOGFILTER_BUGINCLUDE : LOGFILTER_ALL;
+	DialogEnableWindow(IDC_BUGSFIXCOMMITS, !m_bFindBugsIncudedRevs ? FALSE : TRUE );
+    Refresh (true);
+}
+
+void CLogDlg::OnFindBugsFixRevs()
+{
+    m_LogProgress.SetRange32(0, 100 * !m_bFindBugsFixRevs ? 2:1 );
+    m_LogProgress.SetPos(0);
+    m_nSelectedFilter = !m_bFindBugsFixRevs ? LOGFILTER_BUGFIX : LOGFILTER_ALL;
+	DialogEnableWindow(IDC_BUGSCOMMITS, !m_bFindBugsFixRevs ? FALSE : TRUE );
+    Refresh (true);
+}
 void CLogDlg::OnBnClickedRefresh()
 {
     m_limit = 0;
@@ -1043,6 +1144,8 @@ void CLogDlg::LogThread()
     DialogEnableWindow(IDC_SHOWPATHS, FALSE);
     DialogEnableWindow(IDC_CHECK_STOPONCOPY, FALSE);
     DialogEnableWindow(IDC_INCLUDEMERGE, FALSE);
+    DialogEnableWindow(IDC_BUGSCOMMITS, FALSE);
+    DialogEnableWindow(IDC_BUGSFIXCOMMITS, FALSE);
     DialogEnableWindow(IDC_STATBUTTON, FALSE);
     DialogEnableWindow(IDC_REFRESH, FALSE);
 
@@ -1213,6 +1316,51 @@ void CLogDlg::LogThread()
             m_logEntries.Finalize (cachedData, m_sRelativeRoot, !LogCache::CSettings::GetEnabled());
         else
             m_logEntries.ClearAll();
+
+
+        // make sure the m_logEntries is consistent
+        if (m_bFindBugsIncudedRevs || m_bFindBugsFixRevs)
+        {                
+            //TODO: compare to normal names of files     
+
+            for (svn_revnum_t i = m_logEntries.GetVisibleCount()-1; i >=2; i--)
+            {
+
+                CTSVNPath first = CTempFiles::Instance().GetTempFilePath(false, m_path, SVNRev(SVNRev::REV_BASE));
+
+                CTSVNPath second = CTempFiles::Instance().GetTempFilePath(false, m_path, SVNRev(SVNRev::REV_BASE));
+
+                m_SVN->Diff(m_path, m_logEntries.GetVisible(i)->GetRevision(), m_path, m_logEntries.GetVisible(i-1)->GetRevision(),CTSVNPath(),
+                    svn_depth_files, true, false, true,CString(), true, first);
+                m_SVN->Diff(m_path, m_logEntries.GetVisible(i-1)->GetRevision(), m_path, m_logEntries.GetVisible(i-2)->GetRevision(),CTSVNPath(),
+                    svn_depth_files, true, false, true,CString(), true, second);
+
+
+                Diff firstDiff(first.GetWinPathString()),    secondDiff(second.GetWinPathString(), true);
+                
+                if (firstDiff.Position != secondDiff.Position)
+                    firstDiff.alignmentPositions(secondDiff);
+
+                while(!firstDiff.file.eof() && !secondDiff.file.eof())
+                {
+                    if (firstDiff.readingString[0] == '+' && secondDiff.readingString[0] =='-') // or + or spase
+                    {
+                        if (secondDiff.readingString.substr(1, secondDiff.readingString.size())
+                            == firstDiff.readingString.substr(1, firstDiff.readingString.size()))
+                        {
+                            m_logEntries.GetVisible(i-1)->AddBugIncludeRating(1);
+                            m_logEntries.GetVisible(i-2)->AddBugFixRating(1);
+                        }
+
+                    }
+
+                    firstDiff.NextLine();
+                    secondDiff.NextLine();
+                    if (firstDiff.Position != secondDiff.Position)
+                        firstDiff.alignmentPositions(secondDiff);
+                }
+            }
+        }
     }
     m_LogList.ClearText();
     if (!succeeded)
@@ -1249,6 +1397,11 @@ void CLogDlg::LogThread()
 
     if (!m_bShowedAll)
         DialogEnableWindow(IDC_NEXTHUNDRED, TRUE);
+    if (!m_path.IsDirectory())    
+    {
+		DialogEnableWindow(IDC_BUGSCOMMITS, TRUE);
+        DialogEnableWindow(IDC_BUGSFIXCOMMITS, TRUE);
+    }
     DialogEnableWindow(IDC_SHOWPATHS, TRUE);
     DialogEnableWindow(IDC_CHECK_STOPONCOPY, TRUE);
     DialogEnableWindow(IDC_INCLUDEMERGE, TRUE);
@@ -3095,7 +3248,7 @@ LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
             DoSizeV1(pHdr->delta);
         }
         else if (wParam == IDC_SPLITTERBOTTOM)
-        {
+        { 
             SPC_NMHDR* pHdr = (SPC_NMHDR*) lParam;
             DoSizeV2(pHdr->delta);
         }
