@@ -292,9 +292,7 @@ CLogEntryData::CLogEntryData
     , __time64_t tmDate
     , const CString& author
     , const CString& message
-    , ProjectProperties* projectProperties
-	, int iBugFixRating /*=0*/
-	, int iBugIncludeRating /*=0*/)
+    , ProjectProperties* projectProperties)
     : parent (parent)
     , hasChildren (false)
     , childStackDepth (parent == NULL ? 0 : parent->childStackDepth+1)
@@ -303,8 +301,6 @@ CLogEntryData::CLogEntryData
     , sAuthor (author)
     , projectProperties (projectProperties)
     , checked (false)
-	, BugFixRating(iBugFixRating)
-	, BugIncludeRating (iBugIncludeRating)
 {
     // derived header info
 
@@ -358,32 +354,6 @@ void CLogEntryData::SetChecked
     checked = newState;
 }
 
-void CLogEntryData::SetBugFixRating
-     (int iBugFixRating)
-{
-	BugFixRating = iBugFixRating;
-}
-
-
-void CLogEntryData::AddBugFixRating
-(int iBugFixRating)
-{
-	BugFixRating += iBugFixRating;
-}
-
-void CLogEntryData::SetBugIncludeRating
-     (int iBugIncludeRating)
-{
-	BugIncludeRating = iBugIncludeRating;
-}
-
-
-void CLogEntryData::AddBugIncludeRating
-(int iBugIncludeRating)
-{
-	BugIncludeRating += iBugIncludeRating;
-}
-
 /// finalization (call this once the cache is available)
 
 void CLogEntryData::Finalize
@@ -434,15 +404,7 @@ CString CLogEntryData::GetShortMessage() const
         ? projectProperties->MakeShortMessage (sMessage)
         : CString();
 }
-int CLogEntryData::GetBugFixRating() const
-{
-	return BugFixRating;
-}
 
-int CLogEntryData::GetBugIncludeRating() const
-{
-	return BugIncludeRating;
-}
 // construction
 
 CLogDataVector::CLogDataVector()

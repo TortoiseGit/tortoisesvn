@@ -382,14 +382,6 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
     __time64_t date = entry.GetDate();
     if ((date < from) || (date > to))
         return false;
-    if (attributeSelector == UINT_MAX)
-        return true;
-
-    if (attributeSelector & (1 << LOGFILTER_BUGFIX))
-        return entry.GetBugFixRating() > 0;
-
-	if (attributeSelector & (1 << LOGFILTER_BUGINCLUDE))
-		return entry.GetBugFixRating() > 0;
 
     if (patterns.empty() && subStrings.empty())
         return !negate;

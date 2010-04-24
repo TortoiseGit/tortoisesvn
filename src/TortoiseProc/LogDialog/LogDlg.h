@@ -37,7 +37,6 @@
 #include "ListViewAccServer.h"
 #include "Win7.h"
 
-#include <fstream>
 using namespace std;
 
 
@@ -55,8 +54,6 @@ using namespace std;
 #define LOGFILTER_BUGID    7
 #define LOGFILTER_CASE     8
 #define LOGFILTER_DATE     9
-#define LOGFILTER_BUGFIX   10
-#define LOGFILTER_BUGINCLUDE   11
 
 #define LOGFILTER_TIMER     101
 
@@ -131,8 +128,6 @@ protected:
     afx_msg void OnSize(UINT nType, int cx, int cy);
     afx_msg void OnBnClickedIncludemerge();
     afx_msg void OnBnClickedRefresh();
-    afx_msg void OnFindBugsRevs();
-    afx_msg void OnFindBugsFixRevs();
     afx_msg void OnRefresh();
     afx_msg void OnFind();
     afx_msg void OnFocusFilter();
@@ -206,39 +201,6 @@ private:
     // ListViewAccProvider
     virtual CString GetListviewHelpString(HWND hControl, int index);
 
-    struct Diff
-    {
-
-        struct Range
-        {
-            Range(int irow=0, int ilen =0) :row(irow), len(ilen){}
-            int row, len;
-
-            int MaxRowInRange();
-        };
-
-        std::ifstream file;
-        std::string   readingString;
-        Range         mRange;
-        int           Position;
-        bool          first;
-
-        Diff (const CString& iFile, bool iFirstCol = false);
-
-        std::string NextLine();
-
-        Range GetRange();
-
-        void alignmentPositions(Diff& iDiff);
-
-    };
-
-
-
-
-
-
-
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -274,11 +236,6 @@ private:
     bool                m_bStrictStopped;
     BOOL                m_bIncludeMerges;
     BOOL                m_bSaveStrict;
-    BOOL                m_bFindBugsIncudedRevs;
-    BOOL                m_bFindBugsFixRevs;
-    bool                m_bHadFindedBugs;
-
-    SVN                 *m_SVN;
 
     bool                m_bSingleRevision;
     CLogChangedPathArray m_currentChangedArray;
