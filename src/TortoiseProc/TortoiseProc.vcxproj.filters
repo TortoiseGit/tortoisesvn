@@ -168,6 +168,9 @@
     <Filter Include="Utility Dialogs">
       <UniqueIdentifier>{823260d2-5e90-463c-9302-64f796709e69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{34016e48-54e6-468e-981d-9ea2a0d9ce3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Utils\accHelper.cpp">
@@ -977,12 +980,6 @@
     <ClCompile Include="URLDlg.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="TortoiseProc.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
     <ClCompile Include="Properties\EditPropertyValueDlg.cpp">
       <Filter>Commands\Properties</Filter>
     </ClCompile>
@@ -1024,6 +1021,15 @@
     </ClCompile>
     <ClCompile Include="Settings\SetOverlayHandlers.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="TortoiseProc.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\CreateRepositoryCommand.cpp">
+      <Filter>Commands\Misc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1900,15 +1906,6 @@
     <ClInclude Include="URLDlg.h">
       <Filter>Utility Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="TortoiseProc.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Properties\EditPropertiesDlg.h">
       <Filter>Commands\Properties</Filter>
     </ClInclude>
@@ -1953,6 +1950,15 @@
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\ControlsBridge.h">
       <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="TortoiseProc.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2083,9 +2089,6 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\lineremoved.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="link.ico">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\link.ico">

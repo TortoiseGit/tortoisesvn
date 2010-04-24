@@ -285,6 +285,7 @@
     <ClCompile Include="..\Utils\Hooks.cpp" />
     <ClCompile Include="..\Utils\JumpListHelpers.cpp" />
     <ClCompile Include="..\Utils\ListViewAccServer.cpp" />
+    <ClCompile Include="Commands\CreateRepositoryCommand.cpp" />
     <ClCompile Include="LogFile.cpp" />
     <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\PathWatcher.cpp" />
@@ -1070,7 +1071,6 @@
     <None Include="..\Resources\lineadded.ico" />
     <None Include="..\Resources\lineconflicted.ico" />
     <None Include="..\Resources\lineremoved.ico" />
-    <None Include="link.ico" />
     <None Include="..\Resources\link.ico" />
     <None Include="..\Resources\LockBackground.ico" />
     <None Include="..\Resources\logfilter.ico" />
