@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-23 01:18-0000\n"
+"PO-Revision-Date: 2010-04-24 23:38-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11744,48 +11744,48 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseIDiff Commands"
-msgstr ""
+msgstr "Comandos TortoiseIDiff"
 
 #. (para)
 msgid "The image diff tool has a few command line options which you can use to control how the tool is started. The program is called <literal>TortoiseIDiff.exe</literal>."
-msgstr ""
+msgstr "A ferramenta de comparação de imagem tem algumas opções de linha de comandos que tu podes usar para controlar o modo como a ferramenta arranca. O programa chama-se <literal>TortoiseIDiff.exe</literal>."
 
 #. (para)
 msgid "The table below lists all the options which can be passed to the image diff tool on the command line."
-msgstr ""
+msgstr "A tabela abaixo lista todas as opções que podem ser passadas, a partir da linha de comandos, para a ferramenta de comparação de imagens."
 
 #. (title)
 msgid "List of available options"
-msgstr ""
+msgstr "Lista de opções disponíveis"
 
 #. (entry)
 msgid "Option"
-msgstr ""
+msgstr "Opção"
 
 #. (entry)
 msgid "Path to the file shown on the left."
-msgstr ""
+msgstr "Caminho para o ficheiro mostrado à esquerda."
 
 #. (entry)
 #. (entry)
 msgid "A title string. This string is used in the image view title instead of the full path to the image file."
-msgstr ""
+msgstr "A string de título. Esta string é usada no título da vista da imagem em vez do caminho completo para o ficheiro da mesma."
 
 #. (entry)
 msgid "Path to the file shown on the right."
-msgstr ""
+msgstr "Caminho para o ficheiro mostrado à direita."
 
 #. (entry)
 msgid "If specified, the image diff tool switches to the overlay mode (alpha blend)."
-msgstr ""
+msgstr "Se especificada, a ferramenta de comparação de imagens comuta para o modo sobreposição (alpha blend)."
 
 #. (entry)
 msgid "If specified, the image diff tool fits both images together."
-msgstr ""
+msgstr "Se especificada, a ferramenta de comparação de imagens encaixa as duas imagens juntas."
 
 #. (entry)
 msgid "Shows the image info box."
-msgstr ""
+msgstr "Mostra a caixa de informações da imagem."
 
 #. (para)
 msgid ""
@@ -11795,6 +11795,11 @@ msgid ""
 "                  /fit /overlay\n"
 "</screen>"
 msgstr ""
+"Exemplo (que deverá ser introduzido numa linha só): <screen>\n"
+"TortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n"
+"                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n"
+"                  /fit /overlay\n"
+"</screen>"
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
