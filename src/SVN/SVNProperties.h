@@ -103,18 +103,20 @@ public:
     BOOL IsSVNProperty(int index) const;
     /**
      * Adds a new property to the file/directory specified in the constructor.
-     * \remark After using this method the indexes of the properties may change!
+     * \remark After using this method the indexes of the properties may change! Call Refresh() if you want to access other properties again.
      * \param Name the name of the new property
      * \param Value the value of the new property
-     * \param recurse TRUE if the property should be added to subdirectories/files as well
+     * \param depth the depth with which the property is added
+     * \param message an optional commit message if the property is set directly on the repository
      * \return TRUE if the property is added successfully
      */
     BOOL Add(const std::string& Name, const std::string& Value, bool force = false, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
     /**
      * Removes an existing property from the file/directory specified in the constructor.
-     * \remark After using this method the indexes of the properties may change!
+     * \remark After using this method the indexes of the properties may change! Call Refresh() if you want to access other properties again.
      * \param Name the name of the property to delete
-     * \param recurse TRUE if the property should be deleted from subdirectories/files as well
+     * \param depth the depth with which the property is removed
+     * \param message an optional commit message if the property is removed directly from the repository
      * \return TRUE if the property is removed successfully
      */
     BOOL Remove(const std::string& Name, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);

@@ -360,21 +360,18 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         CTSVNPath path;
         SVNStatus stat;
         svn_wc_status2_t * status = NULL;
-        status = stat.GetFirstFileStatus(m_path, path, false, svn_depth_infinity, true, true);
+        status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
+        svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
         do
         {
-            if (status)
+            if ((status)&&((status->entry)&&(status->entry->kind == svn_node_dir)))
             {
-                if ((status->entry)&&(status->entry->kind == svn_node_dir))
-                {
-                    // a versioned folder, so set the property!
-                    svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
-                    const char* svnPath = path.GetSVNApiPath(subpool);
-                    SVNTRACE (
-                        m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, subpool),
-                        svnPath
+                // a versioned folder, so set the property!
+                const char* svnPath = path.GetSVNApiPath(subpool);
+                SVNTRACE (
+                    m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, subpool),
+                    svnPath
                     )
-                }
             }
             status = stat.GetNextFileStatus(path);
         } while ((status != 0)&&(m_error == NULL));
@@ -416,12 +413,6 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         return FALSE;
     }
 
-    // rebuild the property list
-    m_error = SVNProperties::Refresh();
-    if (m_error != NULL)
-    {
-        return FALSE;
-    }
     return TRUE;
 }
 
@@ -468,12 +459,6 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
         return FALSE;
     }
 
-    // rebuild the property list
-    m_error = Refresh();
-    if (m_error != NULL)
-    {
-        return FALSE;
-    }
     return TRUE;
 }
 
