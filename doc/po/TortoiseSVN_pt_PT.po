@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-25 00:14-0000\n"
+"PO-Revision-Date: 2010-04-25 01:20-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2825,7 +2825,7 @@ msgstr "Seleccionar uma pasta no explorador do windows onde queres colocar a tua
 
 #. (title)
 msgid "Checkout Depth"
-msgstr "Profundidade do SVN Exportar"
+msgstr "Profundidade do Checkout"
 
 #. (term)
 msgid "Fully recursive"
@@ -2833,7 +2833,7 @@ msgstr "Totalmente recursiva"
 
 #. (para)
 msgid "Checkout the entire tree, including all child folders and sub-folders."
-msgstr "SVN Exportar a árvore inteira, incluindo todas as pastas filho e subpastas."
+msgstr "Efectuar checkout a árvore inteira, incluindo todas as pastas filho e subpastas."
 
 #. (term)
 msgid "Immediate children, including folders"
@@ -2841,7 +2841,7 @@ msgstr "filhos directos, incluindo pastas"
 
 #. (para)
 msgid "Checkout the specified directory, including all files and child folders, but do not populate the child folders."
-msgstr "SVN Exportar a pasta específicada, incluindo todos os ficheiros e pastas filho, mãs não povoar as pastas filho."
+msgstr "Efectuar checkout a pasta específicada, incluindo todos os ficheiros e pastas filho, mas não povoar as pastas filho."
 
 #. (term)
 msgid "Only file children"
@@ -2849,7 +2849,7 @@ msgstr "Só ficheiros filho"
 
 #. (para)
 msgid "Checkout the specified directory, including all files but do not checkout any child folders."
-msgstr "SVN Exportar a pasta específicada, incluindo todos os ficheiros mas não SVN Exporta qualquer pasta filho."
+msgstr "Efectuar checkout a pasta específicada, incluindo todos os ficheiros mas não efectuar checkout qualquer pasta filho."
 
 #. (term)
 msgid "Only this item"
@@ -2857,7 +2857,7 @@ msgstr "Só este item"
 
 #. (para)
 msgid "Checkout the directory only. Do not populate it with files or child folders."
-msgstr "SVN Exportar só a pasta. Não povoa-la com ficheiros ou pastas filho."
+msgstr "Efectuar checkout só a pasta. Não povoa-la com ficheiros ou pastas filho."
 
 #. (term)
 #. (term)
@@ -11856,11 +11856,11 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr ""
+msgstr "Se estiver verificada a <guilabel>Omitir externos</guilabel>, usa o parâmetro <literal>--ignore-externals</literal>"
 
 #. (para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
-msgstr ""
+msgstr "Se estiveres efectuar checkout a uma revisão específica, especifica o URL usando o parâmetro <literal>-r</literal>."
 
 #. (screen)
 #, no-wrap
@@ -11869,22 +11869,25 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn update [-r rev] PATH\n"
 
 #. (para)
 msgid "Updating multiple items is currently not an atomic operation in Subversion. So TortoiseSVN first finds the HEAD revision of the repository, and then updates all items to that particular revision number to avoid creating a mixed revision working copy."
-msgstr ""
+msgstr "O actualizar de itens múltiplos não é correntemente uma actividade atómica no Subversion. Então o TortoiseSVN procura primeiro a revisão HEAD do repositório e só então actualiza todos os itens para o número de revisão em particular, para evitar criar de uma cópia de trabalho com revisões misturadas."
 
 #. (para)
 msgid "If only one item is selected for updating or the selected items are not all from the same repository, TortoiseSVN just updates to HEAD."
-msgstr ""
+msgstr "Se só um item está seleccionado para actualizar ou os itens seleccionados não são todos do mesmo repositório, o TortoiseSVN apenas actualiza para a HEAD."
 
 #. (para)
 msgid "No command line options are used here. <guilabel>Update to revision</guilabel> also implements the update command, but offers more options."
-msgstr ""
+msgstr "Não são usadas aqui opções de linha de comandos. O  <guilabel>Actualizar para revisão</guilabel> também implementa o comando actualizar, mas oferece mais opções."
 
 #. (title)
 msgid "Update to Revision"
-msgstr ""
+msgstr "Actualizar para Revisão"
 
 #. (screen)
 #, no-wrap
@@ -11896,7 +11899,7 @@ msgstr ""
 
 #. (para)
 msgid "In TortoiseSVN, the commit dialog uses several Subversion commands. The first stage is a status check which determines the items in your working copy which can potentially be committed. You can review the list, diff files against BASE and select the items you want to be included in the commit."
-msgstr ""
+msgstr "No TortoiseSVN a caixa de diálogo submeter usa vários comandos do Subversion. A primeira fase é uma verificação de estado, que determina quais os itens, na tua cópia de trabalho, que podem ser potencialmente submetidos. Tu podes rever a lista, compara os ficheiros com a BASE, e seleccionar quais os itens que queres incluir na submissão."
 
 #. (screen)
 #. (screen)
@@ -11906,15 +11909,17 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 msgstr ""
+"\n"
+"svn status -v PATH\n"
 
 #. (para)
 #. (para)
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
-msgstr ""
+msgstr "Se a <guilabel>Mostrar ficheiros não versionados</guilabel> está verificada, o TortoiseSVN irá também mostrar todos os ficheiros e pastas não versionadas na hierarquia da cópia de trabalho, tendo em conta as regras de ignorar. Esta funcionalidade em particular, não tem equivalente no Subversion já que o comando <literal>svn status</literal> não desce às pastas não versionadas."
 
 #. (para)
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
-msgstr ""
+msgstr "Se tu seleccionares qualquer pasta ou ficheiro não versionado, esses itens serão primeiro adicionados à tua cópia de trabalho"
 
 #. (screen)
 #. (screen)
@@ -11923,10 +11928,12 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 msgstr ""
+"\n"
+"svn add PATH...\n"
 
 #. (para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
-msgstr ""
+msgstr "Quando clicas no OK é efectuada a submissão Subversion. Se deixaste todas as caixas de selecção de ficheiros no seu estado por defeito, o TortoiseSVN usa uma única submissão recursiva da cópia de trabalho. Se desseleccionaste alguns ficheiros, então será usada uma submissão não recursiva (<literal>-N</literal>), e cada caminho terá de ser especificado individualmente na linha de comandos da submissão."
 
 #. (screen)
 #, no-wrap
@@ -11934,16 +11941,18 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 msgstr ""
+"\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 
 #. (para)
 #. (para)
 #. (para)
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
-msgstr ""
+msgstr "A <literal>LogMessage</literal> representa aqui o conteúdo da caixa de edição da mensagem de registo. Esta pode ser vazia."
 
 #. (para)
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
-msgstr ""
+msgstr "Se a <guilabel>Manter bloqueios</guilabel> estiver verificada, usa o parâmetro <literal>--no-unlock</literal>."
 
 #. (screen)
 #, no-wrap
@@ -11951,14 +11960,16 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 msgstr ""
+"\n"
+"svn diff PATH\n"
 
 #. (para)
 msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between full-text files, so there is no direct CLI equivalent."
-msgstr ""
+msgstr "Se usa o Comparar a partir do menu de contexto principal, estarás a comparar o ficheiro modificado com a sua revisão BASE. A saída do comando ILC acima, também faz isto e produz a saída no formato comparação-unificada. No entanto este não é o que o TortoiseSVN está a usar. O TortoiseSVN usa o TortoiseMerge (ou um programa de comparação à tua escolha) para mostrar visualmente as diferenças entre os ficheiros de texto integral, pelo que não existe nenhum ILC equivalente."
 
 #. (para)
 msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
-msgstr ""
+msgstr "Tu também podes comparar quaisquer 2 ficheiros usando o TortoiseSVN, estejam eles ou não sob controlo de versões. O TortoiseSVN apenas carrega os dois ficheiros, para o programa de comparação escolhido, e deixa-o descobrir onde estão as diferenças."
 
 #. (screen)
 #, no-wrap
