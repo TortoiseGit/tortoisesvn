@@ -173,6 +173,7 @@ void SVNProperties::Construct()
 SVNProperties::SVNProperties(SVNRev rev, bool bRevProps)
     : m_rev(rev)
     , m_bRevProps (bRevProps)
+    , m_pProgress(NULL)
 #else
 SVNProperties::SVNProperties(bool bRevProps)
     : m_bRevProps (bRevProps)
@@ -366,6 +367,10 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         {
             if ((status)&&((status->entry)&&(status->entry->kind == svn_node_dir)))
             {
+#ifdef _MFC_VER
+                if (m_pProgress)
+                    m_pProgress->SetLine(2, path.GetWinPath(), true);
+#endif
                 // a versioned folder, so set the property!
                 SVNPool setPool((apr_pool_t*)subpool);
                 const char* svnPath = path.GetSVNApiPath(setPool);
@@ -375,6 +380,10 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
                     )
             }
             status = stat.GetNextFileStatus(path);
+#ifdef _MFC_VER
+            if ((m_pProgress)&&(m_pProgress->HasUserCancelled()))
+                m_error = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
+#endif
         } while ((status != 0)&&(m_error == NULL));
     }
     else
@@ -460,6 +469,10 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
             {
                 if ((status)&&((status->entry)&&(status->entry->kind == svn_node_dir)))
                 {
+#ifdef _MFC_VER
+                    if (m_pProgress)
+                        m_pProgress->SetLine(2, path.GetWinPath(), true);
+#endif
                     SVNPool setPool((apr_pool_t*)subpool);
                     const char* svnPath = path.GetSVNApiPath(setPool);
                     SVNTRACE (
@@ -468,6 +481,10 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
                         )
                 }
                 status = stat.GetNextFileStatus(path);
+#ifdef _MFC_VER
+                if ((m_pProgress)&&(m_pProgress->HasUserCancelled()))
+                    m_error = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
+#endif
             } while ((status != 0)&&(m_error == NULL));
         }
         else

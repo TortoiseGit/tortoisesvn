@@ -559,10 +559,12 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                     {
                         prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
                         SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
+                        props.SetProgressDlg(&prog);
                         if (dlg->HasMultipleProperties())
                         {
                             for (IT propsit = dlgprops.begin(); propsit != dlgprops.end(); ++propsit)
                             {
+                                prog.SetLine(1, CUnicodeUtils::StdGetUnicode(propsit->first).c_str());
                                 BOOL ret = FALSE;
                                 if (propsit->second.remove)
                                     ret = props.Remove(propsit->first, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
@@ -572,6 +574,8 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                 if (!ret)
                                 {
                                     CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                                    if (props.m_error->apr_err == SVN_ERR_CANCELLED)
+                                        break;
                                 }
                                 else
                                 {

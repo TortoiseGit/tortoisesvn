@@ -21,6 +21,7 @@
 #ifdef _MFC_VER
 #   include "SVNPrompt.h"
 #   include "ShellUpdater.h"
+#   include "ProgressDlg.h"
 #endif
 
 #include "SVNRev.h"
@@ -55,6 +56,7 @@ public:
 #ifdef _MFC_VER
     SVNProperties(SVNRev rev, bool bRevProps);
     SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps);
+    void SetProgressDlg(CProgressDlg * dlg) { m_pProgress = dlg; }
 #else
     SVNProperties(bool bRevProps);
     /**
@@ -164,6 +166,7 @@ public:
      */
     void SetFromSerializedForm (const std::string& text);
 
+    svn_error_t *               m_error;
 private:        //methods
     /**
      * Builds the properties (again) and fills the apr_array_header_t structure.
@@ -181,11 +184,11 @@ private:        //members
     CTSVNPath                   m_path;             ///< the path to the file/directory this properties object acts upon
     std::map<std::string, apr_hash_t*>      m_props;
     int                         m_propCount;        ///< number of properties found
-    svn_error_t *               m_error;
     SVNRev                      m_rev;
     bool                        m_bRevProps;
 #ifdef _MFC_VER
     SVNPrompt                   m_prompt;
+    CProgressDlg *              m_pProgress;
 #endif
     svn_client_ctx_t *          m_pctx;
 
