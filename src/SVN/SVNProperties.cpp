@@ -367,9 +367,10 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
             if ((status)&&((status->entry)&&(status->entry->kind == svn_node_dir)))
             {
                 // a versioned folder, so set the property!
-                const char* svnPath = path.GetSVNApiPath(subpool);
+                SVNPool setPool((apr_pool_t*)subpool);
+                const char* svnPath = path.GetSVNApiPath(setPool);
                 SVNTRACE (
-                    m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, subpool),
+                    m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, setPool),
                     svnPath
                     )
             }
@@ -448,10 +449,34 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     }
     else
     {
-        SVNTRACE (
-            m_error = svn_client_propset3 (&commit_info, name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
-            svnPath
-        )
+        if (((depth != svn_depth_empty)&&((strncmp(name.c_str(), "bugtraq:", 8)==0)||(strncmp(name.c_str(), "tsvn:", 5)==0)||(strncmp(name.c_str(), "webviewer:", 10)==0))))
+        {
+            CTSVNPath path;
+            SVNStatus stat;
+            svn_wc_status2_t * status = NULL;
+            status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
+            svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
+            do
+            {
+                if ((status)&&((status->entry)&&(status->entry->kind == svn_node_dir)))
+                {
+                    SVNPool setPool((apr_pool_t*)subpool);
+                    const char* svnPath = path.GetSVNApiPath(setPool);
+                    SVNTRACE (
+                        m_error = svn_client_propset3 (&commit_info, name.c_str(), NULL, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, setPool),
+                        svnPath
+                        )
+                }
+                status = stat.GetNextFileStatus(path);
+            } while ((status != 0)&&(m_error == NULL));
+        }
+        else
+        {
+            SVNTRACE (
+                m_error = svn_client_propset3 (&commit_info, name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
+                svnPath
+                )
+        }
     }
 
     if (m_error != NULL)
