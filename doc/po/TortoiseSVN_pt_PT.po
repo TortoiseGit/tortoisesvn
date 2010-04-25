@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-25 01:20-0000\n"
+"PO-Revision-Date: 2010-04-26 00:21-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11979,14 +11979,18 @@ msgid ""
 "  or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 msgstr ""
+"\n"
+"svn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n"
+"  or\n"
+"svn log -v -r M:N [--stop-on-copy] PATH\n"
 
 #. (para)
 msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
-msgstr ""
+msgstr "Por defeito, o TortoiseSVN tenta obter 100 mensagens de registo usando o método --limit. Se as preferências lhe dizem para usar as APIs antigas, então uma segunda forma é usada para obter as mensagens de registo de 100 revisões do repositório."
 
 #. (para)
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
-msgstr ""
+msgstr "Se <guilabel>Parar ao copiar/mudar nome</guilabel> estiver verificado, usa a opção <literal>--stop-on-copy</literal>."
 
 #. (screen)
 #, no-wrap
@@ -11996,10 +12000,14 @@ msgid ""
 "  or\n"
 "svn status -u -v PATH\n"
 msgstr ""
+"\n"
+"svn status -v PATH\n"
+"  or\n"
+"svn status -u -v PATH\n"
 
 #. (para)
 msgid "The initial status check looks only at your working copy. If you click on <guibutton>Check repository</guibutton> then the repository is also checked to see which files would be changed by an update, which requires the <literal>-u</literal> switch."
-msgstr ""
+msgstr "A verificação do estado inicial olha só para a tua cópia de trabalho. Se clicares em <guibutton>Verificar repositório</guibutton> então o repositório é também verificado para ver que ficheiros poderam ter sido alterados por uma actualização, o que requer a opção <literal>-u</literal>."
 
 #. (title)
 msgid "Revision Graph"
@@ -12007,7 +12015,7 @@ msgstr ""
 
 #. (para)
 msgid "The revision graph is a feature of TortoiseSVN only. There's no equivalent in the command line client."
-msgstr ""
+msgstr "O gráfico de revisões é uma funcionalidade só do TortoiseSVN. Não existe um equivalente no cliente de linha de comandos."
 
 #. (para)
 msgid ""
@@ -12016,6 +12024,10 @@ msgid ""
 "svn log -v URL\n"
 "</screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
 msgstr ""
+"O que faz o TortoiseSVN é um <screen>\n"
+"svn info URL_of_WC\n"
+"svn log -v URL\n"
+"</screen> onde o URL é a <emphasis>raiz</emphasis> do repositório, e então analisa os dados retornados."
 
 #. (title)
 msgid "Repo Browser"
@@ -12028,18 +12040,21 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn list [-r rev] -v URL\n"
 
 #. (para)
 msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level. Also, this command returns all the locking information shown in the repository browser."
-msgstr ""
+msgstr "Podes usar o <literal>svn info</literal> para determinar a raiz do repositório, que é o nível de topo mostrado no navegador de repositório. Tu não podes navegar <literal>Para cima</literal> para além deste nível. Este comando também retorna toda a informação de bloqueio, mostrada no navegador de repositório."
 
 #. (para)
 msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
-msgstr ""
+msgstr "A chamada <literal>svn list</literal> irá listar os conteúdos de uma pasta, dado o URL e revisão."
 
 #. (para)
 msgid "This command has no CLI equivalent. It invokes TortoiseMerge or an external 3-way diff/merge tool to look at the files involved in the conflict and sort out which lines to use."
-msgstr ""
+msgstr "Este comando não tem equivalente ILC. Ele invoca o TortoiseMerge ou, uma ferramenta externa de comparação/integração de 3 modos, para olhar para os ficheiros envolvidos no conflito e determinar quais as linhas a usar."
 
 #. (title)
 msgid "Resolved"
@@ -12051,6 +12066,8 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 msgstr ""
+"\n"
+"svn resolved PATH\n"
 
 #. (screen)
 #, no-wrap
@@ -12058,6 +12075,8 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 msgstr ""
+"\n"
+"svn rename CURR_PATH NEW_PATH\n"
 
 #. (screen)
 #, no-wrap
@@ -12065,14 +12084,16 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 msgstr ""
+"\n"
+"svn delete PATH\n"
 
 #. (para)
 msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
-msgstr ""
+msgstr "A primeira fase é uma verificação do estado, que determina quais os itens na tua cópia de trabalho, que podem potencialmente ser revertidos. Tu podes rever a lista, comparar os ficheiros com a BASE e seleccionar os itens que queres que sejam incluídos na reversão."
 
 #. (para)
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
-msgstr ""
+msgstr "Quando tu clicas no OK, toma lugar a reversão Subversion. Se deixaste todas as caixas de selecção de ficheiros no seu estado por defeito, o TortoiseSVN usa uma reversão simples e recursiva (<literal>-R</literal>) da cópia de trabalho. Se desseleccionaste alguns ficheiros, então cada caminho deve ser individualmente especificado na linha de comando da reversão."
 
 #. (screen)
 #, no-wrap
@@ -12080,6 +12101,8 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 msgstr ""
+"\n"
+"svn revert [-R] PATH...\n"
 
 #. (screen)
 #, no-wrap
@@ -12096,7 +12119,7 @@ msgstr "Obter \"Lock\""
 
 #. (para)
 msgid "The first stage is a status check which determines the files in your working copy which can potentially be locked. You can select the items you want to be locked."
-msgstr ""
+msgstr "A primeira fase é uma verificação de estado, que determina os ficheiros na tua cópia de trabalho que podem potencialmente ser bloqueados. Tu podes seleccionar os itens que queres que sejam bloqueados."
 
 #. (screen)
 #, no-wrap
@@ -12104,14 +12127,16 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 msgstr ""
+"\n"
+"svn lock -m \"LockMessage\" [--force] PATH...\n"
 
 #. (para)
 msgid "<literal>LockMessage</literal> here represents the contents of the lock message edit box. This can be empty."
-msgstr ""
+msgstr "<literal>LockMessage</literal> representa aqui os conteúdos da caixa de edição da mensagem de bloqueio. Isto pode ser vazio."
 
 #. (para)
 msgid "If <guilabel>Steal the locks</guilabel> is checked, use the <literal>--force</literal> switch."
-msgstr ""
+msgstr "Se estiver verificada a <guilabel>Roubar bloqueios</guilabel> usa a opção <literal>--force</literal>."
 
 #. (title)
 msgid "Release Lock"
@@ -12123,6 +12148,8 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 msgstr ""
+"\n"
+"svn unlock PATH\n"
 
 #. (screen)
 #, no-wrap
@@ -12134,6 +12161,12 @@ msgid ""
 "  or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 msgstr ""
+"\n"
+"svn copy -m \"LogMessage\" URL URL\n"
+"  or\n"
+"svn copy -m \"LogMessage\" URL@rev URL@rev\n"
+"  or\n"
+"svn copy -m \"LogMessage\" PATH URL\n"
 
 #. (listitem)
 msgid "Specific revision in repository"
@@ -12141,7 +12174,7 @@ msgstr ""
 
 #. (para)
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
-msgstr ""
+msgstr "A caixa de diálogo Ramo/Etiqueta executa uma cópia para o repositório. Existem 3 botões de rádio com opções: <placeholder-1/> que correspondem às 3 variantes de linha de comando acima mostradas."
 
 #. (screen)
 #, no-wrap
@@ -12150,6 +12183,9 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn switch [-r rev] URL PATH\n"
 
 #. (screen)
 #, no-wrap
@@ -12157,10 +12193,12 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 msgstr ""
+"\n"
+"svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 
 #. (para)
 msgid "The <guibutton>Test Merge</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
-msgstr ""
+msgstr "O <guibutton>Integração de Teste</guibutton> executa a mesma integração com a opção <literal>--dry-run</literal>."
 
 #. (screen)
 #, no-wrap
@@ -12168,10 +12206,12 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 msgstr ""
+"\n"
+"svn diff From_URL@revN To_URL@revM\n"
 
 #. (para)
 msgid "The <guibutton>Unified diff</guibutton> shows the diff operation which will be used to do the merge."
-msgstr ""
+msgstr "A <guibutton>Comparação unificada</guibutton> mostra a operação de comparação que será usada para executar a integração."
 
 #. (screen)
 #, no-wrap
@@ -12179,22 +12219,24 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 msgstr ""
+"\n"
+"svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 
 #. (para)
 msgid "This form is used when accessed from an unversioned folder, and the folder is used as the destination."
-msgstr ""
+msgstr "Esta forma é usada quando acedido a partir de uma pasta não versionada, e a pasta é usada como destino."
 
 #. (para)
 msgid "Exporting a working copy to a different location is done without using the Subversion library, so there's no matching command line equivalent."
-msgstr ""
+msgstr "Exportar uma cópia de trabalho para uma localização diferente, é efectuada sem o uso da biblioteca do Subversion, pelo que não existe comando de linha equivalente."
 
 #. (para)
 msgid "What TortoiseSVN does is to copy all files to the new location while showing you the progress of the operation. Unversioned files/folders can optionally be exported too."
-msgstr ""
+msgstr "O que o TortoiseSVN faz é copiar todos os ficheiros para uma nova localização, enquanto mostra o progresso da operação. Ficheiros/pastas não versionados poderão ser também exportados, opcionalmente."
 
 #. (para)
 msgid "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr ""
+msgstr "Em ambos os casos, se está verificada a <guilabel>Omitir externos</guilabel>, usa a opção <literal>--ignore-externals</literal>."
 
 #. (screen)
 #, no-wrap
@@ -12202,6 +12244,8 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 msgstr ""
+"\n"
+"svn switch --relocate From_URL To_URL\n"
 
 #. (title)
 msgid "Create Repository Here"
@@ -12213,10 +12257,12 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 msgstr ""
+"\n"
+"svnadmin create --fs-type fsfs PATH\n"
 
 #. (para)
 msgid "If you selected a folder, TortoiseSVN first scans it recursively for items which can be added."
-msgstr ""
+msgstr "Se seleccionaste uma pasta, o TortoiseSVN primeiro examina-a recursivamente à procura de itens que podem ser adicionados."
 
 #. (screen)
 #, no-wrap
@@ -12224,6 +12270,8 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 msgstr ""
+"\n"
+"svn import -m LogMessage PATH URL\n"
 
 #. (screen)
 #, no-wrap
@@ -12232,10 +12280,13 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 msgstr ""
+"\n"
+"svn blame -r N:M -v PATH\n"
+"svn log -r N:M PATH\n"
 
 #. (para)
 msgid "If you use TortoiseBlame to view the blame info, the file log is also required to show log messages in a tooltip. If you view blame as a text file, this information is not required."
-msgstr ""
+msgstr "Se usares o TortoiseBlame para ver a informação de responsabilidade, é também requerido o ficheiro de registo para mostrar as mensagens de registo numa etiqueta de dica. Se vires a responsabilidade como um ficheiro de texto esta informação não é então requerida."
 
 #. (title)
 msgid "Add to Ignore List"
@@ -12249,10 +12300,14 @@ msgid ""
 "{edit new ignore item into tempfile}\n"
 "svn propset svn:ignore -F tempfile PATH\n"
 msgstr ""
+"\n"
+"svn propget svn:ignore PATH &gt; tempfile\n"
+"{edit new ignore item into tempfile}\n"
+"svn propset svn:ignore -F tempfile PATH\n"
 
 #. (para)
 msgid "Because the <literal>svn:ignore</literal> property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
-msgstr ""
+msgstr "Porque a propriedade <literal>svn:ignore</literal> é frequentemente um valor multi-linha, é mostrado aqui como sendo alterado via um ficheiro de texto em vez de directamente na linha de comandos."
 
 #. (screen)
 #, no-wrap
@@ -12260,14 +12315,16 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 msgstr ""
+"\n"
+"svn diff PATH &gt; patch-file\n"
 
 #. (para)
 msgid "TortoiseSVN creates a patch file in unified diff format by comparing the working copy with its BASE version."
-msgstr ""
+msgstr "O TortoiseSVN cria um ficheiro de correcção no formato comparação-unificada ao comparar a cópia de trabalho com a sua versão BASE."
 
 #. (para)
 msgid "Applying patches is a tricky business unless the patch and working copy are at the same revision. Luckily for you, you can use TortoiseMerge, which has no direct equivalent in Subversion."
-msgstr ""
+msgstr "Aplicar correcções é um trabalho complicado, a não ser que a correcção e a cópia de trabalho estejam na mesma revisão. Afortunadamente para ti, poderás usar o TortoiseMerge, que não tem equivalente directo no Subversion."
 
 #. (title)
 msgid "Implementation Details"
