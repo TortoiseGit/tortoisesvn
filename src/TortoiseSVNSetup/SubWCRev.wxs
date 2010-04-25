@@ -11,28 +11,28 @@
   Manufacturer='TortoiseSVN'>
 
     <Package Id='*'
-			Keywords="Sourcecontrol;Subversion;TortoiseSVN"
-			Description="Subversion revision tool"
-			Comments="Tool to find the global revision of a Subversion working copy"
-			Manufacturer="$(var.PackageManufacturer)"
-			InstallerVersion="100"
-			Platform="$(var.PackagePlatforms)"
-			Languages="1033"
-			Compressed="yes"
-			SummaryCodepage="1252"/>
+      Keywords="Sourcecontrol;Subversion;TortoiseSVN"
+      Description="Subversion revision tool"
+      Comments="Tool to find the global revision of a Subversion working copy"
+      Manufacturer="$(var.PackageManufacturer)"
+      InstallerVersion="100"
+      Platform="$(var.PackagePlatforms)"
+      Languages="1033"
+      Compressed="yes"
+      SummaryCodepage="1252"/>
 
     <Upgrade Id="E973E6F7-CB9B-4f9e-9C04-52FE03F19BF2" >
       <!-- flag is set if the install will trigger an upgrade of an existing install -->
       <UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" Maximum="$(var.VersionNumberInternal)" IncludeMaximum="no" />
     </Upgrade>
 
-	<Property Id="TSVN">
-		<RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw"/>
-	</Property>
+    <Property Id="TSVN">
+      <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw"/>
+    </Property>
 
-	<Property Id="ALLUSERS">1</Property>
+    <Property Id="ALLUSERS">1</Property>
 
-	<Condition Message="TortoiseSVN is installed on this machine. [ProductName] is already part of TortoiseSVN!">TSVN=""</Condition>
+    <Condition Message="TortoiseSVN is installed on this machine. [ProductName] is already part of TortoiseSVN!">TSVN=""</Condition>
 
     <Media Id='1' Cabinet='SubWCRev.cab' EmbedCab='yes' CompressionLevel="high" />
 
@@ -82,11 +82,11 @@
 
     </Directory>
 
-	<WixVariable Id="WixUILicenseRtf" Value="include\TSVN_eula.rtf" />
-	<WixVariable Id="WixUIBannerBmp" Value="include\BannerStatic.jpg" />
-	<WixVariable Id="WixUIDialogBmp" Value="include\DialogStatic.jpg" />
-	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
-	<UIRef Id="WixUI_InstallDir" />
+    <WixVariable Id="WixUILicenseRtf" Value="include\TSVN_eula.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="include\BannerStatic.jpg" />
+    <WixVariable Id="WixUIDialogBmp" Value="include\DialogStatic.jpg" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <UIRef Id="WixUI_InstallDir" />
 
     <Feature Id='Complete' Title='SubWCRev' Description='SubWCRev, the main component'
       Display='expand' Level='1' ConfigurableDirectory='INSTALLDIR'>

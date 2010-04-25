@@ -347,9 +347,9 @@
         </Control>
 
         <!-- Since Checkboxes aren't transparent, reduce the checkbox control to the actual box alone, and add
-					 a normal text control adjacent to it, with the text control being transparent -->
+           a normal text control adjacent to it, with the text control being transparent -->
         <Control Id="ChangeLog" Type="CheckBox" X="135" Y="120" Width="12" Height="12"
-							Property='ShowChangelogCheck' CheckBoxValue='1' >
+              Property='ShowChangelogCheck' CheckBoxValue='1' >
           <Condition Action="hide">(Installed)</Condition>
         </Control>
         <Control Id="Changelogtext" Type="Text" X="150" Y="120" Width="150" Height="20" Transparent="yes" NoPrefix="yes" >
