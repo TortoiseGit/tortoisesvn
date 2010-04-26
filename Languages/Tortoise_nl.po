@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-07 21:45+0100\n"
+"PO-Revision-Date: 2010-04-26 13:36+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -243,35 +243,70 @@ msgstr "%s : Werkbasis"
 msgid "%s : Working Copy"
 msgstr "%s : Werkkopie"
 
-#. Resource IDs: (609)
+#. Resource IDs: (3887)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, maar het bestaat al lokaal en zonder versiebeheer."
+msgid "%s [Recovered]"
+msgstr "%s [Herstelt]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, maar het ontbreekt lokaal."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, maar de map bestaat al lokaal en zonder versiebeheer."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, maar het was al lokaal toegevoegd."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, maar de map ontbreekt lokaal."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, maar het was al gewijzigd."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, maar de map was al lokaal toegevoegd."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, maar het was lokaal verwijderd, verplaatst of hernoemd."
+msgid "%s, but the directory was already edited."
+msgstr "%s, maar de map was al gewijzigd."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, maar het was versperd in de werkkopie."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s, maar de map was lokaal verwijderd, verplaatst of hernoemd."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, maar de map was versperd in de werkkopie."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, maar het bestand bestaat al lokaal en zonder versiebeheer."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, maar het bestand ontbreekt lokaal."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, maar het bestand was al lokaal toegevoegd."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, maar het bestand was al gewijzigd."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s, maar het bestand was lokaal verwijderd, verplaatst of hernoemd."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, maar het bestand was versperd in de werkkopie."
 
 #. Resource IDs: (3850)
 #, c-format
@@ -842,8 +877,8 @@ msgid "&Log Sizes"
 msgstr "&Logboek afmetingen"
 
 #. Resource IDs: (65535)
-msgid "&Lum:"
-msgstr "&Lum:"
+msgid "&Luminence:"
+msgstr "&Verlichting:"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -896,6 +931,10 @@ msgstr "&Wijzig kleur voor label-kopieën"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "&Wijzig kleur voor 'basislijn'-kopieën"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "&Verplaatste blokken"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1099,8 +1138,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Sat:"
-msgstr "&Sat:"
+msgid "&Saturation:"
+msgstr "&Verzadiging:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -2249,7 +2288,7 @@ msgid "Can't create a new image!"
 msgstr "Kan geen nieuwe afbeelding maken!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
+msgid "Can't customize menus!"
 msgstr "Kan menu's niet aanpassen!"
 
 #. Resource IDs: (1001)
@@ -2273,8 +2312,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Verschil kan niet getoond worden omdat er verschillende soorten regeleinden in het bestand zitten."
 
 #. Resource IDs: (16926)
-msgid "Cascade"
-msgstr "Stapelen"
+msgid "Casca&de"
+msgstr "&Stapelen"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -3378,6 +3417,10 @@ msgstr "Doel URL:"
 msgid "Destination disk drive is full."
 msgstr "De doelschijf is vol."
 
+#. Resource IDs: (2056)
+msgid "Detect and highlight moved blocks"
+msgstr "Detecteer en toon verplaatste blokken"
+
 #. Resource IDs: (3849)
 msgid ""
 "Device Independent Bitmap\n"
@@ -3534,6 +3577,10 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "Wilt u verdergaan?"
 
+#. Resource IDs: (3887)
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "Wilt u deze automatisch opgeslagen documenten herstellen?"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3574,6 +3621,14 @@ msgstr ""
 "Creëer geen gedeeltelijke ('sparse') werkkopie in deze map.\n"
 "Alle URLs worden als losse werkkopieën naast elkaar opgehaald.\n"
 "Dit werkt alleen met URLs die naar mappen verwijzen."
+
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+"De automatisch opgeslagen documenten niet herstellen\n"
+"Gebruik dat laatst expliciet opgeslagen versies van de documenten"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3679,6 +3734,10 @@ msgstr "Wijzig extensie-specifiek diff-programma"
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
 msgstr "Wijzig extensie-specifiek merge-programma"
+
+#. Resource IDs: (321)
+msgid "Edit language properties"
+msgstr "Wijzig taaleigenschappen"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -4036,6 +4095,10 @@ msgstr "Inclusief externen"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "&Forceer het samenvoegen"
+
+#. Resource IDs: (1070)
+msgid "Fade"
+msgstr "Vervagen"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -5334,6 +5397,14 @@ msgstr "L&imiet:"
 msgid "L&ocal path:"
 msgstr "L&okaal pad: "
 
+#. Resource IDs: (32855)
+msgid "Lan&guages"
+msgstr "&Talen"
+
+#. Resource IDs: (65535)
+msgid "Language:"
+msgstr "Taal:"
+
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "Laatste commit revisie:"
@@ -5926,9 +5997,17 @@ msgstr "Verplaats/hernoemen"
 msgid "Move: New name for %s"
 msgstr "Verplaatsen: Nieuwe naam voor %s"
 
+#. Resource IDs: (65535)
+msgid "Moved from"
+msgstr "Verplaatst van"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Op afstand verplaatst"
+
+#. Resource IDs: (65535)
+msgid "Moved to"
+msgstr "Verplaatst naar"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6163,6 +6242,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Niet recursief"
 
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr "Merk op dat als je voor het herstellen van de automatisch opgeslagen documenten kiest, je deze expliciet op moet slaan om de originele documenten te overschrijven. Als je er voor kiest om de automatisch opgeslagen versies niet te overschrijven, dan zullen deze verwijderd worden."
+
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "Let op: de map bevat bestanden zonder versiebeheer"
@@ -6295,6 +6378,10 @@ msgstr ""
 "(een van 'branches', 'tags' of 'trunk').\n"
 "\n"
 "Weet u zeker dat u de geselecteerde paden wilt verplaatsen?"
+
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr "Eén of meer automatisch opgeslagen documenten zijn gevonden."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6505,6 +6592,14 @@ msgid ""
 msgstr ""
 "Potloodgereedschap\n"
 "Potlood"
+
+#. Resource IDs: (245)
+msgid "Percent of authorship"
+msgstr "Percentage eigenaarschap"
+
+#. Resource IDs: (245)
+msgid "Percents"
+msgstr "Procenten"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -6903,6 +6998,14 @@ msgstr "Recent gewijzigde regels"
 #. Resource IDs: (276)
 msgid "Record Only"
 msgstr "Alleen opnemen"
+
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+"Herstel de automatisch opgeslagen documenten\n"
+"Open de automatisch opgeslagen versies in plaats van de expliciet opgeslagen versies"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7461,6 +7564,14 @@ msgstr "Regel %d van %d"
 msgid "Row %d-%d of %d"
 msgstr "Regel %d-%d van %d"
 
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "Rij naar beneden"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "Rij naar boven"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Selecteer..."
@@ -7799,6 +7910,10 @@ msgid ""
 msgstr ""
 "Selecteer het hele document\n"
 "Alles selecteren"
+
+#. Resource IDs: (65535)
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgstr "Kies de taal voor dit project. Deze instelling stuurt de spellingscontrole voor de teksten bij vastleggen."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -8187,6 +8302,10 @@ msgstr "Overgeslagen"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "Ontbrekend doel overgeslagen"
+
+#. Resource IDs: (1070)
+msgid "Slide"
+msgstr "Verschuiven"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9135,6 +9254,10 @@ msgstr "Er zijn geen blokkades op te heffen. Geen enkel bestand in deze werkkopi
 msgid "Thesaurus"
 msgstr "Thesaurus"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr "Deze zijn recentelijker opgeslagen dan de huidig geopende documenten en bevatten wijzigingen die aangebracht zijn voordat het programma werd afgesloten."
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -9195,13 +9318,13 @@ msgstr "Deze eigenschap mag geen meerdere regels bevatten. Slechts één regel t
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "Hiermee verwijdert u de informatie over gebruikte commando's en herstelt u de standaard set van zichtbare commando's in de menu's en werkbalken. Uw eigen aanpassingen blijven intact. Weet u zeker dat u dit wilt uitvoeren?"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "&Horizontaal verdelen"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "&Vertikaal rangschikken"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "&Horizontaal verdelen"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9563,6 +9686,10 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "Onverwacht bestandsformaat."
+
+#. Resource IDs: (1070)
+msgid "Unfold"
+msgstr "Uitklappen"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -10384,6 +10511,10 @@ msgstr "Passend in hoogte weergeven"
 msgid "Zoom to fit in width"
 msgstr "Passend in breedte weergeven"
 
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[Standaard]"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[niet toegewezen]"
@@ -10644,6 +10775,10 @@ msgstr "het zonder versiebeheer is."
 #. Resource IDs: (214)
 msgid "item kept locally"
 msgstr "object lokaal bewaard"
+
+#. Resource IDs: (1562)
+msgid "keep the file lists in English"
+msgstr "hou de bestandslijsten in het engels"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
@@ -11202,6 +11337,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Lum:"
+#~ msgstr "&Lum:"
+#~ msgid "&Sat:"
+#~ msgstr "&Sat:"
 #~ msgid "Bug-ID / &Issue-Nr:"
 #~ msgstr "Bug-ID / &Issue-Nr:"
 #~ msgid "Dialog"
@@ -11216,58 +11355,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Toon overlay bij genegeerde bestanden"
 #~ msgid "Show overlay for unversioned items"
 #~ msgstr "Toon overlay bij bestanden zonder versiebeheer"
-#~ msgid "%s [Recovered]"
-#~ msgstr "%s [Herstelt]"
-#~ msgid "&Luminence:"
-#~ msgstr "&Verlichting:"
-#~ msgid "&Saturation:"
-#~ msgstr "&Verzadiging:"
-#~ msgid "Do you want to recover these auto-saved documents?"
-#~ msgstr "Wilt u deze automatisch opgeslagen documenten herstellen?"
-#~ msgid ""
-#~ "Don't recover the auto-saved documents\n"
-#~ "Use the last explicitly saved versions of the documents"
-#~ msgstr ""
-#~ "De automatisch opgeslagen documenten niet herstellen\n"
-#~ "Gebruik dat laatst expliciet opgeslagen versies van de documenten"
-#~ msgid "Fade"
-#~ msgstr "Vervagen"
-#~ msgid ""
-#~ "Note that if you choose to recover the auto-saved documents, you must "
-#~ "explicitly save them to overwrite the original documents.  If you choose "
-#~ "to not recover the auto-saved versions, they will be deleted."
-#~ msgstr ""
-#~ "Merk op dat als je voor het herstellen van de automatisch opgeslagen "
-#~ "documenten kiest, je deze expliciet op moet slaan om de originele "
-#~ "documenten te overschrijven. Als je er voor kiest om de automatisch "
-#~ "opgeslagen versies niet te overschrijven, dan zullen deze verwijderd "
-#~ "worden."
-#~ msgid "One or more auto-saved documents were found."
-#~ msgstr "Eén of meer automatisch opgeslagen documenten zijn gevonden."
-#~ msgid ""
-#~ "Recover the auto-saved documents\n"
-#~ "Open the auto-saved versions instead of the explicitly saved versions"
-#~ msgstr ""
-#~ "Herstel de automatisch opgeslagen documenten\n"
-#~ "Open de automatisch opgeslagen versies in plaats van de expliciet "
-#~ "opgeslagen versies"
-#~ msgid "Row Down"
-#~ msgstr "Rij naar beneden"
-#~ msgid "Row Up"
-#~ msgstr "Rij naar boven"
-#~ msgid "Slide"
-#~ msgstr "Verschuiven"
-#~ msgid ""
-#~ "These are more recently saved than the currently open documents and "
-#~ "contain changes that were made before the application closed."
-#~ msgstr ""
-#~ "Deze zijn recentelijker opgeslagen dan de huidig geopende documenten en "
-#~ "bevatten wijzigingen die aangebracht zijn voordat het programma werd "
-#~ "afgesloten."
-#~ msgid "Unfold"
-#~ msgstr "Uitklappen"
-#~ msgid "[Default]"
-#~ msgstr "[Standaard]"
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Auteur:                                    Stefan Kueng"
 #~ msgid "Automatically check for &newer versions every week"
