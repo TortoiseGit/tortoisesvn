@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-27 01:11-0000\n"
+"PO-Revision-Date: 2010-04-28 00:10-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -12416,23 +12416,23 @@ msgstr "<emphasis>Adicionado</emphasis>é só carregada se existirem menos de 14
 
 #. (title)
 msgid "Securing Svnserve using SSH"
-msgstr "Protecção de Svnserve com SSH"
+msgstr "Protegendo o Svnserve ao usar o SSH"
 
 #. (para)
 msgid "This section provides a step-by-step guide to setting up Subversion and TortoiseSVN to use the <literal>svn+ssh</literal> protocol. If you already use authenticated SSH connections to login to your server, then you are already there and you can find more detail in the Subversion book. If you are not using SSH but would like to do so to protect your Subversion installation, this guide gives a simple method which does not involve creating a separate SSH user account on the server for every subversion user."
-msgstr ""
+msgstr "Esta secção fornece um guia passo-a-passo para configurar o Subversion e o TortoiseSVN para usar o protocolo <literal>svn+ssh</literal>. Se já usas conexões autenticadas por SSH para efectuares login no teu servidor, então já lá estás e poderás encontrar mais detalhes no livro do Subversion. Se não estás a usar o SSH mas gostarias de o fazer para proteger a tua instalação do Subversion este guia fornece-te um método simples, que não envolve criar uma conta de utilizador SSH separada no servidor, para cada utilizador do Subversion."
 
 #. (para)
 msgid "In this implementation we create a single SSH user account for all subversion users, and use different authentication keys to differentiate between the real Subversion users."
-msgstr ""
+msgstr "Nesta implementação criamos uma única conta de utilizador SSH para todos os utilizadores do Subversion, e usar diferentes chaves de autenticação para diferenciar entre os utilizadores reais do Subversion."
 
 #. (para)
 msgid "In this appendix we assume that you already have the subversion tools installed, and that you have created a repository as detailed elsewhere in this manual. Note that you should <emphasis>not</emphasis> start svnserve as a service or daemon when used with SSH."
-msgstr ""
+msgstr "Neste anexo assumimos que já instalaste as ferramentas do Subversion, e que criaste um repositório como detalhado algures neste manual. Tem atenção que tu <emphasis>não</emphasis> deves arrancar o svnserve como um serviço or daemon quando usado com o SSH."
 
 #. (para)
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which has been archived at <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
-msgstr ""
+msgstr "Muita desta informação vem de um tutorial fornecido pelo Marc Logemann que foi arquivado em <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Informação adicional em como configurar um servidor Windows foi fornecida por Thorsten Müller. Obrigado malta! "
 
 #. (para)
 msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
@@ -12440,7 +12440,7 @@ msgstr ""
 
 #. (title)
 msgid "Setting Up a Linux Server"
-msgstr "Instalação de um servidor Linux"
+msgstr "Configuração de um Servidor Linux"
 
 #. (para)
 msgid ""
@@ -12448,10 +12448,13 @@ msgid ""
 "ps xa | grep sshd\n"
 "</screen> and look for ssh jobs."
 msgstr ""
+"Tu precisas de ter o SSH activado no servidor e assumimos que irás usar o OpenSSH. Na maioria das distribuições este já está instalado. Para descobrires escreve: <screen>\n"
+"ps xa | grep sshd\n"
+"</screen> e procura por jobs ssh."
 
 #. (para)
 msgid "One point to note is that if you build Subversion from source and do not provide any argument to <filename>./configure</filename>, Subversion creates a <filename>bin</filename> directory under <filename>/usr/local</filename> and places its binaries there. If you want to use tunneling mode with SSH, you have to be aware that the user logging in via SSH needs to execute the svnserve program and some other binaries. For this reason, either place <filename>/usr/local/bin</filename> into the <literal>PATH</literal> variable or create symbolic links of your binaries to the <filename>/usr/sbin</filename> directory, or to any other directory which is commonly in the <literal>PATH</literal>."
-msgstr ""
+msgstr "Um ponto a salientar é que ao construíres o Subversion a partir das fontes, e não forneceres qualquer parâmetro para o <filename>./configure</filename>, o Subversion cria uma pasta <filename>bin</filename> sob <filename>/usr/local</filename> e coloca aqui os binários. Se queres usar o modo tunel com o SSH deves ter em atenção que o utilizador autenticado via SSH necessita de executar o programa svnserve e outros binários. Por esta razão coloca o <filename>/usr/local/bin</filename> na variável <literal>PATH</literal> ou cria links simbólicos dos teus binários para a pasta <filename>/usr/sbin</filename>, ou para qualquer outra pasta que normalmente está no <literal>PATH</literal>."
 
 #. (para)
 msgid ""
@@ -12459,6 +12462,9 @@ msgid ""
 "which svnserve\n"
 "</screen> This command should tell you if svnserve is reachable."
 msgstr ""
+"Para verificares se está tudo OK, autentica-te através do SSH como um utilizador alvo e digita: <screen>\n"
+"which svnserve\n"
+"</screen> Este comando deverá informar-te se o svnserve está disponível."
 
 #. (para)
 msgid ""
@@ -12466,18 +12472,21 @@ msgid ""
 "useradd -m svnuser\n"
 "</screen> Be sure to give this user full access rights to the repository."
 msgstr ""
+"Cria um novo utilizador que será então usado para aceder ao repositório svn: <screen>\n"
+"useradd -m svnuser\n"
+"</screen> Tem a certeza que dás a este utilizador permissão total de acesso ao repositório."
 
 #. (title)
 msgid "Setting Up a Windows Server"
-msgstr "Instalação de um servidor Windows"
+msgstr "Configurar um Servidor Windows"
 
 #. (para)
 msgid "Install Cygwin SSH daemon as described here: <ulink url=\"http://pigtail.net/LRP/printsrv/cygwin-sshd.html\"><citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle></ulink>"
-msgstr ""
+msgstr "Instala o daemon SSH Cygwin como descrito aqui: <ulink url=\"http://pigtail.net/LRP/printsrv/cygwin-sshd.html\"><citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle></ulink>"
 
 #. (para)
 msgid "Create a new Windows user account <literal>svnuser</literal> which we will use to access the repository. Be sure to give this user full access rights to the repository."
-msgstr ""
+msgstr "Cria uma nova conta de utilizador Windows <literal>svnuser</literal>, que será usada para aceder ao repositório. Tem a certeza que dás a este utilizador todos os privilégios de acesso ao repositório."
 
 #. (para)
 msgid ""
@@ -12485,14 +12494,17 @@ msgid ""
 "mkpasswd -l &gt; /etc/passwd\n"
 "</screen>"
 msgstr ""
+"Se ainda não existe nenhum ficheiro de palavra-passe, cria um a partir da consola do Cygwin usando o: <screen>\n"
+"mkpasswd -l &gt; /etc/passwd\n"
+"</screen>"
 
 #. (title)
 msgid "SSH Client Tools for use with TortoiseSVN"
-msgstr "Utilitários de client SSH para utilizaçäo com TortoiseSVN"
+msgstr "Ferramentas de cliente SSH para uso com o TortoiseSVN"
 
 #. (para)
 msgid "Grab the tools we need for using SSH on the windows client from this site: <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>http://www.chiark.greenend.org.uk/~sgtatham/putty/</citetitle></ulink> Just go to the download section and get <filename>Putty</filename>, <filename>Plink</filename>, <filename>Pageant</filename> and <filename>Puttygen</filename>."
-msgstr ""
+msgstr "Adquire as ferramentas que necessitas para usar o SSH no cliente Windows a partir deste sítio: <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>http://www.chiark.greenend.org.uk/~sgtatham/putty/</citetitle></ulink> Vai à secção de descarga e obtêm o <filename>Putty</filename>, <filename>Plink</filename>, <filename>Pageant</filename> e <filename>Puttygen</filename>."
 
 #. (title)
 msgid "Creating OpenSSH Certificates"
@@ -12500,11 +12512,11 @@ msgstr "Criação de certificados OpenSSH"
 
 #. (para)
 msgid "The next step is to create a key pair for authentication. There are two possible ways to create keys. The first is to create the keys with PuTTYgen on the client, upload the public key to your server and use the private key with PuTTY. The other is to create the key pair with the OpenSSH tool ssh-keygen, download the private key to your client and convert the private key to a PuTTY-style private key."
-msgstr ""
+msgstr "O próximo passo é criar um par de chaves para autenticação. Existem duas maneiras possíveis para criar as chaves. A primeira é criar as chaves com o PuTTYgen no cliente, carregar a chave pública para o teu servidor e usar a chave privada com o PuTTY. A outra é criar o par de chaves com a ferramenta do OpenSSH ssh-keygen, descarrega a chave privada para o teu cliente e converte-a numa chave privada ao estilo do PuTTY."
 
 #. (title)
 msgid "Create Keys using ssh-keygen"
-msgstr "Criar chaves com ssh-keygen"
+msgstr "Criar chaves com o ssh-keygen"
 
 #. (para)
 msgid ""
@@ -12514,6 +12526,11 @@ msgid ""
 "ls -l keyfile*\n"
 "</screen> you will see two files, <filename>keyfile</filename> and <filename>keyfile.pub</filename>. As you might guess, the <filename>.pub</filename> file is the public key file, the other is the private one."
 msgstr ""
+"Entra no teu servidor como <literal>root</literal> ou <literal>svnuser</literal> e digita: <screen>\n"
+"ssh-keygen -b 1024 -t dsa -N passphrase -f keyfile\n"
+"</screen> substituindo a palavra-passe real (que só tu conheces) e o ficheiro chave.Nós apenas criámos uma chave SSH2 DSA com uma palavra-chave de 1024 bites. Se digitares <screen>\n"
+"ls -l keyfile*\n"
+"</screen> irás ver dois ficheiros, <filename>keyfile</filename> e <filename>keyfile.pub</filename>. Como podes adivinhar o ficheiro <filename>.pub</filename> é o ficheiro de chave pública, o outro é o da chave privada."
 
 #. (para)
 msgid ""
@@ -12521,6 +12538,9 @@ msgid ""
 "cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys\n"
 "</screen>"
 msgstr ""
+"Anexa a chave pública aquelas que estão na pasta <filename>.ssh</filename> dentro da pasta home <literal>svnuser</literal>: <screen>\n"
+"cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys\n"
+"</screen>"
 
 #. (para)
 msgid "In order to use the private key we generated, we have to convert it to a putty format. This is because the private key file format is not specified by a standards body. After you download the private key file to your client PC, start PuTTYgen and use <menuchoice><guimenu>Conversions</guimenu><guimenuitem>Import key</guimenuitem></menuchoice>. Browse to your file <filename>keyfile</filename> which you got from the server the passphrase you used when creating the key. Finally click on <guibutton>Save private key</guibutton> and save the file as <filename>keyfile.PPK</filename>."
