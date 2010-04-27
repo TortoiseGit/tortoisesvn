@@ -38,7 +38,7 @@ This will only build the english HTML help file for TortoiseSVN
 		unless="${property::exists('docformats')}"
 	/>
 	<property name="languages"
-		value="en,de,es,fa,fi,fr,hr,id,ja,nl,ru,sl,sk,sr_spc,sr_spl,zh_CN"
+		value="en,de,es,fa,fi,fr,hr,id,ja,nl,pr_BR,pt_PT,ru,sk,sl,sr_spc,sr_spl,zh_CN" 
 		unless="${property::exists('languages')}"
 	/>
 
@@ -274,6 +274,7 @@ This will only build the english HTML help file for TortoiseSVN
 						append="true"
 						verbose="false" />
 
+<!--
 			<echo message="" file="${help.context}" append="true"/>
 			<echo message="// Frame Controls xyxzy(IDW_*)" file="${help.context}" append="true"/>
 			<exec program="makehm"
@@ -281,6 +282,7 @@ This will only build the english HTML help file for TortoiseSVN
 						output="${help.context}"
 						append="true"
 						verbose="false" />
+-->
 		</if>
 
 		<!-- Copy help context to target location -->
