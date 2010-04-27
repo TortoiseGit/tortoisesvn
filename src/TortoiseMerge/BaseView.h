@@ -67,6 +67,7 @@ public:
     void            ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
     void            ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
     void            ScrollSide(int delta);
+    void            ScrollAllSide(int delta);
     void            ScrollVertical(short delta);
     void            GoToLine(int nNewLine, BOOL bAll = TRUE);
     void            ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);

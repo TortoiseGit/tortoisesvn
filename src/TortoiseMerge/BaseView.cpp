@@ -951,7 +951,7 @@ void CBaseView::ScrollAllToChar(int nNewOffsetChar, BOOL bTrackScrollBar /* = TR
         m_pwndBottom->ScrollToChar(nNewOffsetChar, bTrackScrollBar);
 }
 
-void CBaseView::ScrollSide(int delta)
+void CBaseView::ScrollAllSide(int delta)
 {
     int nNewOffset = m_nOffsetChar;
     nNewOffset += delta;
@@ -961,6 +961,21 @@ void CBaseView::ScrollSide(int delta)
     if (nNewOffset < 0)
         nNewOffset = 0;
     ScrollAllToChar(nNewOffset, TRUE);
+    if (m_pwndLineDiffBar)
+        m_pwndLineDiffBar->Invalidate();
+    UpdateCaret();
+}
+
+void CBaseView::ScrollSide(int delta)
+{
+    int nNewOffset = m_nOffsetChar;
+    nNewOffset += delta;
+    int nMaxLineLength = GetMaxLineLength();
+    if (nNewOffset >= nMaxLineLength)
+        nNewOffset = nMaxLineLength - 1;
+    if (nNewOffset < 0)
+        nNewOffset = 0;
+    ScrollToChar(nNewOffset, TRUE);
     if (m_pwndLineDiffBar)
         m_pwndLineDiffBar->Invalidate();
     UpdateCaret();
@@ -2623,22 +2638,22 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
         }
         if (nMouseLine < m_nTopLine)
         {
-            ScrollToLine(m_nTopLine-1, TRUE);
+            ScrollAllToLine(m_nTopLine-1, TRUE);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
         }
         if (nMouseLine >= m_nTopLine + GetFullScreenLines())
         {
-            ScrollToLine(m_nTopLine+1, TRUE);
+            ScrollAllToLine(m_nTopLine+1, TRUE);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
         }
-        if (charIndex <= m_nOffsetChar)
+        if ((m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth()) <= m_nOffsetChar)
         {
-            ScrollSide(-1);
+            ScrollAllSide(-1);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
         }
-        if (charIndex >= (GetScreenChars()+m_nOffsetChar))
+        if (charIndex >= (GetScreenChars()+m_nOffsetChar-4))
         {
-            ScrollSide(1);
+            ScrollAllSide(1);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
         }
     }
@@ -2701,14 +2716,14 @@ void CBaseView::OnTimer(UINT_PTR nIDEvent)
                 ScrollAllToLine(m_nTopLine+1, TRUE);
                 SetTimer(IDT_SCROLLTIMER, 20, NULL);
             }
-            if (charIndex <= m_nOffsetChar)
+            if ((m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth()) <= m_nOffsetChar)
             {
-                ScrollSide(-1);
+                ScrollAllSide(-1);
                 SetTimer(IDT_SCROLLTIMER, 20, NULL);
             }
-            if (charIndex >= GetScreenChars())
+            if (charIndex >= (GetScreenChars()+m_nOffsetChar-4))
             {
-                ScrollSide(1);
+                ScrollAllSide(1);
                 SetTimer(IDT_SCROLLTIMER, 20, NULL);
             }
         }
