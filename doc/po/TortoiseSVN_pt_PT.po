@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-26 00:21-0000\n"
+"PO-Revision-Date: 2010-04-27 01:11-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -12328,11 +12328,11 @@ msgstr "Aplicar correcções é um trabalho complicado, a não ser que a correc�
 
 #. (title)
 msgid "Implementation Details"
-msgstr "Pormenores de Implemtação"
+msgstr "Detalhes de Implementação"
 
 #. (para)
 msgid "This appendix contains a more detailed discussion of the implementation of some of TortoiseSVN's features."
-msgstr ""
+msgstr "Este anexo contém uma discussão mais detalhada da implementação de algumas das funcionalidades do TortoiseSVN."
 
 #. (primary)
 msgid "overlay priority"
@@ -12340,79 +12340,79 @@ msgstr "prioridade de sobreposição"
 
 #. (para)
 msgid "Every file and folder has a Subversion status value as reported by the Subversion library. In the command line client, these are represented by single letter codes, but in TortoiseSVN they are shown graphically using the icon overlays. Because the number of overlays is very limited, each overlay may represent one of several status values."
-msgstr ""
+msgstr "Cada ficheiro e pasta tem um valor de estado no Subversion como é reportado pela biblioteca do mesmo. No cliente de linha de comando, esse é representado por uma letra de código, mas no TortoiseSVN são mostrados graficamente como sobreposições de ícones. Porque o número de sobreposições é muito limitado, cada sobreposição poderá representar vários valores de estado. "
 
 #. (para)
 msgid "<graphic fileref=\"images/ConflictIcon.png\"/> The <emphasis>Conflicted</emphasis> overlay is used to represent the <literal>conflicted</literal> state, where an update or switch results in conflicts between local changes and changes downloaded from the repository. It is also used to indicate the <literal>obstructed</literal> state, which can occur when an operation is unable to complete."
-msgstr ""
+msgstr "<graphic fileref=\"images/ConflictIcon.png\"/> A sobreposição <emphasis>em conflito</emphasis> é usada para representar o estado <literal>em conflito</literal>, onde uma actualização ou troca resultou em conflitos entre as alterações locais e as alterações descarregadas do repositório. É também usado para indicar o estado <literal>obstruído</literal>, que pode ocorrer quando não é concluida uma operação."
 
 #. (para)
 msgid "<graphic fileref=\"images/ModifiedIcon.png\"/> The <emphasis>Modified</emphasis> overlay represents the <literal>modified</literal> state, where you have made local modifications, the <literal>merged</literal> state, where changes from the repository have been merged with local changes, and the <literal>replaced</literal> state, where a file has been deleted and replaced by another different file with the same name."
-msgstr ""
+msgstr "<graphic fileref=\"images/ModifiedIcon.png\"/> A sobreposição <emphasis>Modificado</emphasis> representa o estado <literal>modificado</literal>, quando efectuaste modificações locais, o estado  <literal>integrado</literal>, quando as alterações do repositório foram integradas com as alterações locais, e o estado <literal>substituído</literal>, quando o ficheiro foi removido e substituído por outro ficheiro diferente com o mesmo nome."
 
 #. (para)
 msgid "<graphic fileref=\"images/DeletedIcon.png\"/> The <emphasis>Deleted</emphasis> overlay represents the <literal>deleted</literal> state, where an item is scheduled for deletion, or the <literal>missing</literal> state, where an item is not present. Naturally an item which is missing cannot have an overlay itself, but the parent folder can be marked if one of its child items is missing."
-msgstr ""
+msgstr "<graphic fileref=\"images/DeletedIcon.png\"/> A sobreposição <emphasis>Removido</emphasis> representa o estado <literal>removido</literal>, quando um item foi escalonado para remoção, ou o estado <literal>desaparecido</literal>, quando um item não está presente. Naturalmetne um item que está desaparecido não tem ele próprio uma sobreposição, mas a pasta pai pode ser sinalizada quando um dos seus filhos está desaparecido."
 
 #. (para)
 msgid "<graphic fileref=\"images/AddedIcon.png\"/> The <emphasis>Added</emphasis> overlay is simply used to represent the <literal>added</literal> status when an item has been added to version control."
-msgstr ""
+msgstr "<graphic fileref=\"images/AddedIcon.png\"/> A sobreposição <emphasis>Adicionado</emphasis> é usado simplesmente para representar o estado <literal>adicionado</literal> quando um item foi adicionado ao controlo de versões."
 
 #. (para)
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> The <emphasis>In Subversion</emphasis> overlay is used to represent an item which is in the <literal>normal</literal> state, or a versioned item whose state is not yet known. Because TortoiseSVN uses a background caching process to gather status, it may take a few seconds before the overlay updates."
-msgstr ""
+msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> A sobreposição <emphasis>No Subversion</emphasis> é usada para representar um item que está no estado <literal>normal</literal>, ou um item versionado cujo estado não é ainda conhecido. Porque o TortoiseSVN usa um processo de cache em background para recolher o estado, poderá levar alguns segundos a actualizar as sobreposições."
 
 #. (para)
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</emphasis> overlay is used to indicate when a file has the <literal>svn:needs-lock</literal> property set. For working copies which were created using Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal> status is cached locally by Subversion and this is used to determine when to show this overlay. For working copies which are in pre-1.4.x format, TortoiseSVN shows this overlay when the file has read-only status. Note that Subversion automatically upgrades working copies when you update them, although the caching of the <literal>svn:needs-lock</literal> property may not happen until the file itself is updated."
-msgstr ""
+msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> A sobreposição <emphasis>Necessita bloqueio</emphasis> é usada para indicar quando um ficheiro tem configurada a propriedade <literal>svn:needs-lock</literal>. Para cópias de trabalho que foram criadas usando o Subversion 1.4.0 e superior, o estado <literal>svn:needs-lock</literal> é guardado localmente em cache pelo Subversion, e isto é usado para determinar quando se deve mostrar esta sobreposição. Para cópias de trabalho no formato pré-1.4, o TortoiseSVN mostra esta sobreposição quando o ficheiro tem o estado só-de-leitura. Tem atenção que o Subversion actualizada automaticamente a versão das cópias de trabalho quando tu as actualizas, embora poderá não ser efectuada a cache da propriedade <literal>svn:needs-lock</literal> até o próprio ficheiro ser actualizado."
 
 #. (para)
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis> overlay is used when the local working copy holds a lock for that file."
-msgstr ""
+msgstr "<graphic fileref=\"images/LockedIcon.png\"/> A sobreposição <emphasis>Bloqueado</emphasis> é usado quando a cópia de trabalho local contém um bloqueio para esse ficheiro."
 
 #. (para)
 msgid "<graphic fileref=\"images/IgnoredIcon.png\"/> The <emphasis>Ignored</emphasis> overlay is used to represent an item which is in the <literal>ignored</literal> state, either due to a global ignore pattern, or the <literal>svn:ignore</literal> property of the parent folder. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"images/IgnoredIcon.png\"/> A sobreposição <emphasis>Ignorado</emphasis> é usado para representar um item que está no estado <literal>ignorado</literal>, devido ao padrão global de ignorados, ou à propriedade <literal>svn:ignore</literal> da pasta pai. Esta sobreposição é opcional."
 
 #. (para)
 msgid "<graphic fileref=\"images/UnversionedIcon.png\"/> The <emphasis>Unversioned</emphasis> overlay is used to represent an item which is in the <literal>unversioned</literal> state. This is an item in a versioned folder, but which is not under version control itself. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> A sobreposição <emphasis>Não versionado</emphasis> é usado para representar um item que está no estado <literal>não versionado</literal>. Isto é um item numa pasta versionada, mas que não está ele próprio sob o controlo de versões. Esta sobreposição é opcional."
 
 #. (para)
 msgid "If an item has subversion status <literal>none</literal> (the item is not within a working copy) then no overlay is shown. If you have chosen to disable the <emphasis>Ignored</emphasis> and <emphasis>Unversioned</emphasis> overlays then no overlay will be shown for those files either."
-msgstr ""
+msgstr "Se um item tem o estado subversion <literal>nenhum</literal> (o item não está dentro da cópia de trabalho) então não é mostrado nenhuma sobreposição. Se decidiste desactivar as sobreposições emphasis>Ignorado</emphasis> e <emphasis>Não versionado</emphasis> então não serão também mostradas sobreposições para esses ficheiros."
 
 #. (para)
 msgid "An item can only have one Subversion status value. For example a file could be locally modified and it could be marked for deletion at the same time. Subversion returns a single status value - in this case <literal>deleted</literal>. Those priorities are defined within Subversion itself."
-msgstr ""
+msgstr "Um item só pode ter um valor de estado no Subversion. Por exemplo, um ficheiro pode ser modificado localmente e pode ser marcado para remoção ao mesmo tempo. O Subversion retorna um único valor de estado - neste caso - <literal>removido</literal>. Essas propriedades estão definidas dentro do próprio Subversion."
 
 #. (para)
 msgid "When TortoiseSVN displays the status recursively (the default setting), each folder displays an overlay reflecting its own status and the status of all its children. In order to display a single <emphasis>summary</emphasis> overlay, we use the priority order shown above to determine which overlay to use, with the <emphasis>Conflicted</emphasis> overlay taking highest priority."
-msgstr ""
+msgstr "Quando o TortoiseSVN mostra recursivamente o estado (configuração por defeito), cada pasta mostra uma sobreposição que reflete o seu próprio estado e o estado de todos os seus filhos. De modo a mostrar uma simples sobreposição de <emphasis>summário</emphasis>, nós usamos a ordem de prioridade mostrada acima para determinar qual a sobreposição a usar, com a sobreposição <emphasis>Em conflito</emphasis> a tomar a prioridade mais elevada."
 
 #. (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
-msgstr ""
+msgstr "De facto, poderás descobrir que nem todos esse ícones são usados no teu sistema. Isot é porque o número de sobreposições permitidas pelo Windows é limitada a 15. O Windows usa 4 dessas, e as restantes podem ser usadas por outras aplicações. Se não existirem disponíveis em número suficiente sobreposições vagas, o TortoiseSVN tenta ser um bom cidadão (<quote>Good Citizen (TM)</quote>) e limita o seu uso de sobreposições, para dar hipotese às outras aplicações."
 
 #. (para)
 msgid "<emphasis>Normal</emphasis>, <emphasis>Modified</emphasis> and <emphasis>Conflicted</emphasis> are always loaded and visible."
-msgstr ""
+msgstr "<emphasis>Normal</emphasis>, <emphasis>Modificado</emphasis> e <emphasis>Em conflito</emphasis> são sempre carregadas e visíveis."
 
 #. (para)
 msgid "<emphasis>Deleted</emphasis> is loaded if possible, but falls back to <emphasis>Modified</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<emphasis>Removido</emphasis> é se possivel carregado, mas descai para <emphasis>Modificado</emphasis> se não existem vagas suficientes."
 
 #. (para)
 msgid "<emphasis>Read-Only</emphasis> is loaded if possible, but falls back to <emphasis>Normal</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<emphasis>Só-de-Leitura</emphasis> é se possivel carregado, mas descai para <emphasis>Normal</emphasis> se não existem vagas suficientes."
 
 #. (para)
 msgid "<emphasis>Locked</emphasis> is only loaded if there are fewer than 13 overlays already loaded. It falls back to <emphasis>Normal</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<emphasis>Bloqueado</emphasis> só é carregada se existirem menos de 13 sobreposições já carregadas. Descai para <emphasis>Normal</emphasis> se não existirem vagas suficientes."
 
 #. (para)
 msgid "<emphasis>Added</emphasis> is only loaded if there are fewer than 14 overlays already loaded. It falls back to <emphasis>Modified</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<emphasis>Adicionado</emphasis>é só carregada se existirem menos de 14 sobreposições já carregadas. Descai para <emphasis>Modificado</emphasis> se não existirem vagas suficientes."
 
 #. (title)
 msgid "Securing Svnserve using SSH"
