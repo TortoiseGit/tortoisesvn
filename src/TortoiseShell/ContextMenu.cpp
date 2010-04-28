@@ -2080,7 +2080,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd++] = ShellMenuIgnore;
 
                 _tcscpy_s(maskbuf, MAX_PATH, _T("*"));
-                if (_tcsrchr(ignorepath, '.'))
+                if ((_tcsrchr(ignorepath, '.'))&&((itemStates & ITEMIS_FOLDER)==0))
                 {
                     _tcscat_s(maskbuf, MAX_PATH, _tcsrchr(ignorepath, '.'));
                     InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
