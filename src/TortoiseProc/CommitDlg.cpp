@@ -100,6 +100,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SHOWEXTERNALS, &CCommitDlg::OnBnClickedShowexternals)
 END_MESSAGE_MAP()
 
+
 BOOL CCommitDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
@@ -166,6 +167,7 @@ BOOL CCommitDlg::OnInitDialog()
     CBugTraqAssociations bugtraq_associations;
     bugtraq_associations.Load(m_ProjectProperties.GetProviderUUID(), m_ProjectProperties.sProviderParams);
 
+    bool bExtendUrlControl = true;
     if (bugtraq_associations.FindProvider(m_pathList, &m_bugtraq_association))
     {
         CComPtr<IBugTraqProvider> pProvider;
@@ -182,11 +184,16 @@ BOOL CCommitDlg::OnInitDialog()
                 SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? _T("") : temp);
                 GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(TRUE);
                 GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
+                bExtendUrlControl = false;
             }
         }
 
         GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
     }
+
+    if (bExtendUrlControl)
+        CAppUtils::ExtendControlOverHiddenControl(this, IDC_COMMIT_TO, IDC_BUGTRAQBUTTON);
+
     if (!m_ProjectProperties.sMessage.IsEmpty())
     {
         GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);

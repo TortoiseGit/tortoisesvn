@@ -1433,3 +1433,17 @@ void CAppUtils::SetCharFormat(CWnd* window, DWORD mask, DWORD effects )
     format.dwEffects = effects;
     window->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
 }
+
+void CAppUtils::ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl)
+{
+    CRect controlToExtendRect;
+    parent->GetDlgItem(controlToExtend)->GetWindowRect(controlToExtendRect);
+    parent->ScreenToClient(controlToExtendRect);
+
+    CRect hiddenControlRect;
+    parent->GetDlgItem(hiddenControl)->GetWindowRect(hiddenControlRect);
+    parent->ScreenToClient(hiddenControlRect);
+
+    controlToExtendRect.right = hiddenControlRect.right;
+    parent->GetDlgItem(controlToExtend)->MoveWindow(controlToExtendRect);
+}

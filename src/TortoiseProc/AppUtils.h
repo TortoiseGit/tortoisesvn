@@ -236,6 +236,8 @@ public:
 
     static CString GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url);
 
+    static void ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl);
+
 private:
     static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
     static bool GetMimeType(const CTSVNPath& file, CString& mimetype);
