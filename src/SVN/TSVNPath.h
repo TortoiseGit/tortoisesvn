@@ -122,6 +122,7 @@ public:
      * \remark Returns an empty string for directories
      */
     CString GetFileExtension() const;
+    CString GetFileOrDirExtension() const;
 
     bool IsEmpty() const;
     void Reset();

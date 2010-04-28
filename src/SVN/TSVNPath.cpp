@@ -513,15 +513,20 @@ CString CTSVNPath::GetFileExtension() const
 {
     if(!IsDirectory())
     {
-        EnsureBackslashPathSet();
-        int dotPos = m_sBackslashPath.ReverseFind('.');
-        int slashPos = m_sBackslashPath.ReverseFind('\\');
-        if (dotPos > slashPos)
-            return m_sBackslashPath.Mid(dotPos);
+        return GetFileOrDirExtension();
     }
     return CString();
 }
 
+CString CTSVNPath::GetFileOrDirExtension() const
+{
+    EnsureBackslashPathSet();
+    int dotPos = m_sBackslashPath.ReverseFind('.');
+    int slashPos = m_sBackslashPath.ReverseFind('\\');
+    if (dotPos > slashPos)
+        return m_sBackslashPath.Mid(dotPos);
+    return CString();
+}
 
 bool CTSVNPath::ArePathStringsEqual(const CString& sP1, const CString& sP2)
 {
