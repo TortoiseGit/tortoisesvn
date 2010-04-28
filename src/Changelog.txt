@@ -96,6 +96,8 @@ Version 1.6.9
        a previous version, a 'repair install' however would
        fix this issue. (Stefan)
 - BUG: Urls with '#' in it were not escaped correctly. (Stefan)
+- BUG: Ignoring directories with a dot and extension in the name
+       didn't work. (Stefan)
 
 Version 1.6.8
 - BUG: Exporting via DnD from the repository browser could 

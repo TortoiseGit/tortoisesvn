@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,7 +34,7 @@ bool IgnoreCommand::Execute()
         CString name = CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirectoryName());
         if (parser.HasKey(_T("onlymask")))
         {
-            name = _T("*")+pathList[nPath].GetFileExtension();
+            name = _T("*")+CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirExtension());
         }
         filelist += name + _T("\n");
         CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
