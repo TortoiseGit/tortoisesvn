@@ -26,7 +26,7 @@
 
 #define MAX_HISTORY_ITEMS 25
 
-CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ )
+CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ ) : CComboBoxEx()
 {
     m_nMaxHistoryItems = MAX_HISTORY_ITEMS;
     m_bAllowSortStyle = bAllowSortStyle;
