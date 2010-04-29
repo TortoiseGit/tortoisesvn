@@ -77,7 +77,9 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     SVNRev pegRev = SVNRev(m_External.pegrevision);
     if (pegRev.IsValid() && !pegRev.IsHead())
         m_sPegRev = pegRev.ToString();
-
+    
+    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+    m_URLCombo.SetURLHistory(TRUE);
     m_URLCombo.SetWindowText(m_External.url);
 
     UpdateData(false);
