@@ -1,26 +1,26 @@
-#
 # Portuguese translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
 # Last commit by:
 # $Author: luisxbm $
 # $Date: 2009-04-04 12:22:13 +0100 (su, 12 apr 2009) $
 # $Rev: 15573 $
-#
 # Authors:
 # Luis X. B. Mourão luisxbm@gmail.com, 2009
-#
+# Paulo Justino <paulo.justino@netcabo.pt>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-28 00:10-0000\n"
+"PO-Revision-Date: 2010-04-29 23:44-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language-Team: Portuguese Translation Team\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.6.0\n"
 "X-Poedit-Country: PORTUGAL\n"
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Bookmarks: 72,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
@@ -71,7 +71,7 @@ msgstr "Simon"
 
 #. (surname)
 msgid "Large"
-msgstr "Grande"
+msgstr "Large"
 
 #. (title)
 msgid "Preface"
@@ -12482,7 +12482,7 @@ msgstr "Configurar um Servidor Windows"
 
 #. (para)
 msgid "Install Cygwin SSH daemon as described here: <ulink url=\"http://pigtail.net/LRP/printsrv/cygwin-sshd.html\"><citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle></ulink>"
-msgstr "Instala o daemon SSH Cygwin como descrito aqui: <ulink url=\"http://pigtail.net/LRP/printsrv/cygwin-sshd.html\"><citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle></ulink>"
+msgstr "Instala o daemon SSH Cygwin como descrito aqui: <ulink url=\"http://pigtail.net/LRP/printsrv/cygwin-sshd.html\"><citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle></ulink>SSH Client Tools for use with TortoiseSVN"
 
 #. (para)
 msgid "Create a new Windows user account <literal>svnuser</literal> which we will use to access the repository. Be sure to give this user full access rights to the repository."
@@ -12544,11 +12544,11 @@ msgstr ""
 
 #. (para)
 msgid "In order to use the private key we generated, we have to convert it to a putty format. This is because the private key file format is not specified by a standards body. After you download the private key file to your client PC, start PuTTYgen and use <menuchoice><guimenu>Conversions</guimenu><guimenuitem>Import key</guimenuitem></menuchoice>. Browse to your file <filename>keyfile</filename> which you got from the server the passphrase you used when creating the key. Finally click on <guibutton>Save private key</guibutton> and save the file as <filename>keyfile.PPK</filename>."
-msgstr ""
+msgstr "De modo a poder usar a chave privada que gerámos, temos de a converter para um formato putty. Isto é porque o formato de ficheiro da chave privada não é especificado por um organismo de standartização. Depois de descarregares para o teu PC cliente o ficheiro da chave privada, arranca o PuTTYgen e vai ao menu <menuchoice><guimenu>Conversions</guimenu><guimenuitem>Import key</guimenuitem></menuchoice>. Navega até ao teu ficheiro <filename>keyfile</filename>, do qual obtiveste do servidor a palavra-passe usada aquando da criação da chave. Finalmente clica no <guibutton>Save private key</guibutton> e guarda o ficheiro como <filename>keyfile.PPK</filename>."
 
 #. (title)
 msgid "Create Keys using PuTTYgen"
-msgstr "Criar chaves com PuTTYgen"
+msgstr "Criar chaves usando o PuTTYgen"
 
 #. (para)
 msgid ""
@@ -12556,18 +12556,21 @@ msgid ""
 "cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys\n"
 "</screen>"
 msgstr ""
+"Usa o PuTTYgen para gerar o par chave-pública/chave-privada e guarda-a. Copia a chave pública para o servidor e anexa-a às que estão na pasta <filename>.ssh</filename>, dentro da pasta mãe <literal>svnuser</literal>: <screen>\n"
+"cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys\n"
+"</screen>"
 
 #. (title)
 msgid "Test using PuTTY"
-msgstr "Testar com PuTTY"
+msgstr "Testar com o PuTTY"
 
 #. (para)
 msgid "To test the connection we will use PuTTY. Start the program and on the <guilabel>Session</guilabel> tab set the hostname to the name or IP address of your server, the protocol to SSH and save the session as <literal>SvnConnection</literal> or whatever name you prefer. On the <guilabel>SSH</guilabel> tab set the preferred SSH protocol version to 2 and from <guilabel>Auth</guilabel> set the full path to the <literal>.PPK</literal> private key file you converted earlier. Go back to the <guilabel>Sessions</guilabel> tab and hit the <guilabel>Save</guilabel> button. You will now see <literal>SvnConnection</literal> in the list of saved sessions."
-msgstr ""
+msgstr "Para testar a conexão iremos usar o PuTTY. Arranca o programa e na aba <guilabel>Session</guilabel> configura o hostname para o nome ou endereço IP do teu servidor, o protocolo para SSH e guarda a sessão como <literal>SvnConnection</literal>, ou outro nome que preferires. Na aba <guilabel>SSH</guilabel> configura versão preferida do protocolo SSH para 2, e na <guilabel>Auth</guilabel> fixa o caminho completo para o ficheiro de chave privada <literal>.PPK</literal>, que converteste anteriormente. Volta à aba <guilabel>Sessions</guilabel> e pressiona o botão <guilabel>Save</guilabel>.  Irás agora ver a <literal>SvnConnection</literal> na lista das sessões guardadas."
 
 #. (para)
 msgid "Click on <guilabel>Open</guilabel> and you should see a telnet style login prompt. Use <literal>svnuser</literal> as the user name and if all is well you should connect directly without being prompted for a password."
-msgstr ""
+msgstr "Clica no <guilabel>Open</guilabel> e irás ver uma janela de login ao estilo do telnet. Usa como utilizador o nome <literal>svnuser</literal> e se tudo estiver bem dever-te-ás ligar directamente, sem seres questionado pela palavra-passe."
 
 #. (para)
 msgid ""
@@ -12578,14 +12581,20 @@ msgid ""
 "ChallengeResponseAuthentication no\n"
 "</screen>"
 msgstr ""
+"Poderás necessitar de editar o <filename>/etc/sshd_config</filename> no servidor. Edita as linhas como mostrado em seguida, e depois re-arranca o serviço SSH. <screen>\n"
+"PubkeyAuthentication yes\n"
+"PasswordAuthentication no\n"
+"PermitEmptyPasswords no\n"
+"ChallengeResponseAuthentication no\n"
+"</screen>"
 
 #. (title)
 msgid "Testing SSH with TortoiseSVN"
-msgstr "Testar SSH com TortoiseSVN"
+msgstr "Testar SSH com o TortoiseSVN"
 
 #. (para)
 msgid "So far we have only tested that you can login using SSH. Now we need to make sure that the SSH connection can actually run svnserve. On the server modify <filename>/home/svnuser/.ssh/authorized_keys</filename> as follows to allow many subversion authors to use the same system account, <literal>svnuser</literal>. Note that every subversion author uses the same login but a different authentication key, thus you have to add one line for every author."
-msgstr ""
+msgstr "Até agora só testámos se consegues efectuar login usando o SSH. Agora precisamos de ter a certeza que a ligação SSH pode efectivamente correr o svnserve. No servidor modifica o <filename>/home/svnuser/.ssh/authorized_keys</filename> do seguinte modo  para permitir que vários autores do Subversion usem a mesma conta, <literal>svnuser</literal>. Tem em atenção que cada autor Subversion usa o mesmo login mas com uma chave de autenticação diferente, pelo que terás de adicionar uma linha por cada autor."
 
 #. (para)
 msgid ""
@@ -12595,22 +12604,27 @@ msgid ""
 "            no-pty ssh-rsa &lt;PublicKey&gt; &lt;Comment&gt;\n"
 "</screen> There are several values that you need to set according to your setup."
 msgstr ""
+"Nota: Esta é tudo numa linha muito longa. <screen>\n"
+"command=\"svnserve -t -r &lt;ReposRootPath&gt; --tunnel-user=&lt;author&gt;\",\n"
+"            no-port-forwarding,no-agent-forwarding,no-X11-forwarding,\n"
+"            no-pty ssh-rsa &lt;PublicKey&gt; &lt;Comment&gt;\n"
+"</screen> Existe vários valores que necessitas de configurar, de acordo com a tua instalação."
 
 #. (para)
 msgid "<literal>&lt;ReposRootPath&gt;</literal> should be replaced with the path to the directory containing your repositories. This avoids the need to specify full server paths within URLs. Note that you must use forward slashes even on a Windows server, e.g. <filename>c:/svn/reposroot</filename>. In the examples below we assume that you have a repository folder within the repository root called <filename>repos</filename>."
-msgstr ""
+msgstr "<literal>&lt;ReposRootPath&gt;</literal> deverá ser substituído com o caminho para a pasta onde estão os teus repositórios. Isto evita a necessidade de especificar os caminhos completos de servidor nos URLs. Tem atenção que deverás usar barras direitas, mesmo em servidores Windows, e.g.  <filename>c:/svn/reposroot</filename>. Nos exemplos abaixo assumimos que tu tens uma pasta no repositório, dentro da raiz, chamada <filename>repos</filename>."
 
 #. (para)
 msgid "<literal>&lt;author&gt;</literal> should be replaced with the svn author that you want to be stored on commit. This also allows svnserve to use its own access rights within <filename>svnserve.conf</filename>."
-msgstr ""
+msgstr "O <literal>&lt;author&gt;</literal> deverá ser substituído pelo autor svn que tu queres que seja armazenado na submissão. Isto permite também que o svnserve use os seus direitos de acesso dentro do <filename>svnserve.conf</filename>."
 
 #. (para)
 msgid "<literal>&lt;PublicKey&gt;</literal> should be replaced with the public key that you generated earlier."
-msgstr ""
+msgstr "O <literal>&lt;PublicKey&gt;</literal> deverá ser substituído pela chave pública que geraste anteriormente."
 
 #. (para)
 msgid "<literal>&lt;Comment&gt;</literal> can be any comment you like, but it is useful for mapping an svn author name to the person's real name."
-msgstr ""
+msgstr "O <literal>&lt;Comment&gt;</literal> pode ser qualquer comentário que desejares, mas será útil para mapear o nome de um autor svn com o nome real da pessoa."
 
 #. (para)
 msgid ""
@@ -12618,10 +12632,13 @@ msgid ""
 "svn+ssh://svnuser@SvnConnection/repos\n"
 "</screen> What does this URL mean? The Schema name is <literal>svn+ssh</literal> which tells TortoiseSVN how to handle the requests to the server. After the double slash, you specify the user to connect to the server, in our case <literal>svnuser</literal>. After the <literal>@</literal> we supply our PuTTY session name. This session name contains all details like where to find the private key and the server's IP or DNS. Lastly we have to provide the path to the repository, relative to the repository root on the server, as specified in the <filename>authorized_keys</filename> file."
 msgstr ""
+"Clica com o botão direito em qualquer pasta no explorador do Windows, e selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Navegador-de-repositório</guimenuitem></menuchoice>. Serás solicitado a introduzir o URL, que introduzirás deste modo: <screen>\n"
+"svn+ssh://svnuser@SvnConnection/repos\n"
+"</screen> O que é que significa este URL? O nome da Schema é <literal>svn+ssh</literal> que diz ao TortoiseSVN como lidar com os pedidos ao servidor. Depois da dupla barra especifica o utilizador a ligar-se ao servidor, que é no nosso caso <literal>svnuser</literal>. Depois do <literal>@</literal> fornecemos o nome da nossa sessão PuTTY. Este nome de sessão contém todos os detalhes, como por exemplo, onde encontrar a chave privada, o IP e DNS do servidor. Por último temos de fornecer o caminho para o repositório, relativamente à raiz do repositório no servidor, como especificado no ficheiro <filename>authorized_keys</filename>."
 
 #. (para)
 msgid "Click on <guibutton>OK</guibutton> and you should be able to browse the repository content. If so you now have a running SSH tunnel in conjunction with TortoiseSVN."
-msgstr ""
+msgstr "Clica no <guibutton>OK</guibutton>, e deverás conseguir navegar no conteúdo do repositório. Se tal acontecer, significa que tens um tunel SSH em conjunto com o TortoiseSVN."
 
 #. (para)
 msgid "Note that by default TortoiseSVN uses its own version of Plink to connect. This avoids a console window popping up for every authentication attempt, but it also means that there is nowhere for error messages to appear. If you receive the error <quote>Unable to write to standard output</quote>, you can try specifying Plink as the client in TortoiseSVN's network settings. This will allow you to see the real error message generated by Plink."
@@ -12974,7 +12991,7 @@ msgstr " Paulo M. Santana Justino, Luis X. B. Mourão"
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr "Tradução"
+msgstr "Tradutor-Tradução"
 
 #~ msgid "Do you work in a team?"
 #~ msgstr "Trabalhas numa equipa?"
