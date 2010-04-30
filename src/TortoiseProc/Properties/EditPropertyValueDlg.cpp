@@ -342,6 +342,7 @@ void CEditPropertyValueDlg::CheckRecursive()
             m_tooltips.DelTool(GetDlgItem(IDC_PROPNAMECOMBO)->GetWindow(GW_CHILD));
         }
     }
+    m_bChanged = true;
 }
 
 BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
