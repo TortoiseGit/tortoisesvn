@@ -54,6 +54,10 @@
 				<include name="..\..\..\common\openssl\inc32" />
 			</includedirs>
 			<defines>
+				<define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
+				<define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
+				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
+				<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="OPENSSL_STATIC" />
@@ -78,11 +82,11 @@
 			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 			<sources>
 				<include name="${configuration}${static}_${platform}\*.obj" />
-				<include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" />
+				<include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" if="${static != 'static'}" />
 				<include name="..\..\..\common\openssl\out32\libeay32.lib" />
 				<include name="..\..\..\common\openssl\out32\ssleay32.lib" />
-				<include name="..\apr-util\${configuration}${static}_${platform}\libaprutil_tsvn.lib" />
-				<include name="..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib" />
+				<include name="..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib" if="${static != 'static'}" />
+				<include name="..\apr\${configuration}_${platform}\libapr_tsvn.lib" if="${static != 'static'}" />
 			</sources>
 		</lib>
 	</target>
