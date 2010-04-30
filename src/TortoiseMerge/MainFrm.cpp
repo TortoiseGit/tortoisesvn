@@ -1291,6 +1291,15 @@ void CMainFrame::OnEditFind()
     m_nSearchIndex = FindSearchStart(0);
     m_pFindDialog = new CFindDlg();
     m_pFindDialog->Create(this);
+    CString markedWord;
+    if (m_pwndLeftView && m_pwndLeftView->IsWindowVisible())
+        markedWord = m_pwndLeftView->GetMarkedWord();
+    if (markedWord.IsEmpty() && m_pwndRightView && m_pwndRightView->IsWindowVisible())
+        markedWord = m_pwndRightView->GetMarkedWord();
+    if (markedWord.IsEmpty() && m_pwndBottomView && m_pwndBottomView->IsWindowVisible())
+        markedWord = m_pwndBottomView->GetMarkedWord();
+
+    m_pFindDialog->SetFindString(markedWord);
 }
 
 LRESULT CMainFrame::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)

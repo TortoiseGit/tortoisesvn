@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ public:
     bool LimitToDiffs() {return !!m_bLimitToDiffs;}
     bool WholeWord() {return !!m_bWholeWord;}
     CString GetFindString() {return m_FindCombo.GetString();}
+    void SetFindString(const CString& str) { m_FindCombo.SetWindowText(str); }
 // Dialog Data
     enum { IDD = IDD_FIND };
 
