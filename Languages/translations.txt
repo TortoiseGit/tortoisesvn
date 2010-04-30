@@ -1,4 +1,4 @@
-Translations
+﻿Translations
 ------------
 
 TortoiseSVN is still in development so translations of all resources is
@@ -11,8 +11,9 @@ translation. PO files are plain text, so you can even translate using a
 normal text editor. The only thing you have to take care of is that the
 editor can handle the UTF-8 charset. There is a wide range of tools out
 there that can handle and manipulate PO files.
-We recommend that you use poEdit (http://poedit.sourceforge.net) on Windows
-or kbabel (http://i18n.kde.org/tools/kbabel/) on Linux.
+We recommend that you use Poedit (http://poedit.sourceforge.net) on Windows
+or Virtaal (http://translate.sourceforge.net/wiki/virtaal/index) 
+which is platform independent.
 
 This description assumes that you use poEdit.
 
@@ -24,7 +25,7 @@ If you want to implement a new language for TortoiseSVN do the following.
    http://tortoisesvn.googlecode.com/svn/trunk/Languages/
    (You will get more than one file)
    or point your browser to:
-   http://code.google.com/p/tortoisesvn/source/browse/trunk
+   http://code.google.com/p/tortoisesvn/source/browse/trunk/Languages
    right-click on Tortoise.pot and save this file to your local harddisk.
    Tortoise.pot is the portable object template (hence .pot) for the
    translation.
@@ -70,12 +71,10 @@ If you want to implement a new language for TortoiseSVN do the following.
 5) Make sure your file is saved in UTF-8 encoding and that it does *not*
    begin with UTF-8 BOMs (Byte Order Marks)
 
-6) Send your Tortoise_xx.po to the mailing list (patches@tortoisesvn.tigris.org).
-   or, if you have a Tigris ID (http://www.tigris.org/servlets/Join) and
-   request a role in the project
-   (http://tortoisesvn.tigris.org/servlets/ProjectMembershipRequest),
-   and is granted the role by the project admins, you may commit your
-   translations directory to the TortoiseSVN repository.
+6) Send your Tortoise_xx.po to the mailing list (translators@tortoisesvn.tigris.org).
+   or, if you have a Google Code account (http://code.google.com/), request
+   commit access to the project via the translators mailing list, you may
+   commit your translations directory to the TortoiseSVN repository.
 
 Adding to an existing translation
 ---------------------------------
