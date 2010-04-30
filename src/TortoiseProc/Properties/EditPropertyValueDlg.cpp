@@ -151,10 +151,6 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
             }
         }
     }
-    if (!bFound)
-    {
-        m_PropNames.SetWindowText(m_sPropName);
-    }
 
     GetDlgItem(IDC_PROPNAMECOMBO)->EnableToolTips();
 
@@ -162,6 +158,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 
     UpdateData(FALSE);
     CheckRecursive();
+    m_bChanged = false;
 
     if (!m_sTitle.IsEmpty())
         SetWindowText(m_sTitle);
@@ -183,6 +180,13 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     EnableSaveRestore(_T("EditPropertyValueDlg"));
+
+    if (!bFound)
+    {
+        m_PropNames.SetCurSel(CB_ERR);
+        m_PropNames.SetWindowText(m_sPropName);
+    }
+
     if (!m_sPropValue.IsEmpty())
     {
         GetDlgItem(IDC_PROPVALUE)->SetFocus();
