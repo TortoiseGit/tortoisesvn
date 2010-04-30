@@ -254,6 +254,7 @@ private:
     void            DoBrowseRepo();
     void            ResetNodeFlags (DWORD flags);
     void            ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag);
+    void            DoCopyUrl();
 
     void            SetScrollbar (int bar, int newPos, int clientMax, int graphMax);
     void            SetScrollbars (int nVert = -1, int nHorz = -1);

@@ -23,6 +23,7 @@
 #include "SVN.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
+#include "StringUtils.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
@@ -68,14 +69,15 @@ enum RevisionGraphContextMenuCommands
     ID_UPDATE,
     ID_SWITCHTOHEAD,
     ID_SWITCH,
-    ID_EXPAND_ALL = 0x400,
+    ID_COPYURL = 0x400,
+    ID_EXPAND_ALL = 0x500,
     ID_JOIN_ALL,
-    ID_GRAPH_EXPANDCOLLAPSE_ABOVE = 0x500,
+    ID_GRAPH_EXPANDCOLLAPSE_ABOVE = 0x600,
     ID_GRAPH_EXPANDCOLLAPSE_RIGHT,
     ID_GRAPH_EXPANDCOLLAPSE_BELOW,
     ID_GRAPH_SPLITJOIN_ABOVE,
     ID_GRAPH_SPLITJOIN_RIGHT,
-    ID_GRAPH_SPLITJOIN_BELOW
+    ID_GRAPH_SPLITJOIN_BELOW,
 };
 
 CRevisionGraphWnd::CRevisionGraphWnd()
@@ -1008,7 +1010,7 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
                 AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCHTOHEAD, ID_SWITCHTOHEAD);
                 AppendMenu (popup, IDS_REVGRAPH_POPUP_SWITCH, ID_SWITCH);
             }
-
+        AppendMenu(popup, IDS_REPOBROWSE_URLTOCLIPBOARD, ID_COPYURL);
     }
 
     if (bothPresent)
@@ -1233,6 +1235,11 @@ void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD fla
     m_parent->StartWorkerThread();
 }
 
+void CRevisionGraphWnd::DoCopyUrl()
+{
+    CStringUtils::WriteAsciiStringToClipboard(GetSelectedURL(), m_hWnd);
+}
+
 void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
     if (IsUpdateJobRunning())
@@ -1308,6 +1315,9 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         break;
     case ID_SWITCH:
         DoSwitch();
+        break;
+    case ID_COPYURL:
+        DoCopyUrl();
         break;
     case ID_BROWSEREPO:
         DoBrowseRepo();
