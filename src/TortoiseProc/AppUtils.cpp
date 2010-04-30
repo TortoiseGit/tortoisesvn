@@ -907,6 +907,8 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 {
     CString strURLs;
     combo.GetWindowText(strURLs);
+    if (strURLs.IsEmpty())
+        strURLs = combo.GetString();
     strURLs.Replace('\\', '/');
     strURLs.Replace(_T("%"), _T("%25"));
 

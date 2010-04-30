@@ -370,6 +370,9 @@ void CCopyDlg::OnOK()
     }
 
     CString combourl = m_URLCombo.GetWindowString();
+    if (combourl.IsEmpty())
+        combourl = m_URLCombo.GetString();
+
     if ((m_wcURL.CompareNoCase(combourl)==0)&&(m_CopyRev.IsHead()))
     {
         CString temp;
