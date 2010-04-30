@@ -304,8 +304,8 @@ UINT CCopyDlg::FindRevThread()
                 }
                 if (s->entry->has_prop_mods)
                     m_bmodified = true;
-                if (s->entry->cmt_rev > m_maxrev)
-                    m_maxrev = s->entry->cmt_rev;
+                if (s->entry->revision > m_maxrev)
+                    m_maxrev = s->entry->revision;
             }
             if ( (s->text_status != svn_wc_status_none) &&
                 (s->text_status != svn_wc_status_normal) &&
