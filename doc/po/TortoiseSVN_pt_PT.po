@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-30 00:04-0000\n"
+"PO-Revision-Date: 2010-05-01 23:42-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -12646,7 +12646,7 @@ msgstr "Tem em atenção que, por defeito, o TortoiseSVN usa a sua própria vers
 
 #. (title)
 msgid "SSH Configuration Variants"
-msgstr "Variantes de Configuração de SSH"
+msgstr "Variantes da Configuração do SSH"
 
 #. (para)
 msgid ""
@@ -12664,15 +12664,15 @@ msgstr "Até à altura da escrita o PuTTY na verificava todas as configurações
 
 #. (para)
 msgid "Many people like to use Pageant for storing all their keys. Because a PuTTY session is capable of storing a key, you don't always need Pageant. But imagine you want to store keys for several different servers; in that case you would have to edit the PuTTY session over and over again, depending on the server you are trying to connect with. In this situation Pageant makes perfect sense, because when PuTTY, Plink, TortoisePlink or any other PuTTY-based tool is trying to connect to an SSH server, it checks all private keys that Pageant holds to initiate the connection."
-msgstr ""
+msgstr "Muitas pessoas gostam de usar o Pageant para armazenarem as suas chaves. Porque uma sessão de PuTTY é capaz de armazenar uma chave, tu nem sempre precisas do Pageant. Mas imagina que tu queres armazenar chaves para vários servidores diferentes; nesse caso terias de editar a sessão do Putty vez após vez, para cada servidor que estejas a tentar-te ligar. Nessa situação o Pageant tem todo o sentido porque quando o PuTTY, Plink, TortoisePlink e qualquer outra ferramenta baseada em PuTTY está a tentar-se ligar a um servidor SSH, esta verifica todas as chaves privadas que o Pageant armazena, para iniciar a ligação."
 
 #. (para)
 msgid "For this task, simply run Pageant and add the private key. It should be the same private key you defined in the PuTTY session above. If you use Pageant for private key storage, you can delete the reference to the private key file in your saved PuTTY session. You can add more keys for other servers, or other users of course."
-msgstr ""
+msgstr "Para esta tarefa corre simplesmente o Pageant e adiciona a chave privada. Deverá ser a mesma chave privada que tu definiste acima na sessão do PuTTY. Se usares o Pageant para armazenar a chave privada, tu podes remover na tua sessão de PuTTY guardada, a referência ao ficheiro de chave privada. Tu podes adicionar mais chaves para outros servidores ou, é claro, para outros utilizadores."
 
 #. (para)
 msgid "If you don't want to repeat this procedure after every reboot of your client, you should place Pageant in the auto-start group of your Windows installation. You can append the keys with complete paths as command line arguments to Pageant.exe"
-msgstr ""
+msgstr "Se não queres repetir este procedimento após cada reinício do sistema do teu cliente, deverás colocar o Pageant no grupo de auto-arranque do teu sistema Windows. Tu podes acrescentar as chaves com caminhos completos, como parâmetros de linha de comandos do Pageant.exe."
 
 #. (para)
 msgid ""
@@ -12681,10 +12681,14 @@ msgid ""
 "svn+ssh://svnuser@mydomain.com/repos\n"
 "</screen> As you can see, we don't use a saved PuTTY session but an IP address (or domain name) as the connection target. We also supply the user, but you might ask how the private key file will be found. Because TortoisePlink.exe is just a modified version of the standard Plink tool from the PuTTY suite, TortoiseSVN will also try all the keys stored in Pageant."
 msgstr ""
+"A última maneira de se conectar a um servidor SSH, será simplesmente através do uso deste URL dentro do TortoiseSVN: <screen>\n"
+"svn+ssh://svnuser@100.101.102.103/repos\n"
+"svn+ssh://svnuser@mydomain.com/repos\n"
+"</screen> Como podes ver, não usamos uma sessão PuTTY guardada, mas um endereço IP (ou nome de dominio) como o destino da ligação. Também fornecemos o utilizador, mas poderás perguntar como será encontrado o ficheiro de chave privada. Porque o TortoisePlink.exe é apenas uma versão modificada da ferramenta Plink padrão da suite PuTTY, o TortoiseSVN irá também tentar todas as chaves armazenadas no Pageant."
 
 #. (para)
 msgid "If you use this last method, be sure you do not have a default username set in PuTTY. We have had reports of a bug in PuTTY causing connections to close in this case. To remove the default user, simply clear <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
-msgstr ""
+msgstr "Se usares o último método, tem a certeza que não tens configurado por defeito um nome de utilizador no PuTTY. Temos tido relatórios de um problema no PuTTY que causa, neste caso, perdas de ligação. Para remover o utilizador por defeito, simplesmente limpa a <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
 
 #. (title)
 msgid "Language Packs and Spell Checkers"
