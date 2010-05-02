@@ -11,6 +11,10 @@ Const
 	URLOfRepositoryComboWrapperClassName = "ComboBoxEx32",
 	RevisionLogListViewControlID = 1003
 
+Script ScriptFileName ()
+ScriptAndAppNames (GetActiveConfiguration ())
+EndScript
+
 Void Function AutoStartEvent ()
 let nSaySelectAfter = IniReadInteger (SECTION_OPTIONS, hKey_SaySelectedFirst, 0, file_default_jcf)
 let nSaySelectAfter = IniReadInteger (SECTION_OPTIONS, hKey_SaySelectedFirst, nSaySelectAfter, GetActiveConfiguration () + cScPeriod + jcfFileExt)
@@ -21,6 +25,7 @@ EndFunction
 String Function FindHotKey (String ByRef sPrompt)
 var
 	Handle hPrompt,
+	Int iChildID,
 	Int iType,
 	Int iControlID,
 	String sHotKey
@@ -47,7 +52,11 @@ If iType == WT_EDITCOMBO
 		EndIf
 	EndIf
 EndIf
-Return (FindHotKey(sPrompt))
+let sHotKey = FindHotKey(sPrompt)
+If StringIsBlank (sHotKey) then
+	let sHotKey = GetFocusObject (iChildID).accKeyboardShortcut
+EndIf
+Return (sHotKey)
 EndFunction
 
 Void Function SayObjectActiveItem (Int iPosition)
@@ -81,14 +90,36 @@ EndFunction
 Int Function HandleCustomWindows (Handle hWnd)
 var
 	Int iWindowType,
+	Int iObjectType,
+	Int iType,
 	Int iControlID
 
 let iWindowType = GetWindowSubtypeCode (hWnd, TRUE)
+let iObjectType = GetObjectSubTypeCode (TRUE)
+let iType = iWindowType
+If Not iType then
+	let iType = iObjectType
+EndIf
 let iControlID = GetControlID (hWnd)
 If iControlID == RevisionLogListViewControlID
 && iWindowType == WT_LISTVIEW then
-	IndicateControlType (iWindowType, cScNull, cScSpace)
+	IndicateControlType (iWindowType, cScSpace)
 	SayObjectActiveItem (TRUE)
+	Return (TRUE)
+EndIf
+If (! IsWindowVisible (GetPriorWindow (hWnd)))
+&& GetWindowSubtypeCode (GetPriorWindow (hWnd), TRUE) == WT_STATIC then
+	Say (GetGroupBoxName (), OT_CONTROL_GROUP_NAME)
+	IndicateControlType (iType, cScSpace)
+	If iType == WT_LISTVIEW then
+		SayLine (2)
+	EndIf
+	Return (TRUE)
+EndIf
+If iWindowType == WT_STATIC
+&& iObjectType == WT_LINK then
+	Say (GetGroupBoxName (), OT_CONTROL_GROUP_NAME)
+	IndicateControlType (iObjectType, GetObjectName (TRUE))
 	Return (TRUE)
 EndIf
 Return (HandleCustomWindows (hWnd))
