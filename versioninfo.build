@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <project name="VersionInfo" default="versioninfo">
 
+    <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2008'}"/>
+    <property name="solutionname" value="TortoiseSVN_VS10.sln" if="${studioversion == '2010'}"/>
+
 	<target name="versioninfo">
 		<!-- You can specify path to SubWCRev.exe in SubWCRevFileName property to avoid
 		     setting a bunch of build properties and/or building SubWCRev.exe from scratch.
@@ -20,7 +23,7 @@
 					overwrite="true"
 				/>
 				<exec program="devenv.com" workingdir="src" failonerror="false">
-					<arg value="TortoiseSVN.sln" />
+					<arg value="${solutionname}" />
 					<arg value="/rebuild" />
 					<arg value="${configuration}|${platform}" />
 					<arg value="/project" />
