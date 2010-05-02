@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-02 23:47-0000\n"
+"PO-Revision-Date: 2010-05-03 00:16-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -668,11 +668,11 @@ msgstr "Este capítulo é uma versão ligeiramente modificada do mesmo capítulo
 
 #. (para)
 msgid "This chapter is a short, casual introduction to Subversion. If you're new to version control, this chapter is definitely for you. We begin with a discussion of general version control concepts, work our way into the specific ideas behind Subversion, and show some simple examples of Subversion in use."
-msgstr ""
+msgstr "Este capítulo é uma introdução curta e casual ao Subversion. Se estás a iniciar-te no controlo de versões, este capítulo é mesmo para ti. Nós vamos começar com um discussão dos conceitos gerais de controlo de versões, abordar ideias específicas por detrás do Subversion, e mostrar alguns exemplos simples do uso do Subversion."
 
 #. (para)
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr ""
+msgstr "Mesmo que os exemplos deste capítulo mostrem pessoas a partilhar colecções de código fonte de programas, tem em mente que o Subversion pode gerir qualquer tipo de colecções de ficheiros - não está limitado a ajudar os programadores de computadores."
 
 #. (primary)
 #. (primary)
@@ -681,7 +681,7 @@ msgstr "repositório"
 
 #. (para)
 msgid "Subversion is a centralized system for sharing information. At its core is a <firstterm>repository</firstterm>, which is a central store of data. The repository stores information in the form of a <firstterm>filesystem tree</firstterm> - a typical hierarchy of files and directories. Any number of <firstterm>clients</firstterm> connect to the repository, and then read or write to these files. By writing data, a client makes the information available to others; by reading data, the client receives information from others."
-msgstr "O Subversion é um sistema centralizado para partilha de informação. No seu cerne está o  <firstterm>repository</firstterm>"
+msgstr "O Subversion é um sistema centralizado para partilha de informação. No seu cerne está o <firstterm>repository</firstterm>, que é um armazém central de dados. O repositório armazena informação na forma de uma firstterm>árvore de ficheiros</firstterm> - uma hierarquia típica de ficheiros e pastas. Qualquer número de <firstterm>clientes</firstterm> podem se ligar ao repositório, e então ler ou escrever nesses ficheiros. Ao escrever dados, o cliente torna a informação disponível a outros; ao ler dados, o cliente recebe informação de outros."
 
 #. (title)
 msgid "A Typical Client/Server System"
@@ -689,11 +689,11 @@ msgstr "Um sistema típico Cliente/Servidor"
 
 #. (para)
 msgid "So why is this interesting? So far, this sounds like the definition of a typical file server. And indeed, the repository <emphasis>is</emphasis> a kind of file server, but it's not your usual breed. What makes the Subversion repository special is that <emphasis>it remembers every change</emphasis> ever written to it: every change to every file, and even changes to the directory tree itself, such as the addition, deletion, and rearrangement of files and directories."
-msgstr ""
+msgstr "Então porque será isto interessante? Até agora isto parece-se com a definição de um servidor de ficheiros típico. E de facto, o repositório <emphasis>é</emphasis> uma espécie de servidor de ficheiros, mas não da sua raça normal. O que torna o repositório do Subversion especial é que <emphasis>ele lembra-se de qualquer alteração</emphasis> que lhe tenha sido alguma vez escrita: todas as alterações a qualquer ficheiro, e mesmo alterações na própria árvore de pastas, tal como adicionar, remover, e remodelar ficheiros e pastas."
 
 #. (para)
 msgid "When a client reads data from the repository, it normally sees only the latest version of the filesystem tree. But the client also has the ability to view <emphasis>previous</emphasis> states of the filesystem. For example, a client can ask historical questions like, <quote>what did this directory contain last Wednesday?</quote>, or <quote>who was the last person to change this file, and what changes did they make?</quote> These are the sorts of questions that are at the heart of any <firstterm>version control system</firstterm>: systems that are designed to record and track changes to data over time."
-msgstr ""
+msgstr "Quando um cliente lê dados do repositório, ele normalmente vê só a última versão da árvore do sistema de ficheiros. Mas o cliente também tem a possibilidade de ver estados <emphasis>prévios</emphasis> do sistema de ficheiros. Por exemplo, um cliente efectuar perguntas de histórico, tais como <quote>o que é que esta pasta continha na última Quarta-feira?</quote>, ou <quote>Quem foi a última pessoa e modificar este ficheiro, e que alterações foram efectuadas?</quote> Essas são o tipo de questões que estão no coração de qualquer <firstterm>sistema de controlo de versões</firstterm>: sistemas que são desenhados para recordar e guardar alterações em dados ao longo do tempo."
 
 #. (title)
 msgid "Versioning Models"
