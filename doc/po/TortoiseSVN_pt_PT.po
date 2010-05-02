@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-02 01:08-0000\n"
+"PO-Revision-Date: 2010-05-02 23:41-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -12912,7 +12912,7 @@ msgstr "Remendo"
 
 #. (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
-msgstr ""
+msgstr "Se uma cópia de trabalho tem alterações, só em ficheiros de texto, é possível usar o comando comparar do Subversion para gerar único ficheiro de sumário dessas alterações, no formato comparação-unificada. Um ficheiro desse tipo é normalmente referido como <quote>Correcção</quote>, e pode ser enviado por email para alguém (ou para uma lista de correio) e aplicado noutra cópia de trabalho. Alguém sem permissão para submeter pode efectuar as alterações, e submeter o ficheiro de correcção para alguém com autorização para submeter, para seja este a aplicar a correcção. Ou se não estiveres seguro da alteração efectuada, podes submeter a correcção para que outros a possam rever."
 
 #. (glossterm)
 msgid "Property"
@@ -12920,15 +12920,15 @@ msgstr "Propriedade"
 
 #. (para)
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr ""
+msgstr "Além de versionar as tuas pastas e ficheiros, o Subversion permite-te adicionar metadados versionados - referidos como <quote>propriedades</quote> a cada um das tuas pastas e ficheiros versionados. Cada propriedade tem um nome e valor, tal como uma chave do registo. O Subversion tem algumas propriedades especiais que usa internamente, como as <literal>svn:eol-style</literal>. O TortoiseSVN também tem algumas, tais como <literal>tsvn:logminsize</literal>. Tu podes também adicionar as tuas próprias propriedades com qualquer nome e valor que escolhas."
 
 #. (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
-msgstr ""
+msgstr "Se o teu repositório mudou de localização, talvez porque o alteraste para uma pasta diferente no teu servidor, ou o nome de domínio do servidor foi alterado, será necessário <quote>reposicionar</quote> a tua cópia de trabalho para que o seu URL de repositório aponte para a nova localização."
 
 #. (para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
-msgstr ""
+msgstr "Nota: só deverás usar este comando se a tua cópia de trabalho se refere à mesma localização no mesmo repositório, mas apenas o próprio repositório foi movido. Em qualquer outra circunstância, o que provavelmente necessitarás, é do comando <quote>Trocar</quote>."
 
 #. (glossterm)
 msgid "Repository"
@@ -12936,15 +12936,15 @@ msgstr "Repositório"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr ""
+msgstr "Um repositório e um local central onde são armazenados e mantidos dados. Um repositório pode ser um local onde múltiplas bases de dados ou ficheiros estão localizados para distribuição pela rede, ou poderá também ser um local que está acessível ao utilizador directamente, sem o obrigar a navegar pela rede."
 
 #. (para)
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
-msgstr ""
+msgstr "Quando na cópia de trabalho, são deixados ficheiros num estado de conflito após uma integração, esses conflitos têm de ser observados por um humano com o recurso a um editor (ou talvez o TortoiseMerge). Este processo é referido como <quote>Resolução de Conflitos</quote>. Quando estiver concluído, poderás marcar os ficheiros em conflito como estando resolvidos, o que permite que estes possam ser submetidos."
 
 #. (para)
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
-msgstr ""
+msgstr "O Subversion mantém um cópia <quote>prístina</quote> local de cada ficheiro como era, quando tu actualizaste pela última vez a tua cópia de trabalho. Se efectuaste alterações e decidiste que queres desfazê-las, podes então usar o comando <quote>reverter</quote> para retornares à cópia prístina."
 
 #. (glossterm)
 msgid "Revision"
@@ -12952,11 +12952,11 @@ msgstr "Revisão"
 
 #. (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
-msgstr ""
+msgstr "Cada vez que submetes um conjunto de alterações, tu crias uma nova <quote>revisão</quote> no repositório. Cada revisão representa o estado da árvore do repositório, num determinado ponto da sua história. Se quiseres voltar atrás, poderás examinar o repositório tal e qual estava na revisão N."
 
 #. (para)
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
-msgstr ""
+msgstr "De outro modo, uma revisão refere-se a um conjunto de alterações que foram efectuadas, quando essa mesma revisão foi criada."
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
@@ -12964,7 +12964,7 @@ msgstr "Propriedade de Revisão (revprop)"
 
 #. (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr ""
+msgstr "Tal como os ficheiros podem ter propriedades, assim pode cada revisão no repositório. Algumas revprops  especiais são automaticamente adicionadas quando é criada a revisão, nomeadamente: <literal>svn:date svn:author svn:log</literal> que representa a data/hora de submissão, o nome de quem submeteu e a respectiva mensagem de registo. Essas propriedades podem ser editadas, mas não estão versionadas pelo que qualquer alteração é permanente, e não poderá ser desfeita."
 
 #. (glossterm)
 msgid "SVN"
@@ -12972,23 +12972,23 @@ msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr "Abreviação de Subversion frequentement utilizada."
+msgstr "Uma abreviatura para Subversion, frequentemente utilizada."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr ""
+msgstr "O nome do protocolo personalizado do Subversion, usado pelo servidor de repositório <quote>svnserve</quote>."
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "Tal como o <quote>Actualizar-para-revisão</quote> altera a janela temporal da cópia de trabalho, para olhar para um ponto diferente na história, o <quote>Trocar</quote> altera a janela de espaço da cópia de trabalho, para que aponte para uma parte diferente do repositório. É particularmente útil quando se está a trabalhar com o trunk e com ramos, onde apenas alguns ficheiros diferem. Podes assim trocar a tua cópia de trabalho entre esses dois e só os ficheiros alterados serão transferidos."
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr ""
+msgstr "Este comando do Subversion adquire as últimas alterações do repositório para a tua cópia de trabalho, integrando quaisquer alterações efectuadas por outros com as alterações locais."
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr ""
+msgstr "Esta é a tua <quote>caixa de areia</quote> local, a área onde tu trabalhas nos ficheiros versionados que normalmente reside no teu disco local. Tu crias uma cópia local a partir do repositório ao efectuar o comando <quote>Checkout</quote>, e envias as tuas alterações de volta para o repositório com o comando <quote>Submeter</quote>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
