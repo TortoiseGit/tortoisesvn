@@ -86,6 +86,7 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
     ON_NOTIFY(NM_CLICK, IDC_EXTERNALSLIST, &CCopyDlg::OnNMClickExternalslist)
     ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CCopyDlg::OnCheck)
     ON_BN_CLICKED(IDC_BUGTRAQBUTTON, &CCopyDlg::OnBnClickedBugtraqbutton)
+    ON_NOTIFY(NM_CUSTOMDRAW, IDC_EXTERNALSLIST, &CCopyDlg::OnNMCustomdrawExternalslist)
 END_MESSAGE_MAP()
 
 
@@ -731,15 +732,18 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
     temp.LoadString(IDS_STATUSLIST_COLURL);
     m_ExtList.InsertColumn(1, temp);
     temp.LoadString(IDS_STATUSLIST_COLREVISION);
-    m_ExtList.InsertColumn(2, temp);
+    m_ExtList.InsertColumn(2, temp, LVCFMT_RIGHT);
+    temp.LoadString(IDS_COPYEXTLIST_COLTAGGED);
+    m_ExtList.InsertColumn(3, temp, LVCFMT_RIGHT);
     m_ExtList.SetItemCountEx((int)m_externals.size());
 
     CRect rect;
     m_ExtList.GetClientRect(&rect);
-    int cx = (rect.Width()-100)/2;
+    int cx = (rect.Width()-180)/2;
     m_ExtList.SetColumnWidth(0, cx);
     m_ExtList.SetColumnWidth(1, cx);
     m_ExtList.SetColumnWidth(2, 80);
+    m_ExtList.SetColumnWidth(3, 80);
 
     m_ExtList.SetRedraw(true);
     DialogEnableWindow(IDC_EXTERNALSLIST, true);
@@ -773,6 +777,36 @@ void CCopyDlg::OnCbnEditchangeUrlcombo()
 {
     m_bSettingChanged = true;
     SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetWindowString()));
+}
+
+void CCopyDlg::OnNMCustomdrawExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
+    // Take the default processing unless we set this to something else below.
+    *pResult = CDRF_DODEFAULT;
+
+    if (m_ExtList.HasText())
+        return;
+
+    // Draw externals that are already tagged to a specific revision in gray.
+    if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+    {
+        *pResult = CDRF_NOTIFYITEMDRAW;
+    }
+    else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
+    {
+        *pResult = CDRF_NOTIFYSUBITEMDRAW;
+
+        COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+        if (pLVCD->nmcd.dwItemSpec < (int)m_externals.size())
+        {
+            SVNExternal ext = m_externals[pLVCD->nmcd.dwItemSpec];
+            if ((ext.origrevision.kind == svn_opt_revision_number)||(ext.origrevision.kind == svn_opt_revision_date))
+                crText = GetSysColor(COLOR_GRAYTEXT);
+        }
+        // Store the color back in the NMLVCUSTOMDRAW struct.
+        pLVCD->clrText = crText;
+    }
 }
 
 void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -851,12 +885,20 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                     }
                     break;
                 case 2: // revision
+                    m_columnbuf[0] = 0;
                     if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0))
                         _stprintf_s(m_columnbuf, MAX_PATH, _T("%ld"), ext.revision.value.number);
-                    else
-                        m_columnbuf[0] = 0;
                     break;
-
+                case 3: // tagged
+                    m_columnbuf[0] = 0;
+                    if (ext.origrevision.kind == svn_opt_revision_number)
+                        _stprintf_s(m_columnbuf, MAX_PATH, _T("%ld"), ext.origrevision.value.number);
+                    else if (ext.origrevision.kind == svn_opt_revision_date)
+                    {
+                        SVNRev r(ext.origrevision);
+                        _tcscpy_s(m_columnbuf, MAX_PATH, (LPCTSTR)r.ToString());
+                    }
+                    break;
                 default:
                     m_columnbuf[0] = 0;
                 }
@@ -932,3 +974,5 @@ LRESULT CCopyDlg::OnCheck(WPARAM wnd, LPARAM)
 
     return 0;
 }
+
+

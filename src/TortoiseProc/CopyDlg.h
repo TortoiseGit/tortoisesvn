@@ -77,6 +77,7 @@ protected:
     afx_msg void OnBnClickedHistory();
     afx_msg void OnEnChangeLogmessage();
     afx_msg void OnCbnEditchangeUrlcombo();
+    afx_msg void OnNMCustomdrawExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnKeydownExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMClickExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
