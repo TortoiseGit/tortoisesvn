@@ -29,7 +29,9 @@
 					<include name="*.c" />
 				</fileset>
 			</copy>
-			<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF -Fo${configuration}${static}_${platform}\gvmat32.obj gvmat32.asm" />
+			<if test="${file::exists('gvmat32.asm')}" >
+				<exec program="ml" commandline="-nologo -c -Zi -coff -DASMV -DASMINF -Fo${configuration}${static}_${platform}\gvmat32.obj gvmat32.asm" />
+			</if>
 		</if>
 		<if test="${platform == 'x64'}">
 			<copy todir="." overwrite="true">
