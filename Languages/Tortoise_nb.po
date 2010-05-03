@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-16 14:03+0100\n"
+"PO-Revision-Date: 2010-05-03 13:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -256,33 +256,63 @@ msgstr "%s [Tilbakestilt]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, men den fins allerede lokalt, ikke-versjonert."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, men katalogen fins allerede lokalt, ikke-versjonert."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, men den mangler lokalt."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, men katalogen mangler lokalt."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, men den var allerede lagt til lokalt."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, men katalogen var allerede lagt til lokalt."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, men den var allerede redigert."
+msgid "%s, but the directory was already edited."
+msgstr "%s, men katalogen var allerede redigert."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, men den var slettet, flyttet eller omdøpt lokalt."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s, men katalogen var slettet, flyttet eller omdøpt lokalt."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, men den var hindret i arbeidskopien."
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, men katalogen var hindret i arbeidskopien."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, men filen fins allerede lokalt, ikke-versjonert."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, men filen mangler lokalt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, men filen var allerede lagt til lokalt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, men filen var allerede redigert."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s, men filen var slettet, flyttet eller omdøpt lokalt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, men filen var hindret i arbeidskopien."
 
 #. Resource IDs: (3850)
 #, c-format
@@ -5112,6 +5142,10 @@ msgstr ""
 msgid "Import to %1"
 msgstr "Importer til %1"
 
+#. Resource IDs: (80)
+msgid "Imported folder structure"
+msgstr "Importert mappestruktur"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %1!s!"
@@ -5974,9 +6008,17 @@ msgstr "Flytt/Omdøp"
 msgid "Move: New name for %s"
 msgstr "Flytt: Nytt navn for %s"
 
+#. Resource IDs: (65535)
+msgid "Moved from"
+msgstr "Flyttet fra"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Flyttet eksternt"
+
+#. Resource IDs: (65535)
+msgid "Moved to"
+msgstr "Flyttet til"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6561,6 +6603,14 @@ msgid ""
 msgstr ""
 "Blyant-verktøy\n"
 "Blyant"
+
+#. Resource IDs: (245)
+msgid "Percent of authorship"
+msgstr "Prosent av forfatterskap"
+
+#. Resource IDs: (245)
+msgid "Percents"
+msgstr "Prosent"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -8632,6 +8682,10 @@ msgstr "Tabulatorstørrelse:"
 msgid "Tag nodes"
 msgstr "Merkenoder"
 
+#. Resource IDs: (281)
+msgid "Tagged"
+msgstr "Merket"
+
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -9043,8 +9097,12 @@ msgstr ""
 "Vennligst angi et gyldig regulært uttrykk."
 
 #. Resource IDs: (80)
-msgid "The repository was successfully created."
-msgstr "Depotet er opprettet."
+msgid ""
+"The repository was successfully created.\n"
+"Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+"Oppretting av depotet var vellykket.\n"
+"Vil du lage standard mappestruktur (trunk/branches/tags) nå?"
 
 #. Resource IDs: (78)
 msgid ""
@@ -11289,6 +11347,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "The repository was successfully created."
+#~ msgstr "Depotet er opprettet."
 #~ msgid "&Sat:"
 #~ msgstr "&Metn:"
 #~ msgid "&Save..."
