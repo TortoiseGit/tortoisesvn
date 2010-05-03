@@ -14,15 +14,15 @@
 # Authors:
 # Stefan Küng <steveking@tigris.org>, 2004-2010
 # Lübbe Onken <luebbe@tigris.org>, 2004-2010
-# 
+# Lübbe Onken <l.onken@rac.de>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-29 14:45+0200\n"
+"PO-Revision-Date: 2010-05-03 15:07+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -815,6 +815,10 @@ msgid ""
 "access to a repository created on your hard drive without needing a server "
 "at all."
 msgstr ""
+"Für ein richtiges Projekt sollten Sie das Projektarchiv auf einem separaten "
+"Subversion Server einrichten. Aus Gründen der Einfacheit werden wir für die "
+"Einführung ein lokales Projektarchiv verwenden, das sie direkt auf Ihrer "
+"Festplatte anlegen können, ohne dass Sie einen Server benötigen."
 
 #.(para)
 msgid ""
@@ -825,6 +829,13 @@ msgid ""
 "here...</guimenuitem></menuchoice>. The repository is then created inside "
 "the folder, ready for you to use."
 msgstr ""
+"Zuerst legen Sie ein neues, leeres Verzeichnis auf ihrem Rechner an. Sie "
+"können es überall erstellen, aber in dieser Einleitung nennen wir es "
+"<filename>C:\\svn_repos</filename>. Machen Sie einen Rechtsklick auf den "
+"neuen Ordner und wählen Sie "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Projektarchiv hier "
+"erstellen</guimenuitem></menuchoice> aus dem Kontextmenü. Das Projektarchiv "
+"wird innerhalb des Ordners erstellt und steht fortan zur Verfügung."
 
 #.(para)
 msgid ""
@@ -836,6 +847,15 @@ msgid ""
 "repository-local-share\"/> to find out why this is a bad idea, and how to set "
 "up a server."
 msgstr ""
+"Lokale Projektarchive sind sehr nützlich für Tests. Sie sollten diese "
+"allerdings nur verwenden, wenn Sie der einzige Entwickler mit einem "
+"einzelnen PC in einem Projekt sind. Sobald Sie in einer Gruppe arbeiten, "
+"sollten Sie einen richtigen Server einrichten. Es mag in einer kleinen Firma "
+"verlockend sein, die Projektarchive auf einer Netzwerkfreigabe anzulegen "
+"und sich die Arbeit, einen Server einzurichten zu ersparen. Lassen Sie es "
+"bleiben! Sie werden Daten verlieren! Lesen Sie in <xref linkend=\"tsvn-"
+"repository-local-share\"/> nach, warum das eine schlechte Idee ist und wie "
+"Sie einen Server einrichten."
 
 #.(title)
 msgid "Importing a Project"
