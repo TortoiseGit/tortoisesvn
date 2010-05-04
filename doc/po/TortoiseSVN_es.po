@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2010-05-04 21:15+0200\n"
+"PO-Revision-Date: 2010-05-04 23:41+0100\n"
 "Last-Translator: Juan Carlos Fuentes-Michel <jcfuentes@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "Language: es\n"
@@ -21,6 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.6.0\n"
+"X-Poedit-Bookmarks: 158,-1,230,205,529,-1,-1,-1,-1,-1\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -100,12 +101,7 @@ msgstr "Audiencia"
 
 #. (para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr ""
-"Este libro está escrito para usuarios informáticos que quieren usar "
-"Subversion para manejar sus datos, pero no están cómodos usando el cliente "
-"de línea de comandos para hacerlo. Dado que TortoiseSVN es una extensión del "
-"shell de Windows, se asume que el usuario está familiarizado con el "
-"Explorador de windows y sabe cómo usarlo."
+msgstr "Este libro está escrito para usuarios informáticos que quieren usar Subversion para manejar sus datos, pero no están cómodos usando el cliente de línea de comandos para hacerlo. Dado que TortoiseSVN es una extensión del shell de Windows, se asume que el usuario está familiarizado con el Explorador de windows y sabe cómo usarlo."
 
 #. (title)
 msgid "Reading Guide"
@@ -117,9 +113,7 @@ msgstr "Este <xref linkend=\"tsvn-preface\"/> le ofrece una breve explicación s
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
-msgstr ""
-"La <xref linkend=\"tsvn-introduction\"/> expone qué es TortoiseSVN, lo que "
-"hace, de dónde viene y las bases para instalarlo en su PC."
+msgstr "La <xref linkend=\"tsvn-introduction\"/> expone qué es TortoiseSVN, lo que hace, de dónde viene y las bases para instalarlo en su PC."
 
 #. (para)
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
@@ -147,10 +141,7 @@ msgstr "La sección <xref linkend=\"tsvn-automation\"/> le muestra cómo puede i
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
-msgstr ""
-"La <xref linkend=\"tsvn-cli\"/> le muestra una correlación entre los comandos "
-"de TortoiseSVN y sus equivalentes en el cliente de línea de comandos de "
-"Subversion <literal>svn.exe</literal>."
+msgstr "La <xref linkend=\"tsvn-cli\"/> le muestra una correlación entre los comandos de TortoiseSVN y sus equivalentes en el cliente de línea de comandos de Subversion <literal>svn.exe</literal>."
 
 #. (title)
 msgid "TortoiseSVN is free!"
@@ -304,31 +295,11 @@ msgstr "¿Qué es TortoiseSVN?"
 
 #. (para)
 msgid "TortoiseSVN is a free open-source client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
-msgstr ""
-"TortoiseSVN es un cliente gratuito de código abierto para el sistema de "
-"control de versiones <firstterm>Subversion</firstterm>. Esto signifca que "
-"TortoiseSVN administra archivos y directorios a lo largo del tiempo. Los "
-"archivos se almacenan en un <firstterm>repositorio</firstterm> central. El "
-"repositorio es prácticamente lo mismo que un servidor de archivos ordinario, "
-"con la excepción de que recuerda todos los cambios que se hayan hecho a sus "
-"archivos y directorios. Esto le permite al usuario recuperar versiones "
-"antiguas de sus archivos y examinar la historia de cómo y cuándo cambiaron "
-"sus datos, y quién hizo el cambio. Esta es la razón por la que mucha gente "
-"piensa que Subversion, y los sistemas de control de versiones en general, "
-"son una especie de <quote>máquinas del tiempo</quote>."
+msgstr "TortoiseSVN es un cliente gratuito de código abierto para el sistema de control de versiones <firstterm>Subversion</firstterm>. Esto signifca que TortoiseSVN administra archivos y directorios a lo largo del tiempo. Los archivos se almacenan en un <firstterm>repositorio</firstterm> central. El repositorio es prácticamente lo mismo que un servidor de archivos ordinario, con la excepción de que recuerda todos los cambios que se hayan hecho a sus archivos y directorios. Esto le permite al usuario recuperar versiones antiguas de sus archivos y examinar la historia de cómo y cuándo cambiaron sus datos, y quién hizo el cambio. Esta es la razón por la que mucha gente piensa que Subversion, y los sistemas de control de versiones en general, son una especie de <quote>máquinas del tiempo</quote>."
 
 #. (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
-msgstr ""
-"Algunos sistemas de control de versiones también son sistemas de manejo de "
-"configuración del software (SCM por sus iniciales en inglés). Estos sistemas "
-"están diseñados específicamente para manejar árboles de código fuente, y "
-"tienen muchas características que son específicas para el desarrollo de "
-"software - tales como el entendimiento nativo de los lenguajes de "
-"programación, o proporcionan herramientas para compilar software. "
-"Subversion, sin embargo, no es uno de estos sistemas; es un sistema general "
-"que puede ser utilizado para manejar <emphasis>cualquier</emphasis> "
-"colección de archivos, incluyendo código fuente."
+msgstr "Algunos sistemas de control de versiones también son sistemas de manejo de configuración del software (SCM por sus iniciales en inglés). Estos sistemas están diseñados específicamente para manejar árboles de código fuente, y tienen muchas características que son específicas para el desarrollo de software - tales como el entendimiento nativo de los lenguajes de programación, o proporcionan herramientas para compilar software. Subversion, sin embargo, no es uno de estos sistemas; es un sistema general que puede ser utilizado para manejar <emphasis>cualquier</emphasis> colección de archivos, incluyendo código fuente."
 
 #. (title)
 msgid "TortoiseSVN's History"
@@ -336,34 +307,15 @@ msgstr "Historia de TortoiseSVN"
 
 #. (para)
 msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
-msgstr ""
-"En 2002, Tim Kemp se dio cuenta que Subversion era un sistema de control de "
-"versiones muy bueno, pero le faltaba un buen cliente GUI. La idea de tener "
-"un cliente de Subversion integrado en la consola de Windows fue inspirada "
-"por un cliente similar para CVS llamado TortoiseCVS."
+msgstr "En 2002, Tim Kemp se dio cuenta que Subversion era un sistema de control de versiones muy bueno, pero le faltaba un buen cliente GUI. La idea de tener un cliente de Subversion integrado en la consola de Windows fue inspirada por un cliente similar para CVS llamado TortoiseCVS."
 
 #. (para)
 msgid "Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
-msgstr ""
-"Tim estudió el código fuente de TortoiseCVS y lo utilizó como base de "
-"TortoiseSVN. Entonces inició el proyecto, registró el dominio "
-"<literal>tortoisesvn.org</literal> y puso el código fuente en línea. Durante "
-"ese tiempo, Stefan Küng estaba buscando un sistema de control de versiones "
-"bueno y gratuito, y encontró Subversion y el código fuente de TortoiseSVN. "
-"Como TortoiseSVN todavía no estaba listo para usarse, se unió al proyecto y "
-"empezó a programar. Pronto reescribió la mayor parte del código existente y "
-"empezó a añadir comandos y características, hasta el punto en que no quedó "
-"nada del código original."
+msgstr "Tim estudió el código fuente de TortoiseCVS y lo utilizó como base de TortoiseSVN. Entonces inició el proyecto, registró el dominio <literal>tortoisesvn.org</literal> y puso el código fuente en línea. Durante ese tiempo, Stefan Küng estaba buscando un sistema de control de versiones bueno y gratuito, y encontró Subversion y el código fuente de TortoiseSVN. Como TortoiseSVN todavía no estaba listo para usarse, se unió al proyecto y empezó a programar. Pronto reescribió la mayor parte del código existente y empezó a añadir comandos y características, hasta el punto en que no quedó nada del código original."
 
 #. (para)
 msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
-msgstr ""
-"Según se fue estabilizando Subversion, atrajo más y más usuarios que también "
-"empezaron a utilizar TortoiseSVN como su cliente de Subversion. La base de "
-"usuarios de TortoiseSVN se incrementó rápidamente (y aún lo hace cada día). "
-"Entonces Lübbe Onken se ofreció a ayudar con algunos iconos más vistosos y "
-"un logo para TortoiseSVN. Y también se encarga de la página web y de "
-"administrar las traducciones."
+msgstr "Según se fue estabilizando Subversion, atrajo más y más usuarios que también empezaron a utilizar TortoiseSVN como su cliente de Subversion. La base de usuarios de TortoiseSVN se incrementó rápidamente (y aún lo hace cada día). Entonces Lübbe Onken se ofreció a ayudar con algunos iconos más vistosos y un logo para TortoiseSVN. Y también se encarga de la página web y de administrar las traducciones."
 
 #. (title)
 msgid "TortoiseSVN's Features"
@@ -371,9 +323,7 @@ msgstr "Características de TortoiseSVN"
 
 #. (para)
 msgid "What makes TortoiseSVN such a good Subversion client? Here's a short list of features."
-msgstr ""
-"¿Qué hace de TortoiseSVN un tan buen cliente de Subversion? Aquí hay una "
-"pequeña lista de sus características."
+msgstr "¿Qué hace de TortoiseSVN un tan buen cliente de Subversion? Aquí hay una pequeña lista de sus características."
 
 #. (term)
 msgid "Shell integration"
@@ -389,23 +339,11 @@ msgstr "explorador"
 
 #. (para)
 msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
-msgstr ""
-"TortoiseSVN se integra perfectamente con la consola de Windows (por ejemplo, "
-"el explorador). Esto significa que puede seguir trabajando con las "
-"herramientas que ya conoce. ¡Y que no tiene que cambiar a una aplicación "
-"diferente cada vez que necesite las funciones del control de versiones!"
+msgstr "TortoiseSVN se integra perfectamente con la consola de Windows (por ejemplo, el explorador). Esto significa que puede seguir trabajando con las herramientas que ya conoce. ¡Y que no tiene que cambiar a una aplicación diferente cada vez que necesite las funciones del control de versiones!"
 
 #. (para)
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr ""
-"Y ni siquiera está obligado a usar el Explorador de Windows. Los menús "
-"contextuales de TortoiseSVN también funcionan en otros administradores de "
-"archivos, y en el diálogo Archivo/Abrir que es común en la mayoría de "
-"aplicaciones estándar de Windows. Sin embargo, debe tener en cuenta que "
-"TortoiseSVN está desarrollado con la intención de ser una extensión del "
-"Explorador de Windows. Por este motivo, puede que en otras aplicaciones la "
-"integración no sea tan completa, y que por ejemplo, los iconos superpuestos "
-"no se muestren."
+msgstr "Y ni siquiera está obligado a usar el Explorador de Windows. Los menús contextuales de TortoiseSVN también funcionan en otros administradores de archivos, y en el diálogo Archivo/Abrir que es común en la mayoría de aplicaciones estándar de Windows. Sin embargo, debe tener en cuenta que TortoiseSVN está desarrollado con la intención de ser una extensión del Explorador de Windows. Por este motivo, puede que en otras aplicaciones la integración no sea tan completa, y que por ejemplo, los iconos superpuestos no se muestren."
 
 #. (term)
 msgid "Icon overlays"
@@ -601,28 +539,15 @@ msgstr "Libro de Subversion"
 
 #. (para)
 msgid "This chapter is a slightly modified version of the same chapter in the Subversion book. An online version of the Subversion book is available here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
-msgstr ""
-"Este capítulo es una versión ligeramente modificada del mismo capítulo en el "
-"libro de Subversion. Una versión en línea del libreo de Subversion está "
-"disponible aquí: <ulink url=\"http://svnbook.red-"
-"bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
+msgstr "Este capítulo es una versión ligeramente modificada del mismo capítulo en el libro de Subversion. Una versión en línea del libreo de Subversion está disponible aquí: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
 
 #. (para)
 msgid "This chapter is a short, casual introduction to Subversion. If you're new to version control, this chapter is definitely for you. We begin with a discussion of general version control concepts, work our way into the specific ideas behind Subversion, and show some simple examples of Subversion in use."
-msgstr ""
-"Este capítulo es una introducción corta e informal a Subversion. Si usted es "
-"nuevo en el control de versiones, este capítulo es definitivamente para "
-"usted. Empezamos con una discusión de los conceptos generales de control de "
-"versiones, nos adentramos en las ideas específicas que hay tras Subversion, "
-"y mostramos algunos ejemplos sencillos del uso de Subversion."
+msgstr "Este capítulo es una introducción corta e informal a Subversion. Si usted es nuevo en el control de versiones, este capítulo es definitivamente para usted. Empezamos con una discusión de los conceptos generales de control de versiones, nos adentramos en las ideas específicas que hay tras Subversion, y mostramos algunos ejemplos sencillos del uso de Subversion."
 
 #. (para)
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr ""
-"Aún cuando los ejemplos en este capítulo muestran gente compartiendo "
-"colecciones de código fuente de programas, tenga en cuenta que Subversion "
-"puede manejar cualquier collección de archivos - no está limitado a ayudar a "
-"los programadores."
+msgstr "Aún cuando los ejemplos en este capítulo muestran gente compartiendo colecciones de código fuente de programas, tenga en cuenta que Subversion puede manejar cualquier collección de archivos - no está limitado a ayudar a los programadores."
 
 #. (title)
 #. (title)
@@ -637,15 +562,7 @@ msgstr "repositorio"
 
 #. (para)
 msgid "Subversion is a centralized system for sharing information. At its core is a <firstterm>repository</firstterm>, which is a central store of data. The repository stores information in the form of a <firstterm>filesystem tree</firstterm> - a typical hierarchy of files and directories. Any number of <firstterm>clients</firstterm> connect to the repository, and then read or write to these files. By writing data, a client makes the information available to others; by reading data, the client receives information from others."
-msgstr ""
-"Subversion es un sistema centralizado para compartir información. En su "
-"núcleo está un <firstterm>repositorio</firstterm>, que es un almacén central "
-"de datos. El respositorio almacena información en forma de un "
-"<firstterm>árbol de archivos</firstterm> - una jerarquía típica de archivos "
-"y directorios. Un número de <firstterm>clientes</firstterm> se conectan al "
-"repositorio, y luego leen o esriben esos archivos. Al escribir datos, el "
-"cliente hace que la información esté disponible para los otros; al leer los "
-"datos, el cliente recibe información de los demás."
+msgstr "Subversion es un sistema centralizado para compartir información. En su núcleo está un <firstterm>repositorio</firstterm>, que es un almacén central de datos. El respositorio almacena información en forma de un <firstterm>árbol de archivos</firstterm> - una jerarquía típica de archivos y directorios. Un número de <firstterm>clientes</firstterm> se conectan al repositorio, y luego leen o esriben esos archivos. Al escribir datos, el cliente hace que la información esté disponible para los otros; al leer los datos, el cliente recibe información de los demás."
 
 #. (title)
 msgid "A Typical Client/Server System"
@@ -653,29 +570,11 @@ msgstr "Un sistema típico cliente/servidor"
 
 #. (para)
 msgid "So why is this interesting? So far, this sounds like the definition of a typical file server. And indeed, the repository <emphasis>is</emphasis> a kind of file server, but it's not your usual breed. What makes the Subversion repository special is that <emphasis>it remembers every change</emphasis> ever written to it: every change to every file, and even changes to the directory tree itself, such as the addition, deletion, and rearrangement of files and directories."
-msgstr ""
-"¿Y ésto por qué es interesante? Por ahora, eso suena a la definición típica "
-"de un servidor de archivos típico. Y de hecho, el repositorio "
-"<emphasis>es</emphasis> una clase de servidores de archivos, pero no el "
-"habitual. Lo que hace al repositorio de Subversion especial es que "
-"<emphasis>recuerda todos los cambios</emphasis> que alguna vez se hayan "
-"escrito en él: cada cambio en cada archivo, e incluso los cambios en el "
-"propio árbol de directorios, como el añadir, borrar o reorganizar archivos y "
-"directorios."
+msgstr "¿Y ésto por qué es interesante? Por ahora, eso suena a la definición típica de un servidor de archivos típico. Y de hecho, el repositorio <emphasis>es</emphasis> una clase de servidores de archivos, pero no el habitual. Lo que hace al repositorio de Subversion especial es que <emphasis>recuerda todos los cambios</emphasis> que alguna vez se hayan escrito en él: cada cambio en cada archivo, e incluso los cambios en el propio árbol de directorios, como el añadir, borrar o reorganizar archivos y directorios."
 
 #. (para)
 msgid "When a client reads data from the repository, it normally sees only the latest version of the filesystem tree. But the client also has the ability to view <emphasis>previous</emphasis> states of the filesystem. For example, a client can ask historical questions like, <quote>what did this directory contain last Wednesday?</quote>, or <quote>who was the last person to change this file, and what changes did they make?</quote> These are the sorts of questions that are at the heart of any <firstterm>version control system</firstterm>: systems that are designed to record and track changes to data over time."
-msgstr ""
-"Cuando un cliente lee datos de un repositorio, normalmente ve únicamente la "
-"última versión del árbol de archivos. Pero el cliente también tiene la "
-"capacidad de ver estados <emphasis>previos</emphasis> del sistema de "
-"archivos. Por ejemplo, un cliente puede hacer preguntas históricas, como  "
-"<quote>¿qué contenía este directorio el último miércoles?</quote>, o "
-"<quote>¿quién fue la última persona que cambió este archivo, y qué cambios "
-"hizo?</quote> Esta es la clase de preguntas que forman el corazón de "
-"cualquier <firstterm>sistema de control de versiones</firstterm>: son "
-"sistemas que están diseñados para guardar y registrar los cambios a los "
-"datos a lo largo del tiempo."
+msgstr "Cuando un cliente lee datos de un repositorio, normalmente ve únicamente la última versión del árbol de archivos. Pero el cliente también tiene la capacidad de ver estados <emphasis>previos</emphasis> del sistema de archivos. Por ejemplo, un cliente puede hacer preguntas históricas, como  <quote>¿qué contenía este directorio el último miércoles?</quote>, o <quote>¿quién fue la última persona que cambió este archivo, y qué cambios hizo?</quote> Esta es la clase de preguntas que forman el corazón de cualquier <firstterm>sistema de control de versiones</firstterm>: son sistemas que están diseñados para guardar y registrar los cambios a los datos a lo largo del tiempo."
 
 #. (title)
 msgid "Versioning Models"
@@ -704,23 +603,23 @@ msgstr "La solución bloquear-modificar-desbloquear"
 
 #. (para)
 msgid "Many version control systems use a <firstterm>lock-modify-unlock</firstterm> model to address this problem, which is a very simple solution. In such a system, the repository allows only one person to change a file at a time. First Harry must <emphasis>lock</emphasis> the file before he can begin making changes to it. Locking a file is a lot like borrowing a book from the library; if Harry has locked a file, then Sally cannot make any changes to it. If she tries to lock the file, the repository will deny the request. All she can do is read the file, and wait for Harry to finish his changes and release his lock. After Harry unlocks the file, his turn is over, and now Sally can take her turn by locking and editing."
-msgstr "Muchos sistemas de control de versiones utilizan un modelo <firstterm>bloquear-modificar-desbloquear</firstterm> para enfrentarse a este problema, que es una solución muy simple. En estos sistemas, el repositorio sólo permite que una persona cambie un archivo al mismo tiempo. Harry primero debe <emphasis>bloquear</emphasis> el archivo antes de que pueda empezar a hacer cambios en él. Bloquear un archivo se parece mucho a tomar prestado un libro de la biblioteca; si Harry ha bloqueado un archivo, entonces Sally no puede hacer ningún cambio en él. Si ella intenta bloquear el archivo, el repositorio le denegará la petición. Todo lo que ella puede hacer es leer el archivo, y esperar a que Harry termine sus cambios y libere su bloqueo. Después de que Harry desbloquee el archivo, se acabó su turno, y ahora Sally puede bloquear y editar."
+msgstr "Muchos sistemas de control de versiones utilizan un modelo <firstterm>bloquear-modificar-desbloquear</firstterm> para enfrentarse al problema, lo cual es una solución muy simple. En estos sistemas, el repositorio sólo permite que una persona cambie un archivo. Harry primero debe <emphasis>bloquear</emphasis> el archivo antes de que pueda empezar a hacer cambios en él. Bloquear un archivo se parece mucho a tomar prestado un libro de la biblioteca; si Harry ha bloqueado un archivo, entonces Sally no puede hacer ningún cambio en él. Si ella intenta bloquear el archivo, el repositorio le denegará la petición. Todo lo que ella puede hacer es leer el archivo, y esperar a que Harry termine sus cambios y libere su bloqueo. Después de que Harry desbloquee el archivo, se acabó su turno, y ahora es el turno de Sally para bloquear y editar."
 
 #. (para)
 msgid "The problem with the lock-modify-unlock model is that it's a bit restrictive, and often becomes a roadblock for users:"
-msgstr "El problema con el modelo bloquear-modificar-desbloquear es que es un poco restrictivo, y a menudo se convierte en una calle cortada para los usuarios:"
+msgstr "El problema con el modelo bloquear-modificar-desbloquear es que es un poco restrictivo, y a menudo se convierte en una molestia para los usuarios:"
 
 #. (para)
 msgid "<emphasis>Locking may cause administrative problems.</emphasis> Sometimes Harry will lock a file and then forget about it. Meanwhile, because Sally is still waiting to edit the file, her hands are tied. And then Harry goes on vacation. Now Sally has to get an administrator to release Harry's lock. The situation ends up causing a lot of unnecessary delay and wasted time."
-msgstr "<emphasis>El bloqueo causa muchos problemas administrativos.</emphasis> A veces Harry bloqueará un archivo y luego se olvidará de ello. Mientras tanto, dado que Sally está aún esperando para editar el archivo, sus manos están atadas. Y Harry se va de vacacioens. Ahora Sally tiene que buscar a un administrador para que libere el bloqueo de Harry. La situación acaba causando un montón de retraso y pérdida de tiempo innecesarios."
+msgstr "<emphasis>El bloqueo causa muchos problemas administrativos.</emphasis> A veces Harry bloqueará un archivo y luego se olvidará de ello. Mientras tanto, dado que Sally está aún esperando para editar el archivo, sus manos están atadas. Y luego Harry se va de vacaciones. Ahora Sally tiene que buscar a un administrador para que libere el bloqueo de Harry. La situación acaba causando un montón de retraso y pérdida de tiempo innecesarios."
 
 #. (para)
 msgid "<emphasis>Locking may cause unnecessary serialization.</emphasis> What if Harry is editing the beginning of a text file, and Sally simply wants to edit the end of the same file? These changes don't overlap at all. They could easily edit the file simultaneously, and no great harm would come, assuming the changes were properly merged together. There's no need for them to take turns in this situation."
-msgstr "<emphasis>El bloqueo puede causar procesos en serie innecesarios.</emphasis> ¿Qué ocurre si Harry está editando el inicio de un archivo de texto, y Sally simplemente quiere cambiar la parte final del mismo archivo? Esos cambios no se superponen en absoluto. Ellos podrían fácilmente editar el archivo de forma simultánea, y no habría ningún daño, asumiendo que los cambios se fusionaran correctamente. No hay necesidad de que se turnen en esta situación."
+msgstr "<emphasis>El bloqueo puede causar procesos en serie innecesarios.</emphasis> ¿Qué ocurre si Harry está editando el inicio de un archivo de texto, y Sally simplemente quiere cambiar la parte final del mismo archivo? Esos cambios no se superponen en absoluto. Ellos podrían fácilmente editar el archivo de forma simultánea, y no habría ningún daño, asumiendo que los cambios se fusionaran correctamente. No hay necesidad de tomar turnos en esta situación."
 
 #. (para)
 msgid "<emphasis>Locking may create a false sense of security.</emphasis> Pretend that Harry locks and edits file A, while Sally simultaneously locks and edits file B. But suppose that A and B depend on one another, and the changes made to each are semantically incompatible. Suddenly A and B don't work together anymore. The locking system was powerless to prevent the problem - yet it somehow provided a sense of false security. It's easy for Harry and Sally to imagine that by locking files, each is beginning a safe, insulated task, and thus inhibits them from discussing their incompatible changes early on."
-msgstr "<emphasis>El bloqueo puede causar una falsa sensación de seguridad.</emphasis> Imagine que Harry bloquea y edita el archivo A, mientras Sally simultáneamente bloquea y edita el archivo B. Pero suponga que A y B dependen uno del otro, y que los cambios hechos a cada uno son semánticamente incompatibles. De repente A y B ya no funcionan juntos. El sistema de bloqueo no tiene forma de prevenir este problema - sin embargo, de alguna forma dió una sensación de falsa seguridad. Es fácil para Harry y Sally imaginar que al bloquear los archivos, cada uno está empezando una tarea segura y aislada, y por tanto les inhibe de discutir sus cambios incompatibles en un momento temprano."
+msgstr "<emphasis>El bloqueo puede causar una falsa sensación de seguridad.</emphasis> Imagine que Harry bloquea y edita el archivo A, mientras Sally simultáneamente bloquea y edita el archivo B. Pero suponga que A y B dependen uno del otro, y que los cambios hechos a cada uno son semánticamente incompatibles. De repente A y B ya no funcionan juntos. El sistema de bloqueo no tiene forma de prevenir este problema - sin embargo, de alguna forma dió una sensación de falsa seguridad. Es fácil para Harry y Sally imaginar que al bloquear los archivos, cada uno está empezando una tarea segura y aislada, y por tanto les inhibe de discutir sus cambios incompatibles oportunamente."
 
 #. (title)
 #. (title)
@@ -729,15 +628,15 @@ msgstr "La solución copiar-modificar-fusionar"
 
 #. (para)
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
-msgstr "Subversion, CVS y otros sistemas de control de versiones utilizan un modelo <firstterm>copiar-modificar-fusionar</firstterm> como alternativa al bloqueo. En este modelo, el cliente de cada usuario lee el repositorio y crea una <firstterm>copia de trabajo</firstterm> personal del archivo o del proyecto. Luego, los usuarios trabajan en paralelo, modificando sus copias privadas. Finalmente, las copias privadas se fusionan juntas en una nueva versión final. El sistema de control de versiones a menudo ofrece ayuda en la fusión, pero al final la persona es la responsable de hacer que ocurra correctamente."
+msgstr "Subversion, CVS y otros sistemas de control de versiones utilizan un modelo <firstterm>copiar-modificar-fusionar</firstterm> como alternativa a bloquear. En este modelo, el cliente de cada usuario lee el repositorio y crea una <firstterm>copia de trabajo</firstterm> personal del archivo o del proyecto. Luego, los usuarios trabajan en paralelo, modificando sus copias privadas. Finalmente, las copias privadas se fusionan juntas en una nueva versión final. El sistema de control de versiones a menudo ofrece ayuda en la fusión, pero al final la persona es la responsable de hacer que ocurra correctamente."
 
 #. (para)
 msgid "Here's an example. Say that Harry and Sally each create working copies of the same project, copied from the repository. They work concurrently, and make changes to the same file <filename>A</filename> within their copies. Sally saves her changes to the repository first. When Harry attempts to save his changes later, the repository informs him that his file A is <firstterm>out-of-date</firstterm>. In other words, that file A in the repository has somehow changed since he last copied it. So Harry asks his client to <firstterm>merge</firstterm> any new changes from the repository into his working copy of file A. Chances are that Sally's changes don't overlap with his own; so once he has both sets of changes integrated, he saves his working copy back to the repository."
-msgstr "Aquí hay un ejemplo. Digamos que tanto Harry como Sally crean copias de trabajo del mismo proyecto, copiado del repositorio. Ellos trabajan concurrentemente, y hacen los cambios al mismo archivo <filename>A</filename> dentro de sus copias. Sally es la primera en grabar sus cambios en el repositorio. Cuando Harry intenta grabar sus cambios más tarde, el repositorio le informa que su archivo A está <firstterm>desactualizado</firstterm>. En otras palabras, que el archivo A en el repositorio ha cambiado de alguna forma desde la última vez que lo copió. Por lo que Harry le pide a su cliente que <firstterm>fusione</firstterm> cualquier nuevo cambio del repositorio dentro de su copia de trabajo del archivo A. Lo más seguro es que los cambios de Sally no se superpongan a los suyos; por lo que una vez que ambos conjuntos de cambios se han integrado, él graba su copia de trabajo de nuevo en el repositorio."
+msgstr "Aquí hay un ejemplo. Digamos que tanto Harry como Sally crean copias de trabajo del mismo proyecto, copiado del repositorio. Ellos trabajan simultáneamente, y hacen cambios al mismo archivo <filename>A</filename> dentro de sus copias. Sally es la primera en grabar sus cambios en el repositorio. Cuando Harry intenta grabar sus cambios más tarde, el repositorio le informa que su archivo A está <firstterm>desactualizado</firstterm>. En otras palabras, que el archivo A en el repositorio ha cambiado de alguna forma desde la última vez que lo copió. Por lo que Harry le pide a su cliente que <firstterm>fusione</firstterm> cualquier nuevo cambio del repositorio dentro de su copia de trabajo del archivo A. Lo más seguro es que los cambios de Sally no se superpongan a los suyos; por lo que una vez que ambos conjuntos de cambios se han integrado, él graba su copia de trabajo de nuevo en el repositorio."
 
 #. (title)
 msgid "...Copy-Modify-Merge Continued"
-msgstr "...Copiar-modificar-fusionar continuado"
+msgstr "... continuación de Copiar-modificar-fusionar"
 
 #. (primary)
 #. (primary)
@@ -746,7 +645,7 @@ msgstr "conflicto"
 
 #. (para)
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
-msgstr "¿Pero qué ocurre si los cambios de Sally <emphasis>sí</emphasis> se superponen a los cambios de Harry? ¿Qué hacemos entonces? La situación se denomina un <firstterm>conflicto</firstterm>, y normalmente no es mucho problema. Cuando Harry le pide a su cliente que fusione los últimos cambios del repositorio en su copia de trabajo, su copia del archivo A se marca de alguna forma como que está en un estado de conflicto: él será capaz de ver ambos conjuntos de cambios conflictivos, y manualmente podrá elegir entre ellos. Tenga en cuenta que el software no puede resolver conflictos automáticamente; sólo los humanos son capaces de entender y hacer las elecciones necesarias de forma inteligente. Una vez que Harry haya resuelto manualmente los cambios que se superponían (¡quizás discutiendo el conflicto con Sally!), puede volcar de forma segura el archivo fusionado al repositorio."
+msgstr "¿Pero qué ocurre si los cambios de Sally <emphasis>sí</emphasis> se superponen a los cambios de Harry? ¿Qué hacemos entonces? La situación se denomina un <firstterm>conflicto</firstterm>, y normalmente no es mucho problema. Cuando Harry le pide a su cliente que fusione los últimos cambios del repositorio en su copia de trabajo, su copia del archivo A se marca de alguna forma como que está en un estado de conflicto: él será capaz de ver ambos conjuntos de cambios conflictivos, y manualmente podrá elegir entre ellos. Tenga en cuenta que el software no puede resolver conflictos automáticamente; sólo los humanos son capaces de entender y hacer las elecciones necesarias de forma inteligente. Una vez que Harry haya resuelto manualmente los cambios que se superponían (¡quizás discutiendo el conflicto con Sally!), puede guardar de forma segura el archivo fusionado al repositorio."
 
 #. (para)
 msgid "The copy-modify-merge model may sound a bit chaotic, but in practice, it runs extremely smoothly. Users can work in parallel, never waiting for one another. When they work on the same files, it turns out that most of their concurrent changes don't overlap at all; conflicts are infrequent. And the amount of time it takes to resolve conflicts is far less than the time lost by a locking system."
@@ -786,15 +685,15 @@ msgstr "Ya ha oído hablar sobre las copias de trabajo; ahora le demostraremos c
 
 #. (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr "Una copia de trabajo de Subversion es un árbol de directorios ordinario en su sistema local, conteniendo una colección de archivos. Puede editar estos archivos como desee, y si son archivos de código fuente, puede compilar su programa de la forma habitual. Su copia de trabajo es su propia área de trabajo privada: Subversion nunca incorporará los cambios de otra gente, ni hará que sus cambios estén disponibles para los demás, a menos que se lo pida explícitamente."
+msgstr "Una copia de trabajo de Subversion es un árbol de directorios ordinario en su sistema local, conteniendo una colección de archivos. Puede editar estos archivos como desee, y si son archivos de código fuente, puede compilar su programa de la forma habitual. Su copia de trabajo es su área de trabajo privada: Subversion nunca incorporará los cambios de otra gente, ni hará que sus cambios estén disponibles para los demás, a menos que se lo pida explícitamente."
 
 #. (para)
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to <emphasis>publish</emphasis> your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr "Después de que haya hecho algunos cambios en los archivos dentro de su copia de trabajo y haya verificado que funcionan correctamente, Subversion le provee de comandos para <emphasis>publicar</emphasis> sus cambios para los demás que trabajan con usted en su proyecto (escribiendo en el repositorio). Si los demás publican sus propios cambios, Subversion le provee de comandos para fusionar esos cambios dentro de su copia de trabajo (leyendo desde el repositorio)."
+msgstr "Después de que haya hecho algunos cambios en los archivos dentro de su copia de trabajo y haya verificado que funcionan correctamente, Subversion le provee de comandos para <emphasis>publicar</emphasis> sus cambios para los que trabajan con usted en su proyecto (escribiendo en el repositorio). Si los demás publican sus propios cambios, Subversion le provee de comandos para fusionar esos cambios dentro de su copia de trabajo (leyendo desde el repositorio)."
 
 #. (para)
 msgid "A working copy also contains some extra files, created and maintained by Subversion, to help it carry out these commands. In particular, each directory in your working copy contains a subdirectory named <filename>.svn</filename>, also known as the working copy <firstterm>administrative directory</firstterm>. The files in each administrative directory help Subversion recognize which files contain unpublished changes, and which files are out-of-date with respect to others' work."
-msgstr "Una copia de trabajo también contiene algunos archivos extra, creados y mantenidos por Subversion, para ayudarse a llevar a cabo esos comandos. En particular, cada directorio detnro de su copia de trabajo contiene un subdirectorio llamado <filename>.svn</filename>, también conocido como el <firstterm>directorio administrativo</firstterm> de la copia de trabajo. Los archivos dentro de los directorios administrativos ayudan a Subversion a reconocer qué archivos contienen cambios no publicados, y qué archivos están desactualizados respecto al trabajo de los demás."
+msgstr "Una copia de trabajo también contiene algunos archivos extra, creados y mantenidos por Subversion, para ayudarse a llevar a cabo esos comandos. En particular, cada directorio dentro de su copia de trabajo contiene un subdirectorio llamado <filename>.svn</filename>, también conocido como el <firstterm>directorio administrativo</firstterm> de la copia de trabajo. Los archivos dentro de los directorios administrativos ayudan a Subversion a reconocer qué archivos contienen cambios no publicados, y qué archivos están desactualizados respecto al trabajo de los demás."
 
 #. (para)
 msgid "A typical Subversion repository often holds the files (or source code) for several projects; usually, each project is a subdirectory in the repository's filesystem tree. In this arrangement, a user's working copy will usually correspond to a particular subtree of the repository."
@@ -826,11 +725,11 @@ msgstr "Para publicar sus cambios para los demás, puede utilizar el comando de 
 
 #. (para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
-msgstr "Ahora que sus cambios a <filename>button.c</filename> se han confirmado en el respositorio, si cualquier otro usuario obtiene una copia de trabajo de <filename>/calc</filename>, verán sus cambios en la última versión del archivo."
+msgstr "Ahora que sus cambios a <filename>button.c</filename> se han confirmado en el respositorio, si cualquier otro usuario obtiene una copia de trabajo de <filename>/calc</filename>, verá sus cambios en la última versión del archivo."
 
 #. (para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
-msgstr "Suponga que tiene un colaborador, Sally, que obtuvo una copia de trabajo de <filename>/calc</filename> al mismo tiempo que usted. Cuando ha confirmado sus cambios en <filename>button.c</filename>, la copia de trabajo de Sally se queda sin cambios; Subversion sólo modifica las copias de trabajo cuando lo pide el usuario."
+msgstr "Suponga que tiene un colaborador, Sally, quien obtuvo una copia de trabajo de <filename>/calc</filename> al mismo tiempo que usted. Cuando ha confirmado sus cambios en <filename>button.c</filename>, la copia de trabajo de Sally se queda sin cambios; Subversion sólo modifica las copias de trabajo cuando lo pide el usuario."
 
 #. (para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
@@ -846,7 +745,7 @@ msgstr "URLs de repositorio"
 
 #. (para)
 msgid "Subversion repositories can be accessed through many different methods - on local disk, or through various network protocols. A repository location, however, is always a URL. The URL schema indicates the access method:"
-msgstr "Los repositorios de Subversion pueden ser accedidos por muchos métodos diversos - en discos locales, o a través de varios protocolos de red. La ruta de un repositorio es siempre, sin embargo, una URL. El esquema URL indica el método de acceso:"
+msgstr "Los repositorios de Subversion pueden ser accedidos por muchos métodos diversos - en discos locales, o a través de varios protocolos de red. La ruta de un repositorio es siempre, una URL. El esquema URL indica el método de acceso:"
 
 #. (title)
 msgid "Repository Access URLs"
@@ -959,7 +858,7 @@ msgstr "Una operación <command>svn commit</command> puede publicar los cambios 
 
 #. (para)
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commits changes take place, or none of them take place. Subversion retains this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
-msgstr "En el repositorio, cada confirmación se trata como una transacción atómica: o bien todos los cambios de la confirmación se llevan a cabo, o bien ninguno de ellos se realiza. Subversion aplica esta atomicidad en caso de errores en el programa, errores del sistema, problemas de red, y otras acciones del usuario."
+msgstr "En el repositorio, cada confirmación se trata como una transacción atómica: o bien todos los cambios de la confirmación se llevan a cabo, o bien ninguno de ellos se realiza. Subversion aplica esta atomicidad en caso de errores en el programa, errores del sistema, problemas de red y otras acciones del usuario."
 
 #. (para)
 msgid "Each time the repository accepts a commit, this creates a new state of the filesystem tree, called a <firstterm>revision</firstterm>. Each revision is assigned a unique natural number, one greater than the number of the previous revision. The initial revision of a freshly created repository is numbered zero, and consists of nothing but an empty root directory."
@@ -1013,7 +912,7 @@ msgstr ""
 
 #. (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
-msgstr "Suponga que, en este punto, Sally hace un cambio a <filename>integer.c</filename>, creando la revisión 6. Si utiliza <command>svn update</command> para actualizar su copia de trabajo, obtendrá ésto:"
+msgstr "Suponga que, en este punto, Sally confirma un cambio a <filename>integer.c</filename>, creando la revisión 6. Si utiliza <command>svn update</command> para actualizar su copia de trabajo, obtendrá ésto:"
 
 #. (screen)
 #, no-wrap
@@ -1030,11 +929,11 @@ msgstr ""
 
 #. (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
-msgstr "Los cambios de Sally a <filename>integer.c</filename> aparecerán en su copia de trabajo, y su cambio estará aún presente en <filename>button.c</filename>. En este ejemplo, el texto de <filename>Makefile</filename> es idéntico en las revisiones 4, 5, y 6, pero Subversion marcará su copia de trabajo de <filename>Makefile</filename> con la revisión 6 para indicar que aún está actualizado. Por lo que, después de que haga una actualización limpia en la parte superior de su copia de trabajo, generalmente obtendrá exactamente una revisión del repositorio."
+msgstr "Los cambios de Sally a <filename>integer.c</filename> aparecerán en su copia de trabajo, y su cambio estará aún presente en <filename>button.c</filename>. En este ejemplo, el texto de <filename>Makefile</filename> es idéntico en las revisiones 4, 5, y 6, pero Subversion marcará su copia de trabajo de <filename>Makefile</filename> con la revisión 6 para indicar que aún está actualizado. Por lo que, después de que haga una actualización limpia en la parte superior de su copia de trabajo, generalmente corresponderá exactamente una revisión del repositorio."
 
 #. (title)
 msgid "How Working Copies Track the Repository"
-msgstr "Cómo se unen las copias de trabajo al repositorio"
+msgstr "Cómo reconocen las copias de trabajo al repositorio"
 
 #. (para)
 msgid "For each file in a working directory, Subversion records two essential pieces of information in the <filename>.svn/</filename> administrative area:"
@@ -1457,11 +1356,11 @@ msgstr ""
 
 #. (title)
 msgid "Overriding Hooks"
-msgstr ""
+msgstr "Ignorando Ganchos"
 
 #. (para)
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
-msgstr ""
+msgstr "Si un script gancho rechaza su confirmación ésta es una decisión final. Pero se puede construir un mecanismo en el script mismo utilizando la técnica de la <emphasis>Palabra Mágica</emphasis>. Si el script quiere rechazar una operación, buscará primero en el mensaje de registro una frase específica, ya sea esta una frase fija o quizás el nombre del archivo con un prefijo. Si encuentra la palabra mágica entonces procederá a permitir la confirmación. Si la frase no se encuentra puede bloquear la confirmación con un mensaje como   <quote>No dijiste la palabra mágica</quote> :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -2917,18 +2816,16 @@ msgid "authentication"
 msgstr "autentificación"
 
 #. (primary)
-#, fuzzy
 msgid "authentication cache"
-msgstr "autentificación"
+msgstr "caché de autentificación"
 
 #. (title)
 msgid "Authentication Dialog"
 msgstr "Diálogo de autentificación"
 
 #. (para)
-#, fuzzy
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
-msgstr "<filename>svn.simple</filename> contiene las credenciales para la autentificación básica (usuario/contraseña)."
+msgstr "<filename>svn.simple</filename> contiene las credenciales para la autentificación básica (usuario/contraseña). Note que las contraseñas estan guardadas usando la WinCrypt API, no como texto sin formato."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -3378,9 +3275,8 @@ msgstr "A veces los archivos se renombran fuera de Subversion, y se muestran en 
 
 #. (title)
 #. (title)
-#, fuzzy
 msgid "Repairing External Copies"
-msgstr "Reparando renombrados externos"
+msgstr "Reparando copias externas"
 
 #. (para)
 #. (para)
@@ -4907,9 +4803,8 @@ msgid "Offline Mode"
 msgstr "Modo sin conexión"
 
 #. (title)
-#, fuzzy
 msgid "Go Offline Dialog"
-msgstr "Modo sin conexión"
+msgstr "Diálogo para terminar la conexión"
 
 #. (para)
 #, fuzzy
@@ -4917,9 +4812,8 @@ msgid "<placeholder-1/> If the server is not reachable, and you have log caching
 msgstr "Si no se puede alcanzar el servidor, y tiene habilitado el caché de registro, puede utilizar el diálogo de registro y el gráfico de revisiones en modo sin conexión. Esto utiliza la información de la caché, lo que le permite continuar trabajando aunqu ela información puede no estar actualizada o incluso completa."
 
 #. (term)
-#, fuzzy
 msgid "Offline for now"
-msgstr "Modo sin conexión"
+msgstr "Sin conexión por el momento"
 
 #. (para)
 msgid "Complete the current operation in offline mode, but retry the repository next time log data is requested."
@@ -7375,18 +7269,16 @@ msgid "The graph is normally restricted to showing branch points, but it is ofte
 msgstr "El gráfico normalmente se restringe para mostrar los puntos de ramas, pero a menudo es útil poder ver las revisiones HEAD respectivas de cada rama. Si selecciona <guilabel>Mostrar revisiones HEAD</guilabel>, cada nodo de revisión HEAD se mostrará como una elipse. Tenga en cuenta que HEAD aquí hace referencia a la última revisión confirmada en esa ruta, no a la revisión HEAD del repositorio."
 
 #. (term)
-#, fuzzy
 msgid "Working copy revision"
-msgstr "Revisión actual de la copia de trabajo"
+msgstr "Revisión de la copia de trabajo"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
 msgstr "Si ha invocado el gráfico de revisiones desde una copia de trabajo, puede optar por mostrar la revisión BASE del gráfico utilizando <guilabel>Mostrar revisión copia de trabajo</guilabel>, que marca el nodo BASE con un borde remarcado."
 
 #. (term)
-#, fuzzy
 msgid "Modified working copy"
-msgstr "copia de trabajo"
+msgstr "Copia de trabajo modificada"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show an additional node representing your modified working copy using <guilabel>Show WC modifications</guilabel>. This is an elliptical node with a bold outline in red by default."
@@ -7506,9 +7398,8 @@ msgid "Hides paths which are no longer present at the HEAD revision of the repos
 msgstr "Oculta las rutas que ya no están presentes en la revisión HEAD del repositorio, por ejemplo ramas eliminadas."
 
 #. (term)
-#, fuzzy
 msgid "Hide unchanged branches"
-msgstr "Ocultar ramas no utilizadas"
+msgstr "Ocultar ramas no modificadas"
 
 #. (para)
 #, fuzzy
@@ -9534,9 +9425,8 @@ msgid "To show the command line parameters passed from the shell extension to To
 msgstr "Para mostrar los parámetros de línea de comandos pasados desde la extensión shell a TortoiseProc.exe cree una clave <literal>DWORD</literal> con valor 1 en <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal>."
 
 #. (term)
-#, fuzzy
 msgid "Context Menu Icons"
-msgstr "Menús contextuales"
+msgstr "Íconos de Menús Contextuales"
 
 #. (para)
 #, fuzzy
@@ -10370,34 +10260,32 @@ msgid ""
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
-msgstr "El siguiente ejemplo muestra cómo se podría usar el interfaz. <placeholder-1/>"
+msgstr "El siguiente listado es un ejemplo de como usar el objeto COM SubWCRev desde C#: <placeholder-1/>"
 
 #. (title)
 msgid "IBugtraqProvider interface"
-msgstr ""
+msgstr "Interfase IBugtraqProvider"
 
 #. (primary)
-#, fuzzy
 msgid "plugin"
-msgstr "enlace"
+msgstr "extensión"
 
 #. (primary)
 msgid "IBugtraqProvider"
-msgstr ""
+msgstr "IBugtraqProvider"
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr ""
+msgstr "Para lograr una integración más compacta con herramientas de seguimiento de problemas, que la lograda simplemente usando las propiedades <literal>bugtraq:</literal>, TortoiseSVN puede usar extensiones COM. Con estas extensiones es posible acceder a información directamente en el seguidor de problemas, interactuar con el usuario y proveer información a TortoiseSVN acerca de problemas no resueltos, verificar mensajes de registro introducidos por el usuario y hasta ejecutar acciones luego de una confirmación exitosa para, por ejemplo, cerrar un problema."
 
 #. (para)
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
+msgstr "Nosotros no podemos proveer información y tutoriales acerca de como implementar un objeto COM en su lenguaje favorito, pero sí tenemos ejemplos de extensiones en C++/ATL y C# en nuestro repositorio in el directiorio <filename>contrib/issue-tracker-plugins</filename>. En ese directorio usted tambien puede encontrar los archivos requeridos para compilar su extensión.  (<xref linkend=\"tsvn-preface-source\"/> explica como acceder al repositorio)."
 
 #. (title)
 msgid "The IBugtraqProvider interface"
-msgstr ""
+msgstr "La interfase de IBugtraqProvider"
 
 #. (para)
 msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
@@ -11697,9 +11585,8 @@ msgid "/remote"
 msgstr "/remote"
 
 #. (guilabel)
-#, fuzzy
 msgid "Check repository"
-msgstr "El repositorio"
+msgstr "Revisar el repositorio"
 
 #. (entry)
 #, fuzzy
@@ -11808,9 +11695,8 @@ msgid "Tsvncmd URL handler"
 msgstr ""
 
 #. (primary)
-#, fuzzy
 msgid "URL handler"
-msgstr "URL cambiada"
+msgstr "Manejador de URL"
 
 #. (para)
 msgid "Using special URLs, it is also possible to call TortoiseProc from a web page."
@@ -11833,9 +11719,8 @@ msgid "with <literal>cmd</literal> being one of the allowed commands and with <l
 msgstr ""
 
 #. (para)
-#, fuzzy
 msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
-msgstr "El siguiente ejemplo muestra cómo se podría usar el interfaz. <placeholder-1/>"
+msgstr "Los siguientes commandos son permitidos con <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -13021,12 +12906,7 @@ msgstr "Copia de trabajo"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr ""
-"Esta es su <quote>caja de arena</quote> local, el área donde trabaja con los "
-"archivos versionados, y normalmente se encuentra en su disco duro local. "
-"Puede crear una copia de trabajo al <quote>Obtener</quote> desde un "
-"repositorio, y devolver sus cambios al repositorio utilizando "
-"<quote>Confirmar</quote>."
+msgstr "Esta es su <quote>caja de arena</quote> local, el área donde trabaja con los archivos versionados, y normalmente se encuentra en su disco duro local. Puede crear una copia de trabajo al <quote>Obtener</quote> desde un repositorio, y devolver sus cambios al repositorio utilizando <quote>Confirmar</quote>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
