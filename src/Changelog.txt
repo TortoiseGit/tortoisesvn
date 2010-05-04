@@ -98,6 +98,9 @@ Version 1.6.9
 - BUG: Urls with '#' in it were not escaped correctly. (Stefan)
 - BUG: Ignoring directories with a dot and extension in the name
        didn't work. (Stefan)
+- BUG: Comparing an updated item in the update-progress dialog
+       didn't work properly for items in an external 
+       directory. (Stefan)
 
 Version 1.6.8
 - BUG: Exporting via DnD from the repository browser could 
