@@ -373,10 +373,17 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
         break;
 
     case svn_wc_notify_update_external:
-        // For some reason we build a list of externals...
-        m_ExtStack.AddHead(path.GetUIPathString());
-        data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);
-        data->bAuxItem = true;
+        {
+            m_ExtStack.AddHead(path.GetUIPathString());
+            m_basePath = path;
+            SVNStatus status;
+            CTSVNPath dummypath;
+            svn_wc_status2_t * s = status.GetFirstFileStatus(m_basePath, dummypath, false, svn_depth_empty);
+            if ((s)&&(s->entry))
+                m_UpdateStartRevMap[m_basePath.GetSVNApiPath(pool)] = s->entry->revision;
+            data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);
+            data->bAuxItem = true;
+        }
         break;
 
     case svn_wc_notify_merge_completed:
@@ -1715,6 +1722,12 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 it = m_UpdateStartRevMap.find(data->basepath.GetSVNApiPath(pool));
             if (it != m_UpdateStartRevMap.end())
                 rev = it->second;
+            else
+            {
+                it = m_FinishedRevMap.find(data->basepath.GetSVNApiPath(pool));
+                if (it != m_FinishedRevMap.end())
+                    rev = it->second;
+            }
             // if the file was merged during update, do a three way diff between OLD, MINE, THEIRS
             if (data->content_state == svn_wc_notify_state_merged)
             {
