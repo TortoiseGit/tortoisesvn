@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-12-17 17:03+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2010-05-04 13:52-0300\n"
+"Last-Translator: Alejandro Ariel Abaca <abacrotto@hotmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -344,15 +344,15 @@ msgstr "TortoiseSVN se integra perfectamente en el shell de Windows (por ejemplo
 
 #. (para)
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "Y ni siquiera está obligado a usar el Explorador de Windows. Los menús contextuales de TortoiseSVN también funcionan en otros administradores de archivos, y en el diálogo Fichero/Abrir que es común a la mayoría de aplicaciones estándar de Windows. Sin embargo, debe tener en cuenta que TortoiseSVN está desarrollado con la mirada puesta en hacerle extensión del Explorador de Windows. Por este motivo, puede que en otras aplicaciones la  integración no sea tan completa y que, por ejemplo, los iconos sobreimpresionados en las carpetas no se muestren."
+msgstr "Y ni siquiera está obligado a usar el Explorador de Windows. Los menús contextuales de TortoiseSVN funcionan en muchos otros administradores de archivos, y en el cuadro de diálogo Archivo/Abrir tan común a las aplicaciones estándar de Windows. Debería tenerse en cuenta, sin embargo, que TortoiseSVN se ha desarrollado intencionalmente como una extensión para el Explorador de Windows. Por tanto, es posible que en otras aplicaciones la integración no sea tan completa y, por ejemplo, los íconos sobreimpresos de TortoiseSVN pudieran no aparecer."
 
 #. (term)
 msgid "Icon overlays"
-msgstr "Iconos sobreimpresionados"
+msgstr "Iconos sobreimpresos"
 
 #. (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
-msgstr "El estado de cada carpeta y fichero versionado se indica por pequeños iconos sobreimpresionados. De esta forma, puede ver fácilmente el estado en el que se encuentra su copia de trabajo."
+msgstr "El estado de cada carpeta y fichero versionado se indica por pequeños íconos sobreimpreos. De esta forma, puede ver fácilmente el estado en el que se encuentra su copia de trabajo."
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -372,7 +372,7 @@ msgstr "Versionado de carpetas"
 
 #. (para)
 msgid "CVS only tracks the history of individual files, but Subversion implements a <quote>virtual</quote> versioned filesystem that tracks changes to whole directory trees over time. Files <emphasis>and</emphasis> directories are versioned. As a result, there are real client-side <command>move</command> and <command>copy</command> commands that operate on files and directories."
-msgstr "CVS sólo controla la historia de ficheros individuales, pero Subversion implementa un sistema <quote>virtual</quote> de ficheros versionados que sigue la pista de los cambios en todos los árboles de directorios en el tiempo. Los ficheros <emphasis>y</emphasis> los directorios están versionados. Como resultado, hay comandos reales en el lado del cliente como <command>mover</command> y <command>copiar</command> que operan en ficheros y directorios."
+msgstr "CVS sólo controla la historia de ficheros individuales, pero Subversion implementa un sistema <quote>virtual</quote> de ficheros versionados que toma en cuenta los cambios en todos los árboles de directorios en el tiempo. Los ficheros <emphasis>y</emphasis> los directorios están versionados. Como resultado, hay comandos reales en el lado del cliente como <command>mover</command> y <command>copiar</command> que operan en ficheros y directorios."
 
 #. (term)
 msgid "Atomic commits"
@@ -380,7 +380,7 @@ msgstr "Confirmaciones atómicas"
 
 #. (para)
 msgid "A commit either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks."
-msgstr "Una confirmación o bien entra en el repositorio completamente, o no entra en absoluto. Esto permite a los desarrolladores construir y confirmar cambios como unidades lógicas."
+msgstr "Una confirmación puede entrar al repositorio completamente, o no entrar en absoluto. Esto permite a los desarrolladores generar y confirmar cambios como unidades lógicas."
 
 #. (term)
 msgid "Versioned metadata"
@@ -388,7 +388,7 @@ msgstr "Metadatos versionados"
 
 #. (para)
 msgid "Each file and directory has an invisible set of <quote>properties</quote> attached. You can invent and store any arbitrary key/value pairs you wish. Properties are versioned over time, just like file contents."
-msgstr "Cada fichero y directorio tiene un conjunto invisible de <quote>propiedades</quote> adjuntos. PUede inventarse y almacenar cualquier par de clave/valor que desee. Las propiedades se versionan en el tiempo, igual que el contenido de los ficheros."
+msgstr "Cada archivo y carpeta tiene un conjunto invisible de <quote>propiedades</quote> adjuntos. Se puede crear y almacenar cualquier par de clave/valor que se desee. Las propiedades se versionan en el tiempo, igual que el contenido de los archivos."
 
 #. (term)
 msgid "Choice of network layers"
@@ -396,7 +396,7 @@ msgstr "Elección de capas de red"
 
 #. (para)
 msgid "Subversion has an abstracted notion of repository access, making it easy for people to implement new network mechanisms. Subversion's <quote>advanced</quote> network server is a module for the Apache web server, which speaks a variant of HTTP called WebDAV/DeltaV. This gives Subversion a big advantage in stability and interoperability, and provides various key features for free: authentication, authorization, wire compression, and repository browsing, for example. A smaller, standalone Subversion server process is also available. This server speaks a custom protocol which can be easily tunneled over ssh."
-msgstr "Subversion tiene una noción abstracta del acceso al repositorio, haciéndo que la gente pueda implementar nuevos mecanismos de red fácilmente. El <quote>avanzado</quote> servidor de red de Subversion es un módulo para el servidor web Apache, que habla una variante de HTTP llamada WebDAV/DeltaV. Esto dota a Subversion una gran ventaja en estabilidad e interoperatividad, y proporciona varias características importantes gratis: autentificación, autorización, compresión de la transmisión y navegación del repositorio, por ejemplo. También está disponible un proceso servidor de Subversion independiente. Este servidor habla un protocolo propio que puede encapsularse fácilmente sobre ssh."
+msgstr "Subversion tiene una noción abstracta del acceso al repositorio, haciéndo que se puedan implementar nuevos mecanismos de red fácilmente. El servidor de red <quote>avanzado</quote> de Subversion es un módulo para el servidor web Apache, que habla una variante de HTTP llamada WebDAV/DeltaV. Esto le da a Subversion una gran ventaja en estabilidad e interoperatividad, y provee varias características gratis: autenticación, autorización, compresión de la transmisión y navegación del repositorio, por ejemplo. También está disponible un proceso servidor de Subversion independiente. Este servidor habla un protocolo propio que puede encapsularse fácilmente sobre ssh."
 
 #. (term)
 msgid "Consistent data handling"
@@ -412,7 +412,7 @@ msgstr "Etiquetado y creación de ramas eficiente"
 
 #. (para)
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
-msgstr "El coste de crear una rama o una etiqueta no necesita ser proporcional al tamaño del proyecto. Subversion crea ramas y etiquetas símplemente copiando el proyecto, utilizando un mecanismo similar a los vínculos duros. Por tanto estas operaciones llevan un tiempo pequeño y constante, y muy poco espacio en el repositorio."
+msgstr "El costo de crear una rama o una etiqueta no necesita ser proporcional al tamaño del proyecto. Subversion crea ramas y etiquetas simplemente copiando el proyecto, utilizando un mecanismo similar a los vínculos duros. Por tanto estas operaciones llevan un tiempo pequeño y constante, y muy poco espacio en el repositorio."
 
 #. (term)
 msgid "Hackability"
@@ -420,7 +420,7 @@ msgstr "Extensibilidad"
 
 #. (para)
 msgid "Subversion has no historical baggage; it is implemented as a collection of shared C libraries with well-defined APIs. This makes Subversion extremely maintainable and usable by other applications and languages."
-msgstr "Subversion no tiene lastre histórico; está implementado como una colección de librerías C compartidas con APIS bien definidas. Esto hace que Subversion sea extremadamente mantenible y se pueda utilizar por otras aplicaciones y lenguajes."
+msgstr "Subversion no tiene lastre histórico; está implementado como una colección de librerías C compartidas con APIs bien definidas. Esto hace que Subversion sea extremadamente mantenible y se pueda utilizar por otras aplicaciones y lenguajes."
 
 #. (title)
 msgid "Installing TortoiseSVN"
@@ -448,7 +448,7 @@ msgstr "instalación"
 
 #. (para)
 msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest."
-msgstr "TortoiseSVN viene con un instalador fácil de utilizar. Haga doble click en el fichero de instalación y siga las instrucciones. El instalador se encargará del resto."
+msgstr "TortoiseSVN viene con un instalador fácil de usar. Haga doble click en el programa de instalación y siga las instrucciones. El instalador se encargará del resto."
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
@@ -456,11 +456,11 @@ msgstr "Necesita privilegios de Administrador para instalar TortoiseSVN."
 
 #. (title)
 msgid "Language Packs"
-msgstr "Packs de idiomas"
+msgstr "Paquetes de idiomas"
 
 #. (primary)
 msgid "language packs"
-msgstr "packs de idioma"
+msgstr "paquetes de idioma"
 
 #. (primary)
 msgid "translations"
@@ -468,7 +468,7 @@ msgstr "traducciones"
 
 #. (para)
 msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "El interfaz de usuario de TortoiseSVN se ha traducido a muchos idiomas distintos, por lo que es posible que pueda descargar un pack de idioma que se ajuste a sus necesidades. Puede encontrar los packs de idioma en nuestra <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>página de estado de las traducciones</citetitle></ulink>. Y si aún no hay un pack de idioma disponible, por qué no unirse al equipo y enviar su propia traducción ;-)"
+msgstr "La interfaz de usuario de TortoiseSVN se ha traducido a muchos idiomas distintos, por lo que es posible que pueda descargar un pack de idioma que se ajuste a sus necesidades. Puede encontrar los packs de idioma en nuestra <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>página de estado de las traducciones</citetitle></ulink>. Y si aún no hay un pack de idioma disponible, por qué no unirse al equipo y enviar su propia traducción ;-)"
 
 #. (para)
 msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
@@ -492,7 +492,7 @@ msgstr "TortoiseSVN incluye un corrector ortográfico que le permite comprobar s
 
 #. (para)
 msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
-msgstr "El instalador automáticamente añade los diccionarios de inglés de EE.UU. y de Reino Unido. Si desea tenerlos en otros idiomas, la opción más sencilla es símplemente instalar uno de los packs de idiomas de TortoiseSVN. Eso instalará los ficheros de diccionario adecuados junto con el interface de usuario de TortoiseSVN en ese idioma. La siguiente vez que reinicie, el diccionario también estará disponible."
+msgstr "El instalador automáticamente añade los diccionarios de inglés de EE.UU. y de Reino Unido. Si desea tenerlos en otros idiomas, la opción más sencilla es símplemente instalar uno de los packs de idiomas de TortoiseSVN. Eso instalará los ficheros de diccionario adecuados junto con la interfaz de usuario de TortoiseSVN en ese idioma. La siguiente vez que reinicie, el diccionario también estará disponible."
 
 #. (para)
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
@@ -508,11 +508,11 @@ msgstr "es_ES.dic"
 
 #. (para)
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr "Una vez que tenga los ficheros de diccionario, seguramente deberá cambiarlos de nombre para que los nombres de los ficheros sólo contengan los caracteres del idioma. Por ejemplo: <placeholder-1/> Luego sólo tiene que copiarlos en la subcarpeta <literal>bin</literal> de la carpeta de instalación de TortoiseSVN. Normalmente ésta será <filename>C:\\Archivos de programa\\TortoiseSVN\\bin</filename>. Si no desea jugar con la subcarpeta <literal>bin</literal>, también puede poner los ficheros del corrector ortográfico en <filename>C:\\Archivos de programa\\TortoiseSVN\\Languages</filename>. Si esa carpeta no está ahí, tendrá que crearla primero. La siguiente vez que inicie TortoiseSVN, podrá utilizar el corrector ortográfico."
+msgstr "Una vez que tenga los ficheros de diccionario, seguramente deberá cambiarlos de nombre para que los nombres de los ficheros sólo contengan los caracteres del idioma. Por ejemplo: <placeholder-1/> Luego sólo tiene que copiarlos en la subcarpeta <literal>bin</literal> de la carpeta de instalación de TortoiseSVN. Normalmente ésta será <filename>C:\\Archivos de programa\\TortoiseSVN\\bin</filename>. Si no desea jugar con la subcarpeta <literal>bin</literal>, también puede poner los ficheros del corrector ortográfico en <filename>C:\\Archivos de programa\\TortoiseSVN\\Languages</filename>. Si esa carpeta no está ahí, tendrá que crearla primero. La próxima vez que inicie TortoiseSVN, podrá utilizar el corrector ortográfico."
 
 #. (para)
 msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
-msgstr "Compruebe la configuración <literal>tsvn:projectlanguage</literal>. Lea <xref linkend=\"tsvn-dug-propertypage\"/> para encontrar información sobre cómo se establecen propiedades de proyecto."
+msgstr "Compruebe la configuración <literal>tsvn:projectlanguage</literal>. Lea <xref linkend=\"tsvn-dug-propertypage\"/> para encontrar información sobre como se establecen las propiedades de proyecto."
 
 #. (para)
 msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
@@ -12950,6 +12950,7 @@ msgstr "Traducción"
 #~ "grandes, por lo que puede si desea habilitar esta característica deberá "
 #~ "crear una clave de registro <literal>DWORD</literal> con valor 1 en "
 #~ "<literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
+
 #~ msgid ""
 #~ "The path to the file external must be in a working copy that is already "
 #~ "checked out. While directory externals can place the external directory "
@@ -12961,8 +12962,10 @@ msgstr "Traducción"
 #~ "directorio externo en cualquier profundidad y se crearán las carpetas "
 #~ "intermedias, los ficheros externos deben ponerse en una copia de trabajo "
 #~ "que ya esté obtenida."
+
 #~ msgid "Replaced items"
 #~ msgstr "Ítems reemplazados"
+
 #~ msgid ""
 #~ "A replaced item is one where the original item has been deleted and "
 #~ "replaced with another item of the same name. The default colour is green."
@@ -12970,6 +12973,7 @@ msgstr "Traducción"
 #~ "Un ítem reemplazado es aquél cuyo ítem original ha sido eliminado y "
 #~ "reemplazado por otro ítem con el mismo nombre. El color por defecto es "
 #~ "verde."
+
 #~ msgid ""
 #~ "Where a branch (or trunk or tag) has been modified since the last branch "
 #~ "node, this is shown using an ellipse. Shown when the <guilabel>Show HEAD "
@@ -12979,6 +12983,7 @@ msgstr "Traducción"
 #~ "nodo de rama, este hecho se muestra utilizando una elipse. Se muestra "
 #~ "cuando la opción <guilabel>Mostrar los nodos de la revisión HEAD</"
 #~ "guilabel> está seleccionada."
+
 #~ msgid ""
 #~ "Because Subversion cannot provide all the information required, a certain "
 #~ "amount of interpretation is required, which can sometimes give strange "
@@ -12989,6 +12994,7 @@ msgstr "Traducción"
 #~ "se necesita una cierta cantidad de interpretación, que a veces puede dar "
 #~ "resultados estraños. En cualquier caso, la salida para el tronco "
 #~ "generalmente da resultados útiles."
+
 #~ msgid ""
 #~ "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
 #~ "use the <guilabel>Recursive</guilabel> checkbox to set the property to "
@@ -12998,6 +13004,7 @@ msgstr "Traducción"
 #~ "puede utilizar la casilla <guilabel>Recursivo</guilabel> para establecer "
 #~ "la propiedad en todas las subcarpetas de la jerarquía, sin establecerla "
 #~ "en todos los ficheros."
+
 #~ msgid ""
 #~ "Nodes classified as tags may be blended with this color. If you use tag "
 #~ "folding to save space, tags are marked on the copy source using a block "
@@ -13006,14 +13013,17 @@ msgstr "Traducción"
 #~ "Los nodos clasificados como etiquetas pueden fundirse con este color. Si "
 #~ "utiliza plegado de etiquetas para ahorrar espacio, las etiquetas se "
 #~ "marcan en la copia origen utilizando un bloque de este color."
+
 #~ msgid "Owner-Drawn Menus"
 #~ msgstr "Menús Owner-drawn"
+
 #~ msgid ""
 #~ "<option>/closeonend:4</option> auto close if no errors, conflicts and "
 #~ "merges for local operations"
 #~ msgstr ""
 #~ "<option>/closeonend:4</option> cierra automáticamente si no hay errores, "
 #~ "conflictos ni fusiones para operaciones locales"
+
 #~ msgid ""
 #~ "Opens the log dialog. The <placeholder-1/> specifies the file or folder "
 #~ "for which the log should be shown. Three additional options can be set: "
@@ -13023,18 +13033,21 @@ msgstr "Traducción"
 #~ "carpeta para el que se debe mostrar el registro. Se pueden establecer "
 #~ "tres opciones adicionales: <placeholder-2/>, <placeholder-3/> y "
 #~ "<placeholder-4/>"
+
 #~ msgid ""
 #~ "Cleans up interrupted or aborted operations and unlocks the working copy "
 #~ "in <placeholder-1/>."
 #~ msgstr ""
 #~ "Hace limpieza tras operaciones interrumpidas o abortadas, y desbloquea la "
 #~ "copia de trabajo en <placeholder-1/>."
+
 #~ msgid ""
 #~ "Opens the check-for-modifications dialog. The <placeholder-1/> specifies "
 #~ "the working copy directory."
 #~ msgstr ""
 #~ "Abre el diálogo Comprobar modificaciones. La <placeholder-1/> especifica "
 #~ "el directorio de la copia de trabajo."
+
 #~ msgid ""
 #~ "Even most Subversion users will never have to set up a server themselves. "
 #~ "The next chapter deals with how to set up such a server, and is useful "
@@ -13043,8 +13056,10 @@ msgstr "Traducción"
 #~ "Incluso muchos de los usuarios de Subversion nunca tendrán que preparar "
 #~ "un servidor por ellos mismos. El siguiente capítulo trata sobre cómo "
 #~ "preparar dicho servidor, y es útil para los administradores."
+
 #~ msgid "Setting Up A Server"
 #~ msgstr "Preparando un servidor"
+
 #~ msgid ""
 #~ "There may be situations where it's not possible to use Apache as your "
 #~ "server. Fortunately, Subversion includes Svnserve - a lightweight stand-"
@@ -13055,10 +13070,13 @@ msgstr "Traducción"
 #~ "servidor. Afortunadamente, Subversion incluye Svnserve - un ligero "
 #~ "servidor aislado que utiliza un protocolo propio sobre una conexión TCP/"
 #~ "IP ordinaria."
+
 #~ msgid "Referenced Projects"
 #~ msgstr "Proyectos referenciados"
+
 #~ msgid "Working copy depth cannot be reduced"
 #~ msgstr "La profundidad de la copia de trabajo no se puede reducir"
+
 #~ msgid ""
 #~ "Once you have checked out a working copy to a particular depth you can "
 #~ "increase that depth later to get more content. However you cannot reduce "
@@ -13070,6 +13088,7 @@ msgstr "Traducción"
 #~ "contenido. Sin embargo, no puede reducir de nuevo la profundidad para "
 #~ "eliminar contenido. Esta funcionalidad puede que se añada en alguna "
 #~ "versión posterior de Subversion."
+
 #~ msgid ""
 #~ "You can also export the list of changed files to a text file, or you can "
 #~ "export the changed files themselves to a folder. This operation works on "
@@ -13081,6 +13100,7 @@ msgstr "Traducción"
 #~ "Esta operación funciona únicamente sobre los ficheros seleccionados, por "
 #~ "lo que deberá seleccionar los ficheros de interés - normalmente eso "
 #~ "quiere decir seleccionarlos a todos."
+
 #~ msgid ""
 #~ "The button above the slider toggles between two preset blends, indicated "
 #~ "by the markers on either side of the blend slider. By default one is at "
@@ -13094,6 +13114,7 @@ msgstr "Traducción"
 #~ "por lo que el botón de cambio simplemente cambia entre una imagen y la "
 #~ "otra. Puede mover estos marcadores para elegir dos valores de blend que "
 #~ "utilizará el botón de cambio."
+
 #~ msgid ""
 #~ "Subversion uses the <literal>/</literal> as the path delimiter in all "
 #~ "internal pathnames, and all pattern matching is done against this style "
@@ -13106,6 +13127,7 @@ msgstr "Traducción"
 #~ "se hacen contra este estilo de nombres de rutas. Si desea utilizar un "
 #~ "delimitador de ruta en su patrón de ignorado, asegúrese de utilizar "
 #~ "<literal>/</literal>, y no la barra invertida de Windows."
+
 #~ msgid ""
 #~ "Subversion uses this pattern matching against every path presented to it "
 #~ "for action. These paths are generally relative to the directory being "
@@ -13119,6 +13141,7 @@ msgstr "Traducción"
 #~ "confirmación, etc. El patrón de concordancia por lo tanto tiene que tener "
 #~ "el cuenta el hecho de que puede o no haber partes de ruta antes del "
 #~ "nombre del fichero."
+
 #~ msgid ""
 #~ "If directory names are present in a path, the matching algorithm will not "
 #~ "trim them off, so pattern <literal>Fred.*</literal> will match "
@@ -13134,6 +13157,7 @@ msgstr "Traducción"
 #~ "una carpeta que contiene algunos ficheros que desea ignorar, dado que "
 #~ "dichos ficheros vendrán precedidos por el nombre de la carpeta cuando "
 #~ "Subversion los compare con el patrón de ignorar."
+
 #~ msgid ""
 #~ "The <literal>/</literal> character is not treated in any special way for "
 #~ "pattern matching purposes, so the pattern <literal>abc*xyz</literal> "
@@ -13144,6 +13168,7 @@ msgstr "Traducción"
 #~ "para los propósitos de concordancia de patrones, por lo que el patrón "
 #~ "<literal>abc*xyz</literal> concordaría con <literal>abcdxyz</literal> "
 #~ "pero también con <literal>abcdir/subdir/anything/morexyz</literal>."
+
 #~ msgid ""
 #~ "To ignore all <literal>CVS</literal> folders you should either specify a "
 #~ "pattern of <literal>*CVS</literal> or better, the pair <literal>CVS */"
@@ -13159,22 +13184,30 @@ msgstr "Traducción"
 #~ "CVS</literal> por sí mismo no funcionará para los hijos <literal>CVS</"
 #~ "literal> directos de la carpeta, y usar únicamente <literal>CVS</literal> "
 #~ "no funcionará en las subcarpetas."
+
 #~ msgid "Added file/folder"
 #~ msgstr "Fichero/carpeta añadida"
+
 #~ msgid "Deleted file/folder"
 #~ msgstr "Fichero/carpeta eliminada"
+
 #~ msgid "The revision graph shows several types of node: <placeholder-1/>"
 #~ msgstr ""
 #~ "El gráfico de revisiones muestra diferentes tipos de nodos: <placeholder-"
 #~ "1/>"
+
 #~ msgid "Replaced with the current time and date"
 #~ msgstr "Reemplazado con la fecha y hora actual"
+
 #~ msgid "Replaced with the current time and date in standard format"
 #~ msgstr "Reemplazado con la fecha y hora actual en formato estándar"
+
 #~ msgid "Replaced with the lock date"
 #~ msgstr "Reemplazado por la fecha del bloqueo"
+
 #~ msgid "Hook Scripts"
 #~ msgstr "Scripts gancho"
+
 #~ msgid ""
 #~ "\n"
 #~ "// testCOM.js - javascript file\n"
@@ -13257,14 +13290,19 @@ msgstr "Traducción"
 #~ "WScript.Echo(sInfo1);\n"
 #~ "WScript.Echo(sInfo2);\n"
 #~ "WScript.Echo(sInfo3);\n"
+
 #~ msgid "/mergefrom:xxx"
 #~ msgstr "/mergefrom:xxx"
+
 #~ msgid "/mergeto:xxx"
 #~ msgstr "/mergeto:xxx"
+
 #~ msgid "Merge All Changes"
 #~ msgstr "Fusionar todos los cambios"
+
 #~ msgid "merge all"
 #~ msgstr "fusionar todo"
+
 #~ msgid ""
 #~ "If you use this feature you must be sure that all clients are using merge "
 #~ "tracking, otherwise the merge history may be incomplete. Also, if the "
@@ -13275,6 +13313,7 @@ msgstr "Traducción"
 #~ "estén utilizando registro de fusiones, porque si no la historia de fusión "
 #~ "estará incompleta. Además, si el servidor no tiene una base de datos de "
 #~ "registro de fusiones, la obtención de la información será muy lenta."
+
 #~ msgid ""
 #~ "Get the latest version of Subversion from <ulink url=\"http://subversion."
 #~ "apache.org/getting.html\"><citetitle>http://"
@@ -13299,8 +13338,10 @@ msgstr "Traducción"
 #~ "información en el <ulink url=\"http://tortoisesvn.net/faq"
 #~ "\"><citetitle>FAQ de TortoiseSVN</citetitle></ulink>. Busque <quote>SSH</"
 #~ "quote>."
+
 #~ msgid "Cyrus SASL Support"
 #~ msgstr "Soporte para Cyrus SASL"
+
 #~ msgid ""
 #~ "Starting with Subversion 1.5.0, svnserve and TortoiseSVN support Cyrus "
 #~ "SASL (Simple Authentication and Security Layer) for the <filename>svn://</"
@@ -13316,24 +13357,28 @@ msgstr "Traducción"
 #~ "esta nota de aplicación de Subversion: <ulink url=\"http://svn.collab.net/"
 #~ "repos/svn/trunk/notes/sasl.txt\"><citetitle>Utilizando la Autenticación "
 #~ "Cyrus SASL con Subversion</citetitle></ulink>."
+
 #~ msgid ""
 #~ "So if you haven't already created a basic folder structure inside your "
 #~ "repository you should do that now: <placeholder-1/>"
 #~ msgstr ""
 #~ "Así que si no ha creado ya una estructura básica de carpetas en su "
 #~ "repositorio debería hacerlo ahora: <placeholder-1/>"
+
 #~ msgid ""
 #~ "You can also use the repository browser to create new folders directly in "
 #~ "the repository."
 #~ msgstr ""
 #~ "También puede usar el navegador de repositorios para crear nuevas "
 #~ "carpetas directamente en el repositorio."
+
 #~ msgid ""
 #~ "In this dialog you have to enter the URL of the repository into which you "
 #~ "want to import your project."
 #~ msgstr ""
 #~ "En este diálogo tiene que introducir la URL del repositorio en el que "
 #~ "quiere importar su proyecto."
+
 #~ msgid ""
 #~ "The Subversion import command has limited functionality - you cannot "
 #~ "easily pick items for import. Also, the folder you are importing does not "
@@ -13367,6 +13412,7 @@ msgstr "Traducción"
 #~ "esperarse. Esta situación puede ocurrir si se refiere a una etiqueta de "
 #~ "otro proyecto. Cuando se lanza una nueva versión de ese proyecto, cambia "
 #~ "su referencia externa para apuntar a la nueva rama."
+
 #~ msgid ""
 #~ "URLs in <literal>svn:externals</literal> definitions are absolute. You "
 #~ "cannot use relative URLs. If you relocate your working copy, or if the "
@@ -13409,12 +13455,14 @@ msgstr "Traducción"
 #~ "red compartida, cree el repositorio con el formato fsfs. Si también tiene "
 #~ "que dar acceso via servidor, necesitará un Servidor de Subversion 1.1 o "
 #~ "posterior."
+
 #~ msgid ""
 #~ "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy "
 #~ "to branch/tag from."
 #~ msgstr ""
 #~ "Abre el diálogo rama/etiqueta. El <placeholder-1/> es la copia de trabajo "
 #~ "desde la que se creará la rama/etiqueta."
+
 #~ msgid ""
 #~ "The paths which were selected when the operation was started, eg. the "
 #~ "paths selected in Explorer when invoking the Commit dialog. If multiple "
@@ -13425,12 +13473,14 @@ msgstr "Traducción"
 #~ "ejemplo las rutas seleccionadas en el Explorador cuando se invocó el "
 #~ "diálogo de confirmación. Si se seleccionaron varias rutas se separan por "
 #~ "un carácter <literal>*</literal>."
+
 #~ msgid ""
 #~ "Empty if the operation was successful, or the error message if the "
 #~ "operation was unsuccessful."
 #~ msgstr ""
 #~ "Vacío si la operación fue satisfactoria, o el mensaje de error si la "
 #~ "operación no fue satisfactoria."
+
 #~ msgid ""
 #~ "If you have a question which is not answered anywhere else, the best "
 #~ "place to ask it is on the mailing list."
@@ -13453,6 +13503,7 @@ msgstr "Traducción"
 #~ "los usuarios</literal>, deberá tener privilegios de administrador en su "
 #~ "sistema. Si no tiene estos derechos, TortoiseSVN automáticamente se "
 #~ "instalará sólo para el usuario actual."
+
 #~ msgid ""
 #~ "If you don't have the latest C-runtime and MFC libraries installed, you "
 #~ "still must have Administrator privileges to install TortoiseSVN. But once "
@@ -13509,6 +13560,7 @@ msgstr "Traducción"
 #~ "El servidor Apache no tiene soporte SSL instalado por defecto por culpa "
 #~ "de las restricciones de exportación de EE.UU. Pero puede descargar el "
 #~ "módulo necesario de algún otro lugar e instalarlo usted mismo."
+
 #~ msgid ""
 #~ "First you need the required files to enable SSL. You can find those in "
 #~ "the package available at <ulink url=\"http://hunter.campbus.com/"
@@ -13527,6 +13579,7 @@ msgstr "Traducción"
 #~ "de Apache, y el fichero <filename>openssl.exe</filename> a la carpeta "
 #~ "<filename>bin</filename>. También debe copiar el fichero <filename>conf/"
 #~ "ssl.conf</filename> a la carpeta <filename>conf</filename> de Apache."
+
 #~ msgid ""
 #~ "Place a comment char (<literal>#</literal>) in front of the following "
 #~ "lines: <screen>\n"
@@ -13545,6 +13598,7 @@ msgstr "Traducción"
 #~ "ErrorLog logs/error_log\n"
 #~ "TransferLog logs/access_log\n"
 #~ "</screen>"
+
 #~ msgid ""
 #~ "change the line <screen>\n"
 #~ "SSLCertificateFile conf/ssl.crt/server.crt\n"
@@ -13573,6 +13627,7 @@ msgstr "Traducción"
 #~ "</screen> por <screen>\n"
 #~ "SSLMutex  default\n"
 #~ "</screen>"
+
 #~ msgid ""
 #~ "Delete the lines <screen>\n"
 #~ "&lt;IfDefine SSL&gt;\n"
@@ -13609,6 +13664,7 @@ msgstr "Traducción"
 #~ msgstr ""
 #~ "Esto establecerá una bandera interna que los módulos de Apache podrán "
 #~ "leer la siguiente vez que arranque el servicio Apache."
+
 #~ msgid ""
 #~ "Open the Apache config file (<filename>httpd.conf</filename>) and "
 #~ "uncomment the line <screen>\n"
@@ -13663,6 +13719,7 @@ msgstr "Traducción"
 #~ msgstr ""
 #~ "También puede usar el navegador de repositorios para crear nuevas "
 #~ "carpetas directamente en el repositorio."
+
 #~ msgid ""
 #~ "In some sources you will find a few active branches with constant "
 #~ "activity, and a few inactive branches with infrequent activity. The "
@@ -13678,8 +13735,10 @@ msgstr "Traducción"
 #~ "ramas activas. Esta opción permite que se rompan las conexiones largas y "
 #~ "mostrarlos en trozos separados. Aparecerá un icono de unión en el nodo "
 #~ "cuando esto ocurra."
+
 #~ msgid "Use \"_svn\" instead of \".svn\" directories"
 #~ msgstr "Utilizar directorios \"_svn\" en vez de \".svn\""
+
 #~ msgid ""
 #~ "Fetching log messages can take a long time on some repositories, "
 #~ "depending on how good the connection is, server load, etc. TortoiseSVN "
@@ -13694,6 +13753,7 @@ msgstr "Traducción"
 #~ "recuperarlos del servidor. La caché se rellena durante la obtención de "
 #~ "mensajes de registros normal, por lo que no es necesario ejecutar ninguna "
 #~ "otra acción."
+
 #~ msgid ""
 #~ "You should keep in mind that log messages can be edited, so if someone "
 #~ "else changes a log message and you have a cached copy, you will not see "
@@ -13705,7 +13765,7 @@ msgstr "Traducción"
 #~ "mensaje de registro, no verá los cambios hasta que limpie la caché de "
 #~ "mensajes de registro. Utilice la pestaña <guilabel>Datos Almacenados</"
 #~ "guilabel> para hacerlo."
+
 #~ msgid "After running SubWCRev.exe, the output file looks like this:"
 #~ msgstr ""
 #~ "Tras ejecutar SubWCRev.exe, el fichero de salida será similar a este:"
-
