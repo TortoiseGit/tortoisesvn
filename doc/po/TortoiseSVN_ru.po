@@ -1,27 +1,28 @@
-#
 # Russian translation for TortoiseSVN
 # Copyright (C) 2004-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
 # Authors:
-#   Vladimir Serdyuk <vserd@users.sourceforge.net>, 2006
-#   Stanislav Petrakov <stannic@gmail.com>, 2006-2009
-#
+# Vladimir Serdyuk <vserd@users.sourceforge.net>, 2006
+# Stanislav Petrakov <stannic@gmail.com>, 2006-2009
+# Peter Demin <peterdemin@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2009-11-30 18:36+0300\n"
-"Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
+"PO-Revision-Date: 2010-05-03 14:01+0400\n"
+"Last-Translator: Peter Demin <peterdemin@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Virtaal 0.5.2\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Language: Russian\n"
@@ -221,8 +222,14 @@ msgid "Community"
 msgstr "Сообщество"
 
 #. (para)
-msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world and work together to create wonderful programs."
-msgstr "Обе программы: и TortoiseSVN, и Subversion, разработаны сообществом людей, работающих в этих проектах. Это люди из разных стран со всего света, и они объединились для создания замечательных программ."
+msgid ""
+"Both TortoiseSVN and Subversion are developed by a community of people who "
+"are working on those projects. They come from different countries all over "
+"the world and work together to create wonderful programs."
+msgstr ""
+"Обе программы: и TortoiseSVN, и Subversion, разработаны сообществом людей, "
+"работающих в этих проектах. Это люди из разных стран со всего света, и они "
+"объединились для создания замечательных программ."
 
 #. (title)
 msgid "Acknowledgments"
@@ -249,8 +256,12 @@ msgid "Lübbe Onken"
 msgstr "Люббе Онкену (Lübbe Onken)"
 
 #. (para)
-msgid "for the beautiful icons, logo, bug hunting, translating and managing the translations"
-msgstr "за прекрасные значки, логотипы, отлов ошибок, за перевод и координацию деятельности по переводу"
+msgid ""
+"for the beautiful icons, logo, bug hunting, translating and managing the "
+"translations"
+msgstr ""
+"за прекрасные иконки, логотип, отлов ошибок, за перевод и координацию "
+"деятельности по переводу"
 
 #. (term)
 msgid "Simon Large"
@@ -258,15 +269,18 @@ msgstr "Саймону Ладжу (Simon Large)"
 
 #. (para)
 msgid "for helping with the documentation and bug hunting"
-msgstr "за работу над документацией и отлов ошибок"
+msgstr "за помошь в работе над документацией и отлов ошибок"
 
 #. (term)
 msgid "The Subversion Book"
 msgstr "Книге о Subversion (The Subversion Book)"
 
 #. (para)
-msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
-msgstr "за прекрасное введение в Subversion и главу 2, которую мы сюда скопировали"
+msgid ""
+"for the great introduction to Subversion and its chapter 2 which we copied "
+"here"
+msgstr ""
+"за прекрасное введение в Subversion и главу 2, которую мы сюда скопировали"
 
 #. (term)
 msgid "The Tigris Style project"
@@ -281,8 +295,12 @@ msgid "Our Contributors"
 msgstr "Нашим помощникам"
 
 #. (para)
-msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr "за исправления, сообщения об ошибках, новые идеи и за помощь, оказанную другим - в виде ответов на вопросы в нашем списке рассылки"
+msgid ""
+"for the patches, bug reports and new ideas, and for helping others by "
+"answering questions on our mailing list."
+msgstr ""
+"за исправления, сообщения об ошибках и новые идеи. И за помощь, оказанную "
+"другим в виде ответов в нашем списке рассылки"
 
 #. (term)
 msgid "Our Donators"
@@ -297,44 +315,86 @@ msgid "Terminology used in this document"
 msgstr "Используемая терминология"
 
 #. (para)
-msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
-msgstr "Для облегчения чтения документации, имена всех экранов и меню TortoiseSVN выделены другим шрифтом. Например, <guilabel>Диалог журнала ревизий</guilabel>."
+msgid ""
+"To make reading the docs easier, the names of all the screens and Menus from "
+"TortoiseSVN are marked up in a different font. The <guilabel>Log "
+"Dialog</guilabel> for instance."
+msgstr ""
+"Для облегчения чтения документации, имена всех окон и меню TortoiseSVN "
+"выделены другим шрифтом. Например, <guilabel>Диалог журнала "
+"ревизий</guilabel>."
 
 #. (para)
-msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
-msgstr "Выбор меню обозначен стрелкой. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Журнал</guimenuitem></menuchoice> означает: выберите <emphasis>Журнал</emphasis> из контекстного меню <emphasis>TortoiseSVN</emphasis>."
+msgid ""
+"A menu choice is indicated with an arrow. "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show "
+"Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> "
+"from the <emphasis>TortoiseSVN</emphasis> context menu."
+msgstr ""
+"Выбор меню обозначен стрелкой. <menuchoice><guimenu>TortoiseSVN</guimenu><gu"
+"imenuitem>Журнал</guimenuitem></menuchoice> означает: выберите "
+"<emphasis>Журнал</emphasis> в контекстном меню "
+"<emphasis>TortoiseSVN</emphasis>."
 
 #. (para)
-msgid "Where a local context menu appears within one of the TortoiseSVN dialogs, it is shown like this: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
-msgstr "Использование локального контекстного меню какого-либо из диалоговых окон TortoiseSVN будет показываться следующим образом: <menuchoice><guimenu>Контекстное меню</guimenu><guimenuitem>Сохранить как...</guimenuitem></menuchoice>"
+msgid ""
+"Where a local context menu appears within one of the TortoiseSVN dialogs, it "
+"is shown like this: <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
+msgstr ""
+"Использование контекстного меню обозначается следующим образом: "
+"<menuchoice><guimenu>Контекстное меню</guimenu><guimenuitem>Сохранить "
+"как...</guimenuitem></menuchoice>"
 
 #. (para)
-msgid "User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton> to continue."
-msgstr "Кнопки пользовательского интерфейса обозначаются так: Нажмите <guibutton>ОК</guibutton> для продолжения."
+msgid ""
+"User Interface Buttons are indicated like this: Press "
+"<guibutton>OK</guibutton> to continue."
+msgstr ""
+"Кнопки пользовательского интерфейса обозначаются так: Нажмите "
+"<guibutton>ОК</guibutton> для продолжения."
 
 #. (para)
-msgid "User Actions are indicated using a bold font. <keycap>Alt+A</keycap>: press the <keycap>Alt</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
-msgstr "Действия пользователя показаны при помощи полужирного шрифта. <keycap>Alt+A</keycap>: нажмите клавишу <keycap>Alt</keycap> на вашей клавиатуре и, удерживая её нажатой, нажмите клавишу <keycap>A</keycap>. <action>Перетаскивание правой кнопкой</action>: нажмите правую кнопку мыши и, удерживая её нажатой, <emphasis>перетащите</emphasis> элементы в новое место."
+msgid ""
+"User Actions are indicated using a bold font. <keycap>Alt+A</keycap>: press "
+"the <keycap>Alt</keycap>-Key on your keyboard and while holding it down "
+"press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press "
+"the right mouse button and while holding it down <emphasis>drag</emphasis> "
+"the items to the new location."
+msgstr ""
+"Действия пользователя обозначены полужирным шрифтом. <keycap>Alt+A</keycap>: "
+"нажмите клавишу <keycap>Alt</keycap> на вашей клавиатуре и, удерживая её "
+"нажатой, нажмите клавишу <keycap>A</keycap>. <action>Перетаскивание правой "
+"кнопкой</action>: нажмите правую кнопку мыши и, удерживая её нажатой, "
+"<emphasis>перетащите</emphasis> элементы в другое место."
 
 #. (para)
-msgid "System output and keyboard input is indicated with a <literal>different</literal> font as well."
-msgstr "Вывод системы и клавиатурный ввод также показан при помощи <literal>отличающегося</literal> шрифта."
+msgid ""
+"System output and keyboard input is indicated with a "
+"<literal>different</literal> font as well."
+msgstr ""
+"Ввод и вывод командной строки также показан при помощи "
+"<literal>специального</literal> шрифта."
 
 #. (para)
 msgid "Important notes are marked with an icon."
-msgstr "Важные примечания отмечены значком."
+msgstr "Важные примечания отмечены таким значком."
 
 #. (para)
 msgid "Tips that make your life easier."
-msgstr "Подсказки, делающие вашу жизнь проще."
+msgstr "Делают вашу жизнь проще."
 
 #. (para)
 msgid "Places where you have to be careful what you are doing."
-msgstr "Места, где надо быть осмотрительнее в том, что вы делаете."
+msgstr "Нужно быть особенно осторожным."
 
 #. (para)
-msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
-msgstr "Необходимо проявить исключительную осторожность, возможно повреждение данных или другие неприятности при игнорировании этих предупреждений."
+msgid ""
+"Where extreme care has to be taken, data corruption or other nasty things "
+"may occur if these warnings are ignored."
+msgstr ""
+"Необходимо проявить максимальную внимательность. При игнорировании таких "
+"предупреждений возможно повреждение данных или другие неприятности."
 
 #. (title)
 #. (title)
@@ -13228,6 +13288,7 @@ msgstr "Перевод"
 #~ msgstr ""
 #~ "Очищает прерванные или отменённые операции и разблокирует рабочую копию в "
 #~ "<placeholder-1/>."
+
 #~ msgid ""
 #~ "For <literal>tsvn:</literal> and <literal>webviewer:</literal> properties "
 #~ "<emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> "
@@ -13238,6 +13299,7 @@ msgstr "Перевод"
 #~ "<literal>webviewer:</literal> вы можете использовать флажок "
 #~ "<guilabel>Рекурсивно</guilabel> для установки свойства для всех подпапок "
 #~ "в иерархии, без установки его также для всех файлов."
+
 #~ msgid ""
 #~ "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can "
 #~ "use the <guilabel>Recursive</guilabel> checkbox to set the property to "
@@ -13263,6 +13325,7 @@ msgstr "Перевод"
 #, fuzzy
 #~ msgid "showcompare"
 #~ msgstr "сравнение"
+
 #~ msgid ""
 #~ "By default this only works for files. This is because the update revision "
 #~ "for a folder may not correspond to the update revision of its content, "
@@ -13280,18 +13343,21 @@ msgstr "Перевод"
 #~ "возможность, вы должны создать ключ реестра <literal>HKCU\\Software"
 #~ "\\TortoiseSVN\\RecursiveLogRev</literal> типа <literal>DWORD</literal> со "
 #~ "значением 1."
+
 #~ msgid ""
 #~ "<option>/closeonend:4</option> auto close if no errors, conflicts and "
 #~ "merges for local operations"
 #~ msgstr ""
 #~ "<option>/closeonend:4</option> закрывать автоматически, если нет ошибок, "
 #~ "конфликтов и слияний для локальных операций"
+
 #~ msgid ""
 #~ "Opens the check-for-modifications dialog. The <placeholder-1/> specifies "
 #~ "the working copy directory."
 #~ msgstr ""
 #~ "Открывает диалог проверки на наличие изменений. Параметр <placeholder-1/> "
 #~ "указывает папку рабочей копии."
+
 #~ msgid ""
 #~ "The path to the file external must be in a working copy that is already "
 #~ "checked out. While directory externals can place the external directory "
@@ -13303,6 +13369,7 @@ msgstr "Перевод"
 #~ "папку на любой глубине вложенности и при этом будут созданы все "
 #~ "промежуточные папки, внешие файловые включения должны помещаться в уже "
 #~ "извлечённую рабочую копию."
+
 #~ msgid ""
 #~ "Because Subversion cannot provide all the information required, a certain "
 #~ "amount of interpretation is required, which can sometimes give strange "
@@ -13325,6 +13392,7 @@ msgstr "Перевод"
 #~ msgstr ""
 #~ "Элемент, который был замещён новым элементом с таким же именем после "
 #~ "удаления исходного."
+
 #~ msgid ""
 #~ "Where a branch (or trunk or tag) has been modified since the last branch "
 #~ "node, this is shown using an ellipse. Shown when the <guilabel>Show HEAD "
@@ -13334,8 +13402,10 @@ msgstr "Перевод"
 #~ "с момента создания последнего узла ответвления, это показывается при "
 #~ "помощи эллипса. Эти узлы отображаются в графе при включении опции "
 #~ "<guilabel>Показать ведущие ревизии</guilabel>."
+
 #~ msgid "Working copy depth cannot be reduced"
 #~ msgstr "Глубина рабочей копии не может быть уменьшена"
+
 #~ msgid ""
 #~ "Once you have checked out a working copy to a particular depth you can "
 #~ "increase that depth later to get more content. However you cannot reduce "
@@ -13381,6 +13451,7 @@ msgstr "Перевод"
 #~ "Then developer B has to decide which new filename of <filename>Foo.c</"
 #~ "filename> to keep - the one done by developer A or the rename done in his "
 #~ "working copy."
+
 #~ msgid ""
 #~ "Even most Subversion users will never have to set up a server themselves. "
 #~ "The next chapter deals with how to set up such a server, and is useful "
@@ -13390,6 +13461,7 @@ msgstr "Перевод"
 #~ "необходимостью устанавливать сервер самостоятельно, поэтому следующая "
 #~ "глава, объясняющая как установить и настроить сервер, в основном будет "
 #~ "полезна администраторам."
+
 #~ msgid "Referenced Projects"
 #~ msgstr "Связанные проекты"
 
@@ -13437,6 +13509,7 @@ msgstr "Перевод"
 #~ msgstr ""
 #~ "Создайте другую папку <filename>MyNewRepository</filename> внутри "
 #~ "<filename>D:\\SVN\\</filename>."
+
 #~ msgid ""
 #~ "The button above the slider toggles between two preset blends, indicated "
 #~ "by the markers on either side of the blend slider. By default one is at "
@@ -13451,8 +13524,10 @@ msgstr "Перевод"
 #~ "просто по очереди показывает то одну, то другую картинку. Вы можете "
 #~ "передвинуть отметки для указания, какие значения прозрачности будет "
 #~ "использовать кнопка переключения."
+
 #~ msgid "Setting Up A Server"
 #~ msgstr "Установка и настройка сервера"
+
 #~ msgid ""
 #~ "There may be situations where it's not possible to use Apache as your "
 #~ "server. Fortunately, Subversion includes Svnserve - a lightweight stand-"
@@ -13463,6 +13538,7 @@ msgstr "Перевод"
 #~ "сервера. К счастью, в Subversion есть Svnserve - облегчённый автономный "
 #~ "сервер, использующий собственный протокол поверх обычного TCP/IP "
 #~ "соединения."
+
 #~ msgid ""
 #~ "You can also export the list of changed files to a text file, or you can "
 #~ "export the changed files themselves to a folder. This operation works on "
@@ -13473,19 +13549,24 @@ msgstr "Перевод"
 #~ "экспортировать сами изменённые файлы в папку. Эта операция выполняется "
 #~ "только для выбранных файлов, поэтому необходимо выбрать интересующие вас "
 #~ "файлы - часто это означает, что надо выбрать их все."
+
 #~ msgid ""
 #~ "This property specifies the COM UUID of the IBugTraqProvider, for example "
 #~ "<literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>."
 #~ msgstr ""
 #~ "Это свойство задаёт COM UUID компонента IBugTraqProvider, например "
 #~ "<literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>."
+
 #~ msgid "Added file/folder"
 #~ msgstr "Добавленные файлы/папки"
+
 #~ msgid "Deleted file/folder"
 #~ msgstr "Удаленные файлы/папки"
+
 #~ msgid "The revision graph shows several types of node: <placeholder-1/>"
 #~ msgstr ""
 #~ "В графе ревизий показываются несколько типов узлов: <placeholder-1/>"
+
 #~ msgid ""
 #~ "Subversion uses the <literal>/</literal> as the path delimiter in all "
 #~ "internal pathnames, and all pattern matching is done against this style "
@@ -13499,6 +13580,7 @@ msgstr "Перевод"
 #~ "если вы желаете задействовать разделитель пути в шаблоне игнорирования, "
 #~ "убедитесь, что указали <literal>/</literal>, а не обратную косую черту, "
 #~ "как в Windows."
+
 #~ msgid ""
 #~ "Subversion uses this pattern matching against every path presented to it "
 #~ "for action. These paths are generally relative to the directory being "
@@ -13527,6 +13609,7 @@ msgstr "Перевод"
 #~ "существенно при добавлении папки, содержащей несколько файлов, которые вы "
 #~ "желаете игнорировать, так как этим именам файлов будет предшествовать имя "
 #~ "папки, когда Subversion будет сопоставлять их с шаблоном игнорирования."
+
 #~ msgid ""
 #~ "The <literal>/</literal> character is not treated in any special way for "
 #~ "pattern matching purposes, so the pattern <literal>abc*xyz</literal> "
@@ -13537,6 +13620,7 @@ msgstr "Перевод"
 #~ "никаким специальным образом, поэтому шаблону <literal>abc*xyz</literal> "
 #~ "будет соответствовать не только <literal>abcdxyz</literal>, но и "
 #~ "<literal>abcdir/subdir/anything/morexyz</literal>."
+
 #~ msgid ""
 #~ "To ignore all <literal>CVS</literal> folders you should either specify a "
 #~ "pattern of <literal>*CVS</literal> or better, the pair <literal>CVS */"
@@ -13552,14 +13636,19 @@ msgstr "Перевод"
 #~ "<literal>*/CVS</literal>, не будет игнорироваться непосредственно "
 #~ "вложенная папка <literal>CVS</literal>, а использование только "
 #~ "<literal>CVS</literal> не будет работать в подпапках."
+
 #~ msgid "Replaced with the current time and date"
 #~ msgstr "Заменяется на текущую дату и время"
+
 #~ msgid "Replaced with the current time and date in standard format"
 #~ msgstr "Заменяется на текущую дату и время в стандартном формате"
+
 #~ msgid "Replaced with the lock date"
 #~ msgstr "Заменяется на дату блокирования"
+
 #~ msgid "Hook Scripts"
 #~ msgstr "Скрипты ловушек"
+
 #~ msgid ""
 #~ "Unlike the command line client, the merge dialog merges all revisions of "
 #~ "a range. For example, if you want to merge revisions 5-7, you have to "
@@ -13571,6 +13660,7 @@ msgstr "Перевод"
 #~ "ревизий 5-7, вы должны указать \"5-7\" или \"5,6,7\". В клиенте командной "
 #~ "строки вы должны указать диапазон \"4-7\", чтобы ревизия 5 также "
 #~ "участвовала в слиянии."
+
 #~ msgid ""
 #~ "\n"
 #~ "// testCOM.js - javascript file\n"
@@ -13653,14 +13743,19 @@ msgstr "Перевод"
 #~ "WScript.Echo(sInfo1);\n"
 #~ "WScript.Echo(sInfo2);\n"
 #~ "WScript.Echo(sInfo3);\n"
+
 #~ msgid "/mergefrom:xxx"
 #~ msgstr "/mergefrom:xxx"
+
 #~ msgid "/mergeto:xxx"
 #~ msgstr "/mergeto:xxx"
+
 #~ msgid "Merge All Changes"
 #~ msgstr "Слияние всех изменений"
+
 #~ msgid "merge all"
 #~ msgstr "слияние всего"
+
 #~ msgid ""
 #~ "If you use this feature you must be sure that all clients are using merge "
 #~ "tracking, otherwise the merge history may be incomplete. Also, if the "
@@ -13671,6 +13766,7 @@ msgstr "Перевод"
 #~ "используют отслеживание слияний, иначе история слияний может быть "
 #~ "неполной. Также, если на сервере нет базы данных по отслеживанию слияний, "
 #~ "сбор информации будет очень медленным."
+
 #~ msgid ""
 #~ "Get the latest version of Subversion from <ulink url=\"http://subversion."
 #~ "apache.org/getting.html\"><citetitle>http://"
@@ -13681,6 +13777,7 @@ msgstr "Перевод"
 #~ "subversion.apache.org/getting.html"
 #~ "\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?"
 #~ "folderID=91</citetitle></ulink>."
+
 #~ msgid ""
 #~ "It is beyond the scope of this documentation to detail the installation "
 #~ "and setup of a secure shell, however you can find further information in "
@@ -13694,8 +13791,10 @@ msgstr "Перевод"
 #~ "\"><citetitle>TortoiseSVN ЧаВо, как использовать SSH</citetitle></ulink>. "
 #~ "Вы можете найти в ЧаВо другие вопросы по SSH поиском по слову <quote>SSH</"
 #~ "quote>."
+
 #~ msgid "Cyrus SASL Support"
 #~ msgstr "Поддержка Cyrus SASL"
+
 #, fuzzy
 #~ msgid ""
 #~ "Starting with Subversion 1.5.0, svnserve and TortoiseSVN support Cyrus "
@@ -13712,6 +13811,7 @@ msgstr "Перевод"
 #~ "net/repos/svn/trunk/notes/sasl.txt\"><citetitle>Using Cyrus SASL "
 #~ "Authentication with Subversion (Использование аутентификации Cyrus SASL с "
 #~ "Subversion)</citetitle></ulink>."
+
 #~ msgid ""
 #~ "If you really need to access a repository through a network share, create "
 #~ "the repository with FSFS format. If you need to provide server access as "
@@ -13721,24 +13821,28 @@ msgstr "Перевод"
 #~ "ресурс, создайте хранилище в формате FSFS. Если вам необходимо обеспечить "
 #~ "также и серверный доступ, вам нужен сервер Subversion версии 1.1 или "
 #~ "более новой."
+
 #~ msgid ""
 #~ "So if you haven't already created a basic folder structure inside your "
 #~ "repository you should do that now: <placeholder-1/>"
 #~ msgstr ""
 #~ "Итак, если вы ещё не создали структуру основных папок внутри хранилища, "
 #~ "вам надо сделать это сейчас: <placeholder-1/>"
+
 #~ msgid ""
 #~ "You can also use the repository browser to create new folders directly in "
 #~ "the repository."
 #~ msgstr ""
 #~ "Вы также можете воспользоваться Обозревателем хранилища для создания "
 #~ "новых папок прямо в хранилище."
+
 #~ msgid ""
 #~ "In this dialog you have to enter the URL of the repository into which you "
 #~ "want to import your project."
 #~ msgstr ""
 #~ "В этом диалоге вы должны ввести URL-адрес хранилища, в которое хотите "
 #~ "импортировать ваш проект."
+
 #~ msgid ""
 #~ "The Subversion import command has limited functionality - you cannot "
 #~ "easily pick items for import. Also, the folder you are importing does not "
@@ -13751,6 +13855,7 @@ msgstr "Перевод"
 #~ "рабочей копией Subversion - вам необходимо сделать отдельное извлечение. "
 #~ "Но не переживайте, есть другой рабочий способ, который преодолевает эти "
 #~ "дефекты :-)"
+
 #~ msgid ""
 #~ "Note that if you change the URL in an <literal>svn:externals</literal> "
 #~ "property, then next time you update your working copy Subversion will "
@@ -13769,6 +13874,7 @@ msgstr "Перевод"
 #~ "произойти, если вы ссылаетесь на метку из другого проекта. Когда "
 #~ "выпускается новая версия этого проекта, вы изменяете вашу внешнюю ссылку "
 #~ "для указания на новую метку."
+
 #~ msgid ""
 #~ "URLs in <literal>svn:externals</literal> definitions are absolute. You "
 #~ "cannot use relative URLs. If you relocate your working copy, or if the "
@@ -13786,6 +13892,7 @@ msgstr "Перевод"
 #~ "скопированном ответвлении не будут изменены; возможно, вместо этого вы "
 #~ "захотите заменить ссылки, которые были в стволе, на ссылки, которые "
 #~ "должны быть в ответвлении."
+
 #~ msgid ""
 #~ "If two expressions are set, then the first expression is used to find a "
 #~ "string which relates to the bug ID but may contain more than just the bug "
@@ -13799,12 +13906,14 @@ msgstr "Перевод"
 #~ "issue 123</quote>). Второе выражение используется для извлечения "
 #~ "<quote>чистого</quote> ID ошибки из строки, полученной первым выражением. "
 #~ "Пример:"
+
 #~ msgid ""
 #~ "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy "
 #~ "to branch/tag from."
 #~ msgstr ""
 #~ "Показывает диалог ответвления/метки. Параметр <placeholder-1/> - это "
 #~ "рабочая копия, из которой делается ответвление/метка."
+
 #~ msgid ""
 #~ "If you have a question which is not answered anywhere else, the best "
 #~ "place to ask it is on the mailing list."
@@ -13819,6 +13928,7 @@ msgstr "Перевод"
 #, fuzzy
 #~ msgid "Installing Subversion (server)"
 #~ msgstr "Установка Subversion"
+
 #~ msgid ""
 #~ "The paths which were selected when the operation was started, eg. the "
 #~ "paths selected in Explorer when invoking the Commit dialog. If multiple "
@@ -13828,6 +13938,7 @@ msgstr "Перевод"
 #~ "Пути, которые были выбраны при запуске операции, например, пути, "
 #~ "отмеченные в Проводнике при вызове диалога фиксации. Символ <literal>*</"
 #~ "literal> служит для разделителем, если были выбраны несколько путей."
+
 #~ msgid ""
 #~ "Note that if possible, you should use <literal>%PATH%</literal> instead "
 #~ "of <literal>%PATHS%</literal> to avoid running into the size limit of the "
@@ -13836,12 +13947,14 @@ msgstr "Перевод"
 #~ "Обратите внимание: по возможности, вы должны использовать <literal>%PATH%"
 #~ "</literal> вместо <literal>%PATHS%</literal>, чтобы не столкнуться с "
 #~ "ограничением на размер командной строки."
+
 #~ msgid ""
 #~ "Empty if the operation was successful, or the error message if the "
 #~ "operation was unsuccessful."
 #~ msgstr ""
 #~ "Пусто, если операция была выполнена успешно, или сообщение об ошибке, "
 #~ "если операция закончилась неудачей."
+
 #~ msgid ""
 #~ "TortoiseSVN comes with an easy to use installer. Double click on the "
 #~ "installer file and follow the instructions. The installer will take care "
@@ -13856,6 +13969,7 @@ msgstr "Перевод"
 #~ "для <literal>всех пользователей</literal>, у вас должны быть права "
 #~ "администратора этой системы. Если у вас нет таких прав, TortoiseSVN "
 #~ "автоматически установится только для текущего пользователя."
+
 #~ msgid ""
 #~ "If you don't have the latest C-runtime and MFC libraries installed, you "
 #~ "still must have Administrator privileges to install TortoiseSVN. But once "
@@ -13866,6 +13980,7 @@ msgstr "Перевод"
 #~ "(С-runtime) и MFC, то вам всё равно потребуются права администратора для "
 #~ "установки TortoiseSVN. Но как только эти библиотеки будут установлены, вы "
 #~ "сможете обновлять или устанавливать TortoiseSVN и без этих полномочий."
+
 #~ msgid ""
 #~ "If you have to authenticate against a Windows NT domain, enter your "
 #~ "username including the domain name, like: <filename>MYDOMAIN\\johnd</"
@@ -13874,6 +13989,7 @@ msgstr "Перевод"
 #~ "Если вы должны аутентифицироваться при помощи домена Windows NT, вводите "
 #~ "ваше имя пользователя вместе с именем домена, например <filename>MYDOMAIN"
 #~ "\\johnd</filename>."
+
 #~ msgid ""
 #~ "When you checkout an existing source tree from the repository, you should "
 #~ "do so in an empty directory. If you try to check out your source tree "
@@ -13893,6 +14009,6 @@ msgstr "Перевод"
 #~ "или сначала удалить существующее дерево исходного кода. Ещё лучше, "
 #~ "прочтите <xref linkend=\"tsvn-dug-import-in-place\"/>, где описан способ, "
 #~ "позволяющий избежать этих проблем."
+
 #~ msgid "Keyword Expansion"
 #~ msgstr "Подстановка ключевых слов"
-
