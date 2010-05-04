@@ -1,28 +1,26 @@
-#
 # Spanish translation for TortoiseSVN
 # Copyright (C) 2004-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
 # Authors:
 # Fernando P. Nájera Cano
-#
+# JC <jcfuentes@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2010-05-04 13:52-0300\n"
-"Last-Translator: Alejandro Ariel Abaca <abacrotto@hotmail.com>\n"
+"PO-Revision-Date: 2010-05-03 22:22+0200\n"
+"Last-Translator: JC <jcfuentes@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: SPAIN\n"
-"X-Poedit-Language: Spanish\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.6.0\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -102,7 +100,12 @@ msgstr "Audiencia"
 
 #. (para)
 msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr "Este libro está escrito para usuarios informáticos que quieren usar Subversion para manejar sus datos, pero no están cómodos usando el cliente de línea de comandos para hacerlo. Dado que TortoiseSVN es una extensión del shell de Windows, se asume que el usuario está familiarizado con el Explorador de windows y sabe cómo usarlo."
+msgstr ""
+"Este libro está escrito para usuarios informáticos que quieren usar "
+"Subversion para manejar sus datos, pero no están cómodos usando el cliente "
+"de línea de comandos para hacerlo. Dado que TortoiseSVN es una extensión del "
+"shell de Windows, se asume que el usuario está familiarizado con el "
+"Explorador de windows y sabe cómo usarlo."
 
 #. (title)
 msgid "Reading Guide"
@@ -114,7 +117,9 @@ msgstr "Este <xref linkend=\"tsvn-preface\"/> le ofrece una breve explicación s
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
-msgstr "La <xref linkend=\"tsvn-introduction\"/> expone qué es TortoiseSVN, lo que hace, de dónde viene y las bases para instalarlo en su PC."
+msgstr ""
+"La <xref linkend=\"tsvn-introduction\"/> expone qué es TortoiseSVN, lo que "
+"hace, de dónde viene y las bases para instalarlo en su PC."
 
 #. (para)
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
@@ -142,7 +147,10 @@ msgstr "La sección <xref linkend=\"tsvn-automation\"/> le muestra cómo puede i
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
-msgstr "La <xref linkend=\"tsvn-cli\"/> le muestra una correlación entre los comandos de TortoiseSVN y sus equivalentes en el cliente de línea de comandos de Subversion <literal>svn.exe</literal>."
+msgstr ""
+"La <xref linkend=\"tsvn-cli\"/> le muestra una correlación entre los comandos "
+"de TortoiseSVN y sus equivalentes en el cliente de línea de comandos de "
+"Subversion <literal>svn.exe</literal>."
 
 #. (title)
 msgid "TortoiseSVN is free!"
@@ -296,11 +304,31 @@ msgstr "¿Qué es TortoiseSVN?"
 
 #. (para)
 msgid "TortoiseSVN is a free open-source client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
-msgstr "TortoiseSVN es un cliente gratuito de código abierto para el sistema de control de versiones <firstterm>Subversion</firstterm>. Esto es, TortoiseSVN maneja ficheros y directorios a lo largo del tiempo. Los ficheros se almacenan en un <firstterm>repositorio</firstterm> central. El repositorio es prácticamente lo mismo que un servidor de ficheros ordinario, salvo que recuerda todos los cambios que se hayan hecho a sus ficheros y directorios. Esto permite que pueda recuperar versiones antiguas de sus ficheros y examinar la historia de cuándo y cómo cambiaron sus datos, y quién hizo el cambio. Esta es la razón por la que mucha gente piensa que Subversion, y los sistemas de control de versiones en general, son una especie de <quote>máquinas del tiempo</quote>."
+msgstr ""
+"TortoiseSVN es un cliente gratuito de código abierto para el sistema de "
+"control de versiones <firstterm>Subversion</firstterm>. Esto signifca que "
+"TortoiseSVN administra ficheros y directorios a lo largo del tiempo. Los "
+"archivos se almacenan en un <firstterm>repositorio</firstterm> central. El "
+"repositorio es prácticamente lo mismo que un servidor de archivos ordinario, "
+"con la excepción de que recuerda todos los cambios que se hayan hecho a sus "
+"archivos y directorios. Esto le permite al usuario recuperar versiones "
+"antiguas de sus archivos y examinar la historia de cómo y cuándo cambiaron "
+"sus datos, y quién hizo el cambio. Esta es la razón por la que mucha gente "
+"piensa que Subversion, y los sistemas de control de versiones en general, "
+"son una especie de <quote>máquinas del tiempo</quote>."
 
 #. (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
-msgstr "Algunos sistemas de control de versiones también son sistemas de manejo de configuración del software (SCM). Estos sistemas están diseñados específicamente para manejar árboles de código fuente, y tienen muchas características que son específicas para el desarrollo de software - tales como el entendimiento nativo de los lenguajes de programación, o proporcionan herramientas para compilar software. Subversion, sin embargo, no es uno de estos sistemas; es un sistema general que puede ser utilizado para manejar <emphasis>cualquier</emphasis> colección de ficheros, incluyendo código fuente."
+msgstr ""
+"Algunos sistemas de control de versiones también son sistemas de manejo de "
+"configuración del software (SCM por sus iniciales en inglés). Estos sistemas "
+"están diseñados específicamente para manejar árboles de código fuente, y "
+"tienen muchas características que son específicas para el desarrollo de "
+"software - tales como el entendimiento nativo de los lenguajes de "
+"programación, o proporcionan herramientas para compilar software. "
+"Subversion, sin embargo, no es uno de estos sistemas; es un sistema general "
+"que puede ser utilizado para manejar <emphasis>cualquier</emphasis> "
+"colección de archivos, incluyendo código fuente."
 
 #. (title)
 msgid "TortoiseSVN's History"
@@ -308,15 +336,34 @@ msgstr "Historia de TortoiseSVN"
 
 #. (para)
 msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
-msgstr "En 2002, Tim Kemp se dio cuenta que Subversion era un sistema de control de versiones muy bueno, pero le faltaba un buen cliente GUI. La idea de tener un cliente de Subversion integrado en el shell de Windows se inspiró por el cliente similar que ya existía para CVS llamado TortoiseCVS."
+msgstr ""
+"En 2002, Tim Kemp se dio cuenta que Subversion era un sistema de control de "
+"versiones muy bueno, pero le faltaba un buen cliente GUI. La idea de tener "
+"un cliente de Subversion integrado en la consola de Windows fue inspirada "
+"por un cliente similar para CVS llamado TortoiseCVS."
 
 #. (para)
 msgid "Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
-msgstr "Tim estudió el código fuente de TortoiseCVS y lo utilizó como base de TortoiseSVN. Entonces inició el proyecto, registró el dominio <literal>tortoisesvn.org</literal> y puso el código fuente en línea. Durante ese tiempo, Stefan Küng estaba buscando un sistema de control de versiones bueno y gratuito, y encontró Subversion y el código fuente de TortoiseSVN. Como TortoiseSVN todavía no estaba listo para usarse, se unió al proyecto y empezó a programar. Pronto reescribió la mayor parte del código existente y empezó a añadir comandos y características, hasta el punto de que no quedó nada del código original."
+msgstr ""
+"Tim estudió el código fuente de TortoiseCVS y lo utilizó como base de "
+"TortoiseSVN. Entonces inició el proyecto, registró el dominio "
+"<literal>tortoisesvn.org</literal> y puso el código fuente en línea. Durante "
+"ese tiempo, Stefan Küng estaba buscando un sistema de control de versiones "
+"bueno y gratuito, y encontró Subversion y el código fuente de TortoiseSVN. "
+"Como TortoiseSVN todavía no estaba listo para usarse, se unió al proyecto y "
+"empezó a programar. Pronto reescribió la mayor parte del código existente y "
+"empezó a añadir comandos y características, hasta el punto en que no quedó "
+"nada del código original."
 
 #. (para)
 msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
-msgstr "Según se fue estabilizando Subversion, atrajo más y más usuarios que también empezaron a utilizar TortoiseSVN como su cliente de Subversion. Los usuarios de TortoiseSVN se incrementaron rápidamente (y aún crecen día a día). Entonces Lübbe Onken se ofreció a ayudar con algunos iconos más vistosos y un logo para TortoiseSVN. Y también se encarga de la página web y de administrar las traducciones."
+msgstr ""
+"Según se fue estabilizando Subversion, atrajo más y más usuarios que también "
+"empezaron a utilizar TortoiseSVN como su cliente de Subversion. La base de "
+"usuarios de TortoiseSVN se incrementó rápidamente (y aún lo hace cada día). "
+"Entonces Lübbe Onken se ofreció a ayudar con algunos iconos más vistosos y "
+"un logo para TortoiseSVN. Y también se encarga de la página web y de "
+"administrar las traducciones."
 
 #. (title)
 msgid "TortoiseSVN's Features"
@@ -324,15 +371,17 @@ msgstr "Características de TortoiseSVN"
 
 #. (para)
 msgid "What makes TortoiseSVN such a good Subversion client? Here's a short list of features."
-msgstr "¿Qué hace de TortoiseSVN tan buen cliente de Subversion?\t Aquí hay una pequeña lista de sus características."
+msgstr ""
+"¿Qué hace de TortoiseSVN un tan buen cliente de Subversion? Aquí hay una "
+"pequeña lista de sus características."
 
 #. (term)
 msgid "Shell integration"
-msgstr "Integración con el shell de Windows"
+msgstr "Integración con la consola de Windows"
 
 #. (primary)
 msgid "Windows shell"
-msgstr "shell de Windows"
+msgstr "Consola de Windows"
 
 #. (primary)
 msgid "explorer"
@@ -340,11 +389,23 @@ msgstr "explorador"
 
 #. (para)
 msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
-msgstr "TortoiseSVN se integra perfectamente en el shell de Windows (por ejemplo, el explorador). Esto significa que puede seguir trabajando con las herramientas que ya conoce. ¡Y que no tiene que cambiar a una aplicación diferente cada vez que necesite las funciones del control de versiones!"
+msgstr ""
+"TortoiseSVN se integra perfectamente con la consola de Windows (por ejemplo, "
+"el explorador). Esto significa que puede seguir trabajando con las "
+"herramientas que ya conoce. ¡Y que no tiene que cambiar a una aplicación "
+"diferente cada vez que necesite las funciones del control de versiones!"
 
 #. (para)
 msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "Y ni siquiera está obligado a usar el Explorador de Windows. Los menús contextuales de TortoiseSVN funcionan en muchos otros administradores de archivos, y en el cuadro de diálogo Archivo/Abrir tan común a las aplicaciones estándar de Windows. Debería tenerse en cuenta, sin embargo, que TortoiseSVN se ha desarrollado intencionalmente como una extensión para el Explorador de Windows. Por tanto, es posible que en otras aplicaciones la integración no sea tan completa y, por ejemplo, los íconos sobreimpresos de TortoiseSVN pudieran no aparecer."
+msgstr ""
+"Y ni siquiera está obligado a usar el Explorador de Windows. Los menús "
+"contextuales de TortoiseSVN también funcionan en otros administradores de "
+"archivos, y en el diálogo Archivo/Abrir que es común en la mayoría de "
+"aplicaciones estándar de Windows. Sin embargo, debe tener en cuenta que "
+"TortoiseSVN está desarrollado con la intención de ser una extensión del "
+"Explorador de Windows. Por este motivo, puede que en otras aplicaciones la "
+"integración no sea tan completa, y que por ejemplo, los iconos superpuestos "
+"no se muestren."
 
 #. (term)
 msgid "Icon overlays"
@@ -12921,12 +12982,19 @@ msgstr "Copia de trabajo"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr "Esta es su <quote>caja de arena</quote> local, el área donde trabaja con los ficheros versionados, y normalmente se encuentra en su disco duro local. Puede crear una copia de trabajo al <quote>Obtener</quote> desde un repositorio, y devolver sus cambios al repositorio utilizando <quote>Confirmar</quote>."
+msgstr ""
+"Esta es su <quote>caja de arena</quote> local, el área donde trabaja con los "
+"ficheros versionados, y normalmente se encuentra en su disco duro local. "
+"Puede crear una copia de trabajo al <quote>Obtener</quote> desde un "
+"repositorio, y devolver sus cambios al repositorio utilizando "
+"<quote>Confirmar</quote>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "Fernando P. Najera Cano <yo@FernandoNajera.com>"
+msgstr ""
+"Fernando P. Najera Cano <yo@FernandoNajera.com>\n"
+"Juan Carlos Fuentes Michel (jcfuentes@gmail.com)."
 
 #. Place the translation of 'translation' here.
 #. (None)
