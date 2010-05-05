@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-11-25 10:48+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
+"PO-Revision-Date: 2010-05-05 15:43+0100\n"
+"Last-Translator: Imanol <imanol.nb@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,8 +97,8 @@ msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any w
 msgstr "TortoiseMerge es gratis. No tiene que pagar por él, y puede utilizarlo de la forma que desee. Se desarrolla bajo la licencia GP (GPL)."
 
 #. (para)
-msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge es un proyecto de Código Abierto. Esto significa que tiene acceso total de lectura del código fuente del programa. Puede verlo en este vínculo <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. Se le pedirá que introduzca un nombre de usuario y una contraseña. El usuario es <literal>guest</literal>, y la contraseña debe dejarse en blanco. La versión más reciente (en la que estamos trabajando actualmente) se encuentra bajo <filename>/trunk/</filename>, y las versiones liberadas se encuentran bajo <filename>/tags/</filename>."
+msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "TortoiseMerge es un proyecto de Código Abierto. Esto significa que tiene acceso total de lectura del código fuente del programa. Puede verlo en este vínculo <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. La versión más reciente (en la que estamos trabajando actualmente) se encuentra bajo <filename>/trunk/</filename>, y las versiones liberadas se encuentran bajo <filename>/tags/</filename>."
 
 #. (title)
 msgid "Donate!"
@@ -198,8 +198,8 @@ msgid "TortoiseMerge's History"
 msgstr "Historia de TortoiseMerge"
 
 #. (para)
-msgid "While working on <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
-msgstr "Mientras trabajamos en <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> hemos visto que cuando los usuarios nos enviaban parches para mejorar el proyecto o para arreglar errores, nos llevaba mucho tiempo aplicar esos parches. Y la mayor parte del tiempo esos parches estaban desactualizados y no se podían aplicar con la herramienta de línea de comandos patch <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> porque nosotros estábamos trabajando en esos ficheros y a veces ya habíamos cambiado esos ficheros."
+msgid "While working on <ulink url=\"http://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
+msgstr "Mientras trabajábamos en <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> vimos que cuando los usuarios nos enviaban parches para mejorar el proyecto o para arreglar errores, nos llevaba mucho tiempo aplicar esos parches. Además, muchas veces esos parches estaban desactualizados y no se podían aplicar con la herramienta de línea de comandos patch <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> porque nosotros estábamos trabajando en esos archivos y a veces ya los habíamos modificado."
 
 #. (para)
 msgid "This was also the main reason why TortoiseSVN did not originally have a <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> implemented: we preferred users to send us the whole files because with those it was easier to apply patches."
@@ -437,6 +437,21 @@ msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane 
 msgstr "<guibutton>Cambiar Vista</guibutton> selecciona entre la vista de un panel y de dos paneles. Está deshabilitado para la vista de 3 paneles."
 
 #. (para)
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Comparar espacios en blanco</guilabel> muestra todos los cambios en la indentación y en los espacios dentro de las líneas como si fueran líneas añadidas/eliminadas (que es como Subversion trata estos cambios)."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Ignorar cambios en espacios en blanco</guilabel> oculta los cambios que se deben únicamente a cambiar la cantidad de espacios en blanco, por ejemplo la indentación o cambios de tabuladores por espacios. Añadir un espacio en blanco donde antes no había, o quitar un espacio en blanco completamente se seguirán mostrando como cambios."
+
+#. (para)
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Ignorar todos los espacios en blanco</guilabel> oculta todos los cambios que sólo se deben a espacios en blanco."
+
+#. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Cambiar Vistas Izquierda y Derecha</guibutton> En la vista de dos paneles, intercambia las ventanas izquierda y derecha. Cuando está comparando un fichero en 2 árboles diferentes, en vez de comparar 2 revisiones del mismo fichero, TortoiseSVN no sabe cuál debería ir en el panel izquierdo como versión <quote>original/base</quote>. Si lo hace mal, puede cambiarlo para verlo más fácilmente."
 
@@ -445,8 +460,16 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Show/Hide Patch List</guibutton> Cuando TortoiseMerge tiene una lista de parches, este botón le permite ocultarla (para que pueda ver ambas ventanas), o mostrarla (para que pueda revisar la lista de ficheros)."
 
 #. (para)
+msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Colapsar</guilabel> colapsa las regiones no modificadas a una sola línea, dejando sólo las áreas cambiadas y el contexto mínimo. Puede expandir las áreas colapsadas haciendo doble click sobre la línea de colapsado, pero no puede volver a colapsarlas a menos que recargue el archivo."
+
+#. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Configuración</guibutton> le lleva al diálogo de opciones de TortoiseMerge."
+
+#. (para)
+msgid "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
+msgstr "<guibutton>Ayuda</guibutton> abre el archivo de ayuda de TortoiseMerge, por supuesto."
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
@@ -595,18 +618,6 @@ msgstr "<guilabel>Ignorar cambios de mayúsculas/minúsculas</guilabel> oculta l
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Colorear cambios dentro de las líneas</guilabel> utiliza el mismo esquema de la barra de diferencias de línea para mostrar los cambios detallados de las líneas dentro de los paneles de visualización principales. Las líneas que han sufrido muchas modificaciones no se mostrarán utilizando este método ya que los resultados son simplemente confusos. En este caso la línea se mostrará como reemplazada (línea antigua eliminada, línea nueva añadida)."
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Comparar espacios en blanco</guilabel> muestra todos los cambios en la indentación y en los espacios dentro de las líneas como si fueran líneas añadidas/eliminadas (que es como Subversion trata estos cambios)."
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Ignorar cambios en espacios en blanco</guilabel> oculta los cambios que se deben únicamente a cambiar la cantidad de espacios en blanco, por ejemplo la indentación o cambios de tabuladores por espacios. Añadir un espacio en blanco donde antes no había, o quitar un espacio en blanco completamente se seguirán mostrando como cambios."
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Ignorar todos los espacios en blanco</guilabel> oculta todos los cambios que sólo se deben a espacios en blanco."
 
 #. (title)
 msgid "Colour Settings Page"
@@ -1297,12 +1308,15 @@ msgstr "Traducción"
 #, fuzzy
 #~ msgid "Wish List"
 #~ msgstr "Lista de deseos"
+
 #~ msgid "F7 or cursor-right"
 #~ msgstr "F7 o cursor-derecho"
+
 #~ msgid "Shift-F7 or cursor-left"
 #~ msgstr "Mayúsculas-F7 o cursor-izquierdo"
+
 #~ msgid "Shift-cursor-right"
 #~ msgstr "Mayúsculas-cursor derecho"
+
 #~ msgid "Shift-cursor-left"
 #~ msgstr "Mayúsculas-cursor izquierdo"
-
