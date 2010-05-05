@@ -189,6 +189,9 @@ BOOL CCheckoutDlg::OnInitDialog()
 
     UpdateURLsFromCombo();
 
+    CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_TOURLLABEL)));
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKOUTDIRECTORY)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_EXPORT_CHECKOUTDIR)));
+
     AddAnchor(IDC_GROUPTOP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_URLOFREPO, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);

@@ -224,6 +224,9 @@ BOOL CCopyDlg::OnInitDialog()
     CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKALL)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
     CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
 
+    CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_TOURLLABEL)));
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_FROMURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_COPYSTARTLABEL)));
+
     AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_COPYSTARTLABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_FROMURL, TOP_LEFT, TOP_RIGHT);
