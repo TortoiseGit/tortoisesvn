@@ -182,7 +182,6 @@ BOOL CCommitDlg::OnInitDialog()
             if (SUCCEEDED(hr))
             {
                 SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? _T("") : temp);
-                GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(TRUE);
                 GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
                 bExtendUrlControl = false;
             }
@@ -803,6 +802,7 @@ UINT CCommitDlg::StatusThread()
     }
     if (m_bRunThread)
     {
+        DialogEnableWindow(IDC_BUGTRAQBUTTON, TRUE);
         DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
         if (m_ListCtrl.HasChangeLists())
             DialogEnableWindow(IDC_KEEPLISTS, true);
