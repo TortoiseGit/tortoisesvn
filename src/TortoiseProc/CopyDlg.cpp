@@ -226,6 +226,7 @@ BOOL CCopyDlg::OnInitDialog()
 
     CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_TOURLLABEL)));
     CAppUtils::SetAccProperty(GetDlgItem(IDC_FROMURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_COPYSTARTLABEL)));
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_DESTURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, _T("Alt+")+CString(CAppUtils::FindAcceleratorKey(this, IDC_DESTLABEL)));
 
     AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_COPYSTARTLABEL, TOP_LEFT, TOP_RIGHT);
