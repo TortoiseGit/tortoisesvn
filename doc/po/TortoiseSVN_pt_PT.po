@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-03 00:16-0000\n"
+"PO-Revision-Date: 2010-05-07 00:43-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -697,19 +697,19 @@ msgstr "Quando um cliente lê dados do repositório, ele normalmente vê só a �
 
 #. (title)
 msgid "Versioning Models"
-msgstr "Modelos de Controle de Versões"
+msgstr "Modelos de Controlo de Versões"
 
 #. (para)
 msgid "All version control systems have to solve the same fundamental problem: how will the system allow users to share information, but prevent them from accidentally stepping on each other's feet? It's all too easy for users to accidentally overwrite each other's changes in the repository."
-msgstr ""
+msgstr "Todos os sistemas de controlo de versões têm de resolver um problema fundamental: como irá o sistema permitir aos utilizadores partilhar informação, evitando ao mesmo tempo que pisem, por acidente, os pés uns dos outros? É muito fácil os utilizadores escreverem acidentalmente por cima das alterações de outros utilizadores no repositório."
 
 #. (title)
 msgid "The Problem of File-Sharing"
-msgstr "O Probelma de Partilha de Ficheiros"
+msgstr "O Problema da Partilha de Ficheiros"
 
 #. (para)
 msgid "Consider this scenario: suppose we have two co-workers, Harry and Sally. They each decide to edit the same repository file at the same time. If Harry saves his changes to the repository first, then it's possible that (a few moments later) Sally could accidentally overwrite them with her own new version of the file. While Harry's version of the file won't be lost forever (because the system remembers every change), any changes Harry made <emphasis>won't</emphasis> be present in Sally's newer version of the file, because she never saw Harry's changes to begin with. Harry's work is still effectively lost - or at least missing from the latest version of the file - and probably by accident. This is definitely a situation we want to avoid!"
-msgstr ""
+msgstr "Considera o seguinte cenário: supõem que temos dois colegas, Harry e Sally. Cada um decide editar o mesmo ficheiro do repositório, ao mesmo tempo. Se o Harry guardar primeiro as suas alterações no repositório, é possível que (momentos depois) a Sally possa as substituir com a sua versão do ficheiro. Enquanto que a versão do Harry não se perderá definitivamente (porque o sistema recorda-se de cada alteração), qualquer alteração feita pelo Harry <emphasis>não</emphasis> estará presente na nova versão do ficheiro da Sally porque, para começar, ela nunca viu as alterações do Harry. O trabalho do Harry estará efectivamente perdido - ou pelo menos ausente da última versão do ficheiro - e provavelmente por acidente. Esta é definitivamente uma situação que queremos evitar!"
 
 #. (title)
 msgid "The Problem to Avoid"
@@ -718,23 +718,23 @@ msgstr "O Problema a Evitar"
 #. (title)
 #. (title)
 msgid "The Lock-Modify-Unlock Solution"
-msgstr "A solução de Bloquear-Moficar-Desbloquear"
+msgstr "A Solução Bloquear-Modificar-Desbloquear"
 
 #. (para)
 msgid "Many version control systems use a <firstterm>lock-modify-unlock</firstterm> model to address this problem, which is a very simple solution. In such a system, the repository allows only one person to change a file at a time. First Harry must <emphasis>lock</emphasis> the file before he can begin making changes to it. Locking a file is a lot like borrowing a book from the library; if Harry has locked a file, then Sally cannot make any changes to it. If she tries to lock the file, the repository will deny the request. All she can do is read the file, and wait for Harry to finish his changes and release his lock. After Harry unlocks the file, his turn is over, and now Sally can take her turn by locking and editing."
-msgstr ""
+msgstr "Muitos sistemas de controlo de versões usam o modelo <firstterm>bloquear-modificar-desbloquear</firstterm> para resolver este problema, o que é uma solução muito simples. Em tal sistema, o repositório apenas permite que uma pessoa de cada vez possa modificar um ficheiro. Primeiro o Harry tem de <emphasis>bloquear</emphasis> o ficheiro, antes de poder editar o ficheiro. Bloquear um ficheiro é um pouco como requisitar um livro da biblioteca; se o Harry tem o ficheiro bloqueado, então a Sally não pode efectuar alterações nele. Se eia tentar bloquear o ficheiro, o repositório ir-lhe-á negar o pedido. Tudo o que ela pode fazer é apenas ler o ficheiro, e esperar que o Harry termine as suas alterações e liberte o bloqueio. Após o Harry desbloquear o ficheiro, termina a sua vez, e agora a Sally pode ter a sua vez ao bloquear e editar o ficheiro."
 
 #. (para)
 msgid "The problem with the lock-modify-unlock model is that it's a bit restrictive, and often becomes a roadblock for users:"
-msgstr ""
+msgstr "O problema com o modelo bloquear-modificar-desbloquear é que é um pouco restritivo, e torna-se muitas vezes um bloqueio para os utilizadores:"
 
 #. (para)
 msgid "<emphasis>Locking may cause administrative problems.</emphasis> Sometimes Harry will lock a file and then forget about it. Meanwhile, because Sally is still waiting to edit the file, her hands are tied. And then Harry goes on vacation. Now Sally has to get an administrator to release Harry's lock. The situation ends up causing a lot of unnecessary delay and wasted time."
-msgstr ""
+msgstr "<emphasis>Bloquear pode causar problemas administrativos.</emphasis> Por vezes o Harry irá bloquear um ficheiro e esquecer-se disso. Enquanto, porque a Sally está ainda à espera para editar o ficheiro, tem as mãos atadas. Então o Harry vai de férias. Agora a Sally tem de se dirigir ao administrador para este libertar o bloqueio do Harry. A situação acaba por causar um grande e desnecessário atraso e tempo perdido."
 
 #. (para)
 msgid "<emphasis>Locking may cause unnecessary serialization.</emphasis> What if Harry is editing the beginning of a text file, and Sally simply wants to edit the end of the same file? These changes don't overlap at all. They could easily edit the file simultaneously, and no great harm would come, assuming the changes were properly merged together. There's no need for them to take turns in this situation."
-msgstr ""
+msgstr "<emphasis>Bloquear pode causar serialização desnecessária.</emphasis> E se o Harry estiver a editar o início de um ficheiro de texto, e a Sally simplesmente quiser editar o final do mesmo ficheiro? Essas alterações não se sobreporiam de todo. Eles poderiam facilmente editar o ficheiro simultaneamente, e nenhum grande mal adviria daí, assumindo que as alterações seriam propriamente integradas em conjunto. Não há nenhuma necessidade deles recorrerem a turnos nesta situação."
 
 #. (para)
 msgid "<emphasis>Locking may create a false sense of security.</emphasis> Pretend that Harry locks and edits file A, while Sally simultaneously locks and edits file B. But suppose that A and B depend on one another, and the changes made to each are semantically incompatible. Suddenly A and B don't work together anymore. The locking system was powerless to prevent the problem - yet it somehow provided a sense of false security. It's easy for Harry and Sally to imagine that by locking files, each is beginning a safe, insulated task, and thus inhibits them from discussing their incompatible changes early on."
