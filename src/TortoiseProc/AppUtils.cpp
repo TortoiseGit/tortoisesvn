@@ -1386,10 +1386,11 @@ TCHAR CAppUtils::FindAcceleratorKey(CWnd * pWnd, UINT id)
     CString controlText;
     pWnd->GetDlgItem(id)->GetWindowText(controlText);
     int ampersandPos = controlText.Find('&');
-    if (ampersandPos > 0)
+    if (ampersandPos >= 0)
     {
         return controlText[ampersandPos+1];
     }
+    ATLASSERT(false);
     return 0;
 }
 
