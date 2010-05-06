@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2010-05-05 13:37-0300\n"
+"PO-Revision-Date: 2010-05-06 10:30-0300\n"
 "Last-Translator: Tommy <tommychristie@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "Language: es\n"
@@ -1364,16 +1364,15 @@ msgstr "Cambiar de una disposición a otra es sólo una cuestión de ejecutar un
 
 #. (para)
 msgid "create a new empty folder on your hard drive"
-msgstr "cree una nueva carpeta en su disco duro"
+msgstr "Cree una nueva carpeta en su disco duro"
 
 #. (para)
 msgid "create your desired top-level folder structure inside that folder - don't put any files in it yet!"
-msgstr "cree la estructura de carpetas de primer nivel dentro de esa carpeta - ¡no ponga ningún archivo allí todavía!"
+msgstr "Cree la estructura de carpetas de primer nivel dentro de esa carpeta - ¡no ponga ningún archivo allí todavía!"
 
 #. (para)
-#, fuzzy
 msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the URL to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
-msgstr "importe esta estructura en el repositorio via <action>click con el botón derecho</action> en la carpeta y seleccionando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar...</guimenuitem></menuchoice>. Esto importará su carpeta temporal a la raíz del repositorio para crear la estructura básica del repositorio."
+msgstr "Importe esta estructura en el repositorio via <action>click con el botón derecho</action> en la carpeta y seleccionando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar...</guimenuitem></menuchoice>. Esto importará su carpeta temporal a la raíz del repositorio para crear la estructura básica del repositorio."
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
@@ -2186,7 +2185,7 @@ msgstr "Especifica qué archivo de contraseñas se utiliza para la autentificaci
 
 #. (entry)
 msgid "Location of the Access file for paths inside a Subversion repository"
-msgstr "lugar del archivo de Acceso para las rutas dentro del repositorio de Subversion"
+msgstr "Lugar del archivo de Acceso para las rutas dentro del repositorio de Subversion"
 
 #. (entry)
 msgid "specifies that only users who entered a correct username/password are allowed to access the URL"
@@ -6148,9 +6147,8 @@ msgstr "<emphasis>Excusivamente para las propiedades de proyecto </emphasis>, po
 #. (para)
 #. (para)
 #. (para)
-#, fuzzy
 msgid "When you add new sub-folders to a working copy using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
-msgstr "Cuando añada nuevas subcarpetas utilizando TortoiseSVN, cualquier propiedad de proyecto presente en la carpeta padre se añadirá también automáticamente a la nueva carpeta hija."
+msgstr "Cuando añada nuevas subcarpetas a una copia de trabajo utilizando TortoiseSVN, cualquier propiedad de proyecto presente en la carpeta padre se añadirá también automáticamente a la nueva carpeta hija."
 
 #. (title)
 #. (title)
@@ -10486,7 +10484,7 @@ msgstr "La interfase de IBugtraqProvider"
 
 #. (para)
 msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr ""
+msgstr "TortoiseSVN 1.5 y posteriores puede usar extensiones que implementan la interface IBugtraqPorvider. La interface provee algunos métodos que las extensiones pueden usar para interactuar con la herramienta de seguimiento."
 
 #. (programlisting)
 #, no-wrap
@@ -10504,10 +10502,21 @@ msgid ""
 "  [out, retval] VARIANT_BOOL *valid\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT ValidateParameters (\n"
+"  // Ventana primaria para cualquier interfaz de usuario  // que se debe mostrar durante la validación.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // La cadena de caracteres que necesita ser validada.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // ¿Es valida la cadena de caracteres?\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
 
 #. (para)
 msgid "This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr ""
+msgstr "Este método es llamado desde el diálogo de configuración en el cual el usuario puede agregar y configurar la extensión. Los <literal>parámetros</literal> \"cadena de caracteres\" pueden ser utilizados por la extensión para obtener información adicional requerida, ej., la URL al seguimiento de tareas, información de identificación, etc. La extensión debería verificar los <literal>parámetros</literal> \"cadena de caracteres\" y mostrar un diálogo de error si la cadena de caracteres no es válida. El parámetro <literal>hParentWnd</literal> debería ser utilizado para cualquier diálogo que la extensión muestre como si fuese la ventana principal. La extensión debe retornar TRUE si la validación de los <literal>parámetros</literal> \"cadena de caracteres\" es exitosa. Si la extensión retorna FALSE, el diálogo de configuración no le permitirá al usuario agregar la extensión a una ruta de una copia de trabajo."
 
 #. (programlisting)
 #, no-wrap
@@ -10526,6 +10535,19 @@ msgid ""
 "  [out, retval] BSTR *linkText\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // Ventana principal para cualquier (error) interfaz de usuario que necesite ser mostrada.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Una cadena de caracteres, por si acaso necesitas conversar con tu\n"
+"  // servicio web (ej.) para saber cual es el texto correcto.\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // ¿Que texto deseas mostrar?\n"
+"  // Use el hilo actual localmente.\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
 
 #. (para)
 msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
