@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-06 20:02+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2010-05-06 10:50-0300\n"
+"Last-Translator: augusto <augustowloch@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -254,6 +254,10 @@ msgid ""
 "Shall I update the working copy now\n"
 "and reopen the commit dialog?"
 msgstr ""
+"%s\n"
+"\n"
+"Desea que actualice la copia de trabajo ahora\n"
+"y reabra el diálogo de confirmación ?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1196,7 +1200,7 @@ msgstr "&Copia de trabajo"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
-msgstr ""
+msgstr "&control de lista de archivos"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
@@ -1911,7 +1915,7 @@ msgstr "Automático"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
-msgstr ""
+msgstr "Verficiador de Autotexto"
 
 #. Resource IDs: (1157)
 msgid "Average"
@@ -2194,7 +2198,7 @@ msgstr "Cambios hechos (doble-click en fichero para ver diferencias):"
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
-msgstr ""
+msgstr "Cambiando externos a revisión fija"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2214,7 +2218,7 @@ msgstr "Buscar actualizaciones..."
 
 #. Resource IDs: (1544)
 msgid "Check externals to tag"
-msgstr ""
+msgstr "Marcar externos a etiqueta"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2443,6 +2447,8 @@ msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr ""
+"Colapsar secciones no modificadas\n"
+"Colapsar"
 
 #. Resource IDs: (32870)
 msgid "Collapsed"
@@ -2506,7 +2512,7 @@ msgstr "Confirmar - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
-msgstr ""
+msgstr "Falló la Confirmación - Es necesario actualizar"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2582,6 +2588,8 @@ msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
 msgstr ""
+"Compara todos los espacios en blanco cuando se calculan las diferencias\n"
+"Comparar espacios en blanco"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
@@ -3191,7 +3199,7 @@ msgstr "Eliminando"
 
 #. Resource IDs: (348)
 msgid "Deleting cached data"
-msgstr ""
+msgstr "Eliminando datos cacheados"
 
 #. Resource IDs: (348)
 msgid "Deleting file"
@@ -3414,6 +3422,10 @@ msgid ""
 "working copies next to each other.\n"
 "This works for directory URLs only."
 msgstr ""
+"No hacer del directorio donde obtener una copia de trabajo dispersa.\n"
+"En vez de ello, obtener todos los URLs en una copia de trabajo\n"
+"separada, una al lado de la otra.\n"
+"Esto solo es posible con directorios URL."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3666,7 +3678,7 @@ msgstr "Introduzca un entero."
 
 #. Resource IDs: (65535)
 msgid "Enter file content to test for below:"
-msgstr ""
+msgstr "Ingrese debajo el contenido del archivo a probar"
 
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
@@ -3683,7 +3695,7 @@ msgstr "Introduzca no más de %1 caracteres."
 
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
-msgstr ""
+msgstr "Ingrese debajo la cadena de la expresión regular"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4163,7 +4175,7 @@ msgstr "Hacia delante"
 
 #. Resource IDs: (65535)
 msgid "Found auto words:"
-msgstr ""
+msgstr "Palabras automáticas encontradas:"
 
 #. Resource IDs: (1200, 65535)
 msgid "From:"
@@ -4818,12 +4830,16 @@ msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr ""
+"Ignorar los espacios en blanco cambiados cuando se calculan las diferencias\n"
+"Ignorar los espacios en blanco cambiados "
 
 #. Resource IDs: (2055)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
 msgstr ""
+"Ignorar los cambios de espacios en blanco cuando se calculan diferencias\n"
+"Ignorar cambios en espacios en blanco"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5096,7 +5112,7 @@ msgstr "Items en &externos"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
-msgstr ""
+msgstr "Items a mostrar"
 
 #. Resource IDs: (1074)
 msgid "J&ump to first conflict when loading"
@@ -5734,7 +5750,7 @@ msgstr "Moviendo..."
 
 #. Resource IDs: (1204)
 msgid "Multiple, &independent working copies"
-msgstr ""
+msgstr "Multiples, copias de trabajo independientes"
 
 #. Resource IDs: (65535)
 msgid "My file:"
@@ -5889,7 +5905,7 @@ msgstr "No se encuentra un codificador de imagen para %s."
 
 #. Resource IDs: (84)
 msgid "No path or pathfile specified on the command line!"
-msgstr ""
+msgstr "No se especificó una ruta o archivo en la línea de comandos!"
 
 #. Resource IDs: (188)
 msgid "No spell corrections"
@@ -7422,7 +7438,7 @@ msgstr "¡Cadena de búsqueda no encontrada!"
 
 #. Resource IDs: (169)
 msgid "Searching for better path to apply patch..."
-msgstr ""
+msgstr "Buscando una ruta mejor para aplicar el parche..."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -7805,7 +7821,7 @@ msgstr "Mostrar el nodo más antiguo arriba"
 
 #. Resource IDs: (1229)
 msgid "Show only a&ffected paths"
-msgstr ""
+msgstr "Mostrar solo rutas a&fectadas"
 
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
@@ -8103,6 +8119,18 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
+"Filtro de sub-cadenas:\r\n"
+"* Especifique una o más cadenas, separadas por espacios. Todas las sub-cadenas deberan coincidir.\r\n"
+"* Utilice un guión - delante de una sub-cadena para excluir revisiones que contengan esa sub-cadena.\r\n"
+"* Delimite las cadenas que contengan espacios, etc. con \".\r\n"
+"* Utilice un signo de admiración ! al principio de la linea para invertir completamente el condicional del filtro.\r\n"
+"\r\n"
+"Ejemplos:\r\n"
+"minombre  2008    : mis confirmación de 2008\r\n"
+".h  -.cpp              : confirma los archivos .h (encabezados) que fueron modificados pero no las implementaciones\r\n"
+"\" \"                        : confirma con espacios (cuando solo se buscan en rutas, por ejemplo)\r\n"
+"-\"\"mostrar todo\"\"        : confirma los que no contienen la cadena '\"mostrar todo\"'\r\n"
+"!minombre  .cpp    : todo, excepto mis confirmaciones de archivos .cpp"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -9097,7 +9125,7 @@ msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
-msgstr ""
+msgstr "TortoiseSVN auto confirmación: se cambio externos a revision fija."
 
 #. Resource IDs: (98)
 #, c-format
@@ -9699,6 +9727,9 @@ msgid ""
 "Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
 msgstr ""
+"ATENCIÓN:\r\n"
+"Solo modifique estos parametros si esta absolutamente seguro de lo que esta haciendo!\r\n"
+"Para volver los valores a su valor por defecto, deje el texto en blanco"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -10378,7 +10409,7 @@ msgstr "bloqueado:"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"
-msgstr ""
+msgstr "&editor de texto del registro"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
@@ -10889,27 +10920,37 @@ msgstr "{BugTraq}"
 
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Autor:                                     Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Comprobar automáticamente si hay versiones &nuevas cada semana"
+
 #~ msgid "Edit conflict"
 #~ msgstr "Ediar conflicto"
+
 #~ msgid "From URL:"
 #~ msgstr "Desde la URL:"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "&Ocultar rutas cambiadas no relacionadas"
+
 #~ msgid ""
 #~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr ""
 #~ "Si se habilita, TortoiseSVN comprueba una vez a la semana si está "
 #~ "disponible una versión más actualizada"
+
 #~ msgid "Show &properties"
 #~ msgstr "Mostrar &propiedades"
+
 #~ msgid "Show i&gnored files"
 #~ msgstr "Mostrar archivos i&gnorados"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "Mostrar archivos no &modificados"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "Mostrar archivos no &versionados"
+
 #~ msgid ""
 #~ "Subversion encountered a serious problem.\n"
 #~ "Please take the time to report this on our mailing list\n"
@@ -10924,18 +10965,25 @@ msgstr "{BugTraq}"
 #~ "como sea posible.\n"
 #~ "\n"
 #~ "Subversion reportó lo siguiente:"
+
 #~ msgid "Cleaning up."
 #~ msgstr "Limpiando."
+
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, pero el fichero local ya ha sido editado."
+
 #~ msgid "General::Revision Graph"
 #~ msgstr "General::Gráfico de revisiones"
+
 #~ msgid "Go offline?"
 #~ msgstr "¿Pasar a sin conexión?"
+
 #~ msgid "Replaced node"
 #~ msgstr "Nodo reemplazado"
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Unidades de disco flexible (A: B:)"
+
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -10950,44 +10998,64 @@ msgstr "{BugTraq}"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a></u>"
+
 #~ msgid "(deleted) %s"
 #~ msgstr "(eliminado) %s"
+
 #~ msgid "Only record the merge"
 #~ msgstr "Sólo registrar la fusión"
+
 #~ msgid "alias (deleted): %s"
 #~ msgstr "alias (borrado): %s"
+
 #~ msgid "&?"
 #~ msgstr "&?"
+
 #~ msgid "SVN Export to here"
 #~ msgstr "SVN Exportar aquí"
+
 #~ msgid "Merge all..."
 #~ msgstr "Fusionar todo..."
+
 #~ msgid "Bro&wse..."
 #~ msgstr "Exp&lorar..."
+
 #~ msgid "Brows&e..."
 #~ msgstr "Expl&orar..."
+
 #~ msgid "Force blame"
 #~ msgstr "Forzar autoría"
+
 #~ msgid "Bug Tracker..."
 #~ msgstr "Gestión de incidencias..."
+
 #~ msgid "Issue Tracker Hook"
 #~ msgstr "Gancho de gestión de incidencias"
+
 #~ msgid "Remove..."
 #~ msgstr "Eliminar..."
+
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Abrir Ctrl-O"
+
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Guardar"
+
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "&Deshacer\tCtrl+Z"
+
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Usar &ampliador en barra de localización"
+
 #~ msgid "Analyze revision data..."
 #~ msgstr "Analizar datos de la revisión..."
+
 #~ msgid "Checking for forward copies"
 #~ msgstr "Comprobando copias hacia delante"
+
 #~ msgid "Groups branches together"
 #~ msgstr "Hace grupos juntando ramas"
+
 #~ msgid ""
 #~ "This method covers the case when you have made a feature branch as "
 #~ "discussed in the Subversion book. All trunk changes have been ported to "
@@ -11005,4 +11073,3 @@ msgstr "{BugTraq}"
 #~ "sincronizada con el tronco, las últimas versiones de la rama y del tronco "
 #~ "serán exactamente iguales salvo por los cambios de su rama. Por lo que en "
 #~ "este caso especial, fusionaría comparando la rama con el tronco."
-
