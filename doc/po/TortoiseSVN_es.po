@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-07 16:11-0300\n"
+"PO-Revision-Date: 2010-05-07 16:54-0300\n"
 "Last-Translator: Tommy <tommychristie@gmail.com>\n"
 "Language-Team: Tomás Christie\n"
 "Language: es\n"
@@ -172,7 +172,10 @@ msgstr "Confirmaciones atómicas"
 
 #. (para)
 msgid "A commit either goes into the repository completely, or not at all. This allows developers to construct and commit changes as logical chunks."
-msgstr "Una confirmación puede entrar al repositorio completamente, o no entrar en absoluto. Esto permite a los desarrolladores generar y confirmar cambios como unidades lógicas."
+msgstr ""
+"Una confirmación puede entrar al repositorio completamente, o no entrar en "
+"absoluto. Esto permite a los desarrolladores generar y confirmar cambios "
+"como unidades lógicas."
 
 #. (term)
 msgid "Versioned metadata"
@@ -356,7 +359,12 @@ msgstr "El capítulo sobre el <xref linkend=\"tsvn-repository\"/> explica cómo 
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
-msgstr "La <xref linkend=\"tsvn-dug\"/> es la sección más importante, ya que le explica todas las características principales de TortoiseSVN y cómo utilizarlas. Tiene la forma de un tutorial, empezando con obtener una copia de trabajo, modificarla, confirmar los cambios, etc. Luego avanza a temas más avanzados."
+msgstr ""
+"La <xref linkend=\"tsvn-dug\"/> es la sección más importante, ya que le "
+"explica todas las características principales de TortoiseSVN y cómo "
+"utilizarlas. Tiene la forma de un tutorial, empezando con obtener una copia "
+"de trabajo, modificarla, confirmar los cambios, etc. Luego avanza a temas "
+"más avanzados."
 
 #. (para)
 msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
@@ -554,7 +562,14 @@ msgstr "Ahora ya tenemos un repositorio, pero está completamente vacío. Asumam
 
 #. (para)
 msgid "The other important feature of this dialog is the <guilabel>Import Message</guilabel> box which allows you to enter a message describing what you are doing. When you come to look through your project history, these commit messages are a valuable guide to what changes have been made and why. In this case we can say something simple like <quote>Import the Widget1 project</quote>. Click on <guibutton>OK</guibutton> and the folder is added to your repository."
-msgstr "La otra característica importante de este diálogo es el cuadro de texto <guilabel>Mensaje de Importación</guilabel> que permite ingresar un mensaje que describa lo que se está haciendo. Cuando vaya a mirar la historia del proyecto, esos mensajes de actualización serán una guía valiosa de qué cambios se hicieron y porqué. En este caso podemos poner algo simple como <quote>Importar el proyecto Widget1</quote>. Haga clic en el botón <guibutton>OK</guibutton> y la carpeta será agregada al repositorio."
+msgstr ""
+"La otra característica importante de este diálogo es el cuadro de texto "
+"<guilabel>Mensaje de Importación</guilabel> que permite ingresar un mensaje "
+"que describa lo que se está haciendo. Cuando vaya a mirar la historia del "
+"proyecto, esos mensajes de actualización serán una guía valiosa de qué "
+"cambios se hicieron y porqué. En este caso podemos poner algo simple como "
+"<quote>Importar el proyecto Widget1</quote>. Haga clic en el botón "
+"<guibutton>OK</guibutton> y la carpeta será agregada al repositorio."
 
 #. (title)
 #, fuzzy
@@ -590,7 +605,17 @@ msgstr "Puede utilizar el comando Resuelto para múltiples archivos si pulsa con
 
 #. (para)
 msgid "OK, so we are happy with the changes, let's update the repository. This action is referred to as a <literal>Commit</literal> of the changes. Right click on the <filename>Widget1-Dev</filename> folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice>. The commit dialog lists the changed files, each with a checkbox. You might want to choose only a subset of those files, but in this case we are going to commit the changes to both files. Enter up a message to describe what the change is all about and click on <guibutton>OK</guibutton>. The progress dialog shows the files being uploaded to the repository and you're done."
-msgstr "Bien, estamos contentos con los cambios, ahora actualicemos el repositorio. Esta acción se denomina <literal>Actualizar</literal> los cambios. Haga clic derecho sobre la carpeta <filename>Widget1-Dev</filename> y elija <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. El diálogo de actualización muestra los archivos cambiado, cada uno con una tilde. Puede elegir solo un subconjunto de esos archivos, pero en este caso vamos a actualizar los cambios en ambos archivos. Ingrese un mensaje que describa para que es el cambio y haga clic en <guibutton>OK</guibutton>. El diálogo de progreso muestra los archivos que están siendo actualizados al repositorio y está listo."
+msgstr ""
+"Bien, estamos contentos con los cambios, ahora actualicemos el repositorio. "
+"Esta acción se denomina <literal>Actualizar</literal> los cambios. Haga clic "
+"derecho sobre la carpeta <filename>Widget1-Dev</filename> y elija <menuchoi"
+"ce><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menu"
+"choice>. El diálogo de actualización muestra los archivos cambiado, cada uno "
+"con una tilde. Puede elegir solo un subconjunto de esos archivos, pero en "
+"este caso vamos a actualizar los cambios en ambos archivos. Ingrese un "
+"mensaje que describa para que es el cambio y haga clic en "
+"<guibutton>OK</guibutton>. El diálogo de progreso muestra los archivos que "
+"están siendo actualizados al repositorio y está listo."
 
 #. (title)
 #, fuzzy
@@ -603,7 +628,11 @@ msgstr "Mientras el proyecto avanza necesitará agregar nuevos archivos - por ej
 
 #. (para)
 msgid "Now when you go to commit the folder, the new file shows up as <emphasis>Added</emphasis> and the existing file as <emphasis>Modified</emphasis>. Note that you can double click on the modified file to check exactly what changes were made."
-msgstr "Ahora, cuando va a actualizar la carpeta, el nuevo archivo aparece como <emphasis>Agregado</emphasis> y el archivo existente como <emphasis>Modificado</emphasis>. Note que puede hacer un doble clic en el archivo modificado para verificar exactamente que cambios se realizaron."
+msgstr ""
+"Ahora, cuando va a actualizar la carpeta, el nuevo archivo aparece como "
+"<emphasis>Agregado</emphasis> y el archivo existente como "
+"<emphasis>Modificado</emphasis>. Note que puede hacer un doble clic en el "
+"archivo modificado para verificar exactamente que cambios se realizaron."
 
 #. (title)
 msgid "Viewing the Project History"
@@ -1511,7 +1540,11 @@ msgstr "Si desea hacer disponible su repositorio de Subversion a los demás, pue
 
 #. (para)
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TortoiseSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
-msgstr "Cuando se instala TortoiseSVN, se registra un nuevo protocolo <literal>tsvn:</literal>. Cuando un usuario de TortoiseSVN pulsa en un enlace con ese protocolo, aparece el diálogo obtener automáticamente con la URL del repositorio ya escrita."
+msgstr ""
+"Cuando se instala TortoiseSVN, se registra un nuevo protocolo "
+"<literal>tsvn:</literal>. Cuando un usuario de TortoiseSVN pulsa en un "
+"enlace con ese protocolo, aparece el diálogo obtener automáticamente con la "
+"URL del repositorio ya escrita."
 
 #. (programlisting)
 #, no-wrap
@@ -10487,7 +10520,14 @@ msgstr "Para lograr una integración más compacta con herramientas de seguimien
 
 #. (para)
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Nosotros no podemos proveer información y tutoriales acerca de como implementar un objeto COM en su lenguaje favorito, pero sí tenemos ejemplos de extensiones en C++/ATL y C# en nuestro repositorio in el directiorio <filename>contrib/issue-tracker-plugins</filename>. En ese directorio usted tambien puede encontrar los archivos requeridos para compilar su extensión.  (<xref linkend=\"tsvn-preface-source\"/> explica como acceder al repositorio)."
+msgstr ""
+"Nosotros no podemos proveer información y tutoriales acerca de como "
+"implementar un objeto COM en su lenguaje favorito, pero sí tenemos ejemplos "
+"de extensiones en C++/ATL y C# en nuestro repositorio in el directiorio "
+"<filename>contrib/issue-tracker-plugins</filename>. En ese directorio usted "
+"tambien puede encontrar los archivos requeridos para compilar su extensión. "
+" (<xref linkend=\"tsvn-preface-source\"/> explica como acceder al "
+"repositorio)."
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
@@ -10495,11 +10535,14 @@ msgstr "Se debería proveer una versión de 32-bit y una de 64-bit de su extensi
 
 #. (title)
 msgid "The IBugtraqProvider interface"
-msgstr "La interfase de IBugtraqProvider"
+msgstr "La interfaz de IBugtraqProvider"
 
 #. (para)
 msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr "TortoiseSVN 1.5 y posteriores puede usar extensiones que implementan la interface IBugtraqPorvider. La interface provee algunos métodos que las extensiones pueden usar para interactuar con la herramienta de seguimiento."
+msgstr ""
+"TortoiseSVN 1.5 y posteriores puede usar extensiones que implementan la "
+"interfaz IBugtraqPorvider. La interfaz provee algunos métodos que las "
+"extensiones pueden usar para interactuar con la herramienta de seguimiento."
 
 #. (programlisting)
 #, no-wrap
@@ -10519,19 +10562,33 @@ msgid ""
 msgstr ""
 "\n"
 "HRESULT ValidateParameters (\n"
-"  // Ventana primaria para cualquier interfaz de usuario  // que se debe mostrar durante la validación.\n"
+"  // Ventana primaria para cualquier interfaz\n"
+"  // que se necesite mostrar durante la validación.\n"
 "  [in] HWND hParentWnd,\n"
 "\n"
 "  // La cadena de caracteres que necesita ser validada.\n"
 "  [in] BSTR parameters,\n"
 "\n"
-"  // ¿Es valida la cadena de caracteres?\n"
+"  // ¿Es valido el string?\n"
 "  [out, retval] VARIANT_BOOL *valid\n"
 ");\n"
 
 #. (para)
 msgid "This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr "Este método es llamado desde el diálogo de configuración en el cual el usuario puede agregar y configurar la extensión. Los <literal>parámetros</literal> \"cadena de caracteres\" pueden ser utilizados por la extensión para obtener información adicional requerida, ej., la URL al seguimiento de tareas, información de identificación, etc. La extensión debería verificar los <literal>parámetros</literal> \"cadena de caracteres\" y mostrar un diálogo de error si la cadena de caracteres no es válida. El parámetro <literal>hParentWnd</literal> debería ser utilizado para cualquier diálogo que la extensión muestre como si fuese la ventana principal. La extensión debe retornar TRUE si la validación de los <literal>parámetros</literal> \"cadena de caracteres\" es exitosa. Si la extensión retorna FALSE, el diálogo de configuración no le permitirá al usuario agregar la extensión a una ruta de una copia de trabajo."
+msgstr ""
+"Este método es llamado desde el diálogo de configuración en el cual el "
+"usuario puede agregar y configurar la extensión. Los "
+"<literal>parámetros</literal> string pueden ser utilizados por la extensión "
+"para obtener información adicional requerida, ej., la URL al seguimiento de "
+"tareas, información de identificación, etc. La extensión debería verificar "
+"los <literal>parámetros</literal> string y mostrar un diálogo de error si la "
+"cadena de caracteres no es válida. El parámetro "
+"<literal>hParentWnd</literal> debería ser utilizado para cualquier diálogo "
+"que la extensión muestre como si fuese la ventana principal. La extensión "
+"debe retornar TRUE si la validación de los <literal>parámetros</literal> "
+"string es exitosa. Si la extensión retorna FALSE, el diálogo de "
+"configuración no le permitirá al usuario agregar la extensión a una ruta de "
+"una copia de trabajo."
 
 #. (programlisting)
 #, no-wrap
@@ -10552,10 +10609,11 @@ msgid ""
 msgstr ""
 "\n"
 "HRESULT GetLinkText (\n"
-"  // Ventana principal para cualquier (error) interfaz de usuario que necesite ser mostrada.\n"
+"  // Ventana principal para cualquier (error) interfaz de usuario \n"
+"  // que necesite ser mostrada.\n"
 "  [in] HWND hParentWnd,\n"
 "\n"
-"  // Una cadena de caracteres, por si acaso necesitas conversar con tu\n"
+"  // Un string, por si acaso necesitas conversar con tu\n"
 "  // servicio web (ej.) para saber cual es el texto correcto.\n"
 "  [in] BSTR parameters,\n"
 "\n"
@@ -10567,6 +10625,12 @@ msgstr ""
 #. (para)
 msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
 msgstr ""
+"La extensión puede proveer un string aquí que sera utilizado en el diálogo "
+"de actualización del TortoiseSVN para el botón que invoca a la extensión, "
+"ej., \"Elija tema\" o \"Seleccione tiquet\". Asegúrese de que el string no sea "
+"demasiado largo, de lo contrario podría no caber en el botón. Si el método "
+"devuelve un error (ej., <literal>E_NOTIMPL</literal>), un texto por defecto "
+"será utilizado para el botón."
 
 #. (programlisting)
 #, no-wrap
@@ -10591,14 +10655,40 @@ msgid ""
 "  [out, retval] BSTR *newMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetCommitMessage (\n"
+"  // Ventana principal de su Interfaz proveedora.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parámetros para su proveedor.\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // El texto ya presente in el mensaje de actualización.\n"
+"  // Su proveedor debería incluir este texto en los mensajes\n"
+"  // nuevos, cuando corresponda.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // El nuevo texto para el mensaje de actualización.\n"
+"  // Reemplazada el mensaje original.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
 
 #. (para)
 msgid "This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button."
 msgstr ""
+"Este es el método principal de la extensión. Este método es llamado desde el "
+"diálogo de actualización del TortoiseSVN cuando el usuario pulsa el botón "
+"de la extensión."
 
 #. (para)
 msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
 msgstr ""
+"Los <literal>parámetros</literal> string es el string que el usuario debe "
+"ingresar al diálogo de configuración al configurar la extensión. Normalmente "
+"la extensión utilizaría esto para encontrar la URL del gestor de "
+"incidencias y/o información de identificación o más."
 
 #. (para)
 msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
@@ -10802,7 +10892,13 @@ msgstr "Dado que el desarrollo de TortoiseSVN es continuo, a veces es complicado
 
 #. (para)
 msgid "We also maintain a project <ulink url=\"http://issues.tortoisesvn.net\"><citetitle>Issue Tracker</citetitle></ulink> which tells you about some of the things we have on our To-Do list, and bugs which have already been fixed. If you think you have found a bug, or want to request a new feature, check here first to see if someone else got there before you."
-msgstr "También mantenemos un <ulink url=\"http://issues.tortoisesvn.net\"><citetitle>Gestor de incidencias</citetitle></ulink> que le puede informar de algunas de las cosas que tenemos en nuestra lista de tareas pendientes, y errores que ya han sido corregidos. Si cree que ha encontrado un error, o quiere pedir una nueva funcionalidad, mire aquí primero para ver si alguien se le adelantó."
+msgstr ""
+"También mantenemos un <ulink "
+"url=\"http://issues.tortoisesvn.net\"><citetitle>Gestor de "
+"incidencias</citetitle></ulink> que le puede informar de algunas de las "
+"cosas que tenemos en nuestra lista de tareas pendientes, y errores que ya "
+"han sido corregidos. Si cree que ha encontrado un error, o quiere pedir una "
+"nueva funcionalidad, mire aquí primero para ver si alguien se le adelantó."
 
 #. (para)
 msgid "<email>users@tortoisesvn.tigris.org</email> is the one to use if you have questions about using TortoiseSVN."
