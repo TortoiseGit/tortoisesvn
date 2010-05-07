@@ -1,4 +1,4 @@
-# 
+#
 # Spanish translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 #
@@ -15,14 +15,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-11-16 07:38 +0000\n"
-"PO-Revision-Date: 2010-05-06 10:30-0300\n"
-"Last-Translator: Tommy <tommychristie@gmail.com>\n"
+"POT-Creation-Date: 2010-04-21 22:39 +0000\n"
+"PO-Revision-Date: 2010-05-07 10:33-0300\n"
+"Last-Translator: Alejandro Ariel Abaca <abacrotto@hotmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.6.0\n"
 
@@ -518,11 +518,11 @@ msgstr ""
 
 #. (title)
 msgid "Go for a Test Drive"
-msgstr ""
+msgstr "Prueba del producto"
 
 #. (para)
 msgid "This section shows you how to try out some of the most commonly used features on a small test repository. Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
-msgstr ""
+msgstr "Esta sección demuestra como probar algunas de las características más usadas sobre un pequeño repositorio de pruebas. Naturalmente, no explica absolutamente todo - esta es la Guía de Inicio Rápido, después de todo. Una vez que esté funcionando tomese el tiempo de leer el resto de este manual de usuario, que le muestra las cosas con mucho más detalle. También le muestra las configuraciones correctas para un servidor Subversion."
 
 #. (title)
 #, fuzzy
@@ -531,15 +531,15 @@ msgstr "Crear repositorio aquí"
 
 #. (para)
 msgid "For a real project you will have a repository set up somewhere safe and a Subversion server to control it. For the purposes of this tutorial we are going to use Subversion's local repository feature which allows direct access to a repository created on your hard drive without needing a server at all."
-msgstr ""
+msgstr "Para un proyecto real tendrá una repositorio configurado en algún lugar seguro y un servidor Subversion que lo controle. Para este tutorial vamos a usar una característica de repositorio local de Subversion, la que permite acceso directo a un repositorio creado en su disco rígido sin necesidad de un servidor."
 
 #. (para)
 msgid "First create a new empty directory on your PC. It can go anywhere, but in this tutorial we are going to call it <filename>C:\\svn_repos</filename>. Now right click on the new folder and from the context menu choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>. The repository is then created inside the folder, ready for you to use."
-msgstr ""
+msgstr "Para empezar cree una carpeta vacía en su PC. Puede ser en cualquier lugar, pero en este tutorial vamos a llamarlo <filename>C:\\svn_repos</filename>. Luego, haga clic derecho sobre la nueva carpeta y del menú de contexto elija <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Crear un repositorio aquí...</guimenuitem></menuchoice>. El repositorio queda creado dentro de la carpeta, listo para su uso."
 
 #. (para)
 msgid "The local repository feature is very useful for test and evaluation but unless you are working as a sole developer on one PC you should always use a proper Subversion server. It is tempting in a small company to avoid the work of setting up a server and just access your repository on a network share. Don't ever do that. You will lose data. Read <xref linkend=\"tsvn-repository-local-share\"/> to find out why this is a bad idea, and how to set up a server."
-msgstr ""
+msgstr "La característica de repositorio local es muy útil para prueba y evaluación pero, a menos que esté trabajando como desarrollador único en una PC, siempre debería usar un servidor Subversión correctamente configurado. Es tentador, en una compañía pequeña, evitar el trabajo de configurar un servidor y acceder el repositorio en un recurso compartido de la red. Nunca lo haga. Perderá datos. Lea <xref linkend=\"tsvn-repository-local-share\"/> para enterarse porque es una mala idea hacerlo y para aprender como configurar un servidor."
 
 #. (title)
 #, fuzzy
@@ -553,11 +553,11 @@ msgstr "El diálogo Importar"
 
 #. (para)
 msgid "Now we have a repository, but it is completely empty at the moment. Let's assume I have a set of files in <filename>C:\\Projects\\Widget1</filename> that I would like to add. Navigate to the <filename>Widget1</filename> folder in Explorer and right click on it. Now select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog <placeholder-1/> A Subversion repository is referred to by URL, which allows us to specify a repository anywhere on the Internet. In this case we need to point to our own local repository which has a URL of <filename>file:///c:/svn_repos/Widget1</filename> Note that there are 3 slashes after <filename>file:</filename> and that the forward slashes are used throughout."
-msgstr ""
+msgstr "Ahora ya tenemos un repositorio, pero está completamente vacío. Asumamos que tenemos un conjunto de archivos en <filename>C:\\Projects\\Widget1</filename> que queremos agregar. Navegamos a la carpeta <filename>Widget1</filename> en el Explorador de Windows y hacemos clic derecho sobre ella. Ahora seleccionamos <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar...</guimenuitem></menuchoice> la que abre un diálogo <placeholder-1/> Un repositorio Subversion se referencia por su URL, lo que nos permite especificar un repositorio en cualquier lado de Internet. En este caso necesitamos apuntar a nuestro propio repositorio local que tiene una URL <filename>file:///c:/svn_repos/Widget1</filename> Notemos que hay 3 barras de dividir luego de <filename>file:</filename> y que siempre se usan esas barras."
 
 #. (para)
 msgid "The other important feature of this dialog is the <guilabel>Import Message</guilabel> box which allows you to enter a message describing what you are doing. When you come to look through your project history, these commit messages are a valuable guide to what changes have been made and why. In this case we can say something simple like <quote>Import the Widget1 project</quote>. Click on <guibutton>OK</guibutton> and the folder is added to your repository."
-msgstr ""
+msgstr "La otra característica importante de este diálogo es el cuadro de texto <guilabel>Mensaje de Importación</guilabel> que permite ingresar un mensaje que describa lo que se está haciendo. Cuando vaya a mirar la historia del proyecto, esos mensajes de actualización serán una guía valiosa de qué cambios se hicieron y porqué. En este caso podemos poner algo simple como <quote>Importar el proyecto Widget1</quote>. Haga clic en el botón <guibutton>OK</guibutton> y la carpeta será agregada al repositorio."
 
 #. (title)
 #, fuzzy
@@ -566,11 +566,11 @@ msgstr "Obteniendo una copia de trabajo"
 
 #. (para)
 msgid "Now that we have a project in our repository, we need to create a working copy to use for day-to-day work. Note that the act of importing a folder does not automatically turn that folder into a working copy. The Subversion term for creating a fresh working copy is <literal>Checkout</literal>. We are going to checkout the Widget1 folder of our repository into a development folder on the PC called <filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then right click on it and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename> and click on <guibutton>OK</guibutton>. Our development folder is then populated with files from the repository."
-msgstr ""
+msgstr "Ahora que tenemos un proyecto en nuestro repositorio, debemos crear una copia de trabajo para el usar en el trabajo del día a día. Notemos que el acto de importar una carpeta no transforma esa carpeta automaticamente en copia de trabajo. El término Subversion para crear una copia de trabajo nueva es <literal>Obtener</literal>. Vamos a obtener la carpeta Widget1 de nuestro repositorio en una carpeta de desarrollo de la PC que se llamará <filename>C:\\Projects\\Widget1-Dev</filename>. Creamos esa carpeta, luego le hacemos un clic derecho y seleccionamos <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtener...</guimenuitem></menuchoice>. Ingresamos la URL para obtener, en este caso <filename>file:///c:/svn_repos/Widget1</filename> y hacemos clic en <guibutton>OK</guibutton>. Entonces nuestra carpeta de desarrollo se llena con los archivos del repositorio."
 
 #. (para)
 msgid "You will notice that the appearance of this folder is different from our original folder. Every file has a green check mark in the bottom left corner. These are TortoiseSVN's status icons which are only present in a working copy. The green state indicates that the file is unchanged from the version in the repository."
-msgstr ""
+msgstr "Debería notarse que la apariencia de esta carpeta es diferente de nuestra carpeta original. Cada carpeta tiene una tilde verde en el vértice inferior izquierdo. Esos son los íconos de estado de TortoiseSVN que están presentes solo en las copias de trabajo. El estado verde indica que el archivo no tiene cambios de la versión del repositorio."
 
 #. (title)
 #, fuzzy
@@ -579,7 +579,7 @@ msgstr "Deshacer cambios"
 
 #. (para)
 msgid "Time to get to work. In the <filename>Widget1-Dev</filename> we start editing files - let's say we make changes to <filename>Widget1.c</filename> and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files have now changed to red, indicating that changes have been made locally."
-msgstr ""
+msgstr "Hora de trabajar. En la carpeta <filename>Widget1-Dev</filename> empecemos a editar archivos - por ejemplo, hagamos cambios a <filename>Widget1.c</filename> y <filename>ReadMe.txt</filename>. Note que el ícono sobreimpreso sobre esos archivos ha cambiado a rojo, indicando que se han realizado cambios recientemente."
 
 #. (title)
 #, fuzzy
@@ -593,7 +593,7 @@ msgstr "Puede utilizar el comando Resuelto para múltiples archivos si pulsa con
 
 #. (para)
 msgid "OK, so we are happy with the changes, let's update the repository. This action is referred to as a <literal>Commit</literal> of the changes. Right click on the <filename>Widget1-Dev</filename> folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice>. The commit dialog lists the changed files, each with a checkbox. You might want to choose only a subset of those files, but in this case we are going to commit the changes to both files. Enter up a message to describe what the change is all about and click on <guibutton>OK</guibutton>. The progress dialog shows the files being uploaded to the repository and you're done."
-msgstr ""
+msgstr "Bien, estamos contentos con los cambios, ahora actualicemos el repositorio. Esta acción se denomina <literal>Actualizar</literal> los cambios. Haga clic derecho sobre la carpeta <filename>Widget1-Dev</filename> y elija <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. El diálogo de actualización muestra los archivos cambiado, cada uno con una tilde. Puede elegir solo un subconjunto de esos archivos, pero en este caso vamos a actualizar los cambios en ambos archivos. Ingrese un mensaje que describa para que es el cambio y haga clic en <guibutton>OK</guibutton>. El diálogo de progreso muestra los archivos que están siendo actualizados al repositorio y está listo."
 
 #. (title)
 #, fuzzy
@@ -602,15 +602,15 @@ msgstr "Añadiendo propiedades"
 
 #. (para)
 msgid "As the project develops you will need to add new files - let's say you add some new features in <filename>Extras.c</filename> and add a reference in the existing <filename>Makefile</filename>. Right click on the folder and <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>. The Add dialog now shows you all unversioned files and you can select which ones you want to add. Another way of adding files would be to right click on the file itself and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Mientras el proyecto avanza necesitará agregar nuevos archivos - por ejemplo, porque agrega nuevas catacterísticas en <filename>Extras.c</filename> y agregar una referencia en el archivo <filename>Makefile</filename> existente. Haga clic derecho en la carpeta y elija <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Agregar</guimenuitem></menuchoice>. El diálogo muestra todos los archivos que aún no fueron versionados y puede escoger cuales agregar. Otra forma de agregar archivos sería hacer clic derecho sobre el archivo a agregar y seleccionar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Agregar</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "Now when you go to commit the folder, the new file shows up as <emphasis>Added</emphasis> and the existing file as <emphasis>Modified</emphasis>. Note that you can double click on the modified file to check exactly what changes were made."
-msgstr ""
+msgstr "Ahora, cuando va a actualizar la carpeta, el nuevo archivo aparece como <emphasis>Agregado</emphasis> y el archivo existente como <emphasis>Modificado</emphasis>. Note que puede hacer un doble clic en el archivo modificado para verificar exactamente que cambios se realizaron."
 
 #. (title)
 msgid "Viewing the Project History"
-msgstr ""
+msgstr "Viendo la Historia del Proyecto"
 
 #. (title)
 #, fuzzy
@@ -619,15 +619,15 @@ msgstr "El diálogo Bloquear"
 
 #. (para)
 msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/>"
-msgstr ""
+msgstr "Una de las características más útiles de TortoiseSVN es el diálogo de registro. Este muestra una lista de las actualizaciones hechas a un archivo o carpeta, y los mensajes de actualización detallados que fueron ingresados ;-) <placeholder-1/>"
 
 #. (para)
 msgid "The top pane shows a list of revisions committed along with the start of the commit message. If you select one of these revisions, the middle pane will show the full log message for that revision and the bottom pane will show a list of changed files and folders."
-msgstr ""
+msgstr "El panel superior muestra una lista de las revisiones de actualización junto con la parte inicial del mensaje de actualización. Si selecciona una de esas revisiones, el panel central mostrará el mensaje completo del registro para esa revisión y el panel inferior una lista de archivos y carpetas que cambiaron."
 
 #. (para)
 msgid "Each of these panes has a context menu which provides you with lots more ways of using the information. In the bottom pane you can <action>double click</action> on a file to see exactly what changes were made in that revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
-msgstr ""
+msgstr "Cada uno de esos paneles tiene un menù de contexto que permite muchas formas de usar la información. En el panel inferior puede <action>hacer un doble clic</action> en un archivo para ver exactamente que cambios se hicieron en esa revisión. Lea <xref linkend=\"tsvn-dug-showlog\"/> para ver la historia completa."
 
 #. (title)
 #, fuzzy
@@ -636,11 +636,11 @@ msgstr "Deshacer cambios"
 
 #. (para)
 msgid "One feature of all revision control systems is that they let you undo changes that you made previously. As you would expect, TortoiseSVN makes this easy to access."
-msgstr ""
+msgstr "Una característica de todos los sistemas de control de revisión es que permiten deshacer los cambios que hicieron previamente. Como esperaría, TortoiseSVN permite realizar esto facilmente."
 
 #. (para)
 msgid "If you want to get rid of changes that you have not yet committed and reset your file to the way it was before you started editing, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> is your friend. This discards your changes (to the Recycle bin, just in case) and reverts to the committed version you started with. If you want to get rid of just some of the changes, you can use TortoiseMerge to view the differences and selectively revert changed lines."
-msgstr ""
+msgstr "Si quiere descartar los cambios que no ha actualizado y volver el archivo a como estaba cuando empezó a editarlo, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revertir</guimenuitem></menuchoice> es su amigo. Este ítem descarta los cambios (a la Papelera de reciclaje, por si acaso) y revierte a la versión actualizada con la que empezó. Si quiere descartar algunos de los cambios, puede usar TortoiseMerge para ver las diferencias y revertir solo algunas líneas cambiadas."
 
 #. (para)
 #, fuzzy
@@ -649,15 +649,15 @@ msgstr "O si desea hacer que una revisión antigua se convierta en la nueva revi
 
 #. (title)
 msgid "Moving On ..."
-msgstr ""
+msgstr "Siguiendo adelante..."
 
 #. (para)
 msgid "This guide has given you a very quick tour of some of TortoiseSVN's most important and useful features, but of course there is far more that we haven't covered. We strongly recommend that you take the time to read the rest of this manual, especially <xref linkend=\"tsvn-dug\"/> which gives you a lot more detail on day-to-day operations."
-msgstr ""
+msgstr "Esta guía le ha dado un paseo rápido por algunas de las características más importantes y útiles de TortoiseSVN, pero queda claro que hay muchas más que no hemos cubierto. Le recomendamos que se tome el tiempo de leer el resto de este manual, especialmente <xref linkend=\"tsvn-dug\"/> donde se le da mucho más detalle a las operaciones del día a día."
 
 #. (para)
 msgid "We have taken a lot of trouble to make sure that it is both informative and easy to read, but we recognise that there is a lot of it! Take your time and don't be afraid to try things out on a test repository as you go along. The best way to learn is by using it."
-msgstr ""
+msgstr "Hemos trabajado mucho para asegurarnos que es informativa y fácil de leer, pero reconocemos que hay mucho material! Tomese su tiempo y no tenga miedo de probar las cosas en un repositorio de pruebas mientras tanto. La mejor forma de aprender es usar el producto."
 
 #. (title)
 msgid "Basic Version-Control Concepts"
