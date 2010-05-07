@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-07 00:43-0000\n"
+"PO-Revision-Date: 2010-05-07 01:26-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -738,24 +738,24 @@ msgstr "<emphasis>Bloquear pode causar serialização desnecessária.</emphasis>
 
 #. (para)
 msgid "<emphasis>Locking may create a false sense of security.</emphasis> Pretend that Harry locks and edits file A, while Sally simultaneously locks and edits file B. But suppose that A and B depend on one another, and the changes made to each are semantically incompatible. Suddenly A and B don't work together anymore. The locking system was powerless to prevent the problem - yet it somehow provided a sense of false security. It's easy for Harry and Sally to imagine that by locking files, each is beginning a safe, insulated task, and thus inhibits them from discussing their incompatible changes early on."
-msgstr ""
+msgstr "<emphasis>Bloquear pode criar um falso sentido de segurança.</emphasis> Imagina que o Harry bloqueia e edita o ficheiro A, enquanto a Sally simultaneamente bloqueia e edita o ficheiro B. Mas supõem que A e B dependem um do outro, e as alterações feitas a cada um deles são semanticamente incompatíveis. De repente A e B já não funcionam juntos. O sistema de bloqueio foi impotente na prevenção deste problema - mas no entanto forneceu um falso sentimento de segurança. É fácil para o Harry e para a Sally imaginar que ao bloquear os ficheiros, cada um estará a iniciar uma tarefa segura e isolada, o que por sua vez os inibe de discutir de antemão as suas alterações incompatíveis."
 
 #. (title)
 #. (title)
 msgid "The Copy-Modify-Merge Solution"
-msgstr "A solução de Copiar-Modificar-Integrar"
+msgstr "A solução Copiar-Modificar-Integrar"
 
 #. (para)
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
-msgstr ""
+msgstr "O Subversion, CVS e outros sistemas de controlo de versões usam o modelo <firstterm>copiar-modificar-integrar</firstterm> como alternativa ao bloqueio. Neste modelo cada utilizador cliente lê o repositório e cria uma <firstterm>cópia de trabalho</firstterm> pessoal do ficheiro ou projecto. Os utilizadores então trabalham em paralelo, modificando as suas cópias privadas. Finalmente, as cópias privadas são integradas conjuntamente numa versão final. O sistema de controlo de versões assiste frequentemente a integração, mas cabe ao humano ser o responsável último por garantir que este aconteça correctamente."
 
 #. (para)
 msgid "Here's an example. Say that Harry and Sally each create working copies of the same project, copied from the repository. They work concurrently, and make changes to the same file <filename>A</filename> within their copies. Sally saves her changes to the repository first. When Harry attempts to save his changes later, the repository informs him that his file A is <firstterm>out-of-date</firstterm>. In other words, that file A in the repository has somehow changed since he last copied it. So Harry asks his client to <firstterm>merge</firstterm> any new changes from the repository into his working copy of file A. Chances are that Sally's changes don't overlap with his own; so once he has both sets of changes integrated, he saves his working copy back to the repository."
-msgstr ""
+msgstr "Eis um exemplo. Digamos que o Harry e a Sally criaram cada um, cópias de trabalho do mesmo projecto, copiadas do repositório. Eles trabalharão concorrentemente e efectuaram alterações no mesmo ficheiro <filename>A</filename>, em suas cópias. A Sally guarda as suas alterações no repositório, primeiro. Então o Harry tenta guardar as suas alterações mais tarde o repositório informa-o que o seu ficheiro A está <firstterm>desactualizado</firstterm>. Noutras palavras, o ficheiro A do repositório foi de algum modo alterado desde a última vez que o copiaste. Então o Harry pede ao seu cliente para <firstterm>integrar</firstterm> quaisquer novas alterações do repositório na sua cópia de trabalho do ficheiro A. Há probabilidades que as alterações da Sally não se sobreponham com as suas; pelo que uma vez que ambos os conjuntos de alterações estejam integrados, ele guardará a sua cópia de trabalho de volta para o repositório."
 
 #. (title)
 msgid "...Copy-Modify-Merge Continued"
-msgstr "...Copiar-Modificar-Integrar Continuação"
+msgstr "...Continuação do Copiar-Modificar-Integrar"
 
 #. (primary)
 #. (primary)
@@ -764,7 +764,7 @@ msgstr "conflito"
 
 #. (para)
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
-msgstr ""
+msgstr "Mas se as alterações da Sally <emphasis>se</emphasis> sobrepuserem com as do Harry? E depois? Esta situação é chamada de <firstterm>conflito</firstterm>, e não é normalmente um grande problema. Quando o Harry pede ao seu cliente para integrar as últimas alterações do repositório para a sua cópia de trabalho, a sua cópia do ficheiro A e de alguma maneira sinalizada como estando em conflito: poderemos observar ambos os conjuntos de alterações, e escolher manualmente entre elas. Ter em atenção que o software não pode resolver automaticamente os conflitos: só os humanos são capazes de compreender e efectuar as necessárias escolhas inteligentes. Uma vez que o Harry tenha resolvido manualmente a sobreposição das alterações (talvez ao discutir o conflito com a Sally), ele pode salvaguardar com segurança o ficheiro integrado de volta para o repositório."
 
 #. (para)
 msgid "The copy-modify-merge model may sound a bit chaotic, but in practice, it runs extremely smoothly. Users can work in parallel, never waiting for one another. When they work on the same files, it turns out that most of their concurrent changes don't overlap at all; conflicts are infrequent. And the amount of time it takes to resolve conflicts is far less than the time lost by a locking system."
