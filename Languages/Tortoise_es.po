@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-06 10:50-0300\n"
+"PO-Revision-Date: 2010-05-07 14:16-0300\n"
 "Last-Translator: augusto <augustowloch@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -573,7 +573,7 @@ msgstr "E&xportar selección a..."
 
 #. Resource IDs: (1092, 1094, 1095)
 msgid "&External"
-msgstr "&Externo"
+msgstr "Referencias &Externas"
 
 #. Resource IDs: (65535)
 msgid "&File"
@@ -2198,7 +2198,7 @@ msgstr "Cambios hechos (doble-click en fichero para ver diferencias):"
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
-msgstr "Cambiando externos a revisión fija"
+msgstr "Cambiando referencias externas a revisión fija"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2218,7 +2218,7 @@ msgstr "Buscar actualizaciones..."
 
 #. Resource IDs: (1544)
 msgid "Check externals to tag"
-msgstr "Marcar externos a etiqueta"
+msgstr "Marcar referencias externas comoa etiquetas"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -3855,11 +3855,11 @@ msgstr "Externo fallido"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
-msgstr "Externos excluídos"
+msgstr "Referencias externas excluídas"
 
 #. Resource IDs: (226)
 msgid "Externals included"
-msgstr "Externos incluídos"
+msgstr "Referencias externas incluídas"
 
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
@@ -5108,7 +5108,7 @@ msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
-msgstr "Items en &externos"
+msgstr "Items en referencias &externas"
 
 #. Resource IDs: (1527)
 msgid "Items to show"
@@ -5854,9 +5854,8 @@ msgid "No error occurred."
 msgstr "No ocurrió ningún error."
 
 #. Resource IDs: (281)
-#, fuzzy
 msgid "No externals found"
-msgstr "¡No existen diferencias!"
+msgstr "¡No existen referencias externas!"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -6073,7 +6072,7 @@ msgstr "Omitir e&xternos"
 
 #. Resource IDs: (145)
 msgid "Omit externals"
-msgstr "Omitir externos"
+msgstr "Omitir referencias externas"
 
 #. Resource IDs: (63)
 msgid ""
@@ -6374,9 +6373,8 @@ msgid "Please wait while differences are obtained..."
 msgstr "Por favor espere mientras se obtienen las diferencias..."
 
 #. Resource IDs: (281)
-#, fuzzy
 msgid "Please wait while the externals are gathered..."
-msgstr "Por favor espere mientras se obtienen las diferencias..."
+msgstr "Por favor espere mientras se obtienen las referencias externas..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -7797,7 +7795,7 @@ msgstr "Mostrar carpetas excluidas como normales"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
-msgstr "Mostrar externos de &diferentes repositorios"
+msgstr "Mostrar referencias externas de &diferentes repositorios"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -9125,7 +9123,7 @@ msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
-msgstr "TortoiseSVN auto confirmación: se cambio externos a revision fija."
+msgstr "TortoiseSVN auto confirmación: se cambio referencias externas a revision fija."
 
 #. Resource IDs: (98)
 #, c-format
