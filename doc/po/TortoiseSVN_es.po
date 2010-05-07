@@ -1,28 +1,25 @@
-#
 # Spanish translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
-#
 # This file is distributed under the same license as TortoiseSVN
-#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
 # Authors:
 # Fernando P. Nájera Cano
 # Juan Carlos Fuentes-Michel <jcfuentes@gmail.com>, 2010.
+# Tommy <tommychristie@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-07 10:33-0300\n"
-"Last-Translator: Alejandro Ariel Abaca <abacrotto@hotmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2010-05-07 16:11-0300\n"
+"Last-Translator: Tommy <tommychristie@gmail.com>\n"
+"Language-Team: Tomás Christie\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.6.0\n"
 
@@ -1204,12 +1201,21 @@ msgstr "Entonces se creará un repositorio dentro de la nueva carpeta. <emphasis
 
 #. (para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
-msgstr "TortoiseSVN ya no ofrece la opción de crear repositorios BDB, aunque aún puede utilizar el cliente de línea de comandos para crearlos. Los repositorios FSFS son generalmente más sencillos de mantener, y también nos facilita el mantenimiento de TortoiseSVN debido a los problemas de compatibilidad entre las diferentes versiones de BDB."
+msgstr ""
+"TortoiseSVN ya no ofrece la opción de crear repositorios BDB, aunque aún "
+"puede utilizar el cliente de línea de comandos para crearlos. Los "
+"repositorios FSFS son generalmente más sencillos de mantener, y también nos "
+"facilita el mantenimiento de TortoiseSVN debido a los problemas de "
+"compatibilidad entre las diferentes versiones de BDB."
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
-msgstr "Las versiones futuras de TortoiseSVN no soportarán el acceso <literal>file://</literal> a repositorios BDB debido a estos problemas de compatibilidad, aunque por supuesto sí soportará este formato de repositorio cuando se acceda utilizando un servidor a través de los protocolos <literal>svn://</literal>, <literal>http://</literal> o <literal>https://</literal>. Por esta razón, le recomendamos encarecidamente que cualquier nuevo repositorio al que deba accederse utilizando el protocolo <literal>file://</literal> se cree como FSFS."
+msgstr ""
+"TortoiseSVN no soporta el acceso <literal>file://</literal> a repositorios "
+"BDB debido a estos problemas de compatibilidad, aunque por supuesto sí "
+"soportará siempre este formato de repositorio cuando se acceda utilizando un "
+"servidor a través de los protocolos <literal>svn://</literal>, "
+"<literal>http://</literal> o <literal>https://</literal>."
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
@@ -1673,10 +1679,15 @@ msgstr "Ejecutar svnserve como un servicio"
 
 #. (para)
 msgid "Running svnserve as a user is usually not the best way. It means always having a user logged in on your server, and remembering to restart it after a reboot. A better way is to run svnserve as a windows service. Starting with Subversion 1.4, svnserve can be installed as a native windows service."
-msgstr "Ejecutar svnserve como un usuario normalmente no es la mejor forma de hacerlo. Eso significa que siempre debe haber un usuario con la sesión iniciada en su servidor, y que debe acordarse de iniciarlo de nuevo tras cada reinicio. Una manera mejor es ejecutar svnserve como un servicio de Windows. Desde la versión 1.4 de Subversion, svnserve puede instalarse como un servicio de Windows nativo."
+msgstr ""
+"Ejecutar svnserve como un usuario normalmente no es la mejor forma de "
+"hacerlo. Eso significa que siempre debe haber un usuario con la sesión "
+"iniciada en su servidor, y que debe acordarse de iniciarlo de nuevo tras "
+"cada reinicio. Una manera mejor es ejecutar svnserve como un servicio de "
+"Windows. Desde la versión 1.4 de Subversion, svnserve puede instalarse como "
+"un servicio de Windows nativo."
 
 #. (para)
-#, fuzzy
 msgid ""
 "To install svnserve as a native windows service, execute the following command all on one line to create a service which is automatically started when windows starts. <screen>\n"
 "sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service\n"
@@ -1691,17 +1702,22 @@ msgid ""
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
 msgstr ""
-"Para instalar svnserve como un servicio de Windows nativo, ejecute el siguiente comando todo en una línea para crear un servicio que se ejecute automáticamente cuando se inicie Windows. <screen>\n"
+"Para instalar svnserve como un servicio de Windows nativo, ejecute el "
+"siguiente comando todo en una línea para crear un servicio que se ejecute "
+"automáticamente cuando se inicie Windows. <screen>\n"
 "sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
 "    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip \n"
 "    start= auto\n"
-"</screen> Si cualquiera de las rutas incluye espacios, tendrá que utilizar comillas (escapadas) en la ruta, como en este ejemplo: <screen>\n"
+"</screen> Si cualquiera de las rutas incluye espacios, tendrá que utilizar "
+"comillas (escapadas) en la ruta, como en este ejemplo: <screen>\n"
 "sc create svnserve binpath= \"\n"
 "    \\\"C:\\Archivos de programa\\Subversion\\bin\\svnserve.exe\\\"\n"
 "    --service --root c:\\repos\" displayname= \"Subversion\"\n"
 "    depend= tcpip start= auto\n"
-"</screen> También puede añadir una descripción después de crear el servicio. Esta descripción se mostrará en el Administrador de Servicios de Windows. <screen>\n"
-"sc description svnserve \"Servidor de Subversion (svnserve)\"\n"
+"</screen> También puede añadir una descripción después de crear el servicio. "
+"Esta descripción se mostrará en el Administrador de Servicios de Windows. "
+"<screen>\n"
+"sc description svnserve \"Servidor de Subversión (svnserve)\"\n"
 "</screen>"
 
 #. (para)
@@ -2230,9 +2246,8 @@ msgstr ""
 "</screen> y ponga los archivos <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> y <filename>menucheckout.ico</filename> en su directorio raíz de documentos (normalmente <filename>C:/Archivos de programa/Apache Group/Apache2/htdocs</filename>). El directorio está establecido con la directiva <literal>DocumentRoot</literal> en su archivo de configuración de Apache."
 
 #. (para)
-#, fuzzy
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
-msgstr "Puede obtener estos tres archivos directamente desde nuestro repositorio de código fuente en <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> le explica cómo acceder al repositorio de código de TortoiseSVN)."
+msgstr "Puede obtener estos tres archivos directamente desde nuestro repositorio de código fuente en <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> le explica cómo acceder al repositorio de código de TortoiseSVN)."
 
 #. (para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
@@ -13283,4 +13298,3 @@ msgstr ""
 #. (None)
 msgid "translator-translation"
 msgstr "Traducción"
-
