@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-07 01:26-0000\n"
+"PO-Revision-Date: 2010-05-07 23:41-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -764,35 +764,35 @@ msgstr "conflito"
 
 #. (para)
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
-msgstr "Mas se as alterações da Sally <emphasis>se</emphasis> sobrepuserem com as do Harry? E depois? Esta situação é chamada de <firstterm>conflito</firstterm>, e não é normalmente um grande problema. Quando o Harry pede ao seu cliente para integrar as últimas alterações do repositório para a sua cópia de trabalho, a sua cópia do ficheiro A e de alguma maneira sinalizada como estando em conflito: poderemos observar ambos os conjuntos de alterações, e escolher manualmente entre elas. Ter em atenção que o software não pode resolver automaticamente os conflitos: só os humanos são capazes de compreender e efectuar as necessárias escolhas inteligentes. Uma vez que o Harry tenha resolvido manualmente a sobreposição das alterações (talvez ao discutir o conflito com a Sally), ele pode salvaguardar com segurança o ficheiro integrado de volta para o repositório."
+msgstr "Mas se as alterações da Sally <emphasis>se</emphasis> sobrepuserem as do Harry? E depois? Esta situação é chamada de <firstterm>conflito</firstterm>, e não é normalmente um grande problema. Quando o Harry pede ao seu cliente para integrar as últimas alterações do repositório para a sua cópia de trabalho, a sua cópia do ficheiro A e de alguma maneira sinalizada como estando em conflito: poderemos observar ambos os conjuntos de alterações, e escolher manualmente entre elas. Ter em atenção que o software não pode resolver automaticamente os conflitos: só os humanos são capazes de compreender e efectuar as necessárias escolhas inteligentes. Uma vez que o Harry tenha resolvido manualmente a sobreposição das alterações (talvez ao discutir o conflito com a Sally), ele pode salvaguardar com segurança o ficheiro integrado de volta para o repositório."
 
 #. (para)
 msgid "The copy-modify-merge model may sound a bit chaotic, but in practice, it runs extremely smoothly. Users can work in parallel, never waiting for one another. When they work on the same files, it turns out that most of their concurrent changes don't overlap at all; conflicts are infrequent. And the amount of time it takes to resolve conflicts is far less than the time lost by a locking system."
-msgstr ""
+msgstr "O modelo copiar-modificar-integrar pode soar um pouco caótico, mas na prática funciona de um modo muito fluido. Os utilizadores podem trabalhar em paralelo, nunca esperando uns pelos outros. Quando trabalham nos mesmos ficheiros, acontece que a, a maior parte das suas alterações concorrentes não se sobrepõem; conflitos são raros. E a quantidade de tempo levada a resolver conflitos é muito inferior ao tempo perdido com o sistema de bloqueio"
 
 #. (para)
 msgid "In the end, it all comes down to one critical factor: user communication. When users communicate poorly, both syntactic and semantic conflicts increase. No system can force users to communicate perfectly, and no system can detect semantic conflicts. So there's no point in being lulled into a false promise that a locking system will somehow prevent conflicts; in practice, locking seems to inhibit productivity more than anything else."
-msgstr ""
+msgstr "No final tudo se resume a um factor critico: comunicação com o utilizador. Quando os utilizadores não comunicam bem, aumentam os conflitos sintácticos e semânticos. Nenhum sistema pode forçar os utilizadores a comunicar na perfeição, e nenhum sistema pode detectar conflitos semânticos. Portanto não existe vantagens em ser iludido por uma falsa promessa de que o sistema de bloqueio irá evitar conflitos; na prática os sistemas bloqueantes parecem inibir mais a produtividade que qualquer outra coisa."
 
 #. (para)
 msgid "There is one common situation where the lock-modify-unlock model comes out better, and that is where you have unmergeable files. For example if your repository contains some graphic images, and two people change the image at the same time, there is no way for those changes to be merged together. Either Harry or Sally will lose their changes."
-msgstr ""
+msgstr "Existe uma situação particular onde o modelo bloquear-modificar-desbloquear funciona melhor, que é quando tens ficheiros não integráveis. Por exemplo, se o teu repositório contém algumas imagens, e duas pessoas alteram a imagem ao mesmo tempo, não existe forma de integrar essas alterações. Ou o Harry ou a Sally irão perder as suas alterações."
 
 #. (title)
 msgid "What does Subversion Do?"
-msgstr ""
+msgstr "O que faz o Subversion?"
 
 #. (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr ""
+msgstr "O Subversion usa por defeito a solução copiar-modificar-integrar, e em muitos casos, isto será tudo o que alguma vez irás precisar. No entanto, tal como na versão 1.2, o Subversion também suporta o bloqueio de ficheiros, pelo que se tiveres ficheiros não integráveis, ou simplesmente, fores forçado pela administração a usar uma política de bloqueio, o Subversion poderá ainda te fornecer as funcionalidades de que necessitas."
 
 #. (title)
 msgid "Subversion in Action"
-msgstr "Subversion em Acção"
+msgstr "O Subversion em Acção"
 
 #. (title)
 msgid "Working Copies"
-msgstr "Cópias de trabalho."
+msgstr "Cópias de Trabalho."
 
 #. (primary)
 msgid "working copy"
