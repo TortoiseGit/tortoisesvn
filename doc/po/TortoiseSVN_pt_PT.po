@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-07 23:41-0000\n"
+"PO-Revision-Date: 2010-05-08 00:41-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -800,63 +800,63 @@ msgstr "cópia de trabalho"
 
 #. (para)
 msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
-msgstr ""
+msgstr "Tu já ouviste falar em cópias de trabalho; agora vamos demonstrar como o cliente Subversion as cria e usa."
 
 #. (para)
 msgid "A Subversion working copy is an ordinary directory tree on your local system, containing a collection of files. You can edit these files however you wish, and if they're source code files, you can compile your program from them in the usual way. Your working copy is your own private work area: Subversion will never incorporate other people's changes, nor make your own changes available to others, until you explicitly tell it to do so."
-msgstr ""
+msgstr "Uma cópia de trabalho do Subversion é uma normal árvore de pastas no teu sistema local contendo uma colecção de ficheiros. Tu podes editar esses ficheiros como desejares, e no caso de serem ficheiros de código fonte, poderás compilar o teu programa a partir deles da forma habitual. A tua cópia de trabalho é a tua área de trabalho privada: o Subversion nunca irá incorporar alterações de outras pessoas, nem tornar as tuas alterações disponíveis a outros, até tu explicitamente lhe indicares para o fazer."
 
 #. (para)
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to <emphasis>publish</emphasis> your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr ""
+msgstr "Após efectuares algumas alterações nos ficheiros da tua cópia de trabalho, e verificares que elas estão correctas, o Subversion ir-te-á fornecer comandos para <emphasis>publicares</emphasis> as tuas alterações para as outras pessoas que trabalham contigo no projecto (escrevendo para o repositório). Se outras pessoas publicarem as suas próprias alterações, o Subversion fornece-te comandos para integrar essas alterações na tua cópia de trabalho (ao ler do repositório)."
 
 #. (para)
 msgid "A working copy also contains some extra files, created and maintained by Subversion, to help it carry out these commands. In particular, each directory in your working copy contains a subdirectory named <filename>.svn</filename>, also known as the working copy <firstterm>administrative directory</firstterm>. The files in each administrative directory help Subversion recognize which files contain unpublished changes, and which files are out-of-date with respect to others' work."
-msgstr ""
+msgstr "A cópia de trabalho também contém alguns ficheiros extra, criados e mantidos pelo Subversion para ajudá-lo a executar esses comandos. Em particular, cada pasta na tua cópia de trabalho contém uma subpasta chamada <filename>.svn</filename>, também conhecida como a <firstterm>pasta administrativa</firstterm> da cópia de trabalho. Os ficheiros em cada pasta administrativa ajudam o Subversion a reconhecer quais os ficheiros que contêm alterações não publicadas, e quais os ficheiros que estão desactualizados em relação ao trabalho dos outros."
 
 #. (para)
 msgid "A typical Subversion repository often holds the files (or source code) for several projects; usually, each project is a subdirectory in the repository's filesystem tree. In this arrangement, a user's working copy will usually correspond to a particular subtree of the repository."
-msgstr ""
+msgstr "Um repositório típico do Subversion armazena com frequência os ficheiros (ou código fonte) de vários projectos; normalmente, cada projecto é uma subpasta no sistema de ficheiros do repositório. Nesta configuração, a cópia de trabalho do utilizador corresponde normalmente a uma sub-árvore em particular do repositório."
 
 #. (para)
 msgid "For example, suppose you have a repository that contains two software projects."
-msgstr ""
+msgstr "Por exemplo, supõem que tens um repositório que contém dois projectos de software."
 
 #. (title)
 msgid "The Repository's Filesystem"
-msgstr ""
+msgstr "O Sistema de Ficheiros do Repositório"
 
 #. (para)
 msgid "In other words, the repository's root directory has two subdirectories: <filename>paint</filename> and <filename>calc</filename>."
-msgstr ""
+msgstr "Noutras palavras, a pasta raiz do repositório terá duas subpastas: <filename>paint</filename> e <filename>calc</filename>."
 
 #. (para)
 msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
-msgstr ""
+msgstr "Para obteres uma cópia de trabalho, terás de efectuar <firstterm>checkout</firstterm> nalgumas pastas do repositório. (O termo emphasis>checkout</emphasis> pode soar como tendo algo a ver com bloquear ou reservar recursos, mas não tem; Simplesmente cria uma cópia privada do projecto, para ti)."
 
 #. (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
-msgstr ""
+msgstr "Supõem que tu efectuas alterações no <filename>button.c</filename>. Visto que a pasta <filename>.svn</filename> lembra-se da data das modificações do ficheiro e do seu conteúdo original, pode assim o Subversion saber se alteraste o ficheiro. No entanto o Subversion não tornará as tuas alterações públicas até explicitamente tu lhe disseres para o fazer. O acto de publicar as tuas alterações é mais usualmente conhecido por <firstterm>submeter</firstterm> (ou <firstterm>checking in</firstterm>) as alterações para o repositório."
 
 #. (para)
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
-msgstr ""
+msgstr "Para publicar as tuas alterações para outros, podes usar o comando <command>submeter</command> do Subversion."
 
 #. (para)
 msgid "Now your changes to <filename>button.c</filename> have been committed to the repository; if another user checks out a working copy of <filename>/calc</filename>, they will see your changes in the latest version of the file."
-msgstr ""
+msgstr "Agora as tuas alterações no <filename>button.c</filename> foram submetidas para o repositório; se outro utilizador efectuar um checkout de uma cópia de trabalho do <filename>/calc</filename>, irá ver as tuas alterações na última versão do ficheiro."
 
 #. (para)
 msgid "Suppose you have a collaborator, Sally, who checked out a working copy of <filename>/calc</filename> at the same time you did. When you commit your change to <filename>button.c</filename>, Sally's working copy is left unchanged; Subversion only modifies working copies at the user's request."
-msgstr ""
+msgstr "Supõem que tens um colaborador, Sally, que efectuou checkout a uma cópia de trabalho do <filename>/calc</filename> ao mesmo tempo que tu. Quando tu submeteres a tua alteração ao <filename>button.c</filename>, a cópia de trabalho da Sally irá ficar inalterada; o Subversion só modifica as cópias de trabalho a pedido do utilizador."
 
 #. (para)
 msgid "To bring her project up to date, Sally can ask Subversion to <firstterm>update</firstterm> her working copy, by using the Subversion <command>update</command> command. This will incorporate your changes into her working copy, as well as any others that have been committed since she checked it out."
-msgstr ""
+msgstr "Para actualizar o seu projecto, a Sally pode pedir ao Subversion para <firstterm>actualizar</firstterm> a sua cópia de trabalho, usando o comando <command>actualizar</command> do Subversion. Isto irá incorporar as tuas alterações na sua cópia de trabalho, tal como quaisquer outras que tenham sido submetidas desde que a criou (checkout)."
 
 #. (para)
 msgid "Note that Sally didn't need to specify which files to update; Subversion uses the information in the <filename>.svn</filename> directory, and further information in the repository, to decide which files need to be brought up to date."
-msgstr ""
+msgstr "Note-se que a Sally não precisou de especificar quais os ficheiros a actualizar; o Subversion usa a informação na pasta <filename>.svn</filename>, e informação posterior no repositório, para decidir que ficheiros precisam de ser actualizados."
 
 #. (title)
 msgid "Repository URLs"
