@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-04-03 21:41+0100\n"
-"Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2010-05-07 14:41+0100\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,7 +325,7 @@ msgstr "Izmene unutar izmenjenih linija su prikazane u raznim bojama. Dodati del
 
 #. (para)
 msgid "Code reorganization usually means a lot of changes in whitespaces (space, tab, newlines) but no actual code change. For example, you split up a very long line into several lines, or you sometimes compact several lines together into one."
-msgstr "Reorganizacija koda obično znači puno izmena u razmacima (prazno mesto, tab, novi red) ali ne i stvarne izmene koda. Na primer, podelite veoma dugačke linije, ili ponekad stopite više linija zajedno u jednu liniju."
+msgstr "Reorganizacija koda obično znači puno izmena u belinama (prazno mesto, tab, novi red) ali ne i stvarne izmene koda. Na primer, podelite veoma dugačke linije, ili ponekad stopite više linija zajedno u jednu liniju."
 
 #. (para)
 msgid "Such changes are marked with a white circle symbol on the left side of the views. If you see such a white circle, you know immediately that no real code change is there and you don't have to check the changed block further."
@@ -381,7 +381,7 @@ msgstr "Dugmići i druge kontrole"
 
 #. (title)
 msgid "The Toolbar"
-msgstr "Alatpult"
+msgstr "Alatnbi panel"
 
 #. (para)
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
@@ -425,7 +425,7 @@ msgstr "<guibutton>Označi kao rešeno</guibutton> Kada rešite sve konflikte u 
 
 #. (para)
 msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
-msgstr "<guibutton>Prikaži Razmake</guibutton> menjaju opcije da prikažu razmak i tab karaktere kao simbole tako da možete razlikovati izmene razmaka."
+msgstr "<guibutton>Prikaži Beline</guibutton> menjaju opcije da prikažu razmak i tab karaktere kao simbole tako da možete razlikovati izmene razmaka."
 
 #. (para)
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
@@ -433,7 +433,7 @@ msgstr "<guibutton>Unutarlinije diff Reč-način</guibutton> menjaju metode kori
 
 #. (para)
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
-msgstr "Reč-način je uobičajen i u većini slučajeva to radi bolje. Na primer, ako izmenite ime promenljive, celo ime je osvetljeno u reč-način modu, dok u karakter-način modu vi nameravate da dobijete nered  u dodatim i izbrisanim karakterima koji se mnogo ne primećuju. Međutim, neki sadržaj se ne rešava uredno u rečima, na primer heksa fajlovi i u tom slučaju  karakter-način displej radi bolje. "
+msgstr "Reč-način je podrazumevan i u većini slučajeva to radi bolje. Na primer, ako izmenite ime promenljive, celo ime je osvetljeno u reč-način modu, dok u karakter-način modu vi nameravate da dobijete nered  u dodatim i izbrisanim karakterima koji se mnogo ne primećuju. Međutim, neki sadržaj se ne rešava uredno u rečima, na primer heksa fajlovi i u tom slučaju  karakter-način displej radi bolje. "
 
 #. (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
@@ -442,17 +442,17 @@ msgstr "<guibutton>Prebaci pregled</guibutton> bira između jedan-panel i dva-pa
 #. (para)
 #. (para)
 msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Poređenje belihpolja</guilabel> prikazuje sve izmene u uvlačenju linija i unutarlinijski razmaci kao dodate/uklonjene linije (kako Subverzija tretira takve izmene)."
+msgstr "<guilabel>Poređenje belina</guilabel> prikazuje sve izmene u uvlačenju linija i unutarlinijske beline kao dodate/uklonjene linije (kako Subverzija tretira takve izmene)."
 
 #. (para)
 #. (para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Zanemarivanje izmena razmaka</guilabel> sakriva izmene  koje su samo zbog izmena u iznosu ili tipu razmaka, npr. izmenom uvlačenja linije ili izmenom tabova u razmake. Dodavanjem razmaka gde nisu bila ranije, ili potpunim uklanjanjem razmaka još uvek je prikazano kao promena."
+msgstr "<guilabel>Zanemarivanje izmena beline</guilabel> sakriva izmene  koje su samo zbog izmena u iznosu ili tipu beline, npr. izmenom uvlačenja linije ili izmenom tabova u razmake. Dodavanjem beline gde nije bila ranije, ili potpunim uklanjanjem beline još uvek je prikazano kao promena."
 
 #. (para)
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Zanemarivanje svih razmaka</guilabel> sakriva sve izmene samo-razmaka."
+msgstr "<guilabel>Zanemarivanje svih belina</guilabel> sakriva sve izmene samo-beline."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
@@ -520,7 +520,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineconflicted.png\"/>Ova linija je u k
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
-msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Ova linija je u konfliktu, ali efekat je skriven razmakom ili podešavanjem kraja-linije."
+msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Ova linija je u konfliktu, ali efekat je skriven belinom ili podešavanjem kraja-linije."
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -548,7 +548,7 @@ msgstr "Ako ste u tri panela pregledu (ponekad zvan <emphasis>pregled spajanja</
 
 #. (para)
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr "Ponekad fajl će biti označen kao konfliktan u Subverziji, ali kada ga pregledate pomoću TortoiseMerge neće biti prikazanih konflikata. Ovo se može desiti zbog načina na koji ste rukovali razmacima. Ako izaberete da zanemarite linijski-završetak ili razmak izmene, te linije će biti označene koristeći <emphasis>Konflikt-Zanemaren</emphasis> ikone. Da se reši konflikt treba samo odabrati koju verziju da koristite."
+msgstr "Ponekad fajl će biti označen kao konfliktan u Subverziji, ali kada ga pregledate pomoću TortoiseMerge neće biti prikazanih konflikata. Ovo se može desiti zbog načina na koji ste rukovali belinom. Ako izaberete da zanemarite linijski-završetak ili izmene beline, te linije će biti označene koristeći <emphasis>Konflikt-Zanemaren</emphasis> ikone. Da se reši konflikt treba samo odabrati koju verziju da koristite."
 
 #. (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
@@ -716,11 +716,11 @@ msgstr "Kada je unutarlinijska razlikovanje prikazano, izbrisan tekst je prikaza
 
 #. (term)
 msgid "Misc whitespaces"
-msgstr "Različiti razmaci"
+msgstr "Različite beline"
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
-msgstr "Karakteri korišćeni da označe Razmake prikazani u drugačijoj boji od normalnog teksta. "
+msgstr "Karakteri korišćeni da označe Belinu prikazani u drugačijoj boji od normalnog teksta. "
 
 #. (title)
 msgid "keyboard shortcuts"
@@ -836,7 +836,7 @@ msgstr "Ctrl-T"
 
 #. (para)
 msgid "Toggles between showing whitespaces or not"
-msgstr "Pređi između prikazivanja razmaka ili ne"
+msgstr "Pređi između prikazivanja beline  ili ne"
 
 #. (term)
 msgid "Ctrl-mousewheel"
@@ -910,7 +910,7 @@ msgstr "Specificira  <placeholder-1/> fajl korišćen u tri načina razl. Ovo je
 
 #. (entry)
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr "Ime osnovnog fajla. Ovo je prikazano u naslovu pregleda umesto putanja fajla. Za tri načina diff prikazano je u alatpultu za pregled naslova."
+msgstr "Ime osnovnog fajla. Ovo je prikazano u naslovu pregleda umesto putanja fajla. Za tri načina diff prikazano je u alatnom panelu za pregled naslova."
 
 #. (emphasis)
 msgid "theirs"
@@ -1048,7 +1048,7 @@ msgstr "BDB"
 
 #. (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr "Berkli DB. Dobro testirana baza podataka u osnovi spremišta, ne može se koristiti na mrežnoj podeli. Uobičajeno za spremišta pre 1.2."
+msgstr "Berkli DB. Dobro testirana baza podataka u osnovi spremišta, ne može se koristiti na mrežnoj podeli. Podrazumevano za spremišta pre 1.2."
 
 #. (glossterm)
 msgid "Branch"
@@ -1128,7 +1128,7 @@ msgstr "FSFS"
 
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "Ovlašćeni Subverzioni fajlsistem u osnovi spremišta. Može se koristiti u mrežnoj podeli. Uobičajen za 1.2 i novija spremišta."
+msgstr "Ovlašćeni Subverzioni fajlsistem u osnovi spremišta. Može se koristiti u mrežnoj podeli. Podrazumevan za 1.2 i novija spremišta."
 
 #. (glossterm)
 msgid "GPO"

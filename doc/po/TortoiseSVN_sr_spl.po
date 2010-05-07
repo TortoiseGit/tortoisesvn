@@ -1,27 +1,26 @@
-#
 # Serbian latin translation for TortoiseSVN
 # Copyright (C) 2008-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
 # Authors:
 # Milorad Popović <miloradspopovic@gmail.com>, 2008
-#
-#
+# Milorad Popovic <MiloradSPopovic@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-04-25 21:11+0100\n"
-"Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2010-05-07 14:43+0100\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"Language-Team: Ок\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Virtaal 0.5.2\n"
 "X-Poedit-Language: Serbian\n"
 "X-Poedit-Country: SERBIA\n"
 
@@ -203,7 +202,7 @@ msgstr "Efikasno grananje i označavanje"
 
 #. (para)
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
-msgstr "Cena grananja i označavanja ne treba da bude proporcionalno veličini projekta. Subverzija stvara grane i značke jednostavnim kopiranjem projekta, koristeći mehanizam sličan čvrstim linkovima. Zato ove operacije uzimaju veoma mali, konstantan iznos vremena, i veoma mali prostor u spremištu."
+msgstr "Cena grananja i označavanja ne treba da bude proporcionalno veličini projekta. Subverzija stvara grane i oznake jednostavnim kopiranjem projekta, koristeći mehanizam sličan čvrstim linkovima. Zato ove operacije uzimaju veoma mali, konstantan iznos vremena, i veoma mali prostor u spremištu."
 
 #. (title)
 msgid "License"
@@ -758,7 +757,7 @@ msgstr "Šta Subverzija radi?"
 
 #. (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
-msgstr "Subverzija koristi kopiraj-izmeni-stopi rešenje uobičajeno, i u mnogim slučajevima ovo je sve što vam je potrebno. Međutim, od Verzije 1.2 Subverzija takođe podržava zaključavanje fajlova, tako da ako imate nestopive fajlove, ili ako jednostavno forsirate politiku zaključavanja preko uprave, Subverzija će još omogućavati željene osobine."
+msgstr "Subverzija koristi kopiraj-izmeni-stopi rešenje podrazumevano, i u mnogim slučajevima ovo je sve što vam je potrebno. Međutim, od Verzije 1.2 Subverzija takođe podržava zaključavanje fajlova, tako da ako imate nestopive fajlove, ili ako jednostavno forsirate politiku zaključavanja preko uprave, Subverzija će još omogućavati željene osobine."
 
 #. (title)
 msgid "Subversion in Action"
@@ -1249,7 +1248,7 @@ msgstr "Pre nego uvezete vaše podatke u spremište morate najpre razmisliti kak
 
 #. (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the <quote>main line</quote> of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr "Postoje neki standardni, preporučljivi načini organizovanja spremišta. Većina ljudi kreira <filename>deblo</filename> imenik da čuva <quote>glavnu liniju</quote> razvoja, <filename>grane</filename> imenik da čuva kopije grana, i <filename>znake</filename> imenik da drži kopije oznaka. Ako spremište sadrži samo jedan projekat, tada ljudi često kreiraju vršni imenik:"
+msgstr "Postoje neki standardni, preporučljivi načini organizovanja spremišta. Većina ljudi kreira <filename>deblo</filename> imenik da čuva <quote>glavnu liniju</quote> razvoja, <filename>grane</filename> imenik da čuva kopije grana, i <filename>oznake</filename> imenik da drži kopije oznaka. Ako spremište sadrži samo jedan projekat, tada ljudi često kreiraju vršni imenik:"
 
 #. (screen)
 #, no-wrap
@@ -1282,10 +1281,10 @@ msgstr ""
 "\n"
 "/trunk/paint\n"
 "/trunk/calc\n"
-"/branchešpaint\n"
-"/branchešcalc\n"
-"/tagšpaint\n"
-"/tagšcalc\n"
+"/branches/paint\n"
+"/branches/calc\n"
+"/tags/paint\n"
+"/tags/calc\n"
 
 #. (para)
 msgid "...or by project:"
@@ -1306,9 +1305,9 @@ msgstr ""
 "/paint/trunk\n"
 "/paint/branches\n"
 "/paint/tags\n"
-"/calčtrunk\n"
-"/calčbranches\n"
-"/calčtags\n"
+"/calc/trunk\n"
+"/calc/branches\n"
+"/calc/tags\n"
 
 #. (para)
 msgid "Indexing by project makes sense if the projects are not closely related and each one is checked out individually. For related projects where you may want to check out all projects in one go, or where the projects are all tied together in a single distribution package, it is often better to index by branch. This way you have only one trunk to checkout, and the relationships between the sub-projects is more easily visible."
@@ -1316,7 +1315,7 @@ msgstr "Indeksiranje pomoću projekata je osetljiv na to da li su projekti blisk
 
 #. (para)
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
-msgstr "Ako usvojimo vršni nivo <filename>/trunk /tags /branches</filename> pristup, nije ništa reći da imate kopirati celo deblo za svaku granu i znak, i u neki put ova struktura nudi najveću flksibilnost."
+msgstr "Ako usvojimo vršni nivo <filename>/deblo /oznake /grane</filename> pristup, nije ništa reći da imate kopirati celo deblo za svaku granu i oznaku, i u neki put ova struktura nudi najveću fleksibilnost."
 
 #. (para)
 msgid "For unrelated projects you may prefer to use separate repositories. When you commit changes, it is the revision number of the whole repository which changes, not the revision number of the project. Having 2 unrelated projects share a repository can mean large gaps in the revision numbers. The Subversion and TortoiseSVN projects appear at the same host address, but are completely separate repositories allowing independent development, and no confusion over build numbers."
@@ -1344,7 +1343,7 @@ msgstr "uveite ovu strukturu u spremište preko <action>desni klik</action> na i
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
-msgstr "Tako, ako niste već kreirali strukturu osnovnog imenika unutar vašeg spremišta treba to da uradite sada. Postoje dva načina da se to postigne. Ako jednostavno želite da kreirate <filename>/trunk /tags /branches</filename> strukturu možete koristiti pretraživač spremišta da kreirate ta tri imenika (u tri posebna urezivanja). Ako želite da kreirate dublju hijerarhiju tada je to slično najpre kreiranju strukture imenika na disku i njen uvoz pri jedinstvenom urezivanju kao ovo: <placeholder-1/>"
+msgstr "Tako, ako niste već kreirali strukturu osnovnog imenika unutar vašeg spremišta treba to da uradite sada. Postoje dva načina da se to postigne. Ako jednostavno želite da kreirate <filename>/deblo /oznake /grane</filename> strukturu možete koristiti pretraživač spremišta da kreirate ta tri imenika (u tri posebna urezivanja). Ako želite da kreirate dublju hijerarhiju tada je to slično najpre kreiranju strukture imenika na disku i njen uvoz pri jedinstvenom urezivanju kao ovo: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -1705,11 +1704,11 @@ msgstr ""
 
 #. (title)
 msgid "Basic Authentication with svnserve"
-msgstr "Osnovna autentifikacija sa svnserv"
+msgstr "Osnovna autentikacija sa svnserv"
 
 #. (para)
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <literal>svn://</literal> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
-msgstr "Uobičajeno podešavanje svnserva omogućava anonimni pristup samo čitanje. Ovo znači da možete koristiti <literal>svn://</literal> URL da preuzmete i ažurirate ili koristite repo-pretraživač u TortoiseSVN da vidite spremište, ali ne možete urezivati bilo kakve izmene."
+msgstr "Podrazumevano podešavanje svnserva omogućava anonimni pristup samo čitanje. Ovo znači da možete koristiti <literal>svn://</literal> URL da preuzmete i ažurirate ili koristite repo-pretraživač u TortoiseSVN da vidite spremište, ali ne možete urezivati bilo kakve izmene."
 
 #. (para)
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
@@ -1749,11 +1748,11 @@ msgstr ""
 "[users]\n"
 "username = password\n"
 "...\n"
-"</screen> Ovaj primertreba da zabrani sve neautentifikovane (anonimne) korisnike i da ćitanje-upis pristup korisnicima izlistanim u  <filename>userfile</filename>."
+"</screen> Ovaj primertreba da zabrani sve neautentikovane (anonimne) korisnike i da ćitanje-upis pristup korisnicima izlistanim u  <filename>userfile</filename>."
 
 #. (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
-msgstr "Ako održavate više spremišta koristeći istu bazu lozinki, korišćenje autentifikacione oblasti olakšće život korisnicima, kako TortoiseSVN kešira vašu akreditaciju vi ćete je uraditi samo jedanput. Više informacija se može naći u Subverzionoj knjizi, specijalno u delu <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Kreirajte 'users' fajl i oblast </citetitle></ulink> i <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Klient Kredencials Kešing</citetitle></ulink>"
+msgstr "Ako održavate više spremišta koristeći istu bazu lozinki, korišćenje autentikacione oblasti olakšće život korisnicima, kako TortoiseSVN kešira vašu akreditaciju vi ćete je uraditi samo jedanput. Više informacija se može naći u Subverzionoj knjizi, specijalno u delu <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Kreirajte 'users' fajl i oblast </citetitle></ulink> i <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Klient Kredencials Kešing</citetitle></ulink>"
 
 #. (title)
 msgid "Better Security with SASL"
@@ -1769,15 +1768,15 @@ msgstr "Šta je SASL?"
 
 #. (para)
 msgid "The Cyrus Simple Authentication and Security Layer is open source software written by Carnegie Mellon University. It adds generic authentication and encryption capabilities to any network protocol, and as of Subversion 1.5 and later, both the svnserve server and TortoiseSVN client know how to make use of this library."
-msgstr "Cirus jednostavna autentifikacija i sigurnosni sloj je softver otvorenog koda napisan na Karnegi Melon univerzitetu. On dodaje srodnu autentifikaciju i mogućnosti šifriranja svakom mrežnom protokolu i od Subverzije 1.5 i dalje, oba, svnserv i TortoiseSVN klijenti znaju kako da koriste ovu biblioteku. "
+msgstr "Cirus jednostavna autentikacija i sigurnosni sloj je softver otvorenog koda napisan na Karnegi Melon univerzitetu. On dodaje srodnu autentikaciju i mogućnosti šifriranja svakom mrežnom protokolu i od Subverzije 1.5 i dalje, oba, svnserv i TortoiseSVN klijenti znaju kako da koriste ovu biblioteku. "
 
 #. (para)
 msgid "For a more complete discussion of the options available, you should look at the Subversion book in the section <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. If you are just looking for a simple way to set up secure authentication and encryption on a Windows server, so that your repository can be accessed safely over the big bad Internet, read on."
-msgstr "Za kompletniju diskusiju dostupnih opcija treba pogledati Subverzionu knjigu u delu <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle> Koristeći svnserv sa SASL </citetitle></ulink>. Ako ste samo potražili lak način da podesite sigurnu autentifikaciju i šifriranje na Vindouz serveru vašem  spremištu će se pristupati preko velikog lošeg Internet čitanja."
+msgstr "Za kompletniju diskusiju dostupnih opcija treba pogledati Subverzionu knjigu u delu <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle> Koristeći svnserv sa SASL </citetitle></ulink>. Ako ste samo potražili lak način da podesite sigurnu autentikaciju i šifriranje na Vindouz serveru vašem  spremištu će se pristupati preko velikog lošeg Internet čitanja."
 
 #. (title)
 msgid "SASL Authentication"
-msgstr "SASL autentifikacija"
+msgstr "SASL autentikacija"
 
 #. (para)
 msgid ""
@@ -1811,7 +1810,7 @@ msgstr ""
 "auxprop_plugin: sasldb\n"
 "mech_list: DIGEST-MD5\n"
 "sasldb_path: C:\\TortoiseSVN\\sasldb\n"
-"</screen> Poslednja linija prikazuje lokaciju autentifikacione baze podataka, koja je fajl pod imenom <filename>sasldb</filename>. To može biti bilo gde, ali uobičajen izbor je predačka putanja spremišta. Osigurajte da svnser servis ima čitajući pristup ovom fajlu."
+"</screen> Poslednja linija prikazuje lokaciju autentikacione baze podataka, koja je fajl pod imenom <filename>sasldb</filename>. To može biti bilo gde, ali uobičajen izbor je predačka putanja spremišta. Osigurajte da svnser servis ima čitajući pristup ovom fajlu."
 
 #. (para)
 msgid "If svnserve was already running, you will need to restart it to ensure it reads the updated configuration."
@@ -1857,15 +1856,15 @@ msgstr "<literal>Min-encryption</literal> i <literal>max-encryption</literal> pr
 
 #. (title)
 msgid "Authentication with svn+ssh"
-msgstr "Autentifikacija sa svn+ssh"
+msgstr "Autentikacija sa svn+ssh"
 
 #. (para)
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through. It is not as simple to set up as SASL, but it may be useful is some cases."
-msgstr "Drugi način autentifikacije korisnika pomoću svnserva zasnovanog servera je korišćenje sigurnosnu ljusku (SSH) da se provuče zahtev. To nije jednostavno da se podesi kao SASL, ali može biti korisno u nekim slučajevima."
+msgstr "Drugi način autentikacije korisnika pomoću svnserva zasnovanog servera je korišćenje sigurnosnu ljusku (SSH) da se provuče zahtev. To nije jednostavno da se podesi kao SASL, ali može biti korisno u nekim slučajevima."
 
 #. (para)
 msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
-msgstr "Evo to g pristupa, svnserv ne radi kao skriveni proces, radije, sigurnosna ljuska pokreće svnserv za vas, pokrećući ga kao SSH autentifikovanog korisnika. Da se to omogući potreban je skrivena sigurnosna ljuska na serveru."
+msgstr "Evo to g pristupa, svnserv ne radi kao skriveni proces, radije, sigurnosna ljuska pokreće svnserv za vas, pokrećući ga kao SSH autentikovanog korisnika. Da se to omogući potreban je skrivena sigurnosna ljuska na serveru."
 
 #. (para)
 msgid "A basic method for setting up your server is given in <xref linkend=\"tsvn-ssh-howto\"/>. You can find other SSH topics within the FAQ by searching for <quote>SSH</quote>."
@@ -1963,7 +1962,7 @@ msgstr "Sada testirajte da li Apaš veb server radi ispravno upravljajući veb p
 
 #. (para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
-msgstr "Ako odlučite da instalirate Apaš kao servis, znajte da tada uobičajeno radi kao sistem lokalnog rčuna. Bila bi sigurnija praksa za vas da kreirate poseban račun za rad kao Apaš."
+msgstr "Ako odlučite da instalirate Apaš kao servis, znajte da tada podrazumevano radi kao sistem lokalnog rčuna. Bila bi sigurnija praksa za vas da kreirate poseban račun za rad kao Apaš."
 
 #. (para)
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right-click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
@@ -2140,15 +2139,15 @@ msgstr "Korišćen da fino pretražuje sa veb pretraživačem."
 
 #. (entry)
 msgid "is to activate basic authentication, i.e. Username/password"
-msgstr "da aktivira osnovnu autentifikaciju, npr. korisničkoime/lozinka"
+msgstr "da aktivira osnovnu autentikaciju, npr. korisničkoime/lozinka"
 
 #. (entry)
 msgid "is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for"
-msgstr "korišćen kao informacija kadgod se pojavi autentifikacioni dijalog da kaže korisniku zašto je autentifikacija"
+msgstr "korišćen kao informacija kadgod se pojavi autentikacioni dijalog da kaže korisniku zašto je autentikacija"
 
 #. (entry)
 msgid "specifies which password file to use for authentication"
-msgstr "određuje koji fajl lozinki koristiti za autentifikaciju"
+msgstr "određuje koji fajl lozinki koristiti za autentikaciju"
 
 #. (entry)
 msgid "Location of the Access file for paths inside a Subversion repository"
@@ -2304,11 +2303,11 @@ msgstr "Primetimo da provera svake putanje može biti skupa operacija, posebno u
 
 #. (para)
 msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
-msgstr "Autentifikacija i autorizacija su zasebni procesi. Ako korisnik želi da otvori pristup u putanju spremišta, mora se sresti sa <emphasis>oba</emphasis>, zahtevima obične autentifikacije i zahtevima autorizacije pristupa fajlu."
+msgstr "Autentikacija i autorizacija su zasebni procesi. Ako korisnik želi da otvori pristup u putanju spremišta, mora se sresti sa <emphasis>oba</emphasis>, zahtevima obične autentikacije i zahtevima autorizacije pristupa fajlu."
 
 #. (title)
 msgid "Authentication With a Windows Domain"
-msgstr "Autentifikacija sa Vindouz domenom"
+msgstr "Autentikacija sa Vindouz domenom"
 
 #. (primary)
 msgid "Windows domain"
@@ -2392,7 +2391,7 @@ msgstr "Primetite da ako ste autentikovani korišćenjem SSPI, tada vam više uo
 
 #. (para)
 msgid "The SSPI authentication is only enabled for SSL secured connections (https). If you're only using normal http connections to your server, it won't work."
-msgstr "SPI autentifikacija je omogućena samo za SSL sigurne konekcije (https). Ako koristite normalnu http konekciju ka vašem serveru, to neće raditi."
+msgstr "SPI autentikacija je omogućena samo za SSL sigurne konekcije (https). Ako koristite normalnu http konekciju ka vašem serveru, to neće raditi."
 
 #. (para)
 msgid "To enable SSL on your server, see the chapter: <xref linkend=\"tsvn-serversetup-apache-7\"/>"
@@ -2408,7 +2407,7 @@ msgstr "U Mikrosoftovom svetu, Vindouz domeni i korisnička imena nisu osetljivi
 
 #. (para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
-msgstr "Ova razlika vas može ugristi kada koristite SSPI autentifikaciju kao vindouz domen i korisničko ime prođe u Subverziju u istom obliku kako ga je korisnik otkucao u promptu. Internet Eksplorer često propušta korisničko ime ka Apašu automatski koristeći bilo koju veičinu slova bez obzira kako je račun ispisan."
+msgstr "Ova razlika vas može ugristi kada koristite SSPI autentikaciju kao vindouz domen i korisničko ime prođe u Subverziju u istom obliku kako ga je korisnik otkucao u promptu. Internet Eksplorer često propušta korisničko ime ka Apašu automatski koristeći bilo koju veičinu slova bez obzira kako je račun ispisan."
 
 #. (para)
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
@@ -2420,15 +2419,15 @@ msgstr "Apašev dnevnik grešaka i pristupa je vaš najbolji prijatelj pri deši
 
 #. (title)
 msgid "Multiple Authentication Sources"
-msgstr "Višestruki autentifikacioni izvori"
+msgstr "Višestruki autentikacioni izvori"
 
 #. (primary)
 msgid "Multiple authentication"
-msgstr "Višestruke autentifikacije"
+msgstr "Višestruke autentikacije"
 
 #. (para)
 msgid "It is also possible to have more than one authentication source for your Subversion repository. To do this, you need to make each authentication type non-authoritative, so that Apache will check multiple sources for a matching username/password."
-msgstr "Moguće je imati više od jednog autentifikacionog izvora za Subverziono spremište. Da se to uradi potrebno je napraviti svaki autentifikacioni tip neautoritativan tako da Apaš proverava višestruke izvore da bi dohvatio korisnik/lozinka."
+msgstr "Moguće je imati više od jednog autentikacionog izvora za Subverziono spremište. Da se to uradi potrebno je napraviti svaki autentikacioni tip neautoritativan tako da Apaš proverava višestruke izvore da bi dohvatio korisnik/lozinka."
 
 #. (para)
 msgid "A common scenario is to use both Windows domain authentication and a <literal>passwd</literal> file, so that you can provide SVN access to users who don't have a Windows domain login."
@@ -2441,7 +2440,7 @@ msgid ""
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
-"Da se omogući oba, Vindouz domen i <filename>passwd</filename> fajl autentifikacija, dodajte sledeće ulaze u okviru <literal>&lt;Location&gt;</literal> bloka vašrg Apaš konfig fajla: <screen>\n"
+"Da se omogući oba, Vindouz domen i <filename>passwd</filename> fajl autentikacija, dodajte sledeće ulaze u okviru <literal>&lt;Location&gt;</literal> bloka vašrg Apaš konfig fajla: <screen>\n"
 "AuthBasicAuthoritative Off\n"
 "SSPIAuthoritative Off\n"
 "</screen>"
@@ -2473,7 +2472,7 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
-"Ovde je jedan primer pune Apaš konfiguracije za kombinovane Vindouz domene i <literal>passwd</literal> fajl autentifikaciju:  <screen>\n"
+"Ovde je jedan primer pune Apaš konfiguracije za kombinovane Vindouz domene i <literal>passwd</literal> fajl autentikaciju:  <screen>\n"
 "&lt;Location /svn&gt;\n"
 "  DAV svn\n"
 "  SVNListParentPath on\n"
@@ -2508,7 +2507,7 @@ msgstr "SSL"
 
 #. (para)
 msgid "Even though Apache 2.2.x has OpenSSL support, it is not activated by default. You need to activate this manually."
-msgstr "Bez obzira ako Apaš 2.2.x ima OpenSSL podršku, to nije obično aktivirano. Treba da to aktivirate ručno."
+msgstr "Bez obzira ako Apaš 2.2.x ima OpenSSL podršku, to nije podrazumevano aktivirano. Treba da to aktivirate ručno."
 
 #. (para)
 msgid ""
@@ -2596,15 +2595,15 @@ msgstr "SSL i Internet Eksplorer"
 
 #. (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
-msgstr "Ako osigurate vaš server sa SSL i koristite autentifikaciju prema Vindouz domenu vi ćete naći da pretraživanje spremišta Internet Eksplorerom uopšte ne radi. Ne brinite - to samo Internet Eksplorer nije sposoban da autentifikuje. Drugi pretraživači nemaju taj problem i TortoiseSVN i bilo koji drugi Subverzioni klijent još može da autentifikuje."
+msgstr "Ako osigurate vaš server sa SSL i koristite autentikaciju prema Vindouz domenu vi ćete naći da pretraživanje spremišta Internet Eksplorerom uopšte ne radi. Ne brinite - to samo Internet Eksplorer nije sposoban da autentikuje. Drugi pretraživači nemaju taj problem i TortoiseSVN i bilo koji drugi Subverzioni klijent još može da autentikuje."
 
 #. (para)
 msgid "define a separate <literal>&lt;Location /path&gt;</literal> directive in the Apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
-msgstr "definišite odvojenu <literal>&lt;Location /path&gt;</literal> direktivu u Apaš konfig fajlu, i dodajte <literal>SSPIBasicPreferred On</literal>. Ovo će omogućiti IE da autentifikuje opet, ali drugi pretraživači i Subverzija nisu sposobni da autentifikuju prema lokaciji."
+msgstr "definišite odvojenu <literal>&lt;Location /path&gt;</literal> direktivu u Apaš konfig fajlu, i dodajte <literal>SSPIBasicPreferred On</literal>. Ovo će omogućiti IE da autentikuje opet, ali drugi pretraživači i Subverzija nisu sposobni da autentikuju prema lokaciji."
 
 #. (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
-msgstr "Ponudite pretraživanje sa nešifriranom autentifikacijom (bez SSL) takođe. IE nema bilo koje probleme sa autentifikacijom ako veza nije osigurana sa SSL."
+msgstr "Ponudite pretraživanje sa nešifriranom autentikacijom (bez SSL) takođe. IE nema bilo koje probleme sa autentikacijom ako veza nije osigurana sa SSL."
 
 #. (para)
 msgid ""
@@ -2618,7 +2617,7 @@ msgstr ""
 "SetEnvIf User-Agent \".*MSIE.*\" \\\n"
 "             nokeepalive ssl-unclean-shutdown \\\n"
 "             downgrade-1.0 force-response-1.0\n"
-"</screen> Ima (gde?)dobrih razloga za ovu konfiguraciju, vidite <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> Ali ako  želite NTLM autentifikaciju imate da koristite<literal>keepalive</literal>. Ako Vi otkomentirate celu <literal>SetEnvIf</literal> trebalo bi da možete da autentifikujete IE sa vindouz autentifikacijom preko SSL prema Apašu na Vin32 uključivši  <literal>mod_auth_ssp</literal>."
+"</screen> Ima (gde?)dobrih razloga za ovu konfiguraciju, vidite <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> Ali ako  želite NTLM autentikaciju imate da koristite<literal>keepalive</literal>. Ako Vi otkomentirate celu <literal>SetEnvIf</literal> trebalo bi da možete da autentikujete IE sa vindouz autentikacijom preko SSL prema Apašu na Vin32 uključivši  <literal>mod_auth_ssp</literal>."
 
 #. (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
@@ -2901,11 +2900,11 @@ msgstr "autentikacioni keš"
 
 #. (title)
 msgid "Authentication Dialog"
-msgstr "Autentifikacioni dijalog"
+msgstr "Autentikacioni dijalog"
 
 #. (para)
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
-msgstr "<filename>svn.simple</filename> sadrži akreditaciju osnove autentifikacije (korisnik/lozinka). Primetimo da su lozinke memorisane korišćenjem VinCript Api, nije u punom tekst formatu."
+msgstr "<filename>svn.simple</filename> sadrži akreditaciju osnove autentikacije (korisnik/lozinka). Primetimo da su lozinke memorisane korišćenjem VinCript Api, nije u punom tekst formatu."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -2913,15 +2912,15 @@ msgstr "<filename>svn.ssl.server</filename> sadrži SSL sertifikate servera."
 
 #. (para)
 msgid "<filename>svn.username</filename> contains credentials for username-only authentication (no password needed)."
-msgstr "<filename>svn.username</filename> sadrži akreditaciju autentifikacje samo za korsničko ime (lozinka nije potrebna)."
+msgstr "<filename>svn.username</filename> sadrži akreditaciju autentikacje samo za korsničko ime (lozinka nije potrebna)."
 
 #. (para)
 msgid "If the repository that you are trying to access is password protected, an authentication Dialog will show up. <placeholder-1/> Enter your username and password. The checkbox will make TortoiseSVN store the credentials in Subversion's default directory: <filename>%APPDATA%\\Subversion\\auth</filename> in three subdirectories: <placeholder-2/>"
-msgstr "Ako je spremište kome pokušavate da pristupite zaštićeno lozinkom, autentifikacioni dijalog će vam biti prikazan. <placeholder-1/> Unesite korisničko ime i lozinku. Boks prove će učiniti da TortoiseSVN smesti akreditaciju u Subverzionom uobičajenom imeniku: <filename>%APPDATA%\\Subversion\\auth</filename> u stablu subimenika: <placeholder-2/>"
+msgstr "Ako je spremište kome pokušavate da pristupite zaštićeno lozinkom, autentikacioni dijalog će vam biti prikazan. <placeholder-1/> Unesite korisničko ime i lozinku. Boks prove će učiniti da TortoiseSVN smesti akreditaciju u Subverzionom podrazumevanom imeniku: <filename>%APPDATA%\\Subversion\\auth</filename> u stablu subimenika: <placeholder-2/>"
 
 #. (para)
 msgid "If you want to clear the authentication cache for all servers, you can do so from the <guilabel>Saved Data</guilabel> page of TortoiseSVN's settings dialog. That button will clear all cached authentication data from the Subversion <filename>auth</filename> directories, as well as any authentication data stored in the registry by earlier versions of TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
-msgstr "Ako želite da obrišete autentifikacioni keš za sve servere, možete to uraditi od <guilabel>Zapamćeni podaci</guilabel>  strane TortoiseSVN dijaloga podešavanja.To dugme će očistiti sve autentifikacione keširane podatke iz Subverzionog <filename>auth</filename>  imenika, kao i bilo koji autentifikacioni podatak smešten u registru od ranijih verzija TortoiseSVN. Uporedite sa <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
+msgstr "Ako želite da obrišete autentikacioni keš za sve servere, možete to uraditi od <guilabel>Zapamćeni podaci</guilabel>  strane TortoiseSVN dijaloga podešavanja.To dugme će očistiti sve autentikacione keširane podatke iz Subverzionog <filename>auth</filename>  imenika, kao i bilo koji autentikacioni podatak smešten u registru od ranijih verzija TortoiseSVN. Uporedite sa <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
@@ -2934,14 +2933,14 @@ msgid ""
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 msgstr ""
-"Neki ljudi vole da imaju obrisane autentifikacione podatke kada se odloguju iz Vindouza ili pri šatdaunu. Način da se to uradi je korišćenje šatdaun skripta da obriše <filename>%APPDATA%\\Subversion\\auth</filename> imenik, npr. <screen>\n"
+"Neki ljudi vole da imaju obrisane autentikacione podatke kada se odloguju iz Vindouza ili pri šatdaunu. Način da se to uradi je korišćenje šatdaun skripta da obriše <filename>%APPDATA%\\Subversion\\auth</filename> imenik, npr. <screen>\n"
 "@echo off\n"
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> Možete naći opis kako da instalirate takvu skriptu na <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 
 #. (para)
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>"
-msgstr "Za više informacija kako da se podesi vaš server za autentifikaciju i kontrolu pristupa, pogledaj u <xref linkend=\"tsvn-serversetup\"/>"
+msgstr "Za više informacija kako da se podesi vaš server za autentikaciju i kontrolu pristupa, pogledaj u <xref linkend=\"tsvn-serversetup\"/>"
 
 #. (title)
 msgid "Maximizing Windows"
@@ -3034,7 +3033,7 @@ msgstr "Uvozna poruka se koristi kao poruka dnevnika."
 
 #. (para)
 msgid "By default, files and folders which match the global-ignore patterns are <emphasis>not</emphasis> imported. To override this behaviour you can use the <guilabel>Include ignored files</guilabel> checkbox. Refer to <xref linkend=\"tsvn-dug-settings-main\"/> for more information on setting a global ignore pattern."
-msgstr "Uobičajeno, fajlovi i imenici koji hvataju globalno-zanemariv model <emphasis>nisu</emphasis> uvezeni. Da se premosti ovakvo ponašanje možete koristiti <guilabel>Uključiti zanemarene fajlove</guilabel> čekboks. Konsultujte <xref linkend=\"tsvn-dug-settings-main\"/> za više informacija o podešavanju globalnog modela izbegavanja."
+msgstr "Podrazumevano, fajlovi i imenici koji hvataju globalno-zanemariv model <emphasis>nisu</emphasis> uvezeni. Da se premosti ovakvo ponašanje možete koristiti <guilabel>Uključiti zanemarene fajlove</guilabel> čekboks. Konsultujte <xref linkend=\"tsvn-dug-settings-main\"/> za više informacija o podešavanju globalnog modela izbegavanja."
 
 #. (para)
 msgid "As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the complete directory tree including all files into the repository. The project is now stored in the repository under version control. Please note that the folder you imported is <emphasis>NOT</emphasis> under version control! To get a version-controlled <firstterm>working copy</firstterm> you need to do a Checkout of the version you just imported. Or read on to find out how to import a folder in place."
@@ -3160,7 +3159,7 @@ msgstr "Radna kopija"
 
 #. (para)
 msgid "Retain the depth specified in the working copy. This option is not used in the checkout dialog, but it is the default in all other dialogs which have a depth setting."
-msgstr "Zadržati dubinu specificiranu u radnoj kopiji. Ova opcija se ne koristi u dijalogu preuzimanja, ali je uobičajena u svim ostalim dijalozima koji imahu podešavanje dubine."
+msgstr "Zadržati dubinu specificiranu u radnoj kopiji. Ova opcija se ne koristi u dijalogu preuzimanja, ali je podrazumevano u svim ostalim dijalozima koji imaju podešavanje dubine."
 
 #. (term)
 msgid "Exclude"
@@ -3200,7 +3199,7 @@ msgstr "Izaberite novi imenik i koristite <menuchoice><guimenu>TortoiseSVN</guim
 
 #. (para)
 msgid "Right click on <literal>Project03</literal> and <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>. Keep the default settings and click on <guibutton>OK</guibutton>. You now have that folder fully populated."
-msgstr "Desni klik na <literal>Project03</literal>i <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Ažuriraj stavku do revizije...</guimenuitem></menuchoice>.Čuvajte uobičajeno podešavanje i kliknite na <guibutton>OK</guibutton>. Vi sada imate imenik potpuno popunjen."
+msgstr "Desni klik na <literal>Project03</literal>i <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Ažuriraj stavku do revizije...</guimenuitem></menuchoice>.Čuvajte podrazumevano podešavanje i kliknite na <guibutton>OK</guibutton>. Vi sada imate imenik potpuno popunjen."
 
 #. (para)
 msgid "Repeat the same process for <literal>Project25</literal>."
@@ -3236,7 +3235,7 @@ msgstr "Ako <guilabel>Izostaviti eksterne</guilabel> je označeno, ili ako želi
 
 #. (para)
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree, or lower. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr "Preporučuje se da preuzmete samo samo <literal>trunk</literal>  deo stabla imenika, ili niže. Ako odredite predačku putanju stabla imenika u URL tada možete završiti sa punim hard diskom jer dobijate kopiju celog stabla spremišta uključujući svaku granu i znak vašeg projekta!"
+msgstr "Preporučuje se da preuzmete samo samo <literal>trunk</literal>  deo stabla imenika, ili niže. Ako odredite predačku putanju stabla imenika u URL tada možete završiti sa punim hard diskom jer dobijate kopiju celog stabla spremišta uključujući svaku granu i oznaku vašeg projekta!"
 
 #. (title)
 msgid "Exporting"
@@ -3329,7 +3328,7 @@ msgstr "Kolone prikazane u donjem panelu su prilagodljive. Ako uradite <action>d
 
 #. (para)
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion configuration file."
-msgstr "Uobičajeno je da kada se urezuju izmene, svako zaključavanje koje držite na fajlovima se automatski otključava posle zadovoljavajućeg urezivanja. Ako želite da zadržite zaključavanje budite sigurni da je <guilabel>Čuvaj zaključavanje</guilabel> čekboks je čekiran. Uobičajeno stanje ovog čekboksa uzet je iz <literal>no_unlock</literal> opcije u Subverzionom konfiguracionom fajlu. Pročitajte <xref linkend=\"tsvn-dug-settings-main\"/> za informacije kako urediti Subverzioni konfiguracioni fajl."
+msgstr "Podrazumevano je da kada se urezuju izmene, svako zaključavanje koje držite na fajlovima se automatski otključava posle zadovoljavajućeg urezivanja. Ako želite da zadržite zaključavanje budite sigurni da je <guilabel>Čuvaj zaključavanje</guilabel> čekboks je čekiran. Podrazumevano stanje ovog čekboksa uzet je iz <literal>no_unlock</literal> opcije u Subverzionom konfiguracionom fajlu. Pročitajte <xref linkend=\"tsvn-dug-settings-main\"/> za informacije kako urediti Subverzioni konfiguracioni fajl."
 
 #. (para)
 msgid "You can drag files into the commit dialog from elsewhere, so long as the working copies are checked out from the same repository. For example, you may have a huge working copy with several explorer windows open to look at distant folders of the hierarchy. If you want to avoid committing from the top level folder (with a lengthy folder crawl to check for changes) you can open the commit dialog for one folder and drag in items from the other windows to include within the same atomic commit."
@@ -3499,7 +3498,7 @@ msgstr "Progres dijalogkoristi kodiranje bojama da osvetli različite akcije ure
 #. (para)
 #. (para)
 msgid "This is the default colour scheme, but you can customise those colours using the settings dialog. Read <xref linkend=\"tsvn-dug-settings-colours\"/> for more information."
-msgstr "Ovo je uobičajena šema boja, ali možete prilagoditi ove boje koristeći dijalog podešavanja. Čitajte <xref linkend=\"tsvn-dug-settings-colours\"/> za više informacije."
+msgstr "Ovo je podrazumevana šema boja, ali možete prilagoditi ove boje koristeći dijalog podešavanja. Čitajte <xref linkend=\"tsvn-dug-settings-colours\"/> za više informacije."
 
 #. (title)
 msgid "Update Your Working Copy With Changes From Others"
@@ -3566,7 +3565,7 @@ msgstr "Kada je ažuriranje kompletno, progres dijalog prikazuje ukupnost brojni
 
 #. (para)
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr "Standardna Ažuriraj komanda nema opcije i samo ažurira vašu radnu kopiju do GLAVNE revizije spremišta, što je najčešći slučaj korišćenja. Ako želite više kontrole procesa ažuriranja, potrebno je da koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ažuriraj u Reviziju...</guimenuitem></menuchoice> umesto. Ovo omogućava da se ažurira vaša radna kopija do specificirane revizije, ne samo do najskoriju. Pretpostavimo da vaša radna kopija je u reviziji 100, ali vi želite da reflektujete stanje koje je bilo u reviziji 50 - tada jednostavno ažurirajte u reviziju 50. U istom dijalogu možete takođe izabrati <firstterm>dubinu</firstterm> do koje ažurirati tekući imenik. Termini koji su korišćeni opisani su u <xref linkend=\"tsvn-dug-checkout-depth\"/>. Uobičajena dubina je <guilabel>Radna kopija</guilabel>, koja čuva postojeće podešavanje dubine. Možete takođe izabrati da li zanemariti spoljašnje projekte pri ažuriranju (tj. projek se referira koristeći <literal>svn:externals</literal>)."
+msgstr "Standardna Ažuriraj komanda nema opcije i samo ažurira vašu radnu kopiju do GLAVNE revizije spremišta, što je najčešći slučaj korišćenja. Ako želite više kontrole procesa ažuriranja, potrebno je da koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ažuriraj u Reviziju...</guimenuitem></menuchoice> umesto. Ovo omogućava da se ažurira vaša radna kopija do specificirane revizije, ne samo do najskoriju. Pretpostavimo da vaša radna kopija je u reviziji 100, ali vi želite da reflektujete stanje koje je bilo u reviziji 50 - tada jednostavno ažurirajte u reviziju 50. U istom dijalogu možete takođe izabrati <firstterm>dubinu</firstterm> do koje ažurirati tekući imenik. Termini koji su korišćeni opisani su u <xref linkend=\"tsvn-dug-checkout-depth\"/>. Podrazumevana dubina je <guilabel>Radna kopija</guilabel>, koja čuva postojeće podešavanje dubine. Možete takođe izabrati da li zanemariti spoljašnje projekte pri ažuriranju (tj. projek se referira koristeći <literal>svn:externals</literal>)."
 
 #. (para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <quote>out of date</quote> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
@@ -4058,7 +4057,7 @@ msgstr "Dodatne kolone u Windows Explorernisu dostupne u Vista, kako je Microsof
 
 #. (para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr "Ako želite tekući izgled da bude prikazan u vašoj radnoj kopiji, možete učiniti to uobičajenim pogledom."
+msgstr "Ako želite tekući izgled da bude prikazan u vašoj radnoj kopiji, možete učiniti to podrazumevanim preledom."
 
 #. (title)
 msgid "Local and Remote Status"
@@ -4203,7 +4202,7 @@ msgstr "TortoiseSVN rezerviše jedno ime liste izmena za sopstveno korišćenje,
 
 #. (para)
 msgid "When you commit files belonging to a changelist then normally you would expect that the changelist membership is no longer needed. So by default, files are removed from changelists automatically on commit. If you wish to retain the file in its changelist, use the <guilabel>Keep changelists</guilabel> checkbox at the bottom of the commit dialog."
-msgstr "Kada urezujete fajlove koji pripadaju listi izmena normalno je da očekujete da članovi liste izmena nisu više potrebni. Tako se uobičajeno fajlovi uklone iz liste izmena automatski pri urezivanju. Ako želite zadržati fajl u listi izmena, koristite <guilabel>Čuvaj liste izmena</guilabel> čekboks na dnu dijaloga urezivanja."
+msgstr "Kada urezujete fajlove koji pripadaju listi izmena normalno je da očekujete da članovi liste izmena nisu više potrebni. Tako se podrazumevano fajlovi uklone iz liste izmena automatski pri urezivanju. Ako želite zadržati fajl u listi izmena, koristite <guilabel>Čuvaj liste izmena</guilabel> čekboks na dnu dijaloga urezivanja."
 
 #. (para)
 msgid "Changelists are purely a local client feature. Creating and removing changelists will not affect the repository, nor anyone else's working copy. They are simply a convenient way for you to organise your files."
@@ -4319,7 +4318,7 @@ msgstr "Poređenje sa radnom kopijom"
 
 #. (para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr "Uporedite izabranu reviziju sa vašom radnom kopijom. Uobičajeni Diff-alat je TortoiseMerge koji ide uz TortoiseSVN. Ako je dijalog dnevnika  za imenike, ovo će prikazati listu izmenjenih fajlova, i omogućavaju vam da pregledate izmene učinjene u svakom fajlu individualno."
+msgstr "Uporedite izabranu reviziju sa vašom radnom kopijom. Podrazumevani Diff-alat je TortoiseMerge koji ide uz TortoiseSVN. Ako je dijalog dnevnika  za imenike, ovo će prikazati listu izmenjenih fajlova, i omogućavaju vam da pregledate izmene učinjene u svakom fajlu individualno."
 
 #. (term)
 msgid "Compare and blame with working BASE"
@@ -4390,11 +4389,11 @@ msgstr "Otvara pretraživač spremišta da pregleda izabrane fajlove u spremišt
 
 #. (term)
 msgid "Create branch/tag from revision"
-msgstr "Kreira grana/znak iz revizije"
+msgstr "Kreira grana/oznaka iz revizije"
 
 #. (para)
 msgid "Create a branch or tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr "Kreira granu ili znak iz izabrane revizije. Ovo je korisno npr. ako zaboravite da kreirate znak i  već ste urezali neke izmene koje nisu bile pretpostavljene da dođu u tu realizaciju."
+msgstr "Kreira granu ili oznaka iz izabrane revizije. Ovo je korisno npr. ako zaboravite da kreirate oznaka i  već ste urezali neke izmene koje nisu bile pretpostavljene da dođu u tu realizaciju."
 
 #. (term)
 msgid "Update item to revision"
@@ -4671,7 +4670,7 @@ msgstr "Za ogromna spremišta može biti stotine ili čak hiljade izmena i sve i
 
 #. (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr "Kada je <guilabel>Stani na kopiraj/preimenj</guilabel> boks čekiran, Prikaži Dnevnik će stati u tačku gde je izabrani fajl ili imenik kopiran od negde u okviru spremišta. Ovo može biti korisno kada tražimo grane (ili značke) kako su stale u korenu te grane, i daje brz pokazatelj izmena učinjenih samo u toj grani. "
+msgstr "Kada je <guilabel>Stani na kopiraj/preimenj</guilabel> boks čekiran, Prikaži Dnevnik će stati u tačku gde je izabrani fajl ili imenik kopiran od negde u okviru spremišta. Ovo može biti korisno kada tražimo grane (ili oznake) kako su stale u korenu te grane, i daje brz pokazatelj izmena učinjenih samo u toj grani. "
 
 #. (para)
 msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
@@ -4763,7 +4762,7 @@ msgstr "Revizione osobine su kompletno različite od Subverzionih osobina svake 
 
 #. (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
-msgstr "Ponekad možete poželeti da izmenite dnevnik poruku koju ste nekad uneli, možda zato što je sintksna greška u njoj ili želite da poboljšate poruku ili je izmenite iz drugih razloga. Ili želite da izmenite autora urezivanja jer ste zaboravili da podesite autentifikaciju ili..."
+msgstr "Ponekad možete poželeti da izmenite dnevnik poruku koju ste nekad uneli, možda zato što je sintksna greška u njoj ili želite da poboljšate poruku ili je izmenite iz drugih razloga. Ili želite da izmenite autora urezivanja jer ste zaboravili da podesite autentikaciju ili..."
 
 #. (para)
 msgid "Subversion lets you change revision properties any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
@@ -4905,7 +4904,7 @@ msgstr "Kada postoji više autora, dobićete mnogo linija na grafu. Postoji dva 
 
 #. (para)
 msgid "By default the analysis is case-sensitive, so users <literal>PeterEgan</literal> and <literal>PeteRegan</literal> are treated as different authors. However, in many cases user names are not case-sensitive, and are sometimes entered inconsistently, so you may want <literal>DavidMorgan</literal> and <literal>davidmorgan</literal> to be treated as the same person. Use the <guilabel>Authors case insensitive</guilabel> checkbox to control how this is handled."
-msgstr "Uobičajeno je da je analiza zavisna od veličine slova tako da korisnici <literal>PeterEgen</literal> i <literal>PeteRegen</literal> se tretiraju kao različiti autori. Međutim, u mnogim slučajevima imena korisnika nisu zavisna od veličine slova, i ponekad se unose nekonzistentno, tako da možete poželeti da <literal>DavidMorgan</literal> i <literal>davidmorgan</literal> budu tretirani kao ista osoba. Koristite <guilabel>Autori nezavisni od veličine slova</guilabel> čekboks da kontrolišete kako se ovim rukuje."
+msgstr "Podrazumevano je da je analiza zavisna od veličine slova tako da korisnici <literal>PeterEgen</literal> i <literal>PeteRegen</literal> se tretiraju kao različiti autori. Međutim, u mnogim slučajevima imena korisnika nisu zavisna od veličine slova, i ponekad se unose nekonzistentno, tako da možete poželeti da <literal>DavidMorgan</literal> i <literal>davidmorgan</literal> budu tretirani kao ista osoba. Koristite <guilabel>Autori nezavisni od veličine slova</guilabel> čekboks da kontrolišete kako se ovim rukuje."
 
 #. (para)
 msgid "Note that the statistics cover the same period as the Log dialog. If that is only displaying one revision then the statistics will not tell you very much."
@@ -4962,7 +4961,7 @@ msgstr "Osvežavanje izgleda"
 
 #. (para)
 msgid "If you want to check the server again for newer log messages, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer messages and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr "Ako želite da proverite server ponovo za nove dnevnik poruke, možete jednostavno da osvežite pregled koristeći <keycap>F5</keycap>. Ako koristite dnevnik keš (omogućen uobičajeno), to će proveriti spremište za nove poruke i naći će samo nove. Ako je dnevnik keš bio u isključenom modu, to će dovesti do njegovog uključenja."
+msgstr "Ako želite da proverite server ponovo za nove dnevnik poruke, možete jednostavno da osvežite pregled koristeći <keycap>F5</keycap>. Ako koristite dnevnik keš (omogućen podrazumevano), to će proveriti spremište za nove poruke i naći će samo nove. Ako je dnevnik keš bio u isključenom modu, to će dovesti do njegovog uključenja."
 
 #. (para)
 msgid "If you are using the log cache and you think the message content or author may have changed, you can use <keycap>Shift-F5</keycap> or <keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server and update the log cache. Note that this only affects messages currently shown and does not invalidate the entire cache for that repository."
@@ -4999,7 +4998,7 @@ msgstr "Ako želite da vidite koje izmene ste <emphasis>vi</emphasis> uradili u 
 
 #. (term)
 msgid "Difference to another branch/tag"
-msgstr "Razlike ka sledećoj grana-znak"
+msgstr "Razlike ka sledećoj grana/oznaka"
 
 #. (para)
 msgid "If you want to see what has changed on trunk (if you are working on a branch) or on a specific branch (if you are working on trunk), you can use the explorer context menu. Just hold down the <keycap>Shift</keycap> key while you right click on the file. Then select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in the repository with which you want to compare your local file to."
@@ -5007,7 +5006,7 @@ msgstr "Ako želite da vidite šta je izmenjeno na deblu (ako radite na grani) i
 
 #. (para)
 msgid "You can also use the repository browser and select two trees to diff, perhaps two tags, or a branch/tag and trunk. The context menu there allows you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Možete takođe koristiti pretraživač spremišta i izabrati dva stabla za diff, možda dve značke, ili granu/značku i deblo. Kontekst meni omogućava vam da ih poredite koristeći <guimenuitem>Poredi revizije</guimenuitem>. Pročitajte više u <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Možete takođe koristiti pretraživač spremišta i izabrati dva stabla za diff, možda dve oznake, ili granu/oznaku i deblo. Kontekst meni omogućava vam da ih poredite koristeći <guimenuitem>Poredi revizije</guimenuitem>. Pročitajte više u <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
@@ -5079,7 +5078,7 @@ msgstr "Ako ste konfigurisali diff alat treće strane, možete koristiti  <keyca
 
 #. (title)
 msgid "Line-end and Whitespace Options"
-msgstr "Kraj-reda i  Razmak Opcije"
+msgstr "Kraj-reda i  Belina Opcije"
 
 #. (para)
 msgid "Sometimes in the life of a project you might change the line endings from <literal>CRLF</literal> to <literal>LF</literal>, or you may change the indentation of a section. Unfortunately this will mark a large number of lines as changed, even though there is no change to the meaning of the code. The options here will help to manage these changes when it comes to comparing and applying differences. You will see these settings in the <guilabel>Merge</guilabel> and <guilabel>Blame</guilabel> dialogs, as well as in the settings for TortoiseMerge."
@@ -5091,15 +5090,15 @@ msgstr "<guilabel>Zanemari završetak linija</guilabel> izbacuje izmene koje su 
 
 #. (para)
 msgid "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation and inline whitespace as added/removed lines."
-msgstr "<guilabel>Poređenje razmaka </guilabel> uključuje sve izmene u uvlačenju i razmak unutar linije kao dodate/uklonjene linije."
+msgstr "<guilabel>Poređenje belina </guilabel> uključuje sve izmene u uvlačenju i beline unutar linije kao dodate/uklonjene linije."
 
 #. (para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Zanemari izmene razmaka </guilabel> isključuje izmene koje su samo zbog izmena u iznosu ili tipu razmaka, npr. izmenom uvlačenja ili izmenom tabova ili razmaka. Dodavanjem razmaka gde nisu bila ranije, ili  potpuno uklanjanjem razmakaje još uvek je prikazano kao promena."
+msgstr "<guilabel>Zanemari izmene beline</guilabel> isključuje izmene koje su samo zbog izmena u iznosu ili tipu beline, npr. izmenom uvlačenja ili izmenom tabova ili razmaka. Dodavanjem beline gde nisu bila ranije, ili  potpuno uklanjanjem beline je još uvek je prikazano kao promena."
 
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
-msgstr "<guilabel>Zanemari sve razmake</guilabel> isključuje sve samo-razmak izmene."
+msgstr "<guilabel>Zanemari sve beline</guilabel> isključuje sve samo-belina izmene."
 
 #. (para)
 msgid "Naturally, any line with changed content is always included in the diff."
@@ -5175,7 +5174,7 @@ msgstr "Pregledač razlika slika"
 
 #. (para)
 msgid "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> for any of the common image file formats will start TortoiseIDiff to show image differences. By default the images are displayed side-by-side but you can use the View menu or toolbar to switch to a top-bottom view instead, or if you prefer, you can overlay the images and pretend you are using a lightbox."
-msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> za svaki od čestih fajl formata slike će startovati TortoiseIDiff da prikaže razlike u slici. Uobičajeno slike se prikazuju strana-po-stranu ali možete koristiti Pregled meni ili alatpult da pređete na vrh-dno pregled umesto toga, ili ako više volite, možete preklopiti slike i pretpostaviti da koristite lajtboks."
+msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> za svaki od čestih fajl formata slike će startovati TortoiseIDiff da prikaže razlike u slici. Podrazumevano slike se prikazuju strana-po-stranu ali možete koristiti Pregled meni ili alatnom panelu da pređete na vrh-dno pregled umesto toga, ili ako više volite, možete preklopiti slike i pretpostaviti da koristite lajtboks."
 
 #. (para)
 msgid "Naturally you can also zoom in and out and pan around the image. You can also pan the image simply by left-dragging it. If you select the <guilabel>Link images together</guilabel> option, then the pan controls (scrollbars, mousewheel) on both images are linked."
@@ -5368,7 +5367,7 @@ msgstr "grana"
 #. (primary)
 #. (primary)
 msgid "tag"
-msgstr "znak"
+msgstr "oznaka"
 
 #. (para)
 msgid "It often happens that you already have the files you need in another project in your repository, and you simply want to copy them across. You could simply copy the files and add them as described above, but that would not give you any history. And if you subsequently fix a bug in the original files, you can only merge the fix automatically if the new copy is related to the original in Subversion."
@@ -5384,11 +5383,11 @@ msgstr "Možete kopirati ili pomerati verzionisane fajlove unutar radne kopije, 
 
 #. (para)
 msgid "You can copy files and folders from your working copy to another location in the repository using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-branch-1\"/> to find out more."
-msgstr "Mžete kopirati fajlove i imenike iz svoje radne kopije na drugu lokaciju u spremištu koristeći <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Grana/Znak</guimenuitem></menuchoice>. Uporedite sa <xref linkend=\"tsvn-dug-branch-1\"/> da nađete više o tome."
+msgstr "Mžete kopirati fajlove i imenike iz svoje radne kopije na drugu lokaciju u spremištu koristeći <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Grana/Oznaka</guimenuitem></menuchoice>. Uporedite sa <xref linkend=\"tsvn-dug-branch-1\"/> da nađete više o tome."
 
 #. (para)
 msgid "You can locate an older version of a file or folder in the log dialog and copy it to a new location in the repository directly from the log dialog using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-showlog-2\"/> to find out more."
-msgstr "Možete locirati stariju verziju fajla ili imenika u dnevnik dijalogu i kopirati ih na novu lokaciju u imeniku spremišta direktno iz dnevnik dijaloga koristeći <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Kreiraj grana/znak iz revizije</guimenuitem></menuchoice>. Uporedi sa <xref linkend=\"tsvn-dug-showlog-2\"/> za više detalja. "
+msgstr "Možete locirati stariju verziju fajla ili imenika u dnevnik dijalogu i kopirati ih na novu lokaciju u imeniku spremišta direktno iz dnevnik dijaloga koristeći <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Kreiraj grana/oznaka iz revizije</guimenuitem></menuchoice>. Uporedi sa <xref linkend=\"tsvn-dug-showlog-2\"/> za više detalja. "
 
 #. (para)
 msgid "You can also use the repository browser to locate content you want, and copy it into your working copy directly from the repository, or copy between two locations within the repository. Refer to <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
@@ -6040,7 +6039,7 @@ msgstr "Ako postoji konflikt između lokalnih autoprops i <literal>tsvn:autoprop
 
 #. (para)
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in English or in the localized language. If the property is not set, the default is <literal>true</literal>."
-msgstr "U Ureži dijalogu imate opcije da nalepite na listu izmenjenih fajlova, uključujući status svakog fajla (dodat,izmenjen,itd). <literal>tsvn:logfilelistenglish</literal> definiše da li je status fajla ubačen na engleskom ili na lokalnom jeziku. Ako osobina nije podešena uobičajeno stanje je <literal>true</literal>."
+msgstr "U Ureži dijalogu imate opcije da nalepite na listu izmenjenih fajlova, uključujući status svakog fajla (dodat,izmenjen,itd). <literal>tsvn:logfilelistenglish</literal> definiše da li je status fajla ubačen na engleskom ili na lokalnom jeziku. Ako osobina nije podešena podrazumevano stanje je <literal>true</literal>."
 
 #. (para)
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
@@ -6072,11 +6071,11 @@ msgstr "Regularni izraz mora naći celu referencu, ne samo revizioni broj. Reviz
 
 #. (para)
 msgid "If this property is not set, a default regular expression is used to link revision references."
-msgstr "Ako ova osobona nije podešena, uobičajen regularni izraz se koristi da se povežu revizione reference."
+msgstr "Ako ova osobona nije podešena, podrazumevan regularni izraz se koristi da se povežu revizione reference."
 
 #. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
-msgstr "Kada želite da dodate novu osobinu vi možete ili uzeti jedan iz liste u kombo boksu ili možete uneti bilo koje ime osobine koje želite. Ako vaš projekat koristi neke uobičajene osobine i želite te osobine da se pojave na listi u kombo boksu ( da izbegnete greške kada unosite ime osobine), možete kreirati listu vaših uobičajenih osobina koristeći <literal>tsvn:userfileproperties</literal> i <literal>tsvn:userdirproperties</literal>. Primenite ove osobine na imenik. Kada uredite osobine bilo koje potomačke stavke, vaše uobičajene osobine će se pojaviti u listi pre-definisanih imena osobina."
+msgstr "Kada želite da dodate novu osobinu vi možete ili uzeti jedan iz liste u kombo boksu ili možete uneti bilo koje ime osobine koje želite. Ako vaš projekat koristi neke podrazumevane osobine i želite te osobine da se pojave na listi u kombo boksu ( da izbegnete greške kada unosite ime osobine), možete kreirati listu vaših uobičajenih osobina koristeći <literal>tsvn:userfileproperties</literal> i <literal>tsvn:userdirproperties</literal>. Primenite ove osobine na imenik. Kada uredite osobine bilo koje potomačke stavke, vaše uobičajene osobine će se pojaviti u listi pre-definisanih imena osobina."
 
 #. (para)
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
@@ -6333,7 +6332,7 @@ msgstr "U Subverziji 1.6 nije moguće ukloniti fajl eksternal iz vaše radne kop
 
 #. (title)
 msgid "Branching / Tagging"
-msgstr "Grananje/označavanje"
+msgstr "Grananje/Označavanje"
 
 #. (primary)
 #. (primary)
@@ -6350,23 +6349,23 @@ msgstr "Jedna od osobina sistema kontrole verzija je mogućnost da se izoluju iz
 
 #. (para)
 msgid "Another feature of version control systems is the ability to mark particular revisions (e.g. a release version), so you can at any time recreate a certain build or environment. This process is known as <firstterm>tagging</firstterm>."
-msgstr "Druga osobina sistema kontrole verzija je mogućnost da se markira posbna revizija (npr. realizovana verzija), tako da možete u bilo koje vreme ponovo kreirate određenu izradu ili okolinu. Ovaj proces je poznat kao <firstterm>označavanje</firstterm>."
+msgstr "Druga osobina sistema kontrole verzija je mogućnost da se markira posebna revizija (npr. realizovana verzija), tako da možete u bilo koje vreme ponovo kreirate određenu izradu ili okolinu. Ovaj proces je poznat kao <firstterm>označavanje</firstterm>."
 
 #. (para)
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <quote>cheap copies</quote> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr "Subverzija nema specijalne komande za grananje i označavanje, ali koristi takozvane <quote>jeftine kopije</quote> umesto. Jeftine kopije su slične čvrstim vezama na Juniksu, koje znače to da se umesto pravljenja kompletnih kopija u spremištu, interna veza se kreira, ukazujući na specifično stablo/reviziju. Kao rezultat grane i značke se vrlo brzo kreiraju, i skoro da ne uzimaju dodatni prostor u spremištu."
+msgstr "Subverzija nema specijalne komande za grananje i označavanje, ali koristi takozvane <quote>jevtine kopije</quote> umesto. Jevtine kopije su slične čvrstim vezama na Juniksu, koje znače to da se umesto pravljenja kompletnih kopija u spremištu, interna veza se kreira, ukazujući na specifično stablo/reviziju. Kao rezultat grane i oznake se vrlo brzo kreiraju, i skoro da ne uzimaju dodatni prostor u spremištu."
 
 #. (title)
 msgid "Creating a Branch or Tag"
-msgstr "Kreiranje Grane ili znaka"
+msgstr "Kreiranje Grane ili oznaka"
 
 #. (title)
 msgid "The Branch/Tag Dialog"
-msgstr "Grana/Znak dijalog"
+msgstr "Grana/Oznaka dijalog"
 
 #. (para)
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
-msgstr "Ako ste uvezli vaš projekat sa preporučenom strukturom imenika, kreiranjem grana ili znački verzija je veoma jednostavno: <placeholder-1/> Izaberite imenik u vašoj radnoj kopiji koji želite da kopirate u granu ili znak, zatim izaberite komandu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Grana/Znak...</guimenuitem></menuchoice>."
+msgstr "Ako ste uvezli vaš projekat sa preporučenom strukturom imenika, kreiranjem grana ili oznaka verzija je veoma jednostavno: <placeholder-1/> Izaberite imenik u vašoj radnoj kopiji koji želite da kopirate u granu ili oznaku, zatim izaberite komandu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Grana/Oznaka...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6376,7 +6375,7 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
-"Uobičajeni destinacioni URL za novu granu bio bi izvorni URL na kome je radna kopija zasnovana. Potrebno vam je da uredite URL ka novoj putanji za granu/znak. Tako umesto <screen>\n"
+"Podrazumevan destinacioni URL za novu granu bio bi izvorni URL na kome je radna kopija zasnovana. Potrebno vam je da uredite URL ka novoj putanji za granu/oznaka. Tako umesto <screen>\n"
 "    http://svn.collab.net/repos/ProjectName/trunk\n"
 "</screen> možete sada koristiti nešto kao <screen>\n"
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
@@ -6397,11 +6396,11 @@ msgstr "Određena revizija u spremištu"
 
 #. (para)
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
-msgstr "Nova grana je kopirana direktno u spremište ali možete izabrati stariju reviziju. Ovo je korisno ako ste zaboravili da uradite znak kada ste realizovali vaš projekat prošle nedelje. Ako ne možete zapamtiti revizioni broj kliknite dugme s desne strane da prikažete revizioni dnevnik i izaberite revizioni broj odatle. Ponovo nema podataka koji se prenose iz vaše radne kopije i grana se kreira brzo."
+msgstr "Nova grana je kopirana direktno u spremište ali možete izabrati stariju reviziju. Ovo je korisno ako ste zaboravili da uradite oznaku kada ste realizovali vaš projekat prošle nedelje. Ako ne možete zapamtiti revizioni broj kliknite dugme s desne strane da prikažete revizioni dnevnik i izaberite revizioni broj odatle. Ponovo nema podataka koji se prenose iz vaše radne kopije i grana se kreira brzo."
 
 #. (para)
 msgid "The new branch is an identical copy of your local working copy. If you have updated some files to an older revision in your WC, or if you have made local changes, that is exactly what goes into the copy. Naturally this sort of complex tag may involve transferring data from your WC back to the repository if it does not exist there already."
-msgstr "Nova grana je idntična kopija vaše lokalne radne kopije. Ako ste ažurirali neke fajlove sa starijom revizijom u vašoj RK, ili ako ste napravili lokalne izmene, to je tačno ono što ide u kopiju. Prirodno ova vrsta kompleksnih znački može obuhvatiti podatke iz vaše RK nazad u spremište ako ona već ne postoji tamo."
+msgstr "Nova grana je idntična kopija vaše lokalne radne kopije. Ako ste ažurirali neke fajlove sa starijom revizijom u vašoj RK, ili ako ste napravili lokalne izmene, to je tačno ono što ide u kopiju. Prirodno ova vrsta kompleksnih oznaki može obuhvatiti podatke iz vaše RK nazad u spremište ako ona već ne postoji tamo."
 
 #. (para)
 msgid "Now you have to select the source of the copy. Here you have three options: <placeholder-1/>"
@@ -6409,7 +6408,7 @@ msgstr "Sada imate da izaberete izvor za kopiranje. Ovde imate tri mogućnosti: 
 
 #. (para)
 msgid "If you want your working copy to be switched to the newly created branch automatically, use the <guilabel>Switch working copy to new branch/tag</guilabel> checkbox. But if you do that, first make sure that your working copy does not contain modifications. If it does, those changes will be merged into the branch WC when you switch."
-msgstr "Ako želite vašu radnu kopiju da prebacite na novo kreiranu granu automatski, koristite  <guilabel>prebaci radnu kopiju na novu granu/znak</guilabel> čekboks. Ali ako to uradite, najpre budite sigurni da vaša radna kopija ne sadrži izmene. Ako sadrži, ove promene će biti stopljene u granu RK kada prebacite."
+msgstr "Ako želite vašu radnu kopiju da prebacite na novo kreiranu granu automatski, koristite  <guilabel>prebaci radnu kopiju na novu granu/oznaku</guilabel> čekboks. Ali ako to uradite, najpre budite sigurni da vaša radna kopija ne sadrži izmene. Ako sadrži, ove promene će biti stopljene u granu RK kada prebacite."
 
 #. (para)
 msgid "Press <guibutton>OK</guibutton> to commit the new copy to the repository. Don't forget to supply a log message. Note that the copy is created <emphasis>inside the repository</emphasis>."
@@ -6417,23 +6416,23 @@ msgstr "Pritisnite <guibutton>OK</guibutton>  da urežete novu kopiju u spremiš
 
 #. (para)
 msgid "Note that unless you opted to switch your working copy to the newly created branch, creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you create the branch from your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified with respect to the trunk."
-msgstr "Primetimo da osim što ste odlučili da prebacite vašu radnu kopiju na novokreiranu granu, kreiranje Grane ili Znaka <emphasis>ne</emphasis> utiče na vašu radnu kopiju. Čak i ako kreirate granu iz vaše RK, ove izmene su urezane u novu granu, ne u deblo, tako da vaša RK može još uvek biti markirana kao izmenjena sa respektom na deblo."
+msgstr "Primetimo da osim što ste odlučili da prebacite vašu radnu kopiju na novokreiranu granu, kreiranje Grane ili Oznake <emphasis>ne</emphasis> utiče na vašu radnu kopiju. Čak i ako kreirate granu iz vaše RK, ove izmene su urezane u novu granu, ne u deblo, tako da vaša RK može još uvek biti markirana kao izmenjena sa respektom na deblo."
 
 #. (title)
 msgid "Other ways to create a branch or tag"
-msgstr "Drugi način kreiranja grane ili znaka"
+msgstr "Drugi način kreiranja grane ili oznake"
 
 #. (para)
 msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
-msgstr "Možete takođekreiratigranu ili znak i ako nemate radnu kopiju. Da to uradite, otvorite pretraživač spremišta.Možete tamo vući imenike u novu lokaciju. Treba da držite <keycap>Ctrl</keycap> taster dok vučete da kreirate kopiju, inače će imenik biti pomeren, a neće biti kopiran."
+msgstr "Možete takođekreiratigranu ili oznaka i ako nemate radnu kopiju. Da to uradite, otvorite pretraživač spremišta.Možete tamo vući imenike u novu lokaciju. Treba da držite <keycap>Ctrl</keycap> taster dok vučete da kreirate kopiju, inače će imenik biti pomeren, a neće biti kopiran."
 
 #. (para)
 msgid "You can also drag a folder with the right mouse button. Once you release the mouse button you can choose from the context menu whether you want the folder to be moved or copied. Of course to create a branch or tag you must copy the folder, not move it."
-msgstr "Takođemožete vući imenik pomoću desnog dugmeta miša.Kadaotpustite dugme miša možete izabrati iz kontekstnog menija gdeželite da pomerite imenik ili da ga kopirate. Svakako, da kreirate granu ili znak morate kopirati imenik, ne pomerati ga."
+msgstr "Takođemožete vući imenik pomoću desnog dugmeta miša.Kadaotpustite dugme miša možete izabrati iz kontekstnog menija gdeželite da pomerite imenik ili da ga kopirate. Svakako, da kreirate granu ili oznaku morate kopirati imenik, ne pomerati ga."
 
 #. (para)
 msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right-click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>"
-msgstr "Još jedan način je iz dijaloga dnevnika. Možete prikazati dijalog dnevnika npr. deblo, izaberite reviziju (ili GLAVNU reviziju na vrh ili prethodnu reviziju), desni-kliki izaberite <menuchoice><guimenuitem>kreirajte granu/znak iz revizije...</guimenuitem></menuchoice>"
+msgstr "Još jedan način je iz dijaloga dnevnika. Možete prikazati dijalog dnevnika npr. deblo, izaberite reviziju (ili GLAVNU reviziju na vrh ili prethodnu reviziju), desni-kliki izaberite <menuchoice><guimenuitem>kreirajte granu/oznaku iz revizije...</guimenuitem></menuchoice>"
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -6457,7 +6456,7 @@ msgstr "Prebacite vašu radnu kopiju u novo kreiranu kopiju spremištu. Opet iza
 
 #. (para)
 msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch/tag."
-msgstr "U sledećem dijalogu unesite URL grane koju ste kreirali. Izaberite <guilabel>Glavna Revizija</guilabel> radio dugme i kliknite na <guibutton>OK</guibutton>. Vaša radna kopija je prebačena na novu granu/znak."
+msgstr "U sledećem dijalogu unesite URL grane koju ste kreirali. Izaberite <guilabel>Glavna Revizija</guilabel> radio dugme i kliknite na <guibutton>OK</guibutton>. Vaša radna kopija je prebačena na novu granu/oznaku."
 
 #. (para)
 msgid "Switch works just like Update in that it never discards your local changes. Any changes you have made to your working copy which have not yet been committed will be merged when you do the Switch. If you do not want this to happen then you must either commit the changes before switching, or revert your working copy to an already-committed revision (typically HEAD)."
@@ -6473,15 +6472,15 @@ msgstr "Prebaci dijalog"
 
 #. (para)
 msgid "To be able to work with your freshly generated branch or tag you have several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
-msgstr "Da bi bili sposobni da radite sa sveže generisanom granom ili znakom imate više načina da rukujete time. Možete: <placeholder-1/><placeholder-2/>"
+msgstr "Da bi bili sposobni da radite sa sveže generisanom granom ili oznakom imate više načina da rukujete time. Možete: <placeholder-1/><placeholder-2/>"
 
 #. (para)
 msgid "Tags are typically used to create a static snapshot of the project at a particular stage. As such they are not normally used for development - that's what branches are for, which is the reason we recommended the <filename>/trunk /branches /tags</filename> repository structure in the first place. Working on a tag revision is <emphasis>not a good idea</emphasis>, but because your local files are not write protected there is nothing to stop you doing this by mistake. However, if you try to commit to a path in the repository which contains <filename>/tags/</filename>, TortoiseSVN will warn you."
-msgstr "Značke se obično koriste da se kreira statička slika projekta u pojedinačnom stanju. Kao takvi se ne koriste normalno pri razvoju - to je zašto postoje grane, koji rezon mi preporučujemo <filename>/trunk /branches /tags</filename> strukturu spremišta na prvom mestu. Rad na znak revizijama <emphasis>nije dobra ideja</emphasis>, ali vaši lokalni fajlovi nisu zaštićeni od upisivanja pa nema ništa da vas zaustavi da to uradite greškom. Međutim, ako pokušate da urežete putanju u spremište koja sadrži <filename>/tags/</filename>, TortoiseSVN će vas upozoriti."
+msgstr "Oznake se obično koriste da se kreira statička slika projekta u pojedinačnom stanju. Kao takvi se ne koriste normalno pri razvoju - to je zašto postoje grane, koji rezon mi preporučujemo <filename>/deblo /grane /oznake</filename> strukturu spremišta na prvom mestu. Rad na znak revizijama <emphasis>nije dobra ideja</emphasis>, ali vaši lokalni fajlovi nisu zaštićeni od upisivanja pa nema ništa da vas zaustavi da to uradite greškom. Međutim, ako pokušate da urežete putanju u spremište koja sadrži <filename>/oznake/</filename>, TortoiseSVN će vas upozoriti."
 
 #. (para)
 msgid "It may be that you need to make further changes to a release which you have already tagged. The correct way to handle this is to create a new branch from the tag first and commit the branch. Do your Changes on this branch and then create a new tag from this new branch, e.g. <filename>Version_1.0.1</filename>."
-msgstr "To može biti da je potrebno uaditi dalje izmene za realizaciju koju već označavate. Korektan način rukovanja ovim je kreiranje nove grane od znaka najpre i urezati granu. Uradite vaše Izmene na ovoj grani i zatim kreirajte novi znak od ove nove grane, npr. <filename>Version_1.0.1</filename>."
+msgstr "To može biti da je potrebno uaditi dalje izmene za realizaciju koju već označavate. Korektan način rukovanja ovim je kreiranje nove grane od oznaka najpre i urezati granu. Uradite vaše Izmene na ovoj grani i zatim kreirajte novi znak od ove nove grane, npr. <filename>Version_1.0.1</filename>."
 
 #. (para)
 msgid "If you modify a working copy created from a branch and commit, then all changes go to the new branch and <emphasis>not</emphasis> the trunk. Only the modifications are stored. The rest remains a cheap copy."
@@ -6489,7 +6488,7 @@ msgstr "Ako izmenite radnu kopiju kreiranu od grane i urežete, zatim sve izmene
 
 #. (para)
 msgid "Although Subversion itself makes no distinction between tags and branches, the way they are typically used differs a bit. <placeholder-1/>"
-msgstr "Takođe, sama Subverzija ne pravi razliku između znački i grana, način kako se tipično koriste razlikuje se u malom. <placeholder-1/>"
+msgstr "Takođe, sama Subverzija ne pravi razliku između oznaki i grana, način kako se tipično koriste razlikuje se u malom. <placeholder-1/>"
 
 #. (title)
 msgid "Merging"
@@ -6581,7 +6580,7 @@ msgstr "Čarobnjak soajanja - Izbor opsega revizija"
 
 #. (para)
 msgid "<placeholder-1/> In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to port into your working copy. You may also click <guibutton>...</guibutton> to browse the repository and find the desired branch. If you have merged from this branch before, then just use the drop down list which shows a history of previously used URLs."
-msgstr "<placeholder-1/> U <guilabel>Od:</guilabel> polju unesite pun imenik URL grane ili znaka koji sadrži izmene koje želite da prenesete u radnu kopiju. Možete kliknuti <guibutton>...</guibutton> da pretražite spremište i nađete željenu granu. Ako ste stopili iz ove grane ranije, sada samo koristite padajuću listu koja prikazuje istoriju prethodno korišćenih URLova."
+msgstr "<placeholder-1/> U <guilabel>Od:</guilabel> polju unesite pun imenik URL grane ili oznake koji sadrži izmene koje želite da prenesete u radnu kopiju. Možete kliknuti <guibutton>...</guibutton> da pretražite spremište i nađete željenu granu. Ako ste stopili iz ove grane ranije, sada samo koristite padajuću listu koja prikazuje istoriju prethodno korišćenih URLova."
 
 #. (para)
 msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list of revisions you want to merge. This can be a single revision, a list of specific revisions separated by commas, or a range of revisions separated by a dash, or any combination of these."
@@ -6609,7 +6608,7 @@ msgstr "Ove razlike su generisale mnogo udara na mejling liste. Mi saznajemo to 
 
 #. (para)
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the list of revision numbers to merge will be filled in for you."
-msgstr "Najlakši način da se izabere opseg revizija koje su vam potrebne je da se klikne na <guibutton>Prikaži Dnevnik</guibutton>, koji će izlistati skore promene sa njihovim komentarima dnevnika. AAko želite da stopite izmene iz pojedinačne revizije samo kliknite na tu reviziju. Ako želite da stopite izmene iz više revizija, onda izaberite taj opseg (koristeći uobičajeni <keycap>Shift</keycap>-modifikator). Kliknite na <guibutton>OK</guibutton> i lista revizionih brojeva za stapanje će biti napunjena za vas."
+msgstr "Najlakši način da se izabere opseg revizija koje su vam potrebne je da se klikne na <guibutton>Prikaži Dnevnik</guibutton>, koji će izlistati skore promene sa njihovim komentarima dnevnika. AAko želite da stopite izmene iz pojedinačne revizije samo kliknite na tu reviziju. Ako želite da stopite izmene iz više revizija, onda izaberite taj opseg (koristeći podrazumevani <keycap>Shift</keycap>-modifikator). Kliknite na <guibutton>OK</guibutton> i lista revizionih brojeva za stapanje će biti napunjena za vas."
 
 #. (para)
 msgid "If you want to merge changes back <emphasis>out</emphasis> of your working copy, to revert a change which has already been committed, select the revisions to revert and make sure the <guilabel>Reverse merge</guilabel> box is checked."
@@ -6689,11 +6688,11 @@ msgstr "Opcije spajanja"
 
 #. (para)
 msgid "This page of the wizard lets you specify advanced options, before starting the merge process. Most of the time you can just use the default settings."
-msgstr "Ova strana čarobnjaka vam dopušta da odredite dodatne opcije, pre početka procesa stapanja. Većinu vrmena vi ste koristili uobičajeno podešavanje."
+msgstr "Ova strana čarobnjaka vam dopušta da odredite dodatne opcije, pre početka procesa stapanja. Većinu vrmena vi ste koristili podrazumevano podešavanje."
 
 #. (para)
 msgid "You can specify the depth to use for the merge, i.e. how far down into your working copy the merge should go. The depth terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which uses the existing depth setting, and is almost always what you want."
-msgstr "Morate odrediti dubinu koju ćete koristiti za stapanje, npr. koliko daleko u radnu kopiju stapanje ide. Korišćenje termina dubina opisano je u <xref linkend=\"tsvn-dug-checkout-depth\"/>. Uobičajena dubina je  <guilabel>Radna kopija</guilabel>, koja koristi postojeće podešavanje dubine, i skoro uvek je ono što želite."
+msgstr "Morate odrediti dubinu koju ćete koristiti za stapanje, npr. koliko daleko u radnu kopiju stapanje ide. Korišćenje termina dubina opisano je u <xref linkend=\"tsvn-dug-checkout-depth\"/>. Podrazumevana dubina je  <guilabel>Radna kopija</guilabel>, koja koristi postojeće podešavanje dubine, i skoro uvek je ono što želite."
 
 #. (para)
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
@@ -6701,11 +6700,11 @@ msgstr "Najviše vremena vi želite da stapanje uzme u obzir istoriju fajla, tak
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr "Možete odrediti način rukovanja sa završetkom linija i izmenama razmaka. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>.  Uobičajeno ponašanje je da se tretiraju sve razmake i kraj-linije razlike kao stvarne izmen koje se stapaju."
+msgstr "Možete odrediti način rukovanja sa završetkom linija i izmenama beline. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>.  podrazumevano ponašanje je da se tretiraju sve beline i kraj-linije razlike kao stvarne izmene koje se stapaju."
 
 #. (para)
 msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
-msgstr "Čekboks označen <guilabel>Forsiraj stapanje</guilabel> se koristi da se izbegne konflikt stabla gde dolazeće brisanje utiče na fajl koji je izmenjen lokalno ili uopšte nije verzionisan. Ako je fajl obrisan onda nema načina da sevrati,zbog čega ova opcija nije čekirana uobičajeno."
+msgstr "Čekboks označen <guilabel>Forsiraj stapanje</guilabel> se koristi da se izbegne konflikt stabla gde dolazeće brisanje utiče na fajl koji je izmenjen lokalno ili uopšte nije verzionisan. Ako je fajl obrisan onda nema načina da sevrati,zbog čega ova opcija nije čekirana podrazumevano."
 
 #. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
@@ -6889,7 +6888,7 @@ msgstr "Kako zaključavanje radi na Subverziji"
 
 #. (para)
 msgid "By default, nothing is locked and anyone who has commit access can commit changes to any file at any time. Others will update their working copies periodically and changes in the repository will be merged with local changes."
-msgstr "Uobičajeno, ništa nije zaključano i svako ko ima pristup urezivanju može urezivati izmene u svaki fajl u bilo koje vreme. Ostali će ažurirati svoje radne kopije periodično i izmene u spremištu će biti stopljene sa lokalnim izmenama."
+msgstr "Podrazumevano, ništa nije zaključano i svako ko ima pristup urezivanju može urezivati izmene u svaki fajl u bilo koje vreme. Ostali će ažurirati svoje radne kopije periodično i izmene u spremištu će biti stopljene sa lokalnim izmenama."
 
 #. (para)
 msgid "If you <firstterm>Get a Lock</firstterm> on a file, then only you can commit that file. Commits by all other users will be blocked until you release the lock. A locked file cannot be modified in any way in the repository, so it cannot be deleted or renamed either, except by the lock owner."
@@ -7057,7 +7056,7 @@ msgstr "Da bi primenili fajl zakrpe na vašu radnu kopiju potrebno vm je da imat
 
 #. (para)
 msgid "From the context menu for that folder, click on <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice> This will bring up a file open dialog allowing you to select the patch file to apply. By default only <filename>.patch</filename> or <filename>.diff</filename> files are shown, but you can opt for <quote>All files</quote>. If you previously saved a patch to the clipboard, you can use <guibutton>Open from clipboard...</guibutton> in the file open dialog. Note that this option only appears if you saved the patch to the clipboard using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from another app will not make the button appear."
-msgstr "Iz kontekst menija za taj imenik, kliknite na <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Primeni Zakrpu...</guimenuitem></menuchoice> Ovo će prikazati fajl otvori dijalog dozvoljavajući vam da izaberete fajl zakrpu za primenu. Uobičajeno samo <filename>.patch</filename> ili <filename>.diff</filename> fajlovi su prikazani, ali može se izabrati opcija za <quote>All files</quote>. Ako ste prethodno sačuvali zakrpu u klipbord možete koristiti <guibutton>Otvori iz klipborda...</guibutton> u fajl open dijalogu. Primetimo da se ova opcija pojavljuje ako zapamtite zakrpu na klipbord koristeći <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kreiraj zakrpu...</guimenuitem></menuchoice>. Kopiranjem zakrpe na klipbordiz druge app ne čini da se dugme pojavi."
+msgstr "Iz kontekst menija za taj imenik, kliknite na <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Primeni Zakrpu...</guimenuitem></menuchoice> Ovo će prikazati fajl otvori dijalog dozvoljavajući vam da izaberete fajl zakrpu za primenu. Podrazumevano samo <filename>.patch</filename> ili <filename>.diff</filename> fajlovi su prikazani, ali može se izabrati opcija za <quote>All files</quote>. Ako ste prethodno sačuvali zakrpu u klipbord možete koristiti <guibutton>Otvori iz klipborda...</guibutton> u fajl open dijalogu. Primetimo da se ova opcija pojavljuje ako zapamtite zakrpu na klipbord koristeći <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kreiraj zakrpu...</guimenuitem></menuchoice>. Kopiranjem zakrpe na klipbordiz druge app ne čini da se dugme pojavi."
 
 #. (para)
 msgid "Alternatively, if the patch file has a <filename>.patch</filename> or <filename>.diff</filename> extension, you can right click on it directly and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Apply Patch...</guimenuitem></menuchoice>. In this case you will be prompted to enter a working copy location."
@@ -7113,11 +7112,11 @@ msgstr "<placeholder-1/> Ako vas ne interesuju izmene iz ranijih revizija možet
 
 #. (para)
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>"
-msgstr "Uobičajeno je da okrivljavanje fajl se pregleda koristeći <firstterm>TortoiseBlame</firstterm>, što osvetljava različite revizije što ih čini lakšim za čitanjem. Ako želite da štampate ili uredite fajl okrivljavanja, izaberite <guilabel>Koristi Tekst pregledač da vidite okrivljavanje</guilabel>"
+msgstr "Podrazumevano je da okrivljavanje fajl se pregleda koristeći <firstterm>TortoiseBlame</firstterm>, što osvetljava različite revizije što ih čini lakšim za čitanjem. Ako želite da štampate ili uredite fajl okrivljavanja, izaberite <guilabel>Koristi Tekst pregledač da vidite okrivljavanje</guilabel>"
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr "Možete specificirati način rukovanja završetkom linije i izmenom razmaka. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Uobičajeno ponašanje je da se tretiraju svi razmaci i kraj linija izmene kao realne izmene, ali ako želite da zanemarite uvlačenje izmene i naći originalne autore možete izabrati odgovarajuće opcije ovde."
+msgstr "Možete specificirati način rukovanja završetkom linije i izmenom beline. Ove opcije su opisane u <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Podrazumevano ponašanje je da se tretiraju sve beline i kraj linija izmene kao realne izmene, ali ako želite da zanemarite uvlačenje izmene i naći originalne autore možete izabrati odgovarajuće opcije ovde."
 
 #. (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
@@ -7153,7 +7152,7 @@ msgstr "Kada miš leti preko info kolona okrivljavanja, kontekst meni je dostupa
 
 #. (para)
 msgid "If you need a better visual indicator of where the oldest and newest changes are, select <menuchoice><guimenu>View</guimenu><guimenuitem>Color age of lines</guimenuitem></menuchoice>. This will use a colour gradient to show newer lines in red and older lines in blue. The default colouring is quite light, but you can change it using the TortoiseBlame settings."
-msgstr "Ako vam treba bolji vizualni indikator gde su najstarije i najnovije izmene, izaberi  <menuchoice><guimenu>Vidi</guimenu><guimenuitem>Boja starosti linija</guimenuitem></menuchoice>. Obojenje ja sasvim svetlo, vo će koristiti gradijent boje da prikaže novije linije plavo. Uobičajeno bojenje je sasvim svetlo, ali možete ga promeniti koristeći TortoiseBlame podešavanje."
+msgstr "Ako vam treba bolji vizualni indikator gde su najstarije i najnovije izmene, izaberi  <menuchoice><guimenu>Vidi</guimenu><guimenuitem>Boja starosti linija</guimenuitem></menuchoice>. Obojenje ja sasvim svetlo, vo će koristiti gradijent boje da prikaže novije linije plavo. Podrazumevano bojenje je sasvim svetlo, ali možete ga promeniti koristeći TortoiseBlame podešavanje."
 
 #. (para)
 msgid "If you are using Merge Tracking, where lines have changed as a result of merging from another path, TortoiseBlame will show the revision and author of the last change in the original file rather than the revision where the merge took place. These lines are indicated by showing the revision and author in italics. If you do not want merged lines shown in this way, uncheck the <guilabel>Include merge info</guilabel> checkbox."
@@ -7286,7 +7285,7 @@ msgstr "Izbriši ili preimenuj imenik."
 
 #. (para)
 msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository. This can also be used to create a branch/tag without the need to have a working copy checked out."
-msgstr "Napravite kopiju imenika, ili u različit deo spremišta, ili u radnu kopiju sa korenom u istom spremištu.Ovo takođe možebiti korišćenje grane/znaka bez potrebe da imate preuzetu radnu kopiju."
+msgstr "Napravite kopiju imenika, ili u različit deo spremišta, ili u radnu kopiju sa korenom u istom spremištu.Ovo takođe možebiti korišćenje grane/oznake bez potrebe da imate preuzetu radnu kopiju."
 
 #. (para)
 msgid "View/Edit the folder's properties."
@@ -7298,7 +7297,7 @@ msgstr "Napravite imenik za poređenje. Označeni imenik je prikazan masno."
 
 #. (para)
 msgid "Compare the folder with a previously marked folder, either as a unified diff, or as a list of changed files which can then be visually diffed using the default diff tool. This can be particularly useful for comparing two tags, or trunk and branch to see what changed."
-msgstr "Upoređuje imenik sa prethodno označenim imenikom, ili kao ujedinjene diff, ili kao lista izmenjenih fajlova koji zatim mogu biti vizualno razlikovani koristeći uobičajen diff alat. Ovo može biti posebno korisno za poređenje dva znaka, ili debla i grane da se vidi šta se promenilo."
+msgstr "Upoređuje imenik sa prethodno označenim imenikom, ili kao ujedinjene diff, ili kao lista izmenjenih fajlova koji zatim mogu biti vizualno razlikovani koristeći podrazumevan diff alat. Ovo može biti posebno korisno za poređenje dve oznake, ili debla i grane da se vidi šta se promenilo."
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
@@ -7306,7 +7305,7 @@ msgstr "Kontekst meni za imenik vam omogućava da: <placeholder-1/>"
 
 #. (para)
 msgid "If you select two folders in the right pane, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool."
-msgstr "Ako izaberete dva imenika u desnom panelu, možete videti razlike ili kao ujedinjeni-diff, ili listu fajlova koja može biti vizualno razlikovana korišćenjem uobičajenog diff alata."
+msgstr "Ako izaberete dva imenika u desnom panelu, možete videti razlike ili kao ujedinjeni-diff, ili listu fajlova koja može biti vizualno razlikovana korišćenjem podrazumevanog diff alata."
 
 #. (para)
 msgid "If you select multiple folders in the right pane, you can checkout all of them at once into a common parent folder."
@@ -7314,7 +7313,7 @@ msgstr "Ako izaberete više imenika u desnom panelu možete  preuzeti sve njih u
 
 #. (para)
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
-msgstr "Ako izaberete 2 znaka koji su kopirani iz istog korena (tipično <literal>/trunk/</literal>), možete koristiti <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Pokaži Dnevnik...</guimenuitem></menuchoice> da vidite listu revizija između dve nak tačke."
+msgstr "Ako izaberete 2 oznake koji su kopirani iz istog korena (tipično <literal>/trunk/</literal>), možete koristiti <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Pokaži Dnevnik...</guimenuitem></menuchoice> da vidite listu revizija između dve označene tačke."
 
 #. (para)
 msgid "You can use <keycap>F5</keycap> to refresh the view as usual. This will refresh everything which is currently displayed. If you want to pre-fetch or refresh the information for nodes which have not been opened yet, use <keycap>Ctrl-F5</keycap>. After that, expanding any node will happen instantly without a network delay while the information is fetched."
@@ -7358,11 +7357,11 @@ msgstr "Revizioni graf"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
-msgstr "<placeholder-1/> Ponekad vam treba da znate odakle uzeti grane i znake iz debla, i idealan način da vidite ovu vrstu informavija je graf strukture stabla. Tamo gde treba da koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revizioni Graf...</guimenuitem></menuchoice>"
+msgstr "<placeholder-1/> Ponekad vam treba da znate odakle uzeti grane i oznake iz debla, i idealan način da vidite ovu vrstu informavija je graf strukture stabla. Tamo gde treba da koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revizioni Graf...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
-msgstr "Ova komanda analizira istoriju revizija i pokušava da kreira stablo koje će prikazati iz koje kopije je uzeto, i kada su grane/znaci obrisani."
+msgstr "Ova komanda analizira istoriju revizija i pokušava da kreira stablo koje će prikazati iz koje kopije je uzeto, i kada su grane/oznake obrisani."
 
 #. (para)
 msgid "In order to generate the graph, TortoiseSVN must fetch all log messages from the repository root. Needless to say this can take several minutes even with a repository of a few thousand revisions, depending on server speed, network bandwidth, etc. If you try this with something like the <emphasis>Apache</emphasis> project which currently has over 500,000 revisions you could be waiting for some time."
@@ -7382,7 +7381,7 @@ msgstr "Dodate ili kopirane stavke"
 
 #. (para)
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags and trunks are treated as a special case and use a different shade, depending on the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
-msgstr "Stavke koje su dodate, ili kreirane kopiranjem drugog fajla/imenika su prikazane koristeći zaokružen pravougaonik.Podrazumevana boja je je zelena. Znaci se tretiraju kao specijalan slučaj i koriste različite senke, u zavisnosti od <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Podešavanja</guimenuitem></menuchoice>"
+msgstr "Stavke koje su dodate, ili kreirane kopiranjem drugog fajla/imenika su prikazane koristeći zaokružen pravougaonik.Podrazumevana boja je je zelena. Oznake se tretiraju kao specijalan slučaj i koriste različite senke, u zavisnosti od <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Podešavanja</guimenuitem></menuchoice>"
 
 #. (term)
 msgid "Deleted items"
@@ -7398,7 +7397,7 @@ msgstr "Preimenovane stavke"
 
 #. (para)
 msgid "Renamed items are also shown using an octagon, but the default colour is blue."
-msgstr "Preimenovane stavke su takođe prikazane koristeći oktagon, ali uobičajena boja je plava."
+msgstr "Preimenovane stavke su takođe prikazane koristeći oktagon, ali podrazumevana boja je plava."
 
 #. (term)
 msgid "Branch tip revision"
@@ -7438,11 +7437,11 @@ msgstr "Svaki revizioni čvor grafa predstavlja reviziju u spremištu gde je ne�
 
 #. (para)
 msgid "Note that by default the graph only shows the points at which items were added, copied or deleted. Showing every revision of a project will generate a very large graph for non-trivial cases. If you really want to see <emphasis>all</emphasis> revisions where changes were made, there is an option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
-msgstr "Primetimo da je uobičajeno da graf samo prikazuje tačke u kojima su stavke dodate, kopirane ili izbrisane. Prikazujući svaku reviziju projekta generisaće veoma velike grafove u netrivijalnim slučajevima. Ako zaista želite da vidite <emphasis>sve</emphasis> revizije gde su urađene izmene, postoji jedna opcija da se to uradi u <guilabel>Vidi</guilabel> meniju i alatpultu. "
+msgstr "Primetimo da je podrazumevano da graf samo prikazuje tačke u kojima su stavke dodate, kopirane ili izbrisane. Prikazujući svaku reviziju projekta generisaće veoma velike grafove u netrivijalnim slučajevima. Ako zaista želite da vidite <emphasis>sve</emphasis> revizije gde su urađene izmene, postoji jedna opcija da se to uradi u <guilabel>Vidi</guilabel> meniju i alatnom panelu. "
 
 #. (para)
 msgid "The default view (grouping off) places the nodes such that their vertical position is in strict revision order, so you have a visual cue for the order in which things were done. Where two nodes are in the same column the order is very obvious. When two nodes are in adjacent columns the offset is much smaller because there is no need to prevent the nodes from overlapping, and as a result the order is a little less obvious. Such optimisations are necessary to keep complex graphs to a reasonable size. Please note that this ordering uses the <emphasis>edge</emphasis> of the node on the <emphasis>older</emphasis> side as a reference, i.e. the bottom edge of the node when the graph is shown with oldest node at the bottom. The reference edge is significant because the node shapes are not all the same height."
-msgstr "Uobičajeni pregled (bez grupiranja) stavlja čvorove tako da su njihove vertikalne pozicije u  redosledu striktne revizije, tako imate vizualni trag za red u kome su date stvari. Kada su dva čvora u istoj koloni redosled je veoma razumljiv. Kada su dva čvoro u susednim kolonama razlika je mnogo manja jer nema potrebe čuvati čvorove od preklapanja, i kao rezultat red je nešto manje razumljiv. Takva optimizacija je neophodna da čuva kompleksni graf u razumljivoj veličini. Primetimo da ovo uređenje koristi  <emphasis>ivicu</emphasis> čvora sa <emphasis>starije</emphasis> strane kao reference, npr. donja ivica čvora kada je graf prikazan sa starijim čvorom na dnu. Referentna ivica je značajna jer oblici čvorova nisu iste visine."
+msgstr "Podrazumevani pregled (bez grupisanja) stavlja čvorove tako da su njihove vertikalne pozicije u  redosledu striktne revizije, tako imate vizualni trag za red u kome su date stvari. Kada su dva čvora u istoj koloni redosled je veoma razumljiv. Kada su dva čvoro u susednim kolonama razlika je mnogo manja jer nema potrebe čuvati čvorove od preklapanja, i kao rezultat red je nešto manje razumljiv. Takva optimizacija je neophodna da čuva kompleksni graf u razumljivoj veličini. Primetimo da ovo uređenje koristi  <emphasis>ivicu</emphasis> čvora sa <emphasis>starije</emphasis> strane kao reference, npr. donja ivica čvora kada je graf prikazan sa starijim čvorom na dnu. Referentna ivica je značajna jer oblici čvorova nisu iste visine."
 
 #. (title)
 msgid "Changing the View"
@@ -7454,7 +7453,7 @@ msgstr "Grupa grana"
 
 #. (para)
 msgid "The default behavior (grouping off) has all rows sorted strictly by revision. As a result, long-living branches with sparse commits occupy a whole column for only a few changes and the graph becomes very broad."
-msgstr "Uobičajeno ponašanje (bez grupiranja) ima sve redove sortirane po reviziji. Kao rezultat, dugo-živeće grane sa praznim urezivanjem zauzimaju celu kolonu za samo nekoliko izmena i graf postaje veoma širok."
+msgstr "Podrazumevano ponašanje (bez grupisanja) ima sve redove sortirane po reviziji. Kao rezultat, dugo-živeće grane sa praznim urezivanjem zauzimaju celu kolonu za samo nekoliko izmena i graf postaje veoma širok."
 
 #. (para)
 msgid "This mode groups changes by branch, so that there is no global revision ordering: Consecutive revisions on a branch will be shown in (often) consecutive lines. Sub-branches, however, are arranged in such a way that later branches will be shown in the same column above older branches to keep the graph slim. As a result, a given row may contain changes from different revisions."
@@ -7514,7 +7513,7 @@ msgstr "Tačna kopija izvora"
 
 #. (para)
 msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy. Note that this revision may be younger than the HEAD revision of the source branch."
-msgstr "Kada je grana/znak napravljen, uobičajeno ponašanje je da se prikaže kao dobijen od zadnjeg čvora gde su izmene napravljene. Tačno govoreći ovo je netačno od kad su grane često napravljene od tekuće GLAVE radije nego od specifične revizije. Tako je moguće da se pokaže mnogo tačnija (ali manje korisna) revizija koja je korišćena da se kreira kopija. Primetimo da ova revizija može biti mlađa od GLAVNE revizije izvorne grane."
+msgstr "Kada je grana/oznaka napravljen, podrazumevano ponašanje je da se prikaže kao dobijen od zadnjeg čvora gde su izmene napravljene. Tačno govoreći ovo je netačno od kad su grane često napravljene od tekuće GLAVE radije nego od specifične revizije. Tako je moguće da se pokaže mnogo tačnija (ali manje korisna) revizija koja je korišćena da se kreira kopija. Primetimo da ova revizija može biti mlađa od GLAVNE revizije izvorne grane."
 
 #. (term)
 msgid "Fold tags"
@@ -7522,7 +7521,7 @@ msgstr "Skupi oznake"
 
 #. (para)
 msgid "When a project has many tags, showing every tag as a separate node on the graph takes a lot of space and obscures the more interesting development branch structure. At the same time you may need to be able to access the tag content easily so that you can compare revisions. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
-msgstr "Kada projekat ima mnogo znački, prikazujući svaki znak kao poseban čvor na grafu uzima mnogo prostora i zamračuje mnogo interesantniji razvoj struktura grana. U isto vreme možda će vam biti potrebno da budete sposobni da pristupite sadržaj znaka lako da možete uporediti revizije. Ova opcija krije čvorove iznakove i prikazuje stavke alatobjašnjenjima za čvorove odakle su kopirani. Ikona znaka s desne strane izvornog čvora indicira znak koji je napravljen."
+msgstr "Kada projekat ima mnogo oznaka, prikazujući svaku oznaku kao poseban čvor na grafu uzima mnogo prostora i zamračuje mnogo interesantniji razvoj struktura grana. U isto vreme možda će vam biti potrebno da budete sposobni da lako pristupite sadržaju oznaka da možete uporediti revizije. Ova opcija krije čvorove i oznake i prikazuje stavke alatobjašnjenjima za čvorove odakle su kopirani. Ikona znaka s desne strane izvornog čvora indicira znak koji je napravljen."
 
 #. (term)
 msgid "Hide deleted paths"
@@ -7554,7 +7553,7 @@ msgstr "Prikaži RK izmene"
 
 #. (para)
 msgid "If your WC contains local changes, this option draws it as a separate elliptical node, linked back to the node that your WC was last updated to. The default outline colour is red. You may need to refresh the graph using <keycap>F5</keycap> to capture recent changes."
-msgstr "Ako vaša RK sadrži lokalne izmene, ova opcija crta nju kao izdvojeni eliptičan čvor, spojen nazad sa čvorom gde je vaša RK poslednji put ažurirana. Uobičajena boja linija je crvena. Možda će vam biti potrebno da osvežite graf koristeći <keycap>F5</keycap> da uhvatite skorašnje izmene."
+msgstr "Ako vaša RK sadrži lokalne izmene, ova opcija crta nju kao izdvojeni eliptičan čvor, spojen nazad sa čvorom gde je vaša RK poslednji put ažurirana. Podrazumevana boja linija je crvena. Možda će vam biti potrebno da osvežite graf koristeći <keycap>F5</keycap> da uhvatite skorašnje izmene."
 
 #. (term)
 msgid "Filter"
@@ -7582,7 +7581,7 @@ msgstr "Prikazuje malu sliku celog grafa, sa tekućim prozorom pregleda kao kvad
 
 #. (para)
 msgid "Because a revision graph is often quite complex, there are a number of features which can be used to tailor the view the way you want it. These are available in the <guilabel>View</guilabel> menu and from the toolbar. <placeholder-1/>"
-msgstr "Pošto je revizioni graf često jako kompleksan, postoje brojne osobine koje se mogu koristiti da urede izgled na način kako želite. One su dostupne u <guilabel>Pregled</guilabel> meniju i iz alatpulta. <placeholder-1/>"
+msgstr "Pošto je revizioni graf često jako kompleksan, postoje brojne osobine koje se mogu koristiti da urede izgled na način kako želite. One su dostupne u <guilabel>Pregled</guilabel> meniju i iz alatnog panela. <placeholder-1/>"
 
 #. (title)
 msgid "Using the Graph"
@@ -7618,7 +7617,7 @@ msgstr "Učite da čitate revizioni graf"
 
 #. (para)
 msgid "First-time users may be surprised by the fact that the revision graph shows something that does not match the user's mental model. If a revision changes multiple copies or branches of a file or folder, for instance, then there will be multiple nodes for that single revision. It is a good practice to start with the leftmost options in the toolbar and customize the graph step-by-step until it comes close to your mental model."
-msgstr "Početnici mogu biti iznenađeni činjenicom da reviziono graf prikazuje nešto što ne nalazi korisnički mentalni model.Ako revizija menja više kopija ili grana fajla ili imenika, na primer, onda će biti više čvorova za tu pojedinačnu reviziju. To je dobra praksa da se počne sa krajnje levom opcijom alatpulta i podešavanjem grafa korak-po-korak sve dok ne postane blizak vašem mentalnom modelu."
+msgstr "Početnici mogu biti iznenađeni činjenicom da reviziono graf prikazuje nešto što ne nalazi korisnički mentalni model.Ako revizija menja više kopija ili grana fajla ili imenika, na primer, onda će biti više čvorova za tu pojedinačnu reviziju. To je dobra praksa da se počne sa krajnje levom opcijom alatnog panela i podešavanjem grafa korak-po-korak sve dok ne postane blizak vašem mentalnom modelu."
 
 #. (para)
 msgid "All filter options try lose as little information as possible. That may cause some nodes to change their color, for instance. Whenever the result is unexpected, undo the last filter operation and try to understand what is special about that particular revision or branch. In most cases, the initially expected outcome of the filter operation would either be inaccurate or misleading."
@@ -7924,7 +7923,7 @@ msgstr "Prvi izraz izvlači <quote>issues #23, #24 and #25</quote> iz okruženja
 
 #. (para)
 msgid "Breaking the first regex down a little, it must start with the word <quote>issue</quote>, possibly capitalised. This is optionally followed by an <quote>s</quote> (more than one issue) and optionally a colon. This is followed by one or more groups each having zero or more leading whitespace, an optional comma or <quote>and</quote> and more optional space. Finally there is a mandatory <quote>#</quote> and a mandatory decimal number."
-msgstr "Mala greška kod prve regeks, mora se početi rečju <quote>problem</quote>, moguće sa velikim slovima. Ovo je opcionalno praćeno sa jednim <quote>s</quote> (više od jednog problema) i opcionalno tačkom i zarezom. Ovo je praćeno jednim ili više grupe svaki ima nula ili više vodećih razmaka, opcionalna zapeta ili <quote>i</quote> i više opcionalnih razmaka. Na kraju postoji obavezan <quote>#</quote> i obavezan decimalni broj."
+msgstr "Mala greška kod prve regeks, mora se početi rečju <quote>problem</quote>, moguće sa velikim slovima. Ovo je opcionalno praćeno sa jednim <quote>s</quote> (više od jednog problema) i opcionalno tačkom i zarezom. Ovo je praćeno jednim ili više grupe svaki ima nula ili više vodećih belina, opcionalna zapeta ili <quote>i</quote> i više opcionalnih razmaka. Na kraju postoji obavezan <quote>#</quote> i obavezan decimalni broj."
 
 #. (para)
 msgid "If only one expression is set, then the bare bug IDs must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> This method is required by a few issue trackers, e.g. trac, but it is harder to construct the regex. We recommend that you only use this method if your issue tracker documentation tells you to."
@@ -8103,7 +8102,7 @@ msgstr "Upozorenje"
 
 #. (para)
 msgid "TortoiseSVN has three custom sounds which are installed by default. <placeholder-1/> You can select different sounds (or turn these sounds off completely) using the Windows Control Panel. <guibutton>Configure</guibutton> is a shortcut to the Control Panel."
-msgstr "TortoiseSVN ima tri obična zvuka koji su instalirani uobičajeno.  <placeholder-1/> Možete izabrati različite zvuke (ili potpuno isključiti zvuk) koristeći Vindouz Kontrolni Panel. <guibutton>Konfiguriši</guibutton> je skraćenica za Kontrolni Panel."
+msgstr "TortoiseSVN ima tri obična zvuka koji su instalirani podrazumevano.  <placeholder-1/> Možete izabrati različite zvuke (ili potpuno isključiti zvuk) koristeći Vindouz Kontrolni Panel. <guibutton>Konfiguriši</guibutton> je skraćenica za Kontrolni Panel."
 
 #. (term)
 msgid "Global ignore pattern"
@@ -8175,7 +8174,7 @@ msgstr "Dijalog podešavanja, Konetekst meni strana"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to specify which of the TortoiseSVN context menu entries will show up in the main context menu, and which will appear in the TortoiseSVN submenu. By default most items are unchecked and appear in the submenu."
-msgstr "<placeholder-1/> Ova strana omogućava da odredite koji od TortoiseSVN kontekst meni ulaz će biti prikazan u glavnom kontekst meniju, i koji će se pojaviti u TortoiseSVN submeni. Uobičajeno je da je većina stavki neproverena i pojavljuju se u submeniju."
+msgstr "<placeholder-1/> Ova strana omogućava da odredite koji od TortoiseSVN kontekst meni ulaz će biti prikazan u glavnom kontekst meniju, i koji će se pojaviti u TortoiseSVN submeni. Podrazumevano je da je većina stavki neproverena i pojavljuju se u submeniju."
 
 #. (para)
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
@@ -8199,7 +8198,7 @@ msgstr "<placeholder-1/> Ovaj dijalog vam dozvoljava da konfigurišete neke Tort
 
 #. (term)
 msgid "Default number of log messages"
-msgstr "Uobičajen broj poruka dnevnika"
+msgstr "Podrazumevan broj poruka dnevnika"
 
 #. (para)
 msgid "Limits the number of log messages that TortoiseSVN fetches when you first select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> Useful for slow server connections. You can always use <guibutton>Show All</guibutton> or <guibutton>Next 100</guibutton> to get more messages."
@@ -8235,7 +8234,7 @@ msgstr "Progres dijalog"
 
 #. (para)
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
-msgstr "TortoiseSVN može automatski da završi sve progres dijaloge kada se akcija završi bez greške. Ovo podešavanje vam omogućava da izaberete uslove zatvaranja dijaloga. Uobičajeno (preporučeno) podešavanje je <guilabel>Zatvori ručno</guilabel> što dozvoljava da pregledate sve poruke i proverite šta se desilo. Međutim, možete odlučiti da želite da zanemarite neki tip poruka i dijalog je zatvoren automatski ako nema kritičnih izmena."
+msgstr "TortoiseSVN može automatski da završi sve progres dijaloge kada se akcija završi bez greške. Ovo podešavanje vam omogućava da izaberete uslove zatvaranja dijaloga. Podrazumevano (preporučeno) podešavanje je <guilabel>Zatvori ručno</guilabel> što dozvoljava da pregledate sve poruke i proverite šta se desilo. Međutim, možete odlučiti da želite da zanemarite neki tip poruka i dijalog je zatvoren automatski ako nema kritičnih izmena."
 
 #. (para)
 msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that the progress dialog will close if there were simple updates, but if changes from the repository were merged with yours, or if any files were added or deleted, the dialog will remain open. It will also stay open if there were any conflicts or errors during the operation."
@@ -8263,27 +8262,27 @@ msgstr "Kada vraćate lokalne izmene, vaše izmene su odbačene. TortoiseSVN daj
 
 #. (term)
 msgid "Use URL of WC as the default <quote>From:</quote> URL"
-msgstr "Koristi URL od RK kao uobičajeno <quote>Od:</quote> URL"
+msgstr "Koristi URL od RK kao podrazumevano <quote>Od:</quote> URL"
 
 #. (para)
 msgid "In the merge dialog, the default behaviour is for the <guilabel>From:</guilabel> URL to be remembered between merges. However, some people like to perform merges from many different points in their hierarchy, and find it easier to start out with the URL of the current working copy. This can then be edited to refer to a parallel path on another branch."
-msgstr "U dijalogu stapanja, uobičajeno ponašanje je za <guilabel>Od:</guilabel> URL biće zapamćen između stapanja. Međutim, neki ljudi vole da primene stapanje od mnogo različitih tačaka u njihovoj hijerarhiji, i nađe da je lakše da počne sa URL tekuće radne kopije. Ovo može biti uređeno da se odnosi na paralelnu putanju na drugoj grani. "
+msgstr "U dijalogu stapanja, podrazumevano ponašanje je za <guilabel>Od:</guilabel> URL biće zapamćen između stapanja. Međutim, neki ljudi vole da primene stapanje od mnogo različitih tačaka u njihovoj hijerarhiji, i nađe da je lakše da počne sa URL tekuće radne kopije. Ovo može biti uređeno da se odnosi na paralelnu putanju na drugoj grani. "
 
 #. (term)
 msgid "Default checkout path"
-msgstr "Uobičajena putanja preuzimanja"
+msgstr "Podrazumevana putanja preuzimanja"
 
 #. (para)
 msgid "You can specify the default path for checkouts. If you keep all your checkouts in one place, it is useful to have the drive and folder pre-filled so you only have to add the new folder name to the end."
-msgstr "Možete specificirati uobičajenu putanju za preuzimanje. Ako čuvate sva preuzimanja na jednom mestu, korisno je imati drajv i imenik popunjen tako da samo imate da dodate novo ime  imenika na kraju. "
+msgstr "Možete specificirati podrazumevanu putanju za preuzimanje. Ako čuvate sva preuzimanja na jednom mestu, korisno je imati drajv i imenik popunjen tako da samo imate da dodate novo ime  imenika na kraju. "
 
 #. (term)
 msgid "Default checkout URL"
-msgstr "Uobičajen URL preuzimanja"
+msgstr "Podrazumevani URL preuzimanja"
 
 #. (para)
 msgid "You can also specify the default URL for checkouts. If you often checkout sub-projects of some very large project, it can be useful to have the URL pre-filled so you only have to add the sub-project name to the end."
-msgstr "Možete takođe specificirati uobičajeni URL za preuzimanje. Ako često preuzimate sub-projekte nekih veoma velike projekte, može biti korisno imati URL pre-popunjene tako da se ima samo dodati sub-projekat ime na kraju."
+msgstr "Možete takođe specificirati podrazumevani URL za preuzimanje. Ako često preuzimate sub-projekte nekih veoma velike projekte, može biti korisno imati URL pre-popunjene tako da se ima samo dodati sub-projekat ime na kraju."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 2"
@@ -8299,7 +8298,7 @@ msgstr "Rekurzija u neverzionisanim imenicima "
 
 #. (para)
 msgid "If this box is checked (default state), then whenever the status of an unversioned folder is shown in the <guilabel>Add</guilabel>, <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialog, every child file and folder is also shown. If you uncheck this box, only the unversioned parent is shown. Unchecking reduces clutter in these dialogs. In that case if you select an unversioned folder for Add, it is added recursively."
-msgstr "Ovaj boks je čekiran (uobičajeno stanje), zatim kadgod je status neverzionisani imenik prikazan u <guilabel>Dodaj</guilabel>, <guilabel>Ureži</guilabel> ili <guilabel>Privera  Modifikacija</guilabel> dijalog, svaki potomački fajl i imenik je takođe prikazan. Ako otčekirate ovaj boks, samo neverzionisani predak je prikazan. Otčekivanje redukuje gužvu u ovim dijalozima. U ovom slučaju ako izaberete neverzionisani imenik za Dodaj, dodaje se rekurzivno."
+msgstr "Ovaj boks je čekiran (podrazumevano stanje), zatim kadgod je status neverzionisani imenik prikazan u <guilabel>Dodaj</guilabel>, <guilabel>Ureži</guilabel> ili <guilabel>Privera  Modifikacija</guilabel> dijalog, svaki potomački fajl i imenik je takođe prikazan. Ako otčekirate ovaj boks, samo neverzionisani predak je prikazan. Otčekivanje redukuje gužvu u ovim dijalozima. U ovom slučaju ako izaberete neverzionisani imenik za Dodaj, dodaje se rekurzivno."
 
 #. (para)
 msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
@@ -8343,7 +8342,7 @@ msgstr "Primetimo da se ovo podešavanje primenjuje samo na poruke koje unoste n
 
 #. (term)
 msgid "Re-open commit and branch/tag dialog after a commit failed"
-msgstr "Re-otvara urezivanje i grana/znak dijalog posle neipravnog urezivanja."
+msgstr "Ponovo otvara dijalog urezivanja i grana/oznaka dijalog posle neispravnog urezivanja."
 
 #. (para)
 msgid "When a commit fails for some reason (working copy needs updating, pre-commit hook rejects commit, network error, etc), you can select this option to keep the commit dialog open ready to try again. However, you should be aware that this can lead to problems. If the failure means you need to update your working copy, and that update leads to conflicts you must resolve those first."
@@ -8363,7 +8362,7 @@ msgstr "Kontaktiraj spremište pri pokretanja"
 
 #. (para)
 msgid "The Check for Modifications dialog checks the working copy by default, and only contacts the repository when you click <guibutton>Check repository</guibutton>. If you always want to check the repository, you can use this setting to make that action happen automatically."
-msgstr "Provera Modifikacija dijalog čekira radnu kopiju uobičajeno, i samo kontakt spremišta kada kliknete <guibutton>Provera spremišta</guibutton>. Ako uvek želite da čekirate spremište, možete koristiti ovo podešavanje da učinite tu akciju koja se dešava automatski."
+msgstr "Provera Modifikacija dijalog čekira radnu kopiju podrazumevano, i samo kontakt spremišta kada kliknete <guibutton>Provera spremišta</guibutton>. Ako uvek želite da čekirate spremište, možete koristiti ovo podešavanje da učinite tu akciju koja se dešava automatski."
 
 #. (term)
 msgid "Show Lock dialog before locking files"
@@ -8371,7 +8370,7 @@ msgstr "Prikaži dijalog zaključavanja pre zaključavanja fajlova"
 
 #. (para)
 msgid "When you select one or more files and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Lock</guimenuitem></menuchoice> to take out a lock on those files, on some projects it is customary to write a lock message explaining why you have locked the files. If you do not use lock messages, you can uncheck this box to skip that dialog and lock the files immediately."
-msgstr "Kada izaberete jedan ili više fajlova i onda koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Katanac</guimenuitem></menuchoice> da uklonite katanac na ove fajlove, na nekim projektima je uobičajeno da se napiše katanac poruka koja objašnjava zašto imate zaključane fajlove. Ako ne koristite katanac poruke, možete otčekirati ovaj boks da preskočite taj dijalog i zaključate fajlove trenutno."
+msgstr "Kada izaberete jedan ili više fajlova i onda koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Katanac</guimenuitem></menuchoice> da uklonite katanac na ove fajlove, na nekim projektima je podrazumevano da se napiše katanac poruka koja objašnjava zašto imate zaključane fajlove. Ako ne koristite katanac poruke, možete otčekirati ovaj boks da preskočite taj dijalog i zaključate fajlove trenutno."
 
 #. (para)
 msgid "If you use the lock command on a folder, you are always presented with the lock dialog as that also gives you the option to select files for locking."
@@ -8483,7 +8482,7 @@ msgstr "Klasifikacioni Model"
 
 #. (para)
 msgid "The revision graph attempts to show a clearer picture of your repository structure by distinguishing between trunk, branches and tags. As there is no such classification built into Subversion, this information is extracted from the path names. The default settings assume that you use the conventional English names as suggested in the Subversion documentation, but of course your usage may vary."
-msgstr "Revizioni graf pokušava da prikaže čistiju sliku strukture vašeg spremišta praveći razliku između debla, grana i znakova. Kako takva klasifikacija nije ugrađena u Subverziju ova informacija se izvlači iz imena putanja. Uobičajena podešavanja uzimaju da koristite konvencionalna engleska imena kako je sugerisano u dokumentaciji Subverzije, ali svakako vaše korišćenje može varirati."
+msgstr "Revizioni graf pokušava da prikaže čistiju sliku strukture vašeg spremišta praveći razliku između debla, grana i oznaka. Kako takva klasifikacija nije ugrađena u Subverziju ova informacija se izvlači iz imena putanja. Podrazumevana podešavanja uzimaju da koristite konvencionalna engleska imena kako je sugerisano u dokumentaciji Subverzije, ali svakako vaše korišćenje može varirati."
 
 #. (para)
 msgid "Specify the patterns used to recognise these paths in the three boxes provided. The patterns will be matched case-insensitively, but you must specify them in lower case. Wild cards <literal>*</literal> and <literal>?</literal> will work as usual, and you can use <literal>;</literal> to separate multiple patterns. Do not include any extra white space as it will be included in the matching specification."
@@ -8575,11 +8574,11 @@ msgstr "Ako odlučite da prikažete da li je radna kopija izmenjena, koristite o
 
 #. (term)
 msgid "Tag Nodes"
-msgstr "Znak Čvorovi"
+msgstr "Oznake Čvorovi"
 
 #. (para)
 msgid "Nodes classified as tags may be blended with this color."
-msgstr "Čvorovi klasifikovani kao znak mogu se mešati ovom bojom."
+msgstr "Čvorovi klasifikovani kao oznake mogu se mešati ovom bojom."
 
 #. (term)
 msgid "Trunk Nodes"
@@ -8591,11 +8590,11 @@ msgstr "Čvorovi klasifikovani kao deblo mogu se mešati ovom bojom."
 
 #. (term)
 msgid "Folded Tag Markers"
-msgstr "Savijeni Znak Markeri"
+msgstr "Savijeni Oznaka Markeri"
 
 #. (para)
 msgid "If you use tag folding to save space, tags are marked on the copy source using a block in this color."
-msgstr " Ako koristite savijanje znaka  da čuvate prostor, znaci su označeni u izvoru kopije korišćenjem bloka u ovoj boji."
+msgstr " Ako koristite savijanje oznaka  da čuvate prostor, oznake su markirane u izvoru kopije korišćenjem bloka u ovoj boji."
 
 #. (term)
 msgid "Selected Node Markers"
@@ -8627,7 +8626,7 @@ msgstr "<placeholder-1/> Ova strana dopušta da izaberete stavku za koju Tortois
 
 #. (para)
 msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
-msgstr "Uobičajeno, prekrivne ikone i kontekst meniji će se pojaviti u svim otvori/sačuvaj dijalozima kao u Vindouz Eksploreru. Ako želite da se oni pojave <emphasis>samo</emphasis> u Vindouz Eksploreru, čekirajte <guilabel>Prikaži prekrivače i kontekst meni samo u eksploreru</guilabel> boks."
+msgstr "Podrazumevano, prekrivne ikone i kontekst meniji će se pojaviti u svim otvori/sačuvaj dijalozima kao u Vindouz Eksploreru. Ako želite da se oni pojave <emphasis>samo</emphasis> u Vindouz Eksploreru, čekirajte <guilabel>Prikaži prekrivače i kontekst meni samo u eksploreru</guilabel> boks."
 
 #. (para)
 msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
@@ -8635,11 +8634,11 @@ msgstr "Zanemarene stavke i Neverzionisane stavke obično nemaju prekrivač. Ako
 
 #. (para)
 msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr "Možete takođe izabrati da označite imenik kao izmenjen ako on sadrži neverzionisane stavke. Ovo može biti korisno da vas podseti da ste kreirali nove fajlove koji još nisu verzionisani. Ova opcija je dostupna samo ako koristite <emphasis>uobičajen</emphasis> status keš opciju (vidi dole)."
+msgstr "Možete takođe izabrati da označite imenik kao izmenjen ako on sadrži neverzionisane stavke. Ovo može biti korisno da vas podseti da ste kreirali nove fajlove koji još nisu verzionisani. Ova opcija je dostupna samo ako koristite <emphasis>podrazumevan</emphasis> status keš opciju (vidi dole)."
 
 #. (term)
 msgid "Default"
-msgstr "Uobičajeno"
+msgstr "Podrazumevano"
 
 #. (para)
 msgid "Caches all status information in a separate process (<filename>TSVNCache.exe</filename>). That process watches all drives for changes and fetches the status again if files inside a working copy get modified. The process runs with the least possible priority so other programs don't get hogged because of it. That also means that the status information is not <emphasis>real time</emphasis> but it can take a few seconds for the overlays to change."
@@ -8667,7 +8666,7 @@ msgstr "Pogodnosti: zahteva samo veoma maku memoriju (oko 1 MB RAMa) i može pri
 
 #. (para)
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
-msgstr "Nepogodnosti: Pošto je samo jedan imenik uhvaćen, prekrivači ne pokazuju status rekurzivno. Za velike radne kopije može uzeti mnogo vremena da prikaže imenik u eksploreru sa uobičajenim hvatanjem. Takođe mime-tip kolone nije dostupan."
+msgstr "Nepogodnosti: Pošto je samo jedan imenik uhvaćen, prekrivači ne pokazuju status rekurzivno. Za velike radne kopije može uzeti mnogo vremena da prikaže imenik u eksploreru sa podrazumevanim hvatanjem. Takođe mime-tip kolone nije dostupan."
 
 #. (term)
 msgid "None"
@@ -8691,11 +8690,11 @@ msgstr "Pošto uzima sasvim malo da nađe status radne kopije, TortoiseSVN koris
 
 #. (para)
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
-msgstr "Sledeća grupa dopušta vam da izaberete koju klasu skladištenja će prikazati prekrivač. Uobičajeno, samo tvrdi diskovi su izabrani. Možete čak onemogućiti prekrivače ikona, ali gde je zabava u tome?"
+msgstr "Sledeća grupa dopušta vam da izaberete koju klasu skladištenja će prikazati prekrivač. Podrazumevano, samo tvrdi diskovi su izabrani. Možete čak onemogućiti prekrivače ikona, ali gde je zabava u tome?"
 
 #. (para)
 msgid "Network drives can be very slow, so by default icons are not shown for working copies located on network shares."
-msgstr "Mrežni drajvovi mogu biti veoma spori, tako da uobičajeno ikone nisu prikazane za radnu kopiju lociranu na mrežnoj podeli."
+msgstr "Mrežni drajvovi mogu biti veoma spori, tako da podrazumevano ikone nisu prikazane za radnu kopiju lociranu na mrežnoj podeli."
 
 #. (para)
 msgid "USB Flash drives appear to be a special case in that the drive type is identified by the device itself. Some appear as fixed drives, and some as removable drives."
@@ -8815,7 +8814,7 @@ msgstr ""
 
 #. (para)
 msgid "One side-effect of not having a window is that there is nowhere for any error messages to go, so if authentication fails you will simply get a message saying something like <quote>Unable to write to standard output</quote>. For this reason we recommend that you first set up using standard Plink. When everything is working, you can use TortoisePlink with exactly the same parameters."
-msgstr "Jedan ivični-efekat koji nema prozor je to da nema nigde da ode bilo kakva poruka greške, tako ako autentifikacija ne uspe vi ćete jednostavno dobiti poruku koja kaže nešto kao <quote>Nesposoban da piše na standardnom izlazu</quote>. Iz ovog razloga preporučujemo da najpre izvršite podešavanje koristeći standardni Plink. Kada sve radi, možete koristiti TortoisePlink sa tačno istim parametrima."
+msgstr "Jedan ivični-efekat koji nema prozor je to da nema nigde da ode bilo kakva poruka greške, tako ako autentikacija ne uspe vi ćete jednostavno dobiti poruku koja kaže nešto kao <quote>Nesposoban da piše na standardnom izlazu</quote>. Iz ovog razloga preporučujemo da najpre izvršite podešavanje koristeći standardni Plink. Kada sve radi, možete koristiti TortoisePlink sa tačno istim parametrima."
 
 #. (para)
 msgid "TortoisePlink does not have any documentation of its own because it is just a minor variant of Plink. Find out about command line parameters from the <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY website</citetitle></ulink>"
@@ -8839,7 +8838,7 @@ msgstr "Dijalog podešavanja, Razl pregledač stranica"
 
 #. (para)
 msgid "<placeholder-1/> Here you can define your own diff/merge programs that TortoiseSVN should use. The default setting is to use TortoiseMerge which is installed alongside TortoiseSVN."
-msgstr "<placeholder-1/> Ovde možete definisati vaš lični diff/stopi programi koje TortoiseSVN treba da koristi. Uobičajeno podešavanje je da se koristi TortoiseMerge koji je instaliran kad i TortoiseSVN."
+msgstr "<placeholder-1/> Ovde možete definisati vaš lični diff/stopi programi koje TortoiseSVN treba da koristi. Podrazumevano podešavanje je da se koristi TortoiseMerge koji je instaliran kad i TortoiseSVN."
 
 #. (para)
 msgid "Read <xref linkend=\"tsvn-dug-diff-tools\"/> for a list of some of the external diff/merge programs that people are using with TortoiseSVN."
@@ -8997,7 +8996,7 @@ msgstr "Objedinjeni Razl pregledač"
 
 #. (para)
 msgid "A viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> option is to check for a file association for <filename>.diff</filename> files, and then for <filename>.txt</filename> files. If you don't have a viewer for <filename>.diff</filename> files, you will most likely get NotePad."
-msgstr "Program pregledač za ujedinjen-diff fajlve 8fajlove zakrpa). Nisu parametri potrebni. <guilabel>Uobičajena</guilabel> opcija je da se čekira pridruživanje za <filename>.diff</filename> fajlove, i zatim za <filename>.txt</filename> fajlove. Ako nemate pregledač za <filename>.diff</filename> fajlove, možda će vam se dopasti NotePad."
+msgstr "Program pregledač za ujedinjen-diff fajlve 8fajlove zakrpa). Nisu parametri potrebni. <guilabel>Podrazumevana</guilabel> opcija je da se čekira pridruživanje za <filename>.diff</filename> fajlove, i zatim za <filename>.txt</filename> fajlove. Ako nemate pregledač za <filename>.diff</filename> fajlove, možda će vam se dopasti NotePad."
 
 #. (para)
 msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
@@ -9053,15 +9052,15 @@ msgstr "Mnogi dijalozi pamte veličinu i poziciju ekrana koji ste zadnji put kor
 
 #. (term)
 msgid "Authentication data"
-msgstr "Autentifikacioni podatak"
+msgstr "Autentikacioni podatak"
 
 #. (para)
 msgid "When you authenticate with a Subversion server, the username and password are cached locally so you don't have to keep entering them. You may want to clear this for security reasons, or because you want to access the repository under a different username ... does John know you are using his PC?"
-msgstr "Kada se autentifikujete na Subverzioni server, korisničko ime i lozinka se keširaju lokalno tako da ne morate da ih unosite. Možete želeti da obrišete ovo iz sigurnosnih razloga, ili zato što želite da pristupite spremištu pod drugim korisničkim imenom ... da li DŽon zna da vi koristite njegov PC?"
+msgstr "Kada se autentikujete na Subverzioni server, korisničko ime i lozinka se keširaju lokalno tako da ne morate da ih unosite. Možete želeti da obrišete ovo iz sigurnosnih razloga, ili zato što želite da pristupite spremištu pod drugim korisničkim imenom ... da li DŽon zna da vi koristite njegov PC?"
 
 #. (para)
 msgid "If you want to clear authentication data for one particular server only, read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to find the cached data."
-msgstr "Ako želite da obrišete autentifikacione podatke samo za jedan poseban server, pročitajte <xref linkend=\"tsvn-dug-general-auth\"/> za instrukcije kako da nađete keširane podatke."
+msgstr "Ako želite da obrišete autentikacione podatke samo za jedan poseban server, pročitajte <xref linkend=\"tsvn-dug-general-auth\"/> za instrukcije kako da nađete keširane podatke."
 
 #. (term)
 msgid "Action log"
@@ -9073,7 +9072,7 @@ msgstr "TortoiseSVN čuva dnevnik svega napisanog u progres dijalogu. Ovo može 
 
 #. (para)
 msgid "The log file is limited in length and when it grows too big the oldest content is discarded. By default 4000 lines are kept, but you can customize that number."
-msgstr "Dnevnik fajl je ograničene dužine i kada poraste mnogo veliki stariji sadržaj se odbacuje. Uobičajeno je da se 4000 linija čuva, ali možete podesiti taj broj."
+msgstr "Dnevnik fajl je ograničene dužine i kada poraste mnogo veliki stariji sadržaj se odbacuje. Podrazumevano je da se 4000 linija čuva, ali možete podesiti taj broj."
 
 #. (para)
 msgid "From here you can view the log file content, and also clear it."
@@ -9447,7 +9446,7 @@ msgstr "Ako želite da Subervezione operacije drže isključeno sve dok se zaka�
 
 #. (para)
 msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default."
-msgstr "Normalno želte da sakrijete ružne DOS boksove dok skript radi, tako <guilabel>Sakri skript dok radi</guilabel> je čekiran uobičajeno."
+msgstr "Normalno želte da sakrijete ružne DOS boksove dok skript radi, tako <guilabel>Sakri skript dok radi</guilabel> je čekiran podrazumevano."
 
 #. (para)
 msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
@@ -9615,7 +9614,7 @@ msgstr "Dodatne kolone TortoiseSVN koje dodaje detaljnom pregledu u Vindouz Eksp
 
 #. (para)
 msgid "If an update adds a new file from the repository which already exists in the local working copy as an unversioned file, the default action is to keep the local file, showing it as a (possibly) modified version of the new file from the repository. If you would prefer TortoiseSVN to create a conflict in such situations, set this value to <literal>false</literal>."
-msgstr "Ako ažuriranje doda novi fajl iz spremišta koji već postoji u lokalnoj radnoj kopiji kao neverzionisani fajl, uobičajena akcija je da se čuva lokalni fajl, prikazujući ga kao (moguće) modifikovanom verzijom novog fajla iz spremišta. Ako vam je draže da TortoiseSVN kreira konflikt u takvoj situaciji podesite ovu vrednost na <literal>laž</literal>."
+msgstr "Ako ažuriranje doda novi fajl iz spremišta koji već postoji u lokalnoj radnoj kopiji kao neverzionisani fajl, podrazumevana akcija je da se čuva lokalni fajl, prikazujući ga kao (moguće) modifikovanom verzijom novog fajla iz spremišta. Ako vam je draže da TortoiseSVN kreira konflikt u takvoj situaciji podesite ovu vrednost na <literal>laž</literal>."
 
 #. (para)
 msgid "TortoiseSVN checks whether there's a new version available about once a week. If an updated version is found, the commit dialog shows a link control with that info. If you prefer the old behavior back where a dialog pops up notifying you about the update, set this value to <literal>true</literal>."
@@ -9639,7 +9638,7 @@ msgstr "TortoiseSVN dopušta da označite spoljašnji diff pregledač. Većina t
 
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
-msgstr "Uobičajeno, TortoiseSVN uvek radi ažuriranje sa uključenim eksternalima. Ovo isključuje probleme sa nekonzistentnim radnim kopijama. Ako međutim imate setovan deo eksternala ažuriranje može da uzme neko vreme. Podesite ovu vrednost na <literal>laž</literal> da uradite uobičajeno ažuriranje sa isljučenim eksternalima. Da ažurirate sa uključenim eksternalima, ili izvršite <literal>Ažuriraj prema reviziji...</literal>  dijalog ili podesite ovu vrednost na <literal>istina</literal> ponovo."
+msgstr "Podrazumevano, TortoiseSVN uvek radi ažuriranje sa uključenim eksternalima. Ovo isključuje probleme sa nekonzistentnim radnim kopijama. Ako međutim imate setovan deo eksternala ažuriranje može da uzme neko vreme. Podesite ovu vrednost na <literal>laž</literal> da uradite podrazumevano ažuriranje sa isljučenim eksternalima. Da ažurirate sa uključenim eksternalima, ili izvršite <literal>Ažuriraj prema reviziji...</literal>  dijalog ili podesite ovu vrednost na <literal>istina</literal> ponovo."
 
 #. (para)
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
@@ -9692,7 +9691,7 @@ msgstr "SubVCRev komandna linija"
 
 #. (para)
 msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
-msgstr "SubWCRev čita Subverzioni status svih fajlova u radnoj kopiji, izostavljajući spoljašnje uobičajeno. Zapisuje najveći nađen broj  urezane revizije, i vremensku oznaku urezivanja te revizije. Takođe zapisuje da li postoje lokalne izmene u radnoj kopiji, ili pomešano ažurirane revizije. Revizioni broj, opseg ažuriranja revizija i status izmena su prikazani na stdout."
+msgstr "SubWCRev čita Subverzioni status svih fajlova u radnoj kopiji, izostavljajući spoljašnje podrazumevano. Zapisuje najveći nađen broj  urezane revizije, i vremensku oznaku urezivanja te revizije. Takođe zapisuje da li postoje lokalne izmene u radnoj kopiji, ili pomešano ažurirane revizije. Revizioni broj, opseg ažuriranja revizija i status izmena su prikazani na stdout."
 
 #. (para)
 msgid ""
@@ -9758,7 +9757,7 @@ msgstr "Ako je ovaj prekidač dat, SubWCRev će izaći sa <placeholder-1/> ako d
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will include the last-changed revision of folders. The default behaviour is to use only files when getting the revision numbers."
-msgstr "Ako je ovaj prekidač dat, SubWCRev će uključiti zadlju-izmenjenu reviziju imenika. Uobičajeno ponašanje je da se koriste samo fajlovi kada se uzimaju revizioni brojevi."
+msgstr "Ako je ovaj prekidač dat, SubWCRev će uključiti zadlju-izmenjenu reviziju imenika. Podrazumevano ponašanje je da se koriste samo fajlovi kada se uzimaju revizioni brojevi."
 
 #. (literal)
 msgid "svn:externals"
@@ -9766,7 +9765,7 @@ msgstr "svn:externals"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with <placeholder-1/>, but only if they are from the same repository. The default behaviour is to ignore externals."
-msgstr "Ako je ovaj prekidač dat,  SubWCRev će pregledati imenike koji su uključeni sa <placeholder-1/>, ali samo ako su iz istog spremišta. Uobičajeno ponašanje je da se zanemare eksternali."
+msgstr "Ako je ovaj prekidač dat,  SubWCRev će pregledati imenike koji su uključeni sa <placeholder-1/>, ali samo ako su iz istog spremišta. Podrazumevano ponašanje je da se zanemare eksternali."
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will output the revision numbers in HEX."
@@ -9810,7 +9809,7 @@ msgstr "onlajn reference"
 
 #. (entry)
 msgid "Replaced with the commit date/time of the highest commit revision. By default, international format is used: <placeholder-1/>. Alternatively, you can specify a custom format which will be used with <placeholder-2/>, for example: <placeholder-3/>. For a list of available formatting characters, look at the <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
-msgstr "Zamenjeno sa datum/vreme urezivanja najviše urezane revizije. Uobičajeno, internacionalni format se koristi: <placeholder-1/>. Alternativno, možete specificirati običan format koji će se koristiti sa <placeholder-2/>, na primer: <placeholder-3/>. Za listu dostupnih karaktera za formatiranje pogledajte <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
+msgstr "Zamenjeno sa datum/vreme urezivanja najviše urezane revizije. Podrazumevano, internacionalni format se koristi: <placeholder-1/>. Alternativno, možete specificirati običan format koji će se koristiti sa <placeholder-2/>, na primer: <placeholder-3/>. Za listu dostupnih karaktera za formatiranje pogledajte <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
 
 #. (literal)
 #. (literal)
@@ -10490,7 +10489,7 @@ msgstr ""
 
 #. (para)
 msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr "Jezičak može dati string koji se koristi u TortoiseSVN dijalogu urezivanja za dugmiće koji pozivaju jezičke, npr. \"Izaberi problem\" ili \"Izaberi kartu\". Budite sigurni da string nije suviše dugačak, drugačije to ne može biti ubačeno u dugme. Ako metod vraća grešku (npr. <literal>E_NOTIMPL</literal>), uobičajeni tekst se koristi za dugme."
+msgstr "Jezičak može dati string koji se koristi u TortoiseSVN dijalogu urezivanja za dugmiće koji pozivaju jezičke, npr. \"Izaberi problem\" ili \"Izaberi kartu\". Budite sigurni da string nije suviše dugačak, drugačije to ne može biti ubačeno u dugme. Ako metod vraća grešku (npr. <literal>E_NOTIMPL</literal>), podrazumevani tekst se koristi za dugme."
 
 #. (programlisting)
 #, no-wrap
@@ -10545,7 +10544,7 @@ msgstr "String <literal>parametri</literal>je string koji je korisnik uneou dija
 
 #. (para)
 msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
-msgstr "String <literal>zajedničkiKoren</literal> sadrži predačku putanju svih stavki izabranih da sakupe dijalog urezivanja. Primetimo da to <emphasis>nije</emphasis>  korena putanja svih stavki koje je korisnik izabraoudijalogu urezivanja.Za grana/znak dijalogovo je putanja koja ćebiti kopirana."
+msgstr "String <literal>zajedničkiKoren</literal> sadrži predačku putanju svih stavki izabranih da sakupe dijalog urezivanja. Primetimo da to <emphasis>nije</emphasis>  korena putanja svih stavki koje je korisnik izabraoudijalogu urezivanja.Za grana/oznaka dijalogovo je putanja koja ćebiti kopirana."
 
 #. (para)
 msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
@@ -10699,7 +10698,7 @@ msgstr "Ovaj metod je pozvan baš pre nego se dijalog urezivanja zatvori i urezi
 
 #. (para)
 msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source URL of the copy, and <literal>commonRoot</literal> is set to the target URL of the copy."
-msgstr "Za grana/znak dijalog <literal>zajedničkiURL</literal> je izvorni url kopije, i <literal>zajedničkiKoren </literal> je podešen za ciljni url kopije."
+msgstr "Za grana/oznaka dijalog <literal>zajedničkiURL</literal> je izvorni url kopije, i <literal>zajedničkiKoren </literal> je podešen za ciljni url kopije."
 
 #. (para)
 msgid "The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
@@ -11002,7 +11001,7 @@ msgstr "U vašoj radnoj kopiji izaberite <menuchoice><guimenu>TortoiseSVN</guime
 
 #. (para)
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the branch or tag containing the changes you want to revert in your working copy. This should come up as the default URL."
-msgstr "U <guilabel>Iz:</guilabel> polju unesite pun imenik URL grane ili znaka koji sadrži izmene koje želite da vratite u vašu radnu kopiju. Ovo treba da dođe kao uobičajeni URL."
+msgstr "U <guilabel>Iz:</guilabel> polju unesite pun imenik URL grane ili oznake koji sadrži izmene koje želite da vratite u vašu radnu kopiju. Ovo treba da dođe kao podrazumevani URL."
 
 #. (para)
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
@@ -11058,7 +11057,7 @@ msgstr "Ako želite da uporedite istu stavku u dva različita stabla, na primer 
 
 #. (para)
 msgid "If you want to compare two trees to see what has changed, for example the trunk and a tagged release, you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph</guimenuitem></menuchoice> Select the two nodes to compare, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare HEAD Revisions</guimenuitem></menuchoice>. This will show a list of changed files, and you can then select individual files to view the changes in detail. You can also export a tree structure containing all the changed files, or simply a list of all changed files. Read <xref linkend=\"tsvn-dug-compare-revs\"/> for more information. Alternatively use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD Revisions</guimenuitem></menuchoice> to see a summary of all differences, with minimal context."
-msgstr "Ako želite da uporedite dva stabla da vidite šta se izmenilo, na primer deblo i znakovnu realizaciju, možete koristiti <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revizioni Graf</guimenuitem></menuchoice> Izaberite dva čvora za poređenje, zatim koristite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Uporedi GLAVNE Revizije</guimenuitem></menuchoice>.  Ovo će prikazati listu izmenjenih fajlova, i možete zatim izabrati pojedine fajlove da vidite izmene detaljno. Možete takođe izvesti strukturu stabla koja sadrži sve izmenjene fajlove, ili jednostavno listu svih izmenjenih fajlova. Pročitajte <xref linkend=\"tsvn-dug-compare-revs\"/> za više informacija. Alternativno koristite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Ujedinjene Diff  GLAVNIH Revizija</guimenuitem></menuchoice> da vidite rezultat svih razlika, sa minimalnim sadržajem."
+msgstr "Ako želite da uporedite dva stabla da vidite šta se izmenilo, na primer deblo i označenu realizaciju, možete koristiti <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revizioni Graf</guimenuitem></menuchoice> Izaberite dva čvora za poređenje, zatim koristite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Uporedi GLAVNE Revizije</guimenuitem></menuchoice>.  Ovo će prikazati listu izmenjenih fajlova, i možete zatim izabrati pojedine fajlove da vidite izmene detaljno. Možete takođe izvesti strukturu stabla koja sadrži sve izmenjene fajlove, ili jednostavno listu svih izmenjenih fajlova. Pročitajte <xref linkend=\"tsvn-dug-compare-revs\"/> za više informacija. Alternativno koristite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Ujedinjene Diff  GLAVNIH Revizija</guimenuitem></menuchoice> da vidite rezultat svih razlika, sa minimalnim sadržajem."
 
 #. (title)
 msgid "Include a common sub-project"
@@ -11186,7 +11185,7 @@ msgstr "Ako još niste urezali dodavanje, tada imate da koristite <menuchoice><g
 
 #. (para)
 msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
-msgstr "Ako su fajlovi već u spremištu, oni će biti obrisani izspremišta i dodatina listu izbegavanja.Srećom TortoiseSVN ima uobičajene skraćeniceda to uradi. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem> Razverzionisanje i dodavanje listi zanemarivanja </guimenuitem></menuchoice> će najpre označiti fajl/imenik za brisanje izspremišta,čuvanjem lokalne kopije. Takođedodaje ovu stavku listi zanemarivanja da ne bibilo dodavanjanazad u Subverziju. Kada jejednom urađeno potrebno je daurežetepredačkiimenik."
+msgstr "Ako su fajlovi već u spremištu, oni će biti obrisani izspremišta i dodatina listu izbegavanja.Srećom TortoiseSVN ima podrazumevane skraćeniceda to uradi. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem> Razverzionisanje i dodavanje listi zanemarivanja </guimenuitem></menuchoice> će najpre označiti fajl/imenik za brisanje izspremišta,čuvanjem lokalne kopije. Takođedodaje ovu stavku listi zanemarivanja da ne bibilo dodavanjanazad u Subverziju. Kada jejednom urađeno potrebno je daurežetepredačkiimenik."
 
 #. (title)
 msgid "Unversion a working copy"
@@ -11290,7 +11289,7 @@ msgstr ""
 "1.4.1.6000\n"
 "A new version of TortoiseSVN is available for you to download!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
-"</screen> Prva linija u tom fajlu je string verzije. Morate osigurati da to tačno opisuje string verzije TortoiseSVN instalacionog paketa. Druga linija je uobičajen tekst prikazan u dijalogu dogradnje. Tu možete napisati što god želite. Obratite pažnju da je prostor u dijalogu dogradnje ograničen. Suviše dugačke poruke će biti skraćene! Treća linija je URL ka novom instalacionom paketu. URL je otvoren kada korisnik klikne na oznaku uobičajene poruke u dijalogo dogradnje. Možete takođe samo uputiti korisnika na veb stranicu umesto na MSI fajl direktno. URL se otvara podrazumevanim pretraživačem veba, tako da ako specificirate veb stranicu, ta stranica se otvorila i prikazuje se korisniku. Ako specificirate MSI paket, pretraživač će pitati korisnika da sačuva MSI fajl lkalno."
+"</screen> Prva linija u tom fajlu je string verzije. Morate osigurati da to tačno opisuje string verzije TortoiseSVN instalacionog paketa. Druga linija je podrazumevan tekst prikazan u dijalogu dogradnje. Tu možete napisati što god želite. Obratite pažnju da je prostor u dijalogu dogradnje ograničen. Suviše dugačke poruke će biti skraćene! Treća linija je URL ka novom instalacionom paketu. URL je otvoren kada korisnik klikne na oznaku podrazumevane poruke u dijalogo dogradnje. Možete takođe samo uputiti korisnika na veb stranicu umesto na MSI fajl direktno. URL se otvara podrazumevanim pretraživačem veba, tako da ako specificirate veb stranicu, ta stranica se otvorila i prikazuje se korisniku. Ako specificirate MSI paket, pretraživač će pitati korisnika da sačuva MSI fajl lkalno."
 
 #. (title)
 msgid "Setting the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable"
@@ -11406,7 +11405,7 @@ msgstr "Kreiraj spremište ovde"
 #. (entry)
 #. (title)
 msgid "Branch/Tag"
-msgstr "Grana/znak"
+msgstr "Grana/Oznaka"
 
 #. (entry)
 #. (title)
@@ -11586,7 +11585,7 @@ msgstr "Progres dijalog koji se koristi za urezivanje, ažurira i mnogo više ko
 
 #. (para)
 msgid "To specify a different location of the configuration file, use the parameter <option>/configdir:\"path\\to\\config\\directory\"</option>. This will override the default path, including any registry setting."
-msgstr "Da se specificira različita lokacija konfiguracionog fajla, koristite parametar <option>/configdir:\"path\\to\\config\\directory\"</option>. Ovo će promeniti uobičajenu putanju, uključujući i podešavanje registra."
+msgstr "Da se specificira različita lokacija konfiguracionog fajla, koristite parametar <option>/configdir:\"path\\to\\config\\directory\"</option>. Ovo će promeniti podrazumevanu putanju, uključujući i podešavanje registra."
 
 #. (para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
@@ -11848,7 +11847,7 @@ msgstr "Otvara dijalog stapanja. <placeholder-1/>  specificira ciljni imenik."
 
 #. (entry)
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from. And the <placeholder-2/> is the target URL. You can also specify the <placeholder-3/> switch to pass a predefined log message to the branch/tag dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-4/>, where <placeholder-5/> points to a file containing the log message."
-msgstr "Dovodi grana/znak dijalog. <placeholder-1/>  je radna kopija iz grana-znak. I <placeholder-2/> je cilj URL. Možete takođe specificirati <placeholder-3/>  prekidač da provučete predefinisanu dnevnik poruku do grana/znak dijaloga. Ili, ako ne želite da provučete dnevnik poruku na komandnu liniju, koristite <placeholder-4/>, gde <placeholder-5/> ukazuje na fajl koji sadrži dnevnik poruku."
+msgstr "Dovodi grana/oznaka dijalog. <placeholder-1/>  je radna kopija iz grana/oznaka. I <placeholder-2/> je cilj URL. Možete takođe specificirati <placeholder-3/>  prekidač da provučete predefinisanu dnevnik poruku do grana/oznaka dijaloga. Ili, ako ne želite da provučete dnevnik poruku na komandnu liniju, koristite <placeholder-4/>, gde <placeholder-5/> ukazuje na fajl koji sadrži dnevnik poruku."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -11923,7 +11922,7 @@ msgstr "/projectpropertiespath:path/to/wc"
 
 #. (entry)
 msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, the <placeholder-6/> specifies the path from where to read and use the project properties."
-msgstr "Pokreće dijalog pretraživača spremišta, ukazuje na URL radne kopije dat u <placeholder-1/> ili <placeholder-2/> ukazuju direktno na URL. Dodatna opcija <placeholder-3/> može biti korišćen da specificira reviziju koju pretraživač spremišta treba da prikaže. Ako <placeholder-4/> nedostaje, uobičajeno ide na GLAVNU. Ako <placeholder-5/> ukazuje na URL, <placeholder-6/>  specificira putanju odakle se čita i koriste karakteristike projekta."
+msgstr "Pokreće dijalog pretraživača spremišta, ukazuje na URL radne kopije dat u <placeholder-1/> ili <placeholder-2/> ukazuju direktno na URL. Dodatna opcija <placeholder-3/> može biti korišćen da specificira reviziju koju pretraživač spremišta treba da prikaže. Ako <placeholder-4/> nedostaje, podrazumevano ide na GLAVNU. Ako <placeholder-5/> ukazuje na URL, <placeholder-6/>  specificira putanju odakle se čita i koriste karakteristike projekta."
 
 #. (literal)
 msgid "svn:ignore"
@@ -12256,7 +12255,7 @@ msgstr ""
 
 #. (para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
-msgstr "Kada kliknete OK, Subverziono urezivanje počinje. Ako ostavite sve selekcione čekboksove fajlova u njihovom uobičajenom stanju, TortoiseSVN koristi jedno rekurzivno urezivanje radne kopije. Ako deselektujete neke fajlove, onda ne-rekurzivno urezivanje (<literal>-N</literal>) mora da bude uzeto, i svaka putanja mora biti specificirana individualno u komandnoj liniji urezivanja."
+msgstr "Kada kliknete OK, Subverziono urezivanje počinje. Ako ostavite sve selekcione čekboksove fajlova u njihovom podrazumevanom stanju, TortoiseSVN koristi jedno rekurzivno urezivanje radne kopije. Ako deselektujete neke fajlove, onda ne-rekurzivno urezivanje (<literal>-N</literal>) mora da bude uzeto, i svaka putanja mora biti specificirana individualno u komandnoj liniji urezivanja."
 
 #. (screen)
 #, no-wrap
@@ -12309,7 +12308,7 @@ msgstr ""
 
 #. (para)
 msgid "By default, TortoiseSVN tries to fetch 100 log messages using the --limit method. If the settings instruct it to use old APIs, then the second form is used to fetch the log messages for 100 repository revisions."
-msgstr "Uobičajeni, TortoiseSVN pokušava da nađe 100 dnevnik poruka koristeći  --limit metod. Ako podešavanje zahteva da se koristi stari API, onda druga forma se koristi da se nađe dnevnik poruka za 100 revizija spremišta."
+msgstr "Podrazumevano, TortoiseSVN pokušava da nađe 100 dnevnik poruka koristeći  --limit metod. Ako podešavanje zahteva da se koristi stari API, onda druga forma se koristi da se nađe dnevnik poruka za 100 revizija spremišta."
 
 #. (para)
 msgid "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal>--stop-on-copy</literal> switch."
@@ -12416,7 +12415,7 @@ msgstr "Prvi stepen je provera statusa koja određuje stavke u vašoj radnoj kop
 
 #. (para)
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
-msgstr "Kada kliknete OK, Subverziono vraćanje se dešava. Ako ostavite izbor fajlova čekboks u uobičajenom statusu, TortoiseSVN koristi pojedinačno rekurzivno (<literal>-R</literal>) vraćanje radne kopije. Ako deselektujete neke fajlove, onda svaka putanja mora biti specificirana individualno u komandnoj liniji vraćanja. "
+msgstr "Kada kliknete OK, Subverziono vraćanje se dešava. Ako ostavite izbor fajlova čekboks u podrazumevanom statusu, TortoiseSVN koristi pojedinačno rekurzivno (<literal>-R</literal>) vraćanje radne kopije. Ako deselektujete neke fajlove, onda svaka putanja mora biti specificirana individualno u komandnoj liniji vraćanja. "
 
 #. (screen)
 #, no-wrap
@@ -12497,7 +12496,7 @@ msgstr "Određena revizija u spremištu"
 
 #. (para)
 msgid "The Branch/Tag dialog performs a copy to the repository. There are 3 radio button options: <placeholder-1/> which correspond to the 3 command line variants above."
-msgstr "Grana/Znak dijalog omogućava kopiranje u spremište. Postoje 3 radio dugmeta opcija: <placeholder-1/> koje odgovaraju 3 varijante komandnih linija gore."
+msgstr "Grana/Oznaka dijalog omogućava kopiranje u spremište. Postoje 3 radio dugmeta opcija: <placeholder-1/> koje odgovaraju 3 varijante komandnih linija gore."
 
 #. (screen)
 #, no-wrap
@@ -12711,7 +12710,7 @@ msgstr "Stavka može imati samo jednu Subverzionu statusnu vrednost. Na primer f
 
 #. (para)
 msgid "When TortoiseSVN displays the status recursively (the default setting), each folder displays an overlay reflecting its own status and the status of all its children. In order to display a single <emphasis>summary</emphasis> overlay, we use the priority order shown above to determine which overlay to use, with the <emphasis>Conflicted</emphasis> overlay taking highest priority."
-msgstr "Kada TortoiseSVN prikazuje status rekurzivno (uobičajeno podešavanje), svaki imenik prikazuje prekrivač koji reflektuje njegov lični status i status svih njegovih potomaka. Da bi prikazao pojedinačni <emphasis>rezultantni</emphasis> prekrivač, koristimo red prioriteta prikazan gore da odredimo koji prekrivač da koristimo, sa <emphasis>Konfliktan</emphasis> prekrivačem imamo najviši prioritet."
+msgstr "Kada TortoiseSVN prikazuje status rekurzivno (podrazumevano podešavanje), svaki imenik prikazuje prekrivač koji reflektuje njegov lični status i status svih njegovih potomaka. Da bi prikazao pojedinačni <emphasis>rezultantni</emphasis> prekrivač, koristimo red prioriteta prikazan gore da odredimo koji prekrivač da koristimo, sa <emphasis>Konfliktan</emphasis> prekrivačem imamo najviši prioritet."
 
 #. (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
@@ -12743,11 +12742,11 @@ msgstr "Osiguranje Svnserva koristeći SSH"
 
 #. (para)
 msgid "This section provides a step-by-step guide to setting up Subversion and TortoiseSVN to use the <literal>svn+ssh</literal> protocol. If you already use authenticated SSH connections to login to your server, then you are already there and you can find more detail in the Subversion book. If you are not using SSH but would like to do so to protect your Subversion installation, this guide gives a simple method which does not involve creating a separate SSH user account on the server for every subversion user."
-msgstr "Ovo poglavlje obezbeđuje korak-po-korak vodič za podešavanje Subverzije i ToroiseSVN da koriste <literal>svn+ssh</literal> protokol. Ako već koristite autentifikovanu SSH vezu da se logujete na server, onda ste već tu i možete naći više detalja u Subverzionoj knjizi. Ako ne koristite SSH ali biste želeli da to radite da bi zaštitili vašu instalaciju Subverzije, ovaj vodič vam daje jednostavan metod koji ne obuhvata kreiranje posebnog SSH korisničkog naloga na serveru za svakog Subverzionog korisnika."
+msgstr "Ovo poglavlje obezbeđuje korak-po-korak vodič za podešavanje Subverzije i ToroiseSVN da koriste <literal>svn+ssh</literal> protokol. Ako već koristite autentikovanu SSH vezu da se logujete na server, onda ste već tu i možete naći više detalja u Subverzionoj knjizi. Ako ne koristite SSH ali biste želeli da to radite da bi zaštitili vašu instalaciju Subverzije, ovaj vodič vam daje jednostavan metod koji ne obuhvata kreiranje posebnog SSH korisničkog naloga na serveru za svakog Subverzionog korisnika."
 
 #. (para)
 msgid "In this implementation we create a single SSH user account for all subversion users, and use different authentication keys to differentiate between the real Subversion users."
-msgstr "U ovoj primeni kreiramo pojedinačnog SSH korisnika za sve subverzione korisnike, i koristimo različite autentifikacione ključeve da napravimo razliku između pravih Subverzionih korisnika."
+msgstr "U ovoj primeni kreiramo pojedinačnog SSH korisnika za sve subverzione korisnike, i koristimo različite autentikacione ključeve da napravimo razliku između pravih Subverzionih korisnika."
 
 #. (para)
 msgid "In this appendix we assume that you already have the subversion tools installed, and that you have created a repository as detailed elsewhere in this manual. Note that you should <emphasis>not</emphasis> start svnserve as a service or daemon when used with SSH."
@@ -12835,7 +12834,7 @@ msgstr "Kreiranje OpenSSH certifikata"
 
 #. (para)
 msgid "The next step is to create a key pair for authentication. There are two possible ways to create keys. The first is to create the keys with PuTTYgen on the client, upload the public key to your server and use the private key with PuTTY. The other is to create the key pair with the OpenSSH tool ssh-keygen, download the private key to your client and convert the private key to a PuTTY-style private key."
-msgstr "Sledeći korak je kreiranje para ključeva za autentifikaciju. Postoje dva moguća načina kreiranja ključeva. Najpre kreirati ključeve sa PuTTYgen kao klijent, unesite publik ključ na vaš server i koristite privatni ključ sa PuTTY. Drugo je kreirati par ključeva sa OpenSSH alatom ssh-keygen, skinite privatni ključ u vaš klijent i konvertujte privatni ključ u PuTTY-stil privatni ključ."
+msgstr "Sledeći korak je kreiranje para ključeva za autentikaciju. Postoje dva moguća načina kreiranja ključeva. Najpre kreirati ključeve sa PuTTYgen kao klijent, unesite publik ključ na vaš server i koristite privatni ključ sa PuTTY. Drugo je kreirati par ključeva sa OpenSSH alatom ssh-keygen, skinite privatni ključ u vaš klijent i konvertujte privatni ključ u PuTTY-stil privatni ključ."
 
 #. (title)
 msgid "Create Keys using ssh-keygen"
@@ -12917,7 +12916,7 @@ msgstr "Testiranje SSH sa TortoiseSVN"
 
 #. (para)
 msgid "So far we have only tested that you can login using SSH. Now we need to make sure that the SSH connection can actually run svnserve. On the server modify <filename>/home/svnuser/.ssh/authorized_keys</filename> as follows to allow many subversion authors to use the same system account, <literal>svnuser</literal>. Note that every subversion author uses the same login but a different authentication key, thus you have to add one line for every author."
-msgstr "Tako sad imamo samo da testiramo to da se možete logovati koristeći SSH. Sada nam je potreno da osiguramo da SSH veza može stvarno izvršavati svnserve. Na serveru izmenite <filename>/home/svnuser/.ssh/authorized_keys</filename> kako sledi da omogućite da mnogi subverzioni autori koriste isti sistem nalog, <literal>svnuser</literal>. Primetimo da svaki subverzioni autor koristi isti login ali različit autentifikacioni ključ, tako da imate da dodate jednu liniju za sakog autora."
+msgstr "Tako sad imamo samo da testiramo to da se možete logovati koristeći SSH. Sada nam je potreno da osiguramo da SSH veza može stvarno izvršavati svnserve. Na serveru izmenite <filename>/home/svnuser/.ssh/authorized_keys</filename> kako sledi da omogućite da mnogi subverzioni autori koriste isti sistem nalog, <literal>svnuser</literal>. Primetimo da svaki subverzioni autor koristi isti login ali različit autentikacioni ključ, tako da imate da dodate jednu liniju za sakog autora."
 
 #. (para)
 msgid ""
@@ -12965,7 +12964,7 @@ msgstr "Kliknite na <guibutton>OK</guibutton> i moćićete da pretražujete sadr
 
 #. (para)
 msgid "Note that by default TortoiseSVN uses its own version of Plink to connect. This avoids a console window popping up for every authentication attempt, but it also means that there is nowhere for error messages to appear. If you receive the error <quote>Unable to write to standard output</quote>, you can try specifying Plink as the client in TortoiseSVN's network settings. This will allow you to see the real error message generated by Plink."
-msgstr "Primetimo da uobičajeno TortoiseSVN koristi svoju ličnu verziju Plink veze. Ovo onemoguava vindouz konzolu da iskače za svaki autentifikacioni pokušaj, ali to takođe znači da nema gde da se pojave poruke o grešci. Ako primite grešku <quote>Ne može da piše na standardni izlaz</quote>, možete pokušati da specificirate Plink kao klijent u TortoiseSVN mrežnom podešavanju. Ovo će omogućiti da vidite prave poruke o grešci generisane sa Plink."
+msgstr "Primetimo da podrazumevano TortoiseSVN koristi svoju ličnu verziju Plink veze. Ovo onemoguava vindouz konzolu da iskače za svaki autentikacioni pokušaj, ali to takođe znači da nema gde da se pojave poruke o grešci. Ako primite grešku <quote>Ne može da piše na standardni izlaz</quote>, možete pokušati da specificirate Plink kao klijent u TortoiseSVN mrežnom podešavanju. Ovo će omogućiti da vidite prave poruke o grešci generisane sa Plink."
 
 #. (title)
 msgid "SSH Configuration Variants"
@@ -12983,7 +12982,7 @@ msgstr ""
 
 #. (para)
 msgid "At the time of writing PuTTY does not check all saved configurations, so if you have multiple configurations with the same server name, it will pick the first one which matches. Also, if you edit the default configuration and save it, the auto login user name is <emphasis>not</emphasis> saved."
-msgstr "U vreme pisanja PuTTY ne proverava sve sačuvane konfiguracije, tako ako imate više konfiguracija sa istim imenom servera, to će uzeti prvi koji nađe. Takođe, ako uređujete uobičajenu konfiguraciju i sačuvate je, auto login korisničko ime <emphasis>nije</emphasis> sačuvano."
+msgstr "U vreme pisanja PuTTY ne proverava sve sačuvane konfiguracije, tako ako imate više konfiguracija sa istim imenom servera, to će uzeti prvi koji nađe. Takođe, ako uređujete podrazumevanu konfiguraciju i sačuvate je, auto login korisničko ime <emphasis>nije</emphasis> sačuvano."
 
 #. (para)
 msgid "Many people like to use Pageant for storing all their keys. Because a PuTTY session is capable of storing a key, you don't always need Pageant. But imagine you want to store keys for several different servers; in that case you would have to edit the PuTTY session over and over again, depending on the server you are trying to connect with. In this situation Pageant makes perfect sense, because when PuTTY, Plink, TortoisePlink or any other PuTTY-based tool is trying to connect to an SSH server, it checks all private keys that Pageant holds to initiate the connection."
@@ -13095,7 +13094,7 @@ msgstr "Ako pravi Vindouz lokalni jezik ne funkcioniše, probajte <quote>Osnovni
 
 #. (para)
 msgid "If none of the above works, then the default language is English, which is included with the standard installation."
-msgstr "Ako ništa od navedenog ne radi, tada je uobičajeni jezik Engleski, koji je uključen u standardnu instalaciju."
+msgstr "Ako ništa od navedenog ne radi, tada je podrazumevani jezik Engleski, koji je uključen u standardnu instalaciju."
 
 #. (para)
 msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
