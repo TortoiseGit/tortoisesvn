@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1218,5 +1218,146 @@ DEFINE_PROPERTYKEY(PKEY_Title, 0xF29F85E0, 0x4FF9, 0x1068, 0xAB, 0x91, 0x08, 0x0
 DEFINE_PROPERTYKEY(PKEY_AppUserModel_IsDestListSeparator, 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3, 6);
 
 
+typedef /* [v1_enum] */ 
+    enum LIBRARYMANAGEDIALOGOPTIONS
+{	LMD_DEFAULT	= 0,
+LMD_ALLOWUNINDEXABLENETWORKLOCATIONS	= 0x1
+} 	LIBRARYMANAGEDIALOGOPTIONS;
 
+DEFINE_ENUM_FLAG_OPERATORS(LIBRARYMANAGEDIALOGOPTIONS)
+    SHSTDAPI SHShowManageLibraryUI(__in IShellItem *psiLibrary, __in HWND hwndOwner, __in_opt LPCWSTR pszTitle, __in_opt LPCWSTR pszInstruction, __in LIBRARYMANAGEDIALOGOPTIONS lmdOptions);
+SHSTDAPI SHResolveLibrary(__in IShellItem *psiLibrary);
+
+__inline HRESULT SHCreateLibrary(__in REFIID riid, __deref_out void **ppv)
+{
+    return CoCreateInstance(CLSID_ShellLibrary, NULL, CLSCTX_INPROC_SERVER, riid, ppv);
+}
+
+__inline HRESULT SHLoadLibraryFromItem(__in IShellItem *psiLibrary, __in DWORD grfMode, __in REFIID riid, __deref_out void **ppv)
+{
+    *ppv = NULL;
+    IShellLibrary *plib;
+    HRESULT hr = CoCreateInstance(CLSID_ShellLibrary, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&plib));
+    if (SUCCEEDED(hr))
+    {
+        hr = plib->LoadLibraryFromItem(psiLibrary, grfMode);
+        if (SUCCEEDED(hr))
+        {
+            hr = plib->QueryInterface(riid, ppv);
+        }
+        plib->Release();
+    }
+    return hr;
+}
+
+__inline HRESULT SHLoadLibraryFromKnownFolder(__in REFKNOWNFOLDERID kfidLibrary, __in DWORD grfMode, __in REFIID riid, __deref_out void **ppv)
+{
+    *ppv = NULL;
+    IShellLibrary *plib;
+    HRESULT hr = CoCreateInstance(CLSID_ShellLibrary, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&plib));
+    if (SUCCEEDED(hr))
+    {
+        hr = plib->LoadLibraryFromKnownFolder(kfidLibrary, grfMode);
+        if (SUCCEEDED(hr))
+        {
+            hr = plib->QueryInterface(riid, ppv);
+        }
+        plib->Release();
+    }
+    return hr;
+}
+
+__inline HRESULT SHLoadLibraryFromParsingName(__in PCWSTR pszParsingName, __in DWORD grfMode, __in REFIID riid, __deref_out void **ppv)
+{
+    *ppv = NULL;
+    IShellItem *psiLibrary;
+    HRESULT hr = SHCreateItemFromParsingName(pszParsingName, NULL, IID_PPV_ARGS(&psiLibrary));
+    if (SUCCEEDED(hr))
+    {
+        hr = SHLoadLibraryFromItem(psiLibrary, grfMode, riid, ppv);
+        psiLibrary->Release();
+    }
+    return hr;
+}
+
+__inline HRESULT SHAddFolderPathToLibrary(__in IShellLibrary *plib, __in PCWSTR pszFolderPath)
+{
+    IShellItem *psiFolder;
+    HRESULT hr = SHCreateItemFromParsingName(pszFolderPath, NULL, IID_PPV_ARGS(&psiFolder));
+    if (SUCCEEDED(hr))
+    {
+        hr = plib->AddFolder(psiFolder);
+        psiFolder->Release();
+    }
+    return hr;
+}
+
+__inline HRESULT SHRemoveFolderPathFromLibrary(__in IShellLibrary *plib, __in PCWSTR pszFolderPath)
+{
+    PIDLIST_ABSOLUTE pidlFolder = SHSimpleIDListFromPath(pszFolderPath);
+    HRESULT hr = pidlFolder ? S_OK : E_INVALIDARG;
+    if (SUCCEEDED(hr))
+    {
+        IShellItem *psiFolder;
+        hr = SHCreateItemFromIDList(pidlFolder, IID_PPV_ARGS(&psiFolder));
+        if (SUCCEEDED(hr))
+        {
+            hr = plib->RemoveFolder(psiFolder);
+            psiFolder->Release();
+        }
+        CoTaskMemFree(pidlFolder);
+    }
+    return hr;
+}
+
+__inline HRESULT SHResolveFolderPathInLibrary(__in IShellLibrary *plib, __in PCWSTR pszFolderPath, __in DWORD dwTimeout, __deref_out PWSTR *ppszResolvedPath)
+{
+    *ppszResolvedPath = NULL;
+    PIDLIST_ABSOLUTE pidlFolder = SHSimpleIDListFromPath(pszFolderPath);
+    HRESULT hr = pidlFolder ? S_OK : E_INVALIDARG;
+    if (SUCCEEDED(hr))
+    {
+        IShellItem *psiFolder;
+        hr = SHCreateItemFromIDList(pidlFolder, IID_PPV_ARGS(&psiFolder));
+        if (SUCCEEDED(hr))
+        {
+            IShellItem *psiResolved;
+            hr = plib->ResolveFolder(psiFolder, dwTimeout, IID_PPV_ARGS(&psiResolved));
+            if (SUCCEEDED(hr))
+            {
+                hr = psiResolved->GetDisplayName(SIGDN_DESKTOPABSOLUTEPARSING, ppszResolvedPath);
+                psiResolved->Release();
+            }
+            psiFolder->Release();
+        }
+        CoTaskMemFree(pidlFolder);
+    }
+    return hr;
+}
+
+__inline HRESULT SHSaveLibraryInFolderPath(__in IShellLibrary *plib, __in PCWSTR pszFolderPath, __in PCWSTR pszLibraryName, __in LIBRARYSAVEFLAGS lsf, __deref_opt_out PWSTR *ppszSavedToPath)
+{
+    if (ppszSavedToPath)
+    {
+        *ppszSavedToPath = NULL;
+    }
+
+    IShellItem *psiFolder;
+    HRESULT hr = SHCreateItemFromParsingName(pszFolderPath, NULL, IID_PPV_ARGS(&psiFolder));
+    if (SUCCEEDED(hr))
+    {
+        IShellItem *psiSavedTo;
+        hr = plib->Save(psiFolder, pszLibraryName, lsf, &psiSavedTo);
+        if (SUCCEEDED(hr))
+        {
+            if (ppszSavedToPath)
+            {
+                hr = psiSavedTo->GetDisplayName(SIGDN_DESKTOPABSOLUTEPARSING, ppszSavedToPath);
+            }
+            psiSavedTo->Release();
+        }
+        psiFolder->Release();
+    }
+    return hr;
+}
 #endif /* (NTDDI_VERSION < NTDDI_WIN7) */
