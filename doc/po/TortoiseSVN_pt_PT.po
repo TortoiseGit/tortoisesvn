@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-08 00:41-0000\n"
+"PO-Revision-Date: 2010-05-08 23:32-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -860,79 +860,79 @@ msgstr "Note-se que a Sally não precisou de especificar quais os ficheiros a ac
 
 #. (title)
 msgid "Repository URLs"
-msgstr ""
+msgstr "URLs do Repositório"
 
 #. (para)
 msgid "Subversion repositories can be accessed through many different methods - on local disk, or through various network protocols. A repository location, however, is always a URL. The URL schema indicates the access method:"
-msgstr ""
+msgstr "Os repositórios do Subversion podem ser acedidos através de vários métodos diferentes - no disco local, ou através de vários protocolos de rede. No entanto, a localização do repositório será sempre um URL. O esquema do URL indica o método de acesso:"
 
 #. (title)
 msgid "Repository Access URLs"
-msgstr ""
+msgstr "URLs de Acesso ao Repositório"
 
 #. (entry)
 msgid "Schema"
-msgstr ""
+msgstr "Esquema"
 
 #. (entry)
 msgid "Access Method"
-msgstr ""
+msgstr "Método de Acesso"
 
 #. (literal)
 msgid "file://"
-msgstr ""
+msgstr "file://"
 
 #. (entry)
 msgid "Direct repository access on local or network drive."
-msgstr ""
+msgstr "Acesso directo ao repositório, numa unidade de rede ou local."
 
 #. (literal)
 #. (literal)
 msgid "http://"
-msgstr ""
+msgstr "http://"
 
 #. (entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
-msgstr ""
+msgstr "Acesso através do protocolo WebDAV a um servidor Apache consciente do Subversion."
 
 #. (literal)
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #. (entry)
 msgid "Same as <placeholder-1/>, but with SSL encryption."
-msgstr ""
+msgstr "O mesmo que <placeholder-1/>, mas com encriptação SSL."
 
 #. (literal)
 msgid "svn://"
-msgstr ""
+msgstr "svn://"
 
 #. (literal)
 #. (literal)
 #. (primary)
 #. (primary)
 msgid "svnserve"
-msgstr ""
+msgstr "svnserve"
 
 #. (entry)
 msgid "Unauthenticated TCP/IP access via custom protocol to a <placeholder-1/> server."
-msgstr ""
+msgstr "Acesso TCP/IP não autorizado, via um protocolo personalizado, a um servidor <placeholder-1/>."
 
 #. (literal)
 msgid "svn+ssh://"
-msgstr ""
+msgstr "svn+ssh://"
 
 #. (entry)
 msgid "authenticated, encrypted TCP/IP access via custom protocol to a <placeholder-1/> server."
-msgstr ""
+msgstr "Acesso TCP/IP autenticado e encriptado, através de protocolo personalizado a um servidor <placeholder-1/>."
 
 #. (para)
 msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file://</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
-msgstr ""
+msgstr "Na maioria dos casos, os URLs do Subversion usam a sintaxe padrão, permitindo a especificação de nomes de servidor e números de porto, como parte do URL. O método de acesso <literal>file://</literal> é normalmente usado para acessos locais, embora possa ser usado em caminhos UNC para um hospedeiro de rede. Portanto o URL toma a forma de <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. Para a máquina local, a parcela do URL  <literal>hostname</literal> pode ser <literal>localhost</literal> ou ausente. Por esta razão os caminhos locais aparecem normalmente com três barras, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
 
 #. (para)
 msgid "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
-msgstr ""
+msgstr "Igualmente, os utilizadores do esquema <literal>file://</literal> nas plataformas Windows, irão precisar de usar uma sintaxe <quote>padrão</quote> não oficial para aceder aos repositórios que estão na mesma máquina, mas numa unidade diferente da unidade de trabalho do utilizador. Qualquer uma da duas seguintes sintaxes de caminhos URL irão funcionar aqui, <literal>X</literal> é a unidade onde reside o repositório:"
 
 #. (screen)
 #, no-wrap
@@ -943,14 +943,19 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 msgstr ""
+"\n"
+"file:///X:/path/to/repos\n"
+"...\n"
+"file:///X|/path/to/repos\n"
+"...\n"
 
 #. (para)
 msgid "Note that a URL uses ordinary slashes even though the native (non-URL) form of a path on Windows uses backslashes."
-msgstr ""
+msgstr "Observa que o URL usa barras comuns, mesmo que a forma nativa de um caminho (sem-URL) no Windows utilize barras invertidas."
 
 #. (para)
 msgid "You can safely access a FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr ""
+msgstr "Podes aceder com seguranca a um repositório FSFS através de uma partilha de rede, mas <emphasis>não poderás</emphasis> aceder desta forma a um repositório BDB."
 
 #. (para)
 #. (para)
@@ -959,12 +964,12 @@ msgstr ""
 
 #. (title)
 msgid "Revisions"
-msgstr ""
+msgstr "Revisões"
 
 #. (primary)
 #. (primary)
 msgid "revision"
-msgstr ""
+msgstr "revisão"
 
 #. (para)
 msgid "A <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
