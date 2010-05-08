@@ -28,6 +28,7 @@
 #include "SVN.h"
 #include "MessageBox.h"
 #include "SysInfo.h"
+#include "Libraries.h"
 
 
 IMPLEMENT_DYNAMIC(CSetMainPage, ISettingsPropPage)
@@ -75,6 +76,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, ISettingsPropPage)
     ON_BN_CLICKED(IDC_SOUNDS, OnBnClickedSounds)
     ON_BN_CLICKED(IDC_ASPDOTNETHACK, OnASPHACK)
     ON_BN_CLICKED(IDC_AERODWM, OnModified)
+    ON_BN_CLICKED(IDC_CREATELIB, &CSetMainPage::OnBnClickedCreatelib)
 END_MESSAGE_MAP()
 
 BOOL CSetMainPage::OnInitDialog()
@@ -96,6 +98,9 @@ BOOL CSetMainPage::OnInitDialog()
     m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
     m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
     m_tooltips.AddTool(IDC_ASPDOTNETHACK, IDS_SETTINGS_DOTNETHACK_TT);
+    m_tooltips.AddTool(IDC_CREATELIB, IDS_SETTINGS_CREATELIB_TT);
+
+    DialogEnableWindow(IDC_CREATELIB, SysInfo::Instance().IsWin7OrLater());
 
     // set up the language selecting combobox
     TCHAR buf[MAX_PATH];
@@ -236,9 +241,10 @@ void CSetMainPage::OnBnClickedSounds()
         CAppUtils::LaunchApplication(_T("RUNDLL32 Shell32,Control_RunDLL mmsys.cpl,,1"), NULL, false);
 }
 
-
-
-
-
-
+void CSetMainPage::OnBnClickedCreatelib()
+{
+    CoInitialize(NULL);
+    EnsureSVNLibrary();
+    CoUninitialize();
+}
 

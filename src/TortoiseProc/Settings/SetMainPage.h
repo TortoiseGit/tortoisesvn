@@ -68,4 +68,5 @@ public:
     afx_msg void OnBnClickedEditconfig();
     afx_msg void OnBnClickedChecknewerbutton();
     afx_msg void OnBnClickedSounds();
+    afx_msg void OnBnClickedCreatelib();
 };

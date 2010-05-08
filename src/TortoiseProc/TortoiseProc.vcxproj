@@ -263,6 +263,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Utils\Libraries.cpp" />
     <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="..\Utils\BugTraqAssociations.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
@@ -717,6 +718,7 @@
     <ClCompile Include="TortoiseProc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Utils\Libraries.h" />
     <ClInclude Include="..\Utils\MiscUI\ControlsBridge.h" />
     <ClInclude Include="AppUtils.h" />
     <ClInclude Include="..\Utils\auto_buffer.h" />
@@ -1068,6 +1070,7 @@
     <None Include="..\Resources\hook.ico" />
     <None Include="..\Resources\iconset.ico" />
     <None Include="..\Resources\ImportBackground.ico" />
+    <None Include="..\Resources\Library.ico" />
     <None Include="..\Resources\lineadded.ico" />
     <None Include="..\Resources\lineconflicted.ico" />
     <None Include="..\Resources\lineremoved.ico" />

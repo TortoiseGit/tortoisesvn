@@ -43,6 +43,7 @@
 #include "JumpListHelpers.h"
 #include "CmdUrlParser.h"
 #include "auto_buffer.h"
+#include "Libraries.h"
 
 #define APPID (_T("TSVN.TSVN.1") _T(TSVN_PLATFORM))
 
@@ -274,6 +275,30 @@ BOOL CTortoiseProcApp::InitInstance()
     else
     {
         CString sPathArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("path")));
+        if (parser.HasKey(_T("expaths")))
+        {
+            // an /expaths param means we're started via the buttons in our Win7 library
+            // and that means the value of /expaths is the current directory, and
+            // the selected paths are then added as additional parameters but without a key, only a value
+            LPWSTR *szArglist;
+            int nArgs;
+
+            szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
+            if (szArglist)
+            {
+                // argument 0 is the process path, so start with 1
+                for (int i=1; i<nArgs; i++) 
+                {
+                    if (szArglist[i][0] != '/')
+                    {
+                        if (!sPathArgument.IsEmpty())
+                            sPathArgument += '*';
+                        sPathArgument += szArglist[i];
+
+                    }
+                }
+            }
+        }
         int asterisk = sPathArgument.Find('*');
         cmdLinePath.SetFromUnknown(asterisk >= 0 ? sPathArgument.Left(asterisk) : sPathArgument);
         pathList.LoadFromAsteriskSeparatedString(sPathArgument);
@@ -501,7 +526,14 @@ void CTortoiseProcApp::CheckUpgrade()
     {
         CRegStdDWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus")).removeValue();
     }
-
+    if (lVersion <= 0x01070000)
+    {
+        // create a default "Subversion" library with our own template which includes
+        // buttons for TortoiseSVN
+        CoInitialize(NULL);
+        EnsureSVNLibrary();
+        CoUninitialize();
+    }
     CAppUtils::SetupDiffScripts(false, CString());
 
     // set the current version so we don't come here again until the next update!

@@ -1031,6 +1031,9 @@
     <ClCompile Include="Commands\CreateRepositoryCommand.cpp">
       <Filter>Commands\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\Libraries.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1960,6 +1963,9 @@
     <ClInclude Include="stdafx.h">
       <Filter>Misc</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\Libraries.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">
@@ -2332,6 +2338,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\warning-general.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Library.ico">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
