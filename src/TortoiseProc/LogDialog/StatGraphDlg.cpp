@@ -564,7 +564,7 @@ void CStatGraphDlg::GatherData()
         m_nTotalFileChanges += fileChanges;
 
         //calculate Contribution Author
-        double  contributionAuthor = CoeffContribution(m_nTotalCommits - i -1) * fileChanges;
+        double  contributionAuthor = CoeffContribution((int)m_nTotalCommits - i -1) * fileChanges;
         AllContributionAuthor += contributionAuthor;
         m_PercentageOfAuthorship[author] += contributionAuthor;
     }
@@ -1569,7 +1569,7 @@ void CStatGraphDlg::LoadListOfAuthors (MAP &map, bool reloadSkiper/*= false*/,  
     m_authorNames.sort(MoreCommitsThan< MAP::referent_type>(map));
 
     // Set Skipper
-    m_Skipper.SetRange(1, m_authorNames.size());
-    if (reloadSkiper) m_Skipper.SetPos(m_authorNames.size());
+    m_Skipper.SetRange(1, (int)m_authorNames.size());
+    if (reloadSkiper) m_Skipper.SetPos((int)m_authorNames.size());
 }
 

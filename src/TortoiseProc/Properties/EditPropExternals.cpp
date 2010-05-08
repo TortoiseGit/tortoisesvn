@@ -128,7 +128,7 @@ void CEditPropExternals::OnBnClickedAdd()
         SVNExternal ext = dlg.GetExternal();
         ext.path = m_pathList[0];
         m_externals.push_back(ext);
-        m_ExtList.SetItemCountEx(m_externals.size());
+        m_ExtList.SetItemCountEx((int)m_externals.size());
         m_ExtList.Invalidate();
     }
 }
@@ -160,7 +160,7 @@ void CEditPropExternals::OnBnClickedRemove()
     POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
     size_t selIndex = m_ExtList.GetNextSelectedItem(pos);
     m_externals.erase(m_externals.begin() + selIndex);
-    m_ExtList.SetItemCountEx(m_externals.size());
+    m_ExtList.SetItemCountEx((int)m_externals.size());
     m_ExtList.Invalidate();
 }
 

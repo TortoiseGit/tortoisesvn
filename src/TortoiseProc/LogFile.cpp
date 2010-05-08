@@ -65,7 +65,7 @@ bool CLogFile::Close()
 
         size_t maxLines = (DWORD)m_maxlines;
         size_t newLines = m_newLines.size();
-        TrimFile (max (maxLines, newLines) - newLines);
+        TrimFile (DWORD(max (maxLines, newLines) - newLines));
 
         // append new info
 
