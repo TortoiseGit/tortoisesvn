@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-08 23:32-0000\n"
+"PO-Revision-Date: 2010-05-09 00:20-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -960,7 +960,7 @@ msgstr "Podes aceder com seguranca a um repositório FSFS através de uma partil
 #. (para)
 #. (para)
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote filesystem. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
-msgstr ""
+msgstr "Não cries ou acedas a um repositório Berkeley DB numa partilha de rede. Ele <emphasis>não poderá</emphasis> existir num sistema de ficheiros remoto. Nem mesmo se tiveres a unidade de rede mapeada com uma letra de unidade. Se tentares usar o Berkeley DB numa partilha de rede, os resultados serão imprevisíveis - poderás observar de imediato erros misteriosos, ou poderá levar-te meses até descobrires que a tua base de dados do repositório está subtilmente corrompida."
 
 #. (title)
 msgid "Revisions"
@@ -973,23 +973,23 @@ msgstr "revisão"
 
 #. (para)
 msgid "A <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
-msgstr ""
+msgstr "Uma operação <command>svn submeter</command> pode publicar alterações de qualquer número de ficheiros e pastas, como uma transacção atómica. Na tua cópia de trabalho, tu podes alterar o conteúdo dos ficheiros, criar, remover, alterar o nome e copiar ficheiros e pastas, e então submeter o conjunto completo de alterações como uma unidade."
 
 #. (para)
 msgid "In the repository, each commit is treated as an atomic transaction: either all the commits changes take place, or none of them take place. Subversion retains this atomicity in the face of program crashes, system crashes, network problems, and other users' actions."
-msgstr ""
+msgstr "No repositório, cada submissão é tratada como uma transacção atómica: ou todas as alterações da submissão ocorrem, ou nenhuma ocorrerá. O Subversion mantém a sua atomicidade em caso de estoiro do programa, problemas de rede, ou outras acções dos utilizadores. "
 
 #. (para)
 msgid "Each time the repository accepts a commit, this creates a new state of the filesystem tree, called a <firstterm>revision</firstterm>. Each revision is assigned a unique natural number, one greater than the number of the previous revision. The initial revision of a freshly created repository is numbered zero, and consists of nothing but an empty root directory."
-msgstr ""
+msgstr "Cada vez que o repositório aceita uma submissão, este cria um novo estado da árvore do sistema de ficheiros chamado <firstterm>revisão</firstterm>. A cada revisão é atribuído um número natural, uma unidade acima à da revisão prévia. A revisão inicial de um repositório recém-criado é zero, e consiste em nada mais que uma pasta raiz vazia."
 
 #. (para)
 msgid "A nice way to visualize the repository is as a series of trees. Imagine an array of revision numbers, starting at 0, stretching from left to right. Each revision number has a filesystem tree hanging below it, and each tree is a <quote>snapshot</quote> of the way the repository looked after each commit."
-msgstr ""
+msgstr "Uma maneira agradável de visualizar o repositório é como uma série de árvores. Imagina um array de números de revisão, a começar no 0, alinhados da esquerda para a direita. Cada número de revisão tem uma árvore de revisão por baixo, e cada árvore é uma <quote>fotografia</quote> do aspecto do repositório após cada submissão."
 
 #. (title)
 msgid "Global Revision Numbers"
-msgstr ""
+msgstr "Nímeros de Revisão Globais"
 
 #. (para)
 msgid "Unlike those of many other version control systems, Subversion's revision numbers apply to <emphasis>entire trees</emphasis>, not individual files. Each revision number selects an entire tree, a particular state of the repository after some committed change. Another way to think about it is that revision N represents the state of the repository filesystem after the Nth commit. When a Subversion user talks about ``revision 5 of <filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> as it appears in revision 5.'' Notice that in general, revisions N and M of a file do <emphasis>not</emphasis> necessarily differ!"
