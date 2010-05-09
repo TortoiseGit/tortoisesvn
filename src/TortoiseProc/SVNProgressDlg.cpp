@@ -95,6 +95,8 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_itemCountTotal(-1)
     , m_AlwaysConflicted(false)
     , m_BugTraqProvider(NULL)
+    , m_bHookError(false)
+    , m_bNoHooks(false)
     , sIgnoredIncluded(MAKEINTRESOURCE(IDS_PROGRS_IGNOREDINCLUDED))
     , sExtExcluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSEXCLUDED))
     , sExtIncluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSINCLUDED))
@@ -138,6 +140,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_NONINTERACTIVE, &CSVNProgressDlg::OnBnClickedNoninteractive)
     ON_MESSAGE(WM_SHOWCONFLICTRESOLVER, OnShowConflictResolver)
     ON_REGISTERED_MESSAGE(WM_TASKBARBTNCREATED, OnTaskbarBtnCreated)
+    ON_BN_CLICKED(IDC_RETRYNOHOOKS, &CSVNProgressDlg::OnBnClickedRetrynohooks)
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -787,6 +790,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS);
     m_aeroControls.SubclassControl(this, IDC_PROGRESSLABEL);
+    m_aeroControls.SubclassControl(this, IDC_RETRYNOHOOKS);
     m_aeroControls.SubclassControl(this, IDC_PROGRESSBAR);
     m_aeroControls.SubclassControl(this, IDC_INFOTEXT);
     m_aeroControls.SubclassControl(this, IDC_NONINTERACTIVE);
@@ -848,6 +852,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_PROGRESSLABEL, BOTTOM_LEFT, BOTTOM_CENTER);
     AddAnchor(IDC_PROGRESSBAR, BOTTOM_CENTER, BOTTOM_RIGHT);
+    AddAnchor(IDC_RETRYNOHOOKS, BOTTOM_RIGHT);
     AddAnchor(IDC_INFOTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_NONINTERACTIVE, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -884,6 +889,7 @@ void CSVNProgressDlg::ReportHookFailed(const CString& error)
     CString temp;
     temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
     ReportError(temp);
+    m_bHookError = true;
 }
 
 void CSVNProgressDlg::ReportWarning(const CString& sWarning)
@@ -932,6 +938,7 @@ void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, CO
         AddItemToList();
     }
 }
+
 
 UINT CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
 {
@@ -1097,6 +1104,9 @@ UINT CSVNProgressDlg::ProgressThread()
         else
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
     }
+    if (m_bHookError)
+        GetDlgItem(IDC_RETRYNOHOOKS)->ShowWindow(SW_SHOW);
+
     DWORD dwAutoClose = CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
     BOOL bAutoCloseLocal = CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoCloseLocal"), FALSE);
     if ((m_options & ProgOptDryRun)||(!m_bLastVisible))
@@ -1151,6 +1161,51 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
     dlg.DoModal();
 }
 
+void CSVNProgressDlg::OnBnClickedRetrynohooks()
+{
+    m_Revision = SVNRev(_T("HEAD"));
+    m_RevisionEnd = 0;
+    m_bCancelled = FALSE;
+    m_nConflicts = 0;
+    m_bConflictWarningShown = false;
+    m_bErrorsOccurred = FALSE;
+    m_bMergesAddsDeletesOccurred = FALSE;
+    m_bFinishedItemAdded = false;
+    m_bLastVisible = false;
+    m_itemCount = -1;
+    m_itemCountTotal = -1;
+    m_AlwaysConflicted = false;
+    m_BugTraqProvider = NULL;
+    m_bHookError = false;
+
+    m_ProgList.SetRedraw(FALSE);
+    m_ProgList.DeleteAllItems();
+    m_ProgList.SetItemCountEx (0);
+
+    for (size_t i=0; i<m_arData.size(); i++)
+    {
+        delete m_arData[i];
+    }
+    m_arData.clear();
+
+    m_ProgList.SetRedraw(TRUE);
+
+    m_bNoHooks = true;
+
+    m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
+    if (m_pThread==NULL)
+    {
+        ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
+        return;
+    }
+    else
+    {
+        m_pThread->m_bAutoDelete = FALSE;
+        m_pThread->ResumeThread();
+    }
+
+    GetDlgItem(IDC_RETRYNOHOOKS)->ShowWindow(SW_HIDE);
+}
 
 void CSVNProgressDlg::OnClose()
 {
@@ -2176,7 +2231,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     }
     DWORD exitcode = 0;
     CString error;
-    if (CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error))
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2212,7 +2267,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     {
         OnCommitFinished();
     }
-    if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error))
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2239,7 +2294,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 
     DWORD exitcode = 0;
     CString error;
-    if (CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error))
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2309,7 +2364,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 
     OnCommitFinished();
 
-    if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error))
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2838,7 +2893,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 
     DWORD exitcode = 0;
     CString error;
-    if (CHooks::Instance().PreUpdate(m_targetPathList, m_depth, nUUIDs > 1 ? revstore : m_Revision, exitcode, error))
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_targetPathList, m_depth, nUUIDs > 1 ? revstore : m_Revision, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2919,7 +2974,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         }
         SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
     }
-    if (CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error))
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3018,3 +3073,4 @@ bool CSVNProgressDlg::IsCommittingToTag()
     }
     return isTag;
 }
+

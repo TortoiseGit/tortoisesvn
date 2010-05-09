@@ -222,6 +222,7 @@ protected:
     LRESULT         OnShowConflictResolver(WPARAM, LPARAM);
     afx_msg LRESULT OnTaskbarBtnCreated(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/);
+    afx_msg void    OnBnClickedRetrynohooks();
 
     DECLARE_MESSAGE_MAP()
 
@@ -322,6 +323,8 @@ private:
     bool                    m_bConflictWarningShown;
     bool                    m_bErrorsOccurred;
     bool                    m_bMergesAddsDeletesOccurred;
+    bool                    m_bHookError;
+    bool                    m_bNoHooks;
 
     int                     iFirstResized;
     BOOL                    bSecondResized;
