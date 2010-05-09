@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-09 23:49-0000\n"
+"PO-Revision-Date: 2010-05-10 00:27-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -505,7 +505,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "The TortoiseSVN menu for unversioned folders"
-msgstr ""
+msgstr "O menu TortoiseSVN  para pastas não versionadas"
 
 #. (para)
 msgid "You also need to know where to find TortoiseSVN because there is not much to see from the Start Menu. This is because TortoiseSVN is a Shell extension, so first of all, start Windows Explorer. Right click on a folder in Explorer and you should see some new entries in the context menu like this: <placeholder-1/>"
@@ -1124,15 +1124,15 @@ msgstr "Falámos um pouco sobre o modo como o Subversion segue e gere a informa�
 
 #. (para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
-msgstr ""
+msgstr "Independentemente do protocolo que usas para aceder aos teus repositórios, precisas sempre de criar pelo menos um. Isto pode ser feito com a linha de comandos do Subversion ou com o TortoiseSVN."
 
 #. (para)
 msgid "If you haven't created a Subversion repository yet, it's time to do that now."
-msgstr ""
+msgstr "Se ainda não criaste um repositório SVN, está é a altura para o fazer."
 
 #. (title)
 msgid "Repository Creation"
-msgstr ""
+msgstr "Criação do Repositório"
 
 #. (primary)
 msgid "create repository"
@@ -1140,11 +1140,11 @@ msgstr ""
 
 #. (para)
 msgid "You can create a repository with the FSFS backend or with the older Berkeley Database (BDB) format. The FSFS format is generally faster and easier to administer, and it works on network shares and Windows 98 without problems. The BDB format was once considered more stable simply because it has been in use for longer, but since FSFS has now been in use in the field for several years, that argument is now rather weak. Read <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in the Subversion book for more information."
-msgstr ""
+msgstr "Podes criar um repositório com o formato FSFS ou com o mais antigo Berkeley Database (BDB). O formato FSFS é geralmente mais rápido e facil de administrar, e funciona em partilhas de rede e com o Windows98 sem problemas. O formato BDB já foi considerado mais estável, simplesmente porque estava em uso à mais tempo, mas desde que o FSFS tem estado em uso no campo por vários anos, esse argumento é agora um pouco fraco. Consulta  <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> no livro do Subversion, para mais informações."
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
-msgstr ""
+msgstr "Criar um Repositório com o Cliente de Linha de Comandos"
 
 #. (primary)
 #. (primary)
@@ -1153,11 +1153,11 @@ msgstr ""
 
 #. (para)
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
-msgstr ""
+msgstr "Cria uma pasta vazia com o nome SVN (e.g. <filename>D:\\SVN\\</filename>), que será usada como raiz para todos os teus repositórios."
 
 #. (para)
 msgid "Create another folder <filename>MyNewRepository</filename> inside <filename>D:\\SVN\\</filename>."
-msgstr ""
+msgstr "Cria outra pasta <filename>MyNewRepository</filename> dentro da <filename>D:\\SVN\\</filename>."
 
 #. (para)
 msgid ""
@@ -1167,38 +1167,43 @@ msgid ""
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "</screen>"
 msgstr ""
+"Abre a linha de comandos (ou caixa do DOS), muda para a <filename>D:\\SVN\\</filename> e digita <screen>\n"
+"svnadmin create --fs-type bdb MyNewRepository\n"
+"</screen> or <screen>\n"
+"svnadmin create --fs-type fsfs MyNewRepository\n"
+"</screen>"
 
 #. (para)
 msgid "Now you've got a new repository located at <filename>D:\\SVN\\MyNewRepository</filename>."
-msgstr ""
+msgstr "Agora tens um novo repositório localizado em <filename>D:\\SVN\\MyNewRepository</filename>."
 
 #. (title)
 msgid "Creating The Repository With TortoiseSVN"
-msgstr ""
+msgstr "Criar O Repositório Com o TortoiseSVN"
 
 #. (para)
 msgid "Open the windows explorer"
-msgstr ""
+msgstr "Abre o explorador do Windows"
 
 #. (para)
 msgid "Create a new folder and name it e.g. <filename>SVNRepository</filename>"
-msgstr ""
+msgstr "Cria uma nova pasta e chama-a, e.g. <filename>SVNRepository</filename>"
 
 #. (para)
 msgid "<action>Right-click</action> on the newly created folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<action>Clica com o botão direito</action> na pasta recém-criada e selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Criar repositório aqui...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "A repository is then created inside the new folder. <emphasis>Don't edit those files yourself!!!</emphasis>. If you get any errors make sure that the folder is empty and not write protected."
-msgstr ""
+msgstr "É então criado o repositório dentro da nova pasta. <emphasis>Não edites esses ficheiros manualmente!!!</emphasis>. Se obtiveres algum erro, tem a certeza que essa pasta é vazia e não está protegida contra escrita."
 
 #. (para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
-msgstr ""
+msgstr "O TortoiseSVN não oferece mais a opção para criar repositórios BDB, mesmo que tu ainda uses a linha de comandos para os criar. Os repositórios FSFS são na generalidade mais fáceis para tu os manteres, o que também nos torna mais fácil manter o TortoiseSVN, devido a problemas de compatibilidade entre diferentes versões do BDB."
 
 #. (para)
 msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
-msgstr ""
+msgstr "O TortoiseSVN não suporta o acesso <literal>file://</literal> para repositórios BDB devido a esses problemas de compatibilidade, mesmo que suporte sempre, está claro, este formato de repositório quando acedido via servidor através dos protocolos <literal>svn://</literal>, <literal>http://</literal> ou <literal>https://</literal>."
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
