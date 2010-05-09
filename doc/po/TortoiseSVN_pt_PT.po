@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-09 00:20-0000\n"
+"PO-Revision-Date: 2010-05-09 22:51-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "Language: pt\n"
@@ -989,15 +989,15 @@ msgstr "Uma maneira agradável de visualizar o repositório é como uma série d
 
 #. (title)
 msgid "Global Revision Numbers"
-msgstr "Nímeros de Revisão Globais"
+msgstr "Números de Revisão Globais"
 
 #. (para)
 msgid "Unlike those of many other version control systems, Subversion's revision numbers apply to <emphasis>entire trees</emphasis>, not individual files. Each revision number selects an entire tree, a particular state of the repository after some committed change. Another way to think about it is that revision N represents the state of the repository filesystem after the Nth commit. When a Subversion user talks about ``revision 5 of <filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> as it appears in revision 5.'' Notice that in general, revisions N and M of a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr ""
+msgstr "Ao contrário de muitos outros sistemas de controlo de versões, os números de revisão do Subversion aplicam-se a <emphasis>árvores completas</emphasis> e não a ficheiros individuais. Cada número de revisão selecciona uma árvore inteira, um estado particular do repositório após alguma alteração submetida. Outra maneira de pensar sobre isso é que, a revisão N representa o estado do sistema de ficheiros do repositório após o Nº submissão. Quando um utilizador do Subversion fala sobre a \"revisão 5 do <filename>foo.c</filename>'', o que ele realmente quer dizer é, \"<filename>foo.c</filename> como ele estava na revisão 5 do repositório\". Observa que em geral as revisões N e M de um ficheiro <emphasis>não</emphasis> precisam necessariamente de diferir!"
 
 #. (para)
 msgid "It's important to note that working copies do not always correspond to any single revision in the repository; they may contain files from several different revisions. For example, suppose you check out a working copy from a repository whose most recent revision is 4:"
-msgstr ""
+msgstr "É importante observar que as cópias de trabalho nem sempre correspondem a um única revisão do repositório; Elas podem conter ficheiros de várias revisões diferentes. Por exemplo, supõe que efectuas o checkout de um repositório para uma cópia de trabalho, cuja revisão mais recente é 4:"
 
 #. (screen)
 #, no-wrap
@@ -1007,10 +1007,14 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:4\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:4\n"
 
 #. (para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
-msgstr ""
+msgstr "Neste momento, esta cópia de trabalho corresponde exactamente à revisão 4 do repositório. No entanto, supõe que fizeste uma alteração ao <filename>button.c</filename>, e submetes essa alteração. Assumindo que não foram efectuadas outras submissões, a tua submissão irá criar a revisão 5, e a tua cópia de trabalho irá ficar assim:"
 
 #. (screen)
 #, no-wrap
@@ -1020,6 +1024,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:5\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:5\n"
 
 #. (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
@@ -1033,6 +1041,10 @@ msgid ""
 "     integer.c:6\n"
 "     button.c:6\n"
 msgstr ""
+"\n"
+"calc/Makefile:6\n"
+"     integer.c:6\n"
+"     button.c:6\n"
 
 #. (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
