@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-10 23:16-0000\n"
+"PO-Revision-Date: 2010-05-11 00:24-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1267,15 +1267,15 @@ msgstr "O acesso <literal>file://</literal> é dirigido para acesso local e de u
 
 #. (title)
 msgid "Repository Layout"
-msgstr ""
+msgstr "Estrutura do Repositório"
 
 #. (para)
 msgid "Before you import your data into the repository you should first think about how you want to organize your data. If you use one of the recommended layouts you will later have it much easier."
-msgstr ""
+msgstr "Antes de tu importares os teus dados para o repositório, deverás primeiro pensar em como o queres organizar. Se tu usares uma das estruturas recomendadas, mais tarde terás a tudo muito mais facilitado."
 
 #. (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the <quote>main line</quote> of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr ""
+msgstr "Existem alguns métodos padrão e recomendados de organizar o repositório. A maioria das pessoas a pasta <filename>trunk</filename> para guardar a <quote>linha principal</quote> de desenvolvimento, uma pasta <filename>ramos</filename> para conter as cópias de ramos, e a pasta <filename>etiquetas</filename> para guardas as cópias etiquetas. Se o repositório tiver só um projecto, então frequentemente as pessoas criaram essas pastas de nível de topo:"
 
 #. (screen)
 #, no-wrap
@@ -1285,10 +1285,14 @@ msgid ""
 "/branches\n"
 "/tags\n"
 msgstr ""
+"\n"
+"/trunk\n"
+"/ramos\n"
+"/etiquetas\n"
 
 #. (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
-msgstr ""
+msgstr "Se o repositório conter vários projectos, as pessoas normalmente indexarão a sua estrutura por ramo:"
 
 #. (screen)
 #, no-wrap
@@ -1301,10 +1305,17 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 msgstr ""
+"\n"
+"/trunk/paint\n"
+"/trunk/calc\n"
+"/ramos/paint\n"
+"/ramos/calc\n"
+"/etiquetas/paint\n"
+"/etiquetas/calc\n"
 
 #. (para)
 msgid "...or by project:"
-msgstr ""
+msgstr "...ou por projecto:"
 
 #. (screen)
 #, no-wrap
@@ -1317,42 +1328,49 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 msgstr ""
+"\n"
+"/paint/trunk\n"
+"/paint/ramos\n"
+"/paint/etiquetas\n"
+"/calc/trunk\n"
+"/calc/ramos\n"
+"/calc/etiquetas\n"
 
 #. (para)
 msgid "Indexing by project makes sense if the projects are not closely related and each one is checked out individually. For related projects where you may want to check out all projects in one go, or where the projects are all tied together in a single distribution package, it is often better to index by branch. This way you have only one trunk to checkout, and the relationships between the sub-projects is more easily visible."
-msgstr ""
+msgstr "Indexar por projecto faz sentido, se os projectos não estão intimamente relacionados, e cada um é obtido individualmente por checkout. Para projectos relacionados onde poderás querer efectuar o checkout de todos os projectos de uma só vez, ou onde os projectos estão todos ligados num único pacote de distribuição. É normalmente melhor indexar por ramo. Deste modo tu podes ter um trunk para efectuar checkout e as relações entre subprojectos são mais facilmente visível."
 
 #. (para)
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
-msgstr ""
+msgstr "Se adoptares por uma abordagem de um nível de topo <filename>/trunk /tags /branches</filename>, não é necessário referir que terás de copiar o trunk inteiro para cada ramo e etiqueta, e de algum modo esta estrutura oferece a maior flexibilidade."
 
 #. (para)
 msgid "For unrelated projects you may prefer to use separate repositories. When you commit changes, it is the revision number of the whole repository which changes, not the revision number of the project. Having 2 unrelated projects share a repository can mean large gaps in the revision numbers. The Subversion and TortoiseSVN projects appear at the same host address, but are completely separate repositories allowing independent development, and no confusion over build numbers."
-msgstr ""
+msgstr "Para projectos não relacionados, poderás preferir o uso de repositórios separados. Quando submetes as alterações, é o número de revisão do repositório inteiro que muda, e não o número de revisão do projecto. Ter 2 projectos não relacionados a partilhar o repositório, pode significar grandes falhas nos números de revisões. Os projectos  Subversion e TortoiseSVN aparecem no mesmo endereço de hospedeiro, mas estão completamente separados, permitindo desenvolvimentos separados, e sem confusão sobre números de construção."
 
 #. (para)
 msgid "Of course, you're free to ignore these common layouts. You can create any sort of variation, whatever works best for you or your team. Remember that whatever you choose, it's not a permanent commitment. You can reorganize your repository at any time. Because branches and tags are ordinary directories, TortoiseSVN can move or rename them however you wish."
-msgstr ""
+msgstr "Está claro que és livre para ignorar essas estruturas comuns. Tu podes criar qualquer género de variação, e o que funcionar melhor para ti e para a tua equipa. Lembra-te que o que escolheres não será um comprometimento permanente. Tu podes reorganizar, em qualquer altura, o teu repositório. Porque ramos e etiquetas são pastas comuns, o TortoiseSVN pode mover ou alterar o seu nome, quando assim o desejares."
 
 #. (para)
 msgid "Switching from one layout to another is just a matter of issuing a series of server-side moves; If you don't like the way things are organized in the repository, just juggle the directories around."
-msgstr ""
+msgstr "Trocar de uma estrutura para outra é só uma questão de executar uma série de movimentos do lado do servidor. Se não gostares do modo como as coisas estão organizadas no repositório, poderás manipular as pastas a teu modo."
 
 #. (para)
 msgid "create a new empty folder on your hard drive"
-msgstr ""
+msgstr "cria uma nova pasta vazia no teu disco rígido"
 
 #. (para)
 msgid "create your desired top-level folder structure inside that folder - don't put any files in it yet!"
-msgstr ""
+msgstr "cria a estrutura de pastas de nível de topo que desejas, dentro dessa pasta - não ponhas lá ainda nenhum ficheiro!"
 
 #. (para)
 msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the URL to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
-msgstr ""
+msgstr "Importa esta estrutura para o repositório com um <action>clique com o botão direito</action> na pasta que contém esta estrutura de pastas, e seleccionando  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar...</guimenuitem></menuchoice> Na caixa de diálogo importar, introduz o URL do teu repositório e clica OK. Então a tua pasta temp será importada para a raiz do repositório, para criar a estrutura básica do mesmo."
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
-msgstr ""
+msgstr "Então, se ainda não criaste a estrutura de pastas básica dentro do teu repositório, deverás faze-lo agora. Existem duas maneiras para o obteres. Se queres simplesmente criar a estrutura <filename>/trunk /tags /branches</filename>, tu podes usar para isso o navegador de repositório, para criar as três pastas (em três submissões separadas). Se queres criar uma hierarquia mais profunda, então é mais simples criar primeiro a estrutura de pastas em disco e importá-la numa simples submissão, assim: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -1366,6 +1384,15 @@ msgid ""
 "/tags\n"
 "</screen>"
 msgstr ""
+"Tem em conta que o nome da pasta que estás a importar não aparecerá no repositório, só o seu conteúdo. Por exemplo, cria a seguinte estrutura de pastas:<screen>\n"
+"C:\\Temp\\New\\trunk\n"
+"C:\\Temp\\New\\ramos\n"
+"C:\\Temp\\New\\etiquetas\n"
+"</screen> Importa o <filename>C:\\Temp\\New</filename> para a raiz do repositório, que então terá o seguinte aspecto: <screen>\n"
+"/trunk\n"
+"/ramos\n"
+"/etiquetas\n"
+"</screen>"
 
 #. (title)
 msgid "Repository Backup"
