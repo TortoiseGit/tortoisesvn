@@ -11,14 +11,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-10 00:27-0000\n"
+"POT-Creation-Date: 2010-05-10 12:21 +0000\n"
+"PO-Revision-Date: 2010-05-10 23:16-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
-"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.6.0\n"
 "X-Poedit-Country: PORTUGAL\n"
@@ -613,7 +613,7 @@ msgid "The Log Dialog"
 msgstr "A Caixa de Diálogo Bloquear"
 
 #. (para)
-msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/>"
+msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/> OK, so I cheated a little here and used a screenshot from the TortoiseSVN repository."
 msgstr ""
 
 #. (para)
@@ -1207,11 +1207,11 @@ msgstr "O TortoiseSVN não suporta o acesso <literal>file://</literal> para repo
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
-msgstr ""
+msgstr "É claro que nós também recomendamos que tu não uses, de modo algum, o acesso <literal>file://</literal> para além do uso para testes locais. Usar um servidor é muito mais seguro e mais confiável para todos os usos, excepto o desenvolvimento a solo."
 
 #. (title)
 msgid "Local Access to the Repository"
-msgstr ""
+msgstr "Acesso Local ao Repositório"
 
 #. (primary)
 msgid "Access"
@@ -1223,23 +1223,23 @@ msgstr ""
 
 #. (para)
 msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the use of forward slashes throughout."
-msgstr ""
+msgstr "Para aceder ao teu repositório local, precisas do caminho para essa pasta. Lembra-te que o Subversion está à espera que todos os caminhos estejam na forma <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Observa o uso de barras por todo o lado."
 
 #. (para)
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
-msgstr ""
+msgstr "Para aceder a um repositório localizado numa partilha de rede, podes usar o mapeamento de unidades, ou podes usar um caminho UNC. Para caminhos UNC a forma é <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Observa que só existem aqui 2 barras dianteiras."
 
 #. (para)
 msgid "Prior to SVN 1.2, UNC paths had to be given in the more obscure form <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. This form is still supported, but not recommended."
-msgstr ""
+msgstr "Antes do SVN 1.2, os caminhos UNC tinham de ser especificados numa forma mais obscura, <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. Esta forma é ainda suportada, mas não recomendada."
 
 #. (para)
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote file system. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
-msgstr ""
+msgstr "Não criar ou aceder a um repositório Berkeley DB numa partilha de rede. Ele <emphasis>não pode</emphasis> existir num sistema de ficheiros remoto. Nem mesmo se tu tens uma unidade de rede mapeada numa letra de unidade. Se tentares usar um Berkeley DB numa partilha de rede, os resultados serão inesperados - tu poderás ver de imediato erros misteriosos, ou poderão passar meses antes de descobrires que a tua base de dados do teu repositório está subtilmente corrompida. "
 
 #. (title)
 msgid "Accessing a Repository on a Network Share"
-msgstr ""
+msgstr "Aceder ao Repositório numa Partilha de Rede"
 
 #. (primary)
 msgid "Network share"
@@ -1247,23 +1247,23 @@ msgstr ""
 
 #. (para)
 msgid "Although in theory it is possible to put a FSFS repository on a network share and have multiple users access it using <literal>file://</literal> protocol, this is most definitely <emphasis>not</emphasis> recommended. In fact we would <emphasis>strongly</emphasis> discourage it, and do not support such use."
-msgstr ""
+msgstr "Embora em teoria é possível por um repositório FSFS numa partilha de rede, e ter múltiplos utilizadores a acedê-lo usando  o protocolo <literal>file://</literal>, mas isto <emphasis>não</emphasis> é definitivamente recomendável."
 
 #. (para)
 msgid "Firstly you are giving every user direct write access to the repository, so any user could accidentally delete the entire repository or make it unusable in some other way."
-msgstr ""
+msgstr "Em primeiro lugar, tu estás a dar a cada utilizador o acesso directo ao repositório, pelo que qualquer utilizador pode acidentalmente apagar todo o repositório ou inutilizá-lo de alguma forma."
 
 #. (para)
 msgid "Secondly not all network file sharing protocols support the locking that Subversion requires, so you may find your repository gets corrupted. It may not happen straight away, but one day two users will try to access the repository at the same time."
-msgstr ""
+msgstr "Em segundo lugar, nem todos os protocolos de partilha de ficheiros em rede suportam o bloqueio que o Subversion requer, pelo que podes encontrar o teu repositório corrompido. Poderá não acontecer de imediato, mas um dia dois utilizadores tentarão aceder ao repositório ao mesmo tempo."
 
 #. (para)
 msgid "Thirdly the file permissions have to be set just so. You may just about get away with it on a native Windows share, but SAMBA is particularly difficult."
-msgstr ""
+msgstr "Em terceiro lugar, as permissões dos ficheiros tem de ser configuradas como estão. Poderás, no entanto, quase dar a volta a isso numa partilha Windows nativa, mas será particularmente difícil no SAMBA."
 
 #. (para)
 msgid "<literal>file://</literal> access is intended for local, single-user access only, particularly testing and debugging. When you want to share the repository you <emphasis>really</emphasis> need to set up a proper server, and it is not nearly as difficult as you might think. Read <xref linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
-msgstr ""
+msgstr "O acesso <literal>file://</literal> é dirigido para acesso local e de utilizador único, em particular para testes e depuração de problemas. Quando tu queres partilhar o repositório, precisarás <emphasis>realmente</emphasis> de instalar correctamente um servidor, e não é tão difícil como pensas. Consulta o <xref linkend=\"tsvn-serversetup\"/> para guias orientadoras na escolha e instalação de um servidor."
 
 #. (title)
 msgid "Repository Layout"
