@@ -1,10 +1,13 @@
+# 
 # Spanish translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
+# 
 # Authors:
 # Fernando P. Nájera Cano
 # Juan Carlos Fuentes-Michel <jcfuentes@gmail.com>, 2010.
@@ -8202,7 +8205,7 @@ msgstr "La sección anterior se refiere a cómo añadir información de incidenc
 #. (para)
 #, fuzzy
 msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Cualquier interfaz de esta clase será muy específico de su sistema, por lo que no podemos /proporcionarle esta parte, y la descripción de cómo crear este tipo de programas está fuera del alcance de este manual. Puede obtener la definición del interfaz y plugins de ejemplo en C# y C++/ATL desde la carpeta <literal>contrib</literal> en el <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>repositorio de TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> le explica cómo acceder al repositorio). Otro plugin de ejemplo (en funcionamiento) en C# es <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> que implementa el interfaz COM necesario para interactuar con el gestor de incidencias de <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
+msgstr "Cualquier interfaz de esta clase será muy específico de su sistema, por lo que no podemos /proporcionarle esta parte, y la descripción de cómo crear este tipo de programas está fuera del alcance de este manual. Puede obtener la definición del interfaz y plugins de ejemplo en C# y C++/ATL desde la carpeta <literal>contrib</literal> en el <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>repositorio de TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> le explica cómo acceder al repositorio). Otro plugin de ejemplo (en funcionamiento) en C# es <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> que implementa el interfaz COM necesario para interactuar con el gestor de incidencias de <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
 
 # FPN: Query has been translated as "interaction" because "interrogatorio" is something you won't use in computing.
 #. (title)
@@ -9700,7 +9703,7 @@ msgstr ""
 #. (para)
 #, fuzzy
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
-msgstr "Esta propiedad especifica los parámetros pasados a IBugTraqProvider."
+msgstr "Esta propiedad especifica los parámetros pasados al IBugTraqProvider."
 
 #. (para)
 #, fuzzy
@@ -11495,7 +11498,6 @@ msgid "ASP projects"
 msgstr "projectos ASP"
 
 #. (para)
-#, fuzzy
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
 msgstr "Desde la versión 1.4.0, el instalador de TortoiseSVN ya no ofrece al usuario la opción de establecer la variable de entorno <literal>SVN_ASP_DOT_NET_HACK</literal>, dado que eso ha causado muchos problemas y confusiones a algunos usuarios que siempre instalan <emphasis>todo</emphasis> sin importar si saben para lo que sirve."
 
