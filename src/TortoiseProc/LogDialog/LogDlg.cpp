@@ -1716,22 +1716,6 @@ void CLogDlg::DiffSelectedFile()
         rev2 = rev1-1;
         // nothing or only one revision selected in the log list
 
-        if ((m_cShowPaths.GetState() & 0x0003)==BST_CHECKED)
-        {
-            // some items are hidden! So find out which item the user really clicked on
-            INT_PTR selRealIndex = -1;
-            for (size_t hiddenindex=0; hiddenindex<paths.GetCount(); ++hiddenindex)
-            {
-                if (paths[hiddenindex].IsRelevantForStartPath())
-                    selRealIndex++;
-                if (selRealIndex == selIndex)
-                {
-                    selIndex = hiddenindex;
-                    break;
-                }
-            }
-        }
-
         const CLogChangedPath& changedpath = m_currentChangedArray[selIndex];
 
         if (IsDiffPossible(changedpath, rev1))
