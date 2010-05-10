@@ -1,4 +1,4 @@
-# 
+#
 # Romanian translation for TortoiseSVN
 # Copyright (C) 2010 the TortoiseSVN team
 #
@@ -15,13 +15,13 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-10 15:44+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2010-05-10 23:03+0100\n"
+"Last-Translator: Mircea Diaconescu <dimircea@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "X-Poedit-Language: Romanian\n"
 "X-Poedit-Country: ROMANIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -30,7 +30,7 @@ msgstr ""
 #. It doesn't matter what you translate it to: it's not used at all.
 #. (None)
 msgid "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
-msgstr ""
+msgstr "@@image: 'images/svn_move.png'; md5=Acest fișier nu există!"
 
 #. (title)
 #. (secondary)
@@ -12413,35 +12413,35 @@ msgstr ""
 
 #. (glossterm)
 msgid "SVN"
-msgstr ""
+msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr ""
+msgstr "Abreviere frecventă folosită pentru Subversion."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr ""
+msgstr "Numele unui protocol particular de Subversion folosit de către  <quote>svnserve</quote> serverul SVN."
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "La fel ca și <quote>Actualizare-la-revizie</quote> care schimbă versiunea de timp a unei copii de lucru astfel încât să corespundă cu o versiune diferită, la fel <quote>Schimba/Comută</quote>  schimbă adresa unei copii de lucru astfel încât aceasta să facă referire la o altă zonă din repository. Este folositoare în special atunci când lucrezi în <quote>trunk</quote> sau in <quote>branches</quote> când în majoritatea cazurilor doar câteva dintre fișiere sunt diferite. Poți să schimbi copia de lucru locală între cele două yone și doar fișierele diferite vor fi transferate."
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr ""
+msgstr "Această comanda extrage și adaugă ultimele modificări din repository in copia de lucru locală și combină posibilele modificări făcute de alții in repository cu modificările din copia locală."
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr ""
+msgstr "Aceasta este o zonă locală de test, <quote>sandbox</quote>, în care poți lucra cu fișierele versionate și care in mod normal este pe discul local. Puteți crea o copie de lucru folosind <quote>Checkout</quote> dintr-un repository și de asemene poți salva datele folosind opțiunea <quote>Commit</quote>"
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr ""
+msgstr "translator-credite"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr ""
+msgstr "translator-traducere"
 
