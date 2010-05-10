@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-10 09:28-0300\n"
-"Last-Translator: Alejandro Ariel Abaca <abacrotto@hotmail.com>\n"
+"PO-Revision-Date: 2010-05-10 23:12+0100\n"
+"Last-Translator: Juan Carlos Fuentes-Michel <jcfuentes@gmail.com>\n"
 "Language-Team: Tomás Christie\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -220,7 +220,7 @@ msgstr "Aunque mucha gente sólo utiliza el instalador, usted también tiene acc
 
 #. (title)
 msgid "Development"
-msgstr ""
+msgstr "Desarrollo"
 
 #. (para)
 msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world, working together to create great software."
@@ -280,7 +280,7 @@ msgstr "por ayudar con la documentación"
 
 #. (term)
 msgid "Stefan Fuhrmann"
-msgstr ""
+msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
@@ -332,7 +332,7 @@ msgstr "Este <xref linkend=\"tsvn-preface\"/> explica qué es TortoiseSVN, le of
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
-msgstr ""
+msgstr "El link <xref linkend=\"tsvn-quick-start\"/> explica cómo instalar TortoiseSVN en una PC, y como empezar a utilizarlo inmediatamente."
 
 #. (para)
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
@@ -2930,7 +2930,7 @@ msgstr "Si desea eliminar la caché de autentificación para todos los servidore
 
 #. (para)
 msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
-msgstr ""
+msgstr "Si quiere eliminar la autentificación para un área solamente entonces deberá escarbar en estos directorios, encontrar el archivo que contiene la información que usted desea eliminar y borrar el archivo."
 
 #. (para)
 msgid ""
@@ -3412,7 +3412,7 @@ msgstr "La ventana de mensajes de registro también incluye una facilidad de aut
 
 #. (para)
 msgid "Getting the regex just right can be tricky, so to help you sort out a suitable expression there is a test dialog which allows you to enter an expression and then type in filenames to test it against. Start it from the command prompt using the command <literal>TortoiseProc.exe /command:autotexttest</literal>"
-msgstr ""
+msgstr "Obtener la expresión regular puede ser complicado, así que para ayudarlo a construir una expresión correct hay un diálogo de pruebas que le permite introducir una expresión y luego escribir nombres de archivo para comprobarla. Ejecutelo desde la línea de comando introduciendo <literal>TortoiseProc.exe /command:autotexttest</literal>"
 
 #. (para)
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
@@ -3959,7 +3959,7 @@ msgstr "Otros conflictos de árboles"
 
 #. (para)
 msgid "There are other cases which are labelled as tree conflicts simply because the conflict involves a folder rather than a file. For example if you add a folder with the same name to both trunk and branch and then try to merge you will get a tree conflict. If you want to keep the folder from the merge target, just mark the conflict as resolved. If you want to use the one in the merge source then you need to SVN delete the one in the target first and run the merge again. If you need anything more complicated then you have to resolve manually."
-msgstr ""
+msgstr "Hay otros casos que pueden ser etiquetados como conflictos de árbol simplemente porque el conflicto involucra a un directorio en vez de a un archivo. Por ejemplo si usted incorpora un directorio con el mismo nombre que un trunk y una branch y luego trata de fusionarlos generará un conflicto de árbol. Si desea conservar el directorio del objetivo de fusión, sólamente marque el conflicto como resuelto. Si desea usar el directorio en la fuente de fusión entonces necesita hacer un borrado SVN del directorio que se encuentra en el objetivo y repetir el proceso de fusión. Si necesita algo más complicado deberá resolverlo manualmente."
 
 #. (title)
 msgid "Getting Status Information"
@@ -6128,7 +6128,7 @@ msgstr ""
 
 #. (para)
 msgid "Properties cannot be set or deleted recursively using the repo browser."
-msgstr ""
+msgstr "Las propiedades no pueden ser establecidas o cambiadas recursivamente utilizando el explorador de repositorios."
 
 #. (para)
 msgid "Project properties will <emphasis>not</emphasis> be propagated automatically when a child folder is added using the repo browser."
@@ -8896,7 +8896,6 @@ msgid "The window titles are not pure filenames. TortoiseSVN treats that as a na
 msgstr "Los títulos de las ventanas no son nombres de archivos puros. TortoiseSVN lo trata como un nombre para mostrar y crea los nombres según eso. Por ejemplo, si está haciendo diferencias entre un archivo en la revisión 123 y un archivo en su copia de trabajo, los nombres pueden ser <filename>nombre-de-archivo : revision 123</filename> y <filename>nombre-de-archivo : copia de trabajo</filename>"
 
 #. (para)
-#, fuzzy
 msgid ""
 "For example, with ExamDiff Pro: <screen>\n"
 "C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
@@ -8922,6 +8921,8 @@ msgstr ""
 "</screen> o con Araxis: <screen>\n"
 "C:\\Ruta-A\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
 "    %base %mine\n"
+"</screen>o con UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
 "</screen>"
 
 #. (para)
@@ -9496,12 +9497,11 @@ msgstr "Esta propiedad especifica el UUID COM del IBugTraqProvider, por ejemplo 
 
 #. (para)
 msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
-msgstr ""
+msgstr "Esto es lo mismo que  <literal>bugtraq:provideruuid</literal>, pero para la versión de 64-bits del IBugtraqProvider."
 
 #. (para)
-#, fuzzy
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
-msgstr "Esta propiedad especifica los parámetros pasados al IBugTraqProvider."
+msgstr "Ésta propiedad especifica los parámetros pasados al IBugTraqProvider."
 
 #. (para)
 #, fuzzy
@@ -11625,7 +11625,7 @@ msgstr "/strict"
 
 #. (option)
 msgid "/findstring:\"filterstring\""
-msgstr ""
+msgstr "/findstring:\"filterstring\""
 
 #. (option)
 msgid "/findtext"
@@ -12099,9 +12099,8 @@ msgid "Conventions and Basic Rules"
 msgstr "Convenciones y reglas básicas"
 
 #. (para)
-#, fuzzy
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr "En las descripciones que aparecen a continuación, la URL con el lugar de un repositorio se muestra simplemente como <literal>URL</literal>, que podría corresponder por ejemplo a <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. La ruta de la copia de trabajo se muestra simplemente como <literal>RUTA</literal>, que podría corresponder por ejemplo a <literal>C:\\TortoiseSVN\\trunk</literal>."
+msgstr "En las descripciones que aparecen a continuación, la URL con el lugar de un repositorio se muestra simplemente como <literal>URL</literal>, que podría corresponder por ejemplo a <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. La ruta de la copia de trabajo se muestra simplemente como <literal>RUTA</literal>, que podría corresponder por ejemplo a <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
@@ -12967,11 +12966,11 @@ msgstr "Si utiliza este último método, asegúrese de no tener establecido un u
 
 #. (title)
 msgid "Language Packs and Spell Checkers"
-msgstr ""
+msgstr "Paquetes Idiomáticos y Correctores Ortográficos"
 
 #. (para)
 msgid "The standard installer has support only for English, but you can download separate language packs and spell check dictionaries separately after installation."
-msgstr ""
+msgstr "El instalador extándar sólo soporta el idioma inglés, pero usted puede descargar paquetes de lenguaje y correctores ortográficos de manera separada luego de la instalación."
 
 #. (title)
 msgid "Language Packs"
@@ -12995,7 +12994,7 @@ msgstr "Cada pack de idioma está empaquetado como un instalador <literal>.exe</
 
 #. (para)
 msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "La documentación ha sido también traducida a varios idiomas. Usted puede descargar manuales traducidos de <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> en nuestro sitio web."
 
 #. (title)
 msgid "Spellchecker"
