@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-15 22:30-0000\n"
+"PO-Revision-Date: 2010-05-10 11:23-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -208,33 +208,63 @@ msgstr "%s [Recuperat]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, dar există deja local neversionat."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, dar dosarul există deja local neversionat."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, dar lipseşte local."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, dar dosarul lipseşte local."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, dar s-a adăugat deja local."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, dar dosarul a fost adăugat deja local."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, dar s-a editat deja."
+msgid "%s, but the directory was already edited."
+msgstr "%s, dar dosarul a fost editat deja."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, dar s-a şters, s-a mutat, sau s-a redenumit local."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s, dar dosarul a fost şters, mutat sau redenumit local."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, dar a fost împiedicat de copia de lucru."
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, dar dosarul a fost împiedicat în copia de lucru."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, dar fișierul există deja local neversionat."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, dar fișierul lipseşte local."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, dar fișierul a fost adăugat deja local."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, dar fişierul a fost editat deja."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s, dar fișierul a fost şters, mutat sau redenumit local."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, dar fisierul a fost împiedicat în copia de lucru."
 
 #. Resource IDs: (3850)
 #, c-format
@@ -957,7 +987,7 @@ msgstr "Deconectat &permanent"
 
 #. Resource IDs: (1588)
 msgid "&Platform dependent (native)"
-msgstr ""
+msgstr "&Platformă dependentă (nativă)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1902,7 +1932,7 @@ msgstr "Aplică diferenţiere unificată"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
-msgstr ""
+msgstr "Text arb&itrar"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -3113,6 +3143,10 @@ msgstr ""
 msgid "Could not start thread!"
 msgstr "Nu s-a putut porni thread-ul!"
 
+#. Resource IDs: (1542)
+msgid "Create &Library"
+msgstr "Crează bib&liotecă"
+
 #. Resource IDs: (13)
 msgid "Create &patch..."
 msgstr "Creează &petic..."
@@ -3157,6 +3191,10 @@ msgstr "Fişierul s-a creat de la distanţă"
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "Crează o copie 'ieftină' în depozitul folosit pentru ramuri sau etichete"
+
+#. Resource IDs: (199)
+msgid "Creates a library folder with special settings for Subversion working copies"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3344,6 +3382,10 @@ msgstr "Descriere:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Deselectează lista de schimbări"
+
+#. Resource IDs: (1547)
+msgid "Destinatio&n URL:"
+msgstr "URL desti&natar:"
 
 #. Resource IDs: (1547)
 msgid "Destination URL:"
@@ -5070,6 +5112,10 @@ msgstr ""
 msgid "Import to %1"
 msgstr "Importă la %1"
 
+#. Resource IDs: (80)
+msgid "Imported folder structure"
+msgstr "Structură de dosare importată"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %1!s!"
@@ -5817,11 +5863,11 @@ msgstr "Minimizează Ribbon-ul"
 
 #. Resource IDs: (65535)
 msgid "Minimum number of chars for a commit message:"
-msgstr ""
+msgstr "Numărul minim de caractere pentru un mesaj de transmitere:"
 
 #. Resource IDs: (65535)
 msgid "Minimum number of chars for a lock message:"
-msgstr ""
+msgstr "Numărul minim de caractere pentru un mesaj de blocare:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -5935,9 +5981,17 @@ msgstr "Mută/Redenumeşte"
 msgid "Move: New name for %s"
 msgstr "Mutare: Nume nou pentru %s"
 
+#. Resource IDs: (65535)
+msgid "Moved from"
+msgstr "Mutat de la"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Mutat de la distanţă"
+
+#. Resource IDs: (65535)
+msgid "Moved to"
+msgstr "Mutat la"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -5981,9 +6035,8 @@ msgid "Needs lock"
 msgstr "Are nevoie de blocare"
 
 #. Resource IDs: (32845)
-#, fuzzy
 msgid "Needs-&Lock"
-msgstr "Are nevoie de blocare"
+msgstr "Are nevoie de b&locare"
 
 #. Resource IDs: (1550)
 msgid "Needs-lock"
@@ -6524,6 +6577,15 @@ msgid ""
 msgstr ""
 "Unealtă creion\n"
 "creion"
+
+#. Resource IDs: (245)
+#, fuzzy
+msgid "Percent of authorship"
+msgstr "Numărul de autori:"
+
+#. Resource IDs: (245)
+msgid "Percents"
+msgstr "Procente"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -7839,7 +7901,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
-msgstr ""
+msgstr "Selectați limba folosită de acest proiect. Aceasta opțiune afectează corectorul ortografic în mesajele de transmitere."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -8246,9 +8308,8 @@ msgid "Source Right:"
 msgstr "Sursa dreaptă:"
 
 #. Resource IDs: (1552)
-#, fuzzy
 msgid "Source URL:"
-msgstr "Sursa stângă:"
+msgstr "URL sursă:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -8595,6 +8656,10 @@ msgstr "Dimensiune tab:"
 #. Resource IDs: (65535)
 msgid "Tag nodes"
 msgstr "Noduri etichete"
+
+#. Resource IDs: (281)
+msgid "Tagged"
+msgstr "Etichetat"
 
 #. Resource IDs: (79)
 #, c-format
@@ -9005,8 +9070,10 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (80)
-msgid "The repository was successfully created."
-msgstr "S-a creat depozitul."
+msgid ""
+"The repository was successfully created.\n"
+"Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -11245,6 +11312,8 @@ msgstr "da"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "The repository was successfully created."
+#~ msgstr "S-a creat depozitul."
 #~ msgid "&Sat:"
 #~ msgstr "&Sat:"
 #~ msgid "&Save..."
@@ -11292,8 +11361,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Afişează fişiere fără &versiune"
 #~ msgid "Cleaning up."
 #~ msgstr "Se curăţă."
-#~ msgid "%s, but the local file was already edited."
-#~ msgstr "%s, dar fişierul local a fost deja editat."
 #~ msgid "General::Revision Graph"
 #~ msgstr "General::Graficul reviziei"
 #~ msgid "Go offline?"
