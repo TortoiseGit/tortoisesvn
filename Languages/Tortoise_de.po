@@ -10,15 +10,15 @@
 # 
 # Authors:
 # Lübbe Onken, <luebbe@tigris.org>, 2004-2010
-# 
+# Lübbe Onken <l.onken@rac.de>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-03 09:52+0200\n"
+"PO-Revision-Date: 2010-05-10 10:10+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,6 +27,19 @@ msgstr ""
 "X-Generator: Virtaal 0.6.0\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 # Ein einzelnes Leerzeichen
 #. Resource IDs: (10, 126)
 msgid " "
@@ -3080,6 +3093,10 @@ msgstr ""
 msgid "Could not start thread!"
 msgstr "Thread konnte nicht gestartet werden!"
 
+#. Resource IDs: (1542)
+msgid "Create &Library"
+msgstr "&Bibliothek erstellen"
+
 #. Resource IDs: (13)
 msgid "Create &patch..."
 msgstr "Erzeuge &Patch..."
@@ -3124,6 +3141,12 @@ msgid "Creates a 'cheap' copy inside the repository used for branches or tagging
 msgstr ""
 "Erzeugt eine 'billige' Kopie innerhalb des Projektarchivs für Zweige oder "
 "Marken"
+
+#. Resource IDs: (199)
+msgid "Creates a library folder with special settings for Subversion working copies"
+msgstr ""
+"Erstellt einen Bibliotheksordner mit speziellen Einstellungen für Subversion "
+"Arbeitskopien"
 
 #. Resource IDs: (2052)
 msgid "Creates a patch file from the differences of the two files\nCreate patch file"
@@ -3312,6 +3335,10 @@ msgstr "Beschreibung:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Änderungsliste abwählen"
+
+#. Resource IDs: (1547)
+msgid "Destinatio&n URL:"
+msgstr "&Ziel-URL:"
 
 #. Resource IDs: (1547)
 msgid "Destination URL:"
