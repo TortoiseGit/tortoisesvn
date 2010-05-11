@@ -818,14 +818,14 @@ void CLogDlg::Refresh (bool autoGoOnline)
 
     // refreshing means re-downloading the already shown log messages
     UpdateData();
+    m_startrev = -1;
     if ((m_limit == 0)||(m_bStrict)||(int(m_logEntries.size()-1) > m_limit))
     {
         if (m_logEntries.size() != 0)
         {
-            m_endrev = m_logEntries[m_logEntries.size()-1]->GetRevision();
+            m_endrev = m_logEntries.GetMinRevision();
         }
     }
-    m_startrev = -1;
     m_bCancelled = FALSE;
     m_wcRev = SVNRev();
 
