@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-10 09:47-0300\n"
+"PO-Revision-Date: 2010-05-11 11:05-0300\n"
 "Last-Translator: augusto <augustowloch@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -199,9 +199,9 @@ msgid "%s : Working Copy"
 msgstr "%s : Copia de trabajo"
 
 #. Resource IDs: (3887)
-#, fuzzy, c-format
+#, c-format
 msgid "%s [Recovered]"
-msgstr "Revertido"
+msgstr "%s [Recuperado]"
 
 #. Resource IDs: (609)
 #, fuzzy, c-format
@@ -209,29 +209,29 @@ msgid "%s, but the directory already exists unversioned locally."
 msgstr "%s, pero ya existe un fichero sin versionar localmente."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but the directory is missing locally."
-msgstr "%s, pero falta localmente."
+msgstr "%s, pero el directorio falta localmente."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but the directory was already added locally."
-msgstr "%s, pero ya se ha añadido localmente."
+msgstr "%s, pero el directorio ya ha sido añadido localmente."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but the directory was already edited."
-msgstr "%s, pero ya se editó."
+msgstr "%s, pero el directorio ya ha sido editado."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr "%s, pero se eliminó, movió o renombró localmente."
+msgstr "%s, pero el directorio ya ha sido eliminado, movido o renombrado localmente."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr "%s, pero se ha obstruído en la copia de trabajo."
+msgstr "%s, pero el directorio ha sido obstruído en la copia de trabajo."
 
 #. Resource IDs: (609)
 #, fuzzy, c-format
@@ -347,9 +347,8 @@ msgid "&Add..."
 msgstr "&Añadir..."
 
 #. Resource IDs: (32849)
-#, fuzzy
 msgid "&Advanced"
-msgstr "Avanzado"
+msgstr "&Avanzado"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -810,9 +809,8 @@ msgid "&Limit search to modified lines"
 msgstr "&Limitar la búsqueda a las líneas modificadas"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Limit:"
-msgstr "&Lum:"
+msgstr "&Límite:"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -835,14 +833,12 @@ msgid "&Locking required (read-only update)"
 msgstr "&Bloqueo requerido (actualización de solo lectura)"
 
 #. Resource IDs: (32854)
-#, fuzzy
 msgid "&Log Sizes"
-msgstr "Bloquear Archivos"
+msgstr "Tamaño de&l Registro"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Luminence:"
-msgstr "&Lum:"
+msgstr "&Luminiscencia:"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -881,9 +877,8 @@ msgid "&Merging"
 msgstr "&Fusionando"
 
 #. Resource IDs: (32847)
-#, fuzzy
 msgid "&Mime-Type"
-msgstr "Tipo mime"
+msgstr "Tipo &Mime"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
@@ -898,9 +893,8 @@ msgid "&Modify color for trunk copies"
 msgstr "&Modificar el color para las copias trunk"
 
 #. Resource IDs: (32880)
-#, fuzzy
 msgid "&Moved blocks"
-msgstr "Necesita bloqueo"
+msgstr "Bloques &Movidos"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1042,7 +1036,7 @@ msgstr "&Actualizar"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr "&Recordarme que ingrese un ID de incidencia"
+msgstr "&Recordarme que ingrese un ID de incidente"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -1332,9 +1326,8 @@ msgid "&Whole word"
 msgstr "&Palabra completa"
 
 #. Resource IDs: (1589)
-#, fuzzy
 msgid "&Windows (CRLF)"
-msgstr "&Windows XP"
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -2169,7 +2162,7 @@ msgstr "Bug-ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr "E&xpresión de Id de incidencia:"
+msgstr "E&xpresión de Id de incidente:"
 
 #. Resource IDs: (1119)
 #, fuzzy
@@ -2287,9 +2280,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "No se pueden mostrar las diferencias porque los finales de línea en el fichero son inconsistentes."
 
 #. Resource IDs: (16926)
-#, fuzzy
 msgid "Casca&de"
-msgstr "Cascada"
+msgstr "Casca&da"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -2398,7 +2390,6 @@ msgid "Check for modifications"
 msgstr "Comprobar modificaciones"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Check for updates"
 msgstr "Buscar Actualizaciones"
 
@@ -2783,7 +2774,7 @@ msgstr "Configurar Scripts Gancho"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
-msgstr "Configurar la integración con el control de incidencias"
+msgstr "Configurar la integración con el control de incidentes"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
@@ -3400,14 +3391,12 @@ msgid "Deselect changelist"
 msgstr "Deseleccionar lista de cambios"
 
 #. Resource IDs: (1547)
-#, fuzzy
 msgid "Destinatio&n URL:"
-msgstr "URL por defecto:"
+msgstr "URL de desti&no"
 
 #. Resource IDs: (1547)
-#, fuzzy
 msgid "Destination URL:"
-msgstr "URL por defecto:"
+msgstr "URL de destino:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -3923,7 +3912,7 @@ msgstr "Ingrese debajo la cadena de la expresión regular"
 
 #. Resource IDs: (1577)
 msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
-msgstr "Ingrese el patrón de expresión regular para filtrar el  ID de incidencia desde un mensaje de confirmación"
+msgstr "Ingrese el patrón de expresión regular para filtrar el  ID de incidente desde un mensaje de confirmación"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3964,9 +3953,8 @@ msgstr ""
 "%2!s!"
 
 #. Resource IDs: (32853)
-#, fuzzy
 msgid "Ex&ternals"
-msgstr "Externo"
+msgstr "Referencias Externas"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -4158,7 +4146,7 @@ msgid ""
 "Failed to start the issue tracker COM provider '%1!s!'.\n"
 "%2!s!"
 msgstr ""
-"Fallo al iniciar el proveedor COM del control de incidencias  '%1!s!'.\n"
+"Fallo al iniciar el proveedor COM del control de incidentes  '%1!s!'.\n"
 "%2!s!"
 
 #. Resource IDs: (220)
@@ -4604,9 +4592,8 @@ msgid "Head revision is %s"
 msgstr "La revisión Head es %s"
 
 #. Resource IDs: (1595)
-#, fuzzy
 msgid "Header"
-msgstr "año"
+msgstr "Encabezado"
 
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
@@ -4674,7 +4661,7 @@ msgstr "Scripts gancho"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Scripts gancho::Integración con control de incidencias"
+msgstr "Scripts gancho::Integración con control de incidentes"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -5345,9 +5332,8 @@ msgstr ""
 "Ejemplo: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (1571)
-#, fuzzy
 msgid "Issue tracker"
-msgstr "Gancho de gestión de incidencias"
+msgstr "Seguimiento de Incidentes"
 
 #. Resource IDs: (145)
 msgid ""
@@ -5610,9 +5596,8 @@ msgid "Lock stolen by %s"
 msgstr "Bloqueo robado por %s"
 
 #. Resource IDs: (1529)
-#, fuzzy
 msgid "Locked"
-msgstr "bloqueado"
+msgstr "Bloqueado"
 
 #. Resource IDs: (263)
 #, c-format
@@ -5897,9 +5882,8 @@ msgid "Message"
 msgstr "Mensaje"
 
 #. Resource IDs: (1574)
-#, fuzzy
 msgid "Message &label:"
-msgstr "Mensaje:"
+msgstr "Etiqueta de Mensaje:"
 
 #. Resource IDs: (1573)
 #, fuzzy
@@ -6060,18 +6044,16 @@ msgid "Move: New name for %s"
 msgstr "Mover: Nuevo nombre para %s"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Moved from"
-msgstr "Movido de forma remota"
+msgstr "Movido desde"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Movido de forma remota"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Moved to"
-msgstr "Mover a %1"
+msgstr "Movido a %1"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6115,12 +6097,10 @@ msgid "Needs lock"
 msgstr "Necesita bloqueo"
 
 #. Resource IDs: (32845)
-#, fuzzy
 msgid "Needs-&Lock"
-msgstr "Necesita bloqueo"
+msgstr "Necesita b&loqueo"
 
 #. Resource IDs: (1550)
-#, fuzzy
 msgid "Needs-lock"
 msgstr "Necesita bloqueo"
 
@@ -6668,9 +6648,8 @@ msgid "Percent of authorship"
 msgstr "Número de autores:"
 
 #. Resource IDs: (245)
-#, fuzzy
 msgid "Percents"
-msgstr "Reciente"
+msgstr "Porcentajes"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -7120,9 +7099,8 @@ msgid "Refresh"
 msgstr "Actualizar"
 
 #. Resource IDs: (1576)
-#, fuzzy
 msgid "Regular Expression"
-msgstr "Utilizar expresión regular"
+msgstr "Expresión Regular"
 
 #. Resource IDs: (117)
 msgid ""
@@ -7924,7 +7902,7 @@ msgstr "Seleccione revisión final"
 
 #. Resource IDs: (64)
 msgid "Select folder to associate with this issue tracker"
-msgstr "Seleccione la carpeta para asociar con este control de incidencias"
+msgstr "Seleccione la carpeta para asociar con este control de incidentes"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8385,9 +8363,8 @@ msgid "Skipped missing target"
 msgstr "Saltado objetivo no encontrado"
 
 #. Resource IDs: (1070)
-#, fuzzy
 msgid "Slide"
-msgstr "Tamaño"
+msgstr "Deslizar"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -8402,9 +8379,8 @@ msgid "Source Right:"
 msgstr "Origen derecho:"
 
 #. Resource IDs: (1552)
-#, fuzzy
 msgid "Source URL:"
-msgstr "Origen izquierdo:"
+msgstr "URL de orígen:"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -8412,7 +8388,7 @@ msgstr "Especifica cuántos ítems desea almacenar en el diálogo de mensajes de
 
 #. Resource IDs: (1572)
 msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
-msgstr "Especifique como el mensaje de confirmación debería construirse a partir del ID de la incidencia ingresado. Use el marcador %BUGID% para el veradero ID de incidencia. Si deja este seteo vacío, TortoiseSVN usará en su lugar la expresión regular."
+msgstr "Especifique como el mensaje de confirmación debería construirse a partir del ID del incidente ingresado. Use el marcador %BUGID% para el veradero ID de incidencia. Si deja este seteo vacío, TortoiseSVN usará en su lugar la expresión regular."
 
 #. Resource IDs: (1305)
 msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
@@ -8655,9 +8631,8 @@ msgid "Switch - TortoiseSVN"
 msgstr "Cambiar - TortoiseSVN"
 
 #. Resource IDs: (1377)
-#, fuzzy
 msgid "Switch Depth"
-msgstr "Cambiar Izquierda<->Derecha"
+msgstr "Alternar Profundidad"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
@@ -8748,9 +8723,8 @@ msgid "Tag nodes"
 msgstr "Nodos etiqueta"
 
 #. Resource IDs: (281)
-#, fuzzy
 msgid "Tagged"
-msgstr "(etiquetado)"
+msgstr "Etiquetado"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8914,11 +8888,11 @@ msgstr "No se puede mostrar la imagen."
 
 #. Resource IDs: (63)
 msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
-msgstr "El proveedor de control de incidencias no pudo ser creado. Por favor compruebe que está instalado correctamente."
+msgstr "El proveedor de control de incidentes no pudo ser creado. Por favor compruebe que está instalado correctamente."
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr "El proveedor de control de incidencias no pudo validar la cadena de parámetros"
+msgstr "El proveedor de control de incidentes no pudo validar la cadena de parámetros"
 
 #. Resource IDs: (597)
 #, c-format
@@ -9216,18 +9190,16 @@ msgstr ""
 "¿Está seguro de querer obtener/exportar en esa carpeta?"
 
 #. Resource IDs: (279)
-#, fuzzy
 msgid "The target working copy has local modifications!"
-msgstr "Comprobar la copia de trabajo buscando modificaciones"
+msgstr "La copia de trabajo destino tien emodificaciones locales!"
 
 #. Resource IDs: (279)
-#, fuzzy
 msgid ""
 "The target working copy has local modifications.\n"
 "Do you want to merge anyway?"
 msgstr ""
-"¡Hay modificaciones sin guardar!\n"
-"¿Desea guardar sus cambios?"
+"La copia de trabajo destino tien emodificaciones locales.\n"
+"¿Desea fusionarlas de todas formas?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -9292,7 +9264,7 @@ msgstr ""
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
-msgstr "No hay proveedores de control de incidencias disponibles."
+msgstr "No hay proveedores de control de incidentes disponibles."
 
 #. Resource IDs: (66)
 #, c-format
@@ -9409,9 +9381,8 @@ msgid "Tile &Vertically"
 msgstr "Mosaico &vertical"
 
 #. Resource IDs: (16924)
-#, fuzzy
 msgid "Tile Hori&zontally"
-msgstr "Mosaico &horizontal"
+msgstr "Mosaico hori&zontal"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9772,9 +9743,8 @@ msgid "Unexpected file format."
 msgstr "Formato de archivo no esperado."
 
 #. Resource IDs: (1070)
-#, fuzzy
 msgid "Unfold"
-msgstr "Subir una carpeta"
+msgstr "Desplegar"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -9844,7 +9814,6 @@ msgid "Unversion and add to &ignore list"
 msgstr "Deversionar y añadir a la lista de &ignorados"
 
 #. Resource IDs: (1462)
-#, fuzzy
 msgid "Unversioned"
 msgstr "No &versionado"
 
@@ -9941,9 +9910,8 @@ msgstr ""
 "Por ejemplo: *.mired.com, *.empresa.com"
 
 #. Resource IDs: (1538)
-#, fuzzy
 msgid "Use Aero dialogs"
-msgstr "Obtener registros de fusión"
+msgstr "Utilizar diálogos Aero"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -10597,9 +10565,8 @@ msgid "Zoom to fit in width"
 msgstr "Zoom para ajustar en anchura"
 
 #. Resource IDs: (1070)
-#, fuzzy
 msgid "[Default]"
-msgstr "Por defecto"
+msgstr "[Por Defecto]"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -10688,7 +10655,7 @@ msgid ""
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\r\n"
-"Márquelo a 'false' si desea que el número de incidencia se coloque al inicio\r\n"
+"Márquelo a 'false' si desea que el número de incidente se coloque al inicio\r\n"
 "del mensaje de registro. Por defecto es 'true' que significa que el número de incidencia\r\n"
 "se añade al final del mensaje de registro."
 
@@ -10698,7 +10665,7 @@ msgid ""
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
 "bugtraq:label\r\n"
-"Texto de la etiqueta que se mostrará junto a la caja de texto donde el usuario introduce el número de incidencia."
+"Texto de la etiqueta que se mostrará junto a la caja de texto donde el usuario introduce el número de incidente."
 
 #. Resource IDs: (577)
 msgid ""
@@ -10709,8 +10676,8 @@ msgid ""
 msgstr ""
 "bugtraq:logregex\r\n"
 "dos expresiones regulares, cada una en una línea.\r\n"
-"La primera expresión se usa para encontrar una cadena que se refiera a una incidencia,\r\n"
-"la segunda expresión se usa para extraer únicamente el ID de la incidencia de esa cadena."
+"La primera expresión se usa para encontrar una cadena que se refiera a una incidente,\r\n"
+"la segunda expresión se usa para extraer únicamente el ID del incidente de esa cadena."
 
 #. Resource IDs: (577)
 #, c-format
@@ -10720,7 +10687,7 @@ msgid ""
 "The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\r\n"
-"Cadena que se añadirá al mensaje de registro cuando se introduzca un número de incidencia.\r\n"
+"Cadena que se añadirá al mensaje de registro cuando se introduzca un número de incidente.\r\n"
 "La cadena debe contener '%BUGID%' que se reemplazará con el número de incidencia."
 
 #. Resource IDs: (577)
@@ -10729,7 +10696,7 @@ msgid ""
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
-"Márquelo a 'false' si su sistema de control de incidencias tiene identificadores de incidencias no numéricos."
+"Márquelo a 'false' si su sistema de control de incidencias tiene identificadores de incidentes no numéricos."
 
 #. Resource IDs: (577)
 msgid ""
@@ -10756,7 +10723,7 @@ msgid ""
 msgstr ""
 "bugtraq:url\r\n"
 "URL apuntando al control de incidencias. Debe contener '%BUGID%',\r\n"
-"que se reemplazará con el número de incidencia."
+"que se reemplazará con el número de incidente."
 
 #. Resource IDs: (65535)
 msgid "changes total: "
@@ -10767,9 +10734,8 @@ msgid "commits"
 msgstr "confirmaciones"
 
 #. Resource IDs: (277)
-#, fuzzy
 msgid "committed revision"
-msgstr "Revisión última confirmación:"
+msgstr "Revisión confirmada"
 
 #. Resource IDs: (11)
 msgid "conflicted"
@@ -10898,14 +10864,12 @@ msgid "max revision: "
 msgstr "revisión máx: "
 
 #. Resource IDs: (278)
-#, fuzzy
 msgid "max. at this revision"
-msgstr "&Revertir a esta revisión"
+msgstr "Máxima en esta revisión"
 
 #. Resource IDs: (278)
-#, fuzzy
 msgid "max. committed revision"
-msgstr "Revisión última confirmación:"
+msgstr "Máxima revisión confirmada"
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
@@ -10916,14 +10880,12 @@ msgid "merges total: "
 msgstr "total fusiones: "
 
 #. Resource IDs: (278)
-#, fuzzy
 msgid "min. at this revision"
-msgstr "&Revertir a esta revisión"
+msgstr "Mínima en esta revisión"
 
 #. Resource IDs: (278)
-#, fuzzy
 msgid "min. committed revision"
-msgstr "Revisión última confirmación:"
+msgstr "Mínima revisión confirmada"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -11041,9 +11003,8 @@ msgid "revision count: "
 msgstr "contador de revisiones: "
 
 #. Resource IDs: (626)
-#, fuzzy
 msgid "revision has already been merged"
-msgstr "Rango de revisiones a fusionar"
+msgstr "La revisión ya se encontraba fusionada"
 
 #. Resource IDs: (326)
 #, c-format
@@ -11067,9 +11028,8 @@ msgid "skip ranges: "
 msgstr "saltar rangos: "
 
 #. Resource IDs: (316)
-#, fuzzy
 msgid "svn:eol-style"
-msgstr "eol style"
+msgstr "svn:eol-style"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11094,9 +11054,8 @@ msgstr ""
 "Un intento no-recursivo fallará, y uno recursivo aplicará la propiedad sólo sobre los archivos hijos del directorio."
 
 #. Resource IDs: (318)
-#, fuzzy
 msgid "svn:externals"
-msgstr "externo"
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11172,9 +11131,8 @@ msgstr ""
 "/trunk:123-125,129"
 
 #. Resource IDs: (314)
-#, fuzzy
 msgid "svn:mime-type"
-msgstr "SVN tipo MIME"
+msgstr "svn:mime-type"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11189,9 +11147,8 @@ msgstr ""
 "Cualquier otra cosa se trata como binario."
 
 #. Resource IDs: (313)
-#, fuzzy
 msgid "svn:needs-lock"
-msgstr "Necesita bloqueo"
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11229,9 +11186,8 @@ msgid "text [token count]: "
 msgstr "texto [contador de token]: "
 
 #. Resource IDs: (626)
-#, fuzzy
 msgid "the working copy is at this revision"
-msgstr "Actualiza la copia de trabajo a una revisión específica"
+msgstr "la copia de trabajo se encuentra en esta revisión"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -11370,7 +11326,7 @@ msgid ""
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\r\n"
-"Márquelo a 'yes' si quiere que aparezca un mensaje de advertencia cuando no se introduzca un número de incidencia en el diálogo de confirmación."
+"Márquelo a 'yes' si quiere que aparezca un mensaje de advertencia cuando no se introduzca un número de incidente en el diálogo de confirmación."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
