@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-11 23:43-0000\n"
+"PO-Revision-Date: 2010-05-12 00:12-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1422,11 +1422,11 @@ msgstr ""
 
 #. (para)
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
-msgstr ""
+msgstr "A ferramenta <literal>svnadmin</literal> é automaticamente instalada quando tu instalas o cliente de linha de comandos do Subversion. Se estás a instalar as ferramentas de linha de comandos num PC Windows, o melhor método é descarregar a versão com instalador Windows. É comprimido de modo mais eficiente do que a versão <filename>.zip</filename>, pelo que a descarga é mais pequena, e toma conta da configuração dos caminhos por ti. Tu podes descarregar a última versão do cliente de linha de comandos do Subversion a partir de <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
-msgstr ""
+msgstr "Scripts de gancho de servidor"
 
 #. (primary)
 msgid "hooks"
@@ -1443,11 +1443,11 @@ msgstr ""
 
 #. (para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr ""
+msgstr "Um script de gancho é um programa disparado por algum evento no servidor, como a criação de uma nova revisão ou a modificação de uma propriedade não versionada. A cada gancho é dada informação suficiente para poder distinguir qual o evento, o alvo(s) da operação, e o nome de utilizador da pessoa que disparou o evento. Dependendo do produto dos ganchos ou estado de retorno, o programa gancho pode continua a acção, pará-la, ou suspendê-la de algum modo. Consulta ao capítulo <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> no livro do Subversion para todos os detalhes sobre os ganchos que estão implementados."
 
 #. (para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
-msgstr ""
+msgstr "Esses scripts de gancho são executados pelo servidor que hospeda o repositório. O TortoiseSVN também permite-te configurar scripts de gancho de cliente, que são executados localmente devido a certos eventos. Consultar <xref linkend=\"tsvn-dug-settings-hooks\"/> para mais informações."
 
 #. (para)
 msgid ""
@@ -1458,6 +1458,12 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>"
 msgstr ""
+"Amostras de scripts de gancho podem ser encontrados na pasta <filename>hooks</filename> do repositório. Essas amostras de scritps são adequados para servidores Unix/Linux, mas precisam de ser modificados se o teu servidor é Windows. O gancho pode ser um ficheiro batch ou um executável. A amostra abaixo mostra um ficheiro batch que poderá ser usado para implementar um gancho pre-revprop-change. <screen>\n"
+"rem Only allow log messages to be changed.\n"
+"if \"%4\" == \"svn:log\" exit 0\n"
+"echo Property '%4' cannot be changed &gt;&amp;2\n"
+"exit 1\n"
+"</screen> Podes observar que tudo o que for enviado para o stdout é descartado. Se tu queres que uma mensagem apareça na caixa de diálogo Rejeição de Submissão, deverás enviá-la para o stderr. Num ficheiro batch isto é obtido através do uso de <filename>&gt;&amp;2</filename>"
 
 #. (title)
 msgid "Overriding Hooks"
