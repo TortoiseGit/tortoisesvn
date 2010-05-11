@@ -63,7 +63,7 @@ private:
 * Moved blocks detection for further highlighting,
 * implemented exclusively for TwoWayDiff
 **/
-    tsvn_svn_diff_t_extension * MovedBlocksDetect(svn_diff_t * diffYourBase, apr_pool_t * pool);
+    tsvn_svn_diff_t_extension * MovedBlocksDetect(svn_diff_t * diffYourBase, DWORD dwIgnoreWS, apr_pool_t * pool);
 
     void TieMovedBlocks(int from, int to, apr_off_t length);
 

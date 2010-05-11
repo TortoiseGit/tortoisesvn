@@ -367,7 +367,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 
     tsvn_svn_diff_t_extension * movedBlocks = NULL;
     if(m_bViewMovedBlocks)
-        movedBlocks = MovedBlocksDetect(diffYourBase, pool); // Side effect is that diffs are now splitted
+        movedBlocks = MovedBlocksDetect(diffYourBase, dwIgnoreWS, pool); // Side effect is that diffs are now splitted
 
     svn_diff_t * tempdiff = diffYourBase;
     LONG baseline = 0;
