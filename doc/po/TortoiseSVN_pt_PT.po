@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-11 00:24-0000\n"
+"PO-Revision-Date: 2010-05-11 23:43-0000\n"
 "Last-Translator: Paulo Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1396,7 +1396,7 @@ msgstr ""
 
 #. (title)
 msgid "Repository Backup"
-msgstr ""
+msgstr "Cópia de Segurança do Repositório"
 
 #. (primary)
 msgid "backup"
@@ -1404,11 +1404,11 @@ msgstr ""
 
 #. (para)
 msgid "Whichever type of repository you use, it is vitally important that you maintain regular backups, and that you verify the backup. If the server fails, you may be able to access a recent version of your files, but without the repository all your history is lost forever."
-msgstr ""
+msgstr "Qualquer que seja o tipo de repositório que uses é de importância vital manter cópias de segurança regulares, e que também as verifiques. Se o servidor falhar poderás ter acesso a uma versão recente dos teus ficheiros, mas sem o repositório, todo o teu histórico será perdido para sempre."
 
 #. (para)
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
-msgstr ""
+msgstr "O método mais simples (mas não recomendado) é copiar apenas a pasta do repositório para um meio de reserva. No entanto, tens de ter a certeza absoluta que não existe nenhum processo a aceder aos dados. Neste contexto, acesso  significa <emphasis>qualquer</emphasis> tipo de acesso. Um repositório BDB é escrito mesmo quando a operação parece apenas requerer leitura, como obter o estado. Se o teu repositório estiver a ser acedido de qualquer modo, durante a cópia (navegador web aberto, WebSVN, etc.), a cópia de segurança ficará inutilizada. "
 
 #. (para)
 msgid ""
@@ -1416,6 +1416,9 @@ msgid ""
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
 "</screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
 msgstr ""
+"O método recomendado é correr <screen>\n"
+"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
+"</screen> para criar uma cópia, de maneira segura, do teu repositório. Então efectua a cópia de segurança da cópia. A opção <literal>--clean-logs</literal> não é necessária, mas remove quaisquer ficheiros de registo redundantes, quando efectuas a cópia de segurança de um repositório BDB, o que pode poupar algum espaço."
 
 #. (para)
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
