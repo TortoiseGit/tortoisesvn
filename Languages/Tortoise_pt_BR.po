@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-25 22:54-0300\n"
-"Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
+"PO-Revision-Date: 2010-05-10 23:15-0300\n"
+"Last-Translator: Rafael Marcelo Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -836,7 +836,7 @@ msgstr "Tamanho do &Log"
 
 #. Resource IDs: (65535)
 msgid "&Luminence:"
-msgstr "Iluminação:"
+msgstr "I&luminação:"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -977,7 +977,7 @@ msgstr "&Colar"
 
 #. Resource IDs: (1600)
 msgid "&Peg revision:"
-msgstr "Revisão da Correção:"
+msgstr "&Revisão da Correção:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -1532,7 +1532,7 @@ msgid ""
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Uma lista de caminhos separados por quebra de linha para os quais será utilizada a sobreposição de ícones.\r\n"
-"Se adicionar um caractere '?' ao fim de um caminho, então somente este caminho será incluido.\r\n"
+"Se adicionar um caractere '?' ao fim de um caminho, então somente este caminho será incluído.\r\n"
 "Se adicionar um caractere '*' ou nenhum caracter ao final de todos os caminhos, todos os arquivos e pastas abaixo desse caminho também serão incluídos."
 
 #. Resource IDs: (197)
@@ -1553,7 +1553,7 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Uma lista de caminhos separados por quebra de linha para os quais não será utilizada a sobreposição de ícones.\r\n"
-"Se adicionar um caractere '?' ao fim de um caminho, então somente este caminho não será incluido.\r\n"
+"Se adicionar um caractere '?' ao fim de um caminho, então somente este caminho não será incluído.\r\n"
 "Se adicionar um caractere '*' ou nenhum caracter ao final de todos os caminhos, nenhum dos arquivos e pastas abaixo desse caminho serão incluídos.\r\n"
 "Uma lista vazia vai sobrepor os ícones em todos os caminhos."
 
@@ -1953,7 +1953,7 @@ msgstr "Organizar &Verticalmente"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr "Como é (sem especificação EOL)"
+msgstr "Como é (sem espec&ificação EOL)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2159,7 +2159,7 @@ msgstr "Bug-ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr "Expressão do Bug-ID:"
+msgstr "E&xpressão do Bug-ID:"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
@@ -2276,7 +2276,7 @@ msgstr "Não pode mostrar o diff por causa de novas linhas inconsistentes no fim
 
 #. Resource IDs: (16926)
 msgid "Casca&de"
-msgstr "Cascata"
+msgstr "C&ascata"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -3142,6 +3142,10 @@ msgstr ""
 msgid "Could not start thread!"
 msgstr "Não foi possível iniciar a thread!"
 
+#. Resource IDs: (1542)
+msgid "Create &Library"
+msgstr "Criar bib&lioteca"
+
 #. Resource IDs: (13)
 msgid "Create &patch..."
 msgstr "&Criar correção..."
@@ -3186,6 +3190,10 @@ msgstr "Pasta criada remotamente"
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "Cria uma cópia 'leve' dentro do repositório usada para ramificações ou rotulações"
+
+#. Resource IDs: (199)
+msgid "Creates a library folder with special settings for Subversion working copies"
+msgstr "Cria um diretório de biblioteca com configurações especiais para cópias de trabalho do Subversion"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3373,6 +3381,10 @@ msgstr "Descrição:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Desmarcar lista de alterações"
+
+#. Resource IDs: (1547)
+msgid "Destinatio&n URL:"
+msgstr "URL desti&no:"
 
 #. Resource IDs: (1547)
 msgid "Destination URL:"
@@ -5116,6 +5128,10 @@ msgstr ""
 msgid "Import to %1"
 msgstr "Importar para %1"
 
+#. Resource IDs: (80)
+msgid "Imported folder structure"
+msgstr "Importada estrutura de diretórios"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %1!s!"
@@ -5171,7 +5187,7 @@ msgstr ""
 
 #. Resource IDs: (1575)
 msgid "Insert message at:"
-msgstr "Insirir mensagem em:"
+msgstr "Inserir mensagem em:"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -5381,7 +5397,7 @@ msgstr "Caminho l&ocal:"
 
 #. Resource IDs: (32855)
 msgid "Lan&guages"
-msgstr "Idiomas"
+msgstr "I&diomas"
 
 #. Resource IDs: (65535)
 msgid "Language:"
@@ -6006,7 +6022,7 @@ msgstr "Movendo..."
 
 #. Resource IDs: (1204)
 msgid "Multiple, &independent working copies"
-msgstr "Multiplass, &independentes cópias de trabalho"
+msgstr "Multiplas, &independentes cópias de trabalho"
 
 #. Resource IDs: (65535)
 msgid "My file:"
@@ -6471,7 +6487,7 @@ msgstr "Sem memória."
 
 #. Resource IDs: (3845)
 msgid "Output.prn"
-msgstr "Saida.prn"
+msgstr "Saída.prn"
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8320,7 +8336,7 @@ msgstr "Especifique como a mensagem de submissão deverá ser formulada do texto
 
 #. Resource IDs: (1305)
 msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
-msgstr "Especifique a URL para acessar o rastreador de caracterísiticas. Use %BUGID% como palavra chave para o número identificador da característica."
+msgstr "Especifique a URL para acessar o rastreador de características. Use %BUGID% como palavra chave para o número identificador da característica."
 
 #. Resource IDs: (79)
 msgid ""
@@ -8659,6 +8675,10 @@ msgstr "Tamanho da Tabulação:"
 msgid "Tag nodes"
 msgstr "Rotular nós"
 
+#. Resource IDs: (281)
+msgid "Tagged"
+msgstr "Rotulado"
+
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -8962,7 +8982,7 @@ msgid ""
 "The old file does not match the new file.\n"
 "Renaming of files is not (yet) supported!"
 msgstr ""
-"O arquivo antigo não tem corresondência com o novo arquivo.\n"
+"O arquivo antigo não tem correspondência com o novo arquivo.\n"
 "Mudar o nome de arquivos não é (ainda) uma ação suportada!"
 
 #. Resource IDs: (220)
@@ -9070,8 +9090,12 @@ msgstr ""
 "Por favor, entre com uma expressão regular válida."
 
 #. Resource IDs: (80)
-msgid "The repository was successfully created."
-msgstr "O repositório foi criado com sucesso."
+msgid ""
+"The repository was successfully created.\n"
+"Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+"O repositório foi criado com sucesso.\n"
+"Você gostaria de criar a estrutura padrão (trunk/branches/tags) agora?"
 
 #. Resource IDs: (78)
 msgid ""
@@ -9136,7 +9160,7 @@ msgid ""
 "A lower value will make the auto-completion list available sooner,\r\n"
 "but maybe not scan all files."
 msgstr ""
-"O tempo em segundos depois do qual a análise dos arquivos selecionados pára.\r\n"
+"O tempo em segundos depois do qual a análise dos arquivos selecionados para.\r\n"
 "Um valor menor disponibilizará a lista de autocompletar rapidamente,\r\n"
 "embora talvez não percorra todos os arquivos."
 
@@ -11317,51 +11341,73 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "The repository was successfully created."
+#~ msgstr "O repositório foi criado com sucesso."
+
 #~ msgid "&Sat:"
 #~ msgstr "&Sat:"
+
 #~ msgid "&Save..."
 #~ msgstr "&Salvar..."
+
 #~ msgid "Bug-ID / &Issue-Nr:"
 #~ msgstr "Bug-ID / &Issue-Nr:"
+
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "Mostrar sobreposição para itens ignorados"
+
 #~ msgid "Show overlay for unversioned items"
 #~ msgstr "Mostrar sobreposição para itens sem controle de versão"
+
 #~ msgid "&To URL: "
 #~ msgstr "&Para a URL:"
+
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Autor:                                     Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Verificar, semanalmente, se existem &novas versões"
+
 #~ msgid ""
 #~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr ""
 #~ "Se habilitado, o TortoiseSVN verifica semanalmente se existe nova versão "
 #~ "disponível"
+
 #~ msgid "Edit conflict"
 #~ msgstr "Editar conflitos"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "Ocultar cam&inhos alterados não relacionados"
+
 #~ msgid "From URL:"
 #~ msgstr "A partir da URL:"
+
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "A URL da obteção refere-se a um arquivo mas\n"
 #~ "o caminho da cópia de trabalho é de um diretório existente."
+
 #~ msgid "Show &properties"
 #~ msgstr "Mostrar &propriedades"
+
 #~ msgid "Show i&gnored files"
 #~ msgstr "Mostrar arquivos i&gnorados"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "Mostrar arquivos não &alterados"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "Mostrar arquivos sem co&ntrole de versão"
+
 #~ msgid "Cleaning up."
 #~ msgstr "Limpando."
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Disquetes (A: B:)"
+
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -11377,87 +11423,126 @@ msgstr "{BugTraq}"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a></u>"
+
 #~ msgid "Go offline?"
 #~ msgstr "Desconectar?"
+
 #~ msgid "Replaced node"
 #~ msgstr "Nó substituído"
+
 #~ msgid "(deleted) %s"
 #~ msgstr "(excluído) %s"
+
 #~ msgid "alias (deleted): %s"
 #~ msgstr "apelido (deletado): %s"
+
 #~ msgid "&?"
 #~ msgstr "&?"
+
 #~ msgid "Merge all..."
 #~ msgstr "Combinar tudo..."
+
 #~ msgid "SVN Export to here"
 #~ msgstr "SVN Exportar para cá"
+
 #~ msgid "Bro&wse..."
 #~ msgstr "Nave&gar..."
+
 #~ msgid "Brows&e..."
 #~ msgstr "Navega&r..."
+
 #~ msgid "Include paths:"
 #~ msgstr "Incluir caminhos:"
+
 #~ msgid "Revert changes from these revisions"
 #~ msgstr "Reverter as alterações destas revisões"
+
 #~ msgid "Show properties"
 #~ msgstr "Mostrar propriedades"
+
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Abrir Ctrl-O"
+
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Salvar Ctrl-S"
+
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "&Desfazer\tCtrl+Z"
+
 #~ msgid "Analyze revision data..."
 #~ msgstr "Analisar dados da revisão..."
+
 #~ msgid "Checking for forward copies"
 #~ msgstr "Verificando se há cópias posteriores"
+
 #~ msgid "Remove..."
 #~ msgstr "Remover..."
+
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Usar lente de au&mento na barra de localização"
+
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 contém um caminho inválido."
+
 #~ msgid "&Berkeley database (BDB)"
 #~ msgstr "&Banco de Dados Berkeley (BDB)"
+
 #~ msgid "&Dry run"
 #~ msgstr "&Simulação"
+
 #~ msgid "&Native filesystem (FSFS)"
 #~ msgstr "Sistema de Arquivos &Nativo (FSFS)"
+
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "Um parâmetro inválido foi encontrado."
+
 #~ msgid "Cleanup has finished"
 #~ msgstr "Limpeza finalizada"
+
 #~ msgid "Commit threshold:"
 #~ msgstr "Limite de submissões:"
+
 #~ msgid "D&iff"
 #~ msgstr "C&omparar"
+
 #~ msgid "Diff With URL"
 #~ msgstr "Comparar com URL"
+
 #~ msgid "Dry Run"
 #~ msgstr "Simulação"
+
 #~ msgid "Groups branches together"
 #~ msgstr "Agrupar ramos"
+
 #~ msgid "Look and Feel"
 #~ msgstr "Aparência"
+
 #~ msgid "Look and Feel::Colors"
 #~ msgstr "Aparência::Cores"
+
 #~ msgid "Not descending"
 #~ msgstr "Não-decrescendo"
+
 #~ msgid "Select the type of repository you want to create:"
 #~ msgstr "Selecione o tipo de repositório que você deseja criar:"
+
 #~ msgid "Specify the revision range which you want to merge:"
 #~ msgstr "Especifique o intervalo de revisões que você quer combinar:"
+
 #~ msgid "Split long, inactive branches into segments"
 #~ msgstr "Separar ramos longos e inativos em segmentos"
+
 #~ msgid "Target"
 #~ msgstr "Alvo"
+
 #~ msgid "Two-way &Diff"
 #~ msgstr "Comparação em duplo senti&do"
+
 #~ msgid ""
 #~ "Use \"From:\" URL (revision range is selectable in the above log dialog)"
 #~ msgstr ""
 #~ "Use a URL \"De:\" (o intervalo de revisões é selecionável na caixa de "
 #~ "diálogo acima)"
+
 #~ msgid "which points to the repository at URL:"
 #~ msgstr "que aponta para o repositório na URL:"
-
