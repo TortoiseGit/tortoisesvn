@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-10 11:23-0000\n"
+"PO-Revision-Date: 2010-05-12 18:11-0000\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -977,9 +977,8 @@ msgid "&Paste"
 msgstr "&Inserează"
 
 #. Resource IDs: (1600)
-#, fuzzy
 msgid "&Peg revision:"
-msgstr "În&vinovăţeşte reviziile"
+msgstr "Revizia &Peg:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -1076,6 +1075,10 @@ msgstr "&Resolvă folosind proprietatea locală"
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "&Restabileşte implicitele"
+
+#. Resource IDs: (1542)
+msgid "&Retry without hooks"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -3713,9 +3716,8 @@ msgid "Edit extension specific merge program"
 msgstr "Editează program de îmbinare specific unei extensii"
 
 #. Resource IDs: (321)
-#, fuzzy
 msgid "Edit language properties"
-msgstr "Editează proprietăţi"
+msgstr "Editează proprietăţi de limbă"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -7640,9 +7642,8 @@ msgid "SVN Status"
 msgstr "Stare SVN"
 
 #. Resource IDs: (20)
-#, fuzzy
 msgid "SVN Statusnumber"
-msgstr "Statusnumber SVN"
+msgstr "Număr de stare SVN"
 
 #. Resource IDs: (12)
 msgid "SVN URL"
@@ -9068,6 +9069,8 @@ msgid ""
 "The regular expression is invalid!\n"
 "Please enter a valid regular expression."
 msgstr ""
+"Expresia regulară nu este validă!\n"
+"Introduceți o expresie regulară validă."
 
 #. Resource IDs: (80)
 msgid ""
