@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-10 23:03+0100\n"
-"Last-Translator: Mircea Diaconescu <dimircea@gmail.com>\n"
+"PO-Revision-Date: 2010-05-12 17:51-0000\n"
+"Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "@@image: 'images/svn_move.png'; md5=Acest fișier nu există!"
 #. (title)
 #. (secondary)
 msgid "TortoiseSVN"
-msgstr ""
+msgstr "TortoiseSVN"
 
 #. (subtitle)
 msgid "A Subversion client for Windows"
@@ -48,35 +48,35 @@ msgstr ""
 
 #. (edition)
 msgid "First"
-msgstr ""
+msgstr "Primul"
 
 #. (firstname)
 msgid "Stefan"
-msgstr ""
+msgstr "Stefan"
 
 #. (surname)
 msgid "Küng"
-msgstr ""
+msgstr "Küng"
 
 #. (firstname)
 msgid "Lübbe"
-msgstr ""
+msgstr "Lübbe"
 
 #. (surname)
 msgid "Onken"
-msgstr ""
+msgstr "Onken"
 
 #. (firstname)
 msgid "Simon"
-msgstr ""
+msgstr "Simon"
 
 #. (surname)
 msgid "Large"
-msgstr ""
+msgstr "Mare"
 
 #. (title)
 msgid "Preface"
-msgstr ""
+msgstr "Prefața"
 
 #. (primary)
 msgid "version control"
@@ -248,7 +248,7 @@ msgstr ""
 
 #. (term)
 msgid "Tim Kemp"
-msgstr ""
+msgstr "Tim Kemp"
 
 #. (para)
 msgid "for founding the TortoiseSVN project"
@@ -256,7 +256,7 @@ msgstr ""
 
 #. (term)
 msgid "Stefan Küng"
-msgstr ""
+msgstr "Stefan Küng"
 
 #. (para)
 msgid "for the hard work to get TortoiseSVN to what it is now, and his leadership of the project"
@@ -264,7 +264,7 @@ msgstr ""
 
 #. (term)
 msgid "Lübbe Onken"
-msgstr ""
+msgstr "Lübbe Onken"
 
 #. (para)
 msgid "for the beautiful icons, logo, bug hunting, translating and managing the translations"
@@ -272,7 +272,7 @@ msgstr ""
 
 #. (term)
 msgid "Simon Large"
-msgstr ""
+msgstr "Simon Large"
 
 #. (para)
 msgid "for maintaining the documentation"
@@ -288,7 +288,7 @@ msgstr ""
 
 #. (term)
 msgid "The Subversion Book"
-msgstr ""
+msgstr "Cartea Subversion"
 
 #. (para)
 msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
@@ -296,7 +296,7 @@ msgstr ""
 
 #. (term)
 msgid "The Tigris Style project"
-msgstr ""
+msgstr "Proiectul Tigris Style"
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
@@ -304,7 +304,7 @@ msgstr ""
 
 #. (term)
 msgid "Our Contributors"
-msgstr ""
+msgstr "Contribuitorii noștri"
 
 #. (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list"
@@ -312,7 +312,7 @@ msgstr ""
 
 #. (term)
 msgid "Our Donators"
-msgstr ""
+msgstr "Donatorii noștri"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
@@ -320,7 +320,7 @@ msgstr ""
 
 #. (title)
 msgid "Reading Guide"
-msgstr ""
+msgstr "Ghid de citire"
 
 #. (para)
 msgid "This book is written for computer-literate folk who want to use Subversion to manage their data, but prefer to use a GUI client rather than a command line client. TortoiseSVN is a windows shell extension and it is assumed that the user is familiar with the windows explorer and how to use it."
@@ -635,7 +635,7 @@ msgstr ""
 
 #. (primary)
 msgid "Subversion book"
-msgstr ""
+msgstr "Cartea Subversion"
 
 #. (para)
 msgid "This chapter is a slightly modified version of the same chapter in the Subversion book. An online version of the Subversion book is available here: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
@@ -652,7 +652,7 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "repository"
-msgstr ""
+msgstr "depozit"
 
 #. (para)
 msgid "Subversion is a centralized system for sharing information. At its core is a <firstterm>repository</firstterm>, which is a central store of data. The repository stores information in the form of a <firstterm>filesystem tree</firstterm> - a typical hierarchy of files and directories. Any number of <firstterm>clients</firstterm> connect to the repository, and then read or write to these files. By writing data, a client makes the information available to others; by reading data, the client receives information from others."
@@ -735,7 +735,7 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "conflict"
-msgstr ""
+msgstr "conflict"
 
 #. (para)
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
@@ -763,15 +763,15 @@ msgstr ""
 
 #. (title)
 msgid "Subversion in Action"
-msgstr ""
+msgstr "Subversion în acțiune"
 
 #. (title)
 msgid "Working Copies"
-msgstr ""
+msgstr "Copii de lucru"
 
 #. (primary)
 msgid "working copy"
-msgstr ""
+msgstr "copie de lucru"
 
 #. (para)
 msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
@@ -847,7 +847,7 @@ msgstr ""
 
 #. (entry)
 msgid "Schema"
-msgstr ""
+msgstr "Schema"
 
 #. (entry)
 msgid "Access Method"
@@ -855,7 +855,7 @@ msgstr ""
 
 #. (literal)
 msgid "file://"
-msgstr ""
+msgstr "file://"
 
 #. (entry)
 msgid "Direct repository access on local or network drive."
@@ -864,7 +864,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "http://"
-msgstr ""
+msgstr "http://"
 
 #. (entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
@@ -872,7 +872,7 @@ msgstr ""
 
 #. (literal)
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #. (entry)
 msgid "Same as <placeholder-1/>, but with SSL encryption."
@@ -880,14 +880,14 @@ msgstr ""
 
 #. (literal)
 msgid "svn://"
-msgstr ""
+msgstr "svn://"
 
 #. (literal)
 #. (literal)
 #. (primary)
 #. (primary)
 msgid "svnserve"
-msgstr ""
+msgstr "svnserve"
 
 #. (entry)
 msgid "Unauthenticated TCP/IP access via custom protocol to a <placeholder-1/> server."
@@ -895,7 +895,7 @@ msgstr ""
 
 #. (literal)
 msgid "svn+ssh://"
-msgstr ""
+msgstr "svn+ssh://"
 
 #. (entry)
 msgid "authenticated, encrypted TCP/IP access via custom protocol to a <placeholder-1/> server."
@@ -934,12 +934,12 @@ msgstr ""
 
 #. (title)
 msgid "Revisions"
-msgstr ""
+msgstr "Revizii"
 
 #. (primary)
 #. (primary)
 msgid "revision"
-msgstr ""
+msgstr "revizie"
 
 #. (para)
 msgid "A <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
@@ -959,7 +959,7 @@ msgstr ""
 
 #. (title)
 msgid "Global Revision Numbers"
-msgstr ""
+msgstr "Numere globale de revizie"
 
 #. (para)
 msgid "Unlike those of many other version control systems, Subversion's revision numbers apply to <emphasis>entire trees</emphasis>, not individual files. Each revision number selects an entire tree, a particular state of the repository after some committed change. Another way to think about it is that revision N represents the state of the repository filesystem after the Nth commit. When a Subversion user talks about ``revision 5 of <filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> as it appears in revision 5.'' Notice that in general, revisions N and M of a file do <emphasis>not</emphasis> necessarily differ!"
@@ -977,6 +977,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:4\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:4\n"
 
 #. (para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
@@ -990,6 +994,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:5\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:5\n"
 
 #. (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
@@ -1003,6 +1011,10 @@ msgid ""
 "     integer.c:6\n"
 "     button.c:6\n"
 msgstr ""
+"\n"
+"calc/Makefile:6\n"
+"     integer.c:6\n"
+"     button.c:6\n"
 
 #. (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
@@ -1238,6 +1250,10 @@ msgid ""
 "/branches\n"
 "/tags\n"
 msgstr ""
+"\n"
+"/trunk\n"
+"/branches\n"
+"/tags\n"
 
 #. (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
@@ -1650,11 +1666,11 @@ msgstr ""
 
 #. (primary)
 msgid "SASL"
-msgstr ""
+msgstr "SASL"
 
 #. (title)
 msgid "What is SASL?"
-msgstr ""
+msgstr "Ce este SASL?"
 
 #. (para)
 msgid "The Cyrus Simple Authentication and Security Layer is open source software written by Carnegie Mellon University. It adds generic authentication and encryption capabilities to any network protocol, and as of Subversion 1.5 and later, both the svnserve server and TortoiseSVN client know how to make use of this library."
@@ -1666,7 +1682,7 @@ msgstr ""
 
 #. (title)
 msgid "SASL Authentication"
-msgstr ""
+msgstr "Autentificare SASL"
 
 #. (para)
 msgid ""
@@ -1764,7 +1780,7 @@ msgstr ""
 
 #. (primary)
 msgid "Apache"
-msgstr ""
+msgstr "Apache"
 
 #. (para)
 msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
@@ -1773,7 +1789,7 @@ msgstr ""
 #. (primary)
 #. (term)
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 #. (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system."
@@ -1790,7 +1806,7 @@ msgstr ""
 #. (term)
 #. (title)
 msgid "Authentication"
-msgstr ""
+msgstr "Autentificare"
 
 #. (para)
 msgid "You can use any authentication mechanism Apache supports, including SSPI and LDAP."
@@ -1798,7 +1814,7 @@ msgstr ""
 
 #. (term)
 msgid "Security"
-msgstr ""
+msgstr "Securitate"
 
 #. (para)
 msgid "Since Apache is very stable and secure, you automatically get the same security for your repository. This includes SSL encryption."
@@ -1890,7 +1906,7 @@ msgstr ""
 
 #. (title)
 msgid "Configuration"
-msgstr ""
+msgstr "Configurare"
 
 #. (para)
 msgid ""
@@ -1932,13 +1948,13 @@ msgstr ""
 
 #. (primary)
 msgid "SVNPath"
-msgstr ""
+msgstr "SVNPath"
 
 #. (primary)
 #. (literal)
 #. (primary)
 msgid "SVNParentPath"
-msgstr ""
+msgstr "SVNParentPath"
 
 #. (title)
 msgid "Apache <filename>httpd.conf</filename> Settings"
@@ -1954,7 +1970,7 @@ msgstr ""
 
 #. (systemitem)
 msgid "http://MyServer/svn/"
-msgstr ""
+msgstr "http://MyServer/svn/"
 
 #. (entry)
 msgid "means that the Subversion repositories are available from the URL <placeholder-1/>"
@@ -1970,7 +1986,7 @@ msgstr ""
 
 #. (filename)
 msgid "D:\\SVN"
-msgstr ""
+msgstr "D:\\SVN"
 
 #. (entry)
 msgid "tells Subversion to look for repositories below <placeholder-1/>"
@@ -2059,7 +2075,7 @@ msgstr ""
 
 #. (primary)
 msgid "Authorization"
-msgstr ""
+msgstr "Autorizare"
 
 #. (para)
 msgid "The <literal>mod_authz_svn</literal> module permits fine-grained control of access permissions based on user names and repository paths. This is available with the Apache server, and as of Subversion 1.3 it is available with svnserve as well."
@@ -2128,11 +2144,11 @@ msgstr ""
 
 #. (primary)
 msgid "SSPI"
-msgstr ""
+msgstr "SSPI"
 
 #. (primary)
 msgid "NTLM"
-msgstr ""
+msgstr "NTLM"
 
 #. (para)
 msgid "The original SSPI module was offered by Syneapps including source code. But the development for it has been stopped. But don't despair, the community has picked it up and improved it. It has a new home on <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
@@ -2258,7 +2274,7 @@ msgstr ""
 
 #. (primary)
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #. (para)
 msgid "Even though Apache 2.2.x has OpenSSL support, it is not activated by default. You need to activate this manually."
@@ -2318,7 +2334,7 @@ msgstr ""
 
 #. (title)
 msgid "SSL and Internet Explorer"
-msgstr ""
+msgstr "SSL și Internet Explorer"
 
 #. (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
@@ -2539,7 +2555,7 @@ msgstr ""
 
 #. (term)
 msgid "F1"
-msgstr ""
+msgstr "F1"
 
 #. (para)
 msgid "Help, of course."
@@ -2547,7 +2563,7 @@ msgstr ""
 
 #. (term)
 msgid "F5"
-msgstr ""
+msgstr "F5"
 
 #. (para)
 msgid "Refresh the current view. This is perhaps the single most useful one-key command. For example ... In Explorer this will refresh the icon overlays on your working copy. In the commit dialog it will re-scan the working copy to see what may need to be committed. In the Revision Log dialog it will contact the repository again to check for more recent changes."
@@ -2555,7 +2571,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-A"
-msgstr ""
+msgstr "Ctrl-A"
 
 #. (para)
 msgid "Select all. This can be used if you get an error message and want to copy and paste into an email. Use Ctrl-A to select the error message and then ..."
@@ -2563,7 +2579,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-C"
-msgstr ""
+msgstr "Ctrl-C"
 
 #. (para)
 msgid "... Copy the selected text."
@@ -2575,15 +2591,15 @@ msgstr ""
 
 #. (primary)
 msgid "authentication"
-msgstr ""
+msgstr "autentificare"
 
 #. (primary)
 msgid "authentication cache"
-msgstr ""
+msgstr "cache de autentificare"
 
 #. (title)
 msgid "Authentication Dialog"
-msgstr ""
+msgstr "Dialog de autentificare"
 
 #. (para)
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password). Note that passwords are stored using the WinCrypt API, not in plain text form."
@@ -2654,7 +2670,7 @@ msgstr ""
 
 #. (primary)
 msgid "temporary files"
-msgstr ""
+msgstr "fișiere temporare"
 
 #. (para)
 msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If you are importing data into a new repository, then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
@@ -2743,11 +2759,11 @@ msgstr ""
 
 #. (title)
 msgid "Special Files"
-msgstr ""
+msgstr "Fișiere speciale"
 
 #. (primary)
 msgid "special files"
-msgstr ""
+msgstr "fișiere speciale"
 
 #. (para)
 msgid "Sometimes you need to have a file under version control which contains user specific data. That means you have a file which every developer/user needs to modify to suit his/her local setup. But versioning such a file is difficult because every user would commit his/her changes every time to the repository."
@@ -2837,7 +2853,7 @@ msgstr ""
 
 #. (term)
 msgid "Exclude"
-msgstr ""
+msgstr "Exclude"
 
 #. (para)
 msgid "Used to reduce working copy depth after a folder has already been populated. This option is only available in the <guilabel>Update to revision</guilabel> dialog."
@@ -3128,7 +3144,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Blue"
-msgstr ""
+msgstr "Albastru"
 
 #. (para)
 msgid "Committing a modification."
@@ -3138,7 +3154,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Purple"
-msgstr ""
+msgstr "Mov"
 
 #. (para)
 msgid "Committing a new addition."
@@ -3158,11 +3174,11 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Black"
-msgstr ""
+msgstr "Negru"
 
 #. (para)
 msgid "All other items."
-msgstr ""
+msgstr "Toate celelalte elemente."
 
 #. (para)
 msgid "The progress dialog uses colour coding to highlight different commit actions <placeholder-1/>"
@@ -3206,7 +3222,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Green"
-msgstr ""
+msgstr "Verde"
 
 #. (para)
 msgid "Changes from repository successfully merged with your local changes."
@@ -3315,7 +3331,7 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.mine"
-msgstr ""
+msgstr "filename.ext.mine"
 
 #. (para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
@@ -3323,7 +3339,7 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.rOLDREV"
-msgstr ""
+msgstr "filename.ext.rOLDREV"
 
 #. (para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
@@ -3331,7 +3347,7 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.rNEWREV"
-msgstr ""
+msgstr "filename.ext.rNEWREV"
 
 #. (para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
@@ -3644,11 +3660,11 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "overlays"
-msgstr ""
+msgstr "suprapuneri"
 
 #. (primary)
 msgid "icons"
-msgstr ""
+msgstr "iconițe"
 
 #. (para)
 msgid "Now that you have checked out a working copy from a Subversion repository you can see your files in the windows explorer with changed icons. This is one of the reasons why TortoiseSVN is so popular. TortoiseSVN adds a so called overlay icon to each file icon which overlaps the original file icon. Depending on the Subversion status of the file the overlay icon is different."
@@ -3732,7 +3748,7 @@ msgstr ""
 
 #. (primary)
 msgid "modifications"
-msgstr ""
+msgstr "modificări"
 
 #. (title)
 #. (title)
@@ -3881,11 +3897,11 @@ msgstr ""
 
 #. (primary)
 msgid "log"
-msgstr ""
+msgstr "jurnal"
 
 #. (primary)
 msgid "history"
-msgstr ""
+msgstr "istorie"
 
 #. (primary)
 msgid "commit messages"
@@ -3893,7 +3909,7 @@ msgstr ""
 
 #. (primary)
 msgid "log messages"
-msgstr ""
+msgstr "mesaje din jurnal"
 
 #. (para)
 msgid "For every change you make and commit, you should provide a log message for that change. That way you can later find out what changes you made and why, and you have a detailed log for your development process."
@@ -4421,7 +4437,7 @@ msgstr ""
 
 #. (primary)
 msgid "revprops"
-msgstr ""
+msgstr "revprops"
 
 #. (para)
 msgid "Revision properties are completely different from the Subversion properties of each item. Revprops are descriptive items which are associated with one specific revision number in the repository, such as log message, commit date and committer name (author)."
@@ -4449,7 +4465,7 @@ msgstr ""
 
 #. (primary)
 msgid "filter"
-msgstr ""
+msgstr "filtru"
 
 #. (para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
@@ -4506,7 +4522,7 @@ msgstr ""
 
 #. (primary)
 msgid "statistics"
-msgstr ""
+msgstr "statistici"
 
 #. (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
@@ -4816,7 +4832,7 @@ msgstr ""
 
 #. (primary)
 msgid "TortoiseIDiff"
-msgstr ""
+msgstr "TortoiseIDiff"
 
 #. (para)
 msgid "There are many tools available for diffing text files, including our own TortoiseMerge, but we often find ourselves wanting to see how an image file has changed too. That's why we created TortoiseIDiff."
@@ -4860,7 +4876,7 @@ msgstr ""
 
 #. (primary)
 msgid "merge tools"
-msgstr ""
+msgstr "unelte de îmbinare"
 
 #. (para)
 msgid "If the tools we provide don't do what you need, try one of the many open-source or commercial programs available. Everyone has their own favourites, and this list is by no means complete, but here are a few that you might consider:"
@@ -4868,7 +4884,7 @@ msgstr ""
 
 #. (term)
 msgid "WinMerge"
-msgstr ""
+msgstr "WinMerge"
 
 #. (para)
 msgid "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is a great open-source diff tool which can also handle directories."
@@ -4884,7 +4900,7 @@ msgstr ""
 
 #. (term)
 msgid "KDiff3"
-msgstr ""
+msgstr "KDiff3"
 
 #. (para)
 msgid "KDiff3 is a free diff tool which can also handle directories. You can download it from <ulink url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
@@ -4892,7 +4908,7 @@ msgstr ""
 
 #. (term)
 msgid "ExamDiff"
-msgstr ""
+msgstr "ExamDiff"
 
 #. (para)
 msgid "ExamDiff Standard is freeware. It can handle files but not directories. ExamDiff Pro is shareware and adds a number of goodies including directory diff and editing capability. In both flavours, version 3.2 and above can handle unicode. You can download them from <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
@@ -4908,7 +4924,7 @@ msgstr ""
 
 #. (term)
 msgid "Araxis Merge"
-msgstr ""
+msgstr "Araxis Merge"
 
 #. (para)
 msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparison in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
@@ -4916,7 +4932,7 @@ msgstr ""
 
 #. (term)
 msgid "SciTE"
-msgstr ""
+msgstr "SciTE"
 
 #. (para)
 msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
@@ -4924,7 +4940,7 @@ msgstr ""
 
 #. (term)
 msgid "Notepad2"
-msgstr ""
+msgstr "Notepad2"
 
 #. (para)
 msgid "Notepad2 is designed as a replacement for the standard Windows Notepad program, and is based on the Scintilla open-source edit control. As well as being good for viewing unified diffs, it is much better than the Windows notepad for most jobs. Download it for free <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>here</citetitle></ulink>."
@@ -5016,12 +5032,12 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "branch"
-msgstr ""
+msgstr "ramură"
 
 #. (primary)
 #. (primary)
 msgid "tag"
-msgstr ""
+msgstr "etichetă"
 
 #. (para)
 msgid "It often happens that you already have the files you need in another project in your repository, and you simply want to copy them across. You could simply copy the files and add them as described above, but that would not give you any history. And if you subsequently fix a bug in the original files, you can only merge the fix automatically if the new copy is related to the original in Subversion."
@@ -5117,7 +5133,7 @@ msgstr ""
 
 #. (term)
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #. (para)
 msgid "Matches any string of characters, including the empty string (no characters)."
@@ -5125,7 +5141,7 @@ msgstr ""
 
 #. (term)
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #. (para)
 msgid "Matches any single character."
@@ -5133,7 +5149,7 @@ msgstr ""
 
 #. (term)
 msgid "[...]"
-msgstr ""
+msgstr "[...]"
 
 #. (para)
 msgid "Matches any one of the characters enclosed in the square brackets. Within the brackets, a pair of characters separated by <quote>-</quote> matches any character lexically between the two. For example <literal>[AGm-p]</literal> matches any one of <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> or <literal>p</literal>."
@@ -5393,7 +5409,7 @@ msgstr ""
 
 #. (title)
 msgid "Revert dialog"
-msgstr ""
+msgstr "Dialog de inversare"
 
 #. (para)
 msgid "If you want to undo all changes you made in a file since the last update you need to select the file, <action>right click</action> to pop up the context menu and then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> A dialog will pop up showing you the files that you've changed and can revert. Select those you want to revert and click on <guibutton>OK</guibutton>. <placeholder-1/>"
@@ -5497,7 +5513,7 @@ msgstr ""
 
 #. (title)
 msgid "svn:keywords"
-msgstr ""
+msgstr "svn:keywords"
 
 #. (primary)
 msgid "keywords"
@@ -5617,7 +5633,7 @@ msgstr ""
 
 #. (primary)
 msgid "auto-props"
-msgstr ""
+msgstr "auto-props"
 
 #. (para)
 msgid "You can configure Subversion and TortoiseSVN to set properties automatically on files and folders when they are added to the repository. There are two ways of doing this."
@@ -5799,16 +5815,16 @@ msgstr ""
 
 #. (title)
 msgid "External Items"
-msgstr ""
+msgstr "Elemente externe"
 
 #. (primary)
 msgid "external repositories"
-msgstr ""
+msgstr "depozite externe"
 
 #. (primary)
 #. (primary)
 msgid "externals"
-msgstr ""
+msgstr "programe externe"
 
 #. (para)
 msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different files or subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties to pull in the specified resource at the locations where they are needed."
@@ -5816,7 +5832,7 @@ msgstr ""
 
 #. (title)
 msgid "External Folders"
-msgstr ""
+msgstr "Dosare externe"
 
 #. (para)
 msgid ""
@@ -5938,7 +5954,7 @@ msgstr ""
 
 #. (title)
 msgid "External Files"
-msgstr ""
+msgstr "Fișiere externe"
 
 #. (para)
 msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
@@ -6421,7 +6437,7 @@ msgstr ""
 
 #. (primary)
 msgid "merge conflicts"
-msgstr ""
+msgstr "conflicte de îmbinare"
 
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
@@ -6753,7 +6769,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseBlame"
 
 #. (para)
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
@@ -6834,11 +6850,11 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "The Repository Browser"
-msgstr ""
+msgstr "Navigatorul de depozit"
 
 #. (primary)
 msgid "repo-browser"
-msgstr ""
+msgstr "navigatorul de depozit"
 
 #. (primary)
 msgid "server-side actions"
@@ -7014,7 +7030,7 @@ msgstr ""
 
 #. (term)
 msgid "Deleted items"
-msgstr ""
+msgstr "Elemente șterse"
 
 #. (para)
 msgid "Deleted items eg. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off). The default colour is red."
@@ -7022,7 +7038,7 @@ msgstr ""
 
 #. (term)
 msgid "Renamed items"
-msgstr ""
+msgstr "Elemente redenumite"
 
 #. (para)
 msgid "Renamed items are also shown using an octagon, but the default colour is blue."
@@ -7186,7 +7202,7 @@ msgstr ""
 
 #. (term)
 msgid "Filter"
-msgstr ""
+msgstr "Filtru"
 
 #. (para)
 msgid "Sometimes the revision graph contains more revisions than you want to see. This option opens a dialog which allows you to restrict the range of revisions displayed, and to hide particular paths by name."
@@ -7452,7 +7468,7 @@ msgstr ""
 
 #. (primary)
 msgid "bugtracker"
-msgstr ""
+msgstr "bugtracker"
 
 #. (para)
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
@@ -7639,11 +7655,11 @@ msgstr ""
 
 #. (primary)
 msgid "ViewVC"
-msgstr ""
+msgstr "ViewVC"
 
 #. (primary)
 msgid "WebSVN"
-msgstr ""
+msgstr "WebSVN"
 
 #. (para)
 msgid "There are several web-based repository viewers available for use with Subversion such as <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> and <ulink url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. TortoiseSVN provides a means to link with these viewers."
@@ -7699,7 +7715,7 @@ msgstr ""
 
 #. (term)
 msgid "Language"
-msgstr ""
+msgstr "Limba"
 
 #. (para)
 msgid "Selects your user interface language. What else did you expect?"
@@ -7719,7 +7735,7 @@ msgstr ""
 
 #. (para)
 msgid "Error"
-msgstr ""
+msgstr "Eroare"
 
 #. (para)
 msgid "Notice"
@@ -8035,7 +8051,7 @@ msgstr ""
 
 #. (term)
 msgid "Added files"
-msgstr ""
+msgstr "Fișiere adăugate"
 
 #. (para)
 msgid "Items added to the repository."
@@ -8051,7 +8067,7 @@ msgstr ""
 
 #. (term)
 msgid "Merged"
-msgstr ""
+msgstr "Îmbinat"
 
 #. (para)
 msgid "Changes from the repository successfully merged into the WC without creating any conflicts."
@@ -8059,7 +8075,7 @@ msgstr ""
 
 #. (term)
 msgid "Modified / copied"
-msgstr ""
+msgstr "Modificat / copiat"
 
 #. (para)
 msgid "Add with history, or paths copied in the repository. Also used in the log dialog for entries which include copied items."
@@ -8522,7 +8538,7 @@ msgstr ""
 
 #. (title)
 msgid "Merge Tool"
-msgstr ""
+msgstr "Unealtă de îmbinare"
 
 #. (para)
 msgid "the original file without your or the others changes"
@@ -8789,7 +8805,7 @@ msgstr ""
 
 #. (term)
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #. (para)
 msgid "The amount of memory required to service this cache."
@@ -8797,7 +8813,7 @@ msgstr ""
 
 #. (term)
 msgid "Disk"
-msgstr ""
+msgstr "Disc"
 
 #. (para)
 msgid "The amount of disk space used for the cache. Data is compressed, so disk usage is generally fairly modest."
@@ -8829,7 +8845,7 @@ msgstr ""
 
 #. (term)
 msgid "Authors"
-msgstr ""
+msgstr "Autori"
 
 #. (para)
 msgid "The number of different authors with messages recorded in the cache."
@@ -8837,7 +8853,7 @@ msgstr ""
 
 #. (term)
 msgid "Paths"
-msgstr ""
+msgstr "Căi"
 
 #. (para)
 msgid "The number of paths listed, as you would see using <literal>svn log -v</literal>."
@@ -8983,27 +8999,27 @@ msgstr ""
 
 #. (literal)
 msgid "svn_depth_unknown"
-msgstr ""
+msgstr "svn_depth_unknown"
 
 #. (literal)
 msgid "svn_depth_exclude"
-msgstr ""
+msgstr "svn_depth_exclude"
 
 #. (literal)
 msgid "svn_depth_empty"
-msgstr ""
+msgstr "svn_depth_empty"
 
 #. (literal)
 msgid "svn_depth_files"
-msgstr ""
+msgstr "svn_depth_files"
 
 #. (literal)
 msgid "svn_depth_immediates"
-msgstr ""
+msgstr "svn_depth_immediates"
 
 #. (literal)
 msgid "svn_depth_infinity"
-msgstr ""
+msgstr "svn_depth_infinity"
 
 #. (para)
 msgid "Possible values are: <placeholder-1/>"
@@ -9091,7 +9107,7 @@ msgstr ""
 
 #. (term)
 msgid "Colors"
-msgstr ""
+msgstr "Culori"
 
 #. (para)
 msgid "TortoiseBlame can use the background colour to indicate the age of lines in a file. You set the endpoints by specifying the colours for the newest and oldest revisions, and TortoiseBlame uses a linear interpolation between these colours according to the repository revision indicated for each line."
@@ -9099,7 +9115,7 @@ msgstr ""
 
 #. (term)
 msgid "Font"
-msgstr ""
+msgstr "Font"
 
 #. (para)
 msgid "You can select the font used to display the text, and the point size to use. This applies both to the file content, and to the author and revision information shown in the left pane."
@@ -9263,12 +9279,12 @@ msgstr ""
 
 #. (primary)
 msgid "SubWCRev"
-msgstr ""
+msgstr "SubWCRev"
 
 #. (primary)
 #. (primary)
 msgid "COM"
-msgstr ""
+msgstr "COM"
 
 #. (primary)
 msgid "version number in files"
@@ -9319,11 +9335,11 @@ msgstr ""
 #. (entry)
 #. (entry)
 msgid "Description"
-msgstr ""
+msgstr "Descriere"
 
 #. (literal)
 msgid "ERRORLEVEL 7"
-msgstr ""
+msgstr "ERRORLEVEL 7"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
@@ -9331,7 +9347,7 @@ msgstr ""
 
 #. (literal)
 msgid "ERRORLEVEL 8"
-msgstr ""
+msgstr "ERRORLEVEL 8"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
@@ -9339,7 +9355,7 @@ msgstr ""
 
 #. (literal)
 msgid "ERRORLEVEL 9"
-msgstr ""
+msgstr "ERRORLEVEL 9"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the destination file already exists."
@@ -9351,7 +9367,7 @@ msgstr ""
 
 #. (literal)
 msgid "svn:externals"
-msgstr ""
+msgstr "svn:externals"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with <placeholder-1/>, but only if they are from the same repository. The default behaviour is to ignore externals."
@@ -9387,11 +9403,11 @@ msgstr ""
 
 #. (literal)
 msgid "strftime()"
-msgstr ""
+msgstr "strftime()"
 
 #. (literal)
 msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
-msgstr ""
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -9417,7 +9433,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
-msgstr ""
+msgstr "$WCMIXED?TText:FText$"
 
 #. (literal)
 #. (literal)
@@ -9425,7 +9441,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "TText"
-msgstr ""
+msgstr "TText"
 
 #. (literal)
 #. (literal)
@@ -9433,7 +9449,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "FText"
-msgstr ""
+msgstr "FText"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are mixed update revisions, or <placeholder-3/> if not."
@@ -9441,7 +9457,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCMODS?TText:FText$"
-msgstr ""
+msgstr "$WCMODS?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are local modifications, or <placeholder-3/> if not."
@@ -9453,7 +9469,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCINSVN?TText:FText$"
-msgstr ""
+msgstr "$WCINSVN?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versioned, or <placeholder-3/> if not."
@@ -9461,12 +9477,12 @@ msgstr ""
 
 #. (literal)
 msgid "$WCNEEDSLOCK?TText:FText$"
-msgstr ""
+msgstr "$WCNEEDSLOCK?TText:FText$"
 
 #. (literal)
 #. (literal)
 msgid "svn:needs-lock"
-msgstr ""
+msgstr "svn:needs-lock"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
@@ -9474,7 +9490,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCISLOCKED?TText:FText$"
-msgstr ""
+msgstr "$WCISLOCKED?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is locked, or <placeholder-3/> if not."
@@ -9574,11 +9590,11 @@ msgstr ""
 
 #. (literal)
 msgid "-f"
-msgstr ""
+msgstr "-f"
 
 #. (literal)
 msgid "-e"
-msgstr ""
+msgstr "-e"
 
 #. (entry)
 msgid "This method traverses the working copy gathering the revision information. Naturally you must call this before you can access the information using the remaining methods. The first parameter is the path. The second parameter should be true if you want to include folder revisions. Equivalent to the <placeholder-1/> command line switch. The third parameter should be true if you want to include svn:externals. Equivalent to the <placeholder-2/> command line switch."
@@ -9586,7 +9602,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCREV$"
-msgstr ""
+msgstr "$WCREV$"
 
 #. (entry)
 msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
@@ -9603,7 +9619,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "$WCRANGE$"
-msgstr ""
+msgstr "$WCRANGE$"
 
 #. (entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
@@ -9619,11 +9635,11 @@ msgstr ""
 
 #. (literal)
 msgid "GetWCInfo"
-msgstr ""
+msgstr "GetWCInfo"
 
 #. (literal)
 msgid "$WCURL$"
-msgstr ""
+msgstr "$WCURL$"
 
 #. (entry)
 msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
@@ -9823,7 +9839,7 @@ msgstr ""
 
 #. (primary)
 msgid "IBugtraqProvider"
-msgstr ""
+msgstr "IBugtraqProvider"
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
@@ -10335,7 +10351,7 @@ msgstr ""
 
 #. (primary)
 msgid "changes"
-msgstr ""
+msgstr "schimbări"
 
 #. (para)
 msgid "If you want to compare two revisions in an item's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
@@ -10355,7 +10371,7 @@ msgstr ""
 
 #. (primary)
 msgid "common projects"
-msgstr ""
+msgstr "proiecte comune"
 
 #. (primary)
 msgid "vendor projects"
@@ -10499,11 +10515,11 @@ msgstr ""
 #. (primary)
 #. (glossterm)
 msgid "GPO"
-msgstr ""
+msgstr "GPO"
 
 #. (primary)
 msgid "msi"
-msgstr ""
+msgstr "msi"
 
 #. (primary)
 msgid "domain controller"
@@ -10539,7 +10555,7 @@ msgstr ""
 
 #. (primary)
 msgid "version"
-msgstr ""
+msgstr "versiune"
 
 #. (para)
 msgid "TortoiseSVN checks if there's a new version available every few days. If there is a newer version available, a dialog shows up informing the user about that."
@@ -10568,15 +10584,15 @@ msgstr ""
 
 #. (primary)
 msgid "SVN_ASP_DOT_NET_HACK"
-msgstr ""
+msgstr "SVN_ASP_DOT_NET_HACK"
 
 #. (primary)
 msgid "VS2003"
-msgstr ""
+msgstr "VS2003"
 
 #. (primary)
 msgid "ASP projects"
-msgstr ""
+msgstr "proiecte ASP"
 
 #. (para)
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
@@ -10619,7 +10635,7 @@ msgstr ""
 
 #. (entry)
 msgid "Value"
-msgstr ""
+msgstr "Valoare"
 
 #. (entry)
 msgid "Menu entry"
@@ -10920,37 +10936,37 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/path"
-msgstr ""
+msgstr "/path"
 
 #. (option)
 #. (option)
 msgid "/startrev:xxx"
-msgstr ""
+msgstr "/startrev:xxx"
 
 #. (option)
 #. (option)
 msgid "/endrev:xxx"
-msgstr ""
+msgstr "/endrev:xxx"
 
 #. (option)
 msgid "/strict"
-msgstr ""
+msgstr "/strict"
 
 #. (option)
 msgid "/findstring:\"filterstring\""
-msgstr ""
+msgstr "/findstring:\"filterstring\""
 
 #. (option)
 msgid "/findtext"
-msgstr ""
+msgstr "/findtext"
 
 #. (option)
 msgid "/findregex"
-msgstr ""
+msgstr "/findregex"
 
 #. (option)
 msgid "/findtype:X"
-msgstr ""
+msgstr "/findtype:X"
 
 #. (para)
 msgid "<option>/findtype:1</option> filter by everything"
@@ -10983,7 +10999,7 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/url"
-msgstr ""
+msgstr "/url"
 
 #. (entry)
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
@@ -10995,23 +11011,23 @@ msgstr ""
 
 #. (option)
 msgid "/rev"
-msgstr ""
+msgstr "/rev"
 
 #. (option)
 msgid "/rev:1234"
-msgstr ""
+msgstr "/rev:1234"
 
 #. (option)
 msgid "/nonrecursive"
-msgstr ""
+msgstr "/nonrecursive"
 
 #. (option)
 msgid "/ignoreexternals"
-msgstr ""
+msgstr "/ignoreexternals"
 
 #. (option)
 msgid "/includeexternals"
-msgstr ""
+msgstr "/includeexternals"
 
 #. (entry)
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
@@ -11020,12 +11036,12 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/logmsg"
-msgstr ""
+msgstr "/logmsg"
 
 #. (option)
 #. (option)
 msgid "/logmsgfile:path"
-msgstr ""
+msgstr "/logmsgfile:path"
 
 #. (option)
 #. (option)
@@ -11050,7 +11066,7 @@ msgstr ""
 
 #. (option)
 msgid "/noui"
-msgstr ""
+msgstr "/noui"
 
 #. (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
@@ -11060,7 +11076,7 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/noquestion"
-msgstr ""
+msgstr "/noquestion"
 
 #. (entry)
 msgid "Marks a conflicted file specified in <placeholder-1/> as resolved. If <placeholder-2/> is given, then resolving is done without asking the user first if it really should be done."
@@ -11081,23 +11097,23 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/fromurl:URL"
-msgstr ""
+msgstr "/fromurl:URL"
 
 #. (option)
 msgid "/revrange:string"
-msgstr ""
+msgstr "/revrange:string"
 
 #. (option)
 msgid "/tourl:URL"
-msgstr ""
+msgstr "/tourl:URL"
 
 #. (option)
 msgid "/fromrev:xxx"
-msgstr ""
+msgstr "/fromrev:xxx"
 
 #. (option)
 msgid "/torev:xxx"
-msgstr ""
+msgstr "/torev:xxx"
 
 #. (entry)
 msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. These pre-fill the relevant fields in the merge dialog."
@@ -11127,15 +11143,15 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/path2"
-msgstr ""
+msgstr "/path2"
 
 #. (option)
 msgid "/blame"
-msgstr ""
+msgstr "/blame"
 
 #. (option)
 msgid "/line:xxx"
-msgstr ""
+msgstr "/line:xxx"
 
 #. (entry)
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
@@ -11163,7 +11179,7 @@ msgstr ""
 
 #. (option)
 msgid "/remote"
-msgstr ""
+msgstr "/remote"
 
 #. (guilabel)
 msgid "Check repository"
@@ -11176,7 +11192,7 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/rev:xxx"
-msgstr ""
+msgstr "/rev:xxx"
 
 #. (option)
 msgid "/projectpropertiespath:path/to/wc"
@@ -11188,7 +11204,7 @@ msgstr ""
 
 #. (literal)
 msgid "svn:ignore"
-msgstr ""
+msgstr "svn:ignore"
 
 #. (entry)
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the <placeholder-2/> property to those files."
@@ -11216,7 +11232,7 @@ msgstr ""
 
 #. (option)
 msgid "/revision:xxx"
-msgstr ""
+msgstr "/revision:xxx"
 
 #. (entry)
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
@@ -11370,7 +11386,7 @@ msgstr ""
 
 #. (primary)
 msgid "CLI"
-msgstr ""
+msgstr "CLI"
 
 #. (para)
 msgid "Sometimes this manual refers you to the main Subversion documentation, which describes Subversion in terms of the Command Line Interface (CLI). To help you understand what TortoiseSVN is doing behind the scenes, we have compiled a list showing the equivalent CLI commands for each of TortoiseSVN's GUI operations."
@@ -12225,7 +12241,7 @@ msgstr ""
 
 #. (title)
 msgid "Glossary"
-msgstr ""
+msgstr "Glosar"
 
 #. (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
@@ -12245,7 +12261,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "BDB"
-msgstr ""
+msgstr "BDB"
 
 #. (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
@@ -12253,7 +12269,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Branch"
-msgstr ""
+msgstr "Ramură"
 
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
@@ -12273,7 +12289,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Conflict"
-msgstr ""
+msgstr "Conflict"
 
 #. (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
@@ -12301,7 +12317,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "FSFS"
-msgstr ""
+msgstr "FSFS"
 
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
@@ -12313,7 +12329,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "HEAD revision"
-msgstr ""
+msgstr "Revizia HEAD"
 
 #. (para)
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
@@ -12329,7 +12345,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Log"
-msgstr ""
+msgstr "Jurnal"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
@@ -12337,7 +12353,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "History"
-msgstr ""
+msgstr "Istorie"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
@@ -12353,7 +12369,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Patch"
-msgstr ""
+msgstr "Petic"
 
 #. (para)
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
@@ -12377,7 +12393,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Repository"
-msgstr ""
+msgstr "Depozit"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
@@ -12393,7 +12409,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Revision"
-msgstr ""
+msgstr "Revizie"
 
 #. (para)
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
@@ -12438,10 +12454,12 @@ msgstr "Aceasta este o zonă locală de test, <quote>sandbox</quote>, în care p
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "translator-credite"
+msgstr ""
+"Ben Felt <benwfelt@gmail.com>\n"
+"Mircea Diaconescu <dimircea@gmail.com>"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr "translator-traducere"
+msgstr "Traducere"
 
