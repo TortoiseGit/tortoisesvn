@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-10 10:10+0200\n"
+"PO-Revision-Date: 2010-05-12 08:34+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -27,19 +27,6 @@ msgstr ""
 "X-Generator: Virtaal 0.6.0\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-# msgid/msgstr fields for Accelerator keys
-# Format is: "ID:xxxxxx:VACS+X" where:
-#    ID:xxxxx = the menu ID corresponding to the accelerator
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, copy msgid to msgstr
 # Ein einzelnes Leerzeichen
 #. Resource IDs: (10, 126)
 msgid " "
@@ -1068,6 +1055,10 @@ msgstr "&Mit der lokalen Eigenschaft auflösen"
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "Auf &Standardwerte setzen"
+
+#. Resource IDs: (1542)
+msgid "&Retry without hooks"
+msgstr "&Ohne Aktionsskripte erneut versuchen"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
