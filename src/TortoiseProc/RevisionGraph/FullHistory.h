@@ -165,7 +165,7 @@ private:
     revision_t                  pegRevision;
     revision_t                  firstRevision;
 
-    svn_client_ctx_t            ctx;
+    svn_client_ctx_t *          ctx;
     SVNPrompt                   prompt;
     SVN                         svn;
 

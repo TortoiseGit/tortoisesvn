@@ -200,13 +200,13 @@ HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL
     char *wc_utf8 = Utf16ToUtf8((WCHAR*)wcPath, pool);
     const char * internalpath = svn_path_internal_style (wc_utf8, pool);
 
-    svn_client_ctx_t ctx;
-    memset (&ctx, 0, sizeof (ctx));
+    svn_client_ctx_t * ctx;
+    svn_client_create_context(&ctx, pool);
 
     svn_error_t * svnerr = svn_status(  internalpath,   //path
                                         &SubStat,       //status_baton
                                         TRUE,           //noignore
-                                        &ctx,
+                                        ctx,
                                         pool);
 
     HRESULT hr = S_OK;

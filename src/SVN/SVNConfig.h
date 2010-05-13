@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,7 +50,7 @@ public:
 private:
     apr_pool_t *                parentpool;
     apr_pool_t *                pool;           ///< memory pool
-    svn_client_ctx_t            ctx;
+    svn_client_ctx_t *          ctx;
     apr_array_header_t *        patterns;
 
 };

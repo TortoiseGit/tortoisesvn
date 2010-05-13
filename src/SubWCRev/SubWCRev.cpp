@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -556,13 +556,13 @@ int _tmain(int argc, _TCHAR* argv[])
 
     apr_pool_t * pool;
     svn_error_t * svnerr = NULL;
-    svn_client_ctx_t ctx;
+    svn_client_ctx_t * ctx;
     const char * internalpath;
 
     apr_initialize();
     svn_dso_initialize2();
     apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
-    memset (&ctx, 0, sizeof (ctx));
+    svn_client_create_context(&ctx, pool);
 
     size_t ret = 0;
     getenv_s(&ret, NULL, 0, "SVN_ASP_DOT_NET_HACK");
@@ -578,7 +578,7 @@ int _tmain(int argc, _TCHAR* argv[])
     svnerr = svn_status(    internalpath,   //path
                             &SubStat,       //status_baton
                             TRUE,           //noignore
-                            &ctx,
+                            ctx,
                             pool);
 
     if (svnerr)
@@ -591,6 +591,8 @@ int _tmain(int argc, _TCHAR* argv[])
     apr_status_t e = 0;
     if (svnerr)
         e = svnerr->apr_err;
+    if (svnerr)
+        svn_error_clear(svnerr);
     apr_terminate2();
     if (svnerr)
     {

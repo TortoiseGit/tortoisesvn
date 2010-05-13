@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,14 +24,14 @@
 SVNConfig::SVNConfig(void)
 {
     svn_error_t * err;
-    memset (&ctx, 0, sizeof (ctx));
     parentpool = svn_pool_create(NULL);
+    svn_error_clear(svn_client_create_context(&ctx, parentpool));
 
     err = svn_config_ensure(NULL, parentpool);
     pool = svn_pool_create (parentpool);
     // set up the configuration
     if (err == 0)
-        err = svn_config_get_config (&(ctx.config), g_pConfigDir, pool);
+        err = svn_config_get_config (&(ctx->config), g_pConfigDir, pool);
 
     patterns = NULL;
 
@@ -54,7 +54,7 @@ BOOL SVNConfig::GetDefaultIgnores()
 {
     svn_error_t * err;
     patterns = NULL;
-    err = svn_wc_get_default_ignores (&(patterns), ctx.config, pool);
+    err = svn_wc_get_default_ignores (&(patterns), ctx->config, pool);
     if (err)
     {
         svn_error_clear(err);
@@ -74,7 +74,7 @@ BOOL SVNConfig::MatchIgnorePattern(const CString& name)
 BOOL SVNConfig::KeepLocks()
 {
     svn_boolean_t no_unlock = FALSE;
-    svn_config_t * opt = (svn_config_t *)apr_hash_get (ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+    svn_config_t * opt = (svn_config_t *)apr_hash_get (ctx->config, SVN_CONFIG_CATEGORY_CONFIG,
         APR_HASH_KEY_STRING);
     svn_error_clear(svn_config_get_bool(opt, &no_unlock, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_NO_UNLOCK, FALSE));
     return no_unlock;

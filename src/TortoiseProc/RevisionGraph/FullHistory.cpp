@@ -64,14 +64,14 @@ CFullHistory::CFullHistory(void)
     , cpuLoadScheduler (1, INT_MAX, true) // at least one thread for CPU intense ops
                                     // plus as much as we got left from the shared pool
 {
-    memset (&ctx, 0, sizeof (ctx));
     parentpool = svn_pool_create(NULL);
+    svn_error_clear(svn_client_create_context(&ctx, parentpool));
 
     Err = svn_config_ensure(NULL, parentpool);
     pool = svn_pool_create (parentpool);
     // set up the configuration
     if (Err == 0)
-        Err = svn_config_get_config (&(ctx.config), g_pConfigDir, pool);
+        Err = svn_config_get_config (&(ctx->config), g_pConfigDir, pool);
 
     if (Err != 0)
     {
@@ -83,10 +83,10 @@ CFullHistory::CFullHistory(void)
     }
 
     // set up authentication
-    prompt.Init(pool, &ctx);
+    prompt.Init(pool, ctx);
 
-    ctx.cancel_func = cancel;
-    ctx.cancel_baton = this;
+    ctx->cancel_func = cancel;
+    ctx->cancel_baton = this;
 
     //set up the SVN_SSH param
     CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
@@ -95,7 +95,7 @@ CFullHistory::CFullHistory(void)
     tsvn_ssh.Replace('\\', '/');
     if (!tsvn_ssh.IsEmpty())
     {
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get (ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+        svn_config_t * cfg = (svn_config_t *)apr_hash_get (ctx->config, SVN_CONFIG_CATEGORY_CONFIG,
             APR_HASH_KEY_STRING);
         svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
     }
@@ -273,7 +273,7 @@ bool CFullHistory::FetchRevisionData ( CString path
     {
         // select / construct query object and optimize revision range to fetch
 
-        svnQuery.reset (new CSVNLogQuery (&ctx, pool));
+        svnQuery.reset (new CSVNLogQuery (ctx, pool));
 
         bool cacheIsComplete = false;
         if (svn.GetLogCachePool()->IsEnabled())
