@@ -138,7 +138,7 @@ void CEditPropExternalsValue::OnBnClickedBrowse()
 {
     SVNRev rev = SVNRev::REV_HEAD;
 
-    CAppUtils::BrowseRepository(m_RepoRoot.GetSVNPathString(), m_URLCombo, this, rev);
+    CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 }
 
 void CEditPropExternalsValue::OnBnClickedShowLog()
