@@ -9,14 +9,15 @@
 # Fernando P. Nájera Cano
 # Juan Carlos Fuentes-Michel <jcfuentes@gmail.com>, 2010.
 # Imanol <imanol.nb@gmail.com>, 2010.
+# Tommy <tommychristie@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-12 18:47+0100\n"
-"Last-Translator: Imanol <imanol.nb@gmail.com>\n"
-"Language-Team: GFI Norte\n"
+"PO-Revision-Date: 2010-05-13 08:11-0300\n"
+"Last-Translator: Tommy <tommychristie@gmail.com>\n"
+"Language-Team: Tomás Christie\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,7 +150,11 @@ msgstr "explorador"
 #.(para)
 #, fuzzy
 msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need the functions of version control."
-msgstr "TortoiseSVN se integra perfectamente con la consola de Windows (por ejemplo, el explorador). Esto significa que puede seguir trabajando con las herramientas que ya conoce. ¡Y que no tiene que cambiar a una aplicación diferente cada vez que necesite las funciones del control de versiones!"
+msgstr ""
+"TortoiseSVN se integra perfectamente con la consola de Windows (por ejemplo, "
+"el explorador). Esto significa que puede seguir trabajando con las "
+"herramientas que ya conoce. ¡Y que no tiene que cambiar a una aplicación "
+"diferente cada vez que necesite las funciones del control de versiones!"
 
 #.(para)
 #, fuzzy
@@ -676,9 +681,8 @@ msgstr ""
 "configurar un servidor."
 
 #.(title)
-#, fuzzy
 msgid "Importing a Project"
-msgstr "Importar en el sitio"
+msgstr "Importar un Projecto"
 
 #.(title)
 #.(title)
@@ -706,9 +710,8 @@ msgid "The other important feature of this dialog is the <guilabel>Import Messag
 msgstr "La otra característica importante de este diálogo es el cuadro de texto <guilabel>Mensaje de Importación</guilabel> que permite ingresar un mensaje que describa lo que se está haciendo. Cuando vaya a mirar la historia del proyecto, esos mensajes de actualización serán una guía valiosa de qué cambios se hicieron y porqué. En este caso podemos poner algo simple como <quote>Importar el proyecto Widget1</quote>. Haga clic en el botón <guibutton>OK</guibutton> y la carpeta será agregada al repositorio."
 
 #.(title)
-#, fuzzy
 msgid "Checking out a Working Copy"
-msgstr "Obteniendo una copia de trabajo"
+msgstr "Obteniendo una Copia de Trabajo"
 
 #.(para)
 msgid "Now that we have a project in our repository, we need to create a working copy to use for day-to-day work. Note that the act of importing a folder does not automatically turn that folder into a working copy. The Subversion term for creating a fresh working copy is <literal>Checkout</literal>. We are going to checkout the Widget1 folder of our repository into a development folder on the PC called <filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then right click on it and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename> and click on <guibutton>OK</guibutton>. Our development folder is then populated with files from the repository."
@@ -724,9 +727,8 @@ msgstr ""
 "tiene cambios de la versión del repositorio."
 
 #.(title)
-#, fuzzy
 msgid "Making Changes"
-msgstr "Deshacer cambios"
+msgstr "Haciendo Cambios"
 
 #.(para)
 msgid "Time to get to work. In the <filename>Widget1-Dev</filename> we start editing files - let's say we make changes to <filename>Widget1.c</filename> and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files have now changed to red, indicating that changes have been made locally."
@@ -752,9 +754,8 @@ msgid "OK, so we are happy with the changes, let's update the repository. This a
 msgstr "Bien, estamos contentos con los cambios, ahora actualicemos el repositorio. Esta acción se denomina <literal>Actualizar</literal> los cambios. Haga clic derecho sobre la carpeta <filename>Widget1-Dev</filename> y elija <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. El diálogo de actualización muestra los archivos cambiado, cada uno con una tilde. Puede elegir solo un subconjunto de esos archivos, pero en este caso vamos a actualizar los cambios en ambos archivos. Ingrese un mensaje que describa para que es el cambio y haga clic en <guibutton>OK</guibutton>. El diálogo de progreso muestra los archivos que están siendo actualizados al repositorio y está listo."
 
 #.(title)
-#, fuzzy
 msgid "Adding More Files"
-msgstr "Añadiendo propiedades"
+msgstr "Añadiendo Más Archivos"
 
 #.(para)
 msgid "As the project develops you will need to add new files - let's say you add some new features in <filename>Extras.c</filename> and add a reference in the existing <filename>Makefile</filename>. Right click on the folder and <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>. The Add dialog now shows you all unversioned files and you can select which ones you want to add. Another way of adding files would be to right click on the file itself and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
@@ -779,9 +780,8 @@ msgid "Viewing the Project History"
 msgstr "Viendo la Historia del Proyecto"
 
 #.(title)
-#, fuzzy
 msgid "The Log Dialog"
-msgstr "El diálogo Bloquear"
+msgstr "El Diálogo de Registro"
 
 #. (para)
 msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/> OK, so I cheated a little here and used a screenshot from the TortoiseSVN repository."
@@ -801,9 +801,8 @@ msgstr ""
 "completa."
 
 #.(title)
-#, fuzzy
 msgid "Undoing Changes"
-msgstr "Deshacer cambios"
+msgstr "Deshaciendo Cambios"
 
 #.(para)
 msgid "One feature of all revision control systems is that they let you undo changes that you made previously. As you would expect, TortoiseSVN makes this easy to access."
@@ -3194,7 +3193,6 @@ msgstr ""
 "de configuración de Apache."
 
 #.(para)
-
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
 msgstr "Puede obtener estos tres archivos directamente desde nuestro repositorio de código fuente en <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> le explica cómo acceder al repositorio de código de TortoiseSVN)."
 
@@ -15683,16 +15681,32 @@ msgstr ""
 
 #.(para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
-msgstr "El siguiente ejemplo muestra cómo se podría usar el interfaz. <placeholder-1/>"
+msgstr ""
+"El siguiente ejemplo muestra cómo se podría usar el interfaz. "
+"<placeholder-1/>"
 
 #.(programlisting)
 #, no-wrap
 msgid "\nusing LibSubWCRev;\nSubWCRev sub = new SubWCRev();\nsub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\nif (sub.IsSvnItem == true)\n{\n    MessageBox.Show(\"versioned\");\n}\nelse\n{\n    MessageBox.Show(\"not versioned\");\n}\n"
 msgstr ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
 
 #.(para)
 msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
-msgstr "El siguiente listado es un ejemplo de como usar el objeto COM SubWCRev desde C#: <placeholder-1/>"
+msgstr ""
+"El siguiente listado es un ejemplo de como usar el objeto COM SubWCRev desde "
+"C#: <placeholder-1/>"
 
 #.(title)
 msgid "IBugtraqProvider interface"
@@ -15770,15 +15784,43 @@ msgstr ""
 #.(para)
 msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
 msgstr ""
+"La extensión puede proveer un string aquí que sera utilizado en el diálogo "
+"de actualización del TortoiseSVN para el botón que invoca a la extensión, "
+"ej., \"Elija tema\" o \"Seleccione tiquet\". Asegúrese de que el string no sea "
+"demasiado largo, de lo contrario podría no caber en el botón. Si el método "
+"devuelve un error (ej., <literal>E_NOTIMPL</literal>), un texto por defecto "
+"será utilizado para el botón."
 
 #.(programlisting)
 #, no-wrap
 msgid "\nHRESULT GetCommitMessage (\n  // Parent window for your provider's UI.\n  [in] HWND hParentWnd,\n\n  // Parameters for your provider.\n  [in] BSTR parameters,\n  [in] BSTR commonRoot,\n  [in] SAFEARRAY(BSTR) pathList,\n\n  // The text already present in the commit message.\n  // Your provider should include this text in the new message,\n  // where appropriate.\n  [in] BSTR originalMessage,\n\n  // The new text for the commit message.\n  // This replaces the original message.\n  [out, retval] BSTR *newMessage\n);\n"
 msgstr ""
+"\n"
+"HRESULT GetCommitMessage (\n"
+"  // Ventana principal de su interfaz proveedor.\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // Parámetros para su proveedor.\n"
+"  [in] BSTR parameters,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // El texto ya presente en el mensaje de actualización.\n"
+"  // Su proveedor debería incluir este texto en el nuevo mensaje,\n"
+"  // donde sea apropiado.\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // El nuevo texto para el mensaje de actualización.\n"
+"  // Reemplaza el mensaje original.\n"
+"  [out, retval] BSTR *newMessage\n"
+");\n"
 
 #.(para)
 msgid "This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button."
 msgstr ""
+"Este es el método principal de la extensión. Este método es llamado desde el "
+"diálogo de actualización del TortoiseSVN cuando el usuario pulsa el botón "
+"de la extensión."
 
 #.(para)
 msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
@@ -15806,10 +15848,18 @@ msgstr ""
 #.(para)
 msgid "The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty."
 msgstr ""
+"El parámetro <literal>originalMessage</literal> contiene el texto "
+"introducido en la caja de mensaje de registro en el diálogo de confirmación. "
+"Si no se ha introducido todavía ningún texto, el string estará vacío."
 
 #.(para)
 msgid "The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
 msgstr ""
+"El string retornado <literal>newMessage</literal> es copiado en la caja de "
+"edición del mensaje de registro en el diálogo de confirmación, remplazando "
+"lo que sea que se encuentre allí. Si alguna extensión no modifica el string "
+"<literal>originalMessage</literal>, debe retornar nuevamente el mismo string "
+"aquí, de otra manera cualquier texto introducido por el usuario se perderá."
 
 #.(title)
 msgid "The IBugtraqProvider2 interface"
