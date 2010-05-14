@@ -17,7 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "StdAfx.h"
+#pragma warning(push)
 #include "diff.h"
+#pragma warning(pop)
 #include "TempFiles.h"
 #include "registry.h"
 #include "Resource.h"
@@ -39,7 +41,7 @@ int CDiffData::abort_on_pool_failure (int /*retcode*/)
 CDiffData::CDiffData(void)
 {
     apr_initialize();
-    svn_dso_initialize();
+    svn_dso_initialize2();
     g_SVNAdminDir.Init();
 
     m_bBlame = false;
