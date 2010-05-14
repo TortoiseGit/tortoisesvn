@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-14 09:51+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2010-05-14 12:20-0300\n"
+"Last-Translator: Augusto Wloch <augustowloch@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "Nº autores mostrados individualmente:"
+msgstr "Cantidad de autores mostrados individualmente:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -364,7 +364,7 @@ msgstr "Aspecto de la &Aplicación"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
-msgstr "&sAplicar propiedad recursivamente"
+msgstr "&Aplicar propiedad recursivamente"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -696,7 +696,7 @@ msgstr "&Desde la revisión"
 
 #. Resource IDs: (1494)
 msgid "&From: (start URL and revision of the range to merge)"
-msgstr "De: (URL y revisión inicial del rango a fusionar)"
+msgstr "&De: (URL y revisión inicial del rango a fusionar)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -789,7 +789,7 @@ msgstr "&Saltar a la primera diferencia al cargar"
 
 #. Resource IDs: (32852)
 msgid "&Keywords"
-msgstr "Palabras Clave"
+msgstr "&Palabras Clave"
 
 #. Resource IDs: (65535)
 msgid "&Language:"
@@ -1074,7 +1074,7 @@ msgstr "Re&staurar valores por defecto"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
-msgstr "$Reintentar sin ganchos"
+msgstr "&Reintentar sin ganchos"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1118,7 +1118,7 @@ msgstr "&Guardar lista de archivos seleccionados a..."
 
 #. Resource IDs: (1308)
 msgid "&Save value..."
-msgstr "Guardar valor..."
+msgstr "&Guardar valor..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1218,7 +1218,7 @@ msgstr "&A la URL:"
 
 #. Resource IDs: (1384)
 msgid "&To path:"
-msgstr "Ruta destino: "
+msgstr "Ruta &destino: "
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -1238,7 +1238,7 @@ msgstr "Barras de &herramientas:"
 
 #. Resource IDs: (1567)
 msgid "&Top"
-msgstr "Arriba"
+msgstr "&Arriba"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
@@ -1496,7 +1496,7 @@ msgstr ""
 "Eso significa que está integrado en el Explorador de Windows.\n"
 "Para usar <b>TortoiseSVN</b> por favor abra el Explorador y haga click con el botón derecho en cualquier carpeta que desee\n"
 "para que aparezca el menú contextual donde encontrará todos los comandos de <b>TortoiseSVN</b>.\n"
-"Y <u>¡lea el manual!</u>"
+"Y <u>lea el manual!</u>"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -1533,8 +1533,8 @@ msgid ""
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Una lista de rutas, una por línea, para las cuales se mostrarán los íconos de estado de TortoiseSVN.\r\n"
-"Si añade un caracter '?' al final de la ruta, entonces solo esta ruta será incluida.\r\n"
-"Si añade un caracter '*' o ningún caracter al final de la ruta, entonces todos los archivos y subdirectorios dentro de la ruta serán incluidos."
+"Si añade un carácter '?' al final de la ruta, entonces solo esta ruta será incluida.\r\n"
+"Si añade un carácter '*' o ningún carácter al final de la ruta, entonces todos los archivos y subdirectorios dentro de la ruta serán incluidos."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1543,7 +1543,7 @@ msgid ""
 "An empty list will allow the context menu on all paths."
 msgstr ""
 "Una lista de rutas, una por línea, para las cuales no se mostrará el menú contextual.\r\n"
-"Si añade un caracter '*' al final de una ruta, también se excluirán los archivos y subdirectorios dentro de esa ruta.\r\n"
+"Si añade un carácter '*' al final de una ruta, también se excluirán los archivos y subdirectorios dentro de esa ruta.\r\n"
 "Una lista vacía le permitirá mostrar el menú contextual en todas las rutas."
 
 #. Resource IDs: (194)
@@ -1554,8 +1554,8 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Una lista de rutas, una por línea, para las cuales no se mostrarán los íconos de estado de TortoiseSVN.\r\n"
-"Si añade un caracter '?' al final de la ruta, entonces solo esta ruta será excluida.\r\n"
-"Si añade un caracter '*' o ningún caracter al final de la ruta, entonces todos los archivos y subdirectorios dentro de la ruta serán excluidos también.Una lista vacía permitirá íconos de estado de TortoiseSVN en todas las rutas."
+"Si añade un carácter '?' al final de la ruta, entonces solo esta ruta será excluida.\r\n"
+"Si añade un carácter '*' o ningún carácter al final de la ruta, entonces todos los archivos y subdirectorios dentro de la ruta serán excluidos también.Una lista vacía permitirá íconos de estado de TortoiseSVN en todas las rutas."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1707,7 +1707,7 @@ msgstr "Añadido un archivo de forma remota"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
-msgstr "Añadida una caperta de forma remota"
+msgstr "Añadida una carpeta de forma remota"
 
 #. Resource IDs: (126)
 msgid "Added items remotely"
@@ -3938,7 +3938,7 @@ msgstr ""
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
-msgstr "Referencias Externas"
+msgstr "&Referencias Externas"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -4845,7 +4845,7 @@ msgstr "ID:57665:V C +W"
 
 #. Resource IDs: (106)
 msgid "Icon Overlays"
-msgstr "Iconos Sobreimpresionados"
+msgstr "Iconos Sobrepuestos"
 
 #. Resource IDs: (65535)
 msgid "Icon Overlays / Status Columns"
@@ -4853,11 +4853,11 @@ msgstr "Sobreimpresión de iconos / Columnas de estado"
 
 #. Resource IDs: (184)
 msgid "Icon Overlays::Icon Set"
-msgstr "Iconos Sobreimpresionadosl::Conjunto de Iconos"
+msgstr "Iconos Sobrepuestos::Conjunto de Iconos"
 
 #. Resource IDs: (308)
 msgid "Icon Overlays::Overlay Handlers"
-msgstr "Iconos Sobreimpresionados::Conjunto de Iconos"
+msgstr "Iconos Sobrepuestos::Conjunto de Iconos"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -4949,7 +4949,7 @@ msgid ""
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
 "Si se habilita, las carpetas de las copias de trabajo que estén excluídas\n"
-"de mostrar iconos sobreimpresionados mostrarán el icono del estado 'normal'"
+"de mostrar íconos sobrepuestos mostrarán el icono del estado 'normal'"
 
 #. Resource IDs: (195)
 msgid ""
@@ -5855,7 +5855,7 @@ msgstr "Mensaje"
 
 #. Resource IDs: (1574)
 msgid "Message &label:"
-msgstr "Etiqueta de Mensaje:"
+msgstr "&Etiqueta de Mensaje:"
 
 #. Resource IDs: (1573)
 msgid "Message &pattern:"
@@ -5895,11 +5895,11 @@ msgstr "Minimizar la cinta"
 
 #. Resource IDs: (65535)
 msgid "Minimum number of chars for a commit message:"
-msgstr "Número de caracteres minimo para un mensaje de confirmación"
+msgstr "Número de caracteres mínimo para un mensaje de confirmación"
 
 #. Resource IDs: (65535)
 msgid "Minimum number of chars for a lock message:"
-msgstr "Número de caracteres minimo para un mensaje de bloqueo"
+msgstr "Número de caracteres mínimo para un mensaje de bloqueo"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -6040,7 +6040,7 @@ msgstr "Moviendo..."
 
 #. Resource IDs: (1204)
 msgid "Multiple, &independent working copies"
-msgstr "Multiples, copias de trabajo independientes"
+msgstr "Multiples, copias de trabajo &independientes"
 
 #. Resource IDs: (65535)
 msgid "My file:"
@@ -6405,7 +6405,7 @@ msgstr "Unos o más archivos están en estado en conflicto."
 
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
-msgstr "Únicamente registrar la fusión (las revisiones se bloquearán para no ser fusionadas)"
+msgstr "Únicamente &registrar la fusión (las revisiones se bloquearán para no ser fusionadas)"
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
@@ -7759,7 +7759,7 @@ msgstr "Guardando archivo de parche en:"
 
 #. Resource IDs: (1522)
 msgid "Scan"
-msgstr "Escanar"
+msgstr "Escanear"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
@@ -9784,7 +9784,7 @@ msgstr "Deversionar y añadir a la lista de &ignorados"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
-msgstr "No &versionado"
+msgstr "No versionado"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -10288,7 +10288,7 @@ msgid ""
 "You can disable specific Overlay handlers here.\n"
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
 msgstr ""
-"Usted puede deshabilitar manejadores sobreimpresionados específicos aquí.\n"
+"Usted puede deshabilitar manejadores sobrepuestos específicos aquí.\n"
 "Los manejadores deshabilitados no utilizaran un espacio de sobreimpresionado y permiten que otra extensión de shell pueda mostrar su sobreimpreso"
 
 #. Resource IDs: (1001)
