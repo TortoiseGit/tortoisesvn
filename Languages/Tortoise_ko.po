@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-13 15:33+0900\n"
+"PO-Revision-Date: 2010-05-14 18:22+0900\n"
 "Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: Test\n"
 "MIME-Version: 1.0\n"
@@ -194,35 +194,70 @@ msgstr "%s : 작업 베이스"
 msgid "%s : Working Copy"
 msgstr "%s : 작업 사본"
 
-#. Resource IDs: (609)
+#. Resource IDs: (3887)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, 그러나 지역에서 버전관리되지 않는 아이템으로 벌써 존재합니다."
+msgid "%s [Recovered]"
+msgstr "%s [충돌해결됨]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, 그러나 지역에서 사라졌습니다."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, 그러나 디렉토리가 로컬에서 버전관리 대상이 아닌채로 벌써 존재합니다."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, 그러나 지역에서 벌서 추가되었습니다."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, 그러나 디렉토리가  로컬에서 사라졌습니다."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, 그러나 벌써 편집되었습니다."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, 그러나 디렉토리가 로컬에서 벌써 추가되었습니다."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, 그러나 지역에서 벌써 삭제되거나, 이동되거나 혹은 이름이 변경되었습니다."
+msgid "%s, but the directory was already edited."
+msgstr "%s, 그러나 디렉토리가 벌써 편집되었습니다."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, 그러나 작업사본에서 차단되었습니다."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s, 그러나 디렉토리가 로컬에서 삭제, 이동 혹은 이름이 변경되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, 그러나 디렉토리가 작업사본에서 차단당했습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, 그러나 파일이 로컬에서 버전관리 대상이 아닌채로 벌써 존재합니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, 그러나 파일이 로컬에서 사라졌습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, 그러나 파일이 로컬에서 벌써 추가되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, 그러나 파일이 벌써 편집되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s, 그러나 파일이 로컬에서 삭제, 이동 혹은 이름이 변경되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, 그러나 파일이 작업사본에서 차단당했습니다."
 
 #. Resource IDs: (3850)
 #, c-format
@@ -793,7 +828,7 @@ msgid "&Log Sizes"
 msgstr "로그 사이즈(&L)"
 
 #. Resource IDs: (65535)
-msgid "&Lum:"
+msgid "&Luminence:"
 msgstr "휘도(&L):"
 
 #. Resource IDs: (1591)
@@ -847,6 +882,10 @@ msgstr "태그 복사본에 대한 색깔 변경(&M)"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "트렁크 복사본에 대한 색깔 변경(&M)"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "이동된 블럭들(&M)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1029,6 +1068,10 @@ msgstr "지역 속성을 사용해서 충돌해결하기(&R)"
 msgid "&Restore defaults"
 msgstr "기본값으로 복원(&R)"
 
+#. Resource IDs: (1542)
+msgid "&Retry without hooks"
+msgstr "훅 없이 재시도하기(&R)"
+
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
 msgstr "이 리비전에서 바뀐 부분을 원상태로 되돌림(&R)"
@@ -1050,8 +1093,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Sat:"
-msgstr "포화(&S):"
+msgid "&Saturation:"
+msgstr "포화(&S)"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -2199,8 +2242,8 @@ msgid "Can't create a new image!"
 msgstr "새로운 이미지를 생성할 수 없습니다!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
-msgstr "메뉴를 커스터마이즈 할 수 없습니다!"
+msgid "Can't customize menus!"
+msgstr "메뉴를 커스터마이즈할 수 없습니다!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -2223,8 +2266,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "개행 문자가 같은 종류로 되어 있지 않아 차이점을 보일 수 없습니다."
 
 #. Resource IDs: (16926)
-msgid "Cascade"
-msgstr "중첩된"
+msgid "Casca&de"
+msgstr "중첩(&D)"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -3089,6 +3132,10 @@ msgstr ""
 msgid "Could not start thread!"
 msgstr "쓰레드를 시작시킬 수 없습니다!"
 
+#. Resource IDs: (1542)
+msgid "Create &Library"
+msgstr "라이브러리 생성(&L)"
+
 #. Resource IDs: (13)
 msgid "Create &patch..."
 msgstr "패치 생성(&P)..."
@@ -3133,6 +3180,10 @@ msgstr "원격지에 폴더를 만들었습니다"
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "저장소안에 복사본을 생성하여 브랜치나 태그를 만듭니다."
+
+#. Resource IDs: (199)
+msgid "Creates a library folder with special settings for Subversion working copies"
+msgstr "Subversion 작업 사본에 대해서 특별한 설정으로 라이브러리 폴더 생성"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3322,12 +3373,20 @@ msgid "Deselect changelist"
 msgstr "변경 리스트 선택하지 않음"
 
 #. Resource IDs: (1547)
+msgid "Destinatio&n URL:"
+msgstr "목적지 URL(&N):"
+
+#. Resource IDs: (1547)
 msgid "Destination URL:"
 msgstr "목적지 URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "목적지 디스크가 꽉 찼습니다."
+
+#. Resource IDs: (2056)
+msgid "Detect and highlight moved blocks"
+msgstr "이동된 블럭을 검출하고 밝게 표시합니다."
 
 #. Resource IDs: (3849)
 msgid ""
@@ -3485,6 +3544,10 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "계속 진행하시겠습니까?"
 
+#. Resource IDs: (3887)
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "자동으로 저장된 문서를 복구하시겠습니까?"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3524,6 +3587,14 @@ msgstr ""
 "체크 아웃 디렉토리를 sparse 작업 사본으로 만들지 마십시오.\n"
 "대신에 모든 URL들을 서로 인접하는 분리된 작업 사본에 체크 아웃 받으십시오.\n"
 "이것은 디렉토리 URL에서만 동작합니다."
+
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+"자동으로 저장된 문서를 복구하지 않음\n"
+"명시적으로 저장된 이 문서의 마지막 버전을 사용합니다."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3629,6 +3700,10 @@ msgstr "확장자별 비교 프로그램 편집"
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
 msgstr "확장자별 병합 프로그램 편집"
+
+#. Resource IDs: (321)
+msgid "Edit language properties"
+msgstr "언어 속성 편집"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -3986,6 +4061,10 @@ msgstr "포함된 외부경로"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "강제로 병합하기(&O)"
+
+#. Resource IDs: (1070)
+msgid "Fade"
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -5031,6 +5110,10 @@ msgstr ""
 msgid "Import to %1"
 msgstr "%1에 임포트"
 
+#. Resource IDs: (80)
+msgid "Imported folder structure"
+msgstr "임포트된 폴더 구조"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %1!s!"
@@ -5291,6 +5374,14 @@ msgstr "제한(&I):"
 #. Resource IDs: (1599)
 msgid "L&ocal path:"
 msgstr "지역 경로(&O):"
+
+#. Resource IDs: (32855)
+msgid "Lan&guages"
+msgstr "언어(&G)"
+
+#. Resource IDs: (65535)
+msgid "Language:"
+msgstr "언어:"
 
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
@@ -5882,9 +5973,17 @@ msgstr "이동/이름 바꾸기"
 msgid "Move: New name for %s"
 msgstr "이동: %s의 새 이름"
 
+#. Resource IDs: (65535)
+msgid "Moved from"
+msgstr "다음에서 이동됨"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "옮겨짐"
+
+#. Resource IDs: (65535)
+msgid "Moved to"
+msgstr "다음으로 이동됨"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6118,6 +6217,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "하위에 적용하지 않음"
 
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr "자동으로 저장된 문서를 복구하는 것을 선택했다면, 원본 문서를 덮어쓰기 위해서 명시적으로 그 문서를 저장해야만 합니다. 자동으로 저장된 버전을 복구하지 않도록 선택했다면, 그 버전은 삭제될 것입니다."
+
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "주의: 폴더가 버전관리되지 않는 아이템들을 포함하고 있습니다."
@@ -6250,6 +6353,10 @@ msgstr ""
 "('branches', 'tags', 'trunk' 중 하나)\n"
 "\n"
 "선택된 경로를 옮기는 것이 확실합니까?"
+
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr "하나 이상의 자동으로 저장된 문서를 찾았습니다."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6460,6 +6567,14 @@ msgid ""
 msgstr ""
 "펜슬 툴\n"
 "펜슬"
+
+#. Resource IDs: (245)
+msgid "Percent of authorship"
+msgstr "작성자 퍼센트"
+
+#. Resource IDs: (245)
+msgid "Percents"
+msgstr "퍼센트"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -6859,6 +6974,14 @@ msgstr "최근에 수정된 행"
 #. Resource IDs: (276)
 msgid "Record Only"
 msgstr "병합정보만 저장"
+
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+"자동으로 저장된 문서를 복구합니다.\n"
+"명시적으로 저장된 버전대신에 자동으로 저장된 버전을 엽니다."
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7417,6 +7540,14 @@ msgstr "%d 행(%d 중에)"
 msgid "Row %d-%d of %d"
 msgstr "%d 행-%d (%d 중에)"
 
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "행 아래로"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "행 위로"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "선택하기(&E)..."
@@ -7755,6 +7886,10 @@ msgid ""
 msgstr ""
 "전체 문서 선택\n"
 "모두 선택"
+
+#. Resource IDs: (65535)
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgstr "이 프로젝트에서 사용되는 언어를 선택하십시오. 이 설정은 커밋 메시지에서 사용되는 스펠링 체커에 영향을 미칩니다."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -8142,6 +8277,10 @@ msgstr "넘김"
 msgid "Skipped missing target"
 msgstr "없는 개체는 건너뜀"
 
+#. Resource IDs: (1070)
+msgid "Slide"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "커밋 개수에 따라 정렬"
@@ -8501,6 +8640,10 @@ msgstr "탭 크기:"
 #. Resource IDs: (65535)
 msgid "Tag nodes"
 msgstr "Tag 노드"
+
+#. Resource IDs: (281)
+msgid "Tagged"
+msgstr "태그됨"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8910,8 +9053,12 @@ msgstr ""
 "유효한 정규 표현식을 입력해 주십시오."
 
 #. Resource IDs: (80)
-msgid "The repository was successfully created."
-msgstr "저장소가 성공적으로 생성되었습니다."
+msgid ""
+"The repository was successfully created.\n"
+"Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+"저장소가 성공적으로 생성되었습니다.\n"
+"지금 기본 폴더 구조(trunk/branches/tags)를 생성하시겠습니까?"
 
 #. Resource IDs: (78)
 msgid ""
@@ -9081,6 +9228,10 @@ msgstr "잠금을 해제 할 파일이 없습니다. 작업사본내의 어떤 �
 msgid "Thesaurus"
 msgstr "색인"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr "이 문서는 최근에 열린 문서보다 저 최근에 저장되었습니다. 그리고 어플리케이션이 닫히기전에 만들어진 변경사항을 포함하고 있습니다."
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -9141,13 +9292,13 @@ msgstr "이 속성은 여러줄로 구성될 수 없습니다. 한 줄로만 가
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "이것은 이 어플리케이션에서 사용된 명령들을 저장해 놓은 것을 삭제할 것입니다. 그리고 메뉴와 툴바에서 보이는 명령들을 기본 값으로 되돌릴 것입니다. 이것은 명시적으로 커스터마이징한 것을 되돌리지는 않을 것입니다. 정말로 이것을 수행하시겠습니까?"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "수평으로 붙이기(&H)"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "수직으로 붙이기(&V)"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "수평으로 붙이기(&Z)"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9503,6 +9654,10 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "기타 파일 형식"
+
+#. Resource IDs: (1070)
+msgid "Unfold"
+msgstr "펼치기"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -10320,6 +10475,10 @@ msgstr "높이에 맞추어서 확대"
 msgid "Zoom to fit in width"
 msgstr "폭에 맞추어서 확대"
 
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[기본]"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[할당되지않음]"
@@ -10581,6 +10740,10 @@ msgstr "버전관리 대상이 아닙니다."
 #. Resource IDs: (214)
 msgid "item kept locally"
 msgstr "작업사본에서 유지하는 아이템"
+
+#. Resource IDs: (1562)
+msgid "keep the file lists in English"
+msgstr "파일 리스트를 영어로 유지"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
@@ -11134,6 +11297,12 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "The repository was successfully created."
+#~ msgstr "저장소가 성공적으로 생성되었습니다."
+
+#~ msgid "&Sat:"
+#~ msgstr "포화(&S):"
+
 #~ msgid "Bug-ID / &Issue-Nr:"
 #~ msgstr "Bug-ID / &Issue-Nr:"
 
@@ -11204,9 +11373,6 @@ msgstr "{버그트랙}"
 
 #~ msgid "General::Revision Graph Colors"
 #~ msgstr "일반::리비전 그래프 색깔"
-
-#~ msgid "%s, but the local file was already edited."
-#~ msgstr "%s, 그러나 지역 파일이 벌써 편집되었습니다."
 
 #~ msgid "Go offline?"
 #~ msgstr "오프라인으로 진행할까요?"
