@@ -42,7 +42,10 @@
 			<arg value="/errorReport:prompt" />
 			<sources>
 				<include name="context.c" />
+				<include name="incoming.c" />
+				<include name="outgoing.c" />
 				<include name="buckets\*.c" />
+				<include name="auth\*.c" />
 			</sources>
 			<includedirs>
 				<include name="." />
