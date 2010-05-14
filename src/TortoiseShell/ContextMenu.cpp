@@ -1022,6 +1022,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
                 if ((itemStates & ITEMIS_NEEDSLOCK) && g_ShellCache.IsGetLockTop())
                     bIsTop = true;
             }
+            // the 'upgrade wc' command always has to on the top menu
+            if (menuItem.command == ShellMenuUpgradeWC)
+                bIsTop = true;
             // insert the menu entry
             InsertSVNMenu(  bIsTop,
                             bIsTop ? hMenu : subMenu,
