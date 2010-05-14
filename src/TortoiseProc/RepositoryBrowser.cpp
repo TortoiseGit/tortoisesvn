@@ -3342,14 +3342,12 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 {
                     CBlame blame;
                     CString tempfile;
-                    CString logfile;
                     const CTSVNPath& path = selection.GetURLEscaped (0,0);
 
                     tempfile = blame.BlameToTempFile ( path
                                                      , dlg.StartRev
                                                      , dlg.EndRev
                                                      , dlg.EndRev
-                                                     , logfile
                                                      , SVN::GetOptionsString (!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces)
                                                      , dlg.m_bIncludeMerge
                                                      , TRUE
@@ -3365,7 +3363,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         {
                             CString sParams = _T("/path:\"") + path.GetSVNPathString() + _T("\" ");
                             if(!CAppUtils::LaunchTortoiseBlame ( tempfile
-                                                               , logfile
                                                                , CPathUtils::GetFileNameFromPath(selection.GetURL (0,0).GetFileOrDirectoryName())
                                                                , sParams
                                                                , dlg.StartRev

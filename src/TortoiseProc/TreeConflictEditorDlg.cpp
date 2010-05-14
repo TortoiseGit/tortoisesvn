@@ -35,8 +35,6 @@ IMPLEMENT_DYNAMIC(CTreeConflictEditorDlg, CResizableStandAloneDialog)
 
 CTreeConflictEditorDlg::CTreeConflictEditorDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CTreeConflictEditorDlg::IDD, pParent)
-    , src_left(NULL)
-    , src_right(NULL)
     , m_bThreadRunning(false)
 {
 
@@ -84,9 +82,9 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 
 
     CString sTemp;
-    sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->repos_url), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->path_in_repos), src_left->peg_rev);
+    sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)src_left_version_url, src_left_version_path, src_left_version_rev);
     SetDlgItemText(IDC_SOURCELEFTURL, sTemp);
-    sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_right->repos_url), (LPCTSTR)CUnicodeUtils::GetUnicode(src_right->path_in_repos), src_right->peg_rev);
+    sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)src_right_version_url, (LPCTSTR)src_right_version_path, src_right_version_rev);
     SetDlgItemText(IDC_SOURCERIGHTURL, sTemp);
 
     if (conflict_reason == svn_wc_conflict_reason_deleted)
@@ -163,16 +161,16 @@ void CTreeConflictEditorDlg::OnBnClickedBranchlog()
     if (m_bThreadRunning)
         return;
     CString sTemp;
-    sTemp.Format(_T("%s/%s"), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->repos_url), (LPCTSTR)CUnicodeUtils::GetUnicode(src_left->path_in_repos));
+    sTemp.Format(_T("%s/%s"), (LPCTSTR)src_left_version_url, (LPCTSTR)src_left_version_path);
 
     CTSVNPath logPath = CTSVNPath(sTemp);
-    if (src_left->node_kind != svn_node_dir)
+    if (src_left_version_kind != svn_node_dir)
         logPath = logPath.GetContainingDirectory();
     CString sCmd;
     sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /pegrev:%ld"),
         (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
         (LPCTSTR)logPath.GetSVNPathString(),
-        src_left->peg_rev);
+        (svn_revnum_t)src_left_version_rev);
     CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
 
@@ -186,24 +184,24 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
 
     if (conflict_reason == svn_wc_conflict_reason_deleted)
     {
-        if ((!m_copyfromPath.IsEmpty())&&(src_left->peg_rev))
+        if ((!m_copyfromPath.IsEmpty())&&(src_left_version_rev.IsValid()))
         {
-            CTSVNPath url1 = CTSVNPath(CUnicodeUtils::GetUnicode(src_left->repos_url));
-            url1.AppendPathString(CUnicodeUtils::GetUnicode(src_left->path_in_repos));
-            CTSVNPath url2 = CTSVNPath(CUnicodeUtils::GetUnicode(src_right->repos_url));
-            url2.AppendPathString(CUnicodeUtils::GetUnicode(src_right->path_in_repos));
+            CTSVNPath url1 = CTSVNPath(src_left_version_url);
+            url1.AppendPathString(src_left_version_path);
+            CTSVNPath url2 = CTSVNPath(src_right_version_url);
+            url2.AppendPathString(src_right_version_path);
 
             CSVNProgressDlg progDlg;
             progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
             progDlg.SetPathList(CTSVNPathList(m_copyfromPath));
             progDlg.SetUrl(url1.GetSVNPathString());
             progDlg.SetSecondUrl(url2.GetSVNPathString());
-            progDlg.SetRevision(src_left->peg_rev);
-            progDlg.SetRevisionEnd(src_right->peg_rev);
+            progDlg.SetRevision(src_left_version_rev);
+            progDlg.SetRevisionEnd(src_right_version_rev);
             if (url1.IsEquivalentTo(url2))
             {
                 SVNRevRange range;
-                range.SetRange(src_left->peg_rev, src_right->peg_rev);
+                range.SetRange(src_left_version_rev, src_right_version_rev);
                 SVNRevRangeArray array;
                 array.AddRevRange(range);
                 progDlg.SetRevisionRanges(array);
@@ -310,7 +308,7 @@ UINT CTreeConflictEditorDlg::StatusThread()
         SVNStatus stat;
         do
         {
-            svn_wc_status2_t * s = stat.GetFirstFileStatus(statPath, copyFromPath, false, svn_depth_infinity, true, true);
+            svn_wc_status3_t * s = stat.GetFirstFileStatus(statPath, copyFromPath, false, svn_depth_infinity, true, true);
             if (s)
             {
                 while ((s = stat.GetNextFileStatus(copyFromPath)) != NULL)
@@ -338,7 +336,7 @@ UINT CTreeConflictEditorDlg::StatusThread()
 
 LRESULT CTreeConflictEditorDlg::OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-    if ((!m_copyfromPath.IsEmpty())&&(src_left->peg_rev))
+    if ((!m_copyfromPath.IsEmpty())&&(src_left_version_rev.IsValid()))
     {
         m_sUseTheirs.Format(IDS_TREECONFLICT_RESOLVE_MERGECHANGES, (LPCTSTR)m_copyfromPath.GetFileOrDirectoryName());
         SetDlgItemText(IDC_RESOLVEUSINGTHEIRS, m_sUseTheirs);
@@ -355,5 +353,21 @@ LRESULT CTreeConflictEditorDlg::OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam
 void CTreeConflictEditorDlg::OnBnClickedHelp()
 {
     OnHelp();
+}
+
+void CTreeConflictEditorDlg::SetConflictLeftSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind)
+{
+    src_left_version_url = url;
+    src_left_version_path = path;
+    src_left_version_rev = rev;
+    src_left_version_kind = kind;
+}
+
+void CTreeConflictEditorDlg::SetConflictRightSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind)
+{
+    src_right_version_url = url;
+    src_right_version_path = path;
+    src_right_version_rev = rev;
+    src_right_version_kind = kind;
 }
 

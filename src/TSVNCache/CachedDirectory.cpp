@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2009 - TortoiseSVN
+// External Cache Copyright (C) 2005-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -438,7 +438,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 }
 
 void
-CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus, bool forceNormal)
+CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status3_t* pSVNStatus, bool forceNormal)
 {
     AutoLocker lock(m_critSec);
     svn_wc_status_kind textstatus = forceNormal ? svn_wc_status_normal : (pSVNStatus ? pSVNStatus->text_status : svn_wc_status_none);
@@ -504,7 +504,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
         m_currentStatusFetchingPath = m_directoryPath;
     }
     CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
-    svn_error_t* pErr = svn_client_status4 (
+    svn_error_t* pErr = svn_client_status5 (
         NULL,
         m_directoryPath.GetSVNApiPath(subPool),
         &revision,
@@ -558,7 +558,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
     return true;
 }
 
-svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t * /*pool*/)
+svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path, const svn_wc_status3_t *status, apr_pool_t * /*pool*/)
 {
     CCachedDirectory* pThis = (CCachedDirectory*)baton;
 
@@ -568,7 +568,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
     CTSVNPath svnPath;
     bool forceNormal = false;
 
-    if(status->entry)
+    if((status->versioned)&&(status->entry))
     {
         if ((status->text_status != svn_wc_status_none)&&(status->text_status != svn_wc_status_ignored))
             svnPath.SetFromSVN(path, (status->entry->kind == svn_node_dir));
@@ -582,7 +582,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                 // Make sure we know about this child directory
                 // This initial status value is likely to be overwritten from below at some point
                 svn_wc_status_kind s = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
-                if (status->tree_conflict)
+                if (status->conflicted)
                     s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
                 CCachedDirectory * cdir = CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(svnPath);
                 if (cdir)
@@ -663,7 +663,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
             {
                 AutoLocker lock(pThis->m_critSec);
                 svn_wc_status_kind s = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
-                if (status->tree_conflict)
+                if (status->conflicted)
                     s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
                 pThis->m_childDirectories[svnPath] = s;
             }

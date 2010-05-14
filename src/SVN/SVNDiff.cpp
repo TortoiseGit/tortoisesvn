@@ -92,7 +92,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
         {
             SVNStatus stat;
             CTSVNPath dummy;
-            svn_wc_status2_t * s = stat.GetFirstFileStatus(filePath, dummy);
+            svn_wc_status3_t * s = stat.GetFirstFileStatus(filePath, dummy);
             if ((s)&&(s->entry))
                 baseRev = s->entry->revision;
         }
@@ -182,7 +182,7 @@ bool SVNDiff::DiffFileAgainstBase(
         {
             SVNStatus stat;
             CTSVNPath dummy;
-            svn_wc_status2_t * s = stat.GetFirstFileStatus(filePath, dummy);
+            svn_wc_status3_t * s = stat.GetFirstFileStatus(filePath, dummy);
             if ((s)&&(s->entry))
             {
                 if (s->entry->copyfrom_url)
@@ -662,7 +662,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
     {
         SVNStatus stat;
         CTSVNPath dummy;
-        svn_wc_status2_t * s = stat.GetFirstFileStatus(filePath, dummy);
+        svn_wc_status3_t * s = stat.GetFirstFileStatus(filePath, dummy);
         if ((s)&&(s->entry))
             baseRev = s->entry->revision;
     }

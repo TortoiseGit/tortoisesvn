@@ -170,7 +170,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
             try
             {
                 folderpath = filepath;
-                err = svn_client_status4 (&youngest,
+                err = svn_client_status5 (&youngest,
                     filepath.GetDirectory().GetSVNApiPath(pool),
                     &rev,
                     findfolderstatus,
@@ -200,7 +200,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
                     dirstat.owner = owners.GetString(dirstatus->entry->lock_owner);
                 }
                 dirstat.status = SVNStatus::GetMoreImportant(dirstatus->text_status, dirstatus->prop_status);
-                dirstat.tree_conflict = dirstatus->tree_conflict != NULL;
+                dirstat.tree_conflict = dirstatus->conflicted != 0;
             }
             m_cache[filepath.GetWinPath()] = dirstat;
             m_TimeStamp = GetTickCount();
@@ -223,7 +223,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     rev.kind = svn_opt_revision_unspecified;
     try
     {
-        err = svn_client_status4 (&youngest,
+        err = svn_client_status5 (&youngest,
             filepath.GetDirectory().GetSVNApiPath(pool),
             &rev,
             fillstatusmap,
@@ -374,7 +374,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& fil
     return NULL;
 }
 
-svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
+svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, const svn_wc_status3_t * status, apr_pool_t * /*pool*/)
 {
     SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
     FileStatusMap * cache = &Stat->m_cache;
@@ -403,7 +403,7 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn
         s.status = SVNStatus::GetMoreImportant(s.status, status->text_status);
         s.status = SVNStatus::GetMoreImportant(s.status, status->prop_status);
         s.lock = status->repos_lock;
-        s.tree_conflict = (status->tree_conflict != NULL);
+        s.tree_conflict = (status->conflicted != 0);
     }
     s.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
     tstring str;
@@ -419,7 +419,7 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn
     return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNFolderStatus::findfolderstatus(void * baton, const char * path, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
+svn_error_t* SVNFolderStatus::findfolderstatus(void * baton, const char * path, const svn_wc_status3_t * status, apr_pool_t * /*pool*/)
 {
     SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
     if ((Stat)&&(Stat->folderpath.IsEquivalentTo(CTSVNPath(CString(path)))))

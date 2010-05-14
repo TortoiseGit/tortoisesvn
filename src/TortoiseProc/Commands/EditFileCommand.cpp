@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@ bool EditFileCommand::IsLocked()
     CTSVNPath dummy;
     SVNStatus status;
 
-    svn_wc_status2_t *fileStatus
+    svn_wc_status3_t *fileStatus
         = status.GetFirstFileStatus (path, dummy, false, svn_depth_empty);
     return (fileStatus->entry != NULL) && (fileStatus->entry->lock_creation_date != 0);
 }

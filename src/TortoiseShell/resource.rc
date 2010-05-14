@@ -16,10 +16,8 @@
 // Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
 LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -73,13 +71,11 @@ IDI_CLIPPASTE           ICON                    "..\\Resources\\clippaste.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -127,8 +123,6 @@ BEGIN
     LTEXT           "yes",IDC_COPIED,80,174,163,8
     LTEXT           "file external:",IDC_STATIC,4,186,76,8
     LTEXT           "yes",IDC_FILEEXTERNAL,80,185,163,8
-    LTEXT           "tree conflict:",IDC_STATIC,4,197,76,8
-    LTEXT           "yes",IDC_TREECONFLICT,80,196,163,8
     PUSHBUTTON      "&Properties...",IDC_EDITPROPERTIES,4,218,107,14
     PUSHBUTTON      "Show &log",IDC_SHOWLOG,120,218,123,14
 END
@@ -168,7 +162,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_PROPPAGE, DIALOG
     BEGIN
@@ -187,7 +181,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENUCHECKOUT        "Chec&kout..."
     IDS_MENUUPDATE          "&Update"
@@ -199,7 +193,7 @@ BEGIN
     IDS_MENURESOLVE         "Res&olved..."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENUSWITCH          "S&witch..."
     IDS_MENUMERGE           "&Merge..."
@@ -219,7 +213,7 @@ BEGIN
     IDS_MENUDESCSWITCH      "Switch working copy to another branch / tag"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENUDESCIMPORT      "Imports the directory to a repository"
     IDS_MENUDESCEXPORT      "Exports a repository to a clean working copy without the svn administrative folders"
@@ -239,7 +233,7 @@ BEGIN
     IDS_STATUSMODIFIED      "modified"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STATUSMERGED        "merged"
     IDS_STATUSCONFLICTED    "conflicted"
@@ -259,7 +253,7 @@ BEGIN
     IDS_COLDESCREV          "Last saved revision of item"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENUSHOWCHANGED     "Check for modi&fications"
     IDS_MENUDESCSHOWCHANGED "Shows all files which were changed since the last update, locally and in the repository"
@@ -279,7 +273,7 @@ BEGIN
     IDS_MENUAPPLYPATCH      "Apply &patch..."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENUDIFF            "&Diff"
     IDS_MENUDESCDIFF        "Compares the file with the last committed revision to show you the changes you made"
@@ -299,7 +293,7 @@ BEGIN
     IDS_MENUDESCHELP        "Read the 'Daily Use Guide' before you are stuck..."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENUDESCCREATEPATCH "Creates a unified diff file with all changes you made"
     IDS_MENUDESCAPPLYPATCH  "Applies a unified diff file to the working copy"
@@ -320,7 +314,7 @@ BEGIN
     IDS_MENUDELETEIGNORE    "Unversion and add to &ignore list"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENUDESCDELETEIGNORE 
                             "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
@@ -339,7 +333,7 @@ BEGIN
     IDS_MENUDESCUNIGNORE    "Removes the file or filemask from the list of ignored items"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_DROPMOVERENAMEMENU  "SVN Move and rename versioned item here"
     IDS_MENUPROPERTIES      "Properties"
@@ -354,7 +348,7 @@ BEGIN
     IDS_MENUREMOVEKEEP      "&Delete (keep local)"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENU_LOCK           "Get loc&k..."
     IDS_MENU_UNLOCK         "Release loc&k"
@@ -374,14 +368,14 @@ BEGIN
     IDS_MENUADDASREPLACEMENT "Add (as replacement)..."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MENUDESCREMOVEKEEP  "Deletes files / folders from version control but keeps the file"
     IDS_YES                 "yes"
     IDS_NO                  "no"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_SVN_DEPTH_INFINITE  "Fully recursive"
     IDS_SVN_DEPTH_IMMEDIATE "Immediate children, including folders"
@@ -389,7 +383,7 @@ BEGIN
     IDS_SVN_DEPTH_EMPTY     "Only this item"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_SVN_DEPTH_EXCLUDE   "Exclude"
     IDS_SVN_DEPTH_UNKNOWN   "Unknown depth"
@@ -397,7 +391,7 @@ BEGIN
     IDS_COLTITLESTATUSNUMBER "SVN Statusnumber"
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -373,12 +373,6 @@ void CSVNPropertyPage::InitWorkfileView()
                 else
                     MAKESTRING(IDS_NO);
                 SetDlgItemText(m_hwnd, IDC_FILEEXTERNAL, stringtablebuffer);
-
-                if (svn.status->tree_conflict)
-                    MAKESTRING(IDS_YES);
-                else
-                    MAKESTRING(IDS_NO);
-                SetDlgItemText(m_hwnd, IDC_TREECONFLICT, stringtablebuffer);
             }
         }
     }

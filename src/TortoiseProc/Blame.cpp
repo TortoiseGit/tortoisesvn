@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,9 +40,9 @@ CBlame::~CBlame()
     m_progressDlg.Stop();
 }
 
-BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date,
+BOOL CBlame::BlameCallback(LONG linenumber, bool /*localchange*/, svn_revnum_t revision, const CString& author, const CString& date,
                            svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
-                           const CStringA& line)
+                           const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg)
 {
     if (((m_lowestrev < 0)||(m_lowestrev > revision))&&(revision >= 0))
         m_lowestrev = revision;
@@ -134,25 +134,20 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
             length = line.GetLength();
             m_saveFile.Write(&length, sizeof(int));
             m_saveFile.Write((LPCSTR)line, length);
+
+            length = log_msg.GetLength();
+            m_saveFile.Write(&length, sizeof(int));
+            m_saveFile.Write((LPCSTR)log_msg, length);
+
+            length = merged_log_msg.GetLength();
+            m_saveFile.Write(&length, sizeof(int));
+            m_saveFile.Write((LPCSTR)merged_log_msg, length);
+
             return TRUE;
         }
         else
             return FALSE;
     }
-}
-
-BOOL CBlame::Log(svn_revnum_t revision, const CString& /*author*/, const CString& message, apr_time_t /*time*/, BOOL /*children*/)
-{
-    m_progressDlg.SetProgress(m_highestrev - revision, m_highestrev);
-    if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)
-    {
-        CStringA msgutf8 = CUnicodeUtils::GetUTF8(message);
-        int length = msgutf8.GetLength();
-        m_saveLog.Write(&revision, sizeof(LONG));
-        m_saveLog.Write(&length, sizeof(int));
-        m_saveLog.Write((LPCSTR)msgutf8, length);
-    }
-    return TRUE;
 }
 
 BOOL CBlame::Cancel()
@@ -163,7 +158,7 @@ BOOL CBlame::Cancel()
 }
 
 CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev,
-                                CString& logfile, const CString& options, BOOL includemerge,
+                                const CString& options, BOOL includemerge,
                                 BOOL showprogress, BOOL ignoremimetype)
 {
     // if the user specified to use another tool to show the blames, there's no
@@ -219,40 +214,11 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
             pegrev = endrev;
         }
     }
+    m_saveFile.Close();
     if (!bBlameSuccesful)
     {
-        m_saveFile.Close();
         DeleteFile(m_sSavePath);
         m_sSavePath.Empty();
-    }
-    else
-    {
-        m_saveFile.Close();
-
-        if (!extBlame)
-        {
-            m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSLOGSTART);
-            m_progressDlg.SetProgress(0, m_highestrev);
-            logfile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
-            if (!m_saveLog.Open(logfile, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate))
-            {
-                logfile.Empty();
-                return m_sSavePath;
-            }
-            if (   (NULL == ReceiveLog (CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE, m_bHasMerges, false).get())
-                || (Err != NULL))
-            {
-                // we don't want partial logs
-
-                m_saveLog.Close();
-                DeleteFile(logfile);
-                logfile.Empty();
-            }
-            else
-            {
-                m_saveLog.Close();
-            }
-        }
     }
     m_progressDlg.Stop();
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@ CStatusCacheEntry::CStatusCacheEntry()
     SetAsUnversioned();
 }
 
-CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal)
+CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status3_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal)
     : m_bSet(false)
     , m_bSVNEntryFieldSet(false)
     , m_kind(svn_node_unknown)
@@ -152,7 +152,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
     return true;
 }
 
-void CStatusCacheEntry::SetStatus(const svn_wc_status2_t* pSVNStatus, bool forceNormal)
+void CStatusCacheEntry::SetStatus(const svn_wc_status3_t* pSVNStatus, bool forceNormal)
 {
     if(pSVNStatus == NULL)
     {
@@ -186,7 +186,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status2_t* pSVNStatus, bool force
             m_bSVNEntryFieldSet = false;
         }
         m_svnStatus.entry = NULL;
-        m_treeconflict = pSVNStatus->tree_conflict != 0;
+        m_treeconflict = pSVNStatus->conflicted != 0;
     }
     m_discardAtTime = GetTickCount()+cachetimeout;
     m_bSet = true;

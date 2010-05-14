@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -119,7 +119,7 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
     SVNTRACE (
-        m_err = svn_client_info2(svnPath, pegrev, revision, infoReceiver, this, depth, NULL, m_pctx, m_pool),
+        m_err = svn_client_info3(svnPath, pegrev, revision, infoReceiver, this, depth, NULL, m_pctx, m_pool),
         svnPath
     )
     if (m_err != NULL)
@@ -220,6 +220,25 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
             data.treeconflict_myfile = CUnicodeUtils::GetUnicode(info->tree_conflict->my_file);
         if (info->tree_conflict->merged_file)
             data.treeconflict_mergedfile = CUnicodeUtils::GetUnicode(info->tree_conflict->merged_file);
+
+        if (info->tree_conflict->src_right_version)
+        {
+            if (info->tree_conflict->src_right_version->repos_url)
+                data.src_right_version_url = CUnicodeUtils::GetUnicode(info->tree_conflict->src_right_version->path_in_repos);
+            if (info->tree_conflict->src_right_version->path_in_repos)
+                data.src_right_version_path = CUnicodeUtils::GetUnicode(info->tree_conflict->src_right_version->repos_url);
+            data.src_right_version_rev = info->tree_conflict->src_right_version->peg_rev;
+            data.src_right_version_kind = info->tree_conflict->src_right_version->node_kind;
+        }
+        if (info->tree_conflict->src_left_version)
+        {
+            if (info->tree_conflict->src_left_version->repos_url)
+                data.src_left_version_url = CUnicodeUtils::GetUnicode(info->tree_conflict->src_left_version->path_in_repos);
+            if (info->tree_conflict->src_left_version->path_in_repos)
+                data.src_left_version_path = CUnicodeUtils::GetUnicode(info->tree_conflict->src_left_version->repos_url);
+            data.src_left_version_rev = info->tree_conflict->src_left_version->peg_rev;
+            data.src_left_version_kind = info->tree_conflict->src_left_version->node_kind;
+        }
     }
     pThis->m_arInfo.push_back(data);
     pThis->Receiver(&data);

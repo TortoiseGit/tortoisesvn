@@ -77,7 +77,6 @@ public:
 
     void SetTitle();
     BOOL OpenFile(const TCHAR *fileName);
-    BOOL OpenLogFile(const TCHAR *fileName);
 
     void Command(int id);
     void Notify(SCNotification *notification);

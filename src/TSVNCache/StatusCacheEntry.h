@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005-2006, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@ class CStatusCacheEntry
 {
 public:
     CStatusCacheEntry();
-    CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal);
+    CStatusCacheEntry(const svn_wc_status3_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal);
     bool HasExpired(long now) const;
     void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
     bool IsVersioned() const;
@@ -38,7 +38,7 @@ public:
     bool ForceStatus(svn_wc_status_kind forcedStatus);
     svn_wc_status_kind GetEffectiveStatus() const { return m_highestPriorityLocalStatus; }
     bool IsKindKnown() const { return ((m_kind != svn_node_none)&&(m_kind != svn_node_unknown)); }
-    void SetStatus(const svn_wc_status2_t* pSVNStatus, bool forceNormal);
+    void SetStatus(const svn_wc_status3_t* pSVNStatus, bool forceNormal);
     bool HasBeenSet() const;
     void Invalidate();
     bool IsDirectory() const {return ((m_kind == svn_node_dir)&&(m_highestPriorityLocalStatus != svn_wc_status_ignored));}
@@ -51,7 +51,7 @@ private:
 private:
     long                m_discardAtTime;
     svn_wc_status_kind  m_highestPriorityLocalStatus;
-    svn_wc_status2_t    m_svnStatus;
+    svn_wc_status3_t    m_svnStatus;
     __int64             m_lastWriteTime;
     bool                m_bSet;
     svn_node_kind_t     m_kind;

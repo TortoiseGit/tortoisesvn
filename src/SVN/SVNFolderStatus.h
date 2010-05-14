@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2009 - Stefan Kueng
+// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,7 +80,7 @@ typedef struct FileStatusCacheEntry
     bool                    needslock;
     svn_revnum_t            rev;
     int                     askedcounter;
-    svn_lock_t *            lock;
+    const svn_lock_t *      lock;
     bool                    tree_conflict;
 } FileStatusCacheEntry;
 
@@ -115,8 +115,8 @@ public:
 private:
     const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
     DWORD               GetTimeoutValue();
-    static svn_error_t* fillstatusmap (void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
-    static svn_error_t* findfolderstatus (void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
+    static svn_error_t* fillstatusmap (void *baton, const char *path, const svn_wc_status3_t *status, apr_pool_t *pool);
+    static svn_error_t* findfolderstatus (void *baton, const char *path, const svn_wc_status3_t *status, apr_pool_t *pool);
     static CTSVNPath    folderpath;
     void                ClearCache();
 
@@ -126,7 +126,7 @@ private:
     DWORD                   m_TimeStamp;
     FileStatusCacheEntry    dirstat;
     FileStatusCacheEntry    filestat;
-    svn_wc_status2_t *      dirstatus;
+    const svn_wc_status3_t * dirstatus;
     apr_pool_t *            rootpool;
 
     // merging these pools won't save memory

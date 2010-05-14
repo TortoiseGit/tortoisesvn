@@ -288,7 +288,7 @@ UINT CCopyDlg::FindRevThread()
         // find the external properties
         SVNStatus stats(&m_bCancelled);
         CTSVNPath retPath;
-        svn_wc_status2_t * s = NULL;
+        svn_wc_status3_t * s = NULL;
         m_maxrev = 0;
         s = stats.GetFirstFileStatus(m_path, retPath, false, svn_depth_unknown, true, true);
         while ((s) && (!m_bCancelled))

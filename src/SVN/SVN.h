@@ -79,9 +79,9 @@ public:
                             svn_merge_range_t * range,
                             svn_error_t * err, apr_pool_t * pool);
     virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren);
-    virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date,
+    virtual BOOL BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, const CString& author, const CString& date,
                             svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
-                            const CStringA& line);
+                            const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg);
     virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node);
     virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
                             svn_filesize_t size, bool has_props,
@@ -741,6 +741,11 @@ public:
     bool GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified, bool& sparse);
 
     /**
+     * Upgrades the working copy at \c wcpath to the new format
+     */
+    bool Upgrade(const CTSVNPath& wcpath);
+
+    /**
      * Returns the URL associated with the \c path.
      */
     CString GetURLFromPath(const CTSVNPath& path);
@@ -911,17 +916,16 @@ protected:
                         apr_pool_t *pool);
     static svn_error_t* summarize_func(const svn_client_diff_summarize_t *diff,
                     void *baton, apr_pool_t *pool);
-    static svn_error_t* blameReceiver(void *baton,
-                    apr_int64_t line_no,
-                    svn_revnum_t revision,
-                    const char *author,
-                    const char *date,
-                    svn_revnum_t merged_revision,
-                    const char *merged_author,
-                    const char *merged_date,
-                    const char *merged_path,
-                    const char *line,
-                    apr_pool_t *pool);
+    static svn_error_t* blameReceiver(void *baton, 
+                                      apr_int64_t line_no, 
+                                      svn_revnum_t revision, 
+                                      apr_hash_t *rev_props, 
+                                      svn_revnum_t merged_revision, 
+                                      apr_hash_t *merged_rev_props, 
+                                      const char *merged_path, 
+                                      const char *line, 
+                                      svn_boolean_t local_change, 
+                                      apr_pool_t *pool);
     static svn_error_t* listReceiver(void* baton,
                     const char* path,
                     const svn_dirent_t *dirent,

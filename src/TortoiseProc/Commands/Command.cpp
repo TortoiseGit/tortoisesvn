@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -69,6 +69,7 @@
 #include "UpdateCheckCommand.h"
 #include "UpdateCommand.h"
 #include "UrlDiffCommand.h"
+#include "WcUpgradeCommand.h"
 
 
 typedef enum
@@ -123,6 +124,7 @@ typedef enum
     cmdUpdate,
     cmdUpdateCheck,
     cmdUrlDiff,
+    cmdWcUpgrade,
 } TSVNCommand;
 
 static const struct CommandInfo
@@ -181,6 +183,7 @@ static const struct CommandInfo
     {   cmdUpdate,          _T("update")            },
     {   cmdUpdateCheck,     _T("updatecheck")       },
     {   cmdUrlDiff,         _T("urldiff")           },
+    {   cmdWcUpgrade,       _T("wcupgrade")         },
 };
 
 
@@ -306,6 +309,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
         return new UpdateCheckCommand;
     case cmdUrlDiff:
         return new UrlDiffCommand;
+    case cmdWcUpgrade:
+        return new WcUpgradeCommand;
 
     default:
         return new AboutCommand;

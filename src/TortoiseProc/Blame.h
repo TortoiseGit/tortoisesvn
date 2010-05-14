@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,13 +45,13 @@ public:
      * \param path the path to the file to determine the required information
      * \return The path to the temporary file or an empty string in case of an error.
      */
-    CString     BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, const CString& options, BOOL includemerge, BOOL showprogress, BOOL ignoremimetype);
+    CString     BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, const CString& options, BOOL includemerge, BOOL showprogress, BOOL ignoremimetype);
 
     bool        BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge);
 private:
-    BOOL        BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date,
+    BOOL        BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, const CString& author, const CString& date,
                                 svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
-                                const CStringA& line);
+                                const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg);
     BOOL        Cancel();
     BOOL        Notify(const CTSVNPath& path, svn_wc_notify_action_t action,
                         svn_node_kind_t kind, const CString& mime_type,
@@ -59,7 +59,6 @@ private:
                         svn_wc_notify_state_t prop_state, LONG rev,
                         const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
                         svn_error_t * err, apr_pool_t * pool);
-    BOOL        Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren);
 private:
     BOOL        m_bCancelled;           ///< TRUE if the operation should be canceled
     LONG        m_nCounter;             ///< Counts the number of calls to the Cancel() callback (revisions?)
@@ -69,7 +68,6 @@ private:
 
     CString     m_sSavePath;            ///< Where to save the blame data
     CStdioFileT m_saveFile;             ///< The file object to write to
-    CFile       m_saveLog;
     CProgressDlg m_progressDlg;         ///< The progress dialog shown during operation
     LONG        m_lowestrev;
     LONG        m_highestrev;

@@ -4546,8 +4546,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     CBlame blame;
                     CString tempfile;
-                    CString logfile;
-                    tempfile = blame.BlameToTempFile(m_path, dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
+                    tempfile = blame.BlameToTempFile(m_path, dlg.StartRev, dlg.EndRev, dlg.EndRev, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
                     if (!tempfile.IsEmpty())
                     {
                         if (dlg.m_bTextView)
@@ -4558,7 +4557,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                         else
                         {
                             CString sParams = _T("/path:\"") + m_path.GetSVNPathString() + _T("\" ");
-                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),sParams, dlg.StartRev, dlg.EndRev))
+                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),sParams, dlg.StartRev, dlg.EndRev))
                             {
                                 break;
                             }
@@ -5133,8 +5132,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 {
                     CBlame blame;
                     CString tempfile;
-                    CString logfile;
-                    tempfile = blame.BlameToTempFile(CTSVNPath(filepath), dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
+                    tempfile = blame.BlameToTempFile(CTSVNPath(filepath), dlg.StartRev, dlg.EndRev, dlg.EndRev, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
                     if (!tempfile.IsEmpty())
                     {
                         if (dlg.m_bTextView)
@@ -5145,7 +5143,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         else
                         {
                             CString sParams = _T("/path:\"") + filepath + _T("\" ");
-                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(filepath),sParams, dlg.StartRev, dlg.EndRev))
+                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(filepath),sParams, dlg.StartRev, dlg.EndRev))
                             {
                                 break;
                             }

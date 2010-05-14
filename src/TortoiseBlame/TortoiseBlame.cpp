@@ -155,56 +155,6 @@ void TortoiseBlame::SetTitle()
     ::SetWindowText(wMain, title);
 }
 
-BOOL TortoiseBlame::OpenLogFile(const TCHAR *fileName)
-{
-    FILE * File;
-    _tfopen_s(&File, fileName, _T("rb"));
-    if (File == 0)
-    {
-        return FALSE;
-    }
-    LONG rev = 0;
-    std::wstring msg;
-    int slength = 0;
-    int reallength = 0;
-    size_t len = 0;
-    char * stringbuf;
-    for (;;)
-    {
-        len = fread(&rev, sizeof(LONG), 1, File);
-        if (len == 0)
-        {
-            fclose(File);
-            InitSize();
-            return TRUE;
-        }
-        len = fread(&slength, sizeof(int), 1, File);
-        if (len == 0)
-        {
-            fclose(File);
-            InitSize();
-            return FALSE;
-        }
-        if (slength > MAX_LOG_LENGTH)
-        {
-            reallength = slength;
-            slength = MAX_LOG_LENGTH;
-        }
-        else
-            reallength = 0;
-        stringbuf = new char[slength+1];
-        len = fread(stringbuf, sizeof(char), slength, File);
-        stringbuf[slength] = 0;
-        msg = CUnicodeUtils::StdGetUnicode(stringbuf);
-        if (reallength)
-        {
-            fseek(File, reallength-MAX_LOG_LENGTH, SEEK_CUR);
-            msg = msg + _T("\n...");
-        }
-        m_logMessages[rev] = msg;
-    }
-}
-
 BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
 {
     SendEditor(SCI_SETREADONLY, FALSE);
@@ -242,6 +192,8 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
     int strLen = 0;
     for (;;)
     {
+        rev = 0;
+        merged_rev = 0;
         // line number
         len = fread(&linenumber, sizeof(LONG), 1, File);
         if (len == 0)
@@ -422,6 +374,47 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             }
             SendEditor(SCI_ADDTEXT, strlen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
         }
+        if (len == 0)
+            break;
+        len = fread(&strLen, sizeof(int), 1, File);
+        if (len == 0)
+            break;
+        if (strLen)
+        {
+            auto_buffer<char> stringbuf(strLen+1);
+            len = fread(stringbuf.get(), sizeof(char), strLen, File);
+            stringbuf[strLen] = 0;
+            tstring msg = CUnicodeUtils::StdGetUnicode(stringbuf.get());
+            if (rev)
+            {
+                if (msg.size() > MAX_LOG_LENGTH)
+                {
+                    msg = msg.substr(0, MAX_LOG_LENGTH-5);
+                    msg = msg + _T("\n...");
+                }
+                m_logMessages[rev] = msg;
+            }
+        }
+        len = fread(&strLen, sizeof(int), 1, File);
+        if (len == 0)
+            break;
+        if (strLen)
+        {
+            auto_buffer<char> stringbuf(strLen+1);
+            len = fread(stringbuf.get(), sizeof(char), strLen, File);
+            stringbuf[strLen] = 0;
+            tstring msg = CUnicodeUtils::StdGetUnicode(stringbuf.get());
+            if (merged_rev)
+            {
+                if (msg.size() > MAX_LOG_LENGTH)
+                {
+                    msg = msg.substr(0, MAX_LOG_LENGTH-5);
+                    msg = msg + _T("\n...");
+                }
+                m_logMessages[rev] = msg;
+            }
+        }
+
         SendEditor(SCI_ADDTEXT, 2, (LPARAM)"\r\n");
     };
 
@@ -1296,7 +1289,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     SecureZeroMemory(szViewtitle, MAX_PATH);
     SecureZeroMemory(szOrigPath, MAX_PATH);
     TCHAR blamefile[MAX_PATH] = {0};
-    TCHAR logfile[MAX_PATH] = {0};
 
     CCmdLineParser parser(lpCmdLine);
 
@@ -1306,10 +1298,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         _tcscpy_s(blamefile, MAX_PATH, __wargv[1]);
     }
     if (__argc > 2)
-    {
-        _tcscpy_s(logfile, MAX_PATH, __wargv[2]);
-    }
-    if (__argc > 3)
     {
         _tcscpy_s(szViewtitle, MAX_PATH, __wargv[3]);
         if (parser.HasVal(_T("revrange")))
@@ -1337,8 +1325,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     app.SendEditor(SCI_SETCODEPAGE, GetACP());
     app.OpenFile(blamefile);
-    if (_tcslen(logfile)>0)
-        app.OpenLogFile(logfile);
 
     if (parser.HasKey(_T("line")))
     {
