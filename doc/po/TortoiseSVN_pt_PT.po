@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-14 01:06-0000\n"
+"PO-Revision-Date: 2010-05-14 01:47-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1563,7 +1563,7 @@ msgstr "AS próximas secções são um guia passo-a-passo em como instalar tal s
 
 #. (title)
 msgid "Svnserve Based Server"
-msgstr ""
+msgstr "Servidor Baseado em Svnserve "
 
 #. (title)
 #. (title)
@@ -1572,35 +1572,35 @@ msgstr "Introdução"
 
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
-msgstr ""
+msgstr "O Subversion inclui o Svnserve  - um servidor ligeiro e independente que usa um protocolo personalizado sobre uma vulgar ligação TCP/IP. É ideal para instalações pequenas, ou onde não pode ser usado um servidor Apache completo."
 
 #. (para)
 msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server, although it doesn't have some of the advanced features. And now that SASL support is included it is easy to secure as well."
-msgstr ""
+msgstr "Na maioria dos casos o svnserve é mais fácil de instalar e corre mais rápido que um servidor baseado em Apache, apesar de que não terá algumas das funcionalidades avançadas. E agora que o suporte SASL está incluído é também mais fácil torná-lo seguro."
 
 #. (title)
 msgid "Installing svnserve"
-msgstr "Instalar svnserve"
+msgstr "Instalar o svnserve"
 
 #. (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
-msgstr ""
+msgstr "Obter a última versão do Subversion a partir de <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Ou em alternativa obter um instalador pré-embalado a partir do site CollabNet em <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. O instalador irá instalar o svnserve como um serviço Windows, e irá também incluir algumas das ferramentas que necessitarás se fores usar o SASL por razões de segurança."
 
 #. (para)
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
-msgstr ""
+msgstr "Se já tens uma versão do Subversion instalada, e o svnserve está a correr, necessitarás de o parar antes de continuares."
 
 #. (para)
 msgid "Run the Subversion installer. If you run the installer on your server (recommended) you can skip step 4."
-msgstr ""
+msgstr "Corre o instalador do Subversion. Se estiveres a correr o instalador no teu servidor (o que é recomendado) podes saltar o passo 4."
 
 #. (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr ""
+msgstr "Abre o explorador do Windows, vai para a pasta de instalação do Subversion (normalmente <filename>C:\\Program Files\\Subversion</filename>) e na pasta <filename>bin</filename>, encontra os ficheiros <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> e <filename>ssleay32.dll</filename> - copiar esses ficheiros, ou copia apenas toda a pasta <filename>bin</filename> para uma pasta no teu servidor, e.g.  <filename>c:\\svnserve</filename>"
 
 #. (title)
 msgid "Running svnserve"
-msgstr "Executar svnserver"
+msgstr "Executar o svnserver"
 
 #. (para)
 msgid ""
@@ -1608,14 +1608,17 @@ msgid ""
 "svnserve.exe --daemon\n"
 "</screen> svnserve will now start waiting for incoming requests on port 3690. The --daemon switch tells svnserve to run as a daemon process, so it will always exist until it is manually terminated."
 msgstr ""
+"Agora que o svnserve está instalado, precisas de o correr no teu servidor. A abordagem mais simples é correr o seguinte a partir da shell do DOS, ou criar um atalho do Windows: <screen>\n"
+"svnserve.exe --daemon\n"
+"</screen> o svnserve irá arrancar à espera de pedidos na porta 3690. O parâmetro --daemon indica ao svnserve para correr como um processo daemon, para que exista sempre até ser terminado manualmente."
 
 #. (para)
 msgid "If you have not yet created a repository, follow the instructions given with the Apache server setup <xref linkend=\"tsvn-serversetup-apache-4\"/>."
-msgstr ""
+msgstr "Se ainda não criaste um repositório, segue as instruções dadas com a configuração do servidor Apache  <xref linkend=\"tsvn-serversetup-apache-4\"/>."
 
 #. (para)
 msgid "To test that svnserve is working, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to view a repository."
-msgstr ""
+msgstr "Para testar se o svnserve está a funcionar, usa o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Naveguador de repositório</guimenuitem></menuchoice> para visualizares o repositório."
 
 #. (para)
 msgid ""
@@ -1623,6 +1626,9 @@ msgid ""
 "svn://localhost/repos/TestRepo\n"
 "</screen> when prompted by the repo browser."
 msgstr ""
+"Assumindo que o teu repositório está localizado em <filename>c:\\repos\\TestRepo</filename>, e o teu servidor chama-se <filename>localhost</filename>, introduz: <screen>\n"
+"svn://localhost/repos/TestRepo\n"
+"</screen> quando fores solicitado pelo navegador de repositório."
 
 #. (para)
 msgid ""
@@ -1634,18 +1640,25 @@ msgid ""
 "svn://localhost/TestRepo\n"
 "</screen> Note that the --root switch is also needed if your repository is located on a different partition or drive than the location of svnserve on your server."
 msgstr ""
+"Podes também aumentar a segurança e poupar tempo a introduzir URLs com o svnserve usando o parâmetro --root para indicares a localização raiz e restringir o acesso a determinada pasta no servidor: <screen>\n"
+"svnserve.exe --daemon --root drive:\\path\\to\\repository\\root\n"
+"</screen> Usando o teste prévio como guia, o svnserve irá agora correr como: <screen>\n"
+"svnserve.exe --daemon --root c:\\repos\n"
+"</screen> E no TortoiseSVN o nosso URL do navegador de repositório está agora encurtado para: <screen>\n"
+"svn://localhost/TestRepo\n"
+"</screen> Observa que o parâmetro --root é também preciso no caso de o teu repositório estar localizado numa partição ou unidade diferente, da localização do svnserve no teu servidor."
 
 #. (para)
 msgid "Svnserve will service any number of repositories. Just locate them somewhere below the root folder you just defined, and access them using a URL relative to that root."
-msgstr ""
+msgstr "O svnserve irá servir um número qualquer de repositórios. Coloca-os apenas sobre a pasta raiz que acabaste de definir, a acede a eles usando um URL relativo a essa raiz."
 
 #. (title)
 msgid "Run svnserve as a Service"
-msgstr "Executar svnserve como um Serviço"
+msgstr "Executar o svnserve como um Serviço"
 
 #. (para)
 msgid "Running svnserve as a user is usually not the best way. It means always having a user logged in on your server, and remembering to restart it after a reboot. A better way is to run svnserve as a windows service. Starting with Subversion 1.4, svnserve can be installed as a native windows service."
-msgstr ""
+msgstr "Correr o svnserve como utilizador não é normalmente a melhor abordagem. Isso significa ter um utilizador ligado no teu servidor, e lembra-lo de o voltar a arrancar após um reboot. A melhor abordagem é correr o svnserve como um serviço Windows. A partir do Subversion 1.4, o svnserve pode ser instalado como um serviço Windows nativo."
 
 #. (para)
 msgid ""
