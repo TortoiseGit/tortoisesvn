@@ -359,7 +359,7 @@ CStringA CPathUtils::GetAbsoluteURL
 
     /* If the URL is already absolute, there is nothing to do. */
 
-    const char *canonicalized_url = svn_path_canonicalize (URL, pool);
+    const char *canonicalized_url = svn_uri_canonicalize (URL, pool);
     if (svn_path_is_url (canonicalized_url))
         return canonicalized_url;
 
@@ -459,7 +459,7 @@ CStringA CPathUtils::GetAbsoluteURL
         if (scheme.IsEmpty())
             return errorResult;
 
-        return svn_path_canonicalize ( apr_pstrcat ( pool
+        return svn_uri_canonicalize ( apr_pstrcat ( pool
                                                    , scheme
                                                    , ":"
                                                    , URL

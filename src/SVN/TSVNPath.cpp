@@ -199,7 +199,7 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     {
         m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
         m_sUTF8FwdslashPathEscaped.Replace("file:////", "file://");
-        m_sUTF8FwdslashPathEscaped = svn_path_canonicalize(m_sUTF8FwdslashPathEscaped, pool);
+        m_sUTF8FwdslashPathEscaped = svn_uri_canonicalize(m_sUTF8FwdslashPathEscaped, pool);
         return m_sUTF8FwdslashPathEscaped;
     }
     else
@@ -1462,11 +1462,11 @@ private:
     {
         CTSVNPath testPath;
         testPath.SetFromWin(_T("c:\\"));
-        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:") == 0);
+        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:") == 0);
         testPath.SetFromWin(_T("c:\\folder"));
-        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/folder") == 0);
+        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/folder") == 0);
         testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
-        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/a/b/c/d/e") == 0);
+        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/a/b/c/d/e") == 0);
         testPath.SetFromUnknown(_T("http://testing/"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing") == 0);
         testPath.SetFromSVN(NULL);
