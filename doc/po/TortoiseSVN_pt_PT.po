@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-14 00:34-0000\n"
+"PO-Revision-Date: 2010-05-14 01:06-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1543,23 +1543,23 @@ msgstr "Aceder ao Repositório"
 
 #. (para)
 msgid "To use TortoiseSVN (or any other Subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <literal>file://</literal> protocol or you can place them on a server and access them with the <literal>http://</literal> or <literal>svn://</literal> protocols. The two server protocols can also be encrypted. You use <literal>https://</literal> or <literal>svn+ssh://</literal>, or you can use <literal>svn://</literal> with SASL."
-msgstr ""
+msgstr "Para usar o TortoiseSVN (ou qualquer outro cliente Subversion) necessitas de um local para os repositórios. Podes armazená-los localmente e aceder a eles usando o protocolo <literal>file://</literal>, ou podes colocá-los num servidor e aceder a eles com os protocolos literal>http://</literal> ou <literal>svn://</literal>. Estes dois protocolos de ligação ao servidor podem também ser encriptados. Neste caso usarás <literal>https://</literal> ou <literal>svn+ssh://</literal>, ou poderás usar <literal>svn://</literal> com SASL."
 
 #. (para)
 msgid "If you are using a public hosting service such as <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
-msgstr ""
+msgstr "Se estiveres a usar um serviço publico de alojamento como o  <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> ou o teu servidor já foi configurado por alguém, então não precisas de fazer mais nada. Segue directamente para <xref linkend=\"tsvn-dug\"/>."
 
 #. (para)
 msgid "If you don't have a server and you work alone, or if you are just evaluating Subversion and TortoiseSVN in isolation, then local repositories are probably your best choice. Just create a repository on your own PC as described earlier in <xref linkend=\"tsvn-repository\"/>. You can skip the rest of this chapter and go directly to <xref linkend=\"tsvn-dug\"/> to find out how to start using it."
-msgstr ""
+msgstr "Se não tens um servidor e trabalhas a solo, ou se estás a avaliar o Subversion e o TortoiseSVN isoladamente, então os repositórios locais serão, provavelmente, a tua melhor escolha. Cria apenas um repositório no teu PC, como descrito anteriormente em <xref linkend=\"tsvn-repository\"/>. Podes saltar o resto deste capítulo e ir directamente para o <xref linkend=\"tsvn-dug\"/> para descobrires como começar a usá-lo."
 
 #. (para)
 msgid "If you were thinking about setting up a multi-user repository on a network share, think again. Read <xref linkend=\"tsvn-repository-local-share\"/> to find out why we think this is a bad idea. Setting up a server is not as hard as it sounds, and will give you better reliability and probably speed too."
-msgstr ""
+msgstr "Se estavas a pensar em instalares um repositório multi-utilizador numa partilha de rede, pensa outra vez. Consulta <xref linkend=\"tsvn-repository-local-share\"/> para descobrires porque é que nós pensamos que é uma má ideia. Instalar um servidor não é tão difícil como pensas, e dar-te-á mais fiabilidade e provavelmente também velocidade."
 
 #. (para)
 msgid "The next sections are a step-by-step guide on how you can set up such a server on a Windows machine. Of course you can also set up a server on a Linux machine, but that is beyond the scope of this guide. More detailed information on the Subversion server options, and how to choose the best architecture for your situation, can be found in the Subversion book under <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
-msgstr ""
+msgstr "AS próximas secções são um guia passo-a-passo em como instalar tal servidor numa máquina Windows. É claro que também podes instalar o servidor numa máquina Linux, mas isso está para além do âmbito deste guia. Mais informação sobre as opções do servidor Subversion, e em como escolher a melhor arquitectura para a tua situação, podem ser encontradas no livro do Subversion, em <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
 
 #. (title)
 msgid "Svnserve Based Server"
