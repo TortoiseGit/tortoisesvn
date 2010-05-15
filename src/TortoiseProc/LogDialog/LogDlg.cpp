@@ -1297,6 +1297,9 @@ void CLogDlg::StatusThread()
         if (!m_path.IsUrl())
             revWCPath = m_path;
 
+        if (revWCPath.IsUrl() || revWCPath.IsEmpty())
+            return;
+
         svn_revnum_t minrev, maxrev;
         bool switched, modified, sparse;
         SVN().GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
@@ -2707,6 +2710,15 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
                 crText = m_Colors.GetColor(CColors::Added);
             if (action == LOGACTIONS_DELETED)
                 crText = m_Colors.GetColor(CColors::Deleted);
+        }
+        if (m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec)
+        {
+            svn_tristate_t textModifies = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetTextModifies();
+            svn_tristate_t propsModifies = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetPropsModifies();
+            if (textModifies || propsModifies)
+            {
+                //assert(false);
+            }
         }
 
         // Store the color back in the NMLVCUSTOMDRAW struct.
