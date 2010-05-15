@@ -87,6 +87,7 @@ SVN::SVN(void) : m_progressWnd(0)
     , m_commitRev(-1)
 {
     parentpool = svn_pool_create(NULL);
+    svn_ra_initialize(pool);
     svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
 
     Err = svn_config_ensure(NULL, parentpool);
