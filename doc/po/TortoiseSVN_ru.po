@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-15 21:44+0300\n"
+"PO-Revision-Date: 2010-05-15 22:22+0300\n"
 "Last-Translator: Rozboris <rozboris@gmail.com>\n"
 "Language-Team: english to russian translation\n"
 "MIME-Version: 1.0\n"
@@ -11400,7 +11400,7 @@ msgstr "Если вы пока ещё не зафиксировали добав
 
 #. (para)
 msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
-msgstr ""
+msgstr "Если файлы уже находятся в хранилище, то их нужно удалить оттуда и добавить в список игнорируемых. К счастью, у TortoiseSVN есть удобный ярлык для этого. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Разверсировать и добавить к списку игнорируемых</guimenuitem></menuchoice> сначала пометит файл/папку для удаления из хранилища, сохранив локальную копию. Также это добавит элемент к списку игнорируемых так, что он не будет по ошибке заново добавлен обратно в Subversion. Сделав это однажды, вам нужно лишь зафиксировать родительскую папку."
 
 #. (title)
 msgid "Unversion a working copy"
@@ -11528,7 +11528,6 @@ msgid "ASP projects"
 msgstr "проекты ASP"
 
 #. (para)
-#, fuzzy
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
 msgstr "Начиная с версии 1.4.0, установщик TortoiseSVN больше не предоставляет пользователю возможность установки переменной окружения <literal>SVN_ASP_DOT_NET_HACK</literal>, поскольку это вызывало множество проблем и путаницы у пользователей, всегда устанавливающих <emphasis>всё</emphasis>, даже не имея понятия, для чего это предназначено."
 
@@ -11975,7 +11974,6 @@ msgid "/includeexternals"
 msgstr "/ignoreexternals"
 
 #. (entry)
-#, fuzzy
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
 msgstr "Обновляет рабочую копию в <placeholder-1/> до ведущей ревизии (HEAD). Если указан параметр <placeholder-2/>, то показывается диалог, запрашивающий, до какой ревизии должно происходить обновление у пользователя. Чтобы диалог не появлялся, укажите номер ревизии <placeholder-3/>. Другие параметры: <placeholder-4/> и <placeholder-5/>."
 
@@ -12372,9 +12370,8 @@ msgid "Conventions and Basic Rules"
 msgstr "Соглашения и основные правила"
 
 #. (para)
-#, fuzzy
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr "В последующем описании URL расположения хранилища показывается просто как <literal>URL</literal>, и в качестве примера такого URL может служить <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. Путь к рабочей копии показывается просто как <literal>ПУТЬ</literal>, и примером такого пути может быть <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgstr "В последующем описании адрес расположения хранилища показывается просто как <literal>URL</literal>, и в качестве примера такого URL может служить <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. Путь к рабочей копии показывается просто как <literal>ПУТЬ</literal>, и примером такого пути может быть <filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
@@ -12396,7 +12393,7 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
-msgstr ""
+msgstr "The depth combo box items relate to the <literal>-depth</literal> argument."
 
 #. (para)
 #. (para)
@@ -12983,9 +12980,8 @@ msgid "In this appendix we assume that you already have the subversion tools ins
 msgstr "В этом приложении мы предполагаем, что у вас уже установлены инструменты Subversion, и что вы уже создали хранилище, как описано в другом месте руководства. Обратите внимание: вы <emphasis>не должны</emphasis> запускать svnserve как службу или демон при использовании с SSH."
 
 #. (para)
-#, fuzzy
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which has been archived at <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
-msgstr "Большая часть приведённой здесь информации поступила из обучающего документа, подготовленного Марком Логеманном (Marc Logemann), который может быть найден по адресу <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Дополнительная информация по настройке севера Windows была предоставлена Торстеном Мюллером (Thorsten Müller). Спасибо, ребята!"
+msgstr "Большая часть приведённой здесь информации поступила из обучающего документа, подготовленного Марком Логеманном (Marc Logemann), который может быть найден по адресу <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Дополнительная информация по настройке севера Windows была предоставлена Торстеном Мюллером (Thorsten Müller). Спасибо, ребята!"
 
 #. (para)
 msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
@@ -13250,7 +13246,7 @@ msgstr ""
 
 #. (para)
 msgid "The standard installer has support only for English, but you can download separate language packs and spell check dictionaries separately after installation."
-msgstr ""
+msgstr "Стандартный установочный файл поддерживает только английский язык, но вы можете загрузить отдельные языковые пакеты и словари для проверки орфографии после установки."
 
 #. (title)
 msgid "Language Packs"
@@ -13274,7 +13270,7 @@ msgstr "Каждый языковой пакет упакован в <literal>.e
 
 #. (para)
 msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "Документация также была переведена на несколько языков. Вы можете загрузить переведенную документацию со <ulink url=\"http://tortoisesvn.net/support\"><citetitle>страницы поддержки</citetitle></ulink> на нашем сайте."
 
 #. (title)
 msgid "Spellchecker"
