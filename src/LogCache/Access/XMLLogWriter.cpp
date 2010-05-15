@@ -74,6 +74,13 @@ void CXMLLogWriter::WriteChanges ( CBufferedOutFile& file
     static const std::string pathEndText = "</path>\n";
     static const std::string endText = "</paths>\n";
 
+    static const std::string textTriStateUnknownText = "\n   textModifies=\"U\"";
+    static const std::string textTriStateFalseText = "\n   textModifies=\"F\"";
+    static const std::string textTriStateTrueText = "\n   textModifies=\"T\"";
+    static const std::string propsTriStateUnknownText = "\n   propsModifies=\"U\"";
+    static const std::string propsTriStateFalseText = "\n   propsModifies=\"F\"";
+    static const std::string propsTriStateTrueText = "\n   propsModifies=\"T\"";
+
     // write all changes
 
     file << startText;
@@ -107,6 +114,36 @@ void CXMLLogWriter::WriteChanges ( CBufferedOutFile& file
                 break;
             default:
                 break;
+        }
+
+        switch ( iter->GetTextModifies() )
+        {
+        case 0:
+            file << textTriStateUnknownText;
+            break;
+        case 1:
+            file << textTriStateFalseText;
+            break;
+        case 2:
+            file << textTriStateTrueText;
+            break;
+        default:
+            break;
+        }
+
+        switch ( iter->GetPropsModifies() )
+        {
+        case 0:
+            file << propsTriStateUnknownText;
+            break;
+        case 1:
+            file << propsTriStateFalseText;
+            break;
+        case 2:
+            file << propsTriStateTrueText;
+            break;
+        default:
+            break;
         }
 
         file << pathText;

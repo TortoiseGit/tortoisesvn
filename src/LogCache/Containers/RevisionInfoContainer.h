@@ -149,6 +149,8 @@ private:
     std::vector<node_kind_t> changedPathTypes;
     std::vector<index_t> copyFromPaths;
     std::vector<revision_t> copyFromRevisions;
+    std::vector<unsigned char> textModifies;
+    std::vector<unsigned char> propsModifies;
 
     /// merged revisions info
     /// (mergedRangeDeltas[] < 0 -> "undo merge")
@@ -203,7 +205,16 @@ private:
 
         DATA_PRESENCE_STREAM_ID = 22,
 
-        CHANGED_PATHS_TYPES_STREAM_ID = 23
+        CHANGED_PATHS_TYPES_STREAM_ID = 23,
+
+        TEXTMODIFIES_STREAM_ID = 24,
+        PROPSMODIFIES_STREAM_ID = 25
+
+        // TODO:
+        // either get rid of the specific numbers and let the enum assign
+        // the numbers automatically (that's what enums are for!)
+        // or document why it's necessary to never change the manually
+        // assigned numbers
     };
 
     /// index checking utility
@@ -333,6 +344,8 @@ public:
 
         CRevisionInfoContainer::TChangeAction GetAction() const;
         int GetRawChange() const;
+        unsigned char GetTextModifies() const;
+        unsigned char GetPropsModifies() const;
 
         node_kind_t GetPathType() const;
         CDictionaryBasedPath GetPath() const;
@@ -497,7 +510,9 @@ public:
                    , node_kind_t pathType
                    , const std::string& path
                    , const std::string& fromPath
-                   , revision_t fromRevision);
+                   , revision_t fromRevision
+                   , unsigned char text_modified
+                   , unsigned char props_modified);
 
     void AddMergedRevision ( const std::string& fromPath
                            , const std::string& toPath
@@ -651,6 +666,20 @@ CRevisionInfoContainer::CChangesIterator::GetRawChange() const
 {
     assert (IsValid());
     return container->changes[changeOffset];
+}
+
+inline unsigned char
+CRevisionInfoContainer::CChangesIterator::GetTextModifies() const
+{
+    assert (IsValid());
+    return container->textModifies[changeOffset];
+}
+
+inline unsigned char
+CRevisionInfoContainer::CChangesIterator::GetPropsModifies() const
+{
+    assert (IsValid());
+    return container->propsModifies[changeOffset];
 }
 
 inline bool

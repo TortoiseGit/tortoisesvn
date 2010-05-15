@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -114,6 +114,15 @@ void CRevisionInfoContainer::UpdateChanges
     copyFromRevisions.swap (oldCopyFromRevisions);
     copyFromRevisions.reserve (oldCopyFromRevisions.size());
 
+    std::vector<unsigned char> oldTextModifies;
+    textModifies.swap (oldTextModifies);
+    textModifies.reserve (oldTextModifies.size());
+
+    std::vector<unsigned char> oldPropsModifies;
+    propsModifies.swap (oldPropsModifies);
+    propsModifies.reserve (oldPropsModifies.size());
+    
+
     // the container sizes must match
 
     assert (changesOffsets.size() == size() +1);
@@ -140,6 +149,8 @@ void CRevisionInfoContainer::UpdateChanges
                 changes.push_back (newData.changes[k]);
                 changedPathTypes.push_back (newData.changedPathTypes[k]);
                 changedPaths.push_back (*pathIDMapping.find (newData.changedPaths[k]));
+                textModifies.push_back(newData.textModifies[k]);
+                propsModifies.push_back(newData.propsModifies[k]);
             }
 
             for (index_t k = newData.copyFromOffsets [sourceIndex]
@@ -175,6 +186,14 @@ void CRevisionInfoContainer::UpdateChanges
             changedPaths.insert (changedPaths.end()
                                  , oldChangedPaths.begin() + firstChange
                                  , oldChangedPaths.begin() + lastChange);
+
+            textModifies.insert (textModifies.end()
+                                , oldTextModifies.begin() + firstChange
+                                , oldTextModifies.begin() + lastChange);
+
+            propsModifies.insert (propsModifies.end()
+                                , oldPropsModifies.begin() + firstChange
+                                , oldPropsModifies.begin() + lastChange);
 
             // copy-from info, if available
 
@@ -509,11 +528,15 @@ namespace
         unsigned char change;
         index_t copyFromPath;
         revision_t copyFromRevision;
+        unsigned char textModifies;
+        unsigned char propsModifies;
 
         SPerChangeInfo (const CRevisionInfoContainer::CChangesIterator& iter)
             : changedPath (iter->GetPathID())
             , changedPathType (iter->GetPathType())
-            , change ( (unsigned char) iter->GetRawChange())
+            , change ( (unsigned char) iter->GetRawChange() )
+            , textModifies ( (unsigned char) iter->GetTextModifies() )
+            , propsModifies ( (unsigned char) iter->GetPropsModifies() )
         {
             if (iter->HasFromPath())
             {
@@ -568,6 +591,8 @@ void CRevisionInfoContainer::OptimizeChangeOrder()
             changedPaths[changeOffset] = iter->changedPath;
             changedPathTypes[changeOffset] = iter->changedPathType;
             changes[changeOffset] = iter->change;
+            textModifies[changeOffset] = iter->textModifies;
+            propsModifies[changeOffset] = iter->propsModifies;
             ++changeOffset;
 
             if (iter->change & HAS_COPY_FROM)
@@ -644,7 +669,9 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
                                        , node_kind_t pathType
                                        , const std::string& path
                                        , const std::string& fromPath
-                                       , revision_t fromRevision)
+                                       , revision_t fromRevision
+                                       , unsigned char text_modified
+                                       , unsigned char props_modified)
 {
     assert (presenceFlags.back() & HAS_CHANGEDPATHS);
 
@@ -688,6 +715,8 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
         ++copyFromOffsets.back();
     }
 
+    textModifies.push_back(text_modified);
+    propsModifies.push_back(props_modified);
     // another change
 
     ++changesOffsets.back();
@@ -945,6 +974,8 @@ void CRevisionInfoContainer::Clear()
     changedPathTypes.clear();
     copyFromPaths.clear();
     copyFromRevisions.clear();
+    textModifies.clear();
+    propsModifies.clear();
 
     mergedFromPaths.clear();
     mergedToPaths.clear();
@@ -1130,6 +1161,16 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
             (CRevisionInfoContainer::COPYFROM_REVISIONS_STREAM_ID);
     *copyFromRevisionsStream >> container.copyFromRevisions;
 
+    CDiffIntegerInStream* textModifiesStream
+        = stream.GetSubStream<CDiffIntegerInStream>
+            (CRevisionInfoContainer::TEXTMODIFIES_STREAM_ID);
+    *textModifiesStream >> container.textModifies;
+
+    CDiffIntegerInStream* propsModifiesStream
+        = stream.GetSubStream<CDiffIntegerInStream>
+        (CRevisionInfoContainer::PROPSMODIFIES_STREAM_ID);
+    *propsModifiesStream >> container.propsModifies;
+
     // merged revisions
 
     CDiffIntegerInStream* mergedFromPathsStream
@@ -1290,6 +1331,16 @@ IHierarchicalOutStream& operator<< (IHierarchicalOutStream& stream
         = stream.OpenSubStream<CDiffIntegerOutStream>
             (CRevisionInfoContainer::COPYFROM_REVISIONS_STREAM_ID);
     *copyFromRevisionsStream << container.copyFromRevisions;
+
+    CDiffIntegerOutStream* textModifiesStream
+        = stream.OpenSubStream<CDiffIntegerOutStream>
+        (CRevisionInfoContainer::TEXTMODIFIES_STREAM_ID);
+    *textModifiesStream << container.textModifies;
+
+    CDiffIntegerOutStream* propsModifiesStream
+        = stream.OpenSubStream<CDiffIntegerOutStream>
+        (CRevisionInfoContainer::PROPSMODIFIES_STREAM_ID);
+    *propsModifiesStream << container.propsModifies;
 
     // merged revisions
 
