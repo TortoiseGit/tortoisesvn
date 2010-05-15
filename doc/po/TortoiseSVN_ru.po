@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-15 22:22+0300\n"
-"Last-Translator: Rozboris <rozboris@gmail.com>\n"
+"PO-Revision-Date: 2010-05-15 23:24+0300\n"
+"Last-Translator: Boris <rozboris@gmail.com>\n"
 "Language-Team: english to russian translation\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -152,6 +152,7 @@ msgid "What is TortoiseSVN?"
 msgstr "Что такое TortoiseSVN?"
 
 #. (para)
+#, fuzzy
 msgid "TortoiseSVN is a free open-source Windows client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
 msgstr "TortoiseSVN - это бесплатный, с открытыми исходными кодами клиент системы управления версиями <firstterm>Subversion</firstterm>. Это означает, что TortoiseSVN управляет файлами и папками во времени. Файлы хранятся в центральном <firstterm>хранилище</firstterm>, которое очень похоже на обычный файловый сервер, за исключением того, что в нём запоминается каждое изменение, сделанное в ваших файлах и папках. Это позволяет восстанавливать старые версии файлов, и изучать историю того, как и когда изменялись ваши данные, и кем это делалось. Поэтому многие считают Subversion и системы управления версиями вообще своеобразными <quote>машинами времени</quote>."
 
@@ -10617,16 +10618,15 @@ msgstr "Мы не можем предоставить информацию и у
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
-msgstr ""
+msgstr "Вам следует предоставить и 32-битную, и 64-битную версию вашего подключаемого модуля, потому что 64-разрядная версия TortoiseSVN не может использовать 32-х разрядные модули и наоборот."
 
 #. (title)
 msgid "The IBugtraqProvider interface"
 msgstr "Интерфейс IBugtraqProvider"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr "TortoiseSVN 1.5 может использовать подключаемые модули, реализующие интерфейс IBugtraqProvider. Интерфейс предоставляет несколько методов, которые модули могут использовать для взаимодействия с системой отслеживания проблем."
+msgstr "Версии TortoiseSVN 1.5 и выше могут использовать подключаемые модули, реализующие интерфейс IBugtraqProvider. Интерфейс предоставляет несколько методов, которые модули могут использовать для взаимодействия с системой отслеживания проблем."
 
 #. (programlisting)
 #, no-wrap
@@ -10658,9 +10658,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-#, fuzzy
 msgid "This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr "<placeholder-1/> Этот метод вызывается из диалога настроек, где пользователь может добавить и настроить подключаемый модуль. Строка <literal>parameters</literal> может быть использована модулем для получения дополнительной необходимой информации, такой как URL системы отслеживания проблем, учётные данные для подключения и т.п. Модуль должен проверить строку <literal>parameters</literal> и показать окно ошибки в случае неправильной строки. Параметр <literal>hParentWnd</literal> должен быть использован как родительское окно для любого диалога, показываемого модулем. Модуль должен возвращать TRUE если проверка строки  <literal>parameters</literal> прошла успешно. Если модуль возвращает FALSE, диалог настроек не позволит пользователю добавить модуль к пути в рабочей копии."
+msgstr "Этот метод вызывается из диалога настроек, где пользователь может добавить и настроить подключаемый модуль. Строка <literal>parameters</literal> может быть использована модулем для получения дополнительной необходимой информации, такой как URL системы отслеживания проблем, учётные данные для подключения и т.п. Модуль должен проверить строку <literal>parameters</literal> и показать окно ошибки в случае неправильной строки. Параметр <literal>hParentWnd</literal> должен быть использован как родительское окно для любого диалога, показываемого модулем. Модуль должен возвращать TRUE если проверка строки  <literal>parameters</literal> прошла успешно. Если модуль возвращает FALSE, диалог настроек не позволит пользователю добавить модуль к пути в рабочей копии."
 
 #. (programlisting)
 #, no-wrap
@@ -10695,9 +10694,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-#, fuzzy
 msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr "<placeholder-1/> Модуль может предоставить здесь строку, которая используется в диалоге фиксации TortoiseSVN для кнопки вызова модуля, например \"Выберите проблему\" или \"Тикеты\". Убедитесь, что строка не очень длинная, иначе она не поместится на кнопку. Если метод возвращает ошибку (например, <literal>E_NOTIMPL</literal>), для кнопки используется текст по умолчанию."
+msgstr "Модуль может предоставить здесь строку, которая используется в диалоге фиксации TortoiseSVN для кнопки вызова модуля, например \"Выберите проблему\" или \"Выберите тикет\". Убедитесь, что строка не очень длинная, иначе она может не поместиться на кнопку. Если метод возвращает ошибку (например, <literal>E_NOTIMPL</literal>), для кнопки используется текст по умолчанию."
 
 #. (programlisting)
 #, no-wrap
@@ -10744,27 +10742,27 @@ msgstr ""
 
 #. (para)
 msgid "This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button."
-msgstr ""
+msgstr "Это главный метод подключаемого модуля. Этот метод вызывается диалогом фиксации TortoiseSVN, когда пользователь нажимает на кнопку модуля."
 
 #. (para)
 msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
-msgstr ""
+msgstr "Строка <literal>parameters</literal> - это строка, которую пользователь должен ввести в диалоге настроек, когда он конфигурирует подключаемый модуль. Обычно модуль использует её для поиска URL адреса системы отслеживания ошибок и/или информации для подключения и проч."
 
 #. (para)
 msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
-msgstr ""
+msgstr "Строка <literal>commonRoot</literal> содержит родительский путь всех элеметов, выбранных для показа в диалоге фиксации. Обратите внимание, что это <emphasis>не</emphasis>путь всех элементов, которые выбрал пользователь в диалоге фиксации. Для диалогов ответвлений/меток этот путь должен быть скопирован."
 
 #. (para)
 msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
-msgstr ""
+msgstr "Параметр <literal>pathList</literal> содержит массив путей (в виде строк), которые пользователь выбрал для фиксации."
 
 #. (para)
 msgid "The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty."
-msgstr ""
+msgstr "Параметр <literal>originalMessage</literal> содержит текст, введенный в окно сообщений журнала в диалоге фиксации. Если пользователь еще не ввёл никакого текста, эта строка будет пустой."
 
 #. (para)
 msgid "The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr ""
+msgstr "Параметр <literal>newMessage</literal> возвращает строку, скопированную в поле ввода сообщения журнала в диалоге фиксации поверх существовавщей там записи. Если подключаемый модуль не изменяет строку <literal>originalMessage</literal>, он должен возвращать ту же строку, иначе любой введенный пользователем текст будет потерян."
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
@@ -10857,23 +10855,23 @@ msgstr ""
 
 #. (para)
 msgid "This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there."
-msgstr ""
+msgstr "Этот метод вызывается из диалога фиксации TortoiseSVN, когда пользователь нажимает на кнопку подключаемого модуля. Этот метод вызывается вместо <literal>GetCommitMessage()</literal> и здесь используются те же параметры. Параметры описаны в документации к <literal>GetCommitMessage</literal>."
 
 #. (para)
 msgid "The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path."
-msgstr ""
+msgstr "Параметр  <literal>commonURL</literal> - это родительский URL для всех элементов, выбранных для показа в диалоге фиксации. Это по существу URL адрес <literal>commonRoot</literal>."
 
 #. (para)
 msgid "The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>)."
-msgstr ""
+msgstr "В параметре <literal>bugID</literal> находится содержимое поля идентификатора ошибки bug-ID (при отображении параметр настраивается свойством <literal>bugtraq:message</literal>)."
 
 #. (para)
 msgid "The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns."
-msgstr ""
+msgstr "Значение параметра <literal>bugIDOut</literal> используется для заполнения поля идентификатора ошибки bug-ID, когда метод завершает работу."
 
 #. (para)
 msgid "The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
-msgstr ""
+msgstr "Значения параметров <literal>revPropNames</literal> и <literal>revPropValues</literal> могут содержать пары имя/значение для свойств ревизии устанавливаемых при фиксации. Подключаемый модуль должен удостовериться, что оба массива при возвращении имеют одинаковый размер! Также каждое имя свойства в <literal>revPropNames</literal> должно иметь соответствующее значение в <literal>revPropValues</literal>. Если никакие свойства ревизии не установлены, подключаемый модуль должен вернуть пустой массив."
 
 #. (programlisting)
 #, no-wrap
@@ -10901,18 +10899,16 @@ msgstr ""
 ");\n"
 
 #. (para)
-#, fuzzy
 msgid "This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items."
-msgstr "<placeholder-1/> Этот метод вызывается непосредственно перед закрытием диалога фиксации и началом фиксации. Модуль может использовать этот метод для проверки выбранных для фиксации файлов/папок и/или сообщения фиксации, введённого пользователем. Параметры те же, что и для <literal>GetCommitMessage2()</literal>, но с отличием в том, что <literal>commonURL</literal> теперь общий URL всех <emphasis>отмеченных</emphasis> элементов, и <literal>commonRoot</literal> - корневой путь всех отмеченных элементов. Возвращаемый параметр <literal>errorMessage</literal> должен содержать или сообщение об ошибке, которое TortoiseSVN покажет пользователю, или должен быть пустым для начала фиксации. Если возвращается сообщение об ошибке, TortoiseSVN показывает это сообщение в диалоге и оставляет диалог фиксации открытым, чтобы пользователь мог исправить ошибку. Поэтому модуль должен возвращать сообщение об ошибке, информирующее пользователя, <emphasis>что</emphasis> именно не так и как это исправить."
+msgstr "Этот метод вызывается непосредственно перед закрытием диалога фиксации и началом фиксации. Модуль может использовать этот метод для проверки выбранных для фиксации файлов/папок и/или сообщения фиксации, введённого пользователем. Параметры те же, что и для <literal>GetCommitMessage2()</literal>, но с отличаютсятем, что <literal>commonURL</literal> теперь общий URL всех <emphasis>отмеченных</emphasis> элементов, и <literal>commonRoot</literal> - корневой путь всех отмеченных элементов."
 
 #. (para)
 msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source URL of the copy, and <literal>commonRoot</literal> is set to the target URL of the copy."
-msgstr ""
+msgstr "<literal>commonURL</literal> - это источник URL адреса копии для диалога ответвления/метки, и <literal>commonRoot</literal> - задает целевой URL для копии."
 
 #. (para)
-#, fuzzy
 msgid "The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
-msgstr "<placeholder-1/> Этот метод вызывается непосредственно перед закрытием диалога фиксации и началом фиксации. Модуль может использовать этот метод для проверки выбранных для фиксации файлов/папок и/или сообщения фиксации, введённого пользователем. Параметры те же, что и для <literal>GetCommitMessage2()</literal>, но с отличием в том, что <literal>commonURL</literal> теперь общий URL всех <emphasis>отмеченных</emphasis> элементов, и <literal>commonRoot</literal> - корневой путь всех отмеченных элементов. Возвращаемый параметр <literal>errorMessage</literal> должен содержать или сообщение об ошибке, которое TortoiseSVN покажет пользователю, или должен быть пустым для начала фиксации. Если возвращается сообщение об ошибке, TortoiseSVN показывает это сообщение в диалоге и оставляет диалог фиксации открытым, чтобы пользователь мог исправить ошибку. Поэтому модуль должен возвращать сообщение об ошибке, информирующее пользователя, <emphasis>что</emphasis> именно не так и как это исправить."
+msgstr "Возвращаемый параметр <literal>errorMessage</literal> должен содержать или сообщение об ошибке, которое TortoiseSVN покажет пользователю, или должен быть пустым для начала фиксации. Если возвращается сообщение об ошибке, TortoiseSVN показывает это сообщение в диалоге и оставляет диалог фиксации открытым, чтобы пользователь мог исправить ошибку. Поэтому модуль должен возвращать сообщение об ошибке, информирующее пользователя, <emphasis>что</emphasis> именно не так и как это исправить."
 
 #. (programlisting)
 #, no-wrap
@@ -10967,9 +10963,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-#, fuzzy
 msgid "This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
-msgstr "<placeholder-1/> Этот метод вызывается после успешной фиксации. Модуль может использовать этот метод например для закрытия выбранной проблемы или для добавления информации о фиксации к проблеме. Параметры те же, что и для <literal>GetCommitMessage2</literal>."
+msgstr " Этот метод вызывается после успешной фиксации. Модуль может использовать этот метод, например, для закрытия выбранной проблемы или для добавления информации о фиксации к проблеме. Параметры те же, что и для <literal>GetCommitMessage2</literal>."
 
 #. (programlisting)
 #, no-wrap
@@ -10987,9 +10982,8 @@ msgstr ""
 ");\n"
 
 #. (para)
-#, fuzzy
 msgid "This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
-msgstr "<placeholder-1/> Этот метод вызывается из диалога настроек, в котором пользователь может настраивать подключаемые модули. Если модуль предоставляет свой  собственный диалог параметров посредством <literal>ShowOptionsDialog</literal>, он должен вернуть здесь TRUE, иначе он должен возвращать FALSE."
+msgstr "Этот метод вызывается из диалога настроек, в котором пользователь может настраивать подключаемые модули. Если модуль предоставляет свой  собственный диалог параметров посредством <literal>ShowOptionsDialog</literal>, он должен вернуть здесь TRUE, иначе он должен возвращать FALSE."
 
 #. (programlisting)
 #, no-wrap
@@ -11020,16 +11014,15 @@ msgstr ""
 
 #. (para)
 msgid "This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin."
-msgstr ""
+msgstr "Этот метод вызывается из диалога настроек, когда пользователь нажимает на кнопку \"Options\". Она отображается, если <literal>HasOptions</literal> возвращиетTRUE. Подключаемый модуль может отображать диалог настроек для упрощения настройки модуля пользователем. "
 
 #. (para)
 msgid "The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered."
-msgstr ""
+msgstr "Строка <literal>parameters</literal> содержит уже установленные/введенные строковые параметры модуля. "
 
 #. (para)
-#, fuzzy
 msgid "The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
-msgstr "<placeholder-1/> Этот метод вызывается из диалога настроек, когда пользователь нажимает на кнопку \"Параметры\", которая показывается, если <literal>HasOptions</literal> возвращает TRUE. Модуль может показать диалог настройки параметров для облегчения пользователю задачи настройки модуля. Строка <literal>parameters</literal> содержит строку уже введённых/установленных параметров модуля. Возвращаемый параметр <literal>newparameters</literal> должен содержать строку параметров, которую модуль составляет на основании информации, собранной в собственном диалоге настройки параметров. Эта строка <literal>paramameters</literal> передаётся всем остальным методам IBugtraqProvider и IBugtraqProvider2."
+msgstr "Возвращаемый параметр <literal>newparameters</literal> должен содержать строку параметров, которую модуль составляет на основании информации, собранной в собственном диалоге настройки параметров. Эта строка <literal>paramameters</literal> передаётся всем остальным методам IBugtraqProvider и IBugtraqProvider2."
 
 # ---- App. A
 #. (title)
