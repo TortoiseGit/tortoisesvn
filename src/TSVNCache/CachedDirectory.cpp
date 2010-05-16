@@ -505,7 +505,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
         TRUE,       // no ignores
         FALSE,      // ignore externals
         NULL,       // changelists
-        CSVNStatusCache::Instance().m_svnHelp.ClientContext(),
+        CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool),
         subPool
         );
     {

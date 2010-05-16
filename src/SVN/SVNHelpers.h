@@ -67,12 +67,13 @@ private:
 
 public:
     apr_pool_t*         Pool() const { return m_pool; }
-    svn_client_ctx_t*   ClientContext() const { return m_ctx; }
+    svn_client_ctx_t*   ClientContext(apr_pool_t * pool) const;
     void                Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
     void                ReloadConfig();
 protected:
     apr_pool_t *        m_pool;
     svn_client_ctx_t *  m_ctx;
+    apr_hash_t *        m_config;
     bool                m_bCancelled;
 
     static svn_error_t * cancelfunc(void * cancelbaton);

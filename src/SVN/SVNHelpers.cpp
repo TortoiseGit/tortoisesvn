@@ -55,7 +55,7 @@ SVNHelper::SVNHelper(void)
     svn_error_clear(svn_client_create_context(&m_ctx, m_pool));
     m_ctx->cancel_func = cancelfunc;
     m_ctx->cancel_baton = this;
-    svn_error_clear(svn_config_get_config(&(m_ctx->config), NULL, m_pool));
+    svn_error_clear(svn_config_get_config(&(m_config), NULL, m_pool));
 }
 
 SVNHelper::~SVNHelper(void)
@@ -65,7 +65,22 @@ SVNHelper::~SVNHelper(void)
 
 void SVNHelper::ReloadConfig()
 {
-    svn_error_clear(svn_config_get_config(&(m_ctx->config), NULL, m_pool));
+    svn_error_clear(svn_config_get_config(&(m_config), NULL, m_pool));
+    m_ctx->config = m_config;
+}
+
+svn_client_ctx_t * SVNHelper::ClientContext(apr_pool_t * pool) const
+{
+    if (pool == NULL)
+        return m_ctx;
+
+    svn_client_ctx_t * ctx;
+    svn_error_clear(svn_client_create_context(&ctx, pool));
+    ctx->cancel_func = cancelfunc;
+    ctx->cancel_baton = (void *)this;
+    ctx->config = m_config;
+
+    return ctx;
 }
 
 svn_error_t * SVNHelper::cancelfunc(void * cancelbaton)
