@@ -2433,6 +2433,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     {
                         CTSVNPathList ignorelist;
                         FillListOfSelectedItemPaths(ignorelist);
+                        if (ignorelist.GetCount() == 0)
+                            ignorelist.AddPath(filepath);
                         // check if all selected entries have the same extension
                         bool bSameExt = true;
                         CString sExt;
@@ -2612,6 +2614,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     CTSVNPathList targetList;
                     FillListOfSelectedItemPaths(targetList);
+                    if (targetList.GetCount() == 0)
+                        targetList.AddPath(filepath);
                     CEditPropertiesDlg dlg;
                     dlg.SetPathList(targetList);
                     dlg.DoModal();
@@ -2667,6 +2671,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     {
                         CTSVNPathList targetList;
                         FillListOfSelectedItemPaths(targetList);
+                        if (targetList.GetCount() == 0)
+                            targetList.AddPath(filepath);
 
                         // make sure that the list is reverse sorted, so that
                         // children are removed before any parents
@@ -2950,6 +2956,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     SVN svn;
                     CTSVNPathList itemsToRemove;
                     FillListOfSelectedItemPaths(itemsToRemove);
+                    if (itemsToRemove.GetCount() == 0)
+                        itemsToRemove.AddPath(filepath);
 
                     // We must sort items before removing, so that files are always removed
                     // *before* their parents
@@ -3033,6 +3041,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     CTSVNPathList pathlist;
                     FillListOfSelectedItemPaths(pathlist);
+                    if (pathlist.GetCount() == 0)
+                        pathlist.AddPath(filepath);
                     pathlist.RemoveChildren();
                     CString filelist;
                     for (INT_PTR i=0; i<pathlist.GetCount(); ++i)
@@ -3060,6 +3070,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         SetRedraw(FALSE);
                         POSITION pos = NULL;
                         CTSVNPathList deletedlist;  // to store list of deleted folders
+                        bool bHadSelected = false;
                         while ((pos = GetFirstSelectedItemPosition()) != 0)
                         {
                             int index = GetNextSelectedItem(pos);
@@ -3070,6 +3081,17 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             if ((fentry)&&(fentry->isfolder))
                                 deletedlist.AddPath(fentry->path);
                             RemoveListEntry(index);
+                            bHadSelected = true;
+                        }
+                        if (!bHadSelected)
+                        {
+                            if (GetCheck(selIndex))
+                                m_nSelected--;
+                            m_nTotal--;
+                            FileEntry * fentry = GetListEntry(selIndex);
+                            if ((fentry)&&(fentry->isfolder))
+                                deletedlist.AddPath(fentry->path);
+                            RemoveListEntry(selIndex);
                         }
                         // now go through the list of deleted folders
                         // and remove all their children from the list too!
@@ -3096,6 +3118,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     CString name = _T("*")+filepath.GetFileExtension();
                     CTSVNPathList ignorelist;
                     FillListOfSelectedItemPaths(ignorelist, true);
+                    if (ignorelist.GetCount() == 0)
+                        ignorelist.AddPath(filepath);
                     std::set<CTSVNPath> parentlist;
                     for (int i=0; i<ignorelist.GetCount(); ++i)
                     {
@@ -3243,6 +3267,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     CTSVNPathList ignorelist;
                     std::vector<CString> toremove;
                     FillListOfSelectedItemPaths(ignorelist, true);
+                    if (ignorelist.GetCount() == 0)
+                        ignorelist.AddPath(filepath);
                     SetRedraw(FALSE);
                     for (int j=0; j<ignorelist.GetCount(); ++j)
                     {
@@ -3447,6 +3473,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     SVN svn;
                     CTSVNPathList itemsToAdd;
                     FillListOfSelectedItemPaths(itemsToAdd);
+                    if (itemsToAdd.GetCount() == 0)
+                        itemsToAdd.AddPath(filepath);
 
                     // We must sort items before adding, so that folders are always added
                     // *before* any of their children
@@ -3482,6 +3510,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     CTSVNPathList itemsToAdd;
                     FillListOfSelectedItemPaths(itemsToAdd);
+                    if (itemsToAdd.GetCount() == 0)
+                        itemsToAdd.AddPath(filepath);
 
                     CAddDlg dlg;
                     dlg.m_pathList = itemsToAdd;
@@ -3725,6 +3755,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     CTSVNPathList changelistItems;
                     FillListOfSelectedItemPaths(changelistItems);
+                    if (changelistItems.GetCount() == 0)
+                        changelistItems.AddPath(filepath);
                     SVN svn;
                     SetRedraw(FALSE);
                     if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
@@ -3785,6 +3817,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         break;
                     CTSVNPathList changelistItems;
                     FillListOfSelectedItemPaths(changelistItems);
+                    if (changelistItems.GetCount() == 0)
+                        changelistItems.AddPath(filepath);
 
                     // find the changelist name
                     CString sChangelist;
