@@ -236,6 +236,10 @@ void CXMLLogReader::ParseChanges (const char* current
             = GetXMLTextAttribute (current, changesEnd, "copyfrom-path", 13);
         revision_t fromRevision
             = GetXMLRevisionAttribute (current, changesEnd, "copyfrom-rev", 12);
+        std::string textModifiesText
+            = GetXMLTextAttribute (current, changesEnd, "textModifies", 12);
+        std::string propsModifiesText
+            = GetXMLTextAttribute (current, changesEnd, "propsModifies", 13);
 
         current = (const char*) memchr (current, '>', changesEnd - current) +1;
         std::string path (current, changeEnd);
@@ -265,7 +269,48 @@ void CXMLLogReader::ParseChanges (const char* current
                 continue;
         }
 
-        target.AddChange (action, node_unknown, path, fromPath, fromRevision);
+        unsigned char textModifies = 0;
+        switch (textModifiesText[0])
+        {
+        case 'T':
+            textModifies = 2;
+            break;
+
+        case 'F':
+            textModifies = 1;
+            break;
+
+        case 'U':
+            textModifies = 0;
+            break;
+
+        default:
+            std::cerr << "ignoring unknown textModifies type" << std::endl;
+            continue;
+    }
+
+        unsigned char propsModifies = 0;
+        switch (propsModifiesText[0])
+        {
+        case 'T':
+            propsModifies = 2;
+            break;
+
+        case 'F':
+            propsModifies = 1;
+            break;
+
+        case 'U':
+            propsModifies = 0;
+            break;
+
+        default:
+            std::cerr << "ignoring unknown textModifies type" << std::endl;
+            continue;
+        }
+
+
+        target.AddChange (action, node_unknown, path, fromPath, fromRevision, textModifies, propsModifies);
     }
 }
 

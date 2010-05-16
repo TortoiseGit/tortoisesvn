@@ -96,9 +96,7 @@ bool ConflictEditorCommand::Execute()
         }
     }
 
-    if (stat.status->tree_conflict)
-    {
-        // we have a tree conflict
+    // check a tree conflict
         SVNInfo info;
         const SVNInfoData * pInfoData = info.GetFirstFileInfo(merge, SVNRev(), SVNRev());
         if (pInfoData)
@@ -301,14 +299,14 @@ bool ConflictEditorCommand::Execute()
                 dlg.SetConflictInfoText(sConflictReason);
                 dlg.SetResolveTexts(sResolveTheirs, sResolveMine);
                 dlg.SetPath(treeConflictPath);
-                dlg.SetConflictSources(stat.status->tree_conflict->src_left_version, stat.status->tree_conflict->src_right_version);
+            dlg.SetConflictLeftSources(pInfoData->src_left_version_url, pInfoData->src_left_version_path, pInfoData->src_left_version_rev, pInfoData->src_left_version_kind);
+            dlg.SetConflictRightSources(pInfoData->src_right_version_url, pInfoData->src_right_version_path, pInfoData->src_right_version_rev, pInfoData->src_right_version_kind);
                 dlg.SetConflictReason(pInfoData->treeconflict_reason);
                 dlg.SetConflictAction(pInfoData->treeconflict_action);
                 INT_PTR dlgRet = dlg.DoModal();
                 bRet = (dlgRet != IDCANCEL);
             }
         }
-    }
 
     return bRet;
 }

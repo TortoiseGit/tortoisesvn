@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,6 +37,8 @@ private:
     svn_revnum_t copyFromRev;
     svn_node_kind_t nodeKind;
     DWORD action;
+    svn_tristate_t textModifies;
+    svn_tristate_t propsModifies;
 
     /// true, if it affects the content of the path that
     /// the log was originally shown for
@@ -65,6 +67,8 @@ public:
     svn_revnum_t GetCopyFromRev() const {return copyFromRev;}
     svn_node_kind_t GetNodeKind() const {return nodeKind;}
     DWORD GetAction() const {return action;}
+    svn_tristate_t GetTextModifies() const {return textModifies;}
+    svn_tristate_t GetPropsModifies() const {return propsModifies;}
 
     bool IsRelevantForStartPath() const {return relevantForStartPath;}
 

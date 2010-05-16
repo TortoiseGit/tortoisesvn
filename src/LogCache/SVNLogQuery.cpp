@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -203,6 +203,9 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
                 {
                     entry.copyFromRev = 0;
                 }
+
+                entry.text_modified = log_item->text_modified;
+                entry.props_modified = log_item->props_modified;
             }
         }
         else if (log_entry->changed_paths != NULL)
@@ -254,6 +257,9 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
                 {
                     entry.copyFromRev = 0;
                 }
+
+                entry.text_modified = svn_tristate_unknown;;
+                entry.props_modified = svn_tristate_unknown;
             }
         }
     }

@@ -1375,9 +1375,6 @@
     <ClInclude Include="AutoTextTestDlg.h">
       <Filter>Commands\Misc</Filter>
     </ClInclude>
-    <ClInclude Include="BstrSafeVector.h">
-      <Filter>Commands\Misc</Filter>
-    </ClInclude>
     <ClInclude Include="Commands\CatCommand.h">
       <Filter>Commands\Misc</Filter>
     </ClInclude>
@@ -1965,6 +1962,12 @@
     </ClInclude>
     <ClInclude Include="..\Utils\Libraries.h">
       <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="BstrSafeVector.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\WcUpgradeCommand.h">
+      <Filter>Commands\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

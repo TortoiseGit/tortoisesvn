@@ -21,6 +21,7 @@
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
 #include "ProgressDlg.h"
+#include "SVNRev.h"
 
 class CTreeConflictEditorDlg : public CResizableStandAloneDialog
 {
@@ -33,7 +34,8 @@ public:
     void SetConflictInfoText(const CString& info) {m_sConflictInfo = info;}
     void SetResolveTexts(const CString& usetheirs, const CString& usemine) {m_sUseTheirs = usetheirs; m_sUseMine = usemine;}
     void SetPath(const CTSVNPath& path) {m_path = path;}
-    void SetConflictSources(svn_wc_conflict_version_t * left, svn_wc_conflict_version_t * right) {src_left = left; src_right = right;}
+    void SetConflictLeftSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind);
+    void SetConflictRightSources(const CString& url, const CString& path, const SVNRev& rev, svn_node_kind_t kind);
     void SetConflictAction(svn_wc_conflict_action_t action) {conflict_action = action;}
     void SetConflictReason(svn_wc_conflict_reason_t reason) {conflict_reason = reason;}
 
@@ -66,10 +68,18 @@ private:
     CString             m_sUseMine;
     CTSVNPath           m_path;
     CTSVNPath           m_copyfromPath;
-    svn_wc_conflict_version_t * src_left;
-    svn_wc_conflict_version_t * src_right;
     svn_wc_conflict_reason_t conflict_reason;
     svn_wc_conflict_action_t conflict_action;
+
+
+    CString             src_right_version_url;
+    CString             src_right_version_path;
+    SVNRev              src_right_version_rev;
+    svn_node_kind_t     src_right_version_kind;
+    CString             src_left_version_url;
+    CString             src_left_version_path;
+    SVNRev              src_left_version_rev;
+    svn_node_kind_t     src_left_version_kind;
 };
 
 static UINT WM_AFTERTHREAD = RegisterWindowMessage(_T("TORTOISESVN_AFTERTHREAD_MSG"));

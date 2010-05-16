@@ -41,6 +41,31 @@
 			<arg value="subversion\libsvn_fs_fs\rep-cache-db.sql" />
 			<arg value="subversion\libsvn_fs_fs\rep-cache-db.h" />
 		</exec>
+		<exec program="python.exe">
+			<arg value="build\transform_sql.py" />
+			<arg value="subversion\libsvn_fs_fs\revprops-db.sql" />
+			<arg value="subversion\libsvn_fs_fs\revprops-db.h" />
+		</exec>
+		<exec program="python.exe">
+			<arg value="build\transform_sql.py" />
+			<arg value="subversion\libsvn_wc\wc-metadata.sql" />
+			<arg value="subversion\libsvn_wc\wc-metadata.h" />
+		</exec>
+		<exec program="python.exe">
+			<arg value="build\transform_sql.py" />
+			<arg value="subversion\libsvn_wc\wc-checks.sql" />
+			<arg value="subversion\libsvn_wc\wc-checks.h" />
+		</exec>
+		<exec program="python.exe">
+			<arg value="build\transform_sql.py" />
+			<arg value="subversion\libsvn_wc\wc-queries.sql" />
+			<arg value="subversion\libsvn_wc\wc-queries.h" />
+		</exec>
+		<exec program="python.exe">
+			<arg value="build\transform_sql.py" />
+			<arg value="subversion\libsvn_subr\internal_statements.sql" />
+			<arg value="subversion\libsvn_subr\internal_statements.h" />
+		</exec>
 
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />

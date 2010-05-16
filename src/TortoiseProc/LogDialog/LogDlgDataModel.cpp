@@ -58,6 +58,8 @@ CLogChangedPath::CLogChangedPath
     , nodeKind (static_cast<svn_node_kind_t>(iter->GetPathType()))
     , action ((DWORD)iter.GetAction() / 4)
     , copyFromRev (0)
+    , textModifies(static_cast<svn_tristate_t>(iter->GetTextModifies()))
+    , propsModifies(static_cast<svn_tristate_t>(iter->GetPropsModifies()))
 {
     // set copy-from info, if available
 

@@ -50,7 +50,7 @@
 
           <Component Id="C__infofiles" Guid="$(var.GuidInfoFiles)" Win64="$(var.Win64YesNo)">
             <File Id="F__changelog" Name="Changelog.txt" DiskId="1" Source="..\Changelog.txt" KeyPath="yes" />
-            <File Id="F__subversionlicense" Name="Subversion license.txt" DiskId="1" Source="..\..\ext\Subversion\subversion\LICENSE" />
+            <File Id="F__subversionlicense" Name="Subversion license.txt" DiskId="1" Source="..\..\ext\Subversion\LICENSE" />
             <File Id="F__tortoisesvnlicense" Name="TortoiseSVN License.txt" DiskId="1" Source="..\gpl.txt" />
             <File Id="F__openssllicense" Name="OpenSSL License.txt" DiskId="1" Source="include\OpenSSL_License.txt" />
             <File Id="F__aprlicense" Name="apr License.txt" DiskId="1" Source="..\..\ext\apr\LICENSE" />

@@ -60,7 +60,7 @@ struct TSVNCacheRequest
  */
 struct TSVNCacheResponse
 {
-    svn_wc_status2_t m_status;
+    svn_wc_status3_t m_status;
     svn_wc_entry_t m_entry;
     svn_node_kind_t m_kind;
     char m_url[INTERNET_MAX_URL_LENGTH+1];

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -203,7 +203,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 
     const char* svnPath = path.GetSVNApiPath(pool);
     SVNTRACE (
-        err = svn_client_status4 (&youngest,
+        err = svn_client_status5 (&youngest,
                                 svnPath,
                                 &rev,
                                 getallstatus,
@@ -300,7 +300,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
     SVNTRACE (
-        m_err = svn_client_status4 (&youngest,
+        m_err = svn_client_status5 (&youngest,
                                 svnPath,
                                 &rev,
                                 getstatushash,
@@ -331,11 +331,11 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     // only the first entry is needed (no recurse)
     item = &APR_ARRAY_IDX (statusarray, 0, const sort_item);
 
-    status = (svn_wc_status2_t *) item->value;
+    status = (svn_wc_status3_t *) item->value;
 
     return youngest;
 }
-svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update, svn_depth_t depth, bool bNoIgnore /* = true */, bool bNoExternals /* = false */)
+svn_wc_status3_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update, svn_depth_t depth, bool bNoIgnore /* = true */, bool bNoExternals /* = false */)
 {
     const sort_item*            item;
 
@@ -353,7 +353,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
     SVNTRACE (
-        m_err = svn_client_status4 (&headrev,
+        m_err = svn_client_status5 (&headrev,
                                 svnPath,
                                 &rev,
                                 getstatushash,
@@ -384,7 +384,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
     m_statushashindex = 0;
     item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
     retPath.SetFromSVN((const char*)item->key);
-    return (svn_wc_status2_t *) item->value;
+    return (svn_wc_status3_t *) item->value;
 }
 
 unsigned int SVNStatus::GetVersionedCount() const
@@ -403,7 +403,7 @@ unsigned int SVNStatus::GetVersionedCount() const
     return count;
 }
 
-svn_wc_status2_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
+svn_wc_status3_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 {
     const sort_item*            item;
 
@@ -413,7 +413,7 @@ svn_wc_status2_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 
     item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
     retPath.SetFromSVN((const char*)item->key);
-    return (svn_wc_status2_t *) item->value;
+    return (svn_wc_status3_t *) item->value;
 }
 
 bool SVNStatus::IsExternal(const CTSVNPath& path) const
@@ -705,7 +705,7 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
     return ret;
 }
 
-svn_error_t * SVNStatus::getallstatus(void * baton, const char * /*path*/, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
+svn_error_t * SVNStatus::getallstatus(void * baton, const char * /*path*/, const svn_wc_status3_t * status, apr_pool_t * /*pool*/)
 {
     svn_wc_status_kind * s = (svn_wc_status_kind *)baton;
     *s = SVNStatus::GetMoreImportant(*s, status->text_status);
@@ -713,7 +713,7 @@ svn_error_t * SVNStatus::getallstatus(void * baton, const char * /*path*/, svn_w
     return SVN_NO_ERROR;
 }
 
-svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
+svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, const svn_wc_status3_t * status, apr_pool_t * /*pool*/)
 {
     hashbaton_t * hash = (hashbaton_t *)baton;
     const StdStrAVector& filterList = hash->pThis->m_filterFileList;
@@ -732,7 +732,7 @@ svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, svn_wc_s
             return SVN_NO_ERROR;
         }
     }
-    svn_wc_status2_t * statuscopy = svn_wc_dup_status2 (status, hash->pThis->m_pool);
+    svn_wc_status3_t * statuscopy = svn_wc_dup_status3 (status, hash->pThis->m_pool);
     apr_hash_set (hash->hash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, statuscopy);
     return SVN_NO_ERROR;
 }

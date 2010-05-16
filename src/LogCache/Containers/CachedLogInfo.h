@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -212,7 +212,9 @@ public:
                    , node_kind_t pathType
                    , const std::string& path
                    , const std::string& fromPath
-                   , revision_t fromRevision);
+                   , revision_t fromRevision
+                   , unsigned char text_modified
+                   , unsigned char props_modified);
 
     void AddMergedRevision ( const std::string& fromPath
                            , const std::string& toPath
@@ -302,10 +304,12 @@ inline void CCachedLogInfo::AddChange ( TChangeAction action
                                       , node_kind_t pathType
                                       , const std::string& path
                                       , const std::string& fromPath
-                                      , revision_t fromRevision)
+                                      , revision_t fromRevision
+                                      , unsigned char text_modified
+                                      , unsigned char props_modified)
 {
     assert (revisionAdded);
-    logInfo.AddChange (action, pathType, path, fromPath, fromRevision);
+    logInfo.AddChange (action, pathType, path, fromPath, fromRevision, text_modified, props_modified);
 }
 
 inline void CCachedLogInfo::AddMergedRevision ( const std::string& fromPath

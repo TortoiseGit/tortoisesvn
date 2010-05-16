@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -88,7 +88,7 @@ void UnescapeCopy(char * src, char * dest, int buf_len)
     *pszDest = '\0';
 }
 
-svn_error_t * getfirststatus(void * baton, const char * /*path*/, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
+svn_error_t * getfirststatus(void * baton, const char * /*path*/, const svn_wc_status3_t * status, apr_pool_t * /*pool*/)
 {
     SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
     if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
@@ -102,7 +102,7 @@ svn_error_t * getfirststatus(void * baton, const char * /*path*/, svn_wc_status2
     return SVN_NO_ERROR;
 }
 
-svn_error_t * getallstatus(void * baton, const char * path, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
+svn_error_t * getallstatus(void * baton, const char * path, const svn_wc_status3_t * status, apr_pool_t * /*pool*/)
 {
     SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
     if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
@@ -239,8 +239,8 @@ svn_status (    const char *path,
     svn_opt_revision_t wcrev;
     wcrev.kind = svn_opt_revision_working;
 
-    SVN_ERR(svn_client_status4(NULL, path, &wcrev, getfirststatus, &sb, svn_depth_empty, true, false, true, true, NULL, ctx, pool));
-    SVN_ERR(svn_client_status4(NULL, path, &wcrev, getallstatus, &sb, svn_depth_infinity, true, false, true, true, NULL, ctx, pool));
+    SVN_ERR(svn_client_status5(NULL, path, &wcrev, getfirststatus, &sb, svn_depth_empty, true, false, true, true, NULL, ctx, pool));
+    SVN_ERR(svn_client_status5(NULL, path, &wcrev, getallstatus, &sb, svn_depth_infinity, true, false, true, true, NULL, ctx, pool));
 
 
 

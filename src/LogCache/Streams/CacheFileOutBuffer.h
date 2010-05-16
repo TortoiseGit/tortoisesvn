@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,8 +38,8 @@ typedef int STREAM_INDEX;
 
 enum
 {
-    OUR_LOG_CACHE_FILE_VERSION = 0x20090623,
-    MIN_LOG_CACHE_FILE_VERSION = 0x20090623
+    OUR_LOG_CACHE_FILE_VERSION = 0x20100515,
+    MIN_LOG_CACHE_FILE_VERSION = 0x20100515
 };
 
 /**

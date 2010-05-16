@@ -475,23 +475,17 @@ void CSVNStatusListCtrl::FetchUserProperties (FileEntry* entry)
 
     const char* path = entry->path.GetSVNApiPath (pool);
 
-    svn_wc_adm_access_t *adm_access = NULL;
-    svn_error_t * error = svn_wc_adm_probe_open3 ( &adm_access
-                                                 , NULL
-                                                 , path
-                                                 , FALSE    // no write lock
-                                                 , 0        // lock just the directory/file itself
-                                                 , NULL
-                                                 , NULL
-                                                 , pool);
+    svn_wc_context_t * wc_ctx = NULL;
+    svn_error_t * error = svn_wc_context_create(&wc_ctx, NULL, pool, pool);
+
     if (error == NULL)
     {
         // get the props and add them to the status info
-
-        apr_hash_t* props = NULL;
-        error = svn_wc_prop_list ( &props
+        apr_hash_t * props = NULL;
+        error = svn_wc_prop_list2 ( &props
+                                  , wc_ctx
                                    , path
-                                   , adm_access
+                                  , pool
                                    , pool);
         if (error == NULL)
         {
@@ -521,7 +515,7 @@ void CSVNStatusListCtrl::FetchUserProperties (FileEntry* entry)
                     = value.Left (SVNSLC_MAXUSERPROPLENGTH);
             }
         }
-        error = svn_wc_adm_close2 (adm_access, pool);
+        error = svn_wc_context_destroy(wc_ctx);
     }
 
     svn_error_clear (error);
@@ -558,7 +552,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
     CTSVNPath workingTarget(target);
 
-    svn_wc_status2_t * s;
+    svn_wc_status3_t * s;
     CTSVNPath svnPath;
     s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, depth, bShowIgnores);
     status.GetExternals(m_externalSet);
@@ -625,7 +619,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
         // An added entry doesn't have an UUID assigned to it yet.
         // So we fetch the status of the parent directory instead and
         // check if that one has an UUID assigned to it.
-        svn_wc_status2_t * sparent;
+        svn_wc_status3_t * sparent;
         CTSVNPath path = workingTarget;
         do
         {
@@ -675,7 +669,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 const CSVNStatusListCtrl::FileEntry*
 CSVNStatusListCtrl::AddNewFileEntry(
-            const svn_wc_status2_t* pSVNStatus,  // The return from the SVN GetStatus functions
+            const svn_wc_status3_t* pSVNStatus,  // The return from the SVN GetStatus functions
             const CTSVNPath& path,              // The path of the item we're adding
             const CTSVNPath& basePath,          // The base directory for this status build
             bool bDirectItem,                   // Was this item the first found by GetFirstFileStatus or by a subsequent GetNextFileStatus call
@@ -698,7 +692,6 @@ CSVNStatusListCtrl::AddNewFileEntry(
     entry->direct = bDirectItem;
     entry->copied = !!pSVNStatus->copied;
     entry->switched = !!pSVNStatus->switched;
-    entry->tree_conflicted = (pSVNStatus->tree_conflict != NULL);
 
     entry->last_commit_date = pSVNStatus->ood_last_cmt_date;
     if ((entry->last_commit_date == NULL)&&(pSVNStatus->entry))
@@ -713,7 +706,8 @@ CSVNStatusListCtrl::AddNewFileEntry(
 
     if (pSVNStatus->entry)
         entry->isConflicted = (pSVNStatus->entry->conflict_wrk && PathFileExistsA(pSVNStatus->entry->conflict_wrk)) ? true : false;
-
+    if (pSVNStatus->conflicted)
+        entry->isConflicted = true;
     if ((entry->status == svn_wc_status_conflicted)||(entry->isConflicted))
     {
         entry->isConflicted = true;
@@ -875,7 +869,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
                                           CStringA& strCurrentRepositoryUUID,
                                           CTSVNPathList& arExtPaths, SVNConfig * config, bool bAllDirect)
 {
-    svn_wc_status2_t * s;
+    svn_wc_status3_t * s;
 
     CTSVNPath lastexternalpath;
     CTSVNPath svnPath;
@@ -1078,7 +1072,7 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
         showFlags |= SVNSLC_SHOWSWITCHED;
     if (!entry->changelist.IsEmpty())
         showFlags |= SVNSLC_SHOWINCHANGELIST;
-    if (entry->tree_conflicted)
+    if (entry->isConflicted)
         showFlags |= SVNSLC_SHOWCONFLICTED;
     if (entry->isNested)
         showFlags |= SVNSLC_SHOWNESTED;
@@ -1286,7 +1280,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
         m_nShownFiles++;
     }
 
-    if (entry->tree_conflicted)
+    if (entry->isConflicted)
         m_nShownConflicted++;
     else
     {
@@ -1354,7 +1348,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
             (entry->status != svn_wc_status_unversioned)&&
             (!SVNStatus::IsImportant(entry->textstatus)))
             _tcscat_s(buf, 100, ponly);
-        if (entry->tree_conflicted)
+        if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
         {
             _tcscat_s(buf, 100, _T(", "));
             _tcscat_s(buf, 100, treeconflict);
@@ -1393,7 +1387,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
             _tcscat_s(buf, 100, _T(" (+)"));
         if ((entry->switched)&&(_tcslen(buf)>1))
             _tcscat_s(buf, 100, _T(" (s)"));
-        if (entry->tree_conflicted)
+        if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
         {
             _tcscat_s(buf, 100, _T(", "));
             _tcscat_s(buf, 100, treeconflict);
@@ -1939,7 +1933,7 @@ bool CSVNStatusListCtrl::BuildStatistics()
         const FileEntry * entry = m_arStatusArray[i];
         if (!entry)
             continue;
-        if (entry->tree_conflicted)
+        if (entry->isConflicted)
         {
             m_nConflicted++;
             continue;
@@ -2478,7 +2472,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     }
                 }
             }
-            if (((wcStatus == svn_wc_status_conflicted)||(entry->isConflicted)||(entry->tree_conflicted)))
+            if (((wcStatus == svn_wc_status_conflicted)||(entry->isConflicted)))
             {
                 if ((m_dwContextMenus & SVNSLC_POPCONFLICT)||(m_dwContextMenus & SVNSLC_POPRESOLVE))
                     popup.AppendMenu(MF_SEPARATOR);
@@ -3193,7 +3187,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             if (!m_bIgnoreRemoveOnly)
                             {
                                 SVNStatus status;
-                                svn_wc_status2_t * s;
+                                svn_wc_status3_t * s;
                                 CTSVNPath svnPath;
                                 s = status.GetFirstFileStatus(parentFolder, svnPath, false, svn_depth_empty);
                                 if (s!=0)
@@ -3344,7 +3338,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         if (!m_bIgnoreRemoveOnly)
                         {
                             SVNStatus status;
-                            svn_wc_status2_t * s;
+                            svn_wc_status3_t * s;
                             CTSVNPath svnPath;
                             s = status.GetFirstFileStatus(parentfolder, svnPath, false, svn_depth_empty);
                             // first check if the folder isn't already present in the list
@@ -4453,7 +4447,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     break;
                 }
 
-                if ((entry->isConflicted) || (entry->tree_conflicted))
+                if (entry->isConflicted)
                     crText = m_Colors.GetColor(CColors::Conflict);
 
                 if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))

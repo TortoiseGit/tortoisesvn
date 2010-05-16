@@ -1297,6 +1297,9 @@ void CLogDlg::StatusThread()
         if (!m_path.IsUrl())
             revWCPath = m_path;
 
+        if (revWCPath.IsUrl() || revWCPath.IsEmpty())
+            return;
+
         svn_revnum_t minrev, maxrev;
         bool switched, modified, sparse;
         SVN().GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
@@ -2707,6 +2710,15 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
                 crText = m_Colors.GetColor(CColors::Added);
             if (action == LOGACTIONS_DELETED)
                 crText = m_Colors.GetColor(CColors::Deleted);
+        }
+        if (m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec)
+        {
+            svn_tristate_t textModifies = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetTextModifies();
+            svn_tristate_t propsModifies = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetPropsModifies();
+            if (textModifies || propsModifies)
+            {
+                //assert(false);
+            }
         }
 
         // Store the color back in the NMLVCUSTOMDRAW struct.
@@ -4546,8 +4558,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     CBlame blame;
                     CString tempfile;
-                    CString logfile;
-                    tempfile = blame.BlameToTempFile(m_path, dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
+                    tempfile = blame.BlameToTempFile(m_path, dlg.StartRev, dlg.EndRev, dlg.EndRev, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
                     if (!tempfile.IsEmpty())
                     {
                         if (dlg.m_bTextView)
@@ -4558,7 +4569,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                         else
                         {
                             CString sParams = _T("/path:\"") + m_path.GetSVNPathString() + _T("\" ");
-                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),sParams, dlg.StartRev, dlg.EndRev))
+                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),sParams, dlg.StartRev, dlg.EndRev))
                             {
                                 break;
                             }
@@ -5133,8 +5144,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 {
                     CBlame blame;
                     CString tempfile;
-                    CString logfile;
-                    tempfile = blame.BlameToTempFile(CTSVNPath(filepath), dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
+                    tempfile = blame.BlameToTempFile(CTSVNPath(filepath), dlg.StartRev, dlg.EndRev, dlg.EndRev, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
                     if (!tempfile.IsEmpty())
                     {
                         if (dlg.m_bTextView)
@@ -5145,7 +5155,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         else
                         {
                             CString sParams = _T("/path:\"") + filepath + _T("\" ");
-                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(filepath),sParams, dlg.StartRev, dlg.EndRev))
+                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(filepath),sParams, dlg.StartRev, dlg.EndRev))
                             {
                                 break;
                             }

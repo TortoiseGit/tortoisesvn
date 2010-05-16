@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007,2009 - TortoiseSVN
+// Copyright (C) 2007-2007,2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,6 +43,8 @@ struct SChangedPath
     svn_revnum_t copyFromRev;
     svn_node_kind_t nodeKind;
     DWORD action;
+    svn_tristate_t text_modified;
+    svn_tristate_t props_modified;
 };
 
 enum

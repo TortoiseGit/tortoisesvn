@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,14 +46,13 @@ bool BlameCommand::Execute()
     if ((!bShowDialog)||(dlg.DoModal() == IDOK))
     {
         CString tempfile;
-        CString logfile;
         {
             CBlame blame;
             if (bShowDialog)
                 options = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces);
 
             tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev,
-                cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile,
+                cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC,
                 options, dlg.m_bIncludeMerge, TRUE, TRUE);
             if (tempfile.IsEmpty())
             {
@@ -100,7 +99,7 @@ bool BlameCommand::Execute()
                         sVal += _T("/ignoreallspaces ");
                 }
 
-                bRet = CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal, dlg.StartRev, dlg.EndRev);
+                bRet = CAppUtils::LaunchTortoiseBlame(tempfile, cmdLinePath.GetFileOrDirectoryName(), sVal, dlg.StartRev, dlg.EndRev);
             }
         }
     }

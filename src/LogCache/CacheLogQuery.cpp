@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -297,7 +297,9 @@ void CCacheLogQuery::CLogFiller::WriteToCache
                                    , static_cast<node_kind_t>(change.nodeKind)
                                    , path
                                    , copyFromPath
-                                   , copyFromRevision);
+                                   , copyFromRevision
+                                   , change.text_modified
+                                   , change.props_modified);
         }
     }
 

@@ -305,7 +305,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
                             if (stat.status->file_external)
                                 itemStates |= ITEMIS_FILEEXTERNAL;
-                            if (stat.status->tree_conflict)
+                            if (stat.status->conflicted)
                                 itemStates |= ITEMIS_CONFLICTED;
                             if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
                                 itemStates |= ITEMIS_ADDEDWITHHISTORY;
@@ -407,7 +407,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                     uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
                                 if (stat.status->file_external)
                                     itemStates |= ITEMIS_FILEEXTERNAL;
-                                if (stat.status->tree_conflict)
+                                if (stat.status->conflicted)
                                     itemStates |= ITEMIS_CONFLICTED;
                                 if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
                                     itemStates |= ITEMIS_ADDEDWITHHISTORY;
@@ -520,7 +520,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         }
                         if ((stat.status->entry)&&(stat.status->entry->uuid))
                             uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
-                        if (stat.status->tree_conflict)
+                        if (stat.status->conflicted)
                             itemStates |= ITEMIS_CONFLICTED;
                         if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
                             itemStatesFolder |= ITEMIS_INSVN;

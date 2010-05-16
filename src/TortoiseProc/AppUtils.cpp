@@ -654,12 +654,11 @@ bool CAppUtils::LaunchApplication
 /**
 * Launch the external blame viewer
 */
-bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile, const CString& sParams, const SVNRev& startrev, const SVNRev& endrev)
+bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sOriginalFile, const CString& sParams, const SVNRev& startrev, const SVNRev& endrev)
 {
     CString viewer = CPathUtils::GetAppDirectory();
     viewer += _T("TortoiseBlame.exe");
     viewer += _T(" \"") + sBlameFile + _T("\"");
-    viewer += _T(" \"") + sLogFile + _T("\"");
     viewer += _T(" \"") + sOriginalFile + _T("\"");
     viewer += _T(" ")+sParams;
     if (startrev.IsValid() && endrev.IsValid())
