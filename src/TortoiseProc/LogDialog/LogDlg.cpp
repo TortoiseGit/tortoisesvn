@@ -2715,9 +2715,10 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
         {
             svn_tristate_t textModifies = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetTextModifies();
             svn_tristate_t propsModifies = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetPropsModifies();
-            if (textModifies || propsModifies)
+            if ((propsModifies == svn_tristate_true)&&(textModifies != svn_tristate_true))
             {
-                //assert(false);
+                // property only modification, content of entry hasn't changed: show in gray
+                crText = GetSysColor(COLOR_GRAYTEXT);
             }
         }
 
@@ -5436,9 +5437,16 @@ CString CLogDlg::GetListviewHelpString(HWND hControl, int index)
     }
     else if (hControl == m_ChangedFileListCtrl.GetSafeHwnd())
     {
-        // currently the changed files list control only colors items for faster
-        // indication of the information that's already there. So we don't
-        // provide this info again in the help string.
+        if (m_currentChangedArray.GetCount() > index)
+        {
+            svn_tristate_t textModifies = m_currentChangedArray[index].GetTextModifies();
+            svn_tristate_t propsModifies = m_currentChangedArray[index].GetPropsModifies();
+            if ((propsModifies == svn_tristate_true)&&(textModifies != svn_tristate_true))
+            {
+                // property only modification, content of entry hasn't changed
+                sHelpText = CString(MAKEINTRESOURCE(IDS_ACC_PROPONLYCHANGE));
+            }
+        }
     }
 
     return sHelpText;
