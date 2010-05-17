@@ -26,6 +26,7 @@
 struct apr_pool_t;
 struct svn_client_ctx_t;
 struct svn_error_t;
+struct apr_hash_t;
 
 /**
  * \ingroup SVN
