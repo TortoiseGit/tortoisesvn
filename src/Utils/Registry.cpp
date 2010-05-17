@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2009 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,13 +70,16 @@ void CRegRect::InternalRead (HKEY hKey, CRect& value)
 {
     DWORD size = 0;
     DWORD type = 0;
-    RegQueryValueEx(hKey, m_key, NULL, &type, NULL, (LPDWORD) &size);
+    LastError = RegQueryValueEx(hKey, m_key, NULL, &type, NULL, (LPDWORD) &size);
 
-    auto_buffer<char> buffer (size);
-    if ((LastError = RegQueryValueEx(hKey, m_key, NULL, &type, (BYTE*) buffer.get(), &size))==ERROR_SUCCESS)
+    if (LastError == ERROR_SUCCESS)
     {
-        ASSERT(type==REG_BINARY);
-        value = CRect((LPRECT)buffer.get());
+        auto_buffer<char> buffer (size);
+        if ((LastError = RegQueryValueEx(hKey, m_key, NULL, &type, (BYTE*) buffer.get(), &size))==ERROR_SUCCESS)
+        {
+            ASSERT(type==REG_BINARY);
+            value = CRect((LPRECT)buffer.get());
+        }
     }
 }
 
@@ -105,13 +108,16 @@ void CRegPoint::InternalRead (HKEY hKey, CPoint& value)
 {
     DWORD size = 0;
     DWORD type = 0;
-    RegQueryValueEx(hKey, m_key, NULL, &type, NULL, (LPDWORD) &size);
+    LastError = RegQueryValueEx(hKey, m_key, NULL, &type, NULL, (LPDWORD) &size);
 
-    auto_buffer<char> buffer(size);
-    if ((LastError = RegQueryValueEx(hKey, m_key, NULL, &type, (BYTE*) buffer.get(), &size))==ERROR_SUCCESS)
+    if (LastError == ERROR_SUCCESS)
     {
-        ASSERT(type==REG_BINARY);
-        value = CPoint(*(POINT*)buffer.get());
+        auto_buffer<char> buffer(size);
+        if ((LastError = RegQueryValueEx(hKey, m_key, NULL, &type, (BYTE*) buffer.get(), &size))==ERROR_SUCCESS)
+        {
+            ASSERT(type==REG_BINARY);
+            value = CPoint(*(POINT*)buffer.get());
+        }
     }
 }
 
