@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-18 01:49-0000\n"
+"PO-Revision-Date: 2010-05-18 02:17-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1716,18 +1716,21 @@ msgid ""
 "svnservice -remove\n"
 "</screen> to remove the service registry entry."
 msgstr ""
+"Se instalaste uma versão anterior do svnserve, usando o empacotador <literal>SVNService</literal>, e agora desejas usar em alternativa o suporte nativo, necessitarás de, des-registar como um serviço, o empacotador (lembra-te de parar primeiro o serviço!). Usa simplesmente o comando: <screen>\n"
+"svnservice -remove\n"
+"</screen> para remover a entrada do serviço do registo."
 
 #. (title)
 msgid "Basic Authentication with svnserve"
-msgstr ""
+msgstr "Autenticação Básica com o svnserve"
 
 #. (para)
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <literal>svn://</literal> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
-msgstr ""
+msgstr "A instalação por padrão do svnserve fornece acesso apenas de leitura anónima. Isso significa que podes usar um URL <literal>svn://</literal> para efectuar checkout e actualizar, ou usar o navegador-de-repositório no TortoiseSVN para visualizar o repositório, mas não poderás submeter quaisquer alterações."
 
 #. (para)
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
-msgstr ""
+msgstr "Para activares o acesso de escrita ao repositório, necessitas de editar o ficheiro <filename>conf/svnserve.conf</filename> na pasta do teu repositório. Este ficheiro controla a configuração do daemon svnserve e também contém documentação útil."
 
 #. (para)
 msgid ""
@@ -1736,6 +1739,10 @@ msgid ""
 "anon-access = write\n"
 "</screen> However, you will not know who has made changes to a repository, as the <literal>svn:author</literal> property will be empty. You will also be unable to control who makes changes to a repository. This is a somewhat risky setup!"
 msgstr ""
+"Podes activa a escrita anónima configurando simplesmente:<screen>\n"
+"[general]\n"
+"anon-access = write\n"
+"</screen> No entanto não saberás quem efectuou as alterações no repositório, já que a propriedade <literal>svn:author</literal> estará vazia. Também não poderás controlar quem efectua alterações no repositório. Esta é uma configuração arriscada!"
 
 #. (para)
 msgid ""
@@ -1750,14 +1757,24 @@ msgid ""
 "...\n"
 "</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
+"Uma maneira de ultrapassar isto é criar uma base de dados de palavras-chave: <screen>\n"
+"[general]\n"
+"anon-access = none\n"
+"auth-access = write\n"
+"password-db = userfile\n"
+"</screen> Onde <filename>userfile</filename> é um ficheiro que existe na mesma pasta do <filename>svnserve.conf</filename>. Este ficheiro pode estar em qualquer parte do teu sistema de ficheiros (útil para quano tens multiplos repositórios que requerem os mesmos direitos de acesso) e pode ser referênciado usando um caminho absoluto, ou um caminho relativo à pasta <filename>conf</filename>. Se incluires um caminho este deve ser escrito do seguinte modo <filename>/the/unix/way</filename>. Usar \\ ou letras de unidades não irá funcionar. O <filename>userfile</filename> deverá ter a seguinte estrutura: <screen>\n"
+"[users]\n"
+"username = password\n"
+"...\n"
+"</screen> Este exemplo irá negar todo o acesso a utilizadores não autenticados (anónimos), e irá dar acesso leitura-escrita a os utilizadores listados em <filename>userfile</filename>."
 
 #. (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
-msgstr ""
+msgstr "Se mantiveres múltiplos repositórios utilizando a mesma base de dados de palavras-chave, o uso de um domínio de autenticação irá facilitar a vida dos utilizadores, já que o TortoiseSVN pode efectuar cache das tuas credenciais, para que só tenhas de as introduzir uma vez. Mais informações poderam ser encontradas no livro do Subversion, mais especificamente nas secções <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
 
 #. (title)
 msgid "Better Security with SASL"
-msgstr ""
+msgstr "Segurança Melhorada com SASL"
 
 #. (primary)
 msgid "SASL"
@@ -1765,7 +1782,7 @@ msgstr ""
 
 #. (title)
 msgid "What is SASL?"
-msgstr ""
+msgstr "O que é o SASL?"
 
 #. (para)
 msgid "The Cyrus Simple Authentication and Security Layer is open source software written by Carnegie Mellon University. It adds generic authentication and encryption capabilities to any network protocol, and as of Subversion 1.5 and later, both the svnserve server and TortoiseSVN client know how to make use of this library."
