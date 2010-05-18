@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-14 01:47-0000\n"
+"PO-Revision-Date: 2010-05-18 01:49-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1675,10 +1675,22 @@ msgid ""
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
 msgstr ""
+"Para instalar o svnserve como um serviço nativo do Windows, executa o seguinte comando , numa só linha, para criar um serviço que será automáticamente arrancado quando o Windows arrancar. <screen>\n"
+"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service\n"
+"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip\n"
+"    start= auto\n"
+"</screen> Se algum dos caminhos incluir espaços, terás de inserir entre aspas, do seguinte modo: <screen>\n"
+"sc create svnserve binpath= \"\n"
+"    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
+"    --service --root c:\\repos\" displayname= \"Subversion\"\n"
+"    depend= tcpip start= auto\n"
+"</screen> Podes também adicionar uma descrição após a criação do serviço. Essa será mostrada no gestor de serviços do Windows. <screen>\n"
+"sc description svnserve \"servidor Subversion (svnserve)\"\n"
+"</screen>"
 
 #. (para)
 msgid "Note the rather unusual command line format used by <literal>sc</literal>. In the <literal>key= value</literal> pairs there must be no space between the key and the <literal>=</literal> but there must be a space before the value."
-msgstr ""
+msgstr "Observa o formato de linha, não usual, usado pelo <literal>sc</literal>. Nos pares <literal>chave= valor</literal> não devem existir espaços entre a chave e o <literal>=</literal>, mas deverá existir um espaço antes do valor."
 
 #. (para)
 msgid ""
@@ -1686,14 +1698,17 @@ msgid ""
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen> Note that you would have to give the Local Service account appropriate rights to both Subversion and your repositories, as well as any applications which are used by hook scripts. The built-in group for this is called \"LOCAL SERVICE\"."
 msgstr ""
+"A Microsoft agora recomenda que os serviços corram sobre uma conta Serviço Local ou Serviço de Rede. Consulta o <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. Para criar o serviço sob uma conta Serviço Local, anexa o seguinte ao exemplo acima citado. <screen>\n"
+"obj= \"NT AUTHORITY\\LocalService\"\n"
+"</screen> Tem atenção que terás de dar à conta de Serviço Local, direitos de acesso apropriados para o Subversion e para os teus repositórios, tal como para qualquer aplicação que seja usada por qualquer script de gancho. O grupo integrado para este propósito chama-se \"LOCAL SERVICE\"."
 
 #. (para)
 msgid "Once you have installed the service, you need to go to the services manager to start it (this time only; it will start automatically when the server reboots)."
-msgstr ""
+msgstr "Uma vez que tenhas instalado o serviço, necessitarás de ir ao gestor de serviços para o arrancar (só desta vez; ele irá arrancar automaticamente quando o servidor reiniciar)."
 
 #. (para)
 msgid "For more detailed information, refer to <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/windows-service.txt\"><citetitle>Windows Service Support for Svnserve</citetitle></ulink>."
-msgstr ""
+msgstr "Para informação mais detalhada, consulta <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/windows-service.txt\"><citetitle>Windows Service Support for Svnserve</citetitle></ulink>."
 
 #. (para)
 msgid ""
