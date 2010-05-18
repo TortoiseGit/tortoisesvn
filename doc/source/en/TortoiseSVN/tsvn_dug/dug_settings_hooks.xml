@@ -85,7 +85,7 @@
                 <term>Pre-update</term>
                 <listitem>
                     <para>
-                        Called before the actual Subversion update begins.
+                        Called before the actual Subversion update or switch begins.
                     </para>
                 </listitem>
             </varlistentry>
@@ -93,7 +93,7 @@
                 <term>Post-update</term>
                 <listitem>
                     <para>
-                        Called after the update finishes (whether successful or not).
+                        Called after the update, switch or checkout finishes (whether successful or not).
                     </para>
                 </listitem>
             </varlistentry>

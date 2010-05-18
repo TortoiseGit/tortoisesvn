@@ -2127,6 +2127,17 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
         }
         SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, checkoutdir.GetWinPath());
     }
+
+    DWORD exitcode = 0;
+    CString error;
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
     return true;
 }
 
@@ -2801,6 +2812,17 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     bool depthIsSticky = true;
     if (m_depth == svn_depth_unknown)
         depthIsSticky = false;
+
+    DWORD exitcode = 0;
+    CString error;
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_targetPathList, m_depth, m_Revision, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
     SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
     if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, depthIsSticky, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
     {
@@ -2809,6 +2831,16 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
         return false;
     }
     SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
+
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
+
     m_UpdateStartRevMap[m_targetPathList[0].GetSVNApiPath(pool)] = rev;
     if ((m_RevisionEnd >= 0)&&(rev >= 0)
         &&((LONG)m_RevisionEnd > (LONG)rev))
