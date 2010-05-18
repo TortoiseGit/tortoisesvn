@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-18 02:17-0000\n"
+"PO-Revision-Date: 2010-05-18 02:45-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1778,7 +1778,7 @@ msgstr "Segurança Melhorada com SASL"
 
 #. (primary)
 msgid "SASL"
-msgstr ""
+msgstr "SASL"
 
 #. (title)
 msgid "What is SASL?"
@@ -1786,15 +1786,15 @@ msgstr "O que é o SASL?"
 
 #. (para)
 msgid "The Cyrus Simple Authentication and Security Layer is open source software written by Carnegie Mellon University. It adds generic authentication and encryption capabilities to any network protocol, and as of Subversion 1.5 and later, both the svnserve server and TortoiseSVN client know how to make use of this library."
-msgstr ""
+msgstr "O Cyrus Simple Authentication and Security Layer é um software open source escrito na Universidade Carnegie Mellon. Adiciona funcionalidades de autenticação genérica e encriptação a qualquer protocolo de rede, e a partir do Subversion 1.5, ambos o servidor svnserve e o cliente TortoiseSVN sabem utilizar esta biblioteca."
 
 #. (para)
 msgid "For a more complete discussion of the options available, you should look at the Subversion book in the section <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. If you are just looking for a simple way to set up secure authentication and encryption on a Windows server, so that your repository can be accessed safely over the big bad Internet, read on."
-msgstr ""
+msgstr "Para uma discussão mais completa sobre as opções disponíveis, deverás olhar para o livro do Subversion na secção <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. Se estás apenas a pensar numa forma simples de utilizar uma autenticação segura e encriptada num servidor Windows, para que o teu repositório possa ser acedido na grande e má Internet, continua a ler."
 
 #. (title)
 msgid "SASL Authentication"
-msgstr ""
+msgstr "Autenticação SASL"
 
 #. (para)
 msgid ""
@@ -1802,14 +1802,17 @@ msgid ""
 "use-sasl = true\n"
 "</screen>"
 msgstr ""
+"Para activares mecanismos SASL específicos no servidor necessitarás de três coisas. Primeiro, criar uma secção <literal>[sasl]</literal> no ficheiro <filename>svnserve.conf</filename> dos teus repositórios, com este par chave-valor: <screen>\n"
+"use-sasl = true\n"
+"</screen>"
 
 #. (para)
 msgid "Second, create a file called <filename>svn.conf</filename> in a convenient location - typically in the directory where subversion is installed."
-msgstr ""
+msgstr "Segundo, criar um ficheiro chamado <filename>svn.conf</filename> numa localização conveniente - tipicamente na pasta onde está instalado o Subversion."
 
 #. (para)
 msgid "Thirdly, create two new registry entries to tell SASL where to find things. Create a registry key named <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> and place two new string values inside it: <literal>SearchPath</literal> set to the directory path containing the <filename>sasl*.dll</filename> plug-ins (normally in the Subversion install directory), and <literal>ConfFile</literal> set to the directory containing the <filename>svn.conf</filename> file. If you used the CollabNet installer, these registry keys will already have been created for you."
-msgstr ""
+msgstr "Terceiro, criar duas novas entradas no registo para dizer ao SASL onde procurar as coisas. Cria uma chave de registo chamada <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> e coloa dois novos valores string lá dentro: o <literal>SearchPath</literal> configurado com o caminho da pasta contendo os plug-ins <filename>sasl*.dll</filename> (normalmente na pasta de instalação do Subversion), e o <literal>ConfFile</literal>  configurado com a pasta contendo o ficheiro <filename>svn.conf</filename>. Se usares o instalador CollabNet , essas chaves já terão sido instaladas por ti."
 
 #. (para)
 msgid ""
@@ -1820,10 +1823,16 @@ msgid ""
 "sasldb_path: C:\\TortoiseSVN\\sasldb\n"
 "</screen> The last line shows the location of the authentication database, which is a file called <filename>sasldb</filename>. This could go anywhere, but a convenient choice is the repository parent path. Make sure that the svnserve service has read access to this file."
 msgstr ""
+"Edita o ficheiro <filename>svn.conf</filename> para que contenha o seguinte: <screen>\n"
+"pwcheck_method: auxprop\n"
+"auxprop_plugin: sasldb\n"
+"mech_list: DIGEST-MD5\n"
+"sasldb_path: C:\\TortoiseSVN\\sasldb\n"
+"</screen> A última linha mostra a localização da base de dados de autenticação, que é um ficheiro chamado <filename>sasldb</filename>. Este poderá ir para qualquer localização, mas uma escolha conveniente será o caminho pai do repositório. Tem a certeza que o serviço svnserve tem acesso de leitura para este ficheiro."
 
 #. (para)
 msgid "If svnserve was already running, you will need to restart it to ensure it reads the updated configuration."
-msgstr ""
+msgstr "Se o svnserve já está a correr, necessitarás de o reiniciar para garantir que lê a configuração actualizada."
 
 #. (para)
 msgid ""
@@ -1831,10 +1840,13 @@ msgid ""
 "saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
 "</screen> The <literal>-f</literal> switch gives the database location, <literal>realm</literal> must be the same as the value you defined in your repository's <filename>svnserve.conf</filename> file, and username is exactly what you expect it to be. Note that the realm is not allowed to contain space characters."
 msgstr ""
+"Agora que está tudo configurado, tudo o que precisas é de criar alguns utilizadores e palavras-chave. Para o fazeres necessitarás do programa <literal>saslpasswd2</literal>. Se usares o instalador CollabNet esse programa estará na pasta install. Usa um comando parecido com este: <screen>\n"
+"saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
+"</screen> O parâmetro <literal>-f</literal> dá-te a localização da base de dados, o  <literal>realm</literal> deverá ter o mesmo valor que definiste no ficheiro <filename>svnserve.conf</filename> dos teus repositórios, e o username  será exactamente aquilo que estás à espera. Observa que no realm não é permitido ter espaços."
 
 #. (para)
 msgid "You can list the usernames stored in the database using the <literal>sasldblistusers2</literal> program."
-msgstr ""
+msgstr "Tu podes listar os nomes de utilizadores (usernames ) armazenados na base de dados usando o programa <literal>sasldblistusers2</literal>."
 
 #. (title)
 msgid "SASL Encryption"
