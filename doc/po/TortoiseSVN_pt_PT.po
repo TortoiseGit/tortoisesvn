@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-19 01:28-0000\n"
+"PO-Revision-Date: 2010-05-19 01:49-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1903,10 +1903,14 @@ msgid ""
 "authz-db = authz\n"
 "</screen> Here, <filename>authz</filename> is a file you create to define the access permissions. You can use a separate file for each repository, or you can use the same file for several repositories. Read <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> for a description of the file format."
 msgstr ""
+"A partir do Subversion 1.3, o svnserve suporta o mesmo esquema de autorização <literal>mod_authz_svn</literal> baseado em caminhos que está disponível com o servidor Apache. Precisas de editar o ficheiro <filename>conf/svnserve.conf</filename> na pasta do teu repositório, e adicionar uma linha indicando o teu ficheiro de autorização. <screen>\n"
+"[general]\n"
+"authz-db = authz\n"
+"</screen> Aqui, o <filename>authz</filename> é um ficheiro que criaste para definir as permissões de acesso. Podes usar um ficheiro separado para cada repositório, ou poderás usar o mesmo ficheiro para vários repositórios. Consulta <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> para uma descrição do formato do ficheiro."
 
 #. (title)
 msgid "Apache Based Server"
-msgstr ""
+msgstr "Servidor Baseado em Apache"
 
 #. (primary)
 msgid "Apache"
@@ -1914,24 +1918,24 @@ msgstr ""
 
 #. (para)
 msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
-msgstr ""
+msgstr "A instalação para o Subversion mais flexível de todas é a baseada e Apache. Apesar de um pouco mais complicada de configurar, oferece no entanto mais benefícios que as outras:"
 
 #. (primary)
 #. (term)
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 #. (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system."
-msgstr ""
+msgstr "O servidor Subversion baseado em Apache usa o protocolo WebDAV, que também é suporta por muitos outros programas. Tu podes, por exemplo, montar um repositório como uma <quote>pasta Web</quote> no explorador do Windows e aceder a ela como outra qualquer pasta do sistema de ficheiros."
 
 #. (term)
 msgid "Browsing The Repository"
-msgstr ""
+msgstr "Navegar no Repositório"
 
 #. (para)
 msgid "You can point your browser to the URL of your repository and browse the contents of it without having a Subversion client installed. This gives access to your data to a much wider circle of users."
-msgstr ""
+msgstr "Podes apontar o teu navegador de internet para o URL do teu repositório e navegar nos seus conteúdos, sem teres instalado um cliente Subversion. Isto dá acesso aos teus dados a um círculo mais abrangente de utilizadores."
 
 #. (term)
 #. (title)
@@ -1940,15 +1944,15 @@ msgstr "Autenticação"
 
 #. (para)
 msgid "You can use any authentication mechanism Apache supports, including SSPI and LDAP."
-msgstr ""
+msgstr "Podes usar qualquer tipo de autenticação que o Apache suporte, incluindo SSPI e LDAP."
 
 #. (term)
 msgid "Security"
-msgstr ""
+msgstr "Segurança"
 
 #. (para)
 msgid "Since Apache is very stable and secure, you automatically get the same security for your repository. This includes SSL encryption."
-msgstr ""
+msgstr "Visto que o Apache é muito estável e seguro, tu automaticamente obterás a mesma segurança para o teu repositório. Isto inclui encriptação SSL."
 
 #. (title)
 msgid "Installing Apache"
