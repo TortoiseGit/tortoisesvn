@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-14 15:39+0200\n"
+"POT-Creation-Date: 2010-05-18 17:03 +0000\n"
+"PO-Revision-Date: 2010-05-19 14:28+0200\n"
 "Last-Translator: Lübbe Onken <luebbe@tigris.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "Language: de\n"
@@ -32,7 +32,7 @@ msgstr ""
 # Translation dictionary / Übersetzungswörterbuch:
 # ------
 # Bitte aus Konsistenzgründen die folgenden Terme und Schreibweisen verwenden
-# 
+#
 # trunk          - Stamm
 # branch(es)     - Zweig(e)
 # tag(s)         - Marke(n)
@@ -41,7 +41,7 @@ msgstr ""
 # feature branch - Funktionszweig
 # vendor branch  - Herstellerzweig
 # build          - erstellen
-# 
+#
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #.(None)
@@ -928,10 +928,27 @@ msgstr "Weitere Dateien hinzfügen"
 #.(para)
 msgid "As the project develops you will need to add new files - let's say you add some new features in <filename>Extras.c</filename> and add a reference in the existing <filename>Makefile</filename>. Right click on the folder and <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>. The Add dialog now shows you all unversioned files and you can select which ones you want to add. Another way of adding files would be to right click on the file itself and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
 msgstr ""
+"Während sich das Projekt weiter entwickelt, müssen Sie neue Dateien "
+"hinzufügen. Angenommen, Sie fügen einige neuen Funktionen in "
+"<filename>Extras.c</filename> hinzu und fügen einen Verweis in die "
+"vorhandenen <filename>Makefile</filename> hinzu. Klicken Sie mit der rechten "
+"Maustaste auf den Ordner und wählen Sie "
+"<menuchoice><guimenu>TortoiseSVN</guimenu> "
+"<guimenuitem>Hinzufügen</guimenuitem></menuchoice>. Das Hinzufügen Dialog "
+"zeigt Ihnen nun alle nicht versionierten Dateien, und Sie können diejenigen "
+"auswählen, welche Sie hinzufügen möchten. Eine weitere Möglichkeit, Dateien "
+"hinzuzufügen, besteht darin, mit der rechten Maustaste auf die Datei selbst "
+"zu klicken und <menuchoice><guimenu>TortoiseSVN</guimenu> "
+"<guimenuitem>Hinzufügen</guimenuitem></menuchoice> zu wählen."
 
 #.(para)
 msgid "Now when you go to commit the folder, the new file shows up as <emphasis>Added</emphasis> and the existing file as <emphasis>Modified</emphasis>. Note that you can double click on the modified file to check exactly what changes were made."
 msgstr ""
+"Wenn Sie jetzt den Ordner übertragen, wird die neue Datei als "
+"<emphasis>hinzugefügt</emphasis> und die vorhandene Datei als "
+"<emphasis>verändert</emphasis> angezeigt. Beachten Sie, dass Sie auf die "
+"Dateien doppelklicken können, um sie auf die jeweiligen Änderungen zu "
+"überprüfen."
 
 #.(title)
 msgid "Viewing the Project History"
@@ -944,14 +961,28 @@ msgstr "Der Log-Dialog"
 #.(para)
 msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/> OK, so I cheated a little here and used a screenshot from the TortoiseSVN repository."
 msgstr ""
+"Eine der nützlichsten Funktionen von TortoiseSVN ist der Log Dialog. Er "
+"liistet Ihnen alle Übertragungen einer Datei oder eines Ordners auf und "
+"zeigt die detaillierten Logmeldungen an, die Sie eingegeben haben ;-) "
+"<placeholder-1> OK, ich habe ein wenig geschummelt und ein Beispiel aus dem "
+"TortoiseSVN Projektarchiv verwendet."
 
 #.(para)
 msgid "The top pane shows a list of revisions committed along with the start of the commit message. If you select one of these revisions, the middle pane will show the full log message for that revision and the bottom pane will show a list of changed files and folders."
 msgstr ""
+"Der obere Bereich zeigt eine Liste der Revisionen zusammen mit dem Anfang "
+"der Logmeldungen an. Wenn Sie eine dieser Revisionen auswählen, wird im "
+"mittleren Bereich die vollständige Logmeldung für die Revision und im "
+"unteren Bereich eine Liste der geänderten Dateien und Ordner angezeigt."
 
 #.(para)
 msgid "Each of these panes has a context menu which provides you with lots more ways of using the information. In the bottom pane you can <action>double click</action> on a file to see exactly what changes were made in that revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
 msgstr ""
+"Jeder dieser Bereiche hat einem Kontextmenü, dass Ihnen viel mehr "
+"Möglichkeiten, die Informationen zu verwenden, bietet. Im unteren Bereich "
+"können Sie auf eine Datei <action>doppelklicken</action>, um sich die "
+"Änderungen in dieser Revision anzeigen zu lassen. Lesen <xref linkend=\"tsvn-"
+"dug-showlog\"></xref> für die vollständigen Informationen."
 
 #.(title)
 msgid "Undoing Changes"
@@ -15011,8 +15042,8 @@ msgid "Pre-update"
 msgstr "Vor Aktualisierung"
 
 #.(para)
-msgid "Called before the actual Subversion update begins."
-msgstr "Wird aufgerufen, bevor die Aktualisierung beginnt."
+msgid "Called before the actual Subversion update or switch begins."
+msgstr "Wird aufgerufen, bevor die Aktualisierung oder Wechseln Zu Aktion beginnt."
 
 #.(term)
 #.(term)
@@ -15020,10 +15051,10 @@ msgid "Post-update"
 msgstr "Nach Aktualisierung"
 
 #.(para)
-msgid "Called after the update finishes (whether successful or not)."
+msgid "Called after the update, switch or checkout finishes (whether successful or not)."
 msgstr ""
-"Wird nach dem Ende der Aktualisierung aufgerufen, unabhängig davon, ob die "
-"Aktualisierung erfolgreich war oder nicht."
+"Wird nach dem Ende von Aktualisieren, Auschecken oder Wechseln Zu aufgerufen, unabhängig "
+"davon, ob die Aktion erfolgreich war oder nicht."
 
 #.(para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
@@ -20098,6 +20129,14 @@ msgstr ""
 #.(None)
 msgid "translator-translation"
 msgstr "Übersetzung"
+
+#~ msgid "Called before the actual Subversion update begins."
+#~ msgstr "Wird aufgerufen, bevor die Aktualisierung beginnt."
+
+#~ msgid "Called after the update finishes (whether successful or not)."
+#~ msgstr ""
+#~ "Wird nach dem Ende der Aktualisierung aufgerufen, unabhängig davon, ob die "
+#~ "Aktualisierung erfolgreich war oder nicht."
 
 #~ msgid ""
 #~ "Naturally it doesn't explain everything - this is just the Quick Start Guide "
