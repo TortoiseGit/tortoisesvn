@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-05-10 12:21 +0000\n"
-"PO-Revision-Date: 2010-05-18 02:45-0000\n"
+"POT-Creation-Date: 2010-05-18 17:03 +0000\n"
+"PO-Revision-Date: 2010-05-19 01:28-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1850,7 +1850,7 @@ msgstr "Tu podes listar os nomes de utilizadores (usernames ) armazenados na bas
 
 #. (title)
 msgid "SASL Encryption"
-msgstr ""
+msgstr "Encriptação SASL"
 
 #. (para)
 msgid ""
@@ -1861,34 +1861,40 @@ msgid ""
 "max-encryption = 256\n"
 "</screen>"
 msgstr ""
+"Para activar ou desactivar diferentes níveis de encriptação, tu podes configurar dois valores no ficheiro <filename>svnserve.conf</filename> do teu repositório: <screen>\n"
+"[sasl]\n"
+"use-sasl = true\n"
+"min-encryption = 128\n"
+"max-encryption = 256\n"
+"</screen>"
 
 #. (para)
 msgid "The <literal>min-encryption</literal> and <literal>max-encryption</literal> variables control the level of encryption demanded by the server. To disable encryption completely, set both values to 0. To enable simple checksumming of data (i.e., prevent tampering and guarantee data integrity without encryption), set both values to 1. If you wish to allow (but not require) encryption, set the minimum value to 0, and the maximum value to some bit-length. To require encryption unconditionally, set both values to numbers greater than 1. In our previous example, we require clients to do at least 128-bit encryption, but no more than 256-bit encryption."
-msgstr ""
+msgstr "As variáveis <literal>min-encryption</literal> e <literal>max-encryption</literal> controlam o nível de encriptação requerida pelo servidor. Para desactivar completamente a encriptação, coloca ambos os valores a 0. Para activar a simples soma de verificação de dados (i.e., para prevenir a adulteração de dados e garantir a sua integridade sem recurso à encriptação), coloca ambos os valores a 1. Se desejas permitir (mas não obrigar) a encriptação, coloca o valor mínimo a 0 e o valor máximo a um qualquer bit-length. Para requisitares incondicionalmente a encriptação, coloca em ambos os valores números maiores que 1. No nosso exemplo prévio, nós requeremos que os clientes tivessem uma encriptação mínima de 128-bits, mas não mais que 256-bits."
 
 #. (title)
 msgid "Authentication with svn+ssh"
-msgstr ""
+msgstr "Autenticação com svn+ssh"
 
 #. (para)
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through. It is not as simple to set up as SASL, but it may be useful is some cases."
-msgstr ""
+msgstr "Outra forma de autenticar utilizadores num servidor baseado em svnserve, é usar o secure shell (SSH) para criar um túnel. Não é tão simples como configurar o SASL, mas poderá ser útil em alguns casos."
 
 #. (para)
 msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
-msgstr ""
+msgstr "Com esta abordagem o scnserve não irá correr como um processo daemon, mas em alternativa a shell segura irá arrancá-lo por ti, correndo-o como utilizador autenticado SSH. Para o activares necessitas de um daemon de shell no teu servidor."
 
 #. (para)
 msgid "A basic method for setting up your server is given in <xref linkend=\"tsvn-ssh-howto\"/>. You can find other SSH topics within the FAQ by searching for <quote>SSH</quote>."
-msgstr ""
+msgstr "Um método básico para configurares  teu servidor é dado em <xref linkend=\"tsvn-ssh-howto\"/>. Podes encontrar outros tópicos SSH no interior da FAQ, procurando por <quote>SSH</quote>."
 
 #. (para)
 msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version Control with Subversion</citetitle></ulink>."
-msgstr ""
+msgstr "Mais informações sobre o svnserve podem ser encontradas em <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version Control with Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Path-based Authorization with svnserve"
-msgstr ""
+msgstr "Autorização com o svnserve baseada em Caminhos"
 
 #. (para)
 msgid ""
@@ -9166,7 +9172,8 @@ msgid "Pre-update"
 msgstr "Pré-actualização"
 
 #. (para)
-msgid "Called before the actual Subversion update begins."
+#, fuzzy
+msgid "Called before the actual Subversion update or switch begins."
 msgstr "Chamado antes da actualização do Subversion realmente começar."
 
 #. (term)
@@ -9175,7 +9182,8 @@ msgid "Post-update"
 msgstr "Pós-actualização"
 
 #. (para)
-msgid "Called after the update finishes (whether successful or not)."
+#, fuzzy
+msgid "Called after the update, switch or checkout finishes (whether successful or not)."
 msgstr "Chamado após a actualização finalizar ( com sucesso ou não)."
 
 #. (para)
