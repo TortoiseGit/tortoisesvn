@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-19 20:19-0300\n"
+"PO-Revision-Date: 2010-05-20 10:40-0300\n"
 "Last-Translator: Tommy <tommychristie@gmail.com>\n"
 "Language-Team: Tomás Christie\n"
 "Language: es\n"
@@ -14985,6 +14985,8 @@ msgstr "Pre-actualización"
 #.(para)
 msgid "Called before the actual Subversion update or switch begins."
 msgstr ""
+"Llamado antes de que realmente comience la actualización o cambio de "
+"Subversion."
 
 #.(term)
 #.(term)
@@ -14994,6 +14996,8 @@ msgstr "Post-actualización"
 #.(para)
 msgid "Called after the update, switch or checkout finishes (whether successful or not)."
 msgstr ""
+"Llamado después de que termine la actualización, cambio u obtensión (sea "
+"satisfactoria o no)."
 
 #.(para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
@@ -15437,14 +15441,12 @@ msgstr ""
 "<literal>false</literal>."
 
 #.(para)
-#, fuzzy
 msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, set this value to <literal>true</literal>."
 msgstr ""
 "La lista de auto-completar mostrada en el editor de mensajes de confirmación "
 "muestra los nombres de los archivos que se proponen para confirmar. Para "
-"incluir también esos nombres sin sus extensiones, cree una clave "
-"<literal>DWORD</literal> con un valor de 1 en "
-"<literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
+"incluir también esos nombres sin sus extensiones, establezca esta valor a "
+"<literal>true</literal>."
 
 #.(para)
 msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can set this to a value containing a separator string of your choice."
@@ -15842,6 +15844,12 @@ msgstr ""
 #.(para)
 msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
 msgstr ""
+"Algunas de éstas palabras clave se aplican a archivos individuales más que a "
+"una copia de trabajo entera, así que sólo tiene sentido usarlas cuando "
+"SubWCRev es llamado para examinar un archivo individual. Esto se aplica a  "
+"<literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, "
+"<literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, "
+"<literal>$WCLOCKOWNER$</literal> y <literal>$WCLOCKCOMMENT$</literal>."
 
 #.(title)
 msgid "Keyword Example"
@@ -16603,21 +16611,28 @@ msgstr ""
 #.(para)
 msgid "<email>users@tortoisesvn.tigris.org</email> is the one to use if you have questions about using TortoiseSVN."
 msgstr ""
+"<email>users@tortoisesvn.tigris.org</email> para preguntas relacionadas con "
+"el uso de TortoiseSVN."
 
 #.(para)
 msgid "If you want to help out with the development of TortoiseSVN, then you should take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
 msgstr ""
+"Si desea ayudar con el desarrollo de TortoiseSVN, entonces debería tomar "
+"parte en las discusiones en <email>dev@tortoisesvn.tigris.org</email>."
 
 #.(para)
 msgid "If you want to help with the translation of the TortoiseSVN user interface or the documentation, send an e-mail to <email>translators@tortoisesvn.tigris.org</email>."
 msgstr ""
+"Si desea ayudar con las traducciones de la documentación de la interfaz de "
+"usuario de TortoiseSVN, envíe un mail a "
+"<email>translators@tortoisesvn.tigris.org</email>."
 
 #.(para)
-#, fuzzy
 msgid "If you have a question which is not answered anywhere else, the best place to ask it is on one of the mailing lists: <placeholder-1/>"
 msgstr ""
 "Si tiene una pregunta que no está respondida en ningún otro lado, el mejor "
-"lugar para preguntar es en la lista de correo."
+"lugar para preguntar es en alguna de las siguientes listas de correo: "
+"<placeholder-1/>"
 
 #.(title)
 msgid "How Do I..."
@@ -17136,6 +17151,15 @@ msgstr ""
 #.(para)
 msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
 msgstr ""
+"Si los archivos ya están en el repositorio, deben ser borrados del "
+"repositorio y agregados a la lista de ignorados. Afortunadamente TortoiseSVN "
+"tiene un acelerador conveniente para hacer esto.\n"
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Desversionar y "
+"agregar a la lista de ignorados</guimenuitem></menuchoice> marcará primero "
+"al archivo/carpeta para borrado del repositorio, conservando la copia local. "
+"También agrega este elemento a la lista de ignorados para que no sea "
+"agregado nuevamente a la Subversion por error. Una vez que esto esta hecho "
+"sólo necesita confirmar a la carpeta contenedora."
 
 #.(title)
 msgid "Unversion a working copy"
@@ -17304,7 +17328,6 @@ msgid "ASP projects"
 msgstr "projectos ASP"
 
 #.(para)
-#, fuzzy
 msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
 msgstr ""
 "Desde la versión 1.4.0, el instalador de TortoiseSVN ya no ofrece al usuario "
