@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-20 17:59+0300\n"
+"PO-Revision-Date: 2010-05-20 20:37+0300\n"
 "Last-Translator: Boris <rozboris@gmail.com>\n"
 "Language-Team: t-writer's translation input\n"
 "MIME-Version: 1.0\n"
@@ -475,7 +475,7 @@ msgstr "Приступая к работе"
 
 #. (para)
 msgid "This section is aimed at people who would like to find out what TortoiseSVN is all about and give it a test drive. It explains how to install TortoiseSVN and set up a local repository, and it walks you through the most commonly used operations."
-msgstr ""
+msgstr "Этот раздел написан для тех, кто хотел бы разобраться, что же такое TortoiseSVN и первый раз им воспользоваться. Раздел объясняет, как установить TortoiseSVN и как настроить локальное хранилище, а также дает обзор самых часто используемых операций."
 
 #. (title)
 msgid "Installing TortoiseSVN"
@@ -487,11 +487,11 @@ msgstr "Требования к системе"
 
 #. (para)
 msgid "TortoiseSVN runs on Windows XP or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
-msgstr ""
+msgstr "TortoiseSVN работает под операционной системой Windows XP (или выше) и доступен как в 32-битной, так и в 64-битной версии. Если у вас 64-битная версия Windows вы можете установить обе версии."
 
 #. (para)
 msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
-msgstr ""
+msgstr "Мы пересталь поддерживать операционный системы Windows 98, Windows ME и Windows NT4 начиная с версии 1.2.0 и Windows 2000 начиная с 1.7.0. Вы все еще можете загрузить и установить старые версии, если они вам понядобятся."
 
 #. (title)
 msgid "Installation"
@@ -503,7 +503,7 @@ msgstr "установка"
 
 #. (para)
 msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. Don't forget to reboot after installation."
-msgstr ""
+msgstr "TortoiseSVN поставляется в виде простого в использовании установочного файла. Сделайте на нем двойной клик и следуйте инструкциям - остальное он сделает за вас. Не забудьте перезагрузить компьютер после установки."
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
@@ -511,19 +511,19 @@ msgstr "У вас должны быть права администратора 
 
 #. (para)
 msgid "Language packs are available which translate the TortoiseSVN user interface into many different languages. Please check <xref linkend=\"tsvn-lang\"/> for more information on how to install these."
-msgstr ""
+msgstr "Доступны языковые пакеты, которые переводят интерфейс TortoiseSVN на множество языков. Пожалуйста, посетите <xref linkend=\"tsvn-lang\"/> для дополнительной информации о том, как их установить."
 
 #. (para)
 msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
-msgstr ""
+msgstr "Если вы столкнетесь с какими-либо проблемами в процессе установки TortoiseSVN или после нее, пожалуйста, обратитесь к онлайн-справочнику \"Часто задаваемые вопросы\": <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
 
 #. (title)
 msgid "Basic Concepts"
-msgstr ""
+msgstr "Основная концепция"
 
 #. (para)
 msgid "Before we get stuck into working with some real files, it is important to get an overview of how subversion works and the terms that are used."
-msgstr ""
+msgstr "Перед тем, как мы погрузимся в работу с настоящими файлами, важно получить представление о том, как работает система управления версиями и какие термины используются."
 
 #. (term)
 #. (title)
@@ -534,7 +534,7 @@ msgstr "Хранилище"
 
 #. (para)
 msgid "Subversion uses a central database which contains all your version-controlled files with their complete history. This database is referred to as the <emphasis>repository</emphasis>. The repository normally lives on a file server running the Subversion server program, which supplies content to Subversion clients (like TortoiseSVN) on request. If you only back up one thing, back up your repository as it is the definitive master copy of all your data."
-msgstr ""
+msgstr "Subversion использует центральную базу данных, которая содержит все ваши версированные файлы с их полной историей. Эта база данных называется <emphasis>хранилищем</emphasis>. Хранилище обычно находится на файловом сервере, на котором установлен Subversion, по запросу поставляющий данные клиентам Subversion (например, TortoiseSVN). Если вы делаете резервное копирование, то копируйте ваше хранилище, так как это оригинал всех ваших данных."
 
 #. (term)
 #. (glossterm)
@@ -543,11 +543,11 @@ msgstr "Рабочая копия"
 
 #. (para)
 msgid "This is where you do the real work. Every developer has his own working copy, sometimes known as a sandbox, on his local PC. You can pull down the latest version from the repository, work on it locally without affecting anyone else, then when you are happy with the changes you made commit them back to the repository."
-msgstr ""
+msgstr "Это именно то место, где вы работаете. Каждый разработчик имеет собственную рабочую копию, иногда называемую песочницей, на своем локальном компьютере. Вы можете получить из хранилища последнюю версию файлов, поработать над ней локально, никак не взаимодействуя с кем-либо еще, а когда вы будете уверены в изменениях вы можете зафиксировать эти файлы обратно в хранилище."
 
 #. (para)
 msgid "A Subversion working copy does not contain the history of the project, but it does keep a copy of the files as they exist in the repository before you started making changes. This means that it is easy to check exactly what changes you have made."
-msgstr ""
+msgstr "Рабочая копия не содержит историю проекта, но содержит копию всех файлов, которые были в хранилище до того, как вы начали делать изменения. Это обозначает, что можно легко узнать, какие конкретно изменения вы сделали."
 
 #. (title)
 #. (title)
@@ -556,7 +556,7 @@ msgstr "Меню TortoiseSVN для неверсированных папок"
 
 #. (para)
 msgid "You also need to know where to find TortoiseSVN because there is not much to see from the Start Menu. This is because TortoiseSVN is a Shell extension, so first of all, start Windows Explorer. Right click on a folder in Explorer and you should see some new entries in the context menu like this: <placeholder-1/>"
-msgstr ""
+msgstr "Вам также нужно знать, где найти TortoiseSVN, потому что в меню \"Пуск\" его нет. Это так потому, что TortoiseSVN - расширение проводника Windows, поэтому для начала нужно запустить проводник. Сделайте правый клик на папке в проводнике и вы увидите новые пункты в контекстном меню, такие как эти: <placeholder-1/>"
 
 #. (title)
 msgid "Go for a Test Drive"
