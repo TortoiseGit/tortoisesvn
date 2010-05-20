@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-19 01:49-0000\n"
+"PO-Revision-Date: 2010-05-20 01:32-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1956,59 +1956,59 @@ msgstr "Visto que o Apache é muito estável e seguro, tu automaticamente obter�
 
 #. (title)
 msgid "Installing Apache"
-msgstr ""
+msgstr "Instalar o Apache"
 
 #. (para)
 msgid "Please note that Windows XP without the service pack 1 will lead to bogus network data and could therefore corrupt your repository!"
-msgstr ""
+msgstr "Tem em atenção que o Windows XP, sem o serviçce pack 1, irá adulterar os dados de rede e com isso corromper o teu repositório!"
 
 #. (para)
 msgid "Download the latest version of the Apache web server from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version 2.2.x - the version 1.3.xx won't work!"
-msgstr ""
+msgstr "Descarrega a última versão do servidor web Apache a partir de <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Tem a certeza que descarrregas a versão 2.2.x - a versão 1.3.xx não funcionará! "
 
 #. (para)
 msgid "The msi installer for Apache can be found by clicking on <literal>other files</literal>, then browse to <filename>binaries/win32</filename>. You may want to choose the msi file <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (the one that includes OpenSSL)."
-msgstr ""
+msgstr "O instalador msi para o Apache pode ser encontrado ao clicares em <literal>other files</literal>, e navegares para <filename>binaries/win32</filename>. Poderás querer escolher o ficheiro msi <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (o que inclui o OpenSSL)."
 
 #. (para)
 msgid "Once you have the Apache2 installer you can double click on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a DNS name for your server just enter the IP-address). I recommend to install Apache <emphasis>for All Users, on Port 80, as a Service</emphasis>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
-msgstr ""
+msgstr "Uma vez que tenhas o instalador Apache2, podes efectuar duplo clique sobre ele, e então serás guiado através do processo de instalação. Tem a certeza que inseres o URL-servidor correctamente (se não tiveres um nome DNS para o teu servidor, insere apenas o seu endereço-IP). Eu recomendo instalar o Apache <emphasis>para Todos os Utilizadores, no Porto 80, como um Serviço</emphasis>. Nota: se já tens o IIS ou outro programa a correr que esteja à escuta no porto 80, poderá causar a falha da instalação. Se tal acontecer, vai à pasta do programas, <filename>\\Apache Group\\Apache2\\conf</filename> e localiza o ficheiro <filename>httpd.conf</filename>. Edita-o para que o <literal>Listen 80</literal> seja alterado para um porto livre, e.g. <literal>Listen 81</literal>. Então reinicia a instalação - desta vez deverá concluir sem problemas."
 
 #. (para)
 msgid "Now test if the Apache web server is running correctly by pointing your web browser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up."
-msgstr ""
+msgstr "Agora testa se o teu servidor web Apache está a correr correctamente, apontando o teu navegador de internet para  <systemitem class=\"url\">http://localhost/</systemitem> - um sítio web pré-configurado deverá aparecer."
 
 #. (para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
-msgstr ""
+msgstr "Se decidires instalar o Apache como um serviço, tem atenção que por defeito este irá correr com uma conta de sistema local. Será uma prática mais segura para ti criar uma conta separada para o Apache correr."
 
 #. (para)
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right-click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
-msgstr ""
+msgstr "Tem a certeza que a conta em que o Apache está a correr, tem uma entrada explícita na lista de controlo de acessos às pastas dos repositórios (clica com o botão direito na pasta | propriedades | segurança), com acesso total. De outro modo, os utilizadores não poderão submeter as suas alterações."
 
 #. (para)
 msgid "Even if Apache runs as local system, you still need such an entry (which will be the SYSTEM account in this case)."
-msgstr ""
+msgstr "Mesmo que o Apache corra como sistema local, irás necessitar na mesma de tal entrada (que será neste caso a conta SYSTEM)."
 
 #. (para)
 msgid "If Apache does not have this permission set up, your users will get <quote>Access denied</quote> error messages, which show up in the Apache error log as error 500."
-msgstr ""
+msgstr "Se o Apache não tiver esta permissão configurada, os teus utilizadores irão obter mensagens de erro de <quote>Acesso negado</quote>, que irão aparecer no registo de erro do Apache como error 500."
 
 #. (para)
 msgid "The first thing you need before installing Apache is a computer with Windows 2000, Windows XP+SP1, Windows 2003, Vista or Server 2008. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
-msgstr ""
+msgstr "O primeiro pré-requisito para instalar o Apache é um computador com o Windows 2000, Windows XP+SP1, Windows 2003, Vista ou Server 2008. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 
 #. (title)
 msgid "Installing Subversion"
-msgstr ""
+msgstr "Instalar o Subversion"
 
 #. (para)
 msgid "Download the latest version of the Subversion Win32 binaries for Apache. Be sure to get the right version to integrate with your version of Apache, otherwise you will get an obscure error message when you try to restart. If you have Apache 2.2.x go to <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
-msgstr ""
+msgstr "Descarrega a última versão dos binários Win32 do Subversion para o Apache. Tem a certeza que obténs a versão correcta para integrares com a tua versão do Apache, de outro modo obterás uma mensagem de erro obscura, quando tentares reiniciar. Se tens o Apache 2.2.x vai a <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
 
 #. (para)
 msgid "Run the Subversion installer and follow the instructions. If the Subversion installer recognized that you've installed Apache, then you're almost done. If it couldn't find an Apache server then you have to do some additional steps."
-msgstr ""
+msgstr "Corre o instalador do Subversion e segue as instruções. Se o instalador do Subversion reconhece que tens o Apache instalado, então está praticamente concluído. Se não encontra o servidor Apache, então tens de efectuar passos adicionais."
 
 #. (primary)
 #. (primary)
@@ -2017,15 +2017,15 @@ msgstr ""
 
 #. (para)
 msgid "Using the windows explorer, go to the installation directory of Subversion (usually <filename>c:\\program files\\Subversion</filename>) and find the files <filename>/httpd/mod_dav_svn.so</filename> and <filename>mod_authz_svn.so</filename>. Copy these files to the Apache modules directory (usually <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
-msgstr ""
+msgstr "Usando o explorador do Windows, vai à pasta de instalação do Subversion (usualmente  <filename>c:\\programas\\Subversion</filename>) e procura os ficheiros <filename>/httpd/mod_dav_svn.so</filename> e <filename>mod_authz_svn.so</filename>. Copia esses ficheiros para a pasta de módulos do Apache ( normalmente <filename>c:\\programas\\apache group\\apache2\\modules </filename>)."
 
 #. (para)
 msgid "Copy the file <filename>/bin/libdb*.dll</filename> and <filename>/bin/intl3_svn.dll</filename> from the Subversion installation directory to the Apache bin directory."
-msgstr ""
+msgstr "Copia o ficheiro <filename>/bin/libdb*.dll</filename> e o <filename>/bin/intl3_svn.dll</filename> da pasta de instalação do Subversion para a pasta bin do Apache."
 
 #. (para)
 msgid "Edit Apache's configuration file (usually <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) with a text editor such as Notepad and make the following changes:"
-msgstr ""
+msgstr "Edita o ficheiro de configurações do Apache (normalmente <filename> C:\\Programas\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) com um editor de texto como o Notepad, e efectua as seguintes alterações:"
 
 #. (para)
 msgid ""
@@ -2037,6 +2037,13 @@ msgid ""
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 msgstr ""
+"Descomenta (remove a marca  '<literal>#</literal>' ) das seguintes linhas: <screen>\n"
+"#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
+"#LoadModule dav_module modules/mod_dav.so\n"
+"</screen> Adiciona as duas seguintes linhas no fim da secção <literal>LoadModule</literal>. <screen>\n"
+"LoadModule dav_svn_module modules/mod_dav_svn.so\n"
+"LoadModule authz_svn_module modules/mod_authz_svn.so\n"
+"</screen>"
 
 #. (title)
 msgid "Configuration"
