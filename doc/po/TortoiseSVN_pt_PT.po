@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-20 01:32-0000\n"
+"PO-Revision-Date: 2010-05-20 01:52-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -2013,7 +2013,7 @@ msgstr "Corre o instalador do Subversion e segue as instruções. Se o instalado
 #. (primary)
 #. (primary)
 msgid "mod_authz_svn"
-msgstr ""
+msgstr "mod_authz_svn"
 
 #. (para)
 msgid "Using the windows explorer, go to the installation directory of Subversion (usually <filename>c:\\program files\\Subversion</filename>) and find the files <filename>/httpd/mod_dav_svn.so</filename> and <filename>mod_authz_svn.so</filename>. Copy these files to the Apache modules directory (usually <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
@@ -2047,7 +2047,7 @@ msgstr ""
 
 #. (title)
 msgid "Configuration"
-msgstr ""
+msgstr "Configuração"
 
 #. (para)
 msgid ""
@@ -2065,6 +2065,19 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen> This configures Apache so that all your Subversion repositories are physically located below <filename>D:\\SVN</filename>. The repositories are served to the outside world from the URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Access is restricted to known users/passwords listed in the <filename>passwd</filename> file."
 msgstr ""
+"No final do ficheiro de configuração, adiciona as duas seguintes linhas:: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNListParentPath on\n"
+"  SVNParentPath D:\\SVN\n"
+"  #SVNIndexXSLT \"/svnindex.xsl\"\n"
+"  AuthType Basic\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthUserFile passwd\n"
+"  #AuthzSVNAccessFile svnaccessfile\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen> Estas configuram o Apache para que todos todos os repositórios Subversion estejam fisicamente localizados debaixo da pasta <filename>D:\\SVN</filename>. Os repositórios são servidos para o mundo exterior a partir do URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. O acesso é restricto a utilizadores/palavras-passe listadas no ficheiro <filename>passwd</filename>."
 
 #. (para)
 msgid ""
@@ -2074,18 +2087,23 @@ msgid ""
 "bin\\htpasswd passwd &lt;username&gt;\n"
 "</screen>"
 msgstr ""
+"Para criar o ficheiro <filename>passwd</filename>, abre outra vez a linha de comandos (caixa-do-DOS) e vai para a pasta <filename>apache2</filename> ( normalmente em <filename>c:\\programas\\apache group\\apache2</filename>) e cria o ficheiro ao introduzires <screen>\n"
+"bin\\htpasswd -c passwd &lt;username&gt;\n"
+"</screen> Isto irá criar um ficheiro com o nome <filename>passwd</filename> que será usado para autenticação. Utilizadores adicionais podem ser adicionados com <screen>\n"
+"bin\\htpasswd passwd &lt;username&gt;\n"
+"</screen>"
 
 #. (para)
 msgid "Restart the Apache service again."
-msgstr ""
+msgstr "Reinicia novamente o serviço Apache."
 
 #. (para)
 msgid "Point your browser to <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (where <filename>MyNewRepository</filename> is the name of the Subversion repository you created before). If all went well you should be prompted for a username and password, then you can see the contents of your repository."
-msgstr ""
+msgstr "Aponta o teu navegador de internet para  <systemitem class=\"url\">http://MyServer/svn/MyNewRepository</systemitem> (onde <filename>MyNewRepository</filename> é o nome do repositório Subversion que criaste anteriormente). Se tudo correu bem, deverás ser solicitato com o nome de utilizador e palavra passe, então poderás ver os conteúdos do teu repositório."
 
 #. (para)
 msgid "Now you have set up Apache and Subversion, but Apache doesn't know how to handle Subversion clients like TortoiseSVN yet. To get Apache to know which URL will be used for Subversion repositories you have to edit the Apache configuration file (usually located in <filename>c:\\program files\\apache group\\apache2\\conf\\httpd.conf</filename>) with any text editor you like (e.g. Notepad): <placeholder-1/>"
-msgstr ""
+msgstr "Agora já instalaste o Apache e o Subversion, mas o Apache ainda não sabe lidar com os clientes do Subversion, como o TortoiseSVN. Para fazeres com que o Apache conheça o URL que irá ser usado para os repositórios do Subversion, terás de editar o ficheiro de configuração do Apache (normalmente localizado em <filename>c:\\programas\\apache group\\apache2\\conf\\httpd.conf</filename>) com um qualquer editor de texto com o (e.g. Notepad): <placeholder-1/>"
 
 #. (primary)
 msgid "SVNPath"
@@ -2103,11 +2121,11 @@ msgstr ""
 
 #. (entry)
 msgid "Setting"
-msgstr ""
+msgstr "Configuração"
 
 #. (entry)
 msgid "Explanation"
-msgstr ""
+msgstr "Explicação"
 
 #. (systemitem)
 msgid "http://MyServer/svn/"
@@ -2115,7 +2133,7 @@ msgstr ""
 
 #. (entry)
 msgid "means that the Subversion repositories are available from the URL <placeholder-1/>"
-msgstr ""
+msgstr "significa que os repositórios Subversion estão disponíveis a partir do URL <placeholder-1/>"
 
 #. (entry)
 msgid "tells Apache which module will be responsible to serve that URL - in this case the Subversion module."
@@ -2192,7 +2210,7 @@ msgstr ""
 
 #. (para)
 msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache web server. <placeholder-2/>"
-msgstr ""
+msgstr "Uma explicação curta do que acabaste de introduzir: <placeholder-1/> Mas é só um exemplo. Existem muitas mais possibilidades do que podes fazer com o servidor web Apache. <placeholder-2/>"
 
 #. (title)
 msgid "Multiple Repositories"
