@@ -14,9 +14,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-12-28 12:44 +0000\n"
-"PO-Revision-Date: 2010-01-11 09:41+0100\n"
-"Last-Translator: Stavros Labrou <slab_x@hotmail.com>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-18 17:03 +0000\n"
+"PO-Revision-Date: 2010-05-21 14:05+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,212 +78,6 @@ msgstr "Large"
 msgid "Preface"
 msgstr "Πρόλογος"
 
-#. (para)
-msgid "Do you work in a team?"
-msgstr "Εργάζεστε σε ομάδα;"
-
-#. (para)
-msgid "Has it ever happened that you were working on a file, and someone else was working on the same file at the same time? Did you lose your changes to that file because of that?"
-msgstr "Σας έτυχε ποτέ να εργάζεστε με ένα αρχείο και κάποιος άλλος να εργάζεται στο ίδιο αρχείο αρχείο την ίδια στιγμή; Χάσατε ποτέ τις αλλαγές σας στο αρχείο εξ αιτίας αυτού;"
-
-#. (para)
-msgid "Have you ever saved a file, and then wanted to revert the changes you made? Have you ever wished you could see what a file looked like some time ago?"
-msgstr "Αποθηκεύσατε ποτέ κάποιο αρχείο και έπειτα θελήσατε να επαναφέρετε τις αλλαγές που κάνατε; Ευχηθήκατε ποτέ να μπορούσατε να δείτε πως έμοιαζε το αρχείο πριν από κάποιο καιρό;"
-
-#. (para)
-msgid "Have you ever found a bug in your project and wanted to know when that bug got into your files?"
-msgstr "Βρήκατε ποτέ κάποιο σφάλμα στο έργο σας και θέλατε να γνωρίζετε πότε αυτό βρέθηκε στα αρχεία σας;"
-
-#. (para)
-msgid "If you answered <quote>yes</quote> to one of these questions, then TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help you in your work. It's not that difficult."
-msgstr "Αν απαντήσατε <quote>ναι</quote> σε κάποια από τις ερωτήσεις, τότε το TortoiseSVN είναι για εσάς! Απλώς διαβάστε και ανακαλύψτε πως το TortoiseSVN μπορεί να σας βοηθήσει στη δουλειά σας. Δεν είναι και τόσο δύσκολο."
-
-#. (title)
-msgid "Audience"
-msgstr "Κοινό"
-
-#. (para)
-msgid "This book is written for computer literate folk who want to use Subversion to manage their data, but are uncomfortable using the command line client to do so. Since TortoiseSVN is a windows shell extension it's assumed that the user is familiar with the windows explorer and knows how to use it."
-msgstr "Το βιβλίο αυτό έχει γραφτεί για χρήστες / γνώστες υπολογιστών που θέλουν να χρησιμοποιήσουν το Subversion για την διαχείριση των δεδομένων τους, αλλά δεν είναι τους είναι εύχρηστη η γραμμή εντολών για να το κάνουν. Εφόσον το TortoiseSVN είναι επέκταση στο κέλυφος των Windows θεωρούμε ότι ο χρήστης είναι εξοικιωμένος με την εξερεύνηση των windows και γνωρίζει πως να τη χρησιμοποιήσει."
-
-#. (title)
-msgid "Reading Guide"
-msgstr "Οδηγός Ανάγνωσης"
-
-#. (para)
-msgid "This <xref linkend=\"tsvn-preface\"/> explains a little about the TortoiseSVN project, the community of people who work on it, and the licensing conditions for using it and distributing it."
-msgstr ""
-
-#. (para)
-msgid "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
-msgstr ""
-
-#. (para)
-msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
-msgstr ""
-
-#. (para)
-msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server. There is also a section here on how to setup a server if you need one."
-msgstr ""
-
-#. (para)
-msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
-msgstr ""
-
-#. (para)
-msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
-msgstr ""
-
-#. (para)
-msgid "The <xref linkend=\"tsvn-howto\"/> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
-msgstr ""
-
-#. (para)
-msgid "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
-msgstr ""
-
-#. (para)
-msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
-msgstr ""
-
-#. (title)
-msgid "TortoiseSVN is free!"
-msgstr "Το TortoiseSVN είναι δωρεάν!"
-
-#. (para)
-msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it any way you want. It is developed under the GNU General Public License (GPL)."
-msgstr ""
-
-#. (para)
-msgid "TortoiseSVN is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
-
-#. (title)
-msgid "Community"
-msgstr "Κοινότητα"
-
-#. (para)
-msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world and work together to create wonderful programs."
-msgstr "Το TortoiseSVN και το Subversion έχουν αναπτυχθεί από μια κοινότητα ανθρώπων που εργάζονται σε αυτά τα έργα. Προέρχονται από διαφορετικές χώρες ανά τον κόσμο και εργάζονται μαζί για να δημιουργήσουν εκπληκτικά προγράμματα."
-
-#. (title)
-msgid "Acknowledgments"
-msgstr "Ευχαριστίες"
-
-#. (term)
-msgid "Tim Kemp"
-msgstr "Tim Kemp"
-
-#. (para)
-msgid "for founding the TortoiseSVN project"
-msgstr "που ξεκίνησε και δημιούργησε το TortoiseSVN project"
-
-#. (term)
-msgid "Stefan Küng"
-msgstr "Stefan Küng"
-
-#. (para)
-msgid "for the hard work to get TortoiseSVN to what it is now"
-msgstr "για την σκληρή δουλειά του να κάνει το TortoiseSVN αυτό που είναι τώρα"
-
-#. (term)
-msgid "Lübbe Onken"
-msgstr "Lübbe Onken"
-
-#. (para)
-msgid "for the beautiful icons, logo, bug hunting, translating and managing the translations"
-msgstr "για τα πανέμορφα εικονίδια, logo, εύρεση λαθών, μετάφραση και διαχείριση όλων των μεταφράσεων"
-
-#. (term)
-msgid "Simon Large"
-msgstr "Simon Large"
-
-#. (para)
-msgid "for helping with the documentation and bug hunting"
-msgstr "για τη βοήθεια στην τεκμηρίωση και την εύρεση λαθών"
-
-#. (term)
-msgid "The Subversion Book"
-msgstr "Η Βίβλος του Subversion"
-
-#. (para)
-msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
-msgstr ""
-
-#. (term)
-msgid "The Tigris Style project"
-msgstr "Το Tigris Style project"
-
-#. (para)
-msgid "for some of the styles which are reused in this documentation"
-msgstr ""
-
-#. (term)
-msgid "Our Contributors"
-msgstr "Οι συνεργάτες μας"
-
-#. (para)
-msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr ""
-
-#. (term)
-msgid "Our Donators"
-msgstr "Οι δωρητές μας"
-
-#. (para)
-msgid "for many hours of joy with the music they sent us"
-msgstr "για τις πολλές ώρες χαράς με τη μουσική που μας στέλνουν"
-
-#. (title)
-msgid "Terminology used in this document"
-msgstr "Ορολογία που χρησιμοποιείται σε αυτό το έγγραφο"
-
-#. (para)
-msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
-msgstr ""
-
-#. (para)
-msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
-msgstr ""
-
-#. (para)
-msgid "Where a local context menu appears within one of the TortoiseSVN dialogs, it is shown like this: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
-msgstr ""
-
-#. (para)
-msgid "User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton> to continue."
-msgstr ""
-
-#. (para)
-msgid "User Actions are indicated using a bold font. <keycap>Alt+A</keycap>: press the <keycap>Alt</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
-msgstr ""
-
-#. (para)
-msgid "System output and keyboard input is indicated with a <literal>different</literal> font as well."
-msgstr ""
-
-#. (para)
-msgid "Important notes are marked with an icon."
-msgstr "Σημαντικές σημειώσεις εμφανίζονται με ένα εικονίδιο."
-
-#. (para)
-msgid "Tips that make your life easier."
-msgstr "Συμβουλές που θα κάνουν πιο εύκολη τη ζωή σας."
-
-#. (para)
-msgid "Places where you have to be careful what you are doing."
-msgstr ""
-
-#. (para)
-msgid "Where extreme care has to be taken, data corruption or other nasty things may occur if these warnings are ignored."
-msgstr ""
-
-#. (title)
-#. (title)
-#. (title)
-msgid "Introduction"
-msgstr "Εισαγωγή"
-
 #. (primary)
 msgid "version control"
 msgstr ""
@@ -296,27 +91,11 @@ msgid "What is TortoiseSVN?"
 msgstr "Τι είναι το TortoiseSVN;"
 
 #. (para)
-msgid "TortoiseSVN is a free open-source client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
+msgid "TortoiseSVN is a free open-source Windows client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
 msgstr ""
 
 #. (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
-msgstr ""
-
-#. (title)
-msgid "TortoiseSVN's History"
-msgstr "Η ιστορία του TortoiseSVN"
-
-#. (para)
-msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS."
-msgstr ""
-
-#. (para)
-msgid "Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online. During that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use then he joined the project and started programming. Soon he rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
-msgstr ""
-
-#. (para)
-msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. And he takes care of the website and manages the translation."
 msgstr ""
 
 #. (title)
@@ -340,11 +119,12 @@ msgid "explorer"
 msgstr "εξερευνητής"
 
 #. (para)
-msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need functions of the version control!"
+#, fuzzy
+msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need the functions of version control."
 msgstr "Το TortoiseSVN ενσωματώνεται απρόσκοπτα στο κέλυφος των Windows (δηλ. στον εξερευνητή). Αυτό σημαίνει ότι μπορείτε να συνεχίσετε να εργάζεστε με τα εργαλεία που είστε συνηθισμένοι. Δεν χρειάζεται να μεταβείτε σε διαφορετική εφαρμογή κάθε φορά που πρέπει να χρησιμοποιήσετε λειτουργίες για έλεγχο εκδόσεων!"
 
 #. (para)
-msgid "And you are not even forced to use the Windows Explorer. TortoiseSVN's context menus work in many other file managers, and in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
+msgid "And you are not limited to using the Windows Explorer; TortoiseSVN's context menus work in many other file managers, and also in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as an extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
 msgstr ""
 
 #. (term)
@@ -353,6 +133,18 @@ msgstr ""
 
 #. (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
+msgstr ""
+
+#. (term)
+msgid "Graphical User Interface"
+msgstr ""
+
+#. (para)
+msgid "When you list the changes to a file or folder, you can click on a revision to see the comments for that commit. You can also see a list of changed files - just double click on a file to see exactly what changed."
+msgstr ""
+
+#. (para)
+msgid "The commit dialog lists all the items that will be included in a commit, and each item has a checkbox so you can choose which items you want to include. Unversioned files can also be listed, in case you forgot to add that new file."
 msgstr ""
 
 #. (term)
@@ -415,12 +207,217 @@ msgstr ""
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
 msgstr ""
 
-#. (term)
-msgid "Hackability"
+#. (title)
+msgid "License"
 msgstr ""
 
 #. (para)
-msgid "Subversion has no historical baggage; it is implemented as a collection of shared C libraries with well-defined APIs. This makes Subversion extremely maintainable and usable by other applications and languages."
+msgid "TortoiseSVN is an Open Source project developed under the GNU General Public License (GPL). It is free to download and free to use, either personally or commercially, on any number of PCs."
+msgstr ""
+
+#. (para)
+msgid "Although most people just download the installer, you also have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The current development line is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr ""
+
+#. (title)
+msgid "Development"
+msgstr ""
+
+#. (para)
+#, fuzzy
+msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world, working together to create great software."
+msgstr "Το TortoiseSVN και το Subversion έχουν αναπτυχθεί από μια κοινότητα ανθρώπων που εργάζονται σε αυτά τα έργα. Προέρχονται από διαφορετικές χώρες ανά τον κόσμο και εργάζονται μαζί για να δημιουργήσουν εκπληκτικά προγράμματα."
+
+#. (title)
+msgid "TortoiseSVN's History"
+msgstr "Η ιστορία του TortoiseSVN"
+
+#. (para)
+msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS. Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online."
+msgstr ""
+
+#. (para)
+msgid "Around that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use, he joined the project and started programming. He soon rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
+msgstr ""
+
+#. (para)
+msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. He now takes care of the website and manages the many translations."
+msgstr ""
+
+#. (title)
+msgid "Acknowledgments"
+msgstr "Ευχαριστίες"
+
+#. (term)
+msgid "Tim Kemp"
+msgstr "Tim Kemp"
+
+#. (para)
+msgid "for founding the TortoiseSVN project"
+msgstr "που ξεκίνησε και δημιούργησε το TortoiseSVN project"
+
+#. (term)
+msgid "Stefan Küng"
+msgstr "Stefan Küng"
+
+#. (para)
+#, fuzzy
+msgid "for the hard work to get TortoiseSVN to what it is now, and his leadership of the project"
+msgstr "για την σκληρή δουλειά του να κάνει το TortoiseSVN αυτό που είναι τώρα"
+
+#. (term)
+msgid "Lübbe Onken"
+msgstr "Lübbe Onken"
+
+#. (para)
+msgid "for the beautiful icons, logo, bug hunting, translating and managing the translations"
+msgstr "για τα πανέμορφα εικονίδια, logo, εύρεση λαθών, μετάφραση και διαχείριση όλων των μεταφράσεων"
+
+#. (term)
+msgid "Simon Large"
+msgstr "Simon Large"
+
+#. (para)
+#, fuzzy
+msgid "for maintaining the documentation"
+msgstr "για τη βοήθεια στην τεκμηρίωση και την εύρεση λαθών"
+
+#. (term)
+msgid "Stefan Fuhrmann"
+msgstr "Stefan Fuhrmann"
+
+#. (para)
+msgid "for the log cache and revision graph"
+msgstr ""
+
+#. (term)
+msgid "The Subversion Book"
+msgstr "Η Βίβλος του Subversion"
+
+#. (para)
+msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
+msgstr ""
+
+#. (term)
+msgid "The Tigris Style project"
+msgstr "Το Tigris Style project"
+
+#. (para)
+msgid "for some of the styles which are reused in this documentation"
+msgstr ""
+
+#. (term)
+msgid "Our Contributors"
+msgstr "Οι συνεργάτες μας"
+
+#. (para)
+msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list"
+msgstr ""
+
+#. (term)
+msgid "Our Donators"
+msgstr "Οι δωρητές μας"
+
+#. (para)
+msgid "for many hours of joy with the music they sent us"
+msgstr "για τις πολλές ώρες χαράς με τη μουσική που μας στέλνουν"
+
+#. (title)
+msgid "Reading Guide"
+msgstr "Οδηγός Ανάγνωσης"
+
+#. (para)
+#, fuzzy
+msgid "This book is written for computer-literate folk who want to use Subversion to manage their data, but prefer to use a GUI client rather than a command line client. TortoiseSVN is a windows shell extension and it is assumed that the user is familiar with the windows explorer and how to use it."
+msgstr "Το βιβλίο αυτό έχει γραφτεί για χρήστες / γνώστες υπολογιστών που θέλουν να χρησιμοποιήσουν το Subversion για την διαχείριση των δεδομένων τους, αλλά δεν είναι τους είναι εύχρηστη η γραμμή εντολών για να το κάνουν. Εφόσον το TortoiseSVN είναι επέκταση στο κέλυφος των Windows θεωρούμε ότι ο χρήστης είναι εξοικιωμένος με την εξερεύνηση των windows και γνωρίζει πως να τη χρησιμοποιήσει."
+
+#. (para)
+msgid "This <xref linkend=\"tsvn-preface\"/> explains what TortoiseSVN is, a little about the TortoiseSVN project and the community of people who work on it, and the licensing conditions for using it and distributing it."
+msgstr ""
+
+#. (para)
+msgid "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
+msgstr ""
+
+#. (para)
+msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
+msgstr ""
+
+#. (para)
+msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server. There is also a section here on how to setup a server if you need one."
+msgstr ""
+
+#. (para)
+msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
+msgstr ""
+
+#. (para)
+msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
+msgstr ""
+
+#. (para)
+msgid "The <xref linkend=\"tsvn-howto\"/> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
+msgstr ""
+
+#. (para)
+msgid "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
+msgstr ""
+
+#. (para)
+msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
+msgstr ""
+
+#. (title)
+msgid "Terminology used in this document"
+msgstr "Ορολογία που χρησιμοποιείται σε αυτό το έγγραφο"
+
+#. (para)
+msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
+msgstr ""
+
+#. (para)
+msgid "A menu choice is indicated with an arrow. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> from the <emphasis>TortoiseSVN</emphasis> context menu."
+msgstr ""
+
+#. (para)
+msgid "Where a local context menu appears within one of the TortoiseSVN dialogs, it is shown like this: <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
+msgstr ""
+
+#. (para)
+msgid "User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton> to continue."
+msgstr ""
+
+#. (para)
+msgid "User Actions are indicated using a bold font. <keycap>Alt+A</keycap>: press the <keycap>Alt</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
+msgstr ""
+
+#. (para)
+msgid "System output and keyboard input is indicated with a <literal>different</literal> font as well."
+msgstr ""
+
+#. (para)
+msgid "Important notes are marked with an icon."
+msgstr "Σημαντικές σημειώσεις εμφανίζονται με ένα εικονίδιο."
+
+#. (para)
+msgid "Tips that make your life easier."
+msgstr "Συμβουλές που θα κάνουν πιο εύκολη τη ζωή σας."
+
+#. (para)
+msgid "Places where you have to be careful what you are doing."
+msgstr ""
+
+#. (para)
+msgid "Where extreme care has to be taken. Data corruption or other nasty things may occur if these warnings are ignored."
+msgstr ""
+
+#. (title)
+#. (title)
+msgid "Getting Started"
+msgstr ""
+
+#. (para)
+msgid "This section is aimed at people who would like to find out what TortoiseSVN is all about and give it a test drive. It explains how to install TortoiseSVN and set up a local repository, and it walks you through the most commonly used operations."
 msgstr ""
 
 #. (title)
@@ -432,11 +429,11 @@ msgid "System requirements"
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN runs on Windows 2000 SP2, Windows XP or higher. Windows 98, Windows ME and Windows NT4 are no longer supported since TortoiseSVN 1.2.0, but you can still download the older versions if you really need them."
+msgid "TortoiseSVN runs on Windows XP or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
 msgstr ""
 
 #. (para)
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to <xref linkend=\"tsvn-faq\"/> first."
+msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
 msgstr ""
 
 #. (title)
@@ -448,87 +445,195 @@ msgid "install"
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest."
+msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. Don't forget to reboot after installation."
 msgstr ""
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
 msgstr ""
 
-#. (title)
-msgid "Language Packs"
-msgstr ""
-
-#. (primary)
-msgid "language packs"
-msgstr ""
-
-#. (primary)
-msgid "translations"
+#. (para)
+msgid "Language packs are available which translate the TortoiseSVN user interface into many different languages. Please check <xref linkend=\"tsvn-lang\"/> for more information on how to install these."
 msgstr ""
 
 #. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr ""
-
-#. (para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
 msgstr ""
 
 #. (title)
-msgid "Spellchecker"
-msgstr ""
-
-#. (primary)
-msgid "spellchecker"
-msgstr ""
-
-#. (primary)
-msgid "dictionary"
+msgid "Basic Concepts"
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgid "Before we get stuck into working with some real files, it is important to get an overview of how subversion works and the terms that are used."
+msgstr ""
+
+#. (term)
+#. (title)
+#. (title)
+#. (title)
+msgid "The Repository"
 msgstr ""
 
 #. (para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
+msgid "Subversion uses a central database which contains all your version-controlled files with their complete history. This database is referred to as the <emphasis>repository</emphasis>. The repository normally lives on a file server running the Subversion server program, which supplies content to Subversion clients (like TortoiseSVN) on request. If you only back up one thing, back up your repository as it is the definitive master copy of all your data."
+msgstr ""
+
+#. (term)
+#. (glossterm)
+msgid "Working Copy"
+msgstr "Αντίγραφο Εργασίας"
+
+#. (para)
+msgid "This is where you do the real work. Every developer has his own working copy, sometimes known as a sandbox, on his local PC. You can pull down the latest version from the repository, work on it locally without affecting anyone else, then when you are happy with the changes you made commit them back to the repository."
 msgstr ""
 
 #. (para)
-msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
+msgid "A Subversion working copy does not contain the history of the project, but it does keep a copy of the files as they exist in the repository before you started making changes. This means that it is easy to check exactly what changes you have made."
 msgstr ""
 
-#. (filename)
-msgid "en_US.aff"
-msgstr ""
-
-#. (filename)
-msgid "en_US.dic"
+#. (title)
+#. (title)
+msgid "The TortoiseSVN menu for unversioned folders"
 msgstr ""
 
 #. (para)
-msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
+msgid "You also need to know where to find TortoiseSVN because there is not much to see from the Start Menu. This is because TortoiseSVN is a Shell extension, so first of all, start Windows Explorer. Right click on a folder in Explorer and you should see some new entries in the context menu like this: <placeholder-1/>"
+msgstr ""
+
+#. (title)
+msgid "Go for a Test Drive"
 msgstr ""
 
 #. (para)
-msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
+msgid "This section shows you how to try out some of the most commonly used features on a small test repository. Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
+msgstr ""
+
+#. (title)
+#, fuzzy
+msgid "Creating a Repository"
+msgstr "Αποθήκη"
+
+#. (para)
+msgid "For a real project you will have a repository set up somewhere safe and a Subversion server to control it. For the purposes of this tutorial we are going to use Subversion's local repository feature which allows direct access to a repository created on your hard drive without needing a server at all."
 msgstr ""
 
 #. (para)
-msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
+msgid "First create a new empty directory on your PC. It can go anywhere, but in this tutorial we are going to call it <filename>C:\\svn_repos</filename>. Now right click on the new folder and from the context menu choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>. The repository is then created inside the folder, ready for you to use."
 msgstr ""
 
 #. (para)
-msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
+msgid "The local repository feature is very useful for test and evaluation but unless you are working as a sole developer on one PC you should always use a proper Subversion server. It is tempting in a small company to avoid the work of setting up a server and just access your repository on a network share. Don't ever do that. You will lose data. Read <xref linkend=\"tsvn-repository-local-share\"/> to find out why this is a bad idea, and how to set up a server."
+msgstr ""
+
+#. (title)
+msgid "Importing a Project"
+msgstr ""
+
+#. (title)
+#. (title)
+msgid "The Import dialog"
 msgstr ""
 
 #. (para)
-msgid "If none of the above works, then the default language is English, which is included with the standard installation."
+msgid "Now we have a repository, but it is completely empty at the moment. Let's assume I have a set of files in <filename>C:\\Projects\\Widget1</filename> that I would like to add. Navigate to the <filename>Widget1</filename> folder in Explorer and right click on it. Now select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog <placeholder-1/> A Subversion repository is referred to by URL, which allows us to specify a repository anywhere on the Internet. In this case we need to point to our own local repository which has a URL of <filename>file:///c:/svn_repos/Widget1</filename> Note that there are 3 slashes after <filename>file:</filename> and that the forward slashes are used throughout."
 msgstr ""
 
 #. (para)
-msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
+msgid "The other important feature of this dialog is the <guilabel>Import Message</guilabel> box which allows you to enter a message describing what you are doing. When you come to look through your project history, these commit messages are a valuable guide to what changes have been made and why. In this case we can say something simple like <quote>Import the Widget1 project</quote>. Click on <guibutton>OK</guibutton> and the folder is added to your repository."
+msgstr ""
+
+#. (title)
+#, fuzzy
+msgid "Checking out a Working Copy"
+msgstr "Αντίγραφο Εργασίας"
+
+#. (para)
+msgid "Now that we have a project in our repository, we need to create a working copy to use for day-to-day work. Note that the act of importing a folder does not automatically turn that folder into a working copy. The Subversion term for creating a fresh working copy is <literal>Checkout</literal>. We are going to checkout the Widget1 folder of our repository into a development folder on the PC called <filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then right click on it and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename> and click on <guibutton>OK</guibutton>. Our development folder is then populated with files from the repository."
+msgstr ""
+
+#. (para)
+msgid "You will notice that the appearance of this folder is different from our original folder. Every file has a green check mark in the bottom left corner. These are TortoiseSVN's status icons which are only present in a working copy. The green state indicates that the file is unchanged from the version in the repository."
+msgstr ""
+
+#. (title)
+msgid "Making Changes"
+msgstr ""
+
+#. (para)
+msgid "Time to get to work. In the <filename>Widget1-Dev</filename> we start editing files - let's say we make changes to <filename>Widget1.c</filename> and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files have now changed to red, indicating that changes have been made locally."
+msgstr ""
+
+#. (title)
+msgid "File Difference Viewer"
+msgstr ""
+
+#. (para)
+msgid "But what are the changes? Right click on one of the changed files and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>. TortoiseSVN's file compare tool starts, showing you exactly which lines have changed. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "OK, so we are happy with the changes, let's update the repository. This action is referred to as a <literal>Commit</literal> of the changes. Right click on the <filename>Widget1-Dev</filename> folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice>. The commit dialog lists the changed files, each with a checkbox. You might want to choose only a subset of those files, but in this case we are going to commit the changes to both files. Enter up a message to describe what the change is all about and click on <guibutton>OK</guibutton>. The progress dialog shows the files being uploaded to the repository and you're done."
+msgstr ""
+
+#. (title)
+msgid "Adding More Files"
+msgstr ""
+
+#. (para)
+msgid "As the project develops you will need to add new files - let's say you add some new features in <filename>Extras.c</filename> and add a reference in the existing <filename>Makefile</filename>. Right click on the folder and <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>. The Add dialog now shows you all unversioned files and you can select which ones you want to add. Another way of adding files would be to right click on the file itself and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
+msgstr ""
+
+#. (para)
+msgid "Now when you go to commit the folder, the new file shows up as <emphasis>Added</emphasis> and the existing file as <emphasis>Modified</emphasis>. Note that you can double click on the modified file to check exactly what changes were made."
+msgstr ""
+
+#. (title)
+msgid "Viewing the Project History"
+msgstr ""
+
+#. (title)
+msgid "The Log Dialog"
+msgstr ""
+
+#. (para)
+msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/> OK, so I cheated a little here and used a screenshot from the TortoiseSVN repository."
+msgstr ""
+
+#. (para)
+msgid "The top pane shows a list of revisions committed along with the start of the commit message. If you select one of these revisions, the middle pane will show the full log message for that revision and the bottom pane will show a list of changed files and folders."
+msgstr ""
+
+#. (para)
+msgid "Each of these panes has a context menu which provides you with lots more ways of using the information. In the bottom pane you can <action>double click</action> on a file to see exactly what changes were made in that revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
+msgstr ""
+
+#. (title)
+msgid "Undoing Changes"
+msgstr ""
+
+#. (para)
+msgid "One feature of all revision control systems is that they let you undo changes that you made previously. As you would expect, TortoiseSVN makes this easy to access."
+msgstr ""
+
+#. (para)
+msgid "If you want to get rid of changes that you have not yet committed and reset your file to the way it was before you started editing, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> is your friend. This discards your changes (to the Recycle bin, just in case) and reverts to the committed version you started with. If you want to get rid of just some of the changes, you can use TortoiseMerge to view the differences and selectively revert changed lines."
+msgstr ""
+
+#. (para)
+msgid "If you want to undo the effects of a particular revision, start with the Log dialog and find the offending revision. Select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> and those changes will be undone."
+msgstr ""
+
+#. (title)
+msgid "Moving On ..."
+msgstr ""
+
+#. (para)
+msgid "This guide has given you a very quick tour of some of TortoiseSVN's most important and useful features, but of course there is far more that we haven't covered. We strongly recommend that you take the time to read the rest of this manual, especially <xref linkend=\"tsvn-dug\"/> which gives you a lot more detail on day-to-day operations."
+msgstr ""
+
+#. (para)
+msgid "We have taken a lot of trouble to make sure that it is both informative and easy to read, but we recognise that there is a lot of it! Take your time and don't be afraid to try things out on a test repository as you go along. The best way to learn is by using it."
 msgstr ""
 
 #. (title)
@@ -549,12 +654,6 @@ msgstr ""
 
 #. (para)
 msgid "Even though the examples in this chapter show people sharing collections of program source code, keep in mind that Subversion can manage any sort of file collection - it's not limited to helping computer programmers."
-msgstr ""
-
-#. (title)
-#. (title)
-#. (title)
-msgid "The Repository"
 msgstr ""
 
 #. (primary)
@@ -763,7 +862,7 @@ msgstr ""
 
 #. (literal)
 msgid "file://"
-msgstr ""
+msgstr "file://"
 
 #. (entry)
 msgid "Direct repository access on local or network drive."
@@ -772,7 +871,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "http://"
-msgstr ""
+msgstr "http://"
 
 #. (entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
@@ -780,7 +879,7 @@ msgstr ""
 
 #. (literal)
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #. (entry)
 msgid "Same as <placeholder-1/>, but with SSL encryption."
@@ -788,14 +887,14 @@ msgstr ""
 
 #. (literal)
 msgid "svn://"
-msgstr ""
+msgstr "svn://"
 
 #. (literal)
 #. (literal)
 #. (primary)
 #. (primary)
 msgid "svnserve"
-msgstr ""
+msgstr "svnserve"
 
 #. (entry)
 msgid "Unauthenticated TCP/IP access via custom protocol to a <placeholder-1/> server."
@@ -803,7 +902,7 @@ msgstr ""
 
 #. (literal)
 msgid "svn+ssh://"
-msgstr ""
+msgstr "svn+ssh://"
 
 #. (entry)
 msgid "authenticated, encrypted TCP/IP access via custom protocol to a <placeholder-1/> server."
@@ -885,6 +984,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:4\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:4\n"
 
 #. (para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
@@ -898,6 +1001,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:5\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:5\n"
 
 #. (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
@@ -911,6 +1018,10 @@ msgid ""
 "     integer.c:6\n"
 "     button.c:6\n"
 msgstr ""
+"\n"
+"calc/Makefile:6\n"
+"     integer.c:6\n"
+"     button.c:6\n"
 
 #. (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
@@ -1042,10 +1153,6 @@ msgstr ""
 msgid "Creating The Repository With TortoiseSVN"
 msgstr ""
 
-#. (title)
-msgid "The TortoiseSVN menu for unversioned folders"
-msgstr ""
-
 #. (para)
 msgid "Open the windows explorer"
 msgstr ""
@@ -1067,7 +1174,7 @@ msgid "TortoiseSVN no longer offers the option to create BDB repositories, altho
 msgstr ""
 
 #. (para)
-msgid "Future versions of TortoiseSVN will not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file://</literal> protocol is created as FSFS."
+msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
 msgstr ""
 
 #. (para)
@@ -1150,6 +1257,10 @@ msgid ""
 "/branches\n"
 "/tags\n"
 msgstr ""
+"\n"
+"/trunk\n"
+"/branches\n"
+"/tags\n"
 
 #. (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
@@ -1212,7 +1323,7 @@ msgid "create your desired top-level folder structure inside that folder - don't
 msgstr ""
 
 #. (para)
-msgid "import this structure into the repository via a <action>right click</action> on the folder and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> This will import your temp folder into the repository root to create the basic repository layout."
+msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the URL to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
 msgstr ""
 
 #. (para)
@@ -1394,6 +1505,11 @@ msgstr ""
 msgid "Svnserve Based Server"
 msgstr ""
 
+#. (title)
+#. (title)
+msgid "Introduction"
+msgstr "Εισαγωγή"
+
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
 msgstr ""
@@ -1474,13 +1590,13 @@ msgstr ""
 #. (para)
 msgid ""
 "To install svnserve as a native windows service, execute the following command all on one line to create a service which is automatically started when windows starts. <screen>\n"
-"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
-"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip \n"
+"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service\n"
+"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip\n"
 "    start= auto\n"
 "</screen> If any of the paths include spaces, you have to use (escaped) quotes around the path, like this: <screen>\n"
 "sc create svnserve binpath= \"\n"
 "    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
-"    --service --root c:\\repos\" displayname= \"Subversion\" \n"
+"    --service --root c:\\repos\" displayname= \"Subversion\"\n"
 "    depend= tcpip start= auto\n"
 "</screen> You can also add a description after creating the service. This will show up in the Windows Services Manager. <screen>\n"
 "sc description svnserve \"Subversion server (svnserve)\"\n"
@@ -1557,7 +1673,7 @@ msgstr ""
 
 #. (primary)
 msgid "SASL"
-msgstr ""
+msgstr "SASL"
 
 #. (title)
 msgid "What is SASL?"
@@ -1671,7 +1787,7 @@ msgstr ""
 
 #. (primary)
 msgid "Apache"
-msgstr ""
+msgstr "Apache"
 
 #. (para)
 msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
@@ -1680,7 +1796,7 @@ msgstr ""
 #. (primary)
 #. (term)
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 #. (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system."
@@ -1796,7 +1912,6 @@ msgid ""
 msgstr ""
 
 #. (title)
-#. (term)
 msgid "Configuration"
 msgstr ""
 
@@ -1840,13 +1955,13 @@ msgstr ""
 
 #. (primary)
 msgid "SVNPath"
-msgstr ""
+msgstr "SVNPath"
 
 #. (primary)
 #. (literal)
 #. (primary)
 msgid "SVNParentPath"
-msgstr ""
+msgstr "SVNParentPath"
 
 #. (title)
 msgid "Apache <filename>httpd.conf</filename> Settings"
@@ -1862,7 +1977,7 @@ msgstr ""
 
 #. (systemitem)
 msgid "http://MyServer/svn/"
-msgstr ""
+msgstr "http://MyServer/svn/"
 
 #. (entry)
 msgid "means that the Subversion repositories are available from the URL <placeholder-1/>"
@@ -1878,7 +1993,7 @@ msgstr ""
 
 #. (filename)
 msgid "D:\\SVN"
-msgstr ""
+msgstr "D:\\SVN"
 
 #. (entry)
 msgid "tells Subversion to look for repositories below <placeholder-1/>"
@@ -1934,7 +2049,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
+msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
 msgstr ""
 
 #. (para)
@@ -2036,11 +2151,11 @@ msgstr ""
 
 #. (primary)
 msgid "SSPI"
-msgstr ""
+msgstr "SSPI"
 
 #. (primary)
 msgid "NTLM"
-msgstr ""
+msgstr "NTLM"
 
 #. (para)
 msgid "The original SSPI module was offered by Syneapps including source code. But the development for it has been stopped. But don't despair, the community has picked it up and improved it. It has a new home on <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
@@ -2166,7 +2281,7 @@ msgstr ""
 
 #. (primary)
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #. (para)
 msgid "Even though Apache 2.2.x has OpenSSL support, it is not activated by default. You need to activate this manually."
@@ -2305,7 +2420,7 @@ msgid ""
 "To summarise, the relevant lines of the Apache configuration are: <screen>\n"
 "SSLVerifyClient Optional\n"
 "\n"
-"### Virtual host configuration for the PUBLIC host \n"
+"### Virtual host configuration for the PUBLIC host\n"
 "### (not requiring a certificate)\n"
 "\n"
 "&lt;VirtualHost 127.0.0.1:443&gt;\n"
@@ -2313,7 +2428,7 @@ msgid ""
 "  &lt;/Directory&gt;\n"
 "&lt;/VirtualHost&gt;\n"
 "\n"
-"### Virtual host configuration for SUBVERSION \n"
+"### Virtual host configuration for SUBVERSION\n"
 "### (requiring a client certificate)\n"
 "&lt;VirtualHost 127.0.0.1:443&gt;\n"
 "  &lt;Directory \"subversion host root path\"&gt;\n"
@@ -2362,10 +2477,6 @@ msgstr ""
 
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
-msgstr ""
-
-#. (title)
-msgid "Getting Started"
 msgstr ""
 
 #. (title)
@@ -2451,7 +2562,7 @@ msgstr ""
 
 #. (term)
 msgid "F1"
-msgstr ""
+msgstr "F1"
 
 #. (para)
 msgid "Help, of course."
@@ -2459,7 +2570,7 @@ msgstr ""
 
 #. (term)
 msgid "F5"
-msgstr ""
+msgstr "F5"
 
 #. (para)
 msgid "Refresh the current view. This is perhaps the single most useful one-key command. For example ... In Explorer this will refresh the icon overlays on your working copy. In the commit dialog it will re-scan the working copy to see what may need to be committed. In the Revision Log dialog it will contact the repository again to check for more recent changes."
@@ -2467,7 +2578,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-A"
-msgstr ""
+msgstr "Ctrl-A"
 
 #. (para)
 msgid "Select all. This can be used if you get an error message and want to copy and paste into an email. Use Ctrl-A to select the error message and then ..."
@@ -2475,7 +2586,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-C"
-msgstr ""
+msgstr "Ctrl-C"
 
 #. (para)
 msgid "... Copy the selected text."
@@ -2598,10 +2709,6 @@ msgstr ""
 
 #. (para)
 msgid "Before you import your project into a repository you should: <placeholder-1/>"
-msgstr ""
-
-#. (title)
-msgid "The Import dialog"
 msgstr ""
 
 #. (para)
@@ -2994,6 +3101,10 @@ msgid "The log message window also includes a filename and function auto-complet
 msgstr ""
 
 #. (para)
+msgid "Getting the regex just right can be tricky, so to help you sort out a suitable expression there is a test dialog which allows you to enter an expression and then type in filenames to test it against. Start it from the command prompt using the command <literal>TortoiseProc.exe /command:autotexttest</literal>"
+msgstr ""
+
+#. (para)
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
 msgstr ""
 
@@ -3227,7 +3338,7 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.mine"
-msgstr ""
+msgstr "filename.ext.mine"
 
 #. (para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
@@ -3235,7 +3346,7 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.rOLDREV"
-msgstr ""
+msgstr "filename.ext.rOLDREV"
 
 #. (para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
@@ -3243,7 +3354,7 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.rNEWREV"
-msgstr ""
+msgstr "filename.ext.rNEWREV"
 
 #. (para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
@@ -3252,12 +3363,12 @@ msgstr ""
 #. (para)
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
-"\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"\t\tyour changes\n"
-"\t=======\n"
-"\t\tcode merged from repository\n"
-"\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"\t</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
+"    &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"        your changes\n"
+"    =======\n"
+"        code merged from repository\n"
+"    &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"    </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -3522,6 +3633,14 @@ msgstr ""
 
 #. (para)
 msgid "To resolve this conflict, Developer B has to find out to what filename the conflicted file <filename>Foo.c</filename> was renamed/moved in the repository. This can be done by using the log dialog for the merge source. The conflict editor only shows the log for the working copy as it does not know which path was used in the merge, so you will have to find that yourself."
+msgstr ""
+
+#. (title)
+msgid "Other tree conflicts"
+msgstr ""
+
+#. (para)
+msgid "There are other cases which are labelled as tree conflicts simply because the conflict involves a folder rather than a file. For example if you add a folder with the same name to both trunk and branch and then try to merge you will get a tree conflict. If you want to keep the folder from the merge target, just mark the conflict as resolved. If you want to use the one in the merge source then you need to SVN delete the one in the target first and run the merge again. If you need anything more complicated then you have to resolve manually."
 msgstr ""
 
 #. (title)
@@ -4147,7 +4266,7 @@ msgid "Show changes"
 msgstr ""
 
 #. (para)
-msgid "Show changes made in the selected revision for the selected file. This context menu is only available for files shown as <emphasis>modified</emphasis>."
+msgid "Show changes made in the selected revision for the selected file."
 msgstr ""
 
 #. (term)
@@ -4360,15 +4479,28 @@ msgid "If you want to restrict the log messages to show only those you are inter
 msgstr ""
 
 #. (para)
-msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
+msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple sub-string search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions, or the sub-string functions. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
 msgstr ""
 
 #. (para)
-msgid "If you don't use regex mode, you can enter several strings to search for, and only those log entries which match all of your filter words will be shown."
+msgid ""
+"Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
+"Alice Bob -Eve\n"
+"</screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
+"!Alice Bob\n"
+"</screen> searches for strings which do not contain both Alice and Bob <screen>\n"
+"!-Alice -Bob\n"
+"</screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n"
+"\"Alice and Bob\"\n"
+"</screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n"
+"\"\"\n"
+"</screen> searches for a double-quote anywhere in the text <screen>\n"
+"\"Alice says \"\"hi\"\" to Bob\"\n"
+"</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>"
 msgstr ""
 
 #. (para)
-msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
+msgid "Describing the use of regular expression searches is beyond the scope of this manual, but you can find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 msgstr ""
 
 #. (para)
@@ -4376,7 +4508,7 @@ msgid "Note that these filters act on the messages already retrieved. They do no
 msgstr ""
 
 #. (para)
-msgid "You can also filter the path names in the bottom pane using the <guilabel>Hide unrelated changed paths</guilabel> checkbox. Related paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. The checkbox is tristate: you can show all paths, grey out the unrelated ones, or hide the unrelated paths completely."
+msgid "You can also filter the path names in the bottom pane using the <guilabel>Show only affected paths</guilabel> checkbox. Affected paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. Normally the path list shows any other paths which are affected by the same commit, but in grey. If the box is checked, those paths are hidden."
 msgstr ""
 
 #. (para)
@@ -4707,7 +4839,7 @@ msgstr ""
 
 #. (primary)
 msgid "TortoiseIDiff"
-msgstr ""
+msgstr "TortoiseIDiff"
 
 #. (para)
 msgid "There are many tools available for diffing text files, including our own TortoiseMerge, but we often find ourselves wanting to see how an image file has changed too. That's why we created TortoiseIDiff."
@@ -4759,7 +4891,7 @@ msgstr ""
 
 #. (term)
 msgid "WinMerge"
-msgstr ""
+msgstr "WinMerge"
 
 #. (para)
 msgid "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is a great open-source diff tool which can also handle directories."
@@ -4775,7 +4907,7 @@ msgstr ""
 
 #. (term)
 msgid "KDiff3"
-msgstr ""
+msgstr "KDiff3"
 
 #. (para)
 msgid "KDiff3 is a free diff tool which can also handle directories. You can download it from <ulink url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
@@ -4783,7 +4915,7 @@ msgstr ""
 
 #. (term)
 msgid "ExamDiff"
-msgstr ""
+msgstr "ExamDiff"
 
 #. (para)
 msgid "ExamDiff Standard is freeware. It can handle files but not directories. ExamDiff Pro is shareware and adds a number of goodies including directory diff and editing capability. In both flavours, version 3.2 and above can handle unicode. You can download them from <ulink url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
@@ -4799,7 +4931,7 @@ msgstr ""
 
 #. (term)
 msgid "Araxis Merge"
-msgstr ""
+msgstr "Araxis Merge"
 
 #. (para)
 msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparison in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
@@ -4807,7 +4939,7 @@ msgstr ""
 
 #. (term)
 msgid "SciTE"
-msgstr ""
+msgstr "SciTE"
 
 #. (para)
 msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
@@ -4815,7 +4947,7 @@ msgstr ""
 
 #. (term)
 msgid "Notepad2"
-msgstr ""
+msgstr "Notepad2"
 
 #. (para)
 msgid "Notepad2 is designed as a replacement for the standard Windows Notepad program, and is based on the Scintilla open-source edit control. As well as being good for viewing unified diffs, it is much better than the Windows notepad for most jobs. Download it for free <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>here</citetitle></ulink>."
@@ -5008,7 +5140,7 @@ msgstr ""
 
 #. (term)
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #. (para)
 msgid "Matches any string of characters, including the empty string (no characters)."
@@ -5016,7 +5148,7 @@ msgstr ""
 
 #. (term)
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #. (para)
 msgid "Matches any single character."
@@ -5024,7 +5156,7 @@ msgstr ""
 
 #. (term)
 msgid "[...]"
-msgstr ""
+msgstr "[...]"
 
 #. (para)
 msgid "Matches any one of the characters enclosed in the square brackets. Within the brackets, a pair of characters separated by <quote>-</quote> matches any character lexically between the two. For example <literal>[AGm-p]</literal> matches any one of <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> or <literal>p</literal>."
@@ -5388,7 +5520,7 @@ msgstr ""
 
 #. (title)
 msgid "svn:keywords"
-msgstr ""
+msgstr "svn:keywords"
 
 #. (primary)
 msgid "keywords"
@@ -5508,7 +5640,7 @@ msgstr ""
 
 #. (primary)
 msgid "auto-props"
-msgstr ""
+msgstr "auto-props"
 
 #. (para)
 msgid "You can configure Subversion and TortoiseSVN to set properties automatically on files and folders when they are added to the repository. There are two ways of doing this."
@@ -5654,7 +5786,34 @@ msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</li
 msgstr ""
 
 #. (para)
-msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
+#. (para)
+#. (para)
+msgid "When you add new sub-folders to a working copy using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
+msgstr ""
+
+#. (title)
+#. (title)
+msgid "Limitations Using the Repository Browser"
+msgstr ""
+
+#. (para)
+msgid "Fetching properties remotely is a slow operation, so some of the features described above will not work in the repository browser as they do in a working copy."
+msgstr ""
+
+#. (para)
+msgid "When you add a property using the repo browser, only the standard <literal>svn:</literal> properties are offered in the pre-defined list. Any other property name must be entered manually."
+msgstr ""
+
+#. (para)
+msgid "Properties cannot be set or deleted recursively using the repo browser."
+msgstr ""
+
+#. (para)
+msgid "Project properties will <emphasis>not</emphasis> be propagated automatically when a child folder is added using the repo browser."
+msgstr ""
+
+#. (para)
+msgid "<literal>tsvn:autoprops</literal> will <emphasis>not</emphasis> set properties on files which are added using the repo browser."
 msgstr ""
 
 #. (para)
@@ -6204,7 +6363,7 @@ msgid "If you are using merge tracking and you want to mark a revision as having
 msgstr ""
 
 #. (para)
-msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
+msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> simulates the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes files where conflicts <emphasis>may</emphasis> occur. Because merge tracking makes the merge process a lot more complicated, there is no guaranteed way to find out in advance whether the merge will complete without conflicts, so files marked as conflicted in a test merge may in fact merge without any problem."
 msgstr ""
 
 #. (para)
@@ -6617,7 +6776,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseBlame"
 
 #. (para)
 msgid "<placeholder-1/> TortoiseBlame, which is included with TortoiseSVN, makes the blame file easier to read. When you hover the mouse over a line in the blame info column, all lines with the same revision are shown with a darker background. Lines from other revisions which were changed by the same author are shown with a light background. The colouring may not work as clearly if you have your display set to 256 colour mode."
@@ -7461,7 +7620,12 @@ msgid "Because the issue tracker integration depends upon accessing subversion p
 msgstr ""
 
 #. (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+#. (para)
+msgid "For the same reason, project properties will not be propagated automatically when a child folder is added using the repo browser."
+msgstr ""
+
+#. (para)
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr ""
 
 #. (title)
@@ -7473,7 +7637,7 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr ""
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
 msgstr ""
 
 #. (title)
@@ -7498,11 +7662,11 @@ msgstr ""
 
 #. (primary)
 msgid "ViewVC"
-msgstr ""
+msgstr "ViewVC"
 
 #. (primary)
 msgid "WebSVN"
-msgstr ""
+msgstr "WebSVN"
 
 #. (para)
 msgid "There are several web-based repository viewers available for use with Subversion such as <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> and <ulink url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. TortoiseSVN provides a means to link with these viewers."
@@ -7517,15 +7681,11 @@ msgid "Set this property to the URL of your repo viewer to view all changes in a
 msgstr ""
 
 #. (para)
-msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
+msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision for path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
 msgstr ""
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
-
-#. (title)
-msgid "No Repo Viewer Links from Repository Browser"
 msgstr ""
 
 #. (para)
@@ -8652,7 +8812,7 @@ msgstr ""
 
 #. (term)
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #. (para)
 msgid "The amount of memory required to service this cache."
@@ -8808,7 +8968,7 @@ msgid "Pre-update"
 msgstr ""
 
 #. (para)
-msgid "Called before the actual Subversion update begins."
+msgid "Called before the actual Subversion update or switch begins."
 msgstr ""
 
 #. (term)
@@ -8817,7 +8977,7 @@ msgid "Post-update"
 msgstr ""
 
 #. (para)
-msgid "Called after the update finishes (whether successful or not)."
+msgid "Called after the update, switch or checkout finishes (whether successful or not)."
 msgstr ""
 
 #. (para)
@@ -8846,27 +9006,27 @@ msgstr ""
 
 #. (literal)
 msgid "svn_depth_unknown"
-msgstr ""
+msgstr "svn_depth_unknown"
 
 #. (literal)
 msgid "svn_depth_exclude"
-msgstr ""
+msgstr "svn_depth_exclude"
 
 #. (literal)
 msgid "svn_depth_empty"
-msgstr ""
+msgstr "svn_depth_empty"
 
 #. (literal)
 msgid "svn_depth_files"
-msgstr ""
+msgstr "svn_depth_files"
 
 #. (literal)
 msgid "svn_depth_immediates"
-msgstr ""
+msgstr "svn_depth_immediates"
 
 #. (literal)
 msgid "svn_depth_infinity"
-msgstr ""
+msgstr "svn_depth_infinity"
 
 #. (para)
 msgid "Possible values are: <placeholder-1/>"
@@ -8905,7 +9065,7 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr ""
 
 #. (para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr ""
 
 #. (title)
@@ -8929,11 +9089,15 @@ msgid "This property specifies the COM UUID of the IBugtraqProvider, for example
 msgstr ""
 
 #. (para)
+msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
+msgstr ""
+
+#. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
 msgstr ""
 
 #. (para)
-msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
+msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
 msgstr ""
 
 #. (title)
@@ -8973,110 +9137,6 @@ msgid "Defines how many spaces to use for expansion when a tab character is foun
 msgstr ""
 
 #. (title)
-msgid "Registry Settings"
-msgstr ""
-
-#. (primary)
-msgid "registry"
-msgstr ""
-
-#. (para)
-msgid "A few infrequently used settings are available only by editing the registry directly. It goes without saying that you should only edit registry values if you know what you are doing."
-msgstr ""
-
-#. (para)
-msgid "You can specify a different location for the Subversion configuration file using registry location <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
-msgstr ""
-
-#. (term)
-msgid "Cache tray icon"
-msgstr ""
-
-#. (para)
-msgid "To add a cache tray icon for the TSVNCache program, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
-msgstr ""
-
-#. (term)
-msgid "Debug"
-msgstr ""
-
-#. (para)
-msgid "To show the command line parameters passed from the shell extension to TortoiseProc.exe create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\Debug</literal>."
-msgstr ""
-
-#. (term)
-msgid "Context Menu Icons"
-msgstr ""
-
-#. (para)
-msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying correctly. create a <literal>DWORD</literal> key with a value of 0 at <literal>HKCU\\Software\\TortoiseSVN\\ShowContextMenuIcons</literal> if you don't want TortoiseSVN to not show icons for the shell context menu items. Set this value to 1 to show the icons again."
-msgstr ""
-
-#. (term)
-msgid "Block Overlay Status"
-msgstr ""
-
-#. (para)
-msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\BlockStatus</literal>."
-msgstr ""
-
-#. (term)
-msgid "Update Check URL"
-msgstr ""
-
-#. (para)
-msgid "<literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. You can also set this under <literal>HKLM</literal> instead of <literal>HKCU</literal> if you want, but <literal>HKCU</literal> overwrites the setting in <literal>HKLM</literal>. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
-msgstr ""
-
-#. (term)
-msgid "Filenames without extensions in auto-completion list"
-msgstr ""
-
-#. (para)
-msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
-msgstr ""
-
-#. (term)
-msgid "Explorer columns everywhere"
-msgstr ""
-
-#. (para)
-msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\ColumnsEveryWhere</literal>."
-msgstr ""
-
-#. (term)
-msgid "Merge log separator"
-msgstr ""
-
-#. (para)
-msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can create a <literal>SZ</literal> key at <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> containing a separator string of your choice."
-msgstr ""
-
-#. (term)
-msgid "Always blame changes with TortoiseMerge"
-msgstr ""
-
-#. (para)
-msgid "TortoiseSVN allows you to assign external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
-msgstr ""
-
-#. (term)
-msgid "Current revision highlighting for folders in log dialog"
-msgstr ""
-
-#. (para)
-msgid "The log dialog highlights the current working copy revision when the log is shown for a file. To do the same thing for a folder requires a working copy crawl, which can be a slow operation for large working copies. However the crawling is done in a separate thread so it doesn't hold up the display of log messages. For <emphasis>really</emphasis> large working copies the disk chatter might be annoying, so if you really want to disable this you must create a <literal>DWORD</literal> registry key at <literal>HKCU\\Software\\TortoiseSVN\\LogStatusCheck</literal>. A value of 0 disables the feature (no highlighting for folders)."
-msgstr ""
-
-#. (term)
-msgid "Make checkout fail if an item of the same name exists"
-msgstr ""
-
-#. (para)
-msgid "By default, if you checkout a working copy over an existing unversioned folder structure, as you might do after import, then any existing which differ from the repository content will be left unchanged and marked as modified. When you come to commit, it is your local copy which will then be sent back to the repository. Some people would prefer the checkout to fail if the existing content differs, so that if two people add the same file the second person's version does not overwrite the original version by mistake. If you want to force checkouts to fail in this instance you must create a <literal>DWORD</literal> registry key with value 0 at <literal>HKCU\\Software\\TortoiseSVN\\AllowUnversionedObstruction</literal>."
-msgstr ""
-
-#. (title)
 msgid "Subversion Working Folders"
 msgstr ""
 
@@ -9105,6 +9165,102 @@ msgid "For more information, and other ways to avoid this problem in the first p
 msgstr ""
 
 #. (title)
+msgid "Advanced Settings"
+msgstr ""
+
+#. (primary)
+msgid "registry"
+msgstr ""
+
+#. (para)
+msgid "A few infrequently used settings are available only in the advanced page of the settings dialog. These settings modify the registry directly and you have to know what each of these settings is used for and what it does. Do not modify these settings unless you are sure you need to change them."
+msgstr ""
+
+#. (para)
+msgid "You can specify a different location for the Subversion configuration file here. This will affect all TortoiseSVN operations."
+msgstr ""
+
+#. (para)
+msgid "Set this to <literal>true</literal> if you want a dialog to pop up for every command showing the command line used to start TortoiseProc.exe"
+msgstr ""
+
+#. (para)
+msgid "To add a cache tray icon for the TSVNCache program, set this value to <literal>true</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
+msgstr ""
+
+#. (para)
+msgid "This can be useful if you use something other than the windows explorer or if you get problems with the context menu displaying incorrectly. Set this value to <literal>false</literal> if you don't want TortoiseSVN to show icons for the shell context menu items. Set this value to <literal>true</literal> to show the icons again."
+msgstr ""
+
+#. (para)
+msgid "If you don't want TortoiseSVN to show icons for the context menus in its own dialogs, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid "The log dialog shows the revision the working copy path is at in bold. But this requires that the log dialog fetches the status of that path. Since for very big working copies this can take a while, you can set this value to <literal>false</literal> to deactivate this feature."
+msgstr ""
+
+#. (para)
+msgid "The status list control which is used in various dialogs (e.g., commit, check-for-modifications, add, revert, ...) uses full row selection (i.e., if you select an entry, the full row is selected, not just the first column). This is fine, but the selected row then also covers the background image on the bottom right, which can look ugly. To disable full row select, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid "The commit and log dialog use styling (e.g. bold, italic) in commit messages (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't want to do this, set the value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN uses accelerators for its explorer context menu entries. Since this can lead to doubled accelerators (e.g. the <literal>SVN Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the <literal>Copy</literal> entry of explorer). If you don't want or need the accelerators of the TortoiseSVN entries, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid "As with the explorer, TortoiseSVN shows additional commands if the <keycap>Shift</keycap> key is pressed while the context menu is opened. To force TortoiseSVN to always show those extended commands, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid "This value contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
+msgstr ""
+
+#. (para)
+msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, set this value to <literal>true</literal>. Note that the extra columns are only available in XP. Vista and later doesn't support that feature any more."
+msgstr ""
+
+#. (para)
+msgid "If an update adds a new file from the repository which already exists in the local working copy as an unversioned file, the default action is to keep the local file, showing it as a (possibly) modified version of the new file from the repository. If you would prefer TortoiseSVN to create a conflict in such situations, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN checks whether there's a new version available about once a week. If an updated version is found, the commit dialog shows a link control with that info. If you prefer the old behavior back where a dialog pops up notifying you about the update, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN checks whether there's a new version available about once a week. If you don't want TortoiseSVN to do this check, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can set this to a value containing a separator string of your choice."
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN allows you to assign an external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
+msgstr ""
+
+#. (para)
+msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (title)
 msgid "Final Step"
 msgstr ""
 
@@ -9130,12 +9286,12 @@ msgstr ""
 
 #. (primary)
 msgid "SubWCRev"
-msgstr ""
+msgstr "SubWCRev"
 
 #. (primary)
 #. (primary)
 msgid "COM"
-msgstr ""
+msgstr "COM"
 
 #. (primary)
 msgid "version number in files"
@@ -9190,7 +9346,7 @@ msgstr ""
 
 #. (literal)
 msgid "ERRORLEVEL 7"
-msgstr ""
+msgstr "ERRORLEVEL 7"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains local modifications. This may be used to prevent building with uncommitted changes present."
@@ -9198,7 +9354,7 @@ msgstr ""
 
 #. (literal)
 msgid "ERRORLEVEL 8"
-msgstr ""
+msgstr "ERRORLEVEL 8"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the working copy contains mixed revisions. This may be used to prevent building with a partially updated working copy."
@@ -9206,7 +9362,7 @@ msgstr ""
 
 #. (literal)
 msgid "ERRORLEVEL 9"
-msgstr ""
+msgstr "ERRORLEVEL 9"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will exit with <placeholder-1/> if the destination file already exists."
@@ -9218,7 +9374,7 @@ msgstr ""
 
 #. (literal)
 msgid "svn:externals"
-msgstr ""
+msgstr "svn:externals"
 
 #. (entry)
 msgid "If this switch is given, SubWCRev will examine directories which are included with <placeholder-1/>, but only if they are from the same repository. The default behaviour is to ignore externals."
@@ -9250,15 +9406,15 @@ msgstr ""
 
 #. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
-msgstr ""
+msgstr "yyyy-mm-dd hh:mm:ss"
 
 #. (literal)
 msgid "strftime()"
-msgstr ""
+msgstr "strftime()"
 
 #. (literal)
 msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
-msgstr ""
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
@@ -9284,7 +9440,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
-msgstr ""
+msgstr "$WCMIXED?TText:FText$"
 
 #. (literal)
 #. (literal)
@@ -9292,7 +9448,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "TText"
-msgstr ""
+msgstr "TText"
 
 #. (literal)
 #. (literal)
@@ -9300,7 +9456,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "FText"
-msgstr ""
+msgstr "FText"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are mixed update revisions, or <placeholder-3/> if not."
@@ -9308,7 +9464,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCMODS?TText:FText$"
-msgstr ""
+msgstr "$WCMODS?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are local modifications, or <placeholder-3/> if not."
@@ -9320,7 +9476,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCINSVN?TText:FText$"
-msgstr ""
+msgstr "$WCINSVN?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versioned, or <placeholder-3/> if not."
@@ -9328,12 +9484,12 @@ msgstr ""
 
 #. (literal)
 msgid "$WCNEEDSLOCK?TText:FText$"
-msgstr ""
+msgstr "$WCNEEDSLOCK?TText:FText$"
 
 #. (literal)
 #. (literal)
 msgid "svn:needs-lock"
-msgstr ""
+msgstr "svn:needs-lock"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
@@ -9341,7 +9497,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCISLOCKED?TText:FText$"
-msgstr ""
+msgstr "$WCISLOCKED?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is locked, or <placeholder-3/> if not."
@@ -9441,11 +9597,11 @@ msgstr ""
 
 #. (literal)
 msgid "-f"
-msgstr ""
+msgstr "-f"
 
 #. (literal)
 msgid "-e"
-msgstr ""
+msgstr "-e"
 
 #. (entry)
 msgid "This method traverses the working copy gathering the revision information. Naturally you must call this before you can access the information using the remaining methods. The first parameter is the path. The second parameter should be true if you want to include folder revisions. Equivalent to the <placeholder-1/> command line switch. The third parameter should be true if you want to include svn:externals. Equivalent to the <placeholder-2/> command line switch."
@@ -9453,7 +9609,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCREV$"
-msgstr ""
+msgstr "$WCREV$"
 
 #. (entry)
 msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
@@ -9470,7 +9626,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "$WCRANGE$"
-msgstr ""
+msgstr "$WCRANGE$"
 
 #. (entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
@@ -9486,11 +9642,11 @@ msgstr ""
 
 #. (literal)
 msgid "GetWCInfo"
-msgstr ""
+msgstr "GetWCInfo"
 
 #. (literal)
 msgid "$WCURL$"
-msgstr ""
+msgstr "$WCURL$"
 
 #. (entry)
 msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
@@ -9547,106 +9703,106 @@ msgid ""
 "revObject4.GetWCInfo(\n"
 "    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
 "\n"
-"wcInfoString1 = \"Revision = \" + revObject1.Revision + \n"
-"\t\t\t\t\"\\n"
-"Min Revision = \" + revObject1.MinRev + \n"
-"\t\t\t\t\"\\n"
-"Max Revision = \" + revObject1.MaxRev + \n"
-"\t\t\t\t\"\\n"
-"Date = \" + revObject1.Date + \n"
-"\t\t\t\t\"\\n"
+"wcInfoString1 = \"Revision = \" + revObject1.Revision +\n"
+"                \"\\n"
+"Min Revision = \" + revObject1.MinRev +\n"
+"                \"\\n"
+"Max Revision = \" + revObject1.MaxRev +\n"
+"                \"\\n"
+"Date = \" + revObject1.Date +\n"
+"                \"\\n"
 "URL = \" + revObject1.Url + \"\\n"
-"Author = \" + \n"
-"\t\t\t\trevObject1.Author + \"\\n"
-"HasMods = \" + \n"
-"\t\t\t\trevObject1.HasModifications + \"\\n"
-"IsSvnItem = \" + \n"
-"\t\t\t\trevObject1.IsSvnItem + \"\\n"
-"NeedsLocking = \" + \n"
-"\t\t\t\trevObject1.NeedsLocking + \"\\n"
-"IsLocked = \" + \n"
-"\t\t\t\trevObject1.IsLocked + \"\\n"
-"LockCreationDate = \" + \n"
-"\t\t\t\trevObject1.LockCreationDate + \"\\n"
-"LockOwner = \" + \n"
-"\t\t\t\trevObject1.LockOwner + \"\\n"
-"LockComment = \" + \n"
-"\t\t\t\trevObject1.LockComment;\n"
-"wcInfoString2 = \"Revision = \" + revObject2.Revision + \n"
-"\t\t\t\t\"\\n"
-"Min Revision = \" + revObject2.MinRev + \n"
-"\t\t\t\t\"\\n"
-"Max Revision = \" + revObject2.MaxRev + \n"
-"\t\t\t\t\"\\n"
-"Date = \" + revObject2.Date + \n"
-"\t\t\t\t\"\\n"
+"Author = \" +\n"
+"                revObject1.Author + \"\\n"
+"HasMods = \" +\n"
+"                revObject1.HasModifications + \"\\n"
+"IsSvnItem = \" +\n"
+"                revObject1.IsSvnItem + \"\\n"
+"NeedsLocking = \" +\n"
+"                revObject1.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
+"                revObject1.IsLocked + \"\\n"
+"LockCreationDate = \" +\n"
+"                revObject1.LockCreationDate + \"\\n"
+"LockOwner = \" +\n"
+"                revObject1.LockOwner + \"\\n"
+"LockComment = \" +\n"
+"                revObject1.LockComment;\n"
+"wcInfoString2 = \"Revision = \" + revObject2.Revision +\n"
+"                \"\\n"
+"Min Revision = \" + revObject2.MinRev +\n"
+"                \"\\n"
+"Max Revision = \" + revObject2.MaxRev +\n"
+"                \"\\n"
+"Date = \" + revObject2.Date +\n"
+"                \"\\n"
 "URL = \" + revObject2.Url + \"\\n"
-"Author = \" + \n"
-"\t\t\t\trevObject2.Author + \"\\n"
-"HasMods = \" + \n"
-"\t\t\t\trevObject2.HasModifications + \"\\n"
-"IsSvnItem = \" + \n"
-"\t\t\t\trevObject2.IsSvnItem + \"\\n"
-"NeedsLocking = \" + \n"
-"\t\t\t\trevObject2.NeedsLocking + \"\\n"
-"IsLocked = \" + \n"
-"\t\t\t\trevObject2.IsLocked + \"\\n"
-"LockCreationDate = \" + \n"
-"\t\t\t\trevObject2.LockCreationDate + \"\\n"
-"LockOwner = \" + \n"
-"\t\t\t\trevObject2.LockOwner + \"\\n"
-"LockComment = \" + \n"
-"\t\t\t\trevObject2.LockComment;\n"
-"wcInfoString3 = \"Revision = \" + revObject3.Revision + \n"
-"\t\t\t\t\"\\n"
-"Min Revision = \" + revObject3.MinRev + \n"
-"\t\t\t\t\"\\n"
-"Max Revision = \" + revObject3.MaxRev + \n"
-"\t\t\t\t\"\\n"
-"Date = \" + revObject3.Date + \n"
-"\t\t\t\t\"\\n"
+"Author = \" +\n"
+"                revObject2.Author + \"\\n"
+"HasMods = \" +\n"
+"                revObject2.HasModifications + \"\\n"
+"IsSvnItem = \" +\n"
+"                revObject2.IsSvnItem + \"\\n"
+"NeedsLocking = \" +\n"
+"                revObject2.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
+"                revObject2.IsLocked + \"\\n"
+"LockCreationDate = \" +\n"
+"                revObject2.LockCreationDate + \"\\n"
+"LockOwner = \" +\n"
+"                revObject2.LockOwner + \"\\n"
+"LockComment = \" +\n"
+"                revObject2.LockComment;\n"
+"wcInfoString3 = \"Revision = \" + revObject3.Revision +\n"
+"                \"\\n"
+"Min Revision = \" + revObject3.MinRev +\n"
+"                \"\\n"
+"Max Revision = \" + revObject3.MaxRev +\n"
+"                \"\\n"
+"Date = \" + revObject3.Date +\n"
+"                \"\\n"
 "URL = \" + revObject3.Url + \"\\n"
-"Author = \" + \n"
-"\t\t\t\trevObject3.Author + \"\\n"
-"HasMods = \" + \n"
-"\t\t\t\trevObject3.HasModifications + \"\\n"
-"IsSvnItem = \" + \n"
-"\t\t\t\trevObject3.IsSvnItem + \"\\n"
-"NeedsLocking = \" + \n"
-"\t\t\t\trevObject3.NeedsLocking + \"\\n"
-"IsLocked = \" + \n"
-"\t\t\t\trevObject3.IsLocked + \"\\n"
-"LockCreationDate = \" + \n"
-"\t\t\t\trevObject3.LockCreationDate + \"\\n"
-"LockOwner = \" + \n"
-"\t\t\t\trevObject3.LockOwner + \"\\n"
-"LockComment = \" + \n"
-"\t\t\t\trevObject3.LockComment;\n"
-"wcInfoString4 = \"Revision = \" + revObject4.Revision + \n"
-"\t\t\t\t\"\\n"
-"Min Revision = \" + revObject4.MinRev + \n"
-"\t\t\t\t\"\\n"
-"Max Revision = \" + revObject4.MaxRev + \n"
-"\t\t\t\t\"\\n"
-"Date = \" + revObject4.Date + \n"
-"\t\t\t\t\"\\n"
+"Author = \" +\n"
+"                revObject3.Author + \"\\n"
+"HasMods = \" +\n"
+"                revObject3.HasModifications + \"\\n"
+"IsSvnItem = \" +\n"
+"                revObject3.IsSvnItem + \"\\n"
+"NeedsLocking = \" +\n"
+"                revObject3.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
+"                revObject3.IsLocked + \"\\n"
+"LockCreationDate = \" +\n"
+"                revObject3.LockCreationDate + \"\\n"
+"LockOwner = \" +\n"
+"                revObject3.LockOwner + \"\\n"
+"LockComment = \" +\n"
+"                revObject3.LockComment;\n"
+"wcInfoString4 = \"Revision = \" + revObject4.Revision +\n"
+"                \"\\n"
+"Min Revision = \" + revObject4.MinRev +\n"
+"                \"\\n"
+"Max Revision = \" + revObject4.MaxRev +\n"
+"                \"\\n"
+"Date = \" + revObject4.Date +\n"
+"                \"\\n"
 "URL = \" + revObject4.Url + \"\\n"
-"Author = \" + \n"
-"\t\t\t\trevObject4.Author + \"\\n"
-"HasMods = \" + \n"
-"\t\t\t\trevObject4.HasModifications + \"\\n"
-"IsSvnItem = \" + \n"
-"\t\t\t\trevObject4.IsSvnItem + \"\\n"
-"NeedsLocking = \" + \n"
-"\t\t\t\trevObject4.NeedsLocking + \"\\n"
-"IsLocked = \" + \n"
-"\t\t\t\trevObject4.IsLocked + \"\\n"
-"LockCreationDate = \" + \n"
-"\t\t\t\trevObject4.LockCreationDate + \"\\n"
-"LockOwner = \" + \n"
-"\t\t\t\trevObject4.LockOwner + \"\\n"
-"LockComment = \" + \n"
-"\t\t\t\trevObject4.LockComment;\n"
+"Author = \" +\n"
+"                revObject4.Author + \"\\n"
+"HasMods = \" +\n"
+"                revObject4.HasModifications + \"\\n"
+"IsSvnItem = \" +\n"
+"                revObject4.IsSvnItem + \"\\n"
+"NeedsLocking = \" +\n"
+"                revObject4.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
+"                revObject4.IsLocked + \"\\n"
+"LockCreationDate = \" +\n"
+"                revObject4.LockCreationDate + \"\\n"
+"LockOwner = \" +\n"
+"                revObject4.LockOwner + \"\\n"
+"LockComment = \" +\n"
+"                revObject4.LockComment;\n"
 "\n"
 "WScript.Echo(wcInfoString1);\n"
 "WScript.Echo(wcInfoString2);\n"
@@ -9690,7 +9846,7 @@ msgstr ""
 
 #. (primary)
 msgid "IBugtraqProvider"
-msgstr ""
+msgstr "IBugtraqProvider"
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
@@ -9700,12 +9856,16 @@ msgstr ""
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr ""
 
+#. (para)
+msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
+msgstr ""
+
 #. (title)
 msgid "The IBugtraqProvider interface"
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN 1.5 can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
+msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
 msgstr ""
 
 #. (programlisting)
@@ -9726,7 +9886,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
+msgid "This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
 msgstr ""
 
 #. (programlisting)
@@ -9748,7 +9908,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
+msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
 msgstr ""
 
 #. (programlisting)
@@ -9776,7 +9936,27 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more. The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit. The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty. The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
+msgid "This is the main method of the plugin. This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button."
+msgstr ""
+
+#. (para)
+msgid "The <literal>parameters</literal> string is the string the user has to enter in the settings dialog when he configures the plugin. Usually a plugin would use this to find the URL of the issue tracker and/or login information or more."
+msgstr ""
+
+#. (para)
+msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
+msgstr ""
+
+#. (para)
+msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
+msgstr ""
+
+#. (para)
+msgid "The <literal>originalMessage</literal> parameter contains the text entered in the log message box in the commit dialog. If the user has not yet entered any text, this string will be empty."
+msgstr ""
+
+#. (para)
+msgid "The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
 msgstr ""
 
 #. (title)
@@ -9831,7 +10011,23 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there. The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path. The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>). The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns. The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
+msgid "This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there."
+msgstr ""
+
+#. (para)
+msgid "The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path."
+msgstr ""
+
+#. (para)
+msgid "The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>)."
+msgstr ""
+
+#. (para)
+msgid "The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID field when the method returns."
+msgstr ""
+
+#. (para)
+msgid "The <literal>revPropNames</literal> and <literal>revPropValues</literal> return parameters can contain name/value pairs for revision properties that the commit should set. A plugin must make sure that both arrays have the same size on return! Each property name in <literal>revPropNames</literal> must also have a corresponding value in <literal>revPropValues</literal>. If no revision properties are to be set, the plugin must return empty arrays."
 msgstr ""
 
 #. (programlisting)
@@ -9850,7 +10046,15 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items. The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
+msgid "This method is called right before the commit dialog is closed and the commit begins. A plugin can use this method to validate the selected files/folders for the commit and/or the commit message entered by the user. The parameters are the same as for <literal>GetCommitMessage2()</literal>, with the difference that <literal>commonURL</literal> is now the common URL of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal> the root path of all checked items."
+msgstr ""
+
+#. (para)
+msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source URL of the copy, and <literal>commonRoot</literal> is set to the target URL of the copy."
+msgstr ""
+
+#. (para)
+msgid "The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
 msgstr ""
 
 #. (programlisting)
@@ -9882,7 +10086,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
+msgid "This method is called after a successful commit. A plugin can use this method to e.g., close the selected issue or add information about the commit to the issue. The parameters are the same as for <literal>GetCommitMessage2</literal>."
 msgstr ""
 
 #. (programlisting)
@@ -9896,7 +10100,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
+msgid "This method is called from the settings dialog where the user can configure the plugins. If a plugin provides its own configuration dialog with <literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it must return FALSE."
 msgstr ""
 
 #. (programlisting)
@@ -9916,7 +10120,15 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin. The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered. The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
+msgid "This method is called from the settings dialog when the user clicks on the \"Options\" button that is shown if <literal>HasOptions</literal> returns TRUE. A plugin can show an options dialog to make it easier for the user to configure the plugin."
+msgstr ""
+
+#. (para)
+msgid "The <literal>parameters</literal> string contains the plugin parameters string that is already set/entered."
+msgstr ""
+
+#. (para)
+msgid "The <literal>newparameters</literal> return parameter must contain the parameters string which the plugin constructed from the info it gathered in its options dialog. That <literal>paramameters</literal> string is passed to all other IBugtraqProvider and IBugtraqProvider2 methods."
 msgstr ""
 
 #. (title)
@@ -9936,7 +10148,19 @@ msgid "We also maintain a project <ulink url=\"http://issues.tortoisesvn.net\"><
 msgstr ""
 
 #. (para)
-msgid "If you have a question which is not answered anywhere else, the best place to ask it is on one of the mailing lists. <email>users@tortoisesvn.tigris.org</email> is the one to use if you have questions about using TortoiseSVN. If you want to help out with the development of TortoiseSVN, then you should take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
+msgid "<email>users@tortoisesvn.tigris.org</email> is the one to use if you have questions about using TortoiseSVN."
+msgstr ""
+
+#. (para)
+msgid "If you want to help out with the development of TortoiseSVN, then you should take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
+msgstr ""
+
+#. (para)
+msgid "If you want to help with the translation of the TortoiseSVN user interface or the documentation, send an e-mail to <email>translators@tortoisesvn.tigris.org</email>."
+msgstr ""
+
+#. (para)
+msgid "If you have a question which is not answered anywhere else, the best place to ask it is on one of the mailing lists: <placeholder-1/>"
 msgstr ""
 
 #. (title)
@@ -10259,19 +10483,7 @@ msgid "If you have not yet committed the add, then all you have to do is use <me
 msgstr ""
 
 #. (para)
-msgid "Hold the <keycap>Shift</keycap> key to get the extended context menu and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice> to mark the file/folder for deletion from the repository without losing the local copy."
-msgstr ""
-
-#. (para)
-msgid "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice> the parent folder."
-msgstr ""
-
-#. (para)
-msgid "Add the file/folder to the ignore list so you don't get into the same trouble again."
-msgstr ""
-
-#. (para)
-msgid "If the files are already in the repository, you have to do a little more work. <placeholder-1/>"
+msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
 msgstr ""
 
 #. (title)
@@ -10314,7 +10526,7 @@ msgstr "GPO"
 
 #. (primary)
 msgid "msi"
-msgstr ""
+msgstr "msi"
 
 #. (primary)
 msgid "domain controller"
@@ -10379,7 +10591,7 @@ msgstr ""
 
 #. (primary)
 msgid "SVN_ASP_DOT_NET_HACK"
-msgstr ""
+msgstr "SVN_ASP_DOT_NET_HACK"
 
 #. (primary)
 msgid "VS2003"
@@ -10390,7 +10602,7 @@ msgid "ASP projects"
 msgstr ""
 
 #. (para)
-msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusions with users which always install <emphasis>everything</emphasis> no matter if they know what it is for."
+msgid "As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal> environment variable anymore, since that caused many problems and confusion for users who always install <emphasis>everything</emphasis> no matter whether they know what it is for."
 msgstr ""
 
 #. (para)
@@ -10731,21 +10943,21 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/path"
-msgstr ""
+msgstr "/path"
 
 #. (option)
 #. (option)
 msgid "/startrev:xxx"
-msgstr ""
+msgstr "/startrev:xxx"
 
 #. (option)
 #. (option)
 msgid "/endrev:xxx"
-msgstr ""
+msgstr "/endrev:xxx"
 
 #. (option)
 msgid "/strict"
-msgstr ""
+msgstr "/strict"
 
 #. (option)
 msgid "/findstring:\"filterstring\""
@@ -10753,15 +10965,15 @@ msgstr ""
 
 #. (option)
 msgid "/findtext"
-msgstr ""
+msgstr "/findtext"
 
 #. (option)
 msgid "/findregex"
-msgstr ""
+msgstr "/findregex"
 
 #. (option)
 msgid "/findtype:X"
-msgstr ""
+msgstr "/findtype:X"
 
 #. (para)
 msgid "<option>/findtype:1</option> filter by everything"
@@ -10794,7 +11006,7 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/url"
-msgstr ""
+msgstr "/url"
 
 #. (entry)
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from."
@@ -10806,33 +11018,37 @@ msgstr ""
 
 #. (option)
 msgid "/rev"
-msgstr ""
+msgstr "/rev"
 
 #. (option)
 msgid "/rev:1234"
-msgstr ""
+msgstr "/rev:1234"
 
 #. (option)
 msgid "/nonrecursive"
-msgstr ""
+msgstr "/nonrecursive"
 
 #. (option)
 msgid "/ignoreexternals"
-msgstr ""
+msgstr "/ignoreexternals"
+
+#. (option)
+msgid "/includeexternals"
+msgstr "/includeexternals"
 
 #. (entry)
-msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/> and <placeholder-5/>."
+msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
 msgstr ""
 
 #. (option)
 #. (option)
 msgid "/logmsg"
-msgstr ""
+msgstr "/logmsg"
 
 #. (option)
 #. (option)
 msgid "/logmsgfile:path"
-msgstr ""
+msgstr "/logmsgfile:path"
 
 #. (option)
 #. (option)
@@ -10857,7 +11073,7 @@ msgstr ""
 
 #. (option)
 msgid "/noui"
-msgstr ""
+msgstr "/noui"
 
 #. (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
@@ -10867,7 +11083,7 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/noquestion"
-msgstr ""
+msgstr "/noquestion"
 
 #. (entry)
 msgid "Marks a conflicted file specified in <placeholder-1/> as resolved. If <placeholder-2/> is given, then resolving is done without asking the user first if it really should be done."
@@ -10888,23 +11104,23 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/fromurl:URL"
-msgstr ""
+msgstr "/fromurl:URL"
 
 #. (option)
 msgid "/revrange:string"
-msgstr ""
+msgstr "/revrange:string"
 
 #. (option)
 msgid "/tourl:URL"
-msgstr ""
+msgstr "/tourl:URL"
 
 #. (option)
 msgid "/fromrev:xxx"
-msgstr ""
+msgstr "/fromrev:xxx"
 
 #. (option)
 msgid "/torev:xxx"
-msgstr ""
+msgstr "/torev:xxx"
 
 #. (entry)
 msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. These pre-fill the relevant fields in the merge dialog."
@@ -10934,15 +11150,15 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/path2"
-msgstr ""
+msgstr "/path2"
 
 #. (option)
 msgid "/blame"
-msgstr ""
+msgstr "/blame"
 
 #. (option)
 msgid "/line:xxx"
-msgstr ""
+msgstr "/line:xxx"
 
 #. (entry)
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
@@ -10970,7 +11186,7 @@ msgstr ""
 
 #. (option)
 msgid "/remote"
-msgstr ""
+msgstr "/remote"
 
 #. (guilabel)
 msgid "Check repository"
@@ -10983,7 +11199,7 @@ msgstr ""
 #. (option)
 #. (option)
 msgid "/rev:xxx"
-msgstr ""
+msgstr "/rev:xxx"
 
 #. (option)
 msgid "/projectpropertiespath:path/to/wc"
@@ -10995,7 +11211,7 @@ msgstr ""
 
 #. (literal)
 msgid "svn:ignore"
-msgstr ""
+msgstr "svn:ignore"
 
 #. (entry)
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the <placeholder-2/> property to those files."
@@ -11023,7 +11239,7 @@ msgstr ""
 
 #. (option)
 msgid "/revision:xxx"
-msgstr ""
+msgstr "/revision:xxx"
 
 #. (entry)
 msgid "Saves a file from an URL or working copy path given in <placeholder-1/> to the location given in <placeholder-2/>. The revision is given in <placeholder-3/>. This can be used to get a file with a specific revision."
@@ -11196,7 +11412,7 @@ msgid "Conventions and Basic Rules"
 msgstr ""
 
 #. (para)
-msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
 msgstr ""
 
 #. (para)
@@ -11211,11 +11427,12 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"svn checkout [-N] [--ignore-externals] [-r rev] URL PATH\n"
+"svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 msgstr ""
 
 #. (para)
-msgid "If <guilabel>Only checkout the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+#. (para)
+msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
 msgstr ""
 
 #. (para)
@@ -11256,11 +11473,7 @@ msgstr ""
 msgid ""
 "\n"
 "svn info URL_of_WC\n"
-"svn update [-r rev] [-N] [--ignore-externals] PATH\n"
-msgstr ""
-
-#. (para)
-msgid "If <guilabel>Only update the top folder</guilabel> is checked, use the <literal>-N</literal> switch."
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 msgstr ""
 
 #. (para)
@@ -11301,7 +11514,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"svn commit -m \"LogMessage\" [-N] [--no-unlock] PATH...\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 msgstr ""
 
 #. (para)
@@ -11730,7 +11943,7 @@ msgid "In this appendix we assume that you already have the subversion tools ins
 msgstr ""
 
 #. (para)
-msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
+msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which has been archived at <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
 msgstr ""
 
 #. (para)
@@ -11946,6 +12159,94 @@ msgid "If you use this last method, be sure you do not have a default username s
 msgstr ""
 
 #. (title)
+msgid "Language Packs and Spell Checkers"
+msgstr ""
+
+#. (para)
+msgid "The standard installer has support only for English, but you can download separate language packs and spell check dictionaries separately after installation."
+msgstr ""
+
+#. (title)
+msgid "Language Packs"
+msgstr ""
+
+#. (primary)
+msgid "language packs"
+msgstr ""
+
+#. (primary)
+msgid "translations"
+msgstr ""
+
+#. (para)
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
+msgstr ""
+
+#. (para)
+msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
+msgstr ""
+
+#. (para)
+msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
+msgstr ""
+
+#. (title)
+msgid "Spellchecker"
+msgstr ""
+
+#. (primary)
+msgid "spellchecker"
+msgstr ""
+
+#. (primary)
+msgid "dictionary"
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgstr ""
+
+#. (para)
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
+msgstr ""
+
+#. (para)
+msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
+msgstr ""
+
+#. (filename)
+msgid "en_US.aff"
+msgstr "en_US.aff"
+
+#. (filename)
+msgid "en_US.dic"
+msgstr "en_US.dic"
+
+#. (para)
+msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
+msgstr ""
+
+#. (para)
+msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
+msgstr ""
+
+#. (para)
+msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
+msgstr ""
+
+#. (para)
+msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
+msgstr ""
+
+#. (para)
+msgid "If none of the above works, then the default language is English, which is included with the standard installation."
+msgstr ""
+
+#. (para)
+msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
+msgstr ""
+
+#. (title)
 msgid "Glossary"
 msgstr "Γλωσσάρι"
 
@@ -11967,11 +12268,12 @@ msgstr ""
 
 #. (glossterm)
 msgid "BDB"
-msgstr "Βάση Δεδομένων Berkeley"
+msgstr "BDB"
 
 #. (para)
+#, fuzzy
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
+msgstr "Βάση Δεδομένων Berkeley"
 
 #. (glossterm)
 msgid "Branch"
@@ -12153,10 +12455,6 @@ msgstr ""
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
 msgstr ""
 
-#. (glossterm)
-msgid "Working Copy"
-msgstr "Αντίγραφο Εργασίας"
-
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr ""
@@ -12164,10 +12462,50 @@ msgstr ""
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "μεταφραστής-έπαινος"
+msgstr ""
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr "μεταφραστής-μετάφραση"
+msgstr ""
+
+#~ msgid "Do you work in a team?"
+#~ msgstr "Εργάζεστε σε ομάδα;"
+#~ msgid ""
+#~ "Has it ever happened that you were working on a file, and someone else "
+#~ "was working on the same file at the same time? Did you lose your changes "
+#~ "to that file because of that?"
+#~ msgstr ""
+#~ "Σας έτυχε ποτέ να εργάζεστε με ένα αρχείο και κάποιος άλλος να εργάζεται "
+#~ "στο ίδιο αρχείο αρχείο την ίδια στιγμή; Χάσατε ποτέ τις αλλαγές σας στο "
+#~ "αρχείο εξ αιτίας αυτού;"
+#~ msgid ""
+#~ "Have you ever saved a file, and then wanted to revert the changes you "
+#~ "made? Have you ever wished you could see what a file looked like some "
+#~ "time ago?"
+#~ msgstr ""
+#~ "Αποθηκεύσατε ποτέ κάποιο αρχείο και έπειτα θελήσατε να επαναφέρετε τις "
+#~ "αλλαγές που κάνατε; Ευχηθήκατε ποτέ να μπορούσατε να δείτε πως έμοιαζε το "
+#~ "αρχείο πριν από κάποιο καιρό;"
+#~ msgid ""
+#~ "Have you ever found a bug in your project and wanted to know when that "
+#~ "bug got into your files?"
+#~ msgstr ""
+#~ "Βρήκατε ποτέ κάποιο σφάλμα στο έργο σας και θέλατε να γνωρίζετε πότε αυτό "
+#~ "βρέθηκε στα αρχεία σας;"
+#~ msgid ""
+#~ "If you answered <quote>yes</quote> to one of these questions, then "
+#~ "TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help "
+#~ "you in your work. It's not that difficult."
+#~ msgstr ""
+#~ "Αν απαντήσατε <quote>ναι</quote> σε κάποια από τις ερωτήσεις, τότε το "
+#~ "TortoiseSVN είναι για εσάς! Απλώς διαβάστε και ανακαλύψτε πως το "
+#~ "TortoiseSVN μπορεί να σας βοηθήσει στη δουλειά σας. Δεν είναι και τόσο "
+#~ "δύσκολο."
+#~ msgid "Audience"
+#~ msgstr "Κοινό"
+#~ msgid "TortoiseSVN is free!"
+#~ msgstr "Το TortoiseSVN είναι δωρεάν!"
+#~ msgid "Community"
+#~ msgstr "Κοινότητα"
 
