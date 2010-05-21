@@ -13,17 +13,16 @@
 # Miha Nahtigal <miha.nahtigal@gmail.com>, 2009
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: TortoiseMerge Documentation\n"
+msgstr "Project-Id-Version: TortoiseMerge Documentation\n"
 "POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2009-12-03 09:49+0100\n"
-"Last-Translator: Miha Nahtigal <miha.nahtigal@gmail.com>\n"
+"PO-Revision-Date: 2010-05-03 09:49+0100\n"
+"Last-Translator: Vito Smolej <vito.smolej@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Slovenian\n"
-"X-Poedit-Country: SLOVENIA\n"
+"X-Poedit-Country: SLOVENI\n"
 
 #. (title)
 msgid "TortoiseMerge"
@@ -31,16 +30,16 @@ msgstr "TortoiseMerge"
 
 #. (subtitle)
 msgid "A diff/merge tool for Windows"
-msgstr "Orodje za razlikovanje/spajanje v operacijskem sistemu Windows"
+msgstr "Orodje diff/merge za Windows"
 
 #. TRANSLATORS: "$MajorVersion$.$MinorVersion$.$MicroVersion$" is a literal value and should not be translated
 #. (subtitle)
 msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
+msgstr "Verzija $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #. (edition)
 msgid "First"
-msgstr "Prvi"
+msgstr "Prva"
 
 #. (firstname)
 msgid "Stefan"
@@ -84,15 +83,15 @@ msgstr "Uporaba popravkov"
 
 #. (para)
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
-msgstr "TortoiseMerge vam pomaga pri obeh nalogah: <placeholder-1/>"
+msgstr "TortoiseMerge vam pomaga v obeh primerih: <placeholder-1/>"
 
 #. (para)
 msgid "TortoiseMerge also helps you to sort out conflicted files which can occur if you're working with a source control system and others are working on the same files as you."
-msgstr "TortoiseMerge vam poleg tega pomaga pri reševanju spornih datotek, ki se pojavijo pri delu z orodji za nadzor različic, ko ostali uporabniki spreminjajo iste datoteke kot vi."
+msgstr "TortoiseMerge vam tudi pomaga razvozljati datotek, ki si prihajajo navzkriž, če delate s sistemom za nadzor izvorne kode, pri tem kak drug član skupine dela na isti datoteki kot vi."
 
 #. (title)
 msgid "TortoiseMerge is free!"
-msgstr "TortoiseMerge je brezplačno orodje!"
+msgstr "TortoiseMerge je brezplačen!"
 
 #. (para)
 msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any way you want. It is developed under the GP license (GPL)."
@@ -124,7 +123,7 @@ msgstr "Stefan Küng"
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
-msgstr "za trdo delo na projektu TortoiseMerge"
+msgstr "za garanje na projektu TortoiseMerge"
 
 #. (term)
 msgid "Lübbe Onken"
@@ -132,15 +131,15 @@ msgstr "Lübbe Onken"
 
 #. (para)
 msgid "for the beautiful icons, logo, bug hunting and taking care of the documentation"
-msgstr "za čudovite ikone, logotip, iskanje napak in urejanje dokumentacije"
+msgstr "za čudovite ikone, za logotip, za iskanje in uničevanje hroščev in za skrb za dokumentacijo"
 
 #. (term)
 msgid "The Tigris Style project"
-msgstr "Projekt Tigris Style"
+msgstr "Stilni projekt Tigris "
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
-msgstr "za nekatere stile, ki so uporabljeni v tej dokumentaciji"
+msgstr "za nekatere stile, ki smo jih uporabili v tej dokumentaciji"
 
 #. (term)
 msgid "Our Contributors"
@@ -148,7 +147,7 @@ msgstr "Zunanji sodelavci"
 
 #. (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr "za popravke, poročila o napakah in nove ideje, za pomoč uporabnikom z odgovori na dopisnih seznamih"
+msgstr "za popravke, poročila o napakah in nove ideje in za pomoč ostalim, podano preko naših dopisnih seznamov"
 
 #. (term)
 msgid "Our Donators"
@@ -156,7 +155,7 @@ msgstr "Naši donatorji"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr "za številne ure užitkov ob poslušanju glasbe, ki ste nam jo poslali"
+msgstr "za številne ure užitkov ob poslušanju glasbe, ki so nam jo podarili"
 
 #. (title)
 msgid "Introduction"
@@ -364,7 +363,7 @@ msgstr "Ko TortoiseMerge razčleni datoteko popravkov, prikaže majhno pogovorno
 
 #. (para)
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
-msgstr "Brez skrbi. Če delate s sistemom Subversion, lahko pridobite starejško različico datoteke in rešite spor. V bistvu poskusi TortoiseMerge samodejno pridobiti starejšo različico datoteke in vam prikazati razlike med <emphasis>osnovno</emphasis> (staro različico datoteke), <emphasis>vašo</emphasis> (datoteke, kakršna je trenutno v vaši delovni kopiji) in <emphasis>njihovo</emphasis> (starejšo različico datoteke z že nameščenim popravkom). Sedaj lahko možne spore rešite ročno."
+msgstr "Brez skrbi. Če delate s sistemom Subversion, lahko pridobite starejšo različico datoteke in rešite spor. V bistvu poskusi TortoiseMerge samodejno pridobiti starejšo različico datoteke in vam prikazati razlike med <emphasis>osnovno</emphasis> (staro različico datoteke), <emphasis>vašo</emphasis> (datoteke, kakršna je trenutno v vaši delovni kopiji) in <emphasis>njihovo</emphasis> (starejšo različico datoteke z že nameščenim popravkom). Sedaj lahko možne spore rešite ročno."
 
 #. (para)
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
@@ -404,7 +403,7 @@ msgstr "Gumb <guibutton>Prejšnja/Naslednja sprememba</guibutton> omogoča skok 
 
 #. (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
-msgstr "Če to naredite v dvodelnem pogledu, vam podrobni prikaz na dnu zaslona prikaže razlike med novimi in starimi vrsticami za prvo vrtico, ne glede na trenutni položaj miške."
+msgstr "Če to naredite v dvodelnem pogledu, vam podrobni prikaz na dnu zaslona prikaže razlike med novimi in starimi vrsticami za prvo vrstico, ne glede na trenutni položaj miške."
 
 #. (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
@@ -456,7 +455,7 @@ msgstr "<placeholder-1/> Pod vrstico menijev se nahaja orodna vrstica, ki vam om
 
 #. (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
-msgstr "Na levi strani okna se nahaja lokacijski trak. Ta prikazuje, kje v datoteki se nahajajo spremenjene vrstice. Trak ima tri stolpce. Levi stolpec se nanaša na levo stran, desni na desno, sredinski pa na spodnji del (če obstaja). Pri enodenem prikazu se uporablja le levi stolpec. Lokacijski trak se lahko uporablja tudi kot drsni trak za premikanje obeh oken hkrati."
+msgstr "Na levi strani okna se nahaja lokacijski trak. Ta prikazuje, kje v datoteki se nahajajo spremenjene vrstice. Trak ima tri stolpce. Levi stolpec se nanaša na levo stran, desni na desno, sredinski pa na spodnji del (če obstaja). Pri enodelnem prikazu se uporablja le levi stolpec. Lokacijski trak se lahko uporablja tudi kot drsni trak za premikanje obeh oken hkrati."
 
 #. (para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
@@ -528,7 +527,7 @@ msgstr "Včasih Subversion označi kakšno datoteko kot sporno, ko pa jo pogleda
 
 #. (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr "Včasih je spor preveč zahteven, da bi ga lahko rešili le z izbiro <literal>njihov</literal> in <literal>moj</literal>, zato je potrebno ročno urejanje. TortoiseMerge vam omogoča, da enostavne spremembe opravite vizuelno, shranite datoteko, nato pa zahtevnejše spremembe popravite ročno."
+msgstr "Včasih je spor preveč zahteven, da bi ga lahko rešili le z izbiro <literal>njihov</literal> in <literal>moj</literal>, zato je potrebno ročno urejanje. TortoiseMerge vam omogoča, da enostavne spremembe opravite vizuelno in nato shranite datoteko, nato pa zahtevnejše spremembe popravite ročno."
 
 #. (para)
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
@@ -540,7 +539,7 @@ msgstr "Odpiranje datotek"
 
 #. (para)
 msgid "When you start TortoiseMerge without any command line switches then you have to open the files manually, using <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
-msgstr "Če TortoiseMerge zaženete brez parameterov ukazne vrstice, morate datoteke odpreti ročno z uporabo ukaza <menuchoice><guimenu>Datoteka</guimenu><guimenuitem>Odpri</guimenuitem></menuchoice>."
+msgstr "Če TortoiseMerge zaženete brez parametrov ukazne vrstice, morate datoteke odpreti ročno z uporabo ukaza <menuchoice><guimenu>Datoteka</guimenu><guimenuitem>Odpri</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "The Open Dialog"
@@ -564,7 +563,7 @@ msgstr "Če želite namestiti popravek, morate navesti pot popravka in pot mape,
 
 #. (para)
 msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
-msgstr "Trenutno so podprte le datoteke popravkov oblike <emphasis>poenotene razlike (Unified Diff Format)</emphasis>, ki jih je ustvarilo orodje Subversion. Druge oblike, kot naprimer datoteka popravkov, ki jo ustvari orodje CVS, niso podprte!"
+msgstr "Trenutno so podprte le datoteke popravkov oblike <emphasis>poenotene razlike (Unified Diff Format)</emphasis>, ki jih je ustvarilo orodje Subversion. Druge oblike, kot na primer datoteka popravkov, ki jo ustvari orodje CVS, niso podprte!"
 
 #. (title)
 msgid "Settings"
@@ -859,8 +858,7 @@ msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
-msgstr ""
-"Večina stikal zahteva dodatno informacijo - pot ali kak drug niz. V takšnih primerih stikalu dodajte ':' in zahtevan niz. Primer: <screen>\n"
+msgstr "Večina stikal zahteva dodatno informacijo - pot ali kak drug niz. V takšnih primerih stikalu dodajte ':' in zahtevan niz. Primer: <screen>\n"
 "/base:\"c:\\mapa\\moja osnovna datoteka.txt\"\n"
 "</screen>"
 
@@ -997,8 +995,7 @@ msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
-msgstr ""
-"Zaradi združljivosti z ostalimi programi lahko v ukazni vrstici enostavno podate imena datotek v naslednji obliki: <screen>\n"
+msgstr "Zaradi združljivosti z ostalimi programi lahko v ukazni vrstici enostavno podate imena datotek v naslednji obliki: <screen>\n"
 "TortoiseMerge PotOsnovneDatoteke PotMojeDatoteke [ PotNjihoveDatoteke ]\n"
 "</screen> Če sta podani dve datoteki, ju program primerja med sabo. Če so podane tri datoteke, je prva datoteke OSNOVNA, ostali dve pa se primerjata z njo v trodelnem pogledu."
 
@@ -1016,7 +1013,7 @@ msgstr "Ukaz sistema Subversion, ki se uporablja za dodajanje datoteke ali mapo 
 
 #. (glossterm)
 msgid "BASE revision"
-msgstr "revizija BASE"
+msgstr "Revizija BASE"
 
 #. (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
@@ -1052,15 +1049,15 @@ msgstr "Prevzemi"
 
 #. (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr "Ukaz sistema Subversion, ki iz skladišča prenese elemente pod nadzorom in tako ustvari krajevno delovno kopijo v prazni mapi."
+msgstr "Ukaz, ki ustvari krajevno delovno kopijo v prazni mapi in prenese datoteke pod nadzorom iz skladišča."
 
 #. (glossterm)
 msgid "Cleanup"
-msgstr "Počisti"
+msgstr "Čiščenje"
 
 #. (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
-msgstr "Citat iz knjige The Subversion Book: <quote> Rekurzivno počisti delovno kopijo, tako da odstrani zaklepe in zaključi nedokončane operacije. Če se vam kdaj prikaže sporočilo <emphasis>delovna kopija zaklenjena</emphasis>, poženite ta ukaz, da ostranite zaklepe in naredite delovno kopijo spet uporabno.</quote> Upoštevajte, da v tem kontekstu <emphasis>zaklep</emphasis> pomeni zaklepanje datotečnega sistema in ne zaklepanje skladišča."
+msgstr "Citat iz knjige The Subversion Book: <quote> Rekurzivno počisti delovno kopijo, tako da odstrani zaklepe in zaključi nedokončane operacije. Če se vam kdaj prikaže sporočilo <emphasis>delovna kopija zaklenjena</emphasis>, poženite ta ukaz, da odstranite zaklepe in naredite delovno kopijo spet uporabno.</quote> Upoštevajte, da v tem kontekstu <emphasis>zaklep</emphasis> pomeni zaklepanje datotečnega sistema in ne zaklepanje skladišča."
 
 #. (glossterm)
 msgid "Commit"
@@ -1068,7 +1065,7 @@ msgstr "Objavi"
 
 #. (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr "Ta ukaz omogoča prenos krajevnih sprememb v skladišče. S tem se v skladišču ustvari nova revizije."
+msgstr "Ta ukaz sistema Subversion se uporablja za pošiljanje sprememb v delovni kopiji nazaj na skladišče. S tem se tam ustvari nova revizija."
 
 #. (glossterm)
 msgid "Conflict"
@@ -1084,7 +1081,7 @@ msgstr "Kopiraj"
 
 #. (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr "V skladišču In Subversion lahko ustvarjate kopije posameznih datotek ali celotnih dreves. Te kopije so <quote>poceni kopije</quote>, ki delujejo kot povezava na izvirno datoteko ali mapo in ne zavzemajo skoraj nič prostora. Usvarjanje kopije ohrani zgodovino kopiranega elementa, tako da lahko pregledujete spremembe tudi pred izdelavo kopije."
+msgstr "V skladišču In Subversion lahko ustvarjate kopije posameznih datotek ali celotnih dreves. Te kopije so <quote>poceni kopije</quote>, ki delujejo kot povezava na izvirno datoteko ali mapo in ne zavzemajo skoraj nič prostora. Če ustvarite kopijo, se zgodovina kopiranega elementa ohrani, tako da lahko pregledujete spremembe tudi pred izdelavo kopije."
 
 #. (glossterm)
 msgid "Delete"
@@ -1092,7 +1089,7 @@ msgstr "Izbriši"
 
 #. (para)
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr "Ko izbrišete datoteko pod nadzorom (in objavite spremembo), tega elementa ni več v skladišču od objavljene revizije naprej. Seveda pa še vedno obstaja v prejšnjih revizijah skladišča in tako lahko še vedno dostopate do njega. Če je potrebno, lahko skopirate izbrisan element in ga pripeljete nazaj med žive s celotno zgodovino."
+msgstr "Ko izbrišete datoteko pod nadzorom (in objavite spremembo), tega elementa ni več v skladišču od objavljene revizije naprej. Seveda pa še vedno obstaja v prejšnjih revizijah skladišča in tako imate še vedno dostop do njega. Če je potrebno, lahko skopirate izbrisan element in ga pripeljete nazaj med žive s celotno zgodovino."
 
 #. (glossterm)
 msgid "Diff"
@@ -1108,7 +1105,7 @@ msgstr "Izvozi"
 
 #. (para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
-msgstr "Ta ukaz ustvari kopijo mape pod nadzorom različic, prav takšno, kot je delovna kopija, vendar brez map <literal>.svn</literal>."
+msgstr "Ta ukaz ustvari kopijo mape pod nadzorom, prav takšno, kot je delovna kopija, vendar brez krajevnih map <literal>.svn</literal>."
 
 #. (glossterm)
 msgid "FSFS"
@@ -1136,15 +1133,15 @@ msgstr "Najnovejša revizija datoteke ali mape v <emphasis>skladišču</emphasis
 
 #. (glossterm)
 msgid "Import"
-msgstr "Uvozi"
+msgstr "Uvoz"
 
 #. (para)
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
-msgstr "Ukaz sistema Subversion za uvoz celotne hierarhije map v skladišče v eni sami reviziji."
+msgstr "Ukaz sistema Subversion, ki omogoča uvoz celotne hierarhije map v skladišče v eni reviziji."
 
 #. (glossterm)
 msgid "Lock"
-msgstr "Zakleni"
+msgstr "Zaklep"
 
 #. (para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
@@ -1152,7 +1149,7 @@ msgstr "Ko element pod nadzorom zaklenete, ga s tem označite v skladišču in p
 
 #. (glossterm)
 msgid "Log"
-msgstr "Dnevniški zapis"
+msgstr "Dnevnik"
 
 #. (para)
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
@@ -1196,7 +1193,7 @@ msgstr "Poleg vodenja različic map in datotek Subversion omogoča tudi vodenje 
 
 #. (glossterm)
 msgid "Relocate"
-msgstr "Premesti"
+msgstr "Premakni"
 
 #. (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
@@ -1212,7 +1209,7 @@ msgstr "Skladišče"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr "Skladišče je središčna lokacija, kjer se podatki shranjujejo in vzdržujejo. Skladišče je lahko lokacija, kjer so shranjene številne baze podatkov ali datoteke za distibucijo preko omrežja, lahko pa je tudi lokacija, ki je neposredno dostopna uporabniku, ne da bi uporabljal omrežje."
+msgstr "Skladišče je središčna lokacija, kjer se podatki shranjujejo in vzdržujejo. Skladišče je lahko lokacija, kjer so shranjene številne baze podatkov ali datoteke za distribucijo preko omrežja, lahko pa je tudi lokacija, ki je neposredno dostopna uporabniku, ne da bi uporabljal omrežje."
 
 #. (glossterm)
 msgid "Resolve"
@@ -1256,7 +1253,7 @@ msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr "Pogosto uporabljena okrajšava za Subversion"
+msgstr "Pogosto uporabljena okrajšava za Subversion."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
@@ -1268,15 +1265,15 @@ msgstr "Preklop"
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr "Prav tako kot ukaz <quote>posodobi-na-revizijo</quote> spremeni časovno okno delovne kopije, da izgleda tako, kot v neki določeni točki v zgodovini, ukaz <quote>Preklopi</quote> spremeni prostorsko okno delovne kopije, da kaže na drugo mesto v skladišču. To je uporabno predvsem takrat, kot delate na glavni veji in na stranskih vejah, na katerih je spremenjenih le nekaj datotek. Delovno kopijo lahko preklapljate, prenesejo pa se le spremenjene datoteke."
+msgstr "Prav tako kot ukaz <quote>posodobi-na-revizijo</quote> spremeni časovno okno delovne kopije, da kaže določeno točko v zgodovini, ukaz <quote>Preklopi</quote> spremeni prostorsko okno delovne kopije, da kaže na drugo mesto v skladišču. To je uporabno predvsem takrat, kot delate na glavni veji in na stranskih vejah, na katerih je spremenjenih le nekaj datotek. Delovno kopijo lahko preklapljate, prenesejo pa se le spremenjene datoteke"
 
 #. (glossterm)
 msgid "Update"
-msgstr "Posodobitev"
+msgstr "Posodobi"
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr "Ta ukaz Subversion prenese iz skladišča v delovno kopijo zadnje spremembe, pri tem spremembe spoji s krajevnimi spremembami, narejenimi v delovni kopiji."
+msgstr "Ta ukaz prenese vse zadnje spremembe iz skladišča v delovno kopijo, pri tem pa spoji spremembe, ki so jih naredili ostali uporabniki, z vašimi spremembami v delovni kopiji."
 
 #. (glossterm)
 msgid "Working Copy"
@@ -1284,7 +1281,7 @@ msgstr "Delovna kopija"
 
 #. (para)
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr "To je vaše zasebno <quote>igrišče</quote>, območje, kjer delate z datotekami pod nadzorom, in se obilčajno nahaja na krajevnem trdem disku. Delovno kopijo naredite s <quote>prevzemom</quote> iz skladišča, spremembe pa v skladišče prenesete z ukazom <quote>Objavi</quote>."
+msgstr "To je vaše zasebno <quote>igrišče</quote>, območje, kjer delate z datotekami pod nadzorom, in se običajno nahaja na krajevnem trdem disku. Delovno kopijo naredite s <quote>prevzemom</quote> iz skladišča, spremembe pa v skladišče prenesete z ukazom <quote>Objavi</quote>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
