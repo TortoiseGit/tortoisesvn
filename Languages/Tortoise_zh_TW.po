@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-19 20:59+0800\n"
+"PO-Revision-Date: 2010-05-22 00:08+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1066,6 +1066,10 @@ msgstr "使用本地性質解決(&R)"
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
 msgstr "還原預設值(&R)"
+
+#. Resource IDs: (1542)
+msgid "&Retry without hooks"
+msgstr "以無掛勾指令檔方式重試(&R)"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -3130,6 +3134,10 @@ msgstr ""
 msgid "Could not start thread!"
 msgstr "無法啟動執行緒!"
 
+#. Resource IDs: (1542)
+msgid "Create &Library"
+msgstr "建立資料庫(&L)"
+
 #. Resource IDs: (13)
 msgid "Create &patch..."
 msgstr "建立補綴(&P)..."
@@ -3174,6 +3182,10 @@ msgstr "遠端建立資料夾完成"
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "在檔案庫中快速建立複本做為分支或標記之用"
+
+#. Resource IDs: (199)
+msgid "Creates a library folder with special settings for Subversion working copies"
+msgstr "建立特殊設定的資料庫目錄用以存放 Subversion 工作複本"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3361,6 +3373,10 @@ msgstr "描述:"
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "取消選取變更列表"
+
+#. Resource IDs: (1547)
+msgid "Destinatio&n URL:"
+msgstr "目標 URL(&N):"
 
 #. Resource IDs: (1547)
 msgid "Destination URL:"
@@ -5095,6 +5111,10 @@ msgstr ""
 msgid "Import to %1"
 msgstr "匯入至 %1"
 
+#. Resource IDs: (80)
+msgid "Imported folder structure"
+msgstr "已匯入資料夾結構"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %1!s!"
@@ -5957,9 +5977,17 @@ msgstr "移動/重新命名"
 msgid "Move: New name for %s"
 msgstr "移動: %s 的新名稱"
 
+#. Resource IDs: (65535)
+msgid "Moved from"
+msgstr "移動自"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "遠端移動完成"
+
+#. Resource IDs: (65535)
+msgid "Moved to"
+msgstr "移動至"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6544,6 +6572,14 @@ msgid ""
 msgstr ""
 "鉛筆工具\n"
 "鉛筆"
+
+#. Resource IDs: (245)
+msgid "Percent of authorship"
+msgstr "作者百分比"
+
+#. Resource IDs: (245)
+msgid "Percents"
+msgstr "百分比"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -8613,6 +8649,10 @@ msgstr "Tab 寬度:"
 msgid "Tag nodes"
 msgstr "Tag 節點"
 
+#. Resource IDs: (281)
+msgid "Tagged"
+msgstr "已標記"
+
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -9024,8 +9064,12 @@ msgstr ""
 "請輸入正確的正規表示式."
 
 #. Resource IDs: (80)
-msgid "The repository was successfully created."
-msgstr "檔案庫建立成功."
+msgid ""
+"The repository was successfully created.\n"
+"Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+"已成功建立檔案庫.\n"
+"要為您建立預設的目錄結構(trunk/branches/tags)嗎?"
 
 #. Resource IDs: (78)
 msgid ""
@@ -11265,6 +11309,8 @@ msgstr "是"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "The repository was successfully created."
+#~ msgstr "檔案庫建立成功."
 #~ msgid "&Sat:"
 #~ msgstr "濃度(&S):"
 #~ msgid "&Save..."
