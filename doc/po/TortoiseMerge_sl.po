@@ -13,10 +13,11 @@
 # Miha Nahtigal <miha.nahtigal@gmail.com>, 2009
 #
 msgid ""
-msgstr "Project-Id-Version: TortoiseMerge Documentation\n"
+msgstr ""
+"Project-Id-Version: TortoiseMerge Documentation\n"
 "POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2010-05-03 09:49+0100\n"
-"Last-Translator: Vito Smolej <vito.smolej@gmail.com>\n"
+"PO-Revision-Date: 2010-05-21 23:00+0100\n"
+"Last-Translator: smo <smolejv@gmx.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,11 +88,11 @@ msgstr "TortoiseMerge vam pomaga v obeh primerih: <placeholder-1/>"
 
 #. (para)
 msgid "TortoiseMerge also helps you to sort out conflicted files which can occur if you're working with a source control system and others are working on the same files as you."
-msgstr "TortoiseMerge vam tudi pomaga razvozljati datotek, ki si prihajajo navzkriž, če delate s sistemom za nadzor izvorne kode, pri tem kak drug član skupine dela na isti datoteki kot vi."
+msgstr "TortoiseMerge vam tudi pomaga razvozljati datoteke, ki si prihajajo navzkriž, če delate s sistemom za nadzor izvorne kode, pri tem kak drug član skupine dela na isti datoteki kot vi."
 
 #. (title)
 msgid "TortoiseMerge is free!"
-msgstr "TortoiseMerge je brezplačen!"
+msgstr "TortoiseMerge vam je na razpolago brez obveznosti!"
 
 #. (para)
 msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any way you want. It is developed under the GP license (GPL)."
@@ -858,7 +859,8 @@ msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
-msgstr "Večina stikal zahteva dodatno informacijo - pot ali kak drug niz. V takšnih primerih stikalu dodajte ':' in zahtevan niz. Primer: <screen>\n"
+msgstr ""
+"Večina stikal zahteva dodatno informacijo - pot ali kak drug niz. V takšnih primerih stikalu dodajte ':' in zahtevan niz. Primer: <screen>\n"
 "/base:\"c:\\mapa\\moja osnovna datoteka.txt\"\n"
 "</screen>"
 
@@ -995,7 +997,8 @@ msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
-msgstr "Zaradi združljivosti z ostalimi programi lahko v ukazni vrstici enostavno podate imena datotek v naslednji obliki: <screen>\n"
+msgstr ""
+"Zaradi združljivosti z ostalimi programi lahko v ukazni vrstici enostavno podate imena datotek v naslednji obliki: <screen>\n"
 "TortoiseMerge PotOsnovneDatoteke PotMojeDatoteke [ PotNjihoveDatoteke ]\n"
 "</screen> Če sta podani dve datoteki, ju program primerja med sabo. Če so podane tri datoteke, je prva datoteke OSNOVNA, ostali dve pa se primerjata z njo v trodelnem pogledu."
 
