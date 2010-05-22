@@ -58,7 +58,7 @@ SVNPatch::~SVNPatch()
 }
 
 
-void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t *pool )
+void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * /*pool*/ )
 {
     SVNPatch * pThis = (SVNPatch*)baton;
     if ((pThis)&&(pThis->m_bInit)&&(notify))
@@ -89,7 +89,7 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t *p
 svn_error_t * SVNPatch::patch_func( void *baton, const char * local_abspath, 
                                     const char *patch_abspath, 
                                     const char *reject_abspath, 
-                                    apr_pool_t *scratch_pool )
+                                    apr_pool_t * /*scratch_pool*/ )
 {
     SVNPatch * pThis = (SVNPatch*)baton;
     if ((pThis)&&(pThis->m_bInit))
