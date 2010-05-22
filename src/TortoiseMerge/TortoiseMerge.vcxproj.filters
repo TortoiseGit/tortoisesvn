@@ -105,9 +105,6 @@
     <ClCompile Include="WorkingFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\AeroBaseDlg.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
@@ -179,6 +176,9 @@
     </ClCompile>
     <ClCompile Include="..\SVN\SVNPatch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\StandAloneDlg.cpp">
+      <Filter>Utils\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -269,9 +269,6 @@
     <ClInclude Include="WorkingFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\AeroBaseDlg.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\AeroControls.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
@@ -343,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="..\SVN\SVNPatch.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\StandAloneDlg.h">
+      <Filter>Utils\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

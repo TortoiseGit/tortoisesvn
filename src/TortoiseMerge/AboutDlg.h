@@ -21,7 +21,7 @@
 #include "Watereffect.h"
 #include "Dib.h"
 #include "HyperLink.h"
-#include "AeroBaseDlg.h"
+#include "StandAloneDlg.h"
 
 #define ID_EFFECTTIMER 1111
 #define ID_DROPTIMER 1112

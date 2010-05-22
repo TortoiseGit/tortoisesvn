@@ -18,7 +18,7 @@
 //
 #pragma once
 #include "FileDropEdit.h"
-#include "AeroBaseDlg.h"
+#include "StandAloneDlg.h"
 
 // COpenDlg dialog
 
