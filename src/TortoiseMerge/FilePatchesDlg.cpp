@@ -25,21 +25,24 @@
 #include "ProgressDlg.h"
 
 
-IMPLEMENT_DYNAMIC(CFilePatchesDlg, CDialog)
+IMPLEMENT_DYNAMIC(CFilePatchesDlg, CResizableStandAloneDialog)
 CFilePatchesDlg::CFilePatchesDlg(CWnd* pParent /*=NULL*/)
-    : CDialog(CFilePatchesDlg::IDD, pParent)
+    : CResizableStandAloneDialog(CFilePatchesDlg::IDD, pParent)
+    , m_ShownIndex(-1)
+    , m_bMinimized(FALSE)
 {
     m_ImgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
-    m_bMinimized = FALSE;
 }
 
 CFilePatchesDlg::~CFilePatchesDlg()
 {
+    if (m_boldFont)
+        DeleteObject(m_boldFont);
 }
 
 void CFilePatchesDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_FILELIST, m_cFileList);
 }
 
@@ -65,6 +68,28 @@ CString CFilePatchesDlg::GetFullPath(int nIndex)
     if (PathIsRelative(temp))
         temp = m_sPath + temp;
     return temp;
+}
+
+BOOL CFilePatchesDlg::OnInitDialog()
+{
+    CResizableStandAloneDialog::OnInitDialog();
+
+    ExtendFrameIntoClientArea(IDC_FILELIST);
+    m_aeroControls.SubclassControl(this, IDC_PATCHSELECTEDBUTTON);
+    m_aeroControls.SubclassControl(this, IDC_PATCHALLBUTTON);
+
+
+    HFONT hFont = (HFONT)m_cFileList.SendMessage(WM_GETFONT);
+    LOGFONT lf = {0};
+    GetObject(hFont, sizeof(LOGFONT), &lf);
+    lf.lfWeight = FW_BOLD;
+    m_boldFont = CreateFontIndirect(&lf);
+
+    AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_PATCHSELECTEDBUTTON, BOTTOM_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_PATCHALLBUTTON, BOTTOM_LEFT, BOTTOM_RIGHT);
+
+    return TRUE;
 }
 
 BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath, CWnd * pParent)
@@ -166,7 +191,7 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
     return TRUE;
 }
 
-BEGIN_MESSAGE_MAP(CFilePatchesDlg, CDialog)
+BEGIN_MESSAGE_MAP(CFilePatchesDlg, CResizableStandAloneDialog)
     ON_WM_SIZE()
     ON_NOTIFY(LVN_GETINFOTIP, IDC_FILELIST, OnLvnGetInfoTipFilelist)
     ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
@@ -174,17 +199,17 @@ BEGIN_MESSAGE_MAP(CFilePatchesDlg, CDialog)
     ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
     ON_WM_NCLBUTTONDBLCLK()
     ON_WM_MOVING()
+    ON_BN_CLICKED(IDC_PATCHSELECTEDBUTTON, &CFilePatchesDlg::OnBnClickedPatchselectedbutton)
+    ON_BN_CLICKED(IDC_PATCHALLBUTTON, &CFilePatchesDlg::OnBnClickedPatchallbutton)
+    ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, &CFilePatchesDlg::OnLvnItemchangedFilelist)
 END_MESSAGE_MAP()
 
 void CFilePatchesDlg::OnSize(UINT nType, int cx, int cy)
 {
-    CDialog::OnSize(nType, cx, cy);
+    CResizableStandAloneDialog::OnSize(nType, cx, cy);
     if (this->IsWindowVisible())
     {
-        CRect rect;
-        GetClientRect(rect);
-        GetDlgItem(IDC_FILELIST)->MoveWindow(rect.left, rect.top, cx, cy);
-        m_cFileList.SetColumnWidth(0, cx);
+        m_cFileList.SetColumnWidth(0, LVSCW_AUTOSIZE);
     }
     SetTitleWithPath(cx);
 }
@@ -210,12 +235,16 @@ void CFilePatchesDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     {
         m_pCallBack->DiffFiles(GetFullPath(pNMLV->iItem), m_pPatch->GetRevision(pNMLV->iItem),
                                m_pPatch->GetFilename2(pNMLV->iItem), m_pPatch->GetRevision2(pNMLV->iItem));
+        m_ShownIndex = pNMLV->iItem;
+        m_cFileList.Invalidate();
     }
     else
     {
         if (m_arFileStates.GetAt(pNMLV->iItem)!=FPDLG_FILESTATE_PATCHED)
         {
             m_pCallBack->PatchFile(GetFullPath(pNMLV->iItem), m_pPatch->GetRevision(pNMLV->iItem));
+            m_ShownIndex = pNMLV->iItem;
+            m_cFileList.Invalidate();
         }
     }
 }
@@ -254,10 +283,14 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
             }
             // Store the color back in the NMLVCUSTOMDRAW struct.
             pLVCD->clrText = crText;
+            if (m_ShownIndex == pLVCD->nmcd.dwItemSpec)
+            {
+                SelectObject(pLVCD->nmcd.hdc, m_boldFont);
+                // We changed the font, so we're returning CDRF_NEWFONT. This
+                // tells the control to recalculate the extent of the text.
+                *pResult = CDRF_NOTIFYSUBITEMDRAW | CDRF_NEWFONT;
+            }
         }
-
-        // Tell Windows to paint the control itself.
-        *pResult = CDRF_DODEFAULT;
     }
 }
 
@@ -306,55 +339,16 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
             if ( m_arFileStates.GetAt(nIndex)!=FPDLG_FILESTATE_PATCHED)
             {
                 m_pCallBack->PatchFile(GetFullPath(nIndex), m_pPatch->GetRevision(nIndex));
+                m_ShownIndex = nIndex;
+                m_cFileList.Invalidate();
             }
         }
         break;
     case ID_PATCHALL:
-        if (m_pCallBack)
-        {
-            CProgressDlg progDlg;
-            progDlg.SetTitle(IDR_MAINFRAME);
-            progDlg.SetShowProgressBar(true);
-            progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_ALL)));
-            progDlg.ShowModeless(m_hWnd);
-            for (int i=0; i<m_arFileStates.GetCount() && !progDlg.HasUserCancelled(); i++)
-            {
-                if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
-                {
-                    progDlg.SetLine(2, GetFullPath(i), true);
-                    m_pCallBack->PatchFile(GetFullPath(i), m_pPatch->GetRevision(i), TRUE);
-                }
-                progDlg.SetProgress64(i, m_arFileStates.GetCount());
-            }
-            progDlg.Stop();
-        }
+        PatchAll();
         break;
     case ID_PATCHSELECTED:
-        if (m_pCallBack)
-        {
-            CProgressDlg progDlg;
-            progDlg.SetTitle(IDR_MAINFRAME);
-            progDlg.SetShowProgressBar(true);
-            progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_SELECTED)));
-            progDlg.ShowModeless(m_hWnd);
-            // The list cannot be sorted by user, so the order of the
-            // items in the list is identical to the order in the array
-            // m_arFileStates.
-            int selCount = m_cFileList.GetSelectedCount();
-            int count = 1;
-            POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
-            int index;
-            while (((index = m_cFileList.GetNextSelectedItem(pos)) >= 0) && (!progDlg.HasUserCancelled()))
-            {
-                if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
-                {
-                    progDlg.SetLine(2, GetFullPath(index), true);
-                    m_pCallBack->PatchFile(GetFullPath(index), m_pPatch->GetRevision(index), TRUE);
-                }
-                progDlg.SetProgress64(count++, selCount);
-            }
-            progDlg.Stop();
-        }
+        PatchSelected();
         break;
     default:
         break;
@@ -381,7 +375,7 @@ void CFilePatchesDlg::OnNcLButtonDblClk(UINT nHitTest, CPoint point)
         MoveWindow(windowrect.left, windowrect.top, windowrect.right - windowrect.left, m_nWindowHeight);
     }
     m_bMinimized = !m_bMinimized;
-    CDialog::OnNcLButtonDblClk(nHitTest, point);
+    CResizableStandAloneDialog::OnNcLButtonDblClk(nHitTest, point);
 }
 
 void CFilePatchesDlg::OnMoving(UINT fwSide, LPRECT pRect)
@@ -395,7 +389,7 @@ void CFilePatchesDlg::OnMoving(UINT fwSide, LPRECT pRect)
         pRect->right = parentRect.left;
         pRect->left = pRect->right - width;
     }
-    CDialog::OnMoving(fwSide, pRect);
+    CResizableStandAloneDialog::OnMoving(fwSide, pRect);
 }
 
 void CFilePatchesDlg::OnOK()
@@ -412,3 +406,78 @@ void CFilePatchesDlg::SetTitleWithPath(int width)
     title.ReleaseBuffer();
     SetWindowText(title);
 }
+
+void CFilePatchesDlg::OnBnClickedPatchselectedbutton()
+{
+    PatchSelected();
+}
+
+void CFilePatchesDlg::OnBnClickedPatchallbutton()
+{
+    PatchAll();
+}
+
+void CFilePatchesDlg::PatchAll()
+{
+    if (m_pCallBack)
+    {
+        CProgressDlg progDlg;
+        progDlg.SetTitle(IDR_MAINFRAME);
+        progDlg.SetShowProgressBar(true);
+        progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_ALL)));
+        progDlg.ShowModeless(m_hWnd);
+        for (int i=0; i<m_arFileStates.GetCount() && !progDlg.HasUserCancelled(); i++)
+        {
+            if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
+            {
+                progDlg.SetLine(2, GetFullPath(i), true);
+                m_pCallBack->PatchFile(GetFullPath(i), m_pPatch->GetRevision(i), TRUE);
+                m_ShownIndex = i;
+                m_cFileList.Invalidate();
+            }
+            progDlg.SetProgress64(i, m_arFileStates.GetCount());
+        }
+        progDlg.Stop();
+    }
+}
+
+void CFilePatchesDlg::PatchSelected()
+{
+    if (m_pCallBack)
+    {
+        CProgressDlg progDlg;
+        progDlg.SetTitle(IDR_MAINFRAME);
+        progDlg.SetShowProgressBar(true);
+        progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_SELECTED)));
+        progDlg.ShowModeless(m_hWnd);
+        // The list cannot be sorted by user, so the order of the
+        // items in the list is identical to the order in the array
+        // m_arFileStates.
+        int selCount = m_cFileList.GetSelectedCount();
+        int count = 1;
+        POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+        int index;
+        while (((index = m_cFileList.GetNextSelectedItem(pos)) >= 0) && (!progDlg.HasUserCancelled()))
+        {
+            if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
+            {
+                progDlg.SetLine(2, GetFullPath(index), true);
+                m_pCallBack->PatchFile(GetFullPath(index), m_pPatch->GetRevision(index), TRUE);
+                m_ShownIndex = index;
+                m_cFileList.Invalidate();
+            }
+            progDlg.SetProgress64(count++, selCount);
+        }
+        progDlg.Stop();
+    }
+}
+
+void CFilePatchesDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+
+    DialogEnableWindow(IDC_PATCHSELECTEDBUTTON, m_cFileList.GetSelectedCount() > 0);
+
+    *pResult = 0;
+}
+

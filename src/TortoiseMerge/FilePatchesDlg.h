@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "StandAloneDlg.h"
 
 class CPatch;
 
@@ -63,7 +64,7 @@ public:
  *
  * Dialog class, showing all files to patch from a unified diff file.
  */
-class CFilePatchesDlg : public CDialog
+class CFilePatchesDlg : public CResizableStandAloneDialog
 {
     DECLARE_DYNAMIC(CFilePatchesDlg)
 
@@ -93,19 +94,27 @@ protected:
     BOOL                        m_bMinimized;
     int                         m_nWindowHeight;
     CWnd *                      m_pMainFrame;
+    int                         m_ShownIndex;
+    HFONT                       m_boldFont;
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual void OnOK();
+    virtual BOOL OnInitDialog();
     afx_msg void OnSize(UINT nType, int cx, int cy);
     afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNcLButtonDblClk(UINT nHitTest, CPoint point);
     afx_msg void OnMoving(UINT fwSide, LPRECT pRect);
+    afx_msg void OnBnClickedPatchselectedbutton();
+    afx_msg void OnBnClickedPatchallbutton();
 
     DECLARE_MESSAGE_MAP()
 
     CString GetFullPath(int nIndex);
     void SetTitleWithPath(int width);
+    void PatchAll();
+    void PatchSelected();
 };
