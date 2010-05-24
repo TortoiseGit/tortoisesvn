@@ -169,7 +169,11 @@ void COpenDlg::OnBrowseForFile(CString& filepath, UINT nFileFilter)
 
 void COpenDlg::OnBnClickedDifffilebrowse()
 {
-    OnBrowseForFile(m_sUnifiedDiffFile, IDS_PATCHFILEFILTER);
+    UpdateData();
+    CString temp;
+    temp.LoadString(IDS_SELECTDIFFFILE);
+    BrowseForFile(m_sUnifiedDiffFile, temp, IDS_PATCHFILEFILTER);
+    UpdateData(FALSE);
 }
 
 void COpenDlg::OnBnClickedDirectorybrowse()
