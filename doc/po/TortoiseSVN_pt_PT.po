@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-25 23:51-0000\n"
+"PO-Revision-Date: 2010-05-26 00:04-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -2243,7 +2243,7 @@ msgstr "Se estás a usar o Subversion 1.3 ou superior, podes usar a directiva <l
 
 #. (title)
 msgid "Path-Based Authorization"
-msgstr ""
+msgstr "Autorização Baseada-em-Caminhos"
 
 #. (primary)
 msgid "Authorization"
@@ -2251,7 +2251,7 @@ msgstr ""
 
 #. (para)
 msgid "The <literal>mod_authz_svn</literal> module permits fine-grained control of access permissions based on user names and repository paths. This is available with the Apache server, and as of Subversion 1.3 it is available with svnserve as well."
-msgstr ""
+msgstr "O módulo <literal>mod_authz_svn</literal> permite um controlo mais fino das permissões de acesso baseadas nos nomes dos utilizadores e nos caminhos do repositório. Isto está disponível com o servidor Apache, e desde o Subversion 1.3 está também disponível com o svnserve."
 
 #. (para)
 msgid ""
@@ -2285,10 +2285,39 @@ msgid ""
 "@training = rw\n"
 "</screen>"
 msgstr ""
+"Um ficheiro de exemplo teria o seguinte aspecto: <screen>\n"
+"[groups]\n"
+"admin = john, kate\n"
+"devteam1 = john, rachel, sally\n"
+"devteam2 = kate, peter, mark\n"
+"docs = bob, jane, mike\n"
+"training = zak\n"
+"# Regra de acesso, por defeito, para TODOS os repositorios\n"
+"# Todos podem ler, admins podem escrever, Dan German está excluido.\n"
+"[/]\n"
+"* = r\n"
+"@admin = rw\n"
+"dangerman =\n"
+"# Permite total acesso dos programadores aos repos do seu projecto\n"
+"[proj1:/]\n"
+"@devteam1 = rw\n"
+"[proj2:/]\n"
+"@devteam2 = rw\n"
+"[bigproj:/]\n"
+"@devteam1 = rw\n"
+"@devteam2 = rw\n"
+"trevor = rw\n"
+"# Da acesso de escrita a ao pessoal dos docs a todas as pastas de docs\n"
+"[/trunk/doc]\n"
+"@docs = rw\n"
+"# Dá aos estagiarios acesso de escrita apenas ao repositorio de treino\n"
+"[TrainingRepos:/]\n"
+"@training = rw\n"
+"</screen>"
 
 #. (para)
 msgid "Note that checking every path can be an expensive operation, particularly in the case of the revision log. The server checks every changed path in each revision and checks it for readability, which can be time-consuming on revisions which affect large numbers of files."
-msgstr ""
+msgstr "Observa que verificar cada caminho pode ser uma operação cara, em particular no caso do registo de revisão. O servidor verifica cada caminho alterado em cada revisão, e verifica se está disponível para leitura, o que pode ser consumidor de tempo em revisões que afectam um grande número de ficheiros."
 
 #. (para)
 msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
