@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-25 00:45+0200\n"
-"Last-Translator: Juan Carlos Fuentes-Michel <jcfuentes@gmail.com>\n"
+"PO-Revision-Date: 2010-05-24 22:19-0300\n"
+"Last-Translator: Tommy <tommychristie@gmail.com>\n"
 "Language-Team: Tomás Christie\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -108,8 +108,8 @@ msgstr ""
 "archivos y directorios. Esto le permite al usuario recuperar versiones "
 "antiguas de sus archivos y examinar la historia de cómo y cuándo cambiaron "
 "sus datos, y quién hizo el cambio. Esta es la razón por la que mucha gente "
-"piensa que Subversion, y los sistemas de control de versiones en general, "
-"son una especie de <quote>máquinas del tiempo</quote>."
+"piensa en Subversion, y los sistemas de control de versiones en general, "
+"como una especie de <quote>máquinas del tiempo</quote>."
 
 #.(para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
@@ -17675,13 +17675,19 @@ msgstr ""
 #.(para)
 msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
 msgstr ""
+"Usted también puede especificar un archivo que contenga una lista de rutas, "
+"separadas por retornos de carro. El archivo debe estar en formato UTF-16. Si "
+"pasa un archivo asi, utilice <option>/pathfile</option> en vez de "
+"<option>/path</option>. Para que TortoiseProc borre ese archivo despues de "
+"que el comando termine, puede pasar el parámetro "
+"<option>/deletepathfile</option>."
 
 #.(para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batch file or from the TortoiseSVN context menu."
 msgstr ""
 "El diálogo de progreso que se utiliza para las confirmaciones, "
-"actualizaciones y muchos más comandos normalmente se queda abierto después "
-"de que el comando termina, hasta que el usuario pulsa el botón "
+"actualizaciones y muchos más comandos normalmente queda abierto después de "
+"que el comando termina, hasta que el usuario pulsa el botón "
 "<guibutton>Aceptar</guibutton>. Esto puede cambiarse marcando la opción "
 "correspondiente en el diálogo de configuración. Pero utilizando esa opción "
 "se cerrará el diálogo de progreso, sin importar si se inició el comando "
@@ -17717,12 +17723,13 @@ msgstr ""
 "conflictos ni fusiones"
 
 #.(para)
-#, fuzzy
 msgid "To close the progress dialog at the end of a command automatically without using the permanent setting you can pass the <option>/closeonend</option> parameter. <placeholder-1/> To close the progress dialog for local operations if there were no errors or conflicts, pass the <option>/closeforlocal</option> parameter."
 msgstr ""
 "Para cerrar el diálogo de progreso al final de un comando automáticamente "
 "sin utilizar la configuración permanente, puede pasar el parámetro "
-"<option>/closeonend</option>. <placeholder-1/>"
+"<option>/closeonend</option>. <placeholder-1/> Para cerrar el diálogo de "
+"progreso para operaciones locales si no hubiera errores ni conflictos, pase "
+"el parámetro <option>/closeforlocal</option>."
 
 #.(para)
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
@@ -17800,7 +17807,7 @@ msgstr "/strict"
 
 #.(option)
 msgid "/findstring:\"filterstring\""
-msgstr ""
+msgstr "/findstring:\"filterstring\""
 
 #.(option)
 msgid "/findtext"
@@ -17816,31 +17823,36 @@ msgstr "/findtype:X"
 
 #.(para)
 msgid "<option>/findtype:1</option> filter by everything"
-msgstr ""
+msgstr "<option>/findtype:1</option> filtrar por todo"
 
 #.(para)
 msgid "<option>/findtype:2</option> filter by messages"
-msgstr ""
+msgstr "<option>/findtype:2</option> filtrar por mensajes"
 
 #.(para)
 msgid "<option>/findtype:3</option> filter by path"
-msgstr ""
+msgstr "<option>/findtype:3</option> filtrar por ruta"
 
 #.(para)
 msgid "<option>/findtype:4</option> filter by authors"
-msgstr ""
+msgstr "<option>/findtype:4</option> filtrar por autores"
 
 #.(para)
 msgid "<option>/findtype:5</option> filter by revisions"
-msgstr ""
+msgstr "<option>/findtype:5</option> filtrar por revisiones"
 
 #.(para)
 msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr ""
+msgstr "<option>/findtype:7</option> filtrar por ID de error"
 
 #.(entry)
+#, fuzzy
 msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
 msgstr ""
+"Abre el Diálogo de Regsitro. El <placeholder-1/> especifica el archivo o "
+"carpeta para el cual el registro debería ser mostrado. Seis opciones "
+"adicionales pueden establecerse: <placeholder-2/>, <placeholder-3/>, "
+"<placeholder-4/> "
 
 #.(option)
 #.(option)
