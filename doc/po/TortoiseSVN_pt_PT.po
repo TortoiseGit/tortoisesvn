@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-20 01:52-0000\n"
+"PO-Revision-Date: 2010-05-25 23:37-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -2117,7 +2117,7 @@ msgstr ""
 
 #. (title)
 msgid "Apache <filename>httpd.conf</filename> Settings"
-msgstr ""
+msgstr "Configurações do <filename>httpd.conf</filename> do Apache"
 
 #. (entry)
 msgid "Setting"
@@ -2129,7 +2129,7 @@ msgstr "Explicação"
 
 #. (systemitem)
 msgid "http://MyServer/svn/"
-msgstr ""
+msgstr "http://MyServer/svn/"
 
 #. (entry)
 msgid "means that the Subversion repositories are available from the URL <placeholder-1/>"
@@ -2137,43 +2137,43 @@ msgstr "significa que os repositórios Subversion estão disponíveis a partir d
 
 #. (entry)
 msgid "tells Apache which module will be responsible to serve that URL - in this case the Subversion module."
-msgstr ""
+msgstr "indica ao Apache qual o módulo que será responsável por servir esse URL - Neste caso o módulo Subversion."
 
 #. (entry)
 msgid "For Subversion version 1.3 and higher, this directive enables listing all the available repositories under <placeholder-1/>."
-msgstr ""
+msgstr "A partir da versão 1.3 do Subversion, esta directiva permite listar todos os repositórios disponíveis sob <placeholder-1/>."
 
 #. (filename)
 msgid "D:\\SVN"
-msgstr ""
+msgstr "D:\\SVN"
 
 #. (entry)
 msgid "tells Subversion to look for repositories below <placeholder-1/>"
-msgstr ""
+msgstr "indica ao Subversion para procurar por repositórios sob <placeholder-1/>"
 
 #. (entry)
 msgid "Used to make the browsing with a web browser prettier."
-msgstr ""
+msgstr "Usado para tornar mais bonita a navegação com um navegador de internet."
 
 #. (entry)
 msgid "is to activate basic authentication, i.e. Username/password"
-msgstr ""
+msgstr "é para activar a autenticação básica, i.e. Utilizador/Palavra-passe"
 
 #. (entry)
 msgid "is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for"
-msgstr ""
+msgstr "é usada como informação, quando aparece uma caixa de diálogo, a dizer ao utilizador qual o propósito da autenticação"
 
 #. (entry)
 msgid "specifies which password file to use for authentication"
-msgstr ""
+msgstr "especifica qual o ficheiro de palavra-passe a utilizar para a autenticação."
 
 #. (entry)
 msgid "Location of the Access file for paths inside a Subversion repository"
-msgstr ""
+msgstr "Localização do ficheiro de Acessos, a caminhos no interior do repositório Subversion."
 
 #. (entry)
 msgid "specifies that only users who entered a correct username/password are allowed to access the URL"
-msgstr ""
+msgstr "indica que só os utilizadores que introduziram o utilizador/palavra-passe correctas, estão autirizados a aceder ao URL"
 
 #. (para)
 msgid ""
@@ -2185,6 +2185,13 @@ msgid ""
 "&lt;/LimitExcept&gt;\n"
 "</screen>"
 msgstr ""
+"Se quiseres que o teu repositório tenha acesso de leitura para toda a gente, mas só permita acesso de escrita para utilizadores específicos, podes alterar a linha <screen>\n"
+"Require valid-user\n"
+"</screen> to <screen>\n"
+"&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;\n"
+"Require valid-user\n"
+"&lt;/LimitExcept&gt;\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2192,6 +2199,9 @@ msgid ""
 "#AuthzSVNAccessFile svnaccessfile\n"
 "</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's <literal>AuthzSVNAccessFile</literal> module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. The format of the authorization-policy file used by <literal>mod_authz_svn</literal> is described in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
 msgstr ""
+"Ao utilizar um ficheiro <filename>passwd</filename> limitas a concedes o acesso a todos os teus repositórios como uma unidade. Se quiseres mais controlo sobre quais os utilizadores que tem acesso a cada pasta, dentro do repositório, podes descomentar a linha <screen>\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"</screen> e criar um ficheiro de acesso ao Subversion. O Apache irá garantir que só os utilizadores válidos poderão aceder à tua localização <filename>/svn</filename>, e irá então enviar o nome de utilizador ao módulo <literal>AuthzSVNAccessFile</literal> do Subversion, para que este possa garantir um acesso mais granular, baseado nas regras listadas no ficheiro de acesso do Subversion. Observa que os caminhos são especificados ou como <literal>repos:path</literal> ou simplesmente <literal>path</literal>. Se não especificares um repositório em particular, essa regra ir-se-á aplicar a todos os repositórios sob <literal>SVNParentPath</literal>. O formato do ficheiro de políticas-de-autorização usada por <literal>mod_authz_svn</literal> é descrita em <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
 
 #. (para)
 msgid ""
@@ -2199,14 +2209,17 @@ msgid ""
 "#SVNIndexXSLT \"/svnindex.xsl\"\n"
 "</screen> and put the files <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> and <filename>menucheckout.ico</filename> in your document root directory (usually <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). The directory is set with the <literal>DocumentRoot</literal> directive in your Apache config file."
 msgstr ""
+"Para tornar a navegação do repositório mais bonita, utilizando um navegador de internet, descomenta a linha  <screen>\n"
+"#SVNIndexXSLT \"/svnindex.xsl\"\n"
+"</screen> e coloca os ficheiros <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> e <filename>menucheckout.ico</filename> na tua pasta raiz dos documentos (normalmente <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). A pasta está configurada com a directiva <literal>DocumentRoot</literal>, no teu ficheiro de configuração do Apache."
 
 #. (para)
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
-msgstr ""
+msgstr "Tu podes obter esses três ficheiros directamente do nosso repositório fonte, em <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório fonte do TortoiseSVN)."
 
 #. (para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
-msgstr ""
+msgstr "O ficheiro XSL do repositório do TortoiseSVN tem um bom chamariz: se navegares no repositório com o teu navegador web, então cada pasta do teu repositório mostrará um ícone à direita. Se clicares nesse ícone, a caixa de diálogo do TortoiseSVN checkout ir-se-á iniciar para este URL."
 
 #. (para)
 msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache web server. <placeholder-2/>"
