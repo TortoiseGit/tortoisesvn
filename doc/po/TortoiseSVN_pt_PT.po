@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-26 00:04-0000\n"
+"PO-Revision-Date: 2010-05-26 00:50-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -2321,11 +2321,11 @@ msgstr "Observa que verificar cada caminho pode ser uma operação cara, em part
 
 #. (para)
 msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
-msgstr ""
+msgstr "Autenticação e autorização são dois processos separados. SE o utilizador deseja ter acesso a um caminho do repositório, terá de conhecer <emphasis>ambos</emphasis>, os requisitos usuais de autenticação e os requisitos de autorização para aceder ao ficheiro."
 
 #. (title)
 msgid "Authentication With a Windows Domain"
-msgstr ""
+msgstr "Autenticação Com um Domínio Windows"
 
 #. (primary)
 msgid "Windows domain"
@@ -2337,11 +2337,11 @@ msgstr ""
 
 #. (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
-msgstr ""
+msgstr "Como poderás ter notado, necessitarás de criar uma entrada utilizador/palavra-chave no ficheiro <filename>passwd</filename>, para cada utilizador em separado. E se (por razões de segurança) quiseres que os teus utilizadores modifiquem periodicamente as suas palavras-passe, terás de efectua manualmente a alteração."
 
 #. (para)
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: <literal>mod_auth_sspi</literal>!"
-msgstr ""
+msgstr "Mas existe uma solução para esse problema - pelo menos se estás a aceder ao repositório a partir da LAN com um controlador de domínio Windows: <literal>mod_auth_sspi</literal>!"
 
 #. (primary)
 msgid "SSPI"
@@ -2353,11 +2353,11 @@ msgstr ""
 
 #. (para)
 msgid "The original SSPI module was offered by Syneapps including source code. But the development for it has been stopped. But don't despair, the community has picked it up and improved it. It has a new home on <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
-msgstr ""
+msgstr "O módulo SSPI original foi oferecido pela Syneapps, incluindo o código-fonte. Mas o desenvolvimento foi então cancelado. No entanto não desesperes, pois a comunidade pegou nele e melhorou-o. Ele tem agora um novo lar, em <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
 
 #. (para)
 msgid "Download the module which matches your apache version, then copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
-msgstr ""
+msgstr "Descarrega o módulo que corresponde à tua versão do Apache, e copia o ficheiro <filename>mod_auth_sspi.so</filename> para a pasta dos módulos Apache."
 
 #. (para)
 msgid ""
@@ -2367,6 +2367,11 @@ msgid ""
 "LoadModule auth_module modules/mod_auth.so\n"
 "</screen>"
 msgstr ""
+"Edita o ficheiro de config. do Apache: adiciona a linha <screen>\n"
+"LoadModule sspi_auth_module modules/mod_auth_sspi.so\n"
+"</screen> à secção <literal>LoadModule</literal>. Tem a certeza que inseriste esta linha <emphasis>antes</emphasis> da linha <screen>\n"
+"LoadModule auth_module modules/mod_auth.so\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2384,38 +2389,51 @@ msgid ""
 "SSPIOfferBasic On\n"
 "</screen> within the <literal>&lt;Location /svn&gt;</literal> block. If you don't have a domain controller, leave the name of the domain control as <literal>&lt;domaincontroller&gt;</literal>."
 msgstr ""
+"Para fazer com que a localização do Subversion use este tipo de autenticação, terás de alterar a linha <screen>\n"
+"AuthType Basic\n"
+"</screen> para <screen>\n"
+"AuthType SSPI\n"
+"</screen>, necessitas também de adicionar <screen>\n"
+"SSPIAuth On\n"
+"SSPIAuthoritative On\n"
+"SSPIDomain &lt;domaincontroller&gt;\n"
+"SSPIOmitDomain on\n"
+"SSPIUsernameCase lower\n"
+"SSPIPerRequestAuth on\n"
+"SSPIOfferBasic On\n"
+"</screen> dentro do bloco <literal>&lt;Location /svn&gt;</literal>. Se não tiveres um controlador de domínio, deixa o nome do controlador de domínio como <literal>&lt;domaincontroller&gt;</literal>."
 
 #. (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <literal>AuthUserFile</literal> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
-msgstr ""
+msgstr "Tem atenção que, se te autenticas utilizando o SSPI, não precisas mais então da linha <literal>AuthUserFile</literal> para definir o ficheiro de palavra-passe. O Apache autentica então o teu nome de utilizador e palavra passe com o domínio Windows. Necessitarás de actualizar a tua lista de utilizadores no teu <filename>svnaccessfile</filename> para referênciar também o <literal>DOMAIN\\username</literal>. "
 
 #. (para)
 msgid "The SSPI authentication is only enabled for SSL secured connections (https). If you're only using normal http connections to your server, it won't work."
-msgstr ""
+msgstr "A autenticação SSPI só está activada para ligações SSL seguras (https). Se só estás a usar ligações http normais para o teu servidor, isto não irá funcionar."
 
 #. (para)
 msgid "To enable SSL on your server, see the chapter: <xref linkend=\"tsvn-serversetup-apache-7\"/>"
-msgstr ""
+msgstr "Para activar o SSL no teu servidor, consulta o capítulo: <xref linkend=\"tsvn-serversetup-apache-7\"/>"
 
 #. (para)
 msgid "Subversion <filename>AuthzSVNAccessFile</filename> files are case sensitive in regard to user names (<literal>JUser</literal> is different from <literal>juser</literal>)."
-msgstr ""
+msgstr "Os ficheiros <filename>AuthzSVNAccessFile</filename> do Subversion são sensíveis a maiusculas e minusculas, em relação aos nomes de utilizadores (<literal>JUser</literal> é diferente de <literal>juser</literal>)."
 
 #. (para)
 msgid "In Microsoft's world, Windows domains and user names are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. <literal>JUser</literal>)."
-msgstr ""
+msgstr "No mundo Microsoft, os domínios Windows e os nomes de utilizador não são sensíveis a maiúsculas e minúsculas. Mesmo assim alguns administradores de redes gostam de criar contas de utilizadores em CamelCase (e.g. <literal>JUser</literal>)."
 
 #. (para)
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
-msgstr ""
+msgstr "Esta diferença pode-te trair ao usar a autenticação SSPI como domínio do Windows e os nomes dos utilizadores são passados ao Subversion tal como o utilizador os digita na prompt. O Internet Explorer passa com frequência automaticamente o nome de utilizador para o Apache, usando a altura de letra com que foi criada a conta."
 
 #. (para)
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
-msgstr ""
+msgstr "O resultado final é que poderás necessitar de pelo menos duas entradas no teu <literal>AuthzSVNAccessFile</literal> para cada utilizador -- uma entrada em letra minúscula e uma entrada com a mesma altura de letra com que o Explorador passa para o Apache. Também irás necessitar de formar os teus utilizadores para também digitar as suas credenciais usando um tipo de letra minúscula, ao aceder aos repositórios via TortoiseSVN."
 
 #. (para)
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's <literal>AuthzSVNAccessFile</literal> module. You may need to experiment with the exact format of the user string in the <literal>svnaccessfile</literal> (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
-msgstr ""
+msgstr "Os registos de Erro e Acesso do Apache são os teus melhores amigos a decifrar problemas como estes, tal como te irão ajudar a determinar a string do nome do utilizador passada para o módulo <literal>AuthzSVNAccessFile</literal> Subversion. Poderás necessitar de experimentar com o formato exacto da string do utilizador no <literal>svnaccessfile</literal> (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) para conseguires por tudo a funcionar."
 
 #. (title)
 msgid "Multiple Authentication Sources"
