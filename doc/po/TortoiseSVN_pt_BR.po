@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-04-21 22:39 +0000\n"
-"PO-Revision-Date: 2010-05-13 20:55-0300\n"
-"Last-Translator: Eduardo Marques <eduardo@eduardomarques.com>\n"
+"PO-Revision-Date: 2010-05-25 18:21-0300\n"
+"Last-Translator: Eduardo Marques <ebmarques@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -919,7 +919,7 @@ msgstr "acesso TCP/IP autenticado e criptografado através de um protocolo custo
 
 #. (para)
 msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file://</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
-msgstr "Para a maioria, URLs do Subversion usam a sintaxe padrão, permitido nomes de servidores e números de porta em uma parte específica da URL. O método de acesso <literal>file://</literal> é normalmente usado para acesso local, apesar de que isto pode ser usado com caminhos UNC em uma máquina da rede. A URL portanto usa o formato <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>.Para a máquina local, a parte do <literal>hostname</literal> da URL deve ser suprimida ou deve ser <literal>localhost</literal>. Por esta razão, caminhos locais normalmente aparecem com três barras, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
+msgstr "Para a maioria, URLs do Subversion usam a sintaxe padrão, permitido nomes de servidores e números de porta em uma parte específica da URL. O método de acesso <literal>file://</literal> é normalmente usado para acesso local, apesar de que isto pode ser usado com caminhos UNC em uma máquina da rede. A URL portanto usa o formato <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. Para a máquina local, a parte do <literal>hostname</literal> da URL deve ser suprimida ou deve ser <literal>localhost</literal>. Por esta razão, caminhos locais normalmente aparecem com três barras, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
 
 #. (para)
 msgid "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
@@ -6020,7 +6020,7 @@ msgstr "Para evitar tais problemas, a versão 1.5 ou superior do cliente Subvers
 
 #. (term)
 msgid "Relative to parent directory"
-msgstr ""
+msgstr "Relativo à pasta pai"
 
 #. (para)
 msgid ""
@@ -6028,14 +6028,17 @@ msgid ""
 "../../widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Essas URLs sempre iniciam com <literal>../</literal>, por exemplo: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen>. Esse comando irá extrair <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> em <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
-msgstr ""
+msgstr "Note que a URL é relativa a URL do diretório com a propriedade <literal>svn:externals</literal> e não a URL do diretório onde o arquivo externo está armazenado."
 
 #. (term)
 msgid "Relative to repository root"
-msgstr ""
+msgstr "Relativo ao repositório raiz"
 
 #. (para)
 msgid ""
@@ -6043,6 +6046,9 @@ msgid ""
 "^/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Essas URLs sempre iniciam com <literal>^/</literal>, por exemplo: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen>. Esse comando irá extrair <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> em <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid ""
@@ -6050,10 +6056,13 @@ msgid ""
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
 msgstr ""
+"Você poderá facilmente fazer referência a outros repositórios com o mesmo <literal>SVNParentPath</literal> (um diretório comum que contém vários repositórios). Por exemplo: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> Esse comando irá extrair <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> em <filename>C:\\Working\\common\\claw-hammer</filename>."
 
 #. (term)
 msgid "Relative to scheme"
-msgstr ""
+msgstr "Relativo ao esquema"
 
 #. (para)
 msgid ""
@@ -6061,10 +6070,13 @@ msgid ""
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
 msgstr ""
+"URLs que iniciam com <literal>//</literal> copiam só a parte do esquema da URL. Isto é útil quando o mesmo \"hostname\" necessita ser acessado com esquemas diferentes - dependendo da localização na rede; por exemplo, clientes na intranet usam <systemitem class=\"url\">http://</systemitem>, enquanto clientes externos usam <systemitem class=\"url\">svn+ssh://</systemitem>. Por exemplo: <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen>. Esse comando irá extrair <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> ou <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> dependendo qual método foi utilizado para exportar (checkout) <filename>C:\\Working</filename>."
 
 #. (term)
 msgid "Relative to the server's hostname"
-msgstr ""
+msgstr "Relativo ao nome do servidor"
 
 #. (para)
 msgid ""
@@ -6072,18 +6084,21 @@ msgid ""
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 msgstr ""
+"URLs que iniciam com <literal>/</literal> copiam a parte da URL do esquema e do \"hostname\", por exemplo: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen>. Esse comando irá extrair <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> em <filename>C:\\Working\\common\\foo-widget</filename>. Mas se você exportar sua cópia de trabalho desde outro servidor em <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> então, a referência externa irá extrair <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 
 #. (para)
 msgid "You can also specify a peg revision after the URL if required, e.g. <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
-msgstr ""
+msgstr "Você também pode especificar uma revisão \"peg\" depois da URL, se necessário; por exemplo, <systemitem class=\"url\">http://sounds.red-bean.com/repos@19</systemitem>."
 
 #. (para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr ""
+msgstr "Caso necessite mais informações sobre como TortoiseSVN lida com \"Propriedades\", consulte <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 #. (para)
 msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
-msgstr ""
+msgstr "Para saber mais sobre diferentes métodos de acesso a subprojetos comuns, consulte <xref linkend=\"tsvn-howto-common-projects\"/>."
 
 #. (title)
 msgid "External Files"
@@ -12607,6 +12622,7 @@ msgstr ""
 
 #~ msgid "Do you work in a team?"
 #~ msgstr "Você trabalha com uma equipe?"
+
 #~ msgid ""
 #~ "Has it ever happened that you were working on a file, and someone else "
 #~ "was working on the same file at the same time? Did you lose your changes "
@@ -12615,6 +12631,7 @@ msgstr ""
 #~ "Você tem trabalhado em um arquivo, e outra pessoa também tem trabalhado "
 #~ "no mesmo arquivo ao mesmo tempo? Você perdeu as modificações que fez por "
 #~ "causa disso?"
+
 #~ msgid ""
 #~ "Have you ever saved a file, and then wanted to revert the changes you "
 #~ "made? Have you ever wished you could see what a file looked like some "
@@ -12622,12 +12639,14 @@ msgstr ""
 #~ msgstr ""
 #~ "Você modificou o arquivo, e depois quis desfazer as modificações que fez? "
 #~ "Você já desejou ver como era o arquivo tempos atrás?"
+
 #~ msgid ""
 #~ "Have you ever found a bug in your project and wanted to know when that "
 #~ "bug got into your files?"
 #~ msgstr ""
 #~ "Você encontrou um erro em seu projeto e quer saber quando o erro foi "
 #~ "inserido em seus arquivos?"
+
 #~ msgid ""
 #~ "If you answered <quote>yes</quote> to one of these questions, then "
 #~ "TortoiseSVN is for you! Just read on to find out how TortoiseSVN can help "
@@ -12636,8 +12655,10 @@ msgstr ""
 #~ "Se você respondeu <quote>sim</quote> para alguma dessas questões, então "
 #~ "TortoiseSVN é para você! Simplesmente leia e descubra sobre como "
 #~ "TortoiseSVN pode lhe ajudar no trabalho. Isto não é difícil."
+
 #~ msgid "Audience"
 #~ msgstr "Público alvo"
+
 #~ msgid ""
 #~ "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, "
 #~ "what it does, where it comes from and the basics for installing it on "
@@ -12645,8 +12666,10 @@ msgstr ""
 #~ msgstr ""
 #~ "O <xref linkend=\"tsvn-introduction\"/> explica o que é o TortoiseSVN, o "
 #~ "que faz, de onde vem e o básico para instalar no computador."
+
 #~ msgid "TortoiseSVN is free!"
 #~ msgstr "TortoiseSVN é grátis!"
+
 #~ msgid ""
 #~ "TortoiseSVN is free. You don't have to pay to use it, and you can use it "
 #~ "any way you want. It is developed under the GNU General Public License "
@@ -12655,8 +12678,10 @@ msgstr ""
 #~ "TortoiseSVN é grátis. Você não precisa pagar nada para usar, e vocë pode "
 #~ "usar da maneira que quiser. É um projeto desenvolvido sobre a Licença "
 #~ "Pública Genérica - GNU General Public Licence (GPL)."
+
 #~ msgid "Community"
 #~ msgstr "Comunidade"
+
 #~ msgid ""
 #~ "Subversion has no historical baggage; it is implemented as a collection "
 #~ "of shared C libraries with well-defined APIs. This makes Subversion "
@@ -12666,6 +12691,6 @@ msgstr ""
 #~ "coleção de bibliotecas compartilhas em C com APIs bem definidas. Isto "
 #~ "torna o Subversion de fácil manutenção e utilizável por outras aplicações "
 #~ "e linguagens."
+
 #~ msgid "Command Line Client"
 #~ msgstr "Linha de Comando do Cliente"
-
