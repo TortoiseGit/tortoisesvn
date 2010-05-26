@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-26 22:55-0000\n"
+"PO-Revision-Date: 2010-05-26 23:50-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -2445,11 +2445,11 @@ msgstr ""
 
 #. (para)
 msgid "It is also possible to have more than one authentication source for your Subversion repository. To do this, you need to make each authentication type non-authoritative, so that Apache will check multiple sources for a matching username/password."
-msgstr ""
+msgstr "É também possível ter mais do que uma fonte de autenticação para o teu repositório Subversion. Para o fazeres, necessitas fazer com que cada tipo de autenticação seja não-autorizada, para que o Apache verifique nas múltiplas fontes por uma correspondência utilizador/palavra-passe."
 
 #. (para)
 msgid "A common scenario is to use both Windows domain authentication and a <literal>passwd</literal> file, so that you can provide SVN access to users who don't have a Windows domain login."
-msgstr ""
+msgstr "Um cenário comum é o uso de autenticação por domínio Windows e por um ficheiro <literal>passwd</literal>, para que possas providenciar acesso a utilizadores fora do domínio Windows."
 
 #. (para)
 msgid ""
@@ -2458,6 +2458,10 @@ msgid ""
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
+"Para activar a autenticação a ambos, domínio Windows e ficheiro <filename>passwd</filename>, adiciona as seguintes entradas dentro do bloco <literal>&lt;Location&gt;</literal> do teu ficheiro de config do Apache: <screen>\n"
+"AuthBasicAuthoritative Off\n"
+"SSPIAuthoritative Off\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2486,10 +2490,34 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"Aqui está um exemplo de um ficheiro de configuração do Apache completo para a autenticação combinada, domínio Windows e ficheiro <literal>passwd</literal>: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNListParentPath on\n"
+"  SVNParentPath D:\\SVN\n"
+"\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthzSVNAccessFile svnaccessfile.txt\n"
+"\n"
+"# NT Domain Logins.\n"
+"  AuthType SSPI\n"
+"  SSPIAuth On\n"
+"  SSPIAuthoritative Off\n"
+"  SSPIDomain &lt;domaincontroller&gt;\n"
+"  SSPIOfferBasic On\n"
+"\n"
+"# Htpasswd Logins.\n"
+"  AuthType Basic\n"
+"  AuthBasicAuthoritative Off\n"
+"  AuthUserFile passwd\n"
+"\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Securing the server with SSL"
-msgstr ""
+msgstr "Proteger o servidor com SSL"
 
 #. (primary)
 msgid "SSL"
@@ -2497,7 +2525,7 @@ msgstr ""
 
 #. (para)
 msgid "Even though Apache 2.2.x has OpenSSL support, it is not activated by default. You need to activate this manually."
-msgstr ""
+msgstr "Mesmo que o Apache 2.2.x tenha suporte OpenSSL, este não está activado por defeito. Necessitarás de o activar manualmente."
 
 #. (para)
 msgid ""
@@ -2512,6 +2540,16 @@ msgid ""
 "SSLMutex default\n"
 "</screen>"
 msgstr ""
+"No ficheiro de config do Apache, descomenta as linhas: <screen>\n"
+"#LoadModule ssl_module modules/mod_ssl.so\n"
+"</screen> e no fundo <screen>\n"
+"#Include conf/extra/httpd-ssl.conf\n"
+"</screen> então altera a linha (numa só linha) <screen>\n"
+"SSLMutex \"file:C:/Program Files/Apache Software Foundation/\\\n"
+"Apache2.2/logs/ssl_mutex\"\n"
+"</screen> para <screen>\n"
+"SSLMutex default\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2519,6 +2557,9 @@ msgid ""
 "bin\\openssl req -config conf\\openssl.cnf -new -out my-server.csr\n"
 "</screen> You will be asked for a passphrase. Please don't use simple words but whole sentences, e.g. a part of a poem. The longer the phrase the better. Also you have to enter the URL of your server. All other questions are optional but we recommend you fill those in too."
 msgstr ""
+"A seguir necessitas de criar um certificado SSL. Para o fazeres abre a linha de comandos (caixa-DOS) e muda para a pasta Apache (e.g. <filename>C:\\program files\\apache group\\apache2</filename>) então digita o seguinte comando: <screen>\n"
+"bin\\openssl req -config conf\\openssl.cnf -new -out my-server.csr\n"
+"</screen> Ir-te-á ser solicitada uma frase-passe. Por favor, não utilizes palavras simples mas sim frases completas, e.g. uma parte de um poema. Quanto mais longa a frase, melhor. Também terás de introduzir o URL do teu servidor. Todas as outras questões são opcionais, mas recomendamos que também as preenchas."
 
 #. (para)
 msgid ""
@@ -2526,6 +2567,9 @@ msgid ""
 "bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
 "</screen>"
 msgstr ""
+"Normalmente o ficheiro <filename>privkey.pem</filename> é criado automaticamente, mas se não o for, necessitas de digitar o seguinte comando para gerá-lo: <screen>\n"
+"bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2542,30 +2586,42 @@ msgid ""
 "                 -outform DER\n"
 "</screen> These commands created some files in the Apache <filename>conf</filename> folder (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 msgstr ""
+"Em seguida digita os comandos <screen>\n"
+"bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
+"</screen> e (numa só linha) <screen>\n"
+"bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
+"-config conf\\openssl.cnf\n"
+"</screen> e então (numa só linha) <screen>\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
+"                 -req -signkey conf\\server.key -days 4000\n"
+"</screen> Isto irá criar um certificado que irá expirar em 4000 dias. E introduz finalmente (numa só linha): <screen>\n"
+"bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
+"                 -outform DER\n"
+"</screen> Estes comandos criaram alguns ficheiros na pasta <filename>conf</filename> Apache (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 
 #. (para)
 msgid "Restart the Apache service."
-msgstr ""
+msgstr "Reinicia o serviço Apache"
 
 #. (para)
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
-msgstr ""
+msgstr "Aponta o teu navegador para <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
 
 #. (title)
 msgid "SSL and Internet Explorer"
-msgstr ""
+msgstr "SSL e o Internet Explorer"
 
 #. (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
-msgstr ""
+msgstr "Se estás a proteger o teu servidor com SSL num domínio Windows, irás descobrir que já não consegues navegar no repositório com o Internet Explorer. Não te preocupes - isto é só porque o Internet Explorer não se consegue autenticar. Outros navegadores não têm esse problema, tal como o TortoiseSVN e qualquer outro cliente Subversion, que ainda assim conseguirão se autenticar."
 
 #. (para)
 msgid "define a separate <literal>&lt;Location /path&gt;</literal> directive in the Apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
-msgstr ""
+msgstr "Definir uma directiva <literal>&lt;Location /path&gt;</literal> separada no ficheiro de conf do Apache, e adiciona <literal>SSPIBasicPreferred On</literal>. Isto irá permitir ao Internet Explorer se autenticar de novo, mas entretanto os outros navegadores e o Subversion não se conseguirão autenticar para essa localização."
 
 #. (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
-msgstr ""
+msgstr "Oferece também a navegação com autenticação não encriptada (sem SSL). Estranhamente o IE não tem quaisquer problemas a autenticar-se, se a ligação não está protegida com SSL."
 
 #. (para)
 msgid ""
@@ -2575,18 +2631,23 @@ msgid ""
 "             downgrade-1.0 force-response-1.0\n"
 "</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want NTLM authentication you have to use <literal>keepalive</literal>. If You uncomment the whole <literal>SetEnvIf</literal> you should be able to authenticate IE with windows authentication over SSL against the Apache on Win32 with included <literal>mod_auth_sspi</literal>."
 msgstr ""
+"Na configuração \"padrão\" do SSL, existe normalmente a seguinte afirmação no host SSL virtual do Apache : <screen>\n"
+"SetEnvIf User-Agent \".*MSIE.*\" \\\n"
+"             nokeepalive ssl-unclean-shutdown \\\n"
+"             downgrade-1.0 force-response-1.0\n"
+"</screen> Existem (existiam?) boas razões para esta configuração, consulta <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> Mas se quiseres autenticação NTLM terás de usar <literal>keepalive</literal>. Se descomentares todo o <literal>SetEnvIf</literal> deverás conseguir autenticar o IE com autenticação Windows sobre SSL para o Apache no Win32 incluindo o <literal>mod_auth_sspi</literal>."
 
 #. (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
-msgstr ""
+msgstr "Se ainda assim queres usar o Internet Explorer para navegar no repositório, poderás: <placeholder-1/>"
 
 #. (title)
 msgid "Forcing SSL access"
-msgstr ""
+msgstr "Forçando o acesso SSL"
 
 #. (para)
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-SSL (http) and only allow https access. To do this, you have to add another directive to the Subversion <literal>&lt;Location&gt;</literal> block: <literal>SSLRequireSSL</literal>."
-msgstr ""
+msgstr "Quando configuraste o SSL para tornar o teu repositório mais seguro, quererias desactivar o acesso por via normal não-SSL (http), e só permitir o acesso https. Para o fazeres terás de adicionar uma outra directiva ao bloco <literal>&lt;Location&gt;</literal> do Subversion: <literal>SSLRequireSSL</literal>."
 
 #. (para)
 msgid ""
@@ -2603,6 +2664,18 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"Um exemplo do bloco <literal>&lt;Location&gt;</literal> teria o seguinte aspecto: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNParentPath D:\\SVN\n"
+"  SSLRequireSSL\n"
+"  AuthType Basic\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthUserFile passwd\n"
+"  #AuthzSVNAccessFile svnaccessfile\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Using client certificates with virtual SSL hosts"
