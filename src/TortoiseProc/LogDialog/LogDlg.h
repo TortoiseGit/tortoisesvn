@@ -26,7 +26,6 @@
 #include "registry.h"
 #include "SplitterControl.h"
 #include "Colors.h"
-#include "MenuButton.h"
 #include "LogDlgHelper.h"
 #include "FilterEdit.h"
 #include "LogDlgFilter.h"
@@ -35,6 +34,7 @@
 #include "HintListCtrl.h"
 #include "JobScheduler.h"
 #include "ListViewAccServer.h"
+#include "XPTheme.h"
 #include "Win7.h"
 
 using namespace std;
