@@ -984,7 +984,8 @@ void AeroControlBase::PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBord
             VERIFY(FrameRect(hdcPaint, prc, (HBRUSH)GetStockObject(BLACK_BRUSH)));
         }
 
-
+        // don't make a possible border opaque, only the inner part of the control
+        VERIFY(InflateRect(prc, -2, -2));
         // Make every pixel opaque
         VERIFY(S_OK==m_theme.BufferedPaintMakeOpaque_(hBufferedPaint, prc));
         VERIFY(S_OK==m_theme.EndBufferedPaint(hBufferedPaint, TRUE));
