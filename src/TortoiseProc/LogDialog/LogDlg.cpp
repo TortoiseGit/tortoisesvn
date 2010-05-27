@@ -116,6 +116,13 @@ enum LogDlgContextMenuCommands
     ID_REVPROPS
 };
 
+enum LogDlgShowBtnCommands
+{
+    ID_CMD_DEFAULT = 0,
+    ID_CMD_SHOWALL,
+    ID_CMD_SHOWRANGE,
+};
+
 
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableStandAloneDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
@@ -506,13 +513,24 @@ BOOL CLogDlg::OnInitDialog()
         SetDlgItemText(IDCANCEL, temp);
         GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
     }
-
-    // set the choices for the "Show All" button
-    temp.LoadString(IDS_LOG_SHOWALL);
-    m_btnShow.AddEntry(temp);
-    temp.LoadString(IDS_LOG_SHOWRANGE);
-    m_btnShow.AddEntry(temp);
-    m_btnShow.SetCurrentEntry((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry")));
+    m_btnMenu.CreatePopupMenu();
+    m_btnMenu.AppendMenu(MF_STRING|MF_BYCOMMAND, ID_CMD_SHOWALL, CString(MAKEINTRESOURCE(IDS_LOG_SHOWALL)));
+    m_btnMenu.AppendMenu(MF_STRING|MF_BYCOMMAND, ID_CMD_SHOWRANGE, CString(MAKEINTRESOURCE(IDS_LOG_SHOWRANGE)));
+    m_btnShow.m_hMenu = m_btnMenu.GetSafeHmenu();
+    m_btnShow.m_bOSMenu = TRUE;
+    m_btnShow.m_bRightArrow = TRUE;
+    m_btnShow.m_bDefaultClick = TRUE;
+    m_btnShow.m_bTransparent = TRUE;
+    switch ((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry")))
+    {
+    default:
+    case 0:
+        m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWALL)));
+        break;
+    case  1:
+        m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWRANGE)));
+        break;
+    }
 
     m_mergedRevs.clear();
 
@@ -736,18 +754,29 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
     // fetch all requested log messages, either the specified range or
     // really *all* available log messages.
     UpdateData();
-    INT_PTR entry = m_btnShow.GetCurrentEntry();
+
+    INT_PTR entry = m_btnShow.m_nMenuResult;
     if (bForceAll)
-        entry = 0;
+        entry = ID_CMD_SHOWALL;
+
+    CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
+
+    if (entry == ID_CMD_DEFAULT)
+        entry = (LONG)reg;
+
+    reg = (DWORD)entry;
+
     switch (entry)
     {
-    case 0: // show all
+    default:
+    case ID_CMD_SHOWALL:
         m_endrev = 0;
         m_startrev = m_LogRevision;
         if (m_bStrict)
             m_bShowedAll = true;
+        m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWALL)));
         break;
-    case 1: // show range
+    case ID_CMD_SHOWRANGE:
         {
             // ask for a revision range
             CRevisionRangeDlg dlg;
@@ -769,6 +798,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
                 }
             }
             m_bShowedAll = false;
+            m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWRANGE)));
         }
         break;
     }
@@ -954,7 +984,7 @@ void CLogDlg::OnCancel()
     if (m_bSaveStrict)
         m_regLastStrict = m_bStrict;
     CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
-    reg = (DWORD)m_btnShow.GetCurrentEntry();
+    reg = (DWORD)m_btnShow.m_nMenuResult;
 
     CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogShowPaths"));
     reg2 = (DWORD)m_cShowPaths.GetCheck();
@@ -1661,7 +1691,7 @@ void CLogDlg::OnOK()
     if (m_bSaveStrict)
         m_regLastStrict = m_bStrict;
     CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
-    reg = (DWORD)m_btnShow.GetCurrentEntry();
+    reg = (DWORD)m_btnShow.m_nMenuResult;
     CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogHidePaths"));
     reg2 = (DWORD)m_cShowPaths.GetCheck();
     SaveSplitterPos();

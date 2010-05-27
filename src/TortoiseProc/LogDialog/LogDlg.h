@@ -216,7 +216,8 @@ private:
     CFilterEdit         m_cFilter;
     CLogDlgFilter       m_filter;
     CProgressCtrl       m_LogProgress;
-    CMenuButton         m_btnShow;
+    CMFCMenuButton      m_btnShow;
+    CMenu               m_btnMenu;
     CTSVNPath           m_path;
     CTSVNPath           m_mergePath;
     SVNRev              m_pegrev;
