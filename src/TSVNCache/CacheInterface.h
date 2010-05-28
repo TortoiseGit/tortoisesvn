@@ -21,17 +21,10 @@
 #include "wininet.h"
 
 // The name of the named-pipe for the cache
-#ifdef WIN64
-#define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache64")
-#define TSVN_CACHE_COMMANDPIPE_NAME _T("\\\\.\\pipe\\TSVNCacheCommand64")
-#define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow64")
-#define TSVN_CACHE_MUTEX_NAME _T("TSVNCacheMutex64")
-#else
-#define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache")
-#define TSVN_CACHE_COMMANDPIPE_NAME _T("\\\\.\\pipe\\TSVNCacheCommand")
 #define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow")
 #define TSVN_CACHE_MUTEX_NAME _T("TSVNCacheMutex")
-#endif
+#define TSVN_CACHE_COMMANDPIPE_NAME _T("\\\\.\\pipe\\TSVNCacheCommand")
+#define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache")
 
 CString GetCachePipeName();
 CString GetCacheCommandPipeName();
@@ -60,14 +53,15 @@ struct TSVNCacheRequest
  */
 struct TSVNCacheResponse
 {
-    svn_wc_status3_t m_status;
-    svn_wc_entry_t m_entry;
-    svn_node_kind_t m_kind;
+    INT8 m_kind;
     char m_url[INTERNET_MAX_URL_LENGTH+1];
     char m_owner[255];      ///< owner of the lock
     char m_author[255];
     bool m_needslock;       ///< whether the file has the svn:needs-lock property set or not (only works with the new working copy version)
     bool m_tree_conflict;   ///< whether the item has a tree conflict
+    INT8 m_textStatus;
+    INT8 m_propStatus;
+    INT64 m_cmt_rev;
 };
 
 #endif // SVN_WC_H

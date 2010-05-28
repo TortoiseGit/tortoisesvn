@@ -292,7 +292,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
             SecureZeroMemory(&itemStatus, sizeof(itemStatus));
             if(m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, true))
             {
-                filestatus = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
+                filestatus = SVNStatus::GetMoreImportant((svn_wc_status_kind)itemStatus.m_textStatus, (svn_wc_status_kind)itemStatus.m_propStatus);
             }
             else
             {
@@ -332,7 +332,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
     if (t == ShellCache::exe)
     {
         columnauthor = UTF8ToWide(itemStatus.m_author);
-        columnrev = itemStatus.m_entry.cmt_rev;
+        columnrev = (svn_revnum_t)itemStatus.m_cmt_rev;
         itemurl = UTF8ToWide(itemStatus.m_url);
         owner = UTF8ToWide(itemStatus.m_owner);
     }

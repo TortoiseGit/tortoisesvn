@@ -151,7 +151,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
                 SecureZeroMemory(&itemStatus, sizeof(itemStatus));
                 if (m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, true))
                 {
-                    status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
+                    status = SVNStatus::GetMoreImportant((svn_wc_status_kind)itemStatus.m_textStatus, (svn_wc_status_kind)itemStatus.m_propStatus);
                     if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&((itemStatus.m_needslock && itemStatus.m_owner[0]==0)))
                         readonlyoverlay = true;
                     if (itemStatus.m_owner[0]!=0)

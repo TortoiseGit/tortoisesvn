@@ -184,12 +184,44 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
             return false;
 
         CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + _T("TSVNCache.exe");
-        if (!CCreateProcessHelper::CreateProcessDetached( sCachePath, NULL))
+#ifndef _WIN64
+        typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
+        LPFN_ISWOW64PROCESS fnIsWow64Process;
+        fnIsWow64Process = (LPFN_ISWOW64PROCESS)GetProcAddress(GetModuleHandle(TEXT("kernel32")),"IsWow64Process");
+
+        if (NULL != fnIsWow64Process)
+        {
+            BOOL bIsWow64 = false;
+            if (!fnIsWow64Process(GetCurrentProcess(),&bIsWow64))
+            {
+                bIsWow64 = false;
+            }
+            if (bIsWow64)
+            {
+                CRegString tsvninstalled64 = CRegString(_T("Software\\TortoiseSVN\\CachePath"), _T(""), false, HKEY_LOCAL_MACHINE, KEY_WOW64_64KEY);
+                if (!CString(tsvninstalled64).IsEmpty())
+                    sCachePath = tsvninstalled64;
+            }
+        }
+        if (!CCreateProcessHelper::CreateProcessDetached(sCachePath, NULL))
+        {
+            ATLTRACE("Failed to start x64 cache\n");
+            CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + _T("TSVNCache.exe");
+            if (!CCreateProcessHelper::CreateProcessDetached(sCachePath, NULL))
+            {
+                // It's not appropriate to do a message box here, because there may be hundreds of calls
+                ATLTRACE("Failed to start cache\n");
+                return false;
+            }
+        }
+#else
+        if (!CCreateProcessHelper::CreateProcessDetached(sCachePath, NULL))
         {
             // It's not appropriate to do a message box here, because there may be hundreds of calls
             ATLTRACE("Failed to start cache\n");
             return false;
         }
+#endif
 
         // Wait for the cache to open
         long endTime = (long)GetTickCount()+1000;
@@ -259,17 +291,6 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
     if (fSuccess)
     {
-        if(nBytesRead == sizeof(TSVNCacheResponse))
-        {
-            // This is a full response - we need to fix-up some pointers
-            pReturnedStatus->m_status.entry = &pReturnedStatus->m_entry;
-            pReturnedStatus->m_entry.url = pReturnedStatus->m_url;
-        }
-        else
-        {
-            pReturnedStatus->m_status.entry = NULL;
-        }
-
         return true;
     }
     ClosePipe();

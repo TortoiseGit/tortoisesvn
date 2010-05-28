@@ -219,17 +219,11 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
     SecureZeroMemory(&response, sizeof(response));
     if(m_bSVNEntryFieldSet)
     {
-        response.m_status = m_svnStatus;
-        response.m_entry.cmt_rev = m_commitRevision;
+        response.m_textStatus = (INT8)m_svnStatus.text_status;
+        response.m_propStatus = (INT8)m_svnStatus.prop_status;
+        response.m_cmt_rev = m_commitRevision;
 
-        // There is no point trying to set these pointers here, because this is not
-        // the process which will be using the data.
-        // The process which receives this response (generally the TSVN Shell Extension)
-        // must fix-up these pointers when it gets them
-        response.m_status.entry = NULL;
-        response.m_entry.url = NULL;
-
-        response.m_kind = m_kind;
+        response.m_kind = (INT8)m_kind;
 
         if (m_sPresentProps.Find(SVN_PROP_NEEDS_LOCK)>=0)
         {
@@ -246,7 +240,8 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
     }
     else
     {
-        response.m_status = m_svnStatus;
+        response.m_textStatus = (INT8)m_svnStatus.text_status;
+        response.m_propStatus = (INT8)m_svnStatus.prop_status;
         response.m_tree_conflict = m_treeconflict;
         responseLength = sizeof(response);
     }
