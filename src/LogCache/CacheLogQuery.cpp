@@ -298,8 +298,8 @@ void CCacheLogQuery::CLogFiller::WriteToCache
                                    , path
                                    , copyFromPath
                                    , copyFromRevision
-                                   , change.text_modified
-                                   , change.props_modified);
+                                   , (unsigned char)change.text_modified
+                                   , (unsigned char)change.props_modified);
         }
     }
 

@@ -5467,7 +5467,7 @@ CString CLogDlg::GetListviewHelpString(HWND hControl, int index)
     }
     else if (hControl == m_ChangedFileListCtrl.GetSafeHwnd())
     {
-        if (m_currentChangedArray.GetCount() > index)
+        if ((int)m_currentChangedArray.GetCount() > index)
         {
             svn_tristate_t textModifies = m_currentChangedArray[index].GetTextModifies();
             svn_tristate_t propsModifies = m_currentChangedArray[index].GetPropsModifies();
