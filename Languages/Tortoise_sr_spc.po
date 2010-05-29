@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-13 19:13+0100\n"
+"PO-Revision-Date: 2010-05-29 23:23+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -2130,6 +2130,10 @@ msgid ""
 msgstr ""
 "Примените 'Главни Корисник' подразумевано. То ће омогућити гушење искуства.\n"
 "Треба да знате значење горњег подешавања."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Примена закрпе..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6611,6 +6615,11 @@ msgstr ""
 "Само бројеви (могу бити одвојени зарезом)\n"
 "су дозвољени!"
 
+#
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "Само измењене особине"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Само ова ставка"
@@ -6769,13 +6778,21 @@ msgstr "Залепи листу имена фајовал"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "Налепи свн путању из клипборда, резултат је померање (пресек) или копи операција"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Закрпи све"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "Крпи све ст&авке"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "Крпи изабране &ставке"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Одабрана закрпа"
+msgid "Patch all files"
+msgstr "Крпи све фајлове"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Крпи изабране фајлове"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -8036,10 +8053,6 @@ msgstr "Изаберте листу  измена"
 msgid "Select diff application"
 msgstr "Изаберите апликацију за преглед разлика"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Изабери фајл с разликама..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Изаберите именик за преузимање"
@@ -8083,6 +8096,10 @@ msgstr "Изабертеи апликацију за спајања"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "Изаберите одредиште спајања"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Изабери фајл закрпе..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -10035,6 +10052,11 @@ msgstr "Ажурирај кеш дневника"
 msgid "Upgrade working copy"
 msgstr "Равнање радне копије"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "Доградња \"%1!s!\""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Користи &уобичајену слику"
@@ -11367,10 +11389,6 @@ msgstr "ка  %s"
 msgid "tree conflict"
 msgstr "стабло конфликт"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "стабло конфликта:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11542,7 +11560,3 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
-
-#~ msgid "The repository was successfully created."
-#~ msgstr "Спремиште је успешно направљено."
-

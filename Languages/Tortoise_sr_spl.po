@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-13 19:13+0100\n"
+"PO-Revision-Date: 2010-05-29 23:23+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -2130,6 +2130,10 @@ msgid ""
 msgstr ""
 "Primenite 'Glavni Korisnik' podrazumevano. To će omogućiti gušenje iskustva.\n"
 "Treba da znate značenje gornjeg podešavanja."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Primena zakrpe..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6611,6 +6615,11 @@ msgstr ""
 "Samo brojevi (mogu biti odvojeni zarezom)\n"
 "su dozvoljeni!"
 
+#
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "Samo izmenjene osobine"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Samo ova stavka"
@@ -6769,13 +6778,21 @@ msgstr "Zalepi listu imena fajoval"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "Nalepi svn putanju iz klipborda, rezultat je pomeranje (presek) ili kopi operacija"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Zakrpi sve"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "Krpi sve st&avke"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "Krpi izabrane &stavke"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Odabrana zakrpa"
+msgid "Patch all files"
+msgstr "Krpi sve fajlove"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Krpi izabrane fajlove"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -8036,10 +8053,6 @@ msgstr "Izaberte listu  izmena"
 msgid "Select diff application"
 msgstr "Izaberite aplikaciju za pregled razlika"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Izaberi fajl s razlikama..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Izaberite imenik za preuzimanje"
@@ -8083,6 +8096,10 @@ msgstr "Izabertei aplikaciju za spajanja"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "Izaberite odredište spajanja"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Izaberi fajl zakrpe..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -10035,6 +10052,11 @@ msgstr "Ažuriraj keš dnevnika"
 msgid "Upgrade working copy"
 msgstr "Ravnanje radne kopije"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "Dogradnja \"%1!s!\""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Koristi &uobičajenu sliku"
@@ -11367,10 +11389,6 @@ msgstr "ka  %s"
 msgid "tree conflict"
 msgstr "stablo konflikt"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "stablo konflikta:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11542,7 +11560,3 @@ msgstr "da"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
-
-#~ msgid "The repository was successfully created."
-#~ msgstr "Спремиште је успешно направљено."
-
