@@ -336,6 +336,8 @@ void CResizableSheetEx::OnSize(UINT nType, int cx, int cy)
 		// update grip and layout
 		UpdateSizeGrip();
 	}
+    if (IsDwmCompositionEnabled())
+        HideGrip();
 
 	ArrangeLayout();
 

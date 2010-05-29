@@ -145,6 +145,8 @@ void CResizableDialog::OnSize(UINT nType, int cx, int cy)
 		// update grip and layout
 		UpdateSizeGrip();
 	}
+    if (IsDwmCompositionEnabled())
+        HideGrip();
 
 	ArrangeLayout();
 	// on Vista, the redrawing doesn't work right, so we have to work
