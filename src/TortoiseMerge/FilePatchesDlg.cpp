@@ -78,6 +78,8 @@ BOOL CFilePatchesDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PATCHSELECTEDBUTTON);
     m_aeroControls.SubclassControl(this, IDC_PATCHALLBUTTON);
 
+    // hide the grip since it would overlap with the "path all" button
+    HideGrip();
 
     HFONT hFont = (HFONT)m_cFileList.SendMessage(WM_GETFONT);
     LOGFONT lf = {0};
