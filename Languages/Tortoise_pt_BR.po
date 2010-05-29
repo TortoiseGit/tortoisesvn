@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-19 22:56-0300\n"
+"PO-Revision-Date: 2010-05-28 23:17-0300\n"
 "Last-Translator: Rafael Marcelo Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1928,6 +1928,10 @@ msgid ""
 msgstr ""
 "Aplicar padrões de 'Power User'. Eles permitirão uma experiência mais agradável.\n"
 "Você deve conhecer o significado de todas as configurações acima."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Aplicar correção..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6409,6 +6413,10 @@ msgstr ""
 "Apenas números (opcionalmente separados por\n"
 "vírgulas) são permitidos!"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "Somente propriedades alteradas"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Apenas este item"
@@ -6568,13 +6576,21 @@ msgstr "Colar lista de nomes de arquivos"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "Cola o caminho svn a partir da área de transferência, resultando numa operação de mover (cortar) ou copiar"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Corrigir tudo"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "&Aplicar à todos os itens"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "Aplicar aos itens &selecionados"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Correção selecionada"
+msgid "Patch all files"
+msgstr "Aplicar à todos os arquivos"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Aplicar aos arquivos selecionados"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -7837,10 +7853,6 @@ msgstr "Selecionar lista de alterações"
 msgid "Select diff application"
 msgstr "Selecionar aplicação de comparação"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Selecionar arquivo de comparação..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Selecionar diretório para obter"
@@ -7884,6 +7896,10 @@ msgstr "Selecionar aplicação de combinação"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "Selecionar alvo da combinação"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Selecionar arquivo de correção..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -9837,6 +9853,11 @@ msgstr "Atualizando o cache de log"
 msgid "Upgrade working copy"
 msgstr "Atualiza a cópia de trabalho"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "Atualizando \"%1!s!\""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Usar Imagem &Padrão:"
@@ -11169,10 +11190,6 @@ msgstr "para %s"
 msgid "tree conflict"
 msgstr "conflito de estrutura"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "conflito de estrutura:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11344,6 +11361,9 @@ msgstr "sim"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "tree conflict:"
+#~ msgstr "conflito de estrutura:"
 
 #~ msgid "The repository was successfully created."
 #~ msgstr "O repositório foi criado com sucesso."
