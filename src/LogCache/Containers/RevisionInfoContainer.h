@@ -175,6 +175,10 @@ private:
     mutable index_t storedSize;
 
     /// sub-stream IDs
+    ///
+    /// Don't change them as they are used to identify
+    /// data stored in external files. For details, see
+    /// /src/LogCache/doc/Basics.txt
 
     enum
     {
@@ -209,12 +213,6 @@ private:
 
         TEXTMODIFIES_STREAM_ID = 24,
         PROPSMODIFIES_STREAM_ID = 25
-
-        // TODO:
-        // either get rid of the specific numbers and let the enum assign
-        // the numbers automatically (that's what enums are for!)
-        // or document why it's necessary to never change the manually
-        // assigned numbers
     };
 
     /// index checking utility
