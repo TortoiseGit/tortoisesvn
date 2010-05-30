@@ -287,6 +287,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
         data->sActionColumnText.LoadString(IDS_SVNACTION_MODIFIED);
         data->color = m_Colors.GetColor(CColors::Modified);
         break;
+    case svn_wc_notify_update_add_deleted:
+    case svn_wc_notify_update_update_deleted:
     case svn_wc_notify_delete:
     case svn_wc_notify_update_delete:
         data->sActionColumnText.LoadString(IDS_SVNACTION_DELETE);
@@ -294,6 +296,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
         data->color = m_Colors.GetColor(CColors::Deleted);
         break;
     case svn_wc_notify_commit_deleted:
+    case svn_wc_notify_update_external_removed:
         data->sActionColumnText.LoadString(IDS_SVNACTION_DELETING);
         data->color = m_Colors.GetColor(CColors::Deleted);
         break;
@@ -332,6 +335,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
         else
             data->sActionColumnText.LoadString(IDS_SVNACTION_EXISTS);
         break;
+    case svn_wc_notify_merge_record_info:
     case svn_wc_notify_update_update:
         // if this is an inoperative dir change, don't show the notification.
         // an inoperative dir change is when a directory gets updated without
@@ -531,6 +535,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
     case svn_wc_notify_revprop_deleted:
         data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, (LPCTSTR)data->propertyName);
         break;
+    case svn_wc_notify_update_obstruction:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_OBSTRUCTED);
+        data->color = m_Colors.GetColor(CColors::Conflict);
+        data->bConflictedActionItem = true;
+        m_nConflicts++;
+        m_bConflictWarningShown = false;
+        break;
     case svn_wc_notify_tree_conflict:
         data->sActionColumnText.LoadString(IDS_SVNACTION_TREECONFLICTED);
         data->color = m_Colors.GetColor(CColors::Conflict);
@@ -545,6 +556,22 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
         AddItemToList();
         bDoAddData = false;
         ReportError(SVN::GetErrorString(err));
+        break;
+    case svn_wc_notify_merge_record_info_begin:
+        if (range)
+            data->sActionColumnText.LoadString(IDS_SVNACTION_MERGEINFO);
+        else if ((data->merge_range.start == data->merge_range.end) || (data->merge_range.start == data->merge_range.end - 1))
+            data->sActionColumnText.Format(IDS_SVNACTION_MERGERECORDBEGINSINGLE, data->merge_range.end);
+        else if (data->merge_range.start - 1 == data->merge_range.end)
+            data->sActionColumnText.Format(IDS_SVNACTION_MERGERECORDBEGINSINGLEREVERSE, data->merge_range.start);
+        else if (data->merge_range.start < data->merge_range.end)
+            data->sActionColumnText.FormatMessage(IDS_SVNACTION_MERGERECORDBEGINMULTIPLE, data->merge_range.start + 1, data->merge_range.end);
+        else
+            data->sActionColumnText.FormatMessage(IDS_SVNACTION_MERGERECORDBEGINMULTIPLEREVERSE, data->merge_range.start, data->merge_range.end + 1);
+        data->bAuxItem = true;
+        break;
+    case svn_wc_notify_merge_elide_info:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_ELIDEMERGEINFO);
         break;
     default:
         break;
