@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-23 18:53+0200\n"
+"PO-Revision-Date: 2010-05-31 02:24+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -2051,6 +2051,10 @@ msgid ""
 msgstr ""
 "Ota käyttöön 'tehokäyttäjän asetukset', joiden avulla käyttö on sujuvampaa.\n"
 "Sinun tulee tuntea kaikkien yllä olevien asetusten merkitys."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Käytä paikkatiedosto..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6518,6 +6522,10 @@ msgstr ""
 "Vain numerot (valinnaisesti pilkuin erotettuina)\n"
 "ovat sallittuja!"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "Vain ominaisuudet muuttuivat"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Vain tämä kohde"
@@ -6676,13 +6684,21 @@ msgstr "Liitä tiedostonimilista"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "Liittää leikepöydällä olevan SVN-polun, mistä seuraa siirto (leikkaa) tai kopiointi"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Paikkaa kaikki"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "Paikkaa &kaikki"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "Paikkaa &valittu"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Paikkaa valitut"
+msgid "Patch all files"
+msgstr "Paikkaa kaikki tiedostot"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Paikkaa valitut tiedostot"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -7945,10 +7961,6 @@ msgstr "Valitse muutoslista"
 msgid "Select diff application"
 msgstr "Valitse vertailuohjelma"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Valitse diff-tiedosto..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Valitse kansio johon tiedostot haetaan"
@@ -7992,6 +8004,10 @@ msgstr "Valitse yhdistämisohjelma"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "Valitse yhdistämisen kohde"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Valitse paikkatiedosto..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -9941,6 +9957,11 @@ msgstr "Päivitetään lokiviestien välimuisti"
 msgid "Upgrade working copy"
 msgstr "Päivitä työkopion rakenne"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "Päivitetään  \"%1!s!\""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Käytä &oletuskuvaa:"
@@ -11263,10 +11284,6 @@ msgstr "%s"
 msgid "tree conflict"
 msgstr "puuristiriita"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "puuristiriita:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11439,6 +11456,8 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "tree conflict:"
+#~ msgstr "puuristiriita:"
 #~ msgid "The repository was successfully created."
 #~ msgstr "Arkiston luonti onnistui."
 #~ msgid "%s, but it already exists unversioned locally."
