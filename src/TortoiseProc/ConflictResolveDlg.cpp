@@ -98,10 +98,18 @@ BOOL CConflictResolveDlg::OnInitDialog()
     case svn_wc_conflict_action_delete:
         if (m_pConflictDescription->property_name)
             sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_DELETE,
-                (LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
-                (LPCTSTR)filename);
+            (LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
+            (LPCTSTR)filename);
         else
             sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_DELETE, (LPCTSTR)filename);
+        break;
+    case svn_wc_conflict_action_replace:
+        if (m_pConflictDescription->property_name)
+            sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_REPLACE,
+            (LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
+            (LPCTSTR)filename);
+        else
+            sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_REPLACE, (LPCTSTR)filename);
         break;
     default:
         break;

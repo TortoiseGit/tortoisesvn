@@ -162,6 +162,10 @@ bool ConflictEditorCommand::Execute()
                             sConflictAction.Format(IDS_TREECONFLICT_FILEUPDATEDELETE, (LPCTSTR)sItemName);
                             sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
                             break;
+                        case svn_wc_conflict_action_replace:
+                            sConflictAction.Format(IDS_TREECONFLICT_FILEUPDATEREPLACE, (LPCTSTR)sItemName);
+                            sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
+                            break;
                         }
                         break;
                     case svn_wc_operation_switch:
@@ -180,6 +184,10 @@ bool ConflictEditorCommand::Execute()
                             sConflictAction.Format(IDS_TREECONFLICT_FILESWITCHDELETE, (LPCTSTR)sItemName);
                             sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
                             break;
+                        case svn_wc_conflict_action_replace:
+                            sConflictAction.Format(IDS_TREECONFLICT_FILESWITCHREPLACE, (LPCTSTR)sItemName);
+                            sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
+                            break;
                         }
                         break;
                     case svn_wc_operation_merge:
@@ -196,6 +204,10 @@ bool ConflictEditorCommand::Execute()
                             break;
                         case svn_wc_conflict_action_delete:
                             sConflictAction.Format(IDS_TREECONFLICT_FILEMERGEDELETE, (LPCTSTR)sItemName);
+                            sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
+                            break;
+                        case svn_wc_conflict_action_replace:
+                            sConflictAction.Format(IDS_TREECONFLICT_FILEMERGEREPLACE, (LPCTSTR)sItemName);
                             sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
                             break;
                         }
@@ -224,6 +236,10 @@ bool ConflictEditorCommand::Execute()
                             sConflictAction.Format(IDS_TREECONFLICT_DIRUPDATEDELETE, (LPCTSTR)sItemName);
                             sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
                             break;
+                        case svn_wc_conflict_action_replace:
+                            sConflictAction.Format(IDS_TREECONFLICT_DIRUPDATEREPLACE, (LPCTSTR)sItemName);
+                            sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
+                            break;
                         }
                         break;
                     case svn_wc_operation_switch:
@@ -242,6 +258,10 @@ bool ConflictEditorCommand::Execute()
                             sConflictAction.Format(IDS_TREECONFLICT_DIRSWITCHDELETE, (LPCTSTR)sItemName);
                             sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
                             break;
+                        case svn_wc_conflict_action_replace:
+                            sConflictAction.Format(IDS_TREECONFLICT_DIRSWITCHREPLACE, (LPCTSTR)sItemName);
+                            sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
+                            break;
                         }
                         break;
                     case svn_wc_operation_merge:
@@ -258,6 +278,10 @@ bool ConflictEditorCommand::Execute()
                             break;
                         case svn_wc_conflict_action_delete:
                             sConflictAction.Format(IDS_TREECONFLICT_DIRMERGEDELETE, (LPCTSTR)sItemName);
+                            sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
+                            break;
+                        case svn_wc_conflict_action_replace:
+                            sConflictAction.Format(IDS_TREECONFLICT_DIRMERGEREPLACE, (LPCTSTR)sItemName);
                             sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
                             break;
                         }
@@ -290,6 +314,10 @@ bool ConflictEditorCommand::Execute()
                     break;
                 case svn_wc_conflict_reason_unversioned:
                     uReasonID = pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_UNVERSIONED : IDS_TREECONFLICT_REASON_FILE_UNVERSIONED;
+                    sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
+                    break;
+                case svn_wc_conflict_reason_replaced:
+                    uReasonID = pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_REPLACED : IDS_TREECONFLICT_REASON_FILE_REPLACED;
                     sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
                     break;
                 }
