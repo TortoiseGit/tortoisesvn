@@ -2339,13 +2339,10 @@ bool SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revn
 
     svn_wc_revision_status_t * revstatus = NULL;
     const char* svnPath = wcpath.GetSVNApiPath(localpool);
-    svn_wc_context_t * wc_ctx = NULL;
-    svn_wc_context_create(&wc_ctx, NULL, localpool, localpool);
     SVNTRACE (
-        Err = svn_wc_revision_status2(&revstatus, wc_ctx, svnPath, NULL, bCommitted, SVN::cancel, this, localpool, localpool),
+        Err = svn_wc_revision_status2(&revstatus, m_pctx->wc_ctx, svnPath, NULL, bCommitted, SVN::cancel, this, localpool, localpool),
         svnPath
     )
-    svn_wc_context_destroy(wc_ctx);
 
     if ((Err)||(revstatus == NULL))
     {
