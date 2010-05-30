@@ -86,7 +86,7 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
     }
 }
 
-svn_error_t * SVNPatch::patch_func( void *baton, const char * local_abspath, 
+svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile, 
                                     const char *patch_abspath, 
                                     const char *reject_abspath, 
                                     apr_pool_t * /*scratch_pool*/ )
@@ -94,7 +94,7 @@ svn_error_t * SVNPatch::patch_func( void *baton, const char * local_abspath,
     SVNPatch * pThis = (SVNPatch*)baton;
     if ((pThis)&&(pThis->m_bInit))
     {
-        CString abspath = CUnicodeUtils::GetUnicode(local_abspath);
+        CString abspath = CUnicodeUtils::GetUnicode(canon_path_from_patchfile);
         if (abspath.Left(pThis->m_targetpath.GetLength()).Compare(pThis->m_targetpath) == 0)
             pThis->m_filePaths.push_back(abspath.Mid(pThis->m_targetpath.GetLength()));
         else
@@ -109,11 +109,30 @@ svn_error_t * SVNPatch::patch_func( void *baton, const char * local_abspath,
             sFile = pThis->m_targetpath + _T("\\") + sFile;
         sFile.Replace('/', '\\');
         DeleteFile(sFile);
+        if (filtered)
+            *filtered = true;
     }
     else if (pThis)
     {
-        pThis->m_patchedPath = CUnicodeUtils::GetUnicode(patch_abspath);
-        if (pThis->m_bDryRun)
+        if (pThis->m_filterPath.CompareNoCase(CUnicodeUtils::GetUnicode(canon_path_from_patchfile)) == 0)
+        {
+            pThis->m_patchedPath = CUnicodeUtils::GetUnicode(patch_abspath);
+            if (pThis->m_bDryRun)
+            {
+                CString sFile = CUnicodeUtils::GetUnicode(patch_abspath);
+                if (PathIsRelative(sFile))
+                    sFile = pThis->m_targetpath + _T("\\") + sFile;
+                sFile.Replace('/', '\\');
+                DeleteFile(sFile);
+                sFile = CUnicodeUtils::GetUnicode(reject_abspath);
+                if (PathIsRelative(sFile))
+                    sFile = pThis->m_targetpath + _T("\\") + sFile;
+                sFile.Replace('/', '\\');
+                DeleteFile(sFile);
+            }
+            *filtered = false;
+        }
+        else
         {
             CString sFile = CUnicodeUtils::GetUnicode(patch_abspath);
             if (PathIsRelative(sFile))
@@ -125,6 +144,7 @@ svn_error_t * SVNPatch::patch_func( void *baton, const char * local_abspath,
                 sFile = pThis->m_targetpath + _T("\\") + sFile;
             sFile.Replace('/', '\\');
             DeleteFile(sFile);
+            *filtered = true;
         }
     }
     return NULL;
@@ -153,8 +173,9 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
     m_filePaths.clear();
     m_nRejected = 0;
     m_nStrip = 0;
+    m_filterPath.Empty();
     err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-                           true, m_nStrip, false, NULL, NULL, true, true, patch_func, this, ctx,
+                           true, m_nStrip, false, true, true, patch_func, this, ctx,
                            m_pool, scratchpool);
 
     m_bInit = false;
@@ -202,8 +223,9 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
         m_filePaths.clear();
         m_nRejected = 0;
         m_nStrip = 0;
+        m_filterPath.Empty();
         err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-            true, m_nStrip, false, NULL, NULL, true, true, patch_func, this, ctx,
+            true, m_nStrip, false, true, true, patch_func, this, ctx,
             m_pool, scratchpool);
 
         m_bInit = false;
@@ -237,13 +259,11 @@ bool SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath)
     m_nRejected = 0;
     m_bSuccessfullyPatched = true;
 
-    apr_array_header_t * arr = apr_array_make (scratchpool, 1, sizeof(const char *));
-    const char * c = apr_pstrdup(scratchpool, (LPCSTR)CUnicodeUtils::GetUTF8(sPath));
-    (*((const char **) apr_array_push(arr))) = c;
+    m_filterPath = sPath;
 
     m_bDryRun = dryrun;
     err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-                           true, m_nStrip, false, arr, NULL, true, true, patch_func, this, ctx,
+                           true, m_nStrip, false, true, true, patch_func, this, ctx,
                            m_pool, scratchpool);
 
     apr_pool_destroy(scratchpool);

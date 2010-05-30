@@ -91,10 +91,10 @@ private:
     CString                 GetErrorMessage(svn_error_t * Err) const;
 
     static int              abort_on_pool_failure (int retcode);
-    static svn_error_t *    patch_func(void *baton, const char * local_abspath, 
-                                       const char *patch_abspath, 
-                                       const char *reject_abspath, 
-                                       apr_pool_t *scratch_pool);
+    static svn_error_t *    patch_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile, 
+                                        const char *patch_abspath, 
+                                        const char *reject_abspath, 
+                                        apr_pool_t * scratch_pool );
     static void             notify(void *baton,
                                    const svn_wc_notify_t *notify,
                                    apr_pool_t *pool);
@@ -106,6 +106,7 @@ private:
     bool                    m_bSuccessfullyPatched;
     bool                    m_bDryRun;
     int                     m_nRejected;
+    CString                 m_filterPath;
     CString                 m_patchfile;
     CString                 m_targetpath;
     CString                 m_testPath;
