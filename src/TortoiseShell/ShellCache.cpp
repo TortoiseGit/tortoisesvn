@@ -306,8 +306,9 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
 {
     ValidatePathFilter();
     Locker lock(m_critSec);
-    if (!pathFilter.IsPathAllowed (path))
-        return FALSE;
+    svn_tristate_t allowed = pathFilter.IsPathAllowed (path);
+    if (allowed != svn_tristate_unknown)
+        return allowed == svn_tristate_true ? TRUE : FALSE;
 
     UINT drivetype = 0;
     int drivenumber = PathGetDriveNumber(path);
@@ -497,10 +498,13 @@ void ShellCache::CPathFilter::AddEntry (const tstring& s, bool include)
     TCHAR lastChar = *s.rbegin();
 
     SEntry entry;
-    entry.recursive = lastChar != _T('?');
-    entry.included = include;
-    entry.subPathIncluded = include == entry.recursive;
     entry.hasSubFolderEntries = false;
+    entry.recursive = lastChar != _T('?');
+    entry.included = include ? svn_tristate_true : svn_tristate_false;
+    entry.subPathIncluded = include == entry.recursive
+                          ? svn_tristate_true 
+                          : svn_tristate_false;
+
     entry.path = s;
     if ((lastChar == _T('?')) || (lastChar == _T('*')))
         entry.path.erase (s.length()-1);
@@ -543,6 +547,8 @@ void ShellCache::CPathFilter::PostProcessData()
     {
         if (_tcsicmp (source->path.c_str(), dest->path.c_str()) == 0)
         {
+            // multiple entries for the same path -> merge them
+
             // update subPathIncluded
             // (all relevant parent info has already been normalized)
 
@@ -564,9 +570,11 @@ void ShellCache::CPathFilter::PostProcessData()
             {
                 // include beats exclude
 
-                dest->included |= source->included;
-                if (source->recursive)
-                    dest->subPathIncluded |= source->subPathIncluded;
+                if (source->included == svn_tristate_true)
+                    dest->included = svn_tristate_true;
+                if (   source->recursive 
+                    && source->subPathIncluded == svn_tristate_true)
+                    dest->subPathIncluded = svn_tristate_true;
             }
         }
         else
@@ -598,18 +606,18 @@ void ShellCache::CPathFilter::PostProcessData()
     data.erase (++dest, end);
 }
 
-// lookup. default result is "true".
+// lookup. default result is "unknown".
 // We must look for *every* parent path because of situations like:
 // excluded: C:, C:\some\deep\path
-// include: C:\some\path
+// include: C:\some
 // lookup for C:\some\deeper\path
 
-bool ShellCache::CPathFilter::IsPathAllowed
+svn_tristate_t ShellCache::CPathFilter::IsPathAllowed
     ( LPCTSTR path
     , TData::const_iterator begin
     , TData::const_iterator end) const
 {
-    bool result = true;
+    svn_tristate_t result = svn_tristate_unknown;
 
     // handle special cases
 
@@ -705,9 +713,10 @@ void ShellCache::CPathFilter::Refresh()
 
 // data access
 
-bool ShellCache::CPathFilter::IsPathAllowed (LPCTSTR path) const
+svn_tristate_t ShellCache::CPathFilter::IsPathAllowed (LPCTSTR path) const
 {
-    return (path != NULL)
-        && IsPathAllowed (path, data.begin(), data.end());
+    return path != NULL
+        ? IsPathAllowed (path, data.begin(), data.end())
+        : svn_tristate_unknown;
 }
 

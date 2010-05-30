@@ -108,14 +108,14 @@ private:
 
             /// this is an "include" specification
 
-            bool included;
+            svn_tristate_t included;
 
             /// if @ref recursive is not set, this is
             /// the parent path status being passed down
             /// combined with the information of other
             /// entries for the same @ref path.
 
-            bool subPathIncluded;
+            svn_tristate_t subPathIncluded;
 
             /// do entries for sub-paths exist?
 
@@ -164,13 +164,13 @@ private:
 
         void PostProcessData();
 
-        /// lookup. default result is "true".
+        /// lookup. default result is "unknown".
         /// We must look for *every* parent path because of situations like:
         /// excluded: C:, C:\some\deep\path
-        /// include: C:\some\path
+        /// include: C:\some
         /// lookup for C:\some\deeper\path
 
-        bool IsPathAllowed
+        svn_tristate_t IsPathAllowed
             ( LPCTSTR path
             , TData::const_iterator begin
             , TData::const_iterator end) const;
@@ -187,7 +187,7 @@ private:
 
         /// data access
 
-        bool IsPathAllowed (LPCTSTR path) const;
+        svn_tristate_t IsPathAllowed (LPCTSTR path) const;
     };
 
     friend bool operator< (const CPathFilter::SEntry& rhs, const std::pair<LPCTSTR, size_t>& lhs);
