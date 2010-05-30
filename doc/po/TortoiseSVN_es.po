@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-24 22:19-0300\n"
+"PO-Revision-Date: 2010-05-29 22:08-0300\n"
 "Last-Translator: Tommy <tommychristie@gmail.com>\n"
 "Language-Team: Tomás Christie\n"
 "Language: es\n"
@@ -17846,13 +17846,16 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> filtrar por ID de error"
 
 #.(entry)
-#, fuzzy
 msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> fills in the filter text, <placeholder-6/> forces the filter to use text, not regex, or <placeholder-7/> forces the filter to use regex, not simple text search, and <placeholder-8/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-9/>"
 msgstr ""
 "Abre el Diálogo de Regsitro. El <placeholder-1/> especifica el archivo o "
 "carpeta para el cual el registro debería ser mostrado. Seis opciones "
 "adicionales pueden establecerse: <placeholder-2/>, <placeholder-3/>, "
-"<placeholder-4/> "
+"<placeholder-4/> abilita la opción \"para-en-copia\", <placeholder-5/> "
+"completa el texto del filtro, <placeholder-6/> fuerza al filtro a usar "
+"texto, no expresione regular, o <placeholder-7/> fuerza al filtro a usar "
+"expresiones regulares, no busqueda de texto simple, y <placeholder-8/> con X "
+"siendo un número entre 1 y 7. Los números corresponden a: <placeholder-9/>"
 
 #.(option)
 #.(option)
@@ -17888,19 +17891,17 @@ msgid "/ignoreexternals"
 msgstr "/ignoreexternals"
 
 #.(option)
-#, fuzzy
 msgid "/includeexternals"
-msgstr "/ignoreexternals"
+msgstr "/includeexternals"
 
 #.(entry)
-#, fuzzy
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
 msgstr ""
 "Actualiza la copia de trabajo en <placeholder-1/> hasta HEAD. Si se "
 "especifica la opción <placeholder-2/> se muestra un diálogo para preguntar "
 "al usuario a qué revisión debe actualizarse. Para evitar el diálogo "
 "especifique un número de revisión <placeholder-3/>. Otras opciones son "
-"<placeholder-4/> y <placeholder-5/>."
+"<placeholder-4/>, <placeholder-5/> y <placeholder-6/>."
 
 #.(option)
 #.(option)
@@ -17951,6 +17952,10 @@ msgstr "/noui"
 #.(entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
 msgstr ""
+"Limpia operaciones interrumpidas o abortadas y libera la copia de trabajo en "
+"<placeholder-1/>. Use <placeholder-2/> para prevenir la aparición del "
+"diálogo de resultado (que muestra que la limpieza terminó o un mensaje de "
+"error)."
 
 #.(option)
 #.(option)
@@ -18060,18 +18065,18 @@ msgid "/line:xxx"
 msgstr "/line:xxx"
 
 #.(entry)
-#, fuzzy
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
 msgstr ""
 "Inicia el programa externo de diferencias especificado en la configuración "
-"de TortoiseSVN. <placeholder-1/> especifica el primer archivo. Si se "
+"de TortoiseSVN. <placeholder-1/> Especifica el primer archivo. Si se "
 "establece la opción <placeholder-2/>, se inicia el programa de diferencias "
 "con esos dos archivos. Si se omite <placeholder-3/>, se hace la comparación "
 "entre el archivo de <placeholder-4/> y su BASE. Para establecer "
 "explícitamente los números de revisión utilice <placeholder-5/> y "
 "<placeholder-6/>. Si <placeholder-7/> se establece y <placeholder-8/> no se "
-"establece, entonces la comparación se efectúa tras realizar la autoría de "
-"los archivos entre las revisiones dadas."
+"establece, entonces la comparación se efectúa realizando primero la autoría "
+"de los archivos con las revisiones dadas. El parámetro <placeholder-9> "
+"especifica la linea a la cual saltar cuando se muestre la diferencia."
 
 #.(para)
 msgid "Depending on the URLs and revisions to compare, this either shows a unified diff (if the option <option>unified</option> is set), a dialog with a list of files that have changed or if the URLs point to files starts the diff viewer for those two files."
@@ -18116,11 +18121,12 @@ msgid "Check repository"
 msgstr "Revisar el repositorio"
 
 #.(entry)
-#, fuzzy
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
 msgstr ""
-"Abre el diálogo de obtener. <placeholder-1/> especifica el directorio de "
-"destino y <placeholder-2/> especifica la URL desde la que obtener."
+"Abre el diálogo comprobar-notificaciones. <placeholder-1/> especifica el "
+"directorio de trabajo. Si <placeholder-2/> esta especificado, entonces el "
+"diálogo contacta al repositrorio inmediatamente al inicio, como si el "
+"usuario hubiera pulsado sobre el boton <placeholder-3/>."
 
 #.(option)
 #.(option)
@@ -18251,22 +18257,32 @@ msgstr "Manejador de URL"
 #.(para)
 msgid "Using special URLs, it is also possible to call TortoiseProc from a web page."
 msgstr ""
+"Utilizando URLs especiales, también es posible llamar al TortoiseProc desde "
+"una página web."
 
 #.(para)
 msgid "TortoiseSVN registers a new protocol <literal>tsvncmd:</literal> which can be used to create hyperlinks that execute TortoiseSVN commands. The commands and parameters are the same as when automating TortoiseSVN from the command line."
 msgstr ""
+"TortoiseSVN registra un protocolo nuevo <literal>tsvncmd:</literal> que "
+"puede ser utilizado para crear enlaces que ejecutan comandos TortoiseSVN. "
+"Los comandos y parámetros son los mismos que cuando se automatiza "
+"TortoiseSVN desde la línea de comando."
 
 #.(para)
 msgid "The format of the <literal>tsvncmd:</literal> URL is like this:"
-msgstr ""
+msgstr "El formato de la URL <literal>tsvncmd:</literal> es como sigue:"
 
 #.(literal)
 msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
-msgstr ""
+msgstr "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
 
 #.(para)
 msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>parameter</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
 msgstr ""
+"siendo <literal>cmd</literal> uno de los comandos permitidos y con "
+"<literal>parameter</literal> siendo un parámetro como "
+"<literal>path</literal> o <literal>revision</literal>, dependiendo del "
+"comando utilizado."
 
 #.(para)
 msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
@@ -18278,10 +18294,14 @@ msgstr ""
 #, no-wrap
 msgid "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 msgstr ""
+"&lt;a href=\"tsvncmd:command:showcompare?\n"
+"url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
+"revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 
 #.(para)
 msgid "An example URL might look like this: <placeholder-1/>"
-msgstr ""
+msgstr "Por ejemplo, una URL puede verse así: <placeholder-1/>"
 
 #.(title)
 msgid "TortoiseIDiff Commands"
