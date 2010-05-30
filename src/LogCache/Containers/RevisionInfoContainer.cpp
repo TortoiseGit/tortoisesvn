@@ -1090,8 +1090,26 @@ void CRevisionInfoContainer::CalculateSumChanges()
 
 // stream I/O
 
-IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
-                                   , CRevisionInfoContainer& container)
+template<class T> 
+void ReadOrDefault ( IHierarchicalInStream& stream
+                   , SUB_STREAM_ID id
+                   , typename std::vector<T>& container
+                   , size_t size
+                   , T defaultValue)
+{
+    if (stream.HasSubStream (id))
+    {
+        *stream.GetSubStream<CDiffIntegerInStream>(id) >> container;
+    }
+    else
+    {
+        container.clear();
+        container.insert (container.begin(), size, defaultValue);
+    }
+}
+
+IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
+                                  , CRevisionInfoContainer& container)
 {
     // read the pools
 
@@ -1161,16 +1179,6 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
             (CRevisionInfoContainer::COPYFROM_REVISIONS_STREAM_ID);
     *copyFromRevisionsStream >> container.copyFromRevisions;
 
-    CDiffIntegerInStream* textModifiesStream
-        = stream.GetSubStream<CDiffIntegerInStream>
-            (CRevisionInfoContainer::TEXTMODIFIES_STREAM_ID);
-    *textModifiesStream >> container.textModifies;
-
-    CDiffIntegerInStream* propsModifiesStream
-        = stream.GetSubStream<CDiffIntegerInStream>
-        (CRevisionInfoContainer::PROPSMODIFIES_STREAM_ID);
-    *propsModifiesStream >> container.propsModifies;
-
     // merged revisions
 
     CDiffIntegerInStream* mergedFromPathsStream
@@ -1222,21 +1230,25 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
 
     // latest additions:
     // path type info (auto-add for legacy caches)
+    // and detailed path modification info
 
-    if (stream.HasSubStream (CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID))
-    {
-        CDiffIntegerInStream* changedPathTypesStream
-            = stream.GetSubStream<CDiffIntegerInStream>
-                (CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID);
-        *changedPathTypesStream >> container.changedPathTypes;
-    }
-    else
-    {
-        container.changedPathTypes.clear();
-        container.changedPathTypes.insert ( container.changedPathTypes.begin()
-                                          , container.changedPaths.size()
-                                          , node_unknown);
-    }
+    ReadOrDefault ( stream
+                  , CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID
+                  , container.changedPathTypes
+                  , container.changedPaths.size()
+                  , node_unknown);
+
+    ReadOrDefault ( stream
+                  , CRevisionInfoContainer::TEXTMODIFIES_STREAM_ID
+                  , container.textModifies
+                  , container.changedPaths.size()
+                  , (unsigned char)0);
+
+    ReadOrDefault ( stream
+                  , CRevisionInfoContainer::PROPSMODIFIES_STREAM_ID
+                  , container.propsModifies
+                  , container.changedPaths.size()
+                  , (unsigned char)0);
 
     // update size info
 
