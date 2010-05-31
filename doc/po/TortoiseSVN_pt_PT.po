@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-30 02:24-0000\n"
+"PO-Revision-Date: 2010-05-31 02:55-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -90,9 +90,8 @@ msgid "What is TortoiseSVN?"
 msgstr "O que é o TortoiseSVN?"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN is a free open-source Windows client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
-msgstr "O TortoiseSVN é um cliente open-source gratuito para o sistema de controlo de versões <firstterm>Subversion</firstterm>, isto é, o TortoiseSVN gere ao longo do tempo  ficheiros e directorias. Ficheiros estão armazenados num <firstterm>repositorio</firstterm> central. Este repositório é muito parecido com um servidor de ficheiros vulgar, á excepção de que recorda toda e qualquer alteração que foi efectuada aos teus ficheiros e directorias. Isto permite que, possas recuperar versões antigas dos teus ficheiros e examinar a história de como e quando os teus dados forma alterados, e que efectuou essas alterações. Esta é a razão porque tantas pessoas consideram o Subversion, e os sistemas de controlo de versões em geral, como uma espécie de <quote>máquina do tempo</quote>."
+msgstr "O TortoiseSVN é um cliente Windows de código-aberto gratuito para o sistema de controlo de versões <firstterm>Subversion</firstterm>. Isto é, o TortoiseSVN gere ao longo do tempo  ficheiros e pastas. Os ficheiros estão armazenados num <firstterm>repositório</firstterm> central. Este repositório é muito parecido com um servidor de ficheiros vulgar, á excepção de que guarda toda e qualquer alteração que foi efectuada aos teus ficheiros e pastas. Isto permite que, possas recuperar versões antigas dos teus ficheiros e examinar a histórico de como e quando os teus dados foram alterados e que efectuou essas alterações. Esta é a razão porque tantas pessoas consideram o Subversion, e os sistemas de controlo de versões em geral, como uma espécie de <quote>máquina do tempo</quote>."
 
 #. (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
@@ -120,9 +119,8 @@ msgid "explorer"
 msgstr "explorador"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need the functions of version control."
-msgstr "O TortoiseSVN integra-se homogéniamente com a shell do Windows (i.e. o explorador). Isto significa que podes continuar a trabalhar com as ferramentas com que estás familiarizado, e não tens de mudar de aplicação cada vez que necessitas de funcionalidades de controlo de versão!"
+msgstr "O TortoiseSVN integra-se homogéniamente com a shell do Windows (i.e. o explorador). Isto significa que podes continuar a trabalhar com as ferramentas com que estás familiarizado, e não terás de mudar de aplicação de cada vez que necessitas das funcionalidades do controlo de versões!"
 
 #. (para)
 #, fuzzy
@@ -265,9 +263,8 @@ msgid "Stefan Küng"
 msgstr "Stefan Küng"
 
 #. (para)
-#, fuzzy
 msgid "for the hard work to get TortoiseSVN to what it is now, and his leadership of the project"
-msgstr "pelo trabalho realizado em fazer do Tortoise no que é hoje"
+msgstr "pelo trabalho árduo realizado para fazer o que Tortoise é hoje, e a sua liderança do projecto"
 
 #. (term)
 msgid "Lübbe Onken"
@@ -290,9 +287,8 @@ msgid "Stefan Fuhrmann"
 msgstr "Stefan Fuhrmann"
 
 #. (para)
-#, fuzzy
 msgid "for the log cache and revision graph"
-msgstr "Aprender a Ler o Gráfico de Revisões"
+msgstr "para a cache de registo e gráfico de revisões"
 
 #. (term)
 msgid "The Subversion Book"
@@ -493,11 +489,11 @@ msgstr "Cópia de Trabalho"
 
 #. (para)
 msgid "This is where you do the real work. Every developer has his own working copy, sometimes known as a sandbox, on his local PC. You can pull down the latest version from the repository, work on it locally without affecting anyone else, then when you are happy with the changes you made commit them back to the repository."
-msgstr ""
+msgstr "É aqui que farás realmente o trabalho. Cada programador terá a sua própria cópia de trabalho no seu PC local, por vezes conhecida como a caixa de areia. Poderás obter a versão mais recente do repositório, trabalhar nela localmente sem afectar ninguém, e então quando te sentires satisfeito com as alterações que efectuaste, submetê-las de volta para o repositório."
 
 #. (para)
 msgid "A Subversion working copy does not contain the history of the project, but it does keep a copy of the files as they exist in the repository before you started making changes. This means that it is easy to check exactly what changes you have made."
-msgstr ""
+msgstr "A cópia de trabalho do Subversion não contém o histórico do projecto, mas mantém uma cópia dos ficheiros como eles existem no repositório antes de começares a efectuar alterações. Isto significa que é fácil verificar exactamente que alterações tu fizeste."
 
 #. (title)
 #. (title)
@@ -506,7 +502,7 @@ msgstr "O menu TortoiseSVN  para pastas não versionadas"
 
 #. (para)
 msgid "You also need to know where to find TortoiseSVN because there is not much to see from the Start Menu. This is because TortoiseSVN is a Shell extension, so first of all, start Windows Explorer. Right click on a folder in Explorer and you should see some new entries in the context menu like this: <placeholder-1/>"
-msgstr ""
+msgstr "Tu também precisas de saber como encontrar o TortoiseSVN, porque não há muito para ver a partir do menu Iniciar. Isto é porque o TortoiseSVN é uma extensão da shell, pelo que em primeiro lugar, arranca o Explorador do Windows. Clica com o botão direito no explorador e deverás ver algumas novas entradas no menu de contexto, tal como: <placeholder-1/>"
 
 #. (title)
 msgid "Go for a Test Drive"
@@ -514,29 +510,27 @@ msgstr "Vai um Teste de Condução"
 
 #. (para)
 msgid "This section shows you how to try out some of the most commonly used features on a small test repository. Naturally it doesn't explain everything - this is just the Quick Start Guide after all. Once you are up and running you should take the time to read the rest of this user guide, which takes you through things in much more detail. It also explains more about setting up a proper Subversion server."
-msgstr ""
+msgstr "Esta secção mostra-te como experimentar algumas das funcionalidades mais usadas num pequeno repositório de teste. Naturalmente não explicará tudo - afinal, isto é apenas um Guia de Início Rápido. Uma vez que estiveres familiarizado deverás tirar algum tempo para ler o resto deste guia de utilização, que te levará através das coisas com muito mais detalhe. Também te explicará mais sobre como instalar correctamente um servidor Subversion."
 
 #. (title)
-#, fuzzy
 msgid "Creating a Repository"
-msgstr "Criar repositório aqui"
+msgstr "Criar um repositório"
 
 #. (para)
 msgid "For a real project you will have a repository set up somewhere safe and a Subversion server to control it. For the purposes of this tutorial we are going to use Subversion's local repository feature which allows direct access to a repository created on your hard drive without needing a server at all."
-msgstr ""
+msgstr "Para um projecto real, terás um repositório instalado algures num local seguro e com um servidor Subversion a controlá-lo. Para os objectivos deste tutorial iremos utilizar a funcionalidade do repositório Subversion local, que te permitirá acesso directo a um repositório criado no teu disco duro, sem nenhuma necessidade de servidor."
 
 #. (para)
 msgid "First create a new empty directory on your PC. It can go anywhere, but in this tutorial we are going to call it <filename>C:\\svn_repos</filename>. Now right click on the new folder and from the context menu choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository here...</guimenuitem></menuchoice>. The repository is then created inside the folder, ready for you to use."
-msgstr ""
+msgstr "Primeiro cria uma nova pasta vazia no teu PC. Pode ser em qualquer sitio e com qualquer nome, mas neste tutorial iremos chamá-la <filename>C:\\svn_repos</filename>. Agora clica com o botão direito na nova pasta e a partir do menu de contexto, escolhe <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Criar Repositorio aqui...</guimenuitem></menuchoice>. É então criado o repositório dentro da pasta, pronto a ser usado."
 
 #. (para)
 msgid "The local repository feature is very useful for test and evaluation but unless you are working as a sole developer on one PC you should always use a proper Subversion server. It is tempting in a small company to avoid the work of setting up a server and just access your repository on a network share. Don't ever do that. You will lose data. Read <xref linkend=\"tsvn-repository-local-share\"/> to find out why this is a bad idea, and how to set up a server."
-msgstr ""
+msgstr "A funcionalidade do repositório local é muito útil apenas para testes e avaliação, a não ser que estejas a trabalhar a solo num único PC, deverás usar sempre um servidor Subversion correctamente configurado. É tentador numa empresa pequena evitar o trabalho de instalar um servidor, apenas para acederes ao teu repositório situado numa partilha de rede. Nunca faças isso. Irás perder dados. Lê <xref linkend=\"tsvn-repository-local-share\"/> para descobrires porque isso é uma má ideia, e como instalares um servidor."
 
 #. (title)
-#, fuzzy
 msgid "Importing a Project"
-msgstr "Importar no local"
+msgstr "Importar um Projecto"
 
 #. (title)
 #. (title)
@@ -545,33 +539,31 @@ msgstr "Caixa de diálogo Importar"
 
 #. (para)
 msgid "Now we have a repository, but it is completely empty at the moment. Let's assume I have a set of files in <filename>C:\\Projects\\Widget1</filename> that I would like to add. Navigate to the <filename>Widget1</filename> folder in Explorer and right click on it. Now select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog <placeholder-1/> A Subversion repository is referred to by URL, which allows us to specify a repository anywhere on the Internet. In this case we need to point to our own local repository which has a URL of <filename>file:///c:/svn_repos/Widget1</filename> Note that there are 3 slashes after <filename>file:</filename> and that the forward slashes are used throughout."
-msgstr ""
+msgstr "Agora temos um repositório, mas de momento está completamente vazio. Vamos assumir que eu tenho um conjunto de ficheiro em <filename>C:\\Projects\\Widget1</filename> que gostaria de adicionar. Navega no Explorador para a pasta <filename>Widget1</filename> e clica nela com o botão direito. Agora selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar...</guimenuitem></menuchoice>  que faráaparecer a caixa de diálogo <placeholder-1/> Um repositório Subversion é referido por um URL, que nos permite especificar um repositório em qualquer sítio da internet. Neste caso precisamos de apontar para o nosso próprio repositório local, que tem o URL de <filename>file:///c:/svn_repos/Widget1</filename>. Repara que existem 3 barras depois do <filename>file:</filename> e que são usadas barras direitas por toda a parte."
 
 #. (para)
 msgid "The other important feature of this dialog is the <guilabel>Import Message</guilabel> box which allows you to enter a message describing what you are doing. When you come to look through your project history, these commit messages are a valuable guide to what changes have been made and why. In this case we can say something simple like <quote>Import the Widget1 project</quote>. Click on <guibutton>OK</guibutton> and the folder is added to your repository."
-msgstr ""
+msgstr "A outra funcionalidade importante desta caixa de diálogo é a caixa <guilabel>Importar Mensagem</guilabel>, que te permite introduzir uma mensagem descrevendo o que estás a fazer. Quando voltares a olhar para a história do projecto, essas mensagens de submissão serão um guia valioso para as alterações que forma efectuadas e o porquê. Neste caso podemos dizer algo como <quote>Importar o projecto Widget1</quote>. Clica no <guibutton>OK</guibutton> e a pasta é adicionada ao teu repositório."
 
 #. (title)
-#, fuzzy
 msgid "Checking out a Working Copy"
-msgstr "SVN Exportar Para Uma Cópia de Trabalho"
+msgstr "Checkout duma Cópia de Trabalho"
 
 #. (para)
 msgid "Now that we have a project in our repository, we need to create a working copy to use for day-to-day work. Note that the act of importing a folder does not automatically turn that folder into a working copy. The Subversion term for creating a fresh working copy is <literal>Checkout</literal>. We are going to checkout the Widget1 folder of our repository into a development folder on the PC called <filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then right click on it and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename> and click on <guibutton>OK</guibutton>. Our development folder is then populated with files from the repository."
-msgstr ""
+msgstr "Agora que temos um projecto no nosso repositório, necessitamos de criar uma cópia de trabalho para usar no trabalho diário. Tem em atenção que o acto de importar uma pasta não torna automaticamente a pasta numa cópia de trabalho. O termo Subversion para criar uma cópia de trabalho de fresco é <literal>Checkout</literal>. Nós vamos efectuar o checkout da pasta Widget1 do nosso repositório para uma pasta de desenvolvimento no PC chamada <filename>C:\\Projects\\Widget1-Dev</filename>. Cria essa pasta, então clica com o botão direito nela e selecciona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Introduz o URL de checkout, neste caso <filename>file:///c:/svn_repos/Widget1</filename> e clica no <guibutton>OK</guibutton>. A nossa pasta de desenvolvimento é então povoada com os ficheiros e pastas do repositório."
 
 #. (para)
 msgid "You will notice that the appearance of this folder is different from our original folder. Every file has a green check mark in the bottom left corner. These are TortoiseSVN's status icons which are only present in a working copy. The green state indicates that the file is unchanged from the version in the repository."
-msgstr ""
+msgstr "Irás notar que essa aparição desta pasta é diferente da nossa original. Cada ficheiro tem uma marca de verificação verde no quanto inferior esquerdo. Essas são ícones de estado do TortoiseSVN que apenas estão presentes numa cópia de trabalho. O estado verde indica que o ficheiro está inalterado em relação à versão do repositório."
 
 #. (title)
-#, fuzzy
 msgid "Making Changes"
-msgstr "Desfazer Alterações"
+msgstr "Efectuar Alterações"
 
 #. (para)
 msgid "Time to get to work. In the <filename>Widget1-Dev</filename> we start editing files - let's say we make changes to <filename>Widget1.c</filename> and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files have now changed to red, indicating that changes have been made locally."
-msgstr ""
+msgstr "Tempo para começar a trabalhar. No <filename>Widget1-Dev</filename> iremos começar a editar ficheiros - digamos que alteramos o  <filename>Widget1.c</filename> e o <filename>ReadMe.txt</filename>. Repara que as sobreposições de ícones nesses ficheiros mudaram agora para vermelho, indicando que foram feitas alterações locais."
 
 #. (title)
 #, fuzzy
@@ -588,9 +580,8 @@ msgid "OK, so we are happy with the changes, let's update the repository. This a
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "Adding More Files"
-msgstr "Adicionando propriedades"
+msgstr "Adicionar Mais Ficheiros"
 
 #. (para)
 msgid "As the project develops you will need to add new files - let's say you add some new features in <filename>Extras.c</filename> and add a reference in the existing <filename>Makefile</filename>. Right click on the folder and <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>. The Add dialog now shows you all unversioned files and you can select which ones you want to add. Another way of adding files would be to right click on the file itself and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
@@ -605,9 +596,8 @@ msgid "Viewing the Project History"
 msgstr "Vendo a História do Projecto"
 
 #. (title)
-#, fuzzy
 msgid "The Log Dialog"
-msgstr "A Caixa de Diálogo Bloquear"
+msgstr "A Caixa de Diálogo Registo"
 
 #. (para)
 msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/> OK, so I cheated a little here and used a screenshot from the TortoiseSVN repository."
@@ -622,7 +612,6 @@ msgid "Each of these panes has a context menu which provides you with lots more 
 msgstr ""
 
 #. (title)
-#, fuzzy
 msgid "Undoing Changes"
 msgstr "Desfazer Alterações"
 
@@ -3374,9 +3363,8 @@ msgstr "Por vezes, é alterado o nome de alguns ficheiros fora do Subversion e, 
 
 #. (title)
 #. (title)
-#, fuzzy
 msgid "Repairing External Copies"
-msgstr "Ficheiros Externos"
+msgstr "Reparar Cópias Externas"
 
 #. (para)
 #. (para)
@@ -3458,11 +3446,11 @@ msgstr "Existem várias propriedades de pastas especiais que podem ser usadas pa
 
 #. (title)
 msgid "Integration with Bug Tracking Tools"
-msgstr "Integração com Ferramentas de controlo de Problemas"
+msgstr "Integração com Ferramentas de Controlo de Problemas"
 
 #. (para)
 msgid "If you have activated the bug tracking system, you can set one or more Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> text box. Multiple issues should be comma separated. Alternatively, if you are using regex-based bug tracking support, just add your issue references as part of the log message. Learn more in <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
+msgstr "Se activaste o sistema de controlo de problemas, podes introduzir um ou mais Problemas na caixa de texto  <guilabel>ID-Problema / Nr-Assunto:</guilabel>. Múltiplos assuntos devem ser separados por vírgulas. Em alternativa, se estiveres a usar o suporte para controlo de problemas baseado em regex, adiciona apenas as tuas referências de assunto como parte da mensagem de registo. Sabe mais em <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (title)
 msgid "Commit Progress"
@@ -4505,7 +4493,7 @@ msgstr "Editar mensagem de autor/registo"
 
 #. (para)
 msgid "Edit the log message or author attached to a previous commit. Read <xref linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
-msgstr ""
+msgstr "Edita a mensagem de registo ou o autor anexado à mensagem de submissão prévia. Consulta <xref linkend=\"tsvn-dug-showlog-4\"/> para saberes como isto funciona"
 
 #. (term)
 msgid "Show revision properties"
@@ -4748,7 +4736,7 @@ msgstr "Funcionalidades de Rastreamento de Integração"
 
 #. (primary)
 msgid "merge tracking log"
-msgstr ""
+msgstr "registo de controlo de integração"
 
 #. (para)
 msgid "Subversion 1.5 and later keeps a record of merges using properties. This allows us to get a more detailed history of merged changes. For example, if you develop a new feature on a branch and then merge that branch back to trunk, the feature development will show up on the trunk log as a single commit for the merge, even though there may have been 1000 commits during branch development."
@@ -6101,7 +6089,7 @@ msgstr "Algumas propriedades <literal>tsvn:</literal> requerem um valor <literal
 
 #. (para)
 msgid "TortoiseSVN can integrate with some bug tracking tools. This uses project properties that start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-dug-bugtracker\"/> for further information."
-msgstr "O TortoiseSVN pode-se integrar com algumas ferramentas de seguimento de problemas. Isto usa as propriedades de projecto que começam com <literal>bugtraq:</literal>. Consulta <xref linkend=\"tsvn-dug-bugtracker\"/> para mais informação."
+msgstr "O TortoiseSVN pode-se integrar com algumas ferramentas de controlo de problemas. Isto usa as propriedades de projecto que começam com <literal>bugtraq:</literal>. Consulta <xref linkend=\"tsvn-dug-bugtracker\"/> para mais informação."
 
 #. (para)
 msgid "It can also integrate with some web-based repository browsers, using project properties that start with <literal>webviewer:</literal>. Read <xref linkend=\"tsvn-dug-repoviewer\"/> for further information."
@@ -6142,7 +6130,7 @@ msgstr ""
 
 #. (para)
 msgid "Properties cannot be set or deleted recursively using the repo browser."
-msgstr ""
+msgstr "As propriedades não podem ser configuradas ou removidas recursivamente, usando o navegador de repositório."
 
 #. (para)
 msgid "Project properties will <emphasis>not</emphasis> be propagated automatically when a child folder is added using the repo browser."
@@ -6432,9 +6420,8 @@ msgid "Note that unless you opted to switch your working copy to the newly creat
 msgstr "Ter em atenção que, a não ser que troques a tua cópia de trabalho para o ramo recentemente criado, a criação de um ramo ou etiqueta <emphasis>não</emphasis> afecta a tua cópia de trabalho. Mesmo que cries o ramo a partir da tua cópia de trabalho, essas alterações são submetidas para o novo ramo, e não para o trunk, no entanto a tua CT será ainda marcada como modificada em relação ao trunk."
 
 #. (title)
-#, fuzzy
 msgid "Other ways to create a branch or tag"
-msgstr "A criar um Ramo ou Marca"
+msgstr "Outras formas de criar um ramo ou etiqueta"
 
 #. (para)
 msgid "You can also create a branch or tag without having a working copy. To do that, open the repository browser. You can there drag folders to a new location. You have to hold down the <keycap>Ctrl</keycap> key while you drag to create a copy, otherwise the folder gets moved, not copied."
@@ -7231,7 +7218,7 @@ msgstr "acções lado-do-servidor"
 
 #. (primary)
 msgid "server viewer"
-msgstr ""
+msgstr "visualizador de servidor"
 
 #. (para)
 msgid "Sometimes you need to work directly on the repository, without having a working copy. That's what the <firstterm>Repository Browser</firstterm> is for. Just as the explorer and the icon overlays allow you to view your working copy, so the Repository Browser allows you to view the structure and status of the repository. <placeholder-1/> With the Repository Browser you can execute commands like copy, move, rename, ... directly on the repository."
@@ -7776,7 +7763,7 @@ msgstr "servidor movido"
 
 #. (title)
 msgid "The Relocate Dialog"
-msgstr ""
+msgstr "A Caixa de Diálogo Reposicionar"
 
 #. (para)
 msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all <filename>entries</filename> files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
@@ -7796,7 +7783,7 @@ msgstr "O protocolo foi alterado (e.g. http:// para https://)."
 
 #. (para)
 msgid "The repository root path in the server setup has changed."
-msgstr ""
+msgstr "O caminho raiz de repositório na configuração do servidor foi alterado"
 
 #. (para)
 msgid "<emphasis>This is a very infrequently used operation</emphasis>. The relocate command is <emphasis>only</emphasis> used if the URL of the repository root has changed. Possible reasons are: <placeholder-1/> Put another way, you need to relocate when your working copy is referring to the same location in the same repository, but the repository itself has moved."
@@ -7820,24 +7807,24 @@ msgstr "Se reposicionares em qualquer dos casos acima citados, irás <emphasis>c
 
 #. (title)
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
-msgstr "Integração com Sistemas de identificação de Bugs/Gestores de Problemas"
+msgstr "Integração com Sistemas de controlo de problemas/Gestores de Problemas"
 
 #. (primary)
 msgid "bug tracking"
-msgstr ""
+msgstr "controlo de problema"
 
 #. (primary)
 msgid "bug tracker"
-msgstr ""
+msgstr "controlador de problemas"
 
 #. (primary)
 #. (primary)
 msgid "issue tracker"
-msgstr ""
+msgstr "controlador de assuntos"
 
 #. (primary)
 msgid "bugtracker"
-msgstr ""
+msgstr "bugtracker"
 
 #. (para)
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
@@ -7865,11 +7852,11 @@ msgstr "Adicionar Números de Problemas nas Mensagens de Registo"
 
 #. (para)
 msgid "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "Tu podes integrar a ferramenta de identificação de bugs da tua escolha com o TortoiseSVN. Para o fazer, terás de definir algumas propriedades que começam por <literal>bugtraq:</literal>. Estas deverão ser colocadas nas pastas: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "Tu podes integrar a ferramenta de controlo de problemas da tua escolha com o TortoiseSVN. Para o fazer, terás de definir algumas propriedades que começam por <literal>bugtraq:</literal>. Estas deverão ser colocadas nas pastas: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 msgid "Set this property to the URL of your bug tracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issue number you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bug tracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issue number and not the link to it. e.g the TortoiseSVN project is using <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
-msgstr "Configura esta propriedade com o URL da tua ferramenta de identificação de bugs. Deverá ser um URI propriamente codificado e terá de conter <literal>%BUGID%</literal>. O <literal>%BUGID%</literal> é substituído pelo número de problema que introduzires. Isto permite ao TortoiseSVN mostrar uma hiperligação na caixa de diálogo de registo, para que quando estiveres a olhar para o registo de revisões, possas saltar directamente para a tua ferramenta de identificação de bugs. Tu não precisas de providenciar essa propriedade, mas então o TortoiseSVN apenas mostrará o número do problema, e não a hiperligação para este. E.g. o projecto TortoiseSVN usa <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
+msgstr "Configura esta propriedade com o URL da tua ferramenta de controlo de problemas. Deverá ser um URI propriamente codificado e terá de conter <literal>%BUGID%</literal>. O <literal>%BUGID%</literal> é substituído pelo número de problema que introduzires. Isto permite ao TortoiseSVN mostrar uma hiperligação na caixa de diálogo de registo, para que quando estiveres a olhar para o registo de revisões, possas saltar directamente para a tua ferramenta de identificação de bugs. Tu não precisas de providenciar essa propriedade, mas então o TortoiseSVN apenas mostrará o número do problema, e não a hiperligação para este. E.g. o projecto TortoiseSVN usa <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 
 #. (para)
 msgid "You can also use relative URLs instead of absolute ones. This is useful when your issue tracker is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>bugtraq:url</literal> property. There are two ways to specify a relative URL:"
@@ -7897,7 +7884,7 @@ msgstr "Número de Problema numa Caixa de Texto"
 
 #. (para)
 msgid "This property activates the bug tracking system in <emphasis>Input field</emphasis> mode. If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the log message. It must contain <literal>%BUGID%</literal>, which is replaced with the issue number on commit. This ensures that your commit log contains a reference to the issue number which is always in a consistent format and can be parsed by your bug tracking tool to associate the issue number with a particular commit. As an example you might use <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
-msgstr "Esta propriedade activa o sistema de identificação de bugs no modo <emphasis>Campo de Entrada</emphasis>. Se esta propriedade é fixada então o TrotoiseSVN ir-te-á pedir para introduzires o número de problema quando submeteres as tuas alterações. Será usado para adicionar uma linha no fim da mensagem de registo. Deverá conter <literal>%BUGID%</literal>, que será substituído pelo número de problema que introduzires ao submeter. Isto garante que teu registo de submissão contém uma referência ao número de problema, que estará sempre num formato consistente e poderá ser analisado pela tua ferramenta de identificação de problemas, de forma a associar o número de problema com uma submissão particular. Como exemplo poderás usar <literal>Issue : %BUGID%</literal>, mas tal dependerá da tua ferramenta."
+msgstr "Esta propriedade activa o sistema de controlo de problemas no modo <emphasis>Campo de Entrada</emphasis>. Se esta propriedade é fixada então o TrotoiseSVN ir-te-á pedir para introduzires o número de problema quando submeteres as tuas alterações. Será usado para adicionar uma linha no fim da mensagem de registo. Deverá conter <literal>%BUGID%</literal>, que será substituído pelo número de problema que introduzires ao submeter. Isto garante que teu registo de submissão contém uma referência ao número de problema, que estará sempre num formato consistente e poderá ser analisado pela tua ferramenta de identificação de problemas, de forma a associar o número de problema com uma submissão particular. Como exemplo poderás usar <literal>Issue : %BUGID%</literal>, mas tal dependerá da tua ferramenta."
 
 #. (para)
 msgid "This property defines if the bug-ID is appended (true) to the end of the log message or inserted (false) at the start of the log message. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed, so that existing projects don't break. </emphasis>"
@@ -7917,11 +7904,11 @@ msgstr "Na abordagem mais simples o TortoiseSVN mostra ao utilizador um campo de
 
 #. (title)
 msgid "Issue Numbers Using Regular Expressions"
-msgstr ""
+msgstr "Números de Problema Recorrendo a  Expressões Regulares"
 
 #. (para)
 msgid "This property activates the bug tracking system in <emphasis>Regex</emphasis> mode. It contains either a single regular expressions, or two regular expressions separated by a newline."
-msgstr ""
+msgstr "Esta propriedade activa o sistema de controlo de bugs no modo <emphasis>Regex</emphasis>. Ele contém uma única expressão regular ou duas expressões regulares separadas por uma nova linha."
 
 #. (para)
 msgid "If two expressions are set, then the first expression is used as a pre-filter to find expressions which contain bug IDs. The second expression then extracts the bare bug IDs from the result of the first regex. This allows you to use a list of bug IDs and natural language expressions if you wish. e.g. you might fix several bugs and include a string something like this: <quote>This change resolves issues #23, #24 and #25</quote>"
@@ -7953,7 +7940,7 @@ msgstr ""
 
 #. (para)
 msgid "If both the <literal>bugtraq:message</literal> and <literal>bugtraq:logregex</literal> properties are set, <literal>logregex</literal> takes precedence."
-msgstr ""
+msgstr "Se ambas as propriedades <literal>bugtraq:message</literal> e <literal>bugtraq:logregex</literal> estão configuradas, toma precedência a <literal>logregex</literal>"
 
 #. (para)
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
@@ -8021,7 +8008,7 @@ msgstr "visualizador web"
 
 #. (primary)
 msgid "repo viewer"
-msgstr ""
+msgstr "visualizador de repositório"
 
 #. (primary)
 msgid "ViewVC"
@@ -9635,11 +9622,11 @@ msgstr ""
 
 #. (para)
 msgid "TortoiseSVN checks whether there's a new version available about once a week. If an updated version is found, the commit dialog shows a link control with that info. If you prefer the old behavior back where a dialog pops up notifying you about the update, set this value to <literal>true</literal>."
-msgstr ""
+msgstr "O TortoiseSVN verifica se existe disponível uma nova versão cerca de uma vez uma por semana. Se for encontrada uma versão actualizada, a caixa de diálogo submeter mostrará um controlo de hiperligação com essa informação. Se preferires o comportamento antigo em que uma caixa de diálogo aparece a notificar-te sobre a actualização, configura este valor para <literal>true</literal>."
 
 #. (para)
 msgid "TortoiseSVN checks whether there's a new version available about once a week. If you don't want TortoiseSVN to do this check, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "O TortoiseSVN verifica se existe disponível uma nova versão cerca de uma vez uma por semana. Se não queres que o TortoiseSVN faça esta verificação, configura este valor para <literal>false</literal>."
 
 #. (para)
 msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, set this value to <literal>true</literal>."
@@ -9659,7 +9646,7 @@ msgstr ""
 
 #. (para)
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "Na maioria das caixas de diálogo do TortoiseSVN, tu podes usar <keycap>Ctrl+Enter</keycap> para fechar a caixa de diálogo, como se clicasses no botão OK. Se não desejas isto, configura este valor para <literal>false</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -10115,7 +10102,7 @@ msgid "If you need to access Subversion revision information from other programs
 msgstr "Se necessitas de aceder à informação de revisão do Subversion a partir de outros programas, podes usar a interface COM do SubWCRev. O objecto a criar é o <literal>SubWCRev.object</literal> e os métodos suportados são os seguintes: <placeholder-1/>"
 
 #. (programlisting)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "// testCOM.js - javascript file\n"
@@ -10715,7 +10702,7 @@ msgstr "Este método é chamado, mesmo antes de ser fechada a caixa de diálogo 
 
 #. (para)
 msgid "For the branch/tag dialog, the <literal>commonURL</literal> is the source URL of the copy, and <literal>commonRoot</literal> is set to the target URL of the copy."
-msgstr ""
+msgstr "Para a caixa de diálogo ramo/etiqueta, o <literal>commonURL</literal> é o URL fonte da cópia, e o  <literal>commonRoot</literal> é configurado para o URL destino da cópia."
 
 #. (para)
 msgid "The return parameter <literal>errorMessage</literal> must either contain an error message which TortoiseSVN shows to the user or be empty for the commit to start. If an error message is returned, TortoiseSVN shows the error string in a dialog and keeps the commit dialog open so the user can correct whatever is wrong. A plugin should therefore return an error string which informs the user <emphasis>what</emphasis> is wrong and how to correct it."
@@ -11021,15 +11008,15 @@ msgstr "No campo <guilabel>De:</guilabel> introduz o URL completo da pasta do ra
 
 #. (para)
 msgid "In the <guilabel>From Revision</guilabel> field enter the revision number that you are currently at. If you are sure there is no-one else making changes, you can use the HEAD revision."
-msgstr ""
+msgstr "No campo <guilabel>Da Revisão</guilabel> introduz o número de revisão em que correntemente estás. e tens a certeza que mais ninguém está efectuar alterações, podes usar a revisão HEAD."
 
 #. (para)
 msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
-msgstr ""
+msgstr "Tem a certeza que está verificada a caixa <guilabel>Use \"From:\" URL</guilabel>"
 
 #. (para)
 msgid "In the <guilabel>To Revision</guilabel> field enter the revision number that you want to revert to, namely the one <emphasis>before</emphasis> the first revision to be reverted."
-msgstr ""
+msgstr "No campo <guilabel>Para Revisão</guilabel> introduz o número de revisão para o qual queres reverter, ou seja  a <emphasis>anterior</emphasis> à primeira revisão a ser revertida"
 
 #. (para)
 msgid "Click <guibutton>OK</guibutton> to complete the merge."
@@ -11185,11 +11172,11 @@ msgstr "Ignorar ficheiros que já estão versionados"
 
 #. (primary)
 msgid "remove versioning"
-msgstr ""
+msgstr "remover versionamento"
 
 #. (primary)
 msgid "detach from repository"
-msgstr ""
+msgstr "desligar do repositório"
 
 #. (para)
 msgid "If you accidentally added some files which should have been ignored, how do you get them out of version control without losing them? Maybe you have your own IDE configuration file which is not part of the project, but which took you a long time to set up just the way you like it."
@@ -11764,9 +11751,8 @@ msgid "/ignoreexternals"
 msgstr "/ignoreexternals"
 
 #. (option)
-#, fuzzy
 msgid "/includeexternals"
-msgstr "externos"
+msgstr "/includeexternals"
 
 #. (entry)
 msgid "Updates the working copy in <placeholder-1/> to HEAD. If the option <placeholder-2/> is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and <placeholder-6/>."
@@ -11921,9 +11907,8 @@ msgid "/remote"
 msgstr "/remote"
 
 #. (guilabel)
-#, fuzzy
 msgid "Check repository"
-msgstr "O Repositório"
+msgstr "Verificaro repositório"
 
 #. (entry)
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
@@ -12052,11 +12037,11 @@ msgstr "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
 
 #. (para)
 msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>parameter</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
-msgstr ""
+msgstr "como sendo o <literal>cmd</literal> um dos comando permitidos e sendo o <literal>parameter</literal> um parâmetro como  <literal>path</literal> ou <literal>revision</literal>, dependendo do comando usado."
 
 #. (para)
 msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
-msgstr ""
+msgstr "Os seguintes comandos são permitidos com os URLs <literal>tsvncmd:</literal>: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
