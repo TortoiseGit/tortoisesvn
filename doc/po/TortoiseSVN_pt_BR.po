@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-28 23:56-0300\n"
-"Last-Translator: Rafael Marcelo Heise <rmheise@gmail.com>\n"
+"PO-Revision-Date: 2010-06-01 01:09-0300\n"
+"Last-Translator: Eduardo Marques <ebmarques@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6132,27 +6132,27 @@ msgstr "Arquivos Externos"
 
 #. (para)
 msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
-msgstr ""
+msgstr "Desde a versão 1.6 do Subversion você pode incluir um único arquivo externo em sua cópia de trabalho usando a mesma sintaxe que usaria para diretórios. Entretanto existem algumas restrições."
 
 #. (para)
 msgid "The path to the file external must place the file in an existing versioned folder. In general it makes most sense to place the file directly in the folder that has <literal>svn:externals</literal> set, but it can be in a versioned sub-folder if necessary. By contrast, directory externals will automatically create any intermediate unversioned folders as required."
-msgstr ""
+msgstr "O caminho para o arquivo externo deverá colocar o arquivo num diretório existente e versionado. Em geral, faz mais sentido colocar o arquivo diretamente no diretório configurado com <literal>svn:externals</literal> mas se necessário, também poderá ser colocado num sub-diretório versionado. Por contraste, diretórios externos irão criar automaticamente qualquer pasta intermediária não versionada (se assim for requerido)."
 
 #. (para)
 msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."
-msgstr ""
+msgstr "A URL para um arquivo externo deverá estar no mesmo repositório que a URL na qual o arquivo externo será incluído; arquivos externos inter-repositórios não são suportados."
 
 #. (para)
 msgid "A file external behaves just like any other versioned file in many respects, but they cannot be moved or deleted using the normal commands; the <literal>svn:externals</literal> property must be modified instead."
-msgstr ""
+msgstr "Em vários aspectos um arquivo externo comporta-se como qualquer outro arquivo versionado, mas eles não podem ser movidos ou eliminados usando os comandos normais; é obrigatório que a propriedade <literal>svn:externals</literal> seja modificada."
 
 #. (title)
 msgid "File externals support incomplete in Subversion 1.6"
-msgstr ""
+msgstr "O suporte para arquivos externos é incompleto na versão 1.6 do Subversion"
 
 #. (para)
 msgid "In subversion 1.6 it is not possible to remove a file external from your working copy once you have added it, even if you delete the <literal>svn:externals</literal> property altogether. You have to checkout a fresh working copy to remove the file."
-msgstr ""
+msgstr "Na versão 1.6 do Subversion, uma vez que tenha adicionado um arquivo externo, não é possível removê-lo da sua cópia de trabalho - ainda que também remova a propriedade <literal>svn:externals</literal>. Você precisará realizar a obtenção (checkout) de uma nova cópia de trabalho para remover o arquivo."
 
 #. (title)
 msgid "Branching / Tagging"
