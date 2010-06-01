@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-06-01 02:46-0000\n"
+"PO-Revision-Date: 2010-06-01 20:21-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -621,7 +621,7 @@ msgstr "Uma funcionalidade comum a todos os sistemas de controlo de versões, é
 
 #. (para)
 msgid "If you want to get rid of changes that you have not yet committed and reset your file to the way it was before you started editing, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> is your friend. This discards your changes (to the Recycle bin, just in case) and reverts to the committed version you started with. If you want to get rid of just some of the changes, you can use TortoiseMerge to view the differences and selectively revert changed lines."
-msgstr ""
+msgstr "Se te queres livrar das alterações que ainda não submeteste e voltar a ter o teu ficheiro como estava, antes de o começares a editar, o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> será o teu amigo. Este descarta as tuas alterações (para o cesto de reciclagem, por precaução) e reverte para a revisão submetida com que iniciaste a edição."
 
 #. (para)
 #, fuzzy
@@ -634,11 +634,11 @@ msgstr "Avançar..."
 
 #. (para)
 msgid "This guide has given you a very quick tour of some of TortoiseSVN's most important and useful features, but of course there is far more that we haven't covered. We strongly recommend that you take the time to read the rest of this manual, especially <xref linkend=\"tsvn-dug\"/> which gives you a lot more detail on day-to-day operations."
-msgstr ""
+msgstr "Este guia deu-te uma volta muito rápida por algumas das mais úteis e importantes funcionalidades do TortoiseSVN, mas está claro existe muito mais para além do que abordámos. Nós recomendamos vivamente que tires algum tempo para ler o resto deste manual, em especial o <xref linkend=\"tsvn-dug\"/>, que te dará mais detalhe nas operações do dia-a-dia."
 
 #. (para)
 msgid "We have taken a lot of trouble to make sure that it is both informative and easy to read, but we recognise that there is a lot of it! Take your time and don't be afraid to try things out on a test repository as you go along. The best way to learn is by using it."
-msgstr ""
+msgstr "Tivemos muito trabalho em assegurar que este documento é ao mesmo tempo informativo e fácil de ler, mas reconhecemos que existe muito de ambos! Leva o teu tempo e não tenhas medo de experimentar as coisas num repositório de teste, enquanto progrides. A melhor maneira de aprender é usando-o."
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -1457,7 +1457,7 @@ msgstr "Ganchos de Substituição"
 
 #. (para)
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
-msgstr ""
+msgstr "Se um script de gancho rejeita a tua submissão, a sua decisão é a final. Mas tu podes criar um mecanismo de substituição no próprio script usando a técnica <emphasis>Magic Word</emphasis>. Se o script quer rejeitar a operação, primeiro sonda a mensagem de registo à procura de uma palavra passe especial, uma frase fixa ou talvez o nome o ficheiro com um prefixo. Se encontrar a palavra mágica, então permite que a submissão prossiga. Se não é encontrada a frase, então ele pode bloquear a submissão com uma mensagem como <quote>Tu não disseste a palavra mágica</quote> :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -2937,7 +2937,7 @@ msgstr "Se quiseres limpar a cache de autenticação para todos os servidores, p
 
 #. (para)
 msgid "If you want to clear authentication for one realm only then you will have to dig into those directories, find the file which contains the information you want to clear and delete the file."
-msgstr ""
+msgstr "Se queres limpar a autenticação para um só domínio, terás de mergulhar nessas pastas, encontrar o ficheiro que contém a informação que queres limpar e remover o ficheiro."
 
 #. (para)
 msgid ""
@@ -3369,7 +3369,7 @@ msgstr "Reparar Cópias Externas"
 #. (para)
 #. (para)
 msgid "If you made a copy of a file but forgot to use the Subversion command to do so, you can repair that copy so the new file doesn't lose its history. Simply select both the old name (normal or modified) and the new name (unversioned) and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair the two files as a copy."
-msgstr ""
+msgstr "Se fizeste uma cópia de um ficheiro e esqueceste de usar o comando do Subversion para o fazeres, poderás corrigir essa cópia para que o novo ficheiro não perca o seu histórico. Selecciona simplesmente ambos, o com o nome antigo (normal ou modificado) e o com o novo nome (não versionado) e usa  <menuchoice><guimenu> Menu de Contexto</guimenu><guimenuitem>Reparar cópia</guimenuitem></menuchoice> para emparelhar os dois ficheiros com uma cópia."
 
 #. (title)
 #. (title)
@@ -6068,7 +6068,7 @@ msgstr ""
 
 #. (para)
 msgid "The regular expression must match the whole reference, not just the revision number. The revision number is extracted from the matched reference string automatically."
-msgstr ""
+msgstr "A expressão regular tem de corresponder à referência completa, e não apenas ao número de revisão. O número de revisão é extraído automaticamente da string de referência que lhe é correspondida."
 
 #. (para)
 msgid "If this property is not set, a default regular expression is used to link revision references."
