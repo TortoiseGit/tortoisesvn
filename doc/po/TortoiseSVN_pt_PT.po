@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-31 02:55-0000\n"
+"PO-Revision-Date: 2010-06-01 02:46-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -577,7 +577,7 @@ msgstr "Podes usar o comando Resolvido para ficheiros múltiplos, se clicares na
 
 #. (para)
 msgid "OK, so we are happy with the changes, let's update the repository. This action is referred to as a <literal>Commit</literal> of the changes. Right click on the <filename>Widget1-Dev</filename> folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice>. The commit dialog lists the changed files, each with a checkbox. You might want to choose only a subset of those files, but in this case we are going to commit the changes to both files. Enter up a message to describe what the change is all about and click on <guibutton>OK</guibutton>. The progress dialog shows the files being uploaded to the repository and you're done."
-msgstr ""
+msgstr "OK, agora estamos satisfeitos com as alterações e vamos actualizar o repositório. Esta acção é conhecida como a <literal>Submissão</literal> das alterações. Clica com o botão direito na pasta <filename>Widget1-Dev</filename> e selecciona  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Submeter</guimenuitem></menuchoice>. A caixa de diálogo submeter irá listar os ficheiros alterados, cada um com a sua caixa de verificação. Tu poderás querer escolher um subgrupo desses ficheiros, mas neste caso nós iremos submeter as alterações de ambos os ficheiros. Introduz uma mensagem descrevendo a razão da alteração e clica em <guibutton>OK</guibutton>. A caixa de diálogo de progresso mostrará os ficheiros a serem carregados para o repositório, e está terminado."
 
 #. (title)
 msgid "Adding More Files"
@@ -585,11 +585,11 @@ msgstr "Adicionar Mais Ficheiros"
 
 #. (para)
 msgid "As the project develops you will need to add new files - let's say you add some new features in <filename>Extras.c</filename> and add a reference in the existing <filename>Makefile</filename>. Right click on the folder and <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>. The Add dialog now shows you all unversioned files and you can select which ones you want to add. Another way of adding files would be to right click on the file itself and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "À medida que o projecto se desenvolve irás necessitar de adicionar novos ficheiros - digamos que adicionas novas funcionalidades no <filename>Extras.c</filename> e adicionas uma referência no <filename>Makefile</filename>, já existente. Clica com o botão direito na pasta e <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Adicionar</guimenuitem></menuchoice>. A caixa de diálogo Adicionar mostra-te agora todos os ficheiros não versionados e tu podes escolher quais queres adicionar. Outra maneira de adicionar ficheiros seria clicar no próprio ficheiro e seleccionar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Adicionar</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "Now when you go to commit the folder, the new file shows up as <emphasis>Added</emphasis> and the existing file as <emphasis>Modified</emphasis>. Note that you can double click on the modified file to check exactly what changes were made."
-msgstr ""
+msgstr "Agora quando fores submeter a pasta, o novo ficheiros aparecerá como <emphasis>Adicionado</emphasis> e o ficheiro existente como <emphasis>Modificado</emphasis>. Observa que poderás efectuar duplo clique no ficheiro modificado para verificares quais foram exactamente as alterações efectuadas."
 
 #. (title)
 msgid "Viewing the Project History"
@@ -601,15 +601,15 @@ msgstr "A Caixa de Diálogo Registo"
 
 #. (para)
 msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/> OK, so I cheated a little here and used a screenshot from the TortoiseSVN repository."
-msgstr ""
+msgstr "Uma das mais úteis funcionalidades do TortoiseSVN é a caixa de diálogo Registo. Esta mostra-te a lista de todas as submissões que efectuaste num ficheiro ou pasta, e essas mensagens de submissão detalhadas que tu introduziste ;-) <placeholder-1/> OK, eu menti um pouco aqui e usei um screenshot do repositório do TortoiseSVN. "
 
 #. (para)
 msgid "The top pane shows a list of revisions committed along with the start of the commit message. If you select one of these revisions, the middle pane will show the full log message for that revision and the bottom pane will show a list of changed files and folders."
-msgstr ""
+msgstr "O painel de topo mostra alista de revisões submetidas juntamente com o início da mensagem de submissão. Se seleccionares uma das revisões, o painel do meio irá mostra a mensagem de registo completa para essa revisão, e o painel do fundo mostrará a lista de ficheiros e pastas alterados."
 
 #. (para)
 msgid "Each of these panes has a context menu which provides you with lots more ways of using the information. In the bottom pane you can <action>double click</action> on a file to see exactly what changes were made in that revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
-msgstr ""
+msgstr "Cada um desses painéis tem um menu de contexto que te providência muitas mais maneiras de usares a informação. No painel do fundo poderás efectuar <action>duplo clique</action> num ficheiro para veres exactamente que alterações foram efectuadas nessa revisão. Consulta <xref linkend=\"tsvn-dug-showlog\"/> para obteres toda a informação."
 
 #. (title)
 msgid "Undoing Changes"
@@ -617,7 +617,7 @@ msgstr "Desfazer Alterações"
 
 #. (para)
 msgid "One feature of all revision control systems is that they let you undo changes that you made previously. As you would expect, TortoiseSVN makes this easy to access."
-msgstr ""
+msgstr "Uma funcionalidade comum a todos os sistemas de controlo de versões, é deixarem-te desfazer as alterações que efectuaste previamente. Como poderias esperar, o TortoiseSVN faz com que seja de fácil acesso."
 
 #. (para)
 msgid "If you want to get rid of changes that you have not yet committed and reset your file to the way it was before you started editing, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> is your friend. This discards your changes (to the Recycle bin, just in case) and reverts to the committed version you started with. If you want to get rid of just some of the changes, you can use TortoiseMerge to view the differences and selectively revert changed lines."
@@ -1453,7 +1453,7 @@ msgstr ""
 
 #. (title)
 msgid "Overriding Hooks"
-msgstr ""
+msgstr "Ganchos de Substituição"
 
 #. (para)
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
@@ -3272,7 +3272,7 @@ msgstr "enviar alterações"
 
 #. (primary)
 msgid "check in"
-msgstr ""
+msgstr "dar entrada"
 
 #. (para)
 msgid "Sending the changes you made to your working copy is known as <firstterm>committing</firstterm> the changes. But before you commit you have to make sure that your working copy is up to date. You can either use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> directly. Or you can use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> first, to see which files have changed locally or on the server."
@@ -4583,7 +4583,7 @@ msgstr "Se todas as revisões seleccionadas têm o mesmo autor, podes editar o a
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
-msgstr ""
+msgstr "O Painel de fundo da Caixa de Diálogo Registo com o Menu de Contexto"
 
 #. (term)
 msgid "Show changes"
@@ -6072,7 +6072,7 @@ msgstr ""
 
 #. (para)
 msgid "If this property is not set, a default regular expression is used to link revision references."
-msgstr ""
+msgstr "Se esta propriedade não for configurada, será usada uma expressão regular por defeito para ligar referências de revisão."
 
 #. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
@@ -6126,7 +6126,7 @@ msgstr ""
 
 #. (para)
 msgid "When you add a property using the repo browser, only the standard <literal>svn:</literal> properties are offered in the pre-defined list. Any other property name must be entered manually."
-msgstr ""
+msgstr "Quando adicionas uma propriedade usando o navegador de repositório, só as propriedades padrão <literal>svn:</literal> são disponibilizadas na lista pré-definida. Qualquer outro nome de propriedade deverá ser introduzido manualmente."
 
 #. (para)
 msgid "Properties cannot be set or deleted recursively using the repo browser."
@@ -6134,7 +6134,7 @@ msgstr "As propriedades não podem ser configuradas ou removidas recursivamente,
 
 #. (para)
 msgid "Project properties will <emphasis>not</emphasis> be propagated automatically when a child folder is added using the repo browser."
-msgstr ""
+msgstr "As propriedades de projecto <emphasis>não</emphasis> serão automaticamente propagadas quando uma pasta filho for adicionada com uso do navegador de repositório."
 
 #. (para)
 msgid "<literal>tsvn:autoprops</literal> will <emphasis>not</emphasis> set properties on files which are added using the repo browser."
@@ -7962,7 +7962,7 @@ msgstr "Essas propriedades devem ser configuradas em pastas para o sistema funci
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
-msgstr ""
+msgstr "Não existe informação do Controlador de Assuntos no Navegador de Repositório"
 
 #. (para)
 msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
@@ -7971,7 +7971,7 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "For the same reason, project properties will not be propagated automatically when a child folder is added using the repo browser."
-msgstr ""
+msgstr "Pela mesma razão, as propriedades de projecto não serão propagadas automaticamente quando uma pasta filho é adicionada usando o navegador de repositório."
 
 #. (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
@@ -8116,7 +8116,7 @@ msgstr "padrão de exclusão"
 
 #. (primary)
 msgid "global ignore"
-msgstr ""
+msgstr "ignorados globais"
 
 #. (para)
 msgid "Global ignore patterns are used to prevent unversioned files from showing up e.g. in the commit dialog. Files matching the patterns are also ignored by an import. Ignore files or directories by typing in the names or extensions. Patterns are separated by spaces e.g. <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. These patterns should not include any path separators. Note also that there is no way to differentiate between files and directories. Read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more information on the pattern-matching syntax."
@@ -8304,7 +8304,7 @@ msgstr "Se esta caixa for verificada (estado por defeito), então sempre que o e
 
 #. (para)
 msgid "In the <guilabel>Check for Modifications</guilabel> dialog you can opt to see ignored items. If this box is checked then whenever an ignored folder is found, all child items will be shown as well."
-msgstr ""
+msgstr "Na caixa de diálogo <guilabel>Verificar alterações</guilabel> tu podes optar por ver os itens ignorados. Se esta caixa estiver verificada quando uma pasta ignorada for encontrada, todos os itens filhos serão também mostrados."
 
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
@@ -9478,7 +9478,7 @@ msgstr "Esta propriedade especifica o UUID COM do IBugtraqProvider, por exemplo 
 
 #. (para)
 msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
-msgstr ""
+msgstr "Isto é o mesmo que <literal>bugtraq:provideruuid</literal>, mas para a versão 64-bit do IBugtraqProvider."
 
 #. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
@@ -9582,7 +9582,7 @@ msgstr "Isto pode ser útil se usares algo mais antigo que o explorador do Windo
 
 #. (para)
 msgid "If you don't want TortoiseSVN to show icons for the context menus in its own dialogs, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "Se não queres que o TortoiseSVN mostre ícones para os menus de contexto nas suas próprias caixas de diálogo, configura este valor a <literal>false</literal>."
 
 #. (para)
 msgid "The log dialog shows the revision the working copy path is at in bold. But this requires that the log dialog fetches the status of that path. Since for very big working copies this can take a while, you can set this value to <literal>false</literal> to deactivate this feature."
@@ -9594,7 +9594,7 @@ msgstr ""
 
 #. (para)
 msgid "The commit and log dialog use styling (e.g. bold, italic) in commit messages (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't want to do this, set the value to <literal>false</literal>."
-msgstr ""
+msgstr "As caixas de diálogo submeter e registo usam estilos (e.g. negrito, italico) nas mensagens de submissão (visualiza <xref linkend=\"tsvn-dug-commit-log\"/>para mais detalhes). Se não queres usar isto, configura o valor a <literal>false</literal>."
 
 #. (para)
 msgid "TortoiseSVN uses accelerators for its explorer context menu entries. Since this can lead to doubled accelerators (e.g. the <literal>SVN Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the <literal>Copy</literal> entry of explorer). If you don't want or need the accelerators of the TortoiseSVN entries, set this value to <literal>false</literal>."
@@ -10393,7 +10393,7 @@ msgstr ""
 
 #. (para)
 msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
-msgstr ""
+msgstr "A seguinte listagem é um exemplo de como usar o objecto COM SubWCRev a partir de C#: <placeholder-1/>"
 
 #. (title)
 msgid "IBugtraqProvider interface"
@@ -11580,7 +11580,7 @@ msgstr "O TortoiseSVN usa ficheiros temporários para passar múltiplos argument
 
 #. (para)
 msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>."
-msgstr ""
+msgstr "Podes também especificar um ficheiro que contém uma lista de caminho, separados por linhas. O ficheiro deverá estar no formato UTF-16. Se passares tal ficheiro, usa <option>/pathfile</option> em vez de <option>/path</option>. Para permitires ao TortoiseProc remover esse ficheiro após o comando ter terminado, poderás passar-lhe o parâmetro <option>/deletepathfile</option>."
 
 #. (para)
 msgid "The progress dialog which is used for commits, updates and many more commands usually stays open after the command has finished until the user presses the <guibutton>OK</guibutton> button. This can be changed by checking the corresponding option in the settings dialog. But using that setting will close the progress dialog, no matter if you start the command from your batch file or from the TortoiseSVN context menu."
