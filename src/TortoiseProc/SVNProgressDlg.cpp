@@ -395,10 +395,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
 
     case svn_wc_notify_merge_completed:
         {
-            data->sActionColumnText.LoadString(IDS_SVNACTION_COMPLETED);
-            data->bAuxItem = true;
             if ((m_nConflicts>0)&&(!m_bConflictWarningShown))
             {
+                data->sActionColumnText.LoadString(IDS_SVNACTION_COMPLETED);
+                data->bAuxItem = true;
                 // We're going to add another aux item - let's shove this current onto the list first
                 // I don't really like this, but it will do for the moment.
                 m_arData.push_back(data);
@@ -412,8 +412,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
                 CSoundUtils::PlayTSVNWarning();
                 m_bConflictWarningShown = true;
                 // This item will now be added after the switch statement
+                m_bFinishedItemAdded = true;
             }
-            m_bFinishedItemAdded = true;
         }
         break;
     case svn_wc_notify_update_completed:
@@ -2609,6 +2609,14 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
     ASSERT(m_targetPathList.GetCount() == 1);
     sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
     SetBackgroundImage(IDI_MERGE_BKG);
+    if (m_options & ProgOptDryRun)
+    {
+        sWindowTitle += _T(" ") + sDryRun;
+    }
+    if (m_options & ProgOptRecordOnly)
+    {
+        sWindowTitle += _T(" ") + sRecordOnly;
+    }
     SetWindowText(sWindowTitle);
 
     ATLASSERT(m_targetPathList.GetCount() == 1);
@@ -2667,6 +2675,14 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
     ASSERT(m_targetPathList.GetCount() == 1);
     sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGEREINTEGRATE);
     SetBackgroundImage(IDI_MERGE_BKG);
+    if (m_options & ProgOptDryRun)
+    {
+        sWindowTitle += _T(" ") + sDryRun;
+    }
+    if (m_options & ProgOptRecordOnly)
+    {
+        sWindowTitle += _T(" ") + sRecordOnly;
+    }
     SetWindowText(sWindowTitle);
 
     CString sCmdInfo;
