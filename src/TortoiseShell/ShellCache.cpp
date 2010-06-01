@@ -572,9 +572,11 @@ void ShellCache::CPathFilter::PostProcessData()
 
                 if (source->included == svn_tristate_true)
                     dest->included = svn_tristate_true;
-                if (   source->recursive 
+                if (source->recursive 
                     && source->subPathIncluded == svn_tristate_true)
+                {
                     dest->subPathIncluded = svn_tristate_true;
+                }
             }
         }
         else
@@ -715,8 +717,7 @@ void ShellCache::CPathFilter::Refresh()
 
 svn_tristate_t ShellCache::CPathFilter::IsPathAllowed (LPCTSTR path) const
 {
-    return path != NULL
-        ? IsPathAllowed (path, data.begin(), data.end())
-        : svn_tristate_unknown;
+    if (path == NULL)
+        return svn_tristate_unknown;
+    return IsPathAllowed (path, data.begin(), data.end());
 }
-
