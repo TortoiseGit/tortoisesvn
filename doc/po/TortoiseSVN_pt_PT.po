@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-06-01 20:21-0000\n"
+"PO-Revision-Date: 2010-06-02 05:02-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -5761,7 +5761,7 @@ msgstr "As colunas nesta caixa de diálogo podem ser customizadas da mesma manei
 
 #. (para)
 msgid "Since revert is sometimes used to clean up a working copy, there is an extra button which allows you to delete unversioned items as well. When you click this button another dialog comes up listing all the unversioned items, which you can then select for deletion."
-msgstr ""
+msgstr "Visto que o reverter é por vezes usado para limpar uma cópia de trabalho, existe um botão extra que te permite remover também itens não versionados. Quando tu clicas neste botão, outra caixa de diálogo aparece com uma lista de todos os itens não versionados que tu podes seleccionar para remoção."
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -6064,7 +6064,7 @@ msgstr "Um exemplo: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Irá apanhar tudo 
 
 #. (para)
 msgid "The property <literal>tsvn:logrevregex</literal> defines a regular expression which matches references to revisions in a log message. This is used in the log dialog to turn such references into links which when clicked will either scroll to that revision (if the revision is already shown in the log dialog, or if it's available from the log cache) or open a new log dialog showing that revision."
-msgstr ""
+msgstr "A propriedade <literal>tsvn:logrevregex</literal> define uma expressão regular que corresponde a referências para revisões, na mensagem de registo. Isto é, usado na caixa de diálogo registo para converter tais referências em hiperligações que quando clicadas, ou irão ou seleccionar essa mesma revisão (se a revisão já for mostrada na caixa de diálogo registo, ou se está disponível a partir da cache de registo) ou abrir uma nova caixa de diálogo de registo mostrando essa revisão."
 
 #. (para)
 msgid "The regular expression must match the whole reference, not just the revision number. The revision number is extracted from the matched reference string automatically."
@@ -6705,7 +6705,7 @@ msgstr "Tu podes especificar a forma como os fins-de-linha e espaços-em-branco 
 
 #. (para)
 msgid "The checkbox marked <guilabel>Force the merge</guilabel> is used to avoid a tree conflict where an incoming delete affects a file that is either modified locally or not versioned at all. If the file is deleted then there is no way to recover it, which is why that option is not checked by default."
-msgstr ""
+msgstr "A caixa de verificação <guilabel>Force the merge</guilabel> é usada para evitar um conflito de árvore quando um remover afectar um ficheiro que foi modificado localmente ou não está versionado. Se o ficheiro foi removido então não há maneira de o recuperar, sendo por isso que essa opção não está marcada por defeito."
 
 #. (para)
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
@@ -7920,7 +7920,7 @@ msgstr ""
 
 #. (para)
 msgid "The first expression picks out <quote>issues #23, #24 and #25</quote> from the surrounding log message. The second regex extracts plain decimal numbers from the output of the first regex, so it will return <quote>23</quote>, <quote>24</quote> and <quote>25</quote> to use as bug IDs."
-msgstr ""
+msgstr "A primeira expressão pega nos <quote>assuntos #23, #24 and #25</quote> a partir da mensagem de registo circundante. A segunda regex extrai simples números decimais a partir da saída da primeira regex, pelo que irá retornar <quote>23</quote>, <quote>24</quote> e <quote>25</quote> para serem usados como IDs de problemas."
 
 #. (para)
 msgid "Breaking the first regex down a little, it must start with the word <quote>issue</quote>, possibly capitalised. This is optionally followed by an <quote>s</quote> (more than one issue) and optionally a colon. This is followed by one or more groups each having zero or more leading whitespace, an optional comma or <quote>and</quote> and more optional space. Finally there is a mandatory <quote>#</quote> and a mandatory decimal number."
@@ -7932,7 +7932,7 @@ msgstr ""
 
 #. (para)
 msgid "If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Se não estás familiarizado com as expressões regulares, dá uma vista de olhos na introdução em <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, e na documentação em linha e tutorial em <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid "In the approach with <emphasis>regular expressions</emphasis>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
@@ -9602,7 +9602,7 @@ msgstr ""
 
 #. (para)
 msgid "As with the explorer, TortoiseSVN shows additional commands if the <keycap>Shift</keycap> key is pressed while the context menu is opened. To force TortoiseSVN to always show those extended commands, set this value to <literal>true</literal>."
-msgstr ""
+msgstr "Como no Explorador, o TortoiseSVN ,ostra comandos adicionais se a tecla <keycap>Shift</keycap> estiver premida enquanto o menu de contexto for aberto. Para forçar o TortoiseSVN a mostrar sempre esse comando extendidos, configura este valor a <literal>true</literal>."
 
 #. (para)
 msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then set this value to <literal>true</literal>."
@@ -9618,7 +9618,7 @@ msgstr "As colunas extra que o TortoiseSVN adiciona, à vista de detalhes no Exp
 
 #. (para)
 msgid "If an update adds a new file from the repository which already exists in the local working copy as an unversioned file, the default action is to keep the local file, showing it as a (possibly) modified version of the new file from the repository. If you would prefer TortoiseSVN to create a conflict in such situations, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "Se uma actualização adiciona um novo ficheiro do repositório que já existe na cópia de trabalho local como ficheiro não versionado, a acção por defeito será manter o ficheiro local, mostrando-o como (possivelmente) uma versão modificada do novo ficheiro do repositório. Mas se preferires que o TortoiseSVN crie um conflito em tais situações, configura este valor a <literal>false</literal>."
 
 #. (para)
 msgid "TortoiseSVN checks whether there's a new version available about once a week. If an updated version is found, the commit dialog shows a link control with that info. If you prefer the old behavior back where a dialog pops up notifying you about the update, set this value to <literal>true</literal>."
@@ -10951,7 +10951,7 @@ msgstr "Reverter (Anular) revisões no repositório"
 
 #. (primary)
 msgid "rollback"
-msgstr ""
+msgstr "rebobinar"
 
 #. (primary)
 msgid "undo commit"
@@ -11188,7 +11188,7 @@ msgstr "Se ainda não submeteste a adição, então tudo o que tens de fazer é 
 
 #. (para)
 msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
-msgstr ""
+msgstr "Se os ficheiros já estiverem no repositório, então terão de ser removidos do repositório e adicionados à lista de ignorados. Felizmente o TortoiseSVN tem um atalho conveniente para efectuar isto. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Desversionar e adicionar à lista de ignorados</guimenuitem></menuchoice> irá primeiro marcar o ficheiro para remoção do repositório, mantendo a cópia local. Também adiciona este item à lista de ignorados para que não seja adicionado novamente, por engano, ao Subversion. Uma vez que isto esteja feito, só precisas de submeter a pasta pai."
 
 #. (title)
 msgid "Unversion a working copy"
@@ -11238,7 +11238,7 @@ msgstr "controlador de domínio"
 
 #. (primary)
 msgid "deploy"
-msgstr ""
+msgstr "Instalar"
 
 #. (para)
 msgid "The TortoiseSVN installer comes as an MSI file, which means you should have no problems adding that MSI file to the group policies of your domain controller."
