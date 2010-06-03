@@ -47,6 +47,7 @@ public:
     BOOL AddTool(CWnd* pWnd, LPCTSTR lpszText = LPSTR_TEXTCALLBACK, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
     void AddTool(int nIdWnd, UINT nIdText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
     void AddTool(int nIdWnd, CString sBalloonTipText, LPCRECT lpRectTool = NULL, UINT_PTR nIDTool = 0);
+    void DelTool(CWnd* pWnd, UINT_PTR nIDTool = 0);
 
     static BOOL ShowBalloon(CWnd* pWnd, UINT nIDText, UINT nIDTitle, UINT icon = 0);
     void ShowBalloon(int nIdWnd, UINT nIdText, UINT nIDTitle, UINT icon = 0);

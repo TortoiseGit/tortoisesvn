@@ -78,6 +78,13 @@ void CToolTips::AddTool(int nIdWnd, CString sBalloonTipText, LPCRECT lpRectTool 
 {
     AddTool(((CDialog*)m_pParentWnd)->GetDlgItem(nIdWnd), sBalloonTipText, lpRectTool, nIDTool);
 }
+
+void CToolTips::DelTool( CWnd* pWnd, UINT_PTR nIDTool /* = 0 */)
+{
+    toolTextMap.erase(::GetDlgCtrlID(pWnd->GetSafeHwnd()));
+    return CToolTipCtrl::DelTool(pWnd, nIDTool);
+}
+
 BOOL CToolTips::ShowBalloon(CWnd *pWnd, UINT nIDText, UINT nIDTitle, UINT icon /* = 0 */)
 {
     CString sTemp;
@@ -127,3 +134,4 @@ void CToolTips::ShowBalloon(int nIdWnd, UINT nIdText, UINT nIDTitle, UINT icon /
 {
     ShowBalloon(((CDialog*)m_pParentWnd)->GetDlgItem(nIdWnd), nIdText, nIDTitle, icon);
 }
+
