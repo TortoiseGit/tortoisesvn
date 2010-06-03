@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-06-02 05:02-0000\n"
+"PO-Revision-Date: 2010-06-03 01:01-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -3418,7 +3418,7 @@ msgstr "A janela de mensagem de registo também inclui a funcionalidade de auto 
 
 #. (para)
 msgid "Getting the regex just right can be tricky, so to help you sort out a suitable expression there is a test dialog which allows you to enter an expression and then type in filenames to test it against. Start it from the command prompt using the command <literal>TortoiseProc.exe /command:autotexttest</literal>"
-msgstr ""
+msgstr "Acertar com a regex correcta pode ser um bocado complicado, pelo que para te ajudar a descobrir a expressão mais indicada existe uma caixa de diálogo de teste, que te permite introduzir uma expressão e então digitar nomes de ficheiros para a testar. Arranca-a a partir da linha de comandos, com o comando <literal>TortoiseProc.exe /command:autotexttest</literal>"
 
 #. (para)
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
@@ -3965,7 +3965,7 @@ msgstr "Outros conflitos de árvore"
 
 #. (para)
 msgid "There are other cases which are labelled as tree conflicts simply because the conflict involves a folder rather than a file. For example if you add a folder with the same name to both trunk and branch and then try to merge you will get a tree conflict. If you want to keep the folder from the merge target, just mark the conflict as resolved. If you want to use the one in the merge source then you need to SVN delete the one in the target first and run the merge again. If you need anything more complicated then you have to resolve manually."
-msgstr ""
+msgstr "Existem outros casos que estão etiquetados como conflitos de árvore, simplesmente porque o conflito envolve uma pasta ao invés de um ficheiro. Por exemplo, se adicionastes uma pasta com o mesmo nome para o trunk e para um ramo, e tentares integrar, irás então obter um conflito de árvore. Se quiseres manter a pasta do destino da integração, marca o conflito como resolvido. Se quiseres usar a pasta da origem da integração, então precisas de SVN remover primeiro a do destino de integração, e correr de novo a integração. Se precisares de algo mais complicado, então tens de resolver o conflito manualmente."
 
 #. (title)
 msgid "Getting Status Information"
@@ -4822,6 +4822,19 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>"
 msgstr ""
+"Uma busca por string simples funciona de maneira similar a um motor de busca. As strings a procurar são separadas por espaços, e todas elas devem ter correspondência. Tu podes usar um <literal>-</literal> à frente para especificar que a sub-string em particular não deve ser encontrada (inverte a correspondência desse termo), e podes usar <literal>!</literal> no início da expressão para inverter a correspondência da totalidade da expressão. Podes também usar aspas à volta da string que deve conter espaços, e se queres procurar por uma citação literal poderás usar aspas duplas como uma sequência auto-escapada. Observa que o caracter de barra invertida não é usado como um caracter de escape, e não tem significado especial em buscas de sub-strings simples. Alguns exemplos tornaram isto mais claro: <screen>\n"
+"Alice Bob -Eve\n"
+"</screen> procura por strings que contenham ambos a Alice e o Bob mas não a Eve <screen>\n"
+"!Alice Bob\n"
+"</screen> procura por strings que não contenham ambos a Alice e o Bob <screen>\n"
+"!-Alice -Bob\n"
+"</screen> lembraste do teorema do De Morgan's ? NOT(NOT Alice AND NOT Bob) reduzu para (Alice OR Bob). <screen>\n"
+"\"Alice and Bob\"\n"
+"</screen> procura pela expressão literal <quote>Alice e Bob</quote><screen>\n"
+"\"\"\n"
+"</screen> procura por uma dupla citação algures no texto <screen>\n"
+"\"Alice says \"\"hi\"\" to Bob\"\n"
+"</screen> procura pela expressão literal <quote>Alice says \"hi\" to Bob</quote>"
 
 #. (para)
 msgid "Describing the use of regular expression searches is beyond the scope of this manual, but you can find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
@@ -5606,7 +5619,7 @@ msgstr "Tu <emphasis>deves</emphasis> submeter a pasta renomeada antes de altera
 
 #. (para)
 msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right-click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right-click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Outra maneira de mover ou copiar ficheiros é usar os comandos de copiar/cortar do Windows. Selecciona os ficheiros que queres copiar, clica com o botão direito e escolhe a partir do menu de contexto do explorador <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Copiar</guimenuitem></menuchoice>. Então navega para a pasta destino, clica com o botão direito e escolhe <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Colar</guimenuitem></menuchoice>. Para mover ficheiros, escolhe <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Cortar</guimenuitem></menuchoice> em vez de <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Copiar</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
@@ -5626,7 +5639,7 @@ msgstr "Mudando maiúsculas e minúsculas no nome do ficheiro"
 
 #. (primary)
 msgid "case change"
-msgstr ""
+msgstr "alteração de tamanho de letra"
 
 #. (para)
 msgid "Making case-only changes to a filename is tricky with Subversion on Windows, because for a short time during a rename, both filenames have to exist. As Windows has a case-insensitive file system, this does not work using the usual Rename command."
@@ -6122,7 +6135,7 @@ msgstr "Limitações no Uso do Navegador de Repositório"
 
 #. (para)
 msgid "Fetching properties remotely is a slow operation, so some of the features described above will not work in the repository browser as they do in a working copy."
-msgstr ""
+msgstr "Obter propriedades remotamente é uma operação lenta, pelo que algumas das funcionalidades descritas acima não funcionarão no navegador de repositório, como funcionam na cópia de trabalho."
 
 #. (para)
 msgid "When you add a property using the repo browser, only the standard <literal>svn:</literal> properties are offered in the pre-defined list. Any other property name must be entered manually."
@@ -6429,11 +6442,11 @@ msgstr "Tu também podes criar um ramo ou etiqueta sem ter uma cópia de trabalh
 
 #. (para)
 msgid "You can also drag a folder with the right mouse button. Once you release the mouse button you can choose from the context menu whether you want the folder to be moved or copied. Of course to create a branch or tag you must copy the folder, not move it."
-msgstr ""
+msgstr "Podes também arrastar uma pasta com o botão direito do rato. Uma vez que libertes o botão, poderás escolher, a partir do menu de contexto, o que quererás fazer com a pasta a ser movida ou copiada. é claro que para criar um ramo ou etiqueta, tu tens de copiar a pasta e não movê-la."
 
 #. (para)
 msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right-click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "No entanto, outra maneira será a partir da caixa de diálogo registo. Podes visualizar a caixa de diálogo registo para e.g. trunk, seleccionar a revisão (a revisao HEAD no topo ou uma revisão anterior), clica com o botão direito e escolhe <menuchoice><guimenuitem>criar ramo/etiqueta a partir da revisão...</guimenuitem></menuchoice>"
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -7912,11 +7925,11 @@ msgstr "Esta propriedade activa o sistema de controlo de bugs no modo <emphasis>
 
 #. (para)
 msgid "If two expressions are set, then the first expression is used as a pre-filter to find expressions which contain bug IDs. The second expression then extracts the bare bug IDs from the result of the first regex. This allows you to use a list of bug IDs and natural language expressions if you wish. e.g. you might fix several bugs and include a string something like this: <quote>This change resolves issues #23, #24 and #25</quote>"
-msgstr ""
+msgstr "Se são usadas duas expressões, então a primeira é usada como um pré-filtro para encontrar as expressões que contêm os IDs dos problemas. A segunda expressão extrai então os IDs dos bugs encontrados, a partir do resultado da primeira regex. Isto permite-te usar uma lista de IDs de problemas e as expressões, em linguagem natural, que desejes. e.g. poderás resolver vários problemas e incluir uma string com esta: <quote>Esta alteração resolve os assuntos #23, #24 e #25</quote>"
 
 #. (para)
 msgid "If you want to catch bug IDs as used in the expression above inside a log message, you could use the following regex strings, which are the ones used by the TortoiseSVN project: <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and <literal>(\\d+)</literal>"
-msgstr ""
+msgstr "Se queres apanhar os IDs dos problemas, como é usado na expressão acima no interior da mensagem de registo, podes usar as seguintes strings regex, que são as usadas pelo projecto TortoiseSVN: <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and <literal>(\\d+)</literal>"
 
 #. (para)
 msgid "The first expression picks out <quote>issues #23, #24 and #25</quote> from the surrounding log message. The second regex extracts plain decimal numbers from the output of the first regex, so it will return <quote>23</quote>, <quote>24</quote> and <quote>25</quote> to use as bug IDs."
@@ -7924,11 +7937,11 @@ msgstr "A primeira expressão pega nos <quote>assuntos #23, #24 and #25</quote> 
 
 #. (para)
 msgid "Breaking the first regex down a little, it must start with the word <quote>issue</quote>, possibly capitalised. This is optionally followed by an <quote>s</quote> (more than one issue) and optionally a colon. This is followed by one or more groups each having zero or more leading whitespace, an optional comma or <quote>and</quote> and more optional space. Finally there is a mandatory <quote>#</quote> and a mandatory decimal number."
-msgstr ""
+msgstr "Dividindo um pouco a primeira regex, esta deve começar com a palavra <quote>issue</quote>, e possivelmente em maiúsculas. Esta é opcionalmente seguida por um <quote>s</quote> (mais de um assunto) e também opcionalmente por dois pontos. Isto é seguido por um mais grupos, cada um tendo à frente zero ou mais espaços em branco, e um opcionalmente uma vírgula ou <quote>and</quote> e mais espaços opcionais. Finalmente existe um <quote>#</quote> obrigatório e um também obrigatório número decimal."
 
 #. (para)
 msgid "If only one expression is set, then the bare bug IDs must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> This method is required by a few issue trackers, e.g. trac, but it is harder to construct the regex. We recommend that you only use this method if your issue tracker documentation tells you to."
-msgstr ""
+msgstr "Se só for usada uma expressão, então os IDs dos problemas descobertos terão de ter correspondência nos grupos da string regex. Exemplo: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> Este método é requerido por alguns controladores de assuntos, e.g. trac, mas é mais difícil a construção da regex. Nós recomendamos que só uses este método se a documentação do teu controlador de assuntos te disser para o fazer."
 
 #. (para)
 msgid "If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
@@ -7936,7 +7949,7 @@ msgstr "Se não estás familiarizado com as expressões regulares, dá uma vista
 
 #. (para)
 msgid "In the approach with <emphasis>regular expressions</emphasis>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
-msgstr ""
+msgstr "Na abordagem com as <emphasis>expressões regulares</emphasis>, o TortoiseSVN não mostra um campo de entrada separado, mas marca a parte da mensagem de registo que o utilizador introduz, e que é reconhecida pelo controlador de problemas. Isto é efectuado enquanto o utilizador escreve a mensagem de registo. Também significa que o ID do problema pode estar algures dentro da mensagem de registo! Este método é muito mais flexível e é o utilizado pelo próprio projecto do TortoiseSVN. <placeholder-1/>"
 
 #. (para)
 msgid "If both the <literal>bugtraq:message</literal> and <literal>bugtraq:logregex</literal> properties are set, <literal>logregex</literal> takes precedence."
@@ -7944,11 +7957,11 @@ msgstr "Se ambas as propriedades <literal>bugtraq:message</literal> e <literal>b
 
 #. (para)
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
-msgstr ""
+msgstr "Mesmo que não tenhas um controlador de assuntos, com um gancho de pré-submissão a analisar a tua mensagem de registo, poderás ainda usar isto para converter os assuntos mencionados nas tuas mensagens de registo em hiperligações!"
 
 #. (para)
 msgid "And even if you don't need the links, the issue numbers show up as a separate column in the log dialog, making it easier to find the changes which relate to a particular issue."
-msgstr ""
+msgstr "E mesmo que não precises das hiperligações, os números de problemas aparecerão como uma coluna separada na caixa de diálogo registo, tornando mais fácil encontrar as alterações que estão relacionadas com um assunto em particular."
 
 #. (title)
 #. (title)
@@ -7966,7 +7979,7 @@ msgstr "Não existe informação do Controlador de Assuntos no Navegador de Repo
 
 #. (para)
 msgid "Because the issue tracker integration depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser unless you started the repo browser from your working copy. If you started the repo browser by entering the URL of the repository you won't see this feature."
-msgstr ""
+msgstr "Porque a integração com o controlador de assuntos depende do acesso às propriedades do Subversion, tu só verás resultados quando usares uma cópia de trabalho. Obter propriedades remotamente é uma operação lenta, pelo que não verás esta funcionalidade em acção a partir do navegador de repositório, a não ser que arranques o navegador a partir da tua cópia de trabalho. Se arrancares o navegador de repositório ao introduzir um URL de repositório, não verás então esta funcionalidade."
 
 #. (para)
 #. (para)
@@ -7975,7 +7988,7 @@ msgstr "Pela mesma razão, as propriedades de projecto não serão propagadas au
 
 #. (para)
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr ""
+msgstr "A integração com o controlador de assuntos não está restricta ao TortoiseSVN; pode também ser usada por qualquer cliente Subversion. Para mais informações, consulta o <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> completo no repositório fonte do TortoiseSVN. ( <xref linkend=\"tsvn-preface-source\"/> explica-te como aceder ao repositório)."
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -9586,11 +9599,11 @@ msgstr "Se não queres que o TortoiseSVN mostre ícones para os menus de context
 
 #. (para)
 msgid "The log dialog shows the revision the working copy path is at in bold. But this requires that the log dialog fetches the status of that path. Since for very big working copies this can take a while, you can set this value to <literal>false</literal> to deactivate this feature."
-msgstr ""
+msgstr "A caixa de diálogo registo mostra a revisão em que está o caminho da cópia de trabalho a negrito. Mas isto requer que a caixa de diálogo de registo obtenha o estado para esse caminho. Visto que para cópias de trabalho muito grandes, isto pode demorar algum tempo, tu podes configurar este valor a <literal>false</literal>, para deste modo desactivares esta funcionalidade."
 
 #. (para)
 msgid "The status list control which is used in various dialogs (e.g., commit, check-for-modifications, add, revert, ...) uses full row selection (i.e., if you select an entry, the full row is selected, not just the first column). This is fine, but the selected row then also covers the background image on the bottom right, which can look ugly. To disable full row select, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "O controlo da lista de estado, que é usada em várias caixas de diálogo (e.g. submeter, verificar-alterações, adicionar, reverter, ...) usa a selecção de linha completa (i.e., se seleccionares uma entrada, a linha completa será seleccionada e não somente a primeira coluna). Isto está correcto, mas a linha seleccionada também cobre a imagem de fundo à direita, o que pode ser visualmente desagradável. Para desactivar a selecção de linha completa, configura este valor a <literal>false</literal>."
 
 #. (para)
 msgid "The commit and log dialog use styling (e.g. bold, italic) in commit messages (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't want to do this, set the value to <literal>false</literal>."
@@ -9598,7 +9611,7 @@ msgstr "As caixas de diálogo submeter e registo usam estilos (e.g. negrito, ita
 
 #. (para)
 msgid "TortoiseSVN uses accelerators for its explorer context menu entries. Since this can lead to doubled accelerators (e.g. the <literal>SVN Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the <literal>Copy</literal> entry of explorer). If you don't want or need the accelerators of the TortoiseSVN entries, set this value to <literal>false</literal>."
-msgstr ""
+msgstr "O TortoiseSVN usa aceleradores para as entradas do seu menu de contexto. Visto que isto pode levar a aceleradores duplicados (e.g. o <literal>SVN Submeter</literal> tem o acelerador <keycap>Alt-C</keycap>, mas também o tem a entrada <literal>Copiar</literal> do explorador). Se não queres ou necessitas dos aceleradores das entradas do TortoiseSVN, configura este valor a <literal>false</literal>."
 
 #. (para)
 msgid "As with the explorer, TortoiseSVN shows additional commands if the <keycap>Shift</keycap> key is pressed while the context menu is opened. To force TortoiseSVN to always show those extended commands, set this value to <literal>true</literal>."
@@ -9642,7 +9655,7 @@ msgstr "O TortoiseSVN permite-te atribuir um visualizador de comparações exter
 
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
-msgstr ""
+msgstr "Por defeito, o TortoiseSVN corre sempre uma actualização incluindo os externos. Isto evita problemas com cópias de trabalho inconsistentes. No entanto, uma actualização poderá levar algum tempo, se tiveres a usar muitos externos. Configura este valor para <literal>false</literal> para correr a actualização por defeito, com os externos incluídos. Para actualizar os externos incluídos, ou correr a caixa de diálogo <literal>Actualizar para revisão...</literal> ou configura de novo este valor a <literal>true</literal>."
 
 #. (para)
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
