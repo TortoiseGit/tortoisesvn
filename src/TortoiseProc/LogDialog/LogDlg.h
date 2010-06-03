@@ -134,6 +134,7 @@ protected:
     afx_msg void OnEditCopy();
     afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnEnscrollMsgview();
 
     virtual void OnCancel();
     virtual void OnOK();

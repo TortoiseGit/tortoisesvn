@@ -245,6 +245,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_EDIT_COPY, &CLogDlg::OnEditCopy)
     ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, &CLogDlg::OnLvnKeydownLoglist)
     ON_NOTIFY(NM_CLICK, IDC_LOGLIST, &CLogDlg::OnNMClickLoglist)
+    ON_EN_VSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
+    ON_EN_HSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
@@ -321,7 +323,7 @@ BOOL CLogDlg::OnInitDialog()
     // automatically detect URLs in the log message and turn them into links
     GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
     // make the log message rich edit control send a message when the mouse pointer is over a link
-    GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK);
+    GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK|ENM_SCROLL);
     DWORD dwStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER;
 
     // we *could* enable checkboxes on pre Vista OS too, but those don't have
@@ -2348,7 +2350,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 {
     *pResult = 0;
     ENLINK *pEnLink = reinterpret_cast<ENLINK *>(pNMHDR);
-    if (pEnLink->msg != WM_LBUTTONUP)
+    if ((pEnLink->msg != WM_LBUTTONUP)&&(pEnLink->msg != WM_SETCURSOR))
         return;
 
     CString url, msg;
@@ -2370,7 +2372,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                 break;
             }
         }
-        if (!bBugIDFound)
+        if ((!bBugIDFound)&&(pEnLink->msg == WM_SETCURSOR))
         {
             // now check whether it matches a revision
             const tr1::wregex regMatch(m_ProjectProperties.sLogRevRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
@@ -2465,6 +2467,28 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
         }
     }
 
+    if ((!url.IsEmpty())&&(pEnLink->msg == WM_SETCURSOR))
+    {
+        static RECT prevRect = {0};
+        CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+        if (pMsgView)
+        {
+            RECT rc;
+            LRESULT lRes = pMsgView->SendMessage(EM_POSFROMCHAR, pEnLink->chrg.cpMin, 0);
+            rc.left = LOWORD(lRes);
+            rc.top = HIWORD(lRes);
+            lRes = pMsgView->SendMessage(EM_POSFROMCHAR, pEnLink->chrg.cpMax, 0);
+            rc.right = LOWORD(lRes);
+            rc.bottom = HIWORD(lRes)+12;
+            if ((prevRect.left != rc.left)||(prevRect.top != rc.top))
+            {
+                m_tooltips.DelTool(pMsgView, 1);
+                m_tooltips.AddTool(pMsgView, url, &rc, 1);
+                prevRect = rc;
+            }
+        }
+        return;
+    }
     if (!url.IsEmpty())
         ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 }
@@ -5498,4 +5522,9 @@ void CLogDlg::RemoveMainAnchors()
     RemoveAnchor(IDC_MSGVIEW);
     RemoveAnchor(IDC_SPLITTERBOTTOM);
     RemoveAnchor(IDC_LOGMSG);
+}
+
+void CLogDlg::OnEnscrollMsgview()
+{
+    m_tooltips.DelTool(GetDlgItem(IDC_MSGVIEW), 1);
 }
