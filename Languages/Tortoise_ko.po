@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-14 18:22+0900\n"
+"PO-Revision-Date: 2010-06-04 16:15+0900\n"
 "Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: Test\n"
 "MIME-Version: 1.0\n"
@@ -1917,6 +1917,10 @@ msgid ""
 msgstr ""
 "'고급 사용자'용 기본값을 적용합니다. 이것은 상세한 설정을 제공할 것입니다.\n"
 "사용자는 위의 모든 설정의 의미를 알고 있어야만 합니다."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "패치 적용..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6382,6 +6386,10 @@ msgstr ""
 "숫자만 허용됩니다!\n"
 "(숫자는 쉼표로 분리되어 나열될 수 있습니다)"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "단지 속성만 변경됨"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "이 아이템에만 적용"
@@ -6540,13 +6548,21 @@ msgstr "바뀐 파일 이름 붙이기"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "클립보드에 있는 이동(잘라내기) 혹은 복사의 결과인 svn 경로를 붙여넣습니다."
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "모두 패치"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "모든 아이템 패치(&A)"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "선택된 아이템 패치(&S)"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "선택된 것에 패치"
+msgid "Patch all files"
+msgstr "모든 파일들 패치"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "선택된 파일들 패치"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -7807,10 +7823,6 @@ msgstr "변경 리스트 선택"
 msgid "Select diff application"
 msgstr "Diff 프로그램 선택"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Diff 파일 선택..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "체크아웃할 디렉토리를 선택합니다"
@@ -7854,6 +7866,10 @@ msgstr "병합 프로그램 선택"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "병합 대상 선택"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "패치 파일 선택..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -9792,6 +9808,11 @@ msgstr "로그 캐시 업데이트 중"
 msgid "Upgrade working copy"
 msgstr "작업 사본 업그레이드"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "\"%1!s!\" 업그레이드중"
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "기본 이미지 사용하기(&D):"
@@ -11121,10 +11142,6 @@ msgstr "%s"
 msgid "tree conflict"
 msgstr "트리 충돌"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "트리 충돌:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11296,6 +11313,9 @@ msgstr "예"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
+
+#~ msgid "tree conflict:"
+#~ msgstr "트리 충돌:"
 
 #~ msgid "The repository was successfully created."
 #~ msgstr "저장소가 성공적으로 생성되었습니다."
