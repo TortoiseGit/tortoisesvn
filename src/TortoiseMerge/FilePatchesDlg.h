@@ -19,7 +19,7 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-class CPatch;
+class SVNPatch;
 
 /**
  * \ingroup TortoiseMerge
@@ -52,9 +52,9 @@ public:
     virtual BOOL DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString sRev2) = 0;
 };
 
-#define FPDLG_FILESTATE_GOOD        0x0000
-#define FPDLG_FILESTATE_CONFLICTED  0x0001
-#define FPDLG_FILESTATE_PATCHED     0x0002
+#define FPDLG_FILESTATE_GOOD        0
+#define FPDLG_FILESTATE_ERROR       (-1)
+#define FPDLG_FILESTATE_PATCHED     (-2)
 
 #define ID_PATCHALL                 1
 #define ID_PATCHSELECTED            2
@@ -79,13 +79,13 @@ public:
      * \param sPath The path to the "parent" folder where the patch gets applied to
      * \return TRUE if successful
      */
-    BOOL    Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath, CWnd * pParent);
+    BOOL    Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath, CWnd * pParent);
 
     BOOL    SetFileStatusAsPatched(CString sPath);
     bool    HasFiles() {return m_cFileList.GetItemCount()>0;}
     enum { IDD = IDD_FILEPATCHES };
 protected:
-    CPatch *                    m_pPatch;
+    SVNPatch *                  m_pPatch;
     CPatchFilesDlgCallBack *    m_pCallBack;
     CString                     m_sPath;
     CListCtrl                   m_cFileList;

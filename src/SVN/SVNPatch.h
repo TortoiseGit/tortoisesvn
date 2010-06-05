@@ -23,7 +23,7 @@
 #include "apr_pools.h"
 #pragma warning(pop)
 #include "TSVNPath.h"
-
+#include "TempFiles.h"
 
 class SVNPatch
 {
@@ -57,9 +57,9 @@ public:
      * Applies the patch to the file specified in \c sPath and saves the result
      * to \c sSavePath. If \c sSavePath is empty, the patch is applied but the result
      * is not saved, useful to test whether a patch can be applied.
-     * \return TRUE if the patch can be applied.
+     * \return the number of failed hunks, 0 if everything was applied successfully, -1 on error
      */
-    bool                    PatchFile(const CString& sPath, bool dryrun, CString& sSavePath);
+    int                     PatchFile(const CString& sPath, bool dryrun, CString& sSavePath);
 
     /**
      * returns the number of files that are affected by the patchfile.
@@ -113,5 +113,5 @@ private:
     CString                 m_testPath;
     CString                 m_patchedPath;
     CString                 m_errorStr;
-
+    CTempFiles              m_tempFiles;
 };

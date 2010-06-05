@@ -24,7 +24,7 @@
 #include "FilePatchesDlg.h"
 #include "TempFiles.h"
 #include "XSplitter.h"
-#include "Patch.h"
+#include "SVNPatch.h"
 #include "FindDlg.h"
 
 class CLeftView;
@@ -172,7 +172,7 @@ protected:
     CXSplitter      m_wndSplitter2;
     CFilePatchesDlg m_dlgFilePatches;
 
-    CPatch          m_Patch;
+    SVNPatch        m_Patch;
     BOOL            m_bInitSplitter;
     CTempFiles      m_TempFiles;
 

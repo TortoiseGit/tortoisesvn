@@ -73,7 +73,6 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
         if ((notify->action == svn_wc_notify_skip)||(notify->action == svn_wc_notify_patch_rejected_hunk))
         {
             pThis->m_nRejected++;
-            //pThis->m_bSuccessfullyPatched = false;
         }
         if (notify->action != svn_wc_notify_add)
         {
@@ -109,8 +108,7 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
             sFile = pThis->m_targetpath + _T("\\") + sFile;
         sFile.Replace('/', '\\');
         DeleteFile(sFile);
-        if (filtered)
-            *filtered = true;
+        *filtered = true;
     }
     else if (pThis)
     {
@@ -123,12 +121,12 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
                 if (PathIsRelative(sFile))
                     sFile = pThis->m_targetpath + _T("\\") + sFile;
                 sFile.Replace('/', '\\');
-                DeleteFile(sFile);
+                pThis->m_tempFiles.AddFileToRemove(sFile);
                 sFile = CUnicodeUtils::GetUnicode(reject_abspath);
                 if (PathIsRelative(sFile))
                     sFile = pThis->m_targetpath + _T("\\") + sFile;
                 sFile.Replace('/', '\\');
-                DeleteFile(sFile);
+                pThis->m_tempFiles.AddFileToRemove(sFile);
             }
             *filtered = false;
         }
@@ -138,12 +136,12 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
             if (PathIsRelative(sFile))
                 sFile = pThis->m_targetpath + _T("\\") + sFile;
             sFile.Replace('/', '\\');
-            DeleteFile(sFile);
+            pThis->m_tempFiles.AddFileToRemove(sFile);
             sFile = CUnicodeUtils::GetUnicode(reject_abspath);
             if (PathIsRelative(sFile))
                 sFile = pThis->m_targetpath + _T("\\") + sFile;
             sFile.Replace('/', '\\');
-            DeleteFile(sFile);
+            pThis->m_tempFiles.AddFileToRemove(sFile);
             *filtered = true;
         }
     }
@@ -242,7 +240,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
     return (int)m_filePaths.size();
 }
 
-bool SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath)
+int SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath)
 {
     svn_error_t *               err         = NULL;
     apr_pool_t *                scratchpool = NULL;
@@ -263,7 +261,7 @@ bool SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath)
 
     m_bDryRun = dryrun;
     err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-                           true, m_nStrip, false, true, true, patch_func, this, ctx,
+                           true, m_nStrip, false, true, false, patch_func, this, ctx,
                            m_pool, scratchpool);
 
     apr_pool_destroy(scratchpool);
@@ -272,13 +270,13 @@ bool SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath)
     {
         m_errorStr = GetErrorMessage(err);
         svn_error_clear(err);
-        return false;
+        return -1;
     }
     if (m_bSuccessfullyPatched)
     {
         sSavePath = m_patchedPath;
     }
-    return m_bSuccessfullyPatched;
+    return m_nRejected;
 }
 
 CString SVNPatch::CheckPatchPath( const CString& path )

@@ -401,96 +401,51 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
 // Callback function
 BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 {
-    //first, do a "dry run" of patching...
-    if (!m_Patch.PatchFile(sFilePath))
+    CString sDummy;
+    //"dry run" was successful, so save the patched file somewhere...
+    CString sTempFile = m_TempFiles.GetTempFilePath();
+    if (m_Patch.PatchFile(sFilePath, false, sTempFile) < 0)
     {
-        //patching not successful, so retrieve the
-        //base file from version control and try
-        //again...
-        CString sTemp;
-        CProgressDlg progDlg;
-        sTemp.Format(IDS_GETVERSIONOFFILE, (LPCTSTR)sVersion);
-        progDlg.SetLine(1, sTemp, true);
-        progDlg.SetLine(2, sFilePath, true);
-        sTemp.LoadString(IDS_GETVERSIONOFFILETITLE);
-        progDlg.SetTitle(sTemp);
-        progDlg.SetShowProgressBar(false);
-        progDlg.SetAnimation(IDR_DOWNLOAD);
-        progDlg.SetTime(FALSE);
-        progDlg.ShowModeless(this);
-        CString sBaseFile = m_TempFiles.GetTempFilePath();
-        if (!CAppUtils::GetVersionedFile(sFilePath, sVersion, sBaseFile, &progDlg, m_hWnd))
-        {
-            progDlg.Stop();
-            CString sErrMsg;
-            sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, (LPCTSTR)sVersion, (LPCTSTR)sFilePath);
-            MessageBox(sErrMsg, NULL, MB_ICONERROR);
-            return FALSE;
-        }
-        progDlg.Stop();
-        CString sTempFile = m_TempFiles.GetTempFilePath();
-        if (!m_Patch.PatchFile(sFilePath, sTempFile, sBaseFile))
-        {
-            MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
-            return FALSE;
-        }
+        MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
+        return FALSE;
+    }
+    sFilePath = m_Patch.GetTargetPath() + _T("\\") + sFilePath;
+    sFilePath.Replace('/', '\\');
+    if (m_bReversedPatch)
+    {
+        m_Data.m_baseFile.SetFileName(sTempFile);
         CString temp;
-        temp.Format(_T("%s Revision %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)sVersion);
-        m_Data.m_baseFile.SetFileName(sBaseFile);
-        m_Data.m_baseFile.SetDescriptiveName(temp);
         temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
-        m_Data.m_theirFile.SetFileName(sTempFile);
-        m_Data.m_theirFile.SetDescriptiveName(temp);
+        m_Data.m_baseFile.SetDescriptiveName(temp);
         m_Data.m_yourFile.SetFileName(sFilePath);
-        m_Data.m_yourFile.SetDescriptiveName(CPathUtils::GetFileNameFromPath(sFilePath));
-        m_Data.m_mergedFile.SetFileName(sFilePath);
-        m_Data.m_mergedFile.SetDescriptiveName(CPathUtils::GetFileNameFromPath(sFilePath));
-        TRACE(_T("comparing %s and %s\nagainst the base file %s\n"), (LPCTSTR)sTempFile, (LPCTSTR)sFilePath, (LPCTSTR)sBaseFile);
+        temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
+        m_Data.m_yourFile.SetDescriptiveName(temp);
+        m_Data.m_theirFile.SetOutOfUse();
+        m_Data.m_mergedFile.SetOutOfUse();
     }
     else
     {
-        //"dry run" was successful, so save the patched file somewhere...
-        CString sTempFile = m_TempFiles.GetTempFilePath();
-        if (!m_Patch.PatchFile(sFilePath, sTempFile))
+        if (!PathFileExists(sFilePath))
         {
-            MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
-            return FALSE;
-        }
-        if (m_bReversedPatch)
-        {
-            m_Data.m_baseFile.SetFileName(sTempFile);
-            CString temp;
-            temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
-            m_Data.m_baseFile.SetDescriptiveName(temp);
-            m_Data.m_yourFile.SetFileName(sFilePath);
-            temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
-            m_Data.m_yourFile.SetDescriptiveName(temp);
-            m_Data.m_theirFile.SetOutOfUse();
-            m_Data.m_mergedFile.SetOutOfUse();
+            m_Data.m_baseFile.SetFileName(m_TempFiles.GetTempFilePath());
+            m_Data.m_baseFile.CreateEmptyFile();
         }
         else
         {
-            if (!PathFileExists(sFilePath))
-            {
-                m_Data.m_baseFile.SetFileName(m_TempFiles.GetTempFilePath());
-                m_Data.m_baseFile.CreateEmptyFile();
-            }
-            else
-            {
-                m_Data.m_baseFile.SetFileName(sFilePath);
-            }
-            CString sDescription;
-            sDescription.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
-            m_Data.m_baseFile.SetDescriptiveName(sDescription);
-            m_Data.m_yourFile.SetFileName(sTempFile);
-            CString temp;
-            temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
-            m_Data.m_yourFile.SetDescriptiveName(temp);
-            m_Data.m_theirFile.SetOutOfUse();
-            m_Data.m_mergedFile.SetFileName(sFilePath);
+            m_Data.m_baseFile.SetFileName(sFilePath);
         }
-        TRACE(_T("comparing %s\nwith the patched result %s\n"), (LPCTSTR)sFilePath, (LPCTSTR)sTempFile);
+        CString sDescription;
+        sDescription.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
+        m_Data.m_baseFile.SetDescriptiveName(sDescription);
+        m_Data.m_yourFile.SetFileName(sTempFile);
+        CString temp;
+        temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
+        m_Data.m_yourFile.SetDescriptiveName(temp);
+        m_Data.m_theirFile.SetOutOfUse();
+        m_Data.m_mergedFile.SetFileName(sFilePath);
     }
+    TRACE(_T("comparing %s\nwith the patched result %s\n"), (LPCTSTR)sFilePath, (LPCTSTR)sTempFile);
+
     LoadViews();
     if (bAutoPatch)
     {
@@ -633,7 +588,7 @@ bool CMainFrame::LoadViews(int line)
         {
             m_Data.m_baseFile.TransferDetailsFrom(m_Data.m_theirFile);
         }
-        else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)))
+        else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath)))
         {
             ClearViewNamesAndPaths();
             MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
@@ -641,37 +596,16 @@ bool CMainFrame::LoadViews(int line)
         }
         if (m_Patch.GetNumberOfFiles() > 0)
         {
-            CString firstpath = m_Patch.GetFilename(0);
-            CString path=firstpath;
-            path.Replace('/','\\');
-            if ( !PathIsRelative(path) && !PathFileExists(path) )
-            {
-                // The absolute path mentioned in the patch does not exist. Lets
-                // try to find the correct relative path by stripping prefixes.
-                BOOL bFound = m_Patch.StripPrefixes(m_Data.m_sPatchPath);
-                CString strippedpath = m_Patch.GetFilename(0);
-                if (bFound)
-                {
-                    CString msg;
-                    msg.FormatMessage(IDS_WARNABSOLUTEPATHFOUND, (LPCTSTR)firstpath, (LPCTSTR)strippedpath);
-                    if (CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDNO)
-                        return false;
-                }
-                else
-                {
-                    CString msg;
-                    msg.Format(IDS_WARNABSOLUTEPATHNOTFOUND, (LPCTSTR)firstpath);
-                    CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONEXCLAMATION);
-                    return false;
-                }
-            }
             CString betterpatchpath = m_Patch.CheckPatchPath(m_Data.m_sPatchPath);
             if (betterpatchpath.CompareNoCase(m_Data.m_sPatchPath)!=0)
             {
                 CString msg;
                 msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, (LPCTSTR)m_Data.m_sPatchPath, (LPCTSTR)betterpatchpath);
                 if (CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
+                {
                     m_Data.m_sPatchPath = betterpatchpath;
+                    m_Patch.SetTargetPath(betterpatchpath);
+                }
             }
             m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath, this);
             m_dlgFilePatches.ShowWindow(SW_SHOW);
