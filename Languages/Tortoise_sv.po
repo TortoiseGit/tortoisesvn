@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-17 14:18+0100\n"
+"PO-Revision-Date: 2010-06-07 10:35+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1940,6 +1940,10 @@ msgid ""
 msgstr ""
 "Använd 'Power User' egenskaper. Dessa kommer att ge bättre upplevelse.\n"
 "Du bör vet betydelsen av all inställingar ovan."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Applicera patch..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6436,6 +6440,10 @@ msgstr ""
 "Endast siffror (med möjlig kommaseparering)\n"
 "är tillåtna!"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "Enbart förändringar av egenskaper"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Endast det här objektet"
@@ -6595,13 +6603,21 @@ msgstr "Klistra in namn på ändrade filer"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "Klistrar in SVN-sökvägen från urklippshanteraren, resulterar i en flytt (klipp ut) eller en kopierings operation"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Patcha allt"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "Patcha &allt"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "&Patcha markerade"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Patcha markerade"
+msgid "Patch all files"
+msgstr "Patcha alla filer"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Patcha markerade filer"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -7870,11 +7886,6 @@ msgstr "Markera ändringslista"
 msgid "Select diff application"
 msgstr "Välj applikation för att visa skillnader"
 
-# Hur översätta "diff"
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Välj skillnadsfil..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Välj mapp att hämta ut till"
@@ -7919,6 +7930,11 @@ msgstr "Välj föreningsapplikation"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "Välj föreningsmål"
+
+# Hur översätta "diff"
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Välj skillnadsfil..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -9874,6 +9890,11 @@ msgstr "Uppdaterar logg cache"
 msgid "Upgrade working copy"
 msgstr "Uppgradera arbetskopia"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "Exporterar \"%1!s!\""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Använd &standardbild:"
@@ -11207,10 +11228,6 @@ msgstr "till %s"
 msgid "tree conflict"
 msgstr "Träd konflikt"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "Träd konflikt:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11383,6 +11400,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "tree conflict:"
+#~ msgstr "Träd konflikt:"
 #~ msgid "The repository was successfully created."
 #~ msgstr "Arkivet skapades utan problem. "
 #~ msgid "%s, but it already exists unversioned locally."
