@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-11 22:50+0100\n"
+"PO-Revision-Date: 2010-06-07 12:59+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1967,6 +1967,10 @@ msgid ""
 msgstr ""
 "Pas 'Power User' standaarden toe. Deze geven een soepeler ervaring.\n"
 "U moet wel de betekenis van alle bovenstaande instellingen kennen."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Pas patch toe..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6427,6 +6431,10 @@ msgstr ""
 "Alleen nummers (optioneel gescheiden door een comma)\n"
 "toegestaan!"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "Alleen gewijzigde eigenschappen"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Alleen dit object"
@@ -6585,13 +6593,21 @@ msgstr "Plak lijst bestandsnamen"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "Plakt het SVN-pad van klembord, zodat een kopiëer of verplaats-actie plaatsvindt"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Alles patchen"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "&Alles patchen"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "Patch &geselecteerd"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Patch geselecteerd"
+msgid "Patch all files"
+msgstr "Alle bestanden patchen"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Patch geselecteerde bestanden"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -7851,10 +7867,6 @@ msgstr "Selecteer werkset"
 msgid "Select diff application"
 msgstr "Selecteer diff-applicatie"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Selecteer Diff-bestand..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Kies map om naartoe op te halen"
@@ -7898,6 +7910,10 @@ msgstr "Selecteer een samenvoeg-applicatie"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "Selecteer een samenvoeg doel"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Selecteer patchbestand..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -9854,6 +9870,11 @@ msgstr "Log cache wordt bijgewerkt"
 msgid "Upgrade working copy"
 msgstr " Werkkopie"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "Opwaarderen \"%1!s!\""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Gebruik &standaardbeeld:"
@@ -11185,10 +11206,6 @@ msgstr "naar %s"
 msgid "tree conflict"
 msgstr "boomconflict"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "boomcomflict:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11365,6 +11382,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "tree conflict:"
+#~ msgstr "boomcomflict:"
 #~ msgid "The repository was successfully created."
 #~ msgstr "Het archief is gemaakt."
 #~ msgid "&Lum:"
