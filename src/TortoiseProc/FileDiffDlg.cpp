@@ -634,7 +634,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
                 }
             }
-            CAppUtils::StartUnifiedDiffViewer(diffFile, CString(), false);
+            CAppUtils::StartUnifiedDiffViewer(diffFile.GetWinPathString(), CString(), false);
         }
         break;
     case ID_BLAME:

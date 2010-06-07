@@ -1031,6 +1031,9 @@
     <ClCompile Include="..\Utils\Libraries.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\CommonAppUtils.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1962,6 +1965,9 @@
     </ClInclude>
     <ClInclude Include="Commands\WcUpgradeCommand.h">
       <Filter>Commands\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\CommonAppUtils.h">
+      <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

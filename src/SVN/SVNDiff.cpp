@@ -301,7 +301,7 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
             CString u2 = url2.GetUIPathString().Mid(root.GetUIPathString().GetLength());
             title.FormatMessage(IDS_SVNDIFF_TWOURLS, (LPCTSTR)rev1.ToString(), (LPCTSTR)u1, (LPCTSTR)rev2.ToString(), (LPCTSTR)u2);
         }
-        return !!CAppUtils::StartUnifiedDiffViewer(tempfile, title);
+        return !!CAppUtils::StartUnifiedDiffViewer(tempfile.GetWinPathString(), title);
     }
     return false;
 }

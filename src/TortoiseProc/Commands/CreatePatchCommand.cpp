@@ -177,7 +177,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
         }
     }
     else
-        CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath, tempPatchFilePath.GetFilename());
+        CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath.GetWinPathString(), tempPatchFilePath.GetFilename());
 
     progDlg.Stop();
     return TRUE;

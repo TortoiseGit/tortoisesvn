@@ -19,6 +19,7 @@
 #pragma once
 #include "HistoryCombo.h"
 #include "SVNRev.h"
+#include "CommonAppUtils.h"
 
 class CTSVNPath;
 
@@ -26,7 +27,7 @@ class CTSVNPath;
  * \ingroup TortoiseProc
  * An utility class with static functions.
  */
-class CAppUtils
+class CAppUtils : public CCommonAppUtils
 {
 public:
     /**
@@ -75,12 +76,6 @@ public:
             BOOL bReversed = FALSE, BOOL bWait = FALSE);
 
     /**
-     * Starts the external unified diff viewer (the app associated with *.diff or *.patch files).
-     * If no app is associated with those file types, the default text editor is used.
-     */
-    static BOOL StartUnifiedDiffViewer(const CTSVNPath& patchfile, const CString& title, BOOL bWait = FALSE);
-
-    /**
      * Starts the external diff application
      */
     static bool StartExtDiff(
@@ -96,37 +91,6 @@ public:
             BOOL bWait = FALSE, BOOL bReadOnly = FALSE);
 
     /**
-     * Finds the standard application to open / process the given file
-     * with the given verb (see ShellOpen for verbs).
-     * \param fileName file path to pass to the application
-     * \param verb verb to use for the registry lookup.
-     *        Falls back to "open", if the lookup failed.
-     * \param extension if not empty, use this extension instead the
-     *        of fileName for the registry lookup
-     * \param applySecurityHeuristics if set, the function will not
-     *        return applications that require additional arguments
-     *        (i.e. if %* or %2 are found in the command line)
-     * \param askUserOnFailure if set and the registry lookup did
-     *        not find anything, let the user select an application
-     *        via "file open" dialog.
-     * \return application command line to execute. An empty string,
-     *         if lookup failed.
-     */
-    static CString GetAppForFile
-        ( const CString& fileName
-        , const CString& extension
-        , const CString& verb
-        , bool applySecurityHeuristics
-        , bool askUserOnFailure);
-
-    /**
-     * Launches the standard text viewer/editor application which is associated
-     * with txt files.
-     * \return TRUE if the program could be started.
-     */
-    static BOOL StartTextViewer(CString file);
-
-    /**
      * Checks if the given file has a size of less than four, which means
      * an 'empty' file or just newlines, i.e. an empty diff.
      */
@@ -138,26 +102,11 @@ public:
     static void CreateFontForLogs(CFont& fontToCreate);
 
     /**
-    * Launch an external application (usually the diff viewer)
-    */
-    static bool LaunchApplication(
-        const CString& sCommandLine,
-        UINT idErrMessageFormat,
-        bool bWaitForStartup,
-        bool bWaitForExit = false);
-
-    /**
     * Launch the external blame viewer
     */
     static bool LaunchTortoiseBlame(
         const CString& sBlameFile, const CString& sOriginalFile, const CString& sParams = CString(),
         const SVNRev& startrev = SVNRev(), const SVNRev& endrev = SVNRev());
-
-    /**
-     * Resizes all columns in a list control. Considers also icons in columns
-     * with no text.
-     */
-    static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
 
     /**
      * Formats text in a rich edit control (version 2).
@@ -174,8 +123,6 @@ public:
     static bool BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, CWnd * pParent, SVNRev& rev);
 
     static bool FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
-
-    static bool SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width = 128, int height = 128);
 
     /**
      * guesses a name of the project from a repository URL
@@ -203,40 +150,11 @@ public:
                                 int line = 0);
 
     /**
-     * Creates a .lnk file (a windows shortcut file)
-     */
-    static HRESULT CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTargetargs,
-                                LPCTSTR pszLinkfile, LPCTSTR pszDescription,
-                                int iShowmode, LPCTSTR pszCurdir, LPCTSTR pszIconfile, int iIconindex);
-    /**
-     * Creates an url shortcut file (.url)
-     */
-    static HRESULT CreateShortcutToURL(LPCTSTR pszUrl, LPCTSTR pszLinkFile);
-
-    /**
      * Sets up all the default diff and merge scripts.
      * \param force if true, overwrite all existing entries
      * \param either "Diff", "Merge" or an empty string
      */
     static bool SetupDiffScripts(bool force, const CString& type);
-
-    /**
-     * Sets the Accessibility property for the specified window.
-     * \param hWnd the handle of the control to set the property for
-     * \param propid the id of the property to set, e.g., PROPID_ACC_DESCRIPTION
-     * \param text the text for the property
-     */
-    static bool SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text);
-    static bool SetAccProperty(HWND hWnd, MSAAPROPID propid, long value);
-
-    /**
-     * finds the accelerator char from a dialog control
-     */
-    static TCHAR FindAcceleratorKey(CWnd * pWnd, UINT id);
-
-    static CString GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url);
-
-    static void ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl);
 
 private:
     static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
