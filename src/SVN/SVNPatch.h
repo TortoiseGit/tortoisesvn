@@ -57,9 +57,11 @@ public:
      * Applies the patch to the file specified in \c sPath and saves the result
      * to \c sSavePath. If \c sSavePath is empty, the patch is applied but the result
      * is not saved, useful to test whether a patch can be applied.
+     * The \c sRejectPath is set to the file containing the rejected hunks, or empty if
+     * there are no rejected hunks.
      * \return the number of failed hunks, 0 if everything was applied successfully, -1 on error
      */
-    int                     PatchFile(const CString& sPath, bool dryrun, CString& sSavePath);
+    int                     PatchFile(const CString& sPath, bool dryrun, CString& sSavePath, CString& sRejectPath);
 
     /**
      * returns the number of files that are affected by the patchfile.
@@ -112,6 +114,7 @@ private:
     CString                 m_targetpath;
     CString                 m_testPath;
     CString                 m_patchedPath;
+    CString                 m_rejectedPath;
     CString                 m_errorStr;
     CTempFiles              m_tempFiles;
 };

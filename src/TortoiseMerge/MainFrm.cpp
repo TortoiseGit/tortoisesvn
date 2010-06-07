@@ -404,7 +404,8 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
     CString sDummy;
     //"dry run" was successful, so save the patched file somewhere...
     CString sTempFile = m_TempFiles.GetTempFilePath();
-    if (m_Patch.PatchFile(sFilePath, false, sTempFile) < 0)
+    CString sRejectedFile;
+    if (m_Patch.PatchFile(sFilePath, false, sTempFile, sRejectedFile) < 0)
     {
         MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
         return FALSE;
@@ -447,6 +448,13 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
     TRACE(_T("comparing %s\nwith the patched result %s\n"), (LPCTSTR)sFilePath, (LPCTSTR)sTempFile);
 
     LoadViews();
+    if (!sRejectedFile.IsEmpty())
+    {
+        // start TortoiseUDiff with the rejected hunks
+        CString sTitle;
+        sTitle.Format(IDS_TITLE_REJECTEDHUNKS, (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath));
+        CAppUtils::StartUnifiedDiffViewer(sRejectedFile, sTitle);
+    }
     if (bAutoPatch)
     {
         OnFileSave();

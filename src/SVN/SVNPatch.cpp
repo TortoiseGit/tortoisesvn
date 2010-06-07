@@ -115,6 +115,7 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
         if (pThis->m_filterPath.CompareNoCase(CUnicodeUtils::GetUnicode(canon_path_from_patchfile)) == 0)
         {
             pThis->m_patchedPath = CUnicodeUtils::GetUnicode(patch_abspath);
+            pThis->m_rejectedPath = CUnicodeUtils::GetUnicode(reject_abspath);
             if (pThis->m_bDryRun)
             {
                 CString sFile = CUnicodeUtils::GetUnicode(patch_abspath);
@@ -240,7 +241,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
     return (int)m_filePaths.size();
 }
 
-int SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath)
+int SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath, CString& sRejectPath)
 {
     svn_error_t *               err         = NULL;
     apr_pool_t *                scratchpool = NULL;
@@ -276,6 +277,9 @@ int SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath)
     {
         sSavePath = m_patchedPath;
     }
+    if (m_nRejected > 0)
+        sRejectPath = m_rejectedPath;
+
     return m_nRejected;
 }
 
