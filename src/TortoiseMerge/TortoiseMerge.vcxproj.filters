@@ -180,6 +180,12 @@
     <ClCompile Include="..\Utils\MiscUI\StandAloneDlg.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\CommonAppUtils.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\accHelper.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AboutDlg.h">
@@ -342,6 +348,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\StandAloneDlg.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\CommonAppUtils.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

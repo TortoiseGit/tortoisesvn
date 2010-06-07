@@ -23,12 +23,14 @@
 #include "UnicodeUtils.h"
 #include "ProgressDlg.h"
 
+#pragma warning(push)
 #include "svn_pools.h"
 #include "svn_io.h"
 #include "svn_path.h"
 #include "svn_diff.h"
 #include "svn_string.h"
 #include "svn_utf.h"
+#pragma warning(pop)
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
 
@@ -228,3 +230,5 @@ COLORREF CAppUtils::IntenseColor(long scale, COLORREF col)
 
     return RGB(R, G, B);
 }
+
+
