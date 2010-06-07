@@ -52,7 +52,7 @@ BOOL CFilePatchesDlg::SetFileStatusAsPatched(CString sPath)
     {
         if (sPath.CompareNoCase(GetFullPath(i))==0)
         {
-            m_arFileStates.SetAt(i, FPDLG_FILESTATE_PATCHED);
+            m_arFileStates.SetAt(i, (DWORD)FPDLG_FILESTATE_PATCHED);
             Invalidate();
             return TRUE;
         }
@@ -143,7 +143,8 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
         else
         {
             CString sDummy;
-            state = m_pPatch->PatchFile(m_pPatch->GetStrippedPath(i), false, sDummy);
+            CString sDummy2;
+            state = m_pPatch->PatchFile(m_pPatch->GetStrippedPath(i), false, sDummy, sDummy2);
         }
         m_arFileStates.Add(state);
         SHFILEINFO    sfi;
@@ -486,10 +487,8 @@ void CFilePatchesDlg::PatchSelected()
     }
 }
 
-void CFilePatchesDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+void CFilePatchesDlg::OnLvnItemchangedFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-
     DialogEnableWindow(IDC_PATCHSELECTEDBUTTON, m_cFileList.GetSelectedCount() > 0);
 
     *pResult = 0;
