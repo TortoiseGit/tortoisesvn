@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-12 08:34+0200\n"
+"PO-Revision-Date: 2010-06-07 09:37+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -24,9 +24,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.6.0\n"
+"X-Generator: Virtaal 0.6.1\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 # Ein einzelnes Leerzeichen
 #. Resource IDs: (10, 126)
 msgid " "
@@ -1894,6 +1907,10 @@ msgstr ""
 "Vorgabewerte für erfahrene Anwender. Diese führen zu einer flüssigeren "
 "Funktion.\n"
 "Sie sollten die Bedeutung aller obenstehenden Einstellungen kennen."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Patch anwenden..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6186,6 +6203,10 @@ msgstr ""
 "Nur Zahlen (ggf. durch Kommata separiert)\n"
 "sind zugelassen!"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "Nur Eigenschaften geändert"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Nur dieses Objekt"
@@ -6341,13 +6362,21 @@ msgstr ""
 "Fügt den SVN Pfad aus der Zwischenablage ein. Die Objekte werden verschoben "
 "(ausschneiden) oder kopiert"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Alle Patchen"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "&Alle Objekte patchen"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "&Gewähltes Objekt patchen"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Patch gewählt"
+msgid "Patch all files"
+msgstr "Alle Dateien patchen"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Gewählte Datei patchen"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -7548,10 +7577,6 @@ msgstr "Änderungsliste wählen"
 msgid "Select diff application"
 msgstr "Vergleichsprogramm auswählen"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Wähle Diffdatei..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Wähle Verzeichnis zum Auschecken"
@@ -7597,6 +7622,10 @@ msgstr "Konflikteditor auswählen"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "Ziel auswählen"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Wähle Patchdatei..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -9427,6 +9456,11 @@ msgstr "Aktualisiere Log-Puffer"
 msgid "Upgrade working copy"
 msgstr "Arbeitskopie hochstufen"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "\"%1!s!\" hochstufen"
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Verwende &Standardbild"
@@ -10611,10 +10645,6 @@ msgstr "nach %s"
 msgid "tree conflict"
 msgstr "Baumkonflikt"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "Baumkonflikt:"
-
 #. Resource IDs: (578)
 msgid "tsvn:autoprops\r\nA list of properties separated by newlines which get applied automatically when adding/importing files.\r\nFormat: <filemask> = property=value;property=value\r\nExample: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
@@ -10760,6 +10790,18 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Patch all"
+#~ msgstr "Alle Patchen"
+
+#~ msgid "Patch selected"
+#~ msgstr "Patch gewählt"
+
+#~ msgid "Select diff file..."
+#~ msgstr "Wähle Diffdatei..."
+
+#~ msgid "tree conflict:"
+#~ msgstr "Baumkonflikt:"
 
 #~ msgid "The repository was successfully created."
 #~ msgstr "Das Projektarchiv wurde erfolgreich erstellt."
