@@ -348,7 +348,6 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         m_bHasLocks = false;
         m_bHasChangeLists = false;
         m_bShowIgnores = bShowIgnores;
-        m_nSortedColumn = 0;
         m_bBlock = TRUE;
         m_bBusy = true;
         m_bEmpty = false;
@@ -1212,7 +1211,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
         pHeader->SetItem(i, &HeaderItem);
     }
-    if (m_nSortedColumn)
+    if (m_nSortedColumn >= 0)
     {
         pHeader->GetItem(m_nSortedColumn, &HeaderItem);
         HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
@@ -1623,10 +1622,13 @@ void CSVNStatusListCtrl::Sort()
 {
     Locker lock(m_critSec);
 
-    CSorter predicate (&m_ColumnManager, m_nSortedColumn, m_bAscending);
+    if (m_nSortedColumn >= 0)
+    {
+        CSorter predicate (&m_ColumnManager, m_nSortedColumn, m_bAscending);
 
-    std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), predicate);
-    SaveColumnWidths();
+        std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), predicate);
+        SaveColumnWidths();
+    }
     Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
 }
 
