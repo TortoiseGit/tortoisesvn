@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-06-08 00:53+0100\n"
+"PO-Revision-Date: 2010-06-08 21:07+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6137,16 +6137,14 @@ msgstr "Ces propriétés <literal>tsvn:</literal> doivent être mises sur les <e
 #. (para)
 #. (para)
 #. (para)
-#, fuzzy
 msgid "For project properties <emphasis>only</emphasis>, i.e. <literal>tsvn:</literal>, <literal>bugtraq:</literal> and <literal>webviewer:</literal> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "Pour les propriétés <literal>tsvn:</literal> <emphasis>uniquement</emphasis> vous pouvez utiliser la case à cocher guilabel>Récursif</guilabel> pour mettre la propriété à tous les sous-dossiers dans la hiérarchie, sans la mettre aussi sur tous les fichiers."
+msgstr "Pour les propriétés du projet <emphasis>uniquement</emphasis>, c'est à dire <literal>tsvn:</literal>, <literal>bugtraq:</literal> et <literal>webviewer:</literal> vous pouvez utiliser la case à cocher guilabel>Récursif</guilabel> pour appliquer la propriété à tous les sous-dossiers, sans avoir à la mettre aussi sur tous les fichiers."
 
 #. (para)
 #. (para)
 #. (para)
-#, fuzzy
 msgid "When you add new sub-folders to a working copy using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
-msgstr "Lorsque vous ajoutez un nouveau sous répertoire via TortoiseSVN, toutes les propriétés du projet présentes dans le répertoire parent seront automatiquement ajoutées au nouveau sous répertoire."
+msgstr "Lorsque vous ajoutez un nouveau sous répertoire via TortoiseSVN, toutes les propriétés du projet du répertoire parent seront automatiquement ajoutées à ce nouveau sous répertoire."
 
 #. (title)
 #. (title)
@@ -8019,9 +8017,8 @@ msgstr "Mettre les propriétés sur les dossiers"
 
 #. (para)
 #. (para)
-#, fuzzy
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr "Ces propriétés doivent être définies sur des dossiers pour que le système fonctionne. Quand vous livrez un fichier ou un dossier les propriétés sont lues depuis ce dossier. Si les propriétés ne sont pas trouvées là, TortoiseSVN cherchera vers le haut dans l'arborescence des dossiers pour les trouver jusqu'à ce qu'il arrive à un dossier non versionné, ou jusqu'à ce que la racine de l'arborescence (par exemple <literal>C:\\</literal>) soit trouvée. Si vous pouvez être sûr que chaque utilisateur n'extraie que depuis <filename>trunk/</filename> par exemple et pas d'un autre sous-dossier, alors il est suffisant de définir les propriétés sur <filename>trunk/</filename>. Si vous ne pouvez pas être sûr, vous devriez définir les propriétés récursivement sur chaque sous-dossier. Un réglage de la propriété plus profondément dans la hiérarchie de projet remplace les réglages sur les niveaux supérieurs (plus près de <filename>trunk/</filename>)."
+msgstr "Pour que le système fonctionne elles doivent être définies sur des dossiers. Quand vous livrez un fichier ou un dossier les propriétés sont lues depuis ce dossier. Si les propriétés n'y sont pas trouvées, TortoiseSVN cherchera vers le haut dans l'arborescence des dossiers pour les trouver jusqu'à ce qu'il arrive à un dossier non versionné, ou à la racine de l'arborescence (par exemple <literal>C:\\</literal>). Si vous pouvez être sûr que chaque utilisateur n'extraie que depuis <filename>trunk/</filename> par exemple et pas d'un autre sous-dossier, alors il est suffisant de définir les propriétés sur <filename>trunk/</filename>. Dans le cas contraire, vous devriez définir les propriétés récursivement sur chaque sous-dossier. Une propriété sur un répertoire remplace les réglages des niveaux supérieurs (plus près de <filename>trunk/</filename>)."
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
@@ -8088,7 +8085,7 @@ msgstr "Il existe beaucoup de visionneuse de référentiel web compatibles avec 
 
 #. (para)
 msgid "You can integrate a repo viewer of your choice in TortoiseSVN. To do this, you have to define some properties which define the linkage. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "Vous pouvez intégrer la visionneuse de référentiel de votre choix dans TortoiseSVN. Pour ce faire, vous n'avez qu'à renseigner quelques propriétés permettant la liaison. Elles sont accessibles par les répertoires : (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "Vous pouvez intégrer la visionneuse de référentiel de votre choix dans TortoiseSVN. Pour ce faire, vous n'avez qu'à renseigner quelques propriétés permettant la liaison. Elles sont à mettre sur les dossier : (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 msgid "Set this property to the URL of your repo viewer to view all changes in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal>. <literal>%REVISION%</literal> is replaced with the revision number in question. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision in webviewer</guimenuitem></menuchoice>"
