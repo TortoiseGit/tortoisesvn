@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-10 13:06+0100\n"
+"PO-Revision-Date: 2010-06-08 11:35+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1123,6 +1123,10 @@ msgstr "&Løs ved å bruke lokal egenskap"
 msgid "&Restore defaults"
 msgstr "&Gjenopprett standard"
 
+#. Resource IDs: (1542)
+msgid "&Retry without hooks"
+msgstr "&Prøv igjen uten påhakninger"
+
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
 msgstr "&Tilbakestill endringer fra disse revisjonene"
@@ -1970,6 +1974,10 @@ msgid ""
 msgstr ""
 "Bruk standard for avanserte brukere. Dette gir en bedre opplevelse.\n"
 "Du bør kjenne innholdet i alle innstillingene over."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Anvend Korreksjon..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6430,6 +6438,10 @@ msgstr ""
 "Kun numre (adskilt med kommaer om ønskelig)\n"
 "er tillatt!"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "Kun endringer av egenskaper"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Bare dette elementet"
@@ -6588,13 +6600,21 @@ msgstr "Lim inn filnavnlisten"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "Limer inn svn-stien fra utklippstavlen, som gir en flytt (klipp ut) eller kopi-operasjon"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Korriger alle"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "Korriger &alle elementer"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "Korriger &valgt element"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Korriger valgte"
+msgid "Patch all files"
+msgstr "Korriger alle filer"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Korriger valgte filer"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -7855,10 +7875,6 @@ msgstr "Velg endringsliste"
 msgid "Select diff application"
 msgstr "Velg diff-program"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Velg diff-fil..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Velg katalog å hente ut til"
@@ -7902,6 +7918,10 @@ msgstr "Velg fletteprogram"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "Velg mål for fletting"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Velg korreksjonsfil..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -9852,6 +9872,11 @@ msgstr "Oppdaterer loggmellomlager"
 msgid "Upgrade working copy"
 msgstr "Oppgrader arbeidskopi"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "Oppgraderer \"%1!s!\""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "Bruk &Standard Bilde:"
@@ -11183,10 +11208,6 @@ msgstr "til %s"
 msgid "tree conflict"
 msgstr "trekonflikt"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "trekonflikt:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11359,6 +11380,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "tree conflict:"
+#~ msgstr "trekonflikt:"
 #~ msgid "The repository was successfully created."
 #~ msgstr "Depotet er opprettet."
 #~ msgid "&Sat:"
