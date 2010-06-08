@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-03-29 15:30+0900\n"
+"PO-Revision-Date: 2010-06-08 21:25+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -200,35 +200,70 @@ msgstr "%s : 作業ベース"
 msgid "%s : Working Copy"
 msgstr "%s : 作業コピー"
 
-#. Resource IDs: (609)
+#. Resource IDs: (3887)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s、しかしながらローカルにバージョン管理外として存在しています。"
+msgid "%s [Recovered]"
+msgstr "%s [復元]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s、しかしながらローカルには存在しません。"
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s、しかしながら、ディレクトリはバージョン管理外としてローカルに存在しています。"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s、しかしながらすでにローカルに追加されています。"
+msgid "%s, but the directory is missing locally."
+msgstr "%s、しかしながら、ディレクトリはローカルに存在しません。"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s、しかしながらすでに編集されています。"
+msgid "%s, but the directory was already added locally."
+msgstr "%s、しかしながら、ディレクトリはすでにローカルに追加されています。"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s、しかしながらローカルで削除、移動、名前の変更が行われています。"
+msgid "%s, but the directory was already edited."
+msgstr "%s、しかしながら、ディレクトリはすでに編集されています。"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s、しかしながら、作業コピーで妨害されました。"
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s、しかしながら、ディレクトリはローカルで削除、移動、名前の変更が行われています。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s、しかしながら、ディレクトリは作業コピーで妨害されました。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s、しかしながら、ファイルはバージョン管理外としてローカルに存在しています。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s、しかしながら、ファイルはローカルに存在しません。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s、しかしながら、ファイルはすでにローカルに追加されています。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s、しかしながら、ファイルはすでに編集されています。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s、しかしながら、ファイルはローカルで削除、移動、名前の変更が行われています。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s、しかしながら、ファイルは作業コピーで妨害されました。"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -313,6 +348,10 @@ msgstr "ボタンの追加／削除(&A)"
 msgid "&Add..."
 msgstr "追加(&A) ..."
 
+#. Resource IDs: (32849)
+msgid "&Advanced"
+msgstr "高度な設定(&A)"
+
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "高度な設定(&A) ..."
@@ -324,6 +363,10 @@ msgstr "あいまいなURLを許可(&A)"
 #. Resource IDs: (65535)
 msgid "&Application Look"
 msgstr "アプリケーションの外観(&A)"
+
+#. Resource IDs: (1294)
+msgid "&Apply property recursively"
+msgstr "属性を再帰的に適用する(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -357,6 +400,10 @@ msgstr "処理後の動作(&A):"
 msgid "&Backup original file"
 msgstr "オリジナルファイルをバックアップする(&B)"
 
+#. Resource IDs: (1559)
+msgid "&Binary"
+msgstr "バイナリ(&B)"
+
 #. Resource IDs: (114)
 msgid "&Blame changes"
 msgstr "変更の注釈履歴(&B)"
@@ -382,6 +429,14 @@ msgid "&Blue:"
 msgstr "青(&B):"
 
 #. Resource IDs: (65535)
+msgid "&Border:"
+msgstr "境界位置(&B):"
+
+#. Resource IDs: (1568)
+msgid "&Bottom"
+msgstr "一番下(&B)"
+
+#. Resource IDs: (65535)
 msgid "&Branches"
 msgstr "ブランチ(&B)"
 
@@ -392,6 +447,10 @@ msgstr "リポジトリを閲覧(&B)"
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "参照(&B) ..."
+
+#. Resource IDs: (32850)
+msgid "&Bugtraq (Issue tracker integration)"
+msgstr "課題追跡（課題追跡システムの統合）(&B)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -537,6 +596,10 @@ msgstr "ディレクトリ(&D)"
 msgid "&Docking"
 msgstr "ドッキング(&D)"
 
+#. Resource IDs: (32851)
+msgid "&EOL"
+msgstr "改行コード(&E)"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "編集(&E)"
@@ -564,6 +627,10 @@ msgstr "ログのキャッシュを有効にする(&E)"
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "ファイルをロックする理由を入力してください(&E)。"
+
+#. Resource IDs: (1554)
+msgid "&Executable"
+msgstr "実行形式(&E)"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -722,6 +789,10 @@ msgstr "部分ツリーに連結する(&J)"
 msgid "&Jump to first difference when loading"
 msgstr "ロード時に最初の相違点へ移動する(&J)"
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr "キーワード(&K)"
+
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "言語(&L):"
@@ -734,9 +805,17 @@ msgstr "大きいアイコン(&L)"
 msgid "&Limit search to modified lines"
 msgstr "変更された行内でのみ検索する(&L)"
 
+#. Resource IDs: (65535)
+msgid "&Limit:"
+msgstr "最大値（&L):"
+
 #. Resource IDs: (32797)
 msgid "&Link image positions"
 msgstr "画像位置を同期(&L)"
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -746,9 +825,21 @@ msgstr "リスト表示(&L)"
 msgid "&Load..."
 msgstr "開く(&L) ..."
 
+#. Resource IDs: (1554)
+msgid "&Locking required (read-only update)"
+msgstr "ロックが必要（読み取り専用の更新） (&L)"
+
+#. Resource IDs: (32854)
+msgid "&Log Sizes"
+msgstr "ログサイズ(&L)"
+
 #. Resource IDs: (65535)
-msgid "&Lum:"
+msgid "&Luminence:"
 msgstr "明度（&L):"
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -782,6 +873,10 @@ msgstr "マージ(&M) ..."
 msgid "&Merging"
 msgstr "マージ(&M)"
 
+#. Resource IDs: (32847)
+msgid "&Mime-Type"
+msgstr "Mime タイプ(&M)"
+
 #. Resource IDs: (16925)
 msgid "&Minimize"
 msgstr "最小化(&M)"
@@ -793,6 +888,10 @@ msgstr "タグのコピーの色を変更(&M)"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "Trunk のコピーの色を変更(&M)"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "移動したブロック(&M)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -831,6 +930,18 @@ msgstr "次のページ(&N)"
 msgid "&No double-click event"
 msgstr "ダブルクリックイベントを発生しない(&N)"
 
+#. Resource IDs: (1555)
+msgid "&No locking required"
+msgstr "ロックは不要(&N)"
+
+#. Resource IDs: (1555)
+msgid "&Not executable"
+msgstr "非実行形式(&N)"
+
+#. Resource IDs: (1566)
+msgid "&Numeric"
+msgstr "数字(&N)"
+
 #. Resource IDs: (1)
 msgid "&OK"
 msgstr "&OK"
@@ -863,9 +974,17 @@ msgstr "パスワード(&P):"
 msgid "&Paste"
 msgstr "貼り付け(&P)"
 
+#. Resource IDs: (1600)
+msgid "&Peg revision:"
+msgstr "ペグリビジョン(&P):"
+
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "常にオフライン(&P)"
+
+#. Resource IDs: (1588)
+msgid "&Platform dependent (native)"
+msgstr "環境依存 (native) (&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -911,6 +1030,10 @@ msgstr "やり直し(&R)"
 msgid "&Refresh"
 msgstr "更新(&R)"
 
+#. Resource IDs: (1562)
+msgid "&Remind me to enter a bug-ID"
+msgstr "Bug-ID の入力を確認する(&R)"
+
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
 msgstr "削除(&R)"
@@ -951,6 +1074,10 @@ msgstr "ローカルの属性を用いて解消する(&R)"
 msgid "&Restore defaults"
 msgstr "デフォルトに戻す(&R)"
 
+#. Resource IDs: (1542)
+msgid "&Retry without hooks"
+msgstr "フック無しでリトライ(&R)"
+
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
 msgstr "これらのリビジョンにおける変更を元に戻す(&R)"
@@ -972,7 +1099,7 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Sat:"
+msgid "&Saturation:"
 msgstr "彩度(&S):"
 
 #. Resource IDs: (16921, 57603)
@@ -992,8 +1119,8 @@ msgid "&Save list of selected files to..."
 msgstr "選択ファイルのリストを保存(&S) ..."
 
 #. Resource IDs: (1308)
-msgid "&Save..."
-msgstr "保存(&S) ..."
+msgid "&Save value..."
+msgstr "値を保存(&S) ..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1111,6 +1238,10 @@ msgstr "ツールバー名(&T):"
 msgid "&Toolbars:"
 msgstr "ツールバー(&T):"
 
+#. Resource IDs: (1567)
+msgid "&Top"
+msgstr "一番上(&T)"
+
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -1190,6 +1321,10 @@ msgstr "空白を表示(&W)"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "単語単位(&W)"
+
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1791,13 +1926,17 @@ msgstr ""
 "'Power User' デフォルトを適用する。これはよりスムーズな体験を提供します。\n"
 "上記のすべての設定の意味を理解した上で利用してください。"
 
-#. Resource IDs: (1294)
-msgid "Apply property recursively"
-msgstr "属性を再帰的に適用する"
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "パッチを適用 ..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
 msgstr "Unified Diff を適用"
+
+#. Resource IDs: (1565)
+msgid "Arb&itrary text"
+msgstr "任意のテキスト(&I)"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -1816,6 +1955,10 @@ msgstr "本当に %d 個の項目を元に戻してもよろしいですか？ �
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "垂直方向に並べる(&V)"
+
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr "無変更（改行コードを指定しない） (&I)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2018,9 +2161,13 @@ msgstr "Bug-&ID / Issue-Nr:"
 msgid "Bug-ID"
 msgstr "Bug-ID"
 
+#. Resource IDs: (1578)
+msgid "Bug-ID e&xpression:"
+msgstr "Bug-ID の表現(&X):"
+
 #. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
-msgstr "Bug-ID / &Issue-Nr:"
+msgid "Bug-ID is:"
+msgstr "Bug-IDs:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2107,7 +2254,7 @@ msgid "Can't create a new image!"
 msgstr "新規に画像を作成することはできません！"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
+msgid "Can't customize menus!"
 msgstr "メニューをカスタマイズすることはできません！"
 
 #. Resource IDs: (1001)
@@ -2131,8 +2278,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "ファイルの改行コードに一貫性がないため、差分を表示できません。"
 
 #. Resource IDs: (16926)
-msgid "Cascade"
-msgstr "重ねる"
+msgid "Casca&de"
+msgstr "重ねる(&D)"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -2202,6 +2349,10 @@ msgstr "変更した項目（ダブルクリックで差分を表示）"
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
 msgstr "修正されたリビジョンへ外部参照を変更中"
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
+msgstr "コミット時のテキストボックスに表示する境界線の位置:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2618,7 +2769,7 @@ msgstr "フックスクリプトの設定"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
-msgstr "課題追跡システムの設定"
+msgstr "課題追跡システムの統合に関する設定"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
@@ -2991,6 +3142,10 @@ msgstr ""
 msgid "Could not start thread!"
 msgstr "スレッドを開始できません！"
 
+#. Resource IDs: (1542)
+msgid "Create &Library"
+msgstr "ライブラリを作成(&L)"
+
 #. Resource IDs: (13)
 msgid "Create &patch..."
 msgstr "パッチを作成(&P) ..."
@@ -3035,6 +3190,10 @@ msgstr "リモート操作によってフォルダを作成しました"
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "ブランチやタグ用にリポジトリ内に 'cheap' なコピーを作成する"
+
+#. Resource IDs: (199)
+msgid "Creates a library folder with special settings for Subversion working copies"
+msgstr "Subversion の作業コピーのために、特殊な設定のライブラリフォルダを作成する"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3224,12 +3383,20 @@ msgid "Deselect changelist"
 msgstr "変更リストを選択解除する"
 
 #. Resource IDs: (1547)
+msgid "Destinatio&n URL:"
+msgstr "目的 URL (&N):"
+
+#. Resource IDs: (1547)
 msgid "Destination URL:"
 msgstr "目的 URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "送り先ディスクドライブはいっぱいです。"
+
+#. Resource IDs: (2056)
+msgid "Detect and highlight moved blocks"
+msgstr "移動したブロックを検出してハイライトする"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -3390,6 +3557,10 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "続行してもよろしいですか？"
 
+#. Resource IDs: (3887)
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "これらの自動保存されたドキュメントを復元してもよろしいですか？"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3430,6 +3601,14 @@ msgstr ""
 "代わりに、すべてのURLを互いに隣り合う別々の作業コピーにチェックアウトされます。\n"
 "これは、ディレクトリURLに対してのみ動作します。"
 
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+"自動保存されたドキュメントを復元しない\n"
+"最後に保存されたドキュメントのバージョンを利用する"
+
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "このメッセージを再び表示しない"
@@ -3463,6 +3642,10 @@ msgstr "正確なコピー元を表示する(&X)"
 msgid "E&xclude paths:"
 msgstr "除外するパス(&X):"
 
+#. Resource IDs: (32839)
+msgid "E&xecutable"
+msgstr "実行形式(&X)"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "終了(&X)"
@@ -3495,6 +3678,10 @@ msgstr "編集"
 msgid "Edit Button Image"
 msgstr "ボタンイメージを編集"
 
+#. Resource IDs: (319)
+msgid "Edit External"
+msgstr "外部参照を編集"
+
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "属性を編集"
@@ -3515,6 +3702,10 @@ msgstr "作者を編集"
 msgid "Edit author name"
 msgstr "作者名を編集"
 
+#. Resource IDs: (315)
+msgid "Edit bugtraq properties"
+msgstr "課題追跡の属性を編集"
+
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr "拡張子に対応した差分プログラムを編集"
@@ -3522,6 +3713,10 @@ msgstr "拡張子に対応した差分プログラムを編集"
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
 msgstr "拡張子に対応したマージプログラムを編集"
+
+#. Resource IDs: (321)
+msgid "Edit language properties"
+msgstr "言語の属性を編集"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -3705,6 +3900,10 @@ msgstr "%1 文字以上は入力できません。"
 msgid "Enter the regex string below:"
 msgstr "正規表現文字列を入力:"
 
+#. Resource IDs: (1577)
+msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
+msgstr "コミットメッセージから除外する Bug-ID を表す正規表現を入力してください。"
+
 #. Resource IDs: (3603)
 msgid ""
 "Erase everything\n"
@@ -3742,6 +3941,10 @@ msgid ""
 msgstr ""
 "レジストリのキー %1!s! の読み込み／書き込み中にエラーが発生しました\n"
 "%2!s!"
+
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
+msgstr "外部(&T)"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -3872,6 +4075,10 @@ msgstr "外部を含む"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "マージを強制実行する(&O)"
+
+#. Resource IDs: (1070)
+msgid "Fade"
+msgstr "フェード"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4372,6 +4579,10 @@ msgstr "最新ノード"
 msgid "Head revision is %s"
 msgstr "最新のリビジョンは %s"
 
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr "ヘッダ"
+
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "ヘルプ"
@@ -4468,6 +4679,14 @@ msgstr "無視(&G)"
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
 msgstr "含めるパス(&N):"
+
+#. Resource IDs: (1580)
+msgid "IBugTraqProvider"
+msgstr "IBugTraqProvider"
+
+#. Resource IDs: (1592)
+msgid "ID"
+msgstr "ID"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4907,6 +5126,10 @@ msgstr ""
 msgid "Import to %1"
 msgstr "%1 にインポート"
 
+#. Resource IDs: (80)
+msgid "Imported folder structure"
+msgstr "フォルダー構造をインポート"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %1!s!"
@@ -4959,6 +5182,10 @@ msgid ""
 msgstr ""
 "クリップボードの内容を挿入する\n"
 "貼り付け"
+
+#. Resource IDs: (1575)
+msgid "Insert message at:"
+msgstr "メッセージを挿入:"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -5060,6 +5287,10 @@ msgstr ""
 "範囲はハイフンで指定することができます。\n"
 "例: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (1571)
+msgid "Issue tracker"
+msgstr "課題追跡システム"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -5152,6 +5383,22 @@ msgstr "キーボードショートカット:"
 #. Resource IDs: (1002)
 msgid "Keys"
 msgstr "キー"
+
+#. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr "最大値(&I):"
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr "ローカルパス(&O): "
+
+#. Resource IDs: (32855)
+msgid "Lan&guages"
+msgstr "言語(&G)"
+
+#. Resource IDs: (65535)
+msgid "Language:"
+msgstr "言語:"
 
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
@@ -5583,6 +5830,18 @@ msgstr "リビジョン %s の %s を %s へマージ中、%s%s%s"
 msgid "Message"
 msgstr "メッセージ"
 
+#. Resource IDs: (1574)
+msgid "Message &label:"
+msgstr "メッセージラベル(&L):"
+
+#. Resource IDs: (1573)
+msgid "Message &pattern:"
+msgstr "メッセージパターン(&P):"
+
+#. Resource IDs: (1579)
+msgid "Message part &expression:"
+msgstr "メッセージ部分表現(&E):"
+
 #. Resource IDs: (1241)
 msgid "Message:"
 msgstr "メッセージ:"
@@ -5610,6 +5869,14 @@ msgstr "Mine"
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
 msgstr "リボンを最小化する"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr "コミットメッセージに入力する最小文字数:"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
+msgstr "ロックメッセージに入力する最小文字数:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -5723,9 +5990,17 @@ msgstr "移動／名前の変更"
 msgid "Move: New name for %s"
 msgstr "移動: %s の新しい名前"
 
+#. Resource IDs: (65535)
+msgid "Moved from"
+msgstr "～から移動"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "リモート操作による移動"
+
+#. Resource IDs: (65535)
+msgid "Moved to"
+msgstr "～へ移動"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -5767,6 +6042,10 @@ msgstr "ナビゲーション領域の設定 ..."
 #. Resource IDs: (208)
 msgid "Needs lock"
 msgstr "ロックが必要"
+
+#. Resource IDs: (32845)
+msgid "Needs-&Lock"
+msgstr "ロックが必要(&L)"
 
 #. Resource IDs: (1550)
 msgid "Needs-lock"
@@ -5954,6 +6233,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "非再帰的"
 
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr "自動保存されたドキュメントの復元を選択する場合は、オリジナルのドキュメントを上書きするために明示的に保存処理を行う必要がある事に注意してください。もし自動保存されたバージョンを復元しないなら、それらは削除されます。"
+
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "注意書き: フォルダはバージョン管理外の項目を含んでいます"
@@ -5965,6 +6248,10 @@ msgstr "注意： フォントの設定は TortoiseUDiff ビューアにも影�
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
 msgstr "注意: これは TortoiseSVN だけでなく、すべての Tortoise クライアントに影響を与えます！"
+
+#. Resource IDs: (1557)
+msgid "Note: this property has no effect on Windows"
+msgstr "注意: この属性は Windows では効果がありません"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -6083,6 +6370,10 @@ msgstr ""
 "\n"
 "本当に選択したパスを移動させてもよろしいですか？"
 
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr "一つ以上の自動保存されたドキュメントが見つかりました。"
+
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
 msgstr "１つ以上のファイルが競合状態にあります。"
@@ -6104,6 +6395,10 @@ msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
 msgstr "数値のみ（コンマで分割可能）が入力可能です！"
+
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "属性のみが変更"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6263,13 +6558,21 @@ msgstr "ファイル名のリストを貼付"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "クリップボードから SVN のパスを貼り付け、移動（切り取り）もしくはコピー操作を行う"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "全パッチ"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "全ての項目にパッチを適用(&A)"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "選択された項目にパッチを適用(&S)"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "選択されたパッチ"
+msgid "Patch all files"
+msgstr "全てのファイルにパッチを適用"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "選択されたファイルにパッチを適用"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -6290,6 +6593,14 @@ msgid ""
 msgstr ""
 "鉛筆ツール\n"
 "鉛筆"
+
+#. Resource IDs: (245)
+msgid "Percent of authorship"
+msgstr "作者の割合:"
+
+#. Resource IDs: (245)
+msgid "Percents"
+msgstr "パーセント"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -6577,6 +6888,14 @@ msgstr "属性値:"
 msgid "Provider"
 msgstr "プロバイダ"
 
+#. Resource IDs: (1586)
+msgid "Provider para&meters:"
+msgstr "プロバイダパラメータ(&M):"
+
+#. Resource IDs: (1581)
+msgid "Provider uuid win&32:"
+msgstr "プロバイダ uuid win&32:"
+
 #. Resource IDs: (1475)
 msgid "Provider:"
 msgstr "プロバイダ:"
@@ -6682,6 +7001,14 @@ msgstr "最近変更された行"
 msgid "Record Only"
 msgstr "記録のみ"
 
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+"自動保存されたドキュメントを復元する\n"
+"明示的に保存されたバージョンの代わりに自動保存されたバージョンを開く"
+
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
@@ -6717,6 +7044,10 @@ msgstr "ウィンドウをアイコン化する"
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
 msgstr "最新に更新"
+
+#. Resource IDs: (1576)
+msgid "Regular Expression"
+msgstr "正規表現"
 
 #. Resource IDs: (117)
 msgid ""
@@ -7235,6 +7566,14 @@ msgstr "行 %d / %d"
 msgid "Row %d-%d of %d"
 msgstr "行 %d-%d / %d"
 
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "一行下へ"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "一行上へ"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "選択(&E) ..."
@@ -7494,10 +7833,6 @@ msgstr "変更リストを選択"
 msgid "Select diff application"
 msgstr "差分用アプリケーションを選択"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "差分ファイルを選択 ..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "チェックアウトするディレクトリを選択"
@@ -7542,6 +7877,10 @@ msgstr "マージ用アプリケーションを選択"
 msgid "Select merge target"
 msgstr "マージするターゲットを選択"
 
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "パッチファイルを選択 ..."
+
 #. Resource IDs: (276)
 msgid "Select revision range"
 msgstr "リビジョンの範囲を選択"
@@ -7573,6 +7912,10 @@ msgid ""
 msgstr ""
 "ドキュメント全体を選択する\n"
 "全選択"
+
+#. Resource IDs: (65535)
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgstr "このプロジェクトで使用している言語を選択してください。この設定は、コミットメッセージを入力する際のスペルチェッカに影響します。"
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -7942,6 +8285,10 @@ msgstr "サイズと状態"
 msgid "Size of all cached text information"
 msgstr "すべてのキャッシュされているテキスト情報のサイズ"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "ログメッセージのサイズ"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "ディスク上のキャッシュファイルのサイズ"
@@ -7958,6 +8305,10 @@ msgstr "スキップ"
 msgid "Skipped missing target"
 msgstr "ターゲットが見つからないのでスキップ"
 
+#. Resource IDs: (1070)
+msgid "Slide"
+msgstr "スライド"
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "コミット数でソートする"
@@ -7970,9 +8321,21 @@ msgstr "左側のソース"
 msgid "Source Right:"
 msgstr "右側のソース"
 
+#. Resource IDs: (1552)
+msgid "Source URL:"
+msgstr "ソースURL:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "最近のログメッセージを表示するダイアログで、表示する項目数を指定する。"
+
+#. Resource IDs: (1572)
+msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgstr "コミットメッセージを入力された Bug-ID からどのように構築するかを指定してください。実際の Bug-ID の部分には %BUGID% を利用してください。これらの設定に何も入力しない場合は、TortoiseSVN は正規表現を代わりに利用します。"
+
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr "課題追跡システムにアクセスするための URL を指定してください。実際の課題番号の部分には %BUGID% を利用してください。"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8308,6 +8671,10 @@ msgstr "タブ幅:"
 #. Resource IDs: (65535)
 msgid "Tag nodes"
 msgstr "タグノード"
+
+#. Resource IDs: (281)
+msgid "Tagged"
+msgstr "タグ"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8711,9 +9078,21 @@ msgstr ""
 "は存在しません。\n"
 "TortoiseMerge はパスの先頭部分を取り除いてパッチを適用しようとしましたが、一致するパスは見つけられませんでした。"
 
+#. Resource IDs: (84)
+msgid ""
+"The regular expression is invalid!\n"
+"Please enter a valid regular expression."
+msgstr ""
+"正規表現は無効です！\n"
+"有効な正規表現を入力してください。"
+
 #. Resource IDs: (80)
-msgid "The repository was successfully created."
-msgstr "リポジトリの作成に成功しました。"
+msgid ""
+"The repository was successfully created.\n"
+"Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+"リポジトリは正しく作成されました。\n"
+"デフォルトのフォルダ構造（trunk/branches/tags）を今すぐ作成しますか？"
 
 #. Resource IDs: (78)
 msgid ""
@@ -8884,6 +9263,10 @@ msgstr "ロックを解除するものがありません。この作業コピー
 msgid "Thesaurus"
 msgstr "シソーラス"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr "これらは現在開いているドキュメントよりも最近保存されており、アプリケーションを閉じる前になされた変更が含まれています。"
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -8944,13 +9327,13 @@ msgstr "この属性に複数行入力することはできません。１行の
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "このアプリケーションで使用しているコマンドのレコードを削除し、メニューとツールバーにデフォルトのコマンドを表示するように設定します。カスタマイズしたものは元に戻りません。本当に実行してもよろしいですか？"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "水平方向に並べる(&H)"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "垂直方向に並べる(&V)"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "水平方向に並べる(&Z)"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9311,6 +9694,10 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "予期せぬファイルフォーマットです。"
 
+#. Resource IDs: (1070)
+msgid "Unfold"
+msgstr "展開する"
+
 #. Resource IDs: (3850)
 msgid ""
 "Unformatted Text\n"
@@ -9443,6 +9830,11 @@ msgstr "ログキャッシュを更新中"
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
 msgstr "作業コピーをアップグレード"
+
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "アップグレード中 \"%1!s!\""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -10124,6 +10516,10 @@ msgstr "高さが合うようにズーム"
 msgid "Zoom to fit in width"
 msgstr "幅が合うようにズーム"
 
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[デフォルト]"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Unassigned]"
@@ -10385,6 +10781,10 @@ msgstr "バージョン管理されていません。"
 msgid "item kept locally"
 msgstr "ローカルに保持される項目"
 
+#. Resource IDs: (1562)
+msgid "keep the file lists in English"
+msgstr "ファイルリストを英語に保つ"
+
 #. Resource IDs: (65535)
 msgid "last head update: "
 msgstr "最終取得日: "
@@ -10577,6 +10977,10 @@ msgstr "スキャンするパス:"
 msgid "skip ranges: "
 msgstr "スキップ範囲: "
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr "svn:eol-style"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
@@ -10584,6 +10988,10 @@ msgid ""
 msgstr ""
 "svn:eol-style\r\n"
 "次の内のどれか、'native'、'LF'、'CR'、'CRLF'."
+
+#. Resource IDs: (312)
+msgid "svn:executable"
+msgstr "svn:executable"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10594,6 +11002,10 @@ msgstr ""
 "svn:executable\r\n"
 "この属性が設定されている場合、ファイルを実行可能形式にします。この属性はディレクトリに対して設定することはできません。\r\n"
 "ディレクトリに対する再帰的でない設定は失敗し、再帰的な設定の場合は子階層上のファイルに対してのみ設定されます。"
+
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10631,6 +11043,10 @@ msgstr ""
 "svn:ignore\r\n"
 "改行で区切られた無視するファイルパターンのリスト。"
 
+#. Resource IDs: (317)
+msgid "svn:keywords"
+msgstr "svn:keywords"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:keywords\r\n"
@@ -10663,6 +11079,10 @@ msgstr ""
 "例\r\n"
 "/trunk:123-125,129"
 
+#. Resource IDs: (314)
+msgid "svn:mime-type"
+msgstr "svn:mime-type"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:mime-type\r\n"
@@ -10674,6 +11094,10 @@ msgstr ""
 "ファイルのMIMEタイプ。ファイルをマージするかどうかを決定する際に用い、Apache からどのように送り出すかを決める。\r\n"
 "'text/' （もしくは何も設定しない場合）で始まるMIMEタイプの場合はテキストとして扱われる。\r\n"
 "その他はすべてバイナリとして扱われる。"
+
+#. Resource IDs: (313)
+msgid "svn:needs-lock"
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10736,10 +11160,6 @@ msgstr "%s へ"
 #. Resource IDs: (208, 264)
 msgid "tree conflict"
 msgstr "ツリーの競合"
-
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "ツリーの競合:"
 
 #. Resource IDs: (578)
 msgid ""
@@ -10856,6 +11276,10 @@ msgstr ""
 msgid "user revprops total: "
 msgstr "ユーザー定義属性数: "
 
+#. Resource IDs: (1583)
+msgid "uuid x6&4:"
+msgstr "uuid x6&4:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "値が異なっています"
@@ -10908,6 +11332,16 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Sat:"
+#~ msgstr "彩度(&S):"
+#~ msgid "&Save..."
+#~ msgstr "保存(&S) ..."
+#~ msgid "Bug-ID / &Issue-Nr:"
+#~ msgstr "Bug-ID / &Issue-Nr:"
+#~ msgid "The repository was successfully created."
+#~ msgstr "リポジトリの作成に成功しました。"
+#~ msgid "tree conflict:"
+#~ msgstr "ツリーの競合:"
 #~ msgid "&To URL: "
 #~ msgstr "先 URL(&T):"
 #~ msgid "Show overlay for ignored items"
@@ -10945,8 +11379,6 @@ msgstr "{BugTraq}"
 #~ msgstr "バージョン管理外のファイルを表示する(&V)"
 #~ msgid "Cleaning up."
 #~ msgstr "クリーンアップ。"
-#~ msgid "%s, but the local file was already edited."
-#~ msgstr "%s、しかしながらローカルファイルはすでに編集されています。"
 #~ msgid "General::Revision Graph"
 #~ msgstr "一般::リビジョングラフ"
 #~ msgid "General::Revision Graph Colors"
