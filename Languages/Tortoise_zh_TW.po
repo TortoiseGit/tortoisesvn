@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-22 00:08+0800\n"
+"PO-Revision-Date: 2010-06-09 22:16+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1918,6 +1918,10 @@ msgid ""
 msgstr ""
 "套用進階使用者設定. 可提供較順暢的使用經驗.\n"
 "建議您了解各項設定作用後使用."
+
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "套用補綴..."
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
@@ -6387,6 +6391,10 @@ msgstr ""
 "只可以輸入數字(可以用逗\n"
 "點分隔)!"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "僅性質改變"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "僅此項目"
@@ -6545,12 +6553,20 @@ msgstr "貼上檔名列表"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "自剪貼簿貼上 svn 路徑, 並進行移動(剪下)或複製動作"
 
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "全部補綴(&A)"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "補綴選定的項目(&S)"
+
 #. Resource IDs: (376)
-msgid "Patch all"
+msgid "Patch all files"
 msgstr "全部補綴"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
+msgid "Patch selected files"
 msgstr "補綴選定的項目"
 
 #. Resource IDs: (157)
@@ -7811,10 +7827,6 @@ msgstr "選擇變更列表"
 msgid "Select diff application"
 msgstr "選擇比對差異工具"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "選擇差異檔..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "選擇取出的目的目錄"
@@ -7858,6 +7870,10 @@ msgstr "選擇合併工具"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "選擇合併目標"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "選擇補綴檔..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -9807,6 +9823,11 @@ msgstr "正在更新紀錄訊息快取"
 msgid "Upgrade working copy"
 msgstr "升級工作複本"
 
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "正在更新 \"%1!s!\""
+
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
 msgstr "使用預設影像(&D):"
@@ -11133,10 +11154,6 @@ msgstr "至 %s"
 msgid "tree conflict"
 msgstr "目錄樹衝突"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "目錄樹衝突:"
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11309,6 +11326,8 @@ msgstr "是"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "tree conflict:"
+#~ msgstr "目錄樹衝突:"
 #~ msgid "The repository was successfully created."
 #~ msgstr "檔案庫建立成功."
 #~ msgid "&Sat:"
