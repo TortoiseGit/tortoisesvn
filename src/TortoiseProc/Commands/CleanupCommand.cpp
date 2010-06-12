@@ -62,12 +62,20 @@ bool CleanupCommand::Execute()
             CString sPath;
             bool bDir = false;
             CTSVNPathList updateList;
-            while (crawler.NextFile(sPath, &bDir))
+            bool bRecurse = true;
+            while (crawler.NextFile(sPath, &bDir, bRecurse))
             {
-                if ((bDir) && (!g_SVNAdminDir.IsAdminDirPath(sPath)))
+                if (bDir)
                 {
-                    updateList.AddPath(CTSVNPath(sPath));
+                    if (!g_SVNAdminDir.IsAdminDirPath(sPath))
+                        updateList.AddPath(CTSVNPath(sPath));
+                    if (!g_SVNAdminDir.HasAdminDir(sPath, true))
+                        bRecurse = false;
+                    else
+                        bRecurse = true;
                 }
+                else
+                    bRecurse = true;
             }
             updateList.AddPath(pathList[i]);
             CShellUpdater::Instance().AddPathsForUpdate(updateList);
