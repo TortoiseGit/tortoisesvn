@@ -142,9 +142,7 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
             state = 0;
         else
         {
-            CString sDummy;
-            CString sDummy2;
-            state = m_pPatch->PatchFile(m_pPatch->GetStrippedPath(i), false, sDummy, sDummy2);
+            state = m_pPatch->GetFailedHunks(i);
         }
         m_arFileStates.Add(state);
         SHFILEINFO    sfi;

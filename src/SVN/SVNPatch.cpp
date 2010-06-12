@@ -61,18 +61,11 @@ SVNPatch::~SVNPatch()
 void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * /*pool*/ )
 {
     SVNPatch * pThis = (SVNPatch*)baton;
-    if ((pThis)&&(pThis->m_bInit)&&(notify))
-    {
-        if (notify->action == svn_wc_notify_skip)
-        {
-            pThis->m_nRejected++;
-        }
-    }
-    else if (pThis && notify)
+    if (pThis && notify)
     {
         if ((notify->action == svn_wc_notify_skip)||(notify->action == svn_wc_notify_patch_rejected_hunk))
         {
-            pThis->m_nRejected++;
+            pThis->m_filePaths[pThis->m_filePaths.size()-1].rejects++;
         }
         if (notify->action != svn_wc_notify_add)
         {
@@ -94,38 +87,32 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
     if ((pThis)&&(pThis->m_bInit))
     {
         CString abspath = CUnicodeUtils::GetUnicode(canon_path_from_patchfile);
-        if (abspath.Left(pThis->m_targetpath.GetLength()).Compare(pThis->m_targetpath) == 0)
-            pThis->m_filePaths.push_back(abspath.Mid(pThis->m_targetpath.GetLength()));
-        else
-            pThis->m_filePaths.push_back(abspath);
+        PathRejects pr;
+        pr.path = abspath.Mid(pThis->m_targetpath.GetLength());
+        pr.rejects = 0;
+        pThis->m_filePaths.push_back(pr);
+        pThis->m_nRejected = 0;
+        *filtered = false;
+
         CString sFile = CUnicodeUtils::GetUnicode(patch_abspath);
-        if (PathIsRelative(sFile))
-            sFile = pThis->m_targetpath + _T("\\") + sFile;
         sFile.Replace('/', '\\');
-        DeleteFile(sFile);
+        pThis->m_tempFiles.AddFileToRemove(sFile);
         sFile = CUnicodeUtils::GetUnicode(reject_abspath);
-        if (PathIsRelative(sFile))
-            sFile = pThis->m_targetpath + _T("\\") + sFile;
         sFile.Replace('/', '\\');
-        DeleteFile(sFile);
-        *filtered = true;
+        pThis->m_tempFiles.AddFileToRemove(sFile);
     }
     else if (pThis)
     {
-        if (pThis->m_filterPath.CompareNoCase(CUnicodeUtils::GetUnicode(canon_path_from_patchfile)) == 0)
+        if (pThis->m_filterPath.CompareNoCase(CUnicodeUtils::GetUnicode(canon_path_from_patchfile).Right(pThis->m_filterPath.GetLength())) == 0)
         {
             pThis->m_patchedPath = CUnicodeUtils::GetUnicode(patch_abspath);
             pThis->m_rejectedPath = CUnicodeUtils::GetUnicode(reject_abspath);
             if (pThis->m_bDryRun)
             {
                 CString sFile = CUnicodeUtils::GetUnicode(patch_abspath);
-                if (PathIsRelative(sFile))
-                    sFile = pThis->m_targetpath + _T("\\") + sFile;
                 sFile.Replace('/', '\\');
                 pThis->m_tempFiles.AddFileToRemove(sFile);
                 sFile = CUnicodeUtils::GetUnicode(reject_abspath);
-                if (PathIsRelative(sFile))
-                    sFile = pThis->m_targetpath + _T("\\") + sFile;
                 sFile.Replace('/', '\\');
                 pThis->m_tempFiles.AddFileToRemove(sFile);
             }
@@ -194,9 +181,9 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
         bool found = false;
         for (m_nStrip = 0; m_nStrip < STRIP_LIMIT; ++m_nStrip)
         {
-            for (std::vector<CString>::iterator it = m_filePaths.begin(); it != m_filePaths.end(); ++it)
+            for (std::vector<PathRejects>::iterator it = m_filePaths.begin(); it != m_filePaths.end(); ++it)
             {
-                if (Strip(*it).IsEmpty())
+                if (Strip(it->path).IsEmpty())
                 {
                     found = true;
                     m_nStrip--;

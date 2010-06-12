@@ -71,7 +71,12 @@ public:
     /**
      * Returns the path of the affected file
      */
-    CString                 GetFilePath(int index) const { return m_filePaths[index]; }
+    CString                 GetFilePath(int index) const { return m_filePaths[index].path; }
+
+    /**
+     * Returns the number of failed hunks for the affected file
+     */
+    int                     GetFailedHunks(int index) const { return m_filePaths[index].rejects; }
 
     /**
      * Returns the path of the affected file, stripped by m_nStrip.
@@ -103,7 +108,12 @@ private:
                                    apr_pool_t *pool);
 
     apr_pool_t * m_pool;
-    std::vector<CString>    m_filePaths;
+    typedef struct PathRejects
+    {
+        CString     path;
+        int         rejects;
+    };
+    std::vector<PathRejects> m_filePaths;
     int                     m_nStrip;
     bool                    m_bInit;
     bool                    m_bSuccessfullyPatched;
