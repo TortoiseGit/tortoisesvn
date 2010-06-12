@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2006, 2009 - TortoiseSVN
+// Copyright (C) 2005-2006, 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -150,13 +150,13 @@ CDirFileEnum::~CDirFileEnum()
    }
 }
 
-BOOL CDirFileEnum::NextFile(CString &sResult, bool* pbIsDirectory)
+BOOL CDirFileEnum::NextFile(CString &sResult, bool* pbIsDirectory, bool bRecurse /* = true */)
 {
    if (m_bIsNew) {
       // Special-case first time - haven't found anything yet,
       // so don't do recurse-into-directory check.
       m_bIsNew = FALSE;
-   } else if (m_seStack && m_seStack->IsDirectory()) {
+   } else if (m_seStack && m_seStack->IsDirectory() && bRecurse) {
       PushStack(m_seStack->GetFilePath());
    }
 
