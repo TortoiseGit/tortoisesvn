@@ -24,6 +24,7 @@
 #pragma warning(pop)
 #include "TSVNPath.h"
 #include "TempFiles.h"
+#include "ProgressDlg.h"
 
 class SVNPatch
 {
@@ -34,9 +35,10 @@ public:
     /**
      * Does a dry run of the patching, fills in all the arrays.
      * Call this function first.
+     * The progress dialog is used to show progress info if the initialization takes a long time.
      * \return the number of files affected by the patchfile, 0 in case of an error
      */
-    int                     Init(const CString& patchfile, const CString& targetpath);
+    int                     Init(const CString& patchfile, const CString& targetpath, CProgressDlg *pPprogDlg);
 
     /**
      * Sets the target path. Use this after getting a new path from CheckPatchPath()
@@ -121,4 +123,5 @@ private:
     CString                 m_testPath;
     CString                 m_errorStr;
     CTempFiles              m_tempFiles;
+    CProgressDlg *          m_pProgDlg;
 };

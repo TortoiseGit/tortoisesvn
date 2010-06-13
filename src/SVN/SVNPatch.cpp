@@ -74,6 +74,10 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
             else
                 pThis->m_testPath = abspath;
         }
+        if ((notify->action == svn_wc_notify_patch)&&(pThis->m_pProgDlg))
+        {
+            pThis->m_pProgDlg->FormatPathLine(2, IDS_PATCH_PATHINGFILE, (LPCTSTR)CUnicodeUtils::GetUnicode(notify->path));
+        }
     }
 }
 
@@ -103,7 +107,7 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
     return NULL;
 }
 
-int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
+int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgressDlg *pPprogDlg )
 {
     svn_error_t *               err         = NULL;
     apr_pool_t *                scratchpool = NULL;
@@ -122,6 +126,15 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
     ctx->notify_func2 = notify;
     ctx->notify_baton2 = this;
 
+    if (pPprogDlg)
+    {
+        pPprogDlg->SetTitle(IDS_APPNAME);
+        pPprogDlg->FormatNonPathLine(1, IDS_PATCH_PROGTITLE);
+        pPprogDlg->SetShowProgressBar(false);
+        pPprogDlg->ShowModeless(AfxGetMainWnd());
+        m_pProgDlg = pPprogDlg;
+    }
+
     m_filePaths.clear();
     m_nRejected = 0;
     m_nStrip = 0;
@@ -129,6 +142,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
                            true, m_nStrip, false, true, false, patch_func, this, ctx,
                            m_pool, scratchpool);
 
+    m_pProgDlg = NULL;
     apr_pool_destroy(scratchpool);
 
     if (err)

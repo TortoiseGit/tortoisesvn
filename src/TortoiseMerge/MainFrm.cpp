@@ -592,11 +592,12 @@ bool CMainFrame::LoadViews(int line)
 
     if (!m_Data.IsBaseFileInUse())
     {
+        CProgressDlg progDlg;
         if (m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
         {
             m_Data.m_baseFile.TransferDetailsFrom(m_Data.m_theirFile);
         }
-        else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath)))
+        else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg)))
         {
             ClearViewNamesAndPaths();
             MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
