@@ -77,6 +77,9 @@
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
+    <PostBuildEvent>
+      <Command>..\bin\debug64\bin\ResText extract ..\bin\debug64\bin\TortoiseProcLang.dll ..\bin\debug64\bin\TortoiseMergeLang.dll ..\bin\debug64\bin\TortoiseBlameLang.dll ..\bin\debug64\bin\TortoiseIDiffLang.dll Tortoise.pot</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PostBuildEvent>
@@ -88,8 +91,7 @@
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>..\bin\release64\bin\ResText extract ..\bin\release64\bin\TortoiseProcLang.dll ..\bin\release64\bin\TortoiseMergeLang.dll ..\bin\release64\bin\TortoiseBlameLang.dll ..\bin\release64\bin\TortoiseIDiffLang.dll Tortoise.pot</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
