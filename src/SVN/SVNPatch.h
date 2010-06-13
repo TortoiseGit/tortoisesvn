@@ -54,14 +54,11 @@ public:
     CString                 CheckPatchPath(const CString& path);
 
     /**
-     * Applies the patch to the file specified in \c sPath and saves the result
-     * to \c sSavePath. If \c sSavePath is empty, the patch is applied but the result
-     * is not saved, useful to test whether a patch can be applied.
-     * The \c sRejectPath is set to the file containing the rejected hunks, or empty if
-     * there are no rejected hunks.
+     * Returns the paths of the patch result for the \c sPath.
+     * The patch is applied in the Init() method.
      * \return the number of failed hunks, 0 if everything was applied successfully, -1 on error
      */
-    int                     PatchFile(const CString& sPath, bool dryrun, CString& sSavePath, CString& sRejectPath);
+    int                     GetPatchResult(const CString& sPath, CString& sSavePath, CString& sRejectPath) const;
 
     /**
      * returns the number of files that are affected by the patchfile.
@@ -112,19 +109,16 @@ private:
     {
         CString     path;
         int         rejects;
+        CString     resultPath;
+        CString     rejectsPath;
     };
     std::vector<PathRejects> m_filePaths;
     int                     m_nStrip;
-    bool                    m_bInit;
     bool                    m_bSuccessfullyPatched;
-    bool                    m_bDryRun;
     int                     m_nRejected;
-    CString                 m_filterPath;
     CString                 m_patchfile;
     CString                 m_targetpath;
     CString                 m_testPath;
-    CString                 m_patchedPath;
-    CString                 m_rejectedPath;
     CString                 m_errorStr;
     CTempFiles              m_tempFiles;
 };

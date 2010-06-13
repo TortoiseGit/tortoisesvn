@@ -42,7 +42,6 @@ int SVNPatch::abort_on_pool_failure (int /*retcode*/)
 SVNPatch::SVNPatch() 
     : m_pool(NULL)
     , m_nStrip(0)
-    , m_bInit(false)
 {
     apr_initialize();
     svn_dso_initialize2();
@@ -84,54 +83,22 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
                                     apr_pool_t * /*scratch_pool*/ )
 {
     SVNPatch * pThis = (SVNPatch*)baton;
-    if ((pThis)&&(pThis->m_bInit))
+    if (pThis)
     {
         CString abspath = CUnicodeUtils::GetUnicode(canon_path_from_patchfile);
         PathRejects pr;
         pr.path = abspath.Mid(pThis->m_targetpath.GetLength());
         pr.rejects = 0;
+        pr.resultPath = CUnicodeUtils::GetUnicode(patch_abspath);
+        pr.resultPath.Replace('/', '\\');
+        pr.rejectsPath = CUnicodeUtils::GetUnicode(reject_abspath);
+        pr.rejectsPath.Replace('/', '\\');
         pThis->m_filePaths.push_back(pr);
         pThis->m_nRejected = 0;
         *filtered = false;
 
-        CString sFile = CUnicodeUtils::GetUnicode(patch_abspath);
-        sFile.Replace('/', '\\');
-        pThis->m_tempFiles.AddFileToRemove(sFile);
-        sFile = CUnicodeUtils::GetUnicode(reject_abspath);
-        sFile.Replace('/', '\\');
-        pThis->m_tempFiles.AddFileToRemove(sFile);
-    }
-    else if (pThis)
-    {
-        if (pThis->m_filterPath.CompareNoCase(CUnicodeUtils::GetUnicode(canon_path_from_patchfile).Right(pThis->m_filterPath.GetLength())) == 0)
-        {
-            pThis->m_patchedPath = CUnicodeUtils::GetUnicode(patch_abspath);
-            pThis->m_rejectedPath = CUnicodeUtils::GetUnicode(reject_abspath);
-            if (pThis->m_bDryRun)
-            {
-                CString sFile = CUnicodeUtils::GetUnicode(patch_abspath);
-                sFile.Replace('/', '\\');
-                pThis->m_tempFiles.AddFileToRemove(sFile);
-                sFile = CUnicodeUtils::GetUnicode(reject_abspath);
-                sFile.Replace('/', '\\');
-                pThis->m_tempFiles.AddFileToRemove(sFile);
-            }
-            *filtered = false;
-        }
-        else
-        {
-            CString sFile = CUnicodeUtils::GetUnicode(patch_abspath);
-            if (PathIsRelative(sFile))
-                sFile = pThis->m_targetpath + _T("\\") + sFile;
-            sFile.Replace('/', '\\');
-            pThis->m_tempFiles.AddFileToRemove(sFile);
-            sFile = CUnicodeUtils::GetUnicode(reject_abspath);
-            if (PathIsRelative(sFile))
-                sFile = pThis->m_targetpath + _T("\\") + sFile;
-            sFile.Replace('/', '\\');
-            pThis->m_tempFiles.AddFileToRemove(sFile);
-            *filtered = true;
-        }
+        pThis->m_tempFiles.AddFileToRemove(pr.resultPath);
+        pThis->m_tempFiles.AddFileToRemove(pr.rejectsPath);
     }
     return NULL;
 }
@@ -155,16 +122,13 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
     ctx->notify_func2 = notify;
     ctx->notify_baton2 = this;
 
-    m_bInit = true;
     m_filePaths.clear();
     m_nRejected = 0;
     m_nStrip = 0;
-    m_filterPath.Empty();
     err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-                           true, m_nStrip, false, true, true, patch_func, this, ctx,
+                           true, m_nStrip, false, true, false, patch_func, this, ctx,
                            m_pool, scratchpool);
 
-    m_bInit = false;
     apr_pool_destroy(scratchpool);
 
     if (err)
@@ -204,17 +168,13 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
         ctx->notify_func2 = notify;
         ctx->notify_baton2 = this;
 
-        m_bInit = true;
-        m_bDryRun = true;
         m_filePaths.clear();
         m_nRejected = 0;
         m_nStrip = 0;
-        m_filterPath.Empty();
         err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-            true, m_nStrip, false, true, true, patch_func, this, ctx,
+            true, m_nStrip, false, true, false, patch_func, this, ctx,
             m_pool, scratchpool);
 
-        m_bInit = false;
         apr_pool_destroy(scratchpool);
 
         if (err)
@@ -228,46 +188,21 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath )
     return (int)m_filePaths.size();
 }
 
-int SVNPatch::PatchFile(const CString& sPath, bool dryrun, CString& sSavePath, CString& sRejectPath)
+int SVNPatch::GetPatchResult(const CString& sPath, CString& sSavePath, CString& sRejectPath) const
 {
-    svn_error_t *               err         = NULL;
-    apr_pool_t *                scratchpool = NULL;
-    svn_client_ctx_t *          ctx         = NULL;
-
-    m_errorStr.Empty();
-
-    apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
-    svn_error_clear(svn_client_create_context(&ctx, scratchpool));
-    ctx->notify_func2 = notify;
-    ctx->notify_baton2 = this;
-    
-    m_bInit = false;
-    m_nRejected = 0;
-    m_bSuccessfullyPatched = true;
-
-    m_filterPath = sPath;
-
-    m_bDryRun = dryrun;
-    err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-                           true, m_nStrip, false, true, false, patch_func, this, ctx,
-                           m_pool, scratchpool);
-
-    apr_pool_destroy(scratchpool);
-
-    if (err)
+    for (std::vector<PathRejects>::const_iterator it = m_filePaths.begin(); it != m_filePaths.end(); ++it)
     {
-        m_errorStr = GetErrorMessage(err);
-        svn_error_clear(err);
-        return -1;
+        if (it->path.CompareNoCase(sPath)==0)
+        {
+            sSavePath = it->resultPath;
+            if (it->rejects > 0)
+                sRejectPath = it->rejectsPath;
+            else
+                sRejectPath.Empty();
+            return it->rejects;
+        }
     }
-    if (m_bSuccessfullyPatched)
-    {
-        sSavePath = m_patchedPath;
-    }
-    if (m_nRejected > 0)
-        sRejectPath = m_rejectedPath;
-
-    return m_nRejected;
+    return -1;
 }
 
 CString SVNPatch::CheckPatchPath( const CString& path )

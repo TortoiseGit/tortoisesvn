@@ -405,7 +405,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
     //"dry run" was successful, so save the patched file somewhere...
     CString sTempFile = m_TempFiles.GetTempFilePath();
     CString sRejectedFile;
-    if (m_Patch.PatchFile(sFilePath, false, sTempFile, sRejectedFile) < 0)
+    if (m_Patch.GetPatchResult(sFilePath, sTempFile, sRejectedFile) < 0)
     {
         MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
         return FALSE;
