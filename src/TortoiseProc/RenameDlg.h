@@ -31,6 +31,7 @@ public:
     CRenameDlg(CWnd* pParent = NULL);
     virtual ~CRenameDlg();
 
+    void AlwaysEnableOkButton(bool bAlwaysEnable = false) { m_bOKEnabled = bAlwaysEnable; }
     enum { IDD = IDD_RENAME };
 
 protected:
@@ -48,4 +49,7 @@ public:
     CString m_name;
     CString m_windowtitle;
     CString m_label;
+
+private:
+    bool    m_bOKEnabled;
 };

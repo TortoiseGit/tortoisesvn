@@ -29,6 +29,7 @@ IMPLEMENT_DYNAMIC(CRenameDlg, CResizableStandAloneDialog)
 CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRenameDlg::IDD, pParent)
     , m_name(_T(""))
+    , m_bOKEnabled(false)
 {
 }
 
@@ -71,7 +72,8 @@ BOOL CRenameDlg::OnInitDialog()
     if (hWndExplorer)
         CenterWindow(CWnd::FromHandle(hWndExplorer));
     EnableSaveRestore(_T("RenameDlg"));
-    GetDlgItem(IDOK)->EnableWindow(FALSE);
+    if (!m_bOKEnabled)
+        GetDlgItem(IDOK)->EnableWindow(FALSE);
     return TRUE;
 }
 
