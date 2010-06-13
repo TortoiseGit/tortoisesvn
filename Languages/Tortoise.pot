@@ -228,6 +228,11 @@ msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but the directory was replaced"
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr ""
 
@@ -254,6 +259,16 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was replaced"
+msgstr ""
+
+#. Resource IDs: (376)
+#, c-format
+msgid "%s\n%ld failed hunk(s)"
 msgstr ""
 
 #. Resource IDs: (3850)
@@ -473,7 +488,7 @@ msgstr ""
 msgid "&Compare revisions"
 msgstr ""
 
-#. Resource IDs: (1019)
+#. Resource IDs: (1019, 1390)
 msgid "&Compare whitespaces"
 msgstr ""
 
@@ -509,7 +524,7 @@ msgstr ""
 msgid "&Copy to..."
 msgstr ""
 
-#. Resource IDs: (1097)
+#. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr ""
 
@@ -673,7 +688,7 @@ msgstr ""
 msgid "&Group by branch"
 msgstr ""
 
-#. Resource IDs: (1032, 1115)
+#. Resource IDs: (1115)
 msgid "&HEAD Revision"
 msgstr ""
 
@@ -866,7 +881,7 @@ msgstr ""
 msgid "&New "
 msgstr ""
 
-#. Resource IDs: (1310, 16509, 16615)
+#. Resource IDs: (1310, 1542, 16509, 16615)
 msgid "&New..."
 msgstr ""
 
@@ -1175,11 +1190,11 @@ msgstr ""
 msgid "&To Revision"
 msgstr ""
 
-#. Resource IDs: (1384, 65535)
+#. Resource IDs: (1305, 1384)
 msgid "&To URL:"
 msgstr ""
 
-#. Resource IDs: (1384)
+#. Resource IDs: (1305, 1384)
 msgid "&To path:"
 msgstr ""
 
@@ -1227,7 +1242,7 @@ msgstr ""
 msgid "&URL of repository:"
 msgstr ""
 
-#. Resource IDs: (1076)
+#. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
 msgstr ""
 
@@ -1803,7 +1818,7 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr ""
 
@@ -1894,7 +1909,7 @@ msgstr ""
 msgid "Authors case sensitive"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1444)
 msgid "Authors:"
 msgstr ""
 
@@ -1962,7 +1977,7 @@ msgstr ""
 msgid "Bitmap\na bitmap"
 msgstr ""
 
-#. Resource IDs: (114, 162)
+#. Resource IDs: (162)
 msgid "Blame"
 msgstr ""
 
@@ -2280,7 +2295,7 @@ msgstr ""
 msgid "Check:"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr ""
 
@@ -2857,6 +2872,16 @@ msgstr ""
 msgid "Could not remove %s from the ignore list"
 msgstr ""
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace '%s' because"
+msgstr ""
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace property '%1!s!' on '%2!s!' because"
+msgstr ""
+
 #. Resource IDs: (81)
 #, c-format
 msgid "Could not retrieve URL of the file!\n%s"
@@ -2870,6 +2895,11 @@ msgstr ""
 #. Resource IDs: (64)
 #, c-format
 msgid "Could not save the file %s!"
+msgstr ""
+
+#. Resource IDs: (70)
+#, c-format
+msgid "Could not start diff viewer!\n%s"
 msgstr ""
 
 #. Resource IDs: (81)
@@ -2889,6 +2919,11 @@ msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Could not start print job."
+msgstr ""
+
+#. Resource IDs: (83)
+#, c-format
+msgid "Could not start text viewer!\n%s"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -3030,7 +3065,7 @@ msgstr ""
 msgid "Default Menu"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1516)
 msgid "Default URL:"
 msgstr ""
 
@@ -3038,7 +3073,7 @@ msgstr ""
 msgid "Default application menu. Appears when no documents are open."
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1515)
 msgid "Default path:"
 msgstr ""
 
@@ -3156,7 +3191,7 @@ msgstr ""
 msgid "Diff file:"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1533)
 msgid "Diff options"
 msgstr ""
 
@@ -3320,7 +3355,7 @@ msgstr ""
 msgid "E&xact copy sources"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1518)
 msgid "E&xclude paths:"
 msgstr ""
 
@@ -3421,6 +3456,10 @@ msgstr ""
 msgid "Either the name or IP of the proxy server"
 msgstr ""
 
+#. Resource IDs: (265)
+msgid "Eliding mergeinfo"
+msgstr ""
+
 #. Resource IDs: (1057)
 msgid "Ellipse Tools\nEllipse"
 msgstr ""
@@ -3474,7 +3513,7 @@ msgstr ""
 msgid "Encountered an unexpected error while writing %1."
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1537)
 msgid "End Revision"
 msgstr ""
 
@@ -3689,7 +3728,7 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
 msgstr ""
 
@@ -4035,7 +4074,7 @@ msgstr ""
 msgid "Getting unified diff"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
 msgstr ""
 
@@ -4193,7 +4232,7 @@ msgstr ""
 msgid "I&gnored"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1519)
 msgid "I&nclude paths:"
 msgstr ""
 
@@ -4460,7 +4499,7 @@ msgstr ""
 msgid "Ignore line &endings (recommended)"
 msgstr ""
 
-#. Resource IDs: (1126, 1127)
+#. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr ""
 
@@ -4518,7 +4557,7 @@ msgstr ""
 msgid "Import %s to %s%s"
 msgstr ""
 
-#. Resource IDs: (1056)
+#. Resource IDs: (1386)
 msgid "Import &message"
 msgstr ""
 
@@ -5005,11 +5044,11 @@ msgstr ""
 msgid "Menu s&hadows"
 msgstr ""
 
-#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 278, 65535)
 msgid "Merge"
 msgstr ""
 
-#. Resource IDs: (1488)
+#. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr ""
 
@@ -5083,7 +5122,7 @@ msgstr ""
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1073)
 msgid "Merging"
 msgstr ""
 
@@ -6193,6 +6232,30 @@ msgstr ""
 msgid "Record Only"
 msgstr ""
 
+#. Resource IDs: (265)
+msgid "Recording mergeinfo for merge between URLs"
+msgstr ""
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
+msgstr ""
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%ld"
+msgstr ""
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
+msgstr ""
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%ld"
+msgstr ""
+
 #. Resource IDs: (3887)
 msgid "Recover the auto-saved documents\nOpen the auto-saved versions instead of the explicitly saved versions"
 msgstr ""
@@ -6246,8 +6309,13 @@ msgstr ""
 msgid "Reject"
 msgstr ""
 
+#. Resource IDs: (7)
+#, c-format
+msgid "Rejected patch hunks for '%s'"
+msgstr ""
+
 #. Resource IDs: (16)
-msgid "Release loc&k"
+msgid "Release loc&k..."
 msgstr ""
 
 #. Resource IDs: (16)
@@ -6586,7 +6654,7 @@ msgstr ""
 msgid "Revision / Author:"
 msgstr ""
 
-#. Resource IDs: (182)
+#. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr ""
 
@@ -7198,7 +7266,7 @@ msgstr ""
 msgid "Show f&ull menus after a short delay"
 msgstr ""
 
-#. Resource IDs: (1037)
+#. Resource IDs: (1034, 1037)
 msgid "Show l&og"
 msgstr ""
 
@@ -7765,6 +7833,16 @@ msgstr ""
 
 #. Resource IDs: (608)
 #, c-format
+msgid "The last merge operation tried to replace the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to replace the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
 msgid "The last switch operation tried to add the directory '%s'"
 msgstr ""
 
@@ -7791,6 +7869,16 @@ msgstr ""
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to modify the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the file '%s'"
 msgstr ""
 
 #. Resource IDs: (607)
@@ -7821,6 +7909,16 @@ msgstr ""
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the file '%s'"
 msgstr ""
 
 #. Resource IDs: (63)
@@ -8011,11 +8109,11 @@ msgstr ""
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1531)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1532)
 msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
 msgstr ""
 
@@ -8381,6 +8479,10 @@ msgstr ""
 msgid "Unversioned files mark parent folder as modified"
 msgstr ""
 
+#. Resource IDs: (265)
+msgid "Unversioned obstruction"
+msgstr ""
+
 #. Resource IDs: (286)
 #, c-format
 msgid "Unversioning %1!s!"
@@ -8725,7 +8827,7 @@ msgstr ""
 msgid "With URL:"
 msgstr ""
 
-#. Resource IDs: (158, 65535)
+#. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
 msgstr ""
 
