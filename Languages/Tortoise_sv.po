@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-07 10:35+0100\n"
+"PO-Revision-Date: 2010-06-14 10:52+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -234,6 +234,11 @@ msgstr "%s, men katalogen var blockerad i arbetskopian."
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but the directory was replaced"
+msgstr "%s, men katalogen ersattes."
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr "%s, men filen finns redan icke versionhanterad lokalt."
 
@@ -261,6 +266,20 @@ msgstr "%s men filen är raderad, flyttad eller omdöpt lokalt."
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
 msgstr "%s men filen var blockerad i arbetskopian."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was replaced"
+msgstr "%s, men filen ersattes."
+
+#. Resource IDs: (376)
+#, c-format
+msgid ""
+"%s\n"
+"%ld failed hunk(s)"
+msgstr ""
+"%s\n"
+"%ld misslyckade del(ar)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -510,7 +529,7 @@ msgstr "&Jämför URLer"
 msgid "&Compare revisions"
 msgstr "&Jämför revisioner"
 
-#. Resource IDs: (1019)
+#. Resource IDs: (1019, 1390)
 msgid "&Compare whitespaces"
 msgstr "&Jämför tomrum"
 
@@ -547,7 +566,7 @@ msgstr "&Kopiera till urklipp"
 msgid "&Copy to..."
 msgstr "&Kopiera till..."
 
-#. Resource IDs: (1097)
+#. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "&Egen"
 
@@ -712,7 +731,7 @@ msgstr "&Grön:"
 msgid "&Group by branch"
 msgstr "&Gruppera efter gren"
 
-#. Resource IDs: (1032, 1115)
+#. Resource IDs: (1115)
 msgid "&HEAD Revision"
 msgstr "&HEAD revision"
 
@@ -907,7 +926,7 @@ msgstr "&Nätverksenheter"
 msgid "&New "
 msgstr "&Ny"
 
-#. Resource IDs: (1310, 16509, 16615)
+#. Resource IDs: (1310, 1542, 16509, 16615)
 msgid "&New..."
 msgstr "&Ny..."
 
@@ -1219,11 +1238,11 @@ msgstr "&Timeout i sekunder för inläsningen till den automatiska ifyllningen"
 msgid "&To Revision"
 msgstr "&Till revision"
 
-#. Resource IDs: (1384, 65535)
+#. Resource IDs: (1305, 1384)
 msgid "&To URL:"
 msgstr "&Till URL:"
 
-#. Resource IDs: (1384)
+#. Resource IDs: (1305, 1384)
 msgid "&To path:"
 msgstr "&Till sökväg:"
 
@@ -1271,7 +1290,7 @@ msgstr "&Två sidor"
 msgid "&URL of repository:"
 msgstr "&URL till arkiv:"
 
-#. Resource IDs: (1076)
+#. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
 msgstr "&URL:"
 
@@ -1945,7 +1964,7 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "Applicera patch..."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Applicera patch (\"Unified Diff\")"
 
@@ -2036,7 +2055,7 @@ msgstr "Användarnamn"
 msgid "Authors case sensitive"
 msgstr "Hantera användarnamn skiftlägesokänsligt"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1444)
 msgid "Authors:"
 msgstr "Skrivet av:"
 
@@ -2112,7 +2131,7 @@ msgstr ""
 "Bitmap\n"
 "En bitmap"
 
-#. Resource IDs: (114, 162)
+#. Resource IDs: (162)
 msgid "Blame"
 msgstr "Visa ändringar per rad"
 
@@ -2445,7 +2464,7 @@ msgstr "Kontrollera ändringar i arbetskopian"
 msgid "Check:"
 msgstr "Markera:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Kontrollerar om det finns en nyare version av TortoiseSVN tillgänglig..."
 
@@ -3088,6 +3107,16 @@ msgstr "Kunde inte flytta %1 eftersom det är den aktiva mappen."
 msgid "Could not remove %s from the ignore list"
 msgstr "Kunde inte ta bort %s från undantagslistan"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace '%s' because"
+msgstr "Kunde inte ersetta \"%s\" på grund av"
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace property '%1!s!' on '%2!s!' because"
+msgstr "Kunde inte ersetta egenskapen \"%1!s!\" på \"%2!s!\" på grund av"
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -3110,6 +3139,16 @@ msgstr ""
 #, c-format
 msgid "Could not save the file %s!"
 msgstr "Kunde inte spara filen %s!"
+
+# Hur översätta "diff"
+#. Resource IDs: (70)
+#, c-format
+msgid ""
+"Could not start diff viewer!\n"
+"%s"
+msgstr ""
+"Kunde inte starta visare för skillnader!\n"
+"%s"
 
 # Hur översätta "diff"
 #. Resource IDs: (81)
@@ -3149,6 +3188,16 @@ msgstr ""
 #. Resource IDs: (3857)
 msgid "Could not start print job."
 msgstr "Kunde inte starta utskrift."
+
+# Hur översätta "diff"
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"%s"
+msgstr ""
+"Kunde inte starta textvisare!\n"
+"%s"
 
 # Hur översätta "diff"
 #. Resource IDs: (83)
@@ -3308,7 +3357,7 @@ msgstr "&Standard antal loggmeddelanden"
 msgid "Default Menu"
 msgstr "Standardmeny"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1516)
 msgid "Default URL:"
 msgstr "Förvald URL:"
 
@@ -3316,7 +3365,7 @@ msgstr "Förvald URL:"
 msgid "Default application menu. Appears when no documents are open."
 msgstr "Standard programmeny. Visas när inga dokument är öppna. "
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Förvald sökväg:"
 
@@ -3440,7 +3489,7 @@ msgid "Diff file:"
 msgstr "Patchfil:"
 
 # Hur översätta "diffing"
-#. Resource IDs: (65535)
+#. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Alternativ för olikheter"
 
@@ -3664,7 +3713,7 @@ msgstr "Går inte att släppa objeket på %1"
 msgid "E&xact copy sources"
 msgstr "Kopiera källor e&xakt"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1518)
 msgid "E&xclude paths:"
 msgstr "&Uteslut sökvägar:"
 
@@ -3770,6 +3819,10 @@ msgstr "Ändrar den valda egenskapens värde"
 msgid "Either the name or IP of the proxy server"
 msgstr "Ange antingen namnet på eller IP-adressen till proxyservern."
 
+#. Resource IDs: (265)
+msgid "Eliding mergeinfo"
+msgstr "Elidera föreningsinformation"
+
 #. Resource IDs: (1057)
 msgid ""
 "Ellipse Tools\n"
@@ -3835,7 +3888,7 @@ msgstr "Ett oväntat fel inträffade vid läsning från %1."
 msgid "Encountered an unexpected error while writing %1."
 msgstr "Ett oväntat fel inträffade vid skrivning till %1."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Slutrevision"
 
@@ -4062,7 +4115,7 @@ msgstr "Exporterar en grupp med egenskaper till fil"
 msgid "Extension"
 msgstr "Filändelse"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
 msgstr "Filändelse- och mime-typ specifika program"
 
@@ -4528,7 +4581,7 @@ msgstr "Hämtar nödvändig information..."
 msgid "Getting unified diff"
 msgstr "Hämtar \"Unified Diff\""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
 msgstr "&Uteslutningsfilter:"
 
@@ -4711,7 +4764,7 @@ msgstr "I&gnorera alla tomrum"
 msgid "I&gnored"
 msgstr "I&gnorera"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1519)
 msgid "I&nclude paths:"
 msgstr "&Inkludera sökvägar:"
 
@@ -5050,7 +5103,7 @@ msgstr "Ignor&era radslut"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorera &radslut (rekommenderas)"
 
-#. Resource IDs: (1126, 1127)
+#. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "Ignorera radslut"
 
@@ -5116,7 +5169,7 @@ msgstr "Importera %ld objekt"
 msgid "Import %s to %s%s"
 msgstr "Importera %s till %s%s"
 
-#. Resource IDs: (1056)
+#. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "Import&meddelande"
 
@@ -5751,11 +5804,11 @@ msgstr "Menyrad"
 msgid "Menu s&hadows"
 msgstr "Meny s&kuggor"
 
-#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 278, 65535)
 msgid "Merge"
 msgstr "Förena"
 
-#. Resource IDs: (1488)
+#. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "Förenings&djup:"
 
@@ -5829,7 +5882,7 @@ msgstr "Förena en gren med huvudgrenen"
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
 msgstr "Förena alla revisioner som saknas baserat på föreningsspårningsinformation till arbetskopian"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1073)
 msgid "Merging"
 msgstr "Förenar"
 
@@ -7049,6 +7102,30 @@ msgstr "Nyligen ändrade rader"
 msgid "Record Only"
 msgstr "Spela endast in"
 
+#. Resource IDs: (265)
+msgid "Recording mergeinfo for merge between URLs"
+msgstr "Sparar föreningsinformation för förening mellan URLs"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
+msgstr "Sparar föreningsinformation för föreningen av r%1!ld! till r%2!ld!"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%ld"
+msgstr "Sparar föreningsinformation för förening av r%ld"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
+msgstr "Sparar föreningsinformation för omvända föreningen av r%1!ld! till r%2!ld!"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%ld"
+msgstr "Sparar föreningsinformation för omvänd förening av r%ld"
+
 #. Resource IDs: (3887)
 msgid ""
 "Recover the auto-saved documents\n"
@@ -7144,9 +7221,14 @@ msgstr "Återintegrerar %s till %s"
 msgid "Reject"
 msgstr "Avslå"
 
+#. Resource IDs: (7)
+#, c-format
+msgid "Rejected patch hunks for '%s'"
+msgstr "Misslyckade patchdelar för \"%s\""
+
 #. Resource IDs: (16)
-msgid "Release loc&k"
-msgstr "Släpp &lås"
+msgid "Release loc&k..."
+msgstr "Släpp &lås..."
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
@@ -7515,7 +7597,7 @@ msgstr "Revisions&graf"
 msgid "Revision / Author:"
 msgstr "Revision / Användare:"
 
-#. Resource IDs: (182)
+#. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr "Revisionsgraf"
 
@@ -8196,7 +8278,7 @@ msgstr "&Visa externa objekt från andra arkiv"
 msgid "Show f&ull menus after a short delay"
 msgstr "Visa &hela menyerna efter en kort fördröjning"
 
-#. Resource IDs: (1037)
+#. Resource IDs: (1034, 1037)
 msgid "Show l&og"
 msgstr "Visa l&ogg"
 
@@ -8939,6 +9021,16 @@ msgstr "Den förra föreningsoperationen försökte modifiera filen  '%s'"
 
 #. Resource IDs: (608)
 #, c-format
+msgid "The last merge operation tried to replace the directory '%s'"
+msgstr "Den senaste föreningsoperationen försökte ersetta katalogen '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to replace the file '%s'"
+msgstr "Den senaste föreningsoperationen försökte ersetta filen '%s'"
+
+#. Resource IDs: (608)
+#, c-format
 msgid "The last switch operation tried to add the directory '%s'"
 msgstr "Den senaste växlingsoperationen försökte lägga till katalogen '%s'"
 
@@ -8966,6 +9058,16 @@ msgstr "Den senaste växlingsoperationen försökte modifiera katalogen '%s'"
 #, c-format
 msgid "The last switch operation tried to modify the file '%s'"
 msgstr "Den förra växlingsoperationen försökte modifiera filen '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the directory '%s'"
+msgstr "Den senaste växlingsoperationen försökte ersetta katalogen '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the file '%s'"
+msgstr "Den senaste växlingsoperationen försökte ersetta filen '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8996,6 +9098,16 @@ msgstr "Den senaste uppdateringsoperationen försökte modifiera katalogen '%s'"
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
 msgstr "Den senaste uppdateringsoperationen försökte modifiera filen '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the directory '%s'"
+msgstr "Den senaste uppdateringsoperationen försökte ersetta katalogen '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the file '%s'"
+msgstr "Den senaste uppdateringsoperationen försökte ersetta filen '%s'"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9356,11 +9468,11 @@ msgstr "Den här metoden är för det fallet när det finns en eller flera revis
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
 msgstr "Den här metoden täcker fallet då du vill förena olikheterna mellan två olika grenar till din arbetskopia."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1531)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Den här produkten innehåller programvara utvecklad av CollabNet (http://www.Collab.Net/)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1532)
 msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
 msgstr "Den här produkten innehåller programvara utvecklad av OpenSSL Project för användning i OpenSSL Toolkit (http://www.openssl.org/)"
 
@@ -9831,6 +9943,10 @@ msgstr "Icke versionshanterad"
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Mappar med filer som inte är versionshanterade visas som ändrade"
 
+#. Resource IDs: (265)
+msgid "Unversioned obstruction"
+msgstr "Icke versionshanterat hinder"
+
 #. Resource IDs: (286)
 #, c-format
 msgid "Unversioning %1!s!"
@@ -10259,7 +10375,7 @@ msgid "With URL:"
 msgstr "Med URL:"
 
 # Osäker på var denna visas
-#. Resource IDs: (158, 65535)
+#. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
 msgstr "Arbetskopia"
 
