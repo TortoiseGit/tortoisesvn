@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-02-03 23:29+0200\n"
+"PO-Revision-Date: 2010-06-15 00:19+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -228,35 +228,87 @@ msgstr "%s : Работна база"
 msgid "%s : Working Copy"
 msgstr "%s : Работно копие"
 
-#. Resource IDs: (609)
+#. Resource IDs: (3887)
 #, c-format
-msgid "%s, but it already exists unversioned locally."
-msgstr "%s, но вече съществува местно неконтролиран."
+msgid "%s [Recovered]"
+msgstr "%s [Възстановени]"
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it is missing locally."
-msgstr "%s, но липсва местно."
+msgid "%s, but the directory already exists unversioned locally."
+msgstr "%s, но директорията вече съществува местно неконтролирана."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already added locally."
-msgstr "%s, но вече е бил добавен местно."
+msgid "%s, but the directory is missing locally."
+msgstr "%s, но директорията липсва местно."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was already edited."
-msgstr "%s, но вече е бил редактиран."
+msgid "%s, but the directory was already added locally."
+msgstr "%s, но директорията вече е била добавена местно."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted, moved or renamed locally."
-msgstr "%s, но е бил изтрит, преместен или преименуван местно."
+msgid "%s, but the directory was already edited."
+msgstr "%s, но директорията вече е била редактирана."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was obstructed in the working copy."
-msgstr "%s, но е бил задръстен в работното копие."
+msgid "%s, but the directory was deleted, moved or renamed locally."
+msgstr "%s, но директорията е била изтрита, преместена или преименувана местно."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the directory was obstructed in the working copy."
+msgstr "%s, но директорията е била задръстена в работното копие."
+
+#. Resource IDs: (609)
+#, fuzzy, c-format
+msgid "%s, but the directory was replaced"
+msgstr "%s, но директорията вече е била редактирана."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file already exists unversioned locally."
+msgstr "%s, но файлът вече съществува местно неконтролиран."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file is missing locally."
+msgstr "%s, но файлът липсва местно."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already added locally."
+msgstr "%s, но файлът вече е бил добавен местно."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was already edited."
+msgstr "%s, но файлът вече е бил редактиран."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr "%s, но файлът е бил изтрит, преместен или преименуван местно."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was obstructed in the working copy."
+msgstr "%s, но файлът е бил задръстен в работното копие."
+
+#. Resource IDs: (609)
+#, fuzzy, c-format
+msgid "%s, but the file was replaced"
+msgstr "%s, но файлът вече е бил редактиран."
+
+#. Resource IDs: (376)
+#, fuzzy, c-format
+msgid ""
+"%s\n"
+"%ld failed hunk(s)"
+msgstr "Грешка при разлистване на директория"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -325,6 +377,10 @@ msgstr "&Относно TortoiseMerge..."
 msgid "&Activate"
 msgstr "&Задействане"
 
+#. Resource IDs: (15)
+msgid "&Add"
+msgstr "&Добавяне"
+
 #. Resource IDs: (17075)
 msgid "&Add >>"
 msgstr "&Добавяне >>"
@@ -337,6 +393,10 @@ msgstr "&Добавяне или премахване на бутони"
 msgid "&Add..."
 msgstr "&Добавяне..."
 
+#. Resource IDs: (32849)
+msgid "&Advanced"
+msgstr "&Допълнителни"
+
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Допълнителни..."
@@ -348,6 +408,10 @@ msgstr "&Позволяване на нееднозначни URL-и"
 #. Resource IDs: (65535)
 msgid "&Application Look"
 msgstr "&Външен вид на приложението"
+
+#. Resource IDs: (1294)
+msgid "&Apply property recursively"
+msgstr "&Рекурсивно прилагане на свойство "
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -381,6 +445,10 @@ msgstr "&Автоматично затваряне"
 msgid "&Backup original file"
 msgstr "&Запис на резервно копие"
 
+#. Resource IDs: (1559)
+msgid "&Binary"
+msgstr "&Двоичен"
+
 #. Resource IDs: (114)
 msgid "&Blame changes"
 msgstr "&Авторство на промените"
@@ -406,6 +474,14 @@ msgid "&Blue:"
 msgstr "&Син:"
 
 #. Resource IDs: (65535)
+msgid "&Border:"
+msgstr "&Кант:"
+
+#. Resource IDs: (1568)
+msgid "&Bottom"
+msgstr "&Долу"
+
+#. Resource IDs: (65535)
 msgid "&Branches"
 msgstr "&Разклонения"
 
@@ -416,6 +492,11 @@ msgstr "&Разглеждане на хранилище"
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "&Избор..."
+
+#. Resource IDs: (32850)
+#, fuzzy
+msgid "&Bugtraq (Issue tracker integration)"
+msgstr "Конфигуриране на интеграцията с програми за проследяване на дефекти"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -477,7 +558,7 @@ msgstr "&Сравняване на URL-и"
 msgid "&Compare revisions"
 msgstr "&Сравняване на ревизии"
 
-#. Resource IDs: (1019)
+#. Resource IDs: (1019, 1390)
 msgid "&Compare whitespaces"
 msgstr "&Сравняване на празните символи"
 
@@ -513,7 +594,7 @@ msgstr "&Копиране в системния буфер"
 msgid "&Copy to..."
 msgstr "&Копиране в..."
 
-#. Resource IDs: (1097)
+#. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "&Потребителски"
 
@@ -561,6 +642,10 @@ msgstr "&Директории"
 msgid "&Docking"
 msgstr "&Скачване"
 
+#. Resource IDs: (32851)
+msgid "&EOL"
+msgstr "&EOL"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Редакция"
@@ -588,6 +673,10 @@ msgstr "&Включване на кеширането на дневника"
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr "&Въведете съобщение, обясняващо причината за заключването на файла/файловете."
+
+#. Resource IDs: (1554)
+msgid "&Executable"
+msgstr "&Изпълним"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -669,7 +758,7 @@ msgstr "&Зелен:"
 msgid "&Group by branch"
 msgstr "&Групиране по разклонение"
 
-#. Resource IDs: (1032, 1115)
+#. Resource IDs: (1115)
 msgid "&HEAD Revision"
 msgstr "&Главна ревизия"
 
@@ -746,6 +835,10 @@ msgstr "&Съединяване с под-дървета"
 msgid "&Jump to first difference when loading"
 msgstr "&Преход до първата разлика при зареждане"
 
+#. Resource IDs: (32852)
+msgid "&Keywords"
+msgstr "&Ключови думи"
+
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "&Език:"
@@ -758,9 +851,18 @@ msgstr "&Големи иконки"
 msgid "&Limit search to modified lines"
 msgstr "&Ограничаване на търсенето до променените редове"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "&Limit:"
+msgstr "Превишено ограничение"
+
 #. Resource IDs: (32797)
 msgid "&Link image positions"
 msgstr "&Свързване на позициите на изображенията"
+
+#. Resource IDs: (1590)
+msgid "&Linux (LF)"
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -770,9 +872,23 @@ msgstr "&Списъчен изглед"
 msgid "&Load..."
 msgstr "&Зареждане..."
 
+#. Resource IDs: (1554)
+#, fuzzy
+msgid "&Locking required (read-only update)"
+msgstr "&Изисква заключване (обновленията "
+
+#. Resource IDs: (32854)
+#, fuzzy
+msgid "&Log Sizes"
+msgstr "Размери на контейнера"
+
 #. Resource IDs: (65535)
-msgid "&Lum:"
-msgstr "&Осветеност:"
+msgid "&Luminence:"
+msgstr "&Luminence:"
+
+#. Resource IDs: (1591)
+msgid "&Mac (CR)"
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -806,6 +922,10 @@ msgstr "&Сливане..."
 msgid "&Merging"
 msgstr "&Сливане"
 
+#. Resource IDs: (32847)
+msgid "&Mime-Type"
+msgstr "&МIME тип"
+
 #. Resource IDs: (16925)
 msgid "&Minimize"
 msgstr "&Смаляване"
@@ -817,6 +937,10 @@ msgstr "&Промяна на цвета на копия на етикети"
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
 msgstr "&Промяна на цвета на копия на основното течение"
+
+#. Resource IDs: (32880)
+msgid "&Moved blocks"
+msgstr "&Преместени блокове"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -830,7 +954,7 @@ msgstr "&Мрежови устройства"
 msgid "&New "
 msgstr "&Нов"
 
-#. Resource IDs: (1310, 16509, 16615)
+#. Resource IDs: (1310, 1542, 16509, 16615)
 msgid "&New..."
 msgstr "&Нов..."
 
@@ -854,6 +978,18 @@ msgstr "&Следваща страница"
 #. Resource IDs: (16632)
 msgid "&No double-click event"
 msgstr "&Без двойно щракване"
+
+#. Resource IDs: (1555)
+msgid "&No locking required"
+msgstr "&Не изисква заключване"
+
+#. Resource IDs: (1555)
+msgid "&Not executable"
+msgstr "&Не е изпълним"
+
+#. Resource IDs: (1566)
+msgid "&Numeric"
+msgstr "&Цифров"
 
 #. Resource IDs: (1)
 msgid "&OK"
@@ -887,9 +1023,19 @@ msgstr "&Парола:"
 msgid "&Paste"
 msgstr "&Поставяне"
 
+#. Resource IDs: (1600)
+#, fuzzy
+msgid "&Peg revision:"
+msgstr "%s - в ревизия: %d"
+
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "Работа без връзка за &постоянно"
+
+#. Resource IDs: (1588)
+#, fuzzy
+msgid "&Platform dependent (native)"
+msgstr "&Файлова система (FSFS)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -935,6 +1081,10 @@ msgstr "&Повтаряне"
 msgid "&Refresh"
 msgstr "&Опресняване"
 
+#. Resource IDs: (1562)
+msgid "&Remind me to enter a bug-ID"
+msgstr ""
+
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
 msgstr "&Премахване"
@@ -975,6 +1125,11 @@ msgstr "&Разрешаване с използване на местно сво
 msgid "&Restore defaults"
 msgstr "&Възстановяване на настройките по подразбиране"
 
+#. Resource IDs: (1542)
+#, fuzzy
+msgid "&Retry without hooks"
+msgstr "Изчакване за нов опит..."
+
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
 msgstr "&Отменяне на промените от тези ревизии"
@@ -996,8 +1151,8 @@ msgid "&SVN"
 msgstr "&SVN"
 
 #. Resource IDs: (65535)
-msgid "&Sat:"
-msgstr "&Насищане:"
+msgid "&Saturation:"
+msgstr "&Наситеност:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -1016,8 +1171,9 @@ msgid "&Save list of selected files to..."
 msgstr "&Запис на списък с избраните файлове в..."
 
 #. Resource IDs: (1308)
-msgid "&Save..."
-msgstr "&Запис..."
+#, fuzzy
+msgid "&Save value..."
+msgstr "&Цифрова стойност:"
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1111,13 +1267,13 @@ msgstr "&Изчакване (в секунди) на разбора за авт�
 msgid "&To Revision"
 msgstr "&Към ревизия:"
 
-#. Resource IDs: (1384, 65535)
+#. Resource IDs: (1305, 1384)
 msgid "&To URL:"
 msgstr "&Към URL:"
 
-#. Resource IDs: (1305)
-msgid "&To URL: "
-msgstr "&Към URL:"
+#. Resource IDs: (1305, 1384)
+msgid "&To path:"
+msgstr "&Към път:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -1134,6 +1290,10 @@ msgstr "&Име на лентата с инструменти:"
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
 msgstr "&Ленти с инструменти:"
+
+#. Resource IDs: (1567)
+msgid "&Top"
+msgstr "&Горе"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
@@ -1159,7 +1319,7 @@ msgstr "&Две страници"
 msgid "&URL of repository:"
 msgstr "&URL на хранилище:"
 
-#. Resource IDs: (1076)
+#. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
 msgstr "&URL:"
 
@@ -1191,6 +1351,10 @@ msgstr "&Обновяване до ревизия..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Автоматично дописване на имена на файлове и ключови думи"
 
+#. Resource IDs: (1432)
+msgid "&Use recycle bin"
+msgstr "&Използване на кошчето"
+
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Потребителско име:"
@@ -1210,6 +1374,10 @@ msgstr "&Празни символи"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Цяла дума"
+
+#. Resource IDs: (1589)
+msgid "&Windows (CRLF)"
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1408,18 +1576,20 @@ msgstr "Списък с потребителски свойства за пап�
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
-"Please go to http://tortoisesvn.tigris.org and download the current version."
+"Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
 "Налична е по-нова версия.\r\n"
-"Моля, посетете http://tortoisesvn.tigris.org/, за да я изтеглете."
+"Моля, посетете http://tortoisesvn.net/, за да я изтеглете."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '?' char at the end of a path, then only this path will be included.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Списък, с разделител нов ред, от пътища, за които да се показват модификациите на иконките.\r\n"
-"Ако добавите знака '*' в края на път, всички файлове и поддиректории в този път също ще са включени."
+"Списък с разделител нов ред, от пътища, за които да се показват модификациите на иконките.\r\n"
+"Ако добавите знака '?' в края на път, само този път ще бъде включен.\r\n"
+"Ако добавите знака '*' в края на път или нищо не добавите, всички файлове и поддиректории в този път също ще са включени."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1434,12 +1604,14 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
+"If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Списък, с разделител нов ред, от пътища, за които не се показват модификациите на иконките.\r\n"
-"Ако добавите знака '*' в края на път, всички файлове и поддиректории в този път също ще са изключени.\r\n"
-"За да се показват навсякъде модификациите, оставете списъка празен."
+"Списък с разделител нов ред, от пътища, за които не се показват модификациите на иконките.\r\n"
+"Ако добавите знака '?' в края на път, само този път ще бъде изключен.\r\n"
+"Ако добавите знака '*' в края на път или нищо не добавите, всички файлове и поддиректории в този път също ще са изключени.\r\n"
+"За да се показват модификациите навсякъде, оставете списъка празен."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1807,13 +1979,17 @@ msgstr ""
 "Прилагане на настройките по подразбиране за напреднали.\n"
 "Вие трябва да разбирате значението на всяка от настройките по-горе."
 
-#. Resource IDs: (1294)
-msgid "Apply property recursively"
-msgstr "Рекурсивно прилагане на свойство "
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "Кърпене..."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Кърпене с Unified Diff"
+
+#. Resource IDs: (1565)
+msgid "Arb&itrary text"
+msgstr "Про&изволен текст"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -1832,6 +2008,10 @@ msgstr "Сигурни ли сте, че желаете да отмените п
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "&Вертикално подреждане"
+
+#. Resource IDs: (1587)
+msgid "As &is (no specific EOL)"
+msgstr "&Както е (без специфичен EOL)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -1894,7 +2074,7 @@ msgstr "Автори"
 msgid "Authors case sensitive"
 msgstr "Чувствителност към регистъра за имената на авторите"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1444)
 msgid "Authors:"
 msgstr "Автори:"
 
@@ -1970,7 +2150,7 @@ msgstr ""
 "растерно изображение\n"
 "растерно изображение"
 
-#. Resource IDs: (114, 162)
+#. Resource IDs: (162)
 msgid "Blame"
 msgstr "Авторство"
 
@@ -2034,8 +2214,14 @@ msgstr "&Номер на проблем:"
 msgid "Bug-ID"
 msgstr "Номер на проблем"
 
+#. Resource IDs: (1578)
+#, fuzzy
+msgid "Bug-ID e&xpression:"
+msgstr "&Номер на проблем:"
+
 #. Resource IDs: (1119)
-msgid "Bug-ID / &Issue-Nr:"
+#, fuzzy
+msgid "Bug-ID is:"
 msgstr "&Номер на проблем:"
 
 #. Resource IDs: (117)
@@ -2124,7 +2310,7 @@ msgid "Can't create a new image!"
 msgstr "Грешка при създаване на ново изображение!"
 
 #. Resource IDs: (1001)
-msgid "Can't customize menues!"
+msgid "Can't customize menus!"
 msgstr "Грешка при персонализиране на менютата!"
 
 #. Resource IDs: (1001)
@@ -2148,7 +2334,8 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Не може да се покажат промени, заради несъвместими знаци за нов ред във файла."
 
 #. Resource IDs: (16926)
-msgid "Cascade"
+#, fuzzy
+msgid "Casca&de"
 msgstr "Изливане"
 
 #. Resource IDs: (65535)
@@ -2216,6 +2403,14 @@ msgstr "Списък с промени:"
 msgid "Changes made (double-click on file for diff):"
 msgstr "Промени (щракнете двойно върху файла за сравнение):"
 
+#. Resource IDs: (230)
+msgid "Changing externals to fixed revision"
+msgstr "Установяване на външните към фиксирана ревизия"
+
+#. Resource IDs: (65535)
+msgid "Char position where to show a border line in commit text boxes:"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "Chec&kout..."
 msgstr "Изпис&ване..."
@@ -2231,6 +2426,11 @@ msgstr "Проверка за обновления"
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
 msgstr "Проверка за обновления..."
+
+#. Resource IDs: (1544)
+#, fuzzy
+msgid "Check externals to tag"
+msgstr "Превключване към разклонение / етикет"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2288,7 +2488,7 @@ msgstr "Проверка на работното копие за промени"
 msgid "Check:"
 msgstr "Отметка:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Проверка за по-нова версия на TortoiseSVN..."
 
@@ -2829,8 +3029,8 @@ msgstr "Копиране: ново име за %s"
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Copying %s"
-msgstr "Копиране на %s"
+msgid "Copying %1!s!"
+msgstr "Копиране на %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
@@ -2927,6 +3127,16 @@ msgstr "Не може да се премахне %1, защото е текущ�
 msgid "Could not remove %s from the ignore list"
 msgstr "Не можа да се премахне %s от списъка за игнориране"
 
+#. Resource IDs: (582)
+#, fuzzy, c-format
+msgid "Could not replace '%s' because"
+msgstr "Не можа да се добави '%s', защото"
+
+#. Resource IDs: (582)
+#, fuzzy, c-format
+msgid "Could not replace property '%1!s!' on '%2!s!' because"
+msgstr "Свойството '%s' на '%s' не може да бъде добавено, защото"
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -2949,6 +3159,16 @@ msgstr ""
 #, c-format
 msgid "Could not save the file %s!"
 msgstr "Грешка при запис на файла %s!"
+
+#. Resource IDs: (70)
+#, fuzzy, c-format
+msgid ""
+"Could not start diff viewer!\n"
+"%s"
+msgstr ""
+"Грешка при стартиране на програмата за разглеждане на разлики!\n"
+"<hr=100%%>\n"
+"%s"
 
 #. Resource IDs: (81)
 #, c-format
@@ -2988,6 +3208,16 @@ msgid "Could not start print job."
 msgstr "Грешка при отпечатване."
 
 #. Resource IDs: (83)
+#, fuzzy, c-format
+msgid ""
+"Could not start text viewer!\n"
+"%s"
+msgstr ""
+"Грешка при стартиране на програмата за разглеждане на текст!\n"
+"<hr=100%%>\n"
+"%s"
+
+#. Resource IDs: (83)
 #, c-format
 msgid ""
 "Could not start text viewer!\n"
@@ -3001,6 +3231,10 @@ msgstr ""
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "Грешка при стартиране на нишка!"
+
+#. Resource IDs: (1542)
+msgid "Create &Library"
+msgstr "Създаване на &библиотека"
 
 #. Resource IDs: (13)
 msgid "Create &patch..."
@@ -3046,6 +3280,10 @@ msgstr "Създадена е папка отдалечено"
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "Създава 'евтино' копие вътре в хранилището, което ще се използва за разклонения или етикети"
+
+#. Resource IDs: (199)
+msgid "Creates a library folder with special settings for Subversion working copies"
+msgstr "Създава библиотечна папка със специални настройки за работни копия на Subversion"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3136,7 +3374,7 @@ msgstr "&Брой съобщения от дневника по подразби
 msgid "Default Menu"
 msgstr "Меню по подразбиране"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1516)
 msgid "Default URL:"
 msgstr "URL по подразбиране:"
 
@@ -3144,7 +3382,7 @@ msgstr "URL по подразбиране:"
 msgid "Default application menu. Appears when no documents are open."
 msgstr "Меню на приложението по подразбиране. Появява се, ако няма отворени документи."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Път по подразбиране:"
 
@@ -3166,13 +3404,13 @@ msgid "Delete and &ignore %d items by name"
 msgstr "Изтриване и &игнориране на %d обекта по име"
 
 #. Resource IDs: (14)
-msgid "Delete and add to &ignore list"
-msgstr "Изтриване и добавяне в списъка за &игнориране"
-
-#. Resource IDs: (14)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Изтриване и игнориране на %d обекта по &разширение"
+
+#. Resource IDs: (616)
+msgid "Delete unversioned items"
+msgstr "Изтриване на неконтролираните обекти"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3234,9 +3472,22 @@ msgstr "Описание:"
 msgid "Deselect changelist"
 msgstr "Размаркиране на списък с промени"
 
+#. Resource IDs: (1547)
+#, fuzzy
+msgid "Destinatio&n URL:"
+msgstr "&От URL:"
+
+#. Resource IDs: (1547)
+msgid "Destination URL:"
+msgstr "URL-направление:"
+
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Дискът е пълен."
+
+#. Resource IDs: (2056)
+msgid "Detect and highlight moved blocks"
+msgstr "Откриване и открояване на преместени блокове"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -3254,7 +3505,7 @@ msgstr "Размер и позиция на диалоговите прозор�
 msgid "Diff file:"
 msgstr "Файл с разлики:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Настройки на сравняване"
 
@@ -3394,6 +3645,11 @@ msgstr ""
 msgid "Do you want to proceed?"
 msgstr "Желаете ли да продължите?"
 
+#. Resource IDs: (3887)
+#, fuzzy
+msgid "Do you want to recover these auto-saved documents?"
+msgstr "Желаете ли да премахнете рекурсивно свойството %s?"
+
 #. Resource IDs: (313)
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
@@ -3436,6 +3692,12 @@ msgstr ""
 "работни копия едно до друго.\n"
 "Това работи само за URL-и на директории."
 
+#. Resource IDs: (3887)
+msgid ""
+"Don't recover the auto-saved documents\n"
+"Use the last explicitly saved versions of the documents"
+msgstr ""
+
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "Да не се показва повече това съобщение"
@@ -3465,9 +3727,13 @@ msgstr "Пускането върху %1 е невъзможно"
 msgid "E&xact copy sources"
 msgstr "&Точни източници на копиране"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1518)
 msgid "E&xclude paths:"
 msgstr "Пътища за &изключване:"
+
+#. Resource IDs: (32839)
+msgid "E&xecutable"
+msgstr "И&зпълним"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -3501,6 +3767,11 @@ msgstr "Редакция"
 msgid "Edit Button Image"
 msgstr "Редакция на изображението на бутона"
 
+#. Resource IDs: (319)
+#, fuzzy
+msgid "Edit External"
+msgstr "Външна програма:"
+
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "Редакция на свойства"
@@ -3521,6 +3792,11 @@ msgstr "Редакция на автора"
 msgid "Edit author name"
 msgstr "Редакция на името на автора"
 
+#. Resource IDs: (315)
+#, fuzzy
+msgid "Edit bugtraq properties"
+msgstr "Редакция на езиковитв свойства."
+
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
 msgstr "Редактиране на специфична за типа файлове програма за сравняване"
@@ -3528,6 +3804,10 @@ msgstr "Редактиране на специфична за типа файл�
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
 msgstr "Редактиране на специфична за типа файлове програма за сливане"
+
+#. Resource IDs: (321)
+msgid "Edit language properties"
+msgstr "Редакция на езиковитв свойства."
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -3554,6 +3834,11 @@ msgstr "Редактира стойността на избраното свой
 msgid "Either the name or IP of the proxy server"
 msgstr "Името или IP адреса на proxy сървъра"
 
+#. Resource IDs: (265)
+#, fuzzy
+msgid "Eliding mergeinfo"
+msgstr "&Включване на информацията за сливането"
+
 #. Resource IDs: (1057)
 msgid ""
 "Ellipse Tools\n"
@@ -3577,6 +3862,10 @@ msgid ""
 msgstr ""
 "Включете, само ако работите с уеб проекти в VS.NET 2003!\r\n"
 "За да влезе в сила тази настройка, трябва да рестартирате системата си."
+
+#. Resource IDs: (65535)
+msgid "Enabled Overlay Handlers"
+msgstr "Включени модификации на иконките"
 
 #. Resource IDs: (195)
 msgid ""
@@ -3613,7 +3902,7 @@ msgstr "Неочаквана грешка при четене от %1."
 msgid "Encountered an unexpected error while writing %1."
 msgstr "Неочаквана грешка при запис във %1."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Крайна ревизия"
 
@@ -3704,6 +3993,10 @@ msgstr "Въведете не повече от %1 знака."
 msgid "Enter the regex string below:"
 msgstr "Въведете регулярният израз отдолу:"
 
+#. Resource IDs: (1577)
+msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
+msgstr ""
+
 #. Resource IDs: (3603)
 msgid ""
 "Erase everything\n"
@@ -3741,6 +4034,10 @@ msgid ""
 msgstr ""
 "Грешка при четене/писане на ключ в регистъра %1!s!\n"
 "%2!s!"
+
+#. Resource IDs: (32853)
+msgid "Ex&ternals"
+msgstr "Въ&ншни"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -3813,8 +4110,8 @@ msgstr "Износ и на неконтролираните файлове"
 
 #. Resource IDs: (284)
 #, c-format
-msgid "Exporting %s"
-msgstr "Износ на %s"
+msgid "Exporting %1!s!"
+msgstr "Износ на %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
@@ -3832,7 +4129,7 @@ msgstr "Изнася набор от свойства във файл"
 msgid "Extension"
 msgstr "Разширение"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
 msgstr "Специфични програми за това разширение/MIME тип"
 
@@ -3871,6 +4168,11 @@ msgstr "Със външните"
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
 msgstr "&Насилствено сливане"
+
+#. Resource IDs: (1070)
+#, fuzzy
+msgid "Fade"
+msgstr "добавен"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4101,6 +4403,11 @@ msgstr ""
 "Запълване"
 
 #. Resource IDs: (65535)
+#, fuzzy
+msgid "Filter match"
+msgstr "Чувствителност към регистъра"
+
+#. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
@@ -4286,7 +4593,7 @@ msgstr "Получаване на нужната информация..."
 msgid "Getting unified diff"
 msgstr "Получаване на Unified Diff"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
 msgstr "Глобален &шаблон за игнориране:"
 
@@ -4366,6 +4673,10 @@ msgstr "Възел на главната ревизия"
 #, c-format
 msgid "Head revision is %s"
 msgstr "Главната ревизия е %s"
+
+#. Resource IDs: (1595)
+msgid "Header"
+msgstr "Заглавна част"
 
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
@@ -4460,9 +4771,18 @@ msgstr "Игнориране на &всички празни символи"
 msgid "I&gnored"
 msgstr "&Игнорирани"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1519)
 msgid "I&nclude paths:"
 msgstr "Пътища за &включване:"
+
+#. Resource IDs: (1580)
+#, fuzzy
+msgid "IBugTraqProvider"
+msgstr "Доставчик"
+
+#. Resource IDs: (1592)
+msgid "ID"
+msgstr "ID"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4610,6 +4930,10 @@ msgstr "Модификации на иконките / Колони за със�
 #. Resource IDs: (184)
 msgid "Icon Overlays::Icon Set"
 msgstr "Модификации на иконките::Комплект с иконки"
+
+#. Resource IDs: (308)
+msgid "Icon Overlays::Overlay Handlers"
+msgstr "Модификации на иконките::Налични модификации"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -4788,7 +5112,7 @@ msgstr "Игнориране на символите за &край на ред"
 msgid "Ignore line &endings (recommended)"
 msgstr "Игнориране на символите за &край на ред (препоръчително)"
 
-#. Resource IDs: (1126, 1127)
+#. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "Игнориране на символите за край на ред"
 
@@ -4799,6 +5123,10 @@ msgstr "Игнориране на &промените в празните сим
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
 msgstr "Игнориране на промените в празните символи"
+
+#. Resource IDs: (1432)
+msgid "Ignored"
+msgstr "Игнориран"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -4850,7 +5178,7 @@ msgstr "Внос на %ld обекта"
 msgid "Import %s to %s%s"
 msgstr "Внос на %s в %s%s"
 
-#. Resource IDs: (1056)
+#. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "Съобщение за &внос"
 
@@ -4893,6 +5221,10 @@ msgstr ""
 #, c-format
 msgid "Import to %1"
 msgstr "Внос в %1"
+
+#. Resource IDs: (80)
+msgid "Imported folder structure"
+msgstr "Внесена структура на папките"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4946,6 +5278,10 @@ msgid ""
 msgstr ""
 "Вмъква съдържанието на системния буфер\n"
 "Поставяне"
+
+#. Resource IDs: (1575)
+msgid "Insert message at:"
+msgstr "Вмъкване на съобщение на:"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -5047,6 +5383,11 @@ msgstr ""
 "Обхват може да се укаже с тире.\n"
 "Пример: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (1571)
+#, fuzzy
+msgid "Issue tracker"
+msgstr "Конфигуриране на интеграцията с програми за проследяване на дефекти"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -5139,6 +5480,22 @@ msgstr "Клавишни комбинации:"
 #. Resource IDs: (1002)
 msgid "Keys"
 msgstr "Клавиши"
+
+#. Resource IDs: (65535)
+msgid "L&imit:"
+msgstr ""
+
+#. Resource IDs: (1599)
+msgid "L&ocal path:"
+msgstr "&Местен път:"
+
+#. Resource IDs: (32855)
+msgid "Lan&guages"
+msgstr "Ези&ци"
+
+#. Resource IDs: (65535)
+msgid "Language:"
+msgstr "Език:"
 
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
@@ -5285,6 +5642,10 @@ msgstr "Собственик на заключването:"
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "Заключването е присвоено от %s"
+
+#. Resource IDs: (1529)
+msgid "Locked"
+msgstr "Заключен"
 
 #. Resource IDs: (263)
 #, c-format
@@ -5449,11 +5810,11 @@ msgstr "Лента на менюто"
 msgid "Menu s&hadows"
 msgstr "&Сенки в менюто"
 
-#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 278, 65535)
 msgid "Merge"
 msgstr "Сливане"
 
-#. Resource IDs: (1488)
+#. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Дълбочина на сливане:"
 
@@ -5527,7 +5888,7 @@ msgstr "Влива разклонение в основното течение"
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
 msgstr "Слива всички липсващи ревизии обратно в работното копие чрез информацията за проследяване на сливанията"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1073)
 msgid "Merging"
 msgstr "Сливане"
 
@@ -5568,6 +5929,21 @@ msgstr "Сливане на ревизии %s от %s във %s, %s%s%s"
 msgid "Message"
 msgstr "Съобщение"
 
+#. Resource IDs: (1574)
+#, fuzzy
+msgid "Message &label:"
+msgstr "Съобщение за &внос"
+
+#. Resource IDs: (1573)
+#, fuzzy
+msgid "Message &pattern:"
+msgstr "Съобщение за &внос"
+
+#. Resource IDs: (1579)
+#, fuzzy
+msgid "Message part &expression:"
+msgstr "С регулярни изрази"
+
 #. Resource IDs: (1241)
 msgid "Message:"
 msgstr "Съобщение:"
@@ -5595,6 +5971,14 @@ msgstr "Мой"
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
 msgstr "Смаляване на панделката"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a commit message:"
+msgstr "Минимален брой знаци за съобщение при поверяване:"
+
+#. Resource IDs: (65535)
+msgid "Minimum number of chars for a lock message:"
+msgstr "Минимален брой знаци за съобщение при заключване:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -5708,9 +6092,17 @@ msgstr "Преместване/преименуване"
 msgid "Move: New name for %s"
 msgstr "Преместване: ново име за %s"
 
+#. Resource IDs: (65535)
+msgid "Moved from"
+msgstr "Преместен от"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Преместени отдалечено"
+
+#. Resource IDs: (65535)
+msgid "Moved to"
+msgstr "Преместен в"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -5718,8 +6110,8 @@ msgstr "Премества променените файлове в кошчет
 
 #. Resource IDs: (80)
 #, c-format
-msgid "Moving %s"
-msgstr "Местене на %s"
+msgid "Moving %1!s!"
+msgstr "Местене на %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
@@ -5752,6 +6144,14 @@ msgstr "Настройки на навигационното пано..."
 #. Resource IDs: (208)
 msgid "Needs lock"
 msgstr "Изисква заключване"
+
+#. Resource IDs: (32845)
+msgid "Needs-&Lock"
+msgstr "Изисква-&заключване"
+
+#. Resource IDs: (1550)
+msgid "Needs-lock"
+msgstr "Изисква-заключване"
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -5828,6 +6228,10 @@ msgstr "Няма налично съобщение за грешка."
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
 msgstr "Няма грешки."
+
+#. Resource IDs: (281)
+msgid "No externals found"
+msgstr "Няма открити външни"
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
@@ -5933,6 +6337,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Нерекурсивно"
 
+#. Resource IDs: (3887)
+msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgstr ""
+
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
 msgstr "Забележка: папката съдържа неконтролирани обекти"
@@ -5940,6 +6348,14 @@ msgstr "Забележка: папката съдържа неконтролир
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Забележка: настройките на шрифта се отразяват и на TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
+msgstr "Забележка: това засяга всички клиенти от фамилията Tortoise, не само TortoiseSVN!"
+
+#. Resource IDs: (1557)
+msgid "Note: this property has no effect on Windows"
+msgstr "Забележка: това свойство няма ефект под Windows"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -6058,6 +6474,10 @@ msgstr ""
 "\n"
 "Сигурни ли сте, че желаете да преместите избраните пътища?"
 
+#. Resource IDs: (3887)
+msgid "One or more auto-saved documents were found."
+msgstr ""
+
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
 msgstr "Един или повече файлове са в конфликтно състояние."
@@ -6081,6 +6501,11 @@ msgid ""
 msgstr ""
 "Разрешени са само числа (евентуално разделени\n"
 "със запетаи)!"
+
+#. Resource IDs: (626)
+#, fuzzy
+msgid "Only properties changed"
+msgstr "Доверяване на променения ключ на хоста:"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6240,13 +6665,21 @@ msgstr "Поставяне на списъка с файлове"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "Поставя път от тип SVN от системния буфер и в резултат има преместване или копиране"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "Закърпване на всички"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "Кърпене на &всички обекти"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "Кърпене на &избраният обект"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "Закърпване на избраното"
+msgid "Patch all files"
+msgstr "Кърпене на всички файлове"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "Кърпене на избраните файлове"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -6267,6 +6700,14 @@ msgid ""
 msgstr ""
 "Инструмент за молив\n"
 "Молив"
+
+#. Resource IDs: (245)
+msgid "Percent of authorship"
+msgstr "Дял от авторството"
+
+#. Resource IDs: (245)
+msgid "Percents"
+msgstr "Проценти"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -6341,6 +6782,10 @@ msgstr "Моля, изчакайте отменянето..."
 #. Resource IDs: (319)
 msgid "Please wait while differences are obtained..."
 msgstr "Моля, изчакайте докато се получават разликите..."
+
+#. Resource IDs: (281)
+msgid "Please wait while the externals are gathered..."
+msgstr "Моля, изчакайте докато се получават външните..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -6550,6 +6995,16 @@ msgstr "Стойност на свойство:"
 msgid "Provider"
 msgstr "Доставчик"
 
+#. Resource IDs: (1586)
+#, fuzzy
+msgid "Provider para&meters:"
+msgstr "Моля, изберете възел-доставчик."
+
+#. Resource IDs: (1581)
+#, fuzzy
+msgid "Provider uuid win&32:"
+msgstr "Доставчик:"
+
 #. Resource IDs: (1475)
 msgid "Provider:"
 msgstr "Доставчик:"
@@ -6655,6 +7110,36 @@ msgstr "Наскоро променени редове"
 msgid "Record Only"
 msgstr "Само запис"
 
+#. Resource IDs: (265)
+msgid "Recording mergeinfo for merge between URLs"
+msgstr ""
+
+#. Resource IDs: (265)
+#, fuzzy, c-format
+msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
+msgstr "Обратно сливане на %1!ld! до %2!ld!"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%ld"
+msgstr ""
+
+#. Resource IDs: (265)
+#, fuzzy, c-format
+msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
+msgstr "Обратно сливане на %1!ld! до %2!ld!"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%ld"
+msgstr ""
+
+#. Resource IDs: (3887)
+msgid ""
+"Recover the auto-saved documents\n"
+"Open the auto-saved versions instead of the explicitly saved versions"
+msgstr ""
+
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
@@ -6690,6 +7175,10 @@ msgstr "Смали прозореца до иконка"
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
 msgstr "Опресняване"
+
+#. Resource IDs: (1576)
+msgid "Regular Expression"
+msgstr "Регулярен израз"
 
 #. Resource IDs: (117)
 msgid ""
@@ -6738,9 +7227,14 @@ msgstr "Повторна интеграция на сливане %s във %s"
 msgid "Reject"
 msgstr "Отхвърляне"
 
+#. Resource IDs: (7)
+#, c-format
+msgid "Rejected patch hunks for '%s'"
+msgstr ""
+
 #. Resource IDs: (16)
-msgid "Release loc&k"
-msgstr "Освобождаване на за&ключване"
+msgid "Release loc&k..."
+msgstr "Освобождаване на за&ключване..."
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
@@ -7108,7 +7602,7 @@ msgstr "&Диаграма на ревизиите"
 msgid "Revision / Author:"
 msgstr "Ревизия / Автор:"
 
-#. Resource IDs: (182)
+#. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr "Диаграма на ревизиите"
 
@@ -7208,6 +7702,14 @@ msgstr "Ред %d от %d"
 msgid "Row %d-%d of %d"
 msgstr "Ред %d-%d от %d"
 
+#. Resource IDs: (1070)
+msgid "Row Down"
+msgstr "Ред надолу"
+
+#. Resource IDs: (1070)
+msgid "Row Up"
+msgstr "Ред нагоре"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Избор..."
@@ -7287,6 +7789,11 @@ msgstr "SVN ревизия"
 #. Resource IDs: (11)
 msgid "SVN Status"
 msgstr "SVN състояние"
+
+#. Resource IDs: (20)
+#, fuzzy
+msgid "SVN Statusnumber"
+msgstr "SVN Автор:"
 
 #. Resource IDs: (12)
 msgid "SVN URL"
@@ -7463,10 +7970,6 @@ msgstr "Маркиране на списък с промени"
 msgid "Select diff application"
 msgstr "Избор на програма за сравняване"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "Избор на файл с разлики..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "Изберете директория, в която да изпишете"
@@ -7511,6 +8014,10 @@ msgstr "Избор на програма за сливане"
 msgid "Select merge target"
 msgstr "Избор на цел на сливането"
 
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "Избор на файл с кръпка..."
+
 #. Resource IDs: (276)
 msgid "Select revision range"
 msgstr "Избор на обхват от ревизии"
@@ -7542,6 +8049,10 @@ msgid ""
 msgstr ""
 "Маркира целият документ\n"
 "Маркиране – всичко"
+
+#. Resource IDs: (65535)
+msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgstr ""
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -7688,6 +8199,10 @@ msgstr "Показване над панделката"
 msgid "Show Below the Ribbon"
 msgstr "Показване под панделката"
 
+#. Resource IDs: (1542)
+msgid "Show Branch L&og"
+msgstr "Дневник на &разклонение"
+
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
 msgstr "Показване на по-малко бутони"
@@ -7760,7 +8275,7 @@ msgstr "Показване на външните от &други хранили
 msgid "Show f&ull menus after a short delay"
 msgstr "&Пълно меню след кратко забавяне"
 
-#. Resource IDs: (1037)
+#. Resource IDs: (1034, 1037)
 msgid "Show l&og"
 msgstr "&Дневник"
 
@@ -7815,14 +8330,6 @@ msgid ""
 msgstr ""
 "Показване или скриване лентата с инструменти\n"
 "Превключване на лентата с инструменти"
-
-#. Resource IDs: (1432)
-msgid "Show overlay for ignored items"
-msgstr "Модификация на иконките за игнорирани обекти"
-
-#. Resource IDs: (1462)
-msgid "Show overlay for unversioned items"
-msgstr "Модификация на иконките за неконтролирани обекти"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -7915,6 +8422,10 @@ msgstr "Размер и състояние"
 msgid "Size of all cached text information"
 msgstr "Размер на цялата кеширана текстова информация"
 
+#. Resource IDs: (320)
+msgid "Size of log messages"
+msgstr "Размер на съобщенията в дневника"
+
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
 msgstr "Размер на файла на кеша на диска"
@@ -7931,6 +8442,11 @@ msgstr "Прескочен"
 msgid "Skipped missing target"
 msgstr "Прескочени липсващи цели"
 
+#. Resource IDs: (1070)
+#, fuzzy
+msgid "Slide"
+msgstr "Размер"
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "Подреждане по брой поверявания"
@@ -7943,9 +8459,21 @@ msgstr "Ляв източник:"
 msgid "Source Right:"
 msgstr "Десен източник:"
 
+#. Resource IDs: (1552)
+msgid "Source URL:"
+msgstr "URL-източник:"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Указва максималния брой съобщения, които бихте искали да пазите в хронологията."
+
+#. Resource IDs: (1572)
+msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgstr ""
+
+#. Resource IDs: (1305)
+msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -8190,6 +8718,10 @@ msgstr "Превключване на %s към %s, Ревизия %s"
 msgid "Switch - TortoiseSVN"
 msgstr "Превключване - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Switch Depth"
+msgstr "Дълбочина на превключване"
+
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
 msgstr "Размяна на ляво с дясно"
@@ -8277,6 +8809,11 @@ msgstr "Размер на табулатора:"
 #. Resource IDs: (65535)
 msgid "Tag nodes"
 msgstr "Етикетни възли"
+
+#. Resource IDs: (281)
+#, fuzzy
+msgid "Tagged"
+msgstr "(етикет)"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8483,6 +9020,16 @@ msgstr "Последната сливаща операция опита да п�
 
 #. Resource IDs: (608)
 #, c-format
+msgid "The last merge operation tried to replace the directory '%s'"
+msgstr "Последната сливаща операция опита да замени директорията '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to replace the file '%s'"
+msgstr "Последната сливаща операция опита да замени файла '%s'"
+
+#. Resource IDs: (608)
+#, c-format
 msgid "The last switch operation tried to add the directory '%s'"
 msgstr "Последната превключваща операция опита да добави директорията '%s'"
 
@@ -8510,6 +9057,16 @@ msgstr "Последната превключваща операция опит�
 #, c-format
 msgid "The last switch operation tried to modify the file '%s'"
 msgstr "Последната превключваща операция опита да промени файла '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the directory '%s'"
+msgstr "Последната превключваща операция опита да замени директорията '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the file '%s'"
+msgstr "Последната превключваща операция опита да замени файла '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8540,6 +9097,16 @@ msgstr "Последната обновяваща операция опита д
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
 msgstr "Последната обновяваща операция опита да промени файла '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the directory '%s'"
+msgstr "Последната обновяваща операция опита да замени директорията '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the file '%s'"
+msgstr "Последната обновяваща операция опита да замени файла '%s'"
 
 #. Resource IDs: (63)
 #, c-format
@@ -8680,9 +9247,17 @@ msgstr ""
 "във файла със кръпки не съществува.\n"
 "TortoiseMerge се опита да приложи кръпката чрез премахване на представките, но не откри съвпадащ път."
 
+#. Resource IDs: (84)
+msgid ""
+"The regular expression is invalid!\n"
+"Please enter a valid regular expression."
+msgstr ""
+
 #. Resource IDs: (80)
-msgid "The repository was successfully created."
-msgstr "Хранилището е създадено успешно."
+msgid ""
+"The repository was successfully created.\n"
+"Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -8851,6 +9426,10 @@ msgstr "Няма нищо за отключване. Няма заключени
 msgid "Thesaurus"
 msgstr "Синонимен речник"
 
+#. Resource IDs: (3887)
+msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr ""
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -8881,11 +9460,11 @@ msgstr "Този метод се използва, когато сте напр�
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
 msgstr "Този метод се използва, когато искате да слеете в работното Ви копие разликите от две различни разклонения."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1531)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Този продукт съдържа софтуер, разработен от CollabNet (http://www.Collab.Net/)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1532)
 msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
 msgstr "Този продукт съдържа софтуер, разработен от OpenSSL Project за ползване в OpenSSL Toolkit (http://www.openssl.org/)"
 
@@ -8911,13 +9490,13 @@ msgstr "Това свойство не е многоредово. Позволе
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "Ще бъде изтрит записа на командите, които сте използвали в тази програма и ще се възстанови началното положение  на видимите команди в менютата и лентите с инструменти. Няма да бъдат отменени никакви изрични персонализации . Сигурни ли сте, че желаете това?"
 
-#. Resource IDs: (16924)
-msgid "Tile &Horizontally"
-msgstr "&Хоризонтално подреждане"
-
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
 msgstr "&Вертикално подреждане"
+
+#. Resource IDs: (16924)
+msgid "Tile Hori&zontally"
+msgstr "&Хоризонтално подреждане"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -9084,6 +9663,10 @@ msgstr ""
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
+
+#. Resource IDs: (281)
+msgid "TortoiseSVN auto commit: changed externals to fixed revision."
+msgstr "Автоматично поверяване на TortoiseSVN: външните са установени към фиксирана ревизия"
 
 #. Resource IDs: (98)
 #, c-format
@@ -9274,6 +9857,11 @@ msgstr ""
 msgid "Unexpected file format."
 msgstr "Неочакван файлов формат."
 
+#. Resource IDs: (1070)
+#, fuzzy
+msgid "Unfold"
+msgstr "С една папка нагоре "
+
 #. Resource IDs: (3850)
 msgid ""
 "Unformatted Text\n"
@@ -9337,14 +9925,27 @@ msgstr ""
 msgid "Unversion"
 msgstr "Премахване на контрола"
 
+#. Resource IDs: (14)
+msgid "Unversion and add to &ignore list"
+msgstr "Премахване на контрола и добавяне в списъка за &игнориране"
+
+#. Resource IDs: (1462)
+msgid "Unversioned"
+msgstr "Неконтролирани"
+
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Неконтролираните файлове бележат съдържащата ги папка като променена"
 
+#. Resource IDs: (265)
+#, fuzzy
+msgid "Unversioned obstruction"
+msgstr "Изтриване на неконтролираните обекти"
+
 #. Resource IDs: (286)
 #, c-format
-msgid "Unversioning %s"
-msgstr "Премахване на контрола над %s"
+msgid "Unversioning %1!s!"
+msgstr "Премахване на контрола над %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -9398,6 +9999,11 @@ msgstr "Обновяване на кеша на съобщенията в дне
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
 msgstr "Надстройване на работното копие"
+
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "Надстройване на %1!s!"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -9762,7 +10368,7 @@ msgstr "Windows &2000"
 msgid "With URL:"
 msgstr "С URL:"
 
-#. Resource IDs: (158, 65535)
+#. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
 msgstr "Работно копие"
 
@@ -9833,6 +10439,14 @@ msgstr ""
 "Опитвате се да преместите папката 'trunk'!\n"
 "Абсолютно сигурни ли сте, че желаете да преместите\n"
 "папката 'trunk'?"
+
+#. Resource IDs: (65535)
+msgid ""
+"You can disable specific Overlay handlers here.\n"
+"Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+"Тук може да изключите определени модификации на иконките.\n"
+"Изключените модификации няма да заемат слот за модификация и ще дадат шанс на други разширения на обвивката да покажат техните модификации."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -10073,6 +10687,10 @@ msgstr "Оптимален мащаб по височина"
 #. Resource IDs: (2051)
 msgid "Zoom to fit in width"
 msgstr "Оптимален мащаб по ширина"
+
+#. Resource IDs: (1070)
+msgid "[Default]"
+msgstr "[По подразбиране]"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -10336,6 +10954,10 @@ msgstr "не е под контрол."
 msgid "item kept locally"
 msgstr "обект, запазен местно"
 
+#. Resource IDs: (1562)
+msgid "keep the file lists in English"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "last head update: "
 msgstr "последно обновяване до главната ревизия:"
@@ -10528,6 +11150,10 @@ msgstr "път за претърсване:"
 msgid "skip ranges: "
 msgstr "пропуснати обхвати:"
 
+#. Resource IDs: (316)
+msgid "svn:eol-style"
+msgstr "svn:eol-style"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
@@ -10535,6 +11161,10 @@ msgid ""
 msgstr ""
 "svn:eol-style\r\n"
 "Едно от 'native', 'LF', 'CR', 'CRLF'."
+
+#. Resource IDs: (312)
+msgid "svn:executable"
+msgstr "svn:executable"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10545,6 +11175,10 @@ msgstr ""
 "svn:executable\r\n"
 "Ако е налично, прави файла изпълним. Това свойство не може да се приложи върху директория.\r\n"
 "Опит за нерекурсивно прилагане ще се провали, опит за рекурсивно прилагане ще установи това свойство само на децата на директорията."
+
+#. Resource IDs: (318)
+msgid "svn:externals"
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10582,6 +11216,10 @@ msgstr ""
 "svn:ignore\r\n"
 "Списък, с разделител нов ред, от шаблони за имена на файлове за игнориране."
 
+#. Resource IDs: (317)
+msgid "svn:keywords"
+msgstr "svn:keywords"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:keywords\r\n"
@@ -10614,6 +11252,10 @@ msgstr ""
 "Например:\r\n"
 "/trunk:123-125,129"
 
+#. Resource IDs: (314)
+msgid "svn:mime-type"
+msgstr "svn:mime-type"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:mime-type\r\n"
@@ -10625,6 +11267,10 @@ msgstr ""
 "MIME типът на файл. Използва се за приложимост на автоматичното сливане за файла, а също и как да се покаже от Apache.\r\n"
 "Ако MIME типът започва с 'text/' (или при липсващ MIME тип), файлът се третира като текстов.\r\n"
 "Всичко друго се третира като двоична информация."
+
+#. Resource IDs: (313)
+msgid "svn:needs-lock"
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -10673,6 +11319,11 @@ msgstr "има несъвместими промени."
 msgid "to %1"
 msgstr "към %1"
 
+#. Resource IDs: (80, 284)
+#, c-format
+msgid "to %1!s!"
+msgstr "към %1!s!"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -10681,10 +11332,6 @@ msgstr "към %s"
 #. Resource IDs: (208, 264)
 msgid "tree conflict"
 msgstr "конфликт на дърветата"
-
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "конфликт на дърветата:"
 
 #. Resource IDs: (578)
 msgid ""
@@ -10802,6 +11449,10 @@ msgstr ""
 msgid "user revprops total: "
 msgstr "Потребителски ревизийни свойства общо:"
 
+#. Resource IDs: (1583)
+msgid "uuid x6&4:"
+msgstr "uuid x6&4:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "стойностите са различни"
@@ -10854,19 +11505,6 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "Автор:                                    Stefan Kueng"
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "Автоматична проверка за по-&нова версия всяка седмица"
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr ""
-#~ "Ако е включено, TortoiseSVN проверява веднъж седмично дали е налична по-"
-#~ "нова версия"
-#~ msgid "Edit conflict"
-#~ msgstr "Редакция на конфликт"
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "&Скриване на несвързаните променени пътища"
-#~ msgid "Unversioned"
-#~ msgstr "Неконтролирани"
+#~ msgid "tree conflict:"
+#~ msgstr "конфликт на дърветата:"
 
