@@ -1,388 +1,388 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="help">
 
-	<!-- default configuration is release -->
-	<property name="configuration" value="release" />
-	<!-- default builds are dev builds -->
-	<property name="devrelease" value="-dev" unless="${property::exists('devrelease')}"/>
-	<!-- default build for win32 platform -->
-	<property name="platform" value="win32" />
-	<!-- default build tool is VS.NET2008 -->
-	<property name="buildtool" value="devenv.com" />
-	<!-- default: don't add a platform specific extension 
-		 to the bin folders 'release' / 'debug'	 -->
-	<property name="bindirextension" value="" />
-	<!-- default: we don't cross-compile -->
-	<property name="crosscompile" value="" />
-	<!-- default: we link dynamically -->
-	<property name="static" value="" />
-	<!-- default: we don't clean first -->
-	<property name="cleanup" value="" />
-	<!-- default: we don't build with IPv6 support -->
-	<property name="ipv6" value="" />
-	<!-- default: we build with openssl support -->
-	<property name="skipssl" value="" />
-    <!-- default: we build with VS2008 -->
-    <property name="studioversion" value="2008"/>
+  <!-- default configuration is release -->
+  <property name="configuration" value="release" />
+  <!-- default builds are dev builds -->
+  <property name="devrelease" value="-dev" unless="${property::exists('devrelease')}"/>
+  <!-- default build for win32 platform -->
+  <property name="platform" value="win32" />
+  <!-- default build tool is VS.NET2008 -->
+  <property name="buildtool" value="devenv.com" />
+  <!-- default: don't add a platform specific extension 
+     to the bin folders 'release' / 'debug'	 -->
+  <property name="bindirextension" value="" />
+  <!-- default: we don't cross-compile -->
+  <property name="crosscompile" value="" />
+  <!-- default: we link dynamically -->
+  <property name="static" value="" />
+  <!-- default: we don't clean first -->
+  <property name="cleanup" value="" />
+  <!-- default: we don't build with IPv6 support -->
+  <property name="ipv6" value="" />
+  <!-- default: we build with openssl support -->
+  <property name="skipssl" value="" />
+  <!-- default: we build with VS2010 -->
+  <property name="studioversion" value="2010"/>
 
-    <include buildfile="default.build.user" />
+  <include buildfile="default.build.user" />
 
-    <!-- build with VS2010, if there is a 10.0 in the VC path -->
-    <property name="studioversion" value="2010" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '10.0')}"/>
+  <!-- build with VS2010, if there is a 10.0 in the VC path -->
+  <property name="studioversion" value="2010" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '10.0')}"/>
 
-    <!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
-	     for example:
-		 /t "url/to/timestamp/server" /q
-	-->
-	<loadfile file="signinfo.txt" property="signinfo" failonerror="false" if="${file::exists('signinfo.txt')}"/>
+  <!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
+       for example:
+     /t "url/to/timestamp/server" /q
+  -->
+  <loadfile file="signinfo.txt" property="signinfo" failonerror="false" if="${file::exists('signinfo.txt')}"/>
 
-	<!-- ====================================================================== -->
-	<!-- Configuration targets													-->
-	<!-- ====================================================================== -->
-	<target name="debug">
-		<description>
-			Sets the environment up to build the debug versions.
-		</description>
-		<property name="configuration" value="debug" />
-	</target>
+  <!-- ====================================================================== -->
+  <!-- Configuration targets                                                  -->
+  <!-- ====================================================================== -->
+  <target name="debug">
+    <description>
+      Sets the environment up to build the debug versions.
+    </description>
+    <property name="configuration" value="debug" />
+  </target>
 
-	<target name="release">
-		<description>
-			Sets the environment up to build an official release version,
-			without the '-dev' markers.
-		</description>
-		<property name="devrelease" value="" />
-	</target>
+  <target name="release">
+    <description>
+      Sets the environment up to build an official release version,
+      without the '-dev' markers.
+    </description>
+    <property name="devrelease" value="" />
+  </target>
 
-	<target name="x64">
-		<description>
-			Compiles everything for the win64 platform.
-		</description>
-		<property name="platform" value="x64" />
-		<property name="bindirextension" value="64" />
-	</target>
+  <target name="x64">
+    <description>
+      Compiles everything for the win64 platform.
+    </description>
+    <property name="platform" value="x64" />
+    <property name="bindirextension" value="64" />
+  </target>
 
-	<target name="cross" depends="x64">
-		<description>
-			Cross-compiles on win32 for a different platform.
-		</description>
-		<property name="crosscompile" value="yes" if="${platform == 'x64'}"/>
-		<echo message="ignore cross-compiling (only supported for x64)" level="Warning" if="${platform != 'x64'}"/>
-	</target>
+  <target name="cross" depends="x64">
+    <description>
+      Cross-compiles on win32 for a different platform.
+    </description>
+    <property name="crosscompile" value="yes" if="${platform == 'x64'}"/>
+    <echo message="ignore cross-compiling (only supported for x64)" level="Warning" if="${platform != 'x64'}"/>
+  </target>
 
-	<target name="static">
-		<description>
-			compiles some projects linking statically to the CRT
-		</description>
-		<property name="static" value="static" />
-	</target>
+  <target name="static">
+    <description>
+      compiles some projects linking statically to the CRT
+    </description>
+    <property name="static" value="static" />
+  </target>
 
-	<target name="ipv6">
-		<description>
-			builds with IPv6 support
-		</description>
-		<property name="ipv6" value="enabled" />
-	</target>
+  <target name="ipv6">
+    <description>
+      builds with IPv6 support
+    </description>
+    <property name="ipv6" value="enabled" />
+  </target>
 
-	<target name="skipssl">
-		<description>
-			skips the building of openssl
-		</description>
-		<property name="skipssl" value="yes" />
-	</target>
+  <target name="skipssl">
+    <description>
+      skips the building of openssl
+    </description>
+    <property name="skipssl" value="yes" />
+  </target>
 
-	<!-- ====================================================================== -->
-	<!-- Project targets														-->
-	<!-- ====================================================================== -->
+  <!-- ====================================================================== -->
+  <!-- Project targets                                                        -->
+  <!-- ====================================================================== -->
 
-	<target name="clean" depends="VSNET">
-		<description>
-			Cleans before building the target
-		</description>
-		<property name="cleanup" value="yes" />
-	</target>
+  <target name="clean" depends="VSNET">
+    <description>
+      Cleans before building the target
+    </description>
+    <property name="cleanup" value="yes" />
+  </target>
 
-	<target name="cleanall" depends="VSNET">
-		<description>
-			Cleans every subproject.
-		</description>
-		<property name="cleanup" value="yes" />
-		<nant target="clean">
-			<buildfiles>
-				<include name="doc/doc.build" />
-				<include name="src/TortoiseSVN.build" />
-				<include name="ext/build/OpenSSL.build" />
-				<include name="ext/build/default.build" />
-				<include name="Languages/LanguagePack.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="cleanall" depends="VSNET">
+    <description>
+      Cleans every subproject.
+    </description>
+    <property name="cleanup" value="yes" />
+    <nant target="clean">
+      <buildfiles>
+        <include name="doc/doc.build" />
+        <include name="src/TortoiseSVN.build" />
+        <include name="ext/build/OpenSSL.build" />
+        <include name="ext/build/default.build" />
+        <include name="Languages/LanguagePack.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="docs" depends="VSNET,env,VersionInfo">
-		<description>
-			Builds the docs in all languages and all formats.
-		</description>
-		<nant target="all">
-			<buildfiles>
-				<include name="doc/doc.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="docs" depends="VSNET,env,VersionInfo">
+    <description>
+      Builds the docs in all languages and all formats.
+    </description>
+    <nant target="all">
+      <buildfiles>
+        <include name="doc/doc.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="docpot" depends="VSNET,env">
-		<description>
-			Creates the po template file for the docs.
-		</description>
-		<nant target="potfile">
-			<buildfiles>
-				<include name="doc/doc.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="docpot" depends="VSNET,env">
+    <description>
+      Creates the po template file for the docs.
+    </description>
+    <nant target="potfile">
+      <buildfiles>
+        <include name="doc/doc.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="APIDocs" depends="env" >
-		<description>
-			Builds the API docs from the comments in the sourcecode
-		</description>
-		<nant target="apidoc">
-			<buildfiles>
-				<include name="doc/doc.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="APIDocs" depends="env" >
+    <description>
+      Builds the API docs from the comments in the sourcecode
+    </description>
+    <nant target="apidoc">
+      <buildfiles>
+        <include name="doc/doc.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="VersionInfo" depends="VSNET,env">
-		<description>
-			Sets the version information as properties, env variables
-			and sets up the different version specific files.
-		</description>
-		<nant target="versioninfo">
-			<buildfiles>
-				<include name="src/TortoiseSVN.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="VersionInfo" depends="VSNET,env">
+    <description>
+      Sets the version information as properties, env variables
+      and sets up the different version specific files.
+    </description>
+    <nant target="versioninfo">
+      <buildfiles>
+        <include name="src/TortoiseSVN.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="Overlays" depends="VSNET,env" >
-		<description>
-			Builds the TortoiseOverlays install files
-		</description>
-		<nant target="all">
-			<buildfiles>
-				<include name="src/TortoiseOverlays/TortoiseOverlays.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="Overlays" depends="VSNET,env" >
+    <description>
+      Builds the TortoiseOverlays install files
+    </description>
+    <nant target="all">
+      <buildfiles>
+        <include name="src/TortoiseOverlays/TortoiseOverlays.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="Subversion" depends="VSNET,env">
-		<description>
-			Builds all the libraries TortoiseSVN depends on:
-			Subversion, apr, OpenSSL, ...
-		</description>
-		<nant target="OpenSSL" if="${skipssl != 'yes'}" >
-			<buildfiles>
-				<include name="ext\build\OpenSSL.build" />
-			</buildfiles>
-		</nant>
-		<nant target="build">
-			<buildfiles>
-				<include name="ext\build\default.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="Subversion" depends="VSNET,env">
+    <description>
+      Builds all the libraries TortoiseSVN depends on:
+      Subversion, apr, OpenSSL, ...
+    </description>
+    <nant target="OpenSSL" if="${skipssl != 'yes'}" >
+      <buildfiles>
+        <include name="ext\build\OpenSSL.build" />
+      </buildfiles>
+    </nant>
+    <nant target="build">
+      <buildfiles>
+        <include name="ext\build\default.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="SubversionOnly" depends="VSNET,env">
-		<description>
-			Builds only the Subversion libraries
-		</description>
-		<nant target="build">
-			<buildfiles>
-				<include name="ext\build\subversion.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="SubversionOnly" depends="VSNET,env">
+    <description>
+      Builds only the Subversion libraries
+    </description>
+    <nant target="build">
+      <buildfiles>
+        <include name="ext\build\subversion.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="TortoiseSVN" depends="VSNET,env">
-		<description>
-			Builds TortoiseSVN. The libraries must have been built
-			before.
-		</description>
-		<nant target="TortoiseSVN">
-			<buildfiles>
-				<include name="src/TortoiseSVN.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="TortoiseSVN" depends="VSNET,env">
+    <description>
+      Builds TortoiseSVN. The libraries must have been built
+      before.
+    </description>
+    <nant target="TortoiseSVN">
+      <buildfiles>
+        <include name="src/TortoiseSVN.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="binaries" depends="VSNET,env,Subversion,TortoiseSVN">
-		<description>
-			Builds all binaries (TortoiseSVN with all the required
-			libraries)
-		</description>
-	</target>
+  <target name="binaries" depends="VSNET,env,Subversion,TortoiseSVN">
+    <description>
+      Builds all binaries (TortoiseSVN with all the required
+      libraries)
+    </description>
+  </target>
 
-	<target name="statictools" depends="VSNET,env,static,Subversion,TortoiseSVN">
-		<description>
-			Builds the libraries for static linking, and all the tools
-			we ship separately from TSVN (therefore statically linked
-			to all dependend libs).
-		</description>
-		<nant target="setup">
-			<buildfiles>
-				<include name="src\TortoiseSVNSetup\staticsetup.build" />
-			</buildfiles>
-		</nant>
-		<if test="${file::exists('signinfo.txt')}">
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="bin\releasestatic\bin\TortoiseIDiff.exe" />
-			</exec>
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="bin\releasestatic\bin\TortoiseMerge.exe" />
-			</exec>
-		</if>
-		<zip zipfile="bin\TortoiseDiff.zip" ziplevel="9">
-			<fileset basedir="bin\releasestatic\bin">
-				<include name="TortoiseIDiff.exe" />
-				<include name="TortoiseMerge.exe" />
-			</fileset>
-		</zip>
-	</target>
+  <target name="statictools" depends="VSNET,env,static,Subversion,TortoiseSVN">
+    <description>
+      Builds the libraries for static linking, and all the tools
+      we ship separately from TSVN (therefore statically linked
+      to all dependend libs).
+    </description>
+    <nant target="setup">
+      <buildfiles>
+        <include name="src\TortoiseSVNSetup\staticsetup.build" />
+      </buildfiles>
+    </nant>
+    <if test="${file::exists('signinfo.txt')}">
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="bin\releasestatic\bin\TortoiseIDiff.exe" />
+      </exec>
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="bin\releasestatic\bin\TortoiseMerge.exe" />
+      </exec>
+    </if>
+    <zip zipfile="bin\TortoiseDiff.zip" ziplevel="9">
+      <fileset basedir="bin\releasestatic\bin">
+        <include name="TortoiseIDiff.exe" />
+        <include name="TortoiseMerge.exe" />
+      </fileset>
+    </zip>
+  </target>
 
-	<target name="staticmsi" depends="VSNET,env,static">
-		<description>
-			Builds the libraries for static linking, and all the tools
-			we ship separately from TSVN (therefore statically linked
-			to all dependend libs).
-		</description>
-		<nant target="setup">
-			<buildfiles>
-				<include name="src\TortoiseSVNSetup\staticsetup.build" />
-			</buildfiles>
-		</nant>
-		<if test="${file::exists('signinfo.txt')}">
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="bin\releasestatic\bin\TortoiseIDiff.exe" />
-			</exec>
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="bin\releasestatic\bin\TortoiseMerge.exe" />
-			</exec>
-		</if>
-		<zip zipfile="bin\TortoiseDiff.zip" ziplevel="9">
-			<fileset basedir="bin\releasestatic\bin">
-				<include name="TortoiseIDiff.exe" />
-				<include name="TortoiseMerge.exe" />
-			</fileset>
-		</zip>
-	</target>
+  <target name="staticmsi" depends="VSNET,env,static">
+    <description>
+      Builds the libraries for static linking, and all the tools
+      we ship separately from TSVN (therefore statically linked
+      to all dependend libs).
+    </description>
+    <nant target="setup">
+      <buildfiles>
+        <include name="src\TortoiseSVNSetup\staticsetup.build" />
+      </buildfiles>
+    </nant>
+    <if test="${file::exists('signinfo.txt')}">
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="bin\releasestatic\bin\TortoiseIDiff.exe" />
+      </exec>
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="bin\releasestatic\bin\TortoiseMerge.exe" />
+      </exec>
+    </if>
+    <zip zipfile="bin\TortoiseDiff.zip" ziplevel="9">
+      <fileset basedir="bin\releasestatic\bin">
+        <include name="TortoiseIDiff.exe" />
+        <include name="TortoiseMerge.exe" />
+      </fileset>
+    </zip>
+  </target>
 
-	<target name="setup" depends="env,binaries,docs,LanguagePacks">
-		<description>
-			Uses WiX to create an msi installer file.
-		</description>
-		<nant target="setup">
-			<buildfiles>
-				<include name="src\TortoiseSVNSetup\setup.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="setup" depends="env,binaries,docs,LanguagePacks">
+    <description>
+      Uses WiX to create an msi installer file.
+    </description>
+    <nant target="setup">
+      <buildfiles>
+        <include name="src\TortoiseSVNSetup\setup.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="LanguagePacks" depends="env,VersionInfo">
-		<description>
-			Builds all the language pack installers.
-		</description>
-		<property name="processorarchitecture" value="x86" />
+  <target name="LanguagePacks" depends="env,VersionInfo">
+    <description>
+      Builds all the language pack installers.
+    </description>
+    <property name="processorarchitecture" value="x86" />
 
-		<!-- The nant process seems to open a 32 bit shell. 
-			 Hence, we need to be clever about this check ... -->
-		<if test="${not environment::variable-exists('PROCESSOR_ARCHITEW6432')}">
-			<property name="processorarchitecture" value="AMD64" if="${(platform == 'x64') and (crosscompile != 'yes')}" />
-		</if>
+    <!-- The nant process seems to open a 32 bit shell. 
+       Hence, we need to be clever about this check ... -->
+    <if test="${not environment::variable-exists('PROCESSOR_ARCHITEW6432')}">
+      <property name="processorarchitecture" value="AMD64" if="${(platform == 'x64') and (crosscompile != 'yes')}" />
+    </if>
 
-		<if test="${environment::get-variable('PROCESSOR_ARCHITECTURE') == processorarchitecture}">
-			<nant target="all">
-				<buildfiles>
-					<include name="Languages\LanguagePack.build" />
-				</buildfiles>
-			</nant>
-		</if>
-		<if test="${environment::get-variable('PROCESSOR_ARCHITECTURE') != processorarchitecture}">
-			<echo message="environment processor architecture ${environment::get-variable('PROCESSOR_ARCHITECTURE')}"/>
-			<echo message="does not match the selected target architecture ${processorarchitecture}" />
-			<echo message="skipping generating languagepacks" />
-		</if>
-	</target>
+    <if test="${environment::get-variable('PROCESSOR_ARCHITECTURE') == processorarchitecture}">
+      <nant target="all">
+        <buildfiles>
+          <include name="Languages\LanguagePack.build" />
+        </buildfiles>
+      </nant>
+    </if>
+    <if test="${environment::get-variable('PROCESSOR_ARCHITECTURE') != processorarchitecture}">
+      <echo message="environment processor architecture ${environment::get-variable('PROCESSOR_ARCHITECTURE')}"/>
+      <echo message="does not match the selected target architecture ${processorarchitecture}" />
+      <echo message="skipping generating languagepacks" />
+    </if>
+  </target>
 
-	<target name="msi" depends="env">
-		<description>
-			Builds the msi installer from already built binaries.
-		</description>
-		<nant target="setup">
-			<buildfiles>
-				<include name="src\TortoiseSVNSetup\setup.build" />
-			</buildfiles>
-		</nant>
-	</target>
+  <target name="msi" depends="env">
+    <description>
+      Builds the msi installer from already built binaries.
+    </description>
+    <nant target="setup">
+      <buildfiles>
+        <include name="src\TortoiseSVNSetup\setup.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
-	<target name="MakeRelease" depends="VSNET,env,clean,setup">
-		<description>
-			executes all Nant targets required for a release.
-		</description>
-	</target>
+  <target name="MakeRelease" depends="VSNET,env,clean,setup">
+    <description>
+      executes all Nant targets required for a release.
+    </description>
+  </target>
 
-	<!-- ====================================================================== -->
-	<!-- Help target															-->
-	<!-- ====================================================================== -->
-	<target name="help">
-		<!-- note: use spaces in the help text below! Otherwise the output won't be aligned in the console. -->
-		<echo message="You must specify a target to tell us what you want to build!" />
-		<echo />
-		<echo message="The following targets are available:" />
-		<echo message="binaries     : builds all binaries (TortoiseSVN, Subversion, Libs)" />
-		<echo message="setup        : creates an msi installer for TortoiseSVN" />
-		<echo message="statictools  : builds the statically linked tools which are" />
-		<echo message="               available separately from TortoiseSVN" />
-		<echo />
-		<echo message="cleanall     : clean every subproject" />
-		<echo message="docs	        : builds the docs in all languages and all formats" />
-		<echo message="APIDocs      : Builds the API docs from the sourcecode comments" />
-		<echo message="docpot       : Generates the po template file of the docs" />
-		<echo message="Subversion   : builds the Subversion libraries, including its" />
-		<echo message="               dependencies" />
-		<echo message="TortoiseSVN  : builds TortoiseSVN. You must have built the" />
-		<echo message="               Subversion libraries before, or this will fail" />
-		<echo message="LanguagePacks: creates the Languagepack installers" />
-		<echo message="msi          : creates the msi, but doesn't build the libs first" />
-		<echo message="Overlays     : builds the TortoiseOverlays module" />
-		<echo />
-		<echo message="The following targets can be used to tweak the builds:" />
-		<echo message="clean   : clean those targets which are built next" />
-		<echo message="debug   : if this target is called before other build targets," />
-		<echo message="          those targets are built with debug support" />
-		<echo message="release : call this if you want to create official releases." />
-		<echo message="          It removes the '-dev' string from some builds" />
-		<echo message="x64     : call this if you want to create native 64 bit builds." />
-		<echo message="          (AMD64/EM64T only -- will not work on Itanium systems.)" />
-		<echo message="cross   : cross-compile on win32 for the given target platform." />
-		<echo message="          (currently only available with x64.)" />
-		<echo message="ipv6    : builds the packages with IPv6 support" />
-		<echo />
-		<echo message="Please specify the configuration targets BEFORE the main target." />
-		<echo message="Examples:" />
-		<echo />
-		<echo message="nant debug clean binaries" />
-		<echo message="nant release setup" />
-		<echo message="nant -v x64 debug binaries" />
-		<echo message="nant cross x64 setup" />
-		<echo />
-	</target>
+  <!-- ====================================================================== -->
+  <!-- Help target                                                            -->
+  <!-- ====================================================================== -->
+  <target name="help">
+    <!-- note: use spaces in the help text below! Otherwise the output won't be aligned in the console. -->
+    <echo message="You must specify a target to tell us what you want to build!" />
+    <echo />
+    <echo message="The following targets are available:" />
+    <echo message="binaries     : builds all binaries (TortoiseSVN, Subversion, Libs)" />
+    <echo message="setup        : creates an msi installer for TortoiseSVN" />
+    <echo message="statictools  : builds the statically linked tools which are" />
+    <echo message="               available separately from TortoiseSVN" />
+    <echo />
+    <echo message="cleanall     : clean every subproject" />
+    <echo message="docs	        : builds the docs in all languages and all formats" />
+    <echo message="APIDocs      : Builds the API docs from the sourcecode comments" />
+    <echo message="docpot       : Generates the po template file of the docs" />
+    <echo message="Subversion   : builds the Subversion libraries, including its" />
+    <echo message="               dependencies" />
+    <echo message="TortoiseSVN  : builds TortoiseSVN. You must have built the" />
+    <echo message="               Subversion libraries before, or this will fail" />
+    <echo message="LanguagePacks: creates the Languagepack installers" />
+    <echo message="msi          : creates the msi, but doesn't build the libs first" />
+    <echo message="Overlays     : builds the TortoiseOverlays module" />
+    <echo />
+    <echo message="The following targets can be used to tweak the builds:" />
+    <echo message="clean   : clean those targets which are built next" />
+    <echo message="debug   : if this target is called before other build targets," />
+    <echo message="          those targets are built with debug support" />
+    <echo message="release : call this if you want to create official releases." />
+    <echo message="          It removes the '-dev' string from some builds" />
+    <echo message="x64     : call this if you want to create native 64 bit builds." />
+    <echo message="          (AMD64/EM64T only -- will not work on Itanium systems.)" />
+    <echo message="cross   : cross-compile on win32 for the given target platform." />
+    <echo message="          (currently only available with x64.)" />
+    <echo message="ipv6    : builds the packages with IPv6 support" />
+    <echo />
+    <echo message="Please specify the configuration targets BEFORE the main target." />
+    <echo message="Examples:" />
+    <echo />
+    <echo message="nant debug clean binaries" />
+    <echo message="nant release setup" />
+    <echo message="nant -v x64 debug binaries" />
+    <echo message="nant cross x64 setup" />
+    <echo />
+  </target>
 </project>
 
 
