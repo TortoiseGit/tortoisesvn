@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-04 16:15+0900\n"
+"PO-Revision-Date: 2010-06-14 13:37+0900\n"
 "Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: Test\n"
 "MIME-Version: 1.0\n"
@@ -231,6 +231,11 @@ msgstr "%s, 그러나 디렉토리가 작업사본에서 차단당했습니다."
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but the directory was replaced"
+msgstr "%s, 그러나 디렉토리가 교체되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr "%s, 그러나 파일이 로컬에서 버전관리 대상이 아닌채로 벌써 존재합니다."
 
@@ -258,6 +263,20 @@ msgstr "%s, 그러나 파일이 로컬에서 삭제, 이동 혹은 이름이 변
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
 msgstr "%s, 그러나 파일이 작업사본에서 차단당했습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was replaced"
+msgstr "%s, 그러나 파일이 교체되었습니다."
+
+#. Resource IDs: (376)
+#, c-format
+msgid ""
+"%s\n"
+"%ld failed hunk(s)"
+msgstr ""
+"%s\n"
+"%ld 실패한 조각(들)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -506,7 +525,7 @@ msgstr "URL 비교(&C)"
 msgid "&Compare revisions"
 msgstr "리비전 비교(&C)"
 
-#. Resource IDs: (1019)
+#. Resource IDs: (1019, 1390)
 msgid "&Compare whitespaces"
 msgstr "공백도 비교(&C)"
 
@@ -542,7 +561,7 @@ msgstr "클립보드에 복사(&C)"
 msgid "&Copy to..."
 msgstr "복사(&C)..."
 
-#. Resource IDs: (1097)
+#. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "사용자 지정(&C)"
 
@@ -706,7 +725,7 @@ msgstr "녹색(&G):"
 msgid "&Group by branch"
 msgstr "브랜치별 그룹(&G)"
 
-#. Resource IDs: (1032, 1115)
+#. Resource IDs: (1115)
 msgid "&HEAD Revision"
 msgstr "&HEAD 리비전"
 
@@ -899,7 +918,7 @@ msgstr "네트워크 드라이브(&N)"
 msgid "&New "
 msgstr "새로 만들기(&N)"
 
-#. Resource IDs: (1310, 16509, 16615)
+#. Resource IDs: (1310, 1542, 16509, 16615)
 msgid "&New..."
 msgstr "새로 만들기(&N)..."
 
@@ -1208,11 +1227,11 @@ msgstr "자동 완성기능을 멈추는 시간(초)을 설정합니다.(&T)"
 msgid "&To Revision"
 msgstr "대상 리비전(&T)"
 
-#. Resource IDs: (1384, 65535)
+#. Resource IDs: (1305, 1384)
 msgid "&To URL:"
 msgstr "대상 URL(&T):"
 
-#. Resource IDs: (1384)
+#. Resource IDs: (1305, 1384)
 msgid "&To path:"
 msgstr "대상 경로(&T):"
 
@@ -1260,7 +1279,7 @@ msgstr "두페이지(&T)"
 msgid "&URL of repository:"
 msgstr "저장소 &URL:"
 
-#. Resource IDs: (1076)
+#. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
 msgstr "&URL:"
 
@@ -1922,7 +1941,7 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "패치 적용..."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Unified Diff 적용"
 
@@ -2013,7 +2032,7 @@ msgstr "작성자"
 msgid "Authors case sensitive"
 msgstr "작성자 대소문자 구별함"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1444)
 msgid "Authors:"
 msgstr "작성자:"
 
@@ -2089,7 +2108,7 @@ msgstr ""
 "비트맵\n"
 "비트맵"
 
-#. Resource IDs: (114, 162)
+#. Resource IDs: (162)
 msgid "Blame"
 msgstr "수정한 사람 보기"
 
@@ -2422,7 +2441,7 @@ msgstr "수정사항에 대해 작업사본 체크하기"
 msgid "Check:"
 msgstr "체크:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "TortoiseSVN 새 버전이 있는지 확인합니다."
 
@@ -3061,6 +3080,16 @@ msgstr "현재 디렉토리(%1)는 지울 수 없습니다."
 msgid "Could not remove %s from the ignore list"
 msgstr "무시 목록에서 %s를 제거할 수 없습니다."
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace '%s' because"
+msgstr "'%s'를 교체할 수 없습니다. 사유는 "
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace property '%1!s!' on '%2!s!' because"
+msgstr "'%1!s!' 속성을 '%2!s!'로 교체할 수 없습니다. 사유는 "
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -3083,6 +3112,15 @@ msgstr ""
 #, c-format
 msgid "Could not save the file %s!"
 msgstr "%s 파일을 저장할 수 없습니다!"
+
+#. Resource IDs: (70)
+#, c-format
+msgid ""
+"Could not start diff viewer!\n"
+"%s"
+msgstr ""
+"차이점 보기 프로그램을 시작할 수 없습니다!\n"
+"%s"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3120,6 +3158,15 @@ msgstr ""
 #. Resource IDs: (3857)
 msgid "Could not start print job."
 msgstr "프린트 작업을 시작할 수 없습니다."
+
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"%s"
+msgstr ""
+"텍스트 뷰어를 시작할 수 없습니다!\n"
+"%s"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3278,7 +3325,7 @@ msgstr "로그 메시지 기본 개수(&N)"
 msgid "Default Menu"
 msgstr "기본 메뉴"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1516)
 msgid "Default URL:"
 msgstr "기본 URL:"
 
@@ -3286,7 +3333,7 @@ msgstr "기본 URL:"
 msgid "Default application menu. Appears when no documents are open."
 msgstr "기본 어플리케이션 메뉴. 열려진 문서가 하나도 없을 때 보여줍니다."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "기본 경로:"
 
@@ -3408,7 +3455,7 @@ msgstr "대화상자의 크기와 위치"
 msgid "Diff file:"
 msgstr "비교 파일:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "비교 옵션"
 
@@ -3629,7 +3676,7 @@ msgstr "%1에 드랍이 불가능함"
 msgid "E&xact copy sources"
 msgstr "정확한 복사 원본(&X)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1518)
 msgid "E&xclude paths:"
 msgstr "제외 경로(&X):"
 
@@ -3734,6 +3781,10 @@ msgstr "선택된 속성값을 편집합니다"
 msgid "Either the name or IP of the proxy server"
 msgstr "프록시의 이름이나 IP를 입력하십시오."
 
+#. Resource IDs: (265)
+msgid "Eliding mergeinfo"
+msgstr "mergeinfo 생략"
+
 #. Resource IDs: (1057)
 msgid ""
 "Ellipse Tools\n"
@@ -3799,7 +3850,7 @@ msgstr "%1을 읽는 중에 예기치 않은 오류가 발생하였습니다."
 msgid "Encountered an unexpected error while writing %1."
 msgstr "%1을 쓰는 중에 예기치 않은 오류가 발생하였습니다."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "종료 리비전"
 
@@ -4026,7 +4077,7 @@ msgstr "파일에 속성값들을 내보냅니다"
 msgid "Extension"
 msgstr "확장자"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
 msgstr "확장자/mime-type 별 프로그램 정의"
 
@@ -4488,7 +4539,7 @@ msgstr "필요한 정보 얻는 중..."
 msgid "Getting unified diff"
 msgstr "unified diff 만드는 중..."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
 msgstr "제외/무시 패턴(&P):"
 
@@ -4666,7 +4717,7 @@ msgstr "모든 공백 무시(&G)"
 msgid "I&gnored"
 msgstr "무시됨(&G)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1519)
 msgid "I&nclude paths:"
 msgstr "포함 경로(&N):"
 
@@ -5004,7 +5055,7 @@ msgstr "줄 바꿈 문자 무시(&E)"
 msgid "Ignore line &endings (recommended)"
 msgstr "줄바꿈 문자 무시(권장)(&E)"
 
-#. Resource IDs: (1126, 1127)
+#. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "줄바꿈 문자 무시"
 
@@ -5070,7 +5121,7 @@ msgstr "%ld 개를 임포트함"
 msgid "Import %s to %s%s"
 msgstr "%s 을(를) %s%s(으)로 임포트함"
 
-#. Resource IDs: (1056)
+#. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "임포트 메시지(&M)"
 
@@ -5698,11 +5749,11 @@ msgstr "메뉴 바"
 msgid "Menu s&hadows"
 msgstr "메뉴 그림자(&H)"
 
-#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 278, 65535)
 msgid "Merge"
 msgstr "병합"
 
-#. Resource IDs: (1488)
+#. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "병합 깊이(&D):"
 
@@ -5776,7 +5827,7 @@ msgstr "브랜치를 선택하여 메인 트렁크에 병합함"
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
 msgstr "병합 추적 정보를 사용하여 누락된 리비전을 다시 작업사본에 병합합니다"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1073)
 msgid "Merging"
 msgstr "병합"
 
@@ -6991,6 +7042,30 @@ msgstr "최근에 수정된 행"
 msgid "Record Only"
 msgstr "병합정보만 저장"
 
+#. Resource IDs: (265)
+msgid "Recording mergeinfo for merge between URLs"
+msgstr "다음 URL 사이의 병합에 대해 mergeinfo 기록중"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
+msgstr "r%1!ld!에서 r%2!ld!까지의 병합에 대한 mergeinfo 기록중"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%ld"
+msgstr "r%ld 병합에 대해 mergeinfo 기록중"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
+msgstr "r%1!ld!에서 r%2!ld!까지의 역방향 병합에 대한 mergeinfo 기록중"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%ld"
+msgstr "r%ld 역방향 병합에 대해 mergeinfo 기록중"
+
 #. Resource IDs: (3887)
 msgid ""
 "Recover the auto-saved documents\n"
@@ -7086,9 +7161,14 @@ msgstr "%s를 %s에 재통합 병합합니다."
 msgid "Reject"
 msgstr "거부"
 
+#. Resource IDs: (7)
+#, c-format
+msgid "Rejected patch hunks for '%s'"
+msgstr "'%s'에 대해서 거부된 패치 조작들"
+
 #. Resource IDs: (16)
-msgid "Release loc&k"
-msgstr "잠금 풀기(&K)"
+msgid "Release loc&k..."
+msgstr "잠금 풀기(&K)..."
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
@@ -7456,7 +7536,7 @@ msgstr "리비전 그래프(&G)"
 msgid "Revision / Author:"
 msgstr "리비전 / 작성자"
 
-#. Resource IDs: (182)
+#. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr "리비전 그래프"
 
@@ -8126,7 +8206,7 @@ msgstr "다른 저장소들로부터 외부경로를 보여줍니다.(&D)"
 msgid "Show f&ull menus after a short delay"
 msgstr "짧은 지연후에 전체 메뉴를 보여줍니다(&U)"
 
-#. Resource IDs: (1037)
+#. Resource IDs: (1034, 1037)
 msgid "Show l&og"
 msgstr "로그 보기(&O)"
 
@@ -8864,6 +8944,16 @@ msgstr "'%s' 파일을 수정하려고 시도한 마지막 병합 동작"
 
 #. Resource IDs: (608)
 #, c-format
+msgid "The last merge operation tried to replace the directory '%s'"
+msgstr "'%s' 디렉토리를 교체하려고 시도한 마지막 병합 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to replace the file '%s'"
+msgstr "'%s' 파일을 교체하려고 시도한 마지막 병합 동작"
+
+#. Resource IDs: (608)
+#, c-format
 msgid "The last switch operation tried to add the directory '%s'"
 msgstr "'%s' 디렉토리를 추가하려고 시도한 마지막 전환 동작"
 
@@ -8891,6 +8981,16 @@ msgstr "'%s' 디렉토리를 수정하려고 시도한 마지막 전환 동작"
 #, c-format
 msgid "The last switch operation tried to modify the file '%s'"
 msgstr "'%s' 파일을 수정하려고 시도한 마지막 전환 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the directory '%s'"
+msgstr "'%s' 디렉토리를 교체하려고 시도한 마지막 전환 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the file '%s'"
+msgstr "'%s' 파일을 교체하려고 시도한 마지막 전환 동작"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8921,6 +9021,16 @@ msgstr "'%s' 디렉토리를 수정하려고 시도한 마지막 업데이트 �
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
 msgstr "'%s' 파일을 수정하려고 시도한 마지막 업데이트 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the directory '%s'"
+msgstr "'%s' 디렉토리를 교체하려고 시도한 마지막 업데이트 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the file '%s'"
+msgstr "'%s' 파일을 교체하려고 시도한 마지막 업데이트 동작"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9278,11 +9388,11 @@ msgstr "브랜치(혹은 트렁크)에 하나 혹은 여러개의 리비전들�
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
 msgstr "두 개의 서로 다른 브랜치의 차이점들을 작업사본에 병합하기를 원하는 경우에 사용되는 명령입니다."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1531)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "이 제품은 CollabNet이 개발한 소프트웨어를 포함하고 있습니다 (http://www.Collab.Net/)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1532)
 msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
 msgstr "이 제품은 OpenSSL 프로젝트가 개발한 소프트웨어를 포함하고 있습니다 (http://www.openssl.org/)"
 
@@ -9750,6 +9860,10 @@ msgstr "버전관리아님"
 msgid "Unversioned files mark parent folder as modified"
 msgstr "버전 관리 대상이 아닌 파일들이 있으면 상위 폴더를 수정된 것으로 표시합니다."
 
+#. Resource IDs: (265)
+msgid "Unversioned obstruction"
+msgstr ""
+
 #. Resource IDs: (286)
 #, c-format
 msgid "Unversioning %1!s!"
@@ -10176,7 +10290,7 @@ msgstr "윈도우 2000(&2)"
 msgid "With URL:"
 msgstr "대상 URL:"
 
-#. Resource IDs: (158, 65535)
+#. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
 msgstr "작업 사본"
 
