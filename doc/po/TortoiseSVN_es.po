@@ -15,13 +15,13 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-06-08 00:04+0100\n"
-"Last-Translator: Juan Carlos Fuentes-Michel <jcfuentes@gmail.com>\n"
+"PO-Revision-Date: 2010-06-15 08:35-0300\n"
+"Last-Translator: Tommy <tommychristie@gmail.com>\n"
 "Language-Team: Tomás Christie\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.6.0\n"
 
@@ -5900,7 +5900,14 @@ msgstr "Añadiendo propiedades"
 
 #. (para)
 msgid "<placeholder-1/> To add a new property, first click on <guilabel>Add...</guilabel>. Select the required property name from the combo box, or type in a name of your own choice, then enter a value in the box below. Properties which take multiple values, such as an ignore list, can be entered on multiple lines. Click on <guibutton>OK</guibutton> to add that property to the list."
-msgstr "<placeholder-1/> Para añadir una nueva propiedad, primero pulse en <guilabel>Añadir...</guilabel>. Seleccione el nombre de la propiedad deseado del cuadro desplegable, o escriba un nombre de su elección, y luego introduzca un valor en la caja de texto que hay debajo. Para las propiedades que admiten múltiples valores, como una lista de ignorados, éstos se pueden introducir en múltiples líneas. Pulse en <guibutton>Aceptar</guitbutton> para añadir esa propiedad a la lista."
+msgstr ""
+"<placeholder-1/> Para añadir una nueva propiedad, primero pulse en "
+"<guilabel>Añadir...</guilabel>. Seleccione el nombre de la propiedad deseado "
+"del cuadro desplegable, o escriba un nombre de su elección, y luego "
+"introduzca un valor en la caja de texto que hay debajo. Para las propiedades "
+"que admiten múltiples valores, como una lista de ignorados, éstos se pueden "
+"introducir en múltiples líneas. Pulse en <guibutton>Aceptar</guitbutton> "
+"para añadir esa propiedad a la lista."
 
 #. (para)
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>"
@@ -12157,7 +12164,14 @@ msgstr "Convenciones y reglas básicas"
 
 #. (para)
 msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
-msgstr "En las descripciones que aparecen a continuación, la URL con el lugar de un repositorio se muestra simplemente como <literal>URL</literal>, que podría corresponder por ejemplo a<systemitem class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. La ruta de la copia de trabajo se muestra simplemente como <literal>RUTA</literal>, que podría corresponder por ejemplo a <filename>C:\\TortoiseSVN\\trunk</filename>."
+msgstr ""
+"En las descripciones que aparecen a continuación, la URL con el lugar de un "
+"repositorio se muestra simplemente como <literal>URL</literal>, que podría "
+"corresponder por ejemplo a<systemitem "
+"class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>. La "
+"ruta de la copia de trabajo se muestra simplemente como "
+"<literal>RUTA</literal>, que podría corresponder por ejemplo a "
+"<filename>C:\\TortoiseSVN\\trunk</filename>."
 
 #. (para)
 msgid "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the notion of a current working directory. All working copy paths must be given using the absolute path, not a relative path."
@@ -12180,11 +12194,15 @@ msgstr ""
 #. (para)
 msgid "The depth combo box items relate to the <literal>-depth</literal> argument."
 msgstr ""
+"El cuadro desplegable de profundidad esta relacionado con el argumento "
+"<literal>-depth</literal>"
 
 #. (para)
 #. (para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr "Si se marca <guilabel>Omitir externos</guilabel>, utilice la opción <literal>--ignore-externals</literal>."
+msgstr ""
+"Si se marca <guilabel>Omitir externos</guilabel>, utilice la opción <literal"
+">--ignore-externals</literal>."
 
 #. (para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
@@ -12695,7 +12713,19 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> La sobreimpresión <e
 
 #. (para)
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</emphasis> overlay is used to indicate when a file has the <literal>svn:needs-lock</literal> property set. For working copies which were created using Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal> status is cached locally by Subversion and this is used to determine when to show this overlay. For working copies which are in pre-1.4.x format, TortoiseSVN shows this overlay when the file has read-only status. Note that Subversion automatically upgrades working copies when you update them, although the caching of the <literal>svn:needs-lock</literal> property may not happen until the file itself is updated."
-msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> La sobreimpresión <emphasis>Necesita bloqueo</emphasis> se utiliza para indicar cuándo un archivo tiene la establecida la propiedad <literal>svn:needs-lock</literal>. Para las copias de trabajo que fueron creadas utilizando Subversion 1.4.0 y posteriores, el estado <literal>svn:needs-lock</literal> se guarda en la caché local por Subversion y se utiliza para determinar cuándo mostrar esta sobreimpresión. Para copias de trabajo que están en formato pre-1.4.x, TortoiseSVN muestra esta sobreimpresión cuando el archivo tiene el estado de sólo-lectura. Tenga en cuenta que Subversion automáticamente actualiza las copias de trabajo cuando las actualiza, aunque el almacenamiento en caché de la propiedad <literal>svn:needs-lock</literal> puede no realizarse hasta que el propio archivo se actualice."
+msgstr ""
+"<graphic fileref=\"images/ReadOnlyIcon.png\"/> La sobreimpresión "
+"<emphasis>Necesita bloqueo</emphasis> se utiliza para indicar cuándo un "
+"archivo tiene establecida la propiedad <literal>svn:needs-lock</literal>. "
+"Para las copias de trabajo que fueron creadas utilizando Subversion 1.4.0 y "
+"posteriores, el estado <literal>svn:needs-lock</literal> se guarda en la "
+"caché local por Subversion y se utiliza para determinar cuándo mostrar esta "
+"sobreimpresión. Para copias de trabajo que están en formato pre-1.4.x, "
+"TortoiseSVN muestra esta sobreimpresión cuando el archivo tiene el estado de "
+"sólo-lectura. Tenga en cuenta que Subversion automáticamente actualiza las "
+"copias de trabajo cuando las actualiza, aunque el almacenamiento en caché de "
+"la propiedad <literal>svn:needs-lock</literal> puede no realizarse hasta "
+"que el propio archivo se actualice."
 
 #. (para)
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis> overlay is used when the local working copy holds a lock for that file."
@@ -12763,11 +12793,21 @@ msgstr "En este apéndice asumimos que ya tiene las herramientas de Subversion i
 
 #. (para)
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which has been archived at <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
-msgstr "Mucha de esta información viene de un tutorial proporcionado por Marc Logemann, que puede encontrarse en <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> Thorsten Müller ha proporcionado información adicional sobre cómo configurar un servidor Windows. ¡Gracias tíos!"
+msgstr ""
+"Mucha de esta información viene de un tutorial proporcionado por Marc "
+"Logemann, que puede encontrarse en <ulink url=\"http://tortoisesvn.net/ssh_ho"
+"wto\"><citetitle>http://tortoisesvn.net/ssh_howto</citetitle></ulink> "
+"Thorsten Müller ha proporcionado información adicional sobre cómo configurar "
+"un servidor Windows. ¡Gracias tíos!"
 
 #. (para)
 msgid "You can also watch a video tutorial created by Maximo Migliari which takes you through all the important steps. Watch it on <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink>. or <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
-msgstr "Usted también puede ver un video tutorial creado por Maximo Migliari que lo lleva por todos los pasos importantes. Mírelo en <ulink url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink> o <ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</citetitle></ulink>."
+msgstr ""
+"Usted también puede ver un video tutorial creado por Maximo Migliari que lo "
+"lleva por todos los pasos importantes. Mírelo en <ulink "
+"url=\"http://www.vimeo.com/5378553\"><citetitle>Vimeo</citetitle></ulink> o "
+"<ulink url=\"http://www.youtube.com/watch?v=BoKHoRWu4EE\"><citetitle>YouTube</"
+"citetitle></ulink>."
 
 #. (title)
 msgid "Setting Up a Linux Server"
@@ -13027,7 +13067,10 @@ msgstr "Paquetes de Idiomas y Correctores Ortográficos"
 
 #. (para)
 msgid "The standard installer has support only for English, but you can download separate language packs and spell check dictionaries separately after installation."
-msgstr "El instalador estándar solo soporta el idioma inglés, pero puede descargar paquetes de idiomas y diccionarios para la corrección ortográfica por separado después de la instalación."
+msgstr ""
+"El instalador estándar solo soporta el idioma inglés, pero puede descargar "
+"paquetes de idiomas y diccionarios para la corrección ortográfica por "
+"separado después de la instalación."
 
 #. (title)
 msgid "Language Packs"
@@ -13051,7 +13094,11 @@ msgstr "Cada pack de idioma está empaquetado como un instalador <literal>.exe</
 
 #. (para)
 msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
-msgstr "Esta documentación ha sido también traducida a diversos idiomas. Puede descargar manuales traducidos de la <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> de nuestro sitio web."
+msgstr ""
+"Esta documentación también ha sido traducida a diversos idiomas. Puede "
+"descargar manuales traducidos de la <ulink "
+"url=\"http://tortoisesvn.net/support\"><citetitle>support "
+"page</citetitle></ulink> de nuestro sitio web."
 
 #. (title)
 msgid "Spellchecker"
@@ -13091,23 +13138,35 @@ msgstr "Una vez que tenga los archivos de diccionario, seguramente deberá cambi
 
 #. (para)
 msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
-msgstr "Compruebe la configuración <literal>tsvn:projectlanguage</literal>. Lea <xref linkend=\"tsvn-dug-propertypage\"/> para encontrar información sobre como se establecen las propiedades de proyecto."
+msgstr ""
+"Comprobar la configuración <literal>tsvn:projectlanguage</literal>. Lea "
+"<xref linkend=\"tsvn-dug-propertypage\"/> para encontrar información sobre "
+"como se establecen las propiedades de proyecto."
 
 #. (para)
 msgid "If no project language is set, or that language is not installed, try the language corresponding to the Windows locale."
-msgstr "Si no se ha establecido un idioma del proyecto, o ese idioma no está instalado, inténtelo con el idioma que corresponde al de Windows."
+msgstr ""
+"Si no se ha establecido un idioma del proyecto, o ese idioma no está "
+"instalado, intenta con el idioma que corresponde al de Windows."
 
 #. (para)
 msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
-msgstr "Si no funciona el idioma exacto de Windows, pruebe el idioma <quote>Base</quote>, por ejemplo, <literal>es_MX</literal> (Español-México) se transformaría en <literal>es_ES</literal> (Español)."
+msgstr ""
+"Si no funciona el idioma exacto de Windows, prueba el idioma "
+"<quote>Base</quote>, por ejemplo, <literal>es_MX</literal> (Español-México) "
+"se transformaría en <literal>es_ES</literal> (Español)."
 
 #. (para)
 msgid "If none of the above works, then the default language is English, which is included with the standard installation."
-msgstr "Si nada de lo anterior funciona, entonces el idioma por defecto es el Inglés, que se incluye con la instalación estándar."
+msgstr ""
+"Si nada de lo anterior funciona, entonces el idioma por defecto es el "
+"Inglés, que se incluye con la instalación estándar."
 
 #. (para)
 msgid "If you install multiple dictionaries, TortoiseSVN uses these rules to select which one to use. <placeholder-1/>"
-msgstr "Si instala múltiples diccionarios, TortoiseSVN utilizará estas reglas para seleccionar cuál utilizar. <placeholder-1/>"
+msgstr ""
+"Si instala múltiples diccionarios, TortoiseSVN utilizará estas reglas para "
+"seleccionar cuál utilizar. <placeholder-1/>"
 
 #. (title)
 msgid "Glossary"
