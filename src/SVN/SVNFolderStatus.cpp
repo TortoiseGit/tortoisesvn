@@ -192,13 +192,11 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 
             if (dirstatus)
             {
-                if (dirstatus->entry)
-                {
-                    dirstat.author = authors.GetString (dirstatus->entry->cmt_author);
-                    dirstat.url = authors.GetString (dirstatus->entry->url);
-                    dirstat.rev = dirstatus->entry->cmt_rev;
-                    dirstat.owner = owners.GetString(dirstatus->entry->lock_owner);
-                }
+                dirstat.author = authors.GetString (dirstatus->changed_author);
+                dirstat.url = authors.GetString (dirstatus->repos_relpath);
+                dirstat.rev = dirstatus->changed_rev;
+                dirstat.owner = owners.GetString(dirstatus->lock_owner);
+
                 dirstat.status = SVNStatus::GetMoreImportant(dirstatus->text_status, dirstatus->prop_status);
                 dirstat.tree_conflict = dirstatus->conflicted != 0;
             }
@@ -381,14 +379,12 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, con
     FileStatusCacheEntry s;
     s.needslock = false;
     s.tree_conflict = false;
-    if ((status)&&(status->entry))
+    if (status)
     {
-        s.author = Stat->authors.GetString(status->entry->cmt_author);
-        s.url = Stat->urls.GetString(status->entry->url);
-        s.rev = status->entry->cmt_rev;
-        s.owner = Stat->owners.GetString(status->entry->lock_owner);
-        if (status->entry->present_props)
-            s.needslock = strstr(status->entry->present_props, SVN_PROP_NEEDS_LOCK) ? true : false;
+        s.author = Stat->authors.GetString(status->changed_author);
+        s.url = Stat->urls.GetString(status->repos_relpath);
+        s.rev = status->changed_rev;
+        s.owner = Stat->owners.GetString(status->lock_owner);
     }
     else
     {

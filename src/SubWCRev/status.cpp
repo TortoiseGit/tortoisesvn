@@ -31,9 +31,9 @@
 #pragma warning(disable:4127)   //conditional expression is constant (cause of SVN_ERR)
 
 // Copy the URL from src to dest, unescaping on the fly.
-void UnescapeCopy(char * src, char * dest, int buf_len)
+void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
 {
-    char * pszSource = src;
+    const char * pszSource = root;
     char * pszDest = dest;
     int len = 0;
 
@@ -45,6 +45,7 @@ void UnescapeCopy(char * src, char * dest, int buf_len)
     // in the *pszDest is assumed to be <= the number of characters
     // in pszSource (they are both the same string anyway)
 
+    bool bRoot = true;
     while ((*pszSource != '\0') && (++len < buf_len))
     {
         if (*pszSource == '%')
@@ -62,14 +63,14 @@ void UnescapeCopy(char * src, char * dest, int buf_len)
             char * pszHigh = NULL;
             pszSource++;
 
-            *pszSource = (char) toupper(*pszSource);
-            pszHigh = strchr(szHex, *pszSource);
+            char up = (char) toupper(*pszSource);
+            pszHigh = strchr(szHex, up);
 
             if (pszHigh != NULL)
             {
                 pszSource++;
-                *pszSource = (char) toupper(*pszSource);
-                pszLow = strchr(szHex, *pszSource);
+                up = (char) toupper(*pszSource);
+                pszLow = strchr(szHex, up);
 
                 if (pszLow != NULL)
                 {
@@ -83,6 +84,8 @@ void UnescapeCopy(char * src, char * dest, int buf_len)
             *pszDest++ = *pszSource;
 
         pszSource++;
+        if ((bRoot)&&(*pszSource == 0))
+            pszSource = src;
     }
 
     *pszDest = '\0';
@@ -95,9 +98,9 @@ svn_error_t * getfirststatus(void * baton, const char * /*path*/, const svn_wc_s
     {
         return SVN_NO_ERROR;
     }
-    if ((status->entry)&&(status->entry->url)&&(sb->SubStat->Url[0] == 0))
+    if ((status->repos_relpath)&&(sb->SubStat->Url[0] == 0))
     {
-        UnescapeCopy((char *) status->entry->url, sb->SubStat->Url, URL_BUF);
+        UnescapeCopy(status->repos_root_url, status->repos_relpath, sb->SubStat->Url, URL_BUF);
     }
     return SVN_NO_ERROR;
 }
@@ -115,45 +118,33 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_wc_status3
         const char * copypath = apr_pstrdup(sb->pool, path);
         sb->extarray->push_back(copypath);
     }
-    if ((status->entry)&&(status->entry->uuid))
+    if (status->changed_author)
     {
-        if (sb->SubStat->UUID[0] == 0)
-        {
-            strncpy_s(sb->SubStat->UUID, 1024, status->entry->uuid, MAX_PATH);
-        }
-        if (strncmp(sb->SubStat->UUID, status->entry->uuid, MAX_PATH) != 0)
-            return SVN_NO_ERROR;
-    }
-    if ((status->entry)&&(status->entry->cmt_author))
-    {
-        if ((sb->SubStat->Author[0] == 0)&&(status->url)&&(status->entry->url))
+        if ((sb->SubStat->Author[0] == 0)&&(status->repos_relpath)&&(status->repos_relpath))
         {
             char EntryUrl[URL_BUF];
-            UnescapeCopy((char *)status->entry->url,EntryUrl, URL_BUF);
+            UnescapeCopy(status->repos_root_url, status->repos_relpath,EntryUrl, URL_BUF);
             if (strncmp(sb->SubStat->Url, EntryUrl, URL_BUF) == 0)
             {
-                strncpy_s(sb->SubStat->Author, URL_BUF, status->entry->cmt_author, URL_BUF);
+                strncpy_s(sb->SubStat->Author, URL_BUF, status->changed_author, URL_BUF);
             }
         }
     }
-    if (status->entry)
+    if ((status->kind == svn_node_file)||(sb->SubStat->bFolders))
     {
-        if ((status->entry->kind == svn_node_file)||(sb->SubStat->bFolders))
+        if (sb->SubStat->CmtRev < status->changed_rev)
         {
-            if (sb->SubStat->CmtRev < status->entry->cmt_rev)
-            {
-                sb->SubStat->CmtRev = status->entry->cmt_rev;
-                sb->SubStat->CmtDate = status->entry->cmt_date;
-            }
+            sb->SubStat->CmtRev = status->changed_rev;
+            sb->SubStat->CmtDate = status->changed_date;
         }
-        if ((status->entry->revision)&&(sb->SubStat->MaxRev < status->entry->revision))
-        {
-            sb->SubStat->MaxRev = status->entry->revision;
-        }
-        if ((status->entry->revision)&&(sb->SubStat->MinRev > status->entry->revision || sb->SubStat->MinRev == 0))
-        {
-            sb->SubStat->MinRev = status->entry->revision;
-        }
+    }
+    if (sb->SubStat->MaxRev < status->revision)
+    {
+        sb->SubStat->MaxRev = status->revision;
+    }
+    if ((status->revision)&&(sb->SubStat->MinRev > status->revision || sb->SubStat->MinRev == 0))
+    {
+        sb->SubStat->MinRev = status->revision;
     }
 
     sb->SubStat->bIsSvnItem = false;
@@ -192,32 +183,21 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_wc_status3
     }
 
     // Assign the values for the lock information
-    sb->SubStat->LockData.NeedsLocks = false;
     sb->SubStat->LockData.IsLocked = false;
     strcpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, "");
     strcpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, "");
     sb->SubStat->LockData.CreationDate = 0;
-    if (status->entry)
-    {
-        if(status->entry->present_props)
-        {
-            if (strstr(status->entry->present_props, SVN_PROP_NEEDS_LOCK))
-            {
-                sb->SubStat->LockData.NeedsLocks = true;
 
-                if(status->entry->lock_token)
-                {
-                    if((status->entry->lock_token[0] != 0))
-                    {
-                        sb->SubStat->LockData.IsLocked = true;
-                        if(NULL != status->entry->lock_owner)
-                            strncpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, status->entry->lock_owner, OWNER_BUF);
-                        if(NULL != status->entry->lock_comment)
-                            strncpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, status->entry->lock_comment, COMMENT_BUF);
-                        sb->SubStat->LockData.CreationDate = status->entry->lock_creation_date;
-                    }
-                }
-            }
+    if(status->lock_token)
+    {
+        if((status->lock_token[0] != 0))
+        {
+            sb->SubStat->LockData.IsLocked = true;
+            if(NULL != status->lock_owner)
+                strncpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, status->lock_owner, OWNER_BUF);
+            if(NULL != status->lock_comment)
+                strncpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, status->lock_comment, COMMENT_BUF);
+            sb->SubStat->LockData.CreationDate = status->lock_creation_date;
         }
     }
     return SVN_NO_ERROR;

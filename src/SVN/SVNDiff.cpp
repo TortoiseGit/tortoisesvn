@@ -93,8 +93,8 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
             SVNStatus stat;
             CTSVNPath dummy;
             svn_wc_status3_t * s = stat.GetFirstFileStatus(filePath, dummy);
-            if ((s)&&(s->entry))
-                baseRev = s->entry->revision;
+            if (s)
+                baseRev = s->revision;
         }
     }
 
@@ -180,15 +180,15 @@ bool SVNDiff::DiffFileAgainstBase(
         CTSVNPath basePath(SVN::GetPristinePath(filePath));
         if (baseRev == 0)
         {
-            SVNStatus stat;
-            CTSVNPath dummy;
-            svn_wc_status3_t * s = stat.GetFirstFileStatus(filePath, dummy);
-            if ((s)&&(s->entry))
+            SVNInfo info;
+            const SVNInfoData * infodata = info.GetFirstFileInfo(filePath, SVNRev::REV_WC, SVNRev::REV_WC);
+
+            if (infodata)
             {
-                if (s->entry->copyfrom_url)
-                    baseRev = s->entry->copyfrom_rev;
+                if (infodata->copyfromurl)
+                    baseRev = infodata->copyfromrev;
                 else
-                    baseRev = s->entry->cmt_rev;
+                    baseRev = infodata->lastchangedrev;
             }
         }
         // If necessary, convert the line-endings on the file before diffing
@@ -663,8 +663,8 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
         SVNStatus stat;
         CTSVNPath dummy;
         svn_wc_status3_t * s = stat.GetFirstFileStatus(filePath, dummy);
-        if ((s)&&(s->entry))
-            baseRev = s->entry->revision;
+        if (s)
+            baseRev = s->revision;
     }
     // check for properties that got removed
     for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)

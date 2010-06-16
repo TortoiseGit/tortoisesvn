@@ -142,7 +142,6 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
         LOADVALUEFROMFILE(m_svnStatus.switched);
         LOADVALUEFROMFILE(m_svnStatus.text_status);
         LOADVALUEFROMFILE(m_treeconflict);
-        m_svnStatus.entry = NULL;
         m_discardAtTime = GetTickCount()+cachetimeout;
     }
     catch ( CAtlException )
@@ -168,16 +167,14 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status3_t* pSVNStatus, bool force
         m_highestPriorityLocalStatus = SVNStatus::GetMoreImportant(m_svnStatus.prop_status, m_svnStatus.text_status);
 
         // Currently we don't deep-copy the whole entry value, but we do take a few members
-        if(pSVNStatus->entry != NULL)
+        if(pSVNStatus->versioned)
         {
-            m_sUrl = pSVNStatus->entry->url;
-            m_commitRevision = pSVNStatus->entry->cmt_rev;
+            m_sUrl = pSVNStatus->repos_relpath;
+            m_commitRevision = pSVNStatus->changed_rev;
             m_bSVNEntryFieldSet = true;
-            m_sOwner = pSVNStatus->entry->lock_owner;
-            m_kind = pSVNStatus->entry->kind;
-            m_sAuthor = pSVNStatus->entry->cmt_author;
-            if (pSVNStatus->entry->present_props)
-                m_sPresentProps = pSVNStatus->entry->present_props;
+            m_sOwner = pSVNStatus->lock_owner;
+            m_kind = pSVNStatus->kind;
+            m_sAuthor = pSVNStatus->changed_author;
         }
         else
         {
@@ -185,7 +182,6 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status3_t* pSVNStatus, bool force
             m_commitRevision = 0;
             m_bSVNEntryFieldSet = false;
         }
-        m_svnStatus.entry = NULL;
         m_treeconflict = pSVNStatus->conflicted != 0;
     }
     m_discardAtTime = GetTickCount()+cachetimeout;

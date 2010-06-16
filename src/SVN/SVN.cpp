@@ -713,34 +713,30 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
     // before marking a file as resolved, we move the conflicted parts
     // to the trash bin: just in case the user later wants to get those
     // files back anyway
-    svn_wc_status3_t * s;
-    SVNStatus status;
-    CTSVNPath retPath;
-    if ((s = status.GetFirstFileStatus(path, retPath, false, svn_depth_empty, true, true))!=0)
+    SVNInfo info;
+    const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev::REV_WC, SVNRev::REV_WC);
+    if (infodata)
     {
-        if (s && s->entry)
+        CTSVNPathList conflictedEntries;
+        if ((infodata->conflict_new)&&(result != svn_wc_conflict_choose_theirs_full))
         {
-            CTSVNPathList conflictedEntries;
-            if ((s->entry->conflict_new)&&(result != svn_wc_conflict_choose_theirs_full))
-            {
-                CTSVNPath conflictpath = path.GetContainingDirectory();
-                conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_new));
-                conflictedEntries.AddPath(conflictpath);
-            }
-            if ((s->entry->conflict_old)&&(result != svn_wc_conflict_choose_merged))
-            {
-                CTSVNPath conflictpath = path.GetContainingDirectory();
-                conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_old));
-                conflictedEntries.AddPath(conflictpath);
-            }
-            if ((s->entry->conflict_wrk)&&(result != svn_wc_conflict_choose_mine_full))
-            {
-                CTSVNPath conflictpath = path.GetContainingDirectory();
-                conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_wrk));
-                conflictedEntries.AddPath(conflictpath);
-            }
-            conflictedEntries.DeleteAllPaths(true, false);
+            CTSVNPath conflictpath = path.GetContainingDirectory();
+            conflictpath.AppendPathString(infodata->conflict_new);
+            conflictedEntries.AddPath(conflictpath);
         }
+        if ((infodata->conflict_old)&&(result != svn_wc_conflict_choose_merged))
+        {
+            CTSVNPath conflictpath = path.GetContainingDirectory();
+            conflictpath.AppendPathString(infodata->conflict_old);
+            conflictedEntries.AddPath(conflictpath);
+        }
+        if ((infodata->conflict_wrk)&&(result != svn_wc_conflict_choose_mine_full))
+        {
+            CTSVNPath conflictpath = path.GetContainingDirectory();
+            conflictpath.AppendPathString(infodata->conflict_wrk);
+            conflictedEntries.AddPath(conflictpath);
+        }
+        conflictedEntries.DeleteAllPaths(true, false);
     }
 
     const char* svnPath = path.GetSVNApiPath(subpool);

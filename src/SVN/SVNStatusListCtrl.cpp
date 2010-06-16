@@ -540,7 +540,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
                             SVNStatus& status,
                             const CTSVNPath& target,
                             bool bFetchStatusFromRepository,
-                            CStringA& strCurrentRepositoryUUID,
+                            CStringA& strCurrentRepositoryRoot,
                             CTSVNPathList& arExtPaths,
                             bool bAllDirect,
                             svn_depth_t depth,
@@ -591,33 +591,32 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
         }
     }
     bool bEntryFromDifferentRepo = false;
-    // Is this a versioned item with an associated repos UUID?
-    if ((s->entry)&&(s->entry->uuid))
+    // Is this a versioned item with an associated repos root?
+    if (s->repos_root_url)
     {
-        // Have we seen a repos UUID yet?
-        if (strCurrentRepositoryUUID.IsEmpty())
+        // Have we seen a repos root yet?
+        if (strCurrentRepositoryRoot.IsEmpty())
         {
-            // This is the first repos UUID we've seen - record it
-            strCurrentRepositoryUUID = s->entry->uuid;
-            m_sUUID = strCurrentRepositoryUUID;
+            // This is the first repos root we've seen - record it
+            strCurrentRepositoryRoot = s->repos_root_url;
         }
         else
         {
-            if (strCurrentRepositoryUUID.Compare(s->entry->uuid)!=0)
+            if (strCurrentRepositoryRoot.Compare(s->repos_root_url)!=0)
             {
                 // This item comes from a different repository than our main one
                 m_bHasExternalsFromDifferentRepos = TRUE;
                 bEntryFromDifferentRepo = true;
-                if (s->entry->kind == svn_node_dir)
+                if (s->kind == svn_node_dir)
                     arExtPaths.AddPath(workingTarget);
             }
         }
     }
-    else if (strCurrentRepositoryUUID.IsEmpty() && (s->text_status == svn_wc_status_added))
+    else if (strCurrentRepositoryRoot.IsEmpty() && (s->text_status == svn_wc_status_added))
     {
-        // An added entry doesn't have an UUID assigned to it yet.
+        // An added entry doesn't have an root assigned to it yet.
         // So we fetch the status of the parent directory instead and
-        // check if that one has an UUID assigned to it.
+        // check if that one has an repo root assigned to it.
         svn_wc_status3_t * sparent;
         CTSVNPath path = workingTarget;
         do
@@ -626,11 +625,10 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
             SVNStatus tempstatus;
             sparent = tempstatus.GetFirstFileStatus(path.GetContainingDirectory(), svnParentPath, false, svn_depth_empty, false);
             path = svnParentPath;
-        } while ( (sparent) && (sparent->entry) && (!sparent->entry->uuid) && (sparent->text_status==svn_wc_status_added) );
-        if (sparent && sparent->entry && sparent->entry->uuid)
+        } while ( (sparent) && (!sparent->repos_root_url) && (sparent->text_status==svn_wc_status_added) );
+        if (sparent && sparent->repos_root_url)
         {
-            strCurrentRepositoryUUID = sparent->entry->uuid;
-            m_sUUID = strCurrentRepositoryUUID;
+            strCurrentRepositoryRoot = sparent->repos_root_url;
         }
     }
 
@@ -660,7 +658,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
     // for folders, get all statuses inside it too
     if(workingTarget.IsDirectory())
     {
-        ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryUUID, arExtPaths, &config, bAllDirect);
+        ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryRoot, arExtPaths, &config, bAllDirect);
     }
 
     return true;
@@ -693,118 +691,95 @@ CSVNStatusListCtrl::AddNewFileEntry(
     entry->switched = !!pSVNStatus->switched;
 
     entry->last_commit_date = pSVNStatus->ood_last_cmt_date;
-    if ((entry->last_commit_date == NULL)&&(pSVNStatus->entry))
-        entry->last_commit_date = pSVNStatus->entry->cmt_date;
+    if (entry->last_commit_date == NULL)
+        entry->last_commit_date = pSVNStatus->changed_date;
     entry->remoterev = pSVNStatus->ood_last_cmt_rev;
-    if (pSVNStatus->entry)
-        entry->last_commit_rev = pSVNStatus->entry->cmt_rev;
+    entry->last_commit_rev = pSVNStatus->changed_rev;
     if (pSVNStatus->ood_last_cmt_author)
         entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->ood_last_cmt_author);
-    if ((entry->last_commit_author.IsEmpty())&&(pSVNStatus->entry)&&(pSVNStatus->entry->cmt_author))
-        entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->entry->cmt_author);
+    if ((entry->last_commit_author.IsEmpty())&&(pSVNStatus->changed_author))
+        entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->changed_author);
 
-    if (pSVNStatus->entry)
-        entry->isConflicted = (pSVNStatus->entry->conflict_wrk && PathFileExistsA(pSVNStatus->entry->conflict_wrk)) ? true : false;
+    entry->isConflicted = (pSVNStatus->conflicted) ? true : false;
     if (pSVNStatus->conflicted)
         entry->isConflicted = true;
     if ((entry->status == svn_wc_status_conflicted)||(entry->isConflicted))
     {
         entry->isConflicted = true;
-        if (pSVNStatus->entry)
+        SVNInfo info;
+        const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev::REV_WC, SVNRev::REV_WC);
+        if (infodata)
         {
             CTSVNPath cpath;
-            if (pSVNStatus->entry->conflict_wrk)
+            if (infodata->conflict_wrk)
             {
                 cpath = path.GetDirectory();
-                cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_wrk));
+                cpath.AppendPathString(infodata->conflict_wrk);
                 m_ConflictFileList.AddPath(cpath);
             }
-            if (pSVNStatus->entry->conflict_old)
+            if (infodata->conflict_old)
             {
                 cpath = path.GetDirectory();
-                cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_old));
+                cpath.AppendPathString(infodata->conflict_old);
                 m_ConflictFileList.AddPath(cpath);
             }
-            if (pSVNStatus->entry->conflict_new)
+            if (infodata->conflict_new)
             {
                 cpath = path.GetDirectory();
-                cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_new));
+                cpath.AppendPathString(infodata->conflict_new);
                 m_ConflictFileList.AddPath(cpath);
             }
-            if (pSVNStatus->entry->prejfile)
+            if (infodata->prejfile)
             {
                 cpath = path.GetDirectory();
-                cpath.AppendPathString(CUnicodeUtils::GetUnicode(pSVNStatus->entry->prejfile));
+                cpath.AppendPathString(infodata->prejfile);
                 m_ConflictFileList.AddPath(cpath);
             }
         }
     }
 
-    if (pSVNStatus->url)
+    if (pSVNStatus->repos_relpath)
     {
-        entry->url = CPathUtils::PathUnescape(pSVNStatus->url);
+        entry->url = CPathUtils::PathUnescape(pSVNStatus->repos_relpath);
     }
 
-    if (pSVNStatus->entry)
-    {
-        entry->isfolder = (pSVNStatus->entry->kind == svn_node_dir);
-        entry->Revision = pSVNStatus->entry->revision;
-        entry->keeplocal = !!pSVNStatus->entry->keep_local;
-        entry->working_size = pSVNStatus->entry->working_size;
-        entry->depth = pSVNStatus->entry->depth;
+    entry->isfolder = (pSVNStatus->kind == svn_node_dir);
+    entry->Revision = pSVNStatus->revision;
+    entry->working_size = -1;    // TODO: ask the svn devs to add the working_size field
+    entry->depth = svn_depth_unknown;   // TODO: ask the svn devs to add the depth field
 
-        if (pSVNStatus->entry->url)
-        {
-            entry->url = CPathUtils::PathUnescape(pSVNStatus->entry->url);
-        }
-        if (pSVNStatus->entry->copyfrom_url)
-        {
-            entry->copyfrom_url = CPathUtils::PathUnescape (pSVNStatus->entry->copyfrom_url);
-            entry->copyfrom_rev = pSVNStatus->entry->copyfrom_rev;
-        }
+    if (pSVNStatus->repos_relpath)
+    {
+        entry->url = CPathUtils::PathUnescape(pSVNStatus->repos_relpath);
+    }
+
+    if(bDirectItem)
+    {
+        if (m_sURL.IsEmpty())
+            m_sURL = entry->url;
         else
-            entry->copyfrom_rev = 0;
-
-        if(bDirectItem)
-        {
-            if (m_sURL.IsEmpty())
-                m_sURL = entry->url;
-            else
-                m_sURL.LoadString(IDS_STATUSLIST_MULTIPLETARGETS);
-            m_StatusUrlList.AddPath(CTSVNPath(entry->url));
-        }
-        if (pSVNStatus->entry->lock_owner)
-            entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_owner);
-        if (pSVNStatus->entry->lock_token)
-        {
-            entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_token);
-            m_bHasLocks = true;
-        }
-        if (pSVNStatus->entry->lock_comment)
-            entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_comment);
-        if (pSVNStatus->entry->lock_creation_date)
-            entry->lock_date = pSVNStatus->entry->lock_creation_date;
-
-        if (pSVNStatus->entry->present_props)
-        {
-            entry->present_props = pSVNStatus->entry->present_props;
-        }
-
-        if (pSVNStatus->entry->changelist)
-        {
-            entry->changelist = CUnicodeUtils::GetUnicode(pSVNStatus->entry->changelist);
-            m_changelists[entry->changelist] = -1;
-            m_bHasChangeLists = true;
-        }
-        entry->needslock = (pSVNStatus->entry->present_props && (strstr(pSVNStatus->entry->present_props, SVN_PROP_NEEDS_LOCK)!=NULL) );
+            m_sURL.LoadString(IDS_STATUSLIST_MULTIPLETARGETS);
+        m_StatusUrlList.AddPath(CTSVNPath(entry->url));
     }
-    else
+    if (pSVNStatus->lock_owner)
+        entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->lock_owner);
+    if (pSVNStatus->lock_token)
     {
-        if (pSVNStatus->ood_kind == svn_node_none)
-            entry->isfolder = path.IsDirectory();
-        else
-            entry->isfolder = (pSVNStatus->ood_kind == svn_node_dir);
+        entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->lock_token);
+        m_bHasLocks = true;
     }
+    if (pSVNStatus->lock_comment)
+        entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->lock_comment);
+    if (pSVNStatus->lock_creation_date)
+        entry->lock_date = pSVNStatus->lock_creation_date;
+
+    if (pSVNStatus->changelist)
+    {
+        entry->changelist = CUnicodeUtils::GetUnicode(pSVNStatus->changelist);
+        m_changelists[entry->changelist] = -1;
+        m_bHasChangeLists = true;
+    }
+    
     if (pSVNStatus->repos_lock)
     {
         if (pSVNStatus->repos_lock->owner)
@@ -821,9 +796,9 @@ CSVNStatusListCtrl::AddNewFileEntry(
     m_arStatusArray.push_back(entry);
 
     // store the repository root
-    if ((!bEntryfromDifferentRepo)&&(pSVNStatus->entry)&&(pSVNStatus->entry->repos)&&(m_sRepositoryRoot.IsEmpty()))
+    if ((!bEntryfromDifferentRepo)&&(pSVNStatus->repos_root_url)&&(m_sRepositoryRoot.IsEmpty()))
     {
-        m_sRepositoryRoot = CUnicodeUtils::GetUnicode(pSVNStatus->entry->repos);
+        m_sRepositoryRoot = CUnicodeUtils::GetUnicode(pSVNStatus->repos_root_url);
     }
 
     return entry;
@@ -865,7 +840,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 
 
 void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& basePath,
-                                          CStringA& strCurrentRepositoryUUID,
+                                          CStringA& strCurrentRepositoryRoot,
                                           CTSVNPathList& arExtPaths, SVNConfig * config, bool bAllDirect)
 {
     svn_wc_status3_t * s;
@@ -895,20 +870,20 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
         }
         bool bDirectoryIsExternal = false;
         bool bEntryfromDifferentRepo = false;
-        if (s->entry)
+        if (s->versioned)
         {
-            if (s->entry->uuid)
+            if (s->repos_root_url)
             {
-                if (strCurrentRepositoryUUID.IsEmpty())
-                    strCurrentRepositoryUUID = s->entry->uuid;
+                if (strCurrentRepositoryRoot.IsEmpty())
+                    strCurrentRepositoryRoot = s->repos_root_url;
                 else
                 {
-                    if (strCurrentRepositoryUUID.Compare(s->entry->uuid)!=0)
+                    if (strCurrentRepositoryRoot.Compare(s->repos_root_url)!=0)
                     {
                         bEntryfromDifferentRepo = true;
                         if (SVNStatus::IsImportant(wcFileStatus))
                             m_bHasExternalsFromDifferentRepos = TRUE;
-                        if (s->entry->kind == svn_node_dir)
+                        if (s->kind == svn_node_dir)
                         {
                             if ((lastexternalpath.IsEmpty())||(!lastexternalpath.IsAncestorOf(svnPath)))
                             {
@@ -921,8 +896,8 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             }
             else
             {
-                // we don't have an UUID - maybe an added file/folder
-                if (!strCurrentRepositoryUUID.IsEmpty())
+                // we don't have an repo root - maybe an added file/folder
+                if (!strCurrentRepositoryRoot.IsEmpty())
                 {
                     if ((!lastexternalpath.IsEmpty())&&
                         (lastexternalpath.IsAncestorOf(svnPath)))
@@ -938,7 +913,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             // if unversioned items lie around in external
             // directories from different repos, we have to mark them
             // as such too.
-            if (!strCurrentRepositoryUUID.IsEmpty())
+            if (!strCurrentRepositoryRoot.IsEmpty())
             {
                 if ((!lastexternalpath.IsEmpty())&&
                     (lastexternalpath.IsAncestorOf(svnPath)))
@@ -1079,7 +1054,7 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
         showFlags |= SVNSLC_SHOWFOLDERS;
     else
         showFlags |= SVNSLC_SHOWFILES;
-    if (!entry->copyfrom_url.IsEmpty())
+    if (!entry->copied)
     {
         showFlags |= SVNSLC_SHOWADDEDHISTORY;
         showFlags &= ~SVNSLC_SHOWADDED;
@@ -1506,24 +1481,6 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     else
         nCol++;
 
-    // SVNSLC_COLSVNNEEDSLOCK
-    bool bFoundSVNNeedsLock = entry->present_props.IsNeedsLockSet();
-    SetItemText(index, nCol++, bFoundSVNNeedsLock ? _T("*") : _T(""));
-
-    // SVNSLC_COLCOPYFROM
-    if (CStringUtils::GetMatchingLength (m_sRepositoryRoot, entry->copyfrom_url) == m_sRepositoryRoot.GetLength())
-        SetItemText(index, nCol++, (LPCTSTR)entry->copyfrom_url + m_sRepositoryRoot.GetLength());
-    else
-        SetItemText(index, nCol++, entry->copyfrom_url);
-
-    // SVNSLC_COLCOPYFROMREV
-    if (entry->copyfrom_rev > 0)
-    {
-        _itot_s (entry->copyfrom_rev, buf, 10);
-        SetItemText(index, nCol++, buf);
-    }
-    else
-        nCol++;
     // SVNSLC_COLMODIFICATIONDATE
     __int64 filetime = entry->GetPath().GetLastWriteTime();
     if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
@@ -2367,7 +2324,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             }
             if ((selectedCount == 1)&&(wcStatus >= svn_wc_status_normal)
                 &&(wcStatus != svn_wc_status_ignored)
-                &&((wcStatus != svn_wc_status_added)||(!entry->copyfrom_url.IsEmpty())))
+                &&((wcStatus != svn_wc_status_added)||(entry->copied)))
             {
                 if (m_dwContextMenus & SVNSLC_POPSHOWLOG)
                 {
@@ -2835,8 +2792,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             case IDSVNLC_LOG:
                 {
                     CString logPath = filepath.GetWinPathString();
-                    if (!entry->copyfrom_url.IsEmpty())
-                        logPath = entry->copyfrom_url;
+                    if (entry->copied)
+                    {
+                        SVNInfo info;
+                        const SVNInfoData * infodata = info.GetFirstFileInfo(filepath, SVNRev::REV_WC, SVNRev::REV_WC);
+                        logPath = infodata->copyfromurl;
+                    }
                     CString sCmd;
                     sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""),
                         (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)logPath);
@@ -2854,8 +2815,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             case IDSVNLC_BLAME:
                 {
                     CString blamePath = filepath.GetWinPathString();
-                    if (!entry->copyfrom_url.IsEmpty())
-                        blamePath = entry->copyfrom_url;
+                    if (entry->copied)
+                    {
+                        SVNInfo info;
+                        const SVNInfoData * infodata = info.GetFirstFileInfo(filepath, SVNRev::REV_WC, SVNRev::REV_WC);
+                        blamePath = infodata->copyfromurl;
+                    }
                     CString sCmd;
                     sCmd.Format(_T("\"%s\" /command:blame /path:\"%s\""),
                         (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)blamePath);
@@ -3224,16 +3189,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                         entry2->last_commit_date = 0;
                                         entry2->last_commit_rev = 0;
                                         entry2->remoterev = 0;
-                                        if (s->entry)
+                                        if (s->repos_relpath)
                                         {
-                                            if (s->entry->url)
-                                            {
-                                                entry2->url = CPathUtils::PathUnescape(s->entry->url);
-                                            }
-                                        }
-                                        if (s->entry && s->entry->present_props)
-                                        {
-                                            entry2->present_props = s->entry->present_props;
+                                            entry2->url = CPathUtils::PathUnescape(s->repos_relpath);
                                         }
                                         m_arStatusArray.push_back(entry2);
                                         m_arListArray.push_back(m_arStatusArray.size()-1);
@@ -3376,16 +3334,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                     entry3->last_commit_date = 0;
                                     entry3->last_commit_rev = 0;
                                     entry3->remoterev = 0;
-                                    if (s->entry)
+                                    if (s->repos_relpath)
                                     {
-                                        if (s->entry->url)
-                                        {
-                                            entry3->url = CPathUtils::PathUnescape (s->entry->url);
-                                        }
-                                    }
-                                    if (s->entry && s->entry->present_props)
-                                    {
-                                        entry3->present_props = s->entry->present_props;
+                                        entry3->url = CPathUtils::PathUnescape (s->repos_relpath);
                                     }
                                     m_arStatusArray.push_back(entry3);
                                     m_arListArray.push_back(m_arStatusArray.size()-1);
@@ -4734,21 +4685,18 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
         {
             if (fentry->copied)
             {
-                CString url;
-                url.FormatMessage(IDS_STATUSLIST_COPYFROM, (LPCTSTR)CPathUtils::PathUnescape(fentry->copyfrom_url), (LONG)fentry->copyfrom_rev);
-                lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
-                return TRUE;
+                // TODO: Fetch the copyfrom url with SVNInfo, store it in a map so that further
+                // tooltips appear faster
+                //CString url;
+                //url.FormatMessage(IDS_STATUSLIST_COPYFROM, (LPCTSTR)CPathUtils::PathUnescape(fentry->copyfrom_url), (LONG)fentry->copyfrom_rev);
+                //lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
+                //return TRUE;
             }
             if (fentry->switched)
             {
                 CString url;
                 url.Format(IDS_STATUSLIST_SWITCHEDTO, (LPCTSTR)CPathUtils::PathUnescape(fentry->url));
                 lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
-                return TRUE;
-            }
-            if (fentry->keeplocal)
-            {
-                lstrcpyn(pTTTW->szText, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_STATUSLIST_KEEPLOCAL)), 80);
                 return TRUE;
             }
         }
@@ -5246,25 +5194,6 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             if (date)
                 temp = datebuf;
             else
-                temp.Empty();
-            sClipboard += _T("\t")+temp;
-        }
-        if (selection & SVNSLC_COLSVNNEEDSLOCK)
-        {
-            sClipboard += entry->needslock ? _T("\tx") : _T("\t");
-        }
-        if (selection & SVNSLC_COLCOPYFROM)
-        {
-            if (m_sRepositoryRoot.Compare(entry->copyfrom_url.Left(m_sRepositoryRoot.GetLength()))==0)
-                temp = entry->copyfrom_url.Mid(m_sRepositoryRoot.GetLength());
-            else
-                temp = entry->copyfrom_url;
-            sClipboard += _T("\t")+temp;
-        }
-        if (selection & SVNSLC_COLCOPYFROMREV)
-        {
-            temp.Format(_T("%ld"), entry->copyfrom_rev);
-            if (entry->copyfrom_rev == 0)
                 temp.Empty();
             sClipboard += _T("\t")+temp;
         }

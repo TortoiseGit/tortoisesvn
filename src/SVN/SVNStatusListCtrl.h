@@ -49,12 +49,9 @@ class CSVNStatusListCtrlDropTarget;
 #define SVNSLC_COLREVISION          0x000008000
 #define SVNSLC_COLREMOTEREVISION    0x000010000
 #define SVNSLC_COLDATE              0x000020000
-#define SVNSLC_COLSVNNEEDSLOCK      0x000040000
-#define SVNSLC_COLCOPYFROM          0x000080000
-#define SVNSLC_COLCOPYFROMREV       0x000100000
 #define SVNSLC_COLMODIFICATIONDATE  0x000200000
 #define SVNSLC_COLSIZE              0x000400000
-#define SVNSLC_NUMCOLUMNS       23
+#define SVNSLC_NUMCOLUMNS       20
 
 #define SVNSLC_SHOWUNVERSIONED  0x00000001
 #define SVNSLC_SHOWNORMAL       0x00000002
@@ -275,7 +272,6 @@ public:
     {
     public:
         FileEntry() : status(svn_wc_status_unversioned)
-            , copyfrom_rev(0)
             , last_commit_date(0)
             , last_commit_rev(0)
             , lock_date(0)
@@ -298,9 +294,7 @@ public:
             , Revision(0)
             , isConflicted(false)
             , present_props()
-            , needslock(false)
             , working_size(SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
-            , keeplocal(false)
             , depth(svn_depth_unknown)
         {
         }
@@ -321,10 +315,6 @@ public:
         const bool IsLocked() const
         {
             return !(lock_token.IsEmpty() && lock_remotetoken.IsEmpty());
-        }
-        const bool HasNeedsLock() const
-        {
-            return needslock;
         }
         const bool IsFolder() const
         {
@@ -386,8 +376,6 @@ public:
         CString                 lock_comment;           ///< the message for the lock
         apr_time_t              lock_date;              ///< the date when this item was locked
         CString                 changelist;             ///< the name of the changelist the item belongs to
-        CString                 copyfrom_url;           ///< the copied-from URL (if available, i.e. \a copied is true)
-        svn_revnum_t            copyfrom_rev;           ///< the copied-from revision
         CString                 last_commit_author;     ///< the author which last committed this item
         apr_time_t              last_commit_date;       ///< the date when this item was last committed
         svn_revnum_t            last_commit_rev;        ///< the revision where this item was last committed
@@ -402,11 +390,9 @@ public:
         bool                    isfolder;               ///< TRUE if entry refers to a folder
         bool                    isNested;               ///< TRUE if the folder from a different repository and/or path
         bool                    isConflicted;           ///< TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
-        bool                    needslock;              ///< TRUE if the svn:needs-lock property is set
         svn_revnum_t            Revision;               ///< the base revision
         PropertyList            present_props;          ///< cacheable properties present in BASE
         apr_off_t               working_size;           ///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
-        bool                    keeplocal;              ///< Whether a local copy of this entry should be kept in the working copy after a deletion has been committed
         svn_depth_t             depth;                  ///< the depth of this entry
         bool                    file_external;          ///< if the item is a file that was added to the working copy with an svn:externals; if file_external is TRUE, then switched is always FALSE.
         friend class CSVNStatusListCtrl;
@@ -837,8 +823,6 @@ public:
     CString                     m_sURL;             ///< the URL of the target or "(multiple targets)"
 
     SVNRev                      m_HeadRev;          ///< the HEAD revision of the repository if bUpdate was TRUE
-
-    CString                     m_sUUID;            ///< the UUID of the associated repository
 
     CString                     m_sRepositoryRoot;  ///< The repository root of the first item which has one, or an empty string
     DECLARE_MESSAGE_MAP()

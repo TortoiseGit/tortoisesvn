@@ -365,7 +365,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
         do
         {
-            if ((status)&&((status->entry)&&(status->entry->kind == svn_node_dir)))
+            if ((status)&&(status->kind == svn_node_dir))
             {
 #ifdef _MFC_VER
                 if (m_pProgress)
@@ -467,7 +467,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
             svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
             do
             {
-                if ((status)&&((status->entry)&&(status->entry->kind == svn_node_dir)))
+                if ((status)&&(status->kind == svn_node_dir))
                 {
 #ifdef _MFC_VER
                     if (m_pProgress)

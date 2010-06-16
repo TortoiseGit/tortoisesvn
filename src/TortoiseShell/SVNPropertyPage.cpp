@@ -23,6 +23,7 @@
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "SVNStatus.h"
+#include "SVNInfo.h"
 #include "auto_buffer.h"
 #include "CreateProcessHelper.h"
 
@@ -42,7 +43,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
         if (svn.GetStatus(CTSVNPath(I->c_str())) == (-2))
             return S_OK;            // file/directory not under version control
 
-        if (svn.status->entry == NULL)
+        if (svn.status->versioned == 0)
             return S_OK;
     }
 
@@ -266,14 +267,16 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t b
 void CSVNPropertyPage::InitWorkfileView()
 {
     SVNStatus svn;
+    SVNInfo info;
     TCHAR tbuf[MAX_STRING_LENGTH];
     if (filenames.size() == 1)
     {
         if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
         {
+            const SVNInfoData * infodata = info.GetFirstFileInfo(CTSVNPath(filenames.front().c_str()), SVNRev::REV_WC, SVNRev::REV_WC);
             TCHAR buf[MAX_STRING_LENGTH];
             __time64_t  time;
-            if (svn.status->entry != NULL)
+            if (svn.status->versioned)
             {
                 LoadLangDll();
                 if (svn.status->text_status == svn_wc_status_added)
@@ -286,21 +289,21 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 else
                 {
-                    _stprintf_s(buf, MAX_STRING_LENGTH, _T("%d"), svn.status->entry->revision);
+                    _stprintf_s(buf, MAX_STRING_LENGTH, _T("%d"), svn.status->changed_rev);
                     SetDlgItemText(m_hwnd, IDC_REVISION, buf);
                 }
-                if (svn.status->entry->url)
+                if (svn.status->repos_relpath)
                 {
-                    size_t len = strlen(svn.status->entry->url);
+                    size_t len = strlen(svn.status->repos_relpath);
                     auto_buffer<char> unescapedurl(len+1);
-                    strcpy_s(unescapedurl, len+1, svn.status->entry->url);
+                    strcpy_s(unescapedurl, len+1, svn.status->repos_relpath);
                     CPathUtils::Unescape(unescapedurl);
                     SetDlgItemText(m_hwnd, IDC_REPOURL, UTF8ToWide(unescapedurl.get()).c_str());
-                    if (strcmp(unescapedurl, svn.status->entry->url))
+                    if (strcmp(unescapedurl, svn.status->repos_relpath))
                     {
                         ShowWindow(GetDlgItem(m_hwnd, IDC_ESCAPEDURLLABEL), SW_SHOW);
                         ShowWindow(GetDlgItem(m_hwnd, IDC_REPOURLUNESCAPED), SW_SHOW);
-                        SetDlgItemText(m_hwnd, IDC_REPOURLUNESCAPED, UTF8ToWide(svn.status->entry->url).c_str());
+                        SetDlgItemText(m_hwnd, IDC_REPOURLUNESCAPED, UTF8ToWide(svn.status->repos_relpath).c_str());
                     }
                     else
                     {
@@ -315,40 +318,44 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->text_status != svn_wc_status_added)
                 {
-                    _stprintf_s(buf, MAX_STRING_LENGTH, _T("%d"), svn.status->entry->cmt_rev);
+                    _stprintf_s(buf, MAX_STRING_LENGTH, _T("%d"), svn.status->changed_rev);
                     SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
-                    time = (__time64_t)svn.status->entry->cmt_date/1000000L;
+                    time = (__time64_t)svn.status->changed_date/1000000L;
                     Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                     SetDlgItemText(m_hwnd, IDC_CDATE, buf);
                 }
-                if (svn.status->entry->cmt_author)
-                    SetDlgItemText(m_hwnd, IDC_AUTHOR, UTF8ToWide(svn.status->entry->cmt_author).c_str());
+                if (svn.status->changed_author)
+                    SetDlgItemText(m_hwnd, IDC_AUTHOR, UTF8ToWide(svn.status->changed_author).c_str());
                 SVNStatus::GetStatusString(g_hResInst, svn.status->text_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_TEXTSTATUS, buf);
                 SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
-                time = (__time64_t)svn.status->entry->text_time/1000000L;
+                if (infodata)
+                    time = (__time64_t)infodata->texttime/1000000L;
+                else
+                    time = (__time64_t)svn.status->changed_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                 SetDlgItemText(m_hwnd, IDC_TEXTDATE, buf);
-                time = (__time64_t)svn.status->entry->prop_time/1000000L;
+                if (infodata)
+                    time = (__time64_t)infodata->proptime/1000000L;
+                else
+                    time = (__time64_t)svn.status->changed_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                 SetDlgItemText(m_hwnd, IDC_PROPDATE, buf);
 
-                if (svn.status->entry->lock_owner)
-                    SetDlgItemText(m_hwnd, IDC_LOCKOWNER, UTF8ToWide(svn.status->entry->lock_owner).c_str());
-                time = (__time64_t)svn.status->entry->lock_creation_date/1000000L;
+                if (svn.status->lock_owner)
+                    SetDlgItemText(m_hwnd, IDC_LOCKOWNER, UTF8ToWide(svn.status->lock_owner).c_str());
+                time = (__time64_t)svn.status->lock_creation_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                 SetDlgItemText(m_hwnd, IDC_LOCKDATE, buf);
 
-                if (svn.status->entry->uuid)
-                    SetDlgItemText(m_hwnd, IDC_REPOUUID, UTF8ToWide(svn.status->entry->uuid).c_str());
-                if (svn.status->entry->changelist)
-                    SetDlgItemText(m_hwnd, IDC_CHANGELIST, UTF8ToWide(svn.status->entry->changelist).c_str());
-                SVNStatus::GetDepthString(g_hResInst, svn.status->entry->depth, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                SetDlgItemText(m_hwnd, IDC_REPOUUID, (LPCTSTR)infodata->reposUUID);
+                if (svn.status->changelist)
+                    SetDlgItemText(m_hwnd, IDC_CHANGELIST, UTF8ToWide(svn.status->changelist).c_str());
+                SVNStatus::GetDepthString(g_hResInst, infodata->depth, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_DEPTHEDIT, buf);
 
-                if (svn.status->entry->checksum)
-                    SetDlgItemText(m_hwnd, IDC_CHECKSUM, UTF8ToWide(svn.status->entry->checksum).c_str());
+                SetDlgItemText(m_hwnd, IDC_CHECKSUM, (LPCTSTR)infodata->checksum);
 
                 if (svn.status->locked)
                     MAKESTRING(IDS_YES);
@@ -386,33 +393,30 @@ void CSVNPropertyPage::InitWorkfileView()
         //get the handle of the list view
         if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
         {
-            if (svn.status->entry != NULL)
+            LoadLangDll();
+            if (svn.status->repos_relpath)
             {
-                LoadLangDll();
-                if (svn.status->entry->url)
+                CPathUtils::Unescape((char*)svn.status->repos_relpath);
+                _tcsncpy_s(tbuf, MAX_STRING_LENGTH, UTF8ToWide(svn.status->repos_relpath).c_str(), 4095);
+                TCHAR * ptr = _tcsrchr(tbuf, '/');
+                if (ptr != 0)
                 {
-                    CPathUtils::Unescape((char*)svn.status->entry->url);
-                    _tcsncpy_s(tbuf, MAX_STRING_LENGTH, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
-                    TCHAR * ptr = _tcsrchr(tbuf, '/');
-                    if (ptr != 0)
-                    {
-                        *ptr = 0;
-                    }
-                    SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
+                    *ptr = 0;
                 }
-                SetDlgItemText(m_hwnd, IDC_LOCKED, _T(""));
-                SetDlgItemText(m_hwnd, IDC_COPIED, _T(""));
-                SetDlgItemText(m_hwnd, IDC_SWITCHED, _T(""));
-                SetDlgItemText(m_hwnd, IDC_FILEEXTERNAL, _T(""));
-                SetDlgItemText(m_hwnd, IDC_TREECONFLICT, _T(""));
-
-                SetDlgItemText(m_hwnd, IDC_DEPTHEDIT, _T(""));
-                SetDlgItemText(m_hwnd, IDC_CHECKSUM, _T(""));
-                SetDlgItemText(m_hwnd, IDC_REPOUUID, _T(""));
-
-                ShowWindow(GetDlgItem(m_hwnd, IDC_ESCAPEDURLLABEL), SW_HIDE);
-                ShowWindow(GetDlgItem(m_hwnd, IDC_REPOURLUNESCAPED), SW_HIDE);
+                SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
             }
+            SetDlgItemText(m_hwnd, IDC_LOCKED, _T(""));
+            SetDlgItemText(m_hwnd, IDC_COPIED, _T(""));
+            SetDlgItemText(m_hwnd, IDC_SWITCHED, _T(""));
+            SetDlgItemText(m_hwnd, IDC_FILEEXTERNAL, _T(""));
+            SetDlgItemText(m_hwnd, IDC_TREECONFLICT, _T(""));
+
+            SetDlgItemText(m_hwnd, IDC_DEPTHEDIT, _T(""));
+            SetDlgItemText(m_hwnd, IDC_CHECKSUM, _T(""));
+            SetDlgItemText(m_hwnd, IDC_REPOUUID, _T(""));
+
+            ShowWindow(GetDlgItem(m_hwnd, IDC_ESCAPEDURLLABEL), SW_HIDE);
+            ShowWindow(GetDlgItem(m_hwnd, IDC_REPOURLUNESCAPED), SW_HIDE);
         }
     }
 }

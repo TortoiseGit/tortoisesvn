@@ -18,7 +18,9 @@
 
 #pragma once
 
+#ifdef _MFC_VER
 #include "SVNPrompt.h"
+#endif
 #include "TSVNPath.h"
 #include "SVNRev.h"
 
@@ -31,6 +33,7 @@ class SVNInfoData
 public:
     SVNInfoData();
 
+    CTSVNPath           path;
     CString             url;
     SVNRev              rev;
     svn_node_kind_t     kind;
@@ -126,10 +129,12 @@ public:
     const SVNInfoData * GetNextFileInfo();
 
     friend class SVN;   // So that SVN can get to our m_err
+#ifdef _MFC_VER
     /**
      * Returns the last error message as a CString object.
      */
     CString GetLastErrorMsg();
+#endif
     const svn_error_t * GetError() const { return m_err; }
 
     virtual BOOL Cancel();
@@ -148,8 +153,9 @@ private:
 
     unsigned int                m_pos;          ///< the current position of the vector
 
+#ifdef _MFC_VER
     SVNPrompt                   m_prompt;
-
+#endif
     static svn_error_t *        cancel(void *baton);
     static svn_error_t *        infoReceiver(void* baton, const char * path, const svn_info_t* info, apr_pool_t * pool);
 

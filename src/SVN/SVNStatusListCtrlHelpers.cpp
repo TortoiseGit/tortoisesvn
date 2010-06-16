@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 #include "SVNStatusListCtrl.h"
 #include <iterator>
 
-#define SVNSLC_COL_VERSION 6
+#define SVNSLC_COL_VERSION 7
 
 // assign property list
 
@@ -185,8 +185,6 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
 
 void CSVNStatusListCtrl::ColumnManager::WriteSettings() const
 {
-    // we are version 2
-
     CRegDWORD regVersion (registryPrefix + _T("Version"), 0, TRUE);
     regVersion = SVNSLC_COL_VERSION;
 
@@ -282,10 +280,7 @@ const CString& CSVNStatusListCtrl::ColumnManager::GetName (int column) const
           , IDS_STATUSLIST_COLREVISION
           , IDS_STATUSLIST_COLREMOTEREVISION
           , IDS_STATUSLIST_COLDATE
-          , IDS_STATUSLIST_COLSVNLOCK
 
-          , IDS_STATUSLIST_COLCOPYFROM
-          , IDS_STATUSLIST_COLCOPYFROMREV
           , IDS_STATUSLIST_COLMODIFICATIONDATE
           , IDS_STATUSLIST_COLSIZE};
 
@@ -929,7 +924,7 @@ bool CSVNStatusListCtrl::CSorter::operator()
     int result = 0;
     switch (sortedColumn)
     {
-    case 22:
+    case 19:
         {
             if (result == 0)
             {
@@ -939,7 +934,7 @@ bool CSVNStatusListCtrl::CSorter::operator()
                 result = int(fileSize1 - fileSize2);
             }
         }
-    case 21:
+    case 18:
         {
             if (result == 0)
             {
@@ -950,27 +945,6 @@ bool CSVNStatusListCtrl::CSorter::operator()
                 FILETIME* filetime2 = (FILETIME*)(__int64*)&writetime2;
 
                 result = CompareFileTime(filetime1,filetime2);
-            }
-        }
-    case 20:
-        {
-            if (result == 0)
-            {
-                result = entry1->copyfrom_rev - entry2->copyfrom_rev;
-            }
-        }
-    case 19:
-        {
-            if (result == 0)
-            {
-                result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
-            }
-        }
-    case 18:
-        {
-            if (result == 0)
-            {
-                result = SGN(entry1->needslock - entry2->needslock);
             }
         }
     case 17:

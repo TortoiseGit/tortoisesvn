@@ -704,13 +704,8 @@ UINT CCommitDlg::StatusThread()
     if (m_History.GetCount()==0)
     {
         CString reg;
-        if (m_ListCtrl.m_sUUID.IsEmpty() && m_pathList.GetCount()>0)
-        {
-            SVN svn;
-            reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)svn.GetUUIDFromPath(m_pathList[0]));
-        }
-        else
-            reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_ListCtrl.m_sUUID);
+        SVN svn;
+        reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)svn.GetUUIDFromPath(m_pathList[0]));
         m_History.Load(reg, _T("logmsgs"));
     }
 

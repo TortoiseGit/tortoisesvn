@@ -98,7 +98,6 @@ TrueText if the tested condition is true, and FalseText if false.\n\
 $WCMODS$        True if local modifications found\n\
 $WCMIXED$       True if mixed update revisions found\n\
 $WCINSVN$       True if the item is versioned\n\
-$WCNEEDSLOCK$   True if the svn:needs-lock property is set\n\
 $WCISLOCKED$    True if the item is locked\n"
 // End of multi-line help text.
 
@@ -112,7 +111,6 @@ $WCISLOCKED$    True if the item is locked\n"
 #define NOWDEF      "$WCNOW$"
 #define NOWWFMTDEF  "$WCNOW="
 #define ISINSVN     "$WCINSVN?"
-#define NEEDSLOCK   "$WCNEEDSLOCK?"
 #define ISLOCKED    "$WCISLOCKED?"
 #define LOCKDATE    "$WCLOCKDATE$"
 #define LOCKWFMTDEF "$WCLOCKDATE="
@@ -707,9 +705,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
     index = 0;
     while (InsertBoolean(ISINSVN, pBuf, index, filelength, SubStat.bIsSvnItem));
-
-    index = 0;
-    while (InsertBoolean(NEEDSLOCK, pBuf, index, filelength, SubStat.LockData.NeedsLocks));
 
     index = 0;
     while (InsertBoolean(ISLOCKED, pBuf, index, filelength,  SubStat.LockData.IsLocked));

@@ -240,15 +240,6 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             </entry>
                         </row>
                         <row>
-                            <entry condition="pot">$WCNEEDSLOCK$</entry>
-                            <entry>
-                                <literal>$WCNEEDSLOCK?TText:FText$</literal> is
-                                replaced with <literal>TText</literal> if the entry has
-                                the <literal>svn:needs-lock</literal> property set,
-                                or <literal>FText</literal> if not.
-                            </entry>
-                        </row>
-                        <row>
                             <entry condition="pot">$WCISLOCKED$</entry>
                             <entry>
                                 <literal>$WCISLOCKED?TText:FText$</literal> is
@@ -286,7 +277,6 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                 an entire working copy, so it only makes sense to use these
                 when SubWCRev is called to scan a single file. This applies to
                 <literal>$WCINSVN$</literal>,
-                <literal>$WCNEEDSLOCK$</literal>,
                 <literal>$WCISLOCKED$</literal>,
                 <literal>$WCLOCKDATE$</literal>,
                 <literal>$WCLOCKOWNER$</literal> and
@@ -437,13 +427,6 @@ char *URL      = "http://project.domain.org/svn/trunk/src";
                             </entry>
                         </row>
                         <row>
-                            <entry condition="pot">.NeedsLocking</entry>
-                            <entry>
-                                True if the item has the <literal>svn:needs-lock</literal>
-                                property set.
-                            </entry>
-                        </row>
-                        <row>
                             <entry condition="pot">.IsLocked</entry>
                             <entry>
                                 True if the item is locked.
@@ -503,7 +486,6 @@ wcInfoString1 = "Revision = " + revObject1.Revision +
                 revObject1.Author + "\nHasMods = " +
                 revObject1.HasModifications + "\nIsSvnItem = " +
                 revObject1.IsSvnItem + "\nNeedsLocking = " +
-                revObject1.NeedsLocking + "\nIsLocked = " +
                 revObject1.IsLocked + "\nLockCreationDate = " +
                 revObject1.LockCreationDate + "\nLockOwner = " +
                 revObject1.LockOwner + "\nLockComment = " +
@@ -516,7 +498,6 @@ wcInfoString2 = "Revision = " + revObject2.Revision +
                 revObject2.Author + "\nHasMods = " +
                 revObject2.HasModifications + "\nIsSvnItem = " +
                 revObject2.IsSvnItem + "\nNeedsLocking = " +
-                revObject2.NeedsLocking + "\nIsLocked = " +
                 revObject2.IsLocked + "\nLockCreationDate = " +
                 revObject2.LockCreationDate + "\nLockOwner = " +
                 revObject2.LockOwner + "\nLockComment = " +
@@ -529,7 +510,6 @@ wcInfoString3 = "Revision = " + revObject3.Revision +
                 revObject3.Author + "\nHasMods = " +
                 revObject3.HasModifications + "\nIsSvnItem = " +
                 revObject3.IsSvnItem + "\nNeedsLocking = " +
-                revObject3.NeedsLocking + "\nIsLocked = " +
                 revObject3.IsLocked + "\nLockCreationDate = " +
                 revObject3.LockCreationDate + "\nLockOwner = " +
                 revObject3.LockOwner + "\nLockComment = " +
@@ -542,7 +522,6 @@ wcInfoString4 = "Revision = " + revObject4.Revision +
                 revObject4.Author + "\nHasMods = " +
                 revObject4.HasModifications + "\nIsSvnItem = " +
                 revObject4.IsSvnItem + "\nNeedsLocking = " +
-                revObject4.NeedsLocking + "\nIsLocked = " +
                 revObject4.IsLocked + "\nLockCreationDate = " +
                 revObject4.LockCreationDate + "\nLockOwner = " +
                 revObject4.LockOwner + "\nLockComment = " +

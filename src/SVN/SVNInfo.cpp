@@ -21,8 +21,10 @@
 
 #include "SVNInfo.h"
 #include "UnicodeUtils.h"
+#ifdef _MFC_VER
 #include "SVN.h"
 #include "MessageBox.h"
+#endif
 #include "registry.h"
 #include "TSVNPath.h"
 #include "PathUtils.h"
@@ -55,33 +57,38 @@ SVNInfo::SVNInfo(void)
 
     svn_error_clear(svn_config_ensure(NULL, m_pool));
 
+#ifdef _MFC_VER
     // set up the configuration
     m_err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
 
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
+#endif
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;
 
 
     if (m_err)
     {
+#ifdef _MFC_VER
         ::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+#endif
         svn_error_clear(m_err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
-        exit(-1);
     }
-
-    //set up the SVN_SSH param
-    CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
-    if (tsvn_ssh.IsEmpty())
-        tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
-    tsvn_ssh.Replace('\\', '/');
-    if (!tsvn_ssh.IsEmpty())
+    else
     {
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
-            APR_HASH_KEY_STRING);
-        svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
+        //set up the SVN_SSH param
+        CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
+        if (tsvn_ssh.IsEmpty())
+            tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
+        tsvn_ssh.Replace('\\', '/');
+        if (!tsvn_ssh.IsEmpty())
+        {
+            svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+                APR_HASH_KEY_STRING);
+            svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
+        }
     }
 }
 
@@ -106,10 +113,12 @@ svn_error_t* SVNInfo::cancel(void *baton)
     return SVN_NO_ERROR;
 }
 
+#ifdef _MFC_VER
 CString SVNInfo::GetLastErrorMsg()
 {
     return SVN::GetErrorString(m_err);
 }
+#endif
 
 const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth /* = svn_depth_empty*/)
 {
@@ -145,6 +154,7 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
     SVNInfo * pThis = (SVNInfo *)baton;
 
     SVNInfoData data;
+    data.path.SetFromUnknown(CUnicodeUtils::GetUnicode(path));
     if (info->URL)
         data.url = CUnicodeUtils::GetUnicode(info->URL);
     data.rev = SVNRev(info->rev);

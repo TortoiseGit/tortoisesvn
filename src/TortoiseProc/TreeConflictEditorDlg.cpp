@@ -298,7 +298,6 @@ UINT CTreeConflictEditorDlg::StatusThread()
     SVNInfo info;
     const SVNInfoData * pData = info.GetFirstFileInfo(m_path, SVNRev(), SVNRev());
     CTSVNPath statPath = m_path.GetContainingDirectory();
-    CTSVNPath copyFromPath;
     bool bFound = false;
     m_copyfromPath.Reset();
     if (pData)
@@ -306,23 +305,24 @@ UINT CTreeConflictEditorDlg::StatusThread()
         CString url = pData->url;
 
         SVNStatus stat;
+        SVNInfo info;
         do
         {
-            svn_wc_status3_t * s = stat.GetFirstFileStatus(statPath, copyFromPath, false, svn_depth_infinity, true, true);
-            if (s)
+            const SVNInfoData * infodata = info.GetFirstFileInfo(statPath, SVNRev::REV_WC, SVNRev::REV_WC, svn_depth_infinity);
+            if (infodata)
             {
-                while ((s = stat.GetNextFileStatus(copyFromPath)) != NULL)
+                do
                 {
-                    if ((s->entry)&&(s->entry->copyfrom_url))
+                    if (infodata->copyfromurl)
                     {
-                        if (CUnicodeUtils::GetUnicode(s->entry->copyfrom_url).Compare(url) == 0)
+                        if (infodata->copyfromurl.Compare(url) == 0)
                         {
                             bFound = true;
-                            m_copyfromPath = copyFromPath;
+                            m_copyfromPath = infodata->path;
                             break;  // found the copyfrom path!
                         }
                     }
-                }
+                } while ((infodata = info.GetNextFileInfo()) != NULL);
             }
             statPath = statPath.GetContainingDirectory();
         } while (!bFound && statPath.HasAdminDir());

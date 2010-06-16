@@ -42,7 +42,7 @@ bool EditFileCommand::IsLocked()
 
     svn_wc_status3_t *fileStatus
         = status.GetFirstFileStatus (path, dummy, false, svn_depth_empty);
-    return (fileStatus->entry != NULL) && (fileStatus->entry->lock_creation_date != 0);
+    return (fileStatus->lock_creation_date != 0);
 }
 
 // the individual steps of the sequence

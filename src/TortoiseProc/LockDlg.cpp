@@ -76,7 +76,7 @@ BOOL CLockDlg::OnInitDialog()
     m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
     m_History.Load(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 
-    m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK | SVNSLC_COLSVNNEEDSLOCK, _T("LockDlg"));
+    m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK, _T("LockDlg"));
     m_cFileList.SetSelectButton(&m_SelectAll);
     m_cFileList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
     m_cFileList.SetCancelBool(&m_bCancelled);
@@ -95,7 +95,6 @@ BOOL CLockDlg::OnInitDialog()
     CAppUtils::SetAccProperty(m_cEdit.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
 
     m_tooltips.Create(this);
-    m_tooltips.AddTool(IDC_LOCKWARNING, IDS_WARN_SVNNEEDSLOCK);
 
     m_SelectAll.SetCheck(BST_INDETERMINATE);
 
@@ -111,7 +110,6 @@ BOOL CLockDlg::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    AddAnchor(IDC_LOCKWARNING, TOP_RIGHT);
 
     if (hWndExplorer)
         CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -178,33 +176,6 @@ UINT CLockDlg::StatusThread()
     if (!m_cFileList.GetStatus(m_pathList))
     {
         m_cFileList.SetEmptyString(m_cFileList.GetLastErrorMessage());
-    }
-
-    // Check if any file doesn't have svn:needs-lock set in BASE. If at least
-    // one file is found then show the warning that this property should by set.
-    BOOL bShowWarning = FALSE;
-    const int nCount = m_cFileList.GetItemCount();
-    for (int i=0; i<nCount;i++)
-    {
-        CSVNStatusListCtrl::FileEntry* entry = m_cFileList.GetListEntry(i);
-        if (entry == NULL)
-            break;
-        if (entry->HasNeedsLock())
-        {
-            bShowWarning = TRUE;
-            break;
-        }
-    }
-
-    if ( bShowWarning )
-    {
-        GetDlgItem(IDC_LOCKWARNING)->ShowWindow(SW_SHOW);
-        DialogEnableWindow(IDC_LOCKWARNING, TRUE);
-    }
-    else
-    {
-        GetDlgItem(IDC_LOCKWARNING)->ShowWindow(SW_HIDE);
-        DialogEnableWindow(IDC_LOCKWARNING, FALSE);
     }
 
     DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;

@@ -386,8 +386,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
             SVNStatus status;
             CTSVNPath dummypath;
             svn_wc_status3_t * s = status.GetFirstFileStatus(m_basePath, dummypath, false, svn_depth_empty);
-            if ((s)&&(s->entry))
-                m_UpdateStartRevMap[m_basePath.GetSVNApiPath(pool)] = s->entry->revision;
+            if (s)
+                m_UpdateStartRevMap[m_basePath.GetSVNApiPath(pool)] = s->changed_rev;
             data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);
             data->bAuxItem = true;
         }
@@ -2840,10 +2840,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     LONG rev = 0;
     if (st.GetStatus(m_targetPathList[0]) != (-2))
     {
-        if (st.status->entry != NULL)
-        {
-            rev = st.status->entry->revision;
-        }
+        rev = st.status->changed_rev;
     }
 
     CString sCmdInfo;
@@ -2916,8 +2913,8 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 
     int targetcount = m_targetPathList.GetCount();
     CString sfile;
-    CStringA uuid;
-    StringRevMap uuidmap;
+    CString uuid;
+    StringWRevMap uuidmap;
     SVNRev revstore = m_Revision;
     int nUUIDs = 0;
     for(int nItem = 0; nItem < targetcount; nItem++)
@@ -2930,33 +2927,29 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         {
             if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath, true)) != (-2)))
             {
-                if (st.status->entry != NULL)
+                m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
+                
+                uuid = GetUUIDFromPath(targetPath);
+                if (!uuid.IsEmpty())
                 {
-
-                    m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->entry->cmt_rev;
-                    if (st.status->entry->uuid)
+                    StringWRevMap::iterator iter = uuidmap.lower_bound(uuid);
+                    if (iter == uuidmap.end() || iter->first != uuid)
                     {
-                        uuid = st.status->entry->uuid;
-                        StringRevMap::iterator iter = uuidmap.lower_bound(uuid);
-                        if (iter == uuidmap.end() || iter->first != uuid)
-                        {
-                            uuidmap.insert(iter, std::make_pair(uuid, headrev));
-                            nUUIDs++;
-                        }
-                        else
-                            headrev = iter->second;
-                        m_Revision = headrev;
+                        uuidmap.insert(iter, std::make_pair(uuid, headrev));
+                        nUUIDs++;
                     }
                     else
-                        m_Revision = headrev;
+                        headrev = iter->second;
+                    m_Revision = headrev;
                 }
+                else
+                    m_Revision = headrev;
             }
             else
             {
                 if ((headrev = st.GetStatus(targetPath, FALSE)) != (-2))
                 {
-                    if (st.status->entry != NULL)
-                        m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->entry->cmt_rev;
+                    m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
                 }
             }
             if (uuidmap.size() > 1)

@@ -559,10 +559,10 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
     CTSVNPath svnPath;
     bool forceNormal = false;
 
-    if((status->versioned)&&(status->entry))
+    if(status->versioned)
     {
         if ((status->text_status != svn_wc_status_none)&&(status->text_status != svn_wc_status_ignored))
-            svnPath.SetFromSVN(path, (status->entry->kind == svn_node_dir));
+            svnPath.SetFromSVN(path, (status->kind == svn_node_dir));
         else
             svnPath.SetFromSVN(path);
 
@@ -630,7 +630,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
         }
         else if (status->text_status == svn_wc_status_external)
         {
-            if ((status->entry && status->entry->kind == svn_node_dir) ||
+            if ((status->kind == svn_node_dir) ||
                 (svnPath.IsDirectory()))
             {
                 CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);

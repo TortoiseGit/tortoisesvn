@@ -279,6 +279,7 @@ private:
 
 private:
     typedef std::map<CStringA, svn_revnum_t> StringRevMap;
+    typedef std::map<CString, svn_revnum_t> StringWRevMap;
     typedef std::vector<NotificationData *> NotificationDataVect;
 
 

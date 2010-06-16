@@ -211,7 +211,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
     PreserveChdir preserveChdir;
     files_.clear();
     folder_.erase();
-    uuidSource.erase();
+    repoRootSource.erase();
     uuidTarget.erase();
     itemStates = 0;
     itemStatesFolder = 0;
@@ -288,26 +288,21 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
                             itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                             fetchedstatus = status;
-                            if ((stat.status->entry)&&(stat.status->entry->lock_token))
-                                itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-                            if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
+                            if (stat.status->lock_token)
+                                itemStates |= (stat.status->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+                            if (stat.status->kind == svn_node_dir)
                             {
                                 itemStates |= ITEMIS_FOLDER;
                                 if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
                                     itemStates |= ITEMIS_FOLDERINSVN;
                             }
-                            if ((stat.status->entry)&&(stat.status->entry->present_props))
-                            {
-                                if (strstr(stat.status->entry->present_props, SVN_PROP_NEEDS_LOCK))
-                                    itemStates |= ITEMIS_NEEDSLOCK;
-                            }
-                            if ((stat.status->entry)&&(stat.status->entry->uuid))
-                                uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
+                            if (stat.status->repos_root_url)
+                                repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
                             if (stat.status->file_external)
                                 itemStates |= ITEMIS_FILEEXTERNAL;
                             if (stat.status->conflicted)
                                 itemStates |= ITEMIS_CONFLICTED;
-                            if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+                            if (stat.status->copied)
                                 itemStates |= ITEMIS_ADDEDWITHHISTORY;
                         }
                         else
@@ -388,28 +383,23 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
                                 itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                                 fetchedstatus = status;
-                                if ((stat.status->entry)&&(stat.status->entry->lock_token))
-                                    itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-                                if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
+                                if (stat.status->lock_token)
+                                    itemStates |= (stat.status->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+                                if (stat.status->kind == svn_node_dir)
                                 {
                                     itemStates |= ITEMIS_FOLDER;
                                     if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
                                         itemStates |= ITEMIS_FOLDERINSVN;
                                 }
-                                if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
+                                if (stat.status->conflicted)
                                     itemStates |= ITEMIS_CONFLICTED;
-                                if ((stat.status->entry)&&(stat.status->entry->present_props))
-                                {
-                                    if (strstr(stat.status->entry->present_props, SVN_PROP_NEEDS_LOCK))
-                                        itemStates |= ITEMIS_NEEDSLOCK;
-                                }
-                                if ((stat.status->entry)&&(stat.status->entry->uuid))
-                                    uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
+                                if (stat.status->repos_root_url)
+                                    repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
                                 if (stat.status->file_external)
                                     itemStates |= ITEMIS_FILEEXTERNAL;
                                 if (stat.status->conflicted)
                                     itemStates |= ITEMIS_CONFLICTED;
-                                if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+                                if (stat.status->copied)
                                     itemStates |= ITEMIS_ADDEDWITHHISTORY;
                             }
                             else
@@ -511,15 +501,10 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     {
                         status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
                         itemStatesFolder |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
-                        if ((stat.status->entry)&&(stat.status->entry->lock_token))
-                            itemStatesFolder |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-                        if ((stat.status->entry)&&(stat.status->entry->present_props))
-                        {
-                            if (strstr(stat.status->entry->present_props, SVN_PROP_NEEDS_LOCK))
-                                itemStatesFolder |= ITEMIS_NEEDSLOCK;
-                        }
-                        if ((stat.status->entry)&&(stat.status->entry->uuid))
-                            uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
+                        if (stat.status->lock_token)
+                            itemStatesFolder |= (stat.status->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+                        if (stat.status->repos_root_url)
+                            uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
                         if (stat.status->conflicted)
                             itemStates |= ITEMIS_CONFLICTED;
                         if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
@@ -532,7 +517,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             itemStatesFolder |= ITEMIS_ADDED;
                         if (status == svn_wc_status_deleted)
                             itemStatesFolder |= ITEMIS_DELETED;
-                        if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+                        if (stat.status->copied)
                             itemStates |= ITEMIS_ADDEDWITHHISTORY;
                     }
                     else
@@ -598,16 +583,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         {
                             status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
                             itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
-                            if ((stat.status->entry)&&(stat.status->entry->lock_token))
-                                itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-                            if ((stat.status->entry)&&(stat.status->entry->present_props))
-                            {
-                                if (strstr(stat.status->entry->present_props, SVN_PROP_NEEDS_LOCK))
-                                    itemStates |= ITEMIS_NEEDSLOCK;
-                            }
-                            if ((stat.status->entry)&&(stat.status->entry->uuid))
-                                uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
-                            if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+                            if (stat.status->lock_token)
+                                itemStates |= (stat.status->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+                            if (stat.status->repos_root_url)
+                                uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
+                            if (stat.status->copied)
                                 itemStates |= ITEMIS_ADDEDWITHHISTORY;
                         }
                         else
@@ -792,7 +772,7 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
     if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
         return S_OK;
 
-    bool bSourceAndTargetFromSameRepository = (uuidSource.compare(uuidTarget) == 0) || uuidSource.empty() || uuidTarget.empty();
+    bool bSourceAndTargetFromSameRepository = (repoRootSource.compare(uuidTarget) == 0) || repoRootSource.empty() || uuidTarget.empty();
 
     //the drop handler only has eight commands, but not all are visible at the same time:
     //if the source file(s) are under version control then those files can be moved

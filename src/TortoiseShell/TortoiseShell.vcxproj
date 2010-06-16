@@ -293,6 +293,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SVN\SVNInfo.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
     <ClCompile Include="ColumnProvider.cpp" />
     <ClCompile Include="ContextMenu.cpp" />
@@ -375,6 +376,7 @@
     <None Include="..\Resources\tsvnmenumultiple.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\SVN\SVNInfo.h" />
     <ClInclude Include="..\Utils\DebugOutput.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Guids.h" />

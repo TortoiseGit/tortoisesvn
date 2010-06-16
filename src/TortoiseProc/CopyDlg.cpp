@@ -293,30 +293,31 @@ UINT CCopyDlg::FindRevThread()
         s = stats.GetFirstFileStatus(m_path, retPath, false, svn_depth_unknown, true, true);
         while ((s) && (!m_bCancelled))
         {
-            if (s->entry)
+            if (s->kind == svn_node_dir)
             {
-                if (s->entry->kind == svn_node_dir)
+                // read the props of this dir and find out if it has svn:external props
+                SVNProperties props(retPath, SVNRev::REV_WC, false);
+                for (int i = 0; i < props.GetCount(); ++i)
                 {
-                    // read the props of this dir and find out if it has svn:external props
-                    SVNProperties props(retPath, SVNRev::REV_WC, false);
-                    for (int i = 0; i < props.GetCount(); ++i)
+                    if (props.GetItemName(i).compare(SVN_PROP_EXTERNALS) == 0)
                     {
-                        if (props.GetItemName(i).compare(SVN_PROP_EXTERNALS) == 0)
-                        {
-                            m_externals.Add(retPath, props.GetItemValue(i), true);
-                        }
+                        m_externals.Add(retPath, props.GetItemValue(i), true);
                     }
                 }
-                if (s->entry->has_prop_mods)
-                    m_bmodified = true;
-                if (s->entry->revision > m_maxrev)
-                    m_maxrev = s->entry->revision;
             }
+            if (s->changed_rev > m_maxrev)
+                m_maxrev = s->changed_rev;
             if ( (s->text_status != svn_wc_status_none) &&
                 (s->text_status != svn_wc_status_normal) &&
                 (s->text_status != svn_wc_status_external) &&
                 (s->text_status != svn_wc_status_unversioned) &&
                 (s->text_status != svn_wc_status_ignored))
+                m_bmodified = true;
+            if ( (s->prop_status != svn_wc_status_none) &&
+                (s->prop_status != svn_wc_status_normal) &&
+                (s->prop_status != svn_wc_status_external) &&
+                (s->prop_status != svn_wc_status_unversioned) &&
+                (s->prop_status != svn_wc_status_ignored))
                 m_bmodified = true;
 
             s = stats.GetNextFileStatus(retPath);
