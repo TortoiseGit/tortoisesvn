@@ -67,7 +67,7 @@ BOOL CEditPropExternalsValue::OnInitDialog()
 
     m_sWCPath = m_External.targetDir;
     SVNRev rev = m_External.revision;
-    if (rev.IsHead())
+    if (!rev.IsValid() || rev.IsHead())
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     else
     {
