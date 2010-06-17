@@ -745,8 +745,6 @@ bool CTSVNPath::IsValidOnWindows() const
     if (m_bIsValidOnWindowsKnown)
         return m_bIsValidOnWindows;
 
-// TODO: when VS2010 is out of beta, check whether the
-// regex works again properly.
 #if _MSC_VER >= 1600
     m_bIsValidOnWindows = true;
     EnsureBackslashPathSet();
