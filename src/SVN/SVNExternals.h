@@ -30,7 +30,12 @@
 class SVNExternal
 {
 public:
-    SVNExternal() : adjust(false) {}
+    SVNExternal() : adjust(false) 
+    {
+        revision.kind = svn_opt_revision_unspecified;
+        origrevision.kind = svn_opt_revision_unspecified;
+        pegrevision.kind = svn_opt_revision_unspecified;
+    }
 
     CTSVNPath           path;               ///< path of the folder that has the property
     CString             pathurl;            ///< the repository url of path
