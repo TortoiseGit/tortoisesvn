@@ -1054,7 +1054,7 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
         showFlags |= SVNSLC_SHOWFOLDERS;
     else
         showFlags |= SVNSLC_SHOWFILES;
-    if (!entry->copied)
+    if (entry->copied)
     {
         showFlags |= SVNSLC_SHOWADDEDHISTORY;
         showFlags &= ~SVNSLC_SHOWADDED;
