@@ -98,8 +98,10 @@ class includeWriter:
         csvReader.skipinitialspace = True
 
         for row in csvReader:
-          # Ignore lines beginning with a '#'
-          if row['Tag'][0] != '#':
+          # Ignore lines beginning with:
+          # '\xef' = UTF-8 BOM
+          # '#' = comment line
+          if row['Tag'][0] != '\xef' and row['Tag'][0] != '#':
             self.addCountryRow(row['LangCC'].strip(), row['Tag'].strip(), row['FlagByte'].strip(), \
               row['LangName'].strip(), row['Translators'].strip())
         self.out.write(');\n')
@@ -274,9 +276,11 @@ class transReport:
         csvReader.skipinitialspace = True
 
         for row in csvReader:
-          # Ignore lines beginning with a '#'
+          # Ignore lines beginning with:
+          # '\xef' = UTF-8 BOM
+          # '#' = comment line
           # Ignore .pot file (Tag=0)
-          if row['Tag'][0] != '#' and row['Tag'] != '0':
+          if row['Tag'][0] != '\xef' and row['Tag'][0] != '#' and row['Tag'] != '0':
             langCC = row['LangCC'].strip()
             statusTrunk = self.checkStatus(outTrunk, 'trunk', langCC, fileMask, totTrunk, checkAccel)
             statusBranch = self.checkStatus(outBranch, 'branch', langCC, fileMask, totBranch, checkAccel)
