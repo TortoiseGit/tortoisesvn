@@ -1511,7 +1511,9 @@ bool SVN::CreateRepository(const CTSVNPath& path, const CString& fstype)
         fs_type);
     err = svn_repos_create(&repo, path.GetSVNApiPath(localpool), NULL, NULL, config, fs_config, localpool);
 
-    return (err == NULL);
+    bool ret = (err == NULL);
+    svn_error_clear(err);
+    return ret;
 }
 
 bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev, const SVNRev& peg, const CString& diffoptions, bool ignoremimetype, bool includemerge)
