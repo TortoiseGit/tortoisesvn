@@ -1034,6 +1034,9 @@
     <ClCompile Include="..\Utils\CommonAppUtils.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\IconExtractor.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1969,6 +1972,9 @@
     <ClInclude Include="..\Utils\CommonAppUtils.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\IconExtractor.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">
@@ -2344,6 +2350,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Resources\Library.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\svnfolder.ico">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

@@ -264,6 +264,7 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Utils\CommonAppUtils.cpp" />
+    <ClCompile Include="..\Utils\IconExtractor.cpp" />
     <ClCompile Include="..\Utils\Libraries.cpp" />
     <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="..\Utils\BugTraqAssociations.cpp" />
@@ -719,6 +720,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Utils\CommonAppUtils.h" />
+    <ClInclude Include="..\Utils\IconExtractor.h" />
     <ClInclude Include="..\Utils\Libraries.h" />
     <ClInclude Include="..\Utils\MiscUI\ControlsBridge.h" />
     <ClInclude Include="AppUtils.h" />
@@ -1142,6 +1144,7 @@
     <None Include="..\Resources\saveddata.ico" />
     <None Include="..\Resources\search.avi" />
     <None Include="..\Resources\ssh.ico" />
+    <None Include="..\Resources\svnfolder.ico" />
     <None Include="..\Resources\switch.ico" />
     <None Include="..\Resources\SwitchBackground.ico" />
     <None Include="..\Resources\Toolbar.bmp" />

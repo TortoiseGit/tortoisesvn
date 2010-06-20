@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 #include "SVN.h"
 #include "TempFile.h"
+#include "IconExtractor.h"
 
 bool CreateRepositoryCommand::Execute()
 {
@@ -32,6 +33,23 @@ bool CreateRepositoryCommand::Execute()
     }
     else
     {
+        // create a desktop.ini file which sets our own icon for the repo folder
+        // we extract the icon to use from the resources and write it to disk
+        // so even those who don't have TSVN installed can benefit from it.
+        CIconExtractor svnIconResource;
+        if (svnIconResource.ExtractIcon(NULL, MAKEINTRESOURCE(IDI_SVNFOLDER), cmdLinePath.GetWinPathString() + _T("\\svn.ico")) == 0)
+        {
+            DWORD dwWritten = 0;
+            HANDLE hFile = CreateFile(cmdLinePath.GetWinPathString() + _T("\\Desktop.ini"), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_HIDDEN, NULL);
+            if (hFile != INVALID_HANDLE_VALUE)
+            {
+                CString sIni = _T("[.ShellClassInfo]\nConfirmFileOp=0\nIconFile=svn.ico\nIconIndex=0\nInfoTip=Subversion Repository\n");
+                WriteFile(hFile, (LPCTSTR)sIni,  sIni.GetLength()*sizeof(TCHAR), &dwWritten, NULL);
+                CloseHandle(hFile);
+            }
+            PathMakeSystemFolder(cmdLinePath.GetWinPath());
+        }
+
         if (CMessageBox::Show(hwndExplorer, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
         {
             // create the default folder structure in a temp folder
