@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-07 12:59+0100\n"
+"PO-Revision-Date: 2010-06-21 09:21+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -280,6 +280,11 @@ msgstr "%s, maar de map was versperd in de werkkopie."
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but the directory was replaced"
+msgstr "%s, maar de map was vervangen"
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr "%s, maar het bestand bestaat al lokaal en zonder versiebeheer."
 
@@ -307,6 +312,20 @@ msgstr "%s, maar het bestand was lokaal verwijderd, verplaatst of hernoemd."
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
 msgstr "%s, maar het bestand was versperd in de werkkopie."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was replaced"
+msgstr "%s, maar het bestand was vervangen"
+
+#. Resource IDs: (376)
+#, c-format
+msgid ""
+"%s\n"
+"%ld failed hunk(s)"
+msgstr ""
+"%s\n"
+"%ld mislukte brok(ken)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -555,7 +574,7 @@ msgstr "&Vergelijk URLs"
 msgid "&Compare revisions"
 msgstr "Ver&gelijk revisies"
 
-#. Resource IDs: (1019)
+#. Resource IDs: (1019, 1390)
 msgid "&Compare whitespaces"
 msgstr "&Vergelijk spaties en witregels"
 
@@ -591,7 +610,7 @@ msgstr "Naar klembord &kopiëren"
 msgid "&Copy to..."
 msgstr "&Kopiëren naar..."
 
-#. Resource IDs: (1097)
+#. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "&Aangepast"
 
@@ -755,7 +774,7 @@ msgstr "&Groen:"
 msgid "&Group by branch"
 msgstr "&Groeperen per tak"
 
-#. Resource IDs: (1032, 1115)
+#. Resource IDs: (1115)
 msgid "&HEAD Revision"
 msgstr "&HEAD revisie"
 
@@ -948,7 +967,7 @@ msgstr "&Netwerkstations"
 msgid "&New "
 msgstr "&Nieuw"
 
-#. Resource IDs: (1310, 16509, 16615)
+#. Resource IDs: (1310, 1542, 16509, 16615)
 msgid "&New..."
 msgstr "&Nieuw..."
 
@@ -1257,11 +1276,11 @@ msgstr "&Maximale tijd voor het zoeken naar automatische aanvullingen"
 msgid "&To Revision"
 msgstr "&Tot en met revisie"
 
-#. Resource IDs: (1384, 65535)
+#. Resource IDs: (1305, 1384)
 msgid "&To URL:"
 msgstr "&Naar URL:"
 
-#. Resource IDs: (1384)
+#. Resource IDs: (1305, 1384)
 msgid "&To path:"
 msgstr "&Naar pad: "
 
@@ -1309,7 +1328,7 @@ msgstr "&Twee paginas"
 msgid "&URL of repository:"
 msgstr "&URL van archief:"
 
-#. Resource IDs: (1076)
+#. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
 msgstr "&URL:"
 
@@ -1972,7 +1991,7 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "Pas patch toe..."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Voer unified diff uit"
 
@@ -2063,7 +2082,7 @@ msgstr "Auteurs"
 msgid "Authors case sensitive"
 msgstr "Exacte auteursnamen"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1444)
 msgid "Authors:"
 msgstr "Auteurs:"
 
@@ -2139,7 +2158,7 @@ msgstr ""
 "Bitmap\n"
 "een bitmap"
 
-#. Resource IDs: (114, 162)
+#. Resource IDs: (162)
 msgid "Blame"
 msgstr "Verklaren"
 
@@ -2472,7 +2491,7 @@ msgstr "Controleer werkkopie op wijzigingen"
 msgid "Check:"
 msgstr "Markeer:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Controle of een nieuwe versie van TortoiseSVN beschikbaar is..."
 
@@ -3110,6 +3129,16 @@ msgstr "%1 kon niet worden verwijderd omdat het de huidige map is."
 msgid "Could not remove %s from the ignore list"
 msgstr "%s kon niet uit de negeerlijst worden verwijderd"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace '%s' because"
+msgstr "Kon '%s' niet vervangen omdat"
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace property '%1!s!' on '%2!s!' because"
+msgstr "Kon eigenschap '%1!s!' van '%2!s!' niet vervangen omdat"
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -3132,6 +3161,15 @@ msgstr ""
 #, c-format
 msgid "Could not save the file %s!"
 msgstr "Kon bestand %s niet opslaan!"
+
+#. Resource IDs: (70)
+#, c-format
+msgid ""
+"Could not start diff viewer!\n"
+"%s"
+msgstr ""
+"Kon de Diff-viewer niet starten!\n"
+"%s"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3169,6 +3207,15 @@ msgstr ""
 #. Resource IDs: (3857)
 msgid "Could not start print job."
 msgstr "Afdrukopdracht kan niet gestart worden."
+
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"%s"
+msgstr ""
+"Kon de tekst-viewer niet starten!\n"
+"%s"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3327,7 +3374,7 @@ msgstr "&Standaard aantal logboek-boodschappen"
 msgid "Default Menu"
 msgstr "Standaardmenu"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1516)
 msgid "Default URL:"
 msgstr "Standaard URL:"
 
@@ -3335,7 +3382,7 @@ msgstr "Standaard URL:"
 msgid "Default application menu. Appears when no documents are open."
 msgstr "Standaardmenu. Verschijnt indien geen documenten geopend zijn."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Standaard pad:"
 
@@ -3457,7 +3504,7 @@ msgstr "Venster afmetingen en posities"
 msgid "Diff file:"
 msgstr "Diff-bestand:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "Vergelijkingsopties"
 
@@ -3679,7 +3726,7 @@ msgstr "Plaatsen niet mogelijk op %1"
 msgid "E&xact copy sources"
 msgstr "E&xacte kopie bronnen"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1518)
 msgid "E&xclude paths:"
 msgstr "&Exclusief paden:"
 
@@ -3784,6 +3831,10 @@ msgstr "Wijzigt de waarde van de geselecteerde eigenschap"
 msgid "Either the name or IP of the proxy server"
 msgstr "De naam of het IP-adres van de proxyserver"
 
+#. Resource IDs: (265)
+msgid "Eliding mergeinfo"
+msgstr "Samenvoeg-informatie opschonen"
+
 #. Resource IDs: (1057)
 msgid ""
 "Ellipse Tools\n"
@@ -3849,7 +3900,7 @@ msgstr "Een onverwachte fout is opgetreden bij het lezen van %1."
 msgid "Encountered an unexpected error while writing %1."
 msgstr "Een onverwachte fout is opgetreden bij het schrijven van %1."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Laatste Revisie"
 
@@ -4076,7 +4127,7 @@ msgstr "Exporteert een set eigenschappen naar een bestand"
 msgid "Extension"
 msgstr "Extensie"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
 msgstr "Extensie- of mime-type-specifieke programma's"
 
@@ -4538,7 +4589,7 @@ msgstr "Informatie ophalen..."
 msgid "Getting unified diff"
 msgstr "Unified diff ophalen..."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
 msgstr "Globaal &negeer-patroon:"
 
@@ -4716,7 +4767,7 @@ msgstr "&Alle spaties en witregels negeren"
 msgid "I&gnored"
 msgstr "Ge&negeerd"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1519)
 msgid "I&nclude paths:"
 msgstr "&Inclusief paden:"
 
@@ -5043,7 +5094,7 @@ msgstr "Negeer &regeleinden"
 msgid "Ignore line &endings (recommended)"
 msgstr "Negeer &regeleinden (aanbevolen)"
 
-#. Resource IDs: (1126, 1127)
+#. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "Negeer regeleinden"
 
@@ -5111,7 +5162,7 @@ msgstr "%ld zaken importeren"
 msgid "Import %s to %s%s"
 msgstr "Importeer %s in %s%s"
 
-#. Resource IDs: (1056)
+#. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "&Boodschap importeren"
 
@@ -5742,11 +5793,11 @@ msgstr "Menubalk"
 msgid "Menu s&hadows"
 msgstr "&Schaduwen van menu's"
 
-#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 278, 65535)
 msgid "Merge"
 msgstr "Samenvoegen"
 
-#. Resource IDs: (1488)
+#. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Samenvoegdiepte:"
 
@@ -5820,7 +5871,7 @@ msgstr "Voegt wijzigingen uit een tak toe aan de basislijn"
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
 msgstr "Voegt alle ontbrekende revisies samen in de werkkopie, gebruikmakend van merge-tracking informatie"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1073)
 msgid "Merging"
 msgstr "Samenvoegen"
 
@@ -7035,6 +7086,30 @@ msgstr "Recent gewijzigde regels"
 msgid "Record Only"
 msgstr "Alleen opnemen"
 
+#. Resource IDs: (265)
+msgid "Recording mergeinfo for merge between URLs"
+msgstr "Info voor samenvoegen tussen URLs wordt vastgelegd"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
+msgstr "Info voor samenvoegen van %1!ld! t/m %2!ld! wordt vastgelegd"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%ld"
+msgstr "Info voor samenvoegen van r%ld wordt vastgelegd"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
+msgstr "Info voor omgekeerd samenvoegen van %1!ld! t/m %2!ld! wordt vastgelegd"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%ld"
+msgstr "Info voor omgekeerd samenvoegen van r%ld wordt vastgelegd"
+
 #. Resource IDs: (3887)
 msgid ""
 "Recover the auto-saved documents\n"
@@ -7130,9 +7205,14 @@ msgstr "Reïntegreer %s in %s"
 msgid "Reject"
 msgstr "Verwerpen"
 
+#. Resource IDs: (7)
+#, c-format
+msgid "Rejected patch hunks for '%s'"
+msgstr "Patch-brokken voor '%s' geweigerd"
+
 #. Resource IDs: (16)
-msgid "Release loc&k"
-msgstr "Blokkade &opheffen"
+msgid "Release loc&k..."
+msgstr "Blokkade &opheffen..."
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
@@ -7500,7 +7580,7 @@ msgstr "Revisie &schema"
 msgid "Revision / Author:"
 msgstr "Revisie / Auteur:"
 
-#. Resource IDs: (182)
+#. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr "Revisie schema"
 
@@ -8172,7 +8252,7 @@ msgstr "Toon externen uit an&dere archieven"
 msgid "Show f&ull menus after a short delay"
 msgstr "Toon &gehele menu na korte tijd"
 
-#. Resource IDs: (1037)
+#. Resource IDs: (1034, 1037)
 msgid "Show l&og"
 msgstr "Toon &logboek"
 
@@ -8916,6 +8996,16 @@ msgstr "De laatste samenvoeg operatie probeerde het bestand '%s' te wijzigen"
 
 #. Resource IDs: (608)
 #, c-format
+msgid "The last merge operation tried to replace the directory '%s'"
+msgstr "De laatste samenvoeg operatie probeerde de map '%s' te vervangen"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to replace the file '%s'"
+msgstr "De laatste samenvoeg operatie probeerde het bestand '%s' te vervangen"
+
+#. Resource IDs: (608)
+#, c-format
 msgid "The last switch operation tried to add the directory '%s'"
 msgstr "De laatste wissel operatie probeerde de map '%s' toe te voegen"
 
@@ -8943,6 +9033,16 @@ msgstr "De laatste wissel operatie probeerde de map '%s' te wijzigen"
 #, c-format
 msgid "The last switch operation tried to modify the file '%s'"
 msgstr "De laatste wissel operatie probeerde het bestand '%s' te wijzigen"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the directory '%s'"
+msgstr "De laatste wissel operatie probeerde de map '%s' te vervangen"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the file '%s'"
+msgstr "De laatste wissel operatie probeerde het bestand '%s' te vervangen"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8973,6 +9073,16 @@ msgstr "De laatste bijwerk-actie probeerde de map '%s' te wijzigen"
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
 msgstr "De laatste bijwerk operatie probeerde het bestand '%s' te wijzigen"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the directory '%s'"
+msgstr "De laatste bijwerk operatie probeerde de map '%s' te vervangen"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the file '%s'"
+msgstr "De laatste bijwerk operatie probeerde het bestand '%s' te vervangen"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9332,11 +9442,11 @@ msgstr "Deze methode wordt gebruikt als u één of meer wijzigingen in een tak (
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
 msgstr "Deze keuze is bedoeld als u het verschil tussen twee verschillende takken in uw werkkopie wilt opnemen."
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1531)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Dit product gebruikt software ontwikkeld door CollabNet (http://www.Collab.Net/)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1532)
 msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
 msgstr "Dit product gebruikt software ontwikkeld door het OpenSSL Project voor gebruik in de OpenSSL Toolkit (http://www.openssl.org/)"
 
@@ -9810,6 +9920,10 @@ msgstr "Zonder versiebeheer"
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Bestanden zonder versiebeheer markeren map als gewijzigd"
 
+#. Resource IDs: (265)
+msgid "Unversioned obstruction"
+msgstr "Versperring zonder versiebeheer"
+
 #. Resource IDs: (286)
 #, c-format
 msgid "Unversioning %1!s!"
@@ -10238,7 +10352,7 @@ msgstr "Windows &2000"
 msgid "With URL:"
 msgstr "Met URL:"
 
-#. Resource IDs: (158, 65535)
+#. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
 msgstr "Werkkopie"
 
