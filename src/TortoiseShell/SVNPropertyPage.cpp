@@ -273,7 +273,7 @@ void CSVNPropertyPage::InitWorkfileView()
     {
         if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
         {
-            const SVNInfoData * infodata = info.GetFirstFileInfo(CTSVNPath(filenames.front().c_str()), SVNRev::REV_WC, SVNRev::REV_WC);
+            const SVNInfoData * infodata = info.GetFirstFileInfo(CTSVNPath(filenames.front().c_str()), SVNRev(), SVNRev());
             TCHAR buf[MAX_STRING_LENGTH];
             __time64_t  time;
             if (svn.status->versioned)
@@ -294,16 +294,22 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->repos_relpath)
                 {
-                    size_t len = strlen(svn.status->repos_relpath);
-                    auto_buffer<char> unescapedurl(len+1);
-                    strcpy_s(unescapedurl, len+1, svn.status->repos_relpath);
+                    size_t len = strlen(svn.status->repos_relpath) + strlen(svn.status->repos_root_url);
+                    len += 2;
+                    auto_buffer<char> url(len);
+                    strcpy_s(url, len, svn.status->repos_root_url);
+                    strcat_s(url, len, "/");
+                    strcat_s(url, len, svn.status->repos_relpath);
+
+                    auto_buffer<char> unescapedurl(len);
+                    strcpy_s(unescapedurl, len, url.get());
                     CPathUtils::Unescape(unescapedurl);
                     SetDlgItemText(m_hwnd, IDC_REPOURL, UTF8ToWide(unescapedurl.get()).c_str());
-                    if (strcmp(unescapedurl, svn.status->repos_relpath))
+                    if (strcmp(unescapedurl, url.get()))
                     {
                         ShowWindow(GetDlgItem(m_hwnd, IDC_ESCAPEDURLLABEL), SW_SHOW);
                         ShowWindow(GetDlgItem(m_hwnd, IDC_REPOURLUNESCAPED), SW_SHOW);
-                        SetDlgItemText(m_hwnd, IDC_REPOURLUNESCAPED, UTF8ToWide(svn.status->repos_relpath).c_str());
+                        SetDlgItemText(m_hwnd, IDC_REPOURLUNESCAPED, UTF8ToWide(url.get()).c_str());
                     }
                     else
                     {
@@ -348,14 +354,15 @@ void CSVNPropertyPage::InitWorkfileView()
                 time = (__time64_t)svn.status->lock_creation_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                 SetDlgItemText(m_hwnd, IDC_LOCKDATE, buf);
-
-                SetDlgItemText(m_hwnd, IDC_REPOUUID, (LPCTSTR)infodata->reposUUID);
+                if (infodata)
+                    SetDlgItemText(m_hwnd, IDC_REPOUUID, (LPCTSTR)infodata->reposUUID);
                 if (svn.status->changelist)
                     SetDlgItemText(m_hwnd, IDC_CHANGELIST, UTF8ToWide(svn.status->changelist).c_str());
-                SVNStatus::GetDepthString(g_hResInst, infodata->depth, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                SVNStatus::GetDepthString(g_hResInst, infodata ? infodata->depth : svn_depth_unknown, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_DEPTHEDIT, buf);
 
-                SetDlgItemText(m_hwnd, IDC_CHECKSUM, (LPCTSTR)infodata->checksum);
+                if (infodata)
+                    SetDlgItemText(m_hwnd, IDC_CHECKSUM, (LPCTSTR)infodata->checksum);
 
                 if (svn.status->locked)
                     MAKESTRING(IDS_YES);
