@@ -69,11 +69,10 @@ SVNInfo::SVNInfo(void)
     m_pctx->cancel_baton = this;
 
 
+#ifdef _MFC_VER
     if (m_err)
     {
-#ifdef _MFC_VER
         ::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-#endif
         svn_error_clear(m_err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
     }
@@ -91,6 +90,7 @@ SVNInfo::SVNInfo(void)
             svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
         }
     }
+#endif
 }
 
 SVNInfo::~SVNInfo(void)
