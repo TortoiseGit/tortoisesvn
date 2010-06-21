@@ -50,6 +50,7 @@ SVNInfoData::SVNInfoData()
 SVNInfo::SVNInfo(void)
     : m_pctx(NULL)
     , m_pos(0)
+    , m_err(NULL)
 {
     m_pool = svn_pool_create (NULL);
 
