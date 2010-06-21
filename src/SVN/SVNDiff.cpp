@@ -181,7 +181,7 @@ bool SVNDiff::DiffFileAgainstBase(
         if (baseRev == 0)
         {
             SVNInfo info;
-            const SVNInfoData * infodata = info.GetFirstFileInfo(filePath, SVNRev::REV_WC, SVNRev::REV_WC);
+            const SVNInfoData * infodata = info.GetFirstFileInfo(filePath, SVNRev(), SVNRev());
 
             if (infodata)
             {

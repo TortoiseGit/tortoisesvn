@@ -714,7 +714,7 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
     // to the trash bin: just in case the user later wants to get those
     // files back anyway
     SVNInfo info;
-    const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev::REV_WC, SVNRev::REV_WC);
+    const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev(), SVNRev());
     if (infodata)
     {
         CTSVNPathList conflictedEntries;

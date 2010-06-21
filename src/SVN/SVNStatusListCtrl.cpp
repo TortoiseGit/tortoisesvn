@@ -707,7 +707,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
     {
         entry->isConflicted = true;
         SVNInfo info;
-        const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev::REV_WC, SVNRev::REV_WC);
+        const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev(), SVNRev());
         if (infodata)
         {
             CTSVNPath cpath;
@@ -2795,7 +2795,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     if (entry->copied)
                     {
                         SVNInfo info;
-                        const SVNInfoData * infodata = info.GetFirstFileInfo(filepath, SVNRev::REV_WC, SVNRev::REV_WC);
+                        const SVNInfoData * infodata = info.GetFirstFileInfo(filepath, SVNRev(), SVNRev());
                         logPath = infodata->copyfromurl;
                     }
                     CString sCmd;
@@ -2818,7 +2818,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     if (entry->copied)
                     {
                         SVNInfo info;
-                        const SVNInfoData * infodata = info.GetFirstFileInfo(filepath, SVNRev::REV_WC, SVNRev::REV_WC);
+                        const SVNInfoData * infodata = info.GetFirstFileInfo(filepath, SVNRev(), SVNRev());
                         blamePath = infodata->copyfromurl;
                     }
                     CString sCmd;

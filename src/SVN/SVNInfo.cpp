@@ -61,21 +61,25 @@ SVNInfo::SVNInfo(void)
 #ifdef _MFC_VER
     // set up the configuration
     m_err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
-
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
+#else
+    // set up the configuration
+    m_err = svn_config_get_config (&(m_pctx->config), NULL, m_pool);
 #endif
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;
 
 
-#ifdef _MFC_VER
     if (m_err)
     {
+#ifdef _MFC_VER
         ::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+#endif
         svn_error_clear(m_err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
     }
+#ifdef _MFC_VER
     else
     {
         //set up the SVN_SSH param

@@ -308,7 +308,7 @@ UINT CTreeConflictEditorDlg::StatusThread()
         SVNInfo info;
         do
         {
-            const SVNInfoData * infodata = info.GetFirstFileInfo(statPath, SVNRev::REV_WC, SVNRev::REV_WC, svn_depth_infinity);
+            const SVNInfoData * infodata = info.GetFirstFileInfo(statPath, SVNRev(), SVNRev(), svn_depth_infinity);
             if (infodata)
             {
                 do

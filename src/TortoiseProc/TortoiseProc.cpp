@@ -108,8 +108,11 @@ CString sOrigCWD;
 
 CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
 // CTortoiseProcApp initialization
+#include "SVNInfo.h"
 BOOL CTortoiseProcApp::InitInstance()
 {
+    SVNInfo info;
+    const SVNInfoData * baseInfo = info.GetFirstFileInfo (CTSVNPath(_T("D:\\Development\\SVN\\TortoiseSVN\\www")), SVNRev(), SVNRev());
     CAppUtils::SetupDiffScripts(false, CString());
     InitializeJumpList();
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
