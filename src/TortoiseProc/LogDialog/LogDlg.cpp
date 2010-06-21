@@ -2372,7 +2372,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                 break;
             }
         }
-        if ((!bBugIDFound)&&(pEnLink->msg == WM_SETCURSOR))
+        if ((!bBugIDFound)&&(pEnLink->msg != WM_SETCURSOR))
         {
             // now check whether it matches a revision
             const tr1::wregex regMatch(m_ProjectProperties.sLogRevRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
