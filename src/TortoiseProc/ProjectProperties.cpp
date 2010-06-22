@@ -276,6 +276,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             return FALSE;
         propsPath = path;
         path = path.GetContainingDirectory();
+        if (!bFoundLogRevRegex)
+            sLogRevRegex = LOG_REVISIONREGEX;
         if ((!path.HasAdminDir())||(path.IsEmpty()))
         {
             if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
@@ -286,8 +288,6 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 | bFoundBugtraqProviderUuid | bFoundBugtraqProviderUuid64
                 | bFoundBugtraqProviderParams)
             {
-                if (!bFoundLogRevRegex)
-                    sLogRevRegex = LOG_REVISIONREGEX;
                 return TRUE;
             }
             propsPath.Reset();
