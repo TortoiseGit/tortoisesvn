@@ -91,7 +91,7 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
     {
         CString abspath = CUnicodeUtils::GetUnicode(canon_path_from_patchfile);
         PathRejects pr;
-        pr.path = abspath.Mid(pThis->m_targetpath.GetLength());
+        pr.path = PathIsRelative(abspath) ? abspath : abspath.Mid(pThis->m_targetpath.GetLength());
         pr.rejects = 0;
         pr.resultPath = CUnicodeUtils::GetUnicode(patch_abspath);
         pr.resultPath.Replace('/', '\\');
