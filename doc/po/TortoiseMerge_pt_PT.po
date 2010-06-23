@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2009-10-09 18:46 +0000\n"
-"PO-Revision-Date: 2010-01-18 19:59-0000\n"
-"Last-Translator: David Barbeiro <david_barbeiro@sapo.pt>\n"
+"PO-Revision-Date: 2010-06-23 01:52-0000\n"
+"Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -172,15 +172,15 @@ msgstr "TortoiseMerge é uma aplicaçao open-source gratuita. Permite-lhe ver di
 
 #. (para)
 msgid "While working on text files, e.g. source files in your favourite programming language, or html/xml files for your documentation or website, you will often have a situation where you need to compare different versions of those files. Sometimes you get a different version from someone else, sometimes you just want to see the changes you've made."
-msgstr "Enquanto trabalha em ficheiros de texto, e.g ficheiros base na sua linguagem de programaçao favorita, ou ficheiros html/xml para a sua documentação ou website, terá muitas vezes que comparar diferentes versões desses ficheiros. Umas vezes obtém uma versão diferente de alguém, outras apenas quer ver as alterações que fez até ao momento."
+msgstr "Enquanto trabalhas em ficheiros de texto, i.e. ficheiros base na tua linguagem de programaçao favorita, ou ficheiros html/xml para a documentação ou website, terás muitas vezes que comparar as diferentes versões desses ficheiros. Umas vezes obténs de alguém uma versão diferente, outras apenas queres ver as alterações que fizeste até ao momento."
 
 #. (para)
 msgid "If you're working with a version control system (e.g. Subversion) then you sometimes get <emphasis>conflicts</emphasis> when you update your working copy. This happens if someone else changed the same parts of the file you're currently working on as you did. Then you have to resolve those conflicts manually. This is where TortoiseMerge can help you."
-msgstr "Se estiver a trabalhar com uma sistem de controlo de versão (e.g Subversion) então por vezes ocorrem <emphasis>conflictos</emphasis> ao actualizar a sua cópia de trabalho. Isto acontece quando alguém altera alguma coisa no ficheiro em que você está a trabalhar. Nessas situaçoes você tem que resolver esses confictos manualmente. É aqui que o TortoiseMerge o pode ajudar."
+msgstr "Se estiveres a trabalhar com um sistema de controlo de versões (e.g Subversion) então por vezes, ao actualizar a cópia de trabalho, ocorrem <emphasis>conflictos</emphasis>. Isto acontece quando alguém altera alguma parte do ficheiro em que estás a trabalhar. Nessas situaçoes tens de resolver manualmente esses confictos. É aqui que o TortoiseMerge te pode ajudar."
 
 #. (para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
-msgstr "O diagrama que segue mostra as relações entre os ficheiros involvidos no conflito:"
+msgstr "O diagrama seguinte mostra as relações entre os ficheiros envolvidos no conflito:"
 
 #. (title)
 #. (title)
@@ -189,31 +189,31 @@ msgstr "Conflito de Ficheiros"
 
 #. (para)
 msgid "A conflict can also occur if you try to apply an outdated patch file. In such cases, without TortoiseMerge, you would either have to ask the person you got that patch file from for a current version or try to apply that patch file manually."
-msgstr "Um conflicto pode ocorrer se você tentar aplicar um patch desactualizado. Quando isso acontece, sem o TortoiseMerge, você seria obrigado a pedir à pessoa que lhe deu o patch uma versão actualizada ou tentar aplicar o patch manualmente."
+msgstr "Um conflicto pode ocorrer se tentares aplicar uma correcção desactualizada. Quando isso acontece, sem o TortoiseMerge, serias obrigado a pedir à pessoa que lhe enviou a correcção uma versão actualizada ou tentares aplicar manualmente a correcção."
 
 #. (para)
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patch file for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "Mas agora com o TortoiseMerge isso já não é necessário - pelo menos se estiver a trabalhar com um sistem de controlo de versão como o Subversion. O TortoiseMerge analise o patch e procura a versão/revisão para a qual este foi criado e, automaticamente, tenta encontrar e carregar essa mesma versão a partir do source-control.Nessa altura aplica o patch e deixa-o rever as alterações, tanto as suas, como as de outras pessoas. Aí, é você que decide quais as alterações que mantém e quais elimina."
+msgstr "Mas agora, com o TortoiseMerge isso já não é necessário - pelo menos se estiveres a trabalhar com um sistema de controlo de versões como o Subversion. O TortoiseMerge analisa a correcção e procura pela versão/revisão para a qual esta foi criada, automaticamente tenta encontrar e carregar essa mesma versão a partir do controlo de versões. Então aplica a correcção e deixa-a rever todas as alterações, tanto as tuas, como as de outras pessoas. É então que decides quais as alterações que são para mantém e quais a eliminar."
 
 #. (title)
 msgid "TortoiseMerge's History"
-msgstr "História do TortoiseMerge"
+msgstr "A História do TortoiseMerge"
 
 #. (para)
 msgid "While working on <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
-msgstr "Enquanto trabalhavamos no <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> verificámos que sempre que um utilizador enviava  patches para melhorar o projecto ou simplesmente arranjar bugs, tinhamos um trabalho imenso só para os aplicar, sendo que muitas das vezes esses mesmos patches estavam desactualizados e nao podiam ser aplicados com a linha de comandos da ferramenta do patch <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> porque estávamos a trabalhar nesses ficheiros e por vezes já tinham sido modificados."
+msgstr "Enquanto trabalhávamos no <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> verificámos que sempre que um utilizador enviava  correcções para melhorar o projecto ou simplesmente corrijir problemas, tinhamos um enorme trabalho só para os aplicar, sendo que muitas das vezes essas mesmas correcções estavam desactualizadas e nao podiam ser aplicadas através da linha de comandos da ferramenta de correcção <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> porque estávamos a trabalhar nesses ficheiros e que por vezes já haviam sido alterados."
 
 #. (para)
 msgid "This was also the main reason why TortoiseSVN did not originally have a <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> implemented: we preferred users to send us the whole files because with those it was easier to apply patches."
-msgstr "Esta é também uma das principais razões pela qual o TortoiseSVN não tinha originalmente a <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> implementada: preferiamos que os utilizadores nos enviassem todos os ficheiros porque assim seria mais fácil aplicar os patches."
+msgstr "Esta é também uma das principais razões pela qual o TortoiseSVN não tinha originalmente a entrada <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Criar Correcção</guimenuitem></menuchoice> implementada: preferíamos que os utilizadores nos enviassem todos os ficheiros porque seria assim mais fácil a aplicação das correcções."
 
 #. (para)
 msgid "So we spent a lot of time, searching the Internet for a GUI tool which could apply patch files, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
-msgstr "Então procuramos durante muito tempo na Internet por uma ferramenta GUI que permitisse aplicar esses ficheiros patch, mas tudo o encontrámos foi a certeza de que essa ferramente não existia. Resumindo: Decidimos que se ninguem queria providenciar essa ferramenta, nós próprios a iriamos criar."
+msgstr "Então durante muito tempo, procurámos na Internet por uma ferramenta GUI que permitisse a aplicação de esses ficheiros de correcção, mas a única coisa que encontrámos foi a certeza de que essa ferramenta não existia. Então resumindo: Decidimos que se ninguém pretendia fornecer essa ferramenta, nós próprios a iríamos criar."
 
 #. (para)
 msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff."
-msgstr "Uma vez que TortoiseSVN já utiliza a biblioteca do Subversion, que tem um bom diffing engine, a escolha desta biblioteca em vez da GNU diff tornou-se óbvia."
+msgstr "Uma vez que TortoiseSVN já utiliza a biblioteca do Subversion, que tem um bom motor de comparação de diferenças, tornou-se óbvia a escolha por esta biblioteca em detrimento da GNU diff."
 
 #. (title)
 msgid "Basic Concepts"
@@ -515,7 +515,7 @@ msgstr "Se está na vista de 2 painéis, pode apenas editar o ficheiro do painé
 
 #. (para)
 msgid "Sometimes you actually want both text blocks, and the context menu also offers you <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one first)</guimenuitem></menuchoice> and <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one last)</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Por vezes queres que ambos os blocos de texto"
 
 #. (para)
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
