@@ -200,6 +200,10 @@ protected:
     CRemoteCacheLink    m_remoteCacheLink;
     IconBitmapUtils     m_iconBitmapUtils;
 
+    CString columnfolder;                                   ///< current folder of ColumnProvider
+    typedef std::pair<std::wstring, std::string> columnuserprop; ///< type of user property of ColumnProvider
+    std::vector<columnuserprop> columnuserprops;            ///< user properties of ColumnProvider
+
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:
     void            InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, const tstring& verb);

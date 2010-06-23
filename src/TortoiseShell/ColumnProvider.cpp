@@ -29,6 +29,10 @@
 
 const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
 
+// copied from ../TortoiseProc/ProjectProperties.h
+#define PROJECTPROPNAME_USERFILEPROPERTY  "tsvn:userfileproperties"
+#define PROJECTPROPNAME_USERDIRPROPERTY   "tsvn:userdirproperties"
+
 // Defines that revision numbers occupy at most MAX_REV_STRING_LEN characters.
 // There are Perforce repositories out there that have several 100,000 revs.
 // So, don't be too restrictive by limiting this to 6 digits + 1 separator,
@@ -47,8 +51,6 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
     if (psci == 0)
         return E_POINTER;
-    if (dwIndex > 9)
-        return S_FALSE;
 
     PreserveChdir preserveChdir;
     ShellCache::CacheType cachetype = g_ShellCache.GetCacheType();
@@ -129,9 +131,22 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
             MAKESTRING(IDS_COLDESCSTATUS);
             lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
             break;
+        default:
+			// SVN custom properties
+            if (dwIndex - 9 > columnuserprops.size())
+                return S_FALSE;
+            psci->scid.fmtid = FMTID_UserDefinedProperties;
+            psci->scid.pid = dwIndex - 10;
+            psci->vt = VT_BSTR;
+            psci->fmt = LVCFMT_LEFT;
+            psci->cChars = 30;
+            psci->csFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_SECONDARYUI | SHCOLSTATE_SLOW;
+            lstrcpynW(psci->wszTitle, columnuserprops.at(psci->scid.pid).first.c_str(), MAX_COLUMN_NAME_LEN);
+            lstrcpynW(psci->wszDescription, columnuserprops.at(psci->scid.pid).first.c_str(), MAX_COLUMN_DESC_LEN);
+            break;
     }
 
-    return S_OK;
+	return S_OK;
 }
 
 void CShellExt::GetColumnInfo(SHCOLUMNINFO* psci, DWORD dwIndex, UINT charactersCount, UINT titleId, UINT descriptionId)
@@ -163,7 +178,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
     }
     LoadLangDll();
     ShellCache::CacheType cachetype = g_ShellCache.GetCacheType();
-    if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 8)
+    if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid != 8)
     {
         tstring szInfo;
         const TCHAR * path = (TCHAR *)pscd->wszFile;
@@ -248,6 +263,18 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
         V_BSTR(pvarData) = SysAllocString(wsInfo.c_str());
         return S_OK;
     }
+	if(pscid->fmtid == FMTID_UserDefinedProperties && pscid->pid < columnuserprops.size())
+	{
+		// SVN custom properties
+        tstring szInfo;
+        const TCHAR * path = (TCHAR *)pscd->wszFile;
+		if (g_ShellCache.IsPathAllowed(path))
+            ExtractProperty(path, columnuserprops.at(pscid->pid).second.c_str(), szInfo);
+        const WCHAR * wsInfo = szInfo.c_str();
+        V_VT(pvarData) = VT_BSTR;
+        V_BSTR(pvarData) = SysAllocString(wsInfo);
+        return S_OK;
+	}
 
     return S_FALSE;
 }
@@ -262,13 +289,62 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
     PreserveChdir preserveChdir;
     if (g_ShellCache.IsColumnsEveryWhere())
         return S_OK;
-    std::wstring path = psci->wszFolder;
-    if (!path.empty())
+    CString path = psci->wszFolder;
+    if (!path.IsEmpty())
     {
-        if (! g_ShellCache.HasSVNAdminDir(path.c_str(), TRUE))
+        if (! g_ShellCache.HasSVNAdminDir(path, TRUE))
             return E_FAIL;
     }
     columnfilepath = _T("");
+
+    // load SVN custom properties of the folder
+    if(g_ShellCache.GetCacheType() != ShellCache::none && path != columnfolder)
+    {
+        columnfolder = path;
+        columnuserprops.clear();
+
+        if(g_ShellCache.IsPathAllowed(path))
+        {
+            // locate user directory and file properties
+            CTSVNPath svnpath;
+		    svnpath.SetFromWin(path, true);
+            std::string values;
+            while(!svnpath.IsEmpty())
+            {
+                if(!g_ShellCache.HasSVNAdminDir(svnpath.GetWinPath(), TRUE))
+                    break;  // beyond root of working copy
+                SVNProperties props(svnpath, false);
+                for (int i=0; i<props.GetCount(); ++i)
+                {
+                    std::string name = props.GetItemName(i);
+                    if (name.compare(PROJECTPROPNAME_USERFILEPROPERTY)==0 ||
+                        name.compare(PROJECTPROPNAME_USERDIRPROPERTY)==0)
+                        values.append(props.GetItemValue(i)).append("\n");
+                }
+                if(!values.empty())
+                    break;  // user properties found
+                svnpath = svnpath.GetContainingDirectory();
+            }
+
+            // parse user directory and file properties
+            typedef std::set<std::string> props_type;
+            props_type props;
+            std::string::size_type from = values.find_first_not_of("\r\n");
+            while(from != std::string::npos) {
+                std::string::size_type to = values.find_first_of("\r\n", from);
+                ASSERT(to != std::string::npos);    // holds as '\n' was appended last
+                std::string value = values.substr(from, to - from);
+                if(props.insert(value).second) {
+                    // swap sequence avoiding unnecessary copies
+                    columnuserprops.push_back(columnuserprop());
+                    UTF8ToWide(value).swap(columnuserprops.back().first);
+                    value.swap(columnuserprops.back().second);
+                }
+                from = values.find_first_not_of("\r\n", to);
+            }
+        }
+    }
+
     return S_OK;
 }
 
