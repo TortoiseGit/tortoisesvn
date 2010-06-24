@@ -108,17 +108,17 @@ bool ConflictEditorCommand::Execute()
             CTSVNPath base(directory);
             bool bConflictData = false;
 
-            if (pInfoData->treeconflict_theirfile)
+            if ((pInfoData->treeconflict_theirfile)&&(pInfoData->treeconflict_theirfile[0]))
             {
                 theirs.AppendPathString(pInfoData->treeconflict_theirfile);
                 bConflictData = true;
             }
-            if (pInfoData->treeconflict_basefile)
+            if ((pInfoData->treeconflict_basefile)&&(pInfoData->treeconflict_basefile[0]))
             {
                 base.AppendPathString(pInfoData->treeconflict_basefile);
                 bConflictData = true;
             }
-            if (pInfoData->treeconflict_myfile)
+            if ((pInfoData->treeconflict_myfile)&&(pInfoData->treeconflict_myfile[0]))
             {
                 mine.AppendPathString(pInfoData->treeconflict_myfile);
                 bConflictData = true;
