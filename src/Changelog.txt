@@ -91,6 +91,10 @@
 - BUG: Relative Webviewer urls didn't work from the 
        repository browser. (Stefan)
 
+Version 1.6.10
+- BUG: Updating single items from the check-for-modifications
+       dialog could lead to inconsistent working copies. (Stefan)
+
 Version 1.6.9
 - BUG: the menu icons on XP were not shown correctly. (Stefan)
 - BUG: the overlay icons could dissapear after upgrading from

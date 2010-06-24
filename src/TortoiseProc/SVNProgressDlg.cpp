@@ -3022,7 +3022,8 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
                             intermediatepath = wcPath;
                         else
                             intermediatepath.AppendPathString(childname);
-                        bSuccess = Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)));
+                        if (!intermediatepath.Exists())
+                            bSuccess = Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)));
                     }
 
                     if (!bSuccess)
