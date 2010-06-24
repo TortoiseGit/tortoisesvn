@@ -532,24 +532,26 @@
             </figure>
         </para>
         <para>
-            When a conflict occurs during the merge, you have three ways to
-            handle it.
+            It is likely that some of the changes will have merged smoothly,
+            while other local changes conflict with changes already committed
+            to the repository. All changes which can be merged are merged.
+            The Merge Conflict Callback dialog gives you three different
+            ways of handling the lines which are in conflict.
             <orderedlist>
                 <listitem>
                     <para>
-                        You may decide that your local changes are much more
-                        important, so you want to discard the version from the
-                        repository and keep your local version. Or you might
-                        discard your local changes in favour of the repository
-                        version. This only relates to conflicting changes. Changes
-                        that can be merged are still merged. Only for the conflicting
-                        part your choice is used.
+                        Choosing <emphasis>Prefer local</emphasis> will select
+                        your local changes in every conflict. Likewise,
+                        <emphasis>Prefer repository</emphasis> will select the
+                        repository changes in every conflict. This sounds easy,
+                        but the conflicts often cover more lines than you think
+                        they will and you may get unexpected results.
                     </para>
                 </listitem>
                 <listitem>
                     <para>
-                        Normally you will want to look at the conflicts and resolve
-                        them. In that case, choose the <guibutton>Edit Conflict</guibutton>
+                        Normally you will want to look at the conflicts and resolve them
+                        yourself. In that case, choose the <guibutton>Edit Conflict</guibutton>
                         which will start up your merge tool. When you are satisfied with
                         the result, click <guibutton>Resolved</guibutton>.
                     </para>
