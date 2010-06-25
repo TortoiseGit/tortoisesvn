@@ -1,6 +1,6 @@
 #
 # Slovenian translation for TortoiseMerge
-# Copyright (C) 2004-2009 the TortoiseSVN team
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -11,6 +11,7 @@
 # Authors:
 # Matjaz Cepon <matjaz.cepon@gmail.com>, 2007
 # Miha Nahtigal <miha.nahtigal@gmail.com>, 2009
+# Vito Smolej, <vito.smolej@gmail.com>
 #
 msgid ""
 msgstr "Project-Id-Version: TortoiseMerge Documentation\n"
@@ -135,7 +136,7 @@ msgstr "za čudovite ikone, za logotip, za iskanje in uničevanje hroščev in z
 
 #. (term)
 msgid "The Tigris Style project"
-msgstr "The Tigris Style project"
+msgstr "Stilni projekt Tigris "
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
@@ -192,7 +193,7 @@ msgstr "Spor se lahko pojavi tudi, če poskusite popravek namestiti na zastarelo
 
 #. (para)
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patch file for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TS programom TortoiseMerge vam tega ni potrebno več početi - vsaj v primeru uporabe sistema Subversion ne. TortoiseMerge razčleni datoteko popravkov za revizijo/verzijo, za katero je bil popravek ustvarjen in poskuša samodejno pridobiti določeno revizijo datoteke iz sistema za nadzor različic. Potem popravek namesti in vam omogoči pregled sprememb, ki ste jih naredili vi in avtor programa.  Lahko se odločite, katere spremembe boste obdržali."
+msgstr "S programom TortoiseMerge vam tega ni potrebno več početi - vsaj v primeru uporabe sistema Subversion ne. TortoiseMerge razčleni datoteko popravkov za revizijo/verzijo, za katero je bil popravek ustvarjen in poskuša samodejno pridobiti določeno revizijo datoteke iz sistema za nadzor različic. Potem popravek namesti in vam omogoči pregled sprememb, ki ste jih naredili vi in avtor programa. Lahko se odločite, katere spremembe boste obdržali."
 
 #. (title)
 msgid "TortoiseMerge's History"
@@ -462,7 +463,7 @@ msgstr "<guibutton>Pokaži/Skrij seznam popravkov</guibutton> Ko ima TortoiseMer
 
 #. (para)
 msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
-msgstr "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Skrči</guilabel> skrči nespremenjene dele v eno samo vrsto in pusti samo spremenjene dele in minimlani kontekst. Skrčena področja lahko razširite, če dvokliknete na skrčeno vrstico, če pa jih boste hoteli  spet skrčiti, boste morali datoteko ponovno naložiti. "
 
 #. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
@@ -474,15 +475,15 @@ msgstr "Gumb <guibutton>Pomoč</guibutton> seveda odpre pomoč za TortoiseMerge.
 
 #. (para)
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
-msgstr "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
+msgstr "<placeholder-1/> Pod vrstico menijev se nahaja orodna vrstica, ki vam omogoča hiter dostop do najbolj uporabljenih orodij <placeholder-2/>"
 
 #. (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
-msgstr "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
+msgstr "Na levi strani okna se nahaja lokacijski trak. Ta prikazuje, kje v datoteki se nahajajo spremenjene vrstice. Trak ima tri stolpce. Levi stolpec se nanaša na levo stran, desni na desno, sredinski pa na spodnji del (če obstaja). Pri enodelnem prikazu se uporablja le levi stolpec. Lokacijski trak se lahko uporablja tudi kot drsni trak za premikanje obeh oken hkrati."
 
 #. (para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
-msgstr "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
+msgstr "Pod spodnjim oknom sem nahaja vrstica stanja. Ta prikazuje število dodanih in izbrisanih vrstic v datotekah <literal>njihova</literal> in <literal>moja</literal> in število še ne rešenih sporov. Vidite lahko tudi, kateri slog zaključevanja vrstic je v uporabi, vrsto kodiranja znakov (ASCII, UTF-8, etc), ki ga TortoiseMerge predpostavlja, in če se v datotekah UTF-8 uporablja byte-order-mark (BOM). Leva stran vrstice stanja se uporablja za prikaz namigov, ko z miško za hip mirujete na kontroli."
 
 #. (title)
 msgid "Line Status Icons"
@@ -506,7 +507,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> Sprememba je bila pre
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
-msgstr "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
+msgstr "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> Vrstica vsebuje le spremembe v presledkih. Kjer je označenih več zaporednih vrstic, gre najbrž za preoblikovanje odstavka, tako da se določene besede lahko premaknejo v sosednjo vrstico."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineedited.png\"/> A line has been edited by hand, using TortoiseMerge as a text editor."
@@ -530,7 +531,7 @@ msgstr "TortoiseMerge vam ne le <emphasis>prikaže</emphasis> razlike med datote
 
 #. (para)
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
+msgstr "Če se nahajate v dvodelnem pogledu, lahko urejate le datoteko na desni strani (<literal>moja</literal>). Za namestitev sprememb, narejenih na levi strani (<literal>njihova</literal>), <action>desno kliknite</action> na spremenjene vrstrice in izberite <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz  <quote>njihovo</quote></guimenuitem></menuchoice>. S tem se spremembe z leve strani dodajo na desno datoteko."
 
 #. (para)
 msgid "Sometimes you actually want both text blocks, and the context menu also offers you <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one first)</guimenuitem></menuchoice> and <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one last)</guimenuitem></menuchoice>."
@@ -538,19 +539,19 @@ msgstr "Včasih želite uporabiti oba dela besedila, zato vam kontekstni meni po
 
 #. (para)
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr "You can also edit the output file just as you would in a text editor. Spremenjene vrstice so označene s simbolom svinčnika.  Po ročnem urejanju namreč TortoiseMerge nima več povezave z izvornimi datotekami."
+msgstr "Izhodno datoteko lahko urejate prav tako kot v urejevalniku besedil. Spremenjene vrstice so označene s simbolom svinčnika. Če želite narediti kakšno spremembo na nivoju vrstice ali bloka besedila, je najbolje, da to storite najprej. Po ročnem urejanju namreč TortoiseMerge nima več povezave z izvornimi datotekami."
 
 #. (para)
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
+msgstr "Če se nahajate v tridelnem pogledu (včasih mu rečemo tudi <emphasis>pogled za spajanje</emphasis>), lahko urejate le datoteko v spodnjem delu (<literal>spojeno</literal>). Kot v primeru dvodelnega pogleda lahko tudi tu <action>desno kliknete</action> na sporne vrstice in izberete <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz <quote>njihovega</quote></guimenuitem></menuchoice> ali <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz <quote>mojega</quote></guimenuitem></menuchoice>. Če želite uporabiti <emphasis>oba</emphasis> dela besedila, lahko izberete <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem> Uporabi del besedila iz <quote>mojega</quote> pred <quote>njihovim</quote></guimenuitem></menuchoice> ali <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem> Uporabi del besedila iz <quote>njihovega</quote> pred <quote>mojim</quote></guimenuitem></menuchoice>. Glede na izbiro ukaza se spremembe prikažejo v <literal>spojeni</literal> datoteki."
 
 #. (para)
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
+msgstr "Včasih Subversion označi kakšno datoteko kot sporno, ko pa jo pogledate s programom TortoiseMerge, ne vidite nobenega spora. Razlog je lahko v načinu prikaza presledkov in tabulatorjev. Če spremembe presledkov ali končnic vrstic prezrete, so takšne vrstice označene z ikono <emphasis>Spor prezrt</emphasis>. Za rešitev spora morate še vedno izbrati željeno verzijo vrstice."
 
 #. (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
+msgstr "Včasih je spor preveč zahteven, da bi ga lahko rešili le z izbiro <literal>njihov</literal> in <literal>moj</literal>, zato je potrebno ročno urejanje. TortoiseMerge vam omogoča, da enostavne spremembe opravite vizuelno in nato shranite datoteko, nato pa zahtevnejše spremembe popravite ročno."
 
 #. (para)
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
@@ -570,15 +571,15 @@ msgstr "Pogovorno okno Odpri"
 
 #. (para)
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
-msgstr "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
+msgstr "Najprej se morate odločiti, ali želite samo primerjati/spajati datoteke, ali pa želite uporabiti datoteko popravkov. Vnosna polja in gumbi za brskanje se aktivirajo v skladu z vašo izbiro."
 
 #. (para)
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
-msgstr "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
+msgstr "Če želite primerjati/spajati datoteke, morate nastaviti vsaj dve od treh možnih poti za <literal>osnovno</literal>, <literal>vašo</literal> and <literal>njihovo</literal> datoteko. Če izberete le dve datoteki, vam TortoiseMerge pokaže razlike med datotekama - v enodelnem ali dvodelnem pogledu."
 
 #. (para)
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
-msgstr "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
+msgstr "Če želite spojiti tri datoteke, vam TortoiseMerge pokaže razlike v tridelnem pogledu. Ta pogled se v večini primerov uporablja za reševanje sporov. Izhodna datoteka je v tem primeru brez imena, tako da boste rezultat spajanja morali sami shraniti z ukazom <menuchoice><guimenu>Datoteka</guimenu><guimenuitem>Shrani kot...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
@@ -586,7 +587,7 @@ msgstr "Če želite namestiti popravek, morate navesti pot popravka in pot mape,
 
 #. (para)
 msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
-msgstr "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
+msgstr "Trenutno so podprte le datoteke popravkov oblike <emphasis>poenotene razlike (Unified Diff Format)</emphasis>, ki jih je ustvarilo orodje Subversion. Druge oblike, kot na primer datoteka popravkov, ki jo ustvari orodje CVS, niso podprte!"
 
 #. (title)
 msgid "Settings"
@@ -614,11 +615,11 @@ msgstr "<guilabel>Prezri zaključke vrstic</guilabel> skrije spremembe, ki so po
 
 #. (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
-msgstr "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
+msgstr "<guilabel>Prezri spremembe velikih/malih črk</guilabel> skrije spremembe, ki so posledica menjave velikih in malih črk v besedilu. To je uporabno pri aplikacijah, kot je Visual Basic, ki spreminjajo velike in male črke brez opozorila."
 
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
-msgstr "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
+msgstr "<guilabel>Obarvaj spremembe v vrstici</guilabel> uporablja isti način kot trak za prikaz razlik v vrstici, tako da prikaže podrobne spremembe znotraj vrstice v glavnih oknih. Vrstice, ki so bile močno spremenjene, ne bodo prikazane s to metodo, saj bi rezultati povzročili preprosto preveč zmede. V takšnem primeru se vrstica pokaže kot zamenjana (stara izbrisana, nova dodana)."
 
 #. (title)
 msgid "Colour Settings Page"
@@ -670,7 +671,7 @@ msgstr "Barvno kodiranje sprememb v vrstici"
 
 #. (listitem)
 msgid "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
-msgstr "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
+msgstr "Vrstice, ki vsebujejo relativno majhne spremembe, so prikazane s spremembami v vrsticah. Ta barva se uporablja za del vrstice, ki ima status <placeholder-1/>. Spremenjeni deli se prikažejo z uporabo dodanih in izbrisanih barv, kot je to opisano spodaj. Če možnost <placeholder-2/> ni omogočena, barva ne bo uporabljena in spremenjene vrstice bodo vedno označene kot zamenjane."
 
 #. (term)
 msgid "Conflicted"
@@ -869,7 +870,7 @@ msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
-msgstr "Večina stikal zahteva dodatno informacijo - pot ali kak drug niz. . V takšnih primerih stikalu dodajte ':' in zahtevan niz. Primer: <screen>\n"
+msgstr "Večina stikal zahteva dodatno informacijo - pot ali kak drug niz. V takšnih primerih stikalu dodajte ':' in zahtevan niz. Primer: <screen>\n"
 "/base:\"c:\\mapa\\moja osnovna datoteka.txt\"\n"
 "</screen>"
 
@@ -907,7 +908,7 @@ msgstr "Določi <placeholder-1/> datoteko, ki se uporablja v trodelnem pogledu. 
 
 #. (entry)
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr "Ime osnovne datoteke.  Prikaže se v naslovu pogleda namesto poti datoteke.  V tridelnem pogledu se prikaže kot namig naslova pogleda."
+msgstr "Ime osnovne datoteke. Prikaže se v naslovu pogleda namesto poti datoteke.  V tridelnem pogledu se prikaže kot namig naslova pogleda."
 
 #. (emphasis)
 msgid "theirs"
@@ -919,7 +920,7 @@ msgstr "Določi <placeholder-1/> datoteko, ki se uporablja v trodelnem pogledu, 
 
 #. (entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
-msgstr "Ime njihove datoteke  Prikaže se v naslovu pogleda namesto poti datoteke."
+msgstr "Ime njihove datoteke. Prikaže se v naslovu pogleda namesto poti datoteke."
 
 #. (emphasis)
 msgid "mine"
@@ -931,7 +932,7 @@ msgstr "Določa <placeholder-1/> datoteka se uporablja v trodelnem pogledu, prik
 
 #. (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
-msgstr "Ime moje datoteke  Prikaže se v naslovu pogleda namesto poti datoteke."
+msgstr "Ime moje datoteke. Prikaže se v naslovu pogleda namesto poti datoteke."
 
 #. (emphasis)
 msgid "merged"
@@ -943,7 +944,7 @@ msgstr "Določi <placeholder-1/> datoteko, ki se uporablja v trodelnih diffih. T
 
 #. (entry)
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
-msgstr "Ime spojene datoteke.  Prikaže se v naslovu pogleda namesto poti datoteke."
+msgstr "Ime spojene datoteke. Prikaže se v naslovu pogleda namesto poti datoteke."
 
 #. (emphasis)
 msgid "very long"
@@ -1256,7 +1257,7 @@ msgstr "Lastnost revizije (revprop)"
 
 #. (para)
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr "Just as files can have properties, so can each revision in the repository. Prav tako, kot imajo lastnosti datoteke, jih imajo tudi revizije v skladišču. Nekatere posebne se dodajo samodejno, ko se revizija ustvari: <literal>svn:date svn:author svn:log</literal>, ki predstavljajo datum/čas objave, avtorja in sporočilo dnevniškega zapisa. Vrednosti teh lastnosti lahko urejate, vendar upoštevajte, da niso pod nadzorom različic, tako da so spremembe trajne in se jih ne da povrniti."
+msgstr "Prav tako, kot imajo lastnosti datoteke, jih imajo tudi revizije v skladišču. Nekatere posebne se dodajo samodejno, ko se revizija ustvari: <literal>svn:date svn:author svn:log</literal>, ki predstavljajo datum/čas objave, avtorja in sporočilo dnevniškega zapisa. Vrednosti teh lastnosti lahko urejate, vendar upoštevajte, da niso pod nadzorom različic, tako da so spremembe trajne in se jih ne da povrniti."
 
 #. (glossterm)
 msgid "SVN"
