@@ -1,60 +1,60 @@
 <?xml version="1.0"?>
 <project name="OpenSSL" default="OpenSSL">
-	<target name="clean">
-		<if test="${cleanup == 'yes'}">
-			<!-- to prevent 'nmake clean' to choke on userinput questions, give it our own del command -->
-			<echo file="..\..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
-			<exec program="nmake" workingdir="..\..\..\common\openssl" failonerror="false">
-				<arg value="-f" />
-				<arg value="ms\nt.mak" />
-				<arg value="clean" />
-			</exec>
-		</if>
-	</target>
-	<target name="OpenSSL" depends="clean">
-		<delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
-		<copy file="e_os.h" tofile="..\..\..\common\openssl\e_os.h" overwrite="true" />
-		<!-- patch the capi engine so that we can configure it whether it will load or not.
-		     TODO: once we have a release and people don't have problems with CAPI enabled
-			 or can resolve their issues by removing a duplicate certifcate from their CA store,
-			 we can remove our patching and just leave CAPI enabled permanently. -->
-		<copy file="e_capi.c" tofile="..\..\..\common\openssl\engines\e_capi.c" overwrite="true" />
+  <target name="clean">
+    <if test="${cleanup == 'yes'}">
+      <!-- to prevent 'nmake clean' to choke on userinput questions, give it our own del command -->
+      <echo file="..\..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
+      <exec program="nmake" workingdir="..\..\..\common\openssl" failonerror="false">
+        <arg value="-f" />
+        <arg value="ms\nt.mak" />
+        <arg value="clean" />
+      </exec>
+    </if>
+  </target>
+  <target name="OpenSSL" depends="clean">
+    <delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
+    <copy file="e_os.h" tofile="..\..\..\common\openssl\e_os.h" overwrite="true" />
+    <!-- patch the capi engine so that we can configure it whether it will load or not.
+         TODO: once we have a release and people don't have problems with CAPI enabled
+       or can resolve their issues by removing a duplicate certifcate from their CA store,
+       we can remove our patching and just leave CAPI enabled permanently. -->
+    <copy file="e_capi.c" tofile="..\..\..\common\openssl\engines\e_capi.c" overwrite="true" />
     <if test="${platform == 'win32'}">
-			<exec program="perl" workingdir="..\..\..\common\openssl">
-				<arg value="Configure" />
-				<arg value="VC-WIN32" />
-				<arg value="no-asm" />
-				<arg value="enable-capieng" />
-				<arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
-				<arg value="-DOPENSSL_CAPIENG_DIALOG" />
-			</exec>
-			<exec program="cmd" workingdir="..\..\..\common\openssl">
-				<arg value="/c" />
-				<arg value="ms\do_ms" />
-			</exec>
-			<exec program="nmake" workingdir="..\..\..\common\openssl">
-				<arg value="-f" />
-				<arg value="ms\nt.mak" />
-			</exec>
-		</if>
-		<if test="${platform == 'x64'}">
-			<exec program="perl" workingdir="..\..\..\common\openssl">
-				<arg value="Configure" />
-				<arg value="VC-WIN64A" />
-				<arg value="no-asm" />
-				<arg value="enable-capieng" />
-				<arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
-				<arg value="-DOPENSSL_CAPIENG_DIALOG" />
-			</exec>
-			<exec program="cmd" workingdir="..\..\..\common\openssl">
-				<arg value="/c" />
-				<arg value="ms\do_win64a" />
-			</exec>
-			<exec program="nmake" workingdir="..\..\..\common\openssl">
-				<arg value="-f" />
-				<arg value="ms\nt.mak" />
-			</exec>
-		</if>
-	</target>
+      <exec program="perl" workingdir="..\..\..\common\openssl">
+        <arg value="Configure" />
+        <arg value="VC-WIN32" />
+        <arg value="no-asm" />
+        <arg value="enable-capieng" />
+        <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
+        <arg value="-DOPENSSL_CAPIENG_DIALOG" />
+      </exec>
+      <exec program="cmd" workingdir="..\..\..\common\openssl">
+        <arg value="/c" />
+        <arg value="ms\do_ms" />
+      </exec>
+      <exec program="nmake" workingdir="..\..\..\common\openssl">
+        <arg value="-f" />
+        <arg value="ms\nt.mak" />
+      </exec>
+    </if>
+    <if test="${platform == 'x64'}">
+      <exec program="perl" workingdir="..\..\..\common\openssl">
+        <arg value="Configure" />
+        <arg value="VC-WIN64A" />
+        <arg value="no-asm" />
+        <arg value="enable-capieng" />
+        <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
+        <arg value="-DOPENSSL_CAPIENG_DIALOG" />
+      </exec>
+      <exec program="cmd" workingdir="..\..\..\common\openssl">
+        <arg value="/c" />
+        <arg value="ms\do_win64a" />
+      </exec>
+      <exec program="nmake" workingdir="..\..\..\common\openssl">
+        <arg value="-f" />
+        <arg value="ms\nt.mak" />
+      </exec>
+    </if>
+  </target>
 
 </project>

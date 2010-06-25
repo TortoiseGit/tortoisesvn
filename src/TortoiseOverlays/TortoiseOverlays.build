@@ -1,175 +1,175 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="all">
 
-	<property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe"/>
-    <property name="solutionname" value="TortoiseOverlays.sln" if="${studioversion == '2008'}"/>
-    <property name="solutionname" value="TortoiseOverlays_VS10.sln" if="${studioversion == '2010'}"/>
+  <property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe"/>
+  <property name="solutionname" value="TortoiseOverlays.sln" if="${studioversion == '2008'}"/>
+  <property name="solutionname" value="TortoiseOverlays_VS10.sln" if="${studioversion == '2010'}"/>
 
-	<target name="all">
+  <target name="all">
 
-		<exec program="${SubWCRevFileName}">
-			<arg value="." />
-			<arg value="version.build.in" />
-			<arg value="version.build" />
-		</exec>
-		<exec program="${SubWCRevFileName}">
-			<arg value="." />
-			<arg value="version.in" />
-			<arg value="version.h" />
-		</exec>
-		<nant target="setversioninfo">
-			<buildfiles>
-				<include name="version.build" />
-			</buildfiles>
-		</nant>
-
-
-		<loadfile file="version.in" property="versionheaderfile">
-			<filterchain>
-				<replacetokens begintoken="$" endtoken="$">
-					<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
-					<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
-					<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
-					<token key="WCREV" value="${environment::get-variable('WCREV')}" />
-					<token key="WCDATE" value="${environment::get-variable('WCDATE')}" />
-					<token key="DEVBUILD" value="${devrelease}" />
-				</replacetokens>
-			</filterchain>
-		</loadfile>
-		<echo file="version.h" message="${versionheaderfile}" />
-
-		<loadfile file="VersionNumberInclude.in.wxi" property="versionwixfile">
-			<filterchain>
-				<replacetokens begintoken="$" endtoken="$">
-					<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
-					<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
-					<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
-					<token key="WCREV" value="${environment::get-variable('WCREV')}" />
-				</replacetokens>
-			</filterchain>
-		</loadfile>
-		<echo file="VersionNumberInclude.wxi" message="${versionwixfile}" />
-		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
+    <exec program="${SubWCRevFileName}">
+      <arg value="." />
+      <arg value="version.build.in" />
+      <arg value="version.build" />
+    </exec>
+    <exec program="${SubWCRevFileName}">
+      <arg value="." />
+      <arg value="version.in" />
+      <arg value="version.h" />
+    </exec>
+    <nant target="setversioninfo">
+      <buildfiles>
+        <include name="version.build" />
+      </buildfiles>
+    </nant>
 
 
-		<exec program="devenv.com" >
-			<arg value="${solutionname}" />
-			<arg value="/rebuild" />
-			<arg value="release|win32" />
-		</exec>
-		<exec program="devenv.com" >
-			<arg value="${solutionname}" />
-			<arg value="/rebuild" />
-			<arg value="release|x64" />
-		</exec>
-		<setenv>
-			<variable name="Platform" value="win32" />
-		</setenv>
+    <loadfile file="version.in" property="versionheaderfile">
+      <filterchain>
+        <replacetokens begintoken="$" endtoken="$">
+          <token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+          <token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+          <token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+          <token key="WCREV" value="${environment::get-variable('WCREV')}" />
+          <token key="WCDATE" value="${environment::get-variable('WCDATE')}" />
+          <token key="DEVBUILD" value="${devrelease}" />
+        </replacetokens>
+      </filterchain>
+    </loadfile>
+    <echo file="version.h" message="${versionheaderfile}" />
 
-		<if test="${file::exists('..\..\signinfo.txt')}">
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="..\..\bin\release\bin\TortoiseOverlays.dll" />
-			</exec>
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="..\..\bin\release64\bin\TortoiseOverlays.dll" />
-			</exec>
-		</if>
-
-		<exec program="candle">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\" />
-			<arg value="TortoiseOverlaysMerge.wxs" />
-		</exec>
-		<exec program="light">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
-			<arg value="..\..\bin\TortoiseOverlaysMerge.wixobj" />
-		</exec>
-		<exec program="candle">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\" />
-			<arg value="TortoiseOverlaysMSI.wxs" />
-		</exec>
-		<exec program="light">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
-			<arg value="..\..\bin\TortoiseOverlaysMSI.wixobj" />
-		</exec>
-		<delete>
-			<fileset>
-				<include name="..\..\bin\*.wixobj" />
-				<include name="..\..\bin\*.wixpdb" />
-			</fileset>
-		</delete>
-		<if test="${file::exists('..\..\signinfo.txt')}">
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
-			</exec>
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
-			</exec>
-		</if>
-
-		<setenv>
-			<variable name="Platform" value="x64" />
-		</setenv>
-		<property name="platform" value="x64" />
-		<property name="bindirextension" value="64" />
-		<exec program="candle">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\" />
-			<arg value="TortoiseOverlaysMerge.wxs" />
-		</exec>
-		<exec program="light">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
-			<arg value="..\..\bin\TortoiseOverlaysMerge.wixobj" />
-		</exec>
-		<exec program="candle">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\" />
-			<arg value="TortoiseOverlaysMSI.wxs" />
-		</exec>
-		<exec program="light">
-			<arg value="-nologo" />
-			<arg value="-out" />
-			<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
-			<arg value="..\..\bin\TortoiseOverlaysMSI.wixobj" />
-		</exec>
-		<delete>
-			<fileset>
-				<include name="..\..\bin\*.wixobj" />
-				<include name="..\..\bin\*.wixpdb" />
-			</fileset>
-		</delete>
-		<if test="${file::exists('..\..\signinfo.txt')}">
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
-			</exec>
-			<exec program="signtool">
-				<arg value="sign" />
-				<arg value="${signinfo}" />
-				<arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
-			</exec>
-		</if>
+    <loadfile file="VersionNumberInclude.in.wxi" property="versionwixfile">
+      <filterchain>
+        <replacetokens begintoken="$" endtoken="$">
+          <token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+          <token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+          <token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+          <token key="WCREV" value="${environment::get-variable('WCREV')}" />
+        </replacetokens>
+      </filterchain>
+    </loadfile>
+    <echo file="VersionNumberInclude.wxi" message="${versionwixfile}" />
+    <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
 
 
-	</target>
+    <exec program="devenv.com" >
+      <arg value="${solutionname}" />
+      <arg value="/rebuild" />
+      <arg value="release|win32" />
+    </exec>
+    <exec program="devenv.com" >
+      <arg value="${solutionname}" />
+      <arg value="/rebuild" />
+      <arg value="release|x64" />
+    </exec>
+    <setenv>
+      <variable name="Platform" value="win32" />
+    </setenv>
+
+    <if test="${file::exists('..\..\signinfo.txt')}">
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="..\..\bin\release\bin\TortoiseOverlays.dll" />
+      </exec>
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="..\..\bin\release64\bin\TortoiseOverlays.dll" />
+      </exec>
+    </if>
+
+    <exec program="candle">
+      <arg value="-nologo" />
+      <arg value="-out" />
+      <arg value="..\..\bin\" />
+      <arg value="TortoiseOverlaysMerge.wxs" />
+    </exec>
+    <exec program="light">
+      <arg value="-nologo" />
+      <arg value="-out" />
+      <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
+      <arg value="..\..\bin\TortoiseOverlaysMerge.wixobj" />
+    </exec>
+    <exec program="candle">
+      <arg value="-nologo" />
+      <arg value="-out" />
+      <arg value="..\..\bin\" />
+      <arg value="TortoiseOverlaysMSI.wxs" />
+    </exec>
+    <exec program="light">
+      <arg value="-nologo" />
+      <arg value="-out" />
+      <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
+      <arg value="..\..\bin\TortoiseOverlaysMSI.wixobj" />
+    </exec>
+    <delete>
+      <fileset>
+        <include name="..\..\bin\*.wixobj" />
+        <include name="..\..\bin\*.wixpdb" />
+      </fileset>
+    </delete>
+    <if test="${file::exists('..\..\signinfo.txt')}">
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
+      </exec>
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
+      </exec>
+    </if>
+
+    <setenv>
+      <variable name="Platform" value="x64" />
+    </setenv>
+    <property name="platform" value="x64" />
+    <property name="bindirextension" value="64" />
+    <exec program="candle">
+      <arg value="-nologo" />
+      <arg value="-out" />
+      <arg value="..\..\bin\" />
+      <arg value="TortoiseOverlaysMerge.wxs" />
+    </exec>
+    <exec program="light">
+      <arg value="-nologo" />
+      <arg value="-out" />
+      <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
+      <arg value="..\..\bin\TortoiseOverlaysMerge.wixobj" />
+    </exec>
+    <exec program="candle">
+      <arg value="-nologo" />
+      <arg value="-out" />
+      <arg value="..\..\bin\" />
+      <arg value="TortoiseOverlaysMSI.wxs" />
+    </exec>
+    <exec program="light">
+      <arg value="-nologo" />
+      <arg value="-out" />
+      <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
+      <arg value="..\..\bin\TortoiseOverlaysMSI.wixobj" />
+    </exec>
+    <delete>
+      <fileset>
+        <include name="..\..\bin\*.wixobj" />
+        <include name="..\..\bin\*.wixpdb" />
+      </fileset>
+    </delete>
+    <if test="${file::exists('..\..\signinfo.txt')}">
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msi" />
+      </exec>
+      <exec program="signtool">
+        <arg value="sign" />
+        <arg value="${signinfo}" />
+        <arg value="..\..\bin\TortoiseOverlays-${verstring}-${platform}.msm" />
+      </exec>
+    </if>
+
+
+  </target>
 </project>

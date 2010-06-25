@@ -1,36 +1,36 @@
 <?xml version="1.0"?>
 <project name="SubversionLib" default="build">
 
-	<!-- ====================================================================== -->
-	<!-- Project targets														-->
-	<!-- ====================================================================== -->
-	<target name="clean">
-		<description>
-			Cleans every subproject.
-		</description>
-		<if test="${cleanup == 'yes'}">
-			<nant target="clean">
-				<buildfiles>
-					<include name="*.build" />
-					<exclude name="default.build" />
-				</buildfiles>
-			</nant>
-		</if>
-	</target>
+  <!-- ====================================================================== -->
+  <!-- Project targets														-->
+  <!-- ====================================================================== -->
+  <target name="clean">
+    <description>
+      Cleans every subproject.
+    </description>
+    <if test="${cleanup == 'yes'}">
+      <nant target="clean">
+        <buildfiles>
+          <include name="*.build" />
+          <exclude name="default.build" />
+        </buildfiles>
+      </nant>
+    </if>
+  </target>
 
-	<target name="build" depends="clean">
-		<nant target="build" buildfile="apr.build" />
-		<nant target="build" buildfile="aprutil.build" />
+  <target name="build" depends="clean">
+    <nant target="build" buildfile="apr.build" />
+    <nant target="build" buildfile="aprutil.build" />
 
-		<copy file="inffas32.asm" tofile="..\..\..\common\zlib\contrib\masmx86\inffas32.asm" overwrite="true" />
-		<copy file="inffas32.asm" tofile="..\..\..\common\zlib\inffas32.asm" overwrite="true" />
-		<nant target="build" buildfile="zlib.build" />
-		<nant target="build" buildfile="sqlite.build" />
-		<nant target="build" buildfile="sasl.build" />
-		<nant target="build" buildfile="neon.build" />
-		<nant target="build" buildfile="serf.build" />
-		<nant target="build" buildfile="libintl.build" />
-		<nant target="build" buildfile="subversion.build" />
-	</target>
+    <copy file="inffas32.asm" tofile="..\..\..\common\zlib\contrib\masmx86\inffas32.asm" overwrite="true" />
+    <copy file="inffas32.asm" tofile="..\..\..\common\zlib\inffas32.asm" overwrite="true" />
+    <nant target="build" buildfile="zlib.build" />
+    <nant target="build" buildfile="sqlite.build" />
+    <nant target="build" buildfile="sasl.build" />
+    <nant target="build" buildfile="neon.build" />
+    <nant target="build" buildfile="serf.build" />
+    <nant target="build" buildfile="libintl.build" />
+    <nant target="build" buildfile="subversion.build" />
+  </target>
 
 </project>

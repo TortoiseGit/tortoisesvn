@@ -1,62 +1,62 @@
 <?xml version="1.0"?>
 <project name="VersionInfo" default="versioninfo">
 
-    <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2008'}"/>
-    <property name="solutionname" value="TortoiseSVN_VS10.sln" if="${studioversion == '2010'}"/>
+  <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2008'}"/>
+  <property name="solutionname" value="TortoiseSVN_VS10.sln" if="${studioversion == '2010'}"/>
 
-	<target name="versioninfo">
-		<!-- You can specify path to SubWCRev.exe in SubWCRevFileName property to avoid
-		     setting a bunch of build properties and/or building SubWCRev.exe from scratch.
-		     This feature is intended mainly for translators and doc maintainers who doesn't
-		     want to setup full build environment to get version information only -->
+  <target name="versioninfo">
+    <!-- You can specify path to SubWCRev.exe in SubWCRevFileName property to avoid
+         setting a bunch of build properties and/or building SubWCRev.exe from scratch.
+         This feature is intended mainly for translators and doc maintainers who doesn't
+         want to setup full build environment to get version information only -->
 
-		<if test="${not property::exists('SubWCRevFileName')}">
-			<!-- When cross-compiling, we need to use the current platform's (win32)
-			     native build -->
-			<property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe"/>
-			<property name="SubWCRevFileName" value="bin\${configuration}\bin\SubWCRev.exe" if="${crosscompile == 'yes'}"/>
+    <if test="${not property::exists('SubWCRevFileName')}">
+      <!-- When cross-compiling, we need to use the current platform's (win32)
+           native build -->
+      <property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe"/>
+      <property name="SubWCRevFileName" value="bin\${configuration}\bin\SubWCRev.exe" if="${crosscompile == 'yes'}"/>
 
-			<if test="${not file::exists(SubWCRevFileName)}">
-				<copy
-					file="src\version.none"
-					tofile="src\version.h"
-					overwrite="true"
-				/>
-				<exec program="devenv.com" workingdir="src" failonerror="false">
-					<arg value="${solutionname}" />
-					<arg value="/rebuild" />
-					<arg value="${configuration}|${platform}" />
-					<arg value="/project" />
-					<arg value="SubWCRev" />
-				</exec>
-			</if>
-		</if>
-		<!-- Debug only builds might not have all the libs required to build
-		     SubWCRev! So only use it if it exists and replace the WCREV with
-		     0 if it doesn't -->
-		<if test="${file::exists(SubWCRevFileName)}">
-			<exec program="${SubWCRevFileName}">
-				<arg value="." />
-				<arg value="version.build.in" />
-				<arg value="version.build" />
-			</exec>
-		</if>
-		<if test="${not file::exists(SubWCRevFileName)}">
-			<copy file="version.build.in" tofile="version.build">
-				<filterchain>
-					<replacetokens begintoken="$" endtoken="$">
-						<token key="WCREV" value="0" />
-					</replacetokens>
-				</filterchain>
-			</copy>
-			<echo message="Warning: SubWCRev does not exist! Using 0 as the WC-revision" />
-		</if>
+      <if test="${not file::exists(SubWCRevFileName)}">
+        <copy
+          file="src\version.none"
+          tofile="src\version.h"
+          overwrite="true"
+        />
+        <exec program="devenv.com" workingdir="src" failonerror="false">
+          <arg value="${solutionname}" />
+          <arg value="/rebuild" />
+          <arg value="${configuration}|${platform}" />
+          <arg value="/project" />
+          <arg value="SubWCRev" />
+        </exec>
+      </if>
+    </if>
+    <!-- Debug only builds might not have all the libs required to build
+         SubWCRev! So only use it if it exists and replace the WCREV with
+         0 if it doesn't -->
+    <if test="${file::exists(SubWCRevFileName)}">
+      <exec program="${SubWCRevFileName}">
+        <arg value="." />
+        <arg value="version.build.in" />
+        <arg value="version.build" />
+      </exec>
+    </if>
+    <if test="${not file::exists(SubWCRevFileName)}">
+      <copy file="version.build.in" tofile="version.build">
+        <filterchain>
+          <replacetokens begintoken="$" endtoken="$">
+            <token key="WCREV" value="0" />
+          </replacetokens>
+        </filterchain>
+      </copy>
+      <echo message="Warning: SubWCRev does not exist! Using 0 as the WC-revision" />
+    </if>
 
-		<nant target="setversioninfo">
-			<buildfiles>
-				<include name="version.build" />
-			</buildfiles>
-		</nant>
-	</target>
+    <nant target="setversioninfo">
+      <buildfiles>
+        <include name="version.build" />
+      </buildfiles>
+    </nant>
+  </target>
 
 </project>

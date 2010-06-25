@@ -1,138 +1,138 @@
 <?xml version="1.0"?>
 <project name="apr" default="build" basedir="..\apr">
 
-	<!-- ====================================================================== -->
-	<!-- Project targets														-->
-	<!-- ====================================================================== -->
-	<target name="rebuild" depends="clean,build" />
+  <!-- ====================================================================== -->
+  <!-- Project targets														-->
+  <!-- ====================================================================== -->
+  <target name="rebuild" depends="clean,build" />
 
-	<target name="clean">
-		<description>
-			Cleans previous built files.
-		</description>
+  <target name="clean">
+    <description>
+      Cleans previous built files.
+    </description>
 
-		<if test="${cleanup == 'yes'}">
-			<delete>
-				<fileset>
-					<include name="${configuration}${static}_${platform}\**" />
-				</fileset>
-			</delete>
-		</if>
-	</target>
+    <if test="${cleanup == 'yes'}">
+      <delete>
+        <fileset>
+          <include name="${configuration}${static}_${platform}\**" />
+        </fileset>
+      </delete>
+    </if>
+  </target>
 
-	<target name="build" depends="clean">
-		<mkdir dir="${configuration}${static}_${platform}" />
-		<loadfile file="include\apr.hw" property="configfile">
-			<filterchain>
-				<replacestring from="#define APR_HAVE_IPV6           0" to="#define APR_HAVE_IPV6           1" if="${ipv6 == 'enabled'}" />
-			</filterchain>
-		</loadfile>
-		<echo file="include\apr.h" message="${configfile}" />
+  <target name="build" depends="clean">
+    <mkdir dir="${configuration}${static}_${platform}" />
+    <loadfile file="include\apr.hw" property="configfile">
+      <filterchain>
+        <replacestring from="#define APR_HAVE_IPV6           0" to="#define APR_HAVE_IPV6           1" if="${ipv6 == 'enabled'}" />
+      </filterchain>
+    </loadfile>
+    <echo file="include\apr.h" message="${configfile}" />
 
-		<copy file="include\arch\unix\apr_arch_poll_private.h" tofile="include\arch\win32\apr_arch_poll_private.h" overwrite="true" />
-		<rc rcfile="libapr.rc" output="${configuration}${static}_${platform}\libapr_tsvn.res">
-			<includedirs>
-				<include name="include" />
-			</includedirs>
-		</rc>
+    <copy file="include\arch\unix\apr_arch_poll_private.h" tofile="include\arch\win32\apr_arch_poll_private.h" overwrite="true" />
+    <rc rcfile="libapr.rc" output="${configuration}${static}_${platform}\libapr_tsvn.res">
+      <includedirs>
+        <include name="include" />
+      </includedirs>
+    </rc>
 
-		<cl outputdir="${configuration}${static}_${platform}">
-			<arg value="/Ox" if="${configuration == 'release'}" />
-			<arg value="/Od" if="${configuration != 'release'}" />
-			<arg value="/GF" if="${configuration == 'release'}" />
-			<arg value="/Gs-" if="${configuration == 'release'}" />
-			<arg value="/GS-" if="${configuration == 'release'}" />
-			<arg value="/FD" />
-			<arg value="/EHa-" />
-			<arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
-			<arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
-			<arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
-			<arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
-			<arg value="/Gy" />
-			<arg value="/W3" />
-			<arg value="/nologo" />
-			<arg value="/c" />
-			<arg value="/Zi" />
-			<arg value="/errorReport:prompt" />
-			<sources>
-				<include name="network_io\win32\*.c" />
-				<include name="network_io\unix\inet_ntop.c" />
-				<include name="network_io\unix\inet_pton.c" />
-				<include name="network_io\unix\multicast.c" if="${ipv6 == 'enabled'}" />
-				<include name="network_io\unix\sockaddr.c" />
-				<include name="atomic\win32\apr_atomic.c" />
-				<include name="dso\win32\dso.c" />
-				<include name="file_io\win32\*.c" />
-				<include name="file_io\unix\copy.c" />
-				<include name="file_io\unix\fileacc.c" />
-				<include name="file_io\unix\filepath_util.c" />
-				<include name="file_io\unix\fullrw.c" />
-				<include name="file_io\unix\mktemp.c" />
-				<include name="file_io\unix\tempdir.c" />
-				<include name="locks\win32\*.c" />
-				<include name="memory\unix\*.c" />
-				<include name="misc\unix\errorcodes.c" />
-				<include name="misc\unix\getopt.c" />
-				<include name="misc\unix\otherchild.c" />
-				<include name="misc\unix\version.c" />
-				<include name="misc\win32\*.c" />
-				<exclude name="misc\win32\apr_app.c" />
-				<include name="mmap\win32\*.c" />
-				<include name="mmap\unix\common.c" />
-				<include name="passwd\*.c" />
-				<include name="poll\unix\select.c" />
-				<include name="shmem\win32\*.c" />
-				<include name="strings\*.c" />
-				<include name="tables\*.c" />
-				<include name="threadproc\win32\*.c" />
-				<include name="time\win32\*.c" />
-				<include name="user\win32\*.c" />
-			</sources>
-			<includedirs>
-				<include name="include" />
-				<include name="include\arch" />
-				<include name="include\arch\win32" />
-			</includedirs>
-			<defines>
-				<define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
-				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
-				<define name="WIN32" />
-				<define name="_WINDOWS" />
-				<define name="_WIN32" />
-				<define name="_WIN32_WINNT" value="0x0501"/>
-				<define name="WIN64" if="${platform == 'x64'}" />
-				<define name="_WINDLL" if="${static != 'static'}" />
-				<define name="NDEBUG" if="${configuration == 'release'}"/>
-				<define name="_DEBUG" if="${configuration != 'release'}"/>
-			</defines>
-		</cl>
-		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
-		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-		<if test="${static == 'static'}">
-			<lib
+    <cl outputdir="${configuration}${static}_${platform}">
+      <arg value="/Ox" if="${configuration == 'release'}" />
+      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
+      <arg value="/Gs-" if="${configuration == 'release'}" />
+      <arg value="/GS-" if="${configuration == 'release'}" />
+      <arg value="/FD" />
+      <arg value="/EHa-" />
+      <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+      <arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+      <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+      <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
+      <arg value="/Gy" />
+      <arg value="/W3" />
+      <arg value="/nologo" />
+      <arg value="/c" />
+      <arg value="/Zi" />
+      <arg value="/errorReport:prompt" />
+      <sources>
+        <include name="network_io\win32\*.c" />
+        <include name="network_io\unix\inet_ntop.c" />
+        <include name="network_io\unix\inet_pton.c" />
+        <include name="network_io\unix\multicast.c" if="${ipv6 == 'enabled'}" />
+        <include name="network_io\unix\sockaddr.c" />
+        <include name="atomic\win32\apr_atomic.c" />
+        <include name="dso\win32\dso.c" />
+        <include name="file_io\win32\*.c" />
+        <include name="file_io\unix\copy.c" />
+        <include name="file_io\unix\fileacc.c" />
+        <include name="file_io\unix\filepath_util.c" />
+        <include name="file_io\unix\fullrw.c" />
+        <include name="file_io\unix\mktemp.c" />
+        <include name="file_io\unix\tempdir.c" />
+        <include name="locks\win32\*.c" />
+        <include name="memory\unix\*.c" />
+        <include name="misc\unix\errorcodes.c" />
+        <include name="misc\unix\getopt.c" />
+        <include name="misc\unix\otherchild.c" />
+        <include name="misc\unix\version.c" />
+        <include name="misc\win32\*.c" />
+        <exclude name="misc\win32\apr_app.c" />
+        <include name="mmap\win32\*.c" />
+        <include name="mmap\unix\common.c" />
+        <include name="passwd\*.c" />
+        <include name="poll\unix\select.c" />
+        <include name="shmem\win32\*.c" />
+        <include name="strings\*.c" />
+        <include name="tables\*.c" />
+        <include name="threadproc\win32\*.c" />
+        <include name="time\win32\*.c" />
+        <include name="user\win32\*.c" />
+      </sources>
+      <includedirs>
+        <include name="include" />
+        <include name="include\arch" />
+        <include name="include\arch\win32" />
+      </includedirs>
+      <defines>
+        <define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
+        <define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
+        <define name="WIN32" />
+        <define name="_WINDOWS" />
+        <define name="_WIN32" />
+        <define name="_WIN32_WINNT" value="0x0501"/>
+        <define name="WIN64" if="${platform == 'x64'}" />
+        <define name="_WINDLL" if="${static != 'static'}" />
+        <define name="NDEBUG" if="${configuration == 'release'}"/>
+        <define name="_DEBUG" if="${configuration != 'release'}"/>
+      </defines>
+    </cl>
+    <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
+    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <if test="${static == 'static'}">
+      <lib
                 output="${configuration}${static}_${platform}\libapr_tsvn.lib"
                 options='/NOLOGO /DEBUG /PDB:".\${configuration}${static}_${platform}/libapr.pdb" /SUBSYSTEM:WINDOWS"'>
-				<sources>
-					<include name="${configuration}${static}_${platform}\*.obj" />
-				</sources>
-			</lib>
-		</if>
-		<if test="${static != 'static'}">
-			<link
+        <sources>
+          <include name="${configuration}${static}_${platform}\*.obj" />
+        </sources>
+      </lib>
+    </if>
+    <if test="${static != 'static'}">
+      <link
                 output="${configuration}${static}_${platform}\libapr_tsvn.dll"
                 options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libapr_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}${static}_${platform}/libapr_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
-				<sources>
-					<include name="${configuration}${static}_${platform}\*.obj" />
-				</sources>
-			</link>
-			<exec program="mt.exe">
-				<arg value="-nologo" />
-				<arg value="-manifest" />
-				<arg value=".\${configuration}${static}_${platform}\libapr_tsvn.dll.intermediate.manifest" />
-				<arg value='/outputresource:".\${configuration}${static}_${platform}\libapr_tsvn.dll;#2"' />
-			</exec>
-		</if>
-		<delete file="include\arch\win32\apr_arch_poll_private.h" failonerror="false" />
-	</target>
+        <sources>
+          <include name="${configuration}${static}_${platform}\*.obj" />
+        </sources>
+      </link>
+      <exec program="mt.exe">
+        <arg value="-nologo" />
+        <arg value="-manifest" />
+        <arg value=".\${configuration}${static}_${platform}\libapr_tsvn.dll.intermediate.manifest" />
+        <arg value='/outputresource:".\${configuration}${static}_${platform}\libapr_tsvn.dll;#2"' />
+      </exec>
+    </if>
+    <delete file="include\arch\win32\apr_arch_poll_private.h" failonerror="false" />
+  </target>
 
 </project>

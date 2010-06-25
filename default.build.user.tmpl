@@ -15,72 +15,72 @@
 
 <project name="ToolPaths" default="env">
 
-	<!-- ====================================================================== -->
-	<!-- These two targets have to exist in doc.build.user                      -->
-	<!-- ====================================================================== -->
+  <!-- ====================================================================== -->
+  <!-- These two targets have to exist in doc.build.user                      -->
+  <!-- ====================================================================== -->
 
-	<target name="VSNET" description="Checks if the env variables for VS.NET2008 are set">
-		<if test="${not environment::variable-exists('VCINSTALLDIR')}">
-			<fail>You must first call "%VS90COMNTOOLS%\vsvars32.bat"</fail>
-		</if>
-		<!-- Uncomment the line below to allow limited building using VC Express instead of VS.NET. -->
-		<!-- <property name="buildtool" value="vcexpress.exe" /> -->
-	</target>
+  <target name="VSNET" description="Checks if the env variables for VS.NET2008 are set">
+    <if test="${not environment::variable-exists('VCINSTALLDIR')}">
+      <fail>You must first call "%VS90COMNTOOLS%\vsvars32.bat"</fail>
+    </if>
+    <!-- Uncomment the line below to allow limited building using VC Express instead of VS.NET. -->
+    <!-- <property name="buildtool" value="vcexpress.exe" /> -->
+  </target>
 
-	<target name="env">
-		<!-- 
-			WiX3 installer already sets an environment variable to 
-			its target folder. We need to move it to the \bin folder 
-			conditionally as "manual" installations	might not have 
-			that sub-folder.
-		-->
+  <target name="env">
+    <!-- 
+      WiX3 installer already sets an environment variable to 
+      its target folder. We need to move it to the \bin folder 
+      conditionally as "manual" installations	might not have 
+      that sub-folder.
+    -->
 
-		<if test="${not environment::variable-exists('WIX')}">
-			<setenv>
-				<!-- 
-					TODO: change path value, if WIX is not defined
-				-->
-				<variable name="WIX" value="C:\WiX" />
-			</setenv>
-		</if>
-		<if test="${file::exists(environment::get-variable('WIX') + '\bin\candle.exe')}">
-			<setenv>
-				<variable name="WIX" value="%WIX%\bin" />
-			</setenv>
-		</if>
+    <if test="${not environment::variable-exists('WIX')}">
+      <setenv>
+        <!-- 
+          TODO: change path value, if WIX is not defined
+        -->
+        <variable name="WIX" value="C:\WiX" />
+      </setenv>
+    </if>
+    <if test="${file::exists(environment::get-variable('WIX') + '\bin\candle.exe')}">
+      <setenv>
+        <variable name="WIX" value="%WIX%\bin" />
+      </setenv>
+    </if>
 
-		<!-- 
-			Tools should be in ".\Tools" but you may set the TSVNTOOLS
-			environment variable instead. If both isn't the case,
-			modify the hard-coded path accordingly.
-		-->
+    <!-- 
+      Tools should be in ".\Tools" but you may set the TSVNTOOLS
+      environment variable instead. If both isn't the case,
+      modify the hard-coded path accordingly.
+    -->
 
-		<if test="${not environment::variable-exists('TSVNTOOLS')}">
-			<setenv>
-				<variable name="TSVNTOOLS" value="${project::get-base-directory() + '\Tools'}" />
-			</setenv>
-		</if>
-		<if test="${not file::exists(environment::get-variable('TSVNTOOLS') + '\hhc.exe')}">
-			<setenv>
-				<!-- 
-					TODO: change path value, if neither TSVNTOOLS is defined
-					nor have tools be copied directly below the TSVN root.
-				-->
-				<variable name="TSVNTOOLS" value="C:\Tools" />
-			</setenv>
-		</if>
+    <if test="${not environment::variable-exists('TSVNTOOLS')}">
+      <setenv>
+        <variable name="TSVNTOOLS" value="${project::get-base-directory() + '\Tools'}" />
+      </setenv>
+    </if>
+    <if test="${not file::exists(environment::get-variable('TSVNTOOLS') + '\hhc.exe')}">
+      <setenv>
+        <!-- 
+          TODO: change path value, if neither TSVNTOOLS is defined
+          nor have tools be copied directly below the TSVN root.
+        -->
+        <variable name="TSVNTOOLS" value="C:\Tools" />
+      </setenv>
+    </if>
 
-		<!-- 
-			Update environment & we are good to go.
-		-->
+    <!-- 
+      Update environment & we are good to go.
+    -->
 
-		<setenv>
-			<variable name="PATH" value="%TSVNTOOLS%\;%PATH%" />
-			<variable name="PATH" value="%TSVNTOOLS%\fop;%PATH%" />
-			<variable name="PATH" value="%WIX%;%PATH%" />
-			<variable name="WIXUI" value="%WIX%" />
-			<variable name="HHLOC" value="%TSVNTOOLS%\hhc.exe" />
-			<variable name="XSLROOT" value="%TSVNTOOLS%\xsl" />
-		</setenv>
-	</target>
+    <setenv>
+      <variable name="PATH" value="%TSVNTOOLS%\;%PATH%" />
+      <variable name="PATH" value="%TSVNTOOLS%\fop;%PATH%" />
+      <variable name="PATH" value="%WIX%;%PATH%" />
+      <variable name="WIXUI" value="%WIX%" />
+      <variable name="HHLOC" value="%TSVNTOOLS%\hhc.exe" />
+      <variable name="XSLROOT" value="%TSVNTOOLS%\xsl" />
+    </setenv>
+  </target>
 </project>

@@ -1,77 +1,77 @@
 <?xml version="1.0"?>
 
 <project name="ExampleSubWCRevTask" default="run" basepath=".">
-	<description>
-		This is an example NAnt task to show how to use the SubWCRev COM-object
-		in a build script.
-		The information from SubWCRev is stored in NAnt properties.
-	</description>
+  <description>
+    This is an example NAnt task to show how to use the SubWCRev COM-object
+    in a build script.
+    The information from SubWCRev is stored in NAnt properties.
+  </description>
 
-	<target name="SubWCRev">
-		<script language="C#" mainclass="SubWCRev">
-			<imports>
-				<import namespace="System.Xml" />
-				<import namespace="System" />
-				<import namespace="System.Reflection" />
-				<import namespace="NAnt.Core.Attributes" />
-				<import namespace="NAnt.Core.Util" />
-				<import namespace="NAnt.Core.Tasks" />
-			</imports>
-			<code>
-				<![CDATA[
-					class SubWCRev
-					{
-						public static void ScriptMain(Project project) 
-						{
+  <target name="SubWCRev">
+    <script language="C#" mainclass="SubWCRev">
+      <imports>
+        <import namespace="System.Xml" />
+        <import namespace="System" />
+        <import namespace="System.Reflection" />
+        <import namespace="NAnt.Core.Attributes" />
+        <import namespace="NAnt.Core.Util" />
+        <import namespace="NAnt.Core.Tasks" />
+      </imports>
+      <code>
+        <![CDATA[
+          class SubWCRev
+          {
+            public static void ScriptMain(Project project) 
+            {
                             Console.WriteLine(project.Properties["SubWCRevPath"]);
-							object objSubWCRev;
-							Type typeSubWCRev;
-							object[] arrayInputParams = { project.Properties["SubWCRevPath"], 1, 1 };
-							typeSubWCRev = Type.GetTypeFromProgID("SubWCRev.object");
-							objSubWCRev = Activator.CreateInstance(typeSubWCRev);
-							typeSubWCRev.InvokeMember("GetWCInfo", BindingFlags.Default | BindingFlags.InvokeMethod, null, objSubWCRev, arrayInputParams);
-							
+              object objSubWCRev;
+              Type typeSubWCRev;
+              object[] arrayInputParams = { project.Properties["SubWCRevPath"], 1, 1 };
+              typeSubWCRev = Type.GetTypeFromProgID("SubWCRev.object");
+              objSubWCRev = Activator.CreateInstance(typeSubWCRev);
+              typeSubWCRev.InvokeMember("GetWCInfo", BindingFlags.Default | BindingFlags.InvokeMethod, null, objSubWCRev, arrayInputParams);
+              
 
-							project.Properties["SubWCRev_Revision"] = typeSubWCRev.InvokeMember("Revision", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_MinRev"] = typeSubWCRev.InvokeMember("MinRev", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_MaxRev"] = typeSubWCRev.InvokeMember("MaxRev", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_Revision"] = typeSubWCRev.InvokeMember("Revision", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_MinRev"] = typeSubWCRev.InvokeMember("MinRev", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_MaxRev"] = typeSubWCRev.InvokeMember("MaxRev", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
 
-							project.Properties["SubWCRev_Date"] = typeSubWCRev.InvokeMember("Date", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_Url"] = typeSubWCRev.InvokeMember("Url", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_Author"] = typeSubWCRev.InvokeMember("Author", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_HasModifications"] = typeSubWCRev.InvokeMember("HasModifications", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_IsSvnItem"] = typeSubWCRev.InvokeMember("IsSvnItem", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_NeedsLocking"] = typeSubWCRev.InvokeMember("NeedsLocking", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_IsLocked"] = typeSubWCRev.InvokeMember("IsLocked", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_LockCreationDate"] = typeSubWCRev.InvokeMember("LockCreationDate", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_LockOwner"] = typeSubWCRev.InvokeMember("LockOwner", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-							project.Properties["SubWCRev_LockComment"] = typeSubWCRev.InvokeMember("LockComment", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();							
-						}
-					}
-				]]>
-			</code>
-		</script>
-	</target>
+              project.Properties["SubWCRev_Date"] = typeSubWCRev.InvokeMember("Date", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_Url"] = typeSubWCRev.InvokeMember("Url", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_Author"] = typeSubWCRev.InvokeMember("Author", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_HasModifications"] = typeSubWCRev.InvokeMember("HasModifications", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_IsSvnItem"] = typeSubWCRev.InvokeMember("IsSvnItem", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_NeedsLocking"] = typeSubWCRev.InvokeMember("NeedsLocking", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_IsLocked"] = typeSubWCRev.InvokeMember("IsLocked", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_LockCreationDate"] = typeSubWCRev.InvokeMember("LockCreationDate", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_LockOwner"] = typeSubWCRev.InvokeMember("LockOwner", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
+              project.Properties["SubWCRev_LockComment"] = typeSubWCRev.InvokeMember("LockComment", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();							
+            }
+          }
+        ]]>
+      </code>
+    </script>
+  </target>
 
-	<target name="run">
-		<!-- set the path for the SubWCRev script to use -->
-		<property name="SubWCRevPath" value="D:\\Development\\SVN\\TortoiseSVN" />
-		<!-- call the SubWCRev task -->
-		<call target="SubWCRev"/>
-		<!-- now print all the information we got from SubWCRev -->
-		<echo message="Revision is ${SubWCRev_Revision}" />
-		<echo message="MinRev is ${SubWCRev_MinRev}" />
-		<echo message="MaxRev is ${SubWCRev_MaxRev}" />
-		<echo message="Date is ${SubWCRev_Date}" />
-		<echo message="Url is ${SubWCRev_Url}" />
-		<echo message="Author is ${SubWCRev_Author}" />
-		<echo message="HasModification is ${SubWCRev_IsSvnItem}" />
-		<echo message="NeedsLocking is ${SubWCRev_NeedsLocking}" />
-		<echo message="IsLocked is ${SubWCRev_IsLocked}" />
-		<echo message="LockCreationDate is ${SubWCRev_LockCreationDate}" />
-		<echo message="LockOwner is ${SubWCRev_LockOwner}" />
-		<echo message="LockComment is ${SubWCRev_LockComment}" />
-	</target>
+  <target name="run">
+    <!-- set the path for the SubWCRev script to use -->
+    <property name="SubWCRevPath" value="D:\\Development\\SVN\\TortoiseSVN" />
+    <!-- call the SubWCRev task -->
+    <call target="SubWCRev"/>
+    <!-- now print all the information we got from SubWCRev -->
+    <echo message="Revision is ${SubWCRev_Revision}" />
+    <echo message="MinRev is ${SubWCRev_MinRev}" />
+    <echo message="MaxRev is ${SubWCRev_MaxRev}" />
+    <echo message="Date is ${SubWCRev_Date}" />
+    <echo message="Url is ${SubWCRev_Url}" />
+    <echo message="Author is ${SubWCRev_Author}" />
+    <echo message="HasModification is ${SubWCRev_IsSvnItem}" />
+    <echo message="NeedsLocking is ${SubWCRev_NeedsLocking}" />
+    <echo message="IsLocked is ${SubWCRev_IsLocked}" />
+    <echo message="LockCreationDate is ${SubWCRev_LockCreationDate}" />
+    <echo message="LockOwner is ${SubWCRev_LockOwner}" />
+    <echo message="LockComment is ${SubWCRev_LockComment}" />
+  </target>
 
 
 </project>

@@ -1,121 +1,121 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="all">
 
-    <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2008'}"/>
-    <property name="solutionname" value="TortoiseSVN_VS10.sln" if="${studioversion == '2010'}"/>
+  <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2008'}"/>
+  <property name="solutionname" value="TortoiseSVN_VS10.sln" if="${studioversion == '2010'}"/>
 
-    <target name="clean">
+  <target name="clean">
 
-		<if test="${cleanup == 'yes'}">
-			<if test="${static != 'static'}">
-				<delete>
-					<fileset>
-						<include name="..\ext\scintilla\bin\*.dll" />
-						<include name="..\ext\scintilla\bin\*.exp" />
-						<include name="..\ext\scintilla\bin\*.lib" />
-						<include name="..\ext\scintilla\bin\*.pdb" />
-						<include name="..\ext\scintilla\win32\*.obj" />
-						<include name="..\ext\scintilla\win32\*.res" />
-						<include name="..\ext\scintilla\win32\*.pdb" />
-					</fileset>
-				</delete>
-				<exec program="devenv.com" >
-					<arg value="${solutionname}" />
-					<arg value="/clean" />
-					<arg value="${configuration}|${platform}" />
-				</exec>
-			</if>
-			<if test="${static == 'static'}">
-				<exec program="devenv.com" >
-					<arg value="${solutionname}" />
-					<arg value="/clean" />
-					<arg value="${configuration}_static|${platform}" />
-				</exec>
-			</if>
-		</if>
-	</target>
+    <if test="${cleanup == 'yes'}">
+      <if test="${static != 'static'}">
+        <delete>
+          <fileset>
+            <include name="..\ext\scintilla\bin\*.dll" />
+            <include name="..\ext\scintilla\bin\*.exp" />
+            <include name="..\ext\scintilla\bin\*.lib" />
+            <include name="..\ext\scintilla\bin\*.pdb" />
+            <include name="..\ext\scintilla\win32\*.obj" />
+            <include name="..\ext\scintilla\win32\*.res" />
+            <include name="..\ext\scintilla\win32\*.pdb" />
+          </fileset>
+        </delete>
+        <exec program="devenv.com" >
+          <arg value="${solutionname}" />
+          <arg value="/clean" />
+          <arg value="${configuration}|${platform}" />
+        </exec>
+      </if>
+      <if test="${static == 'static'}">
+        <exec program="devenv.com" >
+          <arg value="${solutionname}" />
+          <arg value="/clean" />
+          <arg value="${configuration}_static|${platform}" />
+        </exec>
+      </if>
+    </if>
+  </target>
 
-	<target name="scintilla">
-		<if test="${static != 'static'}">
-			<exec program="nmake" workingdir="..\ext\scintilla\win32">
-				<arg value="-f" />
-				<arg value="scintilla.mak" />
-			</exec>
-			<property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
-			<property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
-			<copy
+  <target name="scintilla">
+    <if test="${static != 'static'}">
+      <exec program="nmake" workingdir="..\ext\scintilla\win32">
+        <arg value="-f" />
+        <arg value="scintilla.mak" />
+      </exec>
+      <property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
+      <property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
+      <copy
                 file="..\ext\scintilla\bin\SciLexer.dll"
                 tofile="..\bin\${configuration}${platformfoldername}\bin\SciLexer.dll"
                 overwrite="true"
             />
-			<delete>
-				<fileset>
-					<include name="..\ext\scintilla\bin\*.dll" />
-					<include name="..\ext\scintilla\bin\*.exp" />
-					<include name="..\ext\scintilla\bin\*.lib" />
-					<include name="..\ext\scintilla\bin\*.pdb" />
-					<include name="..\ext\scintilla\win32\*.obj" />
-					<include name="..\ext\scintilla\win32\*.res" />
-					<include name="..\ext\scintilla\win32\*.pdb" />
-				</fileset>
-			</delete>
-		</if>
-	</target>
+      <delete>
+        <fileset>
+          <include name="..\ext\scintilla\bin\*.dll" />
+          <include name="..\ext\scintilla\bin\*.exp" />
+          <include name="..\ext\scintilla\bin\*.lib" />
+          <include name="..\ext\scintilla\bin\*.pdb" />
+          <include name="..\ext\scintilla\win32\*.obj" />
+          <include name="..\ext\scintilla\win32\*.res" />
+          <include name="..\ext\scintilla\win32\*.pdb" />
+        </fileset>
+      </delete>
+    </if>
+  </target>
 
-	<target name="versioninfo">
-		<copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false">
-			<fileset>
-				<include name="TortoiseSVNSetup\include\autolist.txt" />
-				<include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn.dll"/>
-				<include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn.dll" />
-				<include name="..\ext\cyrus-SASL\${configuration}_${platform}\libsasl.dll" />
-				<include name="..\ext\Subversion\${configuration}_${platform}\svn.exe" />
-				<include name="..\ext\Subversion\${configuration}_${platform}\svnadmin.exe" />
-				<include name="..\ext\Subversion\${configuration}_${platform}\svnserve.exe" />
-			</fileset>
-		</copy>
-		<copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false" >
-			<fileset>
-				<include name="..\ext\libintl\libintl3-${platform}\bin\intl3_tsvn.dll" />
-				<include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44.dll"/>
-				<include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44d.dll"/>
-			</fileset>
-		</copy>
-		<nant target="versioninfo">
-			<buildfiles>
-				<include name="..\versioninfo.build" />
-			</buildfiles>
-		</nant>
-		<loadfile file="version.in" property="versionheaderfile">
-			<filterchain>
-				<replacetokens begintoken="$" endtoken="$">
-					<token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
-					<token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
-					<token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
-					<token key="WCREV" value="${environment::get-variable('WCREV')}" />
-					<token key="WCDATE" value="${environment::get-variable('WCDATE')}" />
-					<token key="DEVBUILD" value="${devrelease}" />
-				</replacetokens>
-			</filterchain>
-		</loadfile>
-		<echo file="version.h" message="${versionheaderfile}" />
-	</target>
+  <target name="versioninfo">
+    <copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false">
+      <fileset>
+        <include name="TortoiseSVNSetup\include\autolist.txt" />
+        <include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn.dll"/>
+        <include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn.dll" />
+        <include name="..\ext\cyrus-SASL\${configuration}_${platform}\libsasl.dll" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\svn.exe" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\svnadmin.exe" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\svnserve.exe" />
+      </fileset>
+    </copy>
+    <copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false" >
+      <fileset>
+        <include name="..\ext\libintl\libintl3-${platform}\bin\intl3_tsvn.dll" />
+        <include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44.dll"/>
+        <include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44d.dll"/>
+      </fileset>
+    </copy>
+    <nant target="versioninfo">
+      <buildfiles>
+        <include name="..\versioninfo.build" />
+      </buildfiles>
+    </nant>
+    <loadfile file="version.in" property="versionheaderfile">
+      <filterchain>
+        <replacetokens begintoken="$" endtoken="$">
+          <token key="MajorVersion" value="${environment::get-variable('MajorVersion')}" />
+          <token key="MinorVersion" value="${environment::get-variable('MinorVersion')}" />
+          <token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
+          <token key="WCREV" value="${environment::get-variable('WCREV')}" />
+          <token key="WCDATE" value="${environment::get-variable('WCDATE')}" />
+          <token key="DEVBUILD" value="${devrelease}" />
+        </replacetokens>
+      </filterchain>
+    </loadfile>
+    <echo file="version.h" message="${versionheaderfile}" />
+  </target>
 
-	<target name="TortoiseSVN" depends="clean,versioninfo,scintilla">
-		<if test="${static != 'static'}">
-			<exec program="devenv.com" >
-				<arg value="${solutionname}" />
-				<arg value="/rebuild" />
-				<arg value="${configuration}|${platform}" />
-			</exec>
-		</if>
-		<if test="${static == 'static'}">
-			<exec program="devenv.com" >
-				<arg value="${solutionname}" />
-				<arg value="/rebuild" />
-				<arg value="${configuration}_static|${platform}" />
-			</exec>
-		</if>
-	</target>
+  <target name="TortoiseSVN" depends="clean,versioninfo,scintilla">
+    <if test="${static != 'static'}">
+      <exec program="devenv.com" >
+        <arg value="${solutionname}" />
+        <arg value="/rebuild" />
+        <arg value="${configuration}|${platform}" />
+      </exec>
+    </if>
+    <if test="${static == 'static'}">
+      <exec program="devenv.com" >
+        <arg value="${solutionname}" />
+        <arg value="/rebuild" />
+        <arg value="${configuration}_static|${platform}" />
+      </exec>
+    </if>
+  </target>
 
 </project>

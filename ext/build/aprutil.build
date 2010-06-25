@@ -1,212 +1,212 @@
 <?xml version="1.0"?>
 <project name="aprutil" default="build" basedir="..\apr-util">
 
-	<!-- ====================================================================== -->
-	<!-- Configuration targets													-->
-	<!-- ====================================================================== -->
-	<target name="debug">
-		<description>
-			Sets the environment up to build the debug versions.
-		</description>
-		<property name="configuration" value="debug" />
-	</target>
+  <!-- ====================================================================== -->
+  <!-- Configuration targets													-->
+  <!-- ====================================================================== -->
+  <target name="debug">
+    <description>
+      Sets the environment up to build the debug versions.
+    </description>
+    <property name="configuration" value="debug" />
+  </target>
 
-	<!-- ====================================================================== -->
-	<!-- Project targets														-->
-	<!-- ====================================================================== -->
-	<target name="rebuild" depends="clean,build" />
+  <!-- ====================================================================== -->
+  <!-- Project targets														-->
+  <!-- ====================================================================== -->
+  <target name="rebuild" depends="clean,build" />
 
-	<target name="clean">
-		<description>
-			Cleans previous built files.
-		</description>
+  <target name="clean">
+    <description>
+      Cleans previous built files.
+    </description>
 
-		<if test="${cleanup == 'yes'}">
-			<delete>
-				<fileset>
-					<include name="${configuration}${static}_${platform}\**" />
-					<include name="xml\expat\lib\${configuration}${static}_${platform}\**" />
-				</fileset>
-			</delete>
-		</if>
-	</target>
+    <if test="${cleanup == 'yes'}">
+      <delete>
+        <fileset>
+          <include name="${configuration}${static}_${platform}\**" />
+          <include name="xml\expat\lib\${configuration}${static}_${platform}\**" />
+        </fileset>
+      </delete>
+    </if>
+  </target>
 
-	<target name="xml">
-		<mkdir dir="xml\expat\lib\${configuration}${static}_${platform}" />
-		<copy file="xml\expat\lib\winconfig.h" tofile="xml\expat\lib\config.h" overwrite="true" />
-		<loadfile file="xml\expat\lib\expat.h.in" property="expatheader">
-			<filterchain>
-				<replacetokens begintoken="@" endtoken="@">
-					<token key="EXPAT_MAJOR_VERSION" value="1" />
-					<token key="EXPAT_MINOR_VERSION" value="95" />
-					<token key="EXPAT_EDIT" value="2" />
-				</replacetokens>
-			</filterchain>
-		</loadfile>
-		<echo file="xml\expat\lib\expat.h" message="${expatheader}" />
-		<cl outputdir="xml\expat\lib\${configuration}${static}_${platform}">
-			<arg value="/Ox" if="${configuration == 'release'}" />
-			<arg value="/Od" if="${configuration != 'release'}" />
-			<arg value="/GF" if="${configuration == 'release'}" />
-			<arg value="/Gs-" if="${configuration == 'release'}" />
-			<arg value="/GS-" if="${configuration == 'release'}" />
-			<arg value="/FD" />
-			<arg value="/EHa-" />
-			<arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
-			<arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
-			<arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
-			<arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
-			<arg value="/Gy" />
-			<arg value="/W3" />
-			<arg value="/nologo" />
-			<arg value="/c" />
-			<arg value="/Zi" />
-			<arg value="/errorReport:prompt" />
-			<sources>
-				<include name="xml\expat\lib\xmlparse.c" />
-				<include name="xml\expat\lib\xmlrole.c" />
-				<include name="xml\expat\lib\xmltok.c" />
-			</sources>
-			<includedirs>
-				<include name="include" />
-				<include name="include\private" />
-				<include name="xml\expat\lib" />
-			</includedirs>
-			<defines>
-				<define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
-				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
-				<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
-				<define name="WIN32" />
-				<define name="_WINDOWS" />
-				<define name="_WIN32" />
-				<define name="_WIN32_WINNT" value="0x0501"/>
-				<define name="WIN64" if="${platform == 'x64'}" />
-				<define name="_WINDLL" if="${static != 'static'}" />
-				<define name='VERSION=\"expat_1.95.2\"' />
-				<define name="NDEBUG" if="${configuration == 'release'}"/>
-				<define name="_DEBUG" if="${configuration != 'release'}"/>
-			</defines>
-		</cl>
-		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
-		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-		<lib
-			output="xml\expat\lib\${configuration}${static}_${platform}\xml.lib"
-			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
-			<sources>
-				<include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
-			</sources>
-		</lib>
-	</target>
+  <target name="xml">
+    <mkdir dir="xml\expat\lib\${configuration}${static}_${platform}" />
+    <copy file="xml\expat\lib\winconfig.h" tofile="xml\expat\lib\config.h" overwrite="true" />
+    <loadfile file="xml\expat\lib\expat.h.in" property="expatheader">
+      <filterchain>
+        <replacetokens begintoken="@" endtoken="@">
+          <token key="EXPAT_MAJOR_VERSION" value="1" />
+          <token key="EXPAT_MINOR_VERSION" value="95" />
+          <token key="EXPAT_EDIT" value="2" />
+        </replacetokens>
+      </filterchain>
+    </loadfile>
+    <echo file="xml\expat\lib\expat.h" message="${expatheader}" />
+    <cl outputdir="xml\expat\lib\${configuration}${static}_${platform}">
+      <arg value="/Ox" if="${configuration == 'release'}" />
+      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
+      <arg value="/Gs-" if="${configuration == 'release'}" />
+      <arg value="/GS-" if="${configuration == 'release'}" />
+      <arg value="/FD" />
+      <arg value="/EHa-" />
+      <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+      <arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+      <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+      <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
+      <arg value="/Gy" />
+      <arg value="/W3" />
+      <arg value="/nologo" />
+      <arg value="/c" />
+      <arg value="/Zi" />
+      <arg value="/errorReport:prompt" />
+      <sources>
+        <include name="xml\expat\lib\xmlparse.c" />
+        <include name="xml\expat\lib\xmlrole.c" />
+        <include name="xml\expat\lib\xmltok.c" />
+      </sources>
+      <includedirs>
+        <include name="include" />
+        <include name="include\private" />
+        <include name="xml\expat\lib" />
+      </includedirs>
+      <defines>
+        <define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
+        <define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
+        <define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
+        <define name="WIN32" />
+        <define name="_WINDOWS" />
+        <define name="_WIN32" />
+        <define name="_WIN32_WINNT" value="0x0501"/>
+        <define name="WIN64" if="${platform == 'x64'}" />
+        <define name="_WINDLL" if="${static != 'static'}" />
+        <define name='VERSION=\"expat_1.95.2\"' />
+        <define name="NDEBUG" if="${configuration == 'release'}"/>
+        <define name="_DEBUG" if="${configuration != 'release'}"/>
+      </defines>
+    </cl>
+    <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
+    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <lib
+      output="xml\expat\lib\${configuration}${static}_${platform}\xml.lib"
+      options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
+      <sources>
+        <include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
+      </sources>
+    </lib>
+  </target>
 
-	<target name="build" depends="clean,xml">
-		<mkdir dir="${configuration}${static}_${platform}" />
-		<copy file="..\build\apu.hw" tofile="include\apu.h" overwrite="true" />
-		<copy file="include\apu_want.hw" tofile="include\apu_want.h" overwrite="true" />
-		<copy file="include\apr_ldap.hw" tofile="include\apr_ldap.h" overwrite="true" />
-		<copy file="include\private\apu_select_dbm.hw" tofile="include\private\apu_select_dbm.h" overwrite="true" />
-		<copy file="include\private\apu_config.hw" tofile="include\private\apu_config.h" overwrite="true" />
-		<loadfile file="include\apu_version.h" property="versionfile" />
-		<regex pattern="#define APU_MAJOR_VERSION( )+(?'APU_MAJOR_VERSION'\d+)" input="${versionfile}" />
-		<echo message="${APU_MAJOR_VERSION}" />
-		<regex pattern="#define APU_MINOR_VERSION[ ]+(?'APU_MINOR_VERSION'\d+)" input="${versionfile}" />
-		<echo message="${APU_MINOR_VERSION}" />
-		<regex pattern="#define APU_PATCH_VERSION[ ]+(?'APU_PATCH_VERSION'\d+)" input="${versionfile}" />
-		<echo message="${APU_PATCH_VERSION}" />
-		<loadfile file="libaprutil.rc" property="rcfile">
-			<filterchain>
-				<replacestring from="0,0,0" to="${APU_MAJOR_VERSION},${APU_MINOR_VERSION},${APU_PATCH_VERSION}" />
-				<replacestring from="0.0.0" to="${APU_MAJOR_VERSION},${APU_MINOR_VERSION},${APU_PATCH_VERSION}" />
-			</filterchain>
-		</loadfile>
-		<echo file="libaprutilver.rc" message="${rcfile}" />
-		<rc rcfile="libaprutilver.rc" output="${configuration}${static}_${platform}\libaprutil_tsvn.res">
-			<includedirs>
-				<include name="..\apr\include" />
-				<include name="include" />
-			</includedirs>
-		</rc>
+  <target name="build" depends="clean,xml">
+    <mkdir dir="${configuration}${static}_${platform}" />
+    <copy file="..\build\apu.hw" tofile="include\apu.h" overwrite="true" />
+    <copy file="include\apu_want.hw" tofile="include\apu_want.h" overwrite="true" />
+    <copy file="include\apr_ldap.hw" tofile="include\apr_ldap.h" overwrite="true" />
+    <copy file="include\private\apu_select_dbm.hw" tofile="include\private\apu_select_dbm.h" overwrite="true" />
+    <copy file="include\private\apu_config.hw" tofile="include\private\apu_config.h" overwrite="true" />
+    <loadfile file="include\apu_version.h" property="versionfile" />
+    <regex pattern="#define APU_MAJOR_VERSION( )+(?'APU_MAJOR_VERSION'\d+)" input="${versionfile}" />
+    <echo message="${APU_MAJOR_VERSION}" />
+    <regex pattern="#define APU_MINOR_VERSION[ ]+(?'APU_MINOR_VERSION'\d+)" input="${versionfile}" />
+    <echo message="${APU_MINOR_VERSION}" />
+    <regex pattern="#define APU_PATCH_VERSION[ ]+(?'APU_PATCH_VERSION'\d+)" input="${versionfile}" />
+    <echo message="${APU_PATCH_VERSION}" />
+    <loadfile file="libaprutil.rc" property="rcfile">
+      <filterchain>
+        <replacestring from="0,0,0" to="${APU_MAJOR_VERSION},${APU_MINOR_VERSION},${APU_PATCH_VERSION}" />
+        <replacestring from="0.0.0" to="${APU_MAJOR_VERSION},${APU_MINOR_VERSION},${APU_PATCH_VERSION}" />
+      </filterchain>
+    </loadfile>
+    <echo file="libaprutilver.rc" message="${rcfile}" />
+    <rc rcfile="libaprutilver.rc" output="${configuration}${static}_${platform}\libaprutil_tsvn.res">
+      <includedirs>
+        <include name="..\apr\include" />
+        <include name="include" />
+      </includedirs>
+    </rc>
 
-		<cl outputdir="${configuration}${static}_${platform}">
-			<arg value="/Ox" if="${configuration == 'release'}" />
-			<arg value="/Od" if="${configuration != 'release'}" />
-			<arg value="/GF" if="${configuration == 'release'}" />
-			<arg value="/Gs-" if="${configuration == 'release'}" />
-			<arg value="/GS-" if="${configuration == 'release'}" />
-			<arg value="/FD" />
-			<arg value="/EHa-" />
-			<arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
-			<arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
-			<arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
-			<arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
-			<arg value="/Gy" />
-			<arg value="/W3" />
-			<arg value="/nologo" />
-			<arg value="/c" />
-			<arg value="/Zi" />
-			<arg value="/errorReport:prompt" />
-			<sources>
-				<include name="buckets\*.c" />
-				<include name="crypto\*.c" />
-				<include name="dbd\*.c" />
-				<include name="dbm\*.c" />
-				<include name="dbm\sdbm\*.c" />
-				<include name="encoding\*.c" />
-				<include name="hooks\*.c" />
-				<include name="ldap\*.c" />
-				<include name="misc\*.c" />
-				<include name="memcache\*.c" />
-				<include name="strmatch\*.c" />
-				<include name="uri\apr_uri.c" />
-				<include name="xml\apr_xml.c" />
-			</sources>
-			<includedirs>
-				<include name="include" />
-				<include name="include\private" />
-				<include name="xml\expat\lib" />
-				<include name="..\apr\include" />
-			</includedirs>
-			<defines>
-				<define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
-				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
-				<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
-				<define name="WIN32" />
-				<define name="_WINDOWS" />
-				<define name="_WIN32" />
-				<define name="_WIN32_WINNT" value="0x0501"/>
-				<define name="WIN64" if="${platform == 'x64'}" />
-				<define name="_WINDLL" if="${static != 'static'}" />
-				<define name="NDEBUG" if="${configuration == 'release'}"/>
-				<define name="_DEBUG" if="${configuration != 'release'}"/>
-			</defines>
-		</cl>
-		<property name="machineoption" value="/MACHINE:X86" />
-		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-		<if test="${static == 'static'}">
-			<lib
+    <cl outputdir="${configuration}${static}_${platform}">
+      <arg value="/Ox" if="${configuration == 'release'}" />
+      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
+      <arg value="/Gs-" if="${configuration == 'release'}" />
+      <arg value="/GS-" if="${configuration == 'release'}" />
+      <arg value="/FD" />
+      <arg value="/EHa-" />
+      <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+      <arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+      <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+      <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
+      <arg value="/Gy" />
+      <arg value="/W3" />
+      <arg value="/nologo" />
+      <arg value="/c" />
+      <arg value="/Zi" />
+      <arg value="/errorReport:prompt" />
+      <sources>
+        <include name="buckets\*.c" />
+        <include name="crypto\*.c" />
+        <include name="dbd\*.c" />
+        <include name="dbm\*.c" />
+        <include name="dbm\sdbm\*.c" />
+        <include name="encoding\*.c" />
+        <include name="hooks\*.c" />
+        <include name="ldap\*.c" />
+        <include name="misc\*.c" />
+        <include name="memcache\*.c" />
+        <include name="strmatch\*.c" />
+        <include name="uri\apr_uri.c" />
+        <include name="xml\apr_xml.c" />
+      </sources>
+      <includedirs>
+        <include name="include" />
+        <include name="include\private" />
+        <include name="xml\expat\lib" />
+        <include name="..\apr\include" />
+      </includedirs>
+      <defines>
+        <define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
+        <define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
+        <define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
+        <define name="WIN32" />
+        <define name="_WINDOWS" />
+        <define name="_WIN32" />
+        <define name="_WIN32_WINNT" value="0x0501"/>
+        <define name="WIN64" if="${platform == 'x64'}" />
+        <define name="_WINDLL" if="${static != 'static'}" />
+        <define name="NDEBUG" if="${configuration == 'release'}"/>
+        <define name="_DEBUG" if="${configuration != 'release'}"/>
+      </defines>
+    </cl>
+    <property name="machineoption" value="/MACHINE:X86" />
+    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <if test="${static == 'static'}">
+      <lib
                 output="${configuration}${static}_${platform}\libaprutil_tsvn.lib"
                 options='/NOLOGO /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil.pdb" /SUBSYSTEM:WINDOWS'>
-				<sources>
-					<include name="${configuration}${static}_${platform}\*.obj" />
-					<include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
-				</sources>
-			</lib>
-		</if>
-		<if test="${static != 'static'}">
-			<link
+        <sources>
+          <include name="${configuration}${static}_${platform}\*.obj" />
+          <include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
+        </sources>
+      </lib>
+    </if>
+    <if test="${static != 'static'}">
+      <link
                 output="${configuration}${static}_${platform}\libaprutil_tsvn.dll"
                 options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}${static}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
-				<sources>
-					<include name="${configuration}${static}_${platform}\*.obj" />
-					<include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
-				</sources>
-			</link>
-			<exec program="mt.exe">
-				<arg value="-nologo" />
-				<arg value="-manifest" />
-				<arg value=".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" />
-				<arg value='/outputresource:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll;#2"' />
-			</exec>
-		</if>
-	</target>
+        <sources>
+          <include name="${configuration}${static}_${platform}\*.obj" />
+          <include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />
+        </sources>
+      </link>
+      <exec program="mt.exe">
+        <arg value="-nologo" />
+        <arg value="-manifest" />
+        <arg value=".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" />
+        <arg value='/outputresource:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll;#2"' />
+      </exec>
+    </if>
+  </target>
 
 </project>
