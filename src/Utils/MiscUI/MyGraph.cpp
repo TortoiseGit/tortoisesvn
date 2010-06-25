@@ -646,6 +646,7 @@ void MyGraph::DrawGraph(CDC& dc)
         int diffColorL = 60;
         DWORD backgroundColor = ::GetSysColor(COLOR_WINDOW);
         // If graph is a non-stacked line graph, use darker colors if system window color is light.
+#if 0
         if (m_eGraphType == MyGraph::Line && !m_bStackedGraph) {
             int backgroundLuma = (GetRValue(backgroundColor) + GetGValue(backgroundColor) + GetBValue(backgroundColor)) / 3;
             if (backgroundLuma > 128) {
@@ -653,7 +654,7 @@ void MyGraph::DrawGraph(CDC& dc)
                 diffColorL = 50;
             }
         }
-
+#endif
         for (WORD nGroup = 0; nGroup < GetMaxSeriesSize(); ++nGroup) {
             WORD colorH = (WORD)(nColorsDelta * nGroup);
             WORD colorL = (WORD)(baseColorL+(diffColorL*(nGroup%2)));
