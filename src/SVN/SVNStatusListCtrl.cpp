@@ -743,7 +743,10 @@ CSVNStatusListCtrl::AddNewFileEntry(
         entry->url = CPathUtils::PathUnescape(pSVNStatus->repos_relpath);
     }
 
-    entry->isfolder = (pSVNStatus->kind == svn_node_dir);
+    if (pSVNStatus->kind == svn_node_unknown)
+        entry->isfolder = path.IsDirectory();
+    else
+        entry->isfolder = (pSVNStatus->kind == svn_node_dir);
     entry->Revision = pSVNStatus->revision;
     entry->working_size = -1;    // TODO: ask the svn devs to add the working_size field
     entry->depth = svn_depth_unknown;   // TODO: ask the svn devs to add the depth field
@@ -3435,6 +3438,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         // and update their status
                         POSITION pos = GetFirstSelectedItemPosition();
                         int index;
+                        int nListItems = GetItemCount();
                         while ((index = GetNextSelectedItem(pos)) >= 0)
                         {
                             FileEntry * e = GetListEntry(index);
@@ -3442,6 +3446,27 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             e->propstatus = svn_wc_status_none;
                             e->status = svn_wc_status_added;
                             SetEntryCheck(e,index,true);
+
+                            const CTSVNPath& folderpath = entry->path;
+                            for (int parentindex = 0; parentindex < nListItems; ++parentindex)
+                            {
+                                FileEntry * testEntry = GetListEntry(parentindex);
+                                ASSERT(testEntry != NULL);
+                                if (testEntry == NULL)
+                                    continue;
+                                if (!testEntry->IsVersioned())
+                                {
+                                    if (testEntry->path.IsAncestorOf(folderpath) && (!testEntry->path.IsEquivalentTo(folderpath)))
+                                    {
+                                        testEntry->textstatus = svn_wc_status_added;
+                                        testEntry->propstatus = svn_wc_status_none;
+                                        testEntry->status = svn_wc_status_added;
+                                        if (!testEntry->checked)
+                                            m_nSelected++;
+                                        SetEntryCheck(testEntry, parentindex, true);
+                                    }
+                                }
+                            }
                         }
                     }
                     else
