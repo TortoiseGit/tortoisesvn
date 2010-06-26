@@ -52,6 +52,7 @@ protected:
     afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
     afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
     afx_msg void OnEnChangeRevisionNum();
+    afx_msg void OnBnClickedHelp();
 
 private:
     CTSVNPath       m_URL;

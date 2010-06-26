@@ -49,6 +49,7 @@ BEGIN_MESSAGE_MAP(CEditPropExternals, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_REMOVE, &CEditPropExternals::OnBnClickedRemove)
     ON_NOTIFY(LVN_GETDISPINFO, IDC_EXTERNALSLIST, &CEditPropExternals::OnLvnGetdispinfoExternalslist)
     ON_NOTIFY(NM_DBLCLK, IDC_EXTERNALSLIST, &CEditPropExternals::OnNMDblclkExternalslist)
+    ON_BN_CLICKED(IDHELP, &CEditPropExternals::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -60,7 +61,7 @@ BOOL CEditPropExternals::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_ADD);
     m_aeroControls.SubclassControl(this, IDC_EDIT);
     m_aeroControls.SubclassControl(this, IDC_REMOVE);
-    m_aeroControls.SubclassOkCancel(this);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
     ATLASSERT(m_pathList.GetCount() == 1);
 
@@ -242,4 +243,9 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
             }
         }
     }
+}
+
+void CEditPropExternals::OnBnClickedHelp()
+{
+    OnHelp();
 }

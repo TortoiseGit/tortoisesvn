@@ -36,6 +36,7 @@ protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual void OnOK();
     virtual BOOL OnInitDialog();
+    afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
 

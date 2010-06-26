@@ -45,6 +45,7 @@ void CEditPropTSVNLang::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CEditPropTSVNLang, CStandAloneDialog)
+    ON_BN_CLICKED(IDHELP, &CEditPropTSVNLang::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -57,7 +58,7 @@ BOOL CEditPropTSVNLang::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_FILELISTENGLISH);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
-    m_aeroControls.SubclassOkCancel(this);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
     AdjustControlSize(IDC_FILELISTENGLISH);
     AdjustControlSize(IDC_PROPRECURSIVE);
@@ -136,4 +137,9 @@ BOOL CEditPropTSVNLang::EnumLocalesProc(LPTSTR lpLocaleString)
     m_langCombo.SetItemData(index, langID);
 
     return TRUE;
+}
+
+void CEditPropTSVNLang::OnBnClickedHelp()
+{
+    OnHelp();
 }

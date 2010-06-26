@@ -43,6 +43,7 @@ protected:
     afx_msg void OnBnClickedRemove();
     afx_msg void OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
 

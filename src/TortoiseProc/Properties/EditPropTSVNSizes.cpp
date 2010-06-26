@@ -53,6 +53,7 @@ void CEditPropTSVNSizes::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CEditPropTSVNSizes, CStandAloneDialog)
+    ON_BN_CLICKED(IDHELP, &CEditPropTSVNSizes::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -64,7 +65,7 @@ BOOL CEditPropTSVNSizes::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
-    m_aeroControls.SubclassOkCancel(this);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
@@ -114,4 +115,9 @@ void CEditPropTSVNSizes::OnOK()
     m_properties = newProps;
 
     CStandAloneDialog::OnOK();
+}
+
+void CEditPropTSVNSizes::OnBnClickedHelp()
+{
+    OnHelp();
 }

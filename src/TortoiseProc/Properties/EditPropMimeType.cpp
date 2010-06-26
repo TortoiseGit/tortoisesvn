@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CEditPropMimeType, CStandAloneDialog)
     ON_BN_CLICKED(IDC_MIMECUSTOM, &CEditPropMimeType::OnBnClickedType)
     ON_BN_CLICKED(IDC_MIMETEXT, &CEditPropMimeType::OnBnClickedType)
     ON_BN_CLICKED(IDC_PROPRECURSIVE, &CEditPropMimeType::OnBnClickedProprecursive)
+    ON_BN_CLICKED(IDHELP, &CEditPropMimeType::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -62,7 +63,7 @@ BOOL CEditPropMimeType::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
-    m_aeroControls.SubclassOkCancel(this);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
     AdjustControlSize(IDC_MIMETEXT);
     AdjustControlSize(IDC_MIMEBIN);
@@ -130,4 +131,10 @@ void CEditPropMimeType::OnBnClickedProprecursive()
     if (m_bFolder)
         m_bRecursive = TRUE;
     UpdateData(false);
+}
+
+
+void CEditPropMimeType::OnBnClickedHelp()
+{
+    OnHelp();
 }

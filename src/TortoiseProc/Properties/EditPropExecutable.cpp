@@ -45,6 +45,7 @@ void CEditPropExecutable::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CEditPropExecutable, CStandAloneDialog)
     ON_BN_CLICKED(IDC_PROPRECURSIVE, &CEditPropExecutable::OnBnClickedProprecursive)
+    ON_BN_CLICKED(IDHELP, &CEditPropExecutable::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 BOOL CEditPropExecutable::OnInitDialog()
@@ -53,7 +54,7 @@ BOOL CEditPropExecutable::OnInitDialog()
 
     ExtendFrameIntoClientArea(0,0,0,0);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
-    m_aeroControls.SubclassOkCancel(this);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
     AdjustControlSize(IDC_PROPSET);
     AdjustControlSize(IDC_PROPNOTSET);
@@ -92,4 +93,9 @@ void CEditPropExecutable::OnBnClickedProprecursive()
     if (m_bFolder)
         m_bRecursive = TRUE;
     UpdateData(false);
+}
+
+void CEditPropExecutable::OnBnClickedHelp()
+{
+    OnHelp();
 }

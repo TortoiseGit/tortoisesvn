@@ -37,6 +37,7 @@ protected:
     virtual void OnOK();
 
     afx_msg void OnBnClickedProprecursive();
+    afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
 

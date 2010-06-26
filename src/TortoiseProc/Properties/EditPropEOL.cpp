@@ -46,6 +46,7 @@ void CEditPropEOL::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CEditPropEOL, CStandAloneDialog)
     ON_BN_CLICKED(IDC_PROPRECURSIVE, &CEditPropEOL::OnBnClickedProprecursive)
+    ON_BN_CLICKED(IDHELP, &CEditPropEOL::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -55,7 +56,7 @@ BOOL CEditPropEOL::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
-    m_aeroControls.SubclassOkCancel(this);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
     std::transform(m_PropValue.begin(), m_PropValue.end(), m_PropValue.begin(), std::tolower);
 
@@ -121,4 +122,9 @@ void CEditPropEOL::OnBnClickedProprecursive()
     if (m_bFolder)
         m_bRecursive = TRUE;
     UpdateData(false);
+}
+
+void CEditPropEOL::OnBnClickedHelp()
+{
+    OnHelp();
 }

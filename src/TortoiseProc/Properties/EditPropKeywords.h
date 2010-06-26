@@ -40,6 +40,7 @@ protected:
 
     INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
     afx_msg void OnBnClickedProprecursive();
+    afx_msg void OnBnClickedHelp();
 
 private:
     void    AddSpacedWord(std::string& str, const std::string& word);

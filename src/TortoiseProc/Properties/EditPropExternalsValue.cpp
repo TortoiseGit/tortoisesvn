@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CEditPropExternalsValue, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_REVSELECTED, &CEditPropExternalsValue::OnRevSelected)
     ON_WM_SIZING()
     ON_EN_CHANGE(IDC_REVISION_NUM, &CEditPropExternalsValue::OnEnChangeRevisionNum)
+    ON_BN_CLICKED(IDHELP, &CEditPropExternalsValue::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -63,7 +64,7 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
 
     ExtendFrameIntoClientArea(IDC_GROUPBOTTOM);
-    m_aeroControls.SubclassOkCancel(this);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
     m_sWCPath = m_External.targetDir;
     SVNRev rev = m_External.revision;
@@ -221,4 +222,9 @@ void CEditPropExternalsValue::OnEnChangeRevisionNum()
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     else
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+}
+
+void CEditPropExternalsValue::OnBnClickedHelp()
+{
+    OnHelp();
 }

@@ -56,6 +56,7 @@ void CEditPropKeywords::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CEditPropKeywords, CStandAloneDialog)
     ON_BN_CLICKED(IDC_PROPRECURSIVE, &CEditPropKeywords::OnBnClickedProprecursive)
+    ON_BN_CLICKED(IDHELP, &CEditPropKeywords::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -67,7 +68,7 @@ BOOL CEditPropKeywords::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
-    m_aeroControls.SubclassOkCancel(this);
+    m_aeroControls.SubclassOkCancelHelp(this);
 
     std::transform(m_PropValue.begin(), m_PropValue.end(), m_PropValue.begin(), std::tolower);
 
@@ -146,3 +147,7 @@ void CEditPropKeywords::AddSpacedWord(std::string& str, const std::string& word)
     str += word;
 }
 
+void CEditPropKeywords::OnBnClickedHelp()
+{
+    OnHelp();
+}
