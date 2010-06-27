@@ -917,6 +917,8 @@ protected:
     static svn_error_t* summarize_func(const svn_client_diff_summarize_t *diff,
                     void *baton, apr_pool_t *pool);
     static svn_error_t* blameReceiver(void *baton, 
+                                      svn_revnum_t start_revnum,
+                                      svn_revnum_t end_revnum,
                                       apr_int64_t line_no, 
                                       svn_revnum_t revision, 
                                       apr_hash_t *rev_props, 

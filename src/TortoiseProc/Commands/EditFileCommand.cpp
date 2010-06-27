@@ -40,9 +40,9 @@ bool EditFileCommand::IsLocked()
     CTSVNPath dummy;
     SVNStatus status;
 
-    svn_wc_status3_t *fileStatus
+    svn_client_status_t *fileStatus
         = status.GetFirstFileStatus (path, dummy, false, svn_depth_empty);
-    return (fileStatus->lock_creation_date != 0);
+    return (fileStatus->lock && fileStatus->lock->creation_date != 0);
 }
 
 // the individual steps of the sequence

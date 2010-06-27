@@ -35,7 +35,7 @@ CStatusCacheEntry::CStatusCacheEntry()
     SetAsUnversioned();
 }
 
-CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status3_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal)
+CStatusCacheEntry::CStatusCacheEntry(const svn_client_status_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal)
     : m_bSet(false)
     , m_bSVNEntryFieldSet(false)
     , m_kind(svn_node_unknown)
@@ -151,7 +151,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
     return true;
 }
 
-void CStatusCacheEntry::SetStatus(const svn_wc_status3_t* pSVNStatus, bool forceNormal)
+void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool forceNormal)
 {
     if(pSVNStatus == NULL)
     {
@@ -172,7 +172,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status3_t* pSVNStatus, bool force
             m_sUrl = pSVNStatus->repos_relpath;
             m_commitRevision = pSVNStatus->changed_rev;
             m_bSVNEntryFieldSet = true;
-            m_sOwner = pSVNStatus->lock_owner;
+            m_sOwner = pSVNStatus->lock ? pSVNStatus->lock->owner : "";
             m_kind = pSVNStatus->kind;
             m_sAuthor = pSVNStatus->changed_author;
         }

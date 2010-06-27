@@ -42,7 +42,7 @@ bool AddCommand::Execute()
         {
             SVNStatus status;
             CTSVNPath retPath;
-            svn_wc_status3_t * s = NULL;
+            svn_client_status_t * s = NULL;
 
             if ((s = status.GetFirstFileStatus(pathList.GetCommonDirectory(), retPath))!=0)
             {

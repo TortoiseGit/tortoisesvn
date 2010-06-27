@@ -288,8 +288,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
                             itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                             fetchedstatus = status;
-                            if (stat.status->lock_token)
-                                itemStates |= (stat.status->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+                            if (stat.status->lock && stat.status->lock->token)
+                                itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
                             if (stat.status->kind == svn_node_dir)
                             {
                                 itemStates |= ITEMIS_FOLDER;
@@ -383,8 +383,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
                                 itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                                 fetchedstatus = status;
-                                if (stat.status->lock_token)
-                                    itemStates |= (stat.status->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+                                if (stat.status->lock && stat.status->lock->token)
+                                    itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
                                 if (stat.status->kind == svn_node_dir)
                                 {
                                     itemStates |= ITEMIS_FOLDER;
@@ -501,8 +501,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     {
                         status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
                         itemStatesFolder |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
-                        if (stat.status->lock_token)
-                            itemStatesFolder |= (stat.status->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+                        if (stat.status->lock && stat.status->lock->token)
+                            itemStatesFolder |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
                         if (stat.status->repos_root_url)
                             uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
                         if (stat.status->conflicted)
@@ -583,8 +583,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         {
                             status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
                             itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
-                            if (stat.status->lock_token)
-                                itemStates |= (stat.status->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+                            if (stat.status->lock && stat.status->lock->token)
+                                itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
                             if (stat.status->repos_root_url)
                                 uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
                             if (stat.status->copied)

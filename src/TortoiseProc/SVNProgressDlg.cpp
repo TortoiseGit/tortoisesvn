@@ -385,7 +385,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
             m_basePath = path;
             SVNStatus status;
             CTSVNPath dummypath;
-            svn_wc_status3_t * s = status.GetFirstFileStatus(m_basePath, dummypath, false, svn_depth_empty);
+            svn_client_status_t * s = status.GetFirstFileStatus(m_basePath, dummypath, false, svn_depth_empty);
             if (s)
                 m_UpdateStartRevMap[m_basePath.GetSVNApiPath(pool)] = s->changed_rev;
             data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);

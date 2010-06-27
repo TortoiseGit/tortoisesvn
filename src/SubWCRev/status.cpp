@@ -91,7 +91,7 @@ void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
     *pszDest = '\0';
 }
 
-svn_error_t * getfirststatus(void * baton, const char * /*path*/, const svn_wc_status3_t * status, apr_pool_t * /*pool*/)
+svn_error_t * getfirststatus(void * baton, const char * /*path*/, const svn_client_status_t * status, apr_pool_t * /*pool*/)
 {
     SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
     if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
@@ -105,7 +105,7 @@ svn_error_t * getfirststatus(void * baton, const char * /*path*/, const svn_wc_s
     return SVN_NO_ERROR;
 }
 
-svn_error_t * getallstatus(void * baton, const char * path, const svn_wc_status3_t * status, apr_pool_t * /*pool*/)
+svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * /*pool*/)
 {
     SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
     if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
@@ -188,16 +188,16 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_wc_status3
     strcpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, "");
     sb->SubStat->LockData.CreationDate = 0;
 
-    if(status->lock_token)
+    if ((status->lock)&&(status->lock->token))
     {
-        if((status->lock_token[0] != 0))
+        if((status->lock->token[0] != 0))
         {
             sb->SubStat->LockData.IsLocked = true;
-            if(NULL != status->lock_owner)
-                strncpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, status->lock_owner, OWNER_BUF);
-            if(NULL != status->lock_comment)
-                strncpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, status->lock_comment, COMMENT_BUF);
-            sb->SubStat->LockData.CreationDate = status->lock_creation_date;
+            if(NULL != status->lock->owner)
+                strncpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, status->lock->owner, OWNER_BUF);
+            if(NULL != status->lock->comment)
+                strncpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, status->lock->comment, COMMENT_BUF);
+            sb->SubStat->LockData.CreationDate = status->lock->creation_date;
         }
     }
     return SVN_NO_ERROR;
@@ -219,9 +219,8 @@ svn_status (    const char *path,
     svn_opt_revision_t wcrev;
     wcrev.kind = svn_opt_revision_working;
 
-    SVN_ERR(svn_client_status5(NULL, path, &wcrev, getfirststatus, &sb, svn_depth_empty, true, false, true, true, NULL, ctx, pool));
-    SVN_ERR(svn_client_status5(NULL, path, &wcrev, getallstatus, &sb, svn_depth_infinity, true, false, true, true, NULL, ctx, pool));
-
+    SVN_ERR(svn_client_status5(NULL, ctx, path, &wcrev, svn_depth_empty, true, false, true, true, NULL, getfirststatus, &sb, pool));
+    SVN_ERR(svn_client_status5(NULL, ctx, path, &wcrev, svn_depth_infinity, true, false, true, true, NULL, getallstatus, &sb, pool));
 
 
     // now crawl through all externals

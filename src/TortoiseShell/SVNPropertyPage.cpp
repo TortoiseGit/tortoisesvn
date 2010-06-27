@@ -349,9 +349,10 @@ void CSVNPropertyPage::InitWorkfileView()
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                 SetDlgItemText(m_hwnd, IDC_PROPDATE, buf);
 
-                if (svn.status->lock_owner)
-                    SetDlgItemText(m_hwnd, IDC_LOCKOWNER, UTF8ToWide(svn.status->lock_owner).c_str());
-                time = (__time64_t)svn.status->lock_creation_date/1000000L;
+                if (svn.status->lock && svn.status->lock->owner)
+                    SetDlgItemText(m_hwnd, IDC_LOCKOWNER, UTF8ToWide(svn.status->lock->owner).c_str());
+                if (svn.status->lock)
+                    time = (__time64_t)svn.status->lock->creation_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                 SetDlgItemText(m_hwnd, IDC_LOCKDATE, buf);
                 if (infodata)

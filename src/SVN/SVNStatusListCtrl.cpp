@@ -551,7 +551,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
     CTSVNPath workingTarget(target);
 
-    svn_wc_status3_t * s;
+    svn_client_status_t * s;
     CTSVNPath svnPath;
     s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, depth, bShowIgnores);
     status.GetExternals(m_externalSet);
@@ -617,7 +617,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
         // An added entry doesn't have an root assigned to it yet.
         // So we fetch the status of the parent directory instead and
         // check if that one has an repo root assigned to it.
-        svn_wc_status3_t * sparent;
+        svn_client_status_t * sparent;
         CTSVNPath path = workingTarget;
         do
         {
@@ -666,7 +666,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 const CSVNStatusListCtrl::FileEntry*
 CSVNStatusListCtrl::AddNewFileEntry(
-            const svn_wc_status3_t* pSVNStatus,  // The return from the SVN GetStatus functions
+            const svn_client_status_t* pSVNStatus,  // The return from the SVN GetStatus functions
             const CTSVNPath& path,              // The path of the item we're adding
             const CTSVNPath& basePath,          // The base directory for this status build
             bool bDirectItem,                   // Was this item the first found by GetFirstFileStatus or by a subsequent GetNextFileStatus call
@@ -690,13 +690,13 @@ CSVNStatusListCtrl::AddNewFileEntry(
     entry->copied = !!pSVNStatus->copied;
     entry->switched = !!pSVNStatus->switched;
 
-    entry->last_commit_date = pSVNStatus->ood_last_cmt_date;
+    entry->last_commit_date = pSVNStatus->ood_changed_date;
     if (entry->last_commit_date == NULL)
         entry->last_commit_date = pSVNStatus->changed_date;
-    entry->remoterev = pSVNStatus->ood_last_cmt_rev;
+    entry->remoterev = pSVNStatus->ood_changed_rev;
     entry->last_commit_rev = pSVNStatus->changed_rev;
-    if (pSVNStatus->ood_last_cmt_author)
-        entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->ood_last_cmt_author);
+    if (pSVNStatus->ood_changed_author)
+        entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->ood_changed_author);
     if ((entry->last_commit_author.IsEmpty())&&(pSVNStatus->changed_author))
         entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->changed_author);
 
@@ -764,17 +764,20 @@ CSVNStatusListCtrl::AddNewFileEntry(
             m_sURL.LoadString(IDS_STATUSLIST_MULTIPLETARGETS);
         m_StatusUrlList.AddPath(CTSVNPath(entry->url));
     }
-    if (pSVNStatus->lock_owner)
-        entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->lock_owner);
-    if (pSVNStatus->lock_token)
+    if (pSVNStatus->lock)
     {
-        entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->lock_token);
-        m_bHasLocks = true;
+        if (pSVNStatus->lock->owner)
+            entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->lock->owner);
+        if (pSVNStatus->lock->token)
+        {
+            entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->lock->token);
+            m_bHasLocks = true;
+        }
+        if (pSVNStatus->lock->comment)
+            entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->lock->comment);
+        if (pSVNStatus->lock->creation_date)
+            entry->lock_date = pSVNStatus->lock->creation_date;
     }
-    if (pSVNStatus->lock_comment)
-        entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->lock_comment);
-    if (pSVNStatus->lock_creation_date)
-        entry->lock_date = pSVNStatus->lock_creation_date;
 
     if (pSVNStatus->changelist)
     {
@@ -846,7 +849,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
                                           CStringA& strCurrentRepositoryRoot,
                                           CTSVNPathList& arExtPaths, SVNConfig * config, bool bAllDirect)
 {
-    svn_wc_status3_t * s;
+    svn_client_status_t * s;
 
     CTSVNPath lastexternalpath;
     CTSVNPath svnPath;
@@ -3157,7 +3160,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             if (!m_bIgnoreRemoveOnly)
                             {
                                 SVNStatus status;
-                                svn_wc_status3_t * s;
+                                svn_client_status_t * s;
                                 CTSVNPath svnPath;
                                 s = status.GetFirstFileStatus(parentFolder, svnPath, false, svn_depth_empty);
                                 if (s!=0)
@@ -3301,7 +3304,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         if (!m_bIgnoreRemoveOnly)
                         {
                             SVNStatus status;
-                            svn_wc_status3_t * s;
+                            svn_client_status_t * s;
                             CTSVNPath svnPath;
                             s = status.GetFirstFileStatus(parentfolder, svnPath, false, svn_depth_empty);
                             // first check if the folder isn't already present in the list

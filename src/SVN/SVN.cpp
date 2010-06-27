@@ -802,7 +802,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
         else
         {
             CTSVNPath statusPath;
-            svn_wc_status3_t * s;
+            svn_client_status_t * s;
             SVNStatus status;
             if ((s = status.GetFirstFileStatus(srcPath, statusPath, false, svn_depth_infinity, true, !!bIgnoreExternals))!=0)
             {
@@ -1578,6 +1578,8 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& end
 }
 
 svn_error_t* SVN::blameReceiver(void *baton, 
+                                svn_revnum_t /*start_revnum*/,
+                                svn_revnum_t /*end_revnum*/,
                                 apr_int64_t line_no, 
                                 svn_revnum_t revision, 
                                 apr_hash_t *rev_props, 
@@ -2302,7 +2304,7 @@ bool SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
         return false;
 
     SVNTRACE (
-        Err = svn_ra_get_locks(ra_session, &hash, "", localpool),
+        Err = svn_ra_get_locks2(ra_session, &hash, "", svn_depth_infinity, localpool),
         svnPath
     )
     if (Err != NULL)

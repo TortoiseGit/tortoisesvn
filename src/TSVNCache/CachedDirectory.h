@@ -48,8 +48,8 @@ public:
     /// Get the current full status of this folder
     svn_wc_status_kind GetCurrentFullStatus() {return m_currentFullStatus;}
 private:
-    static svn_error_t* GetStatusCallback(void *baton, const char *path, const svn_wc_status3_t *status, apr_pool_t *pool);
-    void AddEntry(const CTSVNPath& path, const svn_wc_status3_t* pSVNStatus, bool forceNormal);
+    static svn_error_t* GetStatusCallback(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
+    void AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool forceNormal);
     CString GetCacheKey(const CTSVNPath& path);
     CString GetFullPathString(const CString& cacheKey);
     CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);

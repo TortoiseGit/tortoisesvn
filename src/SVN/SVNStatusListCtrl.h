@@ -862,7 +862,7 @@ private:
 
     /// Build a FileEntry item and add it to the FileEntry array
     const FileEntry* AddNewFileEntry(
-        const svn_wc_status3_t* pSVNStatus,  // The return from the SVN GetStatus functions
+        const svn_client_status_t* pSVNStatus,  // The return from the SVN GetStatus functions
         const CTSVNPath& path,              // The path of the item we're adding
         const CTSVNPath& basePath,          // The base directory for this status build
         bool bDirectItem,                   // Was this item the first found by GetFirstFileStatus or by a subsequent GetNextFileStatus call

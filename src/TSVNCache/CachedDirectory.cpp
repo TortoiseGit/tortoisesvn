@@ -427,7 +427,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 }
 
 void
-CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status3_t* pSVNStatus, bool forceNormal)
+CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool forceNormal)
 {
     AutoLocker lock(m_critSec);
     svn_wc_status_kind textstatus = forceNormal ? svn_wc_status_normal : (pSVNStatus ? pSVNStatus->text_status : svn_wc_status_none);
@@ -495,17 +495,17 @@ CCachedDirectory::SvnUpdateMembersStatus()
     CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
     svn_error_t* pErr = svn_client_status5 (
         NULL,
+        CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool),
         m_directoryPath.GetSVNApiPath(subPool),
         &revision,
-        GetStatusCallback,
-        this,
         svn_depth_immediates,
         TRUE,       // get all
         FALSE,      // update
         TRUE,       // no ignores
         FALSE,      // ignore externals
         NULL,       // changelists
-        CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool),
+        GetStatusCallback,
+        this,
         subPool
         );
     {
@@ -549,7 +549,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
     return true;
 }
 
-svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path, const svn_wc_status3_t *status, apr_pool_t * /*pool*/)
+svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t * /*pool*/)
 {
     CCachedDirectory* pThis = (CCachedDirectory*)baton;
 
