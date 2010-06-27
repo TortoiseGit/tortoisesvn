@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-06-28 00:09-0000\n"
+"PO-Revision-Date: 2010-06-28 00:43-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -215,7 +215,7 @@ msgstr "Então durante muito tempo, procurámos na Internet por uma ferramenta G
 
 #. (para)
 msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff."
-msgstr "Uma vez que TortoiseSVN já utiliza a biblioteca do Subversion, que tem um bom motor de comparação de diferenças, tornou-se óbvia a escolha por esta biblioteca em detrimento da GNU diff."
+msgstr "Uma vez que TortoiseSVN já usa a biblioteca do Subversion, que tem um bom motor de comparação, tornou-se óbvia a escolha por esta biblioteca em detrimento da GNU diff."
 
 #. (title)
 msgid "Basic Concepts"
@@ -446,17 +446,17 @@ msgstr "<guibutton>Mudar Vista</guibutton> seleciona entre vista de um e dois pa
 #. (para)
 #. (para)
 msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr ""
+msgstr "<guilabel>Comparar espaços em branco</guilabel> mostra todas as alterações de indentação e espaços em branco no interior do texto, como linhas adicionadas/removidas (que é como o Subversion trata tais alterações)."
 
 #. (para)
 #. (para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
+msgstr "<guilabel>Ignorar alterações nos espaços em branco</guilabel> esconde as alterações que são apenas devidas à alteração na quantidade ou tipo de espaços em branco, e.g. alterar uma indentação ou alterar tabs para espaços. Adicionar espaços em branco onde não havia nenhum, ou remover completamente um espaço em branco é ainda mostrado como uma alteração."
 
 #. (para)
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Ignorar espaços em branco</guilabel> esconde todas a modificações aos espaços em branco."
+msgstr "<guilabel>Ignorar todos os espaços em branco</guilabel> esconde todas as alterações de apenas espaços em branco."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
@@ -609,23 +609,23 @@ msgstr "A Página Principal de Definições"
 
 #. (para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
-msgstr "A maioria das opçãoes são auto-explanatórias, mas algums pontos necessitam de clarificação."
+msgstr "A maioria das opções são auto-explicativas, no entanto em alguns pontos necessita de maior clarificação."
 
 #. (para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
-msgstr "<guilabel>Backup original file</guilabel> muda o nome do ficheiro original no WC para <literal>filename.bak</literal> antges de salvar a versão modificada."
+msgstr "<guilabel>Fazer cópia de segurança do arquivo original</guilabel> altera o nome do ficheiro original na CT para <literal>filename.bak</literal> antes de salvaguardar a versão modificada."
 
 #. (para)
 msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
-msgstr "<guilabel>Ignore line endings</guilabel> esconde as alterações que são devidas somente a diferenças de estilo de fim de linha."
+msgstr "<guilabel>Ignorar fins-de-linha</guilabel> esconde as alterações que são devidas somente a diferenças no estilo de fim de linha."
 
 #. (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
-msgstr ""
+msgstr "<guilabel>Ignorar alterações de maiúsculas/minúsculas</guilabel> esconde as alterações que são devidas apenas a mudanças no texto de minúsculas/minúsculas. Isso pode ser útil para aplicações, como por ex. em Visual Basic, que altera a altura das letras nas variáveis sem avisar."
 
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
-msgstr ""
+msgstr "<guilabel>Código de cor das alterações interiores às linhas</guilabel> usa o mesmo esquema de cores da barra de comparação de linha, para mostrar os detalhes das alterações no interior da linha, dentro dos painéis principais de visualização. As linhas que tenham sido muito modificadas não serão mostradas recorrendo a este método, já que os resultados seriam simplesmente confusos. Neste caso a linha será mostrada como tendo sido substituída (removida a linha antiga, adicionada linha nova)."
 
 #. (title)
 msgid "Colour Settings Page"
