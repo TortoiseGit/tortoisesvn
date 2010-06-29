@@ -96,6 +96,7 @@ Version 1.6.10
        dialog could lead to inconsistent working copies. (Stefan)
 - BUG: Adding a file in an unversioned folder from the commit
        dialog only marked the file as added. (Stefan)
+- BUG: The overlays didn't work on win2k up to XP SP2. (Stefan)
 
 Version 1.6.9
 - BUG: the menu icons on XP were not shown correctly. (Stefan)
