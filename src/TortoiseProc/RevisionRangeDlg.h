@@ -76,13 +76,18 @@ protected:
     virtual void OnOK();
     afx_msg void OnEnChangeRevnum();
     afx_msg void OnEnChangeRevnum2();
+    afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnDtnDatetimechangeDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
 
     DECLARE_MESSAGE_MAP()
 
 protected:
-    CString m_sStartRevision;
-    CString m_sEndRevision;
-    SVNRev  m_StartRev;
-    SVNRev  m_EndRev;
-    bool    m_bAllowWCRevs;
+    CString             m_sStartRevision;
+    CString             m_sEndRevision;
+    SVNRev              m_StartRev;
+    SVNRev              m_EndRev;
+    bool                m_bAllowWCRevs;
+
+    CDateTimeCtrl       m_DateFrom;
+    CDateTimeCtrl       m_DateTo;
 };
