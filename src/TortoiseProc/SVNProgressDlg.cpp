@@ -1463,13 +1463,13 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
 {
     SVNProgress * pProgressData = (SVNProgress *)lParam;
     CProgressCtrl * progControl = (CProgressCtrl *)GetDlgItem(IDC_PROGRESSBAR);
-    if ((pProgressData->total > 1000)&&(!progControl->IsWindowVisible()))
+    if ((pProgressData->total > 1000LL)&&(!progControl->IsWindowVisible()))
     {
         progControl->ShowWindow(SW_SHOW);
         if (m_pTaskbarList)
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
     }
-    if (((pProgressData->total < 0)&&(pProgressData->progress > 1000)&&(progControl->IsWindowVisible()))&&(m_itemCountTotal<0))
+    if (((pProgressData->total < 0LL)&&(pProgressData->progress > 1000LL)&&(progControl->IsWindowVisible()))&&(m_itemCountTotal<0LL))
     {
         progControl->ShowWindow(SW_HIDE);
         if (m_pTaskbarList)
@@ -1478,7 +1478,7 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
     if (!GetDlgItem(IDC_PROGRESSLABEL)->IsWindowVisible())
         GetDlgItem(IDC_PROGRESSLABEL)->ShowWindow(SW_SHOW);
     SetTimer(TRANSFERTIMER, 2000, NULL);
-    if ((pProgressData->total > 0)&&(pProgressData->progress > 1000))
+    if ((pProgressData->total > 0LL)&&(pProgressData->progress > 1000LL))
     {
         progControl->SetPos((int)pProgressData->progress);
         progControl->SetRange32(0, (int)pProgressData->total);
@@ -1489,9 +1489,9 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
         }
     }
     CString progText;
-    if (pProgressData->overall_total < 1024)
+    if (pProgressData->overall_total < 1024LL)
         m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED, pProgressData->overall_total);
-    else if (pProgressData->overall_total < 1200000)
+    else if (pProgressData->overall_total < 1200000LL)
         m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pProgressData->overall_total / 1024);
     else
         m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pProgressData->overall_total / 1024000.0));

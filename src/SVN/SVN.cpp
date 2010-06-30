@@ -2862,9 +2862,9 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
     // the progress information can be horribly wrong.
     // We cut the delta here to 8kb because SVN does not send/receive packets
     // bigger than this, and we can therefore reduce the error that way a little bit
-    if (delta > 8192)
+    if (delta > 8192LL)
     {
-        delta = delta % 8192;
+        delta = delta % 8192LL;
     }
 
     pSVN->progress_lastprogress = progress;
@@ -2874,7 +2874,7 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
     pSVN->progress_vector.push_back(delta);
     pSVN->progress_total += delta;
     //ATLTRACE("progress = %I64d, total = %I64d, delta = %I64d, overall total is : %I64d\n", progress, total, delta, pSVN->progress_total);
-    if ((pSVN->progress_lastTicks + 1000) < ticks)
+    if ((pSVN->progress_lastTicks + 1000UL) < ticks)
     {
         double divby = (double(ticks - pSVN->progress_lastTicks)/1000.0);
         if (divby < 0.0001)
@@ -2889,7 +2889,7 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
             average += *it;
         }
         average = apr_off_t(double(average) / divby);
-        if (average >= 0x100000000)
+        if (average >= 0x100000000LL)
         {
             // it seems that sometimes we get ridiculous numbers here.
             // Anyone *really* having more than 4GB/sec throughput?
@@ -2897,7 +2897,7 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
         }
 
         pSVN->m_SVNProgressMSG.BytesPerSecond = average;
-        if (average < 1024i64)
+        if (average < 1024LL)
             pSVN->m_SVNProgressMSG.SpeedString.Format(IDS_SVN_PROGRESS_BYTES_SEC, average);
         else
         {
@@ -2908,15 +2908,15 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
             SendMessage(pSVN->m_progressWnd, WM_SVNPROGRESS, 0, (LPARAM)&pSVN->m_SVNProgressMSG);
         else if (pSVN->m_pProgressDlg)
         {
-            if ((pSVN->m_bShowProgressBar && (progress > 1000) && (total > 0)))
+            if ((pSVN->m_bShowProgressBar && (progress > 1000LL) && (total > 0LL)))
                 pSVN->m_pProgressDlg->SetProgress64(progress, total);
 
             CString sTotal;
             CString temp;
-            if (pSVN->m_SVNProgressMSG.overall_total < 1024)
+            if (pSVN->m_SVNProgressMSG.overall_total < 1024LL)
                 sTotal.Format(IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total);
-            else if (pSVN->m_SVNProgressMSG.overall_total < 1200000)
-                sTotal.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total / 1024);
+            else if (pSVN->m_SVNProgressMSG.overall_total < 1200000LL)
+                sTotal.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total / 1024LL);
             else
                 sTotal.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pSVN->m_SVNProgressMSG.overall_total / 1024000.0));
             temp.FormatMessage(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)sTotal, (LPCTSTR)pSVN->m_SVNProgressMSG.SpeedString);
