@@ -9,9 +9,10 @@
 # $Rev$
 #
 # Authors:
-# Dongsheng Song <dongsheng.song@gmail.com>, 2006-2009
-# Xingyu.Wang <xingyu.wang@gmail.com>, 2006
+# Dongsheng Song <dongsheng.song@gmail.com>, 2006, 2007, 2008, 2009, 2010
 # Stan J <thinkernel@yeah.net>, 2006
+# Xingyu.Wang <xingyu.wang@gmail.com>, 2006
+# YANG Xudong <wyverald@gmail.com>, 2010
 #
 # Update to new pot:
 #    msgmerge --update TortoiseMerge_zh_CN.po TortoiseMerge.pot
@@ -19,8 +20,11 @@
 # Check translation:
 #    msgfmt --statistics -c TortoiseMerge_zh_CN.po
 #
-# Please format your translation before commit:
-#    msgmerge --width=80 -o TortoiseMerge_zh_CN_new.po TortoiseMerge_zh_CN.po TortoiseMerge.pot
+# Please format your translation before commit (poedit compatible):
+#    msgmerge --no-wrap -o TortoiseMerge_zh_CN_new.po TortoiseMerge_zh_CN.po TortoiseMerge.pot
+#    mv -f TortoiseMerge_zh_CN_new.po TortoiseMerge_zh_CN.po
+# or (vim compatible):
+#    msgmerge --no-wrap -o TortoiseMerge_zh_CN_new.po TortoiseMerge_zh_CN.po TortoiseMerge.pot
 #    mv -f TortoiseMerge_zh_CN_new.po TortoiseMerge_zh_CN.po
 #
 # Dictionary:
@@ -1329,13 +1333,12 @@ msgstr "这是一个本地 <quote>沙箱</quote>，你在受版本控制的文�
 #. (None)
 msgid "translator-credits"
 msgstr ""
-"YANG Xudong <wyverald@gmail.com>, 2010\n"
-"Dongsheng Song <dongsheng.song@gmail.com>, 2006-2008\n"
+"Dongsheng Song <dongsheng.song@gmail.com>, 2006, 2007, 2008, 2009, 2010\n"
+"Stan J <thinkernel@yeah.net>, 2006\n"
 "xingyu.wang <xingyu.wang@gmail.com>, 2006\n"
-"Stan J <thinkernel@yeah.net>, 2006"
+"YANG Xudong <wyverald@gmail.com>, 2010"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
 msgstr "译者"
-

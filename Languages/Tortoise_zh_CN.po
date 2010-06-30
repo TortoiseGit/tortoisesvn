@@ -27,6 +27,9 @@
 #    msgmerge --no-wrap -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
 #    mv -f Tortoise_zh_CN_new.po Tortoise_zh_CN.po
 #
+# We have a nice consistency checker at http://tsvn.e-posta.sk/
+# which will help you to find errors in the translation.
+#
 # Dictionary:
 # add               增加
 # age               年代
@@ -8493,7 +8496,7 @@ msgstr "标准"
 
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
-msgstr "开始提交钩子"
+msgstr "启动提交钩子"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -8501,7 +8504,7 @@ msgstr "起始版本"
 
 #. Resource IDs: (569)
 msgid "Start Update Hook"
-msgstr "开始更新钩子"
+msgstr "启动更新钩子"
 
 #. Resource IDs: (16514)
 msgid "Static"
