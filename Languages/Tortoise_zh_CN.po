@@ -1,5 +1,5 @@
 #
-# Chinese (traditional) translation for TortoiseSVN
+# Chinese (simplified) translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -8,17 +8,65 @@
 # $Date$
 # $Rev$
 #
+# Authors:
+# Dongsheng Song <dongsheng.song@gmail.com>, 2006, 2007, 2008, 2009, 2010
+# Xingyu.Wang <xingyu.wang@gmail.com>, 2005, 2006, 2009, 2010
+# Garfield Yao <field977@gmail.com>, 2009
+# Wang Yanning <wangyn@gmail.com>, 2007
+# NetCobra <netcobra@gmail.com>, 2004, 2005, 2006
+# Tan Ruyan <try876@gmail.com>, 2006
+# Cecil Sheng <zcecil@csie.org>, 2004, 2005
+#
+# Update to new pot:
+#    msgmerge --update Tortoise_zh_CN.po Tortoise.pot
+#
+# Check translation:
+#    msgfmt --statistics -c --check-accelerators Tortoise_zh_CN.po
+#
+# Please format your translation before commit:
+#    msgmerge --no-wrap -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
+#    mv -f Tortoise_zh_CN_new.po Tortoise_zh_CN.po
+#
+# Dictionary:
+# add               增加
+# age               年代
+# BASE revision     基础版本
+# blame             追溯
+# branch            分支
+# checkout          检出
+# default           默认
+# HEAD revision     最新版本
+# lock              锁定
+# locking           锁定
+# log               日志
+# message           信息
+# overlay           重载
+# owner             所有者
+# remove            删除
+# rename            改名
+# repository        版本库
+# revert            恢复
+# revision          版本
+# Subversion book   Subversion 手册
+# undo              撤销
+# unified diff      标准差异
+# unversioned       未版本控制
+# versioned         已版本控制
+# working copy      工作副本
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN\n"
+"Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-04-27 00:30+0800\n"
-"Last-Translator: xingyu.wang <xingyu.wang@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2010-06-30 14:30+0800\n"
+"Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
+"Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
 
 #. Resource IDs: (10, 126)
 msgid " "
@@ -225,6 +273,11 @@ msgstr "%s，该目录已经在工作副本中被阻碍。"
 
 #. Resource IDs: (609)
 #, c-format
+msgid "%s, but the directory was replaced"
+msgstr "%s，但是该目录已经被替换"
+
+#. Resource IDs: (609)
+#, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr "%s，该文件已经在本地存在，未版本控制。"
 
@@ -252,6 +305,20 @@ msgstr "%s，该文件已经在本地被删除、移动或改名。"
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
 msgstr "%s，该文件已经在工作副本中被阻碍。"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the file was replaced"
+msgstr "%s，但是该文件已经被替换"
+
+#. Resource IDs: (376)
+#, c-format
+msgid ""
+"%s\n"
+"%ld failed hunk(s)"
+msgstr ""
+"%s\n"
+"%ld 个失败的块"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -438,7 +505,7 @@ msgstr "浏览(&B)..."
 
 #. Resource IDs: (32850)
 msgid "&Bugtraq (Issue tracker integration)"
-msgstr "配置问题跟踪器"
+msgstr "配置问题跟踪器(&B)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -500,7 +567,7 @@ msgstr "比较 URL(&C)"
 msgid "&Compare revisions"
 msgstr "比较版本差异(&C)"
 
-#. Resource IDs: (1019)
+#. Resource IDs: (1019, 1390)
 msgid "&Compare whitespaces"
 msgstr "比较空白字符(&C)"
 
@@ -536,7 +603,7 @@ msgstr "复制到剪贴板(&C)"
 msgid "&Copy to..."
 msgstr "复制到(&C)..."
 
-#. Resource IDs: (1097)
+#. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "定制(&C)"
 
@@ -700,7 +767,7 @@ msgstr "绿色(&G):"
 msgid "&Group by branch"
 msgstr "按照分支分组(&G)"
 
-#. Resource IDs: (1032, 1115)
+#. Resource IDs: (1115)
 msgid "&HEAD Revision"
 msgstr "最新版本(&H)"
 
@@ -893,7 +960,7 @@ msgstr "网络磁盘(&N)"
 msgid "&New "
 msgstr "新建(&N)"
 
-#. Resource IDs: (1310, 16509, 16615)
+#. Resource IDs: (1310, 1542, 16509, 16615)
 msgid "&New..."
 msgstr "新建(&N)..."
 
@@ -1062,6 +1129,10 @@ msgstr "使用本地属性解决(&R)"
 msgid "&Restore defaults"
 msgstr "恢复默认值(&R)"
 
+#. Resource IDs: (1542)
+msgid "&Retry without hooks"
+msgstr "无钩重试(&R)"
+
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
 msgstr "复原这些版本作出的修改(&R)"
@@ -1198,11 +1269,11 @@ msgstr "停止自动完成分析的超时时间(秒)(&T)"
 msgid "&To Revision"
 msgstr "至版本(&T)"
 
-#. Resource IDs: (1384, 65535)
+#. Resource IDs: (1305, 1384)
 msgid "&To URL:"
 msgstr "至URL(&T): "
 
-#. Resource IDs: (1384)
+#. Resource IDs: (1305, 1384)
 msgid "&To path:"
 msgstr "至路径(&T): "
 
@@ -1250,7 +1321,7 @@ msgstr "双页(&T)"
 msgid "&URL of repository:"
 msgstr "版本库 &URL: "
 
-#. Resource IDs: (1076)
+#. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
 msgstr "&URL: "
 
@@ -1908,7 +1979,11 @@ msgstr ""
 "应用到“Power User”的默认配置。它会提供较好的体验。\n"
 "你应该知道上面全部配置的含义。"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (313)
+msgid "Apply Patch..."
+msgstr "应用补丁..."
+
+#. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "应用标准差异文件"
 
@@ -1999,7 +2074,7 @@ msgstr "作者"
 msgid "Authors case sensitive"
 msgstr "作者区分大小写"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1444)
 msgid "Authors:"
 msgstr "作者: "
 
@@ -2075,7 +2150,7 @@ msgstr ""
 "位图\n"
 "一种位图"
 
-#. Resource IDs: (114, 162)
+#. Resource IDs: (162)
 msgid "Blame"
 msgstr "追溯"
 
@@ -2409,7 +2484,7 @@ msgstr "检查本地副本的修改"
 msgid "Check:"
 msgstr "选中:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "正在检查是否有更新版本的 TortoiseSVN..."
 
@@ -3048,6 +3123,16 @@ msgstr "%1 是当前目录，无法删除。"
 msgid "Could not remove %s from the ignore list"
 msgstr "无法从忽略列表删除 %s！"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace '%s' because"
+msgstr "无法替换 “%s”，因为"
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not replace property '%1!s!' on '%2!s!' because"
+msgstr "无法替换属性“%1!s!”于“%2!s!”，因为"
+
 #. Resource IDs: (81)
 #, c-format
 msgid ""
@@ -3070,6 +3155,15 @@ msgstr ""
 #, c-format
 msgid "Could not save the file %s!"
 msgstr "无法保存文件 %s！"
+
+#. Resource IDs: (70)
+#, c-format
+msgid ""
+"Could not start diff viewer!\n"
+"%s"
+msgstr ""
+"不能启动差异查看器！\n"
+"%s"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3112,6 +3206,15 @@ msgstr "无法启动打印任务。"
 #, c-format
 msgid ""
 "Could not start text viewer!\n"
+"%s"
+msgstr ""
+"不能启动文本查看器！\n"
+"%s"
+
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
@@ -3122,6 +3225,10 @@ msgstr ""
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "无法启动线程！"
+
+#. Resource IDs: (1542)
+msgid "Create &Library"
+msgstr "创建库(&L)"
 
 #. Resource IDs: (13)
 msgid "Create &patch..."
@@ -3167,6 +3274,10 @@ msgstr "远程创建文件夹完成"
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "在版本库中快速创建副本用作分支或标记"
+
+#. Resource IDs: (199)
+msgid "Creates a library folder with special settings for Subversion working copies"
+msgstr "使用指定的 Subversion 工作副本设置,创建库目录"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3257,7 +3368,7 @@ msgstr "默认的日志信息数目(&N)"
 msgid "Default Menu"
 msgstr "默认菜单"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1516)
 msgid "Default URL:"
 msgstr "默认 URL: "
 
@@ -3265,7 +3376,7 @@ msgstr "默认 URL: "
 msgid "Default application menu. Appears when no documents are open."
 msgstr "默认应用程序菜单。在没有打开文档的时候显示。"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "默认路径: "
 
@@ -3356,6 +3467,10 @@ msgid "Deselect changelist"
 msgstr "取消选定修改列表"
 
 #. Resource IDs: (1547)
+msgid "Destinatio&n URL:"
+msgstr "目标 URL(&N): "
+
+#. Resource IDs: (1547)
 msgid "Destination URL:"
 msgstr "目标 URL: "
 
@@ -3383,7 +3498,7 @@ msgstr "窗口大小及位置"
 msgid "Diff file:"
 msgstr "补丁文件: "
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1533)
 msgid "Diff options"
 msgstr "差异选项"
 
@@ -3604,7 +3719,7 @@ msgstr "不可能删除 %1"
 msgid "E&xact copy sources"
 msgstr "解开复制源(&X)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1518)
 msgid "E&xclude paths:"
 msgstr "排除路径(&X): "
 
@@ -3709,6 +3824,10 @@ msgstr "编辑选择的属性值"
 msgid "Either the name or IP of the proxy server"
 msgstr "输入代理服务器的 IP 地址或名称"
 
+#. Resource IDs: (265)
+msgid "Eliding mergeinfo"
+msgstr "省略合并信息"
+
 #. Resource IDs: (1057)
 msgid ""
 "Ellipse Tools\n"
@@ -3774,7 +3893,7 @@ msgstr "读取 %1 时意外出错。"
 msgid "Encountered an unexpected error while writing %1."
 msgstr "写入 %1 时意外出错。"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "结束版本"
 
@@ -4001,7 +4120,7 @@ msgstr "导出属性集合到文件"
 msgid "Extension"
 msgstr "扩展名"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
 msgstr "根据扩展名/文件类型指定程序"
 
@@ -4461,7 +4580,7 @@ msgstr "正在获取需要的信息..."
 msgid "Getting unified diff"
 msgstr "正在获取标准差异"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
 msgstr "全局忽略样式(&P): "
 
@@ -4639,7 +4758,7 @@ msgstr "忽略所有空白字符(&G)"
 msgid "I&gnored"
 msgstr "忽略(&G)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1519)
 msgid "I&nclude paths:"
 msgstr "包含路径(&I): "
 
@@ -4974,7 +5093,7 @@ msgstr "忽略 CRLF(&E)"
 msgid "Ignore line &endings (recommended)"
 msgstr "忽略行尾（建议）(&E)"
 
-#. Resource IDs: (1126, 1127)
+#. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "忽略 CRLF"
 
@@ -5040,7 +5159,7 @@ msgstr "导入 %ld 个文件"
 msgid "Import %s to %s%s"
 msgstr "导入%s 到 %s%s"
 
-#. Resource IDs: (1056)
+#. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "导入信息(&M)"
 
@@ -5083,6 +5202,10 @@ msgstr ""
 #, c-format
 msgid "Import to %1"
 msgstr "导入到 %1"
+
+#. Resource IDs: (80)
+msgid "Imported folder structure"
+msgstr "导入的目录结构"
 
 #. Resource IDs: (120)
 #, c-format
@@ -5344,7 +5467,7 @@ msgstr "限制(&I):"
 
 #. Resource IDs: (1599)
 msgid "L&ocal path:"
-msgstr "本地路径: "
+msgstr "本地路径(&O): "
 
 #. Resource IDs: (32855)
 msgid "Lan&guages"
@@ -5667,11 +5790,11 @@ msgstr "菜单栏"
 msgid "Menu s&hadows"
 msgstr "阴影菜单(&H)"
 
-#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 278, 65535)
 msgid "Merge"
 msgstr "合并"
 
-#. Resource IDs: (1488)
+#. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "合并深度(&D):"
 
@@ -5745,7 +5868,7 @@ msgstr "将分支合并回主干"
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
 msgstr "使用合并跟踪信息将所有丢失的版本合并到工作副本"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1073)
 msgid "Merging"
 msgstr "正在合并"
 
@@ -6350,6 +6473,10 @@ msgid ""
 "are allowed!"
 msgstr "仅可以输入数字（可以用逗号分隔）！"
 
+#. Resource IDs: (626)
+msgid "Only properties changed"
+msgstr "仅属性已改变"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "仅此项"
@@ -6508,13 +6635,21 @@ msgstr "粘贴文件名列表"
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
 msgstr "从剪贴板粘帖 svn 路径，它是移动(剪切)或复制操作的结果"
 
-#. Resource IDs: (376)
-msgid "Patch all"
-msgstr "全部补丁"
+#. Resource IDs: (1076)
+msgid "Patch &all items"
+msgstr "修补全部项目(&A)"
+
+#. Resource IDs: (1075)
+msgid "Patch &selected item"
+msgstr "修补选定项目(&S)"
 
 #. Resource IDs: (376)
-msgid "Patch selected"
-msgstr "选定的补丁"
+msgid "Patch all files"
+msgstr "修补全部文件"
+
+#. Resource IDs: (376)
+msgid "Patch selected files"
+msgstr "修补选定文件"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
@@ -6942,6 +7077,30 @@ msgstr "最近修改的行"
 msgid "Record Only"
 msgstr "仅记录"
 
+#. Resource IDs: (265)
+msgid "Recording mergeinfo for merge between URLs"
+msgstr "记录 URL 之间的合并信息"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
+msgstr "记录合并 r%1!ld! 的信息，经由 r%2!ld!"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for merge of r%ld"
+msgstr "记录合并 r%ld 的信息"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
+msgstr "记录反向合并 r%1!ld! 的信息，经由 r%2!ld!"
+
+#. Resource IDs: (265)
+#, c-format
+msgid "Recording mergeinfo for reverse merge of r%ld"
+msgstr "记录反向合并 r%ld 的信息"
+
 #. Resource IDs: (3887)
 msgid ""
 "Recover the auto-saved documents\n"
@@ -7037,9 +7196,14 @@ msgstr "复兴合并 %s 到 %s"
 msgid "Reject"
 msgstr "拒绝"
 
+#. Resource IDs: (7)
+#, c-format
+msgid "Rejected patch hunks for '%s'"
+msgstr "对于“%s”拒绝的补丁块"
+
 #. Resource IDs: (16)
-msgid "Release loc&k"
-msgstr "解除锁定(&K)"
+msgid "Release loc&k..."
+msgstr "解除锁定(&K)..."
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
@@ -7407,7 +7571,7 @@ msgstr "版本分支图(&G)"
 msgid "Revision / Author:"
 msgstr "版本/作者: "
 
-#. Resource IDs: (182)
+#. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr "版本分支图"
 
@@ -7774,10 +7938,6 @@ msgstr "选择修改列表"
 msgid "Select diff application"
 msgstr "选择比较差异工具"
 
-#. Resource IDs: (313)
-msgid "Select diff file..."
-msgstr "选择补丁文件..."
-
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
 msgstr "选择要取出到的目录"
@@ -7821,6 +7981,10 @@ msgstr "选择合并工具"
 #. Resource IDs: (119)
 msgid "Select merge target"
 msgstr "选择合并目标"
+
+#. Resource IDs: (13)
+msgid "Select patch file..."
+msgstr "选择补丁文件..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
@@ -8079,7 +8243,7 @@ msgstr "从不同的版本库显示外部引用(&D)"
 msgid "Show f&ull menus after a short delay"
 msgstr "在短暂延时后显示全部菜单(&U)"
 
-#. Resource IDs: (1037)
+#. Resource IDs: (1034, 1037)
 msgid "Show l&og"
 msgstr "显示日志(&O)"
 
@@ -8604,6 +8768,10 @@ msgstr "Tab 宽度: "
 msgid "Tag nodes"
 msgstr "标签节点"
 
+#. Resource IDs: (281)
+msgid "Tagged"
+msgstr "已加标签"
+
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -8808,6 +8976,16 @@ msgstr "尝试修改文件“%s”的最后一次合并操作"
 
 #. Resource IDs: (608)
 #, c-format
+msgid "The last merge operation tried to replace the directory '%s'"
+msgstr "最后一次合并操作试图替换目录“%s”"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to replace the file '%s'"
+msgstr "最后一次合并操作试图替换文件“%s”"
+
+#. Resource IDs: (608)
+#, c-format
 msgid "The last switch operation tried to add the directory '%s'"
 msgstr "尝试增加目录“%s”的最后一次切换操作"
 
@@ -8835,6 +9013,16 @@ msgstr "尝试修改目录“%s”的最后一次切换操作"
 #, c-format
 msgid "The last switch operation tried to modify the file '%s'"
 msgstr "尝试修改文件“%s”的最后一次切换操作"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the directory '%s'"
+msgstr "最后一次切换操作试图替换目录“%s”"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to replace the file '%s'"
+msgstr "最后一次切换操作试图替换文件“%s”"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8865,6 +9053,16 @@ msgstr "尝试修改目录“%s”的最后一次更新操作"
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
 msgstr "尝试修改文件“%s”的最后一次更新操作"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the directory '%s'"
+msgstr "最后一次更新操作试图替换目录“%s”"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last update operation tried to replace the file '%s'"
+msgstr "最后一次更新操作试图替换文件“%s”"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9014,8 +9212,12 @@ msgstr ""
 "请重新输入一个合法的真正表达式。"
 
 #. Resource IDs: (80)
-msgid "The repository was successfully created."
-msgstr "版本库创建成功。"
+msgid ""
+"The repository was successfully created.\n"
+"Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+"已经成功创建版本库。\n"
+"要创建默认目录结构吗(trunk/branches/tags)?"
 
 #. Resource IDs: (78)
 msgid ""
@@ -9216,11 +9418,11 @@ msgstr "这个方法适用于你已经在分支(或主干)提交了版本，要�
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
 msgstr "此方法适用于合并两个分支的差异到工作副本"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1531)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "本产品包含由 CollabNet(http://www.Collab.Net/) 所开发的软件"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1532)
 msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
 msgstr "本产品包含了由 OpenSSL项目开发的 OpenSSL Toolkit(http://www.openssl.org/)"
 
@@ -9689,6 +9891,10 @@ msgstr "未版本控制"
 msgid "Unversioned files mark parent folder as modified"
 msgstr "如果文件夹包含无版本控制的文件，则标识为已修改"
 
+#. Resource IDs: (265)
+msgid "Unversioned obstruction"
+msgstr "未版本控制障碍"
+
 #. Resource IDs: (286)
 #, c-format
 msgid "Unversioning %1!s!"
@@ -9746,6 +9952,11 @@ msgstr "正在更新日志缓存"
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
 msgstr "升级工作副本"
+
+#. Resource IDs: (99)
+#, c-format
+msgid "Upgrading \"%1!s!\""
+msgstr "正在升级 \"%1!s!\""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -10105,7 +10316,7 @@ msgstr "Windows &2000"
 msgid "With URL:"
 msgstr "URL: "
 
-#. Resource IDs: (158, 65535)
+#. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
 msgstr "工作副本"
 
@@ -11067,10 +11278,6 @@ msgstr "至 %s"
 msgid "tree conflict"
 msgstr "树冲突"
 
-#. Resource IDs: (65535)
-msgid "tree conflict:"
-msgstr "树冲突: "
-
 #. Resource IDs: (578)
 msgid ""
 "tsvn:autoprops\r\n"
@@ -11242,47 +11449,3 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "&Sat:"
-#~ msgstr "星期六(&S):"
-
-#~ msgid "&Save..."
-#~ msgstr "保存(&S)..."
-
-#~ msgid "Bug-ID / &Issue-Nr:"
-#~ msgstr "Bug编号/问题编号(&I): "
-
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "对忽略的项目覆盖显示"
-
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "对未版本控制的项目覆盖显示"
-
-#~ msgid "&To URL: "
-#~ msgstr "至URL(&T): "
-
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "作者:                                    Stefan Kueng"
-
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "每周都自动检查新版本(&N)"
-
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "如果启用，TortoiseSVN 每周会检查一次最新版本"
-
-#~ msgid "Edit conflict"
-#~ msgstr "编辑冲突"
-
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "隐藏无关的修改路径(&I)"
-
-#~ msgid "From URL:"
-#~ msgstr "从 URL: "
-
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "检出的URL是一个文件，\n"
-#~ "但是工作副本是一个已有的目录。"
