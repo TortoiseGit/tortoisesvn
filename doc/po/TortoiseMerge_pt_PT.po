@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-06-28 00:43-0000\n"
+"PO-Revision-Date: 2010-07-01 06:30-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -637,7 +637,7 @@ msgstr "A Página de Definição de Cores "
 
 #. (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
-msgstr "Este dialog permite-te slecionar a côr de fundo utilizada para realçar as alterações efectudas nas linhas."
+msgstr "Esta caixa de diálogo permite-te seleccionar a cor de fundo usada para realçar as diferentes alterações de linhas."
 
 #. (term)
 msgid "Normal"
@@ -645,15 +645,15 @@ msgstr "Normal"
 
 #. (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
-msgstr "Todas as linhas que não foram modificadas, ou onde a modificações estão escondidas."
+msgstr "Todas as linhas que estão inalteradas, ou onde as alterações estão escondidas."
 
 #. (term)
 msgid "Added"
-msgstr "Acrescentado"
+msgstr "Adicionado"
 
 #. (listitem)
 msgid "Lines which have been added."
-msgstr "Linhas acrescentadas."
+msgstr "Linhas que foram adicionadas."
 
 #. (term)
 msgid "Removed"
@@ -661,11 +661,11 @@ msgstr "Removido"
 
 #. (listitem)
 msgid "Lines which have been deleted."
-msgstr "Linhas removidas."
+msgstr "Linhas que foram removidas."
 
 #. (term)
 msgid "Modified"
-msgstr "Modificado"
+msgstr "Alterado"
 
 #. (emphasis)
 msgid "unchanged"
@@ -677,11 +677,11 @@ msgstr "Codificar a cor a alterações inseridas"
 
 #. (listitem)
 msgid "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
-msgstr ""
+msgstr "Linhas que têm alterações relativamente pequenas e que são mostradas utilizando a comparação em linha. Esta cor é usada para a parcela <placeholder-1/> do conteúdo da linha. Parcelas alteradas serão mostradas recorrendo às cores adicionado em linha e removido, como descrito em baixo. Se não está activo o <placeholder-2/>, esta cor não será usada e as linhas alteradas serão sempre mostradas como substituições."
 
 #. (term)
 msgid "Conflicted"
-msgstr "Conflito"
+msgstr "Conflituante"
 
 #. (listitem)
 msgid "Where the same line has been changed in both files."
@@ -693,7 +693,7 @@ msgstr "Conflito resolvido"
 
 #. (listitem)
 msgid "Where the same line has been changed in both files, and you have now selected which version should be used."
-msgstr "Onde a mesma linha foi alterada em ambos os ficheiros e selecionou a versão a utilizar."
+msgstr "Onde a mesma linha foi alterada em ambos os ficheiros e então seleccionaste qual a versão que deverá ser usada."
 
 #. (term)
 msgid "Empty"
@@ -701,15 +701,15 @@ msgstr "Vazio"
 
 #. (listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr "Onde foram addicionadas linhas no painel adjacente sem que a linha exista neste painel."
+msgstr "Onde foram adicionadas linhas no painel adjacente, sem que tal linha exista neste painel."
 
 #. (term)
 msgid "Inline added text"
-msgstr "Texto inserido"
+msgstr "Texto adicionado"
 
 #. (listitem)
 msgid "When inline diffs are shown, added text is shown in this colour."
-msgstr "O texto addicionado é marcado com esta cor quando são indicadas as comparações em linha."
+msgstr "O texto adicionado é mostrado com esta cor quando são visualizadas comparações em linha."
 
 #. (term)
 msgid "Inline removed text"
@@ -717,15 +717,15 @@ msgstr "Texto removido"
 
 #. (listitem)
 msgid "When inline diffs are shown, deleted text is shown in this colour."
-msgstr "O texto removido é marcado com esta cor quando são indicadas as comparações em linha."
+msgstr "O texto removido é mostrado com esta cor quando são visualizadas comparações em linha."
 
 #. (term)
 msgid "Misc whitespaces"
-msgstr "Espaços em branco diversos"
+msgstr "Miscelânea: espaços em branco"
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
-msgstr "Os caratéres utilizados para indicar Espaço Em Branco têm uma cor diferente do texto normal."
+msgstr "Os caracteres usados para indicar Espaço-em-Branco são mostrados numa cor diferente do texto normal."
 
 #. (title)
 msgid "keyboard shortcuts"
