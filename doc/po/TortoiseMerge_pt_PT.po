@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-07-01 06:44-0000\n"
+"PO-Revision-Date: 2010-07-01 07:52-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -853,15 +853,15 @@ msgstr "Deslocar o écran para a esquerda/direita"
 
 #. (title)
 msgid "Automating TortoiseMerge"
-msgstr "A automatizar TortoiseMerge"
+msgstr "Automatizar o TortoiseMerge"
 
 #. (para)
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
-msgstr ""
+msgstr "O TortoiseMerge pode ser arrancado com parâmetros na linha de comandos para evitar ter que passar pela caixa de diálogo <guilabel>Abrir</guilabel> e seleccionares os ficheiros por ti. Isto é também útil se queres utilizar o TortoiseMerge a partir de outra aplicação."
 
 #. (title)
 msgid "TortoiseMerge Command Line Switches"
-msgstr "Opções da linha de comando do TortoiseMerge"
+msgstr "Opções de linha de comandos do TortoiseMerge"
 
 #. (primary)
 msgid "automation"
@@ -877,6 +877,9 @@ msgid ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
+"A maioria das opções requer informação adicional, como um caminho ou outra qualquer string. Noutros casos, anexa um ':' à opção e coloca a seguir uma string/caminho. Exemplo: <screen>\n"
+"/base:\"c:\\folder\\my base file.txt\"\n"
+"</screen>"
 
 #. (title)
 msgid "List of available command line options"
@@ -892,7 +895,7 @@ msgstr "Descrição"
 
 #. (entry)
 msgid "Shows a dialog box with the most important command line switches."
-msgstr "Mostra um diálogo com as opções mais importantes da linha de comando."
+msgstr "Mostra uma caixa de diálogo com as mais importantes opções de linha de comandos."
 
 #. (option)
 msgid "?"
@@ -908,11 +911,11 @@ msgstr "base"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
-msgstr ""
+msgstr "Especifica o ficheiro <placeholder-1/> usado na comparação de três caminhos. Este é o ascendente comum dos ficheiros a comparar, embora não seja mostrado numa janela separada. Para a comparação de dois caminhos, este é o ficheiro da esquerda."
 
 #. (entry)
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr ""
+msgstr "O nome do ficheiro base. Este é visualizado no título da vista em vez do caminho para o ficheiro. Para comparações de três caminhos, é mostrado numa etiqueta de dica na vista do título."
 
 #. (emphasis)
 msgid "theirs"
