@@ -105,15 +105,17 @@ def find_IDDs(rcfile, xmldir):
     # Report for this file
     i = set(IDDs.keys())
     h = set(HIDDs.keys())
-    print
-    print "# IDDs not found in XML files for %s" % rcfile
+    print "# IDD/HIDD cross check report for %s" % rcfile
+    print "# XML source tree in %s" % xmldir
+    print "# IDDs found in resource file and missing in XML files"
     for idds in sorted(i - h):
         print "%s: IDD_%s" % (IDDs[idds][0], idds)
 
     print
-    print "# HIDDs not found in %s" % xmldir
+    print "# HIDDs found in XML files but not defined in resource file"
     for hidds in sorted(h - i):
         print "%s: HIDD_%s" % (HIDDs[hidds][0], hidds)
+    print
 
 
 def find_HIDDs(xmldir):
