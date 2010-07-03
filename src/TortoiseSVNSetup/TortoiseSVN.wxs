@@ -15,7 +15,7 @@
     Description="$(var.PackageDescription)"
     Comments="$(var.PackageComments)"
     Manufacturer="$(var.PackageManufacturer)"
-    InstallerVersion="300"
+    InstallerVersion="301"
     Platform="$(var.PackagePlatforms)"
     Languages="1033"
     Compressed="yes"
@@ -35,24 +35,9 @@
     <Icon Id="TSVNIcon" SourceFile="..\Resources\Tortoise.ico" />
 
     <!-- Launch Condition related properties ................................................................................. -->
-    <Property Id="VERSIONIE">
-      <RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="raw" Win64="$(var.Win64YesNo)"/>
-    </Property>
-    <Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
-
-    <?if $(env.Platform) = "win32" ?>
-    <Property Id="GDIPLUSINSTALLED">
-      <DirectorySearch Id="WND" Path="[SystemFolder]">
-        <FileSearch Name="GDIPlus.dll" />
-      </DirectorySearch>
-    </Property>
-    <Condition Message="You must have GDIPlus installed. Please download it from Microsoft and copy the GDIPlus.dll into your Windows\System32 folder."><![CDATA[((GDIPLUSINSTALLED<>"") OR (VersionNT <> 500))]]></Condition>
-    <?endif ?>
-
     <Property Id="ALLUSERS">1</Property>
 
-    <Condition Message="[ProductName] requires a Windows NT based OS (Windows XP or later, specifically).">VersionNT</Condition>
-    <Condition Message="[ProductName] requires Windows XP or later."><![CDATA[VersionNT >= 501]]></Condition>
+    <Condition Message="[ProductName] requires Windows XP SP3 or later."><![CDATA[(VersionNT > 501) OR ((VersionNT = 501) AND (ServicePackLevel >= 3))]]></Condition>
 
     <!-- Show/Don't-show changelog related properties and custom actions ..................................................... -->
     <Property Id="TEXTEDITOR">
