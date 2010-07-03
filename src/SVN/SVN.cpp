@@ -147,11 +147,10 @@ SVN::SVN(void) : m_progressWnd(0)
 
 SVN::~SVN(void)
 {
+    ResetLogCachePool();
+
     svn_error_clear(Err);
     svn_pool_destroy (parentpool);
-
-    if (logCachePool.get() != NULL)
-        logCachePool->Flush();
 }
 
 CString SVN::CheckConfigFile()
@@ -1381,7 +1380,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
 
         // select query and run it
 
-        ILogQuery* query = !logCachePool->IsEnabled() || refresh
+        ILogQuery* query = !GetLogCachePool()->IsEnabled() || refresh
                          ? tempQuery.get()
                          : cacheQuery.get();
 
@@ -1414,7 +1413,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
 
         // merge temp results with permanent cache, if applicable
 
-        if (refresh && logCachePool->IsEnabled())
+        if (refresh && GetLogCachePool()->IsEnabled())
         {
             // handle cache refresh results
 
@@ -1437,7 +1436,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
         // return the cache that contains the log info
 
         return std::auto_ptr<const CCacheLogQuery>
-            (logCachePool->IsEnabled()
+            (GetLogCachePool()->IsEnabled()
                 ? cacheQuery.release()
                 : tempQuery.release() );
     }
@@ -2070,7 +2069,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, CString& sUUID)
 {
     if (useLogCache && GetLogCachePool()->IsEnabled())
-        return logCachePool->GetRepositoryInfo().GetRepositoryRootAndUUID (path, sUUID);
+        return GetLogCachePool()->GetRepositoryInfo().GetRepositoryRootAndUUID (path, sUUID);
 
     const char * returl;
     const char * uuid;
@@ -2685,24 +2684,49 @@ CString SVN::GetOptionsString(bool bIgnoreEOL, svn_diff_file_ignore_space_t spac
 }
 
 /**
+ * Note that this is TSVN's global CLogCachePool creation / 
+ * destruction mutex. Don't access logCachePool or create a
+ * CLogCachePool directly anywhere else in TSVN.
+ */
+async::CCriticalSection& SVN::GetLogCachePoolMutex()
+{
+    static async::CCriticalSection mutex;
+    return mutex;
+}
+
+/**
  * Returns the log cache pool singleton. You will need that to
  * create \c CCacheLogQuery instances.
  */
 LogCache::CLogCachePool* SVN::GetLogCachePool()
 {
+    // modifying the log cache is not thread safe.
+    // In particular, we must synchronize the loading & file check.
+
+    async::CCriticalSectionLock lock (GetLogCachePoolMutex());
+
     if (logCachePool.get() == NULL)
     {
-        // modifying the log cache is not thread safe.
-        // In particular, we must synchronize the loading & file check.
-
-        static async::CCriticalSection mutex;
-        async::CCriticalSectionLock lock (mutex);
-
-        CString cacheFolder = CPathUtils::GetAppDataDirectory()+_T("logcache\\");
+        CString cacheFolder = CPathUtils::GetAppDataDirectory() + _T("logcache\\");
         logCachePool.reset (new LogCache::CLogCachePool (*this, cacheFolder));
     }
 
     return logCachePool.get();
+}
+
+/**
+ * Close the logCachePool.
+ */
+void SVN::ResetLogCachePool()
+{
+    // this should be called by the ~SVN only but we make sure that
+    // (illegal) concurrent access won't see zombi objects.
+
+    async::CCriticalSectionLock lock (GetLogCachePoolMutex());
+    if (logCachePool.get() != NULL)
+        logCachePool->Flush();
+
+    logCachePool.reset();
 }
 
 /**

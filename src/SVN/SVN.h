@@ -34,6 +34,11 @@ class CProgressDlg;
 class CTSVNPath;
 class CTSVNPathList;
 
+namespace async
+{
+    class CCriticalSection;
+}
+
 svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
                                            const char *file, int line,
                                            const char *expr);
@@ -946,6 +951,11 @@ protected:
                     , const StandardRevProps* stdRevProps
                     , UserRevPropArray* userRevProps
                     , bool mergesFollow);
+
+    // logCachePool management utilities
+
+    async::CCriticalSection& GetLogCachePoolMutex();
+    void ResetLogCachePool();
 
     static void progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t *pool);
     SVNProgress     m_SVNProgressMSG;
