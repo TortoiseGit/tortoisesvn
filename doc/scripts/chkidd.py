@@ -84,11 +84,13 @@ class XMLFileWalker(fileutil.FileWalker):
                 HIDDs.setdefault(hidd, []).append(ref)
 
 
-def find_IDDs(rcfile, xmldir):
+def find_IDDs(rcfile, ignore, xmldir):
     '''
     Scan a Windows RC file for IDD_* fields and generate a list, then look
     to make sure they are found in the XML Documentation.  Print a list
     of all IDDS_* that do not have a HIDDS_* in the XML documentation.
+    ignore is a file containing a list of IDD_* fields which can safely
+    be ignored because they can never be used to invole help.
     '''
     IDDs = {}
     lineno = 0
@@ -102,8 +104,19 @@ def find_IDDs(rcfile, xmldir):
             #print "%s: %s" % (ref, idd)
             IDDs.setdefault(idd, []).append(ref)
 
+    Ignores = {}
+    if ignore != "NULL":
+        for line in codecs.open(ignore, 'r', 'utf-16').readlines():
+            #print line
+            m = IDD_re.search(line)
+            if m:
+                ref = "%s:%s:%s" % (ignore, lineno, m.span()[0])
+                idd = m.groups()[0]
+                #print "%s: %s" % (ref, idd)
+                Ignores.setdefault(idd, []).append(ref)
+
     # Report for this file
-    i = set(IDDs.keys())
+    i = set(IDDs.keys()) - set(Ignores.keys())
     h = set(HIDDs.keys())
     print "# IDD/HIDD cross check report for %s" % rcfile
     print "# XML source tree in %s" % xmldir
@@ -133,16 +146,19 @@ def find_HIDDs(xmldir):
 
 def main():
     if len(sys.argv) < 3:
-        print "Usage: xmldir rcfile [rcfile ...]"
+        print "Usage: xmldir rcfile [ ignorefile ]"
         sys.exit(0)
 
     xmldir = sys.argv[1]
-    rcfiles = sys.argv[2:]
+    rcfile = sys.argv[2]
+    if len(sys.argv) < 4:
+        ignore = "NULL"
+    else:
+        ignore = sys.argv[3]
 
     find_HIDDs(xmldir)
 
-    for rcfile in rcfiles:
-        find_IDDs(rcfile, xmldir)
+    find_IDDs(rcfile, ignore, xmldir)
 
 
 if __name__ == '__main__':
