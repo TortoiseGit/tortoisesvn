@@ -89,8 +89,6 @@ def find_IDDs(rcfile, ignore, xmldir):
     Scan a Windows RC file for IDD_* fields and generate a list, then look
     to make sure they are found in the XML Documentation.  Print a list
     of all IDDS_* that do not have a HIDDS_* in the XML documentation.
-    ignore is a file containing a list of IDD_* fields which can safely
-    be ignored because they can never be used to invole help.
     '''
     IDDs = {}
     lineno = 0
@@ -104,6 +102,11 @@ def find_IDDs(rcfile, ignore, xmldir):
             #print "%s: %s" % (ref, idd)
             IDDs.setdefault(idd, []).append(ref)
 
+    '''
+    Do exactly the same thing for the ignore list file, which contains
+    a list of IDD_* fields which can safely be ignored because they can
+    never be used to invoke help.
+    '''
     Ignores = {}
     if ignore != "NULL":
         for line in codecs.open(ignore, 'r', 'utf-16').readlines():
