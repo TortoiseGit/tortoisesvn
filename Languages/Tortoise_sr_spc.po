@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-28 15:01+0100\n"
+"PO-Revision-Date: 2010-07-03 21:59+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -604,6 +604,10 @@ msgstr "&Копирај у..."
 msgid "&Custom"
 msgstr "&Прилагођено"
 
+#. Resource IDs: (1610, 1613)
+msgid "&Date"
+msgstr "&Датум"
+
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
 msgstr "&Дани неактивности пре него се мали кешеви уклоне"
@@ -772,8 +776,8 @@ msgstr "&Из УРЛ:"
 
 #
 #. Resource IDs: (1259)
-msgid "&From WC at URL:"
-msgstr "&Из РК у УРЛ:"
+msgid "&From WC / URL:"
+msgstr "&Из РК / УРЛ:"
 
 #
 #. Resource IDs: (65535)
@@ -2589,8 +2593,8 @@ msgid "Check For Updates..."
 msgstr "Провера за ажурирање..."
 
 #. Resource IDs: (1544)
-msgid "Check externals to tag"
-msgstr "Провера екстернала према ознаци"
+msgid "Check externals to explicit revision"
+msgstr "Измена екстернала према експлицитној ревизији"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -4608,6 +4612,11 @@ msgstr "Подеси висину"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Фиксира случај ставке и не додаје је"
+
+#
+#. Resource IDs: (281)
+msgid "Fixed at rev"
+msgstr "Фиксирано у ревизији"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -6840,6 +6849,15 @@ msgstr "Крпи изабране фајлове"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "фајлови закрпа (*.диф, *.печ)|*.diff;*.patch|Сви (*.*)|*.*||"
 
+#. Resource IDs: (169)
+msgid "Patching"
+msgstr "Крпљење"
+
+#. Resource IDs: (169)
+#, c-format
+msgid "Patching file '%1'"
+msgstr "Закрпа фајл '%1'"
+
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "Путања"
@@ -8962,10 +8980,6 @@ msgstr "Величина таба:"
 #. Resource IDs: (65535)
 msgid "Tag nodes"
 msgstr "Ознаке чворови"
-
-#. Resource IDs: (281)
-msgid "Tagged"
-msgstr "Означен"
 
 #. Resource IDs: (79)
 #, c-format
@@ -11665,4 +11679,9 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
+
+#~ msgid "Check externals to tag"
+#~ msgstr "Провера екстернала према ознаци"
+#~ msgid "Tagged"
+#~ msgstr "Означен"
 
