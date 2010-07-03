@@ -65,7 +65,6 @@ svnadmin create --fs-type fsfs MyNewRepository
             <primary>Create</primary>
             <secondary>TortoiseSVN</secondary>
         </indexterm>
-        <?dbhh topicname="HIDD_REPOCREATE"?>
         <figure id="tsvn-serversetup-local-dia-1">
             <title>The TortoiseSVN menu for unversioned folders</title>
             <graphic fileref="../images/ContextMenuDirNoControl.png"/>
@@ -96,6 +95,17 @@ svnadmin create --fs-type fsfs MyNewRepository
                     <emphasis>Don't edit those files yourself!!!</emphasis>.
                     If you get any errors make sure that the folder is empty
                     and not write protected.
+                </para>
+                <para>
+                    You will also be asked whether you want to create a directory
+                    structure within the repository. Find out about layout options
+                    in <xref linkend="tsvn-repository-layout"/>.
+                </para>
+                <para>
+                    TortoiseSVN will set a custom folder icon when it creates a
+                    repository so you can identify local repositories more easily.
+                    If you create a repository using the official command line
+                    client this folder icon is not assigned.
                 </para>
             </listitem>
         </orderedlist>
@@ -221,6 +231,11 @@ svnadmin create --fs-type fsfs MyNewRepository
 /branches
 /tags
 </screen>
+        <para>
+            Because this layout is so commonly used, when you create a new
+            repository using TortoiseSVN, it will also offer to create the
+            directory structure for you.
+        </para>
         <para>
             If a repository contains multiple projects, people often
             index their layout by branch:
