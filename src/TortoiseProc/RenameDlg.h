@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
+#include "IInputValidator.h"
 
 /**
  * \ingroup TortoiseProc
@@ -32,6 +33,7 @@ public:
     virtual ~CRenameDlg();
 
     void AlwaysEnableOkButton(bool bAlwaysEnable = false) { m_bOKEnabled = bAlwaysEnable; }
+    void SetInputValidator(IInputValidator * validator) { m_pInputValidator = validator; }
     enum { IDD = IDD_RENAME };
 
 protected:
@@ -51,5 +53,6 @@ public:
     CString m_label;
 
 private:
-    bool    m_bOKEnabled;
+    bool                m_bOKEnabled;
+    IInputValidator *   m_pInputValidator;
 };
