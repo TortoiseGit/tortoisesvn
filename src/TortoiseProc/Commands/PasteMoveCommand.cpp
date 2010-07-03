@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008 - TortoiseSVN
+// Copyright (C) 2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,6 +59,8 @@ bool PasteMoveCommand::Execute()
             progress.Stop();
             CRenameDlg dlg;
             dlg.m_name = name;
+            dlg.SetInputValidator(this);
+            m_renPath = pathList[nPath];
             dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, (LPCTSTR)name);
             if (dlg.DoModal() != IDOK)
             {
@@ -125,4 +127,18 @@ bool PasteMoveCommand::Execute()
         }
     }
     return true;
+}
+
+CString PasteMoveCommand::Validate( const int /*nID*/, const CString& input )
+{
+    CString sError;
+
+    CTSVNPath p = m_renPath.GetContainingDirectory();
+    p.AppendPathString(input);
+    if (input.IsEmpty())
+        sError.LoadString(IDS_ERR_NOVALIDPATH);
+    else if (PathFileExists(p.GetWinPath()))
+        sError.LoadString(IDS_ERR_FILEEXISTS);
+
+    return sError;
 }

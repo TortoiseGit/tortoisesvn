@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,17 +37,15 @@ bool DropMoveCommand::Execute()
     if ((parser.HasKey(_T("rename")))&&(pathList.GetCount()==1))
     {
         // ask for a new name of the source item
-        do
+        CRenameDlg renDlg;
+        renDlg.SetInputValidator(this);
+        renDlg.m_windowtitle.LoadString(IDS_PROC_MOVERENAME);
+        renDlg.m_name = pathList[0].GetFileOrDirectoryName();
+        if (renDlg.DoModal() != IDOK)
         {
-            CRenameDlg renDlg;
-            renDlg.m_windowtitle.LoadString(IDS_PROC_MOVERENAME);
-            renDlg.m_name = pathList[0].GetFileOrDirectoryName();
-            if (renDlg.DoModal() != IDOK)
-            {
-                return FALSE;
-            }
-            sNewName = renDlg.m_name;
-        } while(sNewName.IsEmpty() || PathFileExists(droppath+_T("\\")+sNewName));
+            return FALSE;
+        }
+        sNewName = renDlg.m_name;
     }
     CProgressDlg progress;
     if (progress.IsValid())
@@ -141,4 +139,17 @@ bool DropMoveCommand::Execute()
         }
     }
     return true;
+}
+
+CString DropMoveCommand::Validate(const int /*nID*/, const CString& input)
+{
+    CString sError;
+
+    CString sDroppath = parser.GetVal(_T("droptarget"));
+    if (input.IsEmpty())
+        sError.LoadString(IDS_ERR_NOVALIDPATH);
+    else if (PathFileExists(sDroppath+_T("\\")+input))
+        sError.LoadString(IDS_ERR_FILEEXISTS);
+
+    return sError;
 }
