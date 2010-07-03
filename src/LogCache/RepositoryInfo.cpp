@@ -30,6 +30,8 @@
 #include "resource.h"
 #include "GoOffline.h"
 
+#include "CriticalSection.h"
+
 // begin namespace LogCache
 
 namespace LogCache
@@ -389,6 +391,14 @@ CString CRepositoryInfo::GetFileName() const
     return cacheFolder + _T("Repositories.dat");
 }
 
+// used to sync access to the global "data"
+
+async::CCriticalSection& CRepositoryInfo::GetDataMutex()
+{
+    static async::CCriticalSection mutex;
+    return mutex;
+}
+
 // read the dump file
 
 void CRepositoryInfo::Load()
@@ -468,6 +478,8 @@ CRepositoryInfo::CRepositoryInfo (SVN& svn, const CString& cacheFolderPath)
 {
     // load the list only if the URL->UUID,head etc. mapping cache shall be used
 
+    async::CCriticalSectionLock lock (GetDataMutex());
+
     if (data.empty())
         Load();
 }
@@ -495,6 +507,8 @@ CString CRepositoryInfo::GetRepositoryUUID (const CTSVNPath& url)
 CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
                                                   , CString& uuid)
 {
+    async::CCriticalSectionLock lock (GetDataMutex());
+
     CString sURL = url.GetSVNPathString();
     CString root = data.FindRoot (uuid, sURL);
     SPerRepositoryInfo* info = root.IsEmpty()
@@ -525,6 +539,8 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
 
 revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
 {
+    async::CCriticalSectionLock lock (GetDataMutex());
+
     // get the entry for that repository
 
     CString sURL = url.GetSVNPathString();
@@ -591,6 +607,8 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
 
 void CRepositoryInfo::ResetHeadRevision (const CString& uuid, const CString& root)
 {
+    async::CCriticalSectionLock lock (GetDataMutex());
+
     // get the entry for that repository
 
     SPerRepositoryInfo* info = data.Lookup (uuid, root);
@@ -611,6 +629,8 @@ void CRepositoryInfo::ResetHeadRevision (const CString& uuid, const CString& roo
 
 bool CRepositoryInfo::IsOffline (const CString& uuid, const CString& root, bool autoSet)
 {
+    async::CCriticalSectionLock lock (GetDataMutex());
+
     // find the info
 
     SPerRepositoryInfo* info = data.Lookup (uuid, root);
@@ -637,6 +657,8 @@ bool CRepositoryInfo::IsOffline (const CString& uuid, const CString& root, bool 
 ConnectionState
 CRepositoryInfo::GetConnectionState (const CString& uuid, const CString& url)
 {
+    async::CCriticalSectionLock lock (GetDataMutex());
+
     // find the info
 
     SPerRepositoryInfo* info = data.Lookup (uuid, url);
@@ -652,6 +674,8 @@ CRepositoryInfo::GetConnectionState (const CString& uuid, const CString& url)
 
 void CRepositoryInfo::DropEntry (CString uuid, CString url)
 {
+    async::CCriticalSectionLock lock (GetDataMutex());
+
     for ( SPerRepositoryInfo* info = data.Lookup (uuid, url)
         ; info != NULL
         ; info = data.Lookup (uuid, url))
@@ -666,10 +690,9 @@ void CRepositoryInfo::DropEntry (CString uuid, CString url)
 void CRepositoryInfo::Flush()
 {
     if (!modified)
-    {
-        modified = false;
         return;
-    }
+
+    async::CCriticalSectionLock lock (GetDataMutex());
 
     CString fileName = GetFileName();
     CPathUtils::MakeSureDirectoryPathExists (fileName.Left (fileName.ReverseFind ('\\')));
@@ -688,6 +711,8 @@ void CRepositoryInfo::Flush()
 
 void CRepositoryInfo::Clear()
 {
+    async::CCriticalSectionLock lock (GetDataMutex());
+
     data.Clear();
 }
 

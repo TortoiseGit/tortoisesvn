@@ -34,6 +34,11 @@ struct svn_error_t;
 class CTSVNPath;
 class SVN;
 
+namespace async
+{
+    class CCriticalSection;
+}
+
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
 ///////////////////////////////////////////////////////////////
@@ -184,6 +189,10 @@ private:
     /// use this instance for all SVN access
 
     SVN& svn;
+
+    /// used to sync access to the global "data"
+
+    async::CCriticalSection& GetDataMutex();
 
     /// read the dump file
 
