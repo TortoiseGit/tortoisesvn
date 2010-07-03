@@ -325,6 +325,10 @@ protected:
     {
         CString text(MAKEINTRESOURCE(nIdText));
         CString title(MAKEINTRESOURCE(nIdTitle));
+        ShowEditBalloon(nIdControl, text, title, nIcon);
+    }
+    void ShowEditBalloon(UINT nIdControl, const CString& text, const CString& title, int nIcon = TTI_WARNING)
+    {
         EDITBALLOONTIP bt;
         bt.cbStruct = sizeof(bt);
         bt.pszText  = text;
