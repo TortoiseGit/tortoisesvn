@@ -1,5 +1,5 @@
 - CHG: Dropped support for Windows2000: TortoiseSVN now only works on
-       XP and later. (Stefan)
+       XP SP3 and later. (Stefan)
 - CHG: Pressing Enter in the repository browser when the list control
        has the focus 'enters' the selected folder instead of closing
        the dialog. (Stefan)
@@ -69,8 +69,6 @@
 - NEW: Toolbar buttons to change the whitespace diff options in
        TortoiseMerge. (Stefan)
 - NEW: new aero look of the dialogs. (Stefan)
-- NEW: column showing the copyfrom-revision in the 
-       status list control. (Stefan)
 - NEW: The merge dialog warns now if the target working copy
        has local modifications. (Stefan)
 - NEW: Option to jump to the first conflict in TortoiseMerge. (Stefan)
@@ -86,6 +84,10 @@
        branching/tagging. (Stefan)
 - NEW: Filter matches in the log dialog are highlighted. (Stefan)
 - NEW: Custom Win7 Library for SVN working copies. (Stefan)
+- NEW: Filter matches in the log dialog are highlighted. (Stefan)
+- NEW: Only one instance of TSVNCache is used on x64 OS if
+       both the win32 and x64 version of TSVN are installed. (Stefan)
+- NEW: custom dialogs to edit specific properties. (Stefan)
 - BUG: Merged revisions must be counted only 
        once in stats (Stefan Fuhrmann)
 - BUG: Relative Webviewer urls didn't work from the 
