@@ -507,6 +507,11 @@ CString CRepositoryInfo::GetRepositoryUUID (const CTSVNPath& url)
 CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
                                                   , CString& uuid)
 {
+    // reset (potentially) outdated info to prevent it from being
+    // the basis for FindRoot / Lookup.
+
+    uuid.Empty();
+
     async::CCriticalSectionLock lock (GetDataMutex());
 
     CString sURL = url.GetSVNPathString();
