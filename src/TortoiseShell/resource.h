@@ -200,9 +200,13 @@
 #define IDC_FILEEXTERNAL                1013
 #define IDC_EDITNAME                    1014
 #define IDC_TREECONFLICT                1014
+#define IDC_TEXTSTATUS2                 1014
 #define IDC_EDITVALUE                   1015
+#define IDC_TEXTDATE2                   1015
 #define IDC_SHOWLOG                     1016
 #define IDC_RECURSIVE                   1018
+#define IDC_NODESTATUS                  1019
+#define IDC_NODEDATE                    1020
 #define IDS_SVN_USERCANCELLED           1181
 #define IDI_REPOBROWSE                  5145
 #define IDI_BLAME                       5146
@@ -230,7 +234,7 @@
 #define IDC_CHECKSUM                    11027
 
 // Next default values for new objects
-//
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        5165

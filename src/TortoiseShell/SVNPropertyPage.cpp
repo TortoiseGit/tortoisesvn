@@ -279,7 +279,7 @@ void CSVNPropertyPage::InitWorkfileView()
             if (svn.status->versioned)
             {
                 LoadLangDll();
-                if (svn.status->text_status == svn_wc_status_added)
+                if (svn.status->node_status == svn_wc_status_added)
                 {
                     // disable the "show log" button for added files
                     HWND showloghwnd = GetDlgItem(m_hwnd, IDC_SHOWLOG);
@@ -322,7 +322,7 @@ void CSVNPropertyPage::InitWorkfileView()
                     ShowWindow(GetDlgItem(m_hwnd, IDC_ESCAPEDURLLABEL), SW_HIDE);
                     ShowWindow(GetDlgItem(m_hwnd, IDC_REPOURLUNESCAPED), SW_HIDE);
                 }
-                if (svn.status->text_status != svn_wc_status_added)
+                if (svn.status->node_status != svn_wc_status_added)
                 {
                     _stprintf_s(buf, MAX_STRING_LENGTH, _T("%d"), svn.status->changed_rev);
                     SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
@@ -332,6 +332,8 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->changed_author)
                     SetDlgItemText(m_hwnd, IDC_AUTHOR, UTF8ToWide(svn.status->changed_author).c_str());
+                SVNStatus::GetStatusString(g_hResInst, svn.status->node_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                SetDlgItemText(m_hwnd, IDC_NODESTATUS, buf);
                 SVNStatus::GetStatusString(g_hResInst, svn.status->text_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_TEXTSTATUS, buf);
                 SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));

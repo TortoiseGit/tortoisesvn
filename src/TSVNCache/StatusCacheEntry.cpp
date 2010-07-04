@@ -22,7 +22,7 @@
 #include "CacheInterface.h"
 #include "registry.h"
 
-#define CACHEENTRYDISKVERSION 6
+#define CACHEENTRYDISKVERSION 7
 
 DWORD cachetimeout = (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
 
@@ -67,6 +67,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
     // now save the status struct (without the entry field, because we don't use that)
     WRITEVALUETOFILE(m_svnStatus.copied);
     WRITEVALUETOFILE(m_svnStatus.locked);
+    WRITEVALUETOFILE(m_svnStatus.node_status);
     WRITEVALUETOFILE(m_svnStatus.prop_status);
     WRITEVALUETOFILE(m_svnStatus.repos_prop_status);
     WRITEVALUETOFILE(m_svnStatus.repos_text_status);
@@ -136,6 +137,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
         SecureZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
         LOADVALUEFROMFILE(m_svnStatus.copied);
         LOADVALUEFROMFILE(m_svnStatus.locked);
+        LOADVALUEFROMFILE(m_svnStatus.node_status);
         LOADVALUEFROMFILE(m_svnStatus.prop_status);
         LOADVALUEFROMFILE(m_svnStatus.repos_prop_status);
         LOADVALUEFROMFILE(m_svnStatus.repos_text_status);
@@ -162,9 +164,12 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool fo
         m_svnStatus = *pSVNStatus;
 
         if (forceNormal)
+        {
             m_svnStatus.text_status = svn_wc_status_normal;
+            m_svnStatus.node_status = svn_wc_status_normal;
+        }
 
-        m_highestPriorityLocalStatus = SVNStatus::GetMoreImportant(m_svnStatus.prop_status, m_svnStatus.text_status);
+        m_highestPriorityLocalStatus = m_svnStatus.node_status;
 
         // Currently we don't deep-copy the whole entry value, but we do take a few members
         if(pSVNStatus->versioned)
@@ -201,6 +206,7 @@ void CStatusCacheEntry::SetAsUnversioned()
     m_highestPriorityLocalStatus = status;
     m_svnStatus.prop_status = svn_wc_status_none;
     m_svnStatus.text_status = status;
+    m_svnStatus.node_status = status;
     m_lastWriteTime = 0;
     m_treeconflict = false;
 }
@@ -217,6 +223,7 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
     {
         response.m_textStatus = (INT8)m_svnStatus.text_status;
         response.m_propStatus = (INT8)m_svnStatus.prop_status;
+        response.m_Status     = (INT8)m_svnStatus.node_status;
         response.m_cmt_rev = m_commitRevision;
 
         response.m_kind = (INT8)m_kind;
@@ -238,6 +245,7 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
     {
         response.m_textStatus = (INT8)m_svnStatus.text_status;
         response.m_propStatus = (INT8)m_svnStatus.prop_status;
+        response.m_Status     = (INT8)m_svnStatus.node_status;
         response.m_tree_conflict = m_treeconflict;
         responseLength = sizeof(response);
     }
@@ -262,8 +270,9 @@ bool CStatusCacheEntry::ForceStatus(svn_wc_status_kind forcedStatus)
     {
         // We've had a status change
         m_highestPriorityLocalStatus = newStatus;
-        m_svnStatus.text_status = newStatus;
+        m_svnStatus.node_status = newStatus;
         m_svnStatus.prop_status = newStatus;
+        m_svnStatus.text_status = newStatus;
         m_discardAtTime = GetTickCount()+cachetimeout;
         return true;
     }

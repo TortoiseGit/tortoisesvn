@@ -430,13 +430,13 @@ void
 CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool forceNormal)
 {
     AutoLocker lock(m_critSec);
-    svn_wc_status_kind textstatus = forceNormal ? svn_wc_status_normal : (pSVNStatus ? pSVNStatus->text_status : svn_wc_status_none);
+    svn_wc_status_kind nodestatus = forceNormal ? svn_wc_status_normal : (pSVNStatus ? pSVNStatus->node_status : svn_wc_status_none);
     if(path.IsDirectory())
     {
         CCachedDirectory * childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
         if (childDir)
         {
-            if ((childDir->GetCurrentFullStatus() != svn_wc_status_ignored)||(pSVNStatus==NULL)||(textstatus != svn_wc_status_unversioned))
+            if ((childDir->GetCurrentFullStatus() != svn_wc_status_ignored)||(pSVNStatus==NULL)||(nodestatus != svn_wc_status_unversioned))
                 childDir->m_ownStatus.SetStatus(pSVNStatus, forceNormal);
             childDir->m_ownStatus.SetKind(svn_node_dir);
         }
@@ -450,7 +450,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSV
             if (pSVNStatus)
             {
                 if (entry_it->second.GetEffectiveStatus() > svn_wc_status_none &&
-                    entry_it->second.GetEffectiveStatus() != SVNStatus::GetMoreImportant(pSVNStatus->prop_status, textstatus))
+                    entry_it->second.GetEffectiveStatus() != nodestatus)
                 {
                     CSVNStatusCache::Instance().UpdateShell(path);
                     CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: shell update for %s\n"), path.GetWinPath());
@@ -561,7 +561,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 
     if(status->versioned)
     {
-        if ((status->text_status != svn_wc_status_none)&&(status->text_status != svn_wc_status_ignored))
+        if ((status->node_status != svn_wc_status_none)&&(status->node_status != svn_wc_status_ignored))
             svnPath.SetFromSVN(path, (status->kind == svn_node_dir));
         else
             svnPath.SetFromSVN(path);
@@ -572,7 +572,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
             {
                 // Make sure we know about this child directory
                 // This initial status value is likely to be overwritten from below at some point
-                svn_wc_status_kind s = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+                svn_wc_status_kind s = status->node_status;
                 if (status->conflicted)
                     s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
                 CCachedDirectory * cdir = CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(svnPath);
@@ -603,7 +603,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
         // part of another working copy (nested layouts).
         // So we have to make sure that such an 'unversioned' folder really
         // is unversioned.
-        if (((status->text_status == svn_wc_status_unversioned)||(status->text_status == svn_wc_status_ignored))&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
+        if (((status->node_status == svn_wc_status_unversioned)||(status->node_status == svn_wc_status_ignored))&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
         {
             if (svnPath.HasAdminDir())
             {
@@ -624,11 +624,11 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                 if (svnPath.IsDirectory())
                 {
                     AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+                    pThis->m_childDirectories[svnPath] = status->node_status;
                 }
             }
         }
-        else if (status->text_status == svn_wc_status_external)
+        else if (status->node_status == svn_wc_status_external)
         {
             if ((status->kind == svn_node_dir) ||
                 (svnPath.IsDirectory()))
@@ -653,7 +653,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
             if (svnPath.IsDirectory())
             {
                 AutoLocker lock(pThis->m_critSec);
-                svn_wc_status_kind s = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+                svn_wc_status_kind s = status->node_status;
                 if (status->conflicted)
                     s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
                 pThis->m_childDirectories[svnPath] = s;

@@ -48,7 +48,7 @@ bool AddCommand::Execute()
             {
                 do
                 {
-                    if (s->text_status == svn_wc_status_missing)
+                    if (s->node_status == svn_wc_status_missing)
                     {
                         for (int i = 0; i < pathList.GetCount(); ++i)
                         {

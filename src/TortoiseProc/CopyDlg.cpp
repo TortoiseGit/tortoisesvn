@@ -307,17 +307,11 @@ UINT CCopyDlg::FindRevThread()
             }
             if (s->changed_rev > m_maxrev)
                 m_maxrev = s->changed_rev;
-            if ( (s->text_status != svn_wc_status_none) &&
-                (s->text_status != svn_wc_status_normal) &&
-                (s->text_status != svn_wc_status_external) &&
-                (s->text_status != svn_wc_status_unversioned) &&
-                (s->text_status != svn_wc_status_ignored))
-                m_bmodified = true;
-            if ( (s->prop_status != svn_wc_status_none) &&
-                (s->prop_status != svn_wc_status_normal) &&
-                (s->prop_status != svn_wc_status_external) &&
-                (s->prop_status != svn_wc_status_unversioned) &&
-                (s->prop_status != svn_wc_status_ignored))
+            if ( (s->node_status != svn_wc_status_none) &&
+                (s->node_status != svn_wc_status_normal) &&
+                (s->node_status != svn_wc_status_external) &&
+                (s->node_status != svn_wc_status_unversioned) &&
+                (s->node_status != svn_wc_status_ignored))
                 m_bmodified = true;
 
             s = stats.GetNextFileStatus(retPath);

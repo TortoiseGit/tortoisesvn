@@ -113,7 +113,7 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
         return SVN_NO_ERROR;
     }
 
-    if ((sb->SubStat->bExternals)&&(status->text_status == svn_wc_status_external) && (NULL != sb->extarray))
+    if ((sb->SubStat->bExternals)&&(status->node_status == svn_wc_status_external) && (NULL != sb->extarray))
     {
         const char * copypath = apr_pstrdup(sb->pool, path);
         sb->extarray->push_back(copypath);
@@ -148,7 +148,7 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
     }
 
     sb->SubStat->bIsSvnItem = false;
-    switch (status->text_status)
+    switch (status->node_status)
     {
     case svn_wc_status_none:
     case svn_wc_status_unversioned:

@@ -368,7 +368,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
             SecureZeroMemory(&itemStatus, sizeof(itemStatus));
             if(m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, true))
             {
-                filestatus = SVNStatus::GetMoreImportant((svn_wc_status_kind)itemStatus.m_textStatus, (svn_wc_status_kind)itemStatus.m_propStatus);
+                filestatus = (svn_wc_status_kind)itemStatus.m_Status;
             }
             else
             {

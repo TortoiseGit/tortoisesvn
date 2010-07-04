@@ -396,7 +396,7 @@ unsigned int SVNStatus::GetVersionedCount() const
         item = &APR_ARRAY_IDX(m_statusarray, i, const sort_item);
         if (item)
         {
-            if (SVNStatus::GetMoreImportant(((svn_wc_status_t *)item->value)->text_status, svn_wc_status_ignored)!=svn_wc_status_ignored)
+            if (SVNStatus::GetMoreImportant(((svn_client_status_t *)item->value)->node_status, svn_wc_status_ignored)!=svn_wc_status_ignored)
                 count++;
         }
     }
@@ -708,8 +708,7 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
 svn_error_t * SVNStatus::getallstatus(void * baton, const char * /*path*/, const svn_client_status_t * status, apr_pool_t * /*pool*/)
 {
     svn_wc_status_kind * s = (svn_wc_status_kind *)baton;
-    *s = SVNStatus::GetMoreImportant(*s, status->text_status);
-    *s = SVNStatus::GetMoreImportant(*s, status->prop_status);
+    *s = SVNStatus::GetMoreImportant(*s, status->node_status);
     return SVN_NO_ERROR;
 }
 
@@ -717,7 +716,7 @@ svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, const sv
 {
     hashbaton_t * hash = (hashbaton_t *)baton;
     const StdStrAVector& filterList = hash->pThis->m_filterFileList;
-    if (status->text_status == svn_wc_status_external)
+    if (status->node_status == svn_wc_status_external)
     {
         apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, (const void*)1);
         return SVN_NO_ERROR;

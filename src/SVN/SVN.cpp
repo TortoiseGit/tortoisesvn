@@ -805,7 +805,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
             SVNStatus status;
             if ((s = status.GetFirstFileStatus(srcPath, statusPath, false, svn_depth_infinity, true, !!bIgnoreExternals))!=0)
             {
-                if (SVNStatus::GetMoreImportant(s->text_status, svn_wc_status_unversioned)!=svn_wc_status_unversioned)
+                if (SVNStatus::GetMoreImportant(s->node_status, svn_wc_status_unversioned)!=svn_wc_status_unversioned)
                 {
                     CTSVNPath destination = destPath;
                     destination.AppendPathString(statusPath.GetWinPathString().Mid(srcPath.GetWinPathString().GetLength()));
@@ -813,11 +813,11 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
                 }
                 while ((s = status.GetNextFileStatus(statusPath))!=0)
                 {
-                    if ((s->text_status == svn_wc_status_unversioned)||
-                        (s->text_status == svn_wc_status_ignored)||
-                        (s->text_status == svn_wc_status_none)||
-                        (s->text_status == svn_wc_status_missing)||
-                        (s->text_status == svn_wc_status_deleted))
+                    if ((s->node_status == svn_wc_status_unversioned)||
+                        (s->node_status == svn_wc_status_ignored)||
+                        (s->node_status == svn_wc_status_none)||
+                        (s->node_status == svn_wc_status_missing)||
+                        (s->node_status == svn_wc_status_deleted))
                         continue;
 
                     CTSVNPath destination = destPath;

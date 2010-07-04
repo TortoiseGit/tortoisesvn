@@ -29,10 +29,12 @@ CRemoteCacheLink::CRemoteCacheLink(void)
     , m_hCommandPipe(INVALID_HANDLE_VALUE)
 {
     SecureZeroMemory(&m_dummyStatus, sizeof(m_dummyStatus));
+    m_dummyStatus.node_status = svn_wc_status_none;
     m_dummyStatus.text_status = svn_wc_status_none;
     m_dummyStatus.prop_status = svn_wc_status_none;
     m_dummyStatus.repos_text_status = svn_wc_status_none;
     m_dummyStatus.repos_prop_status = svn_wc_status_none;
+    m_dummyStatus.repos_node_status = svn_wc_status_none;
     m_lastTimeout = 0;
     m_critSec.Init();
 }

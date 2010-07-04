@@ -198,7 +198,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
                 if (dirstatus->lock)
                     dirstat.owner = owners.GetString(dirstatus->lock->owner);
 
-                dirstat.status = SVNStatus::GetMoreImportant(dirstatus->text_status, dirstatus->prop_status);
+                dirstat.status = dirstatus->node_status;
                 dirstat.tree_conflict = dirstatus->conflicted != 0;
             }
             m_cache[filepath.GetWinPath()] = dirstat;
@@ -398,8 +398,7 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, con
     s.status = svn_wc_status_none;
     if (status)
     {
-        s.status = SVNStatus::GetMoreImportant(s.status, status->text_status);
-        s.status = SVNStatus::GetMoreImportant(s.status, status->prop_status);
+        s.status = SVNStatus::GetMoreImportant(s.status, status->node_status);
         s.lock = status->repos_lock;
         s.tree_conflict = (status->conflicted != 0);
     }

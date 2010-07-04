@@ -61,6 +61,7 @@ struct TSVNCacheResponse
     bool m_tree_conflict;   ///< whether the item has a tree conflict
     INT8 m_textStatus;
     INT8 m_propStatus;
+    INT8 m_Status;
     INT64 m_cmt_rev;
 };
 

@@ -285,7 +285,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         if (stat.status)
                         {
                             statuspath = str;
-                            status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+                            status = stat.status->node_status;
                             itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                             fetchedstatus = status;
                             if (stat.status->lock && stat.status->lock->token)
@@ -380,7 +380,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             statuspath = str;
                             if (stat.status)
                             {
-                                status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+                                status = stat.status->node_status;
                                 itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                                 fetchedstatus = status;
                                 if (stat.status->lock && stat.status->lock->token)
@@ -499,7 +499,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
                     if (stat.status)
                     {
-                        status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+                        status = stat.status->node_status;
                         itemStatesFolder |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                         if (stat.status->lock && stat.status->lock->token)
                             itemStatesFolder |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
@@ -581,7 +581,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
                         if (stat.status)
                         {
-                            status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+                            status = stat.status->node_status;
                             itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                             if (stat.status->lock && stat.status->lock->token)
                                 itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;

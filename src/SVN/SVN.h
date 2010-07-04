@@ -892,7 +892,7 @@ public:
 protected:
     apr_hash_t *                statushash;     ///< holds the status
     apr_array_header_t *        statusarray;    ///< an array of all status
-    svn_wc_status_t *           status;         ///< the status object
+    svn_client_status_t *       status;         ///< the status object
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                pool;           ///< 'root' memory pool
     svn_opt_revision_t          rev;            ///< subversion revision. used by getRevision()

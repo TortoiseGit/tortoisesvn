@@ -563,7 +563,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
         return false;
     }
 
-    svn_wc_status_kind wcFileStatus = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+    svn_wc_status_kind wcFileStatus = s->node_status;
 
     // This one fixes a problem with externals:
     // If a strLine is a file, svn:externals and its parent directory
@@ -612,7 +612,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
             }
         }
     }
-    else if (strCurrentRepositoryRoot.IsEmpty() && (s->text_status == svn_wc_status_added))
+    else if (strCurrentRepositoryRoot.IsEmpty() && (s->node_status == svn_wc_status_added))
     {
         // An added entry doesn't have an root assigned to it yet.
         // So we fetch the status of the parent directory instead and
@@ -625,7 +625,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
             SVNStatus tempstatus;
             sparent = tempstatus.GetFirstFileStatus(path.GetContainingDirectory(), svnParentPath, false, svn_depth_empty, false);
             path = svnParentPath;
-        } while ( (sparent) && (!sparent->repos_root_url) && (sparent->text_status==svn_wc_status_added) );
+        } while ( (sparent) && (!sparent->repos_root_url) && (sparent->node_status==svn_wc_status_added) );
         if (sparent && sparent->repos_root_url)
         {
             strCurrentRepositoryRoot = sparent->repos_root_url;
@@ -677,10 +677,10 @@ CSVNStatusListCtrl::AddNewFileEntry(
     FileEntry * entry = new FileEntry();
     entry->path = path;
     entry->basepath = basePath;
-    entry->status = SVNStatus::GetMoreImportant(pSVNStatus->text_status, pSVNStatus->prop_status);
+    entry->status = pSVNStatus->node_status;
     entry->textstatus = pSVNStatus->text_status;
     entry->propstatus = pSVNStatus->prop_status;
-    entry->remotestatus = SVNStatus::GetMoreImportant(pSVNStatus->repos_text_status, pSVNStatus->repos_prop_status);
+    entry->remotestatus = pSVNStatus->repos_node_status;
     entry->remotetextstatus = pSVNStatus->repos_text_status;
     entry->remotepropstatus = pSVNStatus->repos_prop_status;
     entry->inexternal = bInExternal;
@@ -855,7 +855,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
     CTSVNPath svnPath;
     while ((s = status.GetNextFileStatus(svnPath)) != NULL)
     {
-        svn_wc_status_kind wcFileStatus = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+        svn_wc_status_kind wcFileStatus = s->node_status;
         if ((wcFileStatus == svn_wc_status_unversioned) && (svnPath.IsDirectory()))
         {
             // check if the unversioned folder is maybe versioned. This
@@ -3181,10 +3181,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                         FileEntry * entry2 = new FileEntry();
                                         entry2->path = svnPath;
                                         entry2->basepath = basepath;
-                                        entry2->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+                                        entry2->status = s->node_status;
                                         entry2->textstatus = s->text_status;
                                         entry2->propstatus = s->prop_status;
-                                        entry2->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+                                        entry2->remotestatus = s->repos_node_status;
                                         entry2->remotetextstatus = s->repos_text_status;
                                         entry2->remotepropstatus = s->repos_prop_status;
                                         entry2->inunversionedfolder = false;
@@ -3326,10 +3326,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                     FileEntry * entry3 = new FileEntry();
                                     entry3->path = svnPath;
                                     entry3->basepath = basepath;
-                                    entry3->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+                                    entry3->status = s->node_status;
                                     entry3->textstatus = s->text_status;
                                     entry3->propstatus = s->prop_status;
-                                    entry3->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+                                    entry3->remotestatus = s->repos_node_status;
                                     entry3->remotetextstatus = s->repos_text_status;
                                     entry3->remotepropstatus = s->repos_prop_status;
                                     entry3->inunversionedfolder = FALSE;
