@@ -130,6 +130,7 @@
     </sect2>
     <sect2 id="tsvn-dug-locking-unlock">
         <title>Releasing a Lock</title>
+        <?dbhh topicname="HIDD_UNLOCK"?>
         <para>
             To make sure you don't forget to release a lock you don't need
             any more, locked files are shown in the commit dialog and selected
