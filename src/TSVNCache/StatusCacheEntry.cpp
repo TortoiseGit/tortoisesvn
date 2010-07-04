@@ -166,6 +166,7 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool fo
         if (forceNormal)
         {
             m_svnStatus.text_status = svn_wc_status_normal;
+            m_svnStatus.prop_status = svn_wc_status_normal;
             m_svnStatus.node_status = svn_wc_status_normal;
         }
 
@@ -204,7 +205,7 @@ void CStatusCacheEntry::SetAsUnversioned()
     if (m_highestPriorityLocalStatus == svn_wc_status_unversioned)
         status = svn_wc_status_unversioned;
     m_highestPriorityLocalStatus = status;
-    m_svnStatus.prop_status = svn_wc_status_none;
+    m_svnStatus.prop_status = status;
     m_svnStatus.text_status = status;
     m_svnStatus.node_status = status;
     m_lastWriteTime = 0;
@@ -224,7 +225,7 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
         response.m_textStatus = (INT8)m_svnStatus.text_status;
         response.m_propStatus = (INT8)m_svnStatus.prop_status;
         response.m_Status     = (INT8)m_svnStatus.node_status;
-        response.m_cmt_rev = m_commitRevision;
+        response.m_cmt_rev    = m_commitRevision;
 
         response.m_kind = (INT8)m_kind;
 

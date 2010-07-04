@@ -55,7 +55,7 @@ private:
 
 
     CComCriticalSection m_critSec;
-    svn_wc_status3_t m_dummyStatus;
+    svn_client_status_t m_dummyStatus;
     long m_lastTimeout;
 
 };
