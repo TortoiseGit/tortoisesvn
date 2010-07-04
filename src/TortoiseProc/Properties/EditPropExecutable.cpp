@@ -53,6 +53,9 @@ BOOL CEditPropExecutable::OnInitDialog()
     CStandAloneDialog::OnInitDialog();
 
     ExtendFrameIntoClientArea(0,0,0,0);
+    m_aeroControls.SubclassControl(this, IDC_NOTE);
+    m_aeroControls.SubclassControl(this, IDC_PROPSET);
+    m_aeroControls.SubclassControl(this, IDC_PROPNOTSET);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
     m_aeroControls.SubclassOkCancelHelp(this);
 
