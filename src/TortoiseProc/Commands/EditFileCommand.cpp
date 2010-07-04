@@ -27,6 +27,7 @@
 #include "CommitCommand.h"
 #include "LockCommand.h"
 #include "AppUtils.h"
+#include "DebugOutput.h"
 
 // status check
 
@@ -90,6 +91,8 @@ bool EditFileCommand::AutoCheckout()
         progDlg.SetDepth(svn_depth_infinity);
         progDlg.DoModal();
 
+        CTraceToOutputDebugString::Instance() ( _T("EditFileCommand::AutoCheckout done\n"));
+
         return !progDlg.DidErrorsOccur();
     }
     else
@@ -111,15 +114,21 @@ bool EditFileCommand::AutoLock()
 
     if (IsLocked())
     {
+        CTraceToOutputDebugString::Instance() ( _T("EditFileCommand: path already locked\n"));
+
         needsUnLock = false;
         return true;
     }
     else
     {
+        CTraceToOutputDebugString::Instance() ( _T("EditFileCommand: path needs locking\n"));
+
         LockCommand command;
         command.SetParser (parser);
         command.SetPaths (CTSVNPathList (path), path);
         needsUnLock = command.Execute();
+
+        CTraceToOutputDebugString::Instance() ( _T("EditFileCommand: path locked\n"));
 
         return needsUnLock;
     }
@@ -139,6 +148,8 @@ bool EditFileCommand::Edit()
 
 bool EditFileCommand::AutoCheckin()
 {
+    CTraceToOutputDebugString::Instance() ( _T("EditFileCommand::AutoCheckin() entered\n"));
+
     // no-op, if not modified
 
     if (!IsModified())
@@ -149,13 +160,21 @@ bool EditFileCommand::AutoCheckin()
     CommitCommand command;
     command.SetParser (parser);
     command.SetPaths (CTSVNPathList (path), path);
+
+    CTraceToOutputDebugString::Instance() ( _T("EditFileCommand::AutoCheckin() starting check-in\n"));
+
     return command.Execute();
 }
 
 bool EditFileCommand::AutoUnLock()
 {
+    CTraceToOutputDebugString::Instance() ( _T("EditFileCommand::AutoUnLock() entered\n"));
+
     if (!needsUnLock || !IsLocked())
+    {
+        CTraceToOutputDebugString::Instance() ( _T("EditFileCommand: no unlock needed\n"));
         return true;
+    }
 
     CSVNProgressDlg progDlg;
     progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
@@ -163,6 +182,8 @@ bool EditFileCommand::AutoUnLock()
     progDlg.SetPathList (CTSVNPathList (cmdLinePath));
     progDlg.SetAutoClose (parser);
     progDlg.DoModal();
+
+    CTraceToOutputDebugString::Instance() ( _T("EditFileCommand: unlock done\n"));
 
     return !progDlg.DidErrorsOccur();
 }
