@@ -47,6 +47,7 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
     { _T("DiffBlamesWithTortoiseMerge"), CSettingsAdvanced::SettingTypeBoolean, false },
     { _T("IncludeExternals"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("CtrlEnter"), CSettingsAdvanced::SettingTypeBoolean, true },
+    { _T("AllowAuthSave"), CSettingsAdvanced::SettingTypeBoolean, true },
 
     { _T(""), CSettingsAdvanced::SettingTypeNone, false }
 };

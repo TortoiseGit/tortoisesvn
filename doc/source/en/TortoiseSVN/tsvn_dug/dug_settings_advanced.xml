@@ -267,5 +267,17 @@
                 </para>
             </listitem>
         </varlistentry>
+        <varlistentry>
+            <term condition="pot">AllowAuthSave</term>
+            <listitem>
+                <para>
+                    Sometimes multiple users use the same account on the same computer.
+                    In such situations it's not really wanted to save the authentication
+                    data. Setting this value to <literal>false</literal> disables the
+                    <literal>save authentication</literal> button in the authentication
+                    dialog.
+                </para>
+            </listitem>
+        </varlistentry>
     </variablelist>
 </sect2>

@@ -62,6 +62,8 @@ BOOL CPromptDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_SAVECHECK);
     m_aeroControls.SubclassOkCancel(this);
 
+    DialogEnableWindow(IDC_SAVECHECK, (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\AllowAuthSave"), TRUE));
+
     if (m_hide)
     {
         m_pass.SetPasswordChar('*');
