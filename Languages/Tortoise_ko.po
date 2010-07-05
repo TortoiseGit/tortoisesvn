@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-14 13:37+0900\n"
+"PO-Revision-Date: 2010-07-06 07:49+0900\n"
 "Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: Test\n"
 "MIME-Version: 1.0\n"
@@ -565,6 +565,10 @@ msgstr "복사(&C)..."
 msgid "&Custom"
 msgstr "사용자 지정(&C)"
 
+#. Resource IDs: (1610, 1613)
+msgid "&Date"
+msgstr "날짜(&D)"
+
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
 msgstr "작은 캐시를 삭제할 때까지의 비활성화 날들(&D)"
@@ -702,8 +706,8 @@ msgid "&From URL:"
 msgstr "현재 URL(&F):"
 
 #. Resource IDs: (1259)
-msgid "&From WC at URL:"
-msgstr "현재 작업 중인 URL(&F):"
+msgid "&From WC / URL:"
+msgstr "다음 WC / URL 로부터(&F):"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -2382,8 +2386,8 @@ msgid "Check For Updates..."
 msgstr "업데이트 확인..."
 
 #. Resource IDs: (1544)
-msgid "Check externals to tag"
-msgstr "외부경로를 태그로 체크"
+msgid "Check externals to explicit revision"
+msgstr "외부경로를 명시적인 리비전으로 체크"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -4400,6 +4404,10 @@ msgstr "넓이에 맞추기"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "아이템의 대소문자를 수정하고 추가하지 않기"
+
+#. Resource IDs: (281)
+msgid "Fixed at rev"
+msgstr "리비전에 고정된"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -6619,6 +6627,15 @@ msgstr "선택된 파일들 패치"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
+#. Resource IDs: (169)
+msgid "Patching"
+msgstr "패치중"
+
+#. Resource IDs: (169)
+#, c-format
+msgid "Patching file '%1'"
+msgstr "'%1' 파일 패치중"
+
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "경로"
@@ -8736,10 +8753,6 @@ msgstr "탭 크기:"
 #. Resource IDs: (65535)
 msgid "Tag nodes"
 msgstr "Tag 노드"
-
-#. Resource IDs: (281)
-msgid "Tagged"
-msgstr "태그됨"
 
 #. Resource IDs: (79)
 #, c-format
@@ -11427,6 +11440,12 @@ msgstr "예"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
+
+#~ msgid "Check externals to tag"
+#~ msgstr "외부경로를 태그로 체크"
+
+#~ msgid "Tagged"
+#~ msgstr "태그됨"
 
 #~ msgid "tree conflict:"
 #~ msgstr "트리 충돌:"
