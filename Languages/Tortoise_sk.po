@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-24 00:11+0100\n"
+"PO-Revision-Date: 2010-07-02 17:14+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -286,11 +286,13 @@ msgid "%s, but the file was replaced"
 msgstr "%s, ale súbor už bol nahradený."
 
 #. Resource IDs: (376)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "%ld failed hunk(s)"
 msgstr ""
+"%s\n"
+"%ld zlyhalo hunk(s)"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -1009,7 +1011,7 @@ msgstr "&Vložiť"
 #. Resource IDs: (1600)
 #, fuzzy
 msgid "&Peg revision:"
-msgstr "&Obviniť revízie"
+msgstr "&Udrženie revízie"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -1589,7 +1591,6 @@ msgstr ""
 "Prázdny zoznam povolí kontextovú ponuku pre všetky cesty."
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
 "If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
@@ -1597,7 +1598,8 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Novými riadkami oddeľovaný zoznam ciest, pre ktoré nebudú zobrazené prekrývajúce ikonky.\r\n"
-"Keď pridáte znak '*' na koniec cesty, všetky súbory a podadresáre tohto adresára budú tiež vylúčené.\r\n"
+"Keď pridáte znak '?' na koniec cesty, bude vylúčená len táto cesta.\r\n"
+"Keď pridáte znak '*' na koniec cesty, alebo nedáte žiadny znak, všetky súbory a podadresáre tohto adresára budú tiež vylúčené.\r\n"
 "Prázdny zoznam povolí zobrazovanie pre všetky cesty."
 
 #. Resource IDs: (3843)
@@ -3681,7 +3683,6 @@ msgstr ""
 "Kód : Tobias Schäfer, Stefan Fuhrmann"
 
 #. Resource IDs: (94)
-#, fuzzy
 msgid ""
 "Don't make the checkout directory a sparse working copy.\n"
 "Instead, all URLs get checked out into a separate\n"
@@ -3690,7 +3691,7 @@ msgid ""
 msgstr ""
 "Nerobte získanie adresára roztrúsenej pracovnej kópie.\n"
 "Namiesto toho získajte oddelene pracovné kópie\n"
-"adresárov.\n"
+"adresárov do jedného adresára.\n"
 "Toto funguje len pre URL adresárov."
 
 #. Resource IDs: (3887)
@@ -3837,7 +3838,7 @@ msgstr "IP adresa, alebo meno proxy servera"
 
 #. Resource IDs: (265)
 msgid "Eliding mergeinfo"
-msgstr ""
+msgstr "Čistenie informácií o zlučovaní"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4180,8 +4181,9 @@ msgid "F&orce the merge"
 msgstr "&Vynútiť zlúčenie"
 
 #. Resource IDs: (1070)
+#, fuzzy
 msgid "Fade"
-msgstr ""
+msgstr "Zatrieť"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -5958,9 +5960,8 @@ msgid "Message &label:"
 msgstr "&Popis správy:"
 
 #. Resource IDs: (1573)
-#, fuzzy
 msgid "Message &pattern:"
-msgstr "&pattern správy:"
+msgstr "Šablóna &správy:"
 
 #. Resource IDs: (1579)
 msgid "Message part &expression:"
@@ -7254,9 +7255,9 @@ msgid "Reject"
 msgstr "Odmietnuť"
 
 #. Resource IDs: (7)
-#, c-format
+#, fuzzy, c-format
 msgid "Rejected patch hunks for '%s'"
-msgstr ""
+msgstr "Odmietnutá záplata hunks '%s'"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
@@ -8481,8 +8482,9 @@ msgid "Skipped missing target"
 msgstr "Preskočené chýbajúce ciele"
 
 #. Resource IDs: (1070)
+#, fuzzy
 msgid "Slide"
-msgstr ""
+msgstr "Posunúť"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9996,7 +9998,7 @@ msgstr "Neverziované súbory označia rodičovský adresár za zmenený"
 #. Resource IDs: (265)
 #, fuzzy
 msgid "Unversioned obstruction"
-msgstr "Odverziované"
+msgstr "Odverziované nepríjemosť"
 
 #. Resource IDs: (286)
 #, c-format
@@ -10059,9 +10061,9 @@ msgid "Upgrade working copy"
 msgstr "Vynoviť pracovnú kópiu"
 
 #. Resource IDs: (99)
-#, fuzzy, c-format
+#, c-format
 msgid "Upgrading \"%1!s!\""
-msgstr "Upgradovanie  \"%1!s!\""
+msgstr "Vynovovanie  \"%1!s!\""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
