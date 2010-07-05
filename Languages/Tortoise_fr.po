@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-29 20:03+0100\n"
+"PO-Revision-Date: 2010-07-05 21:35+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -276,6 +276,8 @@ msgid ""
 "%s\n"
 "%ld failed hunk(s)"
 msgstr ""
+"%s\n"
+"%ld partie(s) ayant échoué"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -564,6 +566,10 @@ msgstr "&Copier vers..."
 msgid "&Custom"
 msgstr "&Personnalisé"
 
+#. Resource IDs: (1610, 1613)
+msgid "&Date"
+msgstr "&Date"
+
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
 msgstr "&Jours d'inactivité avant qu'un cache de petite taille soit supprimé"
@@ -701,8 +707,8 @@ msgid "&From URL:"
 msgstr "&Depuis l'URL :"
 
 #. Resource IDs: (1259)
-msgid "&From WC at URL:"
-msgstr "&Depuis CdT à l'URL :"
+msgid "&From WC / URL:"
+msgstr "&Depuis CdT / URL :"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -2384,8 +2390,8 @@ msgid "Check For Updates..."
 msgstr "Vérifier les mises à jours..."
 
 #. Resource IDs: (1544)
-msgid "Check externals to tag"
-msgstr "Marque les éléments externes"
+msgid "Check externals to explicit revision"
+msgstr "Vérifie les éléments externes à une révision spécifique"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -3088,9 +3094,9 @@ msgid "Could not replace '%s' because"
 msgstr "Impossible de remplacer '%s' car"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not replace property '%1!s!' on '%2!s!' because"
-msgstr "Impossible de peut pas supprimer la propriété '%1!s!' de '%2!s!' car"
+msgstr "Impossible de remplacer la propriété  '%1!s!' sur '%2!s!' car"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3786,9 +3792,8 @@ msgid "Either the name or IP of the proxy server"
 msgstr "Le nom ou l'adresse IP du serveur de proxy"
 
 #. Resource IDs: (265)
-#, fuzzy
 msgid "Eliding mergeinfo"
-msgstr "&Inclure les informations de fusion"
+msgstr "Elider les mergeinfo"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4403,6 +4408,10 @@ msgstr "Même largeur"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Corrige la casse de l'élément et ne l'ajoute pas"
+
+#. Resource IDs: (281)
+msgid "Fixed at rev"
+msgstr "Corrigé à la révision"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -6627,6 +6636,15 @@ msgstr "Patcher les fichiers sélectionnés"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Fichiers patch (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
+#. Resource IDs: (169)
+msgid "Patching"
+msgstr "Application du patch"
+
+#. Resource IDs: (169)
+#, c-format
+msgid "Patching file '%1'"
+msgstr "Patch en cours sur le '%1'"
+
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "Chemin"
@@ -7055,24 +7073,24 @@ msgid "Recording mergeinfo for merge between URLs"
 msgstr "Enregistre les mergeinfo pour effectuer la fusion entre URLs"
 
 #. Resource IDs: (265)
-#, fuzzy, c-format
+#, c-format
 msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
-msgstr "Inverser la fusion de %1!ld! jusqu'à %2!ld!"
+msgstr "Enregistrement des mergeinfo pour les fusions de r%1!ld! à r%2!ld!"
 
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for merge of r%ld"
-msgstr ""
+msgstr "Enregistrement des mergeinfo pour la fusion de r%ld"
 
 #. Resource IDs: (265)
-#, fuzzy, c-format
+#, c-format
 msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
-msgstr "Inverser la fusion de %1!ld! jusqu'à %2!ld!"
+msgstr "Enregistrer les mergeinfo pour l'inversion des fusions r%1!ld! à r%2!ld!"
 
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for reverse merge of r%ld"
-msgstr ""
+msgstr "Enregistrement des mergeinfo pour l'inversion de la fusion  r%ld"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -7173,7 +7191,7 @@ msgstr "Rejet"
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
-msgstr ""
+msgstr "Rejet des parties patchées pour '%s'"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
@@ -8752,10 +8770,6 @@ msgstr "Taille des tabulations :"
 msgid "Tag nodes"
 msgstr "Noeuds tag"
 
-#. Resource IDs: (281)
-msgid "Tagged"
-msgstr "Tagué"
-
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -9882,9 +9896,8 @@ msgid "Unversioned files mark parent folder as modified"
 msgstr "Les fichiers non versionnés marquent le dossier parent comme modifié"
 
 #. Resource IDs: (265)
-#, fuzzy
 msgid "Unversioned obstruction"
-msgstr "Non-versionné"
+msgstr "Obstruction non-versionnée"
 
 #. Resource IDs: (286)
 #, c-format
@@ -11451,6 +11464,10 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to tag"
+#~ msgstr "Marque les éléments externes"
+#~ msgid "Tagged"
+#~ msgstr "Tagué"
 #~ msgid "tree conflict:"
 #~ msgstr "Conflit dans l'arborescence :"
 #~ msgid "&Sat:"
