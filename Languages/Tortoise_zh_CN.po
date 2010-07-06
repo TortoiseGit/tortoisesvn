@@ -62,8 +62,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-30 14:30+0800\n"
-"Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
+"PO-Revision-Date: 2010-07-06 10:38+0800\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -610,6 +610,10 @@ msgstr "复制到(&C)..."
 msgid "&Custom"
 msgstr "定制(&C)"
 
+#. Resource IDs: (1610, 1613)
+msgid "&Date"
+msgstr "日期(&D)"
+
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
 msgstr "(&D)不活动的小缓存过期天数"
@@ -747,8 +751,8 @@ msgid "&From URL:"
 msgstr "从 URL(&F): "
 
 #. Resource IDs: (1259)
-msgid "&From WC at URL:"
-msgstr "从工作副本 URL(&F): "
+msgid "&From WC / URL:"
+msgstr "从工作副本/URL(&F): "
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -2428,8 +2432,8 @@ msgid "Check For Updates..."
 msgstr "检查更新..."
 
 #. Resource IDs: (1544)
-msgid "Check externals to tag"
-msgstr "检出外部定义为标签"
+msgid "Check externals to explicit revision"
+msgstr "改变外部定义为固定版本"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -4444,6 +4448,10 @@ msgstr "适合宽度"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "修正条目的大小写，不增加它"
+
+#. Resource IDs: (281)
+msgid "Fixed at rev"
+msgstr "固定版本"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -6658,6 +6666,15 @@ msgstr "修补选定文件"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "补丁文件(*.diff, *.patch)|*.diff;*.patch|所有文件(*.*)|*.*||"
 
+#. Resource IDs: (169)
+msgid "Patching"
+msgstr "打补丁"
+
+#. Resource IDs: (169)
+#, c-format
+msgid "Patching file '%1'"
+msgstr "给文件 '%s'打补丁   "
+
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "路径"
@@ -8770,10 +8787,6 @@ msgstr "Tab 宽度: "
 #. Resource IDs: (65535)
 msgid "Tag nodes"
 msgstr "标签节点"
-
-#. Resource IDs: (281)
-msgid "Tagged"
-msgstr "已加标签"
 
 #. Resource IDs: (79)
 #, c-format
@@ -11452,3 +11465,9 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Check externals to tag"
+#~ msgstr "检出外部定义为标签"
+
+#~ msgid "Tagged"
+#~ msgstr "已加标签"
