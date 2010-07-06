@@ -41,14 +41,6 @@ You only have to do this once.
      available in the VS.NET2010 Professional and higher. 
      This will provide you with a cross-compiler and a suitable 
      command shell. On XP64, there will also be a native compiler.
--# \b Optional but recommended: Install Microsoft SDK for Windows Vista (February 2007 Update)
-   - http://www.microsoft.com/downloads/details.aspx?FamilyID=FF6467E6-5BBA-4BF5-B562-9199BE864D29 .
-     Make sure you install the x64 compiler, header and libraries if you want to build in x64.
-   - Open "Microsoft Windows SDK", "Visual Studio Registration", "Integrate Windows SDK with Visual Studio 2010"
-     to make sure Visual Studio uses the latest SDK headers and libraries.
--# \b Optional: Install the MSDN Library (documentation) from
-   http://www.microsoft.com/downloads/details.aspx?familyid=B8704100-0127-4D88-9B5D-896B9B388313
-   You can always access it online at http://msdn2.microsoft.com/en-us/Library
 
 \subsection Requirements2 Next you need to install some utilities/programs.
 - Java runtime                http://java.sun.com http://java.sun.com/webapps/getjava/BrowserRedirect
@@ -112,11 +104,11 @@ Now you're almost ready. Only a few more steps to do:
 \section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
-  file which is located in \%VS90COMNTOOLS%. 
+  file which is located in \%VS100COMNTOOLS%. 
   
   Note that for the Express edition you need to sort out the vars for the platform SDK
   as well. The easiest way I found was to edit the supplied VC++ file
-  C:\Program Files\Microsoft Visual Studio 9.0\VC\vcvarsall.bat
+  C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat
   Look for the :x86 label and add an extra call to setenv.cmd as shown below:
 
 \code
