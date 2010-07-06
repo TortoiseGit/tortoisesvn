@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-06-08 21:07+0100\n"
+"PO-Revision-Date: 2010-07-06 21:52+0100\n"
 "Last-Translator: Bodin Frédéric <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7151,7 +7151,7 @@ msgstr "Par défaut le fichier d'annotations est visualisé en utilisant <firstt
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr ""
+msgstr "Vous pouvez indiquer la manière de gérer les changements de caractères de fin de ligne et d'espacement. Ces options sont décrites dans <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. Par défaut, toutes les modifications de caractères de fin de ligne et d'espacement sont considérés comme des changements à part entière, ceci dit si vous souhaitez ignorer les changements d'indentation et trouver l'auteur original, vous pouvez appliquer l'option appropriée ici."
 
 #. (para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
@@ -7183,15 +7183,15 @@ msgstr "Vous pouvez aussi aller à une ligne particulière en utilisant <menucho
 
 #. (para)
 msgid "When the mouse is over the blame info columns, a context menu is available which helps with comparing revisions and examining history, using the revision number of the line under the mouse as a reference. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame previous revision</guimenuitem></menuchoice> generates a blame report for the same file, but using the previous revision as the upper limit. This gives you the blame report for the state of the file just before the line you are looking at was last changed. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show changes</guimenuitem></menuchoice> starts your diff viewer, showing you what changed in the referenced revision. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show log</guimenuitem></menuchoice> displays the revision log dialog starting with the referenced revision."
-msgstr ""
+msgstr "Lorsque la souris survole la colonne annotation, un menu contextuel s'affiche vous permettant de comparer les révision et de consulter l'historique, en prenant comme référence le numéro de ligne sous le curseur de la souris. <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Annoter la révision précédente</guimenuitem></menuchoice> crée une annotation sur ce même fichier, mais en utilisant la révision précédente comme limite supérieure. Ce qui donne les annotations du fichier juste avant la ligne que vous survolez tel qu'il était avant les dernières modifications. <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Montrer les modifications</guimenuitem></menuchoice> démarre votre visionneuse de différences, vos montrant ce qui a changé à la révision référencée. <menuchoice><guimenu>Menu Contextuel</guimenu><guimenuitem>Montrer les commentaires</guimenuitem></menuchoice> affiche la fenêtre de commentaire des révisions, commençant par la révision référencée."
 
 #. (para)
 msgid "If you need a better visual indicator of where the oldest and newest changes are, select <menuchoice><guimenu>View</guimenu><guimenuitem>Color age of lines</guimenuitem></menuchoice>. This will use a colour gradient to show newer lines in red and older lines in blue. The default colouring is quite light, but you can change it using the TortoiseBlame settings."
-msgstr ""
+msgstr "Si vous souhaitez un meilleur indicateur concernant les modifications les plus récentes et les plus anciennes, <menuchoice><guimenu>Voir </guimenu><guimenuitem>Colorer l'âge des lignes</guimenuitem></menuchoice>. Cette option utilisera un gradient de couleur pour afficher les nouvelles lignes en rouge et les plus anciennes en bleu. La coloration par défaut est assez légère, mais vous pouvez la modifier en utilisant les préférences de TortoiseBlame."
 
 #. (para)
 msgid "If you are using Merge Tracking, where lines have changed as a result of merging from another path, TortoiseBlame will show the revision and author of the last change in the original file rather than the revision where the merge took place. These lines are indicated by showing the revision and author in italics. If you do not want merged lines shown in this way, uncheck the <guilabel>Include merge info</guilabel> checkbox."
-msgstr ""
+msgstr "Si vous utilisez le traqueur de fusion, où les modifications des lignes sont le résultat d'une fusion depuis un autre chemin, TortoiseBlame affichera la révision et l'auteur de la dernière modification dans le fichier original au lieu de la révision où la fusion a été effectuée. La révision et l'auteur de ces lignes sont affichés en italique. Si vous ne voulez pas de cette notation, décochez la case <guilabel>Inclure les informations de fusion</guilabel>."
 
 #. (para)
 msgid "If you want to see the paths involved in the merge, select <menuchoice><guimenu>View</guimenu><guimenuitem>Merge paths</guimenuitem></menuchoice>."
