@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-07-01 07:52-0000\n"
+"PO-Revision-Date: 2010-07-07 00:53-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -883,7 +883,7 @@ msgstr ""
 
 #. (title)
 msgid "List of available command line options"
-msgstr "Lista de opções de comando disponíveis"
+msgstr "Lista de opções de linha de comandos disponíveis."
 
 #. (entry)
 msgid "Command"
@@ -923,7 +923,7 @@ msgstr "deles"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
-msgstr "Indica o <placeholder-1/> ficheiro utilizado em diffs a três, exibidos no painel da esquerda."
+msgstr "Indica o ficheiro <placeholder-1/> usado em comparações de três caminhos, exibidos no painel esquerdo."
 
 #. (entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
@@ -935,7 +935,7 @@ msgstr "meu"
 
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
-msgstr ""
+msgstr "Especifica o ficheiro <placeholder-1/> usado em comparações de três caminhos, mostrada no painel direito. Para comparações de dois caminhos este é o ficheiro à direita."
 
 #. (entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
@@ -947,40 +947,39 @@ msgstr "integrado"
 
 #. (entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr ""
+msgstr "Especifica o ficheiro <placeholder-1/> resultante, usado nas comparações a três caminhos. Este é o caminho do ficheiro onde é guardado o resultado da resolução da integração/conflito. Se este não for especificado, então o tortoiseMerge irá perguntar ao utilizador onde poderá guardar o resultado."
 
 #. (entry)
-#, fuzzy
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
-msgstr "O nome do ficheiro integrado."
+msgstr "O nome do ficheiro integrado. Isto é mostrado no título da vista em vez do caminho do ficheiro."
 
 #. (emphasis)
 msgid "very long"
-msgstr "muito longo"
+msgstr "muito tempo"
 
 #. (entry)
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
-msgstr ""
+msgstr "O caminho onde deverá ser aplicada a correcção. Se não especificares este caminho, o TortoiseMerge irá tentar encontrar o caminho por si mesmo de modo a encontrar correspondência com os caminhos do ficheiro correcção, mas isso pode levar <placeholder-1/>."
 
 #. (entry)
 msgid "The name of the original file to patch. Used for the view title."
-msgstr "O nome do ficheiro original a corrigir. Utilizado por exibir título."
+msgstr "O nome do ficheiro original a corrigir. Usado para o título da vista."
 
 #. (entry)
 msgid "The name of the resulting patched file. Used for the view title."
-msgstr "O nome do ficheiro corrigido resultante. Utilizado por exibir título."
+msgstr "O nome do resultante ficheiro corrigido. Usado como título da vista."
 
 #. (entry)
 msgid "The path to the patch/diff file to apply to a directory."
-msgstr "O caminho para o patch/diff a aplicar ao diretório."
+msgstr "O caminho para a correcção/comparação a aplicar à pasta."
 
 #. (entry)
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
-msgstr "Obriga o TortoiseMerge a começar com uma vista unica em vez da vista especificado nas definições."
+msgstr "Obriga o TortoiseMerge a iniciar com a vista de um só caminho em vez da vista que o utilizador especificou nas definições."
 
 #. (entry)
 msgid "Switches the left and right view of the specified two files to diff."
-msgstr "Troca a painel esquerdo e direito dos ficheiros a comparar."
+msgstr "Troca a vista direita com a esquerda dos dois ficheiros especificados para comparar."
 
 #. (literal)
 msgid "/origfile:\"path_to_original_file\""
@@ -1004,7 +1003,7 @@ msgstr "/createunifieddiff"
 
 #. (entry)
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
-msgstr ""
+msgstr "Cria um ficheiro de comparação unificada (ficheiro correcção) dos dois ficheiros especificados com <placeholder-1/> e <placeholder-2/>. O caminho de destino é especificado com <placeholder-3/>. Se não for especificado o <placeholder-4/>, é mostrada uma caixa de diálogo guardar para que o utilizador possa escolher a localização para guardar o ficheiro correcção. Se for especificado o <placeholder-5/>, então todos os outros parâmetros são ignorados."
 
 #. (entry)
 msgid "Specifies a line number to jump to after loading the files."
@@ -1016,6 +1015,9 @@ msgid ""
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
 msgstr ""
+"Podes também fornecer na linha de comandos simples nomes de ficheiros para compatibilidade com outros programas de comparação. Nesta forma simplificada a linha de comandos é <screen>\n"
+"TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
+"</screen>  Se forem dados dois ficheiros, eles serão comparados entre si. Se forem dados três ficheiros, o primeiro é tomado como o ficheiro BASE, e os outros dois são comparados com este numa comparação a três caminhos."
 
 #. (title)
 msgid "Glossary"
