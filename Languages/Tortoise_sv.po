@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-14 10:52+0100\n"
+"PO-Revision-Date: 2010-07-05 10:50+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -570,6 +570,10 @@ msgstr "&Kopiera till..."
 msgid "&Custom"
 msgstr "&Egen"
 
+#. Resource IDs: (1610, 1613)
+msgid "&Date"
+msgstr "&Datum"
+
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
 msgstr "&Dagar av inaktivitet tills den lilla cachen blir borttagen"
@@ -708,8 +712,8 @@ msgid "&From URL:"
 msgstr "&Från URL:"
 
 #. Resource IDs: (1259)
-msgid "&From WC at URL:"
-msgstr "&Från arbetskopia på URL:"
+msgid "&From WC / URL:"
+msgstr "&Från arbetskopia / URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -2407,8 +2411,8 @@ msgid "Check For Updates..."
 msgstr "Leta efter uppdateringar..."
 
 #. Resource IDs: (1544)
-msgid "Check externals to tag"
-msgstr "Kontrollera externa mot märken"
+msgid "Check externals to explicit revision"
+msgstr "Kontrollera externa till fast revision"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -4440,6 +4444,10 @@ msgstr "Anpassa bredd"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Fixera objektfall och lägg inte till"
+
+#. Resource IDs: (281)
+msgid "Fixed at rev"
+msgstr "Fixerat vid revision"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -6676,6 +6684,15 @@ msgstr "Patcha markerade filer"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Patchfiler (*.diff, *.patch)|*.diff;*.patch|Alla (*.*)|*.*||"
 
+#. Resource IDs: (169)
+msgid "Patching"
+msgstr "Patchar"
+
+#. Resource IDs: (169)
+#, c-format
+msgid "Patching file '%1'"
+msgstr "Patchar fil \"%1\""
+
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "Sökväg"
@@ -8811,10 +8828,6 @@ msgstr "Tabbstorlek:"
 #. Resource IDs: (65535)
 msgid "Tag nodes"
 msgstr "Märken noder"
-
-#. Resource IDs: (281)
-msgid "Tagged"
-msgstr "Markerad"
 
 #. Resource IDs: (79)
 #, c-format
@@ -11516,6 +11529,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to tag"
+#~ msgstr "Kontrollera externa mot märken"
+#~ msgid "Tagged"
+#~ msgstr "Markerad"
 #~ msgid "tree conflict:"
 #~ msgstr "Träd konflikt:"
 #~ msgid "The repository was successfully created."
