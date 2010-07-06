@@ -304,7 +304,6 @@ UINT CTreeConflictEditorDlg::StatusThread()
     {
         CString url = pData->url;
 
-        SVNStatus stat;
         SVNInfo info;
         do
         {
