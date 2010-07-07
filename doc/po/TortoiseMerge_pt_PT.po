@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-07-07 01:50-0000\n"
+"PO-Revision-Date: 2010-07-07 02:15-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1007,7 +1007,7 @@ msgstr "Cria um ficheiro de comparação unificada (ficheiro correcção) dos do
 
 #. (entry)
 msgid "Specifies a line number to jump to after loading the files."
-msgstr ""
+msgstr "Especifica um número de linha para saltar após carregar os ficheiros."
 
 #. (para)
 msgid ""
@@ -1029,7 +1029,7 @@ msgstr "Adicionar"
 
 #. (para)
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
-msgstr ""
+msgstr "Comando Subversion que é usado para adicionar um ficheiro ou pasta à tua cópia de trabalho. Os novos itens são adicionados ao repositório quando submeteres."
 
 #. (glossterm)
 msgid "BASE revision"
@@ -1053,7 +1053,7 @@ msgstr "BDB"
 
 #. (para)
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
-msgstr ""
+msgstr "Berkeley DB. Um formato de base de dados robusto para repositórios, que não pode ser usado em partilhas de rede. Por defeito para repositórios pré 1.2."
 
 #. (glossterm)
 msgid "Branch"
@@ -1069,7 +1069,7 @@ msgstr "Dar saida"
 
 #. (para)
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
-msgstr ""
+msgstr "Comando Subversion que cria uma cópia de trabalho local numa pasta vazia, ao descarregar os ficheiros versionados do repositório."
 
 #. (glossterm)
 msgid "Cleanup"
@@ -1085,7 +1085,7 @@ msgstr "Submeter"
 
 #. (para)
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
-msgstr ""
+msgstr "Este comando Subversion é usado para transferir as alterações na tua cópia de trabalho local para o repositório, criando uma nova revisão do mesmo."
 
 #. (glossterm)
 msgid "Conflict"
@@ -1093,7 +1093,7 @@ msgstr "Conflito"
 
 #. (para)
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
-msgstr ""
+msgstr "Quando as alterações do repositório são integradas com as alterações locais, por vezes estas ocorrem nas mesmas linhas. Neste caso, o Subversion não pode decidir automaticamente qual a versão que deverá usar, e o ficheiro é dado como estando em conflito. Terás de o editar manualmente, e resolver o conflito antes de poderes submeter quaisquer alterações."
 
 #. (glossterm)
 msgid "Copy"
@@ -1133,7 +1133,7 @@ msgstr "FSFS"
 
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr ""
+msgstr "Sistema de ficheiro proprietário do Subversion de suporte para os repositórios. Pode ser usado em partilhas de rede. Por defeito para repositórios a partir da versão 1.2."
 
 #. (glossterm)
 msgid "GPO"
@@ -1165,7 +1165,7 @@ msgstr "Bloquear"
 
 #. (para)
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
-msgstr ""
+msgstr "Quando obténs um bloqueio para um item versionado, tu o marcas como não-submetivel  no repositório, à excepção da cópia de trabalho de onde foi obtido o bloqueio."
 
 #. (glossterm)
 msgid "Log"
@@ -1229,7 +1229,7 @@ msgstr "Repositório"
 
 #. (para)
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
-msgstr ""
+msgstr "O repositório é um local central onde os dados são armazenados e mantidos. Um repositório pode ser um local onde múltiplas bases de dados ou ficheiros estão localizados para distribuição através da rede, pode ser uma localização que está directamente acessível ao utilizador sem ter de viajar através da rede."
 
 #. (glossterm)
 msgid "Resolve"
@@ -1277,7 +1277,7 @@ msgstr "Abreviatura frequentemente utilizada para Subversion."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
-msgstr ""
+msgstr "O nome do protocolo personalizado Subversion e usado pelo servidor de repositório <quote>svnserve</quote>."
 
 #. (glossterm)
 msgid "Switch"
