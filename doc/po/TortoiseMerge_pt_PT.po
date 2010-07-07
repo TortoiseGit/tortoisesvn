@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-07-07 00:53-0000\n"
+"PO-Revision-Date: 2010-07-07 01:11-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -281,7 +281,7 @@ msgstr "No modo resolução de conflictos, você pode escolher usar blocos a par
 #. (title)
 #. (title)
 msgid "Applying Patches"
-msgstr "A Applicar Correções"
+msgstr "Aplicar Correcções"
 
 #. (para)
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
@@ -310,7 +310,7 @@ msgstr "O TortoiseMerge tem 3 modos de vista: um painél, dois paineis, e 3 pain
 #. (title)
 #. (title)
 msgid "Viewing / Merging"
-msgstr "A Visualizar/Corrigir"
+msgstr "Visualizar/Integrar"
 
 #. (title)
 msgid "One Pane View"
@@ -569,31 +569,31 @@ msgstr "Abrir Ficheiros"
 
 #. (para)
 msgid "When you start TortoiseMerge without any command line switches then you have to open the files manually, using <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
-msgstr "Quando o TortoiseMerge é iniciado sem opções em linha de comando então o utilizador tem de abrir os ficheiros manualmente, usando <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
+msgstr "Quando arrancas o TortoiseMerge este é iniciado sem opções de linha de comandos, então o utilizador tem de abrir manualmente os ficheiros usando <menuchoice><guimenu>Ficheiro</guimenu><guimenuitem>Abrir</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "The Open Dialog"
-msgstr "O Diálogo de Abertura"
+msgstr "Caixa de Diálogo Abrir"
 
 #. (para)
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
-msgstr "A primeira coisa que tem que dedicdir é se quer apenas comparar/integrar ficheiros, ou se quer aplicar um ficheiro patch. Dependendo da opção, as caixas de edição e botões de pesquisa serão activados."
+msgstr "A primeira coisa que tens de decidir é se apenas desejas comparar/integrar ficheiros, ou se queres aplicar um ficheiro de correcção. Dependendo do que escolheres, as caixas de edição e botões de navegação correspondentes serão activados."
 
 #. (para)
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
-msgstr "Se quer comparar / integrar ficheiros tem que escolher pelo menos três caminhos possiveis para <literal>Base</literal>, <literal>Mine</literal> e <literal>Theirs</literal>. Se selecionar apenas dois ficheiros, então o TortoiseMerge mostrar-lhe-á as diferenças entre esses dois ficheiros em vista de dois painéis ou em vista de um painél."
+msgstr "Se tu queres comparar / integrar ficheiros, terás de especificar pelo menos dois dos três caminhos possíveis para a <literal>Base</literal>, <literal>Meu</literal> e <literal>Deles</literal>. Se seleccionares apenas dois ficheiros, então o TortoiseMerge mostrar-te-á as diferenças entre esses dois ficheiros numa vista de dois painéis ou numa vista de um painel."
 
 #. (para)
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
-msgstr "Se quer integrar três ficheiros, o TortoiseMerge mostrar-lhe-á as diferenças numa vista de três painéis. Esta vista é geralmente usada se quiser resolver ficheiros conflituosos. Neste caso, o ficheiro de saída fica sem nome e terá de usar o <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. para salvar os resultados."
+msgstr "Se queres integrar três ficheiros, o TortoiseMerge mostrar-te-á as diferenças numa vista de três painéis. Esta vista é normalmente usada se tu queres resolver ficheiros em conflito. Neste caso, não é dado nome ao ficheiro de saída, e terás de usar <menuchoice><guimenu>Ficheiro</guimenu><guimenuitem>Guardar Como...</guimenuitem></menuchoice>. para guardar os resultados."
 
 #. (para)
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
-msgstr "Se quer aplicar um ficheiro patch tem que selecionar tanto o caminho para o patch como o caminho para a pasta em que quer aplicar o patch."
+msgstr "Se queres aplicar um ficheiro de correcção, terás de seleccionar tanto o caminho para o ficheiro de correcção como o caminho para a pasta onde o ficheiro correcção deverá ser aplicado."
 
 #. (para)
 msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
-msgstr "Actualmente, apenas ficheiros patch em <emphasis>Unified Diff Format</emphasis> são suportados e apenas ficheiros que tenham sido gerados por uma cópia de trabalho do Subversion.Outros formatos como ficheiros patch gerados por CVS não são neste momento suportados!"
+msgstr "Actualmente, apenas ficheiros de correcção no formato <emphasis>Comparação Unificada</emphasis> são suportados. E apenas ficheiros que tenham sido gerados a partir de uma cópia de trabalho do Subversion. Outros formatos como ficheiros de correcção gerados pelo CVS não são suportados de momento!"
 
 #. (title)
 msgid "Settings"
@@ -1273,7 +1273,7 @@ msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr "Uma abreviatura frequntemente utilizada para Subversion."
+msgstr "Abreviatura frequentemente utilizada para Subversion."
 
 #. (para)
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
@@ -1281,7 +1281,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Switch"
-msgstr "Interruptor"
+msgstr "parâmetro"
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
@@ -1289,7 +1289,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Update"
-msgstr "Atualizar"
+msgstr "Actualizar"
 
 #. (para)
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
@@ -1306,7 +1306,7 @@ msgstr "Isto é o seu <quote>sandbox</quote> local, a área onde trabalha nos fi
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "Luis X. B. Mourão"
+msgstr "Luis X. B. Mourão, Paulo Santana Justino"
 
 #. Place the translation of 'translation' here.
 #. (None)
