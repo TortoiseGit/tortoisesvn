@@ -26,11 +26,12 @@
             </listitem>
         </varlistentry>
         <varlistentry>
-            <term>Automatically check for newer versions every week</term>
+            <term>Check for updates</term>
             <listitem>
                 <para>
-                    If checked, TortoiseSVN will contact its download site once a week
+                    TortoiseSVN will contact its download site periodically
                     to see if there is a newer version of the program available.
+                    If there is it will show a notification link in the commit dialog.
                     Use <guibutton>Check now</guibutton> if you want an answer
                     right away. The new version will not be downloaded; you
                     simply receive an information dialog telling you that the
@@ -270,7 +271,7 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
-                <term>Progress Dialog</term>
+                <term>Auto-close</term>
                 <listitem>
                     <para>
                         TortoiseSVN can automatically close all progress dialogs
@@ -292,14 +293,6 @@
                         there were any conflicts or errors during the operation.
                     </para>
                     <para>
-                        <guilabel>Auto-close if no merges, adds or deletes for
-                        local operations</guilabel> means that the progress dialog
-                        will close as for <guilabel>Auto-close if no merges, adds
-                        or deletes</guilabel> but only for local operations like adding
-                        files or reverting changes. For remote operations the
-                        dialog will stay open.
-                    </para>
-                    <para>
                         <guilabel>Auto-close if no conflicts</guilabel>
                         relaxes the criteria further and will close the dialog
                         even if there were merges, adds or deletes. However,
@@ -314,6 +307,18 @@
                         to complete the task. For example, an update fails
                         because the server is inaccessible, or a commit fails
                         because the working copy is out-of-date.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Always close dialogs for local operations</term>
+                <listitem>
+                    <para>
+                        Local operations like adding files or reverting changes do not
+                        need to contact the repository and complete quickly, so the
+                        progress dialog is often of little interest. Select this option
+                        if you want the progress dialog to close automatically after these
+                        operations, unless there are errors.
                     </para>
                 </listitem>
             </varlistentry>
@@ -607,6 +612,15 @@
                     <para>
                         The original item has been deleted and a new item with
                         the same name replaces it.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Filter match</term>
+                <listitem>
+                    <para>
+                        When using filtering in the log dialog, search terms are
+                        highlighted in the results using this colour.
                     </para>
                 </listitem>
             </varlistentry>

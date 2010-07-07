@@ -12,23 +12,6 @@
         display icon overlays.
     </para>
     <para>
-        By default, overlay icons and context menus will appear in all open/save
-        dialogs as well as in Windows Explorer. If you want them to appear
-        <emphasis>only</emphasis> in Windows Explorer, check the
-        <guilabel>Show overlays and context menu only in explorer</guilabel> box.
-    </para>
-    <para>
-        Ignored items and Unversioned items are not usually given an overlay.
-        If you want to show an overlay in these cases, just check the boxes.
-    </para>
-    <para>
-        You can also choose to mark folders as
-        modified if they contain unversioned items. This could be useful for
-        reminding you that you have created new files which are not yet versioned.
-        This option is only available when you use the <emphasis>default</emphasis>
-        status cache option (see below).
-    </para>
-    <para>
         Since it takes quite a while to fetch the status of a working copy,
         TortoiseSVN uses a cache to store the status so the explorer
         doesn't get hogged too much when showing the overlays.
@@ -110,6 +93,19 @@
         </variablelist>
     </para>
     <para>
+        By default, overlay icons and context menus will appear in all open/save
+        dialogs as well as in Windows Explorer. If you want them to appear
+        <emphasis>only</emphasis> in Windows Explorer, check the
+        <guilabel>Show overlays and context menu only in explorer</guilabel> box.
+    </para>
+    <para>
+        You can also choose to mark folders as
+        modified if they contain unversioned items. This could be useful for
+        reminding you that you have created new files which are not yet versioned.
+        This option is only available when you use the <emphasis>default</emphasis>
+        status cache option (see below).
+    </para>
+    <para>
         The next group allows you to select which classes of storage should
         show overlays. By default, only hard drives are selected.
         You can even disable all icon overlays, but where's the fun in that?
@@ -129,19 +125,14 @@
         overlays and status columns.
         This is useful if you have some very big working copies containing
         only libraries which you won't change at all and therefore don't
-        need the overlays. For example:
+        need the overlays, or if you only want TortoiseSVN to look in
+        specific folders.
     </para>
     <para>
-        <filename>f:\development\SVN\Subversion</filename> will disable
-        the overlays <emphasis>only</emphasis> on that specific folder. You
-        still can see the overlays on all files and folder inside that folder.
-    </para>
-    <para>
-        <filename>f:\development\SVN\Subversion*</filename> will disable the
-        overlays on <emphasis>all</emphasis> files and folders whose path
-        starts with <filename>f:\development\SVN\Subversion</filename>. That
-        means you won't see overlays for any files and folders below that
-        path.
+        Any path you specify here is assumed to apply recursively, so none of the
+        child folders will show overlays either. If you want to exclude
+        <emphasis>only</emphasis> the named folder, append <literal>?</literal>
+        after the path.
     </para>
     <para>
         The same applies to the <guilabel>Include Paths</guilabel>. Except that
@@ -149,17 +140,30 @@
         for that specific drive type, or by an exclude path specified above.
     </para>
     <para>
-        Users sometimes ask how these three settings interact, and the definitive
-        answer is:
+        Users sometimes ask how these three settings interact. For any given path
+        check the include and exclude lists, seeking upwards through the directory
+        structure until a match is found. When the first match is found, obey that
+        include or exclude rule. If there is a conflict, a single directory spec
+        takes precedence over a recursive spec, then inclusion takes precedence over
+        exclusion.
+    </para>
+    <para>
+        An example will help here:
 <screen>
-if (path is in include list)
-  show overlays
-if (path is allowed drive type) AND (path is not in exclude list)
-  show overlays
+Exclude:
+       C:
+       C:\develop\?
+       C:\develop\tsvn\obj
+       C:\develop\tsvn\bin
+
+Include:
+       C:\develop
 </screen>
-        The include list <emphasis>always</emphasis> makes the overlays show.
-        Otherwise, overlays are shown for all marked drive types
-        <emphasis>unless</emphasis> the path is excluded.
+        These settings disable icon overlays for the C: drive, except for
+        <literal>c:\develop</literal>. All projects below that directory will
+        show overlays, except the <literal>c:\develop</literal> folder itself,
+        which is specifically ignored. The high-churn binary folders are also
+        excluded.
     </para>
     <para>
         TSVNCache.exe also uses these paths to restrict its scanning. If you
@@ -221,6 +225,22 @@ subst T: C:\TortoiseSVN\trunk\doc
             You can change the overlay icon set to the one you like best.
             Note that if you change overlay set, you may have to restart
             your computer for the changes to take effect.
+        </para>
+    </sect3>
+    <sect3 id="tsvn-dug-settings-overlay-handlers">
+        <title>Enabled Overlay Handlers</title>
+        <?dbhh topicname="HIDD_SETTINGSOVERLAYHANDLERS"?>
+        <para>
+            <figure id="tsvn-dug-settings-dia-overlay-handlers">
+                <title>The Settings Dialog, Icon Handlers Page</title>
+                <graphic fileref="../images/SettingsOverlayHandlers.png"/>
+            </figure>
+            Because the number of overlays available is severely restricted,
+            you can choose to disable some handlers to ensure that the ones
+            you want will be loaded. Because TortoiseSVN uses the common
+            TortoiseOverlays component which is shared with other Tortoise
+            clients (e.g. TortoiseCVS, TortoiseHG) this setting will affect
+            those clients too.
         </para>
     </sect3>
 </sect2>
