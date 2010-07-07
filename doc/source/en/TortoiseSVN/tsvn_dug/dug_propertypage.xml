@@ -179,6 +179,16 @@
                 different repository. For more information, read
                 <xref linkend="tsvn-dug-externals"/>.
             </para>
+            <tip>
+                <title>Edit properties at HEAD revision</title>
+                <?dbhh topicname="HIDD_PROPERTIES"?>
+                <para>
+                    Because properties are versioned, you cannot edit the properties
+                    of previous revisions. If you look at properties from the log
+                    dialog, or from a non-HEAD revision in the repository browser,
+                    you will see a list of properties and values, but no edit controls.
+                </para>
+            </tip>
         </sect3>
         <sect3 id="tsvn-dug-propertypage-props-import">
             <title>Exporting and Importing Properties</title>
