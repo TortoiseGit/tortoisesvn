@@ -59,7 +59,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-07-07 00:10+0800\n"
+"PO-Revision-Date: 2010-07-08 00:26+0800\n"
 "Last-Translator: Alex.San <d0oo0bsh@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10652,7 +10652,7 @@ msgstr ""
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr "怎样通过事件跟踪器而不是简单的利用<literal>bugtraq:</literal>属性去获得更紧密的集成呢？TortoiseSVN可以利用COM插件来实现这个目的。这类插件的使用令直接从问题追踪者那里获取信息成为可能，还可以和用户互动，并把有关开放的问题的信息返回给TortoiseSVN，也可以核实用户登录的日志信息并且在成功提交后运行某些动作，比如关闭一个问题。"
+msgstr "怎样通过问题跟踪器而不是简单的利用<literal>bugtraq:</literal>属性去获得更紧密的集成呢？TortoiseSVN可以利用COM插件来实现这个目的。这类插件的使用令直接从问题追踪者那里获取信息成为可能，还可以和用户互动，并把有关开放的问题的信息返回给TortoiseSVN，也可以核实用户登录的日志信息并且在成功提交后运行某些动作，比如关闭一个问题。"
 
 #. (para)
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
@@ -10664,11 +10664,11 @@ msgstr "您需要同时提供32位和64位的插件。因为x64版本的Tortoise
 
 #. (title)
 msgid "The IBugtraqProvider interface"
-msgstr ""
+msgstr "IBugtraqProvider 接口"
 
 #. (para)
 msgid "TortoiseSVN 1.5 and later can use plugins which implement the IBugtraqProvider interface. The interface provides a few methods which plugins can use to interact with the issue tracker."
-msgstr ""
+msgstr "TortoiseSVN 1.5及以后的版本可以使用实现了IBugtraqProvider接口的插件。利用这些接口提供的方法，插件可以和问题追踪器互动。"
 
 #. (programlisting)
 #, no-wrap
@@ -10686,10 +10686,22 @@ msgid ""
 "  [out, retval] VARIANT_BOOL *valid\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT ValidateParameters (\n"
+"  // UI 的父窗体\n"
+"  // 该UI需要在验证的过程中一直显示。\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // 需要被验证的参数字符串。\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // 字符串有效吗？\n"
+"  [out, retval] VARIANT_BOOL *valid\n"
+");\n"
 
 #. (para)
 msgid "This method is called from the settings dialog where the user can add and configure the plugin. The <literal>parameters</literal> string can be used by a plugin to get additional required information, e.g., the URL to the issue tracker, login information, etc. The plugin should verify the <literal>parameters</literal> string and show an error dialog if the string is not valid. The <literal>hParentWnd</literal> parameter should be used for any dialog the plugin shows as the parent window. The plugin must return TRUE if the validation of the <literal>parameters</literal> string is successful. If the plugin returns FALSE, the settings dialog won't allow the user to add the plugin to a working copy path."
-msgstr ""
+msgstr "这个方法是被一个设置对话框调用的，在这个对话框中，用户可以添加和设置插件。<literal>parameters</literal>字符串可以被某个插件使用，用以获得附加需求的信息，例如，问题追踪器的URL、登录信息等等。该插件需要验证<literal>parameters</literal>字符串并且当验证不通过时显示错误对话框。<literal>hParentWnd</literal>参数用来指定插件显示的对话框属于哪个父窗体。当<literal>parameters</literal>字符串验证通过时，该插件必须返回一个“TRUE”。如果返回的是“FALSE”，则设置对话框将不会允许用户添加插件到工作副本目录中。"
 
 #. (programlisting)
 #, no-wrap
@@ -10708,10 +10720,23 @@ msgid ""
 "  [out, retval] BSTR *linkText\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetLinkText (\n"
+"  // 任何需要被显示的（错误）UI的父窗体。\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // 参数字符串， 仅仅当需要和web服务器会话时使用。\n"
+"  // 例如，去查找正确的文本是什么。\n"
+"  [in] BSTR parameters,\n"
+"\n"
+"  // 你想显示那些字符串？\n"
+"  // 使用当前线程区域。\n"
+"  [out, retval] BSTR *linkText\n"
+");\n"
 
 #. (para)
 msgid "The plugin can provide a string here which is used in the TortoiseSVN commit dialog for the button which invokes the plugin, e.g., \"Choose issue\" or \"Select ticket\". Make sure the string is not too long, otherwise it might not fit into the button. If the method returns an error (e.g., <literal>E_NOTIMPL</literal>), a default text is used for the button."
-msgstr ""
+msgstr "该插件可以提供一个可以在TortoiseSVN提交对话框的按钮（这个按钮需要调用该插件）上显示的字符串，例如，\"Choose issue\" 或者 \"Select ticket\"。请确定这个字符串不会超长，否则会在按钮中显示不下。如果这个方法返回一个错误（例如。 <literal>E_NOTIMPL</literal>），按钮上会显示一个默认的字符串。"
 
 #. (programlisting)
 #, no-wrap
