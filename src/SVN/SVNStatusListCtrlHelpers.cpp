@@ -1061,7 +1061,9 @@ bool CSVNStatusListCtrl::CSorter::operator()
         }
     case 1:
         {
-            if (result == 0)
+            // do not sort by file/dirname if the sorting isn't done by this specific column but let the second-order
+            // sorting be done by path
+            if ((result == 0)&&(sortedColumn == 1))
             {
                 result = entry1->path.GetFileOrDirectoryName().CompareNoCase(entry2->path.GetFileOrDirectoryName());
             }
