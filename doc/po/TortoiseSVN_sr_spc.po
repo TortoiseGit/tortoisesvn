@@ -2600,7 +2600,7 @@ msgstr "Ако осигурате ваш сервер са ССЛ и корис�
 
 #. (para)
 msgid "define a separate <literal>&lt;Location /path&gt;</literal> directive in the Apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
-msgstr "дефинишите одвојену <literal>&лт;Лоцатион /патх&гт;</literal> директиву у Апаш конфиг фајлу, и додајте <literal>ССПИБасицПреферред Он</literal>. Ово ће омогућити ИЕ да аутентикује опет, али други претраживачи и Субверзија нису способни да аутентикују према локацији."
+msgstr "дефинишите одвојену <literal>&lt;Лоцатион /патх&gt;</literal> директиву у Апаш конфиг фајлу, и додајте <literal>ССПИБасицПреферред Он</literal>. Ово ће омогућити ИЕ да аутентикује опет, али други претраживачи и Субверзија нису способни да аутентикују према локацији."
 
 #. (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
@@ -12639,7 +12639,7 @@ msgid ""
 "svn diff PATH &gt; patch-file\n"
 msgstr ""
 "\n"
-"свн дифф ПАТХ &гт; патцх-филе\n"
+"свн дифф ПАТХ &gt; патцх-филе\n"
 
 #. (para)
 msgid "TortoiseSVN creates a patch file in unified diff format by comparing the working copy with its BASE version."
