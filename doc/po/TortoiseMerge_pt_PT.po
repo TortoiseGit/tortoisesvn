@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-07-07 01:11-0000\n"
+"PO-Revision-Date: 2010-07-07 01:50-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -533,35 +533,35 @@ msgstr "A Integrar/Editar Confltos"
 
 #. (para)
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
-msgstr "O TortoiseMege não só <emphasis>mostra</emphasis> ao utilizador as diferenças entre ficheiros mas também deixa resolver conflitos ou aplicar alterações."
+msgstr "O TortoiseMege não só <emphasis>mostra</emphasis> ao utilizador as diferenças entre ficheiros mas também o deixa resolver conflitos ou aplicar alterações."
 
 #. (para)
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr "Se está na vista de 2 painéis, pode apenas editar o ficheiro do painél da $direita  (<literal>Mine</literal>). Para aplicar alterações feitas no painél da esquerda  (<literal>Theirs</literal>), <action>right-click</action> nas linhas alteradas e selecione <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>. Use o bloco de texto "
+msgstr "Se está na vista de 2 painéis, então apenas podes editar o ficheiro do painel da direita  (<literal>Meu</literal>). Para aplicar alterações feitas no painel da esquerda  (<literal>Deles</literal>), <action>clica-com-o-botão-direito</action> nas linhas alteradas e seleciona <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem>. Usa o bloco de texto <quote>deles</quote></guimenuitem></menuchoice>. Então as alterações do ficheiro da esquerda são adicionadas ao ficheiro da direita."
 
 #. (para)
 msgid "Sometimes you actually want both text blocks, and the context menu also offers you <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one first)</guimenuitem></menuchoice> and <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one last)</guimenuitem></menuchoice>."
-msgstr "Por vezes queres que ambos os blocos de texto"
+msgstr "Por vezes tu queres ambos os blocos de texto, e o menu de contexto também te oferece <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem>Usa ambos os blocos de texto (este primeiro)</guimenuitem></menuchoice> e <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem>Usa ambos os blocos de texto(este por último)</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr "Também pode editar o ficheiro de saída como se fosse fosse num editor de texto. Essas linhas são marcadas com o icone de um lápis. Por favor, note que se quiser fazer ás linhas/blocos uma das alterações descritas acima, é melhor faze-las primeiro uma vez que depois do utilizador começar a editar o ficheiro torna-se impossivel para o TortoiseMerge de guardar a relação com os ficheiros originais."
+msgstr "Também podes editar o ficheiro de saída como farias num editor de texto. Tais linhas são marcadas com o ícone de lápis. Tem atenção que se quiseres fazer algumas das alterações baseadas em linhas/blocos descritas acima, o melhor é faze-las primeiro pois uma vez que comeces a editar o ficheiro irá ser impossível para o TortoiseMerge seguir as relações com os ficheiros originais."
 
 #. (para)
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr ""
+msgstr "Se estiveres na vista de três paineis (por vezes chamada <emphasis>vista de integração</emphasis>) tu apenas podes editar o ficheiro na vista de baixo  (<literal>Integrado</literal>). Como na vista de dois paineis, tu podes <action>clicar-com-o-botão-dreito</action> nas linhas em conflito e seleccionar <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem>Usar bloco de texto <quote>deles</quote></guimenuitem></menuchoice> ou <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem> Usar bloco de texto <quote>meu</quote></guimenuitem></menuchoice>. Adicionalmente, se queres <emphasis>ambos</emphasis> os blocos, podes seleccionar <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem> Usar bloco de texto  <quote>meu</quote> antes <quote>deles</quote></guimenuitem></menuchoice> ou <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem> Usar bloco de texto <quote>deles</quote> antes do <quote>meu</quote></guimenuitem></menuchoice>. De acordo com o comando que escolheste, as alterações são usadas no ficheiro <literal>integrado</literal> resultante."
 
 #. (para)
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr "Por vezes um ficheiro será marcado como conflituoso no Subversion, mas ao ser visualizado o TortoiseMerge não existirão conflitos visiveis. Isto pode ser devido à forma como o utilizador escolheu lidar com espaços brancos. Se escolheu ignorar line-endings ou espaços em branco, essas linhas serão marcadas usando o icone <emphasis>Conflict-Ignored</emphasis>. Para resolver o conflicto ainda precisa de escolher que versão quer usar."
+msgstr "Por vezes um ficheiro é marcado no Subversion como em conflito, no entanto quando o visualizas com o TortoiseMerge não são mostrados quaisquer conflitos. Isto pode ser devido à forma que escolheste para lidar com os espaços em branco. Se escolheste ignorar as alterações de fim-de-linha ou de espaços em branco, essas linhas serão marcadas com o ícone <emphasis>Conflito-Ignorado</emphasis>. Para resolver o conflito ainda ainda precisarás de escolher qual a versão que queres usar."
 
 #. (para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr ""
+msgstr "Por vezes o conflito é demasiado difícil de resolver apenas ao escolher as alterações <literal>Deles</literal> e <literal>Minha</literal>, e requer edição manual. O TortoiseMerge permite-te primeiro efectuar todas as alterações simples de um modo visual e guarda em seguida o ficheiro, deixando apenas as alterações difíceis para serem depois resolvidas de modo manual."
 
 #. (para)
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
-msgstr "Note que se usar o TortoiseMerge nos mesmos ficheiros novamente, quaisquer alterações à sua cópia de trabalho, quer no TortoiseMerge, ou ediçao manual, <emphasis>serão descartadas</emphasis> e o ficheiro aparecerá como estava antes do conflicto gerado pela edição ter sido criado."
+msgstr "Tem atenção que se usares outra vez o TortoiseMerge nos mesmos ficheiros, quaisquer alterações à tua cópia de trabalho, quer no TortoiseMerge, ou na edição manual, <emphasis>serão descartadas</emphasis> e o ficheiro aparecerá como estava quando foi iniciada da primeira vez a edição do conflito."
 
 #. (title)
 msgid "Open Files"
