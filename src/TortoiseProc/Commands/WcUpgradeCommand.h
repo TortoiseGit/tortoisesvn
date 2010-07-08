@@ -38,15 +38,18 @@ public:
         CString tmp;
         progress.SetTitle(IDS_PROC_UPGRADE);
         progress.SetShowProgressBar(false);
-        tmp.FormatMessage(IDS_PROC_UPGRADE_INFO, cmdLinePath.GetWinPath());
-        progress.SetLine(1, tmp);
-        progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
-        progress.ShowModeless(hwndExplorer);
-        if (!svn.Upgrade(cmdLinePath))
+        for (int i = 0; i < pathList.GetCount(); ++i)
         {
-            progress.Stop();
-            ::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-            return false;
+            tmp.FormatMessage(IDS_PROC_UPGRADE_INFO, pathList[i].GetWinPath());
+            progress.SetLine(1, tmp);
+            progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
+            progress.ShowModeless(hwndExplorer);
+            if (!svn.Upgrade(pathList[i]))
+            {
+                progress.Stop();
+                ::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                return false;
+            }
         }
         progress.Stop();
         return true;
