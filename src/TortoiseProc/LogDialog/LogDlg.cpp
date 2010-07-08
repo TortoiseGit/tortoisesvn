@@ -3736,15 +3736,23 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 
                 pathIDsAdded.insert (pathID);
 
-                CTSVNPath path;
-                if (!bRelativePaths)
-                    path.SetFromSVN(m_sRepositoryRoot);
-                path.AppendPathString(cpath.GetPath());
                 if (   !bUseFilter
                     || ((m_cShowPaths.GetState() & 0x0003)!=BST_CHECKED)
                     || cpath.IsRelevantForStartPath())
-                    pathList.AddPath(path);
+                {
+                    CTSVNPath path;
+                    if (!bRelativePaths)
+                    {
+                        path.SetFromSVN(m_sRepositoryRoot);
+                        path.AppendPathString(cpath.GetPath());
+                    }
+                    else
+                    {
+                        path.SetFromSVN(cpath.GetPath());
+                    }
 
+                    pathList.AddPath(path);
+                }
             }
         }
     }
