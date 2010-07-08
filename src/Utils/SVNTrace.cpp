@@ -46,7 +46,7 @@ CSVNTrace::CSVNTrace
     if (svnPath)
         path = CString (_T("Path=")) + CUnicodeUtils::GetUnicode(svnPath);
 
-    CTraceToOutputDebugString::Instance()(_T("#%d Thread:%d %s(%d) %s %s\n")
+    CTraceToOutputDebugString::Instance()(_T("#%d Thread:%d %s(line %d) %s %s\n")
              , id
              , threadID
              , name
