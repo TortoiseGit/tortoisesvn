@@ -335,6 +335,38 @@ const SVNRevRange& SVNRevRangeArray::operator[](int index) const
     return m_array[index];
 }
 
+SVNRev SVNRevRangeArray::GetHighestRevision() const
+{
+    if (m_array.empty())
+        return SVNRev();
+
+    svn_revnum_t highest = m_array[0].GetStartRevision();
+    for (size_t i = 0, count = m_array.size(); i < count; ++i)
+    {
+        svn_revnum_t first = m_array[i].GetStartRevision();
+        svn_revnum_t last = m_array[i].GetEndRevision();
+        highest = max (highest, max (first, last));
+    }
+
+    return highest;
+}
+
+SVNRev SVNRevRangeArray::GetLowestRevision() const
+{
+    if (m_array.empty())
+        return SVNRev();
+
+    svn_revnum_t lowest = m_array[0].GetStartRevision();
+    for (size_t i = 0, count = m_array.size(); i < count; ++i)
+    {
+        svn_revnum_t first = m_array[i].GetStartRevision();
+        svn_revnum_t last = m_array[i].GetEndRevision();
+        lowest = max (lowest, max (first, last));
+    }
+
+    return lowest;
+}
+
 bool SVNRevRangeArray::FromListString(const CString& string)
 {
     Clear();

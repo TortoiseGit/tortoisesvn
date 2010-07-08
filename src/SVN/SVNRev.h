@@ -139,6 +139,8 @@ public:
     const apr_array_header_t* GetAprArray(apr_pool_t * pool) const;
 
     const SVNRevRange&  operator[](int index) const;
+    SVNRev              GetHighestRevision() const;
+    SVNRev              GetLowestRevision() const;
 
     bool                FromListString(const CString& string);
     CString             ToListString(bool bReverse = false) const;
