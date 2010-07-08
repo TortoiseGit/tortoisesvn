@@ -28,7 +28,7 @@
 #include <WinInet.h>
 #include <oleacc.h>
 #include <initguid.h>
-
+#include "DebugOutput.h"
 
 extern CString sOrigCWD;
 
@@ -220,9 +220,21 @@ bool CCommonAppUtils::LaunchApplication
     , bool bWaitForExit)
 {
     PROCESS_INFORMATION process;
-    CString cleanCommandLine(sCommandLine);
-    if (!CCreateProcessHelper::CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)cleanCommandLine), sOrigCWD, &process))
+
+    CTraceToOutputDebugString::Instance() ( _T("CCommonAppUtils::LaunchApplication: begin\n"));
+
+    // make sure we get a writable copy of the command line
+
+    size_t bufferLen = sCommandLine.GetLength()+1;
+    auto_buffer<TCHAR> cleanCommandLine (bufferLen);
+    memcpy (cleanCommandLine.get(), 
+            (LPCTSTR)sCommandLine, 
+            sizeof (TCHAR) * bufferLen);
+
+    if (!CCreateProcessHelper::CreateProcess(NULL, cleanCommandLine.get(), sOrigCWD, &process))
     {
+        CTraceToOutputDebugString::Instance() ( _T("process creation failed\n"));
+
         if(idErrMessageFormat != 0)
         {
             CFormatMessageWrapper errorDetails;
@@ -236,14 +248,23 @@ bool CCommonAppUtils::LaunchApplication
     }
     AllowSetForegroundWindow(process.dwProcessId);
 
+    CTraceToOutputDebugString::Instance() ( _T("CCommonAppUtils::LaunchApplication: wait for startup\n"));
+
     if (bWaitForStartup)
         WaitForInputIdle(process.hProcess, 10000);
+
+    CTraceToOutputDebugString::Instance() ( _T("CCommonAppUtils::LaunchApplication: wait for exit\n"));
 
     if (bWaitForExit)
         WaitForSingleObject (process.hProcess, INFINITE);
 
+    CTraceToOutputDebugString::Instance() ( _T("CCommonAppUtils::LaunchApplication: closing handles\n"));
+
     CloseHandle(process.hThread);
     CloseHandle(process.hProcess);
+
+    CTraceToOutputDebugString::Instance() ( _T("CCommonAppUtils::LaunchApplication: done\n"));
+
     return true;
 }
 
