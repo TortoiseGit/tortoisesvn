@@ -57,7 +57,7 @@
       <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
       <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
       <arg value="/Gy" />
-      <arg value="/W3" />
+      <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
@@ -139,7 +139,7 @@
       <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
       <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
       <arg value="/Gy" />
-      <arg value="/W3" />
+      <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
