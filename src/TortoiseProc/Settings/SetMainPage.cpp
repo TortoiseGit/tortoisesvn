@@ -89,6 +89,10 @@ BOOL CSetMainPage::OnInitDialog()
     m_dwLanguage = m_regLanguage;
     m_bUseAero = m_regUseAero;
 
+    CDwmApiImpl dwm;
+    dwm.Initialize();
+    DialogEnableWindow(IDC_AERODWM, dwm.IsDwmCompositionEnabled());
+
     CString temp;
     temp = m_regLastCommitTime;
     m_bLastCommitTime = (temp.CompareNoCase(_T("yes"))==0);
