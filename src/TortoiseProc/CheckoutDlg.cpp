@@ -461,7 +461,7 @@ void CCheckoutDlg::OnBnClickedShowlog()
     {
         delete m_pLogDlg;
         m_pLogDlg = new CLogDlg();
-        m_pLogDlg->SetParams(m_URLs.GetCommonRoot(), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
+        m_pLogDlg->SetParams(m_URLs.GetCommonRoot(), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1);
         m_pLogDlg->m_wParam = 1;
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;

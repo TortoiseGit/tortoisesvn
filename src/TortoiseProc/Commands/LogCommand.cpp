@@ -72,7 +72,7 @@ bool LogCommand::Execute()
 
     CLogDlg dlg;
     theApp.m_pMainWnd = &dlg;
-    dlg.SetParams(cmdLinePath, pegrev, revstart, revend, limit, bStrict);
+    dlg.SetParams(cmdLinePath, pegrev, revstart, revend, bStrict, TRUE, limit);
     dlg.SetFilter(findStr, findType, findRegex);
     dlg.SetIncludeMerge(!!parser.HasKey(_T("merge")));
     val = parser.GetVal(_T("propspath"));

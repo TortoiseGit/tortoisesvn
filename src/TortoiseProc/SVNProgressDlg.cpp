@@ -1942,8 +1942,6 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
     case ID_LOG:
         {
-            CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-            int limit = (int)(DWORD)reg;
             svn_revnum_t rev = m_RevisionEnd;
             if (!data->basepath.IsEmpty())
             {
@@ -1956,7 +1954,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             // the path might be inside an external folder which has its own
             // revisions.
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
-            dlg.SetParams(CTSVNPath(sPath), SVNRev(), SVNRev::REV_HEAD, 1, limit, TRUE);
+            dlg.SetParams(CTSVNPath(sPath), SVNRev(), SVNRev::REV_HEAD, 1, TRUE);
             dlg.DoModal();
         }
         break;

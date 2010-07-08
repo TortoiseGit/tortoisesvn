@@ -73,8 +73,9 @@ public:
     CLogDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CLogDlg();
 
-    void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit,
-        BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE);
+    void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, 
+        BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE,
+        int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
     void SetFilter(const CString& findstr, LONG findtype, bool findregex);
     void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
     void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
@@ -170,6 +171,7 @@ private:
     bool IsSelectionContinuous();
     void EnableOKButton();
     void GetAll(bool bForceAll = false);
+    void UpdateSelectedRevs();
     void UpdateLogInfoLabel();
     void SaveSplitterPos();
     bool ValidateRegexp(LPCTSTR regexp_str, tr1::wregex& pat, bool bMatchCase);

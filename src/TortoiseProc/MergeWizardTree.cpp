@@ -288,13 +288,11 @@ void CMergeWizardTree::OnBnClickedFindbranchstart()
             delete m_pLogDlg;
         }
         m_pLogDlg = new CLogDlg();
-        CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-        int limit = (int)(LONG)reg;
         m_pLogDlg->m_wParam = MERGE_REVSELECTSTART;
         m_pLogDlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTSTARTREVISION)));
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
-        m_pLogDlg->SetParams(CTSVNPath(url), StartRev, StartRev, 1, limit, TRUE, FALSE);
+        m_pLogDlg->SetParams(CTSVNPath(url), StartRev, StartRev, 1, TRUE, FALSE);
         m_pLogDlg->SetProjectPropertiesPath(wcPath);
         m_pLogDlg->ContinuousSelection(true);
         m_pLogDlg->SetMergePath(wcPath);
@@ -324,14 +322,12 @@ void CMergeWizardTree::OnBnClickedFindbranchend()
             delete m_pLogDlg2;
         }
         m_pLogDlg2 = new CLogDlg();
-        CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-        int limit = (int)(LONG)reg;
         m_pLogDlg2->m_wParam = MERGE_REVSELECTEND;
         m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTENDREVISION)));
         m_pLogDlg2->SetSelect(true);
         m_pLogDlg2->m_pNotifyWindow = this;
         m_pLogDlg2->SetProjectPropertiesPath(wcPath);
-        m_pLogDlg2->SetParams(CTSVNPath(url), EndRev, EndRev, 1, limit, TRUE, FALSE);
+        m_pLogDlg2->SetParams(CTSVNPath(url), EndRev, EndRev, 1, TRUE, FALSE);
         m_pLogDlg2->ContinuousSelection(true);
         m_pLogDlg2->SetMergePath(wcPath);
         m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
@@ -392,12 +388,10 @@ void CMergeWizardTree::OnBnClickedShowlogwc()
         m_pLogDlg3->DestroyWindow();
     delete m_pLogDlg3;
     m_pLogDlg3 = new CLogDlg();
-    CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-    int limit = (int)(LONG)reg;
     m_pLogDlg3->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
 
     m_pLogDlg3->m_pNotifyWindow = NULL;
-    m_pLogDlg3->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+    m_pLogDlg3->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
     m_pLogDlg3->SetProjectPropertiesPath(wcPath);
     m_pLogDlg3->SetMergePath(wcPath);
     m_pLogDlg3->Create(IDD_LOGMESSAGE, this);

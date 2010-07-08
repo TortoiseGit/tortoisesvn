@@ -254,12 +254,10 @@ void CSwitchDlg::OnBnClickedLog()
     {
         delete m_pLogDlg;
         m_pLogDlg = new CLogDlg();
-        CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-        int limit = (int)(LONG)reg;
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
         m_pLogDlg->m_wParam = 0;
-        m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE);
+        m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE);
         m_pLogDlg->ContinuousSelection(true);
         m_pLogDlg->SetProjectPropertiesPath(CTSVNPath(m_path));
         m_pLogDlg->Create(IDD_LOGMESSAGE, this);

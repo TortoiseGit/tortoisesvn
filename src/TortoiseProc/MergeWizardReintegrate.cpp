@@ -156,13 +156,11 @@ void CMergeWizardReintegrate::OnBnClickedShowmergelog()
             m_pLogDlg->DestroyWindow();
         delete m_pLogDlg;
         m_pLogDlg = new CLogDlg();
-        CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-        int limit = (int)(LONG)reg;
         m_pLogDlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
 
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
-        m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+        m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
         m_pLogDlg->SetProjectPropertiesPath(wcPath);
         m_pLogDlg->SetMergePath(wcPath);
         m_pLogDlg->Create(IDD_LOGMESSAGE, this);
@@ -183,12 +181,10 @@ void CMergeWizardReintegrate::OnBnClickedShowlogwc()
         m_pLogDlg2->DestroyWindow();
     delete m_pLogDlg2;
     m_pLogDlg2 = new CLogDlg();
-    CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-    int limit = (int)(LONG)reg;
     m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
 
     m_pLogDlg2->m_pNotifyWindow = NULL;
-    m_pLogDlg2->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+    m_pLogDlg2->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
     m_pLogDlg2->SetProjectPropertiesPath(wcPath);
     m_pLogDlg2->SetMergePath(wcPath);
     m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
