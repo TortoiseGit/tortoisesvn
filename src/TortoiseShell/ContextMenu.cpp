@@ -38,7 +38,7 @@ int g_shellidlist=RegisterClipboardFormat(CFSTR_SHELLIDLIST);
 CShellExt::MenuInfo CShellExt::menuInfo[] =
 {
     { ShellMenuCheckout,                    MENUCHECKOUT,       IDI_CHECKOUT,           IDS_MENUCHECKOUT,           IDS_MENUDESCCHECKOUT,
-        {ITEMIS_FOLDER, ITEMIS_INSVN|ITEMIS_FOLDERINSVN}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_checkout") },
+        {ITEMIS_FOLDER|ITEMIS_ONLYONE, ITEMIS_INSVN|ITEMIS_FOLDERINSVN}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_checkout") },
 
     { ShellMenuUpgradeWC,                       MENUUPGRADE,    IDI_CLEANUP,            IDS_MENUUPGRADE,            IDS_MENUDESCUPGRADE,
         {ITEMIS_UNSUPPORTEDFORMAT, 0}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_upgradewc") },
@@ -135,7 +135,7 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
     { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, _T("")},
 
     { ShellMenuCreateRepos,                 MENUCREATEREPOS,    IDI_CREATEREPOS,        IDS_MENUCREATEREPOS,        IDS_MENUDESCCREATEREPOS,
-        {ITEMIS_FOLDER, ITEMIS_INSVN|ITEMIS_FOLDERINSVN}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_createrepo") },
+        {ITEMIS_FOLDER|ITEMIS_ONLYONE, ITEMIS_INSVN|ITEMIS_FOLDERINSVN}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_createrepo") },
 
     { ShellMenuAdd,                         MENUADD,            IDI_ADD,                IDS_MENUADD,                IDS_MENUDESCADD,
         {ITEMIS_INVERSIONEDFOLDER|ITEMIS_FOLDER, ITEMIS_INSVN|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_INSVN|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_IGNORED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_DELETED, ITEMIS_FOLDER|ITEMIS_ONLYONE|ITEMIS_UNSUPPORTEDFORMAT}, _T("tsvn_add") },
