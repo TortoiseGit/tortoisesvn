@@ -1610,22 +1610,23 @@ void CLogDlg::UpdateSelectedRevs()
     int selIndex = m_LogList.GetSelectionMark();
     if (selIndex >= 0)
     {
+        std::vector<svn_revnum_t> revisions;
+        revisions.reserve (m_logEntries.GetVisibleCount());
+
         PLOGENTRYDATA pLogEntry = NULL;
         POSITION pos = m_LogList.GetFirstSelectedItemPosition();
         pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-        m_selectedRevs.AddRevision(pLogEntry->GetRevision());
-        svn_revnum_t lowerRev = pLogEntry->GetRevision();
-        svn_revnum_t higherRev = lowerRev;
+        revisions.push_back (pLogEntry->GetRevision());
         while (pos)
         {
             pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-            svn_revnum_t rev = pLogEntry->GetRevision();
-            m_selectedRevs.AddRevision(pLogEntry->GetRevision());
-            if (lowerRev > rev)
-                lowerRev = rev;
-            if (higherRev < rev)
-                higherRev = rev;
+            revisions.push_back (pLogEntry->GetRevision());
         }
+
+        m_selectedRevs.AddRevisions (revisions);
+        svn_revnum_t lowerRev = m_selectedRevs.GetLowestRevision();
+        svn_revnum_t higherRev = m_selectedRevs.GetHighestRevision();
+
         if (m_sFilterText.IsEmpty() && m_nSortColumn == 0 && IsSelectionContinuous())
         {
             m_selectedRevsOneRange.AddRevRange(lowerRev, higherRev);
@@ -4112,23 +4113,26 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     SVNRev revLowest, revHighest;
     SVNRevRangeArray revisionRanges;
     {
+        std::vector<svn_revnum_t> revisions;
+        revisions.reserve (m_logEntries.GetVisibleCount());
+
         POSITION pos2 = m_LogList.GetFirstSelectedItemPosition();
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
-        revisionRanges.AddRevision(pLogEntry->GetRevision());
+        revisions.push_back (pLogEntry->GetRevision());
         selEntries.push_back(pLogEntry);
         firstAuthor = pLogEntry->GetAuthor();
-        revLowest = pLogEntry->GetRevision();
-        revHighest = pLogEntry->GetRevision();
         while (pos2)
         {
             pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
-            revisionRanges.AddRevision(pLogEntry->GetRevision());
+            revisions.push_back (pLogEntry->GetRevision());
             selEntries.push_back(pLogEntry);
             if (firstAuthor.Compare(pLogEntry->GetAuthor()))
                 bAllFromTheSameAuthor = false;
-            revLowest = (svn_revnum_t(pLogEntry->GetRevision()) > svn_revnum_t(revLowest) ? revLowest : pLogEntry->GetRevision());
-            revHighest = (svn_revnum_t(pLogEntry->GetRevision()) < svn_revnum_t(revHighest) ? revHighest : pLogEntry->GetRevision());
         }
+
+        revisionRanges.AddRevisions (revisions);
+        revLowest = revisionRanges.GetLowestRevision();
+        revHighest = revisionRanges.GetHighestRevision();
     }
 
 

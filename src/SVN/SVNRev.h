@@ -132,6 +132,7 @@ public:
     int                 AddRevision(const SVNRev& revision);
     int                 AddRevRange(const SVNRevRange& revrange);
     int                 AddRevRange(const SVNRev& start, const SVNRev& end);
+    void                AddRevisions(const std::vector<svn_revnum_t>& revisions);
     int                 GetCount() const;
     void                Clear();
     void                AdjustForMerge(bool bReverse = false);
@@ -162,6 +163,7 @@ public:
     };
 
 private:
+
     std::vector<SVNRevRange>    m_array;
 };
 

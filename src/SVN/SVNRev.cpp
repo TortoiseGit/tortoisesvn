@@ -221,7 +221,7 @@ int SVNRevRangeArray::AddRevision(const SVNRev& revision)
 {
     ATLASSERT(revision.IsNumber());
     svn_revnum_t nRev = revision;
-    for (int i = 0; i < GetCount(); ++i)
+    for (int i = 0, count = GetCount(); i < count; ++i)
     {
         svn_revnum_t start = m_array[i].GetStartRevision();
         svn_revnum_t end = m_array[i].GetEndRevision();
@@ -234,14 +234,14 @@ int SVNRevRangeArray::AddRevision(const SVNRev& revision)
             reversed = true;
         }
         if ((start <= nRev)&&(nRev <= end))
-            return GetCount();  // revision is inside an existing range
+            return count;  // revision is inside an existing range
         if (start == nRev + 1)
         {
             if (reversed)
                 m_array[i] = SVNRevRange(start, nRev);
             else
                 m_array[i] = SVNRevRange(nRev, end);
-            return GetCount();
+            return count;
         }
         if (end == nRev - 1)
         {
@@ -249,10 +249,39 @@ int SVNRevRangeArray::AddRevision(const SVNRev& revision)
                 m_array[i] = SVNRevRange(nRev, end);
             else
                 m_array[i] = SVNRevRange(start, nRev);
-            return GetCount();
+            return count;
         }
     }
     return AddRevRange(SVNRevRange(revision, revision));
+}
+
+void SVNRevRangeArray::AddRevisions(const std::vector<svn_revnum_t>& revisions)
+{
+    if (revisions.empty())
+        return;
+
+    std::vector<svn_revnum_t> sorted = revisions;
+    std::sort (sorted.begin(), sorted.end());
+
+    svn_revnum_t startRev = -1;
+    svn_revnum_t lastRev = -1;
+    for (auto iter = sorted.begin(), end = sorted.end(); iter != end; ++iter)
+    {
+        if (*iter == lastRev+1)
+        {
+            ++lastRev;
+        }
+        else
+        {
+            if (startRev != -1)
+                m_array.push_back (SVNRevRange (startRev, lastRev));
+
+            startRev = *iter;
+            lastRev = startRev;
+        }
+    }
+
+    m_array.push_back (SVNRevRange (startRev, lastRev));
 }
 
 void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
