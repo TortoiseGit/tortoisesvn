@@ -21,6 +21,7 @@
 #include "RevisionDlg.h"
 #include "PathUtils.h"
 #include "AppUtils.h"
+#include "LogDialog\LogDlg.h"
 
 IMPLEMENT_DYNAMIC(CRevisionDlg, CStandAloneDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
@@ -122,18 +123,14 @@ void CRevisionDlg::SetLogPath(const CTSVNPath& path, const SVNRev& rev /* = SVNR
 
 void CRevisionDlg::OnBnClickedLog()
 {
-    CString sCmd;
-    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)m_logPath.GetSVNPathString(), (LPCTSTR)m_logRev.ToString());
-
-    if (!m_logPath.IsUrl())
+    CLogDlg dlg;
+    dlg.SetParams (m_logPath, SVNRev::REV_HEAD, m_logRev, 1);
+    dlg.SetSelect (true);
+    if (dlg.DoModal() == IDOK)
     {
-        sCmd += _T(" /propspath:\"");
-        sCmd += m_logPath.GetWinPathString();
-        sCmd += _T("\"");
+        m_logRev = dlg.GetSelectedRevRanges().GetHighestRevision();
+        SetDlgItemText (IDC_REVNUM, m_logRev.ToString());
     }
-
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
 
 void CRevisionDlg::OnBnClickedRevisionN()
