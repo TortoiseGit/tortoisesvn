@@ -1602,6 +1602,37 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
     return 0;
 }
 
+void CLogDlg::UpdateSelectedRevs()
+{
+    m_selectedRevs.Clear();
+    m_selectedRevsOneRange.Clear();
+
+    int selIndex = m_LogList.GetSelectionMark();
+    if (selIndex >= 0)
+    {
+        PLOGENTRYDATA pLogEntry = NULL;
+        POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+        pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
+        m_selectedRevs.AddRevision(pLogEntry->GetRevision());
+        svn_revnum_t lowerRev = pLogEntry->GetRevision();
+        svn_revnum_t higherRev = lowerRev;
+        while (pos)
+        {
+            pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
+            svn_revnum_t rev = pLogEntry->GetRevision();
+            m_selectedRevs.AddRevision(pLogEntry->GetRevision());
+            if (lowerRev > rev)
+                lowerRev = rev;
+            if (higherRev < rev)
+                higherRev = rev;
+        }
+        if (m_sFilterText.IsEmpty() && m_nSortColumn == 0 && IsSelectionContinuous())
+        {
+            m_selectedRevsOneRange.AddRevRange(lowerRev, higherRev);
+        }
+    }
+}
+
 void CLogDlg::OnOK()
 {
     // since the log dialog is also used to select revisions for other
@@ -1619,39 +1650,25 @@ void CLogDlg::OnOK()
         return;
     }
 
-    m_selectedRevs.Clear();
-    m_selectedRevsOneRange.Clear();
+    if (m_pNotifyWindow || m_bSelect)
+        UpdateSelectedRevs();
+
     if (m_pNotifyWindow)
     {
         int selIndex = m_LogList.GetSelectionMark();
         if (selIndex >= 0)
         {
-            PLOGENTRYDATA pLogEntry = NULL;
-            POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-            pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-            m_selectedRevs.AddRevision(pLogEntry->GetRevision());
-            svn_revnum_t lowerRev = pLogEntry->GetRevision();
-            svn_revnum_t higherRev = lowerRev;
-            while (pos)
-            {
-                pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-                svn_revnum_t rev = pLogEntry->GetRevision();
-                m_selectedRevs.AddRevision(pLogEntry->GetRevision());
-                if (lowerRev > rev)
-                    lowerRev = rev;
-                if (higherRev < rev)
-                    higherRev = rev;
-            }
-            if (m_sFilterText.IsEmpty() && m_nSortColumn == 0 && IsSelectionContinuous())
-            {
-                m_selectedRevsOneRange.AddRevRange(lowerRev, higherRev);
-            }
             BOOL bSentMessage = FALSE;
+            svn_revnum_t lowerRev = m_selectedRevsOneRange.GetHighestRevision();
+            svn_revnum_t higherRev = m_selectedRevsOneRange.GetLowestRevision();
             if (m_LogList.GetSelectedCount() == 1)
             {
                 // if only one revision is selected, check if the path/url with which the dialog was started
                 // was directly affected in that revision. If it was, then check if our path was copied from somewhere.
                 // if it was copied, use the copy from revision as lowerRev
+                POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+                PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
+
                 if ((pLogEntry)&&(lowerRev == higherRev))
                 {
                     CString sUrl = m_path.GetSVNPathString();
