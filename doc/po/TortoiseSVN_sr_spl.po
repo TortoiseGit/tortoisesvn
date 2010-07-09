@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-19 21:28+0100\n"
+"PO-Revision-Date: 2010-07-09 14:50+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -982,7 +982,7 @@ msgid ""
 "     button.c:4\n"
 msgstr ""
 "\n"
-"kalk/Makefile:4\n"
+"calc/Makefile:4\n"
 "     integer.c:4\n"
 "     button.c:4\n"
 
@@ -999,7 +999,7 @@ msgid ""
 "     button.c:5\n"
 msgstr ""
 "\n"
-"kalk/Makefile:4\n"
+"calc/Makefile:4\n"
 "     integer.c:4\n"
 "     button.c:5\n"
 
@@ -1016,7 +1016,7 @@ msgid ""
 "     button.c:6\n"
 msgstr ""
 "\n"
-"kalk/Makefile:6\n"
+"calc/Makefile:6\n"
 "     integer.c:6\n"
 "     button.c:6\n"
 
@@ -1201,7 +1201,7 @@ msgstr "Da se pristupi lokalnom spremištu potrbna je putanja do tog imenika. Se
 
 #. (para)
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
-msgstr "Da bi se pristupilo spremištu na mrežnom deljenju i možete koristiti ili mapiranje drajva, ili koristiti UNC putanju. Za UNC putanje oblik je <systemitem class=\"url\">file://ServerName/path/to/repoš</systemitem>. Primetimo da ovde imamo 2 vodeće kose crte."
+msgstr "Da bi se pristupilo spremištu na mrežnom deljenju i možete koristiti ili mapiranje drajva, ili koristiti UNC putanju. Za UNC putanje oblik je <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Primetimo da ovde imamo 2 vodeće kose crte."
 
 #. (para)
 msgid "Prior to SVN 1.2, UNC paths had to be given in the more obscure form <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. This form is still supported, but not recommended."
@@ -1526,7 +1526,7 @@ msgstr "Pristupanje Spremištu"
 
 #. (para)
 msgid "To use TortoiseSVN (or any other Subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <literal>file://</literal> protocol or you can place them on a server and access them with the <literal>http://</literal> or <literal>svn://</literal> protocols. The two server protocols can also be encrypted. You use <literal>https://</literal> or <literal>svn+ssh://</literal>, or you can use <literal>svn://</literal> with SASL."
-msgstr "Da koristite TortoiseSVN (ili bilo koji drugi Subverzioni klijent), potrebno vam je mesto gde je locirano vaše spremište. Možete uskladištiti vaše spremište lokalno i pristupati mu koristeći  <literal>file://</literal> protokol ili ga smestiti na serveu i pristupati mu sa <literal>http://</literal> ili <literal>svn://</literal> protokolima. Dva server protokola mogu, takođe, biti šifrovana. Koristite  <literal>https://</literal> ili <literal>svn+ssh://</literal>, ili možete koristiti <literal>svn://</literal> sa SASL. "
+msgstr "Da koristite TortoiseSVN (ili bilo koji drugi Subverzioni klijent), potrebno vam je mesto gde je locirano vaše spremište. Možete uskladištiti vaše spremište lokalno i pristupati mu koristeći  <literal>file://</literal> protokol ili ga smestiti na serveu i pristupati mu sa <literal>http://</literal> ili <literal>svnn://</literal> protokolima. Dva server protokola mogu, takođe, biti šifrovana. Koristite  <literal>https://</literal> ili <literal>svn+ssx://</literal>, ili možete koristiti <literal>svn://</literal> sa SASL. "
 
 #. (para)
 msgid "If you are using a public hosting service such as <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
@@ -1579,7 +1579,7 @@ msgstr "Pokrenite Subverzionu instalaciju. Ako radite instalaciju na vašem serv
 
 #. (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr "Otvorite vindouz-eksplorer, idite na instalacioni direktorijum Subverzije (obično <filename>C:\\Program Files\\Subversion</filename>) i na <filename>bin</filename> imenik, nađite fajlove <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - kopirajte ove falove, ili samo kopirajte sve iz <filename>bin</filename> imenika, u imenik na vašem serveru npr. <filename>c:\\svnserve</filename>"
+msgstr "Otvorite vindouz-eksplorer, idite na instalacioni direktorijum Subverzije (obično <filename>C:\\Program Files\\Subversion</filename>) i na <filename>bin</filename> imenik, nađite fajlove <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> i <filename>ssleay32.dll</filename> - kopirajte ove falove, ili samo kopirajte sve iz <filename>bin</filename> imenika, u imenik na vašem serveru npr. <filename>c:\\svnserve</filename>"
 
 #. (title)
 msgid "Running svnserve"
@@ -1745,11 +1745,11 @@ msgstr ""
 "anon-access = none\n"
 "auth-access = write\n"
 "password-db = userfile\n"
-"</screen> Where <filename>userfile</filename> is a file which exists in the same directory as <filename>svnserve.conf</filename>. This file can live elsewhere in your file system (useful for when you have multiple repositories which require the same access rights) and may be referenced using an absolute path, or a path relative to the <filename>conf</filename> directory. If you include a path, it must be written <filename>/the/unix/way</filename>. Using \\ or drive letters will not work. The <filename>userfile</filename> should have a structure of: <screen>\n"
+"</screen>Gde je <filename>userfile</filename> fajl koji postoji u istom imeniku kao <filename>svnserve.conf</filename>. Ovaj fajl može egzistirati bilo gde u vašem fajl sistemu (korisno je kada imate višestruka spremišta koja ista pristupna prava) i mogu biti označena korišćenjem apsolutne putanje, ili putanje relativne ka <filename>conf</filename> imeniku. Ako uključite putanju, mora biti napisana kao  <filename>/the/unix/way</filename>. Korišćenje \\ ili slovo drajva neće raditi. Ovde će <filename>userfile</filename> imati strukturu: <screen>\n"
 "[users]\n"
 "username = password\n"
 "...\n"
-"</screen> Ovaj primertreba da zabrani sve neautentikovane (anonimne) korisnike i da ćitanje-upis pristup korisnicima izlistanim u  <filename>userfile</filename>."
+"</screen> Ovaj primer treba da zabrani sve neautentikovane (anonimne) korisnike i da čitanje-upis pristup korisnicima izlistanim u  <filename>userfile</filename>."
 
 #. (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
@@ -2388,7 +2388,7 @@ msgstr ""
 
 #. (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <literal>AuthUserFile</literal> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
-msgstr "Primetite da ako ste autentikovani korišćenjem SSPI, tada vam više uopšte nije potrebna <literal>AuthUserFile</literal> linija da definiše fajl lozinke. Apaš umesto toga  autentfiikuje vaše korisničko ime i lozinku preko vindouz domena. Potrebno vam je da ažurirate listu korisnika u vašem <filename>svnaccessfile</filename> ka referenci <literal>DOMAIN\\imekorisnika</literal>."
+msgstr "Primetite da ako ste autentikovani korišćenjem SSPI, tada vam više uopšte nije potrebna <literal>AuthUserFile</literal> linija da definiše fajl lozinke. Apaš umesto toga  autentfiikuje vaše korisničko ime i lozinku preko vindouz domena. Potrebno vam je da ažurirate listu korisnika u vašem <filename>svnaccessfile</filename> ka referenci <literal>DOMAIN\\username</literal>."
 
 #. (para)
 msgid "The SSPI authentication is only enabled for SSL secured connections (https). If you're only using normal http connections to your server, it won't work."

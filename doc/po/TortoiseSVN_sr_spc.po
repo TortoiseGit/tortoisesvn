@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-19 21:28+0100\n"
+"PO-Revision-Date: 2010-07-09 14:50+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -854,7 +854,7 @@ msgstr "Приступни метод"
 
 #. (literal)
 msgid "file://"
-msgstr "филе://"
+msgstr "file://"
 
 #. (entry)
 msgid "Direct repository access on local or network drive."
@@ -902,11 +902,11 @@ msgstr "аутентичан, шифриран ТЦП/ИП приступ пре
 
 #. (para)
 msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file://</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
-msgstr "За многе делове Субверзиони УРЛови користе стандардну синтаксу дозвољавајући серверским именима бројевима портова да буду специфицирани као део УРЛа. <literal>филе://</literal> метод приступа се нормално користи за локални приступ, такође може се користити са УНЦ путњом до мрежног домаћина. УРЛ дакле узима облик  <systemitem class=\"url\">филе://хостнаме/патх/то/репос</systemitem>. За локалну машину <literal>хостнаме</literal> део УРЛ се захтева да није присутно или да је <literal>лоцалхост</literal>. Из овог разлога локална путања се нормално јавља са три косе црте <systemitem class=\"url\">филе:///патх/то/репос</systemitem>."
+msgstr "За многе делове Субверзиони УРЛови користе стандардну синтаксу дозвољавајући серверским именима бројевима портова да буду специфицирани као део УРЛа. <literal>file://</literal> метод приступа се нормално користи за локални приступ, такође може се користити са УНЦ путњом до мрежног домаћина. УРЛ дакле узима облик  <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. За локалну машину <literal>hostname</literal> део УРЛ се захтева да није присутно или да је <literal>localhost</literal>. Из овог разлога локална путања се нормално јавља са три косе црте <systemitem class=\"url\">file:///path/to/repos</systemitem>."
 
 #. (para)
 msgid "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
-msgstr "Такође корисници <literal>филе://</literal> шеме на Виндоуз платформама треба да користе неофицијалну <quote>стандардну</quote> синтаксу за приступ спремишту која су на истој машини, али на различитим уређајима од оног где је клијентов радни уређај. Свака од следеће две синтаксе УРЛ путања ће радити где  је <literal>X</literal> драјв на коме  спремиште обитава."
+msgstr "Такође корисници <literal>file://</literal> шеме на Виндоуз платформама треба да користе неофицијалну <quote>стандардну</quote> синтаксу за приступ спремишту која су на истој машини, али на различитим уређајима од оног где је клијентов радни уређај. Свака од следеће две синтаксе УРЛ путања ће радити где  је <literal>X</literal> драјв на коме  спремиште обитава."
 
 #. (screen)
 #, no-wrap
@@ -918,9 +918,9 @@ msgid ""
 "...\n"
 msgstr ""
 "\n"
-"филе:///X:/патх/то/репос\n"
+"file:///X:/path/to/repos\n"
 "...\n"
-"филе:///X|/патх/то/репос\n"
+"file:///X|/path/to/repos\n"
 "...\n"
 
 #. (para)
@@ -982,9 +982,9 @@ msgid ""
 "     button.c:4\n"
 msgstr ""
 "\n"
-"калк/Макефиле:4\n"
-"     интегер.ц:4\n"
-"     буттон.ц:4\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:4\n"
 
 #. (para)
 msgid "At the moment, this working directory corresponds exactly to revision 4 in the repository. However, suppose you make a change to <filename>button.c</filename>, and commit that change. Assuming no other commits have taken place, your commit will create revision 5 of the repository, and your working copy will now look like this:"
@@ -999,9 +999,9 @@ msgid ""
 "     button.c:5\n"
 msgstr ""
 "\n"
-"калк/Макефиле:4\n"
-"     интегер.ц:4\n"
-"     буттон.ц:5\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:5\n"
 
 #. (para)
 msgid "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
@@ -1016,13 +1016,13 @@ msgid ""
 "     button.c:6\n"
 msgstr ""
 "\n"
-"калк/Макефиле:6\n"
-"     интегер.ц:6\n"
-"     буттон.ц:6\n"
+"calc/Makefile:6\n"
+"     integer.c:6\n"
+"     button.c:6\n"
 
 #. (para)
 msgid "Sally's changes to <filename>integer.c</filename> will appear in your working copy, and your change will still be present in <filename>button.c</filename>. In this example, the text of <filename>Makefile</filename> is identical in revisions 4, 5, and 6, but Subversion will mark your working copy of <filename>Makefile</filename> with revision 6 to indicate that it is still current. So, after you do a clean update at the top of your working copy, it will generally correspond to exactly one revision in the repository."
-msgstr "Саине измене <filename>интегер.ц</filename> се појављују у вашој радној копији и ваше измене су још присутне у <filename>буттон.ц</filename>. У овом примеру, текст у <filename>Макефиле</filename> је идентичан у ревизијама 4,5 и 6, али Субверзија ће означити вашу радну копију <filename>Макефиле</filename> ревизијом 6 да индицира да је још текућа. Тако, после урађеног чистог ажурирања на врх ваше радне копије она ће генерално кореспондирати тачно једној ревизији у спремишту."
+msgstr "Саине измене <filename>integer.c</filename> се појављују у вашој радној копији и ваше измене су још присутне у <filename>button.c</filename>. У овом примеру, текст у <filename>Makefile</filename> је идентичан у ревизијама 4,5 и 6, али Субверзија ће означити вашу радну копију <filename>Makefile</filename> ревизијом 6 да индицира да је још текућа. Тако, после урађеног чистог ажурирања на врх ваше радне копије она ће генерално кореспондирати тачно једној ревизији у спремишту."
 
 #. (title)
 msgid "How Working Copies Track the Repository"
@@ -1177,11 +1177,11 @@ msgstr "ТортоисеСВН више не нуди опцију да се к�
 
 #. (para)
 msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
-msgstr "Будуће верзије ТортоисеСВН неће подржати <literal>филе://</literal> приступ БДБ спремиштима због компатибилних проблема, али ће свакако увек подржавати тај формат спремишта када се приступа преко сервера кроз <literal>свн://</literal>, <literal>хттп://</literal> или <literal>хттпс://</literal> протоколе."
+msgstr "Будуће верзије ТортоисеСВН неће подржати <literal>file://</literal> приступ БДБ спремиштима због компатибилних проблема, али ће свакако увек подржавати тај формат спремишта када се приступа преко сервера кроз <literal>svn://</literal>, <literal>http://</literal> или <literal>https://</literal> протоколе."
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
-msgstr "Свакако такође препоруујемо да не користите <literal>филе://</literal> пристуо уопште, чак ни из локалних потреба тестирања. Коришћење сервера је много сигурније и много поузданије за све осим у коришћењу појединачног-програмера."
+msgstr "Свакако такође препоруујемо да не користите <literal>file://</literal> пристуо уопште, чак ни из локалних потреба тестирања. Коришћење сервера је много сигурније и много поузданије за све осим у коришћењу појединачног-програмера."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1197,11 +1197,11 @@ msgstr "УНЦ путања"
 
 #. (para)
 msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the use of forward slashes throughout."
-msgstr "Да се приступи локалном спремишту потрбна је путања до тог именика. Сетимо се да Субверзија очекује све путање спремишта у облику <systemitem class=\"url\">филе:///Ц:/СВНРепоситорy/</systemitem>. Запазимо коришћење  правих косих црта у целој путањи."
+msgstr "Да се приступи локалном спремишту потрбна је путања до тог именика. Сетимо се да Субверзија очекује све путање спремишта у облику <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Запазимо коришћење  правих косих црта у целој путањи."
 
 #. (para)
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
-msgstr "Да би се приступило спремишту на мрежном дељењу и можете користити или мапирање драјва, или користити УНЦ путању. За УНЦ путање облик је <systemitem class=\"url\">филе://СерверНаме/патх/то/репош</systemitem>. Приметимо да овде имамо 2 водеће косе црте."
+msgstr "Да би се приступило спремишту на мрежном дељењу и можете користити или мапирање драјва, или користити УНЦ путању. За УНЦ путање облик је <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Приметимо да овде имамо 2 водеће косе црте."
 
 #. (para)
 msgid "Prior to SVN 1.2, UNC paths had to be given in the more obscure form <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. This form is still supported, but not recommended."
@@ -1221,7 +1221,7 @@ msgstr "Мрежни дељени простор"
 
 #. (para)
 msgid "Although in theory it is possible to put a FSFS repository on a network share and have multiple users access it using <literal>file://</literal> protocol, this is most definitely <emphasis>not</emphasis> recommended. In fact we would <emphasis>strongly</emphasis> discourage it, and do not support such use."
-msgstr "Такође је познато у теорији да је могуће ставити ФСФС спремиште на мрежном дељеном простору и имати вишеструки кориснички приступ користећи <literal>филе://</literal> протокол, ово се дефинитивно <emphasis>не</emphasis> препоручује. У ствари можемо <emphasis>чврсто</emphasis> обесхрабрити то, и не подржати такво коришћење."
+msgstr "Такође је познато у теорији да је могуће ставити ФСФС спремиште на мрежном дељеном простору и имати вишеструки кориснички приступ користећи <literal>file://</literal> протокол, ово се дефинитивно <emphasis>не</emphasis> препоручује. У ствари можемо <emphasis>чврсто</emphasis> обесхрабрити то, и не подржати такво коришћење."
 
 #. (para)
 msgid "Firstly you are giving every user direct write access to the repository, so any user could accidentally delete the entire repository or make it unusable in some other way."
@@ -1237,7 +1237,7 @@ msgstr "Треће, фајл дозволе могу бити тако поде�
 
 #. (para)
 msgid "<literal>file://</literal> access is intended for local, single-user access only, particularly testing and debugging. When you want to share the repository you <emphasis>really</emphasis> need to set up a proper server, and it is not nearly as difficult as you might think. Read <xref linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
-msgstr "<literal>филе://</literal> приступ је планиран за локални, само један-корисник приступ, партикуларно тестирање и дебаговање. Када желите дељење спремишта ви <emphasis>стварно</emphasis> треба да подесите одговарајући сервер, и то није скоро тако тешко како се може помислити. Прочитајте  <xref linkend=\"tsvn-serversetup\"/> за водич како изабрати и подесити сервер."
+msgstr "<literal>file://</literal> приступ је планиран за локални, само један-корисник приступ, партикуларно тестирање и дебаговање. Када желите дељење спремишта ви <emphasis>стварно</emphasis> треба да подесите одговарајући сервер, и то није скоро тако тешко како се може помислити. Прочитајте  <xref linkend=\"tsvn-serversetup\"/> за водич како изабрати и подесити сервер."
 
 #. (title)
 msgid "Repository Layout"
@@ -1392,7 +1392,7 @@ msgid ""
 msgstr ""
 "Препоручљив метод је да се покрене <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"</screen> да се креира копија вашег спремишта на безбедан начин. Затим се прави копија осигурања. Опција <literal>--цлеан-логс</literal> није потребна, али уклања редундантне фајлове дневника када осигуравате БДБ спремишта, што штеди нешто простора."
+"</screen> да се креира копија вашег спремишта на безбедан начин. Затим се прави копија осигурања. Опција <literal>--clean-logs</literal> није потребна, али уклања редундантне фајлове дневника када осигуравате БДБ спремишта, што штеди нешто простора."
 
 #. (para)
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
@@ -1526,7 +1526,7 @@ msgstr "Приступање Спремишту"
 
 #. (para)
 msgid "To use TortoiseSVN (or any other Subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <literal>file://</literal> protocol or you can place them on a server and access them with the <literal>http://</literal> or <literal>svn://</literal> protocols. The two server protocols can also be encrypted. You use <literal>https://</literal> or <literal>svn+ssh://</literal>, or you can use <literal>svn://</literal> with SASL."
-msgstr "Да користите ТортоисеСВН (или било који други Субверзиони клијент), потребно вам је место где је лоцирано ваше спремиште. Можете ускладиштити ваше спремиште локално и приступати му користећи  <literal>филе://</literal> протокол или га сместити на сервеу и приступати му са <literal>хттп://</literal> или <literal>свн://</literal> протоколима. Два сервер протокола могу, такође, бити шифрована. Користите  <literal>хттпс://</literal> или <literal>свн+ссх://</literal>, или можете користити <literal>свн://</literal> са САСЛ. "
+msgstr "Да користите ТортоисеСВН (или било који други Субверзиони клијент), потребно вам је место где је лоцирано ваше спремиште. Можете ускладиштити ваше спремиште локално и приступати му користећи  <literal>file://</literal> протокол или га сместити на сервеу и приступати му са <literal>http://</literal> или <literal>svnн://</literal> протоколима. Два сервер протокола могу, такође, бити шифрована. Користите  <literal>https://</literal> или <literal>svn+ssx://</literal>, или можете користити <literal>svn://</literal> са САСЛ. "
 
 #. (para)
 msgid "If you are using a public hosting service such as <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
@@ -1579,7 +1579,7 @@ msgstr "Покрените Субверзиону инсталацију. Ако
 
 #. (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr "Отворите виндоуз-експлорер, идите на инсталациони директоријум Субверзије (обично <filename>Ц:\\Програм Филес\\Субверсион</filename>) и на <filename>бин</filename> именик, нађите фајлове <filename>свнсерве.еxе</filename>, <filename>интл3_свн.длл</filename>, <filename>либапр.длл</filename>, <filename>либаприцонв.длл</filename>, <filename>либаприутил.длл</filename>, <filename>либдб*.длл</filename>, <filename>либеаy32.длл</filename> анд <filename>сслеаy32.длл</filename> - копирајте ове фалове, или само копирајте све из <filename>бин</filename> именика, у именик на вашем серверу нпр. <filename>ц:\\свнсерве</filename>"
+msgstr "Отворите виндоуз-експлорер, идите на инсталациони директоријум Субверзије (обично <filename>C:\\Program Files\\Subversion</filename>) и на <filename>bin</filename> именик, нађите фајлове <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> и <filename>ssleay32.dll</filename> - копирајте ове фалове, или само копирајте све из <filename>bin</filename> именика, у именик на вашем серверу нпр. <filename>c:\\svnserve</filename>"
 
 #. (title)
 msgid "Running svnserve"
@@ -1745,11 +1745,11 @@ msgstr ""
 "anon-access = none\n"
 "auth-access = write\n"
 "password-db = userfile\n"
-"</screen> Where <filename>userfile</filename> is a file which exists in the same directory as <filename>svnserve.conf</filename>. This file can live elsewhere in your file system (useful for when you have multiple repositories which require the same access rights) and may be referenced using an absolute path, or a path relative to the <filename>conf</filename> directory. If you include a path, it must be written <filename>/the/unix/way</filename>. Using \\ or drive letters will not work. The <filename>userfile</filename> should have a structure of: <screen>\n"
+"</screen>Где је <filename>userfile</filename> фајл који постоји у истом именику као <filename>svnserve.conf</filename>. Овај фајл може егзистирати било где у вашем фајл систему (корисно је када имате вишеструка спремишта која иста приступна права) и могу бити означена коришћењем апсолутне путање, или путање релативне ка <filename>conf</filename> именику. Ако укључите путању, мора бити написана као  <filename>/the/unix/way</filename>. Коришћење \\ или слово драјва неће радити. Овде ће <filename>userfile</filename> имати структуру: <screen>\n"
 "[users]\n"
 "username = password\n"
 "...\n"
-"</screen> Овај примертреба да забрани све неаутентиковане (анонимне) кориснике и да ћитање-упис приступ корисницима излистаним у  <filename>усерфиле</filename>."
+"</screen> Овај пример треба да забрани све неаутентиковане (анонимне) кориснике и да читање-упис приступ корисницима излистаним у  <filename>userfile</filename>."
 
 #. (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
@@ -1795,7 +1795,7 @@ msgstr "Друго, креирајте фајл који се зове <filename
 
 #. (para)
 msgid "Thirdly, create two new registry entries to tell SASL where to find things. Create a registry key named <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> and place two new string values inside it: <literal>SearchPath</literal> set to the directory path containing the <filename>sasl*.dll</filename> plug-ins (normally in the Subversion install directory), and <literal>ConfFile</literal> set to the directory containing the <filename>svn.conf</filename> file. If you used the CollabNet installer, these registry keys will already have been created for you."
-msgstr "Треће, креирајте два нова регистар улаза да кажете САСЛ где да нађе потребне стварчице. Креирајте регистар кључ под именом <literal>[ХКЕY_ЛОЦАЛ_МАЦХИНЕ\\СОФТWАРЕ\\Царнегие Меллон\\Пројецт Цyрус\\САСЛ Либрарy]</literal> и ставите два нова стринга унутар њега: <literal>СеарцхПатх</literal> подесите на путању именика који садржи <filename>сасл*.длл</filename> језичак (нормално у Субверзиони инсталациони именик), и <literal>ЦонфФиле</literal> подешен на именик који саџи <filename>свн.цонф</filename> фајл. Ако користите КолабНет инсталатор, ови регистар кључеви ће бити већ креирани за вас."
+msgstr "Треће, креирајте два нова регистар улаза да кажете САСЛ где да нађе потребне стварчице. Креирајте регистар кључ под именом <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> и ставите два нова стринга унутар њега: <literal>СеарцхПатх</literal> подесите на путању именика који садржи <filename>sasl*.dll</filename> језичак (нормално у Субверзиони инсталациони именик), и <literal>ConfFile</literal> подешен на именик који саџи <filename>svn.conf</filename> фајл. Ако користите КолабНет инсталатор, ови регистар кључеви ће бити већ креирани за вас."
 
 #. (para)
 msgid ""
@@ -2388,7 +2388,7 @@ msgstr ""
 
 #. (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <literal>AuthUserFile</literal> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
-msgstr "Приметите да ако сте аутентиковани коришћењем ССПИ, тада вам више уопште није потребна <literal>АутхУсерФиле</literal> линија да дефинише фајл лозинке. Апаш уместо тога  аутентфиикује ваше корисничко име и лозинку преко виндоуз домена. Потребно вам је да ажурирате листу корисника у вашем <filename>свнаццессфиле</filename> ка референци <literal>ДОМАИН\\имекорисника</literal>."
+msgstr "Приметите да ако сте аутентиковани коришћењем ССПИ, тада вам више уопште није потребна <literal>AuthUserFile</literal> линија да дефинише фајл лозинке. Апаш уместо тога  аутентфиикује ваше корисничко име и лозинку преко виндоуз домена. Потребно вам је да ажурирате листу корисника у вашем <filename>svnaccessfile</filename> ка референци <literal>DOMAIN\\username</literal>."
 
 #. (para)
 msgid "The SSPI authentication is only enabled for SSL secured connections (https). If you're only using normal http connections to your server, it won't work."
@@ -2400,7 +2400,7 @@ msgstr "Да омогућите ССЛ на вашем серверу, види�
 
 #. (para)
 msgid "Subversion <filename>AuthzSVNAccessFile</filename> files are case sensitive in regard to user names (<literal>JUser</literal> is different from <literal>juser</literal>)."
-msgstr "Субверзиони <filename>АутхзСВНАццессФиле</filename> фајлови су осетљиви на величину слова у именима корисника (<literal>ЈУсер</literal> је различито од<literal>јусер</literal>)."
+msgstr "Субверзиони <filename>AuthzSVNAccessFile</filename> фајлови су осетљиви на величину слова у именима корисника (<literal>JUser</literal> је различито од<literal>juser</literal>)."
 
 #. (para)
 msgid "In Microsoft's world, Windows domains and user names are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. <literal>JUser</literal>)."
@@ -2412,11 +2412,11 @@ msgstr "Ова разлика вас може угристи када корис
 
 #. (para)
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
-msgstr "Крајњи резултат је да вам можда треба најмање два улаза у ваш <literal>АутхзСВНАццессФиле</literal> за сваког корисника -- улаз са малим словима и улаз исти оном како Интернет Експлорер прослеђује ка Апашу. Вама ће такође требати да извежбате себе да куцате њихове кредибилитете користећи мала слова када приступате спремишту преко ТортосеСВН. "
+msgstr "Крајњи резултат је да вам можда треба најмање два улаза у ваш <literal>AuthzSVNAccessFile</literal> за сваког корисника -- улаз са малим словима и улаз исти оном како Интернет Експлорер прослеђује ка Апашу. Вама ће такође требати да извежбате себе да куцате њихове кредибилитете користећи мала слова када приступате спремишту преко ТортосеСВН. "
 
 #. (para)
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's <literal>AuthzSVNAccessFile</literal> module. You may need to experiment with the exact format of the user string in the <literal>svnaccessfile</literal> (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
-msgstr "Апашев дневник грешака и приступа је ваш најбољи пријатељ при дешифровању проблема као што су они који вам помажу да откријете стринг корисничког имена у <literal>свнаццессфиле</literal> (нпр. <literal>ДОМАИН\\усер</literal> према <literal>ДОМАИН//усер</literal>)  да би добили да све ради."
+msgstr "Апашев дневник грешака и приступа је ваш најбољи пријатељ при дешифровању проблема као што су они који вам помажу да откријете стринг корисничког имена у <literal>svnaccessfile</literal> (нпр. <literal>DOMAIN\\user</literal> према <literal>DOMAIN//user</literal>)  да би добили да све ради."
 
 #. (title)
 msgid "Multiple Authentication Sources"
@@ -3642,7 +3642,7 @@ msgstr "Фајл Конфликти"
 
 #. (term)
 msgid "filename.ext.mine"
-msgstr "филенаме.еxт.мине"
+msgstr "filename.ext.mine"
 
 #. (para)
 msgid "This is your file as it existed in your working copy before you updated your working copy - that is, without conflict markers. This file has your latest changes in it and nothing else."
@@ -3650,7 +3650,7 @@ msgstr "Ово је ваш фајл како је постојао у вашој
 
 #. (term)
 msgid "filename.ext.rOLDREV"
-msgstr "филенаме.еxт.рОЛДРЕВ"
+msgstr "filename.ext.rOLDREV"
 
 #. (para)
 msgid "This is the file that was the BASE revision before you updated your working copy. That is, it the file that you checked out before you made your latest edits."
@@ -3658,7 +3658,7 @@ msgstr "Ово је фајл који је био у ОСНОВНОЈ ревиз
 
 #. (term)
 msgid "filename.ext.rNEWREV"
-msgstr "филенаме.еxт.рНЕWРЕВ"
+msgstr "filename.ext.rNEWREV"
 
 #. (para)
 msgid "This is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the HEAD revision of the repository."
@@ -11764,7 +11764,7 @@ msgstr "/логмсг"
 #. (option)
 #. (option)
 msgid "/logmsgfile:path"
-msgstr "/логмсгфиле:патх"
+msgstr "/logmsgfile:path"
 
 #. (option)
 #. (option)
@@ -12434,7 +12434,7 @@ msgid ""
 "svn cleanup PATH\n"
 msgstr ""
 "\n"
-"свн цлеануп ПАТХ\n"
+"svn cleanup PATH\n"
 
 #. (title)
 msgid "Get Lock"
@@ -12639,7 +12639,7 @@ msgid ""
 "svn diff PATH &gt; patch-file\n"
 msgstr ""
 "\n"
-"свн дифф ПАТХ &gt; патцх-филе\n"
+"svn diff PATH &gt; patch-file\n"
 
 #. (para)
 msgid "TortoiseSVN creates a patch file in unified diff format by comparing the working copy with its BASE version."
@@ -13079,7 +13079,7 @@ msgstr "ен_УС.диц"
 
 #. (para)
 msgid "Once you have got the dictionary files, you probably need to rename them so that the filenames only have the locale chars in it. Example: <placeholder-1/> Then just copy them to the <filename>bin</filename> sub-folder of the TortoiseSVN installation folder. Normally this will be <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. If you don't want to litter the <filename>bin</filename> sub-folder, you can instead place your spell checker files in <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. If that folder isn't there, you have to create it first. The next time you start TortoiseSVN, the spell checker will be available."
-msgstr "Једном кад имате фајлове речника, вероватно ће требати да их преименујете тако имена фајлова имају само локалне карактере. Пример:<placeholder-1/> Затим само их копирајте у <filename>бин</filename> суб-именик ТортоисеСВН инсталационог именика. Нормално то ће бити <filename>Ц:\\Програм Филес\\ТортоисеСВН\\бин</filename>. Ако не желите да оптерећујете <filename>бин</filename> суб-именик, уместо тога можете сместити контролне фајлове у <filename>Ц:\\Програм Филес\\ТортоисеСВН\\Лангуагес</filename>. Ако нема тог именика, креирајте га. Када следећи пут покренете ТортоисеСВН, правописна контрола ће бити доступна."
+msgstr "Једном кад имате фајлове речника, вероватно ће требати да их преименујете тако имена фајлова имају само локалне карактере. Пример:<placeholder-1/> Затим само их копирајте у <filename>бин</filename> суб-именик ТортоисеСВН инсталационог именика. Нормално то ће бити <filename>C:\\Program Files\\TortoiseSVN\\bin</filename>. Ако не желите да оптерећујете <filename>бин</filename> суб-именик, уместо тога можете сместити контролне фајлове у <filename>C:\\Program Files\\TortoiseSVN\\Languages</filename>. Ако нема тог именика, креирајте га. Када следећи пут покренете ТортоисеСВН, правописна контрола ће бити доступна."
 
 #. (para)
 msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
