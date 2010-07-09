@@ -129,7 +129,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CLogDlg::IDD, pParent)
     , m_nSearchIndex(0)
     , m_wParam(0)
-    , m_nSelectedFilter(LOGFILTER_ALL)
+    , m_SelectedFilters(LOGFILTER_ALL)
     , m_nSortColumn(0)
     , m_bShowedAll(false)
     , m_bSelect(false)
@@ -268,7 +268,7 @@ void CLogDlg::SetFilter(const CString& findstr, LONG findtype, bool findregex)
 {
     m_sFilterText = findstr;
     if (findtype)
-        m_nSelectedFilter = findtype;
+        m_SelectedFilters = findtype;
     m_bFilterWithRegex = findregex;
 }
 
@@ -416,13 +416,13 @@ BOOL CLogDlg::OnInitDialog()
     m_tooltips.Create(this);
     CheckRegexpTooltip();
 
-    SetSplitterRange();
-
     // the filter control has a 'cancel' button (the red 'X'), we need to load its bitmap
     m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
     m_cFilter.SetInfoIcon(IDI_LOGFILTER);
     m_cFilter.SetValidator(this);
     m_cFilter.SetWindowText(m_sFilterText);
+
+    SetSplitterRange();
 
     AdjustControlSize(IDC_SHOWPATHS);
     AdjustControlSize(IDC_CHECK_STOPONCOPY);
@@ -437,10 +437,10 @@ BOOL CLogDlg::OnInitDialog()
     m_DateTo.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
 
     // resizable stuff
-    AddAnchor(IDC_FROMLABEL, TOP_LEFT);
-    AddAnchor(IDC_DATEFROM, TOP_LEFT);
-    AddAnchor(IDC_TOLABEL, TOP_LEFT);
-    AddAnchor(IDC_DATETO, TOP_LEFT);
+    AddAnchor(IDC_FROMLABEL, TOP_RIGHT);
+    AddAnchor(IDC_DATEFROM, TOP_RIGHT);
+    AddAnchor(IDC_TOLABEL, TOP_RIGHT);
+    AddAnchor(IDC_DATETO, TOP_RIGHT);
 
     SetFilterCueText();
     AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
@@ -540,10 +540,12 @@ BOOL CLogDlg::OnInitDialog()
     m_pLogListAccServer = ListViewAccServer::CreateProvider(m_LogList.GetSafeHwnd(), this);
     m_pChangedListAccServer = ListViewAccServer::CreateProvider(m_ChangedFileListCtrl.GetSafeHwnd(), this);
 
+    // show/hide the date filter controls according to the filter setting
+    AdjustDateFilterVisibility();
+
     // first start a thread to obtain the log messages without
     // blocking the dialog
     InterlockedExchange(&m_bLogThreadRunning, TRUE);
-
     new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
     GetDlgItem(IDC_LOGLIST)->SetFocus();
     return FALSE;
@@ -661,11 +663,11 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         CAppUtils::UnderlineRegexMatches(pMsgView, m_ProjectProperties.sLogRevRegex, _T("\\d+"));
 
         // mark filter matches
-        if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
+        if (m_SelectedFilters & LOGFILTER_MESSAGES)
         {
             CLogDlgFilter filter ( m_sFilterText
                 , m_bFilterWithRegex
-                , m_nSelectedFilter
+                , m_SelectedFilters
                 , m_bFilterCaseSensitively
                 , m_tFrom
                 , m_tTo
@@ -2637,7 +2639,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             case 0: // revision
                 if (pLogEntry == NULL)
                     return;
-                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))&&(m_filter.IsFilterActive()))
+                if ((m_SelectedFilters & LOGFILTER_REVS)&&(m_filter.IsFilterActive()))
                 {
                     *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                     return;
@@ -2684,7 +2686,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             case 2: // author
                 if (pLogEntry == NULL)
                     return;
-                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))&&(m_filter.IsFilterActive()))
+                if ((m_SelectedFilters & LOGFILTER_AUTHORS)&&(m_filter.IsFilterActive()))
                 {
                     *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                     return;
@@ -2693,7 +2695,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             case 3: // date
                 if (pLogEntry == NULL)
                     return;
-                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_DATE))&&(m_filter.IsFilterActive()))
+                if ((m_SelectedFilters & LOGFILTER_DATE)&&(m_filter.IsFilterActive()))
                 {
                     *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                     return;
@@ -2704,7 +2706,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                     return;
                 if (m_bShowBugtraqColumn)
                 {
-                    if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))&&(m_filter.IsFilterActive()))
+                    if ((m_SelectedFilters & LOGFILTER_BUGID)&&(m_filter.IsFilterActive()))
                     {
                         *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                         return;
@@ -2715,7 +2717,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             case 5: // log msg
                 if (pLogEntry == NULL)
                     return;
-                if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))&&(m_filter.IsFilterActive()))
+                if ((m_SelectedFilters & LOGFILTER_MESSAGES)&&(m_filter.IsFilterActive()))
                 {
                     *pResult = DrawListItemWithMatches(m_LogList, pLVCD, pLogEntry);
                     return;
@@ -2799,7 +2801,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
     }
     else if ( pLVCD->nmcd.dwDrawStage == (CDDS_ITEMPREPAINT|CDDS_ITEM|CDDS_SUBITEM))
     {
-        if (((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))&&(m_filter.IsFilterActive()))
+        if ((m_SelectedFilters & LOGFILTER_PATHS)&&(m_filter.IsFilterActive()))
         {
             *pResult = DrawListItemWithMatches(m_ChangedFileListCtrl, pLVCD, NULL);
             return;
@@ -3201,7 +3203,7 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
     CPoint point;
     CString temp;
     point = CPoint(rect->left, rect->bottom);
-#define LOGMENUFLAGS(x) (MF_STRING | MF_ENABLED | (m_nSelectedFilter == x ? MF_CHECKED : MF_UNCHECKED))
+#define LOGMENUFLAGS(x) (MF_STRING | MF_ENABLED | (m_SelectedFilters & x ? MF_CHECKED : MF_UNCHECKED))
     CMenu popup;
     if (popup.CreatePopupMenu())
     {
@@ -3220,6 +3222,10 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
         popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_REVS), LOGFILTER_REVS, temp);
         temp.LoadString(IDS_LOG_FILTER_BUGIDS);
         popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_BUGID), LOGFILTER_BUGID, temp);
+        temp.LoadString(IDS_LOG_DATE);
+        popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_DATE), LOGFILTER_DATE, temp);
+        temp.LoadString(IDS_LOG_FILTER_DATERANGE);
+        popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_DATERANGE), LOGFILTER_DATERANGE, temp);
 
         popup.AppendMenu(MF_SEPARATOR, NULL);
 
@@ -3248,8 +3254,9 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
 
         default:
 
-            m_nSelectedFilter = selection;
+            m_SelectedFilters ^= selection;
             SetFilterCueText();
+            AdjustDateFilterVisibility();
         }
 
         if (selection != 0)
@@ -3301,25 +3308,50 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 
 void CLogDlg::SetFilterCueText()
 {
-    CString temp;
-    switch (m_nSelectedFilter)
+    CString temp(MAKEINTRESOURCE(IDS_LOG_FILTER_BY));
+
+    if (m_SelectedFilters & LOGFILTER_MESSAGES)
     {
-    case LOGFILTER_ALL:
-        temp.LoadString(IDS_LOG_FILTER_ALL);
-        break;
-    case LOGFILTER_MESSAGES:
-        temp.LoadString(IDS_LOG_FILTER_MESSAGES);
-        break;
-    case LOGFILTER_PATHS:
-        temp.LoadString(IDS_LOG_FILTER_PATHS);
-        break;
-    case LOGFILTER_AUTHORS:
-        temp.LoadString(IDS_LOG_FILTER_AUTHORS);
-        break;
-    case LOGFILTER_REVS:
-        temp.LoadString(IDS_LOG_FILTER_REVS);
-        break;
+        temp += _T(" ");
+        temp += CString(MAKEINTRESOURCE(IDS_LOG_FILTER_MESSAGES));
     }
+    if (m_SelectedFilters & LOGFILTER_PATHS)
+    {
+        if (!temp.IsEmpty())
+            temp += _T(", ");
+        temp += CString(MAKEINTRESOURCE(IDS_LOG_FILTER_PATHS));
+    }
+    if (m_SelectedFilters & LOGFILTER_AUTHORS)
+    {
+        if (!temp.IsEmpty())
+            temp += _T(", ");
+        temp += CString(MAKEINTRESOURCE(IDS_LOG_FILTER_AUTHORS));
+    }
+    if (m_SelectedFilters & LOGFILTER_REVS)
+    {
+        if (!temp.IsEmpty())
+            temp += _T(", ");
+        temp += CString(MAKEINTRESOURCE(IDS_LOG_FILTER_REVS));
+    }
+    if (m_SelectedFilters & LOGFILTER_BUGID)
+    {
+        if (!temp.IsEmpty())
+            temp += _T(", ");
+        temp += CString(MAKEINTRESOURCE(IDS_LOG_FILTER_BUGIDS));
+    }
+    if (m_SelectedFilters & LOGFILTER_DATE)
+    {
+        if (!temp.IsEmpty())
+            temp += _T(", ");
+        temp += CString(MAKEINTRESOURCE(IDS_LOG_DATE));
+    }
+    if (m_SelectedFilters & LOGFILTER_DATERANGE)
+    {
+        if (!temp.IsEmpty())
+            temp += _T(", ");
+        temp += CString(MAKEINTRESOURCE(IDS_LOG_FILTER_DATERANGE));
+    }
+
     // to make the cue banner text appear more to the right of the edit control
     temp = _T("   ")+temp;
     m_cFilter.SetCueBanner(temp);
@@ -3594,7 +3626,7 @@ void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
     bool scanRelevantPathsOnly = (m_cShowPaths.GetState() & 0x0003)==BST_CHECKED;
     CLogDlgFilter filter ( m_sFilterText
                          , m_bFilterWithRegex
-                         , m_nSelectedFilter
+                         , m_SelectedFilters
                          , m_bFilterCaseSensitively
                          , m_tFrom
                          , m_tTo
@@ -3694,14 +3726,6 @@ void CLogDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
     }
 
     *pResult = 0;
-}
-
-BOOL CLogDlg::IsEntryInDateRange(int i)
-{
-    __time64_t time = m_logEntries[i]->GetDate();
-    if ((time >= m_tFrom)&&(time <= m_tTo))
-        return TRUE;
-    return FALSE;
 }
 
 CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths /* = false */, bool bUseFilter /* = true */)
@@ -5556,4 +5580,46 @@ void CLogDlg::RemoveMainAnchors()
 void CLogDlg::OnEnscrollMsgview()
 {
     m_tooltips.DelTool(GetDlgItem(IDC_MSGVIEW), 1);
+}
+
+void CLogDlg::AdjustDateFilterVisibility()
+{
+    int nCmdShow = (m_SelectedFilters & LOGFILTER_DATERANGE) ? SW_SHOW : SW_HIDE;
+    GetDlgItem(IDC_FROMLABEL)->ShowWindow(nCmdShow);
+    GetDlgItem(IDC_DATEFROM)->ShowWindow(nCmdShow);
+    GetDlgItem(IDC_TOLABEL)->ShowWindow(nCmdShow);
+    GetDlgItem(IDC_DATETO)->ShowWindow(nCmdShow);
+
+    RemoveAnchor(IDC_SEARCHEDIT);
+    RemoveAnchor(IDC_FROMLABEL);
+    RemoveAnchor(IDC_DATEFROM);
+    RemoveAnchor(IDC_TOLABEL);
+    RemoveAnchor(IDC_DATETO);
+    if (m_SelectedFilters & LOGFILTER_DATERANGE)
+    {
+        RECT rcLabel = {0};
+        GetDlgItem(IDC_FROMLABEL)->GetWindowRect(&rcLabel);
+        ScreenToClient(&rcLabel);
+        RECT rcEdit = {0};
+        GetDlgItem(IDC_SEARCHEDIT)->GetWindowRect(&rcEdit);
+        ScreenToClient(&rcEdit);
+        rcEdit.right = rcLabel.left - 20;
+        GetDlgItem(IDC_SEARCHEDIT)->MoveWindow(&rcEdit);
+    }
+    else
+    {
+        RECT rcLogMsg = {0};
+        GetDlgItem(IDC_LOGLIST)->GetWindowRect(&rcLogMsg);
+        ScreenToClient(&rcLogMsg);
+        RECT rcEdit = {0};
+        GetDlgItem(IDC_SEARCHEDIT)->GetWindowRect(&rcEdit);
+        ScreenToClient(&rcEdit);
+        rcEdit.right = rcLogMsg.right;
+        GetDlgItem(IDC_SEARCHEDIT)->MoveWindow(&rcEdit);
+    }
+    AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_FROMLABEL, TOP_RIGHT);
+    AddAnchor(IDC_DATEFROM, TOP_RIGHT);
+    AddAnchor(IDC_TOLABEL, TOP_RIGHT);
+    AddAnchor(IDC_DATETO, TOP_RIGHT);
 }

@@ -100,7 +100,7 @@ public:
     CLogDlgFilter
         ( const CString& filter
         , bool filterWithRegex
-        , int selectedFilter
+        , DWORD selectedFilter
         , bool caseSensitive
         , __time64_t from
         , __time64_t to

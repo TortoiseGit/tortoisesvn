@@ -90,6 +90,8 @@
 - NEW: custom dialogs to edit specific properties. (Stefan)
 - NEW: In "select revision" dialog, use the revision selected
        in the log dialog. (Stefan Fuhrmann)
+- NEW: The date-range filter controls are hidden if filtering
+       for date ranges is not enabled. (Stefan)
 - BUG: Merged revisions must be counted only 
        once in stats (Stefan Fuhrmann)
 - BUG: Relative Webviewer urls didn't work from the 

@@ -196,7 +196,7 @@ CLogDlgFilter::CLogDlgFilter()
 CLogDlgFilter::CLogDlgFilter
     ( const CString& filter
     , bool filterWithRegex
-    , int selectedFilter
+    , DWORD selectedFilter
     , bool caseSensitive
     , __time64_t from
     , __time64_t to
@@ -204,9 +204,7 @@ CLogDlgFilter::CLogDlgFilter
     , svn_revnum_t revToKeep)
 
     : negate (false)
-    , attributeSelector ( selectedFilter == LOGFILTER_ALL
-                        ? UINT_MAX
-                        : (1 << selectedFilter))
+    , attributeSelector ( selectedFilter )
     , caseSensitive (caseSensitive)
     , fastLowerCase (false)
     , from (from)
@@ -380,8 +378,11 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
         return true;
 
     __time64_t date = entry.GetDate();
-    if ((date < from) || (date > to))
-        return false;
+    if (attributeSelector & LOGFILTER_DATERANGE)
+    {
+        if ((date < from) || (date > to))
+            return false;
+    }
 
     if (patterns.empty() && subStrings.empty())
         return !negate;
@@ -389,13 +390,13 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
     // we need to perform expensive string / pattern matching
 
     scratch.clear();
-    if (attributeSelector & (1 << LOGFILTER_BUGID))
+    if (attributeSelector & LOGFILTER_BUGID)
         AppendString (scratch, entry.GetBugIDs());
 
-    if (attributeSelector & (1 << LOGFILTER_MESSAGES))
+    if (attributeSelector & LOGFILTER_MESSAGES)
         AppendString (scratch, entry.GetMessage());
 
-    if (attributeSelector & (1 << LOGFILTER_PATHS))
+    if (attributeSelector & LOGFILTER_PATHS)
     {
         const CLogChangedPathArray& paths = entry.GetChangedPaths();
         for ( size_t cpPathIndex = 0, pathCount = paths.GetCount()
@@ -424,12 +425,12 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
         }
     }
 
-    if (attributeSelector & (1 << LOGFILTER_AUTHORS))
+    if (attributeSelector & LOGFILTER_AUTHORS)
         AppendString (scratch, entry.GetAuthor());
-    if (attributeSelector & (1 << LOGFILTER_DATE))
+    if (attributeSelector & LOGFILTER_DATE)
         AppendString (scratch, entry.GetDateString());
 
-    if (attributeSelector & (1 << LOGFILTER_REVS))
+    if (attributeSelector & LOGFILTER_REVS)
     {
         scratch.push_back (' ');
 

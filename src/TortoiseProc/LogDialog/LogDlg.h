@@ -45,15 +45,16 @@ using namespace std;
 #define MERGE_REVSELECTSTARTEND  3      ///< both
 #define MERGE_REVSELECTMINUSONE  4      ///< first with N-1
 
-#define LOGFILTER_ALL      1
-#define LOGFILTER_MESSAGES 2
-#define LOGFILTER_PATHS    3
-#define LOGFILTER_AUTHORS  4
-#define LOGFILTER_REVS     5
-#define LOGFILTER_REGEX    6
-#define LOGFILTER_BUGID    7
-#define LOGFILTER_CASE     8
-#define LOGFILTER_DATE     9
+#define LOGFILTER_ALL           0x000F        // 'all' means only messages, paths, authors and revisions.
+#define LOGFILTER_MESSAGES      0x0001
+#define LOGFILTER_PATHS         0x0002
+#define LOGFILTER_AUTHORS       0x0004
+#define LOGFILTER_REVS          0x0008
+#define LOGFILTER_REGEX         0x0010
+#define LOGFILTER_BUGID         0x0020
+#define LOGFILTER_CASE          0x0040
+#define LOGFILTER_DATE          0x0080
+#define LOGFILTER_DATERANGE     0x0100
 
 #define LOGFILTER_TIMER     101
 
@@ -160,7 +161,6 @@ private:
     void AdjustMinSize();
     void SetSplitterRange();
     void SetFilterCueText();
-    BOOL IsEntryInDateRange(int i);
     void CopySelectionToClipBoard();
     void CopyChangedSelectionToClipBoard();
     CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
@@ -182,6 +182,7 @@ private:
     void ToggleCheckbox(size_t item);
     void AddMainAnchors();
     void RemoveMainAnchors();
+    void AdjustDateFilterVisibility();
     CRect DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry);
     LRESULT DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry);
 
@@ -203,7 +204,6 @@ private:
 
     // ListViewAccProvider
     virtual CString GetListviewHelpString(HWND hControl, int index);
-
 public:
     CWnd *              m_pNotifyWindow;
     ProjectProperties   m_ProjectProperties;
@@ -259,7 +259,7 @@ private:
     CRect               m_LogListOrigRect;
     CRect               m_ChgOrigRect;
     CString             m_sFilterText;
-    int                 m_nSelectedFilter;
+    DWORD               m_SelectedFilters;
     CDateTimeCtrl       m_DateFrom;
     CDateTimeCtrl       m_DateTo;
     __time64_t          m_tFrom;
