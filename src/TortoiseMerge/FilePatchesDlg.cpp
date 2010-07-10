@@ -296,7 +296,7 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
             }
             // Store the color back in the NMLVCUSTOMDRAW struct.
             pLVCD->clrText = crText;
-            if (m_ShownIndex == pLVCD->nmcd.dwItemSpec)
+            if (m_ShownIndex == (int)pLVCD->nmcd.dwItemSpec)
             {
                 SelectObject(pLVCD->nmcd.hdc, m_boldFont);
                 // We changed the font, so we're returning CDRF_NEWFONT. This

@@ -153,7 +153,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
         return 0;
     }
     
-    if ((m_nRejected > (m_filePaths.size() / 3)) && !m_testPath.IsEmpty())
+    if ((m_nRejected > ((int)m_filePaths.size() / 3)) && !m_testPath.IsEmpty())
     {
         m_nStrip++;
         bool found = false;
