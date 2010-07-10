@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,8 @@ typedef enum hooktype
     start_update_hook,
     pre_update_hook,
     post_update_hook,
-    issue_tracker_hook
+    issue_tracker_hook,
+    pre_connect_hook
 } hooktype;
 
 /**
@@ -221,6 +222,16 @@ public:
                                     SVNRev rev, const CString& message,
                                     DWORD& exitcode, CString& error);
 
+    /**
+     * Executed just before a command is executed that accesses the repository.
+     * Can be used to start a tool to connect to a VPN.
+     * \param pathList a list of paths to look for the hook scripts
+     * \remark The script is only executed once. Subsequent calls within 5 minutes
+     * are ignored for performance reasons since TSVN dialogs often call many
+     * SVN functions that contact a repository.
+     */
+    bool                PreConnect(const CTSVNPathList& pathList);
+
 private:
     /**
      * Starts a new process, specified in \c cmd.
@@ -237,4 +248,6 @@ private:
      */
     hookiterator        FindItem(hooktype t, const CTSVNPathList& pathList);
     static CHooks *     m_pInstance;
+    DWORD               m_lastPreConnectTicks;
+    bool                m_PathsConvertedToUrls;
 };

@@ -77,6 +77,8 @@ BOOL CSetHooksAdv::OnInitDialog()
     m_cHookTypeCombo.SetItemData(index, pre_update_hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTUPDATE)));
     m_cHookTypeCombo.SetItemData(index, post_update_hook);
+    index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRECONNECT)));
+    m_cHookTypeCombo.SetItemData(index, pre_connect_hook);
     // preselect the right hook type in the combobox
     for (int i=0; i<m_cHookTypeCombo.GetCount(); ++i)
     {

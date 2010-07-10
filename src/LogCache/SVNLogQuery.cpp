@@ -33,6 +33,7 @@
 #include "SVNHelpers.h"
 #include "TSVNPath.h"
 #include "svntrace.h"
+#include "Hooks.h"
 
 // SVN API utility
 
@@ -396,6 +397,7 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
         }
     }
 
+    CHooks::Instance().PreConnect(targets);
     SVNTRACE (
         svn_error_t *result = svn_client_log5 ( targets.MakePathArray (localpool)
                                               , peg_revision

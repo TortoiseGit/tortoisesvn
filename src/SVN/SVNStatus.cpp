@@ -34,6 +34,7 @@
 #   include "registry.h"
 #   include "TSVNPath.h"
 #   include "PathUtils.h"
+#   include "Hooks.h"
 #endif
 
 SVNStatus::SVNStatus(bool * pbCanceled)
@@ -299,6 +300,10 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     hashbaton.pThis = this;
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
+#ifdef _MFC_VER
+    if (update)
+        CHooks::Instance().PreConnect(CTSVNPathList(path));
+#endif
     SVNTRACE (
         m_err = svn_client_status5 (&youngest,
                                 ctx,
@@ -352,6 +357,10 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
     m_statushashindex = 0;
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
+#ifdef _MFC_VER
+    if (update)
+        CHooks::Instance().PreConnect(CTSVNPathList(path));
+#endif
     SVNTRACE (
         m_err = svn_client_status5 (&headrev,
                                 ctx,

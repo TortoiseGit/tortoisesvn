@@ -32,6 +32,7 @@
 #   include "UnicodeUtils.h"
 #   include "registry.h"
 #   include "PathUtils.h"
+#   include "Hooks.h"
 #else
 #include "registry.h"
 extern  HINSTANCE           g_hResInst;
@@ -80,6 +81,8 @@ svn_error_t*    SVNProperties::Refresh()
 #ifdef _MFC_VER
     rev.kind = ((const svn_opt_revision_t *)m_rev)->kind;
     rev.value = ((const svn_opt_revision_t *)m_rev)->value;
+    if (m_path.IsUrl() || (!m_rev.IsWorking() && !m_rev.IsValid()))
+        CHooks::Instance().PreConnect(CTSVNPathList(m_path));
 #else
     rev.kind = svn_opt_revision_unspecified;
     rev.value.number = -1;
@@ -354,7 +357,10 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
             }
         }
     }
-
+#ifdef _MFC_VER
+    if (m_path.IsUrl() || (!m_rev.IsWorking() && !m_rev.IsValid()))
+        CHooks::Instance().PreConnect(CTSVNPathList(m_path));
+#endif
     if ((!m_bRevProps)&&((depth != svn_depth_empty)&&((strncmp(name.c_str(), "bugtraq:", 8)==0)||(strncmp(name.c_str(), "tsvn:", 5)==0)||(strncmp(name.c_str(), "webviewer:", 10)==0))))
     {
         // The bugtraq and tsvn properties must only be set on folders.
@@ -448,6 +454,10 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     }
 
     const char* svnPath = m_path.GetSVNApiPath(subpool);
+#ifdef _MFC_VER
+    if (m_path.IsUrl() || (!m_rev.IsWorking() && !m_rev.IsValid()))
+        CHooks::Instance().PreConnect(CTSVNPathList(m_path));
+#endif
     if (m_bRevProps)
     {
         svn_revnum_t rev_set;

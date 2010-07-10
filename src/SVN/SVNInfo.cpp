@@ -24,6 +24,7 @@
 #ifdef _MFC_VER
 #include "SVN.h"
 #include "MessageBox.h"
+#include "Hooks.h"
 #endif
 #include "registry.h"
 #include "TSVNPath.h"
@@ -132,6 +133,10 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
     m_pos = 0;
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
+#ifdef _MFC_VER
+    if (path.IsUrl() || (!pegrev.IsWorking() && !pegrev.IsValid())|| (!revision.IsWorking() && !revision.IsValid()))
+        CHooks::Instance().PreConnect(CTSVNPathList(path));
+#endif
     SVNTRACE (
         m_err = svn_client_info3(svnPath, pegrev, revision, infoReceiver, this, depth, NULL, m_pctx, m_pool),
         svnPath

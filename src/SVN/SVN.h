@@ -912,6 +912,8 @@ protected:
     apr_array_header_t * MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool);
     apr_hash_t *         MakeRevPropHash(const RevPropHash revProps, apr_pool_t * pool);
 
+    void                 CallPreConnectHookIfUrl(const CTSVNPathList& pathList, const CTSVNPath& path = CTSVNPath());
+
     svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
 
     void cancel();

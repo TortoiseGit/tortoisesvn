@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,10 +21,13 @@
 #include "registry.h"
 #include "StringUtils.h"
 #include "TempFile.h"
+#include "SVN.h"
 
 CHooks* CHooks::m_pInstance = NULL;
 
 CHooks::CHooks()
+    : m_lastPreConnectTicks(0)
+    , m_PathsConvertedToUrls(false)
 {
 }
 
@@ -175,6 +178,8 @@ CString CHooks::GetHookTypeString(hooktype t)
         return _T("pre_update_hook");
     case post_update_hook:
         return _T("post_update_hook");
+    case pre_connect_hook:
+        return _T("pre_connect_hook");
     }
     return _T("");
 }
@@ -193,6 +198,8 @@ hooktype CHooks::GetHookType(const CString& s)
         return pre_update_hook;
     if (s.Compare(_T("post_update_hook"))==0)
         return post_update_hook;
+    if (s.Compare(_T("pre_connect_hook"))==0)
+        return pre_connect_hook;
     return unknown_hook;
 }
 
@@ -331,6 +338,44 @@ bool CHooks::PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
     return true;
 }
 
+bool CHooks::PreConnect(const CTSVNPathList& pathList)
+{
+    if ((m_lastPreConnectTicks == 0) || ((GetTickCount() - m_lastPreConnectTicks) > 5*60*1000))
+    {
+        hookiterator it = FindItem(pre_connect_hook, pathList);
+        if (it == end())
+        {
+            if (!m_PathsConvertedToUrls && pathList.GetCount() && pathList[0].IsUrl())
+            {
+                SVN svn;
+                for (hookiterator ith = begin(); ith != end(); ++ith)
+                {
+                    if (ith->first.htype == pre_connect_hook)
+                    {
+                        CString sUrl = svn.GetURLFromPath(ith->first.path);
+                        hookkey hk;
+                        hk.htype = pre_connect_hook;
+                        hk.path = CTSVNPath(sUrl);
+                        insert(std::pair<hookkey, hookcmd>(hk, ith->second));
+                    }
+                }
+                m_PathsConvertedToUrls = true;
+                it = FindItem(pre_connect_hook, pathList);
+                if (it == end())
+                    return false;
+            }
+            else
+                return false;
+        }
+        CString sCmd = it->second.commandline;
+        CString error;
+        RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+        m_lastPreConnectTicks = GetTickCount();
+        return true;
+    }
+    return false;
+}
+
 hookiterator CHooks::FindItem(hooktype t, const CTSVNPathList& pathList)
 {
     hookkey key;
@@ -433,7 +478,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     PROCESS_INFORMATION pi;
     SecureZeroMemory(&pi, sizeof(pi));
 
-    if (!CreateProcess(NULL, cmd.GetBuffer(), NULL, NULL, TRUE, 0, NULL, curDir.GetWinPath(), &si, &pi))
+    if (!CreateProcess(NULL, cmd.GetBuffer(), NULL, NULL, TRUE, 0, NULL, curDir.IsEmpty() ? NULL : curDir.GetWinPath(), &si, &pi))
     {
         const int err = GetLastError();  // preserve the CreateProcess error
         if (hErr != INVALID_HANDLE_VALUE)
@@ -488,3 +533,4 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 
     return exitcode;
 }
+
