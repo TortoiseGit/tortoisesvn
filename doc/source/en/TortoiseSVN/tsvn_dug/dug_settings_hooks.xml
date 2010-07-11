@@ -339,6 +339,13 @@
         </ulink>.
         (<xref linkend="tsvn-preface-source"/> explains how to access the repository).
     </para>
+	<para>
+		A small tool is included in the TortoiseSVN installation folder named
+		ConnectVPN.exe. You can use this tool configured as a pre-connect hook
+		to automatically connect to your VPN before TortoiseSVN tries to connect
+		to a repository.
+		Just pass the name of the VPN connection as the first parameter to the tool.
+	</para>
     <sect3 id="tsvn-dug-settings-hooks-issuetracker">
         <title>Issue Tracker Integration</title>
         <?dbhh topicname="HIDD_SETTINGSBUGTRAQ"?>
