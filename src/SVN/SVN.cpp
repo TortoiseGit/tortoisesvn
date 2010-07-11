@@ -1133,8 +1133,8 @@ bool SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revisio
 bool SVN::CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
                       const CTSVNPath& path2, const SVNRev& revision2,
                       const CTSVNPath& relativeToDir, svn_depth_t depth,
-                      bool ignoreancestry, bool nodiffdeleted, bool ignorecontenttype,
-                      const CString& options, bool bAppend, const CTSVNPath& outputfile)
+                      bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+                      bool useGitFormat, const CString& options, bool bAppend, const CTSVNPath& outputfile)
 {
     // to create a patch, we need to remove any custom diff tools which might be set in the config file
     svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG, APR_HASH_KEY_STRING);
@@ -1147,7 +1147,7 @@ bool SVN::CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
     svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, NULL);
     svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, NULL);
 
-    bool bRet = Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
+    bool bRet = Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, options, bAppend, outputfile, CTSVNPath());
     svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, (LPCSTR)diffCmd);
     svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, (LPCSTR)diff3Cmd);
     return bRet;
@@ -1156,17 +1156,17 @@ bool SVN::CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
 bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
                const CTSVNPath& path2, const SVNRev& revision2,
                const CTSVNPath& relativeToDir, svn_depth_t depth,
-               bool ignoreancestry, bool nodiffdeleted, bool ignorecontenttype,
-               const CString& options, bool bAppend, const CTSVNPath& outputfile)
+               bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+               bool useGitFormat, const CString& options, bool bAppend, const CTSVNPath& outputfile)
 {
-    return Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
+    return Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, options, bAppend, outputfile, CTSVNPath());
 }
 
 bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
                const CTSVNPath& path2, const SVNRev& revision2,
                const CTSVNPath& relativeToDir, svn_depth_t depth,
-               bool ignoreancestry, bool nodiffdeleted, bool ignorecontenttype,
-               const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+               bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+               bool useGitFormat, const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
     bool del = false;
     apr_file_t * outfile;
@@ -1220,8 +1220,9 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
                                depth,
                                ignoreancestry,
                                nodiffdeleted,
-                               false,
+                               showCopiesAsAdds,
                                ignorecontenttype,
+                               useGitFormat,
                                APR_LOCALE_CHARSET,
                                outfile,
                                errfile,
@@ -1244,17 +1245,17 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
 bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
                   const SVNRev& startrev, const SVNRev& endrev,
                   const CTSVNPath& relativeToDir, svn_depth_t depth,
-                  bool ignoreancestry, bool nodiffdeleted, bool ignorecontenttype,
-                  const CString& options, bool bAppend, const CTSVNPath& outputfile)
+                  bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+                    bool useGitFormat, const CString& options, bool bAppend, const CTSVNPath& outputfile)
 {
-    return PegDiff(path, pegrevision, startrev, endrev, relativeToDir, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
+    return PegDiff(path, pegrevision, startrev, endrev, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, options, bAppend, outputfile, CTSVNPath());
 }
 
 bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
                   const SVNRev& startrev, const SVNRev& endrev,
                   const CTSVNPath& relativeToDir, svn_depth_t depth,
-                  bool ignoreancestry, bool nodiffdeleted, bool ignorecontenttype,
-                  const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+                  bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
+                  bool useGitFormat, const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
     bool del = false;
     apr_file_t * outfile;
@@ -1308,8 +1309,9 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
             depth,
             ignoreancestry,
             nodiffdeleted,
-            false,
+            showCopiesAsAdds,
             ignorecontenttype,
+            useGitFormat,
             APR_LOCALE_CHARSET,
             outfile,
             errfile,

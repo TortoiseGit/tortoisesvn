@@ -627,11 +627,11 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
                 if (m_bDoPegDiff)
                 {
-                    PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
+                    PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, CString(), true, diffFile);
                 }
                 else
                 {
-                    Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, CString(), true, diffFile);
+                    Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, CString(), true, diffFile);
                 }
             }
             CAppUtils::StartUnifiedDiffViewer(diffFile.GetWinPathString(), CString(), false);
