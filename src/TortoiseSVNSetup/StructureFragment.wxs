@@ -106,6 +106,7 @@
 
               <File Id="F__SubWCRev" Name="SubWCRev.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\SubWCRev.exe" />
               <File Id="F__SubWCRevCOM" Name="SubWCRevCOM.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\SubWCRevCOM.exe" />
+              <File Id="F__ConnectVPN" Name="ConnectVPN.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\ConnectVPN.exe" />
 
               <!-- register the SubWCRev COM-Object -->
               <Environment Id="Environment" Name="PATH" Part="last" System="yes" Value="[INSTALLDIR]bin" Action="set" />
