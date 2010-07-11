@@ -69,6 +69,20 @@ BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CSt
     return TRUE;
 }
 
+CString CCommonAppUtils::ExpandEnvironmentStrings (const CString& s)
+{
+    DWORD len = ::ExpandEnvironmentStrings (s, NULL, 0);
+    if (len == 0)
+        return s;
+
+    auto_buffer<TCHAR> buf(len+1);
+    if (::ExpandEnvironmentStrings (s, buf, len) == 0)
+        return s;
+
+    buf[len] = 0;
+    return buf.get();
+}
+
 CString CCommonAppUtils::GetAppForFile
     ( const CString& fileName
     , const CString& extension
@@ -80,16 +94,13 @@ CString CCommonAppUtils::GetAppForFile
 
     // normalize file path
 
-    DWORD len = ExpandEnvironmentStrings (fileName, NULL, 0);
-    auto_buffer<TCHAR> buf(len+1);
-    ExpandEnvironmentStrings (fileName, buf, len);
-    CString normalizedFileName = buf;
-    normalizedFileName = _T("\"")+normalizedFileName+_T("\"");
+    CString fullFileName = ExpandEnvironmentStrings (fileName);
+    CString normalizedFileName = _T("\"") + fullFileName + _T("\"");
 
     // registry lookup
 
     CString extensionToUse = extension.IsEmpty()
-        ? CPathUtils::GetFileExtFromPath(CString (buf.get()))
+        ? CPathUtils::GetFileExtFromPath (fullFileName)
         : extension;
 
     if (!extensionToUse.IsEmpty())
@@ -108,7 +119,10 @@ CString CCommonAppUtils::GetAppForFile
             application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
         }
         else
+        {
+            cmdbuf[buflen] = 0;
             application = cmdbuf;
+        }
 
         // fallback to "open"
 
@@ -123,16 +137,16 @@ CString CCommonAppUtils::GetAppForFile
                 application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
             }
             else
+            {
+                cmdbuf[buflen] = 0;
                 application = cmdbuf;
+            }
         }
     }
 
     // normalize application path
 
-    len = ExpandEnvironmentStrings (application, NULL, 0);
-    buf.reset(len+1);
-    ExpandEnvironmentStrings (application, buf, len);
-    application = buf;
+    application = ExpandEnvironmentStrings (application);
 
     // security heuristics:
     // some scripting languages (e.g. python) will execute the document

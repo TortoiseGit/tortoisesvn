@@ -33,6 +33,13 @@ public:
     static BOOL StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait = FALSE);
 
     /**
+     * Replaces shell variables (like %SOMENAME%) in \ref s with
+     * their respective values. If the replacements should fail,
+     * the string will be returned unaltered.
+     */
+    static CString CCommonAppUtils::ExpandEnvironmentStrings (const CString& s);
+
+    /**
      * Finds the standard application to open / process the given file
      * with the given verb (see ShellOpen for verbs).
      * \param fileName file path to pass to the application
