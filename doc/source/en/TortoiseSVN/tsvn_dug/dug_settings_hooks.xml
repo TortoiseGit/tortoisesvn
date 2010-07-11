@@ -97,6 +97,15 @@
                     </para>
                 </listitem>
             </varlistentry>
+            <varlistentry>
+                <term>Pre-connect</term>
+                <listitem>
+                    <para>
+                        Called before an attempt to contact the repository. Called at most once
+						in five minutes.
+                    </para>
+                </listitem>
+            </varlistentry>
         </variablelist>
     </para>
     <para>
@@ -180,6 +189,15 @@
                         <literal>REVISION</literal>
                         <literal>ERROR</literal>
                         <literal>CWD</literal>
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Pre-connect</term>
+                <listitem condition="pot">
+                    <para>
+						no parameters are passed to this script. Cou can pass
+						a custom parameter by appending it to the script path.
                     </para>
                 </listitem>
             </varlistentry>

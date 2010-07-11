@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-05-18 17:03 +0000\n"
+"POT-Creation-Date: 2010-07-11 08:32 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1112,6 +1112,14 @@ msgid "A repository is then created inside the new folder. <emphasis>Don't edit 
 msgstr ""
 
 #.(para)
+msgid "You will also be asked whether you want to create a directory structure within the repository. Find out about layout options in <xref linkend=\"tsvn-repository-layout\"/>."
+msgstr ""
+
+#.(para)
+msgid "TortoiseSVN will set a custom folder icon when it creates a repository so you can identify local repositories more easily. If you create a repository using the official command line client this folder icon is not assigned."
+msgstr ""
+
+#.(para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
 msgstr ""
 
@@ -1194,6 +1202,10 @@ msgstr ""
 #.(screen)
 #, no-wrap
 msgid "\n/trunk\n/branches\n/tags\n"
+msgstr ""
+
+#.(para)
+msgid "Because this layout is so commonly used, when you create a new repository using TortoiseSVN, it will also offer to create the directory structure for you."
 msgstr ""
 
 #.(para)
@@ -5211,6 +5223,14 @@ msgid "The <literal>svn:externals</literal> property can be used to pull in othe
 msgstr ""
 
 #.(title)
+msgid "Edit properties at HEAD revision"
+msgstr ""
+
+#.(para)
+msgid "Because properties are versioned, you cannot edit the properties of previous revisions. If you look at properties from the log dialog, or from a non-HEAD revision in the repository browser, you will see a list of properties and values, but no edit controls."
+msgstr ""
+
+#.(title)
 msgid "Exporting and Importing Properties"
 msgstr ""
 
@@ -6042,11 +6062,11 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr ""
 
 #.(para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
+msgid "Choosing <emphasis>Prefer local</emphasis> will select your local changes in every conflict. Likewise, <emphasis>Prefer repository</emphasis> will select the repository changes in every conflict. This sounds easy, but the conflicts often cover more lines than you think they will and you may get unexpected results."
 msgstr ""
 
 #.(para)
-msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
+msgid "Normally you will want to look at the conflicts and resolve them yourself. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
 msgstr ""
 
 #.(para)
@@ -6054,7 +6074,7 @@ msgid "The last option is to postpone resolution and continue with merging. You 
 msgstr ""
 
 #.(para)
-msgid "When a conflict occurs during the merge, you have three ways to handle it. <placeholder-1/>"
+msgid "It is likely that some of the changes will have merged smoothly, while other local changes conflict with changes already committed to the repository. All changes which can be merged are merged. The Merge Conflict Callback dialog gives you three different ways of handling the lines which are in conflict. <placeholder-1/>"
 msgstr ""
 
 #.(para)
@@ -7316,11 +7336,11 @@ msgid "Selects your user interface language. What else did you expect?"
 msgstr ""
 
 #.(term)
-msgid "Automatically check for newer versions every week"
+msgid "Check for updates"
 msgstr ""
 
 #.(para)
-msgid "If checked, TortoiseSVN will contact its download site once a week to see if there is a newer version of the program available. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
+msgid "TortoiseSVN will contact its download site periodically to see if there is a newer version of the program available. If there is it will show a notification link in the commit dialog. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
 msgstr ""
 
 #.(term)
@@ -7468,7 +7488,7 @@ msgid "If you frequently find yourself comparing revisions in the top pane of th
 msgstr ""
 
 #.(term)
-msgid "Progress Dialog"
+msgid "Auto-close"
 msgstr ""
 
 #.(para)
@@ -7480,15 +7500,19 @@ msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that 
 msgstr ""
 
 #.(para)
-msgid "<guilabel>Auto-close if no merges, adds or deletes for local operations</guilabel> means that the progress dialog will close as for <guilabel>Auto-close if no merges, adds or deletes</guilabel> but only for local operations like adding files or reverting changes. For remote operations the dialog will stay open."
-msgstr ""
-
-#.(para)
 msgid "<guilabel>Auto-close if no conflicts</guilabel> relaxes the criteria further and will close the dialog even if there were merges, adds or deletes. However, if there were any conflicts or errors, the dialog remains open."
 msgstr ""
 
 #.(para)
 msgid "<guilabel>Auto-close if no errors</guilabel> always closes the dialog even if there were conflicts. The only condition that keeps the dialog open is an error condition, which occurs when Subversion is unable to complete the task. For example, an update fails because the server is inaccessible, or a commit fails because the working copy is out-of-date."
+msgstr ""
+
+#.(term)
+msgid "Always close dialogs for local operations"
+msgstr ""
+
+#.(para)
+msgid "Local operations like adding files or reverting changes do not need to contact the repository and complete quickly, so the progress dialog is often of little interest. Select this option if you want the progress dialog to close automatically after these operations, unless there are errors."
 msgstr ""
 
 #.(term)
@@ -7707,6 +7731,14 @@ msgstr ""
 msgid "The original item has been deleted and a new item with the same name replaces it."
 msgstr ""
 
+#.(term)
+msgid "Filter match"
+msgstr ""
+
+#.(para)
+msgid "When using filtering in the log dialog, search terms are highlighted in the results using this colour."
+msgstr ""
+
 #.(title)
 msgid "Revision Graph Settings"
 msgstr ""
@@ -7863,18 +7895,6 @@ msgstr ""
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays."
 msgstr ""
 
-#.(para)
-msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
-msgstr ""
-
-#.(para)
-msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr ""
-
-#.(para)
-msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr ""
-
 #.(term)
 msgid "Default"
 msgstr ""
@@ -7928,6 +7948,14 @@ msgid "Since it takes quite a while to fetch the status of a working copy, Torto
 msgstr ""
 
 #.(para)
+msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
+msgstr ""
+
+#.(para)
+msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
+msgstr ""
+
+#.(para)
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
 msgstr ""
 
@@ -7940,15 +7968,11 @@ msgid "USB Flash drives appear to be a special case in that the drive type is id
 msgstr ""
 
 #.(para)
-msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
+msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays, or if you only want TortoiseSVN to look in specific folders."
 msgstr ""
 
 #.(para)
-msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays <emphasis>only</emphasis> on that specific folder. You still can see the overlays on all files and folder inside that folder."
-msgstr ""
-
-#.(para)
-msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
+msgid "Any path you specify here is assumed to apply recursively, so none of the child folders will show overlays either. If you want to exclude <emphasis>only</emphasis> the named folder, append <literal>?</literal> after the path."
 msgstr ""
 
 #.(para)
@@ -7956,7 +7980,11 @@ msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that f
 msgstr ""
 
 #.(para)
-msgid "Users sometimes ask how these three settings interact, and the definitive answer is: <screen>\nif (path is in include list)\n  show overlays\nif (path is allowed drive type) AND (path is not in exclude list)\n  show overlays\n</screen> The include list <emphasis>always</emphasis> makes the overlays show. Otherwise, overlays are shown for all marked drive types <emphasis>unless</emphasis> the path is excluded."
+msgid "Users sometimes ask how these three settings interact. For any given path check the include and exclude lists, seeking upwards through the directory structure until a match is found. When the first match is found, obey that include or exclude rule. If there is a conflict, a single directory spec takes precedence over a recursive spec, then inclusion takes precedence over exclusion."
+msgstr ""
+
+#.(para)
+msgid "An example will help here: <screen>\nExclude:\n       C:\n       C:\\develop\\?\n       C:\\develop\\tsvn\\obj\n       C:\\develop\\tsvn\\bin\n\nInclude:\n       C:\\develop\n</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
 msgstr ""
 
 #.(para)
@@ -7997,6 +8025,18 @@ msgstr ""
 
 #.(para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
+msgstr ""
+
+#.(title)
+msgid "Enabled Overlay Handlers"
+msgstr ""
+
+#.(title)
+msgid "The Settings Dialog, Icon Handlers Page"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> Because the number of overlays available is severely restricted, you can choose to disable some handlers to ensure that the ones you want will be loaded. Because TortoiseSVN uses the common TortoiseOverlays component which is shared with other Tortoise clients (e.g. TortoiseCVS, TortoiseHG) this setting will affect those clients too."
 msgstr ""
 
 #.(title)
@@ -8531,6 +8571,15 @@ msgstr ""
 msgid "Called after the update, switch or checkout finishes (whether successful or not)."
 msgstr ""
 
+#.(term)
+#.(term)
+msgid "Pre-connect"
+msgstr ""
+
+#.(para)
+msgid "Called before an attempt to contact the repository. Called at most once in five minutes."
+msgstr ""
+
 #.(para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
 msgstr ""
@@ -8540,7 +8589,7 @@ msgid "A hook is defined for a particular working copy path. You only need to sp
 msgstr ""
 
 #.(para)
-msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
+msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script. Note that the script must not be specified using a UNC path as Windows shell execute will not allow such scripts to run due to security restrictions."
 msgstr ""
 
 #.(para)
@@ -8811,6 +8860,10 @@ msgstr ""
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
 msgstr ""
 
+#.(para)
+msgid "Sometimes multiple users use the same account on the same computer. In such situations it's not really wanted to save the authentication data. Setting this value to <literal>false</literal> disables the <literal>save authentication</literal> button in the authentication dialog."
+msgstr ""
+
 #.(title)
 msgid "Final Step"
 msgstr ""
@@ -8994,11 +9047,9 @@ msgstr ""
 #.(literal)
 #.(literal)
 #.(literal)
-#.(literal)
 msgid "TText"
 msgstr ""
 
-#.(literal)
 #.(literal)
 #.(literal)
 #.(literal)
@@ -9031,19 +9082,6 @@ msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versio
 msgstr ""
 
 #.(literal)
-msgid "$WCNEEDSLOCK?TText:FText$"
-msgstr ""
-
-#.(literal)
-#.(literal)
-msgid "svn:needs-lock"
-msgstr ""
-
-#.(entry)
-msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
-msgstr ""
-
-#.(literal)
 msgid "$WCISLOCKED?TText:FText$"
 msgstr ""
 
@@ -9068,7 +9106,7 @@ msgid "If a source and destination files are supplied, SubWCRev copies source to
 msgstr ""
 
 #.(para)
-msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
+msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
 msgstr ""
 
 #.(title)
@@ -9175,10 +9213,6 @@ msgid "True if the item is versioned."
 msgstr ""
 
 #.(entry)
-msgid "True if the item has the <placeholder-1/> property set."
-msgstr ""
-
-#.(entry)
 msgid "True if the item is locked."
 msgstr ""
 
@@ -9200,7 +9234,7 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
-msgid "\n// testCOM.js - javascript file\n// test script for the SubWCRev COM/Automation-object\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n\nwcInfoString1 = \"Revision = \" + revObject1.Revision +\n                \"\\nMin Revision = \" + revObject1.MinRev +\n                \"\\nMax Revision = \" + revObject1.MaxRev +\n                \"\\nDate = \" + revObject1.Date +\n                \"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" +\n                revObject1.Author + \"\\nHasMods = \" +\n                revObject1.HasModifications + \"\\nIsSvnItem = \" +\n                revObject1.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject1.NeedsLocking + \"\\nIsLocked = \" +\n                revObject1.IsLocked + \"\\nLockCreationDate = \" +\n                revObject1.LockCreationDate + \"\\nLockOwner = \" +\n                revObject1.LockOwner + \"\\nLockComment = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Revision = \" + revObject2.Revision +\n                \"\\nMin Revision = \" + revObject2.MinRev +\n                \"\\nMax Revision = \" + revObject2.MaxRev +\n                \"\\nDate = \" + revObject2.Date +\n                \"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" +\n                revObject2.Author + \"\\nHasMods = \" +\n                revObject2.HasModifications + \"\\nIsSvnItem = \" +\n                revObject2.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject2.NeedsLocking + \"\\nIsLocked = \" +\n                revObject2.IsLocked + \"\\nLockCreationDate = \" +\n                revObject2.LockCreationDate + \"\\nLockOwner = \" +\n                revObject2.LockOwner + \"\\nLockComment = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Revision = \" + revObject3.Revision +\n                \"\\nMin Revision = \" + revObject3.MinRev +\n                \"\\nMax Revision = \" + revObject3.MaxRev +\n                \"\\nDate = \" + revObject3.Date +\n                \"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" +\n                revObject3.Author + \"\\nHasMods = \" +\n                revObject3.HasModifications + \"\\nIsSvnItem = \" +\n                revObject3.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject3.NeedsLocking + \"\\nIsLocked = \" +\n                revObject3.IsLocked + \"\\nLockCreationDate = \" +\n                revObject3.LockCreationDate + \"\\nLockOwner = \" +\n                revObject3.LockOwner + \"\\nLockComment = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Revision = \" + revObject4.Revision +\n                \"\\nMin Revision = \" + revObject4.MinRev +\n                \"\\nMax Revision = \" + revObject4.MaxRev +\n                \"\\nDate = \" + revObject4.Date +\n                \"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" +\n                revObject4.Author + \"\\nHasMods = \" +\n                revObject4.HasModifications + \"\\nIsSvnItem = \" +\n                revObject4.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject4.NeedsLocking + \"\\nIsLocked = \" +\n                revObject4.IsLocked + \"\\nLockCreationDate = \" +\n                revObject4.LockCreationDate + \"\\nLockOwner = \" +\n                revObject4.LockOwner + \"\\nLockComment = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
+msgid "\n// testCOM.js - javascript file\n// test script for the SubWCRev COM/Automation-object\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n\nwcInfoString1 = \"Revision = \" + revObject1.Revision +\n                \"\\nMin Revision = \" + revObject1.MinRev +\n                \"\\nMax Revision = \" + revObject1.MaxRev +\n                \"\\nDate = \" + revObject1.Date +\n                \"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" +\n                revObject1.Author + \"\\nHasMods = \" +\n                revObject1.HasModifications + \"\\nIsSvnItem = \" +\n                revObject1.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject1.IsLocked + \"\\nLockCreationDate = \" +\n                revObject1.LockCreationDate + \"\\nLockOwner = \" +\n                revObject1.LockOwner + \"\\nLockComment = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Revision = \" + revObject2.Revision +\n                \"\\nMin Revision = \" + revObject2.MinRev +\n                \"\\nMax Revision = \" + revObject2.MaxRev +\n                \"\\nDate = \" + revObject2.Date +\n                \"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" +\n                revObject2.Author + \"\\nHasMods = \" +\n                revObject2.HasModifications + \"\\nIsSvnItem = \" +\n                revObject2.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject2.IsLocked + \"\\nLockCreationDate = \" +\n                revObject2.LockCreationDate + \"\\nLockOwner = \" +\n                revObject2.LockOwner + \"\\nLockComment = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Revision = \" + revObject3.Revision +\n                \"\\nMin Revision = \" + revObject3.MinRev +\n                \"\\nMax Revision = \" + revObject3.MaxRev +\n                \"\\nDate = \" + revObject3.Date +\n                \"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" +\n                revObject3.Author + \"\\nHasMods = \" +\n                revObject3.HasModifications + \"\\nIsSvnItem = \" +\n                revObject3.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject3.IsLocked + \"\\nLockCreationDate = \" +\n                revObject3.LockCreationDate + \"\\nLockOwner = \" +\n                revObject3.LockOwner + \"\\nLockComment = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Revision = \" + revObject4.Revision +\n                \"\\nMin Revision = \" + revObject4.MinRev +\n                \"\\nMax Revision = \" + revObject4.MaxRev +\n                \"\\nDate = \" + revObject4.Date +\n                \"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" +\n                revObject4.Author + \"\\nHasMods = \" +\n                revObject4.HasModifications + \"\\nIsSvnItem = \" +\n                revObject4.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject4.IsLocked + \"\\nLockCreationDate = \" +\n                revObject4.LockCreationDate + \"\\nLockOwner = \" +\n                revObject4.LockOwner + \"\\nLockComment = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
 msgstr ""
 
 #.(para)
