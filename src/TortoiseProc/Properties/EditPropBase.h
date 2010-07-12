@@ -54,7 +54,7 @@ public:
     virtual std::string     GetPropertyName() const {return m_PropName;}
     virtual bool            IsBinary() const {return m_bIsBinary;}
     virtual bool            IsChanged() const { return m_bChanged;}
-    virtual bool            GetRecursive() const {return !!m_bRecursive;}
+    virtual bool            GetRecursive() const {return !!m_bRecursive && !m_bRevProps;}
     virtual void            SetProperties(const TProperties& props) { m_properties = props; }
     virtual TProperties     GetProperties() const { return m_properties; }
     virtual bool            HasMultipleProperties() { return false; }
