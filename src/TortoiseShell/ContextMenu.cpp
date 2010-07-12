@@ -1163,9 +1163,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
         switch (id_it->second)
         {
         case ShellMenuUpgradeWC:
-            svnCmd += _T("wcupgrade /path:\"");
-            svnCmd += folder_;
+            tempfile = WriteFileListToTempFile();
+            svnCmd += _T("wcupgrade /pathfile:\"");
+            svnCmd += tempfile;
             svnCmd += _T("\"");
+            svnCmd += _T(" /deletepathfile");
             break;
         case ShellMenuCheckout:
             svnCmd += _T("checkout /path:\"");
