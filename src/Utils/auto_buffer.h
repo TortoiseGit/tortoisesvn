@@ -42,7 +42,7 @@ private:
 public:
 
     explicit auto_buffer (size_t size = 0) throw()
-        : buffer (size == 0 ? NULL : new T[size])
+        : buffer (size == 0 ? NULL : new T[size]())
     {
     }
 

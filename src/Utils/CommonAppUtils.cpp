@@ -79,7 +79,6 @@ CString CCommonAppUtils::ExpandEnvironmentStrings (const CString& s)
     if (::ExpandEnvironmentStrings (s, buf, len) == 0)
         return s;
 
-    buf[len] = 0;
     return buf.get();
 }
 
@@ -120,7 +119,6 @@ CString CCommonAppUtils::GetAppForFile
         }
         else
         {
-            cmdbuf[buflen] = 0;
             application = cmdbuf;
         }
 
@@ -138,7 +136,6 @@ CString CCommonAppUtils::GetAppForFile
             }
             else
             {
-                cmdbuf[buflen] = 0;
                 application = cmdbuf;
             }
         }
