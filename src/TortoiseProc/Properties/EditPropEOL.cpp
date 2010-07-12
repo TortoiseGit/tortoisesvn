@@ -71,6 +71,9 @@ BOOL CEditPropEOL::OnInitDialog()
     else if (m_PropValue.compare("cr") == 0)
         CheckRadioButton(IDC_RADIONOEOL, IDC_RADIOCR, IDC_RADIOCR);
 
+    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
+    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
+
     AdjustControlSize(IDC_RADIONOEOL);
     AdjustControlSize(IDC_RADIONATIVE);
     AdjustControlSize(IDC_RADIOCRLF);

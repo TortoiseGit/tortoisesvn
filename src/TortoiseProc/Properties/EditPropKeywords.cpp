@@ -90,6 +90,9 @@ BOOL CEditPropKeywords::OnInitDialog()
     if (m_PropValue.find("header") != std::string::npos)
         m_bHeader = true;
 
+    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
+    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
+
     AdjustControlSize(IDC_AUTHORKEY);
     AdjustControlSize(IDC_DATE);
     AdjustControlSize(IDC_ID);

@@ -168,6 +168,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 
     AdjustControlSize(IDC_PROPRECURSIVE);
 
+    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
     GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
 
     AddAnchor(IDC_PROPNAME, TOP_LEFT, TOP_CENTER);

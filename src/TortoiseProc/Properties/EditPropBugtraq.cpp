@@ -150,6 +150,9 @@ BOOL CEditPropBugtraq::OnInitDialog()
     GetWindowRect(&rect);
     m_height = rect.bottom - rect.top;
 
+    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
+    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
+
     AddAnchor(IDC_ISSUETRACKERGROUP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_URLLABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_URLLABEL2, TOP_LEFT);

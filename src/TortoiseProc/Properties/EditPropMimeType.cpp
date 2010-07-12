@@ -84,6 +84,9 @@ BOOL CEditPropMimeType::OnInitDialog()
         bRet = FALSE;
     }
 
+    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
+    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
+
     if (m_bFolder)
     {
         // for folders, the property can only be set recursively

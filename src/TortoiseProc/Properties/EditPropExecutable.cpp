@@ -59,6 +59,9 @@ BOOL CEditPropExecutable::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
     m_aeroControls.SubclassOkCancelHelp(this);
 
+    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
+    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
+
     AdjustControlSize(IDC_PROPSET);
     AdjustControlSize(IDC_PROPNOTSET);
     AdjustControlSize(IDC_PROPRECURSIVE);
