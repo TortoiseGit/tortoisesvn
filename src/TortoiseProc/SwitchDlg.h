@@ -91,5 +91,6 @@ public:
     CString         m_URL;
     SVNRev          Revision;
     BOOL            m_bNoExternals;
+    BOOL            m_bStickyDepth;
     svn_depth_t     m_depth;
 };

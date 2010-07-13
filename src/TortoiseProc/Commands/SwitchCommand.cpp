@@ -35,6 +35,10 @@ bool SwitchCommand::Execute()
             options |= ProgOptIgnoreExternals;
         else
             options &= ~ProgOptIgnoreExternals;
+        if (dlg.m_bStickyDepth)
+            options |= ProgOptStickyDepth;
+        else
+            options &= ~ProgOptStickyDepth;
         CSVNProgressDlg progDlg;
         theApp.m_pMainWnd = &progDlg;
         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Switch);

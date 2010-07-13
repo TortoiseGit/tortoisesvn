@@ -60,5 +60,6 @@ public:
     SVNRev      Revision;
     CTSVNPath   m_wcPath;
     BOOL        m_bNoExternals;
+    BOOL        m_bStickyDepth;
     svn_depth_t m_depth;
 };

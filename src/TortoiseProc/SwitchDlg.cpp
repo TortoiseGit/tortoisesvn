@@ -32,6 +32,7 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
     , Revision(_T("HEAD"))
     , m_pLogDlg(NULL)
     , m_bNoExternals(FALSE)
+    , m_bStickyDepth(FALSE)
 {
 }
 
@@ -49,6 +50,7 @@ void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_DESTURL, m_DestUrl);
     DDX_Control(pDX, IDC_SRCURL, m_SrcUrl);
     DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
+    DDX_Check(pDX, IDC_STICKYDEPTH, m_bStickyDepth);
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
 

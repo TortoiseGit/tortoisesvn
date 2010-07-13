@@ -27,6 +27,7 @@ CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CUpdateDlg::IDD, pParent)
     , Revision(_T("HEAD"))
     , m_bNoExternals(FALSE)
+    , m_bStickyDepth(FALSE)
     , m_pLogDlg(NULL)
 {
 }
@@ -41,6 +42,7 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
     CStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_REVNUM, m_sRevision);
     DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
+    DDX_Check(pDX, IDC_STICKYDEPTH, m_bStickyDepth);
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
 

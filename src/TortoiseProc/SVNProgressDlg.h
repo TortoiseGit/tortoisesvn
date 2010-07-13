@@ -54,7 +54,8 @@ typedef enum
     ProgOptEolLF = 0x800,
     ProgOptEolCR = 0x1000,
     ProgOptSkipConflictCheck = 0x2000,
-    ProgOptRecordOnly = 0x4000
+    ProgOptRecordOnly = 0x4000,
+    ProgOptStickyDepth = 0x8000
 } ProgressOptions;
 
 typedef enum

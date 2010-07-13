@@ -57,6 +57,10 @@ bool UpdateCommand::Execute()
                 options |= ProgOptIgnoreExternals;
             else
                 options &= ~ProgOptIgnoreExternals;
+            if (dlg.m_bStickyDepth)
+                options |= ProgOptStickyDepth;
+            else
+                options &= ~ProgOptStickyDepth;
         }
         else
             return FALSE;
@@ -71,6 +75,8 @@ bool UpdateCommand::Execute()
             options |= ProgOptIgnoreExternals;
         if (parser.HasKey(_T("updateexternals")))
             options &= ~ProgOptIgnoreExternals;
+        if (parser.HasKey(_T("stickydepth")))
+            options |= ProgOptStickyDepth;
     }
 
     CSVNProgressDlg progDlg;
