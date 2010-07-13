@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-11 08:32 +0000\n"
-"PO-Revision-Date: 2010-07-12 15:24+0200\n"
+"PO-Revision-Date: 2010-07-13 08:48+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -2105,11 +2105,11 @@ msgstr ""
 "/tags\n"
 
 #.(para)
-#, fuzzy
 msgid "Because this layout is so commonly used, when you create a new repository using TortoiseSVN, it will also offer to create the directory structure for you."
 msgstr ""
-"Da dieses Layout so häufig verwendet wird, wenn Sie ein neues Projektarchiv "
-"anlegen, wird TortoiseSVN Ihnen anbieten, diese Struktur für Sie anzulegen."
+"Da dieses Layout so häufig Verwendung findet, wird TortoiseSVN Ihnen, wenn "
+"Sie ein neues Projektarchiv anlegen,  anbieten, diese Struktur für Sie "
+"erzeugen."
 
 #.(para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
@@ -14211,10 +14211,31 @@ msgstr ""
 #.(para)
 msgid "Users sometimes ask how these three settings interact. For any given path check the include and exclude lists, seeking upwards through the directory structure until a match is found. When the first match is found, obey that include or exclude rule. If there is a conflict, a single directory spec takes precedence over a recursive spec, then inclusion takes precedence over exclusion."
 msgstr ""
+"Benutzer fragen manchmal, wie diese drei Einstellungen interagieren. "
+"TortoiseSVN überprüft für jeden Pfad die Einschluss- und Ausschlusslisten. "
+"Die Verzeichnisstruktur wird nach oben hin durchsucht, bis eine "
+"Übereinstimmung gefunden wird. Wenn die erste Übereinstimmung gefunden "
+"wurde, wendet TortoiseSVN die entsprechende Regel an. Falls Widersprüche "
+"auftreten, wird eine einzelne Verzeichnisangabe einer rekursiven Angabe "
+"vorgezogen und Einschluss erhält Vorrang vor Ausschluss."
 
 #.(para)
 msgid "An example will help here: <screen>\nExclude:\n       C:\n       C:\\develop\\?\n       C:\\develop\\tsvn\\obj\n       C:\\develop\\tsvn\\bin\n\nInclude:\n       C:\\develop\n</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
 msgstr ""
+"Ein Beispiel wird hier für mehr Klarheit sorgen: <screen>\n"
+"Ausschluss:\n"
+"       C:\n"
+"       C:\\Projekte\\?\n"
+"       C:\\Projekte\\tsvn\\obj\n"
+"       C:\\Projekte\\tsvn\\bin\n"
+"\n"
+"Einschluss:\n"
+"       C:\\Projekte\n"
+"</screen> Diese Einstellungen deaktivieren die überlagerten Symbole für das "
+"C: Laufwerk mit Ausnahme von <literal>c:\\Projekte</literal>. Alle "
+"Verzeichnisse darunter werden überlagerte Symbole anzeigen, außer dem "
+"<literal>c:\\Projekte</literal> Ordner selber, der explizit ignoriert wird. "
+"Die sich ständig ändernden Binärordner werden ebenfalls ausgeschlossen."
 
 #.(para)
 msgid "TSVNCache.exe also uses these paths to restrict its scanning. If you want it to look only in particular folders, disable all drive types and include only the folders you specifically want to be scanned."
@@ -14295,15 +14316,21 @@ msgstr ""
 
 #.(title)
 msgid "Enabled Overlay Handlers"
-msgstr ""
+msgstr "Aktivierte überlagerte Symbole"
 
 #.(title)
 msgid "The Settings Dialog, Icon Handlers Page"
-msgstr ""
+msgstr "Der Einstellungsdialog, Verwendete Symbole"
 
 #.(para)
 msgid "<placeholder-1/> Because the number of overlays available is severely restricted, you can choose to disable some handlers to ensure that the ones you want will be loaded. Because TortoiseSVN uses the common TortoiseOverlays component which is shared with other Tortoise clients (e.g. TortoiseCVS, TortoiseHG) this setting will affect those clients too."
 msgstr ""
+"<placeholder-1/>Da die maximale Anzahl der überlagerten Symbole stark "
+"eingeschränkt ist, können Sie einige davon deaktivieren, um sicherzustellen, "
+"dass diejenigen, die Ihnen wichtig sind, geladen werden. Da TortoiseSVN die "
+"gemeinsame TortoiseOverlays-Komponente verwendet, welche mit anderen "
+"Tortoise Clients (z. B. TortoiseCVS, TortoiseHG) geteilt wird, wirken "
+"Änderungen der Einstellung auch bei diesen Clients."
 
 #.(title)
 msgid "Network Settings"
@@ -15128,11 +15155,13 @@ msgstr ""
 #.(term)
 #.(term)
 msgid "Pre-connect"
-msgstr ""
+msgstr "Vor Verbindung"
 
 #.(para)
 msgid "Called before an attempt to contact the repository. Called at most once in five minutes."
 msgstr ""
+"Wird aufgerufen vor einem Versuch, das Projektarchiv zu kontaktieren. "
+"Beschränkt auf höchstens einen Aufruf in fünf Minuten."
 
 #.(para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
