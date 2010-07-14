@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-07-07 02:15-0000\n"
+"PO-Revision-Date: 2010-07-14 01:45-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1037,7 +1037,7 @@ msgstr "Revisão BASE"
 
 #. (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr ""
+msgstr "A revisão base corrente de um ficheiro ou pasta na tua <emphasis>cópia de trabalho</emphasis>. Isto é a revisão em que estava o ficheiro ou pasta na altura em que foi corrido o ultimo checkout, actualização ou submissão. A revisão BASE é normalmente diferente à revisão HEAD."
 
 #. (glossterm)
 msgid "Blame"
@@ -1045,7 +1045,7 @@ msgstr "Culpa"
 
 #. (para)
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
-msgstr ""
+msgstr "Este comando é apenas para ficheiros de texto, e irá anotar cada linha de modo a mostrar a revisão do repositório em que foi alterada por último, e o autor que efectuou essa alteração. A nossa implementação de GUI chama-se TortoiseBlame e também mostra a data/tempo de submissão e a mensagem de registo, quando passas o rato sobre o número de revisão."
 
 #. (glossterm)
 msgid "BDB"
@@ -1061,7 +1061,7 @@ msgstr "Ramo"
 
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr ""
+msgstr "Termo usado frequentemente em sistemas de controlo de versões para descrever o que acontece quando o desenvolvimento de se divide num determinado ponto, e segue dois caminhos separados. Tu podes criar um ramo derivado da linha de desenvolvimento principal par desenvolver uma nova funcionalidade, sem tornar instável a linha principal. Ou podes ramificar uma entrega (release) estável, para a qual efectuas apenas correcções de problemas, enquanto novos desenvolvimentos tomam lugar no instável trunk. No Subversion um ramo é implementado como uma <quote>cópia barata</quote>."
 
 #. (glossterm)
 msgid "Checkout"
@@ -1077,7 +1077,7 @@ msgstr "Limpar"
 
 #. (para)
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
-msgstr ""
+msgstr "Para citar o livro do Subversion: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Observa que neste contexto <emphasis>bloquear (lock)</emphasis> se refere ao bloqueio do sistema de ficheiros local, e não ao bloqueio no repositório."
 
 #. (glossterm)
 msgid "Commit"
@@ -1101,7 +1101,7 @@ msgstr "Cópia"
 
 #. (para)
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr ""
+msgstr "Num repositório Subversion tu podes criar uma cópia de um ficheiro simples ou uma árvore inteira. Essas são implementadas como <quote>cópias baratas</quote> que actuam um pouco como uma hiperligação para o original, pelo que não ocupam praticamente nenhum espaço. Efectuar uma cópia preserva a história do item para que possas seguir as alterações efectuadas antes de a cópia ter sido efectuada. "
 
 #. (glossterm)
 msgid "Delete"
@@ -1217,7 +1217,7 @@ msgstr "Realocar"
 
 #. (para)
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
-msgstr ""
+msgstr "Se se alterar a localização do teu repositório, talvez porque o moveste para uma pasta diferente no teu servidor, o o nome de domínio do servidor foi alterado, irás necessitar de <quote>reposicionar</quote> a tua cópia de trabalho para que o seu URL aponte para a nova localização."
 
 #. (para)
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
@@ -1285,7 +1285,7 @@ msgstr "parâmetro"
 
 #. (para)
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr ""
+msgstr "Tal como <quote>Actualizar-para-revisão</quote> altera a janela de tempo da cópia de trabalho de modo a olhar para um ponto diferente na história, o <quote>Trocar</quote> altera a janela espacial da cópia de trabalho para que aponte para uma diferente secção do repositório. É particularmente útil quando se está a trabalhar no trunk e nos ramos onde poucos ficheiros diferem. Podes trocar a tua cópia de trabalho entre os dois, e só os ficheiros alterados serão transferidos."
 
 #. (glossterm)
 msgid "Update"
