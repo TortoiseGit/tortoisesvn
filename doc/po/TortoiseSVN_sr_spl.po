@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-07-09 14:50+0100\n"
+"POT-Creation-Date: 2010-07-11 08:32 +0000\n"
+"PO-Revision-Date: 2010-07-14 20:36+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -1172,6 +1172,14 @@ msgid "A repository is then created inside the new folder. <emphasis>Don't edit 
 msgstr "Spremište će biti kreirano unutar novog imenika. <emphasis>Nemojte uređivati te fajlove sami!!!</emphasis>. Ako dobijete bilo kakvu grešku osigurajte da imenik bude prazan i nije zaštićen od upisivanja."
 
 #. (para)
+msgid "You will also be asked whether you want to create a directory structure within the repository. Find out about layout options in <xref linkend=\"tsvn-repository-layout\"/>."
+msgstr "Takođe ćete biti pitani gde želite da kreirate imeničku strukturu unutar spremišta. Pogledajte opcije o položaju u <xref linkend=\"tsvn-repository-layout\"/>."
+
+#. (para)
+msgid "TortoiseSVN will set a custom folder icon when it creates a repository so you can identify local repositories more easily. If you create a repository using the official command line client this folder icon is not assigned."
+msgstr "TortoiseSVN će podesiti željenu ikonu imenika kada kreira spremište tako da možete mnogo lakše identifikovati lokalno spremište.  Ako kreirate spremište koristeći oficijalni klijent komandne linije ova ikona imenika neće biti označena."
+
+#. (para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
 msgstr "TortoiseSVN više ne nudi opciju da se kreira BDB spremište, ali još možete koristiti klijenta komandne linije da ga kreirate. FSFS spremišta su generalno jednostavnija za rukovanje i nama lakša da održavamo TortoiseSVN preko kompatibilnih problema između raznih BDB verzja."
 
@@ -1263,6 +1271,10 @@ msgstr ""
 "/trunk\n"
 "/branches\n"
 "/tags\n"
+
+#. (para)
+msgid "Because this layout is so commonly used, when you create a new repository using TortoiseSVN, it will also offer to create the directory structure for you."
+msgstr "Pošto se ovaj položaj tako često koristi, kada kreirate novo spremište koristeći TortoiseSVN, takođe će vam ponuditi da kreira imeničku strukturu za vas."
 
 #. (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
@@ -5923,6 +5935,14 @@ msgid "The <literal>svn:externals</literal> property can be used to pull in othe
 msgstr "Osobina <literal>svn:externals</literal> može se koristiti da se privuče u druge projekte iz istog spremišta ili sasvim različitog spremišta. Za više informacija, pročitajte <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
+msgid "Edit properties at HEAD revision"
+msgstr "Osobine uređenja GLAVNE revizije"
+
+#. (para)
+msgid "Because properties are versioned, you cannot edit the properties of previous revisions. If you look at properties from the log dialog, or from a non-HEAD revision in the repository browser, you will see a list of properties and values, but no edit controls."
+msgstr "Pošto su osobine verzionisane, ne možete uređivati osobine prethodne revizije. Ako pogledate osobine iz dijaloga dnevnika, ili iz ne-GLVNE revizije u pretraživaču spremišta, videćete listu osobina i vrednosti, ali ne i kontrolu uređenja."
+
+#. (title)
 msgid "Exporting and Importing Properties"
 msgstr "Izvoz i uvoz osobina"
 
@@ -6804,20 +6824,20 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr "Stapanje uvek ne ide ravno. Ponekad ima konflikta, i ako stapate više opsega vi generalno želite da rešite konflikt pre početka stapanja sledećeg opsega. TortoiseSVN vam pomaže kroz ovaj proces prikazivanjem  <emphasis>povratni konflikt stapanja </emphasis>dijalog. <placeholder-1/>"
 
 #. (para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
-msgstr "Možete odlučiti da su vaše lokalne izmene mnogo važne, tako vi želite da izbacite verziju iz spremišta i sačuvate lokalnu verziju. Ili želite da odbacite lokalne izmene kao uslugu verziji spremišta. Ovo se odnosi samo na konfliktne izmene. Izmene koje se tada mogu stopitisu već stopljene. Samo za konfliktni deo treba koristiti vaš izbor."
+msgid "Choosing <emphasis>Prefer local</emphasis> will select your local changes in every conflict. Likewise, <emphasis>Prefer repository</emphasis> will select the repository changes in every conflict. This sounds easy, but the conflicts often cover more lines than you think they will and you may get unexpected results."
+msgstr "Koristeći <emphasis>Preferira lokalno</emphasis> će izabrati lokalne izmene u svakom konfliktu. Takođe, <emphasis>Preferira spremište</emphasis> će izabrati izmene spremišta u svakom konfliktu. To izgledalako, ali konflikti često pokrivaju više linija nego što mislite i možete dobiti neočekivane rezultate."
 
 #. (para)
-msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
-msgstr "Normalno vi ćete želeti da pogledate konflikt i da ga rešite. U tom slučaju, izaberite <guibutton>Uredi Konflikt</guibutton> koji će pokrenuti vaš alat stapanja. Kada ste zadovoljni rezultatom kliknite na <guibutton>Rešen</guibutton>."
+msgid "Normally you will want to look at the conflicts and resolve them yourself. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
+msgstr "Normalno vi ćete želeti da pogledate konflikt i da ga rešite. U tom slučaju, izaberite <guibutton>Uredi konflikt</guibutton> koji će pokrenuti vaš alat stapanja. Kada ste zadovoljni rezultatom kliknite na <guibutton>Rešen</guibutton>."
 
 #. (para)
 msgid "The last option is to postpone resolution and continue with merging. You can choose to do that for the current conflicted file, or for all files in the rest of the merge. However, if there are further changes in that file, it will not be possible to complete the merge."
 msgstr "Poslednja opcija je odlaganje rešavanja i nastaviti stapanje. Možete izabrati da uradite to za tekuće fajlove u konfliktu, ili za fajlove u ostatku stapanja. Kakogod, ako ima daljih izmena u tom fajlu neće biti moguće kompletirati stapanje."
 
 #. (para)
-msgid "When a conflict occurs during the merge, you have three ways to handle it. <placeholder-1/>"
-msgstr "Kada se konflikt pojavi u toku stapanja imate tri načina da ga opslužite. <placeholder-1/>"
+msgid "It is likely that some of the changes will have merged smoothly, while other local changes conflict with changes already committed to the repository. All changes which can be merged are merged. The Merge Conflict Callback dialog gives you three different ways of handling the lines which are in conflict. <placeholder-1/>"
+msgstr "Izgleda kao da se neke izmene stope ravnomerno dok se druge lokalne izmene menjaju sa konfliktom sa izmenama koje su već urezane u spremište. Sve izmene koje mogu biti stopljene su stopljene. Dijalog povratnog poziva konflikta stapanja daje vam tri različita načina rukovanja sa linijama koje su u konfliktu.  <placeholder-1/>"
 
 #. (para)
 msgid "If you do not want to use this interactive callback, there is a checkbox in the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If this is set for a merge and the merge would result in a conflict, the file is marked as in conflict and the merge goes on. You will have to resolve the conflicts after the whole merge is finished. If it is not set, then before a file is marked as conflicted you get the chance to resolve the conflict <emphasis>during</emphasis> the merge. This has the advantage that if a file gets multiple merges (multiple revisions apply a change to that file), subsequent merges might succeed depending on which lines are affected. But of course you can't walk away to get a coffee while the merge is running ;)"
@@ -8078,12 +8098,12 @@ msgid "Selects your user interface language. What else did you expect?"
 msgstr "Izaberite vaš jezik korisnočkog interfejsa. Šta ste još očekivali?"
 
 #. (term)
-msgid "Automatically check for newer versions every week"
-msgstr "Automatski proveri novije verzije jednom nedeljno"
+msgid "Check for updates"
+msgstr "Provera ažuriranja"
 
 #. (para)
-msgid "If checked, TortoiseSVN will contact its download site once a week to see if there is a newer version of the program available. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
-msgstr "Ako je čekiran, TortoiseSVN će kontaktirati njegov sajt za skidanje jednom nedeljno da vidi dali postoji nova verzija programa. Koristite <guibutton>Proveri sada</guibutton> ako želite odgovor upravo sada. Nova verzija neće biti skinuta; vi jednostavno dobijate informacioni dijalog koji vam kaže da je nova verzija dostupna."
+msgid "TortoiseSVN will contact its download site periodically to see if there is a newer version of the program available. If there is it will show a notification link in the commit dialog. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
+msgstr "TortoiseSVN će kontaktirati periodično svoj sajt za skidanje  da vidi da li postoji nova verzija programa. Ako ima pokazaće notifikacioni link u dijalogu urezivanja. Koristite <guibutton>Proveri sada</guibutton> ako želite odgovor upravo sada. Nova verzija neće biti skinuta; vi jednostavno dobijate informacioni dijalog koji vam kaže da je nova verzija dostupna."
 
 #. (term)
 msgid "System sounds"
@@ -8230,8 +8250,8 @@ msgid "If you frequently find yourself comparing revisions in the top pane of th
 msgstr "Ako često zateknete sebe da poređujete revizije u vršnom panelu dijaloga dnevnika, možete koristiti ovu opciju da omogućite akciju dvostrukog-klika. To nije podrazumevano omogućeno jer nalaženje razlika je često dug proces, i mnogi ljudi vole da izbegnu čekanje posle pogrešnog dvostrukog-klika, zbog čega ova opcija nije podrazumevano omogućena. "
 
 #. (term)
-msgid "Progress Dialog"
-msgstr "Progres dijalog"
+msgid "Auto-close"
+msgstr "Auto-zatvaranje"
 
 #. (para)
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
@@ -8242,16 +8262,20 @@ msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that 
 msgstr "<guilabel>Aut-zatvaranje ako nema stapanja, dodaj ili obriši</guilabel> znači da progres dijalog  će se zatvoriti ako je bilo jednostavnog ažuriranja, ali ako su izmene iz spremišta stopljene sa vašim, ili ako je bilo koji fajl dodat ili obrisan, dijalog će ostati otvoren. On će takođe ostati otvoren ako je bio bio koji konflikt ili greška u toku operacije."
 
 #. (para)
-msgid "<guilabel>Auto-close if no merges, adds or deletes for local operations</guilabel> means that the progress dialog will close as for <guilabel>Auto-close if no merges, adds or deletes</guilabel> but only for local operations like adding files or reverting changes. For remote operations the dialog will stay open."
-msgstr "<guilabel>Auto-zatvaranje ako nema stapanja, dodavanja ili brisanja za lokalne operacije</guilabel> znači da će se progres dijalog zatvoriti kao za <guilabel>Auto-zatvaranje ako nema stapanja, dodavanja i brisanja</guilabel> ali samo za lokalne operacije kao dodavanje fajlova ili vraćanje izmena. Za daljinske operacije dijalog će ostati otvoren."
-
-#. (para)
 msgid "<guilabel>Auto-close if no conflicts</guilabel> relaxes the criteria further and will close the dialog even if there were merges, adds or deletes. However, if there were any conflicts or errors, the dialog remains open."
 msgstr "<guilabel>Auto-zatvaranje ako nema konflikta</guilabel> dalje oslabljuje kriterijume i zatvoriće dijalog čak i ako ima stapanja, dodavanja i brisanja. Međutim, ako je bilo bilo kakvog konflikta ili grešaka, dijalog ostaje otvoren."
 
 #. (para)
 msgid "<guilabel>Auto-close if no errors</guilabel> always closes the dialog even if there were conflicts. The only condition that keeps the dialog open is an error condition, which occurs when Subversion is unable to complete the task. For example, an update fails because the server is inaccessible, or a commit fails because the working copy is out-of-date."
 msgstr "<guilabel>Auto-zatvaranje ako nema grešaka</guilabel> uvek zatvara dijalog čak i ako je bio konflikata. Jedini uslov koji drži otvoren dijalog je uslov greške, što se javlja kada je Subverzija  omogućenada kompletira zadatak. Na primer, ažuriranje je neuspešno zato što  je server nedostupan, ili urezivanje je neuspešno zato što je radna kopija zastarela."
+
+#. (term)
+msgid "Always close dialogs for local operations"
+msgstr "Uvek zatvorite dijaloge za lokalne operacije"
+
+#. (para)
+msgid "Local operations like adding files or reverting changes do not need to contact the repository and complete quickly, so the progress dialog is often of little interest. Select this option if you want the progress dialog to close automatically after these operations, unless there are errors."
+msgstr "Lokalne operacije kao što je dodavanje fajlova ili vraćanje izmena ne zahtevaju kontaktiranje spremišta i brzo se kompletiraju, tako da je dijalog napredovanja od male koristi. Izaberite ovu opciju ako želite da se diajlog napredovanja zatvara automatski posle ovih operacija bez obzira na greške."
 
 #. (term)
 msgid "Use recycle bin when reverting"
@@ -8469,6 +8493,14 @@ msgstr "Zamenjen čvor"
 msgid "The original item has been deleted and a new item with the same name replaces it."
 msgstr "Originalna stavka je obrisana i nova stavka istog imena je zamenila."
 
+#. (term)
+msgid "Filter match"
+msgstr "Filter zahtev"
+
+#. (para)
+msgid "When using filtering in the log dialog, search terms are highlighted in the results using this colour."
+msgstr "Kada se koristi filtriranje u dijalogu dnevnika traženi pojmovi su osvetljeni korišćenjem ove boje."
+
 #. (title)
 msgid "Revision Graph Settings"
 msgstr "Revizioni Graf Podešavanje"
@@ -8625,18 +8657,6 @@ msgstr "Dijalog podešavanja, Ikona prekrivači stranica"
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays."
 msgstr "<placeholder-1/> Ova strana dopušta da izaberete stavku za koju TortoiseSVN će prikazati prekrivnu ikonu."
 
-#. (para)
-msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
-msgstr "Podrazumevano, prekrivne ikone i kontekst meniji će se pojaviti u svim otvori/sačuvaj dijalozima kao u Vindouz Eksploreru. Ako želite da se oni pojave <emphasis>samo</emphasis> u Vindouz Eksploreru, čekirajte <guilabel>Prikaži prekrivače i kontekst meni samo u eksploreru</guilabel> boks."
-
-#. (para)
-msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr "Zanemarene stavke i Neverzionisane stavke obično nemaju prekrivač. Ako želite da prikažete prekrivač u ovim slučajevima, samo čekirajte boksove."
-
-#. (para)
-msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr "Možete takođe izabrati da označite imenik kao izmenjen ako on sadrži neverzionisane stavke. Ovo može biti korisno da vas podseti da ste kreirali nove fajlove koji još nisu verzionisani. Ova opcija je dostupna samo ako koristite <emphasis>podrazumevan</emphasis> status keš opciju (vidi dole)."
-
 #. (term)
 msgid "Default"
 msgstr "Podrazumevano"
@@ -8690,6 +8710,14 @@ msgid "Since it takes quite a while to fetch the status of a working copy, Torto
 msgstr "Pošto uzima sasvim malo da nađe status radne kopije, TortoiseSVN koristi keš da smesti status tako da eksplorer ne blokira mnogo dok prikazuje prekrivače. Možete izabrati koji tip keša TortoiseSVN treba da koristi u skladu sa vašim sistemom i veličinom radne kopije ovde:  <placeholder-1/>"
 
 #. (para)
+msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
+msgstr "Podrazumevano, prekrivne ikone i kontekst meniji će se pojaviti u svim otvori/sačuvaj dijalozima kao u Vindouz Eksploreru. Ako želite da se oni pojave <emphasis>samo</emphasis> u Vindouz Eksploreru, čekirajte <guilabel>Prikaži prekrivače i kontekst meni samo u eksploreru</guilabel> boks."
+
+#. (para)
+msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
+msgstr "Možete takođe izabrati da označite imenik kao izmenjen ako on sadrži neverzionisane stavke. Ovo može biti korisno da vas podseti da ste kreirali nove fajlove koji još nisu verzionisani. Ova opcija je dostupna samo ako koristite <emphasis>podrazumevan</emphasis> status keš opciju (vidi dole)."
+
+#. (para)
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
 msgstr "Sledeća grupa dopušta vam da izaberete koju klasu skladištenja će prikazati prekrivač. Podrazumevano, samo tvrdi diskovi su izabrani. Možete čak onemogućiti prekrivače ikona, ali gde je zabava u tome?"
 
@@ -8702,36 +8730,44 @@ msgid "USB Flash drives appear to be a special case in that the drive type is id
 msgstr "USB Fleš drajv se javlja kao specijalan slučaj u to drajv tipu se identificira od samog uređaja. Neki se javljaju kao fiksni diskovi, a neki kao pokretni drajvovi."
 
 #. (para)
-msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
-msgstr "<guilabel>Isključi Putanje</guilabel> se koristi da kaže TortoiseSVN te putanje za koje <emphasis>ne</emphasis> treba prikazati prekrivač ikona i status kolone. Ovo je korisno ako imate neke veoma velike radne kopije koje sadrže samo biblioteke koje želite uopšte da menjate i zato ne traži prekrivače. Na primer:"
+msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays, or if you only want TortoiseSVN to look in specific folders."
+msgstr "<guilabel>Isključi Putanje</guilabel> se koristi da kaže TortoiseSVN na te putanje za koje <emphasis>ne</emphasis> treba prikazati prekrivač ikona i status kolone. Ovo je korisno ako imate neke veoma velike radne kopije koje sadrže samo biblioteke koje želite uopšte da menjate i zato ne traži prekrivače, ili ako samo želite TortoiseSVN da pogleda u specivični imenik."
 
 #. (para)
-msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays <emphasis>only</emphasis> on that specific folder. You still can see the overlays on all files and folder inside that folder."
-msgstr "<filename>f:\\development\\SVN\\Subversion</filename> će onemogućiti prekrivače <emphasis>samo</emphasis> na specifičnom imeniku. Vi još možete videti prekrivače na svim fajlovima unutar imenika."
-
-#. (para)
-msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
-msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> će  onemogućiti prekrivače na <emphasis>sve</emphasis> fajlove i imenike čije putanje počinju sa <filename>f:\\development\\SVN\\Subversion</filename>. To znači da vi želite da vidite prekrivače za svaki fajl i imenik ispod putanje."
+msgid "Any path you specify here is assumed to apply recursively, so none of the child folders will show overlays either. If you want to exclude <emphasis>only</emphasis> the named folder, append <literal>?</literal> after the path."
+msgstr "Bilo koja putanja specificirana ovde usvaja se da se primenjuje rekurzivno tako nijedan od potomačkih imenika neće prikazati drugačije  prekrivače. Ako želite da odstranite <emphasis>samo</emphasis> označene imenike dodajte <literal>?</literal> posle putanje."
 
 #. (para)
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
 msgstr "Isto se primenjuje na <guilabel>Uključi Putanje</guilabel>. Osim toga za te putanje prekrivači su prikazani čak ako su prekrivači onemogućeni za specifične tipove drajvova, ili isključenjem putanje specificirane gore."
 
 #. (para)
-msgid ""
-"Users sometimes ask how these three settings interact, and the definitive answer is: <screen>\n"
-"if (path is in include list)\n"
-"  show overlays\n"
-"if (path is allowed drive type) AND (path is not in exclude list)\n"
-"  show overlays\n"
-"</screen> The include list <emphasis>always</emphasis> makes the overlays show. Otherwise, overlays are shown for all marked drive types <emphasis>unless</emphasis> the path is excluded."
+msgid "Users sometimes ask how these three settings interact. For any given path check the include and exclude lists, seeking upwards through the directory structure until a match is found. When the first match is found, obey that include or exclude rule. If there is a conflict, a single directory spec takes precedence over a recursive spec, then inclusion takes precedence over exclusion."
 msgstr ""
-"Korisnici ponekad pita kako ovo podešavanje stabla međusobno zavise, i definitivan odgovor je: <screen>\n"
-"if (path is in include list)\n"
-"  show overlays\n"
-"if (path is allowed drive type) AND (path is not in exclude list)\n"
-"  show overlays\n"
-"</screen> Lista uključivanja <emphasis>uvek</emphasis> čini da se prekrivači prikažu. Drugačije, prekrivači su prikazani za sve označene tipove drajvova <emphasis>osim</emphasis> putanje koja je isključena."
+
+#. (para)
+msgid ""
+"An example will help here: <screen>\n"
+"Exclude:\n"
+"       C:\n"
+"       C:\\develop\\?\n"
+"       C:\\develop\\tsvn\\obj\n"
+"       C:\\develop\\tsvn\\bin\n"
+"\n"
+"Include:\n"
+"       C:\\develop\n"
+"</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
+msgstr ""
+"Primer će pomoći ovde: <screen>\n"
+"Exclude:\n"
+"       C:\n"
+"       C:\\develop\\?\n"
+"       C:\\develop\\tsvn\\obj\n"
+"       C:\\develop\\tsvn\\bin\n"
+"\n"
+"Include:\n"
+"       C:\\develop\n"
+"</screen> Ova podešavanja onemogućavaju prekrivače ikona za C: drajv, odim za <literal>c:\\develop</literal>. Svi projekti ispod tog imenika će prikazati prekrivače, osim  samog <literal>c:\\develop</literal> imenika, koji se specifično zanemaruje. Specifični binarni imenici takođe se izbacuju."
 
 #. (para)
 msgid "TSVNCache.exe also uses these paths to restrict its scanning. If you want it to look only in particular folders, disable all drive types and include only the folders you specifically want to be scanned."
@@ -8778,6 +8814,18 @@ msgstr "Dijalog podešavanja, Podešavanje ikona stranica"
 #. (para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
 msgstr "e<placeholder-1/>  Možete izmeniti podešavanje pokrivne ikone na ono što najviše volite. Primetimo da ako izmenimo podešavanje pokrivanja, možete restartovati vaš računar da bi izmene postale efikasne."
+
+#. (title)
+msgid "Enabled Overlay Handlers"
+msgstr "Omogućeni rukovaoci prekrivača"
+
+#. (title)
+msgid "The Settings Dialog, Icon Handlers Page"
+msgstr "Dijalog podešavanja, Podešavanje ikona stranica"
+
+#. (para)
+msgid "<placeholder-1/> Because the number of overlays available is severely restricted, you can choose to disable some handlers to ensure that the ones you want will be loaded. Because TortoiseSVN uses the common TortoiseOverlays component which is shared with other Tortoise clients (e.g. TortoiseCVS, TortoiseHG) this setting will affect those clients too."
+msgstr "<placeholder-1/> Pošto je broj dostupnih prekrivača dosta ograničen možete izabrati neke rukovaoce da omoguće da se uključi onaj koji želite. Pošto TortoiseSVN koristi zajedničke TortoiseOverlej komponente koje se dele sa ostalim Tortoise klijentima (npr. TortoiseCVS, TortoiseHG) ovo podešavanje će se odraziti i na ove klijente."
 
 #. (title)
 msgid "Network Settings"
@@ -9365,6 +9413,15 @@ msgstr "Post-ažuriranje"
 msgid "Called after the update, switch or checkout finishes (whether successful or not)."
 msgstr "Pozivano posle završetka ažuriranja, prebacivanja ili preuzimanja (bilo uspešno ili ne)."
 
+#. (term)
+#. (term)
+msgid "Pre-connect"
+msgstr "Pre-povezivanje"
+
+#. (para)
+msgid "Called before an attempt to contact the repository. Called at most once in five minutes."
+msgstr "Pozvan pre pokušaja da se kontaktira spremište.. Pozvan najviše jednom u pet minuta."
+
 #. (para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
 msgstr "Postoji tekućih šest tipova zakačivih skripti dostupan <placeholder-1/>"
@@ -9374,8 +9431,8 @@ msgid "A hook is defined for a particular working copy path. You only need to sp
 msgstr "Zakačaljka je definisana za posebnu radnu kopiju. Samo vam je potrebno da odredite putalju vršnog nivoa; ako izvršite operaciju u sub-imeniku, TortoiseSVN će automatski tražiti prema traženoj putanji."
 
 #. (para)
-msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
-msgstr "Sledeće morate specificirati komandnu liniju da izvršiti, poćevši sa putaljom ka zakačivoj skripti ili izvršnom programu. Ovo bi mogao biti beč fajl, izvršni fajl ili bilo koji fajl koji ima isparvan prozor pridruživanja, npr. perl skript."
+msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script. Note that the script must not be specified using a UNC path as Windows shell execute will not allow such scripts to run due to security restrictions."
+msgstr "Zatim morate specificirati komandnu liniju za izvršenje, počevši sa putanjom ka zakačivoj skripti ili izvršnom programu. Ovo bi mogao biti beč fajl, izvršni fajl ili bilo koji fajl koji ima isparvan prozor pridruživanja, npr. perl skript. Primetimo da skript ne mora biti specificiran korišćenjem UNC putanja kao što izvršenje Vindous školjke neće dopustiti da radi zbog sigurnosnih restrikcija. "
 
 #. (para)
 msgid "The command line includes several parameters which get filled in by TortoiseSVN. The parameters passed depend upon which hook is called. Each hook has its own parameters which are passed in the following order: <placeholder-1/>"
@@ -9645,6 +9702,10 @@ msgstr "Podrazumevano, TortoiseSVN uvek radi ažuriranje sa uključenim eksterna
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
 msgstr "U većini dijaloga u TortoiseSVN, možete koristiti <keycap>Ctrl+Enter</keycap> da odbacite dijalog kao kad kliknete na OK taster.Ako ne želite ovo, podesite vrednost na  <literal>laž</literal>."
 
+#. (para)
+msgid "Sometimes multiple users use the same account on the same computer. In such situations it's not really wanted to save the authentication data. Setting this value to <literal>false</literal> disables the <literal>save authentication</literal> button in the authentication dialog."
+msgstr "Ponekad više korisnika koristi isti nalog na istom kompjuteru. U takvim situacijama stvarno se ne zahteva memorisanje autentikacionih podataka. Podešavanjem ove vrednost na <literal>laž</literal> onemogućava se <literal>sačuvaj autentifikaciju</literal>  dugme u dijalogu autentikacije."
+
 #. (title)
 msgid "Final Step"
 msgstr "Finalni korak"
@@ -9834,11 +9895,9 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
-#. (literal)
 msgid "TText"
 msgstr "TTekst"
 
-#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -9871,19 +9930,6 @@ msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versio
 msgstr "<placeholder-1/>je zamenjeno sa <placeholder-2/> ako je ulaz verzionisan, ili <placeholder-3/> ako nije."
 
 #. (literal)
-msgid "$WCNEEDSLOCK?TText:FText$"
-msgstr "$WCNEEDSLOCK?TText:FText$"
-
-#. (literal)
-#. (literal)
-msgid "svn:needs-lock"
-msgstr "svn:traži-ključ"
-
-#. (entry)
-msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
-msgstr "<placeholder-1/>je zamenjeno sa <placeholder-2/> ako je ulaz ima<placeholder-3/> podešenu osobinu, ili <placeholder-4/> ako nema."
-
-#. (literal)
 msgid "$WCISLOCKED?TText:FText$"
 msgstr "$WCISLOCKED?TText:FText$"
 
@@ -9908,8 +9954,8 @@ msgid "If a source and destination files are supplied, SubWCRev copies source to
 msgstr "Ako su izvorni i odredišni fajlovi snabdeveni, SubWCRev kopira izvor u odredište, izvršavajući zamenu ključnih reči na sledeći način: <placeholder-1/>"
 
 #. (para)
-msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
-msgstr "Neki od ovih ključnih reči su primenjene na pojedinačne fajlove pre nego na celu radnu kopiju, tako da to samo čini osećaj da koriste ovo dok je SubRKRev pozvan da pregleda pojedinačni fajl. Ovo se primenjuje na <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> i <literal>$WCLOCKCOMMENT$</literal>."
+msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
+msgstr "Neki od ovih ključnih reči su primenjene na pojedinačne fajlove pre nego na celu radnu kopiju, tako da to samo čini osećaj da koriste ovo dok je SubWCRev pozvan da pregleda pojedinačni fajl. Ovo se primenjuje na <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
 
 #. (title)
 msgid "Keyword Example"
@@ -10075,10 +10121,6 @@ msgid "True if the item is versioned."
 msgstr "Istina ako je stavka verzionisana."
 
 #. (entry)
-msgid "True if the item has the <placeholder-1/> property set."
-msgstr "Istina ako stavka ima <placeholder-1/> posešenu osobinu."
-
-#. (entry)
 msgid "True if the item is locked."
 msgstr "Istina ako je stavka zaključana."
 
@@ -10137,8 +10179,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject1.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject1.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject1.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject1.LockCreationDate + \"\\n"
@@ -10162,8 +10202,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject2.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject2.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject2.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject2.LockCreationDate + \"\\n"
@@ -10187,8 +10225,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject3.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject3.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject3.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject3.LockCreationDate + \"\\n"
@@ -10212,8 +10248,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject4.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject4.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject4.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject4.LockCreationDate + \"\\n"
@@ -10264,8 +10298,6 @@ msgstr ""
 "IsSvnItem = \" +\n"
 "                revObject1.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject1.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject1.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject1.LockCreationDate + \"\\n"
@@ -10289,8 +10321,6 @@ msgstr ""
 "IsSvnItem = \" +\n"
 "                revObject2.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject2.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject2.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject2.LockCreationDate + \"\\n"
@@ -10314,8 +10344,6 @@ msgstr ""
 "IsSvnItem = \" +\n"
 "                revObject3.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject3.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject3.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject3.LockCreationDate + \"\\n"
@@ -10339,8 +10367,6 @@ msgstr ""
 "IsSvnItem = \" +\n"
 "                revObject4.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject4.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject4.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject4.LockCreationDate + \"\\n"
@@ -13323,6 +13349,97 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 msgid "translator-translation"
 msgstr "Prevod"
 
+#~ msgid ""
+#~ "You may decide that your local changes are much more important, so you "
+#~ "want to discard the version from the repository and keep your local "
+#~ "version. Or you might discard your local changes in favour of the "
+#~ "repository version. This only relates to conflicting changes. Changes "
+#~ "that can be merged are still merged. Only for the conflicting part your "
+#~ "choice is used."
+#~ msgstr ""
+#~ "Можете одлучити да су ваше локалне измене много важне, тако ви желите да "
+#~ "избаците верзију из спремишта и сачувате локалну верзију. Или желите да "
+#~ "одбаците локалне измене као услугу верзији спремишта. Ово се односи само "
+#~ "на конфликтне измене. Измене које се тада могу стопитису већ стопљене. "
+#~ "Само за конфликтни део треба користити ваш избор."
+#~ msgid ""
+#~ "When a conflict occurs during the merge, you have three ways to handle "
+#~ "it. <placeholder-1/>"
+#~ msgstr ""
+#~ "Када се конфликт појави у току стапања имате три начина да га опслужите. "
+#~ "<placeholder-1/>"
+#~ msgid "Automatically check for newer versions every week"
+#~ msgstr "Аутоматски провери новије верзије једном недељно"
+#~ msgid "Progress Dialog"
+#~ msgstr "Прогрес дијалог"
+#~ msgid ""
+#~ "<guilabel>Auto-close if no merges, adds or deletes for local operations</"
+#~ "guilabel> means that the progress dialog will close as for <guilabel>Auto-"
+#~ "close if no merges, adds or deletes</guilabel> but only for local "
+#~ "operations like adding files or reverting changes. For remote operations "
+#~ "the dialog will stay open."
+#~ msgstr ""
+#~ "<guilabel>Ауто-затварање ако нема стапања, додавања или брисања за "
+#~ "локалне операције</guilabel> значи да ће се прогрес дијалог затворити као "
+#~ "за <guilabel>Ауто-затварање ако нема стапања, додавања и брисања</"
+#~ "guilabel> али само за локалне операције као додавање фајлова или враћање "
+#~ "измена. За даљинске операције дијалог ће остати отворен."
+#~ msgid ""
+#~ "Ignored items and Unversioned items are not usually given an overlay. If "
+#~ "you want to show an overlay in these cases, just check the boxes."
+#~ msgstr ""
+#~ "Занемарене ставке и Неверзионисане ставке обично немају прекривач. Ако "
+#~ "желите да прикажете прекривач у овим случајевима, само чекирајте боксове."
+#~ msgid ""
+#~ "<filename>f:\\development\\SVN\\Subversion</filename> will disable the "
+#~ "overlays <emphasis>only</emphasis> on that specific folder. You still can "
+#~ "see the overlays on all files and folder inside that folder."
+#~ msgstr ""
+#~ "<filename>f:\\development\\SVN\\Subversion</filename> ће онемогућити "
+#~ "прекриваче <emphasis>само</emphasis> на специфичном именику. Ви још "
+#~ "можете видети прекриваче на свим фајловима унутар именика."
+#~ msgid ""
+#~ "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the "
+#~ "overlays on <emphasis>all</emphasis> files and folders whose path starts "
+#~ "with <filename>f:\\development\\SVN\\Subversion</filename>. That means "
+#~ "you won't see overlays for any files and folders below that path."
+#~ msgstr ""
+#~ "<filename>f:\\development\\SVN\\Subversion*</filename> ће  онемогућити "
+#~ "прекриваче на <emphasis>све</emphasis> фајлове и именике чије путање "
+#~ "почињу са <filename>f:\\development\\SVN\\Subversion</filename>. То значи "
+#~ "да ви желите да видите прекриваче за сваки фајл и именик испод путање."
+#~ msgid ""
+#~ "Users sometimes ask how these three settings interact, and the definitive "
+#~ "answer is: <screen>\n"
+#~ "if (path is in include list)\n"
+#~ "  show overlays\n"
+#~ "if (path is allowed drive type) AND (path is not in exclude list)\n"
+#~ "  show overlays\n"
+#~ "</screen> The include list <emphasis>always</emphasis> makes the overlays "
+#~ "show. Otherwise, overlays are shown for all marked drive types "
+#~ "<emphasis>unless</emphasis> the path is excluded."
+#~ msgstr ""
+#~ "Корисници понекад пита како ово подешавање стабла међусобно зависе, и "
+#~ "дефинитиван одговор је: <screen>\n"
+#~ "if (path is in include list)\n"
+#~ "  show overlays\n"
+#~ "if (path is allowed drive type) AND (path is not in exclude list)\n"
+#~ "  show overlays\n"
+#~ "</screen> Листа укључивања <emphasis>увек</emphasis> чини да се "
+#~ "прекривачи прикажу. Другачије, прекривачи су приказани за све означене "
+#~ "типове драјвова <emphasis>осим</emphasis> путање која је искључена."
+#~ msgid "$WCNEEDSLOCK?TText:FText$"
+#~ msgstr "$WЦНЕЕДСЛОЦК?ТТеxт:ФТеxт$"
+#~ msgid "svn:needs-lock"
+#~ msgstr "свн:тражи-кључ"
+#~ msgid ""
+#~ "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the "
+#~ "<placeholder-3/> property set, or <placeholder-4/> if not."
+#~ msgstr ""
+#~ "<placeholder-1/>је замењено са <placeholder-2/> ако је улаз "
+#~ "има<placeholder-3/> подешену особину, или <placeholder-4/> ако нема."
+#~ msgid "True if the item has the <placeholder-1/> property set."
+#~ msgstr "Истина ако ставка има <placeholder-1/> посешену особину."
 #~ msgid "Do you work in a team?"
 #~ msgstr "Да ли радите у тиму?"
 #~ msgid ""
