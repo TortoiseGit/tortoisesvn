@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-21 09:21+0100\n"
+"PO-Revision-Date: 2010-07-16 19:42+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -614,6 +614,10 @@ msgstr "&Kopiëren naar..."
 msgid "&Custom"
 msgstr "&Aangepast"
 
+#. Resource IDs: (1610, 1613)
+msgid "&Date"
+msgstr "&Datum"
+
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
 msgstr "&Dagen van inactiviteit totdat kleine caches verwijderd worden"
@@ -751,8 +755,8 @@ msgid "&From URL:"
 msgstr "&Van URL:"
 
 #. Resource IDs: (1259)
-msgid "&From WC at URL:"
-msgstr "&Van werkkopie op URL:"
+msgid "&From WC / URL:"
+msgstr "&Van werkkopie/URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -2432,8 +2436,8 @@ msgid "Check For Updates..."
 msgstr "Kijk of er updates zijn..."
 
 #. Resource IDs: (1544)
-msgid "Check externals to tag"
-msgstr "Controleer de te labelen externen"
+msgid "Check externals to explicit revision"
+msgstr "Zet externen vast op specifieke revisie"
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -3361,6 +3365,10 @@ msgstr "&Details"
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "Datum"
+
+#. Resource IDs: (117)
+msgid "Date Range"
+msgstr "Datumbereik"
 
 #. Resource IDs: (1008)
 msgid "Default"
@@ -4399,6 +4407,10 @@ msgstr ""
 "Vul-gereedschap\n"
 "Vullen"
 
+#. Resource IDs: (117)
+msgid "Filter by"
+msgstr "Filter op"
+
 #. Resource IDs: (65535)
 msgid "Filter match"
 msgstr "Filter resultaat"
@@ -4450,6 +4462,10 @@ msgstr "Breedte passend"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Pas hoofd-/kleine letters aan en voeg het niet toe"
+
+#. Resource IDs: (281)
+msgid "Fixed at rev"
+msgstr "Vastgezet op revisie"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -5933,8 +5949,8 @@ msgid "Messages"
 msgstr "Boodschappen"
 
 #. Resource IDs: (116)
-msgid "Messages, authors and paths"
-msgstr "Boodschappen, auteurs en paden"
+msgid "Messages, authors, paths and revs"
+msgstr "Boodschappen, auteurs, paden en revisies"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -6278,6 +6294,10 @@ msgstr "Onbekende revisie '%1!s!'"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Geen suggesties"
+
+#. Resource IDs: (65535)
+msgid "Node Status:"
+msgstr "Knoopstatus:"
 
 #. Resource IDs: (65535)
 msgid "Node colors"
@@ -6664,6 +6684,15 @@ msgstr "Patch geselecteerde bestanden"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Patchbestanden (*.diff, *.patch)|*.diff;*.patch|Alle bestanden(*.*)|*.*||"
 
+#. Resource IDs: (169)
+msgid "Patching"
+msgstr "Patchen"
+
+#. Resource IDs: (169)
+#, c-format
+msgid "Patching file '%1'"
+msgstr "Bestand '%1' wordt gepatched"
+
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "Pad"
@@ -6800,6 +6829,10 @@ msgstr "&Vorige pagina"
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
 msgstr "Pre-Vastleggen hook:"
+
+#. Resource IDs: (570)
+msgid "Pre-Connect Hook"
+msgstr "Pre-Vastleggen hook"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
@@ -8786,10 +8819,6 @@ msgstr "Tabstop:"
 msgid "Tag nodes"
 msgstr "Label knopen"
 
-#. Resource IDs: (281)
-msgid "Tagged"
-msgstr "Gelabeld"
-
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -9411,6 +9440,10 @@ msgstr "Thesaurus"
 #. Resource IDs: (3887)
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
 msgstr "Deze zijn recentelijker opgeslagen dan de huidig geopende documenten en bevatten wijzigingen die aangebracht zijn voordat het programma werd afgesloten."
+
+#. Resource IDs: (84)
+msgid "This file already exists!"
+msgstr "Dit bestand bestaat al!"
 
 #. Resource IDs: (83)
 msgid ""
@@ -11496,6 +11529,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to tag"
+#~ msgstr "Controleer de te labelen externen"
+#~ msgid "Tagged"
+#~ msgstr "Gelabeld"
 #~ msgid "tree conflict:"
 #~ msgstr "boomcomflict:"
 #~ msgid "The repository was successfully created."
