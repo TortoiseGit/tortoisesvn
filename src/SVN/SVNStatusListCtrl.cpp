@@ -2359,12 +2359,20 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             }
             if (selectedCount > 0)
             {
-                if (((wcStatus == svn_wc_status_unversioned)||(wcStatus == svn_wc_status_ignored))&&(m_dwContextMenus & SVNSLC_POPDELETE))
+                if ((   (wcStatus == svn_wc_status_unversioned)
+                     || (wcStatus == svn_wc_status_ignored)) && (m_dwContextMenus & SVNSLC_POPDELETE))
                 {
                     popup.AppendMenuIcon(IDSVNLC_DELETE, IDS_MENUREMOVE, IDI_DELETE);
                 }
-                if ((wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_ignored)&&
-                    (wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_added)&&(wcStatus != svn_wc_status_missing)&&(m_dwContextMenus & SVNSLC_POPDELETE))
+                if ((wcStatus == svn_wc_status_missing) && (m_dwContextMenus & SVNSLC_POPDELETE))
+                {
+                    popup.AppendMenuIcon(IDSVNLC_REMOVE, IDS_MENUREMOVE, IDI_DELETE);
+                }
+                if (    (wcStatus != svn_wc_status_unversioned)
+                     && (wcStatus != svn_wc_status_ignored)
+                     && (wcStatus != svn_wc_status_deleted)
+                     && (wcStatus != svn_wc_status_added)
+                     && (wcStatus != svn_wc_status_missing) && (m_dwContextMenus & SVNSLC_POPDELETE))
                 {
                     if (bShift)
                         popup.AppendMenuIcon(IDSVNLC_REMOVE, IDS_MENUREMOVEKEEP, IDI_DELETE);
