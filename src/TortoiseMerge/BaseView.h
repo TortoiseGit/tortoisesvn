@@ -22,6 +22,7 @@
 #include "ScrollTool.h"
 #include "Undo.h"
 #include "LocatorBar.h"
+#include "LineColors.h"
 
 typedef struct inlineDiffPos
 {
@@ -348,39 +349,4 @@ protected:
     void ReleaseBitmap();
     static bool LinesInOneChange( int direction, DiffStates firstLineState, DiffStates currentLineState );
 
-    typedef struct linecolors_t
-    {
-        COLORREF text;
-        COLORREF background;
-    };
-
-    class LineColors : public std::map<int, linecolors_t>
-    {
-    public:
-        void SetColor(int pos, COLORREF f, COLORREF b)
-        {
-            linecolors_t c;
-            c.text = f;
-            c.background = b;
-            (*this)[pos] = c;
-        }
-
-        void SetColor(int pos)
-        {
-            int backpos = pos - 1;
-            std::map<int, linecolors_t>::const_reverse_iterator foundIt;
-            std::map<int, linecolors_t>::const_reverse_iterator reverseIt = this->rbegin();
-            while ((reverseIt != this->rend()) && (reverseIt->first > backpos))
-                ++reverseIt;
-            if (reverseIt != this->rend())
-            {
-                foundIt = reverseIt;
-                ++reverseIt;
-                if (reverseIt != this->rend())
-                    foundIt = reverseIt;
-            }
-            linecolors_t c = foundIt->second;
-            (*this)[pos] = c;
-        }
-    };
 };
