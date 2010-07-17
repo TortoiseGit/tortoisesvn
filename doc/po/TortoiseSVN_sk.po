@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-06-12 13:34+0100\n"
+"PO-Revision-Date: 2010-07-16 20:11+0100\n"
 "Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -147,15 +147,15 @@ msgstr "Stav verziovaných súborovo a adresárov je zobrazený malov prekrývaj
 
 #. (term)
 msgid "Graphical User Interface"
-msgstr ""
+msgstr "Grafické užívateľské rozhranie"
 
 #. (para)
 msgid "When you list the changes to a file or folder, you can click on a revision to see the comments for that commit. You can also see a list of changed files - just double click on a file to see exactly what changed."
-msgstr ""
+msgstr "Keď si prechádzate zmeny v súboroch alebo zložkách, možete kliknúť na revíziu, aby ste vydeli komentáre odovzdávateľa. Môžete taktiež vidieť zoznam zmenených súborov - dvojklikom na súbor vidíte, čo presne bolo zmenené."
 
 #. (para)
 msgid "The commit dialog lists all the items that will be included in a commit, and each item has a checkbox so you can choose which items you want to include. Unversioned files can also be listed, in case you forgot to add that new file."
-msgstr ""
+msgstr "Odovzdávacie okno obsahuje zoznam všetkých položiek, ktoré budú zahrnuté pri odovzdávaní a každá položka ma zaškrtávacie políčko, takže môžete vybrať položky, ktoré majú byť zahrnuté pri odovzdávaní. Neverziované súbory môžu byť taktiež v zozname, v prípade, že ste ich zabudli pridať ako nové."
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -229,7 +229,7 @@ msgstr "ikonky"
 
 #. (para)
 msgid "TortoiseSVN is an Open Source project developed under the GNU General Public License (GPL). It is free to download and free to use, either personally or commercially, on any number of PCs."
-msgstr ""
+msgstr "TortoiseSVN je Open Source projekt vyvýjaný pod GNU General Public License (GPL). Jeho sťiahnutie a používanie je bezplatné pre osobné aj obchodné používanie pre hociaký počet počítačov."
 
 #. (para)
 #, fuzzy
@@ -238,7 +238,7 @@ msgstr "TortoiseMerge je projekt s uvolneným kódom (\"Open Source\"). To zname
 
 #. (title)
 msgid "Development"
-msgstr ""
+msgstr "Vývoj"
 
 #. (para)
 #, fuzzy
@@ -304,7 +304,7 @@ msgstr "za pomoc s dokumentaciou a hľadanie chýb"
 
 #. (term)
 msgid "Stefan Fuhrmann"
-msgstr ""
+msgstr "Stefan Fuhrmann"
 
 #. (para)
 #, fuzzy
@@ -360,7 +360,7 @@ msgstr "Tento <emphasis>Predhovor</emphasis> trochu objasňuje TortoiseSVN proje
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
-msgstr ""
+msgstr "<xref linkend=\"tsvn-quick-start\"/> vysvetľuje ako nainštalovať TortoiseSVN na váš počítač a ako ho začať používať."
 
 #. (para)
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
@@ -447,7 +447,7 @@ msgstr "Začíname"
 
 #. (para)
 msgid "This section is aimed at people who would like to find out what TortoiseSVN is all about and give it a test drive. It explains how to install TortoiseSVN and set up a local repository, and it walks you through the most commonly used operations."
-msgstr ""
+msgstr "Táto kapitola je zameraná pre ľudí, ktorý chcú zistiť o čom je TortoiseSVN. Vysvetľuje ako nainštalovat TortoiseSVN a nastaviť miestne úložisko a prblíži vám najviac používané operácia."
 
 #. (title)
 msgid "Installing TortoiseSVN"
@@ -459,7 +459,7 @@ msgstr "Požiadavky na systém"
 
 #. (para)
 msgid "TortoiseSVN runs on Windows XP or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
-msgstr ""
+msgstr "TortoiseSVN sa dá spustiť na Windows XP alebo novšom a je dostupný v 32-bitovej a aj 64-bitovej verzii. Ak používate 64-bitový Windows môžete inštalovať obe verzie."
 
 #. (para)
 #, fuzzy
@@ -485,7 +485,7 @@ msgstr "Na inštaláciu TortoiseSVN potrebujete administrátorské práva."
 
 #. (para)
 msgid "Language packs are available which translate the TortoiseSVN user interface into many different languages. Please check <xref linkend=\"tsvn-lang\"/> for more information on how to install these."
-msgstr ""
+msgstr "Dostupné sú aj jazykové balíčky, ktoré TortoiseSVN používateľské rozhranie prekladajú do mnohých jazykov. Pozrite <xref linkend=\"tsvn-lang\"/> pre viac informácii ako ich nainštalovať."
 
 #. (para)
 #, fuzzy
@@ -499,7 +499,7 @@ msgstr "Základná verzia-ovládacie prevedenie"
 
 #. (para)
 msgid "Before we get stuck into working with some real files, it is important to get an overview of how subversion works and the terms that are used."
-msgstr ""
+msgstr "Predtým ako začneme pracovať zo skutočnými súbormi, je dôležité, aby ste mali prehľad o tom, ako subversion pracuje a aké výrazy sa používajú."
 
 #. (term)
 #. (title)
@@ -510,7 +510,7 @@ msgstr "Úložisko"
 
 #. (para)
 msgid "Subversion uses a central database which contains all your version-controlled files with their complete history. This database is referred to as the <emphasis>repository</emphasis>. The repository normally lives on a file server running the Subversion server program, which supplies content to Subversion clients (like TortoiseSVN) on request. If you only back up one thing, back up your repository as it is the definitive master copy of all your data."
-msgstr ""
+msgstr "Subversion používa centrálnu databázu, ktorá obsahuje všetky kontrolované verzie s ich úplnou históriou. Databáza je opísaná ako<emphasis>úložisko</emphasis>. Úložisko sa normálne nachádza na serveri, na ktorom je spustený Subversion server program, ktorý poskytuje obsah Subversion klientom (ako TortoiseSVN) podľa požiadavok. Ak len zálohujete jednu vec, zálohujete úložisko ako jeho konečnú kópiu všetkých údajov."
 
 #. (term)
 #. (glossterm)
@@ -519,11 +519,11 @@ msgstr "Pracovná kópia"
 
 #. (para)
 msgid "This is where you do the real work. Every developer has his own working copy, sometimes known as a sandbox, on his local PC. You can pull down the latest version from the repository, work on it locally without affecting anyone else, then when you are happy with the changes you made commit them back to the repository."
-msgstr ""
+msgstr "Toto je miesto, kde skutočne pracujete. Každý vývojár má svoju vlastnú pracovnú kópiu, tiež známa ako sandbox (pieskovisko) na jeho vlastnom PC. Môžete si stiahnúť poslednú verziu z úložiska, pracovať na nej na miestnom PC bez toho, aby bola ovplyvňovaná ostatnými, a keď budete hotový so zmenami, môžete to odovzdať naspäť na uĺožisko."
 
 #. (para)
 msgid "A Subversion working copy does not contain the history of the project, but it does keep a copy of the files as they exist in the repository before you started making changes. This means that it is easy to check exactly what changes you have made."
-msgstr ""
+msgstr "Subversion pracovná kópia neobsahuje informáciu o histórii projektu, ale nechá kópiu týchto súborov v úložisku, predtým než ste začali robiť zmeny. Takže to znamená, že je veľmi jednoduché zistiť presné zmeny, ktoré ste spravili."
 
 #. (title)
 #. (title)
@@ -1291,23 +1291,23 @@ msgstr "Po druhé nie všetky protokoly na zdielanie súborov podporujú uzamyka
 
 #. (para)
 msgid "Thirdly the file permissions have to be set just so. You may just about get away with it on a native Windows share, but SAMBA is particularly difficult."
-msgstr ""
+msgstr "Po tretie, prístupové práva musia byť nastavené. Môžete to obísť zdielaním pomocou Windowsu, ale SAMBA je dosť zložitá na nastavenie. "
 
 #. (para)
 msgid "<literal>file://</literal> access is intended for local, single-user access only, particularly testing and debugging. When you want to share the repository you <emphasis>really</emphasis> need to set up a proper server, and it is not nearly as difficult as you might think. Read <xref linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
-msgstr ""
+msgstr "<literal>file://</literal> prístup je určený pre miestne zdielanie, pre jedného užívateľa iba a predovšetkým na testovanie a ladenie. Keď chcete zdielať úložisko <emphasis>skutočne</emphasis> potrebujete nastaviť správne server a nie je to až také tažke ako si myslíte. Prečítajte si <xref linkend=\"tsvn-serversetup\"/> pre pokyny pri výbere nastavenie servera."
 
 #. (title)
 msgid "Repository Layout"
-msgstr ""
+msgstr "Návrh úložiska"
 
 #. (para)
 msgid "Before you import your data into the repository you should first think about how you want to organize your data. If you use one of the recommended layouts you will later have it much easier."
-msgstr ""
+msgstr "Predtým ako importujete údaje do úložiska maly by ste najskôr porozmýšlať, ako ako budú usporadúvané. Ak použijete jeden z odporučených návrhov, neskôr si uľahčíte mnohé veci."
 
 #. (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the <quote>main line</quote> of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr ""
+msgstr "Existuju určité štandardy a odporúčané spôsoby ako organizovať úložisko. Väčšinou stači vytvoriť <filename>trunk</filename> adresár, v ktorom je <quote>hlavná vetva</quote>, <filename>branches</filename> adresár, ktorý obsahuje kópie vetiev a <filename>tags</filename> adresár s obsahom menných kópii. Ak je v úložisku iba jeden projekt, tak stači vytvoriť tieto vrcholové adresáre:"
 
 #. (screen)
 #, no-wrap
@@ -1324,7 +1324,7 @@ msgstr ""
 
 #. (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
-msgstr ""
+msgstr "Ak úložisko obsahuje viacero projektov, ľudia často indexujú ich vrstvy podla vetiev: "
 
 #. (screen)
 #, no-wrap
@@ -1370,23 +1370,23 @@ msgstr ""
 
 #. (para)
 msgid "Indexing by project makes sense if the projects are not closely related and each one is checked out individually. For related projects where you may want to check out all projects in one go, or where the projects are all tied together in a single distribution package, it is often better to index by branch. This way you have only one trunk to checkout, and the relationships between the sub-projects is more easily visible."
-msgstr ""
+msgstr "Idexovanie projektu má zmysel iba vtedy, kedy projekty nie sú podobné a každý je udržiavaný osobitne. Pre podobné projekty, ktoré chcete spravovať v kope, alebo projekty, ktoré sú štandardne distribuované v jednom balíčku je lepšie indexovať podľa vetiev. Tento spôsob ma iba jednu hlavnú líniu a a vzťahy medzi podprojektami su jednoduchšie viditeľné."
 
 #. (para)
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
-msgstr ""
+msgstr "Ak použijete ako vrcholové adresáre <filename>/trunk /tags /branches</filename> máte kópiu celej hlavnej línie  pre vetvy aj menovky a takáto štrktúra ponúka lepšie felxibility."
 
 #. (para)
 msgid "For unrelated projects you may prefer to use separate repositories. When you commit changes, it is the revision number of the whole repository which changes, not the revision number of the project. Having 2 unrelated projects share a repository can mean large gaps in the revision numbers. The Subversion and TortoiseSVN projects appear at the same host address, but are completely separate repositories allowing independent development, and no confusion over build numbers."
-msgstr ""
+msgstr "Pre nesúvisiace projekty môžete použiť oddelené úložiská. Keď odovzdáte zmeny, tak sa mení revízne čislo celého úložiska, nie revizné číslo projektu. Pri zdielaní 2 roznych projektoch v jednom úložisku môže nastať množstvo prerušení v revíznych číslach. Subversion a TortoiseSVN projekty sa tvaria ako pod jendou adresou, ale ich úplná nezávislosť úložísk poskytuje nezávislý vývoj a žiadny zmätok v build číslach."
 
 #. (para)
 msgid "Of course, you're free to ignore these common layouts. You can create any sort of variation, whatever works best for you or your team. Remember that whatever you choose, it's not a permanent commitment. You can reorganize your repository at any time. Because branches and tags are ordinary directories, TortoiseSVN can move or rename them however you wish."
-msgstr ""
+msgstr "Samozrejme nemusíte dodržiavať tieto štandardné návrhy. Môžete si vytvoriť hociaké rozčlenenie, ktoré vyhovuje najviac vášmu tímu. Zapamätajte si, že akýkoľvek spôsob si vyberiete nie je to nemeniteľné. Môžete si pretvoriť vaše úložisko kedykoľvek. Pretože vetvy a menovky sú bežné adresáre,  TortoiseSVN ich môže premenovať alebo presunúť ako vy chcete."
 
 #. (para)
 msgid "Switching from one layout to another is just a matter of issuing a series of server-side moves; If you don't like the way things are organized in the repository, just juggle the directories around."
-msgstr ""
+msgstr "Zmena jedného návrhu na iný je len záležitosť, ktorú vykonáva server. Ak nemáte redi spôsob akým sú organizované veci v úložisku, stači sa len pohrať s adresármi. "
 
 #. (para)
 msgid "create a new empty folder on your hard drive"
@@ -1394,15 +1394,15 @@ msgstr "vytvorte si na vašom hardisku prázdny adresár "
 
 #. (para)
 msgid "create your desired top-level folder structure inside that folder - don't put any files in it yet!"
-msgstr ""
+msgstr "vytvorte si požadovanú vrcholovú štruktúru adresárov vo vnútri toho adresára - nevkladajte tam žiadne súbory zatiaľ!"
 
 #. (para)
 msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the URL to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
-msgstr ""
+msgstr "importujte túto štruktúru do úložiska cez <action>right click</action> na adresári, ktorý obsahuje túto adresárovú štruktúru a vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice>. V import dialógu napíšte URL vášho úložiska a kliknite OK. Toto importuje váš dočasný adresár to koreňa úložiska pre vytvorenie základného rozčlenenia úložiska."
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
-msgstr ""
+msgstr "Takže, ak ešte nemáte vytvorenú základnú štruktúru adresaru vo vnútri úložiska mali by ste tak urobiť teraz. Sú dva sposoby ako to docieliť. Ak chcete jednoduch vytvoriť <filename>/trunk /tags /branches</filename> štruktúru, môžete použiť úložiskový prehliadač na vytvorenie 3 adresárov (3 oddelené odovzdávanie). Ak chcete vytvoriť hlbšiu štruktúru, potom je jednoduhšie vytvoriť adresár na disku a importovať ho v jednom odovzdaní nasledovne <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -1416,24 +1416,33 @@ msgid ""
 "/tags\n"
 "</screen>"
 msgstr ""
+"Meno adresára, ktorý importujete sa nukáže v úložisku, iba jeho obsah. Napríklad vytvorte adresárovú štruktúru nasledovne: <screen>\n"
+"C:\\Temp\\New\\trunk\n"
+"C:\\Temp\\New\\branches\n"
+"C:\\Temp\\New\\tags\n"
+"</screen> Imoprtujte <filename>C:\\Temp\\New</filename>do korena úložiska, ktroý vyzrá takto: <screen>\n"
+"/trunk\n"
+"/branches\n"
+"/tags\n"
+"</screen>"
 
 #. (title)
 msgid "Repository Backup"
-msgstr ""
+msgstr "Záloha úložiska"
 
 #. (primary)
 msgid "backup"
-msgstr ""
+msgstr "záloha"
 
 # backup
 #. (para)
 msgid "Whichever type of repository you use, it is vitally important that you maintain regular backups, and that you verify the backup. If the server fails, you may be able to access a recent version of your files, but without the repository all your history is lost forever."
-msgstr ""
+msgstr "Aký koľvek druh uĺožiska použijete je životne dôležité, aby ste vykonávali  pravidelné zálohy. Ak server zlyhá, ste schopný používať poslednú verziu súborov, ale bez úložiska sú všetky predchádzajúce zmeny navždy stratené."
 
 # backup
 #. (para)
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
-msgstr ""
+msgstr "Najjednoduchši (ale nie odporúčaný) spôsob je prekopírovať úložiskové adresáre na záložné miesto. Avšak musíte si byť úplne istý, že nikto nepristupuje k dátam. V tomto význame prístup znamená <emphasis>hociaký</emphasis> prístup všeobecne. DBD úložisko je vytvorené tak, že aj keď operácia vyžaduje iba čítať, tak sa pracuje s úložiskom. Ak používate vaše úložisko počas kopírovania (otvorený prehliadač,WebSVN, atď.) záloha je bezcenná."
 
 # backup
 #. (para)
@@ -1442,11 +1451,14 @@ msgid ""
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
 "</screen> to create a copy of your repository in a safe manner. Then backup the copy. The <literal>--clean-logs</literal> option is not required, but removes any redundant log files when you backup a BDB repository, which may save some space."
 msgstr ""
+"Odporúčaná metóda je spustiť <screen>\n"
+"svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
+"</screen> pre vytvorenie kópie vášho úložiska podľa bezpečnosti. Potom zálohujte kópiu. Voľba <literal>--clean-logs</literal> nie je potrebná, ale odstráni prebytočné denníkové súbory pri zálohe BDB úložiska, ktoré môžu ušteriť nejaké miesto."
 
 # backup
 #. (para)
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
-msgstr ""
+msgstr "<literal>svnadmin</literal> nástroj je nainštalovaný automaticky pri inštalácii Subversion príkazového riadku klienta. Ak máte nainštalovaný príkazový riadok na počítači s Windowsom, najlepšie urobíte, ak si stahnete inštalátor pre Windows verziu. Je zbalený omnoho efektívnejšie ako <filename>.zip</filename> ako verzia, takže stahujete manšie množstvo dát a ponúka nastavenie umiestnenia inštalácie programu. Najnovšiu verziu Subversion príkazového riadku klienta si možete stiahnuť z <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -1454,7 +1466,7 @@ msgstr "Serverovské pripnuté (hook) skripty"
 
 #. (primary)
 msgid "hooks"
-msgstr ""
+msgstr "pripnutia"
 
 #. (primary)
 #. (primary)
