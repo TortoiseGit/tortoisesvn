@@ -189,6 +189,9 @@
     <ClCompile Include="..\Utils\DebugOutput.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\ProfilingInfo.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AboutDlg.h">
@@ -360,6 +363,9 @@
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\LineColors.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\ProfilingInfo.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -463,6 +463,7 @@
     <ClCompile Include="..\Utils\CommonAppUtils.cpp" />
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
     <ClCompile Include="..\Utils\MiscUI\StandAloneDlg.cpp" />
+    <ClCompile Include="..\Utils\ProfilingInfo.cpp" />
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="BaseView.cpp" />
     <ClCompile Include="BottomView.cpp" />
@@ -546,6 +547,7 @@
     <ClInclude Include="..\Utils\DebugOutput.h" />
     <ClInclude Include="..\Utils\MiscUI\LineColors.h" />
     <ClInclude Include="..\Utils\MiscUI\StandAloneDlg.h" />
+    <ClInclude Include="..\Utils\ProfilingInfo.h" />
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="BaseView.h" />
     <ClInclude Include="BottomView.h" />
