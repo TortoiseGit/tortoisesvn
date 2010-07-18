@@ -28,6 +28,18 @@
 
 #include <deque>
 
+// Note about lines:
+// We use three different kind of lines here:
+// 1. The real lines of the original files.
+//    These are shown in the view margin and are not used elsewhere, they're only for user information.
+// 2. Screen lines.
+//    The lines actually shown on screen. All methods use screen lines as parameters/outputs if not explicitly specified otherwise.
+// 3. View lines.
+//    These are the lines of the diff data. If unmodified sections are collapsed, not all of those lines are shown.
+//
+// Basically view lines are the line data, while screen lines are shown lines.
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
