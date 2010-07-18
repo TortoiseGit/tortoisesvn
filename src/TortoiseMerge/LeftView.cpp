@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -97,14 +97,14 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     case ID_USEFILE:
         if (m_pwndBottom->IsWindowVisible())
         {
-            for (int i=0; i<GetLineCount(); i++)
+            for (int i = 0; i < m_pViewData->GetCount(); i++)
             {
                 bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
                 m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
                 bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
                 m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
                 m_pwndBottom->m_pViewData->SetLineEnding(i, m_pViewData->GetLineEnding(i));
-                if (m_pwndBottom->IsLineConflicted(i))
+                if (m_pwndBottom->IsViewLineConflicted(i))
                 {
                     if (m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
                         m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
@@ -113,10 +113,12 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
                 }
             }
             m_pwndBottom->SetModified();
+            BuildAllScreen2ViewVector();
+            RecalcAllVertScrollBars();
         }
         else
         {
-            for (int i=0; i<GetLineCount(); i++)
+            for (int i = 0; i < m_pViewData->GetCount(); i++)
             {
                 rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
                 m_pwndRight->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
@@ -152,6 +154,8 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
                 }
             }
             m_pwndRight->SetModified();
+            BuildAllScreen2ViewVector();
+            RecalcAllVertScrollBars();
             if (m_pwndLocator)
                 m_pwndLocator->DocumentUpdated();
         }
@@ -161,31 +165,35 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
             break;
         if (m_pwndBottom->IsWindowVisible())
         {
-            for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+            for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
             {
-                bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
-                m_pwndBottom->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
-                bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
-                m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
-                m_pwndBottom->m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
-                if (m_pwndBottom->IsLineConflicted(i))
+                int viewLine = m_Screen2View[i];
+                bottomstate.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
+                m_pwndBottom->m_pViewData->SetLine(viewLine, m_pViewData->GetLine(viewLine));
+                bottomstate.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
+                m_pwndBottom->m_pViewData->SetState(viewLine, m_pViewData->GetState(viewLine));
+                m_pwndBottom->m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
+                if (m_pwndBottom->IsViewLineConflicted(viewLine))
                 {
-                    if (m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-                        m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+                    if (m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
+                        m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
                     else
-                        m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+                        m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
                 }
             }
             m_pwndBottom->SetModified();
+            BuildAllScreen2ViewVector();
+            RecalcAllVertScrollBars();
         }
         else
         {
-            for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+            for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
             {
-                rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
-                m_pwndRight->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
-                m_pwndRight->m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
-                DiffStates state2 = m_pViewData->GetState(i);
+                int viewLine = m_Screen2View[i];
+                rightstate.difflines[viewLine] = m_pwndRight->m_pViewData->GetLine(viewLine);
+                m_pwndRight->m_pViewData->SetLine(viewLine, m_pViewData->GetLine(viewLine));
+                m_pwndRight->m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
+                DiffStates state2 = m_pViewData->GetState(viewLine);
                 switch (state2)
                 {
                 case DIFFSTATE_ADDED:
@@ -199,21 +207,23 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
                 case DIFFSTATE_UNKNOWN:
                 case DIFFSTATE_YOURSADDED:
                 case DIFFSTATE_EMPTY:
-                    rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-                    m_pwndRight->m_pViewData->SetState(i, state2);
+                    rightstate.linestates[viewLine] = m_pwndRight->m_pViewData->GetState(viewLine);
+                    m_pwndRight->m_pViewData->SetState(viewLine, state2);
                     break;
                 case DIFFSTATE_IDENTICALREMOVED:
                 case DIFFSTATE_REMOVED:
                 case DIFFSTATE_THEIRSREMOVED:
                 case DIFFSTATE_YOURSREMOVED:
-                    rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-                    m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_ADDED);
+                    rightstate.linestates[viewLine] = m_pwndRight->m_pViewData->GetState(viewLine);
+                    m_pwndRight->m_pViewData->SetState(viewLine, DIFFSTATE_ADDED);
                     break;
                 default:
                     break;
                 }
             }
             m_pwndRight->SetModified();
+            BuildAllScreen2ViewVector();
+            RecalcAllVertScrollBars();
         }
         break;
     case ID_USEYOURANDTHEIRBLOCK:

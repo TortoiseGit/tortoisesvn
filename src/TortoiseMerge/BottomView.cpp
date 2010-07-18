@@ -106,21 +106,24 @@ void CBottomView::UseTheirTextBlock()
     viewstate bottomstate;
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
-        bottomstate.difflines[i] = m_pViewData->GetLine(i);
-        m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
-        bottomstate.linestates[i] = m_pViewData->GetState(i);
-        m_pViewData->SetState(i, m_pwndLeft->m_pViewData->GetState(i));
-        m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
-        if (IsLineConflicted(i))
+        int viewLine = m_Screen2View[i];
+        bottomstate.difflines[viewLine] = m_pViewData->GetLine(viewLine);
+        m_pViewData->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
+        bottomstate.linestates[viewLine] = m_pViewData->GetState(viewLine);
+        m_pViewData->SetState(viewLine, m_pwndLeft->m_pViewData->GetState(viewLine));
+        m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
+        if (IsViewLineConflicted(viewLine))
         {
-            if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-                m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+            if (m_pwndLeft->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
+                m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
             else
-                m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+                m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
         }
     }
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
     SetModified();
+    BuildAllScreen2ViewVector();
+    RecalcAllVertScrollBars();
     RefreshViews();
 }
 
@@ -134,18 +137,21 @@ void CBottomView::UseMyTextBlock()
     viewstate bottomstate;
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
-        bottomstate.difflines[i] = m_pViewData->GetLine(i);
-        m_pViewData->SetLine(i, m_pwndRight->m_pViewData->GetLine(i));
-        bottomstate.linestates[i] = m_pViewData->GetState(i);
-        m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
-        m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
-        if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-            m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+        int viewLine = m_Screen2View[i];
+        bottomstate.difflines[viewLine] = m_pViewData->GetLine(viewLine);
+        m_pViewData->SetLine(viewLine, m_pwndRight->m_pViewData->GetLine(viewLine));
+        bottomstate.linestates[viewLine] = m_pViewData->GetState(viewLine);
+        m_pViewData->SetState(viewLine, m_pwndRight->m_pViewData->GetState(viewLine));
+        m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
+        if (m_pwndRight->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
+            m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
         else
-            m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+            m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
     }
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
     SetModified();
+    BuildAllScreen2ViewVector();
+    RecalcAllVertScrollBars();
     RefreshViews();
 }
 

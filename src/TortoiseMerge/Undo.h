@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007,2009 - TortoiseSVN
+// Copyright (C) 2006-2007,2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ typedef struct viewstate
 
     std::map<int, viewdata> removedlines;
 
-    void    AddLineFormView(CBaseView *pView, int nLine, bool bAddEmptyLine);
+    void    AddViewLineFormView(CBaseView *pView, int nLine, bool bAddEmptyLine);
 } viewstate;
 
 /**

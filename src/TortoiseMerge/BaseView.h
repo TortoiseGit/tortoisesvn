@@ -57,10 +57,6 @@ public:
      */
     int             GetScreenLines();
     /**
-     * Returns the number of file lines which fit into the view, including the hidden lines.
-     */
-    int             GetFullScreenLines();
-    /**
      * Scrolls the view to the given line.
      * \param nNewTopLine The new top line to scroll the view to
      * \param bTrackScrollBar If TRUE, then the scrollbars are affected too.
@@ -82,6 +78,11 @@ public:
     void            UpdateCaret();
     void            ClearSelection();
     void            RefreshViews();
+    void            BuildAllScreen2ViewVector();
+    void            BuildScreen2ViewVector();
+    int             GetLineCount() const;
+    int             Screen2View(int screenLine) const { return m_Screen2View[screenLine]; }
+    int             FindScreenLineForViewLine(int viewLine);
 
     void            SelectLines(int nLine1, int nLine2 = -1);
     void            HiglightLines(int start, int end = -1);
@@ -98,7 +99,7 @@ public:
 
     BOOL            IsLineRemoved(int nLineIndex);
     bool            IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
-    bool            IsLineConflicted(int nLineIndex);
+    bool            IsViewLineConflicted(int nLineIndex);
     bool            HasNextConflict();
     bool            HasPrevConflict();
     bool            HasNextDiff();
@@ -203,7 +204,6 @@ protected:
     void            DeleteFonts();
 
     int             GetLineActualLength(int index) const;
-    int             GetLineCount() const;
     void            CalcLineCharDim();
     int             GetLineHeight();
     int             GetCharWidth();
@@ -342,6 +342,7 @@ protected:
     static CBaseView * m_pwndRight;     ///< Pointer to the right view. Must be set by the CRightView parent class.
     static CBaseView * m_pwndBottom;    ///< Pointer to the bottom view. Must be set by the CBottomView parent class.
 
+    std::vector<int> m_Screen2View;
     UINT GetMenuFlags(DiffStates state) const;
     void AddCutCopyAndPaste(CMenu& popup);
     void CompensateForKeyboard(CPoint& point);

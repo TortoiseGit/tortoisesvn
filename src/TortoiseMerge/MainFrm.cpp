@@ -856,6 +856,7 @@ void CMainFrame::OnViewCollapsed()
 
     if (m_pwndLeftView)
     {
+        m_pwndLeftView->BuildScreen2ViewVector();
         m_pwndLeftView->UpdateCaret();
         m_pwndLeftView->Invalidate();
         if (m_pwndLeftView->HasCaret())
@@ -863,6 +864,7 @@ void CMainFrame::OnViewCollapsed()
     }
     if (m_pwndRightView)
     {
+        m_pwndRightView->BuildScreen2ViewVector();
         m_pwndRightView->UpdateCaret();
         m_pwndRightView->Invalidate();
         if (m_pwndRightView->HasCaret())
@@ -870,6 +872,7 @@ void CMainFrame::OnViewCollapsed()
     }
     if (m_pwndBottomView)
     {
+        m_pwndBottomView->BuildScreen2ViewVector();
         m_pwndBottomView->UpdateCaret();
         m_pwndBottomView->Invalidate();
         if (m_pwndBottomView->HasCaret())

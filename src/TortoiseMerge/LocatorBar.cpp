@@ -63,13 +63,13 @@ void CLocatorBar::DocumentUpdated()
     DocumentUpdated(m_pMainFrm->m_pwndRightView, m_arRightIdent, m_arRightState);
     DocumentUpdated(m_pMainFrm->m_pwndBottomView, m_arBottomIdent, m_arBottomState);
 
-    if ((m_pMainFrm->m_pwndBottomView->m_pViewData) && (m_pMainFrm->m_pwndRightView->m_pViewData))
-        m_nLines = (int)max(m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount(), m_pMainFrm->m_pwndRightView->m_pViewData->GetCount());
-    else if (m_pMainFrm->m_pwndRightView->m_pViewData)
-        m_nLines = (int)max(0, m_pMainFrm->m_pwndRightView->m_pViewData->GetCount());
+    if ((m_pMainFrm->m_pwndBottomView) && (m_pMainFrm->m_pwndRightView))
+        m_nLines = (int)max(m_pMainFrm->m_pwndBottomView->GetLineCount(), m_pMainFrm->m_pwndRightView->GetLineCount());
+    else if (m_pMainFrm->m_pwndRightView)
+        m_nLines = (int)max(0, m_pMainFrm->m_pwndRightView->GetLineCount());
 
-    if (m_pMainFrm->m_pwndLeftView->m_pViewData)
-        m_nLines = (int)max(m_nLines, m_pMainFrm->m_pwndLeftView->m_pViewData->GetCount());
+    if (m_pMainFrm->m_pwndLeftView)
+        m_nLines = (int)max(m_nLines, m_pMainFrm->m_pwndLeftView->GetLineCount());
     else
         m_nLines = 0;
     m_nLines++;
@@ -85,13 +85,13 @@ void CLocatorBar::DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordA
         return;
 
     long identcount = 1;
-    const int linesInView = viewData->GetCount();
+    const int linesInView = view->GetLineCount();
     DiffStates state = DIFFSTATE_UNKNOWN;
     if (linesInView)
         state = viewData->GetState(0);
     for (int i=0; i<linesInView; i++)
     {
-        const DiffStates lineState = viewData->GetState(i);
+        const DiffStates lineState = viewData->GetState(view->Screen2View(i));
         if (state == lineState)
         {
             identcount++;
@@ -120,7 +120,7 @@ void CLocatorBar::OnPaint()
     if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
     {
         nTopLine = m_pMainFrm->m_pwndLeftView->m_nTopLine;
-        nBottomLine = nTopLine + m_pMainFrm->m_pwndLeftView->GetFullScreenLines();
+        nBottomLine = nTopLine + m_pMainFrm->m_pwndLeftView->GetScreenLines();
     }
     CDC cacheDC;
     VERIFY(cacheDC.CreateCompatibleDC(&dc));

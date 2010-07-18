@@ -22,7 +22,7 @@
 
 #include "BaseView.h"
 
-void viewstate::AddLineFormView(CBaseView *pView, int nLine, bool bAddEmptyLine)
+void viewstate::AddViewLineFormView(CBaseView *pView, int nLine, bool bAddEmptyLine)
 {
     if (!pView || !pView->m_pViewData)
         return;
