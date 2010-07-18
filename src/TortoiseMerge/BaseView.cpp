@@ -2402,13 +2402,27 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
     int nClickedLine = nLineFromTop + m_nTopLine;
     nClickedLine--;     //we need the index
     int nViewLine = m_Screen2View[nClickedLine];
-    if((m_pViewData)&&(nViewLine < m_pViewData->GetCount())) // a double click on moved line scrolls to corresponding line
+    if (point.x < GetMarginWidth())  // only if double clicked on the margin
     {
-        if((m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_FROM)||
-           (m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_TO))
+        if((m_pViewData)&&(nViewLine < m_pViewData->GetCount())) // a double click on moved line scrolls to corresponding line
         {
-            int screenLine = FindScreenLineForViewLine(nViewLine);
-            ScrollAllToLine(m_pViewData->GetMovedIndex(screenLine));
+            if((m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_FROM)||
+                (m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_TO))
+            {
+                int screenLine = FindScreenLineForViewLine(m_pViewData->GetMovedIndex(nViewLine));
+                ScrollAllToLine(screenLine);
+                // find and select the whole moved block
+                int startSel = screenLine;
+                int endSel = screenLine;
+                while ((startSel > 0) && ((m_pOtherViewData->GetState(startSel) == DIFFSTATE_MOVED_FROM) || (m_pOtherViewData->GetState(startSel) == DIFFSTATE_MOVED_TO)))
+                    startSel--;
+                startSel++;
+                while ((endSel < GetLineCount()) && ((m_pOtherViewData->GetState(endSel) == DIFFSTATE_MOVED_FROM) || (m_pOtherViewData->GetState(endSel) == DIFFSTATE_MOVED_TO)))
+                    endSel++;
+                endSel--;
+                SetupSelection(startSel, endSel);
+                return CView::OnLButtonDblClk(nFlags, point);
+            }
         }
     }
     if ((m_pViewData)&&(m_pMainFrame->m_bCollapsed)&&(m_pViewData->GetHideState(nViewLine) == HIDESTATE_MARKER))
