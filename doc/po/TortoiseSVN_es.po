@@ -10,20 +10,21 @@
 # Juan Carlos Fuentes-Michel <jcfuentes@gmail.com>, 2010.
 # Imanol <imanol.nb@gmail.com>, 2010.
 # Tommy <tommychristie@gmail.com>, 2010.
+# aabaca <abacrotto@hotmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-11 08:32 +0000\n"
-"PO-Revision-Date: 2010-07-19 10:07-0300\n"
-"Last-Translator: Alejandro Ariel Abaca <abacrotto@hotmail.com>\n"
-"Language-Team: Tomás Christie\n"
+"PO-Revision-Date: 2010-07-19 18:37-0300\n"
+"Last-Translator: aabaca <abacrotto@hotmail.com>\n"
+"Language-Team: HP 530 - Intel Core 2\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.6.0\n"
+"X-Generator: Virtaal 0.6.1\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -91,7 +92,18 @@ msgstr "¿Qué es TortoiseSVN?"
 
 #. (para)
 msgid "TortoiseSVN is a free open-source Windows client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
-msgstr "TortoiseSVN es un cliente gratuito de código abierto para el sistema de control de versiones <firstterm>Subversion</firstterm>. Esto signifca que TortoiseSVN administra archivos y directorios a lo largo del tiempo. Los archivos se almacenan en un <firstterm>repositorio</firstterm> central. El repositorio es prácticamente lo mismo que un servidor de archivos ordinario, con la excepción de que recuerda todos los cambios que se hayan hecho a sus archivos y directorios. Esto le permite al usuario recuperar versiones antiguas de sus archivos y examinar la historia de cómo y cuándo cambiaron sus datos, y quién hizo el cambio. Esta es la razón por la que mucha gente piensa en Subversion, y los sistemas de control de versiones en general, como una especie de <quote>máquinas del tiempo</quote>."
+msgstr ""
+"TortoiseSVN es un cliente gratuito de código abierto para el sistema de "
+"control de versiones <firstterm>Subversion</firstterm>. Esto signifca que "
+"TortoiseSVN administra archivos y directorios a lo largo del tiempo. Los "
+"archivos se almacenan en un <firstterm>repositorio</firstterm> central. El "
+"repositorio es prácticamente lo mismo que un servidor de archivos ordinario, "
+"con la excepción de que recuerda todos los cambios que se hayan hecho a sus "
+"archivos y directorios. Esto le permite al usuario recuperar versiones "
+"antiguas de sus archivos y examinar la historia de cómo y cuándo cambiaron "
+"sus datos, y quién hizo el cambio. Esta es la razón por la que mucha gente "
+"piensa en Subversion, y los sistemas de control de versiones en general, "
+"como una especie de <quote>máquinas del tiempo</quote>."
 
 #. (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
@@ -5936,16 +5948,22 @@ msgstr "Si desea eliminar una propiedad existente, seleccione dicha propiedad de
 
 #. (para)
 msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr "La propiedad <literal>svn:externals</literal> se puede utilizar para traer otros proyectos del mismo repositorio o de otro completamente distinto. Para más información, lea <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr ""
+"La propiedad <literal>svn:externals</literal> se puede utilizar para traer "
+"otros proyectos del mismo repositorio o de otro completamente distinto. Para "
+"más información, lea <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
-#, fuzzy
 msgid "Edit properties at HEAD revision"
-msgstr "Tiempo límite antes de actualizar la revisión HEAD"
+msgstr "Editar las propiedades de la revisión HEAD"
 
 #. (para)
 msgid "Because properties are versioned, you cannot edit the properties of previous revisions. If you look at properties from the log dialog, or from a non-HEAD revision in the repository browser, you will see a list of properties and values, but no edit controls."
-msgstr "Dado que las propiedades están versionadas, no puede editar las propiedades de revisiones previas. Si mira propiedades del diálogo de registro, o desde una revisión non-HEAD del explorador de repositorio, verá una lista de propiedades y valores, pero ningún control de edición."
+msgstr ""
+"Dado que las propiedades están versionadas, no puede editar las propiedades "
+"de revisiones previas. Si mira propiedades del diálogo de registro, o desde "
+"una revisión non-HEAD del explorador de repositorio, verá una lista de "
+"propiedades y valores, pero ningún control de edición."
 
 #. (title)
 msgid "Exporting and Importing Properties"
@@ -6833,9 +6851,12 @@ msgid "Choosing <emphasis>Prefer local</emphasis> will select your local changes
 msgstr "Elegir <emphasis>Preferir local</emphasis> seleccionará sus cambios locales en cada conflicto. De igual manera, <emphasis>Preferir repositorio</emphasis> seleccionará los cambios del repositorio en cada conflicto. Esto suena simple, pero los conflictos por lo general se extienden a más líneas de las que puede pensar y pueden tener resultados inesperados."
 
 #. (para)
-#, fuzzy
 msgid "Normally you will want to look at the conflicts and resolve them yourself. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
-msgstr "Normalmente querrá ver los conflictos y resolverlos. En ese caso, seleccione <guibutton>Editar conflicto</guibutton>, lo que iniciará su herramienta de fusionado. Cuando esté satisfecho con el resultado, pulse en <guibutton>Resuelto</guibutton>."
+msgstr ""
+"Normalmente querrá ver los conflictos y resolverlos. En tal caso, pulse el "
+"botón  <guibutton>Editar conflicto</guibutton>, lo que iniciará la "
+"herramienta de fusionado. Cuando esté satisfecho con el resultado, pulse "
+"<guibutton>Resuelto</guibutton>."
 
 #. (para)
 msgid "The last option is to postpone resolution and continue with merging. You can choose to do that for the current conflicted file, or for all files in the rest of the merge. However, if there are further changes in that file, it will not be possible to complete the merge."
@@ -8105,14 +8126,18 @@ msgid "Selects your user interface language. What else did you expect?"
 msgstr "Selecciona el idioma del interfaz de usuario. ¿Qué otra cosa esperabas?"
 
 #. (term)
-#, fuzzy
 msgid "Check for updates"
-msgstr "Comprobar modificaciones"
+msgstr "Buscar actualizaciones"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN will contact its download site periodically to see if there is a newer version of the program available. If there is it will show a notification link in the commit dialog. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
-msgstr "Si se marca, TortoiseSVN contactará su sitio de descarga una vez a la semana para ver si hay disponible una versión más reciente del programa. Utilice el botón <guibutton>Comprobar ahora</guibutton> si desea una respuesta inmediata. No se descargará la versión más reciente; simplemente recibirá un diálogo de información diciéndole que hay una versión nueva disponible."
+msgstr ""
+"TortoiseSVN contactará su sitio de descarga periodicamente para ver si hay "
+"disponible una versión más reciente del programa. Si existiera alguna "
+"mostrará un vínculo de notificación en el diálogo de actualización. Utilice "
+"el botón <guibutton>Comprobar ahora</guibutton> si desea una respuesta "
+"inmediata. No se descargará la versión más reciente; simplemente recibirá un "
+"diálogo de información diciéndole que hay una versión nueva disponible."
 
 #. (term)
 msgid "System sounds"
@@ -8259,9 +8284,8 @@ msgid "If you frequently find yourself comparing revisions in the top pane of th
 msgstr "Si se encuentra con que frecuentemente compara revisiones en el panel superior del diálogo de registro, puede utilizar esta opción para realizar esta acción en el doble click. Obtener las diferencias es a menudo un proceso largo, y muchos prefieren evitar la espera tras un doble click accidental, por lo que esta opción no está habilitada por defecto."
 
 #. (term)
-#, fuzzy
 msgid "Auto-close"
-msgstr "auto-props"
+msgstr "Cerrar automáticamente"
 
 #. (para)
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
@@ -8504,9 +8528,8 @@ msgid "The original item has been deleted and a new item with the same name repl
 msgstr "El ítem original ha sido borrado y un nuevo ítem con el mismo nombre le reemplaza."
 
 #. (term)
-#, fuzzy
 msgid "Filter match"
-msgstr "Filtro"
+msgstr "Concordancia de filtro"
 
 #. (para)
 msgid "When using filtering in the log dialog, search terms are highlighted in the results using this colour."
@@ -8741,9 +8764,14 @@ msgid "USB Flash drives appear to be a special case in that the drive type is id
 msgstr "Las unidades USB Flash parecen ser un caso especial en el que el tipo de unidad lo identifica el propio dispositivo. Algunas aparecen como discos duros, y otros como discos extraíbles."
 
 #. (para)
-#, fuzzy
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays, or if you only want TortoiseSVN to look in specific folders."
-msgstr "<guilabel>Excluir Rutas</guilabel> se usa para decirle a TortoiseSVN en qué rutas <emphasis>no</emphasis> debe mostrar iconos sobreimpresionados ni columnas de estado. Esto es útil si tiene algunas copias de trabajo muy grandes que contienen únicamente librerías que no cambian en absoluto y por tanto no necesitan las sobreimpresiones. Por ejemplo:"
+msgstr ""
+"<guilabel>Excluir Rutas</guilabel> se usa para decirle a TortoiseSVN en qué "
+"rutas <emphasis>no</emphasis> debe mostrar iconos sobreimpresionados ni "
+"columnas de estado. Esto es útil si tiene algunas copias de trabajo muy "
+"grandes que contienen únicamente librerías que no cambian en absoluto y por "
+"tanto no necesitan las sobreimpresiones, o si solo desea que TortoiseSVN "
+"tome en cuenta carpetas específicas."
 
 #. (para)
 msgid "Any path you specify here is assumed to apply recursively, so none of the child folders will show overlays either. If you want to exclude <emphasis>only</emphasis> the named folder, append <literal>?</literal> after the path."
@@ -8832,9 +8860,8 @@ msgid "Enabled Overlay Handlers"
 msgstr "Manejadores de sobreimpresos habilitados"
 
 #. (title)
-#, fuzzy
 msgid "The Settings Dialog, Icon Handlers Page"
-msgstr "El diálogo Configuración, página de Conjunto de iconos"
+msgstr "El Diálogo de Configuración, Página de Manejadores de Íconos"
 
 #. (para)
 msgid "<placeholder-1/> Because the number of overlays available is severely restricted, you can choose to disable some handlers to ensure that the ones you want will be loaded. Because TortoiseSVN uses the common TortoiseOverlays component which is shared with other Tortoise clients (e.g. TortoiseCVS, TortoiseHG) this setting will affect those clients too."
@@ -9424,13 +9451,14 @@ msgstr "Post-actualización"
 
 #. (para)
 msgid "Called after the update, switch or checkout finishes (whether successful or not)."
-msgstr "Llamado después de que termine la actualización, cambio u obtensión (sea satisfactoria o no)."
+msgstr ""
+"Llamado después de que termine la actualización, cambio u obtensión (sea "
+"satisfactoria o no)."
 
 #. (term)
 #. (term)
-#, fuzzy
 msgid "Pre-connect"
-msgstr "Pre-confirmación"
+msgstr "Pre-conexión"
 
 #. (para)
 msgid "Called before an attempt to contact the repository. Called at most once in five minutes."
@@ -9445,9 +9473,14 @@ msgid "A hook is defined for a particular working copy path. You only need to sp
 msgstr "Un gancho se define para una ruta de copia de trabajo en particular. Sólo necesita especificar la ruta de más alto nivel; si realiza una operación en una subcarpeta, TortoiseSVN automáticamente buscará hacia arriba una ruta que concuerde."
 
 #. (para)
-#, fuzzy
 msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script. Note that the script must not be specified using a UNC path as Windows shell execute will not allow such scripts to run due to security restrictions."
-msgstr "Después debe especificar la línea de comandos a ejecutar, comenzando con la ruta del script gancho o el ejecutable. Esto puede ser un archivo batch, un archivo ejecutable o cualquier otro archivo que tenga una asociación de archivo de Windows válida, como por ejemplo un script Perl."
+msgstr ""
+"Después debe especificar la línea de comandos a ejecutar, comenzando con la "
+"ruta del script gancho o el ejecutable. Esto puede ser un archivo batch, un "
+"archivo ejecutable o cualquier otro archivo que tenga una asociación de "
+"archivo de Windows válida, como por ejemplo un script Perl. Nótese que el "
+"script no debe ser especificado usando una ruta UNC dado que Windows no "
+"permitirá ejecutar esos scripts debido a restricciones de seguridad."
 
 #. (para)
 msgid "The command line includes several parameters which get filled in by TortoiseSVN. The parameters passed depend upon which hook is called. Each hook has its own parameters which are passed in the following order: <placeholder-1/>"
@@ -9969,9 +10002,14 @@ msgid "If a source and destination files are supplied, SubWCRev copies source to
 msgstr "Si se especifican archivos de origen y destino, SubWCRev copia el archivo origen al destino, realizando las siguientes sustituciones de palabras clave: <placeholder-1/>"
 
 #. (para)
-#, fuzzy
 msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
-msgstr "Algunas de éstas palabras clave se aplican a archivos individuales más que a una copia de trabajo entera, así que sólo tiene sentido usarlas cuando SubWCRev es llamado para examinar un archivo individual. Esto se aplica a  <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> y <literal>$WCLOCKCOMMENT$</literal>."
+msgstr ""
+"Algunas de éstas palabras clave se aplican a archivos individuales más que a "
+"una copia de trabajo entera, así que sólo tiene sentido usarlas cuando se "
+"invoca SubWCRev para examinar un archivo individual. Esto se aplica a  "
+"<literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, "
+"<literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, "
+"<literal>$WCLOCKOWNER$</literal> y <literal>$WCLOCKCOMMENT$</literal>."
 
 #. (title)
 msgid "Keyword Example"
@@ -10159,7 +10197,7 @@ msgstr "Si necesita acceder a la información de las revisiones de Subversion de
 
 # Sin traducir
 #. (programlisting)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "// testCOM.js - javascript file\n"
@@ -10301,104 +10339,56 @@ msgstr ""
 "    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
 "\n"
 "wcInfoString1 = \"Revision = \" + revObject1.Revision + \n"
-"\t\t\t\t\"\\n"
-"Min Revision = \" + revObject1.MinRev + \n"
-"\t\t\t\t\"\\n"
-"Max Revision = \" + revObject1.MaxRev + \n"
-"\t\t\t\t\"\\n"
-"Date = \" + revObject1.Date + \n"
-"\t\t\t\t\"\\n"
-"URL = \" + revObject1.Url + \"\\n"
-"Author = \" + \n"
-"\t\t\t\trevObject1.Author + \"\\n"
-"HasMods = \" + \n"
-"\t\t\t\trevObject1.HasModifications + \"\\n"
-"IsSvnItem = \" + \n"
-"\t\t\t\trevObject1.IsSvnItem + \"\\n"
-"NeedsLocking = \" + \n"
-"\t\t\t\trevObject1.NeedsLocking + \"\\n"
-"IsLocked = \" + \n"
-"\t\t\t\trevObject1.IsLocked + \"\\n"
-"LockCreationDate = \" + \n"
-"\t\t\t\trevObject1.LockCreationDate + \"\\n"
-"LockOwner = \" + \n"
-"\t\t\t\trevObject1.LockOwner + \"\\n"
-"LockComment = \" + \n"
+"\t\t\t\t\"\\nMin Revision = \" + revObject1.MinRev + \n"
+"\t\t\t\t\"\\nMax Revision = \" + revObject1.MaxRev + \n"
+"\t\t\t\t\"\\nDate = \" + revObject1.Date + \n"
+"\t\t\t\t\"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" + \n"
+"\t\t\t\trevObject1.Author + \"\\nHasMods = \" + \n"
+"\t\t\t\trevObject1.HasModifications + \"\\nIsSvnItem = \" + \n"
+"\t\t\t\trevObject1.IsSvnItem + \"\\nNeedsLocking = \" + \n"
+"\t\t\t\trevObject1.NeedsLocking + \"\\nIsLocked = \" + \n"
+"\t\t\t\trevObject1.IsLocked + \"\\nLockCreationDate = \" + \n"
+"\t\t\t\trevObject1.LockCreationDate + \"\\nLockOwner = \" + \n"
+"\t\t\t\trevObject1.LockOwner + \"\\nLockComment = \" + \n"
 "\t\t\t\trevObject1.LockComment;\n"
 "wcInfoString2 = \"Revision = \" + revObject2.Revision + \n"
-"\t\t\t\t\"\\n"
-"Min Revision = \" + revObject2.MinRev + \n"
-"\t\t\t\t\"\\n"
-"Max Revision = \" + revObject2.MaxRev + \n"
-"\t\t\t\t\"\\n"
-"Date = \" + revObject2.Date + \n"
-"\t\t\t\t\"\\n"
-"URL = \" + revObject2.Url + \"\\n"
-"Author = \" + \n"
-"\t\t\t\trevObject2.Author + \"\\n"
-"HasMods = \" + \n"
-"\t\t\t\trevObject2.HasModifications + \"\\n"
-"IsSvnItem = \" + \n"
-"\t\t\t\trevObject2.IsSvnItem + \"\\n"
-"NeedsLocking = \" + \n"
-"\t\t\t\trevObject2.NeedsLocking + \"\\n"
-"IsLocked = \" + \n"
-"\t\t\t\trevObject2.IsLocked + \"\\n"
-"LockCreationDate = \" + \n"
-"\t\t\t\trevObject2.LockCreationDate + \"\\n"
-"LockOwner = \" + \n"
-"\t\t\t\trevObject2.LockOwner + \"\\n"
-"LockComment = \" + \n"
+"\t\t\t\t\"\\nMin Revision = \" + revObject2.MinRev + \n"
+"\t\t\t\t\"\\nMax Revision = \" + revObject2.MaxRev + \n"
+"\t\t\t\t\"\\nDate = \" + revObject2.Date + \n"
+"\t\t\t\t\"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" + \n"
+"\t\t\t\trevObject2.Author + \"\\nHasMods = \" + \n"
+"\t\t\t\trevObject2.HasModifications + \"\\nIsSvnItem = \" + \n"
+"\t\t\t\trevObject2.IsSvnItem + \"\\nNeedsLocking = \" + \n"
+"\t\t\t\trevObject2.NeedsLocking + \"\\nIsLocked = \" + \n"
+"\t\t\t\trevObject2.IsLocked + \"\\nLockCreationDate = \" + \n"
+"\t\t\t\trevObject2.LockCreationDate + \"\\nLockOwner = \" + \n"
+"\t\t\t\trevObject2.LockOwner + \"\\nLockComment = \" + \n"
 "\t\t\t\trevObject2.LockComment;\n"
 "wcInfoString3 = \"Revision = \" + revObject3.Revision + \n"
-"\t\t\t\t\"\\n"
-"Min Revision = \" + revObject3.MinRev + \n"
-"\t\t\t\t\"\\n"
-"Max Revision = \" + revObject3.MaxRev + \n"
-"\t\t\t\t\"\\n"
-"Date = \" + revObject3.Date + \n"
-"\t\t\t\t\"\\n"
-"URL = \" + revObject3.Url + \"\\n"
-"Author = \" + \n"
-"\t\t\t\trevObject3.Author + \"\\n"
-"HasMods = \" + \n"
-"\t\t\t\trevObject3.HasModifications + \"\\n"
-"IsSvnItem = \" + \n"
-"\t\t\t\trevObject3.IsSvnItem + \"\\n"
-"NeedsLocking = \" + \n"
-"\t\t\t\trevObject3.NeedsLocking + \"\\n"
-"IsLocked = \" + \n"
-"\t\t\t\trevObject3.IsLocked + \"\\n"
-"LockCreationDate = \" + \n"
-"\t\t\t\trevObject3.LockCreationDate + \"\\n"
-"LockOwner = \" + \n"
-"\t\t\t\trevObject3.LockOwner + \"\\n"
-"LockComment = \" + \n"
+"\t\t\t\t\"\\nMin Revision = \" + revObject3.MinRev + \n"
+"\t\t\t\t\"\\nMax Revision = \" + revObject3.MaxRev + \n"
+"\t\t\t\t\"\\nDate = \" + revObject3.Date + \n"
+"\t\t\t\t\"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" + \n"
+"\t\t\t\trevObject3.Author + \"\\nHasMods = \" + \n"
+"\t\t\t\trevObject3.HasModifications + \"\\nIsSvnItem = \" + \n"
+"\t\t\t\trevObject3.IsSvnItem + \"\\nNeedsLocking = \" + \n"
+"\t\t\t\trevObject3.NeedsLocking + \"\\nIsLocked = \" + \n"
+"\t\t\t\trevObject3.IsLocked + \"\\nLockCreationDate = \" + \n"
+"\t\t\t\trevObject3.LockCreationDate + \"\\nLockOwner = \" + \n"
+"\t\t\t\trevObject3.LockOwner + \"\\nLockComment = \" + \n"
 "\t\t\t\trevObject3.LockComment;\n"
 "wcInfoString4 = \"Revision = \" + revObject4.Revision + \n"
-"\t\t\t\t\"\\n"
-"Min Revision = \" + revObject4.MinRev + \n"
-"\t\t\t\t\"\\n"
-"Max Revision = \" + revObject4.MaxRev + \n"
-"\t\t\t\t\"\\n"
-"Date = \" + revObject4.Date + \n"
-"\t\t\t\t\"\\n"
-"URL = \" + revObject4.Url + \"\\n"
-"Author = \" + \n"
-"\t\t\t\trevObject4.Author + \"\\n"
-"HasMods = \" + \n"
-"\t\t\t\trevObject4.HasModifications + \"\\n"
-"IsSvnItem = \" + \n"
-"\t\t\t\trevObject4.IsSvnItem + \"\\n"
-"NeedsLocking = \" + \n"
-"\t\t\t\trevObject4.NeedsLocking + \"\\n"
-"IsLocked = \" + \n"
-"\t\t\t\trevObject4.IsLocked + \"\\n"
-"LockCreationDate = \" + \n"
-"\t\t\t\trevObject4.LockCreationDate + \"\\n"
-"LockOwner = \" + \n"
-"\t\t\t\trevObject4.LockOwner + \"\\n"
-"LockComment = \" + \n"
+"\t\t\t\t\"\\nMin Revision = \" + revObject4.MinRev + \n"
+"\t\t\t\t\"\\nMax Revision = \" + revObject4.MaxRev + \n"
+"\t\t\t\t\"\\nDate = \" + revObject4.Date + \n"
+"\t\t\t\t\"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" + \n"
+"\t\t\t\trevObject4.Author + \"\\nHasMods = \" + \n"
+"\t\t\t\trevObject4.HasModifications + \"\\nIsSvnItem = \" + \n"
+"\t\t\t\trevObject4.IsSvnItem + \"\\nNeedsLocking = \" + \n"
+"\t\t\t\trevObject4.NeedsLocking + \"\\nIsLocked = \" + \n"
+"\t\t\t\trevObject4.IsLocked + \"\\nLockCreationDate = \" + \n"
+"\t\t\t\trevObject4.LockCreationDate + \"\\nLockOwner = \" + \n"
+"\t\t\t\trevObject4.LockOwner + \"\\nLockComment = \" + \n"
 "\t\t\t\trevObject4.LockComment;\n"
 "\n"
 "WScript.Echo(wcInfoString1);\n"
