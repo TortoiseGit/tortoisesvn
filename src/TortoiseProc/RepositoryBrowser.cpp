@@ -1801,19 +1801,8 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
 
 void CRepositoryBrowser::EditFile(const CTSVNPath& url)
 {
-    CString paramString;
-    switch (CRegDWORD (_T("Software\\TortoiseSVN\\SimonsCrashHack"), 4))
-    {
-        case 0: paramString = _T("/revision:");
-                break;
-        case 1: paramString = _T("/hideprogress /revision:");
-                break;
-        case 2: paramString = _T("/closeonend:1 /revision:");
-                break;
-        case 3: paramString = _T("/closeonend:1 /closeforlocal /revision:");
-                break;
-        default: paramString = _T("/closeonend:1 /closeforlocal /hideprogress /revision:");
-    }
+    CString paramString 
+        = _T("/closeonend:1 /closeforlocal /hideprogress /revision:");
     CCmdLineParser parameters (paramString + GetRevision().ToString());
 
     EditFileCommand command;

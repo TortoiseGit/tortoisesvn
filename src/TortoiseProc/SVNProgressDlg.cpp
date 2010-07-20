@@ -1270,17 +1270,18 @@ void CSVNProgressDlg::OnOK()
 LRESULT CSVNProgressDlg::OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     m_bCancelled = TRUE;
-    if (m_bThreadRunning)
-    {
-        if (WaitForSingleObject(m_pThread->m_hThread, 1000) != WAIT_OBJECT_0)
-        {
-            // end the process the hard way
-            TerminateProcess(GetCurrentProcess(), 0);
-        }
-    }
-    else
-        __super::OnOK();
 
+    // always wait for the thread to truely terminate.
+    // (this function can only be triggered from that thread)
+
+    if (   (m_pThread != NULL) 
+        && (WaitForSingleObject(m_pThread->m_hThread, 1000) != WAIT_OBJECT_0))
+    {
+        // end the process the hard way
+        TerminateProcess(GetCurrentProcess(), 0);
+    }
+
+    __super::OnOK();
     return 0;
 }
 
