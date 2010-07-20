@@ -51,7 +51,6 @@
 #include "Shlwapi.h"
 #include "RepositoryBrowserSelection.h"
 #include "Commands\EditFileCommand.h"
-#include "DebugOutput.h"
 
 #define OVERLAY_EXTERNAL        1
 
@@ -1803,7 +1802,7 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
 void CRepositoryBrowser::EditFile(const CTSVNPath& url)
 {
     CString paramString;
-    switch (CRegDWORD (_T("Software\\TortoiseSVN\\SimonsCrashHack"), 0))
+    switch (CRegDWORD (_T("Software\\TortoiseSVN\\SimonsCrashHack"), 4))
     {
         case 0: paramString = _T("/revision:");
                 break;
@@ -1816,23 +1815,17 @@ void CRepositoryBrowser::EditFile(const CTSVNPath& url)
         default: paramString = _T("/closeonend:1 /closeforlocal /hideprogress /revision:");
     }
     CCmdLineParser parameters (paramString + GetRevision().ToString());
-    CTraceToOutputDebugString::Instance() ( _T("EditFile command line params constructed\n"));
 
     EditFileCommand command;
     command.SetPaths (CTSVNPathList (url), url);
     command.SetParser (parameters);
-    CTraceToOutputDebugString::Instance() ( _T("EditFile command constructed & initialized\n"));
 
     if (command.Execute())
     {
-        CTraceToOutputDebugString::Instance() ( _T("EditFile command executed successfully\n"));
-
         InvalidateData (m_RepoTree.GetSelectedItem());
         m_barRepository.SetHeadRevision(GetCommitRevision());
         RefreshNode(m_RepoTree.GetSelectedItem(), true);
     }
-    else
-        CTraceToOutputDebugString::Instance() ( _T("EditFile command execution failed\n"));
 }
 
 void CRepositoryBrowser::OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult)
