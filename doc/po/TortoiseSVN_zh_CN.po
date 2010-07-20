@@ -59,7 +59,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-07-11 08:32 +0000\n"
-"PO-Revision-Date: 2010-07-14 23:32+0800\n"
+"PO-Revision-Date: 2010-07-20 23:58+0800\n"
 "Last-Translator: Alex.San <d0oo0bsh@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10687,7 +10687,7 @@ msgstr ""
 
 #. (para)
 msgid "To get a tighter integration with issue trackers than by simply using the <literal>bugtraq:</literal> properties, TortoiseSVN can make use of COM plugins. With such plugins it is possible to fetch information directly from the issue tracker, interact with the user and provide information back to TortoiseSVN about open issues, verify log messages entered by the user and even run actions after a successful commit to e.g, close an issue."
-msgstr "怎样通过问题跟踪器而不是简单的利用<literal>bugtraq:</literal>属性去获得更紧密的集成呢？TortoiseSVN可以利用COM插件来实现这个目的。这类插件的使用令直接从问题追踪者那里获取信息成为可能，还可以和用户互动，并把有关开放的问题的信息返回给TortoiseSVN，也可以核实用户登录的日志信息并且在成功提交后运行某些动作，比如关闭一个问题。"
+msgstr "怎样通过问题跟踪器而不是简单的利用<literal>bugtraq:</literal>属性去获得更紧密的集成呢？TortoiseSVN可以利用COM插件来实现这个目的。这类插件的使用令直接从问题追踪者那里获取信息成为可能，还可以和用户互动，并把有关开放问题的信息返回给TortoiseSVN，也可以验校用户输入的日志信息并且在成功提交后运行某些动作，比如关闭一个问题。"
 
 #. (para)
 msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
@@ -10810,8 +10810,8 @@ msgstr ""
 "  // 您的提供者应该在适当的地方包含这些文字。\n"
 "  [in] BSTR originalMessage,\n"
 "\n"
-"  // 为新的提交信息准备的文字。\n"
-"  // 这些文字将替换原始的信息。\n"
+"  // 新的提交信息文本。\n"
+"  // 它将替换原始的提交信息。\n"
 "  [out, retval] BSTR *newMessage\n"
 ");\n"
 
@@ -10825,7 +10825,7 @@ msgstr "<literal>parameters</literal>是一个字符串，用户在设置插件�
 
 #. (para)
 msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
-msgstr "<literal>commonRoot</literal>字符串包含所有为打开提交对话框而被选择的项目的父路径。请注意： <emphasis>不是</emphasis> 所有已被用户在提交对话框中选中的项目的根路径。对分支/表情对话框来说，这个字符串就代表将被复制的路径。"
+msgstr "<literal>commonRoot</literal>字符串包含所有被选择的项目（在这些项目上打开的提交对话框）的父路径。请注意： <emphasis>不是</emphasis> 所有已被用户在提交对话框中选中的项目的根路径。对分支/表情对话框来说，这个字符串就代表将被复制的路径。"
 
 #. (para)
 msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
@@ -10841,11 +10841,11 @@ msgstr "<literal>newMessage</literal>返回的字符串被复制到提交对话�
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
-msgstr ""
+msgstr "IBugtraqProvider2 接口"
 
 #. (para)
 msgid "In TortoiseSVN 1.6 a new interface was added which provides more functionality for plugins. This IBugtraqProvider2 interface inherits from IBugtraqProvider."
-msgstr ""
+msgstr "在 TortoiseSVN 1.6 中增加了一个可以为插件提供更多功能的接口。这个接口就是 IBugtraqProvider2，它继承自 IBugtraqProvider。"
 
 #. (programlisting)
 #, no-wrap
@@ -10889,14 +10889,51 @@ msgid ""
 "  [out, retval] BSTR * newMessage\n"
 ");\n"
 msgstr ""
+"\n"
+"HRESULT GetCommitMessage2 (\n"
+"  // 您提供者的UI的父窗体。\n"
+"  [in] HWND hParentWnd,\n"
+"\n"
+"  // 为您的提供者准备的参数。\n"
+"  [in] BSTR parameters,\n"
+"  // 提交的通用URL\n"
+"  [in] BSTR commonURL,\n"
+"  [in] BSTR commonRoot,\n"
+"  [in] SAFEARRAY(BSTR) pathList,\n"
+"\n"
+"  // 在提交信息中已经显示过的文字。\n"
+"  // 您的提供者应该在适当的地方包含这些文字。\n"
+"  [in] BSTR originalMessage,\n"
+"\n"
+"  // 通过下面两个参数，\n"
+"  // 你可以给提交指定版本属性。\n"
+"  // 注意：所有的 SAFEARRAY 必须是同一长度。\n"
+"  //       对于每一个属性名，必须有属性值！\n"
+"\n"
+"  // bugID 字段的内容（如果显示）\n"
+"  [in] BSTR bugID,\n"
+"\n"
+"  // bugID 字段中被修改的内容。\n"
+"  [out] BSTR * bugIDOut,\n"
+"\n"
+"  // 版本属性名的列表。\n"
+"  [out] SAFEARRAY(BSTR) * revPropNames,\n"
+"\n"
+"  // 版本属性值的列表。\n"
+"  [out] SAFEARRAY(BSTR) * revPropValues,\n"
+"\n"
+"  // 新的提交信息文本。\n"
+"  // 它将替换原始的提交信息。\n"
+"  [out, retval] BSTR * newMessage\n"
+");\n"
 
 #. (para)
 msgid "This method is called from the TortoiseSVN commit dialog when the user clicks on the plugin button. This method is called instead of <literal>GetCommitMessage()</literal>. Please refer to the documentation for <literal>GetCommitMessage</literal> for the parameters that are also used there."
-msgstr ""
+msgstr "当用户点击插件按钮时，这个方法被 TortoiseSVN 提交对话框调用。这个方法代替了 <literal>GetCommitMessage()</literal> 被调用。有些属性在 <literal>GetCommitMessage</literal> 中使用，具体请参考 <literal>GetCommitMessage</literal> 文档。"
 
 #. (para)
 msgid "The parameter <literal>commonURL</literal> is the parent URL of all items selected to bring up the commit dialog. This is basically the URL of the <literal>commonRoot</literal> path."
-msgstr ""
+msgstr "<literal>commonURL</literal> 属性是所有被选中的项目的父URL（在这些项目上打开的提交对话框）。从根本上说，这个URL就是 <literal>commonRoot</literal> 路径的URL。"
 
 #. (para)
 msgid "The parameter <literal>bugID</literal> contains the content of the bug-ID field (if it is shown, configured with the property <literal>bugtraq:message</literal>)."
