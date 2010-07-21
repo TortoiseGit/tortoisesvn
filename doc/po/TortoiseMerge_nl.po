@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
-"POT-Creation-Date: 2010-01-10 08:44 +0000\n"
-"PO-Revision-Date: 2010-02-22 13:55+0100\n"
-"Last-Translator: Jeroen van Amstel <jeroen@amstelonline.demon.nl>\n"
+"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
+"PO-Revision-Date: 2010-07-21 11:18+0100\n"
+"Last-Translator: Guus Raaphorst <Guus@Binksoftware.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,8 +101,8 @@ msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any w
 msgstr "TortoiseMerge is gratis. U hoeft er niet voor te betalen en kan op elke manier gebruikt worden. Het is ontwikkeld onder licentie van de GP license (GPL)."
 
 #. (para)
-msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge is een Open Source project. De volledige broncode is beschikbaar. Volg deze link voor de broncode <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. Er zal gevraagd worden om de gebruikersnaam en het wachtwoord in te vullen. De gebruikersnaam is <literal>guest</literal>, het wachtwoord mag leeg gelaten worden. De meest recente versie (waar nu aan wordt gewerkt) bevindt zich in <filename>/trunk/</filename> en de uitgegeven versie (release) staat in <filename>/tags/</filename>."
+msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "TortoiseMerge is een Open Source project. Dat betekent dat je leesrechten hebt voor de gehele broncode van dit programma. Volg deze link voor de broncode <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. De meest recente versie (waar nu aan wordt gewerkt) bevindt zich in <filename>/trunk/</filename> en de uitgegeven versies (release) staan in <filename>/tags/</filename>."
 
 #. (title)
 msgid "Donate!"
@@ -202,8 +202,8 @@ msgid "TortoiseMerge's History"
 msgstr "Geschiedenis van TortoiseMerge"
 
 #. (para)
-msgid "While working on <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
-msgstr "Terwijl wij aan <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> werkten, kwamen we er achter dat als gebruikers ons patches met verbeteringen of oplossingen voor problemen voor het project stuurden, we veel werk hadden aan het verwerken van die patches. Vaak waren veel van die patches al achterhaald en konden deze niet meer toegepast worden voor het command line patchprogramma <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink>, omdat we al weer verder hadden gewerkt met de bestanden in de patch dus al verschillende wijzigingen hadden doorgevoerd. "
+msgid "While working on <ulink url=\"http://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
+msgstr "Terwijl wij aan <ulink url=\"http://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> werkten, kwamen we er achter dat als gebruikers ons patches met verbeteringen of oplossingen voor problemen voor het project stuurden, we veel werk hadden aan het verwerken van die patches. Vaak waren veel van die patches al achterhaald en konden deze niet meer toegepast worden voor het command line patchprogramma <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink>, omdat we al weer verder hadden gewerkt met de bestanden in de patch dus al verschillende wijzigingen hadden doorgevoerd. "
 
 #. (para)
 msgid "This was also the main reason why TortoiseSVN did not originally have a <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> implemented: we preferred users to send us the whole files because with those it was easier to apply patches."
