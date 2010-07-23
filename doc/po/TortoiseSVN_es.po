@@ -11,14 +11,15 @@
 # Imanol <imanol.nb@gmail.com>, 2010.
 # Tommy <tommychristie@gmail.com>, 2010.
 # aabaca <abacrotto@hotmail.com>, 2010.
+# Alejandro Ariel Abaca <abacrotto@hotmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-11 08:32 +0000\n"
-"PO-Revision-Date: 2010-07-21 09:26-0300\n"
-"Last-Translator: aabaca <abacrotto@hotmail.com>\n"
-"Language-Team: HP 530 - Intel Core 2\n"
+"PO-Revision-Date: 2010-07-22 21:02-0300\n"
+"Last-Translator: Alejandro Ariel Abaca <abacrotto@hotmail.com>\n"
+"Language-Team: Fedora 13 - Sempron 1600 - 2048 MB RAM\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,16 +150,19 @@ msgstr ""
 "aplicaciones estándar de Windows. Sin embargo, debe tener en cuenta que "
 "TortoiseSVN está desarrollado con la intención de ser una extensión del "
 "Explorador de Windows. Por este motivo, puede que en otras aplicaciones la "
-"integración no sea tan completa, y que por ejemplo, los íconos sobreimpresos "
+"integración no sea tan completa, y que por ejemplo, los íconos superpuestos "
 "no se muestren."
 
 #. (term)
 msgid "Icon overlays"
-msgstr "Íconos sobreimpresos"
+msgstr "Íconos superpuestos"
 
 #. (para)
 msgid "The status of every versioned file and folder is indicated by small overlay icons. That way you can see right away what the status of your working copy is."
-msgstr "El estado de cada carpeta y archivo versionado se indica por pequeños íconos sobreimpreos. De esta forma, puede ver fácilmente el estado en el que se encuentra su copia de trabajo."
+msgstr ""
+"El estado de cada carpeta y archivo versionado se indica por pequeños íconos "
+"superpuestos. De esta forma, puede ver fácilmente el estado en el que se "
+"encuentra su copia de trabajo."
 
 #. (term)
 msgid "Graphical User Interface"
@@ -515,7 +519,11 @@ msgstr ""
 
 #. (para)
 msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
-msgstr "El soporte para Windows 98, Windows ME y Windows NT4 ha sido abandonado desde la versión 1.2.0 y el soporte para Windows 2000 fue abandonado desde la 1.7.0. Estas versiones están todavía disponibles para descargar si usted las necesita. "
+msgstr ""
+"El soporte para Windows 98, Windows ME y Windows NT4 ha sido abandonado "
+"desde la versión 1.2.0 y el soporte para Windows 2000 fue abandonado desde "
+"la 1.7.0. Estas versiones están todavía disponibles para descargar si usted "
+"las necesita. "
 
 #. (title)
 msgid "Installation"
@@ -667,7 +675,12 @@ msgstr "Haciendo Cambios"
 
 #. (para)
 msgid "Time to get to work. In the <filename>Widget1-Dev</filename> we start editing files - let's say we make changes to <filename>Widget1.c</filename> and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files have now changed to red, indicating that changes have been made locally."
-msgstr "Hora de trabajar. En la carpeta <filename>Widget1-Dev</filename> empecemos a editar archivos - por ejemplo, hagamos cambios a <filename>Widget1.c</filename> y <filename>ReadMe.txt</filename>. Note que el ícono sobreimpreso sobre esos archivos ha cambiado a rojo, indicando que se han realizado cambios recientemente."
+msgstr ""
+"Hora de trabajar. En la carpeta <filename>Widget1-Dev</filename> empecemos a "
+"editar archivos - por ejemplo, hagamos cambios a "
+"<filename>Widget1.c</filename> y <filename>ReadMe.txt</filename>. Note que "
+"el ícono superpuesto sobre esos archivos ha cambiado a rojo, indicando que "
+"se han realizado cambios recientemente."
 
 #. (title)
 msgid "File Difference Viewer"
@@ -3110,21 +3123,21 @@ msgstr "Para aprovechar al máximo la Guía de uso diario: <placeholder-1/>"
 #. (title)
 #. (title)
 msgid "Icon Overlays"
-msgstr "Íconos sobreimpresionados"
+msgstr "Íconos superpuestos"
 
 #. (title)
 #. (title)
 msgid "Explorer showing icon overlays"
-msgstr "Explorador mostrando íconos sobreimpresionados"
+msgstr "Explorador mostrando íconos superpuestos"
 
 #. (para)
 msgid "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon overlays which appear on files in your working copy. These show you at a glance which of your files have been modified. Refer to <xref linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays represent."
 msgstr ""
 "<placeholder-1/> Una de las funciones más visibles de TortoiseSVN son los "
-"íconos sobreimpresionados que aparecen en los archivos de su copia de "
-"trabajo. Estos le muestran de un vistazo qué archivos han sido modificados. "
-"Lea <xref linkend=\"tsvn-dug-wcstatus-1\"/> para averiguar qué representa cada "
-"ícono sobreimpresionado."
+"íconos superpuestos que aparecen en los archivos de su copia de trabajo. "
+"Estos le muestran de un vistazo qué archivos han sido modificados. Lea <xref "
+"linkend=\"tsvn-dug-wcstatus-1\"/> para averiguar qué representa cada ícono "
+"superpuesto."
 
 #. (title)
 msgid "Context Menus"
@@ -3223,11 +3236,11 @@ msgstr "F5"
 msgid "Refresh the current view. This is perhaps the single most useful one-key command. For example ... In Explorer this will refresh the icon overlays on your working copy. In the commit dialog it will re-scan the working copy to see what may need to be committed. In the Revision Log dialog it will contact the repository again to check for more recent changes."
 msgstr ""
 "Refresca la vista actual. Este es quizás el comando de una tecla más útil. "
-"Por ejemplo... en el Explorador esto refresca los íconos sobreimpresionados "
-"en su copia de trabajo. En el diálogo de confirmación volverá a reescanear "
-"la copia de trabajo para ver qué puede necesitar ser confirmado. En el "
-"diálogo de Mostrar Registro contactará con el repositorio de nuevo buscando "
-"los cambios más recientes."
+"Por ejemplo... en el Explorador esto refresca los íconos superpuestos en su "
+"copia de trabajo. En el diálogo de confirmación volverá a verificar la copia "
+"de trabajo para ver qué puede necesitar ser confirmado. En el diálogo de "
+"Mostrar Registro contactará con el repositorio de nuevo buscando los cambios "
+"más recientes."
 
 #. (term)
 msgid "Ctrl-A"
@@ -4016,7 +4029,17 @@ msgstr "Si actualiza un archivo o una carpeta a una revisión en concreto, no de
 
 #. (para)
 msgid "<menuchoice><guimenuitem>Update to Revision</guimenuitem></menuchoice> can occasionally be useful to see what your project looked like at some earlier point in its history. But in general, updating individual files to an earlier revision is not a good idea as it leaves your working copy in an inconsistent state. If the file you are updating has changed name, you may even find that the file just disappears from your working copy because no file of that name existed in the earlier revision. You should also note that the item will show a normal green overlay, so it is indistinguishable from files which are up-to-date."
-msgstr "<menuchoice><guimenuitem>Actualizar a la revisión</guimenuitem></menuchoice> puede ser útil a veces para ver cómo estaba su proyecto en un momento anterior en su historia. Pero en general, actualizar archivos individuales a una revisión anterior no es una buena idea, ya que deja su copia de trabajo en un estado inconsistente. Si el archivo que está actualizando ha cambiado de nombre, incluso puede encontrar que ese archivo ha desaparecido de su copia de trabajo porque en esa revisión no había ningún archivo con ese nombre. También debe tener en cuenta que el ítem mostrará una sobreimpresión normal verde, por lo que no se puede distinguir del resto de archivos que están actualizados."
+msgstr ""
+"<menuchoice><guimenuitem>Actualizar a la revisión</guimenuitem></menuchoice> "
+"puede ser útil a veces para ver cómo estaba su proyecto en un momento "
+"anterior en su historia. Pero en general, actualizar archivos individuales a "
+"una revisión anterior no es una buena idea, ya que deja su copia de trabajo "
+"en un estado inconsistente. Si el archivo que está actualizando ha cambiado "
+"de nombre, incluso puede encontrar que ese archivo ha desaparecido de su "
+"copia de trabajo porque en esa revisión no había ningún archivo con ese "
+"nombre. También debe tener en cuenta que el ítem mostrará un ícono "
+"superpuesto normal verde, por lo que no se puede distinguir del resto de "
+"archivos que están actualizados."
 
 #. (para)
 msgid "If you simply want a local copy of an old version of a file it is better to use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save revision to...</guimenuitem></menuchoice> command from the log dialog for that file."
@@ -4168,7 +4191,14 @@ msgstr "Un conflicto de árbol ocurre cuando un desarrollador mueve/renombra/eli
 
 #. (para)
 msgid "When a file is deleted locally in Subversion, the file is also deleted from the local file system, so even if it is part of a tree conflict it cannot show a conflicted overlay and you cannot right click on it to resolve the conflict. Use the <guilabel>Check for Modifications</guilabel> dialog instead to access the <guilabel>Edit conflicts</guilabel> option."
-msgstr "Cuando se elimina un archivo de forma local en Subversion, el archivo también se elimina del sistema local de archivos, por lo que incluso si es parte de un conflicto de árbol no se puede mostrar una sobreimpresión de conflicto y no puede hacer clic con el botón derecho sobre él para resolver el conflicto. En este caso, utilice el diálogo <guilabel>Comprobar modificaciones</guilabel> para acceder a la opción <guilabel>Editar conflictos</guilabel>."
+msgstr ""
+"Cuando se elimina un archivo de forma local en Subversion, el archivo "
+"también se elimina del sistema local de archivos, por lo que incluso si es "
+"parte de un conflicto de árbol no se puede mostrar un ícono superpuesto de "
+"conflicto y no puede hacer clic con el botón derecho sobre él para resolver "
+"el conflicto. En este caso, utilice el diálogo <guilabel>Comprobar "
+"modificaciones</guilabel> para acceder a la opción <guilabel>Editar "
+"conflictos</guilabel>."
 
 #. (para)
 msgid "TortoiseSVN can help find the right place to merge changes, but there may be additional work required to sort out the conflicts. Remember that after an update the working BASE will always contain the revision of each item as it was in the repository at the time of update. If you revert a change after updating it goes back to the repository state, not to the way it was when you started making your own local changes."
@@ -4470,7 +4500,7 @@ msgstr "Mientras está trabajando en su copia de trabajo a menudo necesitará sa
 #. (primary)
 #. (primary)
 msgid "overlays"
-msgstr "sobreimpresiones"
+msgstr "Superposiciones"
 
 #. (primary)
 msgid "icons"
@@ -4482,23 +4512,25 @@ msgstr ""
 "Ahora que ha obtenido una copia de trabajo desde un repositorio de "
 "Subversion, puede ver sus archivos en el explorador de Windows con los "
 "íconos cambiados. Ésta es una de las razones por las que TortoiseSVN es tan "
-"popular. TortoiseSVN añade lo que se llama un ícono sobreimpresionado al "
-"ícono de cada archivo que se superpone al ícono original del archivo. "
-"Dependiendo del estado en Subversion del archivo, el ícono sobreimpresionado "
-"es diferente."
+"popular. TortoiseSVN añade lo que se llama un ícono superpuesto al ícono de "
+"cada archivo que se superpone al ícono original del archivo. Dependiendo del "
+"estado en Subversion del archivo, el ícono superpuesto es diferente."
 
 #. (para)
 msgid "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out working copy has a green checkmark as overlay. That means the Subversion status is <emphasis>normal</emphasis>."
-msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Una copia de trabajo recién obtenida tiene una marca verde como sobreimpresión. Esto significa que el estado de Subversion es <literal>normal</literal>."
+msgstr ""
+"<graphic fileref=\"../images/InSubVersionIcon.png\"/> Una copia de trabajo "
+"recién obtenida tiene una marca verde como ícono superpuesto. Esto significa "
+"que el estado de Subversion es <literal>normal</literal>."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ModifiedIcon.png\"/> As soon as you start editing a file, the status changes to <emphasis>modified</emphasis> and the icon overlay then changes to a red exclamation mark. That way you can easily see which files were changed since you last updated your working copy and need to be committed."
 msgstr ""
 "<graphic fileref=\"../images/ModifiedIcon.png\"/> En cuanto empiece a editar "
 "un archivo, el estado cambia a <literal>modificado</literal> y el ícono "
-"sobreimpresionado cambia entonces a una marca de exclamación roja. De esta "
-"forma puede ver fácilmente qué archivos se han cambiado desde la última vez "
-"que actualizó su copia de trabajo, y que necesitan ser confirmados."
+"superpuesto cambia entonces a una marca de exclamación roja. De esta forma "
+"puede ver fácilmente qué archivos se han cambiado desde la última vez que "
+"actualizó su copia de trabajo, y que necesitan ser confirmados."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a <emphasis>conflict</emphasis> occurs then the icon changes to a yellow exclamation mark."
@@ -4513,7 +4545,7 @@ msgstr ""
 "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Si ha establecido la "
 "propiedad <literal>svn:needs-lock</literal> en un archivo, Subversion "
 "establece ese archivo como de sólo-lectura hasta que obtenga un bloqueo en "
-"él. Estos archivos tienen esta sobreimpresión para indicarle que debe "
+"él. Estos archivos tienen este ícono superpuesto para indicarle que debe "
 "obtener un bloqueo antes que pueda editarlo."
 
 #. (para)
@@ -4521,9 +4553,9 @@ msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a f
 msgstr ""
 "<graphic fileref=\"../images/LockedIcon.png\"/> Si ha obtenido un bloqueo "
 "sobre un archivo, y el estado de Subversion es <literal>normal</literal>, "
-"este ícono sobreimpresionado le recordará que debería liberar el bloqueo si "
-"no lo está utilizando para permitir a los demás que puedan confirmar sus "
-"cambios en el archivo."
+"este ícono superpuesto le recordará que debería liberar el bloqueo si no lo "
+"está utilizando para permitir a los demás que puedan confirmar sus cambios "
+"en el archivo."
 
 #. (para)
 msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <emphasis>deleted</emphasis> from version control or a file under version control is missing in a folder."
@@ -4539,25 +4571,28 @@ msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> El signo más le indica q
 
 #. (para)
 msgid "<graphic fileref=\"../images/IgnoredIcon.png\"/> The bar sign tells you that a file or folder is <emphasis>ignored</emphasis> for version control purposes. This overlay is optional."
-msgstr "<graphic fileref=\"../images/IgnoredIcon.png\"/> La barra le indica que el archivo o carpeta está <emphasis>ignorado</emphasis> para los asuntos de control de versiones. Esta sobreimpresión es opcional."
+msgstr ""
+"<graphic fileref=\"../images/IgnoredIcon.png\"/> La barra le indica que el "
+"archivo o carpeta está <emphasis>ignorado</emphasis> para los asuntos de "
+"control de versiones. Esta superposición es opcional."
 
 #. (para)
 msgid "<graphic fileref=\"../images/UnversionedIcon.png\"/> This icon shows files and folders which are not under version control, but have not been ignored. This overlay is optional."
 msgstr ""
 "<graphic fileref=\"../images/UnversionedIcon.png\"/> Este ícono muestra los "
 "archivos y carpetas que no están bajo el control de versiones pero tampoco "
-"han sido ignorados. Esta sobreimpresión es opcional."
+"han sido ignorados. Este ícono superpuesto es opcional."
 
 #. (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is very limited and if you are also using an old version of TortoiseCVS, then there are not enough overlay slots available. TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance too."
 msgstr ""
 "De hecho, puede que se encuentre con que no todos estos íconos se utilizan "
-"en su sistema. Esto se debe a que el número de sobreimpresiones permitidas "
-"por Windows está muy limitado y si está utilizando también una versión "
-"antigua de TrotoiseCVS, entonces no hay suficientes huecos de sobreimpresión "
-"disponibles.  TortoiseSVN intenta ser un <quote>Buen Ciudadano (TM)</quote> "
-"y limita su uso de sobreimpresiones para darles una oportunidad al resto de "
-"aplicaciones."
+"en su sistema. Esto se debe a que el número de íconos superpuestos "
+"permitidos por Windows es muy limitado y si está utilizando también una "
+"versión antigua de TortoiseCVS, no hay suficientes lugares disponibles para "
+"íconos superpuestos.  TortoiseSVN intenta ser un <quote>Buen Ciudadano "
+"(TM)</quote> y limita su uso de superposiciones para darles una oportunidad "
+"al resto de las aplicaciones."
 
 #. (para)
 msgid "Now that there are more Tortoise clients around (TortoiseCVS, TortoiseHG, ...) the icon limit becomes a real problem. To work around this, the TortoiseSVN project introduced a common shared icon set, loaded as a DLL, which can be used by all Tortoise clients. Check with your client provider to see if this has been integrated yet :-)"
@@ -4571,7 +4606,10 @@ msgstr ""
 
 #. (para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
-msgstr "Si desea una descripción de cómo se corresponden las sobreimpresiones con los estados de Subversion y otros detalles técnicos, lea <xref linkend=\"tsvn-app-internals-overlays\"/>."
+msgstr ""
+"Si desea una descripción de cómo se corresponden los íconos superpuestos con "
+"los estados de Subversion y otros detalles técnicos, lea <xref linkend"
+"=\"tsvn-app-internals-overlays\"/>."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
@@ -4585,8 +4623,8 @@ msgstr "Columnas del explorador"
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Windows Explorer's Details View."
 msgstr ""
 "Se puede ver la misma información que está disponible en los íconos "
-"sobreimpresionados (y mucha más) como columnas adicionales en la Vista "
-"Detalles del Explorador de Windows."
+"superpuestos (y mucha más) como columnas adicionales en la Vista Detalles "
+"del Explorador de Windows."
 
 #. (para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the <quote>Detailed View</quote>. Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
@@ -5958,8 +5996,8 @@ msgstr "<placeholder-1/> Si ha creado nuevos archivos y/o directorios durante su
 msgid "After you added the files/directories to source control the file appears with a <literal>added</literal> icon overlay which means you first have to commit your working copy to make those files/directories available to other developers. Adding a file/directory does <emphasis>not</emphasis> affect the repository!"
 msgstr ""
 "Después que añada los archivos o directorios al control de código, el "
-"archivo aparece con una sobreimpresión de ícono <literal>añadido</literal> "
-"que significa que primero debe confirmar su copia de trabajo para que esos "
+"archivo aparece con un ícono superpuesto <literal>añadido</literal> que "
+"significa que primero debe confirmar su copia de trabajo para que esos "
 "archivos y directorios estén disponibles para otros desarrolladores. ¡Añadir "
 "un archivo/directorio <emphasis>no</emphasis> afecta al repositorio!"
 
@@ -6198,14 +6236,21 @@ msgstr ""
 "nuitem></menuchoice> un archivo, se elimina de su copia de trabajo "
 "inmediatamente, a la vez que se marca para su borrado en el repositorio para "
 "la próxima confirmación. La carpeta padre del archivo muestra un ícono "
-"sobreimpresionado de <quote>eliminado</quote>. Hasta que confirme el cambio, "
-"puede recuperar el archivo utilizando <menuchoice><guimenu>TortoiseSVN</gui"
-"menu><guimenuitem>Revertir</guimenuitem></menuchoice> sobre la carpeta "
-"padre."
+"superpuesto de <quote>eliminado</quote>. Hasta que confirme el cambio, puede "
+"recuperar el archivo utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><"
+"guimenuitem>Revertir</guimenuitem></menuchoice> sobre la carpeta padre."
 
 #. (para)
 msgid "When you <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice> a folder, it remains in your working copy, but the overlay changes to indicate that it is marked for deletion. Up until you commit the change, you can get the folder back using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> on the folder itself. This difference in behaviour between files and folders is a part of Subversion, not TortoiseSVN."
-msgstr "Cuando se utiliza <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Eliminar</guimenuitem></menuchoice> sobre una carpeta, ésta continúa en su copia de trabajo, pero la sobreimpresión cambia para indicarle que está marcada para ser eliminada. Hasta que confirme el cambio, puede recuperar la carpeta utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revertir</guimenuitem></menuchoice> sobre la propia carpeta. Esta diferencia en el comportamiento entre archivos y carpetas es parte de Subversion, no de TortoiseSVN."
+msgstr ""
+"Cuando se utiliza <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Eli"
+"minar</guimenuitem></menuchoice> sobre una carpeta, ésta continúa en su "
+"copia de trabajo, pero ícono superpuesto cambia para indicarle que está "
+"marcada para ser eliminada. Hasta que confirme el cambio, puede recuperar la "
+"carpeta utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>R"
+"evertir</guimenuitem></menuchoice> sobre la propia carpeta. Esta diferencia "
+"en el comportamiento entre archivos y carpetas es parte de Subversion, no de "
+"TortoiseSVN."
 
 #. (para)
 msgid "If you want to delete an item from the repository, but keep it locally as an unversioned file/folder, use <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> key while right clicking on the item in the explorer list pane (right pane) in order to see this in the extended context menu."
@@ -6527,10 +6572,10 @@ msgstr "Página de propiedades del Explorador, pestaña Subversion"
 msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
 msgstr ""
 "<placeholder-1/> A veces desea obtener información más detallada sobre un "
-"archivo o directorio que la que proporcionan los íconos sobreimpresionados. "
-"Puede obtener toda la información que Subversion proporciona en el diálogo "
-"de propiedades del explorador. Simplemente seleccione el archivo o "
-"directorio y seleccione <menuchoice><guimenu>Menú de "
+"archivo o directorio que la que proporcionan los íconos superpuestos. Puede "
+"obtener toda la información que Subversion proporciona en el diálogo de "
+"propiedades del explorador. Simplemente seleccione el archivo o directorio y "
+"seleccione <menuchoice><guimenu>Menú de "
 "Windows</guimenu><guimenuitem>Propiedades</guimenuitem></menuchoice> en el "
 "menú contextual (atención: ésta es la entrada normal del menú de propiedades "
 "que el explorador proporciona, ¡no la que está en el submenú de "
@@ -7807,9 +7852,8 @@ msgstr ""
 "menos</emphasis> que la copia de trabajo tenga un bloqueo para ese archivo. "
 "Esto actúa como una advertencia indicando que no debería modificar el "
 "archivo a menos que obtenga un bloqueo. Los archivos que están versionados y "
-"marcados como sólo-lectura se marcan con un ícono de sobreimpresión "
-"especial en TortoiseSVN para indicar que necesita obtener un bloqueo antes "
-"de editar."
+"marcados como sólo-lectura se marcan con un ícono superpuesto especial en "
+"TortoiseSVN para indicar que necesita obtener un bloqueo antes de editar."
 
 #. (para)
 msgid "Locks are recorded by working copy location as well as by owner. If you have several working copies (at home, at work) then you can only hold a lock in <emphasis>one</emphasis> of those working copies."
@@ -7897,7 +7941,7 @@ msgstr ""
 "establecida siempre se obtendrán y actualizarán con la marca de sólo-lectura "
 "a menos que su copia de trabajo tenga un bloqueo. <graphic "
 "fileref=\"../images/ReadOnlyIcon.png\"/> Como recordatorio, TortoiseSVN "
-"utiliza un ícono de sobreimpresión especial para indicarlo."
+"utiliza un ícono de superpuesto especial para indicarlo."
 
 #. (para)
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-propertypage-auto-props\"/> for further information."
@@ -8173,7 +8217,7 @@ msgstr ""
 "A veces necesitará trabajar directamente en el repositorio, sin tener una "
 "copia de trabajo. Ésa es la razón por la que existe el <firstterm>Navegador "
 "de Repositorios</firstterm>.  Igual que el Explorador y los íconos "
-"sobreimpresionados le permiten ver su copia de trabajo, el navegador de "
+"superpuestos le permiten ver su copia de trabajo, el navegador de "
 "repositorios le permite ver la estructura y el estado del repositorio. "
 "<placeholder-1/> Con el navegador de repositorios puede ejecutar comandos "
 "como copiar, mover, renombrar... directamente en el repositorio."
@@ -8552,7 +8596,11 @@ msgstr "Usando el gráfico"
 
 #. (para)
 msgid "To make it easier to navigate a large graph, use the overview window. This shows the entire graph in a small window, with the currently displayed portion highlighted. You can drag the highlighted area to change the displayed region."
-msgstr "Para hacer más fácil la navegación en un gráfico grande, utilice la ventana sobreimpresionada. En ella se muestra el gráfico completo en una pequeña ventana, con la parte que se muestra actualmente iluminada. Puede arrastrar el área iluminada para cambiar la región que se muestra."
+msgstr ""
+"Para hacer más fácil la navegación en un gráfico grande, utilice la ventana "
+"superpuesta. En ella se muestra el gráfico completo en una pequeña ventana, "
+"con la parte que se muestra actualmente iluminada. Puede arrastrar el área "
+"iluminada para cambiar la región que se muestra."
 
 #. (para)
 msgid "The revision date, author and comments are shown in a hint box whenever the mouse hovers over a revision box."
@@ -9687,17 +9735,17 @@ msgstr "Estos colores se utilizan cuando el gráfico se divide en sub-árboles y
 
 #. (title)
 msgid "Icon Overlay Settings"
-msgstr "Configuración de los íconos sobreimpresionados"
+msgstr "Configuración de los íconos superpuestos"
 
 #. (title)
 msgid "The Settings Dialog, Icon Overlays Page"
-msgstr "El diálogo Configuración, página de Sobreimpresión de íconos"
+msgstr "El diálogo Configuración, página de íconos superpuestos"
 
 #. (para)
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays."
 msgstr ""
-"<placeholder-1/> Esta página le permite seleccionarlos ítems para los que "
-"TortoiseSVN mostrará íconos sobreimpresionados."
+"<placeholder-1/> Esta página le permite seleccionar los ítems para los que "
+"TortoiseSVN mostrará íconos superpuestos."
 
 #. (term)
 msgid "Default"
@@ -9705,11 +9753,25 @@ msgstr "Por defecto"
 
 #. (para)
 msgid "Caches all status information in a separate process (<filename>TSVNCache.exe</filename>). That process watches all drives for changes and fetches the status again if files inside a working copy get modified. The process runs with the least possible priority so other programs don't get hogged because of it. That also means that the status information is not <emphasis>real time</emphasis> but it can take a few seconds for the overlays to change."
-msgstr "Cachea toda la información de estado en un proceso separado (<filename>TSVNCache.exe</filename>). Ese proceso observa todas las unidades en busca de cambios y obtiene el estado de nuevo si se modifican archivos dentro de una copia de trabajo. El proceso se ejecuta con la menor prioridad posible para que el rendimiento de otros programas no se resientan por su culpa. Eso también significa que la información de estado no se actualiza en <emphasis>tiempo real</emphasis> sino que puede llevar unos pocos segundos hasta que las sobreimpresiones cambien."
+msgstr ""
+"Cachea toda la información de estado en un proceso separado "
+"(<filename>TSVNCache.exe</filename>). Ese proceso observa todas las unidades "
+"en busca de cambios y obtiene el estado de nuevo si se modifican archivos "
+"dentro de una copia de trabajo. El proceso se ejecuta con la menor prioridad "
+"posible para que el rendimiento de otros programas no se resientan por su "
+"culpa. Eso también significa que la información de estado no se actualiza en "
+"<emphasis>tiempo real</emphasis> sino que puede llevar unos pocos segundos "
+"hasta que los íconos superpuestos cambien."
 
 #. (para)
 msgid "Advantage: the overlays show the status recursively, i.e. if a file deep inside a working copy is modified, all folders up to the working copy root will also show the modified overlay. And since the process can send notifications to the shell, the overlays on the left tree view usually change too."
-msgstr "Ventaja: las sobreimpresiones le muestran el estado de forma recursiva, es decir, si un archivo muy dentro de su copia de trabajo se modifica, todas las carpetas padre hasta la raíz de su copia de trabajo mostrarán la sobreimpresión de modificación. Y dado que el proceso puede enviar notificaciones al shell, las sobreimpresiones del árbol de la izquierda normalmente también cambiarán."
+msgstr ""
+"Ventaja: los íconos superpuestos muestran el estado de forma recursiva, es "
+"decir, si un archivo muy dentro de su copia de trabajo se modifica, todas "
+"las carpetas padre hasta la raíz de su copia de trabajo mostrarán el ícono "
+"superpuesto de modificación. Y dado que el proceso puede enviar "
+"notificaciones al shell, los íconos superpuestos del árbol de la izquierda "
+"normalmente también cambiarán."
 
 #. (para)
 msgid "Disadvantage: the process runs constantly, even if you're not working on your projects. It also uses around 10-50 MB of RAM depending on number and size of your working copies."
@@ -9729,7 +9791,11 @@ msgstr "Ventaja: necesita únicamente muy poca memoria (alrededor de 1 MB de RAM
 
 #. (para)
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
-msgstr "Desventaja: Dado que sólo se hace caché de una carpeta, las sobreimpresiones no muestran el estado recursivamente. Para copias de trabajo grandes, mostrar una carpeta en el explorador puede llevar más tiempo que con la caché por defecto. Además, la columna tipo-mime no está disponible."
+msgstr ""
+"Desventaja: Dado que sólo se hace caché de una carpeta, las superposiciones "
+"no muestran el estado recursivamente. Para copias de trabajo grandes, "
+"mostrar una carpeta en el explorador puede llevar más tiempo que con la "
+"caché por defecto. Además, la columna tipo-mime no está disponible."
 
 #. (term)
 msgid "None"
@@ -9737,7 +9803,12 @@ msgstr "Ninguno"
 
 #. (para)
 msgid "With this setting, the TortoiseSVN does not fetch the status at all in Explorer. Because of that, files don't get an overlay and folders only get a 'normal' overlay if they're versioned. No other overlays are shown, and no extra columns are available either."
-msgstr "Con esta configuración, TortoiseSVN no obtiene ningún estado en el Explorador. Por esa causa, los archivos no tendrán sobreimpresiones y las carpetas sólo tendrán una sobreimpresión 'normal' si están versionadas. No se mostrará ninguna otra sobreimpresión, y tampoco estarán disponibles las columnas extra."
+msgstr ""
+"Con esta configuración, TortoiseSVN no obtiene ningún estado en el "
+"Explorador. Por esa causa, los archivos no tendrán íconos superpuestos y las "
+"carpetas sólo tendrán un ícono superpuesto 'normal' si están versionadas. "
+"No se mostrará ningún otro ícono superpuesto, y tampoco estarán disponibles "
+"las columnas extra."
 
 #. (para)
 msgid "Advantage: uses absolutely no additional memory and does not slow down the Explorer at all while browsing."
@@ -9749,16 +9820,22 @@ msgstr "Desventaja: La información de estado de los archivos y carpetas no se m
 
 #. (para)
 msgid "Since it takes quite a while to fetch the status of a working copy, TortoiseSVN uses a cache to store the status so the explorer doesn't get hogged too much when showing the overlays. You can choose which type of cache TortoiseSVN should use according to your system and working copy size here: <placeholder-1/>"
-msgstr "Dado que lleva bastante tiempo obtener el estado de una copia de trabajo, TortoiseSVN utiliza una caché para almacenar el estado de forma que el explorador no se vea demasiado atosigado cuando se muestren las sobreimpresiones. Puede elegir qué tipo de caché deberá utilizar TortoiseSVN de acuerdo a sus sistema y al tamaño de las copias de trabajo aquí: <placeholder-1/>"
+msgstr ""
+"Dado que lleva bastante tiempo obtener el estado de una copia de trabajo, "
+"TortoiseSVN utiliza una caché para almacenar el estado de forma que el "
+"explorador no se vea demasiado atosigado cuando se muestren los íconos "
+"superpuestos. Puede elegir qué tipo de caché deberá utilizar TortoiseSVN de "
+"acuerdo a sus sistema y al tamaño de las copias de trabajo aquí: "
+"<placeholder-1/>"
 
 #. (para)
 msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
 msgstr ""
-"Por defecto, los íconos sobreimpresionados y los menús contextuales "
-"aparecerán tanto en todos los diálogos abrir/guardar como en el Explorador "
-"de Windows. Si desea que aparezcan <emphasis>únicamente</emphasis> en el "
-"Explorador de Windows, marque <guilabel>Mostrar íconos sobreimpresionados y "
-"menú contextual sólo en el explorador</guilabel> box."
+"Por defecto, los íconos superpuestos y los menús contextuales aparecerán "
+"tanto en todos los diálogos abrir/guardar como en el Explorador de Windows. "
+"Si desea que aparezcan <emphasis>únicamente</emphasis> en el Explorador de "
+"Windows, marque <guilabel>Mostrar íconos superpuestos y menú contextual sólo "
+"en el explorador</guilabel> box."
 
 #. (para)
 msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
@@ -9768,9 +9845,9 @@ msgstr "También puede elegir marcar las carpetas como modificadas si contienen 
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
 msgstr ""
 "El siguiente grupo le permite seleccionar qué tipos de almacenamiento "
-"deberían mostrar sobreimpresiones. Por defecto, sólo los discos duros están "
-"seleccionados. Incluso puede deshabilitar todos los íconos "
-"sobreimpresionados, pero ¿qué gracia tendría eso?"
+"deberían mostrar íconos superpuestos. Por defecto, sólo los discos duros "
+"están seleccionados. Incluso puede deshabilitar todos los íconos "
+"superpuestos, pero ¿qué gracia tendría eso?"
 
 #. (para)
 msgid "Network drives can be very slow, so by default icons are not shown for working copies located on network shares."
@@ -9787,19 +9864,27 @@ msgstr "Las unidades USB Flash parecen ser un caso especial en el que el tipo de
 msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays, or if you only want TortoiseSVN to look in specific folders."
 msgstr ""
 "<guilabel>Excluir Rutas</guilabel> se usa para decirle a TortoiseSVN en qué "
-"rutas <emphasis>no</emphasis> debe mostrar íconos sobreimpresionados ni "
-"columnas de estado. Esto es útil si tiene algunas copias de trabajo muy "
-"grandes que contienen únicamente librerías que no cambian en absoluto y por "
-"tanto no necesitan las sobreimpresiones, o si solo desea que TortoiseSVN "
-"tome en cuenta carpetas específicas."
+"rutas <emphasis>no</emphasis> debe mostrar íconos superpuestos ni columnas "
+"de estado. Esto es útil si tiene algunas copias de trabajo muy grandes que "
+"contienen únicamente librerías que no cambian en absoluto y por tanto no "
+"necesitan los íconos superpuestos, o si solo desea que TortoiseSVN tome en "
+"cuenta carpetas específicas."
 
 #. (para)
 msgid "Any path you specify here is assumed to apply recursively, so none of the child folders will show overlays either. If you want to exclude <emphasis>only</emphasis> the named folder, append <literal>?</literal> after the path."
-msgstr "Se asume que cualquier ruta que especifique aquí  se aplicará recursivamente, por tanto ninguna de las carpetas hijas mostrará sobreimpresiones. Si quiere excluír <emphasis>solo</emphasis> la carpeta nombrada, agregue <literal>?</literal> después de la ruta."
+msgstr ""
+"Se asume que cualquier ruta que especifique aquí  se aplicará "
+"recursivamente, por tanto ninguna de las carpetas hijas mostrará íconos "
+"superpuestos. Si quiere excluír <emphasis>solo</emphasis> la carpeta "
+"nombrada, agregue <literal>?</literal> después de la ruta."
 
 #. (para)
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
-msgstr "Lo mismo se aplica a <guilabel>Incluir rutas</guilabel>. Excepto que para esas rutas las sobreimpresiones se muestran incluso si están deshabilitadas para ese tipo de unidad en concreto, o por una ruta de exclusión especificada más arriba."
+msgstr ""
+"Lo mismo se aplica a <guilabel>Incluir rutas</guilabel>. Excepto que para "
+"esas rutas los íconos superpuestos se muestran incluso si están "
+"deshabilitadas para ese tipo de unidad en concreto, o por una ruta de "
+"exclusión especificada más arriba."
 
 #. (para)
 msgid "Users sometimes ask how these three settings interact. For any given path check the include and exclude lists, seeking upwards through the directory structure until a match is found. When the first match is found, obey that include or exclude rule. If there is a conflict, a single directory spec takes precedence over a recursive spec, then inclusion takes precedence over exclusion."
@@ -9827,7 +9912,11 @@ msgstr ""
 "\n"
 "Include:\n"
 "       C:\\develop\n"
-"</screen> Estas configuraciones deshabilitan los sobreimpresos para la unidad C:, excepto para <literal>c:\\develop</literal>. Todos los proyectos dentro de esa carpeta mostrarán sobreimpresos, excepto por la carpeta <literal>c:\\develop</literal> misma, que queda ignorada específicamente. Las carpetas de archivos binarios también quedan excluídas."
+"</screen> Estas configuraciones deshabilitan los íconos superpuestos para la "
+"unidad C:, excepto para <literal>C:\\develop</literal>. Todos los proyectos "
+"dentro de esa carpeta mostrarán íconos superpuestos, excepto por la carpeta "
+"<literal>C:\\develop</literal> misma, que queda ignorada específicamente. Las "
+"carpetas de archivos binarios también quedan excluídas."
 
 #. (para)
 msgid "TSVNCache.exe also uses these paths to restrict its scanning. If you want it to look only in particular folders, disable all drive types and include only the folders you specifically want to be scanned."
@@ -9850,15 +9939,18 @@ msgstr ""
 "A menudo es conveniente utilizar una unidad <literal>SUBST</literal> para "
 "acceder a sus copias de trabajo, por ejemplo utilizando el comando <screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
-"</screen> Sin embargo esto puede ocasionar que las sobreimpresiones no se "
+"</screen> Sin embargo esto puede ocasionar que los íconos superpuestos no se "
 "actualicen, ya que <literal>TSVNCache</literal> sólo recibirá una "
 "notificación cuando cambie un archivo, y eso es normalmente para la ruta "
-"original. Esto significa que sus sobreimpresiones sobre rutas "
+"original. Esto significa que sus íconos superpuestos sobre rutas "
 "<literal>subst</literal> puede que nunca se actualicen."
 
 #. (para)
 msgid "An easy way to work around this is to exclude the original path from showing overlays, so that the overlays show up on the <literal>subst</literal> path instead."
-msgstr "Una forma fácil de evitar esto es excluir de las sobreimpresiones la ruta original, de forma que las sobreimpresiones aparezcan ahora en la ruta <literal>subst</literal>."
+msgstr ""
+"Una forma fácil de evitar esto es excluir de los íconos superpuestos la ruta "
+"original, de forma que los íconos superpuestos aparezcan ahora en la ruta "
+"<literal>subst</literal>."
 
 #. (para)
 msgid "Sometimes you will exclude areas that contain working copies, which saves TSVNCache from scanning and monitoring for changes, but you still want a visual indication that such folders are versioned. The <guilabel>Show excluded folders as 'normal'</guilabel> checkbox allows you to do this. With this option, versioned folders in any excluded area (drive type not checked, or specifically excluded) will show up as normal and up-to-date, with a green check mark. This reminds you that you are looking at a working copy, even though the folder overlays may not be correct. Files do not get an overlay at all. Note that the context menus still work, even though the overlays are not shown."
@@ -9870,10 +9962,10 @@ msgstr ""
 "hacer esto. Con esta opción, las carpetas versionadas en cualquier área "
 "excluída (tipo de unidad no marcada, o excluída explícitamente) se mostrarán "
 "como normal y como actualizadas, con una marca verde. Esto le recuerda que "
-"está viendo una copia de trabajo, incluso aunque las sobreimpresiones de las "
-"carpetas no sean correctas. Los archivos no tendrán ninguna sobreimpresión. "
-"Tenga en cuenta que los menús contextuales seguirán funcionando, incluso "
-"aunque las sobreimpresiones no se muestren."
+"está viendo una copia de trabajo, incluso aunque los íconos superpuestos de "
+"las carpetas no sean correctas. Los archivos no tendrán ningún ícono "
+"superpuesto. Tenga en cuenta que los menús contextuales seguirán "
+"funcionando, incluso aunque los íconos superpuestos no se muestren."
 
 #. (para)
 msgid "As a special exception to this, drives <literal>A:</literal> and <literal>B:</literal> are never considered for the <guilabel>Show excluded folders as 'normal'</guilabel> option. This is because Windows is forced to look on the drive, which can result in a delay of several seconds when starting Explorer, even if your PC does have a floppy drive."
@@ -9890,14 +9982,14 @@ msgstr "El diálogo Configuración, página de Conjunto de íconos"
 #. (para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
 msgstr ""
-"<placeholder-1/> También puede cambiar el conjunto de íconos de "
-"sobreimpresión al que más le guste. Tenga en cuenta que si cambia el "
-"conjunto de sobreimpresiones, puede tener que reiniciar su ordenador para "
-"que estos cambios surtan efecto."
+"<placeholder-1/> También puede cambiar el conjunto de íconos superpuestos al "
+"que más le guste. Tenga en cuenta que si cambia el conjunto de "
+"superposiciones, puede tener que reiniciar su ordenador para que estos "
+"cambios surtan efecto."
 
 #. (title)
 msgid "Enabled Overlay Handlers"
-msgstr "Manejadores de sobreimpresos habilitados"
+msgstr "Manejadores de superpuestos habilitados"
 
 #. (title)
 msgid "The Settings Dialog, Icon Handlers Page"
@@ -9905,7 +9997,13 @@ msgstr "El Diálogo de Configuración, Página de Manejadores de Íconos"
 
 #. (para)
 msgid "<placeholder-1/> Because the number of overlays available is severely restricted, you can choose to disable some handlers to ensure that the ones you want will be loaded. Because TortoiseSVN uses the common TortoiseOverlays component which is shared with other Tortoise clients (e.g. TortoiseCVS, TortoiseHG) this setting will affect those clients too."
-msgstr "<placeholder-1/> Dado que la cantidad de sobreimpresos está severamente restringida, puede elegir deshabilitar algunos manejadores para asegurarse que los que quiere siempre se cargan. Dado que TortoiseSVN usa el componente común TortoiseOverlays que es compartido con otros clientes Tortoise (por ejemplo TortoiseCVS, TortoiseHG) esta configuración afectará también a esos clientes."
+msgstr ""
+"<placeholder-1/> Dado que la cantidad de íconos superpuestos está "
+"severamente restringida, puede elegir deshabilitar algunos manejadores para "
+"asegurarse que los que quiere siempre se cargan. Dado que TortoiseSVN usa el "
+"componente común TortoiseOverlays que es compartido con otros clientes "
+"Tortoise (por ejemplo TortoiseCVS, TortoiseHG), esta configuración afectará "
+"también a esos clientes."
 
 #. (title)
 msgid "Network Settings"
@@ -10792,7 +10890,10 @@ msgstr "Al igual que con el explorador, TortoiseSVN muestra comandos adicionales
 
 #. (para)
 msgid "If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. Update, Commit, ...) then set this value to <literal>true</literal>."
-msgstr "Si no desea que el explorador actualice las sobreimpresiones de estado mientras otro comando TortoiseSVN se esté ejecutando (por ejemplo Actualizar, Confirmar, ...), establezca este valor a <literal>true</literal>."
+msgstr ""
+"Si no desea que el explorador actualice los íconos de estado mientras otro "
+"comando TortoiseSVN se esté ejecutando (por ejemplo Actualizar, Confirmar, "
+"...), establezca este valor a <literal>true</literal>."
 
 #. (para)
 msgid "This value contains the URL from which TortoiseSVN tries to download a text file to find out if there are updates available. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it."
@@ -13371,7 +13472,9 @@ msgstr "Ruta al archivo mostrado a la derecha."
 
 #. (entry)
 msgid "If specified, the image diff tool switches to the overlay mode (alpha blend)."
-msgstr "Si se especifica, la herramienta de diferencias de imágenes cambia al modo de sobreimpresión (fundido alpha)."
+msgstr ""
+"Si se especifica, la herramienta de diferencias de imágenes cambia al modo "
+"superpuesto (fundido alpha)."
 
 #. (entry)
 msgid "If specified, the image diff tool fits both images together."
@@ -13934,7 +14037,7 @@ msgstr "Aplicar parches es un trabajo complicado a no ser que el parche y la cop
 
 #. (title)
 msgid "Implementation Details"
-msgstr "Detalles de implementacion"
+msgstr "Detalles de implementación"
 
 #. (para)
 msgid "This appendix contains a more detailed discussion of the implementation of some of TortoiseSVN's features."
@@ -13942,7 +14045,7 @@ msgstr "Este apéndice contiene una discusión más detallada sobre la implement
 
 #. (primary)
 msgid "overlay priority"
-msgstr "prioridad de sobreimpresión"
+msgstr "prioridad de superposición"
 
 #. (para)
 msgid "Every file and folder has a Subversion status value as reported by the Subversion library. In the command line client, these are represented by single letter codes, but in TortoiseSVN they are shown graphically using the icon overlays. Because the number of overlays is very limited, each overlay may represent one of several status values."
@@ -13950,49 +14053,109 @@ msgstr ""
 "Cada archivo y carpeta tiene un valor del estado de Subversion tal y como lo "
 "devuelve la librería de Subversion. En el cliente de línea de comandos, "
 "estos valores se representan por códigos de una única letra, pero en "
-"TortoiseSVN se muestran gráficamente utilizando los íconos "
-"sobreimpresionados. Dado que el número de sobreimpresiones es muy limitado, "
-"cada sobreimpresión puede representar uno de varios valores de estado."
+"TortoiseSVN se muestran gráficamente utilizando los íconos superpuestos. "
+"Dado que el número de íconos superpuestos es muy limitado, cada ícono puede "
+"representar uno de varios valores de estado."
 
 #. (para)
 msgid "<graphic fileref=\"images/ConflictIcon.png\"/> The <emphasis>Conflicted</emphasis> overlay is used to represent the <literal>conflicted</literal> state, where an update or switch results in conflicts between local changes and changes downloaded from the repository. It is also used to indicate the <literal>obstructed</literal> state, which can occur when an operation is unable to complete."
-msgstr "<graphic fileref=\"images/ConflictIcon.png\"/> La sobreimpresión <emphasis>En conflicto</emphasis> se utiliza para representar el estado <literal>en conflicto</literal>, donde una actualización o un cambio han resultado en conflictos entre los cambios locales y los cambios descargados desde el repositorio. También se utiliza para indicar el estado <literal>obstruído</literal>, que puede ocurrir cuando una operación no puede terminar."
+msgstr ""
+"<graphic fileref=\"images/ConflictIcon.png\"/> El ícono superpuesto  "
+"<emphasis>En conflicto</emphasis> se utiliza para representar el estado "
+"<literal>en conflicto</literal>, donde una actualización o un cambio han "
+"resultado en conflictos entre los cambios locales y los cambios descargados "
+"desde el repositorio. También se utiliza para indicar el estado "
+"<literal>obstruído</literal>, que puede ocurrir cuando una operación no "
+"puede terminar."
 
 #. (para)
 msgid "<graphic fileref=\"images/ModifiedIcon.png\"/> The <emphasis>Modified</emphasis> overlay represents the <literal>modified</literal> state, where you have made local modifications, the <literal>merged</literal> state, where changes from the repository have been merged with local changes, and the <literal>replaced</literal> state, where a file has been deleted and replaced by another different file with the same name."
-msgstr "<graphic fileref=\"images/ModifiedIcon.png\"/> La sobreimpresión <emphasis>Modificado</emphasis> representa el estado <literal>modificado</literal>, donde ha hecho modificaciones locales; el estado <literal>fusionado</literal>, donde los cambios del repositorio se han fusionado con sus cambios locales; y el estado <literal>reemplazado</literal>, donde un archivo ha sido eliminado y reemplazado por otro diferente con el mismo nombre."
+msgstr ""
+"<graphic fileref=\"images/ModifiedIcon.png\"/> El ícono superpuesto "
+"<emphasis>Modificado</emphasis> representa el estado "
+"<literal>modificado</literal>, donde ha hecho modificaciones locales; el "
+"estado <literal>fusionado</literal>, donde los cambios del repositorio se "
+"han fusionado con sus cambios locales; y el estado "
+"<literal>reemplazado</literal>, donde un archivo ha sido eliminado y "
+"reemplazado por otro diferente con el mismo nombre."
 
 #. (para)
 msgid "<graphic fileref=\"images/DeletedIcon.png\"/> The <emphasis>Deleted</emphasis> overlay represents the <literal>deleted</literal> state, where an item is scheduled for deletion, or the <literal>missing</literal> state, where an item is not present. Naturally an item which is missing cannot have an overlay itself, but the parent folder can be marked if one of its child items is missing."
-msgstr "<graphic fileref=\"images/DeletedIcon.png\"/> La sobreimpresión <emphasis>Eliminado</emphasis> representa el estado <literal>eliminado</literal>, donde un ítem está marcado para su eliminación; o el estado <literal>faltante</literal>, donde un ítem no está presente. Naturalmente un ítem que está faltante no puede tener una sobreimpresión sobre si mismo, pero la carpeta padre puede marcarse si uno de sus ítems hijo falta."
+msgstr ""
+"<graphic fileref=\"images/DeletedIcon.png\"/> El ícono superpuesto "
+"<emphasis>Eliminado</emphasis> representa el estado "
+"<literal>eliminado</literal>, donde un ítem está marcado para su "
+"eliminación; o el estado <literal>faltante</literal>, donde un ítem no está "
+"presente. Naturalmente un ítem que está faltante no puede tener un ícono, "
+"pero la carpeta padre puede marcarse si uno de sus ítems hijo falta."
 
 #. (para)
 msgid "<graphic fileref=\"images/AddedIcon.png\"/> The <emphasis>Added</emphasis> overlay is simply used to represent the <literal>added</literal> status when an item has been added to version control."
-msgstr "<graphic fileref=\"images/AddedIcon.png\"/> La sobreimpresión <emphasis>Añadido</emphasis> se utiliza simplemente para representar el estado <literal>añadido</literal> cuando un ítem ha sido añadido al control de versiones."
+msgstr ""
+"<graphic fileref=\"images/AddedIcon.png\"/> El ícono superpuesto  "
+"<emphasis>Añadido</emphasis> se utiliza simplemente para representar el "
+"estado <literal>añadido</literal> cuando un ítem ha sido añadido al control "
+"de versiones."
 
 #. (para)
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> The <emphasis>In Subversion</emphasis> overlay is used to represent an item which is in the <literal>normal</literal> state, or a versioned item whose state is not yet known. Because TortoiseSVN uses a background caching process to gather status, it may take a few seconds before the overlay updates."
-msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> La sobreimpresión <emphasis>En Subversion</emphasis> se utiliza para representar un ítem que está en el estado <literal>normal</literal>, o un ítem versionado cuyo estado aún se desconoce. dado que TortoiseSVN utiliza un proceso de caché en segundo plano para obtener los estados, puede llevar unos pocos segundos antes deque se actualice la sobreimpresión."
+msgstr ""
+"<graphic fileref=\"images/InSubVersionIcon.png\"/> El ícono superpuesto "
+"<emphasis>En Subversion</emphasis> se utiliza para representar un ítem que "
+"está en el estado <literal>normal</literal>, o un ítem versionado cuyo "
+"estado aún se desconoce. Dado que TortoiseSVN utiliza un proceso de caché en "
+"segundo plano para obtener los estados, puede llevar unos pocos segundos "
+"antes que se actualice el ícono superpuesto."
 
 #. (para)
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</emphasis> overlay is used to indicate when a file has the <literal>svn:needs-lock</literal> property set. For working copies which were created using Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal> status is cached locally by Subversion and this is used to determine when to show this overlay. For working copies which are in pre-1.4.x format, TortoiseSVN shows this overlay when the file has read-only status. Note that Subversion automatically upgrades working copies when you update them, although the caching of the <literal>svn:needs-lock</literal> property may not happen until the file itself is updated."
-msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> La sobreimpresión <emphasis>Necesita bloqueo</emphasis> se utiliza para indicar cuándo un archivo tiene establecida la propiedad <literal>svn:needs-lock</literal>. Para las copias de trabajo que fueron creadas utilizando Subversion 1.4.0 y posteriores, el estado <literal>svn:needs-lock</literal> se guarda en la caché local por Subversion y se utiliza para determinar cuándo mostrar esta sobreimpresión. Para copias de trabajo que están en formato pre-1.4.x, TortoiseSVN muestra esta sobreimpresión cuando el archivo tiene el estado de sólo-lectura. Tenga en cuenta que Subversion automáticamente actualiza las copias de trabajo cuando las actualiza, aunque el almacenamiento en caché de la propiedad <literal>svn:needs-lock</literal> puede no realizarse hasta que el propio archivo se actualice."
+msgstr ""
+"<graphic fileref=\"images/ReadOnlyIcon.png\"/> El ícono superpuesto "
+"<emphasis>Necesita bloqueo</emphasis> se utiliza para indicar que un archivo "
+"tiene establecida la propiedad <literal>svn:needs-lock</literal>. Para las "
+"copias de trabajo que fueron creadas utilizando Subversion 1.4.0 y "
+"posteriores, el estado <literal>svn:needs-lock</literal> se guarda en la "
+"caché local por Subversion y se utiliza para determinar cuando mostrar este "
+"ícono superpuesto. Para copias de trabajo que están en formato pre-1.4.x, "
+"TortoiseSVN muestra este ícono cuando el archivo tiene el estado de sólo-"
+"lectura. Tenga en cuenta que Subversion automáticamente actualiza las copias "
+"de trabajo cuando las actualiza, aunque el almacenamiento en caché de la "
+"propiedad <literal>svn:needs-lock</literal> puede no realizarse hasta que el "
+"propio archivo se actualice."
 
 #. (para)
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis> overlay is used when the local working copy holds a lock for that file."
-msgstr "<graphic fileref=\"images/LockedIcon.png\"/> La sobreimpresión <emphasis>Bloqueado</emphasis> se utiliza cuando la copia de trabajo local contiene un bloqueo para ese archivo."
+msgstr ""
+"<graphic fileref=\"images/LockedIcon.png\"/> El ícono superpuesto "
+"<emphasis>Bloqueado</emphasis> se utiliza cuando la copia de trabajo local "
+"contiene un bloqueo para ese archivo."
 
 #. (para)
 msgid "<graphic fileref=\"images/IgnoredIcon.png\"/> The <emphasis>Ignored</emphasis> overlay is used to represent an item which is in the <literal>ignored</literal> state, either due to a global ignore pattern, or the <literal>svn:ignore</literal> property of the parent folder. This overlay is optional."
-msgstr "<graphic fileref=\"images/IgnoredIcon.png\"/> La sobreimpresión <emphasis>Ignorado</emphasis> se utiliza para representar un ítem que está en el estado <literal>ignorado</literal>, bien por un patrón global de ignorado, o por la propiedad <literal>svn:ignore</literal> de la carpeta padre. Esta sobreimpresión es opcional."
+msgstr ""
+"<graphic fileref=\"images/IgnoredIcon.png\"/> El ícono superpuesto "
+"<emphasis>Ignorado</emphasis> se utiliza para representar un ítem que está "
+"en el estado <literal>ignorado</literal>, bien por un patrón global de "
+"ignorado, o por la propiedad <literal>svn:ignore</literal> de la carpeta "
+"padre. Este ícono superpuesto es opcional."
 
 #. (para)
 msgid "<graphic fileref=\"images/UnversionedIcon.png\"/> The <emphasis>Unversioned</emphasis> overlay is used to represent an item which is in the <literal>unversioned</literal> state. This is an item in a versioned folder, but which is not under version control itself. This overlay is optional."
-msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> La sobreimpresión <emphasis>No versionado</emphasis> se utiliza para representar a un ítem que está en el estado <literal>no versionado</literal>. Este es un ítem dentro de una carpeta versionada, pero que él mismo no está bajo el control de versiones. Esta sobreimpresión es opcional."
+msgstr ""
+"<graphic fileref=\"images/UnversionedIcon.png\"/> El ícono superpuesto "
+"<emphasis>No versionado</emphasis> se utiliza para representar a un ítem que "
+"está en el estado <literal>no versionado</literal>. Este es un ítem dentro "
+"de una carpeta versionada, pero que él mismo no está bajo el control de "
+"versiones. Este ícono es opcional."
 
 #. (para)
 msgid "If an item has subversion status <literal>none</literal> (the item is not within a working copy) then no overlay is shown. If you have chosen to disable the <emphasis>Ignored</emphasis> and <emphasis>Unversioned</emphasis> overlays then no overlay will be shown for those files either."
-msgstr "Si un ítem tiene el estado de Subversion <literal>ninguno</literal> (el ítem no está dentro de una copia de trabajo), entonces no se mostrará ninguna sobreimpresión. Si ha escogido deshabilitar las sobreimpresiones <emphasis>Ignorado</emphasis> y <emphasis>Sin versionar</emphasis> entonces tampoco se mostrarán las sobreimpresiones para estos archivos."
+msgstr ""
+"Si un ítem tiene el estado de Subversion <literal>ninguno</literal> (el ítem "
+"no está dentro de una copia de trabajo), entonces no se mostrará ninguna "
+"superposición. Si ha escogido deshabilitar los íconos superpuestos "
+"<emphasis>Ignorado</emphasis> y <emphasis>Sin versionar</emphasis> entonces "
+"tampoco se mostrarán las superposiciones para estos archivos."
 
 #. (para)
 msgid "An item can only have one Subversion status value. For example a file could be locally modified and it could be marked for deletion at the same time. Subversion returns a single status value - in this case <literal>deleted</literal>. Those priorities are defined within Subversion itself."
@@ -14000,18 +14163,24 @@ msgstr "Un ítem sólo puede tener un valor de estado de Subversion. Por ejemplo
 
 #. (para)
 msgid "When TortoiseSVN displays the status recursively (the default setting), each folder displays an overlay reflecting its own status and the status of all its children. In order to display a single <emphasis>summary</emphasis> overlay, we use the priority order shown above to determine which overlay to use, with the <emphasis>Conflicted</emphasis> overlay taking highest priority."
-msgstr "Cuando TortoiseSVN muestra el estado recursivamente (la configuración por defecto), cada carpeta muestra una sobreimpresión reflejando su propio estado y el estado de todos sus hijos. Para mostrar una única sobreimpresión <emphasis>resumen</emphasis>, utilizamos el orden de prioridad mostrado arriba para determinar qué sobreimpresión utilizar, tomando la sobreimpresión <emphasis>En conflicto</emphasis> como la que tiene mayor prioridad."
+msgstr ""
+"Cuando TortoiseSVN muestra el estado recursivamente (la configuración por "
+"defecto), cada carpeta muestra un ícono superpuesto reflejando su propio "
+"estado y el estado de todos sus hijos. Para mostrar un único ícono "
+"<emphasis>resumen</emphasis>, utilizamos el orden de prioridad mostrado "
+"arriba para determinar cual utilizar, tomando <emphasis>En "
+"conflicto</emphasis> como la que tiene mayor prioridad."
 
 #. (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
 msgstr ""
 "De hecho, puede que se encuentre con que no todos estos íconos se utilizan "
-"en su sistema. Esto se debe a que el número de sobreimpresiones permitidas "
+"en su sistema. Esto se debe a que el número de superposiciones permitidas "
 "por Windows está limitado a 15. Windows utiliza 4 de ellas, y las 11 "
 "restantes pueden ser utilizados por otras aplicaciones. Si no hay "
-"suficientes espacios para sobreimpresiones disponibles, TortoiseSVN intenta "
-"ser un <quote>Buen Ciudadano (TM)</quote> y limita su uso de "
-"sobreimpresiones para darles una oportunidad al resto de aplicaciones."
+"suficientes espacios para superposiciones disponibles, TortoiseSVN intenta "
+"ser un <quote>Buen Ciudadano (TM)</quote> y limita su uso de ellas para "
+"darles una oportunidad al resto de aplicaciones."
 
 #. (para)
 msgid "<emphasis>Normal</emphasis>, <emphasis>Modified</emphasis> and <emphasis>Conflicted</emphasis> are always loaded and visible."
@@ -14027,11 +14196,17 @@ msgstr "<emphasis>Sólo-lectura</emphasis> se carga si es posible, pero se cambi
 
 #. (para)
 msgid "<emphasis>Locked</emphasis> is only loaded if there are fewer than 13 overlays already loaded. It falls back to <emphasis>Normal</emphasis> if there are not enough slots."
-msgstr "<emphasis>Bloqueado</emphasis> se carga sólo si hay menos de 13 sobreimpresiones ya cargadas. Se cambia por <emphasis>Normal</emphasis> si no hay suficientes huecos."
+msgstr ""
+"<emphasis>Bloqueado</emphasis> se carga sólo si hay menos de 13 "
+"superposiciones ya cargadas. Se cambia por <emphasis>Normal</emphasis> si no "
+"hay suficientes lugares disponibles."
 
 #. (para)
 msgid "<emphasis>Added</emphasis> is only loaded if there are fewer than 14 overlays already loaded. It falls back to <emphasis>Modified</emphasis> if there are not enough slots."
-msgstr "<emphasis>Añadido</emphasis> se carga sólo si hay menos de 14 sobreimpresiones ya cargadas. Se cambia por <emphasis>Modificado</emphasis> si no hay suficientes huecos."
+msgstr ""
+"<emphasis>Añadido</emphasis> se carga sólo si hay menos de 14 "
+"superpusiciones ya cargadas. Se cambia por <emphasis>Modificado</emphasis> "
+"si no hay suficientes lugares disponibles."
 
 #. (title)
 msgid "Securing Svnserve using SSH"
