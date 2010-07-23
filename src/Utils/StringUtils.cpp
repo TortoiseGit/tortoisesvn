@@ -153,34 +153,44 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, 
     {
         int pos=0;
         int oldpos=0;
-        while ((pos>=0)&&(temp.Find(' ', pos)<limit)&&(temp.Find(' ', pos)>0))
+        int newpos = temp.Find(' ', pos);
+        while ((pos >= 0) && (newpos > 0) && (newpos < limit))
         {
             oldpos = pos;
             pos = temp.Find(' ', pos+1);
+            if (pos >= 0)
+                newpos = temp.Find(' ', pos);
         }
         if (oldpos==0)
             oldpos = temp.Find(' ');
-        if (pos<0)
+        if (oldpos<0)
         {
             retString += temp;
             temp.Empty();
         }
         else
         {
-            CString longline = oldpos >= 0 ? temp.Left(oldpos+1) : temp;
-            if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+            if (bCompactPaths)
             {
-                if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+                CString longline = oldpos >= 0 ? temp.Left(oldpos+1) : temp;
+                if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
                 {
-                    TCHAR buf[MAX_PATH];
-                    PathCompactPathEx(buf, longline, limit+1, 0);
-                    longline = buf;
+                    if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+                    {
+                        TCHAR buf[MAX_PATH];
+                        PathCompactPathEx(buf, longline, limit+1, 0);
+                        longline = buf;
+                    }
                 }
+                retString += longline;
+            }
+            else
+            {
+                retString += oldpos >= 0 ? temp.Left(oldpos+1) : temp;
             }
 
-            retString += longline;
             if (oldpos >= 0)
-                temp = temp.Mid(oldpos+1);
+                temp.Delete(0, oldpos+1);
             else
                 temp.Empty();
         }
