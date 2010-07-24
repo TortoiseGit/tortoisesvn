@@ -58,6 +58,9 @@ END_MESSAGE_MAP()
 void CLocatorBar::DocumentUpdated()
 {
     m_pMainFrm = (CMainFrame *)this->GetParentFrame();
+    if (m_pMainFrm == NULL)
+        return;
+
     m_nLines = 0;
     DocumentUpdated(m_pMainFrm->m_pwndLeftView, m_arLeftIdent, m_arLeftState);
     DocumentUpdated(m_pMainFrm->m_pwndRightView, m_arRightIdent, m_arRightState);

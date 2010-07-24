@@ -201,6 +201,9 @@ public:
     int             m_nMoveMovesToIgnore;
     bool            m_bCollapsed;
     bool            m_bViewMovedBlocks;
+    bool            m_bWrapLines;
 
     void            ShowDiffBar(bool bShow);
+    afx_msg void OnViewWraplonglines();
+    afx_msg void OnUpdateViewWraplonglines(CCmdUI *pCmdUI);
 };

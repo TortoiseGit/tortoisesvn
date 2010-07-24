@@ -61,7 +61,7 @@ public:
 #ifdef _MFC_VER
     static BOOL WildCardMatch(const CString& wildcard, const CString& string);
     static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
-    static CString WordWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
+    static CString WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize);
 
     /**
      * Removes all '&' chars from a string.

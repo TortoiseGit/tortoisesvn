@@ -75,6 +75,7 @@ CBaseView::CBaseView()
     m_nLineHeight = -1;
     m_nCharWidth = -1;
     m_nScreenChars = -1;
+    m_nLastScreenChars = -1;
     m_nMaxLineLength = -1;
     m_nScreenLines = -1;
     m_nTopLine = 0;
@@ -121,6 +122,8 @@ CBaseView::CBaseView()
     m_hLineEndingLF = LoadIcon(IDI_LINEENDINGLF);
     m_hEditedIcon = LoadIcon(IDI_LINEEDITED);
     m_hMovedIcon = LoadIcon(IDI_MOVEDLINE);
+
+    m_nCachedWrappedLine = -1;
 
     for (int i=0; i<1024; ++i)
         m_sConflictedText += _T("??");
@@ -191,6 +194,7 @@ void CBaseView::DocumentUpdated()
     m_nLineHeight = -1;
     m_nCharWidth = -1;
     m_nScreenChars = -1;
+    m_nLastScreenChars = -1;
     m_nMaxLineLength = -1;
     m_nScreenLines = -1;
     m_nTopLine = 0;
@@ -210,7 +214,7 @@ void CBaseView::DocumentUpdated()
     DeleteFonts();
     m_nSelBlockStart = -1;
     m_nSelBlockEnd = -1;
-    BuildScreen2ViewVector();
+    BuildAllScreen2ViewVector();
     RecalcVertScrollBar();
     RecalcHorzScrollBar();
     UpdateStatusBar();
@@ -425,7 +429,9 @@ int CBaseView::GetScreenChars()
     {
         CRect rect;
         GetClientRect(&rect);
-        m_nScreenChars = (rect.Width() - GetMarginWidth()) / GetCharWidth();
+        m_nScreenChars = (rect.Width() - GetMarginWidth() - GetSystemMetrics(SM_CXVSCROLL)) / GetCharWidth();
+        if (m_nScreenChars < 0)
+            m_nScreenChars = 0;
     }
     return m_nScreenChars;
 }
@@ -488,7 +494,7 @@ int CBaseView::GetMaxLineLength()
     return m_nMaxLineLength;
 }
 
-int CBaseView::GetLineActualLength(int index) const
+int CBaseView::GetLineActualLength(int index)
 {
     if (m_Screen2View.size() == 0)
         return 0;
@@ -496,7 +502,7 @@ int CBaseView::GetLineActualLength(int index) const
     return CalculateActualOffset(index, GetLineLength(index));
 }
 
-int CBaseView::GetLineLength(int index) const
+int CBaseView::GetLineLength(int index)
 {
     if (m_pViewData == NULL)
         return 0;
@@ -505,6 +511,12 @@ int CBaseView::GetLineLength(int index) const
     if ((int)m_Screen2View.size() <= index)
         return 0;
     int viewLine = m_Screen2View[index];
+    if (m_pMainFrame->m_bWrapLines)
+    {
+        int nLineLength = GetLineChars(index).GetLength();
+        ASSERT(nLineLength >= 0);
+        return nLineLength;
+    }
     int nLineLength = m_pViewData->GetLine(viewLine).GetLength();
     ASSERT(nLineLength >= 0);
     return nLineLength;
@@ -519,7 +531,20 @@ int CBaseView::GetLineCount() const
     return nLineCount;
 }
 
-LPCTSTR CBaseView::GetLineChars(int index) const
+int CBaseView::GetSubLineOffset(int index)
+{
+    int subLine = 0;
+    int viewLine = m_Screen2View[index];
+    while ((index-subLine > 0) && (m_Screen2View[index-subLine] == viewLine))
+        subLine++;
+    subLine--;
+    if ((subLine == 0)&&(index+1 < m_Screen2View.size())&&(m_Screen2View[index+1] != viewLine))
+        return -1;
+
+    return subLine;
+}
+
+CString CBaseView::GetLineChars(int index)
 {
     if (m_pViewData == NULL)
         return 0;
@@ -527,6 +552,36 @@ LPCTSTR CBaseView::GetLineChars(int index) const
         return 0;
     if ((int)m_Screen2View.size() <= index)
         return 0;
+    if (m_pMainFrame->m_bWrapLines)
+    {
+        int subLine = GetSubLineOffset(index);
+        if (subLine >= 0)
+        {
+            int viewLine = m_Screen2View[index];
+            if (viewLine != m_nCachedWrappedLine)
+            {
+                // cache the word wrapped lines
+                CString wrapedLine = CStringUtils::WordWrap(m_pViewData->GetLine(viewLine), GetScreenChars()-1, false, true, GetTabSize());
+                m_CachedWrappedLines.clear();
+                // split the line string into multiple line strings
+                int pos = 0;
+                CString temp;
+                for(;;)
+                {
+                    temp = wrapedLine.Tokenize(_T("\n"),pos);
+                    if(temp.IsEmpty())
+                    {
+                        break;
+                    }
+                    m_CachedWrappedLines.push_back(temp);
+                }
+                m_nCachedWrappedLine = viewLine;
+            }
+            if (m_CachedWrappedLines.size() > subLine)
+                return m_CachedWrappedLines[subLine];
+            return L"";
+        }
+    }
     int viewLine = m_Screen2View[index];
     return m_pViewData->GetLine(viewLine);
 }
@@ -1074,18 +1129,21 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
         }
         if ((m_bViewLinenumbers)&&(m_nDigits))
         {
-            int nLineNumber = GetLineNumber(nLineIndex);
-            if (nLineNumber >= 0)
+            if ((nLineIndex == 0) || (m_Screen2View[nLineIndex-1] != viewLine))
             {
-                CString sLinenumberFormat;
-                CString sLinenumber;
-                sLinenumberFormat.Format(_T("%%%dd"), m_nDigits);
-                sLinenumber.Format(sLinenumberFormat, nLineNumber+1);
-                pdc->SetBkColor(::GetSysColor(COLOR_SCROLLBAR));
-                pdc->SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
+                int nLineNumber = GetLineNumber(nLineIndex);
+                if (nLineNumber >= 0)
+                {
+                    CString sLinenumberFormat;
+                    CString sLinenumber;
+                    sLinenumberFormat.Format(_T("%%%dd"), m_nDigits);
+                    sLinenumber.Format(sLinenumberFormat, nLineNumber+1);
+                    pdc->SetBkColor(::GetSysColor(COLOR_SCROLLBAR));
+                    pdc->SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
 
-                pdc->SelectObject(GetFont());
-                pdc->ExtTextOut(rect.left + 18, rect.top, ETO_CLIPPED, &rect, sLinenumber, NULL);
+                    pdc->SelectObject(GetFont());
+                    pdc->ExtTextOut(rect.left + 18, rect.top, ETO_CLIPPED, &rect, sLinenumber, NULL);
+                }
             }
         }
     }
@@ -1297,33 +1355,44 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
         CPen * oldpen = pDC->SelectObject(&pen);
         int yMiddle = origin.y + rc.Height()/2;
         int xMiddle = origin.x+GetCharWidth()/2;
-        switch (ending)
+        if ((m_Screen2View.size() > nLineIndex+1) && (m_Screen2View[nLineIndex+1] == viewLine))
         {
-        case EOL_CR:
-            // arrow from right to left
-            pDC->MoveTo(origin.x+GetCharWidth(), yMiddle);
-            pDC->LineTo(origin.x, yMiddle);
-            pDC->LineTo(origin.x+4, yMiddle+4);
-            pDC->MoveTo(origin.x, yMiddle);
-            pDC->LineTo(origin.x+4, yMiddle-4);
-            break;
-        case EOL_CRLF:
-            // arrow from top to middle+2, then left
-            pDC->MoveTo(origin.x+GetCharWidth(), rc.top);
-            pDC->LineTo(origin.x+GetCharWidth(), yMiddle);
-            pDC->LineTo(origin.x, yMiddle);
-            pDC->LineTo(origin.x+4, yMiddle+4);
-            pDC->MoveTo(origin.x, yMiddle);
-            pDC->LineTo(origin.x+4, yMiddle-4);
-            break;
-        case EOL_LF:
-            // arrow from top to bottom
-            pDC->MoveTo(xMiddle, rc.top);
-            pDC->LineTo(xMiddle, rc.bottom-1);
-            pDC->LineTo(xMiddle+4, rc.bottom-5);
-            pDC->MoveTo(xMiddle, rc.bottom-1);
-            pDC->LineTo(xMiddle-4, rc.bottom-5);
-            break;
+            // multiline
+            pDC->MoveTo(origin.x, yMiddle-2);
+            pDC->LineTo(origin.x+GetCharWidth(), yMiddle-2);
+            pDC->LineTo(origin.x+GetCharWidth(), yMiddle+2);
+            pDC->LineTo(origin.x, yMiddle+2);
+        }
+        else
+        {
+            switch (ending)
+            {
+            case EOL_CR:
+                // arrow from right to left
+                pDC->MoveTo(origin.x+GetCharWidth(), yMiddle);
+                pDC->LineTo(origin.x, yMiddle);
+                pDC->LineTo(origin.x+4, yMiddle+4);
+                pDC->MoveTo(origin.x, yMiddle);
+                pDC->LineTo(origin.x+4, yMiddle-4);
+                break;
+            case EOL_CRLF:
+                // arrow from top to middle+2, then left
+                pDC->MoveTo(origin.x+GetCharWidth(), rc.top);
+                pDC->LineTo(origin.x+GetCharWidth(), yMiddle);
+                pDC->LineTo(origin.x, yMiddle);
+                pDC->LineTo(origin.x+4, yMiddle+4);
+                pDC->MoveTo(origin.x, yMiddle);
+                pDC->LineTo(origin.x+4, yMiddle-4);
+                break;
+            case EOL_LF:
+                // arrow from top to bottom
+                pDC->MoveTo(xMiddle, rc.top);
+                pDC->LineTo(xMiddle, rc.bottom-1);
+                pDC->LineTo(xMiddle+4, rc.bottom-5);
+                pDC->MoveTo(xMiddle, rc.bottom-1);
+                pDC->LineTo(xMiddle-4, rc.bottom-5);
+                break;
+            }
         }
         pDC->SelectObject(oldpen);
     }
@@ -1331,13 +1400,23 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
 
 void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
+    if ((m_nSelBlockEnd < 0) || (m_nSelBlockStart < 0))
+        return;
+
     const int THICKNESS = 2;
     COLORREF rectcol = GetSysColor(m_bFocused ? COLOR_WINDOWTEXT : COLOR_GRAYTEXT);
-    if ((nLineIndex == m_nSelBlockStart) && m_bShowSelection)
+    int selStart = m_nSelBlockStart;
+    while ((selStart-1 > 0)&&(m_Screen2View[selStart] == m_Screen2View[selStart-1]))
+        selStart--;
+    int selEnd = m_nSelBlockEnd;
+    while ((selEnd+1 < (int)m_Screen2View.size())&&(m_Screen2View[selEnd] == m_Screen2View[selEnd+1]))
+        selEnd++;
+
+    if ((nLineIndex == selStart) && m_bShowSelection)
     {
         pDC->FillSolidRect(rc.left, rc.top, rc.Width(), THICKNESS, rectcol);
     }
-    if ((nLineIndex == m_nSelBlockEnd) && m_bShowSelection)
+    if ((nLineIndex == selEnd) && m_bShowSelection)
     {
         pDC->FillSolidRect(rc.left, rc.bottom - THICKNESS, rc.Width(), THICKNESS, rectcol);
     }
@@ -1773,7 +1852,13 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
 
     m_nScreenLines = -1;
     m_nScreenChars = -1;
-    BuildScreen2ViewVector();
+    if (m_nLastScreenChars != GetScreenChars())
+    {
+        BuildAllScreen2ViewVector();
+        m_nLastScreenChars = m_nScreenChars;
+    }
+    if (m_pwndLocator)
+        m_pwndLocator->DocumentUpdated();
     RecalcVertScrollBar();
     RecalcHorzScrollBar();
     CView::OnSize(nType, cx, cy);
@@ -1918,6 +2003,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                         break;
                     }
                     const DiffStates lineState = m_pViewData->GetState(--nIndex);
+                    nLineIndex--;
                     if (!LinesInOneChange(-1, state, lineState))
                         break;
                 }
@@ -2106,7 +2192,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
     if (! m_pViewData)
         return false;
 
-    const int linesCount = m_Screen2View.size();
+    const int linesCount = (int)m_Screen2View.size();
     if(linesCount == 0)
         return false;
 
@@ -2982,7 +3068,7 @@ void CBaseView::EnsureCaretVisible()
         ScrollToChar(nCaretOffset-GetScreenChars()+1);
 }
 
-int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex) const
+int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex)
 {
     int nLength = GetLineLength(nLineIndex);
     ASSERT(nCharIndex >= 0);
@@ -3001,7 +3087,7 @@ int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex) const
     return nOffset;
 }
 
-int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset) const
+int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
 {
     int nLength = GetLineLength(nLineIndex);
     LPCTSTR pszLine = GetLineChars(nLineIndex);
@@ -3365,7 +3451,7 @@ bool CBaseView::IsWordSeparator(wchar_t ch) const
     return ch == ' ' || ch == '\t' || (m_sWordSeparators.Find(ch) >= 0);
 }
 
-bool CBaseView::IsCaretAtWordBoundary() const
+bool CBaseView::IsCaretAtWordBoundary()
 {
     LPCTSTR line = GetLineChars(m_ptCaretPos.y);
     if (!*line)
@@ -3729,6 +3815,13 @@ bool CBaseView::HasPrevInlineDiff()
 void CBaseView::BuildAllScreen2ViewVector()
 {
     if (IsLeftViewGood())
+        m_pwndLeft->m_MultiLineVector.clear();
+    if (IsRightViewGood())
+        m_pwndRight->m_MultiLineVector.clear();
+    if (IsBottomViewGood())
+        m_pwndBottom->m_MultiLineVector.clear();
+
+    if (IsLeftViewGood())
         m_pwndLeft->BuildScreen2ViewVector();
     if (IsRightViewGood())
         m_pwndRight->BuildScreen2ViewVector();
@@ -3750,7 +3843,25 @@ void CBaseView::BuildScreen2ViewVector()
                     ++i;
             }
             if (i < m_pViewData->GetCount())
+            {
+                if (m_pMainFrame->m_bWrapLines)
+                {
+                    int nLinesLeft      = 0;
+                    int nLinesRight     = 0;
+                    int nLinesBottom    = 0;
+                    if (IsLeftViewGood())
+                        nLinesLeft = m_pwndLeft->CountMultiLines(i);
+                    if (IsRightViewGood())
+                        nLinesRight = m_pwndRight->CountMultiLines(i);
+                    if (IsBottomViewGood())
+                        nLinesBottom = m_pwndBottom->CountMultiLines(i);
+                    int lines = max(max(nLinesLeft, nLinesRight), nLinesBottom);
+                    for (int l = 0; l < (lines-1); ++l)
+                        m_Screen2View.push_back(i);
+                    m_nCachedWrappedLine = -1;
+                }
                 m_Screen2View.push_back(i);
+            }
         }
     }
 }
@@ -3766,4 +3877,29 @@ int CBaseView::FindScreenLineForViewLine( int viewLine )
     }
 
     return ScreenLine;
+}
+
+CString CBaseView::GetMultiLine( int nLine )
+{
+    return CStringUtils::WordWrap(m_pViewData->GetLine(nLine), GetScreenChars()-1, false, true, GetTabSize());
+}
+
+int CBaseView::CountMultiLines( int nLine )
+{
+    if (nLine < m_MultiLineVector.size())
+        return m_MultiLineVector[nLine];
+
+    CString multiline = GetMultiLine(nLine);
+    // count the newlines
+    int lines = 1;
+    int pos = 0;
+    while ((pos = multiline.Find('\n', pos)) >= 0)
+    {
+        pos++;
+        lines++;
+    }
+    m_MultiLineVector.push_back(lines);
+    ASSERT(m_MultiLineVector.size()-1 == nLine);
+
+    return lines;
 }

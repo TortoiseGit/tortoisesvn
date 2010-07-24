@@ -83,6 +83,9 @@ public:
     int             GetLineCount() const;
     int             Screen2View(int screenLine) const { return m_Screen2View[screenLine]; }
     int             FindScreenLineForViewLine(int viewLine);
+    CString         GetMultiLine(int nLine);
+    int             CountMultiLines(int nLine);
+    int             GetSubLineOffset(int index);
 
     void            SelectLines(int nLine1, int nLine2 = -1);
     void            HiglightLines(int start, int end = -1);
@@ -203,18 +206,18 @@ protected:
     int             GetTabSize() const {return m_nTabSize;}
     void            DeleteFonts();
 
-    int             GetLineActualLength(int index) const;
+    int             GetLineActualLength(int index);
     void            CalcLineCharDim();
     int             GetLineHeight();
     int             GetCharWidth();
     int             GetMaxLineLength();
-    int             GetLineLength(int index) const;
+    int             GetLineLength(int index);
     int             GetScreenChars();
     int             GetAllMinScreenChars() const;
     int             GetAllMaxLineLength() const;
     int             GetAllLineCount() const;
     int             GetAllMinScreenLines() const;
-    LPCTSTR         GetLineChars(int index) const;
+    CString         GetLineChars(int index);
     int             GetLineNumber(int index) const;
     CFont *         GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
     int             GetLineFromPoint(CPoint point);
@@ -242,8 +245,8 @@ protected:
     bool            IsRightViewGood() const {return IsViewGood(m_pwndRight);}
     bool            IsBottomViewGood() const {return IsViewGood(m_pwndBottom);}
 
-    int             CalculateActualOffset(int nLineIndex, int nCharIndex) const;
-    int             CalculateCharIndex(int nLineIndex, int nActualOffset) const;
+    int             CalculateActualOffset(int nLineIndex, int nCharIndex);
+    int             CalculateCharIndex(int nLineIndex, int nActualOffset);
     POINT           TextToClient(const POINT& point);
     void            DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
     void            ClearCurrentSelection();
@@ -262,7 +265,7 @@ protected:
     void            UpdateGoalPos();
 
     bool            IsWordSeparator(wchar_t ch) const;
-    bool            IsCaretAtWordBoundary() const;
+    bool            IsCaretAtWordBoundary();
     void            UpdateViewsCaretPosition();
     void            restoreLines(CBaseView* view, CViewData& viewState, int targetIndex, int sourceIndex) const;
     void            BuildMarkedWordArray();
@@ -286,6 +289,7 @@ protected:
     int             m_nMaxLineLength;
     int             m_nScreenLines;
     int             m_nScreenChars;
+    int             m_nLastScreenChars;
     int             m_nOffsetChar;
     int             m_nTabSize;
     int             m_nDigits;
@@ -330,6 +334,9 @@ protected:
     CScrollTool     m_ScrollTool;
     CString         m_sWordSeparators;
 
+    int             m_nCachedWrappedLine;
+    std::vector<CString> m_CachedWrappedLines;
+
     char            m_szTip[MAX_PATH*2+1];
     wchar_t         m_wszTip[MAX_PATH*2+1];
     // These three pointers lead to the three parent
@@ -343,6 +350,8 @@ protected:
     static CBaseView * m_pwndBottom;    ///< Pointer to the bottom view. Must be set by the CBottomView parent class.
 
     std::vector<int> m_Screen2View;
+    std::vector<int> m_MultiLineVector;
+
     UINT GetMenuFlags(DiffStates state) const;
     void AddCutCopyAndPaste(CMenu& popup);
     void CompensateForKeyboard(CPoint& point);

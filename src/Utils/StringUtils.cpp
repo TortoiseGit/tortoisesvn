@@ -133,46 +133,45 @@ CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */,
         lineposold = linepos;
         if (!retString.IsEmpty())
             retString += _T("\n");
-        retString += WordWrap(temp, limit, bCompactPaths);
+        retString += WordWrap(temp, limit, bCompactPaths, false, 4);
     }
     temp = longstring.Mid(lineposold);
     if (!temp.IsEmpty())
         retString += _T("\n");
-    retString += WordWrap(temp, limit, bCompactPaths);
+    retString += WordWrap(temp, limit, bCompactPaths, false, 4);
     retString.Trim();
     return retString;
 }
 
-CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
+CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize)
 {
+    int nLength = longstring.GetLength();
     CString retString;
-    if (longstring.GetLength() < limit)
-        return longstring;  // no wrapping needed.
-    CString temp = longstring;
-    while (temp.GetLength() > limit)
+    
+    if (limit < 0)
+        limit = 0;
+
+    int nLineStart = 0;
+    int nLineEnd = 0;
+    int tabOffset = 0;
+    for (int i = 0; i < nLength; ++i)
     {
-        int pos=0;
-        int oldpos=0;
-        int newpos = temp.Find(' ', pos);
-        while ((pos >= 0) && (newpos > 0) && (newpos < limit))
+        if (i-nLineStart+tabOffset >= limit)
         {
-            oldpos = pos;
-            pos = temp.Find(' ', pos+1);
-            if (pos >= 0)
-                newpos = temp.Find(' ', pos);
-        }
-        if (oldpos==0)
-            oldpos = temp.Find(' ');
-        if (oldpos<0)
-        {
-            retString += temp;
-            temp.Empty();
-        }
-        else
-        {
+            if (nLineEnd == nLineStart)
+            {
+                if (bForceWrap)
+                    nLineEnd = i;
+                else
+                {
+                    while ((i < nLength) && (longstring[i] != ' ') && (longstring[i] != '\t'))
+                        ++i;
+                    nLineEnd = i;
+                }
+            }
             if (bCompactPaths)
             {
-                CString longline = oldpos >= 0 ? temp.Left(oldpos+1) : temp;
+                CString longline = longstring.Mid(nLineStart, nLineEnd-nLineStart);
                 if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
                 {
                     if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
@@ -185,19 +184,36 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit /* = 80 */, 
                 retString += longline;
             }
             else
-            {
-                retString += oldpos >= 0 ? temp.Left(oldpos+1) : temp;
-            }
-
-            if (oldpos >= 0)
-                temp.Delete(0, oldpos+1);
-            else
-                temp.Empty();
+                retString += longstring.Mid(nLineStart, nLineEnd-nLineStart);
+            retString += L"\n";
+            tabOffset = 0;
+            nLineStart = nLineEnd;
         }
-        retString += _T("\n");
-        pos = oldpos;
+        if (longstring[i] == ' ')
+            nLineEnd = i;
+        if (longstring[i] == '\t')
+        {
+            tabOffset += (tabSize - i % tabSize);
+            nLineEnd = i;
+        }
     }
-    retString += temp;
+    if (bCompactPaths)
+    {
+        CString longline = longstring.Mid(nLineStart);
+        if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+        {
+            if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+            {
+                TCHAR buf[MAX_PATH];
+                PathCompactPathEx(buf, longline, limit+1, 0);
+                longline = buf;
+            }
+        }
+        retString += longline;
+    }
+    else
+        retString += longstring.Mid(nLineStart);
+
     retString.Trim();
     return retString;
 }
@@ -464,27 +480,27 @@ public:
     StringUtilsTest()
     {
         CString longline = _T("this is a test of how a string can be splitted into several lines");
-        CString splittedline = CStringUtils::WordWrap(longline, 10);
+        CString splittedline = CStringUtils::WordWrap(longline, 10, true, false, 4);
         ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
-        splittedline = CStringUtils::LinesWrap(longline, 10);
+        splittedline = CStringUtils::LinesWrap(longline, 10, true);
         ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
         longline = _T("c:\\this_is_a_very_long\\path_on_windows and of course some other words added to make the line longer");
-        splittedline = CStringUtils::WordWrap(longline, 10);
+        splittedline = CStringUtils::WordWrap(longline, 10, true, false, 4);
         ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
         splittedline = CStringUtils::LinesWrap(longline, 10);
         ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
         longline = _T("Forced failure in https://myserver.com/a_long_url_to_split PROPFIND error");
-        splittedline = CStringUtils::WordWrap(longline, 20);
+        splittedline = CStringUtils::WordWrap(longline, 20, true, false, 4);
         ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
-        splittedline = CStringUtils::LinesWrap(longline, 20);
+        splittedline = CStringUtils::LinesWrap(longline, 20, true);
         ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
         longline = _T("Forced\nfailure in https://myserver.com/a_long_url_to_split PROPFIND\nerror");
-        splittedline = CStringUtils::WordWrap(longline, 40);
+        splittedline = CStringUtils::WordWrap(longline, 40, true, false, 4);
         ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
         splittedline = CStringUtils::LinesWrap(longline, 40);
         ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
         longline = _T("Failed to add file\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO1.java\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO2.java");
-        splittedline = CStringUtils::WordWrap(longline);
+        splittedline = CStringUtils::WordWrap(longline, 80, true, false, 4);
         ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
         splittedline = CStringUtils::LinesWrap(longline);
         ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);

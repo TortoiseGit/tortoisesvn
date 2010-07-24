@@ -125,6 +125,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_VIEW_IGNOREALLWHITESPACECHANGES, &CMainFrame::OnUpdateViewIgnoreallwhitespacechanges)
     ON_UPDATE_COMMAND_UI(ID_NAVIGATE_NEXTINLINEDIFF, &CMainFrame::OnUpdateNavigateNextinlinediff)
     ON_UPDATE_COMMAND_UI(ID_NAVIGATE_PREVINLINEDIFF, &CMainFrame::OnUpdateNavigatePrevinlinediff)
+    ON_COMMAND(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnViewWraplonglines)
+    ON_UPDATE_COMMAND_UI(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnUpdateViewWraplonglines)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -156,6 +158,7 @@ CMainFrame::CMainFrame()
     theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
     m_bCollapsed = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
     m_bViewMovedBlocks = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\ViewMovedBlocks"), 0);
+    m_bWrapLines = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\WrapLines"), 0);
 }
 
 CMainFrame::~CMainFrame()
@@ -884,6 +887,45 @@ void CMainFrame::OnViewCollapsed()
 void CMainFrame::OnUpdateViewCollapsed(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_bCollapsed);
+}
+
+void CMainFrame::OnViewWraplonglines()
+{
+    CRegDWORD regViewWrapLines = CRegDWORD(_T("Software\\TortoiseMerge\\WrapLines"), 0);
+    regViewWrapLines = !(DWORD)regViewWrapLines;
+    m_bWrapLines = !!(DWORD)regViewWrapLines;
+
+    if (m_pwndLeftView)
+    {
+        m_pwndLeftView->BuildScreen2ViewVector();
+        m_pwndLeftView->UpdateCaret();
+        m_pwndLeftView->Invalidate();
+        if (m_pwndLeftView->HasCaret())
+            m_pwndLeftView->EnsureCaretVisible();
+    }
+    if (m_pwndRightView)
+    {
+        m_pwndRightView->BuildScreen2ViewVector();
+        m_pwndRightView->UpdateCaret();
+        m_pwndRightView->Invalidate();
+        if (m_pwndRightView->HasCaret())
+            m_pwndRightView->EnsureCaretVisible();
+    }
+    if (m_pwndBottomView)
+    {
+        m_pwndBottomView->BuildScreen2ViewVector();
+        m_pwndBottomView->UpdateCaret();
+        m_pwndBottomView->Invalidate();
+        if (m_pwndBottomView->HasCaret())
+            m_pwndBottomView->EnsureCaretVisible();
+    }
+    m_wndLocatorBar.Invalidate();
+}
+
+
+void CMainFrame::OnUpdateViewWraplonglines(CCmdUI *pCmdUI)
+{
+    pCmdUI->SetCheck(m_bWrapLines);
 }
 
 void CMainFrame::OnViewOnewaydiff()
@@ -2134,3 +2176,4 @@ CBaseView* CMainFrame::GetActiveBaseView() const
     CBaseView* activeBase = dynamic_cast<CBaseView*>( activeView );
     return activeBase;
 }
+
