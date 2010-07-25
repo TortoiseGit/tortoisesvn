@@ -538,7 +538,7 @@ int CBaseView::GetSubLineOffset(int index)
     while ((index-subLine >= 0) && (m_Screen2View[index-subLine] == viewLine))
         subLine++;
     subLine--;
-    if ((subLine == 0)&&(index+1 < m_Screen2View.size())&&(m_Screen2View[index+1] != viewLine))
+    if ((subLine == 0)&&(index+1 < (int)m_Screen2View.size())&&(m_Screen2View[index+1] != viewLine))
         return -1;
 
     return subLine;
@@ -577,7 +577,7 @@ CString CBaseView::GetLineChars(int index)
                 }
                 m_nCachedWrappedLine = viewLine;
             }
-            if (m_CachedWrappedLines.size() > subLine)
+            if ((int)m_CachedWrappedLines.size() > subLine)
                 return m_CachedWrappedLines[subLine];
             return L"";
         }
@@ -1355,7 +1355,7 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
         CPen * oldpen = pDC->SelectObject(&pen);
         int yMiddle = origin.y + rc.Height()/2;
         int xMiddle = origin.x+GetCharWidth()/2;
-        if ((m_Screen2View.size() > nLineIndex+1) && (m_Screen2View[nLineIndex+1] == viewLine))
+        if (((int)m_Screen2View.size() > nLineIndex+1) && (m_Screen2View[nLineIndex+1] == viewLine))
         {
             // multiline
             pDC->MoveTo(origin.x, yMiddle-2);
@@ -3886,7 +3886,7 @@ CString CBaseView::GetMultiLine( int nLine )
 
 int CBaseView::CountMultiLines( int nLine )
 {
-    if (nLine < m_MultiLineVector.size())
+    if (nLine < (int)m_MultiLineVector.size())
         return m_MultiLineVector[nLine];
 
     CString multiline = GetMultiLine(nLine);
@@ -3899,7 +3899,7 @@ int CBaseView::CountMultiLines( int nLine )
         lines++;
     }
     m_MultiLineVector.push_back(lines);
-    ASSERT(m_MultiLineVector.size()-1 == nLine);
+    ASSERT((int)m_MultiLineVector.size()-1 == nLine);
 
     return lines;
 }
