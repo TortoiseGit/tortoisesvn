@@ -919,7 +919,7 @@ void CMainFrame::OnViewWraplonglines()
         if (m_pwndBottomView->HasCaret())
             m_pwndBottomView->EnsureCaretVisible();
     }
-    m_wndLocatorBar.Invalidate();
+    m_wndLocatorBar.DocumentUpdated();
 }
 
 
