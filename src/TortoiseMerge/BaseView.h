@@ -112,6 +112,7 @@ public:
 
     CViewData *     m_pViewData;
     CViewData *     m_pOtherViewData;
+    CBaseView *     m_pOtherView;
 
     CString         m_sWindowName;      ///< The name of the view which is shown as a window title to the user
     CString         m_sFullFilePath;    ///< The full path of the file shown

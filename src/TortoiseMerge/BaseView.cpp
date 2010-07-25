@@ -72,6 +72,7 @@ CBaseView::CBaseView()
     m_pCacheBitmap = NULL;
     m_pViewData = NULL;
     m_pOtherViewData = NULL;
+    m_pOtherView = NULL;
     m_nLineHeight = -1;
     m_nCharWidth = -1;
     m_nScreenChars = -1;
@@ -592,11 +593,18 @@ void CBaseView::CheckOtherView()
         return;
     // find out what the 'other' file is
     m_pOtherViewData = NULL;
+    m_pOtherView = NULL;
     if (this == m_pwndLeft && IsRightViewGood())
+    {
         m_pOtherViewData = m_pwndRight->m_pViewData;
+        m_pOtherView = m_pwndRight;
+    }
 
     if (this == m_pwndRight && IsLeftViewGood())
+    {
         m_pOtherViewData = m_pwndLeft->m_pViewData;
+        m_pOtherView = m_pwndLeft;
+    }
 
     m_bOtherDiffChecked = true;
 }
@@ -1402,6 +1410,8 @@ void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
     if ((m_nSelBlockEnd < 0) || (m_nSelBlockStart < 0))
         return;
+    if ((m_nSelBlockStart >= (int)m_Screen2View.size()) || (m_nSelBlockEnd >= (int)m_Screen2View.size()))
+        return;
 
     const int THICKNESS = 2;
     COLORREF rectcol = GetSysColor(m_bFocused ? COLOR_WINDOWTEXT : COLOR_GRAYTEXT);
@@ -1521,21 +1531,20 @@ bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const 
     if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
         return false;
 
-    LPCTSTR pszDiffChars = NULL;
+    CString sDiffChars = NULL;
     int nDiffLength = 0;
-    if (m_pOtherViewData)
+    if (m_pOtherView)
     {
-        int viewLine = m_Screen2View[nLineIndex];
-        int index = min(viewLine, m_pOtherViewData->GetCount() - 1);
-        pszDiffChars = m_pOtherViewData->GetLine(index);
-        nDiffLength = m_pOtherViewData->GetLine(index).GetLength();
+        int index = min(nLineIndex, (int)m_Screen2View.size() - 1);
+        sDiffChars = m_pOtherView->GetLineChars(index);
+        nDiffLength = sDiffChars.GetLength();
     }
 
-    if (!pszDiffChars || !*pszDiffChars)
+    if (!sDiffChars || !*sDiffChars)
         return false;
 
     CString diffline;
-    ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
+    ExpandChars(sDiffChars, 0, nDiffLength, diffline);
     svn_diff_t * diff = NULL;
     m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
     if (!diff || !SVNLineDiff::ShowInlineDiff(diff))
