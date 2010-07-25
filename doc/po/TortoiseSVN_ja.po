@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-07-20 16:27-0500\n"
+"PO-Revision-Date: 2010-07-25 14:21-0500\n"
 "Last-Translator: 谷紀子 <noriko1@aol.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -90,9 +90,8 @@ msgid "What is TortoiseSVN?"
 msgstr "TortoiseSVN とは?"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN is a free open-source Windows client for the <firstterm>Subversion</firstterm> version control system. That is, TortoiseSVN manages files and directories over time. Files are stored in a central <firstterm>repository</firstterm>. The repository is much like an ordinary file server, except that it remembers every change ever made to your files and directories. This allows you to recover older versions of your files and examine the history of how and when your data changed, and who changed it. This is why many people think of Subversion and version control systems in general as a sort of <quote>time machine</quote>."
-msgstr "TortoiseSVN は、<firstterm>Subversion</firstterm> バージョン管理システム用のフリーでオープンソースなクライアントで、ファイルやディレクトリを時系列で管理します。ファイルは<firstterm>リポジトリ</firstterm>という中心的な場所に格納されます。リポジトリは通常のファイルサーバとよく似ていますが、ファイルやディレクトリに加えた変更をすべて記録しています。これにより、ファイルを古いバージョンに戻したり、いつ、誰が、どのようにデータに変更を加えたかを履歴から確認できます。そのため、Subversion や一般的なバージョン管理システムを一種の <quote>タイムマシン</quote> と考える人たちもたくさんいます。"
+msgstr "TortoiseSVN は、無料かつオープンソース形式の<firstterm>Subversion</firstterm> バージョン管理システムです。　　TortoiseSVNはファイルやディレクトリを長期にわたって管理します。　ファイルは<firstterm>リポジトリ</firstterm>と呼ばれる場所に収納されます。　リポジトリは通常のファイルサーバとよく似ていますが、その上、ファイルやディレクトリの変更について、すべて記録しています。　これにより、ファイルを古いバージョンに戻したり、いつ、誰が、どのようにデータに変更を加えたかを履歴から確認できます。　したがって、Subversion や一般的なバージョン管理システムは <quote>タイムマシン</quote> のようなものと考えることも出来ます。"
 
 #. (para)
 msgid "Some version control systems are also software configuration management (SCM) systems. These systems are specifically tailored to manage trees of source code, and have many features that are specific to software development - such as natively understanding programming languages, or supplying tools for building software. Subversion, however, is not one of these systems; it is a general system that can be used to manage <emphasis>any</emphasis> collection of files, including source code."
@@ -119,14 +118,12 @@ msgid "explorer"
 msgstr "エクスプローラ"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN integrates seamlessly into the Windows shell (i.e. the explorer). This means you can keep working with the tools you're already familiar with. And you do not have to change into a different application each time you need the functions of version control."
-msgstr "TortoiseSVN は Windows シェル (例: エクスプローラ) にシームレスに統合されます。これは、すでによく知っているツールを使い続けられるということです。そして、バージョン管理機能が必要となるたびにちがうアプリケーションに変更する必要はありません!"
+msgstr "TortoiseSVN は Windowsの既存機能(例: エクスプローラ) を使って操作することが出来ます。　ですから、すでに知っているツールを使い続けられるということです。　そして、バージョン管理機能が必要となるたびにちがうアプリケーションに変更する必要もありません!"
 
 #. (para)
-#, fuzzy
 msgid "And you are not limited to using the Windows Explorer; TortoiseSVN's context menus work in many other file managers, and also in the File/Open dialog which is common to most standard Windows applications. You should, however, bear in mind that TortoiseSVN is intentionally developed as an extension for the Windows Explorer. Thus it is possible that in other applications the integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "ですが、Windows エクスプローラを使うよう強制されるわけではありません。TortoiseSVN のコンテキストメニューは、他の多くのファイルマネージャや、ほとんどの標準的なWindowsアプリケーションで共通のファイル/オープンダイアログで動作します。しかし、TortoiseSVN はわざわざ Windows エクスプローラの拡張として開発されていることを覚えておいてください。他のアプリケーションでは完全に統合されているわけではなく、例えばアイコンオーバレイが表示されないといったことがあり得ます。"
+msgstr "もちろん、TortoiseSVNをWindows エクスプローラ以外のファイル管理機能を使って操作をすることも可能です。　 しかし、TortoiseSVNはWindows エクスプローラの拡張として開発されていることを覚えておいてください。　したがって、他のアプリケーションを使うと、例えばアイコンオーバレイが表示されないといった不都合が生じることがあります。"
 
 #. (term)
 msgid "Icon overlays"
@@ -138,15 +135,15 @@ msgstr "ファイルやフォルダごとにバージョン管理の状態をあ
 
 #. (term)
 msgid "Graphical User Interface"
-msgstr ""
+msgstr "グラフィック・インターフェイス"
 
 #. (para)
 msgid "When you list the changes to a file or folder, you can click on a revision to see the comments for that commit. You can also see a list of changed files - just double click on a file to see exactly what changed."
-msgstr ""
+msgstr "ひとつのファイルやフォルダーについて、変更を加えた後で、過去のバージョンをクリックすると、それをコミットした際のコメントを読むことが出来ます。　また、ファイルの変更内容は、そのファイルをダブルクリックすると、見ることが出来ます。"
 
 #. (para)
 msgid "The commit dialog lists all the items that will be included in a commit, and each item has a checkbox so you can choose which items you want to include. Unversioned files can also be listed, in case you forgot to add that new file."
-msgstr ""
+msgstr "コミット・ダイアログには、コミットした際に変更することになる項目がすべて表示されます。　その中から、チェックボックスを使って、変更が確定したものだけをコミットすることが出来ます。　例えば、ソースコードの中の２つのファイルに変更を加えていた場合で、ひとつのファイルの修正が完了したら、それだけを先にコミットすることが可能です。　また、新しく付け加えたファイルも、このダイアログに表示されます。"
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -209,46 +206,40 @@ msgid "The cost of branching and tagging need not be proportional to the project
 msgstr "ブランチやタグをつけるコストは、プロジェクトの規模に比例する必要はありません。Subversion はブランチやタグを作成するのに、ハードリンクによく似た単純なプロジェクトのコピーで行います。そのため、この操作はとても小さく、一定の時間で完了し、リポジトリのとても小さな領域しか使用しません。"
 
 #. (title)
-#, fuzzy
 msgid "License"
-msgstr "アイコン"
+msgstr "ライセンス"
 
 #. (para)
 msgid "TortoiseSVN is an Open Source project developed under the GNU General Public License (GPL). It is free to download and free to use, either personally or commercially, on any number of PCs."
-msgstr ""
+msgstr "TortoiseSVNは、オープンソース・プロジェクトです。　GNU General Public License (GPL)のもとに開発されました。　個人用および商用、ともに無料のPCソフトウェアです。"
 
 #. (para)
-#, fuzzy
 msgid "Although most people just download the installer, you also have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. The current development line is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseSVN はオープンソースプロジェクトです。これは、あなたがこのプログラムのソースコードに完全に読み取りアクセスできることを意味しています。このリンク  <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> から、ソースを閲覧できます。ユーザ名とパスワードを要求されますので、ユーザ名を <literal>guest</literal>、パスワードを空のままにしてください。(私たちが現在作業している) 最新のバージョンは <filename>/trunk/</filename> に、既にリリースされたバージョンは <filename>/tags/</filename> に配置しています。"
+msgstr "TortoiseSVN はオープンソースプロジェクトです。　このプログラムのソースコードは、このリンク<ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>から閲覧できます。　(私たちが現在作業している) 最新のバージョンは <filename>/trunk/</filename> に、既にリリースされたバージョンは <filename>/tags/</filename> というディレクトリの中にあります。"
 
 #. (title)
 msgid "Development"
-msgstr ""
+msgstr "開発"
 
 #. (para)
-#, fuzzy
 msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world, working together to create great software."
-msgstr "TortoiseSVN と Subversion のどちらも、それぞれのプロジェクトで作業する人々からなるコミュニティで開発を行っています。世界中のそれぞれの国から参加し、一緒にすばらしいプログラムを開発しています。"
+msgstr "TortoiseSVN と Subversion のどちらも、世界中の人々が自発的に参加している「コミュニティ」で開発を行っています。"
 
 #. (title)
 msgid "TortoiseSVN's History"
 msgstr "TortoiseSVN の歴史"
 
 #. (para)
-#, fuzzy
 msgid "In 2002, Tim Kemp found that Subversion was a very good version control system, but it lacked a good GUI client. The idea for a Subversion client as a Windows shell integration was inspired by the similar client for CVS named TortoiseCVS. Tim studied the source code of TortoiseCVS and used it as a base for TortoiseSVN. He then started the project, registered the domain <literal>tortoisesvn.org</literal> and put the source code online."
-msgstr "2002年、 Tim Kemp は Subversion というすばらしいバージョン管理システムと出会いましたが、使いやすい GUI クライアントが不足していました。Windows シェル統合した Subversion クライアントというアイディアは TortoiseCVS という CVS 用の似たようなクライアントから着想しました。"
+msgstr "2002年、 Tim Kemp は Subversion というバージョン管理システムは、使いやすい GUI クライアントが欠けていることに気がつきました。　TortoiseCVS という CVS 用の似たようなクライエントにヒントを得て、Subversion をウィンドウズで使いやすくしたものがTortoiseSVNです。"
 
 #. (para)
-#, fuzzy
 msgid "Around that time, Stefan Küng was looking for a good and free version control system and found Subversion and the source for TortoiseSVN. Since TortoiseSVN was still not ready for use, he joined the project and started programming. He soon rewrote most of the existing code and started adding commands and features, up to a point where nothing of the original code remained."
-msgstr "Tim は TortoiseCVS のソースコードを解析し、TortoiseSVN の基礎に利用しました。その後プロジェクトを開始し、<literal>tortoisesvn.org</literal> ドメインを登録し、ソースコードをオンラインに配置しました。この間、Stefan Küng はフリーの良いバージョン管理システムを探していて、Subversion と TortoiseSVN のソースコードに出会いました。TortoiseSVN はまだ使い物になりませんでしたが、このプロジェクトに参加しプログラミングを始めました。Stefan はすぐに、オリジナルのコードが全く残らないほど既存のコードをほとんど書き換え、コマンドや機能を追加していきました。"
+msgstr "同じ頃、Stefan Küng はフリーの良いバージョン管理システムを探していて、Subversion と TortoiseSVN に出会いました。　TortoiseSVN はまだ開発中でしたので、彼もこのプロジェクトに参加しました。　Stefan はすぐに、オリジナルのコードが全く残らないほど既存のコードをほとんど書き換え、コマンドや機能を追加していきました。"
 
 #. (para)
-#, fuzzy
 msgid "As Subversion became more stable it attracted more and more users who also started using TortoiseSVN as their Subversion client. The user base grew quickly (and is still growing every day). That's when Lübbe Onken offered to help out with some nice icons and a logo for TortoiseSVN. He now takes care of the website and manages the many translations."
-msgstr "Subversion が安定するようになるにつれて、Subversion クライアントとして TortoiseSVN を使用するユーザが増えてきました。ユーザベースは急速に拡大しました (そして日々拡大しています)。Lübbe Onken は TortoiseSVN のロゴとすばらしいアイコンで協力すると申し出てくれました。また彼はウェブサイトと翻訳の管理をしてくれています。"
+msgstr "Subversion が安定するようになるにつれて、Subversion クライアントとして TortoiseSVN を使用するユーザが増えてきました。　ユーザベースは急速に拡大しました (そして日々拡大しています)。Lübbe Onken は TortoiseSVN のロゴとアイコンをデザインしました。　また彼はウェブサイトと翻訳の管理をしています。"
 
 #. (title)
 msgid "Acknowledgments"
@@ -267,9 +258,8 @@ msgid "Stefan Küng"
 msgstr "Stefan Küng"
 
 #. (para)
-#, fuzzy
 msgid "for the hard work to get TortoiseSVN to what it is now, and his leadership of the project"
-msgstr "TortoiseSVN が今の形になるための大変な作業に"
+msgstr "TortoiseSVNが現在の姿になるまでに彼が費やした努力とリーダーシップに "
 
 #. (term)
 msgid "Lübbe Onken"
@@ -284,18 +274,16 @@ msgid "Simon Large"
 msgstr "Simon Large"
 
 #. (para)
-#, fuzzy
 msgid "for maintaining the documentation"
-msgstr "文書化の手伝いや、バグつぶしに"
+msgstr "マニュアルを管理してくれたことに"
 
 #. (term)
 msgid "Stefan Fuhrmann"
-msgstr ""
+msgstr "Stefan Fuhrmann"
 
 #. (para)
-#, fuzzy
 msgid "for the log cache and revision graph"
-msgstr "リビジョングラフの読み方"
+msgstr "ログ・キャッシュとリビジョン・グラフの開発に"
 
 #. (term)
 msgid "The Subversion Book"
@@ -318,9 +306,8 @@ msgid "Our Contributors"
 msgstr "われらが貢献者達"
 
 #. (para)
-#, fuzzy
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list"
-msgstr "パッチや、バグレポート、新しいアイデア、メーリングリストでの質疑応答などの助け合いに"
+msgstr "パッチや、バグレポート、新しいアイデア、メーリングリストでの質疑応答などに"
 
 #. (term)
 msgid "Our Donators"
@@ -335,18 +322,16 @@ msgid "Reading Guide"
 msgstr "このガイドの読み方"
 
 #. (para)
-#, fuzzy
 msgid "This book is written for computer-literate folk who want to use Subversion to manage their data, but prefer to use a GUI client rather than a command line client. TortoiseSVN is a windows shell extension and it is assumed that the user is familiar with the windows explorer and how to use it."
-msgstr "本書は、データ管理するのに Subversion を使用したいが、コマンドラインクライアントを使用するのに抵抗がある、コンピュータに詳しい人向けに書かれています。TortoiseSVN は Windows のシェル拡張であるため、ユーザは Windows のエクスプローラになじみがあり、使い方を知っていると仮定しています。"
+msgstr "本書は、コンピュータに詳しく、データ管理に Subversion を使用したいが、コマンドラインクライアントを使用するのに抵抗がある人向けに書かれています。TortoiseSVN は Windows のシェル拡張ですので、ユーザは Windows のエクスプローラの使い方を知っているして、話を進めてゆきます。"
 
 #. (para)
-#, fuzzy
 msgid "This <xref linkend=\"tsvn-preface\"/> explains what TortoiseSVN is, a little about the TortoiseSVN project and the community of people who work on it, and the licensing conditions for using it and distributing it."
-msgstr "<xref linkend=\"tsvn-preface\"/> では TortoiseSVN プロジェクト、作業している人々のコミュニティ、利用条件、頒布について簡単に説明しています。"
+msgstr "序章<xref linkend=\"tsvn-preface\"/> では TortoiseSVN プロジェクト、作業している人々のコミュニティ、利用条件、頒布について簡単に説明しています。"
 
 #. (para)
 msgid "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN on your PC, and how to start using it straight away."
-msgstr ""
+msgstr "第１章「さあ、はじめましょう」、<xref linkend=\"tsvn-quick-start\"/> は、install TortoiseSVNをあなたのPCにセットして、すぐに使い始める方法を説明しています。"
 
 #. (para)
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
@@ -417,9 +402,8 @@ msgid "Places where you have to be careful what you are doing."
 msgstr "自分が何をしているか注意しなければならない箇所です。"
 
 #. (para)
-#, fuzzy
 msgid "Where extreme care has to be taken. Data corruption or other nasty things may occur if these warnings are ignored."
-msgstr "極端に注意を払わなければなりません。この警告を無視すると、データの破損やその他困ったことが起きるでしょう。"
+msgstr "ここには、極端に注意を払わなけばならないことが説明してあります。この警告を無視すると、データが破損したり、その他困ったことが起きる可能性があります。"
 
 #. (title)
 #. (title)
@@ -443,9 +427,8 @@ msgid "TortoiseSVN runs on Windows XP or higher and is available in both 32-bit 
 msgstr "Windows Xpもしくはそれ以降（ビスタ、ウインドウズ７など）。 32-bitと64-bitのどちらでも可能です。　ただし、64-bitのPCをお使いの方は、32-bitと64-bitバージョンの両方をインストールすることをお勧めします。"
 
 #. (para)
-#, fuzzy
 msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
-msgstr "TortoiseSVN は Windows 2000 SP2, WinXP 以上で動作します。Windows 98, Windows ME, Windows NT4 は TortoiseSVN 1.2.0 からサポートされませんが、本当に必要なら旧バージョンをまだダウンロードできます。"
+msgstr "Windows 98、Windows ME、Windows NT4をお使いの方はv1.2.0以前、Windows 2000をお使いの方はv1.7.0以前のバージョンをインストールしてください。"
 
 #. (title)
 msgid "Installation"
@@ -456,9 +439,8 @@ msgid "install"
 msgstr "インストール"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN comes with an easy to use installer. Double click on the installer file and follow the instructions. The installer will take care of the rest. Don't forget to reboot after installation."
-msgstr "TortoiseSVN には簡単に使えるインストーラがあります。インストーラファイルをダブルクリックし、後は手順に従ってください。後の面倒はインストーラが見てくれます。"
+msgstr "TortoiseSVNは、付属のインストーラーを使い、画面の指示に従ってインストールしてください。　最後にPCを再起動するのをお忘れなく。"
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
@@ -469,14 +451,12 @@ msgid "Language packs are available which translate the TortoiseSVN user interfa
 msgstr "メニュー等を日本語表示にするには、付録H：Language Packs and Spell Checkers <xref linkend=\"tsvn-lang\"/> を参照してLauguage Packsをインストールしてください。"
 
 #. (para)
-#, fuzzy
 msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
-msgstr "TortoiseSVN のインストール中やインストール後に問題が発生したら、はじめに <xref linkend=\"tsvn-faq\"/> を参照してください。"
+msgstr "インストール中にトラブルがあったときは、http://tortoisesvn.tigris.org/faq.htmlを参考にしてください。"
 
 #. (title)
-#, fuzzy
 msgid "Basic Concepts"
-msgstr "バージョン管理の基本概念"
+msgstr "バージョン管理の基本概念　"
 
 #. (para)
 msgid "Before we get stuck into working with some real files, it is important to get an overview of how subversion works and the terms that are used."
@@ -524,9 +504,8 @@ msgid "This section shows you how to try out some of the most commonly used feat
 msgstr "ここでは、リポジトリに少しデータを入れ、それを使って、一般的な機能の説明をします。　すべての機能をここで説明することは出来ませんが、使い方に慣れてきたら、第２章以下の説明を読んで理解を深めてください。"
 
 #. (title)
-#, fuzzy
 msgid "Creating a Repository"
-msgstr "ここにリポジトリを作成"
+msgstr "リポジトリの作成"
 
 #. (para)
 msgid "For a real project you will have a repository set up somewhere safe and a Subversion server to control it. For the purposes of this tutorial we are going to use Subversion's local repository feature which allows direct access to a repository created on your hard drive without needing a server at all."
@@ -541,9 +520,8 @@ msgid "The local repository feature is very useful for test and evaluation but u
 msgstr "一人のデベロッパーが、一台のPCのみを使って作業をしているのなら、このように（PCの中にリポジトリを設定）することも可能ですが、それ以外の場合、サブバージョン用のサーバーを使い、その中にリポジトリを設定することを強くお勧めします。　プロジェクトの規模が小さいと、専用サーバーの確保が難しい場合もあるでしょう。　チームの中の一台のPCのディレクトリーをネットワークで「共有」し、サーバー代わりにするのは、簡単な解決策のようですが、それはお勧めできません。　詳しくは「3.1.4 ネットワーク共有にあるリポジトリへのアクセス」<xref linkend=\"tsvn-repository-local-share\"/>をお読みください。"
 
 #. (title)
-#, fuzzy
 msgid "Importing a Project"
-msgstr "その場でインポート"
+msgstr "プロジェクトをインポートするには"
 
 #. (title)
 #. (title)
@@ -559,9 +537,8 @@ msgid "The other important feature of this dialog is the <guilabel>Import Messag
 msgstr "Import Messageの箱の中には、いつ、どのような理由で、何をしたのか、メモを残すことが出来ます。　これは後に参考になるものです。　今は練習のため「Widgetプロジェクトをインポート」とでも入力してください。　OKボタンをクリックすると、Widgetフォルダーがリポジトリに登録されます。"
 
 #. (title)
-#, fuzzy
 msgid "Checking out a Working Copy"
-msgstr "作業コピーのチェックアウト"
+msgstr "作業コピーをチェックアウトする"
 
 #. (para)
 msgid "Now that we have a project in our repository, we need to create a working copy to use for day-to-day work. Note that the act of importing a folder does not automatically turn that folder into a working copy. The Subversion term for creating a fresh working copy is <literal>Checkout</literal>. We are going to checkout the Widget1 folder of our repository into a development folder on the PC called <filename>C:\\Projects\\Widget1-Dev</filename>. Create that folder, then right click on it and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename> and click on <guibutton>OK</guibutton>. Our development folder is then populated with files from the repository."
@@ -572,32 +549,28 @@ msgid "You will notice that the appearance of this folder is different from our 
 msgstr "この作業コピーのファイルをエクスプローラーで見ると、右下に緑のチェックが入っていることに気が付くと思います。　これは、「この作業コピーは、レポジトリの中にある同一ファイルと同じ内容です。」と言うことを示しています。　"
 
 #. (title)
-#, fuzzy
 msgid "Making Changes"
-msgstr "変更の取り消し"
+msgstr "変更を加える"
 
 #. (para)
 msgid "Time to get to work. In the <filename>Widget1-Dev</filename> we start editing files - let's say we make changes to <filename>Widget1.c</filename> and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these files have now changed to red, indicating that changes have been made locally."
 msgstr "さて、Widget1の中のWidget1.cとReadMe.txtの２つのファイルの内容を変更してみましょう。　C:∖Projects∖Widget1-Devフォルダーの中のこれら２つのファイルのアイコンの右下のチェックが緑から赤に変わるはずです。　赤いチェックは、作業コピーの内容が、リポジトリの中の同一ファイルと同じではないことを示しています。"
 
 #. (title)
-#, fuzzy
 msgid "File Difference Viewer"
-msgstr "ファイルの差分"
+msgstr "ファイルの差分を見る"
 
 #. (para)
-#, fuzzy
 msgid "But what are the changes? Right click on one of the changed files and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>. TortoiseSVN's file compare tool starts, showing you exactly which lines have changed. <placeholder-1/>"
-msgstr "親フォルダを右クリックし、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>問題の解消...</guimenuitem></menuchoice> を選択すると、「問題の解消」コマンドを複数のファイルに実行できます。指定したフォルダにある競合したファイルがすべてダイアログに表示されます。解消するものを選択してください。"
+msgstr "このような赤いチェックつきのファイルを右クリックし、TortoiseSVN-->Diffを選択すると、ファイル比較ツールが現われ、変更の箇所と内容を見ることが出来ます。"
 
 #. (para)
 msgid "OK, so we are happy with the changes, let's update the repository. This action is referred to as a <literal>Commit</literal> of the changes. Right click on the <filename>Widget1-Dev</filename> folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice>. The commit dialog lists the changed files, each with a checkbox. You might want to choose only a subset of those files, but in this case we are going to commit the changes to both files. Enter up a message to describe what the change is all about and click on <guibutton>OK</guibutton>. The progress dialog shows the files being uploaded to the repository and you're done."
 msgstr "さて、変更の内容に問題がないようでしたら、ファイルをリポジトリに戻しましょう。　これを「コミット」と呼びます。 Widget1-Devフォルダーを右クリックし、TortoiseSVN-->Commitを選択してください。　フォルダーの中のファイルの中で、変更があったものが表示されます。　変更したファイルの一部だけをコミットすることも出来ますが、この場合はすべて（Widget1.cとReadMe.txt)をコミットしましょう。　メッセージの項に、何をどのような理由で変更したか書き込み、OKをクリックします。　リポジトリの内容が更新されたことを示すメッセージが表示され、コミット完了です。"
 
 #. (title)
-#, fuzzy
 msgid "Adding More Files"
-msgstr "属性の追加"
+msgstr "ファイルの追加"
 
 #. (para)
 msgid "As the project develops you will need to add new files - let's say you add some new features in <filename>Extras.c</filename> and add a reference in the existing <filename>Makefile</filename>. Right click on the folder and <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>. The Add dialog now shows you all unversioned files and you can select which ones you want to add. Another way of adding files would be to right click on the file itself and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
@@ -612,9 +585,8 @@ msgid "Viewing the Project History"
 msgstr "プロジェクトの変更経歴を見る"
 
 #. (title)
-#, fuzzy
 msgid "The Log Dialog"
-msgstr "ロックダイアログ"
+msgstr "ログ・ダイアログ"
 
 #. (para)
 msgid "One of the most useful features of TortoiseSVN is the Log dialog. This shows you a list of all the commits you made to a file or folder, and shows those detailed commit messages that you entered ;-) <placeholder-1/> OK, so I cheated a little here and used a screenshot from the TortoiseSVN repository."
@@ -629,9 +601,8 @@ msgid "Each of these panes has a context menu which provides you with lots more 
 msgstr "これらのパネルを使って、より多くの情報を得ることが出来ます。　例えば、下のパネルのファイル名をダブルクリックすると、このコミットで、このファイルの何が変更されたのか、内容が表示されます。　詳しくは「4.9　リビジョンログダイアログ」を参考にしてください。"
 
 #. (title)
-#, fuzzy
 msgid "Undoing Changes"
-msgstr "変更の取り消し"
+msgstr "変更を取り消す"
 
 #. (para)
 msgid "One feature of all revision control systems is that they let you undo changes that you made previously. As you would expect, TortoiseSVN makes this easy to access."
@@ -642,9 +613,8 @@ msgid "If you want to get rid of changes that you have not yet committed and res
 msgstr "まだコミットしていないファイルを、リポジトリからチェックアウトした状態に戻すには（したがって、チェックアウトしてから今までの作業はすべて水の泡・・・）TortoiseSVN-->Revertを選択します（変更した作業コピーはウィンドウズのゴミ箱の中に入ります）。　まだコミットしていないファイルの、変更の一部を元に戻すには、TortoiseMergeを使います（これはスタートメニューからアクセスします）。"
 
 #. (para)
-#, fuzzy
 msgid "If you want to undo the effects of a particular revision, start with the Log dialog and find the offending revision. Select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice> and those changes will be undone."
-msgstr "もしくは、もっと古いリビジョンを新しい HEAD リビジョンにしたい場合は、選択したリビジョンの上で <action>右クリック</action> し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>このリビジョンに戻す</guimenuitem></menuchoice> を選択してください。これにより、選択したリビジョン以降の変更が<emphasis>すべて</emphasis>取り消されます。"
+msgstr "もうコミットしてしまったものを元に戻したいときは、Logダイアログを使います。　元に戻したいバージョンを選択してから、Context Menu-->Revert changes from this revisionを選択してください。　プロジェクトはその直前のバージョンに戻ります。"
 
 #. (title)
 msgid "Moving On ..."
@@ -656,7 +626,7 @@ msgstr "この章は、TortoiseSVNの機能の中で、最も重要で、よく�
 
 #. (para)
 msgid "We have taken a lot of trouble to make sure that it is both informative and easy to read, but we recognise that there is a lot of it! Take your time and don't be afraid to try things out on a test repository as you go along. The best way to learn is by using it."
-msgstr ""
+msgstr "ここまでお読みになってくださって、ありがとうございます。　まずは試しに使ってみて、またわからないことがあったら、次章以下を参照してください。"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
