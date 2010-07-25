@@ -43,6 +43,9 @@ library LibSubWCRev
 		[propget, helpstring("TRUE if the file or folder is under SVN version control")]
 		HRESULT IsSvnItem([out, retval]VARIANT_BOOL* svn_item);
 
+		[propget, helpstring("TRUE if locking is generally required for the requested file / folder")]
+		HRESULT NeedsLocking([out, retval]VARIANT_BOOL* needs_locking);
+		
 		[propget, helpstring("TRUE if the file or folder is locked")]
 		HRESULT IsLocked([out, retval]VARIANT_BOOL* locked);
 		

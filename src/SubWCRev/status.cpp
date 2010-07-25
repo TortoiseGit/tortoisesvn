@@ -91,7 +91,7 @@ void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
     *pszDest = '\0';
 }
 
-svn_error_t * getfirststatus(void * baton, const char * /*path*/, const svn_client_status_t * status, apr_pool_t * /*pool*/)
+svn_error_t * getfirststatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool)
 {
     SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
     if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
@@ -102,6 +102,13 @@ svn_error_t * getfirststatus(void * baton, const char * /*path*/, const svn_clie
     {
         UnescapeCopy(status->repos_root_url, status->repos_relpath, sb->SubStat->Url, URL_BUF);
     }
+    if (status->kind == svn_node_file)
+    {
+        const svn_string_t * value = NULL;
+        svn_wc_prop_get2(&value, sb->wc_ctx, path, "svn:needs-lock", pool, pool);
+        sb->SubStat->LockData.NeedsLocks = (value->len > 0);
+    }
+
     return SVN_NO_ERROR;
 }
 
@@ -215,6 +222,7 @@ svn_status (    const char *path,
     sb.SubStat = (SubWCRev_t *)status_baton;
     sb.extarray = extarray;
     sb.pool = pool;
+    sb.wc_ctx = ctx->wc_ctx;
 
     svn_opt_revision_t wcrev;
     wcrev.kind = svn_opt_revision_working;

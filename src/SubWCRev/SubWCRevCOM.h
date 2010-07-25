@@ -68,6 +68,8 @@ public:
 
     virtual HRESULT __stdcall get_IsSvnItem(/*[out, retval]*/VARIANT_BOOL* svn_item);
 
+    virtual HRESULT __stdcall get_NeedsLocking(/*[out, retval]*/VARIANT_BOOL* needs_locking);
+
     virtual HRESULT __stdcall get_IsLocked(/*[out, retval]*/VARIANT_BOOL* locked);
 
     virtual HRESULT __stdcall get_LockCreationDate(/*[out, retval]*/VARIANT* date);
@@ -78,6 +80,7 @@ public:
 
 private:
     BOOL CopyDateToString(WCHAR *destbuf, int buflen, apr_time_t time);
+    BOOL IsLockDataAvailable();
 
     HRESULT LoadTypeInfo(ITypeInfo ** pptinfo, const CLSID& libid, const CLSID& iid, LCID lcid);
     static HRESULT BoolToVariantBool(BOOL value, VARIANT_BOOL* result);
