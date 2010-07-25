@@ -535,7 +535,7 @@ int CBaseView::GetSubLineOffset(int index)
 {
     int subLine = 0;
     int viewLine = m_Screen2View[index];
-    while ((index-subLine > 0) && (m_Screen2View[index-subLine] == viewLine))
+    while ((index-subLine >= 0) && (m_Screen2View[index-subLine] == viewLine))
         subLine++;
     subLine--;
     if ((subLine == 0)&&(index+1 < m_Screen2View.size())&&(m_Screen2View[index+1] != viewLine))
