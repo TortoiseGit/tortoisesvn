@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-07-16 20:11+0100\n"
+"PO-Revision-Date: 2010-07-26 21:43+0100\n"
 "Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1479,11 +1479,11 @@ msgstr "serverovské pripnuté (hook) skripty"
 
 #. (para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr ""
+msgstr "Prpipnutý skript je program, ktorý sa spúšťa nejakou udalosťou v úložisku ako je vytvorenie novej revízie alebo úpravy neverziovaných vlastností. Každé pripnutie nesie dostatok informácii, aby vedelo o akú udalosť sa jedná, aký je cieľ operácie a užívateľské meno, ktoré súšťa udalosť. V závislosti od výstupu pripnutia alebo návratovej hodnoty, pripnutý program môže pokračovať vo vykonávaní alebo pozastaviť sa. Ďalšie informácie najdete na <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> v Subversion knihe pre detailné informácie o pripnutiach, ktoré sa dajú vykonať."
 
 #. (para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
-msgstr ""
+msgstr "Tieto pripnuté skripty sú vykonávané serverom, na ktorom sa nachádza úložisko. TortoiseSVN dovoľuje tiež prispôsobovať skripty na stranie užívateľa, ktoré sú vykonávana lokálne po nejakej udalosti.  Pre viac informácii pozrite <xref linkend=\"tsvn-dug-settings-hooks\"/>."
 
 # hooks
 #. (para)
@@ -1495,22 +1495,28 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>"
 msgstr ""
+"Niektoré pripnuté skripty môžete nájsť v <filename>hooks</filename> adresári úložiska. Tieto ukážkové skripty sú použiteľné pre Unix/Linux servre, ale musia byť upravené, ak používate ich na Windows server. Pripnutie môže byť dávkový súbor alebo spustiteľný súbor. V ukážke dole je dávkový súbor, ktorý môže byť použitý ako pripnutie. <screen>\n"
+"rem Only allow log messages to be changed.\n"
+"if \"%4\" == \"svn:log\" exit 0\n"
+"echo Property '%4' cannot be changed &gt;&amp;2\n"
+"exit 1\n"
+"</screen>Všimnite si, že ak niečo je odoslané na výstup, tak je to zahodené. Ak chcete, aby sa správa objavila pri zamietnutí odovzdávania dialógu musíte to poslat na stderr. V dávkovom súubore toto môžete spraviť pomocou <filename>&gt;&amp;2</filename>"
 
 #. (title)
 msgid "Overriding Hooks"
-msgstr ""
+msgstr "Prvoradé pripnutia"
 
 #. (para)
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
-msgstr ""
+msgstr "Ak pripnutý skript neprijme vaše odovzdanie, potom je toto rozhodnutie konečné, Ale môžete vytvoriť naliehajúci mechanizmus do samotného skriptu použitím techniky <emphasis>špeciálneho výrazu</emphasis>. Ak skrpt odmietne operáciu, najskôr prehľadá denníkové správy, či sa tam nenachádzajú speciálne výrazy, buď fixné výrazy alebo súbor s predponou. Ak nájde špeciálny výraz, potom dovolí pokračovať v odovzdávaní. Ak výraz nie je najdutý, potom zablokuje odovzdávanie so správou napríklad <quote>Nepovedali ste čarovné slovíčko</quote> :-)"
 
 #. (title)
 msgid "Checkout Links"
-msgstr ""
+msgstr "Získané odkazy"
 
 #. (primary)
 msgid "checkout link"
-msgstr ""
+msgstr "získaný odkaz"
 
 #. (primary)
 msgid "TortoiseSVN link"
@@ -1518,19 +1524,19 @@ msgstr "TortoiseSVN link"
 
 #. (primary)
 msgid "link"
-msgstr ""
+msgstr "odkaz"
 
 #. (primary)
 msgid "website"
-msgstr ""
+msgstr "web"
 
 #. (para)
 msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TortoiseSVN users."
-msgstr ""
+msgstr "Ak si chcete spraviť úložisko dostupné pre ostatných, môžete chcieť zahrnúť odkaz na úložisko z vášho webu. Jeden spôsob ako spraviť link prístupný je použiť <firstterm>checkout link</firstterm> pre ostatných užívateľov TortoiseSVN."
 
 #. (para)
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TortoiseSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
-msgstr ""
+msgstr "Pri inštalácii TortoiseSVN, inštalátor registruje nový <literal>tsvn:</literal> protokol. Ak TortoiseSVN uživateľ klikne na takýto odkaz, získavací dialóg automaticky otvorí zadanú adresu s úložiskom."
 
 #. (programlisting)
 #, no-wrap
@@ -1539,10 +1545,13 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
+"&lt;/a&gt;\n"
 
 #. (para)
 msgid "To include such a link in your own html page, you need to add code which looks something like this: <placeholder-1/>"
-msgstr ""
+msgstr "Pre zaradenie takéhoto odkazu na vašu vlastnú web stránku potrebujete pridať nasledovný kód: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -1551,10 +1560,13 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
+"&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 
 #. (para)
 msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <placeholder-1/>"
-msgstr ""
+msgstr "Samozrejme vzhľad môžete vylepšiť vhodným obrázkom. Môžete použiť napríklad <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle>, alebo si spraviť vlasný obrázok ku tomu. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -1563,10 +1575,13 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
 "&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
+"&lt;/a&gt;\n"
 
 #. (para)
 msgid "You can also make the link point to a specific revision, for example <placeholder-1/>"
-msgstr ""
+msgstr "Taktiež môžete vytovriť odkaz pre určitú verziu napríklad <placeholder-1/>"
 
 #. (title)
 msgid "Accessing the Repository"
@@ -1574,27 +1589,27 @@ msgstr "Pristupovanie k úložisku"
 
 #. (para)
 msgid "To use TortoiseSVN (or any other Subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <literal>file://</literal> protocol or you can place them on a server and access them with the <literal>http://</literal> or <literal>svn://</literal> protocols. The two server protocols can also be encrypted. You use <literal>https://</literal> or <literal>svn+ssh://</literal>, or you can use <literal>svn://</literal> with SASL."
-msgstr ""
+msgstr "Pre použitie TortoiseSVN (alebo hociakého iného Subversion klienta) potrebujete miesto, kde sa úložisko bude nachádzať. Môžete ho mať buď lokálne a pristupovať ku nemu pomocou <literal>file://</literal> protokolu, alebo ho môžete umiestniť na server a pristupovať ku nemu cez <literal>http://</literal> alebo aj <literal>svn://</literal> protokol. Tieto dva protokoly môžu byť aj šifrované. Stači použiť <literal>https://</literal> alebo <literal>svn+ssh://</literal>, alebo aj <literal>svn://</literal> s SASL."
 
 #. (para)
 msgid "If you are using a public hosting service such as <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
-msgstr ""
+msgstr "Ak používate verejný hosting ako <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> alebo váš server už bol nastavený niekym iným, nie je nič ďalšie potrebné vykonávať. Pokračujte na  <xref linkend=\"tsvn-dug\"/>."
 
 #. (para)
 msgid "If you don't have a server and you work alone, or if you are just evaluating Subversion and TortoiseSVN in isolation, then local repositories are probably your best choice. Just create a repository on your own PC as described earlier in <xref linkend=\"tsvn-repository\"/>. You can skip the rest of this chapter and go directly to <xref linkend=\"tsvn-dug\"/> to find out how to start using it."
-msgstr ""
+msgstr "Ak nemáte server a pracujete sám, alebo skúšate Subversion a TortoiseSVN izolovane, potom lokálne úložisko je asi najlepšia možnosť. Iba vytvorte úložisko na vašom počítači ako je popísané v <xref linkend=\"tsvn-repository\"/>. Môžete preskočiť zvyšok tejto kapitoly a pokračovať priamo na <xref linkend=\"tsvn-dug\"/>, aby ste zistili ako ho začať použivať."
 
 #. (para)
 msgid "If you were thinking about setting up a multi-user repository on a network share, think again. Read <xref linkend=\"tsvn-repository-local-share\"/> to find out why we think this is a bad idea. Setting up a server is not as hard as it sounds, and will give you better reliability and probably speed too."
-msgstr ""
+msgstr "Ak rozmýšlate na nastavením úložiska pre viacero užívateľov v zdielanej sieti, zamyslite sa ešte raz. Pozrite si <xref linkend=\"tsvn-repository-local-share\"/>, aby ste zistili prečo je to zlý nápad. Nastavenie servera nie je až také tažke ako sa môže zdať a poskytne vám lepšiu spoľahlivosť a taktiež rýchlosť."
 
 #. (para)
 msgid "The next sections are a step-by-step guide on how you can set up such a server on a Windows machine. Of course you can also set up a server on a Linux machine, but that is beyond the scope of this guide. More detailed information on the Subversion server options, and how to choose the best architecture for your situation, can be found in the Subversion book under <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
-msgstr ""
+msgstr "V ďalšej časti je návod krok za krokom ak sa nastavuje server na počítači s Windowsom. Samozrejme aj na Linuxe sa nastavuje server, ale to je už mimo rozshau tejto príručky. Viacej informácii ako nastaviť Subversion server a ako si vybrať najlepšie rozčlenenie pre váš projekt nájdete v Subversion knihe pod <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Nastavenie servra</citetitle></ulink>."
 
 #. (title)
 msgid "Svnserve Based Server"
-msgstr ""
+msgstr "Server založený na Svnserve "
 
 #. (title)
 #. (title)
@@ -1603,11 +1618,11 @@ msgstr "Úvod"
 
 #. (para)
 msgid "Subversion includes Svnserve - a lightweight stand-alone server which uses a custom protocol over an ordinary TCP/IP connection. It is ideal for smaller installations, or where a full blown Apache server cannot be used."
-msgstr ""
+msgstr "Subversion obsahuje Svnserve - odľahčený samostatný server, ktorý používa vlstný protokol pre bežné TCP/IP spojenia. Je perfektný pre menšie inštalácie, alebo kďe nemôže byť použitý Apache server."
 
 #. (para)
 msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server, although it doesn't have some of the advanced features. And now that SASL support is included it is easy to secure as well."
-msgstr ""
+msgstr "Vo väčšine prípadov svnerve je jednoduchšie nastaviť a rýchlo spustiť, ako server založený na Apache aj keď nemá niektoré pokročilé funkcie. V súčasnosti je už SASL podpora zahrnutá, takže otázka bezpečnosti je vyriešená."
 
 #. (title)
 msgid "Installing svnserve"
@@ -1615,24 +1630,24 @@ msgstr "Inštalácia svnserve"
 
 #. (para)
 msgid "Get the latest version of Subversion from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Alternatively get a pre-packaged installer from CollabNet at <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink>. This installer will setup svnserve as a Windows service, and also includes some of the tools you need if you are going to use SASL for security."
-msgstr ""
+msgstr "Aktuálnu verziu Subversion nájdete na <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>. Taktiež nájdete na <ulink url=\"http://www.collab.net/downloads/subversion\"><citetitle>http://www.collab.net/downloads/subversion</citetitle></ulink> inštalátor od CollabNet. Tento inštalátor nastaví svnserve ako Windows službu a taktiež obsahuje niektoré nástroje, ak budete využívať bezpečnosť SASL."
 
 # Installing svnserve
 #. (para)
 msgid "If you already have a version of Subversion installed, and svnserve is running, you will need to stop it before continuing."
-msgstr ""
+msgstr "Ak už máte nainštalovaný Subversion a svnserve je spustený, potrebujete ho zastaviť predtým ako budete pokračovať."
 
 #. (para)
 msgid "Run the Subversion installer. If you run the installer on your server (recommended) you can skip step 4."
-msgstr ""
+msgstr "Spustite Subversion inštalátor. Ak spúštate inštalátor na serveri (odporúčené), môžete preskočiť koro 4."
 
 #. (para)
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>"
-msgstr ""
+msgstr "Otvorte windows prieskumníka, choďte do adresára, v ktorom je nainštalovaný Subversion (bežne sa nachádza v <filename>C:\\Program Files\\Subversion</filename>) a v <filename>bin</filename> adresári nájdite súbory <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - prekopírujte tieto súbory, alebo jednoducho skopírujte celý adresár <filename>bin</filename> do adresára na vašom serveri napr. <filename>c:\\svnserve</filename>"
 
 #. (title)
 msgid "Running svnserve"
-msgstr ""
+msgstr "Spustenie svnserve"
 
 # Installing svnserve
 #. (para)
@@ -1641,16 +1656,19 @@ msgid ""
 "svnserve.exe --daemon\n"
 "</screen> svnserve will now start waiting for incoming requests on port 3690. The --daemon switch tells svnserve to run as a daemon process, so it will always exist until it is manually terminated."
 msgstr ""
+"Teraz máme nainštalovaný svnserve a potrebujeme ho spostiť na serveri. Najľahšie je to spraviť cez príkazový riadok DOS, alebo vytovrením windowsovej skratky takto: <screen>\n"
+"svnserve.exe --daemon\n"
+"</screen> svnserve teraz čaká na prichádzajúce požiadavky na porte 3690. Prepínč --daemon povie svnserve, ako spustil process ako daemon, takže bude stále spustený pokiaľ ho ručne neukončíme."
 
 # Installing svnserve
 #. (para)
 msgid "If you have not yet created a repository, follow the instructions given with the Apache server setup <xref linkend=\"tsvn-serversetup-apache-4\"/>."
-msgstr ""
+msgstr "Ak ešte nemáte vytvorené úložisko, nasledujte inštrukcie pri nastavovaní Apache servera <xref linkend=\"tsvn-serversetup-apache-4\"/>."
 
 # Installing svnserve
 #. (para)
 msgid "To test that svnserve is working, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to view a repository."
-msgstr ""
+msgstr "Pre vyskúšanie, či svnserve funguje, použite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Prehliadač úložiska</guimenuitem></menuchoice> pre zobrazenie úložiska."
 
 # Installing svnserve
 #. (para)
@@ -1659,6 +1677,9 @@ msgid ""
 "svn://localhost/repos/TestRepo\n"
 "</screen> when prompted by the repo browser."
 msgstr ""
+"V prípade, že vaše úložisko sa nachádza v <filename>c:\\repos\\TestRepo</filename> a váš server má názov <filename>localhost</filename>, zadajte:  <screen>\n"
+"svn://localhost/repos/TestRepo\n"
+"</screen> pre prehliadnutie úložiska."
 
 #. (para)
 msgid ""
@@ -1670,10 +1691,17 @@ msgid ""
 "svn://localhost/TestRepo\n"
 "</screen> Note that the --root switch is also needed if your repository is located on a different partition or drive than the location of svnserve on your server."
 msgstr ""
+"Taktiež môžete zvýšiť bezpečnosť a ušetriť čas zadávaním URL adries pomocou svnserve použitím prepínaču --root, aby ste nastavili umiestnenie a obmedzili prístup pre vybrané adresáre na serveri: <screen>\n"
+"svnserve.exe --daemon --root drive:\\path\\to\\repository\\root\n"
+"</screen> Použitím predchádzajúceho testu ak bolo uvedené vyššie, svnserve mal by byť spustený ako: <screen>\n"
+"svnserve.exe --daemon --root c:\\repos\n"
+"</screen> A v TortoiseSVN naše URL adresa pre prezeranie úložiska je skrátená na: <screen>\n"
+"svn://localhost/TestRepo\n"
+"</screen> Pamätajte, že prepínač --root je taktiež potrebný, ak vaše úložisko sa nachádza na inom oddiely alebo disku, ako umiestnenie svnserve na vašom serveri."
 
 #. (para)
 msgid "Svnserve will service any number of repositories. Just locate them somewhere below the root folder you just defined, and access them using a URL relative to that root."
-msgstr ""
+msgstr "Svnserve poskytuje akékoľvek množstvo úložísk. Stačí ich umiestniť niekde do koreňového adresára, ktorý ste si zadefinovali a pristupujete ku nemu pomocou relatívnej URL."
 
 #. (title)
 msgid "Run svnserve as a Service"
@@ -1681,7 +1709,7 @@ msgstr "Spustiť svnserver ako servis"
 
 #. (para)
 msgid "Running svnserve as a user is usually not the best way. It means always having a user logged in on your server, and remembering to restart it after a reboot. A better way is to run svnserve as a windows service. Starting with Subversion 1.4, svnserve can be installed as a native windows service."
-msgstr ""
+msgstr "Spustenie svnserve ako užívateľ nie je vždy najlepšie riešenie. To znamená, že je stále prihlásneý užívateľ na serveri a po reštartovaní alebo rebootovaní taktiež. Lepší spôsob je spustiť svnserve ako windowsovú službu. Od Subversion 1.4 svneserve má voľbu pri inštalácii ako natívnu windows službu."
 
 #. (para)
 msgid ""
@@ -1698,10 +1726,22 @@ msgid ""
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
 msgstr ""
+"Pre inštaláciu svnserve ako natívnu službu spustite nasledovný príkaz ako celok v jednom pre vytvorenie služby, ktorá sa automaticky spustí pri spustení windowsu. <screen>\n"
+"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service\n"
+"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip\n"
+"    start= auto\n"
+"</screen> Ak akákoľvek cesta obsahuje medzeru musíte použiť úvodzovky, napríklad takto: <screen>\n"
+"sc create svnserve binpath= \"\n"
+"    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
+"    --service --root c:\\repos\" displayname= \"Subversion\"\n"
+"    depend= tcpip start= auto\n"
+"</screen> Taktiež môžete pridať popis služby po jej vytvorení. Ten sa zobrazí vo Windows Správcovi úloh. <screen>\n"
+"sc description svnserve \"Subversion server (svnserve)\"\n"
+"</screen>"
 
 #. (para)
 msgid "Note the rather unusual command line format used by <literal>sc</literal>. In the <literal>key= value</literal> pairs there must be no space between the key and the <literal>=</literal> but there must be a space before the value."
-msgstr ""
+msgstr "Všimnite si, že je použitý neobvyklý fromát príkazového riadku <literal>sc</literal>. V <literal>key= value</literal> dvojici slôv nesmie byť medzera medzi slovami key a <literal>=</literal>, ale musí byť pred slovom value."
 
 #. (para)
 msgid ""
@@ -1709,6 +1749,9 @@ msgid ""
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen> Note that you would have to give the Local Service account appropriate rights to both Subversion and your repositories, as well as any applications which are used by hook scripts. The built-in group for this is called \"LOCAL SERVICE\"."
 msgstr ""
+"Microsoft odporúča, aby služby boli spustené aj pod lokálnymi službami aj pod sieťovými službami. Pozrite <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. Pre vytvorenie služby pod účtom lokálnej složby dopíšte nasledujúce. <screen>\n"
+"obj= \"NT AUTHORITY\\LocalService\"\n"
+"</screen>Pamätajte, že vhodné práva môžete dať účtu lokálnej služby pre Subversion a aj pre úložisko, tak ako hociktorej inej aplikácii, ktorá používa pripnuté skripty. Názov skupiny pre toto sa volá \"LOCAL SERVICE\"."
 
 #. (para)
 msgid "Once you have installed the service, you need to go to the services manager to start it (this time only; it will start automatically when the server reboots)."
