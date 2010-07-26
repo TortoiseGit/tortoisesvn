@@ -1327,7 +1327,7 @@ COLORREF CBaseView::InlineDiffColor(int nLineIndex)
 
 void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const CPoint& origin)
 {
-    if (!(m_bViewWhitespace && m_pViewData && (nLineIndex >= 0) && (nLineIndex < m_pViewData->GetCount())))
+    if (!(m_bViewWhitespace && m_pViewData && (nLineIndex >= 0) && (nLineIndex < GetLineCount())))
         return;
     int viewLine = m_Screen2View[nLineIndex];
     EOL ending = m_pViewData->GetLineEnding(viewLine);
@@ -1363,15 +1363,25 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
         CPen * oldpen = pDC->SelectObject(&pen);
         int yMiddle = origin.y + rc.Height()/2;
         int xMiddle = origin.x+GetCharWidth()/2;
+        bool bMultiline = false;
         if (((int)m_Screen2View.size() > nLineIndex+1) && (m_Screen2View[nLineIndex+1] == viewLine))
         {
-            // multiline
-            pDC->MoveTo(origin.x, yMiddle-2);
-            pDC->LineTo(origin.x+GetCharWidth(), yMiddle-2);
-            pDC->LineTo(origin.x+GetCharWidth(), yMiddle+2);
-            pDC->LineTo(origin.x, yMiddle+2);
+            if (GetLineLength(nLineIndex+1))
+            {
+                // multiline
+                bMultiline = true;
+                pDC->MoveTo(origin.x, yMiddle-2);
+                pDC->LineTo(origin.x+GetCharWidth(), yMiddle-2);
+                pDC->LineTo(origin.x+GetCharWidth(), yMiddle+2);
+                pDC->LineTo(origin.x, yMiddle+2);
+            }
+            else if (GetLineLength(nLineIndex) == 0)
+                bMultiline = true;
         }
-        else
+        else if ((nLineIndex > 0) && (m_Screen2View[nLineIndex-1] == viewLine) && (GetLineLength(nLineIndex) == 0))
+            bMultiline = true;
+
+        if (!bMultiline)
         {
             switch (ending)
             {
