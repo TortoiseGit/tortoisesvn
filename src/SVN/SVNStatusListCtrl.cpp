@@ -749,7 +749,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
         entry->isfolder = (pSVNStatus->kind == svn_node_dir);
     entry->Revision = pSVNStatus->revision;
     entry->working_size = -1;    // TODO: ask the svn devs to add the working_size field
-    entry->depth = svn_depth_unknown;   // TODO: ask the svn devs to add the depth field
+    entry->depth = pSVNStatus->depth;
 
     if (pSVNStatus->repos_relpath)
     {
