@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-07-11 08:32 +0000\n"
+"POT-Creation-Date: 2010-07-28 18:27 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -8668,6 +8668,10 @@ msgstr ""
 msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr ""
 
+#.(para)
+msgid "A small tool is included in the TortoiseSVN installation folder named ConnectVPN.exe. You can use this tool configured as a pre-connect hook to automatically connect to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
+msgstr ""
+
 #.(title)
 msgid "Issue Tracker Integration"
 msgstr ""
@@ -11295,11 +11299,11 @@ msgid "translations"
 msgstr ""
 
 #.(para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available, why not join the team and submit your own translation ;-)"
 msgstr ""
 
 #.(para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
+msgid "Each language pack is packaged as a <literal>.msi</literal> installer. Just run the install program and follow the instructions. After the installation finishes, the translation will be available."
 msgstr ""
 
 #.(para)
@@ -11323,7 +11327,7 @@ msgid "TortoiseSVN includes a spell checker which allows you to check your commi
 msgstr ""
 
 #.(para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. After the installation finishes, the dictionary will be available too."
 msgstr ""
 
 #.(para)
