@@ -555,6 +555,7 @@
     <ClCompile Include="Properties\EditPropNeedsLock.cpp" />
     <ClCompile Include="Properties\EditPropTSVNLang.cpp" />
     <ClCompile Include="Properties\EditPropTSVNSizes.cpp" />
+    <ClCompile Include="RevisionGraph\RemoveTags.cpp" />
     <ClCompile Include="Settings\SetOverlayHandlers.cpp" />
     <ClCompile Include="UpdateDlg.cpp" />
     <ClCompile Include="Commands\AddCommand.cpp" />
@@ -872,6 +873,7 @@
     <ClInclude Include="Properties\EditPropNeedsLock.h" />
     <ClInclude Include="Properties\EditPropTSVNLang.h" />
     <ClInclude Include="Properties\EditPropTSVNSizes.h" />
+    <ClInclude Include="RevisionGraph\RemoveTags.h" />
     <ClInclude Include="Settings\SetOverlayHandlers.h" />
     <ClInclude Include="UpdateDlg.h" />
     <ClInclude Include="Commands\AddCommand.h" />

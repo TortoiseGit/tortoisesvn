@@ -1037,6 +1037,9 @@
     <ClCompile Include="..\Utils\IconExtractor.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="RevisionGraph\RemoveTags.cpp">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1977,6 +1980,9 @@
     </ClInclude>
     <ClInclude Include="..\Utils\IInputValidator.h">
       <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="RevisionGraph\RemoveTags.h">
+      <Filter>Commands\RevisionGraph\Options\Copy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

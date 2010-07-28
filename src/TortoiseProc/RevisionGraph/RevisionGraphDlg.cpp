@@ -57,7 +57,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
     // restore option state
 
     DWORD dwOpts = CRegStdDWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x1ff199);
-    m_Graph.m_state.GetOptions()->SetRegistryFlags (dwOpts, 0x7fbf);
+    m_Graph.m_state.GetOptions()->SetRegistryFlags (dwOpts, 0x407fbf);
 
     // begin background operation
 
@@ -109,6 +109,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
     ON_COMMAND_EX(ID_VIEW_REMOVEDELETEDONES, OnToggleOption)
     ON_COMMAND_EX(ID_VIEW_SHOWWCREV, OnToggleReloadOption)
     ON_COMMAND_EX(ID_VIEW_REMOVEUNCHANGEDBRANCHES, OnToggleOption)
+    ON_COMMAND_EX(ID_VIEW_REMOVETAGS, OnToggleOption)
     ON_COMMAND_EX(ID_VIEW_SHOWWCMODIFICATION, OnToggleReloadOption)
     ON_COMMAND_EX(ID_VIEW_SHOWDIFFPATHS, OnToggleOption)
     ON_COMMAND_EX(ID_VIEW_SHOWTREESTRIPES, OnToggleRedrawOption)
