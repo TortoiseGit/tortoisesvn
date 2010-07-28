@@ -51,6 +51,7 @@
 #include "Shlwapi.h"
 #include "RepositoryBrowserSelection.h"
 #include "Commands\EditFileCommand.h"
+#include "AsyncCall.h"
 
 #define OVERLAY_EXTERNAL        1
 
@@ -104,6 +105,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , m_diffKind(svn_node_none)
     , m_hAccel(NULL)
     , bDragMode(FALSE)
+    , m_backgroundJobs(0, 1, true)
 {
     m_repository.revision = rev;
 }
@@ -122,6 +124,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , m_diffKind(svn_node_none)
     , m_hAccel(NULL)
     , bDragMode(FALSE)
+    , m_backgroundJobs(0, 1, true)
 {
     m_repository.revision = rev;
 }
@@ -177,6 +180,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
     ON_WM_SETCURSOR()
     ON_REGISTERED_MESSAGE(WM_AFTERINIT, OnAfterInitDialog)
+    ON_MESSAGE(WM_REFRESHURL, OnRefreshURL)
     ON_WM_MOUSEMOVE()
     ON_WM_LBUTTONDOWN()
     ON_WM_LBUTTONUP()
@@ -512,6 +516,18 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
     return 0;
 }
 
+LRESULT CRepositoryBrowser::OnRefreshURL(WPARAM /*wParam*/, LPARAM lParam)
+{
+    const TCHAR* url = reinterpret_cast<const TCHAR*>(lParam);
+
+    HTREEITEM item = FindUrl(url);
+    if (item)
+        RefreshNode (item, true);
+
+    delete url;
+    return 0;
+}
+
 void CRepositoryBrowser::OnOK()
 {
     RevokeDragDrop(m_RepoList.GetSafeHwnd());
@@ -532,6 +548,7 @@ void CRepositoryBrowser::OnOK()
         return;
     }
 
+    m_backgroundJobs.WaitForEmptyQueue();
     SaveColumnWidths(true);
 
     ClearUI();
@@ -545,6 +562,7 @@ void CRepositoryBrowser::OnCancel()
     RevokeDragDrop(m_RepoList.GetSafeHwnd());
     RevokeDragDrop(m_RepoTree.GetSafeHwnd());
 
+    m_backgroundJobs.WaitForEmptyQueue();
     SaveColumnWidths(true);
 
     ClearUI();
@@ -1799,21 +1817,24 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
     }
 }
 
-void CRepositoryBrowser::EditFile(const CTSVNPath& url)
+void CRepositoryBrowser::EditFile(CTSVNPath url, CTSVNPath urlEscaped)
 {
+    SVNRev revision = GetRevision();
     CString paramString 
         = _T("/closeonend:1 /closeforlocal /hideprogress /revision:");
-    CCmdLineParser parameters (paramString + GetRevision().ToString());
+    CCmdLineParser parameters (paramString + revision.ToString());
 
     EditFileCommand command;
     command.SetPaths (CTSVNPathList (url), url);
     command.SetParser (parameters);
 
-    if (command.Execute())
+    if (command.Execute() && revision.IsHead())
     {
-        InvalidateData (m_RepoTree.GetSelectedItem());
-        m_barRepository.SetHeadRevision(GetCommitRevision());
-        RefreshNode(m_RepoTree.GetSelectedItem(), true);
+        CString dir = urlEscaped.GetContainingDirectory().GetSVNPathString();
+        m_lister.RefreshSubTree (revision, dir);
+
+        const TCHAR* lParam = _tcsdup((LPCTSTR)dir);
+        PostMessage(WM_REFRESHURL, 0, reinterpret_cast<LPARAM>(lParam));
     }
 }
 
@@ -2957,7 +2978,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             break;
         case ID_EDITFILE:
             {
-                EditFile(selection.GetURL (0,0));
+                new async::CAsyncCall ( this
+                                      , &CRepositoryBrowser::EditFile
+                                      , selection.GetURL (0,0)
+                                      , selection.GetURLEscaped (0,0)
+                                      , &m_backgroundJobs);
             }
             break;
         case ID_DELETE:

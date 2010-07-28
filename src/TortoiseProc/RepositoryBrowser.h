@@ -91,7 +91,11 @@ public:
 
     CString GetRepoRoot() { return m_repository.root; }
 
-    enum { IDD = IDD_REPOSITORY_BROWSER };
+    enum 
+    { 
+        IDD = IDD_REPOSITORY_BROWSER,
+        WM_REFRESHURL = WM_USER + 10
+    };
 
     /// the project properties if the repository browser was started from a working copy
     ProjectProperties m_ProjectProperties;
@@ -136,6 +140,8 @@ protected:
 
     /// called after the init thread has finished
     LRESULT OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam*/);
+    /// called to update the tree node for a specific URL
+    LRESULT OnRefreshURL(WPARAM /*wParam*/, LPARAM lParam);
     /// draws the bar when the tree and list control are resized
     void DrawXorBar(CDC * pDC, int x1, int y1, int width, int height);
 
@@ -179,7 +185,7 @@ protected:
     /// Open the file in the default application
     void OpenFile(const CTSVNPath& url, const CTSVNPath& urlEscaped, bool bOpenWith);
     /// C/o & lock the file and open it in the default application for modification
-    void EditFile(const CTSVNPath& url);
+    void EditFile(CTSVNPath url, CTSVNPath urlEscaped);
     /// Sets the sort arrow in the list view header according to the currently used sorting.
     void SetSortArrow();
     /// called when a drag-n-drop operation starts
@@ -270,6 +276,9 @@ private:
     CString             m_origDlgTitle;
 
     CRepositoryLister   m_lister;
+
+    /// used to execute user ops (e.g. context menu actions) in the background
+    async::CJobScheduler m_backgroundJobs;
 };
 
 static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));
