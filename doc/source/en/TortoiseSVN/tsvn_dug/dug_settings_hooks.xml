@@ -101,8 +101,8 @@
                 <term>Pre-connect</term>
                 <listitem>
                     <para>
-                        Called before an attempt to contact the repository. Called at most once
-						in five minutes.
+                        Called before an attempt to contact the repository.
+                        Called at most once in five minutes.
                     </para>
                 </listitem>
             </varlistentry>
@@ -196,8 +196,8 @@
                 <term>Pre-connect</term>
                 <listitem condition="pot">
                     <para>
-						no parameters are passed to this script. Cou can pass
-						a custom parameter by appending it to the script path.
+                        no parameters are passed to this script. You can pass
+                        a custom parameter by appending it to the script path.
                     </para>
                 </listitem>
             </varlistentry>
@@ -339,13 +339,13 @@
         </ulink>.
         (<xref linkend="tsvn-preface-source"/> explains how to access the repository).
     </para>
-	<para>
-		A small tool is included in the TortoiseSVN installation folder named
-		ConnectVPN.exe. You can use this tool configured as a pre-connect hook
-		to automatically connect to your VPN before TortoiseSVN tries to connect
-		to a repository.
-		Just pass the name of the VPN connection as the first parameter to the tool.
-	</para>
+    <para>
+        A small tool is included in the TortoiseSVN installation folder named
+        <literal>ConnectVPN.exe</literal>. You can use this tool configured as a
+        pre-connect hook to connect automatically to your VPN before TortoiseSVN
+        tries to connect to a repository.
+        Just pass the name of the VPN connection as the first parameter to the tool.
+    </para>
     <sect3 id="tsvn-dug-settings-hooks-issuetracker">
         <title>Issue Tracker Integration</title>
         <?dbhh topicname="HIDD_SETTINGSBUGTRAQ"?>
