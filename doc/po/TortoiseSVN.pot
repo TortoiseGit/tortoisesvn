@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-07-28 18:27 +0000\n"
+"POT-Creation-Date: 2010-07-29 22:08 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2519,7 +2519,7 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr ""
 
 #.(para)
-msgid "In the repository browser, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
 msgstr ""
 
 #.(para)
@@ -8669,7 +8669,7 @@ msgid "Sample client hook scripts can be found in the <literal>contrib</literal>
 msgstr ""
 
 #.(para)
-msgid "A small tool is included in the TortoiseSVN installation folder named ConnectVPN.exe. You can use this tool configured as a pre-connect hook to automatically connect to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
+msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
 msgstr ""
 
 #.(title)
