@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-07-11 08:32 +0000\n"
-"PO-Revision-Date: 2010-07-21 21:41+0100\n"
+"POT-Creation-Date: 2010-07-28 18:27 +0000\n"
+"PO-Revision-Date: 2010-07-29 22:02+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -9510,6 +9510,10 @@ msgstr "Нормално желте да сакријете ружне ДОС б
 msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr "Једноставна клијент закачаљка скрипта може бити нађено у  <literal>контриб</literal> именику у <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>ТортоисеСВН спремиште</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашљава како приступити спремишту)."
 
+#. (para)
+msgid "A small tool is included in the TortoiseSVN installation folder named ConnectVPN.exe. You can use this tool configured as a pre-connect hook to automatically connect to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
+msgstr "Мали алат укључен у ТортоисеСВН инсталационом именику зове се ConnectVPN.exe. Можете користити овај алат као пре-спајања закачаљка да се аутоматски споји на ваш ВПН пре него ТортоисеСВН покуша да се споји на спремиште. Само провуците име ВПН конелције као први параметар у алату."
+
 #. (title)
 msgid "Issue Tracker Integration"
 msgstr "Интеграција проблем трагача"
@@ -13060,12 +13064,12 @@ msgid "translations"
 msgstr "преводи"
 
 #. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "ТортоисеСВН кориснички интерфејс је преведен на многе различите језике, тако да можете да пренесете језички пакет који вам је потребан. Језичке пакете можете наћи на <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>страна статуса превода</citetitle></ulink>. И ако језички пакет још није доступан, зашто да се не прикључите тиму и поднесете свој лични превод; -)"
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available, why not join the team and submit your own translation ;-)"
+msgstr "ТортоисеСВН кориснички интерфејс је преведен на многе различите језике, тако да можете да пренесете језички пакет који вам је потребан. Језичке пакете можете наћи на <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>страна статуса превода</citetitle></ulink>. И ако језички пакет још није доступан, зашто да се не прикључите тиму и додате свој лични превод ;-)"
 
 #. (para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
-msgstr "Сваки језички пакет је спаковану као <literal>.еxе</literal> инсталација. Само извршите инсталациони програм и следите инструкције. Следећи пут кад рестартује компјутер превод ће бити доступан. "
+msgid "Each language pack is packaged as a <literal>.msi</literal> installer. Just run the install program and follow the instructions. After the installation finishes, the translation will be available."
+msgstr "Сваки језички пакет је спаковану као <literal>.msi</literal> инсталација. Само извршите инсталациони програм и следите инструкције. Следећи пут кад рестартује компјутер превод ће бити доступан. "
 
 #. (para)
 msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
@@ -13088,8 +13092,8 @@ msgid "TortoiseSVN includes a spell checker which allows you to check your commi
 msgstr "ТортоисеСВН укључује контролу правописа која вам дозвољава да контролишете ваше  дневник поруке урезивања. Ово је нарочито корисно ако језик пројекта није ваш матерњи језик. Контролор правописа користи исте фајлове речника као <ulink url=\"http://openoffice.org\"><citetitle>ОпенОффице</citetitle></ulink> и <ulink url=\"http://mozilla.org\"><citetitle>Мозилла</citetitle></ulink>."
 
 #. (para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
-msgstr "Инсталација аутоматски додаје УС и УК Енглески речник. Ако желите друге језике, најлакша могућност је да инсталирате један од ТортоисеСВН језичких пакета. То ће инсталирати одговарајуће фајлове речника као и ТортоисеСВН локални кориснички интерфејс. По рестартовању компјутера речник ће такође бити доступан."
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. After the installation finishes, the dictionary will be available too."
+msgstr "Инсталација аутоматски додаје УС и УК Енглески речник. Ако желите друге језике, најлакша могућност је да инсталирате један од ТортоисеСВН језичких пакета. То ће инсталирати одговарајуће фајлове речника као и ТортоисеСВН локални кориснички интерфејс. По рестартовању компјутера, речник ће такође бити доступан."
 
 #. (para)
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
