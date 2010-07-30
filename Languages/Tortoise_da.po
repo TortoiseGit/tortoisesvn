@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-09 21:48+0100\n"
+"PO-Revision-Date: 2010-07-30 15:41+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -513,7 +513,7 @@ msgstr "&Programudseende"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
-msgstr "%Anvend egenskaben rekursivt"
+msgstr "&Anvend egenskaben rekursivt"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -987,7 +987,7 @@ msgstr "&Låsning nødvendig (skrivebeskyttet opdatering)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
-msgstr "Log Størrelser"
+msgstr "&Log Størrelser"
 
 # Kontekst?
 #. Resource IDs: (65535)
@@ -2459,7 +2459,7 @@ msgstr "Forskellene kan ikke vises på grund af inkonsistente linjeafslutninger 
 # Udsangsord: strømme/bruse/komme strømmende/komme væltende
 #. Resource IDs: (16926)
 msgid "Casca&de"
-msgstr "Vis i serie"
+msgstr "Vis i &serie"
 
 # Kontekst? Mulige oversættelser:
 # Navneord: vandfald/kaskade/brus
@@ -3490,6 +3490,10 @@ msgstr "D&etaljer"
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "Dato"
+
+#. Resource IDs: (117)
+msgid "Date Range"
+msgstr "Dato Interval"
 
 #. Resource IDs: (1008)
 msgid "Default"
@@ -4550,6 +4554,10 @@ msgid ""
 msgstr ""
 "Udfyldningsværktøj\n"
 "Udfyld"
+
+#. Resource IDs: (117)
+msgid "Filter by"
+msgstr "Filtrer med"
 
 #. Resource IDs: (65535)
 msgid "Filter match"
@@ -6102,8 +6110,8 @@ msgid "Messages"
 msgstr "Beskeder"
 
 #. Resource IDs: (116)
-msgid "Messages, authors and paths"
-msgstr "Beskeder, forfattere og stier"
+msgid "Messages, authors, paths and revs"
+msgstr "Beskeder, forfattere, stier og revisioner"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -6992,6 +7000,10 @@ msgstr "&Forrige Side"
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
 msgstr "\"Før arkivering\"-tilkobling"
+
+#. Resource IDs: (570)
+msgid "Pre-Connect Hook"
+msgstr "Før-forbindelses tilkobling"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
