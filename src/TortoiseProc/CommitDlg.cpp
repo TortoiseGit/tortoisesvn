@@ -475,19 +475,11 @@ void CCommitDlg::OnOK()
         {
             if (changedList[i].IsAdminDir())
             {
-                // TODO: refactor this into an SVN class since 'entries' and
-                // 'tmp' are referring to internal files/folders of the .svn dir
-                // and will have to change for the SQLite-based wc format
-
                 // something inside an admin dir was changed.
                 // if it's the entries file, then we have to fully refresh because
                 // files may have been added/removed from version control
-                if ((changedList[i].GetWinPathString().Right(7).CompareNoCase(_T("entries")) == 0) &&
-                    (changedList[i].GetWinPathString().Find(_T("\\tmp\\"))<0))
-                {
-                    m_bRecursive = false;
-                    break;
-                }
+                m_bRecursive = false;
+                break;
             }
             else if (!m_ListCtrl.IsPathShown(changedList[i]))
             {
