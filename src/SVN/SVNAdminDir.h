@@ -72,6 +72,8 @@ public:
 
     /// Returns true if the path (file or folder) has an admin directory
     /// associated, i.e. if the path is in a working copy.
+    // TODO: remove these methods and implement an IsVersioned() method
+    //       instead, maybe in the SVN class.
     bool HasAdminDir(const CString& path) const;
     bool HasAdminDir(const CString& path, bool bDir) const;
 
