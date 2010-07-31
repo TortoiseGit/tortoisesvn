@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-05-23 21:01+0200\n"
+"POT-Creation-Date: 2010-07-29 22:08 +0000\n"
+"PO-Revision-Date: 2010-07-31 19:15+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -1171,6 +1171,14 @@ msgid "A repository is then created inside the new folder. <emphasis>Don't edit 
 msgstr "Tämä luo arkiston uuden kansion sisälle. <emphasis>Älä muokkaa arkistokansion tiedostoja itse!</emphasis>. Jos saat virheilmoituksen, varmista että kansio on tyhjä eikä sitä ole kirjoitussuojattu."
 
 #. (para)
+msgid "You will also be asked whether you want to create a directory structure within the repository. Find out about layout options in <xref linkend=\"tsvn-repository-layout\"/>."
+msgstr "Sinulta kysytään myös, haluatko luoda arkistoon kansiorakenteen. Lisätieto mahdollisuuksista on luvussa n <xref linkend=\"tsvn-repository-layout\"/>."
+
+#. (para)
+msgid "TortoiseSVN will set a custom folder icon when it creates a repository so you can identify local repositories more easily. If you create a repository using the official command line client this folder icon is not assigned."
+msgstr "TortoiseSVN käyttää omaa kuvakettaan luodessaan arkiston, joten paikalliset arkistot on helppo erottaa muista kansioista. Jos luot arkiston jollain toisella ohjelmalla (esim. komentorivi), kuvaketta ei kuitenkaan käytetä."
+
+#. (para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
 msgstr "TortoiseSVN ei enää sisällä valintaa BDB-arkistojen luomiseen, vaikka voit yhä käyttää komentoriviä niiden luomiseen. FSFS-arkistot ovat yleisesti ottaen helpompia ylläpitää; TortoiseSVN on myöskin helpompi ylläpitää, koska eri BDB-versioiden välinen yhteensopivuus ei ole aina ollut suoraviivaista."
 
@@ -1262,6 +1270,10 @@ msgstr ""
 "/trunk\n"
 "/branches\n"
 "/tags\n"
+
+#. (para)
+msgid "Because this layout is so commonly used, when you create a new repository using TortoiseSVN, it will also offer to create the directory structure for you."
+msgstr "Koska tätä rakennetta käytetään niin usein, TortoiseSVN kykenee luomaan sen automaattisesti arkiston luonnin yhteydessä."
 
 #. (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
@@ -3176,8 +3188,8 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr "Jos haet epätäydellisen (engl. sparse) työkopion (ts. valitsemalla jonkin muun vaihtoehdon kuin <literal>täysin palautuva</literal> työkopion haun syvyydeksi), voit lisätä uusia hakemistoja työkopioosi arkistoselaimella (<xref linkend=\"tsvn-dug-repobrowser\"/>) tai tarkista muutokset -ikkunassa (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 
 #. (para)
-msgid "In the repository browser, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
-msgstr "<action>Oikea-napsauta</action> työkopion kansiota ja valitse komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Arkistoselain</guimenuitem></menuchoice> avataksesi arkistoselaimen. Etsi alikansio, jonka haluat lisätä työkopioosi ja valitse kontekstivalikosta komento <menuchoice><guimenuitem>Päivitä alkio versioon...</guimenuitem></menuchoice> Komento on näkyvissä vain, jos valittua alkiota ei vielä löydy työkopiostasi, mutta sen yläkansio löytyy."
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
+msgstr "<action>Oikea-napsauta</action> työkopion kansiota Windowsin resurssienhallinnassa ja valitse komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Arkistoselain</guimenuitem></menuchoice> avataksesi arkistoselaimen. Etsi alikansio, jonka haluat lisätä työkopioosi ja valitse kontekstivalikosta komento <menuchoice><guimenuitem>Päivitä kohde versioon...</guimenuitem></menuchoice> Komento on näkyvissä vain, jos valittua kohdetta ei vielä löydy työkopiostasi, mutta sen yläkansio löytyy."
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
@@ -5920,6 +5932,14 @@ msgid "The <literal>svn:externals</literal> property can be used to pull in othe
 msgstr "Ominaisuutta <literal>svn:externals</literal> voidaan käyttää toisten, samassa tai eri arkistossa olevien projektien kytkemiseksi työkopioon. Lue lisää luvusta <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (title)
+msgid "Edit properties at HEAD revision"
+msgstr "Muokikaa ominaisuuksia HEAD-versiossa"
+
+#. (para)
+msgid "Because properties are versioned, you cannot edit the properties of previous revisions. If you look at properties from the log dialog, or from a non-HEAD revision in the repository browser, you will see a list of properties and values, but no edit controls."
+msgstr "Koska ominaisuudet ovat versioituvia, et voi muokata edellisten versioiden ominaisuuksia. Loki-ikkunan ja arkistoselaimen (pl. HEAD-versio) näyttämät ominaisuudet eivät siten salli muokkaamista."
+
+#. (title)
 msgid "Exporting and Importing Properties"
 msgstr "Ominaisuuksien tuominen ja vieminen"
 
@@ -6801,20 +6821,20 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr "Yhdistäminen ei aina sujut kitkattomasti. Joskus syntyy ristiriita, ja jos yhdistät useita versiovälejä, haluat yleensä ratkaista sen ennen seuraavan versiovälin aloittamista. TortoiseSVN auttaa näyttämällä <emphasis>yhdistämisristiriitojen ratkontaikkunan</emphasis>. <placeholder-1/>"
 
 #. (para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
-msgstr "Saatat päättää, että paikalliset muutoksesi ovat tärkeämpiä kuin arkistossa olevat, joten haluat korvata arkistoversion omallasi ja säilyttää paikallisen version. Saatat myös haluta hylätä paikalliset muutoksesi ja korvata ne arkistossa olevilla. Tämä koskee vain ristiriitaisia mutoksia; yhdistettävissä olevat muutokset tehdään suoraan. Valintaasi käytetään siis vain ristiriitaisiin osiin."
+msgid "Choosing <emphasis>Prefer local</emphasis> will select your local changes in every conflict. Likewise, <emphasis>Prefer repository</emphasis> will select the repository changes in every conflict. This sounds easy, but the conflicts often cover more lines than you think they will and you may get unexpected results."
+msgstr "Vaihtoehto <emphasis>Suosi paikallista versiota</emphasis> valitsee ristiriidan sattuessa aina paikalliset muutokset. Samoin, <emphasis>Suosi arkiston versiota</emphasis> valitsee ristiriidan sattuessa aina arkiston muutokset. Tämä kuulostaa helpolta, mutta ristiriidat ovat usein laajempia kuin äkkiseltään kuvittelee, ja tulokset voivat olla yllättäviä."
 
 #. (para)
-msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
-msgstr "Tavallisesti haluat tutkia tarkemmin ristiriitoja ja ratkoa ne. Valitse tällöin komento <guibutton>Muokkaa  ristiriitoja</guibutton>, joka käynnistää yhdistämistyökalusi. Kun olet tyytyväinen tuloksiin, napsauta <guibutton>Resolved</guibutton>."
+msgid "Normally you will want to look at the conflicts and resolve them yourself. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
+msgstr "Yleensä kannattaa tutkia ristiriitoja ja ratkaista ne itse. Tämä tapahtuu komennolla <guibutton>Muokkaa  ristiriitoja</guibutton>, joka käynnistää yhdistämistyökalusi. Kun olet tyytyväinen tuloksiin, napsauta <guibutton>Merkitse ratkaistuksi</guibutton>."
 
 #. (para)
 msgid "The last option is to postpone resolution and continue with merging. You can choose to do that for the current conflicted file, or for all files in the rest of the merge. However, if there are further changes in that file, it will not be possible to complete the merge."
 msgstr "Viimeinen vaihtoehto siirtää ratkaisua ja jatkaa yhdistämistä. Voit valita tämän tehtäväksi nykyiselle tiedostolle tai kaikille jäljellä oleville, yhdistettäville tiedostoille. Jos tiedostossa on kuitenkin vielä lisää muutoksia, yhdistämisen vieminen loppuun ei onnistu."
 
 #. (para)
-msgid "When a conflict occurs during the merge, you have three ways to handle it. <placeholder-1/>"
-msgstr "Kun yhdistämisen aikana syntyy ristiriita, voit ratkaista sen kolmella tavalla. <placeholder-1/>"
+msgid "It is likely that some of the changes will have merged smoothly, while other local changes conflict with changes already committed to the repository. All changes which can be merged are merged. The Merge Conflict Callback dialog gives you three different ways of handling the lines which are in conflict. <placeholder-1/>"
+msgstr "On todennäköistä, että osa muutoksista yhdistyy ongelmitta, kun taas jotkut ovat ristiriidassa arkistoon jo toimitettujen muutosten kanssa. Kaikki yhdistettävissä olevat muutokset yhdistetään. Yhdistämisristiriitaikkuna tarjoaa kolme eri tapaa käsitellä ristiriitaisia rivejä. <placeholder-1/>"
 
 #. (para)
 msgid "If you do not want to use this interactive callback, there is a checkbox in the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If this is set for a merge and the merge would result in a conflict, the file is marked as in conflict and the merge goes on. You will have to resolve the conflicts after the whole merge is finished. If it is not set, then before a file is marked as conflicted you get the chance to resolve the conflict <emphasis>during</emphasis> the merge. This has the advantage that if a file gets multiple merges (multiple revisions apply a change to that file), subsequent merges might succeed depending on which lines are affected. But of course you can't walk away to get a coffee while the merge is running ;)"
@@ -8075,12 +8095,12 @@ msgid "Selects your user interface language. What else did you expect?"
 msgstr "Valitsee käyttöliittymän kielen. Mitäpä muutakaan?"
 
 #. (term)
-msgid "Automatically check for newer versions every week"
-msgstr "Tarkista automaattisesti uudemman version saatavuus joka viikko"
+msgid "Check for updates"
+msgstr "Tarkista päivitykset"
 
 #. (para)
-msgid "If checked, TortoiseSVN will contact its download site once a week to see if there is a newer version of the program available. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
-msgstr "Mikäli asetettu, TortoiseSVN ottaa yhteyttä kotipalvelimeensa kerran viikossa tarkistaakseen, onko ohjelmasta uudempaa versiota saatavilla. Napsauta <guibutton>Tarkista nyt</guibutton> jos haluat vastauksen heti. Uutta versiota ei noudeta automaattisesti; saat ainoastaan ilmoituksen, että sellainen on saatavilla."
+msgid "TortoiseSVN will contact its download site periodically to see if there is a newer version of the program available. If there is it will show a notification link in the commit dialog. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
+msgstr "TortoiseSVN ottaa aika ajoin yhteyttä kotipalvelimeensa tarkistaakseen, onko ohjelmasta uudempaa versiota saatavilla. Jos näin on, toimitusikkunassa näytetään tästä ilmoituslinkki. Napsauta <guibutton>Tarkista nyt</guibutton> jos haluat tietää asian heti. Uutta versiota ei noudeta automaattisesti; saat ainoastaan ilmoituksen, että sellainen on saatavilla."
 
 #. (term)
 msgid "System sounds"
@@ -8227,8 +8247,8 @@ msgid "If you frequently find yourself comparing revisions in the top pane of th
 msgstr "Jos huomaat usein käyttäväsi versioiden vertailuun loki-ikkunan yläpaneelia, voit käyttää tätä asetusta kaksoisnapsautuksen määrittämiseen. Se ei ole oletusarvoisesti päällä, koska erojen haku on hidas toimenpide, ja monet käyttäjät haluavat välttää turhan odotuksen vahingossa tehdyn kaksoisnapsautuksen jälkeen."
 
 #. (term)
-msgid "Progress Dialog"
-msgstr "Edistyminen"
+msgid "Auto-close"
+msgstr "Automaattinen sulkeminen"
 
 #. (para)
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
@@ -8239,16 +8259,20 @@ msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that 
 msgstr "Valinta <guilabel>Sulje automaattisesti, jos ei ole yhdistämisiä, lisäyksiä tai poistoja</guilabel> tarkoittaa, että edistymisikkuna sulkeutuu yksinkertaisten päivitysten yhteydessä, mutta jos arkiston muutoksia jouduttiin yhdistämään omiisi tai jos tiedostoja on lisätty/poistettu, ikkuna pysyy avoinna. Se pysyy auki myös, jos toiminnon aikana syntyy ristiriitoja tai virheitä."
 
 #. (para)
-msgid "<guilabel>Auto-close if no merges, adds or deletes for local operations</guilabel> means that the progress dialog will close as for <guilabel>Auto-close if no merges, adds or deletes</guilabel> but only for local operations like adding files or reverting changes. For remote operations the dialog will stay open."
-msgstr "Valinta <guilabel>Sulje automaattisesti, jos paikallinen toiminto</guilabel> tarkoittaa, että edistymisikkuna käyttäytyy kuten <guilabel>Sulje automaattisesti, jos ei ole yhdistämisiä, lisäyksiä tai poistoja</guilabel>, mutta vain paikallisille toiminnoille, kuten tiedoston lisäys tai muutosten palautus. Palvelinyhteyttä vaativien toimintojen kanssa ikkuna pysyy avoinna. "
-
-#. (para)
 msgid "<guilabel>Auto-close if no conflicts</guilabel> relaxes the criteria further and will close the dialog even if there were merges, adds or deletes. However, if there were any conflicts or errors, the dialog remains open."
 msgstr "Valinta <guilabel>Sulje automaattisesti jos ei ristiriitoja</guilabel> höllentää vaatimuksia entisestään ja sulkee ikkunan myös yhdistämisten, lisäyksien ja poistojen yhteydessä. Jos toiminto kuitenkin synnyttää ristiriitoja tai virheitä, ikkuna jää auki."
 
 #. (para)
 msgid "<guilabel>Auto-close if no errors</guilabel> always closes the dialog even if there were conflicts. The only condition that keeps the dialog open is an error condition, which occurs when Subversion is unable to complete the task. For example, an update fails because the server is inaccessible, or a commit fails because the working copy is out-of-date."
 msgstr "Valinta <guilabel>Sulje automaattisesti, jos ei virheitä</guilabel> sulkee aina ikkunan, vaikka toiminto synnyttäisi ristiriitoja. Ikkuna säilyy avoinna vain virhetilanteessa, eli kun Subversion ei kykene viemään toimintoa loppuun. Näin käy esimerkiksi silloin, kun päivitys epäonnistuu (koska palvelimeen ei saada yhteyttä) tai arkistotoimitus epäonnistuu (koska työkopio ei ole ajan tasalla)."
+
+#. (term)
+msgid "Always close dialogs for local operations"
+msgstr "Sulje aina ikkunat paikallisten toimintojen yhteydessä"
+
+#. (para)
+msgid "Local operations like adding files or reverting changes do not need to contact the repository and complete quickly, so the progress dialog is often of little interest. Select this option if you want the progress dialog to close automatically after these operations, unless there are errors."
+msgstr "Paikalliset operaatiot kuten tiedostojen lisäys tai muutosten peruminen eivät ota yhteyttä arkistoon ja ovat siten nopeita. Tästä syystä edistysmisikkuna on usein tarpeeton. Valitse tämä asetus, mikäli haluat edistymisikkunan sulkeutuvan automaattisesti onnistuneiden paiikallisten operaatioiden jälkeen."
 
 #. (term)
 msgid "Use recycle bin when reverting"
@@ -8466,6 +8490,14 @@ msgstr "Korvattu solmu"
 msgid "The original item has been deleted and a new item with the same name replaces it."
 msgstr "Alkuperäinen kohde on poistettu, ja uusi kohde, jolla on sama nimi, korvaa sen."
 
+#. (term)
+msgid "Filter match"
+msgstr "Suodatuksen tulokset"
+
+#. (para)
+msgid "When using filtering in the log dialog, search terms are highlighted in the results using this colour."
+msgstr "Kun loki-ikkunassa käytetään suodatusta, suodatustermit korostetaan tuloksissa tällä värillä."
+
 #. (title)
 msgid "Revision Graph Settings"
 msgstr "Versiograafin asetukset"
@@ -8622,18 +8654,6 @@ msgstr "Asetusikkuna, kuvakesivu"
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays."
 msgstr "<placeholder-1/> Tällä sivulla voit valita tilat, joille TortoiseSVN näyttää kuvakepäällyksiä."
 
-#. (para)
-msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
-msgstr "Oletusarvoisesti, kuvakepäällykset ja kontekstivalikot näytetään kaikissa avaa/talleta -ikkunoissa Windows-Resurssienhallinnan lisäksi. Jos haluat niiden näkyvän <emphasis>vain</emphasis> Resurssienhallinnassa, ruksaa valinta <guilabel>Näytä kuvakepäällykset ja kontekstivalikko vain Resurssienhallinnassa</guilabel>."
-
-#. (para)
-msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr "Ohitetut ja versioimattomat tiedostot eivät yleensä saa kuvakepäällystä. Jos haluat näyttää päällyksen näissä tapauksissa, ruksaa valinnat."
-
-#. (para)
-msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr "Voit myös asettaa kansiot näytettäviksi muutettuina, jos ne sisältävät versioimattomia tiedostoja. Tämä voi olla hyödyllinen muistutus, jos olet luonut uusia tiedostoja, joita ei vielä ole versioitu. Valinta on käytettävissä vain, jos käytät tilamuistin asetusta <emphasis>oletus</emphasis> (ks. alla)."
-
 #. (term)
 msgid "Default"
 msgstr "Oletus"
@@ -8687,6 +8707,14 @@ msgid "Since it takes quite a while to fetch the status of a working copy, Torto
 msgstr "Koska työkopion tilan selvittäminen voi vaatia pitkän ajan, TortoiseSVN pitää tallettaa tilatiedot muistissa, jotta Resurssienhallinta ei hidastu liikaa päällyksiä näytettäessä. Voit valita laitteistosi ja työkopioidesi koon perusteella millaista talletustapaa TortoiseSVN käyttää: <placeholder-1/>"
 
 #. (para)
+msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
+msgstr "Oletusarvoisesti, kuvakepäällykset ja kontekstivalikot näytetään kaikissa avaa/talleta -ikkunoissa Windows-Resurssienhallinnan lisäksi. Jos haluat niiden näkyvän <emphasis>vain</emphasis> Resurssienhallinnassa, ruksaa valinta <guilabel>Näytä kuvakepäällykset ja kontekstivalikko vain Resurssienhallinnassa</guilabel>."
+
+#. (para)
+msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
+msgstr "Voit myös asettaa kansiot näytettäviksi muutettuina, jos ne sisältävät versioimattomia tiedostoja. Tämä voi olla hyödyllinen muistutus, jos olet luonut uusia tiedostoja, joita ei vielä ole versioitu. Valinta on käytettävissä vain, jos käytät tilamuistin asetusta <emphasis>oletus</emphasis> (ks. alla)."
+
+#. (para)
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
 msgstr "Seuraavassa ryhmässä voit valita, mitkä tallennusmediat näyttävät kuvakepäällyksiä. Oletusarvoisesti vain kiintolevy on valittu. Voit jopa estää kuvakepäällysten käytön kokonaan, mutta olisiko se hauskaa?"
 
@@ -8699,36 +8727,44 @@ msgid "USB Flash drives appear to be a special case in that the drive type is id
 msgstr "USB-pohjaiset Flash-asemat ovat erikoisia siinä mielessä, että laite itse määrittää asematyyppinsä. Jotkut näkyvät kiinteinä  asemina, jotkut taas irrotettavina."
 
 #. (para)
-msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
-msgstr "Asetusta <guilabel>Pois jätettävät polut</guilabel> käytetään kertomaan TortoiseSVN:lle, mille poluille sen <emphasis>ei</emphasis> tule näyttää kuvakepäällyksiä ja tilasarakkeita. Tästä on hyötyä, jos sinulla on suuria työkopioita joissa on tiedostoja (esim. kirjastoja) joita et koskaan muuta ja joille et siksi tarvitse kuvakepäällyksiä. Esimerkiksi:"
+msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays, or if you only want TortoiseSVN to look in specific folders."
+msgstr "Asetus <guilabel>Pois jätettävät polut</guilabel> kertoo, mille poluille sen <emphasis>ei</emphasis> tule näyttää kuvakepäällyksiä ja tilasarakkeita. Tästä on hyötyä, jos haluat ohjelman tutkivan vain tiettyjä kansioita tai sinulla on suuria työkopioita, joiden tiedostot eivät muutu ja joille et siksi tarvitse kuvakepäällyksiä. Esimerkiksi:"
 
 #. (para)
-msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays <emphasis>only</emphasis> on that specific folder. You still can see the overlays on all files and folder inside that folder."
-msgstr "<filename>f:\\development\\SVN\\Subversion</filename> estää kuvakepäällykset <emphasis>vain</emphasis> määritellystä kansiosta. Kuvakepäällykset näkyvät yhä kaikille tiedostoille ja kansioille määritellyn kansion sisällä."
-
-#. (para)
-msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
-msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> poistaa kuvakepäällykset <emphasis>kaikista</emphasis> tiedostoista ja kansioista, joiden polku alkaa merkkijonolla <filename>f:\\development\\SVN\\Subversion</filename>. Siten et näe kuvakepäällyksiä millekään tiedostolle tai kansiolle määritellyn polun alapuolella."
+msgid "Any path you specify here is assumed to apply recursively, so none of the child folders will show overlays either. If you want to exclude <emphasis>only</emphasis> the named folder, append <literal>?</literal> after the path."
+msgstr "Tässä määritelty polku käsitellään palautuvasti, joten joten alikansiot eivät myöskään näytä kuvakepäällyksiä. Jos haluat jättää pois <emphasis>ainoastaan</emphasis> nimetyn kansion, lisää <literal>?</literal> polun jälkeen."
 
 #. (para)
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
 msgstr "Sama pätee asetukselle <guilabel>Sisällytettävät polut</guilabel> sillä erotuksella, että määritellyillä poluilla kuvakepäällykset näytetään aina, vaikka päällykset olisi estetty ko. asematyypille tai lueltu yllä pois jätettävien polkujen joukossa."
 
 #. (para)
+msgid "Users sometimes ask how these three settings interact. For any given path check the include and exclude lists, seeking upwards through the directory structure until a match is found. When the first match is found, obey that include or exclude rule. If there is a conflict, a single directory spec takes precedence over a recursive spec, then inclusion takes precedence over exclusion."
+msgstr "Käyttäjät kysyvät joskus, miten nämä kolme asetusta toimivat keskenään. Annettua polkua etsitään sisällytetyistä ja ohitettavista poluista, edeten kansiorakenteessa ylöspäin, kunnes täsmäävä polku löytyy.  Tällöin polku siis joko sisällytetään tai jätetään pois. Ristiriidan sattuessa yksittäinen kansiomääritys voittaa palautuvan määrityksen, muutoin taas sisällytys vie voiton ohituksesta."
+
+#. (para)
 msgid ""
-"Users sometimes ask how these three settings interact, and the definitive answer is: <screen>\n"
-"if (path is in include list)\n"
-"  show overlays\n"
-"if (path is allowed drive type) AND (path is not in exclude list)\n"
-"  show overlays\n"
-"</screen> The include list <emphasis>always</emphasis> makes the overlays show. Otherwise, overlays are shown for all marked drive types <emphasis>unless</emphasis> the path is excluded."
+"An example will help here: <screen>\n"
+"Exclude:\n"
+"       C:\n"
+"       C:\\develop\\?\n"
+"       C:\\develop\\tsvn\\obj\n"
+"       C:\\develop\\tsvn\\bin\n"
+"\n"
+"Include:\n"
+"       C:\\develop\n"
+"</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
 msgstr ""
-"Käyttäjät haluavat joskus tietää, miten nämä kolme asetusta toimivat keskenään.  Järjestys on seuraava: <screen>\n"
-"jos (polku on osa sisällytettyjä polkuja)\n"
-"  näytä kuvakepäällykset\n"
-"jos (polku on sallitulla asematyypillä) JA (polku ei ole osa pois jätettyjä polkuja)\n"
-"  näytä kuvakepäällykset\n"
-"</screen> Sisällytetyt polkujen kuvakepäällykset näytetään <emphasis>aina</emphasis>. Muutoin kuvakepäällykset näytetään valituile asematyypeille <emphasis>jollei</emphasis> polkua ole merkitty pois jätettäväksi."
+"Esimerkki auttaa: <screen>\n"
+"Ohitettavat polut:\n"
+"       C:\n"
+"       C:\\develop\\?\n"
+"       C:\\develop\\tsvn\\obj\n"
+"       C:\\develop\\tsvn\\bin\n"
+"\n"
+"Sisällytettävät polut:\n"
+"       C:\\develop\n"
+"</screen> Nämä asetukset estävät kuvakepäällykset C-asemassa lukuun ottamatta pokua <literal>c:\\develop</literal>. Kaikki tämän kansion alikansiot näyttävät kuvakepäällykset, lukuun ottamatta itse kansiota <literal>c:\\develop</literal>. joka on erityisesti ohitettu. Binäärikansiot <literal>c:\\develop\\tsvn\\obj</literal> ja <literal>c:\\develop\\tsvn\\bin</literal>, joihin kohdistuu paljon muutoksia, on myös ohitettu."
 
 #. (para)
 msgid "TSVNCache.exe also uses these paths to restrict its scanning. If you want it to look only in particular folders, disable all drive types and include only the folders you specifically want to be scanned."
@@ -8775,6 +8811,18 @@ msgstr "Asetusikkuna, kuvakesivu"
 #. (para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
 msgstr "<placeholder-1/> Voit muuttaa kuvakepäällysten joukon haluamaksesi. Huomaa, että jos vaihdat päällysjoukon, saatat joutua käynnistämään tietokoneesi uudelleen, jotta muutokset tulevat voimaan."
+
+#. (title)
+msgid "Enabled Overlay Handlers"
+msgstr "Aktiiviset kuvakepäällykset"
+
+#. (title)
+msgid "The Settings Dialog, Icon Handlers Page"
+msgstr "Asetusikkuna, kuvakekäsittelijät"
+
+#. (para)
+msgid "<placeholder-1/> Because the number of overlays available is severely restricted, you can choose to disable some handlers to ensure that the ones you want will be loaded. Because TortoiseSVN uses the common TortoiseOverlays component which is shared with other Tortoise clients (e.g. TortoiseCVS, TortoiseHG) this setting will affect those clients too."
+msgstr "<placeholder-1/> Koska kuvakepäällyksiä voi olla kerralla käytössä vain rajallinen määrä, saatat haluta kytkeä osan pois, jotta haluamasi päällykset pystytään ottamaan käyttöön. Koska TortoiseSVN käyttää TortoiseOverlays-komponenttia yhdessä muiden Tortoise-ohjelmien (esim. TortoiseCVS, TortoiseHg)  kanssa, asetus vaikuttaa myös niihin."
 
 #. (title)
 msgid "Network Settings"
@@ -9362,6 +9410,15 @@ msgstr "Päätä päivitys"
 msgid "Called after the update, switch or checkout finishes (whether successful or not)."
 msgstr "Komentojonoa kutsutaan, kun päivitys tai vaihto päättyy (myös virheiden sattuessa)."
 
+#. (term)
+#. (term)
+msgid "Pre-connect"
+msgstr "Ennen yhdistämistä"
+
+#. (para)
+msgid "Called before an attempt to contact the repository. Called at most once in five minutes."
+msgstr "Käynnistetään ennen kuin arkistoyhteys muodostetaan, maksimissaan kerran viidessä minuutissa."
+
 #. (para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
 msgstr "Nykyisin käytettävissä on kuuden tyyppisiä komentojonoja <placeholder-1/>"
@@ -9371,8 +9428,8 @@ msgid "A hook is defined for a particular working copy path. You only need to sp
 msgstr "Komentojono määritellään tietylle työkopion polulle. Riittää, kun määrität ylätason polun; jos suoritat toimenpiteen alikansiossa, TortoiseSVN etsii automaattisesti puussa ylöspäin löytääkseen täsmäävän polun."
 
 #. (para)
-msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
-msgstr "Seuraavaksi sinun on määriteltävä suoritettava komento. Se voi olla komentotiedosto, suoritettava tiedosto tai joku muu tiedostotyyppi, jolla on voimassa kytkentä tiedostopäätteeseen, esim. perl-komentojono."
+msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script. Note that the script must not be specified using a UNC path as Windows shell execute will not allow such scripts to run due to security restrictions."
+msgstr "Seuraavaksi sinun on määriteltävä suoritettava komento (sekä polku sen sijaintihakemistoon). Komento voi olla komentotiedosto, suoritettava tiedosto tai joku muu tiedostotyyppi, jolla on voimassa kytkentä tiedostopäätteeseen, esim. perl-komentojono. Huomaa, että komentoa ei saa määritellä UNC-polun avulla, koska Windows-resurssienhallinta ei tietoturvasyistä salli niiden suorittamista."
 
 #. (para)
 msgid "The command line includes several parameters which get filled in by TortoiseSVN. The parameters passed depend upon which hook is called. Each hook has its own parameters which are passed in the following order: <placeholder-1/>"
@@ -9449,6 +9506,10 @@ msgstr "Tavallisesti DOS-ikkunaa ei ole tarpeen näyttää, kun komentoa suorite
 #. (para)
 msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr "Esimerkkejä asiakaspään komentojonoista löytyy kansiosta <literal>contrib</literal> <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN-arkistossa</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten arkistoon kytkeydytään)."
+
+#. (para)
+msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
+msgstr "TortoiseSVN-asennuskansiossa on pieni työkalu nimeltä <literal>ConnectVPN.exe</literal>. Voit käyttää sitä ennen yhdistämistä -tyyppisenä komentona ottaaksesi automaattisesti yhteyden VPN-verkkoon ennen kuin TortoiseSVN yrittää kytkeytyä arkistoon. VPN-yhteyden nimi annetaan työkalulle parametrina."
 
 #. (title)
 msgid "Issue Tracker Integration"
@@ -9642,6 +9703,10 @@ msgstr "Oletusarvoisesti TortoiseSVN sisällyttää aina päivitykseen ulkoiset 
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
 msgstr "Useimmissa TortoiseSVN-ikkunoissa voi käyttää näppäinyhdistelmää  <keycap>Ctrl+Enter</keycap> ikkunan sulkemiseksi (vrt. OK-painike). Mikäli haluat estää tämän, aseta arvoksi <literal>false</literal>."
 
+#. (para)
+msgid "Sometimes multiple users use the same account on the same computer. In such situations it's not really wanted to save the authentication data. Setting this value to <literal>false</literal> disables the <literal>save authentication</literal> button in the authentication dialog."
+msgstr "Joskus useampi käyttäjä käyttää samaa käyttäjätiliä samalla tietokoneella. Tällöin tunnistustietojen tallettaminen ei ole järkevää. Arvo <literal>false</literal> estää <literal>Talleta tunnistustiedot</literal> -valinnan käytön tunnistusikkunassa."
+
 #. (title)
 msgid "Final Step"
 msgstr "Lopuksi"
@@ -9831,11 +9896,9 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
-#. (literal)
 msgid "TText"
 msgstr "TText"
 
-#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -9868,19 +9931,6 @@ msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versio
 msgstr "<placeholder-1/> korvataan tekstillä <placeholder-2/> mikäli alkio on versioitu, tai tekstillä <placeholder-3/> jos näin ei ole."
 
 #. (literal)
-msgid "$WCNEEDSLOCK?TText:FText$"
-msgstr "$WCNEEDSLOCK?TText:FText$"
-
-#. (literal)
-#. (literal)
-msgid "svn:needs-lock"
-msgstr "svn:needs-lock"
-
-#. (entry)
-msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
-msgstr "<placeholder-1/> korvataan tekstillä <placeholder-2/> jos alkion <placeholder-3/>-ominaisuus on asetettu, tai tekstillä <placeholder-4/> jos näin ei ole."
-
-#. (literal)
 msgid "$WCISLOCKED?TText:FText$"
 msgstr "$WCISLOCKED?TText:FText$"
 
@@ -9905,8 +9955,8 @@ msgid "If a source and destination files are supplied, SubWCRev copies source to
 msgstr "Jos lähde- ja kohdetiedostot on annettu, SubWCRev kopioi lähdetiedoston kohdetiedostoksi, suorittaen samalla avainsanojen laajennuksen seuraavasti: <placeholder-1/>"
 
 #. (para)
-msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
-msgstr "Jotkin näistä avainsanoista koskevat hakemistojen sijaan yksittäisiä tiedostoja, joten niiden käyttö on järkevää vain, kun SubWCRev is käy läpi yksittäisen tiedoston. Tämä pätee avainsanoihin <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> ja <literal>$WCLOCKCOMMENT$</literal>."
+msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
+msgstr "Jotkin näistä avainsanoista koskevat hakemistojen sijaan yksittäisiä tiedostoja, joten niiden käyttö on järkevää vain, kun SubWCRev is käy läpi yksittäisen tiedoston. Tämä pätee avainsanoihin <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> ja <literal>$WCLOCKCOMMENT$</literal>."
 
 #. (title)
 msgid "Keyword Example"
@@ -10072,10 +10122,6 @@ msgid "True if the item is versioned."
 msgstr "Tosi, jos kohde on versioitu."
 
 #. (entry)
-msgid "True if the item has the <placeholder-1/> property set."
-msgstr "Tosi, jos kohteella on ominaisuus <placeholder-1/> asetettuna."
-
-#. (entry)
 msgid "True if the item is locked."
 msgstr "Tosi, jos kohde on lukittu."
 
@@ -10134,8 +10180,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject1.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject1.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject1.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject1.LockCreationDate + \"\\n"
@@ -10159,8 +10203,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject2.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject2.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject2.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject2.LockCreationDate + \"\\n"
@@ -10184,8 +10226,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject3.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject3.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject3.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject3.LockCreationDate + \"\\n"
@@ -10209,8 +10249,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject4.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject4.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject4.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject4.LockCreationDate + \"\\n"
@@ -10261,8 +10299,6 @@ msgstr ""
 "On Svn-alkio = \" + \n"
 "             revObject1.IsSvnItem + \"\\n"
 "Tarvitsee lukitusta = \" + \n"
-"             revObject1.NeedsLocking + \"\\n"
-"Lukittu = \" + \n"
 "             revObject1.IsLocked + \"\\n"
 "Lukon luontipäiväys = \" + \n"
 "             revObject1.LockCreationDate + \"\\n"
@@ -10286,8 +10322,6 @@ msgstr ""
 "On Svn-alkio = \" + \n"
 "               revObject2.IsSvnItem + \"\\n"
 "Tarvitsee lukitusta = \" + \n"
-"               revObject2.NeedsLocking + \"\\n"
-"Lukittu = \" + \n"
 "               revObject2.IsLocked + \"\\n"
 "Lukon luontipäiväys = \" + \n"
 "               revObject2.LockCreationDate + \"\\n"
@@ -10311,8 +10345,6 @@ msgstr ""
 "On Svn-alkio = \" + \n"
 "             revObject3.IsSvnItem + \"\\n"
 "Tarvitsee lukitusta = \" + \n"
-"            revObject3.NeedsLocking + \"\\n"
-"Lukittu = \" + \n"
 "            revObject3.IsLocked + \"\\n"
 "Lukon luontipäiväys = \" + \n"
 "            revObject3.LockCreationDate + \"\\n"
@@ -10336,8 +10368,6 @@ msgstr ""
 "On Svn-alkio = \" + \n"
 "               revObject4.IsSvnItem + \"\\n"
 "Tarvitsee lukitusta = \" + \n"
-"               revObject4.NeedsLocking + \"\\n"
-"Lukittu = \" + \n"
 "               revObject4.IsLocked + \"\\n"
 "Lukon luontipäiväys = \" + \n"
 "               revObject4.LockCreationDate + \"\\n"
@@ -13018,12 +13048,12 @@ msgid "translations"
 msgstr "käännökset"
 
 #. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "TortoiseSVN-ohjelman käyttöliittymä on käännetty useille kielille, joten saatat hyvinkin löytää tarvitsemasi kielimodulin. Löydät kielimodulit <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>käännöksen tila</citetitle></ulink>-sivultamme. Jos tarvitsemaasi kielimodulia ei ole vielä saatavilla, miksi et liittyisi joukkoon ja tekisi omaa käännöstä ;-)"
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available, why not join the team and submit your own translation ;-)"
+msgstr "TortoiseSVN-ohjelman käyttöliittymä on käännetty useille kielille, joten saatat hyvinkin löytää tarvitsemasi kielimodulin. Löydät kielimodulit <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>käännösten tilanne</citetitle></ulink>-sivultamme. Jos tarvitsemaasi kielimodulia ei ole vielä saatavilla, miksi et liittyisi joukkoon ja tekisi omaa käännöstä ;-)"
 
 #. (para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
-msgstr "Jokainen kielimoduli on paketoitu <literal>.msi</literal>-muodossa olevaan asennusohjelmaan.  Asennus tapahtuu käynnistämällä asennusohjelma ja seuraamalla ohjeita. Seuraavan uudelleenkäynnistyksen jälkeen käännös on saatavilla."
+msgid "Each language pack is packaged as a <literal>.msi</literal> installer. Just run the install program and follow the instructions. After the installation finishes, the translation will be available."
+msgstr "Jokainen kielimoduli on paketoitu <literal>.msi</literal>-muodossa olevaan asennusohjelmaan.  Asennus tapahtuu käynnistämällä asennusohjelma ja seuraamalla ohjeita. Asennuksen jälkeen käännös on saatavilla."
 
 #. (para)
 msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
@@ -13046,8 +13076,8 @@ msgid "TortoiseSVN includes a spell checker which allows you to check your commi
 msgstr "TortoiseSVN sisältää oikeinkirjoituksen tarkistajan, jonka avulla voit tarkistaa lokiviestisi arkistoon toimituksen yhteydessä. Tämä on erityisen hyödyllistä, mikäli projektin kieli ei ole äidinkielesi. Oikeinkirjoituksen tarkistin käyttää samoja sanastotiedostoja kuin <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> ja <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 
 #. (para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
-msgstr "Asennusohjelma lisää automaattisesti US ja UK -englannin sanastot. Mikäli haluat muita kieliä, helpoin vaihtoehto on yksinkertaisesti asentaa jokin TortoiseSVN-kielimoduli. Se asentaa tarpeelliset sanastotiedostot samoin kuin lokalisoidun käyttöliittymän TortoiseSVN-ohjelmalle. Seuraavan uudelleenkäynnistyksen jälkeen myös sanasto on saatavilla."
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. After the installation finishes, the dictionary will be available too."
+msgstr "Asennusohjelma lisää automaattisesti US ja UK -englannin sanastot. Mikäli haluat muita kieliä, helpoin vaihtoehto on yksinkertaisesti asentaa jokin TortoiseSVN-kielimoduli. Se asentaa tarpeelliset sanastotiedostot samoin kuin lokalisoidun käyttöliittymän TortoiseSVN-ohjelmalle. Asennuksen jälkeen myös sanasto on saatavilla."
 
 #. (para)
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
@@ -13307,6 +13337,104 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid ""
+#~ "You may decide that your local changes are much more important, so you "
+#~ "want to discard the version from the repository and keep your local "
+#~ "version. Or you might discard your local changes in favour of the "
+#~ "repository version. This only relates to conflicting changes. Changes "
+#~ "that can be merged are still merged. Only for the conflicting part your "
+#~ "choice is used."
+#~ msgstr ""
+#~ "Saatat päättää, että paikalliset muutoksesi ovat tärkeämpiä kuin "
+#~ "arkistossa olevat, joten haluat korvata arkistoversion omallasi ja "
+#~ "säilyttää paikallisen version. Saatat myös haluta hylätä paikalliset "
+#~ "muutoksesi ja korvata ne arkistossa olevilla. Tämä koskee vain "
+#~ "ristiriitaisia mutoksia; yhdistettävissä olevat muutokset tehdään "
+#~ "suoraan. Valintaasi käytetään siis vain ristiriitaisiin osiin."
+#~ msgid ""
+#~ "When a conflict occurs during the merge, you have three ways to handle "
+#~ "it. <placeholder-1/>"
+#~ msgstr ""
+#~ "Kun yhdistämisen aikana syntyy ristiriita, voit ratkaista sen kolmella "
+#~ "tavalla. <placeholder-1/>"
+#~ msgid "Automatically check for newer versions every week"
+#~ msgstr "Tarkista automaattisesti uudemman version saatavuus joka viikko"
+#~ msgid "Progress Dialog"
+#~ msgstr "Edistyminen"
+#~ msgid ""
+#~ "<guilabel>Auto-close if no merges, adds or deletes for local operations</"
+#~ "guilabel> means that the progress dialog will close as for <guilabel>Auto-"
+#~ "close if no merges, adds or deletes</guilabel> but only for local "
+#~ "operations like adding files or reverting changes. For remote operations "
+#~ "the dialog will stay open."
+#~ msgstr ""
+#~ "Valinta <guilabel>Sulje automaattisesti, jos paikallinen toiminto</"
+#~ "guilabel> tarkoittaa, että edistymisikkuna käyttäytyy kuten "
+#~ "<guilabel>Sulje automaattisesti, jos ei ole yhdistämisiä, lisäyksiä tai "
+#~ "poistoja</guilabel>, mutta vain paikallisille toiminnoille, kuten "
+#~ "tiedoston lisäys tai muutosten palautus. Palvelinyhteyttä vaativien "
+#~ "toimintojen kanssa ikkuna pysyy avoinna. "
+#~ msgid ""
+#~ "Ignored items and Unversioned items are not usually given an overlay. If "
+#~ "you want to show an overlay in these cases, just check the boxes."
+#~ msgstr ""
+#~ "Ohitetut ja versioimattomat tiedostot eivät yleensä saa kuvakepäällystä. "
+#~ "Jos haluat näyttää päällyksen näissä tapauksissa, ruksaa valinnat."
+#~ msgid ""
+#~ "<filename>f:\\development\\SVN\\Subversion</filename> will disable the "
+#~ "overlays <emphasis>only</emphasis> on that specific folder. You still can "
+#~ "see the overlays on all files and folder inside that folder."
+#~ msgstr ""
+#~ "<filename>f:\\development\\SVN\\Subversion</filename> estää "
+#~ "kuvakepäällykset <emphasis>vain</emphasis> määritellystä kansiosta. "
+#~ "Kuvakepäällykset näkyvät yhä kaikille tiedostoille ja kansioille "
+#~ "määritellyn kansion sisällä."
+#~ msgid ""
+#~ "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the "
+#~ "overlays on <emphasis>all</emphasis> files and folders whose path starts "
+#~ "with <filename>f:\\development\\SVN\\Subversion</filename>. That means "
+#~ "you won't see overlays for any files and folders below that path."
+#~ msgstr ""
+#~ "<filename>f:\\development\\SVN\\Subversion*</filename> poistaa "
+#~ "kuvakepäällykset <emphasis>kaikista</emphasis> tiedostoista ja "
+#~ "kansioista, joiden polku alkaa merkkijonolla <filename>f:\\development"
+#~ "\\SVN\\Subversion</filename>. Siten et näe kuvakepäällyksiä millekään "
+#~ "tiedostolle tai kansiolle määritellyn polun alapuolella."
+#~ msgid ""
+#~ "Users sometimes ask how these three settings interact, and the definitive "
+#~ "answer is: <screen>\n"
+#~ "if (path is in include list)\n"
+#~ "  show overlays\n"
+#~ "if (path is allowed drive type) AND (path is not in exclude list)\n"
+#~ "  show overlays\n"
+#~ "</screen> The include list <emphasis>always</emphasis> makes the overlays "
+#~ "show. Otherwise, overlays are shown for all marked drive types "
+#~ "<emphasis>unless</emphasis> the path is excluded."
+#~ msgstr ""
+#~ "Käyttäjät haluavat joskus tietää, miten nämä kolme asetusta toimivat "
+#~ "keskenään.  Järjestys on seuraava: <screen>\n"
+#~ "jos (polku on osa sisällytettyjä polkuja)\n"
+#~ "  näytä kuvakepäällykset\n"
+#~ "jos (polku on sallitulla asematyypillä) JA (polku ei ole osa pois "
+#~ "jätettyjä polkuja)\n"
+#~ "  näytä kuvakepäällykset\n"
+#~ "</screen> Sisällytetyt polkujen kuvakepäällykset näytetään "
+#~ "<emphasis>aina</emphasis>. Muutoin kuvakepäällykset näytetään valituile "
+#~ "asematyypeille <emphasis>jollei</emphasis> polkua ole merkitty pois "
+#~ "jätettäväksi."
+#~ msgid "$WCNEEDSLOCK?TText:FText$"
+#~ msgstr "$WCNEEDSLOCK?TText:FText$"
+#~ msgid "svn:needs-lock"
+#~ msgstr "svn:needs-lock"
+#~ msgid ""
+#~ "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the "
+#~ "<placeholder-3/> property set, or <placeholder-4/> if not."
+#~ msgstr ""
+#~ "<placeholder-1/> korvataan tekstillä <placeholder-2/> jos alkion "
+#~ "<placeholder-3/>-ominaisuus on asetettu, tai tekstillä <placeholder-4/> "
+#~ "jos näin ei ole."
+#~ msgid "True if the item has the <placeholder-1/> property set."
+#~ msgstr "Tosi, jos kohteella on ominaisuus <placeholder-1/> asetettuna."
 #~ msgid ""
 #~ "The <xref linkend=\"tsvn-introduction\"/> explains how to install "
 #~ "TortoiseSVN on your PC, and how to start using it straight away."
