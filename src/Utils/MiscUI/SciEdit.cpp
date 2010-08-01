@@ -63,6 +63,7 @@ struct loc_map enc2locale[] = {
     {"20866","KOI8-R"},
     {"21866","KOI8-U"},
     {"1251","microsoft-cp1251"},
+    {"65001","UTF-8"},
     };
 
 
@@ -392,20 +393,8 @@ void CSciEdit::SetAutoCompletionList(const std::set<CString>& list, const TCHAR 
 BOOL CSciEdit::IsMisspelled(const CString& sWord)
 {
     // convert the string from the control to the encoding of the spell checker module.
-    CStringA sWordA;
-    if (m_spellcodepage)
-    {
-        char * buf;
-        buf = sWordA.GetBuffer(sWord.GetLength()*4 + 1);
-        int lengthIncTerminator =
-            WideCharToMultiByte(m_spellcodepage, 0, sWord, -1, buf, sWord.GetLength()*4, NULL, NULL);
-        if (lengthIncTerminator == 0)
-            return FALSE;   // converting to the codepage failed, assume word is spelled correctly
-        sWordA.ReleaseBuffer(lengthIncTerminator-1);
-    }
-    else
-        sWordA = CStringA(sWord);
-    sWordA.Trim("\'\".,");
+    CStringA sWordA = GetWordForSpellCkecker(sWord);
+
     // words starting with a digit are treated as correctly spelled
     if (_istdigit(sWord.GetAt(0)))
         return FALSE;
@@ -435,7 +424,7 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
                         return FALSE;
                     return TRUE;
                 }
-                sWordA = CStringA(sWord.Mid(wordstart, wordend-wordstart));
+                sWordA = GetWordForSpellCkecker(sWord.Mid(wordstart, wordend-wordstart));
                 if ((sWordA.GetLength() > 2)&&(!pChecker->spell(sWordA)))
                 {
                     return TRUE;
@@ -540,14 +529,16 @@ void CSciEdit::SuggestSpellingAlternatives()
     Call(SCI_SETCURRENTPOS, Call(SCI_WORDSTARTPOSITION, Call(SCI_GETCURRENTPOS), TRUE));
     if (word.IsEmpty())
         return;
+    CStringA sWordA = GetWordForSpellCkecker(word);
+
     char ** wlst;
-    int ns = pChecker->suggest(&wlst, CStringA(word));
+    int ns = pChecker->suggest(&wlst, sWordA);
     if (ns > 0)
     {
         CString suggestions;
         for (int i=0; i < ns; i++)
         {
-            suggestions += CString(wlst[i]) + m_separator;
+            suggestions += GetWordFromSpellCkecker(wlst[i]) + m_separator;
             free(wlst[i]);
         }
         free(wlst);
@@ -823,7 +814,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         }
         else
             sWord = GetWordUnderCursor();
-        CStringA worda = CStringA(sWord);
+        CStringA worda = GetWordForSpellCkecker(sWord);
 
         int nCorrections = 1;
         bool bSpellAdded = false;
@@ -839,7 +830,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 for (int i=0; i < ns; i++)
                 {
                     bSpellAdded = true;
-                    CString sug = CString(wlst[i]);
+                    CString sug = GetWordFromSpellCkecker(wlst[i]);
                     popup.InsertMenu((UINT)-1, 0, nCorrections++, sug);
                     free(wlst[i]);
                 }
@@ -1321,4 +1312,47 @@ bool CSciEdit::IsUrl(const CStringA& sText)
     if (sText.Find("://")>=0)
         return true;
     return false;
+}
+
+CStringA CSciEdit::GetWordForSpellCkecker( const CString& sWord )
+{
+    // convert the string from the control to the encoding of the spell checker module.
+    CStringA sWordA;
+    if (m_spellcodepage)
+    {
+        char * buf;
+        buf = sWordA.GetBuffer(sWord.GetLength()*4 + 1);
+        int lengthIncTerminator =
+            WideCharToMultiByte(m_spellcodepage, 0, sWord, -1, buf, sWord.GetLength()*4, NULL, NULL);
+        if (lengthIncTerminator == 0)
+            return "";   // converting to the codepage failed
+        sWordA.ReleaseBuffer(lengthIncTerminator-1);
+    }
+    else
+        sWordA = CStringA(sWord);
+
+    sWordA.Trim("\'\".,");
+
+    return sWordA;
+}
+
+CString CSciEdit::GetWordFromSpellCkecker( const CStringA& sWordA )
+{
+    CString sWord;
+    if (m_spellcodepage)
+    {
+        wchar_t * buf;
+        buf = sWord.GetBuffer(sWordA.GetLength()*2);
+        int lengthIncTerminator =
+            MultiByteToWideChar(m_spellcodepage, 0, sWordA, -1, buf, sWordA.GetLength()*2);
+        if (lengthIncTerminator == 0)
+            return L"";
+        sWord.ReleaseBuffer(lengthIncTerminator-1);
+    }
+    else
+        sWord = CString(sWordA);
+
+    sWord.Trim(L"\'\".,");
+
+    return sWord;
 }
