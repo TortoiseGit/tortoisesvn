@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-07-28 18:27 +0000\n"
-"PO-Revision-Date: 2010-07-29 22:02+0100\n"
+"POT-Creation-Date: 2010-07-29 22:08 +0000\n"
+"PO-Revision-Date: 2010-08-01 19:26+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -3191,8 +3191,8 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr "Ако преузмете празну радну копију (тј. избором нечег дргог него <literal>потпуно рекурзивно</literal> за дубину преузимања), можете достићи додатне субименике користећи претраживач спремишта (<xref linkend=\"tsvn-dug-repobrowser\"/> или дијалог за проверу измена (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 
 #. (para)
-msgid "In the repository browser, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
-msgstr "У претраживачу спремишта, <action>Десни клик</action> на преузети именик, затим користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Репо-Претрживач</guimenuitem></menuchoice> да позовете претраживач спремишта. Нађите субименик који желите да додате вашој радној копији, затим користите <menuchoice><guimenu>Контекст мени</guimenu><guimenuitem> Ажурирај ставку по ревизији...</guimenuitem></menuchoice>Тај мени биће видљив само ако изабрана ставка још не постоји у вашој радној копији, али предачка ставка постоји. "
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
+msgstr "У претраживачу спремишта, <action>Десни клик</action> на преузети именик,  затим користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Репо-Претрживач</guimenuitem></menuchoice> да позовете претраживач спремишта. Нађите субименик који желите да додате вашој радној копији, затим користите <menuchoice><guimenu>Контекст мени</guimenu><guimenuitem> Ажурирај ставку по ревизији...</guimenuitem></menuchoice> Тај мени ће бити видљив само ако изабрана ставка још не постоји у вашој радној копији, али предачка ставка постоји. "
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
@@ -9511,8 +9511,8 @@ msgid "Sample client hook scripts can be found in the <literal>contrib</literal>
 msgstr "Једноставна клијент закачаљка скрипта може бити нађено у  <literal>контриб</literal> именику у <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>ТортоисеСВН спремиште</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> објашљава како приступити спремишту)."
 
 #. (para)
-msgid "A small tool is included in the TortoiseSVN installation folder named ConnectVPN.exe. You can use this tool configured as a pre-connect hook to automatically connect to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
-msgstr "Мали алат укључен у ТортоисеСВН инсталационом именику зове се ConnectVPN.exe. Можете користити овај алат као пре-спајања закачаљка да се аутоматски споји на ваш ВПН пре него ТортоисеСВН покуша да се споји на спремиште. Само провуците име ВПН конелције као први параметар у алату."
+msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
+msgstr "Мали алат укључен у ТортоисеСВН инсталационом именику зове се <literal>ConnectVPN.exe</literal>.Можете користити овај алат као закачаљку пре-спајања  да се аутоматски споји на ваш ВПН пре него ТортоисеСВН покуша да се споји на спремиште. Само провуците име ВПН конекције као први параметар у алату."
 
 #. (title)
 msgid "Issue Tracker Integration"
