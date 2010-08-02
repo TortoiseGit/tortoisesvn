@@ -390,7 +390,7 @@ SVNRev SVNRevRangeArray::GetLowestRevision() const
     {
         svn_revnum_t first = m_array[i].GetStartRevision();
         svn_revnum_t last = m_array[i].GetEndRevision();
-        lowest = max (lowest, max (first, last));
+        lowest = min (lowest, min (first, last));
     }
 
     return lowest;
