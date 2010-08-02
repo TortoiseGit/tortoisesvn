@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-07-11 08:32 +0000\n"
-"PO-Revision-Date: 2010-07-14 01:16-0000\n"
+"POT-Creation-Date: 2010-07-29 22:08 +0000\n"
+"PO-Revision-Date: 2010-08-02 15:34-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -3192,8 +3192,8 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr "Se SVN exportares para uma cópia de trabalho parcial (i.e, escolhendo outra opção para além da <literal>totalmente recursiva</literal> relativamente á profundidade de exportação), poderás resgatar subpastas adicionais, utilizando o navegador do repositório (<xref linkend=\"tsvn-dug-repobrowser\"/>) ou a caixa de diálogo verificar modificações (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 
 #. (para)
-msgid "In the repository browser, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
-msgstr "No navegador de repositório, <action>clicar com o botão direito</action> na pasta SVN exportada e usar o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Navegador de Repositório</guimenuitem></menuchoice> para mostrar o navegador de repositório. Seleccionar a subpasta que gostarias de adicionar à tua cópia de trabalho e utilizar, <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Actualizar item para revisão...</guimenuitem></menuchoice>. Esse menu só será visível, se o item seleccionado ainda não existir na tua cópia de trabalho mas o item pai já exista. "
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
+msgstr "No explorador do Windows, <action>clicar com o botão direito</action> na pasta em checkout e usar o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Navegador de Repositório</guimenuitem></menuchoice> para mostrar o navegador de repositório. Seleccionar a subpasta que gostarias de adicionar à tua cópia de trabalho e então usar, <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Actualizar item para revisão...</guimenuitem></menuchoice>. Esse menu apenas será visível se o item seleccionado ainda não existir na tua cópia de trabalho, mas o item pai já exista. "
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
@@ -9511,6 +9511,10 @@ msgstr "Normalmente tu quererás esconder as caixas feias de DOS, enquanto o scr
 msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
 msgstr "Exemplos de scripts de gancho de cliente podem ser encontrados na pasta <literal>contrib</literal> no <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>repositório TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório)."
 
+#. (para)
+msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
+msgstr "Uma pequena ferramenta chamada <literal>ConnectVPN.exe</literal> está incluída na pasta de instalação do TortoiseSVN. Poderás usar esta ferramenta, configurada como pré-connect, para te ligares automaticamente à tua VPN antes do TortoiseSVN se tentar ligar a um repositório. Terás apenas de passar o nome da conexão VPN como primeiro parâmetro da ferramenta."
+
 #. (title)
 msgid "Issue Tracker Integration"
 msgstr "Integração do Controlador de Problemas"
@@ -13060,12 +13064,12 @@ msgid "translations"
 msgstr "traduções"
 
 #. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
-msgstr "O interface gráfico do TortoiseSVN tem sido traduzido em muitoas e variadas línguas, sendo então possível descarregar um pacote de línguas que sirva as tuas necessidades. Tu podes encontrar os pacotes de línguas no nosso <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status página de ponto de situação da tradução</citetitle></ulink>. Se não existir um pacote de lingua ainda disponível porque não juntares-te á equipa e submeteres a tua própria tradução ;-)"
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available, why not join the team and submit your own translation ;-)"
+msgstr "O interface gráfico do TortoiseSVN tem sido traduzido em muitas e variadas línguas, sendo então possível descarregar um pacote de línguas que sirva as tuas necessidades. Poderás encontrar os pacotes de línguas no nosso  <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. E se não existir ainda disponível um pacote de linguagem, porque não te juntares á equipa e submeteres a tua própria tradução ;-)"
 
 #. (para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
-msgstr "Cada pacote de língua está empacotado como um instalador com extensão <literal>.exe</literal>. Apenas precisas de correr o ficheiro de instalação e seguir as instruções. Da próxima vez que reiniciares o computador, a tradução estará disponível."
+msgid "Each language pack is packaged as a <literal>.msi</literal> installer. Just run the install program and follow the instructions. After the installation finishes, the translation will be available."
+msgstr "Cada pacote de linguagem está empacotado como um instalador com extensão <literal>.exe</literal>. Corre apenas o ficheiro de instalação e segue então as instruções. Da próxima vez que reiniciares o computador a tradução estará já disponível."
 
 #. (para)
 msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support\"><citetitle>support page</citetitle></ulink> on our website."
@@ -13088,8 +13092,8 @@ msgid "TortoiseSVN includes a spell checker which allows you to check your commi
 msgstr "O TortoiseSVN ínclui um corretor ortográfico que permite verificar as messagens de log de submissão. Isto é de utilidade especial se a língua do projecto não é a língua nativa. O verificador ortográfico usa os mesmos ficheiros de dicionário que o <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> e <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 
 #. (para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
-msgstr "O instalador instala automáticamente os dicionários de Inglês UK e US. Se quiseres outras línguas, a opção mais simples é instalar um dos pacotes de línguas do TortoiseSVN. Este irá instalar os ficheiros de dicionário apropriados bem como o interface local do TortoiseSVN. Da próxima vez que reiniciares o computadoe, o dicionário estará tambem disponível."
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. After the installation finishes, the dictionary will be available too."
+msgstr "O instalador instala automaticamente os dicionários de Inglês UK e US. Se pretenderes outras línguas a opção mais simples é instalar um dos pacotes de línguas do TortoiseSVN. Este irá instalar os ficheiros de dicionário apropriados bem como o interface de utilizador local do TortoiseSVN. Após o fim da instalação, estará também disponível o dicionário."
 
 #. (para)
 msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
