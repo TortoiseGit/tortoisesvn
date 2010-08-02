@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-06 11:09+0100\n"
+"PO-Revision-Date: 2010-07-28 13:41+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -243,7 +243,7 @@ msgstr "%s, ale adresár už bol miestne zmazaný, presunutý, alebo zmazaný."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr "%s, ale adresár bol zahatený v pracovnej kópií."
+msgstr "%s, ale adresár v pracovnej kópií bol poškodený."
 
 #. Resource IDs: (609)
 #, c-format
@@ -278,7 +278,7 @@ msgstr "%s, ale súbor už bol miestne zmazaný, presunutý, alebo zmazaný."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
-msgstr "%s, ale súbor bol zahatený v pracovnej kópií."
+msgstr "%s, ale súbor v pracovnej kópií bol poškodený."
 
 #. Resource IDs: (609)
 #, c-format
@@ -3367,6 +3367,10 @@ msgstr "D&etaily"
 msgid "Date"
 msgstr "Dátum"
 
+#. Resource IDs: (117)
+msgid "Date Range"
+msgstr "Rozsah dátumov"
+
 #. Resource IDs: (1008)
 msgid "Default"
 msgstr "Prednastavené"
@@ -4415,6 +4419,10 @@ msgid ""
 msgstr ""
 "Nástroj vyplň\n"
 "Výplň"
+
+#. Resource IDs: (117)
+msgid "Filter by"
+msgstr "Filtrované"
 
 #. Resource IDs: (65535)
 msgid "Filter match"
@@ -5982,8 +5990,8 @@ msgid "Messages"
 msgstr "Správy"
 
 #. Resource IDs: (116)
-msgid "Messages, authors and paths"
-msgstr "Správy, autori a cesty"
+msgid "Messages, authors, paths and revs"
+msgstr "Správy, autori, cesty a revízie"
 
 # Typ prílohy
 #. Resource IDs: (78)
@@ -6328,6 +6336,10 @@ msgstr "Revízia '%1!s!'  neexistuje"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Tezaurus nemá návrh"
+
+#. Resource IDs: (65535)
+msgid "Node Status:"
+msgstr "Stav uzla:"
 
 #. Resource IDs: (65535)
 msgid "Node colors"
@@ -6863,6 +6875,10 @@ msgstr "Pre&došlá strana"
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
 msgstr "Predodovzdávací pripnutý (hook)skript"
+
+#. Resource IDs: (570)
+msgid "Pre-Connect Hook"
+msgstr "Predpripájací pripnutý (hook)skript"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
@@ -9489,6 +9505,10 @@ msgstr "Tezaurus (slovník)"
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
 msgstr "Tieto sú neskôr uložené ako práve otvorené dokumenty a obsahujú zmeny, ktoré boli urobené pred zatvorením aplikácie."
 
+#. Resource IDs: (84)
+msgid "This file already exists!"
+msgstr "Tento súbor už existuje!"
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -10007,9 +10027,8 @@ msgid "Unversioned files mark parent folder as modified"
 msgstr "Neverziované súbory označia rodičovský adresár za zmenený"
 
 #. Resource IDs: (265)
-#, fuzzy
 msgid "Unversioned obstruction"
-msgstr "Odverziovaná nepríjemosť"
+msgstr "Neverziované poškodenie"
 
 #. Resource IDs: (286)
 #, c-format
@@ -11149,7 +11168,7 @@ msgstr "normálne"
 
 #. Resource IDs: (11)
 msgid "obstructed"
-msgstr "blokované"
+msgstr "poškodené"
 
 #. Resource IDs: (601)
 msgid "offline"
@@ -11187,7 +11206,7 @@ msgstr "pixely"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr "možné alebo skutočné konflikty / prekážky"
+msgstr "možné alebo skutočné konflikty / poškodenia"
 
 #. Resource IDs: (3845)
 msgid "prn"
@@ -11603,6 +11622,6 @@ msgstr "{BugTraq}"
 
 #~ msgid "Check externals to tag"
 #~ msgstr "Skontrolovať externé pre značku"
+
 #~ msgid "Tagged"
 #~ msgstr "Označené"
-
