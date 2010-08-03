@@ -124,6 +124,9 @@ BOOL CSwitchDlg::OnInitDialog()
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE)));
     m_depthCombo.SetCurSel(0);
 
+    m_tooltips.Create(this);
+    m_tooltips.AddTool(IDC_STICKYDEPTH, IDS_SWITCH_STICKYDEPTH_TT);
+
     RECT rect;
     GetWindowRect(&rect);
     m_height = rect.bottom - rect.top;
@@ -300,4 +303,11 @@ void CSwitchDlg::OnSizing(UINT fwSide, LPRECT pRect)
 void CSwitchDlg::OnCbnEditchangeUrlcombo()
 {
     SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetWindowString()));
+}
+
+BOOL CSwitchDlg::PreTranslateMessage(MSG* pMsg)
+{
+    m_tooltips.RelayEvent(pMsg);
+
+    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
