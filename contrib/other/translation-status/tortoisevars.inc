@@ -17,7 +17,7 @@
 $tsvn_var['sf_project']="138498";
 $tsvn_var['url1']="http://downloads.sourceforge.net/tortoisesvn/";
 $tsvn_var['url2']="?download";
-$tsvn_var['repos_base']="http://tortoisesvn.tigris.org/svn/tortoisesvn/";
+$tsvn_var['repos_base']="http://tortoisesvn.googlecode.com/svn/";
 $tsvn_var['flagpath']="/flags/world.small/";
 
 // Variables that change upon each release
