@@ -2651,7 +2651,7 @@ void CBaseView::OnEditCopy()
         case DIFFSTATE_YOURSREMOVED:
         case DIFFSTATE_YOURSADDED:
         case DIFFSTATE_EDITED:
-            sCopyData += m_pViewData->GetLine(viewIndex);
+            sCopyData += GetLineChars(i);
             sCopyData += _T("\r\n");
             break;
         }
@@ -3161,6 +3161,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         if (m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING)
             m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
         m_ptCaretPos.x++;
+        m_nCachedWrappedLine = -1;
         UpdateGoalPos();
     }
     else if (nChar == VK_RETURN)
@@ -3171,6 +3172,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         // move the cursor to the new line
         m_ptCaretPos.y++;
         m_ptCaretPos.x = 0;
+        m_nCachedWrappedLine = -1;
         UpdateGoalPos();
     }
     else
@@ -3188,10 +3190,13 @@ void CBaseView::AddUndoLine(int nLine, bool bAddEmptyLine)
     viewstate rightstate;
     viewstate bottomstate;
     int viewLine = m_Screen2View[nLine];
-    leftstate.AddViewLineFormView(m_pwndLeft, viewLine, bAddEmptyLine);
-    rightstate.AddViewLineFormView(m_pwndRight, viewLine, bAddEmptyLine);
-    bottomstate.AddViewLineFormView(m_pwndBottom, viewLine, bAddEmptyLine);
+    leftstate.AddViewLineFormView(m_pwndLeft, nLine, viewLine, bAddEmptyLine);
+    rightstate.AddViewLineFormView(m_pwndRight, nLine, viewLine, bAddEmptyLine);
+    bottomstate.AddViewLineFormView(m_pwndBottom, nLine, viewLine, bAddEmptyLine);
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+    BuildAllScreen2ViewVector();
+    RecalcAllVertScrollBars();
+    Invalidate(FALSE);
 }
 
 void CBaseView::AddEmptyLine(int nLineIndex)
@@ -3208,9 +3213,7 @@ void CBaseView::AddEmptyLine(int nLineIndex)
     }
     else
         m_pViewData->InsertData(viewLine+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(viewLine), HIDESTATE_SHOWN, -1);
-    BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
-    Invalidate(FALSE);
+    m_Screen2View.insert(m_Screen2View.begin()+nLineIndex, viewLine+1);
 }
 
 void CBaseView::RemoveLine(int nLineIndex)
@@ -3218,11 +3221,9 @@ void CBaseView::RemoveLine(int nLineIndex)
     if (m_pViewData == NULL)
         return;
     m_pViewData->RemoveData(m_Screen2View[nLineIndex]);
+    m_Screen2View.erase(m_Screen2View.begin() + nLineIndex);
     if (m_ptCaretPos.y >= GetLineCount())
         m_ptCaretPos.y = GetLineCount()-1;
-    BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
-    Invalidate(FALSE);
 }
 
 void CBaseView::RemoveSelectedText()
@@ -3352,23 +3353,26 @@ void CBaseView::PasteText()
     CViewData leftState;
     CViewData rightState;
     int selStartPos = m_ptSelectionStartPos.y;
+    int viewLine = m_Screen2View[selStartPos];
     for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
     {
-        int viewLine = m_Screen2View[i];
         if (m_pwndLeft)
         {
             if (!m_pwndLeft->HasCaret())
             {
-                leftState.AddData(m_pwndLeft->m_pViewData->GetData(viewLine));
+                leftState.AddData(m_pwndLeft->m_pViewData->GetData(m_Screen2View[selStartPos]));
+                m_pwndLeft->m_Screen2View.push_back(viewLine);
             }
         }
         if (m_pwndRight)
         {
             if (!m_pwndRight->HasCaret())
             {
-                rightState.AddData(m_pwndRight->m_pViewData->GetData(viewLine));
+                rightState.AddData(m_pwndRight->m_pViewData->GetData(m_Screen2View[selStartPos]));
+                m_pwndRight->m_Screen2View.push_back(viewLine);
             }
         }
+        viewLine++;
     }
 
     // We want to undo the insertion in a single step.
@@ -3380,6 +3384,7 @@ void CBaseView::PasteText()
         OnChar(sClipboardText[i], 0, 0);
     }
 
+    BuildAllScreen2ViewVector();
     // restore the lines in the non-editing views
     for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
     {

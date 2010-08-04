@@ -36,7 +36,7 @@ typedef struct viewstate
 
     std::map<int, viewdata> removedlines;
 
-    void    AddViewLineFormView(CBaseView *pView, int nLine, bool bAddEmptyLine);
+    void    AddViewLineFormView(CBaseView *pView, int nLine, int nViewLine, bool bAddEmptyLine);
 } viewstate;
 
 /**

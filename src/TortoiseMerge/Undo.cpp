@@ -22,15 +22,15 @@
 
 #include "BaseView.h"
 
-void viewstate::AddViewLineFormView(CBaseView *pView, int nLine, bool bAddEmptyLine)
+void viewstate::AddViewLineFormView(CBaseView *pView, int nLine, int nViewLine, bool bAddEmptyLine)
 {
     if (!pView || !pView->m_pViewData)
         return;
-    difflines[nLine] = pView->m_pViewData->GetLine(nLine);
-    linestates[nLine] = pView->m_pViewData->GetState(nLine);
+    difflines[nViewLine] = pView->m_pViewData->GetLine(nViewLine);
+    linestates[nViewLine] = pView->m_pViewData->GetState(nViewLine);
     if (bAddEmptyLine)
     {
-        addedlines.push_back(nLine + 1);
+        addedlines.push_back(nViewLine + 1);
         pView->AddEmptyLine(nLine);
     }
 }
