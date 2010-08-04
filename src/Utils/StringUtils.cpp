@@ -214,7 +214,6 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
     else
         retString += longstring.Mid(nLineStart);
 
-    retString.Trim();
     return retString;
 }
 
