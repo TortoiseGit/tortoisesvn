@@ -3194,7 +3194,6 @@ void CBaseView::AddUndoLine(int nLine, bool bAddEmptyLine)
     rightstate.AddViewLineFormView(m_pwndRight, nLine, viewLine, bAddEmptyLine);
     bottomstate.AddViewLineFormView(m_pwndBottom, nLine, viewLine, bAddEmptyLine);
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-    BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     Invalidate(FALSE);
 }
