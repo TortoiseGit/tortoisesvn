@@ -13,20 +13,6 @@
 # Mario Šarić <mario.saric@helix.hr>, 2005.
 # Ivan Vučica <ivan@vucica.net>, 2010.
 #
-msgid ""
-msgstr ""
-"Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-03 16:03+0100\n"
-"Last-Translator: Ivan Vučica <ivan@vucica.net>\n"
-"Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Croatian\n"
-"X-Poedit-Country: CROATIA\n"
-
 # Working Copy, WC      Radna Kopija, RK
 # Base                  Osnova
 # Update(s)             Obnova(e)
@@ -44,7 +30,22 @@ msgstr ""
 # Whitespaces           Praznine (bilo: Razmaci)
 # Repository            Skladište
 # Main Trunk            Glavno deblo
-# Bug            Greška
+# Bug                   Greška
+
+msgid ""
+msgstr ""
+"Project-Id-Version: TortoiseSVN\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 1900-01-01 00:00+0000\n"
+"PO-Revision-Date: 2010-08-04 12:03+0100\n"
+"Last-Translator: Ivan Vučica <ivan@vucica.net>\n"
+"Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Croatian\n"
+"X-Poedit-Country: CROATIA\n"
+
 #. Resource IDs: (10, 126)
 msgid " "
 msgstr " "
@@ -398,7 +399,7 @@ msgstr "&Izgled aplikacije"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
-msgstr "Primijeni svojstvo rekurzivno"
+msgstr "Primijeni svojstvo &rekurzivno"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -797,7 +798,7 @@ msgstr "&O slici"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
-msgstr "&Samo Slika"
+msgstr "&Samo slika"
 
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
@@ -3810,7 +3811,7 @@ msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!s!"
 msgstr ""
-"Uredi svojstvo  '%1!s!' na\r\n"
+"Uredi svojstvo  '%1!S!' na\r\n"
 "%2!s!"
 
 #. Resource IDs: (1331, 1382)
@@ -4397,7 +4398,7 @@ msgstr ""
 
 #. Resource IDs: (117)
 msgid "Filter by"
-msgstr "&Filtriraj po"
+msgstr "Filtriraj po"
 
 #. Resource IDs: (65535)
 msgid "Filter match"
@@ -4655,7 +4656,7 @@ msgstr "Grupiraj popis izmjena"
 
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
-msgstr "&Glavna revizija (H&EAD)"
+msgstr "Glavna revizija (H&EAD)"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -5228,7 +5229,7 @@ msgstr "Struktura uvezene mape"
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %1!s!"
-msgstr "Uvozim datoteku %1!s1"
+msgstr "Uvozim datoteku %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
@@ -5415,8 +5416,8 @@ msgid ""
 msgstr ""
 "Čini se da ste pokušali <b>premjestiti</b> vašu radnu kopiju na različitu stazu unutar istog skladišta.\n"
 "\n"
-"Od: %s\n"
-"Na: %s\n"
+"Od: %1!s!\n"
+"Na: %2!s!\n"
 "\n"
 "Premještanje je potrebno samo ako je staza <b>do</b> skladišta promijenjena.\n"
 "Za promjenu staze <b>unutar istog</b> skladišta koristite naredbu Zamijeni.\n"
@@ -6495,7 +6496,7 @@ msgstr "Jedna ili više datoteka su u stanju sukoba."
 
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
-msgstr "Samo zabilježi stapanje (nemoj stvarno stopiti revizije)"
+msgstr "Samo zabil&ježi stapanje (nemoj stvarno stopiti revizije)"
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
@@ -7729,7 +7730,7 @@ msgstr "Redak %d-%d od %d"
 
 #. Resource IDs: (1070)
 msgid "Row Down"
-msgstr "Red &dolje"
+msgstr "Red dolje"
 
 #. Resource IDs: (1070)
 msgid "Row Up"
@@ -8309,7 +8310,7 @@ msgstr "Prikaži brojeve lini&ja"
 
 #. Resource IDs: (1037)
 msgid "Show lo&g"
-msgstr "Prikaži &dnevni&"
+msgstr "Prikaži &dnevnik"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -8386,7 +8387,7 @@ msgstr "Pokaži/Sakrij"
 #. Resource IDs: (115)
 #, c-format
 msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
-msgstr "Prikaz %1!ld! revizija, od revizije %2!ld!  do %3!ld! - %4!ld! revizija odabrano, prikaz %5!ld% promijenjenih staza"
+msgstr "Prikaz %1!ld! revizija, od revizije %2!ld!  do %3!ld! - %4!ld! revizija odabrano, prikaz %5!ld! promijenjenih staza"
 
 #. Resource IDs: (272)
 #, c-format
