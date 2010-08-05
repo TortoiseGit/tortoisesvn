@@ -73,6 +73,11 @@ END_MESSAGE_MAP()
 
 LRESULT CMergeWizardRevRange::OnWizardBack()
 {
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return -1;
+    }
     return IDD_MERGEWIZARD_START;
 }
 
@@ -81,6 +86,18 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
     StopWCCheckThread();
 
     UpdateData();
+
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return -1;
+    }
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    {
+        m_pLogDlg2->SendMessage(WM_CLOSE);
+        return -1;
+    }
+
     m_URLCombo.SaveHistory();
     ((CMergeWizard*)GetParent())->URL1 = m_URLCombo.GetString();
     ((CMergeWizard*)GetParent())->URL2 = m_URLCombo.GetString();

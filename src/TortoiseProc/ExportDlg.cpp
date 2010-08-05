@@ -168,6 +168,12 @@ void CExportDlg::OnOK()
     if (!UpdateData(TRUE))
         return; // don't dismiss dialog (error message already shown by MFC framework)
 
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return;
+    }
+
     // check it the export path is a valid windows path
     CTSVNPath ExportDirectory;
     if (::PathIsRelative(m_strExportDirectory))

@@ -325,6 +325,11 @@ UINT CCopyDlg::FindRevThread()
 
 void CCopyDlg::OnOK()
 {
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return;
+    }
     m_bCancelled = true;
     // check if the status thread has already finished
     if (m_pThread)
@@ -566,6 +571,11 @@ void CCopyDlg::OnBnClickedHelp()
 
 void CCopyDlg::OnCancel()
 {
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return;
+    }
     m_bCancelled = true;
     // check if the status thread has already finished
     if (m_pThread)

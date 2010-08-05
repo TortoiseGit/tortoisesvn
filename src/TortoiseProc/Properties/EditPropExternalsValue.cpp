@@ -110,6 +110,11 @@ BOOL CEditPropExternalsValue::OnInitDialog()
 void CEditPropExternalsValue::OnOK()
 {
     UpdateData();
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return;
+    }
 
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
         m_External.revision.kind = svn_opt_revision_head;

@@ -107,6 +107,17 @@ BOOL CMergeWizardReintegrate::CheckData(bool bShowErrors /* = true */)
     if (!UpdateData(TRUE))
         return FALSE;
 
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return FALSE;
+    }
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    {
+        m_pLogDlg2->SendMessage(WM_CLOSE);
+        return FALSE;
+    }
+
 
     m_URLCombo.SaveHistory();
     m_URL = m_URLCombo.GetString();
@@ -129,6 +140,17 @@ LRESULT CMergeWizardReintegrate::OnWizardNext()
 
 LRESULT CMergeWizardReintegrate::OnWizardBack()
 {
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return -1;
+    }
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    {
+        m_pLogDlg2->SendMessage(WM_CLOSE);
+        return -1;
+    }
+
     return IDD_MERGEWIZARD_START;
 }
 
