@@ -1899,7 +1899,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
         // Do diff on that file instead of whole directory
 
         const CLogChangedPath& cpath = pLogEntry->GetChangedPaths()[lastChangedIndex];
-        path.SetFromWin (cpath.GetPath());
+        path.SetFromWin (m_sRepositoryRoot + cpath.GetPath());
     }
 
     m_bCancelled = FALSE;
