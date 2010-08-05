@@ -104,6 +104,8 @@
 Version 1.6.11
 - BUG: Using spelling dictionaries in utf8 could crash
        the commit dialog. (Stefan)
+- BUG: Dialogs could hand if they were closed if the
+       modeless log dialog was still open. (Stefan)
 
 Version 1.6.10
 - BUG: Updating single items from the check-for-modifications
