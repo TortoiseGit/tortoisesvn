@@ -78,9 +78,9 @@ catch(e)
    WScript.Quit(1);
 }
 
-if (PptAppMajorVersion(powerpoint) >= 12) 
+if (PptAppMajorVersion(powerpoint) == 12) 
 {
-    WScript.Echo("Microsoft Powerpoint 2007 doesn't provide the DIFF features any more. Sorry!\r\nYou can try diffing with OpenOffice...");
+    WScript.Echo("Microsoft Powerpoint 2007 doesn't provide the DIFF features any more. Sorry!");
     WScript.Quit(1);
 }
 else 
