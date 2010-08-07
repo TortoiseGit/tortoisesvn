@@ -528,6 +528,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
         // - renaming a folder with many sub folders --> results in "not a working copy" if the revert
         //   happens between our checks and the svn_client_status() call.
         // - reverting a move/copy --> results in "not a working copy" (as above)
+        // TODO: single-db : HasAdminDir won't work anymore, find another way
         if (!m_directoryPath.HasAdminDir())
         {
             m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
@@ -605,6 +606,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
         // is unversioned.
         if (((status->node_status == svn_wc_status_unversioned)||(status->node_status == svn_wc_status_ignored))&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
         {
+            // TODO: single-db : HasAdminDir won't work anymore, find another way
             if (svnPath.HasAdminDir())
             {
                 CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);

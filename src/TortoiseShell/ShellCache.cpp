@@ -398,6 +398,8 @@ NUMBERFMT * ShellCache::GetNumberFmt()
     return &columnrevformat;
 }
 
+// TODO: single-db : rename to IsVersioned and find another way
+// than checking for an admin dir
 BOOL ShellCache::HasSVNAdminDir(LPCTSTR path, BOOL bIsDir)
 {
     tstring folder (path);

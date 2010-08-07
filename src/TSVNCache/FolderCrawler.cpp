@@ -221,6 +221,7 @@ void CFolderCrawler::WorkerThread()
                 if (!CSVNStatusCache::Instance().IsPathGood(workingPath))
                     continue;
                 // check if the changed path is inside an .svn folder
+                // TODO: single-db : HasAdminDir won't work anymore, find another way
                 if ((workingPath.HasAdminDir()&&workingPath.IsDirectory())||workingPath.IsAdminDir())
                 {
                     // we don't crawl for paths changed in a tmp folder inside an .svn folder.
@@ -305,6 +306,7 @@ void CFolderCrawler::WorkerThread()
                     m_pathsToUpdateUnique.erase (workingPath);
                     m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
                 }
+                // TODO: single-db : HasAdminDir won't work anymore, find another way
                 else if (workingPath.HasAdminDir())
                 {
                     if (!workingPath.Exists())
@@ -409,6 +411,7 @@ void CFolderCrawler::WorkerThread()
                 // for that path and add it to the watcher.
                 if (!CSVNStatusCache::Instance().IsPathWatched(workingPath))
                 {
+                    // TODO: single-db : HasAdminDir won't work anymore, find another way
                     if (workingPath.HasAdminDir())
                         CSVNStatusCache::Instance().AddPathToWatch(workingPath);
                     if (cachedDir)

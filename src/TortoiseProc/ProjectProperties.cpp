@@ -278,6 +278,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         path = path.GetContainingDirectory();
         if (!bFoundLogRevRegex)
             sLogRevRegex = LOG_REVISIONREGEX;
+        // TODO: single-db : how to find out when to stop?
+        // checking for an admin dir won't work with single-db anymore
         if ((!path.HasAdminDir())||(path.IsEmpty()))
         {
             if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber

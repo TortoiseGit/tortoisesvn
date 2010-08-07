@@ -940,6 +940,8 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             // "folder url"), then a commit won't succeed.
             // therefore, we treat those as if the externals come from a different
             // repository
+            // TODO: single-db : check whether this still is the case
+            // once single-db is ready.
             CTSVNPath extpath = svnPath;
             while (basePath.IsAncestorOf(extpath))
             {

@@ -487,6 +487,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 
                     itMap = m_directoryCache.insert
                         (itMap, std::make_pair (path, newcdir.release()));
+                    // TODO: single-db : HasAdminDir won't work anymore, find another way
                     if (!path.IsEmpty() && path.HasAdminDir())
                         CSVNStatusCache::Instance().AddFolderForCrawling(path);
 
