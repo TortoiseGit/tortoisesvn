@@ -190,8 +190,6 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
     BOOL                        isDir;
 
     isDir = path.IsDirectory();
-    if (!path.HasAdminDir())
-        return svn_wc_status_none;
 
     pool = svn_pool_create (NULL);              // create the memory pool
 
