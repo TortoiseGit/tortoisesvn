@@ -93,6 +93,7 @@ protected:
         ShellMenuAddAsReplacement,
         ShellMenuRevert,
         ShellMenuCleanup,
+        ShellMenuCleanupRefresh,
         ShellMenuResolve,
         ShellMenuSwitch,
         ShellMenuImport,

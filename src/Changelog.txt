@@ -24,6 +24,9 @@
 - CHG: The help window is started in a separate process (Stefan)
 - CHG: Improved log window resizing logic (Owen Gibbins)
 - CHG: Improved overlay icon display path filter (Stefan Fuhrmann)
+- CHG: Cleanup splitted into two commands: simple cleanup and
+       cleanup with shell refresh. The latter is available in the
+       extended context menu. (Stefan)
 - NEW: new command line params for the log dialog
        to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)

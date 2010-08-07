@@ -51,7 +51,7 @@ bool CleanupCommand::Execute()
             strFailedPaths += _T("- ") + pathList[i].GetWinPathString() + _T("\n");
             strFailedPaths += svn.GetLastErrorMessage() + _T("\n\n");
         }
-        else
+        else if (parser.HasKey(L"refreshshell"))
         {
             strSuccessfullPaths += _T("- ") + pathList[i].GetWinPathString() + _T("\n");
 
@@ -62,20 +62,13 @@ bool CleanupCommand::Execute()
             CString sPath;
             bool bDir = false;
             CTSVNPathList updateList;
-            bool bRecurse = true;
-            while (crawler.NextFile(sPath, &bDir, bRecurse))
+            while (crawler.NextFile(sPath, &bDir, true))
             {
                 if (bDir)
                 {
                     if (!g_SVNAdminDir.IsAdminDirPath(sPath))
                         updateList.AddPath(CTSVNPath(sPath));
-                    if (!g_SVNAdminDir.HasAdminDir(sPath, true))
-                        bRecurse = false;
-                    else
-                        bRecurse = true;
                 }
-                else
-                    bRecurse = true;
             }
             updateList.AddPath(pathList[i]);
             CShellUpdater::Instance().AddPathsForUpdate(updateList);
