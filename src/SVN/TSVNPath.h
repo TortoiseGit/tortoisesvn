@@ -152,13 +152,6 @@ public:
      */
     static bool PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right);
 
-    /** Checks if the left path is pointing to the same working copy path as the right.
-     * The same wc path means the paths are equivalent once all the admin dir path parts
-     * are removed. This is used in the TSVNCache crawler to filter out all the 'duplicate'
-     * paths to crawl.
-     */
-    static bool PredLeftSameWCPathAsRight(const CTSVNPath& left, const CTSVNPath& right);
-
     static bool CheckChild(const CTSVNPath &parent, const CTSVNPath& child);
 
     /**

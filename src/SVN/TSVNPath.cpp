@@ -676,25 +676,6 @@ bool CTSVNPath::PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath
     return left.IsEquivalentTo(right);
 }
 
-bool CTSVNPath::PredLeftSameWCPathAsRight(const CTSVNPath& left, const CTSVNPath& right)
-{
-    if (left.IsAdminDir() && right.IsAdminDir())
-    {
-        CTSVNPath l = left;
-        CTSVNPath r = right;
-        do
-        {
-            l = l.GetContainingDirectory();
-        } while(l.HasAdminDir());
-        do
-        {
-            r = r.GetContainingDirectory();
-        } while(r.HasAdminDir());
-        return l.GetContainingDirectory().IsEquivalentTo(r.GetContainingDirectory());
-    }
-    return left.GetDirectory().IsEquivalentTo(right.GetDirectory());
-}
-
 bool CTSVNPath::CheckChild(const CTSVNPath &parent, const CTSVNPath& child)
 {
     return parent.IsAncestorOf(child);
