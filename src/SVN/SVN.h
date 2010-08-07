@@ -789,16 +789,6 @@ public:
     static CTSVNPath GetPristinePath(const CTSVNPath& wcPath);
 
     /**
-     * Returns the path to a translated version of sFile. If no translation of the
-     * file is needed, then sTranslatedFile will be the same as sFile. If translation
-     * is needed, then sTranslatedFile points to a translated file. The caller is
-     * responsible to delete that translated file after use!
-     * \param bForceRepair Repair any inconsistent line endings.
-     * \return TRUE if a translation was needed and the file in sTranslatedFile needs deleting after use
-     */
-    static bool GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath& sFile, bool bForceRepair = TRUE);
-
-    /**
      * convert path to a subversion path (replace '\' with '/')
      */
     static void preparePath(CString &path);
@@ -905,7 +895,6 @@ protected:
 
     svn_opt_revision_t *    getRevision (svn_revnum_t revNumber);
     void * logMessage (CString message, char * baseDirectory = NULL);
-    void                HandleCommitInfo(svn_commit_info_t * commit_info, apr_pool_t * localpool);
 
     /// Convert a TSVNPathList into an array of SVN copy paths
     apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
@@ -918,6 +907,7 @@ protected:
 
     void cancel();
     static svn_error_t* cancel(void *baton);
+    static svn_error_t * commitcallback2(const svn_commit_info_t * commit_info, void * baton, apr_pool_t * localpool);
     static void notify( void *baton,
                         const svn_wc_notify_t *notify,
                         apr_pool_t *pool);

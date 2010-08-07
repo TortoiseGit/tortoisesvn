@@ -114,6 +114,8 @@ SVN::SVN(void) : m_progressWnd(0)
     m_pctx->notify_baton2 = this;
     m_pctx->notify_func = NULL;
     m_pctx->notify_baton = NULL;
+    m_pctx->commit_baton = this;
+    m_pctx->commit_callback2 = commitcallback2;
     m_pctx->conflict_func = conflict_resolver;
     m_pctx->conflict_baton = this;
     m_pctx->cancel_func = cancel;
@@ -391,7 +393,6 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     SVNPool subPool(pool);
     svn_error_clear(Err);
     Err = NULL;
-    svn_commit_info_t *commit_info = svn_create_commit_info(subPool);
     m_pctx->log_msg_baton3 = logMessage(message);
 
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subPool);
@@ -399,7 +400,7 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     CallPreConnectHookIfUrl(pathlist);
 
     SVNTRACE(
-        Err = svn_client_delete3 (&commit_info, pathlist.MakePathArray(subPool),
+        Err = svn_client_delete4 (pathlist.MakePathArray(subPool),
                                   force,
                                   keeplocal,
                                   revPropHash,
@@ -414,7 +415,6 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     }
 
     PostCommitErr.Empty();
-    HandleCommitInfo(commit_info, subPool);
 
     for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
     {
@@ -563,7 +563,6 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
     svn_error_clear(Err);
     Err = NULL;
-    svn_commit_info_t *commit_info = svn_create_commit_info(localpool);
 
     apr_array_header_t *clists = MakeChangeListArray(changelists, localpool);
 
@@ -574,7 +573,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
     CHooks::Instance().PreConnect(pathlist);
 
     SVNTRACE(
-        Err = svn_client_commit4 (&commit_info,
+        Err = svn_client_commit5 (
                                 pathlist.MakePathArray(pool),
                                 depth,
                                 keep_locks,
@@ -593,7 +592,6 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
     svn_revnum_t finrev = -1;
     PostCommitErr.Empty();
-    HandleCommitInfo(commit_info, localpool);
 
     return finrev;
 }
@@ -606,7 +604,6 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 
     svn_error_clear(Err);
     Err = NULL;
-    svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 
     m_pctx->log_msg_baton3 = logMessage(logmsg);
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
@@ -614,8 +611,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     CallPreConnectHookIfUrl(srcPathList, destPath);
 
     SVNTRACE(
-        Err = svn_client_copy5 (&commit_info,
-                                MakeCopyArray(srcPathList, revision, pegrev),
+        Err = svn_client_copy6 (MakeCopyArray(srcPathList, revision, pegrev),
                                 destPath.GetSVNApiPath(subpool),
                                 copy_as_child,
                                 make_parents,
@@ -631,7 +627,6 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     }
 
     PostCommitErr.Empty();
-    HandleCommitInfo(commit_info, subpool);
 
     return true;
 }
@@ -645,13 +640,11 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 
     svn_error_clear(Err);
     Err = NULL;
-    svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
     m_pctx->log_msg_baton3 = logMessage(message);
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
     CallPreConnectHookIfUrl(srcPathList, destPath);
     SVNTRACE (
-        Err = svn_client_move5 (&commit_info,
-                                srcPathList.MakePathArray(subpool),
+        Err = svn_client_move6 (srcPathList.MakePathArray(subpool),
                                 destPath.GetSVNApiPath(subpool),
                                 force,
                                 move_as_child,
@@ -668,7 +661,6 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     }
 
     PostCommitErr.Empty();
-    HandleCommitInfo(commit_info, subpool);
 
     return true;
 }
@@ -677,15 +669,13 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
 {
     svn_error_clear(Err);
     Err = NULL;
-    svn_commit_info_t *commit_info = svn_create_commit_info(pool);
     m_pctx->log_msg_baton3 = logMessage(message);
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, pool);
 
     CallPreConnectHookIfUrl(pathlist);
 
     SVNTRACE (
-        Err = svn_client_mkdir3 (&commit_info,
-                                 pathlist.MakePathArray(pool),
+        Err = svn_client_mkdir4 (pathlist.MakePathArray(pool),
                                  makeParents,
                                  revPropHash,
                                  m_pctx,
@@ -698,7 +688,6 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
     }
 
     PostCommitErr.Empty();
-    HandleCommitInfo(commit_info, pool);
 
     return true;
 }
@@ -976,15 +965,13 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
         props->InsertAutoProps(opt);
 
     SVNPool subpool(pool);
-    svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
     m_pctx->log_msg_baton3 = logMessage(message);
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 
     const char* svnPath = path.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE (
-        Err = svn_client_import3(&commit_info,
-                                svnPath,
+        Err = svn_client_import4(svnPath,
                                 url.GetSVNApiPath(subpool),
                                 depth,
                                 no_ignore,
@@ -1001,7 +988,6 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
     }
 
     PostCommitErr.Empty();
-    HandleCommitInfo(commit_info, subpool);
 
     return true;
 }
@@ -2499,30 +2485,6 @@ CTSVNPath SVN::GetPristinePath(const CTSVNPath& wcPath)
     return returnPath;
 }
 
-bool SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath& sFile, bool bForceRepair /*= TRUE*/)
-{
-    svn_error_t * err;
-    SVNPool localpool;
-
-    const char * translatedPath = NULL;
-    const char * originPath = sFile.GetSVNApiPath(localpool);
-    svn_wc_context_t * wc_ctx = NULL;
-    svn_wc_context_create(&wc_ctx, NULL, localpool, localpool);
-    err = svn_wc_translated_file3((const char **)&translatedPath, originPath, wc_ctx, originPath, 
-                                  SVN_WC_TRANSLATE_TO_NF | (bForceRepair ? SVN_WC_TRANSLATE_FORCE_EOL_REPAIR : 0), 
-                                  NULL, NULL,
-                                  localpool, localpool);
-    svn_wc_context_destroy(wc_ctx);
-    if (err)
-    {
-        svn_error_clear(err);
-        return false;
-    }
-
-    sTranslatedFile.SetFromUnknown(CUnicodeUtils::GetUnicode(translatedPath));
-    return (translatedPath != originPath);
-}
-
 bool SVN::PathIsURL(const CTSVNPath& path)
 {
     return !!svn_path_is_url(CUnicodeUtils::GetUTF8(path.GetSVNPathString()));
@@ -2856,23 +2818,25 @@ apr_hash_t * SVN::MakeRevPropHash(const RevPropHash revProps, apr_pool_t * pool)
     return revprop_table;
 }
 
-void SVN::HandleCommitInfo(svn_commit_info_t * commit_info, apr_pool_t * localpool)
+svn_error_t * SVN::commitcallback2(const svn_commit_info_t * commit_info, void * baton, apr_pool_t * localpool)
 {
     if (commit_info)
     {
-        m_commitRev = commit_info->revision;
+        SVN * pThis = (SVN*)baton;
+        pThis->m_commitRev = commit_info->revision;
         if (SVN_IS_VALID_REVNUM(commit_info->revision))
         {
-            Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""),
+            pThis->Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""),
                     svn_wc_notify_state_unknown, svn_wc_notify_state_unknown,
                     commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged,
                     _T(""), _T(""), NULL, NULL, localpool);
         }
         if (commit_info->post_commit_err)
         {
-            PostCommitErr = CUnicodeUtils::GetUnicode(commit_info->post_commit_err);
+            pThis->PostCommitErr = CUnicodeUtils::GetUnicode(commit_info->post_commit_err);
         }
     }
+    return NULL;
 }
 
 void SVN::SetAndClearProgressInfo(HWND hWnd)

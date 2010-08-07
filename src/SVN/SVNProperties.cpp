@@ -368,7 +368,6 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         SVNStatus stat;
         svn_client_status_t * status = NULL;
         status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
-        svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
         do
         {
             if ((status)&&(status->kind == svn_node_dir))
@@ -381,7 +380,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
                 SVNPool setPool((apr_pool_t*)subpool);
                 const char* svnPath = path.GetSVNApiPath(setPool);
                 SVNTRACE (
-                    m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, setPool),
+                    m_error = svn_client_propset4 (name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, setPool),
                     svnPath
                     )
             }
@@ -394,7 +393,6 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
     }
     else
     {
-        svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
         const char* svnPath = m_path.GetSVNApiPath(subpool);
         if (m_path.IsUrl())
         {
@@ -419,7 +417,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         else
         {
             SVNTRACE (
-                m_error = svn_client_propset3 (&commit_info, name.c_str(), pval, svnPath, depth, force, m_rev, NULL, NULL, m_pctx, subpool),
+                m_error = svn_client_propset4 (name.c_str(), pval, svnPath, depth, force, m_rev, NULL, NULL, m_pctx, subpool),
                 svnPath
             )
         }
@@ -439,7 +437,6 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     SVNPool subpool(m_pool);
     svn_error_clear(m_error);
 
-    svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
     if (m_path.IsUrl())
     {
         CString msg = message ? message : _T("");
@@ -474,7 +471,6 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
             SVNStatus stat;
             svn_client_status_t * status = NULL;
             status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
-            svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
             do
             {
                 if ((status)&&(status->kind == svn_node_dir))
@@ -486,7 +482,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
                     SVNPool setPool((apr_pool_t*)subpool);
                     const char* svnPath = path.GetSVNApiPath(setPool);
                     SVNTRACE (
-                        m_error = svn_client_propset3 (&commit_info, name.c_str(), NULL, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, setPool),
+                        m_error = svn_client_propset4 (name.c_str(), NULL, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, setPool),
                         svnPath
                         )
                 }
@@ -500,7 +496,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
         else
         {
             SVNTRACE (
-                m_error = svn_client_propset3 (&commit_info, name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
+                m_error = svn_client_propset4 (name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
                 svnPath
                 )
         }
