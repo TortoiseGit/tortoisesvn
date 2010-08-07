@@ -821,6 +821,10 @@ msgstr ""
 msgid "&Mac (CR)"
 msgstr ""
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr ""
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr ""
@@ -1312,6 +1316,10 @@ msgstr ""
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
+msgstr ""
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
 msgstr ""
 
 #. Resource IDs: (1540)
@@ -2243,10 +2251,6 @@ msgstr ""
 msgid "Check For Updates..."
 msgstr ""
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr ""
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr ""
@@ -2345,6 +2349,10 @@ msgstr ""
 msgid "Cleaning up directory \"%1!s!\""
 msgstr ""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr ""
+
 #. Resource IDs: (83)
 #, c-format
 msgid "Cleanup failed to process the following paths:\n%s"
@@ -2353,6 +2361,10 @@ msgstr ""
 #. Resource IDs: (79)
 #, c-format
 msgid "Cleanup has successfully processed the following paths:\n%s"
+msgstr ""
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
 msgstr ""
 
 #. Resource IDs: (9)
@@ -4179,12 +4191,20 @@ msgstr ""
 msgid "Hide all branches that did not modify the item"
 msgstr ""
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr ""
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr ""
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
+msgstr ""
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
 msgstr ""
 
 #. Resource IDs: (1326)
@@ -6383,6 +6403,10 @@ msgstr ""
 msgid "Relocating..."
 msgstr ""
 
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr ""
+
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr ""
@@ -7122,6 +7146,10 @@ msgstr ""
 msgid "Set Accelerator &for:"
 msgstr ""
 
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr ""
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr ""
@@ -7674,7 +7702,7 @@ msgid "Switch:"
 msgstr ""
 
 #. Resource IDs: (325)
-msgid "Switches the comparison left<<->right"
+msgid "Switches the comparison left<->right"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8882,6 +8910,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr ""
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr ""
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr ""
@@ -9477,7 +9509,7 @@ msgid "svn:externals"
 msgstr ""
 
 #. Resource IDs: (576)
-msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
+msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL with an optional peg revision and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
 msgstr ""
 
 #. Resource IDs: (576)
