@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-22 22:46+0100\n"
+"PO-Revision-Date: 2010-08-08 11:37+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -956,6 +956,10 @@ msgstr "&Sjajnost:"
 msgid "&Mac (CR)"
 msgstr "&Mak(CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "&Učini debljinu prijemčivom"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "&Manualno uređene osobine"
@@ -1540,6 +1544,11 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Radna kopija"
+
+#
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Prelama duge linije"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2592,10 +2601,6 @@ msgstr "Provera za ažuriranje"
 msgid "Check For Updates..."
 msgstr "Provera za ažuriranje..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "Izmena eksternala prema eksplicitnoj reviziji"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "Provera iz&mena"
@@ -2698,6 +2703,10 @@ msgstr "Čišćenje"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "Čišćenje imenika \"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Očisti i osveži školjku"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2715,6 +2724,10 @@ msgid ""
 msgstr ""
 "Čišćenje je uspešno završeno na sledećim putanjama:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "Čišćenje prekinutih operacija i osvežavanje prekrivača školjke"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -4873,6 +4886,10 @@ msgstr "Sakri &obrisane putanje"
 msgid "Hide all branches that did not modify the item"
 msgstr "Sakri sve grane koje nisu izmenile stavku"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "Skri sve oznake"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Sakri obrisane grane i oznake"
@@ -4880,6 +4897,10 @@ msgstr "Sakri obrisane grane i oznake"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Sakri uglavljeni prozor"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "Sakri &oznake"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -7464,6 +7485,10 @@ msgstr "Premesti upozorenje"
 msgid "Relocating..."
 msgstr "Premeštanje"
 
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "Zapamti debljinu ove radne kopije"
+
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Status udaljenog svojstva"
@@ -8281,6 +8306,10 @@ msgstr "&Adresa servera:"
 msgid "Set Accelerator &for:"
 msgstr "Postavite ubrzavač &za"
 
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "Podesi eksplicitnu reviziju ovih eksternala:"
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Postavtei datume fajl na \"vreme zadnjeg &urezivanja\""
@@ -8969,8 +8998,8 @@ msgid "Switch:"
 msgstr "Zamena:"
 
 #. Resource IDs: (325)
-msgid "Switches the comparison left<<->right"
-msgstr "Zameni levo<<->desno"
+msgid "Switches the comparison left<->right"
+msgstr "Zamenjuje poređenje levo<<->desno"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10589,6 +10618,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "Radna kopija: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "Prelama duge linije"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Da"
@@ -11381,9 +11414,9 @@ msgstr "svn:spoljašnji"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11394,15 +11427,15 @@ msgid ""
 msgstr ""
 "svn:externals\r\n"
 "Lista podeljena novim redom modul specifikator, svaka od kojih se sastoji od\r\n"
-"neobavezne revizije,  URL i  relativnu putanju imenika. Na primer\r\n"
+"neobavezne revizije,  URL sa opcionalnom peg revizijom i  relativnom putanjom imenika. Na primer\r\n"
 "http://example.com/repos/zig foo\r\n"
 "-r 1234 http://example.com/repos/zag foo/bar\r\n"
 "\r\n"
 "URLovi mogu biti ili puni URLovi ili relativni. Format za\r\n"
-"relativnih URLova je:\r\n"
-"../ relativan ka roditeljskom imeniku spoljašnosti\r\n"
+"relatvne URLova je:\r\n"
+"../ relativan ka predačkom imeniku eksternala\r\n"
 "^/ relativan korenu spremišta\r\n"
-"// relativan URLšemi\r\n"
+"// relativan URL šemi\r\n"
 "/ relativan  imenu domaćina servera"
 
 #. Resource IDs: (576)
@@ -11702,4 +11735,7 @@ msgstr "da"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
+
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "Измена екстернала према експлицитној ревизији"
 
