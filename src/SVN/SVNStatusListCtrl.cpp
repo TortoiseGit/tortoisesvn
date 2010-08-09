@@ -1745,10 +1745,10 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
         return;
     SetCheck(index, TRUE);
     entry = GetListEntry(index);
-    // if an unversioned item was checked, then we need to check if
-    // the parent folders are unversioned too. If the parent folders actually
-    // are unversioned, then check those too.
-    if (entry->status == svn_wc_status_unversioned)
+    // if an unversioned or added item was checked, then we need to check if
+    // the parent folders are unversioned/added too. If the parent folders actually
+    // are unversioned/added, then check those too.
+    if ((entry->status == svn_wc_status_unversioned)||(entry->status == svn_wc_status_added))
     {
         // we need to check the parent folder too
         const CTSVNPath& folderpath = entry->path;
@@ -1762,8 +1762,11 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
             {
                 if (testEntry->path.IsAncestorOf(folderpath) && (!testEntry->path.IsEquivalentTo(folderpath)))
                 {
-                    SetEntryCheck(testEntry,i,true);
-                    m_nSelected++;
+                    if ((testEntry->status == svn_wc_status_unversioned)||(testEntry->status == svn_wc_status_added))
+                    {
+                        SetEntryCheck(testEntry,i,true);
+                        m_nSelected++;
+                    }
                 }
             }
         }
