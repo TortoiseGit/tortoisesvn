@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-12 13:42+0200\n"
+"PO-Revision-Date: 2010-08-09 08:44+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -857,6 +857,10 @@ msgstr "&Helligkeit:"
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "Aktualisierungstiefe &merken"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "Revisionseigenschaft &bearbeiten"
@@ -1349,6 +1353,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Arbeitskopie"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Lange Zeilen umbrechen"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2375,10 +2383,6 @@ msgstr "Auf Aktualisierungen prüfen"
 msgid "Check For Updates..."
 msgstr "Auf Aktualisierungen prüfen..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "Externals auf fixe Revision setzen"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "Auf Änderungen über&prüfen"
@@ -2490,6 +2494,10 @@ msgstr "Beim Aufräumen"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "Räume Verzeichnis '%1!s!' auf"
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Aufräumen und Explorer aktualisieren"
+
 #. Resource IDs: (83)
 #, c-format
 msgid "Cleanup failed to process the following paths:\n%s"
@@ -2503,6 +2511,12 @@ msgid "Cleanup has successfully processed the following paths:\n%s"
 msgstr ""
 "Die folgenden Pfade wurden erfolgreich aufgeräumt:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr ""
+"Unterbrochene Operationen aufräumen und Statussymbole aktualisieren\n"
+"Unterbrochene Aktionen aufräumen und Statussymbole aktualisieren"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -4536,6 +4550,10 @@ msgstr "&Gelöschte Pfade verbergen"
 msgid "Hide all branches that did not modify the item"
 msgstr "Alle Zweige ausblenden, die das Objekt nicht verändert haben"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "Alle Marken verbergen"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Gelöschte Zweige und Marken ausblenden"
@@ -4543,6 +4561,10 @@ msgstr "Gelöschte Zweige und Marken ausblenden"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Angedocktes Fenster verbergen"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "M&arken verbergen"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -7021,6 +7043,10 @@ msgstr "Warnung: Umplatzieren"
 msgid "Relocating..."
 msgstr "Umplatzieren..."
 
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "Die Aktualisierungstiefe dieser Arbeitskopie merken"
+
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Eigenschaften Projektarchiv"
@@ -7810,6 +7836,10 @@ msgstr "&Server Adresse:"
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
 msgstr "Setze Tastenkürzel &für:"
+
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "Explizite Revision für diese Externals setzen:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -9956,6 +9986,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "Arbeitskopie: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "Lange Zeilen umbrechen"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Ja"
@@ -10664,14 +10698,15 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #. Resource IDs: (576)
-msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
+msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL with an optional peg revision and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
 msgstr ""
 "svn:externals\r\n"
 "Externe Verweise. Eine durch Zeilenumbrüche getrennte Liste von\r\n"
-"Modulen, welche jeweils aus optionalen Revisionsnummern,\r\n"
-"einer URL und einem relativen Pfad bestehen. Zum Beispiel:\r\n"
+"Modulen, welche jeweils aus einer optionalen Revisionsnummer,\r\n"
+"einer URL mit eine optionalen fixen Revision und einem relativen Pfad "
+"bestehen. Zum Beispiel:\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "Die URLs können entweder vollständige oder relative URLs sein. Das\r\n"
 "Format für relative URLs ist:\r\n"
@@ -10934,6 +10969,25 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "Externals auf fixe Revision setzen"
+
+#~ msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
+#~ msgstr ""
+#~ "svn:externals\r\n"
+#~ "Externe Verweise. Eine durch Zeilenumbrüche getrennte Liste von\r\n"
+#~ "Modulen, welche jeweils aus optionalen Revisionsnummern,\r\n"
+#~ "einer URL und einem relativen Pfad bestehen. Zum Beispiel:\r\n"
+#~ "http://example.com/repos/zig foo\r\n"
+#~ "-r 1234 http://example.com/repos/zag foo/bar\r\n"
+#~ "\r\n"
+#~ "Die URLs können entweder vollständige oder relative URLs sein. Das\r\n"
+#~ "Format für relative URLs ist:\r\n"
+#~ "../  relativ zum Elternverzeichnis des Verweises\r\n"
+#~ "^/  relativ zur Basis des Projektarchivs\r\n"
+#~ "//  relativ zum URL Schema\r\n"
+#~ "/  relativ zum Hostnamen des Servers"
 
 #~ msgid "Messages, authors and paths"
 #~ msgstr "Meldungen, Autoren und Pfade"
