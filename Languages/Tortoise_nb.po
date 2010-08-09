@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-06-14 11:07+0100\n"
+"PO-Revision-Date: 2010-08-09 10:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -620,6 +620,10 @@ msgstr "&Kopiér til..."
 msgid "&Custom"
 msgstr "&Egendefinert"
 
+#. Resource IDs: (1610, 1613)
+msgid "&Date"
+msgstr "&Dato"
+
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
 msgstr "Inaktive &dager før små mellomlagre fjernes"
@@ -757,8 +761,8 @@ msgid "&From URL:"
 msgstr "&Fra URL:"
 
 #. Resource IDs: (1259)
-msgid "&From WC at URL:"
-msgstr "&Fra arbeidskopi på URL:"
+msgid "&From WC / URL:"
+msgstr "&Fra arbeidskopi / URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -908,6 +912,10 @@ msgstr "&Lys:"
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
+
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "&Gjør dybde klissen"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1401,6 +1409,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "Arbeids&kopi"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Del lange linjer"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2439,10 +2451,6 @@ msgstr "Se etter oppdateringer"
 msgid "Check For Updates..."
 msgstr "Se etter oppdateringer..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to tag"
-msgstr "Sjekk eksterne for merking"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "Se etter &endringer"
@@ -2545,6 +2553,10 @@ msgstr "Rydder opp"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "Rydder opp i katalog \"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Rydd opp og frisk opp utforsker"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2562,6 +2574,10 @@ msgid ""
 msgstr ""
 "Opprydding lyktes i å behandle følgende stier:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "Rydder opp avbrutte operasjoner og frisker opp ikonlaget"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3370,6 +3386,10 @@ msgstr "D&etaljer"
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "Dato"
+
+#. Resource IDs: (117)
+msgid "Date Range"
+msgstr "Dato-intervall"
 
 #. Resource IDs: (1008)
 msgid "Default"
@@ -4408,6 +4428,10 @@ msgstr ""
 "Fylle-verktøy\n"
 "Fyll"
 
+#. Resource IDs: (117)
+msgid "Filter by"
+msgstr "Filtrer på"
+
 #. Resource IDs: (65535)
 msgid "Filter match"
 msgstr "Filter-treff"
@@ -4459,6 +4483,10 @@ msgstr "Tilpass bredde"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Fiks store/små bokstaver i elementet og ikke legg det til"
+
+#. Resource IDs: (281)
+msgid "Fixed at rev"
+msgstr "Fiksert til rev"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4703,6 +4731,10 @@ msgstr "Skjul &slettede stier"
 msgid "Hide all branches that did not modify the item"
 msgstr "Skjul alle grener som ikke endret elementet"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "Skjul alle merker"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Skjul slettede grener og merker"
@@ -4710,6 +4742,10 @@ msgstr "Skjul slettede grener og merker"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Skjul dokket vindu"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "Skjul &merker"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -5940,8 +5976,8 @@ msgid "Messages"
 msgstr "Meldinger"
 
 #. Resource IDs: (116)
-msgid "Messages, authors and paths"
-msgstr "Meldinger, forfattere og stier"
+msgid "Messages, authors, paths and revs"
+msgstr "Meldinger, forfattere, stier og revisjoner"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -6285,6 +6321,10 @@ msgstr "Ingen slik revisjon '%1!s!'"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "Ingen forslag fra synonymordbok"
+
+#. Resource IDs: (65535)
+msgid "Node Status:"
+msgstr "Node-status:"
 
 #. Resource IDs: (65535)
 msgid "Node colors"
@@ -6671,6 +6711,15 @@ msgstr "Korriger valgte filer"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Korreksjonsfiler (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 
+#. Resource IDs: (169)
+msgid "Patching"
+msgstr "Korrigerer"
+
+#. Resource IDs: (169)
+#, c-format
+msgid "Patching file '%1'"
+msgstr "Korrigerer filen '%1'"
+
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "Filsti"
@@ -6808,6 +6857,10 @@ msgstr "Forri&ge Side"
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
 msgstr "Påhaking før innsending"
+
+#. Resource IDs: (570)
+msgid "Pre-Connect Hook"
+msgstr "Påhaking før tilkobling"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
@@ -7257,6 +7310,10 @@ msgstr "Omplassering Advarsel"
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "Omplasserer..."
+
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "Husk dybden for denne arbeidskopien"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -8075,6 +8132,10 @@ msgstr "Tjener&adresse:"
 msgid "Set Accelerator &for:"
 msgstr "Sett Hurtigtast &for:"
 
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "Gi ekplisitt revisjon til disse eksterne:"
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Sett fildatoer til \"siste innsendings-&tidspunkt\""
@@ -8794,10 +8855,6 @@ msgstr "Tabulatorstørrelse:"
 msgid "Tag nodes"
 msgstr "Merkenoder"
 
-#. Resource IDs: (281)
-msgid "Tagged"
-msgstr "Merket"
-
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
@@ -9416,6 +9473,10 @@ msgstr "Synonymordbok"
 #. Resource IDs: (3887)
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
 msgstr "Disse er lagret senere enn de dokumentene som nå er åpne og inneholder endringer som ble gjort før applikasjonen ble lukket."
+
+#. Resource IDs: (84)
+msgid "This file already exists!"
+msgstr "Denne filen finnes allerede!"
 
 #. Resource IDs: (83)
 msgid ""
@@ -10380,6 +10441,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "Arbeidskopi: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "Del lange linjer"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Ja"
@@ -11172,9 +11237,9 @@ msgstr "svn:externals"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11185,9 +11250,9 @@ msgid ""
 msgstr ""
 "svn:externals\r\n"
 "En linjeskift-delt liste med modul-spesifikasjoner. Hver består av en\r\n"
-"mulig revisjon, en URL og en relativ katalogsti. Eksempler:\r\n"
+"mulig revisjon, en URL med mulig spikerrevisjon og en relativ katalogsti. Eksempler:\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "URLene kan enten være hele URLer eller relative. Formatet\r\n"
 "for en relativ URL er:\r\n"
@@ -11494,6 +11559,12 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "Huk av eksterne til fiksert revisjon"
+#~ msgid "Check externals to tag"
+#~ msgstr "Sjekk eksterne for merking"
+#~ msgid "Tagged"
+#~ msgstr "Merket"
 #~ msgid "tree conflict:"
 #~ msgstr "trekonflikt:"
 #~ msgid "The repository was successfully created."
