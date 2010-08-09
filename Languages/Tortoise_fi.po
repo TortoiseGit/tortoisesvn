@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-31 18:03+0200\n"
+"PO-Revision-Date: 2010-08-10 02:39+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -988,6 +988,10 @@ msgstr "&Luminanssi:"
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "&Tee syvyydestä tarttuva"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "&Muokkaa ominaisuutta"
@@ -1481,6 +1485,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Työkopiosta"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Rivitä pitkät rivit"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2519,10 +2527,6 @@ msgstr "Tarkista päivitykset"
 msgid "Check For Updates..."
 msgstr "Tarkista päivitykset..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "Kiinnitä ulkoiset viittaukset kiinteään versioon"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "Tarkista &muutokset"
@@ -2625,6 +2629,10 @@ msgstr "Siivoamassa"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "Siivotaan hakemistoa \"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Siivoa ja päivitä kuvakepäällykset"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2642,6 +2650,10 @@ msgid ""
 msgstr ""
 "Siivous on onnistuneesti käsitellyt seuraavat polut:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "Siivoa keskeytetyt operaatiot ja päivitä kuvakepäällykset"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -4796,6 +4808,10 @@ msgstr "Piilota &poistetut polut"
 msgid "Hide all branches that did not modify the item"
 msgstr "Piilota kaikki haarat, jotka eivät muuttaneet kohdetta"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "Piilota kaikki merkityt versiot"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Piilota poistetut haarat ja merkityt versiot"
@@ -4803,6 +4819,10 @@ msgstr "Piilota poistetut haarat ja merkityt versiot"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Piilota ankkuroitu ikkuna"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "Piilota &merkityt versiot"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -7378,6 +7398,10 @@ msgstr "Siirtovaroitus"
 msgid "Relocating..."
 msgstr "Sijoitetaan uudelleen..."
 
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "Muista tämän työkopion syvyys"
+
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Etäominaisuuden tila"
@@ -8194,6 +8218,10 @@ msgstr "Palvelimen &osoite:"
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
 msgstr "Aseta &pikanäppäin:"
+
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "Aseta kiinteä versio näille ulkoisille viittauksille:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -10495,6 +10523,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "Työkopio: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "Rivitä pitkät rivit"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Kyllä"
@@ -11283,9 +11315,9 @@ msgstr "svn:externals"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11295,9 +11327,9 @@ msgid ""
 "/ relative to the server's hostname"
 msgstr ""
 "svn:externals\r\n"
-"Rivinvaihdoin eroteltu lista modulimäärityksiä, joista kukin rivi koostuu versiosta (valinnainen), paikantimesta ja suhteellisesta hakemistopolusta. Esimerkiksi\r\n"
+"Rivinvaihdoin eroteltu lista modulimäärityksiä, joista kukin rivi koostuu versiosta (valinnainen), paikantimesta (valinnaisen ankkuriversion kera) ja suhteellisesta hakemistopolusta. Esimerkiksi\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "Paikantimet voidaan antaa täydellisinä tai suhteellisina.\r\n"
 "Suhteelliset paikantimet voivat olla seuraavia:\r\n"
@@ -11604,6 +11636,8 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "Kiinnitä ulkoiset viittaukset kiinteään versioon"
 #~ msgid "Check externals to tag"
 #~ msgstr "Valitse ne ulkoiset viittaukset, jotka haluat merkitä"
 #~ msgid "Tagged"
