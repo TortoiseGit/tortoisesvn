@@ -4173,7 +4173,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     CIconMenu popup;
     if (popup.CreatePopupMenu())
     {
-        if (m_LogList.GetSelectedCount() == 1)
+        if ((m_LogList.GetSelectedCount() == 1) && (pSelLogEntry->GetDepth()==0))
         {
             if (!m_path.IsDirectory())
             {
