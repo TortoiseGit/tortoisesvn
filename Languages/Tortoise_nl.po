@@ -67,7 +67,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-16 19:42+0100\n"
+"PO-Revision-Date: 2010-08-10 22:06+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -907,6 +907,10 @@ msgstr "&Verlichting:"
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "&Maak diepte permanent"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "Eigenschap &Handmatig wijzigen"
@@ -1399,6 +1403,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Werkkopie"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Terugloop voor lange regels"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2435,10 +2443,6 @@ msgstr "Kijk of er updates zijn"
 msgid "Check For Updates..."
 msgstr "Kijk of er updates zijn..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "Zet externen vast op specifieke revisie"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "Kijk of er &updates zijn"
@@ -2541,6 +2545,10 @@ msgstr "Schonen bezig"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "Map \"%1!s!\" wordt geschoond"
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Schonen en shell verversen"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2558,6 +2566,10 @@ msgid ""
 msgstr ""
 "Schonen heeft de volgende paden succesvol behandeld:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "Schonen van onderbroken acties en ververs de iconen overlays"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -4710,6 +4722,10 @@ msgstr "Verberg &verwijderde paden"
 msgid "Hide all branches that did not modify the item"
 msgstr "Verberg alle takken die het onderdeel niet gewijzigd hebben"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "Verberg alle labels"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Verberg weggeggoide takken en labels"
@@ -4717,6 +4733,10 @@ msgstr "Verberg weggeggoide takken en labels"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Verberg geparkeerd venster"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "Verberg la&bels"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -7283,6 +7303,10 @@ msgstr "Waarschuwing Verhuizen"
 msgid "Relocating..."
 msgstr "Verhuizen bezig..."
 
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "Onthoud de diepte voor deze werkkopie"
+
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Status van eigenschappen in archief"
@@ -8099,6 +8123,10 @@ msgstr "Server &adres:"
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
 msgstr "Zet &sneltoets voor:"
+
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "Zet expliciete revisie voor deze externen:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -10411,6 +10439,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "Werkkopie: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "Terugloop voor lange regels"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Ja"
@@ -11202,9 +11234,9 @@ msgstr "svn:externals"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11215,9 +11247,9 @@ msgid ""
 msgstr ""
 "svn:externals\r\n"
 "Een met regelovergangen gescheiden lijst van module-verwijzingen, die elk\r\n"
-"bestaan uit een optionele revisie, een URL en een relatief pad. Bijvoorbeeld\r\n"
+"bestaan uit een optionele revisie, een URL met een optionele uitgangs-revisie en een relatief pad. Bijvoorbeeld\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "De URLs kunnen volledige of relatieve URLs zijn. Het formaat voor\r\n"
 "relatieve URLs is:\r\n"
@@ -11529,6 +11561,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "Zet externen vast op specifieke revisie"
 #~ msgid "Check externals to tag"
 #~ msgstr "Controleer de te labelen externen"
 #~ msgid "Tagged"
