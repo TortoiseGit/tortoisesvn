@@ -3382,15 +3382,32 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
         if (pLogEntry)
         {
-            if (pLogEntry->GetChecked())
+            if (SysInfo::Instance().IsVistaOrLater())
             {
-                //Turn check box on
-                pItem->state = INDEXTOSTATEIMAGEMASK(2);
+                UINT state = m_LogList.GetItemState(pItem->iItem, LVIS_SELECTED);
+                if (state & LVIS_SELECTED)
+                {
+                    //Turn check box on
+                    pItem->state = INDEXTOSTATEIMAGEMASK(2);
+                }
+                else
+                {
+                    //Turn check box off
+                    pItem->state = INDEXTOSTATEIMAGEMASK(1);
+                }
             }
             else
             {
-                //Turn check box off
-                pItem->state = INDEXTOSTATEIMAGEMASK(1);
+                if (pLogEntry->GetChecked())
+                {
+                    //Turn check box on
+                    pItem->state = INDEXTOSTATEIMAGEMASK(2);
+                }
+                else
+                {
+                    //Turn check box off
+                    pItem->state = INDEXTOSTATEIMAGEMASK(1);
+                }
             }
         }
     }
