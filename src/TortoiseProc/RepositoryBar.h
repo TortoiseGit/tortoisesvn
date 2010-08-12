@@ -21,7 +21,6 @@
 #include "SVNRev.h"
 #include "HistoryCombo.h"
 #include "Tooltip.h"
-#include "XPImageButton.h"
 
 class CRepositoryTree;
 
@@ -127,11 +126,10 @@ private:
     } m_cbxUrl;
 
     CButton m_btnRevision;
-    CXPImageButton m_btnUp;
+    CMFCButton m_btnUp;
 
     SVNRev  m_headRev;
     CToolTips m_tooltips;
-    HICON   m_UpIcon;
 };
 
 

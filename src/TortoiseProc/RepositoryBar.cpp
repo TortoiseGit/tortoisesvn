@@ -36,15 +36,12 @@ IMPLEMENT_DYNAMIC(CRepositoryBar, CReBarCtrl)
 CRepositoryBar::CRepositoryBar() : m_cbxUrl(this)
     , m_pRepo(NULL)
 {
-    m_UpIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_UP), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 }
 
 #pragma warning(pop)
 
 CRepositoryBar::~CRepositoryBar()
 {
-    if (m_UpIcon)
-        DestroyIcon(m_UpIcon);
 }
 
 BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
@@ -123,8 +120,9 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "Up" button control to be added
         rect = CRect(0, 0, 24, m_cbxUrl.GetItemHeight(-1) + 8);
         m_btnUp.Create(_T("UP"), WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_UP_BTN);
-        m_btnUp.SetIcon(m_UpIcon);
+        m_btnUp.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_UP), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
         m_btnUp.SetWindowText(_T(""));
+        m_btnUp.Invalidate();
         rbbi.lpText     = _T("");
         rbbi.hwndChild  = m_btnUp.m_hWnd;
         rbbi.clrFore    = ::GetSysColor(COLOR_WINDOWTEXT);

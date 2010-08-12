@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,6 @@
 #include "SVN.h"
 #include "HintListCtrl.h"
 #include "Colors.h"
-#include "XPImageButton.h"
 #include "FilterEdit.h"
 #include "Tooltip.h"
 
@@ -108,8 +107,7 @@ private:
     CButton             m_cRev2Btn;
     CFilterEdit         m_cFilter;
 
-    CXPImageButton      m_SwitchButton;
-    HICON               m_hSwitchIcon;
+    CMFCButton          m_SwitchButton;
     CColors             m_colors;
     CHintListCtrl       m_cFileList;
     TCHAR               m_columnbuf[MAX_PATH];

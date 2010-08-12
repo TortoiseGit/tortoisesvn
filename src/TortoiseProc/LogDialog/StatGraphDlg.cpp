@@ -69,11 +69,6 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 CStatGraphDlg::~CStatGraphDlg()
 {
     ClearGraph();
-    DestroyIcon(m_hGraphBarIcon);
-    DestroyIcon(m_hGraphBarStackedIcon);
-    DestroyIcon(m_hGraphLineIcon);
-    DestroyIcon(m_hGraphLineStackedIcon);
-    DestroyIcon(m_hGraphPieIcon);
     delete m_pToolTip;
 }
 
@@ -159,22 +154,21 @@ BOOL CStatGraphDlg::OnInitDialog()
     SetWindowText(sTitle + _T(" - ") +
         ( m_path.IsDirectory() ? m_path.GetWinPathString() : m_path.GetFilename()));
 
-    m_hGraphBarIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBAR), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-    m_hGraphBarStackedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBARSTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-    m_hGraphLineIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-    m_hGraphLineStackedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINESTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-    m_hGraphPieIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHPIE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-
-    m_btnGraphBar.SetIcon(m_hGraphBarIcon);
-    m_btnGraphBar.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
-    m_btnGraphBarStacked.SetIcon(m_hGraphBarStackedIcon);
-    m_btnGraphBarStacked.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
-    m_btnGraphLine.SetIcon(m_hGraphLineIcon);
-    m_btnGraphLine.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
-    m_btnGraphLineStacked.SetIcon(m_hGraphLineStackedIcon);
-    m_btnGraphLineStacked.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
-    m_btnGraphPie.SetIcon(m_hGraphPieIcon);
-    m_btnGraphPie.SetButtonStyle(WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON);
+    m_btnGraphBar.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBAR), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphBar.SizeToContent();
+    m_btnGraphBar.Invalidate();
+    m_btnGraphBarStacked.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHBARSTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphBarStacked.SizeToContent();
+    m_btnGraphBarStacked.Invalidate();
+    m_btnGraphLine.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphLine.SizeToContent();
+    m_btnGraphLine.Invalidate();
+    m_btnGraphLineStacked.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHLINESTACKED), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphLineStacked.SizeToContent();
+    m_btnGraphLineStacked.Invalidate();
+    m_btnGraphPie.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_GRAPHPIE), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+    m_btnGraphPie.SizeToContent();
+    m_btnGraphPie.Invalidate();
 
     AddAnchor(IDC_GRAPHTYPELABEL, TOP_LEFT);
     AddAnchor(IDC_GRAPH, TOP_LEFT, BOTTOM_RIGHT);

@@ -20,7 +20,6 @@
 
 #include "StandAloneDlg.h"
 #include "MyGraph.h"
-#include "XPImageButton.h"
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
 
@@ -209,17 +208,11 @@ protected:
     BOOL            m_bAuthorsCaseSensitive;
     BOOL            m_bSortByCommitCount;
 
-    CXPImageButton  m_btnGraphBar;
-    CXPImageButton  m_btnGraphBarStacked;
-    CXPImageButton  m_btnGraphLine;
-    CXPImageButton  m_btnGraphLineStacked;
-    CXPImageButton  m_btnGraphPie;
-
-    HICON           m_hGraphBarIcon;
-    HICON           m_hGraphBarStackedIcon;
-    HICON           m_hGraphLineIcon;
-    HICON           m_hGraphLineStackedIcon;
-    HICON           m_hGraphPieIcon;
+    CMFCButton      m_btnGraphBar;
+    CMFCButton      m_btnGraphBarStacked;
+    CMFCButton      m_btnGraphLine;
+    CMFCButton      m_btnGraphLineStacked;
+    CMFCButton      m_btnGraphPie;
 
     MyGraph::GraphType  m_GraphType;
     bool                m_bStacked;
