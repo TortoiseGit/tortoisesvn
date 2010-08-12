@@ -246,8 +246,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
     SetRedraw(false);
     SetExtendedStyle(exStyle);
 
-    CXPTheme theme;
-    theme.SetWindowTheme(m_hWnd, L"Explorer", NULL);
+    SetWindowTheme(m_hWnd, L"Explorer", NULL);
 
     m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
     m_nExternalOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));

@@ -45,7 +45,6 @@
 #include "SVNInfo.h"
 #include "SVNDataObject.h"
 #include "SVNLogHelper.h"
-#include "XPTheme.h"
 #include "IconMenu.h"
 #include "SysInfo.h"
 #include "Shlwapi.h"
@@ -291,9 +290,8 @@ BOOL CRepositoryBrowser::OnInitDialog()
         m_RepoTree.SetExtendedStyle(exStyle, exStyle);
     }
 
-    CXPTheme theme;
-    theme.SetWindowTheme(m_RepoList.GetSafeHwnd(), L"Explorer", NULL);
-    theme.SetWindowTheme(m_RepoTree.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_RepoList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_RepoTree.GetSafeHwnd(), L"Explorer", NULL);
 
 
     AddAnchor(IDC_REPOS_BAR_CNR, TOP_LEFT, TOP_RIGHT);
@@ -467,8 +465,7 @@ void CRepositoryBrowser::InitRepo()
         if (m_repository.root.Left(7).CompareNoCase(_T("file://"))==0)
             nID = IDI_REPO_FILE;
 
-        CXPTheme theme;
-        if (theme.IsAppThemed())
+        if (IsAppThemed())
             CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), nID);
     }
 }

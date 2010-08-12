@@ -353,8 +353,8 @@ BOOL CLogDlg::OnInitDialog()
     if ((!m_ProjectProperties.sUrl.IsEmpty())||(!m_ProjectProperties.GetCheckRe().IsEmpty()))
         m_bShowBugtraqColumn = true;
 
-    theme.SetWindowTheme(m_LogList.GetSafeHwnd(), L"Explorer", NULL);
-    theme.SetWindowTheme(m_ChangedFileListCtrl.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_LogList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_ChangedFileListCtrl.GetSafeHwnd(), L"Explorer", NULL);
 
     // set up the columns
     int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
@@ -2597,7 +2597,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                     if (data->GetChangedPaths().ContainsSelfCopy())
                     {
                         // only change the background color if the item is not 'hot' (on vista with themes enabled)
-                        if (!theme.IsAppThemed() || !SysInfo::Instance().IsVistaOrLater() || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
+                        if (!IsAppThemed() || !SysInfo::Instance().IsVistaOrLater() || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
                             pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
                     }
                     if (data->GetChangedPaths().ContainsCopies())
@@ -2832,9 +2832,9 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
         rect.right = listCtrl.GetColumnWidth(0);
 
     // Fill the background
-    if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
+    if (IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
     {
-        theme.Open(m_hWnd, L"Explorer");
+        HTHEME hTheme = OpenThemeData(m_hWnd, L"Explorer");
         int state = LISS_NORMAL;
         if (rItem.state & LVIS_SELECTED)
         {
@@ -2863,11 +2863,11 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
             }
         }
 
-        if (theme.IsBackgroundPartiallyTransparent(LVP_LISTDETAIL, state))
-            theme.DrawParentBackground(m_hWnd, pLVCD->nmcd.hdc, &rect);
+        if (IsThemeBackgroundPartiallyTransparent(hTheme, LVP_LISTDETAIL, state))
+            DrawThemeParentBackground(m_hWnd, pLVCD->nmcd.hdc, &rect);
 
-        theme.DrawBackground(pLVCD->nmcd.hdc, LVP_LISTDETAIL, state, &rect, NULL);
-        theme.Close();
+        DrawThemeBackground(hTheme, pLVCD->nmcd.hdc, LVP_LISTDETAIL, state, &rect, NULL);
+        CloseThemeData(hTheme);
     }
     else
     {
@@ -2932,11 +2932,11 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             listCtrl.GetSubItemRect((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
         int borderWidth = 0;
-        if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
+        if (IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
         {
-            theme.Open(m_hWnd, L"LISTVIEW");
-            theme.GetMetric(pLVCD->nmcd.hdc, LVP_LISTITEM, LISS_NORMAL, TMT_BORDERSIZE, &borderWidth);
-            theme.Close();
+            HTHEME hTheme = OpenThemeData(m_hWnd, L"LISTVIEW");
+            GetThemeMetric(hTheme, pLVCD->nmcd.hdc, LVP_LISTITEM, LISS_NORMAL, TMT_BORDERSIZE, &borderWidth);
+            CloseThemeData(hTheme);
         }
         else
         {
@@ -2999,9 +2999,9 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
                 }
                 if ((state)&&(listCtrl.GetExtendedStyle() & LVS_EX_CHECKBOXES))
                 {
-                    theme.Open(m_hWnd, L"BUTTON");
-                    theme.DrawBackground(pLVCD->nmcd.hdc, BP_CHECKBOX, state, &irc, NULL);
-                    theme.Close();
+                    HTHEME hTheme = OpenThemeData(m_hWnd, L"BUTTON");
+                    DrawThemeBackground(hTheme, pLVCD->nmcd.hdc, BP_CHECKBOX, state, &irc, NULL);
+                    CloseThemeData(hTheme);
                 }
             }
         }
@@ -3010,7 +3010,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         rect.left += leftmargin;
         RECT rc = rect;
 
-        theme.Open(listCtrl.GetSafeHwnd(), L"Explorer");
+        HTHEME hTheme = OpenThemeData(listCtrl.GetSafeHwnd(), L"Explorer");
         // is the column left- or right-aligned? (we don't handle centered (yet))
         LVCOLUMN Column;
         Column.mask = LVCF_FMT;
@@ -3019,7 +3019,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         {
             DrawText(pLVCD->nmcd.hdc, text.c_str(), -1, &rc, DT_CALCRECT|DT_SINGLELINE|DT_VCENTER|DT_NOPREFIX|DT_END_ELLIPSIS);
             rect.left = rect.right-(rc.right-rc.left);
-            if (!theme.IsAppThemed() || SysInfo::Instance().IsXP())
+            if (!IsAppThemed() || SysInfo::Instance().IsXP())
             {
                 rect.left += 2*borderWidth;
                 rect.right += 2*borderWidth;
@@ -3039,7 +3039,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             {
                 // we only do that on XP, because on Vista/Win7, the COLOR_HIGHLIGHTTEXT
                 // is *not* used but some other color I don't know where to get from
-                if (FAILED(theme.GetColor(LVP_LISTITEM, 0, TMT_HIGHLIGHTTEXT, &textColor)))
+                if (FAILED(GetThemeColor(hTheme, LVP_LISTITEM, 0, TMT_HIGHLIGHTTEXT, &textColor)))
                     textColor = GetSysColor(COLOR_HIGHLIGHTTEXT);
             }
         }
@@ -3069,7 +3069,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
             drawPos = it->cpMax;
         }
         DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), -1, &rc, DT_SINGLELINE|DT_VCENTER|DT_NOPREFIX|DT_END_ELLIPSIS);
-        theme.Close();
+        CloseThemeData(hTheme);
         return CDRF_SKIPDEFAULT;
     }
     return CDRF_DODEFAULT;

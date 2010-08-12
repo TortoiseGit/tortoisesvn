@@ -21,7 +21,6 @@
 #include "EditPropExternals.h"
 #include "EditPropExternalsValue.h"
 #include "SVN.h"
-#include "XPTheme.h"
 
 IMPLEMENT_DYNAMIC(CEditPropExternals, CResizableStandAloneDialog)
 
@@ -73,8 +72,8 @@ BOOL CEditPropExternals::OnInitDialog()
 
     DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER;
     m_ExtList.SetExtendedStyle(exStyle);
-    CXPTheme theme;
-    theme.SetWindowTheme(m_ExtList.GetSafeHwnd(), L"Explorer", NULL);
+
+    SetWindowTheme(m_ExtList.GetSafeHwnd(), L"Explorer", NULL);
 
     m_ExtList.SetRedraw(false);
     m_ExtList.DeleteAllItems();

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,6 @@
 #include "StringUtils.h"
 #include ".\setlookandfeelpage.h"
 #include "MessageBox.h"
-#include "XPTheme.h"
 
 IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, ISettingsPropPage)
 CSetLookAndFeelPage::CSetLookAndFeelPage()
@@ -83,8 +82,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
         m_cMenuList.DeleteColumn(c--);
     m_cMenuList.InsertColumn(0, _T(""));
 
-    CXPTheme theme;
-    theme.SetWindowTheme(m_cMenuList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_cMenuList.GetSafeHwnd(), L"Explorer", NULL);
 
     m_cMenuList.SetRedraw(false);
 

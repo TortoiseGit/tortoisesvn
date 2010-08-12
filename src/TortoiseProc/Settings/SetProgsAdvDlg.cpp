@@ -20,7 +20,6 @@
 #include "TortoiseProc.h"
 #include "ToolAssocDlg.h"
 #include "SetProgsAdvDlg.h"
-#include "XPTheme.h"
 #include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CResizableStandAloneDialog)
@@ -142,8 +141,7 @@ BOOL CSetProgsAdvDlg::OnInitDialog()
     while (c>=0)
         m_ToolListCtrl.DeleteColumn(c--);
 
-    CXPTheme theme;
-    theme.SetWindowTheme(m_ToolListCtrl.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_ToolListCtrl.GetSafeHwnd(), L"Explorer", NULL);
 
     CString temp;
     temp.LoadString(IDS_PROGS_EXTCOL);

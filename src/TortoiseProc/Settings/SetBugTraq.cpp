@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "SetBugTraq.h"
 #include "SetBugTraqAdv.h"
-#include "XPTheme.h"
 
 IMPLEMENT_DYNAMIC(CSetBugTraq, ISettingsPropPage)
 
@@ -72,8 +71,7 @@ BOOL CSetBugTraq::OnInitDialog()
     temp.LoadString(IDS_SETTINGS_BUGTRAQ_PARAMETERSCOL);
     m_cBugTraqList.InsertColumn(2, temp);
 
-    CXPTheme theme;
-    theme.SetWindowTheme(m_cBugTraqList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_cBugTraqList.GetSafeHwnd(), L"Explorer", NULL);
 
     RebuildBugTraqList();
 

@@ -27,7 +27,6 @@
 #include "StringUtils.h"
 #include "ProgressDlg.h"
 #include "InputLogDlg.h"
-#include "XPTheme.h"
 #include "auto_buffer.h"
 #include "JobScheduler.h"
 #include "AsyncCall.h"
@@ -118,8 +117,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
         SetDlgItemText(IDC_PROPPATH, sTemp);
     }
 
-    CXPTheme theme;
-    theme.SetWindowTheme(m_propList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_propList.GetSafeHwnd(), L"Explorer", NULL);
 
     // initialize the property list control
     m_propList.DeleteAllItems();

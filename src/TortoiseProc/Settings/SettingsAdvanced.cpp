@@ -20,7 +20,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SettingsAdvanced.h"
-#include "XPTheme.h"
 #include "registry.h"
 
 
@@ -89,8 +88,7 @@ BOOL CSettingsAdvanced::OnInitDialog()
     while (c>=0)
         m_ListCtrl.DeleteColumn(c--);
 
-    CXPTheme theme;
-    theme.SetWindowTheme(m_ListCtrl.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_ListCtrl.GetSafeHwnd(), L"Explorer", NULL);
 
     CString temp;
     temp.LoadString(IDS_SETTINGS_CONF_VALUECOL);

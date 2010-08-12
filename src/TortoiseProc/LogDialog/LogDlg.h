@@ -34,7 +34,6 @@
 #include "HintListCtrl.h"
 #include "JobScheduler.h"
 #include "ListViewAccServer.h"
-#include "XPTheme.h"
 #include "Win7.h"
 
 using namespace std;
@@ -299,8 +298,6 @@ private:
     size_t              m_prevLogEntriesSize;
 
     CComPtr<ITaskbarList3>  m_pTaskbarList;
-
-    CXPTheme            theme;
 
     async::CJobScheduler netScheduler;
     async::CJobScheduler diskScheduler;

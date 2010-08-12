@@ -20,13 +20,11 @@
 #include "stdafx.h"
 #include "PropPageFrameDefault.h"
 #include "ExtTextOutFL.h"
-#include "XPTheme.h"
 
 namespace TreePropSheet
 {
 
 
-static CXPTheme g_ThemeLib;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -109,15 +107,16 @@ CRect CPropPageFrameDefault::CalcMsgArea()
 {
     CRect   rect;
     GetClientRect(rect);
-    if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsAppThemed())
+    if (IsAppThemed())
     {
-        if (g_ThemeLib.Open(m_hWnd, L"Tab"))
+        HTHEME hTheme = OpenThemeData(m_hWnd, L"Tab");
+        if (hTheme)
         {
             CRect   rectContent;
             CDC     *pDc = GetDC();
-            g_ThemeLib.GetBackgroundContentRect(pDc->m_hDC, TABP_PANE, 0, rect, rectContent);
+            GetThemeBackgroundContentRect(hTheme, pDc->m_hDC, TABP_PANE, 0, rect, rectContent);
             ReleaseDC(pDc);
-            g_ThemeLib.Close();
+            CloseThemeData(hTheme);
 
             if (GetShowCaption())
                 rectContent.top = rect.top+GetCaptionHeight()+1;
@@ -135,15 +134,16 @@ CRect CPropPageFrameDefault::CalcCaptionArea()
 {
     CRect   rect;
     GetClientRect(rect);
-    if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsAppThemed())
+    if (IsAppThemed())
     {
-        if (g_ThemeLib.Open(m_hWnd, L"Tab"))
+        HTHEME hTheme = OpenThemeData(m_hWnd, L"Tab");
+        if (hTheme)
         {
             CRect   rectContent;
             CDC     *pDc = GetDC();
-            g_ThemeLib.GetBackgroundContentRect(pDc->m_hDC, TABP_PANE, 0, rect, rectContent);
+            GetThemeBackgroundContentRect(hTheme, pDc->m_hDC, TABP_PANE, 0, rect, rectContent);
             ReleaseDC(pDc);
-            g_ThemeLib.Close();
+            CloseThemeData(hTheme);
 
             if (GetShowCaption())
                 rectContent.bottom = rect.top+GetCaptionHeight();
@@ -244,15 +244,15 @@ void CPropPageFrameDefault::OnPaint()
 
 BOOL CPropPageFrameDefault::OnEraseBkgnd(CDC* pDC)
 {
-    if (g_ThemeLib.IsAvailable() && g_ThemeLib.IsAppThemed())
+    if (IsAppThemed())
     {
-        if (g_ThemeLib.Open(m_hWnd, L"TREEVIEW"))
+        HTHEME hTheme = OpenThemeData(m_hWnd, L"TREEVIEW");
+        if (hTheme)
         {
             CRect   rect;
             GetClientRect(rect);
-            g_ThemeLib.DrawBackground(pDC->m_hDC, 0, 0, rect, NULL);
-
-            g_ThemeLib.Close();
+            DrawThemeBackground(hTheme, pDC->m_hDC, 0, 0, rect, NULL);
+            CloseThemeData(hTheme);
         }
         return TRUE;
     }

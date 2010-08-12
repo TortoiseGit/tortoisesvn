@@ -100,8 +100,7 @@ BOOL CCopyDlg::OnInitDialog()
 
     DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_CHECKBOXES;
     m_ExtList.SetExtendedStyle(exStyle);
-    CXPTheme theme;
-    theme.SetWindowTheme(m_ExtList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_ExtList.GetSafeHwnd(), L"Explorer", NULL);
     m_ExtList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_WAITFOREXTERNALS)));
 
     AdjustControlSize(IDC_COPYHEAD);

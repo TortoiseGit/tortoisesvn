@@ -22,7 +22,6 @@
 #include "TreePropSheet.h"
 #include "PropPageFrameDefault.h"
 #include "HighColorTab.hpp"
-#include "XPTheme.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -856,8 +855,7 @@ BOOL CTreePropSheet::OnInitDialog()
         m_pwndPageTree->SetImageList(&m_Images, TVSIL_NORMAL);
         m_pwndPageTree->SetImageList(&m_Images, TVSIL_STATE);
     }
-    CXPTheme theme;
-    theme.SetWindowTheme(m_pwndPageTree->GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_pwndPageTree->GetSafeHwnd(), L"Explorer", NULL);
 
     // Fill the tree ctrl
     RefillPageTree();
