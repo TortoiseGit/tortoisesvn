@@ -1443,7 +1443,7 @@ private:
     {
         CTSVNPath testPath;
         testPath.SetFromWin(_T("c:\\"));
-        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:") == 0);
+        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/") == 0);
         testPath.SetFromWin(_T("c:\\folder"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/folder") == 0);
         testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
