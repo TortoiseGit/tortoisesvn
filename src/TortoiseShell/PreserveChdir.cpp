@@ -24,7 +24,7 @@ PreserveChdir::PreserveChdir() :
     originalCurrentDirectory(size)
 {
     if (size > 0)
-        if (GetCurrentDirectory(size, originalCurrentDirectory) !=0)
+        if (GetCurrentDirectory((DWORD)size, originalCurrentDirectory) !=0)
             return; // succeeded
 
     // GetCurrentDirectory failed
