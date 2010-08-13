@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-09 10:07+0100\n"
+"PO-Revision-Date: 2010-08-11 11:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -899,7 +899,7 @@ msgstr "&Last..."
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
-msgstr "&Låsing kreves (oppdatering med kun lesing)"
+msgstr "&Sperring kreves (oppdatering med kun lesing)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
@@ -1008,7 +1008,7 @@ msgstr "&Ingen dobbeltklikk-hendelse"
 
 #. Resource IDs: (1555)
 msgid "&No locking required"
-msgstr "&Ingen låsing kreves"
+msgstr "&Ingen sperring kreves"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -2581,7 +2581,7 @@ msgstr "Rydder opp avbrutte operasjoner og frisker opp ikonlaget"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "Rydder opp avbrutte operasjoner, låste filer, ..."
+msgstr "Rydder opp avbrutte operasjoner, sperrede filer, ..."
 
 #. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
@@ -2815,7 +2815,7 @@ msgstr "Sammenlign med &arbeidskopi"
 
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
-msgstr "Sammenligne med &basis"
+msgstr "Sammenlign med &basis"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -3328,7 +3328,7 @@ msgstr "Lager en enhetlig diff-fil (korreksjon) med endringene du har gjort"
 
 #. Resource IDs: (65535)
 msgid "Credits:"
-msgstr "Kreditering:"
+msgstr "Bidrag:"
 
 #. Resource IDs: (376)
 msgid "Cu&t"
@@ -3757,7 +3757,7 @@ msgstr "E&ksakt kilde for kopi"
 
 #. Resource IDs: (1518)
 msgid "E&xclude paths:"
-msgstr "Stier å &ekskludere:"
+msgstr "&Ekskluderte stier:"
 
 #. Resource IDs: (32839)
 msgid "E&xecutable"
@@ -3908,7 +3908,7 @@ msgstr "Støtte på Inn/Ut-feil i maskinvaren under tilgang til %1."
 #. Resource IDs: (3867)
 #, c-format
 msgid "Encountered a locking violation while accessing %1."
-msgstr "Støtte på en låsovertredelse under tilgang til %1."
+msgstr "Støtte på en sperreovertredelse under tilgang til %1."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4628,7 +4628,7 @@ msgstr "Henter enhetlig diff"
 
 #. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
-msgstr "Globalt &mønster for ignoréring:"
+msgstr "Globalt &mønster for ignorering:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
@@ -4785,7 +4785,7 @@ msgstr "Påhakings-skript"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Påhakings-skript: Integrasjon med Saksporingssystem"
+msgstr "Påhakings-skript::Integrasjon med Saksporingssystem"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -4814,7 +4814,7 @@ msgstr "I&gnorert"
 
 #. Resource IDs: (1519)
 msgid "I&nclude paths:"
-msgstr "Stier å &inkludere:"
+msgstr "&Inkluderte stier:"
 
 #. Resource IDs: (1580)
 msgid "IBugTraqProvider"
@@ -5100,11 +5100,11 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "Bruk 'Se etter oppdateringer'-dialogen hvis du vil avbryte sperringen."
+msgstr "Bruk 'Se etter oppdateringer'-dialogen hvis du vil bryte sperringen."
 
 #. Resource IDs: (73)
 msgid "Ignore"
-msgstr "Ignorér"
+msgstr "Ignorer"
 
 #. Resource IDs: (14)
 #, c-format
@@ -5646,7 +5646,7 @@ msgstr "Sperr filer"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
-msgstr "Sperren er avbrutt!"
+msgstr "Sperren er brutt!"
 
 #. Resource IDs: (207)
 msgid "Lock comment"
@@ -5671,7 +5671,7 @@ msgstr "Sperren er stjålet av %s"
 
 #. Resource IDs: (1529)
 msgid "Locked"
-msgstr "Låst"
+msgstr "Sperret"
 
 #. Resource IDs: (263)
 #, c-format
@@ -5704,7 +5704,7 @@ msgstr "Loggmellomlagring"
 
 #. Resource IDs: (295)
 msgid "Log Caching::Cached Repositories"
-msgstr "Loggmellomlagring: Mellomlagrede Depoter"
+msgstr "Loggmellomlagring::Mellomlagrede Depoter"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -6001,7 +6001,7 @@ msgstr "Minste antall tegn for en innsendingsmelding:"
 
 #. Resource IDs: (65535)
 msgid "Minimum number of chars for a lock message:"
-msgstr "Minste antall tegn for en låsemelding:"
+msgstr "Minste antall tegn for en sperremelding:"
 
 #. Resource IDs: (1023, 65535)
 msgid "Misc"
@@ -7273,15 +7273,15 @@ msgstr "Avviste korreksjonsklumper for '%s'"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
-msgstr "Løs s&perre..."
+msgstr "Fjern s&perre..."
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "Låser opp sperrer, også de du ikke eier (opphever de)."
+msgstr "Fjerner sperrer, også de du ikke eier (opphever de)."
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
-msgstr "Låser opp sperrer på filen så andre brukere kan redigere de igjen."
+msgstr "Fjerner sperrer på filen så andre brukere kan redigere de igjen."
 
 #. Resource IDs: (12)
 msgid "Relo&cate..."
@@ -7647,7 +7647,7 @@ msgstr "Revisjon/forfatter:"
 
 #. Resource IDs: (182, 296)
 msgid "Revision Graph"
-msgstr "Revisjonsgraf: "
+msgstr "Revisjonsgraf"
 
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
@@ -9173,7 +9173,7 @@ msgstr "Linjen indikerer at den gamle filen var forventet i linjenummer %d !"
 
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
-msgstr "Sperren er allerede opphevet fra en annen arbeidskopi"
+msgstr "Sperren er allerede brutt fra en annen arbeidskopi"
 
 #. Resource IDs: (198)
 msgid ""
@@ -9464,7 +9464,7 @@ msgstr "Det er ingenting som skal legges til. Alle filene og mappene er enten al
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
-msgstr "Det er ingen sperre å fjerne. Ingen fil har en sperre i denne arbeidskopien."
+msgstr "Det er ingen sperre å fjerne. Ingen fil er sperret i denne arbeidskopien."
 
 #. Resource IDs: (188)
 msgid "Thesaurus"
@@ -9943,15 +9943,15 @@ msgstr "Ukjent feil i SVN::List"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
-msgstr "Opphev sperre"
+msgstr "Fjern sperre"
 
 #. Resource IDs: (264)
 msgid "Unlock failed"
-msgstr "Oppheving av sperring feilet"
+msgstr "Fjerning av sperre feilet"
 
 #. Resource IDs: (263)
 msgid "Unlocked"
-msgstr "Sperring opphevet"
+msgstr "Sperre fjernet"
 
 #. Resource IDs: (565)
 msgid "Unrecognized or invalid property file format!"
@@ -10037,7 +10037,7 @@ msgstr "Oppdaterer ActiveX-objekter"
 
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
-msgstr "Oppdaterer og prøver sperren på nytt..."
+msgstr "Oppdaterer og prøver å sperre på nytt..."
 
 #. Resource IDs: (199)
 msgid "Updating log cache"
@@ -10496,7 +10496,7 @@ msgid ""
 "You can disable specific Overlay handlers here.\n"
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
 msgstr ""
-"Du kan deaktivere spesifikke ikoner her.\n"
+"Du kan deaktivere bestemte ikoner her.\n"
 "Deaktiverte ikoner bruker ikke en ikonlag-plass og gir andre skallutvidelser mulighet til å vise sine ikoner."
 
 #. Resource IDs: (1001)
@@ -11025,11 +11025,11 @@ msgstr "siste oppdatering: "
 
 #. Resource IDs: (11, 195)
 msgid "locked"
-msgstr "låst"
+msgstr "sperret"
 
 #. Resource IDs: (65535)
 msgid "locked:"
-msgstr "låst:"
+msgstr "sperret:"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"
@@ -11334,9 +11334,9 @@ msgid ""
 "before they can edit it and commit changes."
 msgstr ""
 "svn:needs-lock\r\n"
-"Sett denne til hvilken som helst verdi (f.eks. '*') for å tvinge frem sperre\r\n"
+"Sett denne til hvilken som helst verdi (f.eks. '*') for å tvinge sperring\r\n"
 "av denne filen. Filen settes til å bare kunne leses når den hentes ut eller\r\n"
-"oppdateres, det indikerer at en brukere må hente en sperre på denne\r\n"
+"oppdateres. Det viser at en bruker må hente en sperre for denne\r\n"
 "filen før de kan redigere og sende inn endringer."
 
 #. Resource IDs: (208)
