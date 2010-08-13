@@ -18,6 +18,8 @@
 //
 #include "StdAfx.h"
 #include "ShellCache.h"
+#include "SVNHelpers.h"
+#include "TSVNPath.h"
 
 ShellCache::ShellCache()
 {
@@ -31,7 +33,6 @@ ShellCache::ShellCache()
     drivefloppy = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskFloppy"));
     driveram = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
     driveunknown = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
-    simplecontext = CRegStdDWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
     shellmenuaccelerators = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShellMenuAccelerators"), TRUE);
     unversionedasmodified = CRegStdDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
     getlocktop = CRegStdDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
@@ -45,7 +46,6 @@ ShellCache::ShellCache()
     langticker = cachetypeticker;
     columnrevformatticker = cachetypeticker;
     pathfilterticker = 0;
-    simplecontextticker = cachetypeticker;
     shellmenuacceleratorsticker = cachetypeticker;
     unversionedasmodifiedticker = cachetypeticker;
     columnseverywhereticker = cachetypeticker;
@@ -96,7 +96,6 @@ void ShellCache::ForceRefresh()
     drivefloppy.read();
     driveram.read();
     driveunknown.read();
-    simplecontext.read();
     shellmenuaccelerators.read();
     unversionedasmodified.read();
     excludedasnormal.read();
@@ -186,15 +185,6 @@ BOOL ShellCache::IsFolderOverlay()
     return (folderoverlay);
 }
 
-BOOL ShellCache::IsSimpleContext()
-{
-    if ((GetTickCount() - simplecontextticker)>REGISTRYTIMEOUT)
-    {
-        simplecontextticker = GetTickCount();
-        simplecontext.read();
-    }
-    return (simplecontext!=0);
-}
 
 BOOL ShellCache::HasShellMenuAccelerators()
 {
@@ -398,9 +388,7 @@ NUMBERFMT * ShellCache::GetNumberFmt()
     return &columnrevformat;
 }
 
-// TODO: single-db : rename to IsVersioned and find another way
-// than checking for an admin dir
-BOOL ShellCache::HasSVNAdminDir(LPCTSTR path, BOOL bIsDir)
+BOOL ShellCache::IsVersioned(LPCTSTR path, BOOL bIsDir)
 {
     tstring folder (path);
     if (! bIsDir)
@@ -417,7 +405,9 @@ BOOL ShellCache::HasSVNAdminDir(LPCTSTR path, BOOL bIsDir)
     }
 
     BoolTimeout bt;
-    bt.bBool = g_SVNAdminDir.HasAdminDir (folder.c_str(), true);
+    CTSVNPath p;
+    p.SetFromWin(folder.c_str());
+    bt.bBool = SVNHelper::IsVersioned(p);
     bt.timeout = GetTickCount();
     Locker lock(m_critSec);
     admindircache[folder] = bt;

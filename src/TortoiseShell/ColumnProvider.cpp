@@ -292,7 +292,7 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
     CString path = psci->wszFolder;
     if (!path.IsEmpty())
     {
-        if (! g_ShellCache.HasSVNAdminDir(path, TRUE))
+        if (! g_ShellCache.IsVersioned(path, TRUE))
             return E_FAIL;
     }
     columnfilepath = _T("");
@@ -311,7 +311,7 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
             std::string values;
             while(!svnpath.IsEmpty())
             {
-                if(!g_ShellCache.HasSVNAdminDir(svnpath.GetWinPath(), TRUE))
+                if(!g_ShellCache.IsVersioned(svnpath.GetWinPath(), TRUE))
                     break;  // beyond root of working copy
                 SVNProperties props(svnpath, false);
                 for (int i=0; i<props.GetCount(); ++i)
@@ -391,7 +391,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
     default:
     case ShellCache::none:
         {
-            if (g_ShellCache.HasSVNAdminDir(path, bIsDir))
+            if (g_ShellCache.IsVersioned(path, bIsDir))
                 filestatus = svn_wc_status_normal;
             else
                 filestatus = svn_wc_status_none;

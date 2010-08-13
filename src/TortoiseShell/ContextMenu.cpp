@@ -316,7 +316,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             // sometimes, svn_client_status() returns with an error.
                             // in that case, we have to check if the working copy is versioned
                             // anyway to show the 'correct' context menu
-                            if (g_ShellCache.HasSVNAdminDir(str.c_str(), true))
+                            if (g_ShellCache.IsVersioned(str.c_str(), true))
                                 status = svn_wc_status_normal;
                         }
                     }
@@ -367,64 +367,55 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         continue;
                     //get the Subversion status of the item
                     svn_wc_status_kind status = svn_wc_status_none;
-                    if ((g_ShellCache.IsSimpleContext())&&(strpath.IsDirectory()))
+                    try
                     {
-                        if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
-                            status = svn_wc_status_normal;
-                    }
-                    else
-                    {
-                        try
+                        SVNStatus stat;
+                        stat.GetStatus(strpath, false, true, true);
+                        statuspath = str;
+                        if (stat.status)
                         {
-                            SVNStatus stat;
-                            if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
-                                stat.GetStatus(strpath, false, true, true);
-                            statuspath = str;
-                            if (stat.status)
+                            status = stat.status->node_status;
+                            itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
+                            fetchedstatus = status;
+                            if (stat.status->lock && stat.status->lock->token)
+                                itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
+                            if (stat.status->kind == svn_node_dir)
                             {
-                                status = stat.status->node_status;
-                                itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
+                                itemStates |= ITEMIS_FOLDER;
+                                if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+                                    itemStates |= ITEMIS_FOLDERINSVN;
+                            }
+                            if (stat.status->conflicted)
+                                itemStates |= ITEMIS_CONFLICTED;
+                            if (stat.status->repos_root_url)
+                                repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
+                            if (stat.status->file_external)
+                                itemStates |= ITEMIS_FILEEXTERNAL;
+                            if (stat.status->conflicted)
+                                itemStates |= ITEMIS_CONFLICTED;
+                            if (stat.status->copied)
+                                itemStates |= ITEMIS_ADDEDWITHHISTORY;
+                        }
+                        else
+                        {
+                            if (stat.IsUnsupportedFormat())
+                            {
+                                itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
+                            }
+                            // sometimes, svn_client_status() returns with an error.
+                            // in that case, we have to check if the working copy is versioned
+                            // anyway to show the 'correct' context menu
+                            if (g_ShellCache.IsVersioned(strpath.GetWinPath(), strpath.IsDirectory()))
+                            {
+                                status = svn_wc_status_normal;
                                 fetchedstatus = status;
-                                if (stat.status->lock && stat.status->lock->token)
-                                    itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
-                                if (stat.status->kind == svn_node_dir)
-                                {
-                                    itemStates |= ITEMIS_FOLDER;
-                                    if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
-                                        itemStates |= ITEMIS_FOLDERINSVN;
-                                }
-                                if (stat.status->conflicted)
-                                    itemStates |= ITEMIS_CONFLICTED;
-                                if (stat.status->repos_root_url)
-                                    repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
-                                if (stat.status->file_external)
-                                    itemStates |= ITEMIS_FILEEXTERNAL;
-                                if (stat.status->conflicted)
-                                    itemStates |= ITEMIS_CONFLICTED;
-                                if (stat.status->copied)
-                                    itemStates |= ITEMIS_ADDEDWITHHISTORY;
                             }
-                            else
-                            {
-                                if (stat.IsUnsupportedFormat())
-                                {
-                                    itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
-                                }
-                                // sometimes, svn_client_status() returns with an error.
-                                // in that case, we have to check if the working copy is versioned
-                                // anyway to show the 'correct' context menu
-                                if (g_ShellCache.HasSVNAdminDir(strpath.GetWinPath(), strpath.IsDirectory()))
-                                {
-                                    status = svn_wc_status_normal;
-                                    fetchedstatus = status;
-                                }
-                            }
-                            statfetched = TRUE;
                         }
-                        catch ( ... )
-                        {
-                            ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
-                        }
+                        statfetched = TRUE;
+                    }
+                    catch ( ... )
+                    {
+                        ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
                     }
                     if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
                         itemStates |= ITEMIS_INSVN;
@@ -457,7 +448,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         itemStates |= ITEMIS_DELETED;
                 } // for (int i = 0; i < count; ++i)
                 ItemIDList child (GetPIDLItem (cida, 0), &parent);
-                if (g_ShellCache.HasSVNAdminDir(child.toString().c_str(), FALSE))
+                if (g_ShellCache.IsVersioned(child.toString().c_str(), FALSE))
                     itemStates |= ITEMIS_INVERSIONEDFOLDER;
                 GlobalUnlock(medium.hGlobal);
 
@@ -497,8 +488,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                 try
                 {
                     SVNStatus stat;
-                    if (g_ShellCache.HasSVNAdminDir(folder_.c_str(), true))
-                        stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+                    stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
                     if (stat.status)
                     {
                         status = stat.status->node_status;
@@ -531,7 +521,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         // sometimes, svn_client_status() returns with an error.
                         // in that case, we have to check if the working copy is versioned
                         // anyway to show the 'correct' context menu
-                        if (g_ShellCache.HasSVNAdminDir(folder_.c_str(), true))
+                        if (g_ShellCache.IsVersioned(folder_.c_str(), true))
                             status = svn_wc_status_normal;
                     }
                 }
@@ -579,8 +569,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     try
                     {
                         SVNStatus stat;
-                        if (g_ShellCache.HasSVNAdminDir(folder_.c_str(), true))
-                            stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+                        stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
                         if (stat.status)
                         {
                             status = stat.status->node_status;
@@ -919,7 +908,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         // It would only show the standard menu items
         // which are already shown for the lnk-file.
         CString path = files_.front().c_str();
-        if ( !g_ShellCache.HasSVNAdminDir(path, PathIsDirectory(path)) )
+        if ( !g_ShellCache.IsVersioned(path, PathIsDirectory(path)) )
         {
             return S_OK;
         }

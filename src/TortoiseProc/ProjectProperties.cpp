@@ -21,6 +21,7 @@
 #include "UnicodeUtils.h"
 #include "ProjectProperties.h"
 #include "SVNProperties.h"
+#include "SVNHelpers.h"
 #include "TSVNPath.h"
 #include <regex>
 
@@ -278,9 +279,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         path = path.GetContainingDirectory();
         if (!bFoundLogRevRegex)
             sLogRevRegex = LOG_REVISIONREGEX;
-        // TODO: single-db : how to find out when to stop?
-        // checking for an admin dir won't work with single-db anymore
-        if ((!path.HasAdminDir())||(path.IsEmpty()))
+        if ((!SVNHelper::IsVersioned(path))||(path.IsEmpty()))
         {
             if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
                 | bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth

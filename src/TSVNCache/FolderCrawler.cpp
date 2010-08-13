@@ -221,8 +221,7 @@ void CFolderCrawler::WorkerThread()
                 if (!CSVNStatusCache::Instance().IsPathGood(workingPath))
                     continue;
                 // check if the changed path is inside an .svn folder
-                // TODO: single-db : HasAdminDir won't work anymore, find another way
-                if ((workingPath.HasAdminDir()&&workingPath.IsDirectory())||workingPath.IsAdminDir())
+                if ((workingPath.IsDirectory()&&(SVNHelper::IsVersioned(workingPath)))||workingPath.IsAdminDir())
                 {
                     // we don't crawl for paths changed in a tmp folder inside an .svn folder.
                     // Because we also get notifications for those even if we just ask for the status!
@@ -306,8 +305,7 @@ void CFolderCrawler::WorkerThread()
                     m_pathsToUpdateUnique.erase (workingPath);
                     m_pathsToUpdate.erase(std::remove(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), workingPath), m_pathsToUpdate.end());
                 }
-                // TODO: single-db : HasAdminDir won't work anymore, find another way
-                else if (workingPath.HasAdminDir())
+                else if (SVNHelper::IsVersioned(workingPath))
                 {
                     if (!workingPath.Exists())
                     {
@@ -316,8 +314,6 @@ void CFolderCrawler::WorkerThread()
                         CSVNStatusCache::Instance().Done();
                         continue;
                     }
-                    if (!workingPath.Exists())
-                        continue;
                     {
                         AutoLocker print(critSec);
                         _stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Updating path: %s"), workingPath.GetWinPath());
@@ -411,8 +407,7 @@ void CFolderCrawler::WorkerThread()
                 // for that path and add it to the watcher.
                 if (!CSVNStatusCache::Instance().IsPathWatched(workingPath))
                 {
-                    // TODO: single-db : HasAdminDir won't work anymore, find another way
-                    if (workingPath.HasAdminDir())
+                    if (SVNHelper::IsVersioned(workingPath))
                         CSVNStatusCache::Instance().AddPathToWatch(workingPath);
                     if (cachedDir)
                         cachedDir->Invalidate();

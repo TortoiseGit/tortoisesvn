@@ -333,16 +333,8 @@ void CCheckoutDlg::OnOK()
 
         CString parentURL = m_URLs.GetCommonRoot().GetSVNPathString();
 
-        // workaround for SVN path check bug:
-        // if path X:/y is not a wc, SVN will test X: and
-        // a debug assertion is triggered by X: not being canonical
-
         SVNInfo info;
-        const SVNInfoData* infoData
-            = targetPath.HasAdminDir()
-            ? info.GetFirstFileInfo (targetPath, SVNRev(), SVNRev())
-            : NULL;
-
+        const SVNInfoData* infoData = info.GetFirstFileInfo (targetPath, SVNRev(), SVNRev());
         // exists with matching URL?
 
         m_parentExists = (infoData != NULL) && (infoData->url == parentURL);

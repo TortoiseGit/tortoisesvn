@@ -433,9 +433,6 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 
 CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 {
-    ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
-
-
     CCachedDirectory::ItDir itMap;
     itMap = m_directoryCache.find(path);
     if ((itMap != m_directoryCache.end())&&(itMap->second))
@@ -487,8 +484,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 
                     itMap = m_directoryCache.insert
                         (itMap, std::make_pair (path, newcdir.release()));
-                    // TODO: single-db : HasAdminDir won't work anymore, find another way
-                    if (!path.IsEmpty() && path.HasAdminDir())
+                    if (!path.IsEmpty())
                         CSVNStatusCache::Instance().AddFolderForCrawling(path);
 
                     return itMap->second;
@@ -564,7 +560,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
     }
     AutoLocker lock(m_critSec);
     m_mostRecentStatus = CStatusCacheEntry();
-    if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.HasSVNAdminDir(path.GetWinPath(), true))
+    if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.IsVersioned(path.GetWinPath(), true))
     {
         m_mostRecentStatus.ForceStatus(svn_wc_status_normal);
     }

@@ -836,7 +836,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
             m_arStatusArray.push_back(entry);
             if (entry->isfolder)
             {
-                if (!g_SVNAdminDir.HasAdminDir(entry->path.GetWinPathString(), true))
+                if (!SVNHelper::IsVersioned(entry->path))
                     AddUnversionedFolder(entry->path, basePath, config);
             }
         }
@@ -944,7 +944,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             CTSVNPath extpath = svnPath;
             while (basePath.IsAncestorOf(extpath))
             {
-                if (!extpath.HasAdminDir())
+                if (!SVNHelper::IsVersioned(extpath))
                 {
                     bEntryfromDifferentRepo = true;
                     break;

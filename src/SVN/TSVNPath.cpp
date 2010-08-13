@@ -20,6 +20,7 @@
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"
+#include "SVNHelpers.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "svn_dirent_uri.h"
@@ -46,6 +47,8 @@ CTSVNPath::CTSVNPath(void) :
     m_bIsReadOnly(false),
     m_bIsAdminDirKnown(false),
     m_bIsAdminDir(false),
+    m_bIsWCRootKnown(false),
+    m_bIsWCRoot(false),
     m_bExists(false),
     m_bExistsKnown(false),
     m_bLastWriteTimeKnown(0),
@@ -71,6 +74,8 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
     m_bIsReadOnly(false),
     m_bIsAdminDirKnown(false),
     m_bIsAdminDir(false),
+    m_bIsWCRootKnown(false),
+    m_bIsWCRoot(false),
     m_bExists(false),
     m_bExistsKnown(false),
     m_bLastWriteTimeKnown(0),
@@ -205,12 +210,6 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     else
     {
         m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
-        if ((m_sUTF8FwdslashPath.GetLength() == 3)
-            && ( ((m_sUTF8FwdslashPath[0] >= 'A') && (m_sUTF8FwdslashPath[0] <= 'Z')) || ((m_sUTF8FwdslashPath[0] >= 'a') && (m_sUTF8FwdslashPath[0] <= 'z')) )
-            && (m_sUTF8FwdslashPath[1] == ':') && (m_sUTF8FwdslashPath[2] == '/'))
-        {
-            m_sUTF8FwdslashPath = m_sUTF8FwdslashPath.Left(2);
-        }
     }
 
     return m_sUTF8FwdslashPath;
@@ -433,6 +432,8 @@ void CTSVNPath::Reset()
     m_bIsValidOnWindowsKnown = false;
     m_bIsAdminDirKnown = false;
     m_bExistsKnown = false;
+    m_bIsWCRootKnown = false;
+    m_bIsWCRoot = false;
     m_bIsSpecialDirectoryKnown = false;
     m_bIsSpecialDirectory = false;
 
@@ -699,16 +700,6 @@ void CTSVNPath::AppendPathString(const CString& sAppend)
     SetFromWin(strCopy);
 }
 
-bool CTSVNPath::HasAdminDir() const
-{
-    if (m_bHasAdminDirKnown)
-        return m_bHasAdminDir;
-
-    EnsureBackslashPathSet();
-    m_bHasAdminDir = g_SVNAdminDir.HasAdminDir(m_sBackslashPath, IsDirectory());
-    m_bHasAdminDirKnown = true;
-    return m_bHasAdminDir;
-}
 
 bool CTSVNPath::IsAdminDir() const
 {
@@ -719,6 +710,17 @@ bool CTSVNPath::IsAdminDir() const
     m_bIsAdminDir = g_SVNAdminDir.IsAdminDirPath(m_sBackslashPath);
     m_bIsAdminDirKnown = true;
     return m_bIsAdminDir;
+}
+
+bool CTSVNPath::IsWCRoot() const
+{
+    if (m_bIsWCRootKnown)
+        return m_bIsWCRoot;
+
+    EnsureBackslashPathSet();
+    m_bIsWCRoot = g_SVNAdminDir.IsWCRoot(m_sBackslashPath);
+    m_bIsWCRootKnown = true;
+    return m_bIsWCRoot;
 }
 
 bool CTSVNPath::IsValidOnWindows() const

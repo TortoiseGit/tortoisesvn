@@ -22,6 +22,7 @@
 
 #include "SVN.h"
 #include "SVNInfo.h"
+#include "SVNHelpers.h"
 #include "SVNStatus.h"
 #include "SVNProgressDlg.h"
 #include "MessageBox.h"
@@ -149,7 +150,7 @@ void CTreeConflictEditorDlg::OnBnClickedShowlog()
     if (m_bThreadRunning)
         return;
     CTSVNPath logPath = m_path;
-    if (logPath.GetContainingDirectory().HasAdminDir())
+    if (SVNHelper::IsVersioned(logPath.GetContainingDirectory()))
         logPath = logPath.GetContainingDirectory();
     CString sCmd;
     sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), logPath.GetWinPath());
@@ -305,9 +306,10 @@ UINT CTreeConflictEditorDlg::StatusThread()
         CString url = pData->url;
 
         SVNInfo info;
+        const SVNInfoData * infodata = NULL;
         do
         {
-            const SVNInfoData * infodata = info.GetFirstFileInfo(statPath, SVNRev(), SVNRev(), svn_depth_infinity);
+            infodata = info.GetFirstFileInfo(statPath, SVNRev(), SVNRev(), svn_depth_infinity);
             if (infodata)
             {
                 do
@@ -324,7 +326,7 @@ UINT CTreeConflictEditorDlg::StatusThread()
                 } while ((infodata = info.GetNextFileInfo()) != NULL);
             }
             statPath = statPath.GetContainingDirectory();
-        } while (!bFound && statPath.HasAdminDir());
+        } while (!bFound && infodata);
     }
 
     PostMessage(WM_AFTERTHREAD);

@@ -61,7 +61,6 @@ public:
 
     BOOL IsRecursive();
     BOOL IsFolderOverlay();
-    BOOL IsSimpleContext();
     BOOL HasShellMenuAccelerators();
     BOOL IsUnversionedAsModified();
     BOOL IsGetLockTop();
@@ -79,7 +78,7 @@ public:
     BOOL IsPathAllowed(LPCTSTR path);
     DWORD GetLangID();
     NUMBERFMT * GetNumberFmt();
-    BOOL HasSVNAdminDir(LPCTSTR path, BOOL bIsDir);
+    BOOL IsVersioned(LPCTSTR path, BOOL bIsDir);
     bool IsColumnsEveryWhere();
 
 private:
@@ -208,7 +207,6 @@ private:
     CRegStdDWORD driveunknown;
     CRegStdDWORD menulayoutlow;
     CRegStdDWORD menulayouthigh;
-    CRegStdDWORD simplecontext;
     CRegStdDWORD shellmenuaccelerators;
     CRegStdDWORD menumasklow_lm;
     CRegStdDWORD menumaskhigh_lm;
@@ -233,7 +231,6 @@ private:
     DWORD blockstatusticker;
     DWORD columnrevformatticker;
     DWORD pathfilterticker;
-    DWORD simplecontextticker;
     DWORD shellmenuacceleratorsticker;
     DWORD unversionedasmodifiedticker;
     DWORD excludedasnormalticker;

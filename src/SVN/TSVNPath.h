@@ -195,11 +195,9 @@ public:
     bool Delete(bool bTrash) const;
 
     /**
-     * Checks if a Subversion admin directory is present. For files, the check
-     * is done in the same directory. For folders, it checks if the folder itself
-     * contains an admin directory.
+     * Checks if the item is at a WC root.
      */
-    bool HasAdminDir() const;
+    bool IsWCRoot() const;
 
     /**
      * Checks if the path point to or below a Subversion admin directory (.svn).
@@ -273,6 +271,8 @@ private:
     mutable bool m_bIsValidOnWindows;
     mutable bool m_bIsAdminDirKnown;
     mutable bool m_bIsAdminDir;
+    mutable bool m_bIsWCRootKnown;
+    mutable bool m_bIsWCRoot;
     mutable bool m_bExists;
     mutable bool m_bExistsKnown;
     mutable LPARAM m_customData;

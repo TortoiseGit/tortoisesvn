@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2009 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,12 +70,9 @@ public:
     /// Returns true if the path points to or below an admin directory
     bool IsAdminDirPath(const CString& path) const;
 
-    /// Returns true if the path (file or folder) has an admin directory
-    /// associated, i.e. if the path is in a working copy.
-    // TODO: remove these methods and implement an IsVersioned() method
-    //       instead, maybe in the SVN class.
-    bool HasAdminDir(const CString& path) const;
-    bool HasAdminDir(const CString& path, bool bDir) const;
+    bool IsWCRoot(const CString& path) const;
+    bool IsWCRoot(const CString& path, bool bDir) const;
+
 
     /// Returns true if the admin dir name is set to "_svn".
     bool IsVSNETHackActive() const {return m_bVSNETHack;}

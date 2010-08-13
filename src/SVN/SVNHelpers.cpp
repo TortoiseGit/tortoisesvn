@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "StdAfx.h"
 #include "SVNHelpers.h"
+#include "TSVNPath.h"
 #pragma warning(push)
 #include "svn_config.h"
 #include "svn_pools.h"
@@ -98,3 +99,49 @@ svn_error_t * SVNHelper::cancelfunc(void * cancelbaton)
     }
     return NULL;
 }
+
+#ifndef SVN_NONET
+bool SVNHelper::IsVersioned( const CTSVNPath& path )
+{
+    SVNPool pool;
+
+    svn_wc_context_t * pctx = NULL;
+    svn_error_t * err = svn_wc_context_create(&pctx, NULL, pool, pool);
+    if (err)
+    {
+        svn_error_clear(err);
+        return false;
+    }
+    int wcformat = 0;
+    err = svn_wc_check_wc2(&wcformat, pctx, path.GetSVNApiPath(pool), pool);
+    if (err)
+    {
+        switch (err->apr_err)
+        {
+        case SVN_ERR_WC_NOT_WORKING_COPY:
+        case SVN_ERR_WC_NOT_FILE:
+        case SVN_ERR_WC_PATH_NOT_FOUND:
+        case SVN_ERR_WC_CORRUPT:
+        case SVN_ERR_WC_CORRUPT_TEXT_BASE:
+        case SVN_ERR_WC_UNSUPPORTED_FORMAT:
+        case SVN_ERR_WC_DB_ERROR:
+        case SVN_ERR_WC_MISSING:
+        case SVN_ERR_WC_PATH_UNEXPECTED_STATUS:
+        case SVN_ERR_WC_UPGRADE_REQUIRED:
+        case SVN_ERR_WC_CLEANUP_REQUIRED:
+            {
+                svn_error_clear(err);
+                return false;
+            }
+            break;
+        default:
+            svn_error_clear(err);
+            return true;
+            break;
+        }
+    }
+
+    return wcformat != 0;
+}
+
+#endif

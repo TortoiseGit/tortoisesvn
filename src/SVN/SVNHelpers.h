@@ -27,6 +27,7 @@ struct apr_pool_t;
 struct svn_client_ctx_t;
 struct svn_error_t;
 struct apr_hash_t;
+class CTSVNPath;
 
 /**
  * \ingroup SVN
@@ -71,6 +72,9 @@ public:
     svn_client_ctx_t*   ClientContext(apr_pool_t * pool) const;
     void                Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
     void                ReloadConfig();
+#ifndef SVN_NONET
+    static bool         IsVersioned(const CTSVNPath& path);
+#endif
 protected:
     apr_pool_t *        m_pool;
     svn_client_ctx_t *  m_ctx;

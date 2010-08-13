@@ -369,7 +369,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
         {
             if (m_currentStatusFetchingPath.IsAncestorOf(path))
             {
-                //ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
                 m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
                 return CStatusCacheEntry();
             }
@@ -522,24 +521,39 @@ CCachedDirectory::SvnUpdateMembersStatus()
         // for their own status, and will set themselves as unversioned, for the
         // benefit of future requests
         CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: svn_cli_stat error '%s'\n"), pErr->message);
-        svn_error_clear(pErr);
         // No assert here! Since we _can_ get here, an assertion is not an option!
         // Reasons to get here:
         // - renaming a folder with many sub folders --> results in "not a working copy" if the revert
         //   happens between our checks and the svn_client_status() call.
         // - reverting a move/copy --> results in "not a working copy" (as above)
-        // TODO: single-db : HasAdminDir won't work anymore, find another way
-        if (!m_directoryPath.HasAdminDir())
+        switch (pErr->apr_err)
         {
-            m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+        case SVN_ERR_WC_NOT_WORKING_COPY:
+        case SVN_ERR_WC_NOT_FILE:
+        case SVN_ERR_WC_PATH_NOT_FOUND:
+        case SVN_ERR_WC_CORRUPT:
+        case SVN_ERR_WC_CORRUPT_TEXT_BASE:
+        case SVN_ERR_WC_UNSUPPORTED_FORMAT:
+        case SVN_ERR_WC_DB_ERROR:
+        case SVN_ERR_WC_MISSING:
+        case SVN_ERR_WC_PATH_UNEXPECTED_STATUS:
+        case SVN_ERR_WC_UPGRADE_REQUIRED:
+        case SVN_ERR_WC_CLEANUP_REQUIRED:
+            {
+                m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+            }
+            break;
+        default:
+            {
+                // Since we only assume a none status here due to svn_client_status()
+                // returning an error, make sure that this status times out soon.
+                CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
+                CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
+            }
+            break;
         }
-        else
-        {
-            // Since we only assume a none status here due to svn_client_status()
-            // returning an error, make sure that this status times out soon.
-            CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
-            CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
-        }
+        svn_error_clear(pErr);
+
         AutoLocker pathlock(m_critSecPath);
         m_currentStatusFetchingPath.Reset();
 
@@ -599,15 +613,14 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
     }
     else
     {
-        svnPath.SetFromSVN(path);
+        svnPath.SetFromSVN(path, status->kind == svn_node_dir);
         // Subversion returns no 'entry' field for versioned folders if they're
         // part of another working copy (nested layouts).
         // So we have to make sure that such an 'unversioned' folder really
         // is unversioned.
         if (((status->node_status == svn_wc_status_unversioned)||(status->node_status == svn_wc_status_ignored))&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
         {
-            // TODO: single-db : HasAdminDir won't work anymore, find another way
-            if (svnPath.HasAdminDir())
+            if (svnPath.IsWCRoot())
             {
                 CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
                 // Mark the directory as 'versioned' (status 'normal' for now).
@@ -796,6 +809,9 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
     CTSVNPathList updatePathList;
     CTSVNPathList crawlPathList;
     CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: RefreshStatus for %s\n"), m_directoryPath.GetWinPath());
+
+    // TODO: use FindFirstFile/FindNextFile to get all the file times of all entries in this directory.
+    // Because FindFirstFile/FindNextFile don't access all files but just get that info from the directory!
     DWORD now = GetTickCount();
     {
         AutoLocker lock(m_critSec);

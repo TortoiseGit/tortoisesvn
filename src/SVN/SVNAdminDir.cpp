@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -67,31 +67,6 @@ bool SVNAdminDir::IsAdminDirName(const CString& name) const
     return !!svn_wc_is_adm_dir(nameA, m_pool);
 }
 
-bool SVNAdminDir::HasAdminDir(const CString& path) const
-{
-    if (PathIsUNCServer(path))
-        return false;
-    return HasAdminDir(path, !!PathIsDirectory(path));
-}
-
-bool SVNAdminDir::HasAdminDir(const CString& path, bool bDir) const
-{
-    if (path.IsEmpty())
-        return false;
-    if (PathIsUNCServer(path))
-        return false;
-    bool bHasAdminDir = false;
-    CString sDirName = path;
-    if (!bDir)
-    {
-        sDirName = path.Left(path.ReverseFind('\\'));
-    }
-    bHasAdminDir = !!PathFileExists(sDirName + _T("\\.svn"));
-    if (!bHasAdminDir && m_bVSNETHack)
-        bHasAdminDir = !!PathFileExists(sDirName + _T("\\_svn"));
-    return bHasAdminDir;
-}
-
 bool SVNAdminDir::IsAdminDirPath(const CString& path) const
 {
     if (path.IsEmpty())
@@ -135,6 +110,36 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path) const
         }
     }
     return bIsAdminDir;
+}
+
+bool SVNAdminDir::IsWCRoot(const CString& path) const
+{
+    // svn_wc_is_wc_root2()
+    if (PathIsUNCServer(path))
+        return false;
+    return IsWCRoot(path, !!PathIsDirectory(path));
+}
+
+bool SVNAdminDir::IsWCRoot(const CString& path, bool bDir) const
+{
+    // TODO
+    // for now, the svn admin dir is always located at the wc root.
+    // once that changes (maybe in svn 1.8?) we have to change
+    // this function
+    if (path.IsEmpty())
+        return false;
+    if (PathIsUNCServer(path))
+        return false;
+    bool bIsWCRoot = false;
+    CString sDirName = path;
+    if (!bDir)
+    {
+        sDirName = path.Left(path.ReverseFind('\\'));
+    }
+    bIsWCRoot = !!PathFileExists(sDirName + _T("\\.svn"));
+    if (!bIsWCRoot && m_bVSNETHack)
+        bIsWCRoot = !!PathFileExists(sDirName + _T("\\_svn"));
+    return bIsWCRoot;
 }
 
 
