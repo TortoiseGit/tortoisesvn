@@ -810,10 +810,26 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
     CTSVNPathList crawlPathList;
     CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: RefreshStatus for %s\n"), m_directoryPath.GetWinPath());
 
-    // TODO: use FindFirstFile/FindNextFile to get all the file times of all entries in this directory.
-    // Because FindFirstFile/FindNextFile don't access all files but just get that info from the directory!
     DWORD now = GetTickCount();
     {
+        // get the file write times with FindFirstFile/FindNextFile since those
+        // APIs only access the folder, not each file individually.
+        // This reduces the disk access a *lot*.
+        std::map<CString, ULONGLONG> filetimes;
+        WIN32_FIND_DATA FindFileData;
+        HANDLE hFind = FindFirstFile(m_directoryPath.GetWinPathString() + L"\\*.*", &FindFileData);
+        if (hFind != INVALID_HANDLE_VALUE) 
+        {
+            while (FindNextFile(hFind, &FindFileData))
+            {
+                ULARGE_INTEGER ft;
+                ft.LowPart = FindFileData.ftLastWriteTime.dwLowDateTime;
+                ft.HighPart = FindFileData.ftLastWriteTime.dwHighDateTime;
+                filetimes[CString(FindFileData.cFileName)] = ft.QuadPart;
+            }
+            FindClose(hFind);
+        }
+
         AutoLocker lock(m_critSec);
         // We also need to check if all our file members have the right date on them
         for (CacheEntryMap::iterator itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
@@ -822,16 +838,20 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
             {
                 CTSVNPath filePath(m_directoryPath);
                 filePath.AppendPathString(itMembers->first);
-                std::set<CTSVNPath>::iterator refr_it;
                 if (!filePath.IsEquivalentToWithoutCase(m_directoryPath))
                 {
                     // we only have file members in our entry cache
                     ATLASSERT(!itMembers->second.IsDirectory());
 
-                    if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
+                    std::map<CString, ULONGLONG>::iterator ftIt = filetimes.find(itMembers->first.Mid(1));
+                    if (ftIt != filetimes.end())
                     {
-                        // We need to request this item as well
-                        updatePathList.AddPath(filePath);
+                        ULONGLONG ft = ftIt->second;
+                        if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(ft)))
+                        {
+                            // We need to request this item as well
+                            updatePathList.AddPath(filePath);
+                        }
                     }
                 }
             }
