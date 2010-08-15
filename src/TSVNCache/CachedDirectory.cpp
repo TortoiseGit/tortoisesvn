@@ -28,7 +28,6 @@
 CCachedDirectory::CCachedDirectory(void)
 {
     m_wcDbFileTime = 0;
-    m_lastFileTimeCheck = 0;
     m_bCurrentFullStatusValid = false;
     m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 }
@@ -43,7 +42,6 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 
     m_directoryPath = directoryPath;
     m_wcDbFileTime = 0;
-    m_lastFileTimeCheck = 0;
     m_bCurrentFullStatusValid = false;
     m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 }
@@ -195,21 +193,10 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
     // In all most circumstances, we ask for the status of a member of this directory.
     ATLASSERT(m_directoryPath.IsEquivalentToWithoutCase(path.GetContainingDirectory()) || bRequestForSelf);
 
-    // Check if the entries file has been changed
-    CTSVNPath wcDbFilePath(m_directoryPath);
-    wcDbFilePath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));
-
     bool wcDbFileTimeChanged = false;
-    if (GetTickCount() > (m_lastFileTimeCheck+2000))
-    {
-        wcDbFileTimeChanged = (m_wcDbFileTime != wcDbFilePath.GetLastWriteTime());
-        m_wcDbFileTime = wcDbFilePath.GetLastWriteTime();
-        m_lastFileTimeCheck = GetTickCount();
-    }
-    else
-    {
-        CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: skipped file time check for for %s\n"), m_directoryPath.GetWinPath());
-    }
+    long long dbFileTime = CSVNStatusCache::Instance().WCRoots()->GetDBFileTime(m_directoryPath);
+    wcDbFileTimeChanged = (m_wcDbFileTime != dbFileTime);
+    m_wcDbFileTime = dbFileTime;
 
     if ( !wcDbFileTimeChanged )
     {
@@ -293,7 +280,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
                 {
                     if (m_currentStatusFetchingPath.IsAncestorOf(path))
                     {
-                        //ATLTRACE(_T("returning empty status (status fetch in progress) for %s\n"), path.GetWinPath());
                         m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
                         return CStatusCacheEntry();
                     }
@@ -348,7 +334,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
             return CStatusCacheEntry();
         }
         AutoLocker lock(m_critSec);
-        m_wcDbFileTime = wcDbFilePath.GetLastWriteTime();
+        m_wcDbFileTime = dbFileTime;
         m_entryCache.clear();
         strCacheKey = GetCacheKey(path);
     }

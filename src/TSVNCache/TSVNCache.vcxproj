@@ -222,6 +222,7 @@
     <ClCompile Include="TSVNCache.cpp" />
     <ClCompile Include="..\Svn\TSVNPath.cpp" />
     <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
+    <ClCompile Include="WCRoots.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CachedDirectory.h" />
@@ -247,6 +248,7 @@
     <ClInclude Include="TSVNCache.h" />
     <ClInclude Include="..\Svn\TSVNPath.h" />
     <ClInclude Include="..\Utils\UnicodeUtils.h" />
+    <ClInclude Include="WCRoots.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Tortoise.ico" />

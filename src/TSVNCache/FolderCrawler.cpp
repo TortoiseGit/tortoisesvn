@@ -231,22 +231,12 @@ void CFolderCrawler::WorkerThread()
                     {
                         CString lowerpath = workingPath.GetWinPathString();
                         lowerpath.MakeLower();
-                        if (lowerpath.Find(_T("\\tmp\\"))>0)
+                        if (lowerpath.Find(_T("\\wc.db-journal"))>0)
                             continue;
-                        if (lowerpath.Find(_T("\\tmp")) == (lowerpath.GetLength()-4))
-                            continue;
-                        if (lowerpath.Find(_T("\\log"))>0)
-                            continue;
-                        // Here's a little problem:
-                        // the lock file is also created for fetching the status
-                        // and not just when committing.
-                        // If we could find out why the lock file was changed
-                        // we could decide to crawl the folder again or not.
-                        // But for now, we have to crawl the parent folder
-                        // no matter what.
-
-                        //if (lowerpath.Find(_T("\\lock"))>0)
-                        //  continue;
+                        if (lowerpath.Find(_T("\\wc.db"))>0)
+                        {
+                            CSVNStatusCache::Instance().WCRoots()->NotifyChange(workingPath);
+                        }
                     }
                     else if (!workingPath.Exists())
                     {

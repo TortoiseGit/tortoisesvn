@@ -84,6 +84,9 @@
     <ClCompile Include="..\TortoiseShell\ShellCache.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WCRoots.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CachedDirectory.h">
@@ -153,6 +156,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\UnicodeUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WCRoots.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

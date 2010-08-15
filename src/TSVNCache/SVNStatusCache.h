@@ -25,6 +25,7 @@
 #include "FolderCrawler.h"
 #include "DirectoryWatcher.h"
 #include "ShellUpdater.h"
+#include "WCRoots.h"
 #include "RWSection.h"
 #include "atlcoll.h"
 
@@ -107,6 +108,8 @@ public:
     bool UnBlockPath(const CTSVNPath& path);
     bool RemoveTimedoutBlocks();
 
+    CWCRoots * WCRoots() { return &m_wcRoots; }
+
     bool m_bClearMemory;
 private:
     bool RemoveCacheForDirectory(CCachedDirectory * cdir);
@@ -124,6 +127,7 @@ private:
 
     CFolderCrawler m_folderCrawler;
     CShellUpdater m_shellUpdater;
+    CWCRoots m_wcRoots;
 
     CComAutoCriticalSection m_critSec;
     CTSVNPath m_mostRecentAskedPath;
