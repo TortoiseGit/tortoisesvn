@@ -292,7 +292,7 @@ bool CSVNStatusCache::IsPathGood(const CTSVNPath& path)
     {
         if (it->first.IsAncestorOf(path))
         {
-            ATLTRACE(_T("path not good: %s\n"), it->first.GetWinPath());
+            ATLTRACE(_T("path not good: %s\n"), path.GetWinPath());
             return false;
         }
     }
