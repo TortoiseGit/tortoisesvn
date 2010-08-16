@@ -20,6 +20,7 @@
 
 #include "TSVNPath.h"
 #include "CacheInterface.h"
+#include "UniqueQueue.h"
 #include <set>
 //////////////////////////////////////////////////////////////////////////
 
@@ -53,10 +54,8 @@ private:
 private:
     CComAutoCriticalSection m_critSec;
     HANDLE m_hThread;
-    std::deque<CTSVNPath> m_foldersToUpdate;
-    std::set<CTSVNPath> m_foldersToUpdateUnique;
-    std::deque<CTSVNPath> m_pathsToUpdate;
-    std::set<CTSVNPath> m_pathsToUpdateUnique;
+    UniqueQueue<CTSVNPath> m_foldersToUpdate;
+    UniqueQueue<CTSVNPath> m_pathsToUpdate;
     HANDLE m_hTerminationEvent;
     HANDLE m_hWakeEvent;
 
