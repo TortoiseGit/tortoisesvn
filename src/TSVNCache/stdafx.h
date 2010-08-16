@@ -63,3 +63,6 @@ typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
 #else
 #   define APP_X64_STRING ""
 #endif
+
+#include "ProfilingInfo.h"
+
