@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-16 14:47+0900\n"
+"PO-Revision-Date: 2010-08-16 17:56+0900\n"
 "Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: Test\n"
 "MIME-Version: 1.0\n"
@@ -858,6 +858,10 @@ msgstr "휘도(&L):"
 msgid "&Mac (CR)"
 msgstr "매킨토시(&M) (CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr ""
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "속성을 수동으로 편집하기(&M)"
@@ -1350,6 +1354,10 @@ msgstr "윈도우 XP(&W)"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "작업 사본(&W)"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "긴 라인을 여러 라인으로 표시(&W)"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2385,10 +2393,6 @@ msgstr "업데이트 확인"
 msgid "Check For Updates..."
 msgstr "업데이트 확인..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "외부경로를 명시적인 리비전으로 체크"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "수정 사항 확인(&M)"
@@ -2491,6 +2495,10 @@ msgstr "정리중"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "\"%1!s!\" 디렉토리 정리중"
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "정리하고 쉘 새로고치기"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2508,6 +2516,10 @@ msgid ""
 msgstr ""
 "다음 경로에 대해 정리하였습니다:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "중지된 동작을 정리하고 쉘 오버레이를 새로고칩니다"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -4660,6 +4672,10 @@ msgstr "삭제된 경로를 숨기기(&D)"
 msgid "Hide all branches that did not modify the item"
 msgstr "아이템을 수정하지 않은 모든 브랜치 숨기기"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "모든 태그 숨기기"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "삭제된 브랜치나 태그를 숨기기"
@@ -4667,6 +4683,10 @@ msgstr "삭제된 브랜치나 태그를 숨기기"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "붙어있는 윈도우를 숨기기"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "태그 숨기기(&G)"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -7239,6 +7259,10 @@ msgstr "저장소 URL 변경 경고"
 msgid "Relocating..."
 msgstr "저장소 URL 변경 중..."
 
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "이 작업사본에 대해서 깊이 기억하기"
+
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "원격지 속성 상태"
@@ -8056,6 +8080,10 @@ msgstr "서버 주소(&A):"
 msgid "Set Accelerator &for:"
 msgstr "다음에 대한 바로가기키 설정(&F):"
 
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "이 외부경로에 대해서 리비전을 명시적으로 설정하기:"
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "\"마지막 커밋 시간\"으로 파일의 날짜를 바꿉니다.(&T)"
@@ -8740,7 +8768,7 @@ msgstr "전환:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
-msgstr "비교 화면의 좌우를 바꿉니다"
+msgstr "비교창의 좌<->우를 전환합니다"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -10349,6 +10377,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "작업 사본: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "긴 라인을 여러 라인으로 표시합니다"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "예"
@@ -11139,9 +11171,9 @@ msgstr "svn:externals"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11152,9 +11184,9 @@ msgid ""
 msgstr ""
 "svn:externals\r\n"
 "한 줄에 하나씩 지정하는 외부 모듈들의 리스트입니다.각 모듈은 리비전(선택사항),\r\n"
-"URL 그리고 상대 디렉토리 경로로 되어 있습니다.예를 들면)\r\n"
+"peg 리비전(선택사항)을 가진 URL 그리고 상대 디렉토리 경로로 되어 있습니다. 예를 들면)\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "URL은 상대 경로 혹은 전체 경로가 될 수 있습니다.\r\n"
 "상대 경로 URL들의 형식:\r\n"
@@ -11460,6 +11492,9 @@ msgstr "예"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
+
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "외부경로를 명시적인 리비전으로 체크"
 
 #~ msgid "Check externals to tag"
 #~ msgstr "외부경로를 태그로 체크"
