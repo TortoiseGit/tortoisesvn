@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -164,15 +164,15 @@ static std::string IntToStr (unsigned __int64 value)
 
 std::string CProfilingInfo::GetReport() const
 {
-    enum { LINE_LENGTH = 500 };
+    enum { LINE_LENGTH = 600 };
 
     char lineBuffer [LINE_LENGTH];
-    const char * const format ="%10s%17s%17s%17s%6s %s\t%s\n";
+    const char * const format ="%10s%17s%17s%17s%17s%6s %s\t%s\n";
 
     std::string result;
     result.reserve (LINE_LENGTH * records.size());
     sprintf_s ( lineBuffer, format
-              , "count", "sum", "min", "max"
+              , "count", "sum", "avg", "min", "max"
               , "line", "name", "file");
     result += lineBuffer;
 
@@ -188,6 +188,7 @@ std::string CProfilingInfo::GetReport() const
 
                   , IntToStr ((*iter)->GetCount()).c_str()
                   , IntToStr ((*iter)->GetSum()).c_str()
+                  , IntToStr ((*iter)->GetSum()/(*iter)->GetCount()).c_str()
                   , IntToStr (minValue).c_str()
                   , IntToStr ((*iter)->GetMaxValue()).c_str()
 
@@ -197,6 +198,29 @@ std::string CProfilingInfo::GetReport() const
 
         result += lineBuffer;
     }
+
+    // now print the processor speed read from the registry: the user may want to
+    // convert the processor ticks to seconds
+    HKEY hKey;
+    // open the key where the proc speed is hidden:
+    long lError = RegOpenKeyEx(HKEY_LOCAL_MACHINE, 
+                                L"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0",
+                                0,
+                                KEY_READ,
+                                &hKey);
+
+    if(lError == ERROR_SUCCESS)
+    {
+        // query the key:
+        DWORD BufSize = _MAX_PATH;
+        DWORD dwMHz = 0;
+        RegQueryValueEx(hKey, L"~MHz", NULL, NULL, (LPBYTE) &dwMHz, &BufSize);
+        RegCloseKey(hKey);
+
+        sprintf_s ( lineBuffer, "processor speed is %ld MHz\n", dwMHz);
+        result += lineBuffer;
+    }
+
 
     return result;
 }
