@@ -195,6 +195,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\TortoiseShell\ShellCache.cpp" />
+    <ClCompile Include="..\Utils\ProfilingInfo.cpp" />
+    <ClCompile Include="..\Utils\UniqueQueue.cpp" />
     <ClCompile Include="CachedDirectory.cpp" />
     <ClCompile Include="CacheInterface.cpp" />
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
@@ -225,6 +227,8 @@
     <ClCompile Include="WCRoots.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Utils\ProfilingInfo.h" />
+    <ClInclude Include="..\Utils\UniqueQueue.h" />
     <ClInclude Include="CachedDirectory.h" />
     <ClInclude Include="CacheInterface.h" />
     <ClInclude Include="..\Utils\DebugOutput.h" />
