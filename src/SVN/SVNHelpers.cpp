@@ -103,8 +103,9 @@ svn_error_t * SVNHelper::cancelfunc(void * cancelbaton)
 #ifndef SVN_NONET
 bool SVNHelper::IsVersioned( const CTSVNPath& path )
 {
+    if (!path.Exists())
+        return false;
     SVNPool pool;
-
     svn_wc_context_t * pctx = NULL;
     svn_error_t * err = svn_wc_context_create(&pctx, NULL, pool, pool);
     if (err)
