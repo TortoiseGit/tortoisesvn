@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-12 14:24+0100\n"
+"PO-Revision-Date: 2010-08-17 11:46+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -866,6 +866,10 @@ msgstr "&Luminans:"
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "&Gör djup sticky"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "Editera egenskap &manuellt"
@@ -1363,6 +1367,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Arbetskopia"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Dela långa rader"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2410,10 +2418,6 @@ msgstr "Leta efter uppdateringar"
 msgid "Check For Updates..."
 msgstr "Leta efter uppdateringar..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "Kontrollera externa till fast revision"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "&Leta efter ändringar"
@@ -2514,6 +2518,10 @@ msgstr "Rensar"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "Rensar katalog \"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Rensa och uppdatera fönster"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2531,6 +2539,10 @@ msgid ""
 msgstr ""
 "Upprensning lyckades för följande sökvägar:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "Rensa avbrutna åtgärder och uppdatera statusikoner"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -4706,6 +4718,10 @@ msgstr "Göm &borttagna sökvägar"
 msgid "Hide all branches that did not modify the item"
 msgstr "Dölj alla grenar som inte modifierade objektet"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "Dölj alla märken"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Radera borttagna grenar och märken"
@@ -4713,6 +4729,10 @@ msgstr "Radera borttagna grenar och märken"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Göm det dockade fönstret"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "Dölj &märken"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -7299,6 +7319,10 @@ msgstr "Omlokaliseringsvarning"
 msgid "Relocating..."
 msgstr "Omlokaliserar..."
 
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "Minns djupet för denna arbetskopia"
+
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Egenskapstatus i arkivet"
@@ -8123,6 +8147,10 @@ msgstr "Server&adress:"
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
 msgstr "Välj snabbknapp &för:"
+
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "Ange explicit revidering av dessa externa:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -10437,6 +10465,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "Arbetskopia: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "Dela långa rader"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "Ja"
@@ -11228,9 +11260,9 @@ msgstr "svn:externals"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11241,9 +11273,9 @@ msgid ""
 msgstr ""
 "svn:externals\r\n"
 "En lista av arkivsökvägar angivna en per rad. Varje rad ska innehålla\r\n"
-"en frivillig revisionsflagga, en relativ mappsökväg, samt en URL. Exempel:\r\n"
+"en frivillig revisionsflagga, en relativ mappsökväg, samt en URL med en valfri peg revision. Exempel:\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "URLerna kan antingen vara absoluta eller relativa. Formatet för\r\n"
 "en relativ URL:er är:\r\n"
@@ -11549,6 +11581,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "Kontrollera externa till fast revision"
 #~ msgid "Check externals to tag"
 #~ msgstr "Kontrollera externa mot märken"
 #~ msgid "Tagged"
@@ -11690,8 +11724,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Cacha loggmeddelanden"
 #~ msgid "Checking for forward copies"
 #~ msgstr "Söker efter kopiornas källor"
-#~ msgid "Cleanup has finished"
-#~ msgstr "Rensning klar"
 #~ msgid "Groups branches together"
 #~ msgstr "Gruppera grenar tillsammans"
 #~ msgid "Not descending"
