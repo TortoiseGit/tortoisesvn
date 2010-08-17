@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-02 15:48-0000\n"
+"PO-Revision-Date: 2010-08-17 03:00-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -231,9 +231,9 @@ msgid "%s, but the directory was obstructed in the working copy."
 msgstr "%s, mas o diretório foi obstruído na cópia de trabalho."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but the directory was replaced"
-msgstr "%s, mas o diretório já foi editado."
+msgstr "%s, mas a pasta foi substituída"
 
 #. Resource IDs: (609)
 #, c-format
@@ -266,9 +266,9 @@ msgid "%s, but the file was obstructed in the working copy."
 msgstr "%s, mas o ficheiro foi obstruído na cópia de trabalho."
 
 #. Resource IDs: (609)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, but the file was replaced"
-msgstr "%s, mas o ficheiro já foi editado."
+msgstr "%s, mas o ficheiro foi substituído"
 
 #. Resource IDs: (376)
 #, c-format
@@ -567,7 +567,6 @@ msgid "&Custom"
 msgstr "&Personalizado"
 
 #. Resource IDs: (1610, 1613)
-#, fuzzy
 msgid "&Date"
 msgstr "Data"
 
@@ -708,9 +707,8 @@ msgid "&From URL:"
 msgstr "&De URL:"
 
 #. Resource IDs: (1259)
-#, fuzzy
 msgid "&From WC / URL:"
-msgstr "&Da cópia de trabalho no URL:"
+msgstr "&Da CT/URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -860,6 +858,10 @@ msgstr "&Luminescência:"
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
+
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "&Tornar a profundidade aderente"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1353,6 +1355,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "&Cópia de trabalho"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Acondicionar linhas longas"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2393,11 +2399,6 @@ msgstr "Verificar Actualizações"
 msgid "Check For Updates..."
 msgstr "Verificar Actualizações..."
 
-#. Resource IDs: (1544)
-#, fuzzy
-msgid "Check externals to explicit revision"
-msgstr "A transformar externos em revisão fixa"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "Verificar &modificações"
@@ -2500,6 +2501,10 @@ msgstr "Limpando"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "A limpar o directório \"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Limpar e refrescar a shell"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2517,6 +2522,10 @@ msgid ""
 msgstr ""
 "A limpeza foi efectuada com sucesso nos seguintes caminhos:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "Limpar operações interrompidas e refrescar as sobreposições da shell"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3095,14 +3104,14 @@ msgid "Could not remove %s from the ignore list"
 msgstr "Não foi possível remover %s da lista de ignorados"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not replace '%s' because"
-msgstr "Não foi possível remover '%s' porque"
+msgstr "Não foi possível substituir '%s' porque"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not replace property '%1!s!' on '%2!s!' because"
-msgstr "Não foi possível remover a propriedade '%1!s!' de '%2!s!s porque"
+msgstr "Não foi possível substituir a propriedade '%1!s!' de '%2!s!' porque"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3128,13 +3137,12 @@ msgid "Could not save the file %s!"
 msgstr "Não foi possível guardar o arquivo %s!"
 
 #. Resource IDs: (70)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "%s"
 msgstr ""
 "Não foi possível iniciar o visualizador de diferenças!\n"
-"<hr=100%%>\n"
 "%s"
 
 #. Resource IDs: (81)
@@ -3175,13 +3183,12 @@ msgid "Could not start print job."
 msgstr "Não foi possível iniciar a tarefa de impressão."
 
 #. Resource IDs: (83)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start text viewer!\n"
 "%s"
 msgstr ""
 "Não foi possível iniciar o visualizador de textos!\n"
-"<hr=100%%>\n"
 "%s"
 
 #. Resource IDs: (83)
@@ -3802,7 +3809,6 @@ msgid "Either the name or IP of the proxy server"
 msgstr "Nome ou endereço IP do servidor proxy"
 
 #. Resource IDs: (265)
-#, fuzzy
 msgid "Eliding mergeinfo"
 msgstr "&Incluir informação de integração"
 
@@ -4371,9 +4377,8 @@ msgstr ""
 "Preencher"
 
 #. Resource IDs: (117)
-#, fuzzy
 msgid "Filter by"
-msgstr "&Filtro"
+msgstr "Filtrar por"
 
 #. Resource IDs: (65535)
 msgid "Filter match"
@@ -4428,9 +4433,8 @@ msgid "Fix case of item and do not add it"
 msgstr "Ajustar a capitalização do item mas não o adicione"
 
 #. Resource IDs: (281)
-#, fuzzy
 msgid "Fixed at rev"
-msgstr "Unidades &fixas"
+msgstr "Fixa na rev"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4676,6 +4680,10 @@ msgstr "Ocultar caminhos &removidos"
 msgid "Hide all branches that did not modify the item"
 msgstr "Oculte todos os ramos que não modificaram o item"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "Ocultar todas as tags"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Esconder ramos e etiquetas apagados"
@@ -4683,6 +4691,10 @@ msgstr "Esconder ramos e etiquetas apagados"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Ocultar janela ancorada"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "Dobrar &etiquetas"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -5928,9 +5940,8 @@ msgid "Messages"
 msgstr "Mensagens"
 
 #. Resource IDs: (116)
-#, fuzzy
 msgid "Messages, authors, paths and revs"
-msgstr "Mensagens, autores e caminhos"
+msgstr "Mensagens, autores, caminhos e revs"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -6276,9 +6287,8 @@ msgid "No thesaurus suggestions"
 msgstr "Sem sugestões de sinónimos"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Node Status:"
-msgstr "Estado do Texto:"
+msgstr "Estado do Nó:"
 
 #. Resource IDs: (65535)
 msgid "Node colors"
@@ -6667,14 +6677,13 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Ficheiros de correção (*.diff, *.patch)|*.diff;*.patch|Todos (*.*)|*.*||"
 
 #. Resource IDs: (169)
-#, fuzzy
 msgid "Patching"
-msgstr "Caminho"
+msgstr "Correcção"
 
 #. Resource IDs: (169)
-#, fuzzy, c-format
+#, c-format
 msgid "Patching file '%1'"
-msgstr "Guardando arquivo %s"
+msgstr "Corrigindo o ficheiro '%1'"
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -6815,9 +6824,8 @@ msgid "Pre-Commit Hook"
 msgstr "Gancho Pré-Submissão"
 
 #. Resource IDs: (570)
-#, fuzzy
 msgid "Pre-Connect Hook"
-msgstr "Gancho Pré-Submissão"
+msgstr "Gancho Pré-Conexão"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
@@ -7109,9 +7117,9 @@ msgid "Recording mergeinfo for merge between URLs"
 msgstr "A gravar a mergeinfo para integrações entre URLs"
 
 #. Resource IDs: (265)
-#, fuzzy, c-format
+#, c-format
 msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
-msgstr "Integração reversa de %1!ld! até %2!ld!"
+msgstr "Guardando mergeinfo para a integração de r%1!ld! até %2!ld!"
 
 #. Resource IDs: (265)
 #, c-format
@@ -7119,9 +7127,9 @@ msgid "Recording mergeinfo for merge of r%ld"
 msgstr "A gravar a mergeinfo para a integração de r%ld"
 
 #. Resource IDs: (265)
-#, fuzzy, c-format
+#, c-format
 msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
-msgstr "Integração reversa de %1!ld! até %2!ld!"
+msgstr "Guardando mergeinfo para Integração inversa de r%1!ld! até %2!ld!"
 
 #. Resource IDs: (265)
 #, c-format
@@ -7229,9 +7237,8 @@ msgid "Rejected patch hunks for '%s'"
 msgstr "Nacos de correcção rejeitados para o '%s'"
 
 #. Resource IDs: (16)
-#, fuzzy
 msgid "Release loc&k..."
-msgstr "Libertar blo&queio"
+msgstr "Libertar blo&queio..."
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
@@ -7268,6 +7275,10 @@ msgstr "Reposicionar Aviso"
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "Reposicionando..."
+
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "Recordar a profundidade desta cópia de trabalho"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -8087,6 +8098,10 @@ msgstr "&Endereço do servidor:"
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
 msgstr "Atribuir Acelerador &para:"
+
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "Colocar uma revisão explícita para esses externos:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -9013,14 +9028,14 @@ msgid "The last merge operation tried to modify the file '%s'"
 msgstr "A última integração tentou modificar o ficheiro '%s'"
 
 #. Resource IDs: (608)
-#, fuzzy, c-format
+#, c-format
 msgid "The last merge operation tried to replace the directory '%s'"
-msgstr "A última tentativa de integração tentou adicionar o directório '%s'"
+msgstr "A última operação de integração tentou substituir a pasta '%s'"
 
 #. Resource IDs: (608)
-#, fuzzy, c-format
+#, c-format
 msgid "The last merge operation tried to replace the file '%s'"
-msgstr "A última integração tentou adicionar o ficheiro '%s'"
+msgstr "A última operação de integração tentou substituir o ficheiro '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -9053,14 +9068,14 @@ msgid "The last switch operation tried to modify the file '%s'"
 msgstr "A última tentativa de comutação tentou modificar o ficheiro '%s'"
 
 #. Resource IDs: (608)
-#, fuzzy, c-format
+#, c-format
 msgid "The last switch operation tried to replace the directory '%s'"
-msgstr "A última comutação tentou adicionar o directório '%s'"
+msgstr "A última operação trocar tentou substituir a pasta '%s'"
 
 #. Resource IDs: (608)
-#, fuzzy, c-format
+#, c-format
 msgid "The last switch operation tried to replace the file '%s'"
-msgstr "A última comutação tentou adicionar o ficheiro '%s'"
+msgstr "A última operação trocar tentou substituir o ficheiro '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -9093,14 +9108,14 @@ msgid "The last update operation tried to modify the file '%s'"
 msgstr "A última actualização tentou alterar o ficheiro '%s'"
 
 #. Resource IDs: (608)
-#, fuzzy, c-format
+#, c-format
 msgid "The last update operation tried to replace the directory '%s'"
-msgstr "A última operação de actualização tentou adicionar o directório '%s'"
+msgstr "A última operação de actualização tentou substituir a pasta '%s'"
 
 #. Resource IDs: (608)
-#, fuzzy, c-format
+#, c-format
 msgid "The last update operation tried to replace the file '%s'"
-msgstr "A última actualização tentou adicionar o ficheiro '%s'"
+msgstr "A última operação de actualização tentou substituir o ficheiro '%s'"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9431,12 +9446,8 @@ msgid "These are more recently saved than the currently open documents and conta
 msgstr "Estes documentos são mais recentes que os que estão abertos e contém modificações que foram feitas antes da aplicação fechar."
 
 #. Resource IDs: (84)
-#, fuzzy
 msgid "This file already exists!"
-msgstr ""
-"A pasta\n"
-"%s\n"
-"já existe!"
+msgstr "Este ficheiro já existe!"
 
 #. Resource IDs: (83)
 msgid ""
@@ -9945,9 +9956,8 @@ msgid "Unversioned files mark parent folder as modified"
 msgstr "Retirar o controlo de versão a arquivos leva a que as respectivas pastas pai sejam marcadas como modificadas"
 
 #. Resource IDs: (265)
-#, fuzzy
 msgid "Unversioned obstruction"
-msgstr "Sem contolo de versão"
+msgstr "Obstrução não versionada"
 
 #. Resource IDs: (286)
 #, c-format
@@ -10400,6 +10410,10 @@ msgstr ""
 #, c-format
 msgid "Working copy: %s\n"
 msgstr "Cópia de trabalho: %s\n"
+
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "Acondicionar linhas longas"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -11193,9 +11207,9 @@ msgstr "svn:externals"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11208,11 +11222,11 @@ msgstr ""
 "Uma lista de especificadores de módulo separados por fins-de-linha, cada um consistindo\r\n"
 "numa revisão opcional, num URL e num caminho de pasta relativo. Por exemplo\r\n"
 "http://exemplo.com/repos/zig foo\r\n"
-"-r 1234 http://exemplo.com/repos/zag foo/bar\r\n"
+"-r 1234 http://exemplo.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
-"Os URL podem ser completos ou relativos. O formato dos\r\n"
-"URL relativos é:\r\n"
-"../ relativo à pasta pai\r\n"
+"Os URL podem ser completos ou relativos. O formato para os\r\n"
+"URLs relativos é:\r\n"
+"../ relativo à pasta pai do externo\r\n"
 "^/ relativo à raiz do repositório\r\n"
 "// relativo ao esquema do URL\r\n"
 "/ relativo ao nome de anfitrião do servidor"
@@ -11516,6 +11530,9 @@ msgstr "sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#, fuzzy
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "A transformar externos em revisão fixa"
 #~ msgid "Check externals to tag"
 #~ msgstr "Verificar os externos a marcar"
 #~ msgid "Tagged"
@@ -11649,8 +11666,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Sistema de Arquivos &Nativo (FSFS)"
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "Um parâmetro inválido foi encontrado."
-#~ msgid "Cleanup has finished"
-#~ msgstr "Limpeza finalizada"
 #~ msgid "Commit threshold:"
 #~ msgstr "Limite de submissões:"
 #~ msgid "D&iff"
