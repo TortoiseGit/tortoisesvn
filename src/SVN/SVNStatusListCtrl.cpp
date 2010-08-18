@@ -1327,6 +1327,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
         if ((entry->status == entry->propstatus)&&
             (entry->status != svn_wc_status_normal)&&
             (entry->status != svn_wc_status_unversioned)&&
+            (entry->status != svn_wc_status_none)&&
             (!SVNStatus::IsImportant(entry->textstatus)))
             _tcscat_s(buf, 100, ponly);
         if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
