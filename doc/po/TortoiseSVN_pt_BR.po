@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-06-01 01:09-0300\n"
-"Last-Translator: Eduardo Marques <ebmarques@gmail.com>\n"
+"POT-Creation-Date: 2010-07-29 22:08 +0000\n"
+"PO-Revision-Date: 2010-08-18 01:17-0300\n"
+"Last-Translator: Rafael Marcelo Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1190,6 +1190,14 @@ msgid "A repository is then created inside the new folder. <emphasis>Don't edit 
 msgstr "Um repositório é então criado dentro do novo diretório. <emphasis>Não edite esses arquivos você mesmo!!!</emphasis>. Se apresentar algum erro tenha certeza que o diretório está vazio e sem proteção de escrita."
 
 #. (para)
+msgid "You will also be asked whether you want to create a directory structure within the repository. Find out about layout options in <xref linkend=\"tsvn-repository-layout\"/>."
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN will set a custom folder icon when it creates a repository so you can identify local repositories more easily. If you create a repository using the official command line client this folder icon is not assigned."
+msgstr ""
+
+#. (para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
 msgstr "TortoiseSVN não oferece a opção de criar um repositório BDB, apesar de que você pode continuar usando a linha de comando para criar um. Repositórios FSFS são geralmente mais fáceis para manter, e também é mais fácil para nós mantermos o TortoiseSVN devido aos problemas de compatibilidade entre as diferentes versões do BDB."
 
@@ -1282,6 +1290,10 @@ msgstr ""
 "/trunk\n"
 "/branches\n"
 "/tags\n"
+
+#. (para)
+msgid "Because this layout is so commonly used, when you create a new repository using TortoiseSVN, it will also offer to create the directory structure for you."
+msgstr ""
 
 #. (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
@@ -2985,7 +2997,7 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr ""
 
 #. (para)
-msgid "In the repository browser, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
 msgstr ""
 
 #. (para)
@@ -5742,6 +5754,15 @@ msgid "The <literal>svn:externals</literal> property can be used to pull in othe
 msgstr ""
 
 #. (title)
+#, fuzzy
+msgid "Edit properties at HEAD revision"
+msgstr "&Tempo limite, em segundos, antes de atualizar a última revisão"
+
+#. (para)
+msgid "Because properties are versioned, you cannot edit the properties of previous revisions. If you look at properties from the log dialog, or from a non-HEAD revision in the repository browser, you will see a list of properties and values, but no edit controls."
+msgstr ""
+
+#. (title)
 msgid "Exporting and Importing Properties"
 msgstr ""
 
@@ -6630,11 +6651,11 @@ msgid "Merging does not always go smoothly. Sometimes there is a conflict, and i
 msgstr ""
 
 #. (para)
-msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. This only relates to conflicting changes. Changes that can be merged are still merged. Only for the conflicting part your choice is used."
+msgid "Choosing <emphasis>Prefer local</emphasis> will select your local changes in every conflict. Likewise, <emphasis>Prefer repository</emphasis> will select the repository changes in every conflict. This sounds easy, but the conflicts often cover more lines than you think they will and you may get unexpected results."
 msgstr ""
 
 #. (para)
-msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
+msgid "Normally you will want to look at the conflicts and resolve them yourself. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
 msgstr ""
 
 #. (para)
@@ -6642,7 +6663,7 @@ msgid "The last option is to postpone resolution and continue with merging. You 
 msgstr ""
 
 #. (para)
-msgid "When a conflict occurs during the merge, you have three ways to handle it. <placeholder-1/>"
+msgid "It is likely that some of the changes will have merged smoothly, while other local changes conflict with changes already committed to the repository. All changes which can be merged are merged. The Merge Conflict Callback dialog gives you three different ways of handling the lines which are in conflict. <placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -7260,7 +7281,7 @@ msgstr ""
 #. (term)
 #, fuzzy
 msgid "Working copy revision"
-msgstr "Copiar %s para %s, Revisão %s"
+msgstr "Revisão da Cópia de Trabalho Atual"
 
 #. (para)
 msgid "If you invoked the revision graph from a working copy, you can opt to show the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, which marks the BASE node with a bold outline."
@@ -7502,7 +7523,7 @@ msgstr ""
 #. (title)
 #, fuzzy
 msgid "Pruning Trees"
-msgstr "&Reduzir sub-árvores"
+msgstr "duas árvores"
 
 #. (para)
 msgid "A large tree can be difficult to navigate and sometimes you will want to hide parts of it, or break it down into a forest of smaller trees. If you hover the mouse over the point where a node link enters or leaves the node you will see one or more popup buttons which allow you to do this."
@@ -7632,7 +7653,7 @@ msgstr "Repositório svn ilegal '%s'"
 #. (primary)
 #, fuzzy
 msgid "server moved"
-msgstr "Blocos &movidos"
+msgstr "servidor movido"
 
 #. (primary)
 msgid "moved server"
@@ -7957,11 +7978,12 @@ msgid "Selects your user interface language. What else did you expect?"
 msgstr ""
 
 #. (term)
-msgid "Automatically check for newer versions every week"
-msgstr ""
+#, fuzzy
+msgid "Check for updates"
+msgstr "Verificar atualizações"
 
 #. (para)
-msgid "If checked, TortoiseSVN will contact its download site once a week to see if there is a newer version of the program available. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
+msgid "TortoiseSVN will contact its download site periodically to see if there is a newer version of the program available. If there is it will show a notification link in the commit dialog. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
 msgstr ""
 
 #. (term)
@@ -8115,8 +8137,9 @@ msgid "If you frequently find yourself comparing revisions in the top pane of th
 msgstr ""
 
 #. (term)
-msgid "Progress Dialog"
-msgstr "Janela de Progresso"
+#, fuzzy
+msgid "Auto-close"
+msgstr "Fechar Tudo"
 
 #. (para)
 msgid "TortoiseSVN can automatically close all progress dialogs when the action is finished without error. This setting allows you to select the conditions for closing the dialogs. The default (recommended) setting is <guilabel>Close manually</guilabel> which allows you to review all messages and check what has happened. However, you may decide that you want to ignore some types of message and have the dialog close automatically if there are no critical changes."
@@ -8127,15 +8150,20 @@ msgid "<guilabel>Auto-close if no merges, adds or deletes</guilabel> means that 
 msgstr ""
 
 #. (para)
-msgid "<guilabel>Auto-close if no merges, adds or deletes for local operations</guilabel> means that the progress dialog will close as for <guilabel>Auto-close if no merges, adds or deletes</guilabel> but only for local operations like adding files or reverting changes. For remote operations the dialog will stay open."
-msgstr ""
-
-#. (para)
 msgid "<guilabel>Auto-close if no conflicts</guilabel> relaxes the criteria further and will close the dialog even if there were merges, adds or deletes. However, if there were any conflicts or errors, the dialog remains open."
 msgstr ""
 
 #. (para)
 msgid "<guilabel>Auto-close if no errors</guilabel> always closes the dialog even if there were conflicts. The only condition that keeps the dialog open is an error condition, which occurs when Subversion is unable to complete the task. For example, an update fails because the server is inaccessible, or a commit fails because the working copy is out-of-date."
+msgstr ""
+
+#. (term)
+#, fuzzy
+msgid "Always close dialogs for local operations"
+msgstr "Sempre fechar as janelas para operações locais"
+
+#. (para)
+msgid "Local operations like adding files or reverting changes do not need to contact the repository and complete quickly, so the progress dialog is often of little interest. Select this option if you want the progress dialog to close automatically after these operations, unless there are errors."
 msgstr ""
 
 #. (term)
@@ -8369,6 +8397,15 @@ msgstr "Nó substituido"
 msgid "The original item has been deleted and a new item with the same name replaces it."
 msgstr ""
 
+#. (term)
+#, fuzzy
+msgid "Filter match"
+msgstr "Correspondência de filtro"
+
+#. (para)
+msgid "When using filtering in the log dialog, search terms are highlighted in the results using this colour."
+msgstr ""
+
 #. (title)
 #, fuzzy
 msgid "Revision Graph Settings"
@@ -8533,18 +8570,6 @@ msgstr ""
 msgid "<placeholder-1/> This page allows you to choose the items for which TortoiseSVN will display icon overlays."
 msgstr ""
 
-#. (para)
-msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
-msgstr ""
-
-#. (para)
-msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr ""
-
-#. (para)
-msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr ""
-
 #. (term)
 msgid "Default"
 msgstr "Padrão"
@@ -8598,6 +8623,14 @@ msgid "Since it takes quite a while to fetch the status of a working copy, Torto
 msgstr ""
 
 #. (para)
+msgid "By default, overlay icons and context menus will appear in all open/save dialogs as well as in Windows Explorer. If you want them to appear <emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show overlays and context menu only in explorer</guilabel> box."
+msgstr ""
+
+#. (para)
+msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
+msgstr ""
+
+#. (para)
 msgid "The next group allows you to select which classes of storage should show overlays. By default, only hard drives are selected. You can even disable all icon overlays, but where's the fun in that?"
 msgstr ""
 
@@ -8610,15 +8643,11 @@ msgid "USB Flash drives appear to be a special case in that the drive type is id
 msgstr ""
 
 #. (para)
-msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays. For example:"
+msgid "The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN those paths for which it should <emphasis>not</emphasis> show icon overlays and status columns. This is useful if you have some very big working copies containing only libraries which you won't change at all and therefore don't need the overlays, or if you only want TortoiseSVN to look in specific folders."
 msgstr ""
 
 #. (para)
-msgid "<filename>f:\\development\\SVN\\Subversion</filename> will disable the overlays <emphasis>only</emphasis> on that specific folder. You still can see the overlays on all files and folder inside that folder."
-msgstr ""
-
-#. (para)
-msgid "<filename>f:\\development\\SVN\\Subversion*</filename> will disable the overlays on <emphasis>all</emphasis> files and folders whose path starts with <filename>f:\\development\\SVN\\Subversion</filename>. That means you won't see overlays for any files and folders below that path."
+msgid "Any path you specify here is assumed to apply recursively, so none of the child folders will show overlays either. If you want to exclude <emphasis>only</emphasis> the named folder, append <literal>?</literal> after the path."
 msgstr ""
 
 #. (para)
@@ -8626,13 +8655,21 @@ msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that f
 msgstr ""
 
 #. (para)
+msgid "Users sometimes ask how these three settings interact. For any given path check the include and exclude lists, seeking upwards through the directory structure until a match is found. When the first match is found, obey that include or exclude rule. If there is a conflict, a single directory spec takes precedence over a recursive spec, then inclusion takes precedence over exclusion."
+msgstr ""
+
+#. (para)
 msgid ""
-"Users sometimes ask how these three settings interact, and the definitive answer is: <screen>\n"
-"if (path is in include list)\n"
-"  show overlays\n"
-"if (path is allowed drive type) AND (path is not in exclude list)\n"
-"  show overlays\n"
-"</screen> The include list <emphasis>always</emphasis> makes the overlays show. Otherwise, overlays are shown for all marked drive types <emphasis>unless</emphasis> the path is excluded."
+"An example will help here: <screen>\n"
+"Exclude:\n"
+"       C:\n"
+"       C:\\develop\\?\n"
+"       C:\\develop\\tsvn\\obj\n"
+"       C:\\develop\\tsvn\\bin\n"
+"\n"
+"Include:\n"
+"       C:\\develop\n"
+"</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
 msgstr ""
 
 #. (para)
@@ -8678,6 +8715,20 @@ msgstr ""
 
 #. (para)
 msgid "<placeholder-1/> You can change the overlay icon set to the one you like best. Note that if you change overlay set, you may have to restart your computer for the changes to take effect."
+msgstr ""
+
+#. (title)
+#, fuzzy
+msgid "Enabled Overlay Handlers"
+msgstr "Habilitar Controladores de Sobreposição"
+
+#. (title)
+#, fuzzy
+msgid "The Settings Dialog, Icon Handlers Page"
+msgstr "Exibir estatísticas para o cache de log selecionado"
+
+#. (para)
+msgid "<placeholder-1/> Because the number of overlays available is severely restricted, you can choose to disable some handlers to ensure that the ones you want will be loaded. Because TortoiseSVN uses the common TortoiseOverlays component which is shared with other Tortoise clients (e.g. TortoiseCVS, TortoiseHG) this setting will affect those clients too."
 msgstr ""
 
 #. (title)
@@ -9268,6 +9319,16 @@ msgstr "Post-update"
 msgid "Called after the update, switch or checkout finishes (whether successful or not)."
 msgstr ""
 
+#. (term)
+#. (term)
+#, fuzzy
+msgid "Pre-connect"
+msgstr "Gancho Pré-Conexão"
+
+#. (para)
+msgid "Called before an attempt to contact the repository. Called at most once in five minutes."
+msgstr ""
+
 #. (para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
 msgstr ""
@@ -9277,7 +9338,7 @@ msgid "A hook is defined for a particular working copy path. You only need to sp
 msgstr ""
 
 #. (para)
-msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
+msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script. Note that the script must not be specified using a UNC path as Windows shell execute will not allow such scripts to run due to security restrictions."
 msgstr ""
 
 #. (para)
@@ -9355,6 +9416,10 @@ msgstr ""
 
 #. (para)
 msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgstr ""
+
+#. (para)
+msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
 msgstr ""
 
 #. (title)
@@ -9548,6 +9613,10 @@ msgstr ""
 
 #. (para)
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid "Sometimes multiple users use the same account on the same computer. In such situations it's not really wanted to save the authentication data. Setting this value to <literal>false</literal> disables the <literal>save authentication</literal> button in the authentication dialog."
 msgstr ""
 
 #. (title)
@@ -9748,11 +9817,9 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
-#. (literal)
 msgid "TText"
 msgstr "TText"
 
-#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -9785,19 +9852,6 @@ msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versio
 msgstr ""
 
 #. (literal)
-msgid "$WCNEEDSLOCK?TText:FText$"
-msgstr "$WCNEEDSLOCK?TText:FText$"
-
-#. (literal)
-#. (literal)
-msgid "svn:needs-lock"
-msgstr "svn:needs-lock"
-
-#. (entry)
-msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
-msgstr ""
-
-#. (literal)
 msgid "$WCISLOCKED?TText:FText$"
 msgstr "$WCISLOCKED?TText:FText$"
 
@@ -9823,7 +9877,7 @@ msgid "If a source and destination files are supplied, SubWCRev copies source to
 msgstr ""
 
 #. (para)
-msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
+msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
 msgstr ""
 
 #. (title)
@@ -9961,10 +10015,6 @@ msgid "True if the item is versioned."
 msgstr "Já existe um item versionado '%s'"
 
 #. (entry)
-msgid "True if the item has the <placeholder-1/> property set."
-msgstr ""
-
-#. (entry)
 msgid "True if the item is locked."
 msgstr ""
 
@@ -10023,8 +10073,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject1.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject1.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject1.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject1.LockCreationDate + \"\\n"
@@ -10048,8 +10096,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject2.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject2.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject2.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject2.LockCreationDate + \"\\n"
@@ -10073,8 +10119,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject3.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject3.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject3.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject3.LockCreationDate + \"\\n"
@@ -10098,8 +10142,6 @@ msgid ""
 "IsSvnItem = \" +\n"
 "                revObject4.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
-"                revObject4.NeedsLocking + \"\\n"
-"IsLocked = \" +\n"
 "                revObject4.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject4.LockCreationDate + \"\\n"
@@ -10536,7 +10578,7 @@ msgstr ""
 #. (title)
 #, fuzzy
 msgid "Project properties"
-msgstr "propriedade em '%s'\n"
+msgstr "propriedades do projeto"
 
 #. (para)
 msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:logminsize</literal> property."
@@ -10739,7 +10781,7 @@ msgstr ""
 #. (title)
 #, fuzzy
 msgid "Use a relative location"
-msgstr "usa semântica estrita"
+msgstr "Relativo ao esquema"
 
 #. (para)
 msgid ""
@@ -12534,11 +12576,13 @@ msgid "translations"
 msgstr "traduções"
 
 #. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available yet, why not join the team and submit your own translation ;-)"
+#, fuzzy
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available, why not join the team and submit your own translation ;-)"
 msgstr "A interface do TortoiseSVN tem sido traduzido em muitos idiomas diferentes, então, você pode ter disponível um pacote para sanar sua necessidade. Você pode encontrar os pacotes de idioma em nossa <ulink url=\"http://tortoisesvn.net/translation_status\"><citetitle>página da situação das traduções</citetitle></ulink>. E se um idioma ainda não estiver disponível, porque não entra para o time e envie suas própria tradução ;-)"
 
 #. (para)
-msgid "Each language pack is packaged as a <literal>.exe</literal> installer. Just run the install program and follow the instructions. Next time you restart, the translation will be available."
+#, fuzzy
+msgid "Each language pack is packaged as a <literal>.msi</literal> installer. Just run the install program and follow the instructions. After the installation finishes, the translation will be available."
 msgstr "Cada pacote de idioma é como um <literal>.exe</literal> instalador. Apenas execute o instalador e siga as instruções. Na próxima reinicialização, a tradução estará disponível."
 
 #. (para)
@@ -12562,7 +12606,8 @@ msgid "TortoiseSVN includes a spell checker which allows you to check your commi
 msgstr "TortoiseSVN inclui um corretor ortográfico que lhe permite verificar as mensagens de log das submissões. Isto é especialmente útil se o idioma do projeto não é seu idioma nativo. O corretor ortográfico usa o mesmo arquivo de dicionário que <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> e <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 
 #. (para)
-msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. Next time you restart, the dictionary will be available too."
+#, fuzzy
+msgid "The installer automatically adds the US and UK English dictionaries. If you want other languages, the easiest option is simply to install one of TortoiseSVN's language packs. This will install the appropriate dictionary files as well as the TortoiseSVN local user interface. After the installation finishes, the dictionary will be available too."
 msgstr "O instalador automaticamente adiciona os dicionários ingleses US e UK. Se você quer outros idiomas, a opção mais fácil é simplesmente instalar o pacote de idioma do TortoiseSVN. Isto instalará o dicionário apropriado conforme o idioma do TortoiseSVN local. Na próxima reinicialização, o dicionário também estará disponível."
 
 #. (para)
@@ -12859,6 +12904,15 @@ msgstr "tradudor-créditos"
 #. (None)
 msgid "translator-translation"
 msgstr "tradutor-tradução"
+
+#~ msgid "Progress Dialog"
+#~ msgstr "Janela de Progresso"
+
+#~ msgid "$WCNEEDSLOCK?TText:FText$"
+#~ msgstr "$WCNEEDSLOCK?TText:FText$"
+
+#~ msgid "svn:needs-lock"
+#~ msgstr "svn:needs-lock"
 
 #~ msgid "Do you work in a team?"
 #~ msgstr "Você trabalha com uma equipe?"
