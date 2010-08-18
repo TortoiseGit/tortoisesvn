@@ -488,6 +488,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
         FALSE,      // update
         TRUE,       // no ignores
         FALSE,      // ignore externals
+        TRUE,           // depth as sticky
         NULL,       // changelists
         GetStatusCallback,
         this,

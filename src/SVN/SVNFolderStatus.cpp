@@ -179,6 +179,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
                     FALSE,              // update
                     TRUE,               // no ignore
                     FALSE,              // ignore externals
+                    TRUE,           // depth as sticky
                     NULL,
                     findfolderstatus,
                     this,
@@ -231,6 +232,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
             FALSE,                      // update
             TRUE,                       // no ignore
             FALSE,                      // ignore externals
+            TRUE,           // depth as sticky
             NULL,
             fillstatusmap,
             this,

@@ -211,6 +211,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
                                 FALSE,          // update
                                 TRUE,           // no ignore
                                 FALSE,          // ignore externals
+                                TRUE,           // depth as sticky
                                 NULL,
                                 getallstatus,
                                 &statuskind,
@@ -312,6 +313,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
                                 update,                 // update
                                 noignore,
                                 noexternals,
+                                TRUE,           // depth as sticky
                                 NULL,
                                 getstatushash,
                                 &hashbaton,
@@ -369,6 +371,7 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
                                 update,         // update
                                 bNoIgnore,
                                 bNoExternals,
+                                TRUE,           // depth as sticky
                                 NULL,
                                 getstatushash,
                                 &hashbaton,
