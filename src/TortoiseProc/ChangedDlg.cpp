@@ -102,7 +102,7 @@ BOOL CChangedDlg::OnInitDialog()
     m_bShowUnversioned = m_regAddBeforeCommit;
     UpdateData(FALSE);
 
-    m_FileListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS |
+    m_FileListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS |
                         SVNSLC_COLREMOTETEXT | SVNSLC_COLREMOTEPROP |
                         SVNSLC_COLLOCK | SVNSLC_COLLOCKCOMMENT |
                         SVNSLC_COLAUTHOR | SVNSLC_COLAUTHOR |

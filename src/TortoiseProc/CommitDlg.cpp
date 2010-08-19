@@ -126,7 +126,7 @@ BOOL CCommitDlg::OnInitDialog()
 
     UpdateData(FALSE);
 
-    m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLLOCK, _T("CommitDlg"));
+    m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLLOCK, _T("CommitDlg"));
     m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
     m_ListCtrl.SetCancelBool(&m_bCancelled);
     m_ListCtrl.SetEmptyString(IDS_COMMITDLG_NOTHINGTOCOMMIT);

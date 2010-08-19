@@ -70,7 +70,7 @@ BOOL CRevertDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_DELUNVERSIONED);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_RevertList.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, _T("RevertDlg"));
+    m_RevertList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, _T("RevertDlg"));
     m_RevertList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
     m_RevertList.SetSelectButton(&m_SelectAll);
     m_RevertList.SetCancelBool(&m_bCancelled);

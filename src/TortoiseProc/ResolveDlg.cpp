@@ -59,7 +59,7 @@ BOOL CResolveDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_resolveListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, _T("ResolveDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH));
+    m_resolveListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, _T("ResolveDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH));
     m_resolveListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
     m_resolveListCtrl.SetSelectButton(&m_SelectAll);
     m_resolveListCtrl.SetCancelBool(&m_bCancelled);
