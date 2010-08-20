@@ -373,25 +373,7 @@ BOOL CTortoiseMergeApp::InitInstance()
             CString outfile = parser.GetVal(_T("outfile"));
             if (outfile.IsEmpty())
             {
-                OPENFILENAME ofn = {0};         // common dialog box structure
-                TCHAR szFile[MAX_PATH] = {0};   // buffer for file name
-                ofn.lStructSize = sizeof(OPENFILENAME);
-                ofn.lpstrFile = szFile;
-                ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-                CString temp;
-                temp.LoadString(IDS_SAVEASTITLE);
-                if (!temp.IsEmpty())
-                    ofn.lpstrTitle = temp;
-                ofn.Flags = OFN_OVERWRITEPROMPT;
-                CSelectFileFilter fileFilter(IDS_COMMONFILEFILTER);
-                ofn.lpstrFilter = fileFilter;
-                ofn.nFilterIndex = 1;
-
-                // Display the Save dialog box.
-                if (GetSaveFileName(&ofn)==TRUE)
-                {
-                    outfile = CString(ofn.lpstrFile);
-                }
+                CCommonAppUtils::FileOpenSave(outfile, NULL, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, NULL);
             }
             if (!outfile.IsEmpty())
             {

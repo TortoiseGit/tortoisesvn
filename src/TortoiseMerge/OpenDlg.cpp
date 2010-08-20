@@ -21,7 +21,7 @@
 #include "BrowseFolder.h"
 #include ".\opendlg.h"
 #include "auto_buffer.h"
-#include "SelectFileFilter.h"
+#include "CommonAppUtils.h"
 #include "registry.h"
 
 // COpenDlg dialog
@@ -127,52 +127,17 @@ void COpenDlg::OnBnClickedHelp()
     this->OnHelp();
 }
 
-BOOL COpenDlg::BrowseForFile(CString& filepath, const CString& title, UINT nFileFilter) const
-{
-    TCHAR szFile[MAX_PATH + 1] = {0};   // buffer for file name
-    if (!filepath.IsEmpty())
-    {
-        _tcscpy_s(szFile, filepath);
-    }
-    OPENFILENAME ofn = {0};             // common dialog box structure
-    // Initialize OPENFILENAME
-    ofn.lStructSize = sizeof(OPENFILENAME);
-    ofn.hwndOwner = this->m_hWnd;
-    ofn.lpstrFile = szFile;
-    ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-    CSelectFileFilter fileFilter(nFileFilter);
-    ofn.lpstrFilter = fileFilter;
-    ofn.nFilterIndex = 1;
-    ofn.lpstrFileTitle = NULL;
-    ofn.nMaxFileTitle = 0;
-    ofn.lpstrInitialDir = NULL;
-    ofn.lpstrTitle = title;
-    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
-
-    // Display the Open dialog box.
-    if (GetOpenFileName(&ofn) != 0)
-    {
-        filepath = CString(ofn.lpstrFile);
-        return TRUE;
-    }
-    return FALSE;           //user canceled the dialog
-}
-
 void COpenDlg::OnBrowseForFile(CString& filepath, UINT nFileFilter)
 {
     UpdateData();
-    CString temp;
-    temp.LoadString(IDS_SELECTFILE);
-    BrowseForFile(filepath, temp, nFileFilter);
+    CCommonAppUtils::FileOpenSave(filepath, NULL, IDS_SELECTFILE, nFileFilter, false, m_hWnd);
     UpdateData(FALSE);
 }
 
 void COpenDlg::OnBnClickedDifffilebrowse()
 {
     UpdateData();
-    CString temp;
-    temp.LoadString(IDS_SELECTDIFFFILE);
-    BrowseForFile(m_sUnifiedDiffFile, temp, IDS_PATCHFILEFILTER);
+    CCommonAppUtils::FileOpenSave(m_sUnifiedDiffFile, NULL, IDS_SELECTDIFFFILE, IDS_PATCHFILEFILTER, false, m_hWnd);
     UpdateData(FALSE);
 }
 

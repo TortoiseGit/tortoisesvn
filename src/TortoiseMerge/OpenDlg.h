@@ -36,7 +36,6 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     void OnBrowseForFile(CString& filepath, UINT nFileFilter = IDS_COMMONFILEFILTER);
-    BOOL BrowseForFile(CString& filepath, const CString& title, UINT nFileFilter) const;
     void GroupRadio(UINT nID);
     bool CheckAndEnableClipboardChecker();
     DECLARE_MESSAGE_MAP()

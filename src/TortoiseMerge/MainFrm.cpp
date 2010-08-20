@@ -2147,27 +2147,7 @@ bool CMainFrame::HasConflictsWontKeep()
 
 bool CMainFrame::TryGetFileName(CString& result)
 {
-    OPENFILENAME ofn = {0};         // common dialog box structure
-    TCHAR szFile[MAX_PATH] = {0};   // buffer for file name
-    ofn.lStructSize = sizeof(OPENFILENAME);
-    ofn.hwndOwner = m_hWnd;
-    ofn.lpstrFile = szFile;
-    ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-    CString temp;
-    temp.LoadString(IDS_SAVEASTITLE);
-    if (!temp.IsEmpty())
-        ofn.lpstrTitle = temp;
-    ofn.Flags = OFN_OVERWRITEPROMPT;
-    CSelectFileFilter fileFilter(IDS_COMMONFILEFILTER);
-    ofn.lpstrFilter = fileFilter;
-    ofn.nFilterIndex = 1;
-
-    // Display the Open dialog box.
-    if (GetSaveFileName(&ofn) == 0)
-        return false;
-
-    result = CString(ofn.lpstrFile);
-    return true;
+    return CCommonAppUtils::FileOpenSave(result, NULL, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, m_hWnd);
 }
 
 CBaseView* CMainFrame::GetActiveBaseView() const
