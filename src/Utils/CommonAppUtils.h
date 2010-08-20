@@ -113,6 +113,8 @@ public:
 
     static void ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl);
 
+    static bool FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
+
 protected:
     CCommonAppUtils(void){};
     ~CCommonAppUtils(void){};
