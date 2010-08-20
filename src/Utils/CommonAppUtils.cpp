@@ -85,8 +85,7 @@ CString CCommonAppUtils::GetAppForFile
     ( const CString& fileName
     , const CString& extension
     , const CString& verb
-    , bool applySecurityHeuristics
-    , bool askUserOnFailure)
+    , bool applySecurityHeuristics)
 {
     CString application;
 
@@ -163,38 +162,8 @@ CString CCommonAppUtils::GetAppForFile
                 return GetAppForFile ( fileName
                                      , extension
                                      , _T("open")
-                                     , true
-                                     , askUserOnFailure);
+                                     , true);
         }
-    }
-
-    // if lookup failed, ask user for path
-
-    if (application.IsEmpty() && askUserOnFailure)
-    {
-        OPENFILENAME ofn = {0};             // common dialog box structure
-        TCHAR szFile[MAX_PATH] = {0};       // buffer for file name. Explorer can't handle paths longer than MAX_PATH.
-        // Initialize OPENFILENAME
-        ofn.lStructSize = sizeof(OPENFILENAME);
-        ofn.hwndOwner = NULL;
-        ofn.lpstrFile = szFile;
-        ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-        CSelectFileFilter fileFilter(IDS_PROGRAMSFILEFILTER);
-        ofn.lpstrFilter = fileFilter;
-        ofn.nFilterIndex = 1;
-        ofn.lpstrFileTitle = NULL;
-        ofn.nMaxFileTitle = 0;
-        ofn.lpstrInitialDir = NULL;
-        CString temp;
-        temp.LoadString(IDS_UTILS_SELECTTEXTVIEWER);
-        CStringUtils::RemoveAccelerators(temp);
-        ofn.lpstrTitle = temp;
-        ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
-
-        // Display the Open dialog box.
-
-        if (GetOpenFileName(&ofn)==TRUE)
-            application = CString(ofn.lpstrFile);
     }
 
     // exit here, if we were not successful
@@ -217,7 +186,17 @@ CString CCommonAppUtils::GetAppForFile
 
 BOOL CCommonAppUtils::StartTextViewer(CString file)
 {
-    CString viewer = GetAppForFile (file, _T(".txt"), _T("open"), false, true);
+    CString viewer = GetAppForFile (file, _T(".txt"), _T("open"), false);
+    if (viewer.IsEmpty())
+    {
+        int ret = (int)ShellExecute(NULL, _T("openas"), file, NULL, NULL, SW_SHOWNORMAL);
+        if (ret <= HINSTANCE_ERROR)
+        {
+            CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+            c += file + _T(" ");
+            LaunchApplication(c, IDS_ERR_TEXTVIEWSTART, false);
+        }
+    }
     return LaunchApplication (viewer, IDS_ERR_TEXTVIEWSTART, false)
         ? TRUE
         : FALSE;

@@ -1800,11 +1800,11 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
     // a temporary file and must not be edited.
     SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
     int ret = (int)ShellExecute ( NULL
-                                , bOpenWith ? _T("openas") : _T("open")
-                                , tempfile.GetWinPathString()
-                                , NULL
-                                , NULL
-                                , SW_SHOWNORMAL);
+        , bOpenWith ? _T("openas") : _T("open")
+        , tempfile.GetWinPathString()
+        , NULL
+        , NULL
+        , SW_SHOWNORMAL);
 
     if (ret <= HINSTANCE_ERROR)
     {

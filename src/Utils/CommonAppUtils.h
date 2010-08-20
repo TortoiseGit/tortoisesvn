@@ -50,9 +50,6 @@ public:
      * \param applySecurityHeuristics if set, the function will not
      *        return applications that require additional arguments
      *        (i.e. if %* or %2 are found in the command line)
-     * \param askUserOnFailure if set and the registry lookup did
-     *        not find anything, let the user select an application
-     *        via "file open" dialog.
      * \return application command line to execute. An empty string,
      *         if lookup failed.
      */
@@ -60,8 +57,7 @@ public:
         ( const CString& fileName
         , const CString& extension
         , const CString& verb
-        , bool applySecurityHeuristics
-        , bool askUserOnFailure);
+        , bool applySecurityHeuristics);
 
     /**
      * Launches the standard text viewer/editor application which is associated

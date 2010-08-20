@@ -131,8 +131,18 @@ bool EditFileCommand::Edit()
         = CAppUtils::GetAppForFile ( path.GetWinPathString()
                                    , _T("")
                                    , _T("edit")
-                                   , true
                                    , true);
+
+    if (cmdLine.IsEmpty())
+    {
+        int ret = (int)ShellExecute(NULL, _T("openas"), path.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+        if (ret <= HINSTANCE_ERROR)
+        {
+            CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+            c += path.GetWinPathString() + _T(" ");
+            CAppUtils::LaunchApplication(c, NULL, false);
+        }
+    }
 
     return CAppUtils::LaunchApplication (cmdLine, NULL, false, true);
 }
