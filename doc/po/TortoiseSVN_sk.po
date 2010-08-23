@@ -1748,7 +1748,7 @@ msgid ""
 "svnservice -remove\n"
 "</screen> to remove the service registry entry."
 msgstr ""
-"Ak ste inštalovali niektoru z predchádzajúcich verzii svnserve požívajúcu <literal>SVNService</literal> a teraz chcete používať namiesto toho natívnu podporu, potrebujete odregistrovať wrapper ako službu (nezabudnite najskôr zastaviť službu!). Jednoducho použite príkaz <screen>\n"
+"Ak ste inštalovali niektorú z predchádzajúcich verzii svnserve používajúcu <literal>SVNService</literal> a teraz chcete používať namiesto toho natívnu podporu, potrebujete odregistrovať wrapper ako službu (nezabudnite najskôr zastaviť službu!). Jednoducho použite príkaz <screen>\n"
 "svnservice -remove\n"
 "</screen> na odstránenie záznamu zo služieb."
 
@@ -1758,14 +1758,11 @@ msgstr "Základná auhentifikácia so svnserve"
 
 #. (para)
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <literal>svn://</literal> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
-msgstr "Predvolen nastavenie svnserve poskytuje anonymnn prstum iba pre 
-itanie. To znamen, ~e mm~ete pou~ie <literal>svn://</literal> URL pre skontrolovanie a aktualizcie, alebo pou~ie prehliada
-  lo~iska v TortoiseSVN pre poh>ad do  lo~iska, ale nebudete mmce odovzdae ~iadne zmeny."
+msgstr "Predvolené nastavenie svnserve poskytuje anonymný prístum iba pre čitanie. To znamená, že môžete použiť <literal>svn://</literal> URL pre skontrolovanie a aktualizácie, alebo použiť prehliadač úložiska v TortoiseSVN pre pohľad do úložiska, ale nebudete môcť odovzdať žiadne zmeny."
 
 #. (para)
 msgid "To enable write access to a repository, you need to edit the <filename>conf/svnserve.conf</filename> file in your repository directory. This file controls the configuration of the svnserve daemon, and also contains useful documentation."
-msgstr "Pre povolenie zapisovacieho prva do  lo~iska potrebujete zmenie <filename>conf/svnserve.conf</filename> ssbor vo vaaom adresri  lo~iska. Tento ssbor riad konfigurciu svnserve daemona a taktie~ obsahuje u~ito
-nn dokumentciu."
+msgstr "Pre povolenie zapisovacieho práva do úložiska potrebujete zmeniť <filename>conf/svnserve.conf</filename> súbor vo vašom adresári úložiska. Tento súbor riadí konfiguráciu svnserve daemona a taktiež obsahuje užitočnú dokumentáciu."
 
 #. (para)
 msgid ""
@@ -1774,11 +1771,11 @@ msgid ""
 "anon-access = write\n"
 "</screen> However, you will not know who has made changes to a repository, as the <literal>svn:author</literal> property will be empty. You will also be unable to control who makes changes to a repository. This is a somewhat risky setup!"
 msgstr ""
-"Anonymnn zpis povolte jednoduchhm nastavenm: <screen>\n"
+"Anonymný zápis povolíte jednoduchým nastavením: <screen>\n"
 "[general]\n"
 "anon-access = write\n"
-"</screen> Avaak nebudete vediee, kto vykonal zmeny v  lo~isku a <literal>svn:author</literal> zostane przdny. Taktie~ nebudete mmce kontrolovae kto vykonava zmeny v  lo~isku. Toto je niekedy nebezpe
-n nastavenie."
+"</screen> Avšak nebudete vedieť, kto vykonal zmeny v úložisku a <literal>svn:author</literal> zostane prázdny. Taktiež nebudete môcť kontrolovať kto vykonava zmeny v úložisku. Toto je niekedy nebezpečné nastavenie."
+
 
 #. (para)
 msgid ""
@@ -1793,26 +1790,21 @@ msgid ""
 "...\n"
 "</screen> This example would deny all access for unauthenticated (anonymous) users, and give read-write access to users listed in <filename>userfile</filename>."
 msgstr ""
-"Jeden sppsob ako toto nie prlia bezpe
-n nastavenie vylepaie, je vytvorie heslo do databzy: <screen>\n"
+"Jeden spôsob ako toto nie príliš bezpečné nastavenie vylepšiť, je vytvoriť heslo do databázy: <screen>\n"
 "[general]\n"
 "anon-access = none\n"
 "auth-access = write\n"
 "password-db = userfile\n"
-"</screen> Kde <filename>userfile</filename> je ssbor, v ktorr existuje v rovnakom adresri ako <filename>svnserve.conf</filename>. Tento ssbor sa mm~e nachdzae kdeko>vek vo vaaom ssborovom systme (u~ito
-n ke mte viacej  lo~sk, ktor vy~adujj rovnak prstupov prva) a mm~ete sa naH odkazovae pomocou absolltnej cesty, alebo relatvnej v zh>adom na adresr <filename>conf</filename>. Ak pou~jete cesty ku ssboru, mus bye zapsan <filename>/the/unix/way</filename>. pou~itie \\ alebo psmen nzvu diskov nefunguje. The <filename>userfile</filename> mal by mae nasledovnn atrukttru: <screen>\n"
+"</screen> Kde <filename>userfile</filename> je súbor, v ktorý existuje v rovnakom adresári ako <filename>svnserve.conf</filename>. Tento súbor sa môže nachádzať kdekoľvek vo vašom súborovom systéme (užitočné keď máte viacej úložísk, ktoré vyžadujú rovnaké prístupové práva) a môžete sa naň odkazovať pomocou absolútnej cesty, alebo relatívnej v zhľadom na adresár <filename>conf</filename>. Ak použíjete cesty ku súboru, musí byť zapísaná <filename>/the/unix/way</filename>. použitie \\ alebo písmen názvu diskov nefunguje. The <filename>userfile</filename> mal by mať nasledovnú štruktúru: <screen>\n"
 "[users]\n"
 "username = password\n"
 "...\n"
-"</screen> Tento prklad zak~e prstup vaetkkm neautentifikovannm (anonymnnm) u~vate>om a povol prva na 
-tanie a zapisovanie u~vate>om v <filename>userfile</filename>."
+"</screen> Tento príklad zakáže prístup všetkým neautentifikovaným (anonymným) užívateľom a povolí práva na čítanie a zapisovanie užívateľom v <filename>userfile</filename>."
+
 
 #. (para)
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
-msgstr "Ak udr~ujete viecero  lo~sk s rovnakkm heslom ku databze, pou~itie autentifika
-nej oblasti u>ah
- prcu u~vate>om rovnako ako TortoiseSVN uklad vaae certifikty, tak~e sta
- heslo zadae iba jeden krt. Viacej informcii njdete v Subversion knihe na adrese <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> a  <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
+msgstr "Ak udržujete viecero úložísk s rovnakým heslom ku databáze, použitie autentifikačnej oblasti uľahčí prácu užívateľom rovnako ako TortoiseSVN ukladá vaše certifikáty, takže stačí heslo zadať iba jeden krát. Viacej informácii nájdete v Subversion knihe na adrese <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> a  <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
 
 #. (title)
 msgid "Better Security with SASL"
@@ -1828,15 +1820,11 @@ msgstr "Čo je SASL?"
 
 #. (para)
 msgid "The Cyrus Simple Authentication and Security Layer is open source software written by Carnegie Mellon University. It adds generic authentication and encryption capabilities to any network protocol, and as of Subversion 1.5 and later, both the svnserve server and TortoiseSVN client know how to make use of this library."
-msgstr "Cyrus jednoduch overovacia a bezpe
-nostn vrstva je open source softvr vytvorenn Carnegie Mellon Universitou. Pridva vaeobecn overovacie a aifrovacie sppsoby pre akkko>vek sieeovv protokol a Subversion 1.5 a vyaaie verzie, oboje svnserve a TortoiseSVN klient vedia ako vyu~vae tieto kni~nice."
+msgstr "Cyrus jednoduchá overovacia a bezpečnostná vrstva je open source softvér vytvorený Carnegie Mellon Universitou. Pridáva všeobecné overovacie a šifrovacie spôsoby pre akýkoľvek sieťový protokol a Subversion 1.5 a vyššie verzie, oboje svnserve a TortoiseSVN klient vedia ako využívať tieto knižnice."
 
 #. (para)
 msgid "For a more complete discussion of the options available, you should look at the Subversion book in the section <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. If you are just looking for a simple way to set up secure authentication and encryption on a Windows server, so that your repository can be accessed safely over the big bad Internet, read on."
-msgstr "Pre  obarnejaie informcie o dostupnnch nastaveniach si pozrite Subversion knihu v sekcii <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. Ak h>adte iba jednoduchh sppsob ako nastavie bezpe
-nose a aifrovanie na Windows server, tak aby vaae  lo~isko bolo bezpe
-ne prstupn pomocou ve>kho zlho internetu, pre
-tajte si vyaaie uvedenn sekciu z knihy."
+msgstr "Pre  obšírnejšie informácie o dostupných nastaveniach si pozrite Subversion knihu v sekcii <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. Ak hľadáte iba jednoduchý spôsob ako nastaviť bezpečnosť a šifrovanie na Windows server, tak aby vaše úložisko bolo bezpečne prístupné pomocou veľkého zlého internetu, prečítajte si vyššie uvedenú sekciu z knihy."
 
 #. (title)
 msgid "SASL Authentication"
