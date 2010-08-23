@@ -86,6 +86,7 @@ public:
     void SetMergePath(const CTSVNPath& mergepath) {m_mergePath = mergepath;}
 
     const SVNRevRangeArray& GetSelectedRevRanges() {return m_selectedRevs;}
+    void SetSelectedRevRanges(const SVNRevRangeArray& revArray);
 
 // Dialog Data
     enum { IDD = IDD_LOGMESSAGE };

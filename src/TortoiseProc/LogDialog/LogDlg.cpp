@@ -272,6 +272,15 @@ void CLogDlg::SetFilter(const CString& findstr, LONG findtype, bool findregex)
     m_bFilterWithRegex = findregex;
 }
 
+
+void CLogDlg::SetSelectedRevRanges( const SVNRevRangeArray& revArray )
+{
+    delete m_pStoreSelection;
+    m_pStoreSelection = NULL;
+    
+    m_pStoreSelection = new CStoreSelection(this, revArray);
+}
+
 BOOL CLogDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
