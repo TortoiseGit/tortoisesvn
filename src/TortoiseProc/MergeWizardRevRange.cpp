@@ -273,14 +273,6 @@ void CMergeWizardRevRange::OnBnClickedShowlogwc()
     m_pLogDlg2->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
     m_pLogDlg2->SetProjectPropertiesPath(wcPath);
     m_pLogDlg2->SetMergePath(wcPath);
-    UpdateData(TRUE);
-    if (m_sRevRange.Find(_T("HEAD")) < 0)
-    {
-        if (((CMergeWizard*)GetParent())->revRangeArray.FromListString(m_sRevRange))
-        {
-            m_pLogDlg2->SetSelectedRevRanges(((CMergeWizard*)GetParent())->revRangeArray);
-        }
-    }
     m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
     m_pLogDlg2->ShowWindow(SW_SHOW);
 }
