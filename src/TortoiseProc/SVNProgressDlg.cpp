@@ -573,6 +573,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
     case svn_wc_notify_merge_elide_info:
         data->sActionColumnText.LoadString(IDS_SVNACTION_ELIDEMERGEINFO);
         break;
+    case svn_wc_notify_url_redirect:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_URLREDIRECT);
+        data->sPathColumnText = url.GetUIPathString();
+        break;
     default:
         break;
     } // switch (data->action)
