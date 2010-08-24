@@ -227,8 +227,8 @@ svn_status (    const char *path,
     svn_opt_revision_t wcrev;
     wcrev.kind = svn_opt_revision_working;
 
-    SVN_ERR(svn_client_status5(NULL, ctx, path, &wcrev, svn_depth_empty, true, false, true, true, NULL, getfirststatus, &sb, pool));
-    SVN_ERR(svn_client_status5(NULL, ctx, path, &wcrev, svn_depth_infinity, true, false, true, true, NULL, getallstatus, &sb, pool));
+    SVN_ERR(svn_client_status5(NULL, ctx, path, &wcrev, svn_depth_empty, true, false, true, true, true, NULL, getfirststatus, &sb, pool));
+    SVN_ERR(svn_client_status5(NULL, ctx, path, &wcrev, svn_depth_infinity, true, false, true, true, true, NULL, getallstatus, &sb, pool));
 
 
     // now crawl through all externals
