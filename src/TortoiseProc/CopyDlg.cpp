@@ -389,7 +389,7 @@ void CCopyDlg::OnOK()
     m_URL = CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetString());
     if (!CTSVNPath(m_URL).IsValidOnWindows())
     {
-        if (CMessageBox::Show(this->m_hWnd, IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONINFORMATION|MB_YESNO) != IDYES)
+        if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
             return;
     }
 
