@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2009 - Stefan Kueng
+// Copyright (C) 2003-2006,2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ int _tmain(int argc, _TCHAR* argv[])
     bool bQuiet = false;
     bool bNoUpdate = false;
     bool bRTL = false;
+    SetDllDirectory(L"");
     //parse the command line
     std::vector<tstring> arguments;
     std::vector<tstring> switches;

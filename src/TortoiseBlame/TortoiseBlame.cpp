@@ -1259,6 +1259,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     MSG msg;
     HACCEL hAccelTable;
 
+    SetDllDirectory(L"");
     if (::LoadLibrary(_T("SciLexer.DLL")) == NULL)
         return FALSE;
 

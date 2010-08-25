@@ -103,6 +103,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
     UNREFERENCED_PARAMETER(nCmdShow);
 
+    SetDllDirectory(L"");
     if (__argc == 0)
     {
         return -1;

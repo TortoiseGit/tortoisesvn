@@ -382,6 +382,7 @@ int _tmain(int argc, _TCHAR* argv[])
     memset (&SubStat, 0, sizeof (SubStat));
     SubStat.bFolders = FALSE;
 
+    SetDllDirectory(L"");
     //_set_invalid_parameter_handler(customInvalidParameterHandler);
 
     if (argc >= 2 && argc <= 5)

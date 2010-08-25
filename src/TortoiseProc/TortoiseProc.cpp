@@ -110,6 +110,7 @@ CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " AP
 // CTortoiseProcApp initialization
 BOOL CTortoiseProcApp::InitInstance()
 {
+    SetDllDirectory(L"");
     CAppUtils::SetupDiffScripts(false, CString());
     InitializeJumpList();
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);

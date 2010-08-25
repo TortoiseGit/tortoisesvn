@@ -752,8 +752,8 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
         bRet = props.Add(BUGTRAQPROPNAME_LABEL, WideToUTF8((LPCTSTR)sLabel)) && bRet;
     if (!sMessage.IsEmpty())
         bRet = props.Add(BUGTRAQPROPNAME_MESSAGE, WideToUTF8((LPCTSTR)sMessage)) && bRet;
-    if (!bNumber)
-        bRet = props.Add(BUGTRAQPROPNAME_NUMBER, "false") && bRet;
+    if (bNumber)
+        bRet = props.Add(BUGTRAQPROPNAME_NUMBER, "true") && bRet;
     if (!sCheckRe.IsEmpty())
         bRet = props.Add(BUGTRAQPROPNAME_LOGREGEX, WideToUTF8((LPCTSTR)(sCheckRe + _T("\n") + sBugIDRe))) && bRet;
     if (!sUrl.IsEmpty())

@@ -133,6 +133,7 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
+    SetDllDirectory(L"");
     HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, GetCacheMutexName());
 
     if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)

@@ -56,6 +56,7 @@ CCrashReport g_crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseMerge 
 // CTortoiseMergeApp initialization
 BOOL CTortoiseMergeApp::InitInstance()
 {
+    SetDllDirectory(L"");
     CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
     CMFCButton::EnableWindowsTheming();
 
