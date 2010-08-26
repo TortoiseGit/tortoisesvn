@@ -380,7 +380,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
                 SVNPool setPool((apr_pool_t*)subpool);
                 const char* svnPath = path.GetSVNApiPath(setPool);
                 SVNTRACE (
-                    m_error = svn_client_propset4 (name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, setPool),
+                    m_error = svn_client_propset4 (name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, setPool),
                     svnPath
                     )
             }
@@ -417,7 +417,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         else
         {
             SVNTRACE (
-                m_error = svn_client_propset4 (name.c_str(), pval, svnPath, depth, force, m_rev, NULL, NULL, m_pctx, subpool),
+                m_error = svn_client_propset4 (name.c_str(), pval, svnPath, depth, force, m_rev, NULL, NULL, NULL, NULL, m_pctx, subpool),
                 svnPath
             )
         }
@@ -482,7 +482,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
                     SVNPool setPool((apr_pool_t*)subpool);
                     const char* svnPath = path.GetSVNApiPath(setPool);
                     SVNTRACE (
-                        m_error = svn_client_propset4 (name.c_str(), NULL, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, m_pctx, setPool),
+                        m_error = svn_client_propset4 (name.c_str(), NULL, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, setPool),
                         svnPath
                         )
                 }
@@ -496,7 +496,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
         else
         {
             SVNTRACE (
-                m_error = svn_client_propset4 (name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, m_pctx, subpool),
+                m_error = svn_client_propset4 (name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, subpool),
                 svnPath
                 )
         }

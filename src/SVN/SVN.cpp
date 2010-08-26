@@ -114,8 +114,6 @@ SVN::SVN(void) : m_progressWnd(0)
     m_pctx->notify_baton2 = this;
     m_pctx->notify_func = NULL;
     m_pctx->notify_baton = NULL;
-    m_pctx->commit_baton = this;
-    m_pctx->commit_callback2 = commitcallback2;
     m_pctx->conflict_func = conflict_resolver;
     m_pctx->conflict_baton = this;
     m_pctx->cancel_func = cancel;
@@ -404,6 +402,8 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
                                   force,
                                   keeplocal,
                                   revPropHash,
+                                  commitcallback2,
+                                  this,
                                   m_pctx,
                                   subPool) ,
         NULL
@@ -580,6 +580,8 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
                                 keepchangelist,
                                 clists,
                                 revprop_table,
+                                commitcallback2,
+                                this,
                                 m_pctx,
                                 localpool),
         NULL
@@ -617,6 +619,8 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                                 make_parents,
                                 ignoreExternals,
                                 revPropHash,
+                                commitcallback2,
+                                this,
                                 m_pctx,
                                 subpool),
         NULL
@@ -650,6 +654,8 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                                 move_as_child,
                                 make_parents,
                                 revPropHash,
+                                commitcallback2,
+                                this,
                                 m_pctx,
                                 subpool),
         NULL
@@ -678,6 +684,8 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
         Err = svn_client_mkdir4 (pathlist.MakePathArray(pool),
                                  makeParents,
                                  revPropHash,
+                                 commitcallback2,
+                                 this,
                                  m_pctx,
                                  pool) ,
         NULL
@@ -977,6 +985,8 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
                                 no_ignore,
                                 ignore_unknown,
                                 revPropHash,
+                                commitcallback2,
+                                this,
                                 m_pctx,
                                 subpool),
         svnPath
