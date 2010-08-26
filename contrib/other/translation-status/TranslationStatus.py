@@ -40,7 +40,7 @@ urlGui   = 'Languages'
 urlDoc   = 'doc/po'
 
 langList = os.path.join('gui', 'trunk', 'Languages.txt')
-langFields = ['Tag','LangCC','LangID','FlagByte','LangName','Translators']
+langFields = ['Tag','LangCC','LangWiX','LangID','FlagByte','LangName','Translators']
 Sep75 = '==========================================================================='
 
 def usage_and_exit(errmsg=None):
