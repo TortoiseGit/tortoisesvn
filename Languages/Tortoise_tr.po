@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-27 16:32+0200\n"
+"PO-Revision-Date: 2010-08-27 16:52+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -756,9 +756,8 @@ msgid "&From URL:"
 msgstr "&URL den:"
 
 #. Resource IDs: (1259)
-#, fuzzy
 msgid "&From WC / URL:"
-msgstr "&Çalışma Kopyasından bu URL'de:"
+msgstr "&Çalışma Kopyası / URL'den:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -1148,7 +1147,7 @@ msgstr "&Varsayılanları yükle"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
-msgstr "&Kancalar olmadan yeniden dene"
+msgstr "&Yakalayıcılar olmadan yeniden dene"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -3148,9 +3147,9 @@ msgid "Could not remove %s from the ignore list"
 msgstr "%s aldırılmayanlar listesinden silinemedi!"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not replace '%s' because"
-msgstr "%s silinemedi çünkü"
+msgstr "'%s' yerine konulamadı çünkü"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3181,13 +3180,12 @@ msgid "Could not save the file %s!"
 msgstr "%s dosyası kopyalanamadı!"
 
 #. Resource IDs: (70)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start diff viewer!\n"
 "%s"
 msgstr ""
-"Karşılaştırma dosyası görüntüleyicisi başlatılamadı\n"
-"<hr=100%%>\n"
+"Dosya karşılaştırma görüntüleyicisi başlatılamadı!\n"
 "%s"
 
 #. Resource IDs: (81)
@@ -3228,13 +3226,12 @@ msgid "Could not start print job."
 msgstr "Çiktı alma (Print) işlemi başlatılamadı."
 
 #. Resource IDs: (83)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start text viewer!\n"
 "%s"
 msgstr ""
 "Metin görüntüleyicisi başlatılamadı!\n"
-"<hr=100%%>\n"
 "%s"
 
 #. Resource IDs: (83)
@@ -3854,9 +3851,8 @@ msgid "Either the name or IP of the proxy server"
 msgstr "Proxy sunucusunun ismini yada IP'sini giriniz"
 
 #. Resource IDs: (265)
-#, fuzzy
 msgid "Eliding mergeinfo"
-msgstr "&Birleştirme bilgisini dahil et"
+msgstr "Birleştirme bilgisini atla"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4016,7 +4012,7 @@ msgstr "Aşağıya düzenli ifadeyi girin:"
 
 #. Resource IDs: (1577)
 msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
-msgstr ""
+msgstr "Bir teslim mesajından sorun-ID'yi süzmek için gerekli düzenli ifade kalıplarını gir."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4966,7 +4962,6 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Simge Ayarları::Simge Seti"
 
 #. Resource IDs: (308)
-#, fuzzy
 msgid "Icon Overlays::Overlay Handlers"
 msgstr "Simge Ayarları::Simge Seti"
 
@@ -6864,7 +6859,7 @@ msgstr "Teslim-öncesi yakalayıcısı"
 
 #. Resource IDs: (570)
 msgid "Pre-Connect Hook"
-msgstr "Bağlantı-öncesi kancası"
+msgstr "Bağlantı-Öncesi yakalayıcısı"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
@@ -8522,7 +8517,7 @@ msgstr "En son Günlük mesajları diyalogunda kaç tane elemanı saklamak isted
 
 #. Resource IDs: (1572)
 msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
-msgstr ""
+msgstr "Teslim mesajlarının girilmiş sorun-ID'den nasıl oluşturulması gerektiğini belirleyin. Gerçek sorun-ID için %BUGID% yer tutucusunu kullanın. Eğer bu ayarları boş bırakırsanız, TortoiseSVN bunun yerine düzenli ifadeler kullanacak."
 
 #. Resource IDs: (1305)
 msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
@@ -9475,7 +9470,7 @@ msgstr "Eşanlamlılar sözlüğü"
 
 #. Resource IDs: (3887)
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
-msgstr ""
+msgstr "Bunlar şu anda açık olan belgelerden daha sonra kaydedilmiş ve uygulama kapatılmadan önce yapılmış değişiklikler içeriyor."
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -9909,9 +9904,8 @@ msgid "Unexpected file format."
 msgstr "Beklenmedik dosya formatı"
 
 #. Resource IDs: (1070)
-#, fuzzy
 msgid "Unfold"
-msgstr "Bir üst klasör"
+msgstr "Katları Aç"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -11233,7 +11227,6 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
@@ -11254,9 +11247,9 @@ msgstr ""
 "http://example.com/repos/zig foo\r\n"
 "-r 1234 http://example.com/repos/zag foo/bar\r\n"
 "\r\n"
-"URL'ler tam URL veya göreli URL olabilir. Göreli URL'nin biçimi\r\n"
+"URL'ler tam URL veya göreli olabilir. Göreli URL'nin biçimi\r\n"
 "şu şekildedir:\r\n"
-"../ bir üst klasöre göre göreli\r\n"
+"../ haricinin bir üst klasörüne göre göreli\r\n"
 "^/ depo köküne göre göreli\r\n"
 "// URL düzenine göre göreli\r\n"
 "/ sunucu ismine göre göreli"
