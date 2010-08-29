@@ -381,49 +381,17 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         m_nTargetCount = sortedPathList.GetCount();
 
         SVNStatus status(m_pbCanceled);
-        if(m_nTargetCount > 1 && sortedPathList.AreAllPathsFilesInOneDirectory())
+        for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
         {
-            // This is a special case, where we've been given a list of files
-            // all from one folder
-            // We handle them by setting a status filter, then requesting the SVN status of
-            // all the files in the directory, filtering for the ones we're interested in
-            status.SetFilter(sortedPathList);
-
-            // if all selected entries are files, we don't do a recursive status
-            // fetching. But if only one is a directory, we have to recurse.
-            svn_depth_t depth = svn_depth_files;
-            // We have set a filter. If all selected items were files or we fetch
-            // the status not recursively, then we have to include
-            // ignored items too - the user has selected them
-            bool bShowIgnoresRight = true;
-            for (int fcindex=0; fcindex<sortedPathList.GetCount(); ++fcindex)
+            // check whether the path we want the status for is already fetched due to status-fetching
+            // of a parent path.
+            // this check is only done for file paths, because folder paths could be included already
+            // but not recursively
+            if (sortedPathList[nTarget].IsDirectory() || GetListEntry(sortedPathList[nTarget]) == NULL)
             {
-                if (sortedPathList[fcindex].IsDirectory())
+                if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], bUpdate, sUUID, arExtPaths, false, m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown, bShowIgnores))
                 {
-                    depth = m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown;
-                    bShowIgnoresRight = false;
-                    break;
-                }
-            }
-            if(!FetchStatusForSingleTarget(config, status, sortedPathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, depth, bShowIgnoresRight))
-            {
-                bRet = FALSE;
-            }
-        }
-        else
-        {
-            for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
-            {
-                // check whether the path we want the status for is already fetched due to status-fetching
-                // of a parent path.
-                // this check is only done for file paths, because folder paths could be included already
-                // but not recursively
-                if (sortedPathList[nTarget].IsDirectory() || GetListEntry(sortedPathList[nTarget]) == NULL)
-                {
-                    if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], bUpdate, sUUID, arExtPaths, false, m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown, bShowIgnores))
-                    {
-                        bRet = FALSE;
-                    }
+                    bRet = FALSE;
                 }
             }
         }
