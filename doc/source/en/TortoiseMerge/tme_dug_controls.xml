@@ -91,6 +91,15 @@
             </listitem>
             <listitem>
                 <para>
+                    <guibutton>Wrap long lines</guibutton>
+                    toggles the word wrapping at the end of the views. If turned
+                    on, long lines which would normally extend beyond the view
+                    border are wrapped around, i.e., one long line is split into
+                    serveral lines.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
                     <guibutton>Inline Diff Word-wise</guibutton>
                     toggles the method used to display inline diffs.
                     In word-wise mode, when a character is changed, the whole
@@ -109,21 +118,14 @@
             </listitem>
             <listitem>
                 <para>
-                    <guibutton>Switch View</guibutton>
-                    selects between one-pane and two-pane view.
-                    Disabled in 3-pane view.
-                </para>
-            </listitem>
-            <listitem>
-                <para>
-                    <guilabel>Compare whitespaces</guilabel>
+                    <guibutton>Compare whitespaces</guibutton>
                     shows all changes in indentation and inline whitespace as
                     added/removed lines (which is how Subversion treats such changes).
                 </para>
             </listitem>
             <listitem>
                 <para>
-                    <guilabel>Ignore whitespace changes</guilabel>
+                    <guibutton>Ignore whitespace changes</guibutton>
                     hides changes which are due solely to a change in the
                     amount or type of whitespace, eg. changing the indentation
                     or changing tabs to spaces. Adding whitespace where there
@@ -133,8 +135,15 @@
             </listitem>
             <listitem>
                 <para>
-                    <guilabel>Ignore all whitespaces</guilabel>
+                    <guibutton>Ignore all whitespaces</guibutton>
                     hides all whitespace-only changes.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    <guibutton>Switch View</guibutton>
+                    selects between one-pane and two-pane view.
+                    Disabled in 3-pane view.
                 </para>
             </listitem>
             <listitem>
@@ -158,7 +167,7 @@
             </listitem>
             <listitem>
                 <para>
-                    <guilabel>Collapse</guilabel>
+                    <guibutton>Collapse</guibutton>
                     collapses unchanged regions to a single line, leaving only
                     the changed areas and minimal context. You can expand the
                     collapsed areas by double clicking on the collapse line,
