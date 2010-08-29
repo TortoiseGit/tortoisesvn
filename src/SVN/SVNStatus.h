@@ -161,13 +161,6 @@ friend class SVN;   // So that SVN can get to our m_err
      */
     CString GetLastErrorMsg() const;
 
-    /**
-     * Set a list of paths which will be considered when calling GetFirstFileStatus.
-     * If a filter is set, then GetFirstFileStatus/GetNextFileStatus will only return items which are in the filter list
-     */
-    void SetFilter(const CTSVNPathList& fileList);
-    void ClearFilter();
-
 #else
     /**
      * Returns the last error message as a CString object.
@@ -251,10 +244,5 @@ private:
 
     static int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
     static svn_error_t* cancel(void *baton);
-
-    // A sorted list of filenames (in SVN format, in lowercase)
-    // when this list is set, we only pick-up files during a GetStatus which are found in this list
-    typedef std::vector<std::string> StdStrAVector;
-    StdStrAVector m_filterFileList;
 };
 

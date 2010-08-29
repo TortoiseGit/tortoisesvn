@@ -725,21 +725,10 @@ svn_error_t * SVNStatus::getallstatus(void * baton, const char * /*path*/, const
 svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * /*pool*/)
 {
     hashbaton_t * hash = (hashbaton_t *)baton;
-    const StdStrAVector& filterList = hash->pThis->m_filterFileList;
     if (status->node_status == svn_wc_status_external)
     {
         apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, (const void*)1);
         return SVN_NO_ERROR;
-    }
-    if(filterList.size() > 0)
-    {
-        // We have a filter active - we're only interested in files which are in
-        // the filter
-        if(!binary_search(filterList.begin(), filterList.end(), path))
-        {
-            // This item is not in the filter - don't store it
-            return SVN_NO_ERROR;
-        }
     }
     svn_client_status_t * statuscopy = svn_client_status_dup (status, hash->pThis->m_pool);
     apr_hash_set (hash->hash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, statuscopy);
@@ -794,22 +783,22 @@ svn_error_t* SVNStatus::cancel(void *baton)
 
 #ifdef _MFC_VER
 
-// Set-up a filter to restrict the files which will have their status stored by a get-status
-void SVNStatus::SetFilter(const CTSVNPathList& fileList)
-{
-    m_filterFileList.clear();
-    for(int fileIndex = 0; fileIndex < fileList.GetCount(); fileIndex++)
-    {
-        m_filterFileList.push_back(fileList[fileIndex].GetSVNApiPath(m_pool));
-    }
-    // Sort the list so that we can do binary searches
-    std::sort(m_filterFileList.begin(), m_filterFileList.end());
-}
-
-void SVNStatus::ClearFilter()
-{
-    m_filterFileList.clear();
-}
+//// Set-up a filter to restrict the files which will have their status stored by a get-status
+//void SVNStatus::SetFilter(const CTSVNPathList& fileList)
+//{
+//    m_filterFileList.clear();
+//    for(int fileIndex = 0; fileIndex < fileList.GetCount(); fileIndex++)
+//    {
+//        m_filterFileList.push_back(fileList[fileIndex].GetSVNApiPath(m_pool));
+//    }
+//    // Sort the list so that we can do binary searches
+//    std::sort(m_filterFileList.begin(), m_filterFileList.end());
+//}
+//
+//void SVNStatus::ClearFilter()
+//{
+//    m_filterFileList.clear();
+//}
 
 #endif // _MFC_VER
 
