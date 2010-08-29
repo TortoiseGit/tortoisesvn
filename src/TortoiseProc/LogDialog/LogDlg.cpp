@@ -239,6 +239,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_WM_SIZE()
     ON_BN_CLICKED(IDC_INCLUDEMERGE, &CLogDlg::OnBnClickedIncludemerge)
     ON_BN_CLICKED(IDC_REFRESH, &CLogDlg::OnBnClickedRefresh)
+    ON_BN_CLICKED(IDC_LOGCANCEL,&CLogDlg::OnLogCancel)
     ON_COMMAND(ID_LOGDLG_REFRESH,&CLogDlg::OnRefresh)
     ON_COMMAND(ID_LOGDLG_FIND,&CLogDlg::OnFind)
     ON_COMMAND(ID_LOGDLG_FOCUSFILTER,&CLogDlg::OnFocusFilter)
@@ -466,7 +467,7 @@ BOOL CLogDlg::OnInitDialog()
     AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
     AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
-    AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    AddAnchor(IDC_LOGCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     SetPromptParentWindow(m_hWnd);
     if (hWndExplorer)
@@ -521,7 +522,7 @@ BOOL CLogDlg::OnInitDialog()
     {
         // the dialog is used to just view log messages
         GetDlgItemText(IDOK, temp);
-        SetDlgItemText(IDCANCEL, temp);
+        SetDlgItemText(IDC_LOGCANCEL, temp);
         GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
     }
     m_btnMenu.CreatePopupMenu();
@@ -960,48 +961,40 @@ void CLogDlg::SaveSplitterPos()
     }
 }
 
+void CLogDlg::OnLogCancel()
+{
+    // canceling means stopping the working thread if it's still running.
+    // we do this by using the Subversion cancel callback.
+
+    m_bCancelled = true;
+
+    // Canceling can mean just to stop fetching data, depending on the text
+    // shown on the cancel button (it will read "Cancel" in that case).
+
+    CString temp, temp2;
+    GetDlgItemText(IDC_LOGCANCEL, temp);
+    temp2.LoadString(IDS_MSGBOX_CANCEL);
+    if ((temp.Compare(temp2)==0) && !GetDlgItem(IDOK)->IsWindowVisible())
+        return;
+
+    // we actually want to close the dialoag.
+
+    OnCancel();
+}
+
 void CLogDlg::OnCancel()
 {
     // canceling means stopping the working thread if it's still running.
     // we do this by using the Subversion cancel callback.
 
     m_bCancelled = true;
+
+    // We want to close the dialog -> give the background threads some time 
+    // to actually finish. Otherwise, we might not save the lastest data.
+
     bool threadsStillRunning
-        =    !netScheduler.WaitForEmptyQueueOrTimeout(2000)
-          || !diskScheduler.WaitForEmptyQueueOrTimeout(2000);
-
-    // But canceling can also mean just to close the dialog, depending on the
-    // text shown on the cancel button (it could simply read "OK").
-
-    CString temp, temp2;
-    GetDlgItemText(IDCANCEL, temp);
-    temp2.LoadString(IDS_MSGBOX_CANCEL);
-    if ((temp.Compare(temp2)==0))
-    {
-        // "Cancel" was hit. We told the SVN ops to stop
-        // end the process the hard way
-        if (threadsStillRunning)
-        {
-            // end the process the hard way
-            TerminateProcess(GetCurrentProcess(), 0);
-        }
-        else
-        {
-            __super::OnCancel();
-        }
-    }
-
-    // we hit "Ok"
-
-    UpdateData();
-    if (m_bSaveStrict)
-        m_regLastStrict = m_bStrict;
-    CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
-    reg = (DWORD)m_btnShow.m_nMenuResult;
-
-    CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogShowPaths"));
-    reg2 = (DWORD)m_cShowPaths.GetCheck();
-    SaveSplitterPos();
+        =    !netScheduler.WaitForEmptyQueueOrTimeout(5000)
+          || !diskScheduler.WaitForEmptyQueueOrTimeout(5000);
 
     // can we close the app cleanly?
 
@@ -1012,6 +1005,29 @@ void CLogDlg::OnCancel()
     }
     else
     {
+        // Store window positions etc. only if we actually hit an cancel
+        // button dressed as an "OK" button.
+
+        CString temp, temp2;
+        GetDlgItemText(IDC_LOGCANCEL, temp);
+        temp2.LoadString(IDS_MSGBOX_CANCEL);
+        if ((temp.Compare(temp2)!=0))
+        {
+            // store settings
+
+            UpdateData();
+            if (m_bSaveStrict)
+                m_regLastStrict = m_bStrict;
+            CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
+            reg = (DWORD)m_btnShow.m_nMenuResult;
+
+            CRegDWORD reg2 = CRegDWORD(_T("Software\\TortoiseSVN\\LogShowPaths"));
+            reg2 = (DWORD)m_cShowPaths.GetCheck();
+            SaveSplitterPos();
+        }
+
+        // close app
+
         __super::OnCancel();
     }
 }
@@ -1097,7 +1113,7 @@ void CLogDlg::LogThread()
     if (!GetDlgItem(IDOK)->IsWindowVisible())
     {
         temp.LoadString(IDS_MSGBOX_CANCEL);
-        SetDlgItemText(IDCANCEL, temp);
+        SetDlgItemText(IDC_LOGCANCEL, temp);
     }
     // We use a progress bar while getting the logs
     m_LogProgress.SetRange32(0, 100);
@@ -1248,6 +1264,12 @@ void CLogDlg::LogThread()
 
         // Err will also be set if the user cancelled.
 
+        if (Err && (Err->apr_err == SVN_ERR_CANCELLED))
+        {
+            svn_error_clear(Err);
+            Err = NULL;
+        }
+
         succeeded = Err == NULL;
 
         // make sure the m_logEntries is consistent
@@ -1321,7 +1343,7 @@ void CLogDlg::LogThread()
     if (!GetDlgItem(IDOK)->IsWindowVisible())
     {
         temp.LoadString(IDS_MSGBOX_OK);
-        SetDlgItemText(IDCANCEL, temp);
+        SetDlgItemText(IDC_LOGCANCEL, temp);
     }
     RefreshCursor();
     // make sure the filter is applied (if any) now, after we refreshed/fetched
@@ -1651,7 +1673,7 @@ void CLogDlg::OnOK()
     // dialogs, we have to do some work before closing this dialog
     if ((GetDlgItem(IDOK)->IsWindowVisible()) && (GetFocus() != GetDlgItem(IDOK)))
         return; // if the "OK" button doesn't have the focus, do nothing: this prevents closing the dialog when pressing enter
-    if (!GetDlgItem(IDOK)->IsWindowVisible() && GetFocus() != GetDlgItem(IDCANCEL))
+    if (!GetDlgItem(IDOK)->IsWindowVisible() && GetFocus() != GetDlgItem(IDC_LOGCANCEL))
         return; // the Cancel button works as the OK button. But if the cancel button has not the focus, do nothing.
 
     CString temp;
@@ -2254,7 +2276,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
                 }
                 else
                 {
-                    GetDlgItem(IDCANCEL)->SetFocus();
+                    GetDlgItem(IDC_LOGCANCEL)->SetFocus();
                     PostMessage(WM_COMMAND, IDOK);
                 }
             }
@@ -2289,7 +2311,7 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
     if (m_bLogThreadRunning)
     {
-        if (!IsCursorOverWindowBorder() && ((pWnd)&&(pWnd != GetDlgItem(IDCANCEL))))
+        if (!IsCursorOverWindowBorder() && ((pWnd)&&(pWnd != GetDlgItem(IDC_LOGCANCEL))))
         {
             HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
             SetCursor(hCur);
