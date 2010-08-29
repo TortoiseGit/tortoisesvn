@@ -755,6 +755,7 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 {
     // don't try to get a full log; just enough to continue our search
 
+    assert(! dataAvailable(startRevision));
     revision_t nextAvailable = NextAvailableRevision ( startPath
                                                      , startRevision
                                                      , endRevision
@@ -764,15 +765,17 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
     // within the desired range (receiving duplicate intermediate
     // log info is less expensive than starting a new log query)
 
-    revision_t cacheOptimalEndRevision = FindOldestGap ( startPath
-                                                       , startRevision
+    revision_t cacheOptimalEndRevision = nextAvailable < endRevision
+                                       ? nextAvailable+1
+                                       : FindOldestGap ( startPath
+                                                       , nextAvailable+1
                                                        , endRevision
                                                        , dataAvailable);
 
     // extend the requested range, if that is probably more efficient
     // (fill many small gaps at once)
 
-    endRevision = min (nextAvailable+1, cacheOptimalEndRevision);
+    endRevision = cacheOptimalEndRevision;
 
     // now, fill the cache (somewhat) and forward to the receiver
 
