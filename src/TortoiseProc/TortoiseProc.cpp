@@ -68,6 +68,7 @@ END_MESSAGE_MAP()
 
 CTortoiseProcApp::CTortoiseProcApp()
 {
+    SetDllDirectory(L"");
     EnableHtmlHelp();
     int argc = 0;
     const char* const * argv = NULL;
@@ -110,7 +111,6 @@ CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " AP
 // CTortoiseProcApp initialization
 BOOL CTortoiseProcApp::InitInstance()
 {
-    SetDllDirectory(L"");
     CAppUtils::SetupDiffScripts(false, CString());
     InitializeJumpList();
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
