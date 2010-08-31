@@ -111,7 +111,7 @@ bool CheckoutCommand::Execute()
         SVNRev Rev = SVNRev(parser.GetVal(_T("revision")));
         dlg.Revision = Rev;
     }
-
+    dlg.m_blockPathAdjustments = parser.HasKey(L"blockpathadjustments");
     if (dlg.DoModal() == IDOK)
     {
         checkoutDirectory.SetFromWin(dlg.m_strCheckoutDirectory, true);

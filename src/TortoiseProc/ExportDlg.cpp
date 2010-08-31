@@ -34,6 +34,7 @@ CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
     , m_sExportDirOrig(_T(""))
     , m_bNoExternals(FALSE)
     , m_pLogDlg(NULL)
+    , m_blockPathAdjustments(FALSE)
 {
 }
 
@@ -397,7 +398,7 @@ void CExportDlg::OnCbnEditchangeUrlcombo()
     DialogEnableWindow(IDC_BROWSE, TRUE);
     if (!m_bAutoCreateTargetName)
         return;
-    if (m_sExportDirOrig.IsEmpty())
+    if ((m_sExportDirOrig.IsEmpty())||(m_blockPathAdjustments))
         return;
     CString name = CAppUtils::GetProjectNameFromURL(m_URL);
     m_strExportDirectory = m_sExportDirOrig+_T('\\')+name;

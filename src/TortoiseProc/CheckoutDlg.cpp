@@ -37,6 +37,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
     , m_standardCheckout(true)
     , m_bIndependentWCs(FALSE)
     , m_parentExists(false)
+    , m_blockPathAdjustments(FALSE)
 {
 }
 
@@ -92,7 +93,7 @@ void CCheckoutDlg::UpdateURLsFromCombo()
 
     // find out what to use as the checkout directory name
 
-    if (!m_sCheckoutDirOrig.IsEmpty())
+    if ((!m_sCheckoutDirOrig.IsEmpty()) && !m_blockPathAdjustments)
     {
         CString name = CAppUtils::GetProjectNameFromURL(m_URLs.GetCommonRoot().GetSVNPathString());
         if (   !name.IsEmpty()
@@ -102,7 +103,7 @@ void CCheckoutDlg::UpdateURLsFromCombo()
         }
     }
 
-    if (m_strCheckoutDirectory.IsEmpty())
+    if ((m_strCheckoutDirectory.IsEmpty()) && !m_blockPathAdjustments)
     {
         CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
         m_strCheckoutDirectory = lastCheckoutPath;

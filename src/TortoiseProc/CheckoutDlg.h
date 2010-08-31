@@ -85,6 +85,7 @@ public:
     CFileDropEdit   m_cCheckoutEdit;
     CLogDlg *       m_pLogDlg;
     svn_depth_t     m_depth;
+    BOOL            m_blockPathAdjustments;
 
     bool            m_standardCheckout; ///< true if only one path got selected and that URL path is a folder
     bool            m_parentExists; ///< W/C for parent folder already exists. Only valid if \ref m_standardCheckout is false.
