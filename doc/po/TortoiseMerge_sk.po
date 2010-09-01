@@ -21,9 +21,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-06-23 18:06+0100\n"
-"Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
+"POT-Creation-Date: 2010-08-29 07:40 +0000\n"
+"PO-Revision-Date: 2010-08-29 21:47+0100\n"
+"Last-Translator: Oto BREZINA <translator [at] e-posta [dot] sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +80,7 @@ msgstr "Predslov"
 # Preface
 #. (para)
 msgid "When working on a project, either an open-source project where several people review your code, or a commercial project where you sell a component with your source code, there will be people and customers who find bugs or want to improve your project. To do that they send you patches which you have to review and decide if you want to apply them."
-msgstr "Pri práci na projekte, či už na open-source (voľne šíriteľným kódom), kde mnoho ľudí prezerá váš kód, alebo na komerčnom projekte, kde predávate komponenty so zdrojovými kódmi, sú ľudia a zákazníci, ktorí nájdu chybu, alebo chcú vylepšiť váš projekt.(a niekedy vám len kolega chce rýpať do práce ;) - pozn. prekladateľa.) Aby to dosiahli pošlú Vám záplatu, ktorú si musíte prezrieť a rozhodnúť, či ju použijete."
+msgstr "Pri práci na projekte, či už na open-source (voľne šíriteľným kódom), kde mnoho ľudí prezerá váš kód, alebo na komerčnom projekte, kde predávate komponenty so zdrojovými kódmi, sú ľudia a zákazníci, ktorí nájdu chybu, alebo chcú vylepšiť váš projekt. Aby to dosiahli pošlú Vám záplatu, ktorú si musíte prezrieť a rozhodnúť, či ju použijete."
 
 #. (para)
 msgid "Reviewing patches"
@@ -120,7 +120,7 @@ msgstr "Aj keď TortoiseSVN a TortoiseMerge sú zdarma, môžete pomôcť vývoj
 
 #. (para)
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr "Pri práci na TortoiseSVN radi počúvame hudbu. A keďže trávime veľa hodín na projekte potrebujeme <emphasis>množstvo</emphasis> hudby. Preto sme zostavili zoznam prianí s našimi obľúbenými hudobnými CD a DVD: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Prosím pozrite aj zoznam ľudí, ktorí prispeli do projektu poslaním záplaty, alebo prekladov (napr. tento preklad má na svedomí Oto BREZINA ;) - poznámka prekladateľa)."
+msgstr "Pri práci na TortoiseSVN radi počúvame hudbu. A keďže trávime veľa hodín na projekte potrebujeme <emphasis>množstvo</emphasis> hudby. Preto sme zostavili zoznam prianí s našimi obľúbenými hudobnými CD a DVD: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Prosím pozrite aj zoznam ľudí, ktorí prispeli do projektu poslaním záplaty, alebo prekladov (napr. tento preklad má na svedomí Oto BREZINA - poznámka prekladateľa)."
 
 #. (title)
 msgid "Acknowledgments"
@@ -128,7 +128,7 @@ msgstr "Poďakovania"
 
 #. (term)
 msgid "Stefan Küng"
-msgstr "Stefan Küng"
+msgstr "Stefan KÜNG"
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
@@ -136,7 +136,7 @@ msgstr "za tvrdú prácu na TortoiseMerge"
 
 #. (term)
 msgid "Lübbe Onken"
-msgstr "Lübbe Onken"
+msgstr "Lübbe ONKEN"
 
 #. (para)
 msgid "for the beautiful icons, logo, bug hunting and taking care of the documentation"
@@ -144,11 +144,11 @@ msgstr "za nádherné ikonky, logo, vychytávanie chýb a starostlivosť o dokum
 
 #. (term)
 msgid "The Tigris Style project"
-msgstr "Program v štýle Tigris Style"
+msgstr "Projekt v štýle Tigris Style"
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
-msgstr "za niektoré štýly, ktoré sú použité v dokumentácií"
+msgstr "za niektoré štýly, ktoré sú použité v tejto dokumentácií"
 
 #. (term)
 msgid "Our Contributors"
@@ -156,7 +156,7 @@ msgstr "Naši spolupracovníci"
 
 #. (para)
 msgid "for the patches, bug reports and new ideas, and for helping others by answering questions on our mailing list."
-msgstr "za záplaty, hlásenia chýb a nápadov, a za pomoc iných, ktorý odpovedali na otázky v našich mailing list-och"
+msgstr "za záplaty, hlásenia chýb a nápadov, a za pomoc iným odpoveďamii na otázky v našich e-mailových konferenciách"
 
 #. (term)
 msgid "Our Donators"
@@ -184,11 +184,11 @@ msgstr "Pri práci s textovými súbormi, ako sú súbory zdrojových kódov rô
 
 #. (para)
 msgid "If you're working with a version control system (e.g. Subversion) then you sometimes get <emphasis>conflicts</emphasis> when you update your working copy. This happens if someone else changed the same parts of the file you're currently working on as you did. Then you have to resolve those conflicts manually. This is where TortoiseMerge can help you."
-msgstr "Keď pracujete so správou verzií (napr. Subversion) občas sa pri aktualizovaní vašej pracovnej kópie dostanete do <emphasis>konfliktu</emphasis>. Toto sa stane keď niekto iný zmení rovnakú časť súboru, na ktorom ste pracovali, ako vy. Potom musíte tieto konflikty vyriešiť ručne. TortoiseMerge vám s tým môže pomôcť."
+msgstr "Keď pracujete so správou verzií (napr. Subversion) občas sa pri aktualizovaní vašej pracovnej kópie dostanete do <emphasis>konfliktu</emphasis>. Toto sa stane keď niekto iný zmení rovnakú časť súboru, na ktorom ste vy pracovali. Potom musíte tieto konflikty vyriešiť ručne. TortoiseMerge vám s tým môže pomôcť."
 
 #. (para)
 msgid "The following diagram shows you the relationships between the files involved in a conflict:"
-msgstr "Nasledovný diagram zobrazuje vzťah medzi súbormi zaplatenými v konflikte:"
+msgstr "Nasledovný diagram zobrazuje vzťah medzi súbormi zapletenými v konflikte:"
 
 #. (title)
 #. (title)
@@ -197,11 +197,11 @@ msgstr "Konflikt súboru"
 
 #. (para)
 msgid "A conflict can also occur if you try to apply an outdated patch file. In such cases, without TortoiseMerge, you would either have to ask the person you got that patch file from for a current version or try to apply that patch file manually."
-msgstr "Konflikt môže vzniknúť aj pri pokuse použiť zastaralú záplatu. V takých prípadoch, bez TortoiseMerge, by ste museli buď požiadať osobu, ktorá vytvorila záplatu, aby ju vytvorila z aktuálnej verzie, alebo by ste museli skúsiť použiť záplatu ručne."
+msgstr "Konflikt môže vzniknúť aj pri pokuse použiť zastaralú záplatu. V takých prípadoch, by ste museli - bez TortoiseMerge - buď požiadať osobu, ktorá vytvorila záplatu, aby ju vytvorila z aktuálnej verzie, alebo by ste museli skúsiť použiť záplatu ručne."
 
 #. (para)
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patch file for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "Ale s TortoiseMerge to už nie je nutné - alebo aspoň keď, pracujete so správou verzií ako je Subversion. TortoiseMerge analyzuje revízie/verzie súborov y ktorých bola záplata vytvorená a automaticky sa pokúša získať príslušnú verziu z vašej správy verzií. Potom použije záplatu a poskytne vám možnosť prezrieť si vaše aj ich zmeny v súbore. Potom môžete rozhodnúť, ktoré zmeny chcete zachovať."
+msgstr "Ale s TortoiseMerge to už nie je nutné - aspoň keď, pracujete so správou verzií ako je Subversion. TortoiseMerge analyzuje revízie/verzie súborov z ktorých bola záplata vytvorená a automaticky sa pokúša získať príslušnú verziu z vašej správy verzií. Následne použije záplatu a poskytne vám možnosť prezrieť si vaše aj ich zmeny v súbore. Potom môžete rozhodnúť, ktoré zmeny chcete zachovať."
 
 #. (title)
 msgid "TortoiseMerge's History"
@@ -266,7 +266,7 @@ msgstr "Môžete vykonávať jednoduché riadkové zmeny súboru v pravom panely
 
 #. (para)
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr "Súbor v pravom panely môžete upravovať ako v textovom editore. Takéto riadky sú označené obrázkom ceruzky. Poznamenávame, že ak chcete robiť riadkové/blokové zmeny, ako je popísané vyššie, je lepšie vykonať tieto zmeny najprv, pretože keď začnete upravovať súbor už TortoiseMerge nebude schopný sledovať zmeny na určenie vzťahu k pôvodným súborom."
+msgstr "Súbor v pravom panely môžete upravovať ako v textovom editore. Takéto riadky sú označené obrázkom ceruzky. Poznamenávame, že ak chcete robiť riadkové/blokové zmeny, ako je popísané vyššie, je lepšie vykonať tieto zmeny najprv, pretože keď začnete upravovať súbor TortoiseMerge už nebude schopný sledovať zmeny na určenie vzťahu k pôvodným súborom."
 
 #. (title)
 msgid "Editing Conflicts"
@@ -331,7 +331,7 @@ msgstr "Dvoj-panelové zobrazenie"
 # Viewing / Merging
 #. (para)
 msgid "Changes inside the modified lines are shown in different colors. Added string parts are shown with a lighter color, but you can of course configure the colors used here. Removed parts are indicated with a dark brown vertical line in the string. Check out the screenshot above to see how this works."
-msgstr "Zmeny v rámci zmenených súborov sú označené farebne. Pridanie reťazcov je zobrazené bledšími farbami, použité farby je samozrejme možné nastaviť. Odstránené časti sú označené tmavohnedou farbou, vodorovne i v reťazci. Pozrite obrázok hore, aby ste videli ako to funguje."
+msgstr "Zmeny v rámci zmenených súborov sú označené farebne. Pridanie reťazcov je zobrazené bledšími farbami, použité farby je samozrejme možné nastaviť. Odstránené časti sú označené vodorovnou tmavohnedou čiarou v reťazci. Pozrite obrázok hore, aby ste videli ako to funguje."
 
 # Viewing / Merging
 #. (para)
@@ -345,7 +345,7 @@ msgstr "Také zmeny sú označené bielym krúžkom na ľavej strane panelu. Ke�
 
 #. (para)
 msgid "Hand editing of the file in the right pane is possible in two-pane view. Such changes are marked with a pencil symbol."
-msgstr "Ručné úpravy sú možné v pravom panely pri dvoj-panelovom zobrazení. Takéto zmeny sú označené znakom ceruzky."
+msgstr "Pri dvoj-panelovom zobrazení sú možné ručné úpravy v pravom panely. Takéto zmeny sú označené znakom ceruzky."
 
 # Viewing / Merging
 #. (para)
@@ -363,7 +363,7 @@ msgstr "Troj-panelové zobrazenie"
 # Three Pane View
 #. (para)
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
-msgstr "Ľavý panel zobrazuje rozdiely medzi súbormi <emphasis>Ich</emphasis> a <emphasis>Základ</emphasis>, kým pravý panel zobrazuje rozdiely medzi súbormi <emphasis>Moje</emphasis> a <emphasis>Základ</emphasis>. Spodný panel zobrazuje výsledok spojenia <emphasis>Základ</emphasis>, <emphasis>Moje</emphasis> a <emphasis>Ich</emphasis>s možnými konfliktami. Pri prejdení myšou ponad názov panela sa zobrazí meno súboru pre daný panel."
+msgstr "Ľavý panel zobrazuje rozdiely medzi súbormi <emphasis>Ich</emphasis> a <emphasis>Základ</emphasis>, kým pravý panel zobrazuje rozdiely medzi súbormi <emphasis>Moje</emphasis> a <emphasis>Základ</emphasis>. Spodný panel zobrazuje výsledok spojenia <emphasis>Základ</emphasis>, <emphasis>Moje</emphasis> a <emphasis>Ich</emphasis> s možnými konfliktami."
 
 #. (para)
 msgid "If you hover the mouse over the pane title, a tooltip will show the filenames used for the diff in each pane."
@@ -424,11 +424,11 @@ msgstr "<guibutton>Predošlý/Ďalší rozdiel</guibutton> skočí priamo na ďa
 # Prev/Next Difference
 #. (para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
-msgstr "Keď toto robíte v dvoj-panelovom porovnávacom režime, na spodku okna sa vám zobrazia riadkové rozdiely pre prvý riadok nezávisle od polohy ukazovateľa myši."
+msgstr "Keď to robíte v dvoj-panelovom porovnávacom režime, na spodku okna sa vám zobrazia riadkové rozdiely pre prvý riadok nezávisle od polohy ukazovateľa myši."
 
 #. (para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
-msgstr "<guibutton>Predošlí/Ďalší konflikt</guibutton> skočí priamo na ďalší miesto, kde rozdiely v súboroch sú v konflikte a potrebujú byť vyriešené."
+msgstr "<guibutton>Predošlí/Ďalší konflikt</guibutton> skočí priamo na ďalšie miesto, kde rozdiely v súboroch sú v konflikte a potrebujú byť vyriešené."
 
 #. (para)
 msgid "<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block from the left or the right pane. Refer to the next section for more information about editing changes and conflicts."
@@ -447,32 +447,33 @@ msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display spa
 msgstr "<guibutton>Zobraziť biele znaky</guibutton> prepína medzi zobrazovaním špeciálnych znakov pre medzery a tabulátory, takže môžete porovnať zmeny bielych znakov."
 
 #. (para)
+msgid "<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end of the views. If turned on, long lines which would normally extend beyond the view border are wrapped around, i.e., one long line is split into serveral lines."
+msgstr "<guibutton>Zalomovať dlhé riadky</guibutton> prepína zalamovanie koncov riadkov na konci pohľadov. Keď je zapnuté dlhé riadky, ktoré by presahovali okraj okna sú zalomené, takže jeden dlhý riadok je rozdelený na niekoľko riadkov."
+
+#. (para)
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
-msgstr "<guibutton>Riadkové zmeny po slovách</guibutton> mení spôsob zobrazenia zmien v riadkoch. Pri zobrazení po slovách je pri zmene jedného znaku označené celé slovo. Pri režime po znakoch je označené každý jednotlivý znak."
+msgstr "<guibutton>Riadkové zmeny po slovách</guibutton> mení spôsob zobrazenia zmien v riadkoch. Pri zobrazení po slovách je pri zmene jedného znaku označené celé slovo. Pri režime po znakoch je označený každý jednotlivý znak."
 
 #. (para)
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
-msgstr "Po slovách je predvolené a vo väčšine prípadov funguje lepšie. Napríklad keď zmeníte meno premennej celé slovo je pri režime po slovách vysvietené celé meno, ale pri režime po znakoch budete mať sklon k domotaniu sa pridanými a vymazanými znakmi, ktoré nemá veľmi zmysel. Avšak pre niektoré obsahy rozlišovanie po slovách nie je vyhovujúce, napríklad pri .hex súboroch režim po znakoch dáva lepšie výsledky."
+msgstr "Po slovách je predvolené a vo väčšine prípadov funguje lepšie. Napríklad keď zmeníte meno premennej je pri režime po slovách vysvietené celé meno, ale pri režime po znakoch budete mať sklon k domotaniu sa pridanými a vymazanými znakmi, ktoré nemá veľmi zmysel. Avšak pre niektoré obsahy rozlišovanie po slovách nie je vyhovujúce, napríklad pri .hex súboroch režim po znakoch dáva lepšie výsledky."
+
+#. (para)
+msgid "<guibutton>Compare whitespaces</guibutton> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guibutton>Porovnávať biele znaky</guibutton> zobrazí všetky zmeny v odsadení a zmeny bielych znakov vrámci riadkov, ako pridané/vymazané (, čo je spôsob, ako Subversion spracováva takéto zmeny)."
+
+#. (para)
+msgid "<guibutton>Ignore whitespace changes</guibutton> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guibutton>Ignorovať zmeny bielych znakov</guibutton> skryje zmeny, ktoré sú zmenami len v počte a type bielych znakov, ako je zmena odsadenia, alebo zmena tabulátorov za medzery. Pridanie bieleho znaku kde predtým nebol, alebo úplné odstránenie bieleho znaku je stále označené ako zmena."
+
+#. (para)
+msgid "<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only changes."
+msgstr "<guibutton>Ignorovať biele znaky</guibutton> skryje zmeny, kde boli zmenené len biele (netlačené) znaky."
 
 # Switch View
 #. (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr "<guibutton>Prepnúť pohľad</guibutton> prepína medzi jedno- a dvoj-panelovým zobrazením. Zakázané pri troj-panelovom zobrazení."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Porovnávať biele znaky</guilabel> zobrazí všetky zmeny v odsadení a zmeny bielych znakov vrámci riadkov, ako pridané/vymazané (, čo je spôsob, ako Subversion spracováva takéto zmeny)."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Ignorovať zmeny bielych znakov</guilabel> skryje zmeny, ktoré sú zmenami len v počte a type bielych znakov, ako je zmena odsadenia, alebo zmena tabulátorov za medzery. Pridanie bieleho znaku kde predtým nebol, alebo úplné odstránenie bieleho znaku je stále označené ako zmena."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Ignorovať biele znaky</guilabel> skryje zmeny, kde boli zmenené len biele (netlačené) znaky."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
@@ -483,8 +484,8 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Zobraziť/Skryť zoznam záplat</guibutton> Keď TortoiseMerge má zoznam záplat, toto tlačítko vám umožní ho skryť (takže môžete vidieť obe okná), alebo zobraziť (takže ho môžete prezerať)."
 
 #. (para)
-msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
-msgstr "<guilabel>Zbaliť</guilabel> zbalí nezmenené oblasti to jedného riadka, ponechajúc iba zmenené oblasti a minimálny kontext. Dvojklikom na zbalený riadok možete rozbaliť zbalené oblasti, ale potom ich už nie je možné zbaliť pokým nenačítate súbor znova."
+msgid "<guibutton>Collapse</guibutton> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guibutton>Zbaliť</guibutton> zbalí nezmenené oblasti to jedného riadka, ponechajúc iba zmenené oblasti a minimálny kontext. Dvojklikom na zbalený riadok možete rozbaliť zbalené oblasti, ale potom ich už nie je možné zbaliť pokým nenačítate súbor znova."
 
 #. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
@@ -500,11 +501,11 @@ msgstr "<placeholder-1/> Pod menu leží lišta nástrojov. Táto poskytuje jedn
 
 #. (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
-msgstr "Na ľavej strane okna je prehľadový stĺpec. Toto poskytuje rýchly vizuálny prehľad kde boli zmeny v súbore.  Stĺpec má tri podstĺpcee. Ľavý popisuje ľavý súbor, pravý popisuje pravý súbor a stredný podstĺpec spodný panel (ak je prítomný). V jedno-panelovom zobrazení je použitý iba ľavý stĺpec. Prehľadový stĺpec môže byť použitý ako skrolovací na skrolovanie všetkými oknami súčasne."
+msgstr "Na ľavej strane okna je prehľadový stĺpec. Tento poskytuje rýchly vizuálny prehľad kde boli vykonané zmeny v súbore.  Stĺpec má tri podstĺpcee. Ľavý popisuje ľavý súbor, pravý popisuje pravý súbor a stredný podstĺpec spodný panel (ak je prítomný). V jedno-panelovom zobrazení je použitý iba ľavý stĺpec. Prehľadový stĺpec môže byť použitý ako skrolovací na skrolovanie všetkými oknami súčasne."
 
 #. (para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
-msgstr "Pod spodným okna sa nachádza stavový riadok. Tento zobrazuje počet pridaných, alebo zmazaných v <literal>Ich</literal> a <literal>Moje</literal>, ako aj počet ostávajúcich nevyriešených konfliktov. Môžete vidieť tiež štýl ukončenia riadkov, TortoiseMerge predpokladá kódovanie (ASCII, UTF-8, atď). Ďalej prítomnosť značky poriadia byte-ov (byte-order-mark - BOM) v UTF-8 súboroch. Ľavá strana stavového riadka je použitá na zobrazenie pomoci pri prejdení myšou ponad ovládací prvok..."
+msgstr "Pod spodkom okna sa nachádza stavový riadok. Tento zobrazuje počet pridaných, alebo zmazaných riadkov v <literal>Ich</literal> a <literal>Moje</literal>, ako aj počet ostávajúcich nevyriešených konfliktov. Môžete vidieť tiež štýl ukončenia riadkov, TortoiseMerge predpokladá kódovanie (ASCII, UTF-8, atď). Ďalej môžete vidieť prítomnosť značky poriadia byte-ov (byte-order-mark - BOM) v UTF-8 súboroch. Ľavá strana stavového riadka je použitá na zobrazenie pomoci pri prejdení myšou ponad ovládací prvok..."
 
 #. (title)
 msgid "Line Status Icons"
@@ -540,7 +541,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> Riadok je v konf
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
-msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Tento riadok je v konflikte, ale je to skryté pretože ide len o zmeny v bielych znakoch, alebo koncoch riadkov."
+msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Tento riadok je v konflikte, ale je to skryté pretože ide len o zmeny v bielych znakoch, alebo v koncoch riadkov."
 
 #. (title)
 msgid "Merging / Editing Conflicts"
@@ -605,7 +606,7 @@ msgstr "Prvé čo musíte urobiť, je rozhodnúť sa či chcete porovnávať, zl
 # Viewing / Merging
 #. (para)
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
-msgstr "Keď chcete porovnať / zlúčiť súbory je potrebné nastaviť najmenej dve z troch ciest: <literal>Základ</literal>, <literal>Moje</literal> a <literal>Ich</literal>. Keď zadáte len dve cesty TortoiseMerge zobrazí rozdiely medzi týmito súbormi, buď v jedno, alebo dvoj-panelovom zobrazení."
+msgstr "Keď chcete porovnať / zlúčiť súbory je potrebné nastaviť najmenej dve z troch ciest: <literal>Základ</literal>, <literal>Moje</literal> a <literal>Ich</literal>. Keď zadáte len dve cesty TortoiseMerge zobrazí rozdiely medzi týmito súbormi, buď v jedno-, alebo dvoj-panelovom zobrazení."
 
 #. (para)
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
@@ -631,7 +632,7 @@ msgstr "Panel hlavného nastavenia"
 
 #. (title)
 msgid "The Settings Main Page"
-msgstr "Panel Hlavného Nastavia"
+msgstr "Panel hlavného nastavenia"
 
 #. (para)
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
@@ -654,13 +655,25 @@ msgstr "<guilabel>Ignorovať zmeny vo veľkosti písma</guilabel> skryje zmeny, 
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Farebné zobrazenie zmien v riadku</guilabel> používa rovnakú farebnú schému ako panel porovnania riadkov na zobrazenie zmien riadkov hlavných paneloch. Riadky s veľa zmenami nie sú zobrazené touto metódou, pretože výsledok by bol mätúci. V takomto prípade je riadok zobrazení ako zamenený (starý riadok vymazaný, nový riadok pridaný)."
 
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Porovnávať biele znaky</guilabel> zobrazí všetky zmeny v odsadení a zmeny bielych znakov vrámci riadkov, ako pridané/vymazané (, čo je spôsob, ako Subversion spracováva takéto zmeny)."
+
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Ignorovať zmeny bielych znakov</guilabel> skryje zmeny, ktoré sú zmenami len v počte a type bielych znakov, ako je zmena odsadenia, alebo zmena tabulátorov za medzery. Pridanie bieleho znaku kde predtým nebol, alebo úplné odstránenie bieleho znaku je stále označené ako zmena."
+
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Ignorovať biele znaky</guilabel> skryje zmeny, kde boli zmenené len biele (netlačené) znaky."
+
 #. (title)
 msgid "Colour Settings Page"
 msgstr "Panel nastavenia farieb"
 
 #. (title)
 msgid "The Settings Color Page"
-msgstr "Panel Nastavenia Farieb"
+msgstr "Panel nastavenia farieb"
 
 #. (para)
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
@@ -680,7 +693,7 @@ msgstr "Pridané"
 
 #. (listitem)
 msgid "Lines which have been added."
-msgstr "Riadky, ktoré boli pridané"
+msgstr "Riadky, ktoré boli pridané."
 
 #. (term)
 msgid "Removed"
@@ -689,7 +702,7 @@ msgstr "Odstránené"
 # removed
 #. (listitem)
 msgid "Lines which have been deleted."
-msgstr "Riadky, ktoré boli zmazané"
+msgstr "Riadky, ktoré boli zmazané."
 
 #. (term)
 msgid "Modified"
@@ -705,7 +718,7 @@ msgstr "Farebné kódy zmien v riadkoch"
 
 #. (listitem)
 msgid "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
-msgstr "Riadky s relatívne malými zmenami sú zobrazené riadkovým porovnaním. Táto farba je použitá <placeholder-1/> pre zmenenú časť riadku. Zmenená časť je znázornená farbami riadkové pridanie a zmazanie popísané nižšie. Keď <placeholder-2/> nie je povolené,  táto farba nie je použitá a zmenené riadky sú zobrazené ako náhrady."
+msgstr "Riadky s relatívne malými zmenami sú zobrazené riadkovým porovnaním. Tato farba pre časť riadku v stave <placeholder-1/>. Zmenená časť je znázornená farbami pre riadkové pridanie a zmazanie popísané nižšie. Keď nie je povolené <placeholder-2/>,  táto farba nie je použitá a zmenené riadky sú zobrazené ako náhrady."
 
 #. (term)
 msgid "Conflicted"
@@ -733,7 +746,7 @@ msgstr "Riadky boli pridané v druhom panely a nie sú nájdené príslušné ri
 
 #. (term)
 msgid "Inline added text"
-msgstr "Pridaný text do riadku"
+msgstr "Do riadku pridaný text"
 
 #. (listitem)
 msgid "When inline diffs are shown, added text is shown in this colour."
@@ -741,7 +754,7 @@ msgstr "Keď je zobrazené riadkové porovnanie, je pridaný text zobrazený far
 
 #. (term)
 msgid "Inline removed text"
-msgstr "Zmazaný text v riadku"
+msgstr "Z riadku zmazaný text "
 
 #. (listitem)
 msgid "When inline diffs are shown, deleted text is shown in this colour."
@@ -906,12 +919,12 @@ msgid ""
 "</screen>"
 msgstr ""
 "Väčšina prepínačov vyžaduje ďalšie informácie ako je cesta, alebo ďalšie reťazce. V týchto prípadoch, pridajte ':' k prepínaču a reťazec/cestu za neho. Napríklad:  <screen>\n"
-"/base:\"c:\\folder\\my base file.txt\"\n"
+"/base:\"c:\\adresar\\moj subor.txt\"\n"
 "</screen>"
 
 #. (title)
 msgid "List of available command line options"
-msgstr "Zoznam parametrov príkazového riadka"
+msgstr "Zoznam dostupných parametrov príkazového riadka"
 
 #. (entry)
 msgid "Command"
@@ -941,12 +954,12 @@ msgstr "základ"
 # base
 #. (entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
-msgstr "Určuje <placeholder-1/> súbor pre trojcestné porovnanie. Je to spoločný predok porovnávaných súborov, aj keď samotný nie je zobrazený vo vlastnom okne. V dvojcestnom porovnaní je to ľavý súbor."
+msgstr "Určuje <placeholder-1/> súbor pre trojcestné porovnanie. Je to spoločný predok porovnávaných súborov, aj keďsúbur samotný nie je zobrazený vo vlastnom okne. V dvojcestnom porovnaní je to ľavý súbor."
 
 # base
 #. (entry)
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr "Meno súboru označeného ako Základový. Toto je zobrazené ako názov namiesto cesty súboru. Pre troj-panelové zobrazenie je to zobrazené v tipe pre názov zobrazenia."
+msgstr "Meno súboru označeného ako Základový. Je zobrazené ako názov namiesto cesty súboru. Pre troj-panelové zobrazenie je to zobrazené v tipe pre názov zobrazenia."
 
 #. (emphasis)
 msgid "theirs"
@@ -1010,7 +1023,7 @@ msgstr "Meno výsledného súboru po použití záplaty. Použité ako meno pane
 
 #. (entry)
 msgid "The path to the patch/diff file to apply to a directory."
-msgstr "Cesta k adresáru, na ktorý sa má použiť záplatový súbor."
+msgstr "Cesta k adresáru, na ktorý sa má použiť súbor záplaty."
 
 #. (entry)
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
@@ -1022,15 +1035,15 @@ msgstr "Vymení ľavé a pravé zobrazenie dvoch určených súborov na porovnan
 
 #. (literal)
 msgid "/origfile:\"path_to_original_file\""
-msgstr "/origfile:\"path_to_original_file\""
+msgstr "/origfile:\"cesta_k_povodnemu_suboru\""
 
 #. (literal)
 msgid "/modifiedfile:\"path_to_modified_file\""
-msgstr "/modifiedfile:\"path_to_modified_file\""
+msgstr "/modifiedfile:\"cesta_k_zmenenemu_suboru\""
 
 #. (literal)
 msgid "/outfile:\"path_to_resulting_patchfile\""
-msgstr "/outfile:\"path_to_resulting_patchfile\""
+msgstr "/outfile:\"cesta_k_vyslednemu_suboru\""
 
 #. (literal)
 msgid "/outfile"
@@ -1046,7 +1059,7 @@ msgstr "Vytvorí súbor unifikovaného porovnania (súbor záplaty) dvoch súbor
 
 #. (entry)
 msgid "Specifies a line number to jump to after loading the files."
-msgstr "Určuje číslo riadka, na ktorý sa skočí po načítaní súborov."
+msgstr "Určuje číslo riadka, na ktorý sa má skočiť po načítaní súborov."
 
 #. (para)
 msgid ""
@@ -1078,7 +1091,7 @@ msgstr "Hlavná revízia"
 # Base
 #. (para)
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
-msgstr "Aktuálna základová revízia súboru, alebo adresára vo vašej <emphasis>pracovnej kópií</emphasis>. Toto je revízia súboru, alebo adresára z času spustenia poslednej aktualizácie. Základná revízia nie je zhodná s hlavnou revíziou. "
+msgstr "Aktuálna základová revízia súboru, alebo adresára vo vašej <emphasis>pracovnej kópií</emphasis>. Toto je revízia súboru, alebo adresára z času spustenia poslednej aktualizácie. Základná revízia nie je nutne zhodná s hlavnou revíziou. "
 
 #. (glossterm)
 msgid "Blame"
@@ -1105,11 +1118,11 @@ msgstr "Vetva"
 # Branch
 #. (para)
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr "Výraz sa často používa pri správe verzií na popísanie čo sa stene keď sa v niektorom bode vývoj rozdelí na dve samostatné cesty. Môžete vytvoriť vetvu hlavnej vývojovej línie, takže vývoj novej funkcie bez toho aby ste spravili hlavnú líniu nestabilnú. Alebo môžete vetviť stabilné vydania, v ktorých budete robiť len opravy chýb, kým vývoj sa bude diať v nestabilnom kmeni. Vo Subversion je vetvenie implementované ako  <quote>lacná kópia</quote>."
+msgstr "Výraz často používaný pri správe verzií na popísanie čo sa stene keď sa v niektorom bode vývoj rozdelí na dve samostatné cesty. Môžete vytvoriť vetvu hlavnej vývojovej línie, takže vývoj novej funkcie bez toho aby ste spravili hlavnú líniu nestabilnú. Alebo môžete vetviť stabilné vydania, v ktorých budete robiť len opravy chýb, kým vývoj sa bude diať v nestabilnom kmeni. Vo Subversion je vetvenie implementované ako <quote>lacná kópia</quote>."
 
 #. (glossterm)
 msgid "Checkout"
-msgstr "Skontrolovať"
+msgstr "Získať"
 
 # Checkout
 #. (para)
@@ -1186,7 +1199,7 @@ msgstr "FSFS"
 # fsfs
 #. (para)
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "Vlastný súborový systém Subversion pre úložiská. Môže byť použitý i na zdielanom disku. Predvolený u verzie 1.2 a novších."
+msgstr "Vlastný súborový systém Subversion pre úložiská. Môže byť použitý i na zdielanom disku. Predvolený pre úložiska od verzie 1.2."
 
 #. (glossterm)
 msgid "GPO"
@@ -1380,21 +1393,24 @@ msgstr "Toto je vaše <quote>pieskovisko</quote>, miesto kde môžete pracovať 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr "Oto BREZINA"
+msgstr "Oto BREZINA <otik [at] e-posta [dot] sk>"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr "Slovenčina"
+msgstr "preklad"
 
 #~ msgid "Wish List"
 #~ msgstr "Zoznam prianí"
+
 #~ msgid "F7 or cursor-right"
 #~ msgstr "F7, alebo doprava"
+
 #~ msgid "Shift-F7 or cursor-left"
 #~ msgstr "Shift-F7, alebo doľava"
+
 #~ msgid "Shift-cursor-right"
 #~ msgstr "Shift + Doprava"
+
 #~ msgid "Shift-cursor-left"
 #~ msgstr "Shift + Doľava"
-
