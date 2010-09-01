@@ -444,7 +444,7 @@ void CFilePatchesDlg::PatchAll()
             if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
             {
                 progDlg.SetLine(2, GetFullPath(i), true);
-                m_pCallBack->PatchFile(GetFullPath(i), _T(""), TRUE);
+                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(i), _T(""), TRUE);
                 m_ShownIndex = i;
                 m_cFileList.Invalidate();
             }
@@ -475,7 +475,7 @@ void CFilePatchesDlg::PatchSelected()
             if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
             {
                 progDlg.SetLine(2, GetFullPath(index), true);
-                m_pCallBack->PatchFile(GetFullPath(index), _T(""), TRUE);
+                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(index), _T(""), TRUE);
                 m_ShownIndex = index;
                 m_cFileList.Invalidate();
             }
