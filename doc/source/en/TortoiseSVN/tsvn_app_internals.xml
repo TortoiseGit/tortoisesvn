@@ -71,15 +71,7 @@
             <graphic fileref="images/ReadOnlyIcon.png"/>
             The <emphasis>Needs Lock</emphasis> overlay is used to
             indicate when a file has the <literal>svn:needs-lock</literal>
-            property set. For working copies which were created using
-            Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal>
-            status is cached locally by Subversion and this is used to
-            determine when to show this overlay. For working copies which
-            are in pre-1.4.x format, TortoiseSVN shows this overlay when the
-            file has read-only status. Note that Subversion automatically
-            upgrades working copies when you update them, although the
-            caching of the <literal>svn:needs-lock</literal> property
-            may not happen until the file itself is updated.
+            property set.
         </para>
         <para>
             <graphic fileref="images/LockedIcon.png"/>
