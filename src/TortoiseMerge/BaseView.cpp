@@ -2089,7 +2089,6 @@ void CBaseView::GoToFirstDifference()
 {
     m_ptCaretPos.y = 0;
     SelectNextBlock(1, false, false);
-    OnNavigateNextinlinediff();
 }
 
 void CBaseView::GoToFirstConflict()
@@ -2291,10 +2290,13 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 
     ScrollAllToLine(nTopPos, FALSE);
     RecalcAllVertScrollBars(TRUE);
+    m_ptCaretPos.x = 0;
     m_nCaretGoalPos = 0;
+    OnNavigateNextinlinediff();
 
     UpdateViewsCaretPosition();
     UpdateCaret();
+    EnsureCaretVisible();
     ShowDiffLines(nCenterPos);
     return true;
 }
