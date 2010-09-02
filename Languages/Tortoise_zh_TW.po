@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-06 20:58+0800\n"
+"PO-Revision-Date: 2010-09-02 23:08+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -857,6 +857,10 @@ msgstr "亮度(&L):"
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "記住深度(&M)"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "手動編輯性質(&M)"
@@ -1349,6 +1353,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "工作複本(&W)"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "自行折行(&W)"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2387,10 +2395,6 @@ msgstr "檢查更新"
 msgid "Check For Updates..."
 msgstr "檢查更新..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "正在檢查連結至固定版本的外部連結"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "檢查異動(&M)"
@@ -2493,6 +2497,10 @@ msgstr "正在清除."
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "清理目錄:\"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "清理及更新圖示"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2510,6 +2518,10 @@ msgid ""
 msgstr ""
 "以下路徑已清理完成:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "清理先前中斷的作業並重建覆蓋圖示..."
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3318,6 +3330,10 @@ msgstr "細節(&E)"
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "日期"
+
+#. Resource IDs: (117)
+msgid "Date Range"
+msgstr "日期範圍"
 
 #. Resource IDs: (1008)
 msgid "Default"
@@ -4356,6 +4372,10 @@ msgstr ""
 "填滿工具\n"
 "填滿"
 
+#. Resource IDs: (117)
+msgid "Filter by"
+msgstr "過濾"
+
 #. Resource IDs: (65535)
 msgid "Filter match"
 msgstr "過濾符合的"
@@ -4655,6 +4675,10 @@ msgstr "隱藏已刪除的路徑(&D)"
 msgid "Hide all branches that did not modify the item"
 msgstr "隱藏所有未修改此項目的分支"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "隱藏所有 tag"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "隱藏已刪除的分支和標記"
@@ -4662,6 +4686,10 @@ msgstr "隱藏已刪除的分支和標記"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "隱藏停駐的視窗"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "隱藏 ta&g"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -5901,8 +5929,8 @@ msgid "Messages"
 msgstr "訊息"
 
 #. Resource IDs: (116)
-msgid "Messages, authors and paths"
-msgstr "訊息, 作者, 和路徑"
+msgid "Messages, authors, paths and revs"
+msgstr "訊息, 作者, 路徑和版本"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -6246,6 +6274,10 @@ msgstr "沒有這個版本 '%1!s!'"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "沒有同義字建議"
+
+#. Resource IDs: (65535)
+msgid "Node Status:"
+msgstr "節點狀態:"
 
 #. Resource IDs: (65535)
 msgid "Node colors"
@@ -6779,6 +6811,10 @@ msgid "Pre-Commit Hook"
 msgstr "送交前掛勾"
 
 #. Resource IDs: (570)
+msgid "Pre-Connect Hook"
+msgstr "連線前掛鉤"
+
+#. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "更新前掛勾"
 
@@ -7078,9 +7114,9 @@ msgid "Recording mergeinfo for merge of r%ld"
 msgstr "正在紀錄版本 r%ld 的合併資訊"
 
 #. Resource IDs: (265)
-#, fuzzy, c-format
+#, c-format
 msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
-msgstr "反向合併版本 %1!ld! ~ %2!ld! "
+msgstr "正在紀錄反向合併版本資訊 r%1!ld! 到 r%2!ld! "
 
 #. Resource IDs: (265)
 #, c-format
@@ -7110,6 +7146,10 @@ msgstr "遞迴搜尋無版本控制的目錄"
 #. Resource IDs: (563)
 msgid "Recursive"
 msgstr "遞迴"
+
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr "正在導向至 URL"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7226,6 +7266,10 @@ msgstr "重新定位警告"
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "正在重新定位..."
+
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "記住工作複本的深度"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -8043,6 +8087,10 @@ msgstr "伺服器位址(&A):"
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
 msgstr "設定快捷鍵(&F):"
+
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "為 externals 設定版本"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -9383,6 +9431,10 @@ msgstr "倉庫"
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
 msgstr "這些是比目前版本還要更新的儲存檔, 並含有程式關閉前留下的變更."
 
+#. Resource IDs: (84)
+msgid "This file already exists!"
+msgstr "檔案已經存在!"
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -10344,6 +10396,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "工作複本: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "自動折行"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "是"
@@ -11131,9 +11187,9 @@ msgstr "svn:externals"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11144,9 +11200,9 @@ msgid ""
 msgstr ""
 "svn:externals\r\n"
 "以換行字元分隔的模組名稱列表, 每項可包含相對路徑,\r\n"
-"可有可無的版本標記, 以及 URL. 例如:\r\n"
+"可有可無的版本標記, 以及可搭配版本資訊的 URL. 例如:\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "URL 可以是完整 URL 或是相對 URL. 相對 URL 的表示\r\n"
 "方式如下:\r\n"
@@ -11453,6 +11509,8 @@ msgstr "是"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "正在檢查連結至固定版本的外部連結"
 #~ msgid "Check externals to tag"
 #~ msgstr "更新外部連結至標籤"
 #~ msgid "Tagged"
