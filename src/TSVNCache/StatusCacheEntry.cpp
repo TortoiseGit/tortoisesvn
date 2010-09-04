@@ -22,7 +22,7 @@
 #include "CacheInterface.h"
 #include "registry.h"
 
-#define CACHEENTRYDISKVERSION 7
+#define CACHEENTRYDISKVERSION 8
 
 DWORD cachetimeout = (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
 
@@ -35,13 +35,13 @@ CStatusCacheEntry::CStatusCacheEntry()
     SetAsUnversioned();
 }
 
-CStatusCacheEntry::CStatusCacheEntry(const svn_client_status_t* pSVNStatus, __int64 lastWriteTime, bool forceNormal)
+CStatusCacheEntry::CStatusCacheEntry(const svn_client_status_t* pSVNStatus, bool needsLock, __int64 lastWriteTime, bool forceNormal)
     : m_bSet(false)
     , m_bSVNEntryFieldSet(false)
     , m_kind(svn_node_unknown)
     , m_highestPriorityLocalStatus(svn_wc_status_none)
 {
-    SetStatus(pSVNStatus, forceNormal);
+    SetStatus(pSVNStatus, needsLock, forceNormal);
     m_lastWriteTime = lastWriteTime;
     m_discardAtTime = GetTickCount()+cachetimeout;
 }
@@ -62,7 +62,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
     WRITESTRINGTOFILE(m_sOwner);
     WRITESTRINGTOFILE(m_sAuthor);
     WRITEVALUETOFILE(m_kind);
-    WRITESTRINGTOFILE(m_sPresentProps);
+    WRITEVALUETOFILE(m_needsLock);
 
     // now save the status struct (without the entry field, because we don't use that)
     WRITEVALUETOFILE(m_svnStatus.copied);
@@ -124,16 +124,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
             m_sAuthor.ReleaseBuffer(value);
         }
         LOADVALUEFROMFILE(m_kind);
-        LOADVALUEFROMFILE(value);
-        if (value != 0)
-        {
-            if (fread(m_sPresentProps.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
-            {
-                m_sPresentProps.ReleaseBuffer(0);
-                return false;
-            }
-            m_sPresentProps.ReleaseBuffer(value);
-        }
+        LOADVALUEFROMFILE(m_needsLock);
         SecureZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
         LOADVALUEFROMFILE(m_svnStatus.copied);
         LOADVALUEFROMFILE(m_svnStatus.locked);
@@ -153,7 +144,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
     return true;
 }
 
-void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool forceNormal)
+void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool needsLock, bool forceNormal)
 {
     if(pSVNStatus == NULL)
     {
@@ -181,6 +172,7 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool fo
             m_sOwner = pSVNStatus->lock ? pSVNStatus->lock->owner : "";
             m_kind = pSVNStatus->kind;
             m_sAuthor = pSVNStatus->changed_author;
+            m_needsLock = needsLock;
         }
         else
         {
@@ -210,6 +202,7 @@ void CStatusCacheEntry::SetAsUnversioned()
     m_svnStatus.node_status = status;
     m_lastWriteTime = 0;
     m_treeconflict = false;
+    m_needsLock = false;
 }
 
 bool CStatusCacheEntry::HasExpired(long now) const
@@ -228,13 +221,8 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
         response.m_cmt_rev    = m_commitRevision;
 
         response.m_kind = (INT8)m_kind;
+        response.m_needslock = m_needsLock;
 
-        if (m_sPresentProps.Find(SVN_PROP_NEEDS_LOCK)>=0)
-        {
-            response.m_needslock = true;
-        }
-        else
-            response.m_needslock = false;
         // The whole of response has been zeroed, so this will copy safely
         strncat_s(response.m_url, INTERNET_MAX_URL_LENGTH, m_sUrl, _TRUNCATE);
         strncat_s(response.m_owner, 255, m_sOwner, _TRUNCATE);

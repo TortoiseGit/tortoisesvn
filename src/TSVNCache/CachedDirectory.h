@@ -49,7 +49,7 @@ public:
     svn_wc_status_kind GetCurrentFullStatus() {return m_currentFullStatus;}
 private:
     static svn_error_t* GetStatusCallback(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
-    void AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool forceNormal);
+    void AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool needsLock, bool forceNormal);
     CString GetCacheKey(const CTSVNPath& path);
     CString GetFullPathString(const CString& cacheKey);
     CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);
@@ -91,6 +91,8 @@ private:
 
     // The most important status from all our file entries
     svn_wc_status_kind m_mostImportantFileStatus;
+
+    svn_client_ctx_t * m_pCtx;
 
     friend class CSVNStatusCache;
 };

@@ -26,10 +26,12 @@
 #define CACHEDIRECTORYDISKVERSION 2
 
 CCachedDirectory::CCachedDirectory(void)
+    : m_wcDbFileTime(0)
+    , m_bCurrentFullStatusValid(false)
+    , m_currentFullStatus(svn_wc_status_none)
+    , m_mostImportantFileStatus(svn_wc_status_none)
+    , m_pCtx(NULL)
 {
-    m_wcDbFileTime = 0;
-    m_bCurrentFullStatusValid = false;
-    m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 }
 
 CCachedDirectory::~CCachedDirectory(void)
@@ -37,13 +39,15 @@ CCachedDirectory::~CCachedDirectory(void)
 }
 
 CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
+    : m_wcDbFileTime(0)
+    , m_bCurrentFullStatusValid(false)
+    , m_currentFullStatus(svn_wc_status_none)
+    , m_mostImportantFileStatus(svn_wc_status_none)
+    , m_pCtx(NULL)
 {
     ATLASSERT(directoryPath.IsDirectory() || !PathFileExists(directoryPath.GetWinPath()));
 
     m_directoryPath = directoryPath;
-    m_wcDbFileTime = 0;
-    m_bCurrentFullStatusValid = false;
-    m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 }
 
 BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
@@ -204,7 +208,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
         {
             // We are a folder which is not in a working copy
             bThisDirectoryIsUnversioned = true;
-            m_ownStatus.SetStatus(NULL, false);
+            m_ownStatus.SetStatus(NULL, false, false);
 
             // If a user removes the .svn directory, we get here with m_entryCache
             // not being empty, but still us being unversioned
@@ -366,7 +370,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
         m_mostImportantFileStatus = svn_wc_status_none;
         m_childDirectories.clear();
         m_entryCache.clear();
-        m_ownStatus.SetStatus(NULL, false);
+        m_ownStatus.SetStatus(NULL, false, false);
     }
     if(!bThisDirectoryIsUnversioned)
     {
@@ -407,12 +411,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
         }
     }
 
-    AddEntry(path, NULL, false);
+    AddEntry(path, NULL, false, false);
     return CStatusCacheEntry();
 }
 
 void
-CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool forceNormal)
+CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool needsLock, bool forceNormal)
 {
     AutoLocker lock(m_critSec);
     svn_wc_status_kind nodestatus = forceNormal ? svn_wc_status_normal : (pSVNStatus ? pSVNStatus->node_status : svn_wc_status_none);
@@ -422,7 +426,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSV
         if (childDir)
         {
             if ((childDir->GetCurrentFullStatus() != svn_wc_status_ignored)||(pSVNStatus==NULL)||(nodestatus != svn_wc_status_unversioned))
-                childDir->m_ownStatus.SetStatus(pSVNStatus, forceNormal);
+                childDir->m_ownStatus.SetStatus(pSVNStatus, needsLock, forceNormal);
             childDir->m_ownStatus.SetKind(svn_node_dir);
         }
     }
@@ -446,7 +450,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSV
         {
             entry_it = m_entryCache.insert(entry_it, std::make_pair(cachekey, CStatusCacheEntry()));
         }
-        entry_it->second = CStatusCacheEntry(pSVNStatus, path.GetLastWriteTime(), forceNormal);
+        entry_it->second = CStatusCacheEntry(pSVNStatus, needsLock, path.GetLastWriteTime(), forceNormal);
     }
 }
 
@@ -478,9 +482,10 @@ CCachedDirectory::SvnUpdateMembersStatus()
         m_currentStatusFetchingPath = m_directoryPath;
     }
     CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
+    m_pCtx = CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool);
     svn_error_t* pErr = svn_client_status5 (
         NULL,
-        CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool),
+        m_pCtx,
         m_directoryPath.GetSVNApiPath(subPool),
         &revision,
         svn_depth_immediates,
@@ -498,6 +503,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
         AutoLocker pathlock(m_critSecPath);
         m_currentStatusFetchingPath.Reset();
     }
+    m_pCtx = NULL;
     if(pErr)
     {
         // Handle an error
@@ -551,7 +557,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
     return true;
 }
 
-svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t * /*pool*/)
+svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t * pool)
 {
     CCachedDirectory* pThis = (CCachedDirectory*)baton;
 
@@ -560,6 +566,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 
     CTSVNPath svnPath;
     bool forceNormal = false;
+    bool needsLock = false;
 
     if(status->versioned)
     {
@@ -595,6 +602,18 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                     AutoLocker lock(pThis->m_critSec);
                     pThis->m_childDirectories[svnPath] = s;
                 }
+            }
+        }
+        else
+        {
+            // only fetch the svn:needs-lock property if the status of this file is 'normal', because
+            // if the status is something else, the needs-lock overlay won't show up anyway
+            if ((pThis->m_pCtx)&&(status->node_status == svn_wc_status_normal))
+            {
+                const svn_string_t * value = NULL;
+                svn_wc_prop_get2(&value, pThis->m_pCtx->wc_ctx, path, "svn:needs-lock", pool, pool);
+                if (value)
+                    needsLock = (value->len > 0);
             }
         }
     }
@@ -663,7 +682,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
         }
     }
 
-    pThis->AddEntry(svnPath, status, forceNormal);
+    pThis->AddEntry(svnPath, status, needsLock, forceNormal);
 
     return SVN_NO_ERROR;
 }
