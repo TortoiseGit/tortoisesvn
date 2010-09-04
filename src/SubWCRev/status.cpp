@@ -106,7 +106,7 @@ svn_error_t * getfirststatus(void * baton, const char * path, const svn_client_s
     {
         const svn_string_t * value = NULL;
         svn_wc_prop_get2(&value, sb->wc_ctx, path, "svn:needs-lock", pool, pool);
-        sb->SubStat->LockData.NeedsLocks = (value->len > 0);
+        sb->SubStat->LockData.NeedsLocks = value && (value->len > 0);
     }
 
     return SVN_NO_ERROR;
