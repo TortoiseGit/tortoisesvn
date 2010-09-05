@@ -62,9 +62,10 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-06 10:38+0800\n"
-"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
+"PO-Revision-Date: 2010-09-05 23:01+0800\n"
+"Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -903,6 +904,10 @@ msgstr "亮度(&L):"
 msgid "&Mac (CR)"
 msgstr "Mac(CR)(&M)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "粘滞深度(&M)"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "手工编辑属性(&M)"
@@ -1395,6 +1400,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "工作副本(&W)"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "拆开长行(&W)"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2431,10 +2440,6 @@ msgstr "检查更新"
 msgid "Check For Updates..."
 msgstr "检查更新..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "改变外部定义为固定版本"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "检查修改(&M)"
@@ -2537,6 +2542,10 @@ msgstr "清理"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "清理目录 \"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "清理与刷新图标"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2554,6 +2563,10 @@ msgid ""
 msgstr ""
 "清理以下路径成功: \n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "清理未完成的操作，以及刷新图标"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3362,6 +3375,10 @@ msgstr "详细信息(&E)"
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "日期"
+
+#. Resource IDs: (117)
+msgid "Date Range"
+msgstr "日期范围"
 
 #. Resource IDs: (1008)
 msgid "Default"
@@ -4399,6 +4416,10 @@ msgstr ""
 "填充工具\n"
 "填充"
 
+#. Resource IDs: (117)
+msgid "Filter by"
+msgstr "被过滤"
+
 #. Resource IDs: (65535)
 msgid "Filter match"
 msgstr "过滤器匹配"
@@ -4696,6 +4717,10 @@ msgstr "隐藏已删除的路径(&D)"
 msgid "Hide all branches that did not modify the item"
 msgstr "隐藏所有没有修改此项的分支"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "隐藏全部标签"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "隐藏已经删除的分支或标签"
@@ -4703,6 +4728,10 @@ msgstr "隐藏已经删除的分支或标签"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "隐藏钉住的窗口"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "隐藏标签(&G)"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -5941,8 +5970,8 @@ msgid "Messages"
 msgstr "信息"
 
 #. Resource IDs: (116)
-msgid "Messages, authors and paths"
-msgstr "信息，作者和路径"
+msgid "Messages, authors, paths and revs"
+msgstr "信息，作者，路径和版本"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -6284,6 +6313,10 @@ msgstr "没有这个版本 '%1!s!'"
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
 msgstr "没有建议辞典"
+
+#. Resource IDs: (65535)
+msgid "Node Status:"
+msgstr "节点状态: "
 
 #. Resource IDs: (65535)
 msgid "Node colors"
@@ -6813,6 +6846,10 @@ msgid "Pre-Commit Hook"
 msgstr "提交之前钩子"
 
 #. Resource IDs: (570)
+msgid "Pre-Connect Hook"
+msgstr "连接之前钩子"
+
+#. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "更新之前钩子"
 
@@ -7145,6 +7182,10 @@ msgstr "递归处理无版本控制的文件夹"
 msgid "Recursive"
 msgstr "递归"
 
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr "重定向到 URL"
+
 #. Resource IDs: (3603)
 msgid ""
 "Redo the previously undone action\n"
@@ -7260,6 +7301,10 @@ msgstr "重定位警告"
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "正在重新定位..."
+
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "记着工作副本的深度"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -8077,6 +8122,10 @@ msgstr "服务器地址(&A): "
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
 msgstr "设置加速键(&F):"
+
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "对这些外部引用设置明确的版本:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -9404,6 +9453,10 @@ msgstr "知识库"
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
 msgstr "在程序退出前，当前打开的文档另外保存了一些修改。"
 
+#. Resource IDs: (84)
+msgid "This file already exists!"
+msgstr "文件已经存在！"
+
 #. Resource IDs: (83)
 msgid ""
 "This is not a valid URL.\n"
@@ -10358,6 +10411,10 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "工作副本: %s\n"
 
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "拆开长行"
+
 #. Resource IDs: (73)
 msgid "Yes"
 msgstr "是"
@@ -11148,9 +11205,9 @@ msgstr "svn:externals"
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11160,15 +11217,15 @@ msgid ""
 "/ relative to the server's hostname"
 msgstr ""
 "svn:externals\r\n"
-"以换行字符分隔的模块指示列表, 每行包含可选的版本号，URL 和相对目录。例如: \r\n"
+"以换行字符分隔的模块指示列表, 每行包含可选的版本号，URL与可选的 peg 版本，以及相对目录。例如: \r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "URL 通常是全路径，也可以是相对路径。相对路径的格式是: \r\n"
 "../ 相对于外部路径的父目录\r\n"
-"^/  相对于版本库的根\r\n"
-"//  相对于 URL 方案\r\n"
-"/   相对于服务器的主机名称"
+"^/ 相对于版本库的根\r\n"
+"// 相对于 URL 方案\r\n"
+"/ 相对于服务器的主机名称"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11465,9 +11522,3 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "Check externals to tag"
-#~ msgstr "检出外部定义为标签"
-
-#~ msgid "Tagged"
-#~ msgstr "已加标签"
