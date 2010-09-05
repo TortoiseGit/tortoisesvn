@@ -3171,6 +3171,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         // insert a new, fresh and empty line below the cursor
         RemoveSelectedText();
         AddUndoLine(m_ptCaretPos.y, true);
+        BuildAllScreen2ViewVector();
         // move the cursor to the new line
         m_ptCaretPos.y++;
         m_ptCaretPos.x = 0;
