@@ -51,33 +51,35 @@ bool CleanupCommand::Execute()
             strFailedPaths += _T("- ") + pathList[i].GetWinPathString() + _T("\n");
             strFailedPaths += svn.GetLastErrorMessage() + _T("\n\n");
         }
-        else if (parser.HasKey(L"refreshshell"))
+        else
         {
             strSuccessfullPaths += _T("- ") + pathList[i].GetWinPathString() + _T("\n");
-
-            // after the cleanup has finished, crawl the path downwards and send a change
-            // notification for every directory to the shell. This will update the
-            // overlays in the left tree view of the explorer.
-            CDirFileEnum crawler(pathList[i].GetWinPathString());
-            CString sPath;
-            bool bDir = false;
-            CTSVNPathList updateList;
-            while (crawler.NextFile(sPath, &bDir, true))
+            if (parser.HasKey(L"refreshshell"))
             {
-                if (bDir)
+                // after the cleanup has finished, crawl the path downwards and send a change
+                // notification for every directory to the shell. This will update the
+                // overlays in the left tree view of the explorer.
+                CDirFileEnum crawler(pathList[i].GetWinPathString());
+                CString sPath;
+                bool bDir = false;
+                CTSVNPathList updateList;
+                while (crawler.NextFile(sPath, &bDir, true))
                 {
-                    if (!g_SVNAdminDir.IsAdminDirPath(sPath))
-                        updateList.AddPath(CTSVNPath(sPath));
+                    if (bDir)
+                    {
+                        if (!g_SVNAdminDir.IsAdminDirPath(sPath))
+                            updateList.AddPath(CTSVNPath(sPath));
+                    }
                 }
-            }
-            updateList.AddPath(pathList[i]);
-            CShellUpdater::Instance().AddPathsForUpdate(updateList);
-            CShellUpdater::Instance().Flush();
-            updateList.SortByPathname(true);
-            for (INT_PTR j=0; j<updateList.GetCount(); ++j)
-            {
-                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[j].GetWinPath(), NULL);
-                ATLTRACE(_T("notify change for path %s\n"), updateList[j].GetWinPath());
+                updateList.AddPath(pathList[i]);
+                CShellUpdater::Instance().AddPathsForUpdate(updateList);
+                CShellUpdater::Instance().Flush();
+                updateList.SortByPathname(true);
+                for (INT_PTR j=0; j<updateList.GetCount(); ++j)
+                {
+                    SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, updateList[j].GetWinPath(), NULL);
+                    ATLTRACE(_T("notify change for path %s\n"), updateList[j].GetWinPath());
+                }
             }
         }
     }
