@@ -2449,6 +2449,18 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
     sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
     SetWindowText(sWindowTitle);
     SetBackgroundImage(IDI_IMPORT_BKG);
+
+    DWORD exitcode = 0;
+    CString error;
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
+
     CString sCmdInfo;
     sCmdInfo.Format(IDS_PROGRS_CMD_IMPORT,
         m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(),
@@ -2459,6 +2471,16 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
         ReportSVNError();
         return false;
     }
+
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
+
     return true;
 }
 
