@@ -104,6 +104,12 @@ public:
      */
     BOOL IsSVNProperty(int index) const;
     /**
+     * Checks if te property is a "folder only" property, i.e., a property that isn't
+     * allowed to be set on files, only on folders.
+     * \param name the name of the property, e.g., "svn:externals"
+     */
+    bool IsFolderOnlyProperty(const std::string& name) const;
+    /**
      * Adds a new property to the file/directory specified in the constructor.
      * \remark After using this method the indexes of the properties may change! Call Refresh() if you want to access other properties again.
      * \param Name the name of the new property

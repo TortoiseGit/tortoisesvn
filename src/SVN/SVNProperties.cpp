@@ -361,7 +361,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
     if (m_path.IsUrl() || (!m_rev.IsWorking() && !m_rev.IsValid()))
         CHooks::Instance().PreConnect(CTSVNPathList(m_path));
 #endif
-    if ((!m_bRevProps)&&((depth != svn_depth_empty)&&((strncmp(name.c_str(), "bugtraq:", 8)==0)||(strncmp(name.c_str(), "tsvn:", 5)==0)||(strncmp(name.c_str(), "webviewer:", 10)==0))))
+    if ((!m_bRevProps)&&((depth != svn_depth_empty)&&IsFolderOnlyProperty(name)))
     {
         // The bugtraq and tsvn properties must only be set on folders.
         CTSVNPath path;
@@ -465,7 +465,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     }
     else
     {
-        if (((depth != svn_depth_empty)&&((strncmp(name.c_str(), "bugtraq:", 8)==0)||(strncmp(name.c_str(), "tsvn:", 5)==0)||(strncmp(name.c_str(), "webviewer:", 10)==0))))
+        if (((depth != svn_depth_empty)&&IsFolderOnlyProperty(name)))
         {
             CTSVNPath path;
             SVNStatus stat;
@@ -761,4 +761,20 @@ svn_error_t * SVNProperties::proplist_receiver(void *baton, const char *path, ap
         return error;
     }
     return SVN_NO_ERROR;
+}
+
+bool SVNProperties::IsFolderOnlyProperty( const std::string& name ) const
+{
+    if ((strncmp(name.c_str(), "bugtraq:", 8) == 0))
+        return true;
+    if ((strncmp(name.c_str(), "tsvn:", 5) == 0))
+        return true;
+    if ((strncmp(name.c_str(), "webviewer:", 10) == 0))
+        return true;
+    if (name.compare("svn:externals") == 0)
+        return true;
+    if (name.compare("svn:ignore") == 0)
+        return true;
+
+    return false;
 }
