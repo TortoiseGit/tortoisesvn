@@ -140,7 +140,8 @@ void CEditPropExternals::OnBnClickedEdit()
         POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
         size_t selIndex = m_ExtList.GetNextSelectedItem(pos);
         SVNExternal ext = m_externals[selIndex];
-        ext.revision = ext.origrevision;
+        if (ext.revision.kind == svn_opt_revision_unspecified)
+            ext.revision = ext.origrevision;
 
         CEditPropExternalsValue dlg;
         dlg.SetURL(m_url);
@@ -173,7 +174,8 @@ void CEditPropExternals::OnNMDblclkExternalslist(NMHDR * pNMHDR, LRESULT *pResul
     if (lpnmitem->iItem < (int)m_externals.size())
     {
         SVNExternal ext = m_externals[lpnmitem->iItem];
-        ext.revision = ext.origrevision;
+        if (ext.revision.kind == svn_opt_revision_unspecified)
+            ext.revision = ext.origrevision;
 
         CEditPropExternalsValue dlg;
         dlg.SetURL(m_url);
