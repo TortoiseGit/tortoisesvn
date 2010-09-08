@@ -653,6 +653,8 @@ BOOL CPatch::HasExpandedKeyWords(const CString& line)
         return TRUE;
     if (line.Find(_T("$Id"))>=0)
         return TRUE;
+    if (line.Find(_T("$Header"))>=0)
+        return TRUE;
     return FALSE;
 }
 
