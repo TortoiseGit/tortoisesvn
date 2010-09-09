@@ -353,6 +353,8 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
 
         // found a match
         int i = pGroup->m_LinesLeft.GetSingle();
+        if (i == 0)
+            continue;
         // Ok, now our moved block is the single line (i,j)
 
         // extend moved block upward as far as possible
