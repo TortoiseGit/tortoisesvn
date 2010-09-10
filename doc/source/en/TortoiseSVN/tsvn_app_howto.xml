@@ -451,7 +451,7 @@ C:\Projects\Proj2
 C:\Projects\Proj3
 C:\Projects\Common
 </screen>
-                and refer to the common code using a relative path, eg.
+                and refer to the common code using a relative path, e.g.
                 <filename>..\..\Common\DSPcore</filename>.
             </para>
             <para>
@@ -459,7 +459,7 @@ C:\Projects\Common
                 can use a variant of this, which is to put the common
                 code in one location and use drive letter substitution to
                 map that location to something you can hard code in your
-                projects, eg. Checkout the common code to
+                projects, e.g. Checkout the common code to
                 <filename>D:\Documents\Framework</filename> or
                 <filename>C:\Documents and Settings\{login}\My Documents\framework</filename>
                 then use

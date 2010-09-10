@@ -304,7 +304,7 @@
                 When you commit a file or folder the properties are read from that folder.
                 If the properties are not found there, TortoiseSVN will search upwards
                 through the folder tree to find them until it comes to an unversioned
-                folder, or the tree root (eg. <literal>C:\</literal>) is found.
+                folder, or the tree root (e.g. <literal>C:\</literal>) is found.
                 If you can be sure that each user checks out only from e.g
                 <filename>trunk/</filename> and not some sub-folder, then it's enough if
                 you set the properties on <filename>trunk/</filename>.

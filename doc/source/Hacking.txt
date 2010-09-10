@@ -12,12 +12,12 @@ Rules
 =====
 - Separate XML tags from content
   In most cases, the XML tag should be included on a line by itself,
-  and the content should be indented, eg.
+  and the content should be indented, e.g.
   <para>
   	Contents of the paragraph, which
   	may span several lines or just one.
   </para>
-  Some tags are only used for a few words, eg. <emphasis> and these
+  Some tags are only used for a few words, e.g. <emphasis> and these
   may be included inline. But please do not break such a tag over
   a line boundary. eg <emphasis>NOT
   </emphasis> like this.
@@ -77,7 +77,7 @@ Rules
 - Multiline input/output or file content is marked using <screen>.
   Note that any leading spaces are also included in the formatting,
   so this text normally appears hard against the left margin in the
-  XML source file. The <screen> tag should also be left aligned. eg.
+  XML source file. The <screen> tag should also be left aligned. e.g.
   the content of the Apache config file is shown as follows:
 <screen>
 &lt;Location /svn&gt;

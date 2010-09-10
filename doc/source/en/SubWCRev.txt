@@ -25,7 +25,7 @@ DstVersionFile     :   path to save the resulting parsed file.
                        with svn:externals, but only if they are from the
                        same repository.
 
-Switches must be given in a single argument, eg. '-nm' not '-n -m'.
+Switches must be given in a single argument, e.g. '-nm' not '-n -m'.
 
 SubWCRev reads the Subversion status of all files in a working copy, excluding
 externals. It records the highest commit revision number found, and the commit
