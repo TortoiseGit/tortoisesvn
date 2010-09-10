@@ -203,7 +203,7 @@ void CBaseView::DocumentUpdated()
     m_bOtherDiffChecked = false;
     m_nDigits = 0;
     m_nMouseLine = -1;
-
+    m_Screen2View.clear();
     m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
     m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
     m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
@@ -2292,11 +2292,11 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
     RecalcAllVertScrollBars(TRUE);
     m_ptCaretPos.x = 0;
     m_nCaretGoalPos = 0;
+    EnsureCaretVisible();
     OnNavigateNextinlinediff();
 
     UpdateViewsCaretPosition();
     UpdateCaret();
-    EnsureCaretVisible();
     ShowDiffLines(nCenterPos);
     return true;
 }
@@ -3084,9 +3084,9 @@ void CBaseView::EnsureCaretVisible()
     if (m_ptCaretPos.y >= (m_nTopLine+screnLines))
         ScrollAllToLine(m_ptCaretPos.y-screnLines+1);
     if (nCaretOffset < m_nOffsetChar)
-        ScrollToChar(nCaretOffset);
+        ScrollAllToChar(nCaretOffset);
     if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
-        ScrollToChar(nCaretOffset-GetScreenChars()+1);
+        ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
 }
 
 int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex)
@@ -3705,6 +3705,8 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
         return false;
     if (line[0] == 0)
         return false;
+
+    CheckOtherView();
 
     LPCTSTR pszDiffChars = NULL;
     int nDiffLength = 0;
