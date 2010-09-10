@@ -91,7 +91,7 @@ useradd -m svnuser
             Install Cygwin SSH daemon as described here:
             <ulink url="http://pigtail.net/LRP/printsrv/cygwin-sshd.html">
                 <citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle>
-            </ulink>
+            </ulink>.
         </para>
         <para>
             Create a new Windows user account <literal>svnuser</literal> which
@@ -154,7 +154,7 @@ ls -l keyfile*
                 folder within the <literal>svnuser</literal> home directory:
 <screen>
 cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys
-</screen>
+</screen>.
             </para>
             <para>
                 In order to use the private key we generated, we have to
@@ -339,7 +339,7 @@ svn+ssh://SvnConnection/repos
             If you don't want to repeat this procedure after every reboot of your
             client, you should place Pageant in the auto-start group of your
             Windows installation. You can append the keys with
-            complete paths as command line arguments to Pageant.exe
+            complete paths as command line arguments to Pageant.exe.
         </para>
         <para>
             The last way to connect to an SSH server is simply by using this URL
@@ -359,7 +359,7 @@ svn+ssh://svnuser@mydomain.com/repos
             If you use this last method, be sure you do not have a default username
             set in PuTTY. We have had reports of a bug in PuTTY causing connections
             to close in this case. To remove the default user, simply clear
-            <filename>HKEY_CURRENT_USER\Software\SimonTatham\Putty\Sessions\Default%20Settings\HostName</filename>
+            <filename>HKEY_CURRENT_USER\Software\SimonTatham\Putty\Sessions\Default%20Settings\HostName</filename>.
         </para>
     </sect1>
 </appendix>

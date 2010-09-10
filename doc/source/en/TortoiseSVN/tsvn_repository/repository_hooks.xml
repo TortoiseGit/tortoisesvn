@@ -48,7 +48,7 @@ exit 1
         Note that anything sent to stdout is discarded. if you want
         a message to appear in the Commit Reject dialog you must
         send it to stderr. In a batch file this is achieved using
-        <filename>&gt;&amp;2</filename>
+        <filename>&gt;&amp;2</filename>.
     </para>
     <tip>
         <title>Overriding Hooks</title>
@@ -61,7 +61,7 @@ exit 1
             filename with a prefix. If it finds the magic word then it allows
             the commit to proceed. If the phrase is not found then it can
             block the commit with a message like
-            <quote>You didn't say the magic word</quote> :-)
+            <quote>You didn't say the magic word</quote>. :-)
         </para>
     </tip>
 </sect1>

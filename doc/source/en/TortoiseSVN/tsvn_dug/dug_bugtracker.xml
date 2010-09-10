@@ -79,7 +79,7 @@
                             TortoiseSVN shows only the
                             issue number and not the link to it.
                             e.g the TortoiseSVN project is using
-                            <systemitem class="url">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
+                            <systemitem class="url">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>.
                         </para>
                         <para>
                             You can also use relative URLs instead of absolute ones. This is
@@ -225,14 +225,14 @@
                                 of bug IDs and natural language expressions if you wish.
                                 e.g. you might fix several bugs and include a string something
                                 like this:
-                                <quote>This change resolves issues #23, #24 and #25</quote>
+                                <quote>This change resolves issues #23, #24 and #25</quote>.
                             </para>
                             <para>
                                 If you want to catch bug IDs as used in the expression above
                                 inside a log message, you could use the following regex strings,
                                 which are the ones used by the TortoiseSVN project:
                                 <literal>[Ii]ssues?:?(\s*(,|and)?\s*#\d+)+</literal> and
-                                <literal>(\d+)</literal>
+                                <literal>(\d+)</literal>.
                             </para>
                             <para>
                                 The first expression picks out <quote>issues #23, #24 and #25</quote>
