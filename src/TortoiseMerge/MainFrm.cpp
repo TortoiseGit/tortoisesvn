@@ -589,6 +589,11 @@ bool CMainFrame::LoadViews(int line)
         m_Data.m_mergedFile.SetOutOfUse();
         return false;
     }
+    m_pwndLeftView->DocumentUpdated();
+    m_pwndRightView->DocumentUpdated();
+    m_pwndBottomView->DocumentUpdated();
+    m_wndLocatorBar.DocumentUpdated();
+    m_wndLineDiffBar.DocumentUpdated();
 
     m_pwndRightView->UseCaret(false);
     m_pwndBottomView->UseCaret(false);
@@ -616,7 +621,7 @@ bool CMainFrame::LoadViews(int line)
                 if (CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
                 {
                     m_Data.m_sPatchPath = betterpatchpath;
-                    m_Patch.SetTargetPath(betterpatchpath);
+                    m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
                 }
             }
             m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath, this);
