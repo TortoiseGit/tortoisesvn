@@ -21,6 +21,7 @@
 #include "FormatMessageWrapper.h"
 #include "SVNProgressDlg.h"
 #include "MessageBox.h"
+#include "StringUtils.h"
 
 bool DropCopyAddCommand::Execute()
 {
@@ -40,6 +41,11 @@ bool DropCopyAddCommand::Execute()
         CString name = pathList[nPath].GetFileOrDirectoryName();
         if (::PathFileExists(droppath+_T("\\")+name))
         {
+            if (::PathIsDirectory(droppath+_T("\\")+name))
+            {
+                if (pathList[nPath].IsDirectory())
+                    continue;
+            }
             CString strMessage;
             strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)(droppath+_T("\\")+name));
             const int ret = CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_YESNOCANCEL | MB_ICONQUESTION);
@@ -57,11 +63,32 @@ bool DropCopyAddCommand::Execute()
                 }
             }
         }
-        else if (!CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
+        else
         {
-            //the copy operation failed! Get out of here!
-            ShowErrorMessage();
-            return FALSE;
+            if (pathList[nPath].IsDirectory())
+            {
+                CString fromPath = pathList[nPath].GetWinPathString() + L"||";
+                CString toPath = droppath + L"\\" + name + L"||";
+                auto_buffer<TCHAR> fromBuf(fromPath.GetLength()+2);
+                auto_buffer<TCHAR> toBuf(toPath.GetLength()+2);
+                wcscpy_s(fromBuf, fromPath.GetLength()+2, fromPath);
+                wcscpy_s(toBuf, toPath.GetLength()+2, toPath);
+                CStringUtils::PipesToNulls(fromBuf, fromPath.GetLength()+2);
+                CStringUtils::PipesToNulls(toBuf, toPath.GetLength()+2);
+
+                SHFILEOPSTRUCT fileop = {0};
+                fileop.wFunc = FO_COPY;
+                fileop.pFrom = fromBuf;
+                fileop.pTo = toBuf;
+                fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_NOCONFIRMATION | FOF_NOCONFIRMMKDIR | FOF_NOCOPYSECURITYATTRIBS | FOF_SILENT;
+                SHFileOperation(&fileop);
+            }
+            else if (!CopyFile(pathList[nPath].GetWinPath(), droppath+_T("\\")+name, FALSE))
+            {
+                //the copy operation failed! Get out of here!
+                ShowErrorMessage();
+                return FALSE;
+            }
         }
         copiedFiles.AddPath(CTSVNPath(droppath+_T("\\")+name));     //add the new filepath
     }
