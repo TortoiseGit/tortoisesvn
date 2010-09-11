@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,6 +83,6 @@ void DropCopyAddCommand::ShowErrorMessage()
 {
     CFormatMessageWrapper errorDetails;
     CString strMessage;
-    strMessage.Format(IDS_ERR_COPYFILES, errorDetails);
+    strMessage.Format(IDS_ERR_COPYFILES, (LPCTSTR)errorDetails);
     CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 }

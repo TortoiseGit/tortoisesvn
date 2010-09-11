@@ -224,7 +224,7 @@ bool CCommonAppUtils::LaunchApplication
         {
             CFormatMessageWrapper errorDetails;
             CString msg;
-            msg.Format(idErrMessageFormat, errorDetails);
+            msg.Format(idErrMessageFormat, (LPCTSTR)errorDetails);
             CString title;
             title.LoadString(IDS_APPNAME);
             MessageBox(NULL, msg, title, MB_OK | MB_ICONINFORMATION);
