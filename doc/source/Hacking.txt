@@ -14,14 +14,14 @@ Rules
   In most cases, the XML tag should be included on a line by itself,
   and the content should be indented, e.g.
   <para>
-  	Contents of the paragraph, which
-  	may span several lines or just one.
+      Contents of the paragraph, which
+      may span several lines or just one.
   </para>
   Some tags are only used for a few words, e.g. <emphasis> and these
   may be included inline. But please do not break such a tag over
-  a line boundary. eg <emphasis>NOT
+  a line boundary. e.g. <emphasis>NOT
   </emphasis> like this.
-  
+
 - Use leading tabs, not spaces
   Please set up your editor NOT to expand tabs to spaces. If anyone
   else views the file with different tab settings it will look a mess.
