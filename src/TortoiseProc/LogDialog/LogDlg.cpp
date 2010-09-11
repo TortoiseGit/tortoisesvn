@@ -296,6 +296,7 @@ BOOL CLogDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_GETALL);
     m_aeroControls.SubclassControl(this, IDC_NEXTHUNDRED);
     m_aeroControls.SubclassControl(this, IDC_REFRESH);
+    m_aeroControls.SubclassControl(this, IDC_LOGCANCEL);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_pTaskbarList.Release();
