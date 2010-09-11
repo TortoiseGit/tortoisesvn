@@ -112,6 +112,9 @@ Version 1.6.11
 - BUG: When checking an added file in the commit dialog,
        the parent folder wasn't checked automatically if
        it was added too. (Stefan)
+- BUG: when passing /tourl: to the merge command, the
+       revision range page was shown instead of 
+       the tree page. (Stefan)
 
 Version 1.6.10
 - BUG: Updating single items from the check-for-modifications

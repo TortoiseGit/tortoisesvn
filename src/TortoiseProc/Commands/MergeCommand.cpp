@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,9 +34,9 @@ bool MergeCommand::Execute()
         // fromurl means merging a revision range
         nMergeWizardMode = 2;
     }
-    if (parser.HasVal(_T("fromurl2")))
+    if (parser.HasVal(_T("tourl")))
     {
-        // fromurl2 means merging a tree
+        // tourl means merging a tree
         nMergeWizardMode = 1;
     }
 
@@ -49,7 +49,7 @@ bool MergeCommand::Execute()
         wizard.url = parser.GetVal(_T("fromurl"));
         wizard.revRangeArray.FromListString(parser.GetVal(_T("revrange")));
     }
-    if (parser.HasVal(_T("fromurl2")))
+    if (parser.HasVal(_T("tourl")))
     {
         wizard.URL2 = parser.GetVal(_T("tourl"));
         wizard.startRev = SVNRev(parser.GetVal(_T("fromrev")));
