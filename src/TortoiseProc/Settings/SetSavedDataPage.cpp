@@ -24,6 +24,7 @@
 #include "DirFileEnum.h"
 #include "SetSavedDataPage.h"
 #include "MessageBox.h"
+#include "StringUtils.h"
 
 IMPLEMENT_DYNAMIC(CSetSavedDataPage, ISettingsPropPage)
 
@@ -287,11 +288,18 @@ BOOL CSetSavedDataPage::OnApply()
 
 void CSetSavedDataPage::DeleteViaShell(LPCTSTR path, UINT progressText)
 {
+    CString p(path);
+    p += L"||";
+    int len = p.GetLength();
+    auto_buffer<TCHAR> buf(len+2);
+    wcscpy_s(buf, len+2, p);
+    CStringUtils::PipesToNulls(buf, len);
+
     CString progText(MAKEINTRESOURCE(progressText));
     SHFILEOPSTRUCT fileop;
     fileop.hwnd = m_hWnd;
     fileop.wFunc = FO_DELETE;
-    fileop.pFrom = path;
+    fileop.pFrom = buf;
     fileop.pTo = NULL;
     fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
     fileop.lpszProgressTitle = progText;
