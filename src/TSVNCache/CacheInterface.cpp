@@ -59,15 +59,23 @@ CString GetCacheID()
 
 bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 {
-    HANDLE hPipe = CreateFile(
-        GetCacheCommandPipeName(),      // pipe name
-        GENERIC_READ |                  // read and write access
-        GENERIC_WRITE,
-        0,                              // no sharing
-        NULL,                           // default security attributes
-        OPEN_EXISTING,                  // opens existing pipe
-        FILE_FLAG_OVERLAPPED,           // default attributes
-        NULL);                          // no template file
+    int retrycount = 2;
+    HANDLE hPipe = INVALID_HANDLE_VALUE;
+    do 
+    {
+        HANDLE hPipe = CreateFile(
+            GetCacheCommandPipeName(),      // pipe name
+            GENERIC_READ |                  // read and write access
+            GENERIC_WRITE,
+            0,                              // no sharing
+            NULL,                           // default security attributes
+            OPEN_EXISTING,                  // opens existing pipe
+            FILE_FLAG_OVERLAPPED,           // default attributes
+            NULL);                          // no template file
+        retrycount--;
+        if (hPipe == INVALID_HANDLE_VALUE)
+            Sleep(10);
+    } while ((hPipe == INVALID_HANDLE_VALUE) && (retrycount));
 
     if (hPipe == INVALID_HANDLE_VALUE)
         return false;
@@ -86,12 +94,21 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
         cmd.command = command;
         if (path)
             _tcsncpy_s(cmd.path, MAX_PATH+1, path, _TRUNCATE);
-        BOOL fSuccess = WriteFile(
-            hPipe,          // handle to pipe
-            &cmd,           // buffer to write from
-            sizeof(cmd),    // number of bytes to write
-            &cbWritten,     // number of bytes written
-            NULL);          // not overlapped I/O
+
+        retrycount = 2;
+        BOOL fSuccess = FALSE;
+        do 
+        {
+            fSuccess = WriteFile(
+                hPipe,          // handle to pipe
+                &cmd,           // buffer to write from
+                sizeof(cmd),    // number of bytes to write
+                &cbWritten,     // number of bytes written
+                NULL);          // not overlapped I/O
+            retrycount--;
+            if (! fSuccess || sizeof(cmd) != cbWritten)
+                Sleep(10);
+        } while ((retrycount) && (! fSuccess || sizeof(cmd) != cbWritten));
 
         if (! fSuccess || sizeof(cmd) != cbWritten)
         {
