@@ -16,7 +16,9 @@
     </para>
     <sidebar>
         <para>
-            Note that the bug is fixed in VS2005 and later versions.
+            Note that the bug is fixed in VS2005 and later versions. Do not
+            activate the <literal>SVN_ASP_DOT_NET_HACK</literal> if you're
+            already using a later version of Visual Studio.
         </para>
     </sidebar>
     <para>

@@ -53,6 +53,24 @@
             modified in any way in the repository, so it cannot be deleted
             or renamed either, except by the lock owner.
         </para>
+        <important>
+            <para>
+                A lock is not assigned to a specific user, but to a specific
+                user and a working copy. Having a lock in one working copy
+                also prevents the same user from committing the locked file
+                from another working copy.
+            </para>
+            <para>
+                As an example, imagine that user Jon has a working copy on
+                his office PC. There he starts working on an image, and therefore
+                aquires a lock on that file. When he leaves his office he's not
+                finished yet with that file, so he doesn't release that lock.
+                Back at home Jon also has a working copy and decides to work
+                a little more on the project. But he can't modify or commit
+                that same image file, because the lock for that file resides
+                in his working copy in the office.
+            </para>
+        </important>
         <para>
             However, other users will not necessarily know that you have taken
             out a lock. Unless they check the lock status regularly, the first

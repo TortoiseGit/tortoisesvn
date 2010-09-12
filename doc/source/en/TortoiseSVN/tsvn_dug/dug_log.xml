@@ -684,6 +684,13 @@
             Use <guibutton>Show All</guibutton> if you want to see
             <emphasis>all</emphasis> log messages from HEAD right back to revision 1.
         </para>
+        <para>
+            To refresh the latest revision in case there were other commits
+            while the log dialog was open, hit the <keycap>F5</keycap> key.
+        </para>
+        <para>
+            To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys.
+        </para>
     </sect2>
     <sect2 id="tsvn-dug-showlog-current-rev">
         <title>Current Working Copy Revision</title>
@@ -789,6 +796,15 @@
                 property <emphasis>forever</emphasis>.
             </para>
         </warning>
+        <important>
+            <para>
+                Since TortoiseSVN keeps a cache of all the log information,
+                edits made for author and log messages will only show up
+                on your local installation. Other users using TortoiseSVN
+                will still see the cached (old) authors and log messages until
+                they refresh the log cache.
+            </para>
+        </important>
     </sect2>
     <sect2 id="tsvn-dug-showlog-filter">
         <title>Filtering Log Messages</title>

@@ -29,7 +29,7 @@
             too slow and too much work.
         </para>
         <para>
-            The recommended way is by <action>right-dragging</action> the files to
+            The recommended way is by <action>right dragging</action> the files to
             the new location. Simply <action>right click</action> on the files you want
             to move/copy without releasing the mouse button. Then drag the files
             to the new location and release the mouse button. A context menu will appear
@@ -554,6 +554,8 @@ TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
             If you have a working copy which you no longer need, how do you
             get rid of it cleanly? Easy - just delete it in Windows Explorer!
             Working copies are private local entities, and they are self-contained.
+            Deleting a working copy in Windows Explorer does not affect the
+            data in the repository at all.
         </para>
     </sect1>
 </appendix>

@@ -138,12 +138,16 @@
                     <title>Adding properties</title>
                     <graphic fileref="../images/PropertyAdd.png"/>
                 </figure>
-                To add a new property, first click on <guilabel>Add...</guilabel>.
-                Select the required property name from the combo box,
-                or type in a name of your own choice, then enter a value
-                in the box below. Properties which take multiple values, such as an
-                ignore list, can be entered on multiple lines.
-                Click on <guibutton>OK</guibutton> to add that property to the list.
+                To add a new property, first click on <guilabel>New...</guilabel>.
+                Select the required property name from the menu, and then
+                fill in the required information in the specific property
+                dialog.
+            </para>
+            <para>
+                To add a property that doesn't have its own dialog, choose
+                <guimenuitem>Advanced</guimenuitem> from the <guilabel>New...</guilabel>
+                menu. Then either select an existing property in the combo box
+                or enter a custom property name.
             </para>
             <para>
                 If you want to apply a property to many items at once, select the
@@ -157,13 +161,6 @@
                 If you want to apply the property to <emphasis>every</emphasis> file
                 and folder in the hierarchy below the current folder, check the
                 <guilabel>Recursive</guilabel> checkbox.
-            </para>
-            <para>
-                Some properties, for example <literal>svn:needs-lock</literal>,
-                can only be applied to files, so the property name doesn't appear
-                in the drop down list for folders. You can still apply such a
-                property recursively to all files in a hierarchy, but you have
-                to type in the property name yourself.
             </para>
             <para>
                 If you wish to edit an existing property, select that property from
@@ -474,12 +471,6 @@
                     </para>
                 </listitem>
             </itemizedlist>
-        </para>
-        <para>
-            Some <literal>tsvn:</literal> properties require a
-            <literal>true/false</literal> value. TortoiseSVN also understands
-            <literal>yes</literal> as a synonym for <literal>true</literal> and
-            <literal>no</literal> as a synonym for <literal>false</literal>.
         </para>
         <para>
             TortoiseSVN can integrate with some bug tracking tools. This uses

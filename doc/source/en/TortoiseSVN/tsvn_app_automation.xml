@@ -143,6 +143,7 @@ Don't touch these lines:
                                 <option>/startrev:xxx</option>,
                                 <option>/endrev:xxx</option>,
                                 <option>/strict</option> enables the 'stop-on-copy' checkbox,
+                                <option>/merge</option> enables the 'include merged revisions' checkbox,
                                 <option>/findstring:"filterstring"</option> fills in the filter text,
                                 <option>/findtext</option> forces the filter to use text, not regex, or
                                 <option>/findregex</option> forces the filter to use regex, not simple text search, and
@@ -190,6 +191,8 @@ Don't touch these lines:
                                 specifies the URL to checkout from.
                                 If you specify the key <option>/blockpathadjustments</option>,
                                 the automatic checkout path adjustments are blocked.
+                                The <option>/revision:XXX</option> specifies the revision to
+                                check out.
                             </entry>
                         </row>
                         <row>
@@ -197,6 +200,12 @@ Don't touch these lines:
                             <entry>
                                 Opens the import dialog. The <option>/path</option>
                                 specifies the directory with the data to import.
+                                You can also specify the <option>/logmsg</option> switch
+                                to pass a predefined log message to the import dialog.
+                                Or, if you don't want to pass the log message on the
+                                command line, use <option>/logmsgfile:path</option>,
+                                where <option>path</option>
+                                points to a file containing the log message.
                             </entry>
                         </row>
                         <row>
@@ -210,6 +219,9 @@ Don't touch these lines:
                                 Other options are <option>/nonrecursive</option>,
                                 <option>/ignoreexternals</option> and
                                 <option>/includeexternals</option>.
+                                The <option>/stickydepth</option> indicates that
+                                the specified depth should be sticky, creating
+                                a sparse checkout.
                             </entry>
                         </row>
                         <row>
@@ -573,7 +585,7 @@ TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
         </para>
         <para>
             with <literal>cmd</literal> being one of the allowed commands and
-            with <literal>parameter</literal> being a parameter like <literal>path</literal>
+            with <literal>paramvalue</literal> being a parameter like <literal>path</literal>
             or <literal>revision</literal>, depending on the command used.
         </para>
         <para>

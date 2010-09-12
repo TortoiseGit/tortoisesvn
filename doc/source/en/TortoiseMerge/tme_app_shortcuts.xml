@@ -11,7 +11,7 @@
         <title>Keyboard shortcuts</title>
         <variablelist>
             <varlistentry>
-                <term>Ctrl-Q</term>
+                <term>Ctrl-Q, Ctrl-W, Escape</term>
                 <listitem>
                     <para>
                         Quit the program
@@ -23,6 +23,30 @@
                 <listitem>
                     <para>
                         Copy the selected text to the clipboard
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Ctrl-X, Shift-Del</term>
+                <listitem>
+                    <para>
+                        Cut the selected text to the clipboard
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Ctrl-V, Shift-Insert</term>
+                <listitem>
+                    <para>
+                        Paste the selected text from the clipboard
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Ctrl-Z, Alt-Backspace</term>
+                <listitem>
+                    <para>
+                        Undo the last edits
                     </para>
                 </listitem>
             </varlistentry>

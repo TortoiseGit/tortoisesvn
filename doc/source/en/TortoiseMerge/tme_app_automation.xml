@@ -196,6 +196,14 @@ Don't touch these lines:
                                 the files.
                             </entry>
                         </row>
+                        <row>
+                            <entry condition="pot">/readonly</entry>
+                            <entry>
+                                Prevents the file from being edited. That means
+                                the editing capabilities of TortoiseMerge are
+                                disabled.
+                            </entry>
+                        </row>
                     </tbody>
                 </tgroup>
             </table>

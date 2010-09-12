@@ -152,17 +152,15 @@
             <listitem>
                 <para>
                     <emphasis>Locked</emphasis>
-                    is only loaded if there are fewer than 13 overlays already
-                    loaded. It falls back to <emphasis>Normal</emphasis>
-                    if there are not enough slots.
+                    is loaded if possible, but falls back to
+                    <emphasis>Normal</emphasis> if there are not enough slots.
                 </para>
             </listitem>
             <listitem>
                 <para>
                     <emphasis>Added</emphasis>
-                    is only loaded if there are fewer than 14 overlays already
-                    loaded. It falls back to <emphasis>Modified</emphasis>
-                    if there are not enough slots.
+                    is loaded if possible, but falls back to
+                    <emphasis>Modified</emphasis> if there are not enough slots.
                 </para>
             </listitem>
         </itemizedlist>

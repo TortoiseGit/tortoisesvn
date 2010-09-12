@@ -31,34 +31,19 @@
             </menuchoice>
             from the context menu.
             The Properties Dialog comes up. Then go to the Subversion tab.
-            There, you can set properties. Click <guibutton>Add...</guibutton>.
-            Select the <literal>svn:externals</literal> property from the
-            combobox and write in the edit box the repository URL in the format
-            <literal>url folder</literal>
-            or if you want to specify a particular revision,
-            <literal>-rREV url folder</literal>
-            You can add multiple external projects, 1 per line.
-            Suppose that you have set these properties on
-            <filename>D:\dev\project1</filename>:
-<screen>
-http://sounds.red-bean.com/repos  sounds
-http://graphics.red-bean.com/repos/fast%20graphics  "quick graphs"
--r21 http://svn.red-bean.com/repos/skin-maker  skins/toolkit
-</screen>
-            Now click <guibutton>Set</guibutton> and commit your changes.
-            When you (or any other user) update your working copy, Subversion
-            will create a sub-folder
-            <filename>D:\dev\project1\sounds</filename> and checkout the sounds
-            project, another sub-folder <filename>D:\dev\project1\quick_graphs</filename>
-            containing the graphics project, and finally a nested sub-folder
-            <filename>D:\dev\project1\skins\toolkit</filename> containing
-            revision 21 of the skin-maker project.
-        </para>
-        <para>
+            There, you can set properties. Click <guibutton>Properties...</guibutton>.
+            In the properties dialog, either double click on the 
+            <literal>svn:externals</literal> if it already exists, or click
+            on the <guibutton>New...</guibutton> button and select 
+            <literal>externals</literal> from the menu.
+            To add a new external, click the <guibutton>New...</guibutton>
+            and then fill in the required information in the shown dialog.
+        <caution>
+            <para>
             URLs must be properly escaped or they will not work, e.g. you must
-            replace each space with <literal>%20</literal> as shown in the
-            second example above.
-        </para>
+            replace each space with <literal>%20</literal>.
+            </para>
+        </caution>
         <para>
             If you want the local path to include spaces or other special characters,
             you can enclose it in double quotes, or you can use the <literal>\</literal>
@@ -87,19 +72,6 @@ http://graphics.red-bean.com/repos/fast%20graphics  "quick graphs"
                 at that previous revision.  For software projects, this could
                 be the difference between a successful and a failed build of
                 an older snapshot of your complex code base.
-            </para>
-        </tip>
-        <tip>
-            <title>Older svn:externals definitions</title>
-            <para>
-                The format shown here was introduced in Subversion 1.5. You may
-                also see the older format which has the same information in a
-                different order. The new format is preferred as it supports
-                several useful features described below, but it will not work on
-                older clients. The differences are shown in the
-                <ulink url="http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html">
-                    <citetitle>Subversion Book</citetitle>
-                </ulink>.
             </para>
         </tip>
         <para>
@@ -226,8 +198,7 @@ http://graphics.red-bean.com/repos/fast%20graphics  "quick graphs"
             </varlistentry>
         </variablelist>
         <para>
-            You can also specify a peg revision after the URL if required, e.g.
-            <systemitem class="url">http://sounds.red-bean.com/repos@19</systemitem>.
+            You can also specify a peg revision for the URL if required.
         </para>
         <para>
             If you need more information how TortoiseSVN
@@ -269,14 +240,5 @@ http://graphics.red-bean.com/repos/fast%20graphics  "quick graphs"
             but they cannot be moved or deleted using the normal commands; the
             <literal>svn:externals</literal> property must be modified instead.
         </para>
-        <warning>
-            <title>File externals support incomplete in Subversion 1.6</title>
-            <para>
-                In subversion 1.6 it is not possible to remove a file external
-                from your working copy once you have added it, even if you delete
-                the <literal>svn:externals</literal> property altogether. You
-                have to checkout a fresh working copy to remove the file.
-            </para>
-        </warning>
     </sect2>
 </sect1>

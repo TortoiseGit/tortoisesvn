@@ -127,6 +127,34 @@
             the branch WC when you switch.
         </para>
         <para>
+            If your working copy has other projects included with 
+            <literal>svn:externals</literal> properties, those externals will
+            be listed at the bottom of the branch/tag dialog. For each external,
+            the target path, the source url and the revision is shown. The revision
+            of the external is determined from the working copy, which means it
+            shows the revision that external actually points to.
+        </para>
+        <para>
+            If you want to make sure that the new tag always is in a consistent
+            state, check all the externals to have their revisions fixed to
+            their current working copy revision. If you don't check the externals
+            and those externals point to a HEAD revision which might change
+            in the future, checking out the new tag will check out that HEAD
+            revision of the external and your tag might not compile anymore.
+            So it's always a good idea to set the externals to an explicit revision
+            when creating a tag.
+        </para>
+        <para>
+            If externals are set to an explicit revision when creating a branch or
+            tag, TortoiseSVN automatically changes the <literal>svn:externals</literal>
+            property. When the branch/tag is created from HEAD or a specific revision
+            in the repository, TortoiseSVN first creates the branch/tag, then adjusts
+            the properties. This will create additional commits for each property.
+            When the branch/tag is created from the working copy, the properties
+            are modified first, then the branch/tag is created and then the properties
+            are changed back to their original value.
+        </para>
+        <para>
             Press <guibutton>OK</guibutton> to commit the new copy to the
             repository. Don't forget to supply a log message. Note that the
             copy is created <emphasis>inside the repository</emphasis>.

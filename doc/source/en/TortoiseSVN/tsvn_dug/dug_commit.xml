@@ -68,13 +68,6 @@
                 your life easier by doing more work for you.
             </para>
         </tip>
-        <para>
-            If you have modified files which have been included from a different
-            repository using <literal>svn:externals</literal>, those changes cannot
-            be included in the same atomic commit. A warning symbol below the file
-            list tells you if this has happened, and the tooltip explains that
-            those external files have to be committed separately.
-        </para>
         <tip>
             <title>Many unversioned files in the commit dialog</title>
             <para>
@@ -152,6 +145,12 @@
             <para>
                 You can drag unversioned files which reside within a working copy
                 into the commit dialog, and they will be SVN added automatically.
+            </para>
+            <para>
+                Dragging files from the list at the bottom of the commit dialog
+                to the log message edit box will insert the paths as plain text
+                into that edit box. This is useful if you want to write commit log
+                messages that include the paths that are affected by the commit.
             </para>
         </tip>
         <tip>
