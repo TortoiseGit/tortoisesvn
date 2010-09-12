@@ -28,6 +28,7 @@
 
 #ifdef _WIN64
 DEFINE_GUID(FOLDERTYPEID_SVNWC,       0xC1D29ED1, 0xCC8B, 0x4790, 0xA3, 0x45, 0xEC, 0x87, 0xDE, 0x96, 0xE9, 0x76);
+DEFINE_GUID(FOLDERTYPEID_SVNWC32,     0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x1C, 0x19, 0x49, 0x76, 0x83, 0x37);
 #else
 DEFINE_GUID(FOLDERTYPEID_SVNWC,       0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x1C, 0x19, 0x49, 0x76, 0x83, 0x37);
 #endif
@@ -46,6 +47,14 @@ DEFINE_GUID(FOLDERTYPEID_SVNWC,       0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x
  */
 void EnsureSVNLibrary()
 {
+    // when running the 32-bit version of TortoiseProc on x64 OS,
+    // we must not create the library! This would break
+    // the library in the x64 explorer.
+    BOOL bIsWow64 = FALSE;
+    IsWow64Process(GetCurrentProcess(), &bIsWow64);
+    if (bIsWow64)
+        return;
+
     CComPtr<IShellLibrary> pLibrary = NULL;
     if (FAILED(OpenShellLibrary(L"Subversion", &pLibrary)))
     {
