@@ -335,6 +335,24 @@
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="SortByList" Value="prop:System.ItemNameDisplay;-System.DateModified" Type="string" />
 
               <?if $(env.Platform) = "x64" ?>
+              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="CanonicalName" Value="SVNWCs" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="class" Value="SVNWCs" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="LayoutType" Value="7" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="MostRelevant" Value="prop:System.Author;System.StructuredQuery.Virtual.Type;System.DateModified;System.Size;System.ItemNameDisplay;System.ItemFolderPathDisplay;System.Keywords;System.Title" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="PerceivedType" Value="6" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="theme" Value="SVNWCs" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="Library" Value="$(var.GuidLibraryTypeSVN)" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="LibraryFolder" Value="$(var.GuidLibraryFolderSVN)" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="SearchResults" Value="{36011842-dccc-40fe-aa3d-6177ea401788}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="ColumnList" Value="prop:0(34)System.ItemNameDisplay;0System.DateModified;0System.ItemTypeText;0System.Size;1System.DateCreated;1System.Author;1System.Category;1System.Keywords;1System.Title" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="Name" Value="NoName" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="SortByList" Value="prop:System.ItemNameDisplay" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="LogicalViewMode" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="Order" Value="0" Type="integer" />
+
               <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Name="CanonicalName" Value="SVNWCs.Library" Type="string" />
               <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Name="Parent" Value="$(var.GuidFolderTypeSVN)" Type="string" />
