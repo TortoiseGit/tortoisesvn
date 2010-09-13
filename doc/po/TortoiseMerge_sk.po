@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-29 07:40 +0000\n"
-"PO-Revision-Date: 2010-08-29 21:47+0100\n"
+"POT-Creation-Date: 2010-09-12 06:29 +0000\n"
+"PO-Revision-Date: 2010-09-13 21:51+0100\n"
 "Last-Translator: Oto BREZINA <translator [at] e-posta [dot] sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -39,11 +39,6 @@ msgstr "TortoiseMerge"
 #. (subtitle)
 msgid "A diff/merge tool for Windows"
 msgstr "Porovnávací a spájací nástroj pre Windows"
-
-#. TRANSLATORS: "$MajorVersion$.$MinorVersion$.$MicroVersion$" is a literal value and should not be translated
-#. (subtitle)
-msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr "Verzia $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #. (edition)
 msgid "First"
@@ -385,7 +380,7 @@ msgstr "Ale netreba sa obávať. Keď pracujete so Subversion môžete získať 
 
 # Patch Filelist
 #. (para)
-msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
+msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double click action is to preview."
 msgstr "Okno súboru záplaty má kontextové menu, ktoré umožňuje prezretie výsledku zaplátania na vybranom súbore (použitá bez uloženia), na použitie a uloženie zmien pre vybraný súbor, alebo použitie a uloženie zmien pre <emphasis>všetky</emphasis> súbory v zozname. Dvojklik vedie k prezeraniu."
 
 # Patch Filelist
@@ -463,7 +458,7 @@ msgid "<guibutton>Compare whitespaces</guibutton> shows all changes in indentati
 msgstr "<guibutton>Porovnávať biele znaky</guibutton> zobrazí všetky zmeny v odsadení a zmeny bielych znakov vrámci riadkov, ako pridané/vymazané (, čo je spôsob, ako Subversion spracováva takéto zmeny)."
 
 #. (para)
-msgid "<guibutton>Ignore whitespace changes</guibutton> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgid "<guibutton>Ignore whitespace changes</guibutton> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
 msgstr "<guibutton>Ignorovať zmeny bielych znakov</guibutton> skryje zmeny, ktoré sú zmenami len v počte a type bielych znakov, ako je zmena odsadenia, alebo zmena tabulátorov za medzery. Pridanie bieleho znaku kde predtým nebol, alebo úplné odstránenie bieleho znaku je stále označené ako zmena."
 
 #. (para)
@@ -554,8 +549,8 @@ msgstr "TortoiseMerge nielen <emphasis>zobrazuje</emphasis> rozdiely medzi súbo
 
 # Merging / Editing Conflicts
 #. (para)
-msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr "Keď ste v dvoj-panelovom zobrazení, môžete upravovať len súbor v pravom panely (<literal>Moje</literal>). Na použitie zmien z ľavého súboru (<literal>ich</literal>) použite <action>pravý klik</action> na zmenených riadkoch a vyberte <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť blok <quote>ich</quote></guimenuitem></menuchoice>. Potom sú zmeny z ľavého súboru pridané do súboru napravo."
+msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
+msgstr "Keď ste v dvoj-panelovom zobrazení, môžete upravovať len súbor v pravom panely (<literal>Moje</literal>). Na použitie zmien z ľavého súboru (<literal>ich</literal>) použite <action>pravý klik</action> na zmenených riadkoch a vyberte <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť blok z 'ich'</guimenuitem></menuchoice>. Potom sú zmeny z ľavého súboru pridané do súboru napravo."
 
 # Merging / Editing Conflicts
 #. (para)
@@ -568,8 +563,8 @@ msgstr "Výstupný súbor môžete upravovať ako v textovom editore. Takéto ri
 
 # Merging / Editing Conflicts
 #. (para)
-msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Keď ste v troj-panelovom zobrazení (niekdy nazývanom <emphasis>pohľad zlučovania</emphasis>) môžete upravovať iba súbor na spodku pohľadu(<literal>Zlúčené</literal>). Tak ako pri dvoj-panelovom zobrazení môžete <action>right-click</action> na konfliktné riadky a vybrať buď <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť Blok<quote>ich</quote></guimenuitem></menuchoice> alebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť blok<quote>moje</quote></guimenuitem></menuchoice>. Keď chcete použiť <emphasis>oba</emphasis> bloky,môžete vybrať <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> Použiť blok <quote>moje</quote> pred <quote>ich</quote></guimenuitem></menuchoice>, alebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> Použiť blok <quote>ich</quote> pred <quote>moje</quote></guimenuitem></menuchoice>. Podľa príkazu, ktorý ste vybrali, sú zmeny použité vo výslednom súbore: <literal>Zlúčené</literal>."
+msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'mine' </guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from 'mine' before 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
+msgstr "Keď ste v troj-panelovom zobrazení (niekdy nazývanom <emphasis>pohľad zlučovania</emphasis>) môžete upravovať iba súbor na spodku pohľadu (<literal>Zlúčené</literal>). Tak ako pri dvoj-panelovom zobrazení môžete <action>pravý klik</action> na konfliktné riadky a vybrať buď <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť Blok 'ich'</guimenuitem></menuchoice> alebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Použiť blok 'moje'</guimenuitem></menuchoice>. Keď chcete použiť <emphasis>oba</emphasis> bloky, môžete vybrať <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> Použiť blok 'moje' pred 'ich'</guimenuitem></menuchoice>, alebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> Použiť blok 'ich' pred 'moje'</guimenuitem></menuchoice>. Podľa príkazu, ktorý ste vybrali, sú zmeny použité vo výslednom súbore: <literal>Zlúčené</literal>."
 
 #. (para)
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
@@ -660,7 +655,7 @@ msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation
 msgstr "<guilabel>Porovnávať biele znaky</guilabel> zobrazí všetky zmeny v odsadení a zmeny bielych znakov vrámci riadkov, ako pridané/vymazané (, čo je spôsob, ako Subversion spracováva takéto zmeny)."
 
 #. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
 msgstr "<guilabel>Ignorovať zmeny bielych znakov</guilabel> skryje zmeny, ktoré sú zmenami len v počte a type bielych znakov, ako je zmena odsadenia, alebo zmena tabulátorov za medzery. Pridanie bieleho znaku kde predtým nebol, alebo úplné odstránenie bieleho znaku je stále označené ako zmena."
 
 #. (para)
@@ -781,8 +776,8 @@ msgid "Keyboard shortcuts"
 msgstr "Klávesové skratky"
 
 #. (term)
-msgid "Ctrl-Q"
-msgstr "Ctrl-Q"
+msgid "Ctrl-Q, Ctrl-W, Escape"
+msgstr "Ctrl-Q, Ctrl-W, Escape"
 
 #. (para)
 msgid "Quit the program"
@@ -795,6 +790,30 @@ msgstr "Ctrl-C"
 #. (para)
 msgid "Copy the selected text to the clipboard"
 msgstr "Kopírovať vybraný text do schránky"
+
+#. (term)
+msgid "Ctrl-X, Shift-Del"
+msgstr "Ctrl-X, Shift-Del"
+
+#. (para)
+msgid "Cut the selected text to the clipboard"
+msgstr "Vystrihnúť vybraný text do schránky"
+
+#. (term)
+msgid "Ctrl-V, Shift-Insert"
+msgstr "Ctrl-V, Shift-Insert"
+
+#. (para)
+msgid "Paste the selected text from the clipboard"
+msgstr "Vložiť vybraný text zo schránky"
+
+#. (term)
+msgid "Ctrl-Z, Alt-Backspace"
+msgstr "Ctrl-Z, Alt-Backspace"
+
+#. (para)
+msgid "Undo the last edits"
+msgstr "Vrátiť posledné úpravy"
 
 #. (term)
 msgid "Ctrl-F"
@@ -1061,6 +1080,10 @@ msgstr "Vytvorí súbor unifikovaného porovnania (súbor záplaty) dvoch súbor
 msgid "Specifies a line number to jump to after loading the files."
 msgstr "Určuje číslo riadka, na ktorý sa má skočiť po načítaní súborov."
 
+#. (entry)
+msgid "Prevents the file from being edited. That means the editing capabilities of TortoiseMerge are disabled."
+msgstr "Zabraňuje úprave súboru. To znamená, že  je vypnutá schopnosť úpravy TortoiseMerge."
+
 #. (para)
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
@@ -1207,8 +1230,8 @@ msgstr "GPO"
 
 # GPO
 #. (para)
-msgid "Group policy object"
-msgstr "Objekt skupinovej politiky (Group policy object)"
+msgid "Group policy object."
+msgstr "Objekt skupinovej politiky (Group policy object)."
 
 #. (glossterm)
 msgid "HEAD revision"
@@ -1399,6 +1422,12 @@ msgstr "Oto BREZINA <otik [at] e-posta [dot] sk>"
 #. (None)
 msgid "translator-translation"
 msgstr "preklad"
+
+#~ msgid "Ctrl-Q"
+#~ msgstr "Ctrl-Q"
+
+#~ msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
+#~ msgstr "Verzia $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #~ msgid "Wish List"
 #~ msgstr "Zoznam prianí"
