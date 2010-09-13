@@ -1474,10 +1474,6 @@ msgstr ""
 msgid "<Untitled>"
 msgstr ""
 
-#. Resource IDs: (145)
-msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
-msgstr ""
-
 #. Resource IDs: (16603)
 msgid "<descr>"
 msgstr ""
@@ -1849,7 +1845,7 @@ msgstr ""
 
 #. Resource IDs: (79)
 #, c-format
-msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgid "Are you sure you want to revert %d item(s)? You will lose all changes since the last update!"
 msgstr ""
 
 #. Resource IDs: (32793)
@@ -2920,17 +2916,12 @@ msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start diff viewer!\n<hr=100%%>\n%s"
+msgid "Could not start external diff program!\n%s"
 msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start external diff program!\n<hr=100%%>\n%s"
-msgstr ""
-
-#. Resource IDs: (81)
-#, c-format
-msgid "Could not start external merge program!\n<hr=100%%>\n%s"
+msgid "Could not start external merge program!\n%s"
 msgstr ""
 
 #. Resource IDs: (3857)
@@ -2940,11 +2931,6 @@ msgstr ""
 #. Resource IDs: (83)
 #, c-format
 msgid "Could not start text viewer!\n%s"
-msgstr ""
-
-#. Resource IDs: (83)
-#, c-format
-msgid "Could not start text viewer!\n<hr=100%%>\n%s"
 msgstr ""
 
 #. Resource IDs: (81)
@@ -4065,7 +4051,7 @@ msgid "Get merge logs"
 msgstr ""
 
 #. Resource IDs: (89)
-msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
+msgid "Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 
 #. Resource IDs: (119)
@@ -4720,7 +4706,7 @@ msgstr ""
 
 #. Resource IDs: (88)
 #, c-format
-msgid "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom:\t%1!s!\nTo:\t\t%2!s!\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
+msgid "It seems you are trying to relocate your working copy to a different path inside the same repository.\n\nFrom:\t%1!s!\nTo:\t\t%2!s!\n\nA relocate is only needed if the path to a repository has changed.\nChanging to a different path inside a repository is done by a switch operation.\n\nImproper use of relocate will corrupt your working copy!\nIf you are not sure what to do, please refer to our docs on relocate.\nDo you really want to relocate?"
 msgstr ""
 
 #. Resource IDs: (1480)
@@ -5458,8 +5444,7 @@ msgid "No"
 msgstr ""
 
 #. Resource IDs: (81)
-#, c-format
-msgid "No command specified!\n<hr=100%>\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
+msgid "No command specified!\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 
 #. Resource IDs: (81)
@@ -7641,7 +7626,7 @@ msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Subversion reported an error while doing a cleanup!\n<hr=100%%>\n%s"
+msgid "Subversion reported an error while doing a cleanup!\n%s"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8032,17 +8017,17 @@ msgstr ""
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%1!s!</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%2!s!</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgid "The path\n%1!s!\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n%2!s!\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%1!s!</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%2!s!</i>\nmatches it better. Do you want to use the suggested path instead?"
+msgid "The path\n%1!s!\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n%2!s!\nmatches it better. Do you want to use the suggested path instead?"
 msgstr ""
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgid "The path\n%s\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
 
 #. Resource IDs: (84)
@@ -8097,8 +8082,7 @@ msgid "The user who owns the lock of the file"
 msgstr ""
 
 #. Resource IDs: (81)
-#, c-format
-msgid "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
+msgid "The working copy has changed!\nPlease commit your changes first or revert."
 msgstr ""
 
 #. Resource IDs: (81)
@@ -8315,6 +8299,10 @@ msgstr ""
 #. Resource IDs: (98)
 #, c-format
 msgid "TortoiseSVN has detected similar filenames. Do you want the files:%s\nto be renamed too?"
+msgstr ""
+
+#. Resource IDs: (145)
+msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
 msgstr ""
 
 #. Resource IDs: (1162)
@@ -9004,7 +8992,7 @@ msgstr ""
 
 #. Resource IDs: (195)
 #, c-format
-msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
+msgid "You've changed the icon set from %s to %s.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 msgstr ""
 
 #. Resource IDs: (170)
