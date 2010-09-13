@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-08 11:37+0100\n"
+"PO-Revision-Date: 2010-09-13 19:17+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -3240,11 +3240,9 @@ msgstr "Не било могуће  проверити да ли постоји 
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"<hr=100%%>\n"
 "%s"
 msgstr ""
-"Није било могуће копирати фајлове!\n"
-"<hr=100%%>\n"
+"Није  могуће копирати фајлове!\n"
 "%s"
 
 #. Resource IDs: (3867)
@@ -7368,6 +7366,10 @@ msgstr "Рекурзија у именицима ван система упра�
 #. Resource IDs: (563)
 msgid "Recursive"
 msgstr "Рекурзивно"
+
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr "Преусмеравање ка урл"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -11736,6 +11738,14 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
 
+#~ msgid ""
+#~ "Could not copy the files!\n"
+#~ "<hr=100%%>\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Није било могуће копирати фајлове!\n"
+#~ "<hr=100%%>\n"
+#~ "%s"
 #~ msgid "Check externals to explicit revision"
 #~ msgstr "Измена екстернала према експлицитној ревизији"
 
