@@ -236,7 +236,7 @@ void CExportDlg::OnOK()
     {
         CString message;
         message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),(LPCTSTR)m_strExportDirectory);
-        if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+        if (::MessageBox(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
         {
             m_bAutoCreateTargetName = bAutoCreateTargetName;
             return;

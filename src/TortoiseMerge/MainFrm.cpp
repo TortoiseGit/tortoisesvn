@@ -618,7 +618,7 @@ bool CMainFrame::LoadViews(int line)
             {
                 CString msg;
                 msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, (LPCTSTR)m_Data.m_sPatchPath, (LPCTSTR)betterpatchpath);
-                if (CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
+                if (::MessageBox(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
                 {
                     m_Data.m_sPatchPath = betterpatchpath;
                     m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
@@ -1066,7 +1066,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
         }
         if (!file.Save(sFilePath, false))
         {
-            CMessageBox::Show(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
+            ::MessageBox(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
             return -1;
         }
         m_dlgFilePatches.SetFileStatusAsPatched(sFilePath);

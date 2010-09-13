@@ -56,7 +56,7 @@ bool BlameCommand::Execute()
                 options, dlg.m_bIncludeMerge, TRUE, TRUE);
             if (tempfile.IsEmpty())
             {
-                CMessageBox::Show(hwndExplorer, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(hwndExplorer, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             }
         }
         if (!tempfile.IsEmpty())

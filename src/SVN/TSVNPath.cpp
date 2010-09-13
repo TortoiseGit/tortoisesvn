@@ -901,7 +901,7 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
         TRACE("CFileException loading target file list\n");
         TCHAR error[10000] = {0};
         pE->GetErrorMessage(error, 10000);
-        CMessageBox::Show(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
         pE->Delete();
         return false;
     }

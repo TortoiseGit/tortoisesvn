@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -140,14 +140,14 @@ bool RelocateCommand::Execute()
             {
                 progress.Stop();
                 TRACE(_T("%s\n"), (LPCTSTR)s.GetLastErrorMessage());
-                CMessageBox::Show(hwndExplorer, s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(hwndExplorer, s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             }
             else
             {
                 progress.Stop();
                 CString strMessage;
                 strMessage.Format(IDS_PROC_RELOCATEFINISHED, (LPCTSTR)dlg.m_sToUrl);
-                CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_ICONINFORMATION);
+                ::MessageBox(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_ICONINFORMATION);
                 bRet = true;
             }
         }

@@ -53,7 +53,7 @@ bool RemoveCommand::Execute()
         {
             if (!svn.Remove(pathList, true, !!parser.HasKey(_T("keep")), dlg.GetLogMessage()))
             {
-                CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 return false;
             }
             return true;
@@ -116,14 +116,14 @@ bool RemoveCommand::Execute()
                         }
                         if (!svn.Remove(removePathList, true, !!parser.HasKey(_T("keep"))))
                         {
-                            CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         }
                         else
                             bRet = true;
                     }
                 }
                 else
-                    CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             }
         }
     }

@@ -571,7 +571,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                                     false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                                 if (!ret)
                                 {
-                                    CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                                    ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
                                     if (props.m_error->apr_err == SVN_ERR_CANCELLED)
                                         break;
                                 }
@@ -602,7 +602,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                                 false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                             if (!ret)
                             {
-                                CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                                ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
                             }
                             else
                             {
@@ -678,7 +678,7 @@ void CEditPropertiesDlg::RemoveProps()
             SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
             if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, (LPCTSTR)sLogMsg))
             {
-                CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
             }
             else
             {
@@ -771,7 +771,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
             {
                 TCHAR strErr[4096] = {0};
                 _tcserror_s(strErr, 4096, err);
-                CMessageBox::Show(m_hWnd, strErr, _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(m_hWnd, strErr, _T("TortoiseSVN"), MB_ICONERROR);
             }
         }
     }
@@ -824,7 +824,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
     {
         TCHAR strErr[4096] = {0};
         _tcserror_s(strErr, 4096, err);
-        CMessageBox::Show(m_hWnd, strErr, _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(m_hWnd, strErr, _T("TortoiseSVN"), MB_ICONERROR);
     }
 }
 
@@ -845,7 +845,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
         bool bFailed = false;
         if ((nProperties < 0)||(nProperties > 4096))
         {
-            CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+            ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
             bFailed = true;
         }
         CProgressDlg prog;
@@ -863,7 +863,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
             if ((nNameBytes < 0)||(nNameBytes > 4096))
             {
                 prog.Stop();
-                CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                 bFailed = true;
             }
             if (fread(&nNameBytes, sizeof(int), 1, stream) == 1)
@@ -905,7 +905,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                                 if (!props.Add(sName, propertyvalue, false, svn_depth_empty, (LPCTSTR)sMsg))
                                 {
                                     prog.Stop();
-                                    CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                                    ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
                                     bFailed = true;
                                 }
                                 else
@@ -918,28 +918,28 @@ void CEditPropertiesDlg::OnBnClickedImport()
                         else
                         {
                             prog.Stop();
-                            CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                            ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                             bFailed = true;
                         }
                     }
                     else
                     {
                         prog.Stop();
-                        CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                        ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                         bFailed = true;
                     }
                 }
                 else
                 {
                     prog.Stop();
-                    CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                    ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                     bFailed = true;
                 }
             }
             else
             {
                 prog.Stop();
-                CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                 bFailed = true;
             }
         }

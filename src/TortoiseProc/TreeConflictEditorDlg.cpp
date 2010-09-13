@@ -222,7 +222,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
 
     if (!svn.Resolve(m_path, svn_wc_conflict_choose_merged, false))
     {
-        CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
         retVal = IDCANCEL;
     }
     else
@@ -238,7 +238,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
             {
                 if (!svn.Remove(CTSVNPathList(m_path), true, false))
                 {
-                    CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     retVal = IDCANCEL;
                 }
             }
@@ -256,7 +256,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingmine()
     SVN svn;
     if (!svn.Resolve(m_path, svn_wc_conflict_choose_merged, false))
     {
-        CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
         retVal = IDCANCEL;
     }
     else
@@ -272,7 +272,7 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingmine()
             {
                 if (!svn.Remove(CTSVNPathList(m_path), true, false))
                 {
-                    CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     retVal = IDCANCEL;
                 }
             }

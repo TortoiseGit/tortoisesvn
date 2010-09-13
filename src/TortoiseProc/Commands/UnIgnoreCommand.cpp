@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,7 +66,7 @@ bool UnIgnoreCommand::Execute()
             {
                 CString temp;
                 temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
-                CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
                 err = TRUE;
                 break;
             }
@@ -77,7 +77,7 @@ bool UnIgnoreCommand::Execute()
             {
                 CString temp;
                 temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
-                CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
                 err = TRUE;
                 break;
             }
@@ -87,7 +87,7 @@ bool UnIgnoreCommand::Execute()
     {
         CString temp;
         temp.Format(IDS_PROC_UNIGNORESUCCESS, (LPCTSTR)filelist);
-        CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+        MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
         return true;
     }
     return false;

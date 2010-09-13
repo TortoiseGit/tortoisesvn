@@ -167,7 +167,7 @@ BOOL CFileDiffDlg::OnInitDialog()
     if (AfxBeginThread(DiffThreadEntry, this)==NULL)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
-        CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+        ::MessageBox(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
     }
 
     // Start with focus on file list
@@ -274,7 +274,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!Cat(url1, m_rev1, m_rev1, tempfile)))
         {
-            CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return;
         }
     }
@@ -282,7 +282,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url1, 1, m_rev1, m_rev1, tempfile, _T(""), TRUE, TRUE)))
         {
-            CMessageBox::Show(this->m_hWnd, m_blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->m_hWnd, m_blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return;
         }
     }
@@ -295,7 +295,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!Cat(url2, m_rev2, m_rev2, tempfile2)))
         {
-            CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return;
         }
     }
@@ -303,7 +303,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url2, 1, m_rev2, m_rev2, tempfile2, _T(""), TRUE, TRUE)))
         {
-            CMessageBox::Show(this->m_hWnd, m_blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->m_hWnd, m_blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return;
         }
     }
@@ -755,7 +755,7 @@ UINT CFileDiffDlg::ExportThread()
                 {
                     delete m_pProgDlg;
                     m_pProgDlg = NULL;
-                    CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     InterlockedExchange(&m_bThreadRunning, FALSE);
                     RefreshCursor();
                     return 1;
@@ -772,7 +772,7 @@ UINT CFileDiffDlg::ExportThread()
                 {
                     delete m_pProgDlg;
                     m_pProgDlg = NULL;
-                    CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     InterlockedExchange(&m_bThreadRunning, FALSE);
                     RefreshCursor();
                     return 1;

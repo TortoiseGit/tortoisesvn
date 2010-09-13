@@ -1409,7 +1409,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
             dc.DeleteDC();
             if (!sErrormessage.IsEmpty())
             {
-                CMessageBox::Show(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
             }
         }
         catch (CException * pE)
@@ -1417,7 +1417,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
             TCHAR szErrorMsg[2048];
             pE->GetErrorMessage(szErrorMsg, 2048);
             pE->Delete();
-            CMessageBox::Show(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
         }
     }
 }

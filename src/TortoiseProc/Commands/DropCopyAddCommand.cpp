@@ -48,7 +48,7 @@ bool DropCopyAddCommand::Execute()
             }
             CString strMessage;
             strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)(droppath+_T("\\")+name));
-            const int ret = CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_YESNOCANCEL | MB_ICONQUESTION);
+            const int ret = MessageBox(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_YESNOCANCEL | MB_ICONQUESTION);
             if (ret == IDCANCEL)
             {
                 return FALSE;       //cancel the whole operation
@@ -111,5 +111,5 @@ void DropCopyAddCommand::ShowErrorMessage()
     CFormatMessageWrapper errorDetails;
     CString strMessage;
     strMessage.Format(IDS_ERR_COPYFILES, (LPCTSTR)errorDetails);
-    CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+    MessageBox(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 }

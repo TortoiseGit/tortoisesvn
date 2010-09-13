@@ -135,7 +135,7 @@ BOOL CCopyDlg::OnInitDialog()
         CString Wrong_URL=path.GetSVNPathString();
         CString temp;
         temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)Wrong_URL);
-        CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
         TRACE(_T("could not retrieve the URL of the file!"));
         this->EndDialog(IDCANCEL);      //exit
     }
@@ -355,7 +355,7 @@ void CCopyDlg::OnOK()
     m_sLogMessage = m_cLogMessage.GetText();
     if ((m_ProjectProperties.bWarnIfNoIssue) && (id.IsEmpty() && !m_ProjectProperties.HasBugID(m_sLogMessage)))
     {
-        if (CMessageBox::Show(this->m_hWnd, IDS_COMMITDLG_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+        if (::MessageBox(this->m_hWnd, IDS_COMMITDLG_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
             return;
     }
     UpdateData(TRUE);
@@ -381,7 +381,7 @@ void CCopyDlg::OnOK()
     {
         CString temp;
         temp.FormatMessage(IDS_ERR_COPYITSELF, (LPCTSTR)m_wcURL, (LPCTSTR)m_URLCombo.GetString());
-        CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
         return;
     }
 
@@ -422,7 +422,7 @@ void CCopyDlg::OnOK()
                 CString sError = temp == 0 ? _T("") : temp;
                 if (!sError.IsEmpty())
                 {
-                    CMessageBox::Show(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
                     return;
                 }
             }
@@ -551,7 +551,7 @@ void CCopyDlg::OnComError( HRESULT hr )
     COMError ce(hr);
     CString sErr;
     sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
-    CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+    ::MessageBox(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 }
 
 void CCopyDlg::OnBnClickedBrowse()

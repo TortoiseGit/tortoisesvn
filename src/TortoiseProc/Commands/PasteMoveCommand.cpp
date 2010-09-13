@@ -20,7 +20,7 @@
 #include "PasteMoveCommand.h"
 
 #include "ProgressDlg.h"
-#include "MessageBox.h"
+#include "AppUtils.h"
 #include "SVN.h"
 #include "SVNStatus.h"
 #include "RenameDlg.h"
@@ -76,7 +76,7 @@ bool PasteMoveCommand::Execute()
             if (!svn.Add(CTSVNPathList(destPath), &props, svn_depth_infinity, true, false, true))
             {
                 TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 return FALSE;       //get out of here
             }
             CShellUpdater::Instance().AddPathForUpdate(destPath);
@@ -93,11 +93,11 @@ bool PasteMoveCommand::Execute()
                     CString temp = svn.GetLastErrorMessage();
                     CString sQuestion(MAKEINTRESOURCE(IDS_PROC_FORCEMOVE));
                     temp += _T("\n") + sQuestion;
-                    if (CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_YESNO)==IDYES)
+                    if (::MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_YESNO)==IDYES)
                     {
                         if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath, TRUE))
                         {
-                            CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             return FALSE;       //get out of here
                         }
                         CShellUpdater::Instance().AddPathForUpdate(destPath);
@@ -106,7 +106,7 @@ bool PasteMoveCommand::Execute()
                 else
                 {
                     TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                    CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     return FALSE;       //get out of here
                 }
             }
@@ -122,7 +122,7 @@ bool PasteMoveCommand::Execute()
         }
         if ((progress.IsValid())&&(progress.HasUserCancelled()))
         {
-            CMessageBox::Show(hwndExplorer, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
+            ::MessageBox(hwndExplorer, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
             return FALSE;
         }
     }

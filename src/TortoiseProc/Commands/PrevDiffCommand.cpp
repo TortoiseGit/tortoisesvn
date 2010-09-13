@@ -21,7 +21,7 @@
 #include "ChangedDlg.h"
 #include "SVNDiff.h"
 #include "SVNStatus.h"
-#include "MessageBox.h"
+#include "AppUtils.h"
 
 bool PrevDiffCommand::Execute()
 {
@@ -49,11 +49,11 @@ bool PrevDiffCommand::Execute()
         {
             if (st.GetLastErrorMsg().IsEmpty())
             {
-                CMessageBox::Show(hWndExplorer, IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
+                MessageBox(hWndExplorer, IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
             }
             else
             {
-                CMessageBox::Show(hWndExplorer, IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
+                MessageBox(hWndExplorer, IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
             }
         }
     }

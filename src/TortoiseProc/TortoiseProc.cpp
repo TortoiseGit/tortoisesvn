@@ -239,7 +239,7 @@ BOOL CTortoiseProcApp::InitInstance()
         CString newCmdLine = p.GetCommandLine();
         if (newCmdLine.IsEmpty())
         {
-            CMessageBox::Show(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+            ::MessageBox(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
             return FALSE;
         }
         CCmdLineParser p2(newCmdLine);
@@ -247,7 +247,7 @@ BOOL CTortoiseProcApp::InitInstance()
     }
     if ( parser.HasKey(_T("path")) && parser.HasKey(_T("pathfile")))
     {
-        CMessageBox::Show(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+        ::MessageBox(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
         return FALSE;
     }
 
@@ -258,7 +258,7 @@ BOOL CTortoiseProcApp::InitInstance()
         CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
         if (sPathfileArgument.IsEmpty())
         {
-            CMessageBox::Show(hWndExplorer, IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
+            ::MessageBox(hWndExplorer, IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
             return FALSE;
         }
         cmdLinePath.SetFromUnknown(sPathfileArgument);
@@ -397,7 +397,7 @@ BOOL CTortoiseProcApp::InitInstance()
         CString err = SVN::CheckConfigFile();
         if (!err.IsEmpty())
         {
-            CMessageBox::Show(hWndExplorer, err, _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(hWndExplorer, err, _T("TortoiseSVN"), MB_ICONERROR);
             // Normally, we give-up and exit at this point, but there is a trap here
             // in that the user might need to use the settings dialog to edit the config file.
             if (CString(parser.GetVal(_T("command"))).Compare(_T("settings"))==0)

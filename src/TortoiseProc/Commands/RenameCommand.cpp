@@ -163,7 +163,7 @@ bool RenameCommand::Execute()
                     }
                     CString sRenameMultipleQuestion;
                     sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, (LPCTSTR)sRenList);
-                    UINT idret = CMessageBox::Show(hwndExplorer, sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
+                    UINT idret = ::MessageBox(hwndExplorer, sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
                     if (idret == IDYES)
                     {
                         CProgressDlg progress;
@@ -218,7 +218,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
     {
         CString sReplace;
         sReplace.Format(IDS_PROC_REPLACEEXISTING, destPath.GetWinPath());
-        idret = CMessageBox::Show(hWnd, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
+        idret = ::MessageBox(hWnd, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
         if (idret == IDYES)
         {
             if (!svn.Remove(CTSVNPathList(destPath), true, false))
@@ -236,7 +236,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
         else
         {
             TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-            CMessageBox::Show(hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             bRet = false;
         }
     }

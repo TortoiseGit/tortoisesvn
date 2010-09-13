@@ -347,7 +347,7 @@ void CCheckoutDlg::OnOK()
             {
                 CString message;
                 message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)), targetPath.GetWinPath());
-                if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+                if (::MessageBox(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
                 {
                     m_bAutoCreateTargetName = bAutoCreateTargetName;
                     return;     //don't dismiss the dialog
@@ -368,7 +368,7 @@ void CCheckoutDlg::OnOK()
         {
             CString message;
             message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),(LPCTSTR)m_strCheckoutDirectory);
-            if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+            if (::MessageBox(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
             {
                 m_bAutoCreateTargetName = bAutoCreateTargetName;
                 return;     //don't dismiss the dialog

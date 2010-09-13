@@ -1823,7 +1823,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 SVN svn;
                 if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, basefile))
                 {
-                    CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     DialogEnableWindow(IDOK, TRUE);
                     break;
                 }
@@ -1856,7 +1856,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 SVN svn;
                 if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, tempfile))
                 {
-                    CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     DialogEnableWindow(IDOK, TRUE);
                     break;
                 }
@@ -1909,7 +1909,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     {
                         if (!svn.Resolve(data2->path, result, FALSE))
                         {
-                            CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             DialogEnableWindow(IDOK, TRUE);
                             break;
                         }
@@ -1941,7 +1941,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 CString msg;
                 msg.Format(IDS_SVNPROGRESS_RESOLVED, (LPCTSTR)sResolvedPaths);
-                CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+                ::MessageBox(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
             }
         }
         break;
@@ -2267,7 +2267,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     }
     if (IsCommittingToTag())
     {
-        if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_YESNO | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDNO)
+        if (::MessageBox(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_YESNO | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDNO)
             return false;
     }
     DWORD exitcode = 0;
@@ -2500,7 +2500,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
     {
         // the lock failed, because the file was outdated.
         // ask the user whether to update the file and try again
-        if (CMessageBox::Show(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
+        if (::MessageBox(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
         {
             ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
             if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
@@ -2817,7 +2817,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
     UINT showRet = IDYES;   // default to yes
     if (bMarkers)
     {
-        showRet = CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION);
+        showRet = ::MessageBox(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION);
     }
     if (showRet == IDYES)
     {

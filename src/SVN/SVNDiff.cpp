@@ -113,7 +113,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
         {
             progDlg.Stop();
             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-            CMessageBox::Show(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return false;
         }
         progDlg.Stop();
@@ -250,7 +250,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
         {
             progDlg.Stop();
             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-            CMessageBox::Show(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return false;
         }
     }
@@ -262,7 +262,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
             {
                 progDlg.Stop();
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                CMessageBox::Show(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 return false;
             }
         }
@@ -271,7 +271,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     {
         progDlg.Stop();
         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-        CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+        ::MessageBox(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     progDlg.Stop();
@@ -346,7 +346,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     {
                         progDlg.Stop();
                         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                        CMessageBox::Show(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
                     else
@@ -426,7 +426,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                            CMessageBox::Show(NULL, blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(NULL, blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             return false;
                         }
                     }
@@ -437,7 +437,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
                         }
-                        CMessageBox::Show(NULL, blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(NULL, blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         if (blamer.Err->apr_err == SVN_ERR_CLIENT_IS_BINARY_FILE)
                             blame = false;
                         else
@@ -456,7 +456,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                            CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             return false;
                         }
                     }
@@ -464,7 +464,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     {
                         progDlg.Stop();
                         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                        CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
                 }
@@ -482,7 +482,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                            CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             return false;
                         }
                     }
@@ -490,7 +490,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     {
                         progDlg.Stop();
                         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                        CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
                 }
@@ -505,7 +505,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                            CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             return false;
                         }
                     }
@@ -513,7 +513,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     {
                         progDlg.Stop();
                         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                        CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
                 }
@@ -586,7 +586,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                            CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             return false;
                         }
                     }
@@ -594,7 +594,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     {
                         progDlg.Stop();
                         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                        CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
                 }
@@ -606,7 +606,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                 {
                     progDlg.Stop();
                     m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                    CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     return false;
                 }
                 CString revname, wcname;
@@ -625,7 +625,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                            CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             return false;
                         }
                     }
@@ -633,7 +633,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     {
                         progDlg.Stop();
                         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                        CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
                 }

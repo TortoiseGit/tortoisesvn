@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,7 +38,7 @@ bool DropExportCommand::Execute()
         // remove all svn admin dirs, effectively unversion the 'exported' folder.
         CString msg;
         msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)droppath);
-        if (CMessageBox::Show(hwndExplorer, msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) != IDYES)
+        if (MessageBox(hwndExplorer, msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) != IDYES)
             return false;
 
         CProgressDlg progress;
@@ -97,7 +97,7 @@ bool DropExportCommand::Execute()
             }
             if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, false, false, svn_depth_infinity, hwndExplorer, !!parser.HasKey(_T("extended"))))
             {
-                CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+                MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
                 bRet = false;
             }
         }

@@ -23,7 +23,7 @@
 #include "SVNProgressDlg.h"
 #include "StringUtils.h"
 #include "Hooks.h"
-#include "MessageBox.h"
+#include "AppUtils.h"
 
 CString CommitCommand::LoadLogMessage()
 {
@@ -79,7 +79,7 @@ bool CommitCommand::AskToUpdate(CSVNProgressDlg& progDlg) const
     title.LoadString (IDS_MSG_NEEDSUPDATE_TITLE);
     CString question;
     question.Format (IDS_MSG_NEEDSUPDATE_QUESTION, (LPCTSTR)progDlg.GetLastErrorMessage());
-    const UINT result = CMessageBox::Show (NULL, question, title, MB_YESNO | MB_ICONQUESTION);
+    const UINT result = MessageBox(NULL, question, title, MB_YESNO | MB_ICONQUESTION);
     return result == IDYES;
 }
 
@@ -90,7 +90,7 @@ bool CommitCommand::Execute()
     CTSVNPathList selectedList;
     if (parser.HasKey(_T("logmsg")) && (parser.HasKey(_T("logmsgfile"))))
     {
-        CMessageBox::Show(hwndExplorer, IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
+        MessageBox(hwndExplorer, IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     CString sLogMsg = LoadLogMessage();
@@ -103,7 +103,7 @@ bool CommitCommand::Execute()
         {
             CString temp;
             temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-            CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
+            MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
             return false;
         }
     }

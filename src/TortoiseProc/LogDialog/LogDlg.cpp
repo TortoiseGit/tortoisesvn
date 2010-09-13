@@ -1854,7 +1854,7 @@ void CLogDlg::DiffSelectedFile()
                 {
                     progDlg.Stop();
                     SetAndClearProgressInfo((HWND)NULL);
-                    CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     return;
                 }
             }
@@ -1974,7 +1974,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
             theApp.DoWaitCursor(-1);
             CString temp;
             temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-            CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
             TRACE(_T("could not retrieve the URL of the file!\n"));
             EnableOKButton();
             return;     //exit
@@ -2052,7 +2052,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
             theApp.DoWaitCursor(-1);
             CString temp;
             temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-            CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
             TRACE(_T("could not retrieve the URL of the file!\n"));
             EnableOKButton();
             return FALSE;
@@ -2077,7 +2077,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
     {
         progDlg.Stop();
         SetAndClearProgressInfo((HWND)NULL);
-        CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
         EnableOKButton();
         theApp.DoWaitCursor(-1);
         return FALSE;
@@ -2147,7 +2147,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
             if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), logs[i]->GetRevision()))
             {
                 progDlg.Stop();
-                CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 break;
             }
             else
@@ -2223,7 +2223,7 @@ void CLogDlg::EditLogMessage(int index)
         dlg.m_sInputText.Replace(_T("\r"), _T(""));
         if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->GetRevision()))
         {
-            CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
         }
         else
         {
@@ -4374,13 +4374,13 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     CString strMessage;
                     strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
-                    CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
                 CString msg;
                 msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPath());
-                if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+                if (::MessageBox(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
                 {
                     CSVNProgressDlg dlg;
                     dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
@@ -4402,7 +4402,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     CString strMessage;
                     strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
-                    CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
@@ -4431,7 +4431,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     {
                         if (bmodified)
                         {
-                            if (CMessageBox::Show(this->m_hWnd, IDS_MERGE_WCDIRTYASK, IDS_APPNAME, MB_YESNO | MB_ICONWARNING) != IDYES)
+                            if (::MessageBox(this->m_hWnd, IDS_MERGE_WCDIRTYASK, IDS_APPNAME, MB_YESNO | MB_ICONWARNING) != IDYES)
                             {
                                 break;
                             }
@@ -4456,14 +4456,14 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     CString strMessage;
                     strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
-                    CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
 
                 CString msg;
                 msg.Format(IDS_LOG_REVERTTOREV_CONFIRM, m_path.GetWinPath());
-                if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+                if (::MessageBox(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
                 {
                     CSVNProgressDlg dlg;
                     dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
@@ -4486,7 +4486,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     CString strMessage;
                     strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
-                    CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
@@ -4500,9 +4500,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     // should we show a progress dialog here? Copies are done really fast
                     // and without much network traffic.
                     if (!Copy(CTSVNPathList(CTSVNPath(pathURL)), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_CopyRev, dlg.m_sLogMessage))
-                        CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     else
-                        CMessageBox::Show(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
+                        ::MessageBox(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
                 }
             }
             break;
@@ -4652,7 +4652,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
-                            CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             EnableOKButton();
                             break;
                         }
@@ -4684,7 +4684,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     {
                         progDlg.Stop();
                         SetAndClearProgressInfo((HWND)NULL);
-                        CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         EnableOKButton();
                         break;
                     }
@@ -4734,7 +4734,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     }
                     else
                     {
-                        CMessageBox::Show(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     }
                 }
             }
@@ -5048,7 +5048,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         theApp.DoWaitCursor(-1);
                         CString temp;
                         temp.Format(IDS_ERR_NOURLOFFILE, m_path.GetWinPath());
-                        CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
                         EnableOKButton();
                         theApp.DoWaitCursor(-1);
                         break;      //exit
@@ -5087,7 +5087,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     {
                         // seems the path got renamed
                         // tell the user how to work around this.
-                        CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
                         EnableOKButton();
                         theApp.DoWaitCursor(-1);
                         break;      //exit
@@ -5103,7 +5103,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 }
                 CString msg;
                 msg.Format(IDS_LOG_REVERT_CONFIRM, (LPCTSTR)wcPath);
-                if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+                if (::MessageBox(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
                 {
                     dlg.DoModal();
                 }
@@ -5128,7 +5128,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         theApp.DoWaitCursor(-1);
                         CString temp;
                         temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-                        CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
@@ -5162,7 +5162,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         theApp.DoWaitCursor(-1);
                         CString temp;
                         temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-                        CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
@@ -5250,7 +5250,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
-                            CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             tempfile.Delete(false);
                             EnableOKButton();
                             theApp.DoWaitCursor(-1);
@@ -5287,7 +5287,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         theApp.DoWaitCursor(-1);
                         CString temp;
                         temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-                        CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
@@ -5320,7 +5320,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     }
                     else
                     {
-                        CMessageBox::Show(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     }
                 }
             }
@@ -5349,7 +5349,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         theApp.DoWaitCursor(-1);
                         CString temp;
                         temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-                        CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;

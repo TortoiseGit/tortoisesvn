@@ -374,7 +374,7 @@ void CCommitDlg::OnOK()
     m_sLogMessage = m_cLogMessage.GetText();
     if ((m_ProjectProperties.bWarnIfNoIssue) && (id.IsEmpty() && !m_ProjectProperties.HasBugID(m_sLogMessage)))
     {
-        if (CMessageBox::Show(this->m_hWnd, IDS_COMMITDLG_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+        if (::MessageBox(this->m_hWnd, IDS_COMMITDLG_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
             return;
     }
 
@@ -390,7 +390,7 @@ void CCommitDlg::OnOK()
             const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(j);
             if (entry->IsChecked() && (entry->status == svn_wc_status_unversioned) && entry->IsFolder() )
             {
-                if (CMessageBox::Show(this->m_hWnd, IDS_COMMITDLG_UNVERSIONEDFOLDERWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+                if (::MessageBox(this->m_hWnd, IDS_COMMITDLG_UNVERSIONEDFOLDERWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
                     return;
             }
         }
@@ -509,7 +509,7 @@ void CCommitDlg::OnOK()
     SVN svn;
     if (!svn.Add(itemsToAdd, &m_ProjectProperties, svn_depth_empty, false, false, true))
     {
-        CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
         InterlockedExchange(&m_bBlock, FALSE);
         Refresh();
         return;
@@ -624,7 +624,7 @@ void CCommitDlg::OnOK()
                 CString sError = temp == 0 ? _T("") : temp;
                 if (!sError.IsEmpty())
                 {
-                    CMessageBox::Show(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
+                    ::MessageBox(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
                     return;
                 }
             }
@@ -938,7 +938,7 @@ LRESULT CCommitDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 {
     if ((m_ListCtrl.GetItemCount() == 0)&&(m_ListCtrl.HasUnversionedItems())&&(!m_bShowUnversioned))
     {
-        if (CMessageBox::Show(*this, IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
+        if (::MessageBox(*this, IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
         {
             m_bShowUnversioned = TRUE;
             DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS | SVNSLC_SHOWINCHANGELIST | SVNSLC_SHOWEXTERNAL | SVNSLC_SHOWINEXTERNALS | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWEXTDISABLED | SVNSLC_SHOWUNVERSIONED;
@@ -1474,7 +1474,7 @@ void CCommitDlg::OnComError( HRESULT hr )
     COMError ce(hr);
     CString sErr;
     sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
-    CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+    ::MessageBox(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 }
 
 LRESULT CCommitDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)

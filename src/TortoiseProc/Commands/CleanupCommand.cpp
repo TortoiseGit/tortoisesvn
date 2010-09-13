@@ -101,7 +101,7 @@ bool CleanupCommand::Execute()
         bRet = false;
     }
     if (!parser.HasKey(_T("noui")))
-        CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | (strFailedPaths.IsEmpty()?MB_ICONINFORMATION:MB_ICONERROR));
+        MessageBox(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | (strFailedPaths.IsEmpty()?MB_ICONINFORMATION:MB_ICONERROR));
 
     return bRet;
 }

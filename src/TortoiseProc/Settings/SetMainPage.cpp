@@ -165,7 +165,7 @@ void CSetMainPage::OnModified()
 
 void CSetMainPage::OnASPHACK()
 {
-    if (CMessageBox::Show(m_hWnd, IDS_SETTINGS_ASPHACKWARNING, IDS_APPNAME, MB_ICONWARNING|MB_YESNO) == IDYES)
+    if (::MessageBox(m_hWnd, IDS_SETTINGS_ASPHACKWARNING, IDS_APPNAME, MB_ICONWARNING|MB_YESNO) == IDYES)
     {
         SetModified();
     }

@@ -21,7 +21,7 @@
 
 #include "SVNProgressDlg.h"
 #include "ProgressDlg.h"
-#include "MessageBox.h"
+#include "AppUtils.h"
 #include "RenameDlg.h"
 #include "SVN.h"
 #include "ShellUpdater.h"
@@ -92,7 +92,7 @@ bool DropCopyCommand::Execute()
                 // target file already exists. Ask user if he wants to replace the file
                 CString sReplace;
                 sReplace.Format(IDS_PROC_REPLACEEXISTING, fullDropPath.GetWinPath());
-                if (CMessageBox::Show(hwndExplorer, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+                if (MessageBox(hwndExplorer, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
                 {
                     if (!svn.Remove(CTSVNPathList(fullDropPath), true, false))
                     {
@@ -100,14 +100,14 @@ bool DropCopyCommand::Execute()
                     }
                     if (!svn.Copy(CTSVNPathList(pathList[nPath]), fullDropPath, SVNRev::REV_WC, SVNRev()))
                     {
-                        CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return FALSE;       //get out of here
                     }
                     return TRUE;
                 }
             }
             TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-            CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return FALSE;       //get out of here
         }
         else
@@ -121,7 +121,7 @@ bool DropCopyCommand::Execute()
         }
         if ((progress.IsValid())&&(progress.HasUserCancelled()))
         {
-            CMessageBox::Show(hwndExplorer, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
+            MessageBox(hwndExplorer, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
             return false;
         }
     }

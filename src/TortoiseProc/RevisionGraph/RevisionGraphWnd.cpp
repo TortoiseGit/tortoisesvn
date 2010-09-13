@@ -834,7 +834,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
             hbm = CreateDIBSection(ddc.m_hDC, &bmi, DIB_RGB_COLORS,(void **)&pBits, NULL, 0);
             if (hbm==0)
             {
-                CMessageBox::Show(m_hWnd, IDS_REVGRAPH_ERR_NOMEMORY, IDS_APPNAME, MB_ICONERROR);
+                ::MessageBox(m_hWnd, IDS_REVGRAPH_ERR_NOMEMORY, IDS_APPNAME, MB_ICONERROR);
                 return;
             }
             HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
@@ -883,7 +883,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
             dc.DeleteDC();
             if (!sErrormessage.IsEmpty())
             {
-                CMessageBox::Show(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
             }
         }
         catch (CException * pE)
@@ -891,7 +891,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
             TCHAR szErrorMsg[2048];
             pE->GetErrorMessage(szErrorMsg, 2048);
             pE->Delete();
-            CMessageBox::Show(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(m_hWnd, szErrorMsg, _T("TortoiseSVN"), MB_ICONERROR);
         }
     }
 }

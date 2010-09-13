@@ -77,7 +77,7 @@ bool IgnoreCommand::Execute()
             temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
             temp += _T("\n");
             temp += props.GetLastErrorMsg().c_str();
-            CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
+            MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
             err = TRUE;
             break;
         }
@@ -87,7 +87,7 @@ bool IgnoreCommand::Execute()
         SVN svn;
         if (!svn.Remove(pathList, TRUE))
         {
-            CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             err = TRUE;
         }
     }
@@ -95,7 +95,7 @@ bool IgnoreCommand::Execute()
     {
         CString temp;
         temp.Format(IDS_PROC_IGNORESUCCESS, (LPCTSTR)filelist);
-        CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+        MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
         return true;
     }
     return false;

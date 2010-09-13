@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,7 @@
 #include "RebuildIconCacheCommand.h"
 
 #include "ShellUpdater.h"
-#include "MessageBox.h"
+#include "AppUtils.h"
 
 bool RebuildIconCacheCommand::Execute()
 {
@@ -28,12 +28,12 @@ bool RebuildIconCacheCommand::Execute()
     if (CShellUpdater::RebuildIcons())
     {
         if (!bQuiet)
-            CMessageBox::Show(hwndExplorer, IDS_PROC_ICONCACHEREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+            ::MessageBox(hwndExplorer, IDS_PROC_ICONCACHEREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
     }
     else
     {
         if (!bQuiet)
-            CMessageBox::Show(hwndExplorer, IDS_PROC_ICONCACHENOTREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+            ::MessageBox(hwndExplorer, IDS_PROC_ICONCACHENOTREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
     }
     return true;
 }

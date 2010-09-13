@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "Settings.h"
-#include "MessageBox.h"
+#include "AppUtils.h"
 #include "..\..\TSVNCache\CacheInterface.h"
 
 #define BOTTOMMARG 32
@@ -158,7 +158,7 @@ void CSettings::HandleRestart()
     {
         DWORD_PTR res = 0;
         ::SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, 0, SMTO_ABORTIFHUNG, 20, &res);
-        CMessageBox::Show(NULL, IDS_SETTINGS_RESTARTSYSTEM, IDS_APPNAME, MB_ICONINFORMATION);
+        ::MessageBox(NULL, IDS_SETTINGS_RESTARTSYSTEM, IDS_APPNAME, MB_ICONINFORMATION);
     }
     if (restart & ISettingsPropPage::Restart_Cache)
     {

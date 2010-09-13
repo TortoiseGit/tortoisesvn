@@ -102,7 +102,7 @@ bool ExportCommand::Execute()
                 // remove all svn admin dirs, effectively unversion the 'exported' folder.
                 CString msg;
                 msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)saveplace);
-                if (CMessageBox::Show(hwndExplorer, msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+                if (MessageBox(hwndExplorer, msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
                 {
                     CProgressDlg progress;
                     progress.SetTitle(IDS_PROC_UNVERSION);
@@ -146,7 +146,7 @@ bool ExportCommand::Execute()
                     bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, svn_depth_infinity,
                     hwndExplorer, !!folderBrowser.m_bCheck))
                 {
-                    CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+                    MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
                     bRet = false;
                 }
                 else
