@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-12 06:29 +0000\n"
-"PO-Revision-Date: 2010-09-13 23:00+0100\n"
-"Last-Translator: Oto BREZINA <translator [at] e-posta [dot] sk>\n"
+"PO-Revision-Date: 2010-09-14 10:26+0100\n"
+"Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1814,14 +1814,17 @@ msgid ""
 "use-sasl = true\n"
 "</screen>"
 msgstr ""
+"Pre spustenie určitého mechanizmu na serveri potrebujete spraviť 3 nasledovné veci. Po prvé, vytvorte <literal>[sasl]</literal> oddelenie vo vašom úložiskovom <filename>svnserve.conf</filename> súbore s souto hodnotou: <screen>\n"
+"use-sasl = true\n"
+"</screen>"
 
 #. (para)
 msgid "Second, create a file called <filename>svn.conf</filename> in a convenient location - typically in the directory where subversion is installed."
-msgstr ""
+msgstr "Po druhé, vytvorte súbor s názvom <filename>svn.conf</filename> na vhodnom mieste - spravidla v adresári, kde je nainštalovaný subversion."
 
 #. (para)
 msgid "Thirdly, create two new registry entries to tell SASL where to find things. Create a registry key named <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> and place two new string values inside it: <literal>SearchPath</literal> set to the directory path containing the <filename>sasl*.dll</filename> plug-ins (normally in the Subversion install directory), and <literal>ConfFile</literal> set to the directory containing the <filename>svn.conf</filename> file. If you used the CollabNet installer, these registry keys will already have been created for you."
-msgstr ""
+msgstr "Po tretie, vytvorte dva nové záznamy v registri, aby SASL vedelo vyhľadať si potrebné veci. Vytvorte v registri s názvom <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> a umiestnite dve reťazcové (string) hodnoty do toho: <literal>SearchPath</literal> nastavenie adresárovej cesty posahujúcu súbor <filename>sasl*.dll</filename> (obyčajne v Subversion inštalačnom adresári) a <literal>ConfFile</literal> pre nastavenie adresára, v ktorom sa nachádza súbor <filename>svn.conf</filename>. Ak použijete CollabNet inštalátor, tieto hodnoty sa v registroch vytvoria automaticky."
 
 #. (para)
 msgid ""
@@ -1832,10 +1835,16 @@ msgid ""
 "sasldb_path: C:\\TortoiseSVN\\sasldb\n"
 "</screen> The last line shows the location of the authentication database, which is a file called <filename>sasldb</filename>. This could go anywhere, but a convenient choice is the repository parent path. Make sure that the svnserve service has read access to this file."
 msgstr ""
+"Upravte <filename>svn.conf</filename> súbor, tak aby obsahoval nasledovné: <screen>\n"
+"pwcheck_method: auxprop\n"
+"auxprop_plugin: sasldb\n"
+"mech_list: DIGEST-MD5\n"
+"sasldb_path: C:\\TortoiseSVN\\sasldb\n"
+"</screen> Posledný riadok označuje umiestnenie databázy s overovaním, ktorej súbor má názov <filename>sasldb</filename>. Toto sa môže nachádzať kdekoľvek, ale podľa vhodného výberu by to malo byť v rodičovskom adresári úložiska. Skontrolujte, či má svnserve služba prístup ku tomuto súboru."
 
 #. (para)
 msgid "If svnserve was already running, you will need to restart it to ensure it reads the updated configuration."
-msgstr ""
+msgstr "Ak svnserve je už spostený, potrebujete ho reštartovať, aby sa zaistilo načítanie upravených konfigurácii."
 
 #. (para)
 msgid ""
@@ -1843,14 +1852,17 @@ msgid ""
 "saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
 "</screen> The <literal>-f</literal> switch gives the database location, <literal>realm</literal> must be the same as the value you defined in your repository's <filename>svnserve.conf</filename> file, and username is exactly what you expect it to be. Note that the realm is not allowed to contain space characters."
 msgstr ""
+"Všetko je teraz nastavené, už len zostáva vytvoriť nejakého užívateľa a heslo. Pre vykonanie tohto úkonu potrebujeme <literal>saslpasswd2</literal> program. Ak ste použili CollabNet inštalátor, potrebný program je už v inštalačnom adresári. Príklad použitia príkazu: <screen>\n"
+"saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
+"</screen> Prepínač <literal>-f</literal> udáva umiestnenie databázy,  <literal>realm</literal> musí mať rovnakú hodnotu ako ste zadali vo vašom úložiskovom <filename>svnserve.conf</filename> súbore a username je presne to co očakávate, ze by to mohlo byť. Pozor na to, že realm nedovoľuje obsahovat znak medzeri."
 
 #. (para)
 msgid "You can list the usernames stored in the database using the <literal>sasldblistusers2</literal> program."
-msgstr ""
+msgstr "Prehľad užívateľov v databáze si možete pozrieť pomocou programu <literal>sasldblistusers2</literal>."
 
 #. (title)
 msgid "SASL Encryption"
-msgstr ""
+msgstr "SASL Šifrovanie"
 
 #. (para)
 msgid ""
@@ -1861,34 +1873,40 @@ msgid ""
 "max-encryption = 256\n"
 "</screen>"
 msgstr ""
+"Pre sputenie alebo zakázanie rôznych úrovní šifrovania nastavajute pomôcou dvoch hodnoôt v úložiskovom <filename>svnserve.conf</filename> súbore: <screen>\n"
+"[sasl]\n"
+"use-sasl = true\n"
+"min-encryption = 128\n"
+"max-encryption = 256\n"
+"</screen>"
 
 #. (para)
 msgid "The <literal>min-encryption</literal> and <literal>max-encryption</literal> variables control the level of encryption demanded by the server. To disable encryption completely, set both values to 0. To enable simple checksumming of data (i.e., prevent tampering and guarantee data integrity without encryption), set both values to 1. If you wish to allow (but not require) encryption, set the minimum value to 0, and the maximum value to some bit-length. To require encryption unconditionally, set both values to numbers greater than 1. In our previous example, we require clients to do at least 128-bit encryption, but no more than 256-bit encryption."
-msgstr ""
+msgstr "<literal>Min-encryption</literal> a <literal>max-encryption</literal> premenné riadia úroven šifrovania požadovanú serverom. Pre úplne vypnutie šifrovania nastavte obe hodnoty na 0. Pre povolenie jednoduchého kontrolného súčtu dát (to znamená zabránenie manipulácii a zaručenie neporušiteľnosti dát bez šifrovania), nastavte obe hodnoty na 1. Ak chcete povoliť (ale nie vyžadovať) šifrovanie, nastavte minimalnu hodnotu na 0 a maximálnu hodnotu na nejakú hodnotu, ktorá udáva dĺžku v bitoch. Ak požadujete bezpodmienečne šifrovanie, nastavte obe hodnoty väčšie ako 1. V predchádzajúcom príklade sme požadovali od klienta aspoň 128-bitové šifrovanie, ale nie väčšie ako 256-bitové."
 
 #. (title)
 msgid "Authentication with svn+ssh"
-msgstr ""
+msgstr "Autentifikácia pomocou svn+ssh"
 
 #. (para)
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through. It is not as simple to set up as SASL, but it may be useful is some cases."
-msgstr ""
+msgstr "Ďalšim spôsobom ako autentifikovať užívateľov na svnserve serveroch je použitie secure shell (SSH) pre tunelovanie požiadavok. Nie je to také jednoduché ako nastaviť SASL, ale môže to byť v niektorých prípadoch užitočné."
 
 #. (para)
 msgid "With this approach, svnserve is not run as a daemon process, rather, the secure shell starts svnserve for you, running it as the SSH authenticated user. To enable this, you need a secure shell daemon on your server."
-msgstr ""
+msgstr "S týmto nastavením svnserve nie je spustený ako daemon proces, presnejšie zabezpečený príkazový riadok spustí svnserve za vás, spustí ho ako SSH autentifikovaný užívateľ. Pre takéto spustenie potrebujete mať na serveri daemona zabezpečeného príkazového riadku."
 
 #. (para)
 msgid "A basic method for setting up your server is given in <xref linkend=\"tsvn-ssh-howto\"/>. You can find other SSH topics within the FAQ by searching for <quote>SSH</quote>."
-msgstr ""
+msgstr "Základný spôsob pre nastavenie vášho servera je popísaný v <xref linkend=\"tsvn-ssh-howto\"/>. V často kladených otázkach (FAQ) nájdete aj iné témy týkajúce sa SSH, ak použijete vyhľadávanie s textom <quote>SSH</quote>."
 
 #. (para)
 msgid "Further information about svnserve can be found in the <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version Control with Subversion</citetitle></ulink>."
-msgstr ""
+msgstr "Ďalešie informácie o svnserve nájdete v <ulink url=\"http://svnbook.red-bean.com\"><citetitle>Version Control with Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Path-based Authorization with svnserve"
-msgstr ""
+msgstr "Oprávnenia na základe cesty s svnserve"
 
 #. (para)
 msgid ""
@@ -1897,6 +1915,10 @@ msgid ""
 "authz-db = authz\n"
 "</screen> Here, <filename>authz</filename> is a file you create to define the access permissions. You can use a separate file for each repository, or you can use the same file for several repositories. Read <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> for a description of the file format."
 msgstr ""
+"Od Subversion 1.3, svnserve podporuje rovnako <literal>mod_authz_svn</literal> oprávnenia na základe cesty, ktoré je dostupné v Apache servri. Potrebujete upraviť súbor <filename>conf/svnserve.conf</filename> vo vašom úložisku a pridať riadok s odkazom na váš autorizačný súbor. <screen>\n"
+"[general]\n"
+"authz-db = authz\n"
+"</screen> Súbor <filename>authz</filename> je súbor, v ktorom ste definovali prístupové práva. Dá sa použiť osobitný súbor pre každé úložisko, alebo môžete použiť rovnaký súbor pre niekoľko úložísk. Prečítajte si <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> pre popis ako to má byť správne zaísane v súbore."
 
 #. (title)
 msgid "Apache Based Server"
@@ -1909,7 +1931,7 @@ msgstr "Apache"
 # Apache
 #. (para)
 msgid "The most flexible of all possible server setups for Subversion is the Apache based one. Although a bit more complicated to set up, it offers benefits that other servers cannot:"
-msgstr ""
+msgstr "Najviac prispôsobiť zo všetkých dostupných serverov re Subversion je Apache. Aj keď je nastavovanie mierne zložitejšie, poskytuje mnohé výhody, ktoré iné servery nemajú:"
 
 #. (primary)
 #. (term)
@@ -1918,7 +1940,7 @@ msgstr "WebDAV"
 
 #. (para)
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system."
-msgstr ""
+msgstr "Subversion server založený na Apache používa WebDAV protokol, ktorý podporujú aj mnohé iné programy. Nparíklad môžete pripojiť úložisko ako <quote>Web folder</quote> do Windows prieskumníka a potom pristupovať ku nemu ako ku bežným adresárom v súborovom systéme."
 
 #. (term)
 msgid "Browsing The Repository"
@@ -1926,7 +1948,7 @@ msgstr "Prezeranie úložiska"
 
 #. (para)
 msgid "You can point your browser to the URL of your repository and browse the contents of it without having a Subversion client installed. This gives access to your data to a much wider circle of users."
-msgstr ""
+msgstr "Môžete zadať URL vášho úložiska do prehliadača a prezerať si obsah bez potreby mať nainštalovaného Subversion klienta. Takýto prístup vám poskytne prístup pre omnoho väčší okruh používateľov."
 
 #. (term)
 #. (title)
@@ -1935,7 +1957,7 @@ msgstr "Authentifikácia"
 
 #. (para)
 msgid "You can use any authentication mechanism Apache supports, including SSPI and LDAP."
-msgstr ""
+msgstr "Môžete použiť akýkoľvek overovací mechanizmus, ktorý podporuje Apache, vrátane SSPI a LDAP. "
 
 #. (term)
 msgid "Security"
@@ -1947,47 +1969,47 @@ msgstr "Odkedy je Apache veľmi stabilný a bezpečný, získate rovnakú bezpe�
 
 #. (title)
 msgid "Installing Apache"
-msgstr ""
+msgstr "Inštalácia Apache"
 
 #. (para)
 msgid "Please note that Windows XP without the service pack 1 will lead to bogus network data and could therefore corrupt your repository!"
-msgstr ""
+msgstr "Nezabudnite, že Windows XP bez service pack 1 bude ukazovať skreslujúce informácie o údajoch v sieti a preto môže poskodiť vaše úložisko."
 
 #. (para)
 msgid "Download the latest version of the Apache web server from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version 2.2.x - the version 1.3.xx won't work!"
-msgstr ""
+msgstr "Stiahnite si najnovšiu verziu Apache web servera z <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Skontrolujte, či sťahujete verziu 2.2.x - verzia 1.3.x nebude fungovať!"
 
 #. (para)
 msgid "The msi installer for Apache can be found by clicking on <literal>other files</literal>, then browse to <filename>binaries/win32</filename>. You may want to choose the msi file <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (the one that includes OpenSSL)."
-msgstr ""
+msgstr "Inštalátor msi pre Apache najdete v <literal>other files</literal>, potom vyberte <filename>binaries/win32</filename>. Môžete vybrat msi súbor <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (tento obsahuje aj OpenSSL)."
 
 #. (para)
 msgid "Once you have the Apache2 installer you can double click on it and it will guide you through the installation process. Make sure that you enter the server-URL correctly (if you don't have a DNS name for your server just enter the IP-address). I recommend to install Apache <emphasis>for All Users, on Port 80, as a Service</emphasis>. Note: if you already have IIS or any other program running which listens on port 80 the installation might fail. If that happens, go to the programs directory, <filename>\\Apache Group\\Apache2\\conf</filename> and locate the file <filename>httpd.conf</filename>. Edit that file so that <literal>Listen 80</literal> is changed to a free port, e.g. <literal>Listen 81</literal>. Then restart the installation - this time it should finish without problems."
-msgstr ""
+msgstr "Ak už máte inštalátor Apache2, spustite ho a sprievodca vás prevedie inštalačným procesom. Skontrolujte, či ste zadali serverovú URL spravne (ak nemáte DNS názov pre váš server, stačí iba vyplnit IP adresu). Odporúčam inštalovať Apache emphasis>pre všetkých používateľov, na port 80, ako službu</emphasis>. Poznámka: ak máte už nainštalovaný IIS alebo iný program, ktorý čaká na porte 80, inštalácia asi zlyhá. Ak sa vám stane tento problém, choďte do adresára <filename>\\Apache Group\\Apache2\\conf</filename>, nájdite súbor <filename>httpd.conf</filename>. Zmente číslo portu <literal>Listen 80</literal> na iné číslo portu, ktoré je vóľne, napríklad <literal>Listen 81</literal>. Potom znovu spustite inštaláciu  - tento krát by nemali nastať ziadne problémy."
 
 #. (para)
 msgid "Now test if the Apache web server is running correctly by pointing your web browser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up."
-msgstr ""
+msgstr "Skúsime, či Apache web server pracuje správne, zadáme do webového prehliadača adresu <systemitem class=\"url\">http://localhost/</systemitem> - prednastavéná webová stránka by sa mala načístať."
 
 #. (para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
-msgstr ""
+msgstr "Ak sa rozhodnete insštalovať Apache ako službu, upozorňujem, že štandardne je spustený ako miestny systémový účet. Bude viacej bezpečné, ak vytvoríte osobitný účet pre Apache na jeho beh."
 
 #. (para)
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
-msgstr ""
+msgstr "Skontrolujte, že účet, na ktorom Apache je spustený má otvorený prístup do adresárového ovládacieho listu úložiska (right-click directory | properties | security), s plnou kontrolou. Inak užívatelia nebudú môcť odovzdávať ich zmeny do úložiska."
 
 #. (para)
 msgid "Even if Apache runs as local system, you still need such an entry (which will be the SYSTEM account in this case)."
-msgstr ""
+msgstr "Aj ked Apache je spustený ako miestna služba, stále potrebujete nastaviť prístup (v tomto prípade to bude účet SYSTEM)."
 
 #. (para)
 msgid "If Apache does not have this permission set up, your users will get <quote>Access denied</quote> error messages, which show up in the Apache error log as error 500."
-msgstr ""
+msgstr "Ak Apache nebude mať nastavenie tento prístup, užívatelia dostanú chybovú hlášku <quote>Access denied</quote>, ktorá sa zaobrazí ako Apache error log ako error 500."
 
 #. (para)
 msgid "The first thing you need before installing Apache is a computer with Windows 2000, Windows XP+SP1, Windows 2003, Vista or Server 2008. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
-msgstr ""
+msgstr "Ako prvú vec pred inštaláciou Apache budete protrebovať počítač s Windows 2000, Windows XP+SP1, Windows 2003, Vista alebo Server 2008. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution> "
 
 #. (title)
 msgid "Installing Subversion"
@@ -1995,11 +2017,11 @@ msgstr "Inštalácia subversion"
 
 #. (para)
 msgid "Download the latest version of the Subversion Win32 binaries for Apache. Be sure to get the right version to integrate with your version of Apache, otherwise you will get an obscure error message when you try to restart. If you have Apache 2.2.x go to <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
-msgstr ""
+msgstr "Stiahnite si najnovšiu verziu Subversion Win32 binarny súbor pre Apache. Skontrolujte, že mát správnu verziu pre spojenie s Apache, inak dostanete chyby pri pokuse o reštart. Ak máte Apache 2.2.x  pokračujte na <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
 
 #. (para)
 msgid "Run the Subversion installer and follow the instructions. If the Subversion installer recognized that you've installed Apache, then you're almost done. If it couldn't find an Apache server then you have to do some additional steps."
-msgstr ""
+msgstr "Spustite Subversion inštalátor a pokračujte podľa inštrukcii. Ak Subversion inštalátor rozpozná, že máte nainštalovaný Apache, potom je takmer všetko hotové. Ak ho nemôže nájsť, potom musíte vykonať pár krokov naviac."
 
 #. (primary)
 #. (primary)
@@ -2008,15 +2030,15 @@ msgstr "mod_authz_svn"
 
 #. (para)
 msgid "Using the windows explorer, go to the installation directory of Subversion (usually <filename>c:\\program files\\Subversion</filename>) and find the files <filename>/httpd/mod_dav_svn.so</filename> and <filename>mod_authz_svn.so</filename>. Copy these files to the Apache modules directory (usually <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
-msgstr ""
+msgstr "Použite windows prieskumníka, choďte do inštalačného adresára Subversion (zvyčajne <filename>c:\\program files\\Subversion</filename>) a nájdite súbory <filename>/httpd/mod_dav_svn.so</filename> a <filename>mod_authz_svn.so</filename>. Prekopírujte tieto súbory to Apache modules adresára (bežne <filename>c:\\program files\\apache group\\apache2\\modules </filename>)."
 
 #. (para)
 msgid "Copy the file <filename>/bin/libdb*.dll</filename> and <filename>/bin/intl3_svn.dll</filename> from the Subversion installation directory to the Apache bin directory."
-msgstr ""
+msgstr "Prekopírujte súbory <filename>/bin/libdb*.dll</filename> a <filename>/bin/intl3_svn.dll</filename> z Subversion inštalačného adresára do Apache bin adresára."
 
 #. (para)
 msgid "Edit Apache's configuration file (usually <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) with a text editor such as Notepad and make the following changes:"
-msgstr ""
+msgstr "Upravte Apache konfiguračný súbor (bežne <filename> C:\\Program Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) pomocou textového editora napr. Notepad a spravte nasledujúce zmeny:"
 
 #. (para)
 msgid ""
@@ -2028,6 +2050,13 @@ msgid ""
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
 msgstr ""
+"Odkomentujte (odstráňte '<literal>#</literal>' znak ) z nasledujúcich riadkov: <screen>\n"
+"#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
+"#LoadModule dav_module modules/mod_dav.so\n"
+"</screen> Pridajte nasledujúce dva riadky na koniec <literal>LoadModule</literal> oddielu. <screen>\n"
+"LoadModule dav_svn_module modules/mod_dav_svn.so\n"
+"LoadModule authz_svn_module modules/mod_authz_svn.so\n"
+"</screen>"
 
 #. (title)
 msgid "Configuration"
@@ -2071,6 +2100,11 @@ msgid ""
 "bin\\htpasswd passwd &lt;username&gt;\n"
 "</screen>"
 msgstr ""
+"Vytvorte súbor <filename>passwd</filename>, otvorte príkazový riadok (DOS-Box) znovu, zmente adresár <filename>apache2</filename> (bežne <filename>c:\\program files\\apache group\\apache2</filename>) a vytvorte súbor týmto zápisom <screen>\n"
+"bin\\htpasswd -c passwd &lt;username&gt;\n"
+"</screen> Takto sa vytvorí súbor s názvom <filename>passwd</filename>, ktorý je použitý pre overovanie. Ďalší užívatelia sa dajú pridávať takto <screen>\n"
+"bin\\htpasswd passwd &lt;username&gt;\n"
+"</screen>"
 
 #. (para)
 msgid "Restart the Apache service again."
@@ -2140,7 +2174,7 @@ msgstr "aktivuje základnú autentifikáciu, t.j. Meno/heslo"
 
 #. (entry)
 msgid "is used as an information whenever an authentication dialog pops up to tell the user what the authentication is for"
-msgstr ""
+msgstr "je použitý ako informácia zakaždým, keď overovací dialog vyskočí, aby povedal užívateľovi kam preukazuje jeho pravosť"
 
 #. (entry)
 msgid "specifies which password file to use for authentication"
@@ -2148,11 +2182,11 @@ msgstr "určuje, ktorý súbor hesiel má byť použitý pre autentifikáciu"
 
 #. (entry)
 msgid "Location of the Access file for paths inside a Subversion repository"
-msgstr ""
+msgstr "umiestnenie prístupového súboru pre cesty v Subversion úložisku"
 
 #. (entry)
 msgid "specifies that only users who entered a correct username/password are allowed to access the URL"
-msgstr ""
+msgstr "stanový, že iba užívatelia, ktorý zadali správne meno/heslo budú mať povolený prístup k URL"
 
 #. (para)
 msgid ""
@@ -2164,6 +2198,13 @@ msgid ""
 "&lt;/LimitExcept&gt;\n"
 "</screen>"
 msgstr ""
+"Ak chcete, aby vaše úložisko malo prístup pre čítanie pre každého, ale zápisovanie iba pre vybraných úžívateľov, zmente nasledovný riadok <screen>\n"
+"Require valid-user\n"
+"</screen> na <screen>\n"
+"&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;\n"
+"Require valid-user\n"
+"&lt;/LimitExcept&gt;\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2171,6 +2212,9 @@ msgid ""
 "#AuthzSVNAccessFile svnaccessfile\n"
 "</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's <literal>AuthzSVNAccessFile</literal> module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. The format of the authorization-policy file used by <literal>mod_authz_svn</literal> is described in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>."
 msgstr ""
+"Požitie súboru <filename>passwd</filename> obmedzuje a udeluje prístup do všetkých úložísk jednotne. Ak chcete mať väčšiu kontorlu nad tým, ktorý užívatelia budú mať prístup ku každému adresáru v úložisku, potom odkomentujte riadok <screen>\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"</screen> a vytvorte Subversion access súbor. Apache bude kontrolovať, že len oprávnený užívatelia sa budú môcť pripojiť na vaše <filename>/svn</filename> umiestnenie a potom kontrolovať uživateľa cez Subversion <literal>AuthzSVNAccessFile</literal> modul, takže je vynútený podrobnejšia kontrola prístupu založená na pravidlách v Subversion súbore access. Všimnite si, že cesty sú zadané aj ako <literal>repos:path</literal> alebo jednoduchšie <literal>path</literal>. Ak neupresníte konkrétne úložisko, tak prístupové pravidlá budú použité na všetky úložiská v  <literal>SVNParentPath</literal>. Spôsob zápisu do súboru a použitie overovacieho postupu používaného <literal>mod_authz_svn</literal> je popísaný v  <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
 
 #. (para)
 msgid ""
@@ -2178,14 +2222,17 @@ msgid ""
 "#SVNIndexXSLT \"/svnindex.xsl\"\n"
 "</screen> and put the files <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> and <filename>menucheckout.ico</filename> in your document root directory (usually <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). The directory is set with the <literal>DocumentRoot</literal> directive in your Apache config file."
 msgstr ""
+"Aby ste spravili prehľadávanie úložiska 'krajším', odkomentujte riadok <screen>\n"
+"#SVNIndexXSLT \"/svnindex.xsl\"\n"
+"</screen> a vložte súbory <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> a <filename>menucheckout.ico</filename> do koreňového adresára dokumentov (zvyčajne <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). Tento adesár je nastavený ako <literal>DocumentRoot</literal> predpis v Apache config súbore."
 
 #. (para)
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
-msgstr ""
+msgstr "Tieto tri súbory si môžete stiahnúť priamo z nášho zdrojového úložiska na <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objasňuje ako pristupovať do úložiska TortoiseSVN0"
 
 #. (para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
-msgstr ""
+msgstr "Súbory XSL z TortoiseSVN úložiska obsahujú vylepšenia: ak prehľadávate úložisko cez web prehliadač, potom každý adresár vo vašom úložisku má ikonku napravo. Ak kliknete na ňu, spustí sa TortoiseSVN checkout dialog pre danú URL."
 
 #. (para)
 msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache web server. <placeholder-2/>"
