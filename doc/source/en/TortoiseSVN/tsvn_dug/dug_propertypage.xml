@@ -281,7 +281,7 @@
             <para>
                 Whichever method you choose, you should note that auto-props
                 are only applied to files at the time they are added to the
-                repository. Auto-props will never change the properties of files
+                working copy. Auto-props will never change the properties of files
                 which are already versioned.
             </para>
             <para>
@@ -487,16 +487,19 @@
             <para>
                 These special project properties must be set on
                 <emphasis>folders</emphasis> for the system to work.
-                When you commit a file or folder the properties are read from that folder.
+                When you use a TortoiseSVN command which uses these properties, the
+                properties are read from the folder you clicked on.
                 If the properties are not found there, TortoiseSVN will search upwards
                 through the folder tree to find them until it comes to an unversioned
                 folder, or the tree root (e.g. <literal>C:\</literal>) is found.
                 If you can be sure that each user checks out only from e.g
                 <filename>trunk/</filename> and not some sub-folder, then it is
                 sufficient to set the properties on <filename>trunk/</filename>.
-                If you can't be sure, you should set the properties recursively on each sub-folder.
-                A property setting deeper in the project hierarchy overrides settings on
-                higher levels (closer to <filename>trunk/</filename>).
+                If you can't be sure, you should set the properties recursively on
+                each sub-folder.
+                If you set the same property but you use different values at different
+                depths in your project hierarchy then you will get different results
+                depending on where you click in the folder structure.
             </para>
             <para>
                 For project properties <emphasis>only</emphasis>,
