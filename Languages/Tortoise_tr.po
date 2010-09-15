@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-27 17:10+0200\n"
+"PO-Revision-Date: 2010-09-15 16:34+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3084,11 +3084,10 @@ msgstr "Yeni versiyon kontrolü yapılamadı!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
-"%s\n"
-"Dosyalar kopyalanamadı!"
+"Dosyalar kopyalanamadı!\n"
+"%s"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3161,8 +3160,8 @@ msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
 msgstr ""
-"%s\n"
-"Dosyasının URL'sine ulaşılamadı!"
+"Dosyanın URL'sine ulaşılamadı!\n"
+"%s"
 
 #. Resource IDs: (66)
 #, c-format
@@ -3191,22 +3190,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "Harici karşılaştırma dosyası göstericisi başlatılamadı!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "Harici Birleştirme programı başlatılamadı!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -6209,11 +6204,9 @@ msgstr "Hayır"
 #, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Komut belirtilmedi!\n"
-
 "TortoiseProc.exe Shell uzantısı tarafından kullanılır ve doğrudan çağrılmamalıdır!"
 
 #. Resource IDs: (81)
@@ -8719,11 +8712,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "Subversion temizlik yaparken bir hata oluşturduğunu bildirdi!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -8933,7 +8924,7 @@ msgid ""
 "already exists! Do you want to overwrite it?"
 msgstr ""
 "%s\n"
-"Dosya adı bulunmakta! Üstüne yazmak istiyor musunuz?"
+"Dosya adı bulunmakta! Üzerine yazmak istiyor musunuz?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -9365,11 +9356,9 @@ msgstr "Dosyanın kilidinin sahibi olan kullanıcı"
 #, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "Çalışan kopya değiştirildi!\n"
-
 "Lütfen ilk olarak değişikliklerinizi teslim ediniz yada Geridönünüz. "
 
 #. Resource IDs: (81)
