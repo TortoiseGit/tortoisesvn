@@ -1511,15 +1511,15 @@ msgid "<Untitled>"
 msgstr "<Sin título>"
 
 #. Resource IDs: (145)
-msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
+msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
 msgstr ""
-"<b>TortoiseSVN</b> es una extensión del shell.\n"
+"TortoiseSVN es una extensión del shell.\n"
 "Eso significa que está integrado en el Explorador de Windows.\n"
-"Para usar <b>TortoiseSVN</b> por favor abra el Explorador y haga click con "
+"Para usar TortoiseSVN por favor abra el Explorador y haga click con "
 "el botón derecho en cualquier carpeta que desee\n"
 "para que aparezca el menú contextual donde encontrará todos los comandos de "
-"<b>TortoiseSVN</b>.\n"
-"Y <u>lea el manual!</u>"
+"TortoiseSVN.\n"
+"Y lea el manual!"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -1962,9 +1962,9 @@ msgstr "¿Está seguro de querer borrar la caché de los %d ítems seleccionados
 
 #. Resource IDs: (79)
 #, c-format
-msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgid "Are you sure you want to revert %d item(s)? You will lose all changes since the last update!"
 msgstr ""
-"¿Está seguro de que desea revertir %d ítem(s)? ¡Perderá <b>todos</b> los "
+"¿Está seguro de que desea revertir %d ítem(s)? ¡Perderá todos los "
 "cambios realizados desde la última actualización!"
 
 #. Resource IDs: (32793)
@@ -3019,10 +3019,10 @@ msgstr "¡No se pudo comprobar si existe una nueva versión!"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not copy the files!\n<hr=100%%>\n%s"
+msgid "Could not copy the files!\n\n%s"
 msgstr ""
 "¡No se pueden copiar los archivos!\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (3867)
@@ -3118,26 +3118,26 @@ msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start diff viewer!\n<hr=100%%>\n%s"
+msgid "Could not start diff viewer!\n\n%s"
 msgstr ""
 "¡No se puede iniciar el visor de diferencias!\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start external diff program!\n<hr=100%%>\n%s"
+msgid "Could not start external diff program!\n\n%s"
 msgstr ""
 "¡No se puede iniciar el programa de diferencias externo!\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start external merge program!\n<hr=100%%>\n%s"
+msgid "Could not start external merge program!\n\n%s"
 msgstr ""
 "¡No se puede iniciar el programa de fusión externo!\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (3857)
@@ -3153,10 +3153,10 @@ msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
-msgid "Could not start text viewer!\n<hr=100%%>\n%s"
+msgid "Could not start text viewer!\n\n%s"
 msgstr ""
 "¡No se puede iniciar el visor de texto!\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (81)
@@ -4418,10 +4418,10 @@ msgid "Get merge logs"
 msgstr "Obtener registros de fusión"
 
 #. Resource IDs: (89)
-msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
+msgid "Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 "Obtener un bloqueo para archivos que no tienen la propiedad 'svn:needs-lock' "
-"<b>no</b> evitará que otros puedan editarlos en sus copias de trabajo.\n"
+"no evitará que otros puedan editarlos en sus copias de trabajo.\n"
 "Para habilitar un bloqueo estricto, por favor añada la propiedad 'svn:needs-"
 "lock' a todos los archivos que necesiten bloqueo, y confirme esos archivos.\n"
 "Cada archivo tendrá la bandera de sólo lectura del sistema de archivos, y al "
@@ -5225,22 +5225,22 @@ msgstr ""
 
 #. Resource IDs: (88)
 #, c-format
-msgid "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom:\t%1!s!\nTo:\t\t%2!s!\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
+msgid "It seems you are trying to relocate your working copy to a different path inside the same repository.\n\nFrom:\t%1!s!\nTo:\t\t%2!s!\n\nA relocate is only needed if the path to a repository has changed.\nChanging to a different path inside a repository is done by a switch operation.\n\nImproper use of relocate will corrupt your working copy!\nIf you are not sure what to do, please refer to our docs on relocate.\nDo you really want to relocate?"
 msgstr ""
-"Parece que está intentando <b>relocalizar</b> su copia de trabajo a una ruta "
+"Parece que está intentando relocalizar su copia de trabajo a una ruta "
 "diferente dentro del mismo repositorio.\n"
 "\n"
 "De::\t%1!s!\n"
 "A:\t\t%2!s!\n"
 "\n"
-"Sólo se necesita relocalizar si la ruta de acceso <b>al</b> repositorio ha "
+"Sólo se necesita relocalizar si la ruta de acceso al repositorio ha "
 "cambiado.\n"
-"El cambio a una ruta diferente <b>dentro</b> del mismo repositorio se hace "
+"El cambio a una ruta diferente dentro del mismo repositorio se hace "
 "con una operación Cambiar.\n"
 "\n"
-"¡El uso inapropiado de relocalizar <b>corromperá su copia de trabajo!</b>\n"
+"¡El uso inapropiado de relocalizar corromperá su copia de trabajo!\n"
 "Si no está seguro de lo que quiere hacer, por favor lea en nuestra "
-"documentación sobre <i>relocalizar</i>.\n"
+"documentación sobre relocalizar.\n"
 "¿Desea realmente relocalizar?"
 
 #. Resource IDs: (1480)
@@ -6011,10 +6011,10 @@ msgstr "No"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "No command specified!\n<hr=100%>\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
+msgid "No command specified!\n\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "¡No se especificó comando!\n"
-"<hr=100%>\n"
+"\n"
 "¡TortoiseProc.exe es utilizado por la extensión del Shell y no debe ser "
 "invocado directamente!"
 
@@ -8432,10 +8432,10 @@ msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Subversion reported an error while doing a cleanup!\n<hr=100%%>\n%s"
+msgid "Subversion reported an error while doing a cleanup!\n\n%s"
 msgstr ""
 "¡Subversion reportó un error mientras se realizaba una limpieza!\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (65535)
@@ -8908,34 +8908,34 @@ msgstr ""
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%1!s!</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%2!s!</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgid "The path\n%1!s!\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n%2!s!\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
 "La ruta\n"
-"<i>%1!s!</i>\n"
+"%1!s!\n"
 "en el archivo de parche no existe.\n"
 "TortoiseMerge encontró la ruta relativa\n"
-"<i>%2!s!</i>\n"
+"%2!s!\n"
 "que parece que coincide con el directorio donde está aplicando el parche.\n"
 "\n"
 "¿Desea usar la ruta propuesta? Si responde 'no' se cerrará TortoiseMerge."
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%1!s!</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%2!s!</i>\nmatches it better. Do you want to use the suggested path instead?"
+msgid "The path\n%1!s!\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n%2!s!\nmatches it better. Do you want to use the suggested path instead?"
 msgstr ""
 "La ruta\n"
-"<i>%1!s!</i>\n"
+"%1!s!\n"
 "parece que no se corresponde con las rutas en el archivo de parche.\n"
 "Pero TortoiseMerge encontró la ruta\n"
-"<i>%2!s!</i>\n"
+"%2!s!\n"
 "que se acerca mejor. ¿Desea usar la ruta propuesta?"
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgid "The path\n%s\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
 "La ruta\n"
-"<i>%s</i>\n"
+"%s\n"
 "en el archivo de parche no existe.\n"
 "TortoiseMerge intentó aplicar el parche eliminando prefijos pero no pudo "
 "encontrarse una ruta coincidente."
@@ -9019,10 +9019,10 @@ msgstr "El usuario que es dueño del bloqueo del archivo"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
+msgid "The working copy has changed!\n\nPlease commit your changes first or revert."
 msgstr ""
 "¡La copia de trabajo ha cambiado!\n"
-"<hr=100%>\n"
+"\n"
 "Por favor, confirme sus cambios o reviertalos."
 
 #. Resource IDs: (81)
@@ -10139,9 +10139,9 @@ msgstr ""
 
 #. Resource IDs: (195)
 #, c-format
-msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
+msgid "You've changed the icon set from %s to %s.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 msgstr ""
-"Ha cambiado el conjunto de iconos de <i>%s</i> a <i>%s</i>.\n"
+"Ha cambiado el conjunto de iconos de %s a %s.\n"
 "¡Este cambio no tendrá efecto hasta que reinicie su ordenador o salga de su "
 "sesión y entre de nuevo!"
 
@@ -10163,7 +10163,7 @@ msgstr "Su versión es: %d.%d.%d.%d"
 #. Resource IDs: (78)
 msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
 msgstr ""
-"¡Su copia de trabajo parece estar en una ruta de tipo <b>etiqueta</b>!\n"
+"¡Su copia de trabajo parece estar en una ruta de tipo etiqueta!\n"
 "Debería cambiar primero a una rama o al tronco principal antes de confirmar.\n"
 "\n"
 "¿Desea confirmar de todas formas?"
@@ -11100,17 +11100,17 @@ msgstr "{BugTraq}"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ "be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
 #~ "Se necesita GDI+ para grabar el gráfico de revisiones como una imagen.\n"
 #~ "Puede obtener GDI+ desde\n"
-#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ "be590feaa05a&DisplayLang=en</a>"
 
 #~ msgid "(deleted) %s"
 #~ msgstr "(eliminado) %s"

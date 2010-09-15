@@ -1502,13 +1502,13 @@ msgid "<Untitled>"
 msgstr "<Untitled>"
 
 #. Resource IDs: (145)
-msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
+msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
 msgstr ""
-"<b>TortoiseSVN</b> はシェル拡張です。\n"
+"TortoiseSVN はシェル拡張です。\n"
 "つまり、エクスプローラに統合されます。\n"
-"<b>TortoiseSVN</b> を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックして\n"
-"コンテキストメニューを表示させてください。そこから <b>TortoiseSVN</b> のすべてのコマンドが利用できます。\n"
-"あと、 <u>マニュアルも読んでね！！</u>"
+"TortoiseSVN を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックして\n"
+"コンテキストメニューを表示させてください。そこから TortoiseSVN のすべてのコマンドが利用できます。\n"
+"あと、 マニュアルも読んでね！！"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -1920,8 +1920,8 @@ msgstr "選択した %d 個のキャッシュを本当に削除してもよろ�
 
 #. Resource IDs: (79)
 #, c-format
-msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
-msgstr "本当に %d 個の項目を元に戻してもよろしいですか？ 最後の更新以降の<b>すべて</b>の変更が失われます！"
+msgid "Are you sure you want to revert %d item(s)? You will lose all changes since the last update!"
+msgstr "本当に %d 個の項目を元に戻してもよろしいですか？ 最後の更新以降のすべての変更が失われます！"
 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
@@ -2938,10 +2938,10 @@ msgstr "最新のバージョンのチェックができませんでした！"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not copy the files!\n<hr=100%%>\n%s"
+msgid "Could not copy the files!\n\n%s"
 msgstr ""
 "ファイルをコピーできませんでした！\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (3867)
@@ -3037,26 +3037,26 @@ msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start diff viewer!\n<hr=100%%>\n%s"
+msgid "Could not start diff viewer!\n\n%s"
 msgstr ""
 "差分ビューアを実行できませんでした！\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start external diff program!\n<hr=100%%>\n%s"
+msgid "Could not start external diff program!\n\n%s"
 msgstr ""
 "外部差分ツールを実行できませんでした！\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start external merge program!\n<hr=100%%>\n%s"
+msgid "Could not start external merge program!\n\n%s"
 msgstr ""
 "外部マージプログラムを実行できませんでした！\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (3857)
@@ -3072,10 +3072,10 @@ msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
-msgid "Could not start text viewer!\n<hr=100%%>\n%s"
+msgid "Could not start text viewer!\n\n%s"
 msgstr ""
 "テキストビューアを開始できませんでした！\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (81)
@@ -4298,9 +4298,9 @@ msgid "Get merge logs"
 msgstr "マージのログを取得する"
 
 #. Resource IDs: (89)
-msgid "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
+msgid "Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
-"'svn:needs-lock' 属性を設定していないファイルをロックしたとしても、他の作業コピーでそのファイルを<b>編集することができます</b>。\n"
+"'svn:needs-lock' 属性を設定していないファイルをロックしたとしても、他の作業コピーでそのファイルを編集することができます。\n"
 "ロックを正しく動作させるためには、ロックが必要なすべてのファイルに対して 'svn:needs-lock' 属性を追加し、それらをコミットしてください。\n"
 "それぞれのファイルは、ファイルシステム上で読み取り専用のフラグが設定され、ロックすることでファイルが書き込み可能になります。\n"
 "他のユーザーは、ファイルを読み取り専用として開く前に、作業コピーの更新が必要なことに注意してください。"
@@ -5053,18 +5053,18 @@ msgstr ""
 
 #. Resource IDs: (88)
 #, c-format
-msgid "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n\nFrom:\t%1!s!\nTo:\t\t%2!s!\n\nA relocate is only needed if the path <b>to</b> a repository has changed.\nChanging to a different path <b>inside</b> a repository is done by a switch operation.\n\nImproper use of relocate <b>will corrupt your working copy!</b>\nIf you are not sure what to do, please refer to our docs on <i>relocate</i>.\nDo you really want to relocate?"
+msgid "It seems you are trying to relocate your working copy to a different path inside the same repository.\n\nFrom:\t%1!s!\nTo:\t\t%2!s!\n\nA relocate is only needed if the path to a repository has changed.\nChanging to a different path inside a repository is done by a switch operation.\n\nImproper use of relocate will corrupt your working copy!\nIf you are not sure what to do, please refer to our docs on relocate.\nDo you really want to relocate?"
 msgstr ""
-"同じリポジトリ内の異なるパスに作業コピーを <b>再配置</b> しようとしています。\n"
+"同じリポジトリ内の異なるパスに作業コピーを 再配置 しようとしています。\n"
 "\n"
 "元: %1!s!\n"
 "先: %2!s!\n"
 "\n"
-"再配置は、<b>リポジトリのパス</b>が変更された時にのみ必要となります。\n"
-"<b>リポジトリ内</b>の異なるパスへの変更は、切り替え操作で行うことができます。\n"
+"再配置は、リポジトリのパスが変更された時にのみ必要となります。\n"
+"リポジトリ内の異なるパスへの変更は、切り替え操作で行うことができます。\n"
 "\n"
-"正しく再配置コマンドを利用しないと、<b>作業コピーを壊してしまうかもしれません！</b>\n"
-"どうしていいか分からない時は、ドキュメントの<i>再配置</i>を参照してください。\n"
+"正しく再配置コマンドを利用しないと、作業コピーを壊してしまうかもしれません！\n"
+"どうしていいか分からない時は、ドキュメントの再配置を参照してください。\n"
 "本当に再配置を実行してもよろしいですか？"
 
 #. Resource IDs: (1480)
@@ -5821,10 +5821,10 @@ msgstr "いいえ"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "No command specified!\n<hr=100%>\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
+msgid "No command specified!\n\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "何のコマンドも指定されていません！\n"
-"<hr=100%>\n"
+"\n"
 "TortoiseProc.exe はシェル拡張を利用しているため、直接呼び出すことはできません！"
 
 #. Resource IDs: (81)
@@ -8156,10 +8156,10 @@ msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Subversion reported an error while doing a cleanup!\n<hr=100%%>\n%s"
+msgid "Subversion reported an error while doing a cleanup!\n\n%s"
 msgstr ""
 "クリーンアップ中に Subversion がエラーを返しました！\n"
-"<hr=100%%>\n"
+"\n"
 "%s"
 
 #. Resource IDs: (65535)
@@ -8602,34 +8602,34 @@ msgstr ""
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%1!s!</i>\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n<i>%2!s!</i>\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
+msgid "The path\n%1!s!\nin the patchfile does not exist.\nTortoiseMerge found the relative path\n%2!s!\nwhich seems to match the directory you're applying the patch.\n\nDo you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
 "パッチファイル内のパス\n"
-"<i>%1!s!</i>\n"
+"%1!s!\n"
 "は存在しません。\n"
 "TortoiseMerge はパッチを適用する相対パスとして\n"
-"<i>%2!s!</i>\n"
+"%2!s!\n"
 "がより適合している判断しました。\n"
 "\n"
 "このパスを代わりに使用しますか？「いいえ」を選択した場合は TortoiseMerge は終了します。"
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%1!s!</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%2!s!</i>\nmatches it better. Do you want to use the suggested path instead?"
+msgid "The path\n%1!s!\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n%2!s!\nmatches it better. Do you want to use the suggested path instead?"
 msgstr ""
 "パス\n"
-"<i>%1!s!</i>\n"
+"%1!s!\n"
 "はパスファイル内のものと一致していないようです。\n"
 "しかし、TortoiseMerge は\n"
-"<i>%2!s!</i>\n"
+"%2!s!\n"
 "のパスがより適合している判断しました。こちらのパスを代わりに利用しますか？"
 
 #. Resource IDs: (314)
 #, c-format
-msgid "The path\n<i>%s</i>\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+msgid "The path\n%s\nin the patchfile does not exist.\nTortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
 "パッチファイル内のパス\n"
-"<i>%s</i>\n"
+"%s\n"
 "は存在しません。\n"
 "TortoiseMerge はパスの先頭部分を取り除いてパッチを適用しようとしましたが、一致するパスは見つけられませんでした。"
 
@@ -8710,10 +8710,10 @@ msgstr "ファイルのロックを所持しているユーザ"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
+msgid "The working copy has changed!\n\nPlease commit your changes first or revert."
 msgstr ""
 "作業コピーは変更されました！\n"
-"<hr=100%>\n"
+"\n"
 "まず変更をコミット、もしくは元に戻してください。"
 
 #. Resource IDs: (81)
@@ -9772,9 +9772,9 @@ msgstr ""
 
 #. Resource IDs: (195)
 #, c-format
-msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
+msgid "You've changed the icon set from %s to %s.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 msgstr ""
-"アイコンセットを <i>%s</i> から <i>%s</i> に変更しました。\n"
+"アイコンセットを %s から %s に変更しました。\n"
 "この変更は、再起動するか再ログインするまで反映されません！"
 
 #. Resource IDs: (170)
@@ -10678,17 +10678,17 @@ msgstr "{BugTraq}"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ "be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
 #~ "GDI+ はリビジョングラフを画像として保存するために必要です。\n"
 #~ "GDI+ は以下から入手することができます。\n"
-#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ "be590feaa05a&DisplayLang=en</a>"
 
 #~ msgid "Go offline?"
 #~ msgstr "オフラインにしますか？"
