@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-13 10:14+0200\n"
+"PO-Revision-Date: 2010-09-15 12:06+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -1512,16 +1512,6 @@ msgstr "<Separator>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<Unbenannt>"
-
-#. Resource IDs: (145)
-msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
-msgstr ""
-"TortoiseSVN ist eine Shell Erweiterung.\n"
-"Das bedeutet, dass es in den Windows Explorer integriert ist. Um\n"
-"TortoiseSVN zu verwenden, öffnen Sie den Explorer und machen\n"
-"Sie einen Rechts-Klick, damit das Kontextmenü angezeigt wird.\n"
-"Dort finden Sie sämtliche TortoiseSVN Befehle.\n"
-"Und lesen Sie das Handbuch!"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -3114,26 +3104,16 @@ msgstr ""
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start diff viewer!\n\n%s"
-msgstr ""
-"Konnte den Diff-Betrachter nicht starten!\n"
-"\n"
-"%s"
-
-#. Resource IDs: (81)
-#, c-format
-msgid "Could not start external diff program!\n\n%s"
+msgid "Could not start external diff program!\n%s"
 msgstr ""
 "Konnte das externe Vergleichsprogramm nicht starten!\n"
-"\n"
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Could not start external merge program!\n\n%s"
+msgid "Could not start external merge program!\n%s"
 msgstr ""
 "Konnte den externen Konflikteditor nicht starten!\n"
-"\n"
 "%s"
 
 #. Resource IDs: (3857)
@@ -3145,14 +3125,6 @@ msgstr "Konnte Druckauftrag nicht starten."
 msgid "Could not start text viewer!\n%s"
 msgstr ""
 "Text-Betrachter konnte nicht gestartet werden!\n"
-"%s"
-
-#. Resource IDs: (83)
-#, c-format
-msgid "Could not start text viewer!\n\n%s"
-msgstr ""
-"Konnte den Text-Betrachter nicht starten!\n"
-"\n"
 "%s"
 
 #. Resource IDs: (81)
@@ -4408,8 +4380,8 @@ msgstr "Logs vom Zusammenführen holen"
 msgid "Getting a lock for files without the 'svn:needs-lock' property will not prevent others from editing them in their working copies.\nTo enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nNote that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 "Wenn Sie eine Datei sperren, für die das nicht erforderlich ist, werden Sie "
-"andere Personen nicht daran hindern, diese Datei in ihrer "
-"Arbeitskopie zu verändern.\n"
+"andere Personen nicht daran hindern, diese Datei in ihrer Arbeitskopie zu "
+"verändern.\n"
 "Um striktes Sperren zu aktivieren, müssen Sie die 'svn:needs-lock' "
 "Eigenschaft für die entsprechenden Dateien permanent auf '*' setzen und "
 "diese Dateien übertragen.\n"
@@ -5205,8 +5177,8 @@ msgstr ""
 "\n"
 "Ein Umplatzieren ist nur erforderlich, wenn sich der Pfad zu einem "
 "Projektarchiv geändert hat.\n"
-"Wechseln zu einem anderen Pfad innerhalb eines Projektarchivs "
-"geschieht mit dem 'Wechseln zu' Befehl.\n"
+"Wechseln zu einem anderen Pfad innerhalb eines Projektarchivs geschieht mit "
+"dem 'Wechseln zu' Befehl.\n"
 "\n"
 "Ein fehlerhaftes Umplatzieren wird Ihre Arbeitskopie beschädigen!\n"
 "Wenn Sie sich nicht sicher sind, was Sie tun wollen, lesen Sie zuerst unsere "
@@ -5981,10 +5953,9 @@ msgstr "Nein"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "No command specified!\n\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
+msgid "No command specified!\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Kein Befehl angegeben!\n"
-"\n"
 "TortoiseProc.exe wird vom Shell-Teil benutzt und sollte nicht direkt "
 "gestartet werden."
 
@@ -8405,15 +8376,13 @@ msgstr ""
 msgid "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
 msgstr ""
 "Subversion hat einen Fehler beim Erstellen der Datenbank gemeldet!\n"
-"Stellen Sie sicher dass der Ordner leer und nicht schreibgeschützt "
-"ist!"
+"Stellen Sie sicher dass der Ordner leer und nicht schreibgeschützt ist!"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "Subversion reported an error while doing a cleanup!\n\n%s"
+msgid "Subversion reported an error while doing a cleanup!\n%s"
 msgstr ""
 "Subversion hat während des Aufräumens einen Fehler gemeldet!\n"
-"\n"
 "%s"
 
 #. Resource IDs: (65535)
@@ -9003,10 +8972,9 @@ msgstr "Der Eigner der gesperrten Datei"
 
 #. Resource IDs: (81)
 #, c-format
-msgid "The working copy has changed!\n\nPlease commit your changes first or revert."
+msgid "The working copy has changed!\nPlease commit your changes first or revert."
 msgstr ""
 "Die Arbeitskopie wurde verändert!\n"
-"\n"
 "Bitte Übertragen Sie zuerst Ihre Änderungen\n"
 "oder machen Sie Ihre Änderungen rückgängig."
 
@@ -9322,6 +9290,16 @@ msgstr ""
 "TortoiseSVN hat ähnliche Dateinamen gefunden. Wollen Sie, dass die Dateien:%"
 "s\n"
 "ebenfalls umbenannt werden?"
+
+#. Resource IDs: (145)
+msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
+msgstr ""
+"TortoiseSVN ist eine Shell Erweiterung.\n"
+"Das bedeutet, dass es in den Windows Explorer integriert ist. Um\n"
+"TortoiseSVN zu verwenden, öffnen Sie den Explorer und machen\n"
+"Sie einen Rechts-Klick, damit das Kontextmenü angezeigt wird.\n"
+"Dort finden Sie sämtliche TortoiseSVN Befehle.\n"
+"Und lesen Sie das Handbuch!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -10972,16 +10950,6 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#, c-format
-#~ msgid ""
-#~ "Could not copy the files!\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Konnte Dateien nicht kopieren!\n"
-#~ "\n"
-#~ "%s"
 
 #~ msgid "Check externals to explicit revision"
 #~ msgstr "Externals auf fixe Revision setzen"

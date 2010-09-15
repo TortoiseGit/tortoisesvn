@@ -3108,11 +3108,11 @@ msgstr "Не могу произвести проверку на наличие 
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-"\n"
+
 "%s"
 msgstr ""
 "Не могу скопировать файлы!\n"
-"\n"
+
 "%s"
 
 #. Resource IDs: (3867)
@@ -3217,34 +3217,23 @@ msgstr ""
 #. Resource IDs: (81)
 #, c-format
 msgid ""
-"Could not start diff viewer!\n"
-"\n"
-"%s"
-msgstr ""
-"Не могу запустить программу просмотра различий!\n"
-"\n"
-"%s"
-
-#. Resource IDs: (81)
-#, c-format
-msgid ""
 "Could not start external diff program!\n"
-"\n"
+
 "%s"
 msgstr ""
 "Не могу запустить внешнюю программу просмотра различий!\n"
-"\n"
+
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-"\n"
+
 "%s"
 msgstr ""
 "Не могу запустить внешнюю программу слияния!\n"
-"\n"
+
 "%s"
 
 #. Resource IDs: (3857)
@@ -3258,17 +3247,6 @@ msgid ""
 "%s"
 msgstr ""
 "Не могу запустить программу просмотра текста!\n"
-"%s"
-
-#. Resource IDs: (83)
-#, c-format
-msgid ""
-"Could not start text viewer!\n"
-"\n"
-"%s"
-msgstr ""
-"Не могу запустить программу просмотра текста!\n"
-"\n"
 "%s"
 
 #. Resource IDs: (81)
@@ -6279,11 +6257,11 @@ msgstr "Нет"
 #, c-format
 msgid ""
 "No command specified!\n"
-"\n"
+
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Не задана команда!\n"
-"\n"
+
 "TortoiseProc.exe используется расширением оболочки и не должна вызываться напрямую!"
 
 #. Resource IDs: (81)
@@ -8805,11 +8783,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-"\n"
+
 "%s"
 msgstr ""
 "Subversion сообщила об ошибке при выполнении очистки!\n"
-"\n"
+
 "%s"
 
 # Вообще-то файл называется 'servers'
@@ -9461,11 +9439,11 @@ msgstr "Пользователь, владеющий блокировкой фа
 #, c-format
 msgid ""
 "The working copy has changed!\n"
-"\n"
+
 "Please commit your changes first or revert."
 msgstr ""
 "Рабочая копия изменена!\n"
-"\n"
+
 "Пожалуйста, сначала зафиксируйте, либо удалите изменения."
 
 #. Resource IDs: (81)
