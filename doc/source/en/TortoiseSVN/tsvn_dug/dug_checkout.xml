@@ -195,7 +195,8 @@
                 <menuchoice>
                     <guimenu>Context menu</guimenu>
                     <guimenuitem>Update item to revision...</guimenuitem>
-                </menuchoice>. In that dialog, make sure to check the 
+                </menuchoice>.
+                In that dialog, be sure to check the 
                 <guilabel>Make depth sticky</guilabel> checkbox.
             </para>
         </tip>
@@ -207,7 +208,7 @@
                 The command will still work, but an older server may send all
                 the data, leaving the client to filter out what is not required,
                 which may mean a lot of network traffic. If possible you should
-                upgrade your server to 1.5.
+                upgrade your server to at least 1.5.
             </para>
         </tip>
     </sect2>
