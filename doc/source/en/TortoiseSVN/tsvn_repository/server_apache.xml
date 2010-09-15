@@ -120,6 +120,9 @@
                         correctly by pointing your web browser to
                         <systemitem class="url">http://localhost/</systemitem>
                         - a preconfigured Website should show up.
+                        If you used a different port, say 81, you need to include that
+                        in the URL. In that case you would point your browser at
+                        <systemitem class="url">http://localhost:81/</systemitem>.
                     </para>
                 </listitem>
             </orderedlist>
