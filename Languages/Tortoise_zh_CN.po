@@ -62,7 +62,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-05 23:01+0800\n"
+"PO-Revision-Date: 2010-09-17 16:33+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "Language: \n"
@@ -1556,20 +1556,6 @@ msgstr "<分隔符>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<未命名>"
-
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN 是一个 Windows 外壳扩展，\n"
-"这意味着该程序是集成在 Windows 资源管理器中的。\n"
-"要使用 TortoiseSVN 请打开资源管理器并在任意目录中单击鼠标右键，\n"
-"在弹出的右键菜单中可以找到所有的 TortoiseSVN 命令。\n"
-"更详细的使用请阅读手册！"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -3079,11 +3065,9 @@ msgstr "无法检查新版！"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "无法复制文件！\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3189,22 +3173,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "无法启动外部差异比较工具！\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "无法启动外部合并工具！\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -6198,14 +6178,11 @@ msgid "No"
 msgstr "否"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "未指定命令！\n"
-
 "TortoiseProc.exe 用于浏览器扩展，不能直接执行！"
 
 #. Resource IDs: (81)
@@ -6684,7 +6661,7 @@ msgstr "打补丁"
 #. Resource IDs: (169)
 #, c-format
 msgid "Patching file '%1'"
-msgstr "给文件 '%s'打补丁   "
+msgstr "给文件“%1”打补丁"
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -8699,11 +8676,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "Subversion 在进行清理动作时回报错误!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9344,14 +9319,11 @@ msgid "The user who owns the lock of the file"
 msgstr "拥有此文件锁定的用户"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "工作副本已修改！\n"
-
 "请先提交或撤销你的修改。"
 
 #. Resource IDs: (81)
@@ -9679,6 +9651,20 @@ msgid ""
 msgstr ""
 "TortoiseSVN 检测到类似的文件名。你要同时改名\n"
 "文件 %s 吗？"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN 是一个 Windows 外壳扩展，\n"
+"这意味着该程序是集成在 Windows 资源管理器中的。\n"
+"要使用 TortoiseSVN 请打开资源管理器并在任意目录中单击鼠标右键，\n"
+"在弹出的右键菜单中可以找到所有的 TortoiseSVN 命令。\n"
+"更详细的使用请阅读手册！"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
