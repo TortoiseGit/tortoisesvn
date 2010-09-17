@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-12 06:29 +0000\n"
-"PO-Revision-Date: 2010-09-14 10:26+0100\n"
+"PO-Revision-Date: 2010-09-17 14:19+0100\n"
 "Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2236,27 +2236,27 @@ msgstr "Súbory XSL z TortoiseSVN úložiska obsahujú vylepšenia: ak prehľad�
 
 #. (para)
 msgid "A short explanation of what you just entered: <placeholder-1/> But that's just an example. There are many, many more possibilities of what you can do with the Apache web server. <placeholder-2/>"
-msgstr ""
+msgstr "Krátke vysvetlenie toho, čo ste práve napísali: <placeholder-1/> Toto je len príklad. Existuje množstvo ďalších a ďalších možností, ktoré sa dajú spraviť s Apache webovým serverom. <placeholder-2/>"
 
 #. (title)
 msgid "Multiple Repositories"
-msgstr ""
+msgstr "Viac početné úložiská"
 
 #. (primary)
 msgid "Index of projects"
-msgstr ""
+msgstr "Zoznam projektov"
 
 #. (para)
 msgid "If you used the <literal>SVNParentPath</literal> directive then you don't have to change the Apache config file every time you add a new Subversion repository. Simply create the new repository under the same location as the first repository and you're done! In my company I have direct access to that specific folder on the server via SMB (normal windows file access). So I just create a new folder there, run the TortoiseSVN command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> and a new project has a home..."
-msgstr ""
+msgstr "Ak použijete <literal>SVNParentPath</literal> predpis, potom nepotrebujete zakaždým meniť Apache config súbor, keď pridáte novú Subversion do úložiska. Jednoducho vytvorte nové úložisko v rovnakom umiestnení ako je prvé úložisko a je to hotové. V mnohých spoločnostiach mám priamy prístup ku danemu adresáru na serveri cez SMB (bežný prístup ku windows súborom). Len vytvorím nový adresár, spustím TortoiseSVN príkaz <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create repository here...</guimenuitem></menuchoice> a nový projekt má svoje miesto."
 
 #. (para)
 msgid "If you are using Subversion 1.3 or later, you can use the <literal>SVNListParentPath on</literal> directive to allow Apache to produce a listing of all available projects if you point your browser at the parent path rather than at a specific repository."
-msgstr ""
+msgstr "Pri používaní Suversion 1.3 alebo novšej, dá sa použiť <literal>SVNListParentPath on</literal> predpis, aby ste umožnili Apache ukázať zoznam všetkých dostupných projektov, ak v prehliadači je odkaz na rodičovský adresár namiesto vybraného úložiska."
 
 #. (title)
 msgid "Path-Based Authorization"
-msgstr ""
+msgstr "Oprávnenie na základe cesty"
 
 #. (primary)
 msgid "Authorization"
@@ -2264,7 +2264,7 @@ msgstr "Autorizácia"
 
 #. (para)
 msgid "The <literal>mod_authz_svn</literal> module permits fine-grained control of access permissions based on user names and repository paths. This is available with the Apache server, and as of Subversion 1.3 it is available with svnserve as well."
-msgstr ""
+msgstr "Riadenia prístupových práv na základe užívateľského mena a adresára v úložisku je pomocou modulu <literal>mod_authz_svn</literal> dostatočne podrobné. Táto funkcia je dostupná s Apache serverom a taktiež so Subversion 1.3 je to dostupné pomocou svnserve."
 
 #. (para)
 msgid ""
@@ -2298,22 +2298,51 @@ msgid ""
 "@training = rw\n"
 "</screen>"
 msgstr ""
+"Ukážkový príklad bude vyzerať nasledovne: <screen>\n"
+"[groups]\n"
+"admin = john, kate\n"
+"devteam1 = john, rachel, sally\n"
+"devteam2 = kate, peter, mark\n"
+"docs = bob, jane, mike\n"
+"training = zak\n"
+"# Default access rule for ALL repositories\n"
+"# Everyone can read, admins can write, Dan German is excluded.\n"
+"[/]\n"
+"* = r\n"
+"@admin = rw\n"
+"dangerman =\n"
+"# Allow developers complete access to their project repos\n"
+"[proj1:/]\n"
+"@devteam1 = rw\n"
+"[proj2:/]\n"
+"@devteam2 = rw\n"
+"[bigproj:/]\n"
+"@devteam1 = rw\n"
+"@devteam2 = rw\n"
+"trevor = rw\n"
+"# Give the doc people write access to all the docs folders\n"
+"[/trunk/doc]\n"
+"@docs = rw\n"
+"# Give trainees write access in the training repository only\n"
+"[TrainingRepos:/]\n"
+"@training = rw\n"
+"</screen>"
 
 #. (para)
 msgid "Note that checking every path can be an expensive operation, particularly in the case of the revision log. The server checks every changed path in each revision and checks it for readability, which can be time-consuming on revisions which affect large numbers of files."
-msgstr ""
+msgstr "Uvedomte si, že kontrola každej cesty môže byť veľmi náročná operácia, obzvlášť v tomto prípade prehľadávania denníka. Server kontroluje každú zmenu cesty v každej revízii a kontroluje ich prístupnosť, ktorá môže byť časovo náročné na revízie, ktoré obsahujú veľké množstvo súborov."
 
 #. (para)
 msgid "Authentication and authorization are separate processes. If a user wants to gain access to a repository path, she has to meet <emphasis>both</emphasis>, the usual authentication requirements and the authorization requirements of the access file."
-msgstr ""
+msgstr "Overenie a oprávnenie su oddelene spracované. Užívateľ, ktorý chce získať prístup do úložiska, musí prejsť oboma požiadavkami, bežné overovacie a oprávňovacie požiadavky ku požadovanému súboru."
 
 #. (title)
 msgid "Authentication With a Windows Domain"
-msgstr ""
+msgstr "Overovanie vo Windows doméne"
 
 #. (primary)
 msgid "Windows domain"
-msgstr ""
+msgstr "Windowsová doména"
 
 #. (primary)
 msgid "domaincontroller"
@@ -2321,11 +2350,11 @@ msgstr ""
 
 #. (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
-msgstr ""
+msgstr "Ako ste si mohli všimnúť, potrebujeťe vytvoriť záznam meno/heslo v súbore <filename>passwd</filename> pre každého užívateľa osobitne. A ak (z bezpečnostných dôvodov) chcete, aby si užívatelia menili pravidelne heslo, musíte to vykonať ručne."
 
 #. (para)
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: <literal>mod_auth_sspi</literal>!"
-msgstr ""
+msgstr "Ale pre tento problém je tu riešenie - minimálne ako pristupujete do úložiska z vnútra LAN pomocou windows doménoveho ovládača: <literal>mod_auth_sspi</literal>!"
 
 #. (primary)
 msgid "SSPI"
@@ -2333,15 +2362,15 @@ msgstr "SSPI"
 
 #. (primary)
 msgid "NTLM"
-msgstr ""
+msgstr "NTLM"
 
 #. (para)
 msgid "The original SSPI module was offered by Syneapps including source code. But the development for it has been stopped. But don't despair, the community has picked it up and improved it. It has a new home on <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
-msgstr ""
+msgstr "Pôvodný SSPI modul ponúkal Syneapps obsahujúci zdrojový kod. Ale vývoj pre tento modul bol zastavený. No nie je to beznádejné, komunita ho prevzala a vylepšila. Teraz má nový domov na <ulink url=\"http://sourceforge.net/projects/mod-auth-sspi/\"><citetitle>SourceForge</citetitle></ulink>."
 
 #. (para)
 msgid "Download the module which matches your apache version, then copy the file <filename>mod_auth_sspi.so</filename> into the Apache modules folder."
-msgstr ""
+msgstr "Stiahnite si modul, ktorý zodpovedá vašej Apache verzii, a potom prekopírujte súbor <filename>mod_auth_sspi.so</filename> do adresára Apache modules"
 
 #. (para)
 msgid ""
@@ -2351,6 +2380,11 @@ msgid ""
 "LoadModule auth_module modules/mod_auth.so\n"
 "</screen>"
 msgstr ""
+"Upravťe Apache konfiguračný súbor: pridajte riadok <screen>\n"
+"LoadModule sspi_auth_module modules/mod_auth_sspi.so\n"
+"</screen> do oddielu <literal>LoadModule</literal>. Vložte tento riadok ešte <emphasis>pred</emphasis> riadok s <screen>\n"
+"LoadModule auth_module modules/mod_auth.so\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2368,6 +2402,19 @@ msgid ""
 "SSPIOfferBasic On\n"
 "</screen> within the <literal>&lt;Location /svn&gt;</literal> block. If you don't have a domain controller, leave the name of the domain control as <literal>&lt;domaincontroller&gt;</literal>."
 msgstr ""
+"Ak chcete miesto Subversion použiť tento typ overovania, je potrebné zmeniť riadok <screen>\n"
+"AuthType Basic\n"
+"</screen> na <screen>\n"
+"AuthType SSPI\n"
+"</screen> taktiež potrebujete pridať <screen>\n"
+"SSPIAuth On\n"
+"SSPIAuthoritative On\n"
+"SSPIDomain &lt;domaincontroller&gt;\n"
+"SSPIOmitDomain on\n"
+"SSPIUsernameCase lower\n"
+"SSPIPerRequestAuth on\n"
+"SSPIOfferBasic On\n"
+"</screen> dovnútra oddielu <literal>&lt;Location /svn&gt;</literal>.  Ak nemáte radič domény, nechajte názov radiča domény ako <literal>&lt;domaincontroller&gt;</literal>."
 
 #. (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <literal>AuthUserFile</literal> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
