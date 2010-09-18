@@ -2516,19 +2516,26 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_fmt)
 {
     enum {CACHE_SIZE = 16};
+    static async::CCriticalSection mutex;
     static FILETIME lastTime[CACHE_SIZE] = { {0, 0}, {0, 0}, {0, 0}, {0, 0}
                                            , {0, 0}, {0, 0}, {0, 0}, {0, 0}
                                            , {0, 0}, {0, 0}, {0, 0}, {0, 0}
                                            , {0, 0}, {0, 0}, {0, 0}, {0, 0} };
     static TCHAR lastResult[CACHE_SIZE][SVN_DATE_BUFFER];
+    static bool formats[CACHE_SIZE];
     static size_t victim = 0;
+
+    // we have to serialize access to the cache
+
+    async::CCriticalSectionLock lock (mutex);
 
     // cache lookup
 
     TCHAR* result = NULL;
     for (size_t i = 0; i < CACHE_SIZE; ++i)
         if (   (lastTime[i].dwHighDateTime == filetime.dwHighDateTime)
-            && (lastTime[i].dwLowDateTime == filetime.dwLowDateTime))
+            && (lastTime[i].dwLowDateTime == filetime.dwLowDateTime)
+            && (formats[i] == force_short_fmt))
         {
             result = lastResult[i];
             break;
@@ -2542,6 +2549,7 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 
         lastTime[victim] = filetime;
         result = lastResult[victim];
+        formats[victim] = force_short_fmt;
         if (++victim == CACHE_SIZE)
             victim = 0;
 
