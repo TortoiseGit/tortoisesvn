@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-05-21 14:10+0200\n"
-"Last-Translator: Florin Daneliuc <dfev77@gmail.com>\n"
+"PO-Revision-Date: 2010-09-19 21:30-0000\n"
+"Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3006,11 +3006,9 @@ msgstr "Nu s-a putut căuta o versiune mai nouă!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "Nu s-a putut deschide fişierele!\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3097,33 +3095,27 @@ msgstr "Fişierul %s nu a putut fi salvat!"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
-
 "%s"
 msgstr ""
 "Nu s-a putut porni vizualizatorul de diferenţiere!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "Nu s-a putut porni programul extern de diferenţiere!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "Nu s-a putut porni programul extern de îmbinare!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -3134,11 +3126,9 @@ msgstr "Nu s-a putut porni sarcina de tipărire."
 #, c-format
 msgid ""
 "Could not start text viewer!\n"
-
 "%s"
 msgstr ""
 "Nu s-a putut porni vizualizatorul de text!\n"
-
 "%s"
 
 #. Resource IDs: (81)
@@ -5830,9 +5820,8 @@ msgid "Message &pattern:"
 msgstr "&Modelul mesajului:"
 
 #. Resource IDs: (1579)
-#, fuzzy
 msgid "Message part &expression:"
-msgstr "Foloseşte expresie regulară"
+msgstr "&Expresie de parte de mesaj:"
 
 #. Resource IDs: (1241)
 msgid "Message:"
@@ -6096,11 +6085,9 @@ msgstr "Nu"
 #, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Nici o comandă specificată!\n"
-
 "TortoiseProc.exe este folosit de către extensia Shell şi n-ar trebui să fie solicitat direct!"
 
 #. Resource IDs: (81)
@@ -8541,7 +8528,6 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "A avut loc o eroare în timpul curăţării Subversion!\n"
@@ -9165,11 +9151,9 @@ msgstr "Utilizatorul care deţine blocarea fişierului"
 #, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "Copia de lucru s-a schimbat!\n"
-
 "Transmiteţi schimbările întâi sau inversaţi schimbările."
 
 #. Resource IDs: (81)
@@ -9248,7 +9232,7 @@ msgstr "Lexicon"
 
 #. Resource IDs: (3887)
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
-msgstr ""
+msgstr "Acestea au fost salvate mai recent decât documentele actual deschise și conțin schimbări făcute întainte de a fi închis aplicația."
 
 #. Resource IDs: (83)
 msgid ""
@@ -11317,86 +11301,61 @@ msgstr "{BugTraq}"
 
 #~ msgid "The repository was successfully created."
 #~ msgstr "S-a creat depozitul."
-
 #~ msgid "&Sat:"
 #~ msgstr "&Sat:"
-
 #~ msgid "&Save..."
 #~ msgstr "&Salvează..."
-
 #~ msgid "Bug-ID / &Issue-Nr:"
 #~ msgstr "Bug ID / &Numărul problemei:"
-
 #~ msgid "&To URL: "
 #~ msgstr "&La URL:"
-
 #~ msgid "&To path: "
 #~ msgstr "&La calea:"
-
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "Afişează suprapunere pentru elemente ignorate"
-
 #~ msgid "Show overlay for unversioned items"
 #~ msgstr "Afişează suprapunere pentru elemente neversionate"
-
 #~ msgid "y"
 #~ msgstr "y"
-
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Autor:                                    Stefan Kueng"
-
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Caută automat versiuni &noi în fiecare săptămână"
-
 #~ msgid ""
 #~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr ""
 #~ "Dacă este activat, TortoiseSVN va verifica în fiecare săptămână dacă o "
 #~ "versiune nouă este disponibilă"
-
 #~ msgid "Edit conflict"
 #~ msgstr "Editează conflictul"
-
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "&Ascunde căile fără legatură schimbate"
-
 #~ msgid "From URL:"
 #~ msgstr "Din URL:"
-
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "URL-ul de adus referă un fişier dar\n"
 #~ "copia de lucru este un director."
-
 #~ msgid "Show &properties"
 #~ msgstr "Afişează &proprietăţi"
-
 #~ msgid "Show i&gnored files"
 #~ msgstr "Afişează fişiere i&gnorate"
-
 #~ msgid "Show un&modified files"
 #~ msgstr "Afişează fişiere ne&modificate"
-
 #~ msgid "Show un&versioned files"
 #~ msgstr "Afişează fişiere fără &versiune"
-
 #~ msgid "Cleaning up."
 #~ msgstr "Se curăţă."
-
 #~ msgid "General::Revision Graph"
 #~ msgstr "General::Graficul reviziei"
-
 #~ msgid "Go offline?"
 #~ msgstr "Deconectează?"
-
 #~ msgid "Replaced node"
 #~ msgstr "Nod înlocuit"
-
 #~ msgid "copy source only"
 #~ msgstr "copiază numai sursa"
-
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
@@ -11411,73 +11370,52 @@ msgstr "{BugTraq}"
 #~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
 #~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a>"
-
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Unităţi de dischetă (A: B:)"
-
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 conţine o cale invalidă."
-
 #~ msgid "&Berkeley database (BDB)"
 #~ msgstr "&Baza de date Berkeley (BDB)"
-
 #~ msgid "&Native filesystem (FSFS)"
 #~ msgstr "Sistem de fişiere &nativ (FSFS)"
-
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Deschide Ctrl-O"
-
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Salvează Ctrl-S"
-
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "An&ulează\tCtrl+Z"
-
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "A fost întâlnit un argument invalid."
-
 #~ msgid "Arranged by &path"
 #~ msgstr "Aranjează după &cale"
-
 #~ msgid "Bro&wse..."
 #~ msgstr "Răs&foieşte..."
-
 #~ msgid "Brows&e..."
 #~ msgstr "Răsfoi&eşte..."
-
 #~ msgid ""
 #~ "Do you want to reload the documents?\n"
 #~ "You will lose all changes you've made!"
 #~ msgstr ""
 #~ "Doriţi să reîncărcaţi documentele?\n"
 #~ "Veţi pierde toate modificările pe care le-aţi făcut!"
-
 #~ msgid "Documentation - Simon Large"
 #~ msgstr "Documentaţie - Simon Large"
-
 #~ msgid "Remove..."
 #~ msgstr "Şterge..."
-
 #~ msgid "Repository browser"
 #~ msgstr "Navigator depozit"
-
 #~ msgid "TortoiseSVN Add..."
 #~ msgstr "TortoiseSVN Adaugă..."
-
 #~ msgid "TortoiseSVN Copy..."
 #~ msgstr "TortoiseSVN Copiază..."
-
 #~ msgid "TortoiseSVN Export..."
 #~ msgstr "TortoiseSVN Exportă..."
-
 #~ msgid "TortoiseSVN Import..."
 #~ msgstr "TortoiseSVN Importă..."
-
 #~ msgid "TortoiseSVN Merge..."
 #~ msgstr "TortoiseSVN Îmbină..."
-
 #~ msgid "TortoiseSVN Rename/move"
 #~ msgstr "TortoiseSVN Redenumeşte/mută"
-
 #~ msgid "TortoiseSVN Settings"
 #~ msgstr "TortoiseSVN Setări"
+
