@@ -3223,7 +3223,7 @@ void CBaseView::RemoveLine(int nLineIndex)
     if (m_pViewData == NULL)
         return;
     m_pViewData->RemoveData(m_Screen2View[nLineIndex]);
-    m_Screen2View.erase(m_Screen2View.begin() + nLineIndex);
+    BuildScreen2ViewVector();
     if (m_ptCaretPos.y >= GetLineCount())
         m_ptCaretPos.y = GetLineCount()-1;
 }
