@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-12 06:29 +0000\n"
-"PO-Revision-Date: 2010-09-17 14:19+0100\n"
+"PO-Revision-Date: 2010-09-20 09:13+0100\n"
 "Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2418,31 +2418,32 @@ msgstr ""
 
 #. (para)
 msgid "Note that if you are authenticating using SSPI, then you don't need the <literal>AuthUserFile</literal> line to define a password file any more. Apache authenticates your username and password against your windows domain instead. You will need to update the users list in your <filename>svnaccessfile</filename> to reference <literal>DOMAIN\\username</literal> as well."
-msgstr ""
+msgstr "Všimnite si, že ak na overovanie používate SSPI, potom nie je potrebný <literal>AuthUserFile</literal> riadok pre vymedzenie ďalšieho súboru s heslami. Apache overuje vaše užívateľské meno a heslo namiesto windowsovej domeny. Taktiež potrebujete doplniť užívateľský zoznam vo vašom <filename>svnaccessfile</filename> pre odkaz <literal>DOMAIN\\username</literal>."
 
 #. (para)
 msgid "The SSPI authentication is only enabled for SSL secured connections (https). If you're only using normal http connections to your server, it won't work."
-msgstr ""
+msgstr "SSPI overovanie sa dá použiť len, ak sa používa SSL zabezpečené spojenie (https). Ak používate iba obyčajné http spojenie so serverom, tak to nebude fungovať. "
 
 #. (para)
 msgid "To enable SSL on your server, see the chapter: <xref linkend=\"tsvn-serversetup-apache-7\"/>."
-msgstr ""
+msgstr "Pre spustenie SSL na vašom serveri pozrite si kapitolu: <xref linkend=\"tsvn-serversetup-apache-7\"/>."
 
 #. (para)
 msgid "Subversion <filename>AuthzSVNAccessFile</filename> files are case sensitive in regard to user names (<literal>JUser</literal> is different from <literal>juser</literal>)."
-msgstr ""
+msgstr "Subversion <filename>AuthzSVNAccessFile</filename> súbory rozlišujú veľké a malé písmená v užívateľských menách (<literal>JUser</literal> je odlišný od <literal>juser</literal>)."
 
 #. (para)
 msgid "In Microsoft's world, Windows domains and user names are not case sensitive. Even so, some network administrators like to create user accounts in CamelCase (e.g. <literal>JUser</literal>)."
-msgstr ""
+msgstr "Vo svete Microsoftu, windows domény a užívateľské mená nerozlišujú veľkosť písmen. A aj tak niektorí administrátori sietí radi vytvárajú užívateľské kontá s veľkými písmenami (napr. <literal>JUser</literal>)."
 
 #. (para)
+#, fuzzy
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
-msgstr ""
+msgstr "Tieto rozdiely môžu robiť problémy, keď používate SSPI overovanie ako windows doménu a užívateľského mena odovzdaného Subversion v rovnakom prípade ako keby užívateľ ich zadal cez príkazový riadok. Internet Explorer často odovzdáva užívateľské meno Apache pomocou akéhokoľvek prípadu účet bol vytvorený."
 
 #. (para)
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
-msgstr ""
+msgstr "Konečný výsledok je ten, že potrebujete aspoň dva záznamy pre každého užívateľa v <literal>AuthzSVNAccessFile</literal> -- záznam s malými písmenami a záznam s rovnakou veľkosťou písmen v prípade, že Internet Explorer ich odovzdáva Apache. Budete musieť tiež naučíť užívateľov, aby používali malé písmena v užívateľskom mene pri prihlasovaní do úložiska cez TortoiseSVN."
 
 #. (para)
 msgid "Apache's Error and Access logs are your best friend in deciphering problems such as these as they will help you determine the username string passed onto Subversion's <literal>AuthzSVNAccessFile</literal> module. You may need to experiment with the exact format of the user string in the <literal>svnaccessfile</literal> (e.g. <literal>DOMAIN\\user</literal> vs. <literal>DOMAIN//user</literal>) in order to get everything working."
