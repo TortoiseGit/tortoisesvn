@@ -97,6 +97,7 @@ BOOL CCopyDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_EXTGROUP);
     m_aeroControls.SubclassControl(this, IDC_DOSWITCH);
     m_aeroControls.SubclassOkCancelHelp(this);
+    m_bCancelled = false;
 
     DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_CHECKBOXES;
     m_ExtList.SetExtendedStyle(exStyle);
