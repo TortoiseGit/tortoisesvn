@@ -39,6 +39,8 @@ bool MergeCommand::Execute()
         // tourl means merging a tree
         nMergeWizardMode = 1;
     }
+    if (parser.HasKey(L"reintegrate"))
+        nMergeWizardMode = 4;
 
     CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, nMergeWizardMode);
     wizard.wcPath = cmdLinePath;

@@ -313,6 +313,9 @@ Don't touch these lines:
                                 <option>/tourl:URL</option>,
                                 <option>/fromrev:xxx</option> and
                                 <option>/torev:xxx</option>.
+                                For doing a reintegrate merge, use the following options:
+                                <option>/fromurl:URL</option> and
+                                <option>/reintegrate</option>.
                                 These pre-fill the relevant fields in the merge dialog.
                             </entry>
                         </row>
