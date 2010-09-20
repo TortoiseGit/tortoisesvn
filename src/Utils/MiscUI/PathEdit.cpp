@@ -100,6 +100,7 @@ void CPathEdit::FitPathToWidth(CString& path)
     if (pDC)
     {
         CFont* previousFont = pDC->SelectObject(GetFont());
+        path = path.Left(MAX_PATH - 1);
         PathCompactPath(pDC->m_hDC, path.GetBuffer(), rect.Width());
         path.ReleaseBuffer();
         pDC->SelectObject(previousFont);

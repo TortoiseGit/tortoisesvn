@@ -415,6 +415,7 @@ void CFilePatchesDlg::SetTitleWithPath(int width)
     CString title;
     title.LoadString(IDS_PATCH_TITLE);
     title += _T("  ") + m_sPath;
+    title = title.Left(MAX_PATH-1);
     PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), width);
     title.ReleaseBuffer();
     SetWindowText(title);

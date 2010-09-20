@@ -171,7 +171,7 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
             }
             if (bCompactPaths)
             {
-                CString longline = longstring.Mid(nLineStart, nLineEnd-nLineStart);
+                CString longline = longstring.Mid(nLineStart, nLineEnd-nLineStart).Left(MAX_PATH-1);
                 if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
                 {
                     if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
@@ -199,7 +199,7 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
     }
     if (bCompactPaths)
     {
-        CString longline = longstring.Mid(nLineStart);
+        CString longline = longstring.Mid(nLineStart).Left(MAX_PATH-1);
         if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
         {
             if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
