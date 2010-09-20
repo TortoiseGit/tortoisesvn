@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
-"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-05-07 14:41+0100\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
+"POT-Creation-Date: 2010-09-15 22:56 +0000\n"
+"PO-Revision-Date: 2010-09-20 19:59+0100\n"
+"Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,11 +33,6 @@ msgstr "TortoiseMerge"
 #. (subtitle)
 msgid "A diff/merge tool for Windows"
 msgstr "Diff/merge alat za Windows"
-
-#. TRANSLATORS: "$MajorVersion$.$MinorVersion$.$MicroVersion$" is a literal value and should not be translated
-#. (subtitle)
-msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr "Verzija $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #. (edition)
 msgid "First"
@@ -368,8 +363,8 @@ msgid "But don't worry. If you're working with Subversion you can retrieve an ol
 msgstr "Ali ne brinite. Ako radite sa Subverzijom možete vratiti staru verziju fajla i rešiti konflikt. U stvari, TortoiseMerge automatski pokušava da dobije staru verziju fajla i onda vam pokazuje diff između <emphasis>Osnove</emphasis> (stara verzija fajla), <emphasis>Moj</emphasis> (fajl kao onaj koji je trenutno u vašoj radnoj kopiji) i <emphasis>NJihov</emphasis> (stara verzija fajla sa zakrpom koja je već primenjena). Tada možete rešiti moguće konflikte ručno."
 
 #. (para)
-msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr "Prozor fajla zakrpe ima kontekst meni koji omogućava da pregledate efekte zakrpe na tekući fajl (primenjen bez memorisanja), da se primene i sačuvaju izmene za izabrane fajlove, ili da se primene i sačuvaju izmene za <emphasis>sve</emphasis> fajlove u listi. Dvostruki-klik akcija je za pregled."
+msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double click action is to preview."
+msgstr "Prozor fajla zakrpe ima kontekst meni koji omogućava da pregledate efekte zakrpe na tekući fajl (primenjen bez memorisanja), da se primene i sačuvaju izmene za izabrane fajlove, ili da se primene i sačuvaju izmene za <emphasis>sve</emphasis> fajlove u listi. Dvostruki klik akcija je za pregled."
 
 #. (para)
 msgid "Depending on whether TortoiseMerge can apply the patch directly or by fetching an older version of the file first, it shows you a two pane view (patch can be applied directly) or a three pane view (older version of file fetched)."
@@ -428,6 +423,10 @@ msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display spa
 msgstr "<guibutton>Prikaži Beline</guibutton> menjaju opcije da prikažu razmak i tab karaktere kao simbole tako da možete razlikovati izmene razmaka."
 
 #. (para)
+msgid "<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end of the views. If turned on, long lines which would normally extend beyond the view border are wrapped around, i.e., one long line is split into several lines."
+msgstr "<guibutton>Savi dugačke linije</guibutton> menja prelamanje reči na kraju pregleda. Ako se uključi dugačke linije koje se normalno šire preko granice pregleda prelamaju se, tj. jedna dugačka linija se deli na više linija."
+
+#. (para)
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
 msgstr "<guibutton>Unutarlinije diff Reč-način</guibutton> menjaju metode korišćene unutarlinijske razl. U reč-način modu, kada je karakter izmenjen, cela reč je osvetljena. U karakter-način modu, svaki individualni karakter je osvetljen."
 
@@ -436,23 +435,20 @@ msgid "Word-wise is the default and in most cases it works better. For example i
 msgstr "Reč-način je podrazumevan i u većini slučajeva to radi bolje. Na primer, ako izmenite ime promenljive, celo ime je osvetljeno u reč-način modu, dok u karakter-način modu vi nameravate da dobijete nered  u dodatim i izbrisanim karakterima koji se mnogo ne primećuju. Međutim, neki sadržaj se ne rešava uredno u rečima, na primer heksa fajlovi i u tom slučaju  karakter-način displej radi bolje. "
 
 #. (para)
+msgid "<guibutton>Compare whitespaces</guibutton> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Poređenje belina</guilabel> prikazuje sve izmene u uvlačenju linija i unutar linijske beline kao dodate/uklonjene linije (kako Subverzija tretira takve izmene)."
+
+#. (para)
+msgid "<guibutton>Ignore whitespace changes</guibutton> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Zanemarivanje izmena beline</guilabel> sakriva  izmene  koje su samo zbog izmena u iznosu ili tipu beline, npr. izmenom uvlačenja linije ili izmenom tabova u razmake. Dodavanjem beline gde nije bila ranije, ili potpunim uklanjanjem beline još uvek je prikazano kao promena."
+
+#. (para)
+msgid "<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only changes."
+msgstr "<guilabel>Zanemarivanje svih belina</guilabel>  sakriva sve izmene samo-belina."
+
+#. (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr "<guibutton>Prebaci pregled</guibutton> bira između jedan-panel i dva-panela pregleda. Onemogućen u 3-panela pregledu."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "<guilabel>Poređenje belina</guilabel> prikazuje sve izmene u uvlačenju linija i unutarlinijske beline kao dodate/uklonjene linije (kako Subverzija tretira takve izmene)."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Zanemarivanje izmena beline</guilabel> sakriva izmene  koje su samo zbog izmena u iznosu ili tipu beline, npr. izmenom uvlačenja linije ili izmenom tabova u razmake. Dodavanjem beline gde nije bila ranije, ili potpunim uklanjanjem beline još uvek je prikazano kao promena."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "<guilabel>Zanemarivanje svih belina</guilabel> sakriva sve izmene samo-beline."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
@@ -463,8 +459,8 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Prikaži/Sakri listu zakrpa</guibutton> Kada TortoiseSVN ima listu zakrpa, ovo dugme vam omogućava da je sakrijete (tako da možete videti oba prozora), ili je prikazati (tako da možete pregledati listu fajlova)."
 
 #. (para)
-msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
-msgstr "<guilabel>Sažimanje</guilabel> sažima  neizmenjene oblasti u jedinstvenu liniju ostavljajući samo izmenjene oblasti i minimalni kontekst. Možete proširiti sažete površine dvostrukim klikom na sažetu liniju, ali je ne možete proširiti bez učitavanja fajla."
+msgid "<guibutton>Collapse</guibutton> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgstr "<guilabel>Sažimanje</guilabel> sažima  neizmenjene oblasti u jedinstvenu liniju ostavljajući samo izmenjene oblasti i minimalni kontekst. Možete proširiti sažete površine dvostrukim klikom  na sažetu liniju, ali je ne možete proširiti bez učitavanja fajla."
 
 #. (para)
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
@@ -531,8 +527,8 @@ msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences bet
 msgstr "TortoiseMerge ne <emphasis>prikazuje</emphasis> vam samo rzlike između fajlova ali vam i omogućava da rešite konflikte ili primenite izmene."
 
 #. (para)
-msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr "Ako ste u dva panela pregledu tada možete samo da uredite fajl u desnom panelu (<literal>Moj</literal>). Da primenite izmene u fajlu levo fajl (<literal>NJihov</literal>), <action>desni-klik</action> na izmenjenim linijama izaberite <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Koristi tekst blok <quote>njihov</quote></guimenuitem></menuchoice>. Zatim izmene iz levog fajla su dodate u desni fajl."
+msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
+msgstr "Ako ste u dva panela pregledu tada možete samo da uredite fajl u desnom panelu (<literal>Moj</literal>).  Da primenite izmene u levom fajlu (<literal>NJihov</literal>), <action>desni klik</action> na izmenjenim linijama izaberite <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Koristi tekst blok iz  'njihov' </guimenuitem></menuchoice>. Zatim izmene iz levog fajla su dodate u desni fajl."
 
 #. (para)
 msgid "Sometimes you actually want both text blocks, and the context menu also offers you <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one first)</guimenuitem></menuchoice> and <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one last)</guimenuitem></menuchoice>."
@@ -543,8 +539,8 @@ msgid "You can also edit the output file just as you would in a text editor. Suc
 msgstr "Možete takođe urediti izlazni fajl  baš kao što želite u tekst uređivaču. Takve linije su označene koristeći olovku ikonu. Molim vas notirajte da želite uraditi bilo koju linija/blok-osnova izmenu opisanu gore, bolje je uraditi ovo pre nego počnete uređenje fajla jer postaje nemoguće da TortoiseMerge čuva odnose sa originalnim fajlovima."
 
 #. (para)
-msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Ako ste u tri panela pregledu (ponekad zvan <emphasis>pregled spajanja</emphasis>) možete samo urediti fajl u donjem pregledu (<literal>Spojen</literal>). Kao u dva panela pregledu, možete  uraditi <action>desni-klik</action> na konfliktne linije ili izaberite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od <quote>njihov</quote></guimenuitem></menuchoice> ili <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od <quote>moj</quote></guimenuitem></menuchoice>. Uz to, ako želite  <emphasis>oba</emphasis> bloka, možete izabrati <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od <quote>mine</quote> pre <quote>njihov</quote></guimenuitem></menuchoice> ili <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem> Koristite tekst blok od <quote>njihov</quote> pre <quote>moj</quote></guimenuitem></menuchoice>. Saglasno komandi koju ste izabrali izmene su korišćene u proizvedenom <literal>Spojenom</literal>  fajlu."
+msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'mine' </guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from 'mine' before 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
+msgstr "Ako ste u tri panela pregledu (ponekad zvan <emphasis>pregled spajanja</emphasis>) možete samo urediti fajl u donjem pregledu (<literal>Stopljen</literal>). Kao u dva panela pregledu, možete  uraditi <action>desni klik</action> na konfliktne linije ili izaberite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od 'njihov' </guimenuitem></menuchoice> ili <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od 'moj' </guimenuitem></menuchoice>. Uz to, ako želite  <emphasis>oba</emphasis> bloka, možete izabrati <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Koristite tekst blok od 'mine'  pre 'njihov'</guimenuitem></menuchoice> ili <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem> Koristite tekst blok od 'njihov' pre 'moj'</guimenuitem></menuchoice>. Saglasno komandi koju ste izabrali izmene su korišćene u proizvedenom <literal>Stopnjenom</literal>  fajlu."
 
 #. (para)
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
@@ -621,6 +617,18 @@ msgstr "<guilabel>Zanemari izmene veličine slova</guilabel> sakriva izmene samo
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "<guilabel>Kolor kod u-liniji izmene</guilabel> koristi istu šemu kao i linijski diff pult da prikaže detaljne u-liniji promene u okviru panela glavnog displeja. Linije koje su teško izmenjene neće biti prikazane korišćenjem ove metode što je  rezultat jednostavne konfuzije.U ovom slučaju linije će biti prikazane kao zamenjene (stara linija izbrisana, nova linija dodata)."
+
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "<guilabel>Poređenje belina</guilabel> prikazuje sve izmene u uvlačenju linija i unutarlinijske beline kao dodate/uklonjene linije (kako Subverzija tretira takve izmene)."
+
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "<guilabel>Zanemarivanje izmena beline</guilabel> sakriva izmene  koje su samo zbog izmena u iznosu ili tipu beline, npr. izmenom uvlačenja linije ili izmenom tabova u razmake. Dodavanjem beline gde nije bila ranije, ili potpunim uklanjanjem beline još uvek je prikazano kao  promena."
+
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "<guilabel>Zanemarivanje svih belina</guilabel> sakriva sve izmene samo-beline."
 
 #. (title)
 msgid "Colour Settings Page"
@@ -735,8 +743,8 @@ msgid "Keyboard shortcuts"
 msgstr "Skraćenice tastature"
 
 #. (term)
-msgid "Ctrl-Q"
-msgstr "Ctrl-Q"
+msgid "Ctrl-Q, Ctrl-W, Escape"
+msgstr "Ctrl-Q, Ctrl-W, Escape"
 
 #. (para)
 msgid "Quit the program"
@@ -749,6 +757,30 @@ msgstr "Ctrl-C"
 #. (para)
 msgid "Copy the selected text to the clipboard"
 msgstr "Kopiraj izabrani tekst u klipbord"
+
+#. (term)
+msgid "Ctrl-X, Shift-Del"
+msgstr "Ctrl-X, Shift-Del"
+
+#. (para)
+msgid "Cut the selected text to the clipboard"
+msgstr "Isecite izabrani tekst u klipbord"
+
+#. (term)
+msgid "Ctrl-V, Shift-Insert"
+msgstr "Ctrl-V, Shift-Insert"
+
+#. (para)
+msgid "Paste the selected text from the clipboard"
+msgstr "Nalepite izabrani tekst iz klipborda"
+
+#. (term)
+msgid "Ctrl-Z, Alt-Backspace"
+msgstr "Ctrl-Z, Alt-Backspace"
+
+#. (para)
+msgid "Undo the last edits"
+msgstr "Vrati poslednje uređenje"
 
 #. (term)
 msgid "Ctrl-F"
@@ -1004,6 +1036,10 @@ msgstr "Kreira ujedinjen raz fajl (fajl zakrpa) od dva fajla specificiranih sa <
 msgid "Specifies a line number to jump to after loading the files."
 msgstr "Specificira broj linije na koju skočiti posle unošenja fajlova."
 
+#. (entry)
+msgid "Prevents the file from being edited. That means the editing capabilities of TortoiseMerge are disabled."
+msgstr "Prevencija da se fajl uređuje. To znači da su uređivačke mogućnosti TortoiseMergr onemogućene."
+
 #. (para)
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
@@ -1135,8 +1171,8 @@ msgid "GPO"
 msgstr "GPO"
 
 #. (para)
-msgid "Group policy object"
-msgstr "Objekat grupne polise"
+msgid "Group policy object."
+msgstr "Objekat grupne polise."
 
 #. (glossterm)
 msgid "HEAD revision"
@@ -1307,4 +1343,9 @@ msgstr "Milorad Popović <MiloradSPopovic@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Prevod"
+
+#~ msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
+#~ msgstr "Верзија $MajorVersion$.$MinorVersion$.$MicroVersion$"
+#~ msgid "Ctrl-Q"
+#~ msgstr "Цтрл-Q"
 
