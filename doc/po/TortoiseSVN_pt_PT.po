@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-09-15 22:56 +0000\n"
-"PO-Revision-Date: 2010-09-18 02:03-0000\n"
+"PO-Revision-Date: 2010-09-21 12:15-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1452,9 +1452,8 @@ msgid "Overriding Hooks"
 msgstr "Ganchos de Substituição"
 
 #. (para)
-#, fuzzy
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote>. :-)"
-msgstr "Se um script de gancho rejeita a tua submissão, a sua decisão é a final. Mas tu podes criar um mecanismo de substituição no próprio script usando a técnica <emphasis>Magic Word</emphasis>. Se o script quer rejeitar a operação, primeiro sonda a mensagem de registo à procura de uma palavra passe especial, uma frase fixa ou talvez o nome o ficheiro com um prefixo. Se encontrar a palavra mágica, então permite que a submissão prossiga. Se não é encontrada a frase, então ele pode bloquear a submissão com uma mensagem como <quote>Tu não disseste a palavra mágica</quote> :-)"
+msgstr "Se um script de gancho rejeitar a tua submissão então essa decisão é final. Mas tu podes criar no próprio script um mecanismo de substituição, usando a técnica <emphasis>Magic Word</emphasis>. Se o script pretender rejeitar a operação então primeiro, pesquisa na mensagem de registo à procura de uma palavra passe especial, seja ela uma frase fixa ou talvez um nome de ficheiro com um prefixo. Se encontrar a tal palavra mágica, então premite o progresso da submissão. Se a frase não é encontrada, então poderá bloquear a submissão com uma mensagem do tipo <quote>Tu não disseste a palavra mágica</quote>. :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -1587,9 +1586,8 @@ msgid "Run the Subversion installer. If you run the installer on your server (re
 msgstr "Corre o instalador do Subversion. Se estiveres a correr o instalador no teu servidor (o que é recomendado) podes saltar o passo 4."
 
 #. (para)
-#, fuzzy
 msgid "Open the windows-explorer, go to the installation directory of Subversion (usually <filename>C:\\Program Files\\Subversion</filename>) and in the <filename>bin</filename> directory, find the files <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> and <filename>ssleay32.dll</filename> - copy these files, or just copy all of the <filename>bin</filename> directory, into a directory on your server e.g. <filename>c:\\svnserve</filename>."
-msgstr "Abre o explorador do Windows, vai para a pasta de instalação do Subversion (normalmente <filename>C:\\Program Files\\Subversion</filename>) e na pasta <filename>bin</filename>, encontra os ficheiros <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> e <filename>ssleay32.dll</filename> - copiar esses ficheiros, ou copia apenas toda a pasta <filename>bin</filename> para uma pasta no teu servidor, e.g.  <filename>c:\\svnserve</filename>"
+msgstr "Abre o explorador do Windows, vai para a pasta de instalação do Subversion (por norma <filename>C:\\Program Files\\Subversion</filename>) e na pasta <filename>bin</filename>, procura os ficheiros <filename>svnserve.exe</filename>, <filename>intl3_svn.dll</filename>, <filename>libapr.dll</filename>, <filename>libapriconv.dll</filename>, <filename>libapriutil.dll</filename>, <filename>libdb*.dll</filename>, <filename>libeay32.dll</filename> e <filename>ssleay32.dll</filename> - copia esses ficheiros, ou copia apenas a pasta completa <filename>bin</filename>, para uma pasta no teu servidor, e.g.  <filename>c:\\svnserve</filename>."
 
 #. (title)
 msgid "Running svnserve"
@@ -1762,9 +1760,8 @@ msgstr ""
 "</screen> Este exemplo irá negar todo o acesso a utilizadores não autenticados (anónimos), e irá dar acesso leitura-escrita a os utilizadores listados em <filename>userfile</filename>."
 
 #. (para)
-#, fuzzy
 msgid "If you maintain multiple repositories using the same password database, the use of an authentication realm will make life easier for users, as TortoiseSVN can cache your credentials so that you only have to enter them once. More information can be found in the Subversion book, specifically in the sections <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>."
-msgstr "Se mantiveres múltiplos repositórios utilizando a mesma base de dados de palavras-chave, o uso de um domínio de autenticação irá facilitar a vida dos utilizadores, já que o TortoiseSVN pode efectuar cache das tuas credenciais, para que só tenhas de as introduzir uma vez. Mais informações poderam ser encontradas no livro do Subversion, mais especificamente nas secções <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>"
+msgstr "Se mantiveres múltiplos repositórios utilizando a mesma palavras-chave da base de dados , o uso de um domínio de autenticação irá facilitar a vida dos utilizadores, já que o TortoiseSVN pode efectuar cache das tuas credenciais, para que só tenhas de as introduzir uma vez. Mais informações podem ser encontradas no livro do Subversion, mais especificamente nas secções <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>Create a 'users' file and realm</citetitle></ulink> and <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client Credentials Caching</citetitle></ulink>."
 
 #. (title)
 msgid "Better Security with SASL"
@@ -1969,18 +1966,16 @@ msgid "Once you have the Apache2 installer you can double click on it and it wil
 msgstr "Uma vez que tenhas o instalador Apache2, podes efectuar duplo clique sobre ele, e então serás guiado através do processo de instalação. Tem a certeza que inseres o URL-servidor correctamente (se não tiveres um nome DNS para o teu servidor, insere apenas o seu endereço-IP). Eu recomendo instalar o Apache <emphasis>para Todos os Utilizadores, no Porto 80, como um Serviço</emphasis>. Nota: se já tens o IIS ou outro programa a correr que esteja à escuta no porto 80, poderá causar a falha da instalação. Se tal acontecer, vai à pasta do programas, <filename>\\Apache Group\\Apache2\\conf</filename> e localiza o ficheiro <filename>httpd.conf</filename>. Edita-o para que o <literal>Listen 80</literal> seja alterado para um porto livre, e.g. <literal>Listen 81</literal>. Então reinicia a instalação - desta vez deverá concluir sem problemas."
 
 #. (para)
-#, fuzzy
 msgid "Now test if the Apache web server is running correctly by pointing your web browser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up. If you used a different port, say 81, you need to include that in the URL. In that case you would point your browser at <systemitem class=\"url\">http://localhost:81/</systemitem>."
-msgstr "Agora testa se o teu servidor web Apache está a correr correctamente, apontando o teu navegador de internet para  <systemitem class=\"url\">http://localhost/</systemitem> - um sítio web pré-configurado deverá aparecer."
+msgstr "Agora testa se o teu servidor web Apache está a correr correctamente, apontando o teu navegador de internet para  <systemitem class=\"url\">http://localhost/</systemitem> - um sítio web pré-configurado deverá aparecer. Se usares um porto diferente, como 81, necessitarás de o incluir no URL. Nesse caso apontarás o navegador de internet para <systemitem class=\"url\">http://localhost:81/</systemitem>."
 
 #. (para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
 msgstr "Se decidires instalar o Apache como um serviço, tem atenção que por defeito este irá correr com uma conta de sistema local. Será uma prática mais segura para ti criar uma conta separada para o Apache correr."
 
 #. (para)
-#, fuzzy
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
-msgstr "Tem a certeza que a conta em que o Apache está a correr, tem uma entrada explícita na lista de controlo de acessos às pastas dos repositórios (clica com o botão direito na pasta | propriedades | segurança), com acesso total. De outro modo, os utilizadores não poderão submeter as suas alterações."
+msgstr "Tem a certeza que a conta em que o Apache está a correr tem uma entrada explícita na lista de controlo de acessos às pastas dos repositórios (clica à direita na pasta | propriedades | segurança), com acesso total. De outro modo, os utilizadores não poderão submeter as suas alterações."
 
 #. (para)
 msgid "Even if Apache runs as local system, you still need such an entry (which will be the SYSTEM account in this case)."
@@ -2190,15 +2185,14 @@ msgstr ""
 "</screen>"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Using a <filename>passwd</filename> file limits and grants access to all of your repositories as a unit. If you want more control over which users have access to each folder inside a repository you can uncomment the line <screen>\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
 "</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's <literal>AuthzSVNAccessFile</literal> module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. The format of the authorization-policy file used by <literal>mod_authz_svn</literal> is described in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>."
 msgstr ""
-"Ao utilizar um ficheiro <filename>passwd</filename> limitas a concedes o acesso a todos os teus repositórios como uma unidade. Se quiseres mais controlo sobre quais os utilizadores que tem acesso a cada pasta, dentro do repositório, podes descomentar a linha <screen>\n"
+"Ao utilizar um ficheiro <filename>passwd</filename> limitas e concedes acesso a todos os teus repositórios, em bloco. Se quiseres mais controlo sobre quais os utilizadores que tem acesso a cada pasta dentro do repositório, podes descomentar a linha <screen>\n"
 "#AuthzSVNAccessFile svnaccessfile\n"
-"</screen> e criar um ficheiro de acesso ao Subversion. O Apache irá garantir que só os utilizadores válidos poderão aceder à tua localização <filename>/svn</filename>, e irá então enviar o nome de utilizador ao módulo <literal>AuthzSVNAccessFile</literal> do Subversion, para que este possa garantir um acesso mais granular, baseado nas regras listadas no ficheiro de acesso do Subversion. Observa que os caminhos são especificados ou como <literal>repos:path</literal> ou simplesmente <literal>path</literal>. Se não especificares um repositório em particular, essa regra ir-se-á aplicar a todos os repositórios sob <literal>SVNParentPath</literal>. O formato do ficheiro de políticas-de-autorização usada por <literal>mod_authz_svn</literal> é descrita em <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>"
+"</screen> e criar um ficheiro de acesso ao Subversion. O Apache irá garantir que só os utilizadores válidos poderão aceder à tua localização <filename>/svn</filename>, e irá então enviar o nome de utilizador ao módulo <literal>AuthzSVNAccessFile</literal> do Subversion, para que este possa garantir um acesso mais granular baseado nas regras listadas no ficheiro de acesso do Subversion. Observa que os caminhos são especificados, ou como <literal>repos:path</literal> ou então simplesmente <literal>path</literal>. Se não especificares um repositório em particular, essa regra ir-se-á aplicar a todos os repositórios sob o <literal>SVNParentPath</literal>. O formato do ficheiro de políticas-de-autorização usado por <literal>mod_authz_svn</literal> é descrito em <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>."
 
 #. (para)
 msgid ""
@@ -2409,9 +2403,8 @@ msgid "The SSPI authentication is only enabled for SSL secured connections (http
 msgstr "A autenticação SSPI só está activada para ligações SSL seguras (https). Se só estás a usar ligações http normais para o teu servidor, isto não irá funcionar."
 
 #. (para)
-#, fuzzy
 msgid "To enable SSL on your server, see the chapter: <xref linkend=\"tsvn-serversetup-apache-7\"/>."
-msgstr "Para activar o SSL no teu servidor, consulta o capítulo: <xref linkend=\"tsvn-serversetup-apache-7\"/>"
+msgstr "Para activar o SSL no teu servidor, consulta o capítulo: <xref linkend=\"tsvn-serversetup-apache-7\"/>."
 
 #. (para)
 msgid "Subversion <filename>AuthzSVNAccessFile</filename> files are case sensitive in regard to user names (<literal>JUser</literal> is different from <literal>juser</literal>)."
@@ -2825,9 +2818,8 @@ msgid "<placeholder-1/> All TortoiseSVN commands are invoked from the context me
 msgstr "<placeholder-1/> Todos os comandos do TortoiseSVN são invocados a partir do menu de contexto no explorador do Windows. A maioria estão directamente visíveis quando <action>clicas com o botão direito</action> numa pasta ou ficheiro. A lista de comandos disponíveis dependem do caso de se tratar de uma pasta ou um ficheiro, ou se o ficheiro pai se encontra sob controlo de versões, ou não. Podes também ver o menu do TortoiseSVN como uma parte do menu ficheiro do Explorador."
 
 #. (para)
-#, fuzzy
 msgid "Some commands which are very rarely used are only available in the extended context menu. To bring up the extended context menu, hold down the <keycap>Shift</keycap> key when you <action>right click</action>."
-msgstr "Alguns comandos que são utilizados muito raramente, estão disponiveis apenas no menu de contexto extendido. Para mostrar o menu de contexto extendido, manter premida a tecla <keycap>Shift</keycap> enquanto <action>clicas com o botão direito do rato</action>."
+msgstr "Alguns comandos que são utilizados muito raramente, apenas estão disponíveis no menu de contexto extendido. Para acederes a esse menu de contexto extendido, mantém premida a tecla <keycap>Shift</keycap> enquanto <action>clicas à direita</action>."
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -3425,9 +3417,8 @@ msgid "The log message window also includes a filename and function auto-complet
 msgstr "A janela de mensagem de registo também inclui a funcionalidade de auto conclusão de nomes de ficheiros e funções. Esta funcionalidade usa expressões regulares para extrair os nomes de funções e classes, a partir dos ficheiros (de texto) que estás a submeter tal como os nomes dos ficheiros em si. Se a palavra que estás a escrever condiz com qualquer entrada na lista (depois de escreveres pelo menos 3 caracteres, ou premido <keycap>Ctrl+Space</keycap>), uma lista de termos aparecerá para te permitir seleccionar o nome completo. As expressões regulares fornecidas com o TortoiseSVN estão armazenadas na pasta <filename>bin</filename> da instalação do TortoiseSVN. Podes também definir as tuas próprias regexes e armazena-las em <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Está claro que a tua auto lista privada não será reescrita quando actualizas a tua instalação do TortoiseSVN. Se não estás familiarizado com expressões regulares, dá uma vista de olhos na introdução em <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://pt.wikipedia.org/wiki/Expressão_regular</citetitle></ulink>, e o tutorial e documentação online em <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
-#, fuzzy
 msgid "Getting the regex just right can be tricky, so to help you sort out a suitable expression there is a test dialog which allows you to enter an expression and then type in filenames to test it against. Start it from the command prompt using the command <literal>TortoiseProc.exe /command:autotexttest</literal>."
-msgstr "Acertar com a regex correcta pode ser um bocado complicado, pelo que para te ajudar a descobrir a expressão mais indicada existe uma caixa de diálogo de teste, que te permite introduzir uma expressão e então digitar nomes de ficheiros para a testar. Arranca-a a partir da linha de comandos, com o comando <literal>TortoiseProc.exe /command:autotexttest</literal>"
+msgstr "Acertar com a regex correcta pode ser um bocado complicado, pelo que para te ajudar a descobrir qual a expressão mais indicada, existe uma caixa de diálogo de teste que te permite introduzir uma expressão e então digitar nomes de ficheiros para a testar. Arranca-a a partir da linha de comandos, com o comando <literal>TortoiseProc.exe /command:autotexttest</literal>."
 
 #. (para)
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
@@ -3905,9 +3896,8 @@ msgstr "Edição local, apagar após fusão"
 
 #. (para)
 #. (para)
-#, fuzzy
 msgid "Developer A working on trunk moves <filename>Foo.c</filename> to <filename>Bar.c</filename> and commits it to the repository."
-msgstr "O Programador A trabalhando no trunk move o <filename>Foo.c</filename> para <filename>Bar.c</filename> e submete-o para o repositório"
+msgstr "O Programador A trabalhando no trunk move o <filename>Foo.c</filename> para <filename>Bar.c</filename> e submete-o para o repositório."
 
 #. (para)
 msgid "Developer B working on a branch modifies <filename>Foo.c</filename> and commits it to the repository."
@@ -3946,9 +3936,8 @@ msgid "Local delete, incoming delete upon merge"
 msgstr "Apagamento local, apagar após fusão"
 
 #. (para)
-#, fuzzy
 msgid "Developer B working on a branch moves <filename>Foo.c</filename> to <filename>Bix.c</filename> and commits it to the repository."
-msgstr "O Programador B trabalhando num ramo move o <filename>Foo.c</filename> para <filename>Bix.c</filename> e submete-o para o repositório"
+msgstr "O Programador B trabalhando num ramo move o <filename>Foo.c</filename> para <filename>Bix.c</filename> e submete-o para o repositório."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
@@ -4662,9 +4651,8 @@ msgid "You may notice that sometimes we refer to changes and other times to diff
 msgstr "Deves ter notado que por vezes referimo-nos ás alterações e outras vezes a diferenças. Qual a diferença?"
 
 #. (para)
-#, fuzzy
 msgid "Subversion uses revision numbers to mean 2 different things. A revision generally represents the state of the repository at a point in time, but it can also be used to represent the changeset which created that revision, e.g. <quote>Done in r1234</quote> means that the changes committed in r1234 implement feature X. To make it clearer which sense is being used, we use two different terms."
-msgstr "O Subversion usa números de revisão para significar 2 coisas diferentes. A revisão, de modo geral, representa o estado do repositório num dado ponto no tempo, mas pode também ser usado para representar o conjunto de alterações que criou a revisão, e.g. <quote>Feito em r1234</quote> significa que as alterações submetidas na r1234 implementa a funcionalidade X. Para tornar mais claro qual o sentido que está a ser utilizado, usamos dois termos diferentes."
+msgstr "O Subversion usa números de revisão para representar 2 coisas diferentes. A revisão, de modo geral representa o estado do repositório num dado ponto no tempo, mas pode também ser usado para representar o conjunto de alterações que criou essa revisão, e.g. <quote>Feito em r1234</quote> significa que as alterações submetidas na r1234 implementam a funcionalidade X. Para tornar mais claro qual o sentido que está a ser utilizado, usamos dois termos diferentes."
 
 #. (para)
 msgid "If you select two revisions N and M, the context menu will offer to show the <emphasis>difference</emphasis> between those two revisions. In Subversion terms this is <literal>diff -r M:N</literal>."
@@ -5515,9 +5503,8 @@ msgid "Subversion's ignore patterns make use of filename globbing, a technique o
 msgstr "O ignorar padrões no Subversion usa caracteres de substituição do nome de ficheiro, uma técnica usada no Unix para especificar ficheiros recorrendo a meta-caracteres e wildcards (caracteres de substituição). Os seguintes caracteres têm significado especial:<placeholder-1/>"
 
 #. (para)
-#, fuzzy
 msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, e.g. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
-msgstr "Correspondência de padrões é sensível a maiúsculas e minúsculas, o que pode causar problemas no Windows. Podes forçar a insensibilidade a maiúsculas e minúsculas à força, ao emparelhar caracteres, e.g. para ignorar <literal>*.tmp</literal>, independentemente ao tamanho da letra, podes usar um padrão como <literal>*.[Tt][Mm][Pp]</literal>."
+msgstr "Correspondência de padrões é sensível a maiúsculas e minúsculas, o que pode causar problemas no Windows. Podes forçar a insensibilidade a maiúsculas e minúsculas à bruta ao emparelhar caracteres, e.g. para ignorar <literal>*.tmp</literal>, independentemente do tamanho de letra, podes usar um padrão como <literal>*.[Tt][Mm][Pp]</literal>."
 
 #. (para)
 msgid "If you want an official definition for globbing, you can find it in the IEEE specifications for the shell command language <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
@@ -5615,9 +5602,8 @@ msgid "in the popup menu select <menuchoice><guimenu>Context Menu</guimenu><guim
 msgstr "No menu que surge selecciona <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>SVN Mover para aqui iten(s) com controlo de versões</guimenuitem></menuchoice>"
 
 #. (para)
-#, fuzzy
 msgid "If you want to move files around inside your working copy, perhaps to a different sub-folder, use the right mouse drag-and-drop handler: <placeholder-1/>"
-msgstr "Se queres mover ficheiros dentro da tua cópia de trabalho, talvez para uma subpasta diferente, usa o manípulo de arrastar-e-largar do botão direito do rato: <placeholder-1/>"
+msgstr "Se pretendes mover ficheiros dentro da tua cópia de trabalho, talvez para uma subpasta diferente, usa o manípulo de arrastar-e-largar do botão direito do rato: <placeholder-1/>"
 
 #. (title)
 msgid "Commit the parent folder"
@@ -5775,9 +5761,8 @@ msgid "If you want to undo all changes you made in a file since the last update 
 msgstr "Se pretenderes desfazer todas as alterações que efectuaste num ficheiro desde a última actualização, precisas de seleccionar o ficheiro,  <action>clicar com o botão direito</action> para aparecer o menu de contexto e então seleccionar o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> Uma caixa de diálogo irá aparecer, mostrando-te os ficheiros que alteraste e podes reverter. Seleccionar os que queres reverter e clica no <guibutton>OK</guibutton>. <placeholder-1/>"
 
 #. (para)
-#, fuzzy
 msgid "If you want to undo a deletion or a rename, you need to use Revert on the parent folder as the deleted item does not exist for you to right click on."
-msgstr "Se queres desfazer uma remoção ou renomeação, precisas de usar o Reverter na pasta pai já que o item removido não existirá, para poderes clicar sobre ele com o botão direito."
+msgstr "Se queres desfazer uma remoção ou renomeação, necessitas de usar o Reverter na pasta pai, já que o item removido não existirá para poderes clicar à direita sobre ele."
 
 #. (para)
 msgid "If you want to undo the addition of an item, this appears in the context menu as <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>. This is really a revert as well, but the name has been changed to make it more obvious."
@@ -5916,9 +5901,8 @@ msgid "Adding properties"
 msgstr "Adicionando propriedades"
 
 #. (para)
-#, fuzzy
 msgid "<placeholder-1/> To add a new property, first click on <guilabel>New...</guilabel>. Select the required property name from the menu, and then fill in the required information in the specific property dialog."
-msgstr "<placeholder-1/> Para adicionar uma nova propriedade clica primeiro em <guilabel>Adicionar...</guilabel>. Selecciona o nome da propriedade pretendida a partir da combo box, ou escreve um nome da tua escolha, e insere um valor na caixa em baixo. As propriedades que requerem valores múltiplos, como uma lista de ignorados, podem ser introduzidos em várias linhas. Clicar em <guibutton>OK</guibutton> para adicionar essa propriedade à lista."
+msgstr "<placeholder-1/> Para adicionar uma nova propriedade, clica primeiro em <guilabel>Adicionar...</guilabel>. Selecciona o nome da propriedade pretendida a partir do menu, e então preenche a informação requerida na caixa de diálogo da propriedade específica. "
 
 #. (para)
 msgid "To add a property that doesn't have its own dialog, choose <guimenuitem>Advanced</guimenuitem> from the <guilabel>New...</guilabel> menu. Then either select an existing property in the combo box or enter a custom property name."
@@ -6010,9 +5994,8 @@ msgid "An alternative method is to set the <literal>tsvn:autoprops</literal> pro
 msgstr "Um método alternativo é ajustar a propriedade <literal>tsvn:autoprops</literal> em pastas, como descrito na secção seguinte. Este método só funciona para clientes TortoiseSVN, mas é propagado para todas as cópias de trabalho aquando da actualização."
 
 #. (para)
-#, fuzzy
 msgid "Whichever method you choose, you should note that auto-props are only applied to files at the time they are added to the working copy. Auto-props will never change the properties of files which are already versioned."
-msgstr "Qualquer que seja o método que escolhas, deverás ter em atenção que o auto-props só é aplicado a ficheiros na altura em que eles são adicionados ao repositório. O auto-props nunca alterará as propriedades dos ficheiros que já estão versionados."
+msgstr "Qualquer que seja o método que escolhas, deverás ter em atenção que o auto-props só é aplicado a ficheiros, na altura em que forem adicionados ao repositório. O auto-props nunca alterará as propriedades dos ficheiros que já estão versionados."
 
 #. (para)
 msgid "If you want to be absolutely sure that new files have the correct properties applied, you should set up a repository pre-commit hook to reject commits where the required properties are not set."
@@ -6447,9 +6430,8 @@ msgid "You can also drag a folder with the right mouse button. Once you release 
 msgstr "Podes também arrastar uma pasta com o botão direito do rato. Uma vez que libertes o botão, poderás escolher, a partir do menu de contexto, o que quererás fazer com a pasta a ser movida ou copiada. é claro que para criar um ramo ou etiqueta, tu tens de copiar a pasta e não movê-la."
 
 #. (para)
-#, fuzzy
 msgid "Yet another way is from the log dialog. You can show the log dialog for e.g. trunk, select a revision (either the HEAD revision at the very top or an earlier revision), right click and choose <menuchoice><guimenuitem>create branch/tag from revision...</guimenuitem></menuchoice>."
-msgstr "No entanto, outra maneira será a partir da caixa de diálogo registo. Podes visualizar a caixa de diálogo registo para e.g. trunk, seleccionar a revisão (a revisao HEAD no topo ou uma revisão anterior), clica com o botão direito e escolhe <menuchoice><guimenuitem>criar ramo/etiqueta a partir da revisão...</guimenuitem></menuchoice>"
+msgstr "No entanto, a outra maneira é a partir da caixa de diálogo registo. Podes visualizar a caixa de diálogo registo para o e.g. trunk, selecciona a revisão (a revisao HEAD no topo ou uma revisão anterior), clica com o botão direito e escolhe <menuchoice><guimenuitem>criar ramo/etiqueta a partir da revisão...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -6644,9 +6626,8 @@ msgid "If other people may be committing changes then be careful about using the
 msgstr "Se podem estar outras pessoas a submeter alterações então tem cuidado no uso da revisão HEAD. Poderá não se referir à revisão que estás a pensar se alguém efectuou uma submissão após a tua última actualização."
 
 #. (para)
-#, fuzzy
 msgid "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-options\"/>."
-msgstr "Clica <guibutton>Seguinte</guibutton> e segue para <xref linkend=\"tsvn-dug-merge-options\"/>"
+msgstr "Clica <guibutton>Seguinte</guibutton> e segue para <xref linkend=\"tsvn-dug-merge-options\"/>."
 
 #. (secondary)
 msgid "reintegrate"
@@ -7139,9 +7120,8 @@ msgid "<placeholder-1/> If you're not interested in changes from earlier revisio
 msgstr "<placeholder-1/> Se não estás interessado nas alterações em revisões anteriores, podes fixar a revisão a partir da qual a responsabilização deve começar. Fixa para <literal>1</literal>, se queres a responsabilização para <emphasis>cada</emphasis> revisão."
 
 #. (para)
-#, fuzzy
 msgid "By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>, which highlights the different revisions to make it easier to read. If you wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>."
-msgstr "Por defeito o ficheiro responsabilizado é visualizado usando o <firstterm>TortoiseBlame</firstterm>, que salienta as diferentes revisões para torná-lo mais fácil de ler. Se desejas imprimir ou editar o ficheiro de responsabilidade, selecciona <guilabel>Usar leitor de Texto para ver responsabilidades</guilabel>"
+msgstr "Por defeito, o ficheiro responsabilizado é visualizado usando o <firstterm>TortoiseBlame</firstterm>, que salienta as diferentes revisões de forma a tornar mais fácil a sua leitura. Se desejares imprimir ou editar o ficheiro de responsabilidade, selecciona <guilabel>Usar visualizador de Texto para ver responsabilidades</guilabel>."
 
 #. (para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
@@ -7413,9 +7393,8 @@ msgid "Added or copied items"
 msgstr "Itens adicionados ou copiados"
 
 #. (para)
-#, fuzzy
 msgid "Items which have been added, or created by copying another file/folder are shown using a rounded rectangle. The default colour is green. Tags and trunks are treated as a special case and use a different shade, depending on the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
-msgstr "Os itens que foram adicionados ou criados pela cópia de outro ficheiro/pasta, são mostrados como um rectângulo de cantos arredondados. A sua cor por defeito é o verde. Etiquetas e trunks são tratados como um caso especial, e usam uma forma diferente dependendo de <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Preferências</guimenuitem></menuchoice>"
+msgstr "Os itens que foram adicionados ou criados pela cópia de outro ficheiro/pasta, são mostrados com um rectângulo de cantos arredondados. A sua cor por defeito é o verde. As etiquetas e trunks são tratados como um caso especial e usam uma sombra diferente dependendo das <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Preferências</guimenuitem></menuchoice>"
 
 #. (term)
 msgid "Deleted items"
@@ -7731,9 +7710,8 @@ msgid "Another way to export from a working copy is to <action>right drag</actio
 msgstr "Outra forma de exportar a partir de uma cópia de trabalho é <action>arrastar com o botão direito</action> a cópia de trabalho para outro local e seleccionar <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>SVN Exportar aqui</guimenuitem></menuchoice> ou <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Exporta todos aqui</guimenuitem></menuchoice>. A segunda opção inclui também os ficheiros não versionados."
 
 #. (para)
-#, fuzzy
 msgid "When exporting from a working copy, if the target folder already contains a folder of the same name as the one you are exporting, you will be given the option to overwrite the existing content, or to create a new folder with an automatically generated name, e.g. <literal>Target (1)</literal>."
-msgstr "Quando ao exportar de uma cópia de trabalho, se a pasta de destino já conter uma pasta com o mesmo nome daquela que está a exportar, será te dada a opção para escrever por cima do conteúdo já existente ou criares uma nova pasta com um nome gerado automaticamente, e.g. <literal>Target (1)</literal>."
+msgstr "Ao exportar uma cópia de trabalho, se a pasta de destino já contiver uma pasta com o mesmo nome daquela que estás a exportar, será te então dada a opção de escrever por cima do conteúdo já existente, ou criares uma nova pasta com um nome gerado automaticamente, e.g. <literal>Target (1)</literal>."
 
 #. (title)
 msgid "Exporting single files"
