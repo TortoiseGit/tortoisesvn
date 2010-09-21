@@ -45,7 +45,7 @@ if "%4" == "svn:log" exit 0
 echo Property '%4' cannot be changed &gt;&amp;2
 exit 1
 </screen>
-        Note that anything sent to stdout is discarded. if you want
+        Note that anything sent to stdout is discarded. If you want
         a message to appear in the Commit Reject dialog you must
         send it to stderr. In a batch file this is achieved using
         <filename>&gt;&amp;2</filename>.
