@@ -4982,22 +4982,34 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
     if (GetSelectedCount() == 0)
         return false;
 
+    // count the bits
+    int c = 0;
+    DWORD v = dwCols;
+    for (c = 0; v; c++)
+    {
+        v &= v - 1; // clear the least significant bit set
+    }
+
     // first add the column titles as the first line
     DWORD selection = 0;
     for (int i = 0, count = m_ColumnManager.GetColumnCount(); i < count; ++i)
         if (   ((dwCols == -1) && m_ColumnManager.IsVisible (i))
             || ((i < SVNSLC_NUMCOLUMNS) && (dwCols & (1 << i))))
         {
-            if (!sClipboard.IsEmpty())
-                sClipboard += _T("\t");
+            if ( c > 1)
+            {
+                if (!sClipboard.IsEmpty())
+                    sClipboard += _T("\t");
 
-            sClipboard += m_ColumnManager.GetName(i);
+                sClipboard += m_ColumnManager.GetName(i);
+            }
 
             if (i < 32)
                 selection += 1 << i;
         }
 
-    sClipboard += _T("\r\n");
+        if (c > 1)
+            sClipboard += _T("\r\n");
 
     POSITION pos = GetFirstSelectedItemPosition();
     int index;
