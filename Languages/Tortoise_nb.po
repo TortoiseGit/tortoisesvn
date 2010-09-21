@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-16 09:21+0100\n"
+"PO-Revision-Date: 2010-09-21 16:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1566,20 +1566,6 @@ msgstr "<Separator>"
 msgid "<Untitled>"
 msgstr "<Uten tittel>"
 
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN er en skallutvidelse.\n"
-"Det betyr at den er integrert i Windows-utforskeren.\n"
-"For å bruke TortoiseSVN åpner du utforskeren og høyreklikker på en mappe\n"
-"for å få opp en meny hvor du får tilgang til alle TortoiseSVNs kommandoer.\n"
-"Og les manualen!"
-
 #. Resource IDs: (16603)
 msgid "<descr>"
 msgstr "<descr>"
@@ -3090,11 +3076,9 @@ msgstr "Kunne ikke sjekke etter en ny versjon!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "Kunne ikke kopiere filene!\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3200,7 +3184,6 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "Kunne ikke starte eksternt diff-program!\n"
@@ -3210,11 +3193,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "Kunne ikke starte eksternt flette-program!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -6203,14 +6184,11 @@ msgid "No"
 msgstr "Nei"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Ingen kommando er spesifisert!\n"
-
 "TortoiseProc.exe brukes kun av Windows skallutvidelser og kan ikke kjøres direkte!"
 
 #. Resource IDs: (81)
@@ -7171,6 +7149,10 @@ msgstr "Gå rekursivt inn i ikke-versjonerte mapper"
 #. Resource IDs: (563)
 msgid "Recursive"
 msgstr "Alle undermapper"
+
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr "Omdirigerer til url"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8716,11 +8698,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "Subversion rapporterte en feil under opprydding!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9362,14 +9342,11 @@ msgid "The user who owns the lock of the file"
 msgstr "Brukeren som eier filsperren"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "Arbeidskopien er forandret!\n"
-
 "Send inn endringende først eller tilbakestill."
 
 #. Resource IDs: (81)
@@ -9702,6 +9679,20 @@ msgid ""
 msgstr ""
 "TortoiseSVN har funnet lignende filnavn. Vil du at filene:%s\n"
 "også skal omdøpes?"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN er en skallutvidelse.\n"
+"Det betyr at den er integrert i Windows-utforskeren.\n"
+"For å bruke TortoiseSVN åpner du utforskeren og høyreklikker på en mappe\n"
+"for å få opp en meny hvor du får tilgang til alle TortoiseSVNs kommandoer.\n"
+"Og les manualen!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
