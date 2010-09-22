@@ -1565,8 +1565,9 @@ void CRepositoryBrowser::OnRefresh()
 
     if (hSelected == NULL)
     {
-        // empty -> try re-init
-
+        if (m_InitialUrl.IsEmpty())
+            return;
+        // try re-init
         InitRepo();
         return;
     }
