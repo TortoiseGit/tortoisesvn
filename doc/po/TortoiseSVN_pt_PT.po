@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-09-15 22:56 +0000\n"
-"PO-Revision-Date: 2010-09-21 12:15-0000\n"
+"PO-Revision-Date: 2010-09-22 13:10-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -2936,7 +2936,6 @@ msgid "If you want to clear authentication for one realm only then you will have
 msgstr "Se queres limpar a autenticação para um só domínio, terás de mergulhar nessas pastas, encontrar o ficheiro que contém a informação que queres limpar e remover o ficheiro."
 
 #. (para)
-#, fuzzy
 msgid ""
 "Some people like to have the authentication data deleted when they log off Windows, or on shutdown. The way to do that is to use a shutdown script to delete the <filename>%APPDATA%\\Subversion\\auth</filename> directory, e.g. <screen>\n"
 "@echo off\n"
@@ -2949,9 +2948,8 @@ msgstr ""
 "</screen> Poderás obter uma descrição de como instalar tal script em <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>windows-help-central.com</citetitle></ulink>."
 
 #. (para)
-#, fuzzy
 msgid "For more information on how to set up your server for authentication and access control, refer to <xref linkend=\"tsvn-serversetup\"/>."
-msgstr "Para mais informações em como configurar o teu servidor em autenticação e controlo de acessos, consulta <xref linkend=\"tsvn-serversetup\"/>"
+msgstr "Para mais informações em como configurar o teu servidor para autenticação e controlo de acessos, consulta <xref linkend=\"tsvn-serversetup\"/>."
 
 #. (title)
 msgid "Maximizing Windows"
@@ -3225,18 +3223,16 @@ msgid "Changing working copy depth"
 msgstr "Modificando a profundidade da cópia de trabalho"
 
 #. (para)
-#, fuzzy
 msgid "Once you have checked out a working copy to a particular depth you can change that depth later to get more or less content using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>. In that dialog, be sure to check the <guilabel>Make depth sticky</guilabel> checkbox."
-msgstr "Uma vez que tenhas SVN exportado uma cópia de trabalho, com uma profundidade particular, poderás modificar a mesma mais tarde para obter maior ou menor conteúdo utilizando <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Actualizar item para revisão...</guimenuitem></menuchoice>."
+msgstr "Uma vez que tenhas efectuado o checkout de uma cópia de trabalho, com uma profundidade em particular, poderás modificar a mesma mais tarde para obter maior ou menor conteúdo utilizando, <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Actualizar item para revisão...</guimenuitem></menuchoice>. Nessa caixa de diálogo, tem a certeza que verificas a caixa <guilabel>Tornar a profundidade persistente</guilabel>."
 
 #. (title)
 msgid "Using an older server"
 msgstr "Usando um servidor mais antigo"
 
 #. (para)
-#, fuzzy
 msgid "Pre-1.5 servers do not understand the working copy depth request, so they cannot always deal with requests efficiently. The command will still work, but an older server may send all the data, leaving the client to filter out what is not required, which may mean a lot of network traffic. If possible you should upgrade your server to at least 1.5."
-msgstr "Servidores anteriores à versão 1.5, não compreendem o pedido de profundidade da cópia de trabalho não lidando com eficiência com os pedidos. O comando continuará a funcionar, mas um servidor antigo poderá enviar todos os dados, deixando o cliente filtrar o que não precisa o que poderá gerar muito tráfico de rede. Se possível deverás actualizar o teu servidor para a versão 1.5."
+msgstr "Servidores anteriores à versão 1.5 não compreendem o pedido de profundidade da cópia de trabalho, não lidando eficientemente com os pedidos. O comando continuará a funcionar, mas um servidor mais antigo poderá enviar todos os dados, deixando para o cliente filtrar o que não precisa, o que poderá gerar muito tráfico de rede. Se possível deverás actualizar o teu servidor para a versão 1.5."
 
 #. (para)
 msgid "If the project contains references to external projects which you do <emphasis>not</emphasis> want checked out at the same time, use the <guilabel>Omit externals</guilabel> checkbox."
@@ -4811,7 +4807,6 @@ msgid "Click on the search icon to select which information you want to search i
 msgstr "Clica no ícone de pesquisa para seleccionar qual a informação que queres procurar, e para escolher o modo <emphasis>regex</emphasis>. Normalmente só precisarás uma simples procura de uma sub-cadeia de caracteres, mas se precisas de termos de pesquisa mais flexíveis podes usar expressões regulares. Se mantiveres o rato sobre a caixa, uma etiqueta dar-te-á palpites em como usar as   funções regex, ou as funções de sub-cadeias de caracteres. O filtro funciona verificando se a tua frase de pesquisa condiz com as entradas do registo, então só as entradas que <emphasis>condizem</emphasis> com a frase do filtro são mostradas."
 
 #. (para)
-#, fuzzy
 msgid ""
 "Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
 "Alice Bob -Eve\n"
@@ -4827,7 +4822,7 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
 msgstr ""
-"Uma busca por string simples funciona de maneira similar a um motor de busca. As strings a procurar são separadas por espaços, e todas elas devem ter correspondência. Tu podes usar um <literal>-</literal> à frente para especificar que a sub-string em particular não deve ser encontrada (inverte a correspondência desse termo), e podes usar <literal>!</literal> no início da expressão para inverter a correspondência da totalidade da expressão. Podes também usar aspas à volta da string que deve conter espaços, e se queres procurar por uma citação literal poderás usar aspas duplas como uma sequência auto-escapada. Observa que o caracter de barra invertida não é usado como um caracter de escape, e não tem significado especial em buscas de sub-strings simples. Alguns exemplos tornaram isto mais claro: <screen>\n"
+"Uma pesquisa por sub-strings simples funciona de maneira similar a um motor de busca. As strings a procurar são separadas por espaços, e todas elas devem ter correspondência. Tu podes usar um <literal>-</literal> à frente para especificar que a sub-string em particular não deve ser encontrada (correspondência invertida desse termo), e podes usar <literal>!</literal> no início da expressão para inverter a correspondência da totalidade da expressão. Podes também usar aspas à volta da string que deve conter espaços e se queres procurar por uma citação literal, poderás usar aspas duplas como uma sequência auto-escapada. Observa que o caracter de barra invertida não é usado como um caracter de escape, e não tem significado especial em buscas de sub-strings simples. Alguns exemplos tornaram isto mais claro: <screen>\n"
 "Alice Bob -Eve\n"
 "</screen> procura por strings que contenham ambos a Alice e o Bob mas não a Eve <screen>\n"
 "!Alice Bob\n"
@@ -4839,7 +4834,7 @@ msgstr ""
 "\"\"\n"
 "</screen> procura por uma dupla citação algures no texto <screen>\n"
 "\"Alice says \"\"hi\"\" to Bob\"\n"
-"</screen> procura pela expressão literal <quote>Alice says \"hi\" to Bob</quote>"
+"</screen> procura pela expressão literal <quote>Alice says \"hi\" to Bob</quote>."
 
 #. (para)
 msgid "Describing the use of regular expression searches is beyond the scope of this manual, but you can find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
@@ -5112,9 +5107,8 @@ msgid "<guilabel>Compare whitespaces</guilabel> includes all changes in indentat
 msgstr "<guilabel>Comparar espaços em branco</guilabel> inclui todas as alterações na indentação e espaços-em-branco em linha, como linhas adicionadas/removidas."
 
 #. (para)
-#, fuzzy
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Ignorar alterações em espaços em branco</guilabel> exclui alterações que são exclusivamente devidas a uma alteração na quantidade e tipo do espaço em branco, e.g. alterando a indentação ou alterando tabulações para espaços. Adicionando espaços em branco onde nenhum existia, ou remover completamente um espaço em branco, será sempre mostrado como uma alteração."
+msgstr "<guilabel>Ignorar alterações de espaços em branco</guilabel> exclui alterações que são exclusivamente devidas à mudança na quantidade ou tipo de espaços em branco, e.g. alterando a indentação ou alterando tabulações para espaços. Adicionando espaços em branco onde antes nenhum existia, ou remover completamente um espaço em branco, será sempre mostrado como uma alteração."
 
 #. (para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
@@ -5386,9 +5380,8 @@ msgid "It often happens that you already have the files you need in another proj
 msgstr "Acontece com frequência que já tens os ficheiros que precisas, noutro projecto no teu repositório, e que queres simplesmente copiá-los. Podias simplesmente copiar os ficheiros e adicioná-los como descrito acima, mas isso não te preservaria qualquer história. E se posteriormente tu corriges um problema nos ficheiros originais, só poderás integrar a correcção automaticamente se a nova cópia estiver relacionada com o original no Subversion."
 
 #. (para)
-#, fuzzy
 msgid "The easiest way to copy files and folders from within a working copy is to use the right drag menu. When you <action>right drag</action> a file or folder from one working copy to another, or even within the same folder, a context menu appears when you release the mouse. <placeholder-1/> Now you can copy existing versioned content to a new location, possibly renaming it at the same time."
-msgstr "A maneira mais fácil para copiar ficheiros e pastas, dentro da cópia de trabalho, é utilizar o menu de arrasto com o botão direito. Quando tu <action>arrastas-com-botão-direito</action> um ficheiro ou pasta de uma cópia de trabalho para outra, ou mesmo dentro da mesma pasta, aparece o menu de contexto quando libertas o rato. <placeholder-1/> Agora, podes copiar o conteúdo existente e versionado para uma nova localização, possivelmente renomeando-o ao mesmo tempo."
+msgstr "A maneira mais fácil para copiar ficheiros e pastas, dentro da cópia de trabalho, é utilizar o menu de arrasto com o botão direito. Quando <action>arrastas-com-botão-direito</action> um ficheiro ou pasta de uma cópia de trabalho para outra, ou mesmo dentro da mesma pasta, aparece o menu de contexto quando libertas o rato. <placeholder-1/> Agora, podes copiar o conteúdo versionado existente para uma nova localização, possivelmente renomeando-o ao mesmo tempo."
 
 #. (para)
 msgid "You can also copy or move versioned files within a working copy, or between two working copies, using the familiar cut-and-paste method. Use the standard Windows <action>Copy</action> or <action>Cut</action> to copy one or more versioned items to the clipboard. If the clipboard contains such versioned items, you can then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice> (note: not the standard Windows <action>Paste</action>) to copy or move those items to the new working copy location."
@@ -5571,9 +5564,8 @@ msgid "Getting a deleted file or folder back"
 msgstr "Recuperando um ficheiro ou pasta removido"
 
 #. (para)
-#, fuzzy
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
-msgstr "Se removeste um ficheiro ou pasta e já submeteste essa operação de remoção para o repositório, então o  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> normal não o pode mais recuperar. Mas o ficheiro ou pasta não está totalmente perdido. Se conheces a revisão em que o ficheiro ou pasta foi removido (se não sabes, usa a caixa de diálogo do registo para a encontrares), abre o navegador de repositório e comuta para essa revisão. Selecciona o ficheiro ou pasta que removeste, clica com o botão direito e selecciona <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Copiar para...</guimenuitem></menuchoice>, como destino para essa operação de cópia, selecciona o caminho para a tua cópia de trabalho."
+msgstr "Se removeste um ficheiro ou pasta e já submeteste essa operação de remoção para o repositório, então o normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> , não o pode mais recuperar. Mas o ficheiro ou pasta não está ainda totalmente perdido. Se conheceres a revisão em que o ficheiro ou pasta foi removido (se não sabes, usa a caixa de diálogo do registo para a encontrares), abre o navegador de repositório e comuta para essa revisão. Selecciona o ficheiro ou pasta que removeste, clica à direita e selecciona <menuchoice><guimenu>Menu de Contexto</guimenu><guimenuitem>Copiar para...</guimenuitem></menuchoice>, como destino dessa operação de cópia, selecciona o caminho para a tua cópia de trabalho."
 
 #. (title)
 msgid "Moving files and folders"
@@ -5909,9 +5901,8 @@ msgid "To add a property that doesn't have its own dialog, choose <guimenuitem>A
 msgstr "Para adicionar uma propriedade que não tem a sua própria caixa de diálogo, selecciona <guimenuitem>Avançado</guimenuitem> a partir do menu <guilabel>Novo...</guilabel>. "
 
 #. (para)
-#, fuzzy
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
-msgstr "Se queres aplicar a propriedade a muitos itens de uma só vez, selecciona os ficheiros/pastas no explorador e selecciona <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice>"
+msgstr "Se queres aplicar uma propriedade a vários itens de uma só vez, selecciona os ficheiros/pastas no explorador e então selecciona <menuchoice><guimenu>Menu de contexto</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "If you want to apply the property to <emphasis>every</emphasis> file and folder in the hierarchy below the current folder, check the <guilabel>Recursive</guilabel> checkbox."
@@ -6181,9 +6172,8 @@ msgid "Let's say you check out a working copy of <filename>/project1</filename> 
 msgstr "Digamos que efectuas o checkout da cópia de trabalho do <filename>/project1</filename> para <filename>D:\\dev\\project1</filename>. Selecciona a pasta <filename>D:\\dev\\project1</filename>, <action>clica à direita</action> e a partir do menu de contexto selecciona <menuchoice><guimenu>Menu Windows</guimenu><guimenuitem>Propriedades</guimenuitem></menuchoice>. Aparecerá a caixa de diálogo Propriedades. Vai então à aba Subversion. Aqui podes colocar propriedades. Clica <guibutton>Properties...</guibutton>. Na caixa de diálogo propriedades, ou efectuas duplo clique na <literal>svn:externals</literal> se já existir, ou clicas no botão <guibutton>Novo...</guibutton> e seleccionas <literal>externos</literal> a partir do menu. Para adicionar um novo externo, clica <guibutton>Novo...</guibutton> e então preenche a informação requerida na caixa de diálogo mostrada."
 
 #. (para)
-#, fuzzy
 msgid "URLs must be properly escaped or they will not work, e.g. you must replace each space with <literal>%20</literal>."
-msgstr "Os URLs têm de ser convenientemente escapados, ou não irão funcionar, e.g. deverás substituir cada espaço com <literal>%20</literal>, como mostrado no segundo exemplo, em cima."
+msgstr "Os URLs têm de ser convenientemente escapados, ou não irão funcionar, e.g. deverás substituir cada espaço com <literal>%20</literal>."
 
 #. (para)
 msgid "If you want the local path to include spaces or other special characters, you can enclose it in double quotes, or you can use the <literal>\\</literal> (backslash) character as a Unix shell style escape character preceding any special character. Of course this also means that you must use <literal>/</literal> (forward slash) as a path delimiter. Note that this behaviour is new in Subversion 1.6 and will not work with older clients."
@@ -6899,7 +6889,6 @@ msgid "A lock is not assigned to a specific user, but to a specific user and a w
 msgstr "O bloqueio não é atribuído apenas a um utilizador específico, mas a um utilizador específico e a uma cópia de trabalho. Tendo um bloqueio na cópia de trabalho previne também que o mesmo utilizador submeta um ficheiro bloqueado a partir de uma outra cópia de trabalho."
 
 #. (para)
-#, fuzzy
 msgid "As an example, imagine that user Jon has a working copy on his office PC. There he starts working on an image, and therefore acquires a lock on that file. When he leaves his office he's not finished yet with that file, so he doesn't release that lock. Back at home Jon also has a working copy and decides to work a little more on the project. But he can't modify or commit that same image file, because the lock for that file resides in his working copy in the office."
 msgstr "Como exemplo, imagina que o utilizador Jon tem uma cópia de trabalho no seu PC de escritório. Aí ele começa a trabalhar numa imagem, e para tal adquire um bloqueio para esse ficheiro. Quando abandona o escritório ele ainda não finalizou o trabalho nesse ficheiro, pelo que não libertou esse bloqueio. De volta a casa, o Jon também tem uma cópia de trabalho, e decide trabalhar mais um pouco no projecto. Mas ele não pode modificar ou submeter o mesmo ficheiro de imagem, porque o bloqueio para esse ficheiro reside na sua cópia de trabalho do escritório."
 
@@ -7401,9 +7390,8 @@ msgid "Deleted items"
 msgstr "Itens removidos"
 
 #. (para)
-#, fuzzy
 msgid "Deleted items e.g. a branch which is no longer required, are shown using an octagon (rectangle with corners cut off). The default colour is red."
-msgstr "Itens removidos, e.g. um ramo que não é mais necessário, são mostrados como um octógono (rectângulo com os cantos cortados). A cor por defeito é o vermelho."
+msgstr "Itens removidos, e.g. um ramo que não é mais necessário, são mostrados como um octógono (rectângulo com os cantos cortados). A cor por defeito é a vermelho."
 
 #. (term)
 msgid "Renamed items"
@@ -7925,14 +7913,12 @@ msgid "This property activates the bug tracking system in <emphasis>Regex</empha
 msgstr "Esta propriedade activa o sistema de controlo de bugs no modo <emphasis>Regex</emphasis>. Ele contém uma única expressão regular ou duas expressões regulares separadas por uma nova linha."
 
 #. (para)
-#, fuzzy
 msgid "If two expressions are set, then the first expression is used as a pre-filter to find expressions which contain bug IDs. The second expression then extracts the bare bug IDs from the result of the first regex. This allows you to use a list of bug IDs and natural language expressions if you wish. e.g. you might fix several bugs and include a string something like this: <quote>This change resolves issues #23, #24 and #25</quote>."
-msgstr "Se são usadas duas expressões, então a primeira é usada como um pré-filtro para encontrar as expressões que contêm os IDs dos problemas. A segunda expressão extrai então os IDs dos bugs encontrados, a partir do resultado da primeira regex. Isto permite-te usar uma lista de IDs de problemas e as expressões, em linguagem natural, que desejes. e.g. poderás resolver vários problemas e incluir uma string com esta: <quote>Esta alteração resolve os assuntos #23, #24 e #25</quote>"
+msgstr "Se são colocadas duas expressões, então a primeira é usada como um pré-filtro para encontrar as expressões que contêm os IDs dos problemas. A segunda expressão extrai então os IDs dos bugs encontrados a partir do resultado da primeira regex. Isto permite-te usar uma lista de IDs de problemas e as expressões que desejes, em linguagem natural. E.g. poderás resolver vários problemas e incluir uma string com esta: <quote>Esta alteração resolve os assuntos #23, #24 e #25</quote>."
 
 #. (para)
-#, fuzzy
 msgid "If you want to catch bug IDs as used in the expression above inside a log message, you could use the following regex strings, which are the ones used by the TortoiseSVN project: <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and <literal>(\\d+)</literal>."
-msgstr "Se queres apanhar os IDs dos problemas, como é usado na expressão acima no interior da mensagem de registo, podes usar as seguintes strings regex, que são as usadas pelo projecto TortoiseSVN: <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and <literal>(\\d+)</literal>"
+msgstr "Se queres apanhar os IDs dos problemas, como é usado na expressão acima  dentro da mensagem de registo, poderás usar as seguintes strings regex, que são as usadas pelo projecto TortoiseSVN: <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and <literal>(\\d+)</literal>."
 
 #. (para)
 msgid "The first expression picks out <quote>issues #23, #24 and #25</quote> from the surrounding log message. The second regex extracts plain decimal numbers from the output of the first regex, so it will return <quote>23</quote>, <quote>24</quote> and <quote>25</quote> to use as bug IDs."
@@ -9635,9 +9621,8 @@ msgid "You can specify a different location for the Subversion configuration fil
 msgstr "Tu podes especificar aqui uma localização diferente para o teu ficheiro de configuração do Subversion. Isto irá afectar todas as operações do TortoiseSVN."
 
 #. (para)
-#, fuzzy
 msgid "Set this to <literal>true</literal> if you want a dialog to pop up for every command showing the command line used to start TortoiseProc.exe."
-msgstr "Configura isto a <literal>true</literal> se desejas que apareca uma caixa de diálogo para cada comando, mostrando a linha de comando usada para arrancar o TortoiseProc.exe"
+msgstr "Configura isto a <literal>true</literal> se desejas que apareca uma caixa de diálogo para cada comando, mostrando a linha de comando usada para arrancar o TortoiseProc.exe."
 
 #. (para)
 msgid "To add a cache tray icon for the TSVNCache program, set this value to <literal>true</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
@@ -9983,9 +9968,8 @@ msgid "If a source and destination files are supplied, SubWCRev copies source to
 msgstr "Se forem fornecidos os ficheiros de origem e destino, o SubWCRev copia da fonte para o destino, efectuando a substituição de palavras-chave da seguinte forma: <placeholder-1/>"
 
 #. (para)
-#, fuzzy
 msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
-msgstr "Algumas dessas palavras-chave aplicam-se a um único ficheiro, em vez de a toda a cópia de trabalho, pelo que só fará sentido usá-los quando o SubWCRev for chamado a examinar um único ficheiro. Isto aplica-se ao <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> e <literal>$WCLOCKCOMMENT$</literal>."
+msgstr "Algumas dessas palavras-chave aplicam-se a um único ficheiro em vez de a toda a cópia de trabalho, pelo que só fará sentido usá-los quando o SubWCRev for chamado a examinar um único ficheiro. Isto aplica-se ao <literal>$WCINSVN$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> e <literal>$WCLOCKCOMMENT$</literal>."
 
 #. (title)
 msgid "Keyword Example"
@@ -10175,7 +10159,7 @@ msgid "If you need to access Subversion revision information from other programs
 msgstr "Se necessitas de aceder à informação de revisão do Subversion a partir de outros programas, podes usar a interface COM do SubWCRev. O objecto a criar é o <literal>SubWCRev.object</literal> e os métodos suportados são os seguintes: <placeholder-1/>"
 
 #. (programlisting)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "\n"
 "// testCOM.js - javascript file\n"
@@ -10305,8 +10289,8 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"// testCOM.js - ficheiro javascript\n"
-"// script de teste para o SubWCRev COM/Automation-object\n"
+"// testCOM.js - javascript file\n"
+"// test script for the SubWCRev COM/Automation-object\n"
 "\n"
 "filesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n"
 "\n"
@@ -10340,6 +10324,8 @@ msgstr ""
 "IsSvnItem = \" +\n"
 "                revObject1.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
+"                revObject1.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
 "                revObject1.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject1.LockCreationDate + \"\\n"
@@ -10363,6 +10349,8 @@ msgstr ""
 "IsSvnItem = \" +\n"
 "                revObject2.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
+"                revObject2.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
 "                revObject2.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject2.LockCreationDate + \"\\n"
@@ -10386,6 +10374,8 @@ msgstr ""
 "IsSvnItem = \" +\n"
 "                revObject3.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
+"                revObject3.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
 "                revObject3.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject3.LockCreationDate + \"\\n"
@@ -10409,6 +10399,8 @@ msgstr ""
 "IsSvnItem = \" +\n"
 "                revObject4.IsSvnItem + \"\\n"
 "NeedsLocking = \" +\n"
+"                revObject4.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
 "                revObject4.IsLocked + \"\\n"
 "LockCreationDate = \" +\n"
 "                revObject4.LockCreationDate + \"\\n"
@@ -11167,7 +11159,6 @@ msgid "Use a nested working copy"
 msgstr "Usar uma cópia de trabalho aninhada."
 
 #. (para)
-#, fuzzy
 msgid "Create a new folder within your project to contain the common code, but do not add it to Subversion."
 msgstr "Cria uma nova pasta no teu projecto para conter o código comum, mas não o adiciones ao Subversion."
 
@@ -11275,9 +11266,8 @@ msgid "Remove a working copy"
 msgstr "Remover uma cópia de trabalho"
 
 #. (para)
-#, fuzzy
 msgid "If you have a working copy which you no longer need, how do you get rid of it cleanly? Easy - just delete it in Windows Explorer! Working copies are private local entities, and they are self-contained. Deleting a working copy in Windows Explorer does not affect the data in the repository at all."
-msgstr "Se tu tens uma cópia de trabalho que já não necessitas, como te livrares dela de modo correcto? Fácil - apenas apaga-a no Explorador do Windows! Cópias de trabalho são entidades locais privadas auto contidas."
+msgstr "Se tu tens uma cópia de trabalho que já não necessitas, como te livrares dela de modo correcto? Fácil - apaga-a apenas no Explorador do Windows! As cópias de trabalho são entidades locais privadas, auto contidas. Apagar uma cópia de trabalho no Explorador do Windows não afecta de modo algum os dados no repositório."
 
 #. (title)
 msgid "Useful Tips For Administrators"
