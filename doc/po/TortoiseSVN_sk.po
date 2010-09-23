@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-12 06:29 +0000\n"
-"PO-Revision-Date: 2010-09-20 09:13+0100\n"
+"PO-Revision-Date: 2010-09-23 13:15+0100\n"
 "Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2459,11 +2459,11 @@ msgstr ""
 
 #. (para)
 msgid "It is also possible to have more than one authentication source for your Subversion repository. To do this, you need to make each authentication type non-authoritative, so that Apache will check multiple sources for a matching username/password."
-msgstr ""
+msgstr "Taktiež môžete mať viacero overovacích zdrojov do vášho Subversion úložiska. Aby toto bolo možné, potrebujete spraviť káždý overovací druh ako neautoritátívny, takže Apache bude kontrolovať viacero zdrojov pri hľadaní mena/hesla."
 
 #. (para)
 msgid "A common scenario is to use both Windows domain authentication and a <literal>passwd</literal> file, so that you can provide SVN access to users who don't have a Windows domain login."
-msgstr ""
+msgstr "Bežné prípady sú používanie oboch, overovanie Windows domény a <literal>passwd</literal> súboru, takže môžete poskytnúť SVN prístup užívateľom, ktorý sa neprihlasujú do Windows domény."
 
 #. (para)
 msgid ""
@@ -2472,6 +2472,10 @@ msgid ""
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
+"Pre povolenie oboch, Windows domény a <filename>passwd</filename> overovacieho súboru, pridajte nasledovné záznamy do časti <literal>&lt;Location&gt;</literal> v Apache konfiguračnom súbore: <screen>\n"
+"AuthBasicAuthoritative Off\n"
+"SSPIAuthoritative Off\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2500,6 +2504,30 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"Tu mám príklad úplnej konfigurácie Apache pre spojenie Windows domény a <literal>passwd</literal> overovacieho súboru: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNListParentPath on\n"
+"  SVNParentPath D:\\SVN\n"
+"\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthzSVNAccessFile svnaccessfile.txt\n"
+"\n"
+"# NT Domain Logins.\n"
+"  AuthType SSPI\n"
+"  SSPIAuth On\n"
+"  SSPIAuthoritative Off\n"
+"  SSPIDomain &lt;domaincontroller&gt;\n"
+"  SSPIOfferBasic On\n"
+"\n"
+"# Htpasswd Logins.\n"
+"  AuthType Basic\n"
+"  AuthBasicAuthoritative Off\n"
+"  AuthUserFile passwd\n"
+"\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Securing the server with SSL"
@@ -2511,7 +2539,7 @@ msgstr "SSL"
 
 #. (para)
 msgid "Even though Apache 2.2.x has OpenSSL support, it is not activated by default. You need to activate this manually."
-msgstr ""
+msgstr "Aj keď Apache 2.2.x má podporu OpenSSL, nie je to zapnuté bežne. Treba to aktivovať ručne. "
 
 #. (para)
 msgid ""
@@ -2526,6 +2554,16 @@ msgid ""
 "SSLMutex default\n"
 "</screen>"
 msgstr ""
+"V Apache konfiguračnom súbore odkomentujte tieto riadky: <screen>\n"
+"#LoadModule ssl_module modules/mod_ssl.so\n"
+"</screen> and at the bottom <screen>\n"
+"#Include conf/extra/httpd-ssl.conf\n"
+"</screen> then change the line (on one line) <screen>\n"
+"SSLMutex \"file:C:/Program Files/Apache Software Foundation/\\\n"
+"Apache2.2/logs/ssl_mutex\"\n"
+"</screen> to <screen>\n"
+"SSLMutex default\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2533,6 +2571,9 @@ msgid ""
 "bin\\openssl req -config conf\\openssl.cnf -new -out my-server.csr\n"
 "</screen> You will be asked for a passphrase. Please don't use simple words but whole sentences, e.g. a part of a poem. The longer the phrase the better. Also you have to enter the URL of your server. All other questions are optional but we recommend you fill those in too."
 msgstr ""
+"Ďalej potrebujete vytvoriť SSL certifikát. Otvorte príkazový riadok (DOS-Box) a presunte sa do adresára Apache (napr. <filename>C:\\program files\\apache group\\apache2</filename>) a napíšte nasledujúci príkaz: <screen>\n"
+"bin\\openssl req -config conf\\openssl.cnf -new -out my-server.csr\n"
+"</screen> Vytvorte heslo. Nepoužívajte jednoduché slovné heslá, ale celé vety, napr. časť básne. Dlhšie heslo je lepšie. Taktiež zadajte URL vášho servera. Všetky ostatné otázky sú nepovinné, ale odporúčame ich tiež vyplniť."
 
 #. (para)
 msgid ""
@@ -2540,6 +2581,9 @@ msgid ""
 "bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
 "</screen>"
 msgstr ""
+"Obvykle je automaticky vytvorený súbor <filename>privkey.pem</filename>, ale pokiaľ nie je, potrebujete zadať tento príkaz na jeho vytvorenie: <screen>\n"
+"bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2556,6 +2600,18 @@ msgid ""
 "                 -outform DER\n"
 "</screen> These commands created some files in the Apache <filename>conf</filename> folder (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 msgstr ""
+"Potom npíšte nasledovné príkazy <screen>\n"
+"bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
+"</screen> and (on one line) <screen>\n"
+"bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
+"-config conf\\openssl.cnf\n"
+"</screen> a potom toto celé na jeden riadok <screen>\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
+"                 -req -signkey conf\\server.key -days 4000\n"
+"</screen> Takto sa vytvorí certifikát, ktorý skončí o 4000 dní. A nakoniec zadajte tento príkaz celý na jeden riadok: <screen>\n"
+"bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
+"                 -outform DER\n"
+"</screen> Tieto príkazy vytvoria niektoré súbory v Apache <filename>conf</filename> adresári (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 
 #. (para)
 msgid "Restart the Apache service."
@@ -2563,7 +2619,7 @@ msgstr "Reštartujte Apache server."
 
 #. (para)
 msgid "Point your browser to <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
-msgstr ""
+msgstr "Zadajte do vášho prehliadača <systemitem class=\"url\">https://servername/svn/project</systemitem> ..."
 
 #. (title)
 msgid "SSL and Internet Explorer"
@@ -2571,7 +2627,7 @@ msgstr "SSL a Internet Explorer"
 
 #. (para)
 msgid "If you're securing your server with SSL and use authentication against a windows domain you will encounter that browsing the repository with the Internet Explorer doesn't work anymore. Don't worry - this is only the Internet Explorer not able to authenticate. Other browsers don't have that problem and TortoiseSVN and any other Subversion client are still able to authenticate."
-msgstr ""
+msgstr "Ak máte zabezpečený server pomocou SSL a používate overovanie namiesto Windows domény, potom sa stretnete s tým, že prehliadanie úložiska pomocou Internet Exploreru už nefunguje. Ale neobávajte sa - toto sa len nedokáže overiť Internet Explorer. Ostatné prehliadače nemajú takýto problém a TortoiseSVN a hociaký iný Subversion klient je sa chopný overiť"
 
 #. (para)
 msgid "define a separate <literal>&lt;Location /path&gt;</literal> directive in the Apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
@@ -2592,11 +2648,11 @@ msgstr ""
 
 #. (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
-msgstr ""
+msgstr "Ak chcete stále používať IE na prehliadanie úložiska môžete buď: <placeholder-1/>"
 
 #. (title)
 msgid "Forcing SSL access"
-msgstr ""
+msgstr "Vynútený SSL prístup"
 
 #. (para)
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-SSL (http) and only allow https access. To do this, you have to add another directive to the Subversion <literal>&lt;Location&gt;</literal> block: <literal>SSLRequireSSL</literal>."
