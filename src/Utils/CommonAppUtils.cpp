@@ -258,7 +258,7 @@ void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
             HDITEM hdi = {0};
             hdi.mask = HDI_TEXT;
             hdi.pszText = textbuf;
-            hdi.cchTextMax = sizeof(textbuf);
+            hdi.cchTextMax = _countof(textbuf);
             pHdrCtrl->GetItem(col, &hdi);
             int cx = pListCtrl->GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
             for (int index = 0; index<nItemCount; ++index)

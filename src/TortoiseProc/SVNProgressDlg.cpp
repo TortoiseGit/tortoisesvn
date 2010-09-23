@@ -786,7 +786,7 @@ void CSVNProgressDlg::ResizeColumns()
         HDITEM hdi = {0};
         hdi.mask = HDI_TEXT;
         hdi.pszText = textbuf;
-        hdi.cchTextMax = sizeof(textbuf);
+        hdi.cchTextMax = _countof(textbuf);
         ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItem(col, &hdi);
         int cx = m_ProgList.GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
 
@@ -1313,10 +1313,10 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
                     switch (pDispInfo->item.iSubItem)
                     {
                     case 0:
-                        lstrcpyn(m_columnbuf, data->sActionColumnText, MAX_PATH);
+                        lstrcpyn(m_columnbuf, data->sActionColumnText, min(MAX_PATH-2, pDispInfo->item.cchTextMax));
                         break;
                     case 1:
-                        lstrcpyn(m_columnbuf, data->sPathColumnText, pDispInfo->item.cchTextMax);
+                        lstrcpyn(m_columnbuf, data->sPathColumnText, min(MAX_PATH-2, pDispInfo->item.cchTextMax));
                         if (!data->bAuxItem)
                         {
                             int cWidth = m_ProgList.GetColumnWidth(1);
@@ -1332,7 +1332,7 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
                         }
                         break;
                     case 2:
-                        lstrcpyn(m_columnbuf, data->mime_type, MAX_PATH);
+                        lstrcpyn(m_columnbuf, data->mime_type, min(MAX_PATH-2, pDispInfo->item.cchTextMax));
                         break;
                     default:
                         m_columnbuf[0] = 0;
