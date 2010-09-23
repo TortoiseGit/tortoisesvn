@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-15 22:56 +0000\n"
-"PO-Revision-Date: 2010-09-20 10:30+0200\n"
+"PO-Revision-Date: 2010-09-23 12:35+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -836,7 +836,7 @@ msgstr ""
 "Die andere wichtige Funktion dieses Dialogfensters ist das Eingabefeld für "
 "die <guilabel>Import-Meldung</guilabel>. Darin geben Sie eine Meldung ein, "
 "die beschreibt, was geändert haben. Wenn Sie dann später Ihre "
-"Projekthistorie durchsuchen, stellen diese Log-Meldungen einen wertvollen "
+"Projekthistorie durchsuchen, stellen diese Logmeldungen einen wertvollen "
 "Hinweis für Änderungen an Ihren Quellen dar. In diesem Fall können Sie "
 "einfach etwas wie <quote>Importieren das Widget1 Projekts</quote> eintragen. "
 "Klicken Sie auf <guibutton>OK</guibutton>, und der Ordner wird zum "
@@ -4949,6 +4949,10 @@ msgstr ""
 #.(para)
 msgid "Dragging files from the list at the bottom of the commit dialog to the log message edit box will insert the paths as plain text into that edit box. This is useful if you want to write commit log messages that include the paths that are affected by the commit."
 msgstr ""
+"Wenn Sie Dateien aus der unteren Liste des Übertragen-Dialogs in das "
+"Eingabefeld für die Logmeldung ziehen, werden die Pfadnamen im Klartext in "
+"das Eingebafeld eingefügt. Das ist dann nützlich, wenn Sie die von der "
+"Übertragung betroffenen Pfade in der Logmeldung erwähnen wollen."
 
 #.(title)
 #.(title)
@@ -7190,6 +7194,9 @@ msgstr ""
 #.(para)
 msgid "To refresh the latest revision in case there were other commits while the log dialog was open, hit the <keycap>F5</keycap> key."
 msgstr ""
+"Drücken Sie die <keycap>F5</keycap>-Taste, um die neueste Version zu "
+"aktualisieren, falls es Übertragungen gab, während der Log-Dialog geöffnet "
+"war."
 
 #.(para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
@@ -7329,6 +7336,11 @@ msgstr ""
 #.(para)
 msgid "Since TortoiseSVN keeps a cache of all the log information, edits made for author and log messages will only show up on your local installation. Other users using TortoiseSVN will still see the cached (old) authors and log messages until they refresh the log cache."
 msgstr ""
+"Da TortoiseSVN einen Puffer aller Log-Informationen beibehält, werden "
+"Änderungen an Autor und Log-Meldungen nur in Ihrer lokale Installation "
+"auftauchen. Andere TortoiseSVN Anwender werden noch die auf Ihrem Rechner "
+"zwischengespeicherten (alten) Autoren und Log-Meldungen sehen, bis sie den "
+"Log-Puffer aktualisieren."
 
 #.(title)
 msgid "Filtering Log Messages"
