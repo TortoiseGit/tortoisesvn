@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-09-15 22:56 +0000\n"
-"PO-Revision-Date: 2010-09-23 11:33-0000\n"
+"POT-Creation-Date: 2010-09-23 19:41 +0000\n"
+"PO-Revision-Date: 2010-09-24 15:36-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -1437,14 +1437,14 @@ msgid ""
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
+"</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
 msgstr ""
-"Amostras de scripts de gancho podem ser encontrados na pasta <filename>hooks</filename> do repositório. Essas amostras de scritps são adequados a servidores Unix/Linux, necessitando de ser modificados no caso do teu servidor ser Windows. A amostra abaixo mostra um ficheiro batch que poderá ser usado para implementar um gancho pre-revprop-change. <screen>\n"
+"Amostras de scripts de gancho podem ser encontrados na pasta <filename>hooks</filename> do repositório. Essas amostras de scritps são adequados para servidores Unix/Linux, necessitando de serem modificados no caso de o teu servidor ser Windows. O gancho pode ser um ficheiro batch ou um executável. A amostra abaixo mostra um ficheiro batch que poderá ser usado para implementar um gancho pre-revprop-change. <screen>\n"
 "rem Only allow log messages to be changed.\n"
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Poderás observar que tudo o que for enviado para o stdout é descartado. Se queres que uma mensagem apareça na caixa de diálogo Rejeição de Submissão, deverás enviá-la para o stderr. Num ficheiro batch isto é conseguido usando <filename>&gt;&amp;2</filename>."
+"</screen> Observa que tudo o que foi enviado para o stdout é descartado. Se queres que uma mensagem apareça na caixa de diálogo Rejeição de Submissão, deverás enviá-la para o stderr. Num ficheiro batch isto é obtido usando <filename>&gt;&amp;2</filename>."
 
 #. (title)
 msgid "Overriding Hooks"
@@ -4326,8 +4326,8 @@ msgid "Compare and blame with working BASE"
 msgstr "Compara e responsabiliza com a BASE de trabalho"
 
 #. (para)
-msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)."
-msgstr "Responsabiliza a revisão seleccionada e o ficheiro na tua BASE de trabalho, e compara os relatórios de responsabilidade usando a ferramenta de comparação visual. Ler <xref linkend=\"tsvn-dug-blame-diffs\"/> para mais detalhes. (só ficheiros)."
+msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)"
+msgstr "Responsabiliza a revisão seleccionada, e o ficheiro na tua BASE de trabalho, então compara os relatórios de responsabilidade usando a ferramenta de comparação visual. Lê <xref linkend=\"tsvn-dug-blame-diffs\"/> para mais detalhes. (apenas ficheiros)"
 
 #. (term)
 msgid "Show changes as unified diff"
@@ -4350,8 +4350,8 @@ msgid "Compare and blame with previous revision"
 msgstr "Compara e responsabiliza com a revisão anterior"
 
 #. (para)
-msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)."
-msgstr "Mostra a caixa de diálogo de ficheiros alterados, permitindo-te seleccionar os ficheiros. Responsabiliza a revisão seleccionada e a revisão prévia, e compara os resultados usando a ferramenta de comparação. (só pastas)."
+msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)"
+msgstr "Mostra a caixa de diálogo de ficheiros alterados, permitindo-te seleccionar os ficheiros. Responsabiliza a revisão seleccionada e a revisão prévia, então compara os resultados usando a ferramenta de comparação. (apenas pastas)"
 
 #. (term)
 #. (term)
@@ -4359,8 +4359,8 @@ msgid "Save revision to..."
 msgstr "Guardar revisão em..."
 
 #. (para)
-msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
-msgstr "Guarda a revisão seleccionada para um ficheiro, para que tenhas uma revisão antiga de esse ficheiro (só ficheiros)."
+msgid "Save the selected revision to a file so you have an older version of that file. (files only)"
+msgstr "Guarda a revisão seleccionada num ficheiro, para que tenhas uma revisão antiga de esse ficheiro (apenas ficheiros)"
 
 #. (term)
 #. (term)
@@ -4368,8 +4368,8 @@ msgid "Open / Open with..."
 msgstr "Abrir / Abrir com..."
 
 #. (para)
-msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)."
-msgstr "Abrir o ficheiro seleccionado com o programa de leitura por defeito, para esse tipo de ficheiro, ou um programa à tua escolha. (só ficheiros)."
+msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)"
+msgstr "Abrir o ficheiro seleccionado, com o programa de leitura por defeito para esse tipo de ficheiro, ou um programa à tua escolha. (apenas ficheiros)"
 
 #. (term)
 #. (term)
@@ -4377,8 +4377,8 @@ msgid "Blame..."
 msgstr "Responsabilizar..."
 
 #. (para)
-msgid "Blame the file up to the selected revision. (files only)."
-msgstr "Responsabiliza o ficheiro até à revisão seleccionada (só ficheiros)."
+msgid "Blame the file up to the selected revision. (files only)"
+msgstr "Responsabiliza o ficheiro até à revisão seleccionada (apenas ficheiros)"
 
 #. (term)
 msgid "Browse repository"
@@ -7987,8 +7987,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "A secção anterior ocupa-se com a adição da informação do problema nas mensagens de registo. Mas se tu precisares de obter informações do teu gestor de problemas? A caixa de diálogo submeter tem um interface COM que permite a integração com um programa externo, que consegue comunicar com o teu gestor. Tipicamente tu poderás querer consultar o gestor para obter a lista de problemas abertos atribuídos a ti, de modo a que possas seleccionar os problemas que estarão a ser tratados nesta submissão."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Tal interface, qualquer que seja, é claro altamente específico ao teu sistema de gestão de problemas pelo que não poderemos fornecer esta parte, e descrever como criar tal programa está fora do âmbito deste manual. A definição de interface e amostras de plugins em C# e C++/ATL podem ser obtidas na pasta <literal>contrib</literal> em <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>repositório do TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica-te como aceder ao repositório). Um resumo da API é também fornecido em <xref linkend=\"tsvn-ibugtraqprovider\"/> Outro exemplo (funcional) de plugin em C# é o <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> que implementa o interface COM necessário para interagir com o gestor de assuntos do <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Tal interface, qualquer que seja, é claro altamente específica ao teu sistema de gestão de problemas, pelo que não poderemos fornecer esta parte e descrever como criar tal programa está fora do âmbito deste manual. A definição de interface e amostras de plugins em C# e C++/ATL podem ser obtidas na pasta <literal>contrib</literal> em <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica-te como aceder ao repositório). Um resumo da API é também fornecido em <xref linkend=\"tsvn-ibugtraqprovider\"/> Outro exemplo (funcional) de plugin em C# é o <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> que implementa o interface COM necessário para interagir com o gestor de assuntos do <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9512,8 +9512,8 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr "<placeholder-1/> Clica no <guibutton>Adicionar...</guibutton> para utilizar o plugin com uma cópia de trabalho em particular. Aqui podes especificar o caminho da cópia de trabalho, escolher qual o plugin a usar a partir de um lista drop-down com todos os controladores de problemas registados, e qualquer parâmetro a passar. Os parâmetros serão específicos ao plugin, mas poderão incluir o teu nome de utilizador no controlador de problemas, para que o plugin possa consultar os problemas que te estão atribuídos."
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr "Esta propriedade especifica o UUID COM do IBugtraqProvider, por exemplo <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (Neste exemplo é o UUID do <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>fornecedor Gurtle bugtraq</citetitle></ulink>, que é o fornecedor para o controlador de problemas <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgstr "Esta propriedade especifica o UUID COM do IBugtraqProvider, por exemplo <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (Este exemplo é o UUID do <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>fornecedor Gurtle bugtraq</citetitle></ulink>, que é o fornecedor para o controlador de problemas <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>)."
 
 #. (para)
 msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
@@ -11781,8 +11781,8 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> filtrar por ID de bug"
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/>"
-msgstr "Abre a caixa de diálogo de registo. O <placeholder-1/> específica o ficheiro ou pasta para o qual o registo deve ser mostrado. Seis opções adicionais podem ser introduzidas: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> activa a caixa de verificação  'parar-na-cópia', <placeholder-5/> activa a caixa de verificação 'íncluir revisões integradas',<placeholder-6/>  preenche o texto do filtro, <placeholder-7/> força o filtro a usar texto em vez de regex, ou <placeholder-8/> força o filtro a usar regex em vez de uma pesquisa de texto simples, e <placeholder-9/> com X sendo um número entre 1 e 7. Os números correspondem a: <placeholder-10/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/>"
+msgstr "Abre a caixa de diálogo de registo. O <placeholder-1/> específica o ficheiro ou pasta, para o qual o registo deve ser mostrado. Seis opções adicionais podem ser configuradas: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> activa a caixa de verificação  'parar-na-cópia', <placeholder-5/> activa a caixa de verificação 'íncluir revisões integradas',<placeholder-6/>  preenche o texto do filtro, <placeholder-7/> força o filtro a usar texto em vez de regex, ou <placeholder-8/> força o filtro a usar regex em vez de uma pesquisa de texto simples, e <placeholder-9/> com X sendo um número entre 1 e 7. Os números correspondem a: <placeholder-10/>"
 
 #. (option)
 #. (option)
@@ -11900,6 +11900,7 @@ msgstr "Exporta a cópia de trabalho em <placeholder-1/> para outra pasta. Se o 
 
 #. (option)
 #. (option)
+#. (option)
 msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
@@ -11919,9 +11920,13 @@ msgstr "/fromrev:xxx"
 msgid "/torev:xxx"
 msgstr "/torev:xxx"
 
+#. (option)
+msgid "/reintegrate"
+msgstr "/reintegrar"
+
 #. (entry)
-msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. These pre-fill the relevant fields in the merge dialog."
-msgstr "Abre a caixa de diálogo integrar. O <placeholder-1/> específica a pasta de destino. Para integrar um intervalo de revisões estão disponíveis as seguintes opções: <placeholder-2/>, <placeholder-3/>. Para integrar duas árvores de repositório, estão disponíveis as seguintes opções: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> e <placeholder-7/>. Estas pré-preencher os campos relevantes na caixa de diálogo integrar."
+msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. For doing a reintegrate merge, use the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill the relevant fields in the merge dialog."
+msgstr "Abre a caixa de diálogo integrar. O <placeholder-1/> específica a pasta de destino. Para integrar um intervalo de revisões, estão disponíveis as seguintes opções: <placeholder-2/>, <placeholder-3/>. Para integrar duas árvores de repositório, estão disponíveis as seguintes opções: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> e <placeholder-7/>. Para efectuar uma reintegração, usa as seguintes opções: <placeholder-8/> and <placeholder-9/>. Estas preenchem previamente os campos relevantes na caixa de diálogo integrar."
 
 #. (entry)
 msgid "Opens the merge all dialog. The <placeholder-1/> specifies the target directory."
