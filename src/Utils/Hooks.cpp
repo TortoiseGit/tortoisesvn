@@ -431,7 +431,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     TCHAR szTempPath[MAX_PATH];
     TCHAR szOutput[MAX_PATH];
     TCHAR szErr[MAX_PATH];
-    GetTempPath(sizeof(szTempPath)/sizeof(TCHAR),szTempPath);
+    GetTempPath(_countof(szTempPath),szTempPath);
     GetTempFileName(szTempPath, _T("svn"), 0, szErr);
 
     // setup redirection handles

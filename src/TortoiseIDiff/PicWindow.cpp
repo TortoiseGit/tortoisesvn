@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -327,7 +327,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
             HDROP hDrop = (HDROP)wParam;
             TCHAR szFileName[MAX_PATH];
             // we only use the first file dropped (if multiple files are dropped)
-            DragQueryFile(hDrop, 0, szFileName, sizeof(szFileName)/sizeof(TCHAR));
+            DragQueryFile(hDrop, 0, szFileName, _countof(szFileName));
             SetPic(szFileName, _T(""), bMainPic);
             FitImageInWindow();
             InvalidateRect(*this, NULL, TRUE);
@@ -446,7 +446,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                 {
                     NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
                     NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
-                    BuildInfoString(m_wszTip, sizeof(m_wszTip)/sizeof(TCHAR), true);
+                    BuildInfoString(m_wszTip, _countof(m_wszTip), true);
                     if (pNMHDR->code == TTN_NEEDTEXTW)
                     {
                         pTTTW->lpszText = m_wszTip;
@@ -568,9 +568,9 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
     {
         TCHAR buf[MAX_PATH];
         if (nFrames > 1)
-            _stprintf_s(buf, sizeof(buf)/sizeof(TCHAR), (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
+            _stprintf_s(buf, _countof(buf), (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
         else
-            _stprintf_s(buf, sizeof(buf)/sizeof(TCHAR), (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
+            _stprintf_s(buf, _countof(buf), (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
         imgnumstring = buf;
     }
 
@@ -1225,7 +1225,7 @@ void CPicWindow::Paint(HWND hwnd)
             if (bShowInfo)
             {
                 TCHAR infostring[8192];
-                BuildInfoString(infostring, sizeof(infostring)/sizeof(TCHAR), false);
+                BuildInfoString(infostring, _countof(infostring), false);
                 // set the font
                 NONCLIENTMETRICS metrics = {0};
                 metrics.cbSize = sizeof(NONCLIENTMETRICS);

@@ -1,19 +1,6 @@
-//
-// Registry.cpp
-//
-
-#include "stdafx.h"
-#include <shlwapi.h>
-#include <objbase.h> // ATL base
-#include <atlbase.h>
-#include <assert.h>
-
-
-#include "Register.h"
-
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2008 - TortoiseSVN
+// Copyright (C) 2005-2008,2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,8 +15,15 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-//
-////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include <shlwapi.h>
+#include <objbase.h> // ATL base
+#include <atlbase.h>
+#include <assert.h>
+
+
+#include "Register.h"
 
 //
 // Internal helper functions prototypes
@@ -81,7 +75,7 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
     TCHAR szModule[1024];
     ::GetModuleFileName(hModule,
                         szModule,
-                        sizeof(szModule)/sizeof(TCHAR)) ;
+                        _countof(szModule)) ;
 
     _tcscat_s(szModule, 1024, _T(" /automation"));
     // Convert the CLSID into a TCHAR.
@@ -148,7 +142,7 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
     TCHAR szModule[512] ;
     ::GetModuleFileName(hModule,
                         szModule,
-                        sizeof(szModule)/sizeof(TCHAR)) ;
+                        _countof(szModule)) ;
 
     // Convert the CLSID into a TCHAR.
     TCHAR szCLSID[CLSID_STRING_SIZE] ;

@@ -380,7 +380,7 @@ void CBaseDropTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, D
             UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
             for(UINT i = 0; i < cFiles; ++i)
             {
-                DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
+                DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
                 urlList.AddPath(CTSVNPath(szFileName));
             }
             m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), root, urlList, m_pRepoBrowser->GetRevision(), *pdwEffect, pt);

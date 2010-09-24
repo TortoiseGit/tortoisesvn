@@ -389,14 +389,14 @@ CString	 SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
             if ((ErrPtr->apr_err > APR_OS_START_USEERR)
                 && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
             {
-                msg = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
+                msg = svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf));
             }
             /* Otherwise, this must be an APR error code. */
             else
             {
                 svn_error_t *temp_err = NULL;
                 const char * err_string = NULL;
-                temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)-1), ErrPtr->pool);
+                temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
                 if (temp_err)
                 {
                     svn_error_clear (temp_err);

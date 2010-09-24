@@ -384,9 +384,9 @@ int CStatGraphDlg::GetCalendarWeek(const CTime& time)
     int iFirstDayOfWeek = 0;
     int iFirstWeekOfYear = 0;
     TCHAR loc[2];
-    GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, sizeof(loc)/sizeof(TCHAR));
+    GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, _countof(loc));
     iFirstDayOfWeek = int(loc[0]-'0');
-    GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, sizeof(loc)/sizeof(TCHAR));
+    GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, _countof(loc));
     iFirstWeekOfYear = int(loc[0]-'0');
     CTime dDateFirstJanuary(iYear,1,1,0,0,0);
     int iDayOfWeek = (dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;

@@ -1257,7 +1257,7 @@ bool CCommitDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
                 WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
                 if (m_ProjectProperties.bFileListInEnglish)
                     langID = 1033;
-                SVNStatus::GetStatusString(AfxGetResourceHandle(), status, buf, sizeof(buf)/sizeof(TCHAR), langID);
+                SVNStatus::GetStatusString(AfxGetResourceHandle(), status, buf, _countof(buf), langID);
                 line.Format(_T("%-10s %s\r\n"), buf, (LPCTSTR)m_ListCtrl.GetItemText(i,0));
                 logmsg += line;
             }

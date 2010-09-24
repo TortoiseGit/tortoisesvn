@@ -508,7 +508,7 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title,
     ofn.hwndOwner = hwndOwner;
     _tcscpy_s(szFile, MAX_PATH, (LPCTSTR)path);
     ofn.lpstrFile = szFile;
-    ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+    ofn.nMaxFile = _countof(szFile);
     CSelectFileFilter fileFilter;
     if (filterId)
     {

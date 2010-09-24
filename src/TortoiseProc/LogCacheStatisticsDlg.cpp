@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -130,7 +130,7 @@ CString CLogCacheStatisticsDlg::DateToString (__time64_t time)
 CString CLogCacheStatisticsDlg::ToString (__int64 value)
 {
     TCHAR buffer[20];
-    _i64tot_s (value, buffer, sizeof (buffer) / sizeof (TCHAR), 10);
+    _i64tot_s (value, buffer, _countof (buffer), 10);
     return buffer;
 }
 BOOL CLogCacheStatisticsDlg::OnInitDialog()

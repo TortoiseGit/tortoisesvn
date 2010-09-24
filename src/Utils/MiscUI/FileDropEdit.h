@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -124,7 +124,7 @@ public:
                 UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
                 for(UINT i = 0; i < cFiles; ++i)
                 {
-                    DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
+                    DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
                     ::SendMessage(m_hTargetWnd, WM_SETTEXT, 0, (LPARAM)szFileName);
                 }
                 //DragFinish(hDrop); // base class calls ReleaseStgMedium

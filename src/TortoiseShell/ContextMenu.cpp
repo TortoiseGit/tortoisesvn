@@ -696,7 +696,7 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
         UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
         for(UINT i = 0; i < cFiles; ++i)
         {
-            DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
+            DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
             tstring filename = szFileName;
             ::WriteFile (file, filename.c_str(), (DWORD)filename.size()*sizeof(TCHAR), &written, 0);
             ::WriteFile (file, _T("\n"), 2, &written, 0);
@@ -927,7 +927,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         miif.cbSize = sizeof(MENUITEMINFO);
         miif.fMask = MIIM_DATA;
         miif.dwTypeData = menubuf;
-        miif.cch = sizeof(menubuf)/sizeof(TCHAR);
+        miif.cch = _countof(menubuf);
         GetMenuItemInfo(hMenu, i, TRUE, &miif);
         if (miif.dwItemData == (ULONG_PTR)g_MenuIDString)
             return S_OK;

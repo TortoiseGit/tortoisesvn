@@ -814,7 +814,7 @@ bool CTSVNPath::IsSpecialDirectory() const
     static LPCTSTR specialDirectories[]
         = { _T("trunk"), _T("tags"), _T("branches") };
 
-    for (int i=0 ; i<(sizeof(specialDirectories) / sizeof(specialDirectories[0])) ; ++i)
+    for (int i=0 ; i<_countof(specialDirectories) ; ++i)
     {
         CString name = GetFileOrDirectoryName();
         if (0 == name.CompareNoCase(specialDirectories[i]))

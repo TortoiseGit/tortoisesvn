@@ -108,7 +108,7 @@ BOOL CSetMainPage::OnInitDialog()
 
     // set up the language selecting combobox
     TCHAR buf[MAX_PATH];
-    GetLocaleInfo(1033, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
+    GetLocaleInfo(1033, LOCALE_SNATIVELANGNAME, buf, _countof(buf));
     m_LanguageCombo.AddString(buf);
     m_LanguageCombo.SetItemData(0, 1033);
     CString path = CPathUtils::GetAppParentDirectory();
@@ -128,9 +128,9 @@ BOOL CSetMainPage::OnInitDialog()
             if (sFileVer.Compare(sVer)!=0)
                 continue;
             DWORD loc = _tstoi(filename.Mid(12));
-            GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
+            GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, _countof(buf));
             CString sLang = buf;
-            GetLocaleInfo(loc, LOCALE_SNATIVECTRYNAME, buf, sizeof(buf)/sizeof(TCHAR));
+            GetLocaleInfo(loc, LOCALE_SNATIVECTRYNAME, buf, _countof(buf));
             if (buf[0])
             {
                 sLang += _T(" (");

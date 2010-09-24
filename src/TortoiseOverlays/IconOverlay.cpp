@@ -214,20 +214,21 @@ int CShellExt::GetInstalledOverlays()
         _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers"),
         0, KEY_ENUMERATE_SUB_KEYS, &hKey)==ERROR_SUCCESS)
     {
-        TCHAR value[1024];
-        TCHAR keystring[1024];
+        TCHAR value[2048];
+        TCHAR keystring[2048];
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
-            DWORD size = sizeof value / sizeof TCHAR;
+            DWORD size = _countof(value );
             FILETIME last_write_time;
             rc = RegEnumKeyEx(hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
             if (rc == ERROR_SUCCESS)
             {
                 DWORD dwType = 0;
-                DWORD dwSize = sizeof(value);
                 // check if there's a 'default' entry with a guid
-                _tcscpy_s(keystring, 1024, _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\"));
-                _tcscat_s(keystring, 1024, value);
+                _tcscpy_s(keystring, _countof(keystring), _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\"));
+                _tcscat_s(keystring, _countof(keystring), value);
+                DWORD dwSize = _countof(value); // the API docs only specify "The size of the destination data buffer", 
+                                                // but better be safe than sorry using _countof instead of sizeof
                 if (SHGetValue(HKEY_LOCAL_MACHINE,
                     keystring,
                     NULL,
@@ -267,8 +268,8 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
         {
             TCHAR k[MAX_PATH];
             TCHAR value[MAX_PATH];
-            DWORD sizek = sizeof k / sizeof TCHAR;
-            DWORD sizev = sizeof value / sizeof TCHAR;
+            DWORD sizek = _countof(k);
+            DWORD sizev = _countof(value);
             rc = RegEnumValue(hKey, i, k, &sizek, NULL, NULL, (LPBYTE)value, &sizev);
             if (rc == ERROR_SUCCESS)
             {

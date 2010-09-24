@@ -296,7 +296,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
     ofn.lStructSize = sizeof(OPENFILENAME);
     ofn.hwndOwner = svn->m_hParentWnd;
     ofn.lpstrFile = szFile;
-    ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+    ofn.nMaxFile = _countof(szFile);
     CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
     ofn.lpstrFilter = fileFilter;
     ofn.nFilterIndex = 1;

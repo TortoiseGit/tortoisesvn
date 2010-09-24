@@ -1287,7 +1287,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     }
     else
     {
-        SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+        SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, _countof(buf), (WORD)langID);
         if ((entry->copied)&&(_tcslen(buf)>1))
             _tcscat_s(buf, 100, _T(" (+)"));
         if ((entry->switched)&&(_tcslen(buf)>1))
@@ -1312,7 +1312,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     }
     else
     {
-        SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+        SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, _countof(buf), (WORD)langID);
         if ((entry->copied)&&(_tcslen(buf)>1))
             _tcscat_s(buf, 100, _T(" (+)"));
         if ((entry->switched)&&(_tcslen(buf)>1))
@@ -1332,7 +1332,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     }
     else
     {
-        SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+        SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, _countof(buf), (WORD)langID);
         if ((entry->copied)&&(_tcslen(buf)>1))
             _tcscat_s(buf, 100, _T(" (+)"));
         if ((entry->switched)&&(_tcslen(buf)>1))
@@ -1351,7 +1351,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     }
     else
     {
-        SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+        SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, _countof(buf), (WORD)langID);
         if ((entry->copied)&&(_tcslen(buf)>1))
             _tcscat_s(buf, 100, _T(" (+)"));
         if ((entry->switched)&&(_tcslen(buf)>1))
@@ -1365,7 +1365,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     }
     else
     {
-        SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+        SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, _countof(buf), (WORD)langID);
         SetItemText(index, nCol++, buf);
     }
     // SVNSLC_COLREMOTEPROP
@@ -1375,7 +1375,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     }
     else
     {
-        SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+        SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, _countof(buf), (WORD)langID);
         SetItemText(index, nCol++, buf);
     }
     // SVNSLC_COLDEPTH
@@ -4140,17 +4140,17 @@ CString CSVNStatusListCtrl::GetStatisticsString()
     CString sNormal, sAdded, sDeleted, sModified, sConflicted, sUnversioned;
     WORD langID = (WORD)(DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
     TCHAR buf[MAX_STATUS_STRING_LENGTH];
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, buf, sizeof(buf)/sizeof(TCHAR), langID);
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, buf, _countof(buf), langID);
     sNormal = buf;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, buf, sizeof(buf)/sizeof(TCHAR), langID);
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, buf, _countof(buf), langID);
     sAdded = buf;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_deleted, buf, sizeof(buf)/sizeof(TCHAR), langID);
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_deleted, buf, _countof(buf), langID);
     sDeleted = buf;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_modified, buf, sizeof(buf)/sizeof(TCHAR), langID);
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_modified, buf, _countof(buf), langID);
     sModified = buf;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_conflicted, buf, sizeof(buf)/sizeof(TCHAR), langID);
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_conflicted, buf, _countof(buf), langID);
     sConflicted = buf;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_unversioned, buf, sizeof(buf)/sizeof(TCHAR), langID);
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_unversioned, buf, _countof(buf), langID);
     sUnversioned = buf;
     CString sToolTip;
     sToolTip.Format(_T("%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d"),
@@ -5036,7 +5036,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
             {
-                SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+                SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, _countof(buf), (WORD)langID);
                 if ((entry->copied)&&(_tcslen(buf)>1))
                     _tcscat_s(buf, 100, _T(" (+)"));
                 if ((entry->switched)&&(_tcslen(buf)>1))
@@ -5058,7 +5058,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
             {
-                SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+                SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, _countof(buf), (WORD)langID);
                 if ((entry->copied)&&(_tcslen(buf)>1))
                     _tcscat_s(buf, 100, _T(" (+)"));
                 if ((entry->switched)&&(_tcslen(buf)>1))
@@ -5081,7 +5081,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
             {
-                SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+                SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, _countof(buf), (WORD)langID);
                 if ((entry->copied)&&(_tcslen(buf)>1))
                     _tcscat_s(buf, 100, _T(" (+)"));
                 if ((entry->switched)&&(_tcslen(buf)>1))
@@ -5098,7 +5098,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
             {
-                SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+                SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, _countof(buf), (WORD)langID);
                 if ((entry->copied)&&(_tcslen(buf)>1))
                     _tcscat_s(buf, 100, _T(" (+)"));
                 if ((entry->switched)&&(_tcslen(buf)>1))
@@ -5115,7 +5115,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
             {
-                SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+                SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, _countof(buf), (WORD)langID);
                 temp = buf;
             }
             sClipboard += _T("\t")+temp;
@@ -5129,7 +5129,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
             {
-                SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
+                SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, _countof(buf), (WORD)langID);
                 temp = buf;
             }
             sClipboard += _T("\t")+temp;
@@ -5404,7 +5404,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
                 CTSVNPathList changelistItems;
                 for(UINT i = 0; i < cFiles; ++i)
                 {
-                    DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
+                    DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
                     CTSVNPath itemPath = CTSVNPath(szFileName);
                     if (itemPath.Exists())
                         changelistItems.AddPath(itemPath);
@@ -5488,7 +5488,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
             {
                 for(UINT i = 0; i < cFiles; ++i)
                 {
-                    DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
+                    DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
                     HWND hParentWnd = GetParent(m_hTargetWnd);
                     if (hParentWnd != NULL)
                         ::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)szFileName);

@@ -170,7 +170,7 @@ BOOL CTortoiseProcApp::InitInstance()
     do
     {
         CString sLang = _T("_");
-        if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf)/sizeof(TCHAR)))
+        if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, _countof(buf)))
         {
             sLang += buf;
             sHelppath.Replace(_T("_en"), sLang);
@@ -182,7 +182,7 @@ BOOL CTortoiseProcApp::InitInstance()
             }
         }
         sHelppath.Replace(sLang, _T("_en"));
-        if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf)/sizeof(TCHAR)))
+        if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, _countof(buf)))
         {
             sLang += _T("_");
             sLang += buf;

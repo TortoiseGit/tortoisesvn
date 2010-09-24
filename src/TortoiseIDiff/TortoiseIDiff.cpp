@@ -52,7 +52,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
     {
         TCHAR buf[1024];
-        LoadString(hResource, IDS_COMMANDLINEHELP, buf, sizeof(buf)/sizeof(TCHAR));
+        LoadString(hResource, IDS_COMMANDLINEHELP, buf, _countof(buf));
         MessageBox(NULL, buf, _T("TortoiseIDiff"), MB_ICONINFORMATION);
         langDLL.Close();
         return 0;

@@ -171,7 +171,7 @@ bool CRegistryKey::getValues(CStringList& values)
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
             TCHAR value[255];
-            DWORD size = sizeof value / sizeof TCHAR;
+            DWORD size = _countof(value);
             rc = RegEnumValue(m_hKey, i, value, &size, NULL, NULL, NULL, NULL);
             if (rc == ERROR_SUCCESS)
             {
@@ -192,7 +192,7 @@ bool CRegistryKey::getSubKeys(CStringList& subkeys)
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
             TCHAR value[1024];
-            DWORD size = sizeof value / sizeof TCHAR;
+            DWORD size = _countof(value);
             FILETIME last_write_time;
             rc = RegEnumKeyEx(m_hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
             if (rc == ERROR_SUCCESS)

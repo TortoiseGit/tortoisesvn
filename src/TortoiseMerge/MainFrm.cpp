@@ -1706,10 +1706,10 @@ BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
 void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 {
     CRegString placement = CRegString(_T("Software\\TortoiseMerge\\WindowPos"));
-    TCHAR szBuffer[sizeof("-32767")*8 + sizeof("65535")*2];
+    TCHAR szBuffer[_countof("-32767")*8 + sizeof("65535")*2];
     CString s;
 
-    _stprintf_s(szBuffer, sizeof("-32767")*8 + sizeof("65535")*2, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
+    _stprintf_s(szBuffer, _countof("-32767")*8 + sizeof("65535")*2, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
             pwp->flags, pwp->showCmd,
             pwp->ptMinPosition.x, pwp->ptMinPosition.y,
             pwp->ptMaxPosition.x, pwp->ptMaxPosition.y,

@@ -295,17 +295,17 @@ BOOL MyGraph::OnNeedText(UINT /*uiId*/, NMHDR* pNMHDR, LRESULT* pResult)
 
 #ifndef _UNICODE
         if (TTN_NEEDTEXTA == pNMHDR->code) {
-            lstrcpyn(pTTTA->szText, sTipText, sizeof(pTTTA->szText));
+            lstrcpyn(pTTTA->szText, sTipText, _countof(pTTTA->szText));
         }
         else {
-            _mbstowcsz(pTTTW->szText, sTipText, sizeof(pTTTA->szText));
+            _mbstowcsz(pTTTW->szText, sTipText, _countof(pTTTA->szText));
         }
 #else
         if (pNMHDR->code == TTN_NEEDTEXTA) {
-            _wcstombsz(pTTTA->szText, sTipText, sizeof(pTTTA->szText));
+            _wcstombsz(pTTTA->szText, sTipText, _countof(pTTTA->szText));
         }
         else {
-            lstrcpyn(pTTTW->szText, sTipText, sizeof(pTTTA->szText));
+            lstrcpyn(pTTTW->szText, sTipText, _countof(pTTTA->szText));
         }
 #endif
 

@@ -116,7 +116,7 @@ BOOL CTortoiseMergeApp::InitInstance()
     sHelppath = CPathUtils::GetAppParentDirectory() + _T("Languages\\TortoiseMerge_en.chm");
     do
     {
-        GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
+        GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, _countof(buf));
         CString sLang = _T("_");
         sLang += buf;
         sHelppath.Replace(_T("_en"), sLang);
@@ -127,7 +127,7 @@ BOOL CTortoiseMergeApp::InitInstance()
             break;
         }
         sHelppath.Replace(sLang, _T("_en"));
-        GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf)/sizeof(TCHAR));
+        GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, _countof(buf));
         sLang += _T("_");
         sLang += buf;
         sHelppath.Replace(_T("_en"), sLang);
@@ -259,7 +259,7 @@ BOOL CTortoiseMergeApp::InitInstance()
         ofn.lStructSize = sizeof(OPENFILENAME);
         ofn.hwndOwner = pFrame->m_hWnd;
         ofn.lpstrFile = szFile;
-        ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+        ofn.nMaxFile = _countof(szFile);
         CString temp;
         temp.LoadString(IDS_OPENDIFFFILETITLE);
         if (temp.IsEmpty())

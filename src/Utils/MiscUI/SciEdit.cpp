@@ -181,10 +181,10 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
     CString sFolderUp = CPathUtils::GetAppParentDirectory();
     CString sFile;
 
-    GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
+    GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, _countof(buf));
     sFile = buf;
     sFile += _T("_");
-    GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf)/sizeof(TCHAR));
+    GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, _countof(buf));
     sFile += buf;
     if (pChecker==NULL)
     {
@@ -248,7 +248,7 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
     {
         const char * encoding = pChecker->get_dic_encoding();
         ATLTRACE(encoding);
-        int n = sizeof(enc2locale) / sizeof(enc2locale[0]);
+        int n = _countof(enc2locale);
         m_spellcodepage = 0;
         for (int i = 0; i < n; i++)
         {

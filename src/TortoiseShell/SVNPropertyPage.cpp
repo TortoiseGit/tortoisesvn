@@ -332,11 +332,11 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->changed_author)
                     SetDlgItemText(m_hwnd, IDC_AUTHOR, UTF8ToWide(svn.status->changed_author).c_str());
-                SVNStatus::GetStatusString(g_hResInst, svn.status->node_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                SVNStatus::GetStatusString(g_hResInst, svn.status->node_status, buf, _countof(buf), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_NODESTATUS, buf);
-                SVNStatus::GetStatusString(g_hResInst, svn.status->text_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                SVNStatus::GetStatusString(g_hResInst, svn.status->text_status, buf, _countof(buf), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_TEXTSTATUS, buf);
-                SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+                SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, _countof(buf), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
                 if (infodata)
                     time = (__time64_t)infodata->texttime/1000000L;
