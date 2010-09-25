@@ -546,6 +546,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_
         data->sActionColumnText.LoadString(IDS_SVNACTION_TREECONFLICTED);
         data->color = m_Colors.GetColor(CColors::Conflict);
         data->bConflictedActionItem = true;
+        data->bTreeConflict = true;
         m_nConflicts++;
         m_bConflictWarningShown = false;
         break;
@@ -1706,8 +1707,11 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 popup.SetDefaultItem(ID_EDITCONFLICT, FALSE);
                 popup.AppendMenuIcon(ID_CONFLICTRESOLVE, IDS_SVNPROGRESS_MENUMARKASRESOLVED,IDI_RESOLVE);
             }
-            popup.AppendMenuIcon(ID_CONFLICTUSETHEIRS, IDS_SVNPROGRESS_MENUUSETHEIRS,IDI_RESOLVE);
-            popup.AppendMenuIcon(ID_CONFLICTUSEMINE, IDS_SVNPROGRESS_MENUUSEMINE,IDI_RESOLVE);
+            if (!data->bTreeConflict)
+            {
+                popup.AppendMenuIcon(ID_CONFLICTUSETHEIRS, IDS_SVNPROGRESS_MENUUSETHEIRS,IDI_RESOLVE);
+                popup.AppendMenuIcon(ID_CONFLICTUSEMINE, IDS_SVNPROGRESS_MENUUSEMINE,IDI_RESOLVE);
+            }
         }
         else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)||(data->action == svn_wc_notify_resolved))
             popup.SetDefaultItem(ID_COMPARE, FALSE);

@@ -158,6 +158,7 @@ private:
               rev(0),
               color(::GetSysColor(COLOR_WINDOWTEXT)),
               bConflictedActionItem(false),
+              bTreeConflict(false),
               bAuxItem(false),
               lock_state(svn_wc_notify_lock_state_unchanged)
           {
@@ -184,6 +185,7 @@ private:
         COLORREF                color;
         CString                 owner;                      ///< lock owner
         bool                    bConflictedActionItem;      ///< Is this item a conflict?
+        bool                    bTreeConflict;              ///< item is tree conflict
         bool                    bAuxItem;                   ///< Set if this item is not a true 'SVN action'
         CString                 sPathColumnText;
 
