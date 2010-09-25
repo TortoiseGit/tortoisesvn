@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-09-15 22:56 +0000\n"
-"PO-Revision-Date: 2010-09-19 21:03+0100\n"
+"POT-Creation-Date: 2010-09-23 19:41 +0000\n"
+"PO-Revision-Date: 2010-09-25 23:10+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -1437,14 +1437,14 @@ msgid ""
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
+"</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
 msgstr ""
-"Jednostavne zakačive skripte mogu se naći u <filename>zakačaljke> imeniku spremišta. Ove jednostavne skripte su pogodne za Uniks/Linuks servere ali traže izmene ako je server zasnovan na Vindouzu. Zakačke mogu biti grupni fajl ili izvršilac. Uzorak ispod pokazuje grupni fajl koji se može koristiti da se primeni kao pre-revprop-izmena zakačaljka.<screen>\n"
+"Jednostavne zakačive skripte mogu se naći u <filename>zakačaljke> imeniku spremišta. Ove jednostavne skripte su pogodne za Juniks/Linuks servere ali traže izmene ako je server zasnovan na Vindouzu. Zakačke mogu biti grupni fajl ili izvršilac. Uzorak ispod pokazuje grupni fajl koji se može koristiti da se primeni kao pre-revprop-izmena zakačaljka. <screen>\n"
 "rem Only allow log messages to be changed.\n"
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Primetimo da se sve poslato na stdout odbacuje. Ako želite da se poruka pojavi u Ureži Odbaci dijalogu morate je poslati na stderr. U beč fajlu se to postiže korišćenjem <filename>&gt;&amp;2</filename>"
+"</screen> Primetimo da se sve poslato na stdout odbacuje. Ako želite da se poruka pojavi u Odbaci urezivanje dijalogu morate je poslati na stderr. U beč fajlu se to postiže korišćenjem <filename>&gt;&amp;2</filename>."
 
 #. (title)
 msgid "Overriding Hooks"
@@ -4326,8 +4326,8 @@ msgid "Compare and blame with working BASE"
 msgstr "Uporedi i okrivi radnu OSNOVU"
 
 #. (para)
-msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)."
-msgstr "Okrivljuje izabranu reviziju i fajl u vašoj radnoj OSNOVI i poredi izveštaj okrivljavanja koristeći vizualni diff alat. Pročitajte <xref linkend=\"tsvn-dug-blame-diffs\"/> za više detalja. (samo fajlovi)."
+msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)"
+msgstr "Okrivljuje izabranu reviziju i fajl u vašoj radnoj OSNOVI i poredi izveštaj okrivljavanja koristeći vizualni diff alat. Pročitajte <xref linkend=\"tsvn-dug-blame-diffs\"/>  za više detalja. (samo fajlovi)"
 
 #. (term)
 msgid "Show changes as unified diff"
@@ -4350,8 +4350,8 @@ msgid "Compare and blame with previous revision"
 msgstr "Uporedi i okrivi prethodnu reviziju"
 
 #. (para)
-msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)."
-msgstr "Prikazuje dijalog  izmenjenih fajlova koji vam omogućava da izaberete fajlove. Okrivite izabranu reviziju i prethodnu reviziju i uporedite rezultat koristeći vizualni diff alat. (samo imenici)."
+msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)"
+msgstr "Prikazuje dijalog  izmenjenih fajlova koji vam omogućava da izaberete fajlove. Okrivite izabranu reviziju, i prethodnu reviziju, i uporedite rezultat koristeći vizualni diff alat. (samo imenici)"
 
 #. (term)
 #. (term)
@@ -4359,8 +4359,8 @@ msgid "Save revision to..."
 msgstr "Sačuvajte reviziju u..."
 
 #. (para)
-msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
-msgstr "Sačuvajte izabranu reviziju u fajl tako da imate stariju verziju tog fajla. (samo fajlovi)."
+msgid "Save the selected revision to a file so you have an older version of that file. (files only)"
+msgstr "Sačuvajte izabranu reviziju u fajl tako da imate stariju verziju tog fajla.  (samo fajlovi)"
 
 #. (term)
 #. (term)
@@ -4368,8 +4368,8 @@ msgid "Open / Open with..."
 msgstr "Otvori / Otvori sa..."
 
 #. (para)
-msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)."
-msgstr "Otvora izabrani fajl, ili sa podrazumevanim prikazivačem tog tipa fajlova ili sa programom koji ste izabrali. (samo fajlovi)."
+msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)"
+msgstr "Otvora izabrani fajl, ili sa podrazumevanim prikazivačem tog tipa fajlova, ili sa programom koji ste izabrali. (samo fajlovi)"
 
 #. (term)
 #. (term)
@@ -4377,8 +4377,8 @@ msgid "Blame..."
 msgstr "Okrivi..."
 
 #. (para)
-msgid "Blame the file up to the selected revision. (files only)."
-msgstr "Krivac za fajl do izabrane revizije. (samo fajlovi)."
+msgid "Blame the file up to the selected revision. (files only)"
+msgstr "Krivac za fajl do izabrane revizije. (samo fajlovi)"
 
 #. (term)
 msgid "Browse repository"
@@ -7987,8 +7987,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Prethodni paragraf razmatra dodavanje problem informacija u dnevnik poruka. Ali šta ako vam treba da dobijete informaciju od problem tragača? Dijalog urezivanja ima COM interfejs koji dozvoljava integraciju spoljašnjih programa koji mogu govoriti vašem tragaču. Tipično možete želeti da tražite tragaču da da listu otvorenih problema pridruženih vama, tako da možete odabrati problem koji će biti adresiran pri urezivanju."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Svaki takav interfejs je svakako jako specifično za vaš sistem praćenja, tako da vam ne možemo dati  ovo poglavlje i opisati kako da kreirate takav program jer je van razmatranja ovog uputstva. Definicija interfejsa i jednostavni dodaci u C# i C++/ATL  mogu biti dobijeni iz <literal>contrib</literal> imenika u <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN spremište</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu). Rezultat za API je takođe dat u <xref linkend=\"tsvn-ibugtraqprovider\"/>  Sledeći (radni) primer  jezičak u C# je <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> koji implementira željeni COM interfejs sa <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> problem tragačem."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Svaki takav interfejs je svakako jako specifično za vaš sistem praćenja, tako da vam ne možemo dati  ovo poglavlje i opisati kako da kreirate takav program jer je van razmatranja ovog uputstva. Definicija interfejsa i jednostavni dodaci u C# i C++/ATL  mogu biti dobijeni iz <literal>contrib</literal> imenika u <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN spremište</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu). Rezultat za API je takođe dat u <xref linkend=\"tsvn-ibugtraqprovider\"/>  Sledeći (radni) primer  jezičak u C# je <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> koji implementira željeni COM interfejs sa <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>  problem tragačem."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9512,8 +9512,8 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr "<placeholder-1/> Kliknite na <guibutton>Dodaj...</guibutton> da koristite jezičak sa posebnom radnom kopijom. Ovde možete specificirati putanju radne kopije, izaberite koji jezičak da se koristi iz padajuće liste svih registrovanih problem tragača, i neke parametre da doda. Parametri će biti specificirani jezičku, ali mogu uključiti vaše korisničko ime za problem tragač  tako da jezičak može tražiti probleme koji su vama ozančeni. "
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr "Ovu osobinu određuje COM UUID iz IBagtragačSnabdevač, na primer <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (ovaj primer je UUID od <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, koji je snabdevač za <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> problem tragač)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgstr "Ovu osobinu određuje COM UUID iz IBagtragačSnabdevač, na primer <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (ovaj primer je UUID od <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, koji je snabdevač za <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>  problem tragač)."
 
 #. (para)
 msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
@@ -11782,8 +11782,8 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> filtriranje pomoću bag ID"
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/>"
-msgstr "Otvara dnevnik dijalog. <placeholder-1/> specificira fajl ili imenik za koji dnevnik treba da bude prikazan. Šest dodatnih opcija treba da budu podešene: <placeholder-2/>, <placeholder-3/> i <placeholder-4/> omogućava 'stani-na-kopiju' čekboks, <placeholder-5/> popunjava filter tekst, <placeholder-6/> popunjava filter tekst, <placeholder-7/> forsira filter da koriste tekst, ne regeks i <placeholder-8/> forsira filter da koristi regeks, ne jednostavno pretraživanje teksta, i<placeholder-9/> sa X koje je broj između 1 i 7. Brojevi odgovaraju: <placeholder-10/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/>"
+msgstr "Otvara dnevnik dijalog. <placeholder-1/> specificira fajl ili imenik za koji dnevnik treba da bude prikazan. Dodatne opcije treba da budu podešene: <placeholder-2/>, <placeholder-3/> i <placeholder-4/> omogućava 'stani-na-kopiju' čekboks, <placeholder-5/> popunjava filter tekst, <placeholder-6/> popunjava filter tekst, <placeholder-7/> forsira filter da koriste tekst, ne regeks i <placeholder-8/> forsira filter da koristi regeks, ne jednostavno pretraživanje teksta, i<placeholder-9/> sa X koje je broj između 1 i 7. Brojevi odgovaraju:  <placeholder-10/>"
 
 #. (option)
 #. (option)
@@ -11901,6 +11901,7 @@ msgstr "Izvozi radnu kopiju u <placeholder-1/> za dugi imenik. Ako <placeholder-
 
 #. (option)
 #. (option)
+#. (option)
 msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
@@ -11920,9 +11921,13 @@ msgstr "/fromrev:xxx"
 msgid "/torev:xxx"
 msgstr "/torev:xxx"
 
+#. (option)
+msgid "/reintegrate"
+msgstr "/reintegracija"
+
 #. (entry)
-msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. These pre-fill the relevant fields in the merge dialog."
-msgstr "Otvara dijalog stapanja. <placeholder-1/>  specificira ciljni imenik. Za stapanje opsega revizija sledeće opcije su dostupne: <placeholder-2/>, <placeholder-3/>. Za stapanja dva stabla spremišta sledeće opcije su dostupne:  <placeholder-4/>, <placeholder-5/>, <placeholder-6/> i <placeholder-7/>. Ovo pre-popuni relevantna polja u dijalogu stapanja."
+msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. For doing a reintegrate merge, use the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill the relevant fields in the merge dialog."
+msgstr "Otvara dijalog stapanja. <placeholder-1/>  specificira ciljni imenik. Za stapanje opsega revizija sledeće opcije su dostupne: <placeholder-2/>, <placeholder-3/>. Za stapanja dva stabla spremišta sledeće opcije su dostupne:  <placeholder-4/>, <placeholder-5/>, <placeholder-6/> i <placeholder-7/>.Da se reintegriše stapanje koristite sledeće opcije:  <placeholder-8/>i <placeholder-9/>. Ovo pre-popunjava relevantna polja u dijalogu stapanja."
 
 #. (entry)
 msgid "Opens the merge all dialog. The <placeholder-1/> specifies the target directory."

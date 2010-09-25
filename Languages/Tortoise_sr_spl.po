@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-13 19:17+0100\n"
+"PO-Revision-Date: 2010-09-25 22:55+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -1716,20 +1716,6 @@ msgstr "<Separator>"
 msgid "<Untitled>"
 msgstr "<Untitled>"
 
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVNje proširenje programske školjke.\n"
-"To znači da je integrisan u  Windows explorer.\n"
-"Da biste koristili TortoiseSVNmolim vas otvorite pretraživač i kliknite desnim tasterom na željeni imenik\n"
-"da biste dobili konekstni meni gde ćete naći sve TortozSVN komande.\n"
-"I pročitajte uputstvo!"
-
 #. Resource IDs: (16603)
 msgid "<descr>"
 msgstr "<descr>"
@@ -3348,22 +3334,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "Nije bilo moguće pokrenuti spoljašnji diff program!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "Nije bilo moguće pokrenuti spoljašnji program za sjedinjavanje!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -5037,6 +5019,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -6375,14 +6361,11 @@ msgid "No"
 msgstr "Ne"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Naredba nije određena!\n"
-
 "TortoiseProc.exe  je korišćen od strane proširenja školjke i ne bi trebao biti pozvan direktno!"
 
 #. Resource IDs: (81)
@@ -8893,11 +8876,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "Subversion je prijavio grešku prilikom čišćenja!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9540,14 +9521,11 @@ msgid "The user who owns the lock of the file"
 msgstr "Korisnik koji je zaključao fajl"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "Radna kopija je promenjena!\n"
-
 "Molim, prvo urežite vaše izmene ili ih poništite."
 
 #. Resource IDs: (81)
@@ -9879,6 +9857,20 @@ msgid ""
 msgstr ""
 "TortoiseSVN je uočio fajlove sličnih imena. Želite li fajlovima: %s\n"
 "takođe promeniti ime?"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVNje proširenje programske školjke.\n"
+"To znači da je integrisan u  Windows explorer.\n"
+"Da biste koristili TortoiseSVNmolim vas otvorite pretraživač i kliknite desnim tasterom na željeni imenik\n"
+"da biste dobili konekstni meni gde ćete naći sve TortozSVN komande.\n"
+"I pročitajte uputstvo!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
