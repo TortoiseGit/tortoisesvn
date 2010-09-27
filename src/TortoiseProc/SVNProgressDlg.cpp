@@ -2138,13 +2138,12 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
             m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
         ReportCmd(sCmdInfo);
 
-        SendCacheCommand(TSVNCACHECOMMAND_BLOCK, checkoutdir.GetWinPath());
+        CBlockCacheForPath cacheBlock (checkoutdir.GetWinPath());
         if (!Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(REG_KEY_ALLOW_UNV_OBSTRUCTIONS, true))))
         {
             if (m_ProgList.GetItemCount()>1)
             {
                 ReportSVNError();
-                SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, checkoutdir.GetWinPath());
                 return false;
             }
             // if the checkout fails with the peg revision set to the checkout revision,
@@ -2154,12 +2153,10 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
                 if (!Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(REG_KEY_ALLOW_UNV_OBSTRUCTIONS, true))))
                 {
                     ReportSVNError();
-                    SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, checkoutdir.GetWinPath());
                     return false;
                 }
             }
         }
-        SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, checkoutdir.GetWinPath());
     }
 
     DWORD exitcode = 0;
@@ -2435,8 +2432,8 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
     if (m_options & ProgOptEolCR)
         eol = _T("CR");
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_EXPORT)));
-    SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
 
+    CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     CTSVNPath targetPath = m_targetPathList[0];
     if (SVNInfo::IsFile (m_url, m_Revision))
         targetPath.AppendPathString (m_url.GetFilename());
@@ -2444,10 +2441,8 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
     if (!Export(m_url, targetPath, m_Revision, m_Revision, true, (m_options & ProgOptIgnoreExternals) != 0, m_depth, NULL, false, eol))
     {
         ReportSVNError();
-        SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
         return false;
     }
-    SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
     return true;
 }
 
@@ -2566,6 +2561,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
     // we only accept a revision list to merge for peg merges
     ATLASSERT((m_revisionArray.GetCount()==0) || (m_revisionArray.GetCount() && (m_url.IsEquivalentTo(m_url2))));
 
+    CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (m_url.IsEquivalentTo(m_url2))
     {
         CString sSuggestedMessage;
@@ -2589,7 +2585,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
         {
             firstRevOfRange = m_revisionArray[0].GetStartRevision();
         }
-        SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
+
         if (!PegMerge(m_url, m_revisionArray,
             m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? firstRevOfRange : SVNRev(SVNRev::REV_WC)),
             m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
@@ -2597,7 +2593,6 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             if (m_ProgList.GetItemCount()>1)
             {
                 ReportSVNError();
-                SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
                 bFailed = true;
             }
             // if the merge fails with the peg revision set,
@@ -2606,7 +2601,6 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
                 m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
             {
                 ReportSVNError();
-                SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
                 bFailed = true;
             }
         }
@@ -2623,16 +2617,13 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             m_options & ProgOptForce ? ((LPCTSTR)_T(", ") + sForce) : _T(""));
         ReportCmd(sCmdInfo);
 
-        SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
         if (!Merge(m_url, m_Revision, m_url2, m_RevisionEnd, m_targetPathList[0],
             !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
         {
             ReportSVNError();
-            SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
             bFailed = true;
         }
     }
-    SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_INFOTEXT)->ShowWindow(SW_SHOW);
     return !bFailed;
@@ -2688,18 +2679,16 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
     }
 
     SVNRevRangeArray revarray;
-    SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
+    CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!PegMerge(suggestedSources[0], revarray,
         SVNRev::REV_HEAD,
         m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE))
     {
         GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
         ReportSVNError();
-        SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
         return false;
     }
 
-    SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
     return true;
 }
@@ -2733,16 +2722,14 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
         m_AlwaysConflicted = true;
     }
 
-    SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
+    CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!MergeReintegrate(m_url, SVNRev::REV_HEAD, m_targetPathList[0], !!(m_options & ProgOptDryRun), m_diffoptions))
     {
         ReportSVNError();
         GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
-        SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
         return false;
     }
 
-    SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
     return true;
 }
@@ -2893,14 +2880,13 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
             return false;
         }
     }
-    SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
+
+    CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
     {
         ReportSVNError();
-        SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
         return false;
     }
-    SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
 
     if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
     {
@@ -3011,14 +2997,13 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             CString sNotify;
             sNotify.Format(IDS_PROGRS_UPDATEPATH, m_basePath.GetWinPath());
             ReportString(sNotify, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-            SendCacheCommand(TSVNCACHECOMMAND_BLOCK, targetPath.GetWinPath());
+
+            CBlockCacheForPath cacheBlock (targetPath.GetWinPath());
             if (!Update(CTSVNPathList(targetPath), revstore, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
             {
                 ReportSVNError();
-                SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, targetPath.GetWinPath());
                 return false;
             }
-            SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, targetPath.GetWinPath());
         }
     }
     else
@@ -3064,14 +3049,13 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
                 }
             }
         }
-        SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
+
+        CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
         if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
         {
             ReportSVNError();
-            SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
             return false;
         }
-        SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
     }
     if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
     {

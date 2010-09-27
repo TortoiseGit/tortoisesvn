@@ -35,6 +35,23 @@ bool    SendCacheCommand(BYTE command, const WCHAR * path = NULL);
 
 /**
  * \ingroup TSVNCache
+ * RAII class that temporarily disables updates for the given path
+ * by sending TSVNCACHECOMMAND_BLOCK and TSVNCACHECOMMAND_UNBLOCK.
+ */
+class CBlockCacheForPath
+{
+private:
+
+    WCHAR path[MAX_PATH+1];
+
+public:
+
+    CBlockCacheForPath(const WCHAR * aPath);
+    ~CBlockCacheForPath();
+};
+
+/**
+ * \ingroup TSVNCache
  * A structure passed as a request from the shell (or other client) to the external cache
  */
 struct TSVNCacheRequest
