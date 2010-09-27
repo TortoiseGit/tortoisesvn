@@ -2436,7 +2436,12 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
         eol = _T("CR");
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_EXPORT)));
     SendCacheCommand(TSVNCACHECOMMAND_BLOCK, m_targetPathList[0].GetWinPath());
-    if (!Export(m_url, m_targetPathList[0], m_Revision, m_Revision, true, (m_options & ProgOptIgnoreExternals) != 0, m_depth, NULL, false, eol))
+
+    CTSVNPath targetPath = m_targetPathList[0];
+    if (SVNInfo::IsFile (m_url, m_Revision))
+        targetPath.AppendPathString (m_url.GetFilename());
+
+    if (!Export(m_url, targetPath, m_Revision, m_Revision, true, (m_options & ProgOptIgnoreExternals) != 0, m_depth, NULL, false, eol))
     {
         ReportSVNError();
         SendCacheCommand(TSVNCACHECOMMAND_UNBLOCK, m_targetPathList[0].GetWinPath());
