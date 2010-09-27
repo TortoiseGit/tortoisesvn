@@ -344,7 +344,7 @@ void CRepositoryBrowser::InitRepo()
     }
 
     m_repository.root
-        = GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid);
+        = CPathUtils::PathUnescape(GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid));
 
     // let's (try to) access all levels in the folder path
 
@@ -433,12 +433,11 @@ void CRepositoryBrowser::InitRepo()
             m_barRepository.SetHeadRevision(data->rev);
         }
 
-        m_repository.root = data->reposRoot;
+        m_repository.root = CPathUtils::PathUnescape(data->reposRoot);
         m_repository.uuid = data->reposUUID;
     }
 
     m_InitialUrl.TrimRight('/');
-    m_repository.root = CPathUtils::PathUnescape (m_repository.root);
 
     // the initial url can be in the format file:///\, but the
     // repository root returned would still be file://
