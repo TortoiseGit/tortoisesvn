@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-19 07:34-0300\n"
+"PO-Revision-Date: 2010-09-28 16:59-0300\n"
 "Last-Translator: Tomás Christie <tommychristie@gmail.com>\n"
 "Language-Team: Tommy\n"
 "Language: es\n"
@@ -859,6 +859,10 @@ msgstr "&Luminiscencia:"
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "&Hacer profundidad pegajosa"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "Editar propiedad &manualmente"
@@ -1354,6 +1358,10 @@ msgstr "&Windows XP"
 msgid "&Working copy"
 msgstr "&Copia de trabajo"
 
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Envolver líneas largas"
+
 #. Resource IDs: (1540)
 msgid "&file list control"
 msgstr "&control de lista de archivos"
@@ -1509,17 +1517,6 @@ msgstr "<Separator>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<Sin título>"
-
-#. Resource IDs: (145)
-msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
-msgstr ""
-"TortoiseSVN es una extensión del shell.\n"
-"Eso significa que está integrado en el Explorador de Windows.\n"
-"Para usar TortoiseSVN por favor abra el Explorador y haga click con "
-"el botón derecho en cualquier carpeta que desee\n"
-"para que aparezca el menú contextual donde encontrará todos los comandos de "
-"TortoiseSVN.\n"
-"Y lea el manual!"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -1964,8 +1961,8 @@ msgstr "¿Está seguro de querer borrar la caché de los %d ítems seleccionados
 #, c-format
 msgid "Are you sure you want to revert %d item(s)? You will lose all changes since the last update!"
 msgstr ""
-"¿Está seguro de que desea revertir %d ítem(s)? ¡Perderá todos los "
-"cambios realizados desde la última actualización!"
+"¿Está seguro de que desea revertir %d ítem(s)? ¡Perderá todos los cambios "
+"realizados desde la última actualización!"
 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
@@ -2383,10 +2380,6 @@ msgstr "Buscar Actualizaciones"
 msgid "Check For Updates..."
 msgstr "Buscar actualizaciones..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "Buscar externos para versión explícita"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "Comprobar &modificaciones"
@@ -2498,6 +2491,10 @@ msgstr "Limpiando"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "Limpiando directorio \"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Limpiar y actualizar la shell"
+
 #. Resource IDs: (83)
 #, c-format
 msgid "Cleanup failed to process the following paths:\n%s"
@@ -2511,6 +2508,12 @@ msgid "Cleanup has successfully processed the following paths:\n%s"
 msgstr ""
 "La limpieza ha procesado satisfactoriamente las siguientes rutas:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr ""
+"Limpiar operaciones interrumpidas y actualizar las superposiciones de la "
+"shell"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -4541,6 +4544,10 @@ msgstr "Ocultar rutas &eliminadas"
 msgid "Hide all branches that did not modify the item"
 msgstr "Ocultar todas las ramas que no modificaron el ítem"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "Ocultar todas las etiquetas"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Ocultar ramas y etiquetas eliminadas"
@@ -4548,6 +4555,10 @@ msgstr "Ocultar ramas y etiquetas eliminadas"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Ocultar ventana acoplada"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "Ocultar &etiquetas"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -4570,7 +4581,7 @@ msgstr "Número de revisión más alto en la caché"
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr ""
-"Pista: Pulse F5 para refrescar el subárbol seleccionado y Ctrl-F5 para "
+"Pista: Pulse F5 para actualizar el subárbol seleccionado y Ctrl-F5 para "
 "cargar también todos los hijos."
 
 #. Resource IDs: (16519)
@@ -4734,6 +4745,10 @@ msgstr "ID:32814:VA  +D"
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
@@ -5216,8 +5231,8 @@ msgstr ""
 "\n"
 "Sólo se necesita relocalizar si la ruta de acceso al repositorio ha "
 "cambiado.\n"
-"El cambio a una ruta diferente dentro del mismo repositorio se hace "
-"con una operación Cambiar.\n"
+"El cambio a una ruta diferente dentro del mismo repositorio se hace con una "
+"operación Cambiar.\n"
 "\n"
 "¡El uso inapropiado de relocalizar corromperá su copia de trabajo!\n"
 "Si no está seguro de lo que quiere hacer, por favor lea en nuestra "
@@ -5995,7 +6010,6 @@ msgstr "No"
 msgid "No command specified!\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "¡No se especificó comando!\n"
-
 "¡TortoiseProc.exe es utilizado por la extensión del Shell y no debe ser "
 "invocado directamente!"
 
@@ -6951,6 +6965,10 @@ msgstr "Recursividad en carpetas no versionadas"
 msgid "Recursive"
 msgstr "Recursivo"
 
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr "Redireccionando a url"
+
 #. Resource IDs: (3603)
 msgid "Redo the previously undone action\nRedo"
 msgstr ""
@@ -7050,6 +7068,10 @@ msgstr "Advertencia de relocalizar"
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "Relocalizando..."
+
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "Recordar la profundidad para esta copia de trabajo"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -7838,6 +7860,10 @@ msgstr "&Dirección del servidor:"
 msgid "Set Accelerator &for:"
 msgstr "Establecer aceleradora pa&ra:"
 
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "Establecer revisión explicita para estas referencias externas:"
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr ""
@@ -8416,7 +8442,6 @@ msgstr ""
 msgid "Subversion reported an error while doing a cleanup!\n%s"
 msgstr ""
 "¡Subversion reportó un error mientras se realizaba una limpieza!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9003,7 +9028,6 @@ msgstr "El usuario que es dueño del bloqueo del archivo"
 msgid "The working copy has changed!\nPlease commit your changes first or revert."
 msgstr ""
 "¡La copia de trabajo ha cambiado!\n"
-
 "Por favor, confirme sus cambios o reviertalos."
 
 #. Resource IDs: (81)
@@ -9321,6 +9345,17 @@ msgstr ""
 "TortoiseSVN ha detectado nombres de archivos similares. ¿Desea que los "
 "archivos:%s\n"
 "se renombren también?"
+
+#. Resource IDs: (145)
+msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
+msgstr ""
+"TortoiseSVN es una extensión del shell.\n"
+"Eso significa que está integrado en el Explorador de Windows.\n"
+"Para usar TortoiseSVN por favor abra el Explorador y haga click con el botón "
+"derecho en cualquier carpeta que desee\n"
+"para que aparezca el menú contextual donde encontrará todos los comandos de "
+"TortoiseSVN.\n"
+"Y lea el manual!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -9991,6 +10026,10 @@ msgstr ""
 #, c-format
 msgid "Working copy: %s\n"
 msgstr "Copia de trabajo: %s\n"
+
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "Envolver líneas largas"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -10704,22 +10743,22 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #. Resource IDs: (576)
-msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
+msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL with an optional peg revision and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
 msgstr ""
 "svn:externals\r\n"
 "Una lista de especificadores de módulos, uno por línea, cada uno de los "
 "cuales consiste\r\n"
-"en una revisión opcional, una URL y una ruta de directorio relativa. Por "
-"ejemplo\r\n"
+"en una revisión opcional, una URL con una revisión base opcional y una ruta "
+"de directorio relativa. Por ejemplo\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "Las URLs pueden ser URLs completas o relativas. El formato\r\n"
 "para las URLs relativas es:\r\n"
-"../ trelativo al directorio padre del external\r\n"
+"../ relativo al directorio padre de la referencia externa\r\n"
 "^/ relativo a la raíz del repositorio\r\n"
 "// relativo al esquema de la URL\r\n"
-"/ relativo al nombre del host del servidor"
+"/ relativo al nombre del servidor de hosteo"
 
 #. Resource IDs: (576)
 msgid "svn:ignore\r\nA newline separated list of file patterns to ignore."
@@ -10978,6 +11017,26 @@ msgstr "sí"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "Buscar externos para versión explícita"
+
+#~ msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
+#~ msgstr ""
+#~ "svn:externals\r\n"
+#~ "Una lista de especificadores de módulos, uno por línea, cada uno de los "
+#~ "cuales consiste\r\n"
+#~ "en una revisión opcional, una URL y una ruta de directorio relativa. Por "
+#~ "ejemplo\r\n"
+#~ "http://example.com/repos/zig foo\r\n"
+#~ "-r 1234 http://example.com/repos/zag foo/bar\r\n"
+#~ "\r\n"
+#~ "Las URLs pueden ser URLs completas o relativas. El formato\r\n"
+#~ "para las URLs relativas es:\r\n"
+#~ "../ trelativo al directorio padre del external\r\n"
+#~ "^/ relativo a la raíz del repositorio\r\n"
+#~ "// relativo al esquema de la URL\r\n"
+#~ "/ relativo al nombre del host del servidor"
 
 #~ msgid "&From WC at URL:"
 #~ msgstr "&Desde la Copia de Trabajo en la URL:"
