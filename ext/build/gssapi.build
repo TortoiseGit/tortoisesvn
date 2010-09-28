@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<project name="gssapi" default="build">
+    <property name="basedir" value="..\..\..\common\kerberos\src\athena\auth\krb5\src" />
+    <property name="machineoption" value="CPU=i386" if="${platform == 'win32'}"  />
+    <property name="machineoption" value="CPU=AMD64" if="${platform == 'x64'}" />
+    <property name="debugmode" value="NODEBUG=1" if="${configuration == 'release'}" />
+    <property name="debugmode" value="DEBUG=1" if="${configuration != 'release'}" />
+
+    <target name="clean">
+        <if test="${cleanup == 'yes'}">
+          <exec program="nmake" workingdir="${basedir}" failonerror="false">
+            <arg value="${machineoption}" />
+            <arg value="${debugmode}" />
+            <arg value="clean" />
+          </exec>
+        </if>
+    </target>
+
+    <target name="build">
+        <loadfile file="${basedir}\config\win-pre.in" property="win-pre.in" />
+        <loadfile file="${basedir}\Makefile.in" property="makefile.in" />
+        <loadfile file="${basedir}\config\win-post.in" property="win-post.in" />
+        <echo file="${basedir}\Makefile.tmp" message="${win-pre.in}${makefile.in}${win-post.in}" append="false" />
+        <loadfile file="${basedir}\Makefile.tmp" property="makefile.tmp">
+            <filterchain>
+                <replacestring from="##DOS##" to="" />
+                <replacestring from="##DOS" to="" />
+                <replacestring from="rm " to="$(RM) " />
+                <replacestring from="CCLINKOPTION=/link bufferoverflowu.lib" to="#CCLINKOPTION=/link bufferoverflowu.libs" />
+                <replacestring from="SCLIB=bufferoverflowu.lib" to="#SCLIB=bufferoverflowu.libs" />
+                <replacestring from=" $(HOUT)" to="" />
+            </filterchain>
+        </loadfile>
+        <echo file="${basedir}\Makefile" message="${makefile.tmp}" append="false" />
+
+        <exec program="nmake" workingdir="${basedir}">
+          <arg value="${machineoption}" />
+          <arg value="${debugmode}" />
+          <arg value="awk-windows-mac" />
+        </exec>
+
+        <copy file="${basedir}\lib\gssapi\generic\gssapi.hin" tofile="${basedir}\lib\gssapi\generic\gssapi.h" overwrite="true" />
+        <copy file="${basedir}\include\krb5\krb5.hin" tofile="${basedir}\include\krb5\krb5.h" overwrite="true" />
+        <loadfile file="${basedir}\include\krb5_err.h" property="krb5_err.h" />
+        <loadfile file="${basedir}\include\kv5m_err.h" property="kv5m_err.h" />
+        <loadfile file="${basedir}\include\krb524_err.h" property="krb524_err.h" />
+        <loadfile file="${basedir}\include\asn1_err.h" property="asn1_err.h" />
+        <echo file="${basedir}\include\krb5\krb5.h" message="${krb5_err.h}${kv5m_err.h}${krb524_err.h}${asn1_err.h}" append="true" />
+
+        <copy file="${basedir}\util\profile\profile.hin" tofile="${basedir}\util\profile\profile.h" overwrite="true" />
+        <loadfile file="${basedir}\util\profile\prof_err.h" property="prof_err.h" />
+        <echo file="${basedir}\util\profile\profile.h" message="${prof_err.h}" append="true" />
+
+        <exec program="nmake" workingdir="${basedir}">
+          <arg value="${machineoption}" />
+          <arg value="${debugmode}" />
+          <arg value="Makefile-windows" />
+        </exec>
+        <exec program="nmake" workingdir="${basedir}\include">
+          <arg value="${machineoption}" />
+          <arg value="${debugmode}" />
+        </exec>
+        <loadfile file="${basedir}\util\windows\Makefile" property="makefile">
+          <filterchain>
+            <replacestring from="CCLINKOPTION=/link bufferoverflowu.lib" to="#CCLINKOPTION=/link bufferoverflowu.lib" />
+            <replacestring from="SCLIB=bufferoverflowu.lib" to="#SCLIB=bufferoverflowu.lib" />
+          </filterchain>
+        </loadfile>
+        <echo file="${basedir}\util\windows\Makefile" message="${makefile}" />
+        <exec program="nmake" workingdir="${basedir}\util">
+          <arg value="${machineoption}" />
+          <arg value="${debugmode}" />
+        </exec>
+        <exec program="nmake" workingdir="${basedir}\util\profile">
+            <arg value="${machineoption}" />
+            <arg value="${debugmode}" />
+        </exec>
+        <loadfile file="${basedir}\lib\Makefile" property="makefile">
+            <filterchain>
+                <replacestring from="CCLINKOPTION=/link bufferoverflowu.lib" to="#CCLINKOPTION=/link bufferoverflowu.lib" />
+                <replacestring from="SCLIB=bufferoverflowu.lib" to="#SCLIB=bufferoverflowu.lib" />
+            </filterchain>
+        </loadfile>
+        <echo file="${basedir}\lib\Makefile" message="${makefile}" />
+        <exec program="nmake" workingdir="${basedir}\lib">
+            <arg value="${machineoption}" />
+            <arg value="${debugmode}" />
+        </exec>
+    </target>
+
+</project>

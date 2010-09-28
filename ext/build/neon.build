@@ -94,6 +94,7 @@
         <include name="..\apr-util\xml\expat\lib" />
         <include name="..\..\..\common\openssl\inc32" />
         <include name="..\..\..\common\zlib" />
+        <include name="..\..\..\common\kerberos\src\athena\auth\krb5\src\include" />
       </includedirs>
       <defines>
         <define name="_CRT_NONSTDC_NO_DEPRECATE" />
@@ -120,10 +121,19 @@
         <define name="NOGDI" />
         <define name="NONLS" />
         <define name="NOCRYPT" />
+        <define name="HAVE_GSSAPI" />
+        <define name="HAVE_GSSAPI_GSSAPI_H" />
+        <define name="HAVE_GSSAPI_GSSAPI_GENERIC_H" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <property name="gssapicpu" value="i386" if="${platform == 'win32'}" />
+    <property name="gssapicpu" value="AMD64" if="${platform == 'x64'}" />
+    <property name="gssapiloc" value="rel" if="${configuration == 'release'}" />
+    <property name="gssapiloc" value="dbg" if="${configuration == 'debug'}" />
+    <property name="gssapiname" value="gssapi32" if="${platform == 'win32'}" />
+    <property name="gssapiname" value="gssapi64" if="${platform == 'x64'}" />
     <lib
       output="${configuration}${static}_${platform}\libneon.lib"
       options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
@@ -132,6 +142,7 @@
         <include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" />
         <include name="..\..\..\common\openssl\out32\libeay32.lib" />
         <include name="..\..\..\common\openssl\out32\ssleay32.lib" />
+        <include name="..\..\..\common\kerberos\src\athena\auth\krb5\src\lib\obj\${gssapicpu}\${gssapiloc}\${gssapiname}.lib" />
       </sources>
     </lib>
   </target>

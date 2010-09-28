@@ -202,6 +202,39 @@
     </nant>
   </target>
 
+  <target name="gssapi" depends="VSNET,env">
+    <description>
+      Builds only the gssapi library
+    </description>
+    <nant target="build">
+      <buildfiles>
+        <include name="ext\build\gssapi.build" />
+      </buildfiles>
+    </nant>
+  </target>
+
+  <target name="cleangssapi" depends="VSNET,env">
+    <description>
+      Cleans only the gssapi library
+    </description>
+    <nant target="clean">
+      <buildfiles>
+        <include name="ext\build\gssapi.build" />
+      </buildfiles>
+    </nant>
+  </target>
+
+  <target name="sasl" depends="VSNET,env">
+    <description>
+      Builds only the sasl library
+    </description>
+    <nant target="build">
+      <buildfiles>
+        <include name="ext\build\sasl.build" />
+      </buildfiles>
+    </nant>
+  </target>
+
   <target name="TortoiseSVN" depends="VSNET,env">
     <description>
       Builds TortoiseSVN. The libraries must have been built

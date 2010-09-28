@@ -5,6 +5,7 @@
     TypicalDefault="install" Description="The TortoiseSVN package and dependencies." Display="expand" InstallDefault="local" >
       <ComponentRef Id="C__infofiles" />
       <ComponentRef Id="C__apr" />
+      <ComponentRef Id="C_kerberos" />
       <ComponentRef Id="C__sasl" />
       <ComponentRef Id="C__gettext" />
       <ComponentRef Id="C__help_en" />
