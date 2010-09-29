@@ -206,15 +206,12 @@
         <include name="plugins\login_init.c" />
         <include name="plugins\ntlm.c" />
         <include name="plugins\ntlm_init.c" />
-        <include name="plugins\gssapi.c" />
-        <include name="plugins\gssapiv2_init.c" />
       </sources>
       <includedirs>
         <include name="include" />
         <include name="plugins" />
         <include name="win32\include" />
         <include name="..\..\..\common\openssl\inc32" />
-        <include name="..\..\..\common\kerberos\src\athena\auth\krb5\src\include" />
       </includedirs>
       <defines>
         <define name="_CRT_NONSTDC_NO_DEPRECATE" />
@@ -231,8 +228,6 @@
         <define name="WIN64" if="${platform == 'x64'}" />
         <define name="NDEBUG" if="${configuration == 'release'}"/>
         <define name="_DEBUG" if="${configuration != 'release'}"/>
-        <define name="HAVE_GSS_C_NT_HOSTBASED_SERVICE" />
-        <define name="SSIZE_T_DEFINED" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
@@ -326,27 +321,6 @@
       <arg value="-manifest" />
       <arg value=".\${configuration}${static}_${platform}\saslPLAIN.dll.manifest" />
       <arg value='/outputresource:".\${configuration}${static}_${platform}\saslPLAIN.dll;#2"' />
-    </exec>
-
-    <property name="gssapicpu" value="i386" if="${platform == 'win32'}" />
-    <property name="gssapicpu" value="AMD64" if="${platform == 'x64'}" />
-    <property name="gssapiloc" value="rel" if="${configuration == 'release'}" />
-    <property name="gssapiloc" value="dbg" if="${configuration == 'debug'}" />
-    <property name="gssapiname" value="gssapi32" if="${platform == 'win32'}" />
-    <property name="gssapiname" value="gssapi64" if="${platform == 'x64'}" />
-    <link 
-      output="${configuration}_${platform}\saslGSSAPI.dll" 
-      options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslGSSAPI.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslGSSAPI.lib" ${machineoption} ..\..\..\common\kerberos\src\athena\auth\krb5\src\lib\obj\${gssapicpu}\${gssapiloc}\${gssapiname}.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
-      <sources>
-        <include name="${configuration}_${platform}\plugin_common.obj" />
-        <include name="${configuration}_${platform}\gssapi*.obj" />
-      </sources>
-    </link>
-    <exec program="mt.exe">
-      <arg value="-nologo" />
-      <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\saslGSSAPI.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\saslGSSAPI.dll;#2"' />
     </exec>
 
     <copy todir="..\..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false">

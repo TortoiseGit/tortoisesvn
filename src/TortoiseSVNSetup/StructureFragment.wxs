@@ -69,22 +69,6 @@
               <File Id="F__libaprutil" Name="libaprutil_tsvn.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libaprutil_tsvn.dll" />
             </Component>
 
-            <Component Id="C_kerberos" Guid="$(var.GuidKerberos)" Win64="$(var.Win64YesNo)">
-              <?if $(env.Platform) = "win32" ?>
-              <File Id="F__gssapi32" Name="gssapi32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\gssapi32.dll" KeyPath="yes" />
-              <File Id="F__krb532"   Name="krb5_32.dll"  DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\krb5_32.dll" />
-              <File Id="F__comerr32" Name="comerr32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\comerr32.dll" />
-              <File Id="F__k5sprt32" Name="k5sprt32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\k5sprt32.dll" />
-              <?endif ?>
-
-              <?if $(env.Platform) = "x64" ?>
-              <File Id="F__gssapi64" Name="gssapi64.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\gssapi64.dll" KeyPath="yes" />
-              <File Id="F__krb564"   Name="krb5_64.dll"  DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\krb5_64.dll" />
-              <File Id="F__comerr64" Name="comerr64.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\comerr64.dll" />
-              <File Id="F__k5sprt64" Name="k5sprt64.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\k5sprt64.dll" />
-              <?endif ?>
-            </Component>
-
             <Component Id="C__sasl" Guid="$(var.GuidSASL)" Win64="$(var.Win64YesNo)">
               <File Id="F__libsasl" Name="libsasl.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libsasl.dll" KeyPath="yes" />
               <File Id="F__saslANONYMOUS" Name="saslANONYMOUS.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslANONYMOUS.dll" />
@@ -93,7 +77,6 @@
               <File Id="F__saslLOGIN" Name="saslLOGIN.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslLOGIN.dll" />
               <File Id="F__saslNTLM" Name="saslNTLM.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslNTLM.dll" />
               <File Id="F__saslPLAIN" Name="saslPLAIN.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslPLAIN.dll" />
-              <File Id="F__saslGSSAPI" Name="saslGSSAPI.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslGSSAPI.dll" />
             </Component>
 
             <Component Id="C__gettext" Guid="$(var.GuidGettext)" Win64="$(var.Win64YesNo)">

@@ -63,12 +63,6 @@
   </target>
 
   <target name="versioninfo">
-    <property name="kplat" value="i386"   if="${platform == 'win32'}"/>
-    <property name="kplat" value="AMD64" if="${platform == 'x64'}"/>
-    <property name="kc" value="32"   if="${platform == 'win32'}"/>
-    <property name="kc" value="64" if="${platform == 'x64'}"/>
-    <property name="kconf" value="dbg"   if="${configuration != 'release'}"/>
-    <property name="kconf" value="rel" if="${configuration == 'release'}"/>
     <copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false">
       <fileset>
         <include name="TortoiseSVNSetup\include\autolist.txt" />
@@ -85,14 +79,6 @@
         <include name="..\ext\libintl\libintl3-${platform}\bin\intl3_tsvn.dll" />
         <include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44.dll"/>
         <include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44d.dll"/>
-      </fileset>
-    </copy>
-    <copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false" >
-      <fileset>
-        <include name="..\..\common\kerberos\src\athena\auth\krb5\src\lib\obj\${kplat}\${kconf}\gssapi${kc}.dll" />
-        <include name="..\..\common\kerberos\src\athena\auth\krb5\src\lib\obj\${kplat}\${kconf}\comerr${kc}.dll" />
-        <include name="..\..\common\kerberos\src\athena\auth\krb5\src\lib\obj\${kplat}\${kconf}\k5sprt${kc}.dll" />
-        <include name="..\..\common\kerberos\src\athena\auth\krb5\src\lib\obj\${kplat}\${kconf}\krb5_${kc}.dll" />
       </fileset>
     </copy>
     <nant target="versioninfo">

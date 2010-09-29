@@ -50,7 +50,7 @@ You only have to do this once.
 - WiX3(\b 1)                  http://wix.sourceforge.net
 - Votive(\b 2)                http://wix.sourceforge.net
 - NAnt(\b 1)                  http://nant.sourceforge.net
-
+.
 (\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
     logoff/logon to make the new environment variables take effect!
 
@@ -61,9 +61,7 @@ You only have to do this once.
                               You will need version 1.0.0a
 - ZLib source                 http://www.gzip.org/zlib/
                               You will need version 1.2.5
-- GSSAPI source               http://web.mit.edu/kerberos/dist/index.html#kfw-3.2
-                              You will need version 3.2.2
-- tools collection            http://tortoisesvn.tigris.org/files/documents/406/48359/Tools-1.7.7z
+- tools collection            http://tortoisesvn.tigris.org/files/documents/406/42347/Tools-1.5.zip
 - dictionaries/thesauri(\b Optional) http://lingucomponent.openoffice.org/
 
 \subsection Requirements4 Finally, you may need to install some fonts.
@@ -81,7 +79,6 @@ Now you're almost ready. Only a few more steps to do:
 - create a new folder in SVN called 'common'
 - unzip the openssl sourcecode into 'common', and rename the folder to 'openssl'
 - unzip the zlib sourcecode into 'common' and rename the folder to 'zlib'
-- unzip the GSSAPI sourcecode into 'common' and rename the folder to 'kerberos'
 - copy the dictionaries/thesauri to 'common\spell'.
   note that the names of the files are important!
   They have to be en_US.aff, en_US.dic, en_GB.aff and en_GB.dic (or whatever language you use).
