@@ -728,19 +728,19 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
     if (infodata)
     {
         CTSVNPathList conflictedEntries;
-        if ((infodata->conflict_new)&&(result != svn_wc_conflict_choose_theirs_full))
+        if ((infodata->conflict_new.GetLength())&&(result != svn_wc_conflict_choose_theirs_full))
         {
             CTSVNPath conflictpath = path.GetContainingDirectory();
             conflictpath.AppendPathString(infodata->conflict_new);
             conflictedEntries.AddPath(conflictpath);
         }
-        if ((infodata->conflict_old)&&(result != svn_wc_conflict_choose_merged))
+        if ((infodata->conflict_old.GetLength())&&(result != svn_wc_conflict_choose_merged))
         {
             CTSVNPath conflictpath = path.GetContainingDirectory();
             conflictpath.AppendPathString(infodata->conflict_old);
             conflictedEntries.AddPath(conflictpath);
         }
-        if ((infodata->conflict_wrk)&&(result != svn_wc_conflict_choose_mine_full))
+        if ((infodata->conflict_wrk.GetLength())&&(result != svn_wc_conflict_choose_mine_full))
         {
             CTSVNPath conflictpath = path.GetContainingDirectory();
             conflictpath.AppendPathString(infodata->conflict_wrk);
