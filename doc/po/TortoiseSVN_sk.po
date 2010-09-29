@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-12 06:29 +0000\n"
-"PO-Revision-Date: 2010-09-23 13:15+0100\n"
+"PO-Revision-Date: 2010-09-29 19:49+0100\n"
 "Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2645,6 +2645,11 @@ msgid ""
 "             downgrade-1.0 force-response-1.0\n"
 "</screen> There are (were?) good reasons for this configuration, see <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> But if you want NTLM authentication you have to use <literal>keepalive</literal>. If You uncomment the whole <literal>SetEnvIf</literal> you should be able to authenticate IE with windows authentication over SSL against the Apache on Win32 with included <literal>mod_auth_sspi</literal>."
 msgstr ""
+"V SSL\"štandardnom\" nastavení sa často nachádza nasledovný výpis v Apache virtualnom SSL hostiteľovi:  <screen>\n"
+"SetEnvIf User-Agent \".*MSIE.*\" \\\n"
+"             nokeepalive ssl-unclean-shutdown \\\n"
+"             downgrade-1.0 force-response-1.0\n"
+"</screen> Sú (boli) tu dobré dôvody pre toto nastavenie, pozrite <ulink url=\"http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49\"><citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle></ulink> Ale chcete NTLM overovanie, musíte použit <literal>keepalive</literal>. Ak odkomentujete celé <literal>SetEnvIf</literal>, ste schopný overiť IE pomocou Windows overovania cez SSL namiesto Apache na Win32 s obsiahnutým <literal>mod_auth_sspi</literal>."
 
 #. (para)
 msgid "If you still want to use IE to browse the repository you can either: <placeholder-1/>"
@@ -2656,7 +2661,7 @@ msgstr "Vynútený SSL prístup"
 
 #. (para)
 msgid "When you've set up SSL to make your repository more secure, you might want to disable the normal access via non-SSL (http) and only allow https access. To do this, you have to add another directive to the Subversion <literal>&lt;Location&gt;</literal> block: <literal>SSLRequireSSL</literal>."
-msgstr ""
+msgstr "Keď nastavíte prístup SSL, aby ste viacej zabezpečili úložisko, môžete chcieť zakázať bežný prístup cez ne-SSL (http) a dovoliť iba prístp cez https. Pre spravenie tohoto kroku, musíte preidať ďalší príkaz"
 
 #. (para)
 msgid ""
@@ -2673,22 +2678,34 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"Príklad <literal>&lt;Location&gt;</literal> oddiel môže vyzerať nasledovne: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNParentPath D:\\SVN\n"
+"  SSLRequireSSL\n"
+"  AuthType Basic\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthUserFile passwd\n"
+"  #AuthzSVNAccessFile svnaccessfile\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Using client certificates with virtual SSL hosts"
-msgstr ""
+msgstr "Používanie klientských certifikátov s virtuálnymi hostiteľmi SSL"
 
 #. (para)
 msgid "Sent to the TortoiseSVN mailing list by Nigel Green. Thanks!"
-msgstr ""
+msgstr "Nigel Green poslal do mailing listu TortoiseSVN. Vďaka!"
 
 #. (para)
 msgid "In some server configurations you may need to setup a single server containing 2 virtual SSL hosts: The first one for public web access, with no requirement for a client certificate. The second one to be secure with a required client certificate, running a Subversion server."
-msgstr ""
+msgstr "Pri niektorých serverových konfiguráciach môžete protrebovať nastaviť jediný server obsahujúci 2 virtuálnych SSL hostiteľov. Prvý pre verejný web prístup bez požiadavok na certifikát u klienta. Druhý na zabezpečený s potrebným klientským certifikátom, spusteným na Subversion serveri. "
 
 #. (para)
 msgid "Adding an <literal>SSLVerifyClient Optional</literal> directive to the <emphasis>per-server</emphasis> section of the Apache configuration (i.e. outside of any <literal>VirtualHost</literal> and <literal>Directory</literal> blocks) forces Apache to request a client Certificate in the initial SSL handshake. Due to a bug in <literal>mod_ssl</literal> it is essential that the certificate is requested at this point as it does not work if the SSL connection is re-negotiated."
-msgstr ""
+msgstr "Pridanie <literal>SSLVerifyClient Optional</literal> príkaz do <emphasis>per-server</emphasis> oddelenia konfigurácie Apache (napr. oddelene od <literal>VirtualHost</literal> a <literal>Directory</literal> častí), prinúti Apache, aby požadoval klientský certifikát pri prvom SSL stretnutí. Vďaka chybe v <literal>mod_ssl</literal> je nevyhnutné, aby certifikát bol požadovaný na tomto mieste, ak toto nefunguje, tak SSL spojenie sa dá obísť."
 
 #. (para)
 msgid ""
@@ -2696,6 +2713,9 @@ msgid ""
 "SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
 "</screen> This directive grants access to the directory only if a client certificate was received and verified successfully."
 msgstr ""
+"Riešenie je pridať nasledujúce príkazy do adresárov virtuálnych hostiteľov, ktorý checte uzamknúť pre Subversion <screen>\n"
+"SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
+"</screen> Tento príkaz zabezpeči prístup do adresára iba, ak je klientský certifikát bol doručený a úspešne overený."
 
 #. (para)
 msgid ""
@@ -2724,6 +2744,30 @@ msgid ""
 "&lt;/VirtualHost&gt;\n"
 "</screen>"
 msgstr ""
+"Pre zhrnutie, riadky konfigurácie Apache sú: <screen>\n"
+"SSLVerifyClient Optional\n"
+"\n"
+"### Virtual host configuration for the PUBLIC host\n"
+"### (not requiring a certificate)\n"
+"\n"
+"&lt;VirtualHost 127.0.0.1:443&gt;\n"
+"  &lt;Directory \"pathtopublicfileroot\"&gt;\n"
+"  &lt;/Directory&gt;\n"
+"&lt;/VirtualHost&gt;\n"
+"\n"
+"### Virtual host configuration for SUBVERSION\n"
+"### (requiring a client certificate)\n"
+"&lt;VirtualHost 127.0.0.1:443&gt;\n"
+"  &lt;Directory \"subversion host root path\"&gt;\n"
+"    SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
+"  &lt;/Directory&gt;\n"
+"\n"
+"  &lt;Location /svn&gt;\n"
+"    DAV svn\n"
+"    SVNParentPath /pathtorepository\n"
+"  &lt;/Location&gt;\n"
+"&lt;/VirtualHost&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Daily Use Guide"
@@ -2747,15 +2791,15 @@ msgstr "Už by ste mali maž nainštalovanú TortoiseSVN."
 
 #. (para)
 msgid "You should be familiar with version control systems."
-msgstr ""
+msgstr "Mali by ste byť poznať systémy pre správu verzií. "
 
 #. (para)
 msgid "You should know the basics of Subversion."
-msgstr ""
+msgstr "Mali by ste poznať základy Subversion."
 
 #. (para)
 msgid "You should have set up a server and/or have access to a Subversion repository."
-msgstr ""
+msgstr "Mali by ste mať nastavený server a/alebo mať prístup k Subversion úložisku."
 
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
