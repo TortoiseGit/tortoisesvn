@@ -215,6 +215,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
                 // we have to unescape the urls since the local file system doesn't need them
                 // escaped and it would only look really ugly (and be wrong).
                 temp = CPathUtils::PathUnescape(temp);
+                temp.Replace(_T("/"), _T("\\"));
             }
             else
             {
