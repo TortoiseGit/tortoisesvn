@@ -34,7 +34,7 @@
             SubWCRev reads the Subversion status of all files in a working
             copy, excluding externals by default. It records the highest commit
             revision number found, and the commit timestamp of that revision,
-            It also records whether there are local modifications in the working
+            it also records whether there are local modifications in the working
             copy, or mixed update revisions. The revision number, update
             revision range and modification status are displayed on stdout.
         </para>
@@ -205,7 +205,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                                 If the working copy contains mixed revisions,
                                 either due to being out of date, or due to a
                                 deliberate update-to-revision, then the range
-                                will be shown in the form 100:200
+                                will be shown in the form 100:200.
                             </entry>
                         </row>
                         <row>
@@ -393,14 +393,14 @@ char *URL      = "http://project.domain.org/svn/trunk/src";
                             <entry condition="pot">.Revision</entry>
                             <entry>
                                 The highest commit revision in the working copy.
-                                Equivalent to <literal>$WCREV$</literal>
+                                Equivalent to <literal>$WCREV$</literal>.
                             </entry>
                         </row>
                         <row>
                             <entry condition="pot">.Date</entry>
                             <entry>
                                 The commit date/time of the highest commit revision.
-                                Equivalent to <literal>$WCDATE$</literal>
+                                Equivalent to <literal>$WCDATE$</literal>.
                             </entry>
                         </row>
                         <row>
@@ -412,22 +412,22 @@ char *URL      = "http://project.domain.org/svn/trunk/src";
                         </row>
                         <row>
                             <entry condition="pot">.MinRev</entry>
-                            <entry>The minimum update revision, as shown in <literal>$WCRANGE$</literal></entry>
+                            <entry>The minimum update revision, as shown in <literal>$WCRANGE$</literal></entry>.
                         </row>
                         <row>
                             <entry condition="pot">.MaxRev</entry>
-                            <entry>The maximum update revision, as shown in <literal>$WCRANGE$</literal></entry>
+                            <entry>The maximum update revision, as shown in <literal>$WCRANGE$</literal></entry>.
                         </row>
                         <row>
                             <entry condition="pot">.HasModifications</entry>
-                            <entry>True if there are local modifications</entry>
+                            <entry>True if there are local modifications</entry>.
                         </row>
                         <row>
                             <entry condition="pot">.Url</entry>
                             <entry>
                                 Replaced with the repository URL of the working
                                 copy path used in <literal>GetWCInfo</literal>.
-                                Equivalent to <literal>$WCURL$</literal>
+                                Equivalent to <literal>$WCURL$</literal>.
                             </entry>
                         </row>
                         <row>
