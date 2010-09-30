@@ -22,9 +22,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-12 06:29 +0000\n"
-"PO-Revision-Date: 2010-09-29 19:49+0100\n"
-"Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
+"POT-Creation-Date: 2010-09-23 19:41 +0000\n"
+"PO-Revision-Date: 2010-09-30 15:56+0100\n"
+"Last-Translator: Oto BREZINA <translator [at] e-posta [dot] sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1280,7 +1280,7 @@ msgstr ""
 
 #. (para)
 msgid "Because this layout is so commonly used, when you create a new repository using TortoiseSVN, it will also offer to create the directory structure for you."
-msgstr ""
+msgstr "Keďže toto je často používané rozmiestnenie, TortoiseSVN vám pri vytváraní úložiska ponúkne vytvorenie zodpovedajúcej adresárovej štruktúry."
 
 #. (para)
 msgid "If a repository contains multiple projects, people often index their layout by branch:"
@@ -1333,9 +1333,8 @@ msgid "Indexing by project makes sense if the projects are not closely related a
 msgstr "Idexovanie projektu má zmysel iba vtedy, kedy projekty nie sú podobné a každý je udržiavaný osobitne. Pre podobné projekty, ktoré chcete spravovať v kope, alebo projekty, ktoré sú štandardne distribuované v jednom balíčku je lepšie indexovať podľa vetiev. Tento spôsob ma iba jednu hlavnú líniu a a vzťahy medzi podprojektami su jednoduchšie viditeľné."
 
 #. (para)
-#, fuzzy
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
-msgstr "Ak použijete ako vrcholové adresáre <filename>/trunk /tags /branches</filename> máte kópiu celej hlavnej línie pre vetvy aj menovky a takáto štrktúra ponúka lepšiu felxibilitu."
+msgstr "Ak použijete ako vrcholové adresáre <filename>/trunk /tags /branches</filename> máte kópiu celej hlavnej línie pre vetvy aj značky a takáto štruktúra ponúka lepšiu felxibilitu."
 
 #. (para)
 msgid "For unrelated projects you may prefer to use separate repositories. When you commit changes, it is the revision number of the whole repository which changes, not the revision number of the project. Having 2 unrelated projects share a repository can mean large gaps in the revision numbers. The Subversion and TortoiseSVN projects appear at the same host address, but are completely separate repositories allowing independent development, and no confusion over build numbers."
@@ -1454,9 +1453,9 @@ msgid ""
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen> Note that anything sent to stdout is discarded. if you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
+"</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
 msgstr ""
-"Niektoré pripnuté skripty môžete nájsť v <filename>hooks</filename> adresári úložiska. Tieto ukážkové skripty sú použiteľné pre Unix/Linux servre, ale musia byť upravené, ak používate ich na Windows server. Pripnutie môže byť dávkový súbor alebo spustiteľný súbor. V ukážke dole je dávkový súbor, ktorý môže byť použitý ako pre-revprop-change pripnutie. <screen>\n"
+"Vzorové pripnuté skripty môžete nájsť v adresári úložiska <filename>hooks</filename>. Tieto ukážkové skripty sú vhodné pre Unix/Linux servre, ale musia byť upravené, ak je váš server založený na Windows. Pripnutie môže byť dávkový alebo spustiteľný súbor. V ukážke dole je dávkový súbor, ktorý môže byť použitý ako pre-revprop-change pripnutie. <screen>\n"
 "rem Only allow log messages to be changed.\n"
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
@@ -1814,7 +1813,7 @@ msgid ""
 "use-sasl = true\n"
 "</screen>"
 msgstr ""
-"Pre spustenie určitého mechanizmu na serveri potrebujete spraviť 3 nasledovné veci. Po prvé, vytvorte <literal>[sasl]</literal> oddelenie vo vašom úložiskovom <filename>svnserve.conf</filename> súbore s souto hodnotou: <screen>\n"
+"Pre spustenie určitého mechanizmu na serveri potrebujete spraviť 3 nasledovné veci. Po prvé, vytvorte <literal>[sasl]</literal> oddelenie vo vašom úložiskovom <filename>svnserve.conf</filename> súbore s touto hodnotou: <screen>\n"
 "use-sasl = true\n"
 "</screen>"
 
@@ -1844,7 +1843,7 @@ msgstr ""
 
 #. (para)
 msgid "If svnserve was already running, you will need to restart it to ensure it reads the updated configuration."
-msgstr "Ak svnserve je už spostený, potrebujete ho reštartovať, aby sa zaistilo načítanie upravených konfigurácii."
+msgstr "Ak svnserve je už spustený, potrebujete ho reštartovať, aby sa zaistilo načítanie upravených konfigurácii."
 
 #. (para)
 msgid ""
@@ -1988,8 +1987,8 @@ msgid "Once you have the Apache2 installer you can double click on it and it wil
 msgstr "Ak už máte inštalátor Apache2, spustite ho a sprievodca vás prevedie inštalačným procesom. Skontrolujte, či ste zadali serverovú URL spravne (ak nemáte DNS názov pre váš server, stačí iba vyplnit IP adresu). Odporúčam inštalovať Apache emphasis>pre všetkých používateľov, na port 80, ako službu</emphasis>. Poznámka: ak máte už nainštalovaný IIS alebo iný program, ktorý čaká na porte 80, inštalácia asi zlyhá. Ak sa vám stane tento problém, choďte do adresára <filename>\\Apache Group\\Apache2\\conf</filename>, nájdite súbor <filename>httpd.conf</filename>. Zmente číslo portu <literal>Listen 80</literal> na iné číslo portu, ktoré je vóľne, napríklad <literal>Listen 81</literal>. Potom znovu spustite inštaláciu  - tento krát by nemali nastať ziadne problémy."
 
 #. (para)
-msgid "Now test if the Apache web server is running correctly by pointing your web browser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up."
-msgstr "Skúsime, či Apache web server pracuje správne, zadáme do webového prehliadača adresu <systemitem class=\"url\">http://localhost/</systemitem> - prednastavéná webová stránka by sa mala načístať."
+msgid "Now test if the Apache web server is running correctly by pointing your web browser to <systemitem class=\"url\">http://localhost/</systemitem> - a preconfigured Website should show up. If you used a different port, say 81, you need to include that in the URL. In that case you would point your browser at <systemitem class=\"url\">http://localhost:81/</systemitem>."
+msgstr "Skúsime, či Apache web server pracuje správne, zadáme do webového prehliadača adresu <systemitem class=\"url\">http://localhost/</systemitem> - prednastavéná webová stránka by sa mala načítať. Pokiaľ ste použili odlišný port, povedzme 81, musíte ho zahrnúť do URL. V tomto prípade by ste nasmerovali váš prehliadač na <systemitem class=\"url\">http://localhost:81/</systemitem>."
 
 #. (para)
 msgid "If you decide to install Apache as a service, be warned that by default it will run as the local system account. It would be a more secure practice for you to create a separate account for Apache to run as."
@@ -2350,7 +2349,7 @@ msgstr ""
 
 #. (para)
 msgid "As you might have noticed you need to make a username/password entry in the <filename>passwd</filename> file for each user separately. And if (for security reasons) you want your users to periodically change their passwords you have to make the change manually."
-msgstr "Ako ste si mohli všimnúť, potrebujeťe vytvoriť záznam meno/heslo v súbore <filename>passwd</filename> pre každého užívateľa osobitne. A ak (z bezpečnostných dôvodov) chcete, aby si užívatelia menili pravidelne heslo, musíte to vykonať ručne."
+msgstr "Ako ste si mohli všimnúť, potrebujete vytvoriť záznam meno/heslo v súbore <filename>passwd</filename> pre každého užívateľa osobitne. A ak (z bezpečnostných dôvodov) chcete, aby si užívatelia menili pravidelne heslo, musíte to vykonať ručne."
 
 #. (para)
 msgid "But there's a solution for that problem - at least if you're accessing the repository from inside a LAN with a windows domain controller: <literal>mod_auth_sspi</literal>!"
@@ -2439,7 +2438,7 @@ msgstr "Vo svete Microsoftu, windows domény a užívateľské mená nerozlišuj
 #. (para)
 #, fuzzy
 msgid "This difference can bite you when using SSPI authentication as the windows domain and user names are passed to Subversion in the same case as the user types them in at the prompt. Internet Explorer often passes the username to Apache automatically using whatever case the account was created with."
-msgstr "Tieto rozdiely môžu robiť problémy, keď používate SSPI overovanie ako windows doménu a užívateľského mena odovzdaného Subversion v rovnakom prípade ako keby užívateľ ich zadal cez príkazový riadok. Internet Explorer často odovzdáva užívateľské meno Apache pomocou akéhokoľvek prípadu účet bol vytvorený."
+msgstr "Tieto rozdiely môžu robiť problémy, keď používate SSPI overovanie keďže windows doména a užívateľské mená sú odovzdaného do Subversion v rovnakom prípade ako keby užívateľ ich zadal cez príkazový riadok. Internet Explorer často odovzdáva užívateľské meno Apache pomocou akéhokoľvek prípadu účet bol vytvorený."
 
 #. (para)
 msgid "The end result is that you may need at least two entries in your <literal>AuthzSVNAccessFile</literal> for each user -- a lowercase entry and an entry in the same case that Internet Explorer passes to Apache. You will also need to train your users to also type in their credentials using lower case when accessing repositories via TortoiseSVN."
@@ -2830,7 +2829,7 @@ msgstr "kontextové menu"
 
 #. (primary)
 msgid "right click"
-msgstr ""
+msgstr "pravý klik"
 
 #. (title)
 msgid "Context menu for a directory under version control"
@@ -3241,7 +3240,7 @@ msgid "Changing working copy depth"
 msgstr "Zmena hĺbky pracovnej kópie"
 
 #. (para)
-msgid "Once you have checked out a working copy to a particular depth you can change that depth later to get more or less content using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>. In that dialog, make sure to check the <guilabel>Make depth sticky</guilabel> checkbox."
+msgid "Once you have checked out a working copy to a particular depth you can change that depth later to get more or less content using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>. In that dialog, be sure to check the <guilabel>Make depth sticky</guilabel> checkbox."
 msgstr ""
 
 #. (title)
@@ -3249,7 +3248,7 @@ msgid "Using an older server"
 msgstr ""
 
 #. (para)
-msgid "Pre-1.5 servers do not understand the working copy depth request, so they cannot always deal with requests efficiently. The command will still work, but an older server may send all the data, leaving the client to filter out what is not required, which may mean a lot of network traffic. If possible you should upgrade your server to 1.5."
+msgid "Pre-1.5 servers do not understand the working copy depth request, so they cannot always deal with requests efficiently. The command will still work, but an older server may send all the data, leaving the client to filter out what is not required, which may mean a lot of network traffic. If possible you should upgrade your server to at least 1.5."
 msgstr ""
 
 #. (para)
@@ -3648,7 +3647,7 @@ msgstr "konflikty súborov"
 
 #. (para)
 msgid "A file conflict occurs if two (or more) developers have changed the same few lines of a file."
-msgstr ""
+msgstr "Súborový konfklik nastane ak dvaja (alebo viacerí) vývojari zmenili niekoľko rovnakých riadkov súboru."
 
 #. (term)
 msgid "tree conflicts"
@@ -4338,7 +4337,7 @@ msgid "Compare and blame with working BASE"
 msgstr ""
 
 #. (para)
-msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)."
+msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)"
 msgstr ""
 
 #. (term)
@@ -4362,7 +4361,7 @@ msgid "Compare and blame with previous revision"
 msgstr "Porovnanie a obvinenie s predchádzajúcou revíziou"
 
 #. (para)
-msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)."
+msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)"
 msgstr ""
 
 #. (term)
@@ -4371,7 +4370,7 @@ msgid "Save revision to..."
 msgstr "Uložiť revíziu na..."
 
 #. (para)
-msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
+msgid "Save the selected revision to a file so you have an older version of that file. (files only)"
 msgstr ""
 
 #. (term)
@@ -4380,7 +4379,7 @@ msgid "Open / Open with..."
 msgstr ""
 
 #. (para)
-msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)."
+msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)"
 msgstr ""
 
 #. (term)
@@ -4389,7 +4388,7 @@ msgid "Blame..."
 msgstr "Obviňovanie..."
 
 #. (para)
-msgid "Blame the file up to the selected revision. (files only)."
+msgid "Blame the file up to the selected revision. (files only)"
 msgstr ""
 
 #. (term)
@@ -4630,9 +4629,8 @@ msgid "View the Subversion properties for the selected item."
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Show log"
-msgstr "Zobraz denník"
+msgstr "Zobrazenie denníka"
 
 #. (para)
 msgid "Show the revision log for the selected single file."
@@ -5983,7 +5981,7 @@ msgid "An alternative method is to set the <literal>tsvn:autoprops</literal> pro
 msgstr ""
 
 #. (para)
-msgid "Whichever method you choose, you should note that auto-props are only applied to files at the time they are added to the repository. Auto-props will never change the properties of files which are already versioned."
+msgid "Whichever method you choose, you should note that auto-props are only applied to files at the time they are added to the working copy. Auto-props will never change the properties of files which are already versioned."
 msgstr ""
 
 #. (para)
@@ -6099,7 +6097,7 @@ msgid "Set the project properties on folders"
 msgstr "Nastavenie vlastnosti projektu na adresáre"
 
 #. (para)
-msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (e.g. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
+msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you use a TortoiseSVN command which uses these properties, the properties are read from the folder you clicked on. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (e.g. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. If you set the same property but you use different values at different depths in your project hierarchy then you will get different results depending on where you click in the folder structure."
 msgstr ""
 
 #. (para)
@@ -6141,6 +6139,152 @@ msgstr ""
 
 #. (para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
+msgstr ""
+
+#. (title)
+msgid "External Items"
+msgstr "externé objekty"
+
+#. (primary)
+msgid "external repositories"
+msgstr "externé úložiská"
+
+#. (primary)
+#. (primary)
+msgid "externals"
+msgstr "externé"
+
+#. (para)
+msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different files or subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties to pull in the specified resource at the locations where they are needed."
+msgstr ""
+
+#. (title)
+msgid "External Folders"
+msgstr "externé adresáre"
+
+#. (para)
+msgid "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Properties...</guibutton>. In the properties dialog, either double click on the <literal>svn:externals</literal> if it already exists, or click on the <guibutton>New...</guibutton> button and select <literal>externals</literal> from the menu. To add a new external, click the <guibutton>New...</guibutton> and then fill in the required information in the shown dialog."
+msgstr ""
+
+#. (para)
+msgid "URLs must be properly escaped or they will not work, e.g. you must replace each space with <literal>%20</literal>."
+msgstr ""
+
+#. (para)
+msgid "If you want the local path to include spaces or other special characters, you can enclose it in double quotes, or you can use the <literal>\\</literal> (backslash) character as a Unix shell style escape character preceding any special character. Of course this also means that you must use <literal>/</literal> (forward slash) as a path delimiter. Note that this behaviour is new in Subversion 1.6 and will not work with older clients."
+msgstr ""
+
+#. (title)
+msgid "Use explicit revision numbers"
+msgstr "Použiť explicitné číslo revízie"
+
+#. (para)
+msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
+msgstr ""
+
+#. (para)
+msgid "If you use absolute URLs in <literal>svn:externals</literal> definitions and you have to relocate your working copy (i.e., if the URL of your repository changes), then your externals won't change and might not work anymore."
+msgstr ""
+
+#. (para)
+msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
+msgstr ""
+
+#. (term)
+msgid "Relative to parent directory"
+msgstr "Relatívne k rodičovskému adresáru"
+
+#. (para)
+msgid ""
+"These URLs always begin with the string <literal>../</literal> for example: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
+
+#. (para)
+msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
+msgstr ""
+
+#. (term)
+msgid "Relative to repository root"
+msgstr "Relatívne k úložisku"
+
+#. (para)
+msgid ""
+"These URLs always begin with the string <literal>^/</literal> for example: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
+msgstr ""
+
+#. (term)
+msgid "Relative to scheme"
+msgstr ""
+
+#. (para)
+msgid ""
+"URLs beginning with the string <literal>//</literal> copy only the scheme part of the URL. This is useful when the same hostname must the accessed with different schemes depending upon network location; e.g. clients in the intranet use <systemitem class=\"url\">http://</systemitem> while external clients use <systemitem class=\"url\">svn+ssh://</systemitem>. For example: <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
+msgstr ""
+
+#. (term)
+msgid "Relative to the server's hostname"
+msgstr "Relatívne k menu servera"
+
+#. (para)
+msgid ""
+"URLs beginning with the string <literal>/</literal> copy the scheme and the hostname part of the URL, for example: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
+msgstr ""
+
+#. (para)
+msgid "You can also specify a peg revision for the URL if required."
+msgstr ""
+
+#. (para)
+msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
+msgstr "Keď potrebuje viac informácií ako TortoiseSVN vlastnosti prečítajte si <xref linkend=\"tsvn-dug-propertypage\"/>."
+
+#. (para)
+msgid "To find out about different methods of accessing common sub-projects read <xref linkend=\"tsvn-howto-common-projects\"/>."
+msgstr ""
+
+#. (title)
+msgid "External Files"
+msgstr "Externé súbory"
+
+#. (para)
+msgid "As of Subversion 1.6 you can add single file externals to your working copy using the same syntax as for folders. However, there are some restrictions."
+msgstr ""
+
+#. (para)
+msgid "The path to the file external must place the file in an existing versioned folder. In general it makes most sense to place the file directly in the folder that has <literal>svn:externals</literal> set, but it can be in a versioned sub-folder if necessary. By contrast, directory externals will automatically create any intermediate unversioned folders as required."
+msgstr ""
+
+#. (para)
+msgid "The URL for a file external must be in the same repository as the URL that the file external will be inserted into; inter-repository file externals are not supported."
+msgstr ""
+
+#. (para)
+msgid "A file external behaves just like any other versioned file in many respects, but they cannot be moved or deleted using the normal commands; the <literal>svn:externals</literal> property must be modified instead."
 msgstr ""
 
 #. (title)
@@ -6219,7 +6363,7 @@ msgid "If you want your working copy to be switched to the newly created branch 
 msgstr ""
 
 #. (para)
-msgid "If your working copy has other projects included with <literal>svn:externals</literal> properties, those externals will be listed at the bottom of the branch/tag dialog. For each external, the target path, the source url and the revision is shown. The revision of the external is determined from the working copy, which means it shows the revision that external actually points to."
+msgid "If your working copy has other projects included with <literal>svn:externals</literal> properties, those externals will be listed at the bottom of the branch/tag dialog. For each external, the target path, the source URL and the revision is shown. The revision of the external is determined from the working copy, which means it shows the revision that external actually points to."
 msgstr ""
 
 #. (para)
@@ -6719,7 +6863,7 @@ msgid "A lock is not assigned to a specific user, but to a specific user and a w
 msgstr ""
 
 #. (para)
-msgid "As an example, imagine that user Jon has a working copy on his office PC. There he starts working on an image, and therefore aquires a lock on that file. When he leaves his office he's not finished yet with that file, so he doesn't release that lock. Back at home Jon also has a working copy and decides to work a little more on the project. But he can't modify or commit that same image file, because the lock for that file resides in his working copy in the office."
+msgid "As an example, imagine that user Jon has a working copy on his office PC. There he starts working on an image, and therefore acquires a lock on that file. When he leaves his office he's not finished yet with that file, so he doesn't release that lock. Back at home Jon also has a working copy and decides to work a little more on the project. But he can't modify or commit that same image file, because the lock for that file resides in his working copy in the office."
 msgstr ""
 
 #. (para)
@@ -7056,7 +7200,7 @@ msgid "The repository browser looks very similar to the Windows explorer, except
 msgstr ""
 
 #. (para)
-msgid "Folders included with the <literal>svn:externals</literal> property are also shown in the repository browser. Those folders have a small arrow shown on them to indicate that these folders are not part of the shown repository itself."
+msgid "Folders included with the <literal>svn:externals</literal> property are also shown in the repository browser. Those folders are shown with a small arrow on them to indicate that they are not part of the repository structure, just links."
 msgstr ""
 
 #. (para)
@@ -7821,7 +7965,7 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr ""
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/> Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
 msgstr ""
 
 #. (title)
@@ -7886,7 +8030,7 @@ msgstr "nastavenia"
 
 #. (para)
 msgid "To find out what the different settings are for, just leave your mouse pointer a second on the editbox/checkbox... and a helpful tooltip will popup."
-msgstr ""
+msgstr "Aby ste zistili na čo sú rôzne nastavenie, jednoducho ponechajte ukazovateľ myši na editovacom, alebo zaškrtávacom políčku a behom sekundy sa vám zobrazí užitočná nápoveda."
 
 #. (title)
 msgid "General Settings"
@@ -7898,11 +8042,11 @@ msgstr "zvuky"
 
 #. (title)
 msgid "The Settings Dialog, General Page"
-msgstr ""
+msgstr "Dialóg nastavenie, všeobecné"
 
 #. (para)
 msgid "<placeholder-1/> This dialog allows you to specify your preferred language, and the Subversion-specific settings."
-msgstr ""
+msgstr "<placeholder-1/> Tento dialóg vám umožňuje určiť jazyk a nastavnia pre Subversion."
 
 #. (term)
 msgid "Language"
@@ -7910,7 +8054,7 @@ msgstr "Jazyk"
 
 #. (para)
 msgid "Selects your user interface language. What else did you expect?"
-msgstr ""
+msgstr "Vyberie jazyk vaše užívateľského rozhrania. Čo iné by ste čakali?"
 
 #. (term)
 msgid "Check for updates"
@@ -7918,7 +8062,7 @@ msgstr "Skontrolovať akutalizácie"
 
 #. (para)
 msgid "TortoiseSVN will contact its download site periodically to see if there is a newer version of the program available. If there is it will show a notification link in the commit dialog. Use <guibutton>Check now</guibutton> if you want an answer right away. The new version will not be downloaded; you simply receive an information dialog telling you that the new version is available."
-msgstr ""
+msgstr "TortoiseSVN bude pravidenlne  kontaktovať stránku, aby zistil, či sa tam nachádza novšia verzia programu. Ak je zobrazí upozornenie v odovzdácom dialógu. Použite <guibutton>Skontrolovať teraz</guibutton> pokiaľ chcete odpoveď okamžite. Nová verzia nebude stiahnutá; jednoducho len dostanete informáciu hovoriacu, že je dostupná nová  verzia."
 
 #. (term)
 msgid "System sounds"
@@ -7985,13 +8129,12 @@ msgid "Use <guibutton>Edit</guibutton> to edit the Subversion configuration file
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Use <filename>_svn</filename> instead of <filename>.svn</filename> directories"
 msgstr "Použiť adresár \"_svn\" namiesto \".svn\""
 
 #. (para)
 msgid "VS.NET when used with web projects can't handle the <literal>.svn</literal> folders that Subversion uses to store its internal information. This is not a bug in Subversion. The bug is in VS.NET and the frontpage extensions it uses. Read <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/> to find out more about this issue."
-msgstr ""
+msgstr "Keď je použitý web projekt v VS.NET nie je schopné spracovať asdresár <literal>.svn</literal> použitý Subversion na uchovanie interných informácií. Toto je chyba Subversion. Chyba je v VS.NET a v rozšírení frontpage, ktoré používa. Prečítajte si <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/>, aby ste sa dozvedeli o tomto viac."
 
 #. (para)
 msgid "If you want to change the behaviour of Subversion and TortoiseSVN, you can use this checkbox to set the environment variable which controls this."
@@ -8154,18 +8297,16 @@ msgid "The commit dialog includes a facility to parse the list of filenames bein
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Timeout in seconds to stop the auto-completion parsing"
-msgstr "Časový limit v sekudách pre analýzu automatického doplňovania"
+msgstr "Časový limit v sekudách po zastavenie analýzy automatického doplňovania"
 
 #. (para)
 msgid "The auto-completion parser can be quite slow if there are a lot of large files to check. This timeout stops the commit dialog being held up for too long. If you are missing important auto-completion information, you can extend the timeout."
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Only use spellchecker when <literal>tsvn:projectlanguage</literal> is set"
-msgstr "Použiť kontrolu pravopisu iba keď nastavený parameter tsvn:projectlanguage"
+msgstr "Použiť kontrolu pravopisu iba keď je nastavený parameter <literal>tsvn:projectlanguage</literal>"
 
 #. (para)
 msgid "If you don't wish to use the spellchecker for all commits, check this box. The spellchecker will still be enabled where the project properties require it."
@@ -8312,9 +8453,8 @@ msgid "The original item has been deleted and a new item with the same name repl
 msgstr ""
 
 #. (term)
-#, fuzzy
 msgid "Filter match"
-msgstr "Zhoda filter"
+msgstr "Zhoda filtra"
 
 #. (para)
 msgid "When using filtering in the log dialog, search terms are highlighted in the results using this colour."
@@ -8426,19 +8566,19 @@ msgstr ""
 
 #. (term)
 msgid "Tag Nodes"
-msgstr ""
+msgstr "Uzly typu značka"
 
 #. (para)
 msgid "Nodes classified as tags may be blended with this color."
-msgstr ""
+msgstr "Uzly klasifikované ako značky môžu byť zmiešané s touto farbou."
 
 #. (term)
 msgid "Trunk Nodes"
-msgstr ""
+msgstr "Uzly kmeňa"
 
 #. (para)
 msgid "Nodes classified as trunk may be blended with this color."
-msgstr ""
+msgstr "Uzly klasifikované ako kmeň môžu mať primiešanú túto farbu."
 
 #. (term)
 msgid "Folded Tag Markers"
@@ -9310,7 +9450,7 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr ""
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (this example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
 msgstr ""
 
 #. (para)
@@ -9536,22 +9676,26 @@ msgstr "Parametre príkazového riadka SubWCRev"
 
 #. (para)
 msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
-msgstr ""
+msgstr "SubWCRev čísta Subversion stav všetkých súborov pracovnej kópie, predvolene okrem externých. Zaznamená najvyššie nájdené číslo revízie, a časovú pečiatku tejto revízie, tiež zaznamená či sú miestne zmeny v pracovnej kópií, alebo mix revízií. Číslo revízie, rozsah revízií aktualizácie a stav zmeny je zobrayený v stdout."
 
 #. (para)
+#, fuzzy
 msgid ""
 "SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\n"
 "SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
 "</screen>"
 msgstr ""
+"SubWCRev.exe je volané z príkazového riadka, alebo skriptu a je ovládané pomocou prepínačov v príkazovom riadku.<screen>\n"
+"SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n"
+"</screen>"
 
 #. (para)
 msgid "<literal>WorkingCopyPath</literal> is the path to the working copy being checked. You can only use SubWCRev on working copies, not directly on the repository. The path may be absolute or relative to the current working directory."
-msgstr ""
+msgstr "<literal>WorkingCopyPath</literal> je cesta pracovnej kópie na kontrolu. SubWCRev môžete použiť len na pracovné kópie a nie na úložiská. Cesta môže byť absolútna, alebo relatívna k aktuálnemu pracovnému adresáru."
 
 #. (para)
 msgid "If you want SubWCRev to perform keyword substitution, so that fields like repository revision and URL are saved to a text file, you need to supply a template file <literal>SrcVersionFile</literal> and an output file <literal>DstVersionFile</literal> which contains the substituted version of the template."
-msgstr ""
+msgstr "Keď chcete aby SubWCRev vykonal náhradu kľúčových slov, tak aby polia ko úložisko, revízia a URL boli uložené ako textový súbor, musíte dodať šablonový súbor <literal>SrcVersionFile</literal> a výstupný súbor <literal>DstVersionFile</literal>, ktorý bude obsahovať nahradú verziu šablóny."
 
 #. (title)
 #. (title)
@@ -9647,11 +9791,11 @@ msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
-msgstr ""
+msgstr "online referenčný manuál"
 
 #. (entry)
 msgid "Replaced with the commit date/time of the highest commit revision. By default, international format is used: <placeholder-1/>. Alternatively, you can specify a custom format which will be used with <placeholder-2/>, for example: <placeholder-3/>. For a list of available formatting characters, look at the <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
-msgstr ""
+msgstr "Nahradené s dátumom odovzdania najvyššej odovzdanej revízie. Predvolene je použitý mezdinárovný (ISO) formát: <placeholder-1/>. Alternatívne môžete zadať užívateľský formát s použitím <placeholder-2/>, na príklad: <placeholder-3/>. Pozrite si zoznam dostupných formatovacích znakov: <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
 
 #. (literal)
 #. (literal)
@@ -9665,7 +9809,7 @@ msgstr "Nahradené aktualným systemovým dátumom/časom. Toto môže byť pou�
 
 #. (entry)
 msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
-msgstr ""
+msgstr "Nahradené rozsahom revízií aktualizácií v pracovnej kópií. Pokiaľ je pracovná kópia v konzistentnom stave, malo by to byť jedno číslo. Keď pracovná kópia obsahuje zmes revízií, buď pretože je zastaralá, alebo kôli zámernému \"aktualizovať na revíziu\", tak je rozsah uvedený vo formáte 100:200."
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
@@ -9689,7 +9833,7 @@ msgstr "FText"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are mixed update revisions, or <placeholder-3/> if not."
-msgstr "<placeholder-1/> je nahradený s <placeholder-2/> ak je mix revízií, alebo s <placeholder-3/> keď nie."
+msgstr "<placeholder-1/> je nahradené s <placeholder-2/> ak je mix revízií, alebo s <placeholder-3/> keď nie je."
 
 #. (literal)
 msgid "$WCMODS?TText:FText$"
@@ -9697,7 +9841,7 @@ msgstr "$WCMODS?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if there are local modifications, or <placeholder-3/> if not."
-msgstr "<placeholder-1/> je nahradený s <placeholder-2/> ak sú miestne zmeny, alebo s <placeholder-3/> ak nie sú."
+msgstr "<placeholder-1/> je nahradené s <placeholder-2/> ak sú miestne zmeny, alebo s <placeholder-3/> ak nie sú."
 
 #. (entry)
 msgid "Replaced with the repository URL of the working copy path passed to SubWCRev."
@@ -9709,7 +9853,7 @@ msgstr "$WCINSVN?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is versioned, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> je nahradené s <placeholder-2/> ak je položka verziovaná, alebo <placeholder-3/> ak nie je."
 
 #. (literal)
 msgid "$WCNEEDSLOCK?TText:FText$"
@@ -9722,7 +9866,7 @@ msgstr "svn:needs-lock"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
-msgstr "<placeholder-1/> je nahradený s <placeholder-2/> ak sú miestne zmeny, alebo s <placeholder-3/> ak nie sú."
+msgstr "<placeholder-1/> je nahradené s <placeholder-2/> ak sú miestne zmeny, alebo s <placeholder-3/> ak nie sú."
 
 #. (literal)
 msgid "$WCISLOCKED?TText:FText$"
@@ -9730,11 +9874,11 @@ msgstr "$WCISLOCKED?TText:FText$"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry is locked, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> je nahradené s <placeholder-2/> ak je položka zamknutá, alebo s <placeholder-3/> ak nie je."
 
 #. (entry)
 msgid "Replaced with the lock date. Time formatting can be used as described for <placeholder-1/>."
-msgstr "Nhradené dátumom zamknutia. Formát času je popísaný pre <placeholder-1/>."
+msgstr "Nahradené dátumom zamknutia. Formát času je popísaný pre <placeholder-1/>."
 
 #. (entry)
 msgid "Replaced with the name of the lock owner."
@@ -9746,7 +9890,7 @@ msgstr "Nahradené správou zamykania."
 
 #. (para)
 msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <placeholder-1/>"
-msgstr ""
+msgstr "Ak sú zadané zdrojové i cielové súbory, SubWCRev skopíruje zdroj do cieľa s aplikovaním náhrady kľúčových slov nasledovne: <placeholder-1/>"
 
 #. (para)
 msgid "Some of these keywords apply to single files rather than to an entire working copy, so it only makes sense to use these when SubWCRev is called to scan a single file. This applies to <literal>$WCINSVN$</literal>, <literal>$WCNEEDSLOCK$</literal>, <literal>$WCISLOCKED$</literal>, <literal>$WCLOCKDATE$</literal>, <literal>$WCLOCKOWNER$</literal> and <literal>$WCLOCKCOMMENT$</literal>."
@@ -9840,15 +9984,15 @@ msgstr "Súbor ako tento bude zahrnutý v procese prekladu, takže očakávate �
 
 #. (title)
 msgid "COM interface"
-msgstr "COM interface"
+msgstr "COM rozhranie"
 
 #. (primary)
 msgid "COM SubWCRev interface"
-msgstr "COM SubWCRev interface"
+msgstr "rozhranie COM SubWCRev"
 
 #. (title)
 msgid "COM/automation methods supported"
-msgstr "podporpvané automatizačné metódy COM"
+msgstr "podporvané automatizačné metódy COM"
 
 #. (entry)
 msgid "Method"
@@ -9889,15 +10033,15 @@ msgstr "$WCRANGE$"
 
 #. (entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
-msgstr ""
+msgstr "Najnižšia revízia aktualizácie, ako je v <placeholder-1/>."
 
 #. (entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
-msgstr ""
+msgstr "Najvyššia revízia aktualizácie, ako je v <placeholder-1/>."
 
 #. (entry)
 msgid "True if there are local modifications"
-msgstr "True - ak sú miestne zmeny"
+msgstr "True ak sú miestne zmeny."
 
 #. (literal)
 msgid "GetWCInfo"
@@ -9917,27 +10061,27 @@ msgstr "True ak je objekt verziovaný."
 
 #. (entry)
 msgid "True if the item has the <placeholder-1/> property set."
-msgstr ""
+msgstr "True ak má objekt nastavenú vlastnosť <placeholder-1/>."
 
 #. (entry)
 msgid "True if the item is locked."
-msgstr "True keď je objekt zamknutý."
+msgstr "True ak je objekt zamknutý."
 
 #. (entry)
 msgid "String representing the date when the lock was created, or an empty string if the item is not locked."
-msgstr ""
+msgstr "Reťazec reprezentujúci dátum vytvorenia zámku, alebo prázdny reťazec ak objekt nie je zamknutý."
 
 #. (entry)
 msgid "String representing the lock owner, or an empty string if the item is not locked."
-msgstr ""
+msgstr "Reťazec reprezentujúci vlastníka zámku, alebo prázdny reťazec ak objekt nie je zamknutý."
 
 #. (entry)
 msgid "The message entered when the lock was created."
-msgstr ""
+msgstr "Správa zadaná pri vytváraní zámku."
 
 #. (para)
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object</literal>, and the following methods are supported: <placeholder-1/>"
-msgstr ""
+msgstr "Ak potrebujete prístup k infomáciam o revízií Subversion z iných programov, môžete použiť COM rozhranie SubWCRev. Treba vytvoriť objekt <literal>SubWCRev.object</literal>, ktorý podporuje nasledovné metódy: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -10069,13 +10213,139 @@ msgid ""
 "WScript.Echo(wcInfoString4);\n"
 "\n"
 msgstr ""
+"\n"
+"// testCOM.js - javascript file\n"
+"// test script for the SubWCRev COM/Automation-object\n"
+"\n"
+"filesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n"
+"\n"
+"revObject1 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject2 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject3 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject4 = new ActiveXObject(\"SubWCRev.object\");\n"
+"\n"
+"revObject1.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\".\"), 1, 1);\n"
+"revObject2.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
+"revObject3.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\n"
+"revObject4.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
+"\n"
+"wcInfoString1 = \"Revision = \" + revObject1.Revision +\n"
+"                \"\\n"
+"Min Revision = \" + revObject1.MinRev +\n"
+"                \"\\n"
+"Max Revision = \" + revObject1.MaxRev +\n"
+"                \"\\n"
+"Date = \" + revObject1.Date +\n"
+"                \"\\n"
+"URL = \" + revObject1.Url + \"\\n"
+"Author = \" +\n"
+"                revObject1.Author + \"\\n"
+"HasMods = \" +\n"
+"                revObject1.HasModifications + \"\\n"
+"IsSvnItem = \" +\n"
+"                revObject1.IsSvnItem + \"\\n"
+"NeedsLocking = \" +\n"
+"                revObject1.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
+"                revObject1.IsLocked + \"\\n"
+"LockCreationDate = \" +\n"
+"                revObject1.LockCreationDate + \"\\n"
+"LockOwner = \" +\n"
+"                revObject1.LockOwner + \"\\n"
+"LockComment = \" +\n"
+"                revObject1.LockComment;\n"
+"wcInfoString2 = \"Revision = \" + revObject2.Revision +\n"
+"                \"\\n"
+"Min Revision = \" + revObject2.MinRev +\n"
+"                \"\\n"
+"Max Revision = \" + revObject2.MaxRev +\n"
+"                \"\\n"
+"Date = \" + revObject2.Date +\n"
+"                \"\\n"
+"URL = \" + revObject2.Url + \"\\n"
+"Author = \" +\n"
+"                revObject2.Author + \"\\n"
+"HasMods = \" +\n"
+"                revObject2.HasModifications + \"\\n"
+"IsSvnItem = \" +\n"
+"                revObject2.IsSvnItem + \"\\n"
+"NeedsLocking = \" +\n"
+"                revObject2.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
+"                revObject2.IsLocked + \"\\n"
+"LockCreationDate = \" +\n"
+"                revObject2.LockCreationDate + \"\\n"
+"LockOwner = \" +\n"
+"                revObject2.LockOwner + \"\\n"
+"LockComment = \" +\n"
+"                revObject2.LockComment;\n"
+"wcInfoString3 = \"Revision = \" + revObject3.Revision +\n"
+"                \"\\n"
+"Min Revision = \" + revObject3.MinRev +\n"
+"                \"\\n"
+"Max Revision = \" + revObject3.MaxRev +\n"
+"                \"\\n"
+"Date = \" + revObject3.Date +\n"
+"                \"\\n"
+"URL = \" + revObject3.Url + \"\\n"
+"Author = \" +\n"
+"                revObject3.Author + \"\\n"
+"HasMods = \" +\n"
+"                revObject3.HasModifications + \"\\n"
+"IsSvnItem = \" +\n"
+"                revObject3.IsSvnItem + \"\\n"
+"NeedsLocking = \" +\n"
+"                revObject3.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
+"                revObject3.IsLocked + \"\\n"
+"LockCreationDate = \" +\n"
+"                revObject3.LockCreationDate + \"\\n"
+"LockOwner = \" +\n"
+"                revObject3.LockOwner + \"\\n"
+"LockComment = \" +\n"
+"                revObject3.LockComment;\n"
+"wcInfoString4 = \"Revision = \" + revObject4.Revision +\n"
+"                \"\\n"
+"Min Revision = \" + revObject4.MinRev +\n"
+"                \"\\n"
+"Max Revision = \" + revObject4.MaxRev +\n"
+"                \"\\n"
+"Date = \" + revObject4.Date +\n"
+"                \"\\n"
+"URL = \" + revObject4.Url + \"\\n"
+"Author = \" +\n"
+"                revObject4.Author + \"\\n"
+"HasMods = \" +\n"
+"                revObject4.HasModifications + \"\\n"
+"IsSvnItem = \" +\n"
+"                revObject4.IsSvnItem + \"\\n"
+"NeedsLocking = \" +\n"
+"                revObject4.NeedsLocking + \"\\n"
+"IsLocked = \" +\n"
+"                revObject4.IsLocked + \"\\n"
+"LockCreationDate = \" +\n"
+"                revObject4.LockCreationDate + \"\\n"
+"LockOwner = \" +\n"
+"                revObject4.LockOwner + \"\\n"
+"LockComment = \" +\n"
+"                revObject4.LockComment;\n"
+"\n"
+"WScript.Echo(wcInfoString1);\n"
+"WScript.Echo(wcInfoString2);\n"
+"WScript.Echo(wcInfoString3);\n"
+"WScript.Echo(wcInfoString4);\n"
+"\n"
 
 #. (para)
 msgid "The following example shows how the interface might be used. <placeholder-1/>"
-msgstr ""
+msgstr "Nasledujú príklady zobrazujúce ako môže byť rozhranie použité. <placeholder-1/>"
 
 #. (programlisting)
-#, no-wrap
+#, fuzzy, no-wrap
 msgid ""
 "\n"
 "using LibSubWCRev;\n"
@@ -10090,10 +10360,22 @@ msgid ""
 "    MessageBox.Show(\"not versioned\");\n"
 "}\n"
 msgstr ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"versioned\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"not versioned\");\n"
+"}\n"
 
 #. (para)
 msgid "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
-msgstr ""
+msgstr "The following listing is an example on how to use the SubWCRev COM object from C#: <placeholder-1/>"
 
 #. (title)
 msgid "IBugtraqProvider interface"
@@ -10248,7 +10530,7 @@ msgstr "Reťazec <literal>parameters</literal> je reťazec, ktorý užívateľ z
 
 #. (para)
 msgid "The <literal>commonRoot</literal> string contains the parent path of all items selected to bring up the commit dialog. Note that this is <emphasis>not</emphasis> the root path of all items which the user has selected in the commit dialog. For the branch/tag dialog, this is the path which is to be copied."
-msgstr ""
+msgstr "Reťazec <literal>commonRoot</literal> obsahuje rodičovskú cestu všetkých objektov vybraných na vyvolanie odovzdávacieho dialógu. Poznamenávame, že to <emphasis>nie</emphasis> je koreňová cesta pre všetky objekty, ktoré užívateľ vybral v odovzdávacom okne. Pre vetvu/značku j etoto cesta, ktorá sa bude kopírovať."
 
 #. (para)
 msgid "The <literal>pathList</literal> parameter contains an array of paths (as strings) which the user has selected for the commit."
@@ -10260,7 +10542,7 @@ msgstr "Parameter <literal>originalMessage</literal> obsahuje text zadaný ako s
 
 #. (para)
 msgid "The <literal>newMessage</literal> return string is copied into the log message edit box in the commit dialog, replacing whatever is already there. If a plugin does not modify the <literal>originalMessage</literal> string, it must return the same string again here, otherwise any text the user has entered will be lost."
-msgstr ""
+msgstr "Vrátený reťazec <literal>newMessage</literal> je nakopírovaný do editovacieho políčka správy denníka v odovzdávacom okne, nahradiac jeho aktuálny obsah. Pokiaľ zásuvný modul neupravý reťazec <literal>originalMessage</literal>, musí vrátiť ten istý reťazec naspäť, inak text, ktorý užívateľ zadal bude stratený."
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
@@ -10679,11 +10961,11 @@ msgstr "Vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Zobraziť
 
 #. (para)
 msgid "Select the revision you wish to revert. If you want to undo a range of revisions, select the first one and hold the <keycap>Shift</keycap> key while selecting the last one. Note that for multiple revisions, the range must be unbroken with no gaps. <action>Right click</action> on the selected revision(s), then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Vyberte revíziu, ktorú chcete vrátiť. Ak chcete vrátiť rozsah revízií, vyberte prvú  a držte klávesu <keycap>Shift</keycap> keď budete vyberať poslednú. Poznamenávame, že keď chcete vrátiť viaceré revízie, rozsah musí byť neprerušený - bez dier. <action>Pravý klik</action> na vybranú revíziu a potom vyberte <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Vrátiť zmeny z tejto revízie</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "Or if you want to make an earlier revision the new HEAD revision, <action>right click</action> on the selected revision, then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert to this revision</guimenuitem></menuchoice>. This will discard <emphasis>all</emphasis> changes after the selected revision."
-msgstr ""
+msgstr "Alebo keď chcete spraviť niektorú z predcházajúcich revízií hlavnou (HEAD), <action>pravý klik</action> na vybranú revíziu a potom vyberte <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Vrátiť na revíziu</guimenuitem></menuchoice>. Toto zahodí <emphasis>všetky</emphasis> zmeny po vybranej revízií."
 
 #. (para)
 #. (para)
@@ -10728,7 +11010,7 @@ msgstr "Použitie <literal>svndumpfilter</literal>"
 
 #. (para)
 msgid "Since TortoiseSVN never loses data, your <quote>rolled back</quote> revisions still exist as intermediate revisions in the repository. Only the HEAD revision was changed to a previous state. If you want to make revisions disappear completely from your repository, erasing all trace that they ever existed, you have to use more extreme measures. Unless there is a really good reason to do this, it is <emphasis>not recommended</emphasis>. One possible reason would be that someone committed a confidential document to a public repository."
-msgstr ""
+msgstr "Keďe TortoiseSVN nikdy dáta nestráca , váš <quote>navrátené</quote> revízie stále existujú ako medzi revízie v úložisku. Iba hlavná (HEAD) revízia bola zmenená na prechadzajúci stav. Keď chcete aby revízie úplne zmizli z vašeho úložiska vymažúc všetky stopy, ktoré kedy existovali, musíte použiť extrémnejšie opatrenia. Keď nie je skutočne dobrý dôvod, aby ste to urobili , je to <emphasis>neodporúčané</emphasis>. Jedným z možných dôvodov môže byť, že niekto odovzdal dôverné dokumenty do verejného úložiska."
 
 #. (para)
 msgid "The only way to remove data from the repository is to use the Subversion command line tool <literal>svnadmin</literal>. You can find a description of how this works in the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink>."
@@ -10771,10 +11053,6 @@ msgid "common projects"
 msgstr "spoločné projekty"
 
 #. (primary)
-msgid "externals"
-msgstr "externé"
-
-#. (primary)
 msgid "vendor projects"
 msgstr "dodavateľské projekty"
 
@@ -10793,14 +11071,6 @@ msgstr "Nastavte vlastnosť <literal>svn:externals</literal> pre adresár vo va�
 #. (para)
 msgid "Commit the new folder. Now when you update, Subversion will pull a copy of that project from its repository into your working copy. The sub-folders will be created automatically if required. Each time you update your main working copy, you will also receive the latest version of all external projects."
 msgstr "Odovzdajte nový adresár. Teraz keď aktualizujete, Subversion natiahne kópiu toho projektu z úložiska do vašej pracovnej kópie. Podadresáre budú v prípade potreby automaticky vytvorené. Pri každej aktualizácií vašej pracovnej kópie získate aj poslednú verziu pre všetky externé projekty."
-
-#. (para)
-msgid "If the external project is in the same repository, any changes you make there will be included in the commit list when you commit your main project."
-msgstr ""
-
-#. (para)
-msgid "If the external project is in a different repository, any changes you make to the external project will be notified when you commit the main project, but you have to commit those external changes separately."
-msgstr ""
 
 #. (para)
 msgid "Of the three methods described, this is the only one which needs no setup on the client side. Once externals are specified in the folder properties, all clients will get populated folders when they update."
@@ -10895,8 +11165,8 @@ msgid "If you accidentally added some files which should have been ignored, how 
 msgstr "Ak ste omzlom pridali súbory, ktoré majú byť ignorované, ako ich vezmete zo správy verzií bez toho aby ste ich stratili? Možno máte vaše vlastné nastavenie IDE, ktoré nie je časťou projektu, ale stálo vás veľa času kým ste nastavili tak aby vám vyhovovalo."
 
 #. (para)
-msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
-msgstr "Pokiaľ ste ešte neodovydali pridanie, potom jediné čo musíte urobiť je <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrátiť...</guimenuitem></menuchoice> na vrátenie pridania. Potom by ste mai pridať súbor(y) do zoznamu ignorovaných, aby ste ich opäť omylom nepridali."
+msgid "If you have not yet committed the add, then all you have to do is use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo Add...</guimenuitem></menuchoice> to undo the add. You should then add the file(s) to the ignore list so they don't get added again later by mistake."
+msgstr "Pokiaľ ste ešte neodovzdali pridanie, potom jediné čo musíte urobiť je <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrátiť pridanie...</guimenuitem></menuchoice> na vrátenie pridania. Potom by ste mali pridať súbor(y) do zoznamu ignorovaných, aby ste ich opäť omylom nepridali."
 
 #. (para)
 msgid "If the files are already in the repository, they have to be deleted from the repository and added to the ignore list. Fortunately TortoiseSVN has a convenient shortcut for doing this. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Unversion and add to ignore list</guimenuitem></menuchoice> will first mark the file/folder for deletion from the repository, keeping the local copy. It also adds this item to the ignore list so that it will not be added back into Subversion again by mistake. Once this is done you just need to commit the parent folder."
@@ -10924,11 +11194,11 @@ msgstr "Užitočné tipy pre administrátorov"
 
 #. (para)
 msgid "This appendix contains solutions to problems/questions you might have when you are responsible for deploying TortoiseSVN to multiple client computers."
-msgstr "Táto príloha obsahuje riešenia problémov a otázok, ktoré môžete mať keď ste zodpovedný za rozširovanie TortoiseSVN na viacero uživaľských staníc."
+msgstr "Táto príloha obsahuje riešenia problémov a otázok, ktoré môžete mať keď ste zodpovedný za nasadzovanie TortoiseSVN na viacero uživaľských staníc."
 
 #. (title)
 msgid "Deploy TortoiseSVN via group policies"
-msgstr "Rozširovanie TortoiseSVN pomocou skupinovaj politiky"
+msgstr "Nasadzovanie TortoiseSVN pomocou skupinovaj politiky"
 
 #. (primary)
 #. (primary)
@@ -10950,7 +11220,7 @@ msgstr "doménový ovládač"
 
 #. (primary)
 msgid "deploy"
-msgstr "distribuovanie"
+msgstr "nasadzovanie"
 
 #. (para)
 msgid "The TortoiseSVN installer comes as an MSI file, which means you should have no problems adding that MSI file to the group policies of your domain controller."
@@ -10982,13 +11252,12 @@ msgid "version"
 msgstr "verzia"
 
 #. (para)
-#, fuzzy
-msgid "TortoiseSVN checks if there's a new version available every few days. If there is a newer version available, an information is shown in the commit dialog."
-msgstr "TortoiseSVN kontroluje existenciu novej verzie každých niekoľko dní. Ak je prístupná novšia verzia, v odovzdácom dialógu sa o tom zobrazí informácia."
+msgid "TortoiseSVN checks if there's a new version available every few days. If there is a newer version available, a notification is shown in the commit dialog."
+msgstr "TortoiseSVN kontroluje existenciu novej verzie každých niekoľko dní. Ak je dostupná novšia verzia, v odovzdácom dialógu sa o tom zobrazí informácia."
 
 #. (title)
 msgid "The commit dialog, showing the upgrade notification"
-msgstr ""
+msgstr "Odovzdávacie okno zobrazujúce upozornenie o aktualizácií"
 
 #. (para)
 msgid "If you're responsible for a lot of users in your domain, you might want your users to use only versions you have approved and not have them install always the latest version. You probably don't want that upgrade notification to show up so your users don't go and upgrade immediately."
@@ -11453,7 +11722,8 @@ msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> filtrované podľa ID-chyby"
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Six additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/>"
+#, fuzzy
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/>"
 msgstr "Otvorí denník. <placeholder-1/> určuje súbor, alebo adresár pre ktorý ma byť denník zobrazený. Môže byť nastavených niekoľko ďalších možností: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> povoľuje zašktávacie políčko 'zastaviť na kopírovaní', <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> vyplní text, <placeholder-7/> vynúti aby filter bol čistý text a nie regulárny výraz, alebo <placeholder-8/> vynúti filter použiť regulárny výraz a nie jednoduchý text vyhľadávania, a <placeholder-9/> s X nahradením číslo medzi 1 and 7. Čísla odpovedajú: <placeholder-10/>"
 
 #. (option)
@@ -11471,9 +11741,8 @@ msgid "/revision:XXX"
 msgstr "/revision:XXX"
 
 #. (entry)
-#, fuzzy
 msgid "Opens the checkout dialog. The <placeholder-1/> specifies the target directory and the <placeholder-2/> specifies the URL to checkout from. If you specify the key <placeholder-3/>, the automatic checkout path adjustments are blocked. The <placeholder-4/> specifies the revision to check out."
-msgstr "Otvorí dialog pre získanie. Parameter <placeholder-1/> určuje cieľový adresár a <placeholder-2/> určuje URL, z ktorej prebehne získavanie. Ak zadáte kľúč <placeholder-3/>, automatická úprava cesty pre získanie bude vypnutá."
+msgstr "Otvorí dialog pre získanie. Parameter <placeholder-1/> určuje cieľový adresár a <placeholder-2/> určuje URL, z ktorej prebehne získavanie. Ak zadáte kľúč <placeholder-3/>, automatická úprava cesty pre získanie bude vypnutá. Parametr <placeholder-4/> udáva revíziu na získanie. "
 
 #. (option)
 #. (option)
@@ -11547,7 +11816,7 @@ msgstr "/noui"
 
 #. (entry)
 msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message)."
-msgstr ""
+msgstr "Vyčistí prerušené, lebo zrušené úkony a odomkne pracovnú kópiu v <placeholder-1/>. Použite <placeholder-2/> na zábranenie zobrazeniu výsledného onka (buď hovoriace o úspešnom dokončení čistenia, alebo zobrazujúcu chybovú správu)."
 
 #. (option)
 #. (option)
@@ -11573,6 +11842,7 @@ msgstr ""
 
 #. (option)
 #. (option)
+#. (option)
 msgid "/fromurl:URL"
 msgstr "/fromurl:URL"
 
@@ -11592,10 +11862,14 @@ msgstr "/fromrev:xxx"
 msgid "/torev:xxx"
 msgstr "/torev:xxx"
 
+#. (option)
+msgid "/reintegrate"
+msgstr "/reintegrate"
+
 #. (entry)
 #, fuzzy
-msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. These pre-fill the relevant fields in the merge dialog."
-msgstr "Otvorí zlučovací dialóg. Cesta určuje cielový adresár. Tri ďalšie parametre môžu byť nastavené: <placeholder-1/>, <placeholder-2/> a <placeholder-3/>. Tieto preplnia príslušné polia v zlučovacom dialógu."
+msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. For doing a reintegrate merge, use the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill the relevant fields in the merge dialog."
+msgstr "Otvorí zlučovací dialóg. Cesta určuje cielový adresár. Tri ďalšie parametre môžu byť nastavené: <placeholder-1/>, <placeholder-2/> a <placeholder-3/>.  Pre zlučovanie dvoch stromov úložiska sú dostupné nasledovné možnosti: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. Tieto predplnia príslušné polia v zlučovacom dialógu."
 
 #. (entry)
 msgid "Opens the merge all dialog. The <placeholder-1/> specifies the target directory."
@@ -11645,11 +11919,11 @@ msgstr ""
 
 #. (entry)
 msgid "Starts the conflict editor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
-msgstr ""
+msgstr "Spustí editor konfliktov zadaný v nastavení TortoiseSVN so správnymi súbormi pre konfliktný súbor v <placeholder-1/>."
 
 #. (entry)
 msgid "Opens the relocate dialog. The <placeholder-1/> specifies the working copy path to relocate."
-msgstr ""
+msgstr "Otvorí dialóg premiestnenia. <placeholder-1/> udáva cestu pracovnej kópie na premiestnenie."
 
 #. (entry)
 msgid "Opens the help file."
@@ -11661,7 +11935,7 @@ msgstr "/remote"
 
 #. (guilabel)
 msgid "Check repository"
-msgstr ""
+msgstr "Skontrolovať uložisko"
 
 #. (entry)
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
@@ -11933,7 +12207,7 @@ msgstr "Kombobox hĺbky odpovedá argumentu <literal>-depth</literal>."
 #. (para)
 #. (para)
 msgid "If <guilabel>Omit externals</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
-msgstr "Ak je zaškrtnutý <guilabel>Vynechať externé</guilabel> is checked, use the <literal>--ignore-externals</literal> switch."
+msgstr "Ak je zaškrtnuté <guilabel>Vynechať externé</guilabel>použite prepínač <literal>--ignore-externals</literal."
 
 #. (para)
 msgid "If you are checking out a specific revision, specify that after the URL using <literal>-r</literal> switch."
@@ -11995,7 +12269,7 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "If <guilabel>Show unversioned files</guilabel> is checked, TortoiseSVN will also show all unversioned files and folders in the working copy hierarchy, taking account of the ignore rules. This particular feature has no direct equivalent in Subversion, as the <literal>svn status</literal> command does not descend into unversioned folders."
-msgstr ""
+msgstr "Ak je zašktrnuté <guilabel>Zobraziť neverziované súbory</guilabel>, TortoiseSVN tiež zobrazí neverziované súbory a adresáre v štruktúre pracovnej kópie, pri vzatí do úvahy pravidlá ignorovania. Zvlášť táto vlastnosť nema priamy ekvivalent v Subversion, keďže príkaz <literal>svn status</literal> nevchádza do neverziovaných adresárov."
 
 #. (para)
 msgid "If you check any unversioned files and folders, those items will first be added to your working copy."
@@ -12013,7 +12287,7 @@ msgstr ""
 
 #. (para)
 msgid "When you click on OK, the Subversion commit takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive commit of the working copy. If you deselect some files, then a non-recursive commit (<literal>-N</literal>) must be used, and every path must be specified individually on the commit command line."
-msgstr ""
+msgstr "Keď kliknete na OK, nastane odovzdávanie Subversion. Keď necháte všetky výberové zaškrtávacie políčka v ich predvolenom stave, TortoiseSVN použije jedeno rekurzívne odovzdanie pracovnej kópie. Ak zrušíte vybranie niektorého súboru potom musí byť použité nerekurzívne odovzdanie (<literal>-N</literal>) a každá cesta musí byť udaná zvlášť v príkazovom riadku odovzdania."
 
 #. (screen)
 #, no-wrap
@@ -12028,7 +12302,7 @@ msgstr ""
 #. (para)
 #. (para)
 msgid "<literal>LogMessage</literal> here represents the contents of the log message edit box. This can be empty."
-msgstr "<literal>SpravaDennika</literal> tu zotpovedá obsahu spravy denníka v editovacom boxe. Môže byť prázdna."
+msgstr "<literal>SpravaDennika</literal> v príkaye zodpovedá obsahu správy denníka v editovacom boxe. Môže byť prázdna."
 
 #. (para)
 msgid "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-unlock</literal> switch."
@@ -12045,7 +12319,7 @@ msgstr ""
 
 #. (para)
 msgid "If you use Diff from the main context menu, you are diffing a modified file against its BASE revision. The output from the CLI command above also does this and produces output in unified-diff format. However, this is not what TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of your choosing) to display differences visually between full-text files, so there is no direct CLI equivalent."
-msgstr ""
+msgstr "Keď použijete Porovnať z hlavného kontextového menu, porovnávate zmenený súbor so základnou(BASE) verziou. Výstup z píkazu v CLI toto robí tiež a vytvára výstup vo formáte unifikovaného porovnania. Avšak toto nie je to čo TortoiseSVN používa. TortoiseSVN pouýíva TortoiseMerge (alebo program, ktorý ste si vybrali) na zobrazenie rozdielov, takže neexistuje priamy CLI ekvivalent."
 
 #. (para)
 msgid "You can also diff any 2 files using TortoiseSVN, whether or not they are version controlled. TortoiseSVN just feeds the two files into the chosen diff program and lets it work out where the differences lie."
@@ -12126,7 +12400,7 @@ msgstr ""
 
 #. (para)
 msgid "You can use <literal>svn info</literal> to determine the repository root, which is the top level shown in the repository browser. You cannot navigate <literal>Up</literal> above this level. Also, this command returns all the locking information shown in the repository browser."
-msgstr ""
+msgstr "Možete použiť <literal>svn info</literal> na zistenie koreňovej URL úložiska, čo je najvyššia úroveň v prehliadači úložiska. Nie je možné <literal>Up</literal> nad túto úroveň. Tento príkaz tiež vráti všetky informácie o zámkoch, ktoré sú zobrazené v prehliadačí úložiska."
 
 #. (para)
 msgid "The <literal>svn list</literal> call will list the contents of a directory, given a URL and revision."
@@ -12169,11 +12443,11 @@ msgstr ""
 
 #. (para)
 msgid "The first stage is a status check which determines the items in your working copy which can potentially be reverted. You can review the list, diff files against BASE and select the items you want to be included in the revert."
-msgstr ""
+msgstr "Prvou fázou je kontrola stavu s určením objektov vo vašej pracovnej kópií, ktoré môžu byť vrátené. Možete si zoznam prezrieť, porovnať súbory voči základu a vybrať objekty, ktoré chcete zahrnúť do vrátenia."
 
 #. (para)
 msgid "When you click on OK, the Subversion revert takes place. If you have left all the file selection checkboxes in their default state, TortoiseSVN uses a single recursive (<literal>-R</literal>) revert of the working copy. If you deselect some files, then every path must be specified individually on the revert command line."
-msgstr ""
+msgstr "Keď kliknete na OK, nastane vrátenie vo Subversion. Keď necháte všetky výberové zaškrtávacie políčka v ich predvolenom stave, TortoiseSVN použije jedeno rekurzívne vrátenie pracovnej kópie. Ak zrušíte vybranie niektorého súboru potom musí byť použité nerekurzívne odovzdanie (<literal>-N</literal>) a každá cesta musí byť udaná zvlášť v príkazovom riadku odovzdania."
 
 #. (screen)
 #, no-wrap
@@ -12387,7 +12661,7 @@ msgstr ""
 
 #. (para)
 msgid "Because the <literal>svn:ignore</literal> property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
-msgstr ""
+msgstr "Keďže vlastnosť <literal>svn:ignore</literal> má zvyčajne viacriadkovú hodnotu, je to tu skôr zobrazené ako sa mení cez textový súbor než cez príkazový riadok."
 
 #. (screen)
 #, no-wrap
@@ -12460,7 +12734,7 @@ msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> <emphasis>Neverziovan�
 
 #. (para)
 msgid "If an item has subversion status <literal>none</literal> (the item is not within a working copy) then no overlay is shown. If you have chosen to disable the <emphasis>Ignored</emphasis> and <emphasis>Unversioned</emphasis> overlays then no overlay will be shown for those files either."
-msgstr ""
+msgstr "Pokiaľ má objekt stav <literal>none</literal> (objekt nie je v pracovnej kópií) tak nemá zobrazenú žiadnu prekrývajúcu ikonku. Ak ste zakázali prekrytia <emphasis>Ignorované</emphasis> a <emphasis>Neverziované></emphasis> potom ani pre tieto súbory nebude zobrazené prekrytie."
 
 #. (para)
 msgid "An item can only have one Subversion status value. For example a file could be locally modified and it could be marked for deletion at the same time. Subversion returns a single status value - in this case <literal>deleted</literal>. Those priorities are defined within Subversion itself."
@@ -13086,25 +13360,9 @@ msgstr "Oto BREZINA <translator [at] e-posta [dot] sk>Michal NOSAL <a2.nosal [at
 msgid "translator-translation"
 msgstr "preklad"
 
-#~ msgid "External Items"
-#~ msgstr "externé objekty"
-
-#~ msgid "external repositories"
-#~ msgstr "externé úložiská"
-
-#~ msgid "External Folders"
-#~ msgstr "externé adresáre"
-
 #, fuzzy
 #~ msgid "Older svn:externals definitions"
 #~ msgstr "Použitie svn:externals"
-
-#, fuzzy
-#~ msgid "Relative to repository root"
-#~ msgstr "Vytvoriť úložisko tu"
-
-#~ msgid "External Files"
-#~ msgstr "Externé súbory"
 
 #~ msgid "The upgrade dialog"
 #~ msgstr "Dialóg aktualizácie"
