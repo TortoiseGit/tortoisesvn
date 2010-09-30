@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-10 18:33+0900\n"
-"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
+"PO-Revision-Date: 2010-09-30 22:08+0900\n"
+"Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese GUI translation team\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -854,6 +854,10 @@ msgstr "明度（&L):"
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
 
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr "深さを固定する(&M)"
+
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "手動で属性を編集(&M)"
@@ -1347,6 +1351,10 @@ msgstr "&Windows XP"
 msgid "&Working copy"
 msgstr "作業コピー(&W)"
 
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "長い行を折り返す(&W)"
+
 #. Resource IDs: (1540)
 msgid "&file list control"
 msgstr "ファイルリストコントロール(&F)"
@@ -1500,15 +1508,6 @@ msgstr "<Separator>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<Untitled>"
-
-#. Resource IDs: (145)
-msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
-msgstr ""
-"TortoiseSVN はシェル拡張です。\n"
-"つまり、エクスプローラに統合されます。\n"
-"TortoiseSVN を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックして\n"
-"コンテキストメニューを表示させてください。そこから TortoiseSVN のすべてのコマンドが利用できます。\n"
-"あと、 マニュアルも読んでね！！"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -2331,10 +2330,6 @@ msgstr "更新をチェック"
 msgid "Check For Updates..."
 msgstr "更新をチェック ..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "明示的なリビジョンのために外部をチェックする"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "変更をチェック(&M)"
@@ -2437,6 +2432,10 @@ msgstr "クリーンアップ"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "ディレクトリ \"%1!s!\" をクリーンナップ"
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "クリーンアップしてシェルをリフレッシュする"
+
 #. Resource IDs: (83)
 #, c-format
 msgid "Cleanup failed to process the following paths:\n%s"
@@ -2450,6 +2449,10 @@ msgid "Cleanup has successfully processed the following paths:\n%s"
 msgstr ""
 "次のパスに対してクリーンアップが正しく行われました:\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "中断された操作をクリーンアップし、シェルのオーバーレイを更新する"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -2941,7 +2944,6 @@ msgstr "最新のバージョンのチェックができませんでした！"
 msgid "Could not copy the files!\n%s"
 msgstr ""
 "ファイルをコピーできませんでした！\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3187,6 +3189,10 @@ msgstr "詳細(&E)"
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "日時"
+
+#. Resource IDs: (117)
+msgid "Date Range"
+msgstr "日付の範囲"
 
 #. Resource IDs: (1008)
 msgid "Default"
@@ -4135,6 +4141,10 @@ msgstr ""
 "塗りつぶしツール\n"
 "塗りつぶし"
 
+#. Resource IDs: (117)
+msgid "Filter by"
+msgstr "フィルタ"
+
 #. Resource IDs: (65535)
 msgid "Filter match"
 msgstr "適合するフィルター"
@@ -4418,6 +4428,10 @@ msgstr "削除されたパスは表示しない(&D)"
 msgid "Hide all branches that did not modify the item"
 msgstr "項目を変更しなかったすべてのブランチを非表示にする"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr "すべてのタグを隠す"
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "削除されたブランチとタグを非表示にする"
@@ -4425,6 +4439,10 @@ msgstr "削除されたブランチとタグを非表示にする"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "ドッキングしているウィンドウを隠す"
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
+msgstr "タグを隠す(&G)"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -4581,6 +4599,10 @@ msgstr "ID:32814:VA  +D"
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
+
+#. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
@@ -5558,8 +5580,8 @@ msgid "Messages"
 msgstr "メッセージ"
 
 #. Resource IDs: (116)
-msgid "Messages, authors and paths"
-msgstr "メッセージ、作者、パス"
+msgid "Messages, authors, paths and revs"
+msgstr "メッセージ、作者、パスとリビジョン"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -5806,7 +5828,6 @@ msgstr "いいえ"
 msgid "No command specified!\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "何のコマンドも指定されていません！\n"
-
 "TortoiseProc.exe はシェル拡張を利用しているため、直接呼び出すことはできません！"
 
 #. Resource IDs: (81)
@@ -6394,6 +6415,10 @@ msgid "Pre-Commit Hook"
 msgstr "Pre-Commit フック"
 
 #. Resource IDs: (570)
+msgid "Pre-Connect Hook"
+msgstr "Pre-Connect フック"
+
+#. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Pre-Update フック"
 
@@ -6716,6 +6741,10 @@ msgstr "バージョン管理外のフォルダを再帰的に調べる"
 msgid "Recursive"
 msgstr "再帰的"
 
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr "URLにリダイレクト中"
+
 #. Resource IDs: (3603)
 msgid "Redo the previously undone action\nRedo"
 msgstr ""
@@ -6812,6 +6841,10 @@ msgstr "再配置に関する注意"
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "再配置中 ..."
+
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr "この作業コピーの深さを記憶する"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -7591,6 +7624,10 @@ msgstr "サーバーアドレス(&A):"
 msgid "Set Accelerator &for:"
 msgstr "アクセラレータを設定(&F):"
 
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr "これらの外部参照に対してリビジョンを明示的に指定する:"
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "ファイルの日付を \"最後にコミットした日付\" に設定する(&T)"
@@ -8141,7 +8178,6 @@ msgstr ""
 msgid "Subversion reported an error while doing a cleanup!\n%s"
 msgstr ""
 "クリーンアップ中に Subversion がエラーを返しました！\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -8695,7 +8731,6 @@ msgstr "ファイルのロックを所持しているユーザ"
 msgid "The working copy has changed!\nPlease commit your changes first or revert."
 msgstr ""
 "作業コピーは変更されました！\n"
-
 "まず変更をコミット、もしくは元に戻してください。"
 
 #. Resource IDs: (81)
@@ -8978,6 +9013,15 @@ msgid "TortoiseSVN has detected similar filenames. Do you want the files:%s\nto 
 msgstr ""
 "TortoiseSVN は類似する名前を持つファイルを検出しました。ファイル:%s\n"
 "の名前も変更しますか？"
+
+#. Resource IDs: (145)
+msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
+msgstr ""
+"TortoiseSVN はシェル拡張です。\n"
+"つまり、エクスプローラに統合されます。\n"
+"TortoiseSVN を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックして\n"
+"コンテキストメニューを表示させてください。そこから TortoiseSVN のすべてのコマンドが利用できます。\n"
+"あと、 マニュアルも読んでね！！"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -9635,6 +9679,10 @@ msgstr ""
 #, c-format
 msgid "Working copy: %s\n"
 msgstr "作業コピー: %s\n"
+
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
+msgstr "長い行を折り返す"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -10324,20 +10372,19 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #. Resource IDs: (576)
-msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
+msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL with an optional peg revision and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
 msgstr ""
 "svn:externals\r\n"
-"改行で区切られたモジュールのリストであり、リビジョン、URL、相対的なディレクトリのパス、\r\n"
-"で構成されます。例えば、\r\n"
+"モジュールを指定する改行で区切られたリストであり、それぞれはリビジョン、\r\n"
+"ペグリビジョンや相対的なディレクトリパスからなるURLからなります。例えば、\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
-"URLは完全なURLもしくは相対的に記述することができます。\r\n"
-"相対的なURLの記述例は:\r\n"
-"../ 親ディレクトリ\r\n"
-"^/ リポジトリルート\r\n"
+"URLは完全なURLもしくは相対的なものが利用できます。相対的なURLのフォーマットは:\r\n"
+"../ 外部参照の親ディレクトリ\r\n"
+"^/ リポジトリルートrelative to the repository root\r\n"
 "// URLスキーム\r\n"
-"/ サーバーのホスト名"
+"/ サーバのホスト名"
 
 #. Resource IDs: (576)
 msgid "svn:ignore\r\nA newline separated list of file patterns to ignore."
@@ -10571,6 +10618,27 @@ msgstr "はい"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "明示的なリビジョンのために外部をチェックする"
+
+#~ msgid "Messages, authors and paths"
+#~ msgstr "メッセージ、作者、パス"
+
+#~ msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
+#~ msgstr ""
+#~ "svn:externals\r\n"
+#~ "改行で区切られたモジュールのリストであり、リビジョン、URL、相対的なディレクトリのパス、\r\n"
+#~ "で構成されます。例えば、\r\n"
+#~ "http://example.com/repos/zig foo\r\n"
+#~ "-r 1234 http://example.com/repos/zag foo/bar\r\n"
+#~ "\r\n"
+#~ "URLは完全なURLもしくは相対的に記述することができます。\r\n"
+#~ "相対的なURLの記述例は:\r\n"
+#~ "../ 親ディレクトリ\r\n"
+#~ "^/ リポジトリルート\r\n"
+#~ "// URLスキーム\r\n"
+#~ "/ サーバーのホスト名"
 
 #~ msgid "&From WC at URL:"
 #~ msgstr "作業コピーのURL(&F):"
