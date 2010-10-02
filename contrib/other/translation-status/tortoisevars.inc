@@ -21,9 +21,9 @@ $tsvn_var['repos_base']="http://tortoisesvn.googlecode.com/svn/";
 $tsvn_var['flagpath']="/flags/world.small/";
 
 // Variables that change upon each release
-$tsvn_var['release']="1.6.10";
-$tsvn_var['build']="19898";
-$tsvn_var['svnver']="1.6.12";
+$tsvn_var['release']="1.6.11";
+$tsvn_var['build']="20210";
+$tsvn_var['svnver']="1.6.13";
 
 $tsvn_var['repos_trunk']=$tsvn_var['repos_base'].'trunk/';
 $tsvn_var['repos_branch']=$tsvn_var['repos_base'].'branches/1.6.x/';
