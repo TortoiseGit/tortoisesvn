@@ -48,22 +48,6 @@ struct log_msg_baton3
     apr_pool_t *pool; /* a pool. */
 };
 
-svn_error_t* svn_get_log_message(const char **log_msg,
-                                 const char **tmp_file,
-                                 const apr_array_header_t * /*commit_items*/,
-                                 void *baton,
-                                 apr_pool_t * pool)
-{
-    log_msg_baton3 *lmb = (log_msg_baton3 *) baton;
-    *tmp_file = NULL;
-    if (lmb->message)
-    {
-        *log_msg = apr_pstrdup (pool, lmb->message);
-    }
-
-    return SVN_NO_ERROR;
-}
-
 #ifdef _MFC_VER
 SVNProperties::SVNProperties(SVNRev rev, bool bRevProps)
     : SVNReadProperties(rev, bRevProps)
