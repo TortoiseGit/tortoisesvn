@@ -331,15 +331,23 @@ void CRepositoryBrowser::InitRepo()
         // url can be in the form
         // http://host/repos/path?[p=PEG][&r=REV]
         CString revString = m_InitialUrl.Mid(questionMarkIndex+1);
-        if (revString.Find(_T('&'))>=0)
+        CString pegRevString = revString;
+
+        int ampPos = revString.Find(_T('&'));
+        if (ampPos >= 0)
         {
-            revString = revString.Mid(revString.Find('&')+1); // we don't support peg revisions for the url
+            revString = revString.Mid (ampPos+1); 
+            pegRevString = pegRevString.Left (ampPos);
         }
+
+        pegRevString.Trim(_T("p="));
+        if (!pegRevString.IsEmpty())
+            m_repository.peg_revision = SVNRev(pegRevString);
+
         revString.Trim(_T("r="));
         if (!revString.IsEmpty())
-        {
             m_repository.revision = SVNRev(revString);
-        }
+
         m_InitialUrl = m_InitialUrl.Left(questionMarkIndex);
     }
 
@@ -348,12 +356,13 @@ void CRepositoryBrowser::InitRepo()
 
     // let's (try to) access all levels in the folder path
 
+    SVNRev pegRev = m_repository.peg_revision;
     if (!m_repository.root.IsEmpty())
         for ( CString path = m_InitialUrl
             ; path.GetLength() >= m_repository.root.GetLength()
             ; path = path.Left (path.ReverseFind ('/')))
         {
-            m_lister.Enqueue (path, m_repository, true);
+            m_lister.Enqueue (path, pegRev, m_repository, true);
         }
 
     // (try to) fetch the HEAD revision
@@ -364,7 +373,7 @@ void CRepositoryBrowser::InitRepo()
 
     std::deque<CItem> dummy;
     CString error
-        = m_lister.GetList (m_InitialUrl, m_repository, true, dummy);
+        = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, dummy);
 
     // the only way CQuery::List will return the following error
     // is by calling it with a file path instead of a dir path
@@ -377,7 +386,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
         m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, m_repository, true, dummy);
+        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, dummy);
     }
 
     // did our optimistic strategy work?
@@ -1059,6 +1068,9 @@ CString CRepositoryBrowser::FetchChildren (HTREEITEM node)
     pTreeItem->has_child_folders = false;
 
     CString error = m_lister.GetList ( pTreeItem->url
+                                     , pTreeItem->is_external 
+                                          ? pTreeItem->repository.peg_revision
+                                          : SVNRev()
                                      , pTreeItem->repository
                                      , true
                                      , children);
@@ -1072,6 +1084,9 @@ CString CRepositoryBrowser::FetchChildren (HTREEITEM node)
     {
         CTreeItem* parentItem = (CTreeItem *)m_RepoTree.GetItemData (node);
         error = m_lister.AddSubTreeExternals ( parentItem->url
+                                             , parentItem->is_external 
+                                                  ? parentItem->repository.peg_revision
+                                                  : SVNRev()
                                              , parentItem->repository
                                              , relPath
                                              , children);
@@ -1186,6 +1201,9 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
         CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
         if ((pTreeItem != NULL) && !pTreeItem->children_fetched)
             m_lister.Enqueue ( pTreeItem->url
+                             , pTreeItem->is_external 
+                                  ? pTreeItem->repository.peg_revision
+                                  : SVNRev()
                              , pTreeItem->repository
                              , true);
     }
@@ -1334,6 +1352,9 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
         {
             pTreeItem->has_child_folders = true;
             m_lister.Enqueue ( item.absolutepath
+                             , item.is_external 
+                                  ? item.repository.peg_revision
+                                  : SVNRev()
                              , item.repository
                              , item.has_props);
         }
@@ -1582,12 +1603,26 @@ void CRepositoryBrowser::OnRefresh()
     {
         // initialize crawler with current tree node
 
-        typedef std::pair<CString, SRepositoryInfo> TEntry;
-        std::deque<TEntry> urls;
+        struct SEntry
+        {
+            CString url;
+            SVNRev pegRev;
+            SRepositoryInfo repository;
+        };
 
-        TEntry initial (pItem->url, pItem->repository);
+        std::deque<SEntry> urls;
+
+        SEntry initial = { pItem->url
+                         , pItem->is_external 
+                              ? pItem->repository.peg_revision
+                              : SVNRev()
+                         , pItem->repository };
         urls.push_back (initial);
-        m_lister.Enqueue (pItem->url, initial.second, true);
+
+        m_lister.Enqueue ( initial.url
+                         , initial.pegRev
+                         , initial.repository
+                         , true);
 
         // breadth-first.
         // This should maximize the interval between enqueueing
@@ -1597,18 +1632,23 @@ void CRepositoryBrowser::OnRefresh()
         {
             // extract next url
 
-            TEntry entry = urls.front();
+            SEntry entry = urls.front();
             urls.pop_front();
 
             // enqueue sub-nodes for listing
 
             std::deque<CItem> children;
-            m_lister.GetList (entry.first, entry.second, true, children);
+            m_lister.GetList ( entry.url
+                             , entry.pegRev
+                             , entry.repository
+                             , true
+                             , children);
 
             // just prefetching -> we don't need to filter children
 
-            m_lister.AddSubTreeExternals ( entry.first
-                                         , entry.second
+            m_lister.AddSubTreeExternals ( entry.url
+                                         , entry.pegRev
+                                         , entry.repository
                                          , CString()
                                          , children);
 
@@ -1619,8 +1659,14 @@ void CRepositoryBrowser::OnRefresh()
 
                 if (item.kind == svn_node_dir)
                 {
-                    urls.push_back (TEntry (url, item.repository));
+                    SEntry entry = { url
+                                   , item.is_external 
+                                        ? item.repository.peg_revision
+                                        : SVNRev()
+                                   , item.repository };
+                    urls.push_back (entry);
                     m_lister.Enqueue ( url
+                                     , entry.pegRev
                                      , item.repository
                                      , item.has_props);
                 }

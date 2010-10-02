@@ -36,12 +36,14 @@ struct SRepositoryInfo
     CString root;
     CString uuid;
     SVNRev revision;
+    SVNRev peg_revision;
 
     bool operator== (const SRepositoryInfo& rhs) const
     {
         return (root == rhs.root)
             && (uuid == rhs.uuid)
-            && ((LONG)revision == (LONG)rhs.revision);
+            && (revision.IsEqual (rhs.revision))
+            && (peg_revision.IsEqual (rhs.peg_revision));
     }
 
     bool operator!= (const SRepositoryInfo& rhs) const
@@ -161,6 +163,7 @@ private:
         /// qeuery parameters
 
         CTSVNPath path;
+        SVNRev pegRevision;
 
         /// additional qeuery parameters
 
@@ -188,12 +191,14 @@ private:
         /// auto-schedule upon construction
 
         CQuery ( const CTSVNPath& path
+               , const SVNRev& pegRevision
                , const SRepositoryInfo& repository);
 
         /// parameter access
 
         const CTSVNPath& GetPath() const;
         const SVNRev& GetRevision() const;
+        const SVNRev& GetPegRevision() const;
 
         /// result access. Automatically waits for execution to be finished.
 
@@ -224,6 +229,7 @@ private:
         /// auto-schedule upon construction
 
         CExternalsQuery ( const CTSVNPath& path
+                        , const SVNRev& pegRevision
                         , const SRepositoryInfo& repository
                         , async::CJobScheduler* scheduler);
     };
@@ -273,6 +279,7 @@ private:
         /// auto-schedule upon construction
 
         CListQuery ( const CTSVNPath& path
+                   , const SVNRev& pegRevision
                    , const SRepositoryInfo& repository
                    , bool includeExternals
                    , async::CJobScheduler* scheduler);
@@ -288,8 +295,33 @@ private:
 
     /// folder content at specific revisions
 
-    typedef std::pair<CTSVNPath, svn_revnum_t> TPathAndRev;
-    typedef std::map<TPathAndRev, CListQuery*> TQueries;
+    struct SPathAndRev
+    {
+        CTSVNPath path;
+        svn_revnum_t rev;
+        svn_revnum_t peg_rev;
+
+        SPathAndRev ( const CTSVNPath& path
+                    , svn_revnum_t peg_rev
+                    , svn_revnum_t rev)
+            : path (path)
+            , rev (rev)
+            , peg_rev (peg_rev)
+        {
+        }
+
+        bool operator<(const SPathAndRev& rhs) const
+        {
+            int pathDiff = CTSVNPath::Compare (path, rhs.path);
+            return (pathDiff < 0) 
+                || (   (pathDiff == 0) 
+                    && (   (rev < rhs.rev) 
+                        || (   (rev == rhs.rev) 
+                            && (peg_rev < rhs.peg_rev))));
+        }
+    };
+
+    typedef std::map<SPathAndRev, CListQuery*> TQueries;
 
     TQueries queries;
 
@@ -330,6 +362,7 @@ private:
 
     CListQuery* FindQuery
         ( const CString& url
+        , const SVNRev& pegRev
         , const SRepositoryInfo& repository
         , bool includeExternals);
 
@@ -355,6 +388,7 @@ public:
     /// no externals have been defined for that URL and revision.
 
     void Enqueue ( const CString& url
+                 , const SVNRev& pegRev
                  , const SRepositoryInfo& repository
                  , bool includeExternals);
 
@@ -390,6 +424,7 @@ public:
     /// \returns the error or an empty string
 
     CString GetList ( const CString& url
+                    , const SVNRev& pegRev
                     , const SRepositoryInfo& repository
                     , bool includeExternals
                     , std::deque<CItem>& items);
@@ -403,6 +438,7 @@ public:
 
     CString AddSubTreeExternals
         ( const CString& url
+        , const SVNRev& pegRev
         , const SRepositoryInfo& repository
         , const CString& externalsRelPath
         , std::deque<CItem>& items);

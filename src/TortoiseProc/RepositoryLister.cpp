@@ -36,8 +36,10 @@
 
 CRepositoryLister::CQuery::CQuery
     ( const CTSVNPath& path
+    , const SVNRev& pegRevision
     , const SRepositoryInfo& repository)
     : path (path)
+    , pegRevision (pegRevision)
     , repository (repository)
 {
 }
@@ -52,6 +54,11 @@ const CTSVNPath& CRepositoryLister::CQuery::GetPath() const
 const SVNRev& CRepositoryLister::CQuery::GetRevision() const
 {
     return repository.revision;
+}
+
+const SVNRev& CRepositoryLister::CQuery::GetPegRevision() const
+{
+    return pegRevision;
 }
 
 // result access. Automatically waits for execution to be finished.
@@ -146,7 +153,7 @@ BOOL CRepositoryLister::CListQuery::Cancel()
 
 void CRepositoryLister::CListQuery::InternalExecute()
 {
-    if (!List (path, GetRevision(), GetRevision(), svn_depth_immediates, true))
+    if (!List (path, GetRevision(), GetPegRevision(), svn_depth_immediates, true))
     {
         // something went wrong or query was cancelled
         // -> store error, clear results and terminate sub-queries
@@ -201,13 +208,14 @@ CRepositoryLister::CListQuery::~CListQuery()
 
 CRepositoryLister::CListQuery::CListQuery
     ( const CTSVNPath& path
+    , const SVNRev& pegRevision
     , const SRepositoryInfo& repository
     , bool includeExternals
     , async::CJobScheduler* scheduler)
-    : CQuery (path, repository)
+    : CQuery (path, pegRevision, repository)
     , externalsQuery
         (includeExternals
-            ? new CExternalsQuery (path, repository, scheduler)
+            ? new CExternalsQuery (path, pegRevision, repository, scheduler)
             : NULL)
 {
     Schedule (false, scheduler);
@@ -243,7 +251,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
     static const std::string svnExternals (SVN_PROP_EXTERNALS);
 
-    SVNProperties properties (path, GetRevision(), false);
+    SVNReadProperties properties (path, GetRevision(), GetPegRevision());
 
     std::string externals;
     for (int i = 0, count = properties.GetCount(); i < count; ++i)
@@ -297,6 +305,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                 externalRepository.root
                     = svn.GetRepositoryRootAndUUID (url, true, externalRepository.uuid);
                 externalRepository.revision = external->revision;
+                externalRepository.peg_revision = external->peg_revision;
 
                 // add the new entry
 
@@ -348,9 +357,10 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
 CRepositoryLister::CExternalsQuery::CExternalsQuery
     ( const CTSVNPath& path
+    , const SVNRev& pegRevision
     , const SRepositoryInfo& repository
     , async::CJobScheduler* scheduler)
-    : CQuery (path, repository)
+    : CQuery (path, pegRevision, repository)
 {
     Schedule (false, scheduler);
 }
@@ -414,6 +424,7 @@ CRepositoryLister::~CRepositoryLister()
 
 void CRepositoryLister::Enqueue
     ( const CString& url
+    , const SVNRev& pegRev
     , const SRepositoryInfo& repository
     , bool includeExternals)
 {
@@ -422,7 +433,7 @@ void CRepositoryLister::Enqueue
 
     async::CCriticalSectionLock lock (mutex);
 
-    TPathAndRev key (escapedURL, repository.revision);
+    SPathAndRev key (escapedURL, pegRev, repository.revision);
     if (queries.find (key) == queries.end())
     {
         // trim list of SVN requests
@@ -469,7 +480,10 @@ void CRepositoryLister::Enqueue
 
                 CListQuery* query = deletedQueries[i];
 
-                TPathAndRev key (query->GetPath(), query->GetRevision());
+                SPathAndRev key ( query->GetPath()
+                                , query->GetPegRevision()
+                                , query->GetRevision());
+
                 TQueries::iterator iter = queries.find (key);
                 if ((iter != queries.end()) && (iter->second == query))
                     queries.erase (iter);
@@ -497,6 +511,7 @@ void CRepositoryLister::Enqueue
         // add the query whose result we will probably need
 
         queries[key] = new CListQuery ( escapedURL
+                                      , pegRev
                                       , repository
                                       , includeExternals
                                       , &scheduler);
@@ -565,7 +580,7 @@ void CRepositoryLister::Refresh (const SVNRev& revision)
 
     for (TQueries::iterator iter = queries.begin(); iter != queries.end(); )
     {
-        if (iter->first.second == revision)
+        if (iter->first.rev == revision)
         {
             iter->second->Terminate();
             dumpster.push_back (iter->second);
@@ -597,9 +612,9 @@ void CRepositoryLister::RefreshSubTree
 
     for (TQueries::iterator iter = queries.begin(); iter != queries.end(); )
     {
-        if (   (iter->first.second == revision)
-            && (   (escapedURL == iter->first.first)
-                || escapedURL.IsAncestorOf (iter->first.first)))
+        if (   (iter->first.rev == revision)
+            && (   (escapedURL == iter->first.path)
+                || escapedURL.IsAncestorOf (iter->first.path)))
         {
             iter->second->Terminate();
             dumpster.push_back (iter->second);
@@ -618,21 +633,23 @@ void CRepositoryLister::RefreshSubTree
 
 CRepositoryLister::CListQuery* CRepositoryLister::FindQuery
     ( const CString& url
+    , const SVNRev& pegRev
     , const SRepositoryInfo& repository
     , bool includeExternals)
 {
     // ensure there is a suitable query
 
-    Enqueue (url, repository, includeExternals);
+    Enqueue (url, pegRev, repository, includeExternals);
 
     // return that query
 
-    TPathAndRev key (EscapeUrl (url), repository.revision);
+    SPathAndRev key (EscapeUrl (url), pegRev, repository.revision);
     return queries[key];
 }
 
 CString CRepositoryLister::GetList
     ( const CString& url
+    , const SVNRev& pegRev
     , const SRepositoryInfo& repository
     , bool includeExternals
     , std::deque<CItem>& items)
@@ -641,7 +658,7 @@ CString CRepositoryLister::GetList
 
     // find that query
 
-    CListQuery* query = FindQuery (url, repository, includeExternals);
+    CListQuery* query = FindQuery (url, pegRev, repository, includeExternals);
 
     // wait for the results to come in and return them
     // get "ordinary" list plus direct externals
@@ -652,6 +669,7 @@ CString CRepositoryLister::GetList
 
 CString CRepositoryLister::AddSubTreeExternals
     ( const CString& url
+    , const SVNRev& pegRev
     , const SRepositoryInfo& repository
     , const CString& externalsRelPath
     , std::deque<CItem>& items)
@@ -660,7 +678,7 @@ CString CRepositoryLister::AddSubTreeExternals
 
     // auto-create / find that query
 
-    CListQuery* query = FindQuery (url, repository, true);
+    CListQuery* query = FindQuery (url, pegRev, repository, true);
 
     // add unfiltered externals?
 
