@@ -1034,6 +1034,9 @@
     <ClCompile Include="RevisionGraph\RemoveTags.cpp">
       <Filter>Commands\RevisionGraph\Options\Copy</Filter>
     </ClCompile>
+    <ClCompile Include="..\SVN\SVNReadProperties.cpp">
+      <Filter>Subversion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1971,6 +1974,9 @@
     </ClInclude>
     <ClInclude Include="RevisionGraph\RemoveTags.h">
       <Filter>Commands\RevisionGraph\Options\Copy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNReadProperties.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
