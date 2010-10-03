@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-05-18 17:03 +0000\n"
-"PO-Revision-Date: 2010-07-25 14:21-0500\n"
+"PO-Revision-Date: 2010-10-03 14:47-0500\n"
 "Last-Translator: 谷紀子 <noriko1@aol.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1176,9 +1176,8 @@ msgid "TortoiseSVN no longer offers the option to create BDB repositories, altho
 msgstr "TortoiseSVN は、もう BDB リポジトリを作成するオプションを提供しません。しかし、依然としてコマンドラインクライアントを使用すれば BDB リポジトリを作成できます。一般的に FSFS リポジトリの方が保守が容易ですし、BDB のバージョン間の差異からくる互換性問題に対して、私たちが TortoiseSVN を保守するのが容易になるのです。"
 
 #. (para)
-#, fuzzy
 msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
-msgstr "TortoiseSVN の将来のバージョンでは、BDB リポジトリに対する <literal>file://</literal> アクセスは、互換性問題によりサポートされません。もちろん、サーバ経由でアクセスする <literal>svn://</literal> プロトコル、<literal>http://</literal> プロトコル、<literal>https://</literal> プロトコルは常にサポートされます。このため、<literal>file://</literal> プロトコルでアクセスしなければならない新しいリポジトリは、FSFS で作成するのを強くお勧めします。"
+msgstr "互換性の問題があるので、TortoiseSVNは、BDB リポジトリの <literal>file://</literal> アクセスをサポートしていません。　しかし、サーバ経由でアクセスする <literal>svn://</literal> プロトコル、<literal>http://</literal> プロトコル、<literal>https://</literal> プロトコルは常にサポートされます。　ですから、<literal>file://</literal> プロトコルでアクセスしなければならない新しいリポジトリは、FSFS で作成することを強くお勧めします。"
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
@@ -1340,9 +1339,8 @@ msgid "create your desired top-level folder structure inside that folder - don't
 msgstr "このフォルダの中にお好みのトップレベルフォルダ構造を作成してください。まだ中にはファイルを置かないでください! "
 
 #. (para)
-#, fuzzy
 msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the URL to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
-msgstr "このフォルダの上で <action>右クリック</action> し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>インポート...</guimenuitem></menuchoice> を選択してリポジトリ内のこの構造にインポートしてください。リポジトリルートの中に基本リポジトリレイアウトを作成するため、これで一時フォルダをインポートできます。"
+msgstr "＃２で設定したファイルフォルダー構造を、リポジトリー内にインポートしましょう。　フォルダの上で <action>右クリック</action> し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>インポート...</guimenuitem></menuchoice> を選択してください。　ダイアログにはあなたのレポジトリのURLを入力して、OKをクリックしてください。　これで、tempフォルダーがリポジトリルートの中に入り、基本的なリポジトリ構造を作ることが出来ました。"
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
@@ -1397,9 +1395,8 @@ msgstr ""
 "</screen> このコピーをバックアップしてください。<literal>--clean-logs</literal> オプションは必須ではありませんが、BDB リポジトリをバックアップする際に冗長なログを削除して、ディスクスペースを節約します。"
 
 #. (para)
-#, fuzzy
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
-msgstr "Subversion コマンドラインクライアントをインストールすると、<literal>svnadmin</literal> が自動でインストールされています。Windows PC でコマンドラインツールをインストールする際に、一番いい方法は Windows installer 版をダウンロードすることです。<filename>.zip</filename> 版よりも効率よく圧縮されているため、ダウンロードサイズが小さく、適切なパス設定もしてくれます。Subversion コマンドラインクライアントの最新版は <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink> からダウンロードできます。"
+msgstr "Subversion コマンドラインクライアントをインストールすると、<literal>svnadmin</literal>ツール が自動でインストールされます。Windows PC でコマンドラインツールをインストールする際、一番良い方法は、 Windows installer 版をダウンロードすることです。<filename>.zip</filename> 版よりも効率よく圧縮されているため、ダウンロードサイズが小さく、適切なパス設定もしてくれます。Subversion コマンドラインクライアントの最新版は <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink> からダウンロードすることができます。"
 
 #. (title)
 msgid "Server side hook scripts"
@@ -1444,11 +1441,11 @@ msgstr ""
 
 #. (title)
 msgid "Overriding Hooks"
-msgstr ""
+msgstr "フックスクリプトの上を行く方法"
 
 #. (para)
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote> :-)"
-msgstr ""
+msgstr "あなたがコミットした内容が、フックスクリプトにより拒否された場合、本当ならこれ以上のことは出来ないのです。　しかし、スクリプトの中に「合言葉」を設定し、それをログファイルの中に挿入しておくと、本来ならば無理な状態でも、ファイルをコミットすることが出来ます。　合言葉が設定してあって、その言葉がログファイルの中に無い時は「You didn't say the magic word:-)」というメッセージが表示されます。"
 
 #. (title)
 msgid "Checkout Links"
@@ -1647,7 +1644,6 @@ msgid "Running svnserve as a user is usually not the best way. It means always h
 msgstr "ユーザが svnserve を実行するのは、通常、最善の方法というわけではありません。サーバに常にユーザがログインすることになり、リブート後には、svnserve を再起動するのを忘れないようにしなければならないのです。よりよい方法は、svnserve を Windows サービスとして実行することです。Subversion 1.4 で開始すると、svnserve は ネイティブな Windows サービスとしてインストールできます。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "To install svnserve as a native windows service, execute the following command all on one line to create a service which is automatically started when windows starts. <screen>\n"
 "sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service\n"
@@ -1661,19 +1657,7 @@ msgid ""
 "</screen> You can also add a description after creating the service. This will show up in the Windows Services Manager. <screen>\n"
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
-msgstr ""
-"svnserve をネイティブ Windows サービスとしてインストールするには、以下のコマンドを 1 行で記述し、Windows の起動時に自動起動するサービスを作成してください。<screen>\n"
-"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
-"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip \n"
-"    start= auto\n"
-"</screen> パスにスペースを含んでいる場合は、以下のように、(エスケープした) クォートでパスを囲んでください。<screen>\n"
-"sc create svnserve binpath= \"\n"
-"    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
-"    --service --root c:\\repos\" displayname= \"Subversion\" \n"
-"    depend= tcpip start= auto\n"
-"</screen> サービス作成後に、説明の追加もできます。これは Windows のサービスマネージャに表示されます。<screen>\n"
-"sc description svnserve \"Subversion server (svnserve)\"\n"
-"</screen>"
+msgstr "svnserve をネイティブ Windows サービスとしてインストールするには、以下のコマンドを 1 行で（改行せずに）入力してください。　Windows の起動時に自動起動するようになります。sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service --root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= autoパスにスペースを含んでいる場合は、以下のように、(エスケープした) クォートでパスを囲んでください。sc create svnserve binpath= \"\\\C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\  --service --root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= autoサービス作成後に、説明の追加もできます。これは Windows のサービスマネージャに表示されます。sc description svnserve \"Subversion server (svnserve)\""
 
 #. (para)
 msgid "Note the rather unusual command line format used by <literal>sc</literal>. In the <literal>key= value</literal> pairs there must be no space between the key and the <literal>=</literal> but there must be a space before the value."
@@ -2201,9 +2185,8 @@ msgstr ""
 "</screen> また、<filename>svnindex.xsl</filename>, <filename>svnindex.css</filename>, <filename>menucheckout.ico</filename> をドキュメントルートディレクトリ (通常 <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>) に置いてください。このディレクトリは、Apache 設定ファイルの <literal>DocumentRoot</literal> ディレクティブで設定します。"
 
 #. (para)
-#, fuzzy
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the TortoiseSVN source repository)."
-msgstr "その 3 ファイルは <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink> にあるソースリポジトリから直接取得できます (TortoiseSVN のソースリポジトリへのアクセスのしかたは、<xref linkend=\"tsvn-preface-source\"/> で説明します)。"
+msgstr "それら ３つの ファイルは、ソースレポジトリ <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink> からダウンロードしてください (TortoiseSVN のソースリポジトリへのアクセスのしかたは、<xref linkend=\"tsvn-preface-source\"/> をお読みください)。"
 
 #. (para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
@@ -2560,7 +2543,6 @@ msgstr ""
 "</screen>"
 
 #. (para)
-#, fuzzy
 msgid ""
 "Next type the commands <screen>\n"
 "bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
@@ -2574,19 +2556,7 @@ msgid ""
 "bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
 "                 -outform DER\n"
 "</screen> These commands created some files in the Apache <filename>conf</filename> folder (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
-msgstr ""
-"次に以下のコマンドを入力してください。<screen>\n"
-"bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
-"</screen> および (1 行で)<screen>\n"
-"bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
-"-config conf\\openssl.cnf\n"
-"</screen> その後 (1 行で)<screen>\n"
-"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
-"                 -req -signkey conf\\server.key -days 4000\n"
-"</screen> これで 4000 日経過すると失効する証明書ができます。最後に以下を (1 行で) 入力してください。<screen>\n"
-"bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
-"                 -outform DER\n"
-"</screen> ここまでのコマンドは、Apache の <filename>conf</filename> フォルダにファイルをいくつか (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>) 作成します。"
+msgstr "次に以下のコマンドを入力してください。bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key次にbin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\-config conf\\openssl.cnf次にbin\\openssl x509 -in conf\\server.csr -out conf\\server.crt -req -signkey conf\\server.key -days 4000これで 4000 日経過すると失効する証明書ができます。最後に以下を 入力してください。bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt　-outform DERここまでのコマンドは、Apache の <filename>conf</filename> フォルダにファイルをいくつか (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>) 作成します。"
 
 #. (para)
 msgid "Restart the Apache service."
@@ -2693,7 +2663,6 @@ msgstr ""
 "</screen> クライアント証明書を受け取り、検証に成功した場合だけ、このディレクティブは、そのディレクトリへのアクセスを許可します。"
 
 #. (para)
-#, fuzzy
 msgid ""
 "To summarise, the relevant lines of the Apache configuration are: <screen>\n"
 "SSLVerifyClient Optional\n"
@@ -2720,7 +2689,7 @@ msgid ""
 "&lt;/VirtualHost&gt;\n"
 "</screen>"
 msgstr ""
-"まとめると、Apache 設定ファイルの関係する行は、以下のようになります。<screen>\n"
+"Apache 設定ファイルの中では、以下の行がこの件に関係しています。<screen>\n"
 "SSLVerifyClient Optional\n"
 "\n"
 "### Virtual host configuration for the PUBLIC host \n"
