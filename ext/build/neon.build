@@ -94,6 +94,7 @@
         <include name="..\apr-util\xml\expat\lib" />
         <include name="..\..\..\common\openssl\inc32" />
         <include name="..\..\..\common\zlib" />
+        <include name="..\gssapi" />
       </includedirs>
       <defines>
         <define name="_CRT_NONSTDC_NO_DEPRECATE" />
@@ -120,6 +121,8 @@
         <define name="NOGDI" />
         <define name="NONLS" />
         <define name="NOCRYPT" />
+        <define name="HAVE_GSSAPI" />
+        <define name="HAVE_GSSAPI_H" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
@@ -132,6 +135,7 @@
         <include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" />
         <include name="..\..\..\common\openssl\out32\libeay32.lib" />
         <include name="..\..\..\common\openssl\out32\ssleay32.lib" />
+        <include name="..\gssapi\${configuration}${static}_${platform}\gssapiu.lib" />
       </sources>
     </lib>
   </target>

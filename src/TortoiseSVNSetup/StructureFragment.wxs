@@ -77,6 +77,7 @@
               <File Id="F__saslLOGIN" Name="saslLOGIN.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslLOGIN.dll" />
               <File Id="F__saslNTLM" Name="saslNTLM.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslNTLM.dll" />
               <File Id="F__saslPLAIN" Name="saslPLAIN.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslPLAIN.dll" />
+              <File Id="F__saslGSSAPI" Name="saslGSSAPI.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslGSSAPI.dll" />
             </Component>
 
             <Component Id="C__gettext" Guid="$(var.GuidGettext)" Win64="$(var.Win64YesNo)">
