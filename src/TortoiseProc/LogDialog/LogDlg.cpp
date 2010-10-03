@@ -52,6 +52,7 @@
 #include "SysImageList.h"
 #include "svn_props.h"
 #include "AsyncCall.h"
+#include "Future.h"
 #include "svntrace.h"
 #include "LogDlgFilter.h"
 
@@ -612,6 +613,70 @@ void CLogDlg::EnableOKButton()
         DialogEnableWindow(IDOK, TRUE);
 }
 
+namespace
+{
+    bool IsAllWhitespace (const wstring& text, long first, long last)
+    {
+        for (; first < last; ++first)
+        {
+            wchar_t c = text[first];
+            if (c > L' ')
+                return false;
+
+            if ((c != L' ') && (c != L'\t') && (c != L'\r') && (c != L'\n'))
+                return false;
+        }
+
+        return true;
+    }
+
+    void ReduceRanges(std::vector<CHARRANGE>& ranges, const wstring& text)
+    {
+        if (ranges.size() < 2)
+            return;
+
+        auto begin = ranges.begin();
+        auto end = ranges.end();
+
+        auto target = begin;
+        for (auto source = begin + 1; source != end; ++source)
+            if (IsAllWhitespace (text, target->cpMax, source->cpMin))
+                target->cpMax = source->cpMax;
+            else
+                *(++target) = *source;
+
+        ranges.erase (++target, end);
+    }
+}
+
+namespace
+{
+    struct SMarkerInfo
+    {
+        CString sText;
+        wstring text;
+
+        std::vector<CHARRANGE> ranges;
+        std::vector<CHARRANGE> idRanges;
+        std::vector<CHARRANGE> revRanges;
+
+        BOOL RunRegex (ProjectProperties *project)
+        {
+            // turn bug ID's into links if the bugtraq: properties have been set
+            // and we can find a match of those in the log message
+            idRanges = project->FindBugIDPositions (sText);
+
+            // underline all revisions mentioned in the message
+            revRanges = CAppUtils::FindRegexMatches ( text
+                                                    , project->sLogRevRegex
+                                                    , _T("\\d+"));
+
+            return TRUE;
+        }
+    };
+
+}
+
 void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 {
     // we fill here the log message rich edit control,
@@ -665,13 +730,22 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         m_nSearchIndex = (int)selIndex;
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (selIndex);
 
+        pMsgView->SetRedraw(FALSE);
+
+        // the rich edit control doesn't count the CR char!
+        // to be exact: CRLF is treated as one char.
+
+        SMarkerInfo info;
+        info.sText = pLogEntry->GetMessage();
+        info.sText.Replace(_T("\r"), _T(""));
+        info.text = info.sText;
+
+        async::CFuture<BOOL> regexRunner ( &info
+                                         , &SMarkerInfo::RunRegex
+                                         , &m_ProjectProperties);
+
         // set the log message text
-        pMsgView->SetWindowText(pLogEntry->GetMessage());
-        // turn bug ID's into links if the bugtraq: properties have been set
-        // and we can find a match of those in the log message
-        m_ProjectProperties.FindBugID(pLogEntry->GetMessage(), pMsgView);
-        // underline all revisions mentioned in the message
-        CAppUtils::UnderlineRegexMatches(pMsgView, m_ProjectProperties.sLogRevRegex, _T("\\d+"));
+        pMsgView->SetWindowText(info.sText);
 
         // mark filter matches
         if (m_SelectedFilters & LOGFILTER_MESSAGES)
@@ -684,38 +758,32 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
                 , m_tTo
                 , false
                 , 0);
-            CString sText;
-            pMsgView->GetWindowText(sText);
-            // the rich edit control doesn't count the CR char!
-            // to be exact: CRLF is treated as one char.
-            sText.Replace(_T("\r"), _T(""));
-            if (!sText.IsEmpty())
-            {
-                wstring text = sText;
-                std::vector<CHARRANGE> ranges = filter.GetMatchRanges(text);
-                if (ranges.size())
-                {
-                    for (std::vector<CHARRANGE>::iterator it = ranges.begin(); it != ranges.end(); ++it)
-                    {
-                        pMsgView->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&(*it));
-                        CHARFORMAT2 format;
-                        SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-                        format.cbSize = sizeof(CHARFORMAT2);
-                        format.dwMask = CFM_COLOR;
-                        format.crTextColor = m_Colors.GetColor(CColors::FilterMatch);
-                        pMsgView->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
-                    }
-                }
-            }
+
+            info.ranges = filter.GetMatchRanges (info.text);
+
+            // combine ranges only separated by whitespace
+            ReduceRanges (info.ranges, info.text);
+
+            CAppUtils::SetCharFormat ( pMsgView
+                                     , CFM_COLOR
+                                     , m_Colors.GetColor(CColors::FilterMatch)
+                                     , info.ranges);
         }
 
         if (((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\StyleCommitMessages"), TRUE))==TRUE)
             CAppUtils::FormatTextInRichEditControl(pMsgView);
-        m_currentChangedArray = pLogEntry->GetChangedPaths();
 
         // fill in the changed files list control
+        m_currentChangedArray = pLogEntry->GetChangedPaths();
         if ((m_cShowPaths.GetState() & 0x0003)==BST_CHECKED)
             m_currentChangedArray.RemoveIrrelevantPaths();
+
+        regexRunner.GetResult();
+        CAppUtils::SetCharFormat (pMsgView, CFM_LINK, CFE_LINK, info.idRanges);
+        CAppUtils::SetCharFormat (pMsgView, CFM_LINK, CFE_LINK, info.revRanges);
+
+        pMsgView->SetRedraw(TRUE);
+        pMsgView->Invalidate();
     }
     else
     {

@@ -510,27 +510,22 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
     return bStyled;
 }
 
-bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring, const CString& matchsubstring /* = _T(".*")*/)
+std::vector<CHARRANGE> 
+CAppUtils::FindRegexMatches
+    ( const wstring& text
+    , const CString& matchstring
+    , const CString& matchsubstring /* = _T(".*")*/)
 {
+    std::vector<CHARRANGE> result;
     if (matchstring.IsEmpty())
-        return false;
-
-    CString sText;
-    if (pWnd == NULL)
-        return false;
-    bool bFound = false;
-    pWnd->GetWindowText(sText);
-    // the rich edit control doesn't count the CR char!
-    // to be exact: CRLF is treated as one char.
-    sText.Replace(_T("\r"), _T(""));
+        return result;
 
     try
     {
         const tr1::wregex regMatch(matchstring, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
         const tr1::wregex regSubMatch(matchsubstring, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
         const tr1::wsregex_iterator end;
-        wstring s = sText;
-        for (tr1::wsregex_iterator it(s.begin(), s.end(), regMatch); it != end; ++it)
+        for (tr1::wsregex_iterator it(text.begin(), text.end(), regMatch); it != end; ++it)
         {
             // (*it)[0] is the matched string
             wstring matchedString = (*it)[0];
@@ -540,16 +535,14 @@ bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring, c
                 ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
                 ptrdiff_t matchposID = it2->position(0);
                 CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
-                pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-                SetCharFormat(pWnd, CFM_LINK, CFE_LINK);
-                bFound = true;
+                result.push_back (range);
             }
         }
     }
     catch (exception) {}
-    return bFound;
-}
 
+    return result;
+}
 
 bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end)
 {
