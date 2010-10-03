@@ -589,7 +589,7 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
         if (c == stylechar)
         {
             if ((i == last) || (   !IsCharAlphaNumeric(sText[i+1]) 
-                                && IsCharAlphaNumeric(prevChar))
+                                && IsCharAlphaNumeric(prevChar)))
             {
                 end = i;
                 i++;
