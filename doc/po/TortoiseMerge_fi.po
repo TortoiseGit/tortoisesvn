@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-03-27 11:38 +0000\n"
-"PO-Revision-Date: 2010-03-30 02:09+0200\n"
+"POT-Creation-Date: 2010-09-15 22:56 +0000\n"
+"PO-Revision-Date: 2010-10-03 23:24+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,11 +32,6 @@ msgstr "TortoiseMerge"
 #. (subtitle)
 msgid "A diff/merge tool for Windows"
 msgstr "Diff/merge -työkalu Windows-ympäristöön"
-
-#. TRANSLATORS: "$MajorVersion$.$MinorVersion$.$MicroVersion$" is a literal value and should not be translated
-#. (subtitle)
-msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
-msgstr "Versio $MajorVersion$.$MinorVersion$.$MicroVersion$"
 
 #. (edition)
 msgid "First"
@@ -367,8 +362,8 @@ msgid "But don't worry. If you're working with Subversion you can retrieve an ol
 msgstr "Tilanteen voi kuitenkin vielä pelastaa.  Jos käytät Subversion-ohjelmaa, voit palauttaa tiedostosta vanhemman version ja ratkaista ristiriidan.  Itse asiassa TortoiseMerge yrittää automaattisesti hakea tiedoston vanhemman version ja näyttää sitten erot tiedostojen <emphasis>Kanta</emphasis> (tiedoston vanhempi versio), <emphasis>Minun</emphasis> (tiedoston työkopio) ja <emphasis>Heidän</emphasis> (tiedoston vanhempi versio, jossa paikka on jo otettu käyttöön). Voit sitten ratkoa mahdolliset ristiriidat käsin."
 
 #. (para)
-msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
-msgstr "Paikkatiedostoikkunassa on kontekstivalikko, jonka avulla voit esikatsella paikan vaikutusta nykyiseen tiedostoon (käytä tallettamatta), käyttää paikan ja tallettaa muutokset valittuun tiedostoon tai käyttää paikat ja tallettaa muutokset <emphasis>kaikkiin</emphasis> listan tiedostoihin.  Kaksoisnapsautus käynnistää esikatselun."
+msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double click action is to preview."
+msgstr "Paikkatiedostoikkunassa on kontekstivalikko, jonka avulla voit esikatsella paikan vaikutusta nykyiseen tiedostoon (käytä tallettamatta), käyttää paikan ja tallettaa muutokset valittuun tiedostoon, tai käyttää paikat ja tallettaa muutokset <emphasis>kaikkiin</emphasis> listan tiedostoihin.  Kaksoisnapsautus käynnistää esikatselun."
 
 #. (para)
 msgid "Depending on whether TortoiseMerge can apply the patch directly or by fetching an older version of the file first, it shows you a two pane view (patch can be applied directly) or a three pane view (older version of file fetched)."
@@ -427,6 +422,10 @@ msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display spa
 msgstr "<guibutton>Näytä tyhjämerkit</guibutton> kytkee ja poistaa toiminnon, jonka avulla välilyönnit ja tabulaattorimerkit näytetään symboleina, mikä helpottaa tyhjämerkkimuutosten vertailua."
 
 #. (para)
+msgid "<guibutton>Wrap long lines</guibutton> toggles the word wrapping at the end of the views. If turned on, long lines which would normally extend beyond the view border are wrapped around, i.e., one long line is split into several lines."
+msgstr "<guibutton>Rivitä pitkät rivit</guibutton> vaihtaa sanojen rivitystapaa näyttöjen lopussa. Jos asetus on päällä, niin näytön lopun yli jatkuvat rivit rivitetään usealle riville."
+
+#. (para)
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
 msgstr "<guibutton>Sanan sisäinen vertailu sanoittain</guibutton> muuttaa rivin sisäisten erojen löytämiseen käytettyä menetelmää. Sanamenetelmässä yksittäisen merkin muutos saa aikaan koko sanan korostuksen.  Merkkimenetelmässä puolestaan korostetaan yksittäiset muuttuneet merkit."
 
@@ -435,23 +434,20 @@ msgid "Word-wise is the default and in most cases it works better. For example i
 msgstr "Sanamenetelmä on oletusarvo ja toimii useimmissa tapauksissa paremmin. Jos esimerkiksi muutat muuttujan nimen, koko sana korostetaan sanamenetelmällä, kun taas merkkimenetelmällä tapaat saada lisätyistä ja poistetuista merkeistä koostuvan sekamelskan, josta on vaikea saada selvää. Jotkut sisällöt eivät kuitenkaan jakaannu luontevasti sanoihin (esim. heksatiedostot), ja näissä tapauksissa merkkimenetelmä toimii paremmin."
 
 #. (para)
+msgid "<guibutton>Compare whitespaces</guibutton> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "Valinta <guilabel>Vertaa tyhjämerkkejä</guilabel> näyttää kaikki sisennyksien ja rivin sisäisten tyhjämerkkien muutokset lisättyinä/poistettuina riveinä (samaan tapaan kuin Subversion käsittelee tällaisia muutoksia)."
+
+#. (para)
+msgid "<guibutton>Ignore whitespace changes</guibutton> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "Valinta <guilabel>Ohita tyhjämerkkien muutokset</guilabel> piilottaa muutokset, jotka johtuvat pelkästään tyhjämerkeistä (esimerkiksi sisentämisestä tai tabulaattorien muuttamisesta välilyönneiksi). Tyhjämerkkien lisääminen paikkaan, jossa niitä ei aiemmin ollut, tai kaikkien tyhjämerkkien poisto näkyvät yhä muutoksina."
+
+#. (para)
+msgid "<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only changes."
+msgstr "Valinta <guilabel>Ohita kaikki tyhjämerkit</guilabel> piilottaa kaikki tyhjämerkeistä johtuvat muutokset."
+
+#. (para)
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr "<guibutton>Vaihda näkymä</guibutton> vaihtaa yhden ja kahden paneelin näkymän välillä.  Estetty kolmen paneelin näkymässä."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr "Valinta <guilabel>Vertaa tyhjämerkkejä</guilabel> näyttää kaikki muutokset sisennyksessä ja rivin sisäisissä tyhjämerkeissä lisättyinä/poistettuina riveinä (samaan tapaan kuin Subversion käsittelee tällaisia muutoksia)."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "Valinta <guilabel>Ohita tyhjämerkkien muutokset</guilabel> piilottaa muutokset, jotka johtuvat tyhjämerkeistä, esimerkiksi sisentämisestä tai tabulaattorien muuttamisesta välilyönneiksi.Tyhjämerkkien lisääminen paikkaan, jossa niitä ei aiemmin ollut, tai kaikkien tyhjämerkkien poisto näkyvät yhä muutoksina."
-
-#. (para)
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr "Valinta <guilabel>Ohita kaikki tyhjämerkit</guilabel> piilottaa kaikki tyhjämerkeistä johtuvat muutokset."
 
 #. (para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
@@ -462,7 +458,7 @@ msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patc
 msgstr "<guibutton>Näytä/Piilota paikkalista</guibutton> Kun TortoiseMergellä on paikkalista, tämä toiminto voi piilottaa sen (jotta näet molemmat ikkunat) tai näyttää sen (jotta voit tutkia paikkalistaa)."
 
 #. (para)
-msgid "<guilabel>Collapse</guilabel> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
+msgid "<guibutton>Collapse</guibutton> collapses unchanged regions to a single line, leaving only the changed areas and minimal context. You can expand the collapsed areas by double clicking on the collapse line, but you cannot then re-collapse them unless you reload the file."
 msgstr "<guilabel>Sulje</guilabel> kutistaa muuttumattomat osat yhdelle riville, jättäen näkyville vain muuttuneet osat ja hieman kontekstia. Voit avata kutistetut osat kaksoisnapsauttamalla suljettua riviä, mutta tämän jälkeen uudelleen sulkeminen ei onnistu, ellet avaa tiedostoa uudelleen."
 
 #. (para)
@@ -530,8 +526,8 @@ msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences bet
 msgstr "TortoiseMerge ei vain <emphasis>näytä</emphasis> tiedostojen välisiä eroja, vaan sallii myös ristiriitojen selvittämisen tai muuttuneiden kohtien ottamisen käyttöön."
 
 #. (para)
-msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr "Ollessasi kahden paneelin näkymässä voit muokata vain oikeassa paneelissa olevaa tiedostoa (<literal>Minun</literal>) .  Ottaaksesi käyttöön muutokset vasemmassa paneelissa (<literal>Heidän</literal>) näytetystä tiedostosta, <action>oikea-napsauta</action> muuttunetita rivejä ja valitse <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>heidän</quote> tekstilohkonsa</guimenuitem></menuchoice>. Silloin muutokset vasemmasta tiedostosta lisätään oikeaan tiedostoon."
+msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
+msgstr "Ollessasi kahden paneelin näkymässä voit muokata vain oikeassa paneelissa olevaa tiedostoa (<literal>Minun</literal>) .  Ottaaksesi käyttöön muutokset vasemmassa paneelissa (<literal>Heidän</literal>) näytetystä tiedostosta, <action>oikea-napsauta</action> muuttuneita rivejä ja valitse <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>heidän</quote> tekstilohkonsa</guimenuitem></menuchoice>. Silloin vasemman tiedoston muutokset lisätään oikeaan tiedostoon."
 
 #. (para)
 msgid "Sometimes you actually want both text blocks, and the context menu also offers you <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one first)</guimenuitem></menuchoice> and <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one last)</guimenuitem></menuchoice>."
@@ -542,8 +538,8 @@ msgid "You can also edit the output file just as you would in a text editor. Suc
 msgstr "Voit myös muokata tulostiedostoa samaan tapaan kuin normaalilla tekstieditorilla. Tällaiset rivit merkitään kynäkuvakkeella. Huomaa, että jos haluat suorittaa jonkun yllä kuvatuista rivi/lohkomuutoksista, se kannattaa tehdä ensin, koska muokattuasi itse tekstiä TortoiseMerge ei enää muista sen suhdetta alkuperäisiin tiedostoihin."
 
 #. (para)
-msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Kolmen paneelin näkymässä (jota joskus kutsutaan <emphasis>yhdistämisnäkymäksi</emphasis>) voit muokata vain alimmassa paneelissa olevaa tiedostoa (<literal>Yhdistetty</literal>). Kuten kahden paneelin näkymässä, voit <action>oikea-napsauta</action> ristiriidassa olevia rivejä ja joko valita <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä  <quote>heidän</quote> tekstilohkonsa</guimenuitem></menuchoice> tai <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>minun</quote> tekstilohkoni</guimenuitem></menuchoice>. Lisäksi, jos haluat <emphasis>molemmat</emphasis> tekstilohkot, voit valita <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>minun</quote> tekstilohkoni ennen <quote>heidän</quote></guimenuitem></menuchoice> tai <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>heidän</quote> tekstilohkonsa ennen <quote>minun</quote> tekstilohkoani</guimenuitem></menuchoice>. Komennostasi riippuen, muutokset lisätään tiedostoon <literal>Yhdistetty</literal>."
+msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from 'mine' </guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from 'mine' before 'theirs' </guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
+msgstr "Kolmen paneelin näkymässä (jota joskus kutsutaan <emphasis>yhdistämisnäkymäksi</emphasis>) voit muokata vain alimmassa paneelissa olevaa tiedostoa (<literal>Yhdistetty</literal>). Kuten kahden paneelin näkymässä, voit <action>oikea-napsauttaa</action> ristiriidassa olevia rivejä ja joko valita <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä 'heidän' tekstilohkonsa</guimenuitem></menuchoice> tai <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä 'minun' tekstilohkoni</guimenuitem></menuchoice>. Jos haluat <emphasis>molemmat</emphasis> tekstilohkot, voit myös valita <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä 'minun' tekstilohkoni ennen 'heidän'</guimenuitem></menuchoice> tai <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä 'heidän' tekstilohkonsa ennen 'minun' tekstilohkoani</guimenuitem></menuchoice>. Muutokset tehdään tiedostoon <literal>Yhdistetty</literal>."
 
 #. (para)
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
@@ -620,6 +616,18 @@ msgstr "Valinta <guilabel>Ohita merkkitasoerot</guilabel> piilottaa muutokset, j
 #. (para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "Valinta <guilabel>Väritä rivin sisäiset muutokset</guilabel> käyttää samaa tapaa kuin rivieropalkki näyttääkseen yksityiskohtaiset rivin sisäiset muutokset päänäytöissä. Suuresti muuttuneita rivejä ei näytetä tällä tyylillä, koska tulos olisi yksinkertaisesti liian sekava. Tässä tapauksessa rivi näytetään korvattuna (vanha rivi poistettu, uusi rivi lisätty)."
+
+#. (para)
+msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+msgstr "Valinta <guilabel>Vertaa tyhjämerkkejä</guilabel> näyttää kaikki muutokset sisennyksessä ja rivin sisäisissä tyhjämerkeissä lisättyinä/poistettuina riveinä (samaan tapaan kuin Subversion käsittelee tällaisia muutoksia)."
+
+#. (para)
+msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+msgstr "Valinta <guilabel>Ohita tyhjämerkkien muutokset</guilabel> piilottaa muutokset, jotka johtuvat tyhjämerkeistä, esimerkiksi sisentämisestä tai tabulaattorien muuttamisesta välilyönneiksi.Tyhjämerkkien lisääminen paikkaan, jossa niitä ei aiemmin ollut, tai kaikkien tyhjämerkkien poisto näkyvät yhä muutoksina."
+
+#. (para)
+msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+msgstr "Valinta <guilabel>Ohita kaikki tyhjämerkit</guilabel> piilottaa kaikki tyhjämerkeistä johtuvat muutokset."
 
 #. (title)
 msgid "Colour Settings Page"
@@ -734,8 +742,8 @@ msgid "Keyboard shortcuts"
 msgstr "Pikanäppäimet"
 
 #. (term)
-msgid "Ctrl-Q"
-msgstr "Ctrl-Q"
+msgid "Ctrl-Q, Ctrl-W, Escape"
+msgstr "Ctrl-Q, Ctrl-W, Escape"
 
 #. (para)
 msgid "Quit the program"
@@ -748,6 +756,30 @@ msgstr "Ctrl-C"
 #. (para)
 msgid "Copy the selected text to the clipboard"
 msgstr "Kopioi valittu teksti leikepöydälle"
+
+#. (term)
+msgid "Ctrl-X, Shift-Del"
+msgstr "Ctrl-X, Shift-Del"
+
+#. (para)
+msgid "Cut the selected text to the clipboard"
+msgstr "Leikkaa valittu teksti leikepöydälle"
+
+#. (term)
+msgid "Ctrl-V, Shift-Insert"
+msgstr "Ctrl-V, Shift-Insert"
+
+#. (para)
+msgid "Paste the selected text from the clipboard"
+msgstr "Liitä valittu teksti leikepöydältä"
+
+#. (term)
+msgid "Ctrl-Z, Alt-Backspace"
+msgstr "Ctrl-Z, Alt-peruutusnäppäin"
+
+#. (para)
+msgid "Undo the last edits"
+msgstr "Peru viimeisimmät muutokset"
 
 #. (term)
 msgid "Ctrl-F"
@@ -1003,6 +1035,10 @@ msgstr "Luo unified diff-muotoisen tiedoston (paikkatiedoston) kahdesta valitsim
 msgid "Specifies a line number to jump to after loading the files."
 msgstr "Määrittää rivinumeron, jolle siirrytään tiedostojen avaamisen jälkeen."
 
+#. (entry)
+msgid "Prevents the file from being edited. That means the editing capabilities of TortoiseMerge are disabled."
+msgstr "Estää tiedoston muokkauksen. TortoiseMerge-ohjelman muokkausominauudet on estetty."
+
 #. (para)
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
@@ -1134,8 +1170,8 @@ msgid "GPO"
 msgstr "GPO"
 
 #. (para)
-msgid "Group policy object"
-msgstr "Ryhmäkäytäntö"
+msgid "Group policy object."
+msgstr "Ryhmäkäytäntöolio."
 
 #. (glossterm)
 msgid "HEAD revision"
@@ -1306,4 +1342,9 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 #. (None)
 msgid "translator-translation"
 msgstr "Käännös"
+
+#~ msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
+#~ msgstr "Versio $MajorVersion$.$MinorVersion$.$MicroVersion$"
+#~ msgid "Ctrl-Q"
+#~ msgstr "Ctrl-Q"
 

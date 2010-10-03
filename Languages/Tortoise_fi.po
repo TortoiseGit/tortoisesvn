@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-10 02:39+0200\n"
+"PO-Revision-Date: 2010-10-03 22:34+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -1642,20 +1642,6 @@ msgstr "<Separator>"
 msgid "<Untitled>"
 msgstr "<Nimetön>"
 
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN on komentotulkin laajennos.\n"
-"Tämä tarkoittaa, että se on integroitu Windowsin resurssienhallintaan.\n"
-"Käyttääksesi TortoiseSVN-työkalua, avaa resurssienhallinta ja napsauta hiiren oikealla näppäimellä haluamaasi kansiota.\n"
-"Avautuvasta kontekstivalikosta löydät kaikki TortoiseSVN -komennot.\n"
-"Muista lukea ohjeet!"
-
 #. Resource IDs: (16603)
 msgid "<descr>"
 msgstr "<descr>"
@@ -3166,11 +3152,9 @@ msgstr "Uusimman version tarkistus epäonnistui!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "Tiedostojen kopiointi epäonnistui!\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3275,22 +3259,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "Ulkoisen vertailuohjelman käynnistys epäonnistui!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "Ulkoisen yhdistämisohjelman käynnistys epäonnistui!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -4961,6 +4941,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -6291,14 +6275,11 @@ msgid "No"
 msgstr "Ei"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Komento antamatta!\n"
-
 "TortoiseProc.exe on käytössä komentotulkin laajennuksena eikä sitä tulisi käynnistää suoraan!"
 
 #. Resource IDs: (81)
@@ -7257,6 +7238,10 @@ msgstr "Siirry myös versioimattomiin kansioihin"
 #. Resource IDs: (563)
 msgid "Recursive"
 msgstr "Palautuva"
+
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr "Siirrytään paikantimeen"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8804,11 +8789,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "Subversion raportoi virheen siivottaessa!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9452,14 +9435,11 @@ msgid "The user who owns the lock of the file"
 msgstr "Käyttäjä, joka omistaa lukon tähän tiedostoon"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "Työkopio on muuttunut!\n"
-
 "Toimita ensin muutoksesi arkistoon tai tee palautus."
 
 #. Resource IDs: (81)
@@ -9788,6 +9768,20 @@ msgid ""
 msgstr ""
 "TortoiseSVN havaitsi samanlaiset tiedostonimet.  Haluatko nimetä uudelleen myös seuraavat tiedostot?\n"
 "%s"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN on komentotulkin laajennos.\n"
+"Tämä tarkoittaa, että se on integroitu Windowsin resurssienhallintaan.\n"
+"Käyttääksesi TortoiseSVN-työkalua, avaa resurssienhallinta ja napsauta hiiren oikealla näppäimellä haluamaasi kansiota.\n"
+"Avautuvasta kontekstivalikosta löydät kaikki TortoiseSVN -komennot.\n"
+"Muista lukea ohjeet!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
