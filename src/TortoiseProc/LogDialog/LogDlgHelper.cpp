@@ -108,7 +108,7 @@ CStoreSelection::~CStoreSelection()
 
         // manually trigger UI processing that had been blocked before
 
-        m_logdlg->FillLogMessageCtrl();
+        m_logdlg->FillLogMessageCtrl (false);
         m_logdlg->UpdateLogInfoLabel();
     }
 }
