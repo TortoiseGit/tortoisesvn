@@ -116,31 +116,6 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
                 }
             }
         }
-
-        // the caller expects the result to be ordered by position which
-        // which may not be the case after scanninf for multiple sub-strings
-
-        if ((subStrings.size() > 1) && (ranges.size() > 1))
-        {
-            auto begin = ranges.begin();
-            auto end = ranges.end();
-
-            std::sort(begin, end, 
-                        [] (const CHARRANGE& lhs, const CHARRANGE& rhs) -> bool
-                            {return lhs.cpMin < rhs.cpMin;}
-                     );
-
-            // once we are at it, merge adjacent and / or overlapping ranges
-
-            auto target = begin;
-            for (auto source = begin + 1; source != end; ++source)
-                if (target->cpMax < source->cpMin)
-                    *(++target) = *source;
-                else
-                    target->cpMax = max (target->cpMax, source->cpMax);
-
-            ranges.erase (++target, end);
-        }
     }
     else
     {
@@ -154,6 +129,31 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
                 ranges.push_back(range);
             }
         }
+    }
+
+    // the caller expects the result to be ordered by position which
+    // which may not be the case after scanninf for multiple sub-strings
+
+    if (ranges.size() > 1)
+    {
+        auto begin = ranges.begin();
+        auto end = ranges.end();
+
+        std::sort(begin, end, 
+                    [] (const CHARRANGE& lhs, const CHARRANGE& rhs) -> bool
+                        {return lhs.cpMin < rhs.cpMin;}
+                 );
+
+        // once we are at it, merge adjacent and / or overlapping ranges
+
+        auto target = begin;
+        for (auto source = begin + 1; source != end; ++source)
+            if (target->cpMax < source->cpMin)
+                *(++target) = *source;
+            else
+                target->cpMax = max (target->cpMax, source->cpMax);
+
+        ranges.erase (++target, end);
     }
 
     return ranges;
