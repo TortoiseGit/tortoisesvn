@@ -954,6 +954,29 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
     return true;
 }
 
+void CAppUtils::SetCharFormat
+    ( CWnd* window
+    , DWORD mask
+    , DWORD effects 
+    , const std::vector<CHARRANGE>& positions)
+{
+    CHARFORMAT2 format;
+    SecureZeroMemory(&format, sizeof(CHARFORMAT2));
+    format.cbSize = sizeof(CHARFORMAT2);
+    format.dwMask = mask;
+    format.dwEffects = effects;
+    format.crTextColor = effects;
+
+    for ( auto iter = positions.begin(), end = positions.end()
+        ; iter != end
+        ; ++iter)
+    {
+        CHARRANGE range = *iter;
+        window->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+        window->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+    }
+}
+
 void CAppUtils::SetCharFormat(CWnd* window, DWORD mask, DWORD effects )
 {
     CHARFORMAT2 format;

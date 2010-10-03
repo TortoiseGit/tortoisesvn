@@ -87,6 +87,9 @@ public:
      * \param msg the log message
      * \param pWnd Pointer to a rich edit control
      */
+#ifdef _RICHEDIT_
+    std::vector<CHARRANGE> FindBugIDPositions(const CString& msg);
+#endif
     BOOL FindBugID(const CString& msg, CWnd * pWnd);
 
     CString FindBugID(const CString& msg);
@@ -259,5 +262,4 @@ private:
 
     /** used to extract the bug ID from the string matched by sCheckRe */
     CString     sBugIDRe;
-    static void SetLinkCharFormat(CWnd* window);
 };

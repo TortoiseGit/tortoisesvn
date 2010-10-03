@@ -154,6 +154,16 @@ public:
      */
     static bool SetupDiffScripts(bool force, const CString& type);
 
+    /**
+     * Apply the @a effects or color (depending on @a mask)
+     * for all char ranges given in @a positions to the
+     * @a window text.
+     */
+    static void SetCharFormat ( CWnd* window
+                              , DWORD mask
+                              , DWORD effects 
+                              , const std::vector<CHARRANGE>& positions);
+
 private:
     static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
     static bool GetMimeType(const CTSVNPath& file, CString& mimetype);

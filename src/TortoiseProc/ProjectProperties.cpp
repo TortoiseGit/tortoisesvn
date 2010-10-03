@@ -23,6 +23,7 @@
 #include "SVNProperties.h"
 #include "SVNHelpers.h"
 #include "TSVNPath.h"
+#include "AppUtils.h"
 #include <regex>
 
 using namespace std;
@@ -389,14 +390,14 @@ void ProjectProperties::AutoUpdateRegex()
     }
 }
 
-BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
+std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
 {
     size_t offset1 = 0;
     size_t offset2 = 0;
-    bool bFound = false;
+    std::vector<CHARRANGE> result;
 
     if (sUrl.IsEmpty())
-        return FALSE;
+        return result;
 
     // first use the checkre string to find bug ID's in the message
     if (!sCheckRe.IsEmpty())
@@ -420,9 +421,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
                         ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
                         ptrdiff_t matchposID = it2->position(0);
                         CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
-                        pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-                        SetLinkCharFormat(pWnd);
-                        bFound = true;
+                        result.push_back (range);
                     }
                 }
             }
@@ -444,23 +443,22 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
                     {
                         ATLTRACE(_T("matched id : %s\n"), wstring(match[1]).c_str());
                         CHARRANGE range = {(LONG)(match[1].first-s.begin()), (LONG)(match[1].second-s.begin())};
-                        pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-                        SetLinkCharFormat(pWnd);
-                        bFound = true;
+                        result.push_back (range);
                     }
                 }
             }
             catch (exception) {}
         }
     }
-    else if ((!bFound)&&(!sMessage.IsEmpty()))
+    else if (result.empty()&&(!sMessage.IsEmpty()))
     {
         CString sBugLine;
         CString sFirstPart;
         CString sLastPart;
         BOOL bTop = FALSE;
         if (sMessage.Find(_T("%BUGID%"))<0)
-            return FALSE;
+            return result;
+
         sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
         sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
         CString sMsg = msg;
@@ -492,10 +490,12 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
             bTop = TRUE;
         }
         if (sBugLine.IsEmpty())
-            return FALSE;
+            return result;
+
         CString sBugIDPart = sBugLine.Mid(sFirstPart.GetLength(), sBugLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
         if (sBugIDPart.IsEmpty())
-            return FALSE;
+            return result;
+
         //the bug id part can contain several bug id's, separated by commas
         if (!bTop)
             offset1 = sMsg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
@@ -506,133 +506,36 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
         {
             offset2 = offset1 + sBugIDPart.Find(',');
             CHARRANGE range = {(LONG)offset1, (LONG)offset2};
-            pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-            SetLinkCharFormat(pWnd);
+            result.push_back (range);
             sBugIDPart = sBugIDPart.Mid(sBugIDPart.Find(',')+1);
             offset1 = offset2 + 1;
         }
         offset2 = offset1 + sBugIDPart.GetLength();
         CHARRANGE range = {(LONG)offset1, (LONG)offset2};
-        pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-        SetLinkCharFormat(pWnd);
-        return TRUE;
+        result.push_back (range);
     }
-    return FALSE;
+
+    return result;
 }
 
-std::set<CString> ProjectProperties::FindBugIDs(const CString& msg)
+BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 {
-    size_t offset1 = 0;
-    size_t offset2 = 0;
-    bool bFound = false;
+    std::vector<CHARRANGE> positions = FindBugIDPositions (msg);
+    CAppUtils::SetCharFormat (pWnd, CFM_LINK, CFE_LINK, positions);
+
+    return positions.empty() ? FALSE : TRUE;
+}
+
+std::set<CString> ProjectProperties::FindBugIDs (const CString& msg)
+{
+    std::vector<CHARRANGE> positions = FindBugIDPositions (msg);
     std::set<CString> bugIDs;
 
-    // first use the checkre string to find bug ID's in the message
-    if (!sCheckRe.IsEmpty())
+    for ( auto iter = positions.begin(), end = positions.end()
+        ; iter != end
+        ; ++iter)
     {
-        if (!sBugIDRe.IsEmpty())
-        {
-            // match with two regex strings (without grouping!)
-            try
-            {
-                AutoUpdateRegex();
-                const tr1::wsregex_iterator end;
-                wstring s = msg;
-                for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
-                {
-                    // (*it)[0] is the matched string
-                    wstring matchedString = (*it)[0];
-                    for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
-                    {
-                        ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
-                        bugIDs.insert(CString((*it2)[0].str().c_str()));
-                    }
-                }
-            }
-            catch (exception) {}
-        }
-        else
-        {
-            try
-            {
-                AutoUpdateRegex();
-                const tr1::wsregex_iterator end;
-                wstring s = msg;
-                for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
-                {
-                    const tr1::wsmatch match = *it;
-                    // we define group 1 as the whole issue text and
-                    // group 2 as the bug ID
-                    if (match.size() >= 2)
-                    {
-                        ATLTRACE(_T("matched id : %s\n"), wstring(match[1]).c_str());
-                        bugIDs.insert(CString(wstring(match[1]).c_str()));
-                    }
-                }
-            }
-            catch (exception) {}
-        }
-    }
-    else if ((!bFound)&&(!sMessage.IsEmpty()))
-    {
-        CString sBugLine;
-        CString sFirstPart;
-        CString sLastPart;
-        BOOL bTop = FALSE;
-        if (sMessage.Find(_T("%BUGID%"))<0)
-            return bugIDs;
-        sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
-        sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
-        CString sMsg = msg;
-        sMsg.TrimRight('\n');
-        if (sMsg.ReverseFind('\n')>=0)
-        {
-            if (bAppend)
-                sBugLine = sMsg.Mid(sMsg.ReverseFind('\n')+1);
-            else
-            {
-                sBugLine = sMsg.Left(sMsg.Find('\n'));
-                bTop = TRUE;
-            }
-        }
-        else
-            sBugLine = sMsg;
-        if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
-            sBugLine.Empty();
-        if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
-            sBugLine.Empty();
-        if (sBugLine.IsEmpty())
-        {
-            if (sMsg.Find('\n')>=0)
-                sBugLine = sMsg.Left(sMsg.Find('\n'));
-            if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
-                sBugLine.Empty();
-            if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
-                sBugLine.Empty();
-            bTop = TRUE;
-        }
-        if (sBugLine.IsEmpty())
-            return bugIDs;
-        CString sBugIDPart = sBugLine.Mid(sFirstPart.GetLength(), sBugLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
-        if (sBugIDPart.IsEmpty())
-            return bugIDs;
-        //the bug id part can contain several bug id's, separated by commas
-        if (!bTop)
-            offset1 = sMsg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
-        else
-            offset1 = sFirstPart.GetLength();
-        sBugIDPart.Trim(_T(","));
-        while (sBugIDPart.Find(',')>=0)
-        {
-            offset2 = offset1 + sBugIDPart.Find(',');
-            CHARRANGE range = {(LONG)offset1, (LONG)offset2};
-            bugIDs.insert(msg.Mid(range.cpMin, range.cpMax-range.cpMin));
-            sBugIDPart = sBugIDPart.Mid(sBugIDPart.Find(',')+1);
-            offset1 = offset2 + 1;
-        }
-        offset2 = offset1 + sBugIDPart.GetLength();
-        CHARRANGE range = {(LONG)offset1, (LONG)offset2};
-        bugIDs.insert(msg.Mid(range.cpMin, range.cpMax-range.cpMin));
+        bugIDs.insert (msg.Mid (iter->cpMin, iter->cpMax - iter->cpMin));
     }
 
     return bugIDs;
@@ -862,16 +765,6 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
     }
     sShortMessage.Replace('\n', ' ');
     return sShortMessage;
-}
-
-void ProjectProperties::SetLinkCharFormat(CWnd* window)
-{
-    CHARFORMAT2 format;
-    SecureZeroMemory(&format, sizeof(CHARFORMAT2));
-    format.cbSize = sizeof(CHARFORMAT2);
-    format.dwMask = CFM_LINK;
-    format.dwEffects = CFE_LINK;
-    window->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
 }
 
 #ifdef DEBUG
