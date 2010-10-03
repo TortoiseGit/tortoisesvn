@@ -554,17 +554,28 @@ bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring, c
 bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end)
 {
     int i=start;
+    int last = sText.GetLength()-1;
     bool bFoundMarker = false;
+    TCHAR c = i == 0 ? _T('\0') : sText[i-1];
+    TCHAR nextChar = i >= last ? _T('\0') : sText[i+1];
+
     // find a starting marker
-    while (sText[i] != 0)
+    while (i < last)
     {
-        if (sText[i] == stylechar)
+        TCHAR prevChar = c;
+        c = nextChar;
+        nextChar = sText[i+1];
+
+        // IsCharAlphaNumeric can be somewhat expensive.
+        // Long lines of "*****" or "----" will be pre-empted efficiently
+        // by the (c != nextChar) condition.
+
+        if ((c == stylechar) && (c != nextChar))
         {
-            if (((i+1)<sText.GetLength())&&(IsCharAlphaNumeric(sText[i+1])) &&
-                (((i>0)&&(!IsCharAlphaNumeric(sText[i-1])))||(i==0)))
+            if (   IsCharAlphaNumeric(nextChar) 
+                && !IsCharAlphaNumeric(prevChar))
             {
-                start = i+1;
-                i++;
+                start = ++i;
                 bFoundMarker = true;
                 break;
             }
@@ -573,14 +584,19 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
     }
     if (!bFoundMarker)
         return false;
+
     // find ending marker
+    // c == sText[i-1]
+
     bFoundMarker = false;
-    while (sText[i] != 0)
+    while (i <= last)
     {
-        if (sText[i] == stylechar)
+        TCHAR prevChar = c;
+        c = sText[i];
+        if (c == stylechar)
         {
-            if ((IsCharAlphaNumeric(sText[i-1])) &&
-                ((((i+1)<sText.GetLength())&&(!IsCharAlphaNumeric(sText[i+1])))||(i+1)==sText.GetLength()))
+            if ((i == last) || (   !IsCharAlphaNumeric(sText[i+1]) 
+                                && IsCharAlphaNumeric(prevChar))
             {
                 end = i;
                 i++;
