@@ -794,7 +794,9 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 
         m_bSingleRevision = false;
         m_currentChangedArray.RemoveAll();
-        m_currentChangedPathList = GetChangedPathsFromSelectedRevisions(true);
+        CString sMessageSketch;
+        m_currentChangedPathList = GetChangedPathsAndMessageSketchFromSelectedRevisions(sMessageSketch);
+        pMsgView->SetWindowText(sMessageSketch);
     }
 
     // sort according to the settings
@@ -3845,15 +3847,10 @@ void CLogDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
     *pResult = 0;
 }
 
-CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths /* = false */, bool bUseFilter /* = true */)
+CTSVNPathList CLogDlg::GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch)
 {
     CTSVNPathList pathList;
-    if (m_sRepositoryRoot.IsEmpty() && (bRelativePaths == false))
-    {
-        m_sRepositoryRoot = GetRepositoryRoot(m_path);
-    }
-    if (m_sRepositoryRoot.IsEmpty() && (bRelativePaths == false))
-        return pathList;
+    sMessageSketch.Empty();
 
     quick_hash_set<LogCache::index_t> pathIDsAdded;
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
@@ -3866,6 +3863,9 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
                 continue;
 
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nextpos);
+            CString sRevMsg;
+            sRevMsg.Format(L"r%ld\n%s\n---------------------\n", pLogEntry->GetRevision(), pLogEntry->GetShortMessage());
+            sMessageSketch +=  sRevMsg;
             const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
             for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
             {
@@ -3877,20 +3877,11 @@ CTSVNPathList CLogDlg::GetChangedPathsFromSelectedRevisions(bool bRelativePaths 
 
                 pathIDsAdded.insert (pathID);
 
-                if (   !bUseFilter
-                    || ((m_cShowPaths.GetState() & 0x0003)!=BST_CHECKED)
+                if (((m_cShowPaths.GetState() & 0x0003)!=BST_CHECKED)
                     || cpath.IsRelevantForStartPath())
                 {
                     CTSVNPath path;
-                    if (!bRelativePaths)
-                    {
-                        path.SetFromSVN(m_sRepositoryRoot);
-                        path.AppendPathString(cpath.GetPath());
-                    }
-                    else
-                    {
-                        path.SetFromSVN(cpath.GetPath());
-                    }
+                    path.SetFromSVN(cpath.GetPath());
 
                     pathList.AddPath(path);
                 }

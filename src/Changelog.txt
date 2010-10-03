@@ -99,6 +99,9 @@
 - NEW: pre-connect hook script, useful to start a VPN
        connection. (Stefan)
 - NEW: Wrapping of long lines in TortoiseMerge. (Stefan)
+- NEW: Multiselections in the log dialog show each log message
+       shortened for every selected revision. See issue #44
+       for details. (Stefan)
 - BUG: Merged revisions must be counted only 
        once in stats (Stefan Fuhrmann)
 - BUG: Relative Webviewer urls didn't work from the 

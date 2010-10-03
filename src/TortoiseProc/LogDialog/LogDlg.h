@@ -164,7 +164,7 @@ private:
     void SetFilterCueText();
     void CopySelectionToClipBoard();
     void CopyChangedSelectionToClipBoard();
-    CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
+    CTSVNPathList GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch);
     void RecalculateShownList(svn_revnum_t revToKeep = -1);
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
     void SortByColumn(int nSortColumn, bool bAscending);
