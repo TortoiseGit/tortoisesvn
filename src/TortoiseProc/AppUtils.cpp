@@ -512,6 +512,9 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 
 bool CAppUtils::UnderlineRegexMatches(CWnd * pWnd, const CString& matchstring, const CString& matchsubstring /* = _T(".*")*/)
 {
+    if (matchstring.IsEmpty())
+        return false;
+
     CString sText;
     if (pWnd == NULL)
         return false;
