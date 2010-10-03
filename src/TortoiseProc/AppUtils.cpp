@@ -471,9 +471,10 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
     do
     {
         nNewlinePos = sText.Find('\n', offset);
-        CString sLine = sText.Mid(offset);
-        if (nNewlinePos>=0)
-            sLine = sLine.Left(nNewlinePos-offset);
+        CString sLine = nNewlinePos>=0
+                      ? sText.Mid(offset, nNewlinePos-offset)
+                      : sText.Mid(offset);
+
         int start = 0;
         int end = 0;
         while (FindStyleChars(sLine, '*', start, end))
