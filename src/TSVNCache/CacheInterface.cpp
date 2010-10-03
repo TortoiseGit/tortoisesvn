@@ -141,7 +141,7 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 
 CBlockCacheForPath::CBlockCacheForPath(const WCHAR * aPath)
 {
-    wcsncpy(path, aPath, MAX_PATH);
+    wcsncpy_s(path, aPath, MAX_PATH);
     path[MAX_PATH] = 0;
 
     SendCacheCommand (TSVNCACHECOMMAND_BLOCK, path);
