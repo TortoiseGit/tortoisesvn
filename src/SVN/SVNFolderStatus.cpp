@@ -81,8 +81,10 @@ CTSVNPath   SVNFolderStatus::folderpath;
 
 
 SVNFolderStatus::SVNFolderStatus(void)
+    : m_TimeStamp(0)
+    , m_nCounter(0)
+    , dirstatus(NULL)
 {
-    m_TimeStamp = 0;
     emptyString[0] = 0;
     invalidstatus.author = emptyString;
     invalidstatus.askedcounter = -1;
@@ -92,8 +94,7 @@ SVNFolderStatus::SVNFolderStatus(void)
     invalidstatus.owner = emptyString;
     invalidstatus.needslock = false;
     invalidstatus.tree_conflict = false;
-    m_nCounter = 0;
-    dirstatus = NULL;
+
     sCacheKey.reserve(MAX_PATH);
 
     rootpool = svn_pool_create (NULL);
