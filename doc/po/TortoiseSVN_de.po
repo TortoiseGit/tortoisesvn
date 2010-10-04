@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-23 19:41 +0000\n"
-"PO-Revision-Date: 2010-09-24 09:15+0200\n"
+"PO-Revision-Date: 2010-10-04 10:12+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -10057,6 +10057,12 @@ msgstr ""
 #.(para)
 msgid "If your working copy has other projects included with <literal>svn:externals</literal> properties, those externals will be listed at the bottom of the branch/tag dialog. For each external, the target path, the source URL and the revision is shown. The revision of the external is determined from the working copy, which means it shows the revision that external actually points to."
 msgstr ""
+"Falls Ihre Arbeitskopie weitere Projekte über die "
+"<literal>svn:externals</literal> Eigenschaft einbindet, werden diese am Ende "
+"des Verzweigen/Markieren Dialoges aufgelistet. Für jedes External wird der "
+"Zielpfad, die Quell-URL und die Revision angezeigt. Die Revision der "
+"Externals wird aus der Arbeitskopie ermittelt, d.h. es wird die Revision "
+"angezeigt auf die Externals aktuell zeigen."
 
 #.(para)
 msgid "If you want to make sure that the new tag always is in a consistent state, check all the externals to have their revisions fixed to their current working copy revision. If you don't check the externals and those externals point to a HEAD revision which might change in the future, checking out the new tag will check out that HEAD revision of the external and your tag might not compile anymore. So it's always a good idea to set the externals to an explicit revision when creating a tag."
@@ -11030,10 +11036,21 @@ msgstr ""
 #.(para)
 msgid "A lock is not assigned to a specific user, but to a specific user and a working copy. Having a lock in one working copy also prevents the same user from committing the locked file from another working copy."
 msgstr ""
+"Eine Sperre ist nicht an einen bestimmten Benutzer sondern an eine bestimmte "
+"Arbeitskopie dieses Benutzers gebunden. Eine Sperre in einer Arbeitskopie "
+"hindert denselben Anwender daran, die gesperrte Datei von einer anderen "
+"Arbeitskopie aus einzuchecken."
 
 #.(para)
 msgid "As an example, imagine that user Jon has a working copy on his office PC. There he starts working on an image, and therefore acquires a lock on that file. When he leaves his office he's not finished yet with that file, so he doesn't release that lock. Back at home Jon also has a working copy and decides to work a little more on the project. But he can't modify or commit that same image file, because the lock for that file resides in his working copy in the office."
 msgstr ""
+"Stellen Sie sich vor, dass John eine Arbetiskopie auf seinem Bürocomputer "
+"hat. Dort beginnt er ein Bild zu bearbeiten und holt sich deshalb eine "
+"Sperre für die Datei. Als er nach Hause geht, ist er noch nicht fertig und "
+"gibt deswegen die Sperre nicht frei. Daheim hat John noch eine Arbeitskopie "
+"und beschließt, noch ein wenig an dem Bild weiterzuarbeiten. Aber er kann "
+"das Bild nicht bearbeiten oder einchecken, weil die Dateisperre zur "
+"Arbeitskopie in seinem Büro gehört."
 
 #.(para)
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
@@ -11681,6 +11698,10 @@ msgstr ""
 #.(para)
 msgid "Folders included with the <literal>svn:externals</literal> property are also shown in the repository browser. Those folders are shown with a small arrow on them to indicate that they are not part of the repository structure, just links."
 msgstr ""
+"Ordner, die mit der <literal>svn:externals</literal> Eigenschaft "
+"eingeschlossen sind, werden auch im Projektarchivbetrachter angezeigt. Als "
+"Kennzeichnung dient ein kleiner Pfeil, um darauf hinzuweisen, dass sie nicht "
+"Teil des Projektarchivs sondern nur Verweise sind."
 
 #.(para)
 msgid "Just like Windows explorer, you can click on the column headings in the right pane if you want to set the sort order. And as in explorer there are context menus available in both panes."
