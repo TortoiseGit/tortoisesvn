@@ -244,7 +244,7 @@ public:
      * \return the resulting revision number.
      */
     svn_revnum_t Commit(const CTSVNPathList& pathlist, const CString& message,
-        const CStringArray& changelists, bool keepchangelist, svn_depth_t depth, bool keep_locks, const RevPropHash revProps);
+        const CStringArray& changelists, bool keepchangelist, svn_depth_t depth, bool keep_locks, const RevPropHash& revProps);
     /**
      * Copy srcPath to destPath.
      *
@@ -899,7 +899,7 @@ protected:
     /// Convert a TSVNPathList into an array of SVN copy paths
     apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
     apr_array_header_t * MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool);
-    apr_hash_t *         MakeRevPropHash(const RevPropHash revProps, apr_pool_t * pool);
+    apr_hash_t *         MakeRevPropHash(const RevPropHash& revProps, apr_pool_t * pool);
 
     void                 CallPreConnectHookIfUrl(const CTSVNPathList& pathList, const CTSVNPath& path = CTSVNPath());
 

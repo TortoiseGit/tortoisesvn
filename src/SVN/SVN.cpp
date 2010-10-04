@@ -557,7 +557,7 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision, svn_dept
 }
 
 svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
-                         const CStringArray& changelists, bool keepchangelist, svn_depth_t depth, bool keep_locks, const RevPropHash revProps)
+                         const CStringArray& changelists, bool keepchangelist, svn_depth_t depth, bool keep_locks, const RevPropHash& revProps)
 {
     SVNPool localpool(pool);
 
@@ -2820,7 +2820,7 @@ apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, a
     return arr;
 }
 
-apr_hash_t * SVN::MakeRevPropHash(const RevPropHash revProps, apr_pool_t * pool)
+apr_hash_t * SVN::MakeRevPropHash(const RevPropHash& revProps, apr_pool_t * pool)
 {
     apr_hash_t * revprop_table = NULL;
     if (revProps.size())
