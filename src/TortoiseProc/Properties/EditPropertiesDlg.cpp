@@ -676,6 +676,7 @@ void CEditPropertiesDlg::RemoveProps()
         {
             prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
             SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
+            props.SetProgressDlg(&prog);
             if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, (LPCTSTR)sLogMsg))
             {
                 ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
