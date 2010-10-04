@@ -197,6 +197,7 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev rev, bool
     : m_path (filepath)
     , m_rev(rev)
     , m_peg_rev(rev)
+    , m_pProgress(NULL)
 #else
 SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps)
     : m_path (filepath)
@@ -213,6 +214,7 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, S
     , m_peg_rev (pegRev)
     , m_rev (rev)
     , m_bRevProps (false)
+    , m_pProgress(NULL)
 {
     Construct();
     Refresh();
