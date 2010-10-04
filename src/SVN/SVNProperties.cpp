@@ -51,9 +51,11 @@ struct log_msg_baton3
 #ifdef _MFC_VER
 SVNProperties::SVNProperties(SVNRev rev, bool bRevProps)
     : SVNReadProperties(rev, bRevProps)
+    , m_error(NULL)
 #else
 SVNProperties::SVNProperties(bool bRevProps)
     : SVNReadProperties (bRevProps)
+    , m_error(NULL)
 #endif
 {
 }
@@ -61,9 +63,11 @@ SVNProperties::SVNProperties(bool bRevProps)
 #ifdef _MFC_VER
 SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps)
     : SVNReadProperties (filepath, rev, bRevProps)
+    , m_error(NULL)
 #else
 SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps)
     : SVNReadProperties (filepath, bRevProps)
+    , m_error(NULL)
 #endif
 {
 }
