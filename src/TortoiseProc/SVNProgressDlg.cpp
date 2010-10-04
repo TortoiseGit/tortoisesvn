@@ -226,7 +226,7 @@ void CSVNProgressDlg::AddItemToList()
     }
 }
 
-BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_notify_action_t action,
+BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
                              svn_node_kind_t kind, const CString& mime_type,
                              svn_wc_notify_state_t content_state,
                              svn_wc_notify_state_t prop_state, LONG rev,

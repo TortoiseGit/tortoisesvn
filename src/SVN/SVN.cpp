@@ -195,7 +195,7 @@ CString SVN::CheckConfigFile()
 
 BOOL SVN::Cancel() {return FALSE;}
 
-BOOL SVN::Notify(const CTSVNPath& path, const CTSVNPath url, svn_wc_notify_action_t action,
+BOOL SVN::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
                 svn_node_kind_t kind, const CString& mime_type,
                 svn_wc_notify_state_t content_state,
                 svn_wc_notify_state_t prop_state, svn_revnum_t rev,
