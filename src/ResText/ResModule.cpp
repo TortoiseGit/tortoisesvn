@@ -589,7 +589,6 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
     WORD        flags;
     WORD        id = 0;
     LPCWSTR     str;
-    WORD *p0;
 
     //struct PopupMenuItem {
     //  WORD   fItemFlags;
@@ -603,7 +602,6 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 
     do
     {
-        p0 = (WORD *)res;
         flags = GET_WORD(res);
         res++;
         if (!(flags & MF_POPUP))
@@ -726,7 +724,6 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
     DWORD dwType, dwState, menuId;
     WORD bResInfo;
     LPCWSTR     str;
-    WORD *p0;
 
     //struct MenuExItem {
     //    DWORD dwType;
@@ -739,7 +736,6 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
 
     do
     {
-        p0 = (WORD *)res;
         dwType = GET_DWORD(res);
         res += 2;
         dwState = GET_DWORD(res);
