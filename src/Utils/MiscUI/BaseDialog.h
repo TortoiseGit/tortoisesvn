@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,6 +29,13 @@
 class CDialog
 {
 public:
+    CDialog()
+        : m_bPseudoModal(false)
+        , m_bPseudoEnded(false)
+        , m_iPseudoRet(0)
+        , m_hToolTips(NULL)
+    {;}
+
     INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent);
     INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent, UINT idAccel);
     HWND    Create(HINSTANCE hInstance, int resID, HWND hWndParent);

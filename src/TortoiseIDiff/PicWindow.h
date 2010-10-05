@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -76,6 +76,13 @@ public:
         , bFitSizes(false)
         , m_blend(BLEND_ALPHA)
         , bMainPic(false)
+        , bFirstpaint(false)
+        , nVSecondScrollPos(0)
+        , nHSecondScrollPos(0)
+        , startVScrollPos(0)
+        , startHScrollPos(0)
+        , startVSecondScrollPos(0)
+        , startHSecondScrollPos(0)
     {
         SetWindowTitle(_T("Picture Window"));
         m_lastTTPos.x = 0;

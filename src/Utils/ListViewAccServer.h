@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,8 +44,9 @@ class ListViewAccServer: public IAccPropServer
 {
 public:
     ListViewAccServer(IAccPropServices * pAccPropSvc)
-        : m_Ref( 1 ),
-        m_pAccPropSvc( pAccPropSvc )
+        : m_Ref( 1 )
+        , m_pAccPropSvc( pAccPropSvc )
+        , m_pAccProvider( NULL )
     {
         m_pAccPropSvc->AddRef();
     }

@@ -30,6 +30,10 @@ CFilePatchesDlg::CFilePatchesDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CFilePatchesDlg::IDD, pParent)
     , m_ShownIndex(-1)
     , m_bMinimized(FALSE)
+    , m_pPatch(NULL)
+    , m_pCallBack(NULL)
+    , m_nWindowHeight(-1)
+    , m_pMainFrame(NULL)
 {
     m_ImgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
 }

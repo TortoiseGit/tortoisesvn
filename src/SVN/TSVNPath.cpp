@@ -44,6 +44,7 @@ CTSVNPath::CTSVNPath(void) :
     m_bHasAdminDirKnown(false),
     m_bHasAdminDir(false),
     m_bIsValidOnWindowsKnown(false),
+    m_bIsValidOnWindows(false),
     m_bIsReadOnly(false),
     m_bIsAdminDirKnown(false),
     m_bIsAdminDir(false),
@@ -55,7 +56,8 @@ CTSVNPath::CTSVNPath(void) :
     m_lastWriteTime(0),
     m_customData(NULL),
     m_bIsSpecialDirectoryKnown(false),
-    m_bIsSpecialDirectory(false)
+    m_bIsSpecialDirectory(false),
+    m_fileSize(0)
 {
 }
 
@@ -71,6 +73,7 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
     m_bHasAdminDirKnown(false),
     m_bHasAdminDir(false),
     m_bIsValidOnWindowsKnown(false),
+    m_bIsValidOnWindows(false),
     m_bIsReadOnly(false),
     m_bIsAdminDirKnown(false),
     m_bIsAdminDir(false),

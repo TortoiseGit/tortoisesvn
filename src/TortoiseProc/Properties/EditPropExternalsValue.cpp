@@ -28,6 +28,7 @@ IMPLEMENT_DYNAMIC(CEditPropExternalsValue, CResizableStandAloneDialog)
 CEditPropExternalsValue::CEditPropExternalsValue(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropExternalsValue::IDD, pParent)
     , m_pLogDlg(NULL)
+    , m_height(0)
 {
 
 }

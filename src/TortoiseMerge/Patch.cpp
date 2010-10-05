@@ -33,8 +33,9 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 CPatch::CPatch(void)
+    : m_nStrip(0)
+    , m_UnicodeType(CFileTextLines::AUTOTYPE)
 {
-    m_nStrip = 0;
 }
 
 CPatch::~CPatch(void)
@@ -62,7 +63,6 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
     CString sLine;
     EOL ending = EOL_NOENDING;
     int nIndex = 0;
-    int nLineCount = 0;
     g_crasher.AddFile((LPCSTR)(LPCTSTR)filename, (LPCSTR)(LPCTSTR)_T("unified diff file"));
 
     CFileTextLines PatchLines;

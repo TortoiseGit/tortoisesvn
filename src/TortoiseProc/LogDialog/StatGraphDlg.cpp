@@ -59,6 +59,9 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
     , m_bSortByCommitCount(TRUE)
     , m_nWeeks(-1)
     , m_nDays(-1)
+    , m_langOrder(0)
+    , m_firstInterval(0)
+    , m_lastInterval(0)
 {
     m_parDates = NULL;
     m_parFileChanges = NULL;

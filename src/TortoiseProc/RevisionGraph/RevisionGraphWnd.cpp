@@ -97,6 +97,10 @@ CRevisionGraphWnd::CRevisionGraphWnd()
     , m_hoverGlyphs (0)
     , m_tooltipIndex ((index_t)NO_INDEX)
     , m_showHoverGlyphs (false)
+    , m_bIsRubberBand(false)
+    , m_previewWidth(0)
+    , m_previewHeight(0)
+    , m_previewZoom(1)
 {
     memset(&m_lfBaseFont, 0, sizeof(LOGFONT));
     std::fill_n(m_apFonts, MAXFONTS, (CFont*)NULL);

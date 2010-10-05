@@ -218,6 +218,7 @@ CLogDlgFilter::CLogDlgFilter()
     , scanRelevantPathsOnly(false)
     , revToKeep(0)
     , negate(false)
+    , fastLowerCase(false)
 {
 }
 

@@ -25,7 +25,9 @@
 
 IMPLEMENT_DYNAMIC(CPathEdit, CEdit)
 
-CPathEdit::CPathEdit() : m_bInternalCall(false)
+CPathEdit::CPathEdit() 
+    : m_bInternalCall(false)
+    , m_bBold(false)
 {
 }
 

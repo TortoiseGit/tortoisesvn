@@ -33,6 +33,7 @@ CLocatorBar::CLocatorBar() : CPaneDialog()
     , m_pCacheBitmap(NULL)
     , m_bMouseWithin(FALSE)
     , m_regUseFishEye(_T("Software\\TortoiseMerge\\UseFishEye"), TRUE)
+    , m_nLines(-1)
 {
 }
 

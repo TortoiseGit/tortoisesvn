@@ -39,6 +39,7 @@ int CDiffData::abort_on_pool_failure (int /*retcode*/)
 #pragma warning(pop)
 
 CDiffData::CDiffData(void)
+    : m_bViewMovedBlocks(false)
 {
     apr_initialize();
     svn_dso_initialize2();

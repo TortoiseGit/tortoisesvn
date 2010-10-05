@@ -37,6 +37,7 @@ CEditPropBugtraq::CEditPropBugtraq(CWnd* pParent /*=NULL*/)
     , m_sProviderUUID(_T(""))
     , m_sProviderUUID64(_T(""))
     , m_sProviderParams(_T(""))
+    , m_height(0)
 {
 
 }
