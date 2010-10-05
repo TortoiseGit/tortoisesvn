@@ -24,7 +24,6 @@
 
 bool UrlDiffCommand::Execute()
 {
-    bool bRet = false;
     CUrlDiffDlg dlg;
     dlg.m_path = cmdLinePath.GetWinPathString();
     if (dlg.DoModal() == IDOK)

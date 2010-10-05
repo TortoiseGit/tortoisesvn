@@ -153,7 +153,6 @@ public:
 
     svn_revnum_t                headrev;            ///< the head revision fetched with GetFirstStatus()
 
-    bool *                      m_pbCanceled;
 #ifdef _MFC_VER
 friend class SVN;   // So that SVN can get to our m_err
     /**

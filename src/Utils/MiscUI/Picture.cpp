@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,7 +116,6 @@ bool CPicture::Load(tstring sFilePathName)
     lpIcons = NULL;
     //CFile PictureFile;
     //CFileException e;
-    int nSize = 0;
     FreePictureData(); // Important - Avoid Leaks...
 
     // No-op if no file specified
@@ -305,8 +304,6 @@ bool CPicture::Load(tstring sFilePathName)
 
                             if (pBitmap && pBitmap->GetLastStatus() == Ok)
                             {
-                                void* imageData = NULL;
-
                                 // Write & convert the loaded data into the GDI+ Bitmap
                                 Rect rect(0, 0, width, height);
                                 BitmapData bitmapData;
@@ -345,6 +342,7 @@ bool CPicture::Load(tstring sFilePathName)
     }
     else    // GDI+ Unavailable...
     {
+        int nSize = 0;
         pBitmap = NULL;
         HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
         if (hFile != INVALID_HANDLE_VALUE)

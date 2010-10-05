@@ -24,7 +24,6 @@
 
 bool DelUnversionedCommand::Execute()
 {
-    bool bRet = false;
     CDeleteUnversionedDlg dlg;
     dlg.m_pathList = pathList;
     if (dlg.DoModal() == IDOK)

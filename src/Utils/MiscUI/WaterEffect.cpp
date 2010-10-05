@@ -52,17 +52,14 @@ void CWaterEffect::Create(int iWidth, int iHeight)
 void CWaterEffect::Blob(int x, int y, int radius, int height, int page)
 {
     int *pNew;
-    int *pOld;
 
     if (page == 0)
     {
         pNew = m_iBuffer1;
-        pOld = m_iBuffer2;
     }
     else
     {
         pNew = m_iBuffer2;
-        pOld = m_iBuffer1;
     }
 
     if (x<0)
@@ -256,7 +253,7 @@ COLORREF CWaterEffect::GetShiftedColor(COLORREF color, int shift)
     return RGB(ir,ig,ib);
 }
 
-int CWaterEffect::NormalizeColor(long color)
+int CWaterEffect::NormalizeColor(long color) const
 {
     if(color < 0)
         return 0;
