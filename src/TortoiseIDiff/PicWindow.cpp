@@ -1013,12 +1013,12 @@ double CPicWindow::RoundDouble(double doValue, int nPrecision)
 void CPicWindow::FitImageInWindow()
 {
     RECT rect;
-    double dZoom = 1.0;
 
     GetClientRectWithScrollbars(&rect);
 
     if (rect.right-rect.left)
     {
+        double dZoom = 1.0;
         if (((rect.right - rect.left) > picture.m_Width+2)&&((rect.bottom - rect.top)> picture.m_Height+2))
         {
             // image is smaller than the window

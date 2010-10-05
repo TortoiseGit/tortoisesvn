@@ -64,7 +64,6 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     CString resToken;
-    int curPos = 0;
 
     // get the property values for user defined property files
     m_ProjectProperties.ReadPropsPathList(m_pathList);
@@ -75,6 +74,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
     // known properties
     if (!m_bRevProps)
     {
+        int curPos = 0;
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_EOL_STYLE));
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_EXECUTABLE));
         if ((m_bFolder)||(m_bMultiple))

@@ -427,13 +427,15 @@ void CFullHistory::QueryWCRevision (bool commitRevs, CString path)
     // Find the revision the working copy is on, we mark that revision
     // later in the graph (handle option changes properly!).
 
-    svn_revnum_t maxrev = pegRevision;
-    svn_revnum_t minrev = 0;
-
-    bool switched, modified, sparse;
     CTSVNPath tpath = CTSVNPath (path);
+
     if (!tpath.IsUrl())
     {
+        svn_revnum_t maxrev = pegRevision;
+        svn_revnum_t minrev = 0;
+
+        bool switched, modified, sparse;
+
         SVNForwardedCancel svn (progress);
         if (svn.GetWCRevisionStatus ( CTSVNPath (path)
                                     , commitRevs    // get the "commit" revision

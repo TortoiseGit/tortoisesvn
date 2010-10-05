@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -177,7 +177,6 @@ bool CShellUpdater::RebuildIcons()
     LONG lRegResult;
     std::wstring sRegValueName;
     std::wstring sDefaultIconSize;
-    int iDefaultIconSize;
     bool bResult = false;
 
     lRegResult = RegOpenKeyEx(HKEY_CURRENT_USER, _T("Control Panel\\Desktop\\WindowMetrics"),
@@ -199,7 +198,7 @@ bool CShellUpdater::RebuildIcons()
     if (lRegResult != ERROR_FILE_NOT_FOUND)
     {
         // If registry key doesn't exist create it using system current setting
-        iDefaultIconSize = ::GetSystemMetrics(SM_CXICON);
+        int iDefaultIconSize = ::GetSystemMetrics(SM_CXICON);
         if (0 == iDefaultIconSize)
             iDefaultIconSize = 32;
         _sntprintf_s(buf, BUFFER_SIZE, BUFFER_SIZE, _T("%d"), iDefaultIconSize);
