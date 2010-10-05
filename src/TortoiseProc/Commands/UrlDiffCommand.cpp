@@ -24,6 +24,7 @@
 
 bool UrlDiffCommand::Execute()
 {
+    bool bRet = false;
     CUrlDiffDlg dlg;
     dlg.m_path = cmdLinePath.GetWinPathString();
     if (dlg.DoModal() == IDOK)
@@ -32,5 +33,5 @@ bool UrlDiffCommand::Execute()
         diff.SetJumpLine(parser.GetLongVal(_T("line")));
         bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, CTSVNPath(dlg.m_URL), dlg.Revision);
     }
-    return false;
+    return bRet;
 }

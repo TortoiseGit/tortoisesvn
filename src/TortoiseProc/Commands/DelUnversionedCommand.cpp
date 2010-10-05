@@ -24,6 +24,7 @@
 
 bool DelUnversionedCommand::Execute()
 {
+    bool bRet = false;
     CDeleteUnversionedDlg dlg;
     dlg.m_pathList = pathList;
     if (dlg.DoModal() == IDOK)
@@ -53,5 +54,5 @@ bool DelUnversionedCommand::Execute()
         fileop.lpszProgressTitle = (LPCTSTR)CString(MAKEINTRESOURCE(IDS_DELUNVERSIONED));
         bRet = (SHFileOperation(&fileop) == 0);
     }
-    return true;
+    return bRet;
 }
