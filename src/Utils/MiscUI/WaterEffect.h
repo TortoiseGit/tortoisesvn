@@ -141,7 +141,7 @@ private:
      * Converts the colors of the source picture (perhaps with color tables) to true color values.
      */
     COLORREF GetShiftedColor(COLORREF color,int shift);
-    int NormalizeColor(long color);
+    int NormalizeColor(long color) const;
 
     int         m_iLightModifier;
     int         m_iWidth;
