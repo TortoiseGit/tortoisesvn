@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-23 19:41 +0000\n"
-"PO-Revision-Date: 2010-09-28 18:03-0300\n"
+"POT-Creation-Date: 2010-10-05 19:46 +0000\n"
+"PO-Revision-Date: 2010-10-06 17:17-0300\n"
 "Last-Translator: Tomás Christie <tommychristie@gmail.com>\n"
 "Language-Team: Tommy\n"
 "Language: es\n"
@@ -1363,11 +1363,11 @@ msgstr ""
 "subdirectorios, <filename>paint</filename> y <filename>calc</filename>."
 
 #.(para)
-msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
+msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you.)"
 msgstr ""
 "Para obtener una copia de trabajo, primero debe "
 "<firstterm>obtener</firstterm> algún subárbol del repositorio. (El término "
-"<emphasis>obtener</emphasis> puede sonar como que tenga algo que ver con el "
+"<emphasis>obtener</emphasis> puede sonar como si tuviera algo que ver con el "
 "bloqueo o la reserva de recursos, pero no es cierto; simplemente crea una "
 "copia privada del proyecto para usted)."
 
@@ -4603,7 +4603,7 @@ msgstr ""
 "=\"tsvn-dug-wcstatus-2\"/>)."
 
 #.(para)
-msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
 msgstr ""
 "En el explorador de windows, <action>haga click con el botón "
 "derecho</action> en la carpeta donde ha obtenido los archivos, y luego "
@@ -5050,6 +5050,12 @@ msgstr ""
 #.(para)
 msgid "Getting the regex just right can be tricky, so to help you sort out a suitable expression there is a test dialog which allows you to enter an expression and then type in filenames to test it against. Start it from the command prompt using the command <literal>TortoiseProc.exe /command:autotexttest</literal>."
 msgstr ""
+"Como crear la expresión regular correctamente puede ser un poco laborioso, "
+"para ayudarle a crear una expresión adecuada existe un diálogo de testeo que "
+"le permite introducir una expresión y posteriormente introducir nombres de "
+"archivo contra los que la expresión es comprobada. Para iniciar el diálogo "
+"de testeo, introduzca el comando <literal>TortoiseProc.exe "
+"/command:autotexttest</literal> en el símbolo de sistema."
 
 #.(para)
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
@@ -6564,6 +6570,10 @@ msgstr "Comparar y mostrar autoría con la BASE de trabajo"
 #.(para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)"
 msgstr ""
+"Obtener la información de autoría de la revisión seleccionada, y del archivo "
+"en su BASE de trabajo, y comparar los resultados utilizando una herramienta "
+"visual de diferencias. Lea <xref linkend=\"tsvn-dug-blame-diffs\"/> para más "
+"detalles. (Sólo para archivos)."
 
 #.(term)
 msgid "Show changes as unified diff"
@@ -7029,6 +7039,13 @@ msgstr ""
 #.(para)
 msgid "Subversion uses revision numbers to mean 2 different things. A revision generally represents the state of the repository at a point in time, but it can also be used to represent the changeset which created that revision, e.g. <quote>Done in r1234</quote> means that the changes committed in r1234 implement feature X. To make it clearer which sense is being used, we use two different terms."
 msgstr ""
+"Subversion utiliza números de revisión para dos cosas diferentes. Una "
+"revisión generalmente representa el estado de un repositorio en un momento "
+"en el tiempo, pero también puede utilizarse para representar el conjunto de "
+"cambios que generaron esa revisión; por ejemplo, <quote>Hecho en la "
+"r1234</quote> significa que los cambios confirmados en la revisión 1234 "
+"implementan la característica X. Para dejar claro en qué sentido se "
+"utilizan, empleamos dos términos distintos."
 
 #.(para)
 msgid "If you select two revisions N and M, the context menu will offer to show the <emphasis>difference</emphasis> between those two revisions. In Subversion terms this is <literal>diff -r M:N</literal>."
@@ -7133,10 +7150,14 @@ msgstr ""
 #.(para)
 msgid "To refresh the latest revision in case there were other commits while the log dialog was open, hit the <keycap>F5</keycap> key."
 msgstr ""
+"Para refrescar la ultima revisión en caso de que haya habido otras "
+"confirmaciones mientras el diálogo estuvo abierto, presione la tecla "
+"<keycap>F5</keycap>."
 
 #.(para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
 msgstr ""
+"Para refrescar el cache del log, presione la tecla <keycap>Ctrl-F5</keycap>."
 
 #.(title)
 msgid "Current Working Copy Revision"
@@ -7271,6 +7292,10 @@ msgstr ""
 #.(para)
 msgid "Since TortoiseSVN keeps a cache of all the log information, edits made for author and log messages will only show up on your local installation. Other users using TortoiseSVN will still see the cached (old) authors and log messages until they refresh the log cache."
 msgstr ""
+"Ya que TortoiseSVN mantiene un cache de toda la información del log, "
+"ediciones realizadas al autor y al mensaje del log, sólo se mostraran en su "
+"instalación local. Otros usuarios que utilizen TortoiseSVN aún verán los "
+"autores y mensajes viejos hasta tanto no actualizen el cache del log."
 
 #.(title)
 msgid "Filtering Log Messages"
@@ -7306,6 +7331,32 @@ msgstr ""
 #.(para)
 msgid "Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\nAlice Bob -Eve\n</screen> searches for strings containing both Alice and Bob but not Eve <screen>\n!Alice Bob\n</screen> searches for strings which do not contain both Alice and Bob <screen>\n!-Alice -Bob\n</screen> do you remember De Morgan's theorem? NOT(NOT Alice AND NOT Bob) reduces to (Alice OR Bob). <screen>\n\"Alice and Bob\"\n</screen> searches for the literal expression <quote>Alice and Bob</quote><screen>\n\"\"\n</screen> searches for a double-quote anywhere in the text <screen>\n\"Alice says \"\"hi\"\" to Bob\"\n</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
 msgstr ""
+"La búsqueda simple de sub-cadenas funciona de una manera similar a la de un "
+"motor de búsqueda. Las cadenas a buscar son separadas por espacios y todas "
+"deben coincidir. Se puede utilizar un <literal>-</literal> previo para "
+"especificar que una sub-cadena en particular no se encuentra (invertir "
+"coincidencia para ese término), y puede utilizar <literal>!</literal> al "
+"inicio de la expresión para invertir el criterio de coincidencia para toda "
+"la expresión. Puede utilizar comillas para envolver una cadena que debe "
+"contener espacios, y si desea buscar por un literal de comillas puede "
+"utilizar 2 comillas juntas como secuencia de escape. Note que la barra "
+"inversa <emphasis>not</emphasis> no es utilizada como caracter de escape y "
+"no tiene ningun significado en especia en una búsqueda simple de sub-"
+"cadenas. Ejemplos harán esto mas simple: <screen>\n"
+"Alice Bob -Eve\n"
+"</screen> busca cadenas que contengan a ámbos Alice y Bob pero no a Eve "
+"<screen>\n"
+"!Alice Bob\n"
+"</screen> busca cadenas que no contengan a ámbos Alice y Bob <screen>\n"
+"!-Alice -Bob\n"
+"</screen> ¿recuerda el teorema de De Morgan? NOT(NOT Alice AND NOT Bob) "
+"reduce a (Alice OR Bob). <screen>\n"
+"\"Alice and Bob\"\n"
+"</screen> busca la expresión literal <quote>Alice and Bob</quote><screen>\n"
+"\"\"\n"
+"</screen> busca una doble comilla en cualquier lugar del texto <screen>\n"
+"\"Alice says \"\"hi\"\" to Bob\"\n"
+"</screen> busca la expresión literal <quote>Alice says \"hi\" to Bob</quote>."
 
 #.(para)
 msgid "Describing the use of regular expression searches is beyond the scope of this manual, but you can find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
@@ -7769,6 +7820,11 @@ msgstr ""
 #.(para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
 msgstr ""
+"<guilabel>Ignorar cambios en espacios en blanco</guilabel> excluye los "
+"cambios que sólo se deben a un cambio en la cantidad o tipo de espacios en "
+"blanco, como por ejemplo cambios en la indentación o cambio de tabuladores a "
+"espacios. Añadir espacios en blanco donde antes no había, o eliminar "
+"completamente espacios en blanco aún se mostrará como un cambio."
 
 #.(para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
@@ -8114,6 +8170,8 @@ msgstr "seleccione los archivos que desea añadir"
 #.(para)
 msgid "<action>right drag</action> them to the new location inside the working copy"
 msgstr ""
+"<action>arrástrelos con el botón derecho</action> a su nuevo destino dentro "
+"de la copia de trabajo"
 
 #.(para)
 #.(para)
@@ -8188,6 +8246,13 @@ msgstr ""
 #.(para)
 msgid "The easiest way to copy files and folders from within a working copy is to use the right drag menu. When you <action>right drag</action> a file or folder from one working copy to another, or even within the same folder, a context menu appears when you release the mouse. <placeholder-1/> Now you can copy existing versioned content to a new location, possibly renaming it at the same time."
 msgstr ""
+"La manera más fácil de copiar archivos y carpetas desde dentro de una copia "
+"de trabajo es utilizar el menú contextual que aparece al arrastrar con el "
+"botón derecho. Cuando <action>arrastra con el botón derecho</action> un "
+"archivo o una carpeta de una copia de trabajo a otra, o incluso dentro de la "
+"misma carpeta, aparece un menú contextual cuando suelta el botón del ratón. "
+"<placeholder-1/> Ahora puede copiar contenido existente versionado a un "
+"nuevo lugar, posiblemente renombrándolo al mismo tiempo."
 
 #.(para)
 msgid "You can also copy or move versioned files within a working copy, or between two working copies, using the familiar cut-and-paste method. Use the standard Windows <action>Copy</action> or <action>Cut</action> to copy one or more versioned items to the clipboard. If the clipboard contains such versioned items, you can then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice> (note: not the standard Windows <action>Paste</action>) to copy or move those items to the new working copy location."
@@ -8394,6 +8459,11 @@ msgstr ""
 #.(para)
 msgid "Pattern matching is case sensitive, which can cause problems on Windows. You can force case insensitivity the hard way by pairing characters, e.g. to ignore <literal>*.tmp</literal> regardless of case, you could use a pattern like <literal>*.[Tt][Mm][Pp]</literal>."
 msgstr ""
+"La concordancia de patrones distingue entre mayúsculas y minúsculas, lo que "
+"puede causar problemas en Windows. Puede forzar que no se distingan a lo "
+"bruto, emparejando los caracteres; es decir, por ejemplo, para ignorar "
+"<literal>*.tmp</literal> sin tener en cuenta las mayúsculas y minúsculas, "
+"puede utilizar un patrón como <literal>*.[Tt][Mm][Pp]</literal>."
 
 #.(para)
 msgid "If you want an official definition for globbing, you can find it in the IEEE specifications for the shell command language <ulink url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern Matching Notation</citetitle></ulink>."
@@ -8519,6 +8589,17 @@ msgstr "Recuperando un archivo o una carpeta borrados"
 #.(para)
 msgid "If you have deleted a file or a folder and already committed that delete operation to the repository, then a normal <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> can't bring it back anymore. But the file or folder is not lost at all. If you know the revision the file or folder got deleted (if you don't, use the log dialog to find out) open the repository browser and switch to that revision. Then select the file or folder you deleted, right click and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy to...</guimenuitem></menuchoice> as the target for that copy operation select the path to your working copy."
 msgstr ""
+"Si ha borrado un archivo o una carpeta y ya ha confirmado esa operación de "
+"borrado en el repositorio, entonces un comando <menuchoice><guimenu>Tortoise"
+"SVN</guimenu><guimenuitem>Revertir</guimenuitem></menuchoice> normal no los "
+"podrá recuperar. Pero el archivo o la carpeta borrados no están perdidos "
+"para nada. Si sabe la revisión en la que se borraron el archivo o la carpeta "
+"(si no lo sabe, utilice el diálogo de registro para averiguarlo), abra el "
+"navegador de repositorios y cambie a esa revisión. Luego seleccione el "
+"archivo o la carpeta que ha borrado, haga click con el botón derecho y "
+"seleccione <menuchoice><guimenu>Menú Contextual</guimenu><guimenuitem>Copiar "
+"a...</guimenuitem></menuchoice>, y como destino de esa operación de copia "
+"seleccione la ruta de su copia de trabajo."
 
 #.(title)
 msgid "Moving files and folders"
@@ -8556,6 +8637,9 @@ msgstr ""
 #.(para)
 msgid "If you want to move files around inside your working copy, perhaps to a different sub-folder, use the right mouse drag-and-drop handler: <placeholder-1/>"
 msgstr ""
+"Si quiere mover archivos dentro de una copia de trabajo, quizás a una "
+"subcarpeta distinta, utilice el manejador de arrastrar-y-soltar con el botón "
+"derecho del ratón: <placeholder-1/>"
 
 #.(title)
 msgid "Commit the parent folder"
@@ -8582,6 +8666,17 @@ msgstr ""
 #.(para)
 msgid "Another way of moving or copying files is to use the Windows copy/cut commands. Select the files you want to copy, right click and choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice> from the explorer context menu. Then browse to the target folder, right click and choose <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Paste</guimenuitem></menuchoice>. For moving files, choose <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Cut</guimenuitem></menuchoice> instead of <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
 msgstr ""
+"Otra forma de mover o copiar archivos es usar los comandos copiar/cortar de "
+"Windows. Seleccione los archivos que quiere copiar, pulse el botón derecho "
+"del ratón y elija <menuchoice><guimenu>Menú "
+"Contextual</guimenu><guimenuitem>Copiar</guimenuitem></menuchoice> del menú "
+"contextual del explorador. Vaya al directorio objetivo, pulse el botón "
+"derecho del ratón y elija <menuchoice><guimenu>TortoiseSVN</guimenu><guimenu"
+"item>Pegar</guimenuitem></menuchoice>. Para mover archivos, elija "
+"<menuchoice><guimenu>Menú "
+"Contextual</guimenu><guimenuitem>Cortar</guimenuitem></menuchoice> en vez de "
+"<menuchoice><guimenu>Menú "
+"Contextual</guimenu><guimenuitem>Copiar</guimenuitem></menuchoice>."
 
 #.(para)
 msgid "You can also use the repository browser to move items around. Read <xref linkend=\"tsvn-dug-repobrowser\"/> to find out more."
@@ -8806,6 +8901,9 @@ msgstr ""
 #.(para)
 msgid "If you want to undo a deletion or a rename, you need to use Revert on the parent folder as the deleted item does not exist for you to right click on."
 msgstr ""
+"Si desea deshacer un borrado o un renombrado, necesitará utilizar Revertir "
+"en la carpeta padre dado que el ítem borrado ya no existe y no podrá hacer "
+"click con el botón derecho sobre él."
 
 #.(para)
 msgid "If you want to undo the addition of an item, this appears in the context menu as <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo add...</guimenuitem></menuchoice>. This is really a revert as well, but the name has been changed to make it more obvious."
@@ -9025,14 +9123,26 @@ msgstr "Añadiendo propiedades"
 #.(para)
 msgid "<placeholder-1/> To add a new property, first click on <guilabel>New...</guilabel>. Select the required property name from the menu, and then fill in the required information in the specific property dialog."
 msgstr ""
+"<placeholder-1/> Para agregar una nueva propiedad, primero presione sobre "
+"<guilabel>Nuevo...</guilabel>. Seleccione el nombre de la propiedad "
+"requerida del menu, y luego complete la información requerida en el diálogo "
+"de propiedades especifico."
 
 #.(para)
 msgid "To add a property that doesn't have its own dialog, choose <guimenuitem>Advanced</guimenuitem> from the <guilabel>New...</guilabel> menu. Then either select an existing property in the combo box or enter a custom property name."
 msgstr ""
+"Para agregar una propiedad que no tiene su propio diálogo, seleccione "
+"<guimenuitem>Avanzada</guimenuitem> del menu <guilabel>Nuevo...</guilabel>. "
+"Luego o bien seleccione una propiedad existente en la lista desplegable o "
+"ingrese un nombre nuevo."
 
 #.(para)
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
 msgstr ""
+"Si desea aplicar una propiedad a muchos ítems a la vez, seleccione los "
+"archivos/carpetas en el explorador, y luego seleccione "
+"<menuchoice><guimenu>Menú "
+"contextual</guimenu><guimenuitem>propiedades</guimenuitem></menuchoice>."
 
 #.(para)
 msgid "If you want to apply the property to <emphasis>every</emphasis> file and folder in the hierarchy below the current folder, check the <guilabel>Recursive</guilabel> checkbox."
@@ -9189,6 +9299,10 @@ msgstr ""
 #.(para)
 msgid "Whichever method you choose, you should note that auto-props are only applied to files at the time they are added to the working copy. Auto-props will never change the properties of files which are already versioned."
 msgstr ""
+"Sea cual sea el método que elija, debe tener en cuenta que las auto-props se "
+"aplican sólo a los archivos en el momento en que se añaden al repositorio. "
+"Las auto-props nunca cambiarán las propiedades de archivos que ya estén "
+"versionados."
 
 #.(para)
 msgid "If you want to be absolutely sure that new files have the correct properties applied, you should set up a repository pre-commit hook to reject commits where the required properties are not set."
@@ -9418,6 +9532,20 @@ msgstr "Establecer las propiedades de proyecto en carpetas"
 #.(para)
 msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you use a TortoiseSVN command which uses these properties, the properties are read from the folder you clicked on. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (e.g. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. If you set the same property but you use different values at different depths in your project hierarchy then you will get different results depending on where you click in the folder structure."
 msgstr ""
+"Estas propiedades especiales del proyecto deben estar establecidas en "
+"<emphasis>carpetas</emphasis> para que el sistema funcione. Cuando confirma "
+"un archivo o una carpeta, se leen las propiedades de esa carpeta. Si no se "
+"encuentran allí las propiedades, TortoiseSVN las buscará hacia arriba en el "
+"árbol de carpetas para encontrarlas, hasta que llega a una carpeta sin "
+"versionar, o se encuentra la raíz del árbol (por ejemplo, "
+"<literal>C:\\</literal>). Si puede estar seguro de que cada usuario obtiene "
+"sólo desde por ejemplo <filename>trunk/</filename> y no desde alguna "
+"subcarpeta, entonces es suficiente establecer las propiedades en "
+"<filename>trunk/</filename>. Si no puede estar seguro, debería establecer "
+"las propiedades recursivamente en cada subcarpeta. Una propiedad establecida "
+"en una carpeta más profunda dentro de la jerarquía del proyecto tiene "
+"preferencia sobre las propiedades establecidas en niveles más altos (más "
+"cerca de <filename>trunk/</filename>)."
 
 #.(para)
 #.(para)
@@ -12697,15 +12825,8 @@ msgstr ""
 "repositorios."
 
 #.(para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
-"La integración del seguimiento de incidencias no se restringe a TortoiseSVN; "
-"puede utilizarse con cualquier cliente de Subversion. Para más información, "
-"lea toda la <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/iss"
-"uetrackers.txt\"><citetitle>Especificación de integración con los "
-"seguimientos de incidencias</citetitle></ulink> en el repositorio de fuentes "
-"de TortoiseSVN. (<xref linkend=\"tsvn-preface-source\"/> le explica cómo "
-"acceder al repositorio)."
 
 #.(title)
 msgid "Getting Information from the Issue Tracker"
@@ -12724,7 +12845,7 @@ msgstr ""
 "esta confirmación."
 
 #.(para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.) A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
 msgstr ""
 
 # FPN: Query has been translated as "interaction" because "interrogatorio" is something you won't use in computing.
@@ -14900,13 +15021,8 @@ msgstr ""
 "ejecuta</guilabel> está marcada por defecto."
 
 #.(para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
-"Puede encontrar scripts gancho de cliente de ejemplo en la carpeta "
-"<literal>contrib</literal> del <ulink "
-"url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-"
-"scripts\"><citetitle>repositorio de TortoiseSVN</citetitle></ulink>. (<xref "
-"linkend=\"tsvn-preface-source\"/> le explica cómo acceder al repositorio)."
 
 #.(para)
 msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
@@ -14943,7 +15059,7 @@ msgstr ""
 "que tenga asignadas."
 
 #.(para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker.)"
 msgstr ""
 
 #.(para)
@@ -15326,15 +15442,8 @@ msgid "The SubWCRev Command Line"
 msgstr "La línea de comandos de SubWCRev"
 
 #.(para)
-msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
+msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, it also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
 msgstr ""
-"SubWCRev lee el estado de Subversion de todos los archivos en una copia de "
-"trabajo, excluyendo los externos por defecto. Apunta el número de revisión "
-"de confirmación más alto que encuentra, y la fecha de esa confirmación. "
-"También apunta si hay modificaciones locales en la copia de trabajo, o "
-"revisiones de actualización mezcladas. El número de revisión, el rango de "
-"revisiones de actualización y el estado de las modificaciones se muestra por "
-"la salida estandar stdout."
 
 #.(para)
 msgid "SubWCRev.exe is called from the command line or a script, and is controlled using the command line parameters. <screen>\nSubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]\n</screen>"
@@ -15503,14 +15612,8 @@ msgstr ""
 "<placeholder-1/>."
 
 #.(entry)
-msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
+msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200."
 msgstr ""
-"Se reemplaza con el rango de revisiones de actualización de la copia de "
-"trabajo. Si la copia de trabajo está en un estado consistente, esto será una "
-"única revisión. Si la copia de trabajo contiene revisiones mezcladas, bien "
-"por estar desactualizada, o bien porque se ha realizado deliberadamente una "
-"actualización a una revisión concreta, se mostrará el rango de la forma "
-"100:200."
 
 #.(literal)
 msgid "$WCMIXED?TText:FText$"
@@ -15724,16 +15827,12 @@ msgid "$WCREV$"
 msgstr "$WCREV$"
 
 #.(entry)
-msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
+msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>."
 msgstr ""
-"La revisión de confirmación más alta de la copia de trabajo. Equivalente a "
-"<placeholder-1/>"
 
 #.(entry)
-msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
+msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>."
 msgstr ""
-"La fecha/hora de la revisión de confirmación más alta. Equivalente a "
-"<placeholder-1/>"
 
 #.(entry)
 msgid "The author of the highest commit revision, that is, the last person to commit changes to the working copy."
@@ -15750,6 +15849,12 @@ msgstr "$WCRANGE$"
 msgid "The minimum update revision, as shown in <placeholder-1/>"
 msgstr ""
 "La revisión mínima de actualización, como se muestra en <placeholder-1/>"
+
+#.(row)
+#.(row)
+#.(row)
+msgid "<placeholder-1/>."
+msgstr ""
 
 #.(entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
@@ -15769,10 +15874,8 @@ msgid "$WCURL$"
 msgstr "$WCURL$"
 
 #.(entry)
-msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
+msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>."
 msgstr ""
-"Se reemplaza con la URL del repositorio de la copia de trabajo usada en "
-"<placeholder-1/>. Equivalente a <placeholder-2/>"
 
 #.(entry)
 msgid "True if the item is versioned."
@@ -15869,15 +15972,8 @@ msgstr ""
 "confirmación exitosa para, por ejemplo, cerrar un problema."
 
 #.(para)
-msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
-"Nosotros no podemos proveer información y tutoriales acerca de como "
-"implementar un objeto COM en su lenguaje favorito, pero sí tenemos ejemplos "
-"de extensiones en C++/ATL y C# en nuestro repositorio in el directiorio "
-"<filename>contrib/issue-tracker-plugins</filename>. En ese directorio usted "
-"tambien puede encontrar los archivos requeridos para compilar su extensión. "
-" (<xref linkend=\"tsvn-preface-source\"/> explica como acceder al "
-"repositorio)."
 
 #.(para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
@@ -19619,6 +19715,88 @@ msgstr ""
 #.(None)
 msgid "translator-translation"
 msgstr "Traducción"
+
+#~ msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
+#~ msgstr ""
+#~ "Para obtener una copia de trabajo, primero debe "
+#~ "<firstterm>obtener</firstterm> algún subárbol del repositorio. (El término "
+#~ "<emphasis>obtener</emphasis> puede sonar como que tenga algo que ver con el "
+#~ "bloqueo o la reserva de recursos, pero no es cierto; simplemente crea una "
+#~ "copia privada del proyecto para usted)."
+
+#~ msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
+#~ msgstr ""
+#~ "En el explorador de windows, <action>haga click con el botón "
+#~ "derecho</action> en la carpeta donde ha obtenido los archivos, y luego "
+#~ "utilice <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Navegador de "
+#~ "repositorios</guimenuitem></menuchoice> para iniciar el navegador. Localice "
+#~ "la subcarpeta que desea añadir a su copia de trabajo, y utilice "
+#~ "<menuchoice><guimenu>Menú contextual</guimenu><guimenuitem>Actualizar ítem a "
+#~ "la revisión...</guimenuitem></menuchoice> Este menú sólo será visible si el "
+#~ "ítem seleccionado no existe aún en su copia de trabajo, pero el ítem padre "
+#~ "sí existe."
+
+#~ msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+#~ msgstr ""
+#~ "La integración del seguimiento de incidencias no se restringe a TortoiseSVN; "
+#~ "puede utilizarse con cualquier cliente de Subversion. Para más información, "
+#~ "lea toda la <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/iss"
+#~ "uetrackers.txt\"><citetitle>Especificación de integración con los "
+#~ "seguimientos de incidencias</citetitle></ulink> en el repositorio de fuentes "
+#~ "de TortoiseSVN. (<xref linkend=\"tsvn-preface-source\"/> le explica cómo "
+#~ "acceder al repositorio)."
+
+#~ msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+#~ msgstr ""
+#~ "Puede encontrar scripts gancho de cliente de ejemplo en la carpeta "
+#~ "<literal>contrib</literal> del <ulink "
+#~ "url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-"
+#~ "scripts\"><citetitle>repositorio de TortoiseSVN</citetitle></ulink>. (<xref "
+#~ "linkend=\"tsvn-preface-source\"/> le explica cómo acceder al repositorio)."
+
+#~ msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
+#~ msgstr ""
+#~ "SubWCRev lee el estado de Subversion de todos los archivos en una copia de "
+#~ "trabajo, excluyendo los externos por defecto. Apunta el número de revisión "
+#~ "de confirmación más alto que encuentra, y la fecha de esa confirmación. "
+#~ "También apunta si hay modificaciones locales en la copia de trabajo, o "
+#~ "revisiones de actualización mezcladas. El número de revisión, el rango de "
+#~ "revisiones de actualización y el estado de las modificaciones se muestra por "
+#~ "la salida estandar stdout."
+
+#~ msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
+#~ msgstr ""
+#~ "Se reemplaza con el rango de revisiones de actualización de la copia de "
+#~ "trabajo. Si la copia de trabajo está en un estado consistente, esto será una "
+#~ "única revisión. Si la copia de trabajo contiene revisiones mezcladas, bien "
+#~ "por estar desactualizada, o bien porque se ha realizado deliberadamente una "
+#~ "actualización a una revisión concreta, se mostrará el rango de la forma "
+#~ "100:200."
+
+#~ msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
+#~ msgstr ""
+#~ "La revisión de confirmación más alta de la copia de trabajo. Equivalente a "
+#~ "<placeholder-1/>"
+
+#~ msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
+#~ msgstr ""
+#~ "La fecha/hora de la revisión de confirmación más alta. Equivalente a "
+#~ "<placeholder-1/>"
+
+#~ msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
+#~ msgstr ""
+#~ "Se reemplaza con la URL del repositorio de la copia de trabajo usada en "
+#~ "<placeholder-1/>. Equivalente a <placeholder-2/>"
+
+#~ msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+#~ msgstr ""
+#~ "Nosotros no podemos proveer información y tutoriales acerca de como "
+#~ "implementar un objeto COM en su lenguaje favorito, pero sí tenemos ejemplos "
+#~ "de extensiones en C++/ATL y C# en nuestro repositorio in el directiorio "
+#~ "<filename>contrib/issue-tracker-plugins</filename>. En ese directorio usted "
+#~ "tambien puede encontrar los archivos requeridos para compilar su extensión. "
+#~ " (<xref linkend=\"tsvn-preface-source\"/> explica como acceder al "
+#~ "repositorio)."
 
 #~ msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
 #~ msgstr "Versión $MajorVersion$.$MinorVersion$.$MicroVersion$"
