@@ -320,9 +320,10 @@ void CCacheLogQuery::CLogFiller::WriteToCache
         }
     }
 
-    // update our path info
+    // Update our path info, if we are still within the requested log range. 
+    // Sometimes, SVN seems to send more than what was requested.
 
-    if (!currentPath->IsFullyCachedPath())
+    if (currentPath.get() && !currentPath->IsFullyCachedPath())
     {
         if (!updateData->IsEmpty())
             MergeFromUpdateCache();
@@ -376,10 +377,48 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
             assert (index == cache->GetRevisions()[revision]);
         }
 
-        // due to renames / copies, we may continue on a different path
+        // the first revision we may not have information about is the one
+        // immediately preceding the one we just received from the server
 
-        if (  (cache->GetLogInfo().GetSumChanges (index)
-            & CRevisionInfoContainer::ACTION_ADDED) != 0)
+        firstNARevision = revision-1;
+
+        // hand on to the original log receiver.
+        // Even if there is no receiver, track the oldest revision
+        // we received so we can update the skip ranges properly.
+        // If we get more revisions than requested, currentPath will
+        // be NULL. Don't forward the log info in that case.
+
+        if (currentPath.get())
+        {
+            oldestReported = min (oldestReported, revision);
+            if (options.GetReceiver() != NULL)
+            {
+                if (options.GetRevsOnly())
+                {
+                    options.GetReceiver()->ReceiveLog ( NULL
+                                                      , rev
+                                                      , NULL
+                                                      , NULL
+                                                      , mergesFollow);
+                }
+                else
+                {
+                    options.GetReceiver()->ReceiveLog ( changes
+                                                      , rev
+                                                      , stdRevProps
+                                                      , userRevProps
+                                                      , mergesFollow);
+                }
+            }
+        }
+
+        // due to renames / copies, we may continue on a different path
+        // (don't try to update currentPath if svn is reading beyond the
+        // end of the requested data. currentPath is NULL, then.)
+
+        if (    (  (cache->GetLogInfo().GetSumChanges (index)
+                 & CRevisionInfoContainer::ACTION_ADDED) != 0)
+             && (currentPath.get() != NULL))
         {
             // create the appropriate iterator to follow the potential path change
 
@@ -397,36 +436,6 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
                 currentPath.reset();
             else
                 *currentPath = iterator->GetPath();
-        }
-
-        // the first revision we may not have information about is the one
-        // immediately preceding the one we just received from the server
-
-        firstNARevision = revision-1;
-
-        // hand on to the original log receiver.
-        // Even if there is no receiver, track the oldest revision
-        // we received so we can update the skip ranges properly.
-
-        oldestReported = min (oldestReported, revision);
-        if (options.GetReceiver() != NULL)
-        {
-            if (options.GetRevsOnly())
-            {
-                options.GetReceiver()->ReceiveLog ( NULL
-                                                  , rev
-                                                  , NULL
-                                                  , NULL
-                                                  , mergesFollow);
-            }
-            else
-            {
-                options.GetReceiver()->ReceiveLog ( changes
-                                                  , rev
-                                                  , stdRevProps
-                                                  , userRevProps
-                                                  , mergesFollow);
-            }
         }
     }
     catch (...)
