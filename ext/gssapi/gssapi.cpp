@@ -31,6 +31,10 @@
 
 #include "gssapi.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
 /* Reserved static storage for GSS_oids.  Comments are quotes from RFC 2744. */
 #define oids ((gss_OID_desc *)const_oids)
 static const gss_OID_desc const_oids[] = {
@@ -126,24 +130,24 @@ static const gss_OID_desc const_oids[] = {
  * Constants of the form gss_nt_* are the original MIT krb5 names
  * found in gssapi_generic.h.  They are provided for compatibility. */
 
-GSS_DLLIMP gss_OID GSS_C_NT_USER_NAME           = oids+0;
-GSS_DLLIMP gss_OID gss_nt_user_name             = oids+0;
+gss_OID GSS_C_NT_USER_NAME           = oids+0;
+gss_OID gss_nt_user_name             = oids+0;
 
-GSS_DLLIMP gss_OID GSS_C_NT_MACHINE_UID_NAME    = oids+1;
-GSS_DLLIMP gss_OID gss_nt_machine_uid_name      = oids+1;
+gss_OID GSS_C_NT_MACHINE_UID_NAME    = oids+1;
+gss_OID gss_nt_machine_uid_name      = oids+1;
 
-GSS_DLLIMP gss_OID GSS_C_NT_STRING_UID_NAME     = oids+2;
-GSS_DLLIMP gss_OID gss_nt_string_uid_name       = oids+2;
+gss_OID GSS_C_NT_STRING_UID_NAME     = oids+2;
+gss_OID gss_nt_string_uid_name       = oids+2;
 
-GSS_DLLIMP gss_OID GSS_C_NT_HOSTBASED_SERVICE_X = oids+3;
+gss_OID GSS_C_NT_HOSTBASED_SERVICE_X = oids+3;
 gss_OID gss_nt_service_name_v2       = oids+3;
 
-GSS_DLLIMP gss_OID GSS_C_NT_HOSTBASED_SERVICE   = oids+4;
-GSS_DLLIMP gss_OID gss_nt_service_name          = oids+4;
+gss_OID GSS_C_NT_HOSTBASED_SERVICE   = oids+4;
+gss_OID gss_nt_service_name          = oids+4;
 
-GSS_DLLIMP gss_OID GSS_C_NT_ANONYMOUS           = oids+5;
+gss_OID GSS_C_NT_ANONYMOUS           = oids+5;
 
-GSS_DLLIMP gss_OID GSS_C_NT_EXPORT_NAME         = oids+6;
+gss_OID GSS_C_NT_EXPORT_NAME         = oids+6;
 gss_OID gss_nt_exported_name         = oids+6;
 
 #ifdef WIN64
@@ -167,7 +171,7 @@ static HINSTANCE hinstLib = LoadLibrary(TEXT(GSSAPI_DLL)); // Will let Windows a
     return GSS_S_FAILURE; \
 }
 
-OM_uint32 KRB5_CALLCONV gss_display_status
+OM_uint32 gss_display_status
 (OM_uint32 *a1,		/* minor_status */
             OM_uint32 a2,			/* status_value */
             int a3,			/* status_type */
@@ -176,24 +180,24 @@ OM_uint32 KRB5_CALLCONV gss_display_status
             gss_buffer_t a6		/* status_string */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_display_status)(OM_uint32 *, OM_uint32 , int, gss_OID, OM_uint32 *, gss_buffer_t );
+    typedef OM_uint32 (WINAPI *pgss_display_status)(OM_uint32 *, OM_uint32 , int, gss_OID, OM_uint32 *, gss_buffer_t );
     pgss_display_status ProcAdd;
 
     CALL_ENTRY("gss_display_status", pgss_display_status, a1, a2, a3, a4, a5, a6);
 }
 
-OM_uint32 KRB5_CALLCONV gss_release_buffer
+OM_uint32 gss_release_buffer
 (OM_uint32 *a1,		/* minor_status */
             gss_buffer_t a2		/* buffer */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_release_buffer)(OM_uint32 *, gss_buffer_t);
+    typedef OM_uint32 (WINAPI *pgss_release_buffer)(OM_uint32 *, gss_buffer_t);
     pgss_release_buffer ProcAdd;
 
     CALL_ENTRY("gss_release_buffer", pgss_release_buffer, a1, a2);
 }
 
-OM_uint32 KRB5_CALLCONV gss_wrap
+OM_uint32 gss_wrap
 (OM_uint32 *a1,		/* minor_status */
 	    gss_ctx_id_t a2,		/* context_handle */
 	    int a3,			/* conf_req_flag */
@@ -203,13 +207,13 @@ OM_uint32 KRB5_CALLCONV gss_wrap
 	    gss_buffer_t a7		/* output_message_buffer */
 	   )
 {
-    typedef OM_uint32 (__cdecl *pgss_wrap)(OM_uint32 *, gss_ctx_id_t, int, gss_qop_t, gss_buffer_t, int *, gss_buffer_t);
+    typedef OM_uint32 (WINAPI *pgss_wrap)(OM_uint32 *, gss_ctx_id_t, int, gss_qop_t, gss_buffer_t, int *, gss_buffer_t);
     pgss_wrap ProcAdd;
 
     CALL_ENTRY("gss_wrap", pgss_wrap, a1, a2, a3, a4, a5, a6, a7);
 }
 
-OM_uint32 KRB5_CALLCONV gss_unwrap
+OM_uint32 gss_unwrap
 (OM_uint32 *a1,		/* minor_status */
 	    gss_ctx_id_t a2,		/* context_handle */
 	    gss_buffer_t a3,		/* input_message_buffer */
@@ -218,60 +222,60 @@ OM_uint32 KRB5_CALLCONV gss_unwrap
 	    gss_qop_t *a6		/* qop_state */
 	   )
 {
-    typedef OM_uint32 (__cdecl *pgss_unwrap)(OM_uint32 *, gss_ctx_id_t , gss_buffer_t, gss_buffer_t, int *, gss_qop_t *);
+    typedef OM_uint32 (WINAPI *pgss_unwrap)(OM_uint32 *, gss_ctx_id_t , gss_buffer_t, gss_buffer_t, int *, gss_qop_t *);
     pgss_unwrap ProcAdd;
 
     CALL_ENTRY("gss_unwrap", pgss_unwrap, a1, a2, a3, a4, a5, a6);
 }
 
-OM_uint32 KRB5_CALLCONV gss_delete_sec_context
+OM_uint32 gss_delete_sec_context
 (OM_uint32 *a1,		/* minor_status */
             gss_ctx_id_t *a2,		/* context_handle */
             gss_buffer_t a3		/* output_token */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_delete_sec_context)(OM_uint32 *, gss_ctx_id_t *, gss_buffer_t);
+    typedef OM_uint32 (WINAPI *pgss_delete_sec_context)(OM_uint32 *, gss_ctx_id_t *, gss_buffer_t);
     pgss_delete_sec_context ProcAdd;
 
     CALL_ENTRY("gss_delete_sec_context", pgss_delete_sec_context, a1, a2, a3);
 }
 
-OM_uint32 KRB5_CALLCONV gss_release_name
+OM_uint32 gss_release_name
 (OM_uint32 *a1,		/* minor_status */
             gss_name_t *a2		/* input_name */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_release_name)(OM_uint32 *, gss_name_t *);
+    typedef OM_uint32 (WINAPI *pgss_release_name)(OM_uint32 *, gss_name_t *);
     pgss_release_name ProcAdd;
 
     CALL_ENTRY("gss_release_name", pgss_release_name, a1, a2);
 }
 
-OM_uint32 KRB5_CALLCONV gss_release_cred
+OM_uint32 gss_release_cred
 (OM_uint32 *a1,		/* minor_status */
             gss_cred_id_t *a2		/* cred_handle */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_release_cred)(OM_uint32 *, gss_cred_id_t *);
+    typedef OM_uint32 (WINAPI *pgss_release_cred)(OM_uint32 *, gss_cred_id_t *);
     pgss_release_cred ProcAdd;
 
     CALL_ENTRY("gss_release_cred", pgss_release_cred, a1, a2);
 }
 
-OM_uint32 KRB5_CALLCONV gss_import_name
+OM_uint32 gss_import_name
 (OM_uint32 *a1,		/* minor_status */
             gss_buffer_t a2,		/* input_name_buffer */
             gss_OID a3,			/* input_name_type(used to be const) */
             gss_name_t *a4		/* output_name */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_import_name)(OM_uint32 *, gss_buffer_t , gss_OID, gss_name_t *);
+    typedef OM_uint32 (WINAPI *pgss_import_name)(OM_uint32 *, gss_buffer_t , gss_OID, gss_name_t *);
     pgss_import_name ProcAdd;
 
     CALL_ENTRY("gss_import_name", pgss_import_name, a1, a2, a3, a4);
 }
 
-OM_uint32 KRB5_CALLCONV gss_acquire_cred
+OM_uint32 gss_acquire_cred
 (OM_uint32 *a1,		/* minor_status */
             gss_name_t a2,			/* desired_name */
             OM_uint32 a3,			/* time_req */
@@ -282,13 +286,13 @@ OM_uint32 KRB5_CALLCONV gss_acquire_cred
             OM_uint32 *a8		/* time_rec */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_acquire_cred)(OM_uint32 *, gss_name_t , OM_uint32, gss_OID_set, gss_cred_usage_t, gss_cred_id_t *, gss_OID_set *, OM_uint32 *);
+    typedef OM_uint32 (WINAPI *pgss_acquire_cred)(OM_uint32 *, gss_name_t , OM_uint32, gss_OID_set, gss_cred_usage_t, gss_cred_id_t *, gss_OID_set *, OM_uint32 *);
     pgss_acquire_cred ProcAdd;
 
     CALL_ENTRY("gss_acquire_cred", pgss_acquire_cred, a1, a2, a3, a4, a5, a6, a7, a8);
 }
 
-OM_uint32 KRB5_CALLCONV gss_accept_sec_context
+OM_uint32 gss_accept_sec_context
 (OM_uint32 *a1,		/* minor_status */
             gss_ctx_id_t *a2,		/* context_handle */
             gss_cred_id_t a3,		/* acceptor_cred_handle */
@@ -302,26 +306,26 @@ OM_uint32 KRB5_CALLCONV gss_accept_sec_context
             gss_cred_id_t *a11		/* delegated_cred_handle */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_accept_sec_context)(OM_uint32 *, gss_ctx_id_t *, gss_cred_id_t, gss_buffer_t, gss_channel_bindings_t, gss_name_t *, gss_OID *, gss_buffer_t, OM_uint32 *, OM_uint32 *, gss_cred_id_t *);
+    typedef OM_uint32 (WINAPI *pgss_accept_sec_context)(OM_uint32 *, gss_ctx_id_t *, gss_cred_id_t, gss_buffer_t, gss_channel_bindings_t, gss_name_t *, gss_OID *, gss_buffer_t, OM_uint32 *, OM_uint32 *, gss_cred_id_t *);
     pgss_accept_sec_context ProcAdd;
 
     CALL_ENTRY("gss_accept_sec_context", pgss_accept_sec_context, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
 }
 
-OM_uint32 KRB5_CALLCONV gss_compare_name
+OM_uint32 gss_compare_name
 (OM_uint32 *a1,		/* minor_status */
             gss_name_t a2,			/* name1 */
             gss_name_t a3,			/* name2 */
             int *a4			/* name_equal */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_compare_name)(OM_uint32 *, gss_name_t , gss_name_t, int *);
+    typedef OM_uint32 (WINAPI *pgss_compare_name)(OM_uint32 *, gss_name_t , gss_name_t, int *);
     pgss_compare_name ProcAdd;
 
     CALL_ENTRY("gss_compare_name", pgss_compare_name, a1, a2, a3, a4);
 }
 
-OM_uint32 KRB5_CALLCONV gss_wrap_size_limit
+OM_uint32 gss_wrap_size_limit
 (OM_uint32 *a1,		/* minor_status */
 	    gss_ctx_id_t a2,		/* context_handle */
 	    int a3,			/* conf_req_flag */
@@ -330,13 +334,13 @@ OM_uint32 KRB5_CALLCONV gss_wrap_size_limit
 	    OM_uint32 *a6			/* max_input_size */
 	   )
 {
-    typedef OM_uint32 (__cdecl *pgss_wrap_size_limit)(OM_uint32 *, gss_ctx_id_t, int, gss_qop_t, OM_uint32, OM_uint32 *);
+    typedef OM_uint32 (WINAPI *pgss_wrap_size_limit)(OM_uint32 *, gss_ctx_id_t, int, gss_qop_t, OM_uint32, OM_uint32 *);
     pgss_wrap_size_limit ProcAdd;
 
     CALL_ENTRY("gss_wrap_size_limit", pgss_wrap_size_limit, a1, a2, a3, a4, a5, a6);
 }
 
-OM_uint32 KRB5_CALLCONV gss_init_sec_context
+OM_uint32 gss_init_sec_context
 (OM_uint32 *a1,		/* minor_status */
             gss_cred_id_t a2,		/* claimant_cred_handle */
             gss_ctx_id_t *a3,		/* context_handle */
@@ -352,13 +356,13 @@ OM_uint32 KRB5_CALLCONV gss_init_sec_context
             OM_uint32 *a13		/* time_rec */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_init_sec_context)(OM_uint32 *, gss_cred_id_t, gss_ctx_id_t *, gss_name_t, gss_OID, OM_uint32, OM_uint32, gss_channel_bindings_t, gss_buffer_t, gss_OID *, gss_buffer_t, OM_uint32 *, OM_uint32 *);
+    typedef OM_uint32 (WINAPI *pgss_init_sec_context)(OM_uint32 *, gss_cred_id_t, gss_ctx_id_t *, gss_name_t, gss_OID, OM_uint32, OM_uint32, gss_channel_bindings_t, gss_buffer_t, gss_OID *, gss_buffer_t, OM_uint32 *, OM_uint32 *);
     pgss_init_sec_context ProcAdd;
 
     CALL_ENTRY("gss_init_sec_context", pgss_init_sec_context, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13);
 }
 
-OM_uint32 KRB5_CALLCONV gss_inquire_context
+OM_uint32 gss_inquire_context
 (OM_uint32 *a1,		/* minor_status */
 	    gss_ctx_id_t a2,		/* context_handle */
 	    gss_name_t *a3,		/* src_name */
@@ -370,23 +374,25 @@ OM_uint32 KRB5_CALLCONV gss_inquire_context
 	    int *a9			/* open */
 	   )
 {
-    typedef OM_uint32 (__cdecl *pgss_inquire_context)(OM_uint32 *, gss_ctx_id_t, gss_name_t *, gss_name_t *, OM_uint32 *, gss_OID *, OM_uint32 *, int *, int *);
+    typedef OM_uint32 (WINAPI *pgss_inquire_context)(OM_uint32 *, gss_ctx_id_t, gss_name_t *, gss_name_t *, OM_uint32 *, gss_OID *, OM_uint32 *, int *, int *);
     pgss_inquire_context ProcAdd;
 
     CALL_ENTRY("gss_inquire_context", pgss_inquire_context, a1, a2, a3, a4, a5, a6, a7, a8, a9);
 }
 
-OM_uint32 KRB5_CALLCONV gss_display_name
+OM_uint32 gss_display_name
 (OM_uint32 *a1,		/* minor_status */
             gss_name_t a2,			/* input_name */
             gss_buffer_t a3,		/* output_name_buffer */
             gss_OID *a4		/* output_name_type */
            )
 {
-    typedef OM_uint32 (__cdecl *pgss_display_name)(OM_uint32 *, gss_name_t, gss_buffer_t, gss_OID *);
+    typedef OM_uint32 (WINAPI *pgss_display_name)(OM_uint32 *, gss_name_t, gss_buffer_t, gss_OID *);
     pgss_display_name ProcAdd;
 
     CALL_ENTRY("gss_display_name", pgss_display_name, a1, a2, a3, a4);
 }
 
-
+#ifdef __cplusplus
+}
+#endif

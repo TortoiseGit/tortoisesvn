@@ -39,7 +39,6 @@
             </sources>
             <defines>
                 <define name="WIN64" if="${platform == 'x64'}" />
-                <define name="GSS_DLL_FILE" />
             </defines>
         </cl>
 
