@@ -2173,6 +2173,16 @@ bool CBaseView::LinesInOneChange(int direction,
     // Checks whether all the adjacent lines starting from the initial line
     // and up to the current line form the single change
 
+	// Do not distinguish between moved and added/removed lines
+    if (initialLineState == DIFFSTATE_MOVED_TO)
+        initialLineState = DIFFSTATE_ADDED;
+    if (initialLineState == DIFFSTATE_MOVED_FROM)
+        initialLineState = DIFFSTATE_REMOVED;
+    if (currentLineState == DIFFSTATE_MOVED_TO)
+        currentLineState = DIFFSTATE_ADDED;
+    if (currentLineState == DIFFSTATE_MOVED_FROM)
+        currentLineState = DIFFSTATE_REMOVED;
+
     // First of all, if the two lines have identical states, they surely
     // belong to one change.
     if (initialLineState == currentLineState)
@@ -2517,7 +2527,7 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
                 (m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_TO))
             {
                 int screenLine = FindScreenLineForViewLine(m_pViewData->GetMovedIndex(nViewLine));
-                ScrollAllToLine(screenLine);
+                ScrollAllToLine(screenLine - GetScreenLines() / 2);
                 // find and select the whole moved block
                 int startSel = screenLine;
                 int endSel = screenLine;
