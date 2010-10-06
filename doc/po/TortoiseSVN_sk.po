@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-23 19:41 +0000\n"
-"PO-Revision-Date: 2010-09-30 15:56+0100\n"
-"Last-Translator: Oto BREZINA <translator [at] e-posta [dot] sk>\n"
+"PO-Revision-Date: 2010-10-06 17:10+0100\n"
+"Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2450,11 +2450,11 @@ msgstr ""
 
 #. (title)
 msgid "Multiple Authentication Sources"
-msgstr ""
+msgstr "Viacnásobné overovacie zdroje"
 
 #. (primary)
 msgid "Multiple authentication"
-msgstr ""
+msgstr "Viacnásobné overovanie"
 
 #. (para)
 msgid "It is also possible to have more than one authentication source for your Subversion repository. To do this, you need to make each authentication type non-authoritative, so that Apache will check multiple sources for a matching username/password."
@@ -2630,11 +2630,11 @@ msgstr "Ak máte zabezpečený server pomocou SSL a používate overovanie namie
 
 #. (para)
 msgid "define a separate <literal>&lt;Location /path&gt;</literal> directive in the Apache config file, and add the <literal>SSPIBasicPreferred On</literal>. This will allow IE to authenticate again, but other browsers and Subversion won't be able to authenticate against that location."
-msgstr ""
+msgstr "určite oddelený <literal>&lt;Location /path&gt;</literal> príkaz v Apache konfiguračnom súbore a pridajte <literal>SSPIBasicPreferred On</literal>. Toto povolí IE, aby sa opäť overil, ale ostatné prehliadače a Subversion sa nebudú môcť overovať na tomto umiestení."
 
 #. (para)
 msgid "Offer browsing with unencrypted authentication (without SSL) too. Strangely IE doesn't have any problems with authenticating if the connection is not secured with SSL."
-msgstr ""
+msgstr "Taktiež ponúka prehliadanie bez overenia šifrovania (bez SSL). Podivne IE nemá ziadné problémy s overovaním, ak nie je spojenie zabezpečené s SSL."
 
 #. (para)
 msgid ""
@@ -2774,15 +2774,15 @@ msgstr "Sprievodca denného použitia"
 
 #. (para)
 msgid "This document describes day to day usage of the TortoiseSVN client. It is <emphasis>not</emphasis> an introduction to version control systems, and <emphasis>not</emphasis> an introduction to Subversion (SVN). It is more like a place you may turn to when you know approximately what you want to do, but don't quite remember how to do it."
-msgstr ""
+msgstr "Tento dokument popisuje denné používanie TortoiseSVN klienta. Toto <emphasis>nie</emphasis> je úvod do systému na správu verzii a taktiež <emphasis>nie</emphasis> je úvod do Subversion (SVN). Toto je skôr miesto, kde sa môžete obrátit, keď približne viete, čo chcete urobiť, ale nepamätáte si presne ako to spraviť."
 
 #. (para)
 msgid "If you need an introduction to version control with Subversion, then we recommend you read the fantastic book: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version Control with Subversion</citetitle></ulink>."
-msgstr ""
+msgstr "Ak potrebujete úvod do spŕavy na kontrolu verzii, potom vám odporúčame prečítať si výbornú knihu <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version Control with Subversion</citetitle></ulink>."
 
 #. (para)
 msgid "This document is also a work in progress, just as TortoiseSVN and Subversion are. If you find any mistakes, please report them to the mailing list so we can update the documentation. Some of the screenshots in the Daily Use Guide (DUG) might not reflect the current state of the software. Please forgive us. We're working on TortoiseSVN in our free time."
-msgstr ""
+msgstr "Na tomto dokumente sa stále pracuje a vylepšuje sa, tak ako TortoiseSVN a Subversion. Ak nájdete nejaké chyby, prosím nahláste ich to mailing listu, potom môžeme aktualizovať dokumentáciu. Niektoré  screenshoty v sprievodcovi denného použitia, nemusia zodpovedať súčasnému stavu softvéru. Prosím prepáčte nám. Pracujeme vo vóľnom čase na TortoiseSVN."
 
 #. (para)
 msgid "You should have installed TortoiseSVN already."
@@ -2802,7 +2802,7 @@ msgstr "Mali by ste mať nastavený server a/alebo mať prístup k Subversion ú
 
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
-msgstr ""
+msgstr "S cieľom získať čo najviac informácii zo sprievodcu denného použitia: <placeholder-1/>"
 
 #. (title)
 #. (title)
