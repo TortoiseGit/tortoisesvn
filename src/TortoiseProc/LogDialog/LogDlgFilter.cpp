@@ -89,7 +89,7 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
     {
         // normalize to lower case
 
-        if (!caseSensitive)
+        if (!caseSensitive && !text.empty())
             if (fastLowerCase)
                 FastLowerCaseConversion (&text.at(0));
             else
