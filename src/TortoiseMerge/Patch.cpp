@@ -73,7 +73,6 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
     }
     m_UnicodeType = PatchLines.GetUnicodeType();
     FreeMemory();
-    nLineCount = PatchLines.GetCount();
     //now we got all the lines of the patch file
     //in our array - parsing can start...
 
