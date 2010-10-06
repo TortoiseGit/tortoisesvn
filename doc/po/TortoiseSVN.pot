@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-09-23 19:41 +0000\n"
+"POT-Creation-Date: 2010-10-05 19:46 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -784,7 +784,7 @@ msgid "In other words, the repository's root directory has two subdirectories: <
 msgstr ""
 
 #.(para)
-msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
+msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you.)"
 msgstr ""
 
 #.(para)
@@ -2514,7 +2514,7 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr ""
 
 #.(para)
-msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
 msgstr ""
 
 #.(para)
@@ -7223,7 +7223,7 @@ msgid "For the same reason, project properties will not be propagated automatica
 msgstr ""
 
 #.(para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
 
 #.(title)
@@ -7235,7 +7235,7 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr ""
 
 #.(para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.) A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
 msgstr ""
 
 #.(title)
@@ -8656,7 +8656,7 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr ""
 
 #.(para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
 
 #.(para)
@@ -8680,7 +8680,7 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr ""
 
 #.(para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker.)"
 msgstr ""
 
 #.(para)
@@ -8905,7 +8905,7 @@ msgid "The SubWCRev Command Line"
 msgstr ""
 
 #.(para)
-msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
+msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, it also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
 msgstr ""
 
 #.(para)
@@ -9031,7 +9031,7 @@ msgid "Replaced with the current system date/time. This can be used to indicate 
 msgstr ""
 
 #.(entry)
-msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
+msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200."
 msgstr ""
 
 #.(literal)
@@ -9178,11 +9178,11 @@ msgid "$WCREV$"
 msgstr ""
 
 #.(entry)
-msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
+msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>."
 msgstr ""
 
 #.(entry)
-msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
+msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>."
 msgstr ""
 
 #.(entry)
@@ -9196,6 +9196,12 @@ msgstr ""
 
 #.(entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
+msgstr ""
+
+#.(row)
+#.(row)
+#.(row)
+msgid "<placeholder-1/>."
 msgstr ""
 
 #.(entry)
@@ -9215,7 +9221,7 @@ msgid "$WCURL$"
 msgstr ""
 
 #.(entry)
-msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
+msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>."
 msgstr ""
 
 #.(entry)
@@ -9281,7 +9287,7 @@ msgid "To get a tighter integration with issue trackers than by simply using the
 msgstr ""
 
 #.(para)
-msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
 
 #.(para)
