@@ -217,6 +217,8 @@ BOOL CCommitDlg::OnInitDialog()
 
     if (!m_sLogMessage.IsEmpty())
         m_cLogMessage.SetText(m_sLogMessage);
+    else
+        m_cLogMessage.SetText(m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATECOMMIT));
 
     GetWindowText(m_sWindowTitle);
 
@@ -842,7 +844,7 @@ void CCommitDlg::OnCancel()
         else
             m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
     }
-    if (m_ProjectProperties.sLogTemplate.Compare(m_sLogMessage) != 0)
+    if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATECOMMIT).Compare(m_sLogMessage) != 0)
         m_History.AddEntry(m_sLogMessage);
     m_History.Save();
     SaveSplitterPos();
@@ -1311,7 +1313,7 @@ void CCommitDlg::OnBnClickedHistory()
         {
             SetDlgItemText(IDC_BUGID, sBugID);
         }
-        if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText())!=0)
+        if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATECOMMIT).Compare(m_cLogMessage.GetText())!=0)
             m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
         else
             m_cLogMessage.SetText(sMsg);

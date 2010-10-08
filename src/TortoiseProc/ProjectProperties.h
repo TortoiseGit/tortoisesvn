@@ -38,6 +38,15 @@ using namespace std;
 #define BUGTRAQPROPNAME_PROVIDERPARAMS    "bugtraq:providerparams"
 
 #define PROJECTPROPNAME_LOGTEMPLATE       "tsvn:logtemplate"
+#define PROJECTPROPNAME_LOGTEMPLATECOMMIT "tsvn:logtemplatecommit"
+#define PROJECTPROPNAME_LOGTEMPLATEBRANCH "tsvn:logtemplatebranch"
+#define PROJECTPROPNAME_LOGTEMPLATEIMPORT "tsvn:logtemplateimport"
+#define PROJECTPROPNAME_LOGTEMPLATEDEL    "tsvn:logtemplatedelete"
+#define PROJECTPROPNAME_LOGTEMPLATEMOVE   "tsvn:logtemplatemove"
+#define PROJECTPROPNAME_LOGTEMPLATEMKDIR  "tsvn:logtemplatemkdir"
+#define PROJECTPROPNAME_LOGTEMPLATEPROPSET "tsvn:logtemplatepropset"
+#define PROJECTPROPNAME_LOGTEMPLATELOCK   "tsvn:logtemplatelock"
+
 #define PROJECTPROPNAME_LOGWIDTHLINE      "tsvn:logwidthmarker"
 #define PROJECTPROPNAME_LOGMINSIZE        "tsvn:logminsize"
 #define PROJECTPROPNAME_LOCKMSGMINSIZE    "tsvn:lockmsgminsize"
@@ -158,6 +167,7 @@ public:
 
     const CString& GetProviderUUID() const { return (sProviderUuid64.IsEmpty() ? sProviderUuid : sProviderUuid64); }
 
+    const CString& GetLogMsgTemplate(const CStringA& prop) const;
 public:
     /** The label to show in the commit dialog where the issue number/bug id
      * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
@@ -191,9 +201,6 @@ public:
     /** The number of chars the width marker should be shown at. If the property
      * is not set, then this value is 80 by default. */
     int         nLogWidthMarker;
-
-    /** The template to use for log messages. */
-    CString     sLogTemplate;
 
     /** Minimum size a log message must have in chars */
     int         nMinLogSize;
@@ -262,4 +269,15 @@ private:
 
     /** used to extract the bug ID from the string matched by sCheckRe */
     CString     sBugIDRe;
+
+    /** The template to use for log messages. */
+    CString     sLogTemplate;
+    CString     sLogTemplateCommit;
+    CString     sLogTemplateBranch;
+    CString     sLogTemplateImport;
+    CString     sLogTemplateDelete;
+    CString     sLogTemplateMove;
+    CString     sLogTemplateMkDir;
+    CString     sLogTemplatePropset;
+    CString     sLogTemplateLock;
 };

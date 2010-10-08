@@ -74,6 +74,14 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
     BOOL bFoundBugtraqAppend = FALSE;
     BOOL bFoundLogWidth = FALSE;
     BOOL bFoundLogTemplate = FALSE;
+    BOOL bFoundLogTemplateCommit = FALSE;
+    BOOL bFoundLogTemplateBranch = FALSE;
+    BOOL bFoundLogTemplateImport = FALSE;
+    BOOL bFoundLogTemplateDelete = FALSE;
+    BOOL bFoundLogTemplateMove = FALSE;
+    BOOL bFoundLogTemplateMkDir = FALSE;
+    BOOL bFoundLogTemplatePropset = FALSE;
+    BOOL bFoundLogTemplateLock = FALSE;
     BOOL bFoundMinLogSize = FALSE;
     BOOL bFoundMinLockMsgSize = FALSE;
     BOOL bFoundFileListEnglish = FALSE;
@@ -193,6 +201,62 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 sLogTemplate.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplate = TRUE;
             }
+            if ((!bFoundLogTemplateCommit)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATECOMMIT)==0))
+            {
+                sLogTemplateCommit = sPropVal;
+                sLogTemplateCommit.Replace(_T("\r"), _T(""));
+                sLogTemplateCommit.Replace(_T("\n"), _T("\r\n"));
+                bFoundLogTemplateCommit = TRUE;
+            }
+            if ((!bFoundLogTemplateBranch)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEBRANCH)==0))
+            {
+                sLogTemplateBranch = sPropVal;
+                sLogTemplateBranch.Replace(_T("\r"), _T(""));
+                sLogTemplateBranch.Replace(_T("\n"), _T("\r\n"));
+                bFoundLogTemplateBranch = TRUE;
+            }
+            if ((!bFoundLogTemplateImport)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEIMPORT)==0))
+            {
+                sLogTemplateImport = sPropVal;
+                sLogTemplateImport.Replace(_T("\r"), _T(""));
+                sLogTemplateImport.Replace(_T("\n"), _T("\r\n"));
+                bFoundLogTemplateImport = TRUE;
+            }
+            if ((!bFoundLogTemplateDelete)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEDEL)==0))
+            {
+                sLogTemplateDelete = sPropVal;
+                sLogTemplateDelete.Replace(_T("\r"), _T(""));
+                sLogTemplateDelete.Replace(_T("\n"), _T("\r\n"));
+                bFoundLogTemplateDelete = TRUE;
+            }
+            if ((!bFoundLogTemplateMove)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEMOVE)==0))
+            {
+                sLogTemplateMove = sPropVal;
+                sLogTemplateMove.Replace(_T("\r"), _T(""));
+                sLogTemplateMove.Replace(_T("\n"), _T("\r\n"));
+                bFoundLogTemplateMove = TRUE;
+            }
+            if ((!bFoundLogTemplateMkDir)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEMKDIR)==0))
+            {
+                sLogTemplateMkDir = sPropVal;
+                sLogTemplateMkDir.Replace(_T("\r"), _T(""));
+                sLogTemplateMkDir.Replace(_T("\n"), _T("\r\n"));
+                bFoundLogTemplateMkDir = TRUE;
+            }
+            if ((!bFoundLogTemplatePropset)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEPROPSET)==0))
+            {
+                sLogTemplatePropset = sPropVal;
+                sLogTemplatePropset.Replace(_T("\r"), _T(""));
+                sLogTemplatePropset.Replace(_T("\n"), _T("\r\n"));
+                bFoundLogTemplatePropset = TRUE;
+            }
+            if ((!bFoundLogTemplateLock)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATELOCK)==0))
+            {
+                sLogTemplateLock = sPropVal;
+                sLogTemplateLock.Replace(_T("\r"), _T(""));
+                sLogTemplateLock.Replace(_T("\n"), _T("\r\n"));
+                bFoundLogTemplateLock = TRUE;
+            }
             if ((!bFoundMinLogSize)&&(sPropName.compare(PROJECTPROPNAME_LOGMINSIZE)==0))
             {
                 CString val;
@@ -284,7 +348,10 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         {
             if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
                 | bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
-                | bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize
+                | bFoundLogTemplate | bFoundLogTemplateBranch | bFoundLogTemplateCommit
+                | bFoundLogTemplateImport | bFoundLogTemplateMove | bFoundLogTemplateDelete
+                | bFoundLogTemplateMkDir | bFoundLogTemplatePropset | bFoundLogTemplateLock
+                | bFoundBugtraqLogRe | bFoundMinLockMsgSize
                 | bFoundUserFileProps | bFoundUserDirProps | bFoundAutoProps
                 | bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary | bFoundLogRevRegex
                 | bFoundBugtraqProviderUuid | bFoundBugtraqProviderUuid64
@@ -765,6 +832,28 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
     }
     sShortMessage.Replace('\n', ' ');
     return sShortMessage;
+}
+
+const CString& ProjectProperties::GetLogMsgTemplate( const CStringA& prop ) const
+{
+    if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATECOMMIT) == 0)
+        return sLogTemplateCommit.IsEmpty() ? sLogTemplate : sLogTemplateCommit;
+    if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATEBRANCH) == 0)
+        return sLogTemplateBranch.IsEmpty() ? sLogTemplate : sLogTemplateBranch;
+    if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATEIMPORT) == 0)
+        return sLogTemplateImport.IsEmpty() ? sLogTemplate : sLogTemplateImport;
+    if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATEDEL) == 0)
+        return sLogTemplateDelete.IsEmpty() ? sLogTemplate : sLogTemplateDelete;
+    if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATEMOVE) == 0)
+        return sLogTemplateMove.IsEmpty() ? sLogTemplate : sLogTemplateMove;
+    if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATEMKDIR) == 0)
+        return sLogTemplateMkDir.IsEmpty() ? sLogTemplate : sLogTemplateMkDir;
+    if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATEPROPSET) == 0)
+        return sLogTemplatePropset.IsEmpty() ? sLogTemplate : sLogTemplatePropset;
+    if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATELOCK) == 0)
+        return sLogTemplateLock;    // we didn't use sLogTemplate before for lock messages, so we don't do that now either
+
+    return sLogTemplate;
 }
 
 #ifdef DEBUG

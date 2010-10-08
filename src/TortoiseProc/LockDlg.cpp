@@ -90,6 +90,8 @@ BOOL CLockDlg::OnInitDialog()
 
     if (!m_sLockMessage.IsEmpty())
         m_cEdit.SetText(m_sLockMessage);
+    else if (m_ProjectProperties)
+        m_cEdit.SetText(m_ProjectProperties->GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATELOCK));
 
     CAppUtils::SetAccProperty(m_cEdit.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
     CAppUtils::SetAccProperty(m_cEdit.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
@@ -152,7 +154,7 @@ void CLockDlg::OnCancel()
     if (m_bBlock)
         return;
     UpdateData();
-    if ((m_ProjectProperties == 0)||(m_ProjectProperties->sLogTemplate.Compare(m_cEdit.GetText()) != 0))
+    if ((m_ProjectProperties == 0)||(m_ProjectProperties->GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATELOCK).Compare(m_cEdit.GetText()) != 0))
         m_sLockMessage = m_cEdit.GetText();
     m_History.AddEntry(m_sLockMessage);
     m_History.Save();
@@ -276,7 +278,7 @@ void CLockDlg::OnBnClickedHistory()
     {
         if (historyDlg.GetSelectedText().Compare(m_cEdit.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
         {
-            if ((m_ProjectProperties)&&(m_ProjectProperties->sLogTemplate.Compare(m_cEdit.GetText())!=0))
+            if ((m_ProjectProperties)&&(m_ProjectProperties->GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATELOCK).Compare(m_cEdit.GetText())!=0))
                 m_cEdit.InsertText(historyDlg.GetSelectedText(), !m_cEdit.GetText().IsEmpty());
             else
                 m_cEdit.SetText(historyDlg.GetSelectedText());

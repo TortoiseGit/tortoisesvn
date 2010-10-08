@@ -27,9 +27,7 @@ IMPLEMENT_DYNAMIC(CInputDlg, CResizableStandAloneDialog)
 CInputDlg::CInputDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CInputDlg::IDD, pParent)
     , m_sInputText(_T(""))
-    , m_pProjectProperties(NULL)
     , m_iCheck(0)
-    , m_bUseLogWidth(true)
 {
 }
 
@@ -46,7 +44,6 @@ void CInputDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CInputDlg, CResizableStandAloneDialog)
-    ON_EN_CHANGE(IDC_INPUTTEXT, OnEnChangeLogmessage)
 END_MESSAGE_MAP()
 
 BOOL CInputDlg::OnInitDialog()
@@ -58,28 +55,10 @@ BOOL CInputDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_HINTTEXT);
     m_aeroControls.SubclassOkCancel(this);
 
-    if (m_pProjectProperties)
-        m_cInput.Init(*m_pProjectProperties);
-    else
-        m_cInput.Init();
+    m_cInput.Init();
 
     m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
-    if (m_pProjectProperties)
-    {
-        if (m_pProjectProperties->nLogWidthMarker)
-        {
-            m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
-            m_cInput.Call(SCI_SETEDGEMODE, EDGE_LINE);
-            m_cInput.Call(SCI_SETEDGECOLUMN, m_pProjectProperties->nLogWidthMarker);
-        }
-        else
-        {
-            m_cInput.Call(SCI_SETEDGEMODE, EDGE_NONE);
-            m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
-        }
-        m_cInput.SetText(m_pProjectProperties->sLogTemplate);
-    }
     if (!m_sInputText.IsEmpty())
     {
         m_cInput.SetText(m_sInputText);
@@ -142,15 +121,3 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
     return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
-void CInputDlg::OnEnChangeLogmessage()
-{
-    CString sTemp = m_cInput.GetText();
-    if ((!m_bUseLogWidth)||((m_pProjectProperties==NULL)||(sTemp.GetLength() >= m_pProjectProperties->nMinLogSize)))
-    {
-        DialogEnableWindow(IDOK, TRUE);
-    }
-    else
-    {
-        DialogEnableWindow(IDOK, FALSE);
-    }
-}

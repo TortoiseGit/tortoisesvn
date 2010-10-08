@@ -44,7 +44,6 @@ protected:
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual void OnOK();
 
-    afx_msg void OnEnChangeLogmessage();
     DECLARE_MESSAGE_MAP()
 public:
     CString             m_sInputText;
@@ -53,6 +52,4 @@ public:
     CString             m_sCheckText;
     int                 m_iCheck;
     CSciEdit            m_cInput;
-    ProjectProperties * m_pProjectProperties;
-    bool                m_bUseLogWidth;
 };

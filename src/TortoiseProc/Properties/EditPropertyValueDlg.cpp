@@ -109,6 +109,15 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
             m_PropNames.AddString(_T(BUGTRAQPROPNAME_PROVIDERPARAMS));
 
             m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATE));
+            m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATECOMMIT));
+            m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATEBRANCH));
+            m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATEIMPORT));
+            m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATEDEL));
+            m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATEMOVE));
+            m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATEMKDIR));
+            m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATEPROPSET));
+            m_PropNames.AddString(_T(PROJECTPROPNAME_LOGTEMPLATELOCK));
+
             m_PropNames.AddString(_T(PROJECTPROPNAME_LOGWIDTHLINE));
             m_PropNames.AddString(_T(PROJECTPROPNAME_LOGMINSIZE));
             m_PropNames.AddString(_T(PROJECTPROPNAME_LOCKMSGMINSIZE));
@@ -309,6 +318,23 @@ void CEditPropertyValueDlg::CheckRecursive()
 
         if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATE)==0)
             nText = IDS_PROP_TT_TSVNLOGTEMPLATE;
+        if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATECOMMIT)==0)
+            nText = IDS_PROP_TT_TSVNLOGTEMPLATECOMMIT;
+        if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATEBRANCH)==0)
+            nText = IDS_PROP_TT_TSVNLOGTEMPLATEBRANCH;
+        if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATEIMPORT)==0)
+            nText = IDS_PROP_TT_TSVNLOGTEMPLATEIMPORT;
+        if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATEDEL)==0)
+            nText = IDS_PROP_TT_TSVNLOGTEMPLATEDEL;
+        if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATEMOVE)==0)
+            nText = IDS_PROP_TT_TSVNLOGTEMPLATEMOVE;
+        if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATEMKDIR)==0)
+            nText = IDS_PROP_TT_TSVNLOGTEMPLATEMKDIR;
+        if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATEPROPSET)==0)
+            nText = IDS_PROP_TT_TSVNLOGTEMPLATEPROPSET;
+        if (nameUTF8.compare(PROJECTPROPNAME_LOGTEMPLATELOCK)==0)
+            nText = IDS_PROP_TT_TSVNLOGTEMPLATELOCK;
+
         if (nameUTF8.compare(PROJECTPROPNAME_LOGWIDTHLINE)==0)
             nText = IDS_PROP_TT_TSVNLOGWIDTHMARKER;
         if (nameUTF8.compare(PROJECTPROPNAME_LOGMINSIZE)==0)

@@ -84,6 +84,8 @@ BOOL CImportDlg::OnInitDialog()
 
     if (!m_sMessage.IsEmpty())
         m_cMessage.SetText(m_sMessage);
+    else
+        m_cMessage.SetText(m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEIMPORT));
 
     CAppUtils::SetAccProperty(m_cMessage.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
     CAppUtils::SetAccProperty(m_cMessage.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
@@ -162,7 +164,7 @@ void CImportDlg::OnEnChangeLogmessage()
 void CImportDlg::OnCancel()
 {
     UpdateData();
-    if (m_ProjectProperties.sLogTemplate.Compare(m_cMessage.GetText()) != 0)
+    if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEIMPORT).Compare(m_cMessage.GetText()) != 0)
         m_History.AddEntry(m_cMessage.GetText());
     m_History.Save();
     CResizableStandAloneDialog::OnCancel();
@@ -178,7 +180,7 @@ void CImportDlg::OnBnClickedHistory()
     {
         if (historyDlg.GetSelectedText().Compare(m_cMessage.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
         {
-            if (m_ProjectProperties.sLogTemplate.Compare(m_cMessage.GetText())!=0)
+            if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEIMPORT).Compare(m_cMessage.GetText())!=0)
                 m_cMessage.InsertText(historyDlg.GetSelectedText(), !m_cMessage.GetText().IsEmpty());
             else
                 m_cMessage.SetText(historyDlg.GetSelectedText());

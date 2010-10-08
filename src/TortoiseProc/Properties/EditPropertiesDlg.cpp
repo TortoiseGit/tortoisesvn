@@ -532,7 +532,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                 {
                     CInputLogDlg input(this);
                     input.SetUUID(m_sUUID);
-                    input.SetProjectProperties(m_pProjectProperties);
+                    input.SetProjectProperties(m_pProjectProperties, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
                     CString sHint;
                     sHint.FormatMessage(IDS_INPUT_EDITPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
                     input.SetActionText(sHint);
@@ -639,7 +639,7 @@ void CEditPropertiesDlg::RemoveProps()
         {
             CInputLogDlg input(this);
             input.SetUUID(m_sUUID);
-            input.SetProjectProperties(m_pProjectProperties);
+            input.SetProjectProperties(m_pProjectProperties, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
             CString sHint;
             sHint.FormatMessage(IDS_INPUT_REMOVEPROP, sUName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
             input.SetActionText(sHint);
@@ -888,7 +888,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                             {
                                 CInputLogDlg input(this);
                                 input.SetUUID(m_sUUID);
-                                input.SetProjectProperties(m_pProjectProperties);
+                                input.SetProjectProperties(m_pProjectProperties, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
                                 CString sHint;
                                 sHint.FormatMessage(IDS_INPUT_SETPROP, sUName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
                                 input.SetActionText(sHint);

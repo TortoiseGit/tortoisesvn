@@ -33,6 +33,7 @@ CInputLogDlg::CInputLogDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CInputLogDlg::IDD, pParent)
     , m_pProjectProperties(NULL)
     , m_bForceFocus(false)
+    , m_iCheck(0)
 {
 
 }
@@ -45,6 +46,7 @@ void CInputLogDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_INPUTTEXT, m_cInput);
+    DDX_Check(pDX, IDC_CHECKBOX, m_iCheck);
 }
 
 
@@ -59,6 +61,7 @@ BOOL CInputLogDlg::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
 
     ExtendFrameIntoClientArea(IDC_GROUPBOX);
+    m_aeroControls.SubclassControl(this, IDC_CHECKBOX);
     m_aeroControls.SubclassOkCancel(this);
 
 #ifdef DEBUG
@@ -90,18 +93,30 @@ BOOL CInputLogDlg::OnInitDialog()
             m_cInput.Call(SCI_SETEDGEMODE, EDGE_NONE);
             m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
         }
-        m_cInput.SetText(m_pProjectProperties->sLogTemplate);
+        m_cInput.SetText(m_pProjectProperties->GetLogMsgTemplate(m_sSVNAction));
     }
 
     CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
     CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
 
     SetDlgItemText(IDC_ACTIONLABEL, m_sActionText);
+    if (!m_sTitleText.IsEmpty())
+        SetWindowText(m_sTitleText);
+    if (!m_sCheckText.IsEmpty())
+    {
+        SetDlgItemText(IDC_CHECKBOX, m_sCheckText);
+        GetDlgItem(IDC_CHECKBOX)->ShowWindow(SW_SHOW);
+    }
+    else
+    {
+        GetDlgItem(IDC_CHECKBOX)->ShowWindow(SW_HIDE);
+    }
 
     AddAnchor(IDC_ACTIONLABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_GROUPBOX, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_HISTORY, TOP_LEFT);
     AddAnchor(IDC_INPUTTEXT, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_CHECKBOX, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     EnableSaveRestore(_T("InputLogDlg"));
@@ -184,7 +199,7 @@ void CInputLogDlg::OnBnClickedHistory()
     {
         if (HistoryDlg.GetSelectedText().Compare(m_cInput.GetText().Left(HistoryDlg.GetSelectedText().GetLength()))!=0)
         {
-            if ((m_pProjectProperties)&&(m_pProjectProperties->sLogTemplate.Compare(m_cInput.GetText())!=0))
+            if ((m_pProjectProperties)&&(m_pProjectProperties->GetLogMsgTemplate(m_sSVNAction).Compare(m_cInput.GetText())!=0))
                 m_cInput.InsertText(HistoryDlg.GetSelectedText(), !m_cInput.GetText().IsEmpty());
             else
                 m_cInput.SetText(HistoryDlg.GetSelectedText());

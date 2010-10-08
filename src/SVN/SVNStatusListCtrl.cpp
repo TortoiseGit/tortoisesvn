@@ -41,7 +41,7 @@
 #include "Registry.h"
 #include "SVNStatus.h"
 #include "SVNHelpers.h"
-#include "InputDlg.h"
+#include "InputLogDlg.h"
 #include "ShellUpdater.h"
 #include "SVNAdminDir.h"
 #include "IconMenu.h"
@@ -3497,22 +3497,23 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     CTSVNPathList itemsToLock;
                     FillListOfSelectedItemPaths(itemsToLock);
-                    CInputDlg inpDlg;
-                    inpDlg.m_sTitle.LoadString(IDS_MENU_LOCK);
-                    CStringUtils::RemoveAccelerators(inpDlg.m_sTitle);
-                    inpDlg.m_sHintText.LoadString(IDS_LOCK_MESSAGEHINT);
-                    inpDlg.m_sCheckText.LoadString(IDS_LOCK_STEALCHECK);
+                    CInputLogDlg inpDlg;
+                    CString sTitle = CString(MAKEINTRESOURCE(IDS_MENU_LOCK));
+                    CStringUtils::RemoveAccelerators(sTitle);
+                    inpDlg.SetTitleText(sTitle);
+                    inpDlg.SetActionText(CString(MAKEINTRESOURCE(IDS_LOCK_MESSAGEHINT)));
+                    inpDlg.SetCheckText(CString(MAKEINTRESOURCE(IDS_LOCK_STEALCHECK)));
                     ProjectProperties props;
                     props.ReadPropsPathList(itemsToLock);
                     props.nMinLogSize = 0;      // the lock message is optional, so no minimum!
-                    inpDlg.m_pProjectProperties = &props;
+                    inpDlg.SetProjectProperties(&props, PROJECTPROPNAME_LOGTEMPLATELOCK);
                     if (inpDlg.DoModal()==IDOK)
                     {
                         CSVNProgressDlg progDlg;
                         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
-                        progDlg.SetOptions(inpDlg.m_iCheck ? ProgOptForce : ProgOptNone);
+                        progDlg.SetOptions(inpDlg.GetCapture() ? ProgOptForce : ProgOptNone);
                         progDlg.SetPathList(itemsToLock);
-                        progDlg.SetCommitMessage(inpDlg.m_sInputText);
+                        progDlg.SetCommitMessage(inpDlg.GetLogMessage());
                         progDlg.DoModal();
                         // refresh!
                         CWnd* pParent = GetParent();

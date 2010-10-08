@@ -1486,7 +1486,7 @@ void CRepositoryBrowser::OnDelete()
     CWaitCursorEx wait_cursor;
     CInputLogDlg input(this);
     input.SetUUID (repositories[0].uuid);
-    input.SetProjectProperties(&m_ProjectProperties);
+    input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEDEL);
     CString hint;
     if (urlList.GetCount() == 1)
         hint.Format(IDS_INPUT_REMOVEONE, (LPCTSTR)urlList[0].GetFileOrDirectoryName());
@@ -2035,7 +2035,7 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 
     CInputLogDlg input(this);
     input.SetUUID (pItem->repository.uuid);
-    input.SetProjectProperties(&m_ProjectProperties);
+    input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEMOVE);
     CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath.Left(pItem->absolutepath.ReverseFind('/')+1)+pDispInfo->item.pszText)));
     if (!targetUrl.IsValidOnWindows())
     {
@@ -2093,7 +2093,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 
     CInputLogDlg input(this);
     input.SetUUID(pItem->repository.uuid);
-    input.SetProjectProperties(&m_ProjectProperties);
+    input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEMOVE);
     CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->url.Left(pItem->url.ReverseFind('/')+1)+pTVDispInfo->item.pszText)));
     if (!targetUrl.IsValidOnWindows())
     {
@@ -2316,7 +2316,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
         // drag-n-drop inside the repobrowser
         CInputLogDlg input(this);
         input.SetUUID(m_repository.uuid);
-        input.SetProjectProperties(&m_ProjectProperties);
+        input.SetProjectProperties(&m_ProjectProperties, dwEffect == DROPEFFECT_COPY ? PROJECTPROPNAME_LOGTEMPLATEBRANCH : PROJECTPROPNAME_LOGTEMPLATEMOVE);
         CString sHint;
         if (pathlist.GetCount() == 1)
         {
@@ -2425,7 +2425,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
         }
 
         CInputLogDlg input(this);
-        input.SetProjectProperties(&m_ProjectProperties);
+        input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEIMPORT);
         input.SetUUID(m_repository.root);
         CString sHint;
         if (pathlist.GetCount() == 1)
@@ -3033,7 +3033,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 CWaitCursorEx wait_cursor;
                 CInputLogDlg input(this);
                 input.SetUUID(selection.GetRepository(0).uuid);
-                input.SetProjectProperties(&m_ProjectProperties);
+                input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEDEL);
                 CString hint;
                 if (selection.GetPathCount (0) == 1)
                     hint.Format(IDS_INPUT_REMOVEONE, (LPCTSTR)selection.GetURL (0, 0).GetFileOrDirectoryName());
@@ -3086,7 +3086,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CString filename = svnPath.GetFileOrDirectoryName();
                     CInputLogDlg input(this);
                     input.SetUUID(selection.GetRepository(0).uuid);
-                    input.SetProjectProperties(&m_ProjectProperties);
+                    input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEIMPORT);
 
                     const CTSVNPath& url = selection.GetURL (0, 0);
                     CString sHint;
@@ -3135,7 +3135,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CString filename = path.GetFileOrDirectoryName();
                     CInputLogDlg input(this);
                     input.SetUUID(selection.GetRepository(0).uuid);
-                    input.SetProjectProperties(&m_ProjectProperties);
+                    input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEIMPORT);
 
                     const CTSVNPath& url = selection.GetURL (0, 0);
                     CString sHint;
@@ -3215,7 +3215,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CWaitCursorEx wait_cursor;
                     CInputLogDlg input(this);
                     input.SetUUID(selection.GetRepository(0).uuid);
-                    input.SetProjectProperties(&m_ProjectProperties);
+                    input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEBRANCH);
                     CString sHint;
                     sHint.FormatMessage(IDS_INPUT_COPY, (LPCTSTR)path.GetSVNPathString(), (LPCTSTR)dlg.m_name);
                     input.SetActionText(sHint);
@@ -3288,7 +3288,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CWaitCursorEx wait_cursor;
                     CInputLogDlg input(this);
                     input.SetUUID(selection.GetRepository(0).uuid);
-                    input.SetProjectProperties(&m_ProjectProperties);
+                    input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEMKDIR);
                     CString sHint;
                     sHint.Format(IDS_INPUT_MKDIR, (LPCTSTR)(path.GetSVNPathString()+_T("/")+dlg.m_name.Trim()));
                     input.SetActionText(sHint);

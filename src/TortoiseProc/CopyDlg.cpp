@@ -206,6 +206,8 @@ BOOL CCopyDlg::OnInitDialog()
 
     if (!m_sLogMessage.IsEmpty())
         m_cLogMessage.SetText(m_sLogMessage);
+    else
+        m_cLogMessage.SetText(m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH));
 
     m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKALL);
     m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKNONE);
@@ -589,7 +591,7 @@ void CCopyDlg::OnCancel()
             InterlockedExchange(&m_bThreadRunning, FALSE);
         }
     }
-    if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText()) != 0)
+    if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH).Compare(m_cLogMessage.GetText()) != 0)
         m_History.AddEntry(m_cLogMessage.GetText());
     m_History.Save();
     CResizableStandAloneDialog::OnCancel();
@@ -681,7 +683,7 @@ void CCopyDlg::OnBnClickedHistory()
     {
         if (historyDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
         {
-            if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText())!=0)
+            if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH).Compare(m_cLogMessage.GetText())!=0)
                 m_cLogMessage.InsertText(historyDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
             else
                 m_cLogMessage.SetText(historyDlg.GetSelectedText());

@@ -33,9 +33,12 @@ public:
     CInputLogDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CInputLogDlg();
 
-    void SetProjectProperties(ProjectProperties * pProps) {m_pProjectProperties = pProps;}
+    void SetProjectProperties(ProjectProperties * pProps, const CStringA& sAction) { m_pProjectProperties = pProps; m_sSVNAction = sAction; }
     void SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
     void SetActionText(const CString& sAction) {m_sActionText = sAction;}
+    void SetTitleText(const CString& sTitle) { m_sTitleText = sTitle; }
+    void SetCheckText(const CString& sCheck) { m_sCheckText = sCheck; }
+    int GetCheck() { return m_iCheck; }
     CString GetLogMessage() {return m_sLogMsg;}
     void SetForceFocus(bool force) {m_bForceFocus = force;}
 
@@ -59,9 +62,13 @@ private:
 private:
     CSciEdit            m_cInput;
     ProjectProperties * m_pProjectProperties;
+    CStringA            m_sSVNAction;
     CFont               m_logFont;
     CString             m_sLogMsg;
     CString             m_sUUID;
     CString             m_sActionText;
+    CString             m_sTitleText;
+    CString             m_sCheckText;
+    int                 m_iCheck;
     bool                m_bForceFocus;
 };
