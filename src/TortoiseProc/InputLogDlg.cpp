@@ -104,7 +104,7 @@ BOOL CInputLogDlg::OnInitDialog()
     AddAnchor(IDC_INPUTTEXT, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
-    EnableSaveRestore(_T("InputDlg"));
+    EnableSaveRestore(_T("InputLogDlg"));
     if (hWndExplorer)
         CenterWindow(CWnd::FromHandle(hWndExplorer));
 
