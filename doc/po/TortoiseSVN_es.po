@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-10-05 19:46 +0000\n"
-"PO-Revision-Date: 2010-10-06 17:17-0300\n"
+"PO-Revision-Date: 2010-10-07 14:12-0300\n"
 "Last-Translator: Tomás Christie <tommychristie@gmail.com>\n"
 "Language-Team: Tommy\n"
 "Language: es\n"
@@ -6636,7 +6636,6 @@ msgstr ""
 
 #.(term)
 #.(term)
-#, fuzzy
 msgid "Blame..."
 msgstr "Autoría..."
 
@@ -9647,10 +9646,27 @@ msgstr "Carpetas externas"
 #.(para)
 msgid "Let's say you check out a working copy of <filename>/project1</filename> to <filename>D:\\dev\\project1</filename>. Select the folder <filename>D:\\dev\\project1</filename>, <action>right click</action> and choose <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Properties</guimenuitem></menuchoice> from the context menu. The Properties Dialog comes up. Then go to the Subversion tab. There, you can set properties. Click <guibutton>Properties...</guibutton>. In the properties dialog, either double click on the <literal>svn:externals</literal> if it already exists, or click on the <guibutton>New...</guibutton> button and select <literal>externals</literal> from the menu. To add a new external, click the <guibutton>New...</guibutton> and then fill in the required information in the shown dialog."
 msgstr ""
+"Imaginemos que usted ha obtenido la copia de trabajo de "
+"<filename>/project1</filename> a <filename>D:\\dev\\project1</filename>. "
+"Seleccione la carpeta <filename>D:\\dev\\project1</filename>, <action>botón "
+"derecho</action> y seleccione <menuchoice><guimenu>Menu "
+"Windows</guimenu><guimenuitem>Propiedades</guimenuitem></menuchoice> del "
+"menú contextual. Aparecerá el diálogo de propiedades. Vaya a la pestaña de "
+"subversion. Alli podrá establecer propiedades. Presione "
+"<guibutton>Propiedades...</guibutton>. En el diálogo de propiedades, o bien "
+"haga doble clic o <literal>svn:externos</literal> si ya existe, o presione "
+"sobre el botón <guibutton>Nuevo...</guibutton> y seleccione "
+"<literal>externos</literal> del menu. Para agregar un externo nuevo, "
+"presione <guibutton>Nuevo...</guibutton> y luego complete la información "
+"requerida en el diálogo."
 
 #.(para)
 msgid "URLs must be properly escaped or they will not work, e.g. you must replace each space with <literal>%20</literal>."
 msgstr ""
+"Los URLs deberán de estar adecuadamente escapados o de lo contrario, no "
+"funcionarán, por ejemplo: usted debe de reemplazar cada espacio con "
+"<literal>%20</literal>, tal y como se muestra en el segundo ejemplo "
+"anterior."
 
 #.(para)
 msgid "If you want the local path to include spaces or other special characters, you can enclose it in double quotes, or you can use the <literal>\\</literal> (backslash) character as a Unix shell style escape character preceding any special character. Of course this also means that you must use <literal>/</literal> (forward slash) as a path delimiter. Note that this behaviour is new in Subversion 1.6 and will not work with older clients."
@@ -9813,6 +9829,7 @@ msgstr ""
 #.(para)
 msgid "You can also specify a peg revision for the URL if required."
 msgstr ""
+"Usted también puede especificar una versión gancho para la URL requerida."
 
 #.(para)
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
