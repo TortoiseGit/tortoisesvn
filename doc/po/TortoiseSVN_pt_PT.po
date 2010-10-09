@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-09-23 19:41 +0000\n"
-"PO-Revision-Date: 2010-09-24 15:36-0000\n"
+"POT-Creation-Date: 2010-10-05 19:46 +0000\n"
+"PO-Revision-Date: 2010-10-09 02:59-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -800,8 +800,8 @@ msgid "In other words, the repository's root directory has two subdirectories: <
 msgstr "Noutras palavras, a pasta raiz do repositório terá duas subpastas: <filename>paint</filename> e <filename>calc</filename>."
 
 #. (para)
-msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
-msgstr "Para obteres uma cópia de trabalho, terás de efectuar <firstterm>checkout</firstterm> nalgumas pastas do repositório. (O termo emphasis>checkout</emphasis> pode soar como tendo algo a ver com bloquear ou reservar recursos, mas não tem; Simplesmente cria uma cópia privada do projecto, para ti)."
+msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you.)"
+msgstr "Para obter uma cópia de trabalho, terás de efectuar <firstterm>checkout</firstterm> numa sub-árvore do repositório. (O termo emphasis>checkout</emphasis> pode soar como tendo a ver com algo como bloquear ou reservar recursos, mas não tem; Simplesmente cria uma cópia privada do projecto para ti.)"
 
 #. (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
@@ -3186,8 +3186,8 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr "Se SVN exportares para uma cópia de trabalho parcial (i.e, escolhendo outra opção para além da <literal>totalmente recursiva</literal> relativamente á profundidade de exportação), poderás resgatar subpastas adicionais, utilizando o navegador do repositório (<xref linkend=\"tsvn-dug-repobrowser\"/>) ou a caixa de diálogo verificar modificações (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 
 #. (para)
-msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
-msgstr "No explorador do Windows, <action>clicar com o botão direito</action> na pasta em checkout e usar o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Navegador de Repositório</guimenuitem></menuchoice> para mostrar o navegador de repositório. Seleccionar a subpasta que gostarias de adicionar à tua cópia de trabalho e então usar, <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Actualizar item para revisão...</guimenuitem></menuchoice>. Esse menu apenas será visível se o item seleccionado ainda não existir na tua cópia de trabalho, mas o item pai já exista. "
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
+msgstr "No explorador do Windows, <action>clicar à direita</action> na pasta em checkout, e usar o <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Navegador de Repositório</guimenuitem></menuchoice> para mostrar o navegador de repositório. Selecciona a subpasta que gostarias de adicionar à tua cópia de trabalho e usa então, <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Actualizar item para revisão...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
@@ -7975,8 +7975,8 @@ msgid "For the same reason, project properties will not be propagated automatica
 msgstr "Pela mesma razão, as propriedades de projecto não serão propagadas automaticamente quando uma pasta filho é adicionada usando o navegador de repositório."
 
 #. (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "A integração com o controlador de assuntos não está restricta ao TortoiseSVN; pode também ser usada por qualquer cliente Subversion. Para mais informações, consulta o <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> completo no repositório fonte do TortoiseSVN. ( <xref linkend=\"tsvn-preface-source\"/> explica-te como aceder ao repositório)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "A integração com o gestor de problemas não está restricta ao TortoiseSVN; poderá também ser usada por qualquer outro cliente Subversion. Para mais informações, consulta o <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> no repositório fonte do TortoiseSVN. ( <xref linkend=\"tsvn-preface-source\"/> explica-te como aceder ao repositório.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -7987,8 +7987,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "A secção anterior ocupa-se com a adição da informação do problema nas mensagens de registo. Mas se tu precisares de obter informações do teu gestor de problemas? A caixa de diálogo submeter tem um interface COM que permite a integração com um programa externo, que consegue comunicar com o teu gestor. Tipicamente tu poderás querer consultar o gestor para obter a lista de problemas abertos atribuídos a ti, de modo a que possas seleccionar os problemas que estarão a ser tratados nesta submissão."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Tal interface, qualquer que seja, é claro altamente específica ao teu sistema de gestão de problemas, pelo que não poderemos fornecer esta parte e descrever como criar tal programa está fora do âmbito deste manual. A definição de interface e amostras de plugins em C# e C++/ATL podem ser obtidas na pasta <literal>contrib</literal> em <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica-te como aceder ao repositório). Um resumo da API é também fornecido em <xref linkend=\"tsvn-ibugtraqprovider\"/> Outro exemplo (funcional) de plugin em C# é o <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> que implementa o interface COM necessário para interagir com o gestor de assuntos do <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.) A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Tal interface, qualquer que seja, será altamente específica ao teu sistema de gestão de problemas, pelo que não te poderemos fornecer esta parte, e a descrição de como criar tal programa está fora do âmbito deste manual. A definição de interface e amostras de plugins em C# e C++/ATL podem ser obtidas na pasta <literal>contrib</literal> em <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica-te como aceder ao repositório). Um resumo da API é também fornecido em <xref linkend=\"tsvn-ibugtraqprovider\"/> Outro exemplo (funcional) de plugin em C# é o <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> que implementa um interface COM necessário para interagir com o gestor de assuntos do <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9488,8 +9488,8 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr "Normalmente tu quererás esconder as caixas feias de DOS, enquanto o script corre, então a <guilabel>Ocultar o script durante a sua execução</guilabel> está verificada por defeito."
 
 #. (para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Exemplos de scripts de gancho de cliente podem ser encontrados na pasta <literal>contrib</literal> no <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>repositório TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "Exemplos de scripts de gancho de cliente podem ser encontrados na pasta <literal>contrib</literal> no <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>repositório TortoiseSVN</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório.)"
 
 #. (para)
 msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
@@ -9512,8 +9512,8 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr "<placeholder-1/> Clica no <guibutton>Adicionar...</guibutton> para utilizar o plugin com uma cópia de trabalho em particular. Aqui podes especificar o caminho da cópia de trabalho, escolher qual o plugin a usar a partir de um lista drop-down com todos os controladores de problemas registados, e qualquer parâmetro a passar. Os parâmetros serão específicos ao plugin, mas poderão incluir o teu nome de utilizador no controlador de problemas, para que o plugin possa consultar os problemas que te estão atribuídos."
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr "Esta propriedade especifica o UUID COM do IBugtraqProvider, por exemplo <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (Este exemplo é o UUID do <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>fornecedor Gurtle bugtraq</citetitle></ulink>, que é o fornecedor para o controlador de problemas <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker.)"
+msgstr "Esta propriedade especifica o UUID COM do IBugtraqProvider, por exemplo <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (Este exemplo é o UUID do <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>fornecedor do Gurtle bugtraq</citetitle></ulink>, que é o fornecedor para o controlador de problemas <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>.)"
 
 #. (para)
 msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
@@ -9737,8 +9737,8 @@ msgid "The SubWCRev Command Line"
 msgstr "A Linha de Comando SubWCRev"
 
 #. (para)
-msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
-msgstr "O SubWCRev, por defeito, lê o estado Subversion de todos os ficheiros numa cópia de trabalho, incluindo os externos. Ele grava o número da mais alta revisão submetida que foi encontrada e a marca temporal dessa revisão, também grava se existem alterações locais na cópia de trabalho ou misturadas, revisões actualizadas."
+msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, it also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
+msgstr "O SubWCRev lê por defeito o estado Subversion de todos os ficheiros numa cópia de trabalho, incluindo os externos. Ele grava o número da mais alta revisão submetida que for encontrada e também a sua marca temporal, também regista a existência de alterações locais na cópia de trabalho ou, actualizações de revisões misturadas. O número de revisão, intervalo de revisões actualizadas e o estado de modificações, são mostrados no stdout."
 
 #. (para)
 msgid ""
@@ -9869,8 +9869,8 @@ msgid "Replaced with the current system date/time. This can be used to indicate 
 msgstr "Substituída pela data/tempo corrente do sistema. Isto poderá ser usado para indicar a altura de construção. A formatação do tempo pode ser usada como descrita para o <placeholder-1/>."
 
 #. (entry)
-msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
-msgstr "Substituída pelo intervalo de revisões actualizada na cópia de trabalho. Se a cópia de trabalho está num estado inconsistente, isto poderá ser apenas uma revisão. Se a cópia de trabalho contem revisões misturadas, seja devido a estar desactualizada, ou devido a uma actualização para revisão deliberada, então o intervalo de revisões será mostrado no formato 100:200"
+msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200."
+msgstr "Substituída pelo intervalo de revisão, actualizada na cópia de trabalho. Se a cópia de trabalho está num estado inconsistente, esta será apenas uma única revisão. Se a cópia de trabalho contem uma miscelânea de revisões, seja por estar desactualizada ou devido a uma actualização para uma revisão deliberada, então o intervalo de revisões será mostrado no formato 100:200."
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
@@ -10076,12 +10076,12 @@ msgid "$WCREV$"
 msgstr "$WCREV$"
 
 #. (entry)
-msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
-msgstr "A mais alta revisão de submissão na cópia de trabalho. Equivalente ao <placeholder-1/>"
+msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>."
+msgstr "A mais alta revisão submetida, na cópia de trabalho. Equivalente ao <placeholder-1/>."
 
 #. (entry)
-msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
-msgstr "A data/tempo de submissão da mais alta revisão de submissão. Equivalente ao <placeholder-1/>"
+msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>."
+msgstr "A data/tempo de submissão da mais alta revisão submetida. Equivalente ao <placeholder-1/>."
 
 #. (entry)
 msgid "The author of the highest commit revision, that is, the last person to commit changes to the working copy."
@@ -10095,6 +10095,12 @@ msgstr "$WCRANGE$"
 #. (entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
 msgstr "A revisão de actualização mínima, como mostrada em <placeholder-1/>"
+
+#. (row)
+#. (row)
+#. (row)
+msgid "<placeholder-1/>."
+msgstr "<placeholder-1/>."
 
 #. (entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
@@ -10113,8 +10119,8 @@ msgid "$WCURL$"
 msgstr "$WCURL$"
 
 #. (entry)
-msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
-msgstr "Substituído com o URL do repositório, do caminho de cópia de trabalho, usado em <placeholder-1/>. Equivalente a <placeholder-2/>"
+msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>."
+msgstr "Substituído com o URL do repositório do caminho de cópia de trabalho usada em <placeholder-1/>. Equivalente a <placeholder-2/>."
 
 #. (entry)
 msgid "True if the item is versioned."
@@ -10455,8 +10461,8 @@ msgid "To get a tighter integration with issue trackers than by simply using the
 msgstr "Para obter uma integração mais intima com os seguidores de problemas, do que usar simplesmente as propriedades <literal>bugtraq:</literal>, o TortoiseSVN pode fazer uso de plugins COM. Com tais plugins é possível adquirir informação directamente do seguidor de problemas, interagir com o utilizador e providenciar informação de volta ao TortoiseSVN sobre problemas abertos, verificar mensagens de registo introduzidas pelo utilizador, ou mesmo correr acções, após uma submissão com sucesso, para e.g. fechar um problema."
 
 #. (para)
-msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Nós não podemos fornecer informação e tutoriais em como implementar um objecto COM na tua linguagem de programação preferida, mas temos exemplos de plugins em C++/ATL e C#, no nosso repositório na pasta  <filename>contrib/issue-tracker-plugins</filename>. Nessa pasta poderás também encontrar requeridos ficheiros de include que necessitas para construir o teu plugin. . (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório)."
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "Nós não podemos fornecer informação e tutoriais em, como implementar um objecto COM na tua linguagem de programação preferida, mas temos exemplos de plugins em C++/ATL e C#, na pasta  <filename>contrib/issue-tracker-plugins</filename> do no nosso repositório. Nessa pasta poderás também encontrar os ficheiros de include reueridos  para construires o teu plugin. . (<xref linkend=\"tsvn-preface-source\"/> explica como aceder ao repositório.)"
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
