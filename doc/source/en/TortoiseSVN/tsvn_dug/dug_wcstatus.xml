@@ -114,7 +114,34 @@
             <xref linkend="tsvn-app-internals-overlays"/>.
         </para>
     </sect2>
-    <sect2>
+    <sect2 id="tsvn-dug-wcstatus-winprops">
+        <title>Detailed Status</title>
+        <indexterm>
+            <primary>windows properties</primary>
+        </indexterm>
+        <para>
+            <figure id="tsvn-dug-propertypage-dia-1">
+                <title>Explorer property page, Subversion tab</title>
+                <graphic fileref="../images/Properties.png"/>
+            </figure>
+            Sometimes you want to have more detailed information
+            about a file/directory than just the icon overlay.
+            You can get all the information Subversion provides in the
+            explorer properties dialog. Just select the file or
+            directory and select
+            <menuchoice>
+                <guimenu>Windows Menu</guimenu>
+                <guimenuitem>properties</guimenuitem>
+            </menuchoice>
+            in the context menu (note: this is the normal properties menu entry
+            the explorer provides, not the one in the TortoiseSVN submenu!).
+            In the properties dialog box TortoiseSVN has added a new
+            property page for files/folders under Subversion control,
+            where you can see all relevant information about the
+            selected file/directory.
+        </para>
+    </sect2>
+    <sect2 id="tsvn-dug-wcstatus-columns">
         <title>TortoiseSVN Columns In Windows Explorer</title>
         <indexterm>
             <primary>Explorer Columns</primary>
