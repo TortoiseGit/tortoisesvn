@@ -139,6 +139,23 @@
             as resolved.
         </para>
     </sect2>
+    <sect2 id="tsvn-dug-conflicts-prop">
+        <?dbhh topicname="HIDD_EDITPROPCONFLICT"?>
+        <title>Property Conflicts</title>
+        <para>
+            A property conflict occurs when two or more developers have changed the same
+            property. As with file content, resolving the conflict can only be done by
+            the developers.
+        </para>
+        <para>
+            If one of the changes must override the other then choose the option to
+            <guilabel>Resolve using local property</guilabel> or
+            <guilabel>Resolve using remote property</guilabel>.
+            If the changes must be merged then select
+            <guilabel>Manually edit property</guilabel>, sort out what the property
+            value should be and mark as resolved.
+        </para>
+    </sect2>
     <sect2 id="tsvn-dug-conflicts-tree">
         <?dbhh topicname="HIDD_TREECONFLICTEDITOR"?>
         <title>Tree Conflicts</title>
