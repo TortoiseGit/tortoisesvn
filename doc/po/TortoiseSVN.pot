@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-10-05 19:46 +0000\n"
+"POT-Creation-Date: 2010-10-08 19:44 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5323,6 +5323,46 @@ msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rule
 msgstr ""
 
 #.(para)
+msgid "There are also action specific templates which you can use instead of <literal>tsvn:logtemplate</literal>. The action specific templates are used if set, but <literal>tsvn:logtemplate</literal> will be used if no action specific template is set."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:logtemplatecommit</literal> is used for all commits from a working copy."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:logtemplatebranch</literal> is used when you create a branch/tag, or when you copy files or folders directly in the repository browser."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:logtemplatedelete</literal> is used when deleting items directly in the repository browser."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving items in the repository browser."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories in the repository browser."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties in the repository browser."
+msgstr ""
+
+#.(para)
+msgid "<literal>tsvn:logtemplatelock</literal> is used when getting a lock."
+msgstr ""
+
+#.(para)
+msgid "The action specific templates are: <placeholder-1/>"
+msgstr ""
+
+#.(para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files. The format is the same as for subversion autoprops, e.g. <literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two properties on files with the <literal>.sh</literal> extension."
 msgstr ""
 
@@ -6162,6 +6202,10 @@ msgstr ""
 
 #.(para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
+msgstr ""
+
+#.(para)
+msgid "You can set the project property <literal>tsvn:logtemplatelock</literal> to provide a templated message for users to fill in as the lock message. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties."
 msgstr ""
 
 #.(para)
