@@ -48,13 +48,13 @@
             question, and search for lines starting with the string
             <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>.
             The conflicting area is marked like this:
-    <screen>
-    &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename
-        your changes
-    =======
-        code merged from repository
-    &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision
-    </screen>
+<screen>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename
+    your changes
+=======
+    code merged from repository
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision
+</screen>
             Also, for every conflicted file Subversion places three
             additional files in your directory:
             <variablelist>
