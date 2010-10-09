@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-02 23:08+0800\n"
+"PO-Revision-Date: 2010-10-09 12:54+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1307,8 +1307,8 @@ msgid "&Update"
 msgstr "更新(&U)"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
-msgstr "更新項目至版本(&U)"
+msgid "&Update item to revision..."
+msgstr "更新項目至版本(&U)..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -1509,20 +1509,6 @@ msgstr "<分隔線>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<未命名>"
-
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN 是 shell 延伸程式.\n"
-"它與 Windows 檔案總管整合.\n"
-"要使用 TortoiseSVN 請從檔案總管中右鍵點擊任何目錄\n"
-"以帶出快顯式選單. 從那裡就可以找到所有 TortoiseSVN 的指令\n"
-"並請閱讀說明書!"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -3034,11 +3020,9 @@ msgstr "無法檢查新版!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "無法複製檔案!\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3144,22 +3128,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "無法啟動外部差異比對工具!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "無法啟動外部合併工具!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -4828,6 +4808,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -6157,14 +6141,11 @@ msgid "No"
 msgstr "否"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "未指定命令!\n"
-
 "TortoiseProc.exe 用於 shell extension, 請勿直接執行!"
 
 #. Resource IDs: (81)
@@ -8672,11 +8653,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "Subversion 在進行清理動作時發生錯誤!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9320,14 +9299,11 @@ msgid "The user who owns the lock of the file"
 msgstr "檔案鎖定持有人"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "工作複本已更動!\n"
-
 "請先送交你的變更或是復原."
 
 #. Resource IDs: (81)
@@ -9658,6 +9634,20 @@ msgid ""
 msgstr ""
 "TortoiseSVN 偵測到類似的檔名. 要一起變更 %s\n"
 "的名稱嗎?"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN 是 shell 延伸程式.\n"
+"它與 Windows 檔案總管整合.\n"
+"要使用 TortoiseSVN 請從檔案總管中右鍵點擊任何目錄\n"
+"以帶出快顯式選單. 從那裡就可以找到所有 TortoiseSVN 的指令\n"
+"並請閱讀說明書!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
