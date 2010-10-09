@@ -362,6 +362,66 @@
                         <literal>tsvn:logminsize</literal>, be sure to set the length
                         longer than the template or you will lose the protection mechanism.
                     </para>
+                    <para>
+                        There are also action specific templates which you can use instead
+                        of <literal>tsvn:logtemplate</literal>. The action specific templates
+                        are used if set, but <literal>tsvn:logtemplate</literal> will be
+                        used if no action specific template is set.
+                    </para>
+                    <para>
+                        The action specific templates are:
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    <literal>tsvn:logtemplatecommit</literal> is used
+                                    for all commits from a working copy.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <literal>tsvn:logtemplatebranch</literal> is used
+                                    when you create a branch/tag, or when you copy
+                                    files or folders directly in the repository browser.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <literal>tsvn:logtemplateimport</literal> is used
+                                    for imports.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <literal>tsvn:logtemplatedelete</literal> is used
+                                    when deleting items directly in the repository browser.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <literal>tsvn:logtemplatemove</literal> is used
+                                    when renaming or moving items in the repository browser.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <literal>tsvn:logtemplatemkdir</literal> is used
+                                    when creating directories in the repository browser.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <literal>tsvn:logtemplatepropset</literal> is used
+                                    when modifying properties in the repository browser.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    <literal>tsvn:logtemplatelock</literal> is used
+                                    when getting a lock.
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
                 </listitem>
                 <listitem>
                     <para>
