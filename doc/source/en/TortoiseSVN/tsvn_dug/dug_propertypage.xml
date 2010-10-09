@@ -117,7 +117,8 @@
                 To add a new property, first click on <guilabel>New...</guilabel>.
                 Select the required property name from the menu, and then
                 fill in the required information in the specific property
-                dialog.
+                dialog. These specific property dialogs are described in more
+                detail in <xref linkend="tsvn-dug-propertypage-editors"/>.
             </para>
             <para>
                 To add a property that doesn't have its own dialog, choose
@@ -599,5 +600,143 @@
                 policy, they cannot enforce it.
             </para>
         </caution>
+    </sect2>
+    <sect2 id="tsvn-dug-propertypage-editors">
+        <title>Property Editors</title>
+        <para>
+            Some properties have to use specific values, or be formatted in a specific
+            way in order to be used for automation. To help get the formatting correct,
+            TortoiseSVN presents edit dialogs for some particular properties which
+            show the possible values or break the property into its individual components.
+        </para>
+        <sect3 id="tsvn_dug_propertypage-edit-external">
+            <?dbhh topicname="HIDD_EDITPROPEXTERNALSVALUE"?>
+            <?dbhh topicname="HIDD_EDITPROPEXTERNALS"?>
+            <title>External Content</title>
+            <para>
+                <figure>
+                    <title>svn:externals property page</title>
+                    <graphic fileref="../images/PropEditExternal.png"/>
+                </figure>
+                The <literal>svn:externals</literal> property can be used to
+                pull in other projects from the same repository or a completely
+                different repository as described in
+                <xref linkend="tsvn-dug-externals"/>.
+            </para>
+            <para>
+                You need to define the name of the sub-folder that the external
+                folder is checked out as, and the subversion URL of the external item.
+                You can check out an external at its HEAD revision, so when the external
+                item changes in the repository, your working copy will receive those
+                changes on update. However, if you want the external to reference a
+                particular stable point then you can specify the specific revision to
+                use. IN this case you may also want to specify the same revision as a
+                peg revision. If the external item is renamed at some point in the future
+                then Subversion will not be able to update this item in your working copy.
+                By specifying a peg revision you tell Subversion to look for an item that
+                had that name at the peg revision rather than at HEAD.
+            </para>
+        </sect3>
+        <sect3 id="tsvn_dug_propertypage-edit-keywords">
+            <?dbhh topicname="HIDD_EDITPROPKEYWORDS"?>
+            <title>SVN Keywords</title>
+            <para>
+                <figure>
+                    <title>svn:keywords property page</title>
+                    <graphic fileref="../images/PropEditKeywords.png"/>
+                </figure>
+                Select the keywords that you would like to be expanded in your file.
+            </para>
+        </sect3>
+        <sect3 id="tsvn_dug_propertypage-edit-eol">
+            <?dbhh topicname="HIDD_EDITPROPEOL"?>
+            <title>EOL Style</title>
+            <para>
+                <figure>
+                    <title>svn:eol-style property page</title>
+                    <graphic fileref="../images/PropEditEol.png"/>
+                </figure>
+                Select the end-of-line style that you wish to use and TortoiseSVN will
+                use the correct property value.
+            </para>
+        </sect3>
+        <sect3 id="tsvn_dug_propertypage-edit-bugtraq">
+            <?dbhh topicname="HIDD_EDITPROPKEYWORDS"?>
+            <title>Issue Tracker Integration</title>
+            <para>
+                <figure>
+                    <title>tsvn:bugtraq property page</title>
+                    <graphic fileref="../images/PropEditBugtraq.png"/>
+                </figure>
+            </para>
+        </sect3>
+        <sect3 id="tsvn_dug_propertypage-edit-log-size">
+            <?dbhh topicname="HIDD_EDITPROPTSVNSIZES"?>
+            <title>Log Message Sizes</title>
+            <para>
+                <figure>
+                    <title>Size of log messages property page</title>
+                    <graphic fileref="../images/PropEditLogSize.png"/>
+                </figure>
+                These 3 properties control the formatting of log messages.
+                The first 2 disable the <guibutton>OK</guibutton>OK in the
+                commit or lock dialogs until the message meets the minimum length.
+                The border position shows a marker at the given column width as
+                a guide for projects which have width limits on their log messages.
+                Setting a value to zero will delete the property.
+            </para>
+        </sect3>
+        <sect3 id="tsvn_dug_propertypage-edit-language">
+            <?dbhh topicname="HIDD_EDITPROPTSVNLANG"?>
+            <title>Project Language</title>
+            <para>
+                <figure>
+                    <title>Language property page</title>
+                    <graphic fileref="../images/PropEditLanguage.png"/>
+                </figure>
+                Choose the language to use for spell-checking log messages in the
+                commit dialog. The file lists checkbox comes into effect when you
+                right click in the log message pane and select
+                <guilabel>Paste file list</guilabel>. By default the subversion
+                status will be shown in your local language. When this box is checked
+                the status is always given in English, for projects which require
+                English-only log messages.
+            </para>
+        </sect3>
+        <sect3 id="tsvn_dug_propertypage-edit-mime-type">
+            <?dbhh topicname="HIDD_EDITPROPMIMETYPE"?>
+            <title>MIME-type</title>
+            <para>
+                <figure>
+                    <title>svn:mime-type property page</title>
+                    <graphic fileref="../images/PropEditMimeType.png"/>
+                </figure>
+            </para>
+        </sect3>
+        <sect3 id="tsvn_dug_propertypage-edit-needs-lock">
+            <?dbhh topicname="HIDD_EDITPROPNEEDSLOCK"?>
+            <title>svn:needs-lock</title>
+            <para>
+                <figure>
+                    <title>svn:needs-lock property page</title>
+                    <graphic fileref="../images/PropEditNeedsLock.png"/>
+                </figure>
+                This property simply controls whether a file will be checked out as
+                read-only if there is no lock held for it in the working copy.
+            </para>
+        </sect3>
+        <sect3 id="tsvn_dug_propertypage-edit-exe">
+            <?dbhh topicname="HIDD_EDITPROPEXECUTABLE"?>
+            <title>svn:executable</title>
+            <para>
+                <figure>
+                    <title>svn:executable property page</title>
+                    <graphic fileref="../images/PropEditExe.png"/>
+                </figure>
+                This property controls whether a file will be given executable status
+                when checked out on a Unix/Linux system. It has no effect on a Windows
+                checkout.
+            </para>
+        </sect3>
     </sect2>
 </sect1>
