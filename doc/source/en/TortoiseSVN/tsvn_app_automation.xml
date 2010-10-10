@@ -587,9 +587,11 @@ TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
             <literal>tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue</literal>
         </para>
         <para>
-            with <literal>cmd</literal> being one of the allowed commands and
-            with <literal>paramvalue</literal> being a parameter like <literal>path</literal>
-            or <literal>revision</literal>, depending on the command used.
+            with <literal>cmd</literal> being one of the allowed commands,
+            <literal>parameter</literal> being the name of a parameter like
+            <literal>path</literal> or <literal>revision</literal>, and
+            <literal>paramvalue</literal> being the value to use for that parameter.
+            The list of parameters allowed depends on the command used.
         </para>
         <para>
             The following commands are allowed with <literal>tsvncmd:</literal> URLs:
@@ -607,7 +609,11 @@ TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
             </itemizedlist>
         </para>
         <para>
-            An example URL might look like this:
+            A simple example URL might look like this:
+<programlisting>
+&lt;a href="tsvncmd:command:update?path:c:\svn_wc?rev:1234"&gt;Update&lt;/a&gt;
+</programlisting>
+            or in a more complex case:
 <programlisting>
 &lt;a href="tsvncmd:command:showcompare?
 url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?
