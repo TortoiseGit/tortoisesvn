@@ -137,6 +137,8 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path )
             break;
         default:
             svn_error_clear(err);
+            if (err->apr_err >= APR_OS_START_SYSERR)
+                return false;   // assume unversioned in case we can't even access the path
             return true;
             break;
         }
