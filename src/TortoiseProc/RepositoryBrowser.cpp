@@ -2052,7 +2052,7 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 
         if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath)))),
             targetUrl,
-            true, input.GetLogMessage()))
+            input.GetLogMessage()))
         {
             wait_cursor.Hide();
             ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -2110,7 +2110,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 
         if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->url)))),
             targetUrl,
-            true, input.GetLogMessage()))
+            input.GetLogMessage()))
         {
             wait_cursor.Hide();
             ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -2344,9 +2344,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     bRet = Copy(pathlist, target, srcRev, srcRev, input.GetLogMessage(), true);
             else
                 if (pathlist.GetCount() == 1)
-                    bRet = Move(pathlist, CTSVNPath(target.GetSVNPathString() + _T("/") + targetName), TRUE, input.GetLogMessage(), false);
+                    bRet = Move(pathlist, CTSVNPath(target.GetSVNPathString() + _T("/") + targetName), input.GetLogMessage(), false);
                 else
-                    bRet = Move(pathlist, target, TRUE, input.GetLogMessage(), true);
+                    bRet = Move(pathlist, target, input.GetLogMessage(), true);
             if (!bRet)
             {
                 wait_cursor.Hide();

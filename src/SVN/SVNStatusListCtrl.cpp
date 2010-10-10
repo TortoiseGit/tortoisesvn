@@ -3591,7 +3591,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
                                             svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, true, false, true);
                                         }
-                                        if (!svn.Move(CTSVNPathList(entry1->GetPath()), entry2->GetPath(), true))
+                                        if (!svn.Move(CTSVNPathList(entry1->GetPath()), entry2->GetPath()))
                                         {
                                             MoveFile(entry1->GetPath().GetWinPath(), entry2->GetPath().GetWinPath());
                                             ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

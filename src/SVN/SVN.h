@@ -296,7 +296,6 @@ public:
      *
      * \param srcPathList source path list
      * \param destPath destination path
-     * \param force if true, the move doesn't fail if the source is modified
      * \param message the log message to use if the move is on an url
      * \param move_as_child set to \c true for moving the source
      *                      as a child of the \c destPath if the name of
@@ -305,7 +304,7 @@ public:
      * \return TRUE if successful
      */
     bool Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
-                bool force, const CString& message = _T(""), bool move_as_child = false,
+                const CString& message = _T(""), bool move_as_child = false,
                 bool make_parents = false, const RevPropHash revProps = RevPropHash());
     /**
      * If path is a URL, use the message to immediately

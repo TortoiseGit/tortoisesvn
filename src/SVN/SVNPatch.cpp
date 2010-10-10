@@ -138,8 +138,17 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     m_filePaths.clear();
     m_nRejected = 0;
     m_nStrip = 0;
-    err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-                           true, m_nStrip, false, true, false, patch_func, this, ctx,
+    err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile),     // patch_abspath
+                           CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
+                           true,                                    // dry_run
+                           m_nStrip,                                // strip_count
+                           false,                                   // old_patch_target_names
+                           false,                                   // reverse
+                           true,                                    // ignore_whitespace
+                           false,                                   // remove_tempfiles
+                           patch_func,                              // patch_func
+                           this,                                    // patch_baton
+                           ctx,                                     // client context
                            m_pool, scratchpool);
 
     m_pProgDlg = NULL;
@@ -185,9 +194,18 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
         m_filePaths.clear();
         m_nRejected = 0;
         m_nStrip = 0;
-        err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile), CUnicodeUtils::GetUTF8(m_targetpath),
-            true, m_nStrip, false, true, false, patch_func, this, ctx,
-            m_pool, scratchpool);
+        err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile),     // patch_abspath
+                               CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
+                               true,                                    // dry_run
+                               m_nStrip,                                // strip_count
+                               false,                                   // old_patch_target_names
+                               false,                                   // reverse
+                               true,                                    // ignore_whitespace
+                               false,                                   // remove_tempfiles
+                               patch_func,                              // patch_func
+                               this,                                    // patch_baton
+                               ctx,                                     // client context
+                               m_pool, scratchpool);
 
         apr_pool_destroy(scratchpool);
 

@@ -2743,7 +2743,7 @@ bool CSVNProgressDlg::CmdRename(CString& sWindowTitle, bool& localoperation)
     SetWindowText(sWindowTitle);
     SetBackgroundImage(IDI_RENAME_BKG);
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RENAME)));
-    if (!Move(m_targetPathList, m_url, (m_options & ProgOptForce) != 0, m_sMessage, false, false, m_revProps))
+    if (!Move(m_targetPathList, m_url, m_sMessage, false, false, m_revProps))
     {
         ReportSVNError();
         return false;

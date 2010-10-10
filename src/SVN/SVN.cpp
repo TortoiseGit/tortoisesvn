@@ -636,7 +636,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 }
 
 bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
-               bool force, const CString& message /* = _T("")*/,
+               const CString& message /* = _T("")*/,
                bool move_as_child /* = false*/, bool make_parents /* = false */,
                const RevPropHash revProps /* = RevPropHash() */ )
 {
@@ -650,7 +650,6 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     SVNTRACE (
         Err = svn_client_move6 (srcPathList.MakePathArray(subpool),
                                 destPath.GetSVNApiPath(subpool),
-                                force,
                                 move_as_child,
                                 make_parents,
                                 revPropHash,

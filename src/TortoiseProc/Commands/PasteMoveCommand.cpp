@@ -83,32 +83,11 @@ bool PasteMoveCommand::Execute()
         }
         else
         {
-            if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath, FALSE))
+            if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath))
             {
-                if (svn.Err && (svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE ||
-                    svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
-                {
-                    // file/folder seems to have local modifications. Ask the user if
-                    // a force is requested.
-                    CString temp = svn.GetLastErrorMessage();
-                    CString sQuestion(MAKEINTRESOURCE(IDS_PROC_FORCEMOVE));
-                    temp += _T("\n") + sQuestion;
-                    if (::MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_YESNO)==IDYES)
-                    {
-                        if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath, TRUE))
-                        {
-                            ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-                            return FALSE;       //get out of here
-                        }
-                        CShellUpdater::Instance().AddPathForUpdate(destPath);
-                    }
-                }
-                else
-                {
-                    TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                    ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-                    return FALSE;       //get out of here
-                }
+                TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+                ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                return FALSE;       //get out of here
             }
             else
                 CShellUpdater::Instance().AddPathForUpdate(destPath);
