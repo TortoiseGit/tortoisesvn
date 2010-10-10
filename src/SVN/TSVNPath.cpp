@@ -392,6 +392,14 @@ void CTSVNPath::UpdateAttributes() const
             m_fileSize = 0;
             m_bExists = false;
         }
+        else if (err == ERROR_NOT_READY)
+        {
+            // this is a device root (e.g. a DVD drive with no media in it)
+            m_bIsDirectory = true;
+            m_lastWriteTime = 0;
+            m_fileSize = 0;
+            m_bExists = true;
+        }
         else
         {
             m_bIsDirectory = false;
