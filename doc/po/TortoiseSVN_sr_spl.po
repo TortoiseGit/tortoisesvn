@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-09-23 19:41 +0000\n"
-"PO-Revision-Date: 2010-09-25 23:10+0100\n"
+"POT-Creation-Date: 2010-10-08 19:44 +0000\n"
+"PO-Revision-Date: 2010-10-11 20:18+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -800,8 +800,8 @@ msgid "In other words, the repository's root directory has two subdirectories: <
 msgstr "Drugim rečima, koreni imenik spremišta ima dva podimenika: <filename>paint</filename> and <filename>calc</filename>."
 
 #. (para)
-msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
-msgstr "Da biste dobili radnu kopiju morate <firstterm>preuzeti</firstterm> neko podstablo spremišta. (Termin <emphasis>preuzeti</emphasis> može zvučati kao nešto što se radi zaključavanjem ili rezervisanjem resursa, ali to nije to; to jednostavno kreira privatnu kopiju projekta za vas)."
+msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you.)"
+msgstr "Da biste dobili radnu kopiju morate <firstterm>preuzeti</firstterm> neko podstablo spremišta. (Termin <emphasis>preuzeti</emphasis> može zvučati kao nešto što se radi zaključavanjem ili rezervisanjem resursa, ali to nije to; to jednostavno kreira privatnu kopiju projekta za vas.)"
 
 #. (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
@@ -3089,7 +3089,7 @@ msgstr "Ponekad vam je potrebno da imate fajl pod kontrolom verzija koji sadrži
 
 #. (para)
 msgid "In such cases we suggest to use <emphasis>template</emphasis> files. You create a file which contains all the data your developers will need, add that file to version control and let the developers check this file out. Then, each developer has to <emphasis>make a copy</emphasis> of that file and rename that copy. After that, modifying the copy is not a problem anymore."
-msgstr "U takvim slučajevima sugeriramo da se koristi  <emphasis>templejt</emphasis> fajlovi. Kreirajte fajl koji sadrži sve podatke koji su potrebni programerima, dodajte taj fajl u kontrolu verzija i pustite da programeri provere ovaj fajl. Zatim, svaki programer je <emphasis>napravio kopiju</emphasis> tog fajla i preimenovao tu kopiju. Posle toga izmene kopija nisu više problem."
+msgstr "U takvim slučajevima sugeriramo da se koristi  <emphasis>šablon</emphasis> fajlovi. Kreirajte fajl koji sadrži sve podatke koji su potrebni programerima, dodajte taj fajl u kontrolu verzija i pustite da programeri provere ovaj fajl. Zatim, svaki programer je <emphasis>napravio kopiju</emphasis> tog fajla i preimenovao tu kopiju. Posle toga izmene kopija nisu više problem."
 
 #. (para)
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
@@ -3186,8 +3186,8 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr "Ako preuzmete praznu radnu kopiju (tj. izborom nečeg drgog nego <literal>potpuno rekurzivno</literal> za dubinu preuzimanja), možete dostići dodatne subimenike koristeći pretraživač spremišta (<xref linkend=\"tsvn-dug-repobrowser\"/> ili dijalog za proveru izmena (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 
 #. (para)
-msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
-msgstr "U pretraživaču spremišta, <action>Desni klik</action> na preuzeti imenik,  zatim koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Pretrživač</guimenuitem></menuchoice> da pozovete pretraživač spremišta. Nađite subimenik koji želite da dodate vašoj radnoj kopiji, zatim koristite <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem> Ažuriraj stavku po reviziji...</guimenuitem></menuchoice> Taj meni će biti vidljiv samo ako izabrana stavka još ne postoji u vašoj radnoj kopiji, ali predačka stavka postoji. "
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
+msgstr "U vindouz  pretraživaču, <action>Desni klik</action> na preuzeti imenik,  zatim koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Pretrživač</guimenuitem></menuchoice> da pozovete pretraživač spremišta. Nađite subimenik koji želite da dodate vašoj radnoj kopiji, zatim koristite  Ažuriraj stavku po reviziji...</guimenuitem></menuchoice> ."
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
@@ -3381,7 +3381,7 @@ msgstr "Isključivanje stavki iz liste za urezivanje"
 
 #. (para)
 msgid "Sometimes you have versioned files that change frequently but that you really don't want to commit. Sometimes this indicates a flaw in your build process - why are those files versioned? should you be using template files? But occasionally it is inevitable. A classic reason is that your IDE changes a timestamp in the project file every time you build. The project file has to be versioned as it includes all the build settings, but it doesn't need to be committed just because the timestamp changed."
-msgstr "Ponekad imate verzionisane fajlove koji se često menjaju koji vi zaista ne želite urezati. Ponekad ovo ukazuje na protok u vašem procesu gradnje - zašto su ti fajlovi verzionisani? da li biste trebali koristiti model fajlove? Ali srećom to je neizbežno. Klasičan rezon je da vaš IDE menja vremenske markere u projekt fajlu svaki put kad gradite. Fajl projekta treba da bude verzionisan je uključuje sva podešavanja za gradnju, ali on ne treba da bude urezan baš zbog toga što su vremenski markeri promenjeni."
+msgstr "Ponekad imate verzionisane fajlove koji se često menjaju koji vi zaista ne želite urezati. Ponekad ovo ukazuje na protok u vašem procesu gradnje - zašto su ti fajlovi verzionisani? da li biste trebali koristiti šablon fajlove? Ali srećom to je neizbežno. Klasičan rezon je da vaš IDE menja vremenske markere u projekt fajlu svaki put kad gradite. Fajl projekta treba da bude verzionisan je uključuje sva podešavanja za gradnju, ali on ne treba da bude urezan baš zbog toga što su vremenski markeri promenjeni."
 
 #. (para)
 msgid "To help out in awkward cases like this, we have reserved a changelist called <literal>ignore-on-commit</literal>. Any file added to this changelist will automatically be unchecked in the commit dialog. You can still commit changes, but you have to select it manually in the commit dialog."
@@ -6035,6 +6035,46 @@ msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rule
 msgstr "<literal>tsvn:logtemplate</literal>  se koristi sa projektima koji imaju pravila o formatiranju dnevnik poruka. osobine drže multi-linijski tekst string koji će biti ubačen u boks poruka urezivanja kada počnete urezivanje. Zatim možete urediti da uključite željene informacije. Primetio: ako takođe koristite <literal>tsvn:logminsize</literal>, budite sigurni da podesite dužinu veću od modela ili ćete izgubiti zaštitni mehanizam."
 
 #. (para)
+msgid "There are also action specific templates which you can use instead of <literal>tsvn:logtemplate</literal>. The action specific templates are used if set, but <literal>tsvn:logtemplate</literal> will be used if no action specific template is set."
+msgstr "Postoje i specifični šabloni prema akciji koje možete koristiti umesto <literal>tsvn:logtemplate</literal>. Specifični šabloni prema akciji se koriste ako se setuju, ali <literal>tsvn:logtemplate</literal> će biti korišćeno ako nije setovan specifični šablon prema akciji."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatecommit</literal> is used for all commits from a working copy."
+msgstr "<literal>tsvn:logtemplatecommit</literal> je korišćen za sva urezivanja iz radne kopije."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatebranch</literal> is used when you create a branch/tag, or when you copy files or folders directly in the repository browser."
+msgstr "<literal>tsvn:logtemplatebranch</literal> je korišćen kada kreirate grana/oznaka, ili kada kopirate fajlove ili imenike direktno u pretraživaču spremišta."
+
+#. (para)
+msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
+msgstr "<literal>tsvn:logtemplateimport</literal> je korišćen za uvoz."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatedelete</literal> is used when deleting items directly in the repository browser."
+msgstr "<literal>tsvn:logtemplatedelete</literal> je korišćen pri brisanju stavki direktno u pretraživaču spremišta."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving items in the repository browser."
+msgstr "<literal>tsvn:logtemplatemove</literal> je korišćen pri preimenovanju ili pomeranju u pretraživaču spremišta."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories in the repository browser."
+msgstr "<literal>tsvn:logtemplatemkdir</literal> je korišćen pri kreiranju imenika u pretraživaču spremišta."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties in the repository browser."
+msgstr "<literal>tsvn:logtemplatepropset</literal>  je korišćen kada se menjaju osobine u pretraživaču spremišta."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatelock</literal> is used when getting a lock."
+msgstr "<literal>tsvn:logtemplatelock</literal> je korišćen pri zaključavanju."
+
+#. (para)
+msgid "The action specific templates are: <placeholder-1/>"
+msgstr "Akciono specifični šabloni su: <placeholder-1/>"
+
+#. (para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files. The format is the same as for subversion autoprops, e.g. <literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two properties on files with the <literal>.sh</literal> extension."
 msgstr "Subverzija vam omogućava da podesite <quote>autoprops</quote> koji će biti primenjen na novo dodate ili uvezene fajlove, zasnovane na ekstenziji fajla. Ovo zavisi na svakom klijentu koji ima podešen odgovarajuči autoprops u svom subverzionom konfiguracionom fajlu. <literal>tsvn:autoprops</literal> može biti podešen na imeniku i to će biti stopljeno sa korisničkim lokalnim autoprops kada se uvezu ili dodaju fajlovi. Format je isti kao i za subverzioni autoprops, npr. <literal>*.sh = svn:eol-style=native;svn:executable</literal> podešava dve osobine na fajlovima sa <literal>.sh</literal> ekstenzijom."
 
@@ -6917,6 +6957,10 @@ msgid "Select the file(s) in your working copy for which you want to acquire a l
 msgstr "Izaberite fajl(ove) u vašoj radnoj kopiji za koje želite da dobijete katanac, zatim izaberite komandu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Zaključaj...</guimenuitem></menuchoice>. <placeholder-1/> Dijalog se pojavljuje dozvoljavajući da unesete komentar, tako ostali mogu videti zašto ste zaključali fajl. Komentar nije obavezan i trenutno se koristi samo  sa Svnserve osnovanim spremištima. Ako ( i <emphasis>samo</emphasis> i) trebate da ukradete katanac od nekog proverite <guilabel>Još uvek zaključan</guilabel> boks, zatim kliknite na <guibutton>OK</guibutton>."
 
 #. (para)
+msgid "You can set the project property <literal>tsvn:logtemplatelock</literal> to provide a templated message for users to fill in as the lock message. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties."
+msgstr "Možete setovati projekat osobinu <literal>tsvn:logtemplatelock</literal>  da obezbedite šablonizovanu poruku da ih korisnici  popune kao poruke zaključavanja . Pogledajte <xref linkend=\"tsvn-dug-propertypage\"/> za instrukcije o podešavanju osobina projekta."
+
+#. (para)
 msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> sub-folder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
 msgstr "Ako izaberete imenik i onda koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Zaključaj...</guimenuitem></menuchoice> dijalog zaključavanja će se otvoriti sa <emphasis>svakim</emphasis> fajlom u <emphasis>svakom</emphasis> pod-imeniku izabranom za zaključavanje. Ako stvarno želite da zaključate celu hijerarhiju, ovo je način da to uradite, ali ćete postati jako nepopularni među saradnicima ako im zaključate ceo projekat. Koristite pažljivo..."
 
@@ -6974,7 +7018,7 @@ msgstr "Zakačive skripte za zaključavanje"
 
 #. (para)
 msgid "When you create a new repository with Subversion 1.2 or higher, four hook templates are created in the repository <filename>hooks</filename> directory. These are called before and after getting a lock, and before and after releasing a lock."
-msgstr "Kada kreirate novo spremište sa Subverzijom 1.2 ili višom, četiri modela zakačaljki se kreira u spremištu  <filename>zakačaljke</filename> imenik.One se pozivaju pre i posle postavljanja katanca i pre i posle skidanja katanca."
+msgstr "Kada kreirate novo spremište sa Subverzijom 1.2 ili višom, četiri šablona zakačaljki se kreira u spremištu  <filename>zakačaljke</filename> imenik.One se pozivaju pre i posle postavljanja katanca i pre i posle skidanja katanca."
 
 #. (para)
 msgid "It is a good idea to install a <literal>post-lock</literal> and <literal>post-unlock</literal> hook script on the server which sends out an email indicating the file which has been locked. With such a script in place, all your users can be notified if someone locks/unlocks a file. You can find an example hook script <filename>hooks/post-lock.tmpl</filename> in your repository folder."
@@ -7975,8 +8019,8 @@ msgid "For the same reason, project properties will not be propagated automatica
 msgstr "Iz nekih razloga osobine projekta neće se prenositi automatski kada se potomački imenik doda korišćenjem repo pretraživača."
 
 #. (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Problem tragač integracija nije ograničena na TortoiseSVN; to može biti korišćeno sa bilo kojim Subverzionim klijentom. Za više informacija pročitajte potpunije <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Problem Tragač Integracija Specifikacija</citetitle></ulink> u TortoiseSVN izvorno spremište. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako da pristupite spremištu)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "Integracija problem tragača  nije ograničena na TortoiseSVN; to može biti korišćeno sa bilo kojim Subverzionim klijentom. Za više informacija pročitajte potpunije <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Problem Tragač Integracija Specifikacija</citetitle></ulink> u TortoiseSVN izvorno spremište. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako da pristupite spremištu.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -7987,8 +8031,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Prethodni paragraf razmatra dodavanje problem informacija u dnevnik poruka. Ali šta ako vam treba da dobijete informaciju od problem tragača? Dijalog urezivanja ima COM interfejs koji dozvoljava integraciju spoljašnjih programa koji mogu govoriti vašem tragaču. Tipično možete želeti da tražite tragaču da da listu otvorenih problema pridruženih vama, tako da možete odabrati problem koji će biti adresiran pri urezivanju."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Svaki takav interfejs je svakako jako specifično za vaš sistem praćenja, tako da vam ne možemo dati  ovo poglavlje i opisati kako da kreirate takav program jer je van razmatranja ovog uputstva. Definicija interfejsa i jednostavni dodaci u C# i C++/ATL  mogu biti dobijeni iz <literal>contrib</literal> imenika u <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN spremište</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu). Rezultat za API je takođe dat u <xref linkend=\"tsvn-ibugtraqprovider\"/>  Sledeći (radni) primer  jezičak u C# je <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> koji implementira željeni COM interfejs sa <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>  problem tragačem."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.) A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Svaki takav interfejs je svakako jako specifično za vaš sistem praćenja, tako da vam ne možemo dati  ovo poglavlje i opisati kako da kreirate takav program jer je van razmatranja ovog uputstva. Definicija interfejsa i jednostavni dodaci u C# i C++/ATL  mogu biti dobijeni iz <literal>contrib</literal> imenika u <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN spremište</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašnjava kako pristupiti spremištu). Rezultat za API je takođe dat u <xref linkend=\"tsvn-ibugtraqprovider\"/>  Sledeći (radni) primer  jezičak u C# je <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>  koji implementira željeni COM interfejs sa <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>  problem tragačem."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9488,8 +9532,8 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr "Normalno želte da sakrijete ružne DOS boksove dok skript radi, tako <guilabel>Sakri skript dok radi</guilabel> je čekiran podrazumevano."
 
 #. (para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Jednostavna klijent zakačaljka skripta može biti nađeno u  <literal>kontrib</literal> imeniku u <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN spremište</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašljava kako pristupiti spremištu)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "Jednostavna klijent zakačaljka skripta može biti nađeno u  <literal>kontrib</literal> imeniku u <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN spremište</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> objašljava kako pristupiti spremištu.)"
 
 #. (para)
 msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
@@ -9512,8 +9556,8 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr "<placeholder-1/> Kliknite na <guibutton>Dodaj...</guibutton> da koristite jezičak sa posebnom radnom kopijom. Ovde možete specificirati putanju radne kopije, izaberite koji jezičak da se koristi iz padajuće liste svih registrovanih problem tragača, i neke parametre da doda. Parametri će biti specificirani jezičku, ali mogu uključiti vaše korisničko ime za problem tragač  tako da jezičak može tražiti probleme koji su vama ozančeni. "
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
-msgstr "Ovu osobinu određuje COM UUID iz IBagtragačSnabdevač, na primer <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (ovaj primer je UUID od <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, koji je snabdevač za <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>  problem tragač)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker.)"
+msgstr "Ovu osobinu određuje COM UUID iz  IBugtraqProvider, na primer <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (ovaj primer je UUID od <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, koji je snabdevač za <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>  problem tragač.)"
 
 #. (para)
 msgid "This is the same as <literal>bugtraq:provideruuid</literal>, but for the 64-bit version of the IBugtraqProvider."
@@ -9730,14 +9774,14 @@ msgstr "broj verzije u fajlovima"
 
 #. (para)
 msgid "SubWCRev is Windows console program which can be used to read the status of a Subversion working copy and optionally perform keyword substitution in a template file. This is often used as part of the build process as a means of incorporating working copy information into the object you are building. Typically it might be used to include the revision number in an <quote>About</quote> box."
-msgstr "SubWCRev je Vindouz konzolni program koji se može koristiti da se pročita status Subverzione radne kopije i omogući zamena ključnih reči u fajl modelu. Ovo se često koristi kao deo procesa izrade u značenju unošenja informacije radne kopije u objekat koji izrađujete. Tipično to može biti korišženo da se uključi revizioni broj u <quote>Opis programa</quote> boks."
+msgstr "SubWCRev je Vindouz konzolni program koji se može koristiti da se pročita status Subverzione radne kopije i omogući zamena ključnih reči u fajl šablonu. Ovo se često koristi kao deo procesa izrade u značenju unošenja informacije radne kopije u objekat koji izrađujete. Tipično to može biti korišženo da se uključi revizioni broj u <quote>Opis programa</quote> boks."
 
 #. (title)
 msgid "The SubWCRev Command Line"
 msgstr "SubVCRev komandna linija"
 
 #. (para)
-msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
+msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, it also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
 msgstr "SubWCRev čita Subverzioni status svih fajlova u radnoj kopiji, izostavljajući spoljašnje podrazumevano. Zapisuje najveći nađen broj  urezane revizije, i vremensku oznaku urezivanja te revizije. Takođe zapisuje da li postoje lokalne izmene u radnoj kopiji, ili pomešano ažurirane revizije. Revizioni broj, opseg ažuriranja revizija i status izmena su prikazani na stdout."
 
 #. (para)
@@ -9756,7 +9800,7 @@ msgstr "<literal>WorkingCopyPath</literal> je putanja do radne kopije koja se pr
 
 #. (para)
 msgid "If you want SubWCRev to perform keyword substitution, so that fields like repository revision and URL are saved to a text file, you need to supply a template file <literal>SrcVersionFile</literal> and an output file <literal>DstVersionFile</literal> which contains the substituted version of the template."
-msgstr "Ako želite SubWCRev da izvrši zamenu ključne reči, ta polja kao reviziju spremišta i URL se čuvaju u tekst fahlu, potrebno je da obezbedite model fajl <literal>SrcVersionFile</literal> i izlazni fajl <literal>DstVersionFile</literal> koji sadrže zamenjenu verziju modela."
+msgstr "Ako želite SubWCRev da izvrši zamenu ključne reči, ta polja kao reviziju spremišta i URL se čuvaju u tekst fahlu, potrebno je da obezbedite šablon fajl <literal>SrcVersionFile</literal> i izlazni fajl <literal>DstVersionFile</literal> koji sadrže zamenjenu verziju modela."
 
 #. (title)
 #. (title)
@@ -9869,8 +9913,8 @@ msgid "Replaced with the current system date/time. This can be used to indicate 
 msgstr "Zamenjeno sa tekućim sistemskim datum/vreme. Ovo se može koristiti da označi vreme izrade. Formatiranje se može koristiti kao opisano  za <placeholder-1/>."
 
 #. (entry)
-msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
-msgstr "Zamenjeno sa opsegom ažuriranih revizija u radnoj kopiji. Ako je radna kopija u konzistentnom stanju ovo je pojedinačna revizija. Ako radna kopija sadrži mešane revizije, ili zbog toga što je zastarela, ili zato što planski ažurirana-ka-reviziji, onda će opseg biti prikazan u obliku  100:200"
+msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200."
+msgstr "Zamenjeno sa opsegom ažuriranih revizija u radnoj kopiji. Ako je radna kopija u konzistentnom stanju ovo je pojedinačna revizija. Ako radna kopija sadrži mešane revizije, ili zbog toga što je zastarela, ili zato što planski ažurirana-ka-reviziji, onda će opseg biti prikazan u obliku  100:200."
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
@@ -9963,7 +10007,7 @@ msgstr "Primer ključne reči"
 
 #. (para)
 msgid "The example below shows how keywords in a template file are substituted in the output file."
-msgstr "Sledeći primer prikazuje kako ključne reči u model fajlu budu zamenjene u izlazom fajlu."
+msgstr "Sledeći primer prikazuje kako ključne reči u šablon fajlu budu zamenjene u izlazom fajlu."
 
 #. (programlisting)
 #, no-wrap
@@ -10041,7 +10085,7 @@ msgstr ""
 
 #. (para)
 msgid "A file like this will be included in the build so you would expect it to be versioned. Be sure to version the template file, not the generated file, otherwise each time you regenerate the version file you need to commit the change, which in turn means the version file needs to be updated."
-msgstr "Ovakav fajl će biti uključen u izradu tako da možete očekivati da je verzionisan. Budite sigurni da verzionišete model fajl, ne generisani fajl, u drugom slučaju  svaki put kad generišete verzionisan fajl moraćete da urezujete izmene, što ne znači da verzion fajl treba da bude ažuriran."
+msgstr "Ovakav fajl će biti uključen u izradu tako da možete očekivati da je verzionisan. Budite sigurni da verzionišete šablon  fajl, ne generisani fajl, u drugom slučaju  svaki put kad generišete verzionisan fajl moraćete da urezujete izmene, što ne znači da verzion fajl treba da bude ažuriran."
 
 #. (title)
 msgid "COM interface"
@@ -10076,12 +10120,12 @@ msgid "$WCREV$"
 msgstr "$WCREV$"
 
 #. (entry)
-msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
-msgstr "Najviša urezana revizija u radnoj kopiji. Ekvivalent sa <placeholder-1/>"
+msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>."
+msgstr "Najviša urezana revizija u radnoj kopiji. Ekvivalent sa <placeholder-1/>."
 
 #. (entry)
-msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
-msgstr "Urezivanje datm/vreme najviše urezane revizije. Ekvivalent sa <placeholder-1/>"
+msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>."
+msgstr "Urezivanje datm/vreme najviše urezane revizije. Ekvivalent sa <placeholder-1/>."
 
 #. (entry)
 msgid "The author of the highest commit revision, that is, the last person to commit changes to the working copy."
@@ -10095,6 +10139,12 @@ msgstr "$WCRANGE$"
 #. (entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
 msgstr "Minimum ažurirana revizija, kao što je prikazano u <placeholder-1/>"
+
+#. (row)
+#. (row)
+#. (row)
+msgid "<placeholder-1/>."
+msgstr "<placeholder-1/>."
 
 #. (entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
@@ -10113,8 +10163,8 @@ msgid "$WCURL$"
 msgstr "$WCURL$"
 
 #. (entry)
-msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
-msgstr "Zamenjeno sa spremištem URL putanje radne kopije korišćene u <placeholder-1/>.Ekvivalent sa <placeholder-2/>"
+msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>."
+msgstr "Zamenjeno sa spremištem URL putanje radne kopije korišćene u <placeholder-1/>. Ekvivalent sa <placeholder-2/>."
 
 #. (entry)
 msgid "True if the item is versioned."
@@ -10455,8 +10505,8 @@ msgid "To get a tighter integration with issue trackers than by simply using the
 msgstr "Da bi dobili čvršću integraciju sa problem tragačem jednostavnim korišćenjem <literal>bugtraq:</literal> osobina, TortoiseSVN može učiniti korišćenje COM jezička. Sa takvim jezičkom moguće je naći informaciju direktno iz problem tragača, interakcija sa korisnikom i obezbeđivanje informacioni povratak na TortoiseSVN o otvorenim problemima, verifikuje dnevnik poruke koje uneo korisnik i čak izvršne akcije posle uspešnog urezivanja npr. zatvaranje problema."
 
 #. (para)
-msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Ne možemo obezbediti informaciju i tutorijale o tome kako da primenite COM objekte u vašim izabranim programskim jezicima, ali imamo primere jezičkaa u C++/ATL i C# u vašem spremištu u <filename>contrib/issue-tracker-plugins</filename>  imenik. U imeniku možete takođe naći željene fajlove za uključivanje koji su vam potrebni da napravite jezičak. (<xref linkend=\"tsvn-preface-source\"/>  objašnjava kako pristupiti spremištu)."
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "Ne možemo obezbediti informaciju i tutorijale o tome kako da primenite COM objekte u vašim izabranim programskim jezicima, ali imamo primere jezičkaa u C++/ATL i C# u vašem spremištu u <filename>contrib/issue-tracker-plugins</filename>  imenik. U imeniku možete takođe naći željene fajlove za uključivanje koji su vam potrebni da napravite jezičak. (<xref linkend=\"tsvn-preface-source\"/>  objašnjava kako pristupiti spremištu.)"
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."

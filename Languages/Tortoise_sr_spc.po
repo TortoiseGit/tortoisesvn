@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-25 22:55+0100\n"
+"PO-Revision-Date: 2010-10-11 19:20+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -1489,8 +1489,8 @@ msgstr "&Ажурирај"
 
 #
 #. Resource IDs: (76)
-msgid "&Update item to revision"
-msgstr "&Ажурирај ставку према ревизији"
+msgid "&Update item to revision..."
+msgstr "&Ажурирај ставку према ревизији..."
 
 #
 #. Resource IDs: (11)
@@ -11598,7 +11598,87 @@ msgid ""
 msgstr ""
 "tsvn:logtemplate\r\n"
 "Низ знакова који се умеће у кућице за упис порука дневника у  прозору за извршавање урезивања.\r\n"
-"Ово користите као предложак порука дневника који ће испуњавати корисници."
+"Ово користите као шаблон порука дневника који ће испуњавати корисници."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplatebranch\r\n"
+"Низ знакова који се умеће у боксове за упис порука дневника у дијалозима урезивања.\r\n"
+"Ово користите као шаблон  за грана/ознаке/копије за кориснике да их попуне."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplatecommit\r\n"
+"Низ знакова који се умеће у боксове за упис порука дневника удијалозима урезивања.\r\n"
+"Ово користите као шаблон  порука за урезивање који ће испуњавати корисници."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplatedelete\r\n"
+"Низ знакова који се умеће у боксове за упис порука дневника у  дијалозима урезивања.\r\n"
+"Ово користите као шаблон  порука дневника за брисање који ће испуњавати корисници."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplateimport\r\n"
+"Низ знакова који се умеће у боксове за упис порука дневника у  дијалоге урезивања.\r\n"
+"Ово користите као шаблон  порука дневника за увоз који ће испуњавати корисници."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplatelock\r\n"
+"Низ знакова који се умеће у боксове за упис порука дневника у дијалозима закључавања.\r\n"
+"Ово користите као шаблон  порука дневника за закључавање који ће испуњавати корисници."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplatemkdir\r\n"
+"Низ знакова који се умеће у боксове за упис порука дневника у дијалоге урезивања.\r\n"
+"Ово користите као шаблон  порука дневника за креирање именика који ће испуњавати корисници."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplatemove\r\n"
+"Низ знакова који се умеће у боксове за упис порука дневника у  дијалозима урезивања.\r\n"
+"Ово користите као шаблон  порука дневника за помери/преименуј који ће испуњавати корисници."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplatepropset\r\n"
+"Низ знакова који се умеће у боксове за упис порука дневника у дијалога урезивања.\r\n"
+"Ово користите као шаблон  порука дневника за измене особина који ће испуњавати корисници."
 
 #. Resource IDs: (578)
 msgid ""
