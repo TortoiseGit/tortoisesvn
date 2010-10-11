@@ -114,7 +114,11 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path )
         return false;
     }
     int wcformat = 0;
-    err = svn_wc_check_wc2(&wcformat, pctx, path.GetDirectory().GetSVNApiPath(pool), pool);
+    const char *local_abspath = path.GetDirectory().GetSVNApiPath(pool);
+    if ((local_abspath == NULL) || (local_abspath[0] == 0))
+        return false;
+
+    err = svn_wc_check_wc2(&wcformat, pctx, local_abspath, pool);
     if (err)
     {
         switch (err->apr_err)
