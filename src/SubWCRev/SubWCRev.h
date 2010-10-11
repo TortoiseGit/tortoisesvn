@@ -59,6 +59,7 @@ typedef struct SubWCRev_t
     BOOL bHexPlain;         // If TRUE, revision numbers are output in HEX
     BOOL bHexX;             // If TRUE, revision numbers are output in HEX with '0x'
     char Url[URL_BUF];      // URL of working copy
+    char RootUrl[URL_BUF];  // url of the repository root
     char Author[URL_BUF];   // The author of the wcPath
     BOOL  bIsSvnItem;           // True if the item is under SVN
     SubWcLockData_t LockData;   // Data regarding the lock of the file

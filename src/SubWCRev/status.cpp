@@ -125,6 +125,15 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
         const char * copypath = apr_pstrdup(sb->pool, path);
         sb->extarray->push_back(copypath);
     }
+    if (status->repos_root_url)
+    {
+        if (sb->SubStat->RootUrl[0] == 0)
+        {
+            strncpy_s(sb->SubStat->RootUrl, URL_BUF, status->repos_root_url, URL_BUF);
+        }
+        if (strncmp(sb->SubStat->RootUrl, status->repos_root_url, URL_BUF) != 0)
+            return SVN_NO_ERROR;
+    }
     if (status->changed_author)
     {
         if ((sb->SubStat->Author[0] == 0)&&(status->repos_relpath)&&(status->repos_relpath))
