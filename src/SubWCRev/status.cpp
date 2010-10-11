@@ -149,7 +149,7 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
     {
         sb->SubStat->MaxRev = status->revision;
     }
-    if ((status->revision)&&(sb->SubStat->MinRev > status->revision || sb->SubStat->MinRev == 0))
+    if ((status->revision > 0)&&(sb->SubStat->MinRev > status->revision || sb->SubStat->MinRev == 0))
     {
         sb->SubStat->MinRev = status->revision;
     }
