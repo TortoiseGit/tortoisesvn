@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-10-05 19:46 +0000\n"
-"PO-Revision-Date: 2010-10-09 02:59-0000\n"
+"POT-Creation-Date: 2010-10-08 19:44 +0000\n"
+"PO-Revision-Date: 2010-10-12 10:18-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -6035,6 +6035,46 @@ msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rule
 msgstr "<literal>tsvn:logtemplate</literal> é usado por projectos que têm regras acerca da formatação das mensagens de registo. A propriedade mantém uma cadeia de caracteres multi-linha que será inserida na caixa de mensagens de submissão quando inicias a submissão. Podes então editá-la para incluir a informação requerida. Nota: Se estiveres também a usar a <literal>tsvn:logminsize</literal>, tem a certeza de fixares um comprimento maior que o do template ou perderás o mecanismo de protecção."
 
 #. (para)
+msgid "There are also action specific templates which you can use instead of <literal>tsvn:logtemplate</literal>. The action specific templates are used if set, but <literal>tsvn:logtemplate</literal> will be used if no action specific template is set."
+msgstr "Existem também templates específicos de acções, que podes usar em vez de <literal>tsvn:logtemplate</literal>. Os templates específicos de acções são usados se configurados, mas o <literal>tsvn:logtemplate</literal> será usado se não for configurado nenhum template específico de acção."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatecommit</literal> is used for all commits from a working copy."
+msgstr "<literal>tsvn:logtemplatecommit</literal> é usado para todas as submissões a partir de uma cópia de trabalho."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatebranch</literal> is used when you create a branch/tag, or when you copy files or folders directly in the repository browser."
+msgstr "<literal>tsvn:logtemplatebranch</literal> é usado quando crias um ramo/etiqueta, ou quando copias ficheiros ou pastas directamente do navegador de repositório. "
+
+#. (para)
+msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
+msgstr "<literal>tsvn:logtemplateimport</literal> é usado para importações."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatedelete</literal> is used when deleting items directly in the repository browser."
+msgstr "<literal>tsvn:logtemplatedelete</literal> é usado ao remover itens directamente do navegador de repositório."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving items in the repository browser."
+msgstr "<literal>tsvn:logtemplatemove</literal> é usado quando renomeias ou moves itens no navegador de repositório."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories in the repository browser."
+msgstr "<literal>tsvn:logtemplatemkdir</literal> é usado quando crias pastas no navegador de repositório."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties in the repository browser."
+msgstr "<literal>tsvn:logtemplatepropset</literal> é usado quando modificas propriedades no navegador de repositório."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatelock</literal> is used when getting a lock."
+msgstr "<literal>tsvn:logtemplatelock</literal> é usado quando obténs um bloqueio."
+
+#. (para)
+msgid "The action specific templates are: <placeholder-1/>"
+msgstr "Os templates específicos de acção são: <placeholder-1/>"
+
+#. (para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files. The format is the same as for subversion autoprops, e.g. <literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two properties on files with the <literal>.sh</literal> extension."
 msgstr "O Subversion permite que tu fixes <quote>autoprops</quote> que serão aplicados a ficheiros recentemente adicionados ou importados, baseado na extensão do ficheiro. Isto depende de cada cliente ter fixado os autoprops apropriados no seu ficheiro de configuração do Subversion. <literal>tsvn:autoprops</literal> pode ser fixado em pastas e essas serão integradas com os autoprops locais quando algum ficheiro for adicionado ou importado. O formato é o mesmo dos autoprops do Subversion, e.g. <literal>*.sh = svn:eol-style=native;svn:executable</literal> fixa duas propriedades em ficheiros com a extensão <literal>.sh</literal>."
 
@@ -6915,6 +6955,10 @@ msgstr "A Caixa de Diálogo Bloquear"
 #. (para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
 msgstr "Selecciona o ficheiro(s) na tua cópia de trabalho, para o qual queres adquirir um bloqueio, e então selecciona o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obter Bloqueio...</guimenuitem></menuchoice>. <placeholder-1/> Uma caixa de diálogo aparece para permitir introduzir um comentário, para que os outros possam ver porquê bloqueaste o ficheiro. O comentário é opcional só é usado correntemente com repositórios baseados em Svnserve. Se (e <emphasis>só</emphasis> se) necessitas de roubar o bloqueio de alguém, verifica a caixa <guilabel>Roubar bloqueio</guilabel>, e clica no <guibutton>OK</guibutton>."
+
+#. (para)
+msgid "You can set the project property <literal>tsvn:logtemplatelock</literal> to provide a templated message for users to fill in as the lock message. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties."
+msgstr "Poderás configurar a propriedade de projecto <literal>tsvn:logtemplatelock</literal> para fornecer uma mensagem de template aos utilizadores, para que a preencham como mensagem de bloqueio. Ver a  secção <xref linkend=\"tsvn-dug-propertypage\"/> para mais informações sobre a configuração de propriedades do projecto."
 
 #. (para)
 msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> sub-folder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
