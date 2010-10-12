@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-23 19:41 +0000\n"
-"PO-Revision-Date: 2010-10-06 17:10+0100\n"
+"PO-Revision-Date: 2010-10-12 13:54+0100\n"
 "Last-Translator: Michal Nosal <a2.nosal@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1101,7 +1101,7 @@ msgstr "Hovorili sme v skratke o tom, ako subverzia vyhľadáva a spravuje infor
 
 #. (para)
 msgid "No matter which protocol you use to access your repositories, you always need to create at least one repository. This can either be done with the Subversion command line client or with TortoiseSVN."
-msgstr "Nezáleží na toma, aký protokol používate pre prístup k svojim úložiskám, vždy je potrebné vytvoriť aspoň jedeno úložisko. To sa môže vykonať s pomocou príkazového riadku subverzie klienta alebo s TortoiseSVN."
+msgstr "Nezáleží na tom, aký protokol používate pre prístup k svojim úložiskám, vždy je potrebné vytvoriť aspoň jedno úložisko. To sa môže vykonať s pomocou príkazového riadku subverzie klienta alebo s TortoiseSVN."
 
 #. (para)
 msgid "If you haven't created a Subversion repository yet, it's time to do that now."
@@ -1117,11 +1117,11 @@ msgstr "vytvoriť úložisko"
 
 #. (para)
 msgid "You can create a repository with the FSFS backend or with the older Berkeley Database (BDB) format. The FSFS format is generally faster and easier to administer, and it works on network shares and Windows 98 without problems. The BDB format was once considered more stable simply because it has been in use for longer, but since FSFS has now been in use in the field for several years, that argument is now rather weak. Read <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in the Subversion book for more information."
-msgstr "Môžete si vytvoriť úložisko s backend FSFS alebo starší formát Berkeley databázy (BDB). Formát FSFS je všeobecne rýchlejší a jednoduchší na správu, a funguje aj v zdielaných sietiach aj vo Windows 98 bez problémov. Formát BDB bolo kedysi považovaný za viac stabilný, pretože sa používal veľmi dlhú dobu, ale odkedy FSFS sa používa v oblasti už niekoľko rokov, tento argument je teraz skôr nepostačujúci. Prečítajte si <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Výber dátoveho skladu</citetitle></ulink> v Subversion knihe pre viac informacií."
+msgstr "Úložisko sa dá vytvoriť  pomocou backend FSFS alebo staršieho formátu Berkeley databázy (BDB). Formát FSFS je všeobecne rýchlejší a jednoduchší na správu a funguje aj v zdielaných sietiach a aj bezproblémov vo Windows 98. Formát BDB bolo kedysi považovaný za viac stabilný, pretože sa používal veľmi dlhú dobu, ale odkedy sa používa FSFS v oblasti už niekoľko rokov, tak tento argument je teraz skôr nepostačujúci. Pre viac informacií si prečítajte <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Výber dátoveho skladu</citetitle></ulink> v Subversion knihe."
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
-msgstr "Vytvorenie úložiska pomocou príkazového radku."
+msgstr "Vytvorenie úložiska pomocou príkazového radku"
 
 #. (primary)
 #. (primary)
@@ -1130,7 +1130,7 @@ msgstr "Vytvoriť"
 
 #. (para)
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
-msgstr "Vytvorte prázdnu zložku s názvom SVN (napr. <filename>D:\\SVN\\</filename>), ktorý sa používa ako root pre všetky vaše úložiská."
+msgstr "Vytvorte prázdnu zložku s názvom SVN (napr. <filename>D:\\SVN\\</filename>), ktorý sa bude používať pre všetky vaše úložiská ako koreňový (root)."
 
 #. (para)
 msgid "Create another folder <filename>MyNewRepository</filename> inside <filename>D:\\SVN\\</filename>."
@@ -1152,7 +1152,7 @@ msgstr ""
 
 #. (para)
 msgid "Now you've got a new repository located at <filename>D:\\SVN\\MyNewRepository</filename>."
-msgstr "Teraz máte nové úložisko nachádzajúce sa v<filename>D:\\SVN\\MyNewRepository</filename>."
+msgstr "Teraz máte nové úložisko nachádzajúce sa v <filename>D:\\SVN\\MyNewRepository</filename>."
 
 #. (title)
 msgid "Creating The Repository With TortoiseSVN"
@@ -1172,19 +1172,19 @@ msgstr "Na novo vytvorenú zložku použite <action>pravý klik</action> a vyber
 
 #. (para)
 msgid "A repository is then created inside the new folder. <emphasis>Don't edit those files yourself!!!</emphasis>. If you get any errors make sure that the folder is empty and not write protected."
-msgstr "Potom je úložisko vytvorené vo vnútri novej zložky. <emphasis>Neupravujte tieto súbory!!!</emphasis> Ak sa vyskytnú nejaké chyby, preverte, aby zložka bola prázdna a nebola chránená proti zápisu."
+msgstr "Po tomto kroku je úložisko vytvorené vo vnútri novej zložky. <emphasis>Neupravujte tieto súbory!!!</emphasis> Ak sa vyskytnú nejaké chyby, preverte, aby zložka bola prázdna a nebola chránená proti zápisu."
 
 #. (para)
 msgid "You will also be asked whether you want to create a directory structure within the repository. Find out about layout options in <xref linkend=\"tsvn-repository-layout\"/>."
-msgstr ""
+msgstr "Taktiež budete môcť si vybrať, či chcete vytvoriť adresárovú štruktúru v úložisku. Viac o možnostiach rozloženia adresárov v úložisku nájdete v <xref linkend=\"tsvn-repository-layout\"/>."
 
 #. (para)
 msgid "TortoiseSVN will set a custom folder icon when it creates a repository so you can identify local repositories more easily. If you create a repository using the official command line client this folder icon is not assigned."
-msgstr ""
+msgstr "TortoiseSVN nastaví nastavenú ikonu, keď sa vytvorí úložisko, takže viete ľahko identifikovať miestne úložsko. Keď vytvoríte úložisko pomocou oficiálneho príkazového riadku, tak tomuto adresáru sa nepriradí ikona. "
 
 #. (para)
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
-msgstr "TortoiseSVN už neponúka možnosť vytvoriť BDB úložiská, aj keď môžete stále používať príkazový riadok klienta na ich vytvorenie. FSFS úložiská sú všeobecne jednoduhšie na údržbu a taktiež má jednoduchšiu údržbu TortoiseSVN s kompatibilitou medzi rôznymi BDB verziami."
+msgstr "TortoiseSVN už neponúka možnosť vytvoriť BDB úložiská, aj keď môžete stále používať príkazový riadok na ich vytvorenie. FSFS úložiská sú všeobecne jednoduchšie na údržbu a taktiež majú ľahšiu údržbu TortoiseSVN s kompatibilitou medzi rôznymi BDB verziami."
 
 #. (para)
 msgid "TortoiseSVN does not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols."
@@ -1192,7 +1192,7 @@ msgstr "TortoiseSVN nepodporuje <literal>file://</literal> prístup k BDB úlož
 
 #. (para)
 msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
-msgstr "Samozrejme taktiež odporúčame, aby ste nepoužívali <literal>file://</literal> prítup vôbec, okrem lokálnych testov. Používanie servera je viacej bezpečnejšie a splahlivejšie pre viacerých ako pre samotného vývojára."
+msgstr "Samozrejme taktiež odporúčame, aby ste nepoužívali <literal>file://</literal> prístup vôbec, okrem lokálnych testov. Používanie servera je viacej bezpečnejšie a spoľahlivejšie pre viacerých ako pre samotného vývojára."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1209,12 +1209,12 @@ msgstr "Cesty UNC"
 # Access
 #. (para)
 msgid "To access your local repository you need the path to that folder. Just remember that Subversion expects all repository paths in the form <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the use of forward slashes throughout."
-msgstr "Pre prístup k vašemu lokálnemu úložisku potrebujete cestu ku tej zložke. Len pre pirpomenutie, Subversion očakáva, že všetky úložiská sa nachádzajú v <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Všimnite si použitie lomítok pri zápise."
+msgstr "Pre prístup k vašemu lokálnemu úložisku potrebujete cestu ku tej zložke. Len pre pripomenutie, Subversion očakáva, že všetky úložiská sa nachádzajú v <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Všimnite si použitie lomítok pri zápise."
 
 # Access
 #. (para)
 msgid "To access a repository located on a network share you can either use drive mapping, or you can use the UNC path. For UNC paths, the form is <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that there are only 2 leading slashes here."
-msgstr "Pre prístup k úložisku, ktoré sa nachádza v zdielanej sieti môžete použit mapovanie disku, alebo použiť UNC cestu. Pre UNC csety je formát zápisu <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Všimnite si, že na začiatku sú iba 2 lomítka."
+msgstr "Pre prístup k úložisku, ktoré sa nachádza v zdielanej sieti môžete použit mapovanie disku, alebo použiť UNC cestu. Pre UNC csety je formát zápisu <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Všimnite si, že na začiatku sú iba 2 lomky."
 
 # Access
 #. (para)
@@ -1223,11 +1223,11 @@ msgstr "Pred SVN 1.2, UNC cesty mali trochu nezrozumiteľný tvar <systemitem cl
 
 #. (para)
 msgid "Do not create or access a Berkeley DB repository on a network share. It <emphasis>cannot</emphasis> exist on a remote file system. Not even if you have the network drive mapped to a drive letter. If you attempt to use Berkeley DB on a network share, the results are unpredictable - you may see mysterious errors right away, or it may be months before you discover that your repository database is subtly corrupted."
-msgstr "Nevytvárajte ani neotvárajte Berkeley DB úložisko v zdielanej sieti. Berkeley DB úložisko <emphasis>nemôže</emphasis> existovať na vzdialenom súborovom systéme. Dokonca ani keď máte sieťovú mechaniku zmenenú na drive letter. Ak sa pokúsite použiť Berkeley DB na sieťové zdieľanie, výsledky sú nepredvídateľné - môžte hneď vidieť záhadné errors, alebo môžu prejsť mesiace než objavíte, že vaša databáza úložiska je nepatrne poškodená."
+msgstr "Nevytvárajte ani neotvárajte Berkeley DB úložisko v zdielanej sieti. Berkeley DB úložisko <emphasis>nemôže</emphasis> existovať na vzdialenom súborovom systéme. Dokonca ani keď máte sieťovú mechaniku zmenenú na drive letter. Ak sa pokúsite použiť Berkeley DB na sieťové zdieľanie, výsledky sú nepredvídateľné - môžete hneď vidieť záhadné chyby, alebo môžu prejsť mesiace než objavíte, že vaša databáza úložiska je nepatrne poškodená."
 
 #. (title)
 msgid "Accessing a Repository on a Network Share"
-msgstr "Prístup k úložisku v zdielanej sieti."
+msgstr "Prístup k úložisku v zdielanej sieti"
 
 #. (primary)
 msgid "Network share"
@@ -1239,11 +1239,11 @@ msgstr "Aj keď je teoreticky možne používať FSFS úložisko v zdielanej sie
 
 #. (para)
 msgid "Firstly you are giving every user direct write access to the repository, so any user could accidentally delete the entire repository or make it unusable in some other way."
-msgstr "Po prvé dávate užívatelovi právo na zápis do úložiska, takže hociktorý užívateľ môže náhodne zmazať celé úložisko, alebo ho môže nejakým iným spôsobom spraviť nepoužiteľným."
+msgstr "Po prvé dávate užívateľovi právo na zápis do úložiska, takže hociktorý užívateľ môže náhodne zmazať celé úložisko, alebo ho môže nejakým iným spôsobom spraviť nepoužiteľným."
 
 #. (para)
 msgid "Secondly not all network file sharing protocols support the locking that Subversion requires, so you may find your repository gets corrupted. It may not happen straight away, but one day two users will try to access the repository at the same time."
-msgstr "Po druhé nie všetky protokoly na zdielanie súborov podporujú uzamykanie, ktoré Subversion vyžaduje, takže si môžete nájsť svoje úložisko poškodené. Toto sa nemusí stať hneď, ale jedného dňa sa stane, že dvaja užívatelia sa pokúsia otovriť úložiská v rovnakom čase."
+msgstr "Po druhé nie všetky protokoly na zdieľanie súborov podporujú uzamykanie, ktoré Subversion vyžaduje, takže si môžete nájsť svoje úložisko poškodené. Toto sa nemusí stať hneď, ale jedného dňa sa stane, že dvaja užívatelia sa pokúsia otvoriť úložiská v rovnakom čase."
 
 #. (para)
 msgid "Thirdly the file permissions have to be set just so. You may just about get away with it on a native Windows share, but SAMBA is particularly difficult."
@@ -1251,7 +1251,7 @@ msgstr "Po tretie, prístupové práva musia byť nastavené. Môžete to obís�
 
 #. (para)
 msgid "<literal>file://</literal> access is intended for local, single-user access only, particularly testing and debugging. When you want to share the repository you <emphasis>really</emphasis> need to set up a proper server, and it is not nearly as difficult as you might think. Read <xref linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
-msgstr "<literal>file://</literal> prístup je určený pre miestne zdielanie, pre jedného užívateľa iba a predovšetkým na testovanie a ladenie. Keď chcete zdielať úložisko <emphasis>skutočne</emphasis> potrebujete nastaviť správne server a nie je to až také tažke ako si myslíte. Prečítajte si <xref linkend=\"tsvn-serversetup\"/> pre pokyny pri výbere nastavenie servera."
+msgstr "<literal>file://</literal> prístup je určený pre miestne zdielanie, pre jedného užívateľa iba a predovšetkým na testovanie a ladenie. Keď chcete zdielať úložisko <emphasis>skutočne</emphasis> potrebujete nastaviť správne server a nie je to až také ťažké ako si myslíte. Prečítajte si <xref linkend=\"tsvn-serversetup\"/> pre pokyny pri výbere nastavenie servera."
 
 #. (title)
 msgid "Repository Layout"
@@ -1263,7 +1263,7 @@ msgstr "Predtým ako importujete údaje do úložiska maly by ste najskôr poroz
 
 #. (para)
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the <quote>main line</quote> of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr "Existuju určité štandardy a odporúčané spôsoby ako organizovať úložisko. Väčšinou stači vytvoriť <filename>trunk</filename> adresár, v ktorom je <quote>hlavná vetva</quote>, <filename>branches</filename> adresár, ktorý obsahuje kópie vetiev a <filename>tags</filename> adresár s obsahom menných kópii. Ak je v úložisku iba jeden projekt, tak stači vytvoriť tieto vrcholové adresáre:"
+msgstr "Existujú určité štandardy a odporúčané spôsoby ako organizovať úložisko. Väčšinou postačuje vytvoriť <filename>trunk</filename> adresár, v ktorom je <quote>hlavná vetva</quote>, <filename>branches</filename> adresár, ktorý obsahuje kópie vetiev a <filename>tags</filename> adresár s obsahom menných kópii. Ak je v úložisku iba jeden projekt, tak stačí vytvoriť tieto vrcholové adresáre:"
 
 #. (screen)
 #, no-wrap
@@ -1330,7 +1330,7 @@ msgstr ""
 
 #. (para)
 msgid "Indexing by project makes sense if the projects are not closely related and each one is checked out individually. For related projects where you may want to check out all projects in one go, or where the projects are all tied together in a single distribution package, it is often better to index by branch. This way you have only one trunk to checkout, and the relationships between the sub-projects is more easily visible."
-msgstr "Idexovanie projektu má zmysel iba vtedy, kedy projekty nie sú podobné a každý je udržiavaný osobitne. Pre podobné projekty, ktoré chcete spravovať v kope, alebo projekty, ktoré sú štandardne distribuované v jednom balíčku je lepšie indexovať podľa vetiev. Tento spôsob ma iba jednu hlavnú líniu a a vzťahy medzi podprojektami su jednoduchšie viditeľné."
+msgstr "Indexovanie projektu má zmysel iba vtedy, kedy projekty nie sú podobné a každý je udržiavaný osobitne. Pre podobné projekty, ktoré chcete spravovať v kope, alebo projekty, ktoré sú štandardne distribuované v jednom balíčku je lepšie indexovať podľa vetiev. Tento spôsob ma iba jednu hlavnú líniu a a vzťahy medzi podprojektami su jednoduchšie viditeľné."
 
 #. (para)
 msgid "If you adopt a top level <filename>/trunk /tags /branches</filename> approach, there is nothing to say that you have to copy the entire trunk for every branch and tag, and in some ways this structure offers the most flexibility."
@@ -1338,19 +1338,19 @@ msgstr "Ak použijete ako vrcholové adresáre <filename>/trunk /tags /branches<
 
 #. (para)
 msgid "For unrelated projects you may prefer to use separate repositories. When you commit changes, it is the revision number of the whole repository which changes, not the revision number of the project. Having 2 unrelated projects share a repository can mean large gaps in the revision numbers. The Subversion and TortoiseSVN projects appear at the same host address, but are completely separate repositories allowing independent development, and no confusion over build numbers."
-msgstr "Pre nesúvisiace projekty môžete použiť oddelené úložiská. Keď odovzdáte zmeny, tak sa mení revízne čislo celého úložiska, nie revizné číslo projektu. Pri zdielaní 2 roznych projektoch v jednom úložisku môže nastať množstvo prerušení v revíznych číslach. Subversion a TortoiseSVN projekty sa tvaria ako pod jendou adresou, ale ich úplná nezávislosť úložísk poskytuje nezávislý vývoj a žiadny zmätok v build číslach."
+msgstr "Pre nesúvisiace projekty môžete použiť oddelené úložiská. Keď odovzdáte zmeny, tak sa mení revízne čislo celého úložiska, nie revizné číslo projektu. Pri zdielaní 2 rôznych projektoch v jednom úložisku môže nastať množstvo prerušení v revíznych číslach. Subversion a TortoiseSVN projekty sa tvária ako pod jednou adresou, ale ich úplná nezávislosť úložísk poskytuje nezávislý vývoj a žiadny zmätok v build číslach."
 
 #. (para)
 msgid "Of course, you're free to ignore these common layouts. You can create any sort of variation, whatever works best for you or your team. Remember that whatever you choose, it's not a permanent commitment. You can reorganize your repository at any time. Because branches and tags are ordinary directories, TortoiseSVN can move or rename them however you wish."
-msgstr "Samozrejme nemusíte dodržiavať tieto štandardné návrhy. Môžete si vytvoriť hociaké rozčlenenie, ktoré vyhovuje najviac vášmu tímu. Zapamätajte si, že akýkoľvek spôsob si vyberiete nie je to nemeniteľné. Môžete si pretvoriť vaše úložisko kedykoľvek. Pretože vetvy a menovky sú bežné adresáre,  TortoiseSVN ich môže premenovať alebo presunúť ako vy chcete."
+msgstr "Samozrejme nemusíte dodržiavať tieto štandardné návrhy. Môžete si vytvoriť hocaké rozčlenenie, ktoré vyhovuje najviac vášmu tímu. Zapamätajte si, že akýkoľvek spôsob si vyberiete nie je to nemeniteľné. Môžete si pretvoriť vaše úložisko kedykoľvek. Pretože vetvy a menovky sú bežné adresáre,  TortoiseSVN ich môže premenovať alebo presunúť ako vy chcete."
 
 #. (para)
 msgid "Switching from one layout to another is just a matter of issuing a series of server-side moves; If you don't like the way things are organized in the repository, just juggle the directories around."
-msgstr "Zmena jedného návrhu na iný je len záležitosť, ktorú vykonáva server. Ak nemáte redi spôsob akým sú organizované veci v úložisku, stači sa len pohrať s adresármi. "
+msgstr "Zmena jedného návrhu na iný je len záležitosť, ktorú vykonáva server. Ak nemáte redi spôsob akým sú organizované veci v úložisku, stačí sa len pohrať s adresármi. "
 
 #. (para)
 msgid "create a new empty folder on your hard drive"
-msgstr "vytvorte si na vašom hardisku prázdny adresár "
+msgstr "vytvorte si na vašom pevnom disku prázdny adresár "
 
 #. (para)
 msgid "create your desired top-level folder structure inside that folder - don't put any files in it yet!"
@@ -1358,11 +1358,11 @@ msgstr "vytvorte si požadovanú vrcholovú štruktúru adresárov vo vnútri to
 
 #. (para)
 msgid "import this structure into the repository via a <action>right click</action> on the folder that contains this folder structure and selecting <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> In the import dialog enter the URL to your repository and click OK. This will import your temp folder into the repository root to create the basic repository layout."
-msgstr "importujte túto štruktúru do úložiska cez <action>right click</action> na adresári, ktorý obsahuje túto adresárovú štruktúru a vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice>. V import dialógu napíšte URL vášho úložiska a kliknite OK. Toto importuje váš dočasný adresár to koreňa úložiska pre vytvorenie základného rozčlenenia úložiska."
+msgstr "importujte túto štruktúru do úložiska cez <action>pravý klik</action> na adresári, ktorý obsahuje túto adresárovú štruktúru a vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice>. V import dialógu napíšte URL vášho úložiska a kliknite OK. Toto importuje váš dočasný adresár to koreňa úložiska pre vytvorenie základného rozčlenenia úložiska."
 
 #. (para)
 msgid "So if you haven't already created a basic folder structure inside your repository you should do that now. There are two ways to achieve this. If you simply want to create a <filename>/trunk /tags /branches</filename> structure, you can use the repository browser to create the three folders (in three separate commits). If you want to create a deeper hierarchy then it is simpler to create a folder structure on disk first and import it in a single commit, like this: <placeholder-1/>"
-msgstr "Takže, ak ešte nemáte vytvorenú základnú štruktúru adresaru vo vnútri úložiska mali by ste tak urobiť teraz. Sú dva sposoby ako to docieliť. Ak chcete jednoduch vytvoriť <filename>/trunk /tags /branches</filename> štruktúru, môžete použiť úložiskový prehliadač na vytvorenie 3 adresárov (3 oddelené odovzdávanie). Ak chcete vytvoriť hlbšiu štruktúru, potom je jednoduhšie vytvoriť adresár na disku a importovať ho v jednom odovzdaní nasledovne <placeholder-1/>"
+msgstr "Takže, ak ešte nemáte vytvorenú základnú štruktúru adresáru vo vnútri úložiska mali by ste tak urobiť teraz. Sú dva sposoby ako to docieliť. Ak chcete jednoducho vytvoriť <filename>/trunk /tags /branches</filename> štruktúru, môžete použiť úložiskový prehliadač na vytvorenie 3 adresárov (3 oddelené odovzdávanie). Ak chcete vytvoriť hlbšiu štruktúru, potom je jednoduchšie vytvoriť adresár na disku a importovať ho v jednom odovzdaní nasledovne <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -1380,7 +1380,7 @@ msgstr ""
 "C:\\Temp\\New\\trunk\n"
 "C:\\Temp\\New\\branches\n"
 "C:\\Temp\\New\\tags\n"
-"</screen> Imoprtujte <filename>C:\\Temp\\New</filename>do korena úložiska, ktroý vyzrá takto: <screen>\n"
+"</screen> Importujte <filename>C:\\Temp\\New</filename>do koreňa úložiska, ktorý vyzerá takto: <screen>\n"
 "/trunk\n"
 "/branches\n"
 "/tags\n"
@@ -1397,12 +1397,12 @@ msgstr "záloha"
 # backup
 #. (para)
 msgid "Whichever type of repository you use, it is vitally important that you maintain regular backups, and that you verify the backup. If the server fails, you may be able to access a recent version of your files, but without the repository all your history is lost forever."
-msgstr "Aký koľvek druh uĺožiska použijete je životne dôležité, aby ste vykonávali  pravidelné zálohy. Ak server zlyhá, ste schopný používať poslednú verziu súborov, ale bez úložiska sú všetky predchádzajúce zmeny navždy stratené."
+msgstr "Akýkoľvek druh úložiska použijete, je životne dôležité, aby ste vykonávali  pravidelné zálohy. Ak server zlyhá, ste schopný používať poslednú verziu súborov, ale bez úložiska sú všetky predchádzajúce zmeny navždy stratené."
 
 # backup
 #. (para)
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
-msgstr "Najjednoduchši (ale nie odporúčaný) spôsob je prekopírovať úložiskové adresáre na záložné miesto. Avšak musíte si byť úplne istý, že nikto nepristupuje k dátam. V tomto význame prístup znamená <emphasis>hociaký</emphasis> prístup všeobecne. DBD úložisko je vytvorené tak, že aj keď operácia vyžaduje iba čítať, tak sa pracuje s úložiskom. Ak používate vaše úložisko počas kopírovania (otvorený prehliadač,WebSVN, atď.) záloha je bezcenná."
+msgstr "Najjednoduchší (ale nie odporúčaný) spôsob je prekopírovať úložiskové adresáre na záložné miesto. Avšak musíte si byť úplne istý, že nikto nepristupuje k dátam. V tomto význame prístup znamená <emphasis>hocaký</emphasis> prístup všeobecne. DBD úložisko je vytvorené tak, že aj keď operácia vyžaduje iba čítať, tak sa pracuje s úložiskom. Ak používate vaše úložisko počas kopírovania (otvorený prehliadač, WebSVN, atď.) záloha je bezcenná."
 
 # backup
 #. (para)
@@ -1413,12 +1413,12 @@ msgid ""
 msgstr ""
 "Odporúčaná metóda je spustiť <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup --clean-logs\n"
-"</screen> pre vytvorenie kópie vášho úložiska podľa bezpečnosti. Potom zálohujte kópiu. Voľba <literal>--clean-logs</literal> nie je potrebná, ale odstráni prebytočné denníkové súbory pri zálohe BDB úložiska, ktoré môžu ušteriť nejaké miesto."
+"</screen> pre vytvorenie kópie vášho úložiska podľa bezpečnosti. Potom zálohujte kópiu. Voľba <literal>--clean-logs</literal> nie je potrebná, ale odstráni prebytočné denníkové súbory pri zálohe BDB úložiska, ktoré môžu ušetriť nejaké miesto."
 
 # backup
 #. (para)
 msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
-msgstr "<literal>svnadmin</literal> nástroj je nainštalovaný automaticky pri inštalácii Subversion príkazového riadku klienta. Ak máte nainštalovaný príkazový riadok na počítači s Windowsom, najlepšie urobíte, ak si stahnete inštalátor pre Windows verziu. Je zbalený omnoho efektívnejšie ako <filename>.zip</filename> ako verzia, takže stahujete manšie množstvo dát a ponúka nastavenie umiestnenia inštalácie programu. Najnovšiu verziu Subversion príkazového riadku klienta si možete stiahnuť z <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
+msgstr "<literal>svnadmin</literal> nástroj je nainštalovaný automaticky pri inštalácii Subversion príkazového riadku klienta. Ak máte nainštalovaný príkazový riadok na počítači s Windowsom, najlepšie urobíte, ak si stiahnete inštalátor pre Windows verziu. Je zbalený omnoho efektívnejšie ako <filename>.zip</filename> ako verzia, takže sťahujete menšie množstvo dát a ponúka nastavenie umiestnenia inštalácie programu. Najnovšiu verziu Subversion príkazového riadku klienta si možete stiahnuť z <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -1439,11 +1439,11 @@ msgstr "serverovské pripnuté (hook) skripty"
 
 #. (para)
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "Prpipnutý skript je program, ktorý sa spúšťa nejakou udalosťou v úložisku ako je vytvorenie novej revízie alebo úpravy neverziovaných vlastností. Každé pripnutie nesie dostatok informácii, aby vedelo o akú udalosť sa jedná, aký je cieľ operácie a užívateľské meno, ktoré súšťa udalosť. V závislosti od výstupu pripnutia alebo návratovej hodnoty, pripnutý program môže pokračovať vo vykonávaní alebo pozastaviť sa. Ďalšie informácie najdete na <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> v Subversion knihe pre detailné informácie o pripnutiach, ktoré sa dajú vykonať."
+msgstr "Pripnutý skript je program, ktorý sa spúšťa nejakou udalosťou v úložisku ako je vytvorenie novej revízie alebo úpravy neverziovaných vlastností. Každé pripnutie nesie dostatok informácii, aby vedelo o akú udalosť sa jedná, aký je cieľ operácie a užívateľské meno, ktoré spúšťa udalosť. V závislosti od výstupu pripnutia alebo návratovej hodnoty, pripnutý program môže pokračovať vo vykonávaní alebo pozastaviť sa. Ďalšie informácie nájdete na <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> v Subversion knihe pre detailné informácie o pripnutiach, ktoré sa dajú vykonať."
 
 #. (para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
-msgstr "Tieto pripnuté skripty sú vykonávané serverom, na ktorom sa nachádza úložisko. TortoiseSVN dovoľuje tiež prispôsobovať skripty na stranie užívateľa, ktoré sú vykonávana lokálne po nejakej udalosti.  Pre viac informácii pozrite <xref linkend=\"tsvn-dug-settings-hooks\"/>."
+msgstr "Tieto pripnuté skripty sú vykonávané serverom, na ktorom sa nachádza úložisko. TortoiseSVN dovoľuje tiež prispôsobovať skripty na strane užívateľa, ktoré sú vykonávané lokálne po nejakej udalosti.  Pre viac informácii pozrite <xref linkend=\"tsvn-dug-settings-hooks\"/>."
 
 # hooks
 #. (para)
@@ -1455,12 +1455,12 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
 msgstr ""
-"Vzorové pripnuté skripty môžete nájsť v adresári úložiska <filename>hooks</filename>. Tieto ukážkové skripty sú vhodné pre Unix/Linux servre, ale musia byť upravené, ak je váš server založený na Windows. Pripnutie môže byť dávkový alebo spustiteľný súbor. V ukážke dole je dávkový súbor, ktorý môže byť použitý ako pre-revprop-change pripnutie. <screen>\n"
+"Vzorové pripnuté skripty môžete nájsť v adresári úložiska <filename>hooks</filename>. Tieto ukážkové skripty sú vhodné pre Unix/Linux servery, ale musia byť upravené, ak je váš server založený na Windows. Pripnutie môže byť dávkový alebo spustiteľný súbor. V ukážke dole je dávkový súbor, ktorý môže byť použitý ako pre-revprop-change pripnutie. <screen>\n"
 "rem Only allow log messages to be changed.\n"
 "if \"%4\" == \"svn:log\" exit 0\n"
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
-"</screen>Všimnite si, že ak niečo je odoslané na výstup, tak je to zahodené. Ak chcete, aby sa správa objavila pri zamietnutí odovzdávania dialógu musíte to poslat na stderr. V dávkovom súbore je toto dosiahnuté pomocou <filename>&gt;&amp;2</filename>."
+"</screen>Všimnite si, že ak niečo je odoslané na výstup, tak je to zahodené. Ak chcete, aby sa správa objavila pri zamietnutí odovzdávania dialógu musíte to poslať na stderr. V dávkovom súbore je toto dosiahnuté pomocou <filename>&gt;&amp;2</filename>."
 
 #. (title)
 msgid "Overriding Hooks"
@@ -1468,7 +1468,7 @@ msgstr "Prvoradé pripnutia"
 
 #. (para)
 msgid "If a hook script rejects your commit then its decision is final. But you can build an override mechanism into the script itself using the <emphasis>Magic Word</emphasis> technique. If the script wants to reject the operation it first scans the log message for a special pass phrase, either a fixed phrase or perhaps the filename with a prefix. If it finds the magic word then it allows the commit to proceed. If the phrase is not found then it can block the commit with a message like <quote>You didn't say the magic word</quote>. :-)"
-msgstr "Ak pripnutý skript nepríjme vaše odovzdanie, potom je toto rozhodnutie konečné, Ale môžete vytvoriť naliehajúci mechanizmus do samotného skriptu použitím techniky <emphasis>špeciálneho výrazu</emphasis>. Ak skript odmietne operáciu, najskôr prehľadá denníkové správy, či sa tam nenachádzajú speciálne výrazy, buď fixné výrazy alebo súbor s predponou. Ak nájde čarovné slovo, potom dovolí pokračovať v odovzdávaní. Ak výraz nie je najdený, potom zablokuje odovzdávanie so správou napríklad <quote>Nepovedali ste čarovné slovíčko</quote>. :-)"
+msgstr "Ak pripnutý skript nepríjme vaše odovzdanie, potom je toto rozhodnutie konečné, Ale môžete vytvoriť naliehajúci mechanizmus do samotného skriptu použitím techniky <emphasis>špeciálneho výrazu</emphasis>. Ak skript odmietne operáciu, najskôr prehľadá denníkové správy, či sa tam nenachádzajú špeciálne výrazy, buď fixné výrazy alebo súbor s predponou. Ak nájde čarovné slovo, potom dovolí pokračovať v odovzdávaní. Ak výraz nie je nájdený, potom zablokuje odovzdávanie so správou napríklad <quote>Nepovedali ste čarovné slovíčko</quote>. :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -1496,7 +1496,7 @@ msgstr "Ak si chcete spraviť úložisko dostupné pre ostatných, môžete chci
 
 #. (para)
 msgid "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> protocol. When a TortoiseSVN user clicks on such a link, the checkout dialog will open automatically with the repository URL already filled in."
-msgstr "Pri inštalácii TortoiseSVN, inštalátor registruje nový <literal>tsvn:</literal> protokol. Ak TortoiseSVN uživateľ klikne na takýto odkaz, získavací dialóg automaticky otvorí zadanú adresu s úložiskom."
+msgstr "Pri inštalácii TortoiseSVN, inštalátor registruje nový <literal>tsvn:</literal> protokol. Ak TortoiseSVN užívateľ klikne na takýto odkaz, získavací dialóg automaticky otvorí zadanú adresu s úložiskom."
 
 #. (programlisting)
 #, no-wrap
@@ -1541,7 +1541,7 @@ msgstr ""
 
 #. (para)
 msgid "You can also make the link point to a specific revision, for example <placeholder-1/>"
-msgstr "Taktiež môžete vytovriť odkaz pre určitú verziu napríklad <placeholder-1/>"
+msgstr "Taktiež môžete vytvoriť odkaz pre určitú verziu napríklad <placeholder-1/>"
 
 #. (title)
 msgid "Accessing the Repository"
