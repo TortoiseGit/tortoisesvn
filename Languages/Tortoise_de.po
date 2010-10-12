@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-10-08 14:57+0200\n"
+"PO-Revision-Date: 2010-10-12 15:42+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -10859,6 +10859,70 @@ msgstr ""
 "tsvn:logtemplate\r\n"
 "Text, der automatisch beim Übertragen in die Dialoge eingetragen wird.\r\n"
 "Verwenden Sie dies als Schablone, die die Anwender ausfüllen können."
+
+#. Resource IDs: (579)
+msgid "tsvn:logtemplatebranch\r\nString which is inserted in the log message boxes in the commit dialogs.\r\nUse this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplatebranch\r\n"
+"Text, der automatisch beim Übertragen in die Dialoge eingetragen wird.\r\n"
+"Verwenden Sie dies als Schablone für Zweige/Marken, die die Anwender "
+"ausfüllen können."
+
+#. Resource IDs: (579)
+msgid "tsvn:logtemplatecommit\r\nString which is inserted in the log message boxes in the commit dialogs.\r\nUse this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplatecommit\r\n"
+"Text, der automatisch in die Übertragen Dialoge eingetragen wird.\r\n"
+"Verwenden Sie dies als Schablone, die die Anwender beim Übertragen ausfüllen "
+"können."
+
+#. Resource IDs: (579)
+msgid "tsvn:logtemplatedelete\r\nString which is inserted in the log message boxes in the commit dialogs.\r\nUse this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplatedelete\r\n"
+"Text, der automatisch in die Übertragen Dialoge eingetragen wird.\r\n"
+"Verwenden Sie dies als Schablone, die die Anwender beim Löschen ausfüllen "
+"können."
+
+#. Resource IDs: (579)
+msgid "tsvn:logtemplateimport\r\nString which is inserted in the log message boxes in the commit dialogs.\r\nUse this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplateimport\r\n"
+"Text, der automatisch in die Übertragen Dialoge eingetragen wird.\r\n"
+"Verwenden Sie dies als Schablone, die die Anwender beim Importieren "
+"ausfüllen können."
+
+#. Resource IDs: (579)
+msgid "tsvn:logtemplatelock\r\nString which is inserted in the log message boxes in the get-lock dialogs.\r\nUse this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplatelock\r\n"
+"Text, der automatisch in die Logmeldung beim Sperren eingetragen wird.\r\n"
+"Verwenden Sie dies als Schablone, die die Anwender beim Sperren ausfüllen "
+"können."
+
+#. Resource IDs: (579)
+msgid "tsvn:logtemplatemkdir\r\nString which is inserted in the log message boxes in the commit dialogs.\r\nUse this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplatemkdir\r\n"
+"Text, der automatisch in die Übertragen Dialoge eingetragen wird.\r\n"
+"Verwenden Sie dies als Schablone, die die Anwender beim Anlegen von "
+"Verzeichnissen ausfüllen können."
+
+#. Resource IDs: (579)
+msgid "tsvn:logtemplatemove\r\nString which is inserted in the log message boxes in the commit dialogs.\r\nUse this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplatemove\r\n"
+"Text, der automatisch in die Übertragen Dialoge eingetragen wird.\r\n"
+"Verwenden Sie dies als Schablone, die die Anwender beim "
+"Verschieben/Umbenennen ausfüllen können."
+
+#. Resource IDs: (579)
+msgid "tsvn:logtemplatepropset\r\nString which is inserted in the log message boxes in the commit dialogs.\r\nUse this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplatepropset\r\n"
+"Text, der automatisch in die Übertragen Dialoge eingetragen wird.\r\n"
+"Verwenden Sie dies als Schablone, die die Anwender beim Setzen von "
+"Eigenschaften ausfüllen können."
 
 #. Resource IDs: (578)
 msgid "tsvn:logwidthmarker\r\nSet this to the number of chars the log message should not exceed its width.\r\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
