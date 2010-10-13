@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-10-12 10:35-0000\n"
+"PO-Revision-Date: 2010-10-13 11:47-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11392,7 +11392,7 @@ msgid ""
 msgstr ""
 "tsvn:logtemplate\r\n"
 "Texto inserido nas caixas das mensagem de registo nas caixas de diálogo de submissão.\r\n"
-"Use como um modelo de mensagem de registo para os utilizadores preencherem e alterarem."
+"Use como um modelo de mensagem de registo a preencher pelos utilizadores."
 
 #. Resource IDs: (579)
 msgid ""
@@ -11402,7 +11402,7 @@ msgid ""
 msgstr ""
 "tsvn:logtemplatebranch\r\n"
 "Texto inserido nas caixas de mensagens de registo, nas caixas de diálogo de submissão.\r\n"
-"Usa isto como template de mensagem de registo para ramos/etiquetas/cópias, para os utilizadores a preencherem."
+"Usa isto como template de mensagem de registo para ramos/etiquetas/cópias,  a preencher pelos utilizadores."
 
 #. Resource IDs: (579)
 msgid ""
@@ -11412,7 +11412,7 @@ msgid ""
 msgstr ""
 "tsvn:logtemplatecommit\r\n"
 "Texto que é inserido nas caixas das mensagem de registo, nas caixas de diálogo de submissão.\r\n"
-"Use como um modelo de mensagem de registo para os utilizadores preencherem."
+"Use como um modelo de mensagem de registo, para submissões, a preencher pelos utilizadores."
 
 #. Resource IDs: (579)
 msgid ""
@@ -11422,62 +11422,57 @@ msgid ""
 msgstr ""
 "tsvn:logtemplatedelete\r\n"
 "Texto que é inserido nas caixas das mensagens de registo, nas caixas de diálogo de submissão.\r\n"
-"Usa como um modelo de mensagem de registo de remoções, para os utilizadores preencherem."
+"Usa como um modelo de mensagem de registo de remoções, a preencher pelos utilizadores."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplateimport\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Texto inserido nas caixas das mensagem de registo nas caixas de diálogo de submissão.\r\n"
-"Use como um modelo de mensagem de registo para os utilizadores preencherem e alterarem."
+"tsvn:logtemplateimport\r\n"
+"Texto inserido nas caixas de mensagens de registo, nas caixas de diálogo de submissão.\r\n"
+"Usar como um modelo de mensagem de registo para importações,  a preencher pelos utilizadores."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatelock\r\n"
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Texto inserido nas caixas das mensagem de registo nas caixas de diálogo de submissão.\r\n"
-"Use como um modelo de mensagem de registo para os utilizadores preencherem e alterarem."
+"tsvn:logtemplatelock\r\n"
+"Texto inserido nas caixas de mensagens de registo, nas caixas de diálogo obter-bloqueio.\r\n"
+"Use como um modelo de mensagem de registo de obter-bloqueios, a preencher pelos utilizadores."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatemkdir\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for directory creations for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Texto inserido nas caixas das mensagem de registo nas caixas de diálogo de submissão.\r\n"
-"Use como um modelo de mensagem de registo para os utilizadores preencherem e alterarem."
+"tsvn:logtemplatemkdir\r\n"
+"Texto inserido nas caixas das mensagem de registo das caixas de diálogo de submissão.\r\n"
+"Usar como um modelo de mensagens de registo para criação de pastas, a preencher pelos utilizadores."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatemove\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for moves/renames for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Texto inserido nas caixas das mensagem de registo nas caixas de diálogo de submissão.\r\n"
-"Use como um modelo de mensagem de registo para os utilizadores preencherem e alterarem."
+"tsvn:logtemplatemove\r\n"
+"Texto inserido nas caixas de mensagens de registo, nas caixas de diálogo de submissão.\r\n"
+"Usar como um modelo de mensagem de registo para mover/renomear, a preencher pelos utilizadores."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatepropset\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Texto inserido nas caixas das mensagem de registo nas caixas de diálogo de submissão.\r\n"
-"Use como um modelo de mensagem de registo para os utilizadores preencherem e alterarem."
+"tsvn:logtemplatepropset\r\n"
+"Texto inserido nas caixas de mensagens de registo, nas caixas de diálogo de submissão.\r\n"
+"Usar como um modelo de mensagem de registo para modificações de propriedades, a preencher pelos utilizadores."
 
 #. Resource IDs: (578)
 msgid ""
