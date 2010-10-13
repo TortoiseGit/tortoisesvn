@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-15 16:34+0200\n"
+"PO-Revision-Date: 2010-10-13 11:30+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1358,8 +1358,8 @@ msgid "&Update"
 msgstr "&Güncelle"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
-msgstr "Elemanı revizyona göre &güncelle"
+msgid "&Update item to revision..."
+msgstr "Elemanı revizyona göre &güncelle..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -1560,21 +1560,6 @@ msgstr "<Ayırıcı>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<Başlıksız>"
-
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN bir shell uzantısıdır,\n"
-"bu Windows explorer'a entegre ediliyor anlamına gelir.\n"
-"TortoiseSVN programını kullanmak için lütfen explorer'ı açınız ve dilediğiniz klasörün \n"
-"üstüne sağ tuşla tıklayınız,  böylece bütün TortoiseSVN komutlarını bulabileceğiniz  \n"
-"içerik menüsünü görebilirsiniz. \n"
-"ve lütfen kullanma kılavuzunu okuyun!"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -4868,6 +4853,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -6201,7 +6190,6 @@ msgid "No"
 msgstr "Hayır"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
@@ -9353,7 +9341,6 @@ msgid "The user who owns the lock of the file"
 msgstr "Dosyanın kilidinin sahibi olan kullanıcı"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
 "Please commit your changes first or revert."
@@ -9688,6 +9675,21 @@ msgid ""
 msgstr ""
 "TortoiseSVN benzer dosya isimleri algıladı. %s\n"
 " Bu dosya isimlerinin tekrar adlandırılmasınını da istiyor musunuz?"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN bir shell uzantısıdır,\n"
+"bu Windows explorer'a entegre ediliyor anlamına gelir.\n"
+"TortoiseSVN programını kullanmak için lütfen explorer'ı açınız ve dilediğiniz klasörün \n"
+"üstüne sağ tuşla tıklayınız,  böylece bütün TortoiseSVN komutlarını bulabileceğiniz  \n"
+"içerik menüsünü görebilirsiniz. \n"
+"ve lütfen kullanma kılavuzunu okuyun!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -11412,6 +11414,86 @@ msgstr ""
 "Teslim diyaloglarında Günlük mesajları kutularına eklenenen dizin.\r\n"
 "Bunu kullanıcıların doldurması gerekli Günlük mesajı şablonu olarak kullanın."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplatebranch\r\n"
+"Teslim diyaloglarında günlük mesajları kutularına eklenen karakter dizisi.\r\n"
+"Bunu kullanıcıların dolduracağı, branch/tags/copies için günlük mesajı şablonu olarak kullanın."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplatecommit\r\n"
+"Teslim diyaloglarında günlük mesajları kutularına eklenen karakter dizisi.\r\n"
+"Bunu kullanıcıların dolduracağı, teslim işlemleri için günlük mesajı şablonu olarak kullanın."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplatedelete\r\n"
+"Teslim diyaloglarında günlük mesajları kutularına eklenen dizin.\r\n"
+"Bunu kullanıcıların dolduracağı, silme işlemleri için günlük mesajı şablonu olarak kullanın."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplateimport\r\n"
+"Teslim diyaloglarında günlük mesajları kutularına eklenen dizin.\r\n"
+"Bunu kullanıcıların dolduracağı, içe aktarma işlemleri için günlük mesajı şablonu olarak kullanın."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplatelock\r\n"
+"Teslim diyaloglarında günlük mesajları kutularına eklenen dizin.\r\n"
+"Bunu kullanıcıların dolduracağı, kilit alma işlemleri için günlük mesajı şablonu olarak kullanın."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplatemkdir\r\n"
+"Teslim diyaloglarında günlük mesajları kutularına eklenen dizin.\r\n"
+"Bunu kullanıcıların dolduracağı, dizin oluşturma işlemleri için günlük mesajı şablonu olarak kullanın."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplatemove\r\n"
+"Teslim diyaloglarında günlük mesajları kutularına eklenen dizin.\r\n"
+"Bunu kullanıcıların dolduracağı, taşıma/yeniden adlandırma işlemleri için günlük mesajı şablonu olarak kullanın."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplatepropset\r\n"
+"Teslim diyaloglarında günlük mesajları kutularına eklenen dizin.\r\n"
+"Bunu kullanıcıların dolduracağı, özellik güncelleme işlemleri için günlük mesajı şablonu olarak kullanın."
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -11615,16 +11697,16 @@ msgstr "{HataTakibi}"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
+#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
+#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
 #~ "GDI+ revizyon diyagramını resim olarak kayit edilmesi için gerekli.\n"
 #~ "GDI+yi bu adresten edinebilirsiniz\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
+#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
+#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a>"
 
 #~ msgid "Go offline?"
