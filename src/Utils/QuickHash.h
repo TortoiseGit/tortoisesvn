@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -405,7 +405,7 @@ public:
     {
         size_t count = last - first;
         if (should_grow (count))
-            reserve (grower.size() + count);
+            reserve (grower.capacity() + count);
 
         // small numbers should be added using conventional methods
 
