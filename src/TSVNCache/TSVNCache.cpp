@@ -143,6 +143,11 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
         return 0;
     }
 
+    // set the current directory to the users temp dir
+    TCHAR pathbuf[MAX_PATH];
+    GetTempPath(MAX_PATH, pathbuf);
+    SetCurrentDirectory(pathbuf);
+
     apr_initialize();
     svn_dso_initialize2();
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
