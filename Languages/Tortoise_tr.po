@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-10-13 11:30+0200\n"
+"PO-Revision-Date: 2010-10-14 11:03+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -167,7 +167,7 @@ msgstr "%1!s!, %2!s! de"
 #. Resource IDs: (145)
 #, c-format
 msgid "%1!s!\\%2!s! - Export"
-msgstr "%1!s!\\%2!s! - Dışa aktar"
+msgstr "%1!s!\\%2!s - Dışa aktar"
 
 #. Resource IDs: (145)
 #, c-format
@@ -589,7 +589,7 @@ msgstr "&Başlangıçta depo ile bağlantı kur"
 
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
-msgstr "Dosyaları Taban dosyası ile karşılaştırırken &dönüştür"
+msgstr "Dosyaları TABAN dosyası ile karşılaştırırken &dönüştür"
 
 #. Resource IDs: (501, 1367, 1471, 57634)
 msgid "&Copy"
@@ -625,7 +625,7 @@ msgstr "&Küçük önbellekler silinmeden önceki faal olunmayan günler"
 
 #. Resource IDs: (1269)
 msgid "&Default"
-msgstr "&Varsayılan(Default)"
+msgstr "&Varsayılan"
 
 #. Resource IDs: (11, 1382, 16617, 16912)
 msgid "&Delete"
@@ -673,11 +673,11 @@ msgstr "&Düzenle"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
-msgstr "&Çakışmaları düzenle"
+msgstr "&Çakışmayı düzenle"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
-msgstr "&Çakişmaları düzenle"
+msgstr "&Çakışmaları düzenle"
 
 #. Resource IDs: (1099, 1282, 16510)
 msgid "&Edit..."
@@ -685,7 +685,7 @@ msgstr "&Düzenle..."
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
-msgstr "&Vekil Sunucusunu kullan"
+msgstr "&Vekil Sunucusunu etkinleştir"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -741,7 +741,7 @@ msgstr "&Sabit sürücüler"
 
 #. Resource IDs: (1065)
 msgid "&Floating"
-msgstr "&Taşınıyor..."
+msgstr "&Taşınıyor"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
@@ -749,7 +749,7 @@ msgstr "&Günlük mesajları yazı tipi:"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
-msgstr "&Font:"
+msgstr "&Yazı tipi:"
 
 #. Resource IDs: (501, 65535)
 msgid "&From URL:"
@@ -822,7 +822,7 @@ msgstr "&Resim"
 
 #. Resource IDs: (32790)
 msgid "&Image Info"
-msgstr "&Resim hakkında"
+msgstr "&Resim Bilgisi"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -878,7 +878,7 @@ msgstr "&Limit:"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
-msgstr "&Resim konularını birbirine bağla"
+msgstr "&Resim konumlarını birbirine bağla"
 
 #. Resource IDs: (1590)
 msgid "&Linux (LF)"
@@ -922,7 +922,7 @@ msgstr "&Silinmiş inaktif önbellek için en büyük boyut [kByte]"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
-msgstr "&Menü animasyonları"
+msgstr "&Menü animasyonları:"
 
 #. Resource IDs: (16921)
 msgid "&Menu contents:"
@@ -1071,7 +1071,7 @@ msgstr "&Önceki Farklılık"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
-msgstr "&"
+msgstr "&Yazdırma Önizleme"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1107,7 +1107,7 @@ msgstr "&Bug-ID girmeyi hatırlat"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
-msgstr "&Sil"
+msgstr "&Kaldır"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1123,15 +1123,15 @@ msgstr "&Depo tarayıcısı"
 
 #. Resource IDs: (16613, 16624)
 msgid "&Reset"
-msgstr "&Reset"
+msgstr "&Sıfırla"
 
 #. Resource IDs: (1019)
 msgid "&Reset Toolbar"
-msgstr "&Araç çubuğune sıfırla"
+msgstr "&Araç çubuğunu sıfırla"
 
 #. Resource IDs: (16657)
 msgid "&Reset my usage data"
-msgstr "Özel Verileri &Temizle"
+msgstr "Kullanım verilerimi &sıfırla"
 
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
@@ -1163,7 +1163,7 @@ msgstr "&Revizyon"
 
 #. Resource IDs: (65535)
 msgid "&SSH client:"
-msgstr "&SSH client'ı:"
+msgstr "&SSH istemcisi:"
 
 #. Resource IDs: (65535)
 msgid "&SVN"
@@ -1179,7 +1179,7 @@ msgstr "&Kaydet"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
-msgstr "&Kimliği Kaydet..."
+msgstr "&Kimliği Kaydet"
 
 #. Resource IDs: (272, 32771, 32806)
 msgid "&Save graph as..."
@@ -1199,7 +1199,7 @@ msgstr "&Ayarlar"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr "&Ilk revizyonu göster"
+msgstr "&Baş revizyonu göster"
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
@@ -1243,7 +1243,7 @@ msgstr "&Çalışan Kopyayı bu yol ve revizyona değiştir"
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
-msgstr "&WCyi @HEAD yola çevir"
+msgstr "&WCyi @HEAD yoluna çevir"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1251,7 +1251,7 @@ msgstr "&Sembol görünümü"
 
 #. Resource IDs: (65535)
 msgid "&Tab size:"
-msgstr "&Tab boyutu:"
+msgstr "&Sekme boyutu:"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
@@ -1303,11 +1303,11 @@ msgstr "&Araç çubuğu"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
-msgstr "&Araç çubuğu ismi"
+msgstr "&Araç çubuğu ismi:"
 
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
-msgstr "&Araç çubukları"
+msgstr "&Araç çubukları:"
 
 #. Resource IDs: (1567)
 msgid "&Top"
@@ -1415,7 +1415,7 @@ msgstr "&dosya listesi kontrolü"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr "'atlama aralıkları' henüz önbelleğe alınmamış güncelleme aralıklarını göstermek için kullanılır."
+msgstr "'atlama aralıkları' henüz önbelleğe alınmamış güncelleme aralıklarını göstermek için kullanılır"
 
 #. Resource IDs: (272)
 #, c-format
@@ -1522,7 +1522,7 @@ msgstr "..."
 
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
-msgstr "... ön belleği kontrol ediyor ve kayıt sorgusunu hazırlıyor"
+msgstr "... ön belleği kontrol ediyor ve günlük sorgusunu hazırlıyor"
 
 #. Resource IDs: (270)
 msgid "... reading working copy status"
@@ -1547,7 +1547,7 @@ msgstr ": çalışan kopya"
 
 #. Resource IDs: (332)
 msgid "< &Back"
-msgstr "<&Geri"
+msgstr "< &Geri"
 
 #. Resource IDs: (16506)
 msgid "<.....>"
@@ -1721,7 +1721,7 @@ msgstr "Ekle - TortoiseSVN"
 
 #. Resource IDs: (563)
 msgid "Add Properties"
-msgstr "Ayar/Özellik ekle"
+msgstr "Özellik ekle"
 
 #. Resource IDs: (110)
 msgid "Add extension specific diff program"
@@ -2045,7 +2045,7 @@ msgstr "Desteklenmeyen bir işlem yapılmak istendi."
 #. Resource IDs: (3867, 3868)
 #, c-format
 msgid "Attempted to access %1 past its end."
-msgstr "Sonunu %1 aşan bir yere erişmeye kalkıştı. "
+msgstr "Sonunu %1 aşan bir yere erişmeye çalışıldı. "
 
 #. Resource IDs: (3868)
 #, c-format
@@ -2055,7 +2055,7 @@ msgstr "Yazılan %1 'den okunmaya çalışıldı. "
 #. Resource IDs: (3868)
 #, c-format
 msgid "Attempted to write to the reading %1."
-msgstr "Okunan %1 'e yazılmak istendi. "
+msgstr "Okunan %1 'e yazılmaya çalışıldı. "
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
@@ -2693,11 +2693,11 @@ msgstr "Renk"
 
 #. Resource IDs: (65535)
 msgid "Colors:"
-msgstr "Renkler"
+msgstr "Renkler:"
 
 #. Resource IDs: (65535)
 msgid "Comman&ds:"
-msgstr "&Komutlar"
+msgstr "&Komutlar:"
 
 #. Resource IDs: (220, 1002)
 msgid "Command"
@@ -2778,7 +2778,7 @@ msgstr "&Baş revizyonları karşılaştır"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
-msgstr "Çalişan taban dosyası ile karşılaştır ve &sorumlusunu göster."
+msgstr "Çalışan taban dosyası ile karşılaştır ve &sorumlusunu göster."
 
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
@@ -2876,7 +2876,7 @@ msgstr "Depo sunucusuna bağlan ve eksik olan kayıt verisini indir"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
-msgstr "Kap boyutlari"
+msgstr "Kap boyutları"
 
 #. Resource IDs: (16520)
 msgid "Context Menus: "
@@ -2896,7 +2896,7 @@ msgstr "Çalışan kopya biçimini yeni versiyona dönüştürür"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
-msgstr "Kopya&lamak"
+msgstr "Kop&yala"
 
 #. Resource IDs: (73)
 msgid "Copied"
@@ -3040,7 +3040,7 @@ msgstr "%1!s! kopyalanıyor "
 
 #. Resource IDs: (80)
 msgid "Copying..."
-msgstr "Kopyalanıyor"
+msgstr "Kopyalanıyor..."
 
 #. Resource IDs: (188)
 msgid "Corrections"
@@ -3117,7 +3117,9 @@ msgstr "%1 açılamadı çünkü çok fazla açık dosya bulunmakta."
 msgid ""
 "Could not open the file\n"
 "%s"
-msgstr "%s dosyası Açılamadı!"
+msgstr ""
+"Dosya açılamadı\n"
+"%s"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3476,11 +3478,11 @@ msgstr ""
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
-msgstr "Diyalog boyutları ve yerleri"
+msgstr "Diyalog boyutları ve konumları"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
-msgstr "Karşılaştırma dosyası"
+msgstr "Karşılaştırma dosyası:"
 
 #. Resource IDs: (1533)
 msgid "Diff options"
@@ -3728,7 +3730,7 @@ msgstr "&Dışa aktar"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
-msgstr "E&xport..."
+msgstr "&Dışa aktar..."
 
 #. Resource IDs: (3697)
 msgid "EXT"
@@ -3756,7 +3758,7 @@ msgstr "Özellik Çakışmasını Düzenle"
 
 #. Resource IDs: (298)
 msgid "Edit Tree Conflicts"
-msgstr "Ağaç Çakişmalarını Düzenle"
+msgstr "Ağaç Çakİşmalarını Düzenle"
 
 #. Resource IDs: (113)
 msgid "Edit author"
@@ -3792,7 +3794,7 @@ msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!s!"
 msgstr ""
-"'%1!S!' özeliiğini %2!s! üzerinde\r\n"
+"'%1!S!' özelliğini %2!s! üzerinde\r\n"
 "düzenle"
 
 #. Resource IDs: (1331, 1382)
@@ -3801,7 +3803,7 @@ msgstr "Düzenle..."
 
 #. Resource IDs: (581)
 msgid "Edits the selected property value"
-msgstr "Seçili Özellik Değerini Düzenler"
+msgstr "Seçili özellik değerini düzenler"
 
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
@@ -4473,7 +4475,7 @@ msgstr "Otomatik kelimeler bulundu:"
 
 #. Resource IDs: (1200, 65535)
 msgid "From:"
-msgstr "From:"
+msgstr "Buradan:"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -6922,7 +6924,7 @@ msgstr "Özellikler (*.svnprops)|*.svnprops|Tüm dosyalar (*.*)|*.*||"
 
 #. Resource IDs: (1287)
 msgid "Properties for"
-msgstr "Seçenekler "
+msgstr "Özellikler"
 
 #. Resource IDs: (209)
 msgid "Properties..."
@@ -8112,7 +8114,7 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
-msgstr "Seçenekler ayarlanıyor..."
+msgstr "Özellikler ayarlanıyor..."
 
 #. Resource IDs: (107)
 msgid "Settings"
@@ -8136,7 +8138,7 @@ msgstr "Ağaçları pencerenin en üstüne kaydır. Diğer ağaçlarla olan hiza
 
 #. Resource IDs: (101)
 msgid "Sho&w properties"
-msgstr "Seçenekleri &göster"
+msgstr "Özellikleri &göster"
 
 #. Resource IDs: (1105)
 msgid "Short &date/time format in log messages"
@@ -8533,7 +8535,7 @@ msgstr "Standart"
 
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
-msgstr "Teslim yakalıyıcısını çalıştır"
+msgstr "Teslim yakalayıcısını çalıştır"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -8756,7 +8758,7 @@ msgid ""
 "Switch left and right view"
 msgstr ""
 "Sol ve sağ panelin içeriklerini kendi aralarında değiştir\n"
-"Sol ve sağ paneli kendii aralarında değiştir"
+"Sol ve sağ paneli kendi aralarında değiştir"
 
 #. Resource IDs: (3825)
 msgid "Switch to the next document window"
@@ -10770,8 +10772,7 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
-"ask repository first if 'online' -\n"
-"work entirely from cache if 'offline''çevrimiçi' ise önce revizyona sor -\n"
+"'çevrimiçi' ise önce revizyona sor -\n"
 "'çevrimdışı' ise tamamen önbellekten çalış"
 
 #. Resource IDs: (278)
@@ -10780,7 +10781,7 @@ msgstr "bu revizyonda"
 
 #. Resource IDs: (245)
 msgid "author"
-msgstr "yaratan"
+msgstr "yazar"
 
 #. Resource IDs: (65535)
 msgid "authors: "
