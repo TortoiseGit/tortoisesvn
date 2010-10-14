@@ -114,7 +114,8 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path )
         return false;
     }
     int wcformat = 0;
-    const char *local_abspath = path.GetDirectory().GetSVNApiPath(pool);
+    CTSVNPath pathdir = path.GetDirectory();
+    const char *local_abspath = pathdir.GetSVNApiPath(pool);
     if ((local_abspath == NULL) || (local_abspath[0] == 0))
         return false;
 
