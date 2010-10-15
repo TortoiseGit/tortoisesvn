@@ -130,7 +130,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
                 }
             }
         }
-        HRESULT res = SHCreateStreamOnFile(filepath.GetWinPath(), STGM_READ, &pIStream);
+        HRESULT res = SHCreateStreamOnFileEx(filepath.GetWinPath(), STGM_READ, FILE_ATTRIBUTE_NORMAL, FALSE, NULL, &pIStream);
         if (res == S_OK)
         {
             pmedium->pstm = pIStream;
