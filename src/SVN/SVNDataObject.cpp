@@ -123,7 +123,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
             filepath = CTempFiles::Instance().GetTempFilePath(true);
             if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
             {
-                if (!m_svn.Cat(CTSVNPath(m_allPaths[pformatetcIn->lindex].infodata.url), m_pegRev, m_revision, filepath))
+                if (!m_svn.Export(CTSVNPath(m_allPaths[pformatetcIn->lindex].infodata.url), filepath, m_pegRev, m_revision))
                 {
                     DeleteFile(filepath.GetWinPath());
                     return STG_E_ACCESSDENIED;
@@ -226,6 +226,22 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
             if (it->rootpath.IsUrl())
             {
                 files->fgd[index].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
+
+                struct tm newtime;
+                SYSTEMTIME systime;
+                __time64_t ttt = it->infodata.lastchangedtime;
+                _localtime64_s(&newtime, &ttt);
+
+                systime.wDay = (WORD)newtime.tm_mday;
+                systime.wDayOfWeek = (WORD)newtime.tm_wday;
+                systime.wHour = (WORD)newtime.tm_hour;
+                systime.wMilliseconds = 0;
+                systime.wMinute = (WORD)newtime.tm_min;
+                systime.wMonth = (WORD)newtime.tm_mon+1;
+                systime.wSecond = (WORD)newtime.tm_sec;
+                systime.wYear = (WORD)newtime.tm_year+1900;
+                SystemTimeToFileTime(&systime, &files->fgd[index].ftLastWriteTime);
+                files->fgd[index].dwFlags |= FD_WRITESTIME;
             }
             else
             {
