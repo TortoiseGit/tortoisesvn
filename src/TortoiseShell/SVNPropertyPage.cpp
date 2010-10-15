@@ -339,13 +339,13 @@ void CSVNPropertyPage::InitWorkfileView()
                 SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, _countof(buf), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
                 if (infodata)
-                    time = (__time64_t)infodata->texttime/1000000L;
+                    time = (__time64_t)infodata->texttime;
                 else
                     time = (__time64_t)svn.status->changed_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                 SetDlgItemText(m_hwnd, IDC_TEXTDATE, buf);
                 if (infodata)
-                    time = (__time64_t)infodata->proptime/1000000L;
+                    time = (__time64_t)infodata->proptime;
                 else
                     time = (__time64_t)svn.status->changed_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
