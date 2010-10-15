@@ -1917,10 +1917,10 @@ void CLogDlg::DiffSelectedFile()
             SetAndClearProgressInfo(&progDlg);
             progDlg.ShowModeless(m_hWnd);
 
-            if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath.GetPath()), r, r, tempfile))
+            if (!Export(CTSVNPath(m_sRepositoryRoot + changedpath.GetPath()),tempfile, r, r))
             {
                 m_bCancelled = false;
-                if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath.GetPath()), SVNRev::REV_HEAD, r, tempfile))
+                if (!Export(CTSVNPath(m_sRepositoryRoot + changedpath.GetPath()), tempfile, SVNRev::REV_HEAD, r))
                 {
                     progDlg.Stop();
                     SetAndClearProgressInfo((HWND)NULL);
@@ -2143,7 +2143,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 
     CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(filepath), rev);
     m_bCancelled = false;
-    if (!Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
+    if (!Export(CTSVNPath(filepath), tempfile, SVNRev(rev), rev))
     {
         progDlg.Stop();
         SetAndClearProgressInfo((HWND)NULL);
@@ -4700,10 +4700,10 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     progDlg.SetLine(1, sInfoLine, true);
                     SetAndClearProgressInfo(&progDlg);
                     progDlg.ShowModeless(m_hWnd);
-                    if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), revSelected, tempfile))
+                    if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), revSelected))
                     {
                         // try again with another peg revision
-                        if (!Cat(m_path, revSelected, revSelected, tempfile))
+                        if (!Export(m_path, tempfile, revSelected, revSelected))
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
@@ -4731,11 +4731,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 progDlg.ShowModeless(m_hWnd);
                 CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path, revSelected);
                 bool bSuccess = true;
-                if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), revSelected, tempfile))
+                if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), revSelected))
                 {
                     bSuccess = false;
                     // try again, but with the selected revision as the peg revision
-                    if (!Cat(m_path, revSelected, revSelected, tempfile))
+                    if (!Export(m_path, tempfile, revSelected, revSelected))
                     {
                         progDlg.Stop();
                         SetAndClearProgressInfo((HWND)NULL);
@@ -5301,7 +5301,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                             // use the export command from the top pane of the log dialog.
                         }
                         filepath = sRoot + changedlogpath.GetPath();
-                        if (!Cat(CTSVNPath(filepath), getrev, getrev, tempfile))
+                        if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev))
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);

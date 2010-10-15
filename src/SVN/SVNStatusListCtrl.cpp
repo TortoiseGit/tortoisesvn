@@ -2830,7 +2830,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         // fetch the file from the repository
                         SVN svn;
                         CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
-                        if (!svn.Cat(CTSVNPath(entry->GetURL()), SVNRev::REV_HEAD, SVNRev::REV_HEAD, tempfile))
+                        if (!svn.Export(CTSVNPath(entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
                         {
                             ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             break;
@@ -2854,7 +2854,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         // fetch the file from the repository
                         SVN svn;
                         CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
-                        if (!svn.Cat(CTSVNPath(entry->GetURL()), SVNRev::REV_HEAD, SVNRev::REV_HEAD, tempfile))
+                        if (!svn.Export(CTSVNPath(entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
                         {
                             ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             break;
@@ -4109,7 +4109,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
             svn.SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
             progDlg.ShowModeless(m_hWnd);
             progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)filePath.GetUIPathString());
-            if (!svn.Cat(CTSVNPath(entry->GetURL()), SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD, filePath))
+            if (!svn.Export(CTSVNPath(entry->GetURL()), filePath, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD))
             {
                 progDlg.Stop();
                 svn.SetAndClearProgressInfo((HWND)NULL);

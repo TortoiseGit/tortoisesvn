@@ -1825,7 +1825,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 CTSVNPath basefile = CTempFiles::Instance().GetTempFilePath(false, data->path, rev);
                 CTSVNPath newfile = CTempFiles::Instance().GetTempFilePath(false, data->path, SVNRev::REV_HEAD);
                 SVN svn;
-                if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, basefile))
+                if (!svn.Export(data->path, basefile, SVNRev(SVNRev::REV_WC), rev))
                 {
                     ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     DialogEnableWindow(IDOK, TRUE);
@@ -1835,7 +1835,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
                 {
                     CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(false, data->path, SVNRev::REV_BASE);
-                    if (!svn.Cat(data->path, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
+                    if (!svn.Export(data->path, temporaryFile, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE)))
                     {
                         temporaryFile.Reset();
                         break;
@@ -1858,7 +1858,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, data->path, rev);
                 SVN svn;
-                if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, tempfile))
+                if (!svn.Export(data->path, tempfile, SVNRev(SVNRev::REV_WC), rev))
                 {
                     ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                     DialogEnableWindow(IDOK, TRUE);

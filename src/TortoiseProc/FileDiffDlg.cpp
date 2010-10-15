@@ -270,9 +270,9 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)m_path1.GetUIPathString());
     progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISIONTEXT, (LPCTSTR)m_rev1.ToString());
 
-    if ((fd.kind != svn_client_diff_summarize_kind_added)&&(!blame)&&(!Cat(url1, m_bDoPegDiff ? m_peg : m_rev1, m_rev1, tempfile)))
+    if ((fd.kind != svn_client_diff_summarize_kind_added)&&(!blame)&&(!Export(url1, tempfile, m_bDoPegDiff ? m_peg : m_rev1, m_rev1)))
     {
-        if ((!m_bDoPegDiff)||(!Cat(url1, m_rev1, m_rev1, tempfile)))
+        if ((!m_bDoPegDiff)||(!Export(url1, tempfile, m_rev1, m_rev1)))
         {
             ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return;
@@ -291,9 +291,9 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
     progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISIONTEXT, (LPCTSTR)m_rev2.ToString());
     CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, url2, m_rev2);
-    if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!blame)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, tempfile2)))
+    if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!blame)&&(!Export(url2, tempfile2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2)))
     {
-        if ((!m_bDoPegDiff)||(!Cat(url2, m_rev2, m_rev2, tempfile2)))
+        if ((!m_bDoPegDiff)||(!Export(url2, tempfile2, m_rev2, m_rev2)))
         {
             ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return;
@@ -764,11 +764,9 @@ UINT CFileDiffDlg::ExportThread()
         }
         else
         {
-            // exporting a file requires calling SVN::Cat(), since SVN::Export() only works
-            // with folders.
-            if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, savepath)))
+            if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Export(url2, savepath, m_bDoPegDiff ? m_peg : m_rev2, m_rev2)))
             {
-                if ((!m_bDoPegDiff)||(!Cat(url2, m_rev2, m_rev2, savepath)))
+                if ((!m_bDoPegDiff)||(!Export(url2, savepath, m_rev2, m_rev2)))
                 {
                     delete m_pProgDlg;
                     m_pProgDlg = NULL;

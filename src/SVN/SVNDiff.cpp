@@ -109,7 +109,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
         m_pSVN->SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
         progDlg.ShowModeless(m_hWnd);
         progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)filePath.GetUIPathString());
-        if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD, remotePath))
+        if (!m_pSVN->Export(filePath, remotePath, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD))
         {
             progDlg.Stop();
             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -195,7 +195,7 @@ bool SVNDiff::DiffFileAgainstBase(
         if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
         {
             CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath, SVNRev::REV_BASE);
-            if (!m_pSVN->Cat(filePath, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE), temporaryFile))
+            if (!m_pSVN->Export(filePath, temporaryFile, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE)))
             {
                 temporaryFile.Reset();
             }
@@ -448,11 +448,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             if (!blame)
             {
                 bool tryWorking = (!m_pSVN->PathIsURL(url1) && rev1.IsWorking() && PathFileExists(url1.GetWinPath()));
-                if (!m_pSVN->Cat(url1, peg.IsValid() && !tryWorking ? peg : rev1, rev1, tempfile1))
+                if (!m_pSVN->Export(url1, tempfile1, peg.IsValid() && !tryWorking ? peg : rev1, rev1))
                 {
                     if (peg.IsValid())
                     {
-                        if (!m_pSVN->Cat(url1, rev1, rev1, tempfile1))
+                        if (!m_pSVN->Export(url1, tempfile1, rev1, rev1))
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -497,11 +497,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             }
             else
             {
-                if (!m_pSVN->Cat(url2, peg.IsValid() ? peg : rev2, rev2, tempfile2))
+                if (!m_pSVN->Export(url2, tempfile2, peg.IsValid() ? peg : rev2, rev2))
                 {
                     if (peg.IsValid())
                     {
-                        if (!m_pSVN->Cat(url2, rev2, rev2, tempfile2))
+                        if (!m_pSVN->Export(url2, tempfile2, rev2, rev2))
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -617,11 +617,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             }
             else
             {
-                if (!m_pSVN->Cat(url1, (peg.IsValid() ? peg : SVNRev::REV_WC), rev2, tempfile))
+                if (!m_pSVN->Export(url1, tempfile, (peg.IsValid() ? peg : SVNRev::REV_WC), rev2))
                 {
                     if (peg.IsValid())
                     {
-                        if (!m_pSVN->Cat(url1, SVNRev::REV_WC, rev2, tempfile))
+                        if (!m_pSVN->Export(url1, tempfile, SVNRev::REV_WC, rev2))
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);

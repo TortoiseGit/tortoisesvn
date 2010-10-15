@@ -1832,7 +1832,7 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
     progDlg.SetLine(1, sInfoLine, true);
     SetAndClearProgressInfo(&progDlg);
     progDlg.ShowModeless(m_hWnd);
-    if (!Cat(urlEscaped, revision, revision, tempfile))
+    if (!Export(urlEscaped, tempfile, revision, revision))
     {
         progDlg.Stop();
         SetAndClearProgressInfo((HWND)NULL);
@@ -2841,7 +2841,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         CString sInfoLine;
                         sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)saveurl, (LPCTSTR)revision.ToString());
                         progDlg.SetLine(1, sInfoLine, true);
-                        if (!Cat(CTSVNPath(saveurl), revision, revision, savepath)||(progDlg.HasUserCancelled()))
+                        if (!Export(CTSVNPath(saveurl), savepath, revision, revision)||(progDlg.HasUserCancelled()))
                         {
                             wait_cursor.Hide();
                             progDlg.Stop();
