@@ -219,7 +219,11 @@ void CHooks::AddPathParam(CString& sCmd, const CTSVNPathList& pathList)
 
 void CHooks::AddCWDParam(CString& sCmd, const CTSVNPathList& pathList)
 {
-    AddParam(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPathString());
+    CTSVNPath curDir = pathList.GetCommonRoot().GetDirectory();
+    while (!curDir.IsEmpty() && !curDir.Exists())
+        curDir = curDir.GetContainingDirectory();
+
+    AddParam(sCmd, curDir.GetWinPathString());
 }
 
 void CHooks::AddDepthParam(CString& sCmd, svn_depth_t depth)
@@ -415,10 +419,14 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     sa.bInheritHandle = TRUE;
 
     CTSVNPath curDir = paths.GetCommonRoot().GetDirectory();
-    if (!curDir.Exists())
+    while (!curDir.IsEmpty() && !curDir.Exists())
         curDir = curDir.GetContainingDirectory();
-    if (!curDir.Exists())
-        curDir.Reset();
+    if (curDir.IsEmpty())
+    {
+        WCHAR buf[MAX_PATH] = {0};
+        GetTempPath(MAX_PATH, buf);
+        curDir.SetFromWin(buf, true);
+    }
 
     HANDLE hOut   = INVALID_HANDLE_VALUE;
     HANDLE hRedir = INVALID_HANDLE_VALUE;
