@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-23 19:41 +0000\n"
-"PO-Revision-Date: 2010-10-03 23:14+0200\n"
+"POT-Creation-Date: 2010-10-08 19:44 +0000\n"
+"PO-Revision-Date: 2010-10-17 20:04+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -799,8 +799,8 @@ msgid "In other words, the repository's root directory has two subdirectories: <
 msgstr "Toisin sanoen arkiston juurihakemistossa on kaksi alihakemistoa: <filename>paint</filename> ja <filename>calc</filename>."
 
 #. (para)
-msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
-msgstr "Saadaksesi työkopion, sinun täytyy  <firstterm>hakea työkopio</firstterm> jostain arkiston alipuusta. (Ilmaus <emphasis>hakea työkopio</emphasis> saattaa kuulostaa ikään kuin sillä olisi jotain tekemistä lukituksen tai resurssien varaamisen kanssa, mutta näin ei ole; se vain luo sinulle oman kopion projektista)."
+msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you.)"
+msgstr "Saadaksesi työkopion sinun täytyy kopioida jonkin arkiston polun tiedostot työasemallesi. Tätä kutsutaan <firstterm>työkopion noutamiseksi</firstterm> (engl. check out). Työkopion noutamisella ei ole tekemistä lukituksen tai resurssien varaamisen kanssa; se vain luo sinulle oman paikallisen kopion projektista."
 
 #. (para)
 msgid "Suppose you make changes to <filename>button.c</filename>. Since the <filename>.svn</filename> directory remembers the file's modification date and original contents, Subversion can tell that you've changed the file. However, Subversion does not make your changes public until you explicitly tell it to. The act of publishing your changes is more commonly known as <firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) changes to the repository."
@@ -3183,8 +3183,8 @@ msgid "If you check out a sparse working copy (i.e., by choosing something other
 msgstr "Jos haet epätäydellisen (engl. sparse) työkopion (ts. valitsemalla jonkin muun vaihtoehdon kuin <literal>täysin palautuva</literal> työkopion haun syvyydeksi), voit lisätä uusia hakemistoja työkopioosi arkistoselaimella (<xref linkend=\"tsvn-dug-repobrowser\"/>) tai tarkista muutokset -ikkunassa (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 
 #. (para)
-msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
-msgstr "<action>Oikea-napsauta</action> työkopion kansiota Windowsin resurssienhallinnassa ja valitse komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Arkistoselain</guimenuitem></menuchoice> avataksesi arkistoselaimen. Etsi alikansio, jonka haluat lisätä työkopioosi ja valitse kontekstivalikosta komento <menuchoice><guimenuitem>Päivitä kohde versioon...</guimenuitem></menuchoice> Komento on näkyvissä vain, jos valittua kohdetta ei vielä löydy työkopiostasi, mutta sen yläkansio löytyy."
+msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
+msgstr "<action>Oikea-napsauta</action> työkopion kansiota Windowsin resurssienhallinnassa ja valitse komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Arkistoselain</guimenuitem></menuchoice> avataksesi arkistoselaimen. Etsi alikansio, jonka haluat lisätä työkopioosi ja valitse kontekstivalikosta komento <menuchoice><guimenuitem>Päivitä kohde versioon...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
@@ -6032,6 +6032,46 @@ msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rule
 msgstr "<literal>tsvn:logtemplate</literal> on hyödyllinen projekteissa, joissa on määritelty säännöt lokiviestien muotoilulle. Ominaisuuden arvona on monirivinen merkkijono, joka lisätään toimitusviestiin kun käynnistät toimitusikkunan. Voit muokata sitä ja lisätä tarpeelliset tiedot. Huomaa: jos käytät myös <literal>tsvn:logminsize</literal>-ominaisuutta, varmistu, että asetat oikean pituuden, muuten menetät suojausmekanismin."
 
 #. (para)
+msgid "There are also action specific templates which you can use instead of <literal>tsvn:logtemplate</literal>. The action specific templates are used if set, but <literal>tsvn:logtemplate</literal> will be used if no action specific template is set."
+msgstr "On myös olemassa toimintokohtaisia kaavaimia, joita voi käyttää ominaisuuden <literal>tsvn:logtemplate</literal> asemasta. Näitä käytetään ensisijaisesti, mikäli ne ovat määriteltyjä; muutoin turvaudutaan yleiskaavaimeen <literal>tsvn:logtemplate</literal>."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatecommit</literal> is used for all commits from a working copy."
+msgstr "Ominaisuutta <literal>tsvn:logtemplatecommit</literal> käytetään toimitettaessa työkopion muutoksia arkistoon."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatebranch</literal> is used when you create a branch/tag, or when you copy files or folders directly in the repository browser."
+msgstr "Ominaisuutta <literal>tsvn:logtemplatebranch</literal> käytetään, kun luot haaran tai merkityn version, tai kun kopioit tiedostoja tai kansioita arkistoselaimessa."
+
+#. (para)
+msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
+msgstr "Ominaisuutta <literal>tsvn:logtemplateimport</literal> käytetään tuotaessa tiedostoja arkistoon."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatedelete</literal> is used when deleting items directly in the repository browser."
+msgstr "Ominaisuutta <literal>tsvn:logtemplatedelete</literal> käytetään poistettaessa tiedostoja arkistoselaimessa."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving items in the repository browser."
+msgstr "Ominaisuutta <literal>tsvn:logtemplatemove</literal> käytetään siirrettäessä tai nimettäessä tiedostoja uudelleen arkistoselaimessa."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories in the repository browser."
+msgstr "Ominaisuutta <literal>tsvn:logtemplatemkdir</literal> käytetään luotaessa hakemistoja arkistoselaimessa."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties in the repository browser."
+msgstr "Ominaisuutta <literal>tsvn:logtemplatepropset</literal> käytetään, kun muokataan ominaisuuksia arkistoselaimessa."
+
+#. (para)
+msgid "<literal>tsvn:logtemplatelock</literal> is used when getting a lock."
+msgstr "Ominaisuutta <literal>tsvn:logtemplatelock</literal> käytetään lukittaessa tiedostoja."
+
+#. (para)
+msgid "The action specific templates are: <placeholder-1/>"
+msgstr "Toimintokohtaiset kaavaimet ovat seuraavat: <placeholder-1/>"
+
+#. (para)
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files. The format is the same as for subversion autoprops, e.g. <literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two properties on files with the <literal>.sh</literal> extension."
 msgstr "Subversion tukee <quote>automaattisia ominaisuuksia</quote> (autoprops), jotka lisätään uusille tai tuoduille tiedostoille niiden päätteen perusteella. Asetukset ovat työasemakohtaisia ja sijaitsevat Subversionin määrittelytiedostossa. Ominaisuus <literal>tsvn:autoprops</literal> voidaan asettaa kansioille; se yhdistetään käyttäjän paikallisiin automaattisiin ominaisuuksiin ja sitä käytetään lisättäessä tai tuotaessa tiedostoja. Esimerkiksi <literal>*.sh = svn:eol-style=native;svn:executable</literal> asettaa kaksi ominaisuutta tiedostoille, joilla on pääte <literal>.sh</literal>."
 
@@ -6912,6 +6952,10 @@ msgstr "Lukitusikkuna"
 #. (para)
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
 msgstr "Valitse työkopiostasi tiedostot, jotka haluat lukita ja anna sitten komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Lukitse...</guimenuitem></menuchoice> <placeholder-1/> Voit syöttää esiin aukeavaan ikkunaan lukitussyyn, jotta muut näkevät, miksi lukitsit tiedoston. Lukitussyy on vapaaehtoinen ja nykyisin käytössä vain Svnserve-pohjaisissa arkistoissa. Jos (ja  <emphasis>vain</emphasis> jos) joudut ottamaan lukon joltakin toiselta kehittäjältä, ruksaa valinta <guilabel>Varasta lukko</guilabel> ja napsauta sitten <guibutton>OK</guibutton>."
+
+#. (para)
+msgid "You can set the project property <literal>tsvn:logtemplatelock</literal> to provide a templated message for users to fill in as the lock message. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties."
+msgstr "Voit asettaa projektiominaisuuden <literal>tsvn:logtemplatelock</literal> asettaaksesi oletusarvoisen lukitusviestin. Katso <xref linkend=\"tsvn-dug-propertypage\"/> saadaksesi lisätietoa ominaisuuksien asettamisesta."
 
 #. (para)
 msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> sub-folder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
@@ -7972,8 +8016,8 @@ msgid "For the same reason, project properties will not be propagated automatica
 msgstr "Samasta syystä projektiominaisuudet eivät leviä automaattisesti, kun alikansio lisätään arkistoselaimen kautta."
 
 #. (para)
-msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Virheenjäljitysintegraatio ei ole TortoiseSVN-riippuvaista; sitä voi käyttää minkä tahansa Subversion-asiakkaan kanssa. Katso kaikki yksityiskohdat dokumentista <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> TortoiseSVN-arkistossa (kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään)."
+msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "Virheenjäljitysintegraatiota voi käyttää minkä tahansa Subversion-asiakkaan kanssa. Katso kaikki yksityiskohdat dokumentista <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> TortoiseSVN-arkistossa (kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään)."
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -7984,8 +8028,8 @@ msgid "The previous section deals with adding issue information to the log messa
 msgstr "Edellinen luku käsitteli vikatietojen lisäämistä lokiviesteihin. Entäpä jos tarvitset tietoja vikaseurantaohjelmasta? Toimitusikkunalla on COM-rajapinta, johon voidaan kytkeä ulkoinen ohjelma, joka keskustelee vikaseurantaohjelmasi kanssa. Saatat esimerkiksi haluta luettelon korjattavaksesi määrätyistä vioista, jotta voit poimia ne, joihin käsillä oleva toimitus liittyy."
 
 #. (para)
-msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository). A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
-msgstr "Tällainen rajapinta on tietysti hyvin järjestelmäsidonnainen, joten emme toimita sitä. Integrointiohjelman tekoa ei myöskään kuvata tässä dokumentissa. Rajapintamääritys ja joukko C#- ja C++/ATL -kielisiä esimerkkilisäosia löytyy <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN-arkiston</citetitle></ulink> <literal>contrib</literal>-hakemistosta. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten  arkistoon kytkeydytään). Rajapinnan yhteenveto on kuvattu myös luvussa <xref linkend=\"tsvn-ibugtraqprovider\"/>. Vielä eräs (toimiva) C# -esimerkkiohjelma on <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, joka toteuttaa COM-rajapinnan <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
+msgid "Any such interface is of course highly specific to your issue tracker system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample plugins in C# and C++/ATL can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.) A summary of the API is also given in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Another (working) example plugin in C# is <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink> which implements the required COM interface to interact with the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker."
+msgstr "Tällainen rajapinta on tietysti hyvin järjestelmäsidonnainen, joten emme voi toimittaa sitä. Integrointiohjelman tekoa ei myöskään kuvata tässä dokumentissa. Rajapintamääritys ja joukko C#- ja C++/ATL -kielisiä esimerkkilisäosia löytyy <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN-arkiston</citetitle></ulink> <literal>contrib</literal>-hakemistosta. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten  arkistoon kytkeydytään). Rajapinnan yhteenveto on kuvattu myös luvussa <xref linkend=\"tsvn-ibugtraqprovider\"/>. Vielä eräs (toimiva) C# -esimerkkiohjelma on <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, joka toteuttaa COM-rajapinnan <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -9485,8 +9529,8 @@ msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <g
 msgstr "Tavallisesti DOS-ikkunaa ei ole tarpeen näyttää, kun komentoa suoritetaan, joten valinta <guilabel>Piilota komento sen suorituksen ajaksi</guilabel> on oletusarvoisesti päällä."
 
 #. (para)
-msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Esimerkkejä asiakaspään komentojonoista löytyy kansiosta <literal>contrib</literal> <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN-arkistossa</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten arkistoon kytkeydytään)."
+msgid "Sample client hook scripts can be found in the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "Esimerkkejä asiakaspään komentojonoista löytyy kansiosta <literal>contrib</literal> <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts\"><citetitle>TortoiseSVN-arkistossa</citetitle></ulink>. (Kappale <xref linkend=\"tsvn-preface-source\"/> ke rtoo, miten arkistoon kytkeydytään)."
 
 #. (para)
 msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
@@ -9509,7 +9553,7 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr "<placeholder-1/> Napsauta <guibutton>Lisää...</guibutton> ottaaksesi modulin käyttöön jossain työkopiossa. Täällä voit määritellä työkopion polun, valita käytettävän modulin (pudotusvalikko luettelee kaikki rekisteröidyt vikaseurantamodulit) ja mahdolliset parametrit.  Parametrit ovat modulikohtaisia, mutta saattavat sisältää käyttäjätunnuksesi vikaseurantaohjelmassa, jotta moduli kykenee luettelemaan korjattavaksesi määrätyt viat."
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker)."
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker.)"
 msgstr "Tämä ominaisuus määrittää IBugTraqProvider-komponentin COM-tunnisteen (UUID). Esimerkiksi UUID <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal> kuuluu komponentille <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, joka toteuttaa kytkennän <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> -vikaseurantaan."
 
 #. (para)
@@ -9734,8 +9778,8 @@ msgid "The SubWCRev Command Line"
 msgstr "SubWCRev-komentorivi"
 
 #. (para)
-msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, It also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
-msgstr "SubWCRev lukee työkopion kaikkien tiedostojen Subversion-tilan, ohittaen oletusarvoisesti ulkoiset viittaukset. Se tallettaa korkeimman löydetyn versionumeron ja sen aikaleiman; lisäksi talletetaan myös tieto siitä, onko työkopiossa paikallisia muutoksia tai useita päivitysversioita. Versionumero, päivitysversioväli ja muutostila tulostuvat konsolille."
+msgid "SubWCRev reads the Subversion status of all files in a working copy, excluding externals by default. It records the highest commit revision number found, and the commit timestamp of that revision, it also records whether there are local modifications in the working copy, or mixed update revisions. The revision number, update revision range and modification status are displayed on stdout."
+msgstr "SubWCRev lukee työkopion kaikkien tiedostojen Subversion-tilan, ohittaen oletusarvoisesti ulkoiset viittaukset. Se tallettaa korkeimman löydetyn versionumeron ja sen aikaleiman; lisäksi talletetaan tieto siitä, onko työkopiossa paikallisia muutoksia tai useita päivitysversioita. Versionumero, päivitysversioväli ja muutostila tulostuvat konsolille."
 
 #. (para)
 msgid ""
@@ -9866,8 +9910,8 @@ msgid "Replaced with the current system date/time. This can be used to indicate 
 msgstr "Korvataan järjestelmän nykyisellä päiväyksellä ja kellonajalla. Tätä voidaan käyttää esim. määrittämään käännösaika. Ajan muotoilu kuten <placeholder-1/> yhteydessä."
 
 #. (entry)
-msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200"
-msgstr "Korvataan työkopion päivitysversiovälillä. Jos työkopio on yhtenäinen, tuloksena on yksi versio. Jos työkopio sisältää eri versioita, joko siitä syystä, että se ei ole ajan tasalla, tai tarkoituksellisesta päivitä-versioon -komennosta, niin versioväli näytetään muodossa 100:200."
+msgid "Replaced with the update revision range in the working copy. If the working copy is in a consistent state, this will be a single revision. If the working copy contains mixed revisions, either due to being out of date, or due to a deliberate update-to-revision, then the range will be shown in the form 100:200."
+msgstr "Korvataan työkopion päivitysversiovälillä. Jos työkopio on yhtenäinen, tuloksena on yksi versio. Jos työkopio sisältää eri versioita (johtuen siitä, että se ei ole ajan tasalla, tai päivitä-versioon -komennosta), niin versioväli näytetään muodossa 100:200."
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
@@ -10073,11 +10117,11 @@ msgid "$WCREV$"
 msgstr "$WCREV$"
 
 #. (entry)
-msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>"
-msgstr "Työkopion suurin versionumero. Sama kuin <placeholder-1/>"
+msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>."
+msgstr "Työkopion suurin versionumero. Sama kuin <placeholder-1/>."
 
 #. (entry)
-msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>"
+msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>."
 msgstr "Työkopion suurimman version toimituspäiväys. Sama kuin <placeholder-1/>."
 
 #. (entry)
@@ -10092,6 +10136,12 @@ msgstr "$WCRANGE$"
 #. (entry)
 msgid "The minimum update revision, as shown in <placeholder-1/>"
 msgstr "Työkopion pienin päivitetty versio, ks. <placeholder-1/>."
+
+#. (row)
+#. (row)
+#. (row)
+msgid "<placeholder-1/>."
+msgstr "<placeholder-1/>."
 
 #. (entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
@@ -10110,8 +10160,8 @@ msgid "$WCURL$"
 msgstr "$WCURL$"
 
 #. (entry)
-msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>"
-msgstr "Korvataan <placeholder-1/> käytetyn työkopiopolun arkistopaikantimella. Sama kuin <placeholder-2/>"
+msgid "Replaced with the repository URL of the working copy path used in <placeholder-1/>. Equivalent to <placeholder-2/>."
+msgstr "Korvataan <placeholder-1/> käytetyn työkopiopolun arkistopaikantimella. Sama kuin <placeholder-2/>."
 
 #. (entry)
 msgid "True if the item is versioned."
@@ -10452,8 +10502,8 @@ msgid "To get a tighter integration with issue trackers than by simply using the
 msgstr "TortoiseSVN toteuttaa COM-rajapinnan, jonka avulla erilaiset vikaseurantaohjelmat voidaan kytkeä versionhallintaan tiukemmin kuin pelkkiä <literal>bugtraq:</literal>-ominaisuuksia käyttämällä.  Rajapinnan avulla on mahdollista hakea tietoa suoraan vikaseurantaohjelmasta, kommunikoida käyttäjän kanssa ja palauttaa TortoiseSVN:lle tietoa avoimista vioista, tarkistaa käyttäjän lokiviestit ja vaikkapa sulkea vika onnistuneen arkistotoimituksen jälkeen."
 
 #. (para)
-msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "Tämä opas ei kuvaa, miten COM-rajapinta voidaan toteuttaa eri ohjelmointikielillä, mutta arkistossamme on joukko esimerkkiohjelmia C#- ja C++/ATL -kielillä toteutettuina hakemistossa <filename>contrib/issue-tracker-plugins</filename>. Samasta hakemistosta löydät myös tarvittavat tiedostot omat laajennuksesi rakentamiseksi (luku <xref linkend=\"tsvn-preface-source\"/> kuvaa, miten arkistoon kytkeydytään)."
+msgid "We can't provide information and tutorials on how you have to implement a COM object in your preferred programming language, but we have example plugins in C++/ATL and C# in our repository in the <filename>contrib/issue-tracker-plugins</filename> folder. In that folder you can also find the required include files you need to build your plugin. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
+msgstr "Tämä opas ei kerro, miten COM-rajapinta voidaan toteuttaa eri ohjelmointikielillä, mutta arkistossamme on joukko C#- ja C++/ATL -kielillä tehtyjä esimerkkiohjelmia hakemistossa <filename>contrib/issue-tracker-plugins</filename>. Samasta hakemistosta löydät myös tarvittavat tiedostot omat laajennuksesi rakentamiseksi (luku <xref linkend=\"tsvn-preface-source\"/> kuvaa, miten arkistoon kytkeydytään)."
 
 #. (para)
 msgid "You should provide both a 32-bit and 64-bit version of your plugin. Because the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."

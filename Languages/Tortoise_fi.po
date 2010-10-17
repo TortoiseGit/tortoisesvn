@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-10-03 22:34+0200\n"
+"PO-Revision-Date: 2010-10-17 19:31+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -1439,8 +1439,8 @@ msgid "&Update"
 msgstr "&Päivitä"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
-msgstr "&Päivitä kohde versioon"
+msgid "&Update item to revision..."
+msgstr "&Päivitä kohde versioon..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -11499,6 +11499,86 @@ msgstr ""
 "tsvn:logtemplate\r\n"
 "Merkkijono, joka lisätään lokiviestikenttään toimitusikkunassa.\r\n"
 "Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplatebranch\r\n"
+"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunoissa.\r\n"
+"Käytä tätä lokiviestikaavaimena haarauduttaessa, luotaessa merkittyä versiota tai kopioitaessa tiedostoja."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplatecommit\r\n"
+"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunoissa.\r\n"
+"Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät toimitettaessa muutoksia arkistoon."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplatedelete\r\n"
+"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunoissa.\r\n"
+"Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät poistettaessa tiedostoja."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplateimport\r\n"
+"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunoissa.\r\n"
+"Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät tuotaessa tiedostoja arkistoon."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplatelock\r\n"
+"Merkkijono, joka lisätään lokiviestikenttään lukitusikkunoissa.\r\n"
+"Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät lukittaessa tiedostoja."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplatemkdir\r\n"
+"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunoissa.\r\n"
+"Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät hakemistoja luotaessa."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplatemove\r\n"
+"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunoissa.\r\n"
+"Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät siirrettäessä tai nimettäessä tiedostoja uudelleen."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplatepropset\r\n"
+"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunoissa.\r\n"
+"Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät versioituja ominaisuuksia muutettaessa."
 
 #. Resource IDs: (578)
 msgid ""
