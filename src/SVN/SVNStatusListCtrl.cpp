@@ -92,21 +92,22 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED
 #define IDSVNLC_PROPERTIES      23
 #define IDSVNLC_COPY            24
 #define IDSVNLC_COPYEXT         25
-#define IDSVNLC_REPAIRMOVE      26
-#define IDSVNLC_REMOVEFROMCS    27
-#define IDSVNLC_CREATECS        28
-#define IDSVNLC_CREATEIGNORECS  29
-#define IDSVNLC_CHECKGROUP      30
-#define IDSVNLC_UNCHECKGROUP    31
-#define IDSVNLC_ADD_RECURSIVE   32
-#define IDSVNLC_COMPAREWC       33
-#define IDSVNLC_BLAME           34
-#define IDSVNLC_CREATEPATCH     35
-#define IDSVNLC_CHECKFORMODS    36
-#define IDSVNLC_REPAIRCOPY      37
+#define IDSVNLC_COPYCOL         26
+#define IDSVNLC_REPAIRMOVE      27
+#define IDSVNLC_REMOVEFROMCS    28
+#define IDSVNLC_CREATECS        29
+#define IDSVNLC_CREATEIGNORECS  30
+#define IDSVNLC_CHECKGROUP      31
+#define IDSVNLC_UNCHECKGROUP    32
+#define IDSVNLC_ADD_RECURSIVE   33
+#define IDSVNLC_COMPAREWC       34
+#define IDSVNLC_BLAME           35
+#define IDSVNLC_CREATEPATCH     36
+#define IDSVNLC_CHECKFORMODS    37
+#define IDSVNLC_REPAIRCOPY      38
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS        38
+#define IDSVNLC_MOVETOCS        39
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2127,16 +2128,25 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
     bool bInactiveItem = false;
     int selIndex = GetSelectionMark();
+    int selSubitem = -1;
 
+    CPoint pt = point;
+    ScreenToClient(&pt);
     UINT selectedCount = GetSelectedCount();
-    // inactive items (e.g., from different repositories) are not selectable,
-    // so the selectedCount is always 0 for those. To prevent using the header
-    // context menu but still the item context menu, we check here where
-    // the right-click exactly happened
-    if (selectedCount == 0)
+    if (selectedCount > 0)
     {
-        CPoint pt = point;
-        ScreenToClient(&pt);
+        LVHITTESTINFO hittest = {0};
+        hittest.flags = LVHT_ONITEM;
+        hittest.pt = pt;
+        if (this->SubItemHitTest(&hittest) >=0)
+            selSubitem = hittest.iSubItem;
+    }
+    else
+    {
+        // inactive items (e.g., from different repositories) are not selectable,
+        // so the selectedCount is always 0 for those. To prevent using the header
+        // context menu but still the item context menu, we check here where
+        // the right-click exactly happened
         UINT hitFlags = LVHT_ONITEM;
         int hitIndex = this->HitTest(pt, &hitFlags);
         if ((hitIndex >= 0) && (hitFlags & LVHT_ONITEM))
@@ -2489,6 +2499,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 popup.AppendMenu(MF_SEPARATOR);
                 popup.AppendMenuIcon(IDSVNLC_COPY, IDS_STATUSLIST_CONTEXT_COPY, IDI_COPYCLIP);
                 popup.AppendMenuIcon(IDSVNLC_COPYEXT, IDS_STATUSLIST_CONTEXT_COPYEXT, IDI_COPYCLIP);
+                if (selSubitem >= 0)
+                    popup.AppendMenuIcon(IDSVNLC_COPYCOL, IDS_STATUSLIST_CONTEXT_COPYCOL, IDI_COPYCLIP);
                 if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)
                     &&(wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_none))
                 {
@@ -2549,6 +2561,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 break;
             case IDSVNLC_COPYEXT:
                 CopySelectedEntriesToClipboard((DWORD)-1);
+                break;
+            case IDSVNLC_COPYCOL:
+                CopySelectedEntriesToClipboard((DWORD)1 << selSubitem);
                 break;
             case IDSVNLC_PROPERTIES:
                 {
@@ -5012,6 +5027,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
         if (c > 1)
             sClipboard += _T("\r\n");
 
+#define ADDTOCLIPBOARDSTRING(x) sClipboard += sClipboard.IsEmpty() ? x : L"\t" + x
     POSITION pos = GetFirstSelectedItemPosition();
     int index;
     while ((index = GetNextSelectedItem(pos)) >= 0)
@@ -5019,15 +5035,15 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
         FileEntry * entry = GetListEntry(index);
         if (selection & SVNSLC_COLFILEPATH)
         {
-            sClipboard += entry->GetDisplayName();
+            ADDTOCLIPBOARDSTRING(CString(entry->GetDisplayName()));
         }
         if (selection & SVNSLC_COLFILENAME)
         {
-            sClipboard += _T("\t")+entry->path.GetFileOrDirectoryName();
+            ADDTOCLIPBOARDSTRING(entry->path.GetFileOrDirectoryName());
         }
         if (selection & SVNSLC_COLEXT)
         {
-            sClipboard += _T("\t")+entry->path.GetFileExtension();
+            ADDTOCLIPBOARDSTRING(entry->path.GetFileExtension());
         }
         if (selection & SVNSLC_COLSTATUS)
         {
@@ -5049,7 +5065,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                     _tcscat_s(buf, 100, ponly);
                 temp = buf;
             }
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLREMOTESTATUS)
         {
@@ -5072,7 +5088,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                     _tcscat_s(buf, 100, ponly);
                 temp = buf;
             }
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLTEXTSTATUS)
         {
@@ -5089,7 +5105,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                     _tcscat_s(buf, 100, _T(" (s)"));
                 temp = buf;
             }
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLPROPSTATUS)
         {
@@ -5106,7 +5122,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                     _tcscat_s(buf, 100, _T(" (s)"));
                 temp = buf;
             }
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLREMOTETEXT)
         {
@@ -5119,7 +5135,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                 SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, _countof(buf), (WORD)langID);
                 temp = buf;
             }
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLREMOTEPROP)
         {
@@ -5133,15 +5149,15 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                 SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, _countof(buf), (WORD)langID);
                 temp = buf;
             }
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLDEPTH)
         {
-            temp = SVNStatus::GetDepthString(entry->depth);
+            ADDTOCLIPBOARDSTRING(SVNStatus::GetDepthString(entry->depth));
         }
         if (selection & SVNSLC_COLURL)
         {
-            sClipboard += _T("\t")+entry->url;
+            ADDTOCLIPBOARDSTRING(entry->url);
         }
         if (selection & SVNSLC_COLLOCK)
         {
@@ -5176,10 +5192,10 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
                 temp = entry->lock_owner;
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLLOCKCOMMENT)
-            sClipboard += _T("\t")+entry->lock_comment;
+            ADDTOCLIPBOARDSTRING(entry->lock_comment);
         if (selection & SVNSLC_COLLOCKDATE)
         {
             TCHAR datebuf[SVN_DATE_BUFFER];
@@ -5189,24 +5205,24 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                 temp = datebuf;
             else
                 temp.Empty();
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
 
         if (selection & SVNSLC_COLAUTHOR)
-            sClipboard += _T("\t")+entry->last_commit_author;
+            ADDTOCLIPBOARDSTRING(entry->last_commit_author);
         if (selection & SVNSLC_COLREVISION)
         {
             temp.Format(_T("%ld"), entry->last_commit_rev);
             if (entry->last_commit_rev == 0)
                 temp.Empty();
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLREMOTEREVISION)
         {
             temp.Format(_T("%ld"), entry->remoterev);
             if (entry->remoterev <= 0)
                 temp.Empty();
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLDATE)
         {
@@ -5217,7 +5233,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                 temp = datebuf;
             else
                 temp.Empty();
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLMODIFICATIONDATE)
         {
@@ -5231,7 +5247,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
                 temp.Empty();
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLSIZE)
         {
@@ -5244,7 +5260,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             }
             else
                 temp.Empty();
-            sClipboard += _T("\t")+temp;
+            ADDTOCLIPBOARDSTRING(temp);
         }
 
         for ( int i = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
@@ -5255,7 +5271,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             {
                 CString value
                     = entry->present_props[m_ColumnManager.GetName(i)];
-                sClipboard += _T("\t") + value;
+                ADDTOCLIPBOARDSTRING(value);
             }
         }
 
