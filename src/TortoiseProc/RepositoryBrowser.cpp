@@ -304,6 +304,11 @@ BOOL CRepositoryBrowser::OnInitDialog()
     EnableSaveRestore(_T("RepositoryBrowser"));
     if (hWndExplorer)
         CenterWindow(CWnd::FromHandle(hWndExplorer));
+
+    DWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
+    bDragMode = true;
+    HandleDividerMove(CPoint(xPos+20, 10), false);
+
     m_bThreadRunning = true;
     if (AfxBeginThread(InitThreadEntry, this)==NULL)
     {
@@ -556,6 +561,11 @@ void CRepositoryBrowser::OnOK()
     m_backgroundJobs.WaitForEmptyQueue();
     SaveColumnWidths(true);
 
+    RECT rc;
+    GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
+    CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
+    xPos = rc.right-rc.left;
+
     ClearUI();
 
     m_barRepository.SaveHistory();
@@ -569,6 +579,11 @@ void CRepositoryBrowser::OnCancel()
 
     m_backgroundJobs.WaitForEmptyQueue();
     SaveColumnWidths(true);
+
+    RECT rc;
+    GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
+    CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
+    xPos = rc.right-rc.left;
 
     ClearUI();
 
@@ -720,13 +735,10 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
     CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
 }
 
-void CRepositoryBrowser::OnLButtonUp(UINT nFlags, CPoint point)
+void CRepositoryBrowser::HandleDividerMove(CPoint point, bool bDraw)
 {
     CDC * pDC;
     RECT rect, tree, list, treelist, treelistclient;
-
-    if (bDragMode == FALSE)
-        return;
 
     // create an union of the tree and list control rectangle
     GetDlgItem(IDC_REPOLIST)->GetWindowRect(&list);
@@ -755,15 +767,15 @@ void CRepositoryBrowser::OnLButtonUp(UINT nFlags, CPoint point)
     if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
         point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
 
-    pDC = GetDC();
-    DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
-    ReleaseDC(pDC);
+    if (bDraw)
+    {
+        pDC = GetDC();
+        DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
+        ReleaseDC(pDC);
+    }
 
     oldx = point.x;
     oldy = point.y;
-
-    bDragMode = false;
-    ReleaseCapture();
 
     //position the child controls
     GetDlgItem(IDC_REPOTREE)->GetWindowRect(&treelist);
@@ -779,6 +791,17 @@ void CRepositoryBrowser::OnLButtonUp(UINT nFlags, CPoint point)
 
     AddAnchor(IDC_REPOTREE, TOP_LEFT, BOTTOM_LEFT);
     AddAnchor(IDC_REPOLIST, TOP_LEFT, BOTTOM_RIGHT);
+}
+
+void CRepositoryBrowser::OnLButtonUp(UINT nFlags, CPoint point)
+{
+    if (bDragMode == FALSE)
+        return;
+
+    HandleDividerMove(point, true);
+
+    bDragMode = false;
+    ReleaseCapture();
 
     CStandAloneDialogTmpl<CResizableDialog>::OnLButtonUp(nFlags, point);
 }

@@ -233,6 +233,10 @@ protected:
     /// extract info from controls before they get destroyed
     void StoreSelectedURLs();
 
+    /// resizes the control so that the divider is at position 'point'
+    void HandleDividerMove(CPoint point, bool bDraw);
+
+
 protected:
     bool                m_bInitDone;
     CRepositoryBar      m_barRepository;
