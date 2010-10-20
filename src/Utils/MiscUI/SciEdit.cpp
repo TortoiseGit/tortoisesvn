@@ -39,6 +39,7 @@ bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit *) {return 
 #define STYLE_ITALIC            15
 #define STYLE_UNDERLINED        16
 #define STYLE_URL               17
+#define INDIC_MISSPELLED        18
 
 #define STYLE_MASK 0x1f
 
@@ -107,7 +108,8 @@ void CSciEdit::Init(LONG lLanguage)
     Call(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     Call(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
     Call(SCI_SETMODEVENTMASK, SC_MOD_INSERTTEXT | SC_MOD_DELETETEXT | SC_PERFORMED_UNDO | SC_PERFORMED_REDO);
-    Call(SCI_INDICSETFORE, 1, 0x0000FF);
+    Call(SCI_INDICSETSTYLE, INDIC_MISSPELLED, INDIC_SQUIGGLE);
+    Call(SCI_INDICSETFORE, INDIC_MISSPELLED, RGB(255,0,0));
     CStringA sWordChars;
     CStringA sWhiteSpace;
     for (int i=0; i<255; ++i)
@@ -451,6 +453,7 @@ void CSciEdit::CheckSpelling()
     LRESULT lastpos = Call(SCI_POSITIONFROMLINE, lastline) + Call(SCI_LINELENGTH, lastline);
     if (lastpos < 0)
         lastpos = Call(SCI_GETLENGTH)-textrange.chrg.cpMin;
+    Call(SCI_SETINDICATORCURRENT, INDIC_MISSPELLED);
     while (textrange.chrg.cpMax < lastpos)
     {
         textrange.chrg.cpMin = (LONG)Call(SCI_WORDSTARTPOSITION, textrange.chrg.cpMax+1, TRUE);
@@ -493,8 +496,7 @@ void CSciEdit::CheckSpelling()
             if (m_autolist.find(sWord) != m_autolist.end())
             {
                 //mark word as correct (remove the squiggle line)
-                Call(SCI_STARTSTYLING, twoWords.chrg.cpMin, INDICS_MASK);
-                Call(SCI_SETSTYLING, twoWords.chrg.cpMax - twoWords.chrg.cpMin, 0);
+                Call(SCI_INDICATORCLEARRANGE, twoWords.chrg.cpMin, twoWords.chrg.cpMax - twoWords.chrg.cpMin);
                 textrange.chrg.cpMax = twoWords.chrg.cpMax;
                 continue;
             }
@@ -508,14 +510,12 @@ void CSciEdit::CheckSpelling()
             if ((GetStyleAt(textrange.chrg.cpMin) != STYLE_URL) && IsMisspelled(sWord))
             {
                 //mark word as misspelled
-                Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
-                Call(SCI_SETSTYLING, textrange.chrg.cpMax - textrange.chrg.cpMin, INDIC1_MASK);
+                Call(SCI_INDICATORFILLRANGE, textrange.chrg.cpMin, textrange.chrg.cpMax - textrange.chrg.cpMin);
             }
             else
             {
                 //mark word as correct (remove the squiggle line)
-                Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
-                Call(SCI_SETSTYLING, textrange.chrg.cpMax - textrange.chrg.cpMin, 0);
+                Call(SCI_INDICATORCLEARRANGE, textrange.chrg.cpMin, textrange.chrg.cpMax - textrange.chrg.cpMin);
             }
         }
     }
