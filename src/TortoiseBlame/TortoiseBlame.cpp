@@ -31,6 +31,8 @@
 
 #define MAX_LOADSTRING 1000
 
+#define STYLE_MARK 11
+
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 #pragma warning(push)
@@ -466,6 +468,11 @@ void TortoiseBlame::InitialiseEditor()
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
     SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10),
         (CUnicodeUtils::StdGetUTF8((tstring)(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"))))).c_str());
+    //SetAStyle(STYLE_MARK, black, ::GetSysColor(COLOR_HIGHLIGHT));
+    SendEditor(SCI_INDICSETSTYLE, STYLE_MARK, INDIC_ROUNDBOX);
+    SendEditor(SCI_INDICSETFORE, STYLE_MARK, darkBlue);
+    SendEditor(SCI_INDICSETUNDER, STYLE_MARK, TRUE);
+
     SendEditor(SCI_SETTABWIDTH, (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameTabSize"), 4));
     SendEditor(SCI_SETREADONLY, TRUE);
     LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"_99999");
@@ -833,6 +840,44 @@ void TortoiseBlame::Notify(SCNotification *notification)
         if ((m_colorAge)&&(notification->line < (int)m_revs.size()))
         {
             notification->lParam = InterColor(DWORD(m_regOldLinesColor), DWORD(m_regNewLinesColor), (m_revs[notification->line]-m_lowestRev)*100/((m_highestRev-m_lowestRev)+1));
+        }
+        break;
+    case SCN_STYLENEEDED:
+    case SCN_UPDATEUI:
+        {
+            int selTextLen = (int)SendEditor(SCI_GETSELTEXT);
+            if (selTextLen == 0)
+                break;
+
+            auto_buffer<char> seltextbuffer(selTextLen + 1);
+            SendEditor(SCI_GETSELTEXT, 0, (LPARAM)(char*)seltextbuffer);
+            if (strlen(seltextbuffer) == 0)
+                break;
+
+            LRESULT firstline = SendEditor(SCI_GETFIRSTVISIBLELINE);
+            LRESULT lastline = firstline + SendEditor(SCI_LINESONSCREEN);
+            long startstylepos = (long)SendEditor(SCI_POSITIONFROMLINE, firstline);
+            long endstylepos = (long)SendEditor(SCI_POSITIONFROMLINE, lastline) + (long)SendEditor(SCI_LINELENGTH, lastline);
+            if (endstylepos < 0)
+                endstylepos = (long)SendEditor(SCI_GETLENGTH)-startstylepos;
+
+            int len = endstylepos - startstylepos + 1;
+            auto_buffer<char> textbuffer(len + 1);
+            TEXTRANGEA textrange;
+            textrange.lpstrText = textbuffer;
+            textrange.chrg.cpMin = startstylepos;
+            textrange.chrg.cpMax = endstylepos;
+            SendEditor(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
+
+            // reset indicators
+            SendEditor(SCI_SETINDICATORCURRENT, STYLE_MARK);
+            SendEditor(SCI_INDICATORCLEARRANGE, 0, len);
+            char * startPos = strstr(textbuffer, seltextbuffer);
+            while (startPos)
+            {
+                SendEditor(SCI_INDICATORFILLRANGE, startstylepos + ((char*)startPos - (char*)textbuffer), selTextLen-1);
+                startPos = strstr(startPos+1, seltextbuffer);
+            }
         }
         break;
     }
