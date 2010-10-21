@@ -34,6 +34,8 @@ CSettingsTBlame::CSettingsTBlame()
 {
     m_regNewLinesColor = CRegDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), RGB(255, 230, 230));
     m_regOldLinesColor = CRegDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), RGB(255, 255, 255));
+    m_regNewLinesColorBar = CRegDWORD(_T("Software\\TortoiseSVN\\BlameLocatorNewColor"), RGB(230, 0, 0));
+    m_regOldLinesColorBar = CRegDWORD(_T("Software\\TortoiseSVN\\BlameLocatorOldColor"), RGB(255, 255, 255));
     m_regFontName = CRegString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"));
     m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10);
     m_regTabSize = CRegDWORD(_T("Software\\TortoiseSVN\\BlameTabSize"), 4);
@@ -48,6 +50,8 @@ void CSettingsTBlame::DoDataExchange(CDataExchange* pDX)
     ISettingsPropPage::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_NEWLINESCOLOR, m_cNewLinesColor);
     DDX_Control(pDX, IDC_OLDLINESCOLOR, m_cOldLinesColor);
+    DDX_Control(pDX, IDC_NEWLINESCOLORBAR, m_cNewLinesColorBar);
+    DDX_Control(pDX, IDC_OLDLINESCOLORBAR, m_cOldLinesColorBar);
     DDX_Control(pDX, IDC_FONTSIZES, m_cFontSizes);
     m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
     if ((m_dwFontSize==0)||(m_dwFontSize == -1))
@@ -68,6 +72,8 @@ BEGIN_MESSAGE_MAP(CSettingsTBlame, ISettingsPropPage)
     ON_EN_CHANGE(IDC_TABSIZE, OnChange)
     ON_BN_CLICKED(IDC_NEWLINESCOLOR, &CSettingsTBlame::OnBnClickedColor)
     ON_BN_CLICKED(IDC_OLDLINESCOLOR, &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_NEWLINESCOLORBAR, &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_OLDLINESCOLORBAR, &CSettingsTBlame::OnBnClickedColor)
 END_MESSAGE_MAP()
 
 
@@ -81,6 +87,8 @@ BOOL CSettingsTBlame::OnInitDialog()
 
     m_cNewLinesColor.SetColor((DWORD)m_regNewLinesColor);
     m_cOldLinesColor.SetColor((DWORD)m_regOldLinesColor);
+    m_cNewLinesColorBar.SetColor((DWORD)m_regNewLinesColorBar);
+    m_cOldLinesColorBar.SetColor((DWORD)m_regOldLinesColorBar);
 
     CString sDefaultText, sCustomText;
     sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
@@ -89,6 +97,10 @@ BOOL CSettingsTBlame::OnInitDialog()
     m_cNewLinesColor.EnableOtherButton(sCustomText);
     m_cOldLinesColor.EnableAutomaticButton(sDefaultText, RGB(230, 230, 255));
     m_cOldLinesColor.EnableOtherButton(sCustomText);
+    m_cNewLinesColorBar.EnableAutomaticButton(sDefaultText, RGB(255, 230, 230));
+    m_cNewLinesColorBar.EnableOtherButton(sCustomText);
+    m_cOldLinesColorBar.EnableAutomaticButton(sDefaultText, RGB(230, 230, 255));
+    m_cOldLinesColorBar.EnableOtherButton(sCustomText);
 
     m_dwTabSize = m_regTabSize;
     m_sFontName = m_regFontName;
@@ -129,8 +141,10 @@ void CSettingsTBlame::OnChange()
 
 void CSettingsTBlame::OnBnClickedRestore()
 {
-    m_cOldLinesColor.SetColor(RGB(230, 230, 255));
+    m_cOldLinesColor.SetColor(RGB(255, 255, 255));
     m_cNewLinesColor.SetColor(RGB(255, 230, 230));
+    m_cOldLinesColorBar.SetColor(RGB(255, 255, 255));
+    m_cNewLinesColorBar.SetColor(RGB(230, 0, 0));
     SetModified(TRUE);
 }
 
@@ -144,6 +158,8 @@ BOOL CSettingsTBlame::OnApply()
 
     Store ((m_cNewLinesColor.GetColor() == -1 ? m_cNewLinesColor.GetAutomaticColor() : m_cNewLinesColor.GetColor()), m_regNewLinesColor);
     Store ((m_cOldLinesColor.GetColor() == -1 ? m_cOldLinesColor.GetAutomaticColor() : m_cOldLinesColor.GetColor()), m_regOldLinesColor);
+    Store ((m_cNewLinesColorBar.GetColor() == -1 ? m_cNewLinesColorBar.GetAutomaticColor() : m_cNewLinesColorBar.GetColor()), m_regNewLinesColorBar);
+    Store ((m_cOldLinesColorBar.GetColor() == -1 ? m_cOldLinesColorBar.GetAutomaticColor() : m_cOldLinesColorBar.GetColor()), m_regOldLinesColorBar);
     Store ((LPCTSTR)m_sFontName, m_regFontName);
     Store (m_dwFontSize, m_regFontSize);
     Store (m_dwTabSize, m_regTabSize);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,8 +50,12 @@ protected:
 private:
     CMFCColorButton m_cNewLinesColor;
     CMFCColorButton m_cOldLinesColor;
+    CMFCColorButton m_cNewLinesColorBar;
+    CMFCColorButton m_cOldLinesColorBar;
     CRegDWORD       m_regNewLinesColor;
     CRegDWORD       m_regOldLinesColor;
+    CRegDWORD       m_regNewLinesColorBar;
+    CRegDWORD       m_regOldLinesColorBar;
 
     CMFCFontComboBox    m_cFontNames;
     CComboBox       m_cFontSizes;
