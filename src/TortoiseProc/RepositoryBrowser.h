@@ -59,6 +59,7 @@ public:
     bool            children_fetched;           ///< whether the contents of the folder are known/fetched or not
     bool            has_child_folders;
     deque<CItem>    children;
+    CString         error;
 };
 
 
@@ -155,7 +156,7 @@ protected:
     HTREEITEM FindUrl(const CString& fullurl, const CString& url, HTREEITEM hItem = TVI_ROOT);
 
     /// read list of children; including externals
-    CString FetchChildren (HTREEITEM node);
+    void FetchChildren (HTREEITEM node);
 
     /// Find and return the node that corresponds to the specified
     /// logical \ref path. Add such node (including parents) if it
@@ -178,8 +179,8 @@ protected:
      * control is refilled again.
      */
     bool RefreshNode(HTREEITEM hNode, bool force = false);
-    /// Fills the list control with all the items in \c pItems.
-    void FillList(deque<CItem> * pItems);
+    /// Fills the list control with all the children of \c pTreeItem.
+    void FillList(CTreeItem * pTreeItem);
     /// Open / enter folder for entry number \ref item
     void OpenFromList (int item);
     /// Open the file in the default application

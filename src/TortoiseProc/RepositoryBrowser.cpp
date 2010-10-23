@@ -898,7 +898,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 
     RefreshNode(hItem);
     m_RepoTree.Expand(hItem, TVE_EXPAND);
-    FillList(&pTreeItem->children);
+    FillList(pTreeItem);
 
     m_blockEvents = true;
     m_RepoTree.EnsureVisible(hItem);
@@ -910,9 +910,9 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
     return true;
 }
 
-void CRepositoryBrowser::FillList(deque<CItem> * pItems)
+void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
 {
-    if (pItems == NULL)
+    if (pTreeItem == NULL)
         return;
 
     CWaitCursorEx wait;
@@ -955,83 +955,93 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
     temp.LoadString(IDS_STATUSLIST_COLLOCK);
     m_RepoList.InsertColumn(c++, temp);
 
-    // now fill in the data
+    // special case: error to show
 
-    TCHAR date_native[SVN_DATE_BUFFER];
-    int nCount = 0;
-    for (deque<CItem>::const_iterator it = pItems->begin(); it != pItems->end(); ++it)
+    if (!pTreeItem->error.IsEmpty() && pTreeItem->children.empty())
     {
-        int icon_idx;
-        if (it->kind == svn_node_dir)
-            icon_idx =  m_nIconFolder;
-        else
-            icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(it->path);
-        int index = m_RepoList.InsertItem(nCount, it->path, icon_idx);
+        m_RepoList.ShowText (pTreeItem->error, true);
+    }
+    else
+    {
+        // now fill in the data
 
-        if (it->is_external)
-            m_RepoList.SetItemState(index, INDEXTOOVERLAYMASK(OVERLAY_EXTERNAL), LVIS_OVERLAYMASK);
-
-        // extension
-        temp = CPathUtils::GetFileExtFromPath(it->path);
-        if (it->kind == svn_node_file)
-            m_RepoList.SetItemText(index, 1, temp);
-
-        // revision
-        if ((it->created_rev == SVN_IGNORED_REVNUM) && (it->is_external))
-            temp = it->time != 0 ? _T("") : _T("HEAD");
-        else
-            temp.Format(_T("%ld"), it->created_rev);
-        m_RepoList.SetItemText(index, 2, temp);
-
-        // author
-        m_RepoList.SetItemText(index, 3, it->author);
-
-        // size
-        if (it->kind == svn_node_file)
+        TCHAR date_native[SVN_DATE_BUFFER];
+        int nCount = 0;
+        const deque<CItem>& items = pTreeItem->children;
+        for (auto it = items.begin(); it != items.end(); ++it)
         {
-            StrFormatByteSize(it->size, temp.GetBuffer(20), 20);
-            temp.ReleaseBuffer();
-            m_RepoList.SetItemText(index, 4, temp);
+            int icon_idx;
+            if (it->kind == svn_node_dir)
+                icon_idx =  m_nIconFolder;
+            else
+                icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(it->path);
+            int index = m_RepoList.InsertItem(nCount, it->path, icon_idx);
+
+            if (it->is_external)
+                m_RepoList.SetItemState(index, INDEXTOOVERLAYMASK(OVERLAY_EXTERNAL), LVIS_OVERLAYMASK);
+
+            // extension
+            temp = CPathUtils::GetFileExtFromPath(it->path);
+            if (it->kind == svn_node_file)
+                m_RepoList.SetItemText(index, 1, temp);
+
+            // revision
+            if ((it->created_rev == SVN_IGNORED_REVNUM) && (it->is_external))
+                temp = it->time != 0 ? _T("") : _T("HEAD");
+            else
+                temp.Format(_T("%ld"), it->created_rev);
+            m_RepoList.SetItemText(index, 2, temp);
+
+            // author
+            m_RepoList.SetItemText(index, 3, it->author);
+
+            // size
+            if (it->kind == svn_node_file)
+            {
+                StrFormatByteSize(it->size, temp.GetBuffer(20), 20);
+                temp.ReleaseBuffer();
+                m_RepoList.SetItemText(index, 4, temp);
+            }
+
+            // date
+            if ((it->time == 0) && (it->is_external))
+                date_native[0] = 0;
+            else
+                SVN::formatDate(date_native, (apr_time_t&)it->time, true);
+            m_RepoList.SetItemText(index, 5, date_native);
+
+            // lock owner
+            m_RepoList.SetItemText(index, 6, it->lockowner);
+
+            // pointer to the CItem structure
+            m_RepoList.SetItemData(index, (DWORD_PTR)&(*it));
         }
 
-        // date
-        if ((it->time == 0) && (it->is_external))
-            date_native[0] = 0;
-        else
-            SVN::formatDate(date_native, (apr_time_t&)it->time, true);
-        m_RepoList.SetItemText(index, 5, date_native);
+        ListView_SortItemsEx(m_RepoList, ListSort, this);
+        SetSortArrow();
 
-        // lock owner
-        m_RepoList.SetItemText(index, 6, it->lockowner);
-
-        // pointer to the CItem structure
-        m_RepoList.SetItemData(index, (DWORD_PTR)&(*it));
-    }
-
-    ListView_SortItemsEx(m_RepoList, ListSort, this);
-    SetSortArrow();
-
-    for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
-    {
-        m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-    }
-    for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
-    {
-        m_arColumnAutoWidths[col] = m_RepoList.GetColumnWidth(col);
-    }
-
-    CRegString regColWidths(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
-    if (!CString(regColWidths).IsEmpty())
-    {
-        StringToWidthArray(regColWidths, m_arColumnWidths);
-
-        int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
-        for (int col = 1; col <= maxcol; col++)
+        for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
         {
-            if (m_arColumnWidths[col] == 0)
-                m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-            else
-                m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
+            m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+        }
+        for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
+        {
+            m_arColumnAutoWidths[col] = m_RepoList.GetColumnWidth(col);
+        }
+
+        CRegString regColWidths(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
+        if (!CString(regColWidths).IsEmpty())
+        {
+            StringToWidthArray(regColWidths, m_arColumnWidths);
+
+            int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+            for (int col = 1; col <= maxcol; col++)
+            {
+                if (m_arColumnWidths[col] == 0)
+                    m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+                else
+                    m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
+            }
         }
     }
 
@@ -1078,48 +1088,46 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
     return NULL;
 }
 
-CString CRepositoryBrowser::FetchChildren (HTREEITEM node)
+void CRepositoryBrowser::FetchChildren (HTREEITEM node)
 {
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
     if (pTreeItem->children_fetched)
-        return CString();
+        return;
 
     // standard list plus immediate externals
 
     std::deque<CItem>& children = pTreeItem->children;
     children.clear();
     pTreeItem->has_child_folders = false;
-
-    CString error = m_lister.GetList ( pTreeItem->url
-                                     , pTreeItem->is_external 
-                                          ? pTreeItem->repository.peg_revision
-                                          : SVNRev()
-                                     , pTreeItem->repository
-                                     , true
-                                     , children);
+    pTreeItem->error = m_lister.GetList ( pTreeItem->url
+                                        , pTreeItem->is_external 
+                                             ? pTreeItem->repository.peg_revision
+                                             : SVNRev()
+                                        , pTreeItem->repository
+                                        , true
+                                        , children);
 
     // add parent sub-tree externals
 
     CString relPath = pTreeItem->unescapedname + _T('/');
     for ( node = m_RepoTree.GetParentItem (node)
-        ; node && error.IsEmpty()
+        ; node && pTreeItem->error.IsEmpty()
         ; node = m_RepoTree.GetParentItem (node))
     {
         CTreeItem* parentItem = (CTreeItem *)m_RepoTree.GetItemData (node);
-        error = m_lister.AddSubTreeExternals ( parentItem->url
-                                             , parentItem->is_external 
-                                                  ? parentItem->repository.peg_revision
-                                                  : SVNRev()
-                                             , parentItem->repository
-                                             , relPath
-                                             , children);
+        pTreeItem->error = m_lister.AddSubTreeExternals ( parentItem->url
+                                                        , parentItem->is_external 
+                                                             ? parentItem->repository.peg_revision
+                                                             : SVNRev()
+                                                        , parentItem->repository
+                                                        , relPath
+                                                        , children);
         relPath = parentItem->unescapedname + _T('/') + relPath;
     }
 
     // done
 
     pTreeItem->children_fetched = true;
-    return error;
 }
 
 HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
@@ -1357,14 +1365,7 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
         return;
 
     pTreeItem->children_fetched = false;
-    CString error = FetchChildren (node);
-    if (!error.IsEmpty())
-    {
-        // error during list()
-        m_RepoList.DeleteAllItems();
-        m_RepoList.ShowText (error, true);
-        return;
-    }
+    FetchChildren (node);
 
     // update node status and add sub-nodes for all sub-dirs
 
@@ -1423,11 +1424,9 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
         tvitem.cChildren = pTreeItem->has_child_folders ? 1 : 0;
         m_RepoTree.SetItem(&tvitem);
     }
-    if (pTreeItem->children_fetched)
+    if (pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
         if ((force)||(hSel1 == hNode)||(hSel1 != m_RepoTree.GetSelectedItem()))
-        {
-            FillList(&pTreeItem->children);
-        }
+            FillList(pTreeItem);
 
     return true;
 }
@@ -1730,15 +1729,13 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
             CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hSelItem);
             if (pTreeItem)
             {
-                if (!pTreeItem->children_fetched)
+                if (!pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
                 {
                     m_RepoList.DeleteAllItems();
                     RefreshNode(hSelItem);
                 }
-                else
-                {
-                    FillList(&pTreeItem->children);
-                }
+
+                FillList(pTreeItem);
 
                 m_barRepository.ShowUrl ( pTreeItem->url
                                         , pTreeItem->repository.revision);
@@ -1828,11 +1825,8 @@ void CRepositoryBrowser::OpenFromList (int item)
 
         HTREEITEM hItem = AutoInsert (m_RepoTree.GetSelectedItem(), *pItem);
 
-        m_blockEvents = true;
         m_RepoTree.EnsureVisible (hItem);
         m_RepoTree.SelectItem (hItem);
-        RefreshNode (hItem);
-        m_blockEvents = false;
     }
     else if ((pItem) && (pItem->kind == svn_node_file))
     {
@@ -2387,6 +2381,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     {
                         // mark the target as 'dirty'
                         pItem->children_fetched = false;
+                        pItem->error.Empty();
                         RecursiveRemove(hTarget, true);
                         TVITEM tvitem = {0};
                         tvitem.hItem = hTarget;
@@ -2428,6 +2423,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     {
                         // mark the target as 'dirty'
                         pItem->children_fetched = false;
+                        pItem->error.Empty();
                         if ((dwEffect == DROPEFFECT_MOVE)||(pItem->url.Compare(target.GetSVNPathString())==0))
                         {
                             // Refresh the current view
@@ -2491,6 +2487,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                         {
                             // only mark the target as 'dirty'
                             pItem->children_fetched = false;
+                            pItem->error.Empty();
                         }
                     }
                 }
