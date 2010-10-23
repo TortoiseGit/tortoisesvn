@@ -14,8 +14,10 @@
 
 @SET_MAKE@
 
-# Makefile.am for SASL includes
+# Makefile.am for the SASL plugins
+# Rob Siemborski
 # Rob Earhart
+# $Id: Makefile.am,v 1.80 2009/05/07 13:49:31 murch Exp $
 #
 ################################################################
 # Copyright (c) 2000 Carnegie Mellon University.  All rights reserved.
@@ -129,6 +131,7 @@ LIB_CRYPT = @LIB_CRYPT@
 LIB_DES = @LIB_DES@
 LIB_DOOR = @LIB_DOOR@
 LIB_LDAP = @LIB_LDAP@
+
 LIB_MYSQL = @LIB_MYSQL@
 LIB_PGSQL = @LIB_PGSQL@
 LIB_SOCKET = @LIB_SOCKET@
@@ -220,6 +223,7 @@ libexecdir = @libexecdir@
 localstatedir = @localstatedir@
 mandir = @mandir@
 oldincludedir = @oldincludedir@
+
 plugindir = @plugindir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
@@ -233,39 +237,171 @@ target_cpu = @target_cpu@
 target_os = @target_os@
 target_vendor = @target_vendor@
 
-noinst_HEADERS = gai.h exits.h
+# Library version info - here at the top, for sanity
+# CURRENT:REVISION:AGE
+plugin_version = 2:24:0
 
-saslincludedir = $(includedir)/sasl
-saslinclude_HEADERS = hmac-md5.h md5.h md5global.h sasl.h saslplug.h saslutil.h prop.h
+INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir)/lib -I$(top_srcdir)/sasldb -I$(top_builddir)/include
+AM_LDFLAGS = -module -export-dynamic -rpath $(plugindir) -version-info $(plugin_version)
 
-noinst_PROGRAMS = makemd5
+COMPAT_OBJS = @LTGETADDRINFOOBJS@ @LTGETNAMEINFOOBJS@ @LTSNPRINTFOBJS@
 
-makemd5_SOURCES = makemd5.c
+EXTRA_DIST = makeinit.sh NTMakefile
+noinst_SCRIPTS = makeinit.sh
 
-EXTRA_DIST = NTMakefile
-DISTCLEANFILES = md5global.h
+common_sources = plugin_common.c plugin_common.h
 
-@MACOSX_TRUE@framedir = /Library/Frameworks/SASL2.framework
-@MACOSX_TRUE@frameheaderdir = $(framedir)/Versions/A/Headers
-@MACOSX_TRUE@frameheader_DATA = $(saslinclude_HEADERS)
-subdir = include
+sasldir = $(prefix)/lib/sasl2
+sasl_LTLIBRARIES = @SASL_MECHS@
+EXTRA_LTLIBRARIES = libplain.la libanonymous.la libkerberos4.la libcrammd5.la \
+	libgssapiv2.la libdigestmd5.la liblogin.la libsrp.la libotp.la \
+	libntlm.la libpassdss.la libsasldb.la libsql.la libldapdb.la
+
+
+libplain_la_SOURCES = plain.c plain_init.c $(common_sources)
+libplain_la_DEPENDENCIES = $(COMPAT_OBJS)
+libplain_la_LIBADD = $(PLAIN_LIBS) $(COMPAT_OBJS)
+
+libanonymous_la_SOURCES = anonymous.c anonymous_init.c $(common_sources)
+libanonymous_la_DEPENDENCIES = $(COMPAT_OBJS)
+libanonymous_la_LIBADD = $(COMPAT_OBJS)
+
+libkerberos4_la_SOURCES = kerberos4.c kerberos4_init.c $(common_sources)
+libkerberos4_la_DEPENDENCIES = $(COMPAT_OBJS)
+libkerberos4_la_LIBADD = $(SASL_KRB_LIB) $(LIB_SOCKET) $(COMPAT_OBJS)
+
+libgssapiv2_la_SOURCES = gssapi.c gssapiv2_init.c $(common_sources)
+libgssapiv2_la_DEPENDENCIES = $(COMPAT_OBJS)
+libgssapiv2_la_LIBADD = $(GSSAPIBASE_LIBS) $(GSSAPI_LIBS) $(LIB_SOCKET) $(COMPAT_OBJS)
+
+libcrammd5_la_SOURCES = cram.c crammd5_init.c $(common_sources)
+libcrammd5_la_DEPENDENCIES = $(COMPAT_OBJS)
+libcrammd5_la_LIBADD = $(COMPAT_OBJS)
+
+libdigestmd5_la_SOURCES = digestmd5.c digestmd5_init.c $(common_sources)
+libdigestmd5_la_DEPENDENCIES = $(COMPAT_OBJS)
+libdigestmd5_la_LIBADD = $(LIB_DES) $(LIB_SOCKET) $(COMPAT_OBJS)
+
+liblogin_la_SOURCES = login.c login_init.c $(common_sources)
+liblogin_la_DEPENDENCIES = $(COMPAT_OBJS)
+liblogin_la_LIBADD = $(PLAIN_LIBS) $(COMPAT_OBJS)
+
+libsrp_la_SOURCES = srp.c srp_init.c $(common_sources)
+libsrp_la_DEPENDENCIES = $(COMPAT_OBJS)
+libsrp_la_LIBADD = $(SRP_LIBS) $(COMPAT_OBJS)
+
+libotp_la_SOURCES = otp.c otp_init.c otp.h $(common_sources)
+libotp_la_DEPENDENCIES = $(COMPAT_OBJS)
+libotp_la_LIBADD = $(OTP_LIBS) $(COMPAT_OBJS)
+
+libntlm_la_SOURCES = ntlm.c ntlm_init.c $(common_sources)
+libntlm_la_DEPENDENCIES = $(COMPAT_OBJS)
+libntlm_la_LIBADD = $(NTLM_LIBS) $(COMPAT_OBJS)
+
+libpassdss_la_SOURCES = passdss.c passdss_init.c $(common_sources)
+libpassdss_la_DEPENDENCIES = $(COMPAT_OBJS)
+libpassdss_la_LIBADD = $(PASSDSS_LIBS) $(COMPAT_OBJS)
+
+# Auxprop Plugins
+libsasldb_la_SOURCES = sasldb.c sasldb_init.c $(common_sources)
+libsasldb_la_DEPENDENCIES = $(COMPAT_OBJS)
+libsasldb_la_LIBADD = ../sasldb/libsasldb.la $(SASL_DB_LIB) $(COMPAT_OBJS)
+
+libldapdb_la_SOURCES = ldapdb.c ldapdb_init.c $(common_sources)
+libldapdb_la_DEPENDENCIES = $(COMPAT_OBJS)
+libldapdb_la_LIBADD = $(COMPAT_OBJS)
+
+libsql_la_SOURCES = sql.c sql_init.c $(common_sources)
+libsql_la_LDFLAGS = $(LIB_MYSQL) $(LIB_PGSQL) $(LIB_SQLITE) $(AM_LDFLAGS)
+libsql_la_DEPENDENCIES = $(COMPAT_OBJS)
+libsql_la_LIBADD = $(COMPAT_OBJS)
+
+
+# Instructions for making the _init files
+init_src = anonymous_init.c crammd5_init.c digestmd5_init.c gssapiv2_init.c \
+kerberos4_init.c login_init.c plain_init.c srp_init.c otp_init.c ntlm_init.c \
+passdss_init.c sasldb_init.c sql_init.c ldapdb_init.c
+
+
+CLEANFILES = $(init_src)
+subdir = plugins
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/config/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
-noinst_PROGRAMS = makemd5$(EXEEXT)
-PROGRAMS = $(noinst_PROGRAMS)
+LTLIBRARIES = $(sasl_LTLIBRARIES)
 
-am_makemd5_OBJECTS = makemd5.$(OBJEXT)
-makemd5_OBJECTS = $(am_makemd5_OBJECTS)
-makemd5_LDADD = $(LDADD)
-makemd5_DEPENDENCIES =
-makemd5_LDFLAGS =
+libanonymous_la_LDFLAGS =
+am__objects_1 = plugin_common.lo
+am_libanonymous_la_OBJECTS = anonymous.lo anonymous_init.lo \
+	$(am__objects_1)
+libanonymous_la_OBJECTS = $(am_libanonymous_la_OBJECTS)
+libcrammd5_la_LDFLAGS =
+am_libcrammd5_la_OBJECTS = cram.lo crammd5_init.lo $(am__objects_1)
+libcrammd5_la_OBJECTS = $(am_libcrammd5_la_OBJECTS)
+libdigestmd5_la_LDFLAGS =
+am_libdigestmd5_la_OBJECTS = digestmd5.lo digestmd5_init.lo \
+	$(am__objects_1)
+libdigestmd5_la_OBJECTS = $(am_libdigestmd5_la_OBJECTS)
+libgssapiv2_la_LDFLAGS =
+am_libgssapiv2_la_OBJECTS = gssapi.lo gssapiv2_init.lo $(am__objects_1)
+libgssapiv2_la_OBJECTS = $(am_libgssapiv2_la_OBJECTS)
+libkerberos4_la_LDFLAGS =
+am_libkerberos4_la_OBJECTS = kerberos4.lo kerberos4_init.lo \
+	$(am__objects_1)
+libkerberos4_la_OBJECTS = $(am_libkerberos4_la_OBJECTS)
+libldapdb_la_LDFLAGS =
+am_libldapdb_la_OBJECTS = ldapdb.lo ldapdb_init.lo $(am__objects_1)
+libldapdb_la_OBJECTS = $(am_libldapdb_la_OBJECTS)
+liblogin_la_LDFLAGS =
+am_liblogin_la_OBJECTS = login.lo login_init.lo $(am__objects_1)
+liblogin_la_OBJECTS = $(am_liblogin_la_OBJECTS)
+libntlm_la_LDFLAGS =
+am_libntlm_la_OBJECTS = ntlm.lo ntlm_init.lo $(am__objects_1)
+libntlm_la_OBJECTS = $(am_libntlm_la_OBJECTS)
+libotp_la_LDFLAGS =
+am_libotp_la_OBJECTS = otp.lo otp_init.lo $(am__objects_1)
+libotp_la_OBJECTS = $(am_libotp_la_OBJECTS)
+libpassdss_la_LDFLAGS =
+am_libpassdss_la_OBJECTS = passdss.lo passdss_init.lo $(am__objects_1)
+libpassdss_la_OBJECTS = $(am_libpassdss_la_OBJECTS)
+libplain_la_LDFLAGS =
+am_libplain_la_OBJECTS = plain.lo plain_init.lo $(am__objects_1)
+libplain_la_OBJECTS = $(am_libplain_la_OBJECTS)
+libsasldb_la_LDFLAGS =
+am_libsasldb_la_OBJECTS = sasldb.lo sasldb_init.lo $(am__objects_1)
+libsasldb_la_OBJECTS = $(am_libsasldb_la_OBJECTS)
+am_libsql_la_OBJECTS = sql.lo sql_init.lo $(am__objects_1)
+libsql_la_OBJECTS = $(am_libsql_la_OBJECTS)
+libsrp_la_LDFLAGS =
+am_libsrp_la_OBJECTS = srp.lo srp_init.lo $(am__objects_1)
+libsrp_la_OBJECTS = $(am_libsrp_la_OBJECTS)
+SCRIPTS = $(noinst_SCRIPTS)
+
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
-@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/makemd5.Po
+@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/anonymous.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/anonymous_init.Plo ./$(DEPDIR)/cram.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/crammd5_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/digestmd5.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/digestmd5_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/gssapi.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/gssapiv2_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/kerberos4.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/kerberos4_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/ldapdb.Plo ./$(DEPDIR)/ldapdb_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/login.Plo ./$(DEPDIR)/login_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/ntlm.Plo ./$(DEPDIR)/ntlm_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/otp.Plo ./$(DEPDIR)/otp_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/passdss.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/passdss_init.Plo ./$(DEPDIR)/plain.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/plain_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/plugin_common.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/sasldb.Plo ./$(DEPDIR)/sasldb_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/sql.Plo ./$(DEPDIR)/sql_init.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/srp.Plo ./$(DEPDIR)/srp_init.Plo
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) \
@@ -273,14 +409,15 @@ LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) \
 CCLD = $(CC)
 LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
-DIST_SOURCES = $(makemd5_SOURCES)
-DATA = $(frameheader_DATA)
-
-HEADERS = $(noinst_HEADERS) $(saslinclude_HEADERS)
-
-DIST_COMMON = $(noinst_HEADERS) $(saslinclude_HEADERS) \
-	$(srcdir)/Makefile.in Makefile.am
-SOURCES = $(makemd5_SOURCES)
+DIST_SOURCES = $(libanonymous_la_SOURCES) $(libcrammd5_la_SOURCES) \
+	$(libdigestmd5_la_SOURCES) $(libgssapiv2_la_SOURCES) \
+	$(libkerberos4_la_SOURCES) $(libldapdb_la_SOURCES) \
+	$(liblogin_la_SOURCES) $(libntlm_la_SOURCES) \
+	$(libotp_la_SOURCES) $(libpassdss_la_SOURCES) \
+	$(libplain_la_SOURCES) $(libsasldb_la_SOURCES) \
+	$(libsql_la_SOURCES) $(libsrp_la_SOURCES)
+DIST_COMMON = $(srcdir)/Makefile.in Makefile.am
+SOURCES = $(libanonymous_la_SOURCES) $(libcrammd5_la_SOURCES) $(libdigestmd5_la_SOURCES) $(libgssapiv2_la_SOURCES) $(libkerberos4_la_SOURCES) $(libldapdb_la_SOURCES) $(liblogin_la_SOURCES) $(libntlm_la_SOURCES) $(libotp_la_SOURCES) $(libpassdss_la_SOURCES) $(libplain_la_SOURCES) $(libsasldb_la_SOURCES) $(libsql_la_SOURCES) $(libsrp_la_SOURCES)
 
 all: all-am
 
@@ -288,19 +425,65 @@ all: all-am
 .SUFFIXES: .c .lo .o .obj
 $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu  include/Makefile
+	  $(AUTOMAKE) --gnu  plugins/Makefile
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
-
-clean-noinstPROGRAMS:
-	@list='$(noinst_PROGRAMS)'; for p in $$list; do \
-	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
-	  echo " rm -f $$p $$f"; \
-	  rm -f $$p $$f ; \
+saslLTLIBRARIES_INSTALL = $(INSTALL)
+install-saslLTLIBRARIES: $(sasl_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)$(sasldir)
+	@list='$(sasl_LTLIBRARIES)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    f="`echo $$p | sed -e 's|^.*/||'`"; \
+	    echo " $(LIBTOOL) --mode=install $(saslLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) $$p $(DESTDIR)$(sasldir)/$$f"; \
+	    $(LIBTOOL) --mode=install $(saslLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) $$p $(DESTDIR)$(sasldir)/$$f; \
+	  else :; fi; \
 	done
-makemd5$(EXEEXT): $(makemd5_OBJECTS) $(makemd5_DEPENDENCIES) 
-	@rm -f makemd5$(EXEEXT)
-	$(LINK) $(makemd5_LDFLAGS) $(makemd5_OBJECTS) $(makemd5_LDADD) $(LIBS)
+
+uninstall-saslLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	@list='$(sasl_LTLIBRARIES)'; for p in $$list; do \
+	    p="`echo $$p | sed -e 's|^.*/||'`"; \
+	  echo " $(LIBTOOL) --mode=uninstall rm -f $(DESTDIR)$(sasldir)/$$p"; \
+	  $(LIBTOOL) --mode=uninstall rm -f $(DESTDIR)$(sasldir)/$$p; \
+	done
+
+clean-saslLTLIBRARIES:
+	-test -z "$(sasl_LTLIBRARIES)" || rm -f $(sasl_LTLIBRARIES)
+	@list='$(sasl_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" = "$$p" && dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libanonymous.la: $(libanonymous_la_OBJECTS) $(libanonymous_la_DEPENDENCIES) 
+	$(LINK)  $(libanonymous_la_LDFLAGS) $(libanonymous_la_OBJECTS) $(libanonymous_la_LIBADD) $(LIBS)
+libcrammd5.la: $(libcrammd5_la_OBJECTS) $(libcrammd5_la_DEPENDENCIES) 
+	$(LINK)  $(libcrammd5_la_LDFLAGS) $(libcrammd5_la_OBJECTS) $(libcrammd5_la_LIBADD) $(LIBS)
+libdigestmd5.la: $(libdigestmd5_la_OBJECTS) $(libdigestmd5_la_DEPENDENCIES) 
+	$(LINK)  $(libdigestmd5_la_LDFLAGS) $(libdigestmd5_la_OBJECTS) $(libdigestmd5_la_LIBADD) $(LIBS)
+libgssapiv2.la: $(libgssapiv2_la_OBJECTS) $(libgssapiv2_la_DEPENDENCIES) 
+	$(LINK)  $(libgssapiv2_la_LDFLAGS) $(libgssapiv2_la_OBJECTS) $(libgssapiv2_la_LIBADD) $(LIBS)
+libkerberos4.la: $(libkerberos4_la_OBJECTS) $(libkerberos4_la_DEPENDENCIES) 
+	$(LINK)  $(libkerberos4_la_LDFLAGS) $(libkerberos4_la_OBJECTS) $(libkerberos4_la_LIBADD) $(LIBS)
+libldapdb.la: $(libldapdb_la_OBJECTS) $(libldapdb_la_DEPENDENCIES) 
+	$(LINK)  $(libldapdb_la_LDFLAGS) $(libldapdb_la_OBJECTS) $(libldapdb_la_LIBADD) $(LIBS)
+liblogin.la: $(liblogin_la_OBJECTS) $(liblogin_la_DEPENDENCIES) 
+	$(LINK)  $(liblogin_la_LDFLAGS) $(liblogin_la_OBJECTS) $(liblogin_la_LIBADD) $(LIBS)
+libntlm.la: $(libntlm_la_OBJECTS) $(libntlm_la_DEPENDENCIES) 
+	$(LINK)  $(libntlm_la_LDFLAGS) $(libntlm_la_OBJECTS) $(libntlm_la_LIBADD) $(LIBS)
+libotp.la: $(libotp_la_OBJECTS) $(libotp_la_DEPENDENCIES) 
+	$(LINK)  $(libotp_la_LDFLAGS) $(libotp_la_OBJECTS) $(libotp_la_LIBADD) $(LIBS)
+libpassdss.la: $(libpassdss_la_OBJECTS) $(libpassdss_la_DEPENDENCIES) 
+	$(LINK)  $(libpassdss_la_LDFLAGS) $(libpassdss_la_OBJECTS) $(libpassdss_la_LIBADD) $(LIBS)
+libplain.la: $(libplain_la_OBJECTS) $(libplain_la_DEPENDENCIES) 
+	$(LINK)  $(libplain_la_LDFLAGS) $(libplain_la_OBJECTS) $(libplain_la_LIBADD) $(LIBS)
+libsasldb.la: $(libsasldb_la_OBJECTS) $(libsasldb_la_DEPENDENCIES) 
+	$(LINK)  $(libsasldb_la_LDFLAGS) $(libsasldb_la_OBJECTS) $(libsasldb_la_LIBADD) $(LIBS)
+libsql.la: $(libsql_la_OBJECTS) $(libsql_la_DEPENDENCIES) 
+	$(LINK)  $(libsql_la_LDFLAGS) $(libsql_la_OBJECTS) $(libsql_la_LIBADD) $(LIBS)
+libsrp.la: $(libsrp_la_OBJECTS) $(libsrp_la_DEPENDENCIES) 
+	$(LINK)  $(libsrp_la_LDFLAGS) $(libsrp_la_OBJECTS) $(libsrp_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT) core *.core
@@ -308,7 +491,35 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/makemd5.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/anonymous.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/anonymous_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cram.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/crammd5_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/digestmd5.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/digestmd5_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gssapi.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gssapiv2_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/kerberos4.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/kerberos4_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ldapdb.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ldapdb_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/login.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/login_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ntlm.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ntlm_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/otp.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/otp_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/passdss.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/passdss_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/plain.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/plain_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/plugin_common.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sasldb.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sasldb_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sql.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sql_init.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/srp.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/srp_init.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" \
@@ -352,42 +563,6 @@ clean-libtool:
 distclean-libtool:
 	-rm -f libtool
 uninstall-info-am:
-frameheaderDATA_INSTALL = $(INSTALL_DATA)
-install-frameheaderDATA: $(frameheader_DATA)
-	@$(NORMAL_INSTALL)
-	$(mkinstalldirs) $(DESTDIR)$(frameheaderdir)
-	@list='$(frameheader_DATA)'; for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  f="`echo $$p | sed -e 's|^.*/||'`"; \
-	  echo " $(frameheaderDATA_INSTALL) $$d$$p $(DESTDIR)$(frameheaderdir)/$$f"; \
-	  $(frameheaderDATA_INSTALL) $$d$$p $(DESTDIR)$(frameheaderdir)/$$f; \
-	done
-
-uninstall-frameheaderDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(frameheader_DATA)'; for p in $$list; do \
-	  f="`echo $$p | sed -e 's|^.*/||'`"; \
-	  echo " rm -f $(DESTDIR)$(frameheaderdir)/$$f"; \
-	  rm -f $(DESTDIR)$(frameheaderdir)/$$f; \
-	done
-saslincludeHEADERS_INSTALL = $(INSTALL_HEADER)
-install-saslincludeHEADERS: $(saslinclude_HEADERS)
-	@$(NORMAL_INSTALL)
-	$(mkinstalldirs) $(DESTDIR)$(saslincludedir)
-	@list='$(saslinclude_HEADERS)'; for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  f="`echo $$p | sed -e 's|^.*/||'`"; \
-	  echo " $(saslincludeHEADERS_INSTALL) $$d$$p $(DESTDIR)$(saslincludedir)/$$f"; \
-	  $(saslincludeHEADERS_INSTALL) $$d$$p $(DESTDIR)$(saslincludedir)/$$f; \
-	done
-
-uninstall-saslincludeHEADERS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(saslinclude_HEADERS)'; for p in $$list; do \
-	  f="`echo $$p | sed -e 's|^.*/||'`"; \
-	  echo " rm -f $(DESTDIR)$(saslincludedir)/$$f"; \
-	  rm -f $(DESTDIR)$(saslincludedir)/$$f; \
-	done
 
 ETAGS = etags
 ETAGSFLAGS =
@@ -476,10 +651,10 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(PROGRAMS) $(DATA) $(HEADERS)
+all-am: Makefile $(LTLIBRARIES) $(SCRIPTS)
 
 installdirs:
-	$(mkinstalldirs) $(DESTDIR)$(frameheaderdir) $(DESTDIR)$(saslincludedir)
+	$(mkinstalldirs) $(DESTDIR)$(sasldir)
 install: install-am
 install-exec: install-exec-am
 install-data: install-data-am
@@ -497,17 +672,17 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-rm -f $(CONFIG_CLEAN_FILES)
-	-test -z "$(DISTCLEANFILES)" || rm -f $(DISTCLEANFILES)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic clean-libtool clean-noinstPROGRAMS \
+clean-am: clean-generic clean-libtool clean-saslLTLIBRARIES \
 	mostlyclean-am
 
 distclean: distclean-am
@@ -524,7 +699,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-frameheaderDATA install-saslincludeHEADERS
+install-data-am: install-saslLTLIBRARIES
 
 install-exec-am:
 
@@ -552,27 +727,30 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-frameheaderDATA uninstall-info-am \
-	uninstall-saslincludeHEADERS
+uninstall-am: uninstall-info-am uninstall-saslLTLIBRARIES
 
 .PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
-	clean-libtool clean-noinstPROGRAMS ctags distclean \
+	clean-libtool clean-saslLTLIBRARIES ctags distclean \
 	distclean-compile distclean-generic distclean-libtool \
 	distclean-tags distdir dvi dvi-am info info-am install \
 	install-am install-data install-data-am install-exec \
-	install-exec-am install-frameheaderDATA install-info \
-	install-info-am install-man install-saslincludeHEADERS \
-	install-strip installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-compile mostlyclean-generic mostlyclean-libtool pdf \
-	pdf-am ps ps-am tags uninstall uninstall-am \
-	uninstall-frameheaderDATA uninstall-info-am \
-	uninstall-saslincludeHEADERS
+	install-exec-am install-info install-info-am install-man \
+	install-saslLTLIBRARIES install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags uninstall uninstall-am uninstall-info-am \
+	uninstall-saslLTLIBRARIES
 
 
-md5global.h: makemd5
-	-rm -f md5global.h
-	./makemd5 md5global.h
+${init_src}: $(srcdir)/makeinit.sh
+	$(SHELL) $(srcdir)/makeinit.sh
+
+# Compatibility function build rules (they build in lib/)
+$(COMPAT_OBJS):
+	rm -f $(COMPAT_OBJS)
+	cd ../lib; $(MAKE) $(COMPAT_OBJS)
+	for file in $(COMPAT_OBJS); do ln -s ../lib/$$file .; done
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

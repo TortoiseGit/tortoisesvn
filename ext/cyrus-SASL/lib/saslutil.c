@@ -1,7 +1,7 @@
 /* saslutil.c
  * Rob Siemborski
  * Tim Martin
- * $Id: saslutil.c,v 1.44 2006/03/13 18:26:36 mel Exp $
+ * $Id: saslutil.c,v 1.49 2009/04/27 13:26:27 murch Exp $
  */
 /* 
  * Copyright (c) 1998-2003 Carnegie Mellon University.  All rights reserved.
@@ -72,7 +72,13 @@
  * sasl_randseed
  * sasl_rand
  * sasl_churn
-*/
+ * sasl_erasebuffer
+ */
+
+#ifdef sun
+/* gotta define gethostname ourselves on suns */
+extern int gethostname(char *, int);
+#endif
 
 char *encode_table;
 char *decode_table;
@@ -111,8 +117,11 @@ static char index_64[128] = {
  * Returns SASL_OK on success, SASL_BUFOVER if result won't fit
  */
 
-int sasl_encode64(const char *_in, unsigned inlen,
-		  char *_out, unsigned outmax, unsigned *outlen)
+int sasl_encode64(const char *_in,
+		  unsigned inlen,
+		  char *_out,
+		  unsigned outmax,
+		  unsigned *outlen)
 {
     const unsigned char *in = (const unsigned char *)_in;
     unsigned char *out = (unsigned char *)_out;
@@ -121,17 +130,19 @@ int sasl_encode64(const char *_in, unsigned inlen,
     unsigned olen;
 
     /* check params */
-    if ((inlen >0) && (in == NULL)) return SASL_BADPARAM;
+    if ((inlen > 0) && (in == NULL)) return SASL_BADPARAM;
     
     /* Will it fit? */
     olen = (inlen + 2) / 3 * 4;
-    if (outlen)
-      *outlen = olen;
-    if (outmax < olen)
-      return SASL_BUFOVER;
+    if (outlen) {
+	*outlen = olen;
+    }
+    if (outmax <= olen) {
+	return SASL_BUFOVER;
+    }
 
     /* Do the work... */
-    blah=(char *) out;
+    blah = (char *) out;
     while (inlen >= 3) {
       /* user provided max buffer size; make sure we don't go over it */
         *out++ = basis_64[in[0] >> 2];
@@ -151,8 +162,7 @@ int sasl_encode64(const char *_in, unsigned inlen,
         *out++ = '=';
     }
 
-    if (olen < outmax)
-      *out = '\0';
+    *out = '\0';
     
     return SASL_OK;
 }
@@ -469,6 +479,101 @@ void sasl_erasebuffer(char *buf, unsigned len) {
     memset(buf, 0, len);
 }
 
+/* Lowercase string in place */
+char *sasl_strlower (
+  char *val
+)
+{
+    int i;
+
+    if (val == NULL) {
+	return (NULL);
+    }
+
+/* don't use tolower(), as it is locale dependent */
+
+    for (i = 0; val[i] != '\0'; i++) {
+	if (val[i] >= 'A' && val[i] <= 'Z') {
+	    val[i] = val[i] - 'A' + 'a';
+	}
+    }
+
+    return (val);
+}
+
+/* A version of gethostname that tries hard to return a FQDN */
+int get_fqhostname(
+  char *name,  
+  int namelen,
+  int abort_if_no_fqdn
+)
+{
+    int return_value;
+    struct addrinfo hints;
+    struct addrinfo *result;
+
+    return_value = gethostname (name, namelen);
+    if (return_value != 0) {
+	return (return_value);
+    }
+
+    if (strchr (name, '.') != NULL) {
+	goto LOWERCASE;
+    }
+
+/* gethostname hasn't returned a FQDN, we have to canonify it ourselves */
+    hints.ai_family = PF_UNSPEC;
+    hints.ai_flags = AI_CANONNAME;
+    hints.ai_socktype = SOCK_STREAM;	/* TCP only */
+/* A value of zero for ai_protocol indicates the caller will accept any protocol. or IPPROTO_TCP? */
+    hints.ai_protocol = 0;  /* 0 or IPPROTO_xxx for IPv4 and IPv6 */
+    hints.ai_addrlen = 0;
+    hints.ai_canonname = NULL;
+    hints.ai_addr = NULL;
+    hints.ai_next = NULL;
+
+    if (getaddrinfo(name,
+		  NULL,		/* don't care abour service/port */
+		  &hints,
+		  &result) != 0) {
+	/* errno on Unix, WSASetLastError on Windows are already done by the function */
+	return (-1);
+    }
+
+    if (abort_if_no_fqdn && (result == NULL || result->ai_canonname == NULL)) {
+	freeaddrinfo (result);
+#ifdef WIN32
+	WSASetLastError (WSANO_DATA);
+#elif defined(ENODATA)
+	errno = ENODATA;
+#elif defined(EADDRNOTAVAIL)
+	errno = EADDRNOTAVAIL;
+#endif
+	return (-1);
+    }
+
+    if (abort_if_no_fqdn && strchr (result->ai_canonname, '.') == NULL) {
+	freeaddrinfo (result);
+#ifdef WIN32
+	WSASetLastError (WSANO_DATA);
+#elif defined(ENODATA)
+	errno = ENODATA;
+#elif defined(EADDRNOTAVAIL)
+	errno = EADDRNOTAVAIL;
+#endif
+	return (-1);
+    }
+
+
+/* Do we need to check for buffer overflow and set errno? */
+    strncpy (name, result->ai_canonname, namelen);
+    freeaddrinfo (result);
+
+LOWERCASE:
+    sasl_strlower (name);
+    return (0);
+}
+
 #ifdef WIN32
 /***************************************************************************** 
  * 
@@ -656,13 +761,13 @@ getpass(prompt)
 const char *prompt;
 {
 	register char *p;
-	register c;
+	register int c;
 	static char pbuf[PASSWORD_MAX];
 
 	fprintf(stderr, "%s", prompt); (void) fflush(stderr);
 	for (p=pbuf; (c = _getch())!=13 && c!=EOF;) {
 		if (p < &pbuf[sizeof(pbuf)-1])
-			*p++ = c;
+			*p++ = (char) c;
 	}
 	*p = '\0';
 	fprintf(stderr, "\n"); (void) fflush(stderr);

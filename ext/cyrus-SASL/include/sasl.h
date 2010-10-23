@@ -124,7 +124,7 @@
 /* Keep in sync with win32/common.mak */
 #define SASL_VERSION_MAJOR 2
 #define SASL_VERSION_MINOR 1
-#define SASL_VERSION_STEP 22
+#define SASL_VERSION_STEP 24
 
 /* A convenience macro: same as was defined in the OpenLDAP LDAPDB */
 #define SASL_VERSION_FULL ((SASL_VERSION_MAJOR << 16) |\
@@ -171,6 +171,10 @@
 #define SASL_NOCHANGE   -22  /* requested change was not needed */
 #define SASL_WEAKPASS   -27  /* passphrase is too weak for security policy */
 #define SASL_NOUSERPASS -28  /* user supplied passwords not permitted */
+#define SASL_NEED_OLD_PASSWD -29 /* sasl_setpass needs old password in order
+				    to perform password change */
+#define SASL_CONSTRAINT_VIOLAT	-30 /* a property can't be stored,
+				       because of some constrains/policy violation */
 
 /* max size of a sasl mechanism name */
 #define SASL_MECHNAMEMAX 20
@@ -626,6 +630,17 @@ typedef int sasl_server_userdb_setpass_t(sasl_conn_t *conn,
 /* One of the following two is required */
 #define SASL_CU_AUTHID  0x01
 #define SASL_CU_AUTHZID 0x02
+/* Combine the following with SASL_CU_AUTHID, if you don't want
+   to fail if auxprop returned SASL_NOUSER */
+#define SASL_CU_EXTERNALLY_VERIFIED 0x04
+
+#define SASL_CU_OVERRIDE	    0x08    /* mapped to SASL_AUXPROP_OVERRIDE */
+
+/* The following CU flags are passed "as is" down to auxprop lookup */
+#define SASL_CU_ASIS_MASK	    0xFFF0
+/* NOTE: Keep in sync with SASL_AUXPROP_<XXX> flags */
+#define SASL_CU_VERIFY_AGAINST_HASH 0x10
+
 
 typedef int sasl_canon_user_t(sasl_conn_t *conn,
 			      void *context,
@@ -679,8 +694,25 @@ LIBSASL_API void sasl_version_info (const char **implementation,
 
 /* dispose of all SASL plugins.  Connection
  * states have to be disposed of before calling this.
+ *
+ * This function is DEPRECATED in favour of sasl_server_done/
+ * sasl_client_done.
  */
 LIBSASL_API void sasl_done(void);
+
+/* dispose of all SASL plugins.  Connection
+ * states have to be disposed of before calling this.
+ * This function should be called instead of sasl_done(),
+   whenever possible.
+ */
+LIBSASL_API int sasl_server_done(void);
+
+/* dispose of all SASL plugins.  Connection
+ * states have to be disposed of before calling this.
+ * This function should be called instead of sasl_done(),
+   whenever possible.
+ */
+LIBSASL_API int sasl_client_done(void);
 
 /* dispose connection state, sets it to NULL
  *  checks for pointer to NULL
@@ -1103,6 +1135,7 @@ LIBSASL_API int sasl_checkpass(sasl_conn_t *conn,
  *  SASL_NOUSER   -- user not found
  *  SASL_NOVERIFY -- user found, but no usable mechanism
  *  SASL_NOMECH   -- no mechanisms enabled
+ *  SASL_UNAVAIL  -- remote authentication server unavailable, try again later
  */
 LIBSASL_API int sasl_user_exists(sasl_conn_t *conn,
 				 const char *service,
@@ -1146,6 +1179,8 @@ LIBSASL_API int sasl_setpass(sasl_conn_t *conn,
  *********************************************************/
 
 #define SASL_AUX_END      NULL	/* last auxiliary property */
+
+#define SASL_AUX_ALL "*" /* A special flag to signal user deletion */
 
 /* traditional Posix items (should be implemented on Posix systems) */
 #define SASL_AUX_PASSWORD_PROP "userPassword" /* User Password */

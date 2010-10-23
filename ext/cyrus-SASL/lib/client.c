@@ -1,7 +1,7 @@
 /* SASL client API implementation
  * Rob Siemborski
  * Tim Martin
- * $Id: client.c,v 1.67 2006/04/26 15:33:41 mel Exp $
+ * $Id: client.c,v 1.76 2009/08/04 17:13:51 mel Exp $
  */
 /* 
  * Copyright (c) 1998-2003 Carnegie Mellon University.  All rights reserved.
@@ -65,9 +65,6 @@ static int _sasl_client_active = 0;
 
 static int init_mechlist()
 {
-  cmechlist->mutex = sasl_MUTEX_ALLOC();
-  if(!cmechlist->mutex) return SASL_FAIL;
-  
   cmechlist->utils=_sasl_alloc_utils(NULL, &global_callbacks_client);
   if (cmechlist->utils==NULL)
     return SASL_NOMEM;
@@ -78,90 +75,121 @@ static int init_mechlist()
   return SASL_OK;
 }
 
-static int client_done(void) {
-  cmechanism_t *cm;
-  cmechanism_t *cprevm;
+int sasl_client_done(void)
+{
+    int result = SASL_CONTINUE;
 
-  if(!_sasl_client_active)
-      return SASL_NOTINIT;
-  else
-      _sasl_client_active--;
-  
-  if(_sasl_client_active) {
-      /* Don't de-init yet! Our refcount is nonzero. */
-      return SASL_CONTINUE;
-  }
-  
-  cm=cmechlist->mech_list; /* m point to begging of the list */
-  while (cm!=NULL)
-  {
-    cprevm=cm;
-    cm=cm->next;
-
-    if (cprevm->m.plug->mech_free) {
-	cprevm->m.plug->mech_free(cprevm->m.plug->glob_context,
-				cmechlist->utils);
+    if (_sasl_server_cleanup_hook == NULL && _sasl_client_cleanup_hook == NULL) {
+	return SASL_NOTINIT;
     }
 
-    sasl_FREE(cprevm->m.plugname);
-    sasl_FREE(cprevm);    
-  }
-  sasl_MUTEX_FREE(cmechlist->mutex);
-  _sasl_free_utils(&cmechlist->utils);
-  sasl_FREE(cmechlist);
+    if (_sasl_client_cleanup_hook) {
+	result = _sasl_client_cleanup_hook();
+	
+	if (result == SASL_OK) {
+	    _sasl_client_idle_hook = NULL;	
+	    _sasl_client_cleanup_hook = NULL;
+	} else {
+	    return result;
+	}
+    }
+    
+    if (_sasl_server_cleanup_hook || _sasl_client_cleanup_hook) {
+	return result;
+    }
+    
+    sasl_common_done();
 
-  cmechlist = NULL;
+    return SASL_OK;
+}
 
-  return SASL_OK;
+static int client_done(void) {
+    cmechanism_t *cm;
+    cmechanism_t *cprevm;
+
+    if (!_sasl_client_active) {
+	return SASL_NOTINIT;
+    } else {
+	_sasl_client_active--;
+    }
+
+    if(_sasl_client_active) {
+	/* Don't de-init yet! Our refcount is nonzero. */
+	return SASL_CONTINUE;
+    }
+
+    cm = cmechlist->mech_list; /* m point to beggining of the list */
+    while (cm!=NULL)
+    {
+	cprevm = cm;
+	cm = cm->next;
+
+	if (cprevm->m.plug->mech_free) {
+	    cprevm->m.plug->mech_free(cprevm->m.plug->glob_context,
+				      cmechlist->utils);
+	}
+
+	sasl_FREE(cprevm->m.plugname);
+	sasl_FREE(cprevm);    
+    }
+    _sasl_free_utils(&cmechlist->utils);
+    sasl_FREE(cmechlist);
+
+    cmechlist = NULL;
+
+    return SASL_OK;
 }
 
 int sasl_client_add_plugin(const char *plugname,
 			   sasl_client_plug_init_t *entry_point)
 {
-  int plugcount;
-  sasl_client_plug_t *pluglist;
-  cmechanism_t *mech;
-  int result;
-  int version;
-  int lupe;
+    int plugcount;
+    sasl_client_plug_t *pluglist;
+    cmechanism_t *mech;
+    int result;
+    int version;
+    int lupe;
 
-  if(!plugname || !entry_point) return SASL_BADPARAM;
-  
-  result = entry_point(cmechlist->utils, SASL_CLIENT_PLUG_VERSION, &version,
-		       &pluglist, &plugcount);
+    if (!plugname || !entry_point) return SASL_BADPARAM;
 
-  if (result != SASL_OK)
-  {
-    _sasl_log(NULL, SASL_LOG_WARN,
+    result = entry_point(cmechlist->utils,
+			 SASL_CLIENT_PLUG_VERSION,
+			 &version,
+			 &pluglist,
+			 &plugcount);
+
+    if (result != SASL_OK)
+    {
+	_sasl_log(NULL, SASL_LOG_WARN,
 	      "entry_point failed in sasl_client_add_plugin for %s",
 	      plugname);
-    return result;
-  }
-
-  if (version != SASL_CLIENT_PLUG_VERSION)
-  {
-    _sasl_log(NULL, SASL_LOG_WARN,
-	      "version conflict in sasl_client_add_plugin for %s", plugname);
-    return SASL_BADVERS;
-  }
-
-  for (lupe=0;lupe< plugcount ;lupe++)
-    {
-      mech = sasl_ALLOC(sizeof(cmechanism_t));
-      if (! mech) return SASL_NOMEM;
-
-      mech->m.plug=pluglist++;
-      if(_sasl_strdup(plugname, &mech->m.plugname, NULL) != SASL_OK) {
-	sasl_FREE(mech);
-	return SASL_NOMEM;
-      }
-      mech->m.version = version;
-      mech->next = cmechlist->mech_list;
-      cmechlist->mech_list = mech;
-      cmechlist->mech_length++;
+	return result;
     }
 
-  return SASL_OK;
+    if (version != SASL_CLIENT_PLUG_VERSION)
+    {
+	_sasl_log(NULL, SASL_LOG_WARN,
+	      "version conflict in sasl_client_add_plugin for %s", plugname);
+	return SASL_BADVERS;
+    }
+
+    for (lupe=0; lupe< plugcount ;lupe++)
+    {
+	mech = sasl_ALLOC(sizeof(cmechanism_t));
+	if (!mech) return SASL_NOMEM;
+
+	mech->m.plug = pluglist++;
+	if (_sasl_strdup(plugname, &mech->m.plugname, NULL) != SASL_OK) {
+	    sasl_FREE(mech);
+	    return SASL_NOMEM;
+	}
+	mech->m.version = version;
+	mech->next = cmechlist->mech_list;
+	cmechlist->mech_list = mech;
+	cmechlist->mech_length++;
+    }
+
+    return SASL_OK;
 }
 
 static int
@@ -202,6 +230,9 @@ int sasl_client_init(const sasl_callback_t *callbacks)
       { NULL, NULL }
   };
 
+  /* lock allocation type */
+  _sasl_allocation_locked++;
+  
   if(_sasl_client_active) {
       /* We're already active, just increase our refcount */
       /* xxx do something with the callback structure? */
@@ -343,13 +374,15 @@ int sasl_client_new(const char *service,
   /* Setup the non-lazy parts of cparams, the rest is done in
    * sasl_client_start */
   conn->cparams->utils = utils;
-  conn->cparams->canon_user = &_sasl_canon_user;
+  conn->cparams->canon_user = &_sasl_canon_user_lookup;
   conn->cparams->flags = flags;
   conn->cparams->prompt_supp = (*pconn)->callbacks;
   
   /* get the clientFQDN (serverFQDN was set in _sasl_conn_init) */
   memset(name, 0, sizeof(name));
-  gethostname(name, MAXHOSTNAMELEN);
+  if (get_fqhostname (name, MAXHOSTNAMELEN, 0) != 0) {
+      return (SASL_FAIL);
+  }
 
   result = _sasl_strdup(name, &conn->clientFQDN, NULL);
 
@@ -407,7 +440,7 @@ static int have_prompts(sasl_conn_t *conn,
 
 /* xxx confirm this with rfc 2222
  * SASL mechanism allowable characters are "AZaz-_"
- * seperators can be any other characters and of any length
+ * separators can be any other characters and of any length
  * even variable lengths between
  *
  * Apps should be encouraged to simply use space or comma space
@@ -710,16 +743,16 @@ int _sasl_client_listmech(sasl_conn_t *conn,
 			  unsigned *plen,
 			  int *pcount)
 {
-    cmechanism_t *m=NULL;
+    cmechanism_t *m = NULL;
     sasl_ssf_t minssf = 0;
     int ret;
     size_t resultlen;
     int flag;
     const char *mysep;
 
-    if(_sasl_client_active == 0) return SASL_NOTINIT;
+    if (_sasl_client_active == 0) return SASL_NOTINIT;
     if (!conn) return SASL_BADPARAM;
-    if(conn->type != SASL_CONN_CLIENT) PARAMERROR(conn);
+    if (conn->type != SASL_CONN_CLIENT) PARAMERROR(conn);
     
     if (! result)
 	PARAMERROR(conn);
@@ -735,7 +768,7 @@ int _sasl_client_listmech(sasl_conn_t *conn,
 	mysep = " ";
     }
 
-    if(conn->props.min_ssf < conn->external.ssf) {
+    if (conn->props.min_ssf < conn->external.ssf) {
 	minssf = 0;
     } else {
 	minssf = conn->props.min_ssf - conn->external.ssf;
@@ -857,7 +890,7 @@ static void
 _sasl_print_mechanism (
   client_sasl_mechanism_t *m,
   sasl_info_callback_stage_t stage,
-  void *rock
+  void *rock __attribute__((unused))
 )
 {
     char delimiter;

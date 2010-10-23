@@ -329,6 +329,9 @@ typedef struct sasl_client_params {
 /* This plugin allows proxying */
 #define SASL_FEAT_ALLOWS_PROXY 0x0020
 
+/* server plugin don't use cleartext userPassword attribute */
+#define SASL_FEAT_DONTUSE_USERPASSWD 0x0080
+
 /* client plug-in features */
 #define SASL_FEAT_NEEDSERVERFQDN 0x0001
 
@@ -888,7 +891,7 @@ typedef struct sasl_auxprop_plug {
      *  last element in array has id of SASL_AUX_END
      *  elements with non-0 len should be ignored.
      */
-    void (*auxprop_lookup)(void *glob_context,
+    int (*auxprop_lookup)(void *glob_context,
 			   sasl_server_params_t *sparams,
 			   unsigned flags,
 			   const char *user, unsigned ulen);
@@ -919,7 +922,11 @@ typedef struct sasl_auxprop_plug {
 				    * we are looking up the authzid flags
 				    * (no prefix) */
 
-#define SASL_AUXPROP_PLUG_VERSION 4
+/* NOTE: Keep in sync with SASL_CU_<XXX> flags */
+#define SASL_AUXPROP_VERIFY_AGAINST_HASH 0x10
+
+
+#define SASL_AUXPROP_PLUG_VERSION 8
 
 /* default name for auxprop plug-in entry point is "sasl_auxprop_init"
  *  similar to sasl_server_plug_init model, except only returns one

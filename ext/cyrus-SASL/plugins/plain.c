@@ -1,7 +1,7 @@
 /* Plain SASL plugin
  * Rob Siemborski
  * Tim Martin 
- * $Id: plain.c,v 1.64 2004/09/08 11:06:11 mel Exp $
+ * $Id: plain.c,v 1.67 2009/06/10 16:05:19 mel Exp $
  */
 /* 
  * Copyright (c) 1998-2003 Carnegie Mellon University.  All rights reserved.
@@ -57,7 +57,7 @@
 
 /*****************************  Common Section  *****************************/
 
-static const char plugin_id[] = "$Id: plain.c,v 1.64 2004/09/08 11:06:11 mel Exp $";
+static const char plugin_id[] = "$Id: plain.c,v 1.67 2009/06/10 16:05:19 mel Exp $";
 
 /*****************************  Server Section  *****************************/
 
@@ -90,10 +90,11 @@ static int plain_server_mech_step(void *conn_context __attribute__((unused)),
     const char *authen;
     const char *password;
     unsigned password_len;
-    unsigned lup=0;
+    unsigned lup = 0;
     int result;
     char *passcopy; 
-    
+    unsigned canon_flags = 0;
+
     *serverout = NULL;
     *serveroutlen = 0;
     
@@ -146,20 +147,33 @@ static int plain_server_mech_step(void *conn_context __attribute__((unused)),
    
     /* Canonicalize userid first, so that password verification is only
      * against the canonical id */
-    if (!author || !*author)
+    if (!author || !*author) {
 	author = authen;
-    
+	canon_flags = SASL_CU_AUTHZID;
+    } else if (strcmp(author, authen) == 0) {
+	/* While this isn't going to find out that <user> and <user>@<defaultdomain>
+	   are the same thing, this is good enough for many cases */
+	canon_flags = SASL_CU_AUTHZID;
+    }
+
     result = params->canon_user(params->utils->conn,
-				authen, 0, SASL_CU_AUTHID, oparams);
+				authen,
+				0,
+				SASL_CU_AUTHID | canon_flags,
+				oparams);
     if (result != SASL_OK) {
 	_plug_free_string(params->utils, &passcopy);
 	return result;
     }
-    
-    /* verify password - return sasl_ok on success*/
+
+    /* verify password (and possibly fetch both authentication and
+       authorization identity related properties) - return SASL_OK
+       on success */
     result = params->utils->checkpass(params->utils->conn,
-				      oparams->authid, oparams->alen,
-				      passcopy, password_len);
+				      oparams->authid,
+				      oparams->alen,
+				      passcopy,
+				      password_len);
     
     _plug_free_string(params->utils, &passcopy);
     
@@ -172,10 +186,37 @@ static int plain_server_mech_step(void *conn_context __attribute__((unused)),
     /* Canonicalize and store the authorization ID */
     /* We need to do this after calling verify_user just in case verify_user
      * needed to get auxprops itself */
-    result = params->canon_user(params->utils->conn,
-				author, 0, SASL_CU_AUTHZID, oparams);
-    if (result != SASL_OK) return result;
+    if (canon_flags == 0) {
+	const struct propval *pr;
+	int i;
 
+	pr = params->utils->prop_get(params->propctx);
+	if (!pr) {
+	    return SASL_FAIL;
+	}
+
+	/* params->utils->checkpass() might have fetched authorization identity related properties
+	   for the wrong user name. Free these values. */
+	for (i = 0; pr[i].name; i++) {
+	    if (pr[i].name[0] == '*') {
+		continue;
+	    }
+
+            if (pr[i].values) {
+	    	params->utils->prop_erase(params->propctx, pr[i].name);
+            }
+	}
+
+	result = params->canon_user(params->utils->conn,
+				    author,
+				    0,
+				    SASL_CU_AUTHZID,
+				    oparams);
+	if (result != SASL_OK) {
+	    return result;
+	}
+    }
+    
     /* set oparams */
     oparams->doneflag = 1;
     oparams->mech_ssf = 0;
@@ -194,7 +235,8 @@ static sasl_server_plug_t plain_server_plugins[] =
     {
 	"PLAIN",			/* mech_name */
 	0,				/* max_ssf */
-	SASL_SEC_NOANONYMOUS,		/* security_flags */
+	SASL_SEC_NOANONYMOUS
+	| SASL_SEC_PASS_CREDENTIALS,	/* security_flags */
 	SASL_FEAT_WANT_CLIENT_FIRST
 	| SASL_FEAT_ALLOWS_PROXY,	/* features */
 	NULL,				/* glob_context */
@@ -414,7 +456,8 @@ static sasl_client_plug_t plain_client_plugins[] =
     {
 	"PLAIN",			/* mech_name */
 	0,				/* max_ssf */
-	SASL_SEC_NOANONYMOUS,		/* security_flags */
+	SASL_SEC_NOANONYMOUS
+	| SASL_SEC_PASS_CREDENTIALS,	/* security_flags */
 	SASL_FEAT_WANT_CLIENT_FIRST
 	| SASL_FEAT_ALLOWS_PROXY,	/* features */
 	NULL,				/* required_prompts */

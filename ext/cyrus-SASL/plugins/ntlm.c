@@ -1,6 +1,6 @@
 /* NTLM SASL plugin
  * Ken Murchison
- * $Id: ntlm.c,v 1.30 2005/07/07 16:10:14 mel Exp $
+ * $Id: ntlm.c,v 1.33 2008/10/30 14:19:46 mel Exp $
  *
  * References:
  *   http://www.innovation.ch/java/ntlm.html
@@ -100,7 +100,7 @@
 
 /*****************************  Common Section  *****************************/
 
-static const char plugin_id[] = "$Id: ntlm.c,v 1.30 2005/07/07 16:10:14 mel Exp $";
+static const char plugin_id[] = "$Id: ntlm.c,v 1.33 2008/10/30 14:19:46 mel Exp $";
 
 #ifdef WIN32
 static ssize_t writev (SOCKET fd, const struct iovec *iov, size_t iovcnt);
@@ -427,10 +427,10 @@ static unsigned char *V2(unsigned char *V2, sasl_secret_t *passwd,
     HMAC_CTX ctx;
     unsigned char hash[EVP_MAX_MD_SIZE];
     char *upper;
-    int len;
+    unsigned int len;
 
     /* Allocate enough space for the unicode target */
-    len = (int) (strlen(authid) + xstrlen(target));
+    len = (unsigned int) (strlen(authid) + xstrlen(target));
     if (_plug_buf_alloc(utils, buf, buflen, 2 * len + 1) != SASL_OK) {
 	SETERROR(utils, "cannot allocate NTLMv2 hash");
 	*result = SASL_NOMEM;
@@ -697,7 +697,7 @@ static int retry_writev(SOCKET fd, struct iovec *iov, int iovcnt)
 
 	if (!iovcnt) return written;
 
-	n = writev(fd, iov, iovcnt > iov_max ? iov_max : iovcnt);
+	n = (int) writev(fd, iov, iovcnt > iov_max ? iov_max : iovcnt);
 	if (n == -1) {
 #ifndef WIN32
 	    if (errno == EINVAL && iov_max > 10) {
@@ -1336,7 +1336,7 @@ static int create_challenge(const sasl_utils_t *utils,
 	return SASL_FAIL;
     }
 
-    *outlen = offset + 2 * xstrlen(target);
+    *outlen = offset + 2 * (unsigned) xstrlen(target);
 
     if (_plug_buf_alloc(utils, buf, buflen, *outlen) != SASL_OK) {
 	SETERROR(utils, "cannot allocate NTLM challenge");
@@ -1370,8 +1370,30 @@ static int ntlm_server_mech_new(void *glob_context __attribute__((unused)),
     sparams->utils->getopt(sparams->utils->getopt_context,
 			   "NTLM", "ntlm_server", &serv, &len);
     if (serv) {
-	/* try to start a NetBIOS session with the server */
-	sock = smb_connect_server(sparams->utils, sparams->serverFQDN, serv);
+	unsigned int i,j;
+	char *tmp, *next;
+
+	/* strip any whitespace */
+	if(_plug_strdup(sparams->utils, serv, &tmp, NULL) != SASL_OK) {
+	    MEMERROR( sparams->utils );
+	    return SASL_NOMEM;
+	}
+	for(i=0, j=0; i<len; i++) {
+	    if(!isspace(tmp[i])) tmp[j++] = tmp[i];
+	}
+	tmp[j] = '\0';
+	next = tmp;
+
+	/* try to connect to a list of servers */
+	do {
+	    serv = next;
+	    next = strchr(serv, ',');
+	    if(next) *(next++) = '\0';
+	    /* try to start a NetBIOS session with the server */
+	    sock = smb_connect_server(sparams->utils, sparams->serverFQDN, serv);
+	} while(sock == (SOCKET) -1 && next);
+
+	sparams->utils->free(tmp);
 	if (sock == (SOCKET) -1) return SASL_UNAVAIL;
     }
     
@@ -1572,7 +1594,7 @@ static int ntlm_server_mech_step2(server_context_t *text,
 	    sparams->utils->log(NULL, SASL_LOG_DEBUG,
 				"calculating NTv2 response");
 	    V2(resp, password, authid, domain, text->nonce,
-	       lm_resp + MD5_DIGEST_LENGTH, nt_resp_len - MD5_DIGEST_LENGTH,
+	       nt_resp + MD5_DIGEST_LENGTH, nt_resp_len - MD5_DIGEST_LENGTH,
 	       sparams->utils, &text->out_buf, &text->out_buf_len,
 	       &result);
 
@@ -1772,7 +1794,7 @@ static int create_request(const sasl_utils_t *utils,
     uint32 offset = NTLM_TYPE1_DATA_OFFSET;
     u_char *base;
 
-    *outlen = offset + xstrlen(domain) + xstrlen(wkstn);
+    *outlen = (unsigned) (offset + xstrlen(domain) + xstrlen(wkstn));
     if (_plug_buf_alloc(utils, buf, buflen, *outlen) != SASL_OK) {
 	SETERROR(utils, "cannot allocate NTLM request");
 	return SASL_NOMEM;
@@ -1820,8 +1842,8 @@ static int create_response(const sasl_utils_t *utils,
 	return SASL_FAIL;
     }
 
-    *outlen = offset + (flags & NTLM_USE_UNICODE ? 2 : 1) * 
-	(xstrlen(domain) + xstrlen(user) + xstrlen(wkstn));
+    *outlen = (unsigned) (offset + (flags & NTLM_USE_UNICODE ? 2 : 1) * 
+	(xstrlen(domain) + xstrlen(user) + xstrlen(wkstn)));
     if (lm_resp) *outlen += NTLM_RESP_LENGTH;
     if (nt_resp) *outlen += NTLM_RESP_LENGTH;
     if (key) *outlen += NTLM_SESSKEY_LENGTH;

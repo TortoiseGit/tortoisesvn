@@ -1,10 +1,10 @@
 /* SASL Config file API
  * Rob Siemborski
  * Tim Martin (originally in Cyrus distribution)
- * $Id: config.c,v 1.15 2006/04/10 13:28:06 mel Exp $
+ * $Id: config.c,v 1.18 2009/02/14 14:01:24 mel Exp $
  */
 /* 
- * Copyright (c) 1998-2003 Carnegie Mellon University.  All rights reserved.
+ * Copyright (c) 1998-2009 Carnegie Mellon University.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -43,24 +43,12 @@
  * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-/*
- * Current Valid keys:
- *
- * canon_user_plugin: <string>
- * pwcheck_method: <string>
- * auto_transition: <boolean>
- * plugin_list: <string>
- *
- * srvtab: <string>
- */
-
-
-#include "sasl.h"
-#include "saslint.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+
+#include "sasl.h"
+#include "saslint.h"
 
 struct configlist {
     char *key;
@@ -79,6 +67,7 @@ int sasl_config_init(const char *filename)
     int alloced = 0;
     char buf[4096];
     char *p, *key;
+    char *tail;
     int result;
 
     nconfiglist=0;
@@ -97,7 +86,7 @@ int sasl_config_init(const char *filename)
 
 	key = p;
 	while (*p && (isalnum((int) *p) || *p == '-' || *p == '_')) {
-	    if (isupper((int) *p)) *p = tolower(*p);
+	    if (isupper((int) *p)) *p = (char) tolower(*p);
 	    p++;
 	}
 	if (*p != ':') {
@@ -111,14 +100,19 @@ int sasl_config_init(const char *filename)
 	    return SASL_FAIL;
 	}
 
+	/* Now strip trailing spaces, if any */
+	tail = p + strlen(p) - 1;
+	while (tail > p && isspace((int) *tail)) {
+	    *tail = '\0';
+	    tail--;
+	}
+
 	if (nconfiglist == alloced) {
 	    alloced += CONFIGLISTGROWSIZE;
 	    configlist=sasl_REALLOC((char *)configlist, 
 				    alloced * sizeof(struct configlist));
 	    if (configlist==NULL) return SASL_NOMEM;
 	}
-
-
 
 	result = _sasl_strdup(key,
 			      &(configlist[nconfiglist].key),
