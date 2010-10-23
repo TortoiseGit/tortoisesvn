@@ -70,7 +70,7 @@ private:
     SVN(const SVN&){}
     SVN& operator=(SVN&){};
 public:
-    SVN(void);
+    SVN(bool suppressUI = false);
     ~SVN(void);
 
     virtual BOOL Cancel();

@@ -109,7 +109,7 @@ private:
     SVNInfo(const SVNInfo&){}
     SVNInfo& operator=(SVNInfo&){};
 public:
-    SVNInfo(void);
+    SVNInfo(bool suppressUI = false);
     ~SVNInfo(void);
 
     /**

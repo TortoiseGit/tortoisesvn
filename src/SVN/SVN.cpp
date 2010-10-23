@@ -78,7 +78,7 @@ void AprTimeToFileTime(LPFILETIME pft, apr_time_t t)
 }
 
 
-SVN::SVN(void) : m_progressWnd(0)
+SVN::SVN(bool suppressUI) : m_progressWnd(0)
     , m_pProgressDlg(NULL)
     , m_bShowProgressBar(false)
     , progress_total(0)
@@ -86,6 +86,7 @@ SVN::SVN(void) : m_progressWnd(0)
     , progress_lasttotal(0)
     , logCachePool()
     , m_commitRev(-1)
+    , m_prompt(suppressUI)
 {
     parentpool = svn_pool_create(NULL);
     svn_ra_initialize(pool);

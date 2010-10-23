@@ -31,11 +31,12 @@
 #include "SelectFileFilter.h"
 #include "FormatMessageWrapper.h"
 
-SVNPrompt::SVNPrompt()
+SVNPrompt::SVNPrompt(bool suppressUI)
 {
     m_app = NULL;
     m_hParentWnd = NULL;
     m_bPromptShown = false;
+    m_bSuppressed = suppressUI;
     auth_baton = NULL;
 }
 
@@ -159,7 +160,7 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
     CString username;
     CString temp;
     temp.LoadString(IDS_AUTH_USERNAME);
-    if (svn->Prompt(username, FALSE, temp, may_save))
+    if (!svn->m_bSuppressed && svn->Prompt(username, FALSE, temp, may_save))
     {
         ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(username));
         ret->may_save = may_save;
@@ -182,7 +183,7 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
     CString UserName = CUnicodeUtils::GetUnicode(username);
     CString PassWord;
     CString Realm = CUnicodeUtils::GetUnicode(realm);
-    if (svn->SimplePrompt(UserName, PassWord, Realm, may_save))
+    if (!svn->m_bSuppressed && svn->SimplePrompt(UserName, PassWord, Realm, may_save))
     {
         ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(UserName));
         ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(PassWord));
@@ -244,40 +245,42 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
         msg += _T("\n");
     temp.LoadString(IDS_SSL_ACCEPTQUESTION);
     msg += temp;
-    if (may_save)
+
+    *cred_p = NULL;
+    if (!svn->m_bSuppressed)
     {
-        CString sAcceptAlways, sAcceptTemp, sReject;
-        sAcceptAlways.LoadString(IDS_SSL_ACCEPTALWAYS);
-        sAcceptTemp.LoadString(IDS_SSL_ACCEPTTEMP);
-        sReject.LoadString(IDS_SSL_REJECT);
-        int ret = 0;
-        ret = CMessageBox::Show(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3, IDI_QUESTION, sAcceptAlways, sAcceptTemp, sReject);
-        if (ret == 1)
+        if (may_save)
         {
-            *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
-            (*cred_p)->may_save = TRUE;
-            (*cred_p)->accepted_failures = failures;
-        }
-        else if (ret == 2)
-        {
-            *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
-            (*cred_p)->may_save = FALSE;
-            svn->m_bPromptShown = true;
+            CString sAcceptAlways, sAcceptTemp, sReject;
+            sAcceptAlways.LoadString(IDS_SSL_ACCEPTALWAYS);
+            sAcceptTemp.LoadString(IDS_SSL_ACCEPTTEMP);
+            sReject.LoadString(IDS_SSL_REJECT);
+            int ret = 0;
+            ret = CMessageBox::Show(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3, IDI_QUESTION, sAcceptAlways, sAcceptTemp, sReject);
+            if (ret == 1)
+            {
+                *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
+                (*cred_p)->may_save = TRUE;
+                (*cred_p)->accepted_failures = failures;
+            }
+            else if (ret == 2)
+            {
+                *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
+                (*cred_p)->may_save = FALSE;
+                svn->m_bPromptShown = true;
+            }
         }
         else
-            *cred_p = NULL;
-    }
-    else
-    {
-        if (CMessageBox::Show(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
         {
-            *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
-            (*cred_p)->may_save = FALSE;
-            svn->m_bPromptShown = true;
+            if (CMessageBox::Show(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+            {
+                *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
+                (*cred_p)->may_save = FALSE;
+                svn->m_bPromptShown = true;
+            }
         }
-        else
-            *cred_p = NULL;
     }
+
     if (svn->m_app)
         svn->m_app->DoWaitCursor(0);
     return SVN_NO_ERROR;
@@ -312,7 +315,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 
     // Display the Open dialog box.
     svn->m_server.Empty();
-    if (GetOpenFileName(&ofn)==TRUE)
+    if (!svn->m_bSuppressed && (GetOpenFileName(&ofn)==TRUE))
     {
         filename = CString(ofn.lpstrFile);
         cert_file = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(filename));
@@ -378,7 +381,7 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
     CString password;
     CString temp;
     temp.LoadString(IDS_AUTH_PASSWORD);
-    if (svn->Prompt(password, TRUE, temp, may_save))
+    if (!svn->m_bSuppressed && svn->Prompt(password, TRUE, temp, may_save))
     {
         ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(password));
         ret->may_save = may_save;

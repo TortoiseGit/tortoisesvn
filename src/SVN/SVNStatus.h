@@ -39,7 +39,7 @@ private:
     SVNStatus(const SVNStatus&){}
     SVNStatus& operator=(SVNStatus&){};
 public:
-    SVNStatus(bool * pbCanceled = NULL);
+    SVNStatus(bool * pbCancelled = NULL, bool suppressUI = false);
     ~SVNStatus(void);
 
 

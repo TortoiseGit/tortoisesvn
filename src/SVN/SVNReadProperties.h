@@ -56,7 +56,7 @@ public:
 #ifdef _MFC_VER
     SVNReadProperties(SVNRev rev, bool bRevProps);
     SVNReadProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps);
-    SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, SVNRev rev);
+    SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, SVNRev rev, bool suppressUI);
     void SetProgressDlg(CProgressDlg * dlg) { m_pProgress = dlg; }
 #else
     SVNReadProperties(bool bRevProps);

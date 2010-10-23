@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008 - TortoiseSVN
+// Copyright (C) 2003-2006,2008,2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@
 class SVNPrompt
 {
 public:
-    SVNPrompt();
+    SVNPrompt(bool suppressUI = false);
     virtual ~SVNPrompt();
 
 public:
@@ -50,6 +50,11 @@ public:
      */
     bool PromptShown() const {return m_bPromptShown;}
 
+    /**
+     * Returns true if user interaction is suppressed
+     */
+    bool IsSilent() const {return m_bSuppressed;}
+
 private:
     BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);
     BOOL SimplePrompt(CString& username, CString& password, const CString& Realm, BOOL& may_save);
@@ -70,4 +75,5 @@ private:
     CWinApp *                   m_app;
     HWND                        m_hParentWnd;
     bool                        m_bPromptShown;
+    bool                        m_bSuppressed;
 };

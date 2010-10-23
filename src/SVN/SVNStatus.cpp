@@ -37,17 +37,23 @@
 #   include "Hooks.h"
 #endif
 
-SVNStatus::SVNStatus(bool * pbCanceled)
+#ifdef _MFC_VER
+SVNStatus::SVNStatus(bool * pbCancelled, bool suppressUI)
     : status(NULL)
+    , m_prompt (suppressUI)
+#else
+SVNStatus::SVNStatus(bool * pbCancelled, bool)
+    : status(NULL)
+#endif
 {
     m_pool = svn_pool_create (NULL);
 
     svn_error_clear(svn_client_create_context(&ctx, m_pool));
 
-    if (pbCanceled)
+    if (pbCancelled)
     {
         ctx->cancel_func = cancel;
-        ctx->cancel_baton = pbCanceled;
+        ctx->cancel_baton = pbCancelled;
     }
 
 #ifdef _MFC_VER

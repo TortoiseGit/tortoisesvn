@@ -209,12 +209,13 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps)
 }
 
 #ifdef _MFC_VER
-SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, SVNRev rev)
+SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, SVNRev rev, bool suppressUI)
     : m_path (filepath)
     , m_peg_rev (pegRev)
     , m_rev (rev)
     , m_bRevProps (false)
     , m_pProgress(NULL)
+    , m_prompt (suppressUI)
 {
     Construct();
     Refresh();

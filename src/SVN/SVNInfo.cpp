@@ -48,10 +48,11 @@ SVNInfoData::SVNInfoData()
 {
 }
 
-SVNInfo::SVNInfo(void)
+SVNInfo::SVNInfo (bool suppressUI)
     : m_pctx(NULL)
     , m_pos(0)
     , m_err(NULL)
+    , m_prompt (suppressUI)
 {
     m_pool = svn_pool_create (NULL);
 
