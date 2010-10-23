@@ -48,11 +48,17 @@ SVNInfoData::SVNInfoData()
 {
 }
 
+#ifdef _MFC_VER
 SVNInfo::SVNInfo (bool suppressUI)
+#else
+SVNInfo::SVNInfo (bool)
+#endif
     : m_pctx(NULL)
     , m_pos(0)
     , m_err(NULL)
+#ifdef _MFC_VER
     , m_prompt (suppressUI)
+#endif
 {
     m_pool = svn_pool_create (NULL);
 
