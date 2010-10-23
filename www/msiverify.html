@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>TortoiseSVN - Verify the msi signature</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="scripts/lightbox/prototype.js"></script>
+<script type="text/javascript" src="scripts/lightbox/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="scripts/lightbox/lightbox.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <!--#include FILE="menu.html" -->
+	<div id="page">
+		<div id="banner">&nbsp;</div>
+		<div id="content">
+        
+			<div class="post">
+				<h1 class="title"><a href="#">Verify the msi signature</a></h1>
+                $ADSENSE_TOP$
+				<div class="entry">
+                    <p>Since the TortoiseSVN msi installer files are hosted on 
+                    many <a href="http://sourceforge.net">SourceForge</a> 
+                    mirrors, we can't guarantee that they are not modified or 
+                    corrupted when you download them.</p>
+                    <p>To verify that the files have not been tempered with, 
+                    you can verify the signature of the files yourself. All 
+                    files of TortoiseSVN are digitally signed 
+                    (since version 1.6.3).</p>
+                    <p>After downloading the files, right-click on the files 
+                    and choose "Properties" from the explorer context menu. 
+                    In the properties dialog, go to the "signatures" tab and 
+                    verify that the file is signed by "Stefan Kueng" and that 
+                    the signature is valid. If you don't see the "signatures" 
+                    tab, you don't have a good file!</p>
+                    <p>
+                    <a href="images/propertiessignature.png" rel="lightbox[signature]"><img src="images/propertiessignature-small.png"></a></li>
+                    </p>
+                    <p>Windows also verifies the signature during installation. 
+                    If the prompt dialog does not say that the signature is 
+                    valid, cancel the installation and download the file 
+                    again!</p>
+                    <p>
+                    <a href="images/InstallUAC.png" rel="lightbox[signature]"><img src="images/InstallUAC-small.png"></a></li>
+                    </p>
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+        
+        <!--#include FILE="sidebar.html" -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+    <!--#include FILE="footer.html" -->
+</div>
+</body>
+</html>

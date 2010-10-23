@@ -1,0 +1,75 @@
+#
+# Apache/PHP/Drupal settings:
+#
+
+# Protect files and directories from prying eyes.
+<FilesMatch "(\.(engine|inc|install|module|sh|.*sql|theme|tpl(\.php)?|xtmpl)|code-style\.pl|Entries.*|Repository|Root)$">
+  Order deny,allow
+  Deny from all
+</FilesMatch>
+
+# Set some options.
+Options -Indexes
+Options +FollowSymLinks
+Options +Includes
+
+# Customized error messages.
+ErrorDocument 404 /404.html
+
+# Set the default handler.
+DirectoryIndex index.html
+
+
+# Reduce the time dynamically generated pages are cache-able.
+<IfModule mod_expires.c>
+  ExpiresByType text/html A1
+</IfModule>
+
+Options -Indexes
+IndexIgnore *
+
+# Various rewrite rules.
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  # If your site can be accessed both with and without the prefix www.
+  # you can use one of the following settings to force user to use only one option:
+  #
+  # If you want the site to be accessed WITH the www. only, adapt and uncomment the following:
+  # RewriteCond %{HTTP_HOST} !^www\.example\.com$ [NC]
+  # RewriteRule .* http://www.example.com/ [L,R=301]
+  #
+  # If you want the site to be accessed only WITHOUT the www. , adapt and uncomment the following:
+  # RewriteCond %{HTTP_HOST} !^example\.com$ [NC]
+  # RewriteRule .* http://example.com/ [L,R=301]
+
+  RewriteBase /
+
+  # Redirect traffic from tortoisesvn.org to tortoisesvn.net
+  #RewriteCond %{HTTP_HOST} ^(www\.)?tortoisesvn\.org$ [NC]
+  #RewriteRule ^(.*)$ http://tortoisesvn.net/$1 [L,R=301]
+
+  # Redirect traffic to www.tortoisesvn.net to tortoisesvn.net
+  #RewriteCond %{HTTP_HOST} !^tortoisesvn.net$ [NC]
+  #RewriteRule ^(.*)$ http://tortoisesvn.net/$1 [L,R=301]
+
+  RewriteRule ^downloads$ downloads.html [R,NC]
+  RewriteRule ^community$ community.html [R,NC]
+  RewriteRule ^support$ support.html [R,NC]
+  RewriteRule ^issuetrackerplugins$ issuetrackerplugins.html [R,NC]
+  RewriteRule ^SVNProtocolHandler$ svnprotocolhandler.html [R,NC]
+  RewriteRule ^testimonials$ testimonials.html [R,NC]
+  RewriteRule ^translation$ translation.html [R,NC]
+  RewriteRule ^about$ features.html [R,NC]
+  RewriteRule ^most-forgotten-feature$ mostforgottenfeature.html [R,NC]
+  RewriteRule ^status$ status.html [R,NC]
+  RewriteRule ^donate_stefan$ stefan_kueng.html [R,NC]
+
+  RewriteBase /
+
+  # prevent hotlinking
+  RewriteCond %{HTTP_REFERER} !^http://(.+\.)?tortoisesvn\.net/ [NC]
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteRule .*\.(jpe?g|gif|bmp|png)$ - [F]
+</IfModule>
+
