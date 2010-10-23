@@ -214,6 +214,12 @@ private:
 
     class CExternalsQuery : public CQuery
     {
+    private:
+
+        /// if set, suppress all user prompts
+
+        bool runSilently;
+
     protected:
 
         /// actual job code: fetch externals and parse them
@@ -231,6 +237,7 @@ private:
         CExternalsQuery ( const CTSVNPath& path
                         , const SVNRev& pegRevision
                         , const SRepositoryInfo& repository
+                        , bool runSilently
                         , async::CJobScheduler* scheduler);
     };
 
@@ -282,6 +289,7 @@ private:
                    , const SVNRev& pegRevision
                    , const SRepositoryInfo& repository
                    , bool includeExternals
+                   , bool runSilently
                    , async::CJobScheduler* scheduler);
 
         /// cancel the svn:externals sub query as well
@@ -291,6 +299,11 @@ private:
         /// access additional results
 
         const std::deque<CItem>& GetSubPathExternals();
+
+        /// true, if this query has been run silently and
+        /// some error occured.
+
+        bool ShouldBeRerun();
     };
 
     /// folder content at specific revisions
@@ -386,11 +399,14 @@ public:
     /// there is no query for that \ref url and resivision yet.
     /// It should be set to @a false only if it is certain that
     /// no externals have been defined for that URL and revision.
+    /// All queries that shall be run in background without any
+    /// user interaction must set @a runSilently.
 
     void Enqueue ( const CString& url
                  , const SVNRev& pegRev
                  , const SRepositoryInfo& repository
-                 , bool includeExternals);
+                 , bool includeExternals
+                 , bool runSilently = true);
 
     /// remove all unfinished entries from the job queue
 

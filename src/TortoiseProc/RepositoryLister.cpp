@@ -211,11 +211,13 @@ CRepositoryLister::CListQuery::CListQuery
     , const SVNRev& pegRevision
     , const SRepositoryInfo& repository
     , bool includeExternals
+    , bool runSilently
     , async::CJobScheduler* scheduler)
     : CQuery (path, pegRevision, repository)
+    , SVN (runSilently)
     , externalsQuery
         (includeExternals
-            ? new CExternalsQuery (path, pegRevision, repository, scheduler)
+            ? new CExternalsQuery (path, pegRevision, repository, runSilently, scheduler)
             : NULL)
 {
     Schedule (false, scheduler);
@@ -239,6 +241,13 @@ const std::deque<CItem>& CRepositoryLister::CListQuery::GetSubPathExternals()
     return subPathExternals;
 }
 
+// true, if this query has been run silently and some error occured
+
+bool CRepositoryLister::CListQuery::ShouldBeRerun()
+{
+    return m_prompt.IsSilent() && !Succeeded();
+}
+
 /////////////////////////////////////////////////////////////////////
 // CRepositoryLister::CExternalsQuery
 /////////////////////////////////////////////////////////////////////
@@ -251,7 +260,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
     static const std::string svnExternals (SVN_PROP_EXTERNALS);
 
-    SVNReadProperties properties (path, GetRevision(), GetPegRevision());
+    SVNReadProperties properties (path, GetRevision(), GetPegRevision(), runSilently);
 
     std::string externals;
     for (int i = 0, count = properties.GetCount(); i < count; ++i)
@@ -358,8 +367,10 @@ CRepositoryLister::CExternalsQuery::CExternalsQuery
     ( const CTSVNPath& path
     , const SVNRev& pegRevision
     , const SRepositoryInfo& repository
+    , bool runSilently
     , async::CJobScheduler* scheduler)
     : CQuery (path, pegRevision, repository)
+    , runSilently (runSilently)
 {
     Schedule (false, scheduler);
 }
@@ -425,7 +436,8 @@ void CRepositoryLister::Enqueue
     ( const CString& url
     , const SVNRev& pegRev
     , const SRepositoryInfo& repository
-    , bool includeExternals)
+    , bool includeExternals
+    , bool runSilently)
 {
     CTSVNPath escapedURL = EscapeUrl (url);
     includeExternals &= (DWORD)fetchingExternalsEnabled == TRUE;
@@ -433,88 +445,101 @@ void CRepositoryLister::Enqueue
     async::CCriticalSectionLock lock (mutex);
 
     SPathAndRev key (escapedURL, pegRev, repository.revision);
-    if (queries.find (key) == queries.end())
+    auto iter = queries.find (key);
+    if (iter != queries.end())
     {
-        // trim list of SVN requests
+        // exists but may we want to rerun failed prefetch
+        // queries if this is not a mere prefetch request
 
-        if (scheduler.GetQueueDepth() > MAX_QUEUE_DEPTH)
+        if (runSilently || !iter->second->ShouldBeRerun())
+            return;
+
+        // remove and & rerun
+
+        dumpster.push_back (iter->second);
+        queries.erase (iter);
+    }
+
+    // trim list of SVN requests
+
+    if (scheduler.GetQueueDepth() > MAX_QUEUE_DEPTH)
+    {
+        // reduce the number of SVN requests to half the limit by
+        // extracting the oldest (and least probably needed) ones
+
+        std::vector<async::IJob*> removed
+            = scheduler.RemoveJobFromQueue (MAX_QUEUE_DEPTH / 2, true);
+
+        // we can only delete CListQuery instances
+        // -> (temp.) re-add all others.
+        // Terminate the list queries, so the embedded externals
+        // queries get terminated as well and we don't have
+        // to re-add them again.
+
+        std::vector<CListQuery*> deletedQueries;
+        deletedQueries.reserve (removed.size());
+
+        for (size_t i = 0, count = removed.size(); i < count; ++i)
         {
-            // reduce the number of SVN requests to half the limit by
-            // extracting the oldest (and least probably needed) ones
-
-            std::vector<async::IJob*> removed
-                = scheduler.RemoveJobFromQueue (MAX_QUEUE_DEPTH / 2, true);
-
-            // we can only delete CListQuery instances
-            // -> (temp.) re-add all others.
-            // Terminate the list queries, so the embedded externals
-            // queries get terminated as well and we don't have
-            // to re-add them again.
-
-            std::vector<CListQuery*> deletedQueries;
-            deletedQueries.reserve (removed.size());
-
-            for (size_t i = 0, count = removed.size(); i < count; ++i)
+            CListQuery* query = dynamic_cast<CListQuery*>(removed[i]);
+            if (query != NULL)
             {
-                CListQuery* query = dynamic_cast<CListQuery*>(removed[i]);
-                if (query != NULL)
-                {
-                    query->Terminate();
-                    deletedQueries.push_back (query);
-                }
+                query->Terminate();
+                deletedQueries.push_back (query);
             }
-
-            // return the externals queries that have not been cancelled
-
-            for (size_t i = 0, count = removed.size(); i < count; ++i)
-                if (!dynamic_cast<CQuery*>(removed[i])->HasBeenTerminated())
-                    scheduler.Schedule (removed[i], false);
-
-            // remove terminated queries from our lookup tables
-
-            for (size_t i = 0, count = deletedQueries.size(); i < count; ++i)
-            {
-                // remove query from list of "valid" queries
-                // (note: there might be a new query for the same key)
-
-                CListQuery* query = deletedQueries[i];
-
-                SPathAndRev key ( query->GetPath()
-                                , query->GetPegRevision()
-                                , query->GetRevision());
-
-                TQueries::iterator iter = queries.find (key);
-                if ((iter != queries.end()) && (iter->second == query))
-                    queries.erase (iter);
-            }
-
-            // if the dumpster has not been empty before for some reason,
-            // then the removed queries might already have been dumped.
-            // Now, they would be dumped twice -> fix that.
-
-            std::sort (dumpster.begin(), dumpster.end());
-            std::sort (deletedQueries.begin(), deletedQueries.end());
-            dumpster.erase
-                ( std::set_difference
-                    ( dumpster.begin(), dumpster.end()
-                    , deletedQueries.begin(), deletedQueries.end()
-                    , dumpster.begin())
-                , dumpster.end());
-
-            dumpster.insert
-                ( dumpster.end()
-                , deletedQueries.begin()
-                , deletedQueries.end());
         }
 
-        // add the query whose result we will probably need
+        // return the externals queries that have not been cancelled
 
-        queries[key] = new CListQuery ( escapedURL
-                                      , pegRev
-                                      , repository
-                                      , includeExternals
-                                      , &scheduler);
+        for (size_t i = 0, count = removed.size(); i < count; ++i)
+            if (!dynamic_cast<CQuery*>(removed[i])->HasBeenTerminated())
+                scheduler.Schedule (removed[i], false);
+
+        // remove terminated queries from our lookup tables
+
+        for (size_t i = 0, count = deletedQueries.size(); i < count; ++i)
+        {
+            // remove query from list of "valid" queries
+            // (note: there might be a new query for the same key)
+
+            CListQuery* query = deletedQueries[i];
+
+            SPathAndRev key ( query->GetPath()
+                            , query->GetPegRevision()
+                            , query->GetRevision());
+
+            TQueries::iterator iter = queries.find (key);
+            if ((iter != queries.end()) && (iter->second == query))
+                queries.erase (iter);
+        }
+
+        // if the dumpster has not been empty before for some reason,
+        // then the removed queries might already have been dumped.
+        // Now, they would be dumped a second time -> prevent that.
+
+        std::sort (dumpster.begin(), dumpster.end());
+        std::sort (deletedQueries.begin(), deletedQueries.end());
+        dumpster.erase
+            ( std::set_difference
+                ( dumpster.begin(), dumpster.end()
+                , deletedQueries.begin(), deletedQueries.end()
+                , dumpster.begin())
+            , dumpster.end());
+
+        dumpster.insert
+            ( dumpster.end()
+            , deletedQueries.begin()
+            , deletedQueries.end());
     }
+
+    // add the query whose result we will probably need
+
+    queries[key] = new CListQuery ( escapedURL
+                                    , pegRev
+                                    , repository
+                                    , includeExternals
+                                    , runSilently
+                                    , &scheduler);
 }
 
 // remove all unfinished entries from the job queue
@@ -638,7 +663,7 @@ CRepositoryLister::CListQuery* CRepositoryLister::FindQuery
 {
     // ensure there is a suitable query
 
-    Enqueue (url, pegRev, repository, includeExternals);
+    Enqueue (url, pegRev, repository, includeExternals, false);
 
     // return that query
 
