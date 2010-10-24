@@ -409,6 +409,8 @@ void CCommitDlg::OnOK()
 
     CTSVNPathList itemsToAdd;
     CTSVNPathList itemsToRemove;
+    CTSVNPathList itemsToUnlock;
+
     bool bCheckedInExternal = false;
     bool bHasConflicted = false;
     std::set<CString> checkedLists;
@@ -437,6 +439,10 @@ void CCommitDlg::OnOK()
             if (entry->IsInExternal())
             {
                 bCheckedInExternal = true;
+            }
+            if (entry->IsLocked() && entry->status == svn_wc_status_normal)
+            {
+                itemsToUnlock.AddPath (entry->GetPath());
             }
             checkedLists.insert(entry->GetChangeList());
         }
@@ -510,6 +516,15 @@ void CCommitDlg::OnOK()
     itemsToAdd.SortByPathname();
     SVN svn;
     if (!svn.Add(itemsToAdd, &m_ProjectProperties, svn_depth_empty, false, false, true))
+    {
+        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        InterlockedExchange(&m_bBlock, FALSE);
+        Refresh();
+        return;
+    }
+
+    // Release all locks to unchanged items - they won't be released by commit.
+    if (!m_bKeepLocks && !svn.Unlock (itemsToUnlock, false))
     {
         ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
         InterlockedExchange(&m_bBlock, FALSE);

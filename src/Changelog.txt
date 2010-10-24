@@ -27,6 +27,8 @@
 - CHG: Cleanup splitted into two commands: simple cleanup and
        cleanup with shell refresh. The latter is available in the
        extended context menu. (Stefan)
+- CHG: Commit will release locks for unchanged files (command line
+       svn commit keeps them unconditionally). (Stefan Fuhrmann)
 - NEW: new command line params for the log dialog
        to set the filter. (Stefan)
 - NEW: new autoclose setting for local operations only. (Stefan)
