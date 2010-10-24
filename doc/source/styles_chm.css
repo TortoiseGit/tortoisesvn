@@ -16,16 +16,16 @@ body {
 	padding: 0;
 }
 
-PRE
+pre
 {
     font-size: 10pt;
 }
-TT
+tt
 {
     font-size: 12pt;
 }
 
-TT.Filename, TT.Literal{
+tt.filename, tt.literal{
 	font-weight: bold;
 }
 
@@ -39,8 +39,37 @@ a:hover {
 	color: black;
 }
 
-IMG {
+img {
   border: none;
+}
+
+em {
+  font-style: italic;
+}
+
+.itemizedlist, .variablelist {
+  /* margin settings are top - right - bottom - left (think clockwise) */
+  margin: 15px 30px 15px 15px;
+}
+
+variablelist {
+    display: block;
+    margin-left: 2ex;
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+
+varlistentry {
+    display: block;
+}
+
+term {
+    display: block;
+    font-weight: bold;
+}
+
+varlistentry > listitem {
+    margin-left: 4ex;
 }
 
 div.figure {
@@ -206,21 +235,56 @@ div.table td {
 .tip {
 	border-color: #090;
 }
+.tip h3 {
+    padding-top: 4px;
+    color: #090;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.05em;
+}
 
 .note {
 	border-color: #069;
+}
+.note h3 {
+    padding-top: 4px;
+    color: #069;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.05em;
 }
 
 .important {
 	border-color: #069;
 }
+.important h3 {
+    padding-top: 4px;
+    color: #069;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.05em;
+}
 
 .caution {
 	border-color: #c60;
 }
+.caution h3 {
+    padding-top: 4px;
+    color: #c60;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.05em;
+}
 
 .warning {
 	border-color: #900;
+}
+.warning h3 {
+    padding-top: 4px;
+    color: #900;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.05em;
 }
 
 .term { border-bottom: 1px dotted black; }
