@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-27 09:42+0100\n"
+"PO-Revision-Date: 2010-10-25 17:46+0100\n"
 "Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1319,8 +1319,8 @@ msgid "&Update"
 msgstr "&Uppdatera"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
-msgstr "&Uppdatera objekt till revision"
+msgid "&Update item to revision..."
+msgstr "&Uppdatera objekt till revision..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -2111,6 +2111,10 @@ msgstr "B&läddra..."
 #. Resource IDs: (1064)
 msgid "Back"
 msgstr "Tillbaka"
+
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr "Bakgrund"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2957,6 +2961,10 @@ msgstr "Kopiera och byt namn"
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Kopiera och byt namn på objekten hit"
+
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr "Kopiera kolumn till urklipp"
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
@@ -4864,6 +4872,14 @@ msgstr "ID:32825:V C +L"
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+msgid "ID:32870:V C +L"
+msgstr "ID:32870:V C +L"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+msgid "ID:32881:V C +P"
+msgstr "ID:32881:V C +P"
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5593,6 +5609,10 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
+msgstr "Addressfält"
+
+#. Resource IDs: (65535)
+msgid "Locator bar"
 msgstr "Addressfält"
 
 #. Resource IDs: (207, 221, 229, 65535)
@@ -11441,6 +11461,86 @@ msgid ""
 msgstr ""
 "tsvn:logtemplate\r\n"
 "Text som används som mall för nya loggmeddelanden vid arkivering."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Text som används som mall för nya loggmeddelanden vid arkivering.\r\n"
+"Använd detta som loggmeddelandemall för grenar/märken/kopior."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Text som används som mall för nya loggmeddelanden vid arkivering.\r\n"
+"Använd detta som loggmeddelandemall för arkiveringar."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Text som används som mall för nya loggmeddelanden vid arkivering.\r\n"
+"Använd detta som loggmeddelandemall för raderingar."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Text som används som mall för nya loggmeddelanden vid arkivering.\r\n"
+"Använd detta som loggmeddelandemall för importeringar."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Text som används som mall för nya loggmeddelanden vid arkivering.\r\n"
+"Använd detta som loggmeddelandemall för låsningar."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Text som används som mall för nya loggmeddelanden vid arkivering.\r\n"
+"Använd detta som loggmeddelandemall för skapande av kataloger."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Text som används som mall för nya loggmeddelanden vid arkivering.\r\n"
+"Använd detta som loggmeddelandemall för flytt/omdöpning."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Text som används som mall för nya loggmeddelanden vid arkivering.\r\n"
+"Använd detta som loggmeddelandemall för egenskapsändringar."
 
 #. Resource IDs: (578)
 msgid ""
