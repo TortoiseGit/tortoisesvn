@@ -107,13 +107,13 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
         progDlg.SetAnimation(IDR_DOWNLOAD);
         progDlg.SetTime(false);
         m_pSVN->SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
-        progDlg.ShowModeless(m_hWnd);
+        progDlg.ShowModeless(GetHWND());
         progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)filePath.GetUIPathString());
         if (!m_pSVN->Export(filePath, remotePath, SVNRev(SVNRev::REV_HEAD), SVNRev::REV_HEAD))
         {
             progDlg.Stop();
             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-            ::MessageBox(m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(GetHWND(), m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return false;
         }
         progDlg.Stop();
@@ -243,14 +243,14 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_UNIFIEDDIFF)));
     progDlg.SetTime(false);
     m_pSVN->SetAndClearProgressInfo(&progDlg);
-    progDlg.ShowModeless(m_hWnd);
+    progDlg.ShowModeless(GetHWND());
     if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
     {
         if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, _T(""), bIgnoreAncestry, tempfile))
         {
             progDlg.Stop();
             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-            ::MessageBox(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(this->GetHWND(), m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return false;
         }
     }
@@ -262,7 +262,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
             {
                 progDlg.Stop();
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                ::MessageBox(this->m_hWnd, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(this->GetHWND(), m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 return false;
             }
         }
@@ -271,7 +271,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     {
         progDlg.Stop();
         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-        ::MessageBox(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+        ::MessageBox(GetHWND(), IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     progDlg.Stop();
@@ -326,7 +326,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
     if ((m_pSVN->PathIsURL(url1))||(!rev1.IsWorking())||(!url1.IsEquivalentTo(url2)))
     {
         // no working copy path!
-        progDlg.ShowModeless(m_hWnd);
+        progDlg.ShowModeless(GetHWND());
 
         tempfile = CTempFiles::Instance().GetTempFilePath(false, url1);
         // first find out if the url points to a file or dir
@@ -346,7 +346,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     {
                         progDlg.Stop();
                         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                        ::MessageBox(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(GetHWND(), info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
                     else
@@ -571,7 +571,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             ASSERT(rev1.IsWorking());
 
             m_pSVN->SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
-            progDlg.ShowModeless(m_hWnd);
+            progDlg.ShowModeless(GetHWND());
             progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), (LPCTSTR)rev2.ToString());
 
             tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1, rev2);

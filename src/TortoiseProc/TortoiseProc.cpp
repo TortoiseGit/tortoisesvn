@@ -66,7 +66,7 @@ END_MESSAGE_MAP()
 
 //////////////////////////////////////////////////////////////////////////
 
-CTortoiseProcApp::CTortoiseProcApp()
+CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL)
 {
     SetDllDirectory(L"");
     EnableHtmlHelp();
@@ -104,8 +104,11 @@ CTortoiseProcApp::~CTortoiseProcApp()
 
 // The one and only CTortoiseProcApp object
 CTortoiseProcApp theApp;
-HWND hWndExplorer;
 CString sOrigCWD;
+HWND GetExplorerHWND()
+{
+    return theApp.GetExplorerHWND();
+}
 
 CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
 // CTortoiseProcApp initialization
@@ -233,13 +236,25 @@ BOOL CTortoiseProcApp::InitInstance()
     if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==TRUE)
         AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
 
+    hWndExplorer = NULL;
+    CString sVal = parser.GetVal(_T("hwnd"));
+    if (!sVal.IsEmpty())
+        hWndExplorer = (HWND)_ttoi64(sVal);
+
+    while (GetParent(hWndExplorer)!=NULL)
+        hWndExplorer = GetParent(hWndExplorer);
+    if (!IsWindow(hWndExplorer))
+    {
+        hWndExplorer = NULL;
+    }
+
     if ( parser.HasVal(_T("urlcmd")) )
     {
         CmdUrlParser p(parser.GetVal(_T("urlcmd")));
         CString newCmdLine = p.GetCommandLine();
         if (newCmdLine.IsEmpty())
         {
-            ::MessageBox(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+            ::MessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
             return FALSE;
         }
         CCmdLineParser p2(newCmdLine);
@@ -247,7 +262,7 @@ BOOL CTortoiseProcApp::InitInstance()
     }
     if ( parser.HasKey(_T("path")) && parser.HasKey(_T("pathfile")))
     {
-        ::MessageBox(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+        ::MessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
         return FALSE;
     }
 
@@ -258,7 +273,7 @@ BOOL CTortoiseProcApp::InitInstance()
         CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
         if (sPathfileArgument.IsEmpty())
         {
-            ::MessageBox(hWndExplorer, IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
+            ::MessageBox(GetExplorerHWND(), IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
             return FALSE;
         }
         cmdLinePath.SetFromUnknown(sPathfileArgument);
@@ -305,17 +320,6 @@ BOOL CTortoiseProcApp::InitInstance()
         pathList.LoadFromAsteriskSeparatedString(sPathArgument);
     }
 
-    hWndExplorer = NULL;
-    CString sVal = parser.GetVal(_T("hwnd"));
-    if (!sVal.IsEmpty())
-        hWndExplorer = (HWND)_ttoi64(sVal);
-
-    while (GetParent(hWndExplorer)!=NULL)
-        hWndExplorer = GetParent(hWndExplorer);
-    if (!IsWindow(hWndExplorer))
-    {
-        hWndExplorer = NULL;
-    }
 
     // Subversion sometimes writes temp files to the current directory!
     // Since TSVN doesn't need a specific CWD anyway, we just set it

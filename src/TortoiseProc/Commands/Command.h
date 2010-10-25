@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,10 +42,12 @@ public:
     void                    SetParser(const CCmdLineParser& p) {parser = p;}
     void                    SetPaths(const CTSVNPathList& plist, const CTSVNPath path) {pathList = plist; cmdLinePath = path;}
     void                    SetExplorerHwnd(HWND hWnd) {hwndExplorer = hWnd;}
+    HWND                    GetExplorerHWND() { return (::IsWindow(hwndExplorer) ? hwndExplorer : NULL); }
 protected:
     CCmdLineParser          parser;
     CTSVNPathList           pathList;
     CTSVNPath               cmdLinePath;
+private:
     HWND                    hwndExplorer;
 };
 

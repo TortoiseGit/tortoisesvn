@@ -158,8 +158,8 @@ BOOL CExportDlg::OnInitDialog()
 
     DialogEnableWindow(IDOK, !m_strExportDirectory.IsEmpty());
 
-    if ((m_pParentWnd==NULL)&&(hWndExplorer))
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("ExportDlg"));
     return TRUE;
 }

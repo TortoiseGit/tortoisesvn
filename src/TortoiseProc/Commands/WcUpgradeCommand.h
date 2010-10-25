@@ -43,7 +43,7 @@ public:
             tmp.FormatMessage(IDS_PROC_UPGRADE_INFO, pathList[i].GetWinPath());
             progress.SetLine(1, tmp);
             progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
-            progress.ShowModeless(hwndExplorer);
+            progress.ShowModeless(GetExplorerHWND());
             if (!svn.Upgrade(pathList[i]))
             {
                 progress.Stop();

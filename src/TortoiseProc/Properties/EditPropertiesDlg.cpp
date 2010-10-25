@@ -170,8 +170,8 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     AddAnchor(IDC_ADDPROPS, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("EditPropertiesDlg"));
 
     InterlockedExchange(&m_bThreadRunning, TRUE);

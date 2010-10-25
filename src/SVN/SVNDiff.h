@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2009 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,6 +102,10 @@ public:
      * Sets the Peg revision to use instead of HEAD.
      */
     void SetHEADPeg(const SVNRev& headpeg) {m_headPeg = headpeg;}
+
+private:
+    HWND GetHWND() { return (::IsWindow(m_hWnd) ? m_hWnd : NULL); }
+
 private:
     SVN *           m_pSVN;
     bool            m_bDeleteSVN;

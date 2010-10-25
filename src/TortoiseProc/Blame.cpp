@@ -192,7 +192,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
     m_progressDlg.SetShowProgressBar(TRUE);
     if (showprogress)
     {
-        m_progressDlg.ShowModeless(CWnd::FromHandle(hWndExplorer));
+        m_progressDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     }
     m_progressDlg.FormatNonPathLine(1, IDS_BLAME_PROGRESSINFO);
     m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSINFOSTART);

@@ -196,7 +196,7 @@ BOOL CSettings::OnInitDialog()
         m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
     }
 
-    CenterWindow(CWnd::FromHandle(hWndExplorer));
+    CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     return bResult;
 }
 

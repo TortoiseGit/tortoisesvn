@@ -36,7 +36,7 @@ bool PrevDiffCommand::Execute()
     }
     else
     {
-        SVNDiff diff(NULL, hWndExplorer);
+        SVNDiff diff(NULL, GetExplorerHWND());
         diff.SetAlternativeTool(bAlternativeTool);
         diff.SetJumpLine(parser.GetLongVal(_T("line")));
         SVNStatus st;
@@ -49,11 +49,11 @@ bool PrevDiffCommand::Execute()
         {
             if (st.GetLastErrorMsg().IsEmpty())
             {
-                MessageBox(hWndExplorer, IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
             }
             else
             {
-                MessageBox(hWndExplorer, IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
             }
         }
     }

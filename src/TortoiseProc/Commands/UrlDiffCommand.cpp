@@ -29,7 +29,7 @@ bool UrlDiffCommand::Execute()
     dlg.m_path = cmdLinePath.GetWinPathString();
     if (dlg.DoModal() == IDOK)
     {
-        SVNDiff diff(NULL, hWndExplorer);
+        SVNDiff diff(NULL, GetExplorerHWND());
         diff.SetJumpLine(parser.GetLongVal(_T("line")));
         bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, CTSVNPath(dlg.m_URL), dlg.Revision);
     }

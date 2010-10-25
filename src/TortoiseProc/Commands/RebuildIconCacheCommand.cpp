@@ -28,12 +28,12 @@ bool RebuildIconCacheCommand::Execute()
     if (CShellUpdater::RebuildIcons())
     {
         if (!bQuiet)
-            ::MessageBox(hwndExplorer, IDS_PROC_ICONCACHEREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+            ::MessageBox(GetExplorerHWND(), IDS_PROC_ICONCACHEREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
     }
     else
     {
         if (!bQuiet)
-            ::MessageBox(hwndExplorer, IDS_PROC_ICONCACHENOTREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
+            ::MessageBox(GetExplorerHWND(), IDS_PROC_ICONCACHENOTREBUILT, IDS_APPNAME, MB_ICONINFORMATION);
     }
     return true;
 }

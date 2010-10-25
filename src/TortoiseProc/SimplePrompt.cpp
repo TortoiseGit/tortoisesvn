@@ -56,7 +56,7 @@ BOOL CSimplePrompt::OnInitDialog()
     m_aeroControls.SubclassOkCancel(this);
 
     GetDlgItem(IDC_USEREDIT)->SetFocus();
-    if ((m_hParentWnd==NULL)&&(hWndExplorer))
+    if ((m_hParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(m_hParentWnd));
     return FALSE;
 }

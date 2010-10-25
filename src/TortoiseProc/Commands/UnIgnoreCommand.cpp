@@ -66,7 +66,7 @@ bool UnIgnoreCommand::Execute()
             {
                 CString temp;
                 temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
-                MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
                 err = TRUE;
                 break;
             }
@@ -77,7 +77,7 @@ bool UnIgnoreCommand::Execute()
             {
                 CString temp;
                 temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
-                MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
                 err = TRUE;
                 break;
             }
@@ -87,7 +87,7 @@ bool UnIgnoreCommand::Execute()
     {
         CString temp;
         temp.Format(IDS_PROC_UNIGNORESUCCESS, (LPCTSTR)filelist);
-        MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+        MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
         return true;
     }
     return false;

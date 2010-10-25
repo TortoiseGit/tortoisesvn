@@ -81,8 +81,8 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
     AddAnchor(IDC_USERECYCLEBIN, BOTTOM_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("DeleteUnversionedDlg"));
 
     // first start a thread to obtain the file list with the status without

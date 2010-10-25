@@ -84,7 +84,7 @@ BOOL CAboutDlg::OnInitDialog()
     m_cWebLink.SetURL(_T("http://tortoisesvn.net"));
     m_cSupportLink.SetURL(_T("http://tortoisesvn.tigris.org/donate.html"));
 
-    CenterWindow(CWnd::FromHandle(hWndExplorer));
+    CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     GetDlgItem(IDOK)->SetFocus();
     return FALSE;
 }

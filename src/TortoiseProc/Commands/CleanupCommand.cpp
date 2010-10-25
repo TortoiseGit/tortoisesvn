@@ -38,7 +38,7 @@ bool CleanupCommand::Execute()
     tmp.FormatMessage(IDS_PROC_CLEANUP_INFO1, _T(""));
     progress.SetLine(1, tmp);
     progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
-    progress.ShowModeless(hwndExplorer);
+    progress.ShowModeless(GetExplorerHWND());
 
     CString strSuccessfullPaths, strFailedPaths;
     for (int i=0; i<pathList.GetCount(); ++i)
@@ -101,7 +101,7 @@ bool CleanupCommand::Execute()
         bRet = false;
     }
     if (!parser.HasKey(_T("noui")))
-        MessageBox(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | (strFailedPaths.IsEmpty()?MB_ICONINFORMATION:MB_ICONERROR));
+        MessageBox(GetExplorerHWND(), strMessage, _T("TortoiseSVN"), MB_OK | (strFailedPaths.IsEmpty()?MB_ICONINFORMATION:MB_ICONERROR));
 
     return bRet;
 }

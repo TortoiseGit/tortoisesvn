@@ -61,7 +61,7 @@ bool AddCommand::Execute()
                                 CString sAddAnyway(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_ADD));
                                 CString sCancel(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL));
 
-                                UINT ret = CMessageBox::Show(hWndExplorer, sMessage, sTitle, 1, IDI_WARNING, sFixRenaming, sAddAnyway, sCancel);
+                                UINT ret = CMessageBox::Show(GetExplorerHWND(), sMessage, sTitle, 1, IDI_WARNING, sFixRenaming, sAddAnyway, sCancel);
                                 if (ret == 1)
                                 {
                                     // fix case of filename
@@ -84,7 +84,7 @@ bool AddCommand::Execute()
             bRet = !!svn.Add(pathList, &props, svn_depth_empty, false, false, true);
             if (!bRet)
             {
-                MessageBox(hWndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             }
             CShellUpdater::Instance().AddPathsForUpdate(pathList);
         }

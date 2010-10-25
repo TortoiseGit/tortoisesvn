@@ -302,8 +302,8 @@ BOOL CRepositoryBrowser::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     EnableSaveRestore(_T("RepositoryBrowser"));
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
 
     DWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
     bDragMode = true;

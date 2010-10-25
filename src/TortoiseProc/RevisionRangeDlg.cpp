@@ -103,8 +103,8 @@ BOOL CRevisionRangeDlg::OnInitDialog()
     m_DateFrom.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
     m_DateTo.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
 
-    if ((m_pParentWnd==NULL)&&(hWndExplorer))
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     GetDlgItem(IDC_REVNUM)->SetFocus();
     return FALSE;
 }

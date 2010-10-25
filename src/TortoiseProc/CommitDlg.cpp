@@ -288,8 +288,8 @@ BOOL CCommitDlg::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("CommitDlg"));
     DWORD yPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
     RECT rcDlg, rcLogMsg, rcFileList;

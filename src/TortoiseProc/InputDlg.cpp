@@ -90,8 +90,8 @@ BOOL CInputDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     EnableSaveRestore(_T("InputDlg"));
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     GetDlgItem(IDC_INPUTTEXT)->SetFocus();
     // clear the selection
     m_cInput.Call(SCI_SETSEL, (WPARAM)-1, (LPARAM)-1);

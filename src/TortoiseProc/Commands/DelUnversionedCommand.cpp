@@ -45,7 +45,7 @@ bool DelUnversionedCommand::Execute()
         _tcscpy_s(buf, len+2, filelist);
         CStringUtils::PipesToNulls(buf, len);
         SHFILEOPSTRUCT fileop;
-        fileop.hwnd = hwndExplorer;
+        fileop.hwnd = GetExplorerHWND();
         fileop.wFunc = FO_DELETE;
         fileop.pFrom = buf;
         fileop.pTo = NULL;

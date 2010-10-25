@@ -28,7 +28,7 @@ bool CreateRepositoryCommand::Execute()
 {
     if (!SVN::CreateRepository(cmdLinePath))
     {
-        MessageBox(hwndExplorer, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
+        MessageBox(GetExplorerHWND(), IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     else
@@ -50,7 +50,7 @@ bool CreateRepositoryCommand::Execute()
             PathMakeSystemFolder(cmdLinePath.GetWinPath());
         }
 
-        if (MessageBox(hwndExplorer, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
+        if (MessageBox(GetExplorerHWND(), IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
         {
             // create the default folder structure in a temp folder
             CTSVNPath tempDir = CTempFiles::Instance().GetTempDirPath(true);
@@ -78,7 +78,7 @@ bool CreateRepositoryCommand::Execute()
             SVN svn;
             if (!svn.Import(tempDir, CTSVNPath(url), CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTURE)), NULL, svn_depth_infinity, true, false))
             {
-                MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 return false;
             }
             // TODO: should we show another 'created structure successfully' dialog here?

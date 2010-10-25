@@ -78,8 +78,8 @@ BOOL CRelocateDlg::OnInitDialog()
     SetDlgItemText(IDC_FROMURL, m_sFromUrl);
     m_URLCombo.SetWindowText(m_sFromUrl);
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
-    if ((m_pParentWnd==NULL)&&(hWndExplorer))
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("RelocateDlg"));
     return TRUE;
 }

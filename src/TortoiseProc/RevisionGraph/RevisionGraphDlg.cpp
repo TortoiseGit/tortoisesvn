@@ -251,8 +251,8 @@ BOOL CRevisionGraphDlg::OnInitDialog()
     DoZoom (DEFAULT_ZOOM);
 
     EnableSaveRestore(_T("RevisionGraphDlg"));
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
 
     return TRUE;  // return TRUE unless you set the focus to a control
 }

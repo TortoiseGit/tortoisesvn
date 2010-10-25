@@ -153,8 +153,8 @@ BOOL CSwitchDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
 
-    if ((m_pParentWnd==NULL)&&(hWndExplorer))
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("SwitchDlg"));
     return TRUE;
 }

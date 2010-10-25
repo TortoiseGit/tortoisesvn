@@ -126,7 +126,7 @@ bool RelocateCommand::Execute()
         sWarningTitle.LoadString(IDS_WARN_RELOCATEREALLYTITLE);
         sHelpPath = theApp.m_pszHelpFilePath;
         sHelpPath += _T("::/tsvn-dug-relocate.html");
-        if ((!bPossibleSwitch)||(CMessageBox::Show((hwndExplorer), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2|MB_HELP, sHelpPath)==IDYES))
+        if ((!bPossibleSwitch)||(CMessageBox::Show((GetExplorerHWND()), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2|MB_HELP, sHelpPath)==IDYES))
         {
             SVN s;
 
@@ -134,20 +134,20 @@ bool RelocateCommand::Execute()
             if (progress.IsValid())
             {
                 progress.SetTitle(IDS_PROC_RELOCATING);
-                progress.ShowModeless(hwndExplorer);
+                progress.ShowModeless(GetExplorerHWND());
             }
             if (!s.Relocate(cmdLinePath, CTSVNPath(dlg.m_sFromUrl), CTSVNPath(dlg.m_sToUrl), TRUE))
             {
                 progress.Stop();
                 TRACE(_T("%s\n"), (LPCTSTR)s.GetLastErrorMessage());
-                ::MessageBox(hwndExplorer, s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(GetExplorerHWND(), s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             }
             else
             {
                 progress.Stop();
                 CString strMessage;
                 strMessage.Format(IDS_PROC_RELOCATEFINISHED, (LPCTSTR)dlg.m_sToUrl);
-                ::MessageBox(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_ICONINFORMATION);
+                ::MessageBox(GetExplorerHWND(), strMessage, _T("TortoiseSVN"), MB_ICONINFORMATION);
                 bRet = true;
             }
         }

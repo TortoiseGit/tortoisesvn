@@ -60,7 +60,7 @@ bool RenameCommand::Execute()
         //rename to the same file!
         CString sHelpPath = theApp.m_pszHelpFilePath;
         sHelpPath += _T("::/tsvn-dug-rename.html#tsvn-dug-renameincase");
-        CMessageBox::Show(hwndExplorer, IDS_PROC_CASERENAME, IDS_APPNAME, MB_OK|MB_HELP, sHelpPath);
+        CMessageBox::Show(GetExplorerHWND(), IDS_PROC_CASERENAME, IDS_APPNAME, MB_OK|MB_HELP, sHelpPath);
     }
     else
     {
@@ -121,7 +121,7 @@ bool RenameCommand::Execute()
             if (((!sFilemask.IsEmpty()) && (parser.HasKey(_T("noquestion")))) ||
                 (cmdLinePath.GetFileExtension().Compare(destinationPath.GetFileExtension())!=0))
             {
-                if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, sMsg))
+                if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(cmdLinePath), destinationPath, sMsg))
                     bRet = true;
             }
             else
@@ -140,7 +140,7 @@ bool RenameCommand::Execute()
                 {
                     // we couldn't find any other matching files
                     // just do the default...
-                    if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, sMsg))
+                    if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(cmdLinePath), destinationPath, sMsg))
                     {
                         bRet = true;
                         CShellUpdater::Instance().AddPathForUpdate(destinationPath);
@@ -162,21 +162,21 @@ bool RenameCommand::Execute()
                     }
                     CString sRenameMultipleQuestion;
                     sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, (LPCTSTR)sRenList);
-                    UINT idret = ::MessageBox(hwndExplorer, sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
+                    UINT idret = ::MessageBox(GetExplorerHWND(), sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
                     if (idret == IDYES)
                     {
                         CProgressDlg progress;
                         progress.SetTitle(IDS_PROC_MOVING);
                         progress.SetAnimation(IDR_MOVEANI);
                         progress.SetTime(true);
-                        progress.ShowModeless(CWnd::FromHandle(hwndExplorer));
+                        progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
                         DWORD count = 1;
                         for (std::map<CString, CString>::iterator it=renmap.begin(); it != renmap.end(); ++it)
                         {
                             progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, (LPCTSTR)it->first);
                             progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, (LPCTSTR)it->second);
                             progress.SetProgress64(count, renmap.size());
-                            if (RenameWithReplace(hwndExplorer, CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), sMsg))
+                            if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), sMsg))
                             {
                                 bRet = true;
                                 CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(it->second));
@@ -187,7 +187,7 @@ bool RenameCommand::Execute()
                     else if (idret == IDNO)
                     {
                         // no, user wants to just rename the file he selected
-                        if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, sMsg))
+                        if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(cmdLinePath), destinationPath, sMsg))
                         {
                             bRet = true;
                             CShellUpdater::Instance().AddPathForUpdate(destinationPath);

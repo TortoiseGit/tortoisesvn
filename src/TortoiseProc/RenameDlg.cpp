@@ -70,8 +70,8 @@ BOOL CRenameDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 
     CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_NAME);
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("RenameDlg"));
     if (!m_bOKEnabled)
         GetDlgItem(IDOK)->EnableWindow(FALSE);

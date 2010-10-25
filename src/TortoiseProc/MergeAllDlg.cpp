@@ -96,8 +96,8 @@ BOOL CMergeAllDlg::OnInitDialog()
 
     CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_COMPAREWHITESPACES);
 
-    if ((m_pParentWnd==NULL)&&(hWndExplorer))
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     return TRUE;
 }
 

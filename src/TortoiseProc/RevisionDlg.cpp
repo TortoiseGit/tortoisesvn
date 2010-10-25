@@ -72,8 +72,8 @@ BOOL CRevisionDlg::OnInitDialog()
     if (!m_logPath.IsEmpty())
         GetDlgItem(IDC_LOG)->ShowWindow(SW_SHOW);
 
-    if ((m_pParentWnd==NULL)&&(hWndExplorer))
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     GetDlgItem(IDC_REVNUM)->SetFocus();
     return FALSE;
 }

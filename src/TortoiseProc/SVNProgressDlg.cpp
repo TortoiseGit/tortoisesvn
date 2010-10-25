@@ -891,8 +891,8 @@ BOOL CSVNProgressDlg::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
     SetPromptParentWindow(this->m_hWnd);
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("SVNProgressDlg"));
     GetDlgItem(IDOK)->SetFocus();
 

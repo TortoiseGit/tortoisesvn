@@ -92,7 +92,7 @@ bool ExportCommand::Execute()
         folderBrowser.DisableCheckBox2WhenCheckbox1IsEnabled(true);
         CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
         CBrowseFolder::m_bCheck = regExtended;
-        if (folderBrowser.Show(hwndExplorer, saveto, MAX_PATH)==CBrowseFolder::OK)
+        if (folderBrowser.Show(GetExplorerHWND(), saveto, MAX_PATH)==CBrowseFolder::OK)
         {
             CString saveplace = CString(saveto);
 
@@ -102,14 +102,14 @@ bool ExportCommand::Execute()
                 // remove all svn admin dirs, effectively unversion the 'exported' folder.
                 CString msg;
                 msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)saveplace);
-                if (MessageBox(hwndExplorer, msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+                if (MessageBox(GetExplorerHWND(), msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
                 {
                     CProgressDlg progress;
                     progress.SetTitle(IDS_PROC_UNVERSION);
                     progress.SetAnimation(IDR_MOVEANI);
                     progress.FormatNonPathLine(1, IDS_SVNPROGRESS_EXPORTINGWAIT);
                     progress.SetTime(true);
-                    progress.ShowModeless(hwndExplorer);
+                    progress.ShowModeless(GetExplorerHWND());
                     std::vector<CTSVNPath> removeVector;
 
                     CDirFileEnum lister(saveplace);
@@ -144,9 +144,9 @@ bool ExportCommand::Execute()
                 SVN svn;
                 if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC,
                     bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, svn_depth_infinity,
-                    hwndExplorer, !!folderBrowser.m_bCheck))
+                    GetExplorerHWND(), !!folderBrowser.m_bCheck))
                 {
-                    MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+                    MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
                     bRet = false;
                 }
                 else

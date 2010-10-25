@@ -59,15 +59,18 @@ public:
     void InitializeJumpList();
     void DoInitializeJumpList();
 
+    HWND GetExplorerHWND() { return (::IsWindow(hWndExplorer) ? hWndExplorer : NULL); }
+
 // Implementation
 
 private:
     DECLARE_MESSAGE_MAP()
 private:
     bool    retSuccess;
+    HWND    hWndExplorer;
 };
 
 extern CTortoiseProcApp theApp;
-extern HWND hWndExplorer;
 extern CString sOrigCWD;
+HWND GetExplorerHWND();
 

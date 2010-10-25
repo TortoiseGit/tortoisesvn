@@ -221,8 +221,8 @@ BOOL CCheckoutDlg::OnInitDialog()
     size.cy = rect.Height();
     SetMaxTrackSize(size);
 
-    if ((m_pParentWnd==NULL)&&(hWndExplorer))
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("CheckoutDlg"));
     return TRUE;
 }

@@ -120,8 +120,8 @@ BOOL CInputLogDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     EnableSaveRestore(_T("InputLogDlg"));
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
 
     // HACK! Under certain conditions, the dialog box
     // will not get the input focus.

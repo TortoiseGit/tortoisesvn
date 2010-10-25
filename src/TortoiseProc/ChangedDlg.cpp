@@ -135,8 +135,8 @@ BOOL CChangedDlg::OnInitDialog()
     AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     SetPromptParentWindow(m_hWnd);
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("ChangedDlg"));
 
     m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);

@@ -104,8 +104,8 @@ BOOL CImportDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
 
-    if (hWndExplorer)
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if (GetExplorerHWND())
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("ImportDlg"));
     return TRUE;  // return TRUE  unless you set the focus to a control
 }

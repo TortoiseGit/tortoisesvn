@@ -75,7 +75,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
         OPENFILENAME ofn = {0};         // common dialog box structure
         // Initialize OPENFILENAME
         ofn.lStructSize = sizeof(OPENFILENAME);
-        ofn.hwndOwner = hwndExplorer;
+        ofn.hwndOwner = GetExplorerHWND();
         ofn.lpstrFile = szFile;
         ofn.nMaxFile = _countof(szFile);
         ofn.lpstrInitialDir = root.GetWinPath();
@@ -121,7 +121,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_PROC_PATCHTITLE);
     progDlg.SetShowProgressBar(false);
-    progDlg.ShowModeless(CWnd::FromHandle(hwndExplorer));
+    progDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     progDlg.FormatNonPathLine(1, IDS_PROC_SAVEPATCHTO);
     if(bToClipboard)
     {
@@ -156,7 +156,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
         if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, true, false, gitFormat, _T(""), true, tempPatchFilePath))
         {
             progDlg.Stop();
-            ::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ::MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return FALSE;
         }
     }

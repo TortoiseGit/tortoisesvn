@@ -90,7 +90,7 @@ bool CommitCommand::Execute()
     CTSVNPathList selectedList;
     if (parser.HasKey(_T("logmsg")) && (parser.HasKey(_T("logmsgfile"))))
     {
-        MessageBox(hwndExplorer, IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
+        MessageBox(GetExplorerHWND(), IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     CString sLogMsg = LoadLogMessage();
@@ -103,7 +103,7 @@ bool CommitCommand::Execute()
         {
             CString temp;
             temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
-            MessageBox(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
+            MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
             return false;
         }
     }

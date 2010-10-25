@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 bool ShowCompareCommand::Execute()
 {
     bool        bRet = false;
-    SVNDiff     diff(NULL, hwndExplorer);
+    SVNDiff     diff(NULL, GetExplorerHWND());
 
     SVNRev      rev1;
     SVNRev      rev2;

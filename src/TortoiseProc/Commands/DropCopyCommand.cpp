@@ -52,7 +52,7 @@ bool DropCopyCommand::Execute()
     progress.SetTitle(IDS_PROC_COPYING);
     progress.SetAnimation(IDR_MOVEANI);
     progress.SetTime(true);
-    progress.ShowModeless(CWnd::FromHandle(hwndExplorer));
+    progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         const CTSVNPath& sourcePath = pathList[nPath];
@@ -80,7 +80,7 @@ bool DropCopyCommand::Execute()
             progress.SetAnimation(IDR_MOVEANI);
             progress.SetTime(true);
             progress.SetProgress(count, pathList.GetCount());
-            progress.ShowModeless(CWnd::FromHandle(hwndExplorer));
+            progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
             // Rebuild the destination path, with the new name
             fullDropPath.SetFromUnknown(sDroppath);
             fullDropPath.AppendPathString(dlg.m_name);
@@ -92,7 +92,7 @@ bool DropCopyCommand::Execute()
                 // target file already exists. Ask user if he wants to replace the file
                 CString sReplace;
                 sReplace.Format(IDS_PROC_REPLACEEXISTING, fullDropPath.GetWinPath());
-                if (MessageBox(hwndExplorer, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+                if (MessageBox(GetExplorerHWND(), sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
                 {
                     if (!svn.Remove(CTSVNPathList(fullDropPath), true, false))
                     {
@@ -100,14 +100,14 @@ bool DropCopyCommand::Execute()
                     }
                     if (!svn.Copy(CTSVNPathList(pathList[nPath]), fullDropPath, SVNRev::REV_WC, SVNRev()))
                     {
-                        MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return FALSE;       //get out of here
                     }
                     return TRUE;
                 }
             }
             TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-            MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             return FALSE;       //get out of here
         }
         else
@@ -121,7 +121,7 @@ bool DropCopyCommand::Execute()
         }
         if ((progress.IsValid())&&(progress.HasUserCancelled()))
         {
-            MessageBox(hwndExplorer, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
+            MessageBox(GetExplorerHWND(), IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
             return false;
         }
     }

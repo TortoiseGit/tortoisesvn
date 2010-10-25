@@ -74,8 +74,8 @@ BOOL CUpdateDlg::OnInitDialog()
 
     CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
     GetDlgItem(IDC_REVNUM)->SetFocus();
-    if ((m_pParentWnd==NULL)&&(hWndExplorer))
-        CenterWindow(CWnd::FromHandle(hWndExplorer));
+    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+        CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     return FALSE;
 }
 

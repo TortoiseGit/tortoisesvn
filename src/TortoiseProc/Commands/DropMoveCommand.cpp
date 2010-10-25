@@ -53,7 +53,7 @@ bool DropMoveCommand::Execute()
         progress.SetTitle(IDS_PROC_MOVING);
         progress.SetAnimation(IDR_MOVEANI);
         progress.SetTime(true);
-        progress.ShowModeless(CWnd::FromHandle(hwndExplorer));
+        progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     }
     for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
@@ -84,7 +84,7 @@ bool DropMoveCommand::Execute()
                 // target file already exists. Ask user if he wants to replace the file
                 CString sReplace;
                 sReplace.Format(IDS_PROC_REPLACEEXISTING, destPath.GetWinPath());
-                if (MessageBox(hwndExplorer, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+                if (MessageBox(GetExplorerHWND(), sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
                 {
                     if (!svn.Remove(CTSVNPathList(destPath), true, false))
                     {
@@ -92,7 +92,7 @@ bool DropMoveCommand::Execute()
                     }
                     if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath))
                     {
-                        MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return FALSE;       //get out of here
                     }
                     CShellUpdater::Instance().AddPathForUpdate(destPath);
@@ -101,7 +101,7 @@ bool DropMoveCommand::Execute()
             else
             {
                 TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 return FALSE;       //get out of here
             }
         }
@@ -116,7 +116,7 @@ bool DropMoveCommand::Execute()
         }
         if ((progress.IsValid())&&(progress.HasUserCancelled()))
         {
-            MessageBox(hwndExplorer, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
+            MessageBox(GetExplorerHWND(), IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
             return FALSE;
         }
     }

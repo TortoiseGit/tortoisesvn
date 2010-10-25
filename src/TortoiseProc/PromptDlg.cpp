@@ -76,7 +76,7 @@ BOOL CPromptDlg::OnInitDialog()
     }
 
     m_pass.SetFocus();
-    if ((m_hParentWnd==NULL)&&(hWndExplorer))
+    if ((m_hParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(m_hParentWnd));
     return FALSE;
 }
