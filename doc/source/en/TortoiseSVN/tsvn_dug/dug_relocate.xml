@@ -33,10 +33,15 @@
             <guimenuitem>Relocate</guimenuitem>
         </menuchoice>
         is the command you are looking for. It basically
-        does very little: it scans all <filename>entries</filename> files in the
-        <filename>.svn</filename> folder and changes the URL of
-        the entries to the new value.
+        does very little: it rewrites all urls that are associated with each
+        file and folder with the new url.
     </para>
+    <note>
+        <para>
+        This operation only works on working copy <emphasis>roots</emphasis>.
+        So the context menu entry is only shown for working copy roots.
+        </para>
+    </note>
     <para>
         You may be surprised to find that TortoiseSVN contacts the repository
         as part of this operation. All it is doing is performing some simple
