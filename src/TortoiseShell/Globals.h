@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -103,4 +103,5 @@ enum FileState
 #define ITEMIS_FILEEXTERNAL         0x00040000
 #define ITEMIS_ADDEDWITHHISTORY     0x00080000
 #define ITEMIS_UNSUPPORTEDFORMAT    0x00100000
+#define ITEMIS_WCROOT               0x00200000
 

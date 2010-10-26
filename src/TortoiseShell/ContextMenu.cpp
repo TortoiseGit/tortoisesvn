@@ -132,7 +132,7 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
         {ITEMIS_FOLDER|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_export") },
 
     { ShellMenuRelocate,                    MENURELOCATE,       IDI_RELOCATE,           IDS_MENURELOCATE,           IDS_MENUDESCRELOCATE,
-        {ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, _T("tsvn_relocate") },
+        {ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE|ITEMIS_WCROOT, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE|ITEMIS_WCROOT, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, _T("tsvn_relocate") },
 
     { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, _T("")},
 
@@ -282,8 +282,10 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     svn_wc_status_kind status = svn_wc_status_none;
                     try
                     {
+                        CTSVNPath strpath;
+                        strpath.SetFromWin(str.c_str());
                         SVNStatus stat;
-                        stat.GetStatus(CTSVNPath(str.c_str()), false, true, true);
+                        stat.GetStatus(strpath, false, true, true);
                         if (stat.status)
                         {
                             statuspath = str;
@@ -297,6 +299,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 itemStates |= ITEMIS_FOLDER;
                                 if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
                                     itemStates |= ITEMIS_FOLDERINSVN;
+                                if (strpath.IsWCRoot())
+                                    itemStates |= ITEMIS_WCROOT;
                             }
                             if (stat.status->repos_root_url)
                                 repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
@@ -384,6 +388,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 itemStates |= ITEMIS_FOLDER;
                                 if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
                                     itemStates |= ITEMIS_FOLDERINSVN;
+                                if (strpath.IsWCRoot())
+                                    itemStates |= ITEMIS_WCROOT;
                             }
                             if (stat.status->conflicted)
                                 itemStates |= ITEMIS_CONFLICTED;
@@ -487,8 +493,10 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
             {
                 try
                 {
+                    CTSVNPath strpath;
+                    strpath.SetFromWin(folder_.c_str());
                     SVNStatus stat;
-                    stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+                    stat.GetStatus(strpath, false, true, true);
                     if (stat.status)
                     {
                         status = stat.status->node_status;
@@ -511,6 +519,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             itemStatesFolder |= ITEMIS_DELETED;
                         if (stat.status->copied)
                             itemStates |= ITEMIS_ADDEDWITHHISTORY;
+                        if (strpath.IsWCRoot())
+                            itemStates |= ITEMIS_WCROOT;
                     }
                     else
                     {
@@ -568,8 +578,12 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                 {
                     try
                     {
+                        CTSVNPath strpath;
+                        strpath.SetFromWin(folder_.c_str());
+                        if (strpath.IsWCRoot())
+                            itemStates |= ITEMIS_WCROOT;
                         SVNStatus stat;
-                        stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+                        stat.GetStatus(strpath, false, true, true);
                         if (stat.status)
                         {
                             status = stat.status->node_status;
