@@ -136,7 +136,7 @@ bool RelocateCommand::Execute()
                 progress.SetTitle(IDS_PROC_RELOCATING);
                 progress.ShowModeless(GetExplorerHWND());
             }
-            if (!s.Relocate(cmdLinePath, CTSVNPath(dlg.m_sFromUrl), CTSVNPath(dlg.m_sToUrl), TRUE))
+            if (!s.Relocate(cmdLinePath, CTSVNPath(dlg.m_sFromUrl), CTSVNPath(dlg.m_sToUrl)))
             {
                 progress.Stop();
                 TRACE(_T("%s\n"), (LPCTSTR)s.GetLastErrorMessage());

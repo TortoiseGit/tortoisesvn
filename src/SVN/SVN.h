@@ -630,7 +630,7 @@ public:
      * \param recurse TRUE if the operation should be recursive
      * \return TRUE if successful
      */
-    bool Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to, bool recurse);
+    bool Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to);
 
     /**
      * Determine the author for each line in a file (blame the changes on someone).

@@ -2007,7 +2007,7 @@ bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegre
     return (Err == NULL);
 }
 
-bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to, bool recurse)
+bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to)
 {
     svn_error_clear(Err);
     Err = NULL;
@@ -2019,11 +2019,11 @@ bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
     const char* svnPath = path.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE (
-        Err = svn_client_relocate(
+        Err = svn_client_relocate2(
                     svnPath,
                     from.GetSVNApiPath(subpool),
                     to.GetSVNApiPath(subpool),
-                    recurse, m_pctx, subpool),
+                    m_pctx, subpool),
         svnPath
     );
 
