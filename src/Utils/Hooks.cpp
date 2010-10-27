@@ -449,6 +449,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 
     if (hErr  == INVALID_HANDLE_VALUE)
     {
+        error = CFormatMessageWrapper();
         return (DWORD)-1;
     }
 
@@ -456,6 +457,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 
     if (hRedir  == INVALID_HANDLE_VALUE)
     {
+        error = CFormatMessageWrapper();
         CloseHandle(hErr);
         return (DWORD)-1;
     }
@@ -465,6 +467,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 
     if (hOut  == INVALID_HANDLE_VALUE)
     {
+        error = CFormatMessageWrapper();
         CloseHandle(hErr);
         CloseHandle(hRedir);
         return (DWORD)-1;
@@ -488,9 +491,10 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 
     if (!CreateProcess(NULL, cmd.GetBuffer(), NULL, NULL, TRUE, 0, NULL, curDir.IsEmpty() ? NULL : curDir.GetWinPath(), &si, &pi))
     {
-        const int err = GetLastError();  // preserve the CreateProcess error
+        const DWORD err = GetLastError();  // preserve the CreateProcess error
         if (hErr != INVALID_HANDLE_VALUE)
         {
+            error = CFormatMessageWrapper(err);
             CloseHandle(hErr);
             CloseHandle(hRedir);
         }
