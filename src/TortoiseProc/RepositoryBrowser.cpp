@@ -2034,9 +2034,9 @@ void CRepositoryBrowser::OnLvnBeginlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pRe
 {
     NMLVDISPINFO *info = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
 
-    // disable rename for externals
+    // disable rename for externals and the root
     CItem * item = (CItem *)m_RepoList.GetItemData (info->item.iItem);
-    *pResult = (item == NULL) || (item->is_external)
+    *pResult = (item == NULL) || (item->is_external) || (item->absolutepath.Compare(GetRepoRoot()) == 0)
              ? TRUE
              : FALSE;
 }
@@ -2088,7 +2088,7 @@ void CRepositoryBrowser::OnTvnBeginlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pRe
 
     // disable rename for externals
     CTreeItem* item = (CTreeItem *)m_RepoTree.GetItemData (info->item.hItem);
-    *pResult = (item == NULL) || (item->is_external)
+    *pResult = (item == NULL) || (item->is_external) || (item->url.Compare(GetRepoRoot()) == 0)
              ? TRUE
              : FALSE;
 }
