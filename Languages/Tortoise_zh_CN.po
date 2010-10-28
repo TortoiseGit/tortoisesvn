@@ -62,8 +62,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-17 16:33+0800\n"
-"Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
+"PO-Revision-Date: 2010-10-28 09:57+0700\n"
+"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -1354,8 +1354,8 @@ msgid "&Update"
 msgstr "更新(&U)"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
-msgstr "更新项目至版本(&U)"
+msgid "&Update item to revision..."
+msgstr "更新该项至版本(&U)"
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -2135,6 +2135,10 @@ msgstr "浏览(&R)..."
 #. Resource IDs: (1064)
 msgid "Back"
 msgstr "后退"
+
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr "背景"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2978,6 +2982,10 @@ msgstr "复制和改名"
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "复制和改名项到此"
+
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr "复制该列到剪贴板"
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
@@ -4849,6 +4857,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -4859,6 +4871,14 @@ msgstr "ID:32825:V C +L"
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
+
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+msgid "ID:32870:V C +L"
+msgstr "ID:32870:V C +L"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+msgid "ID:32881:V C +P"
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5582,6 +5602,10 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
+msgstr "定位工具栏"
+
+#. Resource IDs: (65535)
+msgid "Locator bar"
 msgstr "定位工具栏"
 
 #. Resource IDs: (207, 221, 229, 65535)
@@ -11379,6 +11403,86 @@ msgstr ""
 "自动加入日志信息对话框中的字符串，\r\n"
 "可以用作让使用者填写的日志信息模板。"
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplatebranch\r\n"
+"自动加入日志信息对话框中的字符串，\r\n"
+"可以用作让使用者在建立分支/标签/副本时填写的日志信息模板。"
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplatecommit\r\n"
+"自动加入日志信息对话框中的字符串，\r\n"
+"可以用作让使用者在提交时填写的日志信息模板。"
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplatedelete\r\n"
+"自动加入日志信息对话框中的字符串，\r\n"
+"可以用作让使用者在删除时填写的日志信息模板。"
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplateimport\r\n"
+"自动加入日志信息对话框中的字符串，\r\n"
+"可以用作让使用者在导入时填写的日志信息模板。"
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplatelock\r\n"
+"自动加入日志信息对话框中的字符串，\r\n"
+"可以用作让使用者在锁定时填写的日志信息模板。"
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplatemkdir\r\n"
+"自动加入日志信息对话框中的字符串，\r\n"
+"可以用作让使用者在创建目录时填写的日志信息模板。"
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplatemove\r\n"
+"自动加入日志信息对话框中的字符串，\r\n"
+"可以用作让使用者在移动/改名时填写的日志信息模板。"
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplatepropset\r\n"
+"自动加入日志信息对话框中的字符串，\r\n"
+"可以用作让使用者在修改属性时填写的日志信息模板。"
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -11486,3 +11590,4 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
