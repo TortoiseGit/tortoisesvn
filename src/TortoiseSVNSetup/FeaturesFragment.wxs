@@ -25,13 +25,23 @@
 
       <Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
         <MergeRef Id="CRT" />
+        <?if $(env.Platform) = "x64" ?>
+        <MergeRef Id="CRT32" />
+        <?endif ?>
       </Feature>
       <Feature Id="F_MFC" Level="1" Title="MFC 9.0" Description="The MFC 9.0 libs" TypicalDefault="install" Display="hidden" >
         <MergeRef Id="MFC" />
         <MergeRef Id="MFCLOC" />
+        <?if $(env.Platform) = "x64" ?>
+        <MergeRef Id="MFC32" />
+        <MergeRef Id="MFCLOC32" />
+        <?endif ?>
       </Feature>
       <Feature Id="F_OVL" Level="1" Title="Tortoise Overlay handler" Description="The overlay handler for all Tortoise clients" TypicalDefault="install" Display="hidden" >
         <MergeRef Id="Ovlays" />
+        <?if $(env.Platform) = "x64" ?>
+        <MergeRef Id="Ovlays32" />
+        <?endif ?>
       </Feature>
 
       <Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install" Absent="allow">

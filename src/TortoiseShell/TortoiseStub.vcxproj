@@ -102,7 +102,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)TortoiseStub.dll</OutputFile>
+      <OutputFile>$(OutDir)TortoiseStub32.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\TortoiseStub.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -191,7 +191,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)TortoiseStub.dll</OutputFile>
+      <OutputFile>$(OutDir)TortoiseStub32.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\TortoiseStub.def</ModuleDefinitionFile>
       <SubSystem>Windows</SubSystem>

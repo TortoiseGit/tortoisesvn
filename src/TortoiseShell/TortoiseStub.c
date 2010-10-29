@@ -138,8 +138,11 @@ static void LoadRealLibrary(void)
         hTortoiseSVN = NIL;
         return;
     }
+#ifdef WIN64
     lstrcat(ModuleName, _T("\\TortoiseSVN.dll"));
-
+#else
+    lstrcat(ModuleName, _T("\\TortoiseSVN32.dll"));
+#endif
     TRACE(_T("LoadRealLibrary() - Load %s\n"), ModuleName);
 
     hTortoiseSVN = LoadLibraryEx(ModuleName, NULL, LOAD_WITH_ALTERED_SEARCH_PATH);

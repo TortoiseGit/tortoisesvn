@@ -97,9 +97,9 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\obj\TortoiseShell\Release64\</IntDir>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TortoiseSVN</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TortoiseSVN</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">TortoiseSVN</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TortoiseSVN32</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TortoiseSVN32</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">TortoiseSVN32</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TortoiseSVN</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TortoiseSVN</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Template|x64'">TortoiseSVN</TargetName>
