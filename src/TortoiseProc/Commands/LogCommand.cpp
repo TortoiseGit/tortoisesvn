@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "LogCommand.h"
 #include "LogDialog\LogDlg.h"
+#include "StringUtils.h"
 
 bool LogCommand::Execute()
 {
@@ -78,6 +79,13 @@ bool LogCommand::Execute()
     val = parser.GetVal(_T("propspath"));
     if (!val.IsEmpty())
         dlg.SetProjectPropertiesPath(CTSVNPath(val));
+    if (parser.HasVal(L"outfile"))
+        dlg.SetSelect(true);
     dlg.DoModal();
+    if (parser.HasVal(L"outfile"))
+    {
+        CString sText = dlg.GetSelectedRevRanges().ToListString();
+        CStringUtils::WriteStringToTextFile(parser.GetVal(L"outfile"), (LPCTSTR)sText, true);
+    }
     return true;
 }
