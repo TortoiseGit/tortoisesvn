@@ -127,6 +127,14 @@ http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi
 msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
 </screen>
         </para>
+        <important>
+            <para>
+                Please note that this hack is only necessary if you're still
+                using VS.NET2002. All later versions of Visual Studio do <em>not</em>
+                require this hack to be activated! So unless you're using that
+                ancient tool, DO NOT USE THIS!
+            </para>
+        </important>
     </sect1>
     <sect1 id="tsvn-admins-disablemenus">
         <title>Disable context menu entries</title>
