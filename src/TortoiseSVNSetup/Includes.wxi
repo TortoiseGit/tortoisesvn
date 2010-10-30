@@ -36,6 +36,7 @@
 
   <?if $(env.Platform) = "x64" ?>
   <?define UpgradeGuid="6113DD64-FD87-491a-9D05-0D1749DF7E18" ?>
+  <?define UpgradeGuid32="3E07F1EB-9543-437C-9DE2-58FFCADD39A9" ?>
   <?else?>
   <?define UpgradeGuid="3E07F1EB-9543-437C-9DE2-58FFCADD39A9" ?>
   <?endif?>

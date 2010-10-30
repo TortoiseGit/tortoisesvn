@@ -38,6 +38,16 @@
     <Property Id="ALLUSERS">1</Property>
 
     <Condition Message="[ProductName] requires Windows XP SP3 or later."><![CDATA[(VersionNT > 501) OR ((VersionNT = 501) AND (ServicePackLevel >= 3))]]></Condition>
+    <?if $(env.Platform) = "win32" ?>
+    <Condition Message="You are attempting to run the 32-bit installer on a 64-bit version of Windows. Please install the 64-bit version of TortoiseSVN instead.">NOT Msix64</Condition>
+    <?endif ?>
+
+    <?if $(env.Platform) = "x64" ?>
+    <Upgrade Id="$(var.UpgradeGuid32)">
+      <UpgradeVersion Minimum="0.0.0.0" OnlyDetect="yes" Property="WIN32TSVNFOUND" />
+    </Upgrade>
+    <Condition Message="Please uninstall all 32-bit versions of TortoiseSVN before installing [ProductName].">NOT WIN32TSVNFOUND</Condition>
+    <?endif ?>
 
     <!-- Show/Don't-show changelog related properties and custom actions ..................................................... -->
     <Property Id="TEXTEDITOR">
