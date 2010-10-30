@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-10-08 19:44 +0000\n"
+"POT-Creation-Date: 2010-10-30 14:48 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -402,11 +402,15 @@ msgid "System requirements"
 msgstr ""
 
 #.(para)
-msgid "TortoiseSVN runs on Windows XP with service pack 3 or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
+msgid "TortoiseSVN runs on Windows XP with service pack 3 or higher and is available in both 32-bit and 64-bit flavours. The installer for 64-bit Windows also includes the 32-bit extension parts. Which means you don't need to install the 32-bit version separately to get the TortoiseSVN context menu and overlays in 32-bit applications."
 msgstr ""
 
 #.(para)
-msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
+msgid "If you're using Windows XP, you <em>must</em> have at least the service pack 3 installed. It won't work if you haven't installed that SP yet!"
+msgstr ""
+
+#.(para)
+msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You can still download and install older versions if you need them."
 msgstr ""
 
 #.(title)
@@ -3000,7 +3004,7 @@ msgid "This is the file that your Subversion client just received from the serve
 msgstr ""
 
 #.(para)
-msgid "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n    &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n        your changes\n    =======\n        code merged from repository\n    &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n    </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
+msgid "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n    your changes\n=======\n    code merged from repository\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
 
 #.(para)
@@ -3017,6 +3021,18 @@ msgstr ""
 
 #.(para)
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
+msgstr ""
+
+#.(title)
+msgid "Property Conflicts"
+msgstr ""
+
+#.(para)
+msgid "A property conflict occurs when two or more developers have changed the same property. As with file content, resolving the conflict can only be done by the developers."
+msgstr ""
+
+#.(para)
+msgid "If one of the changes must override the other then choose the option to <guilabel>Resolve using local property</guilabel> or <guilabel>Resolve using remote property</guilabel>. If the changes must be merged then select <guilabel>Manually edit property</guilabel>, sort out what the property value should be and mark as resolved."
 msgstr ""
 
 #.(title)
@@ -3352,6 +3368,22 @@ msgstr ""
 
 #.(para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
+msgstr ""
+
+#.(title)
+msgid "Detailed Status"
+msgstr ""
+
+#.(primary)
+msgid "windows properties"
+msgstr ""
+
+#.(title)
+msgid "Explorer property page, Subversion tab"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
 msgstr ""
 
 #.(title)
@@ -5094,18 +5126,6 @@ msgstr ""
 msgid "Project Settings"
 msgstr ""
 
-#.(primary)
-msgid "properties"
-msgstr ""
-
-#.(title)
-msgid "Explorer property page, Subversion tab"
-msgstr ""
-
-#.(para)
-msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
-msgstr ""
-
 #.(title)
 msgid "Subversion Properties"
 msgstr ""
@@ -5179,7 +5199,7 @@ msgid "Adding properties"
 msgstr ""
 
 #.(para)
-msgid "<placeholder-1/> To add a new property, first click on <guilabel>New...</guilabel>. Select the required property name from the menu, and then fill in the required information in the specific property dialog."
+msgid "<placeholder-1/> To add a new property, first click on <guilabel>New...</guilabel>. Select the required property name from the menu, and then fill in the required information in the specific property dialog. These specific property dialogs are described in more detail in <xref linkend=\"tsvn-dug-propertypage-editors\"/>."
 msgstr ""
 
 #.(para)
@@ -5469,6 +5489,121 @@ msgstr ""
 
 #.(para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
+msgstr ""
+
+#.(title)
+msgid "Property Editors"
+msgstr ""
+
+#.(para)
+msgid "Some properties have to use specific values, or be formatted in a specific way in order to be used for automation. To help get the formatting correct, TortoiseSVN presents edit dialogs for some particular properties which show the possible values or break the property into its individual components."
+msgstr ""
+
+#.(title)
+msgid "External Content"
+msgstr ""
+
+#.(title)
+msgid "svn:externals property page"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository as described in <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr ""
+
+#.(para)
+msgid "You need to define the name of the sub-folder that the external folder is checked out as, and the subversion URL of the external item. You can check out an external at its HEAD revision, so when the external item changes in the repository, your working copy will receive those changes on update. However, if you want the external to reference a particular stable point then you can specify the specific revision to use. IN this case you may also want to specify the same revision as a peg revision. If the external item is renamed at some point in the future then Subversion will not be able to update this item in your working copy. By specifying a peg revision you tell Subversion to look for an item that had that name at the peg revision rather than at HEAD."
+msgstr ""
+
+#.(title)
+msgid "SVN Keywords"
+msgstr ""
+
+#.(title)
+msgid "svn:keywords property page"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> Select the keywords that you would like to be expanded in your file."
+msgstr ""
+
+#.(title)
+msgid "EOL Style"
+msgstr ""
+
+#.(title)
+msgid "svn:eol-style property page"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> Select the end-of-line style that you wish to use and TortoiseSVN will use the correct property value."
+msgstr ""
+
+#.(title)
+#.(title)
+msgid "Issue Tracker Integration"
+msgstr ""
+
+#.(title)
+msgid "tsvn:bugtraq property page"
+msgstr ""
+
+#.(title)
+msgid "Log Message Sizes"
+msgstr ""
+
+#.(title)
+msgid "Size of log messages property page"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> These 3 properties control the formatting of log messages. The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock dialogs until the message meets the minimum length. The border position shows a marker at the given column width as a guide for projects which have width limits on their log messages. Setting a value to zero will delete the property."
+msgstr ""
+
+#.(title)
+msgid "Project Language"
+msgstr ""
+
+#.(title)
+msgid "Language property page"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> Choose the language to use for spell-checking log messages in the commit dialog. The file lists checkbox comes into effect when you right click in the log message pane and select <guilabel>Paste file list</guilabel>. By default the subversion status will be shown in your local language. When this box is checked the status is always given in English, for projects which require English-only log messages."
+msgstr ""
+
+#.(title)
+msgid "MIME-type"
+msgstr ""
+
+#.(title)
+msgid "svn:mime-type property page"
+msgstr ""
+
+#.(title)
+#.(literal)
+#.(literal)
+msgid "svn:needs-lock"
+msgstr ""
+
+#.(title)
+msgid "svn:needs-lock property page"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> This property simply controls whether a file will be checked out as read-only if there is no lock held for it in the working copy."
+msgstr ""
+
+#.(title)
+msgid "svn:executable"
+msgstr ""
+
+#.(title)
+msgid "svn:executable property page"
+msgstr ""
+
+#.(para)
+msgid "<placeholder-1/> This property controls whether a file will be given executable status when checked out on a Unix/Linux system. It has no effect on a Windows checkout."
 msgstr ""
 
 #.(title)
@@ -6205,7 +6340,7 @@ msgid "Select the file(s) in your working copy for which you want to acquire a l
 msgstr ""
 
 #.(para)
-msgid "You can set the project property <literal>tsvn:logtemplatelock</literal> to provide a templated message for users to fill in as the lock message. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties."
+msgid "You can set the project property <literal>tsvn:logtemplatelock</literal> to provide a message template for users to fill in as the lock message. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties."
 msgstr ""
 
 #.(para)
@@ -7055,7 +7190,11 @@ msgid "The Relocate Dialog"
 msgstr ""
 
 #.(para)
-msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all <filename>entries</filename> files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
+msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it rewrites all urls that are associated with each file and folder with the new url."
+msgstr ""
+
+#.(para)
+msgid "This operation only works on working copy <emphasis>roots</emphasis>. So the context menu entry is only shown for working copy roots."
 msgstr ""
 
 #.(para)
@@ -8707,10 +8846,6 @@ msgstr ""
 msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
 msgstr ""
 
-#.(title)
-msgid "Issue Tracker Integration"
-msgstr ""
-
 #.(para)
 msgid "TortoiseSVN can use a COM plugin to query issue trackers when in the commit dialog. The use of such plugins is described in <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. If your system administrator has provided you with a plugin, which you have already installed and registered, this is the place to specify how it integrates with your working copy."
 msgstr ""
@@ -9124,11 +9259,6 @@ msgstr ""
 
 #.(literal)
 msgid "$WCNEEDSLOCK?TText:FText$"
-msgstr ""
-
-#.(literal)
-#.(literal)
-msgid "svn:needs-lock"
 msgstr ""
 
 #.(entry)
@@ -9937,6 +10067,10 @@ msgstr ""
 msgid "But that option is only hidden for the user. You still can force the TortoiseSVN installer to set that environment variable by setting the <literal>ASPDOTNETHACK</literal> property to TRUE. For example, you can start the installer like this: <screen>\nmsiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n</screen>"
 msgstr ""
 
+#.(para)
+msgid "Please note that this hack is only necessary if you're still using VS.NET2002. All later versions of Visual Studio do <em>not</em> require this hack to be activated! So unless you're using that ancient tool, DO NOT USE THIS!"
+msgstr ""
+
 #.(title)
 msgid "Disable context menu entries"
 msgstr ""
@@ -10658,7 +10792,7 @@ msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
 msgstr ""
 
 #.(para)
-msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>paramvalue</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
+msgid "with <literal>cmd</literal> being one of the allowed commands, <literal>parameter</literal> being the name of a parameter like <literal>path</literal> or <literal>revision</literal>, and <literal>paramvalue</literal> being the value to use for that parameter. The list of parameters allowed depends on the command used."
 msgstr ""
 
 #.(para)
@@ -10667,11 +10801,16 @@ msgstr ""
 
 #.(programlisting)
 #, no-wrap
+msgid "\n&lt;a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\"&gt;Update&lt;/a&gt;\n"
+msgstr ""
+
+#.(programlisting)
+#, no-wrap
 msgid "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\nurl2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\nrevision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 msgstr ""
 
 #.(para)
-msgid "An example URL might look like this: <placeholder-1/>"
+msgid "A simple example URL might look like this: <placeholder-1/> or in a more complex case: <placeholder-2/>"
 msgstr ""
 
 #.(title)
@@ -11168,7 +11307,11 @@ msgid "When TortoiseSVN displays the status recursively (the default setting), e
 msgstr ""
 
 #.(para)
-msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
+msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <em>Good Citizen (TM)</em> and limits its use of overlays to give other apps a chance."
+msgstr ""
+
+#.(para)
+msgid "Since there Tortoise clients available for other version control systems, we've created a shared component which is responsible for showing the overlay icons. The technical details are not important here, all you need to know is that this shared component allows all Tortoise clients to use the same overlays and therefore the limit 11 available slots isn't used up by installing more than one Tortoise client. Of course there's one small drawback: all Tortoise clients use the same overlay icons, so you can't figure out by the overlay icons what version control system a working copy is using."
 msgstr ""
 
 #.(para)
