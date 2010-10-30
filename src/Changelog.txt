@@ -104,6 +104,8 @@
 - NEW: Multiselections in the log dialog show each log message
        shortened for every selected revision. See issue #44
        for details. (Stefan)
+- NEW: Command line switch /outfile for the 'log' and
+       'repobrowser' command. See issue #49 for details. (Stefan)
 - BUG: Merged revisions must be counted only 
        once in stats (Stefan Fuhrmann)
 - BUG: Relative Webviewer urls didn't work from the 
