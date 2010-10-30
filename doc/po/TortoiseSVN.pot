@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-10-30 14:48 +0000\n"
+"POT-Creation-Date: 2010-10-30 16:35 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10408,9 +10408,6 @@ msgstr ""
 #.(option)
 #.(option)
 #.(option)
-#.(option)
-#.(option)
-#.(option)
 msgid "/path"
 msgstr ""
 
@@ -10472,8 +10469,12 @@ msgstr ""
 msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr ""
 
+#.(option)
+msgid "/outfile:path\\to\\file"
+msgstr ""
+
 #.(entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/> If <placeholder-11/> is specified, the selected revisions are written to that file when the log dialog is closed. The revisions are written in the same format as is used to specify revisions in the merge dialog."
 msgstr ""
 
 #.(option)
@@ -10690,17 +10691,20 @@ msgstr ""
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
 msgstr ""
 
-#.(option)
-#.(option)
-msgid "/rev:xxx"
+#.(para)
+msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <option>/path</option> or <option>/path</option> points directly to an URL."
 msgstr ""
 
-#.(option)
-msgid "/projectpropertiespath:path/to/wc"
+#.(para)
+msgid "An additional option <option>/rev:xxx</option> can be used to specify the revision which the repository browser should show. If the <option>/rev:xxx</option> is omitted, it defaults to HEAD."
 msgstr ""
 
-#.(entry)
-msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, the <placeholder-6/> specifies the path from where to read and use the project properties."
+#.(para)
+msgid "If <option>/path</option> points to an URL, the <option>/projectpropertiespath:path/to/wc</option> specifies the path from where to read and use the project properties."
+msgstr ""
+
+#.(para)
+msgid "If <option>/outfile:path\\to\\file</option> is specified, the selected URL and revision are written to that file when the repository browser is closed. The first line in that text file contains the URL, the second line the revision in text format."
 msgstr ""
 
 #.(literal)

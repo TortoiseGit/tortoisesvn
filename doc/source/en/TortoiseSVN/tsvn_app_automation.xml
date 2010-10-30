@@ -181,6 +181,11 @@ Don't touch these lines:
                                         </para>
                                     </listitem>
                                 </itemizedlist>
+                                If <option>/outfile:path\to\file</option> is specified,
+                                the selected revisions are written to that file when
+                                the log dialog is closed. The revisions are written
+                                in the same format as is used to specify revisions
+                                in the merge dialog.
                             </entry>
                         </row>
                         <row>
@@ -437,17 +442,30 @@ Don't touch these lines:
                         <row>
                             <entry condition="pot">:repobrowser</entry>
                             <entry>
+                                <para>
                                 Starts the repository browser dialog, pointing to
                                 the URL of the working copy given in
                                 <option>/path</option> or <option>/path</option>
                                 points directly to an URL.
+                                </para>
+                                <para>
                                 An additional option <option>/rev:xxx</option> can
                                 be used to specify the revision which the repository
                                 browser should show. If the <option>/rev:xxx</option>
                                 is omitted, it defaults to HEAD.
+                                </para>
+                                <para>
                                 If <option>/path</option> points to an URL, the
                                 <option>/projectpropertiespath:path/to/wc</option> specifies
                                 the path from where to read and use the project properties.
+                                </para>
+                                <para>
+                                If <option>/outfile:path\to\file</option> is specified,
+                                the selected URL and revision are written to that
+                                file when the repository browser is closed.
+                                The first line in that text file contains the URL, the
+                                second line the revision in text format.
+                                </para>
                             </entry>
                         </row>
                         <row>
