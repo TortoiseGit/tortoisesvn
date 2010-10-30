@@ -123,8 +123,20 @@
             is limited to 15. Windows uses 4 of those, and the remaining 11
             can be used by other applications. If there are not enough overlay
             slots available, TortoiseSVN tries to be a
-            <quote>Good Citizen (TM)</quote> and limits its use of overlays to
+            <em>Good Citizen (TM)</em> and limits its use of overlays to
             give other apps a chance.
+        </para>
+        <para>
+            Since there Tortoise clients available for other version control
+            systems, we've created a shared component which is responsible for
+            showing the overlay icons. The technical details are not important
+            here, all you need to know is that this shared component allows
+            all Tortoise clients to use the same overlays and therefore the
+            limit 11 available slots isn't used up by installing more than one
+            Tortoise client. Of course there's one small drawback: all Tortoise
+            clients use the same overlay icons, so you can't figure out by
+            the overlay icons what version control system a working copy is
+            using.
         </para>
         <itemizedlist>
             <listitem>
