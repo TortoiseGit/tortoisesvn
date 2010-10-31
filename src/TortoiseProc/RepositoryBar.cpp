@@ -99,7 +99,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "URL" combo box control to be added
         rect = CRect(0, 0, 100, 400);
         m_cbxUrl.Create(WS_CHILD | WS_TABSTOP | CBS_DROPDOWN, rect, this, IDC_URL_COMBO);
-        m_cbxUrl.SetURLHistory(true);
+        m_cbxUrl.SetURLHistory(true, false);
         m_cbxUrl.SetFont(font);
         m_cbxUrl.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
         temp.LoadString(IDS_REPO_BROWSEURL);
@@ -172,6 +172,7 @@ void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
         m_rev = rev;
     }
     m_cbxUrl.SetWindowText(m_url);
+    m_cbxUrl.AddString(m_url, 0);
     m_btnUp.EnableWindow(m_url.CompareNoCase(m_pRepo->GetRepoRoot()));
     m_btnRevision.SetWindowText(m_rev.ToString());
     if (m_headRev.IsValid())

@@ -109,12 +109,12 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
     if (m_bURLHistory)
     {
         cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(str);
-        if (cbei.iImage == SYS_IMAGE_LIST().GetDefaultIconIndex())
+        if ((cbei.iImage == NULL) || (cbei.iImage == SYS_IMAGE_LIST().GetDefaultIconIndex()))
         {
             if (str.Left(5) == _T("http:"))
                 cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".html"));
             else if (str.Left(6) == _T("https:"))
-                cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".shtml"));
+                cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".html"));
             else if (str.Left(5) == _T("file:"))
                 cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();
             else if (str.Left(4) == _T("svn:"))
@@ -247,11 +247,11 @@ void CHistoryCombo::ClearHistory(BOOL bDeleteRegistryEntries/*=TRUE*/)
     }
 }
 
-void CHistoryCombo::SetURLHistory(BOOL bURLHistory)
+void CHistoryCombo::SetURLHistory(bool bURLHistory, bool bAutoComplete)
 {
     m_bURLHistory = bURLHistory;
 
-    if (m_bURLHistory)
+    if ((m_bURLHistory)&&(bAutoComplete))
     {
         HWND hwndEdit;
         // use for ComboEx

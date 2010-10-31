@@ -68,7 +68,7 @@ BOOL CUrlDiffDlg::OnInitDialog()
     SVN svn;
     CString url = svn.GetURLFromPath(svnPath);
     CString sUUID = svn.GetUUIDFromPath(svnPath);
-    m_URLCombo.SetURLHistory(TRUE);
+    m_URLCombo.SetURLHistory(true, false);
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
     m_URLCombo.SetCurSel(0);
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());

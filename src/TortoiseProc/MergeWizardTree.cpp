@@ -93,7 +93,7 @@ BOOL CMergeWizardTree::OnInitDialog()
 
     CMergeWizard * pWizard = (CMergeWizard*)GetParent();
     CString sUUID = pWizard->sUUID;
-    m_URLCombo.SetURLHistory(TRUE);
+    m_URLCombo.SetURLHistory(true, false);
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
     if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
         m_URLCombo.SetCurSel(0);
@@ -101,7 +101,7 @@ BOOL CMergeWizardTree::OnInitDialog()
     if (m_URLCombo.GetString().IsEmpty())
         m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
-    m_URLCombo2.SetURLHistory(TRUE);
+    m_URLCombo2.SetURLHistory(true, false);
     m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
     m_URLCombo2.SetCurSel(0);
     if (m_URLCombo2.GetString().IsEmpty())

@@ -57,7 +57,7 @@ BOOL CRelocateDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_URLCombo.SetURLHistory(TRUE);
+    m_URLCombo.SetURLHistory(true, false);
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
     m_URLCombo.SetCurSel(0);
 

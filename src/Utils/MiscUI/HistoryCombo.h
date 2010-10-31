@@ -78,7 +78,7 @@ public:
      * the display of special icons in front of the combobox
      * entries. Default is FALSE.
      */
-    void SetURLHistory(BOOL bURLHistory);
+    void SetURLHistory(bool bURLHistory, bool bAutoComplete);
     /**
      * When \a bPathHistory is TRUE, treat the combo box entries
      * as Paths. This activates Shell Path auto completion and

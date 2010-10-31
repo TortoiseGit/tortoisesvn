@@ -52,7 +52,7 @@ BOOL CURLDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassOkCancel(this);
 
-    m_URLCombo.SetURLHistory(TRUE);
+    m_URLCombo.SetURLHistory(true, false);
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 
     CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_URLCOMBO);

@@ -109,7 +109,7 @@ BOOL CExportDlg::OnInitDialog()
     // save the provided url since the url combo
     // will change that below
     CString origurl = m_URL;
-    m_URLCombo.SetURLHistory(TRUE);
+    m_URLCombo.SetURLHistory(true, true);
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
     m_URLCombo.SetCurSel(0);
 

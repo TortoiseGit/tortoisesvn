@@ -75,7 +75,7 @@ BOOL CMergeWizardReintegrate::OnInitDialog()
     CMergeWizard * pWizard = (CMergeWizard*)GetParent();
 
     CString sUUID = ((CMergeWizard*)GetParent())->sUUID;
-    m_URLCombo.SetURLHistory(TRUE);
+    m_URLCombo.SetURLHistory(true, false);
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
     if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
         m_URLCombo.SetCurSel(0);

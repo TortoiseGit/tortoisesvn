@@ -151,7 +151,7 @@ BOOL CCheckoutDlg::OnInitDialog()
     m_sCheckoutDirOrig = m_strCheckoutDirectory;
 
     CString sUrlSave = m_URLs.CreateAsteriskSeparatedString();
-    m_URLCombo.SetURLHistory(TRUE);
+    m_URLCombo.SetURLHistory(true, true);
     m_bAutoCreateTargetName = FALSE;
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
     m_bAutoCreateTargetName = !(PathIsDirectoryEmpty(m_sCheckoutDirOrig) || !PathFileExists(m_sCheckoutDirOrig));
