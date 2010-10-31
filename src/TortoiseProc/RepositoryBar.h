@@ -33,6 +33,7 @@ class IRepo
 public:
     virtual bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked) = 0;
     virtual CString GetRepoRoot() = 0;
+    virtual void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult) = 0;
 };
 
 /**
@@ -102,12 +103,16 @@ public:
     void SetIRepo(IRepo * pRepo) {m_pRepo = pRepo;}
 
     SVNRev GetHeadRevision() {return m_headRev;}
+
+    HWND GetComboWindow() { return m_cbxUrl.GetSafeHwnd(); }
+
     afx_msg void OnGoUp();
 protected:
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     afx_msg void OnCbnSelEndOK();
     afx_msg void OnBnClicked();
     afx_msg void OnDestroy();
+    afx_msg void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
 
     DECLARE_MESSAGE_MAP()
 

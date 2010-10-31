@@ -49,6 +49,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
     ON_BN_CLICKED(IDC_REVISION_BTN, OnBnClicked)
     ON_BN_CLICKED(IDC_UP_BTN, OnGoUp)
     ON_WM_DESTROY()
+    ON_NOTIFY(CBEN_DRAGBEGIN, IDC_URL_COMBO, OnCbenDragbeginUrlcombo)
 END_MESSAGE_MAP()
 
 bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
@@ -157,6 +158,12 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
     }
 
     return false;
+}
+
+void CRepositoryBar::OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    if (m_pRepo)
+        m_pRepo->OnCbenDragbeginUrlcombo(pNMHDR, pResult);
 }
 
 void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)

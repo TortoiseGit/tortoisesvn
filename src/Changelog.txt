@@ -106,6 +106,8 @@
        for details. (Stefan)
 - NEW: Command line switch /outfile for the 'log' and
        'repobrowser' command. See issue #49 for details. (Stefan)
+- NEW: Dragging the url from the repository browser combo
+       box creates an url link in explorer. (Stefan)
 - BUG: Merged revisions must be counted only 
        once in stats (Stefan Fuhrmann)
 - BUG: Relative Webviewer urls didn't work from the 

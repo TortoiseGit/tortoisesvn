@@ -2155,6 +2155,40 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
     }
 }
 
+void CRepositoryBrowser::OnCbenDragbeginUrlcombo(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+    // build copy source / content
+    CIDropSource* pdsrc = new CIDropSource;
+    if (pdsrc == NULL)
+        return;
+
+    pdsrc->AddRef();
+
+    const SVNRev& revision = GetRevision();
+    SVNDataObject* pdobj = new SVNDataObject(CTSVNPathList(CTSVNPath(GetPath())), revision, revision, true);
+    if (pdobj == NULL)
+    {
+        delete pdsrc;
+        return;
+    }
+    pdobj->AddRef();
+    pdobj->SetAsyncMode(TRUE);
+    CDragSourceHelper dragsrchelper;
+    POINT point;
+    GetCursorPos(&point);
+    dragsrchelper.InitializeFromWindow(m_barRepository.GetComboWindow(), point, pdobj);
+    pdsrc->m_pIDataObj = pdobj;
+    pdsrc->m_pIDataObj->AddRef();
+
+    // Initiate the Drag & Drop
+    DWORD dwEffect;
+    ::DoDragDrop(pdobj, pdsrc, DROPEFFECT_LINK, &dwEffect);
+    pdsrc->Release();
+    pdobj->Release();
+
+    *pResult = 0;
+}
+
 void CRepositoryBrowser::OnLvnBeginrdragRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
     *pResult = 0;

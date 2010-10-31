@@ -33,7 +33,7 @@ extern  CLIPFORMAT  CF_INETURL;
 extern  CLIPFORMAT  CF_SHELLURL;
 
 
-#define SVNDATAOBJECT_NUMFORMATS 8
+#define SVNDATAOBJECT_NUMFORMATS 9
 
 /**
  * \ingroup SVN
@@ -51,7 +51,7 @@ public:
      * \param peg      the peg revision the URL points to, or SVNRev::REV_WC/SVNRev::REV_BASE
      * \param revision the revision the URL points to, or SVNRev::REV_WC/SVNRev::REV_BASE
      */
-    SVNDataObject(const CTSVNPathList& svnpaths, SVNRev peg, SVNRev rev);
+    SVNDataObject(const CTSVNPathList& svnpaths, SVNRev peg, SVNRev rev, bool bFilesAsUrlLinks = false);
     ~SVNDataObject();
 
     //IUnknown
@@ -94,6 +94,7 @@ private:
     CTSVNPathList               m_svnPaths;
     SVNRev                      m_pegRev;
     SVNRev                      m_revision;
+    bool                        m_bFilesAsUrlLinks;
     vector<SVNObjectInfoData>   m_allPaths;
     long                        m_cRefCount;
     BOOL                        m_bInOperation;

@@ -20,6 +20,7 @@
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "TempFile.h"
+#include "StringUtils.h"
 
 CLIPFORMAT CF_FILECONTENTS = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILECONTENTS);
 CLIPFORMAT CF_FILEDESCRIPTOR = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR);
@@ -28,9 +29,10 @@ CLIPFORMAT CF_SVNURL = (CLIPFORMAT)RegisterClipboardFormat(_T("TSVN_SVNURL"));
 CLIPFORMAT CF_INETURL = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_INETURL);
 CLIPFORMAT CF_SHELLURL = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_SHELLURL);
 
-SVNDataObject::SVNDataObject(const CTSVNPathList& svnpaths, SVNRev peg, SVNRev rev) : m_svnPaths(svnpaths)
+SVNDataObject::SVNDataObject(const CTSVNPathList& svnpaths, SVNRev peg, SVNRev rev, bool bFilesAsUrlLinks) : m_svnPaths(svnpaths)
     , m_pegRev(peg)
     , m_revision(rev)
+    , m_bFilesAsUrlLinks(bFilesAsUrlLinks)
     , m_bInOperation(FALSE)
     , m_bIsAsync(TRUE)
     , m_cRefCount(0)
@@ -102,33 +104,43 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
     {
         // supports the IStream format.
         // The lindex param is the index of the file to return
-
-        // Note: we don't get called for directories since those are simply created and don't
-        // need to be fetched.
-
-        // Note2: It would be really nice if we could get a stream from the subversion library
-        // from where we could read the file contents. But the Subversion lib is not implemented
-        // to *read* from a remote stream but so that the library *writes* to a stream we pass.
-        // Since we can't get such a read stream, we have to fetch the file in whole first to
-        // a temp location and then pass the shell an IStream for that temp file.
         CTSVNPath filepath;
         IStream * pIStream = NULL;
-        if (m_revision.IsWorking())
+
+        if (m_bFilesAsUrlLinks)
         {
-            if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
-            {
-                filepath = m_allPaths[pformatetcIn->lindex].rootpath;
-            }
+            filepath = CTempFiles::Instance().GetTempFilePath(true);
+            CString sTemp;
+            sTemp.Format(L"[InternetShortcut]\nURL=%s\n", (LPCWSTR)m_allPaths[pformatetcIn->lindex].infodata.url);
+            CStringUtils::WriteStringToTextFile(filepath.GetWinPath(), (LPCWSTR)sTemp);
         }
         else
         {
-            filepath = CTempFiles::Instance().GetTempFilePath(true);
-            if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
+            // Note: we don't get called for directories since those are simply created and don't
+            // need to be fetched.
+
+            // Note2: It would be really nice if we could get a stream from the subversion library
+            // from where we could read the file contents. But the Subversion lib is not implemented
+            // to *read* from a remote stream but so that the library *writes* to a stream we pass.
+            // Since we can't get such a read stream, we have to fetch the file in whole first to
+            // a temp location and then pass the shell an IStream for that temp file.
+            if (m_revision.IsWorking())
             {
-                if (!m_svn.Export(CTSVNPath(m_allPaths[pformatetcIn->lindex].infodata.url), filepath, m_pegRev, m_revision))
+                if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
                 {
-                    DeleteFile(filepath.GetWinPath());
-                    return STG_E_ACCESSDENIED;
+                    filepath = m_allPaths[pformatetcIn->lindex].rootpath;
+                }
+            }
+            else
+            {
+                filepath = CTempFiles::Instance().GetTempFilePath(true);
+                if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
+                {
+                    if (!m_svn.Export(CTSVNPath(m_allPaths[pformatetcIn->lindex].infodata.url), filepath, m_pegRev, m_revision))
+                    {
+                        DeleteFile(filepath.GetWinPath());
+                        return STG_E_ACCESSDENIED;
+                    }
                 }
             }
         }
@@ -143,61 +155,73 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
     }
     else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_FILEDESCRIPTOR))
     {
-        // now it is time to get all sub folders for the directories we have
-        SVNInfo svnInfo;
-        // find the common directory of all the paths
-        CTSVNPath commonDir;
-        bool bAllUrls = true;
-        for (int i=0; i<m_svnPaths.GetCount(); ++i)
+        if (m_bFilesAsUrlLinks)
         {
-            if (!m_svnPaths[i].IsUrl())
-                bAllUrls = false;
-            if (commonDir.IsEmpty())
-                commonDir = m_svnPaths[i].GetContainingDirectory();
-            if (!commonDir.IsEquivalentTo(m_svnPaths[i].GetContainingDirectory()))
+            for (int i=0; i<m_svnPaths.GetCount(); ++i)
             {
-                commonDir.Reset();
-                break;
-            }
-        }
-        if (bAllUrls && (m_svnPaths.GetCount() > 1) && !commonDir.IsEmpty())
-        {
-            // if all paths are in the same directory, we can fetch the info recursively
-            // from the parent folder to save a lot of time.
-            const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(commonDir, m_pegRev, m_revision, svn_depth_infinity);
-            while (infodata)
-            {
-                // check if the returned item is one in our list
-                for (int i=0; i<m_svnPaths.GetCount(); ++i)
-                {
-                    if (m_svnPaths[i].IsAncestorOf(CTSVNPath(infodata->url)))
-                    {
-                        SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
-                        m_allPaths.push_back(id);
-                        break;
-                    }
-                }
-                infodata = svnInfo.GetNextFileInfo();
+                SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], SVNInfoData()};
+                id.infodata.url = m_svnPaths[i].GetSVNPathString();
+                m_allPaths.push_back(id);
             }
         }
         else
         {
-            for (int i = 0; i < m_svnPaths.GetCount(); ++i)
+            // now it is time to get all sub folders for the directories we have
+            SVNInfo svnInfo;
+            // find the common directory of all the paths
+            CTSVNPath commonDir;
+            bool bAllUrls = true;
+            for (int i=0; i<m_svnPaths.GetCount(); ++i)
             {
-                if (m_svnPaths[i].IsUrl())
+                if (!m_svnPaths[i].IsUrl())
+                    bAllUrls = false;
+                if (commonDir.IsEmpty())
+                    commonDir = m_svnPaths[i].GetContainingDirectory();
+                if (!commonDir.IsEquivalentTo(m_svnPaths[i].GetContainingDirectory()))
                 {
-                    const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(m_svnPaths[i], m_pegRev, m_revision, svn_depth_infinity);
-                    while (infodata)
-                    {
-                        SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
-                        m_allPaths.push_back(id);
-                        infodata = svnInfo.GetNextFileInfo();
-                    }
+                    commonDir.Reset();
+                    break;
                 }
-                else
+            }
+            if (bAllUrls && (m_svnPaths.GetCount() > 1) && !commonDir.IsEmpty())
+            {
+                // if all paths are in the same directory, we can fetch the info recursively
+                // from the parent folder to save a lot of time.
+                const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(commonDir, m_pegRev, m_revision, svn_depth_infinity);
+                while (infodata)
                 {
-                    SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], SVNInfoData()};
-                    m_allPaths.push_back(id);
+                    // check if the returned item is one in our list
+                    for (int i=0; i<m_svnPaths.GetCount(); ++i)
+                    {
+                        if (m_svnPaths[i].IsAncestorOf(CTSVNPath(infodata->url)))
+                        {
+                            SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
+                            m_allPaths.push_back(id);
+                            break;
+                        }
+                    }
+                    infodata = svnInfo.GetNextFileInfo();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < m_svnPaths.GetCount(); ++i)
+                {
+                    if (m_svnPaths[i].IsUrl())
+                    {
+                        const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(m_svnPaths[i], m_pegRev, m_revision, svn_depth_infinity);
+                        while (infodata)
+                        {
+                            SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
+                            m_allPaths.push_back(id);
+                            infodata = svnInfo.GetNextFileInfo();
+                        }
+                    }
+                    else
+                    {
+                        SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], SVNInfoData()};
+                        m_allPaths.push_back(id);
+                    }
                 }
             }
         }
@@ -217,17 +241,24 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
                 // we have to unescape the urls since the local file system doesn't need them
                 // escaped and it would only look really ugly (and be wrong).
                 temp = CPathUtils::PathUnescape(temp);
+                if (m_bFilesAsUrlLinks)
+                    temp += L".url";
                 temp.Replace(_T("/"), _T("\\"));
             }
             else
             {
                 temp = it->rootpath.GetUIFileOrDirectoryName();
+                if (m_bFilesAsUrlLinks)
+                    temp += L".url";
             }
             _tcscpy_s(files->fgd[index].cFileName, MAX_PATH, (LPCTSTR)temp);
             files->fgd[index].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE | FD_LINKUI;
             if (it->rootpath.IsUrl())
             {
-                files->fgd[index].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
+                if (m_bFilesAsUrlLinks)
+                    files->fgd[index].dwFileAttributes = FILE_ATTRIBUTE_NORMAL;
+                else
+                    files->fgd[index].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
 
                 struct tm newtime;
                 SYSTEMTIME systime;
@@ -247,7 +278,10 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
             }
             else
             {
-                files->fgd[index].dwFileAttributes = it->rootpath.IsDirectory() ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
+                if (m_bFilesAsUrlLinks)
+                    files->fgd[index].dwFileAttributes = FILE_ATTRIBUTE_NORMAL;
+                else
+                    files->fgd[index].dwFileAttributes = it->rootpath.IsDirectory() ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
             }
             // Always set the file size to 0 even if we 'know' the file size (infodata.size64).
             // Because for text files, the file size is too low due to the EOLs getting converted
@@ -275,7 +309,10 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
     {
         HGLOBAL data = GlobalAlloc(GMEM_MOVEABLE | GMEM_SHARE | GMEM_ZEROINIT, sizeof(DWORD));
         DWORD* effect = (DWORD*) GlobalLock(data);
-        (*effect) = DROPEFFECT_COPY;
+        if (m_bFilesAsUrlLinks)
+            (*effect) = DROPEFFECT_LINK;
+        else
+            (*effect) = DROPEFFECT_COPY;
         GlobalUnlock(data);
         pmedium->hGlobal = data;
         pmedium->tymed = TYMED_HGLOBAL;

@@ -83,7 +83,7 @@ public:
     SVNRev GetRevision() const;
     /// Returns the currently displayed URL's path only (for convenience)
     CString GetPath() const;
-    /// Returns the paths currenty selected in the tree view / list view (for convenience)
+    /// Returns the paths currently selected in the tree view / list view (for convenience)
     const CString& GetSelectedURLs() const;
 
     /// switches to the \c url at \c rev. If the url is valid and exists,
@@ -91,6 +91,8 @@ public:
     bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked);
 
     CString GetRepoRoot() { return m_repository.root; }
+
+    void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
 
     enum 
     { 
