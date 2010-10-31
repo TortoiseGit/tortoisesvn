@@ -25,6 +25,8 @@ CLIPFORMAT CF_FILECONTENTS = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILECONTE
 CLIPFORMAT CF_FILEDESCRIPTOR = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR);
 CLIPFORMAT CF_PREFERREDDROPEFFECT = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_PREFERREDDROPEFFECT);
 CLIPFORMAT CF_SVNURL = (CLIPFORMAT)RegisterClipboardFormat(_T("TSVN_SVNURL"));
+CLIPFORMAT CF_INETURL = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_INETURL);
+CLIPFORMAT CF_SHELLURL = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_SHELLURL);
 
 SVNDataObject::SVNDataObject(const CTSVNPathList& svnpaths, SVNRev peg, SVNRev rev) : m_svnPaths(svnpaths)
     , m_pegRev(peg)
@@ -308,7 +310,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         pmedium->pUnkForRelease = NULL;
         return S_OK;
     }
-    else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_UNICODETEXT))
+    else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && ((pformatetcIn->cfFormat == CF_UNICODETEXT) || (pformatetcIn->cfFormat == CF_INETURL) || (pformatetcIn->cfFormat == CF_SHELLURL)))
     {
         // caller wants Unicode text
         // create the string from the path list
@@ -449,7 +451,7 @@ STDMETHODIMP SVNDataObject::QueryGetData(FORMATETC* pformatetc)
     }
     if ((pformatetc->tymed & TYMED_HGLOBAL) &&
         (pformatetc->dwAspect == DVASPECT_CONTENT) &&
-        ((pformatetc->cfFormat == CF_TEXT)||(pformatetc->cfFormat == CF_UNICODETEXT)||(pformatetc->cfFormat == CF_PREFERREDDROPEFFECT)))
+        ((pformatetc->cfFormat == CF_TEXT)||(pformatetc->cfFormat == CF_UNICODETEXT)||(pformatetc->cfFormat == CF_INETURL)||(pformatetc->cfFormat == CF_SHELLURL)||(pformatetc->cfFormat == CF_PREFERREDDROPEFFECT)))
     {
         return S_OK;
     }
@@ -696,6 +698,20 @@ void CSVNEnumFormatEtc::Init(bool localonly)
     index++;
 
     m_formats[index].cfFormat = CF_PREFERREDDROPEFFECT;
+    m_formats[index].dwAspect = DVASPECT_CONTENT;
+    m_formats[index].lindex = -1;
+    m_formats[index].ptd = NULL;
+    m_formats[index].tymed = TYMED_HGLOBAL;
+    index++;
+
+    m_formats[index].cfFormat = CF_INETURL;
+    m_formats[index].dwAspect = DVASPECT_CONTENT;
+    m_formats[index].lindex = -1;
+    m_formats[index].ptd = NULL;
+    m_formats[index].tymed = TYMED_HGLOBAL;
+    index++;
+
+    m_formats[index].cfFormat = CF_SHELLURL;
     m_formats[index].dwAspect = DVASPECT_CONTENT;
     m_formats[index].lindex = -1;
     m_formats[index].ptd = NULL;

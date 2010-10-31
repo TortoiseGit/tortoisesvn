@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,9 +29,11 @@ extern  CLIPFORMAT  CF_FILECONTENTS;
 extern  CLIPFORMAT  CF_FILEDESCRIPTOR;
 extern  CLIPFORMAT  CF_PREFERREDDROPEFFECT;
 extern  CLIPFORMAT  CF_SVNURL;
+extern  CLIPFORMAT  CF_INETURL;
+extern  CLIPFORMAT  CF_SHELLURL;
 
 
-#define SVNDATAOBJECT_NUMFORMATS 6
+#define SVNDATAOBJECT_NUMFORMATS 8
 
 /**
  * \ingroup SVN
