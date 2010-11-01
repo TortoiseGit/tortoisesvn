@@ -4,6 +4,15 @@ searchfor = [ '$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$' ]
 replacewith = [ '1.6.11', '1.6.11.20210', '1.6.13' ]
 setpath = 'D:\\Development\\SVN\\testsite'
 
+for root, dirs, files in os.walk(setpath, topdown=False):
+    for name in files:
+        os.remove(os.path.join(root, name))
+    for name in dirs:
+        os.rmdir(os.path.join(root, name))
+if os.path.exists(setpath):
+    os.rmdir(setpath)
+shutil.copytree(os.path.abspath('..'), setpath)
+
 footerFile = file(os.path.join(setpath, 'footer.html'), 'r')
 menuFile = file(os.path.join(setpath, 'menu.html'), 'r')
 sidebarFile = file(os.path.join(setpath, 'sidebar.html'), 'r')
