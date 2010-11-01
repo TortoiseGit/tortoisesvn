@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<?if $(env.Platform) = "x64" ?>
-	<?define Win64YesNo="yes" ?>
-	<?define PackagePlatforms="x64" ?>
-	<?else?>
-	<?define Win64YesNo="no" ?>
-	<?define PackagePlatforms="x86" ?>
-	<?endif?>
+  <?if $(env.Platform) = "x64" ?>
+  <?define Win64YesNo="yes" ?>
+  <?define PackagePlatforms="x64" ?>
+  <?else?>
+  <?define Win64YesNo="no" ?>
+  <?define PackagePlatforms="x86" ?>
+  <?endif?>
 
   <Product
   UpgradeCode="9ECED698-D4D9-42fd-946D-51CC049D1F6F"
@@ -19,18 +19,18 @@
 
     <Package Id='*' Keywords='Installer'
       Description="$LANGUI$ language pack for TortoiseSVN"
-      Comments='http://tortoisesvn.net' 
-      Manufacturer="Stefan Kueng" 
-      Platform="$(var.PackagePlatforms)"  
-      InstallerVersion='200' 
-      Languages='1033' 
-      Compressed='yes' 
+      Comments='http://tortoisesvn.net'
+      Manufacturer="Stefan Kueng"
+      Platform="$(var.PackagePlatforms)"
+      InstallerVersion='200'
+      Languages='1033'
+      Compressed='yes'
       SummaryCodepage='1252' />
 
     <Media Id='1' Cabinet='langpack.cab' EmbedCab='yes' CompressionLevel="high" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
 
-	<Property Id="ALLUSERS">1</Property>
+    <Property Id="ALLUSERS">1</Property>
 
     <Property Id="INSTALLDIR">
       <RegistrySearch Id="TSVNInstallationDir" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
@@ -52,6 +52,9 @@
               $SPELLCHECKFILES$
 
               <File Id='PROCDLL' Name='TortoiseProc$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseProc$COUNTRYID$.dll' Vital='yes'></File>
+              <?if $(env.Platform) = "x64" ?>
+              <File Id='PROCDLL32' Name='TortoiseProc32$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseProc32$COUNTRYID$.dll' Vital='yes'></File>
+              <?endif?>
               <File Id='MERGDLL' Name='TortoiseMerge$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseMerge$COUNTRYID$.dll' Vital='yes'></File>
               <File Id='BLAMDLL' Name='TortoiseBlame$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseBlame$COUNTRYID$.dll' Vital='yes'></File>
               <File Id='IDIFDLL' Name='TortoiseIDiff$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseIDiff$COUNTRYID$.dll' Vital='yes'></File>

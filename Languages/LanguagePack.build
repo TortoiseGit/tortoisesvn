@@ -278,6 +278,12 @@ NAnt build script for the TortoiseSVN language pack installers
       <arg value="..\bin\TortoiseProc${langCC}.dll" />
       <arg value="Tortoise_${langISO}.po" />
     </exec>
+    <exec program="${ResTextFileName}" failonerror="false" if="${platform == 'x64'}">
+      <arg value="apply" />
+      <arg value="..\bin\release\bin\TortoiseProcLang.dll" />
+      <arg value="..\bin\TortoiseProc32${langCC}.dll" />
+      <arg value="Tortoise_${langISO}.po" />
+    </exec>
     <exec program="${ResTextFileName}" failonerror="false">
       <arg value="apply" />
       <arg value="..\bin\${platformfolder}\bin\TortoiseMergeLang.dll" />
