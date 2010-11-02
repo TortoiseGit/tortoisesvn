@@ -1037,6 +1037,9 @@
     <ClCompile Include="..\SVN\SVNReadProperties.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
+    <ClCompile Include="RepoCreationFinished.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1977,6 +1980,9 @@
     </ClInclude>
     <ClInclude Include="..\SVN\SVNReadProperties.h">
       <Filter>Subversion</Filter>
+    </ClInclude>
+    <ClInclude Include="RepoCreationFinished.h">
+      <Filter>Utility Dialogs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -23,6 +23,7 @@
 #include "SVN.h"
 #include "TempFile.h"
 #include "IconExtractor.h"
+#include "RepoCreationFinished.h"
 
 bool CreateRepositoryCommand::Execute()
 {
@@ -50,39 +51,11 @@ bool CreateRepositoryCommand::Execute()
             PathMakeSystemFolder(cmdLinePath.GetWinPath());
         }
 
-        if (MessageBox(GetExplorerHWND(), IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
-        {
-            // create the default folder structure in a temp folder
-            CTSVNPath tempDir = CTempFiles::Instance().GetTempDirPath(true);
-            CTSVNPath tempDirSub = tempDir;
-            tempDirSub.AppendPathString(_T("trunk"));
-            CreateDirectory(tempDirSub.GetWinPath(), NULL);
-            tempDirSub = tempDir;
-            tempDirSub.AppendPathString(_T("branches"));
-            CreateDirectory(tempDirSub.GetWinPath(), NULL);
-            tempDirSub = tempDir;
-            tempDirSub.AppendPathString(_T("tags"));
-            CreateDirectory(tempDirSub.GetWinPath(), NULL);
-
-            CString url;
-            if (cmdLinePath.GetWinPathString().GetAt(0) == '\\')    // starts with '\' means an UNC path
-            {
-                CString p = cmdLinePath.GetWinPathString();
-                p.TrimLeft('\\');
-                url = _T("file://")+p;
-            }
-            else
-                url = _T("file:///")+cmdLinePath.GetWinPathString();
-            
-            // import the folder structure into the new repository
-            SVN svn;
-            if (!svn.Import(tempDir, CTSVNPath(url), CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTURE)), NULL, svn_depth_infinity, true, false))
-            {
-                MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-                return false;
-            }
-            // TODO: should we show another 'created structure successfully' dialog here?
-        }
+        CWnd parent;
+        parent.FromHandle(GetExplorerHWND());
+        CRepoCreationFinished finDlg(&parent);
+        finDlg.SetRepoPath(cmdLinePath);
+        finDlg.DoModal();
     }
     return true;
 }
