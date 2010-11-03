@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-09-01 11:44-0300\n"
-"Last-Translator: Rafael M. Heise <rmheise@gmail.com>\n"
+"PO-Revision-Date: 2010-11-03 00:34-0300\n"
+"Last-Translator: Rafael Marcelo Heise <rmheise@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -567,6 +567,10 @@ msgstr "&Copiar para área de transferência"
 #. Resource IDs: (101)
 msgid "&Copy to..."
 msgstr "&Copiar Para..."
+
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr "&Criar estrutura de diretório"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -1182,6 +1186,10 @@ msgstr "&Revisão específica no repositório"
 msgid "&Start Group"
 msgstr "&Iniciar Grupo"
 
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr "&Iniciar navegador de repositório"
+
 #. Resource IDs: (59393)
 msgid "&Status Bar"
 msgstr "&Barra de Status"
@@ -1315,8 +1323,8 @@ msgid "&Update"
 msgstr "&Atualizar"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
-msgstr "At&ualizar item para revisão"
+msgid "&Update item to revision..."
+msgstr "At&ualizar item para revisão..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -1517,20 +1525,6 @@ msgstr "<Separador>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<Sem Título>"
-
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN é uma extensão de shell.\n"
-"Isso significa que ele é integrado ao Windows Explorer.\n"
-"Para usar o TortoiseSVN, por favor inicie o explorer e clique com o botão direito na pasta que desejar\n"
-"para aparecer o menu de contexto no qual você encontrará todos os comandos do TortoiseSVN.\n"
-"E não se esqueça de ler o manual!"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -2115,6 +2109,10 @@ msgstr "N&avegar..."
 #. Resource IDs: (1064)
 msgid "Back"
 msgstr "Voltar"
+
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr "Cor de fundo"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2960,6 +2958,10 @@ msgstr "Copiar e renomear"
 msgid "Copy and rename item to here"
 msgstr "Copiar e renomear itens para cá"
 
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr "Copiar coluna para a área de transferência"
+
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
 msgstr "Copiar mensagem de erro para a área de transferência"
@@ -3046,11 +3048,9 @@ msgstr "Não foi possível verificar a existência de uma nova versão!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "Não foi possível copiar os arquivos!\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3156,22 +3156,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "Não foi possível iniciar o programa externo de comparação!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "Não foi possível iniciar o programa externo de combinação!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -3344,6 +3340,10 @@ msgstr "URL padrão:"
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
 msgstr "Menu de aplicação padrão. Aparece quando não há documentos abertos."
+
+#. Resource IDs: (81)
+msgid "Default directory structure successfully created!"
+msgstr "Estrutura de diretório padrão criada com sucesso!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4844,6 +4844,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -4854,6 +4858,14 @@ msgstr "ID:32825:V C +L"
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
+
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+msgid "ID:32870:V C +L"
+msgstr "ID:32870:V C +L"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+msgid "ID:32881:V C +P"
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5585,6 +5597,10 @@ msgstr ""
 msgid "Locator Bar"
 msgstr "Barra de Localização"
 
+#. Resource IDs: (65535)
+msgid "Locator bar"
+msgstr "Barra de localização"
+
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Bloqueio"
@@ -6179,14 +6195,11 @@ msgid "No"
 msgstr "Não"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Nenhum comando especificado!\n"
-
 "TortoiseProc.exe é usado pela extensão Shell e não deve ser chamado diretamente!"
 
 #. Resource IDs: (81)
@@ -7458,6 +7471,10 @@ msgstr "URL do Repositório"
 msgid "Repository UUID:"
 msgstr "UUID do repositório:"
 
+#. Resource IDs: (324)
+msgid "Repository created"
+msgstr "Repositório criado"
+
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
 msgstr "Requisição cancelada pelo TSVN"
@@ -8702,11 +8719,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "O Subversion reportou um erro ao fazer a limpeza!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9350,14 +9365,11 @@ msgid "The user who owns the lock of the file"
 msgstr "O usuário ao qual pertence o bloqueio do arquivo"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "A cópia de trabalho foi modificada!\n"
-
 "Por favor, submeta suas modificações antes ou reverta."
 
 #. Resource IDs: (81)
@@ -9688,6 +9700,20 @@ msgid ""
 msgstr ""
 "TortoiseSVN detectou nomes de arquivos similares. Você quer que os arquivos:%s\n"
 "sejam renomeados também?"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN é uma extensão de shell.\n"
+"Isso significa que ele é integrado ao Windows Explorer.\n"
+"Para usar o TortoiseSVN, por favor inicie o explorer e clique com o botão direito na pasta que desejar\n"
+"para aparecer o menu de contexto no qual você encontrará todos os comandos do TortoiseSVN.\n"
+"E não se esqueça de ler o manual!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -11415,6 +11441,86 @@ msgstr ""
 "Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
 "Use como um modelo para mensagem de log para os usuários preencherem."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplatebranch\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
+"Use como um modelo para mensagem de log para para os usuários preencherem ao criar ramos/rótulos/cópias."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplatecommit\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
+"Use como um modelo para mensagem de log para os usuários preencherem."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplatedelete\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
+"Use como um modelo para mensagem de log para os usuários preencherem ao excluir."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplateimport\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
+"Use como um modelo para mensagem de log para os usuários preencherem ao importar."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplatelock\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
+"Use como um modelo para mensagem de log para os usuários preencherem ao alocar."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplatemkdir\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
+"Use como um modelo para mensagem de log para os usuários preencherem ao criar diretórios."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplatemove\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
+"Use como um modelo para mensagem de log para os usuários preencherem ao mover/renomear."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplatepropset\r\n"
+"Texto inserido nas caixas de mensagem de log nas janelas de submissão.\r\n"
+"Use como um modelo para mensagem de log para os usuários preencherem ao modificar propriedades."
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -11532,9 +11638,6 @@ msgstr "{BugTraq}"
 #~ msgid "tree conflict:"
 #~ msgstr "conflito de estrutura:"
 
-#~ msgid "The repository was successfully created."
-#~ msgstr "O repositório foi criado com sucesso."
-
 #~ msgid "&Sat:"
 #~ msgstr "&Sat:"
 
@@ -11602,17 +11705,17 @@ msgstr "{BugTraq}"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
+#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
+#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
 #~ "É necessário possuir o GDI+ para salvar esse gráfico de revisão como uma "
 #~ "imagem.\n"
 #~ "Você pode adquirí-lo em \n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
+#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
+#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
 #~ "be590feaa05a&DisplayLang=en</a>"
 
 #~ msgid "Go offline?"
