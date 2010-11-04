@@ -15,9 +15,13 @@ shutil.copytree(os.path.abspath('..'), setpath)
 
 footerFile = file(os.path.join(setpath, 'footer.html'), 'r')
 menuFile = file(os.path.join(setpath, 'menu.html'), 'r')
+menuFileDE = file(os.path.join(setpath, 'menu.de.html'), 'r')
 sidebarFile = file(os.path.join(setpath, 'sidebar.html'), 'r')
+sidebarFileDE = file(os.path.join(setpath, 'sidebar.de.html'), 'r')
 adtopFile = file(os.path.join(setpath, 'files/adsense_top.txt'), 'r')
+adtopFileDE = file(os.path.join(setpath, 'files/adsense_top.de.txt'), 'r')
 adinpageFile = file(os.path.join(setpath, 'files/adsense_inpage.txt'), 'r')
+adinpageFileDE = file(os.path.join(setpath, 'files/adsense_inpage.de.txt'), 'r')
 
 footerText = footerFile.read()
 footerFile.close()
@@ -25,17 +29,29 @@ footerFile.close()
 menuText = menuFile.read()
 menuFile.close()
 
+menuTextDE = menuFileDE.read()
+menuFileDE.close()
+
 sidebarText = sidebarFile.read()
 sidebarFile.close()
+
+sidebarTextDE = sidebarFileDE.read()
+sidebarFileDE.close()
 
 adtopText = adtopFile.read()
 adtopFile.close()
 
+adtopTextDE = adtopFileDE.read()
+adtopFileDE.close()
+
 adinpageText = adinpageFile.read()
 adinpageFile.close()
 
-searchfor.extend( [ '<!--#include FILE="menu.html" -->', '<!--#include FILE="sidebar.html" -->', '<!--#include FILE="footer.html" -->', '$ADSENSE_TOP$', '$ADSENSE_INPAGE$' ] )
-replacewith.extend( [ menuText, sidebarText, footerText, adtopText, adinpageText ] )
+adinpageTextDE = adinpageFileDE.read()
+adinpageFileDE.close()
+
+searchfor.extend( [ '<!--#include FILE="menu.html" -->', '<!--#include FILE="menu.de.html" -->', '<!--#include FILE="sidebar.html" -->', '<!--#include FILE="sidebar.de.html" -->', '<!--#include FILE="footer.html" -->', '$ADSENSE_TOP$', '$ADSENSE_TOPDE$', '$ADSENSE_INPAGE$', '$ADSENSE_INPAGEDE$' ] )
+replacewith.extend( [ menuText, menuTextDE, sidebarText, sidebarTextDE, footerText, adtopText, adtopTextDE, adinpageText, adinpageTextDE ] )
 
 for root, dirs, files in os.walk(setpath):
     fname = files

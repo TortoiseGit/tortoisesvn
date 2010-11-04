@@ -190,36 +190,12 @@ blockquote.style2 {
 
 /* Search */
 
-#search {
+#langselection {
 	float: right;
 	width: 230px;
+    text-align: right;
 	padding: 0;
 }
-
-#search form {
-	height: 41px;
-	margin: 0;
-	padding: 70px 0 0 0px;
-}
-
-#search fieldset {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
-
-#search-text {
-	width: 210px;
-	border: none;
-	text-transform: lowercase;
-	font: bold 1.2em Arial, Helvetica, sans-serif;
-	color: #FFFFFF;
-}
-
-#search-submit {
-	display: none;
-}
-
 
 #banner {
 	width: 870px;
