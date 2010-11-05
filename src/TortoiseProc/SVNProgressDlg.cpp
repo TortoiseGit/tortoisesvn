@@ -106,6 +106,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , sRecordOnly(MAKEINTRESOURCE(IDS_MERGE_RECORDONLY))
     , sForce(MAKEINTRESOURCE(IDS_MERGE_FORCE))
 {
+    m_arData.reserve(10000);
 }
 
 CSVNProgressDlg::~CSVNProgressDlg()
@@ -194,8 +195,9 @@ svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_c
     return svn_wc_conflict_choose_postpone;
 }
 
-void CSVNProgressDlg::AddItemToList()
+void CSVNProgressDlg::AddItemToList(NotificationData * data)
 {
+    m_arData.push_back(data);
     int totalcount = m_ProgList.GetItemCount();
 
     m_ProgList.SetItemCountEx(totalcount+1, LVSICF_NOSCROLL|LVSICF_NOINVALIDATEALL);
@@ -401,8 +403,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->bAuxItem = true;
                 // We're going to add another aux item - let's shove this current onto the list first
                 // I don't really like this, but it will do for the moment.
-                m_arData.push_back(data);
-                AddItemToList();
+                AddItemToList(data);
 
                 data = new NotificationData();
                 data->bAuxItem = true;
@@ -430,8 +431,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             {
                 // We're going to add another aux item - let's shove this current onto the list first
                 // I don't really like this, but it will do for the moment.
-                m_arData.push_back(data);
-                AddItemToList();
+                AddItemToList(data);
 
                 data = new NotificationData();
                 data->bAuxItem = true;
@@ -473,15 +473,14 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         break;
     case svn_wc_notify_locked:
         if ((lock)&&(lock->owner))
-            data->sActionColumnText.Format(IDS_SVNACTION_LOCKEDBY, (LPCTSTR)CUnicodeUtils::GetUnicode(lock->owner));
+            data->sActionColumnText.Format(IDS_SVNACTION_LOCKEDBY, (LPCTSTR)data->owner);
         break;
     case svn_wc_notify_unlocked:
         data->sActionColumnText.LoadString(IDS_SVNACTION_UNLOCKED);
         break;
     case svn_wc_notify_failed_lock:
         data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDLOCK);
-        m_arData.push_back(data);
-        AddItemToList();
+        AddItemToList(data);
         ReportError(SVN::GetErrorString(err));
         bDoAddData = false;
         if ((err)&&(err->apr_err == SVN_ERR_FS_OUT_OF_DATE))
@@ -491,8 +490,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         break;
     case svn_wc_notify_failed_unlock:
         data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDUNLOCK);
-        m_arData.push_back(data);
-        AddItemToList();
+        AddItemToList(data);
         ReportError(SVN::GetErrorString(err));
         bDoAddData = false;
         if ((err)&&(err->apr_err == SVN_ERR_FS_OUT_OF_DATE))
@@ -553,8 +551,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_failed_external:
         data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDEXTERNAL);
         data->color = m_Colors.GetColor(CColors::Conflict);
-        m_arData.push_back(data);
-        AddItemToList();
+        AddItemToList(data);
         bDoAddData = false;
         ReportError(SVN::GetErrorString(err));
         break;
@@ -588,8 +585,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     {
         if (bDoAddData)
         {
-            m_arData.push_back(data);
-            AddItemToList();
+            AddItemToList(data);
             if ((!data->bAuxItem)&&(m_itemCount > 0))
             {
                 m_itemCount--;
@@ -966,8 +962,7 @@ void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, CO
         }
         else
             sMessage.Empty();
-        m_arData.push_back(data);
-        AddItemToList();
+        AddItemToList(data);
     }
 }
 
@@ -1099,8 +1094,7 @@ UINT CSVNProgressDlg::ProgressThread()
         NotificationData * data = new NotificationData();
         data->bAuxItem = true;
         data->sActionColumnText.LoadString(IDS_PROGRS_FINISHED);
-        m_arData.push_back(data);
-        AddItemToList();
+        AddItemToList(data);
     }
 
     int count = m_ProgList.GetItemCount();
@@ -1219,6 +1213,7 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
         delete m_arData[i];
     }
     m_arData.clear();
+    m_arData.reserve(10000);
 
     m_ProgList.SetRedraw(TRUE);
 
