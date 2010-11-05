@@ -137,17 +137,25 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path )
         case SVN_ERR_WC_CLEANUP_REQUIRED:
             {
                 svn_error_clear(err);
+                svn_wc_context_destroy(pctx);
                 return false;
             }
             break;
         default:
-            svn_error_clear(err);
             if (err->apr_err >= APR_OS_START_SYSERR)
+            {
+                svn_error_clear(err);
+                svn_wc_context_destroy(pctx);
                 return false;   // assume unversioned in case we can't even access the path
+            }
+            svn_error_clear(err);
+            svn_wc_context_destroy(pctx);
             return true;
             break;
         }
     }
+
+    svn_wc_context_destroy(pctx);
 
     return wcformat != 0;
 }
