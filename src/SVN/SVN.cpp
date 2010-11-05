@@ -318,8 +318,7 @@ CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
             // please check the path or URL you've entered.
             temp.LoadString(IDS_SVNERR_CHECKPATHORURL);
             break;
-        case SVN_ERR_WC_LOCKED:
-        case SVN_ERR_WC_NOT_LOCKED:
+        case SVN_ERR_WC_CLEANUP_REQUIRED:
             // do a "cleanup"
             temp.LoadString(IDS_SVNERR_RUNCLEANUP);
             break;
