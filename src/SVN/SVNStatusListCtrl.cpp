@@ -2116,7 +2116,7 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
     }
 }
 
-void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bShift)
+void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
 {
     SVN svn;
     CTSVNPathList itemsToRemove;
@@ -2129,7 +2129,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bShift)
     itemsToRemove.SortByPathname(true);
 
     bool bSuccess = false;
-    if (svn.Remove(itemsToRemove, FALSE, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000)))
+    if (svn.Remove(itemsToRemove, FALSE, bKeepLocal))
     {
         bSuccess = true;
     }
@@ -2146,7 +2146,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bShift)
             UINT ret = CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
             if ((ret == 1)||(ret==3))
             {
-                if (!svn.Remove(itemsToRemove, TRUE, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000)))
+                if (!svn.Remove(itemsToRemove, TRUE, bKeepLocal))
                 {
                     ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                 }
@@ -2175,7 +2175,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bShift)
         while ((index = GetNextSelectedItem(pos)) >= 0)
         {
             FileEntry * e = GetListEntry(index);
-            if (!bShift &&
+            if (!bKeepLocal &&
                 ((e->textstatus == svn_wc_status_unversioned)||
                 (e->textstatus == svn_wc_status_none)||
                 (e->textstatus == svn_wc_status_ignored)))

@@ -891,9 +891,11 @@ private:
     void CheckEntry(int index, int nListItems);
     void UncheckEntry(int index, int nListItems);
 
-    /// delete current or selected items
-    void Remove (const CTSVNPath& filepath, bool bShift);
+    /// remove the \c filepath item (svn remove)
+    void Remove (const CTSVNPath& filepath, bool bKeepLocal);
+    /// delete the \c filepath item (move to trashbin, windows delete)
     void Delete (const CTSVNPath& filepath, int selIndex);
+    /// revert the \c filepath item
     void Revert (const CTSVNPath& filepath);
 
     /// sends an SVNSLNM_CHECKCHANGED notification to the parent
