@@ -64,12 +64,43 @@ bool CLogDlgFilter::Match (wstring& text) const
 
         // require all strings to be present
 
-        assert (subStrings.size() == exclude.size());
-        for (size_t i = 0, count = subStrings.size(); i < count; ++i)
+        bool current_value = true;
+        for (size_t i = 0, count = subStringConditions.size(); i < count; ++i)
         {
-            bool found = wcsstr (text.c_str(), subStrings[i].c_str()) != NULL;
-            if (found == exclude[i])
-                return false;
+            const SCondition& condition = subStringConditions[i];
+            bool found = wcsstr ( text.c_str()
+                                , condition.subString.c_str()) != NULL;
+            switch (condition.prefix)
+            {
+                case and_not:
+                    found = !found;
+
+                case and:
+                    if (!found)
+                    {
+                        // not a match, so skip to the next "+"-prefixed item
+
+                        if (condition.nextOrIndex == 0)
+                            return false;
+
+                        current_value = false;
+                        i = condition.nextOrIndex-1;
+                    }
+                    break;
+
+                case or:
+                    current_value |= found;
+                    if (!current_value)
+                    {
+                        // not a match, so skip to the next "+"-prefixed item
+
+                        if (condition.nextOrIndex == 0)
+                            return false;
+
+                        i = condition.nextOrIndex-1;
+                    }
+                    break;
+            }
         }
     }
     else
@@ -97,14 +128,16 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
 
         // require all strings to be present
 
-        assert (subStrings.size() == exclude.size());
         const wchar_t* toScan = text.c_str();
-        for (size_t i = 0, count = subStrings.size(); i < count; ++i)
+        for ( auto iter = subStringConditions.begin()
+            , end = subStringConditions.end()
+            ; iter != end
+            ; ++iter)
         {
-            if (!exclude[i])
+            if (iter->prefix != and_not)
             {
-                const wchar_t * toFind = subStrings[i].c_str();
-                size_t toFindLength = subStrings[i].length();
+                const wchar_t * toFind = iter->subString.c_str();
+                size_t toFindLength = iter->subString.length();
                 const wchar_t * pFound = wcsstr (toScan, toFind);
                 while (pFound)
                 {
@@ -181,7 +214,7 @@ bool CLogDlgFilter::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& pat
 
 // construction utility
 
-void CLogDlgFilter::AddSubString (CString token, bool negate)
+void CLogDlgFilter::AddSubString (CString token, Prefix prefix)
 {
     if (token.IsEmpty())
         return;
@@ -199,13 +232,22 @@ void CLogDlgFilter::AddSubString (CString token, bool negate)
         fastLowerCase |= IsAllASCII7 (token);
     }
 
-    // handle token exclusion
+    // add condition to list
 
-    exclude.push_back (negate);
+    SCondition condition = { token, prefix, 0 };
+    subStringConditions.push_back (condition);
 
-    // store token & get the next one
+    // update previous conditions
 
-    subStrings.push_back ((LPCTSTR)token);
+    size_t newPos = subStringConditions.size() - 1;
+    if (prefix == or)
+        for (size_t i = newPos; i > 0; --i)
+        {
+            if (subStringConditions[i-1].nextOrIndex > 0)
+                break;
+
+            subStringConditions[i-1].nextOrIndex = newPos;
+        }
 }
 
 // construction
@@ -279,14 +321,22 @@ CLogDlgFilter::CLogDlgFilter
             {
             }
 
-            // negation?
+            // has it a prefix?
 
-            bool negation = false;
-            if ((curPos < length) && (filterText[curPos] == '-'))
-            {
-                negation = true;
-                ++curPos;
-            }
+            Prefix prefix = and;
+            if (curPos < length) 
+                switch (filterText[curPos])
+                {
+                    case '-' : 
+                        prefix = and_not;
+                        ++curPos;
+                        break;
+
+                    case '+' : 
+                        prefix = or;
+                        ++curPos;
+                        break;
+                }
 
             // escaped string?
 
@@ -328,14 +378,14 @@ CLogDlgFilter::CLogDlgFilter
                     }
                 }
 
-                AddSubString (subString, negation);
+                AddSubString (subString, prefix);
                 ++curPos;
                 continue;
             }
 
             // ordinary sub-string
 
-            AddSubString (filterText.Tokenize (_T(" "), curPos), negation);
+            AddSubString (filterText.Tokenize (_T(" "), curPos), prefix);
         }
     }
 }
@@ -413,7 +463,7 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
             return false;
     }
 
-    if (patterns.empty() && subStrings.empty())
+    if (patterns.empty() && subStringConditions.empty())
         return !negate;
 
     // we need to perform expensive string / pattern matching
@@ -483,7 +533,7 @@ bool CLogDlgFilter::BenefitsFromMT() const
 
     // empty filters don't need MT (and its potential overhead)
 
-    if (patterns.empty() && subStrings.empty())
+    if (patterns.empty() && subStringConditions.empty())
         return false;
 
     // otherwise, go mult-threading!
@@ -493,5 +543,5 @@ bool CLogDlgFilter::BenefitsFromMT() const
 
 bool CLogDlgFilter::IsFilterActive() const
 {
-    return !(patterns.empty() && subStrings.empty());
+    return !(patterns.empty() && subStringConditions.empty());
 }

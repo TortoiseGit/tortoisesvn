@@ -36,14 +36,37 @@ private:
 
     vector<tr1::wregex> patterns;
 
+    /// sub-string matching info
+
+    enum Prefix
+    {
+        and,
+        or,
+        and_not
+    };
+
+    struct SCondition
+    {
+        /// sub-strings to find; normalized to lower case
+
+        wstring subString;
+
+        /// depending on the presense of a prefix, indicate
+        /// how the sub-string match / mismatch gets combined
+        /// with the current match result
+
+        Prefix prefix;
+
+        /// index within @ref subStringConditions of the
+        /// next condition with prefix==or. 0, if no such
+        /// condition follows.
+
+        size_t nextOrIndex;
+    };
+
     /// list of sub-strings to find; normalized to lower case
 
-    vector<wstring> subStrings;
-
-    /// indicated for each entry in \ref subStrings
-    /// whether is had been predicated by a '-'
-
-    vector<bool> exclude;
+    vector<SCondition> subStringConditions;
 
     /// negate pattern matching result
 
@@ -90,7 +113,7 @@ private:
 
     // construction utility
 
-    void AddSubString (CString token, bool negate);
+    void AddSubString (CString token, Prefix prefix);
 
 public:
 
