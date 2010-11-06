@@ -32,37 +32,37 @@ CFileDlgEventHandler::~CFileDlgEventHandler()
 /////////////////////////////////////////////////////////////////////////////
 // IFileDialogEvents methods
 
-STDMETHODIMP CFileDlgEventHandler::OnFileOk ( IFileDialog* pfd )
+STDMETHODIMP CFileDlgEventHandler::OnFileOk ( IFileDialog* /*pfd*/ )
 {
     return S_OK;    // allow the dialog to close
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnFolderChanging ( IFileDialog* pfd, IShellItem* psiFolder )
+STDMETHODIMP CFileDlgEventHandler::OnFolderChanging ( IFileDialog* /*pfd*/, IShellItem* /*psiFolder*/ )
 {
     return S_OK;    // allow the change
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnFolderChange ( IFileDialog* pfd )
+STDMETHODIMP CFileDlgEventHandler::OnFolderChange ( IFileDialog* /*pfd*/ )
 {
     return S_OK;
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnSelectionChange ( IFileDialog* pfd )
+STDMETHODIMP CFileDlgEventHandler::OnSelectionChange ( IFileDialog* /*pfd*/ )
 {
     return S_OK;
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnShareViolation ( IFileDialog* pfd, IShellItem* psi, FDE_SHAREVIOLATION_RESPONSE* pResponse )
+STDMETHODIMP CFileDlgEventHandler::OnShareViolation ( IFileDialog* /*pfd*/, IShellItem* /*psi*/, FDE_SHAREVIOLATION_RESPONSE* /*pResponse*/ )
 {
     return S_OK;
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnTypeChange ( IFileDialog* pfd )
+STDMETHODIMP CFileDlgEventHandler::OnTypeChange ( IFileDialog* /*pfd*/ )
 {
     return S_OK;
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnOverwrite ( IFileDialog* pfd, IShellItem* psi, FDE_OVERWRITE_RESPONSE* pResponse )
+STDMETHODIMP CFileDlgEventHandler::OnOverwrite ( IFileDialog* /*pfd*/, IShellItem* /*psi*/, FDE_OVERWRITE_RESPONSE* /*pResponse*/ )
 {
     return S_OK;
 }
@@ -71,22 +71,22 @@ STDMETHODIMP CFileDlgEventHandler::OnOverwrite ( IFileDialog* pfd, IShellItem* p
 /////////////////////////////////////////////////////////////////////////////
 // IFileDialogControlEvents methods
 
-STDMETHODIMP CFileDlgEventHandler::OnItemSelected ( IFileDialogCustomize* pfdc, DWORD dwIDCtl, DWORD dwIDItem )
+STDMETHODIMP CFileDlgEventHandler::OnItemSelected ( IFileDialogCustomize* /*pfdc*/, DWORD /*dwIDCtl*/, DWORD /*dwIDItem*/ )
 {
     return S_OK;
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnButtonClicked ( IFileDialogCustomize* pfdc, DWORD dwIDCtl )
+STDMETHODIMP CFileDlgEventHandler::OnButtonClicked ( IFileDialogCustomize* /*pfdc*/, DWORD /*dwIDCtl*/ )
 {
     return S_OK;
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnCheckButtonToggled ( IFileDialogCustomize* pfdc, DWORD dwIDCtl, BOOL bChecked )
+STDMETHODIMP CFileDlgEventHandler::OnCheckButtonToggled ( IFileDialogCustomize* /*pfdc*/, DWORD /*dwIDCtl*/, BOOL /*bChecked*/ )
 {
     return S_OK;
 }
 
-STDMETHODIMP CFileDlgEventHandler::OnControlActivating ( IFileDialogCustomize* pfdc, DWORD dwIDCtl )
+STDMETHODIMP CFileDlgEventHandler::OnControlActivating ( IFileDialogCustomize* /*pfdc*/, DWORD /*dwIDCtl*/ )
 {
     return S_OK;
 }
