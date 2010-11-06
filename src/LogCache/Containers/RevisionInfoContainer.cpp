@@ -790,7 +790,7 @@ void CRevisionInfoContainer::AddRevProp ( const std::string& revProp
             time.tm_year -= 1900;
             time.tm_mon -= 1;
 
-        #ifdef WIN32
+        #ifdef _WIN32
             timeStamp = _mkgmtime64 (&time) *1000000 + musecs;
         #else
             timeStamp = mktime (&time);

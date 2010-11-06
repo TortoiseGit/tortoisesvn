@@ -80,7 +80,7 @@ public:
 
     // construction / destruction: auto- open/close
 
-#ifdef WIN32
+#ifdef _WIN32
     CCacheFileOutBuffer (const std::wstring& fileName);
 #else
     CCacheFileOutBuffer (const std::string& fileName);

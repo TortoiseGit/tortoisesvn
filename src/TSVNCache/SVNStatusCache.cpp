@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008-2009 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@
 
 #define CACHEDISKVERSION 2
 
-#ifdef WIN64
+#ifdef _WIN64
 #define STATUSCACHEFILENAME _T("\\cache64")
 #else
 #define STATUSCACHEFILENAME _T("\\cache")

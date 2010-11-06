@@ -24,7 +24,7 @@
 
 void CMappedInFile::MapToMemory (const TFileName& fileName)
 {
-#ifdef WIN32
+#ifdef _WIN32
     // create the file handle & open the file r/o
 
     file = CreateFile ( fileName.c_str()
@@ -106,7 +106,7 @@ void CMappedInFile::MapToMemory (const TFileName& fileName)
 
 void CMappedInFile::UnMap (size_t newSize)
 {
-#ifdef WIN32
+#ifdef _WIN32
     if (buffer != NULL)
         UnmapViewOfFile (buffer);
 
@@ -151,7 +151,7 @@ void CMappedInFile::UnMap (size_t newSize)
 // construction / destruction: auto- open/close
 
 CMappedInFile::CMappedInFile (const TFileName& fileName, bool writable)
-#ifdef WIN32
+#ifdef _WIN32
     : file (INVALID_HANDLE_VALUE)
     , mapping (INVALID_HANDLE_VALUE)
 #else

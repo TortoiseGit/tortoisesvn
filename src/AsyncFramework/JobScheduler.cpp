@@ -649,7 +649,7 @@ void CJobScheduler::UseAllCPUs()
 
 size_t CJobScheduler::GetHWThreadCount()
 {
-#ifdef WIN32
+#ifdef _WIN32
     SYSTEM_INFO si;
     GetSystemInfo(&si);
 

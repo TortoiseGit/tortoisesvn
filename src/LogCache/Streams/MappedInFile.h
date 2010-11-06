@@ -30,7 +30,7 @@ class CMappedInFile
 {
 private:
 
-#ifdef WIN32
+#ifdef _WIN32
     // the file
 
     HANDLE file;

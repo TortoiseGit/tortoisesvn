@@ -39,7 +39,7 @@ const char* Time64ToZuluString (char* buffer, size_t size, __time64_t timeStamp)
     timeStamp /= 1000000;
     tm time;
 
-#ifdef WIN32
+#ifdef _WIN32
     if ( _gmtime64_s ( &time, &timeStamp ) != 0 )
         return buffer;
 #else
@@ -86,7 +86,7 @@ __time64_t ZuluStringToTime64 (const char* buffer)
         time.tm_year -= 1900;
         time.tm_mon -= 1;
 
-    #ifdef WIN32
+    #ifdef _WIN32
         timeStamp = _mkgmtime64 (&time) *1000000 + musecs;
     #else
         timeStamp = mktime (&time);

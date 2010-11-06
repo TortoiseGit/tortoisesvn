@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@ namespace LogCache
 
 // .lock file mechanism is only available under Windows
 
-#ifdef WIN32
+#ifdef _WIN32
 
 // "in use" (hidden flag) file flag handling
 
@@ -325,7 +325,7 @@ void CCachedLogInfo::Load (int maxFailures)
 
         // does log cache file exist?
 
-    #ifdef WIN32
+    #ifdef _WIN32
         if (GetFileAttributes (fileName.c_str()) != INVALID_FILE_ATTRIBUTES)
         {
     #else

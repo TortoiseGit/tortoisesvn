@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
 //
 #pragma once
 
-#ifndef WIN32
+#ifndef _WIN32
 #include <fstream>
 #endif
 
@@ -32,7 +32,7 @@ class CBufferedOutFile
 {
 private:
 
-#ifdef WIN32
+#ifdef _WIN32
     // the file
 
     HANDLE file;
@@ -103,7 +103,7 @@ inline size_t CBufferedOutFile::GetFileSize() const
 
 inline bool CBufferedOutFile::IsOpen() const
 {
-#ifdef WIN32
+#ifdef _WIN32
     return file != INVALID_HANDLE_VALUE;
 #else
     return stream.is_open();

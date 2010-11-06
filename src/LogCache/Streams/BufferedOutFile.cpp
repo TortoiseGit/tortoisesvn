@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,7 +44,7 @@ void CBufferedOutFile::Flush()
 
 // construction / destruction: auto- open/close
 
-#ifdef WIN32
+#ifdef _WIN32
 CBufferedOutFile::CBufferedOutFile (const std::wstring& fileName)
     : file (INVALID_HANDLE_VALUE)
     , buffer (BUFFER_SIZE)
@@ -80,7 +80,7 @@ CBufferedOutFile::~CBufferedOutFile()
     if (IsOpen())
     {
         Flush();
-#ifdef WIN32
+#ifdef _WIN32
         CloseHandle (file);
 #endif
     }
@@ -100,7 +100,7 @@ void CBufferedOutFile::Add (const unsigned char* data, unsigned bytes)
 
         if (bytes >= BUFFER_SIZE)
         {
-        #ifdef WIN32
+        #ifdef _WIN32
             DWORD written = 0;
             WriteFile (file, data, bytes, &written, NULL);
             fileSize += written;

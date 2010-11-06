@@ -79,7 +79,7 @@ private:
     {
     private:
 
-#ifdef WIN32
+#ifdef _WIN32
         /// only this value means "no crash" because "0" means
         /// TSVN didn't crash *before* the .lock file was set.
 

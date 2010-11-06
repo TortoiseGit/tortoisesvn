@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@
 #pragma comment(lib, "shlwapi")
 #pragma comment(lib, "shell32")
 
-#ifdef WIN64
+#ifdef _WIN64
 #define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow64")
 #else
 #define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow")
