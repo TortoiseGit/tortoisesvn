@@ -2116,6 +2116,286 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
     }
 }
 
+void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bShift)
+{
+    SVN svn;
+    CTSVNPathList itemsToRemove;
+    FillListOfSelectedItemPaths(itemsToRemove);
+    if (itemsToRemove.GetCount() == 0)
+        itemsToRemove.AddPath(filepath);
+
+    // We must sort items before removing, so that files are always removed
+    // *before* their parents
+    itemsToRemove.SortByPathname(true);
+
+    bool bSuccess = false;
+    if (svn.Remove(itemsToRemove, FALSE, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000)))
+    {
+        bSuccess = true;
+    }
+    else
+    {
+        if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
+            (svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
+        {
+            CString msg, yes, no, yestoall;
+            msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
+            yes.LoadString(IDS_MSGBOX_YES);
+            no.LoadString(IDS_MSGBOX_NO);
+            yestoall.LoadString(IDS_PROC_YESTOALL);
+            UINT ret = CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
+            if ((ret == 1)||(ret==3))
+            {
+                if (!svn.Remove(itemsToRemove, TRUE, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000)))
+                {
+                    ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                }
+                else
+                    bSuccess = true;
+            }
+        }
+        else if (svn.Err->apr_err == SVN_ERR_BAD_FILENAME)
+        {
+            // the file/folder didn't exist (was 'missing')
+            // which means the remove succeeded anyway but svn still
+            // threw an error - we just ignore the error and
+            // assume a normal and successful remove
+            bSuccess = true;
+        }
+        else
+            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+    }
+    if (bSuccess)
+    {
+        // The remove went ok, but we now need to run through the selected items again
+        // and update their status
+        POSITION pos = GetFirstSelectedItemPosition();
+        int index;
+        std::vector<int> entriesToRemove;
+        while ((index = GetNextSelectedItem(pos)) >= 0)
+        {
+            FileEntry * e = GetListEntry(index);
+            if (!bShift &&
+                ((e->textstatus == svn_wc_status_unversioned)||
+                (e->textstatus == svn_wc_status_none)||
+                (e->textstatus == svn_wc_status_ignored)))
+            {
+                if (GetCheck(index))
+                    m_nSelected--;
+                m_nTotal--;
+                entriesToRemove.push_back(index);
+            }
+            else
+            {
+                e->textstatus = svn_wc_status_deleted;
+                e->status = svn_wc_status_deleted;
+                SetEntryCheck(e,index,true);
+            }
+        }
+        for (std::vector<int>::reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
+        {
+            RemoveListEntry(*it);
+        }
+    }
+    SaveColumnWidths();
+    Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
+    NotifyCheck();
+}
+
+void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
+{
+    CTSVNPathList pathlist;
+    FillListOfSelectedItemPaths(pathlist);
+    if (pathlist.GetCount() == 0)
+        pathlist.AddPath(filepath);
+    pathlist.RemoveChildren();
+    CString filelist;
+    for (INT_PTR i=0; i<pathlist.GetCount(); ++i)
+    {
+        filelist += pathlist[i].GetWinPathString();
+        filelist += _T("|");
+    }
+    filelist += _T("|");
+    int len = filelist.GetLength();
+    auto_buffer<TCHAR> buf(len+2);
+    _tcscpy_s(buf, len+2, filelist);
+    CStringUtils::PipesToNulls(buf, len);
+    SHFILEOPSTRUCT fileop;
+    fileop.hwnd = this->m_hWnd;
+    fileop.wFunc = FO_DELETE;
+    fileop.pFrom = buf;
+    fileop.pTo = NULL;
+    fileop.fAnyOperationsAborted = FALSE;
+    fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | ((GetAsyncKeyState(VK_SHIFT) & 0x8000) ? 0 : FOF_ALLOWUNDO);
+    fileop.lpszProgressTitle = _T("deleting file");
+    int result = SHFileOperation(&fileop);
+
+    if ( (result==0) && (!fileop.fAnyOperationsAborted) )
+    {
+        SetRedraw(FALSE);
+        POSITION pos = NULL;
+        CTSVNPathList deletedlist;  // to store list of deleted folders
+        bool bHadSelected = false;
+        while ((pos = GetFirstSelectedItemPosition()) != 0)
+        {
+            int index = GetNextSelectedItem(pos);
+            if (GetCheck(index))
+                m_nSelected--;
+            m_nTotal--;
+            FileEntry * fentry = GetListEntry(index);
+            if ((fentry)&&(fentry->isfolder))
+                deletedlist.AddPath(fentry->path);
+            RemoveListEntry(index);
+            bHadSelected = true;
+        }
+        if (!bHadSelected)
+        {
+            if (GetCheck(selIndex))
+                m_nSelected--;
+            m_nTotal--;
+            FileEntry * fentry = GetListEntry(selIndex);
+            if ((fentry)&&(fentry->isfolder))
+                deletedlist.AddPath(fentry->path);
+            RemoveListEntry(selIndex);
+        }
+        // now go through the list of deleted folders
+        // and remove all their children from the list too!
+        int nListboxEntries = GetItemCount();
+        for (int folderindex = 0; folderindex < deletedlist.GetCount(); ++folderindex)
+        {
+            CTSVNPath folderpath = deletedlist[folderindex];
+            for (int i=0; i<nListboxEntries; ++i)
+            {
+                FileEntry * entry2 = GetListEntry(i);
+                if (folderpath.IsAncestorOf(entry2->path))
+                {
+                    RemoveListEntry(i--);
+                    nListboxEntries--;
+                }
+            }
+        }
+        SetRedraw(TRUE);
+    }
+}
+
+void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
+{
+    // If at least one item is not in the status "added"
+    // we ask for a confirmation
+    BOOL bConfirm = FALSE;
+    POSITION pos = GetFirstSelectedItemPosition();
+    int index;
+    while ((index = GetNextSelectedItem(pos)) >= 0)
+    {
+        FileEntry * fentry = GetListEntry(index);
+        if (fentry->status != svn_wc_status_added)
+        {
+            bConfirm = TRUE;
+            break;
+        }
+    }
+
+    CString str;
+    str.Format(IDS_PROC_WARNREVERT,GetSelectedCount());
+
+    if (!bConfirm || ::MessageBox(this->m_hWnd, str, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+    {
+        CTSVNPathList targetList;
+        FillListOfSelectedItemPaths(targetList);
+        if (targetList.GetCount() == 0)
+            targetList.AddPath(filepath);
+
+        // make sure that the list is reverse sorted, so that
+        // children are removed before any parents
+        targetList.SortByPathname(true);
+
+        SVN svn;
+
+        // put all reverted files in the trashbin, except the ones with 'added'
+        // status because they are not restored by the revert.
+        CTSVNPathList delList;
+        pos = GetFirstSelectedItemPosition();
+        while ((index = GetNextSelectedItem(pos)) >= 0)
+        {
+            FileEntry * entry2 = GetListEntry(index);
+            if ((entry2->status != svn_wc_status_added)&&(entry2->status != svn_wc_status_none)&&(entry2->status != svn_wc_status_unversioned))
+                delList.AddPath(entry2->GetPath());
+        }
+        if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
+            delList.DeleteAllPaths(true, true);
+
+        if (!svn.Revert(targetList, CStringArray(), false))
+        {
+            ::MessageBox(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        }
+        else
+        {
+            // since the entries got reverted we need to remove
+            // them from the list too, if no remote changes are shown,
+            // if the unmodified files are not shown
+            // and if the item is not part of a changelist
+            SetRedraw(FALSE);
+            while ((pos = GetFirstSelectedItemPosition())!=0)
+            {
+                index = GetNextSelectedItem(pos);
+                FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+                if ( fentry->IsFolder() )
+                {
+                    // refresh!
+                    CWnd* pParent = GetParent();
+                    if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+                    {
+                        pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+                    }
+                    break;
+                }
+
+                BOOL bAdded = (fentry->textstatus == svn_wc_status_added);
+                fentry->status = svn_wc_status_normal;
+                fentry->propstatus = svn_wc_status_normal;
+                fentry->textstatus = svn_wc_status_normal;
+                fentry->copied = false;
+                fentry->isConflicted = false;
+                if ((fentry->GetChangeList().IsEmpty()&&(fentry->remotestatus <= svn_wc_status_normal))||(m_dwShow & SVNSLC_SHOWNORMAL))
+                {
+                    if ( bAdded )
+                    {
+                        // reverting added items makes them unversioned, not 'normal'
+                        if (fentry->IsFolder())
+                            fentry->propstatus = svn_wc_status_none;
+                        else
+                            fentry->propstatus = svn_wc_status_unversioned;
+                        fentry->status = svn_wc_status_unversioned;
+                        fentry->textstatus = svn_wc_status_unversioned;
+                        SetItemState(index, 0, LVIS_SELECTED);
+                        SetEntryCheck(fentry, index, false);
+                    }
+                    else if ((fentry->switched)||(m_dwShow & SVNSLC_SHOWNORMAL))
+                    {
+                        SetItemState(index, 0, LVIS_SELECTED);
+                    }
+                    else
+                    {
+                        m_nTotal--;
+                        if (GetCheck(index))
+                            m_nSelected--;
+                        RemoveListEntry(index);
+                        Invalidate();
+                    }
+                }
+                else
+                {
+                    SetItemState(index, 0, LVIS_SELECTED);
+                }
+            }
+            SetRedraw(TRUE);
+            SaveColumnWidths();
+            Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
+            NotifyCheck();
+        }
+    }
+}
+
 void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 {
     const static CString svnPropIgnore (SVN_PROP_IGNORE);
@@ -2601,122 +2881,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 break;
             case IDSVNLC_REVERT:
-                {
-                    // If at least one item is not in the status "added"
-                    // we ask for a confirmation
-                    BOOL bConfirm = FALSE;
-                    POSITION pos = GetFirstSelectedItemPosition();
-                    int index;
-                    while ((index = GetNextSelectedItem(pos)) >= 0)
-                    {
-                        FileEntry * fentry = GetListEntry(index);
-                        if (fentry->textstatus != svn_wc_status_added)
-                        {
-                            bConfirm = TRUE;
-                            break;
-                        }
-                    }
-
-                    CString str;
-                    str.Format(IDS_PROC_WARNREVERT,GetSelectedCount());
-
-                    if (!bConfirm || ::MessageBox(this->m_hWnd, str, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
-                    {
-                        CTSVNPathList targetList;
-                        FillListOfSelectedItemPaths(targetList);
-                        if (targetList.GetCount() == 0)
-                            targetList.AddPath(filepath);
-
-                        // make sure that the list is reverse sorted, so that
-                        // children are removed before any parents
-                        targetList.SortByPathname(true);
-
-                        SVN svn;
-
-                        // put all reverted files in the trashbin, except the ones with 'added'
-                        // status because they are not restored by the revert.
-                        CTSVNPathList delList;
-                        pos = GetFirstSelectedItemPosition();
-                        while ((index = GetNextSelectedItem(pos)) >= 0)
-                        {
-                            FileEntry * entry2 = GetListEntry(index);
-                            if ((entry2->status != svn_wc_status_added)&&(entry2->status != svn_wc_status_none)&&(entry2->status != svn_wc_status_unversioned))
-                                delList.AddPath(entry2->GetPath());
-                        }
-                        if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
-                            delList.DeleteAllPaths(true, true);
-
-                        if (!svn.Revert(targetList, CStringArray(), false))
-                        {
-                            ::MessageBox(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-                        }
-                        else
-                        {
-                            // since the entries got reverted we need to remove
-                            // them from the list too, if no remote changes are shown,
-                            // if the unmodified files are not shown
-                            // and if the item is not part of a changelist
-                            SetRedraw(FALSE);
-                            while ((pos = GetFirstSelectedItemPosition())!=0)
-                            {
-                                index = GetNextSelectedItem(pos);
-                                FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
-                                if ( fentry->IsFolder() )
-                                {
-                                    // refresh!
-                                    CWnd* pParent = GetParent();
-                                    if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-                                    {
-                                        pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-                                    }
-                                    break;
-                                }
-
-                                BOOL bAdded = (fentry->textstatus == svn_wc_status_added);
-                                fentry->status = svn_wc_status_normal;
-                                fentry->propstatus = svn_wc_status_normal;
-                                fentry->textstatus = svn_wc_status_normal;
-                                fentry->copied = false;
-                                fentry->isConflicted = false;
-                                if ((fentry->GetChangeList().IsEmpty()&&(fentry->remotestatus <= svn_wc_status_normal))||(m_dwShow & SVNSLC_SHOWNORMAL))
-                                {
-                                    if ( bAdded )
-                                    {
-                                        // reverting added items makes them unversioned, not 'normal'
-                                        if (fentry->IsFolder())
-                                            fentry->propstatus = svn_wc_status_none;
-                                        else
-                                            fentry->propstatus = svn_wc_status_unversioned;
-                                        fentry->status = svn_wc_status_unversioned;
-                                        fentry->textstatus = svn_wc_status_unversioned;
-                                        SetItemState(index, 0, LVIS_SELECTED);
-                                        SetEntryCheck(fentry, index, false);
-                                    }
-                                    else if ((fentry->switched)||(m_dwShow & SVNSLC_SHOWNORMAL))
-                                    {
-                                        SetItemState(index, 0, LVIS_SELECTED);
-                                    }
-                                    else
-                                    {
-                                        m_nTotal--;
-                                        if (GetCheck(index))
-                                            m_nSelected--;
-                                        RemoveListEntry(index);
-                                        Invalidate();
-                                    }
-                                }
-                                else
-                                {
-                                    SetItemState(index, 0, LVIS_SELECTED);
-                                }
-                            }
-                            SetRedraw(TRUE);
-                            SaveColumnWidths();
-                            Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
-                            NotifyCheck();
-                        }
-                    }
-                }
+                Revert (filepath);
                 break;
             case IDSVNLC_COMPARE:
                 {
@@ -2913,166 +3078,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 break;
             case IDSVNLC_REMOVE:
-                {
-                    SVN svn;
-                    CTSVNPathList itemsToRemove;
-                    FillListOfSelectedItemPaths(itemsToRemove);
-                    if (itemsToRemove.GetCount() == 0)
-                        itemsToRemove.AddPath(filepath);
-
-                    // We must sort items before removing, so that files are always removed
-                    // *before* their parents
-                    itemsToRemove.SortByPathname(true);
-
-                    bool bSuccess = false;
-                    if (svn.Remove(itemsToRemove, FALSE, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000)))
-                    {
-                        bSuccess = true;
-                    }
-                    else
-                    {
-                        if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
-                            (svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
-                        {
-                            CString msg, yes, no, yestoall;
-                            msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
-                            yes.LoadString(IDS_MSGBOX_YES);
-                            no.LoadString(IDS_MSGBOX_NO);
-                            yestoall.LoadString(IDS_PROC_YESTOALL);
-                            UINT ret = CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
-                            if ((ret == 1)||(ret==3))
-                            {
-                                if (!svn.Remove(itemsToRemove, TRUE, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000)))
-                                {
-                                    ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-                                }
-                                else
-                                    bSuccess = true;
-                            }
-                        }
-                        else if (svn.Err->apr_err == SVN_ERR_BAD_FILENAME)
-                        {
-                            // the file/folder didn't exist (was 'missing')
-                            // which means the remove succeeded anyway but svn still
-                            // threw an error - we just ignore the error and
-                            // assume a normal and successful remove
-                            bSuccess = true;
-                        }
-                        else
-                            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-                    }
-                    if (bSuccess)
-                    {
-                        // The remove went ok, but we now need to run through the selected items again
-                        // and update their status
-                        POSITION pos = GetFirstSelectedItemPosition();
-                        int index;
-                        std::vector<int> entriesToRemove;
-                        while ((index = GetNextSelectedItem(pos)) >= 0)
-                        {
-                            FileEntry * e = GetListEntry(index);
-                            if (!bShift &&
-                                ((e->textstatus == svn_wc_status_unversioned)||
-                                (e->textstatus == svn_wc_status_none)||
-                                (e->textstatus == svn_wc_status_ignored)))
-                            {
-                                if (GetCheck(index))
-                                    m_nSelected--;
-                                m_nTotal--;
-                                entriesToRemove.push_back(index);
-                            }
-                            else
-                            {
-                                e->textstatus = svn_wc_status_deleted;
-                                e->status = svn_wc_status_deleted;
-                                SetEntryCheck(e,index,true);
-                            }
-                        }
-                        for (std::vector<int>::reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
-                        {
-                            RemoveListEntry(*it);
-                        }
-                    }
-                    SaveColumnWidths();
-                    Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
-                    NotifyCheck();
-                }
+                Remove (filepath, bShift);
                 break;
             case IDSVNLC_DELETE:
-                {
-                    CTSVNPathList pathlist;
-                    FillListOfSelectedItemPaths(pathlist);
-                    if (pathlist.GetCount() == 0)
-                        pathlist.AddPath(filepath);
-                    pathlist.RemoveChildren();
-                    CString filelist;
-                    for (INT_PTR i=0; i<pathlist.GetCount(); ++i)
-                    {
-                        filelist += pathlist[i].GetWinPathString();
-                        filelist += _T("|");
-                    }
-                    filelist += _T("|");
-                    int len = filelist.GetLength();
-                    auto_buffer<TCHAR> buf(len+2);
-                    _tcscpy_s(buf, len+2, filelist);
-                    CStringUtils::PipesToNulls(buf, len);
-                    SHFILEOPSTRUCT fileop;
-                    fileop.hwnd = this->m_hWnd;
-                    fileop.wFunc = FO_DELETE;
-                    fileop.pFrom = buf;
-                    fileop.pTo = NULL;
-                    fileop.fAnyOperationsAborted = FALSE;
-                    fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | ((GetAsyncKeyState(VK_SHIFT) & 0x8000) ? 0 : FOF_ALLOWUNDO);
-                    fileop.lpszProgressTitle = _T("deleting file");
-                    int result = SHFileOperation(&fileop);
-
-                    if ( (result==0) && (!fileop.fAnyOperationsAborted) )
-                    {
-                        SetRedraw(FALSE);
-                        POSITION pos = NULL;
-                        CTSVNPathList deletedlist;  // to store list of deleted folders
-                        bool bHadSelected = false;
-                        while ((pos = GetFirstSelectedItemPosition()) != 0)
-                        {
-                            int index = GetNextSelectedItem(pos);
-                            if (GetCheck(index))
-                                m_nSelected--;
-                            m_nTotal--;
-                            FileEntry * fentry = GetListEntry(index);
-                            if ((fentry)&&(fentry->isfolder))
-                                deletedlist.AddPath(fentry->path);
-                            RemoveListEntry(index);
-                            bHadSelected = true;
-                        }
-                        if (!bHadSelected)
-                        {
-                            if (GetCheck(selIndex))
-                                m_nSelected--;
-                            m_nTotal--;
-                            FileEntry * fentry = GetListEntry(selIndex);
-                            if ((fentry)&&(fentry->isfolder))
-                                deletedlist.AddPath(fentry->path);
-                            RemoveListEntry(selIndex);
-                        }
-                        // now go through the list of deleted folders
-                        // and remove all their children from the list too!
-                        int nListboxEntries = GetItemCount();
-                        for (int folderindex = 0; folderindex < deletedlist.GetCount(); ++folderindex)
-                        {
-                            CTSVNPath folderpath = deletedlist[folderindex];
-                            for (int i=0; i<nListboxEntries; ++i)
-                            {
-                                FileEntry * entry2 = GetListEntry(i);
-                                if (folderpath.IsAncestorOf(entry2->path))
-                                {
-                                    RemoveListEntry(i--);
-                                    nListboxEntries--;
-                                }
-                            }
-                        }
-                        SetRedraw(TRUE);
-                    }
-                }
+                Delete (filepath, selIndex);
                 break;
             case IDSVNLC_IGNOREMASK:
                 {
@@ -4975,6 +4984,38 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
                     else
                         CopySelectedEntriesToClipboard(SVNSLC_COLFILEPATH);
                     return TRUE;
+                }
+            }
+            break;
+        case VK_DELETE:
+            {
+                if ((GetSelectedCount() > 0) && (m_dwContextMenus & SVNSLC_POPDELETE))
+                {
+                    int selIndex = GetSelectionMark();
+                    FileEntry * entry = GetListEntry (selIndex);
+                    ASSERT(entry != NULL);
+                    if (entry == NULL)
+                        break;
+
+                    bool bShift = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+                    switch (entry->status)
+                    {
+                        case svn_wc_status_unversioned: 
+                        case svn_wc_status_ignored: 
+                            Delete (entry->path, selIndex);
+                            return TRUE;
+
+                        case svn_wc_status_added:
+                            Revert (entry->path);
+                            return TRUE;
+
+                        case svn_wc_status_deleted:
+                            break;
+
+                        default:
+                            Remove (entry->path, bShift);
+                            return TRUE;
+                    }
                 }
             }
             break;
