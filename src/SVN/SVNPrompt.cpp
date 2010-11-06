@@ -293,36 +293,105 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 
     svn->m_bPromptShown = true;
     CString filename;
-    OPENFILENAME ofn = {0};             // common dialog box structure
-    TCHAR szFile[MAX_PATH] = {0};       // buffer for file name
-    // Initialize OPENFILENAME
-    ofn.lStructSize = sizeof(OPENFILENAME);
-    ofn.hwndOwner = svn->m_hParentWnd;
-    ofn.lpstrFile = szFile;
-    ofn.nMaxFile = _countof(szFile);
-    CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
-    ofn.lpstrFilter = fileFilter;
-    ofn.nFilterIndex = 1;
-    ofn.lpstrFileTitle = NULL;
-    ofn.nMaxFileTitle = 0;
-    ofn.lpstrInitialDir = NULL;
-    CString temp;
-    temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
-    CStringUtils::RemoveAccelerators(temp);
-    ofn.lpstrTitle = temp;
-    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLEHOOK | OFN_ENABLESIZING | OFN_EXPLORER;
-    ofn.lpfnHook = SVNPrompt::OFNHookProc;
 
-    // Display the Open dialog box.
-    svn->m_server.Empty();
-    if (!svn->m_bSuppressed && (GetOpenFileName(&ofn)==TRUE))
+    BOOL bOpenRet = FALSE;
+
+    HRESULT hr; 
+    // Create a new common save file dialog
+    CComPtr<IFileOpenDialog> pfd = NULL;
+    hr = pfd.CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER);
+    if (SUCCEEDED(hr))
     {
-        filename = CString(ofn.lpstrFile);
+        // Set the dialog options
+        DWORD dwOptions;
+        if (SUCCEEDED(hr = pfd->GetOptions(&dwOptions)))
+        {
+            hr = pfd->SetOptions(dwOptions | FOS_FILEMUSTEXIST | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
+        }
+
+        // Set a title
+        if (SUCCEEDED(hr))
+        {
+            CString temp;
+            temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
+            CStringUtils::RemoveAccelerators(temp);
+            pfd->SetTitle(temp);
+        }
+        CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
+
+        hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
+
+        CComPtr<IFileDialogCustomize> pfdCustomize;
+        hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+        if (SUCCEEDED(hr))
+        {
+            pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_SSL_SAVE_CERTPATH)), FALSE);
+        }
+
+        // Show the save file dialog
+        if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetExplorerHWND())))
+        {
+            CComPtr<IFileDialogCustomize> pfdCustomize;
+            hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+            if (SUCCEEDED(hr))
+            {
+                BOOL bChecked = FALSE;
+                pfdCustomize->GetCheckButtonState(101, &bChecked);
+                (*cred)->may_save = (bChecked!=0);
+            }
+
+            // Get the selection from the user
+            CComPtr<IShellItem> psiResult = NULL;
+            hr = pfd->GetResult(&psiResult);
+            if (SUCCEEDED(hr))
+            {
+                PWSTR pszPath = NULL;
+                hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                if (SUCCEEDED(hr))
+                {
+                    filename = CString(pszPath);
+                    bOpenRet = TRUE;
+                }
+            }
+        }
+    }
+    else
+    {
+        OPENFILENAME ofn = {0};             // common dialog box structure
+        TCHAR szFile[MAX_PATH] = {0};       // buffer for file name
+        // Initialize OPENFILENAME
+        ofn.lStructSize = sizeof(OPENFILENAME);
+        ofn.hwndOwner = svn->m_hParentWnd;
+        ofn.lpstrFile = szFile;
+        ofn.nMaxFile = _countof(szFile);
+        CSelectFileFilter fileFilter(IDS_CERTIFICATESFILEFILTER);
+        ofn.lpstrFilter = fileFilter;
+        ofn.nFilterIndex = 1;
+        ofn.lpstrFileTitle = NULL;
+        ofn.nMaxFileTitle = 0;
+        ofn.lpstrInitialDir = NULL;
+        CString temp;
+        temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
+        CStringUtils::RemoveAccelerators(temp);
+        ofn.lpstrTitle = temp;
+        ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLEHOOK | OFN_ENABLESIZING | OFN_EXPLORER;
+        ofn.lpfnHook = SVNPrompt::OFNHookProc;
+
+        // Display the Open dialog box.
+        svn->m_server.Empty();
+        bOpenRet = GetOpenFileName(&ofn);
+        if (bOpenRet)
+        {
+            filename = CString(ofn.lpstrFile);
+            (*cred)->may_save = ((ofn.Flags & OFN_READONLY)!=0);
+        }
+    }
+    if (!svn->m_bSuppressed && (bOpenRet==TRUE))
+    {
         cert_file = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(filename));
         /* Build and return the credentials. */
         *cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
         (*cred)->cert_file = cert_file;
-        (*cred)->may_save = ((ofn.Flags & OFN_READONLY)!=0);
 
         // the svn library doesn't have a save_credentials() function for cert files
         // (yet?). It would get implemented in subversion\libsvn_subr\ssl_client_cert_providers.c

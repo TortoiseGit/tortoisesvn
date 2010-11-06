@@ -502,52 +502,111 @@ void CCommonAppUtils::ExtendControlOverHiddenControl(CWnd* parent, UINT controlT
 
 bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT filterId, bool bOpen, HWND hwndOwner)
 {
-    OPENFILENAME ofn = {0};             // common dialog box structure
-    TCHAR szFile[MAX_PATH] = {0};       // buffer for file name. Explorer can't handle paths longer than MAX_PATH.
-    ofn.lStructSize = sizeof(OPENFILENAME);
-    ofn.hwndOwner = hwndOwner;
-    _tcscpy_s(szFile, MAX_PATH, (LPCTSTR)path);
-    ofn.lpstrFile = szFile;
-    ofn.nMaxFile = _countof(szFile);
-    CSelectFileFilter fileFilter;
-    if (filterId)
+    HRESULT hr; 
+    // Create a new common save file dialog
+    CComPtr<IFileDialog> pfd = NULL;
+
+    hr = pfd.CoCreateInstance(bOpen ? CLSID_FileOpenDialog : CLSID_FileSaveDialog, NULL, CLSCTX_INPROC_SERVER);
+    if (SUCCEEDED(hr))
     {
-        fileFilter.Load(filterId);
-        ofn.lpstrFilter = fileFilter;
+        // Set the dialog options
+        DWORD dwOptions;
+        if (SUCCEEDED(hr = pfd->GetOptions(&dwOptions)))
+        {
+            if (bOpen)
+                hr = pfd->SetOptions(dwOptions | FOS_FILEMUSTEXIST | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
+            else
+                hr = pfd->SetOptions(dwOptions | FOS_OVERWRITEPROMPT | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
+        }
+
+        // Set a title
+        if (SUCCEEDED(hr) && title)
+        {
+            CString temp;
+            temp.LoadString(title);
+            CStringUtils::RemoveAccelerators(temp);
+            pfd->SetTitle(temp);
+        }
+        if (filterId)
+        {
+            CSelectFileFilter fileFilter(filterId);
+
+            hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
+        }
+
+        // Show the save/open file dialog
+        if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(hwndOwner)))
+        {
+            // Get the selection from the user
+            CComPtr<IShellItem> psiResult = NULL;
+            hr = pfd->GetResult(&psiResult);
+            if (SUCCEEDED(hr))
+            {
+                PWSTR pszPath = NULL;
+                hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                if (SUCCEEDED(hr))
+                {
+                    path = CString(pszPath);
+                    if (filterindex)
+                    {
+                        UINT fi = 0;
+                        pfd->GetFileTypeIndex(&fi);
+                        *filterindex = fi;
+                    }
+                    return true;
+                }
+            }
+        }
     }
-    ofn.nFilterIndex = 1;
-    ofn.lpstrFileTitle = NULL;
-    ofn.nMaxFileTitle = 0;
-    ofn.lpstrInitialDir = NULL;
-    CString temp;
-    if (title)
-    {
-        temp.LoadString(title);
-        CStringUtils::RemoveAccelerators(temp);
-    }
-    ofn.lpstrTitle = temp;
-    if (bOpen)
-        ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_EXPLORER;
     else
-        ofn.Flags = OFN_OVERWRITEPROMPT | OFN_EXPLORER;
+    {
+        OPENFILENAME ofn = {0};             // common dialog box structure
+        TCHAR szFile[MAX_PATH] = {0};       // buffer for file name. Explorer can't handle paths longer than MAX_PATH.
+        ofn.lStructSize = sizeof(OPENFILENAME);
+        ofn.hwndOwner = hwndOwner;
+        _tcscpy_s(szFile, MAX_PATH, (LPCTSTR)path);
+        ofn.lpstrFile = szFile;
+        ofn.nMaxFile = _countof(szFile);
+        CSelectFileFilter fileFilter;
+        if (filterId)
+        {
+            fileFilter.Load(filterId);
+            ofn.lpstrFilter = fileFilter;
+        }
+        ofn.nFilterIndex = 1;
+        ofn.lpstrFileTitle = NULL;
+        ofn.nMaxFileTitle = 0;
+        ofn.lpstrInitialDir = NULL;
+        CString temp;
+        if (title)
+        {
+            temp.LoadString(title);
+            CStringUtils::RemoveAccelerators(temp);
+        }
+        ofn.lpstrTitle = temp;
+        if (bOpen)
+            ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_EXPLORER;
+        else
+            ofn.Flags = OFN_OVERWRITEPROMPT | OFN_EXPLORER;
 
 
-    // Display the Open dialog box.
-    bool bRet = false;
-    if (bOpen)
-    {
-        bRet = !!GetOpenFileName(&ofn);
-    }
-    else
-    {
-        bRet = !!GetSaveFileName(&ofn);
-    }
-    if (bRet)
-    {
-        path = CString(ofn.lpstrFile);
-        if (filterindex)
-            *filterindex = ofn.nFilterIndex;
-        return true;
+        // Display the Open dialog box.
+        bool bRet = false;
+        if (bOpen)
+        {
+            bRet = !!GetOpenFileName(&ofn);
+        }
+        else
+        {
+            bRet = !!GetSaveFileName(&ofn);
+        }
+        if (bRet)
+        {
+            path = CString(ofn.lpstrFile);
+            if (filterindex)
+                *filterindex = ofn.nFilterIndex;
+            return true;
+        }
     }
     return false;
 }

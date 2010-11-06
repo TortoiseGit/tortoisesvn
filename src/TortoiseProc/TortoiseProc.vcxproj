@@ -267,6 +267,7 @@
     <ClCompile Include="..\Utils\CommonAppUtils.cpp" />
     <ClCompile Include="..\Utils\IconExtractor.cpp" />
     <ClCompile Include="..\Utils\Libraries.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp" />
     <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="..\Utils\BugTraqAssociations.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
@@ -726,6 +727,7 @@
     <ClInclude Include="..\Utils\IInputValidator.h" />
     <ClInclude Include="..\Utils\Libraries.h" />
     <ClInclude Include="..\Utils\MiscUI\ControlsBridge.h" />
+    <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h" />
     <ClInclude Include="AppUtils.h" />
     <ClInclude Include="..\Utils\auto_buffer.h" />
     <ClInclude Include="..\Utils\BugTraqAssociations.h" />

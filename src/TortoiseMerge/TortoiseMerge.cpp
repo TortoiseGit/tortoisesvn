@@ -29,6 +29,7 @@
 #include "DirFileEnum.h"
 #include "auto_buffer.h"
 #include "SelectFileFilter.h"
+#include "FileDlgEventHandler.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -39,6 +40,26 @@
 BEGIN_MESSAGE_MAP(CTortoiseMergeApp, CWinAppEx)
     ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
 END_MESSAGE_MAP()
+
+class PatchOpenDlgEventHandler : public CFileDlgEventHandler
+{
+public:
+    PatchOpenDlgEventHandler() {}
+    ~PatchOpenDlgEventHandler() {}
+
+    virtual STDMETHODIMP OnButtonClicked(IFileDialogCustomize* pfdc, DWORD dwIDCtl)
+    {
+        if (dwIDCtl == 101)
+        {
+            CComQIPtr<IFileOpenDialog> pDlg = pfdc;
+            if (pDlg)
+            {
+                pDlg->Close(S_OK);
+            }
+        }
+        return S_OK;
+    }
+};
 
 
 CTortoiseMergeApp::CTortoiseMergeApp()
@@ -253,38 +274,146 @@ BOOL CTortoiseMergeApp::InitInstance()
         // the patchfile itself was not.
         // So ask the user for that patchfile
 
-        OPENFILENAME ofn = {0};         // common dialog box structure
-        TCHAR szFile[MAX_PATH] = {0};   // buffer for file name
-        // Initialize OPENFILENAME
-        ofn.lStructSize = sizeof(OPENFILENAME);
-        ofn.hwndOwner = pFrame->m_hWnd;
-        ofn.lpstrFile = szFile;
-        ofn.nMaxFile = _countof(szFile);
-        CString temp;
-        temp.LoadString(IDS_OPENDIFFFILETITLE);
-        if (temp.IsEmpty())
-            ofn.lpstrTitle = NULL;
-        else
-            ofn.lpstrTitle = temp;
-
-        ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY | OFN_EXPLORER;
-        if( HasClipboardPatch() ) {
-            ofn.Flags |= ( OFN_ENABLETEMPLATE | OFN_ENABLEHOOK );
-            ofn.hInstance = AfxGetResourceHandle();
-            ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
-            ofn.lpfnHook = CreatePatchFileOpenHook;
-        }
-
-        CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
-        ofn.lpstrFilter = fileFilter;
-        ofn.nFilterIndex = 1;
-
-        // Display the Open dialog box.
-        if (GetOpenFileName(&ofn)==FALSE)
+        HRESULT hr; 
+        // Create a new common save file dialog
+        CComPtr<IFileOpenDialog> pfd = NULL;
+        hr = pfd.CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER);
+        if (SUCCEEDED(hr))
         {
-            return FALSE;
+            // Set the dialog options
+            DWORD dwOptions;
+            if (SUCCEEDED(hr = pfd->GetOptions(&dwOptions)))
+            {
+                hr = pfd->SetOptions(dwOptions | FOS_FILEMUSTEXIST | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
+            }
+
+            // Set a title
+            if (SUCCEEDED(hr))
+            {
+                CString temp;
+                temp.LoadString(IDS_OPENDIFFFILETITLE);
+                pfd->SetTitle(temp);
+            }
+            CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
+            hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
+            bool bAdvised = false;
+            DWORD dwCookie = 0;
+            CComObjectStackEx<PatchOpenDlgEventHandler> cbk;
+            CComQIPtr<IFileDialogEvents> pEvents = cbk.GetUnknown();
+
+            {
+                CComPtr<IFileDialogCustomize> pfdCustomize;
+                hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
+                if (SUCCEEDED(hr))
+                {
+                    // check if there's a unified diff on the clipboard and
+                    // add a button to the fileopen dialog if there is.
+                    UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+                    if ((cFormat)&&(OpenClipboard(NULL)))
+                    {
+                        HGLOBAL hglb = GetClipboardData(cFormat);
+                        if (hglb)
+                        {
+                            pfdCustomize->AddPushButton(101, CString(MAKEINTRESOURCE(IDS_PATCH_COPYFROMCLIPBOARD)));
+                            hr = pfd->Advise(pEvents, &dwCookie);
+                            bAdvised = SUCCEEDED(hr);
+                        }
+                        CloseClipboard();
+                    }
+                }
+            }
+
+            // Show the save file dialog
+            if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(pFrame->m_hWnd)))
+            {
+                // Get the selection from the user
+                CComPtr<IShellItem> psiResult = NULL;
+                hr = pfd->GetResult(&psiResult);
+                if (bAdvised)
+                    pfd->Unadvise(dwCookie);
+                if (SUCCEEDED(hr))
+                {
+                    PWSTR pszPath = NULL;
+                    hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                    if (SUCCEEDED(hr))
+                    {
+                        pFrame->m_Data.m_sDiffFile = pszPath;
+                        CoTaskMemFree(pszPath);
+                    }
+                }
+                else
+                {
+                    // no result, which means we closed the dialog in our button handler
+
+                    UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+                    if ((cFormat)&&(OpenClipboard(NULL)))
+                    {
+                        HGLOBAL hglb = GetClipboardData(cFormat);
+                        LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
+
+                        DWORD len = GetTempPath(0, NULL);
+                        auto_buffer<TCHAR> path(len+1);
+                        auto_buffer<TCHAR> tempF(len+100);
+                        GetTempPath (len+1, path);
+                        GetTempFileName (path, TEXT("tsm"), 0, tempF);
+                        std::wstring sTempFile = std::wstring(tempF);
+
+                        FILE * outFile;
+                        size_t patchlen = strlen(lpstr);
+                        _tfopen_s(&outFile, sTempFile.c_str(), _T("wb"));
+                        if(outFile)
+                        {
+                            fwrite(lpstr, sizeof(char), patchlen, outFile);
+                            fclose(outFile);
+                        }
+                        GlobalUnlock(hglb);
+                        CloseClipboard();
+                        pFrame->m_Data.m_sDiffFile = sTempFile.c_str();
+                    }
+                }
+            }
+            else
+            {
+                if (bAdvised)
+                    pfd->Unadvise(dwCookie);
+                return FALSE;
+            }
         }
-        pFrame->m_Data.m_sDiffFile = ofn.lpstrFile;
+        else
+        {
+            OPENFILENAME ofn = {0};         // common dialog box structure
+            TCHAR szFile[MAX_PATH] = {0};   // buffer for file name
+            // Initialize OPENFILENAME
+            ofn.lStructSize = sizeof(OPENFILENAME);
+            ofn.hwndOwner = pFrame->m_hWnd;
+            ofn.lpstrFile = szFile;
+            ofn.nMaxFile = _countof(szFile);
+            CString temp;
+            temp.LoadString(IDS_OPENDIFFFILETITLE);
+            if (temp.IsEmpty())
+                ofn.lpstrTitle = NULL;
+            else
+                ofn.lpstrTitle = temp;
+
+            ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY | OFN_EXPLORER;
+            if( HasClipboardPatch() ) {
+                ofn.Flags |= ( OFN_ENABLETEMPLATE | OFN_ENABLEHOOK );
+                ofn.hInstance = AfxGetResourceHandle();
+                ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
+                ofn.lpfnHook = CreatePatchFileOpenHook;
+            }
+
+            CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
+            ofn.lpstrFilter = fileFilter;
+            ofn.nFilterIndex = 1;
+
+            // Display the Open dialog box.
+            if (GetOpenFileName(&ofn)==FALSE)
+            {
+                return FALSE;
+            }
+            pFrame->m_Data.m_sDiffFile = ofn.lpstrFile;
+        }
     }
 
     if ( pFrame->m_Data.m_baseFile.GetFilename().IsEmpty() && pFrame->m_Data.m_yourFile.GetFilename().IsEmpty() )
