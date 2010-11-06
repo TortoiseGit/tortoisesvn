@@ -2255,6 +2255,8 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
         return false;
 
     CString targetName = pathlist[0].GetFileOrDirectoryName();
+    bool sameParent = pathlist[0].GetContainingDirectory() == target;
+
     if (m_bRightDrag)
     {
         // right dragging means we have to show a context menu
@@ -2265,19 +2267,26 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
         CMenu popup;
         if (popup.CreatePopupMenu())
         {
-            CString temp(MAKEINTRESOURCE(IDS_REPOBROWSE_COPYDROP));
-            popup.AppendMenu(MF_STRING | MF_ENABLED, 1, temp);
-            if (PathIsURL(pathlist[0]))
+            CString temp;
+            if (!sameParent)
             {
-                temp.LoadString(IDS_REPOBROWSE_MOVEDROP);
-                popup.AppendMenu(MF_STRING | MF_ENABLED, 2, temp);
+                temp.LoadString(IDS_REPOBROWSE_COPYDROP);
+                popup.AppendMenu(MF_STRING | MF_ENABLED, 1, temp);
+                if (PathIsURL(pathlist[0]))
+                {
+                    temp.LoadString(IDS_REPOBROWSE_MOVEDROP);
+                    popup.AppendMenu(MF_STRING | MF_ENABLED, 2, temp);
+                }
             }
+
             if ((pathlist.GetCount() == 1)&&(PathIsURL(pathlist[0])))
             {
                 // these entries are only shown if *one* item was dragged, and if the
                 // item is not one dropped from e.g. the explorer but from the repository
                 // browser itself.
-                popup.AppendMenu(MF_SEPARATOR, 3);
+                if (!sameParent)
+                    popup.AppendMenu(MF_SEPARATOR, 3);
+
                 temp.LoadString(IDS_REPOBROWSE_COPYRENAMEDROP);
                 popup.AppendMenu(MF_STRING | MF_ENABLED, 4, temp);
                 temp.LoadString(IDS_REPOBROWSE_MOVERENAMEDROP);
@@ -2300,6 +2309,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     CRenameDlg dlg;
                     dlg.m_name = targetName;
                     dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_RENAME);
+                    dlg.SetRenameRequired(sameParent);
                     CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
                     if (dlg.DoModal() != IDOK)
                         return false;
@@ -2317,6 +2327,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     CRenameDlg dlg;
                     dlg.m_name = targetName;
                     dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_RENAME);
+                    dlg.SetRenameRequired(sameParent);
                     CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
                     if (dlg.DoModal() != IDOK)
                         return false;
@@ -3262,7 +3273,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 CRenameDlg dlg;
                 dlg.m_name = path.GetSVNPathString();
                 dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
-                dlg.AlwaysEnableOkButton(!GetRevision().IsHead());
+                dlg.SetRenameRequired(GetRevision().IsHead());
                 CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
                 if (dlg.DoModal() == IDOK)
                 {

@@ -32,8 +32,8 @@ public:
     CRenameDlg(CWnd* pParent = NULL);
     virtual ~CRenameDlg();
 
-    void AlwaysEnableOkButton(bool bAlwaysEnable = false) { m_bOKEnabled = bAlwaysEnable; }
     void SetInputValidator(IInputValidator * validator) { m_pInputValidator = validator; }
+    void SetRenameRequired(bool renameRequired) { m_renameRequired = renameRequired; }
     enum { IDD = IDD_RENAME };
 
 protected:
@@ -53,6 +53,7 @@ public:
     CString m_label;
 
 private:
-    bool                m_bOKEnabled;
+    bool                m_renameRequired;
+    CString             m_originalName;
     IInputValidator *   m_pInputValidator;
 };

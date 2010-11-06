@@ -29,7 +29,7 @@ IMPLEMENT_DYNAMIC(CRenameDlg, CResizableStandAloneDialog)
 CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRenameDlg::IDD, pParent)
     , m_name(_T(""))
-    , m_bOKEnabled(false)
+    , m_renameRequired(true)
     , m_pInputValidator(NULL)
 {
 }
@@ -73,7 +73,8 @@ BOOL CRenameDlg::OnInitDialog()
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("RenameDlg"));
-    if (!m_bOKEnabled)
+    m_originalName = m_name;
+    if (m_renameRequired)
         GetDlgItem(IDOK)->EnableWindow(FALSE);
     return TRUE;
 }
@@ -124,5 +125,8 @@ void CRenameDlg::OnSizing(UINT fwSide, LPRECT pRect)
 void CRenameDlg::OnEnChangeName()
 {
     UpdateData();
-    GetDlgItem(IDOK)->EnableWindow(!m_name.IsEmpty());
+
+    bool nameAllowed =    ((m_originalName != m_name) || !m_renameRequired)
+                       && !m_name.IsEmpty();
+    GetDlgItem(IDOK)->EnableWindow (nameAllowed);
 }
