@@ -679,25 +679,25 @@ CSVNStatusListCtrl::AddNewFileEntry(
         if (infodata)
         {
             CTSVNPath cpath;
-            if (infodata->conflict_wrk)
+            if (!infodata->conflict_wrk.IsEmpty())
             {
                 cpath = path.GetDirectory();
                 cpath.AppendPathString(infodata->conflict_wrk);
                 m_ConflictFileList.AddPath(cpath);
             }
-            if (infodata->conflict_old)
+            if (!infodata->conflict_old.IsEmpty())
             {
                 cpath = path.GetDirectory();
                 cpath.AppendPathString(infodata->conflict_old);
                 m_ConflictFileList.AddPath(cpath);
             }
-            if (infodata->conflict_new)
+            if (!infodata->conflict_new.IsEmpty())
             {
                 cpath = path.GetDirectory();
                 cpath.AppendPathString(infodata->conflict_new);
                 m_ConflictFileList.AddPath(cpath);
             }
-            if (infodata->prejfile)
+            if (!infodata->prejfile.IsEmpty())
             {
                 cpath = path.GetDirectory();
                 cpath.AppendPathString(infodata->prejfile);
