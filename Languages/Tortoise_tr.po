@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-10-14 11:03+0200\n"
+"PO-Revision-Date: 2010-11-08 14:27+0200\n"
 "Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -610,6 +610,10 @@ msgstr "&Panoya kopyala"
 #. Resource IDs: (101)
 msgid "&Copy to..."
 msgstr "&Buraya Kopyala..."
+
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr "&Dizin yapısı oluştur"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -1224,6 +1228,10 @@ msgstr "&Depodaki belirli bir revizyon"
 #. Resource IDs: (16917)
 msgid "&Start Group"
 msgstr "&Grup Başlat"
+
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr "&Depo tarayıcısını başlat"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -2141,6 +2149,10 @@ msgstr "İ&ncele..."
 msgid "Back"
 msgstr "Geri"
 
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr "Arkaplan"
+
 #. Resource IDs: (246)
 msgid "Bar Graph"
 msgstr "Diyagram (Çubuk)"
@@ -2983,6 +2995,10 @@ msgstr "Kopyala ve tekrar adlandır"
 msgid "Copy and rename item to here"
 msgstr "Buraya kopyala ve tekrar adlandır"
 
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr "Sütunu panoya kopyala"
+
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
 msgstr "Hata mesajlarını panoya kopyala"
@@ -3361,6 +3377,10 @@ msgstr "Varsayılan URL:"
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
 msgstr "Varsayılan uygulama menüsü. Hiçbir belge açık değilken görünür."
+
+#. Resource IDs: (81)
+msgid "Default directory structure successfully created!"
+msgstr "Varsayılan dizin yapısı başarıyla oluşturuldu!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4870,6 +4890,14 @@ msgstr "ID:32825:V C +L"
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+msgid "ID:32870:V C +L"
+msgstr "ID:32870:V C +L"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+msgid "ID:32881:V C +P"
+msgstr "ID:32881:V C +P"
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5597,6 +5625,10 @@ msgstr ""
 #. Resource IDs: (32854)
 msgid "Locator Bar"
 msgstr "Konum Bulma Çubuğu"
+
+#. Resource IDs: (65535)
+msgid "Locator bar"
+msgstr "Adres çubuğu"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -7462,6 +7494,10 @@ msgstr "Depo dizini"
 msgid "Repository UUID:"
 msgstr "Depo UUID"
 
+#. Resource IDs: (324)
+msgid "Repository created"
+msgstr "Depo oluşturuldu"
+
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
 msgstr "İstek TSVN tarafından reddedildi"
@@ -7840,6 +7876,10 @@ msgstr "%1 'e yapılan değişiklikler kaydedilsin mi?"
 #. Resource IDs: (232)
 msgid "Save client certificate path"
 msgstr "Müşteri sertifikasinin dizinini kaydet"
+
+#. Resource IDs: (617)
+msgid "Save in Git format"
+msgstr "Git formatında kaydet"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -9996,7 +10036,7 @@ msgstr "Çalışan kopya dosyasını şu anki revizyonla günceller"
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
-msgstr "%s Güncelleniyor"
+msgstr "%s güncelleniyor"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
@@ -10418,7 +10458,7 @@ msgstr "Evet"
 
 #. Resource IDs: (145)
 msgid "Yes to all"
-msgstr "Tümünü evet"
+msgstr "Tümüne evet"
 
 #. Resource IDs: (201)
 msgid "You already have the latest version installed."
@@ -10523,11 +10563,11 @@ msgstr ""
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
-msgstr "%d adet araç tanımlayabilirsiniz."
+msgstr "%d adede kadar araç tanımlayabilirsiniz."
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
-msgstr "Değişikliklerin çalişması için sisteminizi tekrar başlatınız."
+msgstr "Değişikliklerin etkin olması için sisteminizi tekrar başlatmalısınız."
 
 #. Resource IDs: (77)
 msgid ""
@@ -11153,7 +11193,7 @@ msgstr "revizyonlar %1!s!-%2!s!, %3!s!"
 
 #. Resource IDs: (65535)
 msgid "revisions: "
-msgstr "Revizyonlar:"
+msgstr "revizyonlar:"
 
 #. Resource IDs: (214)
 msgid "root project"
@@ -11318,7 +11358,7 @@ msgstr "değiştirildi:"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
-msgstr "Geçici çevrimdışı"
+msgstr "geçici çevrimdışı"
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "
@@ -11605,9 +11645,6 @@ msgstr "{HataTakibi}"
 
 #~ msgid "Check externals to tag"
 #~ msgstr "Etiketlemek için haricileri kontrol et"
-
-#~ msgid "The repository was successfully created."
-#~ msgstr "Depo başarılı bir şekilde oluşturuldu."
 
 #~ msgid "tree conflict:"
 #~ msgstr "ağaç çakışması:"
