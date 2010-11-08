@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-08 19:44 +0000\n"
-"PO-Revision-Date: 2010-10-17 20:04+0200\n"
+"POT-Creation-Date: 2010-10-30 16:35 +0000\n"
+"PO-Revision-Date: 2010-11-09 01:09+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -417,12 +417,16 @@ msgid "System requirements"
 msgstr "Järjestelmävaatimukset"
 
 #. (para)
-msgid "TortoiseSVN runs on Windows XP with service pack 3 or higher and is available in both 32-bit and 64-bit flavours. If you are running 64-bit Windows you may want to install both versions."
-msgstr "TortoiseSVN toimii Windows XP SP3 -käyttöjärjestelmässä ja sitä uudemmissa Windows-versioissa. Se on saatavana sekä 32- että 64-bittisenä versiona. Jos käytät 64-bittistä Windows-versiota, saatat haluta asentaa molemmat versiot."
+msgid "TortoiseSVN runs on Windows XP with service pack 3 or higher and is available in both 32-bit and 64-bit flavours. The installer for 64-bit Windows also includes the 32-bit extension parts. Which means you don't need to install the 32-bit version separately to get the TortoiseSVN context menu and overlays in 32-bit applications."
+msgstr "TortoiseSVN toimii Windows XP SP3 -käyttöjärjestelmässä ja sitä uudemmissa Windows-versioissa. Se on saatavana sekä 32- että 64-bittisenä versiona. 64-bittinen asennusohjelma sisältää myös 32-bittiset laajennusosat. Tästä syystä 32-bittisen version asentaminen erikseen (jotta TortoiseSVN-komennot saadaan käyttöön 32-bittisissä sovelluksissa) on tarpeetonta."
 
 #. (para)
-msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download and install older versions if you need them."
-msgstr "Tuki Windows 98, Windows ME ja Windows NT4 -käyttöjärjestelmille loppui versiossa 1.2.0; Windows 2000 -tuki puolestaan loppui versiossa 1.7.0. Voit yhä asentaa jonkun näistä vanhemmista versioista, mikäli tarvitset niitä."
+msgid "If you're using Windows XP, you <em>must</em> have at least the service pack 3 installed. It won't work if you haven't installed that SP yet!"
+msgstr "Jos käytät Windows XP-ympäristöä, sinun <em>täytyy</em> asentaa vähintään SP3. TortoiseSVN ei toimi, mikäli SP3 ei ole asennettu!"
+
+#. (para)
+msgid "Support for Windows 98, Windows ME and Windows NT4 was dropped in version 1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You can still download and install older versions if you need them."
+msgstr "Tuki Windows 98, Windows ME ja Windows NT4 -käyttöjärjestelmille loppui versiossa 1.2.0; Windows 2000 -tuki sekä Windows XP SP2 -tuki puolestaan loppui versiossa 1.7.0. Voit yhä asentaa jonkun näistä vanhemmista versioista, mikäli tarvitset niitä."
 
 #. (title)
 msgid "Installation"
@@ -3671,20 +3675,20 @@ msgstr "Tämä on se tiedosto, jonka Subversion-asiakas vastaanotti palvelimelta
 #. (para)
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
-"    &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"        your changes\n"
-"    =======\n"
-"        code merged from repository\n"
-"    &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"    </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
+"&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"    your changes\n"
+"=======\n"
+"    code merged from repository\n"
+"&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
 "Tiedostoristiriita syntyy, kun kaksi tai useampi kehittäjä on muuttanut samoja rivejä jossain tiedostossa. Koska Subversion ei tiedä mitään projektistasi, se jättää ristiriitojen ratkonnan kehittäjän vastuulle. Aina kun ristiriita raportoidaan, sinun kannattaa avata kyseinen tiedosto ja etsiä rivejä, jotka alkavat merkkijonolla <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Ristiriitainen alue merkitään seuraavasti: <screen>\n"
-"    &lt;&lt;&lt;&lt;&lt;&lt;&lt; tiedostonimi\n"
-"        sinun muutoksesi\n"
-"    =======\n"
-"        arkistosta yhdistetyt muutokset\n"
-"    &gt;&gt;&gt;&gt;&gt;&gt;&gt; versio\n"
-"    </screen> Tämän lisäksi Subversion luo jokaista ristiriitaista tiedostoa kohti kolme ylimääräistä tiedostoa hakemistoosi: <placeholder-1/>"
+" &lt;&lt;&lt;&lt;&lt;&lt;&lt; tiedostonimi\n"
+"    sinun muutoksesi\n"
+"=======\n"
+"    arkistosta yhdistetyt muutokset\n"
+"&gt;&gt;&gt;&gt;&gt;&gt;&gt; versio\n"
+"</screen> Tämän lisäksi Subversion luo jokaista ristiriitaista tiedostoa kohti kolme ylimääräistä tiedostoa hakemistoosi: <placeholder-1/>"
 
 #. (para)
 msgid "You can either launch an external merge tool / conflict editor with <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit Conflicts</guimenuitem></menuchoice> or you can use any other editor to manually resolve the conflict. You should decide what the code should look like, do the necessary changes and save the file."
@@ -3701,6 +3705,18 @@ msgstr "Jos sinulla on ristiriitoja binääritiedostojen kanssa, Subversion ei y
 #. (para)
 msgid "You can use the Resolved command for multiple files if you right click on the parent folder and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice> This will bring up a dialog listing all conflicted files in that folder, and you can select which ones to mark as resolved."
 msgstr "Voit käyttää Merkitse ratkaistuksi -komentoa useille tiedostoille, jos valitset yläkansion ja sieltä komennon  <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merkitse ratkaistuksi...</guimenuitem></menuchoice> Komento näyttää ikkunan, jossa luetellaan kaikki ristiriitaiset tiedostot; voit sitten valita, mitkä niistä merkitään ratkaistuiksi."
+
+#. (title)
+msgid "Property Conflicts"
+msgstr "Ominaisuusristiriidat"
+
+#. (para)
+msgid "A property conflict occurs when two or more developers have changed the same property. As with file content, resolving the conflict can only be done by the developers."
+msgstr "Ominaisuusristiriita syntyy, kun kaksi (tai useampia) kehittäjää on muuttanut samaa ominaisuutta. Kuten tiedostoristiriidan tapauksessa, ristiriidan voi ratkoa vain kehittäjä."
+
+#. (para)
+msgid "If one of the changes must override the other then choose the option to <guilabel>Resolve using local property</guilabel> or <guilabel>Resolve using remote property</guilabel>. If the changes must be merged then select <guilabel>Manually edit property</guilabel>, sort out what the property value should be and mark as resolved."
+msgstr "Jos jokin muutoksista korvaa toisen, valitse toinen vaihtoehdoista <guilabel>Ratkaise käyttämällä paikallista ominaisuutta</guilabel> tai <guilabel>Ratkaise käyttämällä etäominaisuutta</guilabel>. Mikäli muutokset on yhdistettävä, valitse <guilabel>Muokkaa ominaisuutta</guilabel>, tee tarvittavat muutokset ja merkitse ristiriita ratkaistuksi."
 
 #. (title)
 msgid "Tree Conflicts"
@@ -4036,6 +4052,22 @@ msgstr "Nyt kun Tortoise-tyyppisiä ohjelmia on useita (TortoiseCVS, TortoiseHG,
 #. (para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
 msgstr "Lisätietoa siitä, miten kuvakepäällykset vastaavat Subversion-tiloja sekä muita teknisiä yksityiskohtia löytyy luvusta <xref linkend=\"tsvn-app-internals-overlays\"/>."
+
+#. (title)
+msgid "Detailed Status"
+msgstr "Yksityiskohtaiset tilatiedot"
+
+#. (primary)
+msgid "windows properties"
+msgstr "Windows-ominaisuudet"
+
+#. (title)
+msgid "Explorer property page, Subversion tab"
+msgstr "Resurssienhallinnan ominaisuudet, Subversion-sivu"
+
+#. (para)
+msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
+msgstr "<placeholder-1/> Joskus on tarpeen saada yksityiskohtaisempaa tietoa tiedostosta/kansiosta kuin mitä pelkkä kuvakepäällys tarjoaa. Nämä tiedot löytyvät Resurssienhallinnan ominaisuuksien Subversion-sivulta. Valitse tiedosto tai kansio ja anna komento <menuchoice><guimenu>Windows-valikko</guimenu><guimenuitem>Ominaisuudet</guimenuitem></menuchoice> kontekstivalikossa (huomaa: tämä on Resurssienhallinnan tavallinen Ominaisuudet-komento, ei TortoiseSVN-alivalikosta löytyvä!). Ominaisuudet-ikkunassa on TortoiseSVN:n lisäämä sivu versioiduille tiedostoille/kansioille, jossa näet kaikki oleelliset tiedot."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
@@ -5803,18 +5835,6 @@ msgstr "Siivoamisella on toinen hyödyllinen sivuvaikutus. Jos tiedoston päivä
 msgid "Project Settings"
 msgstr "Projektiasetukset"
 
-#. (primary)
-msgid "properties"
-msgstr "ominaisuudet"
-
-#. (title)
-msgid "Explorer property page, Subversion tab"
-msgstr "Resurssienhallinnan ominaisuudet, Subversion-sivu"
-
-#. (para)
-msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
-msgstr "<placeholder-1/> Joskus on tarpeen saada yksityiskohtaisempaa tietoa tiedostosta/kansiosta kuin mitä pelkkä kuvakepäällys tarjoaa. Nämä tiedot löytyvät Resurssienhallinnan ominaisuuksien Subversion-sivulta. Valitse tiedosto tai kansio ja anna komento <menuchoice><guimenu>Windows-valikko</guimenu><guimenuitem>Ominaisuudet</guimenuitem></menuchoice> kontekstivalikossa (huomaa: tämä on Resurssienhallinnan tavallinen Ominaisuudet-komento, ei TortoiseSVN-alivalikosta löytyvä!). Ominaisuudet-ikkunassa on TortoiseSVN:n lisäämä sivu versioiduille tiedostoille/kansioille, jossa näet kaikki oleelliset tiedot."
-
 #. (title)
 msgid "Subversion Properties"
 msgstr "Subversion-ominaisuudet"
@@ -5888,8 +5908,8 @@ msgid "Adding properties"
 msgstr "Ominaisuuksien lisääminen"
 
 #. (para)
-msgid "<placeholder-1/> To add a new property, first click on <guilabel>New...</guilabel>. Select the required property name from the menu, and then fill in the required information in the specific property dialog."
-msgstr "<placeholder-1/> Lisätäksesi uuden ominaisuuden, napsauta <guilabel>Lisää...</guilabel>. Valitse ominaisuuden nimi valikosta ja syötä tarvittavat tiedot."
+msgid "<placeholder-1/> To add a new property, first click on <guilabel>New...</guilabel>. Select the required property name from the menu, and then fill in the required information in the specific property dialog. These specific property dialogs are described in more detail in <xref linkend=\"tsvn-dug-propertypage-editors\"/>."
+msgstr "<placeholder-1/> Lisätäksesi uuden ominaisuuden, napsauta ensin <guilabel>Lisää...</guilabel>. Valitse ominaisuuden nimi valikosta ja syötä tarvittavat tiedot ominaisuuskohtaisesti. Ominaisuuskohtaiset syöttöikkunat on kuvattu tarkemmin luvussa  <xref linkend=\"tsvn-dug-propertypage-editors\"/>."
 
 #. (para)
 msgid "To add a property that doesn't have its own dialog, choose <guimenuitem>Advanced</guimenuitem> from the <guilabel>New...</guilabel> menu. Then either select an existing property in the combo box or enter a custom property name."
@@ -6179,6 +6199,121 @@ msgstr "<literal>tsvn:autoprops</literal> <emphasis>ei</emphasis> aseta ominaisu
 #. (para)
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
 msgstr "Vaikka TortoiseSVN:n projektiominaisuudet ovat varsin hyödyllisiä, ne toimivat vain TortoiseSVN-ohjelmassa (ja jotkut eivät edes kaikissa versioissa). Jos projektissasi käytetään useita Subversion-asiakkaita (tai eri TortoiseSVN-versioita), saatat haluta asentaa palvelimellle toimintokomentojonoja pakottamaan halutut projektikäytännöt. Projektiominaisuudet voivat vain auttaa käytännön toteuttamisessa, ei siihen pakottamisessa."
+
+#. (title)
+msgid "Property Editors"
+msgstr "Ominaisuuksen muokkaaminen"
+
+#. (para)
+msgid "Some properties have to use specific values, or be formatted in a specific way in order to be used for automation. To help get the formatting correct, TortoiseSVN presents edit dialogs for some particular properties which show the possible values or break the property into its individual components."
+msgstr "Tietyillä ominaisuuksilla sallittujen arvojen joukko tai arvomuoto on rajoitettu. TortoiseSVN käyttää näiden ominaisuuksien muokkaamiseen erityisiä ikkunoita, jotka näyttävät sallitut arvot tai näyttävät ominaisuuden osat."
+
+#. (title)
+msgid "External Content"
+msgstr "Ulkoinen sisältö"
+
+#. (title)
+msgid "svn:externals property page"
+msgstr "svn:externals -ominaisuussivu"
+
+#. (para)
+msgid "<placeholder-1/> The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository as described in <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr "<placeholder-1/> Ominaisuutta <literal>svn:externals</literal> voidaan käyttää toisten, samassa tai eri arkistossa olevien projektien kytkemiseksi työkopioon. Lue lisää luvusta <xref linkend=\"tsvn-dug-externals\"/>."
+
+#. (para)
+msgid "You need to define the name of the sub-folder that the external folder is checked out as, and the subversion URL of the external item. You can check out an external at its HEAD revision, so when the external item changes in the repository, your working copy will receive those changes on update. However, if you want the external to reference a particular stable point then you can specify the specific revision to use. IN this case you may also want to specify the same revision as a peg revision. If the external item is renamed at some point in the future then Subversion will not be able to update this item in your working copy. By specifying a peg revision you tell Subversion to look for an item that had that name at the peg revision rather than at HEAD."
+msgstr "Sinun on määritettävä sen alihakemiston nimi, johon ulkoinen viite noudetaan, sekä ulkoisen viitteen Subversion-paikannin. Voit kytkeä ulkoisen viitteen HEAD-versioon, jolloin työkopioosi lisätään päivityksen yhteydessä automaattisesti ulkoisen viitteen muutokset. Voit myös kytkeä ulkoisen viitteen johonkin kiinteään versionumeroon. Tässä tapauksessa saatat myös haluta antaa saman version ankkuriversioksi, koska jos ulkoinen viite nimetään uudelleen tulevaisuudessa, Subversion ei kykene päivittämään viitettä työkopioosi. Määrittämällä ankkuriversion Subversionille, että ulkoisen viitteen nimeä on etsittävä sellaisena, kun se oli ankkuriversiossa (ankkuriversion oletusarvo on HEAD)."
+
+#. (title)
+msgid "SVN Keywords"
+msgstr "SVN-avainsanat"
+
+#. (title)
+msgid "svn:keywords property page"
+msgstr "svn:keywords -ominaisuussivu"
+
+#. (para)
+msgid "<placeholder-1/> Select the keywords that you would like to be expanded in your file."
+msgstr "<placeholder-1/> Valitse avainsanat, jotka haluat laajentaa tiedostossasi."
+
+#. (title)
+msgid "EOL Style"
+msgstr "Rivinvaihtotyyli"
+
+#. (title)
+msgid "svn:eol-style property page"
+msgstr "svn:eol-style -ominaisuussivu"
+
+#. (para)
+msgid "<placeholder-1/> Select the end-of-line style that you wish to use and TortoiseSVN will use the correct property value."
+msgstr "<placeholder-1/> Valitse haluamasi rivinlopetustyyli; TortoiseSVN valitsee soveltuvan ominaisuusarvon."
+
+#. (title)
+#. (title)
+msgid "Issue Tracker Integration"
+msgstr "Kytkeytyminen vikaseurantaohjelmiin"
+
+#. (title)
+msgid "tsvn:bugtraq property page"
+msgstr "tsvn:bugtraq -ominaisuussivu"
+
+#. (title)
+msgid "Log Message Sizes"
+msgstr "Lokiviestien koot"
+
+#. (title)
+msgid "Size of log messages property page"
+msgstr "Lokiviestien ominaisuussivun koko"
+
+#. (para)
+msgid "<placeholder-1/> These 3 properties control the formatting of log messages. The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock dialogs until the message meets the minimum length. The border position shows a marker at the given column width as a guide for projects which have width limits on their log messages. Setting a value to zero will delete the property."
+msgstr "<placeholder-1/> Nämä kolme ominaisuutta ohjaavat lokiviestien muotoilua. Ensimmäiset kaksi poistavat  <guibutton>OK</guibutton>-painikkeen käytöstä toimitus- ja lukitusikkunoissa, kunnes toimitusviesti on riittävän pitkä. Reuna-asema näyttää sarkainmerkin asetetun sarakeleveyden kohdalla, mikäli projekti käyttää lokiviesteille leveysrajoitusta. Arvon nollaus poistaa ominaisuuden käytöstä."
+
+#. (title)
+msgid "Project Language"
+msgstr "Projektin kieli"
+
+#. (title)
+msgid "Language property page"
+msgstr "Kielen ominaisuussivu"
+
+#. (para)
+msgid "<placeholder-1/> Choose the language to use for spell-checking log messages in the commit dialog. The file lists checkbox comes into effect when you right click in the log message pane and select <guilabel>Paste file list</guilabel>. By default the subversion status will be shown in your local language. When this box is checked the status is always given in English, for projects which require English-only log messages."
+msgstr "<placeholder-1/> Valitse lokiviestien tavutuksen tarkastuksessa käytettävä kieli. Tiedostolistauksen valintaa käytetään, kun napsautat hiiren oikealla painikkeella lokiviestipaneelissa ja valitset toiminnon <guilabel>Liitä tiedostoluettelo</guilabel>. Oletusarvoisesti Subversion-tilatiedoissa käytetään asennuskieltä. Kun tämä valinta on asetettu, tilatiedot näytetään aina englanniksi. Tästä on hyötyä projekteille, joiden lokiviestien on oltava aina englanninkielisiä."
+
+#. (title)
+msgid "MIME-type"
+msgstr "MIME-tyyppi"
+
+#. (title)
+msgid "svn:mime-type property page"
+msgstr "svn:mime-type -ominaisuussivu"
+
+#. (title)
+#. (literal)
+#. (literal)
+msgid "svn:needs-lock"
+msgstr "svn:needs-lock"
+
+#. (title)
+msgid "svn:needs-lock property page"
+msgstr "svn:needs-lock -ominaisuussivu"
+
+#. (para)
+msgid "<placeholder-1/> This property simply controls whether a file will be checked out as read-only if there is no lock held for it in the working copy."
+msgstr "<placeholder-1/> Tämä ominaisuus määrittää, asetetaanko tiedosto arkistosta noudettaessa 'vain luku'-tilaan, vaikka sillä ei olisi lukkoa."
+
+#. (title)
+msgid "svn:executable"
+msgstr "svn:executable"
+
+#. (title)
+msgid "svn:executable property page"
+msgstr "svn:executable -ominaisuussivu"
+
+#. (para)
+msgid "<placeholder-1/> This property controls whether a file will be given executable status when checked out on a Unix/Linux system. It has no effect on a Windows checkout."
+msgstr "<placeholder-1/> Tämä ominaisuus määrittää, merkitäänkö tiedosto arkistosta noudettaessa suoritettavaksi (vain Linux/unix). Ominaisuus ei tee mitään Windows-ympäristössä."
 
 #. (title)
 msgid "External Items"
@@ -6954,7 +7089,7 @@ msgid "Select the file(s) in your working copy for which you want to acquire a l
 msgstr "Valitse työkopiostasi tiedostot, jotka haluat lukita ja anna sitten komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Lukitse...</guimenuitem></menuchoice> <placeholder-1/> Voit syöttää esiin aukeavaan ikkunaan lukitussyyn, jotta muut näkevät, miksi lukitsit tiedoston. Lukitussyy on vapaaehtoinen ja nykyisin käytössä vain Svnserve-pohjaisissa arkistoissa. Jos (ja  <emphasis>vain</emphasis> jos) joudut ottamaan lukon joltakin toiselta kehittäjältä, ruksaa valinta <guilabel>Varasta lukko</guilabel> ja napsauta sitten <guibutton>OK</guibutton>."
 
 #. (para)
-msgid "You can set the project property <literal>tsvn:logtemplatelock</literal> to provide a templated message for users to fill in as the lock message. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties."
+msgid "You can set the project property <literal>tsvn:logtemplatelock</literal> to provide a message template for users to fill in as the lock message. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties."
 msgstr "Voit asettaa projektiominaisuuden <literal>tsvn:logtemplatelock</literal> asettaaksesi oletusarvoisen lukitusviestin. Katso <xref linkend=\"tsvn-dug-propertypage\"/> saadaksesi lisätietoa ominaisuuksien asettamisesta."
 
 #. (para)
@@ -7804,8 +7939,12 @@ msgid "The Relocate Dialog"
 msgstr "Uudelleensijoitusikkuna"
 
 #. (para)
-msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it scans all <filename>entries</filename> files in the <filename>.svn</filename> folder and changes the URL of the entries to the new value."
-msgstr "<placeholder-1/> Jos arkistosi on jostain syystä vaihtanut sijaintiaan (IP-osoite/paikannin), saatat olla jumissa etkä voi toimittaa muutoksiasi arkistoon - toisaalta et myöskään halua hakea tuoretta työkopiota uudesta paikasta joutuaksesi vain siirtämään muuttuneet tiedot uuteen työkopioon. Tällöin komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Sijoita työkopio uudelleen...</guimenuitem></menuchoice> on tarpeen. Komento käy läpi kaikki <filename>entries</filename>-tiedostot <filename>.svn</filename>-kansioissa ja muuttaa paikantimet uuteen arvoon."
+msgid "<placeholder-1/> If your repository has for some reason changed it's location (IP/URL). Maybe you're even stuck and can't commit and you don't want to checkout your working copy again from the new location and to move all your changed data back into the new working copy, <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</guimenuitem></menuchoice> is the command you are looking for. It basically does very little: it rewrites all urls that are associated with each file and folder with the new url."
+msgstr "<placeholder-1/> Jos arkistosi on jostain syystä vaihtanut sijaintiaan (IP-osoite/paikannin). Saatat olla jumissa etkä voi toimittaa muutoksiasi arkistoon - toisaalta et myöskään halua hakea tuoretta työkopiota uudesta paikasta joutuaksesi vain siirtämään muuttuneet tiedot uuteen työkopioon. Tällöin komento <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Sijoita työkopio uudelleen...</guimenuitem></menuchoice> on tarpeen. Komento käy läpi kaikki <filename>entries</filename>-tiedostot <filename>.svn</filename>-kansioissa ja muuttaa paikantimet uuteen arvoon."
+
+#. (para)
+msgid "This operation only works on working copy <emphasis>roots</emphasis>. So the context menu entry is only shown for working copy roots."
+msgstr "Toiminto on käytettävissä vain työkopion <emphasis>juuressa</emphasis>. Kontekstivalikon toiminto näytetään siis vain työkopioiden juurihakemistoille."
 
 #. (para)
 msgid "You may be surprised to find that TortoiseSVN contacts the repository as part of this operation. All it is doing is performing some simple checks to make sure that the new URL really does refer to the same repository as the existing working copy."
@@ -9536,10 +9675,6 @@ msgstr "Esimerkkejä asiakaspään komentojonoista löytyy kansiosta <literal>co
 msgid "A small tool is included in the TortoiseSVN installation folder named <literal>ConnectVPN.exe</literal>. You can use this tool configured as a pre-connect hook to connect automatically to your VPN before TortoiseSVN tries to connect to a repository. Just pass the name of the VPN connection as the first parameter to the tool."
 msgstr "TortoiseSVN-asennuskansiossa on pieni työkalu nimeltä <literal>ConnectVPN.exe</literal>. Voit käyttää sitä ennen yhdistämistä -tyyppisenä komentona ottaaksesi automaattisesti yhteyden VPN-verkkoon ennen kuin TortoiseSVN yrittää kytkeytyä arkistoon. VPN-yhteyden nimi annetaan työkalulle parametrina."
 
-#. (title)
-msgid "Issue Tracker Integration"
-msgstr "Kytkeytyminen vikaseurantaohjelmiin"
-
 #. (para)
 msgid "TortoiseSVN can use a COM plugin to query issue trackers when in the commit dialog. The use of such plugins is described in <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. If your system administrator has provided you with a plugin, which you have already installed and registered, this is the place to specify how it integrates with your working copy."
 msgstr "TortoiseSVN voi käyttää COM-modulia kytkeytyäkseen vikaseurantaohjelmaan toimitusikkunasta. Tällaisten ohjelmien käyttö on kuvattu luvussa <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. Jos järjestelmänvalvojasi on tehnyt tällaisen modulin ja olet asentanut sen, niin täällä määritellään, miten se kytkeytyy työkopioosi."
@@ -9960,11 +10095,6 @@ msgstr "<placeholder-1/> korvataan tekstillä <placeholder-2/> mikäli alkio on 
 #. (literal)
 msgid "$WCNEEDSLOCK?TText:FText$"
 msgstr "$WCNEEDSLOCK?TText:FText$"
-
-#. (literal)
-#. (literal)
-msgid "svn:needs-lock"
-msgstr "svn:needs-lock"
 
 #. (entry)
 msgid "<placeholder-1/> is replaced with <placeholder-2/> if the entry has the <placeholder-3/> property set, or <placeholder-4/> if not."
@@ -11402,6 +11532,10 @@ msgstr ""
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 
+#. (para)
+msgid "Please note that this hack is only necessary if you're still using VS.NET2002. All later versions of Visual Studio do <em>not</em> require this hack to be activated! So unless you're using that ancient tool, DO NOT USE THIS!"
+msgstr "Huomaa, että tämä viritys on tarpeen vain jos käytät VS.NET2002-ympäristöä. Sitä <em>ei</em> tarvita myöhemmissä Visual Studio -versioissa. Ellet siis käytä tuota muinaista ympäristöä, ÄLÄ KÄYTÄ TÄTÄ!"
+
 #. (title)
 msgid "Disable context menu entries"
 msgstr "Estä kontekstivalikon komentoja"
@@ -11751,9 +11885,6 @@ msgstr "Näyttää Tietoja-ikkunan. Tämä aukeaa myös, jos komentoa ei anneta.
 #. (option)
 #. (option)
 #. (option)
-#. (option)
-#. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -11815,9 +11946,13 @@ msgstr "<option>/findtype:5</option> suodata versioista"
 msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> suodata vikatunnuksista"
 
+#. (option)
+msgid "/outfile:path\\to\\file"
+msgstr "/outfile:polku\\tiedostoon"
+
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/>"
-msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa muita valitsimia: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/> valitsee 'pysäytä kopiointiin'-asetuksen, <placeholder-5/> valitsee 'sisällytä yhdistetyt versiot'-asetuksen, <placeholder-6/> asettaa suodatustekstin, <placeholder-7/> suodattaa käyttämällä tekstiä säännöllisen lausekkeen sijaan, tai <placeholder-8/> suodattaa käyttämällä säännöllistä lauseketta, ja <placeholder-9/>, missä X on luku väliltä 1-7. Numeroiden merkitys on seuraava: <placeholder-10/>"
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 7. The numbers correspond to: <placeholder-10/> If <placeholder-11/> is specified, the selected revisions are written to that file when the log dialog is closed. The revisions are written in the same format as is used to specify revisions in the merge dialog."
+msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa muita valitsimia: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/> valitsee 'pysäytä kopiointiin'-asetuksen, <placeholder-5/> valitsee 'sisällytä yhdistetyt versiot'-asetuksen, <placeholder-6/> asettaa suodatustekstin, <placeholder-7/> suodattaa käyttämällä tekstiä säännöllisen lausekkeen sijaan, tai <placeholder-8/> suodattaa käyttämällä säännöllistä lauseketta, ja <placeholder-9/>, missä X on luku väliltä 1-7. Numeroiden merkitys on seuraava: <placeholder-10/> Jos <placeholder-11/> on määritelty, valitut versiot kirjoitetaan annettuun tiedostoon, kun loki-ikkuna suljetaan. Versiot kirjoitetaan samassa muodossa, jota käytetään annettaessa versiot yhdistämisikkunassa."
 
 #. (option)
 #. (option)
@@ -12033,18 +12168,21 @@ msgstr "Tarkista arkisto"
 msgid "Opens the check-for-modifications dialog. The <placeholder-1/> specifies the working copy directory. If <placeholder-2/> is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the <placeholder-3/> button."
 msgstr "Avaa Tarkista muutokset -ikkunan. Valitsin <placeholder-1/> määrittää työkopion hakemiston. Jos valitsin <placeholder-2/> on annettu, ikkuna ottaa yhteyden arkistoon välittömästi käynnistyttyään (ikään kuin käyttäjä olisi napsauttanut painiketta <placeholder-3/>)."
 
-#. (option)
-#. (option)
-msgid "/rev:xxx"
-msgstr "/rev:xxx"
+#. (para)
+msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <option>/path</option> or <option>/path</option> points directly to an URL."
+msgstr "Käynnistää arkistoselaimen <option>/path</option>-valitsimella annetun työkopion paikantimeen, tai <option>/path</option>-valitsimen suoraan määrittämään paikantimeen."
 
-#. (option)
-msgid "/projectpropertiespath:path/to/wc"
-msgstr "/projectpropertiespath:polku/työkopioon"
+#. (para)
+msgid "An additional option <option>/rev:xxx</option> can be used to specify the revision which the repository browser should show. If the <option>/rev:xxx</option> is omitted, it defaults to HEAD."
+msgstr "Valitsin <option>/rev:xxx</option> määrittää arkistoselaimen näyttämän version. Mikäli sitä ei anneta, oletusarvona on HEAD."
 
-#. (entry)
-msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, the <placeholder-6/> specifies the path from where to read and use the project properties."
-msgstr "Käynnistää arkistoselaimen joko valitsimella <placeholder-1/> annetun työkopion paikantimeen tai valitsimella <placeholder-2/> annettuun paikantimeen. Ylimääräistä valitsinta <placeholder-3/> voidaan käyttää määrittämään näytettävä versio. Jos <placeholder-4/> jätetään määrittämättä, sen arvona on HEAD. Jos <placeholder-5/> on paikannin, niin valitsin <placeholder-6/> määrittää polun, josta projektin ominaisuudet luetaan."
+#. (para)
+msgid "If <option>/path</option> points to an URL, the <option>/projectpropertiespath:path/to/wc</option> specifies the path from where to read and use the project properties."
+msgstr "Jos valitsin <option>/path</option> osoittaa paikantimeen, valitsin <option>/projectpropertiespath:polku/työkopioon</option> määrittää polun, josta luetaan ja johon käytetään projektiominaisuuksia."
+
+#. (para)
+msgid "If <option>/outfile:path\\to\\file</option> is specified, the selected URL and revision are written to that file when the repository browser is closed. The first line in that text file contains the URL, the second line the revision in text format."
+msgstr "Jos valitsin <option>/outfile:polu\\tiedostoon</option> on annettu, valittu paikannin ja versio kirjoitetaan annettuun tiedostoon, kun arkistoselain suljetaan. Tiedoston ensimmäinen rivi sisältää paikantimen ja toinen rivi versionumeron tekstimuodossa."
 
 #. (literal)
 msgid "svn:ignore"
@@ -12155,12 +12293,21 @@ msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
 msgstr "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
 
 #. (para)
-msgid "with <literal>cmd</literal> being one of the allowed commands and with <literal>paramvalue</literal> being a parameter like <literal>path</literal> or <literal>revision</literal>, depending on the command used."
-msgstr "missä <literal>cmd</literal> on jokin sallittu komento ja <literal>parameter</literal> on jokin parametri (esim. <literal>polku</literal> tai <literal>versio</literal>, riippuen käytetystä komennosta."
+msgid "with <literal>cmd</literal> being one of the allowed commands, <literal>parameter</literal> being the name of a parameter like <literal>path</literal> or <literal>revision</literal>, and <literal>paramvalue</literal> being the value to use for that parameter. The list of parameters allowed depends on the command used."
+msgstr "missä <literal>cmd</literal> on jokin sallittu komento, <literal>parameter</literal> on jonkin parametrin nimi (esim. <literal>path</literal> tai <literal>revision</literal>), ja <literal>paramvalue</literal> on parametrille annettu arvo. Sallittujen parametrien joukko  riippuu käytetystä komennosta."
 
 #. (para)
 msgid "The following commands are allowed with <literal>tsvncmd:</literal> URLs: <placeholder-1/>"
 msgstr "Seuraavat komennot ovat sallittuja <literal>tsvncmd:</literal>-paikantimien yhteydessä: <placeholder-1/>"
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"&lt;a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\"&gt;Update&lt;/a&gt;\n"
+msgstr ""
+"\n"
+"&lt;a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\"&gt;Update&lt;/a&gt;\n"
 
 #. (programlisting)
 #, no-wrap
@@ -12178,8 +12325,8 @@ msgstr ""
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 
 #. (para)
-msgid "An example URL might look like this: <placeholder-1/>"
-msgstr "Esimerkkipaikannin voisi näyttää seuraavalta: <placeholder-1/>"
+msgid "A simple example URL might look like this: <placeholder-1/> or in a more complex case: <placeholder-2/>"
+msgstr "Esimerkkipaikannin voisi näyttää seuraavalta: <placeholder-1/>, tai mutkikkaammassa tapauksessa: <placeholder-2/>"
 
 #. (title)
 msgid "TortoiseIDiff Commands"
@@ -12835,8 +12982,12 @@ msgid "When TortoiseSVN displays the status recursively (the default setting), e
 msgstr "Kun TortoiseSVN näyttää tilan palautuvasti (oletusasetus), kukien kansio näyttää kuvakepäällyksen, joka kuvaa sen itsensä sekä kaikkien lapsien tilaa. Tällaisen kuvakepäällyksen <emphasis>yhteenvedon</emphasis> määritykseen käytetään yllä kuvattua prioriteettijärjestystä (tilalla <emphasis>ristiriitainen</emphasis> on korkein prioriteetti)."
 
 #. (para)
-msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance."
-msgstr "Saatat havaita, että järjestelmäsi ei sisällä kaikkia kuvakkeita. Tämä johtuu siitä, että Windows rajoittaa kuvakepäällysten maksimimääräksi 15. Windows käyttää itse neljä, ja loput 11 ovat muiden sovellusten käytettävissä. Jos tarjolla ei ole riittävästi paikkoja, TortoiseSVN yrittää sivistyneesti rajoittaa kuvakepäällystensä määrää antaaksen muille sovelluksille mahdollisuuden,"
+msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is limited to 15. Windows uses 4 of those, and the remaining 11 can be used by other applications. If there are not enough overlay slots available, TortoiseSVN tries to be a <em>Good Citizen (TM)</em> and limits its use of overlays to give other apps a chance."
+msgstr "Saatat havaita, että järjestelmäsi ei sisällä kaikkia kuvakkeita. Tämä johtuu siitä, että Windows rajoittaa kuvakepäällysten maksimimääräksi 15. Windows käyttää itse neljä, ja jäljelle jäävät 11 ovat muiden sovellusten käytettävissä. Jos tarjolla ei ole riittävästi paikkoja, TortoiseSVN koettaa rajoittaa kuvakepäällystensä määrää antaakseen muille sovelluksille mahdollisuuden."
+
+#. (para)
+msgid "Since there Tortoise clients available for other version control systems, we've created a shared component which is responsible for showing the overlay icons. The technical details are not important here, all you need to know is that this shared component allows all Tortoise clients to use the same overlays and therefore the limit 11 available slots isn't used up by installing more than one Tortoise client. Of course there's one small drawback: all Tortoise clients use the same overlay icons, so you can't figure out by the overlay icons what version control system a working copy is using."
+msgstr "Koska Tortoise-tyyppisiä ohjelmia on saatavana muille versionhallintajärjestelmille, olemme luoneet jaetun komponentin kuvapäällysten hallintaan. Komponentin avulla kaikki ohjelmat voivat käyttää samoja kuvakepäällyksiä, jolloin Windowsin 11 kuvakepäällyksen raja ei täyty asennettaessa useampi kuin yksi ohjelma. Tässä on tietenkin pieni mutta: koska kaikki ohjelmat käyttävät samoja kuvakepäällyksiä, et voi niiden avulla päätellä, mihin versionhallintajärjestelmään mikin työkopio on kytkeytynyt."
 
 #. (para)
 msgid "<emphasis>Normal</emphasis>, <emphasis>Modified</emphasis> and <emphasis>Conflicted</emphasis> are always loaded and visible."
@@ -13444,6 +13595,28 @@ msgstr "Kari Granö <kari.grano@gmail.com>"
 msgid "translator-translation"
 msgstr "Käännös"
 
+#~ msgid "properties"
+#~ msgstr "ominaisuudet"
+#~ msgid "/rev:xxx"
+#~ msgstr "/rev:xxx"
+#~ msgid "/projectpropertiespath:path/to/wc"
+#~ msgstr "/projectpropertiespath:polku/työkopioon"
+#~ msgid ""
+#~ "Starts the repository browser dialog, pointing to the URL of the working "
+#~ "copy given in <placeholder-1/> or <placeholder-2/> points directly to an "
+#~ "URL. An additional option <placeholder-3/> can be used to specify the "
+#~ "revision which the repository browser should show. If the <placeholder-4/"
+#~ "> is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, "
+#~ "the <placeholder-6/> specifies the path from where to read and use the "
+#~ "project properties."
+#~ msgstr ""
+#~ "Käynnistää arkistoselaimen joko valitsimella <placeholder-1/> annetun "
+#~ "työkopion paikantimeen tai valitsimella <placeholder-2/> annettuun "
+#~ "paikantimeen. Ylimääräistä valitsinta <placeholder-3/> voidaan käyttää "
+#~ "määrittämään näytettävä versio. Jos <placeholder-4/> jätetään "
+#~ "määrittämättä, sen arvona on HEAD. Jos <placeholder-5/> on paikannin, "
+#~ "niin valitsin <placeholder-6/> määrittää polun, josta projektin "
+#~ "ominaisuudet luetaan."
 #~ msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
 #~ msgstr "Versio $MajorVersion$.$MinorVersion$.$MicroVersion$"
 #~ msgid ""
