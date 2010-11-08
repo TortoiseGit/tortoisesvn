@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2010-10-30 16:35 +0000\n"
-"PO-Revision-Date: 2010-11-03 21:54+0100\n"
+"PO-Revision-Date: 2010-11-08 20:18+0100\n"
 "Last-Translator: Milorad Popović <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Ок\n"
 "MIME-Version: 1.0\n"
@@ -12190,15 +12190,15 @@ msgstr "Započinje dijalog pretraživača spremišta, upravljen prema URL radne 
 
 #. (para)
 msgid "An additional option <option>/rev:xxx</option> can be used to specify the revision which the repository browser should show. If the <option>/rev:xxx</option> is omitted, it defaults to HEAD."
-msgstr ""
+msgstr "Dodatna opcija <option>/rev:xxx</option> se može koristiti da se specificira revizija koju treba da prikaže pretraživač spremišta. Ako <option>/rev:xxx</option> nedostaje, uobičajena je GLAVNA revizija."
 
 #. (para)
 msgid "If <option>/path</option> points to an URL, the <option>/projectpropertiespath:path/to/wc</option> specifies the path from where to read and use the project properties."
-msgstr ""
+msgstr "Ako <option>/path</option> ukazije na URL, <option>/projectpropertiespath:path/to/wc</option> specificira putanju odakle se čitaju i koriste osobine projekta."
 
 #. (para)
 msgid "If <option>/outfile:path\\to\\file</option> is specified, the selected URL and revision are written to that file when the repository browser is closed. The first line in that text file contains the URL, the second line the revision in text format."
-msgstr ""
+msgstr "Ako je <option>/outfile:path\\to\\file</option> specificirano, izabrani URL i revizija su upisani u taj fajl kada je pretraživač spremišta zatvoren. Prva linija u tom tekst fajlu sadrži URL, druga linija reviziju u tekstualnom obliku."
 
 #. (literal)
 msgid "svn:ignore"
@@ -12322,6 +12322,8 @@ msgid ""
 "\n"
 "&lt;a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\"&gt;Update&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\"&gt;Update&lt;/a&gt;\n"
 
 #. (programlisting)
 #, no-wrap
@@ -13001,7 +13003,7 @@ msgstr "U stvari, ne možete naći sve te ikone da se koriste u vašem sistemu. 
 
 #. (para)
 msgid "Since there Tortoise clients available for other version control systems, we've created a shared component which is responsible for showing the overlay icons. The technical details are not important here, all you need to know is that this shared component allows all Tortoise clients to use the same overlays and therefore the limit 11 available slots isn't used up by installing more than one Tortoise client. Of course there's one small drawback: all Tortoise clients use the same overlay icons, so you can't figure out by the overlay icons what version control system a working copy is using."
-msgstr ""
+msgstr "Otkad su Tortoise klijenti dostupni za druge sisteme kontrole verzije, kreirali smo deljive komponente koje su odgovorne za prikazivanje prekrivačkih ikona. Tehnički detalji ovde nisu važni, sve što vam treba da znate je da  ove deljene komponente dopuštaju svim Tortoise klijentima da koriste iste prekrivače i tu limit od 11 dostupnih slotova nije korišćen pri instaliranju više od jednog Tortoise klijenta. Svakako postoji jedan mali mana: svi Tortoise klijenti koriste iste prekrivačke ikone bez obzira koji sistem kontorle verzija koristi radna kopija. "
 
 #. (para)
 msgid "<emphasis>Normal</emphasis>, <emphasis>Modified</emphasis> and <emphasis>Conflicted</emphasis> are always loaded and visible."
