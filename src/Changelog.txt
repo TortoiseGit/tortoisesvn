@@ -115,6 +115,10 @@
 - BUG: Relative Webviewer urls didn't work from the 
        repository browser. (Stefan)
 
+Version 1.6.12
+- BUG: hook scripts could fail due to an invalid CWD parameter
+       passed to the CreateProcess API. (Stefan)
+
 Version 1.6.11
 - BUG: Using spelling dictionaries in utf8 could crash
        the commit dialog. (Stefan)
