@@ -38,7 +38,7 @@ This will only build the english HTML help file for TortoiseSVN
     unless="${property::exists('docformats')}"
   />
   <property name="languages"
-    value="en,de,es,fa,fi,fr,hr,id,ja,nl,pt_BR,pt_PT,ru,sk,sl,sr_spc,sr_spl,zh_CN"
+    value="de,en,es,fi,fr,hr,id,ja,nl,pt,pt_BR,ro,ru,sk,sl,sr,sr@latin,zh_CN"
     unless="${property::exists('languages')}"
   />
 
@@ -214,19 +214,18 @@ This will only build the english HTML help file for TortoiseSVN
             <include name="../versioninfo.build" />
           </buildfiles>
         </nant>
-        <!--				<echo>Note: version information set!</echo> -->
+        <!--        <echo>Note: version information set!</echo> -->
       </if>
       <if test="${not file::exists('../versioninfo.build')}">
         <echo>Version information set to dummy values</echo>
         <setenv>
           <variable name="MajorVersion" value="ver" />
           <variable name="MinorVersion" value="x" />
-          <variable name="MicroVersion" value="x" />
         </setenv>
       </if>
     </if>
 
-    <property name="docverstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}"/>
+    <property name="docverstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}"/>
 
   </target>
 
@@ -236,7 +235,7 @@ This will only build the english HTML help file for TortoiseSVN
 
   <target name="help.prepare" description="Create CHM help context">
     <call target="help.prepare.${app}" />
-    <!--		if="${target::exists('help.prepare.${app}')}"/>-->
+    <!--  if="${target::exists('help.prepare.${app}')}"/>-->
 
     <property name="help.context" value="source/${app}.h"/>
     <if test="${not file::exists(help.context)}">

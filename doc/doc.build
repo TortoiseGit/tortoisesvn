@@ -56,15 +56,15 @@ All user/site specific configuration is stored in doc.build.user.
       <property name="doc.target.name" value="${app}_${lang.target}"/>
       <property name="doc.target.work" value="output/${doc.target.name}"/>
       <property name="doc.target.source" value="source/${lang.target}/${app}/${app}.xml"/>
-      <property name="pofiletotranslate" value="po/${app}_${lang.target}.po" />
+      <property name="lang.pofile" value="../Languages/${lang.target}/LC_MESSAGES/TortoiseDoc.po" />
 
       <echo message="------------------------------------------------------------"/>
       <echo message="Creating '${doc.target.name}' documentation"/>
 
-      <if test="${file::exists(pofiletotranslate)}" >
+      <if test="${file::exists(lang.pofile)}" >
         <call target="translate" unless="${lang.base==lang.target}" />
       </if>
-      <if test="${lang.base==lang.target or file::exists(pofiletotranslate)}" >
+      <if test="${lang.base==lang.target or file::exists(lang.pofile)}" >
         <!-- update version info in version.xml -->
         <call target="UpdateVersionInfo"/>
 
@@ -224,7 +224,7 @@ All user/site specific configuration is stored in doc.build.user.
 
     <foreach item="String" in="${potemplates}" delim="," property="app">
 
-      <property name="potfile" value="po/${app}.pot" />
+      <property name="potfile" value="${app}.pot" />
       <property name="xslt.source" value="source/${lang.base}/${app}/${app}.xml"/>
       <property name="file.target" value="source/${app}_${lang.base}.xml"/>
 
@@ -249,6 +249,15 @@ All user/site specific configuration is stored in doc.build.user.
 
       <echo message="" />
     </foreach>
+
+    <!-- Create a common .pot file for both applications -->
+    <!-- Could be smart to replace the comma delimiters in potemplates by spaces 
+         and use this instead on the command line -->
+    <exec program="msgcat"
+          commandline="TortoiseSVN.pot TortoiseMerge.pot --use-first -o ../Languages/TortoiseSVN.pot"
+          basedir="${path.gettext}"
+          verbose="false"/>
+
   </target>
 
   <!-- ====================================================================== -->
@@ -256,7 +265,6 @@ All user/site specific configuration is stored in doc.build.user.
   <!-- ====================================================================== -->
 
   <target name="translate" description="Create translated source file">
-    <property name="lang.pofile" value="po/${app}_${lang.target}.po"/>
 
     <echo message="Translating: '${app} ${lang.target}' This may take a few minutes"/>
 
@@ -331,8 +339,7 @@ All user/site specific configuration is stored in doc.build.user.
         <replacetokens begintoken="$" endtoken="$">
           <token key="MajorVersion" value="${environment::get-variable('MajorVersion')}"/>
           <token key="MinorVersion" value="${environment::get-variable('MinorVersion')}"/>
-          <token key="MicroVersion" value="${environment::get-variable('Microversion')}"/>
-          <!--
+<!--
           <token key="WCREV" value="${environment::get-variable('WCREV')}"/>
 -->
         </replacetokens>

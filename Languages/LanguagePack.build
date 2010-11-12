@@ -276,31 +276,31 @@ NAnt build script for the TortoiseSVN language pack installers
       <arg value="apply" />
       <arg value="..\bin\${platformfolder}\bin\TortoiseProcLang.dll" />
       <arg value="..\bin\TortoiseProc${langCC}.dll" />
-      <arg value="Tortoise_${langISO}.po" />
+      <arg value="${langISO}\LC_MESSAGES\TortoiseUI.po" />
     </exec>
     <exec program="${ResTextFileName}" failonerror="false" if="${platform == 'x64'}">
       <arg value="apply" />
       <arg value="..\bin\release\bin\TortoiseProcLang.dll" />
       <arg value="..\bin\TortoiseProc32${langCC}.dll" />
-      <arg value="Tortoise_${langISO}.po" />
+      <arg value="${langISO}\LC_MESSAGES\TortoiseUI.po" />
     </exec>
     <exec program="${ResTextFileName}" failonerror="false">
       <arg value="apply" />
       <arg value="..\bin\${platformfolder}\bin\TortoiseMergeLang.dll" />
       <arg value="..\bin\TortoiseMerge${langCC}.dll" />
-      <arg value="Tortoise_${langISO}.po" />
+      <arg value="${langISO}\LC_MESSAGES\TortoiseUI.po" />
     </exec>
     <exec program="${ResTextFileName}" failonerror="false">
       <arg value="apply" />
       <arg value="..\bin\${platformfolder}\bin\TortoiseBlameLang.dll" />
       <arg value="..\bin\TortoiseBlame${langCC}.dll" />
-      <arg value="Tortoise_${langISO}.po" />
+      <arg value="${langISO}\LC_MESSAGES\TortoiseUI.po" />
     </exec>
     <exec program="${ResTextFileName}" failonerror="false">
       <arg value="apply" />
       <arg value="..\bin\${platformfolder}\bin\TortoiseIDiffLang.dll" />
       <arg value="..\bin\TortoiseIDiff${langCC}.dll" />
-      <arg value="Tortoise_${langISO}.po" />
+      <arg value="${langISO}\LC_MESSAGES\TortoiseUI.po" />
     </exec>
 
     <!-- create the mo files -->

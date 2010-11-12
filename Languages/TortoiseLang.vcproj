@@ -30,7 +30,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="..\bin\debug\bin\ResText extract ..\bin\debug\bin\TortoiseProcLang.dll ..\bin\debug\bin\TortoiseMergeLang.dll ..\bin\debug\bin\TortoiseBlameLang.dll ..\bin\debug\bin\TortoiseIDiffLang.dll Tortoise.pot&#x0D;&#x0A;"
+				CommandLine="..\bin\debug\bin\ResText extract ..\bin\debug\bin\TortoiseProcLang.dll ..\bin\debug\bin\TortoiseMergeLang.dll ..\bin\debug\bin\TortoiseBlameLang.dll ..\bin\debug\bin\TortoiseIDiffLang.dll TortoiseUI.pot&#x0D;&#x0A;"
 				Outputs="Tortoise.pot"
 			/>
 			<Tool
@@ -38,7 +38,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="..\bin\debug\bin\ResText extract ..\bin\debug\bin\TortoiseProcLang.dll ..\bin\debug\bin\TortoiseMergeLang.dll ..\bin\debug\bin\TortoiseBlameLang.dll ..\bin\debug\bin\TortoiseIDiffLang.dll Tortoise.pot"
+				CommandLine="..\bin\debug\bin\ResText extract ..\bin\debug\bin\TortoiseProcLang.dll ..\bin\debug\bin\TortoiseMergeLang.dll ..\bin\debug\bin\TortoiseBlameLang.dll ..\bin\debug\bin\TortoiseIDiffLang.dll TortoiseUI.pot"
 			/>
 		</Configuration>
 		<Configuration
@@ -75,7 +75,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll Tortoise.pot&#x0D;&#x0A;"
+				CommandLine="..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll TortoiseUI.pot&#x0D;&#x0A;"
 				Outputs="Tortoise.pot"
 			/>
 			<Tool
@@ -83,7 +83,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll Tortoise.pot"
+				CommandLine="..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll TortoiseUI.pot"
 			/>
 		</Configuration>
 		<Configuration
