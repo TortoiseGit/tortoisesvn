@@ -247,16 +247,18 @@ All user/site specific configuration is stored in doc.build.user.
         </move>
       </if>
 
-      <echo message="" />
     </foreach>
 
     <!-- Create a common .pot file for both applications -->
     <!-- Could be smart to replace the comma delimiters in potemplates by spaces 
          and use this instead on the command line -->
     <exec program="msgcat"
-          commandline="TortoiseSVN.pot TortoiseMerge.pot --use-first -o ../Languages/TortoiseSVN.pot"
+          commandline="TortoiseSVN.pot TortoiseMerge.pot --use-first -o ../Languages/TortoiseDoc.pot"
           basedir="${path.gettext}"
           verbose="false"/>
+
+    <delete file="TortoiseSVN.pot"/>
+    <delete file="TortoiseMerge.pot"/>
 
   </target>
 
