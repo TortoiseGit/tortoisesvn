@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2010-10-08 19:44 +0000\n"
-"PO-Revision-Date: 2010-10-12 10:18-0000\n"
+"POT-Creation-Date: 2010-10-30 16:35 +0000\n"
+"PO-Revision-Date: 2010-11-11 21:49-0000\n"
 "Last-Translator: Paulo Santana Justino <paulo.justino@netcabo.pt>\n"
 "Language-Team: Portuguese Translation Team\n"
 "MIME-Version: 1.0\n"
@@ -788,10 +788,13 @@ msgid "System requirements"
 msgstr "Requesitos de sistema"
 
 #. (para)
+#, fuzzy
 msgid ""
 "TortoiseSVN runs on Windows XP with service pack 3 or higher and is "
-"available in both 32-bit and 64-bit flavours. If you are running 64-bit "
-"Windows you may want to install both versions."
+"available in both 32-bit and 64-bit flavours. The installer for 64-bit "
+"Windows also includes the 32-bit extension parts. Which means you don't need "
+"to install the 32-bit version separately to get the TortoiseSVN context menu "
+"and overlays in 32-bit applications."
 msgstr ""
 "O TortoiseSVN corre no Windows XP com o service pack 3 ou superior, e está "
 "disponível nas versões 32-bit e 64-bit. Se estás a correr o Windows 64-bit "
@@ -799,9 +802,18 @@ msgstr ""
 
 #. (para)
 msgid ""
+"If you're using Windows XP, you <em>must</em> have at least the service pack "
+"3 installed. It won't work if you haven't installed that SP yet!"
+msgstr ""
+"Se estiveres a usar o Windows XP, <em>terás</em> de ter pelo menos o service "
+"pack 3 instalado. Não funcionará se não tiveres ainda o SP instalado!"
+
+#. (para)
+#, fuzzy
+msgid ""
 "Support for Windows 98, Windows ME and Windows NT4 was dropped in version "
-"1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download "
-"and install older versions if you need them."
+"1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
+"can still download and install older versions if you need them."
 msgstr ""
 "O suporte para o Windows 98, Windows ME e Windows NT4 descontinuado na "
 "versão 1.2.0 e o do Windows 2000 na versão 1.7.0. No entanto podes ainda "
@@ -7558,6 +7570,7 @@ msgstr ""
 "corresponde à revisão HEAD do repositório."
 
 #. (para)
+#, fuzzy
 msgid ""
 "A file conflict occurs when two or more developers have changed the same few "
 "lines of a file. As Subversion knows nothing of your project, it leaves "
@@ -7565,13 +7578,13 @@ msgid ""
 "you should open the file in question, and search for lines starting with the "
 "string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area "
 "is marked like this: <screen>\n"
-"    &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"        your changes\n"
-"    =======\n"
-"        code merged from repository\n"
-"    &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"    </screen> Also, for every conflicted file Subversion places three "
-"additional files in your directory: <placeholder-1/>"
+"&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"    your changes\n"
+"=======\n"
+"    code merged from repository\n"
+"&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"</screen> Also, for every conflicted file Subversion places three additional "
+"files in your directory: <placeholder-1/>"
 msgstr ""
 "Um conflito de ficheiro ocorre quando dois ou mais programadores alteraram o "
 "mesmo conjunto de linhas de um ficheiro. Como o Subversion não tem nenhum "
@@ -7647,6 +7660,35 @@ msgstr ""
 "guimenu><guimenuitem>Resolvido...</guimenuitem></menuchoice> Isto irá "
 "mostrar a caixa de diálogo listando todos os ficheiros em conflito nessa "
 "pasta, e podes seleccionar quais é queres marcar como resolvidos."
+
+#. (title)
+msgid "Property Conflicts"
+msgstr "Conflitos de Propriedade"
+
+#. (para)
+#, fuzzy
+msgid ""
+"A property conflict occurs when two or more developers have changed the same "
+"property. As with file content, resolving the conflict can only be done by "
+"the developers."
+msgstr ""
+"Um conflito de ficheiro ocorre quando dois (ou mais) programadores alteraram "
+"o mesmo punhado de linhas do ficheiro."
+
+#. (para)
+msgid ""
+"If one of the changes must override the other then choose the option to "
+"<guilabel>Resolve using local property</guilabel> or <guilabel>Resolve using "
+"remote property</guilabel>. If the changes must be merged then select "
+"<guilabel>Manually edit property</guilabel>, sort out what the property "
+"value should be and mark as resolved."
+msgstr ""
+"Se uma das alterações tiver de se sobrepor a outra, então escolhe a opção "
+"para <guilabel>Resolver usando a propriedade local</guilabel> ou "
+"<guilabel>Resolver usando a propriedade remota</guilabel>. Se as alterações "
+"tem de ser integradas selecciona então <guilabel>Edita manualmente a "
+"propiedade</guilabel>, decide o valor que a propriedade deve ter e marca "
+"como resolvido."
 
 #. (title)
 msgid "Tree Conflicts"
@@ -8389,6 +8431,43 @@ msgstr ""
 "Para uma descrição de como as sobreposições de ícones correspondem aos "
 "estados do Subversion e outros detalhes tecnicos, lê <xref linkend=\"tsvn-"
 "app-internals-overlays\"/>."
+
+#. (title)
+msgid "Detailed Status"
+msgstr "Estado detalhado"
+
+#. (primary)
+msgid "windows properties"
+msgstr "propriedades de janelas"
+
+#. (title)
+msgid "Explorer property page, Subversion tab"
+msgstr "Página de propriedades do explorador, aba do Subversion"
+
+#. (para)
+msgid ""
+"<placeholder-1/> Sometimes you want to have more detailed information about "
+"a file/directory than just the icon overlay. You can get all the information "
+"Subversion provides in the explorer properties dialog. Just select the file "
+"or directory and select <menuchoice><guimenu>Windows Menu</"
+"guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context "
+"menu (note: this is the normal properties menu entry the explorer provides, "
+"not the one in the TortoiseSVN submenu!). In the properties dialog box "
+"TortoiseSVN has added a new property page for files/folders under Subversion "
+"control, where you can see all relevant information about the selected file/"
+"directory."
+msgstr ""
+"<placeholder-1/> Por vezes tu queres obter informação mais detalhada sobre "
+"um ficheiro/pasta do que a da sobreposição do ícone. Podes obter toda a "
+"informação que o Subversion providencia, na caixa de diálogo de propriedades "
+"do explorador. Apenas selecciona o ficheiro ou pasta e selecciona no menu de "
+"contexto <menuchoice><guimenu>Menu do Windows</"
+"guimenu><guimenuitem>propriedades</guimenuitem></menuchoice> (nota: esta é a "
+"entrada normal do menu de propriedades que o explorador providência, e não a "
+"do submenu TortoiseSVN!). Na caixa de diálogo de propriedades o TortoiseSVN "
+"adicionou uma nova página de propriedades para ficheiros/pastas, sob o "
+"controlo do Subversion, onde podes ver toda a informação relevante sobre o "
+"ficheiro/pasta."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
@@ -12304,39 +12383,6 @@ msgstr ""
 msgid "Project Settings"
 msgstr "Configurações de Projecto"
 
-#. (primary)
-msgid "properties"
-msgstr "propriedades"
-
-#. (title)
-msgid "Explorer property page, Subversion tab"
-msgstr "Página de propriedades do explorador, aba do Subversion"
-
-#. (para)
-msgid ""
-"<placeholder-1/> Sometimes you want to have more detailed information about "
-"a file/directory than just the icon overlay. You can get all the information "
-"Subversion provides in the explorer properties dialog. Just select the file "
-"or directory and select <menuchoice><guimenu>Windows Menu</"
-"guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context "
-"menu (note: this is the normal properties menu entry the explorer provides, "
-"not the one in the TortoiseSVN submenu!). In the properties dialog box "
-"TortoiseSVN has added a new property page for files/folders under Subversion "
-"control, where you can see all relevant information about the selected file/"
-"directory."
-msgstr ""
-"<placeholder-1/> Por vezes tu queres obter informação mais detalhada sobre "
-"um ficheiro/pasta do que a da sobreposição do ícone. Podes obter toda a "
-"informação que o Subversion providencia, na caixa de diálogo de propriedades "
-"do explorador. Apenas selecciona o ficheiro ou pasta e selecciona no menu de "
-"contexto <menuchoice><guimenu>Menu do Windows</"
-"guimenu><guimenuitem>propriedades</guimenuitem></menuchoice> (nota: esta é a "
-"entrada normal do menu de propriedades que o explorador providência, e não a "
-"do submenu TortoiseSVN!). Na caixa de diálogo de propriedades o TortoiseSVN "
-"adicionou uma nova página de propriedades para ficheiros/pastas, sob o "
-"controlo do Subversion, onde podes ver toda a informação relevante sobre o "
-"ficheiro/pasta."
-
 #. (title)
 msgid "Subversion Properties"
 msgstr "Propriedades Subversion"
@@ -12458,10 +12504,13 @@ msgid "Adding properties"
 msgstr "Adicionando propriedades"
 
 #. (para)
+#, fuzzy
 msgid ""
 "<placeholder-1/> To add a new property, first click on <guilabel>New...</"
 "guilabel>. Select the required property name from the menu, and then fill in "
-"the required information in the specific property dialog."
+"the required information in the specific property dialog. These specific "
+"property dialogs are described in more detail in <xref linkend=\"tsvn-dug-"
+"propertypage-editors\"/>."
 msgstr ""
 "<placeholder-1/> Para adicionar uma nova propriedade, clica primeiro em "
 "<guilabel>Adicionar...</guilabel>. Selecciona o nome da propriedade "
@@ -13222,6 +13271,176 @@ msgstr ""
 "TortoiseSVN, poderás querer usar ganchos de repositório para impor as "
 "políticas de projecto. Propriedades de projecto só podem ajudar a "
 "implementar uma política, nuca podem impô-la."
+
+#. (title)
+msgid "Property Editors"
+msgstr "Editores de Propriedades"
+
+#. (para)
+msgid ""
+"Some properties have to use specific values, or be formatted in a specific "
+"way in order to be used for automation. To help get the formatting correct, "
+"TortoiseSVN presents edit dialogs for some particular properties which show "
+"the possible values or break the property into its individual components."
+msgstr ""
+"Algumas propriedades têm de usar valores específicos, ou estarem formatadas "
+"de uma determinada maneira de modo a serem usadas para automação. Para "
+"ajudar a obter a formatação correcta, o TortoiseSVN apresenta caixas de "
+"edição para certas propriedades em particular que mostram os valores "
+"possíveis, ou quebram a propriedade em componentes individuais."
+
+#. (title)
+msgid "External Content"
+msgstr "Conteúdo Externo"
+
+#. (title)
+msgid "svn:externals property page"
+msgstr "Página de propriedade svn:externals"
+
+#. (para)
+#, fuzzy
+msgid ""
+"<placeholder-1/> The <literal>svn:externals</literal> property can be used "
+"to pull in other projects from the same repository or a completely different "
+"repository as described in <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr ""
+"A propriedade <literal>svn:externals</literal> pode ser usada para puxar "
+"outros projectos do mesmo repositório ou de um repositório completamente "
+"diferente. Para mais informação, consultar <xref linkend=\"tsvn-dug-externals"
+"\"/>."
+
+#. (para)
+msgid ""
+"You need to define the name of the sub-folder that the external folder is "
+"checked out as, and the subversion URL of the external item. You can check "
+"out an external at its HEAD revision, so when the external item changes in "
+"the repository, your working copy will receive those changes on update. "
+"However, if you want the external to reference a particular stable point "
+"then you can specify the specific revision to use. IN this case you may also "
+"want to specify the same revision as a peg revision. If the external item is "
+"renamed at some point in the future then Subversion will not be able to "
+"update this item in your working copy. By specifying a peg revision you tell "
+"Subversion to look for an item that had that name at the peg revision rather "
+"than at HEAD."
+msgstr ""
+
+#. (title)
+msgid "SVN Keywords"
+msgstr "Palavras-chave SVN"
+
+#. (title)
+msgid "svn:keywords property page"
+msgstr "Página de propriedade svn:keywords"
+
+#. (para)
+msgid ""
+"<placeholder-1/> Select the keywords that you would like to be expanded in "
+"your file."
+msgstr ""
+"<placeholder-1/> Selecciona as palavras-chave que gostarias de ver "
+"expandidas no teu ficheiro."
+
+#. (title)
+msgid "EOL Style"
+msgstr "Estilo EOL"
+
+#. (title)
+msgid "svn:eol-style property page"
+msgstr "Página de propriedade svn:eol-style"
+
+#. (para)
+msgid ""
+"<placeholder-1/> Select the end-of-line style that you wish to use and "
+"TortoiseSVN will use the correct property value."
+msgstr ""
+
+#. (title)
+#. (title)
+msgid "Issue Tracker Integration"
+msgstr "Integração do Controlador de Problemas"
+
+#. (title)
+msgid "tsvn:bugtraq property page"
+msgstr "Página de propriedade tsvn:bugtraq"
+
+#. (title)
+msgid "Log Message Sizes"
+msgstr "Tamanhos das mensagens de registo"
+
+#. (title)
+msgid "Size of log messages property page"
+msgstr "Página de propriedade do tamanho das mensagens de registo"
+
+#. (para)
+msgid ""
+"<placeholder-1/> These 3 properties control the formatting of log messages. "
+"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"dialogs until the message meets the minimum length. The border position "
+"shows a marker at the given column width as a guide for projects which have "
+"width limits on their log messages. Setting a value to zero will delete the "
+"property."
+msgstr ""
+
+#. (title)
+msgid "Project Language"
+msgstr "Língua do Projecto"
+
+#. (title)
+#, fuzzy
+msgid "Language property page"
+msgstr "Página de propriedades do Subversion"
+
+#. (para)
+msgid ""
+"<placeholder-1/> Choose the language to use for spell-checking log messages "
+"in the commit dialog. The file lists checkbox comes into effect when you "
+"right click in the log message pane and select <guilabel>Paste file list</"
+"guilabel>. By default the subversion status will be shown in your local "
+"language. When this box is checked the status is always given in English, "
+"for projects which require English-only log messages."
+msgstr ""
+
+#. (title)
+msgid "MIME-type"
+msgstr "MIME-type"
+
+#. (title)
+#, fuzzy
+msgid "svn:mime-type property page"
+msgstr "A partir da página de propriedades"
+
+#. (title)
+#. (literal)
+#. (literal)
+msgid "svn:needs-lock"
+msgstr "svn:needs-lock"
+
+#. (title)
+#, fuzzy
+msgid "svn:needs-lock property page"
+msgstr "Página de propriedades do Subversion"
+
+#. (para)
+msgid ""
+"<placeholder-1/> This property simply controls whether a file will be "
+"checked out as read-only if there is no lock held for it in the working copy."
+msgstr ""
+
+#. (title)
+msgid "svn:executable"
+msgstr "svn:executable"
+
+#. (title)
+#, fuzzy
+msgid "svn:executable property page"
+msgstr "Página de propriedades do Subversion"
+
+#. (para)
+msgid ""
+"<placeholder-1/> This property controls whether a file will be given "
+"executable status when checked out on a Unix/Linux system. It has no effect "
+"on a Windows checkout."
+msgstr ""
 
 #. (title)
 msgid "External Items"
@@ -15292,9 +15511,10 @@ msgstr ""
 "bloqueio</guilabel>, e clica no <guibutton>OK</guibutton>."
 
 #. (para)
+#, fuzzy
 msgid ""
 "You can set the project property <literal>tsvn:logtemplatelock</literal> to "
-"provide a templated message for users to fill in as the lock message. Refer "
+"provide a message template for users to fill in as the lock message. Refer "
 "to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
 "properties."
 msgstr ""
@@ -17301,6 +17521,7 @@ msgid "The Relocate Dialog"
 msgstr "A Caixa de Diálogo Reposicionar"
 
 #. (para)
+#, fuzzy
 msgid ""
 "<placeholder-1/> If your repository has for some reason changed it's "
 "location (IP/URL). Maybe you're even stuck and can't commit and you don't "
@@ -17308,9 +17529,8 @@ msgid ""
 "all your changed data back into the new working copy, "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</"
 "guimenuitem></menuchoice> is the command you are looking for. It basically "
-"does very little: it scans all <filename>entries</filename> files in the "
-"<filename>.svn</filename> folder and changes the URL of the entries to the "
-"new value."
+"does very little: it rewrites all urls that are associated with each file "
+"and folder with the new url."
 msgstr ""
 "<placeholder-1/> Se o teu repositório por alguma razão mudou a sua "
 "localização (IP/URL). Talvez estejas emperrado e não consigas submeter e não "
@@ -17321,6 +17541,12 @@ msgstr ""
 "procuras. Basicamente não faz muito: pesquisa todas as <filename>entradas</"
 "filename> de ficheiros na pasta <filename>.svn</filename> e altera o URL das "
 "entradas para o novo valor."
+
+#. (para)
+msgid ""
+"This operation only works on working copy <emphasis>roots</emphasis>. So the "
+"context menu entry is only shown for working copy roots."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20889,10 +21115,6 @@ msgstr ""
 "tua VPN antes do TortoiseSVN se tentar ligar a um repositório. Terás apenas "
 "de passar o nome da conexão VPN como primeiro parâmetro da ferramenta."
 
-#. (title)
-msgid "Issue Tracker Integration"
-msgstr "Integração do Controlador de Problemas"
-
 #. (para)
 msgid ""
 "TortoiseSVN can use a COM plugin to query issue trackers when in the commit "
@@ -21779,11 +22001,6 @@ msgstr ""
 #. (literal)
 msgid "$WCNEEDSLOCK?TText:FText$"
 msgstr "$WCNEEDSLOCK?TText:FText$"
-
-#. (literal)
-#. (literal)
-msgid "svn:needs-lock"
-msgstr "svn:needs-lock"
 
 #. (entry)
 msgid ""
@@ -24004,6 +24221,14 @@ msgstr ""
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 
+#. (para)
+msgid ""
+"Please note that this hack is only necessary if you're still using VS."
+"NET2002. All later versions of Visual Studio do <em>not</em> require this "
+"hack to be activated! So unless you're using that ancient tool, DO NOT USE "
+"THIS!"
+msgstr ""
+
 #. (title)
 msgid "Disable context menu entries"
 msgstr "Desactivar entradas do menu de contexto"
@@ -24505,9 +24730,6 @@ msgstr ""
 #. (option)
 #. (option)
 #. (option)
-#. (option)
-#. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -24569,7 +24791,12 @@ msgstr "<option>/findtype:5</option> filtrar por revisões"
 msgid "<option>/findtype:7</option> filter by bug ID"
 msgstr "<option>/findtype:7</option> filtrar por ID de bug"
 
+#. (option)
+msgid "/outfile:path\\to\\file"
+msgstr "/outfile:path\\to\\file"
+
 #. (entry)
+#, fuzzy
 msgid ""
 "Opens the log dialog. The <placeholder-1/> specifies the file or folder for "
 "which the log should be shown. Additional options can be set: <placeholder-2/"
@@ -24578,7 +24805,10 @@ msgid ""
 "<placeholder-6/> fills in the filter text, <placeholder-7/> forces the "
 "filter to use text, not regex, or <placeholder-8/> forces the filter to use "
 "regex, not simple text search, and <placeholder-9/> with X being a number "
-"between 1 and 7. The numbers correspond to: <placeholder-10/>"
+"between 1 and 7. The numbers correspond to: <placeholder-10/> If "
+"<placeholder-11/> is specified, the selected revisions are written to that "
+"file when the log dialog is closed. The revisions are written in the same "
+"format as is used to specify revisions in the merge dialog."
 msgstr ""
 "Abre a caixa de diálogo de registo. O <placeholder-1/> específica o ficheiro "
 "ou pasta, para o qual o registo deve ser mostrado. Seis opções adicionais "
@@ -24974,32 +25204,34 @@ msgstr ""
 "caixa de diálogo contacta imediatamente o repositório no arranque, como se o "
 "utilizador clicasse no botão <placeholder-3/>."
 
-#. (option)
-#. (option)
-msgid "/rev:xxx"
-msgstr "/rev:xxx"
-
-#. (option)
-msgid "/projectpropertiespath:path/to/wc"
-msgstr "/projectpropertiespath:path/to/wc"
-
-#. (entry)
+#. (para)
 msgid ""
 "Starts the repository browser dialog, pointing to the URL of the working "
-"copy given in <placeholder-1/> or <placeholder-2/> points directly to an "
-"URL. An additional option <placeholder-3/> can be used to specify the "
-"revision which the repository browser should show. If the <placeholder-4/> "
-"is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, the "
-"<placeholder-6/> specifies the path from where to read and use the project "
-"properties."
+"copy given in <option>/path</option> or <option>/path</option> points "
+"directly to an URL."
 msgstr ""
-"Arranca o navegador de repositório apontando para o URL da cópia de trabalho "
-"dada pelo <placeholder-1/>, ou o <placeholder-2/> aponta directamente para "
-"um URL. Uma opção adicional <placeholder-3/>, pode ser usada para "
-"especificar qual a revisão que o navegador de repositório deve mostrar. Se "
-"for omitido o <placeholder-4/>, será por defeito HEAD. Se o <placeholder-5/> "
-"apontar para um URL, o <placeholder-6/> especifica o caminho de onde deve "
-"ler e usar as propriedades do projecto."
+
+#. (para)
+msgid ""
+"An additional option <option>/rev:xxx</option> can be used to specify the "
+"revision which the repository browser should show. If the <option>/rev:xxx</"
+"option> is omitted, it defaults to HEAD."
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/path</option> points to an URL, the <option>/"
+"projectpropertiespath:path/to/wc</option> specifies the path from where to "
+"read and use the project properties."
+msgstr ""
+
+#. (para)
+msgid ""
+"If <option>/outfile:path\\to\\file</option> is specified, the selected URL "
+"and revision are written to that file when the repository browser is closed. "
+"The first line in that text file contains the URL, the second line the "
+"revision in text format."
+msgstr ""
 
 #. (literal)
 msgid "svn:ignore"
@@ -25167,10 +25399,13 @@ msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
 msgstr "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
 
 #. (para)
+#, fuzzy
 msgid ""
-"with <literal>cmd</literal> being one of the allowed commands and with "
-"<literal>paramvalue</literal> being a parameter like <literal>path</literal> "
-"or <literal>revision</literal>, depending on the command used."
+"with <literal>cmd</literal> being one of the allowed commands, "
+"<literal>parameter</literal> being the name of a parameter like "
+"<literal>path</literal> or <literal>revision</literal>, and "
+"<literal>paramvalue</literal> being the value to use for that parameter. The "
+"list of parameters allowed depends on the command used."
 msgstr ""
 "e sendo <literal>cmd</literal> um dos comando permitidos, e sendo o "
 "<literal>paramvalue</literal> um parâmetro como <literal>path</literal> ou "
@@ -25188,6 +25423,13 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
+"&lt;a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\"&gt;Update&lt;/a&gt;\n"
+msgstr ""
+
+#. (programlisting)
+#, no-wrap
+msgid ""
+"\n"
 "&lt;a href=\"tsvncmd:command:showcompare?\n"
 "url1:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
 "url2:https://stexbar.googlecode.com/svn/trunk/StExBar/src/setup/Setup.wxs?\n"
@@ -25200,7 +25442,10 @@ msgstr ""
 "revision1:188?revision2:189\"&gt;compare&lt;/a&gt;\n"
 
 #. (para)
-msgid "An example URL might look like this: <placeholder-1/>"
+#, fuzzy
+msgid ""
+"A simple example URL might look like this: <placeholder-1/> or in a more "
+"complex case: <placeholder-2/>"
 msgstr "Um URL de exemplo tem o seguinte aspecto: <placeholder-1/>"
 
 #. (title)
@@ -26281,13 +26526,14 @@ msgstr ""
 "elevada."
 
 #. (para)
+#, fuzzy
 msgid ""
 "In fact, you may find that not all of these icons are used on your system. "
 "This is because the number of overlays allowed by Windows is limited to 15. "
 "Windows uses 4 of those, and the remaining 11 can be used by other "
 "applications. If there are not enough overlay slots available, TortoiseSVN "
-"tries to be a <quote>Good Citizen (TM)</quote> and limits its use of "
-"overlays to give other apps a chance."
+"tries to be a <em>Good Citizen (TM)</em> and limits its use of overlays to "
+"give other apps a chance."
 msgstr ""
 "De facto, poderás descobrir que nem todos esse ícones são usados no teu "
 "sistema. Isot é porque o número de sobreposições permitidas pelo Windows é "
@@ -26296,6 +26542,19 @@ msgstr ""
 "sobreposições vagas, o TortoiseSVN tenta ser um bom cidadão (<quote>Good "
 "Citizen (TM)</quote>) e limita o seu uso de sobreposições, para dar hipotese "
 "às outras aplicações."
+
+#. (para)
+msgid ""
+"Since there Tortoise clients available for other version control systems, "
+"we've created a shared component which is responsible for showing the "
+"overlay icons. The technical details are not important here, all you need to "
+"know is that this shared component allows all Tortoise clients to use the "
+"same overlays and therefore the limit 11 available slots isn't used up by "
+"installing more than one Tortoise client. Of course there's one small "
+"drawback: all Tortoise clients use the same overlay icons, so you can't "
+"figure out by the overlay icons what version control system a working copy "
+"is using."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -27656,6 +27915,155 @@ msgstr " Paulo M. Santana Justino, Luis X. B. Mourão"
 #. (None)
 msgid "translator-translation"
 msgstr "Tradutor-Tradução"
+
+#. (para)
+msgid ""
+"TortoiseSVN runs on Windows XP with service pack 3 or higher and is "
+"available in both 32-bit and 64-bit flavours. If you are running 64-bit "
+"Windows you may want to install both versions."
+msgstr ""
+"O TortoiseSVN corre no Windows XP com o service pack 3 ou superior, e está "
+"disponível nas versões 32-bit e 64-bit. Se estás a correr o Windows 64-bit "
+"poderás querer instalar ambas as versões."
+
+#. (para)
+msgid ""
+"Support for Windows 98, Windows ME and Windows NT4 was dropped in version "
+"1.2.0 and Windows 2000 support was dropped in 1.7.0. You can still download "
+"and install older versions if you need them."
+msgstr ""
+"O suporte para o Windows 98, Windows ME e Windows NT4 descontinuado na "
+"versão 1.2.0 e o do Windows 2000 na versão 1.7.0. No entanto podes ainda "
+"descarregar e instalar versões antigas, se necessitares delas."
+
+#. (para)
+msgid ""
+"A file conflict occurs when two or more developers have changed the same few "
+"lines of a file. As Subversion knows nothing of your project, it leaves "
+"resolving the conflicts to the developers. Whenever a conflict is reported, "
+"you should open the file in question, and search for lines starting with the "
+"string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area "
+"is marked like this: <screen>\n"
+"    &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"        your changes\n"
+"    =======\n"
+"        code merged from repository\n"
+"    &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"    </screen> Also, for every conflicted file Subversion places three "
+"additional files in your directory: <placeholder-1/>"
+msgstr ""
+"Um conflito de ficheiro ocorre quando dois ou mais programadores alteraram o "
+"mesmo conjunto de linhas de um ficheiro. Como o Subversion não tem nenhum "
+"conhecimento do teu projecto, ele deixa a tarefa de resolução de conflitos "
+"aos programadores. Cada vez que um conflito é relatado, deverás abrir o "
+"ficheiro em questão e procurar por linhas que comecem pela string "
+"<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. A área em conflito está "
+"marcada do seguinte modo:  <screen>\n"
+"\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"\t\tyour changes\n"
+"\t=======\n"
+"\t\tcode merged from repository\n"
+"\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
+"\t</screen> Também para cada ficheiro em conflito, o Subversion coloca três "
+"ficheiros adicionais na tua pasta: <placeholder-1/>"
+
+#. (para)
+msgid ""
+"<placeholder-1/> To add a new property, first click on <guilabel>New...</"
+"guilabel>. Select the required property name from the menu, and then fill in "
+"the required information in the specific property dialog."
+msgstr ""
+"<placeholder-1/> Para adicionar uma nova propriedade, clica primeiro em "
+"<guilabel>Adicionar...</guilabel>. Selecciona o nome da propriedade "
+"pretendida a partir do menu, e então preenche a informação requerida na "
+"caixa de diálogo da propriedade específica. "
+
+#. (para)
+msgid ""
+"You can set the project property <literal>tsvn:logtemplatelock</literal> to "
+"provide a templated message for users to fill in as the lock message. Refer "
+"to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
+"properties."
+msgstr ""
+"Poderás configurar a propriedade de projecto <literal>tsvn:logtemplatelock</"
+"literal> para fornecer uma mensagem de template aos utilizadores, para que a "
+"preencham como mensagem de bloqueio. Ver a  secção <xref linkend=\"tsvn-dug-"
+"propertypage\"/> para mais informações sobre a configuração de propriedades "
+"do projecto."
+
+#. (para)
+msgid ""
+"<placeholder-1/> If your repository has for some reason changed it's "
+"location (IP/URL). Maybe you're even stuck and can't commit and you don't "
+"want to checkout your working copy again from the new location and to move "
+"all your changed data back into the new working copy, "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Relocate</"
+"guimenuitem></menuchoice> is the command you are looking for. It basically "
+"does very little: it scans all <filename>entries</filename> files in the "
+"<filename>.svn</filename> folder and changes the URL of the entries to the "
+"new value."
+msgstr ""
+"<placeholder-1/> Se o teu repositório por alguma razão mudou a sua "
+"localização (IP/URL). Talvez estejas emperrado e não consigas submeter e não "
+"queres SVN exporta outra vez a tua cópia de trabalho a partir da nova "
+"localização, e mover todas as tuas alterações para a tua nova cópia de "
+"trabalho, o comando  <menuchoice><guimenu>TortoiseSVN</"
+"guimenu><guimenuitem>Reposicionar</guimenuitem></menuchoice> é o que "
+"procuras. Basicamente não faz muito: pesquisa todas as <filename>entradas</"
+"filename> de ficheiros na pasta <filename>.svn</filename> e altera o URL das "
+"entradas para o novo valor."
+
+#. (entry)
+msgid ""
+"Opens the log dialog. The <placeholder-1/> specifies the file or folder for "
+"which the log should be shown. Additional options can be set: <placeholder-2/"
+">, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, "
+"<placeholder-5/> enables the 'include merged revisions' checkbox, "
+"<placeholder-6/> fills in the filter text, <placeholder-7/> forces the "
+"filter to use text, not regex, or <placeholder-8/> forces the filter to use "
+"regex, not simple text search, and <placeholder-9/> with X being a number "
+"between 1 and 7. The numbers correspond to: <placeholder-10/>"
+msgstr ""
+"Abre a caixa de diálogo de registo. O <placeholder-1/> específica o ficheiro "
+"ou pasta, para o qual o registo deve ser mostrado. Seis opções adicionais "
+"podem ser configuradas: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> "
+"activa a caixa de verificação  'parar-na-cópia', <placeholder-5/> activa a "
+"caixa de verificação 'íncluir revisões integradas',<placeholder-6/>  "
+"preenche o texto do filtro, <placeholder-7/> força o filtro a usar texto em "
+"vez de regex, ou <placeholder-8/> força o filtro a usar regex em vez de uma "
+"pesquisa de texto simples, e <placeholder-9/> com X sendo um número entre 1 "
+"e 7. Os números correspondem a: <placeholder-10/>"
+
+#. (para)
+msgid ""
+"with <literal>cmd</literal> being one of the allowed commands and with "
+"<literal>paramvalue</literal> being a parameter like <literal>path</literal> "
+"or <literal>revision</literal>, depending on the command used."
+msgstr ""
+"e sendo <literal>cmd</literal> um dos comando permitidos, e sendo o "
+"<literal>paramvalue</literal> um parâmetro como <literal>path</literal> ou "
+"<literal>revision</literal>, dependendo do comando usado."
+
+#. (para)
+msgid "An example URL might look like this: <placeholder-1/>"
+msgstr "Um URL de exemplo tem o seguinte aspecto: <placeholder-1/>"
+
+#. (para)
+msgid ""
+"In fact, you may find that not all of these icons are used on your system. "
+"This is because the number of overlays allowed by Windows is limited to 15. "
+"Windows uses 4 of those, and the remaining 11 can be used by other "
+"applications. If there are not enough overlay slots available, TortoiseSVN "
+"tries to be a <quote>Good Citizen (TM)</quote> and limits its use of "
+"overlays to give other apps a chance."
+msgstr ""
+"De facto, poderás descobrir que nem todos esse ícones são usados no teu "
+"sistema. Isot é porque o número de sobreposições permitidas pelo Windows é "
+"limitada a 15. O Windows usa 4 dessas, e as restantes podem ser usadas por "
+"outras aplicações. Se não existirem disponíveis em número suficiente "
+"sobreposições vagas, o TortoiseSVN tenta ser um bom cidadão (<quote>Good "
+"Citizen (TM)</quote>) e limita o seu uso de sobreposições, para dar hipotese "
+"às outras aplicações."
 
 #. (title)
 msgid "TortoiseMerge"
@@ -29436,6 +29844,32 @@ msgstr ""
 "</screen>  Se forem dados dois ficheiros, eles serão comparados entre si. Se "
 "forem dados três ficheiros, o primeiro é tomado como o ficheiro BASE, e os "
 "outros dois são comparados com este numa comparação a três caminhos."
+
+#~ msgid "properties"
+#~ msgstr "propriedades"
+
+#~ msgid "/rev:xxx"
+#~ msgstr "/rev:xxx"
+
+#~ msgid "/projectpropertiespath:path/to/wc"
+#~ msgstr "/projectpropertiespath:path/to/wc"
+
+#~ msgid ""
+#~ "Starts the repository browser dialog, pointing to the URL of the working "
+#~ "copy given in <placeholder-1/> or <placeholder-2/> points directly to an "
+#~ "URL. An additional option <placeholder-3/> can be used to specify the "
+#~ "revision which the repository browser should show. If the <placeholder-4/"
+#~ "> is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, "
+#~ "the <placeholder-6/> specifies the path from where to read and use the "
+#~ "project properties."
+#~ msgstr ""
+#~ "Arranca o navegador de repositório apontando para o URL da cópia de "
+#~ "trabalho dada pelo <placeholder-1/>, ou o <placeholder-2/> aponta "
+#~ "directamente para um URL. Uma opção adicional <placeholder-3/>, pode ser "
+#~ "usada para especificar qual a revisão que o navegador de repositório deve "
+#~ "mostrar. Se for omitido o <placeholder-4/>, será por defeito HEAD. Se o "
+#~ "<placeholder-5/> apontar para um URL, o <placeholder-6/> especifica o "
+#~ "caminho de onde deve ler e usar as propriedades do projecto."
 
 #~ msgid "Version $MajorVersion$.$MinorVersion$.$MicroVersion$"
 #~ msgstr "Versão $MajorVersion$.$MinorVersion$.$MicroVersion$"
