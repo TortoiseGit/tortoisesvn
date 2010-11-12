@@ -18,18 +18,19 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-11-12 08:35+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2010-10-11 09:19-0300\n"
+"Last-Translator: Tomás Christie <tommychristie@gmail.com>\n"
 "Language-Team: Tommy\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.6.0\n"
-"X-Poedit-Country: SPAIN\n"
 "X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Generator: Virtaal 0.6.0\n"
 
+#. Resource IDs: (10, 126)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -44,7 +45,6 @@ msgstr ""
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
 # A single space, please keep it
-#. Resource IDs: (10, 126)
 msgid " "
 msgstr " "
 
@@ -578,6 +578,10 @@ msgstr "&Copiar al portapapeles"
 #. Resource IDs: (101)
 msgid "&Copy to..."
 msgstr "&Copiar a..."
+
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr "&Crear estructura de carpetas"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -1193,6 +1197,10 @@ msgstr "Revisión e&specífica en el repositorio"
 msgid "&Start Group"
 msgstr "Grupo de &inicio"
 
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr "&Navegador de repositorios"
+
 #. Resource IDs: (59393)
 msgid "&Status Bar"
 msgstr "&Barra de Estado"
@@ -1484,7 +1492,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -2108,6 +2117,10 @@ msgstr "E&xplorar..."
 #. Resource IDs: (1064)
 msgid "Back"
 msgstr "Atrás"
+
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr "Fondo"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2952,6 +2965,10 @@ msgstr "Copiar y renombrar"
 msgid "Copy and rename item to here"
 msgstr "Copiar aquí el ítem y renombrarlo"
 
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr "Copiar columna al portapapeles"
+
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
 msgstr "Copiar mensaje de error al portapapeles"
@@ -3330,6 +3347,10 @@ msgstr "URL por defecto:"
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
 msgstr "Menú de aplicación por defecto. Se muestra cuando no hay documentos abiertos."
+
+#. Resource IDs: (81)
+msgid "Default directory structure successfully created!"
+msgstr "Estructura por defecto creada exitosamente!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4745,6 +4766,7 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4758,7 +4780,6 @@ msgstr "ID"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -4814,6 +4835,7 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32778:V   +J"
 
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4827,7 +4849,6 @@ msgstr "ID:32778:V   +J"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
 msgstr "ID:32814:V C +L"
 
@@ -4835,6 +4856,7 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
+#. Accelerator Entry for Menu ID:32824; ''
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4848,7 +4870,6 @@ msgstr "ID:32814:VA  +D"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
@@ -4867,6 +4888,29 @@ msgstr "ID:32825:V C +L"
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
+
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+#, fuzzy
+msgid "ID:32870:V C +L"
+msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
+#, fuzzy
+msgid "ID:32881:V C +P"
+msgstr "ID:32814:V C +L"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5597,6 +5641,10 @@ msgstr ""
 msgid "Locator Bar"
 msgstr "Barra de localización"
 
+#. Resource IDs: (65535)
+msgid "Locator bar"
+msgstr "Barra de localización"
+
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Bloquear"
@@ -6191,7 +6239,6 @@ msgid "No"
 msgstr "No"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
@@ -6500,8 +6547,9 @@ msgstr "Sólo propiedades modificadas"
 msgid "Only this item"
 msgstr "Sólo este ítem"
 
-# En españa, establecer no se usa en este contexto. Una casilla de verificación se marca, no se establece.
 #. Resource IDs: (1224)
+# En españa, establecer no se usa en este contexto. Una casilla de
+# verificación se marca, no se establece.
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "Utilizar el &corrector ortográfico únicamente cuando esté marcado tsvn:projectlanguage"
 
@@ -7018,8 +7066,9 @@ msgstr "&Tiempo límite del proxy en segundos:"
 msgid "Proxy Settings"
 msgstr "Configuración del Proxy"
 
-# Establecer no se utiliza en este contexto. Es más correcto marcar una propiedad.
 #. Resource IDs: (1338)
+# Establecer no se utiliza en este contexto. Es más correcto marcar una
+# propiedad.
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Poner \"Obtener bloqueo\" en el menú superior si está marcado svn:needs-lock"
 
@@ -7468,6 +7517,10 @@ msgstr "URL del repositorio"
 msgid "Repository UUID:"
 msgstr "UUID del repositorio:"
 
+#. Resource IDs: (324)
+msgid "Repository created"
+msgstr "Repositorio creado"
+
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
 msgstr "Petición cancelada por TSVN"
@@ -7847,6 +7900,10 @@ msgstr "¿Guardar cambios a %1?"
 msgid "Save client certificate path"
 msgstr "Guardar certificado de cliente en"
 
+#. Resource IDs: (617)
+msgid "Save in Git format"
+msgstr "Guardar en formato Git"
+
 #. Resource IDs: (76)
 msgid "Save revision &to..."
 msgstr "Guardar revisión &en ..."
@@ -8190,7 +8247,8 @@ msgstr "Mostrar &todas las revisiones"
 msgid "Show &changes"
 msgstr "Mostrar &cambios"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "Mostrar &registro"
 
@@ -9356,7 +9414,6 @@ msgid "The user who owns the lock of the file"
 msgstr "El usuario que es dueño del bloqueo del archivo"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
 "Please commit your changes first or revert."
@@ -11621,71 +11678,16 @@ msgstr "sí"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
-#. Resource IDs: (1542)
-msgid "&Create folder structure"
-msgstr "&Crear Estructura de carpetas"
-
-#. Resource IDs: (1605)
-msgid "&Start Repobrowser"
-msgstr "&Navegador de repositorios"
-
-#. Resource IDs: (65535)
-msgid "Background"
-msgstr "Fondo"
-
-#. Resource IDs: (209)
-msgid "Copy column to clipboard"
-msgstr "Copiar columna al porta papeles"
-
-#. Resource IDs: (81)
-msgid "Default directory structure successfully created!"
-msgstr "La estructura por defecto fue creada con éxito."
-
-#. Accelerator Entry for Menu ID:32870; 'Collapsed'
-#, fuzzy
-msgid "ID:32870:V C +L"
-msgstr "ID:32809:V C +F"
-
-# msgid/msgstr fields for Accelerator keys
-# Format is: "ID:xxxxxx:VACS+X" where:
-#    ID:xxxxx = the menu ID corresponding to the accelerator
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
-#, fuzzy
-msgid "ID:32881:V C +P"
-msgstr "ID:32814:V C +L"
-
-#. Resource IDs: (65535)
-msgid "Locator bar"
-msgstr "Barra de localización"
-
-#. Resource IDs: (324)
-msgid "Repository created"
-msgstr "Repositorio creado"
-
-#. Resource IDs: (617)
-msgid "Save in Git format"
-msgstr "Guardar en formato Gif"
-
 #~ msgid "&Update item to revision"
 #~ msgstr "&Actualizar ítem a la revisión"
+
 #~ msgid "Check externals to explicit revision"
 #~ msgstr "Buscar externos para versión explícita"
+
 #~ msgid ""
 #~ "svn:externals\r\n"
-#~ "A newline separated list of module specifiers, each of which consists of"
-#~ "\r\n"
-#~ "an optional revision, an URL and a relative directory path. For example"
-#~ "\r\n"
+#~ "A newline separated list of module specifiers, each of which consists of\r\n"
+#~ "an optional revision, an URL and a relative directory path. For example\r\n"
 #~ "http://example.com/repos/zig foo\r\n"
 #~ "-r 1234 http://example.com/repos/zag foo/bar\r\n"
 #~ "\r\n"
@@ -11697,10 +11699,8 @@ msgstr "Guardar en formato Gif"
 #~ "/ relative to the server's hostname"
 #~ msgstr ""
 #~ "svn:externals\r\n"
-#~ "Una lista de especificadores de módulos, uno por línea, cada uno de los "
-#~ "cuales consiste\r\n"
-#~ "en una revisión opcional, una URL y una ruta de directorio relativa. Por "
-#~ "ejemplo\r\n"
+#~ "Una lista de especificadores de módulos, uno por línea, cada uno de los cuales consiste\r\n"
+#~ "en una revisión opcional, una URL y una ruta de directorio relativa. Por ejemplo\r\n"
 #~ "http://example.com/repos/zig foo\r\n"
 #~ "-r 1234 http://example.com/repos/zag foo/bar\r\n"
 #~ "\r\n"
@@ -11710,53 +11710,70 @@ msgstr "Guardar en formato Gif"
 #~ "^/ relativo a la raíz del repositorio\r\n"
 #~ "// relativo al esquema de la URL\r\n"
 #~ "/ relativo al nombre del host del servidor"
+
 #~ msgid "&From WC at URL:"
 #~ msgstr "&Desde la Copia de Trabajo en la URL:"
+
 #~ msgid "Check externals to tag"
 #~ msgstr "Marcar referencias externas comoa etiquetas"
+
 #~ msgid "Messages, authors and paths"
 #~ msgstr "Mensajes, autores y rutas"
+
 #~ msgid "Tagged"
 #~ msgstr "Etiquetado"
+
 #~ msgid "tree conflict:"
 #~ msgstr "conflicto de árbol:"
+
 #~ msgid "&Sat:"
 #~ msgstr "&Sat:"
+
 #~ msgid "&Save..."
 #~ msgstr "&Guardar..."
+
 #~ msgid "&To URL: "
 #~ msgstr "&A la URL: "
+
 #~ msgid "Bug-ID / &Issue-Nr:"
 #~ msgstr "Bug-ID / Nº-&Incid.:"
+
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "Mostrar la superposición para ítems ignorados"
+
 #~ msgid "Show overlay for unversioned items"
 #~ msgstr "Mostrar la superposición para ítems no versionados"
-#~ msgid "The repository was successfully created."
-#~ msgstr "El repositorio fue creado con éxito."
+
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Autor:                                     Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Comprobar automáticamente si hay versiones &nuevas cada semana"
+
 #~ msgid "Edit conflict"
 #~ msgstr "Ediar conflicto"
+
 #~ msgid "From URL:"
 #~ msgstr "Desde la URL:"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "&Ocultar rutas cambiadas no relacionadas"
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr ""
-#~ "Si se habilita, TortoiseSVN comprueba una vez a la semana si está "
-#~ "disponible una versión más actualizada"
+
+#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr "Si se habilita, TortoiseSVN comprueba una vez a la semana si está disponible una versión más actualizada"
+
 #~ msgid "Show &properties"
 #~ msgstr "Mostrar &propiedades"
+
 #~ msgid "Show i&gnored files"
 #~ msgstr "Mostrar archivos i&gnorados"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "Mostrar archivos no &modificados"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "Mostrar archivos no &versionados"
+
 #~ msgid ""
 #~ "Subversion encountered a serious problem.\n"
 #~ "Please take the time to report this on our mailing list\n"
@@ -11771,81 +11788,84 @@ msgstr "Guardar en formato Gif"
 #~ "como sea posible.\n"
 #~ "\n"
 #~ "Subversion reportó lo siguiente:"
+
 #~ msgid "Cleaning up."
 #~ msgstr "Limpiando."
+
 #~ msgid "General::Revision Graph"
 #~ msgstr "General::Gráfico de revisiones"
+
 #~ msgid "Go offline?"
 #~ msgstr "¿Pasar a sin conexión?"
+
 #~ msgid "Replaced node"
 #~ msgstr "Nodo reemplazado"
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Unidades de disco flexible (A: B:)"
+
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
-#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
-#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
 #~ "Se necesita GDI+ para grabar el gráfico de revisiones como una imagen.\n"
 #~ "Puede obtener GDI+ desde\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
-#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
-#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
+
 #~ msgid "(deleted) %s"
 #~ msgstr "(eliminado) %s"
+
 #~ msgid "Only record the merge"
 #~ msgstr "Sólo registrar la fusión"
+
 #~ msgid "alias (deleted): %s"
 #~ msgstr "alias (borrado): %s"
+
 #~ msgid "&?"
 #~ msgstr "&?"
+
 #~ msgid "SVN Export to here"
 #~ msgstr "SVN Exportar aquí"
+
 #~ msgid "Merge all..."
 #~ msgstr "Fusionar todo..."
+
 #~ msgid "Bro&wse..."
 #~ msgstr "Exp&lorar..."
+
 #~ msgid "Brows&e..."
 #~ msgstr "Expl&orar..."
+
 #~ msgid "Force blame"
 #~ msgstr "Forzar autoría"
+
 #~ msgid "Bug Tracker..."
 #~ msgstr "Gestión de incidencias..."
+
 #~ msgid "Remove..."
 #~ msgstr "Eliminar..."
+
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Abrir Ctrl-O"
+
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Guardar"
+
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "&Deshacer\tCtrl+Z"
+
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Usar &ampliador en barra de localización"
+
 #~ msgid "Analyze revision data..."
 #~ msgstr "Analizar datos de la revisión..."
+
 #~ msgid "Checking for forward copies"
 #~ msgstr "Comprobando copias hacia delante"
+
 #~ msgid "Groups branches together"
 #~ msgstr "Hace grupos juntando ramas"
-#~ msgid ""
-#~ "This method covers the case when you have made a feature branch as "
-#~ "discussed in the Subversion book. All trunk changes have been ported to "
-#~ "the feature branch, week by week, and now the feature is complete you "
-#~ "want to merge it back into the trunk. Because you have kept the feature "
-#~ "branch synchronized with the trunk, the latest versions of branch and "
-#~ "trunk will be absolutely identical except for your branch changes. So in "
-#~ "this special case, you would merge by comparing the branch with the trunk."
-#~ msgstr ""
-#~ "Este método cubre la situación que se produce cuando ha creado una rama "
-#~ "de características como se explica en el libro de Subversion. Todos los "
-#~ "cambios del tronco se han portado a la rama de la característica, semana "
-#~ "a semana, y ahora que la característica se ha terminado quiere fusionarla "
-#~ "de nuevo en el tronco. Dado que ha mantenido la rama de la característica "
-#~ "sincronizada con el tronco, las últimas versiones de la rama y del tronco "
-#~ "serán exactamente iguales salvo por los cambios de su rama. Por lo que en "
-#~ "este caso especial, fusionaría comparando la rama con el tronco."
 
+#~ msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr "Este método cubre la situación que se produce cuando ha creado una rama de características como se explica en el libro de Subversion. Todos los cambios del tronco se han portado a la rama de la característica, semana a semana, y ahora que la característica se ha terminado quiere fusionarla de nuevo en el tronco. Dado que ha mantenido la rama de la característica sincronizada con el tronco, las últimas versiones de la rama y del tronco serán exactamente iguales salvo por los cambios de su rama. Por lo que en este caso especial, fusionaría comparando la rama con el tronco."
