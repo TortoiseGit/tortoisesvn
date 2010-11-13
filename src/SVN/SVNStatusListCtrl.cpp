@@ -739,11 +739,6 @@ CSVNStatusListCtrl::AddNewFileEntry(
     entry->working_size = -1;    // TODO: ask the svn devs to add the working_size field
     entry->depth = pSVNStatus->depth;
 
-    if (pSVNStatus->repos_relpath)
-    {
-        entry->url = CPathUtils::PathUnescape(pSVNStatus->repos_relpath);
-    }
-
     if(bDirectItem)
     {
         if (m_sURL.IsEmpty())
