@@ -7644,7 +7644,7 @@ msgid "Stripes"
 msgstr ""
 
 #. Resource IDs: (117)
-msgid "Sub-string filter:\r\n* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n* Enclose strings that contain spaces etc. with \".\r\n* Put a ! at the beginning of the line to invert the whole filter condition.\r\n\r\nExamples:\r\nmyname  2008    : my commits of 2008\r\n.h  -.cpp              : commits that changed headers but no implementations\r\n\" \"                        : commits with spaces (ex. when searching in paths only)\r\n-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n!myname  .cpp    : everything but my commits to .cpp files"
+msgid "Sub-string filter:\r\n* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n* Enclose strings that contain spaces etc. with \".\r\n* Put a ! at the beginning of the line to invert the whole filter condition.\r\n\r\nExamples:\r\nmyname  2008    : my commits of 2008\r\n.h  -.cpp              : commits that changed headers but no implementations\r\n.doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n\" \"                        : commits with spaces (ex. when searching in paths only)\r\n-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 
 #. Resource IDs: (65535)
