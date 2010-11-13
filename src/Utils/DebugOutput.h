@@ -30,6 +30,11 @@ public:
         return *m_pInstance;
     }
 
+	static bool Active()
+	{
+		return Instance().m_bActive;
+	}
+
     // Non Unicode output helper
     void operator()(PCSTR pszFormat, ...)
     {
