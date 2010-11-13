@@ -2499,9 +2499,9 @@ bool SVN::PathIsURL(const CTSVNPath& path)
     return !!svn_path_is_url(CUnicodeUtils::GetUTF8(path.GetSVNPathString()));
 }
 
-void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt)
+void SVN::formatDate(TCHAR date_native[], apr_time_t date_svn, bool force_short_fmt)
 {
-    if (date_svn == NULL)
+    if (date_svn == 0)
     {
         _tcscpy_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
         return;
@@ -2589,7 +2589,7 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
     _tcsncpy_s (date_native, SVN_DATE_BUFFER, result, SVN_DATE_BUFFER);
 }
 
-CString SVN::formatDate(apr_time_t& date_svn)
+CString SVN::formatDate(apr_time_t date_svn)
 {
     apr_time_exp_t exploded_time = {0};
 
@@ -2617,7 +2617,7 @@ CString SVN::formatDate(apr_time_t& date_svn)
     return datebuf;
 }
 
-CString SVN::formatTime (apr_time_t& date_svn)
+CString SVN::formatTime (apr_time_t date_svn)
 {
     apr_time_exp_t exploded_time = {0};
 
