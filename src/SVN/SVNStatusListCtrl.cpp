@@ -1296,7 +1296,7 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
     static HINSTANCE hResourceHandle(AfxGetResourceHandle());
     static WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
-    TCHAR buf[100];
+    TCHAR buf[SVN_DATE_BUFFER];
     const FileEntry * entry = GetListEntry (listIndex);
     if (entry == NULL)
         return empty;
@@ -1507,6 +1507,30 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
     }
 }
 
+int CSVNStatusListCtrl::GetEntryIcon (int listIndex)
+{
+    const FileEntry * entry = GetListEntry (listIndex);
+    if (entry == NULL)
+        return 0;
+
+    int icon_idx = entry->isfolder
+                 ? m_nIconFolder
+                 : SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
+
+    if (entry->IsNested())
+        icon_idx |= INDEXTOOVERLAYMASK(OVL_NESTED);
+    else if (entry->IsInExternal()||entry->file_external)
+        icon_idx |= INDEXTOOVERLAYMASK(OVL_EXTERNAL);
+    else if (entry->depth == svn_depth_files)
+        icon_idx |= INDEXTOOVERLAYMASK(OVL_DEPTHFILES);
+    else if (entry->depth == svn_depth_immediates)
+        icon_idx |= INDEXTOOVERLAYMASK(OVL_DEPTHIMMEDIATES);
+    else if (entry->depth == svn_depth_empty)
+        icon_idx |= INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY);
+
+    return icon_idx;
+}
+
 void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
 {
     const CString& path = entry->GetPath().GetSVNPathString();
@@ -1519,17 +1543,10 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
 
     m_bBlock = TRUE;
     int index = listIndex;
-    int icon_idx = 0;
     if (entry->isfolder)
-    {
-        icon_idx = m_nIconFolder;
         m_nShownFolders++;
-    }
     else
-    {
-        icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
         m_nShownFiles++;
-    }
 
     if (entry->isConflicted)
         m_nShownConflicted++;
@@ -1566,51 +1583,37 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     }
 
     // relative path
-    InsertItem(index, LPSTR_TEXTCALLBACK/*entry->GetDisplayName()*/, icon_idx);
-    if (entry->IsNested())
-        SetItemState(index, INDEXTOOVERLAYMASK(OVL_NESTED), LVIS_OVERLAYMASK);
-    else if (entry->IsInExternal()||entry->file_external)
-        SetItemState(index, INDEXTOOVERLAYMASK(OVL_EXTERNAL), LVIS_OVERLAYMASK);
-    else if (entry->depth == svn_depth_files)
-        SetItemState(index, INDEXTOOVERLAYMASK(OVL_DEPTHFILES), LVIS_OVERLAYMASK);
-    else if (entry->depth == svn_depth_immediates)
-        SetItemState(index, INDEXTOOVERLAYMASK(OVL_DEPTHIMMEDIATES), LVIS_OVERLAYMASK);
-    else if (entry->depth == svn_depth_empty)
-        SetItemState(index, INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY), LVIS_OVERLAYMASK);
+    InsertItem(index, LPSTR_TEXTCALLBACK, I_IMAGECALLBACK);
 
     SetCheck(index, entry->checked);
     if (entry->checked)
         m_nSelected++;
-    if (m_changelists.find(entry->changelist) != m_changelists.end())
-        SetItemGroup(index, m_changelists[entry->changelist]);
-    else if (m_bExternalsGroups)
+
+    int groupIndex = 0;
+    auto iter = m_changelists.find(entry->changelist);
+    if (iter != m_changelists.end())
+        groupIndex = iter->second;
+    else if (m_bExternalsGroups && entry->IsInExternal() && !m_externalSet.empty())
     {
-        // maybe we have externals groups
-        if (entry->IsInExternal() && !m_externalSet.empty())
+        // we have externals groups
+        int i = 0;
+        // in case an external has its own externals, we have
+        // to loop through all externals: the set is sorted, so the last
+        // path that matches will be the 'lowest' path in the hierarchy
+        // and that's the path we want.
+        for (std::set<CTSVNPath>::iterator it = m_externalSet.begin(); it != m_externalSet.end(); ++it)
         {
-            int groupIndex = 0;
-            int foundIndex = 0;
-            // in case an external has its own externals, we have
-            // to loop through all externals: the set is sorted, so the last
-            // path that matches will be the 'lowest' path in the hierarchy
-            // and that's the path we want.
-            for (std::set<CTSVNPath>::iterator it = m_externalSet.begin(); it != m_externalSet.end(); ++it)
-            {
-                groupIndex++;
-                if (it->IsAncestorOf(entry->path))
-                    foundIndex = groupIndex;
-            }
-            SetItemGroup(index, foundIndex);
-            if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
-            {
-                SetCheck(index, FALSE);
-            }
+            i++;
+            if (it->IsAncestorOf(entry->path))
+                groupIndex = i;
         }
-        else
-            SetItemGroup(index, 0);
+        if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
+        {
+            SetCheck(index, FALSE);
+        }
     }
-    else
-        SetItemGroup(index, 0);
+
+    SetItemGroup(index, groupIndex);
 
     m_bBlock = FALSE;
 }
@@ -1641,7 +1644,14 @@ void CSVNStatusListCtrl::Sort()
         std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), predicate);
         SaveColumnWidths();
     }
-    Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
+
+    SetRedraw (FALSE);
+
+    DeleteAllItems();
+    for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
+        AddEntry (m_arStatusArray[i], (int)i);
+
+    SetRedraw (TRUE);
 }
 
 void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
@@ -4544,6 +4554,11 @@ void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
         CString text = GetCellText (pItem->iItem, pItem->iSubItem);
         lstrcpyn(pItem->pszText, text, pItem->cchTextMax);
     }
+    if (pItem->mask & LVIF_IMAGE)
+        if (pItem->iSubItem == 0)
+            pItem->iImage = GetEntryIcon (pItem->iItem);
+        else
+            pItem->mask -= LVIF_IMAGE;
 }
 
 BOOL CSVNStatusListCtrl::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
