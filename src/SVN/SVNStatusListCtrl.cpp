@@ -772,11 +772,21 @@ CSVNStatusListCtrl::AddNewFileEntry(
 
     if(bDirectItem)
     {
+        CString sFullUrl = entry->url;
+        if ((pSVNStatus) && (pSVNStatus->repos_root_url) && (pSVNStatus->repos_root_url[0]))
+        {
+            sFullUrl = pSVNStatus->repos_root_url;
+            sFullUrl += L"/" + entry->url;
+        }
         if (m_sURL.IsEmpty())
-            m_sURL = entry->url;
+        {
+            m_sURL = sFullUrl;
+        }
         else
+        {
             m_sURL.LoadString(IDS_STATUSLIST_MULTIPLETARGETS);
-        m_StatusUrlList.AddPath(CTSVNPath(entry->url));
+        }
+        m_StatusUrlList.AddPath(CTSVNPath(sFullUrl));
     }
     if (pSVNStatus->lock)
     {
