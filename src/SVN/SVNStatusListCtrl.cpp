@@ -120,6 +120,7 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
     ON_NOTIFY_REFLECT(NM_DBLCLK, OnNMDblclk)
     ON_NOTIFY_REFLECT(LVN_GETINFOTIP, OnLvnGetInfoTip)
     ON_NOTIFY_REFLECT(NM_CUSTOMDRAW, OnNMCustomdraw)
+    ON_NOTIFY_REFLECT(LVN_GETDISPINFO, OnLvnGetdispinfo)
     ON_WM_SETCURSOR()
     ON_WM_GETDLGCODE()
     ON_NOTIFY_REFLECT(NM_RETURN, OnNMReturn)
@@ -1120,7 +1121,6 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
 void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DWORD dwCheck, bool bShowFolders, bool bShowFiles)
 {
     Locker lock(m_critSec);
-    WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
     CWinApp * pApp = AfxGetApp();
     if (pApp)
@@ -1194,7 +1194,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                         if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
                             entry->checked = true;
                     }
-                    AddEntry(entry, langID, listIndex++);
+                    AddEntry(entry, listIndex++);
                 }
             }
             else if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTFILES)&&(entry->direct)&&(!entry->IsFolder())))
@@ -1205,7 +1205,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                     if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
                         entry->checked = true;
                 }
-                AddEntry(entry, langID, listIndex++);
+                AddEntry(entry, listIndex++);
             }
             else if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTFOLDER)&&(entry->direct)&&entry->IsFolder()))
             {
@@ -1215,7 +1215,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                     if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
                         entry->checked = true;
                 }
-                AddEntry(entry, langID, listIndex++);
+                AddEntry(entry, listIndex++);
             }
         }
     }
@@ -1276,14 +1276,229 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     Invalidate();
 }
 
-void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
+CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
 {
     static const CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
     static const CString treeconflict(MAKEINTRESOURCE(IDS_STATUSLIST_TREECONFLICT));
     static const CString sNested(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
     static const CString sLockBroken(MAKEINTRESOURCE(IDS_STATUSLIST_LOCKBROKEN));
+    static const CString empty;
     static HINSTANCE hResourceHandle(AfxGetResourceHandle());
+    static WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
+    TCHAR buf[100];
+    const FileEntry * entry = GetListEntry (listIndex);
+    if (entry == NULL)
+        return empty;
+
+    switch (column)
+    {
+        case 0: // relative path
+            return entry->GetDisplayName();
+
+        case 1: // SVNSLC_COLFILENAME
+            return entry->path.GetFileOrDirectoryName();
+
+        case 2: // SVNSLC_COLEXT
+            return entry->path.GetFileExtension();
+
+        case 3: // SVNSLC_COLSTATUS
+            if (entry->isNested)
+                return sNested;
+
+            SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, _countof(buf), (WORD)langID);
+            if ((entry->copied)&&(_tcslen(buf)>1))
+                _tcscat_s(buf, 100, _T(" (+)"));
+            if ((entry->switched)&&(_tcslen(buf)>1))
+                _tcscat_s(buf, 100, _T(" (s)"));
+            if ((entry->status == entry->propstatus)&&
+                (entry->status != svn_wc_status_normal)&&
+                (entry->status != svn_wc_status_unversioned)&&
+                (entry->status != svn_wc_status_none)&&
+                (!SVNStatus::IsImportant(entry->textstatus)))
+                _tcscat_s(buf, 100, ponly);
+            if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
+            {
+                _tcscat_s(buf, 100, _T(", "));
+                _tcscat_s(buf, 100, treeconflict);
+            }
+            return buf;
+
+        case 4: // SVNSLC_COLREMOTESTATUS
+            if (entry->isNested)
+                return sNested;
+
+            SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, _countof(buf), (WORD)langID);
+            if ((entry->copied)&&(_tcslen(buf)>1))
+                _tcscat_s(buf, 100, _T(" (+)"));
+            if ((entry->switched)&&(_tcslen(buf)>1))
+                _tcscat_s(buf, 100, _T(" (s)"));
+            if ((entry->remotestatus == entry->remotepropstatus)&&
+                (entry->remotestatus != svn_wc_status_none)&&
+                (entry->remotestatus != svn_wc_status_normal)&&
+                (entry->remotestatus != svn_wc_status_unversioned)&&
+                (!SVNStatus::IsImportant(entry->remotetextstatus)))
+                _tcscat_s(buf, 100, ponly);
+            return buf;
+
+        case 5: // SVNSLC_COLTEXTSTATUS
+            if (entry->isNested)
+                return sNested;
+
+            SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, _countof(buf), (WORD)langID);
+            if ((entry->copied)&&(_tcslen(buf)>1))
+                _tcscat_s(buf, 100, _T(" (+)"));
+            if ((entry->switched)&&(_tcslen(buf)>1))
+                _tcscat_s(buf, 100, _T(" (s)"));
+            if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
+            {
+                _tcscat_s(buf, 100, _T(", "));
+                _tcscat_s(buf, 100, treeconflict);
+            }
+            return buf;
+
+        case 6: // SVNSLC_COLPROPSTATUS
+            if (entry->isNested)
+                return empty;
+
+            SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, _countof(buf), (WORD)langID);
+            if ((entry->copied)&&(_tcslen(buf)>1))
+                _tcscat_s(buf, 100, _T(" (+)"));
+            if ((entry->switched)&&(_tcslen(buf)>1))
+                _tcscat_s(buf, 100, _T(" (s)"));
+            return buf;
+
+        case 7: // SVNSLC_COLREMOTETEXT
+            if (entry->isNested)
+                return empty;
+
+            SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, _countof(buf), (WORD)langID);
+            return buf;
+
+        case 8: // SVNSLC_COLREMOTEPROP
+            if (entry->isNested)
+                return empty;
+
+            SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, _countof(buf), (WORD)langID);
+            return buf;
+
+        case 9: // SVNSLC_COLDEPTH
+            return SVNStatus::GetDepthString(entry->depth);
+
+        case 10: // SVNSLC_COLURL
+            return entry->url;
+
+        case 11: // SVNSLC_COLLOCK
+            if (!m_HeadRev.IsHead())
+            {
+                // we have contacted the repository
+
+                // decision-matrix
+                // wc       repository      text
+                // ""       ""              ""
+                // ""       UID1            owner
+                // UID1     UID1            owner
+                // UID1     ""              lock has been broken
+                // UID1     UID2            lock has been stolen
+                if (entry->lock_token.IsEmpty() || (entry->lock_token.Compare(entry->lock_remotetoken)==0))
+                    return entry->lock_owner.IsEmpty()
+                        ? entry->lock_remoteowner
+                        : entry->lock_owner;
+
+                if (entry->lock_remotetoken.IsEmpty())
+                    return sLockBroken;
+
+                // stolen lock
+                CString temp;
+                temp.Format(IDS_STATUSLIST_LOCKSTOLEN, (LPCTSTR)entry->lock_remoteowner);
+                return temp;
+            }
+            return entry->lock_owner;
+
+        case 12: // SVNSLC_COLLOCKCOMMENT
+            return entry->lock_comment;
+
+        case 13: // SVNSLC_COLLOCKDATE
+            if (entry->lock_date)
+            {
+
+                SVN::formatDate(buf, entry->lock_date, true);
+                return buf;
+            }
+            return empty;
+
+        case 14: // SVNSLC_COLAUTHOR
+            return entry->last_commit_author;
+
+        case 15: // SVNSLC_COLREVISION
+            if (entry->last_commit_rev > 0)
+            {
+                _itot_s (entry->last_commit_rev, buf, 10);
+                return buf;
+            }
+            return empty;
+
+        case 16: // SVNSLC_COLREMOTEREVISION
+            if (entry->remoterev > 0)
+            {
+                _itot_s (entry->remoterev, buf, 10);
+                return buf;
+            }
+            return empty;
+
+        case 17: // SVNSLC_COLDATE
+            if (entry->last_commit_date)
+            {
+                SVN::formatDate(buf, entry->last_commit_date, true);
+                return buf;
+            }
+            return empty;
+
+        case 18: // SVNSLC_COLMODIFICATIONDATE
+            {
+                __int64 filetime = entry->GetPath().GetLastWriteTime();
+                if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
+                {
+                    FILETIME* f = (FILETIME*)(__int64*)&filetime;
+                    SVN::formatDate(buf,*f,true);
+                    return buf;
+                }
+            }
+            return empty;
+
+        case 19: // SVNSLC_COLSIZE
+            if (!entry->IsFolder())
+            {
+                __int64 filesize = entry->working_size != (-1) 
+                                 ? entry->working_size 
+                                 : entry->GetPath().GetFileSize();
+                StrFormatByteSize64(filesize, buf, 100);
+                return buf;
+            }
+
+            return empty;
+
+        default: // user-defined properties
+            if (column < m_ColumnManager.GetColumnCount())
+            {
+                assert (m_ColumnManager.IsUserProp (column));
+
+                const CString& name = m_ColumnManager.GetName(column);
+                if (entry->present_props.HasProperty (name))
+                {
+                    const CString& propVal = entry->present_props [name];
+                    return propVal.IsEmpty()
+                        ? m_sNoPropValueText
+                        : propVal;
+                }
+            }
+
+            return empty;
+    }
+}
+
+void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
+{
     const CString& path = entry->GetPath().GetSVNPathString();
     if ( m_mapFilenameToChecked.size()!=0 && m_mapFilenameToChecked.find(path) != m_mapFilenameToChecked.end() )
     {
@@ -1293,9 +1508,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     }
 
     m_bBlock = TRUE;
-    TCHAR buf[100];
     int index = listIndex;
-    int nCol = 1;
     int icon_idx = 0;
     if (entry->isfolder)
     {
@@ -1343,7 +1556,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
     }
 
     // relative path
-    InsertItem(index, entry->GetDisplayName(), icon_idx);
+    InsertItem(index, LPSTR_TEXTCALLBACK/*entry->GetDisplayName()*/, icon_idx);
     if (entry->IsNested())
         SetItemState(index, INDEXTOOVERLAYMASK(OVL_NESTED), LVIS_OVERLAYMASK);
     else if (entry->IsInExternal()||entry->file_external)
@@ -1354,229 +1567,6 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
         SetItemState(index, INDEXTOOVERLAYMASK(OVL_DEPTHIMMEDIATES), LVIS_OVERLAYMASK);
     else if (entry->depth == svn_depth_empty)
         SetItemState(index, INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY), LVIS_OVERLAYMASK);
-
-    // SVNSLC_COLFILENAME
-    SetItemText(index, nCol++, entry->path.GetFileOrDirectoryName());
-    // SVNSLC_COLEXT
-    SetItemText(index, nCol++, entry->path.GetFileExtension());
-    // SVNSLC_COLSTATUS
-    if (entry->isNested)
-    {
-        SetItemText(index, nCol++, sNested);
-    }
-    else
-    {
-        SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, _countof(buf), (WORD)langID);
-        if ((entry->copied)&&(_tcslen(buf)>1))
-            _tcscat_s(buf, 100, _T(" (+)"));
-        if ((entry->switched)&&(_tcslen(buf)>1))
-            _tcscat_s(buf, 100, _T(" (s)"));
-        if ((entry->status == entry->propstatus)&&
-            (entry->status != svn_wc_status_normal)&&
-            (entry->status != svn_wc_status_unversioned)&&
-            (entry->status != svn_wc_status_none)&&
-            (!SVNStatus::IsImportant(entry->textstatus)))
-            _tcscat_s(buf, 100, ponly);
-        if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
-        {
-            _tcscat_s(buf, 100, _T(", "));
-            _tcscat_s(buf, 100, treeconflict);
-        }
-        SetItemText(index, nCol++, buf);
-    }
-    // SVNSLC_COLREMOTESTATUS
-    if (entry->isNested)
-    {
-        SetItemText(index, nCol++, sNested);
-    }
-    else
-    {
-        SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, _countof(buf), (WORD)langID);
-        if ((entry->copied)&&(_tcslen(buf)>1))
-            _tcscat_s(buf, 100, _T(" (+)"));
-        if ((entry->switched)&&(_tcslen(buf)>1))
-            _tcscat_s(buf, 100, _T(" (s)"));
-        if ((entry->remotestatus == entry->remotepropstatus)&&
-            (entry->remotestatus != svn_wc_status_none)&&
-            (entry->remotestatus != svn_wc_status_normal)&&
-            (entry->remotestatus != svn_wc_status_unversioned)&&
-            (!SVNStatus::IsImportant(entry->remotetextstatus)))
-            _tcscat_s(buf, 100, ponly);
-        SetItemText(index, nCol++, buf);
-    }
-    // SVNSLC_COLTEXTSTATUS
-    if (entry->isNested)
-    {
-        SetItemText(index, nCol++, sNested);
-    }
-    else
-    {
-        SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, _countof(buf), (WORD)langID);
-        if ((entry->copied)&&(_tcslen(buf)>1))
-            _tcscat_s(buf, 100, _T(" (+)"));
-        if ((entry->switched)&&(_tcslen(buf)>1))
-            _tcscat_s(buf, 100, _T(" (s)"));
-        if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
-        {
-            _tcscat_s(buf, 100, _T(", "));
-            _tcscat_s(buf, 100, treeconflict);
-        }
-        SetItemText(index, nCol++, buf);
-    }
-    // SVNSLC_COLPROPSTATUS
-    if (entry->isNested)
-    {
-        nCol++;
-    }
-    else
-    {
-        SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, _countof(buf), (WORD)langID);
-        if ((entry->copied)&&(_tcslen(buf)>1))
-            _tcscat_s(buf, 100, _T(" (+)"));
-        if ((entry->switched)&&(_tcslen(buf)>1))
-            _tcscat_s(buf, 100, _T(" (s)"));
-        SetItemText(index, nCol++, buf);
-    }
-    // SVNSLC_COLREMOTETEXT
-    if (entry->isNested)
-    {
-        nCol++;
-    }
-    else
-    {
-        SVNStatus::GetStatusString(hResourceHandle, entry->remotetextstatus, buf, _countof(buf), (WORD)langID);
-        SetItemText(index, nCol++, buf);
-    }
-    // SVNSLC_COLREMOTEPROP
-    if (entry->isNested)
-    {
-        _T("");
-    }
-    else
-    {
-        SVNStatus::GetStatusString(hResourceHandle, entry->remotepropstatus, buf, _countof(buf), (WORD)langID);
-        SetItemText(index, nCol++, buf);
-    }
-    // SVNSLC_COLDEPTH
-    SetItemText(index, nCol++, SVNStatus::GetDepthString(entry->depth));
-    // SVNSLC_COLURL
-    SetItemText(index, nCol++, entry->url);
-    // SVNSLC_COLLOCK
-    if (!m_HeadRev.IsHead())
-    {
-        // we have contacted the repository
-
-        // decision-matrix
-        // wc       repository      text
-        // ""       ""              ""
-        // ""       UID1            owner
-        // UID1     UID1            owner
-        // UID1     ""              lock has been broken
-        // UID1     UID2            lock has been stolen
-        if (entry->lock_token.IsEmpty() || (entry->lock_token.Compare(entry->lock_remotetoken)==0))
-        {
-            if (entry->lock_owner.IsEmpty())
-                SetItemText(index, nCol++, entry->lock_remoteowner);
-            else
-                SetItemText(index, nCol++, entry->lock_owner);
-        }
-        else if (entry->lock_remotetoken.IsEmpty())
-        {
-            // broken lock
-            SetItemText(index, nCol++, sLockBroken);
-        }
-        else
-        {
-            // stolen lock
-            CString temp;
-            temp.Format(IDS_STATUSLIST_LOCKSTOLEN, (LPCTSTR)entry->lock_remoteowner);
-            SetItemText(index, nCol++, temp);
-        }
-    }
-    else
-        SetItemText(index, nCol++, entry->lock_owner);
-
-    // SVNSLC_COLLOCKCOMMENT
-    SetItemText(index, nCol++, entry->lock_comment);
-    // SVNSLC_COLLOCKDATE
-    TCHAR datebuf[SVN_DATE_BUFFER];
-    apr_time_t date = entry->lock_date;
-    if (date)
-    {
-        SVN::formatDate(datebuf, date, true);
-        SetItemText(index, nCol++, datebuf);
-    }
-    else
-        nCol++;
-    // SVNSLC_COLAUTHOR
-    SetItemText(index, nCol++, entry->last_commit_author);
-    // SVNSLC_COLREVISION
-    if (entry->last_commit_rev > 0)
-    {
-        _itot_s (entry->last_commit_rev, buf, 10);
-        SetItemText(index, nCol++, buf);
-    }
-    else
-        nCol++;
-    // SVNSLC_COLREMOTEREVISION
-    if (entry->remoterev > 0)
-    {
-        _itot_s (entry->remoterev, buf, 10);
-        SetItemText(index, nCol++, buf);
-    }
-    else
-        nCol++;
-    // SVNSLC_COLDATE
-    date = entry->last_commit_date;
-    if (date)
-    {
-        SVN::formatDate(datebuf, date, true);
-        SetItemText(index, nCol++, datebuf);
-    }
-    else
-        nCol++;
-
-    // SVNSLC_COLMODIFICATIONDATE
-    __int64 filetime = entry->GetPath().GetLastWriteTime();
-    if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
-    {
-        FILETIME* f = (FILETIME*)(__int64*)&filetime;
-        SVN::formatDate(datebuf,*f,true);
-        SetItemText(index, nCol++, datebuf);
-    }
-    else
-    {
-        nCol++;
-    }
-    // SVNSLC_COLSIZE
-    if (entry->IsFolder())
-        nCol++;
-    else
-    {
-        __int64 filesize = entry->working_size != (-1) ? entry->working_size : entry->GetPath().GetFileSize();
-        StrFormatByteSize64(filesize, buf, 100);
-        SetItemText(index, nCol++, buf);
-    }
-
-    // user-defined properties
-    for ( int i = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
-        ; i < count
-        ; ++i)
-    {
-        assert (i == nCol++);
-        assert (m_ColumnManager.IsUserProp (i));
-
-        const CString& name = m_ColumnManager.GetName(i);
-        if (entry->present_props.HasProperty (name))
-        {
-            const CString& propVal = entry->present_props [name];
-
-            if (propVal.IsEmpty())
-                SetItemText(index, i, m_sNoPropValueText);
-            else
-                SetItemText(index, i, propVal);
-        }
-    }
 
     SetCheck(index, entry->checked);
     if (entry->checked)
@@ -2480,8 +2470,6 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 {
     const static CString svnPropIgnore (SVN_PROP_IGNORE);
 
-    WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-
     bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 
     bool bInactiveItem = false;
@@ -3284,7 +3272,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                         }
                                         m_arStatusArray.push_back(entry2);
                                         m_arListArray.push_back(m_arStatusArray.size()-1);
-                                        AddEntry(entry2, langID, GetItemCount());
+                                        AddEntry(entry2, GetItemCount());
                                     }
                                 }
                             }
@@ -3429,7 +3417,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                     }
                                     m_arStatusArray.push_back(entry3);
                                     m_arListArray.push_back(m_arStatusArray.size()-1);
-                                    AddEntry(entry3, langID, GetItemCount());
+                                    AddEntry(entry3, GetItemCount());
                                 }
                             }
                         }
@@ -4447,10 +4435,15 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
             // item's text color. Our return value will tell Windows to draw the
             // item itself, but it will use the new color we set here.
 
-            // Tell Windows to paint the control itself.
-            *pResult = CDRF_DODEFAULT;
             if (m_bBlock)
+            {
+                // Tell Windows to paint the control itself.
+                *pResult = CDRF_DODEFAULT;
                 return;
+            }
+
+            // Tell Windows to send draw notifications for each subitem.
+            *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
             COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
@@ -4525,6 +4518,21 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
             }
         }
         break;
+    }
+}
+
+void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+
+    //Create a pointer to the item
+    LV_ITEM* pItem= &(pDispInfo)->item;
+
+    *pResult = 0;
+    if (pItem->mask & LVIF_TEXT)
+    {
+        CString text = GetCellText (pItem->iItem, pItem->iSubItem);
+        lstrcpyn(pItem->pszText, text, pItem->cchTextMax);
     }
 }
 
