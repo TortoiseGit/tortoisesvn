@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-
+#include "Tooltip.h"
 
 /**
  * \ingroup Utils
@@ -25,7 +25,6 @@
  * gets longer than the edit control, the path is shown compacted.
  * But copying the path text to the clipboard always copies the
  * full (not compacted) path string.
- * TODO: show a tooltip with the full path on this control
  */
 class CPathEdit : public CEdit
 {
@@ -40,6 +39,7 @@ protected:
     DECLARE_MESSAGE_MAP()
 public:
     virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 private:
     CString     m_sRealText;
@@ -48,4 +48,5 @@ private:
     CFont       m_boldFont;
     void        FitPathToWidth(CString& path);
     CFont *     GetFont();
+    CToolTips   m_tooltips;
 };

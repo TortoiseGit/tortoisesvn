@@ -29,6 +29,7 @@ CPathEdit::CPathEdit()
     : m_bInternalCall(false)
     , m_bBold(false)
 {
+    m_tooltips.Create(this);
 }
 
 CPathEdit::~CPathEdit()
@@ -62,6 +63,7 @@ LRESULT CPathEdit::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
     case WM_SETTEXT:
         {
             m_sRealText = (LPCTSTR)lParam;
+            m_tooltips.AddTool(this, m_sRealText);
             CString path = m_sRealText;
             FitPathToWidth(path);
             lParam = (LPARAM)(LPCTSTR)path;
@@ -131,4 +133,10 @@ CFont * CPathEdit::GetFont()
         m_boldFont.CreateFontIndirect(&lf);
     }
     return &m_boldFont;
+}
+
+BOOL CPathEdit::PreTranslateMessage(MSG* pMsg)
+{
+    m_tooltips.RelayEvent(pMsg);
+    return CEdit::PreTranslateMessage(pMsg);
 }
