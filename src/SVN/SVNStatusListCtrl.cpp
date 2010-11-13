@@ -1542,7 +1542,6 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     }
 
     m_bBlock = TRUE;
-    int index = listIndex;
     if (entry->isfolder)
         m_nShownFolders++;
     else
@@ -1583,9 +1582,9 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     }
 
     // relative path
-    InsertItem(index, LPSTR_TEXTCALLBACK, I_IMAGECALLBACK);
+    InsertItem(listIndex, LPSTR_TEXTCALLBACK, I_IMAGECALLBACK);
 
-    SetCheck(index, entry->checked);
+    SetCheck(listIndex, entry->checked);
     if (entry->checked)
         m_nSelected++;
 
@@ -1609,11 +1608,11 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
         }
         if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
         {
-            SetCheck(index, FALSE);
+            SetCheck(listIndex, FALSE);
         }
     }
 
-    SetItemGroup(index, groupIndex);
+    SetItemGroup(listIndex, groupIndex);
 
     m_bBlock = FALSE;
 }
@@ -1637,6 +1636,12 @@ void CSVNStatusListCtrl::Sort()
 {
     Locker lock(m_critSec);
 
+    quick_hash_set<FileEntry*> visible;
+    visible.reserve (m_arListArray.size());
+
+    for (size_t i = 0, count = m_arListArray.size(); i < count; ++i)
+        visible.insert (m_arStatusArray[m_arListArray[i]]);
+
     if (m_nSortedColumn >= 0)
     {
         CSorter predicate (&m_ColumnManager, m_nSortedColumn, m_bAscending);
@@ -1648,8 +1653,13 @@ void CSVNStatusListCtrl::Sort()
     SetRedraw (FALSE);
 
     DeleteAllItems();
+    int line = 0;
     for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
-        AddEntry (m_arStatusArray[i], (int)i);
+        if (visible.contains (m_arStatusArray[i]))
+        {
+            m_arListArray[line] = i;
+            AddEntry (m_arStatusArray[i], line++);
+        }
 
     SetRedraw (TRUE);
 }
@@ -1683,10 +1693,11 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
     pHeader->SetItem(m_nSortedColumn, &HeaderItem);
 
     // the checked state of the list control items must be restored
-    for (int i=0; i<GetItemCount(); ++i)
+    for (int i=0, count = GetItemCount(); i < count; ++i)
     {
         FileEntry * entry = GetListEntry(i);
-        SetCheck(i, entry->IsChecked());
+        if (entry)
+            SetCheck(i, entry->IsChecked());
     }
 
     m_bBlock = FALSE;
