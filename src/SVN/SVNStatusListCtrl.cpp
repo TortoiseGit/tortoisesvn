@@ -430,7 +430,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 // Fetch all local properties for all elements in the status array
 //
 
-void CSVNStatusListCtrl::FetchUserProperties (FileEntry* entry)
+void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
 {
     SVNTRACE_BLOCK
 
@@ -440,49 +440,63 @@ void CSVNStatusListCtrl::FetchUserProperties (FileEntry* entry)
 
     // open working copy for this path
 
-    const char* path = entry->path.GetSVNApiPath (pool);
-
     svn_wc_context_t * wc_ctx = NULL;
     svn_error_t * error = svn_wc_context_create(&wc_ctx, NULL, pool, pool);
 
     if (error == NULL)
     {
-        // get the props and add them to the status info
-        apr_hash_t * props = NULL;
-        error = svn_wc_prop_list2 ( &props
-                                  , wc_ctx
-                                   , path
-                                  , pool
-                                   , pool);
-        if (error == NULL)
+        for (size_t i = first; i < last; ++i)
         {
-            for ( apr_hash_index_t *index = apr_hash_first (pool, props)
-                ; index != NULL
-                ; index = apr_hash_next (index))
+            FileEntry* entry = m_arStatusArray[i];
+            if (!entry->IsVersioned())
+                continue;
+
+            const char* path = entry->path.GetSVNApiPath (pool);
+
+            // get the props and add them to the status info
+            apr_hash_t * props = NULL;
+            error = svn_wc_prop_list2 ( &props
+                                      , wc_ctx
+                                      , path
+                                      , pool
+                                      , pool);
+            if (error == NULL)
             {
-                // extract next entry from hash
+                for ( apr_hash_index_t *index = apr_hash_first (pool, props)
+                    ; index != NULL
+                    ; index = apr_hash_next (index))
+                {
+                    // extract next entry from hash
 
-                const char* key = NULL;
-                ptrdiff_t keyLen;
-                const char** val = NULL;
+                    const char* key = NULL;
+                    ptrdiff_t keyLen;
+                    const char** val = NULL;
 
-                apr_hash_this ( index
-                              , reinterpret_cast<const void**>(&key)
-                              , &keyLen
-                              , reinterpret_cast<void**>(&val));
+                    apr_hash_this ( index
+                                  , reinterpret_cast<const void**>(&key)
+                                  , &keyLen
+                                  , reinterpret_cast<void**>(&val));
 
-                // decode / dispatch it
+                    // decode / dispatch it
 
-                CString name = CUnicodeUtils::GetUnicode (key);
-                CString value = CUnicodeUtils::GetUnicode (*val);
+                    CString name = CUnicodeUtils::GetUnicode (key);
+                    CString value = CUnicodeUtils::GetUnicode (*val);
 
-                // store in property container (truncate it after ~100 chars)
+                    // store in property container (truncate it after ~100 chars)
 
-                entry->present_props[name]
-                    = value.Left (SVNSLC_MAXUSERPROPLENGTH);
+                    entry->present_props[name]
+                        = value.GetLength() > SVNSLC_MAXUSERPROPLENGTH
+                        ? value.Left (SVNSLC_MAXUSERPROPLENGTH)
+                        : value;
+                }
+            }
+            else
+            {
+                svn_error_clear (error);
             }
         }
-        error = svn_wc_context_destroy(wc_ctx);
+
+        svn_error_clear (svn_wc_context_destroy(wc_ctx));
     }
 
     svn_error_clear (error);
@@ -493,10 +507,16 @@ void CSVNStatusListCtrl::FetchUserProperties()
 {
     async::CJobScheduler queries (0, async::CJobScheduler::GetHWThreadCount());
 
-    for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
-        new async::CAsyncCall ( &CSVNStatusListCtrl::FetchUserProperties
-                              , m_arStatusArray[i]
+    const size_t step = 1000;
+    for (size_t i = 0, count = m_arStatusArray.size(); i < count; i += step)
+    {
+        size_t next = min (i+step, m_arStatusArray.size());
+        new async::CAsyncCall ( this
+                              , &CSVNStatusListCtrl::FetchUserProperties
+                              , i
+                              , next
                               , &queries);
+    }
 }
 
 
