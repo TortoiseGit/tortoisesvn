@@ -39,6 +39,7 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
     , m_bDepthInfinity(false)
     , m_bRemote(false)
     , m_bContactRepository(false)
+    , m_bShowPropertiesClicked(false)
 {
 }
 
@@ -169,11 +170,16 @@ UINT CChangedDlg::ChangedStatusThread()
     DialogEnableWindow(IDC_SHOWFOLDERS, FALSE);
     CString temp;
     m_FileListCtrl.SetDepthInfinity(m_bDepthInfinity);
-    if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote, m_bShowIgnored != FALSE, m_bShowUserProps != FALSE))
+
+    if (m_bShowPropertiesClicked)
     {
-        if (!m_FileListCtrl.GetLastErrorMessage().IsEmpty())
-            m_FileListCtrl.SetEmptyString(m_FileListCtrl.GetLastErrorMessage());
+        m_bShowPropertiesClicked = false;
+        m_FileListCtrl.GetUserProps(m_bShowUserProps != FALSE);
     }
+    else
+        if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote, m_bShowIgnored != FALSE, m_bShowUserProps != FALSE))
+            m_FileListCtrl.SetEmptyString(m_FileListCtrl.GetLastErrorMessage());
+
     DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWLOCKS | SVNSLC_SHOWSWITCHED | SVNSLC_SHOWINCHANGELIST | SVNSLC_SHOWNESTED;
     dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
     dwShow |= m_iShowUnmodified ? SVNSLC_SHOWNORMAL : 0;
@@ -287,6 +293,7 @@ void CChangedDlg::OnBnClickedShowexternals()
 void CChangedDlg::OnBnClickedShowUserProps()
 {
     UpdateData();
+    m_bShowPropertiesClicked = true;
     OnBnClickedRefresh();
 }
 

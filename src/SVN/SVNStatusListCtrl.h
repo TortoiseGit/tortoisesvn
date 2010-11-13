@@ -251,6 +251,10 @@ public:
 
         bool IsNeedsLockSet() const;
 
+        /// remove all entries
+
+        void Clear();
+
     private:
 
         /// all the data we have. map: propname -> value
@@ -594,12 +598,20 @@ public:
      * \param sFilePath path to a file which contains a list of files and/or folders for which to
      *                  fetch the status, separated by newlines.
      * \param bUpdate TRUE if the remote status is requested too.
+     * \param bShowIgnores TRUE if ignored files and folders are requested too.
+     * \param bShowUserProps TRUE if user-defined props shall be read too.
      * \return TRUE on success.
      */
     BOOL GetStatus ( const CTSVNPathList& pathList
                    , bool bUpdate = false
                    , bool bShowIgnores = false
                    , bool bShowUserProps = false);
+
+    /**
+     * Fetches / removed user properties for all items in the internal array.
+     * \param bShowUserProps TRUE if user-defined props shall be read too.
+     */
+    void GetUserProps (bool bShowUserProps);
 
     /**
      * Populates the list control with the previously (with GetStatus) gathered status information.
@@ -846,6 +858,9 @@ private:
 
     /// Create 'status' data for each item in an unversioned folder
     void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, SVNConfig * config);
+
+    /// Add unversioned / ignored folder
+    void PostProcessEntry (const FileEntry* entry, svn_wc_status_kind wcFileStatus, SVNConfig * config);
 
     /// Read the all the other status items which result from a single GetFirstStatus call
     void ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& strBasePath, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, SVNConfig * config, bool bAllDirect);

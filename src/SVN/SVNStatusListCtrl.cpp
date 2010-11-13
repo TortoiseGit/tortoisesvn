@@ -426,6 +426,36 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
     return bRet;
 }
 
+void CSVNStatusListCtrl::GetUserProps (bool bShowUserProps)
+{
+    Locker lock(m_critSec);
+
+    m_bBlock = TRUE;
+    m_bBusy = true;
+
+    Invalidate();
+    DeleteAllItems();
+
+    // force the cursor to change
+    POINT pt;
+    GetCursorPos(&pt);
+    SetCursorPos(pt.x, pt.y);
+
+    if (bShowUserProps)
+        FetchUserProperties();
+    else
+        for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
+            m_arStatusArray[i]->present_props.Clear();
+
+
+    m_ColumnManager.UpdateUserPropList (m_arStatusArray);
+
+    m_bBlock = FALSE;
+    m_bBusy = false;
+    GetCursorPos(&pt);
+    SetCursorPos(pt.x, pt.y);
+}
+
 //
 // Fetch all local properties for all elements in the status array
 //
@@ -827,6 +857,53 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
     }
 }
 
+void CSVNStatusListCtrl::PostProcessEntry ( const FileEntry* entry
+                                          , svn_wc_status_kind wcFileStatus
+                                          , SVNConfig * config)
+{
+    struct SMatchIgnore
+    {
+    public:
+
+        SMatchIgnore (const FileEntry* entry, SVNConfig * config)
+            : entry (entry)
+            , config (config)
+            , calculated (false)
+            , result (false)
+        {
+        }
+
+        operator bool()
+        {
+            if (!calculated)
+            {
+                result = !!config->MatchIgnorePattern(entry->path.GetFileOrDirectoryName());
+                result |= !!config->MatchIgnorePattern(entry->path.GetSVNPathString());
+            }
+
+            return result;
+        }
+
+    private:
+
+        const FileEntry* entry;
+        SVNConfig * config;
+        bool calculated;
+        bool result;
+    };
+
+    SMatchIgnore matchIgnore (entry, config);
+    if (((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))||
+        (((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none))&&(!matchIgnore))||
+        (((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none))&&(matchIgnore)&&(m_bShowIgnores)))
+    {
+        if (entry->isfolder)
+        {
+            // we have an unversioned folder -> get all files in it recursively!
+            AddUnversionedFolder(entry->path, entry->basepath, config);
+        }
+    }
+}
 
 void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& basePath,
                                           CStringA& strCurrentRepositoryRoot,
@@ -953,19 +1030,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             m_bHasUnversionedItems = TRUE;
 
         const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal, bEntryfromDifferentRepo);
-
-        bool bMatchIgnore = !!config->MatchIgnorePattern(entry->path.GetFileOrDirectoryName());
-        bMatchIgnore = bMatchIgnore || config->MatchIgnorePattern(entry->path.GetSVNPathString());
-        if ((((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none))&&(!bMatchIgnore))||
-            ((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))||
-            (((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none))&&(bMatchIgnore)&&(m_bShowIgnores)))
-        {
-            if (entry->isfolder)
-            {
-                // we have an unversioned folder -> get all files in it recursively!
-                AddUnversionedFolder(svnPath, basePath, config);
-            }
-        }
+        PostProcessEntry(entry, wcFileStatus, config);
     } // while ((s = status.GetNextFileStatus(svnPath)) != NULL)
 }
 

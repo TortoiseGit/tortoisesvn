@@ -98,6 +98,12 @@ bool CSVNStatusListCtrl::PropertyList::IsNeedsLockSet() const
     return HasProperty (svnNeedsLock);
 }
 
+// remove all entries
+
+void CSVNStatusListCtrl::PropertyList::Clear()
+{
+    properties.clear();
+}
 
 // registry access
 

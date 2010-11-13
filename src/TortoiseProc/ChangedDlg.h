@@ -87,5 +87,8 @@ private:
     bool                    m_bDepthInfinity;
     CToolTips               m_tooltips;
     bool                    m_bContactRepository;
+
+    /// temp. set when the "Properties" was clicked last
+    bool                    m_bShowPropertiesClicked;
 };
 
