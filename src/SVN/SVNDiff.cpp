@@ -62,6 +62,7 @@ SVNDiff::~SVNDiff(void)
 }
 
 bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
+                        svn_wc_status_kind status, /* = svn_wc_status_none */
                         svn_wc_status_kind text_status /* = svn_wc_status_none */,
                         svn_wc_status_kind prop_status /* = svn_wc_status_none */,
                         svn_wc_status_kind remotetext_status /* = svn_wc_status_none */,
@@ -85,7 +86,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
     if (filePath.IsDirectory())
         return true;
 
-    if (text_status > svn_wc_status_normal)
+    if ((status > svn_wc_status_normal) || (text_status > svn_wc_status_normal))
     {
         basePath = SVN::GetPristinePath(filePath);
         if (baseRev == 0)
@@ -94,7 +95,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
             CTSVNPath dummy;
             svn_client_status_t * s = stat.GetFirstFileStatus(filePath, dummy);
             if (s)
-                baseRev = s->revision;
+                baseRev = s->revision >= 0 ? s->revision : s->changed_rev;
         }
     }
 
@@ -130,7 +131,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
         n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
     n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)name);
 
-    if ((text_status <= svn_wc_status_normal)&&(prop_status <= svn_wc_status_normal))
+    if ((text_status <= svn_wc_status_normal)&&(prop_status <= svn_wc_status_normal)&&(status <= svn_wc_status_normal))
     {
         // Hasn't changed locally - diff remote against WC
         return CAppUtils::StartExtDiff(
@@ -138,7 +139,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
     }
     else if (remotePath.IsEmpty())
     {
-        return DiffFileAgainstBase(filePath, baseRev, text_status, prop_status);
+        return DiffFileAgainstBase(filePath, baseRev, status, text_status, prop_status);
     }
     else
     {
@@ -154,6 +155,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 bool SVNDiff::DiffFileAgainstBase(
     const CTSVNPath& filePath,
     svn_revnum_t &baseRev,
+    svn_wc_status_kind status /* = svn_wc_status_none */,
     svn_wc_status_kind text_status /* = svn_wc_status_none */,
     svn_wc_status_kind prop_status /* = svn_wc_status_none */)
 {
@@ -175,7 +177,7 @@ bool SVNDiff::DiffFileAgainstBase(
 
     if (filePath.IsDirectory())
         return true;
-    if (text_status >= svn_wc_status_normal)
+    if ((status >= svn_wc_status_normal) || (text_status >= svn_wc_status_normal))
     {
         CTSVNPath basePath(SVN::GetPristinePath(filePath));
         if (baseRev == 0)

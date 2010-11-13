@@ -4154,7 +4154,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
     SVNDiff diff(NULL, m_hWnd, true);
     diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
     diff.DiffWCFile(
-        entry->path, entry->textstatus, entry->propstatus,
+        entry->path, entry->status, entry->textstatus, entry->propstatus,
         entry->remotetextstatus, entry->remotepropstatus);
 }
 

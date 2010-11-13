@@ -45,6 +45,7 @@ public:
     bool DiffFileAgainstBase(
         const CTSVNPath& filePath,
         svn_revnum_t & baseRev,
+        svn_wc_status_kind status = svn_wc_status_none,
         svn_wc_status_kind text_status = svn_wc_status_none,
         svn_wc_status_kind prop_status = svn_wc_status_none);
 
@@ -52,6 +53,7 @@ public:
      * Shows a diff of a file in the working copy with its BASE.
      */
     bool DiffWCFile(const CTSVNPath& filePath,
+                    svn_wc_status_kind status = svn_wc_status_none,
                     svn_wc_status_kind text_status = svn_wc_status_none,
                     svn_wc_status_kind prop_status = svn_wc_status_none,
                     svn_wc_status_kind remotetext_status = svn_wc_status_none,
