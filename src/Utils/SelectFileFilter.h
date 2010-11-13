@@ -51,7 +51,7 @@ inline void CSelectFileFilter::Load(UINT stringId)
         filtermasks.push_back(temp);
     }
     filterspec.reset(filternames.size());
-    for (int i = 0; i < filternames.size(); ++i)
+    for (size_t i = 0; i < filternames.size(); ++i)
     {
         filterspec[i].pszName = filternames[i];
         filterspec[i].pszSpec = filtermasks[i];
