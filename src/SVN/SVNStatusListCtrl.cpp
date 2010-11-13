@@ -4730,19 +4730,25 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
     pToolTip->SendMessage(TTM_SETMAXTIPWIDTH, 0, 300);
 
     *pResult = 0;
-    if ((internalcol == 2)||(internalcol == 4))
+    if (internalcol > 0)
     {
         FileEntry *fentry = GetListEntry(row);
         if (fentry)
         {
             if (fentry->copied)
             {
-                // TODO: Fetch the copyfrom url with SVNInfo, store it in a map so that further
-                // tooltips appear faster
-                //CString url;
-                //url.FormatMessage(IDS_STATUSLIST_COPYFROM, (LPCTSTR)CPathUtils::PathUnescape(fentry->copyfrom_url), (LONG)fentry->copyfrom_rev);
-                //lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
-                //return TRUE;
+                if (fentry->copyfrom_url_string.IsEmpty())
+                {
+                    SVNInfo info;
+                    const SVNInfoData * pInfo = info.GetFirstFileInfo(fentry->path, SVNRev(), SVNRev());
+                    if (pInfo)
+                        fentry->copyfrom_url_string.FormatMessage(IDS_STATUSLIST_COPYFROM, (LPCWSTR)pInfo->copyfromurl, (svn_revnum_t)pInfo->copyfromrev);
+                }
+                if (!fentry->copyfrom_url_string.IsEmpty())
+                {
+                    lstrcpyn(pTTTW->szText, (LPCTSTR)fentry->copyfrom_url_string, 80);
+                }
+                return TRUE;
             }
             if (fentry->switched)
             {

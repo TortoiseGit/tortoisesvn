@@ -395,6 +395,8 @@ public:
         apr_off_t               working_size;           ///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
         svn_depth_t             depth;                  ///< the depth of this entry
         bool                    file_external;          ///< if the item is a file that was added to the working copy with an svn:externals; if file_external is TRUE, then switched is always FALSE.
+        CString                 copyfrom_url_string;    ///< contains the url which this item was copied from. Note: this is not filled in by the status call but only
+                                                        ///< filled in when needed. This member is only here as a cache.
         friend class CSVNStatusListCtrl;
         friend class CSVNStatusListCtrlDropTarget;
         friend class CSorter;
