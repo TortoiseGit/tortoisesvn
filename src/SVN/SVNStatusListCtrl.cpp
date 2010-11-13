@@ -4544,11 +4544,17 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
 {
     NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+    *pResult = 0;
 
     //Create a pointer to the item
     LV_ITEM* pItem= &(pDispInfo)->item;
 
-    *pResult = 0;
+    if (m_bBlock)
+    {
+        pItem->mask = 0;
+        return;
+    }
+
     if (pItem->mask & LVIF_TEXT)
     {
         CString text = GetCellText (pItem->iItem, pItem->iSubItem);
