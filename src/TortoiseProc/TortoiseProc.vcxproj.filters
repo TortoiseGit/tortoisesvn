@@ -1043,6 +1043,9 @@
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\SVG.cpp">
+      <Filter>Utils\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1988,6 +1991,9 @@
       <Filter>Utility Dialogs</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\SVG.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
   </ItemGroup>

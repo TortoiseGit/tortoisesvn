@@ -91,7 +91,9 @@ void CRevisionGraphWnd::BuildPreview()
     // paint the whole graph
     DoZoom (m_previewZoom, false);
     CRect rect (0, 0, m_previewWidth, m_previewHeight);
-    DrawGraph(&dc, rect, 0, 0, true);
+    GraphicsDevice dev;
+    dev.pDC = &dc;
+    DrawGraph(dev, rect, 0, 0, true);
 
     // now we have a bitmap the size of the preview window
     dc.SelectObject(oldbm);

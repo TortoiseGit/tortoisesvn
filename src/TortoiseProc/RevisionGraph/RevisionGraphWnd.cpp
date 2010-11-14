@@ -794,12 +794,32 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
         DoZoom(m_fZoomFactor);
         CRect rect;
         rect = GetViewRect();
-        DrawGraph(&wmfDC, rect, 0, 0, true);
+        GraphicsDevice dev;
+        dev.pDC = &wmfDC;
+        DrawGraph(dev, rect, 0, 0, true);
         HENHMETAFILE hemf = wmfDC.CloseEnhanced();
         DeleteEnhMetaFile(hemf);
         m_fZoomFactor = fZoom;
         DoZoom(m_fZoomFactor);
     }
+    else if (extension.CompareNoCase(_T(".svg"))==0)
+    {
+        // save the graph as a scalable vector graphic
+        SVG svg;
+        float fZoom = m_fZoomFactor;
+        m_fZoomFactor = DEFAULT_ZOOM;
+        DoZoom(m_fZoomFactor);
+        CRect rect;
+        rect = GetViewRect();
+        svg.SetViewSize(rect.Width(), rect.Height());
+        GraphicsDevice dev;
+        dev.pSVG = &svg;
+        DrawGraph(dev, rect, 0, 0, true);
+        svg.Save(sSavePath);
+        m_fZoomFactor = fZoom;
+        DoZoom(m_fZoomFactor);
+    }
+
     else
     {
         // save the graph as a pixel picture instead of a vector picture
@@ -843,7 +863,9 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
             }
             HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
             // paint the whole graph
-            DrawGraph(&dc, rect, 0, 0, true);
+            GraphicsDevice dev;
+            dev.pDC = &dc;
+            DrawGraph(dev, rect, 0, 0, true);
             // now use GDI+ to save the picture
             CLSID encoderClsid;
             {
