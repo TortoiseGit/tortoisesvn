@@ -2520,9 +2520,8 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (15)
-#, fuzzy
 msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "Nettoyage d'opérations interrompus, de fichiers verrouillés, ..."
+msgstr "Nettoyage des opérations interrompues, et rafraichissement des icônes de recouvrement"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3334,9 +3333,8 @@ msgid "Default application menu. Appears when no documents are open."
 msgstr "Menu application par défaut. Apparaît quand aucun document n'est ouvert."
 
 #. Resource IDs: (81)
-#, fuzzy
 msgid "Default directory structure successfully created!"
-msgstr "Le référentiel a été créé avec succès."
+msgstr "L'arborescence de répertoires par défaut a été créé avec succès."
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -8097,7 +8095,7 @@ msgstr "Définir l'Accélérateur &pour :"
 
 #. Resource IDs: (1544)
 msgid "Set explicit revision for these externals:"
-msgstr ""
+msgstr "Fixer une révision spécifique pour ces références externes"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -8599,7 +8597,6 @@ msgid "Stripes"
 msgstr "Rayures"
 
 #. Resource IDs: (117)
-#, fuzzy
 msgid ""
 "Sub-string filter:\r\n"
 "* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
@@ -11429,15 +11426,14 @@ msgstr ""
 "Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatebranch\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
-"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+"tsvn:logtemplatebranch\r\n"
+"Message inséré dans la boite de dialogue de messages de log dans la fenêtre de livraison.\r\n"
+"Utilisez ceci comme un patron de message de log pour les branches/tags/copies."
 
 #. Resource IDs: (579)
 #, fuzzy
