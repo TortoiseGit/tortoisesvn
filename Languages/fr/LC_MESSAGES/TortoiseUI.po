@@ -1,13 +1,12 @@
-#
 # French translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
+# 
 # Authors:
 # Lübbe Onken <luebbe@tigris.org>
 # Christophe SAUVEUR <christophe@xhaleera.com>
@@ -49,8 +48,8 @@ msgstr "%.2f Mo transférés"
 msgid "%.2f kBytes/s"
 msgstr "%.2f ko/s"
 
-# Shouldn't it be contains unexpected object in original?
 #. Resource IDs: (3868)
+# Shouldn't it be contains unexpected object in original?
 #, c-format
 msgid "%1 contained an unexpected object."
 msgstr "%1 contenait un objet inattendu."
@@ -562,6 +561,10 @@ msgstr "&Copier dans le presse-papiers"
 msgid "&Copy to..."
 msgstr "&Copier vers..."
 
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr "&Créer l'arborescence de répertoires"
+
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "&Personnalisé"
@@ -858,6 +861,10 @@ msgstr "&Luminance :"
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
+
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr ""
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1172,6 +1179,10 @@ msgstr "Révision &spécifique dans le référentiel"
 msgid "&Start Group"
 msgstr "Groupe de &Départ"
 
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr "Lancer l'&explorateur de référentiel"
+
 #. Resource IDs: (59393)
 msgid "&Status Bar"
 msgstr "Barre de &statut"
@@ -1305,7 +1316,7 @@ msgid "&Update"
 msgstr "Mettre à jo&ur"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
+msgid "&Update item to revision..."
 msgstr "Mettre à jo&ur l'élément à la révision"
 
 #. Resource IDs: (11)
@@ -1351,6 +1362,10 @@ msgstr "&Windows XP"
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "Copie de travai&l"
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
+msgstr "&Afficher les longues lignes sur plusieurs lignes"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -1459,7 +1474,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -1503,20 +1519,6 @@ msgstr "<Séparateur>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<Sans titre>"
-
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN est une extension du shell.\n"
-"Cela signifie qu'il est intégré dans l'explorateur Windows.\n"
-"Pour utiliser TortoiseSVN veuillez ouvrir l'explorateur et faire un click-droit sur le dossier que vous souhaitez\n"
-"afin d'ouvrir le menu contextuel où vous trouverez toutes les commandes TortoiseSVN.\n"
-"Et lisez le manuel !"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -2099,6 +2101,10 @@ msgstr "Parcou&rir..."
 msgid "Back"
 msgstr "Retour"
 
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr "Fond"
+
 #. Resource IDs: (246)
 msgid "Bar Graph"
 msgstr "Graphique en barre"
@@ -2389,10 +2395,6 @@ msgstr "Vérifier les mises à jours"
 msgid "Check For Updates..."
 msgstr "Vérifier les mises à jours..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to explicit revision"
-msgstr "Vérifie les éléments externes à une révision spécifique"
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr "Vérifier les &modifications"
@@ -2495,6 +2497,10 @@ msgstr "Nettoyer"
 msgid "Cleaning up directory \"%1!s!\""
 msgstr "Nettoyer le répertoire  \"%1!s!\""
 
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
+msgstr "Nettoie et rafraichit le shell"
+
 #. Resource IDs: (83)
 #, c-format
 msgid ""
@@ -2512,6 +2518,11 @@ msgid ""
 msgstr ""
 "Le nettoyage a été effectué avec succès dans les chemins suivants :\n"
 "%s"
+
+#. Resource IDs: (15)
+#, fuzzy
+msgid "Cleanup interrupted operations and refresh the shell overlays"
+msgstr "Nettoyage d'opérations interrompus, de fichiers verrouillés, ..."
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -2938,6 +2949,11 @@ msgstr "Copier et renommer"
 msgid "Copy and rename item to here"
 msgstr "Copier et renommer les éléments ici"
 
+#. Resource IDs: (209)
+#, fuzzy
+msgid "Copy column to clipboard"
+msgstr "Copier dans le presse-papiers"
+
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
 msgstr "Copier le message d'erreur dans le presse-papiers"
@@ -3024,11 +3040,9 @@ msgstr "Ne peut pas vérifier la disponibilité d'une nouvelle version !"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "Ne peut pas copier les fichiers !\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3134,22 +3148,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "Ne peut pas démarrer le programme externe de gestion des différences !\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "Ne peut pas démarrer le programme externe de gestion de fusion !\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -3202,8 +3212,8 @@ msgstr ""
 msgid "Create repositor&y here"
 msgstr "Créer un ré&férentiel ici..."
 
-# Ne serait-ce pas plutot : Créer un raccourcis ?
 #. Resource IDs: (102)
+# Ne serait-ce pas plutot : Créer un raccourcis ?
 msgid "Create shortcut"
 msgstr "Créer un raccourci"
 
@@ -3323,6 +3333,11 @@ msgstr "URL par défaut :"
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
 msgstr "Menu application par défaut. Apparaît quand aucun document n'est ouvert."
+
+#. Resource IDs: (81)
+#, fuzzy
+msgid "Default directory structure successfully created!"
+msgstr "Le référentiel a été créé avec succès."
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4642,6 +4657,10 @@ msgstr "Cacher les chemin &supprimés"
 msgid "Hide all branches that did not modify the item"
 msgstr "Cacher toutes les branches dans lesquelles cet élément n'a pas été modifié"
 
+#. Resource IDs: (2053)
+msgid "Hide all tags"
+msgstr ""
+
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
 msgstr "Cacher les branches et les étiquettes supprimées."
@@ -4649,6 +4668,11 @@ msgstr "Cacher les branches et les étiquettes supprimées."
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Cacher fenêtre rangée"
+
+#. Resource IDs: (32832)
+#, fuzzy
+msgid "Hide ta&gs"
+msgstr "Replier les é&tiquettes"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -4725,6 +4749,7 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4738,7 +4763,6 @@ msgstr "ID"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -4807,6 +4831,11 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+#, fuzzy
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +K"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -4817,6 +4846,16 @@ msgstr "ID:32785:V C +O"
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
 msgstr "ID:32775:V C +D"
+
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+#, fuzzy
+msgid "ID:32870:V C +L"
+msgstr "ID:32809:V C +F"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+#, fuzzy
+msgid "ID:32881:V C +P"
+msgstr "ID:32771:V C +F"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5547,6 +5586,11 @@ msgstr ""
 msgid "Locator Bar"
 msgstr "Barre de localisation"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Locator bar"
+msgstr "Barre de localisation"
+
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Verrou"
@@ -6141,14 +6185,11 @@ msgid "No"
 msgstr "Non"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Aucune commande spécifiée !\n"
-
 "TortoiseProc.exe est utilisé par l'extension de l'explorateur et ne peut pas être appelé directement !"
 
 #. Resource IDs: (81)
@@ -7110,6 +7151,10 @@ msgstr "Parcourir récursivement les répertoires non versionnés"
 msgid "Recursive"
 msgstr "Récursif"
 
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr ""
+
 #. Resource IDs: (3603)
 msgid ""
 "Redo the previously undone action\n"
@@ -7226,6 +7271,10 @@ msgstr "Avertissement de relocalisation"
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "Relocalisation..."
+
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
+msgstr ""
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -7410,6 +7459,11 @@ msgstr "URL du Référentiel"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "UUID du référentiel :"
+
+#. Resource IDs: (324)
+#, fuzzy
+msgid "Repository created"
+msgstr "Navigateur de référentiel"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -7790,6 +7844,10 @@ msgstr "Enregistrer les changements dans %1?"
 msgid "Save client certificate path"
 msgstr "Enregistrer le chemin du certificat client"
 
+#. Resource IDs: (617)
+msgid "Save in Git format"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Save revision &to..."
 msgstr "Enregis&trer la révision sous..."
@@ -8044,6 +8102,10 @@ msgstr "&Adresse serveur :"
 msgid "Set Accelerator &for:"
 msgstr "Définir l'Accélérateur &pour :"
 
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr ""
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Met les dates de fichier aux \"da&tes de dernière livraison\""
@@ -8129,7 +8191,8 @@ msgstr "&Afficher toutes les révisions"
 msgid "Show &changes"
 msgstr "Afficher les &changements"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "Voir le journa&l"
 
@@ -8543,18 +8606,21 @@ msgid "Stripes"
 msgstr "Rayures"
 
 #. Resource IDs: (117)
+#, fuzzy
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 "Filtre de partie de chaine :\r\n"
@@ -8648,11 +8714,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "Subversion a reporté une erreur lors du nettoyage !\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9294,14 +9358,11 @@ msgid "The user who owns the lock of the file"
 msgstr "L'utilisateur qui détient le verrou sur le fichier"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "La copie de travail a changée !\n"
-
 "Veuillez livrer vos modifications avant ou revenir en arrière."
 
 #. Resource IDs: (81)
@@ -9633,6 +9694,20 @@ msgid ""
 msgstr ""
 "TortoiseSVN a détecté des noms de fichiers similaires. Voulez-vous que les fichiers ! %s\n"
 "soient aussi renommés ?"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN est une extension du shell.\n"
+"Cela signifie qu'il est intégré dans l'explorateur Windows.\n"
+"Pour utiliser TortoiseSVN veuillez ouvrir l'explorateur et faire un click-droit sur le dossier que vous souhaitez\n"
+"afin d'ouvrir le menu contextuel où vous trouverez toutes les commandes TortoiseSVN.\n"
+"Et lisez le manuel !"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -10348,6 +10423,11 @@ msgstr ""
 #, c-format
 msgid "Working copy: %s\n"
 msgstr "Copie de travail : %s\n"
+
+#. Resource IDs: (2056)
+#, fuzzy
+msgid "Wrap long lines"
+msgstr "Séparer lignes"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -11137,12 +11217,13 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -11354,6 +11435,94 @@ msgstr ""
 "Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
 "Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
 
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -11462,201 +11631,234 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Check externals to explicit revision"
+#~ msgstr "Vérifie les éléments externes à une révision spécifique"
+
 #~ msgid "Check externals to tag"
 #~ msgstr "Marque les éléments externes"
+
 #~ msgid "Tagged"
 #~ msgstr "Tagué"
+
 #~ msgid "tree conflict:"
 #~ msgstr "Conflit dans l'arborescence :"
+
 #~ msgid "&Sat:"
 #~ msgstr "&Saturation:"
+
 #~ msgid "Bug-ID / &Issue-Nr:"
 #~ msgstr "Bug-ID / N° d'&Incident:"
+
 #~ msgid "Dialog"
 #~ msgstr "Fenêtre"
-#~ msgid "The repository was successfully created."
-#~ msgstr "Le référentiel a été créé avec succès."
+
 #~ msgid "&Save..."
 #~ msgstr "&Enregistrer..."
+
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "Affiche le recouvrement pour les éléments ignorés"
+
 #~ msgid "Show overlay for unversioned items"
 #~ msgstr "Afficher le recouvrement pour les éléments non-versionnés"
+
 #~ msgid "&To URL: "
 #~ msgstr "&Vers l'URL : "
 
-#, fuzzy
 #~ msgid "&To path: "
 #~ msgstr "chemins:"
+
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Auteur :                                    Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Vérifier automatiquement les &nouvelles versions chaque semaine"
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr ""
-#~ "Si activé, TortoiseSVN contrôle une fois par semaine si une nouvelle "
-#~ "version est disponible"
+
+#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr "Si activé, TortoiseSVN contrôle une fois par semaine si une nouvelle version est disponible"
+
 #~ msgid "Edit conflict"
 #~ msgstr "Editer les conflits"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "Cacher les chem&ins changés sans relation"
+
 #~ msgid "From URL:"
 #~ msgstr "Depuis l'URL :"
+
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "L'URL à extraire fait référence à une fichier\n"
 #~ "mais le chemin de cette copie de travail est un répertoire existant."
+
 #~ msgid "Show &properties"
 #~ msgstr "Afficher les &propriétés"
+
 #~ msgid "Show i&gnored files"
 #~ msgstr "Afficher les fichiers &ignorés"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "Afficher les fichiers non &modifiés"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "Afficher les fichiers non &versionnés"
+
 #~ msgid "&Annoter..."
 #~ msgstr "Con&damner..."
+
 #~ msgid "Cleaning up."
 #~ msgstr "Nettoyage en cours."
+
 #~ msgid "General::Revision Graph"
 #~ msgstr "Général::Graphe des Révisions"
+
 #~ msgid "General::Revision Graph Colors"
 #~ msgstr "Général::Couleur du Graphe des Révisions"
+
 #~ msgid "Go offline?"
 #~ msgstr "Passer hors-ligne ?"
+
 #~ msgid "Replaced node"
 #~ msgstr "Noeud remplacé"
+
 #~ msgid "copy source only"
 #~ msgstr "ne copier que la source"
+
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
 #~ "GDI+ est requis pour enregistrer le graphe de révision comme une image.\n"
 #~ "Vous pouvez obtenir GDI+ depuis\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Lecteurs de disquettes (A: B:)"
-#~ msgid ""
-#~ "On copy and rename nodes, show only the changed parts of the path name"
-#~ msgstr ""
-#~ "Sur les noeuds copie et renommage, n'affiche que les parties modifiées du "
-#~ "chemin"
+
+#~ msgid "On copy and rename nodes, show only the changed parts of the path name"
+#~ msgstr "Sur les noeuds copie et renommage, n'affiche que les parties modifiées du chemin"
+
 #~ msgid "Only record the merge"
 #~ msgstr "Enregistrer uniquement la fusion"
+
 #~ msgid "(deleted) %s"
 #~ msgstr "(supprimé) %s"
+
 #~ msgid "alias (deleted): %s"
 #~ msgstr "alias (supprimé): %s"
+
 #~ msgid "&?"
 #~ msgstr "&?"
+
 #~ msgid "Merge all..."
 #~ msgstr "Tout fusionner..."
+
 #~ msgid "SVN Export to here"
 #~ msgstr "SVN Exporter ici"
+
 #~ msgid "Bro&wse..."
 #~ msgstr "Par&courir..."
+
 #~ msgid "Brows&e..."
 #~ msgstr "&Parcourir..."
+
 #~ msgid "Force blame"
 #~ msgstr "Forcer une annotation"
+
 #~ msgid "Bug Tracker..."
 #~ msgstr "Pisteur de bogues..."
+
 #~ msgid "Remove..."
 #~ msgstr "Supprimer..."
+
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Ouvrir Ctrl-O"
+
 #~ msgid "&Save Ctrl-S"
 #~ msgstr "&Enregistrer Ctrl-S"
+
 #~ msgid "&Undo\tCtrl+Z"
 #~ msgstr "&Annuler\tCtrl+Z"
+
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Utiliser la &mise en évidence sur la barre de positionnement"
+
 #~ msgid "Analyze revision data..."
 #~ msgstr "Analyser les données de révision..."
+
 #~ msgid "Checking for forward copies"
 #~ msgstr "Vérification les copies vers l'avant"
+
 #~ msgid "Groups branches together"
 #~ msgstr "Regrouper les branches ensemble"
+
 #~ msgid "Number of changed cached revisions"
 #~ msgstr "Nombre de révisions modifiées dans le cache"
-#~ msgid ""
-#~ "Number of path elements. This is an internal value indicating the "
-#~ "compression level."
-#~ msgstr ""
-#~ "Nombre d'éléments de chemin. Il s'agit d'une valeur interne indiquant le "
-#~ "niveau de compression."
-#~ msgid ""
-#~ "This method covers the case when you have made a feature branch as "
-#~ "discussed in the Subversion book. All trunk changes have been ported to "
-#~ "the feature branch, week by week, and now the feature is complete you "
-#~ "want to merge it back into the trunk. Because you have kept the feature "
-#~ "branch synchronized with the trunk, the latest versions of branch and "
-#~ "trunk will be absolutely identical except for your branch changes. So in "
-#~ "this special case, you would merge by comparing the branch with the trunk."
-#~ msgstr ""
-#~ "Cette méthode couvre le cas où vous avez créé une branche de fonction "
-#~ "comme cela a été expliqué dans le livre Subversion. Toutes les "
-#~ "modifications du tronc ont été porté dans la branche de fonction, semaine "
-#~ "après semaine, et maintenant que la fonction est terminée vous souhaitez "
-#~ "la fusionner en retour dans le tronc. Comme vous avez gardé la branche de "
-#~ "fonction synchronisée avec le tronc, les dernières versions de la branche "
-#~ "et du tronc seront absolument identiques sauf en ce qui concerne les "
-#~ "modifications de la branche. Dans ce cas spécial, vous allez pouvoir "
-#~ "effectuer une fusion en comparant la branche avec le tronc."
+
+#~ msgid "Number of path elements. This is an internal value indicating the compression level."
+#~ msgstr "Nombre d'éléments de chemin. Il s'agit d'une valeur interne indiquant le niveau de compression."
+
+#~ msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr "Cette méthode couvre le cas où vous avez créé une branche de fonction comme cela a été expliqué dans le livre Subversion. Toutes les modifications du tronc ont été porté dans la branche de fonction, semaine après semaine, et maintenant que la fonction est terminée vous souhaitez la fusionner en retour dans le tronc. Comme vous avez gardé la branche de fonction synchronisée avec le tronc, les dernières versions de la branche et du tronc seront absolument identiques sauf en ce qui concerne les modifications de la branche. Dans ce cas spécial, vous allez pouvoir effectuer une fusion en comparant la branche avec le tronc."
+
 #~ msgid "Totall number of merge informations"
 #~ msgstr "Nombre total d'informations de fusion"
+
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 contient un chemin invalide."
+
 #~ msgid "&Berkeley database (BDB)"
 #~ msgstr "&Base de données Berkeley (BDB)"
+
 #~ msgid "&Dry run"
 #~ msgstr "&Exécution fictive"
+
 #~ msgid "&Native filesystem (FSFS)"
 #~ msgstr "Système de fichier &natif (FSFS)"
+
 #~ msgid "An invalid argument was encountered."
 #~ msgstr "Un argument invalide a été rencontré."
-#~ msgid "Cleanup has finished"
-#~ msgstr "Le nettoyage est terminé"
+
 #~ msgid "Commit threshold:"
 #~ msgstr "Seuil de livraison :"
+
 #~ msgid "D&iff"
 #~ msgstr "&Comparer"
+
 #~ msgid "Diff With URL"
 #~ msgstr "Diff avec l'URL"
+
 #~ msgid "Dry Run"
 #~ msgstr "Exécution fictive"
+
 #~ msgid "Look and Feel"
 #~ msgstr "Apparence et comportement"
+
 #~ msgid "Look and Feel::Colors"
 #~ msgstr "Apparence et comportement::Couleurs"
+
 #~ msgid "Not descending"
 #~ msgstr "Non descendant"
+
 #~ msgid "Select the type of repository you want to create:"
 #~ msgstr "Sélectionnez le type de référentiel que vous voulez créer :"
+
 #~ msgid "Specify the revision range which you want to merge:"
 #~ msgstr "Spécifiez la plage de révisions que vous voulez fusionner :"
+
 #~ msgid "Split long, inactive branches into segments"
 #~ msgstr "Séparer les branches longues et inactives en segments"
+
 #~ msgid "Target"
 #~ msgstr "Ciblle"
+
 #~ msgid "Two-way &Diff"
 #~ msgstr "&Différenciation bidirectionnel"
-#~ msgid ""
-#~ "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-#~ msgstr ""
-#~ "Utiliser \"Depuis :\" URL (la plage de révisions est sélectionnable dans "
-#~ "la boîte de dialogue de journal au-dessus)"
+
+#~ msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+#~ msgstr "Utiliser \"Depuis :\" URL (la plage de révisions est sélectionnable dans la boîte de dialogue de journal au-dessus)"
+
 #~ msgid "which points to the repository at URL:"
 #~ msgstr "qui pointe vers le référentiel à l'URL :"
-
