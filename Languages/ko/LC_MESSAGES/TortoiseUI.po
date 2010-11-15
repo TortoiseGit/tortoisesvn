@@ -22,8 +22,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Virtaal 0.5.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Language: Korean\n"
 
 #. Resource IDs: (10, 126)
@@ -560,6 +560,10 @@ msgstr "클립보드에 복사(&C)"
 #. Resource IDs: (101)
 msgid "&Copy to..."
 msgstr "복사(&C)..."
+
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr "폴더 구조 생성(&C)"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -1175,6 +1179,10 @@ msgstr "서버상 특정 리비전(&S)"
 msgid "&Start Group"
 msgstr "그룹 시작(&S)"
 
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr "저장소 브라우저 시작(&S)"
+
 #. Resource IDs: (59393)
 msgid "&Status Bar"
 msgstr "상태바(&S)"
@@ -1308,7 +1316,8 @@ msgid "&Update"
 msgstr "업데이트(&U)"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
+#, fuzzy
+msgid "&Update item to revision..."
 msgstr "이 리비전으로 업데이트(&U)"
 
 #. Resource IDs: (11)
@@ -1466,7 +1475,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -1510,20 +1520,6 @@ msgstr "<Separator>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<제목없음>"
-
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN은 쉘 익스텐션입니다.\n"
-"이 말은 곧 윈도우즈의 탐색기에 통합되어 있다는 뜻입니다.\n"
-"TortoiseSVN을 사용하려면, 탐색기를 열고 오른쪽 버튼을 폴더 위에서 눌러\n"
-"단축 메뉴를 통해야합니다. 이 메뉴상에 원하는 TortoiseSVN 명령이 있을 것입니다.\n"
-"그리고 메뉴얼을 이용해 주세요!"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -2103,6 +2099,10 @@ msgstr "찾아보기(&R)"
 #. Resource IDs: (1064)
 msgid "Back"
 msgstr "뒤로"
+
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr ""
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2946,6 +2946,10 @@ msgstr "복사하고 이름 변경"
 msgid "Copy and rename item to here"
 msgstr "아이템을 여기에 복사하고 이름을 바꿉니다"
 
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr "열을 클립보드에 복사"
+
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
 msgstr "오류 메시지를 클립보드에 복사"
@@ -3032,11 +3036,9 @@ msgstr "새 버전을 확인할 수 없습니다!"
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "복사를 할 수 없습니다!\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3142,22 +3144,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "외부 비교 프로그램을 시작할 수 없습니다!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "외부 병합 프로그램을 시작할 수 없습니다!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -3330,6 +3328,10 @@ msgstr "기본 URL:"
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
 msgstr "기본 어플리케이션 메뉴. 열려진 문서가 하나도 없을 때 보여줍니다."
+
+#. Resource IDs: (81)
+msgid "Default directory structure successfully created!"
+msgstr "기본 디렉토리 구조가 성공적으로 생성되었습니다!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4743,6 +4745,7 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4756,7 +4759,6 @@ msgstr "ID"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -4825,6 +4827,10 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -4835,6 +4841,14 @@ msgstr "ID:32825:V C +L"
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
+
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+msgid "ID:32870:V C +L"
+msgstr "ID:32870:V C +L"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+msgid "ID:32881:V C +P"
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5559,6 +5573,10 @@ msgstr "저장소 URL들의 내용이 저장될 위치"
 msgid "Locator Bar"
 msgstr "위치 바"
 
+#. Resource IDs: (65535)
+msgid "Locator bar"
+msgstr "위치 바"
+
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "잠금"
@@ -6153,14 +6171,11 @@ msgid "No"
 msgstr "아니오"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "명령이 주어지지 않았습니다!\n"
-
 "TortoiseProc.exe은 쉘 확장기능이 사용하는 것으로 직접 호출하면 안됩니다!"
 
 #. Resource IDs: (81)
@@ -7121,6 +7136,10 @@ msgstr "버전관리 대상이 아닌 폴더도 재귀적으로 탐색합니다.
 msgid "Recursive"
 msgstr "하위에도 적용"
 
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr ""
+
 #. Resource IDs: (3603)
 msgid ""
 "Redo the previously undone action\n"
@@ -7424,6 +7443,10 @@ msgstr "저장소 URL"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "저장소 UUID:"
+
+#. Resource IDs: (324)
+msgid "Repository created"
+msgstr "생성된 저장소"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -7804,6 +7827,10 @@ msgstr "변경된 것을 %1에 저장하시겠습니까?"
 msgid "Save client certificate path"
 msgstr "클라이언트 인증서 저장 경로"
 
+#. Resource IDs: (617)
+msgid "Save in Git format"
+msgstr "Git 형식으로 저장"
+
 #. Resource IDs: (76)
 msgid "Save revision &to..."
 msgstr "이 리비전을 저장(&T)..."
@@ -8145,7 +8172,8 @@ msgstr "모든 리비젼 보기(&A)"
 msgid "Show &changes"
 msgstr "변경내용 보기(&C)..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "로그 보기(&L)"
 
@@ -8558,18 +8586,21 @@ msgid "Stripes"
 msgstr "줄무늬"
 
 #. Resource IDs: (117)
+#, fuzzy
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 "서브-스트링 필터:\r\n"
@@ -8660,11 +8691,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "정리 작업을 하는 중에 Subversion에서 오류가 발생했습니다\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9304,14 +9333,11 @@ msgid "The user who owns the lock of the file"
 msgstr "파일의 잠금을 소유하고 있는 사용자"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "작업 사본이 바뀌었습니다.\n"
-
 "커밋을 먼저 하거나, 되돌리기(revert)를 먼저하십시오."
 
 #. Resource IDs: (81)
@@ -9639,6 +9665,20 @@ msgid ""
 msgstr ""
 "TortoiseSVN이 비슷한 파일명을 발견하였습니다.\n"
 "%s로 그 파일을 변경하시겠습니까?"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN은 쉘 익스텐션입니다.\n"
+"이 말은 곧 윈도우즈의 탐색기에 통합되어 있다는 뜻입니다.\n"
+"TortoiseSVN을 사용하려면, 탐색기를 열고 오른쪽 버튼을 폴더 위에서 눌러\n"
+"단축 메뉴를 통해야합니다. 이 메뉴상에 원하는 TortoiseSVN 명령이 있을 것입니다.\n"
+"그리고 메뉴얼을 이용해 주세요!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -11363,6 +11403,94 @@ msgstr ""
 "커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
 "로그 메시지 템플릿으로 사용합니다."
 
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
+"로그 메시지 템플릿으로 사용합니다."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
+"로그 메시지 템플릿으로 사용합니다."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
+"로그 메시지 템플릿으로 사용합니다."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
+"로그 메시지 템플릿으로 사용합니다."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
+"로그 메시지 템플릿으로 사용합니다."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
+"로그 메시지 템플릿으로 사용합니다."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
+"로그 메시지 템플릿으로 사용합니다."
+
+#. Resource IDs: (579)
+#, fuzzy
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplate\r\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
+"로그 메시지 템플릿으로 사용합니다."
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -11483,9 +11611,6 @@ msgstr "{버그트랙}"
 #~ msgid "tree conflict:"
 #~ msgstr "트리 충돌:"
 
-#~ msgid "The repository was successfully created."
-#~ msgstr "저장소가 성공적으로 생성되었습니다."
-
 #~ msgid "&Sat:"
 #~ msgstr "포화(&S):"
 
@@ -11519,8 +11644,7 @@ msgstr "{버그트랙}"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "매주 새 버전을 확인합니다.(&N)"
 
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 #~ msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
 
 #~ msgid "Edit conflict"
@@ -11572,22 +11696,14 @@ msgstr "{버그트랙}"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
 #~ "그래프를 그림파일로 저장하려면 GDI+가 필요합니다.\n"
 #~ "GDI+는 다음 사이트에서 구할 수 있습니다.\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
-#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
-#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
 
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "플로피 드라이브 (A: B:)"
 
-#~ msgid ""
-#~ "On copy and rename nodes, show only the changed parts of the path name"
-#~ msgstr ""
-#~ "복사 및 이름이 변경된 노드들에서, 경로이름에서 변경된 부분만 보여주기"
+#~ msgid "On copy and rename nodes, show only the changed parts of the path name"
+#~ msgstr "복사 및 이름이 변경된 노드들에서, 경로이름에서 변경된 부분만 보여주기"
