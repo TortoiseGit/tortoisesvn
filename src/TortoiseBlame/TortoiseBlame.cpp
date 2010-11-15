@@ -1270,11 +1270,7 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 
 void TortoiseBlame::MakeLower(TCHAR* buffer, size_t len)
 {
-    for (TCHAR *p = buffer; p < buffer + len; p++)
-    {
-        if (_istupper(*p)&&_istascii(*p))
-            *p = _totlower(*p);
-    }
+    CharLowerBuff(buffer, len);
 }
 
 void TortoiseBlame::RunCommand(const tstring& command)
