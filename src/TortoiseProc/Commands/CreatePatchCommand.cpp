@@ -285,6 +285,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             fclose(inFile);
 
             CStringUtils::WriteDiffToClipboard(sClipdata);
+            CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath.GetWinPathString(), tempPatchFilePath.GetFilename());
         }
     }
     else
