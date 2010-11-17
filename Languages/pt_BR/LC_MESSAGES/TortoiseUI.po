@@ -1,13 +1,12 @@
-#
 # Portuguese (Brazil) translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
+# 
 # Authors:
 # Juliano Ravasi Ferraz <dev juliano.info>
 # Guilherme Cantisano <gc gpstec.com.br>
@@ -18,7 +17,7 @@
 # Leandro Herrera <leogherrera@msn.com>
 # Alex Vieira <chermucsnis@yahoo.com.br>
 # Rafael M. Heise <rmheise@gmail.com>
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
@@ -1481,7 +1480,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -1905,8 +1905,8 @@ msgstr ""
 "%mine : o seu próprio arquivo, com as suas alterações\r\n"
 "%base : o arquivo original sem as suas alterações"
 
-# A palavra 'Handle' nesse contexto pode ser ignorada?
 #. Resource IDs: (3867)
+# A palavra 'Handle' nesse contexto pode ser ignorada?
 #, c-format
 msgid "An incorrect file handle was associated with %1."
 msgstr "Um manipulador de arquivo inválido foi associado a %1."
@@ -1929,8 +1929,8 @@ msgstr "Um tipo de linha desconhecido foi encontrado na linha %d !"
 msgid "Application Frame Menus: "
 msgstr "Menus da Moldura da Aplicação:"
 
-# Pode ser: "aplica  um Diff (ou comparação de arquivos) a cópia de trabalho"?
 #. Resource IDs: (14)
+# Pode ser: "aplica  um Diff (ou comparação de arquivos) a cópia de trabalho"?
 msgid "Applies a unified diff file to the working copy"
 msgstr "Aplica um arquivo de comparação unificado à cópia de trabalho"
 
@@ -2089,8 +2089,8 @@ msgstr ""
 msgid "Automatic"
 msgstr "Automático"
 
-# Importante identificar onde é usado
 #. Resource IDs: (306)
+# Importante identificar onde é usado
 msgid "Autotext Tester"
 msgstr "Testador do texto automático"
 
@@ -2540,8 +2540,9 @@ msgstr "Limpar operações interrompidas, arquivos bloqueados, ..."
 msgid "Clear"
 msgstr "Apagar"
 
-# Será que clear limpar não é bem aplicada aqui por ter o clean, tb traduzido aqui como limpar?
 #. Resource IDs: (1057)
+# Será que clear limpar não é bem aplicada aqui por ter o clean, tb traduzido
+# aqui como limpar?
 msgid ""
 "Clear Tool\n"
 "Clear"
@@ -3933,8 +3934,8 @@ msgstr "Insira um inteiro entre 0 and 255."
 msgid "Enter an integer."
 msgstr "Insira um inteiro."
 
-# Importante identificar onde é usado
 #. Resource IDs: (65535)
+# Importante identificar onde é usado
 msgid "Enter file content to test for below:"
 msgstr "Entre com o conteúdo do arquivo para testar abaixo:"
 
@@ -3951,8 +3952,8 @@ msgstr "Insira mensagem de log:"
 msgid "Enter no more than %1 characters."
 msgstr "Não insira mais do que %1 caracteres."
 
-# Importante identificar onde é usado
 #. Resource IDs: (65535)
+# Importante identificar onde é usado
 msgid "Enter the regex string below:"
 msgstr "Entrar com a expressão regular abaixo:"
 
@@ -4456,8 +4457,8 @@ msgstr "Forçar"
 msgid "Forward"
 msgstr "Avançar"
 
-# Importante identificar onde é usado
 #. Resource IDs: (65535)
+# Importante identificar onde é usado
 msgid "Found auto words:"
 msgstr "Encontrou palavras automáticas:"
 
@@ -4762,6 +4763,7 @@ msgstr "Fornecedor do IBugTraq"
 msgid "ID"
 msgstr "ID"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4775,7 +4777,6 @@ msgstr "ID"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -6728,8 +6729,8 @@ msgid "Picture:"
 msgstr "Figura:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Figuras (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Todos (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Imagens (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg,*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Todos (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7357,8 +7358,8 @@ msgstr "Remove toda(s) a(s) sub-árvore(s)"
 msgid "Removed"
 msgstr "Removido"
 
-# Indicação de remoção de arquivo e/ou diretório.
 #. Resource IDs: (126)
+# Indicação de remoção de arquivo e/ou diretório.
 msgid "Removed file/folder"
 msgstr "Arquivo/diretório removido"
 
@@ -7854,6 +7855,10 @@ msgstr "Salvar alterações em %1?"
 msgid "Save client certificate path"
 msgstr "Salvar caminho do certificado do cliente"
 
+#. Resource IDs: (617)
+msgid "Save in Git format"
+msgstr "Gravar no formato Git"
+
 #. Resource IDs: (76)
 msgid "Save revision &to..."
 msgstr "Salvar revisão &em..."
@@ -7895,8 +7900,8 @@ msgstr "Salvando arquivos"
 msgid "Saving patchfile to:"
 msgstr "Salvando arquivo de correção em:"
 
-# Importante identificar onde é usado
 #. Resource IDs: (1522)
+# Importante identificar onde é usado
 msgid "Scan"
 msgstr "Escanear"
 
@@ -8093,8 +8098,8 @@ msgstr "Selecionar visualizador para arquivos de comparação"
 msgid "Selected node"
 msgstr "Nó selecionado"
 
-# XXX: Onde isso é usado?
 #. Resource IDs: (3866)
+# XXX: Onde isso é usado?
 msgid "Send Mail failed to send message."
 msgstr "SendMail falhou ao enviar mensagem."
 
@@ -8199,7 +8204,8 @@ msgstr "Mostrar tod&as as revisões"
 msgid "Show &changes"
 msgstr "Exibir &alterações..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "Exibir &log"
 
@@ -8512,8 +8518,8 @@ msgstr ""
 msgid "Spin1"
 msgstr "Spin1"
 
-# The is no 's' in the translation to support the same Alt shortcut
 #. Resource IDs: (275)
+# The is no 's' in the translation to support the same Alt shortcut
 msgid "Split &source tree"
 msgstr "Dividir árvore &principal"
 
@@ -8614,18 +8620,21 @@ msgid "Stripes"
 msgstr "Faixas"
 
 #. Resource IDs: (117)
+#, fuzzy
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 "Filtro por texto parcial:\r\n"
@@ -11298,8 +11307,9 @@ msgstr ""
 msgid "svn:mime-type"
 msgstr "svn:mime-type"
 
-# XXX: This is no longer truth, application/xml and others are also treated as text. -- jr
 #. Resource IDs: (576)
+# XXX: This is no longer truth, application/xml and others are also treated as
+# text. -- jr
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
@@ -11662,11 +11672,8 @@ msgstr "{BugTraq}"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Verificar, semanalmente, se existem &novas versões"
 
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr ""
-#~ "Se habilitado, o TortoiseSVN verifica semanalmente se existe nova versão "
-#~ "disponível"
+#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr "Se habilitado, o TortoiseSVN verifica semanalmente se existe nova versão disponível"
 
 #~ msgid "Edit conflict"
 #~ msgstr "Editar conflitos"
@@ -11705,18 +11712,11 @@ msgstr "{BugTraq}"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
-#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
-#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
-#~ "É necessário possuir o GDI+ para salvar esse gráfico de revisão como uma "
-#~ "imagem.\n"
+#~ "É necessário possuir o GDI+ para salvar esse gráfico de revisão como uma imagem.\n"
 #~ "Você pode adquirí-lo em \n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
-#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
-#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
 
 #~ msgid "Go offline?"
 #~ msgstr "Desconectar?"
@@ -11829,11 +11829,8 @@ msgstr "{BugTraq}"
 #~ msgid "Two-way &Diff"
 #~ msgstr "Comparação em duplo senti&do"
 
-#~ msgid ""
-#~ "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-#~ msgstr ""
-#~ "Use a URL \"De:\" (o intervalo de revisões é selecionável na caixa de "
-#~ "diálogo acima)"
+#~ msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+#~ msgstr "Use a URL \"De:\" (o intervalo de revisões é selecionável na caixa de diálogo acima)"
 
 #~ msgid "which points to the repository at URL:"
 #~ msgstr "que aponta para o repositório na URL:"
