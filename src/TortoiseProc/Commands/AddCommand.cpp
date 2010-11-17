@@ -33,7 +33,7 @@ bool AddCommand::Execute()
         SVN svn;
         ProjectProperties props;
         props.ReadPropsPathList(pathList);
-        bRet = !!svn.Add(pathList, &props, svn_depth_empty, false, false, true);
+        bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, false, true);
         CShellUpdater::Instance().AddPathsForUpdate(pathList);
     }
     else
@@ -81,7 +81,7 @@ bool AddCommand::Execute()
             SVN svn;
             ProjectProperties props;
             props.ReadPropsPathList(pathList);
-            bRet = !!svn.Add(pathList, &props, svn_depth_empty, false, false, true);
+            bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, false, true);
             if (!bRet)
             {
                 MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -99,6 +99,7 @@ bool AddCommand::Execute()
                 CSVNProgressDlg progDlg;
                 theApp.m_pMainWnd = &progDlg;
                 progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
+                progDlg.SetOptions(ProgOptForce);
                 progDlg.SetAutoClose (parser);
                 progDlg.SetPathList(dlg.m_pathList);
                 ProjectProperties props;

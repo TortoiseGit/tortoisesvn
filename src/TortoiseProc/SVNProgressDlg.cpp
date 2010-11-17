@@ -2099,7 +2099,7 @@ bool CSVNProgressDlg::CmdAdd(CString& sWindowTitle, bool& localoperation)
     SetWindowText(sWindowTitle);
     SetBackgroundImage(IDI_ADD_BKG);
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_ADD)));
-    if (!Add(m_targetPathList, &m_ProjectProperties, svn_depth_empty, false, true, true))
+    if (!Add(m_targetPathList, &m_ProjectProperties, svn_depth_empty, (m_options & ProgOptForce) != 0, true, true))
     {
         ReportSVNError();
         return false;
