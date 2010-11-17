@@ -22,11 +22,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.5.2\n"
 "X-Poedit-Language: Finnish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: FINLAND\n"
+"X-Generator: Virtaal 0.5.2\n"
 
+#. Resource IDs: (10, 126)
 # Translations used for version control terms:
 # add               lisää
 # apply patch       sovella paikkatiedosto
@@ -92,10 +93,10 @@ msgstr ""
 # website           verkkosivusto
 # wizard            ohjattu toiminto
 # working copy      työkopio
-#. Resource IDs: (10, 126)
 msgid " "
 msgstr " "
 
+#. Resource IDs: (188)
 # Translations used for version control terms:
 # add               lisää
 # apply patch       sovella paikkatiedosto
@@ -160,7 +161,6 @@ msgstr " "
 # website           verkkosivusto
 # wizard            ohjattu toiminto
 # working copy      työkopio
-#. Resource IDs: (188)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -1317,8 +1317,8 @@ msgstr "&Käynnistä arkistoselain"
 msgid "&Status Bar"
 msgstr "&Tilarivi"
 
-# vai lukitus?
 #. Resource IDs: (1211)
+# vai lukitus?
 msgid "&Steal the locks"
 msgstr "&Varasta lukot"
 
@@ -1605,7 +1605,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -4577,8 +4578,8 @@ msgstr "Eteenpäin"
 msgid "Found auto words:"
 msgstr "Löytyneet automaattiset täydennykset:"
 
-# vai lähettäjä?
 #. Resource IDs: (1200, 65535)
+# vai lähettäjä?
 msgid "From:"
 msgstr "Mistä:"
 
@@ -4626,8 +4627,8 @@ msgstr "Yleinen::Ikkunat 2"
 msgid "Generating patchfile..."
 msgstr "Luodaan paikkatiedostoa..."
 
-# vai lukitus?
 #. Resource IDs: (16)
+# vai lukitus?
 msgid "Get loc&k..."
 msgstr "&Lukitse..."
 
@@ -4879,6 +4880,7 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4892,7 +4894,6 @@ msgstr "ID"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -5370,8 +5371,8 @@ msgstr "Ensimmäinen tuonti arkistoon"
 msgid "Inline differences"
 msgstr "Rivin sisäiset erot"
 
-# vai syötä?
 #. Resource IDs: (161)
+# vai syötä?
 msgid "Input"
 msgstr "Syöte"
 
@@ -5548,8 +5549,8 @@ msgstr "Yhdistä seuraavan &puun kanssa"
 msgid "Join with source tree"
 msgstr "Yhdistä lähdepuun kanssa"
 
-# vai lukitukset?
 #. Resource IDs: (1203)
+# vai lukitukset?
 msgid "Keep &locks"
 msgstr "Pidä &lukot"
 
@@ -5744,8 +5745,8 @@ msgstr "Lukitus epäonnistui"
 msgid "Lock owner:"
 msgstr "Lukon omistaja:"
 
-# vai lukituksen?
 #. Resource IDs: (213)
+# vai lukituksen?
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "%s varasti lukon"
@@ -6837,8 +6838,8 @@ msgid "Picture:"
 msgstr "Kuva:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Kuvat (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Kuvat (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7351,8 +7352,8 @@ msgstr "Hylkää"
 msgid "Rejected patch hunks for '%s'"
 msgstr "Hylätyt paikkapalat tiedostolle '%s'"
 
-# Vai Poista lukitus?
 #. Resource IDs: (16)
+# Vai Poista lukitus?
 msgid "Release loc&k..."
 msgstr "Vapauta &lukko..."
 
@@ -7368,8 +7369,8 @@ msgstr "Vapauttaa lukot tiedostoista jotta muut käyttäjät voivat taas muokata
 msgid "Relo&cate..."
 msgstr "&Sijoita työkopio uudelleen..."
 
-# vai päivitä?
 #. Resource IDs: (32794)
+# vai päivitä?
 msgid "Reload"
 msgstr "Lataa uudelleen"
 
@@ -8311,7 +8312,8 @@ msgstr "Näytä &kaikki versiot"
 msgid "Show &changes"
 msgstr "Näytä &muutokset"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "Näytä &loki"
 
@@ -8706,13 +8708,13 @@ msgstr "Tilamuisti vain yhdelle kansiolle; ei palautuvia päällyksiä"
 msgid "Status of item in SVN"
 msgstr "Kohteen tila Subversionissa"
 
-# vai lukitus?
 #. Resource IDs: (16)
+# vai lukitus?
 msgid "Steal loc&k"
 msgstr "Varasta &lukko"
 
-# vai lukitus?
 #. Resource IDs: (313)
+# vai lukitus?
 msgid "Steal the lock"
 msgstr "Varasta lukko"
 
@@ -8727,30 +8729,34 @@ msgstr "Raidoitus"
 #. Resource IDs: (117)
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 "Osajonosuodatin:\r\n"
-"* Anna yksi tai useampia välilyönnein eroltuja merkkijonoja. Kaikkien osajonojen on täsmättävä.\r\n"
-"* Aseta '-' merkkijonon eteen jättääksesi pois versiot, joissa merkkijono esiintyy.\r\n"
+"* Anna yksi tai useampi välilyönnein eroteltuja merkkijono. Merkkijonot tulkitaan vasemmalta oikealle.\r\n"
+"* Lisää '-' merkkijonon eteen jättääksesi pois versiot, joissa se esiintyy.\r\n"
 "* Ympäröi välilyöntejä sisältävät merkkijonot lainausmerkein (\").\r\n"
 "* Aseta '!' rivin alkuun kääntääksesi suodattimen toiminnan päinvastaikseksi.\r\n"
 "\r\n"
 "Esimerkkejä:\r\n"
-"myname  2008    : Toimitukseni vuonna 2008\r\n"
-".h  -.cpp              : toiimitukset, jotka muutivat otsikkotietoja mutteivat toteutusta.\r\n"
-"\" \"                        : toimitukset, joissa on välilyöntejä (esim. etsittäessä pelkästään polkuja)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
-"!myname  .cpp    : Kaikki paitsi toimitiukseni .cpp-tiedostoihin."
+"myname  2008    : Toimitukseni arkistoon vuonna 2008\r\n"
+".h -.cpp              : toimitukset, jotka muuttivat otsikkotietoja mutteivät toteutusta.\r\n"
+".doc +.xls 2010 : vuonna 2010 tehdyt toimitukset, jotka sisälsivät .doc tai .xls -päätteisiä tiedostoja\r\n"
+"\r\n"
+"\" \" : toimitukset, joissa on välilyöntejä (esim. etsittäessä pelkästään poluista)\r\n"
+"-\"\"show all\"\" : toimitukset, jotka eivät sisällä merkkijonoa '\"show all\"'\r\n"
+"!myname  .cpp    : Kaikki  toimitukseni, jotka eivät sisällä .cpp -päätteisiä tiedostoja."
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -10038,8 +10044,8 @@ msgstr "Tuntematon syvyys"
 msgid "Unknown failure in SVN::List"
 msgstr "Tuntematon virhe (SVN::List)"
 
-# vai lukitus?
 #. Resource IDs: (221, 230, 242)
+# vai lukitus?
 msgid "Unlock"
 msgstr "Avaa lukko"
 
@@ -10632,8 +10638,8 @@ msgstr ""
 "Olet muuttanut ominaisuuksia tallettamatta niitä ensin.\n"
 "Haluatko tallettaa ne nyt?"
 
-# mikä olisi hyvä repositoryn suomennos?
 #. Resource IDs: (251)
+# mikä olisi hyvä repositoryn suomennos?
 msgid "You have to update your working copy first."
 msgstr "Sinun täytyy päivittää työkopiosi ensin."
 
@@ -11730,90 +11736,124 @@ msgstr "{BugTraq}"
 
 #~ msgid "Check externals to explicit revision"
 #~ msgstr "Kiinnitä ulkoiset viittaukset kiinteään versioon"
+
 #~ msgid "Check externals to tag"
 #~ msgstr "Valitse ne ulkoiset viittaukset, jotka haluat merkitä"
+
 #~ msgid "Tagged"
 #~ msgstr "Merkitty"
+
 #~ msgid "tree conflict:"
 #~ msgstr "puuristiriita:"
+
 #~ msgid "%s, but it already exists unversioned locally."
 #~ msgstr "%s, mutta se on jo olemassa paikallisesti."
+
 #~ msgid "%s, but it is missing locally."
 #~ msgstr "%s, mutta se puuttuu paikallisesti."
+
 #~ msgid "%s, but it was already added locally."
 #~ msgstr "%s, mutta se lisättiin jo paikallisesti."
+
 #~ msgid "%s, but it was already edited."
 #~ msgstr "%s, mutta sitä on jo muokattu."
+
 #~ msgid "%s, but it was deleted, moved or renamed locally."
-#~ msgstr ""
-#~ "%s, mutta se on poistettu, siirretty tai nimetty uudelleen paikallisesti."
+#~ msgstr "%s, mutta se on poistettu, siirretty tai nimetty uudelleen paikallisesti."
+
 #~ msgid "%s, but it was obstructed in the working copy."
 #~ msgstr "%s, mutta se on estynyt työkopiossa."
+
 #~ msgid "&Lum:"
 #~ msgstr "&Luminanssi:"
+
 #~ msgid "&Sat:"
 #~ msgstr "&Kylläisyys:"
+
 #~ msgid "Can't customize menues!"
 #~ msgstr "Valikon mukautus epäonnistui!"
+
 #~ msgid "Cascade"
 #~ msgstr "Sarjoita"
+
 #~ msgid "Tile &Horizontally"
 #~ msgstr "Pinoa &vaakasuunnassa"
+
 #~ msgid "Bug-ID / &Issue-Nr:"
 #~ msgstr "&Vikatunnus:"
+
 #~ msgid "Dialog"
 #~ msgstr "tsvn:log*"
+
 #~ msgid "&Save..."
 #~ msgstr "&Tallenna..."
+
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "Näytä kuvakepäällys ohitetuille kohteille"
+
 #~ msgid "Show overlay for unversioned items"
 #~ msgstr "Näytä kuvakepäällys versioimattomille kohteille"
+
 #~ msgid "&To URL: "
 #~ msgstr "Paikantim&een:"
+
 #~ msgid "&To path: "
 #~ msgstr "&Polkuun:"
+
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Tekijä:                                    Stefan Küng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Tarkista &uuden version saatavuus automaattisesti joka viikko"
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr ""
-#~ "Mikäli sallittu, TortoiseSVN tarkistaa kerran viikossa uusien "
-#~ "ohjelmaversioiden saatavuuden"
+
+#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr "Mikäli sallittu, TortoiseSVN tarkistaa kerran viikossa uusien ohjelmaversioiden saatavuuden"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "P&iilota riippumattomat muuttuneet polut"
+
 #~ msgid "Edit conflict"
 #~ msgstr "Muokkaa ristiriitaa"
+
 #~ msgid "From URL:"
 #~ msgstr "Paikantimesta:"
+
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
 #~ msgstr ""
 #~ "Haettava paikannin viittaa tiedostoon, mutta tämä\n"
 #~ "työkopiopolku on olemassa oleva hakemisto."
+
 #~ msgid "Show &properties"
 #~ msgstr "Näytä &ominaisuudet"
+
 #~ msgid "Show i&gnored files"
 #~ msgstr "Näytä &ohitetut tiedostot"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "Näytä &muuttumattomat tiedostot"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "Näytä &versioimattomat tiedostot"
+
 #~ msgid "Cleaning up."
 #~ msgstr "Siivoamassa."
+
 #~ msgid "%s, but the local file was already edited."
 #~ msgstr "%s, mutta sitä on muokattu paikallisesti."
+
 #~ msgid "General::Revision Graph"
 #~ msgstr "Yleinen::Versiograafi"
+
 #~ msgid "Go offline?"
 #~ msgstr "Siirrytäänkö yhteydettömään tilaan?"
+
 #~ msgid "Replaced node"
 #~ msgstr "Korvattu solmu"
+
 #~ msgid "copy source only"
 #~ msgstr "vain kopiolähde"
+
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Levykeasemat (A: B:)"
-
