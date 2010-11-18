@@ -99,6 +99,11 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
     }
 
     m_URLCombo.SaveHistory();
+
+    CString sRegKey = _T("Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor") + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CRegString regMergeUrlForWC = CRegString(sRegKey);
+    regMergeUrlForWC = m_URLCombo.GetString();
+
     ((CMergeWizard*)GetParent())->URL1 = m_URLCombo.GetString();
     ((CMergeWizard*)GetParent())->URL2 = m_URLCombo.GetString();
     // if the revision range has HEAD as a revision specified, we have to
@@ -129,13 +134,19 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 
     CMergeWizard * pWizard = (CMergeWizard*)GetParent();
 
+    CString sRegKey = _T("Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor") + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CString sMergeUrlForWC = CRegString(sRegKey);
+
     CString sUUID = pWizard->sUUID;
     m_URLCombo.SetURLHistory(true, false);
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
     if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
         m_URLCombo.SetCurSel(0);
+    else if (!sMergeUrlForWC.IsEmpty())
+        m_URLCombo.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWC));
     else if (!pWizard->url.IsEmpty())
         m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
+
     if (m_URLCombo.GetString().IsEmpty())
         m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
     if (!pWizard->URL1.IsEmpty())

@@ -95,15 +95,28 @@ BOOL CMergeWizardTree::OnInitDialog()
     CString sUUID = pWizard->sUUID;
     m_URLCombo.SetURLHistory(true, false);
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
+    m_URLCombo2.SetURLHistory(true, false);
+    m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
+    m_URLCombo2.SetCurSel(0);
+
+    CString sRegKeyFrom = _T("Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForFrom") + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CString sMergeUrlForWCFrom = CRegString(sRegKeyFrom);
+    CString sRegKeyTo = _T("Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForTo") + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CString sMergeUrlForWCTo = CRegString(sRegKeyTo);
+
     if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
         m_URLCombo.SetCurSel(0);
+    else 
+    {
+        if (!sMergeUrlForWCFrom.IsEmpty())
+            m_URLCombo.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWCFrom));
+        if (!sMergeUrlForWCTo.IsEmpty())
+            m_URLCombo2.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWCTo));
+    }
     // Only set the "From" Url if there is no url history available
     if (m_URLCombo.GetString().IsEmpty())
         m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
-    m_URLCombo2.SetURLHistory(true, false);
-    m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
-    m_URLCombo2.SetCurSel(0);
     if (m_URLCombo2.GetString().IsEmpty())
         m_URLCombo2.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
     if (!pWizard->URL1.IsEmpty())
@@ -195,6 +208,13 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
 
     m_URLCombo2.SaveHistory();
     m_URLTo = m_URLCombo2.GetString();
+
+    CString sRegKeyFrom = _T("Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForFrom") + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CRegString regMergeUrlForWCFrom = CRegString(sRegKeyFrom);
+    regMergeUrlForWCFrom = m_URLFrom;
+    CString sRegKeyTo = _T("Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForTo") + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CRegString regMergeUrlForWCTo = CRegString(sRegKeyTo);
+    regMergeUrlForWCTo = m_URLTo;
 
     ((CMergeWizard*)GetParent())->URL1 = m_URLFrom;
     ((CMergeWizard*)GetParent())->URL2 = m_URLTo;
