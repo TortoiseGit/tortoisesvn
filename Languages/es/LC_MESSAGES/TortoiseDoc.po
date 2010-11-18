@@ -25,8 +25,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"X-Generator: Virtaal 0.6.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.6.0\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for
 #. you.
@@ -6214,8 +6214,9 @@ msgid "svn:externals property page"
 msgstr "svn:Página de propiedades de externos"
 
 #. (para)
+#, fuzzy
 msgid "<placeholder-1/> The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository as described in <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr "<placeholder-1/> La propiedad <literal>svn:externals</literal> se puede utilizar para traer otros proyectos del mismo repositorio o de otro completamente distinto como se describe en <xref linkend=\"tsvn-dug-externals\"/>."
+msgstr "La propiedad <literal>svn:externals</literal> se puede utilizar para traer otros proyectos del mismo repositorio o de otro completamente distinto. Para más información, lea <xref linkend=\"tsvn-dug-externals\"/>."
 
 #. (para)
 msgid "You need to define the name of the sub-folder that the external folder is checked out as, and the subversion URL of the external item. You can check out an external at its HEAD revision, so when the external item changes in the repository, your working copy will receive those changes on update. However, if you want the external to reference a particular stable point then you can specify the specific revision to use. IN this case you may also want to specify the same revision as a peg revision. If the external item is renamed at some point in the future then Subversion will not be able to update this item in your working copy. By specifying a peg revision you tell Subversion to look for an item that had that name at the peg revision rather than at HEAD."
@@ -6239,7 +6240,7 @@ msgstr "Estilo EOL"
 
 #. (title)
 msgid "svn:eol-style property page"
-msgstr "svn:Página de propiedades de estilo eol"
+msgstr "svn:Página de propiedades de estilo EOL"
 
 #. (para)
 msgid "<placeholder-1/> Select the end-of-line style that you wish to use and TortoiseSVN will use the correct property value."
@@ -6251,28 +6252,33 @@ msgid "Issue Tracker Integration"
 msgstr "Integración con el gestor de incidencias"
 
 #. (title)
+#, fuzzy
 msgid "tsvn:bugtraq property page"
-msgstr "svn:Página de propiedades de bugtraq"
+msgstr "Página de propiedades de Subversion"
 
 #. (title)
+#, fuzzy
 msgid "Log Message Sizes"
-msgstr "Tamaños de mensajes de registro"
+msgstr "mensajes de registro"
 
 #. (title)
+#, fuzzy
 msgid "Size of log messages property page"
-msgstr "Página de propiedades de tamaño de mensajes de registro"
+msgstr "Desde la página de propiedades"
 
 #. (para)
 msgid "<placeholder-1/> These 3 properties control the formatting of log messages. The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock dialogs until the message meets the minimum length. The border position shows a marker at the given column width as a guide for projects which have width limits on their log messages. Setting a value to zero will delete the property."
 msgstr ""
 
 #. (title)
+#, fuzzy
 msgid "Project Language"
-msgstr "Idioma del proyecto"
+msgstr "Idioma"
 
 #. (title)
+#, fuzzy
 msgid "Language property page"
-msgstr "Página de propiedades de Idioma"
+msgstr "Página de propiedades de Subversion"
 
 #. (para)
 msgid "<placeholder-1/> Choose the language to use for spell-checking log messages in the commit dialog. The file lists checkbox comes into effect when you right click in the log message pane and select <guilabel>Paste file list</guilabel>. By default the subversion status will be shown in your local language. When this box is checked the status is always given in English, for projects which require English-only log messages."
@@ -6280,11 +6286,12 @@ msgstr ""
 
 #. (title)
 msgid "MIME-type"
-msgstr "Tipo MIME"
+msgstr ""
 
 #. (title)
+#, fuzzy
 msgid "svn:mime-type property page"
-msgstr "svn:Página de propiedades de tipo MIME"
+msgstr "Desde la página de propiedades"
 
 #. (title)
 #. (literal)
@@ -6295,19 +6302,21 @@ msgstr "svn:needs-lock"
 #. (title)
 #, fuzzy
 msgid "svn:needs-lock property page"
-msgstr "svn:Página de propiedades de necesita-bloqueo"
+msgstr "Página de propiedades de Subversion"
 
 #. (para)
 msgid "<placeholder-1/> This property simply controls whether a file will be checked out as read-only if there is no lock held for it in the working copy."
 msgstr ""
 
 #. (title)
+#, fuzzy
 msgid "svn:executable"
-msgstr "svn:ejecutable"
+msgstr "svn:externals"
 
 #. (title)
+#, fuzzy
 msgid "svn:executable property page"
-msgstr "svn:Página de propiedades de ejecutable"
+msgstr "Página de propiedades de Subversion"
 
 #. (para)
 msgid "<placeholder-1/> This property controls whether a file will be given executable status when checked out on a Unix/Linux system. It has no effect on a Windows checkout."
@@ -8406,7 +8415,7 @@ msgstr "Si los mensajes estándar largos toman mucho espacio en la pantalla util
 
 #. (term)
 msgid "Can double click in log list to compare with previous revision"
-msgstr "Puede hacer doble clic en la lista de registro para comparar con la revisión previa."
+msgstr ""
 
 #. (para)
 msgid "If you frequently find yourself comparing revisions in the top pane of the log dialog, you can use this option to allow that action on double click. It is not enabled by default because fetching the diff is often a long process, and many people prefer to avoid the wait after an accidental double click, which is why this option is not enabled by default."
@@ -10253,12 +10262,10 @@ msgstr "$WCREV$"
 #. (entry)
 msgid "The highest commit revision in the working copy. Equivalent to <placeholder-1/>."
 msgstr ""
-"La confirmación de revisión más alta en la copia de trabajo.\r\n"
-"Equivalente a <placeholder-1/>."
 
 #. (entry)
 msgid "The commit date/time of the highest commit revision. Equivalent to <placeholder-1/>."
-msgstr "La fecha y hora de confirmación de la más alta confirmación de revisión. Equivalente a <placeholder-1/>."
+msgstr ""
 
 #. (entry)
 msgid "The author of the highest commit revision, that is, the last person to commit changes to the working copy."
@@ -10277,7 +10284,7 @@ msgstr "La revisión mínima de actualización, como se muestra en <placeholder-
 #. (row)
 #. (row)
 msgid "<placeholder-1/>."
-msgstr "<placeholder-1/>."
+msgstr ""
 
 #. (entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
@@ -10960,7 +10967,7 @@ msgstr "Si establece esa propiedad en una carpeta, TortoiseSVN deshabilitará el
 
 #. (para)
 msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr "Para información detallada sobre esas propiedades de proyecto, por favor lea <xref linkend=\"tsvn-dug-propertypage\"/>."
+msgstr ""
 
 #. (title)
 msgid "Update selected files from the repository"
