@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-10-09 12:54+0800\n"
+"PO-Revision-Date: 2010-11-18 21:26+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -559,6 +559,10 @@ msgstr "複製至剪貼簿(&C)"
 #. Resource IDs: (101)
 msgid "&Copy to..."
 msgstr "複製至(&C)..."
+
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr "建立資料夾結構(&C)"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -1173,6 +1177,10 @@ msgstr "伺服器上特定版本(&S)"
 #. Resource IDs: (16917)
 msgid "&Start Group"
 msgstr "啟動群組(&S)"
+
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr "啟動檔案庫瀏覽器(&S)"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -2091,6 +2099,10 @@ msgstr "瀏覽(&R)..."
 msgid "Back"
 msgstr "上一步"
 
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr "背景"
+
 #. Resource IDs: (246)
 msgid "Bar Graph"
 msgstr "長條圖"
@@ -2934,6 +2946,10 @@ msgstr "複製及重新命名"
 msgid "Copy and rename item to here"
 msgstr "複製及重新命名項目至此"
 
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr "複製行至剪貼簿"
+
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
 msgstr "複製錯誤訊息至剪貼簿"
@@ -3312,6 +3328,10 @@ msgstr "預設 URL:"
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
 msgstr "預設程式選單. 沒開啟文件時使用."
+
+#. Resource IDs: (81)
+msgid "Default directory structure successfully created!"
+msgstr "成功建立了預設的目錄結構!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4823,6 +4843,15 @@ msgstr "ID:32825:V C +L"
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+#, fuzzy
+msgid "ID:32870:V C +L"
+msgstr "ID:32870:V C +L"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+msgid "ID:32881:V C +P"
+msgstr "ID:32881:V C +P"
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5545,6 +5574,10 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
+msgstr "定位列"
+
+#. Resource IDs: (65535)
+msgid "Locator bar"
 msgstr "定位列"
 
 #. Resource IDs: (207, 221, 229, 65535)
@@ -6673,8 +6706,8 @@ msgid "Picture:"
 msgstr "圖片:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "圖片 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有檔案 (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "圖形檔案 (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有檔案 (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7414,6 +7447,10 @@ msgstr "檔案庫 URL"
 msgid "Repository UUID:"
 msgstr "檔案庫 UUID:"
 
+#. Resource IDs: (324)
+msgid "Repository created"
+msgstr "建立了檔案庫"
+
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
 msgstr "要求已被 TSVN 取消"
@@ -7792,6 +7829,10 @@ msgstr "是否儲存 %1 的變動?"
 #. Resource IDs: (232)
 msgid "Save client certificate path"
 msgstr "儲存用戶端憑證路徑"
+
+#. Resource IDs: (617)
+msgid "Save in Git format"
+msgstr "以 Git 格式儲存"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8552,28 +8593,32 @@ msgstr "條紋"
 #. Resource IDs: (117)
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
-"子字串過濾器:\r\n"
+"子字串過濾條件:\r\n"
 "* 可指定一個以上以空白分隔的字串. 所有子字串都必須符合.\r\n"
 "* 在字串前加上 - 可以排除含有這個子字串的版本.\r\n"
+"* 在字串前加上 + 可以從尚未符合先前過濾條件的版本中繼續比對.\r\n"
 "* 請使用 \" 夾住包含空格的字串.\r\n"
-"* 在整行的最開頭加上 ! 可以逆轉整個過濾器的設定.\r\n"
+"* 在整行的最開頭加上 ! 可以逆轉整個過濾條件的設定.\r\n"
 "\r\n"
 "範例:\r\n"
 "myname  2008    : 自己在 2008 年送交的版本.\r\n"
 ".h  -.cpp              : 有修改到 .h 檔但沒有修改 .cpp 檔的版本\r\n"
 "\" \"                        : 有空白的版本(例如搜尋路徑的時候).\r\n"
+".doc +.xls 2010  : 2010年中包含有 .doc 或是 .xls 的版本\r\n"
 "-\"\"show all\"\"        : 不包含 '\"show all\"' 這個字串的版本.\r\n"
 "!myname  .cpp    : 除了自己送交並且有修改到 .cpp 檔以外的所有版本."
 
@@ -11369,6 +11414,86 @@ msgstr ""
 "自動加入記錄訊息對話框中的字串.\r\n"
 "可以用作讓使用者填寫的記錄訊息模板."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplatebranch\r\n"
+"自動加入記錄訊息對話框中的字串.\r\n"
+"可以用作讓使用者進行分支/Tag/複製時填寫的記錄訊息模板."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplatecommit\r\n"
+"自動加入記錄訊息對話框中的字串.\r\n"
+"可以用作讓使用者進行送交時填寫的記錄訊息模板."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplatedelete\r\n"
+"自動加入記錄訊息對話框中的字串.\r\n"
+"可以用作讓使用者進行刪除時填寫的記錄訊息模板."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplateimport\r\n"
+"自動加入記錄訊息對話框中的字串.\r\n"
+"可以用作讓使用者進行匯入時填寫的記錄訊息模板."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplatelock\r\n"
+"自動加入記錄訊息對話框中的字串.\r\n"
+"可以用作讓使用者進行鎖定時填寫的記錄訊息模板."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplatemkdir\r\n"
+"自動加入記錄訊息對話框中的字串.\r\n"
+"可以用作讓使用者進行建立目錄時填寫的記錄訊息模板."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplatemove\r\n"
+"自動加入記錄訊息對話框中的字串.\r\n"
+"可以用作讓使用者進行移動時填寫的記錄訊息模板."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplatepropset\r\n"
+"自動加入記錄訊息對話框中的字串.\r\n"
+"可以用作讓使用者修改屬性時填寫的記錄訊息模板."
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -11485,8 +11610,6 @@ msgstr "{BugTraq}"
 #~ msgstr "已標記"
 #~ msgid "tree conflict:"
 #~ msgstr "目錄樹衝突:"
-#~ msgid "The repository was successfully created."
-#~ msgstr "檔案庫建立成功."
 #~ msgid "&Sat:"
 #~ msgstr "濃度(&S):"
 #~ msgid "&Save..."
