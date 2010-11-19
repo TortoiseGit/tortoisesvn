@@ -864,7 +864,7 @@ msgstr "&Mac (CR)"
 
 #. Resource IDs: (1562)
 msgid "&Make depth sticky"
-msgstr ""
+msgstr "&Rendre la profondeur persistante"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -6709,8 +6709,8 @@ msgid "Picture:"
 msgstr "Image:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Images (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Tous (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Images (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -11206,7 +11206,6 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
@@ -11222,14 +11221,14 @@ msgid ""
 "/ relative to the server's hostname"
 msgstr ""
 "svn:externals\r\n"
-"Une liste séparée par deux sauts de ligne d'identifiants de modules, chacun constitué\r\n"
+"Une liste d'identifiants de modules séparée par un saut de ligne, chacun constitué\r\n"
 "d'une révision facultative, d'une URL et d'un chemin relatif. Par exemple\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "Les URLs peuvent être soit absolues soit relatives. Le format pour\r\n"
 "les URLs relatives est :\r\n"
-"../ relative au répertoire parent de la source externe\r\n"
+"../ relative au répertoire parent de la référence externe\r\n"
 "^/ relative à la racine du référentiel\r\n"
 "// relative au schéma d'URL\r\n"
 "/ relative au nom d'hôte du serveur"
