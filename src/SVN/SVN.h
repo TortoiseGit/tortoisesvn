@@ -627,10 +627,10 @@ public:
      * \param path path to the working copy
      * \param from the old URL of the repository
      * \param to the new URL of the repository
-     * \param recurse TRUE if the operation should be recursive
+     * \param includeexternals TRUE if the operation should also apply to externals
      * \return TRUE if successful
      */
-    bool Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to);
+    bool Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to, bool includeexternals);
 
     /**
      * Determine the author for each line in a file (blame the changes on someone).

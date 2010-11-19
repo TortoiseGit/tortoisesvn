@@ -49,7 +49,8 @@ protected:
     int             m_height;
     CPathEdit       m_FromUrl;
 public:
-    CHistoryCombo m_URLCombo;
-    CString m_sToUrl;
-    CString m_sFromUrl;
+    CHistoryCombo   m_URLCombo;
+    CString         m_sToUrl;
+    CString         m_sFromUrl;
+    BOOL            m_bIncludeExternals;
 };

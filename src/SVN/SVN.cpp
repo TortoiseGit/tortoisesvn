@@ -2006,7 +2006,7 @@ bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegre
     return (Err == NULL);
 }
 
-bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to)
+bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to, bool includeexternals)
 {
     svn_error_clear(Err);
     Err = NULL;
@@ -2022,6 +2022,7 @@ bool SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
                     svnPath,
                     from.GetSVNApiPath(subpool),
                     to.GetSVNApiPath(subpool),
+                    !includeexternals,
                     m_pctx, subpool),
         svnPath
     );

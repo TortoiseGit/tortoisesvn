@@ -28,6 +28,7 @@ CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRelocateDlg::IDD, pParent)
     , m_sToUrl(_T(""))
     , m_sFromUrl(_T(""))
+    , m_bIncludeExternals(FALSE)
 {
 }
 
@@ -40,6 +41,7 @@ void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_TOURL, m_URLCombo);
     DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
+    DDX_Check(pDX, IDC_INCLUDEEXTERNALS, m_bIncludeExternals);
 }
 
 
@@ -55,6 +57,7 @@ BOOL CRelocateDlg::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
 
     ExtendFrameIntoClientArea(IDC_DWM);
+    m_aeroControls.SubclassControl(this, IDC_INCLUDEEXTERNALS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_URLCombo.SetURLHistory(true, false);
