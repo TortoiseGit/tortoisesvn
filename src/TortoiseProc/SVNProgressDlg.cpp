@@ -2502,7 +2502,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
         if (::MessageBox(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
         {
             ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-            if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
+            if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
             {
                 ReportSVNError();
                 return false;
@@ -2994,7 +2994,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             ReportString(sNotify, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
 
             CBlockCacheForPath cacheBlock (targetPath.GetWinPath());
-            if (!Update(CTSVNPathList(targetPath), revstore, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
+            if (!Update(CTSVNPathList(targetPath), revstore, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
             {
                 ReportSVNError();
                 return false;
@@ -3003,50 +3003,8 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     }
     else
     {
-        // if we have a target path, but that target path does not exist,
-        // we have to check whether at least the parent path exists. If not,
-        // then we have to update all paths in between the first path that exists and the
-        // parent path of the one we want to update
-        // This is required so a user can create a sparse checkout without having
-        // to update all intermediate folders manually
-        for (int pathindex = 0; pathindex < m_targetPathList.GetCount(); ++pathindex)
-        {
-            if (!m_targetPathList[pathindex].Exists())
-            {
-                CTSVNPath wcPath = m_targetPathList[pathindex].GetContainingDirectory();
-                CTSVNPath existingParentPath = wcPath.GetContainingDirectory();
-                while (!existingParentPath.Exists() && (existingParentPath.GetWinPathString().GetLength() > 2))
-                {
-                    existingParentPath = existingParentPath.GetContainingDirectory();
-                }
-                if (existingParentPath.GetWinPathString().GetLength() && !existingParentPath.IsEquivalentTo(wcPath))
-                {
-                    // update all intermediate directories with depth 'empty'
-                    CTSVNPath intermediatepath = existingParentPath;
-                    bool bSuccess = true;
-                    while (bSuccess && intermediatepath.IsAncestorOf(wcPath) && !intermediatepath.IsEquivalentTo(wcPath))
-                    {
-                        CString childname = wcPath.GetWinPathString().Mid(intermediatepath.GetWinPathString().GetLength(),
-                            wcPath.GetWinPathString().Find('\\', intermediatepath.GetWinPathString().GetLength()+1)-intermediatepath.GetWinPathString().GetLength());
-                        if (childname.IsEmpty())
-                            intermediatepath = wcPath;
-                        else
-                            intermediatepath.AppendPathString(childname);
-                        if (!intermediatepath.Exists())
-                            bSuccess = Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)));
-                    }
-
-                    if (!bSuccess)
-                    {
-                        ReportSVNError();
-                        return false;
-                    }
-                }
-            }
-        }
-
         CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
-        if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
+        if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
         {
             ReportSVNError();
             return false;

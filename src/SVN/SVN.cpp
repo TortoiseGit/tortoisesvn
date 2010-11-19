@@ -535,20 +535,24 @@ bool SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CStringArray
     return (Err == NULL);
 }
 
-bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision, svn_depth_t depth, bool depthIsSticky, bool ignoreexternals, bool bAllow_unver_obstructions)
+bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
+                 svn_depth_t depth, bool depthIsSticky,
+                 bool ignoreexternals, bool bAllow_unver_obstructions,
+                 bool makeParents)
 {
     SVNPool(localpool);
     svn_error_clear(Err);
     Err = NULL;
     CHooks::Instance().PreConnect(pathList);
     SVNTRACE(
-        Err = svn_client_update3(NULL,
+        Err = svn_client_update4(NULL,
                                 pathList.MakePathArray(pool),
                                 revision,
                                 depth,
                                 depthIsSticky,
                                 ignoreexternals,
                                 bAllow_unver_obstructions,
+                                makeParents,
                                 m_pctx,
                                 localpool),
         NULL

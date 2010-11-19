@@ -220,7 +220,7 @@ public:
      * \return TRUE if successful
      */
     bool Update(const CTSVNPathList& pathList, const SVNRev& revision, svn_depth_t depth,
-        bool depthIsSticky, bool ignoreexternals, bool bAllow_unver_obstructions);
+        bool depthIsSticky, bool ignoreexternals, bool bAllow_unver_obstructions, bool makeParents);
     /**
      * Commit file or directory path into repository, using message as
      * the log message.
