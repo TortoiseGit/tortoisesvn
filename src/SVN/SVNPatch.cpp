@@ -142,7 +142,6 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
                            CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
                            true,                                    // dry_run
                            m_nStrip,                                // strip_count
-                           false,                                   // old_patch_target_names
                            false,                                   // reverse
                            true,                                    // ignore_whitespace
                            false,                                   // remove_tempfiles
@@ -198,7 +197,6 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
                                CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
                                true,                                    // dry_run
                                m_nStrip,                                // strip_count
-                               false,                                   // old_patch_target_names
                                false,                                   // reverse
                                true,                                    // ignore_whitespace
                                false,                                   // remove_tempfiles
