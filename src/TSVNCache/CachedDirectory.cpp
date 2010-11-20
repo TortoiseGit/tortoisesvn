@@ -200,7 +200,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
     bool wcDbFileTimeChanged = false;
     long long dbFileTime = CSVNStatusCache::Instance().WCRoots()->GetDBFileTime(m_directoryPath);
     wcDbFileTimeChanged = (m_wcDbFileTime != dbFileTime);
-    m_wcDbFileTime = dbFileTime;
 
     if ( !wcDbFileTimeChanged )
     {
@@ -254,7 +253,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
                 // To keep recursive status up to date, we'll request that children are all crawled again
                 // We have to do this because the directory watcher isn't very reliable (especially under heavy load)
                 // and also has problems with SUBSTed drives.
-                // If nothing has changed in those directories, this crawling is fast and only checks
+                // If nothing has changed in those directories, this crawling is fast and only
                 // accesses two files for each directory.
                 if (bRecursive)
                 {
@@ -338,7 +337,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
             return CStatusCacheEntry();
         }
         AutoLocker lock(m_critSec);
-        m_wcDbFileTime = dbFileTime;
         m_entryCache.clear();
         strCacheKey = GetCacheKey(path);
     }
@@ -382,6 +380,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
     // If it has, then we should tell our parent
     UpdateCurrentStatus();
 
+    m_wcDbFileTime = dbFileTime;
     if (path.IsDirectory())
     {
         CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
@@ -522,8 +521,13 @@ CCachedDirectory::SvnUpdateMembersStatus()
         switch (pErr->apr_err)
         {
         case SVN_ERR_WC_NOT_WORKING_COPY:
-        case SVN_ERR_WC_NOT_FILE:
         case SVN_ERR_WC_PATH_NOT_FOUND:
+            {
+                m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+                CSVNStatusCache::Instance().BlockPath(m_directoryPath);
+            }
+            break;
+        case SVN_ERR_WC_NOT_FILE:
         case SVN_ERR_WC_CORRUPT:
         case SVN_ERR_WC_CORRUPT_TEXT_BASE:
         case SVN_ERR_WC_UNSUPPORTED_FORMAT:
