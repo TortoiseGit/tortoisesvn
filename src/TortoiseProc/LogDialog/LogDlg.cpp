@@ -287,7 +287,7 @@ BOOL CLogDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
 
-    ExtendFrameIntoClientArea(IDC_LOGMSG, 0, IDC_LOGMSG, IDC_LOGMSG);
+    ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
     m_aeroControls.SubclassControl(this, IDC_LOGINFO);
     m_aeroControls.SubclassControl(this, IDC_SHOWPATHS);
     m_aeroControls.SubclassControl(this, IDC_STATBUTTON);

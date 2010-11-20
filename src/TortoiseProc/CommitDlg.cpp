@@ -119,7 +119,7 @@ BOOL CCommitDlg::OnInitDialog()
     SVNConfig config;
     m_bKeepLocks = config.KeepLocks();
 
-    ExtendFrameIntoClientArea(IDC_LISTGROUP);
+    ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_KEEPLOCK);
     m_aeroControls.SubclassControl(this, IDC_KEEPLISTS);
     m_aeroControls.SubclassOkCancelHelp(this);

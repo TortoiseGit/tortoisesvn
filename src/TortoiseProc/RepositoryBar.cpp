@@ -135,7 +135,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
             return false;
 
         // Create the "Revision" button control to be added
-        rect = CRect(0, 0, 60, m_cbxUrl.GetItemHeight(-1) + 8);
+        rect = CRect(0, 0, 60, m_cbxUrl.GetItemHeight(-1) + 10);
         m_btnRevision.Create(_T("HEAD"), WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON, rect, this, IDC_REVISION_BTN);
         m_btnRevision.SetFont(font);
         temp.LoadString(IDS_REPO_BROWSEREV);

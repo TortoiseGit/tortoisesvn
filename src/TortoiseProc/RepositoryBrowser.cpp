@@ -220,7 +220,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
 
-    ExtendFrameIntoClientArea(IDC_REPOTREE);
+    ExtendFrameIntoClientArea(IDC_REPOS_BAR_CNR, IDC_REPOS_BAR_CNR, IDC_REPOS_BAR_CNR, IDC_REPOTREE);
     m_aeroControls.SubclassControl(this, IDC_F5HINT);
     m_aeroControls.SubclassOkCancelHelp(this);
 
