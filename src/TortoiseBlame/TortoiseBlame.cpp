@@ -871,7 +871,7 @@ void TortoiseBlame::Notify(SCNotification *notification)
 
             // reset indicators
             SendEditor(SCI_SETINDICATORCURRENT, STYLE_MARK);
-            SendEditor(SCI_INDICATORCLEARRANGE, 0, len);
+            SendEditor(SCI_INDICATORCLEARRANGE, startstylepos, len);
             char * startPos = strstr(textbuffer, seltextbuffer);
             while (startPos)
             {
