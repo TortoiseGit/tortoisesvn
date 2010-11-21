@@ -578,7 +578,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
     m_HeadRev = SVNRev(status.headrev);
     if (s==0)
     {
-        m_sLastError = status.GetLastErrorMsg();
+        m_sLastError = status.GetLastErrorMessage();
         return false;
     }
 
@@ -602,7 +602,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
             }
             if (s == 0)
             {
-                m_sLastError = status.GetLastErrorMsg();
+                m_sLastError = status.GetLastErrorMessage();
                 return false;
             }
             // Now, set working target to be the base folder of this item
@@ -2236,8 +2236,8 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
     }
     else
     {
-        if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
-            (svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
+        if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
+            (svn.GetSVNError()->apr_err == SVN_ERR_CLIENT_MODIFIED))
         {
             CString msg, yes, no, yestoall;
             msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
@@ -2255,7 +2255,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
                     bSuccess = true;
             }
         }
-        else if (svn.Err->apr_err == SVN_ERR_BAD_FILENAME)
+        else if (svn.GetSVNError()->apr_err == SVN_ERR_BAD_FILENAME)
         {
             // the file/folder didn't exist (was 'missing')
             // which means the remove succeeded anyway but svn still

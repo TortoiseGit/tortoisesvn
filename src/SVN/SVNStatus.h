@@ -22,6 +22,7 @@
 #ifdef _MFC_VER
 #   include "SVNPrompt.h"
 #endif
+#include "SVNBase.h"
 #include "TSVNPath.h"
 #include <set>
 #include "tstring.h"
@@ -33,7 +34,7 @@
  * \ingroup SVN
  * Handles Subversion status of working copies.
  */
-class SVNStatus
+class SVNStatus : public SVNBase
 {
 private:
     SVNStatus(const SVNStatus&){}
@@ -153,25 +154,13 @@ public:
 
     svn_revnum_t                headrev;            ///< the head revision fetched with GetFirstStatus()
 
-#ifdef _MFC_VER
-friend class SVN;   // So that SVN can get to our m_err
-    /**
-     * Returns the last error message as a CString object.
-     */
-    CString GetLastErrorMsg() const;
-
-#else
-    /**
-     * Returns the last error message as a CString object.
-     */
-    tstring GetLastErrorMsg() const;
-#endif
     /**
      * Returns true if the last error was SVN_ERR_WC_UNSUPPORTED_FORMAT, indicating that the
      * working copy is still in the old format (or a newer format than this client supports)
      */
-    bool IsUnsupportedFormat() {return m_err ? ((m_err->apr_err == SVN_ERR_WC_UNSUPPORTED_FORMAT)||(m_err->apr_err == SVN_ERR_WC_UPGRADE_REQUIRED)) : false;}
+    bool IsUnsupportedFormat() {return Err ? ((Err->apr_err == SVN_ERR_WC_UNSUPPORTED_FORMAT)||(Err->apr_err == SVN_ERR_WC_UPGRADE_REQUIRED)) : false;}
 
+friend class SVN;   // So that SVN can get to our m_err
 
 protected:
     apr_pool_t *                m_pool;         ///< the memory pool
@@ -190,9 +179,7 @@ private:
         apr_hash_t *    exthash;
     } hash_baton_t;
 
-    svn_client_ctx_t *          ctx;
     svn_wc_status_kind          m_allstatus;    ///< used by GetAllStatus and GetAllStatusRecursive
-    svn_error_t *               m_err;          ///< Subversion error baton
 
 #ifdef _MFC_VER
     SVNPrompt                   m_prompt;

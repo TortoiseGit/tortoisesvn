@@ -23,6 +23,7 @@
 #endif
 #include "TSVNPath.h"
 #include "SVNRev.h"
+#include "SVNBase.h"
 
 /**
  * \ingroup SVN
@@ -103,7 +104,7 @@ public:
  * \ingroup SVN
  * Wrapper for the svn_client_info() API.
  */
-class SVNInfo
+class SVNInfo : public SVNBase
 {
 private:
     SVNInfo(const SVNInfo&){}
@@ -128,15 +129,6 @@ public:
      */
     const SVNInfoData * GetNextFileInfo();
 
-    friend class SVN;   // So that SVN can get to our m_err
-#ifdef _MFC_VER
-    /**
-     * Returns the last error message as a CString object.
-     */
-    CString GetLastErrorMsg();
-#endif
-    const svn_error_t * GetError() const { return m_err; }
-
     virtual BOOL Cancel();
     virtual void Receiver(SVNInfoData * data);
 
@@ -144,12 +136,11 @@ public:
 
     static bool IsFile (const CTSVNPath& path, const SVNRev& revision);
 
+    friend class SVN;   // So that SVN can get to our m_err
 protected:
     apr_pool_t *                m_pool;         ///< the memory pool
     std::vector<SVNInfoData>    m_arInfo;       ///< contains all gathered info structs.
 private:
-    svn_client_ctx_t *          m_pctx;
-    svn_error_t *               m_err;          ///< Subversion error baton
 
     unsigned int                m_pos;          ///< the current position of the vector
 

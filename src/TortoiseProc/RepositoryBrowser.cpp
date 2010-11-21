@@ -431,7 +431,7 @@ void CRepositoryBrowser::InitRepo()
                 if (error.IsEmpty())
                 {
                     if (((data)&&(data->kind == svn_node_dir))||(data == NULL))
-                        error = info.GetLastErrorMsg();
+                        error = info.GetLastErrorMessage();
                 }
             }
         } while(!m_InitialUrl.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));

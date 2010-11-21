@@ -76,6 +76,4 @@ public:
      * \param text serialized property list
      */
     void SetFromSerializedForm (const std::string& text);
-
-    svn_error_t *               m_error;
 };

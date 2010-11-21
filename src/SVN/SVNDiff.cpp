@@ -348,7 +348,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     {
                         progDlg.Stop();
                         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                        ::MessageBox(GetHWND(), info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ::MessageBox(GetHWND(), info.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                         return false;
                     }
                     else
@@ -422,7 +422,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             {
                 if (!blamer.BlameToFile(url1, 1, rev1, peg.IsValid() ? peg : rev1, tempfile1, _T(""), TRUE, TRUE))
                 {
-                    if ((peg.IsValid())&&(blamer.Err->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE))
+                    if ((peg.IsValid())&&(blamer.GetSVNError()->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE))
                     {
                         if (!blamer.BlameToFile(url1, 1, rev1, rev1, tempfile1, _T(""), TRUE, TRUE))
                         {
@@ -434,13 +434,13 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                     }
                     else
                     {
-                        if (blamer.Err->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE)
+                        if (blamer.GetSVNError()->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE)
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
                         }
                         ::MessageBox(NULL, blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-                        if (blamer.Err->apr_err == SVN_ERR_CLIENT_IS_BINARY_FILE)
+                        if (blamer.GetSVNError()->apr_err == SVN_ERR_CLIENT_IS_BINARY_FILE)
                             blame = false;
                         else
                             return false;

@@ -53,9 +53,8 @@ SVNInfo::SVNInfo (bool suppressUI)
 #else
 SVNInfo::SVNInfo (bool)
 #endif
-    : m_pctx(NULL)
+    : SVNBase()
     , m_pos(0)
-    , m_err(NULL)
 #ifdef _MFC_VER
     , m_prompt (suppressUI)
 #endif
@@ -68,23 +67,23 @@ SVNInfo::SVNInfo (bool)
 
 #ifdef _MFC_VER
     // set up the configuration
-    m_err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
+    Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
 #else
     // set up the configuration
-    m_err = svn_config_get_config (&(m_pctx->config), NULL, m_pool);
+    Err = svn_config_get_config (&(m_pctx->config), NULL, m_pool);
 #endif
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;
 
 
-    if (m_err)
+    if (Err)
     {
 #ifdef _MFC_VER
-        ::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+        ::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 #endif
-        svn_error_clear(m_err);
+        svn_error_clear(Err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
     }
 #ifdef _MFC_VER
@@ -107,7 +106,7 @@ SVNInfo::SVNInfo (bool)
 
 SVNInfo::~SVNInfo(void)
 {
-    svn_error_clear(m_err);
+    svn_error_clear(Err);
     svn_pool_destroy (m_pool);                  // free the allocated memory
 }
 
@@ -126,16 +125,9 @@ svn_error_t* SVNInfo::cancel(void *baton)
     return SVN_NO_ERROR;
 }
 
-#ifdef _MFC_VER
-CString SVNInfo::GetLastErrorMsg()
-{
-    return SVN::GetErrorString(m_err);
-}
-#endif
-
 const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth /* = svn_depth_empty*/)
 {
-    svn_error_clear(m_err);
+    svn_error_clear(Err);
     m_arInfo.clear();
     m_pos = 0;
 
@@ -145,10 +137,10 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        m_err = svn_client_info3(svnPath, pegrev, revision, infoReceiver, this, depth, NULL, m_pctx, m_pool),
+        Err = svn_client_info3(svnPath, pegrev, revision, infoReceiver, this, depth, NULL, m_pctx, m_pool),
         svnPath
     )
-    if (m_err != NULL)
+    if (Err != NULL)
         return NULL;
     if (m_arInfo.size() == 0)
         return NULL;

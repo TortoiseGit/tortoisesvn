@@ -1335,7 +1335,7 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 
                 // was it just the revision being out of bound?
 
-                if (info.GetError()->apr_err == SVN_ERR_CLIENT_UNRELATED_RESOURCES)
+                if (info.GetSVNError()->apr_err == SVN_ERR_CLIENT_UNRELATED_RESOURCES)
                 {
                     // this will happen for dates in the future (post-HEAD)
                     // as long as the URL is valid.
@@ -1350,7 +1350,7 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
                 if (repositoryInfoCache->IsOffline (uuid, URL, true))
                     return DecodeRevision (path, url, revision, peg);
                 else
-                    throw SVNError(info.GetError());
+                    throw SVNError(info.GetSVNError());
             }
 
             break;
@@ -1362,7 +1362,7 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
             const SVNInfoData * baseInfo
                 = info.GetFirstFileInfo (path, peg, revision);
             if (baseInfo == NULL)
-                throw SVNError(info.GetError());
+                throw SVNError(info.GetSVNError());
 
             result = static_cast<LONG>(baseInfo->rev);
         }

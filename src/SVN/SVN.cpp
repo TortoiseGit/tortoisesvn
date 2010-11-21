@@ -78,7 +78,9 @@ void AprTimeToFileTime(LPFILETIME pft, apr_time_t t)
 }
 
 
-SVN::SVN(bool suppressUI) : m_progressWnd(0)
+SVN::SVN(bool suppressUI) 
+    : SVNBase()
+    , m_progressWnd(0)
     , m_pProgressDlg(NULL)
     , m_bShowProgressBar(false)
     , progress_total(0)
@@ -232,129 +234,6 @@ struct log_msg_baton3
   apr_pool_t *pool; /* a pool. */
 };
 
-CString SVN::GetLastErrorMessage(int wrap /* = 80 */)
-{
-    CString msg = GetErrorString(Err, wrap);
-    if (!PostCommitErr.IsEmpty())
-    {
-        msg += _T("\n") + CStringUtils::LinesWrap(PostCommitErr, wrap);
-    }
-    return msg;
-}
-
-CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
-{
-    CString msg;
-    CString temp;
-    char errbuf[256];
-
-    if (Err != NULL)
-    {
-        svn_error_t * ErrPtr = Err;
-        if (ErrPtr->message)
-            msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
-        else
-        {
-            /* Is this a Subversion-specific error code? */
-            if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                msg = svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf));
-            /* Otherwise, this must be an APR error code. */
-            else
-            {
-                svn_error_t *temp_err = NULL;
-                const char * err_string = NULL;
-                temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                if (temp_err)
-                {
-                    svn_error_clear (temp_err);
-                    msg = _T("Can't recode error string from APR");
-                }
-                else
-                {
-                    msg = CUnicodeUtils::GetUnicode(err_string);
-                }
-            }
-        }
-        msg = CStringUtils::LinesWrap(msg, wrap);
-        while (ErrPtr->child)
-        {
-            ErrPtr = ErrPtr->child;
-            msg += _T("\n");
-            if (ErrPtr->message)
-                temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
-            else
-            {
-                /* Is this a Subversion-specific error code? */
-                if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                    && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                    temp = svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf));
-                /* Otherwise, this must be an APR error code. */
-                else
-                {
-                    svn_error_t *temp_err = NULL;
-                    const char * err_string = NULL;
-                    temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                    if (temp_err)
-                    {
-                        svn_error_clear (temp_err);
-                        temp = _T("Can't recode error string from APR");
-                    }
-                    else
-                    {
-                        temp = CUnicodeUtils::GetUnicode(err_string);
-                    }
-                }
-            }
-            temp = CStringUtils::LinesWrap(temp, wrap);
-            msg += temp;
-        }
-        temp.Empty();
-        // add some hint text for some of the error messages
-        switch (Err->apr_err)
-        {
-        case SVN_ERR_BAD_FILENAME:
-        case SVN_ERR_BAD_URL:
-            // please check the path or URL you've entered.
-            temp.LoadString(IDS_SVNERR_CHECKPATHORURL);
-            break;
-        case SVN_ERR_WC_CLEANUP_REQUIRED:
-            // do a "cleanup"
-            temp.LoadString(IDS_SVNERR_RUNCLEANUP);
-            break;
-        case SVN_ERR_WC_NOT_UP_TO_DATE:
-        case SVN_ERR_FS_TXN_OUT_OF_DATE:
-            // do an update first
-            temp.LoadString(IDS_SVNERR_UPDATEFIRST);
-            break;
-        case SVN_ERR_WC_CORRUPT:
-        case SVN_ERR_WC_CORRUPT_TEXT_BASE:
-            // do a "cleanup". If that doesn't work you need to do a fresh checkout.
-            temp.LoadString(IDS_SVNERR_CLEANUPORFRESHCHECKOUT);
-            break;
-        default:
-            break;
-        }
-        if ((Err->apr_err == SVN_ERR_FS_PATH_NOT_LOCKED)||
-            (Err->apr_err == SVN_ERR_FS_NO_SUCH_LOCK)||
-            (Err->apr_err == SVN_ERR_RA_NOT_LOCKED))
-        {
-            // the lock has already been broken from another working copy
-            temp.LoadString(IDS_SVNERR_UNLOCKFAILEDNOLOCK);
-        }
-        else if (SVN_ERR_IS_UNLOCK_ERROR(Err))
-        {
-            // if you want to break the lock, use the "check for modifications" dialog
-            temp.LoadString(IDS_SVNERR_UNLOCKFAILED);
-        }
-        if (!temp.IsEmpty())
-        {
-            msg += _T("\n") + temp;
-        }
-        return msg;
-    }
-    return _T("");
-}
 
 bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const SVNRev& pegrev,
                    const SVNRev& revision, svn_depth_t depth, bool bIgnoreExternals,
@@ -841,7 +720,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
             }
             else
             {
-                Err = svn_error_create(status.m_err->apr_err, status.m_err, NULL);
+                Err = svn_error_create(status.GetSVNError()->apr_err, const_cast<svn_error_t *>(status.GetSVNError()), NULL);
                 return false;
             }
         } // else from if (extended)

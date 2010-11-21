@@ -79,7 +79,7 @@ bool DropMoveCommand::Execute()
         }
         if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath))
         {
-            if ((svn.Err && svn.Err->apr_err == SVN_ERR_ENTRY_EXISTS) && (destPath.Exists()))
+            if ((svn.GetSVNError() && svn.GetSVNError()->apr_err == SVN_ERR_ENTRY_EXISTS) && (destPath.Exists()))
             {
                 // target file already exists. Ask user if he wants to replace the file
                 CString sReplace;

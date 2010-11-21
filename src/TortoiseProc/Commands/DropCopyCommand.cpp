@@ -87,7 +87,7 @@ bool DropCopyCommand::Execute()
         }
         if (!svn.Copy(CTSVNPathList(sourcePath), fullDropPath, SVNRev::REV_WC, SVNRev()))
         {
-            if ((svn.Err && svn.Err->apr_err == SVN_ERR_ENTRY_EXISTS) && (fullDropPath.Exists()))
+            if ((svn.GetSVNError() && svn.GetSVNError()->apr_err == SVN_ERR_ENTRY_EXISTS) && (fullDropPath.Exists()))
             {
                 // target file already exists. Ask user if he wants to replace the file
                 CString sReplace;

@@ -39,36 +39,38 @@
 
 #ifdef _MFC_VER
 SVNStatus::SVNStatus(bool * pbCancelled, bool suppressUI)
-    : status(NULL)
+    : SVNBase()
+    , status(NULL)
     , m_prompt (suppressUI)
 #else
 SVNStatus::SVNStatus(bool * pbCancelled, bool)
-    : status(NULL)
+    : SVNBase()
+    , status(NULL)
 #endif
 {
     m_pool = svn_pool_create (NULL);
 
-    svn_error_clear(svn_client_create_context(&ctx, m_pool));
+    svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
 
     if (pbCancelled)
     {
-        ctx->cancel_func = cancel;
-        ctx->cancel_baton = pbCancelled;
+        m_pctx->cancel_func = cancel;
+        m_pctx->cancel_baton = pbCancelled;
     }
 
 #ifdef _MFC_VER
     svn_error_clear(svn_config_ensure(NULL, m_pool));
 
     // set up the configuration
-    m_err = svn_config_get_config (&(ctx->config), g_pConfigDir, m_pool);
+    Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
 
     // set up authentication
-    m_prompt.Init(m_pool, ctx);
+    m_prompt.Init(m_pool, m_pctx);
 
-    if (m_err)
+    if (Err)
     {
-        ::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-        svn_error_clear(m_err);
+        ::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        svn_error_clear(Err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
         exit(-1);
     }
@@ -80,7 +82,7 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
     tsvn_ssh.Replace('\\', '/');
     if (!tsvn_ssh.IsEmpty())
     {
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+        svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
             APR_HASH_KEY_STRING);
         svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
     }
@@ -88,14 +90,14 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
     svn_error_clear(svn_config_ensure(NULL, m_pool));
 
     // set up the configuration
-    m_err = svn_config_get_config (&(ctx->config), g_pConfigDir, m_pool);
+    Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
 
 #endif
 }
 
 SVNStatus::~SVNStatus(void)
 {
-    svn_error_clear(m_err);
+    svn_error_clear(Err);
     svn_pool_destroy (m_pool);                  // free the allocated memory
 }
 
@@ -103,88 +105,6 @@ void SVNStatus::ClearPool()
 {
     svn_pool_clear(m_pool);
 }
-
-#ifdef _MFC_VER
-CString SVNStatus::GetLastErrorMsg() const
-{
-    return SVN::GetErrorString(m_err);
-}
-#else
-tstring SVNStatus::GetLastErrorMsg() const
-{
-    tstring msg;
-    char errbuf[256];
-
-    if (m_err != NULL)
-    {
-        svn_error_t * ErrPtr = m_err;
-        if (ErrPtr->message)
-        {
-            msg = CUnicodeUtils::StdGetUnicode(ErrPtr->message);
-        }
-        else
-        {
-            /* Is this a Subversion-specific error code? */
-            if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                msg = CUnicodeUtils::StdGetUnicode(svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)));
-            /* Otherwise, this must be an APR error code. */
-            else
-            {
-                svn_error_t *temp_err = NULL;
-                const char * err_string = NULL;
-                temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                if (temp_err)
-                {
-                    svn_error_clear (temp_err);
-                    msg = _T("Can't recode error string from APR");
-                }
-                else
-                {
-                    msg = CUnicodeUtils::StdGetUnicode(err_string);
-                }
-            }
-
-        }
-
-        while (ErrPtr->child)
-        {
-            ErrPtr = ErrPtr->child;
-            msg += _T("\n");
-            if (ErrPtr->message)
-            {
-                msg += CUnicodeUtils::StdGetUnicode(ErrPtr->message);
-            }
-            else
-            {
-                /* Is this a Subversion-specific error code? */
-                if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                    && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                    msg += CUnicodeUtils::StdGetUnicode(svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)));
-                /* Otherwise, this must be an APR error code. */
-                else
-                {
-                    svn_error_t *temp_err = NULL;
-                    const char * err_string = NULL;
-                    temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                    if (temp_err)
-                    {
-                        svn_error_clear (temp_err);
-                        msg += _T("Can't recode error string from APR");
-                    }
-                    else
-                    {
-                        msg += CUnicodeUtils::StdGetUnicode(err_string);
-                    }
-                }
-
-            }
-        }
-        return msg;
-    } // if (m_err != NULL)
-    return msg;
-}
-#endif
 
 // static method
 svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t depth)
@@ -293,7 +213,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     apr_array_header_t *        statusarray;
     const sort_item*            item;
 
-    svn_error_clear(m_err);
+    svn_error_clear(Err);
     statushash = apr_hash_make(m_pool);
     exthash = apr_hash_make(m_pool);
     svn_revnum_t youngest = SVN_INVALID_REVNUM;
@@ -310,8 +230,8 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        m_err = svn_client_status5 (&youngest,
-                                ctx,
+        Err = svn_client_status5 (&youngest,
+                                m_pctx,
                                 svnPath,
                                 &rev,
                                 svn_depth_empty,        // depth
@@ -328,7 +248,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     );
 
     // Error present if function is not under version control
-    if ((m_err != NULL) || (apr_hash_count(statushash) == 0))
+    if ((Err != NULL) || (apr_hash_count(statushash) == 0))
     {
         status = NULL;
         return -2;
@@ -350,7 +270,7 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
 {
     const sort_item*            item;
 
-    svn_error_clear(m_err);
+    svn_error_clear(Err);
     m_statushash = apr_hash_make(m_pool);
     m_externalhash = apr_hash_make(m_pool);
     headrev = SVN_INVALID_REVNUM;
@@ -368,8 +288,8 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        m_err = svn_client_status5 (&headrev,
-                                ctx,
+        Err = svn_client_status5 (&headrev,
+                                m_pctx,
                                 svnPath,
                                 &rev,
                                 depth,
@@ -386,7 +306,7 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
     )
 
     // Error present if function is not under version control
-    if ((m_err != NULL) || (apr_hash_count(m_statushash) == 0))
+    if ((Err != NULL) || (apr_hash_count(m_statushash) == 0))
     {
         return NULL;
     }

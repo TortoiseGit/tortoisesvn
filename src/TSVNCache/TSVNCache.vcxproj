@@ -194,6 +194,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SVN\SVNBase.cpp" />
     <ClCompile Include="..\TortoiseShell\ShellCache.cpp" />
     <ClCompile Include="..\Utils\ProfilingInfo.cpp" />
     <ClCompile Include="..\Utils\UniqueQueue.cpp" />
@@ -227,6 +228,7 @@
     <ClCompile Include="WCRoots.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\SVN\SVNBase.h" />
     <ClInclude Include="..\Utils\ProfilingInfo.h" />
     <ClInclude Include="..\Utils\UniqueQueue.h" />
     <ClInclude Include="CachedDirectory.h" />

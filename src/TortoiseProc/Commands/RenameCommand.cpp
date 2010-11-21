@@ -228,7 +228,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
     }
     if ((idret != IDCANCEL)&&(!svn.Move(srcPathList, destPath, message, move_as_child, make_parents)))
     {
-        if (svn.Err->apr_err == SVN_ERR_ENTRY_NOT_FOUND)
+        if (svn.GetSVNError()->apr_err == SVN_ERR_ENTRY_NOT_FOUND)
         {
             bRet = !!MoveFile(srcPathList[0].GetWinPath(), destPath.GetWinPath());
         }

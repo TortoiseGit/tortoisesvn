@@ -253,6 +253,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SVN\SVNBase.cpp" />
     <ClCompile Include="..\SVN\SVNReadProperties.cpp" />
     <ClCompile Include="..\Utils\accHelper.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -740,6 +741,7 @@
     <ClCompile Include="TortoiseProc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\SVN\SVNBase.h" />
     <ClInclude Include="..\SVN\SVNReadProperties.h" />
     <ClInclude Include="..\Utils\CommonAppUtils.h" />
     <ClInclude Include="..\Utils\IconExtractor.h" />

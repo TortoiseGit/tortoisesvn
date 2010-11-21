@@ -59,9 +59,6 @@ class CStringUtils
 {
 public:
 #ifdef _MFC_VER
-    static BOOL WildCardMatch(const CString& wildcard, const CString& string);
-    static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
-    static CString WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize);
 
     /**
      * Removes all '&' chars from a string.
@@ -90,6 +87,9 @@ public:
 
 #endif
 #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
+    static BOOL WildCardMatch(const CString& wildcard, const CString& string);
+    static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
+    static CString WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize);
     /**
      * Find and return the number n of starting characters equal between
      * \ref lhs and \ref rhs. (max n: lhs.Left(n) == rhs.Left(n))

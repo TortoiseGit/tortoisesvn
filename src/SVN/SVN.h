@@ -21,6 +21,7 @@
 #pragma warning(push)
 #include "svn_wc.h"
 #pragma warning(pop)
+#include "SVNBase.h"
 #include "SVNPrompt.h"
 #include "SVNRev.h"
 #include "SVNGlobal.h"
@@ -64,7 +65,7 @@ typedef std::map<CString, CString> RevPropHash;
  * The drawback of this is that valid pathnames with sequences looking like escaped
  * chars may not work correctly under certain circumstances.
  */
-class SVN : private ILogReceiver
+class SVN : public SVNBase, private ILogReceiver
 {
 private:
     SVN(const SVN&){}
@@ -117,12 +118,6 @@ public:
         CString   SpeedString;      ///< String for speed. Either "xxx Bytes/s" or "xxx kBytes/s"
     };
 
-    /**
-     * If a method of this class returns FALSE then you can
-     * get the detailed error message with this method.
-     * \return the error message string
-     */
-    CString GetLastErrorMessage(int wrap = 80);
     /**
      * Checkout a working copy of moduleName at revision, using destPath as the root
      * directory of the newly checked out working copy
@@ -835,11 +830,6 @@ public:
     static CString GetSummarizeActionText(svn_client_diff_summarize_kind_t kind);
 
     /**
-     * Returns the string representation of the error object \c Err, wrapped
-     * (if possible) at \c wrap chars.
-     */
-    static CString GetErrorString(svn_error_t * Err, int wrap = 80);
-    /**
      * Converts a Subversion url/path to an UI format (utf16 encoded, unescaped,
      * backslash for paths, forward slashes for urls).
      */
@@ -876,8 +866,6 @@ public:
      */
     LogCache::CLogCachePool* GetLogCachePool();
 
-    svn_error_t *               Err;            ///< Global error object struct
-    svn_client_ctx_t *          m_pctx;         ///< pointer to client context
 protected:
     apr_hash_t *                statushash;     ///< holds the status
     apr_array_header_t *        statusarray;    ///< an array of all status
@@ -886,7 +874,6 @@ protected:
     apr_pool_t *                pool;           ///< 'root' memory pool
     svn_opt_revision_t          rev;            ///< subversion revision. used by getRevision()
     SVNPrompt                   m_prompt;
-    CString                     PostCommitErr;  ///< error string from post commit hook script
     svn_revnum_t                m_commitRev;    ///< revision of the last commit/add/mkdir
 
     static LCID                 s_locale;

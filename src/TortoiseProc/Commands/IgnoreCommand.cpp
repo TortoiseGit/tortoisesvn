@@ -76,7 +76,7 @@ bool IgnoreCommand::Execute()
             CString temp;
             temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
             temp += _T("\n");
-            temp += props.GetLastErrorMsg().c_str();
+            temp += props.GetLastErrorMessage();
             MessageBox(GetExplorerHWND(), temp, _T("TortoiseSVN"), MB_ICONERROR);
             err = TRUE;
             break;

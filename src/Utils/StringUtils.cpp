@@ -108,114 +108,6 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 }
 
 #ifdef _MFC_VER
-BOOL CStringUtils::WildCardMatch(const CString& wildcard, const CString& string)
-{
-    return _tcswildcmp(wildcard, string);
-}
-
-CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
-{
-    CString retString;
-    if ((longstring.GetLength() < limit) || (limit == 0))
-        return longstring;  // no wrapping needed.
-    // now start breaking the string into lines
-
-    int linepos = 0;
-    int lineposold = 0;
-    CString temp;
-    while ((linepos = longstring.Find('\n', linepos)) >= 0)
-    {
-        temp = longstring.Mid(lineposold, linepos-lineposold);
-        if ((linepos+1)<longstring.GetLength())
-            linepos++;
-        else
-            break;
-        lineposold = linepos;
-        if (!retString.IsEmpty())
-            retString += _T("\n");
-        retString += WordWrap(temp, limit, bCompactPaths, false, 4);
-    }
-    temp = longstring.Mid(lineposold);
-    if (!temp.IsEmpty())
-        retString += _T("\n");
-    retString += WordWrap(temp, limit, bCompactPaths, false, 4);
-    retString.Trim();
-    return retString;
-}
-
-CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize)
-{
-    int nLength = longstring.GetLength();
-    CString retString;
-    
-    if (limit < 0)
-        limit = 0;
-
-    int nLineStart = 0;
-    int nLineEnd = 0;
-    int tabOffset = 0;
-    for (int i = 0; i < nLength; ++i)
-    {
-        if (i-nLineStart+tabOffset >= limit)
-        {
-            if (nLineEnd == nLineStart)
-            {
-                if (bForceWrap)
-                    nLineEnd = i;
-                else
-                {
-                    while ((i < nLength) && (longstring[i] != ' ') && (longstring[i] != '\t'))
-                        ++i;
-                    nLineEnd = i;
-                }
-            }
-            if (bCompactPaths)
-            {
-                CString longline = longstring.Mid(nLineStart, nLineEnd-nLineStart).Left(MAX_PATH-1);
-                if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
-                {
-                    if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
-                    {
-                        TCHAR buf[MAX_PATH];
-                        PathCompactPathEx(buf, longline, limit+1, 0);
-                        longline = buf;
-                    }
-                }
-                retString += longline;
-            }
-            else
-                retString += longstring.Mid(nLineStart, nLineEnd-nLineStart);
-            retString += L"\n";
-            tabOffset = 0;
-            nLineStart = nLineEnd;
-        }
-        if (longstring[i] == ' ')
-            nLineEnd = i;
-        if (longstring[i] == '\t')
-        {
-            tabOffset += (tabSize - i % tabSize);
-            nLineEnd = i;
-        }
-    }
-    if (bCompactPaths)
-    {
-        CString longline = longstring.Mid(nLineStart).Left(MAX_PATH-1);
-        if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
-        {
-            if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
-            {
-                TCHAR buf[MAX_PATH];
-                PathCompactPathEx(buf, longline, limit+1, 0);
-                longline = buf;
-            }
-        }
-        retString += longline;
-    }
-    else
-        retString += longstring.Mid(nLineStart);
-
-    return retString;
-}
 
 void CStringUtils::RemoveAccelerators(CString& text)
 {
@@ -351,6 +243,114 @@ bool CStringUtils::ReadStringFromTextFile(const CString& path, CString& text)
 #endif // #ifdef _MFC_VER
 
 #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
+BOOL CStringUtils::WildCardMatch(const CString& wildcard, const CString& string)
+{
+    return _tcswildcmp(wildcard, string);
+}
+
+CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
+{
+    CString retString;
+    if ((longstring.GetLength() < limit) || (limit == 0))
+        return longstring;  // no wrapping needed.
+    // now start breaking the string into lines
+
+    int linepos = 0;
+    int lineposold = 0;
+    CString temp;
+    while ((linepos = longstring.Find('\n', linepos)) >= 0)
+    {
+        temp = longstring.Mid(lineposold, linepos-lineposold);
+        if ((linepos+1)<longstring.GetLength())
+            linepos++;
+        else
+            break;
+        lineposold = linepos;
+        if (!retString.IsEmpty())
+            retString += _T("\n");
+        retString += WordWrap(temp, limit, bCompactPaths, false, 4);
+    }
+    temp = longstring.Mid(lineposold);
+    if (!temp.IsEmpty())
+        retString += _T("\n");
+    retString += WordWrap(temp, limit, bCompactPaths, false, 4);
+    retString.Trim();
+    return retString;
+}
+
+CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize)
+{
+    int nLength = longstring.GetLength();
+    CString retString;
+
+    if (limit < 0)
+        limit = 0;
+
+    int nLineStart = 0;
+    int nLineEnd = 0;
+    int tabOffset = 0;
+    for (int i = 0; i < nLength; ++i)
+    {
+        if (i-nLineStart+tabOffset >= limit)
+        {
+            if (nLineEnd == nLineStart)
+            {
+                if (bForceWrap)
+                    nLineEnd = i;
+                else
+                {
+                    while ((i < nLength) && (longstring[i] != ' ') && (longstring[i] != '\t'))
+                        ++i;
+                    nLineEnd = i;
+                }
+            }
+            if (bCompactPaths)
+            {
+                CString longline = longstring.Mid(nLineStart, nLineEnd-nLineStart).Left(MAX_PATH-1);
+                if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+                {
+                    if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+                    {
+                        TCHAR buf[MAX_PATH];
+                        PathCompactPathEx(buf, longline, limit+1, 0);
+                        longline = buf;
+                    }
+                }
+                retString += longline;
+            }
+            else
+                retString += longstring.Mid(nLineStart, nLineEnd-nLineStart);
+            retString += L"\n";
+            tabOffset = 0;
+            nLineStart = nLineEnd;
+        }
+        if (longstring[i] == ' ')
+            nLineEnd = i;
+        if (longstring[i] == '\t')
+        {
+            tabOffset += (tabSize - i % tabSize);
+            nLineEnd = i;
+        }
+    }
+    if (bCompactPaths)
+    {
+        CString longline = longstring.Mid(nLineStart).Left(MAX_PATH-1);
+        if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+        {
+            if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+            {
+                TCHAR buf[MAX_PATH];
+                PathCompactPathEx(buf, longline, limit+1, 0);
+                longline = buf;
+            }
+        }
+        retString += longline;
+    }
+    else
+        retString += longstring.Mid(nLineStart);
+
+    return retString;
+}
 int CStringUtils::GetMatchingLength (const CString& lhs, const CString& rhs)
 {
     int lhsLength = lhs.GetLength();

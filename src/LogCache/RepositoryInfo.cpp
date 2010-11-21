@@ -534,7 +534,7 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
 
     // add new cache entry if none is available, yet
 
-    if ((svn.Err == NULL) && (info == NULL))
+    if ((svn.GetSVNError() == NULL) && (info == NULL))
         data.Add (uuid, root);
 
     // done
@@ -585,7 +585,7 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
 
         // if we couldn't connect to the server, ask the user
 
-        bool cancelled = svn.Err && (svn.Err->apr_err == SVN_ERR_CANCELLED);
+        bool cancelled = svn.GetSVNError() && (svn.GetSVNError()->apr_err == SVN_ERR_CANCELLED);
         if (   !cancelled
             && (info->headRevision == NO_REVISION)
             && IsOffline (info))
@@ -596,8 +596,7 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
 
             // we just ignore our latest error
 
-            svn_error_clear (svn.Err);
-            svn.Err = NULL;
+            svn.ClearSVNError();
         }
 
         modified = true;
@@ -732,7 +731,7 @@ SVN& CRepositoryInfo::GetSVN() const
 
 const svn_error_t* CRepositoryInfo::GetLastError() const
 {
-    return svn.Err;
+    return svn.GetSVNError();
 }
 
 // end namespace LogCache

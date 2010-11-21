@@ -47,7 +47,7 @@ bool PrevDiffCommand::Execute()
         }
         else
         {
-            if (st.GetLastErrorMsg().IsEmpty())
+            if (st.GetLastErrorMessage().IsEmpty())
             {
                 MessageBox(GetExplorerHWND(), IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
             }

@@ -139,7 +139,7 @@ bool CommitCommand::Execute()
             InitProgressDialog (dlg, progDlg);
             progDlg.DoModal();
 
-            if (IsOutOfDate(progDlg.Err))
+            if (IsOutOfDate(progDlg.GetSVNError()))
             {
                 // the commit failed at least one of the items was outdated.
                 // -> suggest to update them

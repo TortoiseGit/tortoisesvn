@@ -68,8 +68,8 @@ svn_error_t*    SVNReadProperties::Refresh()
 {
     svn_opt_revision_t          rev;
     svn_opt_revision_t          peg_rev;
-    svn_error_clear(m_error);
-    m_error = NULL;
+    svn_error_clear(Err);
+    Err = NULL;
 
     if (m_propCount > 0)
     {
@@ -101,7 +101,7 @@ svn_error_t*    SVNReadProperties::Refresh()
         apr_hash_t * props;
 
         SVNTRACE (
-            m_error = svn_client_revprop_list(  &props,
+            Err = svn_client_revprop_list(  &props,
                                                 svnPath,
                                                 &rev,
                                                 &rev_set,
@@ -115,7 +115,7 @@ svn_error_t*    SVNReadProperties::Refresh()
     else
     {
         SVNTRACE (
-            m_error = svn_client_proplist3 (svnPath,
+            Err = svn_client_proplist3 (svnPath,
                                             &peg_rev,
                                             &rev,
                                             svn_depth_empty,
@@ -127,8 +127,8 @@ svn_error_t*    SVNReadProperties::Refresh()
             svnPath
         )
     }
-    if(m_error != NULL)
-        return m_error;
+    if(Err != NULL)
+        return Err;
 
 
     for (std::map<std::string, apr_hash_t *>::iterator it = m_props.begin(); it != m_props.end(); ++it)
@@ -143,18 +143,18 @@ void SVNReadProperties::Construct()
     m_propCount = 0;
 
     m_pool = svn_pool_create (NULL);                // create the memory pool
-    m_error = NULL;
+    Err = NULL;
     svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
 
 #ifdef _MFC_VER
 
     svn_error_clear(svn_config_ensure(NULL, m_pool));
     // set up the configuration
-    m_error = svn_config_get_config (&m_pctx->config, g_pConfigDir, m_pool);
-    if (m_error)
+    Err = svn_config_get_config (&m_pctx->config, g_pConfigDir, m_pool);
+    if (Err)
     {
-        ::MessageBox(NULL, this->GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-        svn_error_clear(m_error);
+        ::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        svn_error_clear(Err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
         return;
     }
@@ -180,13 +180,15 @@ void SVNReadProperties::Construct()
 
 #ifdef _MFC_VER
 SVNReadProperties::SVNReadProperties(SVNRev rev, bool bRevProps)
-    : m_rev(rev)
+    : SVNBase()
+    , m_rev(rev)
     , m_peg_rev(rev)
     , m_bRevProps (bRevProps)
     , m_pProgress(NULL)
 #else
 SVNReadProperties::SVNReadProperties(bool bRevProps)
-    : m_bRevProps (bRevProps)
+    : SVNBase()
+    , m_bRevProps (bRevProps)
 #endif
 {
     Construct();
@@ -194,13 +196,15 @@ SVNReadProperties::SVNReadProperties(bool bRevProps)
 
 #ifdef _MFC_VER
 SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps)
-    : m_path (filepath)
+    : SVNBase()
+    , m_path (filepath)
     , m_rev(rev)
     , m_peg_rev(rev)
     , m_pProgress(NULL)
 #else
 SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps)
-    : m_path (filepath)
+    : SVNBase()
+    , m_path (filepath)
 #endif
     , m_bRevProps (bRevProps)
 {
@@ -210,7 +214,8 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps)
 
 #ifdef _MFC_VER
 SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, SVNRev rev, bool suppressUI)
-    : m_path (filepath)
+    : SVNBase()
+    , m_path (filepath)
     , m_peg_rev (pegRev)
     , m_rev (rev)
     , m_bRevProps (false)
@@ -224,7 +229,7 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, S
 
 SVNReadProperties::~SVNReadProperties(void)
 {
-    svn_error_clear(m_error);
+    svn_error_clear(Err);
     svn_pool_destroy (m_pool);                  // free the allocated memory
 }
 
@@ -330,77 +335,6 @@ std::string SVNReadProperties::GetItemName(int index) const
 std::string SVNReadProperties::GetItemValue(int index) const
 {
     return SVNReadProperties::GetItem(index, false);
-}
-
-tstring SVNReadProperties::GetLastErrorMsg() const
-{
-    tstring msg;
-    char errbuf[256];
-
-    if (m_error != NULL)
-    {
-        svn_error_t * ErrPtr = m_error;
-        if (ErrPtr->message)
-            msg = UTF8ToString(ErrPtr->message);
-        else
-        {
-            /* Is this a Subversion-specific error code? */
-            if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                msg = UTF8ToString(svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)));
-            /* Otherwise, this must be an APR error code. */
-            else
-            {
-                svn_error_t *temp_err = NULL;
-                const char * err_string = NULL;
-                temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                if (temp_err)
-                {
-                    svn_error_clear (temp_err);
-                    msg = _T("Can't recode error string from APR");
-                }
-                else
-                {
-                    msg = UTF8ToString(err_string);
-                }
-            }
-        }
-        while (ErrPtr->child)
-        {
-            ErrPtr = ErrPtr->child;
-            if (ErrPtr->message)
-            {
-                msg += _T("\n");
-                if (ErrPtr->message)
-                    msg += UTF8ToString(ErrPtr->message);
-                else
-                {
-                    /* Is this a Subversion-specific error code? */
-                    if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                        && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                        msg += UTF8ToString(svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)));
-                    /* Otherwise, this must be an APR error code. */
-                    else
-                    {
-                        svn_error_t *temp_err = NULL;
-                        const char * err_string = NULL;
-                        temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                        if (temp_err)
-                        {
-                            svn_error_clear (temp_err);
-                            msg += _T("Can't recode error string from APR");
-                        }
-                        else
-                        {
-                            msg += UTF8ToString(err_string);
-                        }
-                    }
-                }
-            }
-        }
-        return msg;
-    }
-    return msg;
 }
 
 int SVNReadProperties::IndexOf (const std::string& name) const

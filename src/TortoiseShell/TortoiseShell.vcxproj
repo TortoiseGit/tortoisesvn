@@ -293,6 +293,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\SVN\SVNBase.cpp" />
     <ClCompile Include="..\SVN\SVNInfo.cpp" />
     <ClCompile Include="..\SVN\SVNReadProperties.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
@@ -377,6 +378,7 @@
     <None Include="..\Resources\tsvnmenumultiple.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\SVN\SVNBase.h" />
     <ClInclude Include="..\SVN\SVNInfo.h" />
     <ClInclude Include="..\SVN\SVNReadProperties.h" />
     <ClInclude Include="..\Utils\DebugOutput.h" />

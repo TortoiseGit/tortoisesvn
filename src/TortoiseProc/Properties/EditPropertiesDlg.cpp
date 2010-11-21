@@ -572,8 +572,8 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                                     false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                                 if (!ret)
                                 {
-                                    ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-                                    if (props.m_error->apr_err == SVN_ERR_CANCELLED)
+                                    ::MessageBox(m_hWnd, props.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                                    if (props.GetSVNError()->apr_err == SVN_ERR_CANCELLED)
                                         break;
                                 }
                                 else
@@ -603,7 +603,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                                 false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                             if (!ret)
                             {
-                                ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                                ::MessageBox(m_hWnd, props.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                             }
                             else
                             {
@@ -680,7 +680,7 @@ void CEditPropertiesDlg::RemoveProps()
             props.SetProgressDlg(&prog);
             if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, (LPCTSTR)sLogMsg))
             {
-                ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                ::MessageBox(m_hWnd, props.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
             }
             else
             {
@@ -907,7 +907,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                                 if (!props.Add(sName, propertyvalue, false, svn_depth_empty, (LPCTSTR)sMsg))
                                 {
                                     prog.Stop();
-                                    ::MessageBox(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+                                    ::MessageBox(m_hWnd, props.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
                                     bFailed = true;
                                 }
                                 else

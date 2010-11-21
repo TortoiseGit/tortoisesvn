@@ -241,7 +241,7 @@ bool CFullHistory::FetchRevisionData ( CString path
     svn_revnum_t head;
     if (FALSE == svn.GetRootAndHead (svnPath, rootPath, head))
     {
-        Err = svn_error_dup(svn.Err);
+        Err = svn_error_dup(const_cast<svn_error_t*>(svn.GetSVNError()));
         return false;
     }
 

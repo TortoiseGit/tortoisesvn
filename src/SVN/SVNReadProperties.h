@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include "SVNBase.h"
+
 #ifdef _MFC_VER
 #   include "SVNPrompt.h"
 #   include "ShellUpdater.h"
@@ -41,7 +43,7 @@
  * conversion is performed. This behavior is same as "svn propset" and
  * "svn propget".
  */
-class SVNReadProperties
+class SVNReadProperties : public SVNBase
 {
 private:
     SVNReadProperties(const SVNReadProperties&){}
@@ -118,11 +120,6 @@ public:
     static bool IsBinary(const std::string& value);
 
     /**
-     * Returns the last error message as a CString object.
-     */
-    tstring GetLastErrorMsg() const;
-
-    /**
      * Returns the index of the property.
      * \param name name of the property to find
      * \return index of the property. -1, if not found
@@ -146,7 +143,6 @@ public:
      */
     std::string GetSerializedForm() const;
 
-    svn_error_t *               m_error;
 private:        //methods
     /**
      * Builds the properties (again) and fills the apr_array_header_t structure.
@@ -171,7 +167,6 @@ protected:        //members
     SVNPrompt                   m_prompt;
     CProgressDlg *              m_pProgress;
 #endif
-    svn_client_ctx_t *          m_pctx;
 
 private:        //members
     SVNRev                      m_peg_rev;

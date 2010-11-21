@@ -277,7 +277,7 @@ UINT CSettingsLogCaches::WorkerThread(LPVOID pVoid)
 
     try
     {
-        CSVNLogQuery svnQuery (svn.m_pctx, pool);
+        CSVNLogQuery svnQuery (svn.GetSVNClientContext(), pool);
         CCacheLogQuery query (caches, &svnQuery);
 
         query.Log ( CTSVNPathList (urlpath)

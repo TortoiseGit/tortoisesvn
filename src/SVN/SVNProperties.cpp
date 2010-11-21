@@ -51,11 +51,9 @@ struct log_msg_baton3
 #ifdef _MFC_VER
 SVNProperties::SVNProperties(SVNRev rev, bool bRevProps)
     : SVNReadProperties(rev, bRevProps)
-    , m_error(NULL)
 #else
 SVNProperties::SVNProperties(bool bRevProps)
     : SVNReadProperties (bRevProps)
-    , m_error(NULL)
 #endif
 {
 }
@@ -63,11 +61,9 @@ SVNProperties::SVNProperties(bool bRevProps)
 #ifdef _MFC_VER
 SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps)
     : SVNReadProperties (filepath, rev, bRevProps)
-    , m_error(NULL)
 #else
 SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps)
     : SVNReadProperties (filepath, bRevProps)
-    , m_error(NULL)
 #endif
 {
 }
@@ -79,10 +75,10 @@ SVNProperties::~SVNProperties(void)
 BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool force, svn_depth_t depth, const TCHAR * message)
 {
     svn_string_t*   pval;
-    m_error = NULL;
+    Err = NULL;
 
     SVNPool subpool(m_pool);
-    svn_error_clear(m_error);
+    svn_error_clear(Err);
 
     pval = svn_string_ncreate (Value.c_str(), Value.size(), subpool);
 
@@ -93,12 +89,12 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         CString temp;
         temp.LoadString(IDS_ERR_PROPNOTONFILE);
         CStringA tempA = CUnicodeUtils::GetUTF8(temp);
-        m_error = svn_error_create(NULL, NULL, tempA);
+        Err = svn_error_create(NULL, NULL, tempA);
 #else
         TCHAR string[1024];
         LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
         std::string stringA = WideToUTF8(std::wstring(string));
-        m_error = svn_error_create(NULL, NULL, stringA.c_str());
+        Err = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
         return FALSE;
     }
@@ -113,12 +109,12 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
                 CString temp;
                 temp.LoadString(IDS_ERR_PROPNOMULTILINE);
                 CStringA tempA = CUnicodeUtils::GetUTF8(temp);
-                m_error = svn_error_create(NULL, NULL, tempA);
+                Err = svn_error_create(NULL, NULL, tempA);
 #else
                 TCHAR string[1024];
                 LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 std::string stringA = WideToUTF8(std::wstring(string));
-                m_error = svn_error_create(NULL, NULL, stringA.c_str());
+                Err = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
                 return FALSE;
             }
@@ -147,16 +143,16 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
                 SVNPool setPool((apr_pool_t*)subpool);
                 const char* svnPath = path.GetSVNApiPath(setPool);
                 SVNTRACE (
-                    m_error = svn_client_propset4 (name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, setPool),
+                    Err = svn_client_propset4 (name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, setPool),
                     svnPath
                     )
             }
             status = stat.GetNextFileStatus(path);
 #ifdef _MFC_VER
             if ((m_pProgress)&&(m_pProgress->HasUserCancelled()))
-                m_error = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
+                Err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
 #endif
-        } while ((status != 0)&&(m_error == NULL));
+        } while ((status != 0)&&(Err == NULL));
     }
     else
     {
@@ -177,19 +173,19 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         {
             svn_revnum_t rev_set;
             SVNTRACE (
-                m_error = svn_client_revprop_set2(name.c_str(), pval, NULL, svnPath, m_rev, &rev_set, force, m_pctx, subpool),
+                Err = svn_client_revprop_set2(name.c_str(), pval, NULL, svnPath, m_rev, &rev_set, force, m_pctx, subpool),
                 svnPath
             )
         }
         else
         {
             SVNTRACE (
-                m_error = svn_client_propset4 (name.c_str(), pval, svnPath, depth, force, m_rev, NULL, NULL, NULL, NULL, m_pctx, subpool),
+                Err = svn_client_propset4 (name.c_str(), pval, svnPath, depth, force, m_rev, NULL, NULL, NULL, NULL, m_pctx, subpool),
                 svnPath
             )
         }
     }
-    if (m_error != NULL)
+    if (Err != NULL)
     {
         return FALSE;
     }
@@ -199,10 +195,10 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
 
 BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCHAR * message)
 {
-    m_error = NULL;
+    Err = NULL;
 
     SVNPool subpool(m_pool);
-    svn_error_clear(m_error);
+    svn_error_clear(Err);
 
     if (m_path.IsUrl())
     {
@@ -226,7 +222,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     {
         svn_revnum_t rev_set;
         SVNTRACE (
-            m_error = svn_client_revprop_set2(name.c_str(), NULL, NULL, svnPath, m_rev, &rev_set, false, m_pctx, subpool),
+            Err = svn_client_revprop_set2(name.c_str(), NULL, NULL, svnPath, m_rev, &rev_set, false, m_pctx, subpool),
             svnPath
         )
     }
@@ -249,27 +245,27 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
                     SVNPool setPool((apr_pool_t*)subpool);
                     const char* svnPath = path.GetSVNApiPath(setPool);
                     SVNTRACE (
-                        m_error = svn_client_propset4 (name.c_str(), NULL, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, setPool),
+                        Err = svn_client_propset4 (name.c_str(), NULL, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, setPool),
                         svnPath
                         )
                 }
                 status = stat.GetNextFileStatus(path);
 #ifdef _MFC_VER
                 if ((m_pProgress)&&(m_pProgress->HasUserCancelled()))
-                    m_error = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
+                    Err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));
 #endif
-            } while ((status != 0)&&(m_error == NULL));
+            } while ((status != 0)&&(Err == NULL));
         }
         else
         {
             SVNTRACE (
-                m_error = svn_client_propset4 (name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, subpool),
+                Err = svn_client_propset4 (name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, subpool),
                 svnPath
                 )
         }
     }
 
-    if (m_error != NULL)
+    if (Err != NULL)
     {
         return FALSE;
     }

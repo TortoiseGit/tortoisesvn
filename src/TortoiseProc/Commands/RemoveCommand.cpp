@@ -87,8 +87,8 @@ bool RemoveCommand::Execute()
             }
             if (!svn.Remove(removePathList, bForce, !!parser.HasKey(_T("keep"))))
             {
-                if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
-                    (svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
+                if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
+                    (svn.GetSVNError()->apr_err == SVN_ERR_CLIENT_MODIFIED))
                 {
                     CString msg, yes, no, yestoall;
                     if (pathList[nPath].IsDirectory())
