@@ -1270,7 +1270,7 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 
 void TortoiseBlame::MakeLower(TCHAR* buffer, size_t len)
 {
-    CharLowerBuff(buffer, len);
+    CharLowerBuff(buffer, (DWORD)len);
 }
 
 void TortoiseBlame::RunCommand(const tstring& command)
