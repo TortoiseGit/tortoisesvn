@@ -77,7 +77,7 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
                         szModule,
                         _countof(szModule)) ;
 
-    _tcscat_s(szModule, 1024, _T(" /automation"));
+    _tcscat_s(szModule, _T(" /automation"));
     // Convert the CLSID into a TCHAR.
     TCHAR szCLSID[CLSID_STRING_SIZE] ;
     CLSIDtochar(clsid, szCLSID, sizeof(szCLSID)) ;
@@ -86,8 +86,8 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
 
     // Build the key CLSID\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, 64, _T("CLSID\\"));
-    _tcscat_s(szKey, 64, szCLSID) ;
+    _tcscpy_s(szKey, _T("CLSID\\"));
+    _tcscat_s(szKey, szCLSID) ;
 
     // Add the CLSID to the registry.
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
@@ -115,16 +115,16 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
     setKeyAndValue(szProgID, _T("CLSID"), szCLSID) ;
 
     // add TypeLib keys
-    _tcscpy_s(szKey, 64, _T("TypeLib\\")) ;
-    _tcscat_s(szKey, 64, szLIBID) ;
+    _tcscpy_s(szKey, _T("TypeLib\\")) ;
+    _tcscat_s(szKey, szLIBID) ;
 
     // Add the CLSID to the registry.
     setKeyAndValue(szKey, NULL, NULL) ;
-    _tcscat_s(szKey, 64, _T("\\1.0"));
+    _tcscat_s(szKey, _T("\\1.0"));
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
-    _tcscat_s(szKey, 64, _T("\\0"));
+    _tcscat_s(szKey, _T("\\0"));
     setKeyAndValue(szKey, NULL, NULL) ;
-    _tcscat_s(szKey, 64, _T("\\win32"));
+    _tcscat_s(szKey, _T("\\win32"));
     setKeyAndValue(szKey, NULL, szModule) ;
 
 
@@ -154,8 +154,8 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
 
     // Build the key Interface\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, 64, _T("Interface\\")) ;
-    _tcscat_s(szKey, 64, szIID) ;
+    _tcscpy_s(szKey, _T("Interface\\")) ;
+    _tcscat_s(szKey, szIID) ;
 
     // Add the value to the registry.
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
@@ -186,8 +186,8 @@ void UnregisterInterface(const IID &iid)
 
     // Build the key Interface\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, 64, _T("Interface\\"));
-    _tcscat_s(szKey, 64, szIID) ;
+    _tcscpy_s(szKey, _T("Interface\\"));
+    _tcscat_s(szKey, szIID) ;
 
     recursiveDeleteKey(HKEY_CLASSES_ROOT, szKey) ;
 }
@@ -206,8 +206,8 @@ LONG UnregisterServer(const CLSID& clsid,         // Class ID
 
     // Build the key CLSID\\{...}
     TCHAR szKey[64] ;
-    _tcscpy_s(szKey, 64, _T("CLSID\\"));
-    _tcscat_s(szKey, 64, szCLSID) ;
+    _tcscpy_s(szKey, _T("CLSID\\"));
+    _tcscat_s(szKey, szCLSID) ;
 
     // Delete the CLSID Key - CLSID\{...}
     LONG lResult = recursiveDeleteKey(HKEY_CLASSES_ROOT, szKey) ;
@@ -227,8 +227,8 @@ LONG UnregisterServer(const CLSID& clsid,         // Class ID
     TCHAR szLIBID[CLSID_STRING_SIZE] ;
     CLSIDtochar(libid, szLIBID, sizeof(szLIBID)) ;
 
-    _tcscpy_s(szKey, 64, _T("TypeLib\\"));
-    _tcscat_s(szKey, 64, szLIBID) ;
+    _tcscpy_s(szKey, _T("TypeLib\\"));
+    _tcscat_s(szKey, szLIBID) ;
 
     // Delete the TypeLib Key - LIBID\{...}
     lResult = recursiveDeleteKey(HKEY_CLASSES_ROOT, szKey) ;
@@ -313,13 +313,13 @@ BOOL setKeyAndValue(const TCHAR* szKey,
     TCHAR szKeyBuf[1024] ;
 
     // Copy key name into buffer.
-    _tcscpy_s(szKeyBuf, 1024, szKey) ;
+    _tcscpy_s(szKeyBuf, szKey) ;
 
     // Add subkey name to buffer.
     if (szSubkey != NULL)
     {
-        _tcscat_s(szKeyBuf, 1024, _T("\\"));
-        _tcscat_s(szKeyBuf, 1024, szSubkey);
+        _tcscat_s(szKeyBuf, _T("\\"));
+        _tcscat_s(szKeyBuf, szSubkey);
     }
 
     // Create and open key and subkey.

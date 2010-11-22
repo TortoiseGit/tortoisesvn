@@ -878,8 +878,8 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                         SVNRev peg(ext.pegrevision);
                         if (peg.IsValid() && !peg.IsHead())
                         {
-                            _tcscat_s(m_columnbuf, _countof(m_columnbuf), _T("@"));
-                            _tcscat_s(m_columnbuf, _countof(m_columnbuf), peg.ToString());
+                            _tcscat_s(m_columnbuf, _T("@"));
+                            _tcscat_s(m_columnbuf, peg.ToString());
                         }
                         int cWidth = m_ExtList.GetColumnWidth(1);
                         cWidth = max(14, cWidth-14);

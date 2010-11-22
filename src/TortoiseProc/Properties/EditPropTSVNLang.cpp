@@ -103,7 +103,7 @@ void CEditPropTSVNLang::OnOK()
     PropValue pVal;
 
     char numBuf[20];
-    sprintf_s(numBuf, _countof(numBuf), "%ld", m_langCombo.GetItemData(m_langCombo.GetCurSel()));
+    sprintf_s(numBuf, "%ld", m_langCombo.GetItemData(m_langCombo.GetCurSel()));
     pVal.value = numBuf;
     pVal.remove = (m_langCombo.GetItemData(m_langCombo.GetCurSel()) == 0);
     newProps[PROJECTPROPNAME_PROJECTLANGUAGE] = pVal;

@@ -96,17 +96,17 @@ void CEditPropTSVNSizes::OnOK()
     PropValue pVal;
 
     char numBuf[20];
-    sprintf_s(numBuf, _countof(numBuf), "%ld", m_LogMinSize);
+    sprintf_s(numBuf, "%ld", m_LogMinSize);
     pVal.value = numBuf;
     pVal.remove = (m_LogMinSize == 0);
     newProps[PROJECTPROPNAME_LOGMINSIZE] = pVal;
 
-    sprintf_s(numBuf, _countof(numBuf), "%ld", m_LockMinSize);
+    sprintf_s(numBuf, "%ld", m_LockMinSize);
     pVal.value = numBuf;
     pVal.remove = (m_LockMinSize == 0);
     newProps[PROJECTPROPNAME_LOCKMSGMINSIZE] = pVal;
 
-    sprintf_s(numBuf, _countof(numBuf), "%ld", m_Border);
+    sprintf_s(numBuf, "%ld", m_Border);
     pVal.value = numBuf;
     pVal.remove = (m_Border == 0);
     newProps[PROJECTPROPNAME_LOGWIDTHLINE] = pVal;

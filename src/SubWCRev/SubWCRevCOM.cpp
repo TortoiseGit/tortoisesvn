@@ -245,7 +245,7 @@ HRESULT __stdcall SubWCRev::get_Date(/*[out, retval]*/VARIANT* date)
     HRESULT result = CopyDateToString(destbuf, 32, SubStat.CmtDate) ? S_OK : S_FALSE;
     if(S_FALSE == result)
     {
-        _stprintf_s(destbuf, 2, _T(""));
+        _stprintf_s(destbuf, _T(""));
     }
 
     date->bstrVal = SysAllocStringLen(destbuf, (UINT)_tcslen(destbuf));
@@ -325,7 +325,7 @@ HRESULT __stdcall SubWCRev::get_LockCreationDate(/*[out, retval]*/VARIANT* date)
     HRESULT result = S_OK;
     if(FALSE == IsLockDataAvailable())
     {
-        _stprintf_s(destbuf, 2, _T(""));
+        _stprintf_s(destbuf, _T(""));
         result = S_FALSE;
     }
     else
@@ -333,7 +333,7 @@ HRESULT __stdcall SubWCRev::get_LockCreationDate(/*[out, retval]*/VARIANT* date)
         result = CopyDateToString(destbuf, 32, SubStat.LockData.CreationDate) ? S_OK : S_FALSE;
         if(S_FALSE == result)
         {
-            _stprintf_s(destbuf, 2, _T(""));
+            _stprintf_s(destbuf, _T(""));
         }
     }
 

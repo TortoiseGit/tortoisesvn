@@ -740,19 +740,19 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
         bRet = props.Add(BUGTRAQPROPNAME_PROVIDERPARAMS, WideToUTF8((LPCTSTR)sProviderParams)) && bRet;
     if (nLogWidthMarker)
     {
-        sprintf_s(buf, _countof(buf), "%ld", nLogWidthMarker);
+        sprintf_s(buf, "%ld", nLogWidthMarker);
         bRet = props.Add(PROJECTPROPNAME_LOGWIDTHLINE, buf) && bRet;
     }
     if (!sLogTemplate.IsEmpty())
         bRet = props.Add(PROJECTPROPNAME_LOGTEMPLATE, WideToUTF8((LPCTSTR)sLogTemplate)) && bRet;
     if (nMinLogSize)
     {
-        sprintf_s(buf, _countof(buf), "%ld", nMinLogSize);
+        sprintf_s(buf, "%ld", nMinLogSize);
         bRet = props.Add(PROJECTPROPNAME_LOGMINSIZE, buf) && bRet;
     }
     if (nMinLockMsgSize)
     {
-        sprintf_s(buf, _countof(buf), "%ld", nMinLockMsgSize);
+        sprintf_s(buf, "%ld", nMinLockMsgSize);
         bRet = props.Add(PROJECTPROPNAME_LOCKMSGMINSIZE, buf) && bRet;
     }
     if (!bFileListInEnglish)
@@ -763,7 +763,7 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
         bRet = props.Add(PROJECTPROPNAME_LOGREVREGEX, WideToUTF8((LPCTSTR)sLogRevRegex)) && bRet;
     if (lProjectLanguage)
     {
-        sprintf_s(buf, _countof(buf), "%ld", lProjectLanguage);
+        sprintf_s(buf, "%ld", lProjectLanguage);
         bRet = props.Add(PROJECTPROPNAME_PROJECTLANGUAGE, buf) && bRet;
     }
     if (!sFPPath.IsEmpty())

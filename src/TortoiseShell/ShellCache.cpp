@@ -313,7 +313,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
             {
                 drivetypeticker = GetTickCount();
                 TCHAR pathbuf[MAX_PATH+4];      // MAX_PATH ok here. PathStripToRoot works with partial paths too.
-                _tcsncpy_s(pathbuf, MAX_PATH+4, path, MAX_PATH+3);
+                _tcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
                 PathStripToRoot(pathbuf);
                 PathAddBackslash(pathbuf);
                 ATLTRACE2(_T("GetDriveType for %s, Drive %d\n"), pathbuf, drivenumber);
@@ -325,7 +325,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
     else
     {
         TCHAR pathbuf[MAX_PATH+4];      // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
-        _tcsncpy_s(pathbuf, MAX_PATH+4, path, MAX_PATH+3);
+        _tcsncpy_s(pathbuf, path, _countof(pathbuf)-1);
         if (PathIsUNCServer(pathbuf))
             drivetype = DRIVE_REMOTE;
         else

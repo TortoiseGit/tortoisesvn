@@ -1545,7 +1545,7 @@ svn_error_t* SVN::blameReceiver(void *baton,
         formatDate(date_native, time_temp, true);
     }
     else
-        _tcscat_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
+        _tcscat_s(date_native, _T("(no date)"));
 
     prop = svn_prop_get_value(merged_rev_props, SVN_PROP_REVISION_DATE);
     if (prop)
@@ -1560,7 +1560,7 @@ svn_error_t* SVN::blameReceiver(void *baton,
         formatDate(merged_date_native, time_temp, true);
     }
     else
-        _tcscat_s(merged_date_native, SVN_DATE_BUFFER, _T("(no date)"));
+        _tcscat_s(merged_date_native, _T("(no date)"));
 
 
     if (!svn->BlameCallback((LONG)line_no, !!local_change, revision, author_native, date_native, merged_revision, merged_author_native, merged_date_native, merged_path_native, line_native, log_msg, merged_log_msg))
@@ -2495,7 +2495,7 @@ CString SVN::formatDate(apr_time_t date_svn)
     }
     catch ( ... )
     {
-        _tcscpy_s(datebuf, SVN_DATE_BUFFER, _T("(no date)"));
+        _tcscpy_s(datebuf, _T("(no date)"));
     }
 
     return datebuf;
@@ -2527,7 +2527,7 @@ CString SVN::formatTime (apr_time_t date_svn)
     }
     catch ( ... )
     {
-        _tcscpy_s(timebuf, SVN_DATE_BUFFER, _T("(no time)"));
+        _tcscpy_s(timebuf, _T("(no time)"));
     }
 
     return timebuf;

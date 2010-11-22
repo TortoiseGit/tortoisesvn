@@ -289,7 +289,7 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 else
                 {
-                    _stprintf_s(buf, MAX_STRING_LENGTH, _T("%d"), svn.status->changed_rev);
+                    _stprintf_s(buf, _T("%d"), svn.status->changed_rev);
                     SetDlgItemText(m_hwnd, IDC_REVISION, buf);
                 }
                 if (svn.status->repos_relpath)
@@ -324,7 +324,7 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->node_status != svn_wc_status_added)
                 {
-                    _stprintf_s(buf, MAX_STRING_LENGTH, _T("%d"), svn.status->changed_rev);
+                    _stprintf_s(buf, _T("%d"), svn.status->changed_rev);
                     SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
                     time = (__time64_t)svn.status->changed_date/1000000L;
                     Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
@@ -407,7 +407,7 @@ void CSVNPropertyPage::InitWorkfileView()
             if (svn.status->repos_relpath)
             {
                 CPathUtils::Unescape((char*)svn.status->repos_relpath);
-                _tcsncpy_s(tbuf, MAX_STRING_LENGTH, UTF8ToWide(svn.status->repos_relpath).c_str(), 4095);
+                _tcsncpy_s(tbuf, UTF8ToWide(svn.status->repos_relpath).c_str(), _countof(tbuf)-1);
                 TCHAR * ptr = _tcsrchr(tbuf, '/');
                 if (ptr != 0)
                 {

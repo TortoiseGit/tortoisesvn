@@ -93,7 +93,7 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
         SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
         cmd.command = command;
         if (path)
-            _tcsncpy_s(cmd.path, MAX_PATH+1, path, _TRUNCATE);
+            _tcsncpy_s(cmd.path, path, _TRUNCATE);
 
         retrycount = 2;
         BOOL fSuccess = FALSE;

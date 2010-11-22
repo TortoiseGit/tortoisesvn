@@ -3590,7 +3590,7 @@ CString CRepositoryBrowser::WidthArrayToString(int WidthArray[])
     TCHAR buf[10];
     for (int i=0; i<7; ++i)
     {
-        _stprintf_s(buf, 10, _T("%08X"), WidthArray[i]);
+        _stprintf_s(buf, _T("%08X"), WidthArray[i]);
         sResult += buf;
     }
     return sResult;

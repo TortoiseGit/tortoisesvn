@@ -385,7 +385,7 @@ const CString& CLogEntryData::GetDateString() const
         TCHAR date_native[SVN_DATE_BUFFER] = {0};
         if (tmDate == 0)
         {
-            _tcscpy_s (date_native, SVN_DATE_BUFFER, _T("(no date)"));
+            _tcscpy_s (date_native, _T("(no date)"));
         }
         else
         {

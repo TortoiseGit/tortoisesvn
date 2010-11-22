@@ -151,9 +151,9 @@ LRESULT TortoiseBlame::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
 void TortoiseBlame::SetTitle()
 {
     TCHAR title[MAX_PATH + 100];
-    _tcscpy_s(title, MAX_PATH + 100, szTitle);
-    _tcscat_s(title, MAX_PATH + 100, _T(" - "));
-    _tcscat_s(title, MAX_PATH + 100, szViewtitle);
+    _tcscpy_s(title, szTitle);
+    _tcscat_s(title, _T(" - "));
+    _tcscat_s(title, szViewtitle);
     ::SetWindowText(wMain, title);
 }
 
@@ -551,7 +551,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
     bool bFound = false;
     bool bCaseSensitive = !!(flags & FR_MATCHCASE);
 
-    _tcscpy_s(szWhat, sizeof(szWhat)/sizeof(TCHAR), what);
+    _tcscpy_s(szWhat, what);
 
     if(!bCaseSensitive)
     {
@@ -575,7 +575,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
         {
             std::transform(sLine.begin(), sLine.end(), sLine.begin(), std::tolower);
         }
-        _stprintf_s(buf, 20, _T("%ld"), m_revs[i]);
+        _stprintf_s(buf, _T("%ld"), m_revs[i]);
         if (m_authors[i].compare(sWhat)==0)
             bFound = true;
         else if ((!bCaseSensitive)&&(_tcsicmp(m_authors[i].c_str(), szWhat)==0))
@@ -603,7 +603,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
             {
                 std::transform(sLine.begin(), sLine.end(), sLine.begin(), std::tolower);
             }
-            _stprintf_s(buf, 20, _T("%ld"), m_revs[i]);
+            _stprintf_s(buf, _T("%ld"), m_revs[i]);
             if (m_authors[i].compare(sWhat)==0)
                 bFound = true;
             else if ((!bCaseSensitive)&&(_tcsicmp(m_authors[i].c_str(), szWhat)==0))
@@ -753,13 +753,13 @@ void TortoiseBlame::BlamePreviousRevision()
     }
 
     TCHAR bufStartRev[20];
-    _stprintf_s(bufStartRev, 20, _T("%d"), nSmallestRevision);
+    _stprintf_s(bufStartRev, _T("%d"), nSmallestRevision);
 
     TCHAR bufEndRev[20];
-    _stprintf_s(bufEndRev, 20, _T("%d"), nRevisionTo);
+    _stprintf_s(bufEndRev, _T("%d"), nRevisionTo);
 
     TCHAR bufLine[20];
-    _stprintf_s(bufLine, 20, _T("%d"), m_selectedLine+1); //using the current line is a good guess.
+    _stprintf_s(bufLine, _T("%d"), m_selectedLine+1); //using the current line is a good guess.
 
     tstring svnCmd = _T(" /command:blame ");
     svnCmd += _T(" /path:\"");
@@ -791,10 +791,10 @@ void TortoiseBlame::DiffPreviousRevision()
     LONG nRevisionFrom = nRevisionTo-1;
 
     TCHAR bufStartRev[20];
-    _stprintf_s(bufStartRev, 20, _T("%d"), nRevisionFrom);
+    _stprintf_s(bufStartRev, _T("%d"), nRevisionFrom);
 
     TCHAR bufEndRev[20];
-    _stprintf_s(bufEndRev, 20, _T("%d"), nRevisionTo);
+    _stprintf_s(bufEndRev, _T("%d"), nRevisionTo);
 
     tstring svnCmd = _T(" /command:diff ");
     svnCmd += _T(" /path:\"");
@@ -1038,7 +1038,7 @@ void TortoiseBlame::CreateFont()
     lf.lfHeight = -MulDiv((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10), GetDeviceCaps(hDC, LOGPIXELSY), 72);
     lf.lfCharSet = DEFAULT_CHARSET;
     CRegStdString fontname = CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"));
-    _tcscpy_s(lf.lfFaceName, 32, ((tstring)fontname).c_str());
+    _tcscpy_s(lf.lfFaceName, ((tstring)fontname).c_str());
     m_font = ::CreateFontIndirect(&lf);
 
     lf.lfItalic = TRUE;
@@ -1801,7 +1801,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                             if (!msg.empty())
                                 msg += _T("\n------------------\n");
                             TCHAR revBuf[100];
-                            _stprintf_s(revBuf, 100, _T("merged in r%ld:\n----\n"), origrev);
+                            _stprintf_s(revBuf, _T("merged in r%ld:\n----\n"), origrev);
                             msg += revBuf;
                             msg += iter2->second;
                         }

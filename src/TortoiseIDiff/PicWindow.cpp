@@ -568,9 +568,9 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
     {
         TCHAR buf[MAX_PATH];
         if (nFrames > 1)
-            _stprintf_s(buf, _countof(buf), (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
+            _stprintf_s(buf, (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentFrame, nFrames);
         else
-            _stprintf_s(buf, _countof(buf), (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
+            _stprintf_s(buf, (const TCHAR *)ResString(hResource, IDS_DIMENSIONSANDFRAMES), nCurrentDimension, nDimensions);
         imgnumstring = buf;
     }
 

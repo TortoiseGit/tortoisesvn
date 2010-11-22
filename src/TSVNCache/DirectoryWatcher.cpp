@@ -425,7 +425,7 @@ void CDirectoryWatcher::WorkerThread()
                             continue;
 
                         SecureZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR));
-                        _tcsncpy_s(buf, READ_DIR_CHANGE_BUFFER_SIZE, pdi->m_DirPath, READ_DIR_CHANGE_BUFFER_SIZE);
+                        _tcsncpy_s(buf, pdi->m_DirPath, _countof(buf)-1);
                         errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
                         if (err == STRUNCATE)
                         {

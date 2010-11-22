@@ -877,7 +877,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
     TCHAR buf[10];
     for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
     {
-        _stprintf_s (buf, 10, _T("%08X"), columns[i].width);
+        _stprintf_s (buf, _T("%08X"), columns[i].width);
         result += buf;
     }
 
@@ -889,7 +889,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
 
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
     {
-        _stprintf_s (buf, 10, _T("%08X"), userProps[i].width);
+        _stprintf_s (buf, _T("%08X"), userProps[i].width);
         result += buf;
     }
 
@@ -903,7 +903,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
     TCHAR buf[3];
     for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
     {
-        _stprintf_s (buf, 3, _T("%02X"), columnOrder[i]);
+        _stprintf_s (buf, _T("%02X"), columnOrder[i]);
         result += buf;
     }
 

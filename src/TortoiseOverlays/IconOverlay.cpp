@@ -225,8 +225,8 @@ int CShellExt::GetInstalledOverlays()
             {
                 DWORD dwType = 0;
                 // check if there's a 'default' entry with a guid
-                _tcscpy_s(keystring, _countof(keystring), _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\"));
-                _tcscat_s(keystring, _countof(keystring), value);
+                _tcscpy_s(keystring, _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\"));
+                _tcscat_s(keystring, value);
                 DWORD dwSize = _countof(value); // the API docs only specify "The size of the destination data buffer", 
                                                 // but better be safe than sorry using _countof instead of sizeof
                 if (SHGetValue(HKEY_LOCAL_MACHINE,

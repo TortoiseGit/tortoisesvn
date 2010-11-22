@@ -46,7 +46,7 @@ bool CPersonalDictionary::Load()
         m_lLanguage = GetUserDefaultLCID();
 
     TCHAR sLang[10];
-    _stprintf_s(sLang, 10, _T("%ld"), m_lLanguage);
+    _stprintf_s(sLang, _T("%ld"), m_lLanguage);
     _tcscat_s(path, MAX_PATH, sLang);
     _tcscat_s(path, MAX_PATH, _T(".dic"));
 
@@ -103,7 +103,7 @@ bool CPersonalDictionary::Save()
         m_lLanguage = GetUserDefaultLCID();
 
     TCHAR sLang[10];
-    _stprintf_s(sLang, 10, _T("%ld"), m_lLanguage);
+    _stprintf_s(sLang, _T("%ld"), m_lLanguage);
     _tcscat_s(path, MAX_PATH, sLang);
     _tcscat_s(path, MAX_PATH, _T(".dic"));
 

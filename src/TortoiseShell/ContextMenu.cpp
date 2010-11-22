@@ -637,16 +637,16 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
     {
         //menu entry for the top context menu, so append an "SVN " before
         //the menu text to indicate where the entry comes from
-        _tcscpy_s(menutextbuffer, 255, _T("SVN "));
+        _tcscpy_s(menutextbuffer, _T("SVN "));
         if (!g_ShellCache.HasShellMenuAccelerators())
         {
             // remove the accelerators
             tstring temp = stringtablebuffer;
             temp.erase(std::remove(temp.begin(), temp.end(), '&'), temp.end());
-            _tcscpy_s(stringtablebuffer, 255, temp.c_str());
+            _tcscpy_s(stringtablebuffer, temp.c_str());
         }
     }
-    _tcscat_s(menutextbuffer, 255, stringtablebuffer);
+    _tcscat_s(menutextbuffer, stringtablebuffer);
 
     MENUITEMINFO menuiteminfo = {0};
     menuiteminfo.cbSize = sizeof(menuiteminfo);
@@ -1034,7 +1034,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         // remove the accelerators
         tstring temp = stringtablebuffer;
         temp.erase(std::remove(temp.begin(), temp.end(), '&'), temp.end());
-        _tcscpy_s(stringtablebuffer, 255, temp.c_str());
+        _tcscpy_s(stringtablebuffer, temp.c_str());
     }
     MENUITEMINFO menuiteminfo;
     SecureZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
@@ -1689,7 +1689,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
         } // switch (id_it->second)
         svnCmd += _T(" /hwnd:");
         TCHAR buf[30];
-        _stprintf_s(buf, 30, _T("%ld"), (LONG_PTR)lpcmi->hwnd);
+        _stprintf_s(buf, _T("%ld"), (LONG_PTR)lpcmi->hwnd);
         svnCmd += buf;
         myIDMap.clear();
         myVerbsIDMap.clear();
@@ -1923,9 +1923,9 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
                 space = lock ? 0 : 6;
                 if (lock)
                 {
-                    _tcscpy_s(textbuf, 255, _T("SVN "));
-                    _tcscat_s(textbuf, 255, stringtablebuffer);
-                    _tcscpy_s(stringtablebuffer, 255, textbuf);
+                    _tcscpy_s(textbuf, _T("SVN "));
+                    _tcscat_s(textbuf, stringtablebuffer);
+                    _tcscpy_s(stringtablebuffer, textbuf);
                 }
                 break;
             }
@@ -1941,9 +1941,9 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
             space = layout & menuItem.menuID ? 0 : 6;
             if (layout & (menuItem.menuID))
             {
-                _tcscpy_s(textbuf, 255, _T("SVN "));
-                _tcscat_s(textbuf, 255, stringtablebuffer);
-                _tcscpy_s(stringtablebuffer, 255, textbuf);
+                _tcscpy_s(textbuf, _T("SVN "));
+                _tcscat_s(textbuf, stringtablebuffer);
+                _tcscpy_s(stringtablebuffer, textbuf);
             }
             break;
         }

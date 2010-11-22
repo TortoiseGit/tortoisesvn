@@ -33,7 +33,7 @@ LRESULT CAboutDlg::DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
             {
                 SecureZeroMemory(maskbuf, sizeof(maskbuf));
             }
-            _stprintf_s(verbuf, 1024, maskbuf, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
+            _stprintf_s(verbuf, maskbuf, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
             SetDlgItemText(hwndDlg, IDC_ABOUTVERSION, verbuf);
         }
         return TRUE;

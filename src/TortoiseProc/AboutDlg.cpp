@@ -139,7 +139,7 @@ void CAboutDlg::OnBnClickedUpdate()
 {
     TCHAR com[MAX_PATH+100];
     GetModuleFileName(NULL, com, MAX_PATH);
-    _tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck /visible"));
+    _tcscat_s(com, _T(" /command:updatecheck /visible"));
 
     CAppUtils::LaunchApplication(com, 0, false);
 }

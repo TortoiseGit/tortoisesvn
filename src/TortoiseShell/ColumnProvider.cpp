@@ -477,14 +477,14 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
     if (status)
     {
         char url[INTERNET_MAX_URL_LENGTH];
-        strcpy_s(url, INTERNET_MAX_URL_LENGTH, status->url);
+        strcpy_s(url, status->url);
         CPathUtils::Unescape(url);
         itemurl = UTF8ToWide(url);
     }
     else if (t == ShellCache::exe)
     {
         char url[INTERNET_MAX_URL_LENGTH];
-        strcpy_s(url, INTERNET_MAX_URL_LENGTH, itemStatus.m_url);
+        strcpy_s(url, itemStatus.m_url);
         CPathUtils::Unescape(url);
         itemurl = UTF8ToWide(url);
     }

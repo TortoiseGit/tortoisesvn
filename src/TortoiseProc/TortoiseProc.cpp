@@ -377,7 +377,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
                     TCHAR com[MAX_PATH+100];
                     GetModuleFileName(NULL, com, MAX_PATH);
-                    _tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck"));
+                    _tcscat_s(com, _T(" /command:updatecheck"));
 
                     CAppUtils::LaunchApplication(com, 0, false);
                 }

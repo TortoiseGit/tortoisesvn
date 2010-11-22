@@ -985,7 +985,7 @@ BOOL CResModule::ExtractAccelerator(UINT nID)
         RESOURCEENTRY AKey_entry = m_StringEntries[wstr];
 
         TCHAR szTempBuf[1024];
-        SecureZeroMemory(szTempBuf, 1024 * sizeof(TCHAR));
+        SecureZeroMemory(szTempBuf, sizeof (szTempBuf));
         std::wstring wmenu = _T("");
         pME_iter = m_MenuEntries.find(wID);
         if (pME_iter != m_MenuEntries.end())

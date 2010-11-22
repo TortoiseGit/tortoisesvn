@@ -164,20 +164,20 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
     if (MinRev == -1 || MinRev == MaxRev)
     {
         if ((SubStat)&&(SubStat->bHexPlain))
-            sprintf_s(destbuf, 40, "%LX", MaxRev);
+            sprintf_s(destbuf, "%LX", MaxRev);
         else if ((SubStat)&&(SubStat->bHexX))
-            sprintf_s(destbuf, 40, "%#LX", MaxRev);
+            sprintf_s(destbuf, "%#LX", MaxRev);
         else
-            sprintf_s(destbuf, 40, "%Ld", MaxRev);
+            sprintf_s(destbuf, "%Ld", MaxRev);
     }
     else
     {
         if ((SubStat)&&(SubStat->bHexPlain))
-            sprintf_s(destbuf, 40, "%LX:%LX", MinRev, MaxRev);
+            sprintf_s(destbuf, "%LX:%LX", MinRev, MaxRev);
         else if ((SubStat)&&(SubStat->bHexX))
-            sprintf_s(destbuf, 40, "%#LX:%#LX", MinRev, MaxRev);
+            sprintf_s(destbuf, "%#LX:%#LX", MinRev, MaxRev);
         else
-            sprintf_s(destbuf, 40, "%Ld:%Ld", MinRev, MaxRev);
+            sprintf_s(destbuf, "%Ld:%Ld", MinRev, MaxRev);
     }
     // Replace the $WCxxx$ string with the actual revision number
     char * pBuild = pBuf + index;
@@ -247,7 +247,7 @@ int InsertDate(char * def, char * pBuf, size_t & index,
     else
     {
         // Format the date/time in international format as yyyy/mm/dd hh:mm:ss
-        sprintf_s(destbuf, 1024, "%04d/%02d/%02d %02d:%02d:%02d",
+        sprintf_s(destbuf, "%04d/%02d/%02d %02d:%02d:%02d",
             newtime.tm_year + 1900,
             newtime.tm_mon + 1,
             newtime.tm_mday,

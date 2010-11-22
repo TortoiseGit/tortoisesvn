@@ -1318,19 +1318,19 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
 
             SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, _countof(buf), (WORD)langID);
             if ((entry->copied)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, 100, _T(" (+)"));
+                _tcscat_s(buf, _T(" (+)"));
             if ((entry->switched)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, 100, _T(" (s)"));
+                _tcscat_s(buf, _T(" (s)"));
             if ((entry->status == entry->propstatus)&&
                 (entry->status != svn_wc_status_normal)&&
                 (entry->status != svn_wc_status_unversioned)&&
                 (entry->status != svn_wc_status_none)&&
                 (!SVNStatus::IsImportant(entry->textstatus)))
-                _tcscat_s(buf, 100, ponly);
+                _tcscat_s(buf, ponly);
             if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
             {
-                _tcscat_s(buf, 100, _T(", "));
-                _tcscat_s(buf, 100, treeconflict);
+                _tcscat_s(buf, _T(", "));
+                _tcscat_s(buf, treeconflict);
             }
             return buf;
 
@@ -1340,15 +1340,15 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
 
             SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, _countof(buf), (WORD)langID);
             if ((entry->copied)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, 100, _T(" (+)"));
+                _tcscat_s(buf, _T(" (+)"));
             if ((entry->switched)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, 100, _T(" (s)"));
+                _tcscat_s(buf, _T(" (s)"));
             if ((entry->remotestatus == entry->remotepropstatus)&&
                 (entry->remotestatus != svn_wc_status_none)&&
                 (entry->remotestatus != svn_wc_status_normal)&&
                 (entry->remotestatus != svn_wc_status_unversioned)&&
                 (!SVNStatus::IsImportant(entry->remotetextstatus)))
-                _tcscat_s(buf, 100, ponly);
+                _tcscat_s(buf, ponly);
             return buf;
 
         case 5: // SVNSLC_COLTEXTSTATUS
@@ -1357,13 +1357,13 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
 
             SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, _countof(buf), (WORD)langID);
             if ((entry->copied)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, 100, _T(" (+)"));
+                _tcscat_s(buf, _T(" (+)"));
             if ((entry->switched)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, 100, _T(" (s)"));
+                _tcscat_s(buf, _T(" (s)"));
             if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
             {
-                _tcscat_s(buf, 100, _T(", "));
-                _tcscat_s(buf, 100, treeconflict);
+                _tcscat_s(buf, _T(", "));
+                _tcscat_s(buf, treeconflict);
             }
             return buf;
 
@@ -1373,9 +1373,9 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
 
             SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, _countof(buf), (WORD)langID);
             if ((entry->copied)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, 100, _T(" (+)"));
+                _tcscat_s(buf, _T(" (+)"));
             if ((entry->switched)&&(_tcslen(buf)>1))
-                _tcscat_s(buf, 100, _T(" (s)"));
+                _tcscat_s(buf, _T(" (s)"));
             return buf;
 
         case 7: // SVNSLC_COLREMOTETEXT
@@ -4086,7 +4086,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
         LVGROUP grp = {0};
         grp.cbSize = sizeof(LVGROUP);
         grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-        _tcsncpy_s(groupname, 1024, name, 1023);
+        _tcsncpy_s(groupname, name, _countof(groupname)-1);
         grp.pszHeader = groupname;
         grp.iGroupId = (int)m_changelists.size();
         grp.uAlign = LVGA_HEADER_LEFT;
@@ -5230,14 +5230,14 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             {
                 SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, _countof(buf), (WORD)langID);
                 if ((entry->copied)&&(_tcslen(buf)>1))
-                    _tcscat_s(buf, 100, _T(" (+)"));
+                    _tcscat_s(buf, _T(" (+)"));
                 if ((entry->switched)&&(_tcslen(buf)>1))
-                    _tcscat_s(buf, 100, _T(" (s)"));
+                    _tcscat_s(buf, _T(" (s)"));
                 if ((entry->status == entry->propstatus)&&
                     (entry->status != svn_wc_status_normal)&&
                     (entry->status != svn_wc_status_unversioned)&&
                     (!SVNStatus::IsImportant(entry->textstatus)))
-                    _tcscat_s(buf, 100, ponly);
+                    _tcscat_s(buf, ponly);
                 temp = buf;
             }
             ADDTOCLIPBOARDSTRING(temp);
@@ -5252,15 +5252,15 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             {
                 SVNStatus::GetStatusString(hResourceHandle, entry->remotestatus, buf, _countof(buf), (WORD)langID);
                 if ((entry->copied)&&(_tcslen(buf)>1))
-                    _tcscat_s(buf, 100, _T(" (+)"));
+                    _tcscat_s(buf, _T(" (+)"));
                 if ((entry->switched)&&(_tcslen(buf)>1))
-                    _tcscat_s(buf, 100, _T(" (s)"));
+                    _tcscat_s(buf, _T(" (s)"));
                 if ((entry->remotestatus == entry->remotepropstatus)&&
                     (entry->remotestatus != svn_wc_status_none)&&
                     (entry->remotestatus != svn_wc_status_normal)&&
                     (entry->remotestatus != svn_wc_status_unversioned)&&
                     (!SVNStatus::IsImportant(entry->remotetextstatus)))
-                    _tcscat_s(buf, 100, ponly);
+                    _tcscat_s(buf, ponly);
                 temp = buf;
             }
             ADDTOCLIPBOARDSTRING(temp);
@@ -5275,9 +5275,9 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             {
                 SVNStatus::GetStatusString(hResourceHandle, entry->textstatus, buf, _countof(buf), (WORD)langID);
                 if ((entry->copied)&&(_tcslen(buf)>1))
-                    _tcscat_s(buf, 100, _T(" (+)"));
+                    _tcscat_s(buf, _T(" (+)"));
                 if ((entry->switched)&&(_tcslen(buf)>1))
-                    _tcscat_s(buf, 100, _T(" (s)"));
+                    _tcscat_s(buf, _T(" (s)"));
                 temp = buf;
             }
             ADDTOCLIPBOARDSTRING(temp);
@@ -5292,9 +5292,9 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             {
                 SVNStatus::GetStatusString(hResourceHandle, entry->propstatus, buf, _countof(buf), (WORD)langID);
                 if ((entry->copied)&&(_tcslen(buf)>1))
-                    _tcscat_s(buf, 100, _T(" (+)"));
+                    _tcscat_s(buf, _T(" (+)"));
                 if ((entry->switched)&&(_tcslen(buf)>1))
-                    _tcscat_s(buf, 100, _T(" (s)"));
+                    _tcscat_s(buf, _T(" (s)"));
                 temp = buf;
             }
             ADDTOCLIPBOARDSTRING(temp);
@@ -5495,12 +5495,12 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     if (bHasChangelistGroups)
     {
         CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
-        _tcsncpy_s(groupname, 1024, (LPCTSTR)sUnassignedName, 1023);
+        _tcsncpy_s(groupname, (LPCTSTR)sUnassignedName, _countof(groupname)-1);
     }
     else
     {
         CString sNoExternalGroup(MAKEINTRESOURCE(IDS_STATUSLIST_NOEXTERNAL_GROUP));
-        _tcsncpy_s(groupname, 1024, (LPCTSTR)sNoExternalGroup, 1023);
+        _tcsncpy_s(groupname, (LPCTSTR)sNoExternalGroup, _countof(groupname)-1);
     }
     grp.pszHeader = groupname;
     grp.iGroupId = groupindex;
@@ -5517,7 +5517,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
                 LVGROUP lvgroup = {0};
                 lvgroup.cbSize = sizeof(LVGROUP);
                 lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-                _tcsncpy_s(groupname, 1024, (LPCTSTR)it->first, 1023);
+                _tcsncpy_s(groupname, (LPCTSTR)it->first, _countof(groupname)-1);
                 lvgroup.pszHeader = groupname;
                 lvgroup.iGroupId = groupindex;
                 lvgroup.uAlign = LVGA_HEADER_LEFT;
@@ -5534,9 +5534,9 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
             LVGROUP lvgroup = {0};
             lvgroup.cbSize = sizeof(LVGROUP);
             lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-            _tcsncpy_s(groupname, 1024, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_STATUSLIST_EXTERNAL_GROUP)), 1023);
-            _tcsncat_s(groupname, 1024, _T(" "), 1023);
-            _tcsncat_s(groupname, 1024, (LPCTSTR)it->GetFileOrDirectoryName(), 1023);
+            _tcsncpy_s(groupname, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_STATUSLIST_EXTERNAL_GROUP)), _countof(groupname)-1);
+            _tcsncat_s(groupname, _T(" "), _countof(groupname)-1);
+            _tcsncat_s(groupname, (LPCTSTR)it->GetFileOrDirectoryName(), _countof(groupname)-1);
             lvgroup.pszHeader = groupname;
             lvgroup.iGroupId = groupindex;
             lvgroup.uAlign = LVGA_HEADER_LEFT;
