@@ -81,7 +81,7 @@ SVNInfo::SVNInfo (bool)
     if (Err)
     {
 #ifdef _MFC_VER
-        ::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ShowErrorDialog(NULL);
 #endif
         svn_error_clear(Err);
         svn_pool_destroy (m_pool);                  // free the allocated memory

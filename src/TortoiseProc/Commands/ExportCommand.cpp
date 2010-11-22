@@ -146,7 +146,7 @@ bool ExportCommand::Execute()
                     bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, svn_depth_infinity,
                     GetExplorerHWND(), !!folderBrowser.m_bCheck))
                 {
-                    MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+                    svn.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);
                     bRet = false;
                 }
                 else

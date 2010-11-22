@@ -97,7 +97,7 @@ bool DropExportCommand::Execute()
             }
             if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, false, false, svn_depth_infinity, GetExplorerHWND(), !!parser.HasKey(_T("extended"))))
             {
-                MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+                svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                 bRet = false;
             }
         }

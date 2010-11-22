@@ -234,8 +234,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
         }
         else
         {
-            TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-            ::MessageBox(hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            svn.ShowErrorDialog(hWnd, srcPathList.GetCommonDirectory());
             bRet = false;
         }
     }

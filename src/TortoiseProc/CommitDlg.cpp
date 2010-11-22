@@ -517,7 +517,7 @@ void CCommitDlg::OnOK()
     SVN svn;
     if (!svn.Add(itemsToAdd, &m_ProjectProperties, svn_depth_empty, false, false, true))
     {
-        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        svn.ShowErrorDialog(m_hWnd);
         InterlockedExchange(&m_bBlock, FALSE);
         Refresh();
         return;
@@ -526,7 +526,7 @@ void CCommitDlg::OnOK()
     // Release all locks to unchanged items - they won't be released by commit.
     if (!m_bKeepLocks && !svn.Unlock (itemsToUnlock, false))
     {
-        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        svn.ShowErrorDialog(m_hWnd);
         InterlockedExchange(&m_bBlock, FALSE);
         Refresh();
         return;

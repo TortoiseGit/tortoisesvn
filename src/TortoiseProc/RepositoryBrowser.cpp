@@ -1520,7 +1520,7 @@ void CRepositoryBrowser::OnDelete()
         if (!Remove(urlList, true, false, input.GetLogMessage()))
         {
             wait_cursor.Hide();
-            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ShowErrorDialog(m_hWnd);
             return;
         }
         if (bTreeItem)
@@ -1854,7 +1854,7 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
         progDlg.Stop();
         SetAndClearProgressInfo((HWND)NULL);
         wait_cursor.Hide();
-        ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ShowErrorDialog(m_hWnd);
         return;
     }
     progDlg.Stop();
@@ -2072,7 +2072,7 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
             input.GetLogMessage()))
         {
             wait_cursor.Hide();
-            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ShowErrorDialog(m_hWnd);
             return;
         }
         *pResult = 0;
@@ -2130,7 +2130,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
             input.GetLogMessage()))
         {
             wait_cursor.Hide();
-            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ShowErrorDialog(m_hWnd);
             return;
         }
 
@@ -2412,7 +2412,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
             if (!bRet)
             {
                 wait_cursor.Hide();
-                ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ShowErrorDialog(m_hWnd);
             }
             else if (GetRevision().IsHead())
             {
@@ -2507,7 +2507,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     CTSVNPath(target.GetSVNPathString()+_T("/")+filename),
                     input.GetLogMessage(), &m_ProjectProperties, svn_depth_infinity, TRUE, FALSE))
                 {
-                    ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ShowErrorDialog(m_hWnd);
                     return false;
                 }
             }
@@ -2912,7 +2912,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
                             if (!progDlg.HasUserCancelled())
-                                ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                                ShowErrorDialog(m_hWnd);
                             return;
                         }
                         counter++;
@@ -2941,13 +2941,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     SVNRev rev1 = helper.GetCopyFromRev(firstPath, pegRevision, sCopyFrom1);
                     if (!rev1.IsValid())
                     {
-                        ::MessageBox(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        helper.ShowErrorDialog(m_hWnd);
                         break;
                     }
                     SVNRev rev2 = helper.GetCopyFromRev(secondUrl, pegRevision, sCopyFrom2);
                     if (!rev2.IsValid())
                     {
-                        ::MessageBox(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        helper.ShowErrorDialog(m_hWnd);
                         break;
                     }
                     if ((sCopyFrom1.IsEmpty())||(sCopyFrom1.Compare(sCopyFrom2)!=0)||(svn_revnum_t(rev1) == 0)||(svn_revnum_t(rev1) == 0))
@@ -3113,7 +3113,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     if (!Remove (selection.GetURLsEscaped (0), true, false, input.GetLogMessage()))
                     {
                         wait_cursor.Hide();
-                        ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ShowErrorDialog(m_hWnd);
                         return;
                     }
                     m_barRepository.SetHeadRevision(GetCommitRevision());
@@ -3132,7 +3132,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 if (!Unlock (selection.GetURLsEscaped (0), TRUE))
                 {
-                    ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ShowErrorDialog(m_hWnd);
                     return;
                 }
                 InvalidateData (m_RepoTree.GetSelectedItem());
@@ -3178,7 +3178,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
                             wait_cursor.Hide();
-                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ShowErrorDialog(m_hWnd);
                             return;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
@@ -3227,7 +3227,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
                             wait_cursor.Hide();
-                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ShowErrorDialog(m_hWnd);
                             return;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
@@ -3296,7 +3296,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         if (!Copy (selection.GetURLsEscaped (0), CTSVNPath(dlg.m_name), revision, revision, input.GetLogMessage()))
                         {
                             wait_cursor.Hide();
-                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ShowErrorDialog(m_hWnd);
                             return;
                         }
                         if (revision.IsHead())
@@ -3332,7 +3332,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         wait_cursor.Hide();
                         progDlg.Stop();
                         if (!progDlg.HasUserCancelled())
-                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ShowErrorDialog(m_hWnd);
                         return;
                     }
                     m_barRepository.SetHeadRevision(GetCommitRevision());
@@ -3365,7 +3365,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         if (!MakeDir(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(path.GetSVNPathString()+_T("/")+dlg.m_name.Trim())))), input.GetLogMessage(), true))
                         {
                             wait_cursor.Hide();
-                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ShowErrorDialog(m_hWnd);
                             return;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
@@ -3509,7 +3509,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     }
                     else
                     {
-                        ::MessageBox(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        blame.ShowErrorDialog(m_hWnd);
                     }
                 }
 

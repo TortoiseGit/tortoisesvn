@@ -69,7 +69,7 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 
     if (Err)
     {
-        ::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ShowErrorDialog(NULL);
         svn_error_clear(Err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
         exit(-1);

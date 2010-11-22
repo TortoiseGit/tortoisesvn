@@ -153,7 +153,7 @@ void SVNReadProperties::Construct()
     Err = svn_config_get_config (&m_pctx->config, g_pConfigDir, m_pool);
     if (Err)
     {
-        ::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ShowErrorDialog(NULL);
         svn_error_clear(Err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
         return;

@@ -139,8 +139,7 @@ bool RelocateCommand::Execute()
             if (!s.Relocate(cmdLinePath, CTSVNPath(dlg.m_sFromUrl), CTSVNPath(dlg.m_sToUrl), !!dlg.m_bIncludeExternals))
             {
                 progress.Stop();
-                TRACE(_T("%s\n"), (LPCTSTR)s.GetLastErrorMessage());
-                ::MessageBox(GetExplorerHWND(), s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                s.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);
             }
             else
             {

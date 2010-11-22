@@ -147,6 +147,7 @@
 #define IDS_MENUDESCCLEANUPREFRESH      236
 #define IDS_MENUUNIGNORE                237
 #define IDS_MENUDESCUNIGNORE            238
+#define IDS_SVNREPORTEDANERROR          239
 #define IDS_MENU_LOCK                   240
 #define IDS_MENU_UNLOCK                 241
 #define IDS_MENUDESC_LOCK               242
@@ -156,6 +157,7 @@
 #define IDS_MENU_LOCKFORCE              246
 #define IDS_COLTITLEOWNER               247
 #define IDS_COLDESCOWNER                248
+#define IDS_RUNCLEANUPNOW               249
 #define IDS_DROPCOPYRENAMEMENU          250
 #define IDS_COLTITLEAUTHOR              251
 #define IDS_COLDESCAUTHOR               252
@@ -170,6 +172,7 @@
 #define IDS_MENUURLDIFF                 261
 #define IDS_MENUDESCURLDIFF             262
 #define IDS_PROPBIN                     263
+#define IDS_CLOSE                       264
 #define IDS_MENUDELUNVERSIONED          268
 #define IDS_MENUDESCDELUNVERSIONED      269
 #define IDS_MENUREMOVEKEEP              271

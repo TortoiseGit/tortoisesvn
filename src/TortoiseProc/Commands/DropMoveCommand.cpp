@@ -92,7 +92,7 @@ bool DropMoveCommand::Execute()
                     }
                     if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath))
                     {
-                        MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                         return FALSE;       //get out of here
                     }
                     CShellUpdater::Instance().AddPathForUpdate(destPath);
@@ -100,8 +100,7 @@ bool DropMoveCommand::Execute()
             }
             else
             {
-                TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                 return FALSE;       //get out of here
             }
         }

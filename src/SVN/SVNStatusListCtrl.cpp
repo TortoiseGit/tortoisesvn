@@ -2249,7 +2249,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
             {
                 if (!svn.Remove(itemsToRemove, TRUE, bKeepLocal))
                 {
-                    ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    svn.ShowErrorDialog(m_hWnd, itemsToRemove[0]);
                 }
                 else
                     bSuccess = true;
@@ -2264,7 +2264,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
             bSuccess = true;
         }
         else
-            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            svn.ShowErrorDialog(m_hWnd, itemsToRemove[0]);
     }
     if (bSuccess)
     {
@@ -2427,7 +2427,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
 
         if (!svn.Revert(targetList, CStringArray(), false))
         {
-            ::MessageBox(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            svn.ShowErrorDialog(m_hWnd, targetList[0]);
         }
         else
         {
@@ -3109,7 +3109,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
                         if (!svn.Export(CTSVNPath(entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
                         {
-                            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            svn.ShowErrorDialog(m_hWnd);
                             break;
                         }
                         fp = tempfile;
@@ -3133,7 +3133,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
                         if (!svn.Export(CTSVNPath(entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
                         {
-                            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            svn.ShowErrorDialog(m_hWnd);
                             break;
                         }
                         fp = tempfile;
@@ -3510,7 +3510,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
                             if (!svn.Resolve(fentry->GetPath(), result, FALSE))
                             {
-                                ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                                svn.ShowErrorDialog(m_hWnd);
                             }
                             else
                             {
@@ -3576,7 +3576,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     }
                     else
                     {
-                        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        svn.ShowErrorDialog(m_hWnd, itemsToAdd[0]);
                     }
                     SaveColumnWidths();
                     Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
@@ -3715,7 +3715,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                         if (!svn.Move(CTSVNPathList(entry1->GetPath()), entry2->GetPath()))
                                         {
                                             MoveFile(entry1->GetPath().GetWinPath(), entry2->GetPath().GetWinPath());
-                                            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                                            svn.ShowErrorDialog(m_hWnd, entry1->GetPath());
                                         }
                                         else
                                         {
@@ -3795,7 +3795,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                         if (!svn.Copy(CTSVNPathList(entry1->GetPath()), entry2->GetPath(), SVNRev(), SVNRev()))
                                         {
                                             MoveFile(tempfile, entry2->GetPath().GetWinPath());
-                                            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                                            svn.ShowErrorDialog(m_hWnd, entry1->GetPath());
                                         }
                                         else
                                         {
@@ -3872,7 +3872,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     }
                     else
                     {
-                        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        svn.ShowErrorDialog(m_hWnd, changelistItems[0]);
                     }
                     SetRedraw(TRUE);
                 }
@@ -3938,7 +3938,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         }
                         else
                         {
-                            ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            svn.ShowErrorDialog(m_hWnd, changelistItems[0]);
                         }
                     }
                     SetRedraw(TRUE);
@@ -4114,7 +4114,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
     }
     else
     {
-        ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        svn.ShowErrorDialog(m_hWnd, changelistItems[0]);
     }
 }
 
@@ -4234,7 +4234,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
             {
                 progDlg.Stop();
                 svn.SetAndClearProgressInfo((HWND)NULL);
-                ::MessageBox(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                svn.ShowErrorDialog(m_hWnd);
                 return;
             }
             progDlg.Stop();
@@ -5641,7 +5641,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
                     }
                     else
                     {
-                        ::MessageBox(m_pSVNStatusListCtrl->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        svn.ShowErrorDialog(m_pSVNStatusListCtrl->GetSafeHwnd(), changelistItems[0]);
                     }
                 }
                 else
@@ -5672,7 +5672,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
                     }
                     else
                     {
-                        ::MessageBox(m_pSVNStatusListCtrl->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        svn.ShowErrorDialog(m_pSVNStatusListCtrl->m_hWnd, changelistItems[0]);
                     }
                 }
             }

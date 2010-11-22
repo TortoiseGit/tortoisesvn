@@ -80,7 +80,7 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
     SVN svn;
     if (!svn.Import(tempDir, CTSVNPath(url), CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTURE)), NULL, svn_depth_infinity, true, false))
     {
-        MessageBox(svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        svn.ShowErrorDialog(m_hWnd);
         return;
     }
     MessageBox(CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTUREFINISHED)), _T("TortoiseSVN"), MB_ICONINFORMATION);

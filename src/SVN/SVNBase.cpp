@@ -20,7 +20,15 @@
 #include "TSVNPath.h"
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
+#include "PathUtils.h"
+#include <Commctrl.h>
+
+#ifdef HAVE_APPUTILS
+#include "AppUtils.h"
+#endif
+
 #include "resource.h"
+#include "..\\TortoiseShell\\resource.h"
 
 #pragma warning(push)
 #include "svn_config.h"
@@ -168,6 +176,72 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
         return msg;
     }
     return _T("");
+}
+
+int SVNBase::ShowErrorDialog( HWND hParent)
+{
+    return ShowErrorDialog(hParent, CTSVNPath());
+}
+
+int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
+{
+    UNREFERENCED_PARAMETER(wcPath);
+    int ret = -1;
+
+    typedef HRESULT (WINAPI *TDLG)(const TASKDIALOGCONFIG *pTaskConfig, int *pnButton, int *pnRadioButton, BOOL *pfVerificationFlagChecked);
+
+    HMODULE hLib = LoadLibrary(L"Comctl32.dll");
+    if (hLib)
+    {
+        TDLG pTDLG = (TDLG)GetProcAddress(hLib, "TaskDialogIndirect");
+        if (pTDLG)
+        {
+            CString sCleanup = CString(MAKEINTRESOURCE(IDS_RUNCLEANUPNOW));
+            CString sClose = CString(MAKEINTRESOURCE(IDS_CLOSE));
+            CString sInstruction = CString(MAKEINTRESOURCE(IDS_SVNREPORTEDANERROR));
+            TASKDIALOG_BUTTON aCustomButtons[2];
+            aCustomButtons[0].nButtonID = 1000;
+            aCustomButtons[0].pszButtonText = sCleanup;
+            aCustomButtons[1].nButtonID = IDOK;
+            aCustomButtons[1].pszButtonText = sClose;
+
+            TASKDIALOGCONFIG tconfig = {0};
+            tconfig.cbSize = sizeof(TASKDIALOGCONFIG);
+            tconfig.hwndParent = hParent;
+            tconfig.dwFlags = TDF_ENABLE_HYPERLINKS | TDF_ALLOW_DIALOG_CANCELLATION;
+            tconfig.dwCommonButtons = TDCBF_CLOSE_BUTTON;
+            tconfig.pszWindowTitle = L"TortoiseSVN";
+            tconfig.pszMainIcon = TD_ERROR_ICON;
+            tconfig.pszMainInstruction = sInstruction;
+            tconfig.pszContent = GetErrorString(Err);
+#ifdef HAVE_APPUTILS
+            if (Err && (Err->apr_err == SVN_ERR_WC_CLEANUP_REQUIRED) && (!wcPath.IsEmpty()))
+            {
+                tconfig.dwCommonButtons = 0;
+                tconfig.dwFlags |= TDF_USE_COMMAND_LINKS;
+                tconfig.pButtons = aCustomButtons;
+                tconfig.cButtons = _countof(aCustomButtons);
+            }
+#endif
+            pTDLG(&tconfig, &ret, NULL, NULL);
+#ifdef HAVE_APPUTILS
+            if (ret == 1000)
+            {
+                // run cleanup
+                CString sCmd;
+                sCmd.Format(_T("\"%s\" /command:cleanup /path:\"%s\" /hwnd:%ld"),
+                    (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), wcPath.GetDirectory().GetWinPath(), hParent);
+                CAppUtils::LaunchApplication(sCmd, NULL, false);
+            }
+#endif
+            FreeLibrary(hLib);
+            return ret;
+        }
+        FreeLibrary(hLib);
+    }
+
+    ret = MessageBox(hParent, GetErrorString(Err), L"TortoiseSVN", MB_ICONERROR);
+    return ret;
 }
 
 #endif

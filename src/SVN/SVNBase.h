@@ -58,6 +58,15 @@ public:
      * (if possible) at \c wrap chars.
      */
     static CString GetErrorString(svn_error_t * Err, int wrap = 80);
+
+    /**
+     * Shows a dialog with the last error that occurred.
+     * \param hParent the handle of the parent window or NULL
+     * \param wcPath path to a working copy folder or url, used to run user actions on if necessary
+     */
+    int ShowErrorDialog(HWND hParent, const CTSVNPath& wcPath);
+    int ShowErrorDialog(HWND hParent);
+
 #endif
 
     void ClearSVNError() { svn_error_clear(Err); Err = NULL; }

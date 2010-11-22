@@ -75,8 +75,7 @@ bool PasteMoveCommand::Execute()
             MoveFile(pathList[nPath].GetWinPath(), destPath.GetWinPath());
             if (!svn.Add(CTSVNPathList(destPath), &props, svn_depth_infinity, true, false, true))
             {
-                TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                ::MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                svn.ShowErrorDialog(GetExplorerHWND());
                 return FALSE;       //get out of here
             }
             CShellUpdater::Instance().AddPathForUpdate(destPath);
@@ -85,8 +84,7 @@ bool PasteMoveCommand::Execute()
         {
             if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath))
             {
-                TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                ::MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                svn.ShowErrorDialog(GetExplorerHWND());
                 return FALSE;       //get out of here
             }
             else

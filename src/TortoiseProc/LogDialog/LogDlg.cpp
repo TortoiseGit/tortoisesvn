@@ -1924,7 +1924,7 @@ void CLogDlg::DiffSelectedFile()
                 {
                     progDlg.Stop();
                     SetAndClearProgressInfo((HWND)NULL);
-                    ::MessageBox(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ShowErrorDialog(m_hWnd);
                     return;
                 }
             }
@@ -2147,7 +2147,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
     {
         progDlg.Stop();
         SetAndClearProgressInfo((HWND)NULL);
-        ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ShowErrorDialog(m_hWnd);
         EnableOKButton();
         theApp.DoWaitCursor(-1);
         return FALSE;
@@ -2215,7 +2215,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
             if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), logs[i]->GetRevision()))
             {
                 progDlg.Stop();
-                ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                ShowErrorDialog(m_hWnd);
                 break;
             }
             else
@@ -2289,7 +2289,7 @@ void CLogDlg::EditLogMessage(int index)
         dlg.m_sInputText.Replace(_T("\r"), _T(""));
         if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->GetRevision()))
         {
-            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ShowErrorDialog(m_hWnd);
         }
         else
         {
@@ -4555,7 +4555,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     // should we show a progress dialog here? Copies are done really fast
                     // and without much network traffic.
                     if (!Copy(CTSVNPathList(CTSVNPath(pathURL)), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_CopyRev, dlg.m_sLogMessage))
-                        ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ShowErrorDialog(m_hWnd);
                     else
                         ::MessageBox(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
                 }
@@ -4707,7 +4707,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
-                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ShowErrorDialog(m_hWnd);
                             EnableOKButton();
                             break;
                         }
@@ -4739,7 +4739,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     {
                         progDlg.Stop();
                         SetAndClearProgressInfo((HWND)NULL);
-                        ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        ShowErrorDialog(m_hWnd);
                         EnableOKButton();
                         break;
                     }
@@ -4789,7 +4789,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     }
                     else
                     {
-                        ::MessageBox(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        blame.ShowErrorDialog(m_hWnd);
                     }
                 }
             }
@@ -5305,7 +5305,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
-                            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                            ShowErrorDialog(m_hWnd);
                             tempfile.Delete(false);
                             EnableOKButton();
                             theApp.DoWaitCursor(-1);
@@ -5375,7 +5375,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     }
                     else
                     {
-                        ::MessageBox(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                        blame.ShowErrorDialog(m_hWnd);
                     }
                 }
             }

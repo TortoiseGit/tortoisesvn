@@ -263,7 +263,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
         if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, true, false, !!gitFormat, _T(""), true, tempPatchFilePath))
         {
             progDlg.Stop();
-            ::MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            svn.ShowErrorDialog(GetExplorerHWND(), paths[fileindex]);
             return FALSE;
         }
     }

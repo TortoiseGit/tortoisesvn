@@ -336,6 +336,7 @@ BEGIN
                             "Cleanup interrupted operations and refresh the shell overlays"
     IDS_MENUUNIGNORE        "Remove from &ignore list"
     IDS_MENUDESCUNIGNORE    "Removes the file or filemask from the list of ignored items"
+    IDS_SVNREPORTEDANERROR  "Subversion reported an error:"
 END
 
 STRINGTABLE
@@ -348,6 +349,7 @@ BEGIN
     IDS_MENUURLDIFF         "&Diff with URL"
     IDS_MENUDESCURLDIFF     "Compares the selected file with a file in the repository"
     IDS_PROPBIN             "(binary value)"
+    IDS_CLOSE               "&Close"
     IDS_MENUDELUNVERSIONED  "Delete unversioned items..."
     IDS_MENUDESCDELUNVERSIONED "Removes all unversioned and ignored items"
     IDS_MENUREMOVEKEEP      "&Delete (keep local)"
@@ -365,6 +367,7 @@ BEGIN
     IDS_MENU_LOCKFORCE      "Steal loc&k"
     IDS_COLTITLEOWNER       "SVN Local lock owner"
     IDS_COLDESCOWNER        "The user who owns the lock of the file"
+    IDS_RUNCLEANUPNOW       "Run cleanup &now"
     IDS_DROPCOPYRENAMEMENU  "SVN Copy and rename versioned item here"
     IDS_COLTITLEAUTHOR      "SVN Author"
     IDS_COLDESCAUTHOR       "The user who did the last commit"

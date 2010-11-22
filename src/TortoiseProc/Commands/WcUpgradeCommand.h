@@ -47,7 +47,7 @@ public:
             if (!svn.Upgrade(pathList[i]))
             {
                 progress.Stop();
-                ::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                svn.ShowErrorDialog(GetExplorerHWND());
                 return false;
             }
         }

@@ -274,7 +274,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!Export(url1, tempfile, m_rev1, m_rev1)))
         {
-            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ShowErrorDialog(m_hWnd);
             return;
         }
     }
@@ -282,7 +282,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url1, 1, m_rev1, m_rev1, tempfile, _T(""), TRUE, TRUE)))
         {
-            ::MessageBox(this->m_hWnd, m_blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            m_blamer.ShowErrorDialog(m_hWnd);
             return;
         }
     }
@@ -295,7 +295,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!Export(url2, tempfile2, m_rev2, m_rev2)))
         {
-            ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            ShowErrorDialog(m_hWnd);
             return;
         }
     }
@@ -303,7 +303,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url2, 1, m_rev2, m_rev2, tempfile2, _T(""), TRUE, TRUE)))
         {
-            ::MessageBox(this->m_hWnd, m_blamer.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            m_blamer.ShowErrorDialog(m_hWnd);
             return;
         }
     }
@@ -755,7 +755,7 @@ UINT CFileDiffDlg::ExportThread()
                 {
                     delete m_pProgDlg;
                     m_pProgDlg = NULL;
-                    ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ShowErrorDialog(m_hWnd);
                     InterlockedExchange(&m_bThreadRunning, FALSE);
                     RefreshCursor();
                     return 1;
@@ -770,7 +770,7 @@ UINT CFileDiffDlg::ExportThread()
                 {
                     delete m_pProgDlg;
                     m_pProgDlg = NULL;
-                    ::MessageBox(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                    ShowErrorDialog(m_hWnd);
                     InterlockedExchange(&m_bThreadRunning, FALSE);
                     RefreshCursor();
                     return 1;

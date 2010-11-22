@@ -87,8 +87,7 @@ bool PasteCopyCommand::Execute()
             CopyFile(sourcePath.GetWinPath(), fullDropPath.GetWinPath(), FALSE);
             if (!svn.Add(CTSVNPathList(fullDropPath), &props, svn_depth_infinity, true, false, true))
             {
-                TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                ::MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                svn.ShowErrorDialog(GetExplorerHWND(), fullDropPath);
                 return FALSE;       //get out of here
             }
             else
@@ -98,8 +97,7 @@ bool PasteCopyCommand::Execute()
         {
             if (!svn.Copy(CTSVNPathList(sourcePath), fullDropPath, SVNRev::REV_WC, SVNRev()))
             {
-                TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-                ::MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                svn.ShowErrorDialog(GetExplorerHWND(), sourcePath);
                 return FALSE;       //get out of here
             }
             else

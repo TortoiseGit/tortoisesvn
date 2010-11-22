@@ -87,7 +87,7 @@ bool IgnoreCommand::Execute()
         SVN svn;
         if (!svn.Remove(pathList, TRUE))
         {
-            MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+            svn.ShowErrorDialog(GetExplorerHWND(), pathList.GetCommonDirectory());
             err = TRUE;
         }
     }

@@ -84,7 +84,7 @@ bool AddCommand::Execute()
             bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, false, true);
             if (!bRet)
             {
-                MessageBox(GetExplorerHWND(), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+                svn.ShowErrorDialog(GetExplorerHWND(), pathList.GetCommonDirectory());
             }
             CShellUpdater::Instance().AddPathsForUpdate(pathList);
         }

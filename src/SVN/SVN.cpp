@@ -102,7 +102,7 @@ SVN::SVN(bool suppressUI)
 
     if (Err != 0)
     {
-        ::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+        ShowErrorDialog(NULL);
         svn_pool_destroy (pool);
         svn_pool_destroy (parentpool);
         exit(-1);
