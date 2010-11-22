@@ -143,6 +143,7 @@ public:
      */
     std::string GetSerializedForm() const;
 
+    CTSVNPath GetPath() const { return m_path; }
 private:        //methods
     /**
      * Builds the properties (again) and fills the apr_array_header_t structure.
