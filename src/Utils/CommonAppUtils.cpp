@@ -564,7 +564,7 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title,
         TCHAR szFile[MAX_PATH] = {0};       // buffer for file name. Explorer can't handle paths longer than MAX_PATH.
         ofn.lStructSize = sizeof(OPENFILENAME);
         ofn.hwndOwner = hwndOwner;
-        _tcscpy_s(szFile, MAX_PATH, (LPCTSTR)path);
+        _tcscpy_s(szFile, (LPCTSTR)path);
         ofn.lpstrFile = szFile;
         ofn.nMaxFile = _countof(szFile);
         CSelectFileFilter fileFilter;

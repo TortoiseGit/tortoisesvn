@@ -92,7 +92,7 @@ bool ExportCommand::Execute()
         folderBrowser.DisableCheckBox2WhenCheckbox1IsEnabled(true);
         CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
         CBrowseFolder::m_bCheck = regExtended;
-        if (folderBrowser.Show(GetExplorerHWND(), saveto, MAX_PATH)==CBrowseFolder::OK)
+        if (folderBrowser.Show(GetExplorerHWND(), saveto, _countof(saveto))==CBrowseFolder::OK)
         {
             CString saveplace = CString(saveto);
 

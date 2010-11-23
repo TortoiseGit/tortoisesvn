@@ -161,18 +161,18 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
     setKeyAndValue(szKey, NULL, szFriendlyName) ;
 
     TCHAR szKey2[MAX_PATH];
-    _tcscpy_s(szKey2, MAX_PATH, szKey);
-    _tcscat_s(szKey2, MAX_PATH, _T("\\ProxyStubClsID"));
+    _tcscpy_s(szKey2, szKey);
+    _tcscat_s(szKey2, _T("\\ProxyStubClsID"));
     // Add the server filename subkey under the IID key.
     setKeyAndValue(szKey2, NULL, _T("{00020424-0000-0000-C000-000000000046}")); //IUnknown
 
-    _tcscpy_s(szKey2, MAX_PATH, szKey);
-    _tcscat_s(szKey2, MAX_PATH, _T("\\ProxyStubClsID32"));
+    _tcscpy_s(szKey2, szKey);
+    _tcscat_s(szKey2, _T("\\ProxyStubClsID32"));
     // Add the server filename subkey under the IID key.
     setKeyAndValue(szKey2, NULL, _T("{00020424-0000-0000-C000-000000000046}")); //IUnknown
 
-    _tcscpy_s(szKey2, MAX_PATH, szKey);
-    _tcscat_s(szKey2, MAX_PATH, _T("\\TypeLib"));
+    _tcscpy_s(szKey2, szKey);
+    _tcscat_s(szKey2, _T("\\TypeLib"));
     // Add the server filename subkey under the CLSID key.
     setKeyAndValue(szKey2, NULL, szLIBID) ;
 
@@ -454,7 +454,7 @@ HRESULT RegisterTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex)
     if (SUCCEEDED(hr))
     {
         OLECHAR szDir[MAX_PATH];
-        ocscpy_s(szDir, MAX_PATH, bstrPath);
+        ocscpy_s(szDir, _countof(szDir), bstrPath);
         // If index is specified remove it from the path
         if (lpszIndex != NULL)
         {

@@ -246,7 +246,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
     {
         request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
     }
-    wcsncpy_s(request.path, MAX_PATH+1, Path.GetWinPath(), MAX_PATH);
+    wcsncpy_s(request.path, Path.GetWinPath(), MAX_PATH);
     SecureZeroMemory(&m_Overlapped, sizeof(OVERLAPPED));
     m_Overlapped.hEvent = m_hEvent;
     // Do the transaction in overlapped mode.
@@ -308,7 +308,7 @@ bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
         TSVNCacheCommand cmd;
         SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
         cmd.command = TSVNCACHECOMMAND_RELEASE;
-        wcsncpy_s(cmd.path, MAX_PATH+1, path.GetDirectory().GetWinPath(), MAX_PATH);
+        wcsncpy_s(cmd.path, path.GetDirectory().GetWinPath(), MAX_PATH);
         BOOL fSuccess = WriteFile(
             m_hCommandPipe, // handle to pipe
             &cmd,           // buffer to write from

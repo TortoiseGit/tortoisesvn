@@ -124,7 +124,7 @@ void CShellUpdater::UpdateShell()
                 DWORD cbWritten;
                 TSVNCacheCommand cmd;
                 cmd.command = TSVNCACHECOMMAND_CRAWL;
-                wcsncpy_s(cmd.path, MAX_PATH+1, m_pathsForUpdating[nPath].GetDirectory().GetWinPath(), MAX_PATH);
+                wcsncpy_s(cmd.path, m_pathsForUpdating[nPath].GetDirectory().GetWinPath(), _countof(cmd.path)-1);
                 BOOL fSuccess = WriteFile(
                     hPipe,          // handle to pipe
                     &cmd,           // buffer to write from

@@ -1993,9 +1993,9 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
 
     std::vector<tstring>::iterator I = files_.begin();
     if (_tcsrchr(I->c_str(), '\\'))
-        _tcscpy_s(ignorepath, MAX_PATH, _tcsrchr(I->c_str(), '\\')+1);
+        _tcscpy_s(ignorepath, _tcsrchr(I->c_str(), '\\')+1);
     else
-        _tcscpy_s(ignorepath, MAX_PATH, I->c_str());
+        _tcscpy_s(ignorepath, I->c_str());
     if ((itemStates & ITEMIS_IGNORED)&&(ignoredprops.size() > 0))
     {
         // check if the item name is ignored or the mask
@@ -2022,10 +2022,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             myIDMap[idCmd++] = ShellMenuUnIgnore;
             bShowIgnoreMenu = true;
         }
-        _tcscpy_s(maskbuf, MAX_PATH, _T("*"));
+        _tcscpy_s(maskbuf, _T("*"));
         if (_tcsrchr(ignorepath, '.'))
         {
-            _tcscat_s(maskbuf, MAX_PATH, _tcsrchr(ignorepath, '.'));
+            _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
             p = ignoredprops.find(maskbuf);
             if ((p!=-1) &&
                 ((ignoredprops.compare(maskbuf)==0) || (ignoredprops.find('\n', p)==p+_tcslen(maskbuf)+1) || (ignoredprops.rfind('\n', p)==p-1)))
@@ -2057,10 +2057,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnore;
                 myIDMap[idCmd++] = ShellMenuDeleteIgnore;
 
-                _tcscpy_s(maskbuf, MAX_PATH, _T("*"));
+                _tcscpy_s(maskbuf, _T("*"));
                 if (_tcsrchr(ignorepath, '.'))
                 {
-                    _tcscat_s(maskbuf, MAX_PATH, _tcsrchr(ignorepath, '.'));
+                    _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
                     InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
                     tstring verb = _T("tsvn_") + tstring(maskbuf);
                     myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2077,10 +2077,10 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuIgnore;
                 myIDMap[idCmd++] = ShellMenuIgnore;
 
-                _tcscpy_s(maskbuf, MAX_PATH, _T("*"));
+                _tcscpy_s(maskbuf, _T("*"));
                 if (_tcsrchr(ignorepath, '.'))
                 {
-                    _tcscat_s(maskbuf, MAX_PATH, _tcsrchr(ignorepath, '.'));
+                    _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
                     InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
                     tstring verb = _T("tsvn_") + tstring(maskbuf);
                     myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2097,7 +2097,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             if (itemStates & ITEMIS_INSVN)
             {
                 MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLE);
-                _stprintf_s(ignorepath, MAX_PATH, stringtablebuffer, files_.size());
+                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 tstring verb = _T("tsvn_") + tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2108,7 +2108,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd++] = ShellMenuDeleteIgnore;
 
                 MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK);
-                _stprintf_s(ignorepath, MAX_PATH, stringtablebuffer, files_.size());
+                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 verb = tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2121,7 +2121,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             else
             {
                 MAKESTRING(IDS_MENUIGNOREMULTIPLE);
-                _stprintf_s(ignorepath, MAX_PATH, stringtablebuffer, files_.size());
+                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 tstring verb = _T("tsvn_") + tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2132,7 +2132,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd++] = ShellMenuIgnore;
 
                 MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
-                _stprintf_s(ignorepath, MAX_PATH, stringtablebuffer, files_.size());
+                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 verb = tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;

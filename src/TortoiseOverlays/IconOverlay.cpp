@@ -275,9 +275,9 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
             {
                 TCHAR comobj[MAX_PATH];
                 TCHAR modpath[MAX_PATH];
-                _tcscpy_s(comobj, MAX_PATH, _T("CLSID\\"));
-                _tcscat_s(comobj, MAX_PATH, value);
-                _tcscat_s(comobj, MAX_PATH, _T("\\InprocServer32"));
+                _tcscpy_s(comobj, _T("CLSID\\"));
+                _tcscat_s(comobj, value);
+                _tcscat_s(comobj, _T("\\InprocServer32"));
                 if (SHRegGetPath(HKEY_CLASSES_ROOT, comobj, _T(""), modpath, 0) == ERROR_SUCCESS)
                 {
                     LoadRealLibrary(modpath, value, pwszIconFile, cchMax, pIndex, pdwFlags);

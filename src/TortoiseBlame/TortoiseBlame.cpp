@@ -957,7 +957,7 @@ INT_PTR CALLBACK TortoiseBlame::GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wPar
                     if (hEditCtrl)
                     {
                         TCHAR buf[MAX_PATH];
-                        if (::GetWindowText(hEditCtrl, buf, MAX_PATH))
+                        if (::GetWindowText(hEditCtrl, buf, _countof(buf)))
                         {
                             m_gotoLine = _ttol(buf);
                         }
@@ -985,13 +985,13 @@ LONG TortoiseBlame::GetBlameWidth()
     HDC hDC = ::GetDC(wBlame);
     HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
     TCHAR buf[MAX_PATH];
-    _stprintf_s(buf, MAX_PATH, _T("%8ld "), 88888888);
+    _stprintf_s(buf, _T("%8ld "), 88888888);
     ::GetTextExtentPoint(hDC, buf, (int)_tcslen(buf), &width);
     m_revWidth = width.cx + BLAMESPACE;
     blamewidth += m_revWidth;
     if (ShowDate)
     {
-        _stprintf_s(buf, MAX_PATH, _T("%30s"), _T("31.08.2001 06:24:14"));
+        _stprintf_s(buf, _T("%30s"), _T("31.08.2001 06:24:14"));
         ::GetTextExtentPoint32(hDC, buf, (int)_tcslen(buf), &width);
         m_dateWidth = width.cx + BLAMESPACE;
         blamewidth += m_dateWidth;
@@ -1095,28 +1095,28 @@ void TortoiseBlame::DrawBlame(HDC hDC)
                 ::SetBkColor(hDC, m_selectedRevColor);
                 ::SetTextColor(hDC, m_textHighLightColor);
             }
-            _stprintf_s(buf, MAX_PATH, _T("%8ld       "), rev);
+            _stprintf_s(buf, _T("%8ld       "), rev);
             rc.right = rc.left + m_revWidth;
             ::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
             int Left = m_revWidth;
             if (ShowDate)
             {
                 rc.right = rc.left + Left + m_dateWidth;
-                _stprintf_s(buf, MAX_PATH, _T("%30s            "), bUseMerged ? m_mergedDates[i].c_str() : m_dates[i].c_str());
+                _stprintf_s(buf, _T("%30s            "), bUseMerged ? m_mergedDates[i].c_str() : m_dates[i].c_str());
                 ::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
                 Left += m_dateWidth;
             }
             if (ShowAuthor)
             {
                 rc.right = rc.left + Left + m_authorWidth;
-                _stprintf_s(buf, MAX_PATH, _T("%-30s            "), author.c_str());
+                _stprintf_s(buf, _T("%-30s            "), author.c_str());
                 ::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
                 Left += m_authorWidth;
             }
             if ((ShowPath)&&(m_mergedPaths.size()))
             {
                 rc.right = rc.left + Left + m_pathWidth;
-                _stprintf_s(buf, MAX_PATH, _T("%-60s            "), m_mergedPaths[i].c_str());
+                _stprintf_s(buf, _T("%-60s            "), m_mergedPaths[i].c_str());
                 ::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
                 Left += m_authorWidth;
             }
@@ -1145,8 +1145,8 @@ void TortoiseBlame::DrawBlame(HDC hDC)
         else
         {
             ::SetBkColor(hDC, m_windowColor);
-            std::fill_n(buf, MAX_PATH, _T(' '));
-            ::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, MAX_PATH-1, 0);
+            std::fill_n(buf, _countof(buf), _T(' '));
+            ::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, _countof(buf)-1, 0);
             Y += height;
         }
     }
@@ -1328,8 +1328,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         return FALSE;
     }
 
-    SecureZeroMemory(szViewtitle, MAX_PATH);
-    SecureZeroMemory(szOrigPath, MAX_PATH);
+    SecureZeroMemory(szViewtitle, sizeof(szViewtitle));
+    SecureZeroMemory(szOrigPath, sizeof(szOrigPath));
     TCHAR blamefile[MAX_PATH] = {0};
 
     CCmdLineParser parser(lpCmdLine);
@@ -1337,15 +1337,15 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     if (__argc > 1)
     {
-        _tcscpy_s(blamefile, MAX_PATH, __wargv[1]);
+        _tcscpy_s(blamefile, __wargv[1]);
     }
     if (__argc > 2)
     {
-        _tcscpy_s(szViewtitle, MAX_PATH, __wargv[3]);
+        _tcscpy_s(szViewtitle, __wargv[3]);
         if (parser.HasVal(_T("revrange")))
         {
-            _tcscat_s(szViewtitle, MAX_PATH, _T(" : "));
-            _tcscat_s(szViewtitle, MAX_PATH, parser.GetVal(_T("revrange")));
+            _tcscat_s(szViewtitle, _T(" : "));
+            _tcscat_s(szViewtitle, parser.GetVal(_T("revrange")));
         }
     }
     if ((_tcslen(blamefile)==0) || parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
@@ -1359,7 +1359,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     if ( parser.HasKey(_T("path")) )
     {
-        _tcscpy_s(szOrigPath, MAX_PATH, parser.GetVal(_T("path")));
+        _tcscpy_s(szOrigPath, parser.GetVal(_T("path")));
     }
     app.bIgnoreEOL = parser.HasKey(_T("ignoreeol"));
     app.bIgnoreSpaces = parser.HasKey(_T("ignorespaces"));

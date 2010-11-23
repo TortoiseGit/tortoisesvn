@@ -38,8 +38,8 @@ HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
     TCHAR langpath[MAX_PATH];
     TCHAR langdllpath[MAX_PATH];
     TCHAR sVer[MAX_PATH];
-    _tcscpy_s(sVer, MAX_PATH, _T(STRPRODUCTVER));
-    GetModuleFileName(NULL, langpath, MAX_PATH);
+    _tcscpy_s(sVer, _T(STRPRODUCTVER));
+    GetModuleFileName(NULL, langpath, _countof(langpath));
     TCHAR * pSlash = _tcsrchr(langpath, '\\');
     if (pSlash)
     {
@@ -48,11 +48,11 @@ HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
         if (pSlash)
         {
             *pSlash = 0;
-            _tcscat_s(langpath, MAX_PATH, _T("\\Languages\\"));
+            _tcscat_s(langpath, _T("\\Languages\\"));
             assert(m_hInstance == NULL);
             do
             {
-                _stprintf_s(langdllpath, MAX_PATH, _T("%s%s%d.dll"), langpath, appname, langID);
+                _stprintf_s(langdllpath, _T("%s%s%d.dll"), langpath, appname, langID);
 
                 m_hInstance = LoadLibrary(langdllpath);
 
@@ -123,7 +123,7 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll)
                 &nFixedLength);
             lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
-            _stprintf_s(strLangProduktVersion, MAX_PATH,
+            _stprintf_s(strLangProduktVersion, 
                         _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
                         lpTransArray[0].wLanguageID,
                         lpTransArray[0].wCharacterSet);

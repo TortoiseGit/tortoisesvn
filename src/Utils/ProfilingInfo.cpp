@@ -108,7 +108,7 @@ CProfilingInfo::~CProfilingInfo(void)
 
 #ifdef _WIN32
         char buffer [MAX_PATH];
-        if (GetModuleFileNameExA (GetCurrentProcess(), NULL, buffer, MAX_PATH) > 0)
+        if (GetModuleFileNameExA (GetCurrentProcess(), NULL, buffer, _countof(buffer)) > 0)
 #else
         const char* buffer = "application";
 #endif

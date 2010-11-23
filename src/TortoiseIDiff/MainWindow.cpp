@@ -813,10 +813,10 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
         case IDOK:
             {
                 TCHAR path[MAX_PATH];
-                if (!GetDlgItemText(hwndDlg, IDC_LEFTIMAGE, path, MAX_PATH))
+                if (!GetDlgItemText(hwndDlg, IDC_LEFTIMAGE, path, _countof(path)))
                     *path = 0;
                 leftpicpath = path;
-                if (!GetDlgItemText(hwndDlg, IDC_RIGHTIMAGE, path, MAX_PATH))
+                if (!GetDlgItemText(hwndDlg, IDC_RIGHTIMAGE, path, _countof(path)))
                     *path = 0;
                 rightpicpath = path;
             }

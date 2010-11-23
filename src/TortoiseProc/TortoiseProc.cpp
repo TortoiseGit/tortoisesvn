@@ -337,7 +337,7 @@ BOOL CTortoiseProcApp::InitInstance()
             }
         }
         TCHAR pathbuf[MAX_PATH];
-        GetTempPath(MAX_PATH, pathbuf);
+        GetTempPath(_countof(pathbuf), pathbuf);
         SetCurrentDirectory(pathbuf);
     }
 

@@ -116,7 +116,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
     TCHAR pathbuf[MAX_PATH] = {0};
     if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf)==S_OK)
     {
-        _tcscat_s(pathbuf, MAX_PATH, _T("\\Subversion\\auth\\"));
+        _tcscat_s(pathbuf, _T("\\Subversion\\auth\\"));
         CString sSimple = CString(pathbuf) + _T("svn.simple");
         CString sSSL = CString(pathbuf) + _T("svn.ssl.server");
         CString sUsername = CString(pathbuf) + _T("svn.username");
@@ -238,7 +238,7 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
     TCHAR pathbuf[MAX_PATH] = {0};
     if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf)==S_OK)
     {
-        _tcscat_s(pathbuf, MAX_PATH, _T("\\Subversion\\auth"));
+        _tcscat_s(pathbuf, _T("\\Subversion\\auth"));
         pathbuf[_tcslen(pathbuf)+1] = 0;
         DeleteViaShell(pathbuf, IDS_SETTINGS_DELFILE);
     }
@@ -251,7 +251,7 @@ void CSetSavedDataPage::OnBnClickedRepologclear()
 {
     CString path = CPathUtils::GetAppDataDirectory()+_T("logcache");
     TCHAR pathbuf[MAX_PATH] = {0};
-    _tcscpy_s(pathbuf, MAX_PATH, (LPCTSTR)path);
+    _tcscpy_s(pathbuf, (LPCTSTR)path);
     pathbuf[_tcslen(pathbuf)+1] = 0;
 
     DeleteViaShell(pathbuf, IDS_SETTINGS_DELCACHE);

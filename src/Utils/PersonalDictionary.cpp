@@ -47,13 +47,13 @@ bool CPersonalDictionary::Load()
 
     TCHAR sLang[10];
     _stprintf_s(sLang, _T("%ld"), m_lLanguage);
-    _tcscat_s(path, MAX_PATH, sLang);
-    _tcscat_s(path, MAX_PATH, _T(".dic"));
+    _tcscat_s(path, sLang);
+    _tcscat_s(path, _T(".dic"));
 
     std::wifstream File;
     char filepath[MAX_PATH+1];
     SecureZeroMemory(filepath, sizeof(filepath));
-    WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, MAX_PATH, NULL, NULL);
+    WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
     File.open(filepath);
     if (!File.good())
     {
@@ -104,13 +104,13 @@ bool CPersonalDictionary::Save()
 
     TCHAR sLang[10];
     _stprintf_s(sLang, _T("%ld"), m_lLanguage);
-    _tcscat_s(path, MAX_PATH, sLang);
-    _tcscat_s(path, MAX_PATH, _T(".dic"));
+    _tcscat_s(path, sLang);
+    _tcscat_s(path, _T(".dic"));
 
     std::wofstream File;
     char filepath[MAX_PATH+1];
     SecureZeroMemory(filepath, sizeof(filepath));
-    WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, MAX_PATH, NULL, NULL);
+    WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
     File.open(filepath, std::ios_base::binary);
     for (std::set<CString>::iterator it = dict.begin(); it != dict.end(); ++it)
     {

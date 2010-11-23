@@ -124,7 +124,7 @@ SVN::SVN(bool suppressUI)
     m_pctx->progress_func = progress_func;
     m_pctx->progress_baton = this;
     char namestring[MAX_PATH] = {0};
-    sprintf_s(namestring, MAX_PATH, "TortoiseSVN-%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
+    sprintf_s(namestring, "TortoiseSVN-%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
     m_pctx->client_name = apr_pstrdup(pool, namestring);
 
 

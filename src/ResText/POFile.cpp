@@ -48,7 +48,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
     //we need to convert the filepath to multibyte
     char filepath[MAX_PATH+1];
     SecureZeroMemory(filepath, sizeof(filepath));
-    WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, MAX_PATH, NULL, NULL);
+    WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, _countof(filepath)-1, NULL, NULL);
 
     std::wifstream File;
     File.imbue(std::locale(std::locale(), new utf8_conversion()));
@@ -152,7 +152,7 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
     char filepath[MAX_PATH+1];
     int nEntries = 0;
     SecureZeroMemory(filepath, sizeof(filepath));
-    WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, MAX_PATH, NULL, NULL);
+    WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, _countof(filepath)-1, NULL, NULL);
 
     std::wofstream File;
 //  File.open(filepath, std::ios_base::binary);

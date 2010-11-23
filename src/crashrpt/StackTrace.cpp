@@ -82,7 +82,7 @@ static DWORD_PTR __stdcall GetModBase ( HANDLE hProcess , DWORD_PTR dwAddr )
             dwNameLen = GetModuleFileName ( (HINSTANCE)
                                                 stMBI.AllocationBase ,
                                             szFile                   ,
-                                            MAX_PATH                  );
+                                            _countof(szFile)          );
             HANDLE hFile = NULL ;
 
             if ( 0 != dwNameLen )
@@ -188,7 +188,7 @@ void AddressToSymbol(DWORD_PTR dwAddr, TraceCallbackFunction pFunction, LPVOID d
 
     CSymbolEngine & cSym = GetSymbolEngine();
 
-    SecureZeroMemory ( pIHS , MAX_PATH + sizeof ( IMAGEHLP_SYMBOL ) ) ;
+    SecureZeroMemory ( pIHS , sizeof (szTemp) ) ;
     SecureZeroMemory ( &stIHM , sizeof ( IMAGEHLP_MODULE ) ) ;
     SecureZeroMemory ( &stIHL , sizeof ( IMAGEHLP_LINE ) ) ;
 

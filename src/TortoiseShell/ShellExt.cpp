@@ -71,9 +71,9 @@ void LoadLangDll()
         HINSTANCE hInst = NULL;
         TCHAR langdir[MAX_PATH] = {0};
         char langdirA[MAX_PATH] = {0};
-        if (GetModuleFileName(g_hmodThisDll, langdir, MAX_PATH)==0)
+        if (GetModuleFileName(g_hmodThisDll, langdir, _countof(langdir))==0)
             return;
-        if (GetModuleFileNameA(g_hmodThisDll, langdirA, MAX_PATH)==0)
+        if (GetModuleFileNameA(g_hmodThisDll, langdirA, _countof(langdirA))==0)
             return;
         TCHAR * dirpoint = _tcsrchr(langdir, '\\');
         char * dirpointA = strrchr(langdirA, '\\');
@@ -87,7 +87,7 @@ void LoadLangDll()
             *dirpoint = 0;
         if (dirpointA)
             *dirpointA = 0;
-        strcat_s(langdirA, MAX_PATH, "\\Languages");
+        strcat_s(langdirA, "\\Languages");
         bindtextdomain ("subversion", langdirA);
 
         BOOL bIsWow = FALSE;
@@ -136,7 +136,7 @@ void LoadLangDll()
                         {
                             lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
-                            _stprintf_s(strLangProduktVersion, MAX_PATH, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+                            _stprintf_s(strLangProduktVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
                                 lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
                             if (VerQueryValue(pBuffer,

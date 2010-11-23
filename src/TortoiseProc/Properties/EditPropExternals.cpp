@@ -232,7 +232,7 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
                     break;
                 case 2: // revision
                     if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0))
-                        _stprintf_s(m_columnbuf, MAX_PATH, _T("%ld"), ext.revision.value.number);
+                        _stprintf_s(m_columnbuf, _T("%ld"), ext.revision.value.number);
                     else
                         m_columnbuf[0] = 0;
                     break;

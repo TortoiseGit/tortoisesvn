@@ -1235,7 +1235,7 @@ private:
         // Bit tricky, this test, because we need to know something about the file
         // layout on the machine which is running the test
         TCHAR winDir[MAX_PATH+1];
-        GetWindowsDirectory(winDir, MAX_PATH);
+        GetWindowsDirectory(winDir, _countof(winDir));
         CString sWinDir(winDir);
 
         CTSVNPath testPath;
@@ -1401,7 +1401,7 @@ private:
     void ListLoadingTest()
     {
         TCHAR buf[MAX_PATH];
-        GetCurrentDirectory(MAX_PATH, buf);
+        GetCurrentDirectory(_countof(buf), buf);
         CString sPathList(_T("Path1*c:\\path2 with spaces and stuff*\\funnypath\\*"));
         CTSVNPathList testList;
         testList.LoadFromAsteriskSeparatedString(sPathList);

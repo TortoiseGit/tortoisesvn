@@ -45,7 +45,7 @@ CExceptionReport::CExceptionReport(PEXCEPTION_POINTERS ExceptionInfo, BSTR messa
 string CExceptionReport::getCrashFile()
 {
    TCHAR buf[MAX_PATH] = {0};
-   _stprintf_s(buf, MAX_PATH, _T("%s\\%s.dmp"), _tgetenv("TEMP"), CUtility::getAppName().c_str());
+   _stprintf_s(buf, _T("%s\\%s.dmp"), _tgetenv("TEMP"), CUtility::getAppName().c_str());
 
    // Create the file
    HANDLE hFile = CreateFile(

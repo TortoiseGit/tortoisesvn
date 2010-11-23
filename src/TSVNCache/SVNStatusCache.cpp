@@ -61,21 +61,21 @@ void CSVNStatusCache::Create()
     TCHAR path2[MAX_PATH];
     if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
     {
-        _tcscat_s(path, MAX_PATH, _T("\\TSVNCache"));
+        _tcscat_s(path, _T("\\TSVNCache"));
         if (!PathIsDirectory(path))
         {
             if (CreateDirectory(path, NULL)==0)
                 goto error;
         }
-        _tcscat_s(path, MAX_PATH, STATUSCACHEFILENAME);
+        _tcscat_s(path, STATUSCACHEFILENAME);
         // in case the cache file is corrupt, we could crash while
         // reading it! To prevent crashing every time once that happens,
         // we make a copy of the cache file and use that copy to read from.
         // if that copy is corrupt, the original file won't exist anymore
         // and the second time we start up and try to read the file,
         // it's not there anymore and we start from scratch without a crash.
-        _tcscpy_s(path2, MAX_PATH, path);
-        _tcscat_s(path2, MAX_PATH, _T("2"));
+        _tcscpy_s(path2, path);
+        _tcscat_s(path2, _T("2"));
         DeleteFile(path2);
         CopyFile(path, path2, FALSE);
         DeleteFile(path);
@@ -166,10 +166,10 @@ bool CSVNStatusCache::SaveCache()
     TCHAR path[MAX_PATH];       //MAX_PATH ok here.
     if (SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
     {
-        _tcscat_s(path, MAX_PATH, _T("\\TSVNCache"));
+        _tcscat_s(path, _T("\\TSVNCache"));
         if (!PathIsDirectory(path))
             CreateDirectory(path, NULL);
-        _tcscat_s(path, MAX_PATH, STATUSCACHEFILENAME);
+        _tcscat_s(path, STATUSCACHEFILENAME);
         _tfopen_s(&pFile, path, _T("wb"));
         if (pFile)
         {

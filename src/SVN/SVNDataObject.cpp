@@ -251,7 +251,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
                 if (m_bFilesAsUrlLinks)
                     temp += L".url";
             }
-            _tcscpy_s(files->fgd[index].cFileName, MAX_PATH, (LPCTSTR)temp);
+            _tcscpy_s(files->fgd[index].cFileName, (LPCTSTR)temp);
             files->fgd[index].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE | FD_LINKUI;
             if (it->rootpath.IsUrl())
             {

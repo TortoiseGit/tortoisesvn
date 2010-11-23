@@ -145,7 +145,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
     // set the current directory to the users temp dir
     TCHAR pathbuf[MAX_PATH];
-    GetTempPath(MAX_PATH, pathbuf);
+    GetTempPath(_countof(pathbuf), pathbuf);
     SetCurrentDirectory(pathbuf);
 
     apr_initialize();

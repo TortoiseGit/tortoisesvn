@@ -219,7 +219,7 @@ HRESULT CListDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 
     if (iItem >= 0)
     {
-        ListView_GetItemText(m_hTargetWnd, iItem, 0, targetName, MAX_PATH);
+        ListView_GetItemText(m_hTargetWnd, iItem, 0, targetName, _countof(targetName));
         CItem * pItem = NULL;
         if (m_pRepoBrowser->m_RepoList.GetItemCount())
             pItem = (CItem*)m_pRepoBrowser->m_RepoList.GetItemData(iItem);

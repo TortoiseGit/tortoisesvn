@@ -134,7 +134,7 @@ HRESULT GetShellLibraryItem(LPWSTR pwszLibraryName, IShellItem2** ppShellItem)
 
     // Create the real library file name
     WCHAR wszRealLibraryName[MAX_PATH];
-    swprintf_s(wszRealLibraryName, MAX_PATH, L"%s%s", pwszLibraryName, L".library-ms");
+    swprintf_s(wszRealLibraryName, L"%s%s", pwszLibraryName, L".library-ms");
 
     typedef HRESULT STDAPICALLTYPE SHCreateItemInKnownFolderFN(REFKNOWNFOLDERID kfid, DWORD dwKFFlags, __in_opt PCWSTR pszItem, REFIID riid, __deref_out void **ppv);
     HMODULE hShell = ::LoadLibrary(_T("shell32.dll"));

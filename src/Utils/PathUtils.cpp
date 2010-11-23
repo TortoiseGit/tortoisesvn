@@ -514,7 +514,7 @@ CString CPathUtils::GetAppDataDirectory()
     if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)!=S_OK)
         return CString();
 
-    _tcscat_s(path, MAX_PATH, _T("\\TortoiseSVN"));
+    _tcscat_s(path, _T("\\TortoiseSVN"));
     if (!PathIsDirectory(path))
         CreateDirectory(path, NULL);
 

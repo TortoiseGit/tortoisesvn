@@ -339,7 +339,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
                 ATLTRACE2(_T("GetDriveType for %s\n"), pathbuf);
                 drivetype = GetDriveType(pathbuf);
                 drivetypecache[26] = drivetype;
-                _tcsncpy_s(drivetypepathcache, MAX_PATH, pathbuf, MAX_PATH);            // MAX_PATH ok.
+                _tcsncpy_s(drivetypepathcache, pathbuf, MAX_PATH);            // MAX_PATH ok.
             }
         }
     }

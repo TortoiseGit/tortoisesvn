@@ -439,7 +439,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                     lpttt = (LPTOOLTIPTEXT) lParam;
                     lpttt->hinst = hResource;
                     TCHAR stringbuf[MAX_PATH] = {0};
-                    _stprintf_s(stringbuf, MAX_PATH, _T("%i%% alpha"), (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
+                    _stprintf_s(stringbuf, _T("%i%% alpha"), (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
                     lpttt->lpszText = stringbuf;
                 }
                 else

@@ -140,7 +140,7 @@ public      :
 
         // Get the full filename of the loaded version.
         TCHAR szImageHlp[ MAX_PATH ] ;
-        GetModuleFileName ( hInstIH , szImageHlp , MAX_PATH ) ;
+        GetModuleFileName ( hInstIH , szImageHlp , _countof(szImageHlp) ) ;
 
         dwMS = 0 ;
         dwLS = 0 ;

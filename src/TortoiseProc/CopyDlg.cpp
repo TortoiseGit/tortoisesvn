@@ -896,16 +896,16 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                 case 2: // revision
                     m_columnbuf[0] = 0;
                     if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0))
-                        _stprintf_s(m_columnbuf, MAX_PATH, _T("%ld"), ext.revision.value.number);
+                        _stprintf_s(m_columnbuf, _T("%ld"), ext.revision.value.number);
                     break;
                 case 3: // tagged
                     m_columnbuf[0] = 0;
                     if (ext.origrevision.kind == svn_opt_revision_number)
-                        _stprintf_s(m_columnbuf, MAX_PATH, _T("%ld"), ext.origrevision.value.number);
+                        _stprintf_s(m_columnbuf, _T("%ld"), ext.origrevision.value.number);
                     else if (ext.origrevision.kind == svn_opt_revision_date)
                     {
                         SVNRev r(ext.origrevision);
-                        _tcscpy_s(m_columnbuf, MAX_PATH, (LPCTSTR)r.ToString());
+                        _tcscpy_s(m_columnbuf, (LPCTSTR)r.ToString());
                     }
                     break;
                 default:
