@@ -862,14 +862,15 @@ void CEditPropertiesDlg::OnBnClickedImport()
         while ((nProperties-- > 0)&&(!bFailed))
         {
             int nNameBytes = 0;
-            if ((nNameBytes < 0)||(nNameBytes > 4096))
-            {
-                prog.Stop();
-                ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
-                bFailed = true;
-            }
             if (fread(&nNameBytes, sizeof(int), 1, stream) == 1)
             {
+                if ((nNameBytes < 0)||(nNameBytes > 4096))
+                {
+                    prog.Stop();
+                    ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                    bFailed = true;
+                    continue;
+                }
                 auto_buffer<TCHAR> pNameBuf(nNameBytes/sizeof(TCHAR));
                 if (fread(pNameBuf, 1, nNameBytes, stream) == (size_t)nNameBytes)
                 {
