@@ -1,13 +1,12 @@
-#
 # Turkish translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$ 15576
-#
+# 
 # Authors:
 # (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7948)
 # (71,7-100)Berke Rahmi Baydu <berke@baydu.com> 16 Mar,2009.
@@ -15,14 +14,14 @@
 # (71,7-100)Onur Fil <onurfil@gmail.com> 16 Mar,2009.
 # (71,7-100)AYDIN KESKIN <aydinkeskin@yahoo.com> 16 Mar,2009.
 # (71,7-100)Vural Goze <vuralgoze@gmail.com> 15 Oct,2009, (v7950)
-#
+# 
 # Notlar:
 #  - Katkida bulunursaniz Authors kismina tercume ettiginiz versiyonu, isminizi ve email'inizi giriniz.
-#
-#
+# 
+# 
 # Su anki versiyon:
 # (v7950)
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
@@ -35,12 +34,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Turkish\n"
-"X-Poedit-Country: TURKEY\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: TURKEY\n"
 
+#. Resource IDs: (10, 126)
 # Bazi kelimelerin cevirileri:
 # Blame - Sorumlu (programda daha dogru gozukuyor)
-# Diff/Unified diff - farklilik, karsilastirma/Birlestirilmis karsilastirma dosyasi
+# Diff/Unified diff - farklilik, karsilastirma/Birlestirilmis karsilastirma
+# dosyasi
 # Merge - Birlestirmek
 # Overlay - isaret, isaretlemek
 # Trunk - Ana hat
@@ -76,7 +77,6 @@ msgstr ""
 # Navigate - Dolas
 # Overwrite - Ustune yaz
 # Original - Ozgun
-#. Resource IDs: (10, 126)
 msgid " "
 msgstr " "
 
@@ -836,6 +836,10 @@ msgstr "&Sadece resim "
 msgid "&Import..."
 msgstr "&İçe aktar..."
 
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr "&Haricileri dahil et"
+
 #. Resource IDs: (1480)
 msgid "&Include merge info"
 msgstr "&Birleştirme bilgisini dahil et"
@@ -1524,7 +1528,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -4793,6 +4798,7 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
+#. Accelerator Entry for Menu ID:32771; '&Find...'
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4806,7 +4812,6 @@ msgstr "ID"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -6752,8 +6757,8 @@ msgid "Picture:"
 msgstr "Resim:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Resimler (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Resimler (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -8224,7 +8229,8 @@ msgstr "Tüm& revizyonları göster"
 msgid "Show &changes"
 msgstr "&Değişiklikeri göster..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "&Günlüğü göster"
 
@@ -8640,30 +8646,33 @@ msgstr "Şeritler"
 #. Resource IDs: (117)
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 "Alt ifade filtresi:\r\n"
-"* Boşluklarla ayrılan, bir veya daha fazla ifade belirtin. Tüm alt ifadeler eşleşmeli.\r\n"
+"* Boşluklarla ayrılan, bir veya daha fazla ifade belirtin. Tüm alt ifadeler soldan sağa doğru incelenir.\r\n"
 "* Alt ifadeyi içeren revizyonları hariç tutmak için alt ifadenin başına bir - koyun.\r\n"
-"* Boşluk içeren ifadeleri \" arasına yazın.\r\n"
+"* Şu ana kadar filtreyle eşleşmeyen revizyonları dahil etmek için alt ifadenin başına bir + koyun. Boşluk vb. içeren ifadeleri \" arasına yazın.\r\n"
 "* Tüm filtre koşulunu olumsuzlamak için satırın başına bir ! koyun.\r\n"
 "\r\n"
 "Örnekler:\r\n"
-"ismim  2008    : 2008'deki teslimlerim\r\n"
-".h  -.cpp              : başlıkları değiştiren ama gerçeklemeleri değiştirmeyen teslimler\r\n"
-"\" \"                        : boşluk içeren teslimler (örn. sadece yolları ararken)\r\n"
-"-\"\"tümünü göster\"\"        : '\"tümünü göster\"' ifadesini içermeyen teslimler\r\n"
-"!ismim  .cpp    : benim yaptığım teslimler hariç .cpp dosyalarına yapılan yüm teslimler"
+"ismim  2008 : 2008'deki teslimlerim\r\n"
+".h  -.cpp : başlıkları değiştiren ama gerçeklemeleri değiştirmeyen teslimler\r\n"
+"\\.doc + .xls 2010 : 2010'daki .doc veya .xls dosyası içeren teslimler\r\n"
+"\" \" : \" \" : boşluk içeren teslimler (örn. sadece yolları ararken)\r\n"
+"-\"\"tümünü göster\"\"  :  '\"tümünü göster\"' ifadesini içermeyen teslimler\r\n"
+"!ismim .cpp : benim yaptığım teslimler hariç .cpp dosyalarına yapılan tüm teslimler"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -11676,11 +11685,8 @@ msgstr "{HataTakibi}"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Otomatik olarak haftada bir yeni& güncelleme kontrolü yap"
 
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr ""
-#~ "İşaretlendiğinde, TortoiseSVN haftada bir kere yeni bir güncellemenin "
-#~ "olup olmadığını kontrol eder."
+#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr "İşaretlendiğinde, TortoiseSVN haftada bir kere yeni bir güncellemenin olup olmadığını kontrol eder."
 
 #~ msgid "Edit conflict"
 #~ msgstr "Çakışmaları düzenle"
@@ -11701,11 +11707,9 @@ msgstr "{HataTakibi}"
 #~ msgid "Cleaning up."
 #~ msgstr "Temizleniyor."
 
-#, fuzzy
 #~ msgid "Show &properties"
 #~ msgstr "Seçenekleri gö&ster"
 
-#, fuzzy
 #~ msgid "Show i&gnored files"
 #~ msgstr "Aldırılmayan dosyaların listesini göster"
 
@@ -11735,17 +11739,11 @@ msgstr "{HataTakibi}"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
-#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
-#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
 #~ msgstr ""
 #~ "GDI+ revizyon diyagramını resim olarak kayit edilmesi için gerekli.\n"
 #~ "GDI+yi bu adresten edinebilirsiniz\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
-#~ "4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
-#~ "details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-#~ "be590feaa05a&DisplayLang=en</a>"
+#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
 
 #~ msgid "Go offline?"
 #~ msgstr "çevrimdışı ol?"
@@ -11827,8 +11825,7 @@ msgstr "{HataTakibi}"
 #~ msgstr "En üst menülerde &hızlandırıcıları çalıştır"
 
 #~ msgid ""
-#~ "Enable this if you want keyboard accelerators on the top level context "
-#~ "menu too.\n"
+#~ "Enable this if you want keyboard accelerators on the top level context menu too.\n"
 #~ "Note that the context menu icons look nicer with this disabled."
 #~ msgstr ""
 #~ "Üst içerik menüsunde de tuş kısaltmalarını kullanmak için işaretleyiniz.\n"
@@ -11939,45 +11936,37 @@ msgstr "{HataTakibi}"
 #~ msgid "Use &magnifier on locatorbar"
 #~ msgstr "Yerbulucu çubuğundaki &büyüteci kullan"
 
-#~ msgid ""
-#~ "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-#~ msgstr ""
-#~ "URL için \"From:\" 'ı kullanınız (revizyon aralığı yukarıdaki günlük "
-#~ "diyaloğundan seçilebilir)"
+#~ msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
+#~ msgstr "URL için \"From:\" 'ı kullanınız (revizyon aralığı yukarıdaki günlük diyaloğundan seçilebilir)"
 
 #~ msgid ""
 #~ "You copied more than one file or folder.\n"
-#~ "It's not possible to do that in one step, so TortoiseSVN will copy each "
-#~ "file/folder\n"
+#~ "It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
 #~ "individually, creating a new revision for every copied item.\n"
 #~ "\n"
 #~ "Do you still want to do this?"
 #~ msgstr ""
 #~ "Birden fazla dosya yada klasör kopyalamaya çalışıyorsunuz.\n"
 #~ "Bunu tek bir adımda yapmak mümkün değildir,TortoiseSVN her dosya/klasör\n"
-#~ "için yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek "
-#~ "kopyalayacaktır.\n"
+#~ "için yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek kopyalayacaktır.\n"
 #~ "\n"
 #~ "Bu işlemi halen yapmak istiyor musunuz?"
 
 #~ msgid ""
 #~ "You moved more than one file or folder.\n"
-#~ "It's not possible to do that in one step, so TortoiseSVN will move each "
-#~ "file/folder\n"
+#~ "It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
 #~ "individually, creating a new revision for every moved item.\n"
 #~ "\n"
 #~ "Do you still want to do this?"
 #~ msgstr ""
 #~ "Birden fazla dosyayı yada klasörü taşımaya çalışıyorsunuz.\n"
 #~ "Bunu tek bir adımda yapmak mümkün değildir,TortoiseSVN her dosya/klasör\n"
-#~ "için yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek "
-#~ "kopyalayacaktır.\n"
+#~ "için yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek kopyalayacaktır.\n"
 #~ "\n"
 #~ "Bu işlemi halen yapmak istiyor musunuz?"
 
 #~ msgid ""
-#~ "You've selected added folders. The patch won't contain added files within "
-#~ "such added folders.\n"
+#~ "You've selected added folders. The patch won't contain added files within such added folders.\n"
 #~ "Do you want to proceed anyway?"
 #~ msgstr ""
 #~ "Eklenmiş klasörler seçtiniz.\n"
@@ -11986,15 +11975,12 @@ msgstr "{HataTakibi}"
 
 #~ msgid ""
 #~ "svn:externals\n"
-#~ "A newline separated list of module specifiers, each of which consists of "
-#~ "a relative directory path, optional revision flags, and an URL. For "
-#~ "example\n"
+#~ "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
 #~ "foo\t\thttp://example.com/repos/zig\n"
 #~ "foo/bar -r 1234\thttp://example.com/repos/zag"
 #~ msgstr ""
 #~ "svn:externals\n"
-#~ "Her biri bağıl(relative) dizin, seçilebilir ek revizonlar ve URL içeren "
-#~ "satır ile ayrılmış modül belirticileri listesi.Örneğin:\n"
+#~ "Her biri bağıl(relative) dizin, seçilebilir ek revizonlar ve URL içeren satır ile ayrılmış modül belirticileri listesi.Örneğin:\n"
 #~ "foo\t\thttp://example.com/repos/zig\n"
 #~ "foo/bar -r 1234\thttp://example.com/repos/zag"
 
