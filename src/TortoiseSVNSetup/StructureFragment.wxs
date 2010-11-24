@@ -551,6 +551,12 @@
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="QueryType" Value="1" Type="integer" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="SortByList" Value="prop:System.ItemNameDisplay;-System.DateModified" Type="string" />
 
+              <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="CanonicalName" Value="SVNWCs.LibraryFolder" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="Parent" Value="$(var.GuidLibraryTypeSVN)" Type="string" />
+              <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Name="OverrideParentTopViews" Value="1" Type="integer" />
+
               <?if $(env.Platform) = "x64" ?>
               <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="CanonicalName" Value="SVNWCs" Type="string" />
@@ -631,16 +637,16 @@
               <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="Order" Value="6" Type="integer" />
               <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="QueryType" Value="1" Type="integer" />
               <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="SortByList" Value="prop:System.ItemNameDisplay;-System.DateModified" Type="string" />
+
+              <RegistryKey   Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="CanonicalName" Value="SVNWCs.LibraryFolder" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="Parent" Value="$(var.GuidLibraryTypeSVN)" Type="string" />
+              <RegistryKey   Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Name="OverrideParentTopViews" Value="1" Type="integer" />
               <?endif ?>
 
               <!-- no need to create these on x64 in the Wow6432Node too: these are only used by the explorer, and that one is 64-bit. If 
                    a user really starts the 32-bit explorer on win64 and these buttons aren't there, it won't be that bad -->
-              <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="CanonicalName" Value="SVNWCs.LibraryFolder" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="Parent" Value="$(var.GuidLibraryTypeSVN)" Type="string" />
-              <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Name="OverrideParentTopViews" Value="1" Type="integer" />
-
               <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TasksItemsSelected\0\$(var.GuidFolderTypeCmd0)" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TasksItemsSelected\0\$(var.GuidFolderTypeCmd0)" Name="Icon" Value="[INSTALLDIR]bin\TortoiseProc.exe,-123" Type="string" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TasksItemsSelected\0\$(var.GuidFolderTypeCmd0)" Name="Title" Value="@[INSTALLDIR]bin\TortoiseProc.exe,-122" Type="string" />
