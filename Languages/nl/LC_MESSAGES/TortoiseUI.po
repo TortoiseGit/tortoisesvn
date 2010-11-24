@@ -1,20 +1,19 @@
-#
 # Dutch translation for TortoiseSVN
 # Copyright (C) 2004-2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
+# 
 # Note: Lines starting with #: are required, they are the link to the resource IDs
 #       Lines starting with # provide comments to the translators
-#
+# 
 # Note: There are some notes on translating keyboard shortcuts below
-#
+# 
 # 20050318 JML: Added a list of frequently used translations
-#
+# 
 # English                               Dutch
 # ----------------------------------    --------------------------------
 # Base                                  Basis
@@ -41,13 +40,13 @@
 # Update                                Verversen
 # Version Control                       Versiebeheer
 # Working Copy                          Werkkopie
-#
+# 
 # Authors:
 # Jeroen van Amstel <jeroen@amstelonline.demon.nl>
 # Bob Hulst <bob.hulst@hiq.fi>
 # Jean-Marc van Leerdam <jeanmarc@gmail.com>
 # Yves Reynhout <yvesr@ultragenda.com>
-#
+# 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -61,7 +60,7 @@
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
@@ -74,8 +73,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-# A single space
 #. Resource IDs: (10, 126)
+# A single space
 msgid " "
 msgstr " "
 
@@ -610,6 +609,10 @@ msgstr "Naar klembord &kopiëren"
 msgid "&Copy to..."
 msgstr "&Kopiëren naar..."
 
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr "&Mapstructuur aanmaken"
+
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "&Aangepast"
@@ -830,6 +833,10 @@ msgstr "&Alleen afbeelding"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importeren..."
+
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr "&Externe bestanden meenemen"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -1224,6 +1231,10 @@ msgstr "&Bepaalde revisie in het archief"
 msgid "&Start Group"
 msgstr "&Startgroep"
 
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr "&Archiefverkenner starten"
+
 #. Resource IDs: (59393)
 msgid "&Status Bar"
 msgstr "&Statusbalk"
@@ -1357,8 +1368,8 @@ msgid "&Update"
 msgstr "&Verversen"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
-msgstr "&Ververs onderdeel naar revisie"
+msgid "&Update item to revision..."
+msgstr "&Ververs onderdeel naar revisie..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -1515,7 +1526,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -1559,20 +1571,6 @@ msgstr "<Separator>"
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<Naamloos>"
-
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
-msgstr ""
-"TortoiseSVN is een shell-extensie.\n"
-"Dat betekent dat het is geïntegreerd in de Windows Verkenner.\n"
-"Om TortoiseSVN te gebruiken opent u de verkenner en klikt u met de rechter muisknop op\n"
-"een folder om het contextmenu te tonen. Hierin vindt u alle TortoiseSVN commando's.\n"
-"Voor meer informatie: Raadpleeg de handleiding!"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -2153,6 +2151,10 @@ msgstr "&Bladeren..."
 #. Resource IDs: (1064)
 msgid "Back"
 msgstr "Terug"
+
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr "Achtergrond"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2997,6 +2999,10 @@ msgstr "Kopiëer en hernoem"
 msgid "Copy and rename item to here"
 msgstr "Kopiëer en hernoem onderdeel hierheen"
 
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr "Kolom naar klembord kopiëren"
+
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
 msgstr "Kopiëer foutmelding naar klembord"
@@ -3083,11 +3089,9 @@ msgstr "Controle voor nieuwe versie niet gelukt."
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 "Kon de bestanden niet kopiëren!\n"
-
 "%s"
 
 #. Resource IDs: (3867)
@@ -3191,22 +3195,18 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 "Kon extern Diff-programma niet starten!\n"
-
 "%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 "Kon het externe Merge-programma niet starten!\n"
-
 "%s"
 
 #. Resource IDs: (3857)
@@ -3379,6 +3379,10 @@ msgstr "Standaard URL:"
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
 msgstr "Standaardmenu. Verschijnt indien geen documenten geopend zijn."
+
+#. Resource IDs: (81)
+msgid "Default directory structure successfully created!"
+msgstr "Standaard mapstructuur succesvol aangemaakt!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4862,6 +4866,11 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
+#, fuzzy
+msgid "ID:32825:V C +E"
+msgstr "ID:32825:V C +E"
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr "ID:32825:V C +K"
 
@@ -4872,6 +4881,16 @@ msgstr "ID:32825:V C +L"
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
+
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+#, fuzzy
+msgid "ID:32870:V C +L"
+msgstr "ID:32870:V C +L"
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+#, fuzzy
+msgid "ID:32881:V C +P"
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5603,6 +5622,11 @@ msgstr ""
 msgid "Locator Bar"
 msgstr "Zoekbalk"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Locator bar"
+msgstr "Zoekbalk"
+
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Blokkade"
@@ -6197,14 +6221,11 @@ msgid "No"
 msgstr "Nee"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 "Geen commando gegeven!\n"
-
 "TortoiseProc.exe wordt door de Shell-extentie gebruikt en mag niet direct aangeroepen worden!"
 
 #. Resource IDs: (81)
@@ -6732,8 +6753,8 @@ msgid "Picture:"
 msgstr "Afbeelding:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Plaatjes (*.wmf,*.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Plaatjes (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7165,6 +7186,10 @@ msgstr "Mappen zonder versiebeheer doorlopen"
 msgid "Recursive"
 msgstr "Recursief"
 
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr "Doorverwijzen naar url"
+
 #. Resource IDs: (3603)
 msgid ""
 "Redo the previously undone action\n"
@@ -7468,6 +7493,10 @@ msgstr "Archief URL"
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "UUID van Archief:"
+
+#. Resource IDs: (324)
+msgid "Repository created"
+msgstr "Archief aangemaakt"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -7848,6 +7877,10 @@ msgstr "Wijzigingen in %1 opslaan?"
 msgid "Save client certificate path"
 msgstr "Bewaar pad naar client certificaat"
 
+#. Resource IDs: (617)
+msgid "Save in Git format"
+msgstr "Opslaan in Git indeling"
+
 #. Resource IDs: (76)
 msgid "Save revision &to..."
 msgstr "Bewaar revisie &in..."
@@ -8191,7 +8224,8 @@ msgstr "Toon &alle revisies"
 msgid "Show &changes"
 msgstr "Toon &wijzigingen"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "Toon &logboek"
 
@@ -8607,30 +8641,34 @@ msgstr "Strepen"
 #. Resource IDs: (117)
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 "Sub-tekenreeks filter:\r\n"
-"* Specificeer één of meer tekenreeksen, gescheiden door spaties. Alle sub-tekenreeksen moet gelijk zijn.\r\n"
-"* Begin een tekenreeks met een - om revisies uit te sluiten die deze sub-tekenreeks bevatten.\r\n"
-"* Voeg in tekenreeksen met spaties etc. toe \".\r\n"
-"* Begin een regel met een ! om de filter conditie te inverteren.\r\n"
+"* Specificeer één of meer tekenreeksen, gescheiden door spaties. Deze worden van links naar rechts geëvalueerd.\r\n"
+"* Voeg een - toe voor de sub-tekenreeks om revisies met de sub-tekenreeks uit te sluiten.\r\n"
+"* Voeg een + toe voor een sub-tekenreeks om revisies mee te nemen die tot nu toe niet met het filter overeenkomen.\r\n"
+"* Voeg in tekenreeksen met spaties een \".\r\n"
+"*. Gebruik een ! aan het begin van een regel om de hele filter te inverteren.\r\n"
 "\r\n"
 "Voorbeelden:\r\n"
-"myname 2008  : mijn vastleggingen in 2008\r\n"
+"myname 2008 : mijn vastleggingen in 2008\r\n"
 ".h -.cpp            : vastleggingen met gewijzigde headers maar zonder implementaties\r\n"
-"\"\"                       : vastleggingen met spaties (bijv. als je alleen in paden zoekt)\r\n"
-"-\"\"show all\"\"        : vastleggingen die niet de tekenreeks '\"show all\"' bevatten\r\n"
-"!myname .cpp  : alles behalve mijn vastleggingen van .cpp bestanden"
+".doc+.xls 2010 : vastleggingen in 2010 met .doc of .xls bestanden\r\n"
+"\"\" : vastleggingen met spaties (bijv. als je alleen in paden zoekt)\r\n"
+"-\"\"toon alles\"\" : vastleggingen zonder de tekenreeks \"toon alles\"\r\n"
+" !myname .cpp : alles behalve mijn vastleggingen voor .cpp bestanden."
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -8709,11 +8747,9 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
 msgstr ""
 "Subversion meldde een fout tijdens een schoning!\n"
-
 "%s"
 
 #. Resource IDs: (65535)
@@ -9357,14 +9393,11 @@ msgid "The user who owns the lock of the file"
 msgstr "De gebruiker die het bestand geblokkeerd heeft"
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 "De werkkopie is gewijzigd!\n"
-
 "U moet eerst de wijzigingen vastleggen of de originele revisie terugzetten."
 
 #. Resource IDs: (81)
@@ -9599,9 +9632,7 @@ msgid ""
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
 "TortoiseBlame mag niet direct gestart worden! Gebruik\n"
-"TortoiseProc.exe /command:blame /path:\"pad\\n"
-"aar\\bestand\"\n"
-"\n"
+"TortoiseProc.exe /command:blame /path:\"pad\\naar\\bestand\"\\n\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
@@ -9699,6 +9730,20 @@ msgstr ""
 "TortoiseSVN heeft gelijksoortige bestandsnamen gevonden. Wilt u deze bestanden\n"
 "(%s)\n"
 "ook hernoemen?"
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
+msgstr ""
+"TortoiseSVN is een shell-extensie.\n"
+"Dat betekent dat het is geïntegreerd in de Windows Verkenner.\n"
+"Om TortoiseSVN te gebruiken opent u de verkenner en klikt u met de rechter muisknop op\n"
+"een folder om het contextmenu te tonen. Hierin vindt u alle TortoiseSVN commando's.\n"
+"Voor meer informatie: Raadpleeg de handleiding!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -11428,6 +11473,86 @@ msgstr ""
 "Tekenreeks die wordt getoond in het venster voor de logboodschap.\r\n"
 "Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld."
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+"tsvn:logtemplatebranch\r\n"
+"Tekenreeks die wordt toegevoegd in het venster voor de logboekboodschap.\r\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld voor branch/tags/kopieën."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+"tsvn:logtemplatecommit\r\n"
+"Tekenreeks die wordt getoond in het venster voor de logboekboodschap.\r\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld bij vastleggingen."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+"tsvn:logtemplatedelete\r\n"
+"Tekenreeks die wordt getoond in het venster voor de logboodschap.\r\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld bij verwijderingen."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+"tsvn:logtemplateimport\r\n"
+"Tekenreeks die wordt getoond in het venster voor de logboodschap.\r\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld bij het importeren."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+"tsvn:logtemplatelock\r\n"
+"Tekenreeks die wordt getoond in het venster voor de logboodschap.\r\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld bij het verkrijgen van vergrendelingen."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+"tsvn:logtemplatemkdir\r\n"
+"Tekenreeks die wordt getoond in het venster voor de logboodschap.\r\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld bij het aanmaken van mappen."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+"tsvn:logtemplatemove\r\n"
+"Tekenreeks die wordt getoond in het venster voor de logboodschap.\r\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld bij het verplaatsen/hernoemen."
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+"tsvn:logtemplatepropset\r\n"
+"Tekenreeks die wordt getoond in het venster voor de logboodschap.\r\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld bij aanpassingen van eigenschappen."
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -11541,47 +11666,61 @@ msgstr "{BugTraq}"
 
 #~ msgid "Check externals to explicit revision"
 #~ msgstr "Zet externen vast op specifieke revisie"
+
 #~ msgid "Check externals to tag"
 #~ msgstr "Controleer de te labelen externen"
+
 #~ msgid "Tagged"
 #~ msgstr "Gelabeld"
+
 #~ msgid "tree conflict:"
 #~ msgstr "boomcomflict:"
-#~ msgid "The repository was successfully created."
-#~ msgstr "Het archief is gemaakt."
+
 #~ msgid "&Lum:"
 #~ msgstr "&Lum:"
+
 #~ msgid "&Sat:"
 #~ msgstr "&Sat:"
+
 #~ msgid "Bug-ID / &Issue-Nr:"
 #~ msgstr "Bug-ID / &Issue-Nr:"
+
 #~ msgid "Dialog"
 #~ msgstr "Dialoog"
+
 #~ msgid "&Save..."
 #~ msgstr "&Opslaan..."
+
 #~ msgid "&To URL: "
 #~ msgstr "&Naar URL: "
+
 #~ msgid "&To path: "
 #~ msgstr "&Naar pad: "
+
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "Toon overlay bij genegeerde bestanden"
+
 #~ msgid "Show overlay for unversioned items"
 #~ msgstr "Toon overlay bij bestanden zonder versiebeheer"
+
 #~ msgid "Author:                                    Stefan Kueng"
 #~ msgstr "Auteur:                                    Stefan Kueng"
+
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Elke week controleren of een &nieuwe versie beschikbaar is"
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr ""
-#~ "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er "
-#~ "nieuwere versies beschikbaar zijn"
+
+#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
+
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "&Verberg ongerelateerde wijzigingspaden"
+
 #~ msgid "Edit conflict"
 #~ msgstr "Bewerk conflict"
+
 #~ msgid "From URL:"
 #~ msgstr "Van URL:"
+
 #~ msgid ""
 #~ "The URL to check out refers to a file but this\n"
 #~ "working copy path is an existing directory."
@@ -11589,12 +11728,15 @@ msgstr "{BugTraq}"
 #~ "De URL voor het ophalen verwijst naar een\n"
 #~ "bestand, maar het pad voor deze werkkopie\n"
 #~ "is een bestaande map."
+
 #~ msgid "Show &properties"
 #~ msgstr "&Toon eigenschappen"
+
 #~ msgid "Show i&gnored files"
 #~ msgstr "Toon &genegeerde bestanden"
+
 #~ msgid "Show un&modified files"
 #~ msgstr "Toon on&gewijzigde bestanden"
+
 #~ msgid "Show un&versioned files"
 #~ msgstr "Toon bestanden &zonder versiebeheer"
-
