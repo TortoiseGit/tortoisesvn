@@ -114,6 +114,9 @@ bool CRemoteCacheLink::EnsurePipeOpen()
     if (InternalEnsurePipeOpen (m_hPipe, GetCachePipeName()))
     {
         // create an unnamed (=local) manual reset event for use in the overlapped structure
+        if (m_hEvent != INVALID_HANDLE_VALUE)
+            return true;
+
         m_hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
         if (m_hEvent)
             return true;
