@@ -23,7 +23,7 @@
 #include "apr_pools.h"
 #pragma warning(pop)
 #include "TSVNPath.h"
-#include "TempFiles.h"
+#include "TempFile.h"
 #include "ProgressDlg.h"
 
 class SVNPatch
@@ -122,6 +122,5 @@ private:
     CString                 m_targetpath;
     CString                 m_testPath;
     CString                 m_errorStr;
-    CTempFiles              m_tempFiles;
     CProgressDlg *          m_pProgDlg;
 };

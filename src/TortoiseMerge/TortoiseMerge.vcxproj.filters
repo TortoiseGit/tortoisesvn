@@ -156,9 +156,6 @@
     <ClCompile Include="..\Utils\SysInfo.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TempFiles.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\UnicodeUtils.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
@@ -194,6 +191,15 @@
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp">
       <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\TempFile.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\TSVNPath.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNRev.cpp">
+      <Filter>Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -338,9 +344,6 @@
     <ClInclude Include="..\Utils\SysInfo.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TempFiles.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\UnicodeUtils.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
@@ -372,6 +375,15 @@
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\TempFile.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\TSVNPath.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNRev.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

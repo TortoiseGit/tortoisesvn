@@ -22,7 +22,7 @@
 #include "LocatorBar.h"
 #include "LineDiffBar.h"
 #include "FilePatchesDlg.h"
-#include "TempFiles.h"
+#include "TempFile.h"
 #include "XSplitter.h"
 #include "SVNPatch.h"
 #include "FindDlg.h"
@@ -174,7 +174,6 @@ protected:
 
     SVNPatch        m_Patch;
     BOOL            m_bInitSplitter;
-    CTempFiles      m_TempFiles;
 
     int             m_nSearchIndex;
     CString         m_sFindText;

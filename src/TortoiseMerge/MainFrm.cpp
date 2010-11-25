@@ -413,7 +413,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 {
     CString sDummy;
     //"dry run" was successful, so save the patched file somewhere...
-    CString sTempFile = m_TempFiles.GetTempFilePath();
+    CString sTempFile = CTempFiles::Instance().GetTempFilePathString();
     CString sRejectedFile;
     if (m_Patch.GetPatchResult(sFilePath, sTempFile, sRejectedFile) < 0)
     {
@@ -438,7 +438,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
     {
         if (!PathFileExists(sFilePath))
         {
-            m_Data.m_baseFile.SetFileName(m_TempFiles.GetTempFilePath());
+            m_Data.m_baseFile.SetFileName(CTempFiles::Instance().GetTempFilePathString());
             m_Data.m_baseFile.CreateEmptyFile();
         }
         else
@@ -475,8 +475,8 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 // Callback function
 BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString sRev2)
 {
-    CString tempfile1 = m_TempFiles.GetTempFilePath();
-    CString tempfile2 = m_TempFiles.GetTempFilePath();
+    CString tempfile1 = CTempFiles::Instance().GetTempFilePathString();
+    CString tempfile2 = CTempFiles::Instance().GetTempFilePathString();
 
     ASSERT(tempfile1.Compare(tempfile2));
 

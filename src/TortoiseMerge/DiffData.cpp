@@ -20,7 +20,7 @@
 #pragma warning(push)
 #include "diff.h"
 #pragma warning(pop)
-#include "TempFiles.h"
+#include "TempFile.h"
 #include "registry.h"
 #include "Resource.h"
 #include "Diffdata.h"
@@ -230,7 +230,6 @@ BOOL CDiffData::Load()
     m_arDiff3LinesYour.RemoveAll();
     m_arDiff3LinesTheir.RemoveAll();
 
-    CTempFiles tempfiles;
     CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
     CRegDWORD regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);
     CRegDWORD regIgnoreCase = CRegDWORD(_T("Software\\TortoiseMerge\\CaseInsensitive"), FALSE);
@@ -256,7 +255,7 @@ BOOL CDiffData::Load()
         if ((bIgnoreCase)||(m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
         {
             CFileTextLines converted(m_arBaseFile);
-            sConvertedBaseFilename = tempfiles.GetTempFilePath();
+            sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
             converted.Save(sConvertedBaseFilename, m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
         }
     }
@@ -273,7 +272,7 @@ BOOL CDiffData::Load()
         if ((bIgnoreCase)||(m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
         {
             CFileTextLines converted(m_arTheirFile);
-            sConvertedTheirFilename = tempfiles.GetTempFilePath();
+            sConvertedTheirFilename = CTempFiles::Instance().GetTempFilePathString();
             converted.Save(sConvertedTheirFilename, m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
         }
     }
@@ -290,7 +289,7 @@ BOOL CDiffData::Load()
         if ((bIgnoreCase)||(m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_LE))
         {
             CFileTextLines converted(m_arYourFile);
-            sConvertedYourFilename = tempfiles.GetTempFilePath();
+            sConvertedYourFilename = CTempFiles::Instance().GetTempFilePathString();
             converted.Save(sConvertedYourFilename, m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
         }
     }

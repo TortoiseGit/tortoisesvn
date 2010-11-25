@@ -101,8 +101,8 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
         pThis->m_nRejected = 0;
         *filtered = false;
 
-        pThis->m_tempFiles.AddFileToRemove(pr.resultPath);
-        pThis->m_tempFiles.AddFileToRemove(pr.rejectsPath);
+        CTempFiles::Instance().AddFileToRemove(pr.resultPath);
+        CTempFiles::Instance().AddFileToRemove(pr.rejectsPath);
     }
     return NULL;
 }
