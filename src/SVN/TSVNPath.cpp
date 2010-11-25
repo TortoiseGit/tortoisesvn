@@ -203,6 +203,7 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     {
         SetUTF8FwdslashPath(m_sFwdslashPath);
     }
+#ifdef svn_path_is_url
     if (svn_path_is_url(m_sUTF8FwdslashPath))
     {
         m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
@@ -214,6 +215,9 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     {
         m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
     }
+#else
+    m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
+#endif
 
     return m_sUTF8FwdslashPath;
 }
@@ -285,7 +289,11 @@ bool CTSVNPath::IsUrl() const
         {
             SetUTF8FwdslashPath(m_sFwdslashPath);
         }
+#ifdef svn_path_is_url
         m_bIsURL = !!svn_path_is_url(m_sUTF8FwdslashPath);
+#else
+        m_bIsURL = !!PathIsURL(m_sFwdslashPath);
+#endif
         m_bURLKnown = true;
     }
     return m_bIsURL;
