@@ -19,8 +19,8 @@
 #include "StdAfx.h"
 #include "TempFile.h"
 #include "auto_buffer.h"
-#include "SVNError.h"
 #include "PathUtils.h"
+#include "DirFileEnum.h"
 
 CTempFiles::CTempFiles(void)
 {
@@ -35,18 +35,6 @@ CTempFiles& CTempFiles::Instance()
 {
     static CTempFiles instance;
     return instance;
-}
-
-void CTempFiles::CheckLastError()
-{
-    DWORD lastError = GetLastError();
-
-    if (lastError != ERROR_ALREADY_EXISTS)
-    {
-        // no simple name collision -> bail out
-
-        SVNError::ThrowLastError (lastError);
-    }
 }
 
 CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev revision)
@@ -111,7 +99,8 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
         {
             DeleteFile(tempfile.GetWinPath());
             if (CreateDirectory (tempfile.GetWinPath(), NULL) == FALSE)
-                CheckLastError();
+                if (GetLastError() != ERROR_ALREADY_EXISTS)
+                    return CTSVNPath();
             else
                 succeeded = true;
         }
@@ -120,7 +109,8 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
             HANDLE hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
             if (hFile== INVALID_HANDLE_VALUE)
             {
-                CheckLastError();
+                if (GetLastError() != ERROR_ALREADY_EXISTS)
+                    return CTSVNPath();
             }
             else
             {
@@ -142,10 +132,6 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
 
     // give up
 
-    SVNError::ThrowLastError();
-
-    // make compiler happy
-
     return CTSVNPath();
 }
 
@@ -154,7 +140,47 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
     return CreateTempPath (bRemoveAtEnd, path, revision, false);
 }
 
+CString CTempFiles::GetTempFilePathString()
+{
+    return CreateTempPath (true, CTSVNPath(), SVNRev(), false).GetWinPathString();
+}
+
 CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev revision /* = SVNRev() */)
 {
     return CreateTempPath (bRemoveAtEnd, path, revision, true);
 }
+
+void CTempFiles::DeleteOldTempFiles(LPCTSTR wildCard)
+{
+    DWORD len = ::GetTempPath(0, NULL);
+    auto_buffer<TCHAR> path(len + 100);
+    len = ::GetTempPath (len+100, path);
+    if (len == 0)
+        return;
+
+    CSimpleFileFind finder = CSimpleFileFind(path.get(), wildCard);
+    FILETIME systime_;
+    ::GetSystemTimeAsFileTime(&systime_);
+    __int64 systime = ((ULARGE_INTEGER&)systime_).QuadPart;
+    while (finder.FindNextFileNoDirectories())
+    {
+        CString filepath = finder.GetFilePath();
+        HANDLE hFile = ::CreateFile(filepath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+        if (hFile == INVALID_HANDLE_VALUE)
+            continue;
+
+        FILETIME createtime_;
+        const bool timeObtained = ::GetFileTime(hFile, &createtime_, NULL, NULL) != 0;
+        ::CloseHandle(hFile);
+        if(!timeObtained)
+            continue;
+
+        __int64 createtime = ((ULARGE_INTEGER&)createtime_).QuadPart;
+        if ((createtime + 864000000000) < systime)      //only delete files older than a day
+        {
+            ::SetFileAttributes(filepath, FILE_ATTRIBUTE_NORMAL);
+            ::DeleteFile(filepath);
+        }
+    }
+}
+

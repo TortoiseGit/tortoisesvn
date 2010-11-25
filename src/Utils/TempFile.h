@@ -40,6 +40,7 @@ public:
      * \param revision     if set, the temp file name will include the revision number
      */
     CTSVNPath       GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev revision = SVNRev());
+    CString         GetTempFilePathString();
 
     /**
      * Returns a path to a temporary directory.
@@ -51,6 +52,12 @@ public:
      */
     CTSVNPath       GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev revision = SVNRev());
 
+    // Look for temporary files left around by TortoiseMerge and
+    // remove them. But only delete 'old' files
+    static void     DeleteOldTempFiles(LPCTSTR wildCard);
+
+    void            AddFileToRemove(const CString& file) { m_TempFileList.AddPath(CTSVNPath(file)); }
+
 private:
 
     // try to allocate an unused temp file / dir at most MAX_RETRIES times
@@ -60,10 +67,6 @@ private:
     // list of paths to delete when terminating the app
 
     CTSVNPathList m_TempFileList;
-
-    // error handling
-
-    void CheckLastError();
 
     // actual implementation
 
