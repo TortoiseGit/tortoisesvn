@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-11-09 00:45+0200\n"
+"PO-Revision-Date: 2010-11-27 00:14+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,6 @@ msgstr ""
 "X-Poedit-Country: FINLAND\n"
 "X-Generator: Virtaal 0.5.2\n"
 
-#. Resource IDs: (10, 126)
 # Translations used for version control terms:
 # add               lisää
 # apply patch       sovella paikkatiedosto
@@ -46,11 +45,11 @@ msgstr ""
 # commit            toimita (arkistoon)
 # depth             syvyys
 # diff              ero, eroavuus
-# elide            tiivistää
-# exclude     jättää pois
+# elide             tiivistää
+# exclude           jättää pois
 # export            vie (arkistosta)
 # external reference  ulkoinen viite
-# file external  ulkoinen tiedosto
+# file external     ulkoinen tiedosto
 # folder            kansio
 # global ignore pattern yleinen ohituslista
 # hook script       toimintokomento
@@ -59,7 +58,7 @@ msgstr ""
 # ignore list       ohituslista
 # issue             vika
 # issue tracking    vikaseuranta
-# item             kohde
+# item              kohde
 # lock              lukitus, lukita
 # log               loki
 # merge             yhdistä
@@ -70,8 +69,8 @@ msgstr ""
 # online            yhteydellinen
 # overlay           päällys
 # patch             paikka
-# peg revision  ankkuriversio
-# plugin             lisäosa
+# peg revision      ankkuriversio
+# plugin            lisäosa
 # property          ominaisuus
 # progress          edistyminen
 # recursive         palautuva
@@ -93,74 +92,12 @@ msgstr ""
 # website           verkkosivusto
 # wizard            ohjattu toiminto
 # working copy      työkopio
+#. Resource IDs: (10, 126)
 msgid " "
 msgstr " "
 
+#
 #. Resource IDs: (188)
-# Translations used for version control terms:
-# add               lisää
-# apply patch       sovella paikkatiedosto
-# authentication    tunnistus
-# authorization     valtuutus
-# BASE file         kantatiedosto
-# blame             selvitä tekijä
-# branch            haara
-# break (lock)      rikkoa (lukko)
-# bug               vika
-# bug tracking      vikaseuranta
-# cache             säilytä paikallisesti
-# changelist        muutoslista
-# check out         hae (työkopio)
-# clean up          siivoa
-# commit            toimita (arkistoon)
-# depth             syvyys
-# diff              ero, eroavuus
-# exclude     jättää pois
-# export            vie (arkistosta)
-# external reference  ulkoinen viite
-# file external  ulkoinen tiedosto
-# folder            kansio
-# global ignore pattern yleinen ohituslista
-# hook script       toimintokomento
-# icon              kuvake
-# import            tuo (arkistoon)
-# ignore list       ohituslista
-# issue             vika
-# issue tracking    vikaseuranta
-# item             kohde
-# lock              lukitus, lukita
-# log               loki
-# merge             yhdistä
-# merge reintegrate yhdistä takaisin
-# merge tracking    yhdistämisten jäljitys
-# obstructed        estynyt
-# offline           yhteydetön
-# online            yhteydellinen
-# overlay           päällys
-# patch             paikka
-# peg revision  ankkuriversio
-# plugin             lisäosa
-# property          ominaisuus
-# progress          edistyminen
-# recursive         palautuva
-# reintegrate       takaisin (ks. merge r.)
-# relocate          sijoita työkopio uudelleen
-# repository        arkisto
-# resolve           ratkaista
-# revision          versio
-# script            komento
-# sparse            epätäydellinen
-# steal lock        varastaa lukko
-# switch            vaihda
-# tag               merkitty versio
-# toolbar           työkalurivi
-# tree conflict     puuristiriita
-# unified diff      unified diff
-# update            päivitä
-# URL               paikannin
-# website           verkkosivusto
-# wizard            ohjattu toiminto
-# working copy      työkopio
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -916,6 +853,10 @@ msgstr "&Vain kuva"
 msgid "&Import..."
 msgstr "&Tuo..."
 
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr "&Sisällytä ulkoiset viitteet"
+
 #. Resource IDs: (1480)
 msgid "&Include merge info"
 msgstr "&Sisällytä yhdistämistiedot"
@@ -1317,8 +1258,8 @@ msgstr "&Käynnistä arkistoselain"
 msgid "&Status Bar"
 msgstr "&Tilarivi"
 
-#. Resource IDs: (1211)
 # vai lukitus?
+#. Resource IDs: (1211)
 msgid "&Steal the locks"
 msgstr "&Varasta lukot"
 
@@ -1605,8 +1546,7 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
-#. 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -4578,8 +4518,8 @@ msgstr "Eteenpäin"
 msgid "Found auto words:"
 msgstr "Löytyneet automaattiset täydennykset:"
 
-#. Resource IDs: (1200, 65535)
 # vai lähettäjä?
+#. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Mistä:"
 
@@ -4627,8 +4567,8 @@ msgstr "Yleinen::Ikkunat 2"
 msgid "Generating patchfile..."
 msgstr "Luodaan paikkatiedostoa..."
 
-#. Resource IDs: (16)
 # vai lukitus?
+#. Resource IDs: (16)
 msgid "Get loc&k..."
 msgstr "&Lukitse..."
 
@@ -4880,7 +4820,6 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
-#. Accelerator Entry for Menu ID:32771; '&Find...'
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4894,6 +4833,7 @@ msgstr "ID"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
+#. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -5371,8 +5311,8 @@ msgstr "Ensimmäinen tuonti arkistoon"
 msgid "Inline differences"
 msgstr "Rivin sisäiset erot"
 
-#. Resource IDs: (161)
 # vai syötä?
+#. Resource IDs: (161)
 msgid "Input"
 msgstr "Syöte"
 
@@ -5549,8 +5489,8 @@ msgstr "Yhdistä seuraavan &puun kanssa"
 msgid "Join with source tree"
 msgstr "Yhdistä lähdepuun kanssa"
 
-#. Resource IDs: (1203)
 # vai lukitukset?
+#. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "Pidä &lukot"
 
@@ -5745,8 +5685,8 @@ msgstr "Lukitus epäonnistui"
 msgid "Lock owner:"
 msgstr "Lukon omistaja:"
 
-#. Resource IDs: (213)
 # vai lukituksen?
+#. Resource IDs: (213)
 #, c-format
 msgid "Lock stolen by %s"
 msgstr "%s varasti lukon"
@@ -7352,8 +7292,8 @@ msgstr "Hylkää"
 msgid "Rejected patch hunks for '%s'"
 msgstr "Hylätyt paikkapalat tiedostolle '%s'"
 
-#. Resource IDs: (16)
 # Vai Poista lukitus?
+#. Resource IDs: (16)
 msgid "Release loc&k..."
 msgstr "Vapauta &lukko..."
 
@@ -7369,8 +7309,8 @@ msgstr "Vapauttaa lukot tiedostoista jotta muut käyttäjät voivat taas muokata
 msgid "Relo&cate..."
 msgstr "&Sijoita työkopio uudelleen..."
 
-#. Resource IDs: (32794)
 # vai päivitä?
+#. Resource IDs: (32794)
 msgid "Reload"
 msgstr "Lataa uudelleen"
 
@@ -8312,8 +8252,7 @@ msgstr "Näytä &kaikki versiot"
 msgid "Show &changes"
 msgstr "Näytä &muutokset"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
-#. 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "Näytä &loki"
 
@@ -8708,13 +8647,13 @@ msgstr "Tilamuisti vain yhdelle kansiolle; ei palautuvia päällyksiä"
 msgid "Status of item in SVN"
 msgstr "Kohteen tila Subversionissa"
 
-#. Resource IDs: (16)
 # vai lukitus?
+#. Resource IDs: (16)
 msgid "Steal loc&k"
 msgstr "Varasta &lukko"
 
-#. Resource IDs: (313)
 # vai lukitus?
+#. Resource IDs: (313)
 msgid "Steal the lock"
 msgstr "Varasta lukko"
 
@@ -8744,19 +8683,19 @@ msgid ""
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 "Osajonosuodatin:\r\n"
-"* Anna yksi tai useampi välilyönnein eroteltuja merkkijono. Merkkijonot tulkitaan vasemmalta oikealle.\r\n"
-"* Lisää '-' merkkijonon eteen jättääksesi pois versiot, joissa se esiintyy.\r\n"
+"* Anna yksi tai useampi välilyönnein eroteltu merkkijono. Merkkijonot tulkitaan vasemmalta oikealle.\r\n"
+"* Lisää - merkkijonon eteen jättääksesi pois versiot, joissa se esiintyy.\r\n"
+"* Lisää + merkkijonon eteen ottaaksesi mukaan versiot, joissa se esiintyy.\r\n"
 "* Ympäröi välilyöntejä sisältävät merkkijonot lainausmerkein (\").\r\n"
 "* Aseta '!' rivin alkuun kääntääksesi suodattimen toiminnan päinvastaikseksi.\r\n"
 "\r\n"
 "Esimerkkejä:\r\n"
-"myname  2008    : Toimitukseni arkistoon vuonna 2008\r\n"
-".h -.cpp              : toimitukset, jotka muuttivat otsikkotietoja mutteivät toteutusta.\r\n"
-".doc +.xls 2010 : vuonna 2010 tehdyt toimitukset, jotka sisälsivät .doc tai .xls -päätteisiä tiedostoja\r\n"
-"\r\n"
-"\" \" : toimitukset, joissa on välilyöntejä (esim. etsittäessä pelkästään poluista)\r\n"
-"-\"\"show all\"\" : toimitukset, jotka eivät sisällä merkkijonoa '\"show all\"'\r\n"
-"!myname  .cpp    : Kaikki  toimitukseni, jotka eivät sisällä .cpp -päätteisiä tiedostoja."
+"myname 2008    : Toimitukseni arkistoon vuonna 2008.\r\n"
+".h -.cpp              : Toimitukset, jotka muuttivat otsikkotietoja mutteivät toteutusta.\r\n"
+".doc +.xls 2010 : Vuonna 2010 tehdyt toimitukset, jotka sisälsivät .doc tai .xls -päätteisiä tiedostoja.\r\n"
+"\" \"                    : Toimitukset, joissa on välilyöntejä (esim. etsittäessä pelkästään poluista).\r\n"
+"-\"\"show all\"\"  : Toimitukset, jotka eivät sisällä merkkijonoa '\"show all\"'.\r\n"
+"!myname  .cpp   : Kaikki toimitukseni, jotka eivät sisällä .cpp -päätteisiä tiedostoja."
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -10044,8 +9983,8 @@ msgstr "Tuntematon syvyys"
 msgid "Unknown failure in SVN::List"
 msgstr "Tuntematon virhe (SVN::List)"
 
-#. Resource IDs: (221, 230, 242)
 # vai lukitus?
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "Avaa lukko"
 
@@ -10638,8 +10577,8 @@ msgstr ""
 "Olet muuttanut ominaisuuksia tallettamatta niitä ensin.\n"
 "Haluatko tallettaa ne nyt?"
 
-#. Resource IDs: (251)
 # mikä olisi hyvä repositoryn suomennos?
+#. Resource IDs: (251)
 msgid "You have to update your working copy first."
 msgstr "Sinun täytyy päivittää työkopiosi ensin."
 
@@ -11759,7 +11698,8 @@ msgstr "{BugTraq}"
 #~ msgstr "%s, mutta sitä on jo muokattu."
 
 #~ msgid "%s, but it was deleted, moved or renamed locally."
-#~ msgstr "%s, mutta se on poistettu, siirretty tai nimetty uudelleen paikallisesti."
+#~ msgstr ""
+#~ "%s, mutta se on poistettu, siirretty tai nimetty uudelleen paikallisesti."
 
 #~ msgid "%s, but it was obstructed in the working copy."
 #~ msgstr "%s, mutta se on estynyt työkopiossa."
@@ -11806,8 +11746,11 @@ msgstr "{BugTraq}"
 #~ msgid "Automatically check for &newer versions every week"
 #~ msgstr "Tarkista &uuden version saatavuus automaattisesti joka viikko"
 
-#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "Mikäli sallittu, TortoiseSVN tarkistaa kerran viikossa uusien ohjelmaversioiden saatavuuden"
+#~ msgid ""
+#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
+#~ msgstr ""
+#~ "Mikäli sallittu, TortoiseSVN tarkistaa kerran viikossa uusien "
+#~ "ohjelmaversioiden saatavuuden"
 
 #~ msgid "H&ide unrelated changed paths"
 #~ msgstr "P&iilota riippumattomat muuttuneet polut"
