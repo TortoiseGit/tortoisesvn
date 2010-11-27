@@ -203,7 +203,9 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     {
         SetUTF8FwdslashPath(m_sFwdslashPath);
     }
-#ifdef svn_path_is_url
+
+// svn_path_is_url will not be defined if we aren't using the SVN libs
+#ifdef SVN_PATH_H
     if (svn_path_is_url(m_sUTF8FwdslashPath))
     {
         m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
