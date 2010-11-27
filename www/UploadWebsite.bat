@@ -24,9 +24,9 @@ cd ..
 if exist ..\doc\docserverlogin.bat call ..\doc\docserverlogin.bat
 if exist ..\serverlogin.bat call ..\serverlogin.bat
 
-cd ..\..\tsvnsite
+pushd ..\..\tsvnsite
 
-%ZIP% a -r -tzip website.zip *
+%ZIP% a -r -tzip website.zip * > NUL
 
 %PSCP% -r -l %USERNAME% -pw %PASSWORD% website.zip tortoisesvn.net:/var/www/vhosts/test/
 
@@ -34,3 +34,4 @@ cd ..\..\tsvnsite
 
 del website.zip
 
+popd
