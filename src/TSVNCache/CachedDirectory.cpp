@@ -512,7 +512,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
         // If we allow ourselves to fall on through, then folders will be asked
         // for their own status, and will set themselves as unversioned, for the
         // benefit of future requests
-        CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: svn_cli_stat error '%s'\n"), pErr->message);
+        CTraceToOutputDebugString::Instance()("CachedDirectory.cpp: svn_cli_stat error '%s'\n", pErr->message);
         // No assert here! Since we _can_ get here, an assertion is not an option!
         // Reasons to get here:
         // - renaming a folder with many sub folders --> results in "not a working copy" if the revert
