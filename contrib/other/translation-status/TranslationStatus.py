@@ -12,9 +12,9 @@
 
 """Usage: translation-status.py [OPTION...]
 
-Compute the trunk and branch translation status report for the
+Compute the trunk translation status report for the
 TortoiseSVN GUI and DOCs.
-Create three include files (trunk/branch/language list) for the status report
+Create two include files (trunk/language list) for the status report
 on the web page.
 Create two reports (doc/gui) and send them via e-mail.
 
@@ -34,12 +34,12 @@ import csv
 import time
 import subprocess
 
-urlTrunk = 'trunk'
-urlBranch = 'branches/1.6.x'
-urlGui   = 'Languages'
-urlDoc   = 'doc/po'
+urlTrunk = 'trunk/Languages'
+wrkDir   = 'Languages'
+fileGui  = 'TortoiseUI'
+fileDoc  = 'TortoiseDoc'
 
-langList = os.path.join('gui', 'trunk', 'Languages.txt')
+langList = os.path.join(wrkDir, 'Languages.txt')
 langFields = ['Tag','LangCC','LangWiX','LangID','FlagByte','LangName','Translators']
 Sep75 = '==========================================================================='
 
@@ -163,29 +163,12 @@ class transReport:
 
         return None
 
-    def prepareTMP(self, srcDir, subDir, fileMask):
-        """Merges the current translations with the latest .po template.
-        Places the output in the given tmp subfolder"""
+    def getTotal(self, wrkDir, fileMask):
+        """Gets the timestamp and the total number of strings from the given .pot file"""
 
-        srcDir = os.path.join(srcDir, subDir)
-        dstDir = os.path.join('tmp', subDir)
-
-        if not os.path.isdir(dstDir):
-          os.makedirs(dstDir)
-
-        files = os.listdir(srcDir)
-        files.sort()
-        for file in files:
-          poFile = self.match('('+fileMask+'.*).po$', file)
-          if not poFile:
-            continue
-          potFile = os.path.join(srcDir, fileMask + '.pot')
-          srcFile = os.path.join(srcDir, poFile + '.po')
-          dstFile = os.path.join(dstDir, poFile + '.po')
-          cmd = ['msgmerge','--no-wrap','--quiet','--no-fuzzy-matching', srcFile, potFile, '-o', dstFile]
-          self.safe_command(cmd)
-          total = self.checkAttrib('--untranslated', potFile)
-          timestamp = makeTimeString('%Y-%m-%d', os.path.getmtime(potFile))
+        potFile = os.path.join(wrkDir, fileMask + '.pot')
+        total = self.checkAttrib('--untranslated', potFile)
+        timestamp = makeTimeString('%Y-%m-%d', os.path.getmtime(potFile))
         return (total, timestamp)
 
     def getPoDate(self, poFile):
@@ -213,19 +196,25 @@ class transReport:
         return int(msgcount)
 
     def checkStatus(self, out, wrkDir, langCC, fileMask, total, checkAccel):
-        fileName = fileMask + '_' + langCC
-        wrkFile = os.path.join('tmp', wrkDir, fileName + '.po')
+        """Merges the current translations with the latest .po template.
+        Calculates the statistics for the given translation."""
 
-        if not os.path.isfile(wrkFile):
+        potFile = os.path.join(wrkDir, fileMask + '.pot')
+        poFile = os.path.join(wrkDir, langCC, 'LC_MESSAGES', fileMask + '.po')
+
+        if not os.path.isfile(poFile):
           # No need to write status for non-existent .po files
           # Just print on standard output for the "paper" report
-          # out.sectWrite(langCC, 0, total, 0, 0, total, 0, fileName, 'NONE')
-          return 'NONE'
+          # out.sectWrite(langCC, 0, total, 0, 0, total, 0, poFile, '---')
+          return '---'
         else:
+          wrkFile = os.path.join(wrkDir, 'temp.po')
+          cmd = ['msgmerge','--no-wrap','--quiet','--no-fuzzy-matching', poFile, potFile, '-o', wrkFile]
+          self.safe_command(cmd)
           poDate = self.getPoDate(wrkFile)
           error = self.checkError('--check', wrkFile)
           if error:
-            out.sectWrite(langCC, error, total, 0, 0, total, 0, fileName, poDate)
+            out.sectWrite(langCC, error, total, 0, 0, total, 0, poFile, poDate)
             return 'BROKEN'
           else:
             trans = self.checkAttrib('--translated', wrkFile)
@@ -237,7 +226,7 @@ class transReport:
               accel = 0
 
             trans = trans-fuzzy
-            out.sectWrite(langCC, 0, total, trans, fuzzy, untrans, accel, fileName, poDate)
+            out.sectWrite(langCC, 0, total, trans, fuzzy, untrans, accel, poFile, poDate)
 
             if untrans+fuzzy+accel == 0:
               return 'OK'
@@ -252,24 +241,22 @@ class transReport:
               else:
                 return '%2s%% (%s/%s)' % (percent, untrans, fuzzy)
 
-    def printStatLine(self, Lang, Trunk, Branch):
-        print '%-32s: %-20s: %-20s' % (Lang, Trunk, Branch)
+    def printStatLine(self, Lang, Gui, Doc):
+        print '%-32s: %-20s: %-20s' % (Lang, Gui, Doc)
     
-    def checkTranslation(self, srcDir, fileMask, checkAccel):
+    def checkTranslation(self, wrkDir):
 
-        [totTrunk, tsTrunk] = self.prepareTMP(srcDir, 'trunk', fileMask)
-        [totBranch, tsBranch] = self.prepareTMP(srcDir, 'branch', fileMask)
+        [totGui, tsGui] = self.getTotal(wrkDir, fileGui)
+        [totDoc, tsDoc] = self.getTotal(wrkDir, fileDoc)
 
-        outTrunk.sectOpen(fileMask)
-        outBranch.sectOpen(fileMask)
+#        outFile.sectOpen(fileMask)
 
-        firstline = '%s %s translation %s' % (fileMask, srcDir, Sep75)
+        firstline = '==== Translation of %s %s' % (urlTrunk, Sep75)
         print ''
         print firstline[0:75]
-        self.printStatLine('', 'Developer Version', 'Current Release')
-        self.printStatLine('Location', urlTrunk, urlBranch)
-        self.printStatLine('Total strings', totTrunk,totBranch)
-        self.printStatLine('Language', 'Status (un/fu/ma)', 'Status (un/fu/ma)')
+        self.printStatLine('', 'User interface', 'Manuals')
+        self.printStatLine('Total strings', totGui, totDoc)
+        self.printStatLine('Language', 'Status (un/fu/ma)', 'Status (un/fu)')
         print Sep75
 
         csvReader = csv.DictReader(open(langList), langFields, delimiter=';', quotechar='"')
@@ -282,16 +269,15 @@ class transReport:
           # Ignore .pot file (Tag=0)
           if row['Tag'][0] != '\xef' and row['Tag'][0] != '#' and row['Tag'] != '0':
             langCC = row['LangCC'].strip()
-            statusTrunk = self.checkStatus(outTrunk, 'trunk', langCC, fileMask, totTrunk, checkAccel)
-            statusBranch = self.checkStatus(outBranch, 'branch', langCC, fileMask, totBranch, checkAccel)
+            statusGui = self.checkStatus(outFile, wrkDir, langCC, fileGui, totGui, True)
+            statusDoc = self.checkStatus(outFile, wrkDir, langCC, fileDoc, totDoc, False)
 
-            if statusTrunk != 'NONE' or statusBranch != 'NONE':
+            if statusGui != 'NONE' or statusDoc != 'NONE':
                langName = row['LangName'].strip()
                langName = langName + ' ('+langCC+')'
-               self.printStatLine (langName, statusTrunk, statusBranch)
+               self.printStatLine (langName, statusGui, statusDoc)
 
-        outTrunk.sectClose(totTrunk, fileMask, tsTrunk)
-        outBranch.sectClose(totBranch, fileMask, tsBranch)
+#        outFile.sectClose(totTrunk, fileMask, tsTrunk)
 
         return None
 
@@ -307,17 +293,11 @@ class transReport:
            reposRoot = self.match('Repository: (\S+)',info_out)
 
         reposTrunk = reposRoot + '/' + urlTrunk + '/'
-        reposBranch = reposRoot + '/' + urlBranch + '/'
 
         # Prepare the working copies for doc|gui * trunk|branch
-        self.prepareWC(os.path.join('gui', 'trunk'), reposTrunk + urlGui)
-        self.prepareWC(os.path.join('gui', 'branch'), reposBranch + urlGui)
-        self.prepareWC(os.path.join('doc', 'trunk'), reposTrunk + urlDoc)
-        self.prepareWC(os.path.join('doc', 'branch'), reposBranch + urlDoc)
+        self.prepareWC(wrkDir, reposTrunk)
 
-        self.checkTranslation('gui','Tortoise',True)
-        self.checkTranslation('doc','TortoiseSVN',False)
-        self.checkTranslation('doc','TortoiseMerge',False)
+        self.checkTranslation(wrkDir)
 
         print Sep75
         print 'Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys'
@@ -332,8 +312,7 @@ class transReport:
 
         return None
 
-outTrunk = includeWriter('trans_data_trunk.inc')
-outBranch = includeWriter('trans_data_branch.inc')
+outFile = includeWriter('trans_data_trunk.inc')
 
 def main():
     # Parse the command-line options and arguments.
@@ -364,18 +343,15 @@ def main():
     subject = 'TortoiseSVN translation status report for r%s' % (wcrev)
     print subject
 
-    outTrunk.addHeader()
-    outBranch.addHeader()
+    outFile.addHeader()
 
     report.createReport()
 
-    outTrunk.addCountries('trunk')
-    outBranch.addCountries('branch')
+#    outFile.addCountries('trunk')
     
     timestamp = makeTimeString('%a, %d %b %Y %H:%M UTC', time.time())
 
-    outTrunk.addFooter(wcrev, timestamp)
-    outBranch.addFooter(wcrev, timestamp)
+    outFile.addFooter(wcrev, timestamp)
 
 if __name__ == '__main__':
     main()
