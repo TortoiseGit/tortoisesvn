@@ -44,10 +44,10 @@ If you want to implement a new language for TortoiseSVN do the following.
    But if it's necessary like in Chinese, sure go ahead. We are happy with
    simplified (zh_CN) and traditional (zh_TW) Chinese.
 
-3) Now translate what you can using poEdit. If you are not sure with one
-   or the other translation, mark it as "fuzzy". You can enter a comment
-   in poEdit to give some information about your thoughts to other trans-
-   lators.
+3) Now translate what you can using your po editor. If you are not sure 
+   with one or the other translation, mark it as "fuzzy". You can enter
+   a comment in poEdit to give some information about your thoughts to
+   other translators.
    If you are not sure about the meaning of the original sentence ask on
    the list.
 
@@ -124,10 +124,8 @@ Building your own dlls
 If you want to test the translations you made yourself, before you release
 them, you need four things:
 
-- The "raw" resource dlls for your version of TortoiseSVN. Other dlls
-  won't work. Take a look at:
-  http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=1847
-  and pick your language dlls e.g. Languages_1.0.8.zip for TortoiseSVN 1.0.8.
+- The "raw" language resource dlls for your version of TortoiseSVN. Please ask on
+  the developers list. We'll gladly provide you with the necessary files.
 - The pot file for your version of TortoiseSVN e.g:
   http://tortoisesvn.googlecode.com/svn/tags/version_1.0.8/...
 - Any po file for your language. Either pick one from tags or the latest
