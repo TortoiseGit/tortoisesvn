@@ -342,49 +342,7 @@ BOOL CTortoiseProcApp::InitInstance()
         SetCurrentDirectory(pathbuf);
     }
 
-    // check for newer versions
-    if (CRegDWORD(_T("Software\\TortoiseSVN\\VersionCheck"), TRUE) != FALSE)
-    {
-        time_t now;
-        struct tm ptm;
-
-        time(&now);
-        if ((now != 0) && (localtime_s(&ptm, &now)==0))
-        {
-            int week = 0;
-
-            DWORD count = MAX_PATH;
-            TCHAR username[MAX_PATH] = {0};
-            GetUserName(username, &count);
-            // add a user specific diff to the current day count
-            // so that the update check triggers for different users
-            // at different days. This way we can 'spread' the update hits
-            // to our website a little bit
-            ptm.tm_yday += (username[0] % 7);
-
-            // we don't calculate the real 'week of the year' here
-            // because just to decide if we should check for an update
-            // that's not needed.
-            week = ptm.tm_yday / 7;
-
-            CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
-            if (((DWORD)oldweek) == -1)
-                oldweek = week;     // first start of TortoiseProc, no update check needed
-            else
-            {
-                if ((DWORD)week != oldweek)
-                {
-                    oldweek = week;
-
-                    TCHAR com[MAX_PATH+100];
-                    GetModuleFileName(NULL, com, MAX_PATH);
-                    _tcscat_s(com, _T(" /command:updatecheck"));
-
-                    CAppUtils::LaunchApplication(com, 0, false);
-                }
-            }
-        }
-    }
+    CheckForNewerVersion();
 
     if (parser.HasVal(_T("configdir")))
     {
@@ -578,4 +536,50 @@ int CTortoiseProcApp::ExitInstance()
     if (retSuccess)
         return 0;
     return -1;
+}
+
+void CTortoiseProcApp::CheckForNewerVersion()
+{
+    if (CRegDWORD(_T("Software\\TortoiseSVN\\VersionCheck"), TRUE) == FALSE)
+        return;
+
+    time_t now;
+    time(&now);
+    if (now == 0 )
+        return;
+
+    struct tm ptm;
+    if (localtime_s(&ptm, &now)!=0)
+        return;
+
+    DWORD count = MAX_PATH;
+    TCHAR username[MAX_PATH] = {0};
+    GetUserName(username, &count);
+    // add a user specific diff to the current day count
+    // so that the update check triggers for different users
+    // at different days. This way we can 'spread' the update hits
+    // to our website a little bit
+    ptm.tm_yday += (username[0] % 7);
+
+    // we don't calculate the real 'week of the year' here
+    // because just to decide if we should check for an update
+    // that's not needed.
+    int week = ptm.tm_yday / 7;
+
+    CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
+    if (((DWORD)oldweek) == -1)
+    {
+        oldweek = week;     // first start of TortoiseProc, no update check needed
+        return;
+    }
+    if ((DWORD)week == oldweek)
+        return;
+
+    oldweek = week;
+
+    TCHAR com[MAX_PATH+100];
+    GetModuleFileName(NULL, com, MAX_PATH);
+    _tcscat_s(com, _T(" /command:updatecheck"));
+
+    CAppUtils::LaunchApplication(com, 0, false);
 }

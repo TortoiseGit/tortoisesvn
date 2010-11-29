@@ -68,6 +68,7 @@ private:
 private:
     bool    retSuccess;
     HWND    hWndExplorer;
+    void CheckForNewerVersion();
 };
 
 extern CTortoiseProcApp theApp;
