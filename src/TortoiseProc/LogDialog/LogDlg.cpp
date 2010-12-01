@@ -111,6 +111,7 @@ enum LogDlgContextMenuCommands
     ID_VIEWREV,
     ID_VIEWPATHREV,
     ID_EXPORT,
+    ID_EXPORTTREE,
     ID_COMPAREWITHPREVIOUS,
     ID_BLAMEWITHPREVIOUS,
     ID_GETMERGELOGS,
@@ -5056,6 +5057,11 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             popup.AppendMenuIcon(ID_SAVEAS, IDS_LOG_POPUP_SAVE);
             bEntryAdded = true;
         }
+        if (changedpaths.size())
+        {
+            popup.AppendMenuIcon(ID_EXPORTTREE, IDS_MENUEXPORT, IDI_EXPORT);
+            bEntryAdded = true;
+        }
 
         if (!bEntryAdded)
             return;
@@ -5284,24 +5290,73 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                             if (slashpos >= 0)
                                 sName = sName.Mid(slashpos);
                             tempfile.AppendPathString(sName);
-                            // TODO: one problem here:
-                            // a user could have selected multiple items which
-                            // have the same filename but reside in different
-                            // directories, e.g.
-                            // /folder1/file1
-                            // /folder2/file1
-                            // in that case, the second 'file1' will overwrite
-                            // the already saved 'file1'.
-                            //
-                            // we could maybe find the common root of all selected
-                            // items and then create sub folders to save those files
-                            // there.
-                            // But I think we should just leave it that way: to check
-                            // out multiple items at once, the better way is still to
-                            // use the export command from the top pane of the log dialog.
                         }
                         filepath = sRoot + changedlogpath.GetPath();
+                        progDlg.SetLine(2, filepath, true);
                         if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev))
+                        {
+                            progDlg.Stop();
+                            SetAndClearProgressInfo((HWND)NULL);
+                            ShowErrorDialog(m_hWnd);
+                            tempfile.Delete(false);
+                            EnableOKButton();
+                            theApp.DoWaitCursor(-1);
+                            break;
+                        }
+                    }
+                    progDlg.Stop();
+                    SetAndClearProgressInfo((HWND)NULL);
+                }
+                EnableOKButton();
+                theApp.DoWaitCursor(-1);
+            }
+            break;
+        case ID_EXPORTTREE:
+            {
+                DialogEnableWindow(IDOK, FALSE);
+                SetPromptApp(&theApp);
+                theApp.DoWaitCursor(1);
+                m_bCancelled = false;
+
+                bool bTargetSelected = false;
+                CTSVNPath TargetPath;
+                if (m_ChangedFileListCtrl.GetSelectedCount() > 1)
+                {
+                    CBrowseFolder browseFolder;
+                    browseFolder.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_SAVEFOLDERTOHINT)));
+                    browseFolder.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+                    CString strSaveAsDirectory;
+                    if (browseFolder.Show(GetSafeHwnd(), strSaveAsDirectory) == CBrowseFolder::OK)
+                    {
+                        TargetPath = CTSVNPath(strSaveAsDirectory);
+                        bTargetSelected = true;
+                    }
+                }
+                if (bTargetSelected)
+                {
+                    CProgressDlg progDlg;
+                    progDlg.SetTitle(IDS_APPNAME);
+                    progDlg.SetAnimation(IDR_DOWNLOAD);
+                    progDlg.SetTime(true);
+                    for ( size_t i = 0; i < changedpaths.size(); ++i)
+                    {
+                        const CString& changedlogpath = changedpaths[i];
+
+                        SVNRev getrev = rev1;
+
+                        CTSVNPath tempfile = TargetPath;
+                        tempfile.AppendPathString(changedlogpath);
+
+                        CString sInfoLine;
+                        sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)changedlogpath, (LPCTSTR)getrev.ToString());
+                        progDlg.SetLine(1, sInfoLine, true);
+                        progDlg.SetLine(2, tempfile.GetWinPath(), true);
+                        progDlg.SetProgress64(i, changedpaths.size());
+                        progDlg.ShowModeless(m_hWnd);
+
+                        SHCreateDirectoryEx(m_hWnd, tempfile.GetContainingDirectory().GetWinPath(), NULL);
+                        CString filepath = m_sRepositoryRoot + changedlogpath;
+                        if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev, true, true, svn_depth_empty))
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
