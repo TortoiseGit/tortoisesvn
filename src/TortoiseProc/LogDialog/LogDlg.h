@@ -184,6 +184,8 @@ private:
     void AddMainAnchors();
     void RemoveMainAnchors();
     void AdjustDateFilterVisibility();
+    void ReportNoUrlOfFile(const CString& filepath) const;
+    void ReportNoUrlOfFile(LPCTSTR filepath) const;
     CRect DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry);
     LRESULT DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pLVCD, PLOGENTRYDATA pLogEntry);
 

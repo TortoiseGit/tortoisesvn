@@ -2043,9 +2043,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
         if (filepath.IsEmpty())
         {
             theApp.DoWaitCursor(-1);
-            CString temp;
-            temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-            ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+            ReportNoUrlOfFile(filepath);
             TRACE(_T("could not retrieve the URL of the file!\n"));
             EnableOKButton();
             return;     //exit
@@ -2121,9 +2119,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
         if (filepath.IsEmpty())
         {
             theApp.DoWaitCursor(-1);
-            CString temp;
-            temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-            ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+            ReportNoUrlOfFile(filepath);
             TRACE(_T("could not retrieve the URL of the file!\n"));
             EnableOKButton();
             return FALSE;
@@ -4428,9 +4424,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 // we need an URL to complete this command, so error out if we can't get an URL
                 if (pathURL.IsEmpty())
                 {
-                    CString strMessage;
-                    strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
-                    ::MessageBox(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+                    ReportNoUrlOfFile(m_path.GetUIPathString());
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
@@ -4456,9 +4450,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 // we need an URL to complete this command, so error out if we can't get an URL
                 if (pathURL.IsEmpty())
                 {
-                    CString strMessage;
-                    strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
-                    ::MessageBox(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+                    ReportNoUrlOfFile(m_path.GetUIPathString());
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
@@ -4510,9 +4502,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 // we need an URL to complete this command, so error out if we can't get an URL
                 if (pathURL.IsEmpty())
                 {
-                    CString strMessage;
-                    strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
-                    ::MessageBox(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+                    ReportNoUrlOfFile(m_path.GetUIPathString());
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
@@ -4540,9 +4530,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 // we need an URL to complete this command, so error out if we can't get an URL
                 if (pathURL.IsEmpty())
                 {
-                    CString strMessage;
-                    strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
-                    ::MessageBox(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+                    ReportNoUrlOfFile(m_path.GetUIPathString());
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
@@ -5107,9 +5095,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     if (sUrl.IsEmpty())
                     {
                         theApp.DoWaitCursor(-1);
-                        CString temp;
-                        temp.Format(IDS_ERR_NOURLOFFILE, m_path.GetWinPath());
-                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ReportNoUrlOfFile(m_path.GetWinPath());
                         EnableOKButton();
                         theApp.DoWaitCursor(-1);
                         break;      //exit
@@ -5187,9 +5173,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     if (filepath.IsEmpty())
                     {
                         theApp.DoWaitCursor(-1);
-                        CString temp;
-                        temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ReportNoUrlOfFile(filepath);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
@@ -5221,9 +5205,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     if (filepath.IsEmpty())
                     {
                         theApp.DoWaitCursor(-1);
-                        CString temp;
-                        temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ReportNoUrlOfFile(filepath);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
@@ -5395,9 +5377,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     if (filepath.IsEmpty())
                     {
                         theApp.DoWaitCursor(-1);
-                        CString temp;
-                        temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                        ReportNoUrlOfFile(filepath);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
@@ -5457,9 +5437,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     if (filepath.IsEmpty())
                     {
                         theApp.DoWaitCursor(-1);
-                        CString temp;
-                        temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
-                        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+						ReportNoUrlOfFile(filepath);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
@@ -5781,4 +5759,16 @@ void CLogDlg::AdjustDateFilterVisibility()
     AddAnchor(IDC_DATEFROM, TOP_RIGHT);
     AddAnchor(IDC_TOLABEL, TOP_RIGHT);
     AddAnchor(IDC_DATETO, TOP_RIGHT);
+}
+
+void CLogDlg::ReportNoUrlOfFile(const CString& filepath) const
+{
+    ReportNoUrlOfFile((LPCTSTR)filepath);
+}
+
+void CLogDlg::ReportNoUrlOfFile(LPCTSTR filepath) const
+{
+    CString messageString;
+    messageString.Format(IDS_ERR_NOURLOFFILE, filepath);
+    ::MessageBox(this->m_hWnd, messageString, _T("TortoiseSVN"), MB_ICONERROR);
 }
