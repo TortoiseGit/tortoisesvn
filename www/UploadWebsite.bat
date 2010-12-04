@@ -28,9 +28,9 @@ pushd ..\..\tsvnsite
 
 %ZIP% a -r -tzip website.zip * > NUL
 
-%PSCP% -r -l %USERNAME% -pw %PASSWORD% website.zip tortoisesvn.net:/var/www/vhosts/test/
+%PSCP% -r -l %USERNAME% -pw %PASSWORD% website.zip tortoisesvn.net:/var/www/vhosts/default/
 
-%PLINK% tortoisesvn.net -l %USERNAME% -pw %PASSWORD% unzip -o /var/www/vhosts/test/website.zip -d /var/www/vhosts/test/htdocs/;rm -f /var/www/vhosts/test/website.zip
+%PLINK% tortoisesvn.net -l %USERNAME% -pw %PASSWORD% unzip -o /var/www/vhosts/default/website.zip -d /var/www/vhosts/default/htdocs/;rm -f /var/www/vhosts/default/website.zip
 
 del website.zip
 
