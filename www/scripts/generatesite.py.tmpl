@@ -1,8 +1,8 @@
 import os, string, shutil
 
 searchfor = [ '$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$' ]
-replacewith = [ '1.6.11', '1.6.11.20210', '1.6.13' ]
-setpath = 'D:\\Development\\SVN\\testsite'
+replacewith = [ '1.6.12', '1.6.12.20536', '1.6.15' ]
+setpath = 'D:\\Development\\SVN\\tsvnsite'
 
 for root, dirs, files in os.walk(setpath, topdown=False):
     for name in files:
@@ -20,6 +20,8 @@ sidebarFile = file(os.path.join(setpath, 'sidebar.html'), 'r')
 sidebarFileDE = file(os.path.join(setpath, 'sidebar.de.html'), 'r')
 adtopFile = file(os.path.join(setpath, 'files/adsense_top.txt'), 'r')
 adtopFileDE = file(os.path.join(setpath, 'files/adsense_top.de.txt'), 'r')
+adtopBigFile = file(os.path.join(setpath, 'files/adsense_downloadtop.txt'), 'r')
+adtopBigFileDE = file(os.path.join(setpath, 'files/adsense_downloadstop.de.txt'), 'r')
 adinpageFile = file(os.path.join(setpath, 'files/adsense_inpage.txt'), 'r')
 adinpageFileDE = file(os.path.join(setpath, 'files/adsense_inpage.de.txt'), 'r')
 
@@ -44,14 +46,20 @@ adtopFile.close()
 adtopTextDE = adtopFileDE.read()
 adtopFileDE.close()
 
+adtopBigText = adtopBigFile.read()
+adtopBigFile.close()
+
+adtopBigTextDE = adtopBigFileDE.read()
+adtopBigFileDE.close()
+
 adinpageText = adinpageFile.read()
 adinpageFile.close()
 
 adinpageTextDE = adinpageFileDE.read()
 adinpageFileDE.close()
 
-searchfor.extend( [ '<!--#include FILE="menu.html" -->', '<!--#include FILE="menu.de.html" -->', '<!--#include FILE="sidebar.html" -->', '<!--#include FILE="sidebar.de.html" -->', '<!--#include FILE="footer.html" -->', '$ADSENSE_TOP$', '$ADSENSE_TOPDE$', '$ADSENSE_INPAGE$', '$ADSENSE_INPAGEDE$' ] )
-replacewith.extend( [ menuText, menuTextDE, sidebarText, sidebarTextDE, footerText, adtopText, adtopTextDE, adinpageText, adinpageTextDE ] )
+searchfor.extend( [ '<!--#include FILE="menu.html" -->', '<!--#include FILE="menu.de.html" -->', '<!--#include FILE="sidebar.html" -->', '<!--#include FILE="sidebar.de.html" -->', '<!--#include FILE="footer.html" -->', '$ADSENSE_TOP$', '$ADSENSE_TOPDE$', '$ADSENSE_BIGTOP$', '$ADSENSE_BIGTOPDE$', '$ADSENSE_INPAGE$', '$ADSENSE_INPAGEDE$' ] )
+replacewith.extend( [ menuText, menuTextDE, sidebarText, sidebarTextDE, footerText, adtopText, adtopTextDE, adtopBigText, adtopBigTextDE, adinpageText, adinpageTextDE ] )
 
 for root, dirs, files in os.walk(setpath):
     fname = files
