@@ -1,31 +1,36 @@
-#
-# Chinese (traditional) translation for TortoiseSVN
-# Copyright (C) 2004-2010 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
-#
-# Last commit by:
-# $Author$
-# $Date$
-# $Rev$
-#
-# Authors:
-# Cecil Sheng <zcecil@csie.org>
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-11-18 21:26+0800\n"
-"Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2010-12-06 08:11+0000\n"
+"Last-Translator: zcecil <zcecil@csie.org>\n"
+"Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: TAIWAN\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #. Resource IDs: (10, 126)
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
 msgstr " "
 
@@ -785,6 +790,10 @@ msgstr "僅影像(&I)"
 msgid "&Import..."
 msgstr "匯入(&I)..."
 
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr "包含外部連結(&I)"
+
 #. Resource IDs: (1480)
 msgid "&Include merge info"
 msgstr "包含合併資訊(&I)"
@@ -1473,7 +1482,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -4746,19 +4756,6 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
-# msgid/msgstr fields for Accelerator keys
-# Format is: "ID:xxxxxx:VACS+X" where:
-#    ID:xxxxx = the menu ID corresponding to the accelerator
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, copy msgid to msgstr
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -4844,7 +4841,6 @@ msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:32870; 'Collapsed'
-#, fuzzy
 msgid "ID:32870:V C +L"
 msgstr "ID:32870:V C +L"
 
@@ -8177,7 +8173,8 @@ msgstr "顯示所有版本(&A)"
 msgid "Show &changes"
 msgstr "顯示變更(&C)"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "顯示記錄(&L)"
 
@@ -11601,54 +11598,3 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "Check externals to explicit revision"
-#~ msgstr "正在檢查連結至固定版本的外部連結"
-#~ msgid "Check externals to tag"
-#~ msgstr "更新外部連結至標籤"
-#~ msgid "Tagged"
-#~ msgstr "已標記"
-#~ msgid "tree conflict:"
-#~ msgstr "目錄樹衝突:"
-#~ msgid "&Sat:"
-#~ msgstr "濃度(&S):"
-#~ msgid "&Save..."
-#~ msgstr "儲存(&S)..."
-#~ msgid "Bug-ID / &Issue-Nr:"
-#~ msgstr "Bug編號 / 問題編號(&I):"
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "在忽略的檔案上也顯示覆蓋圖示"
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "在無版本控制的檔案上也顯示覆蓋圖示"
-#~ msgid "&To URL: "
-#~ msgstr "至URL(&T):"
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "作者:                        Stefan Kueng"
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "每週自動檢查新版(&N)"
-#~ msgid ""
-#~ "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "啟用時, TortoiseSVN 每週會檢查一次最新版本"
-#~ msgid "Edit conflict"
-#~ msgstr "編修衝突"
-#~ msgid "From URL:"
-#~ msgstr "從 URL:"
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "隱藏無關的異動路徑(&H)"
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "要取出的 URL 是個檔案但是當前工作\n"
-#~ "複本中已經有同名目錄."
-#~ msgid "Show &properties"
-#~ msgstr "顯示性質(&P)"
-#~ msgid "Show i&gnored files"
-#~ msgstr "顯示忽略的檔案(&I)"
-#~ msgid "Show un&modified files"
-#~ msgstr "顯示無異動的檔案(&M)"
-#~ msgid "Show un&versioned files"
-#~ msgstr "顯示無版本控制的檔案(&V)"
-#~ msgid "Cleaning up."
-#~ msgstr "正在清除."
-
