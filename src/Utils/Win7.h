@@ -1235,6 +1235,8 @@ __inline HRESULT SHCreateLibrary(__in REFIID riid, __deref_out void **ppv)
 
 __inline HRESULT SHLoadLibraryFromItem(__in IShellItem *psiLibrary, __in DWORD grfMode, __in REFIID riid, __deref_out void **ppv)
 {
+    if (ppv == 0)
+        return E_POINTER;
     *ppv = NULL;
     IShellLibrary *plib;
     HRESULT hr = CoCreateInstance(CLSID_ShellLibrary, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&plib));
@@ -1252,6 +1254,8 @@ __inline HRESULT SHLoadLibraryFromItem(__in IShellItem *psiLibrary, __in DWORD g
 
 __inline HRESULT SHLoadLibraryFromKnownFolder(__in REFKNOWNFOLDERID kfidLibrary, __in DWORD grfMode, __in REFIID riid, __deref_out void **ppv)
 {
+    if (ppv == 0)
+        return E_POINTER;
     *ppv = NULL;
     IShellLibrary *plib;
     HRESULT hr = CoCreateInstance(CLSID_ShellLibrary, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&plib));
@@ -1269,8 +1273,10 @@ __inline HRESULT SHLoadLibraryFromKnownFolder(__in REFKNOWNFOLDERID kfidLibrary,
 
 __inline HRESULT SHLoadLibraryFromParsingName(__in PCWSTR pszParsingName, __in DWORD grfMode, __in REFIID riid, __deref_out void **ppv)
 {
+    if (ppv == 0)
+        return E_POINTER;
     *ppv = NULL;
-    IShellItem *psiLibrary;
+    IShellItem *psiLibrary = NULL;
     HRESULT hr = SHCreateItemFromParsingName(pszParsingName, NULL, IID_PPV_ARGS(&psiLibrary));
     if (SUCCEEDED(hr))
     {
@@ -1282,7 +1288,7 @@ __inline HRESULT SHLoadLibraryFromParsingName(__in PCWSTR pszParsingName, __in D
 
 __inline HRESULT SHAddFolderPathToLibrary(__in IShellLibrary *plib, __in PCWSTR pszFolderPath)
 {
-    IShellItem *psiFolder;
+    IShellItem *psiFolder = NULL;
     HRESULT hr = SHCreateItemFromParsingName(pszFolderPath, NULL, IID_PPV_ARGS(&psiFolder));
     if (SUCCEEDED(hr))
     {
@@ -1312,16 +1318,19 @@ __inline HRESULT SHRemoveFolderPathFromLibrary(__in IShellLibrary *plib, __in PC
 
 __inline HRESULT SHResolveFolderPathInLibrary(__in IShellLibrary *plib, __in PCWSTR pszFolderPath, __in DWORD dwTimeout, __deref_out PWSTR *ppszResolvedPath)
 {
+    if (ppszResolvedPath == 0)
+        return E_POINTER;
+
     *ppszResolvedPath = NULL;
     PIDLIST_ABSOLUTE pidlFolder = SHSimpleIDListFromPath(pszFolderPath);
     HRESULT hr = pidlFolder ? S_OK : E_INVALIDARG;
     if (SUCCEEDED(hr))
     {
-        IShellItem *psiFolder;
+        IShellItem *psiFolder = NULL;
         hr = SHCreateItemFromIDList(pidlFolder, IID_PPV_ARGS(&psiFolder));
         if (SUCCEEDED(hr))
         {
-            IShellItem *psiResolved;
+            IShellItem *psiResolved = NULL;
             hr = plib->ResolveFolder(psiFolder, dwTimeout, IID_PPV_ARGS(&psiResolved));
             if (SUCCEEDED(hr))
             {
@@ -1342,11 +1351,11 @@ __inline HRESULT SHSaveLibraryInFolderPath(__in IShellLibrary *plib, __in PCWSTR
         *ppszSavedToPath = NULL;
     }
 
-    IShellItem *psiFolder;
+    IShellItem *psiFolder = NULL;
     HRESULT hr = SHCreateItemFromParsingName(pszFolderPath, NULL, IID_PPV_ARGS(&psiFolder));
     if (SUCCEEDED(hr))
     {
-        IShellItem *psiSavedTo;
+        IShellItem *psiSavedTo = NULL;
         hr = plib->Save(psiFolder, pszLibraryName, lsf, &psiSavedTo);
         if (SUCCEEDED(hr))
         {
