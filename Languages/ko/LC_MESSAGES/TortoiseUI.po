@@ -1,32 +1,36 @@
-# Korean translation for TortoiseSVN
-# Copyright (C) 2004-2010 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
-# Last commit by:
-# $Author$
-# $Date$
-# $Rev$
-# Authors:
-# Hojin Choi <pynoos@users.kldp.net>
-# Lee Jae-Hong <http://www.pyrasis.com>
-# TaeDong Kim <fly1004@gmail.com>
-# TaeDong Kim <fly1004@gmail.com>, 2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-16 17:56+0900\n"
-"Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
-"Language-Team: Test\n"
+"PO-Revision-Date: 2010-12-07 07:32+0000\n"
+"Last-Translator: fly1004 <fly1004@gmail.com>\n"
+"Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Language: Korean\n"
-"X-Generator: Virtaal 0.5.2\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #. Resource IDs: (10, 126)
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
 msgstr " "
 
@@ -786,6 +790,10 @@ msgstr "이미지만(&I)"
 msgid "&Import..."
 msgstr "임포트(&I)..."
 
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr "외부경로 포함(&I)"
+
 #. Resource IDs: (1480)
 msgid "&Include merge info"
 msgstr "병합 정보 포함(&I)"
@@ -1316,9 +1324,8 @@ msgid "&Update"
 msgstr "업데이트(&U)"
 
 #. Resource IDs: (76)
-#, fuzzy
 msgid "&Update item to revision..."
-msgstr "이 리비전으로 업데이트(&U)"
+msgstr "아이템을 특정 리비전으로 업데이트하기(&U)"
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -4746,19 +4753,6 @@ msgid "ID"
 msgstr "ID"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
-# msgid/msgstr fields for Accelerator keys
-# Format is: "ID:xxxxxx:VACS+X" where:
-#    ID:xxxxx = the menu ID corresponding to the accelerator
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -6702,8 +6696,8 @@ msgid "Picture:"
 msgstr "그림:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "그림 파일 (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|모두 (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "그림 파일 (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|모두 (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -8586,7 +8580,6 @@ msgid "Stripes"
 msgstr "줄무늬"
 
 #. Resource IDs: (117)
-#, fuzzy
 msgid ""
 "Sub-string filter:\r\n"
 "* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
@@ -8603,18 +8596,6 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
-"서브-스트링 필터:\r\n"
-"* 공백 문자로 분리해서 하나 이상의 스트링을 지정하십시오. 모든 서브-스트링이 검색됩니다.\r\n"
-"* 서브-스트링을 포함하는 리비전들을 제외하기 위해서 서브-스트링의 앞에 - 문자를 넣으십시오.\r\n"
-"* 공백을 포함하는 스트링을 \" 문자로 감싸십시오.\r\n"
-"* 모든 필터 조건을 반대로 적용하기 위해서 라인의 시작부분에 ! 문자를 넣으십시오.\r\n"
-"\r\n"
-"예제:\r\n"
-"myname  2008    : 2008의 나의 커밋들\r\n"
-".h  -.cpp              : 구현이 아니라 헤더만 변경된 커밋들\r\n"
-"\" \"                        : 공백들이 있는 커밋들 (예. 단지 경로들에서 검색할 때)\r\n"
-"-\"\"show all\"\"        : '\"show all\"' 스트링을 포함하지 않는 커밋들\r\n"
-"!myname  .cpp    : .cpp 파일들에서 나의 커밋을 제외한 모든 것"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -11404,92 +11385,84 @@ msgstr ""
 "로그 메시지 템플릿으로 사용합니다."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatebranch\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
-"로그 메시지 템플릿으로 사용합니다."
+"tsvn:logtemplatebranch\n"
+"커밋 다이얼로그에서 로그 메시지 박스에 삽입되는 스트링입니다.\n"
+"브랜치/태그/복사에 대해서 사용자가 채워넣는 로그 메시지 템플릿으로 사용하십시오."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatecommit\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for commits for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
-"로그 메시지 템플릿으로 사용합니다."
+"tsvn:logtemplatecommit\n"
+"커밋 다이얼로그에서 로그 메시지 박스에 삽입되는 스트링입니다.\n"
+"커밋에 대해서 사용자가 채워넣는 로그 메시지 템플릿으로 사용하십시오."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatedelete\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for deletes for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
-"로그 메시지 템플릿으로 사용합니다."
+"tsvn:logtemplatedelete\n"
+"커밋 다이얼로그에서 로그 메시지 박스에 삽입되는 스트링입니다.\n"
+"삭제에 대해서 사용자가 채워넣는 로그 메시지 템플릿으로 사용하십시오."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplateimport\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
-"로그 메시지 템플릿으로 사용합니다."
+"tsvn:logtemplateimport\n"
+"커밋 다이얼로그에서 로그 메시지 박스에 삽입되는 스트링입니다.\n"
+"임포트에 대해서 사용자가 채워넣는 로그 메시지 템플릿으로 사용하십시오."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatelock\r\n"
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
-"로그 메시지 템플릿으로 사용합니다."
+"tsvn:logtemplatelock\n"
+"잠금얻기 다이얼로그에서 로그 메시지 박스에 삽입되는 스트링입니다.\n"
+"잠금얻기에 대해서 사용자가 채워넣는 로그 메시지 템플릿으로 사용하십시오."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatemkdir\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for directory creations for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
-"로그 메시지 템플릿으로 사용합니다."
+"tsvn:logtemplatemkdir\n"
+"커밋 다이얼로그에서 로그 메시지 박스에 삽입되는 스트링입니다.\n"
+"디렉토리 생성에 대해서 사용자가 채워넣는 로그 메시지 템플릿으로 사용하십시오."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatemove\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for moves/renames for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
-"로그 메시지 템플릿으로 사용합니다."
+"tsvn:logtemplatemove\n"
+"커밋 다이얼로그에서 로그 메시지 박스에 삽입되는 스트링입니다.\n"
+"이동/이름변경에 대해서 사용자가 채워넣는 로그 메시지 템플릿으로 사용하십시오."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatepropset\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
-"로그 메시지 템플릿으로 사용합니다."
+"tsvn:logtemplatepropset\n"
+"커밋 다이얼로그에서 로그 메시지 박스에 삽입되는 스트링입니다.\n"
+"속성 수정에 대해서 사용자가 채워넣는 로그 메시지 템플릿으로 사용하십시오."
 
 #. Resource IDs: (578)
 msgid ""
@@ -11598,112 +11571,3 @@ msgstr "예"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
-
-#~ msgid "Check externals to explicit revision"
-#~ msgstr "외부경로를 명시적인 리비전으로 체크"
-
-#~ msgid "Check externals to tag"
-#~ msgstr "외부경로를 태그로 체크"
-
-#~ msgid "Tagged"
-#~ msgstr "태그됨"
-
-#~ msgid "tree conflict:"
-#~ msgstr "트리 충돌:"
-
-#~ msgid "&Sat:"
-#~ msgstr "포화(&S):"
-
-#~ msgid "Bug-ID / &Issue-Nr:"
-#~ msgstr "Bug-ID / &Issue-Nr:"
-
-#~ msgid "Dialog"
-#~ msgstr "다이얼로그"
-
-#~ msgid "&Save..."
-#~ msgstr "저장(&S)..."
-
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "무시되는 파일에 오버레이를 보이기"
-
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "버전관리 대상이 아닌 파일에 오버레이를 보이기"
-
-#~ msgid "&To URL: "
-#~ msgstr "대상 URL(&T): "
-
-#~ msgid "&To path: "
-#~ msgstr "대상 경로(&T):"
-
-#~ msgid "y"
-#~ msgstr "y"
-
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "작성자:                                    Stefan Kueng"
-
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "매주 새 버전을 확인합니다.(&N)"
-
-#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
-
-#~ msgid "Edit conflict"
-#~ msgstr "충돌 상황 편집"
-
-#~ msgid "From URL:"
-#~ msgstr "시작 URL:"
-
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "관련없는 변경된 경로를 숨기기(&I)"
-
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "체크아웃의 URL이 파일을 참조합니다.\n"
-#~ "하지만 이 작업 사본의 경로는 존재하는 디렉토리입니다."
-
-#~ msgid "Show &properties"
-#~ msgstr "속성들 보기(&P)"
-
-#~ msgid "Show i&gnored files"
-#~ msgstr "무시되는 파일 보기(&G)"
-
-#~ msgid "Show un&modified files"
-#~ msgstr "수정되지 않은 파일 보기(&M)"
-
-#~ msgid "Show un&versioned files"
-#~ msgstr "버전관리 대상이 아닌 파일 보기(&V)"
-
-#~ msgid "Cleaning up."
-#~ msgstr "정리"
-
-#~ msgid "General::Revision Graph"
-#~ msgstr "일반::리비전 그래프"
-
-#~ msgid "General::Revision Graph Colors"
-#~ msgstr "일반::리비전 그래프 색깔"
-
-#~ msgid "Go offline?"
-#~ msgstr "오프라인으로 진행할까요?"
-
-#~ msgid "Replaced node"
-#~ msgstr "바뀐 노드"
-
-#~ msgid "copy source only"
-#~ msgstr "원본만 복사"
-
-#~ msgid ""
-#~ "GDI+ is required to save the revision graph as a picture.\n"
-#~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-#~ msgstr ""
-#~ "그래프를 그림파일로 저장하려면 GDI+가 필요합니다.\n"
-#~ "GDI+는 다음 사이트에서 구할 수 있습니다.\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-
-#~ msgid "Floppy drives (A: B:)"
-#~ msgstr "플로피 드라이브 (A: B:)"
-
-#~ msgid "On copy and rename nodes, show only the changed parts of the path name"
-#~ msgstr "복사 및 이름이 변경된 노드들에서, 경로이름에서 변경된 부분만 보여주기"

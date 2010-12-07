@@ -1,31 +1,36 @@
-# Swedish translation for TortoiseSVN
-# Copyright (C) 2004-2010 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
-# Last commit by:
-# $Author$
-# $Date$
-# $Rev$
-# Authors:
-# Johan Stenqvist
-# Johan Appelgren <johan.appelgren@gmail.com>
-# Johan Foglemark <johanfoglemark@gmail.com>
-# Johan Foglemark <johanfoglemark@gmail.com>, 2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-11-08 10:49+0100\n"
-"Last-Translator: Johan Foglemark <johanfoglemark@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2010-12-07 07:34+0000\n"
+"Last-Translator: fogle <johanfoglemark@gmail.com>\n"
+"Language-Team: Swedish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.5.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #. Resource IDs: (10, 126)
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
 msgstr " "
 
@@ -99,7 +104,6 @@ msgid "%1!s! - at revision: %2!d!"
 msgstr "%1!s! - i revision: %2!d!"
 
 #. Resource IDs: (151)
-# Osäker på var denna visas
 #, c-format
 msgid "%1!s! : Working Base, Revision %2!ld!"
 msgstr "%1!s! : Arbetsbas, Revision %2!ld!"
@@ -180,19 +184,16 @@ msgid "%s (offline)"
 msgstr "%s (Frånkopplad)"
 
 #. Resource IDs: (151)
-# Var används denna?
 #, c-format
 msgid "%s : Remote file"
 msgstr "%s : Fjärrfil"
 
 #. Resource IDs: (151)
-# Osäker på var denna visas
 #, c-format
 msgid "%s : Working Base"
 msgstr "%s : Arbetsbas"
 
 #. Resource IDs: (151)
-# Osäker på var denna visas
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbetskopia"
@@ -437,7 +438,6 @@ msgid "&Blame..."
 msgstr "&Visa ändringar per rad..."
 
 #. Resource IDs: (32849)
-# Var används denna?
 msgid "&Blue Style"
 msgstr "&Blå tema"
 
@@ -542,7 +542,6 @@ msgid "&Contact the repository on startup"
 msgstr "&Kontakta arkivet vid start"
 
 #. Resource IDs: (1073)
-# Hur översätta "diff" och "BASE"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Konvertera filer vid jämförelser mot basrevision"
 
@@ -603,7 +602,6 @@ msgid "&Delete..."
 msgstr "&Ta bort..."
 
 #. Resource IDs: (12)
-# Hur översätta "diff"
 msgid "&Diff"
 msgstr "&Jämför"
 
@@ -792,6 +790,10 @@ msgstr "&Endast bild"
 msgid "&Import..."
 msgstr "&Importera..."
 
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr "&Inkludera externa"
+
 #. Resource IDs: (1480)
 msgid "&Include merge info"
 msgstr "&Inkludera föreningsinformation"
@@ -801,7 +803,6 @@ msgid "&Initial directory:"
 msgstr "&Initial mapp"
 
 #. Resource IDs: (32825)
-# Hur översätta "difference"
 msgid "&Inline diff word-wise"
 msgstr "&Skillnader inom rad per ord"
 
@@ -814,7 +815,6 @@ msgid "&Join with sub-trees"
 msgstr "&Förena med alla underträd"
 
 #. Resource IDs: (1016)
-# Hur översätta "diff"
 msgid "&Jump to first difference when loading"
 msgstr "&Gå till första skillnaden när programmet startas"
 
@@ -952,7 +952,6 @@ msgid "&Next >"
 msgstr "&Nästa >"
 
 #. Resource IDs: (32779)
-# Hur översätta "difference"
 msgid "&Next Difference"
 msgstr "&Nästa skillnad"
 
@@ -1029,7 +1028,6 @@ msgid "&Power user defaults"
 msgstr "&Power user inställningar"
 
 #. Resource IDs: (32780)
-# Hur översätta "difference"
 msgid "&Previous Difference"
 msgstr "&Föregående skillnad"
 
@@ -1102,7 +1100,6 @@ msgid "&Reset to Default"
 msgstr "Åte&rställ till standard"
 
 #. Resource IDs: (1382)
-# Denna är lite luddig
 msgid "&Resolve using local property"
 msgstr "Lös med hjälp av lokala inställninga&r"
 
@@ -1355,7 +1352,6 @@ msgid "&View:"
 msgstr "&Vy:"
 
 #. Resource IDs: (32774)
-# Hur översätta "whitespace"
 msgid "&Whitespaces"
 msgstr "&Tomrum"
 
@@ -1372,7 +1368,6 @@ msgid "&Windows XP"
 msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
-# Osäker på var denna visas
 msgid "&Working copy"
 msgstr "&Arbetskopia"
 
@@ -1510,12 +1505,10 @@ msgid ": Revision %d"
 msgstr ": Revision %d"
 
 #. Resource IDs: (151)
-# Osäker på var denna visas
 msgid ": working base"
 msgstr ": arbetsbas"
 
 #. Resource IDs: (151)
-# Osäker på var denna visas
 msgid ": working copy"
 msgstr ": arbetskopia"
 
@@ -1699,12 +1692,10 @@ msgid "Add Properties"
 msgstr "Lägg till egenskaper"
 
 #. Resource IDs: (110)
-# Hur översätta "diff"
 msgid "Add extension specific diff program"
 msgstr "Lägg till filändelsespecifikt program för att visa skillnader"
 
 #. Resource IDs: (110)
-# Hur översätta "merge"
 msgid "Add extension specific merge program"
 msgstr "Lägg till föreningsprogram för filändelse"
 
@@ -1734,7 +1725,6 @@ msgid "Add..."
 msgstr "Lägg till..."
 
 #. Resource IDs: (171)
-# Hur översätta "diff/merge"
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Lägg till/ändra filändelsebaserat skillnads-/föreningsprogram"
 
@@ -1798,17 +1788,14 @@ msgid "Advanced"
 msgstr "Avancerat"
 
 #. Resource IDs: (170)
-# Hur översätta "diff/merge"
 msgid "Advanced Diff/Merge Settings"
 msgstr "Avancerade skillnads-/föreningsinställningar"
 
 #. Resource IDs: (110)
-# Hur översätta "diff"
 msgid "Advanced diff settings"
 msgstr "Avancerade skillnadsinställningar"
 
 #. Resource IDs: (110)
-# Hur översätta "merge"
 msgid "Advanced merge settings"
 msgstr "Avancerade föreningsinställningar"
 
@@ -2190,7 +2177,6 @@ msgid "Break loc&k"
 msgstr "B&ryt lås"
 
 #. Resource IDs: (78)
-# Hur översätta "diff"
 msgid "Browse for the external diff program"
 msgstr "Välj applikation för skillnadshantering"
 
@@ -2600,12 +2586,10 @@ msgid "Click here to select a recently typed message"
 msgstr "Klicka här för att välja ett gammalt loggmeddelande"
 
 #. Resource IDs: (65535)
-# Hur översätta "diff"
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
 msgstr "Klicka på \"Avancerat...\" för att ange olika skillnadsprogram baserat på filändelse"
 
 #. Resource IDs: (65535)
-# Hur översätta "merge"
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "Klicka på \"Avancerat...\" för att ange olika föreningsprogram baserat på filändelse"
 
@@ -2779,7 +2763,6 @@ msgid "Compare with &working copy"
 msgstr "Jämför med &arbetskopia"
 
 #. Resource IDs: (138)
-# Hur översätta "Base"
 msgid "Compare with b&ase"
 msgstr "Jämför med &basrevision"
 
@@ -2837,7 +2820,6 @@ msgid "Configure the program used to resolve conflicted files."
 msgstr "Konfigurera programmet som används för att lösa konflikter i filer."
 
 #. Resource IDs: (65535)
-# Hur översätta "diff", menas det "unified diff" här tro?
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Konfigurera applikation för att visa GNU skillnadsfiler (patchfiler)."
 
@@ -3013,12 +2995,10 @@ msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
 
 #. Resource IDs: (103)
-# Osäker på var denna visas
 msgid "Copy to working copy"
 msgstr "Kopiera till arbetskopia"
 
 #. Resource IDs: (101)
-# Osäker på var denna visas
 msgid "Copy to working copy..."
 msgstr "Kopiera till arbetskopia..."
 
@@ -3157,7 +3137,6 @@ msgid "Could not save the file %s!"
 msgstr "Kunde inte spara filen %s!"
 
 #. Resource IDs: (70)
-# Hur översätta "diff"
 #, c-format
 msgid ""
 "Could not start diff viewer!\n"
@@ -3167,7 +3146,6 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (81)
-# Hur översätta "diff"
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
@@ -3190,7 +3168,6 @@ msgid "Could not start print job."
 msgstr "Kunde inte starta utskrift."
 
 #. Resource IDs: (83)
-# Hur översätta "diff"
 #, c-format
 msgid ""
 "Could not start text viewer!\n"
@@ -3440,7 +3417,6 @@ msgid "Depth:"
 msgstr "Djup:"
 
 #. Resource IDs: (1002)
-# Hur översätta "diffing"
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -3485,7 +3461,6 @@ msgid "Diff file:"
 msgstr "Patchfil:"
 
 #. Resource IDs: (1533)
-# Hur översätta "diffing"
 msgid "Diff options"
 msgstr "Alternativ för olikheter"
 
@@ -3502,7 +3477,6 @@ msgid "Differential path &names"
 msgstr "Differe&ntiella sökvägar"
 
 #. Resource IDs: (1022)
-# Hur översätta "diffing"
 msgid "Diffing"
 msgstr "Jämför"
 
@@ -3700,8 +3674,6 @@ msgid "Drives A: and B:"
 msgstr "Enheterna A: och B:"
 
 #. Resource IDs: (613)
-# Den här översättning är aning konstig. Behöver nog kontrollera i kompilerad
-# version.
 #, c-format
 msgid "Drop not possible on %1"
 msgstr "Går inte att släppa objeket på %1"
@@ -3779,7 +3751,6 @@ msgid "Edit bugtraq properties"
 msgstr "Editera buqtraq egenskaper"
 
 #. Resource IDs: (110)
-# Hur översätta "diff"
 msgid "Edit extension specific diff program"
 msgstr "Ändra filändelsespecifikt program för att visa skillnader"
 
@@ -4137,7 +4108,6 @@ msgid "External Programs::Unified Diff Viewer"
 msgstr "Externa program::\"Unified Diff\" visare"
 
 #. Resource IDs: (263)
-# Konstigt ordval
 msgid "External failed"
 msgstr "Externt misslyckades"
 
@@ -4438,7 +4408,6 @@ msgid "Fit width"
 msgstr "Anpassa bredd"
 
 #. Resource IDs: (89)
-# Jag är inte säker på att denna är helt korrekt
 msgid "Fix case of item and do not add it"
 msgstr "Fixera objektfall och lägg inte till"
 
@@ -4519,12 +4488,10 @@ msgid "General::Context Menu"
 msgstr "Allmänt::Snabbmeny"
 
 #. Resource IDs: (196)
-# Hantering?
 msgid "General::Dialogs 1"
 msgstr "Allmänt::Dialoger 1"
 
 #. Resource IDs: (213)
-# Hantering?
 msgid "General::Dialogs 2"
 msgstr "Allmänt::Dialoger 2"
 
@@ -4599,7 +4566,6 @@ msgid "Go to line"
 msgstr "Gå till rad"
 
 #. Resource IDs: (2051)
-# Hur översätta "diff"
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
@@ -4608,7 +4574,6 @@ msgstr ""
 "Nästa konflikt"
 
 #. Resource IDs: (2049)
-# Hur översätta "diff"
 msgid ""
 "Go to the next difference\n"
 "Next difference"
@@ -4617,7 +4582,6 @@ msgstr ""
 "Nästa skillnad"
 
 #. Resource IDs: (2051)
-# Hur översätta "diff"
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
@@ -4626,7 +4590,6 @@ msgstr ""
 "Föregående konflikt"
 
 #. Resource IDs: (2049)
-# Hur översätta "diff"
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
@@ -4732,7 +4695,6 @@ msgid "Highest revision number in the cache"
 msgstr "Högsta revisionen i cachen"
 
 #. Resource IDs: (1127)
-# ???
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Tips: Tryck F5 för att uppdatera valt underträd och Ctrl-F5 för att också ladda in alla barnnoder"
 
@@ -4790,19 +4752,6 @@ msgid "ID"
 msgstr "ID"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
-# msgid/msgstr fields for Accelerator keys
-# Format is: "ID:xxxxxx:VACS+X" where:
-#    ID:xxxxx = the menu ID corresponding to the accelerator
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -4937,7 +4886,6 @@ msgid "ID:57665:V C +W"
 msgstr "ID:57665:V C +W"
 
 #. Resource IDs: (106)
-# Hantering?
 msgid "Icon Overlays"
 msgstr "Statusikoner"
 
@@ -4946,12 +4894,10 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Statusikoner / statuskolumner"
 
 #. Resource IDs: (184)
-# Hantering?
 msgid "Icon Overlays::Icon Set"
 msgstr "Statusikoner::Statusikonuppsättning"
 
 #. Resource IDs: (308)
-# Hantering?
 msgid "Icon Overlays::Overlay Handlers"
 msgstr "Ikon Overlays::Overlay Hanterare"
 
@@ -5280,7 +5226,6 @@ msgid "Initial import"
 msgstr "Första importen"
 
 #. Resource IDs: (65535)
-# Hur översätta "difference"
 msgid "Inline differences"
 msgstr "Skillnader inom rad"
 
@@ -5450,7 +5395,6 @@ msgid "Items to show"
 msgstr "Objekt att visa"
 
 #. Resource IDs: (1074)
-# Hur översätta "diff"
 msgid "J&ump to first conflict when loading"
 msgstr "&Gå till första konflikten när programmet startas"
 
@@ -5571,12 +5515,10 @@ msgstr ""
 "Linje"
 
 #. Resource IDs: (32853)
-# Hur översätta "diff"
 msgid "Line diff bar"
 msgstr "Visa avvikelsefält"
 
 #. Resource IDs: (65535)
-# Hur översätta "difference"
 msgid "Line differences"
 msgstr "Radskillnader"
 
@@ -6207,7 +6149,6 @@ msgid "New name:"
 msgstr "Nytt namn:"
 
 #. Resource IDs: (32875)
-# Hur översätta "difference"
 msgid "Next &Inline Difference"
 msgstr "Nästa skillnad &inom rad"
 
@@ -6612,7 +6553,6 @@ msgid "Output.prn"
 msgstr "Output.prn"
 
 #. Resource IDs: (65535)
-# Hantering?
 msgid "Overlays"
 msgstr "Statusikoner"
 
@@ -6894,7 +6834,6 @@ msgid "Preview: "
 msgstr "Förhandsgranskning:"
 
 #. Resource IDs: (32876)
-# Hur översätta "difference"
 msgid "Previous In&line Difference"
 msgstr "Föregående ski&llnad innom rad"
 
@@ -6987,13 +6926,11 @@ msgid "Property %s : remote"
 msgstr "Egenskap %s : fjärr"
 
 #. Resource IDs: (151)
-# Osäker på var denna visas
 #, c-format
 msgid "Property %s : working base"
 msgstr "Egenskap %s : arbetsbas"
 
 #. Resource IDs: (151)
-# Osäker på var denna visas
 #, c-format
 msgid "Property %s : working copy"
 msgstr "Egenskap %s : arbetskopia"
@@ -7373,7 +7310,6 @@ msgid "Remove the directory"
 msgstr "Ta bort katalogen"
 
 #. Resource IDs: (610)
-# Var används denna?
 msgid "Remove the file"
 msgstr "Ta bort filen"
 
@@ -7845,17 +7781,14 @@ msgid "SVN Statusnumber"
 msgstr "SVN Statusnummer"
 
 #. Resource IDs: (12)
-# Var används denna?
 msgid "SVN URL"
 msgstr "SVN URL"
 
 #. Resource IDs: (17)
-# Var används denna?
 msgid "SVN eol-style"
 msgstr "SVN eol-style"
 
 #. Resource IDs: (14)
-# Var används denna?
 msgid "SVN mime-type"
 msgstr "SVN mime-type"
 
@@ -8023,7 +7956,6 @@ msgid "Select changelist"
 msgstr "Markera ändringslista"
 
 #. Resource IDs: (78)
-# Hur översätta "diff"
 msgid "Select diff application"
 msgstr "Välj applikation för att visa skillnader"
 
@@ -8056,7 +7988,6 @@ msgid "Select folder to save the selected files to"
 msgstr "Välj mapp där de valda filerna skall sparas"
 
 #. Resource IDs: (197)
-# Hur översätta "diff"
 msgid "Select hook script file"
 msgstr "Välj krokskriptfil"
 
@@ -8073,7 +8004,6 @@ msgid "Select merge target"
 msgstr "Välj föreningsmål"
 
 #. Resource IDs: (13)
-# Hur översätta "diff"
 msgid "Select patch file..."
 msgstr "Välj skillnadsfil..."
 
@@ -8126,7 +8056,6 @@ msgid "Select the type of merge"
 msgstr "Välj typ av förening"
 
 #. Resource IDs: (78)
-# Hur översätta "diff"
 msgid "Select viewer for diff-files"
 msgstr "Välj applikation för att visa skillnadsfiler"
 
@@ -8321,12 +8250,10 @@ msgid "Show an overview of the whole graph"
 msgstr "Visa en översikt av hela grafen"
 
 #. Resource IDs: (114)
-# Hur översätta "diff" och "Unified diff"
 msgid "Show changes as &unified diff"
 msgstr "Visa ändringar &som \"Unified Diff\""
 
 #. Resource IDs: (113)
-# Hur översätta "diff" och "Unified diff"
 msgid "Show differences as &unified diff"
 msgstr "Visa skillnader &som \"Unified Diff\""
 
@@ -9177,7 +9104,6 @@ msgid "The line '====' was expected in line %d !"
 msgstr "Texten \"====\" förväntades på rad %d !"
 
 #. Resource IDs: (63)
-# ???
 msgid ""
 "The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
@@ -9748,7 +9674,6 @@ msgstr ""
 "också?"
 
 #. Resource IDs: (145)
-# Hur översätter man bäst "shell extension"?
 msgid ""
 "TortoiseSVN is a shell extension.\n"
 "That means it is integrated into the Windows explorer.\n"
@@ -10080,7 +10005,6 @@ msgid "Updating log cache"
 msgstr "Uppdaterar logg cache"
 
 #. Resource IDs: (15)
-# Osäker på var denna visas
 msgid "Upgrade working copy"
 msgstr "Uppgradera arbetskopia"
 
@@ -10453,17 +10377,14 @@ msgid "With URL:"
 msgstr "Med URL:"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
-# Osäker på var denna visas
 msgid "Working Copy"
 msgstr "Arbetskopia"
 
 #. Resource IDs: (1335, 1472)
-# Osäker på var denna visas
 msgid "Working Copy Path:"
 msgstr "Sökväg till arbetskopia:"
 
 #. Resource IDs: (20)
-# Osäker på var denna visas
 msgid "Working copy"
 msgstr "Arbetskopia"
 
@@ -10477,7 +10398,6 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (277)
-# Osäker på var denna visas
 #, c-format
 msgid "Working copy: %s\n"
 msgstr "Arbetskopia: %s\n"
@@ -10990,7 +10910,6 @@ msgid "dummy"
 msgstr "dummy"
 
 #. Resource IDs: (1342)
-# Var används denna?
 msgid "eol style"
 msgstr "eol style"
 
@@ -11677,211 +11596,3 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "Check externals to explicit revision"
-#~ msgstr "Kontrollera externa till fast revision"
-
-#~ msgid "Check externals to tag"
-#~ msgstr "Kontrollera externa mot märken"
-
-#~ msgid "Tagged"
-#~ msgstr "Markerad"
-
-#~ msgid "tree conflict:"
-#~ msgstr "Träd konflikt:"
-
-#~ msgid "%s, but it already exists unversioned locally."
-#~ msgstr "%s, men det finns redan icke versionshanterad lokalt."
-
-#~ msgid "%s, but it is missing locally."
-#~ msgstr "%s, men saknas lokalt."
-
-#~ msgid "%s, but it was already added locally."
-#~ msgstr "%s, men är redan tillagt lokalt."
-
-#~ msgid "%s, but it was already edited."
-#~ msgstr "%s, är redan borttagen."
-
-#~ msgid "%s, but it was deleted, moved or renamed locally."
-#~ msgstr "%s, men det var borttagen, flyttad eller omdöpt lokalt."
-
-#~ msgid "%s, but it was obstructed in the working copy."
-#~ msgstr "%s, men den var blockerad i arbetskopian."
-
-#~ msgid "&Lum:"
-#~ msgstr "&Lum:"
-
-#~ msgid "&Sat:"
-#~ msgstr "&Sat:"
-
-#~ msgid "&Save..."
-#~ msgstr "&Spara..."
-
-#~ msgid "Apply property recursively"
-#~ msgstr "Applicera egenskap rekursivt"
-
-#~ msgid "Bug-ID / &Issue-Nr:"
-#~ msgstr "Bugg&ID / Ärendenr:"
-
-#~ msgid "Can't customize menues!"
-#~ msgstr "Kan inte anpassa menyerna!"
-
-#~ msgid "Cascade"
-#~ msgstr "Fäll ner"
-
-#~ msgid "Tile &Horizontally"
-#~ msgstr "Ordna &horizontellt"
-
-#~ msgid "&To URL: "
-#~ msgstr "&Till URL: "
-
-#~ msgid "&To path: "
-#~ msgstr "&Till sökväg:"
-
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "Visa statussymbol för ignorerade objekt"
-
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "Visa statussymbol för objekt som inte versionshanteras"
-
-#~ msgid "y"
-#~ msgstr "y"
-
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "Upphovsman: Stefan Kueng"
-
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "Leta automatiskt efter &nyare versioner varje vecka"
-
-#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare version tillgänglig"
-
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "&Göm orelaterade ändrade sökvägar"
-
-#~ msgid "Edit conflict"
-#~ msgstr "Editera konflikt"
-
-#~ msgid "From URL:"
-#~ msgstr "Från URL:"
-
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "Sökvägen för hämtning refererar till en fil men\n"
-#~ "denna arbetskopia är en existerande katalog."
-
-#~ msgid "Show &properties"
-#~ msgstr "Visa &egenskaper"
-
-#~ msgid "Show i&gnored files"
-#~ msgstr "Visa i&gnorerade filer"
-
-#~ msgid "Show un&modified files"
-#~ msgstr "Visa filer &utan ändringar"
-
-#~ msgid "Show un&versioned files"
-#~ msgstr "Visa filer som &inte är versionshanterade"
-
-#~ msgid "Cleaning up."
-#~ msgstr "Rensar. "
-
-#~ msgid "Floppy drives (A: B:)"
-#~ msgstr "Diskenheter (A: B:)"
-
-#~ msgid ""
-#~ "GDI+ is required to save the revision graph as a picture.\n"
-#~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-#~ msgstr ""
-#~ "GDI+ krävs för att kunna spara revisionsgrafen som en bild.\n"
-#~ "Du kan hämta GDI+ från\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-
-#~ msgid "Go offline?"
-#~ msgstr "Koppla ifrån?"
-
-#~ msgid "Only record the merge"
-#~ msgstr "Spela bara in föreningen"
-
-#~ msgid "Replaced node"
-#~ msgstr "Ersatt nod"
-
-#~ msgid "alias (deleted): %s"
-#~ msgstr "alias (borttaget): %s"
-
-#~ msgid "&?"
-#~ msgstr "&?"
-
-#~ msgid "Merge all..."
-#~ msgstr "Förena alla..."
-
-#~ msgid "SVN Export to here"
-#~ msgstr "SVN Exportera hit"
-
-#~ msgid "Bro&wse..."
-#~ msgstr "Blä&ddra..."
-
-#~ msgid "Brows&e..."
-#~ msgstr "Bläddr&a..."
-
-#~ msgid "&Open Ctrl-O"
-#~ msgstr "&Öppna Ctrl-O"
-
-#~ msgid "&Save Ctrl-S"
-#~ msgstr "&Spara Ctrl-S"
-
-#~ msgid "&Undo\tCtrl+Z"
-#~ msgstr "&Ångra\tCtrl+Z"
-
-#~ msgid "Bug Tracker..."
-#~ msgstr "Buggspårare..."
-
-#~ msgid "Force blame"
-#~ msgstr "Tvinga visa ändringar per rad"
-
-#~ msgid "Issue Tracker Hook"
-#~ msgstr "\"Ärendespårning\" krok"
-
-#~ msgid "Remove..."
-#~ msgstr "Ta bort.."
-
-#~ msgid "Use &magnifier on locatorbar"
-#~ msgstr "Använd &förstoring på översikten"
-
-#~ msgid "%1 contains an invalid path."
-#~ msgstr "%1 innehåller en felaktig sökväg."
-
-#~ msgid "&Berkeley database (BDB)"
-#~ msgstr "&Berkley database (DBD)"
-
-#~ msgid "&Native filesystem (FSFS)"
-#~ msgstr "&Lokalt filsystem (FSFS)"
-
-#~ msgid "An invalid argument was encountered."
-#~ msgstr "En felaktig parameter påträffades."
-
-#~ msgid "Analyze revision data..."
-#~ msgstr "Analysera revisionsdata..."
-
-#~ msgid "Cache log messages"
-#~ msgstr "Cacha loggmeddelanden"
-
-#~ msgid "Checking for forward copies"
-#~ msgstr "Söker efter kopiornas källor"
-
-#~ msgid "Groups branches together"
-#~ msgstr "Gruppera grenar tillsammans"
-
-#~ msgid "Not descending"
-#~ msgstr "Inte fallande"
-
-#~ msgid "Select the type of repository you want to create:"
-#~ msgstr "Välj vilken typ av arkiv vill du skapa:"
-
-#~ msgid "Split long, inactive branches into segments"
-#~ msgstr "Dela långa, inaktiva grenar i fragment"
-
-#~ msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-#~ msgstr "Den här metod är för när du har skapat en gren för en specifik uppgift som beskrivs i Subversion boken. Alla ändringar i huvudgrenen har kopierats över till grenen allt eftersom, och nu när uppgiften är klar så vill du förena den till huvudgrenen. Eftersom alla ändringar från huvudgrenen har förts över till grenen så är den senaste revisionen i båda grenarna identiska förutom ändringarna som gjorts i grenen. I det här specialfallet så förenar man genom att jämföra grenen med huvudgrenen. "
