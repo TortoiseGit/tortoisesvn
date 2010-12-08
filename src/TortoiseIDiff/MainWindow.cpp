@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2009 - TortoiseSVN
+// Copyright (C) 2006 - 2010 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -274,7 +274,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
                 mii.dwTypeData = stringbuf;
                 mii.cch = sizeof(stringbuf)/sizeof(TCHAR);
                 GetMenuItemInfo(GetMenu(*this), (UINT)lpttt->hdr.idFrom, FALSE, &mii);
-                lpttt->lpszText = stringbuf;
+                _tcscpy_s(lpttt->lpszText, 80, stringbuf);
             }
         }
         break;
