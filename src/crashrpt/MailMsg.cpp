@@ -37,7 +37,7 @@ CMailMsg& CMailMsg::SetFrom(string sAddress, string sName)
    {
       // only one sender allowed
       if (m_from.size())
-         m_from.empty();
+         m_from.clear();
 
       m_from.push_back(TStrStrPair(sAddress,sName));
    }
@@ -51,7 +51,7 @@ CMailMsg& CMailMsg::SetTo(string sAddress, string sName)
    {
       // only one recipient allowed
       if (m_to.size())
-         m_to.empty();
+         m_to.clear();
 
       m_to.push_back(TStrStrPair(sAddress,sName));
    }
