@@ -199,6 +199,8 @@ private:
     void ShowContextMenuForChangedpaths(CWnd* pWnd, CPoint point);
 
     virtual CString GetToolTipText(int nItem, int nSubItem);
+    bool DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex, size_t endIndex,
+        const CString& whatToFind, LRESULT *pResult);
 
     // selection management
 

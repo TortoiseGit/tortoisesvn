@@ -3984,83 +3984,82 @@ void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
 {
-    const int nMinimumWidth = ICONITEMBORDER+16*5;
-    int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-    int nItemCount = m_LogList.GetItemCount();
-    TCHAR textbuf[MAX_PATH];
     CHeaderCtrl * pHdrCtrl = (CHeaderCtrl*)(m_LogList.GetDlgItem(0));
-    if (pHdrCtrl)
-    {
-        size_t startRow = 0;
-        size_t endRow = nItemCount;
-        if (bOnlyVisible)
-        {
-            startRow = m_LogList.GetTopIndex();
-            endRow = startRow + m_LogList.GetCountPerPage();
-        }
-        for (int col = 0; col <= maxcol; col++)
-        {
-            HDITEM hdi = {0};
-            hdi.mask = HDI_TEXT;
-            hdi.pszText = textbuf;
-            hdi.cchTextMax = sizeof(textbuf);
-            pHdrCtrl->GetItem(col, &hdi);
-            int cx = m_LogList.GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
-            for (size_t index = startRow; index<endRow; ++index)
-            {
-                // get the width of the string and add 14 pixels for the column separator and margins
-                int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
-                if (index < m_logEntries.GetVisibleCount())
-                {
-                    PLOGENTRYDATA pCurLogEntry = m_logEntries.GetVisible(index);
-                    if ((pCurLogEntry)&&(pCurLogEntry->GetRevision() == m_wcRev))
-                    {
-                        HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
-                        // set the bold font and ask for the string width again
-                        m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
-                        linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
-                        // restore the system font
-                        m_LogList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
-                    }
-                }
-                if (index == 0)
-                {
-                    // add the image size
-                    CImageList * pImgList = m_LogList.GetImageList(LVSIL_SMALL);
-                    if ((pImgList)&&(pImgList->GetImageCount()))
-                    {
-                        IMAGEINFO imginfo;
-                        pImgList->GetImageInfo(0, &imginfo);
-                        linewidth += (imginfo.rcImage.right - imginfo.rcImage.left);
-                        linewidth += 3; // 3 pixels between icon and text
-                    }
-                }
-                if (cx < linewidth)
-                    cx = linewidth;
-            }
-            // Adjust columns "Actions" containing icons
-            if (col == 1)
-            {
-                if (cx < nMinimumWidth)
-                {
-                    cx = nMinimumWidth;
-                }
-            }
-            if ((col == 0)&&(m_bSelect)&&(SysInfo::Instance().IsVistaOrLater()))
-            {
-                cx += 16;   // add space for the checkbox
-            }
-            // keep the bug id column small
-            if ((col == 4)&&(m_bShowBugtraqColumn))
-            {
-                if (cx > (int)(DWORD)m_regMaxBugIDColWidth)
-                {
-                    cx = (int)(DWORD)m_regMaxBugIDColWidth;
-                }
-            }
+    if (pHdrCtrl == 0)
+        return;
 
-            m_LogList.SetColumnWidth(col, cx);
+    const int maxcol = pHdrCtrl->GetItemCount()-1;
+    size_t startRow = 0;
+    size_t endRow = m_LogList.GetItemCount();
+    if (bOnlyVisible)
+    {
+        startRow = m_LogList.GetTopIndex();
+        endRow = startRow + m_LogList.GetCountPerPage();
+    }
+    for (int col = 0; col <= maxcol; col++)
+    {
+        TCHAR textbuf[MAX_PATH + 1] = {};
+        HDITEM hdi = {0};
+        hdi.mask = HDI_TEXT;
+        hdi.pszText = textbuf;
+        hdi.cchTextMax = _countof(textbuf) - 1;
+        pHdrCtrl->GetItem(col, &hdi);
+        int cx = m_LogList.GetStringWidth(textbuf)+20; // 20 pixels for col separator and margin
+        for (size_t index = startRow; index<endRow; ++index)
+        {
+            // get the width of the string and add 14 pixels for the column separator and margins
+            int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
+            if (index < m_logEntries.GetVisibleCount())
+            {
+                PLOGENTRYDATA pCurLogEntry = m_logEntries.GetVisible(index);
+                if ((pCurLogEntry)&&(pCurLogEntry->GetRevision() == m_wcRev))
+                {
+                    HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
+                    // set the bold font and ask for the string width again
+                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
+                    linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
+                    // restore the system font
+                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
+                }
+            }
+            if (index == 0)
+            {
+                // add the image size
+                CImageList * pImgList = m_LogList.GetImageList(LVSIL_SMALL);
+                if ((pImgList)&&(pImgList->GetImageCount()))
+                {
+                    IMAGEINFO imginfo;
+                    pImgList->GetImageInfo(0, &imginfo);
+                    linewidth += (imginfo.rcImage.right - imginfo.rcImage.left);
+                    linewidth += 3; // 3 pixels between icon and text
+                }
+            }
+            if (cx < linewidth)
+                cx = linewidth;
         }
+        // Adjust columns "Actions" containing icons
+        if (col == 1)
+        {
+            const int nMinimumWidth = ICONITEMBORDER+16*5;
+            if (cx < nMinimumWidth)
+            {
+                cx = nMinimumWidth;
+            }
+        }
+        if ((col == 0)&&(m_bSelect)&&(SysInfo::Instance().IsVistaOrLater()))
+        {
+            cx += 16;   // add space for the checkbox
+        }
+        // keep the bug id column small
+        if ((col == 4)&&(m_bShowBugtraqColumn))
+        {
+            if (cx > (int)(DWORD)m_regMaxBugIDColWidth)
+            {
+                cx = (int)(DWORD)m_regMaxBugIDColWidth;
+            }
+        }
+
+        m_LogList.SetColumnWidth(col, cx);
     }
 }
 
@@ -4084,54 +4083,45 @@ void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         return;
 
     CString sCmp = pFindInfo->lvfi.psz;
+    if(DoFindItemLogList(pFindInfo, pFindInfo->iStart, m_logEntries.GetVisibleCount(),
+        sCmp, pResult ))
+    {
+        return;
+    }
+    if (pFindInfo->lvfi.flags & LVFI_WRAP)
+    {
+        if(DoFindItemLogList(pFindInfo, 0, pFindInfo->iStart, sCmp, pResult ))
+            return;
+    }
+    *pResult = -1;
+}
+
+bool CLogDlg::DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex,
+    size_t endIndex, const CString& whatToFind, LRESULT* pResult)
+{
     CString sRev;
-    for (size_t i=pFindInfo->iStart; i<m_logEntries.GetVisibleCount(); ++i)
+    for (size_t i=startIndex; i<endIndex; ++i)
     {
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
         sRev.Format(_T("%ld"), pLogEntry->GetRevision());
         if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
         {
-            if (sCmp.Compare(sRev.Left(sCmp.GetLength()))==0)
+            if (whatToFind.Compare(sRev.Left(whatToFind.GetLength()))==0)
             {
                 *pResult = i;
-                return;
+                return true;
             }
         }
         else
         {
-            if (sCmp.Compare(sRev)==0)
+            if (whatToFind.Compare(sRev)==0)
             {
                 *pResult = i;
-                return;
+                return true;
             }
         }
     }
-    if (pFindInfo->lvfi.flags & LVFI_WRAP)
-    {
-        for (int i=0; i<pFindInfo->iStart; ++i)
-        {
-            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
-            sRev.Format(_T("%ld"), pLogEntry->GetRevision());
-            if (pFindInfo->lvfi.flags & LVFI_PARTIAL)
-            {
-                if (sCmp.Compare(sRev.Left(sCmp.GetLength()))==0)
-                {
-                    *pResult = i;
-                    return;
-                }
-            }
-            else
-            {
-                if (sCmp.Compare(sRev)==0)
-                {
-                    *pResult = i;
-                    return;
-                }
-            }
-        }
-    }
-
-    *pResult = -1;
+    return false;
 }
 
 void CLogDlg::OnBnClickedCheckStoponcopy()
