@@ -77,6 +77,20 @@ void AprTimeToFileTime(LPFILETIME pft, apr_time_t t)
     return;
 }
 
+SVN::SVNLock::SVNLock()
+    : creation_date (0)
+    , expiration_date (0)
+{
+}
+
+SVN::SVNProgress::SVNProgress()
+    : progress (0)
+    , total (0)
+    , overall_total (0)
+    , BytesPerSecond (0)
+{
+}
+
 
 SVN::SVN(bool suppressUI) 
     : SVNBase()

@@ -107,6 +107,9 @@ public:
         CString comment;
         __time64_t creation_date;
         __time64_t expiration_date;
+
+        /// Ensure a definined initial state
+        SVNLock();
     };
 
     struct SVNProgress
@@ -116,6 +119,9 @@ public:
         apr_off_t overall_total;    ///< total bytes transferred, use SetAndClearProgressInfo() to reset this
         apr_off_t BytesPerSecond;   ///< Speed in bytes per second
         CString   SpeedString;      ///< String for speed. Either "xxx Bytes/s" or "xxx kBytes/s"
+
+        /// Ensure a definined initial state
+        SVNProgress();
     };
 
     /**
