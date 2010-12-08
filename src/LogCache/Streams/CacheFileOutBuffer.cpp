@@ -49,7 +49,7 @@ CCacheFileOutBuffer::~CCacheFileOutBuffer()
             size_t size = offset - lastOffset;
 
             if (size >= (DWORD)(-1))
-                throw CStreamException ("stream too large");
+                return; //throw CStreamException ("stream too large");
 
             Add ((DWORD)size);
             lastOffset = offset;
