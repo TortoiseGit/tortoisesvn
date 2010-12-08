@@ -196,7 +196,7 @@ string CExceptionReport::getCrashLog()
    // Create dat file name and save
    //
    TCHAR buf[MAX_PATH] = {0};
-   _tprintf_s(buf, _T("%s\\%s.xml"), getenv("TEMP"), CUtility::getAppName());
+   _tprintf_s(buf, _T("%s\\%s.xml"), getenv("TEMP"), CUtility::getAppName().c_str());
    V_VT(&v) = VT_BSTR;
    V_BSTR(&v) = CUtility::AllocSysString(buf);
    pDoc->save(v);
