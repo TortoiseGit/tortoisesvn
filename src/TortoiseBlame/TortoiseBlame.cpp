@@ -306,7 +306,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             }
             // check each line for illegal utf8 sequences. If one is found, we treat
             // the file as ASCII, otherwise we assume an UTF8 file.
-            char * utf8CheckBuf = lineptr;
+            unsigned char * utf8CheckBuf = (unsigned char*)lineptr;
             while ((bUTF8)&&(*utf8CheckBuf))
             {
                 if ((*utf8CheckBuf == 0xC0)||(*utf8CheckBuf == 0xC1)||(*utf8CheckBuf >= 0xF5))
