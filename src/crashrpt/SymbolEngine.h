@@ -97,7 +97,7 @@ public      :
     //  szVer will contain a string like: 5.00.1878.1
     BOOL GetImageHlpVersion ( DWORD & dwMS , DWORD & dwLS )
     {
-        return( GetInMemoryFileVersion (  ( "DBGHELP.DLL" ) ,
+        return( GetInMemoryFileVersion (  ( "IMAGEHLP.DLL" ) ,
                                          dwMS                 ,
                                          dwLS                  ) ) ;
     }
