@@ -431,7 +431,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         // the item is ignored. Get the svn:ignored properties so we can (maybe) later
                         // offer a 'remove from ignored list' entry
                         SVNProperties props(strpath.GetContainingDirectory(), false);
-                        ignoredprops.empty();
+                        ignoredprops.clear();
                         for (int p=0; p<props.GetCount(); ++p)
                         {
                             if (props.GetItemName(p).compare(SVN_PROP_IGNORE)==0)
@@ -439,7 +439,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 std::string st = props.GetItemValue(p);
                                 ignoredprops = UTF8ToWide(st.c_str());
                                 // remove all escape chars ('\\')
-                                std::remove(ignoredprops.begin(), ignoredprops.end(), '\\');
+                                ignoredprops.erase(std::remove(ignoredprops.begin(), ignoredprops.end(), '\\'), ignoredprops.end());
                                 break;
                             }
                         }
