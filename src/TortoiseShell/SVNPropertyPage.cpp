@@ -55,14 +55,9 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
     SecureZeroMemory(&psp, sizeof(PROPSHEETPAGE));
     HPROPSHEETPAGE hPage;
     CSVNPropertyPage *sheetpage = NULL;
-    try
-    {
-        sheetpage = new (std::nothrow) CSVNPropertyPage(files_);
-    }
-    catch (std::bad_alloc)
-    {
-        sheetpage = NULL;
-    }
+
+    sheetpage = new (std::nothrow) CSVNPropertyPage(files_);
+
     if (sheetpage == NULL)
         return E_OUTOFMEMORY;
 
