@@ -46,10 +46,10 @@
 
 CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TSVNCache " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
 
-DWORD WINAPI        InstanceThread(LPVOID);
-DWORD WINAPI        PipeThread(LPVOID);
-DWORD WINAPI        CommandWaitThread(LPVOID);
-DWORD WINAPI        CommandThread(LPVOID);
+unsigned int        InstanceThread(LPVOID);
+unsigned int        PipeThread(LPVOID lpvParam);
+unsigned int        CommandWaitThread(LPVOID);
+unsigned int        CommandThread(LPVOID);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 bool                bRun = true;
 NOTIFYICONDATA      niData;
@@ -157,7 +157,6 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
     SecureZeroMemory(szCurrentCrawledPath, sizeof(szCurrentCrawledPath));
 
-    DWORD dwThreadId;
     HANDLE hPipeThread;
     HANDLE hCommandWaitThread;
     MSG msg;
@@ -221,35 +220,19 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     }
 
     // Create a thread which waits for incoming pipe connections
-    hPipeThread = CreateThread(
-        NULL,              // no security attribute
-        0,                 // default stack size
-        PipeThread,
-        (LPVOID) &bRun,    // thread parameter
-        0,                 // not suspended
-        &dwThreadId);      // returns thread ID
+    unsigned int threadId = 0;
+    hPipeThread = (HANDLE)_beginthreadex(NULL, 0, PipeThread, &bRun, 0, &threadId);
 
     if (hPipeThread == NULL)
     {
-        //OutputDebugStringA("TSVNCache: Could not create pipe thread\n");
-        //DebugOutputLastError();
         return 0;
     }
     else CloseHandle(hPipeThread);
 
     // Create a thread which waits for incoming pipe connections
-    hCommandWaitThread = CreateThread(
-        NULL,              // no security attribute
-        0,                 // default stack size
-        CommandWaitThread,
-        (LPVOID) &bRun,    // thread parameter
-        0,                 // not suspended
-        &dwThreadId);      // returns thread ID
-
+    hCommandWaitThread = (HANDLE)_beginthreadex(NULL, 0, CommandWaitThread, &bRun, 0, &threadId);
     if (hCommandWaitThread == NULL)
     {
-        //OutputDebugStringA("TSVNCache: Could not create command wait thread\n");
-        //DebugOutputLastError();
         return 0;
     }
     else CloseHandle(hCommandWaitThread);
@@ -496,7 +479,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
     }
 }
 
-DWORD WINAPI PipeThread(LPVOID lpvParam)
+unsigned int PipeThread(LPVOID lpvParam)
 {
     ATLTRACE("PipeThread started\n");
     bool * bRun = (bool *)lpvParam;
@@ -504,7 +487,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
     // then waits for a client to connect to it. When the client
     // connects, a thread is created to handle communications
     // with that client, and the loop is repeated.
-    DWORD dwThreadId;
+    unsigned int dwThreadId;
     BOOL fConnected;
     HANDLE hPipe = INVALID_HANDLE_VALUE;
     HANDLE hInstanceThread = INVALID_HANDLE_VALUE;
@@ -539,13 +522,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
         if (fConnected)
         {
             // Create a thread for this client.
-            hInstanceThread = CreateThread(
-                NULL,              // no security attribute
-                0,                 // default stack size
-                InstanceThread,
-                (LPVOID) hPipe,    // thread parameter
-                0,                 // not suspended
-                &dwThreadId);      // returns thread ID
+            hInstanceThread = (HANDLE)_beginthreadex(NULL, 0, InstanceThread, hPipe, 0, &dwThreadId);
 
             if (hInstanceThread == NULL)
             {
@@ -576,7 +553,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
     return 0;
 }
 
-DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
+unsigned int CommandWaitThread(LPVOID lpvParam)
 {
     ATLTRACE("CommandWaitThread started\n");
     bool * bRun = (bool *)lpvParam;
@@ -584,7 +561,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
     // then waits for a client to connect to it. When the client
     // connects, a thread is created to handle communications
     // with that client, and the loop is repeated.
-    DWORD dwThreadId;
+    unsigned int dwThreadId;
     BOOL fConnected;
     HANDLE hPipe = INVALID_HANDLE_VALUE;
     HANDLE hCommandThread = INVALID_HANDLE_VALUE;
@@ -619,13 +596,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
         if (fConnected)
         {
             // Create a thread for this client.
-            hCommandThread = CreateThread(
-                NULL,              // no security attribute
-                0,                 // default stack size
-                CommandThread,
-                (LPVOID) hPipe,    // thread parameter
-                0,                 // not suspended
-                &dwThreadId);      // returns thread ID
+            hCommandThread = (HANDLE)_beginthreadex(NULL, 0, CommandThread, hPipe, 0, &dwThreadId);
 
             if (hCommandThread == NULL)
             {
@@ -656,7 +627,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
     return 0;
 }
 
-DWORD WINAPI InstanceThread(LPVOID lpvParam)
+unsigned int InstanceThread(LPVOID lpvParam)
 {
     ATLTRACE("InstanceThread started\n");
     TSVNCacheResponse response;
@@ -735,7 +706,7 @@ DWORD WINAPI InstanceThread(LPVOID lpvParam)
     return 0;
 }
 
-DWORD WINAPI CommandThread(LPVOID lpvParam)
+unsigned int CommandThread(LPVOID lpvParam)
 {
     ATLTRACE("CommandThread started\n");
     DWORD cbBytesRead;
