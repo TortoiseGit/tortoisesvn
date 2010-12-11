@@ -56,6 +56,11 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
 {
     // create the default folder structure in a temp folder
     CTSVNPath tempDir = CTempFiles::Instance().GetTempDirPath(true);
+    if (tempDir.IsEmpty())
+    {
+        ::MessageBox(m_hWnd, CString(MAKEINTRESOURCE(IDS_ERR_CREATETEMPDIR)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONERROR);
+        return;
+    }
     CTSVNPath tempDirSub = tempDir;
     tempDirSub.AppendPathString(_T("trunk"));
     CreateDirectory(tempDirSub.GetWinPath(), NULL);
