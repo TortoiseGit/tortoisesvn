@@ -99,8 +99,10 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
         {
             DeleteFile(tempfile.GetWinPath());
             if (CreateDirectory (tempfile.GetWinPath(), NULL) == FALSE)
+            {
                 if (GetLastError() != ERROR_ALREADY_EXISTS)
                     return CTSVNPath();
+            }
             else
                 succeeded = true;
         }
