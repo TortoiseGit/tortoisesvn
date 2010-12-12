@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="release notes" />
+<meta name="description" content="TortoiseSVN release notes" />
+<meta http-equiv="content-language" content="en" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>TortoiseSVN - Release notes for 1.7</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="langselection">
+    <a href="support.html">EN</a> <a href="support.de.html">DE</a>
+</div>
+<div id="wrapper">
+    <!--#include FILE="menu.html" -->
+	<div id="page">
+		<div id="banner">&nbsp;</div>
+		<div id="content">
+
+            <div class="post" id="news">
+                <h2>What's New in TortoiseSVN 1.7</h2>
+
+                <ul>
+                  <li><a href="#wcformat"
+                      >Working copy metadata storage improvements</a></li>
+                  <li><a href="#x64"
+                      >x64 Installer</a></li>
+                  <li><a href="#propertydialogs"
+                      >Property dialogs</a></li>
+                  <li><a href="#win7libs"
+                      >Windows 7 Library</a></li>
+                  <li><a href="#logdlg"
+                      >Log dialog</a></li>
+                  <li><a href="#revgraph"
+                      >Revision graph</a></li>
+                  <li><a href="#branchtag"
+                      >Branch/Tag dialog</a></li>
+                  <li><a href="#commitdlg"
+                      >Branch/Tag dialog</a></li>
+                  <li><a href="#repobrowser"
+                      >Repository browser</a></li>
+                  <li><a href="#tmerge"
+                      >TortoiseMerge</a></li>
+                  <li><a href="#compatibility"
+                      >Compatibility concerns</a></li>
+                </ul>                
+                
+                <p>TortoiseSVN 1.7 is a superset of all previous TortoiseSVN releases,
+                and is considered the current stable and "best" release. Anything in earlier versions
+                is also in 1.7, but 1.7 contains features and
+                bugfixes not present in any earlier release.</p>
+                <p>TortoiseSVN 1.7 dropped support for Windows 2000. It requires
+                at least Windows XP with service pack 3 to work. If you're still
+                using Windows 2000 or Windows XP without service pack 3, you
+                either have to upgrade your OS or keep using TortoiseSVN 1.6.</p>
+                
+                <p>This page describes only major changes. For a complete list 
+                of changes, you can check our 
+                <a href="http://code.google.com/p/tortoisesvn/source/list">commit logs</a>.</p>
+            </div>  <!-- news -->
+
+            $ADSENSE_INPAGE$
+
+            <div class="post" id="wcformat" title="wcformat">
+                <h2>working copy metadata storage improvements</h2>
+
+                <p>Subversion 1.7 features a complete re-write of the working copy
+                metadata management system of Subversion, code named <b>WC-NG</b>.</p>
+
+                <div class="h4" id="single-db"> 
+                <h4>Centralized Metadata Storage</h4>
+
+                <p>A key feature of the changes introduced in Subversion 1.7 is the
+                centralization of worky copy metadata storage into a single location.
+                Instead of a <code>.svn</code> directory in every directory in the working
+                copy, Subversion 1.7 working copies have just one <code>.svn</code>
+                directory&mdash;in the root of the working copy.  This directory includes
+                (among other things) an SQLite-backed database which contains all of the
+                metadata Subversion needs for that working copy.</p>
+
+                <p>Even though the data is stored in a structured format, the relationships
+                between the data are complex.  We highly discourage external tools from
+                modifying the data held in this database, as such modification is likely to
+                result in working copy corruption.</p>
+                </div>  <!-- single-db -->
+
+                <div class="h4" id="wc-upgrade"> 
+                <h4>Upgrading the Working Copy</h4>
+
+                <p>Subversion 1.7 introduces substantial changes to the working copy format.
+                In previous releases, Subversion would automatically update
+                the working copy to the new format when a write operation was performed.
+                Subversion 1.7, however, will make this a manual step.</p>
+                <p>Before you can use an existing working copy with TortoiseSVN 1.7, you
+                have to upgrade the format first. If you right-click on an old
+                working copy, TortoiseSVN only shows you one command in the 
+                context menu: <code>Upgrade working copy</code>.</p>
+                <img src="images/upgradewc.png" />
+                <p>
+                Once you've upgraded your working copies, older SVN clients
+                won't be able to access those working copies. So make sure
+                that you update all your SVN clients (in case you use not
+                just TortoiseSVN).
+                </p>
+                </div>  <!-- wc-upgrade -->
+            </div>  <!-- wcformat -->
+
+            <div class="post" id="x64" title="x64">
+                <h2>x64 Installer</h2>
+                <p>In previous releases, users who installed TortoiseSVN on an
+                x64 OS also had to separately install the 32-bit version of
+                TortoiseSVN to get its features for 32-bit applications too.</p>
+                <p>TortoiseSVN 1.7 includes the required 32-bit parts in its
+                x64 installers. There's no need to install the 32-bit version
+                of TortoiseSVN on x64 OS.</p>
+            </div>  <!-- x64 -->
+
+            <div class="post" id="propertydialogs" title="propertydialogs">
+                <h2>Property dialogs</h2>
+                <p>Handling SVN properties is now much easier. Most of the
+                properties you want or need to set on your working copies
+                can now be set and modified without knowing the exact format.
+                TortoiseSVN 1.7 provides custom dialogs for most of the known
+                properties.</p>
+                <img src="images/propertydlgexternals.png" />
+                <img src="images/propertydlgbugtraq.png" />
+                <p>The above screenshots show the new property dialogs for
+                the <code>svn:externals</code> and all the <code>bugtraq:</code>
+                properties. There are more custom property dialogs available
+                in TortoiseSVN 1.7. Please have a look at the 
+                <!-- TODO: adjust the link to the release version of the 1.7 docs -->
+                <a href="docs/nightly/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-editors">docs</a>
+                to find out about all of them.</p>
+            </div>  <!-- propertydialogs -->
+
+            <div class="post" id="win7libs" title="win7libs">
+                <h2>Windows 7 Library</h2>
+                <p>The explorer in Windows 7 introduced libraries, which are
+                containers for files and folders that have something in common.</p>
+                <p>TortoiseSVN 1.7 creates a new library type for SVN working
+                copies.</p>
+                <img src="images/win7svnlib.png" />
+                <p>If you put the root folder of your working copies in that new
+                library folder, you get four buttons at the top of the explorer
+                which execute the most used commands: Commit, Update, Check for
+                modifications and Show log.</p>
+                <p>This saves you from using the right-click context menu for
+                these often used commands and really saves a lot of mouse clicks.</p>
+            </div>  <!-- win7libs -->
+
+            <div class="post" id="logdlg" title="logdlg">
+                <h2>Log dialog</h2>
+                <!-- highlighted searches/filters -->
+                <!-- revision links -->
+                <!-- merged log messages for multiselections (issue 44) -->
+            </div>  <!-- logdlg -->
+
+            <div class="post" id="revgraph" title="revgraph">
+                <h2>Revision graph</h2>
+                <!-- faster startup -->
+                <!-- ability to hide specific tags -->
+                <!-- svg export -->
+            </div>  <!-- revgraph -->
+
+            <div class="post" id="branchtag" title="branchtag">
+                <h2>Branch/Tag dialog</h2>
+                <!-- fix externals -->
+            </div>  <!-- branchtag -->
+
+            <div class="post" id="commitdlg" title="commitdlg">
+                <h2>Branch/Tag dialog</h2>
+                <!-- check links -->
+                <!-- update notification -->
+            </div>  <!-- commitdlg -->
+
+            <div class="post" id="repobrowser" title="repobrowser">
+                <h2>Repository browser</h2>
+                <!-- externals as subfolders -->
+                <!-- direct edit on repository -->
+                <!-- speedup initial loading -->
+            </div>  <!-- repobrowser -->
+
+            <div class="post" id="tmerge" title="tmerge">
+                <h2>TortoiseMerge</h2>
+                <!-- hide unchanged sections -->
+                <!-- split long lines-->
+                <!-- doubleclick marks word accross whole file -->
+            </div>  <!-- repobrowser -->
+
+            <div class="post" id="compatibility" title="compatibility">
+                <h2>Compatibility concerns</h2>
+
+                <p>Older clients and servers interoperate transparently with 1.7
+                servers and clients.  However, some of the new 1.7 features may
+                not be available unless both client and server are the latest 
+                version.  There are also cases where a new feature will work 
+                but will run less efficiently if the client is new and the 
+                server old.</p>
+                
+                <div class="h3" id="new-feature-compatibility-table">
+                <h3>New Feature Compatibility Table
+                  <a class="sectionlink" href="#new-feature-compatibility-table"
+                    title="Link to this section">&para;</a>
+                </h3>
+                <table border="1">
+                  <tr>
+                    <th>New Feature</th>
+                    <th>Minimum Client<sup>1</sup></th>
+                    <th>Minimum Server</th>
+                    <th>Minimum Repository</th>
+                    <th>Notes</th></tr>
+                  <tr>
+                    <td><a href="#httpv2">HTTPv2</a></td>
+                    <td>1.7</td>
+                    <td>1.7</td>
+                    <td>any</td>
+                    <td>Permutations of older client/server combinations will continue to
+                      function at the pre-1.7 feature level.</td></tr>
+                  <tr>
+                    <td><a href="#wc-ng">WC-NG</a></td>
+                    <td>1.7</td>
+                    <td>any</td>
+                    <td>any</td>
+                    <td></td></tr>
+                   <tr>
+                     <td colspan="5"><sup>1</sup>Reminder: when using the <code>file://</code>
+                       repository access method, the Subversion program is both the client
+                       <em>and</em> the server.</td></tr>
+                </table>
+
+                </div>  <!-- new-feature-compatibility-table -->
+
+            </div>  <!-- compatibility -->
+
+        </div>
+        <!-- end #content -->
+        
+        <!--#include FILE="sidebar.html" -->
+        <div style="clear: both;">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    <!--#include FILE="footer.html" -->
+</div>
+</body>
+</html>
