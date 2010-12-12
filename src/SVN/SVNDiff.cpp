@@ -410,7 +410,12 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
         }
         else
         {
-            // diffing two revs of a file, so cat two files
+            if (url1.IsEquivalentTo(url2))
+            {
+                svn_revnum_t baseRev = 0;
+                DiffProps(url1, rev1, rev2, baseRev);
+            }
+            // diffing two revs of a file, so export two files
             CTSVNPath tempfile1 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url1, rev1);
             CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url2, rev2);
 
@@ -571,6 +576,12 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
         else
         {
             ASSERT(rev1.IsWorking());
+
+            if (url1.IsEquivalentTo(url2))
+            {
+                svn_revnum_t baseRev = 0;
+                DiffProps(url1, rev1, rev2, baseRev);
+            }
 
             m_pSVN->SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
             progDlg.ShowModeless(GetHWND());
