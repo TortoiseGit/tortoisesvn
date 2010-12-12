@@ -42,11 +42,41 @@ void CBufferedOutFile::Flush()
     }
 }
 
+// close and remove the file
+
+void CBufferedOutFile::RemoveFile()
+{
+    InternalClose();
+
+#ifdef _WIN32
+    DeleteFile (fileName.c_str());
+#else
+    remove (fileName.c_str());
+#endif
+}
+
+// helper
+
+void CBufferedOutFile::InternalClose()
+{
+    if (IsOpen())
+    {
+        Flush();
+
+#ifdef _WIN32
+        CloseHandle (file);
+#else
+        stream.close();
+#endif
+    }
+}
+
 // construction / destruction: auto- open/close
 
 #ifdef _WIN32
-CBufferedOutFile::CBufferedOutFile (const std::wstring& fileName)
-    : file (INVALID_HANDLE_VALUE)
+CBufferedOutFile::CBufferedOutFile (const TFileName& fileName)
+    : fileName (fileName)
+    , file (INVALID_HANDLE_VALUE)
     , buffer (BUFFER_SIZE)
     , used (0)
     , fileSize (0)
@@ -63,8 +93,9 @@ CBufferedOutFile::CBufferedOutFile (const std::wstring& fileName)
         throw CStreamException ("can't create log cache file");
 }
 #else
-CBufferedOutFile::CBufferedOutFile (const std::string& fileName)
-    : buffer (BUFFER_SIZE)
+CBufferedOutFile::CBufferedOutFile (const TFileName& fileName)
+    : fileName (fileName)
+    , buffer (BUFFER_SIZE)
     , used (0)
     , fileSize (0)
 {
@@ -77,13 +108,7 @@ CBufferedOutFile::CBufferedOutFile (const std::string& fileName)
 
 CBufferedOutFile::~CBufferedOutFile()
 {
-    if (IsOpen())
-    {
-        Flush();
-#ifdef _WIN32
-        CloseHandle (file);
-#endif
-    }
+    InternalClose();
 }
 
 // write data to file

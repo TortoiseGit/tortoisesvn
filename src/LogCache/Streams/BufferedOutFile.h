@@ -32,6 +32,10 @@ class CBufferedOutFile
 {
 private:
 
+    // name (full path) of the file
+
+    TFileName fileName;
+
 #ifdef _WIN32
     // the file
 
@@ -53,11 +57,19 @@ private:
 
     size_t fileSize;
 
+    // helper
+
+    void InternalClose();
+
 protected:
 
     // write buffer content to disk
 
     void Flush();
+
+    // close and remove the file
+
+    void RemoveFile();
 
 public:
 
