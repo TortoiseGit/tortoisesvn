@@ -46,10 +46,10 @@
 
 CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TSVNCache " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
 
-unsigned int        InstanceThread(LPVOID);
-unsigned int        PipeThread(LPVOID lpvParam);
-unsigned int        CommandWaitThread(LPVOID);
-unsigned int        CommandThread(LPVOID);
+unsigned int __stdcall InstanceThread(LPVOID);
+unsigned int __stdcall PipeThread(LPVOID lpvParam);
+unsigned int __stdcall CommandWaitThread(LPVOID);
+unsigned int __stdcall CommandThread(LPVOID);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 bool                bRun = true;
 NOTIFYICONDATA      niData;
@@ -479,7 +479,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
     }
 }
 
-unsigned int PipeThread(LPVOID lpvParam)
+unsigned int __stdcall PipeThread(LPVOID lpvParam)
 {
     ATLTRACE("PipeThread started\n");
     bool * bRun = (bool *)lpvParam;
@@ -553,7 +553,7 @@ unsigned int PipeThread(LPVOID lpvParam)
     return 0;
 }
 
-unsigned int CommandWaitThread(LPVOID lpvParam)
+unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
 {
     ATLTRACE("CommandWaitThread started\n");
     bool * bRun = (bool *)lpvParam;
@@ -627,7 +627,7 @@ unsigned int CommandWaitThread(LPVOID lpvParam)
     return 0;
 }
 
-unsigned int InstanceThread(LPVOID lpvParam)
+unsigned int __stdcall InstanceThread(LPVOID lpvParam)
 {
     ATLTRACE("InstanceThread started\n");
     TSVNCacheResponse response;
@@ -706,7 +706,7 @@ unsigned int InstanceThread(LPVOID lpvParam)
     return 0;
 }
 
-unsigned int CommandThread(LPVOID lpvParam)
+unsigned int __stdcall CommandThread(LPVOID lpvParam)
 {
     ATLTRACE("CommandThread started\n");
     DWORD cbBytesRead;
