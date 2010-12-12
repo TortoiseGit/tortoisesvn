@@ -1469,13 +1469,15 @@ private:
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/folder") == 0);
         testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/a/b/c/d/e") == 0);
+#ifdef SVN_PATH_H
         testPath.SetFromUnknown(_T("http://testing/"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing") == 0);
+#endif
         testPath.SetFromSVN(NULL);
         ATLASSERT(strlen(testPath.GetSVNApiPath(pool))==0);
         testPath.SetFromWin(_T("\\\\a\\b\\c\\d\\e"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "//a/b/c/d/e") == 0);
-#if defined(_MFC_VER)
+#if defined(_MFC_VER) && defined(SVN_PATH_H)
         testPath.SetFromUnknown(_T("http://testing again"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
         testPath.SetFromUnknown(_T("http://testing%20again"));
