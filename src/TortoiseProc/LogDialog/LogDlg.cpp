@@ -1748,7 +1748,6 @@ void CLogDlg::OnOK()
     if (!GetDlgItem(IDOK)->IsWindowVisible() && GetFocus() != GetDlgItem(IDC_LOGCANCEL))
         return; // the Cancel button works as the OK button. But if the cancel button has not the focus, do nothing.
 
-    CString temp;
     m_bCancelled = true;
     if (   !netScheduler.WaitForEmptyQueueOrTimeout(0)
         || !diskScheduler.WaitForEmptyQueueOrTimeout(0))
@@ -1759,60 +1758,9 @@ void CLogDlg::OnOK()
     if (m_pNotifyWindow || m_bSelect)
         UpdateSelectedRevs();
 
-    if (m_pNotifyWindow)
-    {
-        int selIndex = m_LogList.GetSelectionMark();
-        if (selIndex >= 0)
-        {
-            BOOL bSentMessage = FALSE;
-            svn_revnum_t lowerRev = m_selectedRevsOneRange.GetHighestRevision();
-            svn_revnum_t higherRev = m_selectedRevsOneRange.GetLowestRevision();
-            if (m_LogList.GetSelectedCount() == 1)
-            {
-                // if only one revision is selected, check if the path/url with which the dialog was started
-                // was directly affected in that revision. If it was, then check if our path was copied from somewhere.
-                // if it was copied, use the copy from revision as lowerRev
-                POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-                PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
+    NotifyTargetOnOk();
 
-                if ((pLogEntry)&&(lowerRev == higherRev))
-                {
-                    CString sUrl = m_path.GetSVNPathString();
-                    if (!m_path.IsUrl())
-                    {
-                        sUrl = GetURLFromPath(m_path);
-                    }
-                    sUrl = sUrl.Mid(m_sRepositoryRoot.GetLength());
-
-                    const CLogChangedPathArray& paths = pLogEntry->GetChangedPaths();
-                    for (size_t cp = 0; cp < paths.GetCount(); ++cp)
-                    {
-                        const CLogChangedPath& pData = paths[cp];
-                        if (sUrl.Compare(pData.GetPath()) == 0)
-                        {
-                            if (!pData.GetCopyFromPath().IsEmpty())
-                            {
-                                lowerRev = pData.GetCopyFromRev();
-                                m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART), lowerRev);
-                                m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND), higherRev);
-                                m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
-                                bSentMessage = TRUE;
-                            }
-                        }
-                    }
-                }
-            }
-            if ( !bSentMessage )
-            {
-                m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
-                m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
-                m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
-                if (m_selectedRevsOneRange.GetCount())
-                    m_pNotifyWindow->SendMessage(WM_REVLISTONERANGE, 0, (LPARAM)&m_selectedRevsOneRange);
-            }
-        }
-    }
-    UpdateData();
+	UpdateData();
     if (m_bSaveStrict)
         m_regLastStrict = m_bStrict;
     CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
@@ -1823,9 +1771,66 @@ void CLogDlg::OnOK()
 
     CString buttontext;
     GetDlgItemText(IDOK, buttontext);
+    CString temp;
     temp.LoadString(IDS_MSGBOX_CANCEL);
     if (temp.Compare(buttontext) != 0)
         __super::OnOK();    // only exit if the button text matches, and that will match only if the thread isn't running anymore
+}
+
+void CLogDlg::NotifyTargetOnOk()
+{
+    if (m_pNotifyWindow == 0)
+        return;
+
+    const int selIndex = m_LogList.GetSelectionMark();
+    if (selIndex < 0)
+        return;
+
+    bool bSentMessage = false;
+    svn_revnum_t lowerRev = m_selectedRevsOneRange.GetHighestRevision();
+    svn_revnum_t higherRev = m_selectedRevsOneRange.GetLowestRevision();
+    if (m_LogList.GetSelectedCount() == 1)
+    {
+        // if only one revision is selected, check if the path/url with which the dialog was started
+        // was directly affected in that revision. If it was, then check if our path was copied from somewhere.
+        // if it was copied, use the copy from revision as lowerRev
+        POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+        PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
+
+        if ((pLogEntry)&&(lowerRev == higherRev))
+        {
+            CString sUrl = m_path.GetSVNPathString();
+            if (!m_path.IsUrl())
+            {
+                sUrl = GetURLFromPath(m_path);
+            }
+            sUrl = sUrl.Mid(m_sRepositoryRoot.GetLength());
+
+            const CLogChangedPathArray& paths = pLogEntry->GetChangedPaths();
+            for (size_t cp = 0; cp < paths.GetCount(); ++cp)
+            {
+                const CLogChangedPath& pData = paths[cp];
+                if (sUrl.Compare(pData.GetPath()) != 0)
+                    continue;
+                if (pData.GetCopyFromPath().IsEmpty())
+                    continue;
+
+                lowerRev = pData.GetCopyFromRev();
+                m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART), lowerRev);
+                m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND), higherRev);
+                m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
+                bSentMessage = true;
+            }
+        }
+    }
+    if ( !bSentMessage )
+    {
+        m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
+        m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
+        m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
+        if (m_selectedRevsOneRange.GetCount())
+            m_pNotifyWindow->SendMessage(WM_REVLISTONERANGE, 0, (LPARAM)&m_selectedRevsOneRange);
+    }
 }
 
 void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
