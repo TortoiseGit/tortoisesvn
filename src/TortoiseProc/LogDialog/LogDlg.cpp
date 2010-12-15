@@ -1672,7 +1672,6 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
         //read data from dialog
         CString findText = m_pFindDialog->GetFindString();
         bool bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
-        bool bFound = false;
         tr1::wregex pat;
         bool bRegex = ValidateRegexp(findText, pat, bMatchCase);
 
@@ -1686,7 +1685,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
                              , scanRelevantPathsOnly
                              , -1);
 
-        for (size_t i = m_nSearchIndex; i < m_logEntries.GetVisibleCount() && !bFound; i++)
+        for (size_t i = m_nSearchIndex; i < m_logEntries.GetVisibleCount(); i++)
         {
             if (filter (*m_logEntries.GetVisible (i)))
             {
