@@ -161,6 +161,10 @@ protected:
     bool            HasConflictsWontKeep();
     bool            TryGetFileName(CString& result);
     CBaseView*      GetActiveBaseView() const;
+    void            OnViewTextFoldUnfold();
+    void            OnViewTextFoldUnfold(CBaseView* view);
+    bool            HasUnsavedEdits() const;
+    bool            HasUnsavedEdits(const CBaseView* view) const;
 
 protected:
     CMFCMenuBar     m_wndMenuBar;

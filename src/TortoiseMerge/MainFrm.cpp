@@ -869,30 +869,7 @@ void CMainFrame::OnViewCollapsed()
     regViewCollapsed = !(DWORD)regViewCollapsed;
     m_bCollapsed = !!(DWORD)regViewCollapsed;
 
-    if (m_pwndLeftView)
-    {
-        m_pwndLeftView->BuildScreen2ViewVector();
-        m_pwndLeftView->UpdateCaret();
-        m_pwndLeftView->Invalidate();
-        if (m_pwndLeftView->HasCaret())
-            m_pwndLeftView->EnsureCaretVisible();
-    }
-    if (m_pwndRightView)
-    {
-        m_pwndRightView->BuildScreen2ViewVector();
-        m_pwndRightView->UpdateCaret();
-        m_pwndRightView->Invalidate();
-        if (m_pwndRightView->HasCaret())
-            m_pwndRightView->EnsureCaretVisible();
-    }
-    if (m_pwndBottomView)
-    {
-        m_pwndBottomView->BuildScreen2ViewVector();
-        m_pwndBottomView->UpdateCaret();
-        m_pwndBottomView->Invalidate();
-        if (m_pwndBottomView->HasCaret())
-            m_pwndBottomView->EnsureCaretVisible();
-    }
+    OnViewTextFoldUnfold();
     m_wndLocatorBar.Invalidate();
 }
 
@@ -907,33 +884,28 @@ void CMainFrame::OnViewWraplonglines()
     regViewWrapLines = !(DWORD)regViewWrapLines;
     m_bWrapLines = !!(DWORD)regViewWrapLines;
 
-    if (m_pwndLeftView)
-    {
-        m_pwndLeftView->BuildScreen2ViewVector();
-        m_pwndLeftView->UpdateCaret();
-        m_pwndLeftView->Invalidate();
-        if (m_pwndLeftView->HasCaret())
-            m_pwndLeftView->EnsureCaretVisible();
-    }
-    if (m_pwndRightView)
-    {
-        m_pwndRightView->BuildScreen2ViewVector();
-        m_pwndRightView->UpdateCaret();
-        m_pwndRightView->Invalidate();
-        if (m_pwndRightView->HasCaret())
-            m_pwndRightView->EnsureCaretVisible();
-    }
-    if (m_pwndBottomView)
-    {
-        m_pwndBottomView->BuildScreen2ViewVector();
-        m_pwndBottomView->UpdateCaret();
-        m_pwndBottomView->Invalidate();
-        if (m_pwndBottomView->HasCaret())
-            m_pwndBottomView->EnsureCaretVisible();
-    }
+    OnViewTextFoldUnfold();
     m_wndLocatorBar.DocumentUpdated();
 }
 
+void CMainFrame::OnViewTextFoldUnfold()
+{
+    OnViewTextFoldUnfold(m_pwndLeftView);
+    OnViewTextFoldUnfold(m_pwndRightView);
+    OnViewTextFoldUnfold(m_pwndBottomView);
+}
+
+void CMainFrame::OnViewTextFoldUnfold(CBaseView* view)
+{
+    if (view == 0)
+        return;
+
+    view->BuildScreen2ViewVector();
+    view->UpdateCaret();
+    view->Invalidate();
+    if (view->HasCaret())
+        view->EnsureCaretVisible();
+}
 
 void CMainFrame::OnUpdateViewWraplonglines(CCmdUI *pCmdUI)
 {
@@ -945,20 +917,7 @@ void CMainFrame::OnViewOnewaydiff()
     if (CheckForSave()==IDCANCEL)
         return;
     m_bOneWay = !m_bOneWay;
-    if (m_bOneWay)
-    {
-        // in one way view, hide the line diff bar
-        m_wndLineDiffBar.ShowPane(false, false, true);
-        m_wndLineDiffBar.DocumentUpdated();
-    }
-    else
-    {
-        // restore the line diff bar
-        m_wndLineDiffBar.ShowPane(m_bLineDiff, false, true);
-        m_wndLineDiffBar.DocumentUpdated();
-        m_wndLocatorBar.ShowPane(m_bLocatorBar, false, true);
-        m_wndLocatorBar.DocumentUpdated();
-    }
+    ShowDiffBar(!m_bOneWay);
     LoadViews(-1);
 }
 
@@ -1243,8 +1202,7 @@ void CMainFrame::OnClose()
         return;
     }
     int ret = IDNO;
-    if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
-        ((m_pwndRightView)&&(m_pwndRightView->IsModified())))
+    if (HasUnsavedEdits())
     {
         CString sTemp;
         sTemp.LoadString(IDS_ASKFORSAVE);
@@ -1885,8 +1843,7 @@ void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
 void CMainFrame::OnViewSwitchleft()
 {
     int ret = IDNO;
-    if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
-        ((m_pwndRightView)&&(m_pwndRightView->IsModified())))
+    if (HasUnsavedEdits())
     {
         CString sTemp;
         sTemp.LoadString(IDS_ASKFORSAVE);
@@ -1958,8 +1915,7 @@ void CMainFrame::OnUpdateEditUndo(CCmdUI *pCmdUI)
 int CMainFrame::CheckForSave()
 {
     int ret = IDNO;
-    if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
-        ((m_pwndRightView)&&(m_pwndRightView->IsModified())))
+    if (HasUnsavedEdits())
     {
         CString sTemp;
         sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
@@ -1971,6 +1927,18 @@ int CMainFrame::CheckForSave()
         }
     }
     return ret;
+}
+
+bool CMainFrame::HasUnsavedEdits() const
+{
+    return HasUnsavedEdits(m_pwndBottomView) || HasUnsavedEdits(m_pwndRightView);
+}
+
+bool CMainFrame::HasUnsavedEdits(const CBaseView* view) const
+{
+    if(view == 0)
+        return false;
+    return view->IsModified();
 }
 
 void CMainFrame::OnViewInlinediffword()
