@@ -42,6 +42,7 @@
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
+      <arg value="/MP" />
       <arg value="/errorReport:prompt" />
       <sources>
         <include name="lib\auxprop.c" />
@@ -112,6 +113,7 @@
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
+      <arg value="/MP" />
       <arg value="/errorReport:prompt" />
       <sources>
         <include name="lib\auxprop.c" />
@@ -191,6 +193,7 @@
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
+      <arg value="/MP" />
       <arg value="/errorReport:prompt" />
       <sources>
         <include name="plugins\plugin_common.c" />

@@ -38,6 +38,7 @@
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
+      <arg value="/MP" />
       <arg value="/errorReport:prompt" />
       <sources>
         <include name="sqlite3.c" />

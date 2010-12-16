@@ -103,6 +103,7 @@
           <arg value="/nologo" />
           <arg value="/c" />
           <arg value="/Zi" />
+          <arg value="/MP" />
           <arg value="/errorReport:prompt" />
           <sources>
             <include name="subversion\${fname}\**.c" />
@@ -187,6 +188,7 @@
           <arg value="/nologo" />
           <arg value="/c" />
           <arg value="/Zi" />
+          <arg value="/MP" />
           <arg value="/errorReport:prompt" />
           <sources>
             <include name="subversion\${fname}\**.c" />
@@ -283,6 +285,7 @@
           <arg value="/nologo" />
           <arg value="/c" />
           <arg value="/Zi" />
+          <arg value="/MP" />
           <arg value="/errorReport:prompt" />
           <sources>
             <include name="subversion\${toolname}\*.c" />

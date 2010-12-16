@@ -53,6 +53,7 @@
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
+      <arg value="/MP" />
       <arg value="/errorReport:prompt" />
       <sources>
         <include name="network_io\win32\*.c" />
