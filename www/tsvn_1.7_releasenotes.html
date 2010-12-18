@@ -8,6 +8,9 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>TortoiseSVN - Release notes for 1.7</title>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="scripts/lightbox/prototype.js"></script>
+<script type="text/javascript" src="scripts/lightbox/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="scripts/lightbox/lightbox.js"></script>
 </head>
 <body>
 <div id="langselection">
@@ -152,9 +155,24 @@
 
             <div class="post" id="logdlg" title="logdlg">
                 <h2>Log dialog</h2>
-                <!-- highlighted searches/filters -->
-                <!-- revision links -->
-                <!-- merged log messages for multiselections (issue 44) -->
+                <p>The log dialog doesn't look much different. But in its core
+                it gained a lot of changes. Most noticable may be the increase
+                in performance. Showing and filtering hundred thousand entries
+                is now done almost instantly.</p>
+                <p>Filtering also has improved a lot. Especially the syntax now
+                resembles more what users are used to from web search engines.
+                For example, filtering for <code>Alice Bob -Eve</code> will
+                show strings containing both Alice and Bob but not Eve. For more
+                detailed examples, please refer to the 
+                <a href="http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-dug-showlog.html#tsvn-dug-showlog-filter">docs</a>.</p>
+                <p>Another feature the log dialog has is that it highlights
+                filter matches in red. That way it's much easier to find out
+                which part of a log entry matched the filter string.</p>
+                <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/logfilter.png" rel="lightbox"><img src="images/logfilter-small.png"></a>
+                <p>If revisions are mentioned in a log message, then the log
+                dialog turns those into links. Clicking on those links will
+                automatically select the mentioned revision in the log dialog.</p>
+                <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/loglinks.png" rel="lightbox"><img src="images/loglinks-small.png"></a>
             </div>  <!-- logdlg -->
 
             <div class="post" id="revgraph" title="revgraph">
