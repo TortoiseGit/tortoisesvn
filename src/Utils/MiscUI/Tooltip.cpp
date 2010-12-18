@@ -52,12 +52,7 @@ BOOL CToolTips::OnTtnNeedText(NMHDR *pNMHDR, LRESULT *pResult)
 
 BOOL CToolTips::AddTool(CWnd* pWnd, UINT nIDText, LPCRECT lpRectTool /* = NULL */, UINT_PTR nIDTool /* = 0 */)
 {
-    CString sTemp;
-    sTemp.LoadString(nIDText);
-    // tooltips can't handle \t and single \n, only spaces and \r\n
-    sTemp.Replace('\t', ' ');
-    sTemp.Replace(_T("\r\n"), _T("\n"));
-    sTemp.Replace(_T("\n"), _T("\r\n"));
+    CString sTemp = LoadTooltip(nIDText);
     toolTextMap[::GetDlgCtrlID(pWnd->GetSafeHwnd())] = sTemp;
     return CToolTipCtrl::AddTool(pWnd, LPSTR_TEXTCALLBACK, lpRectTool, nIDTool);
 }
@@ -87,17 +82,9 @@ void CToolTips::DelTool( CWnd* pWnd, UINT_PTR nIDTool /* = 0 */)
 
 BOOL CToolTips::ShowBalloon(CWnd *pWnd, UINT nIDText, UINT nIDTitle, UINT icon /* = 0 */)
 {
-    CString sTemp;
-    sTemp.LoadString(nIDText);
-    // tooltips can't handle \t and single \n, only spaces and \r\n
-    sTemp.Replace('\t', ' ');
-    sTemp.Replace(_T("\r\n"), _T("\n"));
-    sTemp.Replace(_T("\n"), _T("\r\n"));
+    CString sTemp = LoadTooltip(nIDText);
 
-    HWND hwndTT = NULL;
-    TOOLINFO ti = { 0 };
-    RECT rc;
-    hwndTT = CreateWindow
+    const HWND hwndTT = CreateWindow
         (
         TOOLTIPS_CLASS,
         TEXT(""),
@@ -112,6 +99,7 @@ BOOL CToolTips::ShowBalloon(CWnd *pWnd, UINT nIDText, UINT nIDTitle, UINT icon /
     if (hwndTT == NULL)
         return FALSE;
 
+    TOOLINFO ti = { 0 };
     ti.cbSize = sizeof(ti);
     ti.uFlags = TTF_TRACK | TTF_IDISHWND | TTF_PARSELINKS;
     ti.hwnd = pWnd->GetSafeHwnd();
@@ -121,6 +109,7 @@ BOOL CToolTips::ShowBalloon(CWnd *pWnd, UINT nIDText, UINT nIDTitle, UINT icon /
     ::SendMessage(hwndTT, TTM_SETMAXTIPWIDTH, 0, 800);
 
     // Position the tooltip below the control
+    RECT rc;
     ::GetWindowRect(pWnd->GetSafeHwnd(), &rc);
     ::SendMessage(hwndTT, TTM_TRACKPOSITION, 0, MAKELONG(rc.left + 10, rc.bottom));
 
@@ -135,3 +124,13 @@ void CToolTips::ShowBalloon(int nIdWnd, UINT nIdText, UINT nIDTitle, UINT icon /
     ShowBalloon(((CDialog*)m_pParentWnd)->GetDlgItem(nIdWnd), nIdText, nIDTitle, icon);
 }
 
+CString CToolTips::LoadTooltip( UINT nIDText )
+{
+    CString sTemp;
+    sTemp.LoadString(nIDText);
+    // tooltips can't handle \t and single \n, only spaces and \r\n
+    sTemp.Replace('\t', ' ');
+    sTemp.Replace(_T("\r\n"), _T("\n"));
+    sTemp.Replace(_T("\n"), _T("\r\n"));
+    return sTemp;
+}

@@ -58,6 +58,8 @@ public:
 private:
     CWnd *  m_pParentWnd;
     std::map<UINT, CString>     toolTextMap;
+
+    static CString LoadTooltip( UINT nIDText );
 };
 
 
