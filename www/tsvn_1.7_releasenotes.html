@@ -177,9 +177,26 @@
 
             <div class="post" id="revgraph" title="revgraph">
                 <h2>Revision graph</h2>
-                <!-- faster startup -->
-                <!-- ability to hide specific tags -->
-                <!-- svg export -->
+                <p>The revision graph also got a lot of improvements. Escpecially
+                the startup time has been reduced a lot, which will be most
+                noticable for very big repositories.</p>
+                <p>Another nice new feature is the ability to manually hide
+                specific branches and tags. Just hover the mouse pointer over
+                a connection line to make a small <code>+/-</code> sign to
+                appear. Clicking on that symbol then either hides the branch
+                or shows it again if it was hidden before.</p>
+                <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/revgraph-hidetag.png" rel="lightbox"><img src="images/revgraph-hidetag-small.png"></a>
+                <p>Since revision graphs can get very big, saving them as bitmap
+                images can lead to very big images. While it was possible to
+                save the graph as a <a href="http://en.wikipedia.org/wiki/Windows_Metafile">wmf file</a>,
+                that format can only be used on Windows. And of course, you can't
+                show it in a web browser.</p>
+                <p>The revision graph in version 1.7 can save the graph in
+                the <a href="http://en.wikipedia.org/wiki/Svg">svg format</a>.
+                Most web browsers can show that format natively, and even Internet
+                Explorer in its latest version is able to show those files directly.</p>
+                <p>If your browser supports this format, you can have a look
+                at the TortoiseSVN revision graph following <a href="images/tsvn.svg">this link</a>.</p>
             </div>  <!-- revgraph -->
 
             <div class="post" id="branchtag" title="branchtag">
