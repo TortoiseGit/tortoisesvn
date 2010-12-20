@@ -167,56 +167,60 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
     case WM_DESTROY:
         return TRUE;
     case WM_COMMAND:
-        switch (HIWORD(wParam))
-        {
-            case BN_CLICKED:
-                if (LOWORD(wParam) == IDC_SHOWLOG)
-                {
-                    tstring svnCmd = _T(" /command:");
-                    svnCmd += _T("log /path:\"");
-                    svnCmd += filenames.front().c_str();
-                    svnCmd += _T("\"");
-                    RunCommand(svnCmd);
-                }
-                if (LOWORD(wParam) == IDC_EDITPROPERTIES)
-                {
-                    DWORD pathlength = GetTempPath(0, NULL);
-                    auto_buffer<TCHAR> path(pathlength+1);
-                    auto_buffer<TCHAR> tempFile(pathlength + 100);
-                    GetTempPath (pathlength+1, path);
-                    GetTempFileName (path, _T("svn"), 0, tempFile);
-                    tstring retFilePath = tstring(tempFile);
-
-                    HANDLE file = ::CreateFile (tempFile,
-                        GENERIC_WRITE,
-                        FILE_SHARE_READ,
-                        0,
-                        CREATE_ALWAYS,
-                        FILE_ATTRIBUTE_TEMPORARY,
-                        0);
-
-                    if (file != INVALID_HANDLE_VALUE)
-                    {
-                        DWORD written = 0;
-                        for (std::vector<tstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
-                        {
-                            ::WriteFile (file, I->c_str(), (DWORD)I->size()*sizeof(TCHAR), &written, 0);
-                            ::WriteFile (file, _T("\n"), 2, &written, 0);
-                        }
-                        ::CloseHandle(file);
-
-                        tstring svnCmd = _T(" /command:");
-                        svnCmd += _T("properties /pathfile:\"");
-                        svnCmd += retFilePath.c_str();
-                        svnCmd += _T("\"");
-                        svnCmd += _T(" /deletepathfile");
-                        RunCommand(svnCmd);
-                    }
-                }
-                break;
-        } // switch (HIWORD(wParam))
+        PageProcOnCommand(wParam);
+        break;
     } // switch (uMessage)
     return FALSE;
+}
+
+void CSVNPropertyPage::PageProcOnCommand(WPARAM wParam)
+{
+    if(HIWORD(wParam) != BN_CLICKED)
+        return;
+
+    if (LOWORD(wParam) == IDC_SHOWLOG)
+    {
+        tstring svnCmd = _T(" /command:");
+        svnCmd += _T("log /path:\"");
+        svnCmd += filenames.front().c_str();
+        svnCmd += _T("\"");
+        RunCommand(svnCmd);
+    }
+    if (LOWORD(wParam) == IDC_EDITPROPERTIES)
+    {
+        DWORD pathlength = GetTempPath(0, NULL);
+        auto_buffer<TCHAR> path(pathlength+1);
+        auto_buffer<TCHAR> tempFile(pathlength + 100);
+        GetTempPath (pathlength+1, path);
+        GetTempFileName (path, _T("svn"), 0, tempFile);
+        tstring retFilePath = tstring(tempFile);
+
+        HANDLE file = ::CreateFile (tempFile,
+            GENERIC_WRITE,
+            FILE_SHARE_READ,
+            0,
+            CREATE_ALWAYS,
+            FILE_ATTRIBUTE_TEMPORARY,
+            0);
+
+        if (file != INVALID_HANDLE_VALUE)
+        {
+            DWORD written = 0;
+            for (std::vector<tstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
+            {
+                ::WriteFile (file, I->c_str(), (DWORD)I->size()*sizeof(TCHAR), &written, 0);
+                ::WriteFile (file, _T("\n"), 2, &written, 0);
+            }
+            ::CloseHandle(file);
+
+            tstring svnCmd = _T(" /command:");
+            svnCmd += _T("properties /pathfile:\"");
+            svnCmd += retFilePath.c_str();
+            svnCmd += _T("\"");
+            svnCmd += _T(" /deletepathfile");
+            RunCommand(svnCmd);
+        }
+    }
 }
 
 void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen)
@@ -263,7 +267,6 @@ void CSVNPropertyPage::InitWorkfileView()
 {
     SVNStatus svn;
     SVNInfo info;
-    TCHAR tbuf[MAX_STRING_LENGTH];
     if (filenames.size() == 1)
     {
         if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
@@ -402,6 +405,7 @@ void CSVNPropertyPage::InitWorkfileView()
             if (svn.status->repos_relpath)
             {
                 CPathUtils::Unescape((char*)svn.status->repos_relpath);
+                TCHAR tbuf[MAX_STRING_LENGTH];
                 _tcsncpy_s(tbuf, UTF8ToWide(svn.status->repos_relpath).c_str(), _countof(tbuf)-1);
                 TCHAR * ptr = _tcsrchr(tbuf, '/');
                 if (ptr != 0)
