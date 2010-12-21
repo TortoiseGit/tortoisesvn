@@ -107,8 +107,8 @@ public:
 class SVNInfo : public SVNBase
 {
 private:
-    SVNInfo(const SVNInfo&){}
-    SVNInfo& operator=(SVNInfo&){};
+    SVNInfo(const SVNInfo&);
+    SVNInfo& operator=(SVNInfo&);
 public:
     SVNInfo(bool suppressUI = false);
     ~SVNInfo(void);

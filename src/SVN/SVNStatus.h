@@ -37,8 +37,8 @@
 class SVNStatus : public SVNBase
 {
 private:
-    SVNStatus(const SVNStatus&){}
-    SVNStatus& operator=(SVNStatus&){};
+    SVNStatus(const SVNStatus&);
+    SVNStatus& operator=(SVNStatus&);
 public:
     SVNStatus(bool * pbCancelled = NULL, bool suppressUI = false);
     ~SVNStatus(void);

@@ -46,8 +46,8 @@
 class SVNReadProperties : public SVNBase
 {
 private:
-    SVNReadProperties(const SVNReadProperties&){}
-    SVNReadProperties& operator=(SVNReadProperties&){}
+    SVNReadProperties(const SVNReadProperties&);
+    SVNReadProperties& operator=(SVNReadProperties&);
 
     /// construction utility
 
