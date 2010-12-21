@@ -41,7 +41,7 @@
                   <li><a href="#branchtag"
                       >Branch/Tag dialog</a></li>
                   <li><a href="#commitdlg"
-                      >Branch/Tag dialog</a></li>
+                      >Commit dialog</a></li>
                   <li><a href="#repobrowser"
                       >Repository browser</a></li>
                   <li><a href="#tmerge"
@@ -201,11 +201,31 @@
 
             <div class="post" id="branchtag" title="branchtag">
                 <h2>Branch/Tag dialog</h2>
-                <!-- fix externals -->
+                <p>When creating a branch or tag, the <code>svn:externals</code>
+                properties are branched/tagged as they are, usually pointing
+                to the HEAD revision of another repository or even the same
+                repository but different path.</p>
+                <p>If the <code>svn:externals</code> are not <i>tagged</i> too,
+                a later checkout from the created tag would fetch the HEAD
+                revision of the external, which can lead to inconsistent builds
+                if the external got additional commits.</p>
+                <p>The branch/tag dialog now allows you to <i>tag</i> the
+                externals too.</p>
+                <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/branchtagexternals.png" rel="lightbox"><img src="images/branchtagexternals-small.png"></a>
+                <p>If externals are set to an explicit revision when creating 
+                a branch or tag, TortoiseSVN automatically changes the 
+                <code>svn:externals</code> property. When the branch/tag is 
+                created from HEAD or a specific revision in the repository, 
+                TortoiseSVN first creates the branch/tag, then adjusts the 
+                properties. This will create additional commits for each 
+                property. When the branch/tag is created from the working copy, 
+                the properties are modified first, then the branch/tag is 
+                created and then the properties are changed back to their 
+                original value.</p>
             </div>  <!-- branchtag -->
 
             <div class="post" id="commitdlg" title="commitdlg">
-                <h2>Branch/Tag dialog</h2>
+                <h2>Commit dialog</h2>
                 <!-- check links -->
                 <!-- update notification -->
             </div>  <!-- commitdlg -->
