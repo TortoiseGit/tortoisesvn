@@ -2926,7 +2926,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             }
 
             int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-            m_bBlock = TRUE;
+            m_bBlockUI = TRUE;
             AfxGetApp()->DoWaitCursor(1);
             int iItemCountBeforeMenuCmd = GetItemCount();
             size_t iChangelistCountBeforeMenuCmd = m_changelists.size();
@@ -3945,7 +3945,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 break;
             } // switch (cmd)
-            m_bBlock = FALSE;
+            m_bBlockUI = FALSE;
             AfxGetApp()->DoWaitCursor(-1);
             GetStatisticsString();
             int iItemCountAfterMenuCmd = GetItemCount();
@@ -4145,7 +4145,7 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             return;
         // check/uncheck the whole group depending on the check-state
         // of the first item in the group
-        m_bBlock = true;
+        m_bBlockUI = true;
         bool bCheck = false;
         bool bFirst = false;
         LVITEM lv;
@@ -4178,7 +4178,7 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             }
         }
         GetStatisticsString();
-        m_bBlock = false;
+        m_bBlockUI = false;
         NotifyCheck();
         return;
     }
@@ -4367,7 +4367,7 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)
     CWaitCursor waitCursor;
     // block here so the LVN_ITEMCHANGED messages
     // get ignored
-    m_bBlock = TRUE;
+    m_bBlockUI = TRUE;
     SetRedraw(FALSE);
 
     int nListItems = GetItemCount();
@@ -4385,7 +4385,7 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)
             SetEntryCheck(entry,i,bSelect);
     }
     // unblock before redrawing
-    m_bBlock = FALSE;
+    m_bBlockUI = FALSE;
     SetRedraw(TRUE);
     GetStatisticsString();
     NotifyCheck();
