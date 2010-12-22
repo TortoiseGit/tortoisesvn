@@ -2713,6 +2713,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         {
             popup.AppendMenuIcon(ID_SAVEAS, IDS_REPOBROWSE_SAVEAS, IDI_SAVEAS);     // "Save as..."
         }
+        popup.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_REPOBROWSE_URLTOCLIPBOARD, IDI_COPYCLIP);   // "Copy URL to clipboard"
         if (   (selection.GetFolderCount(0) == selection.GetPathCount(0))
             || (selection.GetFolderCount(0) == 0))
         {
@@ -2722,7 +2723,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         if (selection.GetPathCount(0) == 1)
         {
             popup.AppendMenuIcon(ID_COPYTO, IDS_REPOBROWSE_COPY, IDI_COPY);         // "Copy To..."
-            popup.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_REPOBROWSE_URLTOCLIPBOARD, IDI_COPYCLIP);   // "Copy URL to clipboard"
             popup.AppendMenu(MF_SEPARATOR, NULL);
             popup.AppendMenuIcon(ID_PROPS, IDS_REPOBROWSE_SHOWPROP, IDI_PROPERTIES);            // "Show Properties"
             // Revision properties are not associated to paths
