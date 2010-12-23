@@ -1185,9 +1185,11 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
     {
         rev = it->second;
     }
-    CLogDlg dlg;
-    dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_RevisionEnd, rev, 0, TRUE);
-    dlg.DoModal();
+    CString sCmd;
+    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"),
+        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), m_targetPathList[0].GetWinPath(), (LPCTSTR)m_RevisionEnd.ToString());
+
+    CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
 
 void CSVNProgressDlg::OnBnClickedRetrynohooks()
@@ -1949,20 +1951,15 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
     case ID_LOG:
         {
-            svn_revnum_t rev = m_RevisionEnd;
-            if (!data->basepath.IsEmpty())
-            {
-                StringRevMap::iterator it = m_FinishedRevMap.find(data->basepath.GetSVNApiPath(pool));
-                if (it != m_FinishedRevMap.end())
-                    rev = it->second;
-            }
-            CLogDlg dlg;
             // fetch the log from HEAD, not the revision we updated to:
             // the path might be inside an external folder which has its own
             // revisions.
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
-            dlg.SetParams(CTSVNPath(sPath), SVNRev(), SVNRev::REV_HEAD, 1, TRUE);
-            dlg.DoModal();
+            CString sCmd;
+            sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""),
+                (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sPath);
+
+            CAppUtils::LaunchApplication(sCmd, NULL, false);
         }
         break;
     case ID_OPENWITH:
