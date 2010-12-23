@@ -337,6 +337,9 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         else
             data->sActionColumnText.LoadString(IDS_SVNACTION_EXISTS);
         break;
+    case svn_wc_notify_update_started:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATING);
+        break;
     case svn_wc_notify_merge_record_info:
     case svn_wc_notify_update_update:
         // if this is an inoperative dir change, don't show the notification.
