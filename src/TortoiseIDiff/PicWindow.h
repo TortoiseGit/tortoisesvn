@@ -204,8 +204,8 @@ protected:
     /// creates the info string used in the info box and the tooltips
     void                BuildInfoString(TCHAR * buf, int size, bool bTooltip);
 
-    tstring         picpath;            ///< the path to the image we show
-    tstring         pictitle;           ///< the string to show in the image view as a title
+    tstring             picpath;            ///< the path to the image we show
+    tstring             pictitle;           ///< the string to show in the image view as a title
     CPicture            picture;            ///< the picture object of the image
     bool                bValid;             ///< true if the picture object is valid, i.e. if the image could be loaded and can be shown
     double              picscale;           ///< the scale factor of the image
