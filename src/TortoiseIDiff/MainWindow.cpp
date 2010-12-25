@@ -382,6 +382,8 @@ LRESULT CMainWindow::DoCommand(int id)
             {
                 picWindow1.SetSecondPic();
             }
+            picWindow1.SetOverlapMode(bOverlap);
+            picWindow2.SetOverlapMode(bOverlap);
 
 
             RECT rect;
@@ -502,14 +504,14 @@ LRESULT CMainWindow::DoCommand(int id)
     case ID_VIEW_ZOOMIN:
         {
             picWindow1.Zoom(true, false);
-            if (!bFitSizes)
+            if ((!bFitSizes)&&(!bOverlap))
                 picWindow2.Zoom(true, false);
         }
         break;
     case ID_VIEW_ZOOMOUT:
         {
             picWindow1.Zoom(false, false);
-            if (!bFitSizes)
+            if ((!bFitSizes)&&(!bOverlap))
                 picWindow2.Zoom(false, false);
         }
         break;

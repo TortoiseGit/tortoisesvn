@@ -840,7 +840,7 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
     {
         // control means adjusting the scale factor
         Zoom(zDelta>0, true);
-        if ((!bFitSizes)&&(pTheOtherPic))
+        if ((!bFitSizes)&&(pTheOtherPic)&&(!bOverlap))
             pTheOtherPic->Zoom(zDelta>0, true);
         PositionChildren();
         InvalidateRect(*this, NULL, FALSE);

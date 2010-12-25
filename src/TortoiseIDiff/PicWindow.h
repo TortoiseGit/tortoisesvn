@@ -74,6 +74,7 @@ public:
         , pTheOtherPic(NULL)
         , bLinkedPositions(true)
         , bFitSizes(false)
+        , bOverlap(false)
         , m_blend(BLEND_ALPHA)
         , bMainPic(false)
         , bFirstpaint(false)
@@ -154,6 +155,8 @@ public:
     void SetOtherPicWindow(CPicWindow * pWnd) {pTheOtherPic = pWnd;}
     /// Links/Unlinks the two pic windows
     void LinkPositions(bool bLink) {bLinkedPositions = bLink;}
+    /// Sets the overlay mode info
+    void SetOverlapMode(bool b) {bOverlap = b;}
 
     void ShowInfo(bool bShow = true) {bShowInfo = bShow; InvalidateRect(*this, NULL, false);}
     /// Sets up the scrollbars as needed
@@ -215,7 +218,8 @@ protected:
     CPicWindow *        pTheOtherPic;       ///< pointer to the other picture window. Used for "linking" the two windows when scrolling/zooming/...
     bool                bMainPic;           ///< if true, this is the first image
     bool                bLinkedPositions;   ///< if true, the two image windows are linked together for scrolling/zooming/...
-    bool                bFitSizes;      ///< if true, the two image windows are always zoomed so they match their size
+    bool                bFitSizes;          ///< if true, the two image windows are always zoomed so they match their size
+    bool                bOverlap;           ///< true if the overlay mode is active
     BlendType           m_blend;            ///< type of blending to use
     tstring             pictitle2;          ///< the title of the second picture
     tstring             picpath2;           ///< the path of the second picture
