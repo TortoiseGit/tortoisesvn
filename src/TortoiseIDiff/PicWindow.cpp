@@ -269,13 +269,21 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                 // pan the image
                 int xPos = GET_X_LPARAM(lParam);
                 int yPos = GET_Y_LPARAM(lParam);
+
                 if (wParam & MK_CONTROL)
                 {
                     nHSecondScrollPos = startHSecondScrollPos + (ptPanStart.x - xPos);
                     nVSecondScrollPos = startVSecondScrollPos + (ptPanStart.y - yPos);
                 }
+                else if (wParam & MK_SHIFT)
+                {
+                    nHScrollPos = startHScrollPos + (ptPanStart.x - xPos);
+                    nVScrollPos = startVScrollPos + (ptPanStart.y - yPos);
+                }
                 else
                 {
+                    nHSecondScrollPos = startHSecondScrollPos + (ptPanStart.x - xPos);
+                    nVSecondScrollPos = startVSecondScrollPos + (ptPanStart.y - yPos);
                     nHScrollPos = startHScrollPos + (ptPanStart.x - xPos);
                     nVScrollPos = startVScrollPos + (ptPanStart.y - yPos);
                 }
@@ -1102,7 +1110,7 @@ void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, d
     RECT picrect;
     picrect.left =  bounds.left - nHScrollPos;
     picrect.top = bounds.top - nVScrollPos;
-    if (!bLinkedPositions && (pTheOtherPic) && (&pic != &picture))
+    if ((!bLinkedPositions || bOverlap) && (pTheOtherPic) && (&pic != &picture))
     {
         picrect.left = bounds.left - nHSecondScrollPos;
         picrect.top  = bounds.top - nVSecondScrollPos;
