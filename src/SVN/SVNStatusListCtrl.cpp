@@ -4812,7 +4812,6 @@ int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *co
 BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 {
     TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
-    CString strTipText;
     UINT_PTR nID = pNMHDR->idFrom;
 
     if (nID == 0)
@@ -4847,6 +4846,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
         {
             if (fentry->copied)
             {
+                // show the copyfrom url in the tooltip
                 if (fentry->copyfrom_url_string.IsEmpty())
                 {
                     SVNInfo info;
@@ -4862,11 +4862,31 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
             }
             if (fentry->switched)
             {
+                // show where the item is switched to in the tooltip
                 CString url;
                 url.Format(IDS_STATUSLIST_SWITCHEDTO, (LPCTSTR)CPathUtils::PathUnescape(fentry->url));
                 lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
                 return TRUE;
             }
+            // show the file size changes in the tooltip
+            apr_off_t baseSize = 0;
+            apr_off_t wcSize = fentry->working_size;
+            if (fentry->working_size == SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
+            {
+                wcSize = fentry->path.GetFileSize();
+            }
+            CTSVNPath basePath = SVN::GetPristinePath(fentry->path);
+            baseSize = basePath.GetFileSize();
+            WCHAR baseBuf[100] = {0};
+            WCHAR wcBuf[100] = {0};
+            WCHAR changedBuf[100] = {0};
+            StrFormatByteSize64(baseSize, baseBuf, 100);
+            StrFormatByteSize64(wcSize, wcBuf, 100);
+            StrFormatByteSize64(wcSize-baseSize, changedBuf, 100);
+            CString sTemp;
+            sTemp.Format(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
+            lstrcpyn(pTTTW->szText, (LPCTSTR)sTemp, 80);
+            return TRUE;
         }
     }
 
