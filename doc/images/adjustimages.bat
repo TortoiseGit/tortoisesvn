@@ -125,7 +125,7 @@ if %w_delta% geq 0 (
 :: Make sure the dpi is large enough (integer arithmetic truncates)
 set /a new_dpi = new_dpi + 1
 echo adjust dpi to %new_dpi%
-nconvert.exe -dpi %new_dpi% %1 >nul
+nconvert.exe -overwrite -dpi %new_dpi% %1 >nul
 :Done
 endlocal & goto :EOF
 ::===============================================================
