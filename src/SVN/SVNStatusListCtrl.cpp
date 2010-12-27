@@ -4811,14 +4811,23 @@ int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *co
 
 BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 {
+    *pResult = 0;
     TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
     UINT_PTR nID = pNMHDR->idFrom;
 
-    if (nID == 0)
-        return FALSE;
-
     UINT_PTR row = ((nID-1) >> 10) & 0x3fffff;
     UINT_PTR col = (nID-1) & 0x3ff;
+
+    if (nID == 0)
+    {
+        LVHITTESTINFO lvhti = {0};
+        GetCursorPos(&lvhti.pt);
+        ScreenToClient(&lvhti.pt);
+        row = SubItemHitTest(&lvhti);
+        col = lvhti.iSubItem;
+        if (row == -1)
+            return FALSE;
+    }
 
     if (col == 0)
         return FALSE;   // no custom tooltip for the path, we use the infotip there!
@@ -4834,11 +4843,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
             currentcol++;
     }
 
-    AFX_MODULE_THREAD_STATE* pModuleThreadState = AfxGetModuleThreadState();
-    CToolTipCtrl* pToolTip = pModuleThreadState->m_pToolTip;
-    pToolTip->SendMessage(TTM_SETMAXTIPWIDTH, 0, 300);
-
-    *pResult = 0;
+    ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, 300);
     if (internalcol > 0)
     {
         FileEntry *fentry = GetListEntry(row);
