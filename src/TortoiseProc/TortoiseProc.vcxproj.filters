@@ -1049,6 +1049,9 @@
     <ClCompile Include="..\SVN\SVNBase.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\ReaderWriterLock.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2001,6 +2004,9 @@
     </ClInclude>
     <ClInclude Include="..\SVN\SVNBase.h">
       <Filter>Subversion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\ReaderWriterLock.h">
+      <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
