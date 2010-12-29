@@ -541,7 +541,7 @@ void CCommitDlg::OnOK()
     //inside a deleted folder. If that's the case, then remove those
     //files from the list since they'll get deleted by the parent
     //folder automatically.
-    m_ListCtrl.Block(TRUE, FALSE);
+    m_ListCtrl.BusyCursor(true);
     INT_PTR nDeleted = arDeleted.GetCount();
     for (INT_PTR i=0; i<arDeleted.GetCount(); i++)
     {
@@ -566,7 +566,7 @@ void CCommitDlg::OnOK()
             }
         }
     }
-    m_ListCtrl.Block(FALSE, FALSE);
+    m_ListCtrl.BusyCursor(false);
 
     if ((nUnchecked != 0)||(bCheckedInExternal)||(bHasConflicted)||(!m_bRecursive))
     {
@@ -800,9 +800,9 @@ UINT CCommitDlg::StatusThread()
     InterlockedExchange(&m_bBlock, FALSE);
     if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE)==TRUE)
     {
-        m_ListCtrl.Block(TRUE, TRUE);
+        m_ListCtrl.BusyCursor(true);
         GetAutocompletionList();
-        m_ListCtrl.Block(FALSE, FALSE);
+        m_ListCtrl.BusyCursor(false);
     }
     if (m_bRunThread)
     {

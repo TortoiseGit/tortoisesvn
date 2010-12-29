@@ -25,6 +25,7 @@
 #include "SVNRev.h"
 #include "Colors.h"
 #include "DragDropImpl.h"
+#include "ReaderWriterLock.h"
 
 class SVNConfig;
 class SVNStatus;
@@ -815,7 +816,7 @@ public:
 
     CString GetLastErrorMessage() {return m_sLastError;}
 
-    void Block(BOOL block, BOOL blockUI) {m_bBlock = block; m_bBlockUI = blockUI;}
+    void BusyCursor(bool bBusy) { m_bWaitCursor = bBusy; }
 
     LONG GetUnversionedCount() {return m_nShownUnversioned;}
     LONG GetNormalCount() {return m_nShownNormal;}
@@ -826,6 +827,10 @@ public:
     LONG GetFileCount() {return m_nShownFiles;}
     LONG GetFolderCount() {return m_nShownFolders;}
 
+    void AcquireReaderLock() { m_guard.AcquireReaderLock(); }
+    void ReleaseReaderLock() { m_guard.ReleaseReaderLock(); }
+    void AcquireWriterLock() { m_guard.AcquireWriterLock(); }
+    void ReleaseWriterLock() { m_guard.ReleaseWriterLock(); }
 
     LONG                        m_nTargetCount;     ///< number of targets in the file passed to GetStatus()
 
@@ -1005,9 +1010,8 @@ private:
     bool                        m_bShowIgnores;
     bool                        m_bUpdate;
     DWORD                       m_dwContextMenus;
-    BOOL                        m_bBlock;
-    BOOL                        m_bBlockUI;
     bool                        m_bBusy;
+    bool                        m_bWaitCursor;
     bool                        m_bEmpty;
     bool                        m_bIgnoreRemoveOnly;
     bool                        m_bCheckIfGroupsExist;
@@ -1040,7 +1044,7 @@ private:
 
     std::map<CString,bool>      m_mapFilenameToChecked; ///< Remember manually de-/selected items
     std::set<CTSVNPath>         m_externalSet;
-    CComCriticalSection         m_critSec;
+    mutable CReaderWriterLock   m_guard;
 
     friend class CSVNStatusListCtrlDropTarget;
 };
