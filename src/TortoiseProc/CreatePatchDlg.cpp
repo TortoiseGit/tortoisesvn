@@ -205,7 +205,7 @@ void CCreatePatch::OnOK()
 
     for (int j=0; j<nListItems; j++)
     {
-        const CSVNStatusListCtrl::FileEntry * entry = m_PatchList.GetListEntry(j);
+        const CSVNStatusListCtrl::FileEntry * entry = m_PatchList.GetConstListEntry(j);
         if (entry->IsChecked())
         {
             // Unversioned files are not included in the resulting patch file!

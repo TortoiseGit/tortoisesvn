@@ -160,7 +160,7 @@ void CRevertDlg::OnOK()
         }
         else
         {
-            CSVNStatusListCtrl::FileEntry * entry = m_RevertList.GetListEntry(i);
+            const CSVNStatusListCtrl::FileEntry * entry = m_RevertList.GetConstListEntry(i);
             // add all selected entries to the list, except the ones with 'added'
             // status: we later *delete* all the entries in the list before
             // the actual revert is done (so the user has the reverted files

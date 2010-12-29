@@ -656,24 +656,19 @@ public:
     /**
      * Returns the file entry data for the list control index.
      */
-    CSVNStatusListCtrl::FileEntry * GetListEntry(UINT_PTR index);
+    const CSVNStatusListCtrl::FileEntry * GetConstListEntry(UINT_PTR index) const;
 
     /**
      * Returns the file entry data for the specified path.
      * \note The entry might not be shown in the list control.
      */
-    CSVNStatusListCtrl::FileEntry * GetListEntry(const CTSVNPath& path);
+    const CSVNStatusListCtrl::FileEntry * GetConstListEntry(const CTSVNPath& path) const;
 
     /**
      * Returns the index of the list control entry with the specified path,
      * or -1 if the path is not in the list control.
      */
     int GetIndex(const CTSVNPath& path);
-
-    /**
-     * Returns the file entry data for the specified path in the list control.
-     */
-    CSVNStatusListCtrl::FileEntry * GetVisibleListEntry(const CTSVNPath& path);
 
     /**
      * Returns a String containing some statistics like number of modified, normal, deleted,...
@@ -715,7 +710,7 @@ public:
     /** Set a checkbox on an entry in the listbox
      * Keeps the listctrl checked state and the FileEntry's checked flag in sync
      */
-    void SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck);
+    void SetEntryCheck(int listboxIndex, bool bCheck);
 
     /** Write a list of the checked items' paths into a path list
      */
@@ -888,6 +883,15 @@ private:
         bool bInExternal,                   // Are we in an 'external' folder
         bool bEntryfromDifferentRepo        // if the entry is from a different repository
         );
+
+
+    /// Returns the file entry data for the list control index.
+    CSVNStatusListCtrl::FileEntry * GetListEntry(UINT_PTR index) const;
+
+    /// Returns the file entry data for the specified path.
+    CSVNStatusListCtrl::FileEntry * GetListEntry(const CTSVNPath& path) const;
+    
+    void SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck);
 
     /// Adjust the checkbox-state on all descendants of a specific item
     void SetCheckOnAllDescendentsOf(const FileEntry* parentEntry, bool bCheck);

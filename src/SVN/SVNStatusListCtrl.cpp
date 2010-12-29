@@ -186,7 +186,7 @@ void CSVNStatusListCtrl::ClearStatusArray()
     m_arStatusArray.clear();
 }
 
-CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(UINT_PTR index)
+CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(UINT_PTR index) const
 {
     if (index >= (UINT_PTR)m_arListArray.size())
         return NULL;
@@ -195,23 +195,31 @@ CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(UINT_PTR index)
     return m_arStatusArray[m_arListArray[index]];
 }
 
-CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetVisibleListEntry(const CTSVNPath& path)
+const CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetConstListEntry(UINT_PTR index) const
 {
-    int itemCount = GetItemCount();
-    for (int i=0; i < itemCount; i++)
+    if (index >= (UINT_PTR)m_arListArray.size())
+        return NULL;
+    if (m_arListArray[index] >= m_arStatusArray.size())
+        return NULL;
+    return m_arStatusArray[m_arListArray[index]];
+}
+
+CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(const CTSVNPath& path) const
+{
+    for (size_t i=0; i < m_arStatusArray.size(); i++)
     {
-        FileEntry * entry = GetListEntry(i);
+        FileEntry * entry = m_arStatusArray[i];
         if (entry->GetPath().IsEquivalentTo(path))
             return entry;
     }
     return NULL;
 }
 
-CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(const CTSVNPath& path)
+const CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetConstListEntry(const CTSVNPath& path) const
 {
     for (size_t i=0; i < m_arStatusArray.size(); i++)
     {
-        FileEntry * entry = m_arStatusArray[i];
+        const FileEntry * entry = m_arStatusArray[i];
         if (entry->GetPath().IsEquivalentTo(path))
             return entry;
     }
@@ -4610,6 +4618,12 @@ void CSVNStatusListCtrl::RemoveListEntry(int index)
 // NEVER, EVER call SetCheck directly, because you'll end-up with the checkboxes and the 'checked' flag getting out of sync
 void CSVNStatusListCtrl::SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck)
 {
+    pEntry->checked = bCheck;
+    SetCheck(listboxIndex, bCheck);
+}
+void CSVNStatusListCtrl::SetEntryCheck(int listboxIndex, bool bCheck)
+{
+    FileEntry * pEntry = GetListEntry(listboxIndex);
     pEntry->checked = bCheck;
     SetCheck(listboxIndex, bCheck);
 }

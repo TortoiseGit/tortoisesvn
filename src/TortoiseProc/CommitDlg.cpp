@@ -389,7 +389,7 @@ void CCommitDlg::OnOK()
         int nListItems = m_ListCtrl.GetItemCount();
         for (int j=0; j<nListItems; j++)
         {
-            const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(j);
+            const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(j);
             if (entry->IsChecked() && (entry->status == svn_wc_status_unversioned) && entry->IsFolder() )
             {
                 if (::MessageBox(this->m_hWnd, IDS_COMMITDLG_UNVERSIONEDFOLDERWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
@@ -417,7 +417,7 @@ void CCommitDlg::OnOK()
     std::set<CString> uncheckedLists;
     for (int j=0; j<nListItems; j++)
     {
-        const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(j);
+        const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(j);
         if (entry->IsChecked())
         {
             if (entry->status == svn_wc_status_unversioned)
@@ -458,7 +458,7 @@ void CCommitDlg::OnOK()
                     // This algorithm is for the sake of simplicity of the complexity O(N²)
                     for (int k=0; k<nListItems; k++)
                     {
-                        const CSVNStatusListCtrl::FileEntry * entryK = m_ListCtrl.GetListEntry(k);
+                        const CSVNStatusListCtrl::FileEntry * entryK = m_ListCtrl.GetConstListEntry(k);
                         if (entryK->IsChecked() && entryK->GetPath().IsAncestorOf(entry->GetPath())  )
                         {
                             // Fall back to a non-recursive commit to prevent items being
@@ -492,7 +492,7 @@ void CCommitDlg::OnOK()
             else if (!m_ListCtrl.IsPathShown(changedList[i]))
             {
                 // a path which is not shown in the list has changed
-                CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(changedList[i]);
+                const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(changedList[i]);
                 if (entry)
                 {
                     // check if the changed path would get committed by a recursive commit
@@ -547,7 +547,7 @@ void CCommitDlg::OnOK()
     {
         if (!m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
             continue;
-        const CTSVNPath& path = m_ListCtrl.GetListEntry(arDeleted.GetAt(i))->GetPath();
+        const CTSVNPath& path = m_ListCtrl.GetConstListEntry(arDeleted.GetAt(i))->GetPath();
         if (!path.IsDirectory())
             continue;
         //now find all children of this directory
@@ -555,12 +555,12 @@ void CCommitDlg::OnOK()
         {
             if (i==j)
                 continue;
-            CSVNStatusListCtrl::FileEntry* childEntry = m_ListCtrl.GetListEntry(arDeleted.GetAt(j));
+            const CSVNStatusListCtrl::FileEntry* childEntry = m_ListCtrl.GetConstListEntry(arDeleted.GetAt(j));
             if (childEntry->IsChecked())
             {
                 if (path.IsAncestorOf(childEntry->GetPath()))
                 {
-                    m_ListCtrl.SetEntryCheck(childEntry, arDeleted.GetAt(j), false);
+                    m_ListCtrl.SetEntryCheck(arDeleted.GetAt(j), false);
                     nDeleted--;
                 }
             }
@@ -1120,7 +1120,7 @@ void CCommitDlg::GetAutocompletionList()
         // stop parsing after timeout
         if ((!m_bRunThread) || (GetTickCount() - starttime > timeoutvalue))
             return;
-        const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
+        const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(i);
         if (!entry)
             continue;
 
@@ -1262,7 +1262,7 @@ bool CCommitDlg::HandleMenuItemClick(int cmd, CSciEdit * pSciEdit)
         int nListItems = m_ListCtrl.GetItemCount();
         for (int i=0; i<nListItems; ++i)
         {
-            CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
+            const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(i);
             if (entry->IsChecked())
             {
                 CString line;
