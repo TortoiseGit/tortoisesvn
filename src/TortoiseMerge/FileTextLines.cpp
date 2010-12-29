@@ -228,7 +228,9 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         return FALSE;
     }
 
-    LPVOID pFileBuf = new BYTE[fsize.LowPart];
+    // If new[] was done for type T delete[] must be called on a pointer of type T*,
+    // otherwise the behavior is undefined.
+    wchar_t* pFileBuf = new wchar_t[fsize.LowPart/sizeof(wchar_t)];
     DWORD dwReadBytes = 0;
     if (!ReadFile(hFile, pFileBuf, fsize.LowPart, &dwReadBytes, NULL))
     {
@@ -283,8 +285,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
             delete [] pWideBuf;
     }
     // fill in the lines into the array
-    wchar_t * pTextBuf = (wchar_t *)pFileBuf;
-    wchar_t * pLineStart = (wchar_t *)pFileBuf;
+    wchar_t * pTextBuf = pFileBuf;
+    wchar_t * pLineStart = pFileBuf;
     if (m_UnicodeType == UNICODE_LE)
     {
         // UTF16 have two bytes per char
