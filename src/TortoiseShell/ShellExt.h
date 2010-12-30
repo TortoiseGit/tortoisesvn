@@ -219,7 +219,7 @@ private:
     bool            ShouldInsertItem(const MenuInfo& pair) const;
     bool            ShouldEnableMenu(const YesNoPair& pair) const;
     void            GetColumnInfo(SHCOLUMNINFO* to, DWORD index, UINT charactersCount, UINT titleId, UINT descriptionId);
-    void            TweakMenuForVista(HMENU menu);
+    void            TweakMenu(HMENU menu);
     void            ExtractProperty(const TCHAR* path, const char* propertyName, tstring& to);
 
 public:
