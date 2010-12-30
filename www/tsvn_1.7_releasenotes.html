@@ -226,15 +226,35 @@
 
             <div class="post" id="commitdlg" title="commitdlg">
                 <h2>Commit dialog</h2>
-                <!-- check links -->
-                <!-- update notification -->
+                <p>The commit dialog got a few UI changes as well. The first
+                thing you'll notice are the new link labels just above the
+                list with the items to commit. These links are used to check
+                or uncheck specific items. With those link labels, that task
+                is much easier to accomplish than with the checkboxes that were
+                used in earlier versions.</p>
+                <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/commitdlg.png" rel="lightbox"><img src="images/commitdlg-small.png"></a>
+                <p>The commit dialog now also shows a notification if there
+                are updates for TortoiseSVN available, i.e., if you don't have
+                the latest version installed. This replaces the separate dialog
+                that popped up in previous versions since many users got annoyed
+                by that pop up dialog.</p>
+                <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/upgradecheck.png" rel="lightbox"><img src="images/upgradecheck-small.png"></a>
             </div>  <!-- commitdlg -->
 
             <div class="post" id="repobrowser" title="repobrowser">
                 <h2>Repository browser</h2>
-                <!-- externals as subfolders -->
-                <!-- direct edit on repository -->
-                <!-- speedup initial loading -->
+                <p>The repository browser shows folders that are included with
+                the <code>svn:externals</code> property. It's also possible to
+                browse to those folders, even if they are located in different
+                repositories. The external folders are marked with a red arrow
+                to distinguish them from normal folders in the repository.</p>
+                <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/repobrowserexternals.png" rel="lightbox"><img src="images/repobrowserexternals-small.png"></a>
+                <p>It's now also possible to edit a file directly from the
+                repository browser. This makes it easy to make quick changes
+                to a file without having to check out a whole working copy.</p>
+                <p>Starting up the repository browser and browsing itself
+                also got a lot faster in 1.7 due to heavy caching and pre-fetching
+                information in the background.</p>
             </div>  <!-- repobrowser -->
 
             <div class="post" id="tmerge" title="tmerge">
