@@ -230,7 +230,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 
     // If new[] was done for type T delete[] must be called on a pointer of type T*,
     // otherwise the behavior is undefined.
-    wchar_t* pFileBuf = new wchar_t[fsize.LowPart/sizeof(wchar_t)];
+    // +1 is to address possible truncation when integer division is done
+    wchar_t* pFileBuf = new wchar_t[fsize.LowPart/sizeof(wchar_t) + 1];
     DWORD dwReadBytes = 0;
     if (!ReadFile(hFile, pFileBuf, fsize.LowPart, &dwReadBytes, NULL))
     {
