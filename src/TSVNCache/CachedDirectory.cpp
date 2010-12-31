@@ -502,6 +502,8 @@ CCachedDirectory::SvnUpdateMembersStatus()
         AutoLocker pathlock(m_critSecPath);
         m_currentStatusFetchingPath.Reset();
     }
+    svn_wc_context_destroy(m_pCtx->wc_ctx);
+    m_pCtx->wc_ctx = NULL;
     m_pCtx = NULL;
     if(pErr)
     {
