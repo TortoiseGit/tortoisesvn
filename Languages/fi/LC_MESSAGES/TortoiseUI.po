@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-11-27 00:14+0200\n"
+"PO-Revision-Date: 2011-01-01 13:59+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -3118,6 +3118,10 @@ msgstr ""
 #, c-format
 msgid "Could not create %1 because the directory is full."
 msgstr "Tiedoston %1 luonti epäonnistui, koska hakemisto on täynnä."
+
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr "Väliaikaisen kansion luonti epäonnistui!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -7780,6 +7784,10 @@ msgstr "Rivi alaspäin"
 msgid "Row Up"
 msgstr "Rivi ylöspäin"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr "&Siivoa työkopio"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Valitse..."
@@ -8778,6 +8786,10 @@ msgid ""
 msgstr ""
 "Subversion raportoi virheen siivottaessa!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr "Subversion raportoi virheen:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -10069,6 +10081,10 @@ msgstr "Päivittää työkopion tiettyyn versioon"
 msgid "Updates the working copy to the current revision"
 msgstr "Päivittää työkopion nykyiseen versioon"
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr "Päivitetään"
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10968,6 +10984,17 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "kopioitu:"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
+"nykyinen koko: %s\r\n"
+"vanha koko: %s\r\n"
+"muutos: %s"
 
 #. Resource IDs: (245)
 msgid "day"
