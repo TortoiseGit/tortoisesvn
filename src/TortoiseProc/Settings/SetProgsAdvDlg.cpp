@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ int CSetProgsAdvDlg::SaveData()
         }
 
         // Add or update new or changed values
-        for (TOOL_MAP::iterator it = m_Tools.begin(); it != m_Tools.end() ; it++)
+        for (TOOL_MAP::iterator it = m_Tools.begin(); it != m_Tools.end() ; ++it)
         {
             CString ext = it->first;
             CString new_value = it->second;
@@ -106,7 +106,7 @@ void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)
     else
     {
         m_ToolListCtrl.DeleteAllItems();
-        for (TOOL_MAP::iterator it = m_Tools.begin(); it != m_Tools.end() ; it++)
+        for (TOOL_MAP::iterator it = m_Tools.begin(); it != m_Tools.end() ; ++it)
         {
             CString ext = it->first;
             ext.TrimLeft('.');

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -276,7 +276,7 @@ bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const
     return (Err == NULL);
 }
 
-bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, const CString& message, const RevPropHash revProps)
+bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, const CString& message, const RevPropHash& revProps)
 {
     // svn_client_delete needs to run on a sub-pool, so that after it's run, the pool
     // cleanups get run.  For example, after a failure do to an unforced delete on
@@ -497,7 +497,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
 
 bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg, bool copy_as_child,
-               bool make_parents, bool ignoreExternals, const RevPropHash revProps)
+               bool make_parents, bool ignoreExternals, const RevPropHash& revProps)
 {
     SVNPool subpool(pool);
 
@@ -535,7 +535,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                const CString& message /* = _T("")*/,
                bool move_as_child /* = false*/, bool make_parents /* = false */,
-               const RevPropHash revProps /* = RevPropHash() */ )
+               const RevPropHash& revProps /* = RevPropHash() */ )
 {
     SVNPool subpool(pool);
 
@@ -567,7 +567,7 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     return true;
 }
 
-bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, const RevPropHash revProps)
+bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, const RevPropHash& revProps)
 {
     svn_error_clear(Err);
     Err = NULL;
@@ -847,7 +847,7 @@ bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
 
 bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message,
                  ProjectProperties * props, svn_depth_t depth, bool no_ignore, bool ignore_unknown,
-                 const RevPropHash revProps)
+                 const RevPropHash& revProps)
 {
     // the import command should use the mime-type file
     const char *mimetypes_file = NULL;

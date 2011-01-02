@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -141,7 +141,7 @@ BOOL CChangedDlg::OnInitDialog()
     EnableSaveRestore(_T("ChangedDlg"));
 
     m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
-    m_bRemote = m_bContactRepository ? true : m_bRemote;
+    if(m_bContactRepository){m_bRemote = true;}
     // first start a thread to obtain the status without
     // blocking the dialog
     OnBnClickedRefresh();

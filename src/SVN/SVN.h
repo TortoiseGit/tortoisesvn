@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -167,7 +167,7 @@ public:
      * for deletion in the repository. After the next commit, the file/dir will be unversioned.
      * \return TRUE if successful
      */
-    bool Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal = true, const CString& message = _T(""), const RevPropHash revProps = RevPropHash());
+    bool Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal = true, const CString& message = _T(""), const RevPropHash& revProps = RevPropHash());
     /**
      * Reverts a list of files/directories to its pristine state. I.e. its reverted to the state where it
      * was last updated with the repository.
@@ -278,7 +278,7 @@ public:
     bool Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
         const SVNRev& revision, const SVNRev& pegrev, const CString& logmsg = CString(),
         bool copy_as_child = false, bool make_parents = false, bool ignoreExternals = false,
-        const RevPropHash revProps = RevPropHash());
+        const RevPropHash& revProps = RevPropHash());
     /**
      * Move srcPath to destPath.
      *
@@ -306,7 +306,7 @@ public:
      */
     bool Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                 const CString& message = _T(""), bool move_as_child = false,
-                bool make_parents = false, const RevPropHash revProps = RevPropHash());
+                bool make_parents = false, const RevPropHash& revProps = RevPropHash());
     /**
      * If path is a URL, use the message to immediately
      * attempt to commit the creation of the directory URL in the
@@ -319,7 +319,7 @@ public:
      * \param makeParents create any non-existent parent directories also
      * \return TRUE if successful
      */
-    bool MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, const RevPropHash revProps = RevPropHash());
+    bool MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents, const RevPropHash& revProps = RevPropHash());
     /**
      * Recursively cleanup a working copy directory DIR, finishing any
      * incomplete operations, removing lock files, etc.
@@ -406,7 +406,7 @@ public:
      * \return TRUE if successful
      */
     bool Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message,
-        ProjectProperties * props, svn_depth_t depth, bool no_ignore, bool ignore_unknown, const RevPropHash revProps = RevPropHash());
+        ProjectProperties * props, svn_depth_t depth, bool no_ignore, bool ignore_unknown, const RevPropHash& revProps = RevPropHash());
     /**
      * Merge changes from path1/revision1 to path2/revision2 into the
      * working-copy path localPath.  path1 and path2 can be either
