@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,6 +35,7 @@ ShellCache::ShellCache()
     driveunknown = CRegStdDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
     shellmenuaccelerators = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShellMenuAccelerators"), TRUE);
     unversionedasmodified = CRegStdDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
+    hidemenusforunversioneditems = CRegStdDWORD(_T("Software\\TortoiseSVN\\HideMenusForUnversionedItems"), FALSE);
     getlocktop = CRegStdDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
     excludedasnormal = CRegStdDWORD(_T("Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal"), FALSE);
     alwaysextended = CRegStdDWORD(_T("Software\\TortoiseSVN\\AlwaysExtendedMenu"), FALSE);
@@ -52,6 +53,7 @@ ShellCache::ShellCache()
     getlocktopticker = cachetypeticker;
     excludedasnormalticker = cachetypeticker;
     alwaysextendedticker = cachetypeticker;
+    hidemenusforunversioneditemsticker = cachetypeticker;
     excontextticker = 0;
     menulayoutlow = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
     menulayouthigh = CRegStdDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
@@ -100,6 +102,7 @@ void ShellCache::ForceRefresh()
     unversionedasmodified.read();
     excludedasnormal.read();
     alwaysextended.read();
+    hidemenusforunversioneditems.read();
     menulayoutlow.read();
     menulayouthigh.read();
     langid.read();
@@ -234,6 +237,16 @@ BOOL ShellCache::AlwaysExtended()
         alwaysextended.read();
     }
     return (alwaysextended);
+}
+
+BOOL ShellCache::HideMenusForUnversionedItems()
+{
+    if ((GetTickCount() - hidemenusforunversioneditemsticker)>REGISTRYTIMEOUT)
+    {
+        hidemenusforunversioneditemsticker = GetTickCount();
+        hidemenusforunversioneditems.read();
+    }
+    return (hidemenusforunversioneditems);
 }
 
 BOOL ShellCache::IsRemote()

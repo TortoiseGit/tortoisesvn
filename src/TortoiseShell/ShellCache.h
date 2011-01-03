@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,6 +66,7 @@ public:
     BOOL IsGetLockTop();
     BOOL ShowExcludedAsNormal();
     BOOL AlwaysExtended();
+    BOOL HideMenusForUnversionedItems();
 
     BOOL IsRemote();
     BOOL IsFixed();
@@ -191,7 +192,6 @@ private:
 
     friend bool operator< (const CPathFilter::SEntry& rhs, const std::pair<LPCTSTR, size_t>& lhs);
     friend bool operator< (const std::pair<LPCTSTR, size_t>& lhs, const CPathFilter::SEntry& rhs);
-
     CRegStdDWORD cachetype;
     CRegStdDWORD blockstatus;
     CRegStdDWORD langid;
@@ -215,6 +215,7 @@ private:
     CRegStdDWORD unversionedasmodified;
     CRegStdDWORD excludedasnormal;
     CRegStdDWORD alwaysextended;
+    CRegStdDWORD hidemenusforunversioneditems;
     CRegStdDWORD columnseverywhere;
 
     CPathFilter pathFilter;
@@ -235,6 +236,7 @@ private:
     DWORD unversionedasmodifiedticker;
     DWORD excludedasnormalticker;
     DWORD alwaysextendedticker;
+    DWORD hidemenusforunversioneditemsticker;
     DWORD columnseverywhereticker;
     UINT  drivetypecache[27];
     TCHAR drivetypepathcache[MAX_PATH];     // MAX_PATH ok.

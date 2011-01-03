@@ -907,6 +907,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
             return S_OK;
     }
 
+    if (((uFlags & CMF_EXTENDEDVERBS) == 0) && g_ShellCache.HideMenusForUnversionedItems())
+    {
+        if ((itemStates & (ITEMIS_INSVN|ITEMIS_INVERSIONEDFOLDER|ITEMIS_FOLDERINSVN))==0)
+            return S_OK;
+    }
     //check if our menu is requested for a subversion admin directory
     if (g_SVNAdminDir.IsAdminDirPath(folder_.c_str()))
         return S_OK;

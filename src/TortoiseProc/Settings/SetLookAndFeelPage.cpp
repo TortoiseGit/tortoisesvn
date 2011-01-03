@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@ CSetLookAndFeelPage::CSetLookAndFeelPage()
     : ISettingsPropPage(CSetLookAndFeelPage::IDD)
     , m_bGetLockTop(FALSE)
     , m_bBlock(false)
+    , m_bHideMenus(false)
 {
     m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
     m_regTopmenuhigh = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
@@ -39,6 +40,8 @@ CSetLookAndFeelPage::CSetLookAndFeelPage()
 
     m_regGetLockTop = CRegDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
     m_bGetLockTop = m_regGetLockTop;
+    m_regHideMenus = CRegDWORD(_T("Software\\TortoiseSVN\\HideMenusForUnversionedItems"), FALSE);
+    m_bHideMenus = m_regHideMenus;
 
     m_regNoContextPaths = CRegString(_T("Software\\TortoiseSVN\\NoContextPaths"), _T(""));
     m_sNoContextPaths = m_regNoContextPaths;
@@ -54,6 +57,7 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
     ISettingsPropPage::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
     DDX_Check(pDX, IDC_GETLOCKTOP, m_bGetLockTop);
+    DDX_Check(pDX, IDC_HIDEMENUS, m_bHideMenus);
     DDX_Text(pDX, IDC_NOCONTEXTPATHS, m_sNoContextPaths);
 }
 
@@ -61,6 +65,7 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CSetLookAndFeelPage, ISettingsPropPage)
     ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
     ON_BN_CLICKED(IDC_GETLOCKTOP, OnChange)
+    ON_BN_CLICKED(IDC_HIDEMENUS, OnChange)
     ON_EN_CHANGE(IDC_NOCONTEXTPATHS, &CSetLookAndFeelPage::OnEnChangeNocontextpaths)
 END_MESSAGE_MAP()
 
@@ -72,6 +77,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
     m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
     m_tooltips.AddTool(IDC_GETLOCKTOP, IDS_SETTINGS_GETLOCKTOP_TT);
+    m_tooltips.AddTool(IDC_HIDEMENUS, IDS_SETTINGS_HIDEMENUS_TT);
     m_tooltips.AddTool(IDC_NOCONTEXTPATHS, IDS_SETTINGS_EXCLUDECONTEXTLIST_TT);
 
     m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
@@ -152,6 +158,7 @@ BOOL CSetLookAndFeelPage::OnApply()
     Store ((DWORD)(m_topmenu & 0xFFFFFFFF), m_regTopmenu);
     Store ((DWORD)(m_topmenu >> 32), m_regTopmenuhigh);
     Store (m_bGetLockTop, m_regGetLockTop);
+    Store (m_bHideMenus, m_regHideMenus);
 
     m_sNoContextPaths.Replace(_T("\r"), _T(""));
     if (m_sNoContextPaths.Right(1).Compare(_T("\n"))!=0)
