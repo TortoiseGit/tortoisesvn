@@ -204,6 +204,17 @@
             <guilabel>Get Lock</guilabel> will always appear at the top level.
         </para>
         <para>
+            Most of the time, you won't need the TortoiseSVN context menu, apart
+            for folders that are under version control by Subversion. For non-
+            versioned folders, you only really need the context menu when you
+            want to do a checkout. If you check the option <literal>Hide menus
+            for unversioned paths</literal>, TortoiseSVN will not add its entries
+            to the context menu for unversioned folders. But the entries are
+            added for all items and paths in a versioned folder. And you can
+            get the entries back for unversioned folders by holding the 
+            <keycap>Shift</keycap> key down while showing the context menu.
+        </para>
+        <para>
             If there are some paths on your computer where you just don't want
             TortoiseSVN's context menu to appear at all, you can list them in
             the box at the bottom.

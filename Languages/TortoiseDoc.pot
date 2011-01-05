@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-04 19:11 +0000\n"
+"POT-Creation-Date: 2011-01-05 20:15 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7979,6 +7979,10 @@ msgstr ""
 
 #. (para)
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
+msgstr ""
+
+#. (para)
+msgid "Most of the time, you won't need the TortoiseSVN context menu, apart for folders that are under version control by Subversion. For non- versioned folders, you only really need the context menu when you want to do a checkout. If you check the option <literal>Hide menus for unversioned paths</literal>, TortoiseSVN will not add its entries to the context menu for unversioned folders. But the entries are added for all items and paths in a versioned folder. And you can get the entries back for unversioned folders by holding the <keycap>Shift</keycap> key down while showing the context menu."
 msgstr ""
 
 #. (para)
