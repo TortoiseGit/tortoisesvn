@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -301,9 +301,11 @@ void CSVNPropertyPage::InitWorkfileView()
 
                     auto_buffer<char> unescapedurl(len);
                     strcpy_s(unescapedurl, len, url.get());
+                    CStringA escapedurl = CPathUtils::PathEscape(url.get());
                     CPathUtils::Unescape(unescapedurl);
+                    strcpy_s(url, len, escapedurl);
                     SetDlgItemText(m_hwnd, IDC_REPOURL, UTF8ToWide(unescapedurl.get()).c_str());
-                    if (strcmp(unescapedurl, url.get()))
+                    if (strcmp(unescapedurl.get(), url.get()))
                     {
                         ShowWindow(GetDlgItem(m_hwnd, IDC_ESCAPEDURLLABEL), SW_SHOW);
                         ShowWindow(GetDlgItem(m_hwnd, IDC_REPOURLUNESCAPED), SW_SHOW);
