@@ -1185,10 +1185,10 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
     {
         rev = it->second;
     }
-    SVNRev startRev(rev);
+    SVNRev endRev(rev);
     CString sCmd;
-    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), m_targetPathList[0].GetWinPath(), (LPCTSTR)startRev.ToString());
+    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /endrev:%s"),
+        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), m_targetPathList[0].GetWinPath(), (LPCTSTR)endRev.ToString());
 
     CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
