@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -111,7 +111,6 @@ SVNFolderStatus::~SVNFolderStatus(void)
 const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder)
 {
     svn_client_ctx_t *          localctx;
-    apr_hash_t *                statushash;
     apr_pool_t *                pool;
     svn_error_t *               err = NULL; // If svn_client_status comes out through catch(...), err would else be unassigned
 
@@ -164,7 +163,6 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
             dirstat.tree_conflict = false;
 
             dirstatus = NULL;
-            statushash = apr_hash_make(pool);
             svn_revnum_t youngest = SVN_INVALID_REVNUM;
             svn_opt_revision_t rev;
             rev.kind = svn_opt_revision_unspecified;
@@ -218,7 +216,6 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     //since subversion can do this in one step
     localctx->auth_baton = NULL;
 
-    statushash = apr_hash_make(pool);
     svn_revnum_t youngest = SVN_INVALID_REVNUM;
     svn_opt_revision_t rev;
     rev.kind = svn_opt_revision_unspecified;
