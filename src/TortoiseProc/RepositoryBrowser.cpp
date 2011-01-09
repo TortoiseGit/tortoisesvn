@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -94,6 +94,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     : CResizableStandAloneDialog(CRepositoryBrowser::IDD, NULL)
     , m_cnrRepositoryBar(&m_barRepository)
     , m_bStandAlone(true)
+    , m_bSparseCheckoutMode(false)
     , m_InitialUrl(url)
     , m_bInitDone(false)
     , m_blockEvents(false)
@@ -113,6 +114,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     : CResizableStandAloneDialog(CRepositoryBrowser::IDD, pParent)
     , m_cnrRepositoryBar(&m_barRepository)
     , m_bStandAlone(false)
+    , m_bSparseCheckoutMode(false)
     , m_InitialUrl(url)
     , m_bInitDone(false)
     , m_blockEvents(false)
@@ -204,6 +206,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_COMMAND(ID_URL_UP, &CRepositoryBrowser::OnGoUp)
     ON_NOTIFY(TVN_BEGINDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBegindragRepotree)
     ON_NOTIFY(TVN_BEGINRDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBeginrdragRepotree)
+    ON_NOTIFY(TVN_ITEMCHANGED, IDC_REPOTREE, &CRepositoryBrowser::OnTvnItemChangedRepotree)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -234,30 +237,37 @@ BOOL CRepositoryBrowser::OnInitDialog()
     m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
     m_barRepository.Create(&m_cnrRepositoryBar, 12345);
     m_barRepository.SetIRepo(this);
+    if (m_bSparseCheckoutMode)
+    {
+        m_cnrRepositoryBar.ShowWindow(SW_HIDE);
+        m_barRepository.ShowWindow(SW_HIDE);
+    }
+    else
+    {
+        m_pTreeDropTarget = new CTreeDropTarget(this);
+        RegisterDragDrop(m_RepoTree.GetSafeHwnd(), m_pTreeDropTarget);
+        // create the supported formats:
+        FORMATETC ftetc={0};
+        ftetc.cfFormat = CF_SVNURL;
+        ftetc.dwAspect = DVASPECT_CONTENT;
+        ftetc.lindex = -1;
+        ftetc.tymed = TYMED_HGLOBAL;
+        m_pTreeDropTarget->AddSuportedFormat(ftetc);
+        ftetc.cfFormat = CF_HDROP;
+        m_pTreeDropTarget->AddSuportedFormat(ftetc);
+        ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
+        m_pTreeDropTarget->AddSuportedFormat(ftetc);
 
-    m_pTreeDropTarget = new CTreeDropTarget(this);
-    RegisterDragDrop(m_RepoTree.GetSafeHwnd(), m_pTreeDropTarget);
-    // create the supported formats:
-    FORMATETC ftetc={0};
-    ftetc.cfFormat = CF_SVNURL;
-    ftetc.dwAspect = DVASPECT_CONTENT;
-    ftetc.lindex = -1;
-    ftetc.tymed = TYMED_HGLOBAL;
-    m_pTreeDropTarget->AddSuportedFormat(ftetc);
-    ftetc.cfFormat = CF_HDROP;
-    m_pTreeDropTarget->AddSuportedFormat(ftetc);
-    ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
-    m_pTreeDropTarget->AddSuportedFormat(ftetc);
-
-    m_pListDropTarget = new CListDropTarget(this);
-    RegisterDragDrop(m_RepoList.GetSafeHwnd(), m_pListDropTarget);
-    // create the supported formats:
-    ftetc.cfFormat = CF_SVNURL;
-    m_pListDropTarget->AddSuportedFormat(ftetc);
-    ftetc.cfFormat = CF_HDROP;
-    m_pListDropTarget->AddSuportedFormat(ftetc);
-    ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
-    m_pListDropTarget->AddSuportedFormat(ftetc);
+        m_pListDropTarget = new CListDropTarget(this);
+        RegisterDragDrop(m_RepoList.GetSafeHwnd(), m_pListDropTarget);
+        // create the supported formats:
+        ftetc.cfFormat = CF_SVNURL;
+        m_pListDropTarget->AddSuportedFormat(ftetc);
+        ftetc.cfFormat = CF_HDROP;
+        m_pListDropTarget->AddSuportedFormat(ftetc);
+        ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
+        m_pListDropTarget->AddSuportedFormat(ftetc);
+    }
 
     if (m_bStandAlone)
     {
@@ -272,27 +282,35 @@ BOOL CRepositoryBrowser::OnInitDialog()
 
     m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
     m_nOpenIconFolder = SYS_IMAGE_LIST().GetDirOpenIconIndex();
-    // set up the list control
-    // set the extended style of the list control
-    // the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
-    CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), TRUE);
-    DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
-    if (DWORD(regFullRowSelect))
-        exStyle |= LVS_EX_FULLROWSELECT;
-    m_RepoList.SetExtendedStyle(exStyle);
-    m_RepoList.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
-    m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_INITWAIT)));
 
+    if (m_bSparseCheckoutMode)
+    {
+        m_RepoList.ShowWindow(SW_HIDE);
+    }
+    else
+    {
+        // set up the list control
+        // set the extended style of the list control
+        // the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
+        CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), TRUE);
+        DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
+        if (DWORD(regFullRowSelect))
+            exStyle |= LVS_EX_FULLROWSELECT;
+        m_RepoList.SetExtendedStyle(exStyle);
+        m_RepoList.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
+        m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_INITWAIT)));
+    }
     m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
     if (SysInfo::Instance().IsVistaOrLater())
     {
         DWORD exStyle = 0x0040 /*TVS_EX_FADEINOUTEXPANDOS*/ | 0x0020 /*TVS_EX_AUTOHSCROLL*/;
         m_RepoTree.SetExtendedStyle(exStyle, exStyle);
+        if (m_bSparseCheckoutMode)
+            SetWindowLongPtr(m_RepoTree.GetSafeHwnd(), GWL_STYLE, GetWindowLongPtr(m_RepoTree.GetSafeHwnd(), GWL_STYLE) | TVS_CHECKBOXES);
     }
 
     SetWindowTheme(m_RepoList.GetSafeHwnd(), L"Explorer", NULL);
     SetWindowTheme(m_RepoTree.GetSafeHwnd(), L"Explorer", NULL);
-
 
     AddAnchor(IDC_REPOS_BAR_CNR, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_F5HINT, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -307,7 +325,22 @@ BOOL CRepositoryBrowser::OnInitDialog()
 
     DWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
     bDragMode = true;
-    HandleDividerMove(CPoint(xPos+20, 10), false);
+    if (!m_bSparseCheckoutMode)
+        HandleDividerMove(CPoint(xPos+20, 10), false);
+    else
+    {
+        // have the tree control use the whole space of the dialog
+        RemoveAnchor(IDC_REPOTREE);
+        RECT rctree;
+        RECT rcbar;
+        RECT rc;
+        m_RepoTree.GetWindowRect(&rctree);
+        m_barRepository.GetWindowRect(&rcbar);
+        UnionRect(&rc, &rcbar, &rctree);
+        ScreenToClient(&rc);
+        m_RepoTree.MoveWindow(&rc, FALSE);
+        AddAnchor(IDC_REPOTREE, TOP_LEFT, BOTTOM_LEFT);
+    }
 
     m_bThreadRunning = true;
     if (AfxBeginThread(InitThreadEntry, this)==NULL)
@@ -559,16 +592,19 @@ void CRepositoryBrowser::OnOK()
     }
 
     m_backgroundJobs.WaitForEmptyQueue();
-    SaveColumnWidths(true);
+    if (!m_bSparseCheckoutMode)
+    {
+        SaveColumnWidths(true);
 
-    RECT rc;
-    GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
-    CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
-    xPos = rc.right-rc.left;
+        RECT rc;
+        GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
+        CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
+        xPos = rc.right-rc.left;
+        m_barRepository.SaveHistory();
+    }
 
     ClearUI();
 
-    m_barRepository.SaveHistory();
     CResizableStandAloneDialog::OnOK();
 }
 
@@ -578,12 +614,15 @@ void CRepositoryBrowser::OnCancel()
     RevokeDragDrop(m_RepoTree.GetSafeHwnd());
 
     m_backgroundJobs.WaitForEmptyQueue();
-    SaveColumnWidths(true);
+    if (!m_bSparseCheckoutMode)
+    {
+        SaveColumnWidths(true);
 
-    RECT rc;
-    GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
-    CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
-    xPos = rc.right-rc.left;
+        RECT rc;
+        GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
+        CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
+        xPos = rc.right-rc.left;
+    }
 
     ClearUI();
 
@@ -607,7 +646,7 @@ BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
         SetCursor(hCur);
         return TRUE;
     }
-    if (pWnd == this)
+    if ((pWnd == this)&&(!m_bSparseCheckoutMode))
     {
         RECT rect;
         POINT pt;
@@ -644,44 +683,46 @@ void CRepositoryBrowser::OnMouseMove(UINT nFlags, CPoint point)
 
     if (bDragMode == FALSE)
         return;
-
-    // create an union of the tree and list control rectangle
-    GetDlgItem(IDC_REPOLIST)->GetWindowRect(&list);
-    GetDlgItem(IDC_REPOTREE)->GetWindowRect(&tree);
-    UnionRect(&treelist, &tree, &list);
-    treelistclient = treelist;
-    ScreenToClient(&treelistclient);
-
-    //convert the mouse coordinates relative to the top-left of
-    //the window
-    ClientToScreen(&point);
-    GetClientRect(&rect);
-    ClientToScreen(&rect);
-    point.x -= rect.left;
-    point.y -= treelist.top;
-
-    //same for the window coordinates - make them relative to 0,0
-    OffsetRect(&treelist, -treelist.left, -treelist.top);
-
-    if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
-        point.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
-    if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
-        point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
-
-    if ((nFlags & MK_LBUTTON) && (point.x != oldx))
+    if (!m_bSparseCheckoutMode)
     {
-        pDC = GetDC();
+        // create an union of the tree and list control rectangle
+        GetDlgItem(IDC_REPOLIST)->GetWindowRect(&list);
+        GetDlgItem(IDC_REPOTREE)->GetWindowRect(&tree);
+        UnionRect(&treelist, &tree, &list);
+        treelistclient = treelist;
+        ScreenToClient(&treelistclient);
 
-        if (pDC)
+        //convert the mouse coordinates relative to the top-left of
+        //the window
+        ClientToScreen(&point);
+        GetClientRect(&rect);
+        ClientToScreen(&rect);
+        point.x -= rect.left;
+        point.y -= treelist.top;
+
+        //same for the window coordinates - make them relative to 0,0
+        OffsetRect(&treelist, -treelist.left, -treelist.top);
+
+        if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
+            point.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
+        if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
+            point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
+
+        if ((nFlags & MK_LBUTTON) && (point.x != oldx))
         {
-            DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
-            DrawXorBar(pDC, point.x+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
+            pDC = GetDC();
 
-            ReleaseDC(pDC);
+            if (pDC)
+            {
+                DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
+                DrawXorBar(pDC, point.x+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
+
+                ReleaseDC(pDC);
+            }
+
+            oldx = point.x;
+            oldy = point.y;
         }
-
-        oldx = point.x;
-        oldy = point.y;
     }
 
     CStandAloneDialogTmpl<CResizableDialog>::OnMouseMove(nFlags, point);
@@ -689,6 +730,9 @@ void CRepositoryBrowser::OnMouseMove(UINT nFlags, CPoint point)
 
 void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
 {
+    if (m_bSparseCheckoutMode)
+        return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
+
     CDC * pDC;
     RECT rect, tree, list, treelist, treelistclient;
 
@@ -798,10 +842,13 @@ void CRepositoryBrowser::OnLButtonUp(UINT nFlags, CPoint point)
     if (bDragMode == FALSE)
         return;
 
-    HandleDividerMove(point, true);
+    if (!m_bSparseCheckoutMode)
+    {
+        HandleDividerMove(point, true);
 
-    bDragMode = false;
-    ReleaseCapture();
+        bDragMode = false;
+        ReleaseCapture();
+    }
 
     CStandAloneDialogTmpl<CResizableDialog>::OnLButtonUp(nFlags, point);
 }
@@ -1144,8 +1191,16 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
 
         if (currentPath.IsEmpty())
         {
-            currentPath = m_repository.root;
-            name = m_repository.root;
+            if (m_bSparseCheckoutMode)
+            {
+                currentPath = m_InitialUrl;
+                name = m_InitialUrl;
+            }
+            else
+            {
+                currentPath = m_repository.root;
+                name = m_repository.root;
+            }
         }
         else
         {
@@ -1171,16 +1226,22 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                 pTreeItem->url = currentPath;
                 pTreeItem->logicalPath = currentPath;
                 pTreeItem->repository = m_repository;
+                pTreeItem->kind = svn_node_dir;
 
                 TVINSERTSTRUCT tvinsert = {0};
                 tvinsert.hParent = TVI_ROOT;
                 tvinsert.hInsertAfter = TVI_ROOT;
-                tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE;
+                tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
                 tvinsert.itemex.pszText = currentPath.GetBuffer (currentPath.GetLength());
                 tvinsert.itemex.cChildren = 1;
                 tvinsert.itemex.lParam = (LPARAM)pTreeItem;
                 tvinsert.itemex.iImage = m_nIconFolder;
                 tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
+                if (m_bSparseCheckoutMode)
+                {
+                    tvinsert.itemex.state = INDEXTOSTATEIMAGEMASK(2);   // root item is always checked
+                    tvinsert.itemex.stateMask = TVIS_STATEIMAGEMASK;
+                }
 
                 node = m_RepoTree.InsertItem(&tvinsert);
                 currentPath.ReleaseBuffer();
@@ -1276,7 +1337,7 @@ void CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const std::deque<CItem>&
     // determine what nodes need to be added
 
     for (size_t i = 0, count = items.size(); i < count; ++i)
-        if (items[i].kind == svn_node_dir)
+        if ((items[i].kind == svn_node_dir)||(m_bSparseCheckoutMode))
             newItems.insert (std::make_pair (items[i].path, &items[i]));
 
     for ( HTREEITEM hSibling = m_RepoTree.GetNextItem (hParent, TVGN_CHILD)
@@ -1318,6 +1379,7 @@ HTREEITEM CRepositoryBrowser::Insert
     pTreeItem->logicalPath = parentTreeItem->logicalPath + '/' + name;
     pTreeItem->repository = item.repository;
     pTreeItem->is_external = item.is_external;
+    pTreeItem->kind = item.kind;
 
     bool isSelectedForDiff
         = pTreeItem->url.CompareNoCase (m_diffURL.GetSVNPathString()) == 0;
@@ -1329,6 +1391,11 @@ HTREEITEM CRepositoryBrowser::Insert
         state |= INDEXTOOVERLAYMASK (OVERLAY_EXTERNAL);
         stateMask |= TVIS_OVERLAYMASK;
     }
+    if (m_bSparseCheckoutMode)
+    {
+        state |= INDEXTOSTATEIMAGEMASK(m_RepoTree.GetCheck(hParent)||(hParent==TVI_ROOT) ? 2 : 1);
+        stateMask |= TVIS_STATEIMAGEMASK;
+    }
 
     TVINSERTSTRUCT tvinsert = {0};
     tvinsert.hParent = hParent;
@@ -1337,11 +1404,20 @@ HTREEITEM CRepositoryBrowser::Insert
     tvinsert.itemex.state = state;
     tvinsert.itemex.stateMask = stateMask;
     tvinsert.itemex.pszText = name.GetBuffer (name.GetLength());
-    tvinsert.itemex.cChildren = 1;
     tvinsert.itemex.lParam = (LPARAM)pTreeItem;
-    tvinsert.itemex.iImage = m_nIconFolder;
-    tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
-
+    if (item.kind == svn_node_dir)
+    {
+        tvinsert.itemex.cChildren = 1;
+        tvinsert.itemex.iImage = m_nIconFolder;
+        tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
+    }
+    else
+    {
+        pTreeItem->children_fetched = true;
+        tvinsert.itemex.cChildren = 0;
+        tvinsert.itemex.iImage = SYS_IMAGE_LIST().GetFileIconIndex(item.path);
+        tvinsert.itemex.iSelectedImage = tvinsert.itemex.iImage;
+    }
     HTREEITEM hNewItem = m_RepoTree.InsertItem(&tvinsert);
     name.ReleaseBuffer();
 
@@ -1413,7 +1489,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 
     RefreshChildren (hNode);
 
-    if (pTreeItem->has_child_folders)
+    if ((pTreeItem->has_child_folders)||(m_bSparseCheckoutMode))
         AutoInsert (hNode, pTreeItem->children);
 
     // if there are no child folders, remove the '+' in front of the node
@@ -1475,6 +1551,9 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 
 void CRepositoryBrowser::OnDelete()
 {
+    if (m_bSparseCheckoutMode)
+        return;
+
     CTSVNPathList urlList;
     std::vector<SRepositoryInfo> repositories;
     bool bTreeItem = false;
@@ -1565,6 +1644,8 @@ void CRepositoryBrowser::OnCopy()
 
 void CRepositoryBrowser::OnInlineedit()
 {
+    if (m_bSparseCheckoutMode)
+        return;
     POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
     int selIndex = m_RepoList.GetNextSelectedItem(pos);
     m_blockEvents = true;
@@ -1711,10 +1792,13 @@ void CRepositoryBrowser::OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult
     if (m_blockEvents)
         return;
 
-    if (pNMTreeView->action == TVC_BYKEYBOARD)
-        SetTimer(REPOBROWSER_FETCHTIMER, 300, NULL);
-    else
-        OnTimer(REPOBROWSER_FETCHTIMER);
+    if (!m_bSparseCheckoutMode)
+    {
+        if (pNMTreeView->action == TVC_BYKEYBOARD)
+            SetTimer(REPOBROWSER_FETCHTIMER, 300, NULL);
+        else
+            OnTimer(REPOBROWSER_FETCHTIMER);
+    }
 }
 
 void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
@@ -1819,7 +1903,7 @@ void CRepositoryBrowser::OpenFromList (int item)
     CWaitCursorEx wait;
 
     CItem * pItem = (CItem*)m_RepoList.GetItemData (item);
-    if ((pItem) && (pItem->kind == svn_node_dir))
+    if ((pItem) && ((pItem->kind == svn_node_dir)||m_bSparseCheckoutMode))
     {
         // a double click on a folder results in selecting that folder
 
@@ -2086,6 +2170,12 @@ void CRepositoryBrowser::OnTvnBeginlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pRe
 {
     NMTVDISPINFO* info = reinterpret_cast<NMTVDISPINFO*>(pNMHDR);
 
+    if (m_bSparseCheckoutMode)
+    {
+        *pResult = TRUE;
+        return;
+    }
+
     // disable rename for externals
     CTreeItem* item = (CTreeItem *)m_RepoTree.GetItemData (info->item.hItem);
     *pResult = (item == NULL) || (item->is_external) || (item->url.Compare(GetRepoRoot()) == 0)
@@ -2098,6 +2188,8 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
     LPNMTVDISPINFO pTVDispInfo = reinterpret_cast<LPNMTVDISPINFO>(pNMHDR);
     *pResult = 0;
     if (pTVDispInfo->item.pszText == NULL)
+        return;
+    if (m_bSparseCheckoutMode)
         return;
 
     // rename the item in the repository
@@ -2222,12 +2314,16 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 void CRepositoryBrowser::OnTvnBegindragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
     *pResult = 0;
+    if (m_bSparseCheckoutMode)
+        return;
     OnBeginDragTree(pNMHDR);
 }
 
 void CRepositoryBrowser::OnTvnBeginrdragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
     *pResult = 0;
+    if (m_bSparseCheckoutMode)
+        return;
     OnBeginDragTree(pNMHDR);
 }
 
@@ -2247,6 +2343,8 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 
 bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, const CTSVNPathList& pathlist, const SVNRev& srcRev, DWORD dwEffect, POINTL /*pt*/)
 {
+    if (m_bSparseCheckoutMode)
+        return false;
     ATLTRACE(_T("dropped %ld items on %s, source revision is %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), srcRev.ToString(), dwEffect);
     if (pathlist.GetCount() == 0)
         return false;
@@ -2552,6 +2650,8 @@ CString CRepositoryBrowser::EscapeUrl(const CTSVNPath& url)
 
 void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 {
+    if (m_bSparseCheckoutMode)
+        return;
     HTREEITEM hSelectedTreeItem = NULL;
     HTREEITEM hChosenTreeItem = NULL;
     if ((point.x == -1) && (point.y == -1))
@@ -3650,6 +3750,9 @@ void CRepositoryBrowser::InvalidateDataParents
 void CRepositoryBrowser::BeginDrag(const CWnd& window,
     CRepositoryBrowserSelection& selection, POINT& point, bool setAsyncMode)
 {
+    if (m_bSparseCheckoutMode)
+        return;
+
     // must be exactly one repository
     if (selection.GetRepositoryCount() != 1)
     {
@@ -3719,3 +3822,50 @@ const CString& CRepositoryBrowser::GetSelectedURLs() const
 {
     return m_selectedURLs;
 }
+
+void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    NMTVITEMCHANGE *pNMTVItemChange = reinterpret_cast<NMTVITEMCHANGE*>(pNMHDR);
+    *pResult = 0;
+
+    if (!m_bSparseCheckoutMode)
+        return;
+
+    if (pNMTVItemChange->uStateOld == 0 && pNMTVItemChange->uStateNew == 0)
+        return; // No change
+
+    BOOL bPrevState = (BOOL)(((pNMTVItemChange->uStateOld & TVIS_STATEIMAGEMASK)>>12)-1);   // Old check box state
+    if (bPrevState < 0) // On startup there's no previous state 
+        bPrevState = 0; // so assign as false (unchecked)
+
+    // New check box state
+    BOOL bChecked=(BOOL)(((pNMTVItemChange->uStateNew & TVIS_STATEIMAGEMASK)>>12)-1);
+    if (bChecked < 0) // On non-checkbox notifications assume false
+        bChecked = 0;
+
+    if (bPrevState == bChecked) // No change in check box
+        return;
+
+    if (m_RepoTree.GetCheck(pNMTVItemChange->hItem))
+    {
+        // check all parents
+        HTREEITEM hParent = m_RepoTree.GetParentItem(pNMTVItemChange->hItem);
+        while (hParent)
+        {
+            m_RepoTree.SetCheck(hParent, TRUE);
+            hParent = m_RepoTree.GetParentItem(hParent);
+        }
+    }
+    else
+    {
+        // uncheck all children
+        HTREEITEM hChild = m_RepoTree.GetChildItem(pNMTVItemChange->hItem);
+        while (hChild)
+        {
+            m_RepoTree.SetCheck(hChild, FALSE);
+            hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+        }
+    }
+}
+
+

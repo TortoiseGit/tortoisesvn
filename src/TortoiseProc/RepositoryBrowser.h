@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,6 +36,7 @@ class CTreeDropTarget;
 class CListDropTarget;
 class CRepositoryBrowserSelection;
 
+
 /**
  * \ingroup TortoiseProc
  * helper class which holds the information for a tree item
@@ -48,6 +49,7 @@ public:
         : children_fetched(false)
         , has_child_folders(false)
         , is_external(false)
+        , kind(svn_node_unknown)
     {
     }
 
@@ -60,6 +62,7 @@ public:
     bool            has_child_folders;
     deque<CItem>    children;
     CString         error;
+    svn_node_kind_t kind;
 };
 
 
@@ -94,6 +97,8 @@ public:
 
     void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
 
+    void SetSparseCheckoutMode() { m_bSparseCheckoutMode = true; m_bStandAlone = false; }
+
     enum 
     { 
         IDD = IDD_REPOSITORY_BROWSER,
@@ -118,6 +123,7 @@ protected:
     afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
     afx_msg void OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -254,6 +260,7 @@ protected:
 
 private:
     bool                m_bStandAlone;
+    bool                m_bSparseCheckoutMode;
     CString             m_InitialUrl;
     CString             m_selectedURLs; ///< only valid after <OK>
     bool                m_bThreadRunning;
