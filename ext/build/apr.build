@@ -82,6 +82,7 @@
         <include name="mmap\unix\common.c" />
         <include name="passwd\*.c" />
         <include name="poll\unix\select.c" />
+        <include name="poll\unix\pollset.c" />
         <include name="shmem\win32\*.c" />
         <include name="strings\*.c" />
         <include name="tables\*.c" />
@@ -100,6 +101,7 @@
         <define name="WIN32" />
         <define name="_WINDOWS" />
         <define name="_WIN32" />
+        <define name="WINNT" />
         <define name="_WIN32_WINNT" value="0x0501"/>
         <define name="WIN64" if="${platform == 'x64'}" />
         <define name="_WINDLL" if="${static != 'static'}" />
@@ -123,7 +125,7 @@
     <if test="${static != 'static'}">
       <link
                 output="${configuration}${static}_${platform}\libapr_tsvn${platext}.dll"
-                options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libapr_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}${static}_${platform}/libapr_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+                options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libapr_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}${static}_${platform}/libapr_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib Shell32.lib'>
         <sources>
           <include name="${configuration}${static}_${platform}\*.obj" />
         </sources>
