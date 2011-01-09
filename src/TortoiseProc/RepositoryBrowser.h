@@ -94,6 +94,7 @@ public:
     bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked);
 
     CString GetRepoRoot() { return m_repository.root; }
+    std::map<CString,svn_depth_t> GetCheckoutDepths() { return m_checkoutDepths; }
 
     void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
 
@@ -244,7 +245,7 @@ protected:
 
     /// resizes the control so that the divider is at position 'point'
     void HandleDividerMove(CPoint point, bool bDraw);
-
+    bool CheckoutDepthForItem( HTREEITEM hItem );
 
 protected:
     bool                m_bInitDone;
@@ -290,6 +291,7 @@ private:
     CString             m_origDlgTitle;
 
     CRepositoryLister   m_lister;
+    std::map<CString,svn_depth_t> m_checkoutDepths;
 
     /// used to execute user ops (e.g. context menu actions) in the background
     async::CJobScheduler m_backgroundJobs;

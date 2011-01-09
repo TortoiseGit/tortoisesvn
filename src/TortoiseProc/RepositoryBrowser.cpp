@@ -602,6 +602,28 @@ void CRepositoryBrowser::OnOK()
         xPos = rc.right-rc.left;
         m_barRepository.SaveHistory();
     }
+    else
+    {
+        m_checkoutDepths.clear();
+        HTREEITEM hRoot = m_RepoTree.GetRootItem();
+        CheckoutDepthForItem(hRoot);
+        // now go through the whole list and remove all children of items that have infinity depth
+        for (std::map<CString,svn_depth_t>::iterator it = m_checkoutDepths.begin(); it != m_checkoutDepths.end(); ++it)
+        {
+            if (it->second == svn_depth_infinity)
+            {
+                for (std::map<CString,svn_depth_t>::iterator it2 = m_checkoutDepths.begin(); it2 != m_checkoutDepths.end(); ++it2)
+                {
+                    if (it->first.Compare(it2->first)==0)
+                        continue;
+
+                    CString url1 = it->first + L"/";
+                    if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
+                        m_checkoutDepths.erase(it2);
+                }
+            }
+        }
+    }
 
     ClearUI();
 
@@ -3866,6 +3888,40 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
             hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
         }
     }
+}
+
+bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
+{
+    bool bChecked = !!m_RepoTree.GetCheck(hItem);
+    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (hItem);
+    if (!bChecked)
+    {
+        HTREEITEM hParent = m_RepoTree.GetParentItem(hItem);
+        while (hParent)
+        {
+            CTreeItem * pParent = (CTreeItem *)m_RepoTree.GetItemData (hParent);
+            std::map<CString,svn_depth_t>::iterator it = m_checkoutDepths.find(pParent->url);
+            if (it != m_checkoutDepths.end())
+            {
+                if ((it->second == svn_depth_infinity)&&(pItem->kind == svn_node_dir))
+                    m_checkoutDepths[pParent->url] = svn_depth_files;
+
+                m_checkoutDepths[pParent->url] = svn_depth_empty;
+            }
+            hParent = m_RepoTree.GetParentItem(hParent);
+        }
+    }
+    if (bChecked)
+        m_checkoutDepths[pItem->url] = svn_depth_infinity;
+
+    HTREEITEM hChild = m_RepoTree.GetChildItem(hItem);
+    while (hChild)
+    {
+        CheckoutDepthForItem(hChild);
+        hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+    }
+
+    return bChecked;
 }
 
 
