@@ -619,7 +619,11 @@ void CRepositoryBrowser::OnOK()
 
                     CString url1 = it->first + L"/";
                     if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
-                        m_checkoutDepths.erase(it2);
+                    {
+                        std::map<CString,svn_depth_t>::iterator kill = it2;
+                        --it2;
+                        m_checkoutDepths.erase(kill);
+                    }
                 }
             }
         }
