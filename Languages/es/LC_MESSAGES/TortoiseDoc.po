@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 2010-11-17 07:47 +0000\n"
-"PO-Revision-Date: 2010-12-20 07:17+0000\n"
+"PO-Revision-Date: 2011-01-10 10:50+0000\n"
 "Last-Translator: tommybrc <tommychristie@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. It doesn't matter what you translate it to: it's not used at all.
 #. (None)
 msgid "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
-msgstr "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
+msgstr "@@image: 'images/svn_move.png'; md5=ESTE ARCHIVO NO EXISTE"
 
 #. (title)
 #. (secondary)
@@ -6049,7 +6049,7 @@ msgstr "<literal>tsvn:logtemplate</literal> se utiliza en proyectos que tienen r
 
 #. (para)
 msgid "There are also action specific templates which you can use instead of <literal>tsvn:logtemplate</literal>. The action specific templates are used if set, but <literal>tsvn:logtemplate</literal> will be used if no action specific template is set."
-msgstr ""
+msgstr "También hay plantillas de acción específicas que puede utilizar en lugar de <literal>tsvn:logtemplate</literal>. Se utilizarán la plantillas de acción específica si se en los casos configurados, pero se utilizará <literal>tsvn:logtemplate</literal> si no hay plantilla de acción específica establecida."
 
 #. (para)
 msgid "<literal>tsvn:logtemplatecommit</literal> is used for all commits from a working copy."
@@ -6057,7 +6057,7 @@ msgstr "<literal>tsvn:logtemplatecommit</literal> se utiliza para todas las conf
 
 #. (para)
 msgid "<literal>tsvn:logtemplatebranch</literal> is used when you create a branch/tag, or when you copy files or folders directly in the repository browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatebranch</literal> se utiliza cuando se crea una rama/etiqueta, o al copiar archivos o carpetas directamente en el navegador de repositorios."
 
 #. (para)
 msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
@@ -6065,15 +6065,15 @@ msgstr "<literal>tsvn:logtemplateimport</literal> se utiliza para importaciones.
 
 #. (para)
 msgid "<literal>tsvn:logtemplatedelete</literal> is used when deleting items directly in the repository browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatedelete</literal> se utiliza cuando se eliminan elementos directamente en el navegador de repositorios."
 
 #. (para)
 msgid "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving items in the repository browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatemove</literal> se utiliza cuando se renombran o mueven elementos en el navegador de repositorios."
 
 #. (para)
 msgid "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories in the repository browser."
-msgstr ""
+msgstr "<literal>tsvn:logtemplatemkdir</literal> se utiliza cuando se crean directorios en el navegador de repositorios."
 
 #. (para)
 msgid "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties in the repository browser."
@@ -6214,7 +6214,7 @@ msgstr "svn:Página de propiedades de externos"
 
 #. (para)
 msgid "<placeholder-1/> The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository as described in <xref linkend=\"tsvn-dug-externals\"/>."
-msgstr ""
+msgstr "<placeholder-1/> La propiedad <literal>svn:externals</literal> se puede utilizar para traer otros proyectos del mismo repositorio o un repositorio completamente diferente como se describe en <xref linkend=\"tsvn-dug-externals\"/> ."
 
 #. (para)
 msgid "You need to define the name of the sub-folder that the external folder is checked out as, and the subversion URL of the external item. You can check out an external at its HEAD revision, so when the external item changes in the repository, your working copy will receive those changes on update. However, if you want the external to reference a particular stable point then you can specify the specific revision to use. IN this case you may also want to specify the same revision as a peg revision. If the external item is renamed at some point in the future then Subversion will not be able to update this item in your working copy. By specifying a peg revision you tell Subversion to look for an item that had that name at the peg revision rather than at HEAD."
@@ -6230,7 +6230,7 @@ msgstr "svn: Página de propiedades de palabras clave"
 
 #. (para)
 msgid "<placeholder-1/> Select the keywords that you would like to be expanded in your file."
-msgstr ""
+msgstr "<placeholder-1/> Seleccione las palabras clave que desea que sean ampliadas en el archivo."
 
 #. (title)
 msgid "EOL Style"
@@ -6242,7 +6242,7 @@ msgstr "svn:Página de propiedades de estilo EOL"
 
 #. (para)
 msgid "<placeholder-1/> Select the end-of-line style that you wish to use and TortoiseSVN will use the correct property value."
-msgstr ""
+msgstr "<placeholder-1/> Seleccione el estilo de final de línea que desea utilizar y TortoiseSVN utilizará el valor correcto de la propiedad."
 
 #. (title)
 #. (title)

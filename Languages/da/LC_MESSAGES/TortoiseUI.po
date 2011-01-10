@@ -1,159 +1,23 @@
-# Danish translation for TortoiseSVN
-# Copyright (C) 2004-2010 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
-# 
-# Last commit by:
-# $Author$
-# $Date$
-# $Rev$
-# 
-# Authors:
-# Christian Funder Sommerlund <christian@somnet.dk>
-# Mikkel Elmholdt <mikkel@elmholdt.dk>
-# 
-# Based on original translation by:
-# Gunther Strube <gbs@users.sourceforge.net>
-# Jan Normann Nielsen <spam@dubbekarl.dk>
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-30 15:41+0100\n"
-"Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2011-01-10 10:45+0000\n"
+"Last-Translator: mikkele <mikkel@elmholdt.dk>\n"
+"Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Danish\n"
-"X-Poedit-Country: DENMARK\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #. Resource IDs: (10, 126)
-# -------------------------------
-# Nøgleord i oversættelsen:
-# -------------------------------
-# Abort = Afbryd
-# Application = Program
-# Apply (patch) = Påfør korrekturark (?)
-# Apply (property) = Anvend egenskab
-# Blame = Ansvar
-# Branch = Gren, Sidegren (Bydeform: Forgren)
-# Browser = Browser
-# Cache = Cache
-# Cancel = Annuller
-# Changes = Ændringer (ikke rettelser)
-# Check = Vælg (når der snakkes om "fluebensbokse")
-# Checkout = Hent arbejdskopi
-# Cleanup = Oprydning
-# Commit = Arkivér (med accent for at undgå at ligne flertal af arkiv)
-# Configure = Konfigurer
-# Corrections = Rettelser
-# Delete = Slet
-# Diff = Sammenlign
-# Diff program = Sammenligningsprogram
-# Docked = Fastgjort (ikke 'låst' som tidligere anvendt)
-# Event = handling (men udelades gerne, f.eks. "Associate double-click event
-# with" -> "Associer dobbeltklik med")
-# Explorer = Windows Stifinder
-# External(s) = Ekstern(e)
-# Float = Flydende
-# Get lock = Rekvivier lås
-# Hook (script)= Tilkobling
-# Hunk = Stykke
-# Icon overlay = Ikonoverdækning
-# (Re)integrate = (Re)integrer
-# Issue = Sag
-# Issue tracker = Sagsbehandler
-# Item = Emne (Bedre oversættelse?)
-# Log (messages) = Log(beskeder)
-# Merge program = Fletningsprogram
-# Nested = Indlejret
-# Node = Knude
-# Operation = Handling
-# Options = Indstillinger
-# Pane = Rude
-# Password = Adgangskode
-# Patch = Rettelse (nogen gange betydning som "patch file", brug der
-# oversættelse nedenfor)
-# Patch file = Rettelsesfil
-# Port = Overføre (f.eks.: "To port these changes to the trunk..." -> "For at
-# overføre disse ændringer til stamen...")
-# Personalized = Tilpasset
-# Property = Egenskab
-# Quick Access Toolbar = Genvejsværktøjslinje
-# Record = Registrer
-# Relocate = Omlæg
-# Remove = Fjern
-# Repository = Versionsarkiv
-# Resolve = Løs
-# Revert = Tilbagefør
-# Revision = Revision
-# Script = Script (Bedre oversættelse?)
-# Shell = Skal (Bedre oversættelse?)
-# Shortcut = Genvej
-# Tab = faneblad (undtagen når der snakkes om tasten "Tab")
-# Tag = Mærke
-# Trunk = Hovedgren
-# User (revision properties) = Brugerdefinerede (revisionsegenskaber)
-# Token = Symbol (Bedre oversættelse?)
-# Unified diff = Unified diff
-# Usage data= Anvendelsesdata
-# Viewer = Visningsprogram
-# Working base = Grundrevision af arbejdskopi
-# ------------------
-# Bemærkninger:
-# ------------------
-# "tool" er i øjeblikket oversat som både "værktøj" og "redskab". Et af disse
-# ord bør udgå.
-# Handlinger magen til Windows egne (Slet, Omdøb, Egenskaber, ...) bør dele
-# samme genvejstast
-# Linje staves med "j"
-# Af en eller anden grund indeholder flere strenge ord med store bogstaver
-# midt i linjerne. Hvorvidt dette er rigtigt/en god idé kan diskuteres, men
-# indtil videre holdes der en stil UDEN, dvs. oversæt efter normal dansk
-# grammatik uanset. Ret gerne i gamle strenge når det ses gjort forkert.
-# ------------------
-# Genvejstaster:
-# ------------------
-# Rodmenu: d: SVN Opdater
-# Rodmenu: a: SVN Arkivér
-# Ren rodmenu: h: SVN Hent Arbejdskopi
-# ---
-# abcdefghijklmnopqrstuvwxyzæøå (Kopier & indsæt i notesblok...)
-# XXXXXXXXXXXXXXXXOXXXOXXOXOXXX (...under hinanden)
-# --- () = Deler med andet menupunkt
-# Hovedmenu: i: Sammenlign med forrige version (Højreklik på versioneret fil)
-# Hovedmenu: v: Vis log
-# Hovedmenu: w: Versionsarkivbrowser
-# Hovedmenu: c: Check for ændringer
-# Hovedmenu: a: Revisionsgraf
-# Hovedmenu: ø: Løst
-# Hovedmenu: d: Opdater til revision
-# Hovedmenu: m: Omdøb (Windows-standard)
-# Hovedmenu: l: Slet (Windows-standard)
-# Hovedmenu: b: Tilbagefør
-# Hovedmenu: y: Ryd op
-# Hovedmenu: å: Lås
-# Hovedmenu: p: Lås op
-# Hovedmenu: n: Forgren/Mærk
-# Hovedmenu: s: Skift
-# Hovedmenu: f: Flet
-# Hovedmenu: (a): Ansvar (Højreklik på versioneret fil)
-# Hovedmenu: k: Eksporter
-# Hovedmenu: æ: Omlæg
-# hovedmenu: p: Importer (Højreklik på tomt sted i versioneret mappe)
-# Hovedmenu: j: Tilføj (Højreklik på fil i versioneret mappe)
-# Hovedmenu: r: Opret rettelsesfil
-# Hovedmenu: i: Påfør rettelsesfil
-# Hovedmenu: e: Egenskaber (Windows-standard)
-# Hovedmenu: g: Indstillinger
-# Hovedmenu: h: Hjælp
-# Hovedmenu: o: Om
-# Ren hovedmenu: a: Opret versionsarkiv her
-# --------
-# Andet:
-# --------
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -245,7 +109,6 @@ msgid "%1!s! : Working Base, Revision %2!ld!"
 msgstr "%1!s! : Grundrevision af Arbejdskopi, revision %2!ld!"
 
 #. Resource IDs: (226)
-# Example: "123 kBytes transferred in 2 minute(s) and 34 second(s)"
 #, c-format
 msgid "%1!s! in %2!s!"
 msgstr "%1!s! in %2!s!"
@@ -715,7 +578,6 @@ msgid "&Date"
 msgstr "&Dato"
 
 #. Resource IDs: (1485)
-# Bedre oversættelse af caches?
 msgid "&Days of inactivity until small caches get removed"
 msgstr "&Dage med inaktivitet indtil små caches bliver fjernet"
 
@@ -929,9 +791,8 @@ msgid "&Import..."
 msgstr "Im&porter..."
 
 #. Resource IDs: (1562)
-#, fuzzy
 msgid "&Include externals"
-msgstr "ekstern fil:"
+msgstr "&Inkluder eksterne"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -942,14 +803,10 @@ msgid "&Initial directory:"
 msgstr "&Standardmappe:"
 
 #. Resource IDs: (32825)
-# Bedre oversættelse af "inline diff word-wise"?
-# Kontekst: http://tortoisesvn.net/docs/nightly/TortoiseMerge_en/help-
-# onepage.html#tmerge-dug-toolbar
 msgid "&Inline diff word-wise"
 msgstr "&Sammenlign ordvis ved linjesammenligning"
 
 #. Resource IDs: (275)
-# Kontekst?
 msgid "&Join all"
 msgstr "&Foren alt"
 
@@ -978,7 +835,6 @@ msgid "&Limit search to modified lines"
 msgstr "&Begræns søgning til ændrede linjer"
 
 #. Resource IDs: (65535)
-# Kontekst?
 msgid "&Limit:"
 msgstr "&Grænse:"
 
@@ -1007,7 +863,6 @@ msgid "&Log Sizes"
 msgstr "&Log Størrelser"
 
 #. Resource IDs: (65535)
-# Kontekst?
 msgid "&Luminence:"
 msgstr "&Luminans:"
 
@@ -1017,14 +872,13 @@ msgstr "&Mac (CR)"
 
 #. Resource IDs: (1562)
 msgid "&Make depth sticky"
-msgstr ""
+msgstr "&Fasthold dybde"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "Rediger egenskab &manuelt"
 
 #. Resource IDs: (1486)
-# Bedre oversættelse af cache?
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "&Maksimum størrelse [kByte] på en fjernet inaktiv cache"
 
@@ -1330,14 +1184,12 @@ msgid "&Specific revision in repository"
 msgstr "&Specifik revision i versionsarkivet"
 
 #. Resource IDs: (16917)
-# Kontekst?
 msgid "&Start Group"
 msgstr "&Startgruppe"
 
 #. Resource IDs: (1605)
-#, fuzzy
 msgid "&Start Repobrowser"
-msgstr "Versionsarkivbro&wser"
+msgstr "Åbn &Versionsarkiv"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -1532,7 +1384,6 @@ msgid "'skip ranges' are used to mark revision ranges that have not been cached 
 msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsintervaller der endnu ikke er blevet cachede"
 
 #. Resource IDs: (272)
-# Example: "123 kBytes transferred in 2 minute(s) and 34 second(s)"
 #, c-format
 msgid "(%1!s!) %2!s!"
 msgstr "(%1!s!) %2!s!"
@@ -1546,7 +1397,6 @@ msgid "(binary value)"
 msgstr "(binær værdi)"
 
 #. Resource IDs: (276)
-# "kopi" eller "kopier"? Kontekst?
 msgid "(copy)"
 msgstr "(kopiér)"
 
@@ -1595,7 +1445,6 @@ msgid "(no modification but relevant for working copy)"
 msgstr "(ingen ændringer men relevant for arbejdskopi)"
 
 #. Resource IDs: (214)
-# Kontekst?
 msgid "(no value)"
 msgstr "(ingen værdi)"
 
@@ -1672,7 +1521,6 @@ msgid "<.....>"
 msgstr "<.....>"
 
 #. Resource IDs: (1069)
-# Autogenereret, bruges ikke
 msgid "<Separator>"
 msgstr "<Separator>"
 
@@ -1681,7 +1529,6 @@ msgid "<Untitled>"
 msgstr "<Ikke-navngivet>"
 
 #. Resource IDs: (16603)
-# Autogenereret, bruges ikke
 msgid "<descr>"
 msgstr "<descr>"
 
@@ -1694,12 +1541,10 @@ msgid "?"
 msgstr "?"
 
 #. Resource IDs: (579)
-# Bedre oversættelse af "combo box"?
 msgid "A list of user defined properties for files to show in the combo box"
 msgstr "En liste med brugerdefinerede filegenskaber der skal vises i kombinationsboksen"
 
 #. Resource IDs: (579)
-# Bedre oversættelse af "combo box"?
 msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "En liste med brugerdefinerede mapper der skal vises i kombinationsboksen"
 
@@ -2218,7 +2063,6 @@ msgid "Auto Hide"
 msgstr "Skjul automatisk"
 
 #. Resource IDs: (1003)
-# Kontekst?
 msgid "Auto Hide All"
 msgstr "Skjul automatisk alle"
 
@@ -2307,8 +2151,6 @@ msgid "Blames each line of a file on an author"
 msgstr "Viser den ansvarlige forfatter for hver linje i en fil"
 
 #. Resource IDs: (32812)
-# Kontekst: "Alpha blending in TortoiseIDiff (two images overlapping, with
-# their alpha channel adjusted so both images are 'shining through')."
 msgid "Blend Alpha"
 msgstr "Mix alpha-kanaler"
 
@@ -2329,8 +2171,6 @@ msgid "Branch / tag created successfully!"
 msgstr "Gren / mærke oprettet!"
 
 #. Resource IDs: (2052)
-# Oversættelse af "copy-from-rev"?
-# Kontekst: Se "Exact copy sources"
 msgid "Branch at copy-from-rev even if there was no change in that revision"
 msgstr "Forgren ved copy-from-rev selvom der ikke var nogen ændringer i revisionen"
 
@@ -2399,7 +2239,6 @@ msgid "C&reate folder..."
 msgstr "O&pret mappe..."
 
 #. Resource IDs: (65535)
-# No TSVN Text
 msgid "C&urrent Keys:"
 msgstr "N&uværende nøgler:"
 
@@ -2477,16 +2316,10 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Forskellene kan ikke vises på grund af inkonsistente linjeafslutninger i filen."
 
 #. Resource IDs: (16926)
-# Kontekst? Mulige oversættelser:
-# Navneord: vandfald/kaskade/brus
-# Udsangsord: strømme/bruse/komme strømmende/komme væltende
 msgid "Casca&de"
 msgstr "Vis i &serie"
 
 #. Resource IDs: (65535)
-# Kontekst? Mulige oversættelser:
-# Navneord: vandfald/kaskade/brus
-# Udsangsord: strømme/bruse/komme strømmende/komme væltende
 msgid "Cascaded context menu"
 msgstr "Udvidet højrekliksmenu"
 
@@ -2564,7 +2397,6 @@ msgid "Chec&kout..."
 msgstr "&Hent arbejdskopi..."
 
 #. Resource IDs: (3887)
-# Autogenereret, bruges formodentlig ikke
 msgid "Check"
 msgstr "Vælg"
 
@@ -2629,7 +2461,6 @@ msgid "Check working copy for modifications"
 msgstr "Check arbejdskopi for ændringer"
 
 #. Resource IDs: (1504)
-# Autogenereret, bruges formodentlig ikke
 msgid "Check:"
 msgstr "Vælg:"
 
@@ -2681,7 +2512,7 @@ msgstr "Rydder op i mappe \"%1!s!\""
 
 #. Resource IDs: (15)
 msgid "Cleanup and refresh shell"
-msgstr ""
+msgstr "Ryd op og opdater visning"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2702,9 +2533,8 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (15)
-#, fuzzy
 msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "Ryd op efter afbrudte handlinger, låste filer, ..."
+msgstr "Ryd op i afbrudte operationer og opdater visnings-overdækninger"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -2743,7 +2573,6 @@ msgid "Clears cached logs from %ld repositories"
 msgstr "Rydder cachede logge fra %ld versionsarkiver"
 
 #. Resource IDs: (195)
-# Bemærk oversættelse til dansk flertal i første linje.
 msgid ""
 "Clears the stored authentication.\r\n"
 "You will have to enter your username/password again for all repositories."
@@ -3011,8 +2840,6 @@ msgid "Conflict resolved"
 msgstr "Konflikt løst"
 
 #. Resource IDs: (263, 65535)
-# Dette er nøgleord i første kolonne i progress dialog, tilsvarende
-# "Opdateret", "Afsluttet", "Tilføjet", "Advarsel!"
 msgid "Conflicted"
 msgstr "Konfliktramt"
 
@@ -3071,7 +2898,6 @@ msgid "Copied remotely"
 msgstr "Kopieret på serveren"
 
 #. Resource IDs: (16991)
-# "kopi" eller "kopier"? Kontekst?
 msgid "Copy"
 msgstr "Kopiér"
 
@@ -3442,7 +3268,6 @@ msgid "Cu&t"
 msgstr "Kli&p"
 
 #. Resource IDs: (65535)
-# Kontekst?
 msgid "Current"
 msgstr "Aktuel"
 
@@ -3520,16 +3345,14 @@ msgid "Default application menu. Appears when no documents are open."
 msgstr "Standardprogrammenu. Vises når ingen dokumenter er åbne."
 
 #. Resource IDs: (81)
-#, fuzzy
 msgid "Default directory structure successfully created!"
-msgstr "Oprettelsen af versionsarkivet lykkedes."
+msgstr "Standard katalogstruktur oprettet!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
 msgstr "Standard-sti:"
 
 #. Resource IDs: (1064)
-# Oversættelse af default?
 msgid "Default to UTF-8 encoding"
 msgstr "Sæt UFT-8 tegnsæt som standard"
 
@@ -3547,7 +3370,6 @@ msgid "Delete and &ignore %d items by name"
 msgstr "Slet og &ignorer %d elementer efter navn"
 
 #. Resource IDs: (14)
-# Går ud fra at der med "extension" menes "file extension".
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slet og ignorer %d elementer efter &filtypenavne"
@@ -3633,8 +3455,6 @@ msgid "Detect and highlight moved blocks"
 msgstr "Detekter og marker flyttede blokke"
 
 #. Resource IDs: (3849)
-# Oversættelse af "device"? Kontekst?
-# Ordet "bitmap" ikke oversat. Bruges på dansk.
 msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
@@ -3869,26 +3689,6 @@ msgid "Drop not possible on %1"
 msgstr "Ikke muligt at droppe på %1"
 
 #. Resource IDs: (32816)
-# Bedre oversættelse af "Exact copy sources"?
-# Kontekst:
-# "Revision graph. Shows the *exact* copy sources. Otherwise the graph will
-# merge some copy sources together (helps to reduce the complexity of the
-# graph)."
-# "as this is the least obvious feature of the revision graph view,
-# I just want to document here what it actually does.
-# If you show the log for e.g.
-# http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.2.0RC1
-# you see that it has been created in r3478 as a copy of
-# /branches/1.2.x@3477.
-# However, the last modification to that branch was in r3466.
-# With 'exact copy sources' enabled, you will get an extra node
-# in the graph for r3477. Otherwise, a node for the last modifying
-# revision node will be shown (may or may not already be there).
-# It seems that this is mainly an issue with old repositories as
-# I could not reproduce this with newer versions of SVN.
-# Once such information is stored in the repository, it will properly
-# remain there, though.
-# -- Stefan2."
 msgid "E&xact copy sources"
 msgstr "&Nøjagtige kopioprindelser"
 
@@ -3905,7 +3705,6 @@ msgid "E&xit"
 msgstr "&Afslut"
 
 #. Resource IDs: (275)
-# Kontekst?
 msgid "E&xpand all"
 msgstr "&Udvid alt"
 
@@ -3922,7 +3721,6 @@ msgid "E&xport..."
 msgstr "E&ksporter..."
 
 #. Resource IDs: (3697)
-# Autogenereret, bruges ikke
 msgid "EXT"
 msgstr "EXT"
 
@@ -4234,13 +4032,11 @@ msgid "Expand &following tree"
 msgstr "E&kspander det følgende træ"
 
 #. Resource IDs: (1002)
-# Kontekst?
 #, c-format
 msgid "Expand (%s)"
 msgstr "Udvid (%s)"
 
 #. Resource IDs: (1001)
-# Oversættelse af "docked"? Kontekst?
 msgid "Expand docked window"
 msgstr "Udvid fastgjort vindue"
 
@@ -4346,7 +4142,6 @@ msgid "Failed revert"
 msgstr "Tilbageføring mislykkedes"
 
 #. Resource IDs: (3865)
-# Kontekst? Bedre oversættelse af "link" og "broken"?
 msgid ""
 "Failed to connect.\n"
 "Link may be broken."
@@ -4667,7 +4462,6 @@ msgid "From:"
 msgstr "Fra:"
 
 #. Resource IDs: (1065)
-# Kontekst?
 msgid "Full Screen"
 msgstr "Fuldskærmsvisning"
 
@@ -4830,7 +4624,6 @@ msgid "H&EAD Revision"
 msgstr "H&oved-revision"
 
 #. Resource IDs: (65535)
-# Dansk oversættelse?
 msgid "H&ue:"
 msgstr "N&uance:"
 
@@ -4880,14 +4673,12 @@ msgid "Hide deleted branches and tags"
 msgstr "Skjul slettede grene og mærker"
 
 #. Resource IDs: (1001)
-# Oversættelse af "docked"? Kontekst?
 msgid "Hide docked window"
 msgstr "Skjul fastgjort vindue"
 
 #. Resource IDs: (32832)
-#, fuzzy
 msgid "Hide ta&gs"
-msgstr "Fold &mærker sammen"
+msgstr "Skjul &mærker"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -4914,7 +4705,6 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "Tip: Tryk F5 for at genopfriske det valgte deltræ og Ctrl-F5 for at genopfriske alle niveauer under også"
 
 #. Resource IDs: (16519)
-# Kontekst?
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
 msgstr "Tip: vælg højrekliksmenuen, skift til siden 'Kommandoer' og træk værktøjslinjens knapper ind i menuvinduet."
 
@@ -5036,9 +4826,8 @@ msgid "ID:32824:V C +F"
 msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
-#, fuzzy
 msgid "ID:32825:V C +E"
-msgstr "ID:32825:V C +K"
+msgstr "ID:32825:V C +E"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
@@ -5053,14 +4842,12 @@ msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:32870; 'Collapsed'
-#, fuzzy
 msgid "ID:32870:V C +L"
-msgstr "ID:32809:V C +F"
+msgstr "ID:32870:V C +L"
 
 #. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
-#, fuzzy
 msgid "ID:32881:V C +P"
-msgstr "ID:32814:V C +L"
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5229,7 +5016,6 @@ msgstr ""
 "Statuselementet benyttes for eksempel i \"Arkivér\"-dialogen."
 
 #. Resource IDs: (196)
-# Bemærk: Halvdårligt engelsk rettte i oversættelsen af anden linje.
 msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
@@ -5266,7 +5052,6 @@ msgid "Ignore"
 msgstr "Ignorer"
 
 #. Resource IDs: (14)
-# Går ud fra at der med "extension" menes "file extension".
 #, c-format
 msgid "Ignore %d items by &extension"
 msgstr "Ignorerer %d elementer efter &filtypenavn"
@@ -5348,8 +5133,6 @@ msgid "Images"
 msgstr "Billeder"
 
 #. Resource IDs: (19)
-# Anderledes oversættelse til dansk pga. engelske fagord og kontekst.
-# Se http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-dug-checkout.html
 msgid "Immediate children, including folders"
 msgstr "2 niveauer (filer, undermapper og undermappers filer)"
 
@@ -5666,7 +5449,6 @@ msgid "Keyboard shortcuts:"
 msgstr "Tastaturgenveje:"
 
 #. Resource IDs: (1002)
-# Kontekst?
 msgid "Keys"
 msgstr "Taster"
 
@@ -5792,17 +5574,12 @@ msgstr ""
 "versionsarkiv-URL'en vil blive gemt."
 
 #. Resource IDs: (32854)
-# Bedre oversættelse af "locator bar"?
-# Kontekst?
 msgid "Locator Bar"
 msgstr "Lokationsbar"
 
 #. Resource IDs: (65535)
-# Bedre oversættelse af "locator bar"?
-# Kontekst?
-#, fuzzy
 msgid "Locator bar"
-msgstr "Lokationsbar"
+msgstr ""
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -5917,7 +5694,6 @@ msgstr ""
 "HEAD-revision: %3!ld!"
 
 #. Resource IDs: (16973)
-# Antager at der med "lum" menes luminans...
 msgid "Lum"
 msgstr "Luminans"
 
@@ -5990,7 +5766,6 @@ msgid "Max. lines in action log"
 msgstr "Maks. linjer i handlingsloggen"
 
 #. Resource IDs: (1487)
-# Bedre oversættelse af tool failures og cache?
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "Maksimum antal værktøjs&fejl inden cache fjernes"
 
@@ -6085,12 +5860,10 @@ msgid "Merges a branch into the main trunk"
 msgstr "Fletter en gren ind i hovedstammen"
 
 #. Resource IDs: (14)
-# Bedre oversættelse af "merge-tracking information"?
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
 msgstr "Fletter alle manglende revisioner tilbage i arbejdskopien ved hjælp af sporingsinformation om fletninger."
 
 #. Resource IDs: (1073)
-# Dette er overskriften i en dialog
 msgid "Merging"
 msgstr "Fletning"
 
@@ -6168,7 +5941,6 @@ msgid "Mine"
 msgstr "Min"
 
 #. Resource IDs: (1068)
-# Oversættelse af "Ribbon"?
 msgid "Minimize the Ribbon"
 msgstr "Minimer båndet"
 
@@ -6543,7 +6315,6 @@ msgid "Note that if you choose to recover the auto-saved documents, you must exp
 msgstr "Bemærk at hvis du vælger at genskabe de automatisk gemte dokumenter skal du eksplicit gemme og overskrive de originale dokumenter. Hvis du vælger ikke at genskabe de automatisk gemte dokumenter, vil de blive slettet."
 
 #. Resource IDs: (1481)
-# Rigtig oversættelse?
 msgid "Note: the folder contains unversioned items"
 msgstr "Bemærk: Kataloget indeholder ikke-versionerede emner"
 
@@ -6693,8 +6464,6 @@ msgid "Only check out the &top folder"
 msgstr "Hent kun den &øverste mappe"
 
 #. Resource IDs: (19)
-# Anderledes oversættelse til dansk pga. engelske fagord og kontekst.
-# Se http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-dug-checkout.html
 msgid "Only file children"
 msgstr "1 niveau (kun filer)"
 
@@ -6767,12 +6536,10 @@ msgid "Operate from log cache for now only"
 msgstr "Operer indtil videre kun fra logcachen"
 
 #. Resource IDs: (348)
-# Kontekst? Muligheder: Egenskaber, indstillinger, muligheder, ...
 msgid "Option"
 msgstr "Mulighed"
 
 #. Resource IDs: (16137)
-# Kontekst? Muligheder: Egenskaber, indstillinger, muligheder, ...
 msgid "Options"
 msgstr "Indstillinger"
 
@@ -6817,7 +6584,6 @@ msgid "P&revious Conflict"
 msgstr "Fo&rrige konflikt"
 
 #. Resource IDs: (76)
-# Autogenereret, bruges ikke
 msgid "PEM"
 msgstr "PEM"
 
@@ -6921,8 +6687,6 @@ msgid "Percent of authorship"
 msgstr "Andel af forfatterskab"
 
 #. Resource IDs: (245)
-# Kontekst?
-# Ental eller flertal? Eller kombi ala "Nylig(e)"?
 msgid "Percents"
 msgstr "Procenter"
 
@@ -6943,9 +6707,8 @@ msgid "Picture:"
 msgstr "Billede:"
 
 #. Resource IDs: (157)
-#, fuzzy
 msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Billeder (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
+msgstr "Billedfiler (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7118,7 +6881,6 @@ msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
 msgstr "Printer Filer (*.prn)|*.prn|Alle Filer (*.*)|*.*||"
 
 #. Resource IDs: (65535)
-# "Udskriver" (udsagnsord) eller "Udskrift/udskrivning" (navneord)? Kontekst?
 msgid "Printing"
 msgstr "Udskriver"
 
@@ -7243,8 +7005,6 @@ msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Føj \"Rekvivier lås\" i øverste menu, når svn:needs-lock er sat"
 
 #. Resource IDs: (246)
-# Engelsk: Q = Quarter
-# Dansk: K = Kvartal
 #, c-format
 msgid "Q%d/%.2d"
 msgstr "K%d/%.2d"
@@ -7282,7 +7042,6 @@ msgid "RAM [kB]: "
 msgstr "RAM [kB]:"
 
 #. Resource IDs: (3697)
-# Autogenereret, bruges ikke
 msgid "REC"
 msgstr "REC"
 
@@ -7323,8 +7082,6 @@ msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Læs \"Daily Use Guide\" inden du går i stå..."
 
 #. Resource IDs: (1002)
-# Kontekst?
-# Ental eller flertal? Eller kombi ala "Nylig(e)"?
 msgid "Recent"
 msgstr "Nylig(e)"
 
@@ -7341,7 +7098,6 @@ msgid "Recording mergeinfo for merge between URLs"
 msgstr "Registrerer fletteinfo for fletning mellem URL'er"
 
 #. Resource IDs: (265)
-# Kontekst?
 #, c-format
 msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
 msgstr "Registrerer fletteinfo for fletning af r%1!ld! til r%2!ld!"
@@ -7352,7 +7108,6 @@ msgid "Recording mergeinfo for merge of r%ld"
 msgstr "Registrerer fletteinfo for fletning af  r%ld"
 
 #. Resource IDs: (265)
-# Kontekst?
 #, c-format
 msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
 msgstr "Registrerer fletteinfo for omvendt fletning af r%1!ld! til r%2!ld!"
@@ -7388,7 +7143,7 @@ msgstr "Rekursivt"
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
-msgstr ""
+msgstr "Viderestiller til url"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7508,7 +7263,7 @@ msgstr "Omlægger..."
 
 #. Resource IDs: (501)
 msgid "Remember the depth for this working copy"
-msgstr ""
+msgstr "Husk dybden for denne revisionskopi"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -7659,7 +7414,6 @@ msgid "Repair move"
 msgstr "Reparationsflytning"
 
 #. Resource IDs: (3603)
-# Autogenereret, bruges formodentlig ikke
 msgid ""
 "Repeat the last action\n"
 "Repeat"
@@ -7696,9 +7450,8 @@ msgid "Repository UUID:"
 msgstr "Versionarkivet-UUID:"
 
 #. Resource IDs: (324)
-#, fuzzy
 msgid "Repository created"
-msgstr "Versionsarkivbrowser"
+msgstr "Versionsarkiv oprettet"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -7713,7 +7466,6 @@ msgid "Res&olved..."
 msgstr "L&øst..."
 
 #. Resource IDs: (16614)
-# Kontekst? "Alle" eller "Alt"?
 msgid "Reset &All"
 msgstr "Nulstil &Alt"
 
@@ -7787,13 +7539,11 @@ msgid "Retry"
 msgstr "Prøv igen"
 
 #. Resource IDs: (264)
-# Kontekst?
 #, c-format
 msgid "Reverse merging %1!ld! through %2!ld!"
 msgstr "Omvendt fletning fra %1!ld! til og med %2!ld!"
 
 #. Resource IDs: (264)
-# Kontekst?
 #, c-format
 msgid "Reverse merging %ld"
 msgstr "Fortryd fletning af %ld"
@@ -7958,7 +7708,6 @@ msgid "Row Up"
 msgstr "Række Op"
 
 #. Resource IDs: (17045)
-# Kontekst?
 msgid "S&elect..."
 msgstr "&Vælg..."
 
@@ -7975,7 +7724,6 @@ msgid "S&how Buttons on Two Rows"
 msgstr "V&is knapper på To Rækker"
 
 #. Resource IDs: (17078)
-# Oversættelse af "Ribbon"?
 msgid "S&how Quick Access Toolbar below the Ribbon"
 msgstr "&Vis genvejsværktøjslinje under båndet"
 
@@ -8086,7 +7834,7 @@ msgstr "Sti til gemte klientcertifikater"
 
 #. Resource IDs: (617)
 msgid "Save in Git format"
-msgstr ""
+msgstr "Gem i Git format"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8109,7 +7857,6 @@ msgid "Saved Data"
 msgstr "Gemt data"
 
 #. Resource IDs: (344)
-# Bedre oversættelse af "roundtrips"?
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
 msgstr "Sparer kostbare serverressourcer når sat til længere end 0 sekunder"
 
@@ -8135,7 +7882,6 @@ msgid "Scan"
 msgstr "Gennemse"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
-# Autogenereret, bruges ikke
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -8341,13 +8087,12 @@ msgid "Server &address:"
 msgstr "&Server-adresse:"
 
 #. Resource IDs: (65535)
-# En Accelerator er en genvejstast.
 msgid "Set Accelerator &for:"
 msgstr "Sæt genvejstast &for:"
 
 #. Resource IDs: (1544)
 msgid "Set explicit revision for these externals:"
-msgstr ""
+msgstr "Sæt eksplicit revision for disse eksterne:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -8407,7 +8152,6 @@ msgid "Show"
 msgstr "Vis"
 
 #. Resource IDs: (16996)
-# En Accelerator er en genvejstast.
 msgid "Show &Accelerator for:"
 msgstr "Vis genvejst&ast for:"
 
@@ -8453,12 +8197,10 @@ msgid "Show &unversioned files"
 msgstr "Vis &ikke-versionerede filer"
 
 #. Resource IDs: (1069)
-# Oversættelse af "Ribbon"?
 msgid "Show Above the Ribbon"
 msgstr "Vis over båndet"
 
 #. Resource IDs: (1069)
-# Oversættelse af "Ribbon"?
 msgid "Show Below the Ribbon"
 msgstr "Vis under båndet"
 
@@ -8479,7 +8221,6 @@ msgid "Show HEAD revision nodes"
 msgstr "Vis knuder for HEAD-revisionen"
 
 #. Resource IDs: (2052)
-# Bedre oversættelse af "inline diff word-wise"?
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
@@ -8500,12 +8241,10 @@ msgid "Show Ove&rview"
 msgstr "Vis ove&rsigt"
 
 #. Resource IDs: (1068)
-# Oversættelse af "Ribbon"?
 msgid "Show Quick Access Toolbar Above the Ribbon"
 msgstr "Vis genvejsværktøjslinje over båndet"
 
 #. Resource IDs: (1068)
-# Oversættelse af "Ribbon"?
 msgid "Show Quick Access Toolbar Below the Ribbon"
 msgstr "Vis genvejsværktøjslinje under båndet"
 
@@ -8530,8 +8269,6 @@ msgid "Show differences as &unified diff"
 msgstr "Vis forskelle som &unified diff"
 
 #. Resource IDs: (1126)
-# Definition af "normal": http://tortoisesvn.net/docs/nightly/TortoiseSVN_hr
-# /tsvn-dug-settings.html
 msgid "Show excluded folders as normal"
 msgstr "Vis udelukkede mapper som versionerede"
 
@@ -8568,7 +8305,6 @@ msgid "Show only the changed parts of the path name. Replace unchanged elements 
 msgstr "Vis kun de ændrede dele af stinavnet. Erstat ikke-ændrede elementer med prikker."
 
 #. Resource IDs: (2054)
-# Oversættelse af "toggle" og "LineDiffBar"? "LineDiffBar" ikke oversat.
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
@@ -8577,7 +8313,6 @@ msgstr ""
 "Vis/skjul LineDiffBar"
 
 #. Resource IDs: (2054)
-# Oversættelse af "toggle" og "LocatorBar"?
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
@@ -8755,7 +8490,6 @@ msgstr ""
 "Adskil mønstrene med et mellemrum."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-# Not from TSVN: Dummy. Just copy original text
 msgid "Spin1"
 msgstr "Spin1"
 
@@ -8860,7 +8594,6 @@ msgid "Stripes"
 msgstr "Striber"
 
 #. Resource IDs: (117)
-#, fuzzy
 msgid ""
 "Sub-string filter:\r\n"
 "* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
@@ -8877,18 +8610,6 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
-"Del-streng filter:\r\n"
-"* Specificer en eller flere strenge, adskilt af mellemrum. Alle del-strenge skal matche.\r\n"
-"* Placer et '-' tegn foran en del-streng for at udelukke revisioner med denne del-streng.\r\n"
-"* Omgiv strenge der indeholder mellemrum med \".\r\n"
-"* Placer et '!' tegn foran en linie for at invertere hele filter betingelsen.\r\n"
-"\r\n"
-"Eksepler:\r\n"
-"mitname  2008    : mine commits fra 2008\r\n"
-".h  -.cpp              : commits som ændrede headerfiler men ikke implementationsfiler\r\n"
-"\" \"                        : commits med mellemrum (f.eks. når man søger i stier)\r\n"
-"-\"\"show all\"\"        : commits som ikke indeholder strengen '\"show all\"'\r\n"
-"!mitname  .cpp    : alt undtagen mine commits til .cpp filer"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -9046,7 +8767,6 @@ msgid "Switch working copy to another branch / tag"
 msgstr "Skift arbejdskopi til en anden gren / mærke"
 
 #. Resource IDs: (1479)
-# Kontekst: "Skift denne sti [til ...]" i skift-dialogen
 msgid "Switch:"
 msgstr "Skift:"
 
@@ -9588,8 +9308,6 @@ msgstr ""
 "Ønsker du at flette alligevel?"
 
 #. Resource IDs: (195)
-# Bemærk: Meget dårlig engelsk grammatik. Tilnærmelsesvis oversættelse.
-# Bedre oversættelse af "parsing"?
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
 "A lower value will make the auto-completion list available sooner,\r\n"
@@ -9833,14 +9551,10 @@ msgid "Toolbars"
 msgstr "Værktøjslinjer"
 
 #. Resource IDs: (16928)
-# Kontekst? Kan både være tools -> værktøjer og tools -> funktioner alt
-# afhængig af brug.
 msgid "Tools"
 msgstr "Funktioner"
 
 #. Resource IDs: (65535)
-# Kontekst? Kan både være tools -> værktøjer og tools -> funktioner alt
-# afhængig af brug.
 msgid "Tools:"
 msgstr "Funktioner:"
 
@@ -9899,13 +9613,11 @@ msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
 #. Resource IDs: (107)
-# Dansk oversættelse af "build"?
 #, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 #. Resource IDs: (107)
-# Dansk oversættelse af "build"?
 #, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
@@ -10688,9 +10400,8 @@ msgid "Working copy: %s\n"
 msgstr "Arbejdskopi: %s\n"
 
 #. Resource IDs: (2056)
-#, fuzzy
 msgid "Wrap long lines"
-msgstr "Bryd linjer"
+msgstr "Ombryd lange linier"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -10818,12 +10529,10 @@ msgstr ""
 "Filen vil blive tilføjet versionskontrol, når du arkiverer."
 
 #. Resource IDs: (1001)
-# Kontekst? Betyder "should" bør eller skal i denne sammenhæng?
 msgid "You should enter a text!"
 msgstr "Du skal indtaste en tekst!"
 
 #. Resource IDs: (1001)
-# Kontekst? Betyder "should" bør eller skal i denne sammenhæng?
 msgid "You should select an image!"
 msgstr "Du skal vælge et billede!"
 
@@ -11085,8 +10794,6 @@ msgstr ""
 "tilføjes til logbeskeden."
 
 #. Resource IDs: (577)
-# Oversættelse af "mærke"? (Undersøg hvad der bruges andre steder i
-# oversættelsen)
 msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -11485,8 +11192,6 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #. Resource IDs: (576)
-# Kontekst: http://subversion.apache.org/svn_1.5_releasenotes.html#externals
-#, fuzzy
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
@@ -11501,18 +11206,6 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
-"svn:externals\r\n"
-"En linjesepareret liste af modulspecifikationer, hver indeholdende\r\n"
-"en relativ mappesti, eventuelle revisionargumenter, og en URL. Eksempel:\r\n"
-"http://eksempel.dk/arkiv/zig foo\r\n"
-"-r 1234 http://eksempel.dk/arkiv/zag foo/bar\r\n"
-"\r\n"
-"URL'erne kan enten være fulde URL'er eller relative. Formatet for\r\n"
-"relative URL'er er:\r\n"
-"../ relativt til mappen med svn:externals-egenskaben\r\n"
-"^/ relativt til versionsarkivroden\r\n"
-"// relativt til URL-opbygningen\r\n"
-"/ relativt til serverens værtsnavn"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11687,7 +11380,6 @@ msgstr ""
 "Et søgemønster som matcher revisionsnumre i en logmeddelelse"
 
 #. Resource IDs: (578)
-# "in its first group" er tilsyneladende underforstået / kun til forvirring.
 msgid ""
 "tsvn:logsummary\r\n"
 "A regex string which extracts a summary from a log message in its first group."
@@ -11706,92 +11398,60 @@ msgstr ""
 "Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatebranch\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
 msgstr ""
-"tsvn:logtemplate:\r\n"
-"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
-"Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatecommit\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for commits for users to fill in."
 msgstr ""
-"tsvn:logtemplate:\r\n"
-"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
-"Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatedelete\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for deletes for users to fill in."
 msgstr ""
-"tsvn:logtemplate:\r\n"
-"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
-"Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplateimport\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
 msgstr ""
-"tsvn:logtemplate:\r\n"
-"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
-"Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatelock\r\n"
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
 msgstr ""
-"tsvn:logtemplate:\r\n"
-"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
-"Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatemkdir\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for directory creations for users to fill in."
 msgstr ""
-"tsvn:logtemplate:\r\n"
-"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
-"Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatemove\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for moves/renames for users to fill in."
 msgstr ""
-"tsvn:logtemplate:\r\n"
-"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
-"Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatepropset\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
 msgstr ""
-"tsvn:logtemplate:\r\n"
-"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
-"Benyt denne funktion til at lave skabeloner til logbeskeder."
 
 #. Resource IDs: (578)
 msgid ""
@@ -11898,150 +11558,5 @@ msgid "yes"
 msgstr "ja"
 
 #. Resource IDs: (1382)
-# Formodes ikke at skulle oversættes
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "Check externals to explicit revision"
-#~ msgstr "Check eksterne ved eksplicit revision"
-
-#~ msgid "&Sat:"
-#~ msgstr "&Mætning:"
-
-#~ msgid "&Save..."
-#~ msgstr "&Gem..."
-
-#~ msgid "&To URL: "
-#~ msgstr "&Til URL: "
-
-#~ msgid "&To path: "
-#~ msgstr "stier:"
-
-#~ msgid "Bug-ID / &Issue-Nr:"
-#~ msgstr "Fejl-ID / &Sagsnr:"
-
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "Vis overdækning for ignorerede emner"
-
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "Vis overdækning for ikke-versionerede emner"
-
-#~ msgid "tree conflict:"
-#~ msgstr "træ konflikt:"
-
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "Forfatter:                                    Stefan Kueng"
-
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "Check automatisk efter &ny version hver uge"
-
-#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere version til rådighed"
-
-#~ msgid "Edit conflict"
-#~ msgstr "Rediger konflikt"
-
-#~ msgid "From URL:"
-#~ msgstr "Fra URL:"
-
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "Skjul &irrelevante ændrede stier"
-
-#~ msgid "Show &properties"
-#~ msgstr "Vis &egenskaber"
-
-#~ msgid "Show i&gnored files"
-#~ msgstr "Vis i&gnorerede filer"
-
-#~ msgid "Show un&modified files"
-#~ msgstr "Vis ikke-&ændrede filer"
-
-#~ msgid "Show un&versioned files"
-#~ msgstr "Vis ikke-&versionerede filer"
-
-#~ msgid "Cleaning up."
-#~ msgstr "Rydder op."
-
-#~ msgid "General::Revision Graph"
-#~ msgstr "Generelt::Revisionsgraf"
-
-#~ msgid "Go offline?"
-#~ msgstr "Gå offline?"
-
-#~ msgid "Replaced node"
-#~ msgstr "Erstattet knude"
-
-#~ msgid ""
-#~ "GDI+ is required to save the revision graph as a picture.\n"
-#~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-#~ msgstr ""
-#~ "Der kræves GDI+ for at gemme revisionsgrafen som et billede.\n"
-#~ "Du kan hente GDI+ fra\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-
-#~ msgid "Floppy drives (A: B:)"
-#~ msgstr "Diskettedrev (A: B:)"
-
-#~ msgid "&Glue all"
-#~ msgstr "&Klæb alle"
-
-#~ msgid "&Glue sub-trees"
-#~ msgstr "&Klæb under-træer"
-
-#~ msgid "Cut from &source tree"
-#~ msgstr "Klip fra &kilde-træet"
-
-#~ msgid "Glue following &tree"
-#~ msgstr "Klæb følgende &træ"
-
-#~ msgid "The last %s operation tried to %s the %s '%s', but it was deleted locally."
-#~ msgstr "Den sidste %s operation forsøgte at %s på %s \"%s\", men er blevet slettet lokalt."
-
-#~ msgid "add"
-#~ msgstr "tilføj"
-
-#~ msgid "directory"
-#~ msgstr "mappe"
-
-#~ msgid "file"
-#~ msgstr "fil"
-
-#~ msgid "merge"
-#~ msgstr "flette"
-
-#~ msgid "modify"
-#~ msgstr "ændre"
-
-#~ msgid "switch"
-#~ msgstr "skifte"
-
-#~ msgid "update"
-#~ msgstr "Opdater"
-
-#~ msgid "Only record the merge"
-#~ msgstr "Registrer kun fletningen"
-
-#~ msgid "(deleted) %s"
-#~ msgstr "(slettet) %s"
-
-#~ msgid "alias (deleted): %s"
-#~ msgstr "alias (slettet): %s"
-
-#~ msgid "&?"
-#~ msgstr "&?"
-
-#~ msgid "Bro&wse..."
-#~ msgstr "Genne&mse..."
-
-#~ msgid "Brows&e..."
-#~ msgstr "Gennem&se..."
-
-#~ msgid "Force blame"
-#~ msgstr "Tving angivelse af ansvar"
-
-#~ msgid "Merge all..."
-#~ msgstr "Flet alle..."
-
-#~ msgid "SVN Export to here"
-#~ msgstr "SVN Eksporter hertil"

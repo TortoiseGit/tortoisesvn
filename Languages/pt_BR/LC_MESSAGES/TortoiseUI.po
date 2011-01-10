@@ -1,38 +1,36 @@
-# Portuguese (Brazil) translation for TortoiseSVN
-# Copyright (C) 2004-2010 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
-# 
-# Last commit by:
-# $Author$
-# $Date$
-# $Rev$
-# 
-# Authors:
-# Juliano Ravasi Ferraz <dev juliano.info>
-# Guilherme Cantisano <gc gpstec.com.br>
-# Humberto Osório <humberto@vdl.ufc.br>
-# CRAb <crab@yahoogroups.com>
-# Victor Westmann <victor.westmann@gmail.com>
-# Tiago Deliberali Santos <tiago@gtplenus.com.br>
-# Leandro Herrera <leogherrera@msn.com>
-# Alex Vieira <chermucsnis@yahoo.com.br>
-# Rafael M. Heise <rmheise@gmail.com>
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-11-03 00:34-0300\n"
-"Last-Translator: Rafael Marcelo Heise <rmheise@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2011-01-10 10:44+0000\n"
+"Last-Translator: rmheise <rmheise@gmail.com>\n"
+"Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: BRAZIL\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #. Resource IDs: (10, 126)
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
 msgstr " "
 
@@ -791,6 +789,10 @@ msgstr "Apenas a &imagem"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importar..."
+
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr "@Incluir externos"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -1906,7 +1908,6 @@ msgstr ""
 "%base : o arquivo original sem as suas alterações"
 
 #. Resource IDs: (3867)
-# A palavra 'Handle' nesse contexto pode ser ignorada?
 #, c-format
 msgid "An incorrect file handle was associated with %1."
 msgstr "Um manipulador de arquivo inválido foi associado a %1."
@@ -1930,7 +1931,6 @@ msgid "Application Frame Menus: "
 msgstr "Menus da Moldura da Aplicação:"
 
 #. Resource IDs: (14)
-# Pode ser: "aplica  um Diff (ou comparação de arquivos) a cópia de trabalho"?
 msgid "Applies a unified diff file to the working copy"
 msgstr "Aplica um arquivo de comparação unificado à cópia de trabalho"
 
@@ -2090,7 +2090,6 @@ msgid "Automatic"
 msgstr "Automático"
 
 #. Resource IDs: (306)
-# Importante identificar onde é usado
 msgid "Autotext Tester"
 msgstr "Testador do texto automático"
 
@@ -2541,8 +2540,6 @@ msgid "Clear"
 msgstr "Apagar"
 
 #. Resource IDs: (1057)
-# Será que clear limpar não é bem aplicada aqui por ter o clean, tb traduzido
-# aqui como limpar?
 msgid ""
 "Clear Tool\n"
 "Clear"
@@ -3935,7 +3932,6 @@ msgid "Enter an integer."
 msgstr "Insira um inteiro."
 
 #. Resource IDs: (65535)
-# Importante identificar onde é usado
 msgid "Enter file content to test for below:"
 msgstr "Entre com o conteúdo do arquivo para testar abaixo:"
 
@@ -3953,7 +3949,6 @@ msgid "Enter no more than %1 characters."
 msgstr "Não insira mais do que %1 caracteres."
 
 #. Resource IDs: (65535)
-# Importante identificar onde é usado
 msgid "Enter the regex string below:"
 msgstr "Entrar com a expressão regular abaixo:"
 
@@ -4458,7 +4453,6 @@ msgid "Forward"
 msgstr "Avançar"
 
 #. Resource IDs: (65535)
-# Importante identificar onde é usado
 msgid "Found auto words:"
 msgstr "Encontrou palavras automáticas:"
 
@@ -4764,19 +4758,6 @@ msgid "ID"
 msgstr "ID"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
-# msgid/msgstr fields for Accelerator keys
-# Format is: "ID:xxxxxx:VACS+X" where:
-#    ID:xxxxx = the menu ID corresponding to the accelerator
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -7359,7 +7340,6 @@ msgid "Removed"
 msgstr "Removido"
 
 #. Resource IDs: (126)
-# Indicação de remoção de arquivo e/ou diretório.
 msgid "Removed file/folder"
 msgstr "Arquivo/diretório removido"
 
@@ -7901,7 +7881,6 @@ msgid "Saving patchfile to:"
 msgstr "Salvando arquivo de correção em:"
 
 #. Resource IDs: (1522)
-# Importante identificar onde é usado
 msgid "Scan"
 msgstr "Escanear"
 
@@ -8099,7 +8078,6 @@ msgid "Selected node"
 msgstr "Nó selecionado"
 
 #. Resource IDs: (3866)
-# XXX: Onde isso é usado?
 msgid "Send Mail failed to send message."
 msgstr "SendMail falhou ao enviar mensagem."
 
@@ -8519,7 +8497,6 @@ msgid "Spin1"
 msgstr "Spin1"
 
 #. Resource IDs: (275)
-# The is no 's' in the translation to support the same Alt shortcut
 msgid "Split &source tree"
 msgstr "Dividir árvore &principal"
 
@@ -8620,7 +8597,6 @@ msgid "Stripes"
 msgstr "Faixas"
 
 #. Resource IDs: (117)
-#, fuzzy
 msgid ""
 "Sub-string filter:\r\n"
 "* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
@@ -8636,19 +8612,7 @@ msgid ""
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
-msgstr ""
-"Filtro por texto parcial:\r\n"
-"* Especifique um ou mais textos, separados por espaços. Todos os textos devem existir.\r\n"
-"* Coloque um - na frente do texto para excluir as revisões que contêm o texto.\r\n"
-"* Use \" no texto que contêm espaço.\r\n"
-"* Coloque um ! no início da linha para inverter toda a condição do filtro.\r\n"
-"\r\n"
-"Exemplos:\r\n"
-"meunome  2008    : todos as minhas submissões de 2008\r\n"
-".h  -.cpp              : todas as submissões que mudaram definições mas não implementações\r\n"
-"\" \"                        : submissões com espaço (ex. quando procurando apenas em caminhos)\r\n"
-"-\"\"mostrar tudo\"\"        : submissões que não contêm o texto '\"mostrar tudo\"'\r\n"
-"!meunome  .cpp    : todas as coisas menos as minhas submissões para arquivo .cpp"
+msgstr "Filtro de texto parcial: * Especifica um ou mais textos, separados por espaço. Eles serão avaliados da esquerda para a direita. * Coloque um - na frente de um texto para excluir as revisões que contêm o texto. * Coloque um + na frente do texto para incluir as revisões que podem não estar de acordo com o filtro. * Use aspas \" para textos com espaço, etc. * Coloque um ! no início da linha para inverter a condição de filtro inteira. Exemplos: meunome 2008 : minhas submissões de 2008 .h -.cpp : submissões que alteraram o cabeçalho mas não implementações .doc +.xls 2010 : submissões de 2010 com arquivos .doc ou .xls \" \" : submissões com espaço (ex. quando procurando apenas em caminhos) -\"\"mostrar todos\"\" : submissões que não contém o texto \"mostrar todos\" !meunome .cpp : tudo menos as minhas submissões de arquivos .cpp"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -11308,8 +11272,6 @@ msgid "svn:mime-type"
 msgstr "svn:mime-type"
 
 #. Resource IDs: (576)
-# XXX: This is no longer truth, application/xml and others are also treated as
-# text. -- jr
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
@@ -11638,199 +11600,3 @@ msgstr "sim"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "Check externals to tag"
-#~ msgstr "Verificar referências externas para rótulo"
-
-#~ msgid "Tagged"
-#~ msgstr "Rotulado"
-
-#~ msgid "tree conflict:"
-#~ msgstr "conflito de estrutura:"
-
-#~ msgid "&Sat:"
-#~ msgstr "&Sat:"
-
-#~ msgid "&Save..."
-#~ msgstr "&Salvar..."
-
-#~ msgid "Bug-ID / &Issue-Nr:"
-#~ msgstr "Bug-ID / &Issue-Nr:"
-
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "Mostrar sobreposição para itens ignorados"
-
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "Mostrar sobreposição para itens sem controle de versão"
-
-#~ msgid "&To URL: "
-#~ msgstr "&Para a URL:"
-
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "Autor:                                     Stefan Kueng"
-
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "Verificar, semanalmente, se existem &novas versões"
-
-#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "Se habilitado, o TortoiseSVN verifica semanalmente se existe nova versão disponível"
-
-#~ msgid "Edit conflict"
-#~ msgstr "Editar conflitos"
-
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "Ocultar cam&inhos alterados não relacionados"
-
-#~ msgid "From URL:"
-#~ msgstr "A partir da URL:"
-
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "A URL da obteção refere-se a um arquivo mas\n"
-#~ "o caminho da cópia de trabalho é de um diretório existente."
-
-#~ msgid "Show &properties"
-#~ msgstr "Mostrar &propriedades"
-
-#~ msgid "Show i&gnored files"
-#~ msgstr "Mostrar arquivos i&gnorados"
-
-#~ msgid "Show un&modified files"
-#~ msgstr "Mostrar arquivos não &alterados"
-
-#~ msgid "Show un&versioned files"
-#~ msgstr "Mostrar arquivos sem co&ntrole de versão"
-
-#~ msgid "Cleaning up."
-#~ msgstr "Limpando."
-
-#~ msgid "Floppy drives (A: B:)"
-#~ msgstr "Disquetes (A: B:)"
-
-#~ msgid ""
-#~ "GDI+ is required to save the revision graph as a picture.\n"
-#~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-#~ msgstr ""
-#~ "É necessário possuir o GDI+ para salvar esse gráfico de revisão como uma imagem.\n"
-#~ "Você pode adquirí-lo em \n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-
-#~ msgid "Go offline?"
-#~ msgstr "Desconectar?"
-
-#~ msgid "Replaced node"
-#~ msgstr "Nó substituído"
-
-#~ msgid "(deleted) %s"
-#~ msgstr "(excluído) %s"
-
-#~ msgid "alias (deleted): %s"
-#~ msgstr "apelido (deletado): %s"
-
-#~ msgid "&?"
-#~ msgstr "&?"
-
-#~ msgid "Merge all..."
-#~ msgstr "Combinar tudo..."
-
-#~ msgid "SVN Export to here"
-#~ msgstr "SVN Exportar para cá"
-
-#~ msgid "Bro&wse..."
-#~ msgstr "Nave&gar..."
-
-#~ msgid "Brows&e..."
-#~ msgstr "Navega&r..."
-
-#~ msgid "Include paths:"
-#~ msgstr "Incluir caminhos:"
-
-#~ msgid "Revert changes from these revisions"
-#~ msgstr "Reverter as alterações destas revisões"
-
-#~ msgid "Show properties"
-#~ msgstr "Mostrar propriedades"
-
-#~ msgid "&Open Ctrl-O"
-#~ msgstr "&Abrir Ctrl-O"
-
-#~ msgid "&Save Ctrl-S"
-#~ msgstr "&Salvar Ctrl-S"
-
-#~ msgid "&Undo\tCtrl+Z"
-#~ msgstr "&Desfazer\tCtrl+Z"
-
-#~ msgid "Analyze revision data..."
-#~ msgstr "Analisar dados da revisão..."
-
-#~ msgid "Checking for forward copies"
-#~ msgstr "Verificando se há cópias posteriores"
-
-#~ msgid "Remove..."
-#~ msgstr "Remover..."
-
-#~ msgid "Use &magnifier on locatorbar"
-#~ msgstr "Usar lente de au&mento na barra de localização"
-
-#~ msgid "%1 contains an invalid path."
-#~ msgstr "%1 contém um caminho inválido."
-
-#~ msgid "&Berkeley database (BDB)"
-#~ msgstr "&Banco de Dados Berkeley (BDB)"
-
-#~ msgid "&Dry run"
-#~ msgstr "&Simulação"
-
-#~ msgid "&Native filesystem (FSFS)"
-#~ msgstr "Sistema de Arquivos &Nativo (FSFS)"
-
-#~ msgid "An invalid argument was encountered."
-#~ msgstr "Um parâmetro inválido foi encontrado."
-
-#~ msgid "Commit threshold:"
-#~ msgstr "Limite de submissões:"
-
-#~ msgid "D&iff"
-#~ msgstr "C&omparar"
-
-#~ msgid "Diff With URL"
-#~ msgstr "Comparar com URL"
-
-#~ msgid "Dry Run"
-#~ msgstr "Simulação"
-
-#~ msgid "Groups branches together"
-#~ msgstr "Agrupar ramos"
-
-#~ msgid "Look and Feel"
-#~ msgstr "Aparência"
-
-#~ msgid "Look and Feel::Colors"
-#~ msgstr "Aparência::Cores"
-
-#~ msgid "Not descending"
-#~ msgstr "Não-decrescendo"
-
-#~ msgid "Select the type of repository you want to create:"
-#~ msgstr "Selecione o tipo de repositório que você deseja criar:"
-
-#~ msgid "Specify the revision range which you want to merge:"
-#~ msgstr "Especifique o intervalo de revisões que você quer combinar:"
-
-#~ msgid "Split long, inactive branches into segments"
-#~ msgstr "Separar ramos longos e inativos em segmentos"
-
-#~ msgid "Target"
-#~ msgstr "Alvo"
-
-#~ msgid "Two-way &Diff"
-#~ msgstr "Comparação em duplo senti&do"
-
-#~ msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-#~ msgstr "Use a URL \"De:\" (o intervalo de revisões é selecionável na caixa de diálogo acima)"
-
-#~ msgid "which points to the repository at URL:"
-#~ msgstr "que aponta para o repositório na URL:"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 2010-11-17 07:47 +0000\n"
-"PO-Revision-Date: 2010-12-06 08:16+0000\n"
+"PO-Revision-Date: 2011-01-10 10:49+0000\n"
 "Last-Translator: turambar <vuralgoze@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -131,7 +131,7 @@ msgstr ""
 
 #. (term)
 msgid "Easy access to Subversion commands"
-msgstr ""
+msgstr "Subversion komutlarına kolay erişim"
 
 #. (para)
 msgid "All Subversion commands are available from the explorer context menu. TortoiseSVN adds its own submenu there."
@@ -235,7 +235,7 @@ msgstr "Tim Kemp"
 
 #. (para)
 msgid "for starting the TortoiseSVN project"
-msgstr ""
+msgstr "TortoiseSVN projesini başlatmak için"
 
 #. (term)
 msgid "Stefan Küng"
@@ -267,7 +267,7 @@ msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
-msgstr ""
+msgstr "günlük önbelleği ve revizyon diyagramı için"
 
 #. (term)
 msgid "The Subversion Book"
@@ -295,7 +295,7 @@ msgstr ""
 
 #. (term)
 msgid "Our Donators"
-msgstr ""
+msgstr "Bağışçılarımız"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
@@ -303,7 +303,7 @@ msgstr ""
 
 #. (title)
 msgid "Reading Guide"
-msgstr ""
+msgstr "Okuma Kılavuzu"
 
 #. (para)
 msgid "This book is written for computer-literate folk who want to use Subversion to manage their data, but prefer to use a GUI client rather than a command line client. TortoiseSVN is a windows shell extension and it is assumed that the user is familiar with the windows explorer and how to use it."
@@ -379,11 +379,11 @@ msgstr "Önemli notlar bir simge ile işaretlenmiştir."
 
 #. (para)
 msgid "Tips that make your life easier."
-msgstr ""
+msgstr "Hayatınızı kolaylaştıracak ipuçları."
 
 #. (para)
 msgid "Places where you have to be careful what you are doing."
-msgstr ""
+msgstr "Ne yaptığınıza dikkat etmeniz gereken yerler"
 
 #. (para)
 msgid "Where extreme care has to be taken. Data corruption or other nasty things may occur if these warnings are ignored."
@@ -659,7 +659,7 @@ msgstr ""
 
 #. (title)
 msgid "Versioning Models"
-msgstr ""
+msgstr "Versiyonlama Modelleri"
 
 #. (para)
 msgid "All version control systems have to solve the same fundamental problem: how will the system allow users to share information, but prevent them from accidentally stepping on each other's feet? It's all too easy for users to accidentally overwrite each other's changes in the repository."
@@ -667,7 +667,7 @@ msgstr ""
 
 #. (title)
 msgid "The Problem of File-Sharing"
-msgstr ""
+msgstr "Dosya Paylaşımı Sorunu"
 
 #. (para)
 msgid "Consider this scenario: suppose we have two co-workers, Harry and Sally. They each decide to edit the same repository file at the same time. If Harry saves his changes to the repository first, then it's possible that (a few moments later) Sally could accidentally overwrite them with her own new version of the file. While Harry's version of the file won't be lost forever (because the system remembers every change), any changes Harry made <emphasis>won't</emphasis> be present in Sally's newer version of the file, because she never saw Harry's changes to begin with. Harry's work is still effectively lost - or at least missing from the latest version of the file - and probably by accident. This is definitely a situation we want to avoid!"
@@ -722,7 +722,7 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "conflict"
-msgstr ""
+msgstr "çakışma"
 
 #. (para)
 msgid "But what if Sally's changes <emphasis>do</emphasis> overlap with Harry's changes? What then? This situation is called a <firstterm>conflict</firstterm>, and it's usually not much of a problem. When Harry asks his client to merge the latest repository changes into his working copy, his copy of file A is somehow flagged as being in a state of conflict: he'll be able to see both sets of conflicting changes, and manually choose between them. Note that software can't automatically resolve conflicts; only humans are capable of understanding and making the necessary intelligent choices. Once Harry has manually resolved the overlapping changes (perhaps by discussing the conflict with Sally!), he can safely save the merged file back to the repository."
@@ -742,7 +742,7 @@ msgstr ""
 
 #. (title)
 msgid "What does Subversion Do?"
-msgstr ""
+msgstr "Subversion Ne Yapar?"
 
 #. (para)
 msgid "Subversion uses the copy-modify-merge solution by default, and in many cases this is all you will ever need. However, as of Version 1.2, Subversion also supports file locking, so if you have unmergeable files, or if you are simply forced into a locking policy by management, Subversion will still provide the features you need."
@@ -754,11 +754,11 @@ msgstr ""
 
 #. (title)
 msgid "Working Copies"
-msgstr ""
+msgstr "Çalışan Kopyalar"
 
 #. (primary)
 msgid "working copy"
-msgstr ""
+msgstr "çalışan kopya"
 
 #. (para)
 msgid "You've already read about working copies; now we'll demonstrate how the Subversion client creates and uses them."
@@ -782,11 +782,11 @@ msgstr ""
 
 #. (para)
 msgid "For example, suppose you have a repository that contains two software projects."
-msgstr ""
+msgstr "Örneğin, iki yazılım projesini içeren bir deponuz olduğunu farzedin."
 
 #. (title)
 msgid "The Repository's Filesystem"
-msgstr ""
+msgstr "Depo'nun Dosya Sistemi"
 
 #. (para)
 msgid "In other words, the repository's root directory has two subdirectories: <filename>paint</filename> and <filename>calc</filename>."
@@ -822,7 +822,7 @@ msgstr ""
 
 #. (title)
 msgid "Repository URLs"
-msgstr ""
+msgstr "Depo URL'leri"
 
 #. (para)
 msgid "Subversion repositories can be accessed through many different methods - on local disk, or through various network protocols. A repository location, however, is always a URL. The URL schema indicates the access method:"
@@ -830,19 +830,19 @@ msgstr ""
 
 #. (title)
 msgid "Repository Access URLs"
-msgstr ""
+msgstr "Depo Erişim URL'leri"
 
 #. (entry)
 msgid "Schema"
-msgstr ""
+msgstr "Şema"
 
 #. (entry)
 msgid "Access Method"
-msgstr ""
+msgstr "Erişim Metodu"
 
 #. (literal)
 msgid "file://"
-msgstr ""
+msgstr "file://"
 
 #. (entry)
 msgid "Direct repository access on local or network drive."
@@ -851,7 +851,7 @@ msgstr ""
 #. (literal)
 #. (literal)
 msgid "http://"
-msgstr ""
+msgstr "http://"
 
 #. (entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
@@ -859,7 +859,7 @@ msgstr ""
 
 #. (literal)
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #. (entry)
 msgid "Same as <placeholder-1/>, but with SSL encryption."
@@ -867,14 +867,14 @@ msgstr ""
 
 #. (literal)
 msgid "svn://"
-msgstr ""
+msgstr "svn://"
 
 #. (literal)
 #. (literal)
 #. (primary)
 #. (primary)
 msgid "svnserve"
-msgstr ""
+msgstr "svnserve"
 
 #. (entry)
 msgid "Unauthenticated TCP/IP access via custom protocol to a <placeholder-1/> server."
@@ -882,7 +882,7 @@ msgstr ""
 
 #. (literal)
 msgid "svn+ssh://"
-msgstr ""
+msgstr "svn+ssh://"
 
 #. (entry)
 msgid "authenticated, encrypted TCP/IP access via custom protocol to a <placeholder-1/> server."
@@ -921,12 +921,12 @@ msgstr ""
 
 #. (title)
 msgid "Revisions"
-msgstr ""
+msgstr "Revizyonlar"
 
 #. (primary)
 #. (primary)
 msgid "revision"
-msgstr ""
+msgstr "revizyon"
 
 #. (para)
 msgid "A <command>svn commit</command> operation can publish changes to any number of files and directories as a single atomic transaction. In your working copy, you can change files' contents, create, delete, rename and copy files and directories, and then commit the complete set of changes as a unit."
@@ -1049,7 +1049,7 @@ msgstr ""
 
 #. (title)
 msgid "Summary"
-msgstr ""
+msgstr "Özet"
 
 #. (para)
 msgid "We've covered a number of fundamental Subversion concepts in this chapter:"
@@ -1077,11 +1077,11 @@ msgstr ""
 
 #. (title)
 msgid "Repository Creation"
-msgstr ""
+msgstr "Depo Oluşturma"
 
 #. (primary)
 msgid "create repository"
-msgstr ""
+msgstr "depo oluştur"
 
 #. (para)
 msgid "You can create a repository with the FSFS backend or with the older Berkeley Database (BDB) format. The FSFS format is generally faster and easier to administer, and it works on network shares and Windows 98 without problems. The BDB format was once considered more stable simply because it has been in use for longer, but since FSFS has now been in use in the field for several years, that argument is now rather weak. Read <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing a Data Store</citetitle></ulink> in the Subversion book for more information."
@@ -1089,12 +1089,12 @@ msgstr ""
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
-msgstr ""
+msgstr "Komut Satırı İstemcisi ile Bir Depo Oluşturma"
 
 #. (primary)
 #. (primary)
 msgid "Create"
-msgstr ""
+msgstr "Oluştur"
 
 #. (para)
 msgid "Create an empty folder with the name SVN (e.g. <filename>D:\\SVN\\</filename>), which is used as root for all your repositories."
@@ -1119,7 +1119,7 @@ msgstr ""
 
 #. (title)
 msgid "Creating The Repository With TortoiseSVN"
-msgstr ""
+msgstr "TortoiseSVN ile Depo Oluşturma"
 
 #. (para)
 msgid "Open the windows explorer"
@@ -1159,11 +1159,11 @@ msgstr ""
 
 #. (title)
 msgid "Local Access to the Repository"
-msgstr ""
+msgstr "Depoya Yerel Erişim"
 
 #. (primary)
 msgid "Access"
-msgstr ""
+msgstr "Erişim"
 
 #. (primary)
 msgid "UNC paths"
@@ -1191,7 +1191,7 @@ msgstr ""
 
 #. (primary)
 msgid "Network share"
-msgstr ""
+msgstr "Ağ paylaşımı"
 
 #. (para)
 msgid "Although in theory it is possible to put a FSFS repository on a network share and have multiple users access it using <literal>file://</literal> protocol, this is most definitely <emphasis>not</emphasis> recommended. In fact we would <emphasis>strongly</emphasis> discourage it, and do not support such use."

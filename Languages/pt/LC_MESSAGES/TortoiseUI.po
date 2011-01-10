@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-12-15 08:21+0000\n"
+"PO-Revision-Date: 2011-01-10 10:45+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr ""
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
-msgstr ""
+msgstr "c"
 
 #. Resource IDs: (188)
 #, c-format
@@ -567,7 +567,7 @@ msgstr "&Copiar para..."
 
 #. Resource IDs: (1542)
 msgid "&Create folder structure"
-msgstr ""
+msgstr "&Criar estrutura de pastas"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -792,7 +792,7 @@ msgstr "&Importar..."
 
 #. Resource IDs: (1562)
 msgid "&Include externals"
-msgstr ""
+msgstr "&incluir externos"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -1189,7 +1189,7 @@ msgstr "&Iniciar Grupo"
 
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
-msgstr ""
+msgstr "&Arrancar NavegadorRepo"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -3341,7 +3341,7 @@ msgstr "Menu da aplicação por omissão. Surge quando não há documentos abert
 
 #. Resource IDs: (81)
 msgid "Default directory structure successfully created!"
-msgstr ""
+msgstr "Estrutura de pastas por defeito criada com sucesso!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -6710,7 +6710,7 @@ msgstr "Imagem:"
 
 #. Resource IDs: (157)
 msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr ""
+msgstr "Imagens (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7453,7 +7453,7 @@ msgstr "UUID do repositório:"
 
 #. Resource IDs: (324)
 msgid "Repository created"
-msgstr ""
+msgstr "Repositório criado"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -7836,7 +7836,7 @@ msgstr "Guardar caminho do certificado do cliente"
 
 #. Resource IDs: (617)
 msgid "Save in Git format"
-msgstr ""
+msgstr "Guarda no formato GIF"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8611,7 +8611,7 @@ msgid ""
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
-msgstr ""
+msgstr "Filtro de sub-string: * Específica uma ou mais strings, separadas por espaços. Elas serão avaliadas da esquerda pra a direita. Põem - à frente da sub-string para excluir revisões que contenham esta sub-string. * Põem + à frente da sub-string para íncluir revisões que ainda não correspondam ao filtro. * Envolve as strings que contenham espaços, etc. com \". Põem um ! no ínicio da linha para inverter toda a condição do filtro. Exemplos:meunome 2008 : minhas sumissões de 2008 .h -.cpp : submissões que alteraram cabeçalhos mas não implementações .doc +.xls 2010 : submissões de 2010 com ficheiros .doc or .xls  \" \" : submissões com espaços (ex. quando a pesquisar apenas em caminhos) -\"\"mostrar todos\"\" : submissões que não contêm a string  \"mostrar todos\" !meunome .cpp : todo menos as minhas submissões para ficheiros .cpp"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
