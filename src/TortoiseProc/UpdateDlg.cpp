@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007,2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2007,2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CUpdateDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDC_LOG, OnBnClickedShowLog)
     ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
     ON_EN_CHANGE(IDC_REVNUM, &CUpdateDlg::OnEnChangeRevnum)
+    ON_CBN_SELCHANGE(IDC_DEPTH, &CUpdateDlg::OnCbnSelchangeDepth)
 END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
@@ -166,4 +167,15 @@ void CUpdateDlg::OnEnChangeRevnum()
         CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
     else
         CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+}
+
+void CUpdateDlg::OnCbnSelchangeDepth()
+{
+    if (m_depthCombo.GetCurSel() == 5)  // svn_depth_exclude
+    {
+        // for exclude depths, the update must be sticky or it will fail
+        // because it would be a no-op.
+        m_bStickyDepth = TRUE;
+        CheckDlgButton(IDC_STICKYDEPTH, BST_CHECKED);
+    }
 }
