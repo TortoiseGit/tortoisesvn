@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,6 +71,7 @@ BEGIN_MESSAGE_MAP(CCheckoutDlg, CResizableStandAloneDialog)
     ON_EN_CHANGE(IDC_REVISION_NUM, &CCheckoutDlg::OnEnChangeRevisionNum)
     ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CCheckoutDlg::OnCbnEditchangeUrlcombo)
     ON_CBN_SELCHANGE(IDC_DEPTH, &CCheckoutDlg::OnCbnSelchangeDepth)
+    ON_BN_CLICKED(IDC_SPARSE, &CCheckoutDlg::OnBnClickedSparse)
 END_MESSAGE_MAP()
 
 void CCheckoutDlg::UpdateURLsFromCombo()
@@ -295,18 +296,22 @@ void CCheckoutDlg::OnOK()
     {
     case 0:
         m_depth = svn_depth_infinity;
+        m_checkoutDepths.clear();
         break;
     case 1:
         m_depth = svn_depth_immediates;
+        m_checkoutDepths.clear();
         break;
     case 2:
         m_depth = svn_depth_files;
+        m_checkoutDepths.clear();
         break;
     case 3:
         m_depth = svn_depth_empty;
+        m_checkoutDepths.clear();
         break;
     default:
-        m_depth = svn_depth_empty;
+        m_depth = svn_depth_unknown;
         break;
     }
 
@@ -512,4 +517,46 @@ void CCheckoutDlg::OnCbnSelchangeDepth()
     m_bNoExternals = bOmitExternals;
     UpdateData(FALSE);
     GetDlgItem(IDC_NOEXTERNALS)->EnableWindow(!bOmitExternals);
+}
+
+
+void CCheckoutDlg::OnBnClickedSparse()
+{
+    m_tooltips.Pop();   // hide the tooltips
+    SVNRev rev;
+    UpdateData();
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
+    {
+        rev = SVNRev(_T("HEAD"));
+    }
+    else
+        rev = SVNRev(m_sRevision);
+
+    if (!rev.IsValid())
+        rev = SVNRev::REV_HEAD;
+
+    CString strURLs;
+    m_URLCombo.GetWindowText(strURLs);
+    if (strURLs.IsEmpty())
+        strURLs = m_URLCombo.GetString();
+    strURLs.Replace('\\', '/');
+    strURLs.Replace(_T("%"), _T("%25"));
+
+    CTSVNPathList paths;
+    paths.LoadFromAsteriskSeparatedString (strURLs);
+
+    CString strUrl = paths.GetCommonRoot().GetSVNPathString();
+    CRepositoryBrowser browser(strUrl, rev, this);
+    browser.SetSparseCheckoutMode();
+    if (browser.DoModal() == IDOK)
+    {
+        m_checkoutDepths = browser.GetCheckoutDepths();
+        CString sCustomDepth = CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_CUSTOM));
+        int customIndex = -1;
+        if ((customIndex = m_depthCombo.FindStringExact(-1, sCustomDepth)) == CB_ERR)
+        {
+            customIndex = m_depthCombo.AddString(sCustomDepth);
+        }
+        m_depthCombo.SetCurSel(customIndex);
+    }
 }

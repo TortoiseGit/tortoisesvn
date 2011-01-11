@@ -1010,6 +1010,9 @@ UINT CSVNProgressDlg::ProgressThread()
     case SVNProgress_Checkout:
         bSuccess = CmdCheckout(sWindowTitle, localoperation);
         break;
+    case SVNProgress_SparseCheckout:
+        bSuccess = CmdSparseCheckout(sWindowTitle, localoperation);
+        break;
     case SVNProgress_SingleFileCheckout:
         bSuccess = CmdSingleFileCheckout(sWindowTitle, localoperation);
         break;
@@ -2153,6 +2156,82 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
                 }
             }
         }
+    }
+
+    DWORD exitcode = 0;
+    CString error;
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
+    return true;
+}
+
+bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoperation*/)
+{
+    ASSERT(m_targetPathList.GetCount() == 1);
+    sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
+    SetBackgroundImage(IDI_CHECKOUT_BKG);
+    int index = 0;
+    CString rootUrl;
+    for (std::map<CString,svn_depth_t>::iterator it = m_pathdepths.begin(); it != m_pathdepths.end(); ++it)
+    {
+        CTSVNPath url = CTSVNPath(it->first);
+        sWindowTitle = url.GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
+        SetWindowText(sWindowTitle);
+        CTSVNPath checkoutdir = m_targetPathList[0];
+        if (index >= 1)
+        {
+            CString fileordir = it->first.Mid(rootUrl.GetLength());
+            fileordir = CPathUtils::PathUnescape(fileordir);
+            checkoutdir.AppendPathString(fileordir);
+        }
+        else
+        {
+            rootUrl = it->first;
+            CString sCmdInfo;
+            sCmdInfo.Format(IDS_PROGRS_CMD_CHECKOUT,
+                (LPCTSTR)url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString(),
+                (LPCTSTR)SVNStatus::GetDepthString(m_depth),
+                m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
+            ReportCmd(sCmdInfo);
+        }
+
+        CBlockCacheForPath cacheBlock (checkoutdir.GetWinPath());
+        if (index == 0)
+        {
+            if (!Checkout(url, checkoutdir, m_Revision, m_Revision, it->second, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(REG_KEY_ALLOW_UNV_OBSTRUCTIONS, true))))
+            {
+                if (m_ProgList.GetItemCount()>1)
+                {
+                    ReportSVNError();
+                    return false;
+                }
+                // if the checkout fails with the peg revision set to the checkout revision,
+                // try again with HEAD as the peg revision.
+                else
+                {
+                    if (!Checkout(url, checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(REG_KEY_ALLOW_UNV_OBSTRUCTIONS, true))))
+                    {
+                        ReportSVNError();
+                        return false;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (!Update(CTSVNPathList(checkoutdir), m_Revision, it->second, true, (m_options & ProgOptIgnoreExternals) != 0, true, false))
+            {
+                ReportSVNError();
+                return false;
+            }
+        }
+        ++index;
     }
 
     DWORD exitcode = 0;

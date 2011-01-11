@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,6 +59,7 @@ protected:
     afx_msg void OnEnChangeRevisionNum();
     afx_msg void OnCbnEditchangeUrlcombo();
     afx_msg void OnCbnSelchangeDepth();
+    afx_msg void OnBnClickedSparse();
 
     DECLARE_MESSAGE_MAP()
 
@@ -87,6 +88,7 @@ public:
     svn_depth_t     m_depth;
     BOOL            m_blockPathAdjustments;
 
+    std::map<CString,svn_depth_t> m_checkoutDepths;
     bool            m_standardCheckout; ///< true if only one path got selected and that URL path is a folder
     bool            m_parentExists; ///< W/C for parent folder already exists. Only valid if \ref m_standardCheckout is false.
 };

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -82,6 +82,7 @@ public:
     {
         SVNProgress_Add,
         SVNProgress_Checkout,
+        SVNProgress_SparseCheckout,
         SVNProgress_SingleFileCheckout,
         SVNProgress_Commit,
         SVNProgress_Copy,
@@ -119,7 +120,7 @@ public:
     void SetSecondUrl(const CString& url) {m_url2.SetFromUnknown(url);}
     void SetCommitMessage(const CString& msg) {m_sMessage = msg;}
     void SetExternals(const SVNExternals& ext) { m_externals = ext; }
-
+    void SetPathDepths(const std::map<CString,svn_depth_t>& pathmap) { m_pathdepths = pathmap; }
     void SetRevision(const SVNRev& rev) {m_Revision = rev;}
     void SetRevisionEnd(const SVNRev& rev) {m_RevisionEnd = rev;}
 
@@ -264,6 +265,7 @@ private:
     // the commands to execute
     bool        CmdAdd(CString& sWindowTitle, bool& localoperation);
     bool        CmdCheckout(CString& sWindowTitle, bool& localoperation);
+    bool        CmdSparseCheckout(CString& sWindowTitle, bool& localoperation);
     bool        CmdSingleFileCheckout(CString& sWindowTitle, bool& localoperation);
     bool        CmdCommit(CString& sWindowTitle, bool& localoperation);
     bool        CmdCopy(CString& sWindowTitle, bool& localoperation);
@@ -311,6 +313,7 @@ private:
     bool                    m_keepchangelist;
     RevPropHash             m_revProps;
     SVNExternals            m_externals;
+    std::map<CString,svn_depth_t> m_pathdepths;
 
     DWORD                   m_dwCloseOnEnd;
     DWORD                   m_bCloseLocalOnEnd;
