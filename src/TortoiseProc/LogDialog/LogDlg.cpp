@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1863,8 +1863,9 @@ void CLogDlg::DiffSelectedFile()
             pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
             if (pLogEntry)
             {
-                rev1 = max(rev1,(long)pLogEntry->GetRevision());
-                rev2 = min(rev2,(long)pLogEntry->GetRevision());
+                const long entryRevision = (long)pLogEntry->GetRevision();
+                rev1 = max(rev1, entryRevision);
+                rev2 = min(rev2, entryRevision);
             }
         }
         rev2--;
@@ -2175,23 +2176,24 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 
 void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 {
-    CString url;
-    CString name;
     if (logs.size() == 0)
         return;
+
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
     theApp.DoWaitCursor(1);
+
+    CString url;
     if (SVN::PathIsURL(m_path))
         url = m_path.GetSVNPathString();
     else
         url = GetURLFromPath(m_path);
 
-    name = SVN_PROP_REVISION_AUTHOR;
-
+    CString name = CString(SVN_PROP_REVISION_AUTHOR);
     CString value = RevPropertyGet(name, CTSVNPath(url), logs[0]->GetRevision());
     CString sOldValue = value;
     value.Replace(_T("\n"), _T("\r\n"));
+
     CInputDlg dlg(this);
     dlg.m_sHintText.LoadString(IDS_LOG_AUTHOR);
     dlg.m_sInputText = value;
@@ -2200,60 +2202,51 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
     {
         if(sOldValue.CompareNoCase(dlg.m_sInputText))
         {
-        dlg.m_sInputText.Replace(_T("\r"), _T(""));
+            dlg.m_sInputText.Replace(_T("\r"), _T(""));
 
-        LogCache::CCachedLogInfo* toUpdate
-            = GetLogCache (CTSVNPath (m_sRepositoryRoot));
+            LogCache::CCachedLogInfo* toUpdate
+                = GetLogCache (CTSVNPath (m_sRepositoryRoot));
 
-        CProgressDlg progDlg;
-        progDlg.SetTitle(IDS_APPNAME);
-        progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESSWAIT)));
-        progDlg.SetTime(true);
-        progDlg.SetShowProgressBar(true);
-        progDlg.ShowModeless(m_hWnd);
-        for (DWORD i=0; (i<logs.size()) && (!progDlg.HasUserCancelled()); ++i)
-        {
-            if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), logs[i]->GetRevision()))
+            CProgressDlg progDlg;
+            progDlg.SetTitle(IDS_APPNAME);
+            progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESSWAIT)));
+            progDlg.SetTime(true);
+            progDlg.SetShowProgressBar(true);
+            progDlg.ShowModeless(m_hWnd);
+            for (DWORD i=0; (i<logs.size()) && (!progDlg.HasUserCancelled()); ++i)
             {
-                progDlg.Stop();
-                ShowErrorDialog(m_hWnd);
-                break;
-            }
-            else
-            {
-
+                if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), logs[i]->GetRevision()))
+                {
+                    progDlg.Stop();
+                    ShowErrorDialog(m_hWnd);
+                    break;
+                }
                 logs[i]->SetAuthor (dlg.m_sInputText);
                 m_LogList.Invalidate();
 
                 // update the log cache
+                if (toUpdate == NULL)
+                    continue;
+                // log caching is active
+                LogCache::CCachedLogInfo newInfo;
+                newInfo.Insert ( logs[i]->GetRevision()
+                    , (const char*) CUnicodeUtils::GetUTF8 (logs[i]->GetAuthor())
+                    , ""
+                    , 0
+                    , LogCache::CRevisionInfoContainer::HAS_AUTHOR);
+                toUpdate->Update (newInfo);
+                toUpdate->Save();
 
-                if (toUpdate != NULL)
-                {
-                    // log caching is active
+                progDlg.SetProgress64(i, logs.size());
 
-                    LogCache::CCachedLogInfo newInfo;
-                    newInfo.Insert ( logs[i]->GetRevision()
-                        , (const char*) CUnicodeUtils::GetUTF8 (logs[i]->GetAuthor())
-                        , ""
-                        , 0
-                        , LogCache::CRevisionInfoContainer::HAS_AUTHOR);
-
-                    toUpdate->Update (newInfo);
-                    toUpdate->Save();
-                }
-            }
-            progDlg.SetProgress64(i, logs.size());
-
-            {
-                MSG       msg;
-                if (PeekMessage (&msg, NULL, 0, 0,PM_REMOVE))
+                MSG msg;
+                if (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE))
                 {
                     TranslateMessage (&msg);
                     DispatchMessage (&msg);
                 }
             }
-        }
-        progDlg.Stop();
+            progDlg.Stop();
         }
     }
     theApp.DoWaitCursor(-1);
@@ -2262,17 +2255,17 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 
 void CLogDlg::EditLogMessage(int index)
 {
-    CString url;
-    CString name;
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
     theApp.DoWaitCursor(1);
+
+    CString url;
     if (SVN::PathIsURL(m_path))
         url = m_path.GetSVNPathString();
     else
         url = GetURLFromPath(m_path);
 
-    name = SVN_PROP_REVISION_LOG;
+    CString name = CString(SVN_PROP_REVISION_LOG);
 
     PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
     m_bCancelled = FALSE;
@@ -2831,13 +2824,13 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
     // Take the default processing unless we set this to something else below.
     *pResult = CDRF_DODEFAULT;
 
     if (m_bLogThreadRunning)
         return;
 
+    NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
     // First thing - check the draw stage. If it's the control's prepaint
     // stage, then tell Windows we want messages for every item.
 
@@ -3458,8 +3451,8 @@ void CLogDlg::SetFilterCueText()
 
 void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
     *pResult = 0;
+    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
 
     // Create a pointer to the item
     LV_ITEM* pItem = &(pDispInfo)->item;
@@ -3589,12 +3582,12 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+    *pResult = 0;
 
+    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
     //Create a pointer to the item
     LV_ITEM* pItem= &(pDispInfo)->item;
 
-    *pResult = 0;
     if (m_bLogThreadRunning)
     {
         if (pItem->mask & LVIF_TEXT)
@@ -4076,8 +4069,8 @@ void CLogDlg::OnBnClickedHidepaths()
 
 void CLogDlg::OnLvnOdfinditemLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMLVFINDITEM pFindInfo = reinterpret_cast<LPNMLVFINDITEM>(pNMHDR);
     *pResult = -1;
+    LPNMLVFINDITEM pFindInfo = reinterpret_cast<LPNMLVFINDITEM>(pNMHDR);
 
     if (pFindInfo->lvfi.flags & LVFI_PARAM)
         return;
