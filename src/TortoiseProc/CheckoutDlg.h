@@ -66,6 +66,8 @@ protected:
     void UpdateURLsFromCombo();
     bool IsStandardCheckout();
     void SetRevision(const SVNRev& rev);
+    SVNRev GetSelectedRevision();
+    SVNRev GetSelectedRevisionOrHead();
 
 protected:
     CToolTips       m_tooltips;

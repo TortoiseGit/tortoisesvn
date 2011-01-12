@@ -60,7 +60,6 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
 
-
 BEGIN_MESSAGE_MAP(CCheckoutDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
     ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
@@ -261,13 +260,7 @@ void CCheckoutDlg::OnOK()
     }
 
     // require a source revision
-
-    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
-    {
-        Revision = SVNRev(_T("HEAD"));
-    }
-    else
-        Revision = SVNRev(m_sRevision);
+    Revision = GetSelectedRevision();
     if (!Revision.IsValid())
     {
         ShowEditBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
@@ -392,18 +385,9 @@ void CCheckoutDlg::OnOK()
 void CCheckoutDlg::OnBnClickedBrowse()
 {
     m_tooltips.Pop();   // hide the tooltips
-    SVNRev rev;
     UpdateData();
-    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
-    {
-        rev = SVNRev(_T("HEAD"));
-    }
-    else
-        rev = SVNRev(m_sRevision);
 
-    if (!rev.IsValid())
-        rev = SVNRev::REV_HEAD;
-
+    SVNRev rev = GetSelectedRevisionOrHead();
     if (CAppUtils::BrowseRepository(m_URLCombo, this, rev, true))
     {
         SetRevision(rev);
@@ -463,6 +447,7 @@ void CCheckoutDlg::OnBnClickedShowlog()
     if (m_URLs.GetCount() > 0)
     {
         delete m_pLogDlg;
+        m_pLogDlg = 0;// otherwise if the next line throws pointer will be left invalid
         m_pLogDlg = new CLogDlg();
         m_pLogDlg->SetParams(m_URLs.GetCommonRoot(), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1);
         m_pLogDlg->m_wParam = 1;
@@ -499,7 +484,6 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
     UpdateURLsFromCombo();
 }
 
-
 void CCheckoutDlg::OnCbnSelchangeDepth()
 {
     // http://subversion.tigris.org/issues/show_bug.cgi?id=3311
@@ -519,21 +503,11 @@ void CCheckoutDlg::OnCbnSelchangeDepth()
     GetDlgItem(IDC_NOEXTERNALS)->EnableWindow(!bOmitExternals);
 }
 
-
 void CCheckoutDlg::OnBnClickedSparse()
 {
     m_tooltips.Pop();   // hide the tooltips
-    SVNRev rev;
     UpdateData();
-    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
-    {
-        rev = SVNRev(_T("HEAD"));
-    }
-    else
-        rev = SVNRev(m_sRevision);
-
-    if (!rev.IsValid())
-        rev = SVNRev::REV_HEAD;
+    SVNRev rev = GetSelectedRevisionOrHead();
 
     CString strURLs;
     m_URLCombo.GetWindowText(strURLs);
@@ -552,11 +526,27 @@ void CCheckoutDlg::OnBnClickedSparse()
     {
         m_checkoutDepths = browser.GetCheckoutDepths();
         CString sCustomDepth = CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_CUSTOM));
-        int customIndex = -1;
-        if ((customIndex = m_depthCombo.FindStringExact(-1, sCustomDepth)) == CB_ERR)
+        int customIndex = m_depthCombo.FindStringExact(-1, sCustomDepth);
+        if (customIndex == CB_ERR)
         {
             customIndex = m_depthCombo.AddString(sCustomDepth);
         }
         m_depthCombo.SetCurSel(customIndex);
     }
+}
+
+SVNRev CCheckoutDlg::GetSelectedRevision()
+{
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
+        return SVNRev(_T("HEAD"));
+
+    return SVNRev(m_sRevision);
+}
+
+SVNRev CCheckoutDlg::GetSelectedRevisionOrHead()
+{
+    SVNRev rev = GetSelectedRevision();
+    if (rev.IsValid())
+        return rev;
+    return SVNRev(SVNRev::REV_HEAD);
 }
