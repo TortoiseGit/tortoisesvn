@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2186,7 +2186,10 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
         return;
     CMenu popup;
     if (!popup.CreatePopupMenu())
+    {
+        m_guard.ReleaseReaderLock();
         return;
+    }
 
     CString temp;
     temp.LoadString(IDS_STATUSLIST_CHECKGROUP);
@@ -2584,7 +2587,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
         FileEntry * entry = GetListEntry(selIndex);
         ASSERT(entry != NULL);
         if (entry == NULL)
+        {
+            m_guard.ReleaseReaderLock();
             return;
+        }
         const CTSVNPath& filepath = entry->path;
         svn_wc_status_kind wcStatus = entry->status;
         // entry is selected, now show the popup menu
@@ -4014,7 +4020,10 @@ void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
         return;
     CMenu popup;
     if (!popup.CreatePopupMenu())
+    {
+        m_guard.ReleaseReaderLock();
         return;
+    }
 
     const int columnCount = m_ColumnManager.GetColumnCount();
 
@@ -4161,12 +4170,18 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
         UINT hitFlags = 0;
         HitTest(pNMLV->ptAction, &hitFlags);
         if (hitFlags & LVHT_ONITEMSTATEICON)
+        {
+            m_guard.ReleaseReaderLock();
             return;
+        }
 
         if (pNMLV->iItem < 0)
         {
             if (!IsGroupViewEnabled())
+            {
+                m_guard.ReleaseReaderLock();
                 return;
+            }
             POINT pt;
             DWORD ptW = GetMessagePos();
             pt.x = GET_X_LPARAM(ptW);
@@ -4174,7 +4189,10 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             ScreenToClient(&pt);
             int group = GetGroupFromPoint(&pt);
             if (group < 0)
+            {
+                m_guard.ReleaseReaderLock();
                 return;
+            }
             // check/uncheck the whole group depending on the check-state
             // of the first item in the group
             CAutoWriteLock locker(m_guard);
@@ -4920,6 +4938,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     {
                         lstrcpyn(pTTTW->szText, (LPCTSTR)fentry->copyfrom_url_string, 80);
                     }
+                    m_guard.ReleaseReaderLock();
                     return TRUE;
                 }
                 if (fentry->switched)
@@ -4928,6 +4947,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     CString url;
                     url.Format(IDS_STATUSLIST_SWITCHEDTO, (LPCTSTR)CPathUtils::PathUnescape(fentry->url));
                     lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
+                    m_guard.ReleaseReaderLock();
                     return TRUE;
                 }
                 // show the file size changes in the tooltip
@@ -4948,6 +4968,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                 CString sTemp;
                 sTemp.Format(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
                 lstrcpyn(pTTTW->szText, (LPCTSTR)sTemp, 80);
+                m_guard.ReleaseReaderLock();
                 return TRUE;
             }
             m_guard.ReleaseReaderLock();
