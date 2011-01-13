@@ -1684,7 +1684,8 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
     *pResult = 0;
-    if (m_guard.TryAcquireWriterLock())
+    CAutoWriteWeakLock writeLock(m_guard);
+    if (writeLock.IsAcquired())
     {
         if (m_nSortedColumn == phdr->iItem)
             m_bAscending = !m_bAscending;
@@ -1714,7 +1715,6 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
             if (entry)
                 SetCheck(i, entry->IsChecked());
         }
-        m_guard.ReleaseWriterLock();
     }
 }
 
@@ -1725,7 +1725,8 @@ void CSVNStatusListCtrl::OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 
 #define ISCHECKED(x) ((x) ? ((((x)&LVIS_STATEIMAGEMASK)>>12)-1) : FALSE)
 
-    if (m_guard.TryAcquireReaderLock())
+    CAutoReadWeakLock readLock(m_guard);
+    if (readLock.IsAcquired())
     {
         FileEntry * entry = GetListEntry(pNMLV->iItem);
         if (entry&&(m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
@@ -1735,7 +1736,6 @@ void CSVNStatusListCtrl::OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
                 (ISCHECKED(pNMLV->uOldState) && !ISCHECKED(pNMLV->uNewState)))
                 *pResult = TRUE;
         }
-        m_guard.ReleaseReaderLock();
     }
 }
 
@@ -1746,7 +1746,8 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
     if ((pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED)||(pNMLV->uNewState & LVIS_FOCUSED))
         return FALSE;
 
-    if (m_guard.TryAcquireWriterLock())
+    CAutoWriteWeakLock writeLock(m_guard);
+    if (writeLock.IsAcquired())
     {
         bool bSelected = !!(ListView_GetItemState(m_hWnd, pNMLV->iItem, LVIS_SELECTED) & LVIS_SELECTED);
         int nListItems = GetItemCount();
@@ -1781,7 +1782,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
             }
         }
         GetStatisticsString();
-        m_guard.ReleaseWriterLock();
+        writeLock.Release();
     }
     NotifyCheck();
 
@@ -2182,14 +2183,12 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
 
     if (!m_bHasCheckboxes)
         return;     // no checkboxes, so nothing to select
-    if (!m_guard.TryAcquireReaderLock())
+    CAutoReadWeakLock readLock(m_guard);
+    if (!readLock.IsAcquired())
         return;
     CMenu popup;
     if (!popup.CreatePopupMenu())
-    {
-        m_guard.ReleaseReaderLock();
         return;
-    }
 
     CString temp;
     temp.LoadString(IDS_STATUSLIST_CHECKGROUP);
@@ -2236,7 +2235,6 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
         }
         break;
     }
-    m_guard.ReleaseReaderLock();
 }
 
 void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
@@ -2529,7 +2527,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
     bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 
-    if (!m_guard.TryAcquireReaderLock())
+    CAutoReadWeakLock readLock(m_guard);
+    if (!readLock.IsAcquired())
         return;
     bool bInactiveItem = false;
     int selIndex = GetSelectionMark();
@@ -2587,10 +2586,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
         FileEntry * entry = GetListEntry(selIndex);
         ASSERT(entry != NULL);
         if (entry == NULL)
-        {
-            m_guard.ReleaseReaderLock();
             return;
-        }
         const CTSVNPath& filepath = entry->path;
         svn_wc_status_kind wcStatus = entry->status;
         // entry is selected, now show the popup menu
@@ -4003,7 +3999,6 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             }
         } // if (popup.CreatePopupMenu())
     } // if (selIndex >= 0)
-    m_guard.ReleaseReaderLock();
 }
 
 void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
@@ -4016,14 +4011,12 @@ void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
         ClientToScreen(&rect);
         point = rect.CenterPoint();
     }
-    if (!m_guard.TryAcquireReaderLock())
+    CAutoReadWeakLock readLock(m_guard);
+    if (!readLock.IsAcquired())
         return;
     CMenu popup;
     if (!popup.CreatePopupMenu())
-    {
-        m_guard.ReleaseReaderLock();
         return;
-    }
 
     const int columnCount = m_ColumnManager.GetColumnCount();
 
@@ -4102,7 +4095,6 @@ void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
     {
         m_ColumnManager.ResetColumns (m_dwDefaultColumns);
     }
-    m_guard.ReleaseReaderLock();
 }
 
 void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
@@ -4165,23 +4157,18 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     *pResult = 0;
-    if (m_guard.TryAcquireReaderLock())
+    CAutoReadWeakLock readLock(m_guard);
+    if (readLock.IsAcquired())
     {
         UINT hitFlags = 0;
         HitTest(pNMLV->ptAction, &hitFlags);
         if (hitFlags & LVHT_ONITEMSTATEICON)
-        {
-            m_guard.ReleaseReaderLock();
             return;
-        }
 
         if (pNMLV->iItem < 0)
         {
             if (!IsGroupViewEnabled())
-            {
-                m_guard.ReleaseReaderLock();
                 return;
-            }
             POINT pt;
             DWORD ptW = GetMessagePos();
             pt.x = GET_X_LPARAM(ptW);
@@ -4189,10 +4176,7 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             ScreenToClient(&pt);
             int group = GetGroupFromPoint(&pt);
             if (group < 0)
-            {
-                m_guard.ReleaseReaderLock();
                 return;
-            }
             // check/uncheck the whole group depending on the check-state
             // of the first item in the group
             CAutoWriteLock locker(m_guard);
@@ -4229,7 +4213,6 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             }
             GetStatisticsString();
             NotifyCheck();
-            m_guard.ReleaseReaderLock();
             return;
         }
         FileEntry * entry = GetListEntry(pNMLV->iItem);
@@ -4253,7 +4236,6 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
                 StartDiff(pNMLV->iItem);
             }
         }
-        m_guard.ReleaseReaderLock();
     }
 }
 
@@ -4486,7 +4468,8 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
     *pResult = 0;
-    if (m_guard.TryAcquireReaderLock())
+    CAutoReadWeakLock readLock(m_guard);
+    if (readLock.IsAcquired())
     {
         if (GetListEntry(pGetInfoTip->iItem >= 0))
         {
@@ -4498,7 +4481,6 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
                     _tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
             }
         }
-        m_guard.ReleaseReaderLock();
     }
 }
 
@@ -4523,10 +4505,11 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
             // item's text color. Our return value will tell Windows to draw the
             // item itself, but it will use the new color we set here.
 
-                // Tell Windows to paint the control itself.
+            // Tell Windows to paint the control itself.
             *pResult = CDRF_DODEFAULT;
 
-            if (m_guard.TryAcquireReaderLock())
+            CAutoReadWeakLock readLock(m_guard);
+            if (readLock.IsAcquired())
             {
                 // Tell Windows to send draw notifications for each subitem.
                 *pResult = CDRF_NOTIFYSUBITEMDRAW;
@@ -4537,10 +4520,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 {
                     FileEntry * entry = GetListEntry((int)pLVCD->nmcd.dwItemSpec);
                     if (entry == NULL)
-                    {
-                        m_guard.ReleaseReaderLock();
                         return;
-                    }
 
                     // coloring
                     // ========
@@ -4605,7 +4585,6 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     // Store the color back in the NMLVCUSTOMDRAW struct.
                     pLVCD->clrText = crText;
                 }
-                m_guard.ReleaseReaderLock();
             }
         }
         break;
@@ -4620,7 +4599,8 @@ void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
     //Create a pointer to the item
     LV_ITEM* pItem= &(pDispInfo)->item;
 
-    if (m_guard.TryAcquireReaderLock())
+    CAutoReadWeakLock readLock(m_guard);
+    if (readLock.IsAcquired())
     {
         if (pItem->mask & LVIF_TEXT)
         {
@@ -4632,7 +4612,6 @@ void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
                 pItem->iImage = GetEntryIcon (pItem->iItem);
             else
                 pItem->mask -= LVIF_IMAGE;
-        m_guard.ReleaseReaderLock();
     }
     else
         pItem->mask = 0;
@@ -4756,7 +4735,8 @@ UINT CSVNStatusListCtrl::OnGetDlgCode()
 void CSVNStatusListCtrl::OnNMReturn(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
     *pResult = 0;
-    if (m_guard.TryAcquireReaderLock())
+    CAutoReadWeakLock readLock(m_guard);
+    if (readLock.IsAcquired())
     {
         POSITION pos = GetFirstSelectedItemPosition();
         while ( pos )
@@ -4783,7 +4763,6 @@ void CSVNStatusListCtrl::OnNMReturn(NMHDR * /*pNMHDR*/, LRESULT *pResult)
                 StartDiff(index);
             }
         }
-        m_guard.ReleaseReaderLock();
     }
 }
 
@@ -4919,7 +4898,8 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
     ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, 300);
     if (internalcol > 0)
     {
-        if (m_guard.TryAcquireReaderLock())
+        CAutoReadWeakLock readLock(m_guard);
+        if (readLock.IsAcquired())
         {
             FileEntry *fentry = GetListEntry(row);
             if (fentry)
@@ -4938,7 +4918,6 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     {
                         lstrcpyn(pTTTW->szText, (LPCTSTR)fentry->copyfrom_url_string, 80);
                     }
-                    m_guard.ReleaseReaderLock();
                     return TRUE;
                 }
                 if (fentry->switched)
@@ -4947,7 +4926,6 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     CString url;
                     url.Format(IDS_STATUSLIST_SWITCHEDTO, (LPCTSTR)CPathUtils::PathUnescape(fentry->url));
                     lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
-                    m_guard.ReleaseReaderLock();
                     return TRUE;
                 }
                 // show the file size changes in the tooltip
@@ -4968,10 +4946,8 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                 CString sTemp;
                 sTemp.Format(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
                 lstrcpyn(pTTTW->szText, (LPCTSTR)sTemp, 80);
-                m_guard.ReleaseReaderLock();
                 return TRUE;
             }
-            m_guard.ReleaseReaderLock();
         }
     }
 
