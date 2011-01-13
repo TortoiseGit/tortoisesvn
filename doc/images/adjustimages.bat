@@ -127,6 +127,7 @@ set /a new_dpi = new_dpi + 1
 echo adjust dpi to %new_dpi%
 nconvert.exe -overwrite -dpi %new_dpi% %1 >nul
 :Done
+optipng.exe -o7 -quiet %1
 endlocal & goto :EOF
 ::===============================================================
 :ProcGetLine FileName LineNro returnText
