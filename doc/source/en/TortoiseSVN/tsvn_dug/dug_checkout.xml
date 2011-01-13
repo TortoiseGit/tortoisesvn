@@ -98,9 +98,19 @@
             </variablelist>
         </para>
         <para>
+            To easily select only the items you want for the checkout and force
+            the resulting working copy to keep only those items , click the
+            <guibutton>Choose items...</guibutton> button. This opens a new dialog
+            where you can check all items you want in your working copy and uncheck
+            all the items you don't want. The resulting working copy is then known
+            as a <literal>sparse checkout</literal>. An update of such a working
+            copy will not fetch the missing files and folders but only update
+            what you already have in your working copy.
+        </para>
+        <para>
             If you check out a sparse working copy (i.e., by choosing something other
             than <literal>fully recursive</literal> for the checkout depth), you can
-            fetch additional sub-folders by using the repository browser
+            fetch additional sub-folders later by using the repository browser
             (<xref linkend="tsvn-dug-repobrowser" />) or the check for modifications dialog
             (<xref linkend="tsvn-dug-wcstatus-2" />).
         </para>
