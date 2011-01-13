@@ -3872,7 +3872,14 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
     if (bPrevState == bChecked) // No change in check box
         return;
 
-    if (m_RepoTree.GetCheck(pNMTVItemChange->hItem))
+    bChecked = m_RepoTree.GetCheck(pNMTVItemChange->hItem);
+
+    // force the root item to be  checked
+    if ((!bChecked)&&(pNMTVItemChange->hItem == m_RepoTree.GetRootItem()))
+    {
+        m_RepoTree.SetCheck(pNMTVItemChange->hItem);
+    }
+    else if (bChecked)
     {
         // check all parents
         HTREEITEM hParent = m_RepoTree.GetParentItem(pNMTVItemChange->hItem);
