@@ -226,10 +226,10 @@ void CReaderWriterLockNonReentrance::ReleaseWriterLock()
     _ReleaseWriterLockAndLeaveCS(FALSE);
 }
 
-BOOL CReaderWriterLockNonReentrance::TryAcquireReaderLock()
+bool CReaderWriterLockNonReentrance::TryAcquireReaderLock()
 {
     EnterCriticalSection(&m_cs);
-    BOOL blCanRead = (0 == m_iNumOfWriter);
+    const bool blCanRead = (0 == m_iNumOfWriter);
     if(blCanRead)
     {
         ++m_iNumOfReaderEntered;
@@ -238,10 +238,10 @@ BOOL CReaderWriterLockNonReentrance::TryAcquireReaderLock()
     return blCanRead;
 }
 
-BOOL CReaderWriterLockNonReentrance::TryAcquireWriterLock()
+bool CReaderWriterLockNonReentrance::TryAcquireWriterLock()
 {
     EnterCriticalSection(&m_cs);
-    BOOL blCanWrite = ((0 == m_iNumOfReaderEntered) && (0 == m_iNumOfWriter));
+    const bool blCanWrite = ((0 == m_iNumOfReaderEntered) && (0 == m_iNumOfWriter));
     if(blCanWrite)
     {
         // Increase Writer counter
@@ -365,9 +365,9 @@ void CReaderWriterLock::ReleaseWriterLock()
     }
 }
 
-BOOL CReaderWriterLock::TryAcquireReaderLock()
+bool CReaderWriterLock::TryAcquireReaderLock()
 {
-    BOOL blCanRead;
+    bool blCanRead;
 
     const DWORD dwCurrentThreadId = GetCurrentThreadId();
     EnterCriticalSection(&m_cs);
@@ -407,7 +407,7 @@ BOOL CReaderWriterLock::TryAcquireReaderLock()
     return blCanRead;
 }
 
-BOOL CReaderWriterLock::TryAcquireWriterLock()
+bool CReaderWriterLock::TryAcquireWriterLock()
 {
     bool blCanWrite;
 

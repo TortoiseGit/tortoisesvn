@@ -78,8 +78,8 @@ public:
     void ReleaseReaderLock() throw();
     void AcquireWriterLock() throw();
     void ReleaseWriterLock() throw();
-    BOOL TryAcquireReaderLock() throw();
-    BOOL TryAcquireWriterLock() throw();
+    bool TryAcquireReaderLock() throw();
+    bool TryAcquireWriterLock() throw();
 
     // When a thread calls ReleaseReaderAndAcquireWriterLock the reader lock is released,
     // and the thread goes to the end of the queue for the writer lock.
@@ -124,8 +124,8 @@ public:
     void AcquireReaderLock() throw();
     void ReleaseReaderLock() throw();
 
-    BOOL TryAcquireReaderLock() throw();
-    BOOL TryAcquireWriterLock() throw();
+    bool TryAcquireReaderLock() throw();
+    bool TryAcquireWriterLock() throw();
 
     // Regardless of how many times current thread acquired reader
     // or writer locks, a call to this method will release all locks.
@@ -178,8 +178,66 @@ protected:
     T& m_lock;
 };
 
+template<typename T>
+class CAutoReadWeakLockT
+{
+public:
+    CAutoReadWeakLockT(T& objLock) throw() : m_lock(objLock)
+    {
+        isAcquired = m_lock.TryAcquireReaderLock();
+    }
+    ~CAutoReadWeakLockT() throw()
+    {
+        if (isAcquired)
+            m_lock.ReleaseReaderLock();
+    }
+    bool IsAcquired() const
+    {
+        return isAcquired;
+    }
+protected:
+    T& m_lock;
+    bool isAcquired;
+};
+
+template<typename T>
+class CAutoWriteWeakLockT
+{
+public :
+    CAutoWriteWeakLockT(T& objLock) throw() : m_lock(objLock)
+    {
+        isAcquired = m_lock.TryAcquireWriterLock();
+    }
+    ~CAutoWriteWeakLockT() throw()
+    {
+        release();
+    }
+    void Release()
+    {
+        release();
+    }
+    bool IsAcquired() const
+    {
+        return isAcquired;
+    }
+protected:
+    T& m_lock;
+    bool isAcquired;
+
+    void release()
+    {
+        if (isAcquired)
+        {
+            m_lock.ReleaseWriterLock();
+            isAcquired = false;
+        }
+    }
+};
+
 //////////////////////////////////////////////////////////////////
 // Instances of above template helper classes
 
 typedef CAutoReadLockT<CReaderWriterLock> CAutoReadLock;
 typedef CAutoWriteLockT<CReaderWriterLock> CAutoWriteLock;
+typedef CAutoReadWeakLockT<CReaderWriterLock> CAutoReadWeakLock;
+typedef CAutoWriteWeakLockT<CReaderWriterLock> CAutoWriteWeakLock;

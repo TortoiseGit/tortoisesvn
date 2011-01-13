@@ -2176,6 +2176,8 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
     ASSERT(m_targetPathList.GetCount() == 1);
     sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
     SetBackgroundImage(IDI_CHECKOUT_BKG);
+    
+    CString sCmdInfo;
     int index = 0;
     CString rootUrl;
     for (std::map<CString,svn_depth_t>::iterator it = m_pathdepths.begin(); it != m_pathdepths.end(); ++it)
@@ -2189,11 +2191,13 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
             CString fileordir = it->first.Mid(rootUrl.GetLength());
             fileordir = CPathUtils::PathUnescape(fileordir);
             checkoutdir.AppendPathString(fileordir);
+            fileordir.TrimLeft('/');
+            sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SPARSEUPDATE, (LPCTSTR)fileordir, (LPCTSTR)SVNStatus::GetDepthString(it->second));
+            ReportCmd(sCmdInfo);
         }
         else
         {
             rootUrl = it->first;
-            CString sCmdInfo;
             sCmdInfo.Format(IDS_PROGRS_CMD_CHECKOUT,
                 (LPCTSTR)url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString(),
                 (LPCTSTR)SVNStatus::GetDepthString(m_depth),
