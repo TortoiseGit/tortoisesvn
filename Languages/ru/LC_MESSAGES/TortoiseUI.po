@@ -1,14 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of the TortoiseSVN user interface
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # 
+# This file is distributed under the same license as TortoiseSVN
+# 
+# Last commit by:
+# $Author$
+# $Date$
+# $Rev$
+# 
+# Authors:
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-01-10 10:44+0000\n"
+"PO-Revision-Date: 2011-01-14 11:41+0000\n"
 "Last-Translator: sytkov <sytkov@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1189,7 +1195,7 @@ msgstr "&Начальная группа"
 
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
-msgstr ""
+msgstr "&Просмотр репозитария"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -1325,7 +1331,7 @@ msgstr "&Обновить"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
-msgstr ""
+msgstr "&Обновить элемент до ревизии..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -2111,7 +2117,7 @@ msgstr "Назад"
 
 #. Resource IDs: (65535)
 msgid "Background"
-msgstr ""
+msgstr "Фон"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2507,7 +2513,7 @@ msgstr "Выполняется очистка папки \"%1!s!\""
 
 #. Resource IDs: (15)
 msgid "Cleanup and refresh shell"
-msgstr ""
+msgstr "Очистка и обновление оболочки"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2959,7 +2965,7 @@ msgstr "Копировать и переименовать элемент сюд
 
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
-msgstr ""
+msgstr "Скопировать столбец в буфер обмена"
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
@@ -3056,6 +3062,10 @@ msgstr ""
 #, c-format
 msgid "Could not create %1 because the directory is full."
 msgstr "Невозможно создать %1, поскольку папка полна."
+
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr "Не удалось создать временный каталог"
 
 #. Resource IDs: (582)
 #, c-format
@@ -4664,13 +4674,17 @@ msgstr "Hex"
 msgid "Hide &deleted paths"
 msgstr "Скрыть у&далённые пути"
 
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr "Скрыть меню для путей без версий"
+
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
 msgstr "Скрыть все ответвления, не изменяющие этот элемент"
 
 #. Resource IDs: (2053)
 msgid "Hide all tags"
-msgstr ""
+msgstr "Скрыть все теги"
 
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
@@ -4682,7 +4696,7 @@ msgstr "Скрыть присоединённое окно"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
-msgstr ""
+msgstr "&Скрыть теги"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -5583,7 +5597,7 @@ msgstr "Полоса местоположения"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
-msgstr ""
+msgstr "Панель локатора"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -6713,7 +6727,7 @@ msgstr "Картинка:"
 
 #. Resource IDs: (157)
 msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr ""
+msgstr "Картинки (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Все файлы (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7268,7 +7282,7 @@ msgstr "Перебазирование..."
 
 #. Resource IDs: (501)
 msgid "Remember the depth for this working copy"
-msgstr ""
+msgstr "Запомнить глубину этой рабочей копии"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -7456,7 +7470,7 @@ msgstr "UUID хранилища:"
 
 #. Resource IDs: (324)
 msgid "Repository created"
-msgstr ""
+msgstr "Репозитарий создан"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -7712,6 +7726,10 @@ msgstr "В&низ"
 msgid "Row Up"
 msgstr "Выше"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr "Запустить очистку сейчас"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Выбрать..."
@@ -7839,7 +7857,7 @@ msgstr "Сохранить путь сертификата клиента"
 
 #. Resource IDs: (617)
 msgid "Save in Git format"
-msgstr ""
+msgstr "Сохранить в формате Git"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8697,6 +8715,10 @@ msgid ""
 msgstr ""
 "Subversion сообщила об ошибке при выполнении очистки!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr "Subversion сообщило об ошибке:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9995,6 +10017,10 @@ msgstr "Обновляет рабочую копию до указанной р�
 msgid "Updates the working copy to the current revision"
 msgstr "Обновляет рабочую копию до текущей ревизии"
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr "Обновление"
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10340,6 +10366,10 @@ msgstr ""
 "Если небольшой кэш журнала не используется заданное\n"
 "количество дней, он будет автоматически удалён."
 
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr "При активации, зажав клавишу SHIFT, щелкните правой кнопкой мыши, чтобы получить меню TortoiseSVN, добавленные в контекстное меню."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -10410,7 +10440,7 @@ msgstr "Рабочая копия: %s\n"
 
 #. Resource IDs: (2056)
 msgid "Wrap long lines"
-msgstr ""
+msgstr "Разбить длинные строки"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -10901,6 +10931,17 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "скопировано:"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
+"текущий размер: %s\n"
+"старый размер: %s\n"
+"изменение: %s"
 
 #. Resource IDs: (245)
 msgid "day"

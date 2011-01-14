@@ -1,14 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of the TortoiseSVN user interface
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # 
+# This file is distributed under the same license as TortoiseSVN
+# 
+# Last commit by:
+# $Author$
+# $Date$
+# $Rev$
+# 
+# Authors:
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-12-07 07:34+0000\n"
+"PO-Revision-Date: 2011-01-14 11:42+0000\n"
 "Last-Translator: fogle <johanfoglemark@gmail.com>\n"
 "Language-Team: Swedish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3053,6 +3059,10 @@ msgstr ""
 msgid "Could not create %1 because the directory is full."
 msgstr "Kunde inte skapa %1 eftersom mappen är full. "
 
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr "Kunde inte skapa temp katalog!"
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
@@ -4653,6 +4663,10 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Göm &borttagna sökvägar"
+
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr "Dölj menyer för icke versionshanterade sökvägar"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -7696,6 +7710,10 @@ msgstr "Rad Ner"
 msgid "Row Up"
 msgstr "Rad Upp"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr "Kör upprensning &nu"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "Mark&era..."
@@ -8695,6 +8713,10 @@ msgid ""
 msgstr ""
 "Subversion rapporterade ett fel vid rensning!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr "Subversion rapporterade ett fel:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9987,6 +10009,10 @@ msgstr "Uppdaterar arbetskopian till en specifik revision"
 msgid "Updates the working copy to the current revision"
 msgstr "Uppdaterar arbetskopian till den senaste revisionen"
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr "Uppdaterar"
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10333,6 +10359,10 @@ msgid ""
 msgstr ""
 "När en liten logg cache inte har använts på angivet antal\n"
 "dagar kommer den att tas bort automatiskt."
+
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr "Vid aktiverad, håll ner Shift-tangenten vid högerklick för att lägga till TortoiseSVN menyn till snabb menyn."
 
 #. Resource IDs: (344)
 msgid ""
@@ -10892,6 +10922,17 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "kopierad:"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
+"nuvarande storlek: %s\n"
+"gamla storlek: %s\n"
+"förändring: %s"
 
 #. Resource IDs: (245)
 msgid "day"

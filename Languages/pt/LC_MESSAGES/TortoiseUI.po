@@ -1,14 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of the TortoiseSVN user interface
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # 
+# This file is distributed under the same license as TortoiseSVN
+# 
+# Last commit by:
+# $Author$
+# $Date$
+# $Rev$
+# 
+# Authors:
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-01-10 10:45+0000\n"
+"PO-Revision-Date: 2011-01-14 11:41+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3056,6 +3062,10 @@ msgstr ""
 msgid "Could not create %1 because the directory is full."
 msgstr "%1 não pôde ser criado porque o directório está cheio."
 
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr "Não foi possível criar a pasta temp!"
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
@@ -4658,6 +4668,10 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Ocultar caminhos &removidos"
+
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr "Esconder menus para caminhos não versionados"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -7709,6 +7723,10 @@ msgstr "Linha Seguinte"
 msgid "Row Up"
 msgstr "Linha Anterior"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr "Correr limpeza &agora"
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "S&eleccionar..."
@@ -8694,6 +8712,10 @@ msgid ""
 msgstr ""
 "O Subversion reportou um erro ao fazer a limpeza!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr "O Subversion reportou um erro:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9986,6 +10008,10 @@ msgstr "Actualiza a cópia de trabalho para uma revisão específica"
 msgid "Updates the working copy to the current revision"
 msgstr "Actualiza a cópia de trabalho para a revisão actual"
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr "Actualizando"
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10332,6 +10358,10 @@ msgid ""
 msgstr ""
 "Quando uma cache de registo pequena não for usada\n"
 "durante o número de dias dado, será removida automaticamente."
+
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr "Quando activado, manter pressionada a tecla SHIFT aquando do clique à direita, para adicionar os menus do TortoiseSVN ao menu de contexto"
 
 #. Resource IDs: (344)
 msgid ""
@@ -10894,6 +10924,14 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "copiado:"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr "Tamanho actual: %s tamanho antigo: %s alteração: %s"
 
 #. Resource IDs: (245)
 msgid "day"
