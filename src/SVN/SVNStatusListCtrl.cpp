@@ -4118,14 +4118,8 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
     if (svn.AddToChangeList(changelistItems, name, svn_depth_empty))
     {
         TCHAR groupname[1024];
-        LVGROUP grp = {0};
-        grp.cbSize = sizeof(LVGROUP);
-        grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
         _tcsncpy_s(groupname, name, _countof(groupname)-1);
-        grp.pszHeader = groupname;
-        grp.iGroupId = (int)m_changelists.size();
-        grp.uAlign = LVGA_HEADER_LEFT;
-        m_changelists[name] = InsertGroup(-1, &grp);
+        m_changelists[name] = (int)DoInsertGroup(groupname, (int)m_changelists.size(), -1);
 
         PrepareGroups(true);
 
@@ -4721,7 +4715,7 @@ void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList, bo
         FileEntry * entry = GetListEntry(index);
         if ((bNoIgnored)&&(entry->status == svn_wc_status_ignored))
             continue;
-        pathList.AddPath(GetListEntry(index)->path);
+        pathList.AddPath(entry->path);
     }
 }
 
@@ -4812,8 +4806,6 @@ INT_PTR CSVNStatusListCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 
 int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const
 {
-    int colnum;
-
     // Make sure that the ListView is in LVS_REPORT
     if ((GetWindowLong(m_hWnd, GWL_STYLE) & LVS_TYPEMASK) != LVS_REPORT)
         return -1;
@@ -4837,7 +4829,7 @@ int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *co
         if (!rect.PtInRect(point))
             continue;
         // Now find the column
-        for (colnum = 0; colnum < nColumnCount; colnum++)
+        for (int colnum = 0; colnum < nColumnCount; colnum++)
         {
             int colwidth = GetColumnWidth(colnum);
             if (point.x >= rect.left && point.x <= (rect.left + colwidth))
@@ -4983,8 +4975,7 @@ void CSVNStatusListCtrl::OnPaint()
 
         CRect rc;
         GetClientRect(&rc);
-        CHeaderCtrl* pHC;
-        pHC = GetHeaderCtrl();
+        CHeaderCtrl* pHC = GetHeaderCtrl();
         if (pHC != NULL)
         {
             CRect rcH;
@@ -5011,8 +5002,9 @@ void CSVNStatusListCtrl::OnPaint()
 // prevent users from extending our hidden (size 0) columns
 void CSVNStatusListCtrl::OnHdnBegintrack(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
     *pResult = 0;
+
+    LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
     if ((phdr->iItem < 0)||(phdr->iItem >= SVNSLC_NUMCOLUMNS))
         return;
 
@@ -5026,8 +5018,9 @@ void CSVNStatusListCtrl::OnHdnBegintrack(NMHDR *pNMHDR, LRESULT *pResult)
 // prevent any function from extending our hidden (size 0) columns
 void CSVNStatusListCtrl::OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
     *pResult = 0;
+
+    LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
     if ((phdr->iItem < 0)||(phdr->iItem >= m_ColumnManager.GetColumnCount()))
     {
         Default();
@@ -5079,7 +5072,6 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
     LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 
     CAutoReadLock locker(m_guard);
-
 
     CTSVNPathList pathList;
     FillListOfSelectedItemPaths(pathList);
@@ -5325,7 +5317,9 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                     (entry->status != svn_wc_status_normal)&&
                     (entry->status != svn_wc_status_unversioned)&&
                     (!SVNStatus::IsImportant(entry->textstatus)))
+                {
                     _tcscat_s(buf, ponly);
+                }
                 temp = buf;
             }
             ADDTOCLIPBOARDSTRING(temp);
@@ -5348,7 +5342,9 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                     (entry->remotestatus != svn_wc_status_normal)&&
                     (entry->remotestatus != svn_wc_status_unversioned)&&
                     (!SVNStatus::IsImportant(entry->remotetextstatus)))
+                {
                     _tcscat_s(buf, ponly);
+                }
                 temp = buf;
             }
             ADDTOCLIPBOARDSTRING(temp);
@@ -5578,10 +5574,6 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     int groupindex = 0;
 
     // now add the items which don't belong to a group
-    LVGROUP grp;
-    SecureZeroMemory(&grp, sizeof(grp));
-    grp.cbSize = sizeof(LVGROUP);
-    grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
     if (bHasChangelistGroups)
     {
         CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
@@ -5592,10 +5584,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         CString sNoExternalGroup(MAKEINTRESOURCE(IDS_STATUSLIST_NOEXTERNAL_GROUP));
         _tcsncpy_s(groupname, (LPCTSTR)sNoExternalGroup, _countof(groupname)-1);
     }
-    grp.pszHeader = groupname;
-    grp.iGroupId = groupindex;
-    grp.uAlign = LVGA_HEADER_LEFT;
-    InsertGroup(groupindex++, &grp);
+    DoInsertGroup(groupname, groupindex++);
 
     m_bExternalsGroups = false;
     if (bHasChangelistGroups)
@@ -5604,14 +5593,8 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         {
             if (it->first.Compare(SVNSLC_IGNORECHANGELIST)!=0)
             {
-                LVGROUP lvgroup = {0};
-                lvgroup.cbSize = sizeof(LVGROUP);
-                lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
                 _tcsncpy_s(groupname, (LPCTSTR)it->first, _countof(groupname)-1);
-                lvgroup.pszHeader = groupname;
-                lvgroup.iGroupId = groupindex;
-                lvgroup.uAlign = LVGA_HEADER_LEFT;
-                it->second = InsertGroup(groupindex++, &lvgroup);
+                it->second = (int)DoInsertGroup(groupname, groupindex++);
             }
             else
                 m_bHasIgnoreGroup = true;
@@ -5621,16 +5604,10 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     {
         for (std::set<CTSVNPath>::iterator it = m_externalSet.begin(); it != m_externalSet.end(); ++it)
         {
-            LVGROUP lvgroup = {0};
-            lvgroup.cbSize = sizeof(LVGROUP);
-            lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
             _tcsncpy_s(groupname, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_STATUSLIST_EXTERNAL_GROUP)), _countof(groupname)-1);
             _tcsncat_s(groupname, _T(" "), _countof(groupname)-1);
             _tcsncat_s(groupname, (LPCTSTR)it->GetFileOrDirectoryName(), _countof(groupname)-1);
-            lvgroup.pszHeader = groupname;
-            lvgroup.iGroupId = groupindex;
-            lvgroup.uAlign = LVGA_HEADER_LEFT;
-            InsertGroup(groupindex++, &lvgroup);
+            DoInsertGroup(groupname, groupindex++);
             m_bExternalsGroups = true;
         }
     }
@@ -5641,13 +5618,8 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         std::map<CString,int>::iterator it = m_changelists.find(SVNSLC_IGNORECHANGELIST);
         if (it != m_changelists.end())
         {
-            grp.cbSize = sizeof(LVGROUP);
-            grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
             _tcsncpy_s(groupname, 1024, SVNSLC_IGNORECHANGELIST, 1023);
-            grp.pszHeader = groupname;
-            grp.iGroupId = groupindex;
-            grp.uAlign = LVGA_HEADER_LEFT;
-            it->second = InsertGroup(groupindex, &grp);
+            it->second = (int)DoInsertGroup(groupname, groupindex);
         }
     }
 
@@ -5663,6 +5635,21 @@ void CSVNStatusListCtrl::NotifyCheck()
     }
 }
 
+LRESULT CSVNStatusListCtrl::DoInsertGroup(LPWSTR groupName, int groupId, int index)
+{
+    LVGROUP lvgroup = {};
+    lvgroup.cbSize = sizeof(LVGROUP);
+    lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
+    lvgroup.pszHeader = groupName;
+    lvgroup.iGroupId = groupId;
+    lvgroup.uAlign = LVGA_HEADER_LEFT;
+    return InsertGroup(index, &lvgroup);
+}
+
+LRESULT CSVNStatusListCtrl::DoInsertGroup(LPWSTR groupName, int groupId)
+{
+    return DoInsertGroup(groupName, groupId, groupId);
+}
 
 //////////////////////////////////////////////////////////////////////////
 
