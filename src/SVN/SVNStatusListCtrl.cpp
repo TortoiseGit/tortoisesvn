@@ -166,6 +166,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_nSortedColumn(-1)
     , m_sNoPropValueText(MAKEINTRESOURCE(IDS_STATUSLIST_NOPROPVALUE))
     , m_bDepthInfinity(false)
+    , m_bInsertingItem(false)
 {
 }
 
@@ -1603,7 +1604,9 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     }
 
     // relative path
+    m_bInsertingItem = true;
     InsertItem(listIndex, LPSTR_TEXTCALLBACK, I_IMAGECALLBACK);
+    m_bInsertingItem = false;
 
     SetCheck(listIndex, entry->checked);
     if (entry->checked)
@@ -1751,7 +1754,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     *pResult = 0;
-    if ((pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED)||(pNMLV->uNewState & LVIS_FOCUSED))
+    if ((m_bInsertingItem)||(pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED)||(pNMLV->uNewState & LVIS_FOCUSED))
         return FALSE;
 
     CAutoWriteWeakLock writeLock(m_guard);

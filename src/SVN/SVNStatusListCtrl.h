@@ -1045,6 +1045,7 @@ private:
     ColumnManager               m_ColumnManager;
 
     std::map<CString,bool>      m_mapFilenameToChecked; ///< Remember manually de-/selected items
+    bool                        m_bInsertingItem;
     std::set<CTSVNPath>         m_externalSet;
     mutable CReaderWriterLock   m_guard;
 
