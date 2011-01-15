@@ -207,6 +207,8 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_NOTIFY(TVN_BEGINDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBegindragRepotree)
     ON_NOTIFY(TVN_BEGINRDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBeginrdragRepotree)
     ON_NOTIFY(TVN_ITEMCHANGED, IDC_REPOTREE, &CRepositoryBrowser::OnTvnItemChangedRepotree)
+    ON_NOTIFY(NM_CLICK, IDC_REPOTREE, &CRepositoryBrowser::OnNMClickRepotree)
+    ON_NOTIFY(TVN_KEYDOWN, IDC_REPOTREE, &CRepositoryBrowser::OnTvnKeydownRepotree)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -3935,3 +3937,105 @@ bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
 }
 
 
+
+
+void CRepositoryBrowser::OnNMClickRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    *pResult = 0;
+    if (SysInfo::Instance().IsVistaOrLater())
+        return;
+
+    // on XP, there's no TVN_ITEMCHANGED message, so we have to handle
+    // mouse clicks on the checkbox ourselves
+
+    DWORD dwpos = GetMessagePos();
+
+    TVHITTESTINFO ht = {0};
+    ht.pt.x = GET_X_LPARAM(dwpos);
+    ht.pt.y = GET_Y_LPARAM(dwpos);
+    ::MapWindowPoints(HWND_DESKTOP, pNMHDR->hwndFrom, &ht.pt, 1);
+
+    TreeView_HitTest(pNMHDR->hwndFrom, &ht);
+
+    if (TVHT_ONITEMSTATEICON & ht.flags)
+    {
+        HandleCheckedItemForXP(ht.hItem);
+    }
+}
+
+void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem )
+{
+    if (m_RepoTree.GetCheck(hItem))
+    {
+        // check all parents
+        HTREEITEM hParent = m_RepoTree.GetParentItem(hItem);
+        while (hParent)
+        {
+            m_RepoTree.SetCheck(hParent, TRUE);
+            CheckTreeItem(hParent);
+            hParent = m_RepoTree.GetParentItem(hParent);
+        }
+    }
+    else
+    {
+        // uncheck all children
+        HTREEITEM hChild = m_RepoTree.GetChildItem(hItem);
+        while (hChild)
+        {
+            m_RepoTree.SetCheck(hChild, FALSE);
+            CheckTreeItem(hChild);
+            hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+        }
+    }
+
+}
+
+
+void CRepositoryBrowser::OnTvnKeydownRepotree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMTVKEYDOWN pTVKeyDown = reinterpret_cast<LPNMTVKEYDOWN>(pNMHDR);
+    *pResult = 0;
+    if (SysInfo::Instance().IsVistaOrLater())
+        return;
+
+    // on XP, there's no TVN_ITEMCHANGED message, so we have to handle
+    // changes of the check state with the space key ourselves
+
+    if (pTVKeyDown -> wVKey == VK_SPACE)
+    {
+        HTREEITEM item = m_RepoTree.GetSelectedItem();
+
+        if (item)
+        {
+            HandleCheckedItemForXP(item);
+        }
+    }
+}
+
+void CRepositoryBrowser::HandleCheckedItemForXP( HTREEITEM item ) 
+{
+    if (item == m_RepoTree.GetRootItem())
+        m_RepoTree.SetCheck(item, FALSE);
+    else if (!m_RepoTree.GetCheck(item))
+    {
+        // check all parents
+        HTREEITEM hParent = m_RepoTree.GetParentItem(item);
+        while (hParent)
+        {
+            m_RepoTree.SetCheck(hParent, TRUE);
+            CheckTreeItem(hParent);
+            hParent = m_RepoTree.GetParentItem(hParent);
+        }
+    }
+    else
+    {
+        // uncheck all children
+        HTREEITEM hChild = m_RepoTree.GetChildItem(item);
+        while (hChild)
+        {
+            m_RepoTree.SetCheck(hChild, FALSE);
+            CheckTreeItem(hChild);
+            hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+        }
+    }
+}

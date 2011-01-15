@@ -125,6 +125,8 @@ protected:
     afx_msg void OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMClickRepotree(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnTvnKeydownRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -246,6 +248,8 @@ protected:
     /// resizes the control so that the divider is at position 'point'
     void HandleDividerMove(CPoint point, bool bDraw);
     bool CheckoutDepthForItem( HTREEITEM hItem );
+    void CheckTreeItem( HTREEITEM hItem );
+    void HandleCheckedItemForXP( HTREEITEM item );
 
 protected:
     bool                m_bInitDone;
