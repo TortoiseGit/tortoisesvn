@@ -241,6 +241,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
     {
         m_cnrRepositoryBar.ShowWindow(SW_HIDE);
         m_barRepository.ShowWindow(SW_HIDE);
+        SetWindowLongPtr(m_RepoTree.GetSafeHwnd(), GWL_STYLE, GetWindowLongPtr(m_RepoTree.GetSafeHwnd(), GWL_STYLE) | TVS_CHECKBOXES);
     }
     else
     {
@@ -305,8 +306,6 @@ BOOL CRepositoryBrowser::OnInitDialog()
     {
         DWORD exStyle = 0x0040 /*TVS_EX_FADEINOUTEXPANDOS*/ | 0x0020 /*TVS_EX_AUTOHSCROLL*/;
         m_RepoTree.SetExtendedStyle(exStyle, exStyle);
-        if (m_bSparseCheckoutMode)
-            SetWindowLongPtr(m_RepoTree.GetSafeHwnd(), GWL_STYLE, GetWindowLongPtr(m_RepoTree.GetSafeHwnd(), GWL_STYLE) | TVS_CHECKBOXES);
     }
 
     SetWindowTheme(m_RepoList.GetSafeHwnd(), L"Explorer", NULL);
