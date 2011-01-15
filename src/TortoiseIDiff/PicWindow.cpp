@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -290,7 +290,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                 SetupScrollBars();
                 InvalidateRect(*this, NULL, TRUE);
                 UpdateWindow(*this);
-                if (bLinkedPositions)
+                if ((bLinkedPositions)&&((wParam & MK_SHIFT)==0))
                 {
                     pTheOtherPic->nHScrollPos = nHScrollPos;
                     pTheOtherPic->nVScrollPos = nVScrollPos;
