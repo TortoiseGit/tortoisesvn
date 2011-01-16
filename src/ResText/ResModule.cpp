@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ CResModule::~CResModule(void)
 {
 }
 
-BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lpszPOFilePath, BOOL bNoUpdate)
+BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lpszPOFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile)
 {
     BOOL bRet = TRUE;
     for (std::vector<std::wstring>::iterator I = filelist.begin(); I != filelist.end(); ++I)
@@ -91,11 +91,11 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
 
     // at last, save the new file
     if (bRet)
-        return m_StringEntries.SaveFile(lpszPOFilePath);
+        return m_StringEntries.SaveFile(lpszPOFilePath, lpszHeaderFile);
     return FALSE;
 }
 
-BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFilePath, BOOL bNoUpdate)
+BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile)
 {
     m_hResDll = LoadLibrary(lpszSrcLangDllPath);
     if (m_hResDll == NULL)
@@ -137,7 +137,7 @@ BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFile
     m_StringEntries.ParseFile(lpszPoFilePath, !bNoUpdate);
 
     // at last, save the new file
-    if (!m_StringEntries.SaveFile(lpszPoFilePath))
+    if (!m_StringEntries.SaveFile(lpszPoFilePath, lpszHeaderFile))
         goto DONE_ERROR;
 
     FreeLibrary(m_hResDll);

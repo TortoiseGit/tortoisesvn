@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2006,2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ int _tmain(int argc, _TCHAR* argv[])
     bool bQuiet = false;
     bool bNoUpdate = false;
     bool bRTL = false;
+    bool bUseHeader = false;
     SetDllDirectory(L"");
     //parse the command line
     std::vector<tstring> arguments;
@@ -61,6 +62,8 @@ int _tmain(int argc, _TCHAR* argv[])
             bNoUpdate = true;
         if (_tcscmp(I->c_str(), _T("rtl"))==0)
             bRTL = true;
+        if (_tcscmp(I->c_str(), _T("useheaderfile"))==0)
+            bUseHeader = true;
     }
     std::vector<tstring>::iterator arg = arguments.begin();
 
@@ -70,16 +73,22 @@ int _tmain(int argc, _TCHAR* argv[])
         {
             tstring sDllFile;
             tstring sPoFile;
+            tstring sHeaderFile;
             ++arg;
 
             std::vector<std::wstring> filelist = arguments;
             filelist.erase(filelist.begin());
             sPoFile = tstring((--filelist.end())->c_str());
             filelist.erase(--filelist.end());
+            if (bUseHeader)
+            {
+                sHeaderFile = tstring((--filelist.end())->c_str());
+                filelist.erase(--filelist.end());
+            }
 
             CResModule module;
             module.SetQuiet(bQuiet);
-            if (!module.ExtractResources(filelist, sPoFile.c_str(), bNoUpdate))
+            if (!module.ExtractResources(filelist, sPoFile.c_str(), bNoUpdate, sHeaderFile.c_str()))
                 return -1;
             bShowHelp = false;
         }
@@ -124,8 +133,9 @@ int _tmain(int argc, _TCHAR* argv[])
     {
         _ftprintf(stdout, _T("usage:\n"));
         _ftprintf(stdout, _T("\n"));
-        _ftprintf(stdout, _T("ResText extract <resource.dll> [<resource.dll> ...] <po-file> [-quiet] [-noupdate]\n"));
+        _ftprintf(stdout, _T("ResText extract <resource.dll> [<resource.dll> ...] [-useheaderfile <headerfile>] <po-file> [-quiet] [-noupdate]\n"));
         _ftprintf(stdout, _T("Extracts all strings from the resource dll and writes them to the po-file\n"));
+        _ftprintf(stdout, _T("-useheaderfile: the content of the header file instead of a default header\n"));
         _ftprintf(stdout, _T("-quiet: don't print progress messages\n"));
         _ftprintf(stdout, _T("-noupdate: overwrite the po-file\n"));
         _ftprintf(stdout, _T("\n"));

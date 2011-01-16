@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -145,7 +145,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
     return TRUE;
 }
 
-BOOL CPOFile::SaveFile(LPCTSTR szPath)
+BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
 {
     //since stream classes still expect the filepath in char and not wchar_t
     //we need to convert the filepath to multibyte
@@ -155,28 +155,41 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
     WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, _countof(filepath)-1, NULL, NULL);
 
     std::wofstream File;
-//  File.open(filepath, std::ios_base::binary);
-//  File << _T("\xEF\xBB\xBF");
-//  File.close();
     File.imbue(std::locale(std::locale(), new utf8_conversion()));
     File.open(filepath, std::ios_base::binary);
-    File << _T("# SOME DESCRIPTIVE TITLE.\n");
-    File << _T("# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER\n");
-    File << _T("# This file is distributed under the same license as the PACKAGE package.\n");
-    File << _T("# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.\n");
-    File << _T("#\n");
-    File << _T("#, fuzzy\n");
-    File << _T("msgid \"\"\n");
-    File << _T("msgstr \"\"\n");
-    File << _T("\"Project-Id-Version: PACKAGE VERSION\\n\"\n");
-    File << _T("\"Report-Msgid-Bugs-To: \\n\"\n");
-    File << _T("\"POT-Creation-Date: 1900-01-01 00:00+0000\\n\"\n");
-    File << _T("\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n");
-    File << _T("\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n");
-    File << _T("\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n");
-    File << _T("\"MIME-Version: 1.0\\n\"\n");
-    File << _T("\"Content-Type: text/plain; charset=UTF-8\\n\"\n");
-    File << _T("\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
+
+    if ((lpszHeaderFile)&&(lpszHeaderFile[0])&&(PathFileExists(lpszHeaderFile)))
+    {
+        // read the header file and save it to the top of the pot file
+        std::wifstream inFile;
+        inFile.imbue(std::locale(std::locale(), new utf8_conversion()));
+        inFile.open(lpszHeaderFile, std::ios_base::binary);
+
+        wchar_t ch;
+        while(inFile && inFile.get(ch)) 
+            File.put(ch);
+        inFile.close();
+    }
+    else
+    {
+        File << _T("# SOME DESCRIPTIVE TITLE.\n");
+        File << _T("# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER\n");
+        File << _T("# This file is distributed under the same license as the PACKAGE package.\n");
+        File << _T("# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.\n");
+        File << _T("#\n");
+        File << _T("#, fuzzy\n");
+        File << _T("msgid \"\"\n");
+        File << _T("msgstr \"\"\n");
+        File << _T("\"Project-Id-Version: PACKAGE VERSION\\n\"\n");
+        File << _T("\"Report-Msgid-Bugs-To: \\n\"\n");
+        File << _T("\"POT-Creation-Date: 1900-01-01 00:00+0000\\n\"\n");
+        File << _T("\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n");
+        File << _T("\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n");
+        File << _T("\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n");
+        File << _T("\"MIME-Version: 1.0\\n\"\n");
+        File << _T("\"Content-Type: text/plain; charset=UTF-8\\n\"\n");
+        File << _T("\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
+    }
     File << _T("\n");
     File << _T("# msgid/msgstr fields for Accelerator keys\n");
     File << _T("# Format is: \"ID:xxxxxx:VACS+X\" where:\n");

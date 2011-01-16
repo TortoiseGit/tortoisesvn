@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,8 +83,8 @@ public:
     CResModule(void);
     ~CResModule(void);
 
-    BOOL    ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPOFilePath, BOOL bNoUpdate);
-    BOOL    ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lpszPOFilePath, BOOL bNoUpdate);
+    BOOL    ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPOFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile);
+    BOOL    ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lpszPOFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile);
     BOOL    CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszDestLangDllPath, LPCTSTR lpszPOFilePath);
     void    SetQuiet(BOOL bQuiet = TRUE) {m_bQuiet = bQuiet; m_StringEntries.SetQuiet(bQuiet);}
     void    SetLanguage(WORD wLangID) {m_wTargetLang = wLangID;}
