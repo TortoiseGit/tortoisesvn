@@ -32,7 +32,6 @@ int _tmain(int argc, _TCHAR* argv[])
     bool bNoUpdate = false;
     bool bRTL = false;
     bool bUseHeader = false;
-    SetDllDirectory(L"");
     //parse the command line
     std::vector<tstring> arguments;
     std::vector<tstring> switches;

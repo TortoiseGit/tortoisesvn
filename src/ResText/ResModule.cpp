@@ -47,7 +47,7 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
     BOOL bRet = TRUE;
     for (std::vector<std::wstring>::iterator I = filelist.begin(); I != filelist.end(); ++I)
     {
-        m_hResDll = LoadLibrary(I->c_str());
+        m_hResDll = LoadLibraryEx(I->c_str(), NULL, LOAD_LIBRARY_AS_IMAGE_RESOURCE|LOAD_LIBRARY_AS_DATAFILE);
         if (m_hResDll == NULL)
             MYERROR;
 
@@ -97,7 +97,7 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
 
 BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile)
 {
-    m_hResDll = LoadLibrary(lpszSrcLangDllPath);
+    m_hResDll = LoadLibraryEx(lpszSrcLangDllPath, NULL, LOAD_LIBRARY_AS_IMAGE_RESOURCE|LOAD_LIBRARY_AS_DATAFILE);
     if (m_hResDll == NULL)
         MYERROR;
 
@@ -157,7 +157,7 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
     int count = 0;
     do
     {
-        m_hResDll = LoadLibraryEx (lpszSrcLangDllPath, NULL, LOAD_LIBRARY_AS_DATAFILE|LOAD_IGNORE_CODE_AUTHZ_LEVEL);
+        m_hResDll = LoadLibraryEx (lpszSrcLangDllPath, NULL, LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE|LOAD_LIBRARY_AS_IMAGE_RESOURCE|LOAD_IGNORE_CODE_AUTHZ_LEVEL);
         if (m_hResDll == NULL)
             Sleep(100);
         count++;
