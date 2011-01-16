@@ -1539,17 +1539,6 @@ int CSVNStatusListCtrl::GetEntryIcon (int listIndex)
                  ? m_nIconFolder
                  : SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
 
-    if (entry->IsNested())
-        icon_idx |= INDEXTOOVERLAYMASK(OVL_NESTED);
-    else if (entry->IsInExternal()||entry->file_external)
-        icon_idx |= INDEXTOOVERLAYMASK(OVL_EXTERNAL);
-    else if (entry->depth == svn_depth_files)
-        icon_idx |= INDEXTOOVERLAYMASK(OVL_DEPTHFILES);
-    else if (entry->depth == svn_depth_immediates)
-        icon_idx |= INDEXTOOVERLAYMASK(OVL_DEPTHIMMEDIATES);
-    else if (entry->depth == svn_depth_empty)
-        icon_idx |= INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY);
-
     return icon_idx;
 }
 
@@ -1603,9 +1592,24 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
         }
     }
 
-    // relative path
     m_bInsertingItem = true;
-    InsertItem(listIndex, LPSTR_TEXTCALLBACK, I_IMAGECALLBACK);
+    LVITEM lvItem = {0};
+    lvItem.iItem = listIndex;
+    lvItem.mask = LVIF_TEXT|LVIF_IMAGE|LVIF_STATE;
+    lvItem.pszText = LPSTR_TEXTCALLBACK;
+    lvItem.iImage = I_IMAGECALLBACK;
+    lvItem.stateMask = LVIS_OVERLAYMASK;
+    if (entry->IsNested())
+        lvItem.state = INDEXTOOVERLAYMASK(OVL_NESTED);
+    else if (entry->IsInExternal()||entry->file_external)
+        lvItem.state = INDEXTOOVERLAYMASK(OVL_EXTERNAL);
+    else if (entry->depth == svn_depth_files)
+        lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHFILES);
+    else if (entry->depth == svn_depth_immediates)
+        lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHIMMEDIATES);
+    else if (entry->depth == svn_depth_empty)
+        lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY);
+    InsertItem(&lvItem);
     m_bInsertingItem = false;
 
     SetCheck(listIndex, entry->checked);
@@ -4492,7 +4496,7 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
         {
             if (pGetInfoTip->cchTextMax > GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString().GetLength())
             {
-                if (GetListEntry(pGetInfoTip->iItem)->GetRelativeSVNPath().Compare(GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString())!= 0)
+                if (GetListEntry(pGetInfoTip->iItem)->GetRelativeSVNPath(false).Compare(GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString())!= 0)
                     _tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
                 else if (GetStringWidth(GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString()) > GetColumnWidth(pGetInfoTip->iItem))
                     _tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
@@ -4625,10 +4629,14 @@ void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
             lstrcpyn(pItem->pszText, text, pItem->cchTextMax);
         }
         if (pItem->mask & LVIF_IMAGE)
+        {
             if (pItem->iSubItem == 0)
+            {
                 pItem->iImage = GetEntryIcon (pItem->iItem);
+            }
             else
                 pItem->mask -= LVIF_IMAGE;
+        }
     }
     else
         pItem->mask = 0;
