@@ -104,6 +104,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , m_pListDropTarget(NULL)
     , m_diffKind(svn_node_none)
     , m_hAccel(NULL)
+    , m_cancelled(false)
     , bDragMode(FALSE)
     , m_backgroundJobs(0, 1, true)
 {
@@ -124,6 +125,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , m_pListDropTarget(NULL)
     , m_diffKind(svn_node_none)
     , m_hAccel(NULL)
+    , m_cancelled(false)
     , bDragMode(FALSE)
     , m_backgroundJobs(0, 1, true)
 {
@@ -168,6 +170,11 @@ void CRepositoryBrowser::ClearUI()
 
     m_RepoTree.DeleteAllItems();
     m_RepoList.DeleteAllItems();
+}
+
+BOOL CRepositoryBrowser::Cancel()
+{
+    return m_cancelled;
 }
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
@@ -274,8 +281,6 @@ BOOL CRepositoryBrowser::OnInitDialog()
 
     if (m_bStandAlone)
     {
-        GetDlgItem(IDCANCEL)->ShowWindow(FALSE);
-
         // reposition the buttons
         CRect rect_cancel;
         GetDlgItem(IDCANCEL)->GetWindowRect(rect_cancel);
@@ -410,9 +415,14 @@ void CRepositoryBrowser::InitRepo()
 
     // let's see whether the URL was a directory
 
+    CString userCancelledError;
+    userCancelledError.LoadStringW (IDS_SVN_USERCANCELLED);
+
     std::deque<CItem> dummy;
     CString error
-        = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, dummy);
+        = m_cancelled
+        ? userCancelledError
+        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, dummy);
 
     // the only way CQuery::List will return the following error
     // is by calling it with a file path instead of a dir path
@@ -426,6 +436,15 @@ void CRepositoryBrowser::InitRepo()
     {
         m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
         error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, dummy);
+    }
+
+    // exit upon cancel
+
+    if (m_cancelled)
+    {
+        m_InitialUrl.Empty();
+        m_RepoList.ShowText(error, true);
+        return;
     }
 
     // did our optimistic strategy work?
@@ -533,15 +552,25 @@ UINT CRepositoryBrowser::InitThread()
     RefreshCursor();
 
     DialogEnableWindow(IDOK, FALSE);
-    DialogEnableWindow(IDCANCEL, FALSE);
 
     InitRepo();
 
+    // give user the chance to hit the cancel button
+    // as long as we are waiting for the data to come in
+
+    if (!m_cancelled)
+        m_lister.WaitForJobsToFinish();
+
+    // notify main thread that we are done
+
     PostMessage(WM_AFTERINIT);
     DialogEnableWindow(IDOK, TRUE);
-    DialogEnableWindow(IDCANCEL, TRUE);
+
+    if (m_bStandAlone)
+      GetDlgItem(IDCANCEL)->ShowWindow(FALSE);
 
     m_bThreadRunning = false;
+    m_cancelled = false;
 
     RefreshCursor();
     return 0;
@@ -549,7 +578,7 @@ UINT CRepositoryBrowser::InitThread()
 
 LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-    if (m_InitialUrl.IsEmpty())
+    if (m_cancelled || m_InitialUrl.IsEmpty())
         return 0;
 
     m_barRepository.SetRevision (m_repository.revision);
@@ -637,6 +666,12 @@ void CRepositoryBrowser::OnOK()
 
 void CRepositoryBrowser::OnCancel()
 {
+    m_cancelled = TRUE;
+    m_lister.Cancel();
+
+    if (m_bThreadRunning)
+        return;
+
     RevokeDragDrop(m_RepoList.GetSafeHwnd());
     RevokeDragDrop(m_RepoTree.GetSafeHwnd());
 

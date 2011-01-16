@@ -100,6 +100,9 @@ public:
 
     void SetSparseCheckoutMode() { m_bSparseCheckoutMode = true; m_bStandAlone = false; }
 
+    /// overwrite SVN callbacks
+    virtual BOOL Cancel();
+
     enum 
     { 
         IDD = IDD_REPOSITORY_BROWSER,
@@ -264,6 +267,8 @@ protected:
     HACCEL              m_hAccel;
 
 private:
+    bool                m_cancelled;
+
     bool                m_bStandAlone;
     bool                m_bSparseCheckoutMode;
     CString             m_InitialUrl;

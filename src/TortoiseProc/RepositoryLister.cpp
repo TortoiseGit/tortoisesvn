@@ -569,6 +569,13 @@ void CRepositoryLister::Cancel()
     CompactDumpster();
 }
 
+// wait for all jobs to be finished
+
+void CRepositoryLister::WaitForJobsToFinish()
+{
+    scheduler.WaitForEmptyQueue();
+}
+
 // don't return results from previous or still running requests
 // the next time \ref GetList() gets called
 
