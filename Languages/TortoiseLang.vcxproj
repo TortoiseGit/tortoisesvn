@@ -84,7 +84,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PostBuildEvent>
-      <Command>..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll TortoiseUI.pot</Command>
+      <Command>..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
