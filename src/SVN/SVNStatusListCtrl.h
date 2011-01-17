@@ -964,6 +964,7 @@ private:
     void ShowErrorMessage();
     LRESULT DoInsertGroup(LPWSTR groupName, int groupId, int index);
     LRESULT DoInsertGroup(LPWSTR groupName, int groupId);
+    int GetGroupId(int itemIndex) const;
 
 private:
     bool *                      m_pbCanceled;

@@ -2153,11 +2153,7 @@ int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt, bool bHeader /* = true */
             if (ppt->x > r.right)
                 return -1;
 
-            LVITEM lv = {0};
-            lv.mask = LVIF_GROUPID;
-            lv.iItem = nItem;
-            GetItem(&lv);
-            int groupID = lv.iGroupId;
+            int groupID = GetGroupId(nItem);
             if ((groupID != I_GROUPIDNONE)&&(!bHeader))
                 return groupID;
             // now we search upwards and check if the item above this one
@@ -2170,11 +2166,8 @@ int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt, bool bHeader /* = true */
                 if ((flags & LVHT_ONITEM)&&(nItem >= 0))
                 {
                     // the first item below the point
-                    LVITEM lv2 = {0};
-                    lv2.mask = LVIF_GROUPID;
-                    lv2.iItem = nItem;
-                    GetItem(&lv2);
-                    if (lv2.iGroupId != groupID)
+                    int groupId2 = GetGroupId(nItem);
+                    if (groupId2 != groupID)
                         return groupID;
                     else
                         return -1;
@@ -2222,14 +2215,10 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
             int group = GetGroupFromPoint(&clientpoint);
             // go through all items and check/uncheck those assigned to the group
             // but block the OnLvnItemChanged handler
-            LVITEM lv;
             for (int i=0; i<GetItemCount(); ++i)
             {
-                SecureZeroMemory(&lv, sizeof(LVITEM));
-                lv.mask = LVIF_GROUPID;
-                lv.iItem = i;
-                GetItem(&lv);
-                if (lv.iGroupId != group)
+                int groupId = GetGroupId(i);
+                if (groupId != group)
                     continue;
 
                 FileEntry * entry = GetListEntry(i);
@@ -4201,14 +4190,10 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             CAutoWriteLock locker(m_guard);
             bool bCheck = false;
             bool bFirst = false;
-            LVITEM lv;
             for (int i=0; i<GetItemCount(); ++i)
             {
-                SecureZeroMemory(&lv, sizeof(LVITEM));
-                lv.mask = LVIF_GROUPID;
-                lv.iItem = i;
-                GetItem(&lv);
-                if (lv.iGroupId == group)
+                int groupId = GetGroupId(i);
+                if (groupId == group)
                 {
                     FileEntry * entry = GetListEntry(i);
                     if (!bFirst)
@@ -5680,6 +5665,15 @@ LRESULT CSVNStatusListCtrl::DoInsertGroup(LPWSTR groupName, int groupId, int ind
 LRESULT CSVNStatusListCtrl::DoInsertGroup(LPWSTR groupName, int groupId)
 {
     return DoInsertGroup(groupName, groupId, groupId);
+}
+
+int CSVNStatusListCtrl::GetGroupId(int itemIndex) const
+{
+    LVITEM lv = {};
+    lv.mask = LVIF_GROUPID;
+    lv.iItem = itemIndex;
+    GetItem(&lv);
+    return lv.iGroupId;
 }
 
 //////////////////////////////////////////////////////////////////////////
