@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 2011-01-13 19:28 +0000\n"
-"PO-Revision-Date: 2011-01-14 11:17+0000\n"
+"PO-Revision-Date: 2011-01-17 14:11+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3180,11 +3180,11 @@ msgstr "Sie können die <firstterm>Tiefe</firstterm> der Rekursion beim Auscheck
 
 #. (para)
 msgid "To easily select only the items you want for the checkout and force the resulting working copy to keep only those items , click the <guibutton>Choose items...</guibutton> button. This opens a new dialog where you can check all items you want in your working copy and uncheck all the items you don't want. The resulting working copy is then known as a <literal>sparse checkout</literal>. An update of such a working copy will not fetch the missing files and folders but only update what you already have in your working copy."
-msgstr ""
+msgstr "Um einfach nur die Elemente, die Sie auschecken wollen, auszuwählen und dafür zu sorgen, dass die resultierende Arbeitskopie nur die gewählten Objekte enthält, klicken Sie auf die <guibutton>Wähle Objekte...</guibutton> Schaltfläche. Diese öffnet einen neuen Dialog, in dem Sie die gewünschten Objekte markieren können. Die resultierende Arbeitskopie wird als <literal>dünn besetzte Arbeitskopie</literal> bezeichnet. Wenn sie diese Arbeitskopie aktualisieren, werden nur die gewählten Dateien und Ordner aktualisiert und die fehlenden Objekte ignoriert."
 
 #. (para)
 msgid "If you check out a sparse working copy (i.e., by choosing something other than <literal>fully recursive</literal> for the checkout depth), you can fetch additional sub-folders later by using the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
-msgstr ""
+msgstr "Wenn Sie eine dünn besetzte Arbeitskopie auschecken, indem Sie etwas anderes als <literal>vollständig rekursiv</literal> für die Auschecktiefe wählen, können Sie weitere Ordner mittels des Projektarchivbetrachters (<xref linkend=\"tsvn-dug-repobrowser\"/>) oder des <guilabel>Auf Änderungen prüfen</guilabel>-Dialoges (<xref linkend=\"tsvn-dug-wcstatus-2\"/>) holen."
 
 #. (para)
 msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
