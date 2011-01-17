@@ -59,59 +59,9 @@ def usage_and_exit(errmsg=None):
         sys.exit(2)
     sys.exit(0)
 
-
 def makeTimeString(format, timestamp):
     return  time.strftime(format, time.gmtime(timestamp))
 
-
-class includeWriter:
-    def __init__(self, outfile):
-        self.out = file(outfile, 'w')
-
-    def addHeader(self):
-        self.out.write('<?php\n')
-
-    def addFooter(self, wcrev, update):
-        self.out.write('$tsvn_var = array(\n')
-        self.out.write('"wcrev" => "%s",\n' %(wcrev))
-        self.out.write('"update" => "%s"\n' %(update))
-        self.out.write(');\n')
-        self.out.write('?>\n')
-
-    def sectOpen(self, section):
-        self.out.write('$%s = array(\n' %(section))
-
-    def sectWrite(self, langCC, isPoFile, total, trans, fuzzy, untrans, accel, file, date):
-        self.out.write('"%s" => array(%s, %s, %s, %s, %s, %s, "%s", "%s"),\n' \
-          % (langCC,isPoFile,total,trans,fuzzy,untrans,accel,file,date))
-
-    def sectClose(self, total, file, date):
-        # Write the end of the array without a comma
-        self.out.write('"zzz" => array(-1, %s, 0, 0, %s, 0, "%s", "%s")\n' \
-          %(total, total ,file+'.pot', date))
-        self.out.write(');\n')
-    
-    def addCountries(self, langSource):
-        self.out.write('$countries = array(\n')
-        langList = os.path.join('gui', langSource, 'Languages.txt')
-        csvReader = csv.DictReader(open(langList), langFields, delimiter=';', quotechar='"')
-        csvReader.skipinitialspace = True
-
-        for row in csvReader:
-          # Ignore lines beginning with:
-          # '\xef' = UTF-8 BOM
-          # '#' = comment line
-          if row['Tag'][0] != '\xef' and row['Tag'][0] != '#':
-            self.addCountryRow(row['LangCC'].strip(), row['Tag'].strip(), row['FlagByte'].strip(), \
-              row['LangName'].strip(), row['Translators'].strip())
-        self.out.write(');\n')
-
-    def addCountryRow(self, LangCC, Tag, Flag, LangName, Translators):
-        self.out.write('"%s" => array("%s", "%s", "%s", "%s", %s)' \
-          % (LangCC,Tag,Flag,LangCC,LangName,Translators))
-        self.out.write(',')
-        self.out.write('\n')
-        
 class transReport:
     def __init__(self, to_email_id='luebbe@tigris.org'):
         self.to_email_id = to_email_id
@@ -177,9 +127,9 @@ class transReport:
         reout = self.match('.*?(\d{4}-\d{2}-\d{2}).*', grepout.strip())
         return reout
 
-    def checkError(self, attrib, file):
+    def checkError(self, attrib, poFile):
         """Checks for errors in the .po file. Can detect missing accelerators"""
-        msgout = self.safe_command(['msgfmt', attrib, file])[1]
+        msgout = self.safe_command(['msgfmt', attrib, poFile])[1]
         if msgout:
            grepout = self.safe_command(['grep', '-E', 'msgfmt: found'], msgout)[0]
            reout = self.match('.*?(\d+).*', grepout.strip())
@@ -195,7 +145,7 @@ class transReport:
         msgcount = self.safe_command(['wc', '-l'], sedout)[0]
         return int(msgcount)
 
-    def checkStatus(self, out, wrkDir, langCC, fileMask, total, checkAccel):
+    def checkStatus(self, wrkDir, langCC, fileMask, total, checkAccel):
         """Merges the current translations with the latest .po template.
         Calculates the statistics for the given translation."""
 
@@ -205,7 +155,6 @@ class transReport:
         if not os.path.isfile(poFile):
           # No need to write status for non-existent .po files
           # Just print on standard output for the "paper" report
-          # out.sectWrite(langCC, 0, total, 0, 0, total, 0, poFile, '---')
           return '---'
         else:
           wrkFile = os.path.join(wrkDir, 'temp.po')
@@ -214,7 +163,6 @@ class transReport:
           poDate = self.getPoDate(wrkFile)
           error = self.checkError('--check', wrkFile)
           if error:
-            out.sectWrite(langCC, error, total, 0, 0, total, 0, poFile, poDate)
             return 'BROKEN'
           else:
             trans = self.checkAttrib('--translated', wrkFile)
@@ -226,7 +174,6 @@ class transReport:
               accel = 0
 
             trans = trans-fuzzy
-            out.sectWrite(langCC, 0, total, trans, fuzzy, untrans, accel, poFile, poDate)
 
             if untrans+fuzzy+accel == 0:
               return 'OK'
@@ -249,8 +196,6 @@ class transReport:
         [totGui, tsGui] = self.getTotal(wrkDir, fileGui)
         [totDoc, tsDoc] = self.getTotal(wrkDir, fileDoc)
 
-#        outFile.sectOpen(fileMask)
-
         firstline = '==== Translation of %s %s' % (urlTrunk, Sep75)
         print ''
         print firstline[0:75]
@@ -269,15 +214,13 @@ class transReport:
           # Ignore .pot file (Tag=0)
           if row['Tag'][0] != '\xef' and row['Tag'][0] != '#' and row['Tag'] != '0':
             langCC = row['LangCC'].strip()
-            statusGui = self.checkStatus(outFile, wrkDir, langCC, fileGui, totGui, True)
-            statusDoc = self.checkStatus(outFile, wrkDir, langCC, fileDoc, totDoc, False)
+            statusGui = self.checkStatus(wrkDir, langCC, fileGui, totGui, True)
+            statusDoc = self.checkStatus(wrkDir, langCC, fileDoc, totDoc, False)
 
             if statusGui != 'NONE' or statusDoc != 'NONE':
                langName = row['LangName'].strip()
                langName = langName + ' ('+langCC+')'
                self.printStatLine (langName, statusGui, statusDoc)
-
-#        outFile.sectClose(totTrunk, fileMask, tsTrunk)
 
         return None
 
@@ -312,8 +255,6 @@ class transReport:
 
         return None
 
-outFile = includeWriter('trans_data_trunk.inc')
-
 def main():
     # Parse the command-line options and arguments.
     try:
@@ -343,15 +284,9 @@ def main():
     subject = 'TortoiseSVN translation status report for r%s' % (wcrev)
     print subject
 
-    outFile.addHeader()
-
     report.createReport()
-
-#    outFile.addCountries('trunk')
     
     timestamp = makeTimeString('%a, %d %b %Y %H:%M UTC', time.time())
-
-    outFile.addFooter(wcrev, timestamp)
 
 if __name__ == '__main__':
     main()
