@@ -2318,10 +2318,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
                 SetEntryCheck(e,index,true);
             }
         }
-        for (std::vector<int>::reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
-        {
-            RemoveListEntry(*it);
-        }
+        RemoveListEntries(entriesToRemove);
     }
     SaveColumnWidths();
     Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
@@ -3236,26 +3233,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         {
                             CTSVNPath parentFolder = (*it).GetDirectory();
                             SVNProperties props(parentFolder, SVNRev::REV_WC, false);
-                            CString value;
-                            for (int i=0; i<props.GetCount(); i++)
-                            {
-                                CString propname(props.GetItemName(i).c_str());
-                                if (propname.CompareNoCase(svnPropIgnore)==0)
-                                {
-                                    tstring stemp;
-                                    // treat values as normal text even if they're not
-                                    value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
-                                }
-                            }
-                            if (value.IsEmpty())
-                                value = name;
-                            else
-                            {
-                                value = value.Trim(_T("\n\r"));
-                                value += _T("\n");
-                                value += name;
-                                value.Remove('\r');
-                            }
+                            CString value = BuildIgnoreList( name, props, svnPropIgnore );
                             if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
                             {
                                 CString temp;
@@ -3344,18 +3322,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                 }
                             }
                         }
-                        for (std::vector<CString>::iterator it2 = toremove.begin(); it2 != toremove.end(); ++it2)
-                        {
-                            int nListboxEntries = GetItemCount();
-                            for (int i=0; i<nListboxEntries; ++i)
-                            {
-                                if (GetListEntry(i)->path.GetSVNPathString().Compare(*it2)==0)
-                                {
-                                    RemoveListEntry(i);
-                                    break;
-                                }
-                            }
-                        }
+                        RemoveListEntries(toremove);
                     }
                     SetRedraw(TRUE);
                 }
@@ -3384,26 +3351,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
                             CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
                             SVNProperties props(parentfolder, SVNRev::REV_WC, false);
-                            CString value;
-                            for (int i=0; i<props.GetCount(); i++)
-                            {
-                                CString propname(props.GetItemName(i).c_str());
-                                if (propname.CompareNoCase(svnPropIgnore)==0)
-                                {
-                                    tstring stemp;
-                                    // treat values as normal text even if they're not
-                                    value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
-                                }
-                            }
-                            if (value.IsEmpty())
-                                value = name;
-                            else
-                            {
-                                value = value.Trim(_T("\n\r"));
-                                value += _T("\n");
-                                value += name;
-                                value.Remove('\r');
-                            }
+                            CString value = BuildIgnoreList(name, props, svnPropIgnore );
                             if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
                             {
                                 CString temp;
@@ -3491,18 +3439,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                 }
                             }
                         }
-                        for (std::vector<CString>::iterator it = toremove.begin(); it != toremove.end(); ++it)
-                        {
-                            int nListboxEntries = GetItemCount();
-                            for (int i=0; i<nListboxEntries; ++i)
-                            {
-                                if (GetListEntry(i)->path.GetSVNPathString().Compare(*it)==0)
-                                {
-                                    RemoveListEntry(i);
-                                    break;
-                                }
-                            }
-                        }
+                        RemoveListEntries(toremove);
                     }
                     SetRedraw(TRUE);
                 }
@@ -3905,10 +3842,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                 }
                             }
                         }
-                        for (std::vector<int>::reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
-                        {
-                            RemoveListEntry(*it);
-                        }
+                        RemoveListEntries(entriesToRemove);
                         // TODO: Should we go through all entries here and check if we also could
                         // remove the changelist from m_changelists ?
 
@@ -5172,14 +5106,8 @@ bool CSVNStatusListCtrl::HasPath(const CTSVNPath& path)
 bool CSVNStatusListCtrl::IsPathShown(const CTSVNPath& path)
 {
     CAutoReadLock locker(m_guard);
-    int itemCount = GetItemCount();
-    for (int i=0; i < itemCount; i++)
-    {
-        FileEntry * entry = GetListEntry(i);
-        if (entry->GetPath().IsEquivalentTo(path))
-            return true;
-    }
-    return false;
+    const int itemIndex = GetIndex(path);
+    return itemIndex != -1;
 }
 
 BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
@@ -5674,6 +5602,57 @@ int CSVNStatusListCtrl::GetGroupId(int itemIndex) const
     lv.iItem = itemIndex;
     GetItem(&lv);
     return lv.iGroupId;
+}
+
+void CSVNStatusListCtrl::RemoveListEntries(const std::vector<CString>& toremove)
+{
+    for (std::vector<CString>::const_iterator it = toremove.begin(); it != toremove.end(); ++it)
+    {
+        int nListboxEntries = GetItemCount();
+        for (int i=0; i<nListboxEntries; ++i)
+        {
+            if (GetListEntry(i)->path.GetSVNPathString().Compare(*it)==0)
+            {
+                RemoveListEntry(i);
+                break;
+            }
+        }
+    }
+}
+
+void CSVNStatusListCtrl::RemoveListEntries(const std::vector<int>& entriesToRemove)
+{
+    for (std::vector<int>::const_reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
+    {
+        RemoveListEntry(*it);
+    }
+}
+
+CString CSVNStatusListCtrl::BuildIgnoreList(const CString& name,
+    SVNProperties& props, const CString& svnPropIgnore)
+{
+    CString value;
+    for (int i=0; i<props.GetCount(); i++)
+    {
+        CString propname(props.GetItemName(i).c_str());
+        if (propname.CompareNoCase(svnPropIgnore)==0)
+        {
+            // treat values as normal text even if they're not
+            value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
+            // svn:ignore property found, get out of the loop
+            break;
+        }
+    }
+    if (value.IsEmpty())
+        value = name;
+    else
+    {
+        value = value.Trim(_T("\n\r"));
+        value += _T("\n");
+        value += name;
+        value.Remove('\r');
+    }
+    return value;
 }
 
 //////////////////////////////////////////////////////////////////////////

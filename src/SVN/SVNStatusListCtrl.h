@@ -26,6 +26,7 @@
 #include "Colors.h"
 #include "DragDropImpl.h"
 #include "ReaderWriterLock.h"
+#include "SVNProperties.h"
 
 class SVNConfig;
 class SVNStatus;
@@ -965,6 +966,10 @@ private:
     LRESULT DoInsertGroup(LPWSTR groupName, int groupId, int index);
     LRESULT DoInsertGroup(LPWSTR groupName, int groupId);
     int GetGroupId(int itemIndex) const;
+    void RemoveListEntries(const std::vector<CString>& paths);
+    void RemoveListEntries(const std::vector<int>& indices);
+    CString BuildIgnoreList(const CString& fileOrDirectoryName,
+        SVNProperties& properties, const CString& ignoreProperty);
 
 private:
     bool *                      m_pbCanceled;
