@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-01-01 13:59+0200\n"
+"PO-Revision-Date: 2011-01-18 23:22+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN Finnish translation\n"
 "MIME-Version: 1.0\n"
@@ -2555,6 +2555,10 @@ msgstr "Tarkistussumma:"
 msgid "Choose item:"
 msgstr "Valitse kohde:"
 
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr "Valitse kohteet..."
+
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Luokitteluhahmot"
@@ -3348,6 +3352,10 @@ msgstr "&Mukauta..."
 #. Resource IDs: (16963)
 msgid "Custom"
 msgstr "Mukautettu"
+
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr "Mukautetut syvyydet"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -4726,6 +4734,10 @@ msgstr "Heksa"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Piilota &poistetut polut"
+
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr "Piilota valikot versioimattomille poluille"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -8545,6 +8557,11 @@ msgstr "Oikea tiedosto:"
 msgid "Source URL:"
 msgstr "Lähdepaikannin:"
 
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr "Epätäydellinen päivitys %1!s!, syvyys \"%2!s!\""
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Määrittää kuinka monta viestiä säilytetään viimeisimpien lokiviestien listassa."
@@ -10430,6 +10447,10 @@ msgid ""
 "number of days, it will be removed automatically."
 msgstr "Kun pieni välimuisti on käyttämättömänä annettujen päivien ajan, se poistetaan automaattisesti."
 
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr "Kun toiminto on aktiivinen, saat lisättyä TortoiseSVN-valikot kontekstivalikkoon pitämällä SHIFT-näppäimen pohjassa napsauttaessasi hiiren oikeaa painiketta"
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -11757,9 +11778,6 @@ msgstr "{BugTraq}"
 
 #~ msgid "Show overlay for ignored items"
 #~ msgstr "Näytä kuvakepäällys ohitetuille kohteille"
-
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "Näytä kuvakepäällys versioimattomille kohteille"
 
 #~ msgid "&To URL: "
 #~ msgstr "Paikantim&een:"
