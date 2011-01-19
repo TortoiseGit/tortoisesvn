@@ -64,6 +64,9 @@ IndexIgnore *
   RewriteRule ^most-forgotten-feature$ mostforgottenfeature.html [R,NC]
   RewriteRule ^status$ status.html [R,NC]
   RewriteRule ^donate_stefan$ stefan_kueng.html [R,NC]
+  RewriteRule ^blog/(.*)$ blogposts.html [R,NC]
+  RewriteRule ^doc_release$ support.html [R,NC]
+  RewriteRule ^StExBar$ http://tools.tortoisesvn.net/StExBar.html [R,NC]
 
   RewriteBase /
 
