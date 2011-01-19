@@ -4154,7 +4154,8 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             CAutoWriteLock locker(m_guard);
             bool bCheck = false;
             bool bFirst = false;
-            for (int i=0; i<GetItemCount(); ++i)
+            const int itemCount = GetItemCount();
+            for (int i=0; i<itemCount; ++i)
             {
                 int groupId = GetGroupId(i);
                 if (groupId == group)
@@ -4436,20 +4437,24 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
 
 void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
     *pResult = 0;
     CAutoReadWeakLock readLock(m_guard);
-    if (readLock.IsAcquired())
+    if (!readLock.IsAcquired())
+        return;
+
+    LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
+    const int itemIndex = pGetInfoTip->iItem;
+    if (GetListEntry(itemIndex >= 0))
     {
-        if (GetListEntry(pGetInfoTip->iItem >= 0))
+        const int maxTextLength = pGetInfoTip->cchTextMax;
+        FileEntry* entry = GetListEntry(itemIndex);
+        const CString& pathString = entry->path.GetSVNPathString();
+        if (maxTextLength > pathString.GetLength())
         {
-            if (pGetInfoTip->cchTextMax > GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString().GetLength())
-            {
-                if (GetListEntry(pGetInfoTip->iItem)->GetRelativeSVNPath(false).Compare(GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString())!= 0)
-                    _tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
-                else if (GetStringWidth(GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString()) > GetColumnWidth(pGetInfoTip->iItem))
-                    _tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, GetListEntry(pGetInfoTip->iItem)->path.GetSVNPathString(), pGetInfoTip->cchTextMax);
-            }
+            if (entry->GetRelativeSVNPath(false).Compare(pathString)!= 0)
+                _tcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength);
+            else if (GetStringWidth(pathString) > GetColumnWidth(itemIndex))
+                _tcsncpy_s(pGetInfoTip->pszText, maxTextLength, pathString, maxTextLength);
         }
     }
 }
@@ -4646,20 +4651,20 @@ void CSVNStatusListCtrl::SetCheckOnAllDescendentsOf(const FileEntry* parentEntry
         ASSERT(childEntry != NULL);
         if (childEntry == NULL || childEntry == parentEntry)
             continue;
-        if (childEntry->checked != bCheck)
+        if (childEntry->checked == bCheck)
+            continue;
+
+        if (!(parentEntry->path.IsAncestorOf(childEntry->path)))
+            continue;
+
+        SetEntryCheck(childEntry,j,bCheck);
+        if(bCheck)
         {
-            if (parentEntry->path.IsAncestorOf(childEntry->path))
-            {
-                SetEntryCheck(childEntry,j,bCheck);
-                if(bCheck)
-                {
-                    m_nSelected++;
-                }
-                else
-                {
-                    m_nSelected--;
-                }
-            }
+            m_nSelected++;
+        }
+        else
+        {
+            m_nSelected--;
         }
     }
 }
@@ -5151,7 +5156,8 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
                 if (GetAsyncKeyState(VK_CONTROL)&0x8000)
                 {
                     // select all entries
-                    for (int i=0; i<GetItemCount(); ++i)
+                    const int itemCount = GetItemCount();
+                    for (int i=0; i<itemCount; ++i)
                     {
                         SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
                     }
@@ -5184,7 +5190,6 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
                     if (entry == NULL)
                         break;
 
-                    bool bShift = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
                     switch (entry->status)
                     {
                         case svn_wc_status_unversioned: 
@@ -5200,8 +5205,11 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
                             break;
 
                         default:
-                            Remove (entry->path, bShift);
-                            return TRUE;
+                            {
+                                bool bShift = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+                                Remove (entry->path, bShift);
+                                return TRUE;
+                            }
                     }
                 }
             }
