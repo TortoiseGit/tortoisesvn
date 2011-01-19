@@ -2608,7 +2608,20 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     if ((wcStatus != svn_wc_status_normal)||(entry->remotestatus > svn_wc_status_normal))
                         popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
                 }
-
+                if (selectedCount > 1)
+                {
+                    if (entry->remotestatus <= svn_wc_status_normal)
+                    {
+                        if (wcStatus > svn_wc_status_normal)
+                        {
+                            if ((m_dwContextMenus & SVNSLC_POPGNUDIFF)&&(wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing))
+                            {
+                                popup.AppendMenuIcon(IDSVNLC_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
+                                popup.AppendMenu(MF_SEPARATOR);
+                            }
+                        }
+                    }
+                }
                 if (selectedCount == 1)
                 {
                     bool bEntryAdded = false;
@@ -3042,12 +3055,29 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 break;
             case IDSVNLC_GNUDIFF1:
                 {
-                    SVNDiff diff(NULL, this->m_hWnd, true);
+                    CTSVNPathList targetList;
+                    FillListOfSelectedItemPaths(targetList);
 
-                    if (entry->remotestatus <= svn_wc_status_normal)
-                        CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC);
+                    if (targetList.GetCount() > 1)
+                    {
+                        CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+                        targetList.WriteToFile(sTempFile, false);
+                        CString sTempFile2 = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+                        CString sCmd;
+                        sCmd.Format(_T("\"%s\" /command:createpatch /pathfile:\"%s\" /deletepathfile /noui /savepath:\"%s\""),
+                            (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sTempFile, (LPCTSTR)sTempFile2);
+
+                        CAppUtils::LaunchApplication(sCmd, NULL, false);
+                    }
                     else
-                        CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD);
+                    {
+                        SVNDiff diff(NULL, this->m_hWnd, true);
+
+                        if (entry->remotestatus <= svn_wc_status_normal)
+                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC);
+                        else
+                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD);
+                    }
                 }
                 break;
             case IDSVNLC_UPDATE:
