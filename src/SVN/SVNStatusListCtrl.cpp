@@ -4444,10 +4444,10 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 
     LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
     const int itemIndex = pGetInfoTip->iItem;
-    if (GetListEntry(itemIndex >= 0))
+    FileEntry* entry = GetListEntry(itemIndex);
+    if (entry)
     {
         const int maxTextLength = pGetInfoTip->cchTextMax;
-        FileEntry* entry = GetListEntry(itemIndex);
         const CString& pathString = entry->path.GetSVNPathString();
         if (maxTextLength > pathString.GetLength())
         {
