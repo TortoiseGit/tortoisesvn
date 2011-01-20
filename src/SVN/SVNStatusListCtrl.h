@@ -851,6 +851,11 @@ private:
     void RemoveListEntry(int index);    ///< removes an entry from the listcontrol and both arrays
     bool BuildStatistics(); ///< build the statistics and correct the case of files/folders
     void StartDiff(int fileindex);  ///< start the external diff program
+    void StartDiff(FileEntry * entry);
+    void StartDiffOrResolve(int fileindex);
+    void StartConflictEditor(const CTSVNPath& filepath);
+    void RunTortoiseProc(const CString& commandsList);
+    void AddPropsPath(const CTSVNPath& filepath, CString& command );
 
     /// fetch all user properties for all items
     void FetchUserProperties (size_t first, size_t last);

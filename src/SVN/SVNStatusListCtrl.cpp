@@ -3014,12 +3014,11 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     FillListOfSelectedItemPaths(targetList);
                     CTSVNPath tempFile = CTempFiles::Instance().GetTempFilePath(false);
                     VERIFY(targetList.WriteToFile(tempFile.GetWinPathString()));
-                    CString commandline = CPathUtils::GetAppDirectory();
-                    commandline += _T("TortoiseProc.exe /command:commit /pathfile:\"");
+                    CString commandline = _T("/command:commit /pathfile:\"");
                     commandline += tempFile.GetWinPathString();
                     commandline += _T("\"");
                     commandline += _T(" /deletepathfile");
-                    CAppUtils::LaunchApplication(commandline, NULL, false);
+                    RunTortoiseProc(commandline);
                 }
                 break;
             case IDSVNLC_REVERT:
@@ -3064,10 +3063,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         targetList.WriteToFile(sTempFile, false);
                         CString sTempFile2 = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
                         CString sCmd;
-                        sCmd.Format(_T("\"%s\" /command:createpatch /pathfile:\"%s\" /deletepathfile /noui /savepath:\"%s\""),
-                            (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sTempFile, (LPCTSTR)sTempFile2);
+                        sCmd.Format(_T("/command:createpatch /pathfile:\"%s\" /deletepathfile /noui /savepath:\"%s\""),
+                            (LPCTSTR)sTempFile, (LPCTSTR)sTempFile2);
 
-                        CAppUtils::LaunchApplication(sCmd, NULL, false);
+                        RunTortoiseProc(sCmd);
                     }
                     else
                     {
@@ -3106,10 +3105,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
                         targetList.WriteToFile(sTempFile, false);
                         CString sCmd;
-                        sCmd.Format(_T("\"%s\" /command:update /rev /pathfile:\"%s\" /deletepathfile"),
-                            (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sTempFile);
+                        sCmd.Format(_T("/command:update /rev /pathfile:\"%s\" /deletepathfile"),
+                            (LPCTSTR)sTempFile);
 
-                        CAppUtils::LaunchApplication(sCmd, NULL, false);
+                        RunTortoiseProc(sCmd);
                     }
                 }
                 break;
@@ -3123,17 +3122,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         logPath = infodata->copyfromurl;
                     }
                     CString sCmd;
-                    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""),
-                        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)logPath);
+                    sCmd.Format(_T("/command:log /path:\"%s\""), (LPCTSTR)logPath);
+                    AddPropsPath(filepath, sCmd);
 
-                    if (!filepath.IsUrl())
-                    {
-                        sCmd += _T(" /propspath:\"");
-                        sCmd += filepath.GetWinPathString();
-                        sCmd += _T("\"");
-                    }
-
-                    CAppUtils::LaunchApplication(sCmd, NULL, false);
+                    RunTortoiseProc(sCmd);
                 }
                 break;
             case IDSVNLC_BLAME:
@@ -3146,17 +3138,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         blamePath = infodata->copyfromurl;
                     }
                     CString sCmd;
-                    sCmd.Format(_T("\"%s\" /command:blame /path:\"%s\""),
-                        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)blamePath);
+                    sCmd.Format(_T("/command:blame /path:\"%s\""), (LPCTSTR)blamePath);
+                    AddPropsPath(filepath, sCmd);
 
-                    if (!filepath.IsUrl())
-                    {
-                        sCmd += _T(" /propspath:\"");
-                        sCmd += filepath.GetWinPathString();
-                        sCmd += _T("\"");
-                    }
-
-                    CAppUtils::LaunchApplication(sCmd, NULL, false);
+                    RunTortoiseProc(sCmd);
                 }
                 break;
             case IDSVNLC_OPEN:
@@ -3216,10 +3201,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
                     targetList.WriteToFile(sTempFile, false);
                     CString sCmd;
-                    sCmd.Format(_T("\"%s\" /command:repostatus /pathfile:\"%s\" /deletepathfile"),
-                        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sTempFile);
+                    sCmd.Format(_T("/command:repostatus /pathfile:\"%s\" /deletepathfile"), (LPCTSTR)sTempFile);
 
-                    CAppUtils::LaunchApplication(sCmd, NULL, false);
+                    RunTortoiseProc(sCmd);
                 }
                 break;
             case IDSVNLC_CREATEPATCH:
@@ -3230,10 +3214,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
                     targetList.WriteToFile(sTempFile, false);
                     CString sCmd;
-                    sCmd.Format(_T("\"%s\" /command:createpatch /pathfile:\"%s\" /deletepathfile /noui"),
-                        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sTempFile);
+                    sCmd.Format(_T("/command:createpatch /pathfile:\"%s\" /deletepathfile /noui"), (LPCTSTR)sTempFile);
 
-                    CAppUtils::LaunchApplication(sCmd, NULL, false);
+                    RunTortoiseProc(sCmd);
                 }
                 break;
             case IDSVNLC_REMOVE:
@@ -3475,18 +3458,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 break;
             case IDSVNLC_EDITCONFLICT:
-                {
-                    CString sCmd;
-                    sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
-                        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), filepath.GetWinPath());
-                    if (!filepath.IsUrl())
-                    {
-                        sCmd += _T(" /propspath:\"");
-                        sCmd += filepath.GetWinPathString();
-                        sCmd += _T("\"");
-                    }
-                    CAppUtils::LaunchApplication(sCmd, NULL, false);
-                }
+                StartConflictEditor(filepath);
                 break;
             case IDSVNLC_RESOLVECONFLICT:
             case IDSVNLC_RESOLVEMINE:
@@ -4184,27 +4156,7 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             NotifyCheck();
             return;
         }
-        FileEntry * entry = GetListEntry(pNMLV->iItem);
-        if (entry)
-        {
-            if (entry->isConflicted)
-            {
-                CString sCmd;
-                sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
-                    (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), entry->GetPath().GetWinPath());
-                if (!entry->GetPath().IsUrl())
-                {
-                    sCmd += _T(" /propspath:\"");
-                    sCmd += entry->GetPath().GetWinPathString();
-                    sCmd += _T("\"");
-                }
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
-            }
-            else
-            {
-                StartDiff(pNMLV->iItem);
-            }
-        }
+        StartDiffOrResolve(pNMLV->iItem);
     }
 }
 
@@ -4215,8 +4167,15 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
     CAutoReadLock locker(m_guard);
     FileEntry * entry = GetListEntry(fileindex);
     ASSERT(entry != NULL);
+    StartDiff(entry);
+}
+
+void CSVNStatusListCtrl::StartDiff(FileEntry * entry)
+{
+    ASSERT(entry != NULL);
     if (entry == NULL)
         return;
+    CAutoReadLock locker(m_guard);
     if (((entry->status == svn_wc_status_normal)&&(entry->remotestatus <= svn_wc_status_normal))||
         (entry->status == svn_wc_status_unversioned)||(entry->status == svn_wc_status_none))
     {
@@ -4259,6 +4218,48 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
     diff.DiffWCFile(
         entry->path, entry->status, entry->textstatus, entry->propstatus,
         entry->remotetextstatus, entry->remotepropstatus);
+}
+
+void CSVNStatusListCtrl::StartDiffOrResolve(int fileindex)
+{
+    FileEntry * entry = GetListEntry(fileindex);
+    if (entry == 0)
+        return;
+
+    if (entry->isConflicted)
+    {
+        StartConflictEditor(entry->GetPath());
+    }
+    else
+    {
+        StartDiff(entry);
+    }
+}
+
+void CSVNStatusListCtrl::StartConflictEditor(const CTSVNPath& filepath)
+{
+    CString sCmd;
+    sCmd.Format(_T("/command:conflicteditor /path:\"%s\""), (LPCTSTR)(filepath.GetWinPath()));
+    AddPropsPath(filepath, sCmd);
+    RunTortoiseProc(sCmd);
+}
+
+void CSVNStatusListCtrl::RunTortoiseProc(const CString& commandsList)
+{
+    CString pathToExecutable = CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe");
+    CString sCmd;
+    sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)commandsList);
+    CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
+
+void CSVNStatusListCtrl::AddPropsPath(const CTSVNPath& filepath, CString& command)
+{
+    if (filepath.IsUrl())
+        return;
+
+    command += _T(" /propspath:\"");
+    command += filepath.GetWinPathString();
+    command += _T("\"");
 }
 
 CString CSVNStatusListCtrl::GetStatisticsString()
@@ -4721,26 +4722,7 @@ void CSVNStatusListCtrl::OnNMReturn(NMHDR * /*pNMHDR*/, LRESULT *pResult)
         while ( pos )
         {
             int index = GetNextSelectedItem(pos);
-            FileEntry * entry = GetListEntry(index);
-            if (!entry)
-                continue;
-            if (entry->isConflicted)
-            {
-                CString sCmd;
-                sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
-                    (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), entry->GetPath().GetWinPath());
-                if (!entry->GetPath().IsUrl())
-                {
-                    sCmd += _T(" /propspath:\"");
-                    sCmd += entry->GetPath().GetWinPathString();
-                    sCmd += _T("\"");
-                }
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
-            }
-            else
-            {
-                StartDiff(index);
-            }
+            StartDiffOrResolve(index);
         }
     }
 }
