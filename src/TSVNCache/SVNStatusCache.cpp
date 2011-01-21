@@ -374,7 +374,6 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 {
     if (cdir == NULL)
         return false;
-    AssertWriting();
     typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
     if (cdir->m_childDirectories.size())
     {
@@ -421,7 +420,6 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
     CCachedDirectory::ItDir itMap;
     CCachedDirectory * dirtoremove = NULL;
 
-    AssertWriting();
     itMap = m_directoryCache.find(path);
     if ((itMap != m_directoryCache.end())&&(itMap->second))
         dirtoremove = itMap->second;
@@ -446,13 +444,8 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
         // that means that path got invalidated and needs to be treated
         // as if it never was in our cache. So we remove the last remains
         // from the cache and start from scratch.
-        AssertLock();
-        if (!IsWriter())
-        {
-            // upgrading our state to writer
-            Done();
-            WaitToWrite();
-        }
+        CAutoWriteLock writeLock(m_guard);
+
         // Since above there's a small chance that before we can upgrade to
         // writer state some other thread gained writer state and changed
         // the data, we have to recreate the iterator here again.

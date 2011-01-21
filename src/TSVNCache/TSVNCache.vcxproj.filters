@@ -36,9 +36,6 @@
     <ClCompile Include="..\Utils\Registry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\RWSection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ShellUpdater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -96,6 +93,9 @@
     <ClCompile Include="..\SVN\SVNBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\ReaderWriterLock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CachedDirectory.h">
@@ -120,9 +120,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\RWSection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\TortoiseShell\ShellCache.h">
@@ -177,6 +174,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\ReaderWriterLock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

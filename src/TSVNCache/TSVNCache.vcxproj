@@ -197,6 +197,7 @@
     <ClCompile Include="..\SVN\SVNBase.cpp" />
     <ClCompile Include="..\TortoiseShell\ShellCache.cpp" />
     <ClCompile Include="..\Utils\ProfilingInfo.cpp" />
+    <ClCompile Include="..\Utils\ReaderWriterLock.cpp" />
     <ClCompile Include="..\Utils\UniqueQueue.cpp" />
     <ClCompile Include="CachedDirectory.cpp" />
     <ClCompile Include="CacheInterface.cpp" />
@@ -205,7 +206,6 @@
     <ClCompile Include="FolderCrawler.cpp" />
     <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\Registry.cpp" />
-    <ClCompile Include="..\Utils\RWSection.cpp" />
     <ClCompile Include="ShellUpdater.cpp" />
     <ClCompile Include="StatusCacheEntry.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -230,6 +230,7 @@
   <ItemGroup>
     <ClInclude Include="..\SVN\SVNBase.h" />
     <ClInclude Include="..\Utils\ProfilingInfo.h" />
+    <ClInclude Include="..\Utils\ReaderWriterLock.h" />
     <ClInclude Include="..\Utils\UniqueQueue.h" />
     <ClInclude Include="CachedDirectory.h" />
     <ClInclude Include="CacheInterface.h" />
@@ -239,7 +240,6 @@
     <ClInclude Include="..\Utils\PathUtils.h" />
     <ClInclude Include="..\Utils\registry.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="..\Utils\RWSection.h" />
     <ClInclude Include="..\TortoiseShell\ShellCache.h" />
     <ClInclude Include="ShellUpdater.h" />
     <ClInclude Include="StatusCacheEntry.h" />
