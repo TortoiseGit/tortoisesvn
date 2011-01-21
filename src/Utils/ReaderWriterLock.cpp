@@ -1,6 +1,6 @@
 /*********************************************************************
 CReaderWriterLock: A simple and fast reader-writer lock class in C++
-                   has characters of .NET ReaderWriterLock class
+has characters of .NET ReaderWriterLock class
 Copyright (C) 2006 Quynh Nguyen Huu
 
 This library is free software; you can redistribute it and/or
@@ -17,16 +17,16 @@ Email questions, comments or suggestions to quynhnguyenhuu@gmail.com
 *********************************************************************/
 
 #include "stdafx.h"
+#include <crtdbg.h>
 #include "ReaderWriterLock.h"
 
 /////////////////////////////////////////////////////////////////
 // Following macros make this file can be used in non-MFC project
 #ifndef ASSERT
-#   include <crtdbg.h>
-    // Define ASSERT macro
+// Define ASSERT macro
 #   define ASSERT _ASSERT
 
-    // Define VERIFY macro
+// Define VERIFY macro
 #   ifdef _DEBUG
 #       define VERIFY ASSERT
 #       define DEBUG_ONLY(f) ((void)(f))
@@ -51,109 +51,191 @@ CReaderWriterLockNonReentrance::CReaderWriterLockNonReentrance()
 
 CReaderWriterLockNonReentrance::~CReaderWriterLockNonReentrance()
 {
-    ASSERT( (NULL == m_hSafeToReadEvent) &&
+    _ASSERT( (NULL == m_hSafeToReadEvent) &&
         (NULL == m_hSafeToWriteEvent) );
     DeleteCriticalSection(&m_cs);
 }
 
-void CReaderWriterLockNonReentrance::_AcquireReaderLockAndLeaveCS()
+bool CReaderWriterLockNonReentrance::_ReaderWait(DWORD dwTimeout) throw()
 {
-    //EnterCriticalSection(&m_cs);
+    bool blCanRead;
 
-    if(m_iNumOfWriter)
+    ++m_iNumOfReaderWaiting;
+    if(NULL == m_hSafeToReadEvent)
     {
-        ++m_iNumOfReaderWaiting;
-        if(NULL == m_hSafeToReadEvent)
-        {
-            //////////////////////////////////////////////////////
-            // This is a long-time task inside Critical Section
-            // However, there isn't any effective way to overcome
-            m_hSafeToReadEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
-        }
+        m_hSafeToReadEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+    }
 
+    if(INFINITE == dwTimeout) // INFINITE is a special value
+    {
         do
         {
-            LeaveCriticalSection(&m_cs);
+            LeaveCS();
             WaitForSingleObject(m_hSafeToReadEvent, INFINITE);
             // There might be one or more Writers entered, that's
             // why we need DO-WHILE loop here
-            EnterCriticalSection(&m_cs);
+            EnterCS();
         }
-        while(m_iNumOfWriter);
+        while(0 != m_iNumOfWriter);
 
-        // Enter successful after wait
         ++m_iNumOfReaderEntered;
-
-        if(0==--m_iNumOfReaderWaiting)
-        {
-            HANDLE hTemp = m_hSafeToReadEvent;
-            m_hSafeToReadEvent = NULL;
-            LeaveCriticalSection(&m_cs);
-
-            CloseHandle(hTemp);
-        }
-        else
-        {
-            LeaveCriticalSection(&m_cs);
-        }
+        blCanRead = TRUE;
     }
     else
     {
-        // Enter successful without wait
-        ++m_iNumOfReaderEntered;
-        LeaveCriticalSection(&m_cs);
+        LeaveCS();
+
+        DWORD const dwBeginTime = GetTickCount();
+        DWORD dwConsumedTime = 0;
+
+        while(TRUE)
+        {
+            blCanRead = (WAIT_OBJECT_0 == WaitForSingleObject(m_hSafeToReadEvent,
+                dwTimeout - dwConsumedTime));
+
+            EnterCS();
+
+            if(0 == m_iNumOfWriter)
+            {
+                // Regardless timeout or not, there is no Writer
+                // So it's safe to be Reader right now
+                ++m_iNumOfReaderEntered;
+                blCanRead = TRUE;
+                break;
+            }
+
+            if(FALSE == blCanRead)
+            {
+                // Timeout after waiting
+                break;
+            }
+
+            // There are some Writers have just entered
+            // So leave CS and prepare to try again
+            LeaveCS();
+
+            dwConsumedTime = GetTickCount() - dwBeginTime;
+            if(dwConsumedTime > dwTimeout)
+            {
+                // Don't worry why the code here looks stupid
+                // Because this case rarely happens, it's better
+                //  to optimize code for the usual case
+                blCanRead = FALSE;
+                EnterCS();
+                break;
+            }
+        }
     }
+
+    if(0==--m_iNumOfReaderWaiting)
+    {
+        CloseHandle(m_hSafeToReadEvent);
+        m_hSafeToReadEvent = NULL;
+    }
+
+    return blCanRead;
 }
 
-void CReaderWriterLockNonReentrance::_ReleaseReaderLockAndLeaveCS()
+void CReaderWriterLockNonReentrance::_ReaderRelease()
 {
     INT _iNumOfReaderEntered = --m_iNumOfReaderEntered;
-    ASSERT(0 <= _iNumOfReaderEntered);
+    _ASSERT(0 <= _iNumOfReaderEntered);
 
     if( (0 == _iNumOfReaderEntered) &&
         (NULL != m_hSafeToWriteEvent) )
     {
-        LeaveCriticalSection(&m_cs);
-
-        /////////////////////////////////////////////////////////////////
-        // INTERESTING point: We signal one of queued WRITERs outside
-        // Critical Section without any problem in logic but better
-        // in performance
-        VERIFY(SetEvent(m_hSafeToWriteEvent));
-    }
-    else
-    {
-        LeaveCriticalSection(&m_cs);
+        SetEvent(m_hSafeToWriteEvent);
     }
 }
 
-void CReaderWriterLockNonReentrance::_AcquireWriterLockAndLeaveCS(BOOL blMustWait)
+bool CReaderWriterLockNonReentrance::_WriterWaitAndLeaveCSIfSuccess(DWORD dwTimeout)
 {
-    //EnterCriticalSection(&m_cs);
+    //EnterCS();
+    _ASSERT(0 != dwTimeout);
 
     // Increase Writer-counter & reset Reader-event if necessary
     INT _iNumOfWriter = ++m_iNumOfWriter;
-    if( (1 == _iNumOfWriter) && (NULL != m_hSafeToReadEvent) )
+    if(	(1 == _iNumOfWriter) && (NULL != m_hSafeToReadEvent) )
     {
         ResetEvent(m_hSafeToReadEvent);
     }
 
-    if(blMustWait && (NULL == m_hSafeToWriteEvent) )
+    if(NULL == m_hSafeToWriteEvent)
     {
         m_hSafeToWriteEvent = CreateEvent(NULL, FALSE, FALSE, NULL);
     }
-    LeaveCriticalSection(&m_cs);
+    LeaveCS();
 
-    if(blMustWait)
+    bool blCanWrite = (WAIT_OBJECT_0 == WaitForSingleObject(m_hSafeToWriteEvent, dwTimeout));
+    if(FALSE == blCanWrite)
     {
-        WaitForSingleObject(m_hSafeToWriteEvent, INFINITE);
+        // Undo what we changed after timeout
+        EnterCS();
+        if(0 == --m_iNumOfWriter)
+        {
+            CloseHandle(m_hSafeToWriteEvent);
+            m_hSafeToWriteEvent = NULL;
+
+            if(0 == m_iNumOfReaderEntered)
+            {
+                // Although it was timeout, it's still safe to be writer now
+                ++m_iNumOfWriter;
+                LeaveCS();
+                blCanWrite = TRUE;
+            }
+            else if(m_hSafeToReadEvent)
+            {
+                SetEvent(m_hSafeToReadEvent);
+            }
+        }
     }
+    return blCanWrite;
 }
 
-void CReaderWriterLockNonReentrance::_ReleaseWriterLockAndLeaveCS(BOOL blDowngrade)
+bool CReaderWriterLockNonReentrance::_UpgradeToWriterLockAndLeaveCS(DWORD dwTimeout) throw()
 {
-    //EnterCriticalSection(&m_cs);
-    ASSERT(0 == m_iNumOfReaderEntered);
+    _ASSERT(m_iNumOfReaderEntered > 0);
+
+    if(0 == dwTimeout)
+    {
+        LeaveCS();
+        return FALSE;
+    }
+
+    --m_iNumOfReaderEntered;
+    bool blCanWrite = _WriterWaitAndLeaveCSIfSuccess(dwTimeout);
+    if(FALSE == blCanWrite)
+    {
+        // Now analyze why it was failed to have suitable action
+        if(0 == m_iNumOfWriter)
+        {
+            _ASSERT(0 < m_iNumOfReaderEntered);
+            // There are some readers still owning the lock
+            // It's safe to be a reader again after failure
+            ++m_iNumOfReaderEntered;
+        }
+        else
+        {
+            // Reach to here, it's NOT safe to be a reader immediately
+            _ReaderWait(INFINITE);
+            if(1 == m_iNumOfReaderEntered)
+            {
+                // After wait, now it's safe to be writer
+                _ASSERT(0 == m_iNumOfWriter);
+                m_iNumOfReaderEntered = 0;
+                m_iNumOfWriter = 1;
+                blCanWrite = TRUE;
+            }
+        }
+        LeaveCS();
+    }
+
+    return blCanWrite;
+}
+
+void CReaderWriterLockNonReentrance::_WriterRelease(bool blDowngrade)
+{
+    _ASSERT(0 == m_iNumOfReaderEntered);
 
     if(blDowngrade)
     {
@@ -162,105 +244,102 @@ void CReaderWriterLockNonReentrance::_ReleaseWriterLockAndLeaveCS(BOOL blDowngra
 
     if(0 == --m_iNumOfWriter)
     {
+        if(NULL != m_hSafeToWriteEvent)
+        {
+            CloseHandle(m_hSafeToWriteEvent);
+            m_hSafeToWriteEvent = NULL;
+        }
+
         if(m_hSafeToReadEvent)
         {
-            //////////////////////////////////////////////////////
-            // This is a long-time task inside Critical Section
-            // However, there isn't any effective way to overcome
-            VERIFY(SetEvent(m_hSafeToReadEvent));
-        }
-
-        if(m_hSafeToWriteEvent)
-        {
-            HANDLE hTemp = m_hSafeToWriteEvent;
-            m_hSafeToWriteEvent = NULL;
-            LeaveCriticalSection(&m_cs);
-
-            // Close handle outside CS to increase throughput
-            CloseHandle(hTemp);
-        }
-        else
-        {
-            LeaveCriticalSection(&m_cs);
+            SetEvent(m_hSafeToReadEvent);
         }
     }
     else
     {
         //////////////////////////////////////////////////////////////////////////
         // Some WRITERs are queued
-        ASSERT( (0 < m_iNumOfWriter) && (NULL != m_hSafeToWriteEvent));
-        LeaveCriticalSection(&m_cs);
+        _ASSERT( (0 < m_iNumOfWriter) && (NULL != m_hSafeToWriteEvent));
 
         if(FALSE == blDowngrade)
         {
-            /////////////////////////////////////////////////////////////////
-            // INTERESTING point: We signal one of queued WRITERs outside
-            // Critical Section without any problem in logic but better
-            // in performance
-            VERIFY(SetEvent(m_hSafeToWriteEvent));
+            SetEvent(m_hSafeToWriteEvent);
         }
     }
 }
 
-void CReaderWriterLockNonReentrance::AcquireReaderLock()
+bool CReaderWriterLockNonReentrance::AcquireReaderLock(DWORD dwTimeout)
 {
-    EnterCriticalSection(&m_cs);
-    _AcquireReaderLockAndLeaveCS();
+    bool blCanRead;
+
+    EnterCS();
+    if(0 == m_iNumOfWriter)
+    {
+        // Enter successful without wait
+        ++m_iNumOfReaderEntered;
+        blCanRead = TRUE;
+    }
+    else
+    {
+        blCanRead = (dwTimeout)? _ReaderWait(dwTimeout) : FALSE;
+    }
+    LeaveCS();
+
+    return blCanRead;
 }
 
 void CReaderWriterLockNonReentrance::ReleaseReaderLock()
 {
-    EnterCriticalSection(&m_cs);
-    _ReleaseReaderLockAndLeaveCS();
+    EnterCS();
+    _ReaderRelease();
+    LeaveCS();
 }
 
-void CReaderWriterLockNonReentrance::AcquireWriterLock()
+bool CReaderWriterLockNonReentrance::AcquireWriterLock(DWORD dwTimeout)
 {
-    EnterCriticalSection(&m_cs);
-    _AcquireWriterLockAndLeaveCS(m_iNumOfWriter + m_iNumOfReaderEntered);
+    bool blCanWrite ;
+
+    EnterCS();
+    if(0 == (m_iNumOfWriter | m_iNumOfReaderEntered))
+    {
+        ++m_iNumOfWriter;
+        blCanWrite = TRUE;
+    }
+    else if(0 == dwTimeout)
+    {
+        blCanWrite = FALSE;
+    }
+    else
+    {
+        blCanWrite = _WriterWaitAndLeaveCSIfSuccess(dwTimeout);
+        if(blCanWrite)
+        {
+            return TRUE;
+        }
+    }
+
+    LeaveCS();
+    return blCanWrite;
 }
 
 void CReaderWriterLockNonReentrance::ReleaseWriterLock()
 {
-    EnterCriticalSection(&m_cs);
-    _ReleaseWriterLockAndLeaveCS(FALSE);
-}
-
-bool CReaderWriterLockNonReentrance::TryAcquireReaderLock()
-{
-    EnterCriticalSection(&m_cs);
-    const bool blCanRead = (0 == m_iNumOfWriter);
-    if(blCanRead)
-    {
-        ++m_iNumOfReaderEntered;
-    }
-    LeaveCriticalSection(&m_cs);
-    return blCanRead;
-}
-
-bool CReaderWriterLockNonReentrance::TryAcquireWriterLock()
-{
-    EnterCriticalSection(&m_cs);
-    const bool blCanWrite = ((0 == m_iNumOfReaderEntered) && (0 == m_iNumOfWriter));
-    if(blCanWrite)
-    {
-        // Increase Writer counter
-        ++m_iNumOfWriter;
-    }
-    LeaveCriticalSection(&m_cs);
-    return blCanWrite;
-}
-
-void CReaderWriterLockNonReentrance::ReleaseReaderAndAcquireWriterLock()
-{
-    EnterCriticalSection(&m_cs);
-    _AcquireWriterLockAndLeaveCS(--m_iNumOfReaderEntered);
+    EnterCS();
+    _WriterRelease(FALSE);
+    LeaveCS();
 }
 
 void CReaderWriterLockNonReentrance::DowngradeFromWriterLock()
 {
-    EnterCriticalSection(&m_cs);
-    _ReleaseWriterLockAndLeaveCS(TRUE);
+    EnterCS();
+    _WriterRelease(TRUE);
+    LeaveCS();
+}
+
+bool CReaderWriterLockNonReentrance::UpgradeToWriterLock(DWORD dwTimeout) throw()
+{
+    EnterCS();
+    return _UpgradeToWriterLockAndLeaveCS(dwTimeout);
 }
 
 // END CReaderWriterLockNonReentrance implementation
@@ -281,199 +360,167 @@ CReaderWriterLock::~CReaderWriterLock()
 {
 }
 
-void CReaderWriterLock::AcquireReaderLock()
+bool CReaderWriterLock::AcquireReaderLock(DWORD dwTimeout)
 {
     const DWORD dwCurrentThreadId = GetCurrentThreadId();
-    EnterCriticalSection(&m_cs);
 
-    const DWORD dwThreadState = (m_map[dwCurrentThreadId] += READER_RECURRENCE_UNIT);
-    if(READER_RECURRENCE_UNIT == dwThreadState)
+    m_impl.EnterCS();
+    CMapThreadToState::iterator ite = m_map.find(dwCurrentThreadId);
+
+    if(ite != m_map.end())
     {
-        __super::_AcquireReaderLockAndLeaveCS();
+        //////////////////////////////////////////////////////////////////////////
+        // Current thread was already a WRITER or READER
+        _ASSERT(0 < ite->second);
+        m_impl.LeaveCS();
+
+        ite->second += READER_RECURRENCE_UNIT;
+        return TRUE;
     }
-    else
+
+    if(0 == m_impl.m_iNumOfWriter)
     {
-        LeaveCriticalSection(&m_cs);
+        // There is NO WRITER on this RW object
+        // Current thread is going to be a READER
+        ++m_impl.m_iNumOfReaderEntered;
+        m_map.insert(std::make_pair(dwCurrentThreadId, READER_RECURRENCE_UNIT));
+
+        m_impl.LeaveCS();
+        return TRUE;
     }
+
+    if(0 == dwTimeout)
+    {
+        m_impl.LeaveCS();
+        return FALSE;
+    }
+
+    bool blCanRead = m_impl._ReaderWait(dwTimeout);
+    if(blCanRead)
+    {
+        m_map.insert(std::make_pair(dwCurrentThreadId, READER_RECURRENCE_UNIT));
+    }
+    m_impl.LeaveCS();
+
+    return blCanRead;
 }
 
 void CReaderWriterLock::ReleaseReaderLock()
 {
     const DWORD dwCurrentThreadId = GetCurrentThreadId();
-    EnterCriticalSection(&m_cs);
+    m_impl.EnterCS();
 
     CMapThreadToState::iterator ite = m_map.find(dwCurrentThreadId);
-    ASSERT( (ite != m_map.end()) && (READER_RECURRENCE_MASK & ite->second));
+    _ASSERT( (ite != m_map.end()) && (READER_RECURRENCE_MASK & ite->second));
 
     const DWORD dwThreadState = (ite->second -= READER_RECURRENCE_UNIT);
     if(0 == dwThreadState)
     {
         m_map.erase(ite);
-        __super::_ReleaseReaderLockAndLeaveCS();
+        m_impl._ReaderRelease();
     }
-    else
-    {
-        LeaveCriticalSection(&m_cs);
-    }
+    m_impl.LeaveCS();
 }
 
-void CReaderWriterLock::AcquireWriterLock()
+bool CReaderWriterLock::AcquireWriterLock(DWORD dwTimeout)
 {
     const DWORD dwCurrentThreadId = GetCurrentThreadId();
-    EnterCriticalSection(&m_cs);
+    bool blCanWrite;
 
-    const DWORD dwThreadState = (m_map[dwCurrentThreadId] += WRITER_RECURRENCE_UNIT);
-    if(WRITER_RECURRENCE_UNIT == dwThreadState)
+    m_impl.EnterCS();
+    CMapThreadToState::iterator ite = m_map.find(dwCurrentThreadId);
+
+    if(ite != m_map.end())
     {
-        __super::_AcquireWriterLockAndLeaveCS(m_iNumOfWriter + m_iNumOfReaderEntered);
-    }
-    else if ( (WRITER_RECURRENCE_UNIT*2) <= dwThreadState)
-    {
-        // This thread was already a writer
-        LeaveCriticalSection(&m_cs);
+        _ASSERT(0 < ite->second);
+
+        if(ite->second >= WRITER_RECURRENCE_UNIT)
+        {
+            // Current thread was already a WRITER
+            m_impl.LeaveCS();
+            ite->second += WRITER_RECURRENCE_UNIT;
+            return TRUE;
+        }
+
+        // Current thread was already a READER
+        _ASSERT(1 <= m_impl.m_iNumOfReaderEntered);
+        if(1 == m_impl.m_iNumOfReaderEntered)
+        {
+            // This object is owned by ONLY current thread for READ
+            // There might be some threads queued to be WRITERs
+            // but for effectiveness (higher throughput), we allow current
+            // thread upgrading to be WRITER right now
+            m_impl.m_iNumOfReaderEntered = 0;
+            ++m_impl.m_iNumOfWriter;
+            m_impl.LeaveCS();
+            ite->second += WRITER_RECURRENCE_UNIT;
+            return TRUE;
+        }
+
+        // Try upgrading from reader to writer
+        blCanWrite = m_impl._UpgradeToWriterLockAndLeaveCS(dwTimeout);
+        if(blCanWrite)
+        {
+            ite->second += WRITER_RECURRENCE_UNIT;
+        }
     }
     else
     {
-        // Upgrading from reader to writer
-        __super::_AcquireWriterLockAndLeaveCS(--m_iNumOfReaderEntered);
+        if(0 == (m_impl.m_iNumOfWriter | m_impl.m_iNumOfReaderEntered))
+        {
+            // This RW object is not owned by any thread
+            // --> it's safe to make this thread to be WRITER
+            ++m_impl.m_iNumOfWriter;
+            m_map.insert(std::make_pair(dwCurrentThreadId, WRITER_RECURRENCE_UNIT));
+            m_impl.LeaveCS();
+            return TRUE;
+        }
+
+        if(0 == dwTimeout)
+        {
+            m_impl.LeaveCS();
+            return FALSE;
+        }
+
+        blCanWrite = m_impl._WriterWaitAndLeaveCSIfSuccess(dwTimeout);
+        if(blCanWrite)
+        {
+            m_impl.EnterCS();
+            m_map.insert(std::make_pair(dwCurrentThreadId, WRITER_RECURRENCE_UNIT));
+        }
+        m_impl.LeaveCS();
     }
+
+    return blCanWrite;
 }
 
 void CReaderWriterLock::ReleaseWriterLock()
 {
     const DWORD dwCurrentThreadId = GetCurrentThreadId();
-    EnterCriticalSection(&m_cs);
+    m_impl.EnterCS();
 
     CMapThreadToState::iterator ite = m_map.find(dwCurrentThreadId);
-    ASSERT( (ite != m_map.end()) && (WRITER_RECURRENCE_UNIT <= ite->second));
+    _ASSERT( (ite != m_map.end()) && (WRITER_RECURRENCE_UNIT <= ite->second));
 
     const DWORD dwThreadState = (ite->second -= WRITER_RECURRENCE_UNIT);
     if(0 == dwThreadState)
     {
         m_map.erase(ite);
-        __super::_ReleaseWriterLockAndLeaveCS(FALSE);
+        m_impl._WriterRelease(FALSE);
     }
-    else if (WRITER_RECURRENCE_UNIT <= dwThreadState)
-    {
-        // Still be is a writer
-        LeaveCriticalSection(&m_cs);
-    }
-    else
+    else if (WRITER_RECURRENCE_UNIT > dwThreadState)
     {
         // Down-grading from writer to reader
-        __super::_ReleaseWriterLockAndLeaveCS(TRUE);
+        m_impl._WriterRelease(TRUE);
     }
-}
-
-bool CReaderWriterLock::TryAcquireReaderLock()
-{
-    bool blCanRead;
-
-    const DWORD dwCurrentThreadId = GetCurrentThreadId();
-    EnterCriticalSection(&m_cs);
-    CMapThreadToState::iterator ite = m_map.find(dwCurrentThreadId);
-
-    if(ite != m_map.end())
-    {
-        //////////////////////////////////////////////////////////////////////////
-        // Current thread was already a WRITER or READER
-        ASSERT(0 < ite->second);
-
-        LeaveCriticalSection(&m_cs);
-        ite->second += READER_RECURRENCE_UNIT;
-        blCanRead = true;
-    }
-    else
-    {
-        if(0 == m_iNumOfWriter)
-        {
-            //////////////////////////////////////////////////////////////////////////
-            // There is NO WRITER on this RW object
-            // Current thread is going to be a READER
-            VERIFY(m_map.insert(std::make_pair(dwCurrentThreadId, READER_RECURRENCE_UNIT)).second);
-            ++m_iNumOfReaderEntered;
-            LeaveCriticalSection(&m_cs);
-            blCanRead = true;
-        }
-        else
-        {
-            //////////////////////////////////////////////////////////////////////////
-            // There is some WRITERs on this RW object
-            LeaveCriticalSection(&m_cs);
-            blCanRead = false;
-        }
-    }
-
-    return blCanRead;
-}
-
-bool CReaderWriterLock::TryAcquireWriterLock()
-{
-    bool blCanWrite;
-
-    const DWORD dwCurrentThreadId = GetCurrentThreadId();
-    EnterCriticalSection(&m_cs);
-    CMapThreadToState::iterator ite = m_map.find(dwCurrentThreadId);
-
-    if(ite != m_map.end())
-    {
-        //////////////////////////////////////////////////////////////////////////
-        // Current thread was already a WRITER or READER
-        ASSERT(0 < ite->second);
-
-        if(ite->second >= WRITER_RECURRENCE_UNIT)
-        {
-            //////////////////////////////////////////////////////////////////////////
-            // Current thread was already a WRITER
-            LeaveCriticalSection(&m_cs);
-            ite->second += WRITER_RECURRENCE_UNIT;
-            blCanWrite = true;
-        }
-        else if(1 == m_iNumOfReaderEntered)
-        {
-            //////////////////////////////////////////////////////////////////////////
-            // This object is owned by ONLY current thread for READ
-            // There might be some threads queued to be WRITERs
-            // but for effectiveness (higher throughput), we allow current
-            // thread upgrading to be WRITER right now
-            __super::_AcquireWriterLockAndLeaveCS(--m_iNumOfReaderEntered);
-            ite->second += WRITER_RECURRENCE_UNIT;
-            blCanWrite = true;
-        }
-        else
-        {
-            LeaveCriticalSection(&m_cs);
-            blCanWrite = false;
-        }
-    }
-    else
-    {
-        if( (0 == m_iNumOfReaderEntered) &&
-            (0 == m_iNumOfWriter) )
-        {
-            //////////////////////////////////////////////////////////////////////////
-            // This RW object is not owned by any thread
-            // --> it's safe to make this thread to be WRITER
-            VERIFY(m_map.insert(std::make_pair(dwCurrentThreadId, WRITER_RECURRENCE_UNIT)).second);
-            ++m_iNumOfWriter;
-            LeaveCriticalSection(&m_cs);
-            blCanWrite = true;
-        }
-        else
-        {
-            LeaveCriticalSection(&m_cs);
-            blCanWrite = false;
-        }
-    }
-
-    return blCanWrite;
+    m_impl.LeaveCS();
 }
 
 void CReaderWriterLock::ReleaseAllLocks()
 {
     const DWORD dwCurrentThreadId = GetCurrentThreadId();
 
-    EnterCriticalSection(&m_cs);
+    m_impl.EnterCS();
     CMapThreadToState::iterator ite = m_map.find(dwCurrentThreadId);
     if(ite != m_map.end())
     {
@@ -481,39 +528,43 @@ void CReaderWriterLock::ReleaseAllLocks()
         m_map.erase(ite);
         if(WRITER_RECURRENCE_UNIT <= dwThreadState)
         {
-            __super::_ReleaseWriterLockAndLeaveCS(FALSE);
+            m_impl._WriterRelease(FALSE);
         }
         else
         {
-            ASSERT(0 < dwThreadState);
-            __super::_ReleaseReaderLockAndLeaveCS();
+            _ASSERT(0 < dwThreadState);
+            m_impl._ReaderRelease();
         }
     }
-    else
-    {
-        LeaveCriticalSection(&m_cs);
-    }
+    m_impl.LeaveCS();
 }
 
-void CReaderWriterLock::GetCurrentThreadStatus(DWORD* lpdwReaderLockCounter,
-                                               DWORD* lpdwWriterLockCounter) const
+DWORD CReaderWriterLock::GetCurrentThreadStatus() const throw()
 {
     DWORD dwThreadState;
     const DWORD dwCurrentThreadId = GetCurrentThreadId();
 
-    EnterCriticalSection(const_cast<LPCRITICAL_SECTION>(&m_cs));
+    m_impl.EnterCS();
     CMapThreadToState::const_iterator ite = m_map.find(dwCurrentThreadId);
     if(ite != m_map.end())
     {
-        LeaveCriticalSection(const_cast<LPCRITICAL_SECTION>(&m_cs));
+        m_impl.LeaveCS();
         dwThreadState = ite->second;
-        ASSERT(dwThreadState > 0);
+        _ASSERT(dwThreadState > 0);
     }
     else
     {
-        LeaveCriticalSection(const_cast<LPCRITICAL_SECTION>(&m_cs));
+        m_impl.LeaveCS();
         dwThreadState = 0;
     }
+
+    return dwThreadState;
+}
+
+void CReaderWriterLock::GetCurrentThreadStatus(DWORD* lpdwReaderLockCounter,
+    DWORD* lpdwWriterLockCounter) const
+{
+    const DWORD dwThreadState = GetCurrentThreadStatus();
 
     if(NULL != lpdwReaderLockCounter)
     {
@@ -525,3 +576,4 @@ void CReaderWriterLock::GetCurrentThreadStatus(DWORD* lpdwReaderLockCounter,
         *lpdwWriterLockCounter = (dwThreadState / WRITER_RECURRENCE_UNIT);
     }
 }
+
