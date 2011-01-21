@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,11 +102,6 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
         // use TortoiseMerge
         bInternal = true;
         com = CPathUtils::GetAppDirectory() + _T("TortoiseMerge.exe");
-        if (com.IsEmpty())
-        {
-            com = CPathUtils::GetAppDirectory();
-            com += _T("TortoiseMerge.exe");
-        }
         com = _T("\"") + com + _T("\"");
         com = com + _T(" /base:%base /theirs:%theirs /mine:%mine /merged:%merged");
         com = com + _T(" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname");
