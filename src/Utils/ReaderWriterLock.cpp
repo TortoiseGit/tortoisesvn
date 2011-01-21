@@ -372,9 +372,9 @@ bool CReaderWriterLock::AcquireReaderLock(DWORD dwTimeout)
         //////////////////////////////////////////////////////////////////////////
         // Current thread was already a WRITER or READER
         _ASSERT(0 < ite->second);
+        ite->second += READER_RECURRENCE_UNIT;
         m_impl.LeaveCS();
 
-        ite->second += READER_RECURRENCE_UNIT;
         return TRUE;
     }
 
@@ -437,8 +437,8 @@ bool CReaderWriterLock::AcquireWriterLock(DWORD dwTimeout)
         if(ite->second >= WRITER_RECURRENCE_UNIT)
         {
             // Current thread was already a WRITER
-            m_impl.LeaveCS();
             ite->second += WRITER_RECURRENCE_UNIT;
+            m_impl.LeaveCS();
             return TRUE;
         }
 
@@ -452,8 +452,8 @@ bool CReaderWriterLock::AcquireWriterLock(DWORD dwTimeout)
             // thread upgrading to be WRITER right now
             m_impl.m_iNumOfReaderEntered = 0;
             ++m_impl.m_iNumOfWriter;
-            m_impl.LeaveCS();
             ite->second += WRITER_RECURRENCE_UNIT;
+            m_impl.LeaveCS();
             return TRUE;
         }
 
@@ -462,6 +462,7 @@ bool CReaderWriterLock::AcquireWriterLock(DWORD dwTimeout)
         if(blCanWrite)
         {
             ite->second += WRITER_RECURRENCE_UNIT;
+            m_impl.LeaveCS();
         }
     }
     else
