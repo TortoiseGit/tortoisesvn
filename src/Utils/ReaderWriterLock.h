@@ -192,7 +192,7 @@ template<typename T>
 class CAutoReadWeakLockT
 {
 public:
-    CAutoReadWeakLockT(T& objLock, DWORD timeout = 0) throw() : m_lock(objLock)
+    CAutoReadWeakLockT(T& objLock, DWORD timeout = 1) throw() : m_lock(objLock)
     {
         isAcquired = m_lock.AcquireReaderLock(timeout);
     }
@@ -214,7 +214,7 @@ template<typename T>
 class CAutoWriteWeakLockT
 {
 public :
-    CAutoWriteWeakLockT(T& objLock, DWORD timeout = 0) throw() : m_lock(objLock)
+    CAutoWriteWeakLockT(T& objLock, DWORD timeout = 1) throw() : m_lock(objLock)
     {
         isAcquired = m_lock.AcquireWriterLock(timeout);
     }
