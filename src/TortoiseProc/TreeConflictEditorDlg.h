@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "TSVNPath.h"
 #include "ProgressDlg.h"
 #include "SVNRev.h"
+#include "PathEdit.h"
 
 class CTreeConflictEditorDlg : public CResizableStandAloneDialog
 {
@@ -80,6 +81,8 @@ private:
     CString             src_left_version_path;
     SVNRev              src_left_version_rev;
     svn_node_kind_t     src_left_version_kind;
+    CPathEdit           src_leftedit;
+    CPathEdit           src_rightedit;
 };
 
 static UINT WM_AFTERTHREAD = RegisterWindowMessage(_T("TORTOISESVN_AFTERTHREAD_MSG"));

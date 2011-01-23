@@ -48,6 +48,8 @@ CTreeConflictEditorDlg::~CTreeConflictEditorDlg()
 void CTreeConflictEditorDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
+    DDX_Control(pDX, IDC_SOURCELEFTURL, src_leftedit);
+    DDX_Control(pDX, IDC_SOURCERIGHTURL, src_rightedit);
 }
 
 
