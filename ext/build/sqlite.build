@@ -27,6 +27,7 @@
       <arg value="/Ob1" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration != 'release'}" />
       <arg value="/GF" if="${configuration == 'release'}" />
+      <arg value="/Gs" if="${configuration == 'release'}" />
       <arg value="/FD" />
       <arg value="/EHsc" />
       <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
