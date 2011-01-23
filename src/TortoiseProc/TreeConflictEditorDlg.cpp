@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -81,6 +81,11 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
     SetDlgItemText(IDC_RESOLVEUSINGTHEIRS, m_sUseTheirs);
     SetDlgItemText(IDC_RESOLVEUSINGMINE, m_sUseMine);
 
+    // hide the "use file/dir from repository" button, since
+    // that one only works in very special cases: if we actually
+    // *can* use it, the thread will show the button again.
+    GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->ShowWindow(SW_HIDE);
+
 
     CString sTemp;
     sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)src_left_version_url, src_left_version_path, src_left_version_rev);
@@ -124,7 +129,6 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
     {
         SetDlgItemText(IDC_INFOLABEL, CString(MAKEINTRESOURCE(IDC_TREECONFLICT_HOWTORESOLVE)));
         GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
-        GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->ShowWindow(SW_SHOW);
     }
 
     AddAnchor(IDC_CONFLICTINFO, TOP_LEFT, TOP_RIGHT);
@@ -337,14 +341,15 @@ UINT CTreeConflictEditorDlg::StatusThread()
 
 LRESULT CTreeConflictEditorDlg::OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
+    GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
+    GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->ShowWindow(SW_HIDE);
     if ((!m_copyfromPath.IsEmpty())&&(src_left_version_rev.IsValid()))
     {
         m_sUseTheirs.Format(IDS_TREECONFLICT_RESOLVE_MERGECHANGES, (LPCTSTR)m_copyfromPath.GetFileOrDirectoryName());
         SetDlgItemText(IDC_RESOLVEUSINGTHEIRS, m_sUseTheirs);
+        GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->ShowWindow(SW_SHOW);
     }
 
-    GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
-    GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->ShowWindow(SW_SHOW);
     SetDlgItemText(IDC_INFOLABEL, CString(MAKEINTRESOURCE(IDC_TREECONFLICT_HOWTORESOLVE)));
 
     return 0;
