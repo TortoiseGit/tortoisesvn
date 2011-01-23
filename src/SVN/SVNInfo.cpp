@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -243,18 +243,18 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
         if (info->tree_conflict->src_right_version)
         {
             if (info->tree_conflict->src_right_version->repos_url)
-                data.src_right_version_url = CUnicodeUtils::GetUnicode(info->tree_conflict->src_right_version->path_in_repos);
+                data.src_right_version_url = CUnicodeUtils::GetUnicode(info->tree_conflict->src_right_version->repos_url);
             if (info->tree_conflict->src_right_version->path_in_repos)
-                data.src_right_version_path = CUnicodeUtils::GetUnicode(info->tree_conflict->src_right_version->repos_url);
+                data.src_right_version_path = CUnicodeUtils::GetUnicode(info->tree_conflict->src_right_version->path_in_repos);
             data.src_right_version_rev = info->tree_conflict->src_right_version->peg_rev;
             data.src_right_version_kind = info->tree_conflict->src_right_version->node_kind;
     }
         if (info->tree_conflict->src_left_version)
         {
             if (info->tree_conflict->src_left_version->repos_url)
-                data.src_left_version_url = CUnicodeUtils::GetUnicode(info->tree_conflict->src_left_version->path_in_repos);
+                data.src_left_version_url = CUnicodeUtils::GetUnicode(info->tree_conflict->src_left_version->repos_url);
             if (info->tree_conflict->src_left_version->path_in_repos)
-                data.src_left_version_path = CUnicodeUtils::GetUnicode(info->tree_conflict->src_left_version->repos_url);
+                data.src_left_version_path = CUnicodeUtils::GetUnicode(info->tree_conflict->src_left_version->path_in_repos);
             data.src_left_version_rev = info->tree_conflict->src_left_version->peg_rev;
             data.src_left_version_kind = info->tree_conflict->src_left_version->node_kind;
         }
