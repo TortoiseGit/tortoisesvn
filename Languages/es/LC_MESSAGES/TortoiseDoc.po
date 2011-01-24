@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
-"POT-Creation-Date: 2010-11-17 07:47 +0000\n"
-"PO-Revision-Date: 2011-01-10 10:50+0000\n"
+"POT-Creation-Date: 2011-01-13 19:28 +0000\n"
+"PO-Revision-Date: 2011-01-24 08:54+0000\n"
 "Last-Translator: tommybrc <tommychristie@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -439,8 +439,8 @@ msgid "Language packs are available which translate the TortoiseSVN user interfa
 msgstr "Están disponibles paquetes de lenguajes que traducen la interfaz de usuario de TortoiseSVN en varios idiomas. Por favor revise  <xref linkend=\"tsvn-lang\"/> para más información sobre como instalarlos."
 
 #. (para)
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>."
-msgstr "Si encuentra algún problema durante o después de la instalación de TortoiseSVN, por favor visite nuestro FAQ en línea en <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>"
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Basic Concepts"
@@ -1502,8 +1502,8 @@ msgstr ""
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 
 #. (para)
-msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <placeholder-1/>"
-msgstr "Por supuesto será más bonito si añade una imagen adecuada. Puede utilizar el <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>logotipo de TortoiseSVN</citetitle></ulink> o puede proporcionar su propia imagen. <placeholder-1/>"
+msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <placeholder-1/>"
+msgstr ""
 
 #. (programlisting)
 #, no-wrap
@@ -1986,8 +1986,8 @@ msgid "Installing Subversion"
 msgstr "Instalando Subversion"
 
 #. (para)
-msgid "Download the latest version of the Subversion Win32 binaries for Apache. Be sure to get the right version to integrate with your version of Apache, otherwise you will get an obscure error message when you try to restart. If you have Apache 2.2.x go to <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
-msgstr "Descarge la última versión de los binarios de Subversion para Apache y Windows 32. Asegúrese de obtener la versión correcta para integrarla en su versión de Apache, porque si no obtendrá un oscuro mensaje de error cuando intente reiniciar. Si tiene Apache 2.2.x acuda a <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
+msgid "Download the latest version of the Subversion Win32 binaries for Apache. Be sure to get the right version to integrate with your version of Apache, otherwise you will get an obscure error message when you try to restart. If you have Apache 2.2.x go to <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>http://subversion.apache.org/packages.html</citetitle></ulink>."
+msgstr ""
 
 #. (para)
 msgid "Run the Subversion installer and follow the instructions. If the Subversion installer recognized that you've installed Apache, then you're almost done. If it couldn't find an Apache server then you have to do some additional steps."
@@ -3179,8 +3179,12 @@ msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, whi
 msgstr "Puede elegir la <firstterm>profundidad</firstterm> que desea para la obtención, lo que le permite especificar la profundidad de la recusión en las carpetas hijas. Si sólo desea unas pocas secciones de un árbol grande, puede obtener sólo la carpeta de más alto nivel, y luego actualizar las carpetas seleccionadas de forma recursiva. <placeholder-1/>"
 
 #. (para)
-msgid "If you check out a sparse working copy (i.e., by choosing something other than <literal>fully recursive</literal> for the checkout depth), you can fetch additional sub-folders by using the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
-msgstr "Si obtiene una copia de trabajo dispersa (por ejemplo seleccionando cualquier otra opción distinta de <literal>totalmente recursivo</literal> para la profundidad de la obtención), puede conseguir sub-carpetas adicionales utilizando el Navegador de repositorios (<xref linkend=\"tsvn-dug-repobrowser\"/>) o el diálogo Comprobar modificaciones (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
+msgid "To easily select only the items you want for the checkout and force the resulting working copy to keep only those items , click the <guibutton>Choose items...</guibutton> button. This opens a new dialog where you can check all items you want in your working copy and uncheck all the items you don't want. The resulting working copy is then known as a <literal>sparse checkout</literal>. An update of such a working copy will not fetch the missing files and folders but only update what you already have in your working copy."
+msgstr ""
+
+#. (para)
+msgid "If you check out a sparse working copy (i.e., by choosing something other than <literal>fully recursive</literal> for the checkout depth), you can fetch additional sub-folders later by using the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
+msgstr ""
 
 #. (para)
 msgid "In windows explorer, <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenuitem>Update item to revision...</guimenuitem></menuchoice>."
@@ -6937,8 +6941,8 @@ msgid "Merge tracking information is stored in the <literal>svn:mergeinfo</liter
 msgstr "La información de registro de fusiones se almacena en la propiedad <literal>svn:mergeinfo</literal> por parte del cliente cuando realiza la fusión. Cuando la fusión se confirma, el servidor almacena dicha información en una base de datos, y cuando le pide información de la fusión, registro o autoría, el servidor puede responer apropiadamente. Para que el sistema funcione correctamente debe asegurarse que el servidor y todos los clientes estén actualizados. Los clientes antiguos no almacenarán la propiedad <literal>svn:mergeinfo</literal> y los servidores anteriores no proporcionarán la información que piden los nuevos clientes."
 
 #. (para)
-msgid "Find out more about merge tracking from Subversion's <ulink url=\"http://subversion.tigris.org/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
-msgstr "Averigue más sobre el registro de fusión desde la <ulink url=\"http://subversion.tigris.org/merge-tracking/index.html\"><citetitle>Documentación de registro de fusión</citetitle></ulink> de Subversion."
+msgid "Find out more about merge tracking from Subversion's <ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -8357,6 +8361,10 @@ msgstr "<placeholder-1/> Esta página le permite especificar qué entradas del m
 #. (para)
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
 msgstr "Hay un caso especial para <guilabel>Obtener bloqueo</guilabel>. Por supuesto puede promocionarlo al nivel superior utilizando la lista anterior, pero como la mayoría de archivos no necesitan bloqueos esto molestaría. Sin embargo, un archivo con la propiedad <literal>svn:needs-lock</literal> necesita esta acción cada vez que se modifica, por lo que en ese caso sería útil tener la opción en el nivel superior. Activando esta casilla hace que cuando se selecciona un archivo que tenga establecida la propiedad <literal>svn:needs-lock</literal>, <guilabel>Obtener bloqueo</guilabel> se mostrará siempre en el nivel superior."
+
+#. (para)
+msgid "Most of the time, you won't need the TortoiseSVN context menu, apart for folders that are under version control by Subversion. For non- versioned folders, you only really need the context menu when you want to do a checkout. If you check the option <literal>Hide menus for unversioned paths</literal>, TortoiseSVN will not add its entries to the context menu for unversioned folders. But the entries are added for all items and paths in a versioned folder. And you can get the entries back for unversioned folders by holding the <keycap>Shift</keycap> key down while showing the context menu."
+msgstr ""
 
 #. (para)
 msgid "If there are some paths on your computer where you just don't want TortoiseSVN's context menu to appear at all, you can list them in the box at the bottom."
@@ -9876,8 +9884,8 @@ msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the d
 msgstr "Incluso aunque TortoiseSVN y TortoiseMerge son gratuitos, puede ayudar a los desarrolladores enviándoles parches y tomando un rol activo en el desarrollo. También puede ayudar a alegrarnos las horas interminables que gastamos delante de nuestros ordenadores."
 
 #. (para)
-msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr "Nos encanta escuchar música mientras trabajamos en TortoiseSVN. Y dado que gastamos muchas horas en el proyecto necesitamos <emphasis>mucha</emphasis> música. Por tanto, hemos preparado algunas listas de deseos con nuestros CDs y DVDs de música favoritos: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Por favor mire también la lista de personas que han contribuido al proyecto enviando parches o traducciones."
+msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
+msgstr ""
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -10873,8 +10881,8 @@ msgid "FAQ"
 msgstr "FAQ"
 
 #. (para)
-msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <email>dev@tortoisesvn.tigris.org</email> and <email>users@tortoisesvn.tigris.org</email>."
-msgstr "Dado que el desarrollo de TortoiseSVN es continuo, a veces es complicado mantener la documentación completamente al día. Mantenemos un <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>FAQ online</citetitle></ulink> que contiene una selección de las preguntas más frecuentes que recibimos en las listas de correo de TortoiseSVN <email>dev@tortoisesvn.tigris.org</email> y <email>users@tortoisesvn.tigris.org</email>."
+msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <email>dev@tortoisesvn.tigris.org</email> and <email>users@tortoisesvn.tigris.org</email>."
+msgstr ""
 
 #. (para)
 msgid "We also maintain a project <ulink url=\"http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\"><citetitle>Issue Tracker</citetitle></ulink> which tells you about some of the things we have on our To-Do list, and bugs which have already been fixed. If you think you have found a bug, or want to request a new feature, check here first to see if someone else got there before you."

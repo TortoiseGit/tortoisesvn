@@ -1,30 +1,29 @@
+# Translation of the TortoiseSVN user interface
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # 
-# Malayalam translation for TortoiseSVN
-# Copyright (C) 2010 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author: luebbe.tortoisesvn $
-# $Date: 2010-06-14 09:36:44 +0200 (Mo, 14. Jun 2010) $
-# $Rev: 19703 $
-#
+# $Date: 2010-11-19 08:33:50 +0100 (Fr, 19. Nov 2010) $
+# $Rev: 20507 $
+# 
 # Authors:
-# Sadik Khalid <sadik.khalid@gmail.com>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-07-31 11:13+0300\n"
-"Last-Translator: Sadik Khalid <sadik.khalid@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2011-01-24 09:16+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Malayalam <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Malayalam\n"
-"X-Poedit-Country: INDIA\n"
+"Language: ml\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+#. Resource IDs: (10, 126)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -38,7 +37,6 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Resource IDs: (10, 126)
 msgid " "
 msgstr ""
 
@@ -564,8 +562,16 @@ msgstr "&ക്ലിപ്ബോർഡിലേക്ക് പകർത്ത�
 msgid "&Copy to..."
 msgstr "&പകർത്തുക..."
 
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr ""
+
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
+msgstr ""
+
+#. Resource IDs: (1610, 1613)
+msgid "&Date"
 msgstr ""
 
 #. Resource IDs: (1485)
@@ -705,7 +711,7 @@ msgid "&From URL:"
 msgstr ""
 
 #. Resource IDs: (1259)
-msgid "&From WC at URL:"
+msgid "&From WC / URL:"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -780,6 +786,10 @@ msgstr "&ചിത്രം മാത്രം"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&ഇറക്കുമതി..."
+
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -856,6 +866,10 @@ msgstr ""
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
 msgstr "&മാക് (CR)"
+
+#. Resource IDs: (1562)
+msgid "&Make depth sticky"
+msgstr ""
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1170,6 +1184,10 @@ msgstr ""
 msgid "&Start Group"
 msgstr ""
 
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr ""
+
 #. Resource IDs: (59393)
 msgid "&Status Bar"
 msgstr ""
@@ -1303,7 +1321,7 @@ msgid "&Update"
 msgstr "&നവീകരിക്കുക"
 
 #. Resource IDs: (76)
-msgid "&Update item to revision"
+msgid "&Update item to revision..."
 msgstr ""
 
 #. Resource IDs: (11)
@@ -1348,6 +1366,10 @@ msgstr ""
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
+msgstr ""
+
+#. Resource IDs: (32881)
+msgid "&Wrap long lines"
 msgstr ""
 
 #. Resource IDs: (1540)
@@ -1457,7 +1479,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -1500,15 +1523,6 @@ msgstr ""
 
 #. Resource IDs: (1007)
 msgid "<Untitled>"
-msgstr ""
-
-#. Resource IDs: (145)
-msgid ""
-"TortoiseSVN is a shell extension.\n"
-"That means it is integrated into the Windows explorer.\n"
-"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
-"to bring up the context menu where you will find all TortoiseSVN commands.\n"
-"And read the manual!"
 msgstr ""
 
 #. Resource IDs: (16603)
@@ -2051,6 +2065,10 @@ msgstr ""
 msgid "Back"
 msgstr "പുറകിലുള്ള"
 
+#. Resource IDs: (65535)
+msgid "Background"
+msgstr ""
+
 #. Resource IDs: (246)
 msgid "Bar Graph"
 msgstr ""
@@ -2333,10 +2351,6 @@ msgstr "നവീകരണത്തിനായി പരിശോധിക്�
 msgid "Check For Updates..."
 msgstr "നവീകരണത്തിനായി പരിശോധിക്കുക..."
 
-#. Resource IDs: (1544)
-msgid "Check externals to tag"
-msgstr ""
-
 #. Resource IDs: (276)
 msgid "Check for &modifications"
 msgstr ""
@@ -2424,6 +2438,10 @@ msgstr ""
 msgid "Choose item:"
 msgstr ""
 
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr ""
@@ -2435,6 +2453,10 @@ msgstr ""
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory \"%1!s!\""
+msgstr ""
+
+#. Resource IDs: (15)
+msgid "Cleanup and refresh shell"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -2449,6 +2471,10 @@ msgstr ""
 msgid ""
 "Cleanup has successfully processed the following paths:\n"
 "%s"
+msgstr ""
+
+#. Resource IDs: (15)
+msgid "Cleanup interrupted operations and refresh the shell overlays"
 msgstr ""
 
 #. Resource IDs: (9)
@@ -2856,6 +2882,10 @@ msgstr ""
 msgid "Copy and rename item to here"
 msgstr ""
 
+#. Resource IDs: (209)
+msgid "Copy column to clipboard"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
 msgstr ""
@@ -2940,13 +2970,16 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not copy the files!\n"
-
 "%s"
 msgstr ""
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not create %1 because the directory is full."
+msgstr ""
+
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
 msgstr ""
 
 #. Resource IDs: (582)
@@ -3039,7 +3072,6 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
-
 "%s"
 msgstr ""
 
@@ -3047,7 +3079,6 @@ msgstr ""
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
-
 "%s"
 msgstr ""
 
@@ -3160,6 +3191,10 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr ""
+
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
 msgstr ""
@@ -3190,6 +3225,10 @@ msgstr ""
 msgid "Date"
 msgstr "തിയ്യതി"
 
+#. Resource IDs: (117)
+msgid "Date Range"
+msgstr ""
+
 #. Resource IDs: (1008)
 msgid "Default"
 msgstr ""
@@ -3208,6 +3247,10 @@ msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
+msgstr ""
+
+#. Resource IDs: (81)
+msgid "Default directory structure successfully created!"
 msgstr ""
 
 #. Resource IDs: (1515)
@@ -4134,6 +4177,10 @@ msgid ""
 "Fill"
 msgstr ""
 
+#. Resource IDs: (117)
+msgid "Filter by"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Filter match"
 msgstr ""
@@ -4180,6 +4227,10 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
+msgstr ""
+
+#. Resource IDs: (281)
+msgid "Fixed at rev"
 msgstr ""
 
 #. Resource IDs: (32818)
@@ -4409,8 +4460,16 @@ msgstr ""
 msgid "Hide &deleted paths"
 msgstr ""
 
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr ""
+
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
+msgstr ""
+
+#. Resource IDs: (2053)
+msgid "Hide all tags"
 msgstr ""
 
 #. Resource IDs: (2052)
@@ -4419,6 +4478,10 @@ msgstr ""
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
+msgstr ""
+
+#. Resource IDs: (32832)
+msgid "Hide ta&gs"
 msgstr ""
 
 #. Resource IDs: (1326)
@@ -4565,6 +4628,10 @@ msgid "ID:32824:V C +F"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32825; ''
+msgid "ID:32825:V C +E"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
 msgstr ""
 
@@ -4574,6 +4641,14 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32870; 'Collapsed'
+msgid "ID:32870:V C +L"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
+msgid "ID:32881:V C +P"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
@@ -5206,6 +5281,10 @@ msgstr ""
 msgid "Locator Bar"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Locator bar"
+msgstr ""
+
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr ""
@@ -5542,7 +5621,7 @@ msgid "Messages"
 msgstr ""
 
 #. Resource IDs: (116)
-msgid "Messages, authors and paths"
+msgid "Messages, authors, paths and revs"
 msgstr ""
 
 #. Resource IDs: (78)
@@ -5786,10 +5865,8 @@ msgid "No"
 msgstr ""
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "No command specified!\n"
-
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 
@@ -5867,6 +5944,10 @@ msgstr ""
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Node Status:"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -6235,6 +6316,15 @@ msgstr ""
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr ""
 
+#. Resource IDs: (169)
+msgid "Patching"
+msgstr ""
+
+#. Resource IDs: (169)
+#, c-format
+msgid "Patching file '%1'"
+msgstr ""
+
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr ""
@@ -6272,7 +6362,7 @@ msgid "Picture:"
 msgstr ""
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr ""
 
 #. Resource IDs: (246)
@@ -6362,6 +6452,10 @@ msgstr ""
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
+msgstr ""
+
+#. Resource IDs: (570)
+msgid "Pre-Connect Hook"
 msgstr ""
 
 #. Resource IDs: (570)
@@ -6687,6 +6781,10 @@ msgstr ""
 msgid "Recursive"
 msgstr ""
 
+#. Resource IDs: (265)
+msgid "Redirecting to url"
+msgstr ""
+
 #. Resource IDs: (3603)
 msgid ""
 "Redo the previously undone action\n"
@@ -6782,6 +6880,10 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Relocating..."
+msgstr ""
+
+#. Resource IDs: (501)
+msgid "Remember the depth for this working copy"
 msgstr ""
 
 #. Resource IDs: (207)
@@ -6955,6 +7057,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
+msgstr ""
+
+#. Resource IDs: (324)
+msgid "Repository created"
 msgstr ""
 
 #. Resource IDs: (106)
@@ -7207,6 +7313,10 @@ msgstr ""
 msgid "Row Up"
 msgstr ""
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr ""
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr ""
@@ -7330,6 +7440,10 @@ msgstr ""
 
 #. Resource IDs: (232)
 msgid "Save client certificate path"
+msgstr ""
+
+#. Resource IDs: (617)
+msgid "Save in Git format"
 msgstr ""
 
 #. Resource IDs: (76)
@@ -7578,6 +7692,10 @@ msgstr ""
 msgid "Set Accelerator &for:"
 msgstr ""
 
+#. Resource IDs: (1544)
+msgid "Set explicit revision for these externals:"
+msgstr ""
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr ""
@@ -7661,7 +7779,8 @@ msgstr ""
 msgid "Show &changes"
 msgstr ""
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr ""
 
@@ -7936,6 +8055,11 @@ msgstr ""
 msgid "Source URL:"
 msgstr ""
 
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr ""
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr ""
@@ -8060,16 +8184,18 @@ msgstr ""
 #. Resource IDs: (117)
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
 
@@ -8124,8 +8250,11 @@ msgstr ""
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
-
 "%s"
+msgstr ""
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8227,10 +8356,6 @@ msgstr "ടാബിന്റെ വലിപ്പം:"
 
 #. Resource IDs: (65535)
 msgid "Tag nodes"
-msgstr ""
-
-#. Resource IDs: (281)
-msgid "Tagged"
 msgstr ""
 
 #. Resource IDs: (79)
@@ -8679,10 +8804,8 @@ msgid "The user who owns the lock of the file"
 msgstr ""
 
 #. Resource IDs: (81)
-#, c-format
 msgid ""
 "The working copy has changed!\n"
-
 "Please commit your changes first or revert."
 msgstr ""
 
@@ -8748,6 +8871,10 @@ msgstr ""
 
 #. Resource IDs: (3887)
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgstr ""
+
+#. Resource IDs: (84)
+msgid "This file already exists!"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -8953,6 +9080,15 @@ msgstr ""
 msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
+msgstr ""
+
+#. Resource IDs: (145)
+msgid ""
+"TortoiseSVN is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all TortoiseSVN commands.\n"
+"And read the manual!"
 msgstr ""
 
 #. Resource IDs: (1162)
@@ -9237,6 +9373,10 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "Updates the working copy to the current revision"
+msgstr ""
+
+#. Resource IDs: (265)
+msgid "Updating"
 msgstr ""
 
 #. Resource IDs: (226)
@@ -9550,6 +9690,10 @@ msgid ""
 "number of days, it will be removed automatically."
 msgstr ""
 
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr ""
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -9609,6 +9753,10 @@ msgstr ""
 #. Resource IDs: (277)
 #, c-format
 msgid "Working copy: %s\n"
+msgstr ""
+
+#. Resource IDs: (2056)
+msgid "Wrap long lines"
 msgstr ""
 
 #. Resource IDs: (73)
@@ -10012,6 +10160,14 @@ msgstr ""
 msgid "copied:"
 msgstr "പകർത്തി:"
 
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
+
 #. Resource IDs: (245)
 msgid "day"
 msgstr "ദിവസം"
@@ -10306,9 +10462,9 @@ msgstr ""
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
-"an optional revision, an URL and a relative directory path. For example\r\n"
+"an optional revision, an URL with an optional peg revision and a relative directory path. For example\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
 "\r\n"
 "The URLs can either be full URLs or relative. The format for\r\n"
 "the relative URLs is:\r\n"
@@ -10465,6 +10621,62 @@ msgid ""
 "Use this as a log message template for users to fill in."
 msgstr ""
 
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatebranch\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for branch/tags/copies for users to fill in."
+msgstr ""
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatecommit\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for commits for users to fill in."
+msgstr ""
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatedelete\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for deletes for users to fill in."
+msgstr ""
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplateimport\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for imports for users to fill in."
+msgstr ""
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatelock\r\n"
+"String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
+"Use this as a log message template for get-locks for users to fill in."
+msgstr ""
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemkdir\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for directory creations for users to fill in."
+msgstr ""
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatemove\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for moves/renames for users to fill in."
+msgstr ""
+
+#. Resource IDs: (579)
+msgid ""
+"tsvn:logtemplatepropset\r\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
+"Use this as a log message template for property modifications for users to fill in."
+msgstr ""
+
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -10551,4 +10763,3 @@ msgstr "ശരി"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr ""
-

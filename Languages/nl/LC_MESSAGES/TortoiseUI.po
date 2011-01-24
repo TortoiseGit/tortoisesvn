@@ -1,5 +1,6 @@
-# Dutch translation for TortoiseSVN
+# Translation of the TortoiseSVN user interface
 # Copyright (C) 2004-2010 the TortoiseSVN team
+# 
 # This file is distributed under the same license as TortoiseSVN
 # 
 # Last commit by:
@@ -7,46 +8,22 @@
 # $Date$
 # $Rev$
 # 
-# Note: Lines starting with #: are required, they are the link to the resource IDs
-#       Lines starting with # provide comments to the translators
-# 
-# Note: There are some notes on translating keyboard shortcuts below
-# 
-# 20050318 JML: Added a list of frequently used translations
-# 
-# English                               Dutch
-# ----------------------------------    --------------------------------
-# Base                                  Basis
-# Blame                                 Verklaren
-# Branche                               Tak
-# Cache                                 Cache
-# Change list                           Werkset
-# Clean Up                              Schonen
-# Commit                                Vastleggen
-# Edit                                  Wijzigen
-# Find                                  Zoeken
-# Folder                                Map
-# HEAD                                  HEAD
-# Icon                                  Pictogram
-# Lock                                  Blokkeren
-# Merge                                 Samenvoegen
-# Obstructed                            Versperd
-# Repository                            Archief
-# Revision                              Revisie
-# Tag                                   Label
-# Transfer                              Versturen
-# Trunk                                 Basislijn
-# Unversioned                           Zonder versiebeheer
-# Update                                Verversen
-# Version Control                       Versiebeheer
-# Working Copy                          Werkkopie
-# 
 # Authors:
-# Jeroen van Amstel <jeroen@amstelonline.demon.nl>
-# Bob Hulst <bob.hulst@hiq.fi>
-# Jean-Marc van Leerdam <jeanmarc@gmail.com>
-# Yves Reynhout <yvesr@ultragenda.com>
-# 
+msgid ""
+msgstr ""
+"Project-Id-Version: TortoiseSVN\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"POT-Creation-Date: 1900-01-01 00:00+0000\n"
+"PO-Revision-Date: 2011-01-24 09:12+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#. Resource IDs: (10, 126)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -60,21 +37,6 @@
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-# 
-msgid ""
-msgstr ""
-"Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-08-10 22:06+0100\n"
-"Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
-#. Resource IDs: (10, 126)
-# A single space
 msgid " "
 msgstr " "
 
@@ -2534,6 +2496,10 @@ msgstr "Checksum:"
 msgid "Choose item:"
 msgstr "Kies onderdeel:"
 
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Klassificatiepatronen"
@@ -3099,6 +3065,10 @@ msgstr ""
 msgid "Could not create %1 because the directory is full."
 msgstr "%1 kon niet worden gemaakt omdat de map vol is."
 
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr ""
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
@@ -3323,6 +3293,10 @@ msgstr "&Aanpassen..."
 #. Resource IDs: (16963)
 msgid "Custom"
 msgstr "Aangepast"
+
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -4699,6 +4673,10 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Verberg &verwijderde paden"
+
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -7748,6 +7726,10 @@ msgstr "Rij naar beneden"
 msgid "Row Up"
 msgstr "Rij naar boven"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr ""
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Selecteer..."
@@ -8508,6 +8490,11 @@ msgstr "Bronbestand Rechts:"
 msgid "Source URL:"
 msgstr "Bron URL:"
 
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr ""
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Geeft aan hoeveel boodschappen bewaard worden in de geschiedenis van logboek-boodschappen."
@@ -8747,6 +8734,10 @@ msgid ""
 msgstr ""
 "Subversion meldde een fout tijdens een schoning!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -10040,6 +10031,10 @@ msgstr "Ververst de werkkopie naar een bepaalde revisie"
 msgid "Updates the working copy to the current revision"
 msgstr "Ververst de werkkopie naar de huidige revisie"
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr ""
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10388,6 +10383,10 @@ msgid ""
 msgstr ""
 "Als een kleine log-cache niet gebruikt wordt gedurende het\n"
 "opgegeven aantal dagen, wordt het automatisch verwijderd."
+
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid ""
@@ -10949,6 +10948,14 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "gekopieerd:"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
 
 #. Resource IDs: (245)
 msgid "day"
@@ -11658,80 +11665,3 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "Check externals to explicit revision"
-#~ msgstr "Zet externen vast op specifieke revisie"
-
-#~ msgid "Check externals to tag"
-#~ msgstr "Controleer de te labelen externen"
-
-#~ msgid "Tagged"
-#~ msgstr "Gelabeld"
-
-#~ msgid "tree conflict:"
-#~ msgstr "boomcomflict:"
-
-#~ msgid "&Lum:"
-#~ msgstr "&Lum:"
-
-#~ msgid "&Sat:"
-#~ msgstr "&Sat:"
-
-#~ msgid "Bug-ID / &Issue-Nr:"
-#~ msgstr "Bug-ID / &Issue-Nr:"
-
-#~ msgid "Dialog"
-#~ msgstr "Dialoog"
-
-#~ msgid "&Save..."
-#~ msgstr "&Opslaan..."
-
-#~ msgid "&To URL: "
-#~ msgstr "&Naar URL: "
-
-#~ msgid "&To path: "
-#~ msgstr "&Naar pad: "
-
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "Toon overlay bij genegeerde bestanden"
-
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "Toon overlay bij bestanden zonder versiebeheer"
-
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "Auteur:                                    Stefan Kueng"
-
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "Elke week controleren of een &nieuwe versie beschikbaar is"
-
-#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
-
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "&Verberg ongerelateerde wijzigingspaden"
-
-#~ msgid "Edit conflict"
-#~ msgstr "Bewerk conflict"
-
-#~ msgid "From URL:"
-#~ msgstr "Van URL:"
-
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "De URL voor het ophalen verwijst naar een\n"
-#~ "bestand, maar het pad voor deze werkkopie\n"
-#~ "is een bestaande map."
-
-#~ msgid "Show &properties"
-#~ msgstr "&Toon eigenschappen"
-
-#~ msgid "Show i&gnored files"
-#~ msgstr "Toon &genegeerde bestanden"
-
-#~ msgid "Show un&modified files"
-#~ msgstr "Toon on&gewijzigde bestanden"
-
-#~ msgid "Show un&versioned files"
-#~ msgstr "Toon bestanden &zonder versiebeheer"

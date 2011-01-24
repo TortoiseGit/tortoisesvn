@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
-"POT-Creation-Date: 2010-11-17 07:47 +0000\n"
-"PO-Revision-Date: 2010-12-09 11:39+0000\n"
+"POT-Creation-Date: 2011-01-13 19:28 +0000\n"
+"PO-Revision-Date: 2011-01-24 08:51+0000\n"
 "Last-Translator: sharkey <a2.nosal@gmail.com>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -439,8 +439,8 @@ msgid "Language packs are available which translate the TortoiseSVN user interfa
 msgstr "Dostupné sú aj jazykové balíčky, ktoré TortoiseSVN používateľské rozhranie prekladajú do mnohých jazykov. Pozrite <xref linkend=\"tsvn-lang\"/> pre viac informácii ako ich nainštalovať."
 
 #. (para)
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>."
-msgstr "Ak narazíte na nejaký problém počas, alebo po inštalácií TortoiseSVN, ako prvé si prosím prezrite často kladené otázky a ich odpovede (FAQ) na <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>http://tortoisesvn.tigris.org/faq.html</citetitle></ulink>."
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Basic Concepts"
@@ -1502,8 +1502,8 @@ msgstr ""
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 
 #. (para)
-msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <placeholder-1/>"
-msgstr "Samozrejme vzhľad môžete vylepšiť vhodným obrázkom. Môžete použiť napríklad <ulink url=\"http://tortoisesvn.tigris.org/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle>, alebo si spraviť vlasný obrázok ku tomu. <placeholder-1/>"
+msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <placeholder-1/>"
+msgstr ""
 
 #. (programlisting)
 #, no-wrap
@@ -1986,8 +1986,8 @@ msgid "Installing Subversion"
 msgstr "Inštalácia subversion"
 
 #. (para)
-msgid "Download the latest version of the Subversion Win32 binaries for Apache. Be sure to get the right version to integrate with your version of Apache, otherwise you will get an obscure error message when you try to restart. If you have Apache 2.2.x go to <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
-msgstr "Stiahnite si najnovšiu verziu Subversion Win32 binarny súbor pre Apache. Skontrolujte, že mát správnu verziu pre spojenie s Apache, inak dostanete chyby pri pokuse o reštart. Ak máte Apache 2.2.x  pokračujte na <ulink url=\"http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100\"><citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle></ulink>."
+msgid "Download the latest version of the Subversion Win32 binaries for Apache. Be sure to get the right version to integrate with your version of Apache, otherwise you will get an obscure error message when you try to restart. If you have Apache 2.2.x go to <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>http://subversion.apache.org/packages.html</citetitle></ulink>."
+msgstr ""
 
 #. (para)
 msgid "Run the Subversion installer and follow the instructions. If the Subversion installer recognized that you've installed Apache, then you're almost done. If it couldn't find an Apache server then you have to do some additional steps."
@@ -3166,7 +3166,11 @@ msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, whi
 msgstr ""
 
 #. (para)
-msgid "If you check out a sparse working copy (i.e., by choosing something other than <literal>fully recursive</literal> for the checkout depth), you can fetch additional sub-folders by using the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
+msgid "To easily select only the items you want for the checkout and force the resulting working copy to keep only those items , click the <guibutton>Choose items...</guibutton> button. This opens a new dialog where you can check all items you want in your working copy and uncheck all the items you don't want. The resulting working copy is then known as a <literal>sparse checkout</literal>. An update of such a working copy will not fetch the missing files and folders but only update what you already have in your working copy."
+msgstr ""
+
+#. (para)
+msgid "If you check out a sparse working copy (i.e., by choosing something other than <literal>fully recursive</literal> for the checkout depth), you can fetch additional sub-folders later by using the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 msgstr ""
 
 #. (para)
@@ -6884,7 +6888,7 @@ msgid "Merge tracking information is stored in the <literal>svn:mergeinfo</liter
 msgstr ""
 
 #. (para)
-msgid "Find out more about merge tracking from Subversion's <ulink url=\"http://subversion.tigris.org/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
+msgid "Find out more about merge tracking from Subversion's <ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
 msgstr ""
 
 #. (title)
@@ -8303,6 +8307,10 @@ msgstr ""
 
 #. (para)
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
+msgstr ""
+
+#. (para)
+msgid "Most of the time, you won't need the TortoiseSVN context menu, apart for folders that are under version control by Subversion. For non- versioned folders, you only really need the context menu when you want to do a checkout. If you check the option <literal>Hide menus for unversioned paths</literal>, TortoiseSVN will not add its entries to the context menu for unversioned folders. But the entries are added for all items and paths in a versioned folder. And you can get the entries back for unversioned folders by holding the <keycap>Shift</keycap> key down while showing the context menu."
 msgstr ""
 
 #. (para)
@@ -9783,8 +9791,8 @@ msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the d
 msgstr "Aj keď TortoiseSVN a TortoiseMerge sú zdarma, môžete pomôcť vývojárom poslaním záplaty, či aktívne prispievať do vývoja. Takisto môžete pomôcť vývojárom povzbudenín pri nekonečných hodinách, ktoré trávime pred našimi počítačmi."
 
 #. (para)
-msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr "Pri práci na TortoiseSVN radi počúvame hudbu. A keďže trávime veľa hodín na projekte potrebujeme <emphasis>množtvo</emphasis> hudby. Preto sme zostavili zoznam prianí s našimi obľúbenými hudobnými CD a DVD: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink>. Prosím pozrite aj zoznam lúdí, ktorí prispeli do projektu poslaním záplaty, alebo prekladov (napr. tento preklad má nasvedomí Oto BREZINA ;) - poznámka prekladateľa)."
+msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
+msgstr ""
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -10706,8 +10714,8 @@ msgid "FAQ"
 msgstr "FAQ"
 
 #. (para)
-msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <email>dev@tortoisesvn.tigris.org</email> and <email>users@tortoisesvn.tigris.org</email>."
-msgstr "Pretože TortoiseSVN je stále vo vývoji je niekedy ťažké udržať dokumentáciu úplne aktuálanu. Udržujeme stránku <ulink url=\"http://tortoisesvn.tigris.org/faq.html\"><citetitle>online FAQ</citetitle></ulink>, ktorá obsahuje výber otázok na ktoré sme pýtaní najčastejšie na e-mailovej konferencií TortoiseSVN <email>dev@tortoisesvn.tigris.org</email> a <email>users@tortoisesvn.tigris.org</email>."
+msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <email>dev@tortoisesvn.tigris.org</email> and <email>users@tortoisesvn.tigris.org</email>."
+msgstr ""
 
 #. (para)
 msgid "We also maintain a project <ulink url=\"http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\"><citetitle>Issue Tracker</citetitle></ulink> which tells you about some of the things we have on our To-Do list, and bugs which have already been fixed. If you think you have found a bug, or want to request a new feature, check here first to see if someone else got there before you."

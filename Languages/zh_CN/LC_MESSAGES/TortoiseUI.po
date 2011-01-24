@@ -1,78 +1,42 @@
-#
-# Chinese (simplified) translation for TortoiseSVN
+# Translation of the TortoiseSVN user interface
 # Copyright (C) 2004-2010 the TortoiseSVN team
+# 
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
+# 
 # Authors:
-# Dongsheng Song <dongsheng.song@gmail.com>, 2006, 2007, 2008, 2009, 2010
-# Xingyu.Wang <xingyu.wang@gmail.com>, 2005, 2006, 2009, 2010
-# Garfield Yao <field977@gmail.com>, 2009
-# Wang Yanning <wangyn@gmail.com>, 2007
-# NetCobra <netcobra@gmail.com>, 2004, 2005, 2006
-# Tan Ruyan <try876@gmail.com>, 2006
-# Cecil Sheng <zcecil@csie.org>, 2004, 2005
-#
-# Update to new pot:
-#    msgmerge --update Tortoise_zh_CN.po Tortoise.pot
-#
-# Check translation:
-#    msgfmt --statistics -c --check-accelerators Tortoise_zh_CN.po
-#
-# Please format your translation before commit:
-#    msgmerge --no-wrap -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
-#    mv -f Tortoise_zh_CN_new.po Tortoise_zh_CN.po
-#
-# We have a nice consistency checker at http://tsvn.e-posta.sk/
-# which will help you to find errors in the translation.
-#
-# Dictionary:
-# add               增加
-# age               年代
-# BASE revision     基础版本
-# blame             追溯
-# branch            分支
-# checkout          检出
-# default           默认
-# HEAD revision     最新版本
-# lock              锁定
-# locking           锁定
-# log               日志
-# message           信息
-# overlay           重载
-# owner             所有者
-# remove            删除
-# rename            改名
-# repository        版本库
-# revert            恢复
-# revision          版本
-# Subversion book   Subversion 手册
-# undo              撤销
-# unified diff      标准差异
-# unversioned       未版本控制
-# versioned         已版本控制
-# working copy      工作副本
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN zh_CN\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: TortoiseSVN\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-10-28 09:57+0700\n"
-"Last-Translator: Xingyu.Wang <xingyu.wang@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <translators@tortoisesvn.tigris.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2011-01-24 09:12+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: CHINA\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #. Resource IDs: (10, 126)
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
 msgstr " "
 
@@ -607,6 +571,10 @@ msgstr "复制到剪贴板(&C)"
 msgid "&Copy to..."
 msgstr "复制到(&C)..."
 
+#. Resource IDs: (1542)
+msgid "&Create folder structure"
+msgstr ""
+
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "定制(&C)"
@@ -827,6 +795,10 @@ msgstr "仅图片(&I)"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "导入(&I)..."
+
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -1221,6 +1193,10 @@ msgstr "版本库中的指定版本(&S)"
 msgid "&Start Group"
 msgstr "启动组(&S)"
 
+#. Resource IDs: (1605)
+msgid "&Start Repobrowser"
+msgstr ""
+
 #. Resource IDs: (59393)
 msgid "&Status Bar"
 msgstr "状态栏(&S)"
@@ -1512,7 +1488,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -2519,6 +2496,10 @@ msgstr "校验和: "
 msgid "Choose item:"
 msgstr "选择项目: "
 
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "分类模式"
@@ -3083,6 +3064,10 @@ msgstr ""
 msgid "Could not create %1 because the directory is full."
 msgstr "目录已满，无法创建 %1。"
 
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr ""
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
@@ -3310,6 +3295,10 @@ msgstr "定制(&T)..."
 msgid "Custom"
 msgstr "定制"
 
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr ""
+
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
 msgstr "定制"
@@ -3365,6 +3354,10 @@ msgstr "默认 URL: "
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
 msgstr "默认应用程序菜单。在没有打开文档的时候显示。"
+
+#. Resource IDs: (81)
+msgid "Default directory structure successfully created!"
+msgstr ""
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4679,6 +4672,10 @@ msgstr "十六进制"
 msgid "Hide &deleted paths"
 msgstr "隐藏已删除的路径(&D)"
 
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr ""
+
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
 msgstr "隐藏所有没有修改此项的分支"
@@ -4776,18 +4773,6 @@ msgstr "IBugTraqProvider"
 msgid "ID"
 msgstr "ID"
 
-# msgid/msgstr fields are EXACTLY 6 characters long for Accelerator keys
-# Format is: "VACS+X" where:
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, leave msgstr as ""
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -6728,8 +6713,8 @@ msgid "Picture:"
 msgstr "图画:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "图像文件 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件(*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr ""
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7469,6 +7454,10 @@ msgstr "版本库 URL"
 msgid "Repository UUID:"
 msgstr "版本库 UUID: "
 
+#. Resource IDs: (324)
+msgid "Repository created"
+msgstr ""
+
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
 msgstr "TSVN取消了请求"
@@ -7723,6 +7712,10 @@ msgstr "行下移"
 msgid "Row Up"
 msgstr "行上移"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr ""
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "选择(&E)..."
@@ -7847,6 +7840,10 @@ msgstr "是否保存 %1 的改动？"
 #. Resource IDs: (232)
 msgid "Save client certificate path"
 msgstr "保存用户端凭证路径"
+
+#. Resource IDs: (617)
+msgid "Save in Git format"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8191,7 +8188,8 @@ msgstr "显示全部版本(&A)"
 msgid "Show &changes"
 msgstr "显示改变(&C)..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "显示日志(&L)"
 
@@ -8478,6 +8476,11 @@ msgstr "源右:"
 msgid "Source URL:"
 msgstr "源URL:"
 
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr ""
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "设定在最新的日志对话框中显示的条目数量。"
@@ -8606,30 +8609,20 @@ msgstr "修剪"
 #. Resource IDs: (117)
 msgid ""
 "Sub-string filter:\r\n"
-"* Specify one or more strings, separated by spaces. All sub-strings must match.\r\n"
+"* Specify one or more strings, separated by spaces. They will be evaluated left to right.\r\n"
 "* Put a - in front of a sub-string to exclude revisions that contain this sub-string.\r\n"
+"* Put a + in front of a sub-string to include revisions that may not match the filter so far.\r\n"
 "* Enclose strings that contain spaces etc. with \".\r\n"
 "* Put a ! at the beginning of the line to invert the whole filter condition.\r\n"
 "\r\n"
 "Examples:\r\n"
 "myname  2008    : my commits of 2008\r\n"
 ".h  -.cpp              : commits that changed headers but no implementations\r\n"
+".doc +.xls 2010  : commits from 2010 with .doc or .xls files in it\r\n"
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
-"-\"\"show all\"\"        : commits that don't contain the string '\"show all\"'\r\n"
+"-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
-"子字符串过滤器:\r\n"
-"* 指定一个或多个字符串，用空格分开。所有的字符串都必须匹配。\r\n"
-"* 在字符串前放一个“-”来排除包含该字符串的版本。\r\n"
-"* 使用双引号来扩起包含空格的字符串。\r\n"
-"* 在行首放一个“!”来反转整个匹配模式。\r\n"
-"\r\n"
-"例如：\r\n"
-"myname 2008    : 自己在 2008 年提交的版本\r\n"
-".h -.cpp            : 有头文件的修改(.h文件)，而没有修改代码(.cpp文件)的版本\r\n"
-"\" \"                 : 包括空格的提交(如只搜索路径时)\r\n"
-"-\"\"show all\"\" : 不包含字符串“\"show all\"”的版本\r\n"
-"!myname .cpp   : 除了我提交之外的所有修改了.cpp的版本"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -8704,6 +8697,10 @@ msgid ""
 msgstr ""
 "Subversion 在进行清理动作时回报错误!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9989,6 +9986,10 @@ msgstr "更新工作副本至指定的版本"
 msgid "Updates the working copy to the current revision"
 msgstr "更新工作副本至当前的版本"
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr ""
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10333,6 +10334,10 @@ msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
 msgstr "当小的日志缓存在指定天数没有使用时，它会被自动删除。"
+
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid ""
@@ -10889,6 +10894,14 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "已复制: "
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
 
 #. Resource IDs: (245)
 msgid "day"
@@ -11590,4 +11603,3 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-

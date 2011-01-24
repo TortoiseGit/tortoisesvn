@@ -1,82 +1,42 @@
-# Turkish translation for TortoiseSVN
+# Translation of the TortoiseSVN user interface
 # Copyright (C) 2004-2010 the TortoiseSVN team
+# 
 # This file is distributed under the same license as TortoiseSVN
 # 
 # Last commit by:
 # $Author$
 # $Date$
-# $Rev$ 15576
+# $Rev$
 # 
 # Authors:
-# (0-100%)Aydogan T. Yolacan <id@yolatech.com> 19/07/06,(v7039 to v7948)
-# (71,7-100)Berke Rahmi Baydu <berke@baydu.com> 16 Mar,2009.
-# (71,7-100)Sinan Guven <sinan@multima-cerebrum.com> 16 Mar,2009.
-# (71,7-100)Onur Fil <onurfil@gmail.com> 16 Mar,2009.
-# (71,7-100)AYDIN KESKIN <aydinkeskin@yahoo.com> 16 Mar,2009.
-# (71,7-100)Vural Goze <vuralgoze@gmail.com> 15 Oct,2009, (v7950)
-# 
-# Notlar:
-#  - Katkida bulunursaniz Authors kismina tercume ettiginiz versiyonu, isminizi ve email'inizi giriniz.
-# 
-# 
-# Su anki versiyon:
-# (v7950)
-# 
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-11-11 10:13+0200\n"
-"Last-Translator: Vural Goze <vuralgoze@gmail.com>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2011-01-24 09:13+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Turkish\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: TURKEY\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #. Resource IDs: (10, 126)
-# Bazi kelimelerin cevirileri:
-# Blame - Sorumlu (programda daha dogru gozukuyor)
-# Diff/Unified diff - farklilik, karsilastirma/Birlestirilmis karsilastirma
-# dosyasi
-# Merge - Birlestirmek
-# Overlay - isaret, isaretlemek
-# Trunk - Ana hat
-# Tag - Etiket
-# Branch - Dal
-# Node - Dugum
-# Commit - Teslim, teslim etmek
-# Versioned - Versiyonlanmis
-# Unversioned - Versiyonlanmamis
-# Non-versioned - Versiyonlanmamis
-# Modified - Degistirilmis
-# Unmodified - Degistirilmemis
-# Export - Disa aktar / Ihrac et(cumlenin yapisina göre)
-# Import - Ice aktar / Ithal et(cumlenin yapisina göre)
-# Wildcard - Gruplama
-# recursive/non-recursive - ozyineli/ozyinesiz
-# ignored/ignore list - aldirilmayan/aldirilmayanlar listesi
-# WC,Working copy - calisan kopya
-# Registry - Kutuk
-# Root - kok,kaynak
-# Head - Bas
-# Base - Taban
-# Case - dizi, buyuklu-kucuklu harf (kullanildigi duruma gore)
-# Path - Dizin
-# Chunk - Yigin
-# Bug/Bug tracker - Kusur / Kusur-izleyicisi
-# Issue tracker - Sorun izleyicisi
-# Issue - Sorun
-# Author - Yaratici / Yazar
-# Link - Birbirine baglamak
-# ReOpen - Tekrar ac
-# Hook - Yakalayici
-# Navigate - Dolas
-# Overwrite - Ustune yaz
-# Original - Ozgun
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
 msgstr " "
 
@@ -2536,6 +2496,10 @@ msgstr "Denetim:"
 msgid "Choose item:"
 msgstr "Öğe seçin:"
 
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Sınıflandırma kalıpları"
@@ -3100,6 +3064,10 @@ msgstr ""
 msgid "Could not create %1 because the directory is full."
 msgstr "%1 yaratılamadı çünkü dizin dolu."
 
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr ""
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
@@ -3326,6 +3294,10 @@ msgstr "Kişiselleş&tir..."
 #. Resource IDs: (16963)
 msgid "Custom"
 msgstr "Özel"
+
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -4701,6 +4673,10 @@ msgstr "Hex"
 msgid "Hide &deleted paths"
 msgstr "Silinmiş dizinleri s&akla"
 
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr ""
+
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
 msgstr "Kalemi değiştirmeyen tüm dalları gizle"
@@ -4799,19 +4775,6 @@ msgid "ID"
 msgstr "ID"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
-# msgid/msgstr fields for Accelerator keys
-# Format is: "ID:xxxxxx:VACS+X" where:
-#    ID:xxxxx = the menu ID corresponding to the accelerator
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
 
@@ -7757,6 +7720,10 @@ msgstr "Aşağı Taşı"
 msgid "Row Up"
 msgstr "Satır yukarı"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr ""
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Seç..."
@@ -8517,6 +8484,11 @@ msgstr "Sağdaki Kaynak:"
 msgid "Source URL:"
 msgstr "Kaynak URL:"
 
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr ""
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "En son Günlük mesajları diyalogunda kaç tane elemanı saklamak istediğinizi belirtir. "
@@ -8755,6 +8727,10 @@ msgid ""
 msgstr ""
 "Subversion temizlik yaparken bir hata oluşturduğunu bildirdi!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -10042,6 +10018,10 @@ msgstr "Çalışan kopya dosyasını belirli bir revizyonla günceller"
 msgid "Updates the working copy to the current revision"
 msgstr "Çalışan kopya dosyasını şu anki revizyonla günceller"
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr ""
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10388,6 +10368,10 @@ msgid ""
 msgstr ""
 "Küçük kayıt önbelleği belirtilen gün kadar süre boyunca\n"
 "kullanılmadığında otomatik olarak silinecektir."
+
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid ""
@@ -10946,6 +10930,14 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "kopyalandı:"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
 
 #. Resource IDs: (245)
 msgid "day"
@@ -11651,338 +11643,3 @@ msgstr "evet"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{HataTakibi}"
-
-#~ msgid "Check externals to tag"
-#~ msgstr "Etiketlemek için haricileri kontrol et"
-
-#~ msgid "tree conflict:"
-#~ msgstr "ağaç çakışması:"
-
-#~ msgid "&Sat:"
-#~ msgstr "&Sat:"
-
-#~ msgid "&Save..."
-#~ msgstr "&Kaydet..."
-
-#~ msgid "&To URL: "
-#~ msgstr "&URL ye git:"
-
-#~ msgid "&To path: "
-#~ msgstr "&Bu dizine:"
-
-#~ msgid "Bug-ID / &Issue-Nr:"
-#~ msgstr "Kusur-ID / &Sorun-No:"
-
-#~ msgid "Show overlay for ignored items"
-#~ msgstr "Aldırılmayan elemanlar için simge göster"
-
-#~ msgid "Show overlay for unversioned items"
-#~ msgstr "Versiyonlanmamış elemanlar için işaret göster"
-
-#~ msgid "Author:                                    Stefan Kueng"
-#~ msgstr "Yazar:                                    Stefan Kueng"
-
-#~ msgid "Automatically check for &newer versions every week"
-#~ msgstr "Otomatik olarak haftada bir yeni& güncelleme kontrolü yap"
-
-#~ msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-#~ msgstr "İşaretlendiğinde, TortoiseSVN haftada bir kere yeni bir güncellemenin olup olmadığını kontrol eder."
-
-#~ msgid "Edit conflict"
-#~ msgstr "Çakışmaları düzenle"
-
-#~ msgid "H&ide unrelated changed paths"
-#~ msgstr "İlişkisi olmayan değiştirilmiş dizinleri s&akla"
-
-#~ msgid "From URL:"
-#~ msgstr "URL den:"
-
-#~ msgid ""
-#~ "The URL to check out refers to a file but this\n"
-#~ "working copy path is an existing directory."
-#~ msgstr ""
-#~ "Depo indirme adresi bir dosyaya karşılık geliyor\n"
-#~ "ancak bu çalışan kopya yolu zaten varolan bir dizin."
-
-#~ msgid "Cleaning up."
-#~ msgstr "Temizleniyor."
-
-#~ msgid "Show &properties"
-#~ msgstr "Seçenekleri gö&ster"
-
-#~ msgid "Show i&gnored files"
-#~ msgstr "Aldırılmayan dosyaların listesini göster"
-
-#~ msgid "Show un&modified files"
-#~ msgstr "&Modifiye edilmemiş dosyaları göster"
-
-#~ msgid "Show un&versioned files"
-#~ msgstr "&Versiyonusuz dosyaları göster"
-
-#~ msgid ""
-#~ "Subversion encountered a serious problem.\n"
-#~ "Please take the time to report this on our mailing list\n"
-#~ "with as much information as possible about what\n"
-#~ "you were trying to do.\n"
-#~ "\n"
-#~ "Subversion reported the following:"
-#~ msgstr ""
-#~ "Subversion ciddi bir sorunla karşılaştı.\n"
-#~ "Lütfen e-posta listemize bu sorun gerçekleştiği zaman\n"
-#~ "ne yapmaya çalıştığınıza dair mümkün olduğu kadar bilgi içerecek\n"
-#~ "şekilde rapor etmek için zamanınızı ayırın.\n"
-#~ "Subversion şunları rapor etti:"
-
-#~ msgid "Floppy drives (A: B:)"
-#~ msgstr "Disket sürücüleri (A: B:)"
-
-#~ msgid ""
-#~ "GDI+ is required to save the revision graph as a picture.\n"
-#~ "You can get GDI+ from\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-#~ msgstr ""
-#~ "GDI+ revizyon diyagramını resim olarak kayit edilmesi için gerekli.\n"
-#~ "GDI+yi bu adresten edinebilirsiniz\n"
-#~ "<a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a>"
-
-#~ msgid "Go offline?"
-#~ msgstr "çevrimdışı ol?"
-
-#~ msgid "Replaced node"
-#~ msgstr "Değiştirilmiş düğüm"
-
-#~ msgid "(deleted) %s"
-#~ msgstr "(silindi) %s"
-
-#~ msgid "alias (deleted): %s"
-#~ msgstr "takma ad (silindi): %s"
-
-#~ msgid "%1 contains an invalid path."
-#~ msgstr "%1 geçersiz dizin içermekte."
-
-#~ msgid "&Berkeley database (BDB)"
-#~ msgstr "&Berkeley veritabanı (BDB)"
-
-#~ msgid "&Dry run"
-#~ msgstr "&Deneme "
-
-#~ msgid "&Native filesystem (FSFS)"
-#~ msgstr "&Yerel dosya sistemi (FSFS)"
-
-#~ msgid "&Open Ctrl-O"
-#~ msgstr "&Aç Ctrl-O"
-
-#~ msgid "&Save Ctrl-S"
-#~ msgstr "&Kaydet Ctrl-S"
-
-#~ msgid "&Undo\tCtrl+Z"
-#~ msgstr "&Geri al\tCtrl+Z"
-
-#~ msgid "(dry run)"
-#~ msgstr "(deneme)"
-
-#~ msgid "An invalid argument was encountered."
-#~ msgstr "Geçersiz bir komut ile karşılaşıldı."
-
-#~ msgid "Analyze revision data..."
-#~ msgstr "Revizyon verilerini analiz et..."
-
-#~ msgid "Arranged by &path"
-#~ msgstr "&Dizine göre sıralandı"
-
-#~ msgid "Arranges the nodes sorted by path"
-#~ msgstr "Düğümleri dizinlerine göre düzenler"
-
-#~ msgid "Bro&wse..."
-#~ msgstr "İnc&ele..."
-
-#~ msgid "Brows&e..."
-#~ msgstr "İnce&le..."
-
-#~ msgid "Checking for forward copies"
-#~ msgstr "İleri kopyaların var olup olmadığını kotrol ediliyor"
-
-#~ msgid "Commit threshold:"
-#~ msgstr "Teslim etme eşiği:"
-
-#~ msgid "D&iff"
-#~ msgstr "&Karşılaştırma"
-
-#~ msgid "Diff With URL"
-#~ msgstr "URL'ye göre karşılaştırma"
-
-#~ msgid ""
-#~ "Do you want to reload the documents?\n"
-#~ "You will lose all changes you've made!"
-#~ msgstr ""
-#~ "Dokümanları tekrar yüklemek istiyor musunuz?\n"
-#~ "Not: Kayıt etmediyseniz yaptığınız değişiklikler silinir!"
-
-#~ msgid "Documentation - Simon Large"
-#~ msgstr "Dökümantasyon - Simon Large"
-
-#~ msgid "Enable &accelerators on the top level menu"
-#~ msgstr "En üst menülerde &hızlandırıcıları çalıştır"
-
-#~ msgid ""
-#~ "Enable this if you want keyboard accelerators on the top level context menu too.\n"
-#~ "Note that the context menu icons look nicer with this disabled."
-#~ msgstr ""
-#~ "Üst içerik menüsunde de tuş kısaltmalarını kullanmak için işaretleyiniz.\n"
-#~ "Not: İçerik menüsü simgeleri bu işaretli değilken daha güzel gözükür."
-
-#~ msgid "Fetch &status for context menu"
-#~ msgstr "İçerik menüsünde dosyaların du&rumunu göster"
-
-#~ msgid ""
-#~ "If disabled, then the context menu will show up faster.\n"
-#~ "But some context menu entries will show up which can't really be used.\n"
-#~ "For example: the \"Show Log\" entry will show even for just added folders."
-#~ msgstr ""
-#~ "İşaretlenmediğinde, içerik menüsü daha hizli gösterilecektir.\n"
-#~ "Ama gerçekte kullanılamayan içerik menüsü elemenları da gösterilecektir.\n"
-#~ "Örneğin: \"Günlüğü göster\" elemanı klasörlerde dahil gösterilecektir."
-
-#~ msgid "Look and Feel"
-#~ msgstr "Görünüş Ayarları"
-
-#~ msgid "Look and Feel::Colors"
-#~ msgstr "Görünüş Ayarları::Renk Ayarları"
-
-#~ msgid "Only update the &top folder"
-#~ msgstr "Sadece &üst klasörü güncelle"
-
-#~ msgid "Remove..."
-#~ msgstr "Kaldır..."
-
-#~ msgid "Repository browser"
-#~ msgstr "Depo tarayıcısı"
-
-#~ msgid "SVN Export to here"
-#~ msgstr "SVN Buraya Dışa Aktar"
-
-#~ msgid "Show &differences"
-#~ msgstr "Tüm değ&işiklikleri göster"
-
-#~ msgid "Sort numerical"
-#~ msgstr "Nümerik sıralama"
-
-#~ msgid "Specify the revision range which you want to merge:"
-#~ msgstr "Birleştirmek istediğiniz revizyon aralığını belirtiniz:"
-
-#~ msgid ""
-#~ "The file %s\n"
-#~ "was found twice!?!\n"
-#~ "This usually happens if you applied a patchfile to the\n"
-#~ "wrong folder!"
-#~ msgstr ""
-#~ "%s dosyasının\n"
-#~ "iki kopyası bulundu!?!\n"
-#~ "Genelde bunun nedeni yama dosyasının yanlış klasöre\n"
-#~ "uygulamasıdır! "
-
-#~ msgid ""
-#~ "TortoiseBlame can't be started directly!\n"
-#~ "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
-#~ msgstr ""
-#~ "TortoiseBlame direkt olarak başlatılamaz!\n"
-#~ "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber]"
-
-#~ msgid "TortoiseSVN Add..."
-#~ msgstr "TortoiseSVN Ekle..."
-
-#~ msgid "TortoiseSVN Blame"
-#~ msgstr "TortoiseSVN Sorumlular"
-
-#~ msgid "TortoiseSVN Checkout..."
-#~ msgstr "TortoiseSVN Çıktısı..."
-
-#~ msgid "TortoiseSVN Commit..."
-#~ msgstr "TortoiseSVN Teslim Edilenler..."
-
-#~ msgid "TortoiseSVN Copy..."
-#~ msgstr "TortoiseSVN Kopyala..."
-
-#~ msgid "TortoiseSVN Export..."
-#~ msgstr "TortoiseSVN Dışa Aktar..."
-
-#~ msgid "TortoiseSVN Import..."
-#~ msgstr "TortoiseSVN İçe Aktar..."
-
-#~ msgid "TortoiseSVN Merge..."
-#~ msgstr "TortoiseSVN Birleştir..."
-
-#~ msgid "TortoiseSVN Rename/move"
-#~ msgstr "TortoiseSVN Tekrar Adlandır/taşı"
-
-#~ msgid "TortoiseSVN Resolve..."
-#~ msgstr "TortoiseSVN Çözümle..."
-
-#~ msgid "TortoiseSVN Revert..."
-#~ msgstr "TortoiseSVN Geridön..."
-
-#~ msgid "TortoiseSVN Settings"
-#~ msgstr "TortoiseSVN Ayarlar"
-
-#~ msgid "TortoiseSVN Switch..."
-#~ msgstr "TortoiseSVN Değiştir..."
-
-#~ msgid "TortoiseSVN Update..."
-#~ msgstr "TortoiseSVN Güncelle..."
-
-#~ msgid "Two-way &Diff"
-#~ msgstr "İki paneldeki &farklılıklar"
-
-#~ msgid "Use &magnifier on locatorbar"
-#~ msgstr "Yerbulucu çubuğundaki &büyüteci kullan"
-
-#~ msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-#~ msgstr "URL için \"From:\" 'ı kullanınız (revizyon aralığı yukarıdaki günlük diyaloğundan seçilebilir)"
-
-#~ msgid ""
-#~ "You copied more than one file or folder.\n"
-#~ "It's not possible to do that in one step, so TortoiseSVN will copy each file/folder\n"
-#~ "individually, creating a new revision for every copied item.\n"
-#~ "\n"
-#~ "Do you still want to do this?"
-#~ msgstr ""
-#~ "Birden fazla dosya yada klasör kopyalamaya çalışıyorsunuz.\n"
-#~ "Bunu tek bir adımda yapmak mümkün değildir,TortoiseSVN her dosya/klasör\n"
-#~ "için yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek kopyalayacaktır.\n"
-#~ "\n"
-#~ "Bu işlemi halen yapmak istiyor musunuz?"
-
-#~ msgid ""
-#~ "You moved more than one file or folder.\n"
-#~ "It's not possible to do that in one step, so TortoiseSVN will move each file/folder\n"
-#~ "individually, creating a new revision for every moved item.\n"
-#~ "\n"
-#~ "Do you still want to do this?"
-#~ msgstr ""
-#~ "Birden fazla dosyayı yada klasörü taşımaya çalışıyorsunuz.\n"
-#~ "Bunu tek bir adımda yapmak mümkün değildir,TortoiseSVN her dosya/klasör\n"
-#~ "için yeni revizyonda yaratarak bu dosyaları/klasörleri tek tek kopyalayacaktır.\n"
-#~ "\n"
-#~ "Bu işlemi halen yapmak istiyor musunuz?"
-
-#~ msgid ""
-#~ "You've selected added folders. The patch won't contain added files within such added folders.\n"
-#~ "Do you want to proceed anyway?"
-#~ msgstr ""
-#~ "Eklenmiş klasörler seçtiniz.\n"
-#~ " Yama bu klasörlerin içindeki dosyaları içermeyecektir\n"
-#~ "Yine de devam etmek istiyor musunuz?"
-
-#~ msgid ""
-#~ "svn:externals\n"
-#~ "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
-#~ "foo\t\thttp://example.com/repos/zig\n"
-#~ "foo/bar -r 1234\thttp://example.com/repos/zag"
-#~ msgstr ""
-#~ "svn:externals\n"
-#~ "Her biri bağıl(relative) dizin, seçilebilir ek revizonlar ve URL içeren satır ile ayrılmış modül belirticileri listesi.Örneğin:\n"
-#~ "foo\t\thttp://example.com/repos/zig\n"
-#~ "foo/bar -r 1234\thttp://example.com/repos/zag"
-
-#~ msgid "which points to the repository at URL:"
-#~ msgstr "URL: 'sindeki depoyu gösterir"

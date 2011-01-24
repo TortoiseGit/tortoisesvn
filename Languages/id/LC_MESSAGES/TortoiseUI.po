@@ -1,14 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of the TortoiseSVN user interface
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # 
+# This file is distributed under the same license as TortoiseSVN
+# 
+# Last commit by:
+# $Author$
+# $Date$
+# $Rev$
+# 
+# Authors:
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-12-03 07:36+0000\n"
+"PO-Revision-Date: 2011-01-24 09:10+0000\n"
 "Last-Translator: andreas88 <andreaspower@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2483,6 +2489,10 @@ msgstr "Checksum:"
 msgid "Choose item:"
 msgstr "Pilih item:"
 
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Pola-Pola Klasifikasi"
@@ -3047,6 +3057,10 @@ msgstr ""
 msgid "Could not create %1 because the directory is full."
 msgstr "Tidak dapat membuat %1 karena direktori sudah penuh."
 
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr ""
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
@@ -3269,6 +3283,10 @@ msgstr "Kus&tomisasi..."
 #. Resource IDs: (16963)
 msgid "Custom"
 msgstr "Kustom"
+
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -4641,6 +4659,10 @@ msgstr "Heks"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Sembuny&ikan path terhapus"
+
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -7688,6 +7710,10 @@ msgstr "Baris Di Bawah"
 msgid "Row Up"
 msgstr "Baris Di Atas"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr ""
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Pilih"
@@ -8448,6 +8474,11 @@ msgstr "Sumber Kanan:"
 msgid "Source URL:"
 msgstr ""
 
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr ""
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Menetapkan seberapa banyak item yang ingin anda biarkan dalam dialog pesan log paling baru."
@@ -8672,6 +8703,10 @@ msgid ""
 msgstr ""
 "Subversion melaporkan kesalahan saat melakukan pembersihan!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9957,6 +9992,10 @@ msgstr "Memutakhirkan copy pekerjaan ke revisi tertentu"
 msgid "Updates the working copy to the current revision"
 msgstr "Memutakhirkan copy pekerjaan ke revisi sekarang"
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr ""
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10303,6 +10342,10 @@ msgid ""
 msgstr ""
 "Ketika tembolok log kecil tidak digunakan untuk jumlah hari\n"
 "yang diberikan, akan dihapus secara otomatis."
+
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid ""
@@ -10862,6 +10905,14 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "disalin:"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
 
 #. Resource IDs: (245)
 msgid "day"

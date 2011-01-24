@@ -1,14 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of the TortoiseSVN user interface
+# Copyright (C) 2004-2010 the TortoiseSVN team
 # 
+# This file is distributed under the same license as TortoiseSVN
+# 
+# Last commit by:
+# $Author$
+# $Date$
+# $Rev$
+# 
+# Authors:
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-12-07 07:32+0000\n"
+"PO-Revision-Date: 2011-01-24 09:08+0000\n"
 "Last-Translator: fly1004 <fly1004@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2489,6 +2495,10 @@ msgstr "체크섬:"
 msgid "Choose item:"
 msgstr "아이템 선택:"
 
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "분류 패턴"
@@ -3053,6 +3063,10 @@ msgstr ""
 msgid "Could not create %1 because the directory is full."
 msgstr "디렉토리가 꽉차서 %1을 생성할 수 없습니다."
 
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr ""
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
@@ -3279,6 +3293,10 @@ msgstr "커스터마이즈(&T)..."
 #. Resource IDs: (16963)
 msgid "Custom"
 msgstr "커스텀"
+
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -4654,6 +4672,10 @@ msgstr "헥사"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "삭제된 경로를 숨기기(&D)"
+
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -7696,6 +7718,10 @@ msgstr "행 아래로"
 msgid "Row Up"
 msgstr "행 위로"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr ""
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "선택하기(&E)..."
@@ -8454,6 +8480,11 @@ msgstr "오른쪽 원본:"
 msgid "Source URL:"
 msgstr "원본 URL:"
 
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr ""
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "사용된 로그는 저장되며, 몇 개까지 저장할 것인지를 지정합니다."
@@ -8676,6 +8707,10 @@ msgid ""
 msgstr ""
 "정리 작업을 하는 중에 Subversion에서 오류가 발생했습니다\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9961,6 +9996,10 @@ msgstr "작업 사본을 특정 리비전으로 업데이트"
 msgid "Updates the working copy to the current revision"
 msgstr "작업 사본을 현재 리비전으로 업데이트 합니다."
 
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr ""
+
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
@@ -10307,6 +10346,10 @@ msgid ""
 msgstr ""
 "작은 로그 캐시가 주어진 날동안 사용되지 않는다면,\n"
 "자동으로 제거될 것입니다."
+
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid ""
@@ -10866,6 +10909,14 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "복사됨:"
+
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
 
 #. Resource IDs: (245)
 msgid "day"

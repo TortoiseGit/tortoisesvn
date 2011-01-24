@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-01-14 11:42+0000\n"
+"PO-Revision-Date: 2011-01-24 09:15+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2501,6 +2501,10 @@ msgstr "Prüfsumme:"
 msgid "Choose item:"
 msgstr "Objekt auswählen:"
 
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr "Objekte auswählen..."
+
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Klassifizierungsmuster"
@@ -3298,6 +3302,10 @@ msgstr "An&passen..."
 #. Resource IDs: (16963)
 msgid "Custom"
 msgstr "Angepasst"
+
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr "Benutzerdefinierte Tiefen"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -8502,6 +8510,11 @@ msgstr "Rechte Quelle:"
 #. Resource IDs: (1552)
 msgid "Source URL:"
 msgstr "Quell URL:"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr "Dünn besetzte Aktualisierung %1!s!, Tiefe \"%2!s!\""
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."

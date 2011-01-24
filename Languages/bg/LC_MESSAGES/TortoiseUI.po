@@ -1,66 +1,42 @@
-#
-# Bulgarian translation for TortoiseSVN
+# Translation of the TortoiseSVN user interface
 # Copyright (C) 2004-2010 the TortoiseSVN team
+# 
 # This file is distributed under the same license as TortoiseSVN
-#
+# 
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-#
+# 
 # Authors:
-# Milen A. Radev <milen@radev.net>, 2004-2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2010-11-13 14:15+0200\n"
-"Last-Translator: Milen A. Radev <milen@radev.net>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2011-01-24 09:07+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Bulgarian\n"
-"X-Poedit-Country: BULGARIA\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-# Working Copy - работно копие
-# Working Base - работна база
-# Update - Обновяване
-# Checkout - изписване
-# Commit - поверяване
-# Revision - Ревизия
-# Diff - различия, сравняване
-# Merge - Сливане
-# Branch - разклонение
-# Tag - етикет
-# Patch - кръпка / закърпване
-# Blame - авторство
-# Revert - отмяна (на промени)
-# whitespaces - празни символи
-# lock(ing/ed) - блокиране/блокирани
-# you - Вие
-# item - обект
-# remove - премахване
-# export - износ, изнасяне
-# import - внос, внасяне
-# save - запис
-# repo-browser/repository browser - (програма за) разглеждане на хранилища
-# browse - разглеждане, избор
-# authentication - удостоверение/удостоверяване
-# advanced (settings) - допълнителни (настройки)
-# diff file - файл с разлики
-# general (settings) - общи настройки
-# patchfile - файл с кръпка
-# head (revision) - главна (ревизия)
-# (main) trunk - основно течение
-# relocate - преместване
-# clipboard - системен буфер
-# log, show log - дневник
-# versioned (file, folder) - контролиран/а
-# download - изтеглям, изтегляне
 #. Resource IDs: (10, 126)
+# msgid/msgstr fields for Accelerator keys
+# Format is: "ID:xxxxxx:VACS+X" where:
+#    ID:xxxxx = the menu ID corresponding to the accelerator
+#    V = Virtual key (or blank if not used) - nearly always set!
+#    A = Alt key     (or blank if not used)
+#    C = Ctrl key    (or blank if not used)
+#    S = Shift key   (or blank if not used)
+#    X = upper case character
+# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
+# ONLY Accelerator Keys with corresponding alphanumeric characters can be
+# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
+# ONLY change the msgstr field. Do NOT change any other.
+# If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
 msgstr " "
 
@@ -304,11 +280,11 @@ msgid "%s, but the file was replaced"
 msgstr "%s, но файлът е бил заменен"
 
 #. Resource IDs: (376)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "%ld failed hunk(s)"
-msgstr "Грешка при разлистване на директория"
+msgstr ""
 
 #. Resource IDs: (3850)
 #, c-format
@@ -494,9 +470,8 @@ msgid "&Browse..."
 msgstr "&Избор..."
 
 #. Resource IDs: (32850)
-#, fuzzy
 msgid "&Bugtraq (Issue tracker integration)"
-msgstr "Конфигуриране на интеграцията с програми за проследяване на дефекти"
+msgstr ""
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -819,6 +794,10 @@ msgstr "&Само изображението"
 msgid "&Import..."
 msgstr "&Внос..."
 
+#. Resource IDs: (1562)
+msgid "&Include externals"
+msgstr ""
+
 #. Resource IDs: (1480)
 msgid "&Include merge info"
 msgstr "&Включване на информацията за сливането"
@@ -880,9 +859,8 @@ msgid "&Load..."
 msgstr "&Зареждане..."
 
 #. Resource IDs: (1554)
-#, fuzzy
 msgid "&Locking required (read-only update)"
-msgstr "&Изисква заключване (обновленията "
+msgstr ""
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
@@ -897,9 +875,8 @@ msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
 
 #. Resource IDs: (1562)
-#, fuzzy
 msgid "&Make depth sticky"
-msgstr "Това по подразбиране"
+msgstr ""
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1035,18 +1012,16 @@ msgid "&Paste"
 msgstr "&Поставяне"
 
 #. Resource IDs: (1600)
-#, fuzzy
 msgid "&Peg revision:"
-msgstr "%s - в ревизия: %d"
+msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
 msgstr "Работа без връзка за &постоянно"
 
 #. Resource IDs: (1588)
-#, fuzzy
 msgid "&Platform dependent (native)"
-msgstr "&Файлова система (FSFS)"
+msgstr ""
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1511,7 +1486,8 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
+#. 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -2222,14 +2198,12 @@ msgid "Bug-ID"
 msgstr "Номер на проблем"
 
 #. Resource IDs: (1578)
-#, fuzzy
 msgid "Bug-ID e&xpression:"
-msgstr "&Номер на проблем:"
+msgstr ""
 
 #. Resource IDs: (1119)
-#, fuzzy
 msgid "Bug-ID is:"
-msgstr "&Номер на проблем:"
+msgstr ""
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2521,6 +2495,10 @@ msgstr "Контролна сума:"
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "Изберете обект:"
+
+#. Resource IDs: (1606)
+msgid "Choose items..."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3086,6 +3064,10 @@ msgstr ""
 msgid "Could not create %1 because the directory is full."
 msgstr "Не може да се създаде %1, защото директорията е пълна."
 
+#. Resource IDs: (84)
+msgid "Could not create temp folder!"
+msgstr ""
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
@@ -3312,6 +3294,10 @@ msgstr "&Настройване..."
 #. Resource IDs: (16963)
 msgid "Custom"
 msgstr "Потребителски"
+
+#. Resource IDs: (17)
+msgid "Custom depths"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -3636,9 +3622,8 @@ msgid "Do you want to proceed?"
 msgstr "Желаете ли да продължите?"
 
 #. Resource IDs: (3887)
-#, fuzzy
 msgid "Do you want to recover these auto-saved documents?"
-msgstr "Желаете ли да премахнете рекурсивно свойството %s?"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid ""
@@ -3758,9 +3743,8 @@ msgid "Edit Button Image"
 msgstr "Редакция на изображението на бутона"
 
 #. Resource IDs: (319)
-#, fuzzy
 msgid "Edit External"
-msgstr "Външна програма:"
+msgstr ""
 
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
@@ -3783,9 +3767,8 @@ msgid "Edit author name"
 msgstr "Редакция на името на автора"
 
 #. Resource IDs: (315)
-#, fuzzy
 msgid "Edit bugtraq properties"
-msgstr "Редакция на езиковитв свойства."
+msgstr ""
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -3825,9 +3808,8 @@ msgid "Either the name or IP of the proxy server"
 msgstr "Името или IP адреса на proxy сървъра"
 
 #. Resource IDs: (265)
-#, fuzzy
 msgid "Eliding mergeinfo"
-msgstr "&Включване на информацията за сливането"
+msgstr ""
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4396,9 +4378,8 @@ msgid "Filter by"
 msgstr "Филтриране по"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Filter match"
-msgstr "Чувствителност към регистъра"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -4691,6 +4672,10 @@ msgstr "Шестнайсетично"
 msgid "Hide &deleted paths"
 msgstr "Скриване на &изтритите пътища"
 
+#. Resource IDs: (1562)
+msgid "Hide Menus for unversioned paths"
+msgstr ""
+
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
 msgstr "Скриване на всички разклонения, които не променят обекта"
@@ -4781,27 +4766,13 @@ msgid "I&nclude paths:"
 msgstr "Пътища за &включване:"
 
 #. Resource IDs: (1580)
-#, fuzzy
 msgid "IBugTraqProvider"
-msgstr "IBugTraqProvider"
+msgstr ""
 
 #. Resource IDs: (1592)
 msgid "ID"
 msgstr "ID"
 
-# msgid/msgstr fields for Accelerator keys
-# Format is: "ID:xxxxxx:VACS+X" where:
-#    ID:xxxxx = the menu ID corresponding to the accelerator
-#    V = Virtual key (or blank if not used) - nearly always set!
-#    A = Alt key     (or blank if not used)
-#    C = Ctrl key    (or blank if not used)
-#    S = Shift key   (or blank if not used)
-#    X = upper case character
-# e.g. "V CS+Q" == Ctrl + Shift + 'Q'
-# ONLY Accelerator Keys with corresponding alphanumeric characters can be
-# updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
-# ONLY change the msgstr field. Do NOT change any other.
-# If you do not want to change an Accelerator Key, copy msgid to msgstr
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -5958,9 +5929,8 @@ msgid "Message &pattern:"
 msgstr "&Шаблон на съобщение:"
 
 #. Resource IDs: (1579)
-#, fuzzy
 msgid "Message part &expression:"
-msgstr "С регулярни изрази"
+msgstr ""
 
 #. Resource IDs: (1241)
 msgid "Message:"
@@ -6753,8 +6723,8 @@ msgid "Picture:"
 msgstr "Картинка:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "Изображения (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Всички (*.*)|*.*||"
+msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr ""
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7031,9 +7001,8 @@ msgid "Provider para&meters:"
 msgstr "&Параметри на доставчика:"
 
 #. Resource IDs: (1581)
-#, fuzzy
 msgid "Provider uuid win&32:"
-msgstr "Доставчик:"
+msgstr ""
 
 #. Resource IDs: (1475)
 msgid "Provider:"
@@ -7145,9 +7114,9 @@ msgid "Recording mergeinfo for merge between URLs"
 msgstr ""
 
 #. Resource IDs: (265)
-#, fuzzy, c-format
+#, c-format
 msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
-msgstr "Обратно сливане на %1!ld! до %2!ld!"
+msgstr ""
 
 #. Resource IDs: (265)
 #, c-format
@@ -7155,9 +7124,9 @@ msgid "Recording mergeinfo for merge of r%ld"
 msgstr ""
 
 #. Resource IDs: (265)
-#, fuzzy, c-format
+#, c-format
 msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
-msgstr "Обратно сливане на %1!ld! до %2!ld!"
+msgstr ""
 
 #. Resource IDs: (265)
 #, c-format
@@ -7752,6 +7721,10 @@ msgstr "Ред надолу"
 msgid "Row Up"
 msgstr "Ред нагоре"
 
+#. Resource IDs: (16)
+msgid "Run cleanup &now"
+msgstr ""
+
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Избор..."
@@ -7833,9 +7806,8 @@ msgid "SVN Status"
 msgstr "SVN състояние"
 
 #. Resource IDs: (20)
-#, fuzzy
 msgid "SVN Statusnumber"
-msgstr "SVN Автор:"
+msgstr ""
 
 #. Resource IDs: (12)
 msgid "SVN URL"
@@ -8225,7 +8197,8 @@ msgstr "&Всички ревизии"
 msgid "Show &changes"
 msgstr "&Промени"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
+#. 32784)
 msgid "Show &log"
 msgstr "&Дневник"
 
@@ -8512,6 +8485,11 @@ msgstr "Десен източник:"
 msgid "Source URL:"
 msgstr "URL-източник:"
 
+#. Resource IDs: (230)
+#, c-format
+msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgstr ""
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Указва максималния брой съобщения, които бихте искали да пазите в хронологията."
@@ -8751,6 +8729,10 @@ msgid ""
 msgstr ""
 "Subversion съобщи за грешка по време на почистването!\n"
 "%s"
+
+#. Resource IDs: (15)
+msgid "Subversion reported an error:"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -10002,9 +9984,8 @@ msgid "Unversioned files mark parent folder as modified"
 msgstr "Неконтролираните файлове бележат съдържащата ги папка като променена"
 
 #. Resource IDs: (265)
-#, fuzzy
 msgid "Unversioned obstruction"
-msgstr "Изтриване на неконтролираните обекти"
+msgstr ""
 
 #. Resource IDs: (286)
 #, c-format
@@ -10042,6 +10023,10 @@ msgstr "Обновява работното копие до специфична
 #. Resource IDs: (9)
 msgid "Updates the working copy to the current revision"
 msgstr "Обновяване на работното копие до текущата ревизия"
+
+#. Resource IDs: (265)
+msgid "Updating"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -10389,6 +10374,10 @@ msgid ""
 msgstr ""
 "Ако малък кеш на дневник не е бил използван определен\n"
 "брой дни, той ще бъде премахнат автоматично."
+
+#. Resource IDs: (198)
+msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid ""
@@ -10949,6 +10938,14 @@ msgstr ""
 msgid "copied:"
 msgstr "копирано:"
 
+#. Resource IDs: (214)
+#, c-format
+msgid ""
+"current size: %s\r\n"
+"old size: %s\r\n"
+"change: %s"
+msgstr ""
+
 #. Resource IDs: (245)
 msgid "day"
 msgstr "ден"
@@ -11249,7 +11246,6 @@ msgid "svn:externals"
 msgstr "svn:externals"
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
@@ -11264,18 +11260,6 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
-"svn:externals\r\n"
-"Списък, с разделител нов ред, от спецификатори на модули, като всеки се състои от\r\n"
-"незадължителен номер на ревизия, URL и относителен път на директория. Например:\r\n"
-"http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag foo/bar\r\n"
-"\r\n"
-"URL-ите могат да бъдат както пълни, така и относителни. Форматът за\r\n"
-"относителните е:\r\n"
-"../ относително съдържащата директория на външните\r\n"
-"^/ относително корена на хранилището\r\n"
-"// относително схемата на URL-а\r\n"
-"/ относително името на сървъра"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11467,92 +11451,60 @@ msgstr ""
 "Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatebranch\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Текст, който се вмъква в съобщението за дневника при поверяване.\r\n"
-"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatecommit\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for commits for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Текст, който се вмъква в съобщението за дневника при поверяване.\r\n"
-"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatedelete\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for deletes for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Текст, който се вмъква в съобщението за дневника при поверяване.\r\n"
-"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplateimport\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Текст, който се вмъква в съобщението за дневника при поверяване.\r\n"
-"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatelock\r\n"
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Текст, който се вмъква в съобщението за дневника при поверяване.\r\n"
-"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatemkdir\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for directory creations for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Текст, който се вмъква в съобщението за дневника при поверяване.\r\n"
-"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatemove\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for moves/renames for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Текст, който се вмъква в съобщението за дневника при поверяване.\r\n"
-"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid ""
 "tsvn:logtemplatepropset\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
 msgstr ""
-"tsvn:logtemplate\r\n"
-"Текст, който се вмъква в съобщението за дневника при поверяване.\r\n"
-"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
 
 #. Resource IDs: (578)
 msgid ""
@@ -11661,14 +11613,3 @@ msgstr "да"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#, fuzzy
-#~ msgid "Check externals to tag"
-#~ msgstr "Превключване към разклонение / етикет"
-
-#, fuzzy
-#~ msgid "Tagged"
-#~ msgstr "(етикет)"
-#~ msgid "tree conflict:"
-#~ msgstr "конфликт на дърветата:"
-
