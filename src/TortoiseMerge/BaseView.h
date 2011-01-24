@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -91,8 +91,8 @@ public:
     void            HiglightLines(int start, int end = -1);
     inline BOOL     IsHidden() const  {return m_bIsHidden;}
     inline void     SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
-    inline BOOL     IsModified() const  {return m_bModified;}
-    void            SetModified(BOOL bModified = TRUE) {m_bModified = bModified;}
+    inline bool     IsModified() const  {return m_bModified;}
+    void            SetModified(bool bModified = true) {m_bModified = bModified;}
     BOOL            HasSelection() {return (!((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0)||(m_nSelBlockStart > m_nSelBlockEnd)));}
     BOOL            HasTextSelection() {return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y));}
     BOOL            GetSelection(int& start, int& end) {start=m_nSelBlockStart; end=m_nSelBlockEnd; return HasSelection();}
@@ -279,7 +279,7 @@ protected:
 
     SVNLineDiff     m_svnlinediff;
     BOOL            m_bOtherDiffChecked;
-    BOOL            m_bModified;
+    bool            m_bModified;
     BOOL            m_bFocused;
     BOOL            m_bViewLinenumbers;
     BOOL            m_bIsHidden;
