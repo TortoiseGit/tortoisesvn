@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -157,7 +157,7 @@ protected:
     int             CheckForSave();
     void            OnViewLineUpDown(int direction);
     void            OnViewLineLeftRight(int direction);
-    bool            RunCommand(TCHAR* command);
+    bool            RunTortoiseProc(const CString& commandList);
     bool            HasConflictsWontKeep();
     bool            TryGetFileName(CString& result);
     CBaseView*      GetActiveBaseView() const;

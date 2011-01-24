@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2010 - TortoiseSVN
+// Copyright (C) 2004-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1086,12 +1086,9 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     if ((bDoesNotExist)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE))))
     {
         // call TortoiseProc to add the new file to version control
-        CString cmd = _T("\"") + CPathUtils::GetAppDirectory();
-        cmd += _T("TortoiseProc.exe\" /command:add /noui /path:\"");
+        CString cmd = _T("/command:add /noui /path:\"");
         cmd += m_Data.m_mergedFile.GetFilename() + _T("\"");
-        auto_buffer<TCHAR> buf(cmd.GetLength()+1);
-        _tcscpy_s(buf, cmd.GetLength()+1, cmd);
-        if(!RunCommand(buf))
+        if(!RunTortoiseProc(cmd))
             return FALSE;
     }
     return true;
@@ -1727,15 +1724,10 @@ BOOL CMainFrame::MarkAsResolved()
     if ((!m_pwndBottomView)||(!m_pwndBottomView->IsWindowVisible()))
         return FALSE;
 
-    TCHAR buf[MAX_PATH*3];
-    GetModuleFileName(NULL, buf, MAX_PATH);
-    TCHAR * end = _tcsrchr(buf, '\\');
-    end++;
-    (*end) = 0;
-    _tcscat_s(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
-    _tcscat_s(buf, m_Data.m_mergedFile.GetFilename());
-    _tcscat_s(buf, _T("\" /closeonend:1 /noquestion /skipcheck"));
-    if(!RunCommand(buf))
+    CString cmd = _T("/command:resolve /path:\"");
+    cmd += m_Data.m_mergedFile.GetFilename();
+    cmd += _T("\" /closeonend:1 /noquestion /skipcheck");
+    if(!RunTortoiseProc(cmd))
         return FALSE;
     return TRUE;
 }
@@ -2031,9 +2023,16 @@ void CMainFrame::OnViewLocatorbar()
     m_wndLineDiffBar.DocumentUpdated();
 }
 
-bool CMainFrame::RunCommand(TCHAR* command)
+bool CMainFrame::RunTortoiseProc(const CString& commandList)
 {
-    if(CCreateProcessHelper::CreateProcessDetached (NULL, command))
+    CString pathToExecutable = CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe");
+    CString cmd;
+    cmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)commandList);
+
+    auto_buffer<TCHAR> buf(cmd.GetLength()+1);
+    _tcscpy_s(buf, cmd.GetLength()+1, cmd);
+
+    if(CCreateProcessHelper::CreateProcessDetached (NULL, buf))
         return true;
 
     CFormatMessageWrapper errorDetails;
