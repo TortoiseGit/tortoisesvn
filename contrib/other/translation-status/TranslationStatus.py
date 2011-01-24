@@ -161,7 +161,7 @@ class transReport:
           cmd = ['msgmerge','--no-wrap','--quiet','--no-fuzzy-matching', poFile, potFile, '-o', wrkFile]
           self.safe_command(cmd)
           poDate = self.getPoDate(wrkFile)
-          error = self.checkError('--check', wrkFile)
+          error = self.checkError('--check-format', wrkFile)
           if error:
             return 'BROKEN'
           else:
