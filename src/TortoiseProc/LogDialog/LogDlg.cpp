@@ -1832,6 +1832,37 @@ void CLogDlg::NotifyTargetOnOk()
     }
 }
 
+void CLogDlg::CreateFindDialog()
+{
+    if (m_pFindDialog == 0)
+    {
+        m_pFindDialog = new CFindReplaceDialog();
+        m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);
+    }
+}
+
+void CLogDlg::RunTortoiseProc(const CString& commandsList)
+{
+    CString pathToExecutable = CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe");
+    CString sCmd;
+    sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)commandsList);
+    CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
+
+void CLogDlg::DoOpenFileWith(bool bOpenWith, const CTSVNPath& tempfile)
+{
+    SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+    int ret = 0;
+    if (!bOpenWith)
+        ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+    if ((ret <= HINSTANCE_ERROR)||bOpenWith)
+    {
+        CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+        cmd += tempfile.GetWinPathString() + _T(" ");
+        CAppUtils::LaunchApplication(cmd, NULL, false);
+    }
+}
+
 void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
     // a double click on an entry in the changed-files list has happened
@@ -2156,19 +2187,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
     }
     progDlg.Stop();
     SetAndClearProgressInfo((HWND)NULL);
-    SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-    if (!bOpenWith)
-    {
-        int ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
-        if (ret <= HINSTANCE_ERROR)
-            bOpenWith = true;
-    }
-    if (bOpenWith)
-    {
-        CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-        cmd += tempfile.GetWinPathString() + _T(" ");
-        CAppUtils::LaunchApplication(cmd, NULL, false);
-    }
+    DoOpenFileWith(bOpenWith, tempfile);
     EnableOKButton();
     theApp.DoWaitCursor(-1);
     return TRUE;
@@ -2568,10 +2587,9 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                         // if we get here, then the linked revision is not shown in this dialog:
                         // start a new log dialog for the repository root and this revision
                         CString sCmd;
-                        sCmd.Format(_T("%s /command:log /path:\"%s\" /startrev:%ld /propspath:\"%s\""),
-                            (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+                        sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%ld /propspath:\"%s\""),
                             (LPCTSTR)m_sRepositoryRoot, rev, (LPCTSTR)m_path.GetWinPath());
-                        CAppUtils::LaunchApplication(sCmd, NULL, false);
+                        RunTortoiseProc(sCmd);
                         return;
                     }
                 }
@@ -4725,16 +4743,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     progDlg.Stop();
                     SetAndClearProgressInfo((HWND)NULL);
-                    SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-                    int ret = 0;
-                    if (!bOpenWith)
-                        ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
-                    if ((ret <= HINSTANCE_ERROR)||bOpenWith)
-                    {
-                        CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-                        c += tempfile.GetWinPathString() + _T(" ");
-                        CAppUtils::LaunchApplication(c, NULL, false);
-                    }
+                    DoOpenFileWith(bOpenWith, tempfile);
                 }
             }
             break;
@@ -4773,10 +4782,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         case ID_UPDATE:
             {
                 CString sCmd;
-                sCmd.Format(_T("%s /command:update /path:\"%s\" /rev:%ld"),
-                    (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+                sCmd.Format(_T("/command:update /path:\"%s\" /rev:%ld"),
                     (LPCTSTR)m_path.GetWinPath(), (LONG)revSelected);
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
+                RunTortoiseProc(sCmd);
             }
             break;
         case ID_FINDENTRY:
@@ -4784,25 +4792,16 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 m_nSearchIndex = m_LogList.GetSelectionMark();
                 if (m_nSearchIndex < 0)
                     m_nSearchIndex = 0;
-                if (m_pFindDialog)
-                {
-                    break;
-                }
-                else
-                {
-                    m_pFindDialog = new CFindReplaceDialog();
-                    m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);
-                }
+                CreateFindDialog();
             }
             break;
         case ID_REPOBROWSE:
             {
                 CString sCmd;
-                sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%s"),
-                    (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+                sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%s"),
                     (LPCTSTR)pathURL, (LPCTSTR)revSelected.ToString());
 
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
+                RunTortoiseProc(sCmd);
             }
             break;
         case ID_EDITLOG:
@@ -4834,20 +4833,18 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         case ID_EXPORT:
             {
                 CString sCmd;
-                sCmd.Format(_T("%s /command:export /path:\"%s\" /revision:%ld"),
-                    (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+                sCmd.Format(_T("/command:export /path:\"%s\" /revision:%ld"),
                     (LPCTSTR)pathURL, (LONG)revSelected);
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
+                RunTortoiseProc(sCmd);
             }
             break;
         case ID_CHECKOUT:
             {
                 CString sCmd;
                 CString url = _T("tsvn:")+pathURL;
-                sCmd.Format(_T("%s /command:checkout /url:\"%s\" /revision:%ld"),
-                    (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+                sCmd.Format(_T("/command:checkout /url:\"%s\" /revision:%ld"),
                     (LPCTSTR)url, (LONG)revSelected);
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
+                RunTortoiseProc(sCmd);
             }
             break;
         case ID_VIEWREV:
@@ -5440,14 +5437,18 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     // if the item got deleted in this revision,
                     // fetch the log from the previous revision where it
                     // still existed.
-                    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld /pegrev:%ld"), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)filepath, logrev, logrev-1);
+                    sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%ld /pegrev:%ld"),
+                        (LPCTSTR)filepath, logrev, logrev-1);
                 }
                 else
-                    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /pegrev:%ld"), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)filepath, logrev);
+                {
+                    sCmd.Format(_T("/command:log /path:\"%s\" /pegrev:%ld"),
+                        (LPCTSTR)filepath, logrev);
+                }
 
                 if (bMergeLog)
                     sCmd += _T(" /merge");
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
+                RunTortoiseProc(sCmd);
                 EnableOKButton();
                 theApp.DoWaitCursor(-1);
             }
@@ -5509,11 +5510,7 @@ void CLogDlg::OnRefresh()
 
 void CLogDlg::OnFind()
 {
-    if (!m_pFindDialog)
-    {
-        m_pFindDialog = new CFindReplaceDialog();
-        m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);
-    }
+    CreateFindDialog();
 }
 
 void CLogDlg::OnFocusFilter()
