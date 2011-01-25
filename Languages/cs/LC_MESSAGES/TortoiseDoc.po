@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 2011-01-13 19:28 +0000\n"
-"PO-Revision-Date: 2011-01-24 09:26+0000\n"
+"PO-Revision-Date: 2011-01-25 14:13+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4010,820 +4010,820 @@ msgstr "<graphic fileref=\"../images/ConflictIcon.png\"/> Pokud dojde během akt
 
 #. (para)
 msgid "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Such files have this overlay to indicate that you have to get a lock first before you can edit that file."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Pokud jste nastavili v souboru vlastnost <literal>svn:needs-lock</literal>, Subversion soubor zpřístupní pouze pro čtení, dokud tento soubor nezamknete. Takové soubory mají tento překryv oznamující, že nejdříve musíte soubor uzamknout, než ho můžete začít upravovat."
 
 #. (para)
 msgid "<graphic fileref=\"../images/LockedIcon.png\"/> If you hold a lock on a file, and the Subversion status is <emphasis>normal</emphasis>, this icon overlay reminds you that you should release the lock if you are not using it to allow others to commit their changes to the file."
-msgstr ""
+msgstr "<graphic fileref=\"../images/LockedIcon.png\"/> Pokud nad souborem držíte zámek a Subversion stav je <emphasis>normální</emphasis>, toto překrytí ikony Vám připomene, že byste měli zámek uvolnit, pokud ho nepoužíváte, aby ostatní mohli odevzdat své změny do souboru."
 
 #. (para)
 msgid "<graphic fileref=\"../images/DeletedIcon.png\"/> This icon shows you that some files or folders inside the current folder have been scheduled to be <emphasis>deleted</emphasis> from version control or a file under version control is missing in a folder."
-msgstr ""
+msgstr "<graphic fileref=\"../images/DeletedIcon.png\"/> Tato ikona ukazuje, že některé soubory nebo adresáře v aktuálním adresáři byly naplánovány ke <emphasis>smázání</emphasis> z kontroly verzí, nebo soubor pod kontrolou verzí v adresáři chybí."
 
 #. (para)
 msgid "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you that a file or folder has been scheduled to be <emphasis>added</emphasis> to version control."
-msgstr ""
+msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> Znaménko plus Vám říká, že soubor nebo adresář byly naplánovány k <emphasis>přídání</emphasis> do kontroly verzí."
 
 #. (para)
 msgid "<graphic fileref=\"../images/IgnoredIcon.png\"/> The bar sign tells you that a file or folder is <emphasis>ignored</emphasis> for version control purposes. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/IgnoredIcon.png\"/> Znamínko mínus Vám napovídá, že soubor nebo adresář je <emphasis>ignorován</emphasis> pro účely kontroly verzí. Tento překryv je volitelný."
 
 #. (para)
 msgid "<graphic fileref=\"../images/UnversionedIcon.png\"/> This icon shows files and folders which are not under version control, but have not been ignored. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/UnversionedIcon.png\"/> Tato ikona reprezentuje soubory a adresáře, které nejsou pod kontrolou verzí, ale nebyly ignorovány. Tento překryv je volitelný."
 
 #. (para)
 msgid "In fact, you may find that not all of these icons are used on your system. This is because the number of overlays allowed by Windows is very limited and if you are also using an old version of TortoiseCVS, then there are not enough overlay slots available. TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote> and limits its use of overlays to give other apps a chance too."
-msgstr ""
+msgstr "Ve skutečnosti, možná zjistíte, že ne všechny tyto ikony jsou ve Vašem systému používány. Je to proto, že počet překrytí povoleným systémem Windows je velmi omezený a pokud také používáte starou verzi TortoiseCVS, pak není dostatek volných míst pro překryvy. TortoiseSVN se snaží být <quote>Dobrým Občanem (TM)</quote> a omezuje své používání překryvů, aby i jiné aplikace dostali šanci."
 
 #. (para)
 msgid "Now that there are more Tortoise clients around (TortoiseCVS, TortoiseHG, ...) the icon limit becomes a real problem. To work around this, the TortoiseSVN project introduced a common shared icon set, loaded as a DLL, which can be used by all Tortoise clients. Check with your client provider to see if this has been integrated yet :-)"
-msgstr ""
+msgstr "Protože v současnosti existuje více klientů Tortoise (TortoiseCVS, TortoiseHg,...) limit ikon se stává skutečným problémem. Projekt TortoiseSVN proto představil společně sdílenýou sadu ikon, načtenou jako DLL, které lze použít pro všechny klienty Tortise. Poraďte se se svým poskytovatelem klienta, zda toto už bylo integrováno :-)"
 
 #. (para)
 msgid "For a description of how icon overlays correspond to Subversion status and other technical details, read <xref linkend=\"tsvn-app-internals-overlays\"/>."
-msgstr ""
+msgstr "Pro popis toho, kterému stavu Subversion překryvy ikon odpovídají a další technické podrobnosti si přečtěte <xref linkend=\"tsvn-app-internals-overlays\"/>."
 
 #. (title)
 msgid "Detailed Status"
-msgstr ""
+msgstr "Podrobný Stav"
 
 #. (primary)
 msgid "windows properties"
-msgstr ""
+msgstr "windows vlastnosti"
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
-msgstr ""
+msgstr "Stránka vlastností v Průzkumníku, karta Subversion"
 
 #. (para)
 msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
-msgstr ""
+msgstr "<placeholder-1/> Někdy budete chctít podrobnější informace o souboru/adresáři, než jen překryvem ikon. Můžete získat všechny informace, které Subversion nabízí v dialogovém okně vlastnosti v Průzkumníku. Stačí vybrat soubor nebo adresář a vyberte v kontextovém menu možnost <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Vlastnosti</guimenuitem></menuchoice> (poznámka: toto je normální menu položky vlastnosti, který Průzkumník nabízí a ne ten v podmenu TortoiseSVN!). V dialogovém okně Vlastnosti přidal TortoiseSVN novou stránku vlastností pro soubory/adresáře pod kontrolou Subversion. Zde vidíte všechny důležité informace o vybraném souboru/adresáři."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
-msgstr ""
+msgstr "Sloupce TortoiseSVN v Průzkumníku Windows"
 
 #. (primary)
 msgid "Explorer Columns"
-msgstr ""
+msgstr "Sloupce Průzkumníka"
 
 #. (para)
 msgid "The same information which is available from the icon overlays (and much more) can be displayed as additional columns in Windows Explorer's Details View."
-msgstr ""
+msgstr "Stejné informace, které jsou k dispozici v překryvech ikon (a ještě mnohem víc), mohou být zobrazeny jako další sloupce v okně podrobností Průzkumníka Windows."
 
 #. (para)
 msgid "Simply right click on one of the headings of a column, choose <guimenuitem>More...</guimenuitem> from the context menu displayed. A dialog will appear where you can specify the columns and their order, which is displayed in the <quote>Detailed View</quote>. Scroll down until the entries starting with SVN come into view. Check the ones you would like to have displayed and close the dialog by pressing <guibutton>OK</guibutton>. The columns will be appended to the right of those currently displayed. You can reorder them by drag and drop, or resize them, so that they fit your needs."
-msgstr ""
+msgstr "Jednoduše klikněte pravým tlačítkem myši na jeden ze záhlaví sloupce, zvolte <guimenuitem> Více...</guimenuitem> ze zobrazeného kontextového menu. Objeví se dialogové okno, kde můžete zadat sloupce a jejich pořadí, který je zobrazen v <quote>Detailním zobrazení</quote>. Přejděte dolů, dokud se položky začínající SVN nezobrazí. Zaškrtněte ty, které byste chtěli mít zobrazeny a zavřete dialogové okno stisknutím <guibutton>OK</guibutton>. Sloupce budou připojen napravo od momentálně zobrazených. Můžete změnit jejich pořadí přetažením, nebo měnit jejich velikost, aby odpovídali vašim potřebám."
 
 #. (para)
 msgid "The additional columns in the Windows Explorer are not available on Vista, since Microsoft decided to not allow such columns for <emphasis>all</emphasis> files anymore but only for specific file types."
-msgstr ""
+msgstr "Další sloupce v Průzkumníku Windows nejsou ve Windows Vista k dispozici, protože Microsoft rozhodl, nepovolovat takové sloupce pro <emphasis>všechny</emphasis> soubory ale jen pro konkrétní typy souborů."
 
 #. (para)
 msgid "If you want the current layout to be displayed in all your working copies, you may want to make this the default view."
-msgstr ""
+msgstr "Pokud chcete, aby stávající uspořádání, které je zobrazeno bylo ve všech Vašich pracovních kopií, můžete zobrazení nastavit jako výchozí zobrazení."
 
 #. (title)
 msgid "Local and Remote Status"
-msgstr ""
+msgstr "Místní a Vzdálený Stav"
 
 #. (primary)
 msgid "modifications"
-msgstr ""
+msgstr "změny"
 
 #. (title)
 #. (title)
 msgid "Check for Modifications"
-msgstr ""
+msgstr "Zjistit změny"
 
 #. (para)
 msgid "<placeholder-1/> It's often very useful to know which files you have changed and also which files got changed and committed by others. That's where the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check For Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will show you every file that has changed in any way in your working copy, as well as any unversioned files you may have."
-msgstr ""
+msgstr "<placeholder-1/> Je často velmi užitečné vědět, které soubory jste změnili a také soubory byly změněny od ostatních. Zde je užitečný příkaz <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Zjistit změny</guimenuitem></menuchoice>. Toto dialogové okno Vám ukáže každý soubor, který se jakýmkoli způsobem v pracovní kopii změnil, jakož i všechny soubory bez verze které můžete mít."
 
 #. (para)
 msgid "If you click on the <guibutton>Check Repository</guibutton> then you can also look for changes in the repository. That way you can check before an update if there's a possible conflict. You can also update selected files from the repository without updating the whole folder. By default, the <guibutton>Check Repository</guibutton> button only fetches the remote status with the checkout depth of the working copy. If you want to see all files and folders in the repository, even those you have not checked out, then you have to hold down the <keycap>Shift</keycap> key when you click on the <guibutton>Check Repository</guibutton> button."
-msgstr ""
+msgstr "Pokud kliknete na <guibutton>Zkontrolovat Úložiště</guibutton> můžete se také podívat na změny v úložišti. Tímto způsobem si můžete před aktualizací zkontrolovat, jestli existuje možnost konfliktu. Můžete také aktualizovat vybrané soubory z úložiště bez aktualizace celého adresáře. Ve výchozím nastavení tlačítko <guibutton>Zkontrolovat Úložiště</guibutton> pouze přinese vzdálený stav s hloubka získání pracovní kopie. Pokud chcete zobrazit všechny soubory a adresáře v úložišti a to i těch, které jste nezískali, pak budete muset držet klávesu <keycap>Shift</keycap>, když klikáte na tlačítko <guibutton>kontrolovat Úložiště</guibutton>."
 
 #. (para)
 msgid "Locally modified items."
-msgstr ""
+msgstr "Lokálně změněné položky."
 
 #. (para)
 msgid "Added items. Items which have been added with history have a <literal>+</literal> sign in the <guilabel>Text status</guilabel> column, and a tooltip shows where the item was copied from."
-msgstr ""
+msgstr "Přidané položky. Položky, které byly přidány s historii mají znamínko <literal>+</literal> ve sloupci <guilabel>Stavu obsahu</guilabel> a rámeček při najetí ukazuje, odkud byla položka zkopírována."
 
 #. (para)
 msgid "Deleted or missing items."
-msgstr ""
+msgstr "Odstraněné nebo chybějící položky."
 
 #. (para)
 msgid "Items modified locally and in the repository. The changes will be merged on update. These <emphasis>may</emphasis> produce conflicts on update."
-msgstr ""
+msgstr "Položky upravené lokálně a v úložišti. Změny budou v aktualizaci sloučeny. <emphasis>Můžou</emphasis> vyvolat při aktualizaci konflikt."
 
 #. (para)
 msgid "Items modified locally and deleted in repository, or modified in repository and deleted locally. These <emphasis>will</emphasis> produce conflicts on update."
-msgstr ""
+msgstr "Položky upravené lokálně a smazány v repozitáři, nebo změněné v repozitáři a lokálně smazány. Tyto <emphasis>vyvolají</emphasis> konflikt při aktualizaci."
 
 #. (para)
 msgid "Unchanged and unversioned items."
-msgstr ""
+msgstr "Položky nezměněné a bez verze."
 
 #. (para)
 msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
-msgstr ""
+msgstr "Dialogové okno používá barevné označení pro zvýraznění stavu. <placeholder-1/>"
 
 #. (para)
 msgid "From the context menu of the dialog you can show a diff of the changes. Check the local changes <emphasis>you</emphasis> made using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with Base</guimenuitem></menuchoice>. Check the changes in the repository made by others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Differences as Unified Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Z kontextového menu v dialogovém okně můžete zobrazit rozdíl změn. Zkontrolujte lokální změny, které jste <emphasis>Vy</emphasis> provedli s použitím <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Porovnat se základnou</guimenuitem></menuchoice>. Zkontrolujte změny, které v úložišti udělali jiní pomocí <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Zobrazit Rozdíly jako Jednotnou změnu</guimenuitem></menuchoice>."
 
 #. (para)
 msgid "You can also revert changes in individual files. If you have deleted a file accidentally, it will show up as <emphasis>Missing</emphasis> and you can use <emphasis>Revert</emphasis> to recover it."
-msgstr ""
+msgstr "Můžete také vrátit změny v jednotlivých souborech. Pokud jste omylem odstranili soubor, zobrazí se jako <emphasis>Chybějící</emphasis> a můžete použít <emphasis>Vrátit</emphasis> pro jeho obnovení."
 
 #. (para)
 msgid "Unversioned and ignored files can be sent to the recycle bin from here using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>. If you want to delete files permanently (bypassing the recycle bin) hold the <keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
-msgstr ""
+msgstr "Soubory ignorované a bez verze mohou být přesunuty odsud do koše s pomocí <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Smazat</guimenuitem></menuchoice> . Pokud chcete smazat soubory trvale (přeskočit koš) držte klávesu <keycap>Shift</keycap>, při klikání na <guilabel>Smazat</guilabel>."
 
 #. (para)
 msgid "If you want to examine a file in detail, you can drag it from here into another application such as a text editor or IDE."
-msgstr ""
+msgstr "Pokud chcete prozkoumat soubor podrobně, můžete jej odtud přetáhnout do jiné aplikace, třeba textového editoru nebo IDE."
 
 #. (para)
 msgid "The columns are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr ""
+msgstr "Sloupce jsou přizpůsobitelné. Pokud <action>kliknete pravým tlačítkem myši</action> na libovolné záhlaví sloupce, zobrazí se kontextové menu umožňující vybrat, které sloupce se mají zobrazit. Můžete také změnit šířku sloupce pomocí přetažení rukojetě, která se objeví při pohybu myši nad hranici sloupce. Tyto úpravy jsou zachovány, takže stejné záhlaví uvidíte příště."
 
 #. (para)
 msgid "If you are working on several unrelated tasks at once, you can also group files together into changelists. Read <xref linkend=\"tsvn-dug-commit-changelists\"/> for more information."
-msgstr ""
+msgstr "Pokud pracujete na několika nesouvisejících úkolech najednou, můžete seskupit soubory do seznamu změn. Přečtěte si <xref linkend=\"tsvn-dug-commit-changelists\"/> pro více informací."
 
 #. (para)
 msgid "At the bottom of the dialog you can see a summary of the range of repository revisions in use in your working copy. These are the <emphasis>commit</emphasis> revisions, not the <emphasis>update</emphasis> revisions; they represent the range of revisions where these files were last committed, not the revisions to which they have been updated. Note that the revision range shown applies only to the items displayed, not to the entire working copy. If you want to see that information for the whole working copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
-msgstr ""
+msgstr "Ve spodní části dialogového okna si můžete prohlédnout přehled rozsahu revizí úložiště používaných v pracovní kopii. Jedná se o <emphasis>odevzdané</emphasis> revize, ne o <emphasis>aktualizované</emphasis> revize; představují řadu revizí, kde byly tyto soubory naposledy odevzdány, nikoliv revize, kde byly aktualizovány. Všimněte si, že zobrazený rozsah revizí se vztahuje pouze na zobrazené položky, nikoli na celou pracovní kopii. Pokud chcete vidět tuto informaci pro celou pracovní kopii, musíte zaškrtnout políčko <guilabel>Zobrazit nezměněné soubory</guilabel>."
 
 #. (para)
 msgid "If you want a flat view of your working copy, i.e. showing all files and folders at every level of the folder hierarchy, then the <guilabel>Check for Modifications</guilabel> dialog is the easiest way to achieve that. Just check the <guilabel>Show unmodified files</guilabel> checkbox to show all files in your working copy."
-msgstr ""
+msgstr "Pokud chcete mít přehledný pohled ve Vaší pracovní kopii, tj. zobrazení všech souborů a adresářů na všech úrovních hierarchie adresáře, pak dialogové okno <guilabel> Zkontrolovat změny</guilabel> je nejjednodušší způsob, jak toho dosáhnout. Stačí zaškrtnout <guilabel>Zobrazit nezměněné soubory</guilabel> k zobrazení všech souborů v pracovní kopii."
 
 #. (title)
 msgid "Viewing Diffs"
-msgstr ""
+msgstr "Zobrazení rozdílů"
 
 #. (primary)
 msgid "diffing"
-msgstr ""
+msgstr "porovnávání"
 
 #. (para)
 msgid "Often you want to look inside your files, to have a look at what you've changed. You can accomplish this by selecting a file which has changed, and selecting <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. This starts the external diff-viewer, which will then compare the current file with the pristine copy (<literal>BASE</literal> revision), which was stored after the last checkout or update."
-msgstr ""
+msgstr "Často se chcete podívat dovnitř souborů, podíval se na to, co jste změnili. Tuto operaci lze provést výběrem souboru, který byl změněn a výbrat <guimenuitem>Porovnat</guimenuitem> z kontextového menu TortoiseSVN. Spustí se externí prohlížeč pro porovnání, který pak porovná aktuální soubor s původní kopií ( <literal>Původní</literal> revize), který byl uložen po posledním získání nebo aktualizaci."
 
 #. (para)
 msgid "Even when not inside a working copy or when you have multiple versions of the file lying around, you can still display diffs:"
-msgstr ""
+msgstr "I když nejste v pracovní kopii nebo pokud se Vám více verzí souboru okolo povaluje, stále můžete zobrazit porovnání:"
 
 #. (para)
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
-msgstr ""
+msgstr "Vyberte dva soubory, které chcete v průzkumníkovy porovnat (např. pomocí <keycap>Ctrl</keycap> a myši) a zvolte <guimenuitem>Porovnat</guimenuitem> z kontextového menu TortoiseSVN. Soubor na který bylo kliknuto naposled (ten se zaměřením, tj. tečkovaným obdélníkem), bude považován za ten pozdější."
 
 #. (primary)
 msgid "changelist"
-msgstr ""
+msgstr "seznam změn"
 
 #. (para)
 msgid "In an ideal world, you only ever work on one thing at a time, and your working copy contains only one set of logical changes. OK, back to reality. It often happens that you have to work on several unrelated tasks at once, and when you look in the commit dialog, all the changes are mixed in together. The <firstterm>changelist</firstterm> feature helps you group files together, making it easier to see what you are doing. Of course this can only work if the changes do not overlap. If two different tasks affect the same file, there is no way to separate the changes."
-msgstr ""
+msgstr "V ideálním světě, vždycky pracujete pouze na jedné věci najednou a Vaše pracovní kopie obsahuje pouze jednu sadu logických změn. OK, zpátky do reality. Často se stává, že musíte pracovat na několika nesouvisejících úkolech najednou a když se podíváte do dialogového okna odevzdání, všechny změny jsou zamotané dohromady. Funkce <firstterm>Seznam Změn</firstterm> Vám pomůže seskupit soubory dohromady, takže je lépe vidět, co děláte. Samozřejmě to může fungovat pouze v případě, že se změny nepřekrývají. Pokud mají dva odlišné úkoly vliv na stejný soubor, neexistuje žádný způsob, jak změny oddělit."
 
 #. (para)
 msgid "You can see changelists in several places, but the most important ones are the commit dialog and the check-for-modifications dialog. Let's start in the check-for-modifications dialog after you have worked on several features and many files. When you first open the dialog, all the changed files are listed together. Suppose you now want to organise things and group those files according to feature."
-msgstr ""
+msgstr "Seznam změn můžete vidět na několika místech, ale nejdůležitější je v dialogovém okně odevzdání a Zjistit změny. Začněme v dialogovém okně Zjistit změny poté, co jste pracovali na několika funkcích a mnoho souborech. Když poprvé otevřete dialogové okno, všechny změněné soubory jsou uvedeny společně. Představte si, že teď chcete uspořádat věci a seskupit tyto soubory podle funkce."
 
 #. (para)
 msgid "Select one or more files and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The dialog will now change to show groups of items."
-msgstr ""
+msgstr "Vyberte jeden nebo více souborů a použijte <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Přesunout do seznamu změn</guimenuitem></menuchoice> k přidáni položky do seznamu změn. Zpočátku nebude žádný vytvořen, takže při zvolení této volby vytvoříte nový seznam změn. Dejte mu jméno, které popisuje, na co ho používáte a klepněte na tlačítko <guibutton>OK</guibutton>. Dialogové okno se nyní změní na zobrazení skupiny položek."
 
 #. (para)
 msgid "Once you have created a changelist you can drag and drop items into it, either from another changelist, or from Windows Explorer. Dragging from Explorer can be useful as it allows you to add items to a changelist before the file is modified. You could do that from the check-for-modifications dialog, but only by displaying all unmodified files."
-msgstr ""
+msgstr "Jakmile jste vytvořili seznam změn můžete do něho přetáhnout položky, ať už z jiného seznamu změn, nebo z Průzkumníka Windows. Přetažení z Průzkumníku může být užitečné, protože vám umožní přidat položky do seznamu změn před jejich úpravami. Dalo by se to provádět i z  dialogového okna Zjistit změny, ale jen zobrazením všech nezměněných souborů."
 
 #. (title)
 msgid "Commit dialog with Changelists"
-msgstr ""
+msgstr "Dialogové okno odevzdání se Seznamem Změn"
 
 #. (para)
 msgid "<placeholder-1/> In the commit dialog you can see those same files, grouped by changelist. Apart from giving an immediate visual indication of groupings, you can also use the group headings to select which files to commit."
-msgstr ""
+msgstr "<placeholder-1/> V dialogovém oknu odevzdání můžete vidět ty stejné soubory, seskupené podle seznamu změn. Kromě toho, že dává bezprostřední vizuální indikaci seskupení, můžete také použít záhlaví skupin pro výběr, které soubory chcete odevzdat."
 
 #. (para)
 msgid "On XP, there is a context menu when you right click on a group heading which gives you the choice to check or uncheck all group entries. On Vista however the context menu is not necessary. Click on the group header to select all entries, then check one of the selected entries to check all."
-msgstr ""
+msgstr "Na XP existuje kontextového menu po klepnutí pravým tlačítkem myši na záhlaví skupin, které Vám dává na výběr označit či odznačit všechny položky skupiny. Na Windows Vista však kontextové menu není nutné. Kliknutím na záhlaví skupiny vyberte všechny položky, pak zaškrtněte jednu z vybraných položek k označení všech."
 
 #. (para)
 msgid "TortoiseSVN reserves one changelist name for its own use, namely <literal>ignore-on-commit</literal>. This is used to mark versioned files which you almost never want to commit even though they have local changes. This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
-msgstr ""
+msgstr "TortoiseSVN rezervuje jeden jméno seznamu změn pro svoji vlastní potřebu a to <literal>ignore-on-commit</literal>. Používá se pro označení souborů v adresářích, které téměř nikdy nechcete odevzdat i když mají lokální změny. Tato funkce je popsána v <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
 msgid "When you commit files belonging to a changelist then normally you would expect that the changelist membership is no longer needed. So by default, files are removed from changelists automatically on commit. If you wish to retain the file in its changelist, use the <guilabel>Keep changelists</guilabel> checkbox at the bottom of the commit dialog."
-msgstr ""
+msgstr "Když odevzdáte soubory patřící do seznamu změn pak  byste normálně očekávali, že členství v seznamu změn již není potřeba. Takže ve výchozím nastavení jsou soubory odstraněny ze seznamu změn automaticky po odevzdání. Pokud chcete zachovat soubor v jeho seznamu změn, použijte políčko <guilabel>Ponechat seznamy změn</guilabel> v dolní části dialogového okna odevzdání."
 
 #. (para)
 msgid "Changelists are purely a local client feature. Creating and removing changelists will not affect the repository, nor anyone else's working copy. They are simply a convenient way for you to organise your files."
-msgstr ""
+msgstr "Seznam změn je čistě funkce místního klienta. Vytváření a odstraňován seznamů změn nebude mít vliv na úložiště, ani na pracovní kopii někoho jiného. Jsou jenom pohodlný způsob, jak organizovat soubory."
 
 #. (title)
 msgid "Revision Log Dialog"
-msgstr ""
+msgstr "Dialogové Okno Záznamu Revizí"
 
 #. (primary)
 msgid "log"
-msgstr ""
+msgstr "záznam"
 
 #. (primary)
 msgid "history"
-msgstr ""
+msgstr "historie"
 
 #. (primary)
 msgid "commit messages"
-msgstr ""
+msgstr "zprávy odevzdání"
 
 #. (primary)
 msgid "log messages"
-msgstr ""
+msgstr "zprávy záznamu"
 
 #. (para)
 msgid "For every change you make and commit, you should provide a log message for that change. That way you can later find out what changes you made and why, and you have a detailed log for your development process."
-msgstr ""
+msgstr "Pro každou změnu, kterou uděláte a odevzdáte, byste měli poskytnout záznam této změny. Tímto způsobem můžete později zjistit, jaké změny jste udělali a proč a máte podrobný záznam svého vývojového procesu."
 
 #. (para)
 msgid "The top pane shows a list of revisions where changes to the file/folder have been committed. This summary includes the date and time, the person who committed the revision and the start of the log message."
-msgstr ""
+msgstr "Horní panelu zobrazuje seznam revizí, kde změny v souboru/adresáři byly odevzdány. Tento přehled obsahuje datum a čas, osobu, která odevzdala revizi a začátek zprávy záznamu."
 
 #. (para)
 msgid "Lines shown in blue indicate that something has been copied to this development line (perhaps from a branch)."
-msgstr ""
+msgstr "Modré řádky naznačují, že něco bylo zkopírováno do této vývojové linie (možná z větve)."
 
 #. (para)
 msgid "The middle pane shows the full log message for the selected revision."
-msgstr ""
+msgstr "Prostřední panel zobrazuje úplnou zprávu záznamu pro vybranou revizi."
 
 #. (para)
 msgid "The bottom pane shows a list of all files and folders that were changed as part of the selected revision."
-msgstr ""
+msgstr "Dolním panel zobrazuje seznam všech souborů a adresářů, které byly v rámci vybrané revize změněny."
 
 #. (para)
 msgid "The Revision Log Dialog retrieves all those log messages and shows them to you. The display is divided into 3 panes. <placeholder-1/> But it does much more than that - it provides context menu commands which you can use to get even more information about the project history."
-msgstr ""
+msgstr "Dialogové okno Záznamu Revizí načte pro Vás všechny ty zprávy záznamů a zobrazí je Vám. Okno je rozděleno do 3 panelů. <placeholder-1/> Ale dělá mnohem víc než to - poskytuje příkazy kontextového menu, které můžete použít k získání ještě více informací o historii projektu."
 
 #. (title)
 msgid "Invoking the Revision Log Dialog"
-msgstr ""
+msgstr "Vyvolání Dialogového Okna Záznamu Revizí"
 
 #. (title)
 msgid "The Revision Log Dialog"
-msgstr ""
+msgstr "Dialogové Okno Záznamu Revizí"
 
 #. (para)
 msgid "From the TortoiseSVN context submenu"
-msgstr ""
+msgstr "Z kontextového menu TortoiseSVN"
 
 #. (para)
 msgid "From the property page"
-msgstr ""
+msgstr "Ze stránky vlastností"
 
 #. (para)
 msgid "From the Progress dialog after an update has finished. Then the Log dialog only shows those revisions which were changed since your last update"
-msgstr ""
+msgstr "Z dialogového okna Průběhu po dokončení aktualizace. Pak dialogové okno Záznamů zobrazuje pouze ty revize, které byly změněny od Vaší poslední aktualizace"
 
 #. (para)
 msgid "<placeholder-1/> There are several places from where you can show the Log dialog: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Existuje několik míst, z nichž můžete zobrazit dialogové okno Záznamů: <placeholder-2/>"
 
 #. (para)
 msgid "If the repository is unavailable you will see the <guilabel>Want to go offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-cache\"/>."
-msgstr ""
+msgstr "Pokud úložiště není k dispozici, uvidíte dialogové okno <guilabel>Chcete jít offline?</guilabel>, je popsáno v <xref linkend=\"tsvn-dug-showlog-cache\"/>."
 
 #. (title)
 msgid "Revision Log Actions"
-msgstr ""
+msgstr "Činnosti Záznamu Revizí"
 
 #. (para)
 msgid "The top pane has an <guilabel>Actions</guilabel> column containing icons that summarize what has been done in that revision. There are four different icons, each shown in its own column."
-msgstr ""
+msgstr "Horní panelu má sloupec <guilabel>Činnosti</guilabel>, který obsahuje ikony, které shrnují, co bylo učiněno v této revizi. Existují čtyři různé ikony, z nichž každá je uvedena v jejím vlastním sloupci."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> If a revision modified a file or directory, the <emphasis>modified</emphasis> icon is shown in the first column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> Pokud revize změnila soubor nebo adresář, ikona <emphasis>změněno</emphasis> je zobrazena v prvním sloupci."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionAddedIcon.png\"/> If a revision added a file or directory, the <emphasis>added</emphasis> icon is shown in the second column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionAddedIcon.png\"/> Pokud revizi přidala soubor nebo adresář, ikona <emphasis>přidáno</emphasis> je zobrazena ve druhém sloupci."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision deleted a file or directory, the <emphasis>deleted</emphasis> icon is shown in the third column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> Pokud revize vymazala nějaký soubor nebo adresář, ikona <emphasis>smázáno</emphasis> je zobrazena ve třetím sloupci."
 
 #. (para)
 msgid "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> If a revision replaced a file or directory, the <emphasis>replaced</emphasis> icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> Pokud revize nahradila soubor nebo adresář, ikona <emphasis>nahrazeno</emphasis> je zobrazena ve čtvrtém sloupci."
 
 #. (title)
 msgid "Getting Additional Information"
-msgstr ""
+msgstr "Získání dodatečných informací"
 
 #. (title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
-msgstr ""
+msgstr "Horní Panel Dialogového okna Záznamu revizí s Kontextovým menu"
 
 #. (term)
 msgid "Compare with working copy"
-msgstr ""
+msgstr "Porovnat s pracovní kopií"
 
 #. (para)
 msgid "Compare the selected revision with your working copy. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is for a folder, this will show you a list of changed files, and allow you to review the changes made to each file individually."
-msgstr ""
+msgstr "Porovnat vybranou revizi s Vaši pracovní kopií. Výchozí nástroj pro porovnávání rozdílů je TortoiseMerge, který je dodáván s TortoiseSVN. Pokud je dialogové okno Zázamů  pro adresář, zobrazí Vám seznam změněných souborů a umožní Vám zkontrolovat změny každého souboru jednotlivě."
 
 #. (term)
 msgid "Compare and blame with working BASE"
-msgstr ""
+msgstr "Porovnejte a obviňte s pracovním originálem"
 
 #. (para)
 msgid "Blame the selected revision, and the file in your working BASE and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail. (files only)"
-msgstr ""
+msgstr "Obviňte vybranou revizi a soubor ve Vašem pracovním originále a porovnejte hlášení o vině pomocí vizuální nástroje rozdílů. Přečtěte si <xref linkend=\"tsvn-dug-blame-diffs\"/> pro další podrobnosti. (Pouze pro soubory)"
 
 #. (term)
 msgid "Show changes as unified diff"
-msgstr ""
+msgstr "Zobrazit změny jako jednotný rozdíl"
 
 #. (para)
 msgid "View the changes made in the selected revision as a Unified-Diff file (GNU patch format). This shows only the differences with a few lines of context. It is harder to read than a visual file compare, but will show all file changes together in a compact format."
-msgstr ""
+msgstr "Zobrazit změny provedené ve vybrané revizi jako jednotný rozdíl (formát GNU záplaty). Ukazuje pouze rozdíly v několika řádcích kontextu. Je těžší číst než vizuální porovnání souborů, ale zobrazí všechny změny souborů dohromady v jednolitém formátu."
 
 #. (term)
 msgid "Compare with previous revision"
-msgstr ""
+msgstr "Porovnat s předchozí revizí"
 
 #. (para)
 msgid "Compare the selected revision with the previous revision. This works in a similar manner to comparing with your working copy. For folders this option will first show the changed files dialog allowing you to select files to compare."
-msgstr ""
+msgstr "Porovnat vybranou verzí s předchozí revizí. Funguje to podobným způsobem jako porovnání Vaší pracovní kopie. U složek tato možnost nejdříve zobrazí dialogové okno změněné soubory, umožňující vybrat soubory k porovnání."
 
 #. (term)
 msgid "Compare and blame with previous revision"
-msgstr ""
+msgstr "Porovnat a obvinit s předchozí revizí"
 
 #. (para)
 msgid "Show the changed files dialog allowing you to select files. Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)"
-msgstr ""
+msgstr "Zobrazit dialogové okno změněné soubory umožňující vybrat soubory. Obviňte vybranou revzi a předchozí revizi a porovnejte výsledky s použitím vizuální nástroje rozdílů. (Pouze pro adresáře)"
 
 #. (term)
 #. (term)
 msgid "Save revision to..."
-msgstr ""
+msgstr "Uložit revize do..."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file. (files only)"
-msgstr ""
+msgstr "Uložit vybranou revizi do souboru, takže máte starší verzi tohoto souboru. (Pouze pro soubory)"
 
 #. (term)
 #. (term)
 msgid "Open / Open with..."
-msgstr ""
+msgstr "Otevřít / Otevřít v..."
 
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose. (files only)"
-msgstr ""
+msgstr "Otevřít zvolený souboru a to buď ve výchozím prohlížeči pro tento typ souboru, nebo s programem, který vyberete. (Pouze pro soubory)"
 
 #. (term)
 #. (term)
 msgid "Blame..."
-msgstr ""
+msgstr "Obvinit..."
 
 #. (para)
 msgid "Blame the file up to the selected revision. (files only)"
-msgstr ""
+msgstr "Obvinit soubor na vybranou verzí. (Pouze pro soubory)"
 
 #. (term)
 msgid "Browse repository"
-msgstr ""
+msgstr "Procházet úložiště"
 
 #. (para)
 msgid "Open the repository browser to examine the selected file or folder in the repository as it was at the selected revision."
-msgstr ""
+msgstr "Otevřete Průzkumníka úložiště, pro náhled vybraného souboru nebo adresáře v úložišti tak, jak byl ve vybrané revizi."
 
 #. (term)
 msgid "Create branch/tag from revision"
-msgstr ""
+msgstr "Vytvořit větev/značku z revize"
 
 #. (para)
 msgid "Create a branch or tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr ""
+msgstr "Vytvořit větev nebo značku z vybrané revize. To je užitečné např. pokud jste zapomněli vytvořit značku a již jste odevzdali nějaké změny, které se neměli dostat do onoho vydání."
 
 #. (term)
 msgid "Update item to revision"
-msgstr ""
+msgstr "Aktualizovat položku na revizi"
 
 #. (para)
 msgid "Update your working copy to the selected revision. Useful if you want to have your working copy reflect a time in the past, or if there have been further commits to the repository and you want to update your working copy one step at a time. It is best to update a whole directory in your working copy, not just one file, otherwise your working copy could be inconsistent."
-msgstr ""
+msgstr "Aktualizujte Vaši pracovní kopii na vybranou revizi. Užitečné, pokud chcete, aby Vaše pracovní kopii odrážela stav v minulosti, nebo v případě, že došlo k dalšímu odevzdání do úložiště a Vy chcete aktualizovat pracovní kopii postupně. Je nejlepší aktualizovat celý adresář ve Vaší pracovní kopii, ne jen jeden soubor, jinak Vaše pracovní kopie mohla být v nekonzistentním stavu."
 
 #. (para)
 msgid "If you want to undo an earlier change permanently, use <guilabel>Revert to this revision</guilabel> instead."
-msgstr ""
+msgstr "Pokud chcete vrátit předchozí změny trvale, použijte raději <guilabel>Vrátit se k této revizi</guilabel>."
 
 #. (term)
 msgid "Revert to this revision"
-msgstr ""
+msgstr "Vrátit se k této revizi"
 
 #. (para)
 msgid "Revert to an earlier revision. If you have made several changes, and then decide that you really want to go back to how things were in revision N, this is the command you need. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository until you commit the changes. Note that this will undo <emphasis>all</emphasis> changes made after the selected revision, replacing the file/folder with the earlier version."
-msgstr ""
+msgstr "Vrátit se k dřívější revizi. Pokud jste provedli několik změn a pak se rozhodnete, že raději se chcete vrátit tak, jak věci byly v revizi N, toto je příkaz, který potřebujete. Změny jsou vráceny ve Vaší pracovní kopii, takže tato operace <emphasis>nemá</emphasis> vliv na úložiště, dokud neodevzdáte změny. Nezapomeňte, že toto vrátí <emphasis>všechny</emphasis> změny provedené po vybranou revizi, nahradí tak soubor/adresář starší verzi."
 
 #. (para)
 #. (para)
 msgid "If your working copy is in an unmodified state, after you perform this action your working copy will show as modified. If you already have local changes, this command will merge the <emphasis>undo</emphasis> changes into your working copy."
-msgstr ""
+msgstr "Pokud Vaše pracovní kopie je v nezměněném stavu, po provedení této činnosti se Vaše pracovní kopie bude zobrazovat jako upravená. Pokud již máte místní změny, tento příkaz sloučí <emphasis>rušící</emphasis> změny do pracovní kopie."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of all the changes made after the selected revision, undoing the effect of those previous commits."
-msgstr ""
+msgstr "Co se děje uvnitř, je, že Subversion provádí zpětné sloučení všech změn provedených po vybranou revizi, rušící účinek předchozích odevzdání."
 
 #. (para)
 msgid "If after performing this action you decide that you want to <emphasis>undo the undo</emphasis> and get your working copy back to its previous unmodified state, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice> from within Windows Explorer, which will discard the local modifications made by this reverse merge action."
-msgstr ""
+msgstr "Pokud se po provedení této akce rozhodnete, že chcete <emphasis>vzít zpět zrušení</emphasis> a dostat Vaši pracovní kopii zpět na předchozí neupravený stav, měli byste použít <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrátit</guimenuitem></menuchoice> v Průzkumníku Windows, což zruší místní úpravy provedené tímto obráceným sloučením."
 
 #. (para)
 msgid "If you simply want to see what a file or folder looked like at an earlier revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save revision as...</guilabel> instead."
-msgstr ""
+msgstr "Pokud chcete jednoduše zjistit, jak soubor nebo adresář vypadal v dřívější revizi, použijte <guilabel>Aktualizovat na revizi</guilabel> nebo místo toho <guilabel>Uložit revizi jako...</guilabel>."
 
 #. (term)
 #. (term)
 msgid "Revert changes from this revision"
-msgstr ""
+msgstr "Vrátit změny z této revize"
 
 #. (para)
 msgid "Undo changes from which were made in the selected revision. The changes are undone in your working copy so this operation does <emphasis>not</emphasis> affect the repository at all! Note that this will undo the changes made in that revision only; it does not replace your working copy with the entire file at the earlier revision. This is very useful for undoing an earlier change when other unrelated changes have been made since."
-msgstr ""
+msgstr "Vrátit zpět změny tak jak byly ve vybrané revizi provedeny. Tyto změny jsou vráceny zpět ve Vaší pracovní kopii, takže tato operace <emphasis>nemá</emphasis> vůbec vliv na úložiště! Nezapomeňte, že toto vrátí zpět změny provedené pouze v této revizi; nenahradí Vaši pracovní kopii celým souborem se starší revizí. To je velmi užitečné pro vrácení dřívější změny, když jiné nesouvisející změny už bylo od té doyb provedeny."
 
 #. (para)
 msgid "What is happening internally is that Subversion performs a reverse merge of that one revision, undoing its effect from a previous commit."
-msgstr ""
+msgstr "Co se děje uvnitř, je, že Subversion provádí zpětné sloučení konkrétní revize, vrací její změny od předchozího odevzdání."
 
 #. (para)
 msgid "You can <emphasis>undo the undo</emphasis> as described above in <guilabel>Revert to this revision</guilabel>."
-msgstr ""
+msgstr "Můžete <emphasis>vzít zpět vrácení</emphasis> jak je popsáno výše v <guilabel>Vrátit se k této revizi</guilabel>."
 
 #. (term)
 msgid "Merge revision to..."
-msgstr ""
+msgstr "Sloučit revize do..."
 
 #. (para)
 msgid "Merge the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
-msgstr ""
+msgstr "Sloučit vybranou revizi(e) do jiné pracovní kopie. Dialogové okno pro výběr adresáře umožňuje zvolit pracovní kopii ke sloučení, ale poté už není žádné dialogové okno pro potvrzení, ani příležitost sloučení vyzkoušet. Je dobrý nápad sloučit do nezměněné pracovní kopie, takže můžete vrátit změny, pokud to nevyjde! To je užitečná vlastnost, pokud chcete sloučit vybrané revize z jedné větve do druhé."
 
 #. (term)
 msgid "Checkout..."
-msgstr ""
+msgstr "Získání..."
 
 #. (para)
 msgid "Make a fresh checkout of the selected folder at the selected revision. This brings up a dialog for you to confirm the URL and revision, and select a location for the checkout."
-msgstr ""
+msgstr "Provést nové získání vybraného adresáře ve vybrané revizi. Toto otevře dialogové okno k potvrzení URL a revize a výběr umístění pro získání."
 
 #. (term)
 msgid "Export..."
-msgstr ""
+msgstr "Exportovat..."
 
 #. (para)
 msgid "Export the selected file/folder at the selected revision. This brings up a dialog for you to confirm the URL and revision, and select a location for the export."
-msgstr ""
+msgstr "Exportovat vybraný soubor/adresář na vybranou revizi. Toto otevře dialogové okno k potvrzení URL a revize a výběr umístění pro export."
 
 #. (term)
 msgid "Edit author / log message"
-msgstr ""
+msgstr "Upravit autora / záznam zprávy"
 
 #. (para)
 msgid "Edit the log message or author attached to a previous commit. Read <xref linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
-msgstr ""
+msgstr "Upravit záznam zpráv, nebo autora připojeného k předchozímu odevzdání . Přečtěte si <xref linkend=\"tsvn-dug-showlog-4\"/> abyste zjistili, jak to funguje."
 
 #. (term)
 msgid "Show revision properties"
-msgstr ""
+msgstr "Zobrazit vlastnosti revizí"
 
 #. (para)
 msgid "View and edit any revision property, not just log message and author. Refer to <xref linkend=\"tsvn-dug-showlog-4\"/>."
-msgstr ""
+msgstr "Prohlížet a upravovat jakékoli vlastnosti revizí, nejenom záznam zprávy a autora. Viz <xref linkend=\"tsvn-dug-showlog-4\"/>."
 
 #. (term)
 #. (term)
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Zkopírovat do schránky"
 
 #. (para)
 msgid "Copy the log details of the selected revisions to the clipboard. This will copy the revision number, author, date, log message and the list of changed items for each revision."
-msgstr ""
+msgstr "Kopírovat podrobnosti záznamu o vybraných revizích do schránky. Toto zkopíruje číslo revize, autora, datum, záznam zprávy a seznam změněných položek pro každou revizi."
 
 #. (term)
 #. (term)
 msgid "Search log messages..."
-msgstr ""
+msgstr "Prohledávat záznamy zpráv..."
 
 #. (para)
 msgid "Search log messages for the text you enter. This searches the log messages that you entered and also the action summaries created by Subversion (shown in the bottom pane). The search is not case sensitive."
-msgstr ""
+msgstr "Hledat záznam zprávy zadaným textem. Toto prohledá záznam zpráv, které jste zadali a také souhrn činností vytvořených Subversion (uvedeno v dolní části panelu). Vyhledávání není citlivé na velikost písmen."
 
 #. (para)
 msgid "<placeholder-1/> The top pane of the Log dialog has a context menu that allows you to access much more information. Some of these menu entries appear only when the log is shown for a file, and some only when the log is shown for a folder. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Horní panel v dialogovém oknu Záznamů má kontextové menu, které umožňuje přístup k mnohem více informacím. Některé z těchto položek menu se zobrazí pouze tehdy, pokud je záznam zobrazen pro soubor a některé, jen když je záznam zobrazen pro adresář. <placeholder-2/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
-msgstr ""
+msgstr "Horní panel Kontextového Menu pro 2 vybrané Revize"
 
 #. (term)
 msgid "Compare revisions"
-msgstr ""
+msgstr "Porovnat revize"
 
 #. (para)
 msgid "Compare the two selected revisions using a visual difference tool. The default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN."
-msgstr ""
+msgstr "Porovnejte dvě vybrané revize pomocí nástroje pro zobrazení rozdílů. Výchozím takovýto nástrojem je TortoiseMerge, který je dodáván spolu s TortoiseSVN."
 
 #. (para)
 msgid "If you select this option for a folder, a further dialog pops up listing the changed files and offering you further diff options. Read more about the Compare Revisions dialog in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Pokud zvolíte tuto možnost pro adresář, další dialogové okno zobrazí seznam změněných souborů a nabídne Vám další možnosti porovnání. Přečtěte si více o dialogovém okně Porovnání Revizí v <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Blame revisions"
-msgstr ""
+msgstr "Obvinit revize"
 
 #. (para)
 msgid "Blame the two revisions and compare the blame reports using a visual difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Obvinit dvě revize a porovnat hlášení o vině pomocí nástroje pro zobrazení rozdílů. Přečtěte si <xref linkend=\"tsvn-dug-blame-diffs\"/> pro další podrobnosti."
 
 #. (term)
 msgid "Show differences as unified diff"
-msgstr ""
+msgstr "Zobrazit rozdíly jako jednotný rozdíl"
 
 #. (para)
 msgid "View the differences between the two selected revisions as a Unified-Diff file. This works for files and folders."
-msgstr ""
+msgstr "Zobrazit rozdíly mezi dvěma vybranými revizemi jako soubor Jednotného Rozdílu. Toto funguje pro soubory i adresáře."
 
 #. (para)
 msgid "Copy log messages to clipboard as described above."
-msgstr ""
+msgstr "Zkopírovat zprávy záznamu do schránky, jak je popsáno výše."
 
 #. (para)
 msgid "Search log messages as described above."
-msgstr ""
+msgstr "Vyhledat zprávy záznamu jak je popsáno výše."
 
 #. (para)
 msgid "<placeholder-1/> If you select two revisions at once (using the usual <keycap>Ctrl</keycap>-modifier), the context menu changes and gives you fewer options: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Zvolíte-li dvě revize najednou (s použitím běžného <keycap>Ctrl</keycap>-modifikátor), kontextové menu se změní a dá Vám méně možností: <placeholder-2/>"
 
 #. (para)
 msgid "If you select two or more revisions (using the usual <keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers), the context menu will include an entry to Revert all changes which were made in the selected revisions. This is the easiest way to rollback a group of revisions in one go."
-msgstr ""
+msgstr "Vyberete-li dva nebo více revizí (s použitím běžného <keycap>Ctrl</keycap> nebo <keycap>Shift</keycap> modifikátorů), kontextové menu zahrne položku Vrátit všechny změny, které byly provedeny ve vybraných revizích. To je nejjednodušší způsob, jak vrátit zpět skupinu revizí na jednou."
 
 #. (para)
 msgid "You can also choose to merge the selected revisions to another working copy, as described above."
-msgstr ""
+msgstr "Můžete také zvolit sloučení vybraných revizí do jiné pracovní kopie, jak je popsáno výše."
 
 #. (para)
 msgid "If all selected revisions have the same author, you can edit the author of all those revisions in one go."
-msgstr ""
+msgstr "Pokud všechny vybrané revize mají téhož autora, můžete upravit autora všech těchto revizí na jednou."
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
-msgstr ""
+msgstr "Dolní panel dialogového okna Záznamů s Kontextovým Menu"
 
 #. (term)
 msgid "Show changes"
-msgstr ""
+msgstr "Zobrazit změny"
 
 #. (para)
 msgid "Show changes made in the selected revision for the selected file."
-msgstr ""
+msgstr "Zobrazit změny provedené ve vybrané revizi pro vybraný soubor."
 
 #. (term)
 msgid "Blame changes"
-msgstr ""
+msgstr "Obvinit změny"
 
 #. (para)
 msgid "Blame the selected revision and the previous revision for the selected file, and compare the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
-msgstr ""
+msgstr "Obvinit vybranou revizi a předchozí revizi ve vybraném soubor a porovnat hlášení o vině pomocí nástroje pro zobrazení. Přečtěte si <xref linkend=\"tsvn-dug-blame-diffs\"/> pro další podrobnosti."
 
 #. (term)
 msgid "Show as unified diff"
-msgstr ""
+msgstr "Zobrazit jako jednotný rozdíl"
 
 #. (para)
 msgid "Show file changes in unified diff format. This context menu is only available for files shown as <emphasis>modified</emphasis>."
-msgstr ""
+msgstr "Zobrazit soubor změn ve formátu jednotného rozdílu. Toto kontextové menu je k dispozici pouze pro soubory zobrazené jako <emphasis>změněné</emphasis>."
 
 #. (para)
 #. (para)
 msgid "Open the selected file, either with the default viewer for that file type, or with a program you choose."
-msgstr ""
+msgstr "Otevře zvolený soubor a to buď ve výchozím prohlížeč pro tento typ souboru, nebo s programem, který vyberete."
 
 #. (para)
 msgid "Opens the Blame dialog, allowing you to blame up to the selected revision."
-msgstr ""
+msgstr "Otevře Dialogové okno Viny, což vám umožní obvinit až po vybranou revizi."
 
 #. (para)
 msgid "Revert the changes made to the selected file in that revision."
-msgstr ""
+msgstr "Vrátit změny vybraného souboru v té revizi."
 
 #. (term)
 msgid "Show properties"
-msgstr ""
+msgstr "Zobrazit vlastnosti"
 
 #. (para)
 msgid "View the Subversion properties for the selected item."
-msgstr ""
+msgstr "Zobrazit Subversion vlastnosti vybrané položky."
 
 #. (term)
 msgid "Show log"
-msgstr ""
+msgstr "Zobrazit záznam"
 
 #. (para)
 msgid "Show the revision log for the selected single file."
-msgstr ""
+msgstr "Zobrazit záznam revize pro jeden vybraný soubor."
 
 #. (term)
 msgid "Get merge logs"
-msgstr ""
+msgstr "Získat záznamy o sloučení"
 
 #. (para)
 msgid "Show the revision log for the selected single file, including merged changes. Find out more in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
-msgstr ""
+msgstr "Zobrazit záznam revize pro jeden vybraný soubor, včetně sloučených změn. Více se dozvíte na <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
 
 #. (para)
 msgid "Save the selected revision to a file so you have an older version of that file."
-msgstr ""
+msgstr "Uloží vybranou revizi do souboru, takže máte starší verzi tohoto souboru."
 
 #. (para)
 msgid "<placeholder-1/> The bottom pane of the Log dialog also has a context menu that allows you to <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Dolní panel dialogového okna Záznamu má také kontextové menu, které Vám umožní <placeholder-2/>"
 
 #. (para)
 msgid "You may notice that sometimes we refer to changes and other times to differences. What's the difference?"
-msgstr ""
+msgstr "Můžete si všimnout, že někdy budeme odkazovat na změny a jindy na rozdíly. V čem je to jiné?"
 
 #. (para)
 msgid "Subversion uses revision numbers to mean 2 different things. A revision generally represents the state of the repository at a point in time, but it can also be used to represent the changeset which created that revision, e.g. <quote>Done in r1234</quote> means that the changes committed in r1234 implement feature X. To make it clearer which sense is being used, we use two different terms."
-msgstr ""
+msgstr "Subversion používá čísla revizí pro sdělení 2 různých věcí. Revize normálně představuje stav úložiště v okamžiku, ale  také může být používáno k reprezentaci souboru změn který revizi vytvořil, např. <quote>Porvedeno v r1234</quote> To znamená, že změny odevzdané v r1234 zavádějí funkci X. Aby bylo jasnější, co máme na mysli, používáme dva různé pojmy."
 
 #. (para)
 msgid "If you select two revisions N and M, the context menu will offer to show the <emphasis>difference</emphasis> between those two revisions. In Subversion terms this is <literal>diff -r M:N</literal>."
-msgstr ""
+msgstr "Zvolíte-li dvě revize N a M, kontextového menu Vám nabídne zobrazení <emphasis>Rozdílu</emphasis> mezi těmito dvěma revizemi. V jazyce Subversion to je <literal>diff -r M:N</literal>."
 
 #. (para)
 msgid "If you select a single revision N, the context menu will offer to show the <emphasis>changes</emphasis> made in that revision. In Subversion terms this is <literal>diff -r N-1:N</literal> or <literal>diff -c N</literal>."
-msgstr ""
+msgstr "Pokud vyberete jednu revize N kontextové menu, Vám nabídne zobrazení <emphasis>změn</emphasis> provedených v této revizi. V jazyce Subversion to je <literal>diff -r N-1:N</literal> nebo <literal>diff -c N</literal>."
 
 #. (para)
 msgid "The bottom pane shows the files changed in all selected revisions, so the context menu always offers to show <emphasis>changes</emphasis>."
-msgstr ""
+msgstr "Spodní panel zobrazuje soubory změněné ve všech vybraných revizích, takže kontextové menu Vám vždy nabídne ukázat <emphasis>změny</emphasis>."
 
 #. (title)
 msgid "Getting more log messages"
-msgstr ""
+msgstr "Zobrazení více zpráv záznamu"
 
 #. (para)
 msgid "For a large repository there may be hundreds or even thousands of changes and fetching them all could take a long time. Normally you are only interested in the more recent changes. By default, the number of log messages fetched is limited to 100, but you can change this value in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
-msgstr ""
+msgstr "Ve Velkém úložišti může existovat stovky nebo tisíce změn a všechny je získat může trvat delší dobu. Běžně Vás budou zajímat pouze nedávné změny. Ve výchozím nastavení je počet zpráv záznamů omezen na 100, ale můžete tuto hodnotu změnit v <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Nastavení</guimenuitem></menuchoice> ( <xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
 
 #. (para)
 msgid "When the <guilabel>Stop on copy/rename</guilabel> box is checked, Show Log will stop at the point that the selected file or folder was copied from somewhere else within the repository. This can be useful when looking at branches (or tags) as it stops at the root of that branch, and gives a quick indication of changes made in that branch only."
-msgstr ""
+msgstr "Když je políčko <guilabel>Zastavit na kopírování/přejmenování</guilabel> zaškrtnuto, Zobrazit záznamy se zastaví na místě, kde vybraný soubor nebo adresář byl zkopírován z jiného místa v rámci úložiště. To může být užitečné, když prohlížíte větve (nebo značky), protože se zastaví u kořene té větve a poskytuje rychlou indikaci změn provedených pouze v té větvi."
 
 #. (para)
 msgid "Normally you will want to leave this option unchecked. TortoiseSVN remembers the state of the checkbox, so it will respect your preference."
-msgstr ""
+msgstr "Za normálních okolností budete chtít nechat tuto možnost odškrtnutou. TortoiseSVN si pamatuje stav tohoto políčka, takže bude Vaše preference respektovat."
 
 #. (para)
 msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
-msgstr ""
+msgstr "Je-li dialogové okno Zobrazit záznamy spuštěno z dialogového okna Sloučení, je políčko vždy ve výchozím nastavení zaškrtnuto. To proto, že sloučení se nejčastěji dívá na změny ve větvích a jít za kořen větve nemá v této situaci smysl."
 
 #. (para)
 msgid "Note that Subversion currently implements renaming as a copy/delete pair, so renaming a file or folder will also cause the log display to stop if this option is checked."
-msgstr ""
+msgstr "Všimněte si, že Subversion v současné době zavádí přejmenování jako pár kopírování/smazání, takže přejmenování souboru nebo adresáře také způsobí, že displej záznamů se zastaví, pokud je tato volba zaškrtnuta."
 
 #. (para)
 msgid "The Log dialog does not always show all changes ever made for a number of reasons: <placeholder-1/>"
-msgstr ""
+msgstr "Dialogové okno Záznamů ne vždy zobrazí všechny změny, je to z několika důvodů: <placeholder-1/>"
 
 #. (para)
 msgid "If you want to see more log messages, click the <guibutton>Next 100</guibutton> to retrieve the next 100 log messages. You can repeat this as many times as needed."
-msgstr ""
+msgstr "Pokud chcete vidět více zpráv záznamů, klepněte na tlačítko <guibutton>Dalších 100</guibutton> pro získání dalších 100 zpráv záznamů. Toto můžete opakovat kolikrát chcete."
 
 #. (para)
 msgid "Next to this button there is a multi-function button which remembers the last option you used it for. Click on the arrow to see the other options offered."
-msgstr ""
+msgstr "Vedle tohoto tlačítka je tlačítko s mnoha fiunkcemi, které si pamatuje poslední možnost, kterou jste v něm použili. Klikněte na šipku pro zobrazení dalších nabízených možností."
 
 #. (para)
 msgid "Use <guibutton>Show Range ...</guibutton> if you want to view a specific range of revisions. A dialog will then prompt you to enter the start and end revision."
-msgstr ""
+msgstr "Použijte <guibutton>Zobrazit Rozsah...</guibutton> pokud chcete zobrazit konkrétní rozsah revizí. Dialogové okno Vás pak vyzve k zadání začátku a konce revize."
 
 #. (para)
 msgid "Use <guibutton>Show All</guibutton> if you want to see <emphasis>all</emphasis> log messages from HEAD right back to revision 1."
-msgstr ""
+msgstr "Použijte <guibutton>Zobrazit všechny</guibutton> pokud chcete vidět <emphasis>všechny</emphasis> zprávy záznamu z revize HEAD zpátky k revizi 1."
 
 #. (para)
 msgid "To refresh the latest revision in case there were other commits while the log dialog was open, hit the <keycap>F5</keycap> key."
-msgstr ""
+msgstr "Chcete-li obnovit poslední revizi v případě, že byly i jiné odevzdání, zatímco bylo dialogové okno Zánamu otevřené, stiskněte klávesu <keycap>F5</keycap>."
 
 #. (para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
-msgstr ""
+msgstr "Chcete-li aktualizovat úschovu záznamů, stiskněte klávesy <keycap>Ctrl-F5</keycap>."
 
 #. (title)
 msgid "Current Working Copy Revision"
-msgstr ""
+msgstr "Aktuální Revize Pracovní Kopie"
 
 #. (para)
 msgid "Because the log dialog shows you the log from HEAD, not from the current working copy revision, it often happens that there are log messages shown for content which has not yet been updated in your working copy. To help make this clearer, the commit message which corresponds to the revision you have in your working copy is shown in bold."
-msgstr ""
+msgstr "Vzhledem k tomu, že Dialogové okno Záznamů zobrazuje záznamy z HEAD, ne z aktuální revize pracovní kopie, často se stává, že v záznamu jsou zprávy vypovídající o obsahu, který dosud nebyl aktualizován ve Vaší pracovní kopii. Pro jasnější představu je zpráva odevzdání, která odpovídá revizi ve Vaši pracovní kopii, zobrazena tučně."
 
 #. (para)
 msgid "When you show the log for a folder the revision highlighted is the highest revision found anywhere within that folder, which requires a crawl of the working copy. The crawl takes place within a separate thread so as not to delay showing the log, but as a result highlighting for folders may not appear immediately."
-msgstr ""
+msgstr "Když zobrazíte záznam adresáře, revize, která je zvýrazněná je nejvyšší revizi kdekoliv v tomto adresáři, která vyžaduje procházení pracovní kopie. Procházení se provádí v rámci samostatného vlákna, aby nedošlo k prodlení zobrazení záznamu, ale v důsledku zvýraznění adresáře se nemusí objevit ihned."
 
 #. (title)
 msgid "Merge Tracking Features"
-msgstr ""
+msgstr "Funkce Sledování Sloučení"
 
 #. (primary)
 msgid "merge tracking log"
-msgstr ""
+msgstr "sledování záznamu o sloučení"
 
 #. (para)
 msgid "Subversion 1.5 and later keeps a record of merges using properties. This allows us to get a more detailed history of merged changes. For example, if you develop a new feature on a branch and then merge that branch back to trunk, the feature development will show up on the trunk log as a single commit for the merge, even though there may have been 1000 commits during branch development."
-msgstr ""
+msgstr "Subversion 1.5 a novější uchovává záznamy o sloučení pomocí vlastností. To nám umožňuje získat podrobnější historii sloučených změn. Například, pokud jste vyvinuli novou funkci ve větvi a pak sloučili tuto větev zpět do kmene, tak se vývoj funkce objeví v záznamu kmene jako jediné odevzdání pro sloučení i když tam mohlo být 1000 odevzdání v průběhu vývoje větve."
 
 #. (title)
 msgid "The Log Dialog Showing Merge Tracking Revisions"
-msgstr ""
+msgstr "Dialogové Okno Záznamu Zobrazující Sledování Sloučení Revizí"
 
 #. (para)
 msgid "If you want to see the detail of which revisions were merged as part of that commit, use the <guilabel>Include merged revisions</guilabel> checkbox. This will fetch the log messages again, but will also interleave the log messages from revisions which were merged. Merged revisions are shown in grey because they represent changes made on a different part of the tree."
-msgstr ""
+msgstr "Pokud chcete vidět detaily, které revize byly sloučeny jako součást tohoto odevzdání, použijte políčko <guilabel>Zahrnout sloučené revize</guilabel>. To znovu stáhne zprávy záznamu, ale také proloží zprávy záznamů z revize, které byly sloučeny. Sloučené revize jsou zobrazeny v šedé barvě, protože představují změny provedené v jiné části stromu."
 
 #. (para)
 msgid "Of course, merging is never simple! During feature development on the branch there will probably be occasional merges back from trunk to keep the branch in sync with the main line code. So the merge history of the branch will also include another layer of merge history. These different layers are shown in the log dialog using indentation levels."
-msgstr ""
+msgstr "Samozřejmě, slučování není nikdy jednoduché! Během  vývoje funkce na větvi, budou pravděpodobně i občasná sloučení zpět do kmene, aby větve byly v synchronizaci s hlavní linií kódu. Takže historii sloučení větve bude také zahrnovat další vrstvu historie sloučení. Tyto různé vrstvy jsou uvedeny v dialogovém okně záznamu pomocí úrovní odsazení."
 
 #. (title)
 msgid "Changing the Log Message and Author"
-msgstr ""
+msgstr "Změna Zpráv Záznamu a Autora"
 
 #. (primary)
 msgid "edit log/author"
-msgstr ""
+msgstr "upravit záznam/autora"
 
 #. (primary)
 msgid "revision properties"
-msgstr ""
+msgstr "vlastnosti revize"
 
 #. (primary)
 msgid "revprops"
-msgstr ""
+msgstr "vlastrev"
 
 #. (para)
 msgid "Revision properties are completely different from the Subversion properties of each item. Revprops are descriptive items which are associated with one specific revision number in the repository, such as log message, commit date and committer name (author)."
-msgstr ""
+msgstr "Vlastnosti revize jsou zcela odlišné od Subversion vlastností každé položky. vlastrev jsou popisné položky, které jsou spojeny s jedním konkrétním číslem revize v úložišti, jako třeba zpráva záznamu, datum odevzdání a jméno vývojáře (autor)."
 
 #. (para)
 msgid "Sometimes you might want to change a log message you once entered, maybe because there's a spelling error in it or you want to improve the message or change it for other reasons. Or you want to change the author of the commit because you forgot to set up authentication or..."
-msgstr ""
+msgstr "Někdy můžete chtít změnit zprávu záznamu, kterou jste jednou zadali, možná proto, že je v ní pravopisná chyba, nebo chcete zprávu zlepšit nebo z jiných důvodů změnit. Nebo chcete změnit autora odevzdání, protože jste zapomněli nastavit ověřování nebo..."
 
 #. (para)
 msgid "Subversion lets you change revision properties any time you want. But since such changes can't be undone (those changes are not versioned) this feature is disabled by default. To make this work, you must set up a pre-revprop-change hook. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for details about how to do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some further notes on implementing hooks on a Windows machine."
-msgstr ""
+msgstr "Subversion umožňuje měnit vlastnosti revizí kdykoliv budete chtít. Ale protože takové změny nelze vrátit zpět (tyto změny nemají verzi), tato funkce je ve výchozím nastavení zakázána. Pro povolení, musíte nastavit hák  před-vlastrev-změnou. Více informací je v kapitole týkající se <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hákové skripty</citetitle></ulink> v knize Subversion pro podrobnosti o tom, jak to provést. Přečtěte si <xref linkend=\"tsvn-repository-hooks\"/> pro některé další poznámky o zavedení háků na počítači s Windows."
 
 #. (para)
 msgid "Once you've set up your server with the required hooks, you can change the author and log message (or any other revprop) of any revision, using the context menu from the top pane of the Log dialog. You can also edit a log message using the context menu for the middle pane."
-msgstr ""
+msgstr "Jakmile jste nastavili váš server s požadovanými háky, můžete změnit autora a zprávu záznamu (nebo jakuukoli jinou vlastrev) jakékoli revize, pomocí kontextového menu v horním panelu dialogového okna Záznamu. Můžete také upravit zprávu záznamu pomocí kontextového menu ve středním panelu."
 
 #. (para)
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
-msgstr ""
+msgstr "Vzhledem k tomu, že vlastnosti reve Subversion nemají verzi, změny těchto vlastností (např. <literal>svn:log</literal> vlastnost zprávy odevzdání) přepíše <emphasis>navždy</emphasis> předchozí hodnotu této vlastnosti."
 
 #. (para)
 msgid "Since TortoiseSVN keeps a cache of all the log information, edits made for author and log messages will only show up on your local installation. Other users using TortoiseSVN will still see the cached (old) authors and log messages until they refresh the log cache."
-msgstr ""
+msgstr "Vzhledem k tomu, že TortoiseSVN si udržuje všechny informace ze záznamu, úpravy prováděné v autorovi a zprávě záznamu se zobrazí pouze ve Vaší instalaci. Ostatní uživatelé používající TortoiseSVN stále budou vidět uchované (staré) autory a zprávy záznamu, dokud neaktualizují úschovu záznamu."
 
 #. (title)
 msgid "Filtering Log Messages"
-msgstr ""
+msgstr "Filtrování Zpráv Záznamu"
 
 #. (primary)
 msgid "filter"
-msgstr ""
+msgstr "filtr"
 
 #. (para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
-msgstr ""
+msgstr "Pokud chcete omezit zprávy záznamu na ty, o které máte zajem, tak spíše než procházet seznam stovek zpráv, můžete použít kontroly filtru v horní části dialogového okna záznamů. Kontrola počátečního a konečného data umožňuje omezit výstup na známé časové období. Pole vyhledávání umožňuje zobrazit pouze ty zprávy, které obsahují konkrétní frázi."
 
 #. (para)
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple sub-string search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions, or the sub-string functions. The filter works by checking whether your filter string matches the log entries, and then only those entries which <emphasis>match</emphasis> the filter string are shown."
-msgstr ""
+msgstr "Klikněte na ikonu hledání a vyberte, které informace chcete vyhledávat a který režím <emphasis>regex</emphasis> chcete. Za normálních okolností budete potřebovat pouze jednoduché hledání podřetězce, ale pokud potřebujete více flexibilní vyhledávací termíny, můžete použít regulární výrazy. Pokud podržíte ukazatelem myši nad polem, popisek Vám dá rady, jak používat regulární výrazy funkce, nebo funkce podřetězce. Filtr pracuje tak, že zkontroluje, zda Váš řetězec filtru odpovídá položkám záznamu a pak pouze tyto záznamy, které se <emphasis>shodují</emphasis> s řetězcem filtru jsou zobrazeny."
 
 #. (para)
 msgid ""
@@ -4841,86 +4841,99 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
 msgstr ""
+"Prosté hledání podřetězců funguje podobně jako vyhedávač. Hledané řetězce jsou oddělené mezerami a všechny řetězce se musí shodovat. Můžete použít <literal>-</literal> před slovem, aby se určitý podřetězec nevyhledával (obrácená shoda se slovem), nebo použijte <literal>!</literal> na začátku výrazu k obrácení shody celého výrazu. Můžete použít uvozovky pro hledání řetězce s mezerami a pokud chcete hledat uvozovky můžete použít dvě uvozovky dohromady jako sebemaskující sekvence. Nezapomeňte, že obrácené lomítko se <emphasis>nepoužívá</emphasis>  jako maskující znak a nemá žádný zvláštní význam v prostém hledání podřetězců. Příklady Vám to objasní: <screen>\n"
+"Jana Honza -Eva\n"
+"</screen> vyhledá řetězce obsahující Jana i Honza ale ne Eva <screen>\n"
+"!Jana Honza\n"
+"</screen> vyhledá řetězce, které neobsahují Jana a Honza <screen>\n"
+"!-Jana -Honza\n"
+"</screen> pamatujete si na De Morganův teorém? NOT(NOT Jana AND NOT Honza) se zkrátí na (Jana OR Honza). <screen>\n"
+"\"Jana a Honza\"\n"
+"</screen> hledá doslovný výraz <quote>Jana a Honza</quote><screen>\n"
+"\"\"\n"
+"</screen> hledá dvě uvozovky kdekoliv v textu <screen>\n"
+"\"Jana řekla Honzovi \"\"ahoj\"\"\"\n"
+"</screen> hledá doslovný výraz <quote>Jana řekla Honzovi \"ahoj\"</quote>."
 
 #. (para)
 msgid "Describing the use of regular expression searches is beyond the scope of this manual, but you can find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Popis použití regulárního výrazu v hledání je nad rámec tohoto manuálu, ale můžete najít na internetu dokumentace a návod na <ulink url=\"http://www.regularnivyrazy.info/\"><citetitle>http://www.regularnivyrazy.info/</citetitle></ulink>."
 
 #. (para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
-msgstr ""
+msgstr "Upozorňujeme, že tyto filtry působí pouze na již stáhnuté zprávy. Nemají žádný vliv na stahování zpráv z úložiště."
 
 #. (para)
 msgid "You can also filter the path names in the bottom pane using the <guilabel>Show only affected paths</guilabel> checkbox. Affected paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. Normally the path list shows any other paths which are affected by the same commit, but in grey. If the box is checked, those paths are hidden."
-msgstr ""
+msgstr "Můžete také filtrovat názvy cest ve spodním panelu pomocí políčka <guilabel>Zobrazit pouze dotčené cesty</guilabel>. Dotčené cesty jsou ty, které obsahují cestu sloužící k zobrazení záznamu. Načtete-li záznam pro adresář, znamená to všechno v tom adresáři nebo pod ním. Pro soubor to znamená jen právě ten jeden soubor. Normálně seznamu cest zobrazí jakékoliv jiné cesty, které jsou dotčené stejným odevzdáním, ale v šedé barvě. Pokud je políčko zaškrtnuto, tyto cesty jsou ukryty."
 
 #. (para)
 msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property."
-msgstr ""
+msgstr "Někdy Vaše pracovní postupy budou vyžadovat, aby zprávy záznamů měly určitý formát, což znamená, že text popisující změny, není vidět ve zkráceném shrnutí uvedený v horním panelu. Vlastnost <literal>tsvn:logsummary</literal> může být použita k extrakci části zprávy záznamu k zobrazení v horním panelu. Přečtěte si <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> pro více informací, jak použít tuto vlastnost."
 
 #. (title)
 msgid "No Log Formatting from Repository Browser"
-msgstr ""
+msgstr "Žádné formátování záznamu z Průzkumníka úložiště"
 
 #. (para)
 msgid "Because the formatting depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
-msgstr ""
+msgstr "Vzhledem k tomu, že formátování závisí na přístupu k vlastnostem Subversion, výsledky uvidíte pouze při použití získané pracovní kopie. Vzdálené získávání vlastnosti je pomalá operace, takže tuto funkci v akci neuvidíte v Průzkumíku úložiště."
 
 #. (title)
 msgid "Statistical Information"
-msgstr ""
+msgstr "Statistické informace"
 
 #. (primary)
 msgid "statistics"
-msgstr ""
+msgstr "statistika"
 
 #. (para)
 msgid "The <guibutton>Statistics</guibutton> button brings up a box showing some interesting information about the revisions shown in the Log dialog. This shows how many authors have been at work, how many commits they have made, progress by week, and much more. Now you can see at a glance who has been working hardest and who is slacking ;-)"
-msgstr ""
+msgstr "Tlačítkem <guibutton>Statistika</guibutton> vyvoláte okno zobrazující některé zajímavé informace o revizích zobrazených v dialogovém okně Záznamu. Ukazuje, kolik autorů pracovalo, kolik odevzdání udělali, pokrok v týdnu a ještě mnohem více. Nyní můžete na první pohled vidět, kdo pracoval nejtvrději a kdo se flákal ;-)"
 
 #. (title)
 msgid "Statistics Page"
-msgstr ""
+msgstr "Stránka Statistik"
 
 #. (para)
 msgid "This page gives you all the numbers you can think of, in particular the period and number of revisions covered, and some min/max/average values."
-msgstr ""
+msgstr "Tato stránka Vám dává všechna čísla na která můžete pomyslet, zejména období a počet pokrytých revizí a některé min/max/průměrné hodnoty."
 
 #. (title)
 msgid "Commits by Author Page"
-msgstr ""
+msgstr "Stránka Odevzdání podle Autora"
 
 #. (title)
 msgid "Commits-by-Author Histogram"
-msgstr ""
+msgstr "Sloupcový graf Odevzdání-podle-Autora"
 
 #. (title)
 msgid "Commits-by-Author Pie Chart"
-msgstr ""
+msgstr "Koláčový graf Odevzdání-podle-Autora"
 
 #. (para)
 msgid "<placeholder-1/> This graph shows you which authors have been active on the project as a simple histogram, stacked histogram or pie chart. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Tento graf ukazuje, kteří autoři byli v projektu aktivní jako jednoduchý sloupcový graf, skládaný sloupcový graf nebo koláčový graf. <placeholder-2/>"
 
 #. (para)
 msgid "Where there are a few major authors and many minor contributors, the number of tiny segments can make the graph more difficult to read. The slider at the bottom allows you to set a threshold (as a percentage of total commits) below which any activity is grouped into an <emphasis>Others</emphasis> category."
-msgstr ""
+msgstr "Pokud existuje několik hlavních autorů a mnoho menších přispěvatelů, množství malých segmentů může způsobit, že graf je obtížnější číst. Posuvník v dolní části umožňuje nastavit prahové hodnoty (jako procento z celkových odevzdání), pod níž je jakákoli aktivita seskupena do kategorie<emphasis>Ostatní</emphasis>."
 
 #. (title)
 msgid "Commits by date Page"
-msgstr ""
+msgstr "Stránka odevzdání podle data"
 
 #. (title)
 msgid "Commits-by-date Graph"
-msgstr ""
+msgstr "Graf odevzdání podle data"
 
 #. (para)
 msgid "<placeholder-1/> This page gives you a graphical representation of project activity in terms of number of commits <emphasis>and</emphasis> author. This gives some idea of when a project is being worked on, and who was working at which time."
-msgstr ""
+msgstr "<placeholder-1/> Tato stránka Vám dává grafické znázornění činností projektu, pokud jde o počet odevzdání <emphasis>a</emphasis> autorů. To dává určitou představu o tom, kdy se na projektu pracuje a kdo v které době pracoval."
 
 #. (para)
 msgid "When there are several authors, you will get many lines on the graph. There are two views available here: <emphasis>normal</emphasis>, where each author's activity is relative to the base line, and <emphasis>stacked</emphasis>, where each author's activity is relative to the line underneath. The latter option avoids the lines crossing over, which can make the graph easier to read, but less easy to see one author's output."
-msgstr ""
+msgstr "Když je několik autorů, budete mít v grafu mnoho řádků. Zde jsou k dispozici dva pohledy: <emphasis>normální</emphasis>, kde každá aktivita autora je vzhledem k základní linii, a <emphasis>skládaný</emphasis>, kde každá aktivita autora je vzhledem k řádku pod ním. Druhá z možností zabraňuje překřížení linky, což může udělat graf čitelnějším, ale je méně snadné vidět výkon jednoho autora."
 
 #. (para)
 msgid "By default the analysis is case-sensitive, so users <literal>PeterEgan</literal> and <literal>PeteRegan</literal> are treated as different authors. However, in many cases user names are not case-sensitive, and are sometimes entered inconsistently, so you may want <literal>DavidMorgan</literal> and <literal>davidmorgan</literal> to be treated as the same person. Use the <guilabel>Authors case insensitive</guilabel> checkbox to control how this is handled."
