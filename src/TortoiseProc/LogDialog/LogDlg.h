@@ -203,7 +203,6 @@ private:
         const CString& whatToFind, LRESULT *pResult);
 	void NotifyTargetOnOk();
     void CreateFindDialog();
-    void RunTortoiseProc(const CString& commandsList);
     void DoOpenFileWith(bool bOpenWith, const CTSVNPath& tempfile);
 
     // selection management

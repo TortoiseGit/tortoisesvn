@@ -2023,23 +2023,6 @@ void CMainFrame::OnViewLocatorbar()
     m_wndLineDiffBar.DocumentUpdated();
 }
 
-bool CMainFrame::RunTortoiseProc(const CString& commandList)
-{
-    CString pathToExecutable = CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe");
-    CString cmd;
-    cmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)commandList);
-
-    auto_buffer<TCHAR> buf(cmd.GetLength()+1);
-    _tcscpy_s(buf, cmd.GetLength()+1, cmd);
-
-    if(CCreateProcessHelper::CreateProcessDetached (NULL, buf))
-        return true;
-
-    CFormatMessageWrapper errorDetails;
-    MessageBox(errorDetails, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
-    return false;
-}
-
 void CMainFrame::OnViewComparewhitespaces()
 {
     if (CheckForSave()==IDCANCEL)

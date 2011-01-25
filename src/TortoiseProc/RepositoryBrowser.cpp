@@ -2987,10 +2987,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CTSVNPath tempFile = CTempFiles::Instance().GetTempFilePath(false);
                     VERIFY(updateList.WriteToFile(tempFile.GetWinPathString()));
                     CString sCmd;
-                    sCmd.Format(_T("\"%s\" /command:update /pathfile:\"%s\" /rev /deletepathfile"),
-                        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), tempFile.GetWinPath());
+                    sCmd.Format(_T("/command:update /pathfile:\"%s\" /rev /deletepathfile"),
+                        tempFile.GetWinPath());
 
-                    CAppUtils::LaunchApplication(sCmd, NULL, false);
+                    CAppUtils::RunTortoiseProc(sCmd);
                 }
             }
             break;
@@ -3126,8 +3126,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         rev2 = temp;
                     }
                     CString sCmd;
-                    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s /endrev:%s"),
-                        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sCopyFrom1, (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString());
+                    sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%s /endrev:%s"),
+                        (LPCTSTR)sCopyFrom1, (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString());
 
                     ATLTRACE(sCmd);
                     if (!m_path.IsUrl())
@@ -3137,13 +3137,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         sCmd += _T("\"");
                     }
 
-                    CAppUtils::LaunchApplication(sCmd, NULL, false);
+                    CAppUtils::RunTortoiseProc(sCmd);
                 }
                 else
                 {
                     CString sCmd;
-                    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"),
-                        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)firstPath.GetSVNPathString(), (LPCTSTR)pegRevision.ToString());
+                    sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%s"),
+                        (LPCTSTR)firstPath.GetSVNPathString(), (LPCTSTR)pegRevision.ToString());
 
                     if (!m_path.IsUrl())
                     {
@@ -3152,7 +3152,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         sCmd += _T("\"");
                     }
 
-                    CAppUtils::LaunchApplication(sCmd, NULL, false);
+                    CAppUtils::RunTortoiseProc(sCmd);
                 }
             }
             break;
@@ -3190,12 +3190,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 }
                 itemsToCheckout.TrimRight('*');
                 CString sCmd;
-                sCmd.Format ( _T("\"%s\" /command:checkout /url:\"%s\" /revision:%s")
-                            , (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"))
+                sCmd.Format ( _T("/command:checkout /url:\"%s\" /revision:%s")
                             , (LPCTSTR)itemsToCheckout
                             , (LPCTSTR)selection.GetRepository(0).revision.ToString());
 
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
+                CAppUtils::RunTortoiseProc(sCmd);
             }
             break;
         case ID_EXPORT:
@@ -3231,12 +3230,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         case ID_REVGRAPH:
             {
                 CString sCmd;
-                sCmd.Format ( _T("\"%s\" /command:revisiongraph /path:\"%s\" /pegrev:%s")
-                            , (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"))
+                sCmd.Format ( _T("/command:revisiongraph /path:\"%s\" /pegrev:%s")
                             , (LPCTSTR)selection.GetURLEscaped (0, 0).GetSVNPathString()
                             , (LPCTSTR)selection.GetRepository (0).revision.ToString());
 
-                CAppUtils::LaunchApplication(sCmd, NULL, false);
+                CAppUtils::RunTortoiseProc(sCmd);
             }
             break;
         case ID_OPENWITH:

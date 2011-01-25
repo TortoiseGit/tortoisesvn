@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1150,8 +1150,7 @@ void CRevisionGraphWnd::DoShowLog()
     CString URL = GetSelectedURL();
 
     CString sCmd;
-    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+    sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%ld"),
         (LPCTSTR)URL,
         m_SelectedEntry1->GetRevision());
 
@@ -1162,7 +1161,7 @@ void CRevisionGraphWnd::DoShowLog()
         sCmd += _T("\"");
     }
 
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
+    CAppUtils::RunTortoiseProc(sCmd);
 }
 
 void CRevisionGraphWnd::DoCheckForModification()
@@ -1236,11 +1235,10 @@ void CRevisionGraphWnd::DoSwitchToHead()
 void CRevisionGraphWnd::DoBrowseRepo()
 {
     CString sCmd;
-    sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%d"),
-      (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+    sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%d"),
       (LPCTSTR)GetSelectedURL(), m_SelectedEntry1->GetRevision());
 
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
+    CAppUtils::RunTortoiseProc(sCmd);
 }
 
 void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)

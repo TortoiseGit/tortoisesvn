@@ -159,8 +159,8 @@ void CTreeConflictEditorDlg::OnBnClickedShowlog()
     if (SVNHelper::IsVersioned(logPath.GetContainingDirectory()))
         logPath = logPath.GetContainingDirectory();
     CString sCmd;
-    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), logPath.GetWinPath());
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
+    sCmd.Format(_T("/command:log /path:\"%s\""), logPath.GetWinPath());
+    CAppUtils::RunTortoiseProc(sCmd);
 }
 
 void CTreeConflictEditorDlg::OnBnClickedBranchlog()
@@ -174,11 +174,10 @@ void CTreeConflictEditorDlg::OnBnClickedBranchlog()
     if (src_left_version_kind != svn_node_dir)
         logPath = logPath.GetContainingDirectory();
     CString sCmd;
-    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /pegrev:%ld"),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+    sCmd.Format(_T("/command:log /path:\"%s\" /pegrev:%ld"),
         (LPCTSTR)logPath.GetSVNPathString(),
         (svn_revnum_t)src_left_version_rev);
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
+    CAppUtils::RunTortoiseProc(sCmd);
 }
 
 void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()

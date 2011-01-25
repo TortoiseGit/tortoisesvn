@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,11 +95,10 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
 void CRepoCreationFinished::OnBnClickedRepobrowser()
 {
     CString sCmd;
-    sCmd.Format(_T("%s /command:repobrowser /path:\"%s\""),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+    sCmd.Format(_T("/command:repobrowser /path:\"%s\""),
         (LPCTSTR)m_RepoPath.GetWinPath());
 
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
+    CAppUtils::RunTortoiseProc(sCmd);
 }
 
 

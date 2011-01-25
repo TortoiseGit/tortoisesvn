@@ -1190,10 +1190,10 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
     }
     SVNRev endRev(rev);
     CString sCmd;
-    sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /endrev:%s"),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), m_targetPathList[0].GetWinPath(), (LPCTSTR)endRev.ToString());
+    sCmd.Format(_T("/command:log /path:\"%s\" /endrev:%s"),
+        m_targetPathList[0].GetWinPath(), (LPCTSTR)endRev.ToString());
 
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
+    CAppUtils::RunTortoiseProc(sCmd);
 }
 
 void CSVNProgressDlg::OnBnClickedRetrynohooks()
@@ -1408,15 +1408,15 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
     {
         // We've double-clicked on a conflicted item - do a three-way merge on it
         CString sCmd;
-        sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
-            (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), data->path.GetWinPath());
+        sCmd.Format(_T("/command:conflicteditor /path:\"%s\""),
+            data->path.GetWinPath());
         if (!data->path.IsUrl())
         {
             sCmd += _T(" /propspath:\"");
             sCmd += data->path.GetWinPathString();
             sCmd += _T("\"");
         }
-        CAppUtils::LaunchApplication(sCmd, NULL, false);
+        CAppUtils::RunTortoiseProc(sCmd);
     }
     else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)) || (data->action == svn_wc_notify_resolved))
     {
@@ -1882,9 +1882,9 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         {
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CString sCmd;
-            sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
-                (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sPath);
-            CAppUtils::LaunchApplication(sCmd, NULL, false);
+            sCmd.Format(_T("/command:conflicteditor /path:\"%s\""),
+                (LPCTSTR)sPath);
+            CAppUtils::RunTortoiseProc(sCmd);
         }
         break;
     case ID_CONFLICTUSETHEIRS:
@@ -1960,10 +1960,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             // revisions.
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CString sCmd;
-            sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""),
-                (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sPath);
+            sCmd.Format(_T("/command:log /path:\"%s\""),
+                (LPCTSTR)sPath);
 
-            CAppUtils::LaunchApplication(sCmd, NULL, false);
+            CAppUtils::RunTortoiseProc(sCmd);
         }
         break;
     case ID_OPENWITH:

@@ -854,7 +854,6 @@ private:
     void StartDiff(FileEntry * entry);
     void StartDiffOrResolve(int fileindex);
     void StartConflictEditor(const CTSVNPath& filepath);
-    void RunTortoiseProc(const CString& commandsList);
     void AddPropsPath(const CTSVNPath& filepath, CString& command );
 
     /// fetch all user properties for all items

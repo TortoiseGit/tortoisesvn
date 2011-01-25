@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,6 +74,8 @@ public:
         UINT idErrMessageFormat,
         bool bWaitForStartup,
         bool bWaitForExit = false);
+
+    static bool RunTortoiseProc(const CString& sCommandLine);
 
     /**
      * Resizes all columns in a list control. Considers also icons in columns

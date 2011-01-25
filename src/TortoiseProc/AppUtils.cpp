@@ -772,9 +772,7 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
                                      const SVNRev& peg /* = SVNRev */, const SVNRev& headpeg /* = SVNRev */,
                                      bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool /* blame = false */)
 {
-    CString sCmd;
-    sCmd.Format(_T("%s /command:showcompare /unified"),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")));
+    CString sCmd = _T("/command:showcompare /unified");
     sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
     if (rev1.IsValid())
         sCmd += _T(" /revision1:") + rev1.ToString();
@@ -800,7 +798,7 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
         sCmd += buf;
     }
 
-    return CAppUtils::LaunchApplication(sCmd, NULL, false);
+    return CAppUtils::RunTortoiseProc(sCmd);
 }
 
 bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1,
@@ -811,8 +809,7 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
                                  int line /* = 0 */)
 {
     CString sCmd;
-    sCmd.Format(_T("%s /command:showcompare /nodekind:%d"),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), nodekind);
+    sCmd.Format(_T("/command:showcompare /nodekind:%d"), nodekind);
     sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
     if (rev1.IsValid())
         sCmd += _T(" /revision1:") + rev1.ToString();
@@ -846,7 +843,7 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
         sCmd += temp;
     }
 
-    return CAppUtils::LaunchApplication(sCmd, NULL, false);
+    return CAppUtils::RunTortoiseProc(sCmd);
 }
 
 bool CAppUtils::SetupDiffScripts(bool force, const CString& type)

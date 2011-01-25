@@ -1841,14 +1841,6 @@ void CLogDlg::CreateFindDialog()
     }
 }
 
-void CLogDlg::RunTortoiseProc(const CString& commandsList)
-{
-    CString pathToExecutable = CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe");
-    CString sCmd;
-    sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)commandsList);
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
-}
-
 void CLogDlg::DoOpenFileWith(bool bOpenWith, const CTSVNPath& tempfile)
 {
     SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
@@ -2589,7 +2581,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                         CString sCmd;
                         sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%ld /propspath:\"%s\""),
                             (LPCTSTR)m_sRepositoryRoot, rev, (LPCTSTR)m_path.GetWinPath());
-                        RunTortoiseProc(sCmd);
+                        CAppUtils::RunTortoiseProc(sCmd);
                         return;
                     }
                 }
@@ -4784,7 +4776,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 CString sCmd;
                 sCmd.Format(_T("/command:update /path:\"%s\" /rev:%ld"),
                     (LPCTSTR)m_path.GetWinPath(), (LONG)revSelected);
-                RunTortoiseProc(sCmd);
+                CAppUtils::RunTortoiseProc(sCmd);
             }
             break;
         case ID_FINDENTRY:
@@ -4801,7 +4793,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%s"),
                     (LPCTSTR)pathURL, (LPCTSTR)revSelected.ToString());
 
-                RunTortoiseProc(sCmd);
+                CAppUtils::RunTortoiseProc(sCmd);
             }
             break;
         case ID_EDITLOG:
@@ -4835,7 +4827,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 CString sCmd;
                 sCmd.Format(_T("/command:export /path:\"%s\" /revision:%ld"),
                     (LPCTSTR)pathURL, (LONG)revSelected);
-                RunTortoiseProc(sCmd);
+                CAppUtils::RunTortoiseProc(sCmd);
             }
             break;
         case ID_CHECKOUT:
@@ -4844,7 +4836,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 CString url = _T("tsvn:")+pathURL;
                 sCmd.Format(_T("/command:checkout /url:\"%s\" /revision:%ld"),
                     (LPCTSTR)url, (LONG)revSelected);
-                RunTortoiseProc(sCmd);
+                CAppUtils::RunTortoiseProc(sCmd);
             }
             break;
         case ID_VIEWREV:
@@ -5448,7 +5440,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 
                 if (bMergeLog)
                     sCmd += _T(" /merge");
-                RunTortoiseProc(sCmd);
+                CAppUtils::RunTortoiseProc(sCmd);
                 EnableOKButton();
                 theApp.DoWaitCursor(-1);
             }

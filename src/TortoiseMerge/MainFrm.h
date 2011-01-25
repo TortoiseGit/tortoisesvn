@@ -157,7 +157,6 @@ protected:
     int             CheckForSave();
     void            OnViewLineUpDown(int direction);
     void            OnViewLineLeftRight(int direction);
-    bool            RunTortoiseProc(const CString& commandList);
     bool            HasConflictsWontKeep();
     bool            TryGetFileName(CString& result);
     CBaseView*      GetActiveBaseView() const;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -117,10 +117,9 @@ void CEditPropConflictDlg::OnBnClickedEditprops()
     // start the properties dialog
     CString sCmd;
 
-    sCmd.Format(_T("%s /command:properties /path:\"%s\""),
-        (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+    sCmd.Format(_T("/command:properties /path:\"%s\""),
         (LPCTSTR)m_conflictItem.GetWinPath());
-    CAppUtils::LaunchApplication(sCmd, NULL, false);
+    CAppUtils::RunTortoiseProc(sCmd);
 
     EndDialog(IDC_EDITPROPS);
 }
