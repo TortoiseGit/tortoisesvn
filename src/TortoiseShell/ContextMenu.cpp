@@ -676,7 +676,6 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
     tempfile = tstring();
     //write all selected files and paths to a temporary file
     //for TortoiseProc.exe to read out again.
-    DWORD written = 0;
     DWORD pathlength = GetTempPath(0, NULL);
     auto_buffer<TCHAR> path(pathlength+1);
     auto_buffer<TCHAR> tempFile(pathlength + 100);
@@ -696,24 +695,29 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
         return false;
 
     if (!IsClipboardFormatAvailable(CF_HDROP))
+    {
+        ::CloseHandle(file);
         return false;
+    }
     if (!OpenClipboard(NULL))
+    {
+        ::CloseHandle(file);
         return false;
+    }
 
-    tstring sClipboardText;
     HGLOBAL hglb = GetClipboardData(CF_HDROP);
     HDROP hDrop = (HDROP)GlobalLock(hglb);
     const bool bRet = (hDrop != NULL);
     if(bRet)
     {
-        TCHAR szFileName[MAX_PATH];
+        TCHAR szFileName[MAX_PATH + 1];
+        DWORD bytesWritten = 0;
         UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
         for(UINT i = 0; i < cFiles; ++i)
         {
             DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
-            tstring filename = szFileName;
-            ::WriteFile (file, filename.c_str(), (DWORD)filename.size()*sizeof(TCHAR), &written, 0);
-            ::WriteFile (file, _T("\n"), 2, &written, 0);
+            ::WriteFile (file, szFileName, (DWORD)(_tcslen(szFileName))*sizeof(TCHAR), &bytesWritten, 0);
+            ::WriteFile (file, _T("\n"), 2, &bytesWritten, 0);
         }
         GlobalUnlock(hDrop);
     }
