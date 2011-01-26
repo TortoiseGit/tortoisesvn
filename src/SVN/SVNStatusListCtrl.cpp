@@ -5689,10 +5689,12 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
                 CTSVNPathList changelistItems;
                 for(UINT i = 0; i < cFiles; ++i)
                 {
-                    DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
-                    CTSVNPath itemPath = CTSVNPath(szFileName);
-                    if (itemPath.Exists())
-                        changelistItems.AddPath(itemPath);
+                    if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
+                    {
+                        CTSVNPath itemPath = CTSVNPath(szFileName);
+                        if (itemPath.Exists())
+                            changelistItems.AddPath(itemPath);
+                    }
                 }
                 // find the changelist name
                 CString sChangelist;
@@ -5777,10 +5779,12 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
             {
                 for(UINT i = 0; i < cFiles; ++i)
                 {
-                    DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
-                    HWND hParentWnd = GetParent(m_hTargetWnd);
-                    if (hParentWnd != NULL)
-                        ::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)szFileName);
+                    if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
+                    {
+                        HWND hParentWnd = GetParent(m_hTargetWnd);
+                        if (hParentWnd != NULL)
+                            ::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)szFileName);
+                    }
                 }
             }
         }

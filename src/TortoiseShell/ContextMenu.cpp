@@ -715,9 +715,11 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
         UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
         for(UINT i = 0; i < cFiles; ++i)
         {
-            DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
-            ::WriteFile (file, szFileName, (DWORD)(_tcslen(szFileName))*sizeof(TCHAR), &bytesWritten, 0);
-            ::WriteFile (file, _T("\n"), 2, &bytesWritten, 0);
+            if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
+            {
+                ::WriteFile (file, szFileName, (DWORD)(_tcslen(szFileName))*sizeof(TCHAR), &bytesWritten, 0);
+                ::WriteFile (file, _T("\n"), 2, &bytesWritten, 0);
+            }
         }
         GlobalUnlock(hDrop);
     }

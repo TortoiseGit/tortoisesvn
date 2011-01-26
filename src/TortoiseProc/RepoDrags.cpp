@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -380,8 +380,8 @@ void CBaseDropTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, D
             UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
             for(UINT i = 0; i < cFiles; ++i)
             {
-                DragQueryFile(hDrop, i, szFileName, _countof(szFileName));
-                urlList.AddPath(CTSVNPath(szFileName));
+                if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
+                    urlList.AddPath(CTSVNPath(szFileName));
             }
             m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), root, urlList, m_pRepoBrowser->GetRevision(), *pdwEffect, pt);
         }

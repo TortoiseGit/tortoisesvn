@@ -335,10 +335,12 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
             HDROP hDrop = (HDROP)wParam;
             TCHAR szFileName[MAX_PATH];
             // we only use the first file dropped (if multiple files are dropped)
-            DragQueryFile(hDrop, 0, szFileName, _countof(szFileName));
-            SetPic(szFileName, _T(""), bMainPic);
-            FitImageInWindow();
-            InvalidateRect(*this, NULL, TRUE);
+            if (DragQueryFile(hDrop, 0, szFileName, _countof(szFileName)))
+            {
+                SetPic(szFileName, _T(""), bMainPic);
+                FitImageInWindow();
+                InvalidateRect(*this, NULL, TRUE);
+            }
         }
         break;
     case WM_COMMAND:
