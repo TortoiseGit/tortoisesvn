@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -478,13 +478,10 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     STARTUPINFO si;
     SecureZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
-    if (hOut  != INVALID_HANDLE_VALUE)
-    {
-        si.dwFlags     = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
-        si.hStdOutput  = hOut;
-        si.hStdError   = hErr;
-        si.wShowWindow = bShow ? SW_SHOW : SW_HIDE;
-    }
+    si.dwFlags     = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
+    si.hStdOutput  = hOut;
+    si.hStdError   = hErr;
+    si.wShowWindow = bShow ? SW_SHOW : SW_HIDE;
 
     PROCESS_INFORMATION pi;
     SecureZeroMemory(&pi, sizeof(pi));
@@ -497,6 +494,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
             error = CFormatMessageWrapper(err);
             CloseHandle(hErr);
             CloseHandle(hRedir);
+            CloseHandle(hOut);
         }
         SetLastError(err);
         cmd.ReleaseBuffer();

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -135,9 +135,17 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
  
         // Write the ICONDIRENTRY to disk
         if (!WriteFile(hFile, &ide, sizeof(ICONDIRENTRY), &dwBytesWritten, NULL))
-            return GetLastError();
+        {
+            DWORD lastError = GetLastError();
+            CloseHandle(hFile);
+            return lastError;
+        }
         if (dwBytesWritten != sizeof(ICONDIRENTRY))
-            return GetLastError();
+        {
+            DWORD lastError = GetLastError();
+            CloseHandle(hFile);
+            return lastError;
+        }
     }
 
     // Write the image bits for each image
@@ -148,9 +156,17 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
         // Set the sizeimage member to zero
         lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = 0;
         if (!WriteFile( hFile, lpIR->IconImages[i].lpBits, lpIR->IconImages[i].dwNumBytes, &dwBytesWritten, NULL))
-            return GetLastError();
+        {
+            DWORD lastError = GetLastError();
+            CloseHandle(hFile);
+            return lastError;
+        }
         if (dwBytesWritten != lpIR->IconImages[i].dwNumBytes)
-            return GetLastError();
+        {
+            DWORD lastError = GetLastError();
+            CloseHandle(hFile);
+            return lastError;
+        }
         // set it back
         lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = dwTemp;
     }

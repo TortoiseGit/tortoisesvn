@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -519,6 +519,7 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
+            CloseHandle(hFile);
             return ERR_READ;
         }
         maxlength = filelength+4096;    // We might be increasing file size.
@@ -529,6 +530,7 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
+            CloseHandle(hFile);
             return ERR_ALLOC;
         }
         if (!ReadFile(hFile, pBuf, (DWORD)filelength, &readlength, NULL))
@@ -538,6 +540,7 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
+            CloseHandle(hFile);
             return ERR_READ;
         }
         if (readlength != filelength)
@@ -547,6 +550,7 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
+            CloseHandle(hFile);
             return ERR_READ;
         }
         CloseHandle(hFile);
@@ -751,6 +755,7 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
+            CloseHandle(hFile);
             return ERR_READ;
         }
         if (readlengthExisting != filelengthExisting)
@@ -760,6 +765,7 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
+            CloseHandle(hFile);
             return ERR_READ;
         }
         sameFileContent = (memcmp(pBuf, pBufExisting, filelength) == 0);
@@ -780,6 +786,7 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
+            CloseHandle(hFile);
             return ERR_READ;
         }
 
@@ -790,6 +797,7 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
+            CloseHandle(hFile);
             return ERR_READ;
         }
     }
