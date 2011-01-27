@@ -1088,7 +1088,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         // call TortoiseProc to add the new file to version control
         CString cmd = _T("/command:add /noui /path:\"");
         cmd += m_Data.m_mergedFile.GetFilename() + _T("\"");
-        if(!RunTortoiseProc(cmd))
+        if(!CAppUtils::RunTortoiseProc(cmd))
             return FALSE;
     }
     return true;
@@ -1727,7 +1727,7 @@ BOOL CMainFrame::MarkAsResolved()
     CString cmd = _T("/command:resolve /path:\"");
     cmd += m_Data.m_mergedFile.GetFilename();
     cmd += _T("\" /closeonend:1 /noquestion /skipcheck");
-    if(!RunTortoiseProc(cmd))
+    if(!CAppUtils::RunTortoiseProc(cmd))
         return FALSE;
     return TRUE;
 }
