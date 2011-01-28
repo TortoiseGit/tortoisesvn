@@ -20,6 +20,8 @@
 #include "unicodeutils.h"
 #include "auto_buffer.h"
 
+static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
+
 CUnicodeUtils::CUnicodeUtils(void)
 {
 }
@@ -76,56 +78,59 @@ wchar_t* CUnicodeUtils::UTF8ToUTF16
     // most of our strings will be longer, plain ASCII strings
     // -> affort some minor overhead to handle them very fast
 
-    __m128i zero = _mm_setzero_si128();
-    __m128i ascii_limit = _mm_set_epi8 ( 0x7f,  0x7f,  0x7f,  0x7f
-                                       , 0x7f,  0x7f,  0x7f,  0x7f
-                                       , 0x7f,  0x7f,  0x7f,  0x7f
-                                       , 0x7f,  0x7f,  0x7f,  0x7f);
-
-    for (
-        ; size >= sizeof(zero)
-        ; size -= sizeof(zero), source += sizeof(zero), target += sizeof(zero))
+    if (sse2supported)
     {
-        // fetch the next 16 bytes from the source
+        __m128i zero = _mm_setzero_si128();
+        __m128i ascii_limit = _mm_set_epi8 ( 0x7f,  0x7f,  0x7f,  0x7f
+            , 0x7f,  0x7f,  0x7f,  0x7f
+            , 0x7f,  0x7f,  0x7f,  0x7f
+            , 0x7f,  0x7f,  0x7f,  0x7f);
 
-        __m128i chunk = _mm_loadu_si128 ((const __m128i*)source);
-
-        // check for non-ASCII
-
-        int zero_flags = _mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, zero));
-        int ascii_flags = _mm_movemask_epi8 (_mm_cmpgt_epi8 (chunk, ascii_limit));
-        if (ascii_flags != 0)
-            break;
-
-        // all 16 bytes in chunk are ASCII.
-        // Since we have not exceeded SIZE, we can savely write all data,
-        // even if it should include a terminal 0.
-
-        _mm_storeu_si128 ((__m128i*)target, _mm_unpacklo_epi8 (chunk, zero));
-        _mm_storeu_si128 ((__m128i*)(target+8), _mm_unpackhi_epi8 (chunk, zero));
-
-        // end of string?
-
-        if (zero_flags != 0)
+        for (
+            ; size >= sizeof(zero)
+            ; size -= sizeof(zero), source += sizeof(zero), target += sizeof(zero))
         {
-            // terminator has already been written, we only need to update 
-            // the target pointer
+            // fetch the next 16 bytes from the source
 
-            if ((zero_flags & 0xff) == 0)
+            __m128i chunk = _mm_loadu_si128 ((const __m128i*)source);
+
+            // check for non-ASCII
+
+            int zero_flags = _mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, zero));
+            int ascii_flags = _mm_movemask_epi8 (_mm_cmpgt_epi8 (chunk, ascii_limit));
+            if (ascii_flags != 0)
+                break;
+
+            // all 16 bytes in chunk are ASCII.
+            // Since we have not exceeded SIZE, we can savely write all data,
+            // even if it should include a terminal 0.
+
+            _mm_storeu_si128 ((__m128i*)target, _mm_unpacklo_epi8 (chunk, zero));
+            _mm_storeu_si128 ((__m128i*)(target+8), _mm_unpackhi_epi8 (chunk, zero));
+
+            // end of string?
+
+            if (zero_flags != 0)
             {
-                zero_flags >>= 8;
-                target += 8;
+                // terminator has already been written, we only need to update 
+                // the target pointer
+
+                if ((zero_flags & 0xff) == 0)
+                {
+                    zero_flags >>= 8;
+                    target += 8;
+                }
+
+                while ((zero_flags & 1) == 0)
+                {
+                    zero_flags >>= 1;
+                    ++target;
+                }
+
+                // done
+
+                return target;
             }
-
-            while ((zero_flags & 1) == 0)
-            {
-                zero_flags >>= 1;
-                ++target;
-            }
-
-            // done
-
-            return target;
         }
     }
 

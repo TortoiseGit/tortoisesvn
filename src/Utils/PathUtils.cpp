@@ -26,6 +26,8 @@
 #include "apr_uri.h"
 #include "svn_path.h"
 
+static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
+
 BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
     const size_t len = _tcslen(path);
@@ -64,22 +66,25 @@ bool CPathUtils::ContainsEscapedChars(const char * psz, size_t length)
     // most of our strings will be tens of bytes long
     // -> affort some minor overhead to handle the main part very fast
 
-    __m128i mask = _mm_set_epi8 ( '%', '%', '%', '%', '%', '%', '%', '%'
-                                , '%', '%', '%', '%', '%', '%', '%', '%');
-
     const char* end = psz + length;
-    for (; psz + sizeof (mask) <= end; psz += sizeof (mask))
+    if (sse2supported)
     {
-        // fetch the next 16 bytes from the source
+        __m128i mask = _mm_set_epi8 ( '%', '%', '%', '%', '%', '%', '%', '%'
+            , '%', '%', '%', '%', '%', '%', '%', '%');
 
-        __m128i chunk = _mm_loadu_si128 ((const __m128i*)psz);
+        for (; psz + sizeof (mask) <= end; psz += sizeof (mask))
+        {
+            // fetch the next 16 bytes from the source
 
-        // check for non-ASCII
+            __m128i chunk = _mm_loadu_si128 ((const __m128i*)psz);
 
-        int flags = _mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, mask));
-        if (flags != 0)
-            return true;
-    };
+            // check for non-ASCII
+
+            int flags = _mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, mask));
+            if (flags != 0)
+                return true;
+        };
+    }
 
     // return odd bytes at the end of the string
 

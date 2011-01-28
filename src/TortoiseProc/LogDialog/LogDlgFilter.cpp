@@ -24,6 +24,8 @@
 
 namespace
 {
+    static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
+
     // case-sensitivity optimization functions
 
     bool IsAllASCII7 (const CString& s)
@@ -40,40 +42,43 @@ namespace
         // most of our strings will be tens of bytes long
         // -> affort some minor overhead to handle the main part very fast
 
-        __m128i zero = _mm_setzero_si128();
-        __m128i A_mask = _mm_set_epi16 ('@', '@', '@', '@', '@', '@', '@', '@');
-        __m128i Z_mask = _mm_set_epi16 ('[', '[', '[', '[', '[', '[', '[', '[');
-        __m128i diff   = _mm_set_epi16 (32, 32, 32, 32, 32, 32, 32, 32);
-
-        wchar_t* end = s + size;
-        for (
-            ; s + sizeof (zero) / sizeof (wchar_t) <= end
-            ; s += sizeof (zero) / sizeof (wchar_t))
+        if (sse2supported)
         {
-            // fetch the next 16 bytes from the source
+            __m128i zero = _mm_setzero_si128();
+            __m128i A_mask = _mm_set_epi16 ('@', '@', '@', '@', '@', '@', '@', '@');
+            __m128i Z_mask = _mm_set_epi16 ('[', '[', '[', '[', '[', '[', '[', '[');
+            __m128i diff   = _mm_set_epi16 (32, 32, 32, 32, 32, 32, 32, 32);
 
-            __m128i chunk = _mm_loadu_si128 ((const __m128i*)s);
+            wchar_t* end = s + size;
+            for (
+                ; s + sizeof (zero) / sizeof (wchar_t) <= end
+                ; s += sizeof (zero) / sizeof (wchar_t))
+            {
+                // fetch the next 16 bytes from the source
 
-            // check for string end
+                __m128i chunk = _mm_loadu_si128 ((const __m128i*)s);
 
-            if (_mm_movemask_epi8 (_mm_cmpeq_epi16 (chunk, zero)) != 0)
-                break;
+                // check for string end
 
-            // identify chars that need correction
+                if (_mm_movemask_epi8 (_mm_cmpeq_epi16 (chunk, zero)) != 0)
+                    break;
 
-            __m128i A_or_larger = _mm_cmpgt_epi16 (chunk, A_mask);
-            __m128i Z_or_smaller = _mm_cmplt_epi16 (chunk, Z_mask);
-            __m128i is_upper_case = _mm_and_si128 (A_or_larger, Z_or_smaller);
+                // identify chars that need correction
 
-            // apply the diff only where identified previously
+                __m128i A_or_larger = _mm_cmpgt_epi16 (chunk, A_mask);
+                __m128i Z_or_smaller = _mm_cmplt_epi16 (chunk, Z_mask);
+                __m128i is_upper_case = _mm_and_si128 (A_or_larger, Z_or_smaller);
 
-            __m128i correction = _mm_and_si128 (is_upper_case, diff);
-            chunk = _mm_add_epi16 (chunk, correction);
+                // apply the diff only where identified previously
 
-            // store the updated data
+                __m128i correction = _mm_and_si128 (is_upper_case, diff);
+                chunk = _mm_add_epi16 (chunk, correction);
 
-            _mm_storeu_si128 ((__m128i*)s, chunk);
-        };
+                // store the updated data
+
+                _mm_storeu_si128 ((__m128i*)s, chunk);
+            };
+        }
 
         for (wchar_t c = *s; c != 0; c = *++s)
             if ((c <= 'Z') && (c >= 'A'))
