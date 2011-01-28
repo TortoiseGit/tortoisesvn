@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,6 +32,12 @@ class CPathUtils
 public:
     static BOOL         MakeSureDirectoryPathExists(LPCTSTR path);
     static void         ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len);
+
+    /**
+     * Returns false if calling \ref Unescape is not necessary.
+     */
+    static bool ContainsEscapedChars(const char * psz, size_t length);
+
     /**
      * Replaces escaped sequences with the corresponding characters in a string.
      */

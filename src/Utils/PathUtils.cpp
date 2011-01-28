@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -57,6 +57,37 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 
     const BOOL bRet = CreateDirectory(internalpathbuf, &attribs);
     return bRet;
+}
+
+bool CPathUtils::ContainsEscapedChars(const char * psz, size_t length)
+{
+    // most of our strings will be tens of bytes long
+    // -> affort some minor overhead to handle the main part very fast
+
+    __m128i mask = _mm_set_epi8 ( '%', '%', '%', '%', '%', '%', '%', '%'
+                                , '%', '%', '%', '%', '%', '%', '%', '%');
+
+    const char* end = psz + length;
+    for (; psz + sizeof (mask) <= end; psz += sizeof (mask))
+    {
+        // fetch the next 16 bytes from the source
+
+        __m128i chunk = _mm_loadu_si128 ((const __m128i*)psz);
+
+        // check for non-ASCII
+
+        int flags = _mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, mask));
+        if (flags != 0)
+            return true;
+    };
+
+    // return odd bytes at the end of the string
+
+    for (; psz < end; ++psz)
+        if (*psz == '%')
+            return true;
+
+    return false;
 }
 
 void CPathUtils::Unescape(char * psz)
