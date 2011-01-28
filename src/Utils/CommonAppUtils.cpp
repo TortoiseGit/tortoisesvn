@@ -262,6 +262,14 @@ void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
     CHeaderCtrl * pHdrCtrl = (CHeaderCtrl*)(pListCtrl->GetDlgItem(0));
     if (pHdrCtrl)
     {
+        int imgWidth = 0;
+        CImageList * pImgList = pListCtrl->GetImageList(LVSIL_SMALL);
+        if ((pImgList)&&(pImgList->GetImageCount()))
+        {
+            IMAGEINFO imginfo;
+            pImgList->GetImageInfo(0, &imginfo);
+            imgWidth = (imginfo.rcImage.right - imginfo.rcImage.left) + 3;  // 3 pixels between icon and text
+        }
         for (int col = 0; col <= maxcol; col++)
         {
             HDITEM hdi = {0};
@@ -270,22 +278,14 @@ void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
             hdi.cchTextMax = _countof(textbuf);
             pHdrCtrl->GetItem(col, &hdi);
             int cx = pListCtrl->GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
+
             for (int index = 0; index<nItemCount; ++index)
             {
                 // get the width of the string and add 14 pixels for the column separator and margins
                 int linewidth = pListCtrl->GetStringWidth(pListCtrl->GetItemText(index, col)) + 14;
-                if (index == 0)
-                {
-                    // add the image size
-                    CImageList * pImgList = pListCtrl->GetImageList(LVSIL_SMALL);
-                    if ((pImgList)&&(pImgList->GetImageCount()))
-                    {
-                        IMAGEINFO imginfo;
-                        pImgList->GetImageInfo(0, &imginfo);
-                        linewidth += (imginfo.rcImage.right - imginfo.rcImage.left);
-                        linewidth += 3; // 3 pixels between icon and text
-                    }
-                }
+                // add the image size
+                if (col == 0)
+                    linewidth += imgWidth;
                 if (cx < linewidth)
                     cx = linewidth;
             }
