@@ -4000,7 +4000,8 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
     size_t endRow = m_LogList.GetItemCount();
     if (bOnlyVisible)
     {
-        startRow = m_LogList.GetTopIndex();
+        if (endRow > 0)
+            startRow = m_LogList.GetTopIndex();
         endRow = startRow + m_LogList.GetCountPerPage();
     }
     for (int col = 0; col <= maxcol; col++)
