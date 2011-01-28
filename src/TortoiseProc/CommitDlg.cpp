@@ -1157,10 +1157,10 @@ void CCommitDlg::GetAutocompletionList()
             continue;
 
         ScanFile(entry->GetPath().GetWinPathString(), rdata, sExt);
-        if ((entry->textstatus != svn_wc_status_unversioned) &&
-            (entry->textstatus != svn_wc_status_none) &&
-            (entry->textstatus != svn_wc_status_ignored) &&
-            (entry->textstatus != svn_wc_status_added) &&
+        if ((entry->status != svn_wc_status_unversioned) &&
+            (entry->status != svn_wc_status_none) &&
+            (entry->status != svn_wc_status_ignored) &&
+            (entry->status != svn_wc_status_added) &&
             (entry->textstatus != svn_wc_status_normal))
         {
             CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
