@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -194,6 +194,9 @@ protected:
 
     void StoreCurrentGraphType();
     void ShowErrorMessage();
+
+    // init ruler & limit its range
+    void SetSkipper (bool reloadSkiper);
 
     //Load statistical queries
     void LoadStatQueries(__in UINT curStr, Metrics loadMetric, bool setDef = false);

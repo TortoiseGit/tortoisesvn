@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -125,6 +125,21 @@ void CStatGraphDlg::LoadStatQueries (__in UINT curStr, Metrics loadMetric, bool 
     if (setDef) m_cGraphType.SetCurSel(sel);
 }
 
+void CStatGraphDlg::SetSkipper (bool reloadSkiper)
+{
+    // We need to limit the number of authors due to GUI resource limitation.
+    // However, since author #251 will properly have < 1000th of the commits,
+    // the resolution limit of the screen will already not allow for displaying
+    // it in a reasonable way
+
+    int max_authors_count = max(1, (int)min(m_authorNames.size(), 250) );
+    m_Skipper.SetRange (1, max_authors_count);
+    m_Skipper.SetPageSize(5);
+
+    if (reloadSkiper) 
+        m_Skipper.SetPos (max_authors_count);
+}
+
 BOOL CStatGraphDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
@@ -226,11 +241,7 @@ BOOL CStatGraphDlg::OnInitDialog()
     GatherData();
 
     // set the min/max values on the skipper
-    int max_authors_count = max(1, (int)min(m_authorNames.size(),100) );
-    // TODO : limit the max count based on the resolution, for now we use 100
-    m_Skipper.SetRange(1, max_authors_count );
-    m_Skipper.SetPos( min(max_authors_count, 10) );
-    m_Skipper.SetPageSize(5);
+    SetSkipper (true);
 
     // we use a stats page encoding here, 0 stands for the statistics dialog
     CRegDWORD lastStatsPage = CRegDWORD(_T("Software\\TortoiseSVN\\LastViewedStatsPage"), 0);
@@ -1566,7 +1577,6 @@ void CStatGraphDlg::LoadListOfAuthors (MAP &map, bool reloadSkiper/*= false*/,  
     m_authorNames.sort(MoreCommitsThan< MAP::referent_type>(map));
 
     // Set Skipper
-    m_Skipper.SetRange(1, (int)m_authorNames.size());
-    if (reloadSkiper) m_Skipper.SetPos((int)m_authorNames.size());
+    SetSkipper(reloadSkiper);
 }
 
