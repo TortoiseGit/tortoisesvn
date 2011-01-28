@@ -81,11 +81,6 @@ wchar_t* CUnicodeUtils::UTF8ToUTF16
     if (sse2supported)
     {
         __m128i zero = _mm_setzero_si128();
-        __m128i ascii_limit = _mm_set_epi8 ( 0x7f,  0x7f,  0x7f,  0x7f
-            , 0x7f,  0x7f,  0x7f,  0x7f
-            , 0x7f,  0x7f,  0x7f,  0x7f
-            , 0x7f,  0x7f,  0x7f,  0x7f);
-
         for (
             ; size >= sizeof(zero)
             ; size -= sizeof(zero), source += sizeof(zero), target += sizeof(zero))
@@ -94,10 +89,10 @@ wchar_t* CUnicodeUtils::UTF8ToUTF16
 
             __m128i chunk = _mm_loadu_si128 ((const __m128i*)source);
 
-            // check for non-ASCII
+            // check for non-ASCII (SSE2 cmp* operations are signed!)
 
             int zero_flags = _mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, zero));
-            int ascii_flags = _mm_movemask_epi8 (_mm_cmpgt_epi8 (chunk, ascii_limit));
+            int ascii_flags = _mm_movemask_epi8 (_mm_cmplt_epi8 (chunk, zero));
             if (ascii_flags != 0)
                 break;
 
