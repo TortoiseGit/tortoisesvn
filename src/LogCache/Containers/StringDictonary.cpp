@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -225,11 +225,22 @@ index_t CStringDictionary::Insert (const char* string)
     // add string to container
 
     index_t size = index_t (strlen (string)) +1;
-    if (packedStrings.size() >= NO_INDEX - size)
+    if (packedStrings.size() >= (index_t)NO_INDEX - (size + sizeof (size_t)))
         throw CContainerException ("dictionary overflow");
 
     packedStrings.insert (packedStrings.end(), string, string + size);
     packedStringsStart = &packedStrings.front();
+
+    // ensure we can make chunky copy of any data from the packed buffer
+
+    size_t minCapacity = packedStrings.size() + sizeof (size_t);
+    if (packedStrings.capacity() < minCapacity)
+    {
+        if (packedStrings.size() > (index_t)NO_INDEX / 2 - sizeof (size_t))
+            packedStrings.reserve ((index_t)NO_INDEX);
+        else
+            packedStrings.reserve (packedStrings.size() * 2 + sizeof (size_t));
+    }
 
     // update indices
 
@@ -278,7 +289,7 @@ void CStringDictionary::Clear()
 
 void CStringDictionary::Reserve (index_t stringCount, size_t charCount)
 {
-    packedStrings.reserve (charCount);
+    packedStrings.reserve (charCount + sizeof (size_t));
     packedStringsStart = &packedStrings.front();
 
     offsets.reserve (stringCount);
@@ -361,10 +372,12 @@ IHierarchicalInStream& operator>> (IHierarchicalInStream& stream
         = stream.GetSubStream<CBLOBInStream>
             (CStringDictionary::PACKED_STRING_STREAM_ID);
 
-    if (packedStringStream->GetSize() >= NO_INDEX)
+    size_t packedSize = packedStringStream->GetSize();
+    if (packedSize >= NO_INDEX)
         throw CContainerException ("data stream to large");
 
-    dictionary.packedStrings.resize (packedStringStream->GetSize());
+    dictionary.packedStrings.reserve (packedSize + sizeof (size_t));
+    dictionary.packedStrings.resize (packedSize);
     dictionary.packedStringsStart = &dictionary.packedStrings.front();
     memcpy ( dictionary.packedStringsStart
            , packedStringStream->GetData()

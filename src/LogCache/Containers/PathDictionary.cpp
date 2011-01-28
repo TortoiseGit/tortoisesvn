@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -413,29 +413,48 @@ void CDictionaryBasedPath::GetPath (std::string& result) const
 
     const char* pathElements [MAX_PATH];
     index_t sizes[MAX_PATH];
-    size_t depth = 0;
-
     size_t size = 0;
+
+    const CStringDictionary& elements = dictionary->GetPathElements();
+
+    size_t depth = 0;
     for ( index_t currentIndex = index
         ; (currentIndex != 0) && (depth < MAX_PATH)
         ; currentIndex = dictionary->GetParent (currentIndex))
     {
-        pathElements[depth] = dictionary->GetPathElement (currentIndex);
-        sizes[depth] = dictionary->GetPathElementSize (currentIndex);
-        size += sizes[depth] + 1;
+        size_t element = dictionary->GetPathElementID (currentIndex);
+        size_t elementLen = elements.GetLength (element);
+
+        pathElements[depth] = elements[element];
+        sizes[depth] = elementLen;
+        size += elementLen;
+
         ++depth;
     }
 
+    size += depth;
+
     // build result
 
-    result.clear();
-    result.resize (std::max ((size_t)1, size), '/');
+    result.resize (std::max ((size_t)1, size));
+    result.reserve (size + sizeof (size_t));
+
     char* target = &result[0];
 
     for (size_t i = depth; i > 0; --i)
     {
-        memcpy (++target, pathElements[i-1], sizes[i-1]);
-        target += sizes[i-1];
+        *target = '/';
+        size_t elementSize = sizes[i-1];
+
+        char* dest = ++target;
+        target += elementSize;
+
+        for ( const char* source = pathElements[i-1]
+            ; dest < target
+            ; source += sizeof (size_t), dest += sizeof (size_t))
+        {
+            *(size_t*)dest = *(const size_t*)source;
+        }
     }
 }
 
