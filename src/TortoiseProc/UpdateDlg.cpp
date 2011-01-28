@@ -70,7 +70,8 @@ BOOL CUpdateDlg::OnInitDialog()
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
-    m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE)));
+    if (m_wcPath.Exists())
+        m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE)));
     m_depthCombo.SetCurSel(0);
 
     CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
