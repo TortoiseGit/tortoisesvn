@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,6 +73,64 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
 wchar_t* CUnicodeUtils::UTF8ToUTF16
     (const char* source, size_t size, wchar_t* target)
 {
+    // most of our strings will be longer, plain ASCII strings
+    // -> affort some minor overhead to handle them very fast
+
+    __m128i zero = _mm_setzero_si128();
+    __m128i ascii_limit = _mm_set_epi8 ( 0x7f,  0x7f,  0x7f,  0x7f
+                                       , 0x7f,  0x7f,  0x7f,  0x7f
+                                       , 0x7f,  0x7f,  0x7f,  0x7f
+                                       , 0x7f,  0x7f,  0x7f,  0x7f);
+
+    for (
+        ; size >= sizeof(zero)
+        ; size -= sizeof(zero), source += sizeof(zero), target += sizeof(zero))
+    {
+        // fetch the next 16 bytes from the source
+
+        __m128i chunk = _mm_loadu_si128 ((const __m128i*)source);
+
+        // check for non-ASCII
+
+        int zero_flags = _mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, zero));
+        int ascii_flags = _mm_movemask_epi8 (_mm_cmpgt_epi8 (chunk, ascii_limit));
+        if (ascii_flags != 0)
+            break;
+
+        // all 16 bytes in chunk are ASCII.
+        // Since we have not exceeded SIZE, we can savely write all data,
+        // even if it should include a terminal 0.
+
+        _mm_storeu_si128 ((__m128i*)target, _mm_unpacklo_epi8 (chunk, zero));
+        _mm_storeu_si128 ((__m128i*)(target+8), _mm_unpackhi_epi8 (chunk, zero));
+
+        // end of string?
+
+        if (zero_flags != 0)
+        {
+            // terminator has already been written, we only need to update 
+            // the target pointer
+
+            if ((zero_flags & 0xff) == 0)
+            {
+                zero_flags >>= 8;
+                target += 8;
+            }
+
+            while ((zero_flags & 1) == 0)
+            {
+                zero_flags >>= 1;
+                ++target;
+            }
+
+            // done
+
+            return target;
+        }
+    }
+
+    // non-ASCII and string tail handling
+
     const unsigned char* s = reinterpret_cast<const unsigned char*>(source);
     if (size > 0)
     {
