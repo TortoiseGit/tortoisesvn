@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,6 +58,7 @@ BEGIN_MESSAGE_MAP(CSplitterControl, CStatic)
     ON_WM_LBUTTONUP()
     ON_WM_ERASEBKGND()
     ON_MESSAGE(WM_MOUSELEAVE, OnMouseLeave)
+    ON_WM_CAPTURECHANGED()
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -195,6 +196,12 @@ void CSplitterControl::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CSplitterControl::OnLButtonUp(UINT nFlags, CPoint point)
 {
+    CStatic::OnLButtonUp(nFlags, point);
+    ReleaseCapture();
+}
+
+void CSplitterControl::OnCaptureChanged(CWnd *pWnd)
+{
     if (m_bIsPressed)
     {
         CWnd * pParent = GetParent();
@@ -229,8 +236,7 @@ void CSplitterControl::OnLButtonUp(UINT nFlags, CPoint point)
         }
     }
 
-    CStatic::OnLButtonUp(nFlags, point);
-    ReleaseCapture();
+    CStatic::OnCaptureChanged(pWnd);
 }
 
 void CSplitterControl::DrawLine(CDC* pDC)
@@ -393,3 +399,4 @@ BOOL CSplitterControl::OnEraseBkgnd(CDC* /*pDC*/)
 {
     return TRUE;
 }
+

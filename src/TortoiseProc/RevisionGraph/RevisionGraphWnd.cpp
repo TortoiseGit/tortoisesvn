@@ -165,6 +165,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphWnd, CWnd)
     ON_WM_SETCURSOR()
     ON_WM_TIMER()
     ON_MESSAGE(WM_WORKERTHREADDONE,OnWorkerThreadDone)
+    ON_WM_CAPTURECHANGED()
 END_MESSAGE_MAP()
 
 void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
@@ -517,6 +518,14 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
     EnableMenuItem(GetParent()->GetMenu()->m_hMenu, ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, uEnable);
 
     __super::OnLButtonDown(nFlags, point);
+}
+
+void CRevisionGraphWnd::OnCaptureChanged(CWnd *pWnd)
+{
+    m_bIsRubberBand = false;
+    m_ptRubberEnd = CPoint(0,0);
+
+    __super::OnCaptureChanged(pWnd);
 }
 
 void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)

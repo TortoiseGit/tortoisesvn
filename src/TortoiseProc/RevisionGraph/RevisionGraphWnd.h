@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -213,6 +213,7 @@ protected:
     afx_msg void    OnLButtonUp(UINT nFlags, CPoint point);
     afx_msg BOOL    OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
     afx_msg void    OnTimer(UINT_PTR nIDEvent);
+    afx_msg void    OnCaptureChanged(CWnd *pWnd);
     afx_msg LRESULT OnWorkerThreadDone(WPARAM, LPARAM);
 
     DECLARE_MESSAGE_MAP()

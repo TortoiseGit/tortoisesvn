@@ -143,6 +143,7 @@ protected:
     afx_msg void OnTvnBeginlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
+    afx_msg void OnCaptureChanged(CWnd *pWnd);
 
     afx_msg void OnUrlFocus();
     afx_msg void OnCopy();

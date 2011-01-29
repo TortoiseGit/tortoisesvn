@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2008 - TortoiseSVN
+// Copyright (C) 2006 - 2008, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,6 +64,13 @@ LRESULT CALLBACK CNiceTrackbar::NiceTrackbarProc(HWND hwnd, UINT message, WPARAM
                 self->PostMessageToParent(TB_THUMBPOSITION);
                 self->m_DragChanged = false;
             }
+            return 0;
+        }
+        break;
+    case WM_CAPTURECHANGED:
+        if (self->m_Dragging)
+        {
+            self->m_Dragging = false;
             return 0;
         }
         break;

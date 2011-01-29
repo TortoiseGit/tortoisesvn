@@ -216,6 +216,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_NOTIFY(TVN_ITEMCHANGED, IDC_REPOTREE, &CRepositoryBrowser::OnTvnItemChangedRepotree)
     ON_NOTIFY(NM_CLICK, IDC_REPOTREE, &CRepositoryBrowser::OnNMClickRepotree)
     ON_NOTIFY(TVN_KEYDOWN, IDC_REPOTREE, &CRepositoryBrowser::OnTvnKeydownRepotree)
+    ON_WM_CAPTURECHANGED()
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -913,6 +914,13 @@ void CRepositoryBrowser::OnLButtonUp(UINT nFlags, CPoint point)
     }
 
     CStandAloneDialogTmpl<CResizableDialog>::OnLButtonUp(nFlags, point);
+}
+
+void CRepositoryBrowser::OnCaptureChanged(CWnd *pWnd)
+{
+    bDragMode = false;
+
+    __super::OnCaptureChanged(pWnd);
 }
 
 void CRepositoryBrowser::DrawXorBar(CDC * pDC, int x1, int y1, int width, int height)
@@ -4072,3 +4080,4 @@ void CRepositoryBrowser::HandleCheckedItemForXP( HTREEITEM item )
         }
     }
 }
+

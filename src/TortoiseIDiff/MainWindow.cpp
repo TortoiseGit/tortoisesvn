@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2010 - TortoiseSVN
+// Copyright (C) 2006 - 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -203,6 +203,9 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         break;
     case WM_LBUTTONUP:
         Splitter_OnLButtonUp(hwnd, uMsg, wParam, lParam);
+        break;
+    case WM_CAPTURECHANGED:
+        Splitter_CaptureChanged();
         break;
     case WM_MOUSEMOVE:
         Splitter_OnMouseMove(hwnd, uMsg, wParam, lParam);
@@ -638,6 +641,10 @@ LRESULT CMainWindow::Splitter_OnLButtonDown(HWND hwnd, UINT iMsg, WPARAM wParam,
     return 0;
 }
 
+void CMainWindow::Splitter_CaptureChanged()
+{
+    bDragMode = false;
+}
 
 LRESULT CMainWindow::Splitter_OnLButtonUp(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
