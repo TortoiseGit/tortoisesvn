@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -103,6 +103,15 @@ public:
 
     CString FindBugID(const CString& msg);
     std::set<CString> FindBugIDs(const CString& msg);
+
+    /**
+     * Check whether calling \ref FindBugID or \ref FindBugIDPositions
+     * is worthwhile. If the result is @a false, those functions would
+     * return empty strings or sets, respectively.
+     * \param msg the log message
+     */
+    bool MightContainABugID(const std::string& msg);
+
     /**
      * Searches for the BugID inside a log message. If one is found,
      * that BugID is returned. If none is found, an empty string is returned.

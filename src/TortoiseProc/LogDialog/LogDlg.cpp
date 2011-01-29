@@ -737,7 +737,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         // to be exact: CRLF is treated as one char.
 
         SMarkerInfo info;
-        info.sText = pLogEntry->GetMessage();
+        info.sText = CUnicodeUtils::GetUnicode
+                        (pLogEntry->GetMessage().c_str());
         info.sText.Replace(_T("\r"), _T(""));
         info.text = info.sText;
 
@@ -1104,7 +1105,7 @@ void CLogDlg::OnCancel()
     }
 }
 
-BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren)
+BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, BOOL haschildren)
 {
     // this is the callback function which receives the data for every revision we ask the log for
     // we store this information here one by one.
@@ -1473,7 +1474,8 @@ void CLogDlg::CopySelectionToClipBoard()
             for (size_t cpPathIndex = 0; cpPathIndex < cpatharray.GetCount(); ++cpPathIndex)
             {
                 const CLogChangedPath& cpath = cpatharray[cpPathIndex];
-                sPaths += cpath.GetActionString() + _T(" : ") + cpath.GetPath();
+                sPaths += CUnicodeUtils::GetUnicode (cpath.GetActionString().c_str())
+                        + _T(" : ") + cpath.GetPath();
                 if (cpath.GetCopyFromPath().IsEmpty())
                     sPaths += _T("\r\n");
                 else
@@ -1489,9 +1491,9 @@ void CLogDlg::CopySelectionToClipBoard()
             sPaths.Trim();
             sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
                 (LPCTSTR)sRev, pLogEntry->GetRevision(),
-                (LPCTSTR)sAuthor, (LPCTSTR)pLogEntry->GetAuthor(),
-                (LPCTSTR)sDate, (LPCTSTR)pLogEntry->GetDateString(),
-                (LPCTSTR)sMessage, (LPCTSTR)pLogEntry->GetMessage(),
+                (LPCTSTR)sAuthor,  (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetAuthor().c_str()),
+                (LPCTSTR)sDate, (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetDateString().c_str()),
+                (LPCTSTR)sMessage, (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str()),
                 (LPCTSTR)sPaths);
             sClipdata +=  sLogCopyText;
         }
@@ -2232,7 +2234,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
                     ShowErrorDialog(m_hWnd);
                     break;
                 }
-                logs[i]->SetAuthor (dlg.m_sInputText);
+                logs[i]->SetAuthor (CUnicodeUtils::StdGetUTF8 ((LPCTSTR)dlg.m_sInputText));
                 m_LogList.Invalidate();
 
                 // update the log cache
@@ -2241,7 +2243,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
                 // log caching is active
                 LogCache::CCachedLogInfo newInfo;
                 newInfo.Insert ( logs[i]->GetRevision()
-                    , (const char*) CUnicodeUtils::GetUTF8 (logs[i]->GetAuthor())
+                    , logs[i]->GetAuthor().c_str()
                     , ""
                     , 0
                     , LogCache::CRevisionInfoContainer::HAS_AUTHOR);
@@ -2298,7 +2300,9 @@ void CLogDlg::EditLogMessage(int index)
         }
         else
         {
-            pLogEntry->SetMessage (dlg.m_sInputText, &m_ProjectProperties);
+            pLogEntry->SetMessage (CUnicodeUtils::StdGetUTF8 
+                                     ( (LPCTSTR)dlg.m_sInputText)
+                                     , &m_ProjectProperties);
 
             CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
             pMsgView->SetWindowText(_T(" "));
@@ -2317,7 +2321,7 @@ void CLogDlg::EditLogMessage(int index)
                 LogCache::CCachedLogInfo newInfo;
                 newInfo.Insert ( pLogEntry->GetRevision()
                                , ""
-                               , (const char*) CUnicodeUtils::GetUTF8 (pLogEntry->GetMessage())
+                               , pLogEntry->GetMessage().c_str()
                                , 0
                                , LogCache::CRevisionInfoContainer::HAS_COMMENT);
 
@@ -2646,7 +2650,7 @@ void CLogDlg::OnBnClickedStatbutton()
         ; ++iter)
     {
         PLOGENTRYDATA pLogEntry = iter->second;
-        CString strAuthor = pLogEntry->GetAuthor();
+        CString strAuthor = CUnicodeUtils::GetUnicode (pLogEntry->GetAuthor().c_str());
         if ( strAuthor.IsEmpty() )
         {
             strAuthor.LoadString(IDS_STATGRAPH_EMPTYAUTHOR);
@@ -3548,17 +3552,26 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             break;
         case 2: //author
             if (pLogEntry)
-                lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetAuthor(), pItem->cchTextMax);
+            {
+                size_t size = max (pLogEntry->GetAuthor().length(), (size_t)pItem->cchTextMax);
+                CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetAuthor().c_str(), size, pItem->pszText);
+            }
             break;
         case 3: //date
             if (pLogEntry)
-                lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetDateString(), pItem->cchTextMax);
+            {
+                size_t size = max (pLogEntry->GetDateString().length(), (size_t)pItem->cchTextMax);
+                CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetDateString().c_str(), size, pItem->pszText);
+            }
             break;
         case 4: //message or bug id
             if (m_bShowBugtraqColumn)
             {
                 if (pLogEntry)
-                    lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetBugIDs(), pItem->cchTextMax);
+                {
+                    size_t size = max (pLogEntry->GetBugIDs().length(), (size_t)pItem->cchTextMax);
+                    CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetBugIDs().c_str(), size, pItem->pszText);
+                }
                 break;
             }
             // fall through here!
@@ -3569,13 +3582,14 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                 // to the list control. If the message is longer than
                 // allowed width, add "..." as an indication.
                 const int dots_len = 3;
-                if (pLogEntry->GetShortMessage().GetLength() >= pItem->cchTextMax && pItem->cchTextMax > dots_len)
+                CString shortMessage = pLogEntry->GetShortMessageUTF16();
+                if (shortMessage.GetLength() >= pItem->cchTextMax && pItem->cchTextMax > dots_len)
                 {
-                    lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetShortMessage(), pItem->cchTextMax - dots_len);
+                    lstrcpyn(pItem->pszText, (LPCTSTR)shortMessage, pItem->cchTextMax - dots_len);
                     lstrcpyn(pItem->pszText + pItem->cchTextMax - dots_len - 1, _T("..."), dots_len + 1);
                 }
                 else
-                    lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->GetShortMessage(), pItem->cchTextMax);
+                    lstrcpyn(pItem->pszText, (LPCTSTR)shortMessage, pItem->cchTextMax);
             }
             else if ((itemid == m_logEntries.GetVisibleCount()) && m_bStrict && m_bStrictStopped)
             {
@@ -3634,7 +3648,8 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
         case 1: //Action
             lstrcpyn ( pItem->pszText
                      , m_currentChangedArray.GetCount() > (size_t)pItem->iItem
-                           ? (LPCTSTR)m_currentChangedArray[pItem->iItem].GetActionString()
+                           ? (LPCTSTR)CUnicodeUtils::GetUnicode 
+                                (m_currentChangedArray[pItem->iItem].GetActionString().c_str())
                            : _T("")
                      , pItem->cchTextMax);
             break;
@@ -3864,7 +3879,7 @@ CTSVNPathList CLogDlg::GetChangedPathsAndMessageSketchFromSelectedRevisions(CStr
 
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (nextpos);
             CString sRevMsg;
-            sRevMsg.Format(L"r%ld\n%s\n---------------------\n", pLogEntry->GetRevision(), pLogEntry->GetShortMessage());
+            sRevMsg.Format(L"r%ld\n%s\n---------------------\n", pLogEntry->GetRevision(), pLogEntry->GetShortMessageUTF16());
             sMessageSketch +=  sRevMsg;
             const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
             for (size_t cpPathIndex = 0; cpPathIndex<cpatharray.GetCount(); ++cpPathIndex)
@@ -4239,7 +4254,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         revSelected2 = pLogEntry->GetRevision();
     }
     bool bAllFromTheSameAuthor = true;
-    CString firstAuthor;
     std::vector<PLOGENTRYDATA> selEntries;
     SVNRev revLowest, revHighest;
     SVNRevRangeArray revisionRanges;
@@ -4251,13 +4265,14 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
         revisions.push_back (pLogEntry->GetRevision());
         selEntries.push_back(pLogEntry);
-        firstAuthor = pLogEntry->GetAuthor();
+
+        const std::string& firstAuthor = pLogEntry->GetAuthor();
         while (pos2)
         {
             pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
             revisions.push_back (pLogEntry->GetRevision());
             selEntries.push_back(pLogEntry);
-            if (firstAuthor.Compare(pLogEntry->GetAuthor()))
+            if (firstAuthor == pLogEntry->GetAuthor())
                 bAllFromTheSameAuthor = false;
         }
 
@@ -5568,32 +5583,35 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
         // Draw the icon(s) into the compatible DC
 
         DWORD actions = pLogEntry->GetChangedPaths().GetActions();
+
+        std::string actionText;
         if (actions & LOGACTIONS_MODIFIED)
         {
-            sToolTipText += CLogChangedPath::GetActionString (LOGACTIONS_MODIFIED);
+            actionText += CLogChangedPath::GetActionString (LOGACTIONS_MODIFIED);
         }
 
         if (actions & LOGACTIONS_ADDED)
         {
-            if (!sToolTipText.IsEmpty())
-                sToolTipText += _T("\r\n");
-            sToolTipText += CLogChangedPath::GetActionString (LOGACTIONS_ADDED);
+            if (!actionText.empty())
+                actionText += "\r\n";
+            actionText += CLogChangedPath::GetActionString (LOGACTIONS_ADDED);
         }
 
         if (actions & LOGACTIONS_DELETED)
         {
-            if (!sToolTipText.IsEmpty())
-                sToolTipText += _T("\r\n");
-            sToolTipText += CLogChangedPath::GetActionString (LOGACTIONS_DELETED);
+            if (!actionText.empty())
+                actionText += "\r\n";
+            actionText += CLogChangedPath::GetActionString (LOGACTIONS_DELETED);
         }
 
         if (actions & LOGACTIONS_REPLACED)
         {
-            if (!sToolTipText.IsEmpty())
-                sToolTipText += _T("\r\n");
-            sToolTipText += CLogChangedPath::GetActionString (LOGACTIONS_REPLACED);
+            if (!actionText.empty())
+                actionText += "\r\n";
+            actionText += CLogChangedPath::GetActionString (LOGACTIONS_REPLACED);
         }
 
+        sToolTipText = CUnicodeUtils::GetUnicode (actionText.c_str());
         if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
         {
             if (!sToolTipText.IsEmpty())

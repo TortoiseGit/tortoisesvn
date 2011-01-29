@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007,2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2007,2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -159,7 +159,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     __time64_t date = data.GetTimeStamp (index);
     const char * author = data.GetAuthor (index);
-    CString message (data.GetComment (index).c_str());
+    std::string message = data.GetComment (index);
 
     // construct result
 
@@ -168,7 +168,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
             ( NULL
             , revision
             , date / 1000000L
-            , CString (author != NULL ? author : "")
+            , author != NULL ? author : ""
             , message
             , projectProperties
             )

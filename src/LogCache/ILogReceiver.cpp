@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,8 +22,8 @@
 // construction
 
 StandardRevProps::StandardRevProps
-    ( const CString& author
-    , const CString& message
+    ( const std::string& author
+    , const std::string& message
     , apr_time_t timeStamp)
     : author (author)
     , message (message)
@@ -45,8 +45,8 @@ UserRevPropArray::UserRevPropArray (size_t initialCapacity)
 // modification
 
 void UserRevPropArray::Add
-    ( const CString& name
-    , const CString& value)
+    ( const std::string& name
+    , const std::string& value)
 {
     push_back (UserRevProp());
 

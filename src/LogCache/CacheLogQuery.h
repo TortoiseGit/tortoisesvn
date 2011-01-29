@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -285,13 +285,13 @@ private:
     ILogQuery* svnQuery;
 
     /// efficient map cached string / path -> CString
-    typedef quick_hash_map<index_t, CString> TID2String;
+    typedef quick_hash_map<index_t, std::string> TID2String;
 
     TID2String authorToStringMap;
     CPathToStringMap pathToStringMap;
 
     /// used for temporary string objects to prevent frequent allocations
-    std::string scratch;
+    std::string messageScratch;
 
     /// Determine the revision range to pass to SVN.
     revision_t NextAvailableRevision ( const CDictionaryBasedTempPath& path

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,7 +34,7 @@ private:
 
     /// if empty, use sub-string matching
 
-    vector<tr1::wregex> patterns;
+    vector<tr1::regex> patterns;
 
     /// sub-string matching info
 
@@ -49,7 +49,7 @@ private:
     {
         /// sub-strings to find; normalized to lower case
 
-        wstring subString;
+        string subString;
 
         /// depending on the presense of a prefix, indicate
         /// how the sub-string match / mismatch gets combined
@@ -101,15 +101,14 @@ private:
     /// temp / scratch objects to minimize the number memory
     /// allocation operations
 
-    mutable wstring scratch;
-    mutable string utf8PathScratch;
-    mutable wstring utf16PathScratch;
+    mutable string scratch;
+    mutable string pathScratch;
 
     /// called to parse a (potentially incorrect) regex spec
 
     bool ValidateRegexp
-        ( LPCTSTR regexp_str
-        , vector<tr1::wregex>& patterns);
+        ( const char* regexp_str
+        , vector<tr1::regex>& patterns);
 
     // construction utility
 
@@ -139,7 +138,7 @@ public:
     std::vector<CHARRANGE> GetMatchRanges (wstring& text) const;
 
     /// filter utiltiy method
-    bool Match (wstring& text) const;
+    bool Match (string& text) const;
 
     /// tr1::regex is very slow when running concurrently
     /// in multiple threads. Empty filters don't need MT as well.

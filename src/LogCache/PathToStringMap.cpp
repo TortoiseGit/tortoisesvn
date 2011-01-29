@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@
 
 CPathToStringMap::CPathToStringMap()
 {
-    data.insert ((LogCache::index_t)LogCache::NO_INDEX, CString());
+    data.insert ((LogCache::index_t)LogCache::NO_INDEX, std::string());
 }
 
 ///////////////////////////////////////////////////////////////
@@ -46,17 +46,17 @@ void CPathToStringMap::Clear()
 // auto-inserting lookup
 ///////////////////////////////////////////////////////////////
 
-const CString&
+const std::string&
 CPathToStringMap::AsString (const LogCache::CDictionaryBasedPath& path)
 {
     TMap::const_iterator iter (data.find (path.GetIndex()));
     if (iter == data.end())
     {
         std::string utf8Path = path.GetPath();
-        CPathUtils::Unescape (&utf8Path[0]);
-        CString s = CUnicodeUtils::UTF8ToUTF16 (utf8Path);
+        if (CPathUtils::ContainsEscapedChars(&utf8Path[0], utf8Path.length()))
+            CPathUtils::Unescape (&utf8Path[0]);
 
-        data.insert (path.GetIndex(), s);
+        data.insert (path.GetIndex(), utf8Path);
         iter = data.find (path.GetIndex());
     }
 

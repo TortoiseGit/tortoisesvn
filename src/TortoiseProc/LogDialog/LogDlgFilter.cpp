@@ -37,7 +37,7 @@ namespace
         return true;
     }
 
-    void FastLowerCaseConversion (wchar_t* s, size_t size)
+    void FastLowerCaseConversion (char* s, size_t size)
     {
         // most of our strings will be tens of bytes long
         // -> affort some minor overhead to handle the main part very fast
@@ -45,14 +45,15 @@ namespace
         if (sse2supported)
         {
             __m128i zero = _mm_setzero_si128();
-            __m128i A_mask = _mm_set_epi16 ('@', '@', '@', '@', '@', '@', '@', '@');
-            __m128i Z_mask = _mm_set_epi16 ('[', '[', '[', '[', '[', '[', '[', '[');
-            __m128i diff   = _mm_set_epi16 (32, 32, 32, 32, 32, 32, 32, 32);
+            __m128i A_mask = _mm_set_epi8 ('@', '@', '@', '@', '@', '@', '@', '@',
+                                           '@', '@', '@', '@', '@', '@', '@', '@');
+            __m128i Z_mask = _mm_set_epi8 ('[', '[', '[', '[', '[', '[', '[', '[',
+                                           '[', '[', '[', '[', '[', '[', '[', '[');
+            __m128i diff   = _mm_set_epi8 (32, 32, 32, 32, 32, 32, 32, 32,
+                                           32, 32, 32, 32, 32, 32, 32, 32);
 
-            wchar_t* end = s + size;
-            for (
-                ; s + sizeof (zero) / sizeof (wchar_t) <= end
-                ; s += sizeof (zero) / sizeof (wchar_t))
+            char* end = s + size;
+            for ( ; s + sizeof (zero) <= end; s += sizeof (zero))
             {
                 // fetch the next 16 bytes from the source
 
@@ -60,19 +61,19 @@ namespace
 
                 // check for string end
 
-                if (_mm_movemask_epi8 (_mm_cmpeq_epi16 (chunk, zero)) != 0)
+                if (_mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, zero)) != 0)
                     break;
 
                 // identify chars that need correction
 
-                __m128i A_or_larger = _mm_cmpgt_epi16 (chunk, A_mask);
-                __m128i Z_or_smaller = _mm_cmplt_epi16 (chunk, Z_mask);
+                __m128i A_or_larger = _mm_cmpgt_epi8 (chunk, A_mask);
+                __m128i Z_or_smaller = _mm_cmplt_epi8 (chunk, Z_mask);
                 __m128i is_upper_case = _mm_and_si128 (A_or_larger, Z_or_smaller);
 
                 // apply the diff only where identified previously
 
                 __m128i correction = _mm_and_si128 (is_upper_case, diff);
-                chunk = _mm_add_epi16 (chunk, correction);
+                chunk = _mm_add_epi8 (chunk, correction);
 
                 // store the updated data
 
@@ -80,15 +81,33 @@ namespace
             };
         }
 
-        for (wchar_t c = *s; c != 0; c = *++s)
+        for (char c = *s; c != 0; c = *++s)
             if ((c <= 'Z') && (c >= 'A'))
                 *s += 'a' - 'A';
     }
+
+    // translate positions within a UTF8 string to the position these
+    // characters would have in an UTF16 string. Advance utf8Pos until
+    // target has been reached. Update utf16Pos accordingly.
+
+    void AdvanceUnicodePos ( const std::string& textUTF8
+                           , size_t& utf8Pos
+                           , size_t& utf16Pos
+                           , size_t target)
+    {
+        for (; utf8Pos < target; ++utf8Pos)
+        {
+            unsigned char c = textUTF8[utf8Pos];
+            if ((c < 0x80) || (c >= 0xc0))
+                ++utf16Pos;
+        }
+    }
+
 };
 
 // filter utiltiy method
 
-bool CLogDlgFilter::Match (wstring& text) const
+bool CLogDlgFilter::Match (string& text) const
 {
     // empty text does not match
 
@@ -103,7 +122,7 @@ bool CLogDlgFilter::Match (wstring& text) const
             if (fastLowerCase)
                 FastLowerCaseConversion (&text.at(0), text.length());
             else
-                _wcslwr_s (&text.at(0), text.length()+1);
+                _strlwr_s (&text.at(0), text.length()+1);
 
         // require all strings to be present
 
@@ -111,7 +130,7 @@ bool CLogDlgFilter::Match (wstring& text) const
         for (size_t i = 0, count = subStringConditions.size(); i < count; ++i)
         {
             const SCondition& condition = subStringConditions[i];
-            bool found = wcsstr ( text.c_str()
+            bool found = strstr ( text.c_str()
                                 , condition.subString.c_str()) != NULL;
             switch (condition.prefix)
             {
@@ -148,7 +167,7 @@ bool CLogDlgFilter::Match (wstring& text) const
     }
     else
     {
-        for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+        for (vector<tr1::regex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
             if (!regex_search(text, *it, tr1::regex_constants::match_any))
                 return false;
     }
@@ -156,22 +175,21 @@ bool CLogDlgFilter::Match (wstring& text) const
     return true;
 }
 
-std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
+std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& textUTF16) const
 {
     std::vector<CHARRANGE> ranges;
+    std::string textUTF8 = CUnicodeUtils::StdGetUTF8 (textUTF16);
+
     if (patterns.empty())
     {
         // normalize to lower case
 
-        if (!caseSensitive && !text.empty())
-            if (fastLowerCase)
-                FastLowerCaseConversion (&text.at(0), text.length());
-            else
-                _wcslwr_s (&text.at(0), text.length()+1);
+        if (!caseSensitive && !textUTF8.empty())
+            _strlwr_s (&textUTF8.at(0), textUTF8.length()+1);
 
         // require all strings to be present
 
-        const wchar_t* toScan = text.c_str();
+        const char* toScan = textUTF8.c_str();
         for ( auto iter = subStringConditions.begin()
             , end = subStringConditions.end()
             ; iter != end
@@ -179,26 +197,26 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
         {
             if (iter->prefix != and_not)
             {
-                const wchar_t * toFind = iter->subString.c_str();
+                const char * toFind = iter->subString.c_str();
                 size_t toFindLength = iter->subString.length();
-                const wchar_t * pFound = wcsstr (toScan, toFind);
+                const char * pFound = strstr (toScan, toFind);
                 while (pFound)
                 {
                     CHARRANGE range;
                     range.cpMin = (LONG)(pFound - toScan);
                     range.cpMax = (LONG)(range.cpMin + toFindLength);
                     ranges.push_back(range);
-                    pFound = wcsstr (pFound+1, toFind);
+                    pFound = strstr (pFound+1, toFind);
                 }
             }
         }
     }
     else
     {
-        for (vector<tr1::wregex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+        for (vector<tr1::regex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
         {
-            const tr1::wsregex_iterator end;
-            for (tr1::wsregex_iterator it2(text.begin(), text.end(), *it); it2 != end; ++it2)
+            const tr1::sregex_iterator end;
+            for (tr1::sregex_iterator it2(textUTF8.begin(), textUTF8.end(), *it); it2 != end; ++it2)
             {
                 ptrdiff_t matchposID = it2->position(0);
                 CHARRANGE range = {(LONG)(matchposID), (LONG)(matchposID+(*it2)[0].str().size())};
@@ -232,22 +250,36 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& text) const
         ranges.erase (++target, end);
     }
 
+    // translate UTF8 ranges to UTF16 ranges
+
+    size_t utf8Pos = 0;
+    size_t utf16Pos = 0;
+    for ( auto iter = ranges.begin(), end = ranges.end()
+        ; iter != end
+        ; ++iter)
+    {
+        AdvanceUnicodePos (textUTF8, utf8Pos, utf16Pos, iter->cpMin);
+        iter->cpMin = utf16Pos;
+        AdvanceUnicodePos (textUTF8, utf8Pos, utf16Pos, iter->cpMax);
+        iter->cpMax = utf16Pos;
+    }
+
     return ranges;
 }
 
 // called to parse a (potentially incorrect) regex spec
 
-bool CLogDlgFilter::ValidateRegexp (LPCTSTR regexp_str, vector<tr1::wregex>& patterns)
+bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, vector<tr1::regex>& patterns)
 {
     try
     {
-        tr1::wregex pat;
+        tr1::regex pat;
         tr1::regex_constants::syntax_option_type type
             = caseSensitive
             ? tr1::regex_constants::ECMAScript
             : tr1::regex_constants::ECMAScript | tr1::regex_constants::icase;
 
-        pat = tr1::wregex(regexp_str, type);
+        pat = tr1::regex(regexp_str, type);
         patterns.push_back(pat);
         return true;
     }
@@ -277,7 +309,7 @@ void CLogDlgFilter::AddSubString (CString token, Prefix prefix)
 
     // add condition to list
 
-    SCondition condition = { token, prefix, 0 };
+    SCondition condition = { (const char*)CUnicodeUtils::GetUTF8(token), prefix, 0 };
     subStringConditions.push_back (condition);
 
     // update previous conditions
@@ -329,8 +361,7 @@ CLogDlgFilter::CLogDlgFilter
     // initialize scratch objects
 
     scratch.reserve (0xfff0);
-    utf8PathScratch.reserve (0xff0);
-    utf16PathScratch.reserve (0xff0);
+    pathScratch.reserve (0xff0);
 
     // decode string matching spec
 
@@ -345,7 +376,7 @@ CLogDlgFilter::CLogDlgFilter
     }
 
     if (useRegex)
-        useRegex = ValidateRegexp (filterText, patterns);
+        useRegex = ValidateRegexp (CUnicodeUtils::GetUTF8 (filterText), patterns);
 
     if (!useRegex)
     {
@@ -440,10 +471,10 @@ namespace
     // concatenate strings
 
     void AppendString
-        ( wstring& target
-        , const wchar_t* toAppend
+        ( string& target
+        , const char* toAppend
         , size_t length
-        , wchar_t separator)
+        , char separator)
     {
         if (target.size() + length + 1 > target.capacity())
             target.reserve (2 * target.capacity());
@@ -452,22 +483,12 @@ namespace
         target.append (toAppend, length);
     }
 
-    void AppendString (wstring& target, const CString& toAppend)
-    {
-        AppendString (target, toAppend, toAppend.GetLength(), ' ');
-    }
-
-    void AppendString (wstring& target, const wstring& toAppend)
+    void AppendString (string& target, const string& toAppend)
     {
         AppendString (target, toAppend.c_str(), toAppend.length(), ' ');
     }
 
-    void AppendPath (wstring& target, const CString& toAppend)
-    {
-        AppendString (target, toAppend, toAppend.GetLength(), '|');
-    }
-
-    void AppendPath (wstring& target, const wstring& toAppend)
+    void AppendPath (string& target, const string& toAppend)
     {
         AppendString (target, toAppend.c_str(), toAppend.length(), '|');
     }
@@ -476,8 +497,7 @@ namespace
 
     void GetPath
         ( const LogCache::CDictionaryBasedPath& path
-        , std::string& utf8Path
-        , std::wstring& utf16Path)
+        , std::string& utf8Path)
     {
         path.GetPath (utf8Path);
 
@@ -485,11 +505,6 @@ namespace
 
         if (CPathUtils::ContainsEscapedChars (&utf8Path[0], utf8Path.size()))
             CPathUtils::Unescape (&utf8Path[0]);
-
-        // we don't need to adjust the path length as
-        // the conversion will automatically stop at \0.
-
-        CUnicodeUtils::UTF8ToUTF16 (utf8Path, utf16Path);
     }
 }
 
@@ -529,19 +544,19 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
             const CLogChangedPath& cpath = paths[cpPathIndex];
             if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
             {
-                GetPath (cpath.GetCachedPath(), utf8PathScratch, utf16PathScratch);
-                AppendPath (scratch, utf16PathScratch);
+                GetPath (cpath.GetCachedPath(), pathScratch);
+                AppendPath (scratch, pathScratch);
                 AppendPath (scratch, cpath.GetActionString());
 
                 if (cpath.GetCopyFromRev() > 0)
                 {
-                    GetPath (cpath.GetCachedCopyFromPath(), utf8PathScratch, utf16PathScratch);
-                    AppendPath (scratch, utf16PathScratch);
+                    GetPath (cpath.GetCachedCopyFromPath(), pathScratch);
+                    AppendPath (scratch, pathScratch);
 
                     scratch.push_back ('|');
 
-                    wchar_t buffer[10];
-                    _itow_s (cpath.GetCopyFromRev(), buffer, 10);
+                    char buffer[10];
+                    _itoa_s (cpath.GetCopyFromRev(), buffer, 10);
                     scratch.append (buffer);
                 }
             }
@@ -557,8 +572,8 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
     {
         scratch.push_back (' ');
 
-        wchar_t buffer[10];
-        _itow_s (entry.GetRevision(), buffer, 10);
+        char buffer[10];
+        _itoa_s (entry.GetRevision(), buffer, 10);
         scratch.append (buffer);
     }
 

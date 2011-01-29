@@ -221,7 +221,7 @@ BOOL SVN::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_acti
                 const CString& propertyName,
                 svn_merge_range_t * range,
                 svn_error_t * err, apr_pool_t * pool) {return TRUE;};
-BOOL SVN::Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren) {return TRUE;}
+BOOL SVN::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, BOOL haschildren) {return TRUE;}
 BOOL SVN::BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, 
                         const CString& author, const CString& date, svn_revnum_t merged_revision, 
                         const CString& merged_author, const CString& merged_date, 
@@ -1661,7 +1661,7 @@ void SVN::ReceiveLog ( TChangedPaths* /* changes */
 
     // use the log info (in a derived class specific way)
 
-    static const CString emptyString;
+    static const std::string emptyString;
     Log ( rev
         , stdRevProps == NULL ? emptyString : stdRevProps->GetAuthor()
         , stdRevProps == NULL ? emptyString : stdRevProps->GetMessage()
@@ -2552,11 +2552,29 @@ CString SVN::MakeUIUrlOrPath(const CStringA& UrlOrPath)
     CString url;
     if (svn_path_is_url(UrlOrPath))
     {
-        url = CUnicodeUtils::GetUnicode(CPathUtils::PathUnescape(UrlOrPath));
+        size_t length = UrlOrPath.GetLength();
+        url = CUnicodeUtils::GetUnicode
+            (CPathUtils::ContainsEscapedChars (UrlOrPath, length)
+                ? CPathUtils::PathUnescape(UrlOrPath)
+                : UrlOrPath
+            );
     }
     else
         url = CUnicodeUtils::GetUnicode(UrlOrPath);
+
     return url;
+}
+
+std::string SVN::MakeUIUrlOrPath(const char* UrlOrPath)
+{
+    if (!svn_path_is_url (UrlOrPath))
+        return UrlOrPath;
+
+    std::string result = UrlOrPath;
+    if (CPathUtils::ContainsEscapedChars (result.c_str(), result.length()))
+        CPathUtils::Unescape (&result[0]);
+
+    return result;
 }
 
 bool SVN::EnsureConfigFile()

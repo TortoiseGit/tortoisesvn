@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,15 +39,15 @@
 
 void CSVNLogQuery::AppendStrings ( SVNPool& pool
                                  , apr_array_header_t* array
-                                 , const std::vector<CString>& strings)
+                                 , const std::vector<std::string>& strings)
 {
     for (size_t i = 0; i  < strings.size(); ++i)
     {
-        CStringA utf8String = CUnicodeUtils::GetUTF8 (strings[i]);
+        const string& utf8String = strings[i];
 
-        size_t size = utf8String.GetLength()+1;
+        size_t size = utf8String.length()+1;
         char * aprString = reinterpret_cast<char *>(apr_palloc (pool, size));
-        memcpy (aprString, (const char*)utf8String, size);
+        memcpy (aprString, utf8String.c_str(), size);
 
         (*((char **) apr_array_push (array))) = aprString;
     }
@@ -61,9 +61,9 @@ const TRevPropNames& CSVNLogQuery::GetStandardRevProps()
 
     if (standardRevProps.empty())
     {
-        standardRevProps.push_back (CString (SVN_PROP_REVISION_LOG));
-        standardRevProps.push_back (CString (SVN_PROP_REVISION_DATE));
-        standardRevProps.push_back (CString (SVN_PROP_REVISION_AUTHOR));
+        standardRevProps.push_back (std::string (SVN_PROP_REVISION_LOG));
+        standardRevProps.push_back (std::string (SVN_PROP_REVISION_DATE));
+        standardRevProps.push_back (std::string (SVN_PROP_REVISION_AUTHOR));
     }
 
     return standardRevProps;
@@ -77,9 +77,9 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 {
     // a few globals
 
-    static const CString svnLog (SVN_PROP_REVISION_LOG);
-    static const CString svnDate (SVN_PROP_REVISION_DATE);
-    static const CString svnAuthor (SVN_PROP_REVISION_AUTHOR);
+    static const std::string svnLog (SVN_PROP_REVISION_LOG);
+    static const std::string svnDate (SVN_PROP_REVISION_DATE);
+    static const std::string svnAuthor (SVN_PROP_REVISION_AUTHOR);
 
     // just in case ...
 
@@ -94,8 +94,8 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
     // parse revprops
 
-    CString author;
-    CString message;
+    std::string author;
+    std::string message;
     __time64_t timeStamp = 0;
 
     UserRevPropArray userRevProps;
@@ -123,8 +123,8 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
                 // decode / dispatch it
 
-                CString name = CUnicodeUtils::GetUnicode (key);
-                CString value = CUnicodeUtils::GetUnicode (*val);
+                std::string name = key;
+                std::string value = *val;
 
                 if (name == svnLog)
                     message = value;
@@ -276,8 +276,8 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
         // treat revision 0 special: only report/show it if either the author or a message is set, or if user props are set
         if (   log_entry->revision
             || userRevProps.GetCount()
-            || !standardRevProps.GetAuthor().IsEmpty()
-            || !standardRevProps.GetMessage().IsEmpty())
+            || !standardRevProps.GetAuthor().empty()
+            || !standardRevProps.GetMessage().empty())
         {
             receiver->ReceiveLog ( receiverBaton->includeChanges
                                        ? &changedPaths

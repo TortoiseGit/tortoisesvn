@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ private:
 
     /// exisiting mappings
 
-    typedef quick_hash_map<LogCache::index_t, CString> TMap;
+    typedef quick_hash_map<LogCache::index_t, std::string> TMap;
     TMap data;
 
 public:
@@ -53,5 +53,5 @@ public:
 
     /// auto-inserting lookup
 
-    const CString& AsString (const LogCache::CDictionaryBasedPath& path);
+    const std::string& AsString (const LogCache::CDictionaryBasedPath& path);
 };

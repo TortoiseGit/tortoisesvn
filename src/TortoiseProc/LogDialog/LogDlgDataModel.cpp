@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007,2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2007,2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -91,37 +91,47 @@ CString CLogChangedPath::GetCopyFromPath() const
 
 // convenience method
 
-const CString& CLogChangedPath::GetActionString (DWORD action)
+namespace
 {
-    static CString addActionString;
-    static CString deleteActionString;
-    static CString replacedActionString;
-    static CString modifiedActionString;
-    static CString empty;
+    void LoadString (std::string& s, UINT id)
+    {
+        CString temp;
+        temp.LoadString (id);
+        s = CUnicodeUtils::StdGetUTF8 ((LPCTSTR)temp);
+    }
+}
+
+const std::string& CLogChangedPath::GetActionString (DWORD action)
+{
+    static std::string addActionString;
+    static std::string deleteActionString;
+    static std::string replacedActionString;
+    static std::string modifiedActionString;
+    static std::string empty;
 
     switch (action)
     {
     case LOGACTIONS_MODIFIED:
-        if (modifiedActionString.IsEmpty())
-            modifiedActionString.LoadString(IDS_SVNACTION_MODIFIED);
+        if (modifiedActionString.empty())
+            LoadString (modifiedActionString, IDS_SVNACTION_MODIFIED);
 
         return modifiedActionString;
 
     case LOGACTIONS_ADDED:
-        if (addActionString.IsEmpty())
-            addActionString.LoadString(IDS_SVNACTION_ADD);
+        if (addActionString.empty())
+            LoadString (addActionString, IDS_SVNACTION_ADD);
 
         return addActionString;
 
     case LOGACTIONS_DELETED:
-        if (deleteActionString.IsEmpty())
-            deleteActionString.LoadString(IDS_SVNACTION_DELETE);
+        if (deleteActionString.empty())
+            LoadString (deleteActionString, IDS_SVNACTION_DELETE);
 
         return deleteActionString;
 
     case LOGACTIONS_REPLACED:
-        if (replacedActionString.IsEmpty())
-            replacedActionString.LoadString(IDS_SVNACTION_REPLACED);
+        if (replacedActionString.empty())
+            LoadString (replacedActionString, IDS_SVNACTION_REPLACED);
 
         return replacedActionString;
 
@@ -134,7 +144,7 @@ const CString& CLogChangedPath::GetActionString (DWORD action)
     return empty;
 }
 
-const CString& CLogChangedPath::GetActionString() const
+const std::string& CLogChangedPath::GetActionString() const
 {
     return GetActionString (action);
 }
@@ -248,7 +258,8 @@ void CLogChangedPathArray::Sort (int column, bool ascending)
                         return cmp > 0;
                     // fall through
             case 1: // action
-                    cmp = cpath2->GetActionString().Compare (cpath1->GetActionString());
+                    cmp = strcmp ( cpath2->GetActionString().c_str()
+                                 , cpath1->GetActionString().c_str());
                     if (cmp)
                         return cmp > 0;
                     // fall through
@@ -292,8 +303,8 @@ CLogEntryData::CLogEntryData
     ( CLogEntryData* parent
     , svn_revnum_t revision
     , __time64_t tmDate
-    , const CString& author
-    , const CString& message
+    , const std::string& author
+    , const std::string& message
     , ProjectProperties* projectProperties)
     : parent (parent)
     , hasChildren (false)
@@ -319,13 +330,21 @@ CLogEntryData::~CLogEntryData()
 }
 
 void CLogEntryData::SetAuthor
-    ( const CString& author)
+    ( const std::string& author)
 {
     sAuthor = author;
 }
 
+namespace
+{
+    bool IsNotCR (char c)
+    {
+        return c != '\r';
+    }
+}
+
 void CLogEntryData::SetMessage
-    ( const CString& message
+    ( const std::string& message
     , ProjectProperties* projectProperties)
 {
     // split multi line log entries and concatenate them
@@ -333,21 +352,32 @@ void CLogEntryData::SetMessage
     // so that the edit control recognizes them
 
     sMessage = message;
-    if (sMessage.GetLength()>0)
+    if (!sMessage.empty())
     {
-        if (sMessage.Find (_T('\r')) >= 0)
+        if (sMessage.find ('\r') != std::string::npos)
         {
-            sMessage.Replace(_T("\n\r"), _T("\n"));
-            sMessage.Replace(_T("\r\n"), _T("\n"));
+            sMessage.erase ( std::copy_if ( sMessage.begin()
+                                          , sMessage.end()
+                                          , sMessage.begin()
+                                          , IsNotCR)
+                           , sMessage.end());
         }
-        if (sMessage[0] == _T('\n'))
-            sMessage = sMessage.Left (sMessage.GetLength()-1);
+        if (!sMessage.empty() && sMessage[0] == '\n')
+            sMessage.erase (0, 1);
     }
 
     // derived data
 
-    if (projectProperties)
-        sBugIDs = projectProperties->FindBugID (message);
+    if (projectProperties && projectProperties->MightContainABugID (message))
+    {
+        CString unicodeMessage = CUnicodeUtils::GetUnicode (message.c_str());
+        CString unicodeBugIDs = projectProperties->FindBugID (unicodeMessage);
+        sBugIDs = (const char*)CUnicodeUtils::GetUTF8 (unicodeBugIDs);
+    }
+    else
+    {
+        sBugIDs.clear();
+    }
 }
 
 void CLogEntryData::SetChecked
@@ -378,32 +408,36 @@ void CLogEntryData::Finalize
 
 // r/o access to the data
 
-const CString& CLogEntryData::GetDateString() const
+void CLogEntryData::InitDateStrings() const
 {
-    if (sDate.IsEmpty())
+    if (tmDate == 0)
+    {
+        sDate = "(no date)";
+    }
+    else
     {
         TCHAR date_native[SVN_DATE_BUFFER] = {0};
-        if (tmDate == 0)
-        {
-            _tcscpy_s (date_native, _T("(no date)"));
-        }
-        else
-        {
-            FILETIME ft = {0};
-            AprTimeToFileTime (&ft, tmDate * 1000000L);
-            SVN::formatDate (date_native, ft);
-        }
+        FILETIME ft = {0};
+        AprTimeToFileTime (&ft, tmDate * 1000000L);
+        SVN::formatDate (date_native, ft);
 
-        sDate = date_native;
+        sDate = CUnicodeUtils::StdGetUTF8 (date_native);
     }
+}
+
+const std::string& CLogEntryData::GetDateString() const
+{
+    if (sDate.empty())
+        InitDateStrings();
 
     return sDate;
 }
 
-CString CLogEntryData::GetShortMessage() const
+CString CLogEntryData::GetShortMessageUTF16() const
 {
     return projectProperties
-        ? projectProperties->MakeShortMessage (sMessage)
+        ? projectProperties->MakeShortMessage 
+            (CUnicodeUtils::GetUnicode (sMessage.c_str()))
         : CString();
 }
 
@@ -445,8 +479,8 @@ void CLogDataVector::ClearAll()
 
 void CLogDataVector::Add ( svn_revnum_t revision
                          , __time64_t tmDate
-                         , const CString& author
-                         , const CString& message
+                         , const std::string& author
+                         , const std::string& message
                          , ProjectProperties* projectProperties
                          , bool childrenFollow)
 {
@@ -668,7 +702,8 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
     {
         bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
         {
-            int ret = pStart->GetAuthor().CompareNoCase(pEnd->GetAuthor());
+            int ret = _stricmp ( pStart->GetAuthor().c_str()
+                               , pEnd->GetAuthor().c_str()) < 0;
             if (ret == 0)
                 return pStart->GetRevision() < pEnd->GetRevision();
             return ret<0;
@@ -680,7 +715,8 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
     {
         bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
         {
-            int ret = pStart->GetBugIDs().CompareNoCase(pEnd->GetBugIDs());
+            int ret = _stricmp ( pStart->GetBugIDs().c_str()
+                               , pEnd->GetBugIDs().c_str()) < 0;
             if (ret == 0)
                 return pStart->GetRevision() < pEnd->GetRevision();
             return ret<0;
@@ -692,7 +728,8 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
     {
         bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
         {
-            return pStart->GetShortMessage().CompareNoCase(pEnd->GetShortMessage())<0;
+            return _stricmp ( pStart->GetMessage().c_str()
+                            , pEnd->GetMessage().c_str()) < 0;
         }
     };
 

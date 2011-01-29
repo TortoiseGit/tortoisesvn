@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,8 +74,8 @@ public:
 
     /// returns the action as a string
 
-    static const CString& GetActionString (DWORD action);
-    const CString& GetActionString() const;
+    static const std::string& GetActionString (DWORD action);
+    const std::string& GetActionString() const;
 };
 
 /**
@@ -142,10 +142,10 @@ private:
 
     CLogChangedPathArray changedPaths;
 
-    mutable CString sDate;
-    CString sAuthor;
-    CString sMessage;
-    CString sBugIDs;
+    mutable std::string sDate;
+    std::string sAuthor;
+    std::string sMessage;
+    std::string sBugIDs;
     svn_revnum_t revision;
     __time64_t tmDate;
 
@@ -162,6 +162,9 @@ private:
     CLogEntryData (const CLogEntryData&);
     CLogEntryData& operator=(const CLogEntryData&);
 
+    /// initialization utility
+    void InitDateStrings() const;
+
 public:
 
     /// initialization
@@ -169,8 +172,8 @@ public:
     CLogEntryData ( CLogEntryData* parent
                   , svn_revnum_t revision
                   , __time64_t tmDate
-                  , const CString& sAuthor
-                  , const CString& sMessage
+                  , const std::string& sAuthor
+                  , const std::string& sMessage
                   , ProjectProperties* projectProperties);
 
     /// destruction
@@ -180,9 +183,9 @@ public:
     /// modification
 
     void SetAuthor
-        ( const CString& author);
+        ( const std::string& author);
     void SetMessage
-        ( const CString& message
+        ( const std::string& message
         , ProjectProperties* projectProperties);
     void SetChecked
         ( bool newState);
@@ -203,11 +206,11 @@ public:
     svn_revnum_t GetRevision() const {return revision;}
     __time64_t GetDate() const {return tmDate;}
 
-    const CString& GetDateString() const;
-    const CString& GetAuthor() const {return sAuthor;}
-    const CString& GetMessage() const {return sMessage;}
-    const CString& GetBugIDs() const {return sBugIDs;}
-    CString GetShortMessage() const;
+    const std::string& GetDateString() const;
+    const std::string& GetAuthor() const {return sAuthor;}
+    const std::string& GetMessage() const {return sMessage;}
+    const std::string& GetBugIDs() const {return sBugIDs;}
+    CString GetShortMessageUTF16() const;
 
     const CLogChangedPathArray& GetChangedPaths() const {return changedPaths;}
 
@@ -270,8 +273,8 @@ public:
 
     void Add ( svn_revnum_t revision
              , __time64_t tmDate
-             , const CString& author
-             , const CString& message
+             , const std::string& author
+             , const std::string& message
              , ProjectProperties* projectProperties
              , bool childrenFollow);
 

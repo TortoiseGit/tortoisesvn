@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@ class ILogReceiver;
  * A container type for (user-defined) revision property names.
  */
 
-typedef std::vector<CString> TRevPropNames;
+typedef std::vector<std::string> TRevPropNames;
 
 /**
  * Interface for log queries. It mimics svn_client_log4.

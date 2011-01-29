@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -255,8 +255,8 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 
     if (stdRevProps)
     {
-        author = (const char*)CUnicodeUtils::GetUTF8 (stdRevProps->GetAuthor());
-        message = (const char*)CUnicodeUtils::GetUTF8 (stdRevProps->GetMessage());
+        author = stdRevProps->GetAuthor();
+        message = stdRevProps->GetMessage();
         timeStamp = stdRevProps->GetTimeStamp();
     }
 
@@ -284,10 +284,6 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 
             CRevisionInfoContainer::TChangeAction action
                 = (CRevisionInfoContainer::TChangeAction)(change.action * 4);
-            std::string path
-                = (const char*)CUnicodeUtils::GetUTF8 (change.path);
-            std::string copyFromPath
-                = (const char*)CUnicodeUtils::GetUTF8 (change.copyFromPath);
             revision_t copyFromRevision
                 = change.copyFromRev == 0
                 ? NO_REVISION
@@ -295,8 +291,8 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 
             targetCache->AddChange ( action
                                    , static_cast<node_kind_t>(change.nodeKind)
-                                   , path
-                                   , copyFromPath
+                                   , change.path
+                                   , change.copyFromPath
                                    , copyFromRevision
                                    , (unsigned char)change.text_modified
                                    , (unsigned char)change.props_modified);
@@ -310,13 +306,7 @@ void CCacheLogQuery::CLogFiller::WriteToCache
         for (INT_PTR i = 0, count = userRevProps->GetCount(); i < count; ++i)
         {
             const UserRevProp& revprop = userRevProps->GetAt (i);
-
-            std::string name
-                = (const char*)CUnicodeUtils::GetUTF8 (revprop.GetName());
-            std::string value
-                = (const char*)CUnicodeUtils::GetUTF8 (revprop.GetValue());
-
-            targetCache->AddRevProp (name, value);
+            targetCache->AddRevProp (revprop.GetName(), revprop.GetValue());
         }
     }
 
@@ -842,14 +832,13 @@ void CCacheLogQuery::GetUserRevProps
 
     for (; first != last; ++first)
     {
-        CString name = CUnicodeUtils::GetUnicode (first.GetName());
-        CString value = CUnicodeUtils::GetUnicode (first.GetValue().c_str());
+        std::string name = first.GetName();
 
         // add to output list,
         // if it matches the filter (or if there is no filter)
 
         if (userRevProps.empty() || (std::find (begin, end, name) != end))
-            result.Add (name, value);
+            result.Add (name, first.GetValue());
     }
 }
 
@@ -904,18 +893,16 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
         TID2String::const_iterator iter = authorToStringMap.find (authorID);
         if (iter == authorToStringMap.end())
         {
-            CString author
-                = CUnicodeUtils::GetUnicode (logInfo.GetAuthor (logIndex));
+            std::string author = logInfo.GetAuthor (logIndex);
             authorToStringMap.insert (authorID, author);
             iter = authorToStringMap.find (authorID);
         }
 
-        const CString& author = *iter;
+        const std::string& author = *iter;
 
         // comment
 
-        logInfo.GetComment (logIndex, scratch);
-        CString message = CUnicodeUtils::UTF8ToUTF16 (scratch);
+        logInfo.GetComment (logIndex, messageScratch);
 
         // time stamp
 
@@ -924,7 +911,7 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
         // create the actual object
 
         standardRevProps = new (alloca (sizeof (StandardRevProps)))
-                            StandardRevProps (author, message, timeStamp);
+                            StandardRevProps (author, messageScratch, timeStamp);
     }
 
     // user revprops

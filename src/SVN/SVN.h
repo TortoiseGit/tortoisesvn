@@ -84,7 +84,7 @@ public:
                             const CString& propertyName,
                             svn_merge_range_t * range,
                             svn_error_t * err, apr_pool_t * pool);
-    virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& message, apr_time_t time, BOOL haschildren);
+    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, BOOL haschildren);
     virtual BOOL BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, const CString& author, const CString& date,
                             svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
                             const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg);
@@ -840,6 +840,12 @@ public:
      * backslash for paths, forward slashes for urls).
      */
     static CString MakeUIUrlOrPath(const CStringA& UrlOrPath);
+
+    /**
+     * Converts a Subversion url/path to an UTF8-encoded UI format (unescaped,
+     * backslash for paths, forward slashes for urls).
+     */
+    static std::string MakeUIUrlOrPath(const char* UrlOrPath);
     /**
      * Returns a string in \c date_native[] representing the date in the OS local
      * format.

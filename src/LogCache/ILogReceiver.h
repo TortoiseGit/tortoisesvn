@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007,2009-2010 - TortoiseSVN
+// Copyright (C) 2007-2007,2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,8 +38,8 @@
 
 struct SChangedPath
 {
-    CString path;
-    CString copyFromPath;
+    std::string path;
+    std::string copyFromPath;
     svn_revnum_t copyFromRev;
     svn_node_kind_t nodeKind;
     DWORD action;
@@ -70,8 +70,8 @@ class StandardRevProps
 {
 private:
 
-    CString author;
-    CString message;
+    std::string author;
+    std::string message;
     apr_time_t timeStamp;
 
 public:
@@ -79,14 +79,14 @@ public:
     /// construction
 
     StandardRevProps
-        ( const CString& author
-        , const CString& message
+        ( const std::string& author
+        , const std::string& message
         , apr_time_t timeStamp);
 
     /// r/o data access
 
-    const CString& GetAuthor() const {return author;}
-    const CString& GetMessage() const {return message;}
+    const std::string& GetAuthor() const {return author;}
+    const std::string& GetMessage() const {return message;}
     apr_time_t GetTimeStamp() const {return timeStamp;}
 
 };
@@ -99,8 +99,8 @@ class UserRevProp
 {
 private:
 
-    CString name;
-    CString value;
+    std::string name;
+    std::string value;
 
     // construction is only allowed through the container
 
@@ -110,8 +110,8 @@ public:
 
     /// r/o data access
 
-    const CString& GetName() const {return name;}
-    const CString& GetValue() const {return value;}
+    const std::string& GetName() const {return name;}
+    const std::string& GetValue() const {return value;}
 
 };
 
@@ -132,8 +132,8 @@ public:
     /// modification
 
     void Add
-        ( const CString& name
-        , const CString& value);
+        ( const std::string& name
+        , const std::string& value);
 
     /// data access
 
