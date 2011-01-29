@@ -190,6 +190,8 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
 
     typedef HRESULT (WINAPI *TDLG)(const TASKDIALOGCONFIG *pTaskConfig, int *pnButton, int *pnRadioButton, BOOL *pfVerificationFlagChecked);
 
+    CString sError = GetErrorString(Err);
+
     HMODULE hLib = LoadLibrary(L"Comctl32.dll");
     if (hLib)
     {
@@ -213,7 +215,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
             tconfig.pszWindowTitle = L"TortoiseSVN";
             tconfig.pszMainIcon = TD_ERROR_ICON;
             tconfig.pszMainInstruction = sInstruction;
-            tconfig.pszContent = GetErrorString(Err);
+            tconfig.pszContent = (LPCTSTR)sError;
 #ifdef HAVE_APPUTILS
             if (Err && (Err->apr_err == SVN_ERR_WC_CLEANUP_REQUIRED) && (!wcPath.IsEmpty()))
             {
@@ -240,7 +242,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
         FreeLibrary(hLib);
     }
 
-    ret = MessageBox(hParent, GetErrorString(Err), L"TortoiseSVN", MB_ICONERROR);
+    ret = MessageBox(hParent, (LPCTSTR)sError, L"TortoiseSVN", MB_ICONERROR);
     return ret;
 }
 
