@@ -445,8 +445,6 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 
 void CSVNStatusListCtrl::GetUserProps (bool bShowUserProps)
 {
-    CAutoWriteLock locker(m_guard);
-
     m_bBusy = true;
 
     Invalidate();
@@ -461,10 +459,14 @@ void CSVNStatusListCtrl::GetUserProps (bool bShowUserProps)
     if (bShowUserProps)
         FetchUserProperties();
     else
+    {
+        CAutoWriteLock locker(m_guard);
         for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
             m_arStatusArray[i]->present_props.Clear();
+    }
 
 
+    CAutoWriteLock locker(m_guard);
     m_ColumnManager.UpdateUserPropList (m_arStatusArray);
 
     m_bBusy = false;
@@ -492,7 +494,6 @@ void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
 
     if (error == NULL)
     {
-        CAutoWriteLock locker(m_guard);
         for (size_t i = first; i < last; ++i)
         {
             FileEntry* entry = m_arStatusArray[i];
@@ -532,6 +533,7 @@ void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
 
                     // store in property container (truncate it after ~100 chars)
 
+                    CAutoWriteLock locker(m_guard);
                     entry->present_props[name]
                         = value.GetLength() > SVNSLC_MAXUSERPROPLENGTH
                         ? value.Left (SVNSLC_MAXUSERPROPLENGTH)
