@@ -294,16 +294,16 @@ void CSVNPropertyPage::InitWorkfileView()
                 {
                     size_t len = strlen(svn.status->repos_relpath) + strlen(svn.status->repos_root_url);
                     len += 2;
-                    auto_buffer<char> url(len);
-                    strcpy_s(url, len, svn.status->repos_root_url);
-                    strcat_s(url, len, "/");
-                    strcat_s(url, len, svn.status->repos_relpath);
+                    auto_buffer<char> url(len*4);
+                    strcpy_s(url, len*4, svn.status->repos_root_url);
+                    strcat_s(url, len*4, "/");
+                    strcat_s(url, len*4, svn.status->repos_relpath);
 
                     auto_buffer<char> unescapedurl(len);
                     strcpy_s(unescapedurl, len, url.get());
                     CStringA escapedurl = CPathUtils::PathEscape(url.get());
                     CPathUtils::Unescape(unescapedurl);
-                    strcpy_s(url, len, escapedurl);
+                    strcpy_s(url, len*4, escapedurl);
                     SetDlgItemText(m_hwnd, IDC_REPOURL, UTF8ToWide(unescapedurl.get()).c_str());
                     if (strcmp(unescapedurl.get(), url.get()))
                     {
