@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -65,6 +65,8 @@ BOOL CCreatePatch::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);
     m_aeroControls.SubclassOkCancelHelp(this);
 
+    m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
+    m_bShowUnversioned = m_regAddBeforeCommit;
     UpdateData(FALSE);
 
     m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH));
@@ -177,6 +179,7 @@ void CCreatePatch::OnBnClickedSelectall()
 void CCreatePatch::OnBnClickedShowunversioned()
 {
     UpdateData();
+    m_regAddBeforeCommit = m_bShowUnversioned;
     if (!m_bThreadRunning)
         m_PatchList.Show(ShowMask(), CTSVNPathList(), 0, true, true);
 }
