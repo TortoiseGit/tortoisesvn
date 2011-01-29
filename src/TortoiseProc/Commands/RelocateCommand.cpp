@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,40 +38,40 @@ bool RelocateCommand::Execute()
     {
         TRACE(_T("relocate from %s to %s\n"), (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
         // crack the urls into their components
-        TCHAR urlpath1[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR scheme1[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR hostname1[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR username1[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR password1[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR urlpath2[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR scheme2[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR hostname2[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR username2[INTERNET_MAX_URL_LENGTH+1];
-        TCHAR password2[INTERNET_MAX_URL_LENGTH+1];
+        TCHAR urlpath1[INTERNET_MAX_PATH_LENGTH+1];
+        TCHAR scheme1[INTERNET_MAX_SCHEME_LENGTH+1];
+        TCHAR hostname1[INTERNET_MAX_HOST_NAME_LENGTH+1];
+        TCHAR username1[INTERNET_MAX_USER_NAME_LENGTH+1];
+        TCHAR password1[INTERNET_MAX_PASSWORD_LENGTH+1];
+        TCHAR urlpath2[INTERNET_MAX_PATH_LENGTH+1];
+        TCHAR scheme2[INTERNET_MAX_SCHEME_LENGTH+1];
+        TCHAR hostname2[INTERNET_MAX_HOST_NAME_LENGTH+1];
+        TCHAR username2[INTERNET_MAX_USER_NAME_LENGTH+1];
+        TCHAR password2[INTERNET_MAX_PASSWORD_LENGTH+1];
         URL_COMPONENTS components1 = {0};
         URL_COMPONENTS components2 = {0};
         components1.dwStructSize = sizeof(URL_COMPONENTS);
-        components1.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
+        components1.dwUrlPathLength = INTERNET_MAX_PATH_LENGTH;
         components1.lpszUrlPath = urlpath1;
         components1.lpszScheme = scheme1;
-        components1.dwSchemeLength = INTERNET_MAX_URL_LENGTH;
+        components1.dwSchemeLength = INTERNET_MAX_SCHEME_LENGTH;
         components1.lpszHostName = hostname1;
-        components1.dwHostNameLength = INTERNET_MAX_URL_LENGTH;
+        components1.dwHostNameLength = INTERNET_MAX_HOST_NAME_LENGTH;
         components1.lpszUserName = username1;
-        components1.dwUserNameLength = INTERNET_MAX_URL_LENGTH;
+        components1.dwUserNameLength = INTERNET_MAX_USER_NAME_LENGTH;
         components1.lpszPassword = password1;
-        components1.dwPasswordLength = INTERNET_MAX_URL_LENGTH;
+        components1.dwPasswordLength = INTERNET_MAX_PASSWORD_LENGTH;
         components2.dwStructSize = sizeof(URL_COMPONENTS);
-        components2.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
+        components2.dwUrlPathLength = INTERNET_MAX_PATH_LENGTH;
         components2.lpszUrlPath = urlpath2;
         components2.lpszScheme = scheme2;
-        components2.dwSchemeLength = INTERNET_MAX_URL_LENGTH;
+        components2.dwSchemeLength = INTERNET_MAX_SCHEME_LENGTH;
         components2.lpszHostName = hostname2;
-        components2.dwHostNameLength = INTERNET_MAX_URL_LENGTH;
+        components2.dwHostNameLength = INTERNET_MAX_HOST_NAME_LENGTH;
         components2.lpszUserName = username2;
-        components2.dwUserNameLength = INTERNET_MAX_URL_LENGTH;
+        components2.dwUserNameLength = INTERNET_MAX_USER_NAME_LENGTH;
         components2.lpszPassword = password2;
-        components2.dwPasswordLength = INTERNET_MAX_URL_LENGTH;
+        components2.dwPasswordLength = INTERNET_MAX_PASSWORD_LENGTH;
         CString sTempUrl = dlg.m_sFromUrl;
         if (sTempUrl.Left(8).Compare(_T("file:///\\"))==0)
             sTempUrl.Replace(_T("file:///\\"), _T("file://"));
