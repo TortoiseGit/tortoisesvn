@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3174,6 +3174,27 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
             m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
         m_ptCaretPos.x++;
         m_nCachedWrappedLine = -1;
+        UpdateGoalPos();
+    }
+    else if (nChar == 10)
+    {
+        AddUndoLine(m_ptCaretPos.y);
+        EOL eol = m_pViewData->GetLineEnding(m_ptCaretPos.y);
+        EOL newEOL = EOL_CRLF;
+        switch (eol)
+        {
+            case EOL_CRLF:
+                newEOL = EOL_CR;
+                break;
+            case EOL_CR:
+                newEOL = EOL_LF;
+                break;
+            case EOL_LF:
+                newEOL = EOL_CRLF;
+                break;
+        }
+        m_pViewData->SetLineEnding(m_ptCaretPos.y, newEOL);
+        m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
         UpdateGoalPos();
     }
     else if (nChar == VK_RETURN)

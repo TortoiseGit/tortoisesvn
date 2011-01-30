@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2010 - TortoiseSVN
+// Copyright (C) 2006-2007, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,7 @@ void viewstate::AddViewLineFormView(CBaseView *pView, int nLine, int nViewLine, 
         return;
     difflines[nViewLine] = pView->m_pViewData->GetLine(nViewLine);
     linestates[nViewLine] = pView->m_pViewData->GetState(nViewLine);
+    linesEOL[nLine] = pView->m_pViewData->GetLineEnding(nLine);
     if (bAddEmptyLine)
     {
         addedlines.push_back(nViewLine + 1);
@@ -147,6 +148,10 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
     for (std::map<int, DWORD>::const_iterator it = state.linestates.begin(); it != state.linestates.end(); ++it)
     {
         viewData->SetState(it->first, (DiffStates)it->second);
+    }
+    for (std::map<int, EOL>::const_iterator it = state.linesEOL.begin(); it != state.linesEOL.end(); ++it)
+    {
+        viewData->SetLineEnding(it->first, (EOL)it->second);
     }
     for (std::map<int, CString>::const_iterator it = state.difflines.begin(); it != state.difflines.end(); ++it)
     {
