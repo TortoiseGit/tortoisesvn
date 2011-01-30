@@ -1052,6 +1052,9 @@
     <ClCompile Include="..\Utils\ReaderWriterLock.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\StringBuffer.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2006,6 +2009,9 @@
       <Filter>Subversion</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\ReaderWriterLock.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\StringBuffer.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>

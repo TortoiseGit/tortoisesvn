@@ -265,6 +265,7 @@
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp" />
     <ClCompile Include="..\Utils\MiscUI\SVG.cpp" />
     <ClCompile Include="..\Utils\ReaderWriterLock.cpp" />
+    <ClCompile Include="..\Utils\StringBuffer.cpp" />
     <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="..\Utils\BugTraqAssociations.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
@@ -746,6 +747,7 @@
     <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h" />
     <ClInclude Include="..\Utils\MiscUI\SVG.h" />
     <ClInclude Include="..\Utils\ReaderWriterLock.h" />
+    <ClInclude Include="..\Utils\StringBuffer.h" />
     <ClInclude Include="AppUtils.h" />
     <ClInclude Include="..\Utils\auto_buffer.h" />
     <ClInclude Include="..\Utils\BugTraqAssociations.h" />
