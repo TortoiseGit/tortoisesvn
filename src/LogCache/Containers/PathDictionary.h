@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -153,8 +153,22 @@ private:
 #ifdef _DEBUG
     /// the path expanded into a string - for easier debugging only
 
-    std::string _path;
+    static const std::string noPath;
+    mutable std::string _path;
 #endif
+
+    /// GetPath() utilities
+
+    void ValidatePath() const;
+    size_t CollectPathElements 
+        ( const char** pathElements
+        , index_t* sizes
+        , size_t& depth) const;
+    void CopyPathElements 
+        ( const char** pathElements
+        , index_t* sizes
+        , size_t depth
+        , char* target ) const;
 
 protected:
 
@@ -164,7 +178,7 @@ protected:
     {
         index = newIndex;
     #ifdef _DEBUG
-        _path = GetPath();
+        _path = index == NO_INDEX ? noPath : GetPath();
     #endif
     }
 
@@ -198,7 +212,7 @@ public:
         , index (anIndex)
     {
     #ifdef _DEBUG
-        _path = GetPath();
+        _path = index == NO_INDEX ? noPath : GetPath();
     #endif
     }
 
@@ -312,6 +326,7 @@ public:
 
     std::string GetPath() const;
     void GetPath (std::string& result) const;
+    char* GetPath (char* result, size_t maxSize) const;
 };
 
 /// standard operator used by STL containers

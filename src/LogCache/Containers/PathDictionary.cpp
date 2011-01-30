@@ -204,6 +204,10 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 //
 ///////////////////////////////////////////////////////////////
 
+#ifdef _DEBUG
+const std::string CDictionaryBasedPath::noPath ("<INVALID_PATH>");
+#endif
+
 // construction utility: lookup and optionally auto-insert
 
 void CDictionaryBasedPath::ParsePath ( const std::string& path
@@ -269,7 +273,7 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
     }
 
 #ifdef _DEBUG
-    _path = GetPath();
+    _path = index == NO_INDEX ? noPath : GetPath();
 #endif
 }
 
@@ -389,62 +393,59 @@ bool CDictionaryBasedPath::IsSameOrParentOf ( index_t lhsIndex
 
 // convert to string
 
-void CDictionaryBasedPath::GetPath (std::string& result) const
+void CDictionaryBasedPath::ValidatePath() const
 {
     if (index == NO_INDEX)
     {
-#ifdef _DEBUG
-        // only used to set _path to a proper value
-
-        static const std::string noPath ("<INVALID_PATH>");
-        assert (_path.empty() || (_path == noPath));
-
-        result = noPath;
-        return;
-#else
         // an assertion is of little use here ...
 
         throw CContainerException ("Access to invalid path object");
-#endif
     }
+}
 
+size_t CDictionaryBasedPath::CollectPathElements 
+    ( const char** pathElements
+    , index_t* sizes
+    , size_t& depth) const
+{
     // fetch all path elements bottom-up except the root
     // and calculate the total string length
 
-    const char* pathElements [MAX_PATH];
-    index_t sizes[MAX_PATH];
     size_t size = 0;
 
     const CStringDictionary& elements = dictionary->GetPathElements();
 
-    size_t depth = 0;
+    size_t currentDepth = 0;
     for ( index_t currentIndex = index
-        ; (currentIndex != 0) && (depth < MAX_PATH)
+        ; (currentIndex != 0) && (currentDepth < MAX_PATH)
         ; currentIndex = dictionary->GetParent (currentIndex))
     {
         size_t element = dictionary->GetPathElementID (currentIndex);
         size_t elementLen = elements.GetLength (element);
 
-        pathElements[depth] = elements[element];
-        sizes[depth] = elementLen;
+        pathElements[currentDepth] = elements[element];
+        sizes[currentDepth] = elementLen;
         size += elementLen;
 
-        ++depth;
+        ++currentDepth;
     }
 
-    size += depth;
+    depth = currentDepth;
+    return size + currentDepth;
+}
 
-    // build result
-
-    result.resize (std::max ((size_t)1, size));
-    result.reserve (size + sizeof (size_t));
-
-    char* target = &result[0];
-
+void CDictionaryBasedPath::CopyPathElements 
+    ( const char** pathElements
+    , index_t* sizes
+    , size_t depth
+    , char* target ) const
+{
     for (size_t i = depth; i > 0; --i)
     {
         *target = '/';
         size_t elementSize = sizes[i-1];
+
+        // "chunky" copy operation
 
         char* dest = ++target;
         target += elementSize;
@@ -456,6 +457,51 @@ void CDictionaryBasedPath::GetPath (std::string& result) const
             *(size_t*)dest = *(const size_t*)source;
         }
     }
+}
+
+void CDictionaryBasedPath::GetPath (std::string& result) const
+{
+    ValidatePath();
+
+    // fetch all path elements bottom-up except the root
+    // and calculate the total string length
+
+    const char* pathElements [MAX_PATH];
+    index_t sizes[MAX_PATH];
+    size_t depth = 0;
+
+    size_t size = CollectPathElements (pathElements, sizes, depth);
+
+    // build result
+
+    result.resize (std::max ((size_t)1, size));
+    result.reserve (size + sizeof (size_t));
+
+    CopyPathElements (pathElements, sizes, depth, &result[0]);
+}
+
+char* CDictionaryBasedPath::GetPath (char* result, size_t maxSize) const
+{
+    ValidatePath();
+
+    // fetch all path elements bottom-up except the root
+    // and calculate the total string length
+
+    const char* pathElements [MAX_PATH];
+    index_t sizes[MAX_PATH];
+    size_t depth = 0;
+
+    size_t size = CollectPathElements (pathElements, sizes, depth);
+    while (size > maxSize)
+    {
+        --depth;
+        size -= sizes[depth];
+    }
+
+    // build result
+
+    CopyPathElements (pathElements, sizes, depth, result);
+    return result + size;
 }
 
 std::string CDictionaryBasedPath::GetPath() const
