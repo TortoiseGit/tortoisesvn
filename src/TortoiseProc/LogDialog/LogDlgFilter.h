@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "SVN.h"
+#include "StringBuffer.h"
 
 /// forward declaration
 
@@ -101,8 +102,7 @@ private:
     /// temp / scratch objects to minimize the number memory
     /// allocation operations
 
-    mutable string scratch;
-    mutable string pathScratch;
+    mutable CStringBuffer scratch;
 
     /// called to parse a (potentially incorrect) regex spec
 
@@ -119,6 +119,7 @@ public:
     /// construction
 
     CLogDlgFilter();
+    CLogDlgFilter(const CLogDlgFilter& rhs);
     CLogDlgFilter
         ( const CString& filter
         , bool filterWithRegex
@@ -135,10 +136,16 @@ public:
 
     /// returns a vector with all the ranges where a match
     /// was found.
+
     std::vector<CHARRANGE> GetMatchRanges (wstring& text) const;
 
     /// filter utiltiy method
-    bool Match (string& text) const;
+
+    bool Match (char* text, size_t size) const;
+
+    /// assignment operator
+
+    CLogDlgFilter& operator= (const CLogDlgFilter& rhs);
 
     /// tr1::regex is very slow when running concurrently
     /// in multiple threads. Empty filters don't need MT as well.

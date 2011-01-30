@@ -107,11 +107,11 @@ namespace
 
 // filter utiltiy method
 
-bool CLogDlgFilter::Match (string& text) const
+bool CLogDlgFilter::Match (char* text, size_t size) const
 {
     // empty text does not match
 
-    if (text.size() == 0)
+    if (size == 0)
         return false;
 
     if (patterns.empty())
@@ -120,9 +120,9 @@ bool CLogDlgFilter::Match (string& text) const
 
         if (!caseSensitive)
             if (fastLowerCase)
-                FastLowerCaseConversion (&text.at(0), text.length());
+                FastLowerCaseConversion (text, size);
             else
-                _strlwr_s (&text.at(0), text.length()+1);
+                _strlwr_s (text, size+1);
 
         // require all strings to be present
 
@@ -130,8 +130,7 @@ bool CLogDlgFilter::Match (string& text) const
         for (size_t i = 0, count = subStringConditions.size(); i < count; ++i)
         {
             const SCondition& condition = subStringConditions[i];
-            bool found = strstr ( text.c_str()
-                                , condition.subString.c_str()) != NULL;
+            bool found = strstr (text, condition.subString.c_str()) != NULL;
             switch (condition.prefix)
             {
                 case and_not:
@@ -167,9 +166,13 @@ bool CLogDlgFilter::Match (string& text) const
     }
     else
     {
-        for (vector<tr1::regex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
-            if (!regex_search(text, *it, tr1::regex_constants::match_any))
+        for ( vector<tr1::regex>::const_iterator it = patterns.begin()
+            ; it != patterns.end()
+            ; ++it)
+        {
+            if (!regex_search(text, text + size, *it, tr1::regex_constants::match_any))
                 return false;
+        }
     }
 
     return true;
@@ -336,7 +339,13 @@ CLogDlgFilter::CLogDlgFilter()
     , revToKeep(0)
     , negate(false)
     , fastLowerCase(false)
+    , scratch (0xfff0)
 {
+}
+
+CLogDlgFilter::CLogDlgFilter (const CLogDlgFilter& rhs)
+{
+    operator=(rhs);
 }
 
 CLogDlgFilter::CLogDlgFilter
@@ -357,12 +366,8 @@ CLogDlgFilter::CLogDlgFilter
     , to (to)
     , scanRelevantPathsOnly (scanRelevantPathsOnly)
     , revToKeep (revToKeep)
+    , scratch (0xfff0)
 {
-    // initialize scratch objects
-
-    scratch.reserve (0xfff0);
-    pathScratch.reserve (0xff0);
-
     // decode string matching spec
 
     bool useRegex = filterWithRegex && !filter.IsEmpty();
@@ -470,41 +475,30 @@ namespace
 {
     // concatenate strings
 
-    void AppendString
-        ( string& target
-        , const char* toAppend
-        , size_t length
-        , char separator)
+    void AppendString (CStringBuffer& target, const string& toAppend)
     {
-        if (target.size() + length + 1 > target.capacity())
-            target.reserve (2 * target.capacity());
-
-        target.push_back (separator);
-        target.append (toAppend, length);
-    }
-
-    void AppendString (string& target, const string& toAppend)
-    {
-        AppendString (target, toAppend.c_str(), toAppend.length(), ' ');
-    }
-
-    void AppendPath (string& target, const string& toAppend)
-    {
-        AppendString (target, toAppend.c_str(), toAppend.length(), '|');
+        target.Append (' ');
+        target.Append (toAppend);
     }
 
     // convert path objects
 
     void GetPath
         ( const LogCache::CDictionaryBasedPath& path
-        , std::string& utf8Path)
+        , CStringBuffer& target)
     {
-        path.GetPath (utf8Path);
+        target.Append ('|');
+        char* buffer = target.GetBuffer (MAX_PATH);
+        size_t size = path.GetPath (buffer, MAX_PATH) - buffer;
 
         // relative path strings are never empty
 
-        if (CPathUtils::ContainsEscapedChars (&utf8Path[0], utf8Path.size()))
-            CPathUtils::Unescape (&utf8Path[0]);
+        if (CPathUtils::ContainsEscapedChars (buffer, APR_ALIGN(16, size)))
+            size = CPathUtils::Unescape (buffer) - buffer;
+
+        // mark buffer as used
+
+        target.AddSize (size);
     }
 }
 
@@ -527,7 +521,7 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 
     // we need to perform expensive string / pattern matching
 
-    scratch.clear();
+    scratch.Clear();
     if (attributeSelector & LOGFILTER_BUGID)
         AppendString (scratch, entry.GetBugIDs());
 
@@ -544,20 +538,19 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
             const CLogChangedPath& cpath = paths[cpPathIndex];
             if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
             {
-                GetPath (cpath.GetCachedPath(), pathScratch);
-                AppendPath (scratch, pathScratch);
-                AppendPath (scratch, cpath.GetActionString());
+                GetPath (cpath.GetCachedPath(), scratch);
+                scratch.Append ('|');
+                scratch.Append (cpath.GetActionString());
 
                 if (cpath.GetCopyFromRev() > 0)
                 {
-                    GetPath (cpath.GetCachedCopyFromPath(), pathScratch);
-                    AppendPath (scratch, pathScratch);
+                    GetPath (cpath.GetCachedCopyFromPath(), scratch);
 
-                    scratch.push_back ('|');
+                    scratch.Append ('|');
 
                     char buffer[10];
                     _itoa_s (cpath.GetCopyFromRev(), buffer, 10);
-                    scratch.append (buffer);
+                    scratch.Append (buffer);
                 }
             }
         }
@@ -570,14 +563,36 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 
     if (attributeSelector & LOGFILTER_REVS)
     {
-        scratch.push_back (' ');
+        scratch.Append (' ');
 
         char buffer[10];
         _itoa_s (entry.GetRevision(), buffer, 10);
-        scratch.append (buffer);
+        scratch.Append (buffer);
     }
 
-    return Match (scratch) ^ negate;
+    return Match (scratch, scratch.GetSize()) ^ negate;
+}
+
+CLogDlgFilter& CLogDlgFilter::operator= (const CLogDlgFilter& rhs)
+{
+    if (this != &rhs)
+    {
+        attributeSelector = rhs.attributeSelector;
+        caseSensitive = rhs.caseSensitive;
+        from = rhs.from;
+        to = rhs.to;
+        scanRelevantPathsOnly = rhs.scanRelevantPathsOnly;
+        revToKeep = rhs.revToKeep;
+        negate = rhs.negate;
+        fastLowerCase = rhs.fastLowerCase;
+
+        subStringConditions = rhs.subStringConditions;
+        patterns = rhs.patterns;
+
+        scratch.Clear();
+    }
+
+    return *this;
 }
 
 // tr1::regex is very slow when running concurrently
