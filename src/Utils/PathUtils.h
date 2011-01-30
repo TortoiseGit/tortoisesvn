@@ -40,8 +40,9 @@ public:
 
     /**
      * Replaces escaped sequences with the corresponding characters in a string.
+     * \return Position of the terminating \0 char.
      */
-    static void Unescape(char * psz);
+    static char* Unescape(char * psz);
 
 #ifdef CSTRING_AVAILABLE
     /**

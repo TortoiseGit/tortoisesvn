@@ -95,7 +95,7 @@ bool CPathUtils::ContainsEscapedChars(const char * psz, size_t length)
     return false;
 }
 
-void CPathUtils::Unescape(char * psz)
+char* CPathUtils::Unescape(char * psz)
 {
     char * pszSource = psz;
     char * pszDest = psz;
@@ -152,6 +152,7 @@ void CPathUtils::Unescape(char * psz)
     }
 
     *pszDest = '\0';
+    return pszDest;
 }
 
 static const char iri_escape_chars[256] = {
