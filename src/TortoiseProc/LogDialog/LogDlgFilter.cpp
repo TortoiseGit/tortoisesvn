@@ -262,9 +262,9 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& textUTF16) const
         ; ++iter)
     {
         AdvanceUnicodePos (textUTF8, utf8Pos, utf16Pos, iter->cpMin);
-        iter->cpMin = utf16Pos;
+        iter->cpMin = (LONG)utf16Pos;
         AdvanceUnicodePos (textUTF8, utf8Pos, utf16Pos, iter->cpMax);
-        iter->cpMax = utf16Pos;
+        iter->cpMax = (LONG)utf16Pos;
     }
 
     return ranges;

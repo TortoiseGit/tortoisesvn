@@ -420,11 +420,11 @@ size_t CDictionaryBasedPath::CollectPathElements
         ; (currentIndex != 0) && (currentDepth < MAX_PATH)
         ; currentIndex = dictionary->GetParent (currentIndex))
     {
-        size_t element = dictionary->GetPathElementID (currentIndex);
-        size_t elementLen = elements.GetLength (element);
+        size_t element = dictionary->GetPathElementID ((LogCache::index_t)currentIndex);
+        size_t elementLen = elements.GetLength ((LogCache::index_t)element);
 
-        pathElements[currentDepth] = elements[element];
-        sizes[currentDepth] = elementLen;
+        pathElements[currentDepth] = elements[(LogCache::index_t)element];
+        sizes[currentDepth] = (LogCache::index_t)elementLen;
         size += elementLen;
 
         ++currentDepth;
