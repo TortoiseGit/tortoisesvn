@@ -703,7 +703,7 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
         bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
         {
             int ret = _stricmp ( pStart->GetAuthor().c_str()
-                               , pEnd->GetAuthor().c_str()) < 0;
+                               , pEnd->GetAuthor().c_str());
             if (ret == 0)
                 return pStart->GetRevision() < pEnd->GetRevision();
             return ret<0;
@@ -716,7 +716,7 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
         bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
         {
             int ret = _stricmp ( pStart->GetBugIDs().c_str()
-                               , pEnd->GetBugIDs().c_str()) < 0;
+                               , pEnd->GetBugIDs().c_str());
             if (ret == 0)
                 return pStart->GetRevision() < pEnd->GetRevision();
             return ret<0;
