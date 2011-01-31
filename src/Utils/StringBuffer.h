@@ -99,7 +99,7 @@ inline char* CStringBuffer::GetBuffer (size_t minFree)
     if (size + minFree >= capacity)
         Reserve (max (minFree, 2 * capacity));
 
-    return buffer;
+    return buffer + size;
 }
 
 inline void CStringBuffer::AddSize (size_t size)
