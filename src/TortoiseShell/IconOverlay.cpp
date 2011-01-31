@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -208,9 +208,9 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
                             status = svn_wc_status_conflicted;
                     }
                 }
-                if ((s)&&(status == svn_wc_status_normal)&&(s->needslock)&&(s->owner[0]==0))
+                if ((s)&&(status == svn_wc_status_normal)&&(s->needslock)&&((s->owner[0] == NULL)||(s->owner[0]==0)))
                     readonlyoverlay = true;
-                if ((s)&&(s->owner[0]!=0))
+                if ((s)&&(s->owner != NULL)&&(s->owner[0]!=0))
                     lockedoverlay = true;
 
             }
