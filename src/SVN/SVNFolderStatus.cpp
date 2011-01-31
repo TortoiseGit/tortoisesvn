@@ -394,9 +394,6 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, con
         s.rev = status->changed_rev;
         if (status->lock)
             s.owner = Stat->owners.GetString(status->lock->owner);
-    }
-    if (status)
-    {
         s.status = SVNStatus::GetMoreImportant(s.status, status->node_status);
         s.lock = status->repos_lock;
         s.tree_conflict = (status->conflicted != 0);
