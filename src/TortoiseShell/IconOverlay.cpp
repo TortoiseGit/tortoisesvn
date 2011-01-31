@@ -208,7 +208,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
                             status = svn_wc_status_conflicted;
                     }
                 }
-                if ((s)&&(status == svn_wc_status_normal)&&(s->needslock)&&((s->owner[0] == NULL)||(s->owner[0]==0)))
+                if ((s)&&(status == svn_wc_status_normal)&&(s->needslock)&&((s->owner == NULL)||(s->owner[0]==0)))
                     readonlyoverlay = true;
                 if ((s)&&(s->owner != NULL)&&(s->owner[0]!=0))
                     lockedoverlay = true;
