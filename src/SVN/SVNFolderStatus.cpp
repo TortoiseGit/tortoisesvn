@@ -377,9 +377,16 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, con
 {
     SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
     FileStatusMap * cache = &Stat->m_cache;
-    FileStatusCacheEntry s;
-    s.needslock = false;
-    s.tree_conflict = false;
+    FileStatusCacheEntry s = {  svn_wc_status_none,          // state
+                                "",                          // author
+                                "",                          // url
+                                "",                          // owner
+                                false,                       // needslock
+                                -1,                          // rev
+                                SVNFOLDERSTATUS_CACHETIMES,  // askedcounter
+                                NULL,                        // lock
+                                false,                       // tree_conflict;
+                             };
     if (status)
     {
         s.author = Stat->authors.GetString(status->changed_author);
@@ -388,21 +395,12 @@ svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, con
         if (status->lock)
             s.owner = Stat->owners.GetString(status->lock->owner);
     }
-    else
-    {
-        s.author = Stat->authors.GetString(NULL);
-        s.url = Stat->urls.GetString(NULL);
-        s.rev = -1;
-        s.owner = Stat->owners.GetString(NULL);
-    }
-    s.status = svn_wc_status_none;
     if (status)
     {
         s.status = SVNStatus::GetMoreImportant(s.status, status->node_status);
         s.lock = status->repos_lock;
         s.tree_conflict = (status->conflicted != 0);
     }
-    s.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
     tstring str;
     if (path)
     {
