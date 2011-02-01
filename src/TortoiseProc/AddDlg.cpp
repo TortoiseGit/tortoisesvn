@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -145,8 +145,9 @@ UINT CAddDlg::AddThread()
     {
         m_addListCtrl.SetEmptyString(m_addListCtrl.GetLastErrorMessage());
     }
+    bool bSelectFilesForCommit = !!DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
     m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT, CTSVNPathList(),
-                        SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT, true, true);
+                        bSelectFilesForCommit ? SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT : 0, true, true);
 
     InterlockedExchange(&m_bThreadRunning, FALSE);
     return 0;
