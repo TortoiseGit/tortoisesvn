@@ -161,6 +161,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
             dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
             dirstat.needslock = false;
             dirstat.tree_conflict = false;
+            dirstat.lock = nullptr;
 
             dirstatus = NULL;
             svn_revnum_t youngest = SVN_INVALID_REVNUM;
@@ -200,6 +201,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 
                 dirstat.status = dirstatus->node_status;
                 dirstat.tree_conflict = dirstatus->conflicted != 0;
+                dirstat.lock = dirstatus->lock;
             }
             m_cache[filepath.GetWinPath()] = dirstat;
             m_TimeStamp = GetTickCount();
