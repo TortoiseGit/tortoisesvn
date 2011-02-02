@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,7 +102,7 @@ tstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
 {
     TCHAR buf[100] = {0};
     if (bAbbrev)
-        StrFormatByteSize(m_nSize, buf, 100);
+        StrFormatByteSize(m_nSize, buf, _countof(buf));
     else
         _stprintf_s(buf, _T("%ld Bytes"), m_nSize);
 
@@ -422,15 +422,14 @@ bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
     memcpy(pData, pBuffer, nSize);
     GlobalUnlock(hGlobal);
 
-    IStream* pStream = NULL;
+    ATL::CComPtr<IStream> pStream;
 
     if ((CreateStreamOnHGlobal(hGlobal, true, &pStream) == S_OK)&&(pStream))
     {
         HRESULT hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, (LPVOID *)&m_IPicture);
         if(hr != S_OK)
             return false;
-        pStream->Release();
-        pStream = NULL;
+
         bResult = true;
     }
 
@@ -458,9 +457,7 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
         m_IPicture->get_Width(&Width);
         m_IPicture->get_Height(&Height);
 
-        HRESULT hrP = NULL;
-
-        hrP = m_IPicture->Render(hDC,
+        HRESULT hr = m_IPicture->Render(hDC,
             DrawRect.left,                  // Left
             DrawRect.top,                   // Top
             DrawRect.right - DrawRect.left, // Right
@@ -471,7 +468,7 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
             -Height,
             &DrawRect);
 
-        if (SUCCEEDED(hrP))
+        if (SUCCEEDED(hr))
             return(true);
     }
     else if (pBitmap)
@@ -549,8 +546,7 @@ UINT CPicture::GetNumberOfFrames(int dimension)
     }
     if (pBitmap == NULL)
         return 0;
-    UINT count = 0;
-    count = pBitmap->GetFrameDimensionsCount();
+    UINT count = pBitmap->GetFrameDimensionsCount();
     GUID* pDimensionIDs = (GUID*)malloc(sizeof(GUID)*count);
 
     pBitmap->GetFrameDimensionsList(pDimensionIDs, count);
@@ -617,8 +613,8 @@ long CPicture::SetActiveFrame(UINT frame)
     if (s == Ok)
     {
         delay = ((long*)pPropertyItem->value)[prevframe] * 10;
-        free(pPropertyItem);
     }
+    free(pPropertyItem);
     m_Height = GetHeight();
     m_Width = GetWidth();
     return delay;
