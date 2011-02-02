@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2009 - TortoiseSVN
+// Copyright (C) 2003-2006,2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,14 +77,11 @@ LPCSHITEMID ItemIDList::get(int index) const
 
 tstring ItemIDList::toString()
 {
-    IShellFolder *shellFolder = NULL;
-    IShellFolder *parentFolder = NULL;
-    STRRET name;
-    TCHAR * szDisplayName = NULL;
+    CComPtr<IShellFolder> shellFolder;
+    CComPtr<IShellFolder> parentFolder;
     tstring ret;
-    HRESULT hr;
 
-    hr = ::SHGetDesktopFolder(&shellFolder);
+    HRESULT hr = ::SHGetDesktopFolder(&shellFolder);
     if (FAILED(hr))
         return ret;
     if (parent_)
@@ -98,19 +95,17 @@ tstring ItemIDList::toString()
         parentFolder = shellFolder;
     }
 
+    STRRET name;
+    TCHAR * szDisplayName = NULL;
     if ((parentFolder != 0)&&(item_ != 0))
     {
         hr = parentFolder->GetDisplayNameOf(item_, SHGDN_NORMAL | SHGDN_FORPARSING, &name);
         if (FAILED(hr))
-        {
-            parentFolder->Release();
             return ret;
-        }
         hr = StrRetToStr (&name, item_, &szDisplayName);
         if (FAILED(hr))
             return ret;
     }
-    parentFolder->Release();
     if (szDisplayName == NULL)
     {
         return ret;         //to avoid a crash!
