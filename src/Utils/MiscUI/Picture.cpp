@@ -422,15 +422,15 @@ bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
     memcpy(pData, pBuffer, nSize);
     GlobalUnlock(hGlobal);
 
-    ATL::CComPtr<IStream> pStream;
+    IStream* pStream = NULL;
 
     if ((CreateStreamOnHGlobal(hGlobal, true, &pStream) == S_OK)&&(pStream))
     {
         HRESULT hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, (LPVOID *)&m_IPicture);
-        if(hr != S_OK)
-            return false;
+        pStream->Release();
+        pStream = NULL;
 
-        bResult = true;
+        bResult = hr == S_OK;
     }
 
     FreeResource(hGlobal); // 16Bit Windows Needs This (32Bit - Automatic Release)
