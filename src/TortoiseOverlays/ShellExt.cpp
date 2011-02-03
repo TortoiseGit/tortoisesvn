@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2010 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011 - TortoiseSVN
 #include "stdafx.h"
 
 #pragma warning (disable : 4786)
@@ -9,7 +9,6 @@
 #include "Guids.h"
 
 #include "ShellExt.h"
-
 
 // *********************** CShellExt *************************
 CShellExt::CShellExt(FileState state)
@@ -22,9 +21,26 @@ CShellExt::CShellExt(FileState state)
 
 CShellExt::~CShellExt()
 {
+    for (auto it = m_dllpointers.begin(); it != m_dllpointers.end(); ++it)
+    {
+        if (it->pShellIconOverlayIdentifier != NULL)
+        {
+            it->pShellIconOverlayIdentifier->Release();
+            it->pShellIconOverlayIdentifier = NULL;
+        }
+        if (it->hDll != NULL)
+        {
+            FreeLibrary(it->hDll);
+            it->hDll = NULL;
+        }
+
+        it->pDllGetClassObject = NULL;
+        it->pDllCanUnloadNow = NULL;
+    }
+    m_dllpointers.clear();
+
     InterlockedDecrement(&g_cRefThisDll);
 }
-
 
 STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
 {
@@ -56,14 +72,13 @@ STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
     {
         *ppv = (LPSHELLPROPSHEETEXT)this;
     }
-    if (*ppv)
+    else
     {
-        AddRef();
-
-        return S_OK;
+        return E_NOINTERFACE;
     }
 
-    return E_NOINTERFACE;
+    AddRef();
+    return S_OK;
 }
 
 STDMETHODIMP_(ULONG) CShellExt::AddRef()
@@ -76,24 +91,6 @@ STDMETHODIMP_(ULONG) CShellExt::Release()
     if (--m_cRef)
         return m_cRef;
 
-    for (vector<DLLPointers>::iterator it = m_dllpointers.begin(); it != m_dllpointers.end(); ++it)
-    {
-        if (it->pShellIconOverlayIdentifier != NULL)
-            it->pShellIconOverlayIdentifier->Release();
-        if (it->hDll != NULL)
-            FreeLibrary(it->hDll);
-
-        it->hDll = NULL;
-        it->pDllGetClassObject = NULL;
-        it->pDllCanUnloadNow = NULL;
-        it->pShellIconOverlayIdentifier = NULL;
-    }
-
-    m_dllpointers.clear();
-
     delete this;
-
     return 0L;
 }
-
-
