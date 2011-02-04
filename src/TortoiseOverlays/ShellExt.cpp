@@ -48,29 +48,13 @@ STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
         return E_POINTER;
     *ppv = NULL;
 
-    if (IsEqualIID(riid, IID_IShellExtInit) || IsEqualIID(riid, IID_IUnknown))
+    if (IsEqualIID(riid, IID_IUnknown))
     {
-        *ppv = (LPSHELLEXTINIT)this;
-    }
-    else if (IsEqualIID(riid, IID_IContextMenu))
-    {
-        *ppv = (LPCONTEXTMENU)this;
-    }
-    else if (IsEqualIID(riid, IID_IContextMenu2))
-    {
-        *ppv = (LPCONTEXTMENU2)this;
-    }
-    else if (IsEqualIID(riid, IID_IContextMenu3))
-    {
-        *ppv = (LPCONTEXTMENU3)this;
+        *ppv = static_cast<IUnknown*>(this);
     }
     else if (IsEqualIID(riid, IID_IShellIconOverlayIdentifier))
     {
-        *ppv = (IShellIconOverlayIdentifier*)this;
-    }
-    else if (IsEqualIID(riid, IID_IShellPropSheetExt))
-    {
-        *ppv = (LPSHELLPROPSHEETEXT)this;
+        *ppv = static_cast<IShellIconOverlayIdentifier*>(this);
     }
     else
     {
