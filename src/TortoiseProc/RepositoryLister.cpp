@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,6 +23,7 @@
 #include "Resource.h"
 
 #include "SVNProperties.h"
+#include "SVNInfo.h"
 #include "SVNError.h"
 #include "SVNHelpers.h"
 
@@ -112,7 +113,7 @@ BOOL CRepositoryLister::CListQuery::ReportList
     {
         // terminate with an error if this was actually a file
 
-        return kind == svn_node_dir ? TRUE : FALSE;
+            return kind == svn_node_dir ? TRUE : FALSE;
     }
 
     // store dir entry
@@ -172,6 +173,7 @@ void CRepositoryLister::CListQuery::InternalExecute()
         // add results from the sub-query
 
         if (externalsQuery != NULL)
+        {
             if (externalsQuery->Succeeded())
             {
                 const std::deque<CItem>& externals
@@ -193,6 +195,7 @@ void CRepositoryLister::CListQuery::InternalExecute()
                 result.clear();
                 error = externalsQuery->GetError();
             }
+        }
     }
 }
 
@@ -298,7 +301,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
             if (external != NULL)
             {
-                // get target repositiory
+                // get target repository
 
                 CStringA absoluteURL
                     = CPathUtils::GetAbsoluteURL
@@ -312,6 +315,9 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                 url.SetFromSVN (absoluteURL);
                 externalRepository.root
                     = svn.GetRepositoryRootAndUUID (url, true, externalRepository.uuid);
+                SVNInfo info;
+                const SVNInfoData * pInfoData = info.GetFirstFileInfo(url, external->peg_revision, external->revision, svn_depth_empty);
+
                 externalRepository.revision = external->revision;
                 externalRepository.peg_revision = external->peg_revision;
 
@@ -324,7 +330,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
                       // even file externals will be treated as folders because
                       // this is a safe default
-                    , svn_node_dir
+                    , pInfoData ? pInfoData->kind : svn_node_dir
                     , 0
 
                       // actually, we don't know for sure whether the target
