@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -301,7 +301,7 @@ private:
         const std::deque<CItem>& GetSubPathExternals();
 
         /// true, if this query has been run silently and
-        /// some error occured.
+        /// some error occurred.
 
         bool ShouldBeRerun();
     };
@@ -344,7 +344,7 @@ private:
 
     enum { MAX_QUEUE_DEPTH = 100 };
 
-    /// move superseeded queries here
+    /// move superseded queries here
     /// (so they can finish quietly without us waiting for them)
 
     std::vector<CQuery*> dumpster;
@@ -396,7 +396,7 @@ public:
 
     /// we probably will call \ref GetList() on that \ref url soon.
     /// \ref includeExternals will only be taken into account if
-    /// there is no query for that \ref url and resivision yet.
+    /// there is no query for that \ref url and revision yet.
     /// It should be set to @a false only if it is certain that
     /// no externals have been defined for that URL and revision.
     /// All queries that shall be run in background without any
