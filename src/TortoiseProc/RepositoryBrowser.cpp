@@ -1351,11 +1351,26 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                 }
 
             if (item == NULL)
-                return NULL;
-
-            // auto-add the node for the current path level
-
-            node = AutoInsert (node, *item);
+            {
+                if (path.Compare(m_InitialUrl) == 0)
+                {
+                    // add this path manually.
+                    // The path is valid, that was checked in the init function already.
+                    // But it's possible that we don't have read access to its parent
+                    // folder, so by adding the valid path manually we give the user
+                    // a chance to still browse this folder in case he has read
+                    // access to it
+                    CItem * manualItem = new CItem(path.Mid (path.ReverseFind ('/') + 1), L"", svn_node_dir, 0, true, -1, 0, L"", L"", L"", L"", false, 0, 0, path, pTreeItem->repository);
+                    node = AutoInsert (node, *manualItem);
+                }
+                else
+                    return NULL;
+            }
+            else
+            {
+                // auto-add the node for the current path level
+                node = AutoInsert (node, *item);
+            }
         }
 
         // pre-fetch data for the next level
