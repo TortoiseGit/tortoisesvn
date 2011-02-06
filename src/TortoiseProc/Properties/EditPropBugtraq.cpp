@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,31 +85,31 @@ BOOL CEditPropBugtraq::OnInitDialog()
     {
         if (it->first.compare(BUGTRAQPROPNAME_URL) == 0)
         {
-            m_sBugtraqUrl = UTF8ToWide(it->second.value).c_str();
+            m_sBugtraqUrl = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
         }
         else if (it->first.compare(BUGTRAQPROPNAME_MESSAGE) == 0)
         {
-            m_sBugtraqMessage = UTF8ToWide(it->second.value).c_str();
+            m_sBugtraqMessage = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
         }
         else if (it->first.compare(BUGTRAQPROPNAME_LABEL) == 0)
         {
-            m_sBugtraqLabel = UTF8ToWide(it->second.value).c_str();
+            m_sBugtraqLabel = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
         }
         else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERUUID) == 0)
         {
-            m_sProviderUUID = UTF8ToWide(it->second.value).c_str();
+            m_sProviderUUID = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
         }
         else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERUUID64) == 0)
         {
-            m_sProviderUUID64 = UTF8ToWide(it->second.value).c_str();
+            m_sProviderUUID64 = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
         }
         else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERPARAMS) == 0)
         {
-            m_sProviderParams = UTF8ToWide(it->second.value).c_str();
+            m_sProviderParams = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
         }
         else if (it->first.compare(BUGTRAQPROPNAME_LOGREGEX) == 0)
         {
-            CString sRegex = UTF8ToWide(it->second.value).c_str();
+            CString sRegex = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
             int nl = sRegex.Find('\n');
             if (nl >= 0)
             {
@@ -121,18 +121,18 @@ BOOL CEditPropBugtraq::OnInitDialog()
         }
         else if (it->first.compare(BUGTRAQPROPNAME_WARNIFNOISSUE) == 0)
         {
-            CString sYesNo = UTF8ToWide(it->second.value).c_str();
+            CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
             m_bWarnIfNoIssue = ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)));
         }
         else if (it->first.compare(BUGTRAQPROPNAME_APPEND) == 0)
         {
-            CString sYesNo = UTF8ToWide(it->second.value).c_str();
+            CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
             if ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)))
                 CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_BOTTOMRADIO);
         }
         else if (it->first.compare(BUGTRAQPROPNAME_NUMBER) == 0)
         {
-            CString sYesNo = UTF8ToWide(it->second.value).c_str();
+            CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
             if ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)))
                 CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_NUMERICRADIO);
         }
@@ -225,7 +225,7 @@ void CEditPropBugtraq::OnOK()
     PropValue pVal;
 
     // bugtraq:url
-    std::string propVal = WideToUTF8((LPCTSTR)m_sBugtraqUrl);
+    std::string propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqUrl);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_URL] = pVal;
@@ -239,13 +239,13 @@ void CEditPropBugtraq::OnOK()
     newProps[BUGTRAQPROPNAME_WARNIFNOISSUE] = pVal;
 
     // bugtraq:message
-    propVal = WideToUTF8((LPCTSTR)m_sBugtraqMessage);
+    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqMessage);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_MESSAGE] = pVal;
 
     // bugtraq:label
-    propVal = WideToUTF8((LPCTSTR)m_sBugtraqLabel);
+    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqLabel);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_LABEL] = pVal;
@@ -268,25 +268,25 @@ void CEditPropBugtraq::OnOK()
     CString sLogRegex = m_sBugtraqRegex2 + _T("\n") + m_sBugtraqRegex1;
     if (m_sBugtraqRegex1.IsEmpty() && m_sBugtraqRegex2.IsEmpty())
         sLogRegex.Empty();
-    propVal = WideToUTF8((LPCTSTR)sLogRegex);
+    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogRegex);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_LOGREGEX] = pVal;
 
     // bugtraq:providerparams
-    propVal = WideToUTF8((LPCTSTR)m_sProviderParams);
+    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderParams);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_PROVIDERPARAMS] = pVal;
 
     // bugtraq:provideruuid
-    propVal = WideToUTF8((LPCTSTR)m_sProviderUUID);
+    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderUUID);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_PROVIDERUUID] = pVal;
 
     // bugtraq:provideruuid64
-    propVal = WideToUTF8((LPCTSTR)m_sProviderUUID64);
+    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderUUID64);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_PROVIDERUUID64] = pVal;

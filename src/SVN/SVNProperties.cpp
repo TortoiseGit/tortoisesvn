@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,7 +93,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
 #else
         TCHAR string[1024];
         LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-        std::string stringA = WideToUTF8(std::wstring(string));
+        std::string stringA = CUnicodeUtils::StdGetUTF8(string);
         Err = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
         return FALSE;
@@ -113,7 +113,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
 #else
                 TCHAR string[1024];
                 LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-                std::string stringA = WideToUTF8(std::wstring(string));
+                std::string stringA = CUnicodeUtils::StdGetUTF8(string);
                 Err = svn_error_create(NULL, NULL, stringA.c_str());
 #endif
                 return FALSE;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -226,7 +226,7 @@ void CEditPropertiesDlg::ReadProperties (int first, int last)
             else
             {
                 it = m_properties.insert(it, std::make_pair(prop_str, PropValue()));
-                tstring value = UTF8ToWide((char *)prop_value.c_str());
+                tstring value = CUnicodeUtils::StdGetUnicode(prop_value);
                 it->second.value = prop_value;
                 CString stemp = value.c_str();
                 stemp.Replace('\n', ' ');

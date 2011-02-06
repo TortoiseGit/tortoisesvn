@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -337,7 +337,7 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
                 if(props.insert(value).second) {
                     // swap sequence avoiding unnecessary copies
                     columnuserprops.push_back(columnuserprop());
-                    UTF8ToWide(value).swap(columnuserprops.back().first);
+                    CUnicodeUtils::StdGetUnicode(value).swap(columnuserprops.back().first);
                     value.swap(columnuserprops.back().second);
                 }
                 from = values.find_first_not_of("\r\n", to);
@@ -407,19 +407,19 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 
     if (t == ShellCache::exe)
     {
-        columnauthor = UTF8ToWide(itemStatus.m_author);
+        columnauthor = CUnicodeUtils::StdGetUnicode(itemStatus.m_author);
         columnrev = (svn_revnum_t)itemStatus.m_cmt_rev;
-        itemurl = UTF8ToWide(itemStatus.m_url);
-        owner = UTF8ToWide(itemStatus.m_owner);
+        itemurl = CUnicodeUtils::StdGetUnicode(itemStatus.m_url);
+        owner = CUnicodeUtils::StdGetUnicode(itemStatus.m_owner);
     }
     else
     {
         if (status)
         {
-            columnauthor = UTF8ToWide(status->author);
+            columnauthor = CUnicodeUtils::StdGetUnicode(status->author);
             columnrev = status->rev;
-            itemurl = UTF8ToWide(status->url);
-            owner = UTF8ToWide(status->owner);
+            itemurl = CUnicodeUtils::StdGetUnicode(status->url);
+            owner = CUnicodeUtils::StdGetUnicode(status->owner);
         }
     }
     TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
@@ -479,14 +479,14 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
         char url[INTERNET_MAX_URL_LENGTH];
         strcpy_s(url, status->url);
         CPathUtils::Unescape(url);
-        itemurl = UTF8ToWide(url);
+        itemurl = CUnicodeUtils::StdGetUnicode(url);
     }
     else if (t == ShellCache::exe)
     {
         char url[INTERNET_MAX_URL_LENGTH];
         strcpy_s(url, itemStatus.m_url);
         CPathUtils::Unescape(url);
-        itemurl = UTF8ToWide(url);
+        itemurl = CUnicodeUtils::StdGetUnicode(url);
     }
 }
 
@@ -497,7 +497,7 @@ void CShellExt::ExtractProperty(const TCHAR* path, const char* propertyName, tst
     {
         if (props.GetItemName(i).compare(propertyName)==0)
         {
-            to = UTF8ToWide((char *)props.GetItemValue(i).c_str());
+            to = CUnicodeUtils::StdGetUnicode(props.GetItemValue(i));
         }
     }
 }

@@ -437,7 +437,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             if (props.GetItemName(p).compare(SVN_PROP_IGNORE)==0)
                             {
                                 std::string st = props.GetItemValue(p);
-                                ignoredprops = UTF8ToWide(st.c_str());
+                                ignoredprops = CUnicodeUtils::StdGetUnicode(st);
                                 // remove all escape chars ('\\')
                                 ignoredprops.erase(std::remove(ignoredprops.begin(), ignoredprops.end(), '\\'), ignoredprops.end());
                                 break;
@@ -1133,7 +1133,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 
     if (HIWORD(lpcmi->lpVerb))
     {
-        tstring verb = tstring(MultibyteToWide(lpcmi->lpVerb));
+        tstring verb = CUnicodeUtils::StdGetUnicode(lpcmi->lpVerb);
         std::map<tstring, UINT_PTR>::const_iterator verb_it = myVerbsMap.lower_bound(verb);
         if (verb_it != myVerbsMap.end() && verb_it->first == verb)
             idCmd = verb_it->second;

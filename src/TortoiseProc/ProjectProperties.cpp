@@ -724,32 +724,32 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
     char buf[1024] = {0};
     SVNProperties props(path, SVNRev::REV_WC, false);
     if (!sLabel.IsEmpty())
-        bRet = props.Add(BUGTRAQPROPNAME_LABEL, WideToUTF8((LPCTSTR)sLabel)) && bRet;
+        bRet = props.Add(BUGTRAQPROPNAME_LABEL, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLabel)) && bRet;
     if (!sMessage.IsEmpty())
-        bRet = props.Add(BUGTRAQPROPNAME_MESSAGE, WideToUTF8((LPCTSTR)sMessage)) && bRet;
+        bRet = props.Add(BUGTRAQPROPNAME_MESSAGE, CUnicodeUtils::StdGetUTF8((LPCTSTR)sMessage)) && bRet;
     if (bNumber)
         bRet = props.Add(BUGTRAQPROPNAME_NUMBER, "true") && bRet;
     if (!sCheckRe.IsEmpty())
-        bRet = props.Add(BUGTRAQPROPNAME_LOGREGEX, WideToUTF8((LPCTSTR)(sCheckRe + _T("\n") + sBugIDRe))) && bRet;
+        bRet = props.Add(BUGTRAQPROPNAME_LOGREGEX, CUnicodeUtils::StdGetUTF8((LPCTSTR)(sCheckRe + _T("\n") + sBugIDRe))) && bRet;
     if (!sUrl.IsEmpty())
-        bRet = props.Add(BUGTRAQPROPNAME_URL, WideToUTF8((LPCTSTR)sUrl)) && bRet;
+        bRet = props.Add(BUGTRAQPROPNAME_URL, CUnicodeUtils::StdGetUTF8((LPCTSTR)sUrl)) && bRet;
     if (bWarnIfNoIssue)
         bRet = props.Add(BUGTRAQPROPNAME_WARNIFNOISSUE, "true") && bRet;
     if (!bAppend)
         bRet = props.Add(BUGTRAQPROPNAME_APPEND, "false") && bRet;
     if (!sProviderUuid.IsEmpty())
-        bRet = props.Add(BUGTRAQPROPNAME_PROVIDERUUID, WideToUTF8((LPCTSTR)sProviderUuid)) && bRet;
+        bRet = props.Add(BUGTRAQPROPNAME_PROVIDERUUID, CUnicodeUtils::StdGetUTF8((LPCTSTR)sProviderUuid)) && bRet;
     if (!sProviderUuid64.IsEmpty())
-        bRet = props.Add(BUGTRAQPROPNAME_PROVIDERUUID64, WideToUTF8((LPCTSTR)sProviderUuid64)) && bRet;
+        bRet = props.Add(BUGTRAQPROPNAME_PROVIDERUUID64, CUnicodeUtils::StdGetUTF8((LPCTSTR)sProviderUuid64)) && bRet;
     if (!sProviderParams.IsEmpty())
-        bRet = props.Add(BUGTRAQPROPNAME_PROVIDERPARAMS, WideToUTF8((LPCTSTR)sProviderParams)) && bRet;
+        bRet = props.Add(BUGTRAQPROPNAME_PROVIDERPARAMS, CUnicodeUtils::StdGetUTF8((LPCTSTR)sProviderParams)) && bRet;
     if (nLogWidthMarker)
     {
         sprintf_s(buf, "%ld", nLogWidthMarker);
         bRet = props.Add(PROJECTPROPNAME_LOGWIDTHLINE, buf) && bRet;
     }
     if (!sLogTemplate.IsEmpty())
-        bRet = props.Add(PROJECTPROPNAME_LOGTEMPLATE, WideToUTF8((LPCTSTR)sLogTemplate)) && bRet;
+        bRet = props.Add(PROJECTPROPNAME_LOGTEMPLATE, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogTemplate)) && bRet;
     if (nMinLogSize)
     {
         sprintf_s(buf, "%ld", nMinLogSize);
@@ -763,24 +763,24 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
     if (!bFileListInEnglish)
         bRet = props.Add(PROJECTPROPNAME_LOGFILELISTLANG, "false") && bRet;
     if (!sLogSummaryRe.IsEmpty())
-        bRet = props.Add(PROJECTPROPNAME_LOGSUMMARY, WideToUTF8((LPCTSTR)sLogSummaryRe)) && bRet;
+        bRet = props.Add(PROJECTPROPNAME_LOGSUMMARY, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogSummaryRe)) && bRet;
     if (!sLogRevRegex.IsEmpty())
-        bRet = props.Add(PROJECTPROPNAME_LOGREVREGEX, WideToUTF8((LPCTSTR)sLogRevRegex)) && bRet;
+        bRet = props.Add(PROJECTPROPNAME_LOGREVREGEX, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogRevRegex)) && bRet;
     if (lProjectLanguage)
     {
         sprintf_s(buf, "%ld", lProjectLanguage);
         bRet = props.Add(PROJECTPROPNAME_PROJECTLANGUAGE, buf) && bRet;
     }
     if (!sFPPath.IsEmpty())
-        bRet = props.Add(PROJECTPROPNAME_USERFILEPROPERTY, WideToUTF8((LPCTSTR)sFPPath)) && bRet;
+        bRet = props.Add(PROJECTPROPNAME_USERFILEPROPERTY, CUnicodeUtils::StdGetUTF8((LPCTSTR)sFPPath)) && bRet;
     if (!sDPPath.IsEmpty())
-        bRet = props.Add(PROJECTPROPNAME_USERDIRPROPERTY, WideToUTF8((LPCTSTR)sDPPath)) && bRet;
+        bRet = props.Add(PROJECTPROPNAME_USERDIRPROPERTY, CUnicodeUtils::StdGetUTF8((LPCTSTR)sDPPath)) && bRet;
     if (!sWebViewerRev.IsEmpty())
-        bRet = props.Add(PROJECTPROPNAME_WEBVIEWER_REV, WideToUTF8((LPCTSTR)sWebViewerRev)) && bRet;
+        bRet = props.Add(PROJECTPROPNAME_WEBVIEWER_REV, CUnicodeUtils::StdGetUTF8((LPCTSTR)sWebViewerRev)) && bRet;
     if (!sWebViewerPathRev.IsEmpty())
-        bRet = props.Add(PROJECTPROPNAME_WEBVIEWER_PATHREV, WideToUTF8((LPCTSTR)sWebViewerPathRev)) && bRet;
+        bRet = props.Add(PROJECTPROPNAME_WEBVIEWER_PATHREV, CUnicodeUtils::StdGetUTF8((LPCTSTR)sWebViewerPathRev)) && bRet;
     if (!sAutoProps.IsEmpty())
-        bRet = props.Add(PROJECTPROPNAME_AUTOPROPS, WideToUTF8((LPCTSTR)sAutoProps)) && bRet;
+        bRet = props.Add(PROJECTPROPNAME_AUTOPROPS, CUnicodeUtils::StdGetUTF8((LPCTSTR)sAutoProps)) && bRet;
     return bRet;
 }
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,7 +77,7 @@ BOOL CEditPropMimeType::OnInitDialog()
         CheckRadioButton(IDC_MIMETEXT, IDC_MIMECUSTOM, IDC_MIMETEXT);
     else
     {
-        m_sCustomMimeType = UTF8ToWide(m_PropValue).c_str();
+        m_sCustomMimeType = CUnicodeUtils::StdGetUnicode(m_PropValue).c_str();
         CheckRadioButton(IDC_MIMETEXT, IDC_MIMECUSTOM, IDC_MIMECUSTOM);
         DialogEnableWindow(IDC_CUSTOMMIMETYPE, true);
         GetDlgItem(IDC_CUSTOMMIMETYPE)->SetFocus();
@@ -105,7 +105,7 @@ void CEditPropMimeType::OnOK()
     switch (checked)
     {
     case IDC_MIMECUSTOM:
-        m_PropValue = WideToUTF8((LPCTSTR)m_sCustomMimeType);;
+        m_PropValue = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sCustomMimeType);
         break;
     case IDC_MIMETEXT:
         m_PropValue = "";   // empty mime type means plain text

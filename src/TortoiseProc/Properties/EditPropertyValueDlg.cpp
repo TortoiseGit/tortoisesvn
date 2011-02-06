@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -243,10 +243,10 @@ void CEditPropertyValueDlg::OnOK()
     {
         m_sPropValue.Replace(_T("\r\n"), _T("\n"));
         m_sPropValue.Replace(_T("\n\n"), _T("\n"));
-        m_PropValue = WideToUTF8((LPCTSTR)m_sPropValue);
+        m_PropValue = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sPropValue);
     }
     m_PropNames.GetWindowText(m_sPropName);
-    m_PropName = WideToUTF8((LPCTSTR)m_sPropName);
+    m_PropName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sPropName);
     CDialog::OnOK();
 }
 
