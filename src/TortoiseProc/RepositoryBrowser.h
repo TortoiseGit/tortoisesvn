@@ -204,6 +204,8 @@ protected:
     void EditFile(CTSVNPath url, CTSVNPath urlEscaped);
     /// Sets the sort arrow in the list view header according to the currently used sorting.
     void SetSortArrow();
+    /// compares strings for sorting
+    static int SortStrCmp(PCWSTR str1, PCWSTR str2);
     /// called when a drag-n-drop operation starts
     void OnBeginDrag(NMHDR *pNMHDR);
     void OnBeginDragTree(NMHDR *pNMHDR);
@@ -283,6 +285,7 @@ private:
 
     volatile bool       m_blockEvents;
 
+    static bool         s_bSortLogical;
     bool                m_bSortAscending;
     int                 m_nSortedColumn;
     int                 m_arColumnWidths[7];

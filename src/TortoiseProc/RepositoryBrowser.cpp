@@ -54,6 +54,8 @@
 
 #define OVERLAY_EXTERNAL        1
 
+bool CRepositoryBrowser::s_bSortLogical = true;
+
 enum RepoBrowserContextMenuCommands
 {
     // needs to start with 1, since 0 is the return value if *nothing* is clicked on in the context menu
@@ -109,6 +111,9 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , m_backgroundJobs(0, 1, true)
 {
     m_repository.revision = rev;
+    s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
+    if (s_bSortLogical)
+        s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
 }
 
 CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CWnd* pParent)
@@ -130,6 +135,9 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , m_backgroundJobs(0, 1, true)
 {
     m_repository.revision = rev;
+    s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
+    if (s_bSortLogical)
+        s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
@@ -2093,7 +2101,7 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
     switch (pThis->m_nSortedColumn)
     {
     case 0: // filename
-        nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+        nRet = SortStrCmp(pItem1->path, pItem2->path);
         if (nRet != 0)
             break;
         // fall through
@@ -2101,42 +2109,42 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
         nRet = pThis->m_RepoList.GetItemText(static_cast<int>(lParam1), 1)
                  .CompareNoCase(pThis->m_RepoList.GetItemText(static_cast<int>(lParam2), 1));
         if (nRet == 0)  // if extensions are the same, use the filename to sort
-            nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+            nRet = SortStrCmp(pItem1->path, pItem2->path);
         if (nRet != 0)
             break;
         // fall through
     case 2: // revision number
         nRet = pItem1->created_rev - pItem2->created_rev;
         if (nRet == 0)  // if extensions are the same, use the filename to sort
-            nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+            nRet = SortStrCmp(pItem1->path, pItem2->path);
         if (nRet != 0)
             break;
         // fall through
     case 3: // author
         nRet = pItem1->author.CompareNoCase(pItem2->author);
         if (nRet == 0)  // if extensions are the same, use the filename to sort
-            nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+            nRet = SortStrCmp(pItem1->path, pItem2->path);
         if (nRet != 0)
             break;
         // fall through
     case 4: // size
         nRet = int(pItem1->size - pItem2->size);
         if (nRet == 0)  // if extensions are the same, use the filename to sort
-            nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+            nRet = SortStrCmp(pItem1->path, pItem2->path);
         if (nRet != 0)
             break;
         // fall through
     case 5: // date
         nRet = (pItem1->time - pItem2->time) > 0 ? 1 : -1;
         if (nRet == 0)  // if extensions are the same, use the filename to sort
-            nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+            nRet = SortStrCmp(pItem1->path, pItem2->path);
         if (nRet != 0)
             break;
         // fall through
     case 6: // lock owner
         nRet = pItem1->lockowner.CompareNoCase(pItem2->lockowner);
         if (nRet == 0)  // if extensions are the same, use the filename to sort
-            nRet = StrCmpLogicalW(pItem1->path, pItem2->path);
+            nRet = SortStrCmp(pItem1->path, pItem2->path);
         break;
     }
 
@@ -2159,7 +2167,7 @@ int CRepositoryBrowser::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM /*lParam
 {
     CTreeItem * Item1 = (CTreeItem*)lParam1;
     CTreeItem * Item2 = (CTreeItem*)lParam2;
-    return StrCmpLogicalW(Item1->unescapedname, Item2->unescapedname);
+    return SortStrCmp(Item1->unescapedname, Item2->unescapedname);
 }
 
 void CRepositoryBrowser::SetSortArrow()
@@ -4094,5 +4102,12 @@ void CRepositoryBrowser::HandleCheckedItemForXP( HTREEITEM item )
             hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
         }
     }
+}
+
+int CRepositoryBrowser::SortStrCmp( PCWSTR str1, PCWSTR str2 )
+{
+    if (s_bSortLogical)
+        return StrCmpLogicalW(str1, str2);
+    return StrCmpI(str1, str2);
 }
 
