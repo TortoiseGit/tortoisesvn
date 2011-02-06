@@ -264,7 +264,7 @@ void CEditPropertyValueDlg::CheckRecursive()
     {
         CString sName;
         m_PropNames.GetLBText(idx, sName);
-        std::string nameUTF8 = StringToUTF8 ((LPCTSTR)sName);
+        std::string nameUTF8 = CUnicodeUtils::StdGetUTF8((LPCTSTR)sName);
         if ((m_bFolder)||(m_bMultiple))
         {
             // folder or multiple, now check for file-only props

@@ -263,7 +263,7 @@ UINT CEditPropertiesDlg::PropsThread()
     m_propList.SetRedraw(FALSE);
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
-        m_propList.InsertItem(index, UTF8ToString (it->first).c_str());
+        m_propList.InsertItem(index, CUnicodeUtils::StdGetUnicode(it->first).c_str());
         if (it->second.isbinary)
         {
             m_propList.SetItemText(index, 1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_BINVALUE)));
@@ -481,7 +481,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
 
     if ((!bAdd)&&(selIndex >= 0)&&(m_propList.GetSelectedCount()))
     {
-        sName = StringToUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+        sName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         dlg = GetPropDialog(bDefault, sName);
         dlg->SetProperties(m_properties);
         PropValue& prop = m_properties[sName];
@@ -633,7 +633,7 @@ void CEditPropertiesDlg::RemoveProps()
         int selIndex = m_propList.GetNextSelectedItem(pos);
 
         bool bRecurse = false;
-        std::string sName = StringToUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+        std::string sName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         tstring sUName = CUnicodeUtils::StdGetUnicode(sName);
         if (m_pathlist[0].IsUrl())
         {
@@ -753,7 +753,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
     std::string sValue;
     if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
     {
-        sName = StringToUTF8 ((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+        sName = CUnicodeUtils::StdGetUTF8 ((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         PropValue& prop = m_properties[sName];
         sValue = prop.value.c_str();
         if (prop.allthesamevalue)
@@ -811,7 +811,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
         {
             int index = m_propList.GetNextSelectedItem(pos);
             sName = m_propList.GetItemText(index, 0);
-            PropValue& prop = m_properties[StringToUTF8((LPCTSTR)sName)];
+            PropValue& prop = m_properties[CUnicodeUtils::StdGetUTF8((LPCTSTR)sName)];
             sValue = prop.value.c_str();
             len = sName.GetLength()*sizeof(TCHAR);
             fwrite(&len, sizeof(int), 1, stream);                                   // length of property name in bytes
@@ -874,7 +874,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                 auto_buffer<TCHAR> pNameBuf(nNameBytes/sizeof(TCHAR));
                 if (fread(pNameBuf, 1, nNameBytes, stream) == (size_t)nNameBytes)
                 {
-                    std::string sName = StringToUTF8 (tstring (pNameBuf, nNameBytes/sizeof(TCHAR)));
+                    std::string sName = CUnicodeUtils::StdGetUTF8 (tstring (pNameBuf, nNameBytes/sizeof(TCHAR)));
                     tstring sUName = CUnicodeUtils::StdGetUnicode(sName);
                     int nValueBytes = 0;
                     if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)

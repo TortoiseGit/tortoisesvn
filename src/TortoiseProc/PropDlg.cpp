@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -106,7 +106,7 @@ UINT CPropDlg::PropThread()
     int row = 0;
     for (int i=0; i<props.GetCount(); ++i)
     {
-        CString name = UTF8ToString (props.GetItemName(i)).c_str();
+        CString name = CUnicodeUtils::StdGetUnicode(props.GetItemName(i)).c_str();
         CString val;
         val = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
 

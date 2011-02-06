@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -419,7 +419,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
                 }
                 else
                 {
-                    CString sTemp (UTF8ToString (url1name).c_str());
+                    CString sTemp (CUnicodeUtils::StdGetUnicode(url1name).c_str());
                     sTemp += _T(" : ");
                     n1 = sTemp + m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
                 }
@@ -436,7 +436,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
                 }
                 else
                 {
-                    CString sTemp (UTF8ToString (url1name).c_str());
+                    CString sTemp (CUnicodeUtils::StdGetUnicode (url1name).c_str());
                     sTemp += _T(" : ");
                     n2 = sTemp + m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
                 }
