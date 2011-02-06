@@ -154,6 +154,8 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
+    /// initializes variables for the constructors
+    void ConstructorInit();
     /// called after the init thread has finished
     LRESULT OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam*/);
     /// called to update the tree node for a specific URL
