@@ -30,46 +30,137 @@ CUnicodeUtils::~CUnicodeUtils(void)
 {
 }
 
-#if defined(_MFC_VER) || defined(CSTRING_AVAILABLE)
-
-CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
+char* CUnicodeUtils::UTF16ToUTF8
+    (const wchar_t* source, size_t size, char* target)
 {
-    char * buf;
-    CStringA retVal;
-    int len = string.GetLength();
-    if (len==0)
-        return retVal;
-    buf = retVal.GetBuffer(len*4 + 1);
-    int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, len*4, NULL, NULL);
-    retVal.ReleaseBuffer(lengthIncTerminator == 0 ? 0 : lengthIncTerminator-1);
-    return retVal;
-}
+    // most of our strings will be longer, plain ASCII strings
+    // -> affort some minor overhead to handle them very fast
 
-CStringA CUnicodeUtils::GetUTF8(const CStringA& string)
-{
-    int len = string.GetLength();
-    if (len==0)
-        return CStringA();
+    if (sse2supported)
+    {
+        __m128i zero = _mm_setzero_si128();
+        for (
+            ; size >= sizeof(zero)
+            ; size -= sizeof(zero), source += sizeof(zero), target += sizeof(zero))
+        {
+            // fetch the next 16 words from the source
 
-    auto_buffer<WCHAR> buf (len*4 + 1);
-    int ret = MultiByteToWideChar(CP_ACP, 0, string, -1, buf, len*4);
-    if (ret == 0)
-        return CStringA();
-    return (CUnicodeUtils::GetUTF8 (CStringW(buf)));
-}
+            __m128i chunk0 = _mm_loadu_si128 ((const __m128i*)source);
+            __m128i chunk1 = _mm_loadu_si128 ((const __m128i*)(source + 8));
 
-CString CUnicodeUtils::GetUnicode(const CStringA& string)
-{
-    int len = string.GetLength();
-    if (len==0)
-        return CString();
+            // convert to 8-bit chars. Values > 0xff will be mapped to 0xff
 
-    auto_buffer<WCHAR> buf (len*4 + 1);
-    int ret = MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, len*4);
-    if (ret == 0)
-        return CString();
+            __m128i packedChunk = _mm_packus_epi16 (chunk0, chunk1);
 
-    return buf.get();
+            // check for non-ASCII (SSE2 cmp* operations are signed!)
+
+            int ascii_flags = _mm_movemask_epi8 (_mm_cmplt_epi8 (packedChunk, zero));
+            if (ascii_flags != 0)
+                break;
+
+            // calculate end of string condition
+
+            int zero_flags = _mm_movemask_epi8 (_mm_cmpeq_epi16 (packedChunk, zero));
+
+            // all 16 chars are ASCII.
+            // Since we have not exceeded SIZE, we can savely write all data,
+            // even if it should include a terminal 0.
+
+            _mm_storeu_si128 ((__m128i*)target, packedChunk);
+
+            // end of string?
+
+            if (zero_flags != 0)
+            {
+                // terminator has already been written, we only need to update 
+                // the target pointer
+
+                if ((zero_flags & 0xff) == 0)
+                {
+                    zero_flags >>= 8;
+                    target += 8;
+                }
+
+                while ((zero_flags & 1) == 0)
+                {
+                    zero_flags >>= 1;
+                    ++target;
+                }
+
+                // done
+
+                return target;
+            }
+        }
+    }
+
+    // non-ASCII and string tail handling
+
+    const unsigned short* s = reinterpret_cast<const unsigned short*>(source);
+    if (size > 0)
+    {
+        unsigned c;
+        do
+        {
+            if (--size == 0)
+            {
+                *target = 0;
+                ++target;
+                break;
+            }
+
+            c = *s;
+
+            // decode 1 and 2 word sequences
+
+            if ((c < 0xd800) || (c > 0xe000))
+            {
+                ++s;
+            }
+            else
+            {
+                c = ((c & 0x3ff) << 10) + (s[1] & 0x3ff) + 0x10000;
+                s += 2;
+            }
+
+            // write result (1 to 4 bytes)
+
+            if (c < 0x80)
+            {
+                *target = static_cast<char>(c);
+                ++target;
+            }
+            else if (c < 0x7ff)
+            {
+                *target = static_cast<char>((c >> 6) + 0xC0);
+                *(target+1) = static_cast<char>((c & 0x3f) + 0x80);
+                target += 2;
+            }
+            else if (c < 0xffff)
+            {
+                *target = static_cast<char>((c >> 12) + 0xE0);
+                *(target+1) = static_cast<char>(((c >> 6) & 0x3f) + 0x80);
+                *(target+2) = static_cast<char>((c & 0x3f) + 0x80);
+                target += 3;
+            }
+            else
+            {
+                *target = static_cast<char>((c >> 18) + 0xF0);
+                *(target+1) = static_cast<char>(((c >> 12) & 0x3f) + 0x80);
+                *(target+2) = static_cast<char>(((c >> 6) & 0x3f) + 0x80);
+                *(target+3) = static_cast<char>((c & 0x3f) + 0x80);
+                target += 4;
+            }
+        }
+        while (c != 0);
+    }
+    else
+    {
+        *target = 0;
+        ++target;
+    }
+
+    return target-1;
 }
 
 wchar_t* CUnicodeUtils::UTF8ToUTF16
@@ -199,81 +290,98 @@ wchar_t* CUnicodeUtils::UTF8ToUTF16
     return target-1;
 }
 
+namespace 
+{
+    // simple utility class that provides an efficient
+    // writable string buffer. std::basic_string<> could
+    // be used as well but has a less suitable interface.
+
+    template<class T> class CBuffer
+    {
+    private:
+
+        enum {FIXED_BUFFER_SIZE = 1024};
+
+        T fixedBuffer[FIXED_BUFFER_SIZE];
+        auto_buffer<T> dynamicBuffer;
+
+        T* buffer;
+
+    public:
+
+        CBuffer (size_t minCapacity)
+        {
+            if (minCapacity <= FIXED_BUFFER_SIZE)
+            {
+                buffer = fixedBuffer;
+            }
+            else
+            {
+                dynamicBuffer.reset (minCapacity);
+                buffer = dynamicBuffer;
+            }
+        }
+
+        operator T*()
+        {
+            return buffer;
+        }
+    };
+
+}
+
+// wrap core routines and have string objects in the signatures
+// instead of string buffers
+
+#if defined(_MFC_VER) || defined(CSTRING_AVAILABLE)
+
+CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
+{
+    size_t size = string.GetLength()+1;
+    CBuffer<char> buffer (3 * size);
+
+    char* end = UTF16ToUTF8 ((const wchar_t*)string, size, buffer);
+    return CStringA (buffer, static_cast<int>(end - buffer));
+}
+
+CString CUnicodeUtils::GetUnicode(const CStringA& string)
+{
+    size_t size = string.GetLength()+1;
+    CBuffer<wchar_t> buffer (size);
+
+    wchar_t* end = UTF8ToUTF16 ((const char*)string, size, buffer);
+    return CString (buffer, static_cast<int>(end - buffer));
+}
+
 CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
 {
-    enum {FIXED_BUFFER_SIZE = 1024};
-
-    wchar_t fixedBuffer[FIXED_BUFFER_SIZE];
-    auto_buffer<wchar_t> dynamicBuffer;
-
-    wchar_t* result = NULL;
-
     size_t size = string.length()+1;
-    if (size <= FIXED_BUFFER_SIZE)
-    {
-        result = fixedBuffer;
-    }
-    else
-    {
-        dynamicBuffer.reset (size);
-        result = dynamicBuffer;
-    }
+    CBuffer<wchar_t> buffer (size);
 
-    wchar_t* target = UTF8ToUTF16 (string.c_str(), size, result);
-    return CString (result, static_cast<int>(target - result));
+    wchar_t* end = UTF8ToUTF16 (string.c_str(), size, buffer);
+    return CString (buffer, static_cast<int>(end - buffer));
 }
-
-void CUnicodeUtils::UTF8ToUTF16 (const std::string& source, std::wstring& target)
-{
-    size_t size = source.size();
-    target.resize (size);
-    wchar_t* buffer = &target[0];
-    target.resize (UTF8ToUTF16 (source.c_str(), size+1, buffer) - buffer);
-}
-
-CStringA CUnicodeUtils::ConvertWCHARStringToUTF8(const CString& string)
-{
-    auto_buffer<char> buf (string.GetLength()+1);
-
-    int i=0;
-    for ( ; i<string.GetLength(); ++i)
-    {
-        buf[i] = (char)string.GetAt(i);
-    }
-    buf[i] = 0;
-    CStringA sRet = buf.get();
-    return sRet;
-}
-
 #endif //_MFC_VER
 
-#ifdef UNICODE
 std::string CUnicodeUtils::StdGetUTF8(const std::wstring& wide)
 {
-    int len = (int)wide.size();
-    if (len==0)
-        return std::string();
-    int size = len*4;
+    size_t size = wide.length()+1;
+    CBuffer<char> buffer (3 * size);
 
-    auto_buffer<char> narrow (size);
-    int ret = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), len, narrow, size-1, NULL, NULL);
-
-    return std::string (narrow.get(), ret);
+    char* end = UTF16ToUTF8 (wide.c_str(), size, buffer);
+    return std::string (buffer, end - buffer);
 }
 
-std::wstring CUnicodeUtils::StdGetUnicode(const std::string& multibyte)
+std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
 {
-    int len = (int)multibyte.size();
-    if (len==0)
-        return std::wstring();
-    int size = len*4;
+    size_t size = utf8.length()+1;
+    CBuffer<wchar_t> buffer (size);
 
-    auto_buffer<wchar_t> wide (size);
-    int ret = MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), len, wide, size - 1);
-
-    return std::wstring (wide.get(), ret);
+    wchar_t* end = UTF8ToUTF16 (utf8.c_str(), size, buffer);
+    return std::wstring (buffer, end - buffer);
 }
-#endif
+
+// use system function for string conversion
 
 std::string WideToMultibyte(const std::wstring& wide)
 {
@@ -284,49 +392,7 @@ std::string WideToMultibyte(const std::wstring& wide)
     return std::string (narrow.get(), ret);
 }
 
-std::string WideToUTF8(const std::wstring& wide)
-{
-    auto_buffer<char> narrow (wide.length()*3+2);
-    int ret = (int)WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, NULL, NULL);
-
-    return std::string (narrow.get(), ret);
-}
-
-std::wstring MultibyteToWide(const std::string& multibyte)
-{
-    size_t length = multibyte.length();
-    if (length == 0)
-        return std::wstring();
-
-    auto_buffer<wchar_t> wide (multibyte.length()*2+2);
-    int ret = wide.get() == NULL
-        ? 0
-        : (int)MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)length*2 - 1);
-
-    return std::wstring (wide.get(), ret);
-}
-
-std::wstring UTF8ToWide(const std::string& multibyte)
-{
-    size_t length = multibyte.length();
-    if (length == 0)
-        return std::wstring();
-
-    auto_buffer<wchar_t> wide (length*2+2);
-    int ret = wide.get() == NULL
-        ? 0
-        : (int)MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)length*2 - 1);
-
-    return std::wstring (wide.get(), ret);
-}
-#ifdef UNICODE
-tstring UTF8ToString(const std::string& string) {return UTF8ToWide(string);}
-std::string StringToUTF8(const tstring& string) {return WideToUTF8(string);}
-#else
-tstring UTF8ToString(const std::string& string) {return WideToMultibyte(UTF8ToWide(string));}
-std::string StringToUTF8(const tstring& string) {return WideToUTF8(MultibyteToWide(string));}
-#endif
-
+// load a string resource 
 
 #pragma warning(push)
 #pragma warning(disable: 4200)
