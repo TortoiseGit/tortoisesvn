@@ -137,6 +137,7 @@ void CStringDictionary::Initialize()
 {
     // insert the empty string at index 0
 
+    packedStrings.reserve (sizeof (size_t) + 1);
     packedStrings.push_back (0);
     packedStringsStart = &packedStrings.front();
     offsets.push_back (0);
@@ -229,7 +230,6 @@ index_t CStringDictionary::Insert (const char* string)
         throw CContainerException ("dictionary overflow");
 
     packedStrings.insert (packedStrings.end(), string, string + size);
-    packedStringsStart = &packedStrings.front();
 
     // ensure we can make chunky copy of any data from the packed buffer
 
@@ -241,6 +241,8 @@ index_t CStringDictionary::Insert (const char* string)
         else
             packedStrings.reserve (packedStrings.size() * 2 + sizeof (size_t));
     }
+
+    packedStringsStart = &packedStrings.front();
 
     // update indices
 
