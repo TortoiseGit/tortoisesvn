@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,10 +47,8 @@ STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid,
 
     if (IsEqualIID(riid, IID_IUnknown) || IsEqualIID(riid, IID_IClassFactory))
     {
-        *ppv = (LPCLASSFACTORY)this;
-
+        *ppv = static_cast<LPCLASSFACTORY>(this);
         AddRef();
-
         return S_OK;
     }
 

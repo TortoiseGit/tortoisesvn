@@ -38,16 +38,14 @@ STDMETHODIMP CIDataObject::QueryInterface(/* [in] */ REFIID riid,
     if(ppvObject == 0)
         return E_POINTER;
     *ppvObject = NULL;
-    if (IID_IUnknown==riid || IID_IDataObject==riid)
-             *ppvObject=this;
-    /*if(riid == IID_IAsyncOperation)
+    if (IsEqualIID(IID_IUnknown, riid) || IsEqualIID(IID_IDataObject, riid))
+        *ppvObject=static_cast<IDataObject*>(this);
+    /*else if(riid == IID_IAsyncOperation)
         *ppvObject=(IAsyncOperation*)this;*/
-    if (NULL!=*ppvObject)
-    {
-        ((LPUNKNOWN)*ppvObject)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
+    else
+        return E_NOINTERFACE;
+    AddRef();
+    return S_OK;
 }
 
 STDMETHODIMP_(ULONG) CIDataObject::AddRef( void)
@@ -57,8 +55,7 @@ STDMETHODIMP_(ULONG) CIDataObject::AddRef( void)
 
 STDMETHODIMP_(ULONG) CIDataObject::Release( void)
 {
-   long nTemp;
-   nTemp = --m_cRefCount;
+   long nTemp = --m_cRefCount;
    if(nTemp==0)
       delete this;
    return nTemp;
@@ -307,15 +304,15 @@ STDMETHODIMP CIDropSource::QueryInterface(/* [in] */ REFIID riid,
         return E_POINTER;
     }
 
-    if (riid == IID_IUnknown)
+    if (IsEqualIID(riid, IID_IUnknown))
     {
-        *ppvObject = (IUnknown*) dynamic_cast<IDropSource*>(this);
+        *ppvObject = static_cast<IDropSource*>(this);
     }
-    else if (riid == IID_IDropSource)
+    else if (IsEqualIID(riid, IID_IDropSource))
     {
-        *ppvObject = dynamic_cast<IDropSource*>(this);
+        *ppvObject = static_cast<IDropSource*>(this);
     }
-    else if ((riid == IID_IDropSourceNotify) && (pDragSourceNotify != NULL))
+    else if (IsEqualIID(riid, IID_IDropSourceNotify) && (pDragSourceNotify != NULL))
     {
         return pDragSourceNotify->QueryInterface(riid, ppvObject);
     }
@@ -410,14 +407,12 @@ STDMETHODIMP  CEnumFormatEtc::QueryInterface(REFIID refiid, void FAR* FAR* ppv)
         return E_POINTER;
     *ppv = NULL;
     if (IID_IUnknown == refiid || IID_IEnumFORMATETC == refiid)
-        *ppv = this;
+        *ppv = static_cast<IEnumFORMATETC*>(this);
+    else
+        return E_NOINTERFACE;
 
-    if (*ppv != NULL)
-    {
-        ((LPUNKNOWN)*ppv)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
+    AddRef();
+    return S_OK;
 }
 
 STDMETHODIMP_(ULONG) CEnumFormatEtc::AddRef(void)
@@ -521,14 +516,12 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::QueryInterface( /* [in] */ REFIID riid,
         return E_POINTER;
     *ppvObject = NULL;
     if (IID_IUnknown == riid || IID_IDropTarget == riid)
-        *ppvObject = this;
+        *ppvObject = static_cast<IDropTarget*>(this);
+    else
+        return E_NOINTERFACE;
 
-    if (*ppvObject != NULL)
-    {
-        ((LPUNKNOWN)*ppvObject)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
+    AddRef();
+    return S_OK;
 }
 
 ULONG STDMETHODCALLTYPE CIDropTarget::Release( void)

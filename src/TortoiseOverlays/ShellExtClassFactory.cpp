@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2010 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "ShellExtClassFactory.h"
@@ -30,7 +30,7 @@ STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid,
 
     if (IsEqualIID(riid, IID_IUnknown) || IsEqualIID(riid, IID_IClassFactory))
     {
-        *ppv = (LPCLASSFACTORY)this;
+        *ppv = static_cast<LPCLASSFACTORY>(this);
 
         AddRef();
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,21 +19,18 @@
 #include "ListViewAccServer.h"
 #include <oleacc.h>
 
-
 STDMETHODIMP ListViewAccServer::QueryInterface(REFIID riid, void** ppvObject)
 {
     if (ppvObject == 0)
         return E_POINTER;
     *ppvObject = NULL;
-    if (IID_IUnknown==riid || IID_IAccPropServer==riid)
-        *ppvObject=this;
+    if (IsEqualIID(IID_IUnknown, riid) || IsEqualIID(IID_IAccPropServer, riid))
+        *ppvObject=static_cast<IAccPropServer*>(this);
+    else
+        return E_NOINTERFACE;
 
-    if (NULL != *ppvObject)
-    {
-        ((LPUNKNOWN)*ppvObject)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
+    AddRef();
+    return S_OK;
 }
 
 STDMETHODIMP_(ULONG) ListViewAccServer::AddRef(void)
@@ -54,6 +51,9 @@ HRESULT STDMETHODCALLTYPE ListViewAccServer::GetPropValue(
     VARIANT *       pvarValue,
     BOOL *          pfGotProp )
 {
+    if(pfGotProp == 0)
+        return E_POINTER;
+
     // Default return values, in case we need to bail out…
     *pfGotProp = FALSE;
     pvarValue->vt = VT_EMPTY;

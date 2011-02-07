@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -145,7 +145,7 @@ HRESULT __stdcall SubWCRev::QueryInterface(const IID& iid, void** ppv)
     if(ppv == 0)
         return E_POINTER;
 
-    if (iid == IID_IUnknown || iid == IID_ISubWCRev || iid == IID_IDispatch)
+    if (IsEqualIID(iid, IID_IUnknown) || IsEqualIID(iid, IID_ISubWCRev) || IsEqualIID(iid, IID_IDispatch))
     {
         *ppv = static_cast<ISubWCRev*>(this) ;
     }
@@ -519,7 +519,7 @@ HRESULT __stdcall CFactory::QueryInterface(const IID& iid, void** ppv)
     if(ppv == 0)
         return E_POINTER;
 
-    if ((iid == IID_IUnknown) || (iid == IID_IClassFactory))
+    if (IsEqualIID(iid, IID_IUnknown) || IsEqualIID(iid, IID_IClassFactory))
     {
         *ppv = static_cast<IClassFactory*>(this) ;
     }

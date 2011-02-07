@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -220,44 +220,43 @@ STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
 
     if (IsEqualIID(riid, IID_IShellExtInit) || IsEqualIID(riid, IID_IUnknown))
     {
-        *ppv = (LPSHELLEXTINIT)this;
+        *ppv = static_cast<LPSHELLEXTINIT>(this);
     }
     else if (IsEqualIID(riid, IID_IContextMenu))
     {
-        *ppv = (LPCONTEXTMENU)this;
+        *ppv = static_cast<LPCONTEXTMENU>(this);
     }
     else if (IsEqualIID(riid, IID_IContextMenu2))
     {
-        *ppv = (LPCONTEXTMENU2)this;
+        *ppv = static_cast<LPCONTEXTMENU2>(this);
     }
     else if (IsEqualIID(riid, IID_IContextMenu3))
     {
-        *ppv = (LPCONTEXTMENU3)this;
+        *ppv = static_cast<LPCONTEXTMENU3>(this);
     }
     else if (IsEqualIID(riid, IID_IShellIconOverlayIdentifier))
     {
-        *ppv = (IShellIconOverlayIdentifier*)this;
+        *ppv = static_cast<IShellIconOverlayIdentifier*>(this);
     }
     else if (IsEqualIID(riid, IID_IShellPropSheetExt))
     {
-        *ppv = (LPSHELLPROPSHEETEXT)this;
+        *ppv = static_cast<LPSHELLPROPSHEETEXT>(this);
     }
     else if (IsEqualIID(riid, IID_IColumnProvider))
     {
-        *ppv = (IColumnProvider *)this;
+        *ppv = static_cast<IColumnProvider*>(this);
     }
     else if (IsEqualIID(riid, IID_IShellCopyHook))
     {
-        *ppv = (ICopyHook *)this;
+        *ppv = static_cast<ICopyHook*>(this);
     }
-    if (*ppv)
+    else
     {
-        AddRef();
-
-        return S_OK;
+        return E_NOINTERFACE;
     }
 
-    return E_NOINTERFACE;
+    AddRef();
+    return S_OK;
 }
 
 STDMETHODIMP_(ULONG) CShellExt::AddRef()

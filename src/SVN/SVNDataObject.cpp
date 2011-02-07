@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,17 +60,15 @@ STDMETHODIMP SVNDataObject::QueryInterface(REFIID riid, void** ppvObject)
     if(ppvObject == 0)
         return E_POINTER;
     *ppvObject = NULL;
-    if (IID_IUnknown==riid || IID_IDataObject==riid)
-        *ppvObject=this;
-    if (riid == IID_IAsyncOperation)
-        *ppvObject = (IAsyncOperation*)this;
+    if (IsEqualIID(IID_IUnknown, riid) || IsEqualIID(IID_IDataObject, riid))
+        *ppvObject=static_cast<IDataObject*>(this);
+    else if (IsEqualIID(riid, IID_IAsyncOperation))
+        *ppvObject = static_cast<IAsyncOperation*>(this);
+    else
+        return E_NOINTERFACE;
 
-    if (NULL!=*ppvObject)
-    {
-        ((LPUNKNOWN)*ppvObject)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
+    AddRef();
+    return S_OK;
 }
 
 STDMETHODIMP_(ULONG) SVNDataObject::AddRef(void)
@@ -823,14 +821,12 @@ STDMETHODIMP  CSVNEnumFormatEtc::QueryInterface(REFIID refiid, void** ppv)
         return E_POINTER;
     *ppv = NULL;
     if (IID_IUnknown == refiid || IID_IEnumFORMATETC == refiid)
-        *ppv = this;
+        *ppv = static_cast<IEnumFORMATETC*>(this);
+    else
+        return E_NOINTERFACE;
 
-    if (*ppv != NULL)
-    {
-        ((LPUNKNOWN)*ppv)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
+    AddRef();
+    return S_OK;
 }
 
 STDMETHODIMP_(ULONG) CSVNEnumFormatEtc::AddRef(void)
