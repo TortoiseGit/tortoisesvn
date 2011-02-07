@@ -879,19 +879,14 @@ public:
     LogCache::CLogCachePool* GetLogCachePool();
 
 protected:
-    apr_hash_t *                statushash;     ///< holds the status
-    apr_array_header_t *        statusarray;    ///< an array of all status
-    svn_client_status_t *       status;         ///< the status object
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                pool;           ///< 'root' memory pool
-    svn_opt_revision_t          rev;            ///< subversion revision. used by getRevision()
     SVNPrompt                   m_prompt;
     svn_revnum_t                m_commitRev;    ///< revision of the last commit/add/mkdir
 
     static LCID                 s_locale;
     static bool                 s_useSystemLocale;
 
-    svn_opt_revision_t *    getRevision (svn_revnum_t revNumber);
     void * logMessage (CString message, char * baseDirectory = NULL);
 
     /// Convert a TSVNPathList into an array of SVN copy paths
