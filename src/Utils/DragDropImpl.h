@@ -106,15 +106,21 @@ public:
 
     HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppvObject)
     {
-        if(!ppvObject) {
+        if(!ppvObject) 
+        {
             return E_POINTER;
         }
 
-        if(riid == IID_IUnknown) {
+        if (IsEqualIID(riid, IID_IUnknown))
+        {
             *ppvObject = (IUnknown*) dynamic_cast<IDropSourceNotify*>(this);
-        } else if(riid == IID_IDropSourceNotify) {
+        } 
+        else if (IsEqualIID(riid, IID_IDropSourceNotify))
+        {
             *ppvObject = dynamic_cast<IDropSourceNotify*>(this);
-        } else {
+        } 
+        else
+        {
             *ppvObject = NULL;
             return E_NOINTERFACE;
         }
