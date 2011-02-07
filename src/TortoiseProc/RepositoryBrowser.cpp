@@ -110,7 +110,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , bDragMode(FALSE)
     , m_backgroundJobs(0, 1, true)
 {
-    ConstructorInit();
+    ConstructorInit(rev);
 }
 
 CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CWnd* pParent)
@@ -131,11 +131,11 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , bDragMode(FALSE)
     , m_backgroundJobs(0, 1, true)
 {
-    ConstructorInit();
+    ConstructorInit(rev);
 }
 
 
-void CRepositoryBrowser::ConstructorInit()
+void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
 {
     m_repository.revision = rev;
     s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
