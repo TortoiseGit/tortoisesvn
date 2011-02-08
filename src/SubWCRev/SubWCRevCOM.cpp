@@ -154,7 +154,7 @@ HRESULT __stdcall SubWCRev::QueryInterface(const IID& iid, void** ppv)
         *ppv = NULL ;
         return E_NOINTERFACE ;
     }
-    reinterpret_cast<IUnknown*>(*ppv)->AddRef() ;
+    AddRef();
     return S_OK ;
 }
 
@@ -165,14 +165,14 @@ ULONG __stdcall SubWCRev::AddRef()
 
 ULONG __stdcall SubWCRev::Release()
 {
-    if (InterlockedDecrement(&m_cRef) == 0)
+    const LONG refCount = InterlockedDecrement(&m_cRef);
+    if (refCount == 0)
     {
-        delete this ;
+        delete this;
         if (g_cComponents == 0)
             ::PostMessage(NULL,WM_QUIT,0,0);
-        return 0 ;
     }
-    return m_cRef ;
+    return refCount;
 }
 
 //
@@ -445,26 +445,20 @@ HRESULT SubWCRev::LoadTypeInfo(ITypeInfo ** pptinfo, const CLSID &libid, const C
 {
     if(pptinfo == 0)
         return E_POINTER;
-
-    LPTYPELIB ptlib = NULL;
-    LPTYPEINFO ptinfo = NULL;
-
     *pptinfo = NULL;
 
     // Load type library.
+    CComPtr<ITypeLib> ptlib;
     HRESULT hr = LoadRegTypeLib(libid, 1, 0, lcid, &ptlib);
     if (FAILED(hr))
         return hr;
 
     // Get type information for interface of the object.
+    LPTYPEINFO ptinfo = NULL;
     hr = ptlib->GetTypeInfoOfGuid(iid, &ptinfo);
     if (FAILED(hr))
-    {
-        ptlib->Release();
         return hr;
-    }
 
-    ptlib->Release();
     *pptinfo = ptinfo;
     return S_OK;
 }
@@ -528,7 +522,7 @@ HRESULT __stdcall CFactory::QueryInterface(const IID& iid, void** ppv)
         *ppv = NULL ;
         return E_NOINTERFACE ;
     }
-    reinterpret_cast<IUnknown*>(*ppv)->AddRef() ;
+    AddRef();
     return S_OK ;
 }
 
@@ -539,12 +533,10 @@ ULONG __stdcall CFactory::AddRef()
 
 ULONG __stdcall CFactory::Release()
 {
-    if (InterlockedDecrement(&m_cRef) == 0)
-    {
-        delete this ;
-        return 0 ;
-    }
-    return m_cRef ;
+    const LONG refCount = InterlockedDecrement(&m_cRef);
+    if (refCount == 0)
+        delete this;
+    return refCount;
 }
 
 //
