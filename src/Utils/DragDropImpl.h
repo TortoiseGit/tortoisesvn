@@ -113,11 +113,11 @@ public:
 
         if (IsEqualIID(riid, IID_IUnknown))
         {
-            *ppvObject = (IUnknown*) dynamic_cast<IDropSourceNotify*>(this);
+            *ppvObject = static_cast<IUnknown*>(this);
         } 
         else if (IsEqualIID(riid, IID_IDropSourceNotify))
         {
-            *ppvObject = dynamic_cast<IDropSourceNotify*>(this);
+            *ppvObject = static_cast<IDropSourceNotify*>(this);
         } 
         else
         {
