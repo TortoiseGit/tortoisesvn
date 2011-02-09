@@ -186,6 +186,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
     ON_WM_LBUTTONDBLCLK()
     ON_COMMAND(ID_NAVIGATE_NEXTINLINEDIFF, &CBaseView::OnNavigateNextinlinediff)
     ON_COMMAND(ID_NAVIGATE_PREVINLINEDIFF, &CBaseView::OnNavigatePrevinlinediff)
+    ON_COMMAND(ID_EDIT_SELECTALL, &CBaseView::OnEditSelectall)
 END_MESSAGE_MAP()
 
 
@@ -3961,4 +3962,18 @@ int CBaseView::CountMultiLines( int nLine )
     ASSERT((int)m_MultiLineVector.size()-1 == nLine);
 
     return lines;
+}
+
+void CBaseView::OnEditSelectall()
+{
+    int nCount = GetLineCount();
+    SetupSelection(0, nCount);
+    m_ptSelectionStartPos.x = 0;
+    m_ptSelectionStartPos.y = 0;
+
+    m_ptSelectionEndPos.y = nCount-1;
+    CString sLine = GetLineChars(nCount-1);
+    m_ptSelectionEndPos.x = sLine.GetLength();
+
+    UpdateWindow();
 }
