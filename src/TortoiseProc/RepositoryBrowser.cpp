@@ -2230,15 +2230,12 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
     // rename the item in the repository
     CItem * pItem = (CItem *)m_RepoList.GetItemData(pDispInfo->item.iItem);
 
+    CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath.Left(pItem->absolutepath.ReverseFind('/')+1)+pDispInfo->item.pszText)));
+    if(!CheckAndConfirmPath(targetUrl))
+        return;
     CInputLogDlg input(this);
     input.SetUUID (pItem->repository.uuid);
     input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEMOVE);
-    CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath.Left(pItem->absolutepath.ReverseFind('/')+1)+pDispInfo->item.pszText)));
-    if (!targetUrl.IsValidOnWindows())
-    {
-        if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
-            return;
-    }
     CString sHint;
     sHint.FormatMessage(IDS_INPUT_RENAME, (LPCTSTR)(pItem->absolutepath), (LPCTSTR)targetUrl.GetSVNPathString());
     input.SetActionText(sHint);
@@ -2296,15 +2293,12 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 
     SRepositoryInfo repository = pItem->repository;
 
+    CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->url.Left(pItem->url.ReverseFind('/')+1)+pTVDispInfo->item.pszText)));
+    if(!CheckAndConfirmPath(targetUrl))
+        return;
     CInputLogDlg input(this);
     input.SetUUID(pItem->repository.uuid);
     input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEMOVE);
-    CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->url.Left(pItem->url.ReverseFind('/')+1)+pTVDispInfo->item.pszText)));
-    if (!targetUrl.IsValidOnWindows())
-    {
-        if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
-            return;
-    }
     CString sHint;
     sHint.FormatMessage(IDS_INPUT_RENAME, (LPCTSTR)(pItem->url), (LPCTSTR)targetUrl.GetSVNPathString());
     input.SetActionText(sHint);
@@ -2508,11 +2502,8 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     if (dlg.DoModal() != IDOK)
                         return false;
                     targetName = dlg.m_name;
-                    if (!CTSVNPath(targetName).IsValidOnWindows())
-                    {
-                        if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
-                            return false;
-                    }
+                    if(!CheckAndConfirmPath(CTSVNPath(targetName)))
+                        return false;
                 }
                 break;
             case 5: // move rename drop
@@ -2526,11 +2517,8 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     if (dlg.DoModal() != IDOK)
                         return false;
                     targetName = dlg.m_name;
-                    if (!CTSVNPath(targetName).IsValidOnWindows())
-                    {
-                        if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
-                            return false;
-                    }
+                    if(!CheckAndConfirmPath(CTSVNPath(targetName)))
+                        return false;
                 }
                 break;
             }
@@ -3472,17 +3460,14 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 if (dlg.DoModal() == IDOK)
                 {
                     CWaitCursorEx wait_cursor;
+                    if(!CheckAndConfirmPath(CTSVNPath(dlg.m_name)))
+                        break;
                     CInputLogDlg input(this);
                     input.SetUUID(selection.GetRepository(0).uuid);
                     input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEBRANCH);
                     CString sHint;
                     sHint.FormatMessage(IDS_INPUT_COPY, (LPCTSTR)path.GetSVNPathString(), (LPCTSTR)dlg.m_name);
                     input.SetActionText(sHint);
-                    if (!CTSVNPath(dlg.m_name).IsValidOnWindows())
-                    {
-                        if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
-                            break;
-                    }
                     if (input.DoModal() == IDOK)
                     {
                         InvalidateDataParents (selection);
@@ -4107,10 +4092,18 @@ void CRepositoryBrowser::HandleCheckedItemForXP( HTREEITEM item )
     }
 }
 
+bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl) const
+{
+    if (targetUrl.IsValidOnWindows())
+        return true;
+
+    const int boxResult = MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO);
+    return boxResult == IDYES;
+}
+
 int CRepositoryBrowser::SortStrCmp( PCWSTR str1, PCWSTR str2 )
 {
     if (s_bSortLogical)
         return StrCmpLogicalW(str1, str2);
     return StrCmpI(str1, str2);
 }
-
