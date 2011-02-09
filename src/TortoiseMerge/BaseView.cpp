@@ -2807,15 +2807,6 @@ void CBaseView::OnTimer(UINT_PTR nIDEvent)
     CView::OnTimer(nIDEvent);
 }
 
-void CBaseView::SelectLines(int nLine1, int nLine2)
-{
-    if (nLine2 == -1)
-        nLine2 = nLine1;
-    m_nSelBlockStart = nLine1;
-    m_nSelBlockEnd = nLine2;
-    Invalidate();
-}
-
 void CBaseView::ShowDiffLines(int nLine)
 {
     if ((nLine < m_nTopLine)||(nLine >= GetLineCount()))
