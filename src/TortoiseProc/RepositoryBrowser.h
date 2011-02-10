@@ -258,7 +258,7 @@ protected:
     bool CheckoutDepthForItem( HTREEITEM hItem );
     void CheckTreeItem( HTREEITEM hItem );
     void HandleCheckedItemForXP( HTREEITEM item );
-    bool CheckAndConfirmPath(const CTSVNPath& path) const;
+    bool CheckAndConfirmPath(const CTSVNPath& path);
 
 protected:
     bool                m_bInitDone;

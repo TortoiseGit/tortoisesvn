@@ -4092,7 +4092,7 @@ void CRepositoryBrowser::HandleCheckedItemForXP( HTREEITEM item )
     }
 }
 
-bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl) const
+bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)
 {
     if (targetUrl.IsValidOnWindows())
         return true;
