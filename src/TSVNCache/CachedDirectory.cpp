@@ -481,6 +481,10 @@ CCachedDirectory::SvnUpdateMembersStatus()
         m_currentStatusFetchingPath = m_directoryPath;
     }
     CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
+
+    CAutoWriteWeakLock writeLock(CSVNStatusCache::Instance().GetGuard(), 2000);
+    if (!writeLock.IsAcquired())
+        return false;
     m_pCtx = CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool);
     svn_error_t* pErr = svn_client_status5 (
         NULL,
