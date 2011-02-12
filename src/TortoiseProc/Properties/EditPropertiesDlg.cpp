@@ -520,7 +520,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
     dlg->RevProps(m_bRevProps);
     if ( dlg->DoModal()==IDOK )
     {
-        if(dlg->IsChanged())
+        if(dlg->IsChanged() || dlg->GetRecursive())
         {
             sName = dlg->GetPropertyName();
             TProperties dlgprops = dlg->GetProperties();
