@@ -153,6 +153,16 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
     else
     {
         m_svnStatus = *pSVNStatus;
+        if ((pSVNStatus->node_status == svn_wc_status_incomplete)&&(m_svnStatus.local_abspath))
+        {
+            // just in case: incomplete status can get the kind completely wrong
+            // for example paths that are illegal on windows show up with status incomplete
+            // but kind as directory, even if they in fact are files.
+            CTSVNPath p;
+            p.SetFromSVN(m_svnStatus.local_abspath);
+            if (!p.Exists() || !p.IsDirectory())
+                m_svnStatus.kind = svn_node_file;
+        }
 
         if (forceNormal)
         {
@@ -170,7 +180,7 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
             m_commitRevision = pSVNStatus->changed_rev;
             m_bSVNEntryFieldSet = true;
             m_sOwner = pSVNStatus->lock ? pSVNStatus->lock->owner : "";
-            m_kind = pSVNStatus->kind;
+            m_kind = m_svnStatus.kind;
             m_sAuthor = pSVNStatus->changed_author;
             m_needsLock = needsLock;
         }
