@@ -493,7 +493,7 @@ namespace
 
         // relative path strings are never empty
 
-        if (CPathUtils::ContainsEscapedChars (buffer, APR_ALIGN(16, size)))
+        if (CPathUtils::ContainsEscapedChars (buffer, APR_ALIGN(size, 16)))
             size = CPathUtils::Unescape (buffer) - buffer;
 
         // mark buffer as used
