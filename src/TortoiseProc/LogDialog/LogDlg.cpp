@@ -5543,13 +5543,6 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         if (nFocusedItem >= 0)
             ToggleCheckbox(nFocusedItem);
     }
-    else if ((pLVKeyDown->wVKey == 'A') && (pLVKeyDown->flags & LVKF_CONTROL))
-    {
-        // Toggle checked for the focused item.
-        int nFocusedItem = m_LogList.GetNextItem(-1, LVNI_FOCUSED);
-        if (nFocusedItem >= 0)
-            ToggleCheckbox(nFocusedItem);
-    }
 
     *pResult = 0;
 }
@@ -5594,3 +5587,181 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
         {
             actionText += CLogChangedPath::GetActionString (LOGACTIONS_MODIFIED);
         }
+
+        if (actions & LOGACTIONS_ADDED)
+        {
+            if (!actionText.empty())
+                actionText += "\r\n";
+            actionText += CLogChangedPath::GetActionString (LOGACTIONS_ADDED);
+        }
+
+        if (actions & LOGACTIONS_DELETED)
+        {
+            if (!actionText.empty())
+                actionText += "\r\n";
+            actionText += CLogChangedPath::GetActionString (LOGACTIONS_DELETED);
+        }
+
+        if (actions & LOGACTIONS_REPLACED)
+        {
+            if (!actionText.empty())
+                actionText += "\r\n";
+            actionText += CLogChangedPath::GetActionString (LOGACTIONS_REPLACED);
+        }
+
+        sToolTipText = CUnicodeUtils::GetUnicode (actionText.c_str());
+        if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
+        {
+            if (!sToolTipText.IsEmpty())
+                sToolTipText += _T("\r\n");
+            sToolTipText += CString(MAKEINTRESOURCE(IDS_LOG_ALREADYMERGED));
+        }
+
+        if (!sToolTipText.IsEmpty())
+        {
+            CString sTitle(MAKEINTRESOURCE(IDS_LOG_ACTIONS));
+            sToolTipText = sTitle + _T(":\r\n") + sToolTipText;
+        }
+        return sToolTipText;
+    }
+    return CString();
+}
+
+// selection management
+
+void CLogDlg::AutoStoreSelection()
+{
+    if (m_pStoreSelection == NULL)
+        m_pStoreSelection = new CStoreSelection(this);
+}
+
+void CLogDlg::AutoRestoreSelection()
+{
+    if (m_pStoreSelection != NULL)
+    {
+        delete m_pStoreSelection;
+        m_pStoreSelection = NULL;
+
+        FillLogMessageCtrl();
+        UpdateLogInfoLabel();
+    }
+}
+
+CString CLogDlg::GetListviewHelpString(HWND hControl, int index)
+{
+    CString sHelpText;
+    if (hControl == m_LogList.GetSafeHwnd())
+    {
+        if (m_logEntries.GetVisibleCount() > (size_t)index)
+        {
+            PLOGENTRYDATA data = m_logEntries.GetVisible(index);
+            if (data)
+            {
+                if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
+                {
+                    // this revision was already merged
+                    sHelpText = CString(MAKEINTRESOURCE(IDS_ACC_LOGENTRYALREADYMERGED));
+                }
+                if (data->GetRevision() == m_wcRev)
+                {
+                    // the working copy is at this revision
+                    if (!sHelpText.IsEmpty())
+                        sHelpText += _T(", ");
+                    sHelpText += CString(MAKEINTRESOURCE(IDS_ACC_WCISATTHISREVISION));
+                }
+            }
+        }
+    }
+    else if (hControl == m_ChangedFileListCtrl.GetSafeHwnd())
+    {
+        if ((int)m_currentChangedArray.GetCount() > index)
+        {
+            svn_tristate_t textModifies = m_currentChangedArray[index].GetTextModifies();
+            svn_tristate_t propsModifies = m_currentChangedArray[index].GetPropsModifies();
+            if ((propsModifies == svn_tristate_true)&&(textModifies != svn_tristate_true))
+            {
+                // property only modification, content of entry hasn't changed
+                sHelpText = CString(MAKEINTRESOURCE(IDS_ACC_PROPONLYCHANGE));
+            }
+        }
+    }
+
+    return sHelpText;
+}
+
+void CLogDlg::AddMainAnchors()
+{
+    AddAnchor(IDC_LOGLIST, TOP_LEFT, MIDDLE_RIGHT);
+    AddAnchor(IDC_SPLITTERTOP, MIDDLE_LEFT, MIDDLE_RIGHT);
+    AddAnchor(IDC_MSGVIEW, MIDDLE_LEFT, MIDDLE_RIGHT);
+    AddAnchor(IDC_SPLITTERBOTTOM, MIDDLE_LEFT, MIDDLE_RIGHT);
+    AddAnchor(IDC_LOGMSG, MIDDLE_LEFT, BOTTOM_RIGHT);
+}
+
+void CLogDlg::RemoveMainAnchors()
+{
+    RemoveAnchor(IDC_LOGLIST);
+    RemoveAnchor(IDC_SPLITTERTOP);
+    RemoveAnchor(IDC_MSGVIEW);
+    RemoveAnchor(IDC_SPLITTERBOTTOM);
+    RemoveAnchor(IDC_LOGMSG);
+}
+
+void CLogDlg::OnEnscrollMsgview()
+{
+    m_tooltips.DelTool(GetDlgItem(IDC_MSGVIEW), 1);
+}
+
+void CLogDlg::AdjustDateFilterVisibility()
+{
+    int nCmdShow = (m_SelectedFilters & LOGFILTER_DATERANGE) ? SW_SHOW : SW_HIDE;
+    GetDlgItem(IDC_FROMLABEL)->ShowWindow(nCmdShow);
+    GetDlgItem(IDC_DATEFROM)->ShowWindow(nCmdShow);
+    GetDlgItem(IDC_TOLABEL)->ShowWindow(nCmdShow);
+    GetDlgItem(IDC_DATETO)->ShowWindow(nCmdShow);
+
+    RemoveAnchor(IDC_SEARCHEDIT);
+    RemoveAnchor(IDC_FROMLABEL);
+    RemoveAnchor(IDC_DATEFROM);
+    RemoveAnchor(IDC_TOLABEL);
+    RemoveAnchor(IDC_DATETO);
+    if (m_SelectedFilters & LOGFILTER_DATERANGE)
+    {
+        RECT rcLabel = {0};
+        GetDlgItem(IDC_FROMLABEL)->GetWindowRect(&rcLabel);
+        ScreenToClient(&rcLabel);
+        RECT rcEdit = {0};
+        GetDlgItem(IDC_SEARCHEDIT)->GetWindowRect(&rcEdit);
+        ScreenToClient(&rcEdit);
+        rcEdit.right = rcLabel.left - 20;
+        GetDlgItem(IDC_SEARCHEDIT)->MoveWindow(&rcEdit);
+    }
+    else
+    {
+        RECT rcLogMsg = {0};
+        GetDlgItem(IDC_LOGLIST)->GetWindowRect(&rcLogMsg);
+        ScreenToClient(&rcLogMsg);
+        RECT rcEdit = {0};
+        GetDlgItem(IDC_SEARCHEDIT)->GetWindowRect(&rcEdit);
+        ScreenToClient(&rcEdit);
+        rcEdit.right = rcLogMsg.right;
+        GetDlgItem(IDC_SEARCHEDIT)->MoveWindow(&rcEdit);
+    }
+    AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_FROMLABEL, TOP_RIGHT);
+    AddAnchor(IDC_DATEFROM, TOP_RIGHT);
+    AddAnchor(IDC_TOLABEL, TOP_RIGHT);
+    AddAnchor(IDC_DATETO, TOP_RIGHT);
+}
+
+void CLogDlg::ReportNoUrlOfFile(const CString& filepath) const
+{
+    ReportNoUrlOfFile((LPCTSTR)filepath);
+}
+
+void CLogDlg::ReportNoUrlOfFile(LPCTSTR filepath) const
+{
+    CString messageString;
+    messageString.Format(IDS_ERR_NOURLOFFILE, filepath);
+    ::MessageBox(this->m_hWnd, messageString, _T("TortoiseSVN"), MB_ICONERROR);
+}
