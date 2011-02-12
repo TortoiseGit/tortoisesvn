@@ -826,7 +826,7 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 
     // SVN export all here
     // available if source is versioned and a folder
-    if ((itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_FOLDER))
+    if ((itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_FOLDER)&&(itemStates & ITEMIS_WCROOT))
         InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTEXTENDEDMENU, 0, idCmdFirst, ShellMenuDropExportExtended, _T("tsvn_dropexportextended"));
 
     // apply patch
