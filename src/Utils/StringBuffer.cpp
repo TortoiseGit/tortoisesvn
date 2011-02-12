@@ -23,18 +23,23 @@ void CStringBuffer::Reserve (size_t newCapacity)
 {
     assert (newCapacity >= capacity);
 
+    // increase the new capacity to ensure that the originally
+    // required buffer space can be written in whole chunks
     newCapacity += ALIGNMENT;
+
+    // allocate new buffer and align it
     char *newMemory = new char[newCapacity +  ALIGNMENT];
     char *newBuffer = (char*)((size_t)(newMemory + ALIGNMENT-1) & -ALIGNMENT);
 
+    // replace buffers
     if (buffer)
-        memcpy (newBuffer, buffer, APR_ALIGN(16, size + 1));
+        memcpy (newBuffer, buffer, APR_ALIGN(size + 1, 16));
 
     delete memory;
     memory = newMemory;
     buffer = newBuffer;
 
-    capacity = newCapacity + ALIGNMENT;
+    capacity = newCapacity;
 }
 
 CStringBuffer::CStringBuffer (size_t initialCapacity)
