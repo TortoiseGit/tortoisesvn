@@ -810,14 +810,16 @@ CString ProjectProperties::GetLogSummary(const CString& sMessage)
     }
     sRet.Trim();
 
-    if (sRet.IsEmpty())
-        return sMessage;
-
     return sRet;
 }
 
 CString ProjectProperties::MakeShortMessage(const CString& message)
 {
+    enum
+    {
+        MAX_SHORT_MESSAGE_LENGTH = 240
+    };
+
     bool bFoundShort = true;
     CString sShortMessage = GetLogSummary(message);
     if (sShortMessage.IsEmpty())
@@ -829,15 +831,21 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
     sShortMessage.Replace(_T("\r"), _T(""));
     sShortMessage.Replace(_T("\t"), _T(" "));
 
-    // Suppose the first empty line separates 'summary' from the rest of the message.
-    int found = sShortMessage.Find(_T("\n\n"));
-    // To avoid too short 'short' messages
-    // (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
-    // only use the empty newline as a separator if it comes after at least 15 chars.
-    if ((!bFoundShort)&&(found >= 15))
+    if (!bFoundShort)
     {
-        sShortMessage = sShortMessage.Left(found);
+        // Suppose the first empty line separates 'summary' from the rest of the message.
+        int found = sShortMessage.Find(_T("\n\n"));
+        // To avoid too short 'short' messages
+        // (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
+        // only use the empty newline as a separator if it comes after at least 15 chars.
+        if (found >= 15)
+            sShortMessage = sShortMessage.Left(found);
+
+        // still too long? -> truncate after about 2 lines
+        if (sShortMessage.GetLength() > MAX_SHORT_MESSAGE_LENGTH)
+            sShortMessage = sShortMessage.Left(MAX_SHORT_MESSAGE_LENGTH) + _T("...");
     }
+
     sShortMessage.Replace('\n', ' ');
     return sShortMessage;
 }
