@@ -151,9 +151,9 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
 {
     // remove nodes from tree view
 
-    HTREEITEM childItem;
     if (m_RepoTree.ItemHasChildren(hItem))
     {
+        HTREEITEM childItem;
         for (childItem = m_RepoTree.GetChildItem(hItem);childItem != NULL; childItem = m_RepoTree.GetNextItem(childItem, TVGN_NEXT))
         {
             RecursiveRemove(childItem);
@@ -609,7 +609,8 @@ LRESULT CRepositoryBrowser::OnRefreshURL(WPARAM /*wParam*/, LPARAM lParam)
     if (item)
         RefreshNode (item, true);
 
-    delete url;
+    // Memory was obtained from tscdup(), so free() must be called
+    free((void*)url);
     return 0;
 }
 
@@ -752,13 +753,12 @@ BOOL CRepositoryBrowser::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 
 void CRepositoryBrowser::OnMouseMove(UINT nFlags, CPoint point)
 {
-    CDC * pDC;
-    RECT rect, tree, list, treelist, treelistclient;
-
     if (bDragMode == FALSE)
         return;
+
     if (!m_bSparseCheckoutMode)
     {
+        RECT rect, tree, list, treelist, treelistclient;
         // create an union of the tree and list control rectangle
         GetDlgItem(IDC_REPOLIST)->GetWindowRect(&list);
         GetDlgItem(IDC_REPOTREE)->GetWindowRect(&tree);
@@ -784,7 +784,7 @@ void CRepositoryBrowser::OnMouseMove(UINT nFlags, CPoint point)
 
         if ((nFlags & MK_LBUTTON) && (point.x != oldx))
         {
-            pDC = GetDC();
+            CDC * pDC = GetDC();
 
             if (pDC)
             {
@@ -807,7 +807,6 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
     if (m_bSparseCheckoutMode)
         return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
 
-    CDC * pDC;
     RECT rect, tree, list, treelist, treelistclient;
 
     // create an union of the tree and list control rectangle
@@ -843,7 +842,7 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
 
     SetCapture();
 
-    pDC = GetDC();
+    CDC * pDC = GetDC();
     DrawXorBar(pDC, point.x+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
     ReleaseDC(pDC);
 
@@ -855,7 +854,6 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CRepositoryBrowser::HandleDividerMove(CPoint point, bool bDraw)
 {
-    CDC * pDC;
     RECT rect, tree, list, treelist, treelistclient;
 
     // create an union of the tree and list control rectangle
@@ -887,7 +885,7 @@ void CRepositoryBrowser::HandleDividerMove(CPoint point, bool bDraw)
 
     if (bDraw)
     {
-        pDC = GetDC();
+        CDC * pDC = GetDC();
         DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
         ReleaseDC(pDC);
     }
@@ -1183,10 +1181,9 @@ HTREEITEM CRepositoryBrowser::FindUrl (const CString& fullurl)
 
 HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url, HTREEITEM hItem /* = TVI_ROOT */)
 {
-    CString root = m_repository.root;
-
     if (hItem == TVI_ROOT)
     {
+        CString root = m_repository.root;
         hItem = m_RepoTree.GetRootItem();
         if (fullurl.Compare(root)==0)
             return hItem;
@@ -1199,16 +1196,15 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
         do
         {
             CTreeItem * pTItem = ((CTreeItem*)m_RepoTree.GetItemData(hSibling));
-            if (pTItem)
+            if (pTItem == 0)
+                continue;
+            CString sSibling = pTItem->unescapedname;
+            if (sSibling.Compare(url.Left(sSibling.GetLength()))==0)
             {
-                CString sSibling = pTItem->unescapedname;
-                if (sSibling.Compare(url.Left(sSibling.GetLength()))==0)
-                {
-                    if (sSibling.GetLength() == url.GetLength())
-                        return hSibling;
-                    if (url.GetAt(sSibling.GetLength()) == '/')
-                        return FindUrl(fullurl, url.Mid(sSibling.GetLength()+1), hSibling);
-                }
+                if (sSibling.GetLength() == url.GetLength())
+                    return hSibling;
+                if (url.GetAt(sSibling.GetLength()) == '/')
+                    return FindUrl(fullurl, url.Mid(sSibling.GetLength()+1), hSibling);
             }
         } while ((hSibling = m_RepoTree.GetNextItem(hSibling, TVGN_NEXT)) != NULL);
     }
@@ -1747,7 +1743,7 @@ void CRepositoryBrowser::OnInlineedit()
     m_blockEvents = true;
     if (selIndex >= 0)
     {
-    CItem * pItem = (CItem *)m_RepoList.GetItemData(selIndex);
+        CItem * pItem = (CItem *)m_RepoList.GetItemData(selIndex);
         if (!pItem->is_external)
         {
             m_RepoList.SetFocus();
@@ -1882,19 +1878,18 @@ void CRepositoryBrowser::OnRefresh()
 
 void CRepositoryBrowser::OnTvnSelchangedRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
     *pResult = 0;
-
     if (m_blockEvents)
         return;
 
-    if (!m_bSparseCheckoutMode)
-    {
-        if (pNMTreeView->action == TVC_BYKEYBOARD)
-            SetTimer(REPOBROWSER_FETCHTIMER, 300, NULL);
-        else
-            OnTimer(REPOBROWSER_FETCHTIMER);
-    }
+    if (m_bSparseCheckoutMode)
+        return;
+
+    LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
+    if (pNMTreeView->action == TVC_BYKEYBOARD)
+        SetTimer(REPOBROWSER_FETCHTIMER, 300, NULL);
+    else
+        OnTimer(REPOBROWSER_FETCHTIMER);
 }
 
 void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
@@ -1928,11 +1923,11 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
 
 void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
     *pResult = 0;
-
     if (m_blockEvents)
         return;
+
+    LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
 
     CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
 
@@ -1977,17 +1972,15 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
 
 void CRepositoryBrowser::OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    CWaitCursorEx wait;
-
-    LPNMITEMACTIVATE pNmItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
     *pResult = 0;
-
     if (m_blockEvents)
         return;
 
+    LPNMITEMACTIVATE pNmItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
     if (pNmItemActivate->iItem < 0)
         return;
 
+    CWaitCursorEx wait;
     OpenFromList (pNmItemActivate->iItem);
 }
 
@@ -1996,10 +1989,13 @@ void CRepositoryBrowser::OpenFromList (int item)
     if (item < 0)
         return;
 
+    CItem * pItem = (CItem*)m_RepoList.GetItemData (item);
+    if (pItem == 0)
+        return;
+
     CWaitCursorEx wait;
 
-    CItem * pItem = (CItem*)m_RepoList.GetItemData (item);
-    if ((pItem) && ((pItem->kind == svn_node_dir)||m_bSparseCheckoutMode))
+    if ((pItem->kind == svn_node_dir)||m_bSparseCheckoutMode)
     {
         // a double click on a folder results in selecting that folder
 
@@ -2008,7 +2004,7 @@ void CRepositoryBrowser::OpenFromList (int item)
         m_RepoTree.EnsureVisible (hItem);
         m_RepoTree.SelectItem (hItem);
     }
-    else if ((pItem) && (pItem->kind == svn_node_file))
+    else if (pItem->kind == svn_node_file)
     {
         CRepositoryBrowserSelection selection;
         selection.Add (pItem);
@@ -2073,6 +2069,7 @@ void CRepositoryBrowser::EditFile(CTSVNPath url, CTSVNPath urlEscaped)
         CString dir = urlEscaped.GetContainingDirectory().GetSVNPathString();
         m_lister.RefreshSubTree (revision, dir);
 
+        // Memory will be allocated by malloc() - call free() once the message has been handled
         const TCHAR* lParam = _tcsdup((LPCTSTR)dir);
         PostMessage(WM_REFRESHURL, 0, reinterpret_cast<LPARAM>(lParam));
     }
@@ -2192,12 +2189,12 @@ void CRepositoryBrowser::SetSortArrow()
 
 void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     *pResult = 0;
     if (m_blockEvents)
         return;
     if (m_RepoList.HasText())
         return;
+    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     if (pNMLV->uChanged & LVIF_STATE)
     {
         if (pNMLV->uNewState & LVIS_SELECTED)
@@ -2223,8 +2220,8 @@ void CRepositoryBrowser::OnLvnBeginlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pRe
 
 void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
     *pResult = 0;
+    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
     if (pDispInfo->item.pszText == NULL)
         return;
     // rename the item in the repository
@@ -2261,14 +2258,13 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
 
 void CRepositoryBrowser::OnTvnBeginlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    NMTVDISPINFO* info = reinterpret_cast<NMTVDISPINFO*>(pNMHDR);
-
     if (m_bSparseCheckoutMode)
     {
         *pResult = TRUE;
         return;
     }
 
+    NMTVDISPINFO* info = reinterpret_cast<NMTVDISPINFO*>(pNMHDR);
     // disable rename for externals
     CTreeItem* item = (CTreeItem *)m_RepoTree.GetItemData (info->item.hItem);
     *pResult = (item == NULL) || (item->is_external) || (item->url.Compare(GetRepoRoot()) == 0)
@@ -2278,11 +2274,12 @@ void CRepositoryBrowser::OnTvnBeginlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pRe
 
 void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMTVDISPINFO pTVDispInfo = reinterpret_cast<LPNMTVDISPINFO>(pNMHDR);
     *pResult = 0;
-    if (pTVDispInfo->item.pszText == NULL)
-        return;
     if (m_bSparseCheckoutMode)
+        return;
+
+    LPNMTVDISPINFO pTVDispInfo = reinterpret_cast<LPNMTVDISPINFO>(pNMHDR);
+    if (pTVDispInfo->item.pszText == NULL)
         return;
 
     // rename the item in the repository
@@ -2373,8 +2370,7 @@ void CRepositoryBrowser::OnCbenDragbeginUrlcombo(NMHDR * /*pNMHDR*/, LRESULT *pR
 
 void CRepositoryBrowser::OnLvnBeginrdragRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    *pResult = 0;
-    OnBeginDrag(pNMHDR);
+    OnLvnBegindragRepolist(pNMHDR, pResult);
 }
 
 void CRepositoryBrowser::OnLvnBegindragRepolist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2385,11 +2381,10 @@ void CRepositoryBrowser::OnLvnBegindragRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 {
-    // get selected paths
-
-    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     if (m_RepoList.HasText())
         return;
+
+    // get selected paths
 
     CRepositoryBrowserSelection selection;
 
@@ -2398,6 +2393,7 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
     while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
         selection.Add ((CItem *)m_RepoList.GetItemData(index));
 
+    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     BeginDrag(m_RepoList, selection, pNMLV->ptAction, true);
 }
 
@@ -2411,21 +2407,18 @@ void CRepositoryBrowser::OnTvnBegindragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CRepositoryBrowser::OnTvnBeginrdragRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    *pResult = 0;
-    if (m_bSparseCheckoutMode)
-        return;
-    OnBeginDragTree(pNMHDR);
+    OnTvnBegindragRepotree(pNMHDR, pResult);
 }
 
 void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 {
-    // get selected paths
-
-    LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
     if (m_blockEvents)
         return;
 
+    // get selected paths
+
     CRepositoryBrowserSelection selection;
+    LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
     selection.Add ((CTreeItem *)pNMTreeView->itemNew.lParam);
 
     BeginDrag(m_RepoTree, selection, pNMTreeView->ptDrag, false);
@@ -3780,8 +3773,7 @@ void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
     CRegString regColWidth(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
     int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
     // first clear the width array
-    for (int col = 0; col < 7; ++col)
-        m_arColumnWidths[col] = 0;
+    std::fill_n(m_arColumnWidths, _countof(m_arColumnWidths), 0);
     for (int col = 0; col <= maxcol; ++col)
     {
         m_arColumnWidths[col] = m_RepoList.GetColumnWidth(col);
