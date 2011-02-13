@@ -474,10 +474,13 @@ void CDictionaryBasedPath::GetPath (std::string& result) const
 
     // build result
 
-    result.resize (std::max ((size_t)1, size));
+    result.resize (size);
     result.reserve (size + sizeof (size_t));
 
-    CopyPathElements (pathElements, sizes, depth, &result[0]);
+    if (size)
+        CopyPathElements (pathElements, sizes, depth, &result[0]);
+    else
+        result.push_back ('/');
 }
 
 char* CDictionaryBasedPath::GetPath (char* result, size_t maxSize) const
