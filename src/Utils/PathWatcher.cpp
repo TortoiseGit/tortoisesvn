@@ -69,12 +69,18 @@ void CPathWatcher::Stop()
     if (m_hCompPort != INVALID_HANDLE_VALUE)
     {
         PostQueuedCompletionStatus(m_hCompPort, 0, NULL, NULL);
+        m_hCompPort = INVALID_HANDLE_VALUE;
     }
-    if (m_hThread != INVALID_HANDLE_VALUE)
-        CloseHandle(m_hThread);
 
-    m_hThread = INVALID_HANDLE_VALUE;
-    m_hCompPort = INVALID_HANDLE_VALUE;
+    if (m_hThread != INVALID_HANDLE_VALUE)
+    {
+        // the background thread sleeps for 200ms,
+        // so lets wait for it to finish for 1000 ms.
+
+        WaitForSingleObject(m_hThread, 1000);
+        CloseHandle(m_hThread);
+        m_hThread = INVALID_HANDLE_VALUE;
+    }
 }
 
 bool CPathWatcher::RemovePathAndChildren(const CTSVNPath& path)
