@@ -810,9 +810,6 @@ CString ProjectProperties::GetLogSummary(const CString& sMessage)
     }
     sRet.Trim();
 
-    if (sRet.IsEmpty())
-        return sMessage;
-
     return sRet;
 }
 
