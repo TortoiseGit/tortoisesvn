@@ -247,6 +247,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_LOGDLG_FOCUSFILTER,&CLogDlg::OnFocusFilter)
     ON_COMMAND(ID_EDIT_COPY, &CLogDlg::OnEditCopy)
     ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, &CLogDlg::OnLvnKeydownLoglist)
+    ON_NOTIFY(LVN_KEYDOWN, IDC_LOGMSG, &CLogDlg::OnLvnKeydownFilelist)
     ON_NOTIFY(NM_CLICK, IDC_LOGLIST, &CLogDlg::OnNMClickLoglist)
     ON_EN_VSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
     ON_EN_HSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
@@ -2419,6 +2420,24 @@ void CLogDlg::ToggleCheckbox(size_t item)
             }
         }
     }
+}
+
+void CLogDlg::SelectAllVisibleRevisions()
+{
+    if (!SysInfo::Instance().IsVistaOrLater())
+    {
+        for ( size_t i = 0, count = m_logEntries.GetVisibleCount()
+            ; i < count
+            ; ++i)
+        {
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(i);
+            if (pLogEntry)
+                pLogEntry->SetChecked (true);
+        }
+    }
+
+    m_LogList.SetItemState (-1, LVIS_SELECTED, LVIS_SELECTED);
+    m_LogList.RedrawWindow();
 }
 
 void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -5543,6 +5562,22 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         if (nFocusedItem >= 0)
             ToggleCheckbox(nFocusedItem);
     }
+    else if ((pLVKeyDown->wVKey == 'A') && (GetKeyState (VK_CONTROL) < 0))
+    {
+        // Ctrl-A: select all visible revision
+        SelectAllVisibleRevisions();
+    }
+
+    *pResult = 0;
+}
+
+void CLogDlg::OnLvnKeydownFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMLVKEYDOWN pLVKeyDown = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
+
+    // Ctrl-A: select all files
+    if ((pLVKeyDown->wVKey == 'A') && (GetKeyState (VK_CONTROL) < 0))
+        m_ChangedFileListCtrl.SetItemState (-1, LVIS_SELECTED, LVIS_SELECTED);
 
     *pResult = 0;
 }

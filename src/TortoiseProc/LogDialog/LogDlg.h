@@ -136,6 +136,7 @@ protected:
     afx_msg void OnEditCopy();
     afx_msg void OnLogCancel();
     afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnLvnKeydownFilelist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnEnscrollMsgview();
 
@@ -181,6 +182,7 @@ private:
     void DiffSelectedRevWithPrevious();
     void SetDlgTitle(bool bOffline);
     void ToggleCheckbox(size_t item);
+    void SelectAllVisibleRevisions();
     void AddMainAnchors();
     void RemoveMainAnchors();
     void AdjustDateFilterVisibility();
