@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-01-24 09:12+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2011-02-14 07:06+0000\n"
+"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -573,7 +573,7 @@ msgstr "复制到(&C)..."
 
 #. Resource IDs: (1542)
 msgid "&Create folder structure"
-msgstr ""
+msgstr "创建目录结构(&C)"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -798,7 +798,7 @@ msgstr "导入(&I)..."
 
 #. Resource IDs: (1562)
 msgid "&Include externals"
-msgstr ""
+msgstr "包含外部定义(&I)"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -1195,7 +1195,7 @@ msgstr "启动组(&S)"
 
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
-msgstr ""
+msgstr "启动版本库浏览器(&S)"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -2498,7 +2498,7 @@ msgstr "选择项目: "
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr ""
+msgstr "选择项目..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3066,7 +3066,7 @@ msgstr "目录已满，无法创建 %1。"
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "不能创建临时目录！"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3297,7 +3297,7 @@ msgstr "定制"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
-msgstr ""
+msgstr "自定义深度"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -3357,7 +3357,7 @@ msgstr "默认应用程序菜单。在没有打开文档的时候显示。"
 
 #. Resource IDs: (81)
 msgid "Default directory structure successfully created!"
-msgstr ""
+msgstr "预设目录结构已创建！"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4674,7 +4674,7 @@ msgstr "隐藏已删除的路径(&D)"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
-msgstr ""
+msgstr "对于未版本控制的路径隐藏菜单"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -6714,7 +6714,7 @@ msgstr "图画:"
 
 #. Resource IDs: (157)
 msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr ""
+msgstr "图像文件 (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7456,7 +7456,7 @@ msgstr "版本库 UUID: "
 
 #. Resource IDs: (324)
 msgid "Repository created"
-msgstr ""
+msgstr "版本库已创建"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -7714,7 +7714,7 @@ msgstr "行上移"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr ""
+msgstr "立即执行清理(&N)"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -7843,7 +7843,7 @@ msgstr "保存用户端凭证路径"
 
 #. Resource IDs: (617)
 msgid "Save in Git format"
-msgstr ""
+msgstr "使用 Git 格式保存"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8479,7 +8479,7 @@ msgstr "源URL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr ""
+msgstr "稀疏更新 %1!s!, 深度 \"%2!s!\""
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -8623,6 +8623,20 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
+"子串过滤器:\r\n"
+"* 指定一个或更多以空白隔开的字符串。它们会从左到右计算。\r\n"
+"* 将 - 放到子串前面，以排除包含它的版本。\r\n"
+"* 将 + 放到子串前面，以包含到此为止可能尚不匹配版本。\r\n"
+"* 使用 \" 封装包含空白的字符串。\r\n"
+"* 将 ! 放到行首，以反转整个过滤条件。\r\n"
+"\r\n"
+"例如:\r\n"
+"myname  2008      : myname 在 2008 年的提交\r\n"
+".h  -.cpp         : 包含对头文件修改，但是没有修改实现文件的提交\r\n"
+".doc +.xls 2010   : 2010 年包含对 .doc 或 .xls 文件的修改的提交\r\n"
+"\" \"                        : 包含空白的提交 (例如当搜索路径时)\r\n"
+"-\"\"show all\"\" : 不包含字符串 \"show all\" 的提交\r\n"
+"!myname  .cpp     : 不包含 myname 对 .cpp 文件的提交"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -8700,7 +8714,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion 报告了一个错误:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9988,7 +10002,7 @@ msgstr "更新工作副本至当前的版本"
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr ""
+msgstr "正在更新"
 
 #. Resource IDs: (226)
 #, c-format
@@ -10337,7 +10351,7 @@ msgstr "当小的日志缓存在指定天数没有使用时，它会被自动删
 
 #. Resource IDs: (198)
 msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
-msgstr ""
+msgstr "激活后，当单击右键时保持 SHIFT 键按下，从而将 TortoiseSVN 菜单增加到上下文菜单"
 
 #. Resource IDs: (344)
 msgid ""
@@ -10902,6 +10916,9 @@ msgid ""
 "old size: %s\r\n"
 "change: %s"
 msgstr ""
+"当前大小: %s\r\n"
+"先前大小: %s\r\n"
+"改变: %s"
 
 #. Resource IDs: (245)
 msgid "day"

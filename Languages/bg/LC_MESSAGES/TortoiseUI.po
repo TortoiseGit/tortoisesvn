@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-01-24 09:07+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2011-02-14 07:04+0000\n"
+"Last-Translator: petkovmt <petkovmt@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -860,7 +860,7 @@ msgstr "&Зареждане..."
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
-msgstr ""
+msgstr "&Изисква се заключване (обновяване-само за четене )"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
@@ -1069,7 +1069,7 @@ msgstr "&Опресняване"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr ""
+msgstr "&Напомни ми да въведа номера на грешката"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -2203,7 +2203,7 @@ msgstr ""
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
-msgstr ""
+msgstr "Номера на грешката е:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2498,7 +2498,7 @@ msgstr "Изберете обект:"
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr ""
+msgstr "Изберете елементи ..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3066,7 +3066,7 @@ msgstr "Не може да се създаде %1, защото директор
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "Не е възможно създаването на временна папка!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3623,7 +3623,7 @@ msgstr "Желаете ли да продължите?"
 
 #. Resource IDs: (3887)
 msgid "Do you want to recover these auto-saved documents?"
-msgstr ""
+msgstr "Искате ли да възстановите тези автоматично запазени документи?"
 
 #. Resource IDs: (313)
 msgid ""
@@ -3671,7 +3671,7 @@ msgstr ""
 msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
-msgstr ""
+msgstr "Да не се възстановяват автоматично запазените документи. Да се използват последно записаните версии на документите"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -6328,7 +6328,7 @@ msgstr "Нерекурсивно"
 
 #. Resource IDs: (3887)
 msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
-msgstr ""
+msgstr "Имайте предвид, че, ако решите да възстановите автоматично запазените документи, трябва изрично да го потвърдите защото те ще заменят оригиналните. Ако решите да не ги възстановите те ще бъдат изтрити."
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
@@ -6465,7 +6465,7 @@ msgstr ""
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
-msgstr ""
+msgstr "Намерени са един или повече запазени документи."
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -6724,7 +6724,7 @@ msgstr "Картинка:"
 
 #. Resource IDs: (157)
 msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr ""
+msgstr "Снимки (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7111,7 +7111,7 @@ msgstr "Само запис"
 
 #. Resource IDs: (265)
 msgid "Recording mergeinfo for merge between URLs"
-msgstr ""
+msgstr "Запазване на информацията за сливането между интернет адресите"
 
 #. Resource IDs: (265)
 #, c-format
@@ -7121,7 +7121,7 @@ msgstr ""
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for merge of r%ld"
-msgstr ""
+msgstr "Запазване на информацията за сливането за r%ld"
 
 #. Resource IDs: (265)
 #, c-format
@@ -7131,13 +7131,13 @@ msgstr ""
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for reverse merge of r%ld"
-msgstr ""
+msgstr "Запазване на информацията за сливането за възможна негова отмяна за r%ld"
 
 #. Resource IDs: (3887)
 msgid ""
 "Recover the auto-saved documents\n"
 "Open the auto-saved versions instead of the explicitly saved versions"
-msgstr ""
+msgstr "Възстанови и отвори автоматично запазените документи, вместо последните записани версии"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7723,7 +7723,7 @@ msgstr "Ред нагоре"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr ""
+msgstr "Започни почистване"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9457,7 +9457,7 @@ msgstr "Синонимен речник"
 
 #. Resource IDs: (3887)
 msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
-msgstr ""
+msgstr "Това са по-скоро запазени документи от отворените в момента,които съдържат промени направени преди затварянето на програмата."
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -10026,7 +10026,7 @@ msgstr "Обновяване на работното копие до текущ�
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr ""
+msgstr "Обновява се в момента"
 
 #. Resource IDs: (226)
 #, c-format
@@ -10377,7 +10377,7 @@ msgstr ""
 
 #. Resource IDs: (198)
 msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
-msgstr ""
+msgstr "Когато е активирано, задръжте SHIFT докато натискате дясното копче на мишката за да се покажат TortoiseSVN менютата към контекстното меню"
 
 #. Resource IDs: (344)
 msgid ""
@@ -10945,6 +10945,9 @@ msgid ""
 "old size: %s\r\n"
 "change: %s"
 msgstr ""
+"сегашен размер: %s\n"
+"предишен размер: %s\n"
+"промяна: %s"
 
 #. Resource IDs: (245)
 msgid "day"
