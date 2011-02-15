@@ -370,7 +370,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
 CString CPathUtils::GetFileNameFromPath(CString sPath)
 {
     CString ret;
-    sPath.Replace(_T("/"), _T("\\"));
+    sPath.Replace('/', '\\');
     ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
     return ret;
 }
