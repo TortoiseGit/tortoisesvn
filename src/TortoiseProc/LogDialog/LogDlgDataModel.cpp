@@ -55,12 +55,18 @@ CLogChangedPath::CLogChangedPath
     , const CDictionaryBasedTempPath& logPath)
     : path (iter.GetPath())
     , copyFromPath (NULL, (index_t)NO_INDEX)
-    , nodeKind (static_cast<svn_node_kind_t>(iter->GetPathType()))
-    , action ((DWORD)iter.GetAction() / 4)
     , copyFromRev (0)
-    , textModifies(static_cast<svn_tristate_t>(iter->GetTextModifies()))
-    , propsModifies(static_cast<svn_tristate_t>(iter->GetPropsModifies()))
 {
+    flags.nodeKind = static_cast<svn_node_kind_t>(iter->GetPathType());
+    flags.action = (DWORD)iter.GetAction() / 4;
+    flags.textModifies = static_cast<svn_tristate_t>(iter->GetTextModifies());
+    flags.propsModifies = static_cast<svn_tristate_t>(iter->GetPropsModifies());
+
+    // check relevance for log path
+
+    flags.relevantForStartPath = logPath.IsSameOrParentOf (path)
+                              || logPath.IsSameOrChildOf (path);
+
     // set copy-from info, if available
 
     if (iter.HasFromPath() && (iter.GetFromRevision() != NO_REVISION))
@@ -68,11 +74,6 @@ CLogChangedPath::CLogChangedPath
         copyFromPath = iter.GetFromPath();
         copyFromRev = iter.GetFromRevision();
     }
-
-    // check relevance for log path
-
-    relevantForStartPath = logPath.IsSameOrParentOf (path)
-                        || logPath.IsSameOrChildOf (path);
 }
 
 // r/o data access
@@ -146,7 +147,7 @@ const std::string& CLogChangedPath::GetActionString (DWORD action)
 
 const std::string& CLogChangedPath::GetActionString() const
 {
-    return GetActionString (action);
+    return GetActionString (flags.action);
 }
 
 // construction

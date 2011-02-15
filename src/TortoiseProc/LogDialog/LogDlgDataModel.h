@@ -35,15 +35,23 @@ private:
     CDictionaryBasedPath path;
     CDictionaryBasedPath copyFromPath;
     svn_revnum_t copyFromRev;
-    svn_node_kind_t nodeKind;
-    DWORD action;
-    svn_tristate_t textModifies;
-    svn_tristate_t propsModifies;
+
+    /// since we may have north of 10 mio instances
+    /// of this class, use bit stuffing to minimize
+    /// the memory footprint
+
+    struct
+    {
+        svn_node_kind_t nodeKind:2;
+        DWORD action:8;
+        svn_tristate_t textModifies:2;
+        svn_tristate_t propsModifies:2;
+        int relevantForStartPath:1;     // we can't use bool here 
+                                        // (takes an additional 4 bytes)
+    } flags;
 
     /// true, if it affects the content of the path that
     /// the log was originally shown for
-
-    bool relevantForStartPath;
 
     // conversion utility
 
@@ -65,12 +73,12 @@ public:
     CString GetPath() const;
     CString GetCopyFromPath() const;
     svn_revnum_t GetCopyFromRev() const {return copyFromRev;}
-    svn_node_kind_t GetNodeKind() const {return nodeKind;}
-    DWORD GetAction() const {return action;}
-    svn_tristate_t GetTextModifies() const {return textModifies;}
-    svn_tristate_t GetPropsModifies() const {return propsModifies;}
+    svn_node_kind_t GetNodeKind() const {return flags.nodeKind;}
+    DWORD GetAction() const {return flags.action;}
+    svn_tristate_t GetTextModifies() const {return flags.textModifies;}
+    svn_tristate_t GetPropsModifies() const {return flags.propsModifies;}
 
-    bool IsRelevantForStartPath() const {return relevantForStartPath;}
+    bool IsRelevantForStartPath() const {return flags.relevantForStartPath != 0;}
 
     /// returns the action as a string
 
