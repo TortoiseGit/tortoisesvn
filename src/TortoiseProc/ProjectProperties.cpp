@@ -197,63 +197,63 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             if ((!bFoundLogTemplate)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATE)==0))
             {
                 sLogTemplate = sPropVal;
-                sLogTemplate.Replace(_T("\r"), _T(""));
+                sLogTemplate.Remove(_T('\r'));
                 sLogTemplate.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplate = TRUE;
             }
             if ((!bFoundLogTemplateCommit)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATECOMMIT)==0))
             {
                 sLogTemplateCommit = sPropVal;
-                sLogTemplateCommit.Replace(_T("\r"), _T(""));
+                sLogTemplateCommit.Remove(_T('\r'));
                 sLogTemplateCommit.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplateCommit = TRUE;
             }
             if ((!bFoundLogTemplateBranch)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEBRANCH)==0))
             {
                 sLogTemplateBranch = sPropVal;
-                sLogTemplateBranch.Replace(_T("\r"), _T(""));
+                sLogTemplateBranch.Remove(_T('\r'));
                 sLogTemplateBranch.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplateBranch = TRUE;
             }
             if ((!bFoundLogTemplateImport)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEIMPORT)==0))
             {
                 sLogTemplateImport = sPropVal;
-                sLogTemplateImport.Replace(_T("\r"), _T(""));
+                sLogTemplateImport.Remove(_T('\r'));
                 sLogTemplateImport.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplateImport = TRUE;
             }
             if ((!bFoundLogTemplateDelete)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEDEL)==0))
             {
                 sLogTemplateDelete = sPropVal;
-                sLogTemplateDelete.Replace(_T("\r"), _T(""));
+                sLogTemplateDelete.Remove(_T('\r'));
                 sLogTemplateDelete.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplateDelete = TRUE;
             }
             if ((!bFoundLogTemplateMove)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEMOVE)==0))
             {
                 sLogTemplateMove = sPropVal;
-                sLogTemplateMove.Replace(_T("\r"), _T(""));
+                sLogTemplateMove.Remove(_T('\r'));
                 sLogTemplateMove.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplateMove = TRUE;
             }
             if ((!bFoundLogTemplateMkDir)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEMKDIR)==0))
             {
                 sLogTemplateMkDir = sPropVal;
-                sLogTemplateMkDir.Replace(_T("\r"), _T(""));
+                sLogTemplateMkDir.Remove(_T('\r'));
                 sLogTemplateMkDir.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplateMkDir = TRUE;
             }
             if ((!bFoundLogTemplatePropset)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEPROPSET)==0))
             {
                 sLogTemplatePropset = sPropVal;
-                sLogTemplatePropset.Replace(_T("\r"), _T(""));
+                sLogTemplatePropset.Remove(_T('\r'));
                 sLogTemplatePropset.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplatePropset = TRUE;
             }
             if ((!bFoundLogTemplateLock)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATELOCK)==0))
             {
                 sLogTemplateLock = sPropVal;
-                sLogTemplateLock.Replace(_T("\r"), _T(""));
+                sLogTemplateLock.Remove(_T('\r'));
                 sLogTemplateLock.Replace(_T("\n"), _T("\r\n"));
                 bFoundLogTemplateLock = TRUE;
             }
@@ -828,8 +828,8 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
         sShortMessage = message;
     }
     // Remove newlines and tabs 'cause those are not shown nicely in the list control
-    sShortMessage.Replace(_T("\r"), _T(""));
-    sShortMessage.Replace(_T("\t"), _T(" "));
+    sShortMessage.Remove(_T('\r'));
+    sShortMessage.Replace(_T('\t'), _T(' '));
 
     if (!bFoundShort)
     {

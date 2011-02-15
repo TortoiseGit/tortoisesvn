@@ -160,7 +160,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         if (m_path.IsUrl())
         {
             CString msg = message ? message : _T("");
-            msg.Replace(_T("\r"), _T(""));
+            msg.Remove(_T('\r'));
             log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
             baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));
             baton->base_dir = "";
@@ -203,7 +203,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     if (m_path.IsUrl())
     {
         CString msg = message ? message : _T("");
-        msg.Replace(_T("\r"), _T(""));
+        msg.Remove(_T('\r'));
         log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
         baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));
         baton->base_dir = "";

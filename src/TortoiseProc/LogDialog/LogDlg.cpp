@@ -742,7 +742,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         {
             info.sText = CUnicodeUtils::GetUnicode
                             (pLogEntry->GetMessage().c_str());
-            info.sText.Replace(_T("\r"), _T(""));
+            info.sText.Remove(_T('\r'));
         }
         else
         {
@@ -2214,7 +2214,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
     {
         if(sOldValue.CompareNoCase(dlg.m_sInputText))
         {
-            dlg.m_sInputText.Replace(_T("\r"), _T(""));
+            dlg.m_sInputText.Remove(_T('\r'));
 
             LogCache::CCachedLogInfo* toUpdate
                 = GetLogCache (CTSVNPath (m_sRepositoryRoot));
@@ -2292,7 +2292,7 @@ void CLogDlg::EditLogMessage(int index)
     {
         if(sOldValue.CompareNoCase(dlg.m_sInputText))
         {
-        dlg.m_sInputText.Replace(_T("\r"), _T(""));
+        dlg.m_sInputText.Remove(_T('\r'));
         if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->GetRevision()))
         {
             ShowErrorDialog(m_hWnd);

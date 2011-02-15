@@ -160,7 +160,7 @@ BOOL CSetLookAndFeelPage::OnApply()
     Store (m_bGetLockTop, m_regGetLockTop);
     Store (m_bHideMenus, m_regHideMenus);
 
-    m_sNoContextPaths.Replace(_T("\r"), _T(""));
+    m_sNoContextPaths.Remove(_T('\r'));
     if (m_sNoContextPaths.Right(1).Compare(_T("\n"))!=0)
         m_sNoContextPaths += _T("\n");
 

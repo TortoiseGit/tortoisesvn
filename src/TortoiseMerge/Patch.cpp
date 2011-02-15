@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2010 - TortoiseSVN
+// Copyright (C) 2004-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,7 +87,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
         if ((nIndex+1)<PatchLines.GetCount())
         {
             sLine = PatchLines.GetAt(nIndex+1);
-            sLine.Replace(_T("="), _T(""));
+            sLine.Remove('=');
             if (sLine.IsEmpty())
                 break;
         }
@@ -141,7 +141,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
                     nextLine = PatchLines.GetAt(nIndex+1);
                     if (!nextLine.IsEmpty())
                     {
-                        nextLine.Replace(_T("="), _T(""));
+                        nextLine.Remove('=');
                         if (nextLine.IsEmpty())
                         {
                             if (chunks)
@@ -185,7 +185,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
         break;
         case 1: //====================
             {
-                sLine.Replace(_T("="), _T(""));
+                sLine.Remove('=');
                 if (sLine.IsEmpty())
                 {
                     // if the next line is already the start of the chunk,

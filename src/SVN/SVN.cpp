@@ -1735,7 +1735,7 @@ void SVN::cancel()
 
 void * SVN::logMessage (CString message, char * baseDirectory)
 {
-    message.Replace(_T("\r"), _T(""));
+    message.Remove(_T('\r'));
 
     log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (pool, sizeof (*baton));
     baton->message = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(message));
@@ -2314,7 +2314,7 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
     Err = NULL;
 
     CStringA sValueA = CUnicodeUtils::GetUTF8(sValue);
-    sValueA.Replace("\r", "");
+    sValueA.Remove('\r');
     pval = svn_string_create(sValueA, pool);
     if (!sOldValue.IsEmpty())
         pval2 = svn_string_create (CUnicodeUtils::GetUTF8(sOldValue), pool);

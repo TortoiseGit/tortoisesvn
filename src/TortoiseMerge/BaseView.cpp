@@ -680,14 +680,14 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
     if (mine.IsEmpty() && other.IsEmpty())
         return false;
     
-    mine.Replace(_T(" "), _T(""));
-    mine.Replace(_T("\t"), _T(""));
-    mine.Replace(_T("\r"), _T(""));
-    mine.Replace(_T("\n"), _T(""));
-    other.Replace(_T(" "), _T(""));
-    other.Replace(_T("\t"), _T(""));
-    other.Replace(_T("\r"), _T(""));
-    other.Replace(_T("\n"), _T(""));
+    mine.Remove(' ');
+    mine.Remove('\t');
+    mine.Remove('\r');
+    mine.Remove('\n');
+    other.Remove(' ');
+    other.Remove('\t');
+    other.Remove('\r');
+    other.Remove('\n');
 
     if (mine == other)
         return true;
@@ -703,14 +703,14 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
     {
         other = GetWhitespaceString(m_pOtherViewData, nStartBlock2, nEndBlock2);
         bIdentical = mine == other;
-        mine.Replace(_T(" "), _T(""));
-        mine.Replace(_T("\t"), _T(""));
-        mine.Replace(_T("\r"), _T(""));
-        mine.Replace(_T("\n"), _T(""));
-        other.Replace(_T(" "), _T(""));
-        other.Replace(_T("\t"), _T(""));
-        other.Replace(_T("\r"), _T(""));
-        other.Replace(_T("\n"), _T(""));
+        mine.Remove(' ');
+        mine.Remove('\t');
+        mine.Remove('\r');
+        mine.Remove('\n');
+        other.Remove(' ');
+        other.Remove('\t');
+        other.Remove('\r');
+        other.Remove('\n');
     }
 
     return (!mine.IsEmpty()) && (mine == other);
