@@ -146,12 +146,7 @@ error:
     fclose(pFile);
     DeleteFile(path2);
     m_pInstance->watcher.ClearInfoMap();
-    if (m_pInstance)
-    {
-        m_pInstance->Stop();
-        Sleep(100);
-    }
-    delete m_pInstance;
+    Destroy()
     m_pInstance = new CSVNStatusCache;
     ATLTRACE("cache not loaded from disk\n");
 }
@@ -203,13 +198,7 @@ bool CSVNStatusCache::SaveCache()
     return true;
 error:
     fclose(pFile);
-    if (m_pInstance)
-    {
-        m_pInstance->Stop();
-        Sleep(100);
-    }
-    delete m_pInstance;
-    m_pInstance = NULL;
+    Destroy();
     DeleteFile(path);
     return false;
 }
@@ -220,9 +209,9 @@ void CSVNStatusCache::Destroy()
     {
         m_pInstance->Stop();
         Sleep(100);
+        delete m_pInstance;
+        m_pInstance = NULL;
     }
-    delete m_pInstance;
-    m_pInstance = NULL;
 }
 
 void CSVNStatusCache::Stop()
@@ -333,8 +322,7 @@ bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
 
 bool CSVNStatusCache::RemoveTimedoutBlocks()
 {
-    bool ret = false;
-    DWORD currentTicks = GetTickCount();
+    const DWORD currentTicks = GetTickCount();
     AutoLocker lock(m_NoWatchPathCritSec);
     std::vector<CTSVNPath> toRemove;
     for (std::map<CTSVNPath, DWORD>::const_iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
@@ -344,15 +332,15 @@ bool CSVNStatusCache::RemoveTimedoutBlocks()
             toRemove.push_back(it->first);
         }
     }
-    if (toRemove.size())
-    {
-        for (std::vector<CTSVNPath>::const_iterator it = toRemove.begin(); it != toRemove.end(); ++it)
-        {
-            ret = ret || UnBlockPath(*it);
-        }
-    }
+    if (toRemove.size() == 0)
+        return false;
 
-    return ret;
+    for (std::vector<CTSVNPath>::const_iterator it = toRemove.begin(); it != toRemove.end(); ++it)
+    {
+        if(UnBlockPath(*it))
+            return true;
+    }
+    return false;
 }
 
 void CSVNStatusCache::UpdateShell(const CTSVNPath& path)
@@ -417,10 +405,9 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 {
     // Stop the crawler starting on a new folder
     CCrawlInhibitor crawlInhibit(&m_folderCrawler);
-    CCachedDirectory::ItDir itMap;
-    CCachedDirectory * dirtoremove = NULL;
+    CCachedDirectory::ItDir itMap = m_directoryCache.find(path);
 
-    itMap = m_directoryCache.find(path);
+    CCachedDirectory * dirtoremove = NULL;
     if ((itMap != m_directoryCache.end())&&(itMap->second))
         dirtoremove = itMap->second;
     if (dirtoremove == NULL)
@@ -431,8 +418,7 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 
 CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 {
-    CCachedDirectory::ItDir itMap;
-    itMap = m_directoryCache.find(path);
+    CCachedDirectory::ItDir itMap = m_directoryCache.find(path);
     if ((itMap != m_directoryCache.end())&&(itMap->second))
     {
         // We've found this directory in the cache
@@ -491,8 +477,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 
 CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntryNoCreate(const CTSVNPath& path)
 {
-    CCachedDirectory::ItDir itMap;
-    itMap = m_directoryCache.find(path);
+    CCachedDirectory::ItDir itMap = m_directoryCache.find(path);
     if(itMap != m_directoryCache.end())
     {
         // We've found this directory in the cache
@@ -543,42 +528,3 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
         if (cachedDir != NULL)
         {
             CStatusCacheEntry entry = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
-            {
-                AutoLocker lock(m_critSec);
-                m_mostRecentStatus = entry;
-                return m_mostRecentStatus;
-            }
-        }
-
-    }
-    AutoLocker lock(m_critSec);
-    m_mostRecentStatus = CStatusCacheEntry();
-    if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.IsVersioned(path.GetWinPath(), true))
-    {
-        m_mostRecentStatus.ForceStatus(svn_wc_status_normal);
-    }
-    return m_mostRecentStatus;
-}
-
-void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
-{
-    m_folderCrawler.AddDirectoryForUpdate(path);
-}
-
-void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
-{
-    CTSVNPath path;
-    if (hdev == INVALID_HANDLE_VALUE)
-        watcher.ClearInfoMap();
-    else
-    {
-        path = watcher.CloseInfoMap(hdev);
-        m_folderCrawler.BlockPath(path);
-    }
-}
-
-void CSVNStatusCache::CloseWatcherHandles(const CTSVNPath& path)
-{
-    watcher.CloseHandlesForPath(path);
-    m_folderCrawler.BlockPath(path);
-}
