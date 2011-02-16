@@ -31,6 +31,7 @@ CCachedDirectory::CCachedDirectory(void)
     , m_currentFullStatus(svn_wc_status_none)
     , m_mostImportantFileStatus(svn_wc_status_none)
     , m_pCtx(NULL)
+    , m_FetchingStatus(FALSE)
 {
 }
 
@@ -44,6 +45,7 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
     , m_currentFullStatus(svn_wc_status_none)
     , m_mostImportantFileStatus(svn_wc_status_none)
     , m_pCtx(NULL)
+    , m_FetchingStatus(FALSE)
 {
     ATLASSERT(directoryPath.IsDirectory() || !PathFileExists(directoryPath.GetWinPath()));
 
@@ -278,10 +280,9 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
                 // time (e.g. if a commit is also in progress on that same
                 // directory), and we don't want to make the explorer appear
                 // to hang.
-                AutoLocker pathlock(m_critSecPath);
-                if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
+                if ((!bFetch)&&(m_FetchingStatus))
                 {
-                    if (m_currentStatusFetchingPath.IsAncestorOf(path))
+                    if (m_directoryPath.IsAncestorOf(path))
                     {
                         m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
                         return CStatusCacheEntry();
@@ -313,10 +314,9 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
     }
     else
     {
-        AutoLocker pathlock(m_critSecPath);
-        if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
+        if ((!bFetch)&&(m_FetchingStatus))
         {
-            if (m_currentStatusFetchingPath.IsAncestorOf(path))
+            if (m_directoryPath.IsAncestorOf(path))
             {
                 // returning empty status (status fetch in progress)
                 // also set the status to 'none' to have the status change and
@@ -352,10 +352,9 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
     }
 
     {
-        AutoLocker pathlock(m_critSecPath);
-        if ((!bFetch)&&(!m_currentStatusFetchingPath.IsEmpty()))
+        if ((!bFetch)&&(m_FetchingStatus))
         {
-            if (m_currentStatusFetchingPath.IsAncestorOf(path))
+            if (m_directoryPath.IsAncestorOf(path))
             {
                 m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
                 return CStatusCacheEntry();
@@ -472,19 +471,15 @@ CCachedDirectory::GetFullPathString(const CString& cacheKey)
 bool
 CCachedDirectory::SvnUpdateMembersStatus()
 {
+    if (InterlockedExchange(&m_FetchingStatus, TRUE))
+        return false;
+
     svn_opt_revision_t revision;
     revision.kind = svn_opt_revision_unspecified;
 
     SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
-    {
-        AutoLocker pathlock(m_critSecPath);
-        m_currentStatusFetchingPath = m_directoryPath;
-    }
     CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
 
-    CAutoWriteWeakLock writeLock(CSVNStatusCache::Instance().GetGuard(), 2000);
-    if (!writeLock.IsAcquired())
-        return false;
     m_pCtx = CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool);
     svn_error_t* pErr = svn_client_status5 (
         NULL,
@@ -502,13 +497,11 @@ CCachedDirectory::SvnUpdateMembersStatus()
         this,
         subPool
         );
-    {
-        AutoLocker pathlock(m_critSecPath);
-        m_currentStatusFetchingPath.Reset();
-    }
+
     svn_wc_context_destroy(m_pCtx->wc_ctx);
     m_pCtx->wc_ctx = NULL;
     m_pCtx = NULL;
+    InterlockedExchange(&m_FetchingStatus, FALSE);
     if(pErr)
     {
         // Handle an error
@@ -556,9 +549,6 @@ CCachedDirectory::SvnUpdateMembersStatus()
             break;
         }
         svn_error_clear(pErr);
-
-        AutoLocker pathlock(m_critSecPath);
-        m_currentStatusFetchingPath.Reset();
 
         return false;
     }
