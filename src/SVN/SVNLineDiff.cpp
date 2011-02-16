@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2009 - TortoiseSVN
+// Copyright (C) 2006-2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,9 +19,9 @@
 #include "StdAfx.h"
 #include "SVNLineDiff.h"
 
-const svn_diff_fns_t SVNLineDiff::SVNLineDiff_vtable =
+const svn_diff_fns2_t SVNLineDiff::SVNLineDiff_vtable =
 {
-    SVNLineDiff::datasource_open,
+    SVNLineDiff::datasources_open,
     SVNLineDiff::datasource_close,
     SVNLineDiff::next_token,
     SVNLineDiff::compare_token,
@@ -75,19 +75,25 @@ void SVNLineDiff::ParseLineChars(
     }
 }
 
-svn_error_t * SVNLineDiff::datasource_open(void * baton, svn_diff_datasource_e datasource)
+svn_error_t * SVNLineDiff::datasources_open(void *baton, apr_off_t *prefix_lines, apr_off_t *suffix_lines, const svn_diff_datasource_e *datasources, apr_size_t datasource_len)
 {
     SVNLineDiff * linediff = (SVNLineDiff *)baton;
     LineParser parser = linediff->m_bWordDiff ? ParseLineWords : ParseLineChars;
-    switch (datasource)
+    for (apr_size_t i = 0; i < datasource_len; i++)
     {
+        switch (datasources[i])
+        {
         case svn_diff_datasource_original:
             parser(linediff->m_line1, linediff->m_line1length, linediff->m_line1tokens);
             break;
         case svn_diff_datasource_modified:
             parser(linediff->m_line2, linediff->m_line2length, linediff->m_line2tokens);
             break;
+        }
     }
+    // Don't claim any prefix matches.
+    *prefix_lines = 0;
+
     return SVN_NO_ERROR;
 }
 
@@ -217,7 +223,7 @@ bool SVNLineDiff::Diff(svn_diff_t **diff, LPCTSTR line1, apr_size_t len1, LPCTST
     m_line2pos = 0;
     m_line1tokens.clear();
     m_line2tokens.clear();
-    svn_error_t * err = svn_diff_diff(diff, this, &SVNLineDiff_vtable, m_subpool);
+    svn_error_t * err = svn_diff_diff_2(diff, this, &SVNLineDiff_vtable, m_subpool);
     if (err)
     {
         svn_error_clear(err);
@@ -268,29 +274,3 @@ apr_uint32_t SVNLineDiff::Adler32(apr_uint32_t checksum, const WCHAR *data, apr_
 bool SVNLineDiff::IsCharWhiteSpace(TCHAR c)
 {
     return (c == ' ') || (c == '\t');
-}
-
-bool SVNLineDiff::ShowInlineDiff(svn_diff_t* diff)
-{
-    svn_diff_t* tempdiff = diff;
-    apr_size_t diffcounts = 0;
-    apr_size_t origcounts = 0;
-    apr_off_t origsize = 0;
-    apr_off_t diffsize = 0;
-    while (tempdiff)
-    {
-        if (tempdiff->type == svn_diff__type_common)
-        {
-            origcounts++;
-            origsize += tempdiff->original_length;
-        }
-        else
-        {
-            diffcounts++;
-            diffsize += tempdiff->original_length;
-            diffsize += tempdiff->modified_length;
-        }
-        tempdiff = tempdiff->next;
-    }
-    return (origcounts >= diffcounts) && (origsize > diffsize);
-}
