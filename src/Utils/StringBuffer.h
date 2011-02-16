@@ -97,7 +97,7 @@ inline size_t CStringBuffer::GetSize() const
 inline char* CStringBuffer::GetBuffer (size_t minFree)
 {
     if (size + minFree >= capacity)
-        Reserve (max (minFree, 2 * capacity));
+        Reserve (2 * max (minFree, capacity));
 
     return buffer + size;
 }
@@ -118,7 +118,7 @@ inline void CStringBuffer::Clear()
 inline void CStringBuffer::Append (char c)
 {
     if (size + 1 >= capacity)
-        Reserve (max (16, 2 * capacity));
+        Reserve (2 * max (ALIGNMENT, capacity));
 
     buffer[size] = c;
     buffer[++size] = 0;

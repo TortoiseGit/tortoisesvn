@@ -23,17 +23,16 @@ void CStringBuffer::Reserve (size_t newCapacity)
 {
     assert (newCapacity >= capacity);
 
-    // increase the new capacity to ensure that the originally
-    // required buffer space can be written in whole chunks
-    newCapacity += ALIGNMENT;
+    // allocate new buffer and align it.
+    // Add one ALIGNMENT for the start address alignment 
+    // plus one for the sloppy copies beyond newCapacity.
 
-    // allocate new buffer and align it
-    char *newMemory = new char[newCapacity +  ALIGNMENT];
-    char *newBuffer = (char*)((size_t)(newMemory + ALIGNMENT-1) & -ALIGNMENT);
+    char *newMemory = new char[newCapacity + 2 * ALIGNMENT];
+    char *newBuffer = (char*)(APR_ALIGN((size_t)newMemory, ALIGNMENT));
 
     // replace buffers
     if (buffer)
-        memcpy (newBuffer, buffer, APR_ALIGN(size + 1, 16));
+        memcpy (newBuffer, buffer, APR_ALIGN(size + 1, ALIGNMENT));
 
     delete memory;
     memory = newMemory;
@@ -60,7 +59,7 @@ CStringBuffer::~CStringBuffer()
 void CStringBuffer::Append (const std::string& s)
 {
     if (size + s.size() >= capacity)
-        Reserve (max (s.size(), 2 * capacity));
+        Reserve (2 * max (s.size(), capacity));
 
     memcpy (buffer + size, s.c_str(), s.size()+1);
     size += s.size();
@@ -70,7 +69,7 @@ void CStringBuffer::Append (const char* s)
 {
     size_t size = strlen (s);
     if (this->size + size >= capacity)
-        Reserve (max (size, 2 * capacity));
+        Reserve (2 * max (size, capacity));
 
     memcpy (buffer + this->size, s, size+1);
     this->size += size;
