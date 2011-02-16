@@ -146,7 +146,7 @@ error:
     fclose(pFile);
     DeleteFile(path2);
     m_pInstance->watcher.ClearInfoMap();
-    Destroy()
+    Destroy();
     m_pInstance = new CSVNStatusCache;
     ATLTRACE("cache not loaded from disk\n");
 }
@@ -528,3 +528,42 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
         if (cachedDir != NULL)
         {
             CStatusCacheEntry entry = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
+            {
+                AutoLocker lock(m_critSec);
+                m_mostRecentStatus = entry;
+                return m_mostRecentStatus;
+            }
+        }
+
+    }
+    AutoLocker lock(m_critSec);
+    m_mostRecentStatus = CStatusCacheEntry();
+    if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.IsVersioned(path.GetWinPath(), true))
+    {
+        m_mostRecentStatus.ForceStatus(svn_wc_status_normal);
+    }
+    return m_mostRecentStatus;
+}
+
+void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
+{
+    m_folderCrawler.AddDirectoryForUpdate(path);
+}
+
+void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
+{
+    CTSVNPath path;
+    if (hdev == INVALID_HANDLE_VALUE)
+        watcher.ClearInfoMap();
+    else
+    {
+        path = watcher.CloseInfoMap(hdev);
+        m_folderCrawler.BlockPath(path);
+    }
+}
+
+void CSVNStatusCache::CloseWatcherHandles(const CTSVNPath& path)
+{
+    watcher.CloseHandlesForPath(path);
+    m_folderCrawler.BlockPath(path);
+}
