@@ -595,6 +595,54 @@ CLogDlgFilter& CLogDlgFilter::operator= (const CLogDlgFilter& rhs)
     return *this;
 }
 
+bool CLogDlgFilter::operator== (const CLogDlgFilter& rhs) const
+{
+    if (this == &rhs)
+        return true;
+
+    // if we are using regexes we cannot say whether filters are equal
+
+    if (!patterns.empty() || !rhs.patterns.empty())
+        return false;
+
+    // compare global flags
+
+    if (   negate != rhs.negate 
+        || attributeSelector != rhs.attributeSelector 
+        || caseSensitive != rhs.caseSensitive
+        || from != rhs.from
+        || to != rhs.to
+        || scanRelevantPathsOnly != rhs.scanRelevantPathsOnly
+        || revToKeep != rhs.revToKeep)
+        return false;
+
+    // compare sub-string defs
+
+    if (subStringConditions.size() != rhs.subStringConditions.size())
+        return false;
+
+    for ( auto lhsIt = subStringConditions.begin()
+        , lhsEnd  = subStringConditions.end()
+        , rhsIt  = rhs.subStringConditions.begin()
+        ; lhsIt != lhsEnd
+        ; ++rhsIt, ++lhsIt)
+    {
+        if (   lhsIt->subString != rhsIt->subString
+            || lhsIt->prefix != rhsIt->prefix
+            || lhsIt->nextOrIndex != rhsIt->nextOrIndex)
+            return false;
+    }
+
+    // no difference detected
+
+    return true;
+}
+
+bool CLogDlgFilter::operator!= (const CLogDlgFilter& rhs) const
+{
+    return !operator==(rhs);
+}
+
 // tr1::regex is very slow when running concurrently
 // in multiple threads. Empty filters don't need MT as well.
 

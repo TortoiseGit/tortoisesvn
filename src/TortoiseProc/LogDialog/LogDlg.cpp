@@ -3742,7 +3742,7 @@ void CLogDlg::OnEnChangeSearchedit()
         AutoRestoreSelection();
         return;
     }
-    if (Validate(m_sFilterText))
+    if (Validate(m_sFilterText) && FilterConditionChanged())
         SetTimer(LOGFILTER_TIMER, 1000, NULL);
     else
         KillTimer(LOGFILTER_TIMER);
@@ -3768,6 +3768,23 @@ bool CLogDlg::Validate(LPCTSTR string)
         return true;
     tr1::wregex pat;
     return ValidateRegexp(string, pat, false);
+}
+
+bool CLogDlg::FilterConditionChanged()
+{
+    // actually filter the data
+
+    bool scanRelevantPathsOnly = (m_cShowPaths.GetState() & 0x0003)==BST_CHECKED;
+    CLogDlgFilter filter ( m_sFilterText
+                         , m_bFilterWithRegex
+                         , m_SelectedFilters
+                         , m_bFilterCaseSensitively
+                         , m_tFrom
+                         , m_tTo
+                         , scanRelevantPathsOnly
+                         , NO_REVISION);
+
+    return m_filter != filter;
 }
 
 void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)

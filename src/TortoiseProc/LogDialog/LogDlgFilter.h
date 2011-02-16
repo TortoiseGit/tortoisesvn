@@ -147,6 +147,11 @@ public:
 
     CLogDlgFilter& operator= (const CLogDlgFilter& rhs);
 
+    /// compare filter specs
+
+    bool operator== (const CLogDlgFilter& rhs) const;
+    bool operator!= (const CLogDlgFilter& rhs) const;
+
     /// tr1::regex is very slow when running concurrently
     /// in multiple threads. Empty filters don't need MT as well.
 

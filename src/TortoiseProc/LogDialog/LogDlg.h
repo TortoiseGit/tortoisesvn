@@ -96,6 +96,7 @@ protected:
     virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, BOOL haschildren);
     virtual BOOL Cancel();
     virtual bool Validate(LPCTSTR string);
+    virtual bool FilterConditionChanged();
 
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
