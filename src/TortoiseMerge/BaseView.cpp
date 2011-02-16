@@ -414,15 +414,16 @@ void CBaseView::CalcLineCharDim()
 {
     CDC *pDC = GetDC();
     CFont *pOldFont = pDC->SelectObject(GetFont());
-    CSize szCharExt = pDC->GetTextExtent(_T("X"));
+    const CSize szCharExt = pDC->GetTextExtent(_T("X"));
+    pDC->SelectObject(pOldFont);
+    ReleaseDC(pDC);
+
     m_nLineHeight = szCharExt.cy;
     if (m_nLineHeight <= 0)
         m_nLineHeight = -1;
     m_nCharWidth = szCharExt.cx;
     if (m_nCharWidth <= 0)
         m_nCharWidth = -1;
-    pDC->SelectObject(pOldFont);
-    ReleaseDC(pDC);
 }
 
 int CBaseView::GetScreenChars()
@@ -680,15 +681,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
     if (mine.IsEmpty() && other.IsEmpty())
         return false;
     
-    mine.Remove(' ');
-    mine.Remove('\t');
-    mine.Remove('\r');
-    mine.Remove('\n');
-    other.Remove(' ');
-    other.Remove('\t');
-    other.Remove('\r');
-    other.Remove('\n');
-
+    FilterWhitespaces(mine, other);
     if (mine == other)
         return true;
 
@@ -703,14 +696,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
     {
         other = GetWhitespaceString(m_pOtherViewData, nStartBlock2, nEndBlock2);
         bIdentical = mine == other;
-        mine.Remove(' ');
-        mine.Remove('\t');
-        mine.Remove('\r');
-        mine.Remove('\n');
-        other.Remove(' ');
-        other.Remove('\t');
-        other.Remove('\r');
-        other.Remove('\n');
+        FilterWhitespaces(mine, other);
     }
 
     return (!mine.IsEmpty()) && (mine == other);
@@ -2490,9 +2476,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 {
-    int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
-    int nClickedLine = nLineFromTop + m_nTopLine;
-    nClickedLine--;     //we need the index
+    const int nClickedLine = GetButtonEventLineIndex(point);
     if ((nClickedLine >= m_nTopLine)&&(nClickedLine < GetLineCount()))
     {
         m_ptCaretPos.y = nClickedLine;
@@ -2516,9 +2500,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
-    int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
-    int nClickedLine = nLineFromTop + m_nTopLine;
-    nClickedLine--;     //we need the index
+    const int nClickedLine = GetButtonEventLineIndex(point);
     int nViewLine = m_Screen2View[nClickedLine];
     if (point.x < GetMarginWidth())  // only if double clicked on the margin
     {
@@ -2692,9 +2674,7 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
         CView::OnMouseMove(nFlags, point);
         return;
     }
-    int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
-    int nMouseLine = nLineFromTop + m_nTopLine;
-    nMouseLine--;       //we need the index
+    int nMouseLine = GetButtonEventLineIndex(point);
     if (nMouseLine < -1)
     {
         nMouseLine = -1;
@@ -2768,9 +2748,7 @@ void CBaseView::OnTimer(UINT_PTR nIDEvent)
         POINT point;
         GetCursorPos(&point);
         ScreenToClient(&point);
-        int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
-        int nMouseLine = nLineFromTop + m_nTopLine;
-        nMouseLine--;       //we need the index
+        int nMouseLine = GetButtonEventLineIndex(point);
         if (nMouseLine < -1)
         {
             nMouseLine = -1;
@@ -3967,4 +3945,26 @@ void CBaseView::OnEditSelectall()
     m_ptSelectionEndPos.x = sLine.GetLength();
 
     UpdateWindow();
+}
+
+void CBaseView::FilterWhitespaces(CString& first, CString& second)
+{
+    FilterWhitespaces(first);
+    FilterWhitespaces(second);
+}
+
+void CBaseView::FilterWhitespaces(CString& line)
+{
+    line.Remove(' ');
+    line.Remove('\t');
+    line.Remove('\r');
+    line.Remove('\n');
+}
+
+int CBaseView::GetButtonEventLineIndex(const POINT& point)
+{
+    const int nLineFromTop = (point.y - HEADERHEIGHT) / GetLineHeight();
+    int nEventLine = nLineFromTop + m_nTopLine;
+    nEventLine--;     //we need the index
+    return nEventLine;
 }

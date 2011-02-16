@@ -359,4 +359,7 @@ protected:
     static HICON LoadIcon(WORD iconId);
     void ReleaseBitmap();
     static bool LinesInOneChange( int direction, DiffStates firstLineState, DiffStates currentLineState );
+    static void FilterWhitespaces(CString& first, CString& second);
+    static void FilterWhitespaces(CString& line);
+    int GetButtonEventLineIndex(const POINT& point);
 };
