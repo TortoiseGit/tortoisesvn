@@ -75,7 +75,7 @@ void SVNLineDiff::ParseLineChars(
     }
 }
 
-svn_error_t * SVNLineDiff::datasources_open(void *baton, apr_off_t *prefix_lines, apr_off_t *suffix_lines, const svn_diff_datasource_e *datasources, apr_size_t datasource_len)
+svn_error_t * SVNLineDiff::datasources_open(void *baton, apr_off_t *prefix_lines, apr_off_t * /*suffix_lines*/, const svn_diff_datasource_e *datasources, apr_size_t datasource_len)
 {
     SVNLineDiff * linediff = (SVNLineDiff *)baton;
     LineParser parser = linediff->m_bWordDiff ? ParseLineWords : ParseLineChars;
@@ -274,3 +274,29 @@ apr_uint32_t SVNLineDiff::Adler32(apr_uint32_t checksum, const WCHAR *data, apr_
 bool SVNLineDiff::IsCharWhiteSpace(TCHAR c)
 {
     return (c == ' ') || (c == '\t');
+}
+
+bool SVNLineDiff::ShowInlineDiff(svn_diff_t* diff)
+{
+    svn_diff_t* tempdiff = diff;
+    apr_size_t diffcounts = 0;
+    apr_size_t origcounts = 0;
+    apr_off_t origsize = 0;
+    apr_off_t diffsize = 0;
+    while (tempdiff)
+    {
+        if (tempdiff->type == svn_diff__type_common)
+        {
+            origcounts++;
+            origsize += tempdiff->original_length;
+        }
+        else
+        {
+            diffcounts++;
+            diffsize += tempdiff->original_length;
+            diffsize += tempdiff->modified_length;
+        }
+        tempdiff = tempdiff->next;
+    }
+    return (origcounts >= diffcounts) && (origsize > diffsize);
+}
