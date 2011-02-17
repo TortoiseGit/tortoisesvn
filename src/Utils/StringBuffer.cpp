@@ -34,7 +34,7 @@ void CStringBuffer::Reserve (size_t newCapacity)
     if (buffer)
         memcpy (newBuffer, buffer, APR_ALIGN(size + 1, ALIGNMENT));
 
-    delete memory;
+    delete[] memory;
     memory = newMemory;
     buffer = newBuffer;
 
@@ -53,7 +53,7 @@ CStringBuffer::CStringBuffer (size_t initialCapacity)
 
 CStringBuffer::~CStringBuffer()
 {
-    delete memory;
+    delete[] memory;
 }
 
 void CStringBuffer::Append (const std::string& s)
