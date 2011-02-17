@@ -375,6 +375,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         ClearStatusArray();
 
         m_StatusFileList = sortedPathList;
+        m_targetPathList = sortedPathList;
 
         // Since svn_client_status() returns all files, even those in
         // folders included with svn:externals we need to check if all
@@ -434,7 +435,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
     if (bShowUserProps)
         FetchUserProperties();
 
-    m_ColumnManager.UpdateUserPropList (m_arStatusArray);
+    m_ColumnManager.UpdateUserPropList (m_PropertyMap);
 
     m_bBusy = false;
     m_bWaitCursor = false;
@@ -456,18 +457,12 @@ void CSVNStatusListCtrl::GetUserProps (bool bShowUserProps)
     GetCursorPos(&pt);
     SetCursorPos(pt.x, pt.y);
 
+    m_PropertyMap.clear();
     if (bShowUserProps)
         FetchUserProperties();
-    else
-    {
-        CAutoWriteLock locker(m_guard);
-        for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
-            m_arStatusArray[i]->present_props.Clear();
-    }
-
 
     CAutoWriteLock locker(m_guard);
-    m_ColumnManager.UpdateUserPropList (m_arStatusArray);
+    m_ColumnManager.UpdateUserPropList (m_PropertyMap);
 
     m_bBusy = false;
     m_bWaitCursor = false;
@@ -478,75 +473,62 @@ void CSVNStatusListCtrl::GetUserProps (bool bShowUserProps)
 //
 // Fetch all local properties for all elements in the status array
 //
+svn_error_t * proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool)
+{
+    std::map<CTSVNPath, CSVNStatusListCtrl::PropertyList> * pPropertyMap = (std::map<CTSVNPath, CSVNStatusListCtrl::PropertyList> *)baton;
+    CSVNStatusListCtrl::PropertyList proplist;
+
+    for ( apr_hash_index_t *index = apr_hash_first (pool, prop_hash)
+        ; index != NULL
+        ; index = apr_hash_next (index))
+    {
+        // extract next entry from hash
+
+        const char* key = NULL;
+        ptrdiff_t keyLen;
+        const char** val = NULL;
+
+        apr_hash_this ( index
+            , reinterpret_cast<const void**>(&key)
+            , &keyLen
+            , reinterpret_cast<void**>(&val));
+
+        // decode / dispatch it
+
+        CString name = CUnicodeUtils::GetUnicode (key);
+        CString value = CUnicodeUtils::GetUnicode (*val);
+
+        // store in property container (truncate it after ~100 chars)
+
+        proplist[name]
+        = value.GetLength() > SVNSLC_MAXUSERPROPLENGTH
+            ? value.Left (SVNSLC_MAXUSERPROPLENGTH)
+            : value;
+    }
+    if (proplist.Count())
+    {
+        CTSVNPath listPath;
+        listPath.SetFromSVN(CUnicodeUtils::GetUnicode(path));
+        (*pPropertyMap)[listPath] = proplist;
+    }
+
+    return SVN_NO_ERROR;
+}
 
 void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
 {
     SVNTRACE_BLOCK
 
     // local / temp pool to hold parameters and props for a single item
-
     SVNPool pool;
+    svn_client_ctx_t * pCtx = nullptr;
+    svn_error_clear(svn_client_create_context(&pCtx, pool));
+    svn_error_t * error = nullptr;
 
-    // open working copy for this path
-
-    svn_wc_context_t * wc_ctx = NULL;
-    svn_error_t * error = svn_wc_context_create(&wc_ctx, NULL, pool, pool);
-
-    if (error == NULL)
+    for (size_t i = first; i < last; ++i)
     {
-        for (size_t i = first; i < last; ++i)
-        {
-            FileEntry* entry = m_arStatusArray[i];
-            if (!entry->IsVersioned())
-                continue;
-
-            const char* path = entry->path.GetSVNApiPath (pool);
-
-            // get the props and add them to the status info
-            apr_hash_t * props = NULL;
-            error = svn_wc_prop_list2 ( &props
-                                      , wc_ctx
-                                      , path
-                                      , pool
-                                      , pool);
-            if (error == NULL)
-            {
-                for ( apr_hash_index_t *index = apr_hash_first (pool, props)
-                    ; index != NULL
-                    ; index = apr_hash_next (index))
-                {
-                    // extract next entry from hash
-
-                    const char* key = NULL;
-                    ptrdiff_t keyLen;
-                    const char** val = NULL;
-
-                    apr_hash_this ( index
-                                  , reinterpret_cast<const void**>(&key)
-                                  , &keyLen
-                                  , reinterpret_cast<void**>(&val));
-
-                    // decode / dispatch it
-
-                    CString name = CUnicodeUtils::GetUnicode (key);
-                    CString value = CUnicodeUtils::GetUnicode (*val);
-
-                    // store in property container (truncate it after ~100 chars)
-
-                    CAutoWriteLock locker(m_guard);
-                    entry->present_props[name]
-                        = value.GetLength() > SVNSLC_MAXUSERPROPLENGTH
-                        ? value.Left (SVNSLC_MAXUSERPROPLENGTH)
-                        : value;
-                }
-            }
-            else
-            {
-                svn_error_clear (error);
-            }
-        }
-
-        svn_error_clear (svn_wc_context_destroy(wc_ctx));
+        svn_client_proplist3(m_targetPathList[i].GetSVNApiPath(pool), SVNRev(), SVNRev(), 
+                             svn_depth_infinity, NULL, proplist_receiver, &m_PropertyMap, pCtx, pool);
     }
 
     svn_error_clear (error);
@@ -555,13 +537,13 @@ void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
 
 void CSVNStatusListCtrl::FetchUserProperties()
 {
+    SVNTRACE_BLOCK
     async::CJobScheduler queries (0, async::CJobScheduler::GetHWThreadCount());
 
-    const size_t step = 1000;
-    CAutoReadLock locker(m_guard);
-    for (size_t i = 0, count = m_arStatusArray.size(); i < count; i += step)
+    const size_t step = 1;
+    for (size_t i = 0, count = m_targetPathList.GetCount(); i < count; i += step)
     {
-        size_t next = min (i+step, m_arStatusArray.size());
+        size_t next = min (i+step, m_targetPathList.GetCount());
         new async::CAsyncCall ( this
                               , &CSVNStatusListCtrl::FetchUserProperties
                               , i
@@ -701,6 +683,8 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
         ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryRoot, arExtPaths, &config, bAllDirect);
     }
 
+    for (int i=0; i<arExtPaths.GetCount(); ++i)
+        m_targetPathList.AddPath(arExtPaths[i]);
     return true;
 }
 
@@ -1255,7 +1239,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 
             SetItemCount(listIndex);
 
-            m_ColumnManager.UpdateRelevance (m_arStatusArray, m_arListArray);
+            m_ColumnManager.UpdateRelevance (m_arStatusArray, m_arListArray, m_PropertyMap);
         }
 
         CAutoReadLock locker(m_guard);
@@ -1520,12 +1504,16 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 assert (m_ColumnManager.IsUserProp (column));
 
                 const CString& name = m_ColumnManager.GetName(column);
-                if (entry->present_props.HasProperty (name))
+                auto propEntry = m_PropertyMap.find(entry->GetPath());
+                if (propEntry != m_PropertyMap.end())
                 {
-                    const CString& propVal = entry->present_props [name];
-                    return propVal.IsEmpty()
-                        ? m_sNoPropValueText
-                        : propVal;
+                    if (propEntry->second.HasProperty (name))
+                    {
+                        const CString& propVal = propEntry->second [name];
+                        return propVal.IsEmpty()
+                            ? m_sNoPropValueText
+                            : propVal;
+                    }
                 }
             }
 
@@ -1677,7 +1665,7 @@ void CSVNStatusListCtrl::Sort()
 
         if (m_nSortedColumn >= 0)
         {
-            CSorter predicate (&m_ColumnManager, m_nSortedColumn, m_bAscending);
+            CSorter predicate (&m_ColumnManager, this, m_nSortedColumn, m_bAscending);
 
             std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), predicate);
             SaveColumnWidths();
@@ -5483,15 +5471,19 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             ADDTOCLIPBOARDSTRING(temp);
         }
 
-        for ( int i = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
-            ; i < count
-            ; ++i)
+        auto propEntry = m_PropertyMap.find(entry->GetPath());
+        if (propEntry != m_PropertyMap.end())
         {
-            if ((dwCols == -1) && m_ColumnManager.IsVisible (i))
+            for ( int i = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
+                ; i < count
+                ; ++i)
             {
-                CString value
-                    = entry->present_props[m_ColumnManager.GetName(i)];
-                ADDTOCLIPBOARDSTRING(value);
+                if ((dwCols == -1) && m_ColumnManager.IsVisible (i))
+                {
+                    CString value
+                        = propEntry->second[m_ColumnManager.GetName(i)];
+                    ADDTOCLIPBOARDSTRING(value);
+                }
             }
         }
 

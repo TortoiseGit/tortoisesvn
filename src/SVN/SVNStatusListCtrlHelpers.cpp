@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,7 +54,7 @@ CSVNStatusListCtrl::PropertyList::operator= (const char* rhs)
 
 // collect property names in a set
 
-void CSVNStatusListCtrl::PropertyList::GetPropertyNames (std::set<CString>& names)
+void CSVNStatusListCtrl::PropertyList::GetPropertyNames (std::set<CString>& names) const
 {
     for ( CIT iter = properties.begin(), end = properties.end()
         ; iter != end
@@ -103,6 +103,12 @@ bool CSVNStatusListCtrl::PropertyList::IsNeedsLockSet() const
 void CSVNStatusListCtrl::PropertyList::Clear()
 {
     properties.clear();
+}
+
+// number of properties
+size_t CSVNStatusListCtrl::PropertyList::Count() const
+{
+    return properties.size();
 }
 
 // registry access
@@ -415,15 +421,16 @@ void CSVNStatusListCtrl::ColumnManager::ColumnResized (int column)
 // (will also auto-insert /-remove new list columns)
 
 void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
-    (const std::vector<FileEntry*>& files)
+    (const std::map<CTSVNPath, PropertyList>& propertymap)
 {
     const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
 
     // collect all user-defined props
 
     std::set<CString> aggregatedProps;
-    for (size_t i = 0, count = files.size(); i < count; ++i)
-        files[i]->present_props.GetPropertyNames (aggregatedProps);
+
+    for (auto it = propertymap.cbegin(); it != propertymap.cend(); ++it)
+        it->second.GetPropertyNames (aggregatedProps);
 
     aggregatedProps.erase (svnPropNeedsLock);
     itemProps = aggregatedProps;
@@ -521,7 +528,8 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
 
 void CSVNStatusListCtrl::ColumnManager::UpdateRelevance
     ( const std::vector<FileEntry*>& files
-    , const std::vector<size_t>& visibleFiles)
+    , const std::vector<size_t>& visibleFiles
+    , const std::map<CTSVNPath, PropertyList>& propertymap)
 {
     const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
 
@@ -529,7 +537,13 @@ void CSVNStatusListCtrl::ColumnManager::UpdateRelevance
 
     std::set<CString> aggregatedProps;
     for (size_t i = 0, count = visibleFiles.size(); i < count; ++i)
-        files[visibleFiles[i]]->present_props.GetPropertyNames (aggregatedProps);
+    {
+        auto propEntry = propertymap.find(files[visibleFiles[i]]->GetPath());
+        if (propEntry != propertymap.end())
+        {
+            propEntry->second.GetPropertyNames (aggregatedProps);
+        }
+    }
 
     aggregatedProps.erase (svnPropNeedsLock);
     itemProps = aggregatedProps;
@@ -913,9 +927,11 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
 // sorter utility class
 
 CSVNStatusListCtrl::CSorter::CSorter ( ColumnManager* columnManager
+                                      , CSVNStatusListCtrl * listControl
                                       , int sortedColumn
                                       , bool ascending)
                                       : columnManager (columnManager)
+                                      , control(listControl)
                                       , sortedColumn (sortedColumn)
                                       , ascending (ascending)
 {
@@ -1088,14 +1104,16 @@ bool CSVNStatusListCtrl::CSorter::operator()
 
             const CString& propName = columnManager->GetName (sortedColumn);
 
-            bool entry1HasProp = entry1->present_props.HasProperty (propName);
-            bool entry2HasProp = entry2->present_props.HasProperty (propName);
+            auto propEntry1 = control->m_PropertyMap.find(entry1->GetPath());
+            auto propEntry2 = control->m_PropertyMap.find(entry2->GetPath());
+            bool entry1HasProp = (propEntry1 != control->m_PropertyMap.end()) && propEntry1->second.HasProperty (propName);
+            bool entry2HasProp = (propEntry2 != control->m_PropertyMap.end()) && propEntry2->second.HasProperty (propName);
 
             if (entry1HasProp)
             {
                 result = entry2HasProp
-                    ? entry1->present_props[propName].Compare
-                    (entry2->present_props[propName])
+                    ? propEntry1->second[propName].Compare
+                    (propEntry2->second[propName])
                     : 1;
             }
             else

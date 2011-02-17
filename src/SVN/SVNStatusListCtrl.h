@@ -232,7 +232,7 @@ public:
 
         /// collect property names in a set
 
-        void GetPropertyNames (std::set<CString>& names);
+        void GetPropertyNames (std::set<CString>& names) const;
 
         /// get a property value.
         /// Returns an empty string if there is no such property.
@@ -256,6 +256,10 @@ public:
         /// remove all entries
 
         void Clear();
+
+        /// number of properties
+
+        size_t Count() const;
 
     private:
 
@@ -299,7 +303,6 @@ public:
             , isNested(false)
             , Revision(0)
             , isConflicted(false)
-            , present_props()
             , working_size(SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
             , depth(svn_depth_unknown)
         {
@@ -397,7 +400,6 @@ public:
         bool                    isNested;               ///< TRUE if the folder from a different repository and/or path
         bool                    isConflicted;           ///< TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
         svn_revnum_t            Revision;               ///< the base revision
-        PropertyList            present_props;          ///< cacheable properties present in BASE
         apr_off_t               working_size;           ///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
         svn_depth_t             depth;                  ///< the depth of this entry
         bool                    file_external;          ///< if the item is a file that was added to the working copy with an svn:externals; if file_external is TRUE, then switched is always FALSE.
@@ -465,9 +467,10 @@ public:
         /// call these to update the user-prop list
         /// (will also auto-insert /-remove new list columns)
 
-        void UpdateUserPropList (const std::vector<FileEntry*>& files);
+        void UpdateUserPropList (const std::map<CTSVNPath, PropertyList>& propertymap);
         void UpdateRelevance ( const std::vector<FileEntry*>& files
-                             , const std::vector<size_t>& visibleFiles);
+                             , const std::vector<size_t>& visibleFiles
+                             , const std::map<CTSVNPath, PropertyList>& propertymap);
 
         /// don't clutter the context menu with irrelevant prop info
 
@@ -550,6 +553,7 @@ public:
     public:
 
         CSorter ( ColumnManager* columnManager
+                , CSVNStatusListCtrl * listControl
                 , int sortedColumn
                 , bool ascending);
 
@@ -559,6 +563,7 @@ public:
     private:
 
         ColumnManager* columnManager;
+        CSVNStatusListCtrl * control;
         int sortedColumn;
         bool ascending;
     };
@@ -842,6 +847,8 @@ public:
     CString                     m_sRepositoryRoot;  ///< The repository root of the first item which has one, or an empty string
     DECLARE_MESSAGE_MAP()
 
+    typedef std::vector<FileEntry*> FileEntryVector;
+
 private:
     void SaveColumnWidths(bool bSaveToRegistry = false);
     void Sort();    ///< Sorts the control by columns
@@ -987,14 +994,15 @@ private:
     bool                        m_bHasLocks;
     bool                        m_bHasChangeLists;
     bool                        m_bExternalsGroups;
-    typedef std::vector<FileEntry*> FileEntryVector;
     FileEntryVector             m_arStatusArray;
+    std::map<CTSVNPath,PropertyList> m_PropertyMap;
     std::vector<size_t>         m_arListArray;
     std::map<CString, int>      m_changelists;
     bool                        m_bHasIgnoreGroup;
     CTSVNPathList               m_ConflictFileList;
     CTSVNPathList               m_StatusFileList;
     CTSVNPathList               m_StatusUrlList;
+    CTSVNPathList               m_targetPathList;
     CString                     m_sLastError;
 
     LONG                        m_nUnversioned;
