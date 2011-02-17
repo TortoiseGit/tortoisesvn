@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2010 the TortoiseSVN team
+# Copyright (C) 2004-2011 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-01-25 14:10+0000\n"
-"Last-Translator: joker_mkd <srdjan.stokic@gmail.com>\n"
+"PO-Revision-Date: 2011-02-17 07:31+0000\n"
+"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Macedonian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,7 +232,9 @@ msgstr "%s, но директориумот е веќе изменет."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr "%s, но директориумот е веќе избришан, поместен или преименуван локално."
+msgstr ""
+"%s, но директориумот е веќе избришан, поместен или преименуван "
+"локално."
 
 #. Resource IDs: (609)
 #, c-format
@@ -1081,7 +1083,9 @@ msgstr "&Преименувај"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&После неуспешно извршување, отвори ги диалозите изврши и грани/означи "
+msgstr ""
+"&После неуспешно извршување, отвори ги диалозите изврши и грани/означи"
+" "
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1384,8 +1388,12 @@ msgid "&file list control"
 msgstr ""
 
 #. Resource IDs: (338)
-msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr "'skip ranges' are used to mark revision ranges that have not been cached yet"
+msgid ""
+"'skip ranges' are used to mark revision ranges that have not been "
+"cached yet"
+msgstr ""
+"'skip ranges' are used to mark revision ranges that have not been "
+"cached yet"
 
 #. Resource IDs: (272)
 #, c-format
@@ -1483,8 +1491,10 @@ msgid "- %d"
 msgstr "- %d"
 
 #. Resource IDs: (1007)
-msgid "-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
+msgid ""
+"-------------------------------------------------------------------------------------------"
+msgstr ""
+"-------------------------------------------------------------------------------------------"
 
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
 #. 1333, 1362, 1474)
@@ -1550,7 +1560,10 @@ msgstr "Листа на кориснички дефинирани својств
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr "Листа на кориснички дефинирани својства за директориуми кои се прикажуваатA list of user defined properties for folders to show in the combo box"
+msgstr ""
+"Листа на кориснички дефинирани својства за директориуми кои се "
+"прикажуваатA list of user defined properties for folders to show in "
+"the combo box"
 
 #. Resource IDs: (201)
 msgid ""
@@ -1768,7 +1781,9 @@ msgstr "Додади датотека(и) во надзор на Subversion"
 
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Ги додава избраните датотеки или маски на датотеки во листа за игнорирање"
+msgstr ""
+"Ги додава избраните датотеки или маски на датотеки во листа за "
+"игнорирање"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1819,33 +1834,55 @@ msgid "All Files (*.*)|*.*||"
 msgstr "Сите датотеки (*.*)|*.*||"
 
 #. Resource IDs: (1008)
-msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
-msgstr "Сите ваши измени ќе бидат изгубени! Дали сакате да ги ресетирате сите алатници и менија?"
+msgid ""
+"All your changes will be lost! Do you really want to reset all toolbars"
+" and menus?"
+msgstr ""
+"Сите ваши измени ќе бидат изгубени! Дали сакате да ги ресетирате сите "
+"алатници и менија?"
 
 #. Resource IDs: (1008)
-msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
-msgstr "Сите ваши измени ќе бидат изгубени! Дали навистина сакате да ги ресетирате подесувањата за тастатурата?"
+msgid ""
+"All your changes will be lost! Do you really want to reset the keyboard"
+" assignments?"
+msgstr ""
+"Сите ваши измени ќе бидат изгубени! Дали навистина сакате да ги "
+"ресетирате подесувањата за тастатурата?"
 
 #. Resource IDs: (1008)
 #, c-format
-msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "Сите ваши измени ќе бидат изгубени! Дали навистина сакате да го ресетирате менито '%s'?"
+msgid ""
+"All your changes will be lost! Do you really want to reset the menu "
+"'%s'?"
+msgstr ""
+"Сите ваши измени ќе бидат изгубени! Дали навистина сакате да го "
+"ресетирате менито '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
-msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr "Сите ваши измени ќе бидат изгубени! Дали навистина сакате да го ресетирате алатникот '%s'?"
+msgid ""
+"All your changes will be lost! Do you really want to reset the toolbar "
+"'%s'?"
+msgstr ""
+"Сите ваши измени ќе бидат изгубени! Дали навистина сакате да го "
+"ресетирате алатникот '%s'?"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
 msgstr "Дозволи двозначни &UUID"
 
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
-msgstr "Дозволи различни складишта да користат ист URL, н.п.  http://localhost/myrepos/"
+msgid ""
+"Allow different repositories to use the same URL, e.g. "
+"http://localhost/myrepos/"
+msgstr ""
+"Дозволи различни складишта да користат ист URL, н.п.  "
+"http://localhost/myrepos/"
 
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
+msgid ""
+"Allow different repositories to use the same UUID, e.g. copied "
+"repositories"
 msgstr "Дозволи различни складишта да користат ист UUID"
 
 #. Resource IDs: (119)
@@ -1963,17 +2000,25 @@ msgstr ""
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "Да ли сте сигурни дека сакате да ги означите конфликтите фајлови како разрешени?"
+msgstr ""
+"Да ли сте сигурни дека сакате да ги означите конфликтите фајлови како "
+"разрешени?"
 
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "Да ли сте сигурни дека сакате да го отстраните кешот за избраните %d ставки?"
+msgstr ""
+"Да ли сте сигурни дека сакате да го отстраните кешот за избраните %d "
+"ставки?"
 
 #. Resource IDs: (79)
 #, c-format
-msgid "Are you sure you want to revert %d item(s)? You will lose all changes since the last update!"
-msgstr "Да ли сте сигурни дека сакате да повратите %d stavki. Ќе ги изгубите сите измени!"
+msgid ""
+"Are you sure you want to revert %d item(s)? You will lose all changes "
+"since the last update!"
+msgstr ""
+"Да ли сте сигурни дека сакате да повратите %d stavki. Ќе ги изгубите "
+"сите измени!"
 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
@@ -2254,7 +2299,9 @@ msgstr "Кеширај ги пораките за да се забрза пре�
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr "Може да кликнете двапати во дневникот за споредба со претходна ревизија."
+msgstr ""
+"Може да кликнете двапати во дневникот за споредба со претходна "
+"ревизија."
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
@@ -2299,7 +2346,9 @@ msgstr "Откажувам операција..."
 
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr "Не можам да ги прикажам разликите поради неускладени знакови за нов ред во датотеката."
+msgstr ""
+"Не можам да ги прикажам разликите поради неускладени знакови за нов "
+"ред во датотеката."
 
 #. Resource IDs: (16926)
 msgid "Casca&de"
@@ -2423,24 +2472,42 @@ msgstr ""
 "да ги избришеш пред увезувањето."
 
 #. Resource IDs: (612)
-msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to keep your rename/move or the one from the repository. Then mark the conflict as resolved."
-msgstr "Провери го дневникот за да се види како датотека/директориум бил преместен/преименуван и одлучи дали сакаш да го задржиш или да превземеш од складиштето. Тогаш означи го конфликтот како разрешен."
+msgid ""
+"Check the log to find out how the file/folder got renamed/moved and "
+"decide whether you want to keep your rename/move or the one from the "
+"repository. Then mark the conflict as resolved."
+msgstr ""
+"Провери го дневникот за да се види како датотека/директориум бил "
+"преместен/преименуван и одлучи дали сакаш да го задржиш или да "
+"превземеш од складиштето. Тогаш означи го конфликтот како разрешен."
 
 #. Resource IDs: (612)
-msgid "Check the log to find out how the file/folder got renamed/moved and decide whether you want to merge the change into your renamed file, or restore the original file."
-msgstr "Провери го дневникот за да се утврди како датотека/директориум бил реименуван/померен и одлучи да да се спојат измените во преименуваниот фајл, или да се обнови оригиналниот фајл."
+msgid ""
+"Check the log to find out how the file/folder got renamed/moved and "
+"decide whether you want to merge the change into your renamed file, or "
+"restore the original file."
+msgstr ""
+"Провери го дневникот за да се утврди како датотека/директориум бил "
+"реименуван/померен и одлучи да да се спојат измените во преименуваниот"
+" фајл, или да се обнови оригиналниот фајл."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
 msgstr "Провери внесена датотека или URL."
 
 #. Resource IDs: (194)
-msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
-msgstr "Означете ги оние ставки во менито кои сакате да се појават на врвот на изборникот наместо ТortoiseSVN подменито"
+msgid ""
+"Check those menu entries you want to appear in the top context menu "
+"instead of the TortoiseSVN submenu"
+msgstr ""
+"Означете ги оние ставки во менито кои сакате да се појават на врвот на"
+" изборникот наместо ТortoiseSVN подменито"
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Означете доколку сакате скратен приказ на датата и времето во лог пораките"
+msgstr ""
+"Означете доколку сакате скратен приказ на датата и времето во лог "
+"пораките"
 
 #. Resource IDs: (2052)
 msgid "Check working copy for modifications"
@@ -2554,7 +2621,9 @@ msgstr ""
 
 #. Resource IDs: (196)
 #, c-format
-msgid "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! usernames"
+msgid ""
+"Clears %1!ld! username/password pairs, %2!ld! ssl certificates and "
+"%3!ld! usernames"
 msgstr ""
 
 #. Resource IDs: (197)
@@ -2584,12 +2653,20 @@ msgid "Click here to select a recently typed message"
 msgstr "Кликнете тука за избор на претходно напишана порака"
 
 #. Resource IDs: (65535)
-msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "Клик на \"Напредни\" за да специфицирате дополнителни програми за споредба во зависност од наставката на датотеката."
+msgid ""
+"Click on \"Advanced\" to specify alternate diff programs based on file "
+"extension"
+msgstr ""
+"Клик на \"Напредни\" за да специфицирате дополнителни програми за "
+"споредба во зависност од наставката на датотеката."
 
 #. Resource IDs: (65535)
-msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Клик на \"Напредни\" за да специфицирате дополнителни програми за спојување во зависност од наставката на датотеката."
+msgid ""
+"Click on \"Advanced\" to specify alternate merge programs based on file "
+"extension"
+msgstr ""
+"Клик на \"Напредни\" за да специфицирате дополнителни програми за "
+"спојување во зависност од наставката на датотеката."
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -2776,8 +2853,12 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (12)
-msgid "Compares the file with the last committed revision to show you the changes you made"
-msgstr "Ја споредува датотеката со последната складирана ревизија за да ги прикаже направените измени"
+msgid ""
+"Compares the file with the last committed revision to show you the "
+"changes you made"
+msgstr ""
+"Ја споредува датотеката со последната складирана ревизија за да ги "
+"прикаже направените измени"
 
 #. Resource IDs: (17)
 msgid "Compares the selected file with a file in the repository"
@@ -2806,15 +2887,23 @@ msgstr "Конфигурирај го следењето на инциденти
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
-msgstr "Конфигурирај го програмот кој се користи за споредба на различни ревизии на датотеки"
+msgstr ""
+"Конфигурирај го програмот кој се користи за споредба на различни "
+"ревизии на датотеки"
 
 #. Resource IDs: (65535)
-msgid "Configure the program used for comparing different revisions of properties"
-msgstr "Конфигурирај го програмот кој се користи за споредба на различни ревизии на својства"
+msgid ""
+"Configure the program used for comparing different revisions of "
+"properties"
+msgstr ""
+"Конфигурирај го програмот кој се користи за споредба на различни "
+"ревизии на својства"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
-msgstr "Конфигурирај го програмот кој се користи за разрешување на конфликтни датотеки."
+msgstr ""
+"Конфигурирај го програмот кој се користи за разрешување на конфликтни "
+"датотеки."
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
@@ -2839,7 +2928,9 @@ msgstr "Конфликти: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr "Поврзи се со серверот со магацините и симни ги податоците што недостасуваат"
+msgstr ""
+"Поврзи се со серверот со магацините и симни ги податоците што "
+"недостасуваат"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -3223,11 +3314,17 @@ msgid "Created folder remotely"
 msgstr "Креирај оддалечен директориум"
 
 #. Resource IDs: (10)
-msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Креирај ‘евтина‘ копија внатре во складиштето за разгранување или обележување"
+msgid ""
+"Creates a 'cheap' copy inside the repository used for branches or "
+"tagging"
+msgstr ""
+"Креирај ‘евтина‘ копија внатре во складиштето за разгранување или "
+"обележување"
 
 #. Resource IDs: (199)
-msgid "Creates a library folder with special settings for Subversion working copies"
+msgid ""
+"Creates a library folder with special settings for Subversion working "
+"copies"
 msgstr ""
 
 #. Resource IDs: (2052)
@@ -3382,8 +3479,12 @@ msgid "Deleted node"
 msgstr "Избришан јазол"
 
 #. Resource IDs: (15)
-msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Ги брише и додава избраните датотеки или маски на датотеки во листа за игнорирање"
+msgid ""
+"Deletes and adds the selected file(s) or the filemask to the 'ignore' "
+"list"
+msgstr ""
+"Ги брише и додава избраните датотеки или маски на датотеки во листа за"
+" игнорирање"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3391,7 +3492,9 @@ msgstr "Брише датотеки / директориуми од контро
 
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
-msgstr "Брише датотеки / директориуми од контрола на верзии но ја задржува датотеката"
+msgstr ""
+"Брише датотеки / директориуми од контрола на верзии но ја задржува "
+"датотеката"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
@@ -3941,7 +4044,9 @@ msgid "Enter the regex string below:"
 msgstr "Внесете го regex стрингот подолу:"
 
 #. Resource IDs: (1577)
-msgid "Enter the regular expression patterns for filtering out the bug-ID from a commit message."
+msgid ""
+"Enter the regular expression patterns for filtering out the bug-ID from"
+" a commit message."
 msgstr ""
 
 #. Resource IDs: (3603)
@@ -3993,8 +4098,12 @@ msgid "Exclude"
 msgstr "Исклучи"
 
 #. Resource IDs: (1002)
-msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
+msgid ""
+"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
+"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
+msgstr ""
+"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
+"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
 
 #. Resource IDs: (1002)
 msgid "Existing"
@@ -4047,7 +4156,9 @@ msgstr "Директориум за извоз:"
 
 #. Resource IDs: (345)
 msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
-msgstr "Извези го избраниот кеш како множество од Comma Separated Value (CSV) датотеки"
+msgstr ""
+"Извези го избраниот кеш како множество од Comma Separated Value (CSV) "
+"датотеки"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -4063,8 +4174,12 @@ msgid "Exporting..."
 msgstr "Извезувам..."
 
 #. Resource IDs: (10)
-msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "Извоз на складиштето во чиста работна копија без svn административни директориуми"
+msgid ""
+"Exports a repository to a clean working copy without the svn "
+"administrative folders"
+msgstr ""
+"Извоз на складиштето во чиста работна копија без svn административни "
+"директориуми"
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
@@ -4139,8 +4254,12 @@ msgid "Failed to create empty document."
 msgstr "Неуспешна изработка на празен документ."
 
 #. Resource IDs: (3865)
-msgid "Failed to create object.  Make sure the application is entered in the system registry."
-msgstr "Не можам да креирам објект. Проверете дали апликацијата е внесена во system registry."
+msgid ""
+"Failed to create object.  Make sure the application is entered in the "
+"system registry."
+msgstr ""
+"Не можам да креирам објект. Проверете дали апликацијата е внесена во "
+"system registry."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
@@ -4422,7 +4541,9 @@ msgstr "Фонт"
 
 #. Resource IDs: (3585)
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr "За помош, притисни F1. Скролувај хоризонтално со помош на тркалцето на глувчето + Ctrl"
+msgstr ""
+"За помош, притисни F1. Скролувај хоризонтално со помош на тркалцето на"
+" глувчето + Ctrl"
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
@@ -4457,8 +4578,12 @@ msgid "GDI+ couldn't be initialized!"
 msgstr "GDI+ не е иницијализиран!"
 
 #. Resource IDs: (273)
-msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
-msgstr "GDI+ не е во можност да креира битмапа. Најверојатно немате доволно меморија."
+msgid ""
+"GDI+ couldn't create a bitmap object. You probably don't have enough "
+"memory."
+msgstr ""
+"GDI+ не е во можност да креира битмапа. Најверојатно немате доволно "
+"меморија."
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -4688,12 +4813,20 @@ msgid "Highest revision number in the cache"
 msgstr "Најголема бројка на ревизија во кешот"
 
 #. Resource IDs: (1127)
-msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Совет: Притиснете F5 за освежување на избраното дрво или Ctrl-F5 за да се освежат и сите поддрва"
+msgid ""
+"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
+"children too"
+msgstr ""
+"Совет: Притиснете F5 за освежување на избраното дрво или Ctrl-F5 за да"
+" се освежат и сите поддрва"
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
-msgstr "Финта: изберете го контекстното мени, сменете ја страната на 'Команди' и одвлечете ги копчињата од алатникот во прозорецот со менито"
+msgid ""
+"Hint: select the context menu, change the page to 'Commands' and drag "
+"the toolbar buttons into the menu window."
+msgstr ""
+"Финта: изберете го контекстното мени, сменете ја страната на 'Команди'"
+" и одвлечете ги копчињата од алатникот во прозорецот со менито"
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4836,6 +4969,10 @@ msgstr ""
 msgid "ID:32881:V C +P"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32883; ''
+msgid "ID:32883:V C +A"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -4923,8 +5060,12 @@ msgstr ""
 "дадените патерни, се смета дека е 'стебло'."
 
 #. Resource IDs: (194)
-msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
-msgstr "Доколку е активирано, оневозможува преклопување икони и менито од појавување во 'зачувај...' или 'отвори' диjалозите"
+msgid ""
+"If activated, prevents the overlays and the context menu from showing "
+"in 'save as...' or 'open' dialogs"
+msgstr ""
+"Доколку е активирано, оневозможува преклопување икони и менито од "
+"појавување во 'зачувај...' или 'отвори' диjалозите"
 
 #. Resource IDs: (198)
 msgid ""
@@ -4951,8 +5092,12 @@ msgstr ""
 "со проширените клучни зборови и нагодени краеви на линиите."
 
 #. Resource IDs: (197)
-msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
-msgstr "Доколку е сетирано, двоен клик на равизија во дневникот ја споредува со претходната ревизија"
+msgid ""
+"If checked, double-clicking on a revision in the log list compares it "
+"with the previous revision"
+msgstr ""
+"Доколку е сетирано, двоен клик на равизија во дневникот ја споредува "
+"со претходната ревизија"
 
 #. Resource IDs: (196)
 msgid ""
@@ -5011,8 +5156,12 @@ msgstr ""
 "односно ќе добијат одговарачка прекривна икона."
 
 #. Resource IDs: (2052)
-msgid "If the graph contains multiple trees, separate them by slight variations in background color."
-msgstr "Доколку графот содржи повеке дрва, оддели ги со мали варијации на позадинската боја."
+msgid ""
+"If the graph contains multiple trees, separate them by slight "
+"variations in background color."
+msgstr ""
+"Доколку графот содржи повеке дрва, оддели ги со мали варијации на "
+"позадинската боја."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -5031,8 +5180,12 @@ msgstr ""
 "Дали сте навистина сигурни дека сакате да го сторите ова?"
 
 #. Resource IDs: (251)
-msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "Доколку сакате да го тргнете заклучувањето, користете го 'Провери за измени' дијалогот."
+msgid ""
+"If you want to break the lock, use the 'Check For Modifications' "
+"dialog."
+msgstr ""
+"Доколку сакате да го тргнете заклучувањето, користете го 'Провери за "
+"измени' дијалогот."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5458,7 +5611,9 @@ msgstr "Последен пат кога складиштето е прашан�
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "Стартува надворешен програм за споредба/спојување за да ги расреши конфликтите"
+msgstr ""
+"Стартува надворешен програм за споредба/спојување за да ги расреши "
+"конфликтите"
 
 #. Resource IDs: (1137)
 msgid "Least active author:"
@@ -5603,7 +5758,9 @@ msgstr ""
 
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
-msgstr "Ја заклучува датотеката за другите корисници и ја прави изменлива за вас."
+msgstr ""
+"Ја заклучува датотеката за другите корисници и ја прави изменлива за "
+"вас."
 
 #. Resource IDs: (126)
 msgid "Log"
@@ -5824,8 +5981,12 @@ msgid "Merges a branch into the main trunk"
 msgstr "Спојува гранка назад во главното стебло"
 
 #. Resource IDs: (14)
-msgid "Merges all missing revisions back into the working copy using merge-tracking information"
-msgstr "Ги спојува сите ревизии кои недостасуваат во работната копија користејќи ги информациите за следење на спојувањето."
+msgid ""
+"Merges all missing revisions back into the working copy using merge-"
+"tracking information"
+msgstr ""
+"Ги спојува сите ревизии кои недостасуваат во работната копија "
+"користејќи ги информациите за следење на спојувањето."
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -5856,7 +6017,9 @@ msgid "Merging r%ld"
 msgstr "Спојување r%ld"
 
 #. Resource IDs: (83)
-msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
+msgid ""
+"Merging requires different revisions or different URLs in 'From:' and "
+"'To:'"
 msgstr "Спојувањето бара различни ревизии или различни URL во  'Од:' и 'До:'"
 
 #. Resource IDs: (229)
@@ -6163,8 +6326,12 @@ msgid "No externals found"
 msgstr ""
 
 #. Resource IDs: (82)
-msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
-msgstr "Ниедна датотека или директориум не се изменети. TortoiseSVN нема што да поврати!"
+msgid ""
+"No files or folders were modified. There is nothing for TortoiseSVN to "
+"revert!"
+msgstr ""
+"Ниедна датотека или директориум не се изменети. TortoiseSVN нема што "
+"да поврати!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -6216,8 +6383,12 @@ msgid "No spell corrections"
 msgstr "Нема корекции на правописот"
 
 #. Resource IDs: (196)
-msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Нема привремена меморија за статусот. Само верзионираните директориуми добиваат прекривени икони, датотеките не добиваат."
+msgid ""
+"No status cache. Only versioned folders get an overlay, files don't get"
+" an overlay"
+msgstr ""
+"Нема привремена меморија за статусот. Само верзионираните директориуми"
+" добиваат прекривени икони, датотеките не добиваат."
 
 #. Resource IDs: (84)
 #, c-format
@@ -6250,7 +6421,9 @@ msgstr "Вообичаено"
 
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "Не сите системски вредности во registry (или INI датотеката) се отстранети."
+msgstr ""
+"Не сите системски вредности во registry (или INI датотеката) се "
+"отстранети."
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -6271,7 +6444,10 @@ msgid "Not recursive"
 msgstr "Не рекурзивно"
 
 #. Resource IDs: (3887)
-msgid "Note that if you choose to recover the auto-saved documents, you must explicitly save them to overwrite the original documents.  If you choose to not recover the auto-saved versions, they will be deleted."
+msgid ""
+"Note that if you choose to recover the auto-saved documents, you must "
+"explicitly save them to overwrite the original documents.  If you "
+"choose to not recover the auto-saved versions, they will be deleted."
 msgstr ""
 
 #. Resource IDs: (1481)
@@ -6280,7 +6456,9 @@ msgstr "Забелешка: директориумот содржи неверз
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr "Забелешка: подесувања за фонтовите влијаат и на TortoiseUDiff прегледувачот"
+msgstr ""
+"Забелешка: подесувања за фонтовите влијаат и на TortoiseUDiff "
+"прегледувачот"
 
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
@@ -6328,12 +6506,20 @@ msgid "Number of cached revisions whose change list is not cached yet"
 msgstr "Број на кеширани ревизии чија листа на измени не е кеширана сеуште"
 
 #. Resource IDs: (339)
-msgid "Number of cached revisions whose user revision properties are not cached yet"
-msgstr "Број на кеширани ревизии чии кориснички дефинирани својства уште не се кеширани"
+msgid ""
+"Number of cached revisions whose user revision properties are not "
+"cached yet"
+msgstr ""
+"Број на кеширани ревизии чии кориснички дефинирани својства уште не се"
+" кеширани"
 
 #. Resource IDs: (338)
-msgid "Number of different paths shown in the log dialog, including parent paths"
-msgstr "Број на различни патеки покажани во дијалогот со дневникот, вклучувајќи ги и родителските патеки"
+msgid ""
+"Number of different paths shown in the log dialog, including parent "
+"paths"
+msgstr ""
+"Број на различни патеки покажани во дијалогот со дневникот, "
+"вклучувајќи ги и родителските патеки"
 
 #. Resource IDs: (338)
 msgid "Number of different words used in log messages"
@@ -6344,8 +6530,12 @@ msgid "Number of merged revisions that are not cached yet"
 msgstr "Број на споени ревизии кои уште не се кеширани"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
-msgstr "Број на елементи на патеки. Елемент на патека е датотека или директориум како 'foo.txt' или 'mybranch'."
+msgid ""
+"Number of path elements. A path element is a folder or file name like "
+"'foo.txt' or 'mybranch'."
+msgstr ""
+"Број на елементи на патеки. Елемент на патека е датотека или "
+"директориум како 'foo.txt' или 'mybranch'."
 
 #. Resource IDs: (345)
 msgid ""
@@ -6445,7 +6635,9 @@ msgstr "Само оваа ставка"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr "Користи п&роверка на правописот само кога tsvn:projectlanguage е сетирано."
+msgstr ""
+"Користи п&роверка на правописот само кога tsvn:projectlanguage е "
+"сетирано."
 
 #. Resource IDs: (65535)
 msgid "Opacity"
@@ -6489,7 +6681,9 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Го отвора прегледникот на складиштето за да го подеси складиштето online"
+msgstr ""
+"Го отвора прегледникот на складиштето за да го подеси складиштето "
+"online"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
@@ -6594,8 +6788,12 @@ msgid "Paste filename list"
 msgstr "Вметни листа со датотеки"
 
 #. Resource IDs: (15)
-msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
-msgstr "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
+msgid ""
+"Pastes the svn path from the clipboard, resulting in a move (cut) or "
+"copy operation"
+msgstr ""
+"Pastes the svn path from the clipboard, resulting in a move (cut) or "
+"copy operation"
 
 #. Resource IDs: (1076)
 msgid "Patch &all items"
@@ -6667,7 +6865,9 @@ msgid "Picture:"
 msgstr "Слика:"
 
 #. Resource IDs: (157)
-msgid "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgid ""
+"Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, "
+"*.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 msgstr ""
 
 #. Resource IDs: (246)
@@ -6790,7 +6990,9 @@ msgstr "Притиснете &ново копче за кратенка:"
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr "Ги оневозможува случаите каде што конекциските линии се вкрстуваат со ревизиските нодови"
+msgstr ""
+"Ги оневозможува случаите каде што конекциските линии се вкрстуваат со "
+"ревизиските нодови"
 
 #. Resource IDs: (1069)
 msgid "Preview"
@@ -7981,8 +8183,12 @@ msgid "Select the URLs for the tree merge"
 msgstr "Избери URL за спојување на дрва"
 
 #. Resource IDs: (79)
-msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "Изберете однесување на дијалогот за прогрес по завршување на операцијата."
+msgid ""
+"Select the behaviour of the progress dialog at the end of the "
+"operation."
+msgstr ""
+"Изберете однесување на дијалогот за прогрес по завршување на "
+"операцијата."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7993,7 +8199,9 @@ msgstr ""
 "Избери се"
 
 #. Resource IDs: (65535)
-msgid "Select the language this project is using. This settings affects the spell checker used for commit messages."
+msgid ""
+"Select the language this project is using. This settings affects the "
+"spell checker used for commit messages."
 msgstr ""
 
 #. Resource IDs: (595)
@@ -8068,8 +8276,12 @@ msgid "Shell Icon Cache was rebuilt!"
 msgstr "Иконите се обновени!"
 
 #. Resource IDs: (2052)
-msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
-msgstr "Помери ги дрвјата на врв на прозорецот. Порамнувањето со другите дрвја ке биде изгубено."
+msgid ""
+"Shift trees to the top of the window. Alignment to other trees will be "
+"lost."
+msgstr ""
+"Помери ги дрвјата на врв на прозорецот. Порамнувањето со другите дрвја"
+" ке биде изгубено."
 
 #. Resource IDs: (101)
 msgid "Sho&w properties"
@@ -8241,8 +8453,12 @@ msgid "Show only a&ffected paths"
 msgstr ""
 
 #. Resource IDs: (2052)
-msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
-msgstr "Покажи ги само изменетите делови на патеката. Замени ги постоечките со точки."
+msgid ""
+"Show only the changed parts of the path name. Replace unchanged "
+"elements with dots."
+msgstr ""
+"Покажи ги само изменетите делови на патеката. Замени ги постоечките со"
+" точки."
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8306,7 +8522,9 @@ msgstr "Покажи/Скриј"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld! revision(s) selected, showing %5!ld! changed paths"
+msgid ""
+"Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - "
+"%4!ld! revision(s) selected, showing %5!ld! changed paths"
 msgstr ""
 
 #. Resource IDs: (272)
@@ -8324,8 +8542,12 @@ msgid "Shows a graphical representation of copies/tags/branches"
 msgstr "Прикажува графичка репрезентација за копии/налепници/гранки"
 
 #. Resource IDs: (13)
-msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "Ги прикажува сите датотеки кои се сменете од последното освежување, локално и во складиштето"
+msgid ""
+"Shows all files which were changed since the last update, locally and "
+"in the repository"
+msgstr ""
+"Ги прикажува сите датотеки кои се сменете од последното освежување, "
+"локално и во складиштето"
 
 #. Resource IDs: (2050)
 msgid "Shows all revisions where changes were made to this item"
@@ -8413,15 +8635,24 @@ msgid "Sparse update %1!s!, depth \"%2!s!\""
 msgstr ""
 
 #. Resource IDs: (196)
-msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr "Специфицира колку ставки сакате да задржите во листата со најсвежи коментари во дневникот."
+msgid ""
+"Specifies how many items you want to keep in the most recent log "
+"messages dialog."
+msgstr ""
+"Специфицира колку ставки сакате да задржите во листата со најсвежи "
+"коментари во дневникот."
 
 #. Resource IDs: (1572)
-msgid "Specify how the commit message should be built from the entered bug-ID. Use the placeholder %BUGID% for the real bug-ID. If you leave these settings empty, TortoiseSVN will use the regular expressions instead."
+msgid ""
+"Specify how the commit message should be built from the entered bug-ID."
+" Use the placeholder %BUGID% for the real bug-ID. If you leave these "
+"settings empty, TortoiseSVN will use the regular expressions instead."
 msgstr ""
 
 #. Resource IDs: (1305)
-msgid "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder for the real issue number."
+msgid ""
+"Specify the URL to access the issue tracker. Use %BUGID% as a "
+"placeholder for the real issue number."
 msgstr ""
 
 #. Resource IDs: (79)
@@ -8511,8 +8742,12 @@ msgid "Status cache"
 msgstr "Привремена статусна меморија"
 
 #. Resource IDs: (196)
-msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Статусната привремена меморија е надворешен процес, може да го прикаже overlay рекурзивно"
+msgid ""
+"Status cache kept in an external process, can show the overlay "
+"recursively"
+msgstr ""
+"Статусната привремена меморија е надворешен процес, може да го прикаже"
+" overlay рекурзивно"
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
@@ -8715,7 +8950,9 @@ msgid "System &sounds"
 msgstr "Си&стемски звуци"
 
 #. Resource IDs: (3857)
-msgid "System registry entries have been removed and the INI file (if any) was deleted."
+msgid ""
+"System registry entries have been removed and the INI file (if any) was"
+" deleted."
 msgstr "Записите во регистрито се отстранети и INI (датотеката) е избришата."
 
 #. Resource IDs: (7)
@@ -8765,7 +9002,9 @@ msgstr "Статус на текстот"
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr "Големината на парчето не е иста со бројот на додадени/отстранети линии!"
+msgstr ""
+"Големината на парчето не е иста со бројот на додадени/отстранети "
+"линии!"
 
 #. Resource IDs: (63)
 #, c-format
@@ -8773,12 +9012,20 @@ msgid "The chunk start '@@' was expected in line %d !"
 msgstr "Почеток на парчето '@@' беше очекуван на линијата %d !"
 
 #. Resource IDs: (346)
-msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr "Бојата на креирање, копирање и преименување на јазлите ке биде померена накај жолто."
+msgid ""
+"The color of creation, copy and rename nodes of tags will be shifted "
+"towards yellow."
+msgstr ""
+"Бојата на креирање, копирање и преименување на јазлите ке биде "
+"померена накај жолто."
 
 #. Resource IDs: (346)
-msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
-msgstr "Бојата на креирање, копирање и преименување на јазлите ке биде померена накај зелено."
+msgid ""
+"The color of creation, copy and rename nodes of the trunk will be "
+"shifted towards green."
+msgstr ""
+"Бојата на креирање, копирање и преименување на јазлите ке биде "
+"померена накај зелено."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8899,12 +9146,18 @@ msgid "The image can not be shown."
 msgstr "Сликата не може да се прикаже."
 
 #. Resource IDs: (63)
-msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
-msgstr "Проблемот-трагач добавувач не може да се креира. Ве молиме проверете дали е правилно инсталиран."
+msgid ""
+"The issue-tracker provider could not be created. Please check that it "
+"is installed correctly."
+msgstr ""
+"Проблемот-трагач добавувач не може да се креира. Ве молиме проверете "
+"дали е правилно инсталиран."
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr "Проблемот-трагач добавувач не успеа да го валидира параметерскиот текст"
+msgstr ""
+"Проблемот-трагач добавувач не успеа да го валидира параметерскиот "
+"текст"
 
 #. Resource IDs: (597)
 #, c-format
@@ -8914,32 +9167,44 @@ msgstr "Ставката '%s' има конфликтни својства:"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr "Последната операција на спојување се обиде да го додаде директориумот '%s'"
+msgstr ""
+"Последната операција на спојување се обиде да го додаде директориумот "
+"'%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to add the file '%s'"
-msgstr "Последната операција на спојување се обиде да ја додаде датотеката '%s'"
+msgstr ""
+"Последната операција на спојување се обиде да ја додаде датотеката "
+"'%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the directory '%s'"
-msgstr "Последната операција на спојување се обиде да го избрише/премести/преименува директориумот '%s'"
+msgstr ""
+"Последната операција на спојување се обиде да го "
+"избрише/премести/преименува директориумот '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the file '%s'"
-msgstr "Последната операција на спојување се обиде да ја избрише/премести/преименува датотеката '%s'"
+msgstr ""
+"Последната операција на спојување се обиде да ја "
+"избрише/премести/преименува датотеката '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr "Последната операција на спојување се обиде да го измени директориумот '%s'"
+msgstr ""
+"Последната операција на спојување се обиде да го измени директориумот "
+"'%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to modify the file '%s'"
-msgstr "Последната операција на спојување се обиде да ја модифиција датотеката '%s'"
+msgstr ""
+"Последната операција на спојување се обиде да ја модифиција датотеката"
+" '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -8954,7 +9219,9 @@ msgstr ""
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to add the directory '%s'"
-msgstr "Последната операција на измена се обиде да го додаде директориумот '%s'"
+msgstr ""
+"Последната операција на измена се обиде да го додаде директориумот "
+"'%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8963,18 +9230,26 @@ msgstr "Последната операција на измена се обид�
 
 #. Resource IDs: (608)
 #, c-format
-msgid "The last switch operation tried to delete/move/rename the directory '%s'"
-msgstr "Последната операција на измена се обиде да го избрише/измени/преименува директориумот '%s'"
+msgid ""
+"The last switch operation tried to delete/move/rename the directory "
+"'%s'"
+msgstr ""
+"Последната операција на измена се обиде да го "
+"избрише/измени/преименува директориумот '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to delete/move/rename the file '%s'"
-msgstr "Последната операција на измена се обиде да ја  избрише/измени/преименува датотеката '%s'"
+msgstr ""
+"Последната операција на измена се обиде да ја  "
+"избрише/измени/преименува датотеката '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr "Последната операција на измена се обиде да го измени директориумот '%s'"
+msgstr ""
+"Последната операција на измена се обиде да го измени директориумот "
+"'%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8994,32 +9269,46 @@ msgstr ""
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr "Последната операција на освежување се обиде да го додаде директориумот '%s'"
+msgstr ""
+"Последната операција на освежување се обиде да го додаде директориумот"
+" '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr "Последната операција на освежување се обиде да ја додаде датотеката '%s'"
+msgstr ""
+"Последната операција на освежување се обиде да ја додаде датотеката "
+"'%s'"
 
 #. Resource IDs: (607)
 #, c-format
-msgid "The last update operation tried to delete/move/rename the directory '%s'"
-msgstr "Последната операција на освежување се обиде да го избрише/измени/преименува директориумот '%s'"
+msgid ""
+"The last update operation tried to delete/move/rename the directory "
+"'%s'"
+msgstr ""
+"Последната операција на освежување се обиде да го "
+"избрише/измени/преименува директориумот '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the file '%s'"
-msgstr "Последната операција на освежување се обиде да ја избрише/измени/преименува датотеката '%s'"
+msgstr ""
+"Последната операција на освежување се обиде да ја "
+"избрише/измени/преименува датотеката '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr "Последната операција на освежување се обиде да го измени директориумот '%s'"
+msgstr ""
+"Последната операција на освежување се обиде да го измени директориумот"
+" '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
-msgstr "Последната операција на освежување се обиде да ја измени датотеката '%s'"
+msgstr ""
+"Последната операција на освежување се обиде да ја измени датотеката "
+"'%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -9314,19 +9603,29 @@ msgstr ""
 "некомплетни или дури и грешни поради нецелосната историја."
 
 #. Resource IDs: (82)
-msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
-msgstr "Нема што да се додаде. Сите датотеки и директориуми се или под контрола на верзија или се игнорираат користејќи го svn:ignore својството или глобалното подесување за игнорирање."
+msgid ""
+"There is nothing to add. All the files and folders are either under "
+"version control or have been ignored using the svn:ignore property or "
+"the global ignore configuration setting."
+msgstr ""
+"Нема што да се додаде. Сите датотеки и директориуми се или под "
+"контрола на верзија или се игнорираат користејќи го svn:ignore "
+"својството или глобалното подесување за игнорирање."
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
-msgstr "Нема ништо за отклучување. Ниедна датотека не е заклучена во оваа работна копија."
+msgstr ""
+"Нема ништо за отклучување. Ниедна датотека не е заклучена во оваа "
+"работна копија."
 
 #. Resource IDs: (188)
 msgid "Thesaurus"
 msgstr "Граматика"
 
 #. Resource IDs: (3887)
-msgid "These are more recently saved than the currently open documents and contain changes that were made before the application closed."
+msgid ""
+"These are more recently saved than the currently open documents and "
+"contain changes that were made before the application closed."
 msgstr ""
 
 #. Resource IDs: (84)
@@ -9352,29 +9651,55 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr "Овој метод ги покрива случаите кога имате направено една или повеќе ревизии на гранка (или на дрвото) и сакате да ги префрлите измените на друга гранка."
+msgid ""
+"This method covers the case when you have made a feature branch as "
+"discussed in the Subversion book. Use this to merge all changes of a "
+"branch back to trunk."
+msgstr ""
+"Овој метод ги покрива случаите кога имате направено една или повеќе "
+"ревизии на гранка (или на дрвото) и сакате да ги префрлите измените на"
+" друга гранка."
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr "Овој метод ги покрива случаите кога имате направено една или повеќе ревизии на гранка (или на дрвото) и сакате да ги префрлите измените на друга гранка."
+msgid ""
+"This method covers the case when you have made one or more revisions to"
+" a branch (or to the trunk) and you want to port those changes across "
+"to a different branch."
+msgstr ""
+"Овој метод ги покрива случаите кога имате направено една или повеќе "
+"ревизии на гранка (или на дрвото) и сакате да ги префрлите измените на"
+" друга гранка."
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
-msgstr "Овој метод го покрива случајот кога сакате да ги споите разликите помеѓу две различни гранки во вашата работна копија."
-
-#. Resource IDs: (1531)
-msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
-msgstr "Овој производ вклучува софтвер изработен од CollabNet (http://www.Collab.Net/)"
+msgid ""
+"This method covers the case when you want to merge the differences of "
+"two different branches into your working copy."
+msgstr ""
+"Овој метод го покрива случајот кога сакате да ги споите разликите "
+"помеѓу две различни гранки во вашата работна копија."
 
 #. Resource IDs: (1532)
-msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
-msgstr "Овој производ вклучува софтвер изработен од OpenSSL проектот за OpenSSL Toolkit (http://www.openssl.org/)"
+msgid ""
+"This product includes software developed by the OpenSSL Project for use"
+" in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgstr ""
+"Овој производ вклучува софтвер изработен од OpenSSL проектот за "
+"OpenSSL Toolkit (http://www.openssl.org/)"
+
+#. Resource IDs: (1531)
+msgid ""
+"This product includes software from Apache™ Subversion® "
+"(http://subversion.apache.org)"
+msgstr ""
 
 #. Resource IDs: (3857)
 #, c-format
-msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "Овој програм е поврзан со непостоечкиот експорт%s во %s. Можеби на оваа машина постои некомпатибилна верзија на %s."
+msgid ""
+"This program is linked to the missing export %s in the file %s. This "
+"machine may have an incompatible version of %s."
+msgstr ""
+"Овој програм е поврзан со непостоечкиот експорт%s во %s. Можеби на "
+"оваа машина постои некомпатибилна верзија на %s."
 
 #. Resource IDs: (3857)
 #, c-format
@@ -9387,11 +9712,21 @@ msgstr "Ова својство е дозволено само на директ
 
 #. Resource IDs: (15)
 msgid "This property must not have multiple lines. Only one line is allowed."
-msgstr "Ова својство не смее да има повеќе линии. Само една линија е дозволена."
+msgstr ""
+"Ова својство не смее да има повеќе линии. Само една линија е "
+"дозволена."
 
 #. Resource IDs: (1016)
-msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "Ова ќе го избрише записот на команди кои сте ги користеле во оваа апликација и врати назад иницијалниот сет на видливи команди од менито и алатките. Нема да укине никакви експлицитни прилагодувања. Дали сте сигурни дека сакате да го направите тоа?"
+msgid ""
+"This will delete the record of commands you've used in this application"
+" and restore the default set of visible commands to the menus and "
+"toolbars. It will not undo any explicit customizations. Are you sure "
+"you want to do this?"
+msgstr ""
+"Ова ќе го избрише записот на команди кои сте ги користеле во оваа "
+"апликација и врати назад иницијалниот сет на видливи команди од менито"
+" и алатките. Нема да укине никакви експлицитни прилагодувања. Дали сте"
+" сигурни дека сакате да го направите тоа?"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -9641,7 +9976,9 @@ msgstr "Јазли на стеблото"
 
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr "Обидете се со 'Исчисти'. Доколку тоа не успее ќе мора да направите ново превземање."
+msgstr ""
+"Обидете се со 'Исчисти'. Доколку тоа не успее ќе мора да направите "
+"ново превземање."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -9739,7 +10076,9 @@ msgstr "Не можам да го запишам својството."
 #. Resource IDs: (3859)
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
-msgstr "Не можам да запишам во %1, или е само за читање или некој друг го држи отворен."
+msgstr ""
+"Не можам да запишам во %1, или е само за читање или некој друг го држи"
+" отворен."
 
 #. Resource IDs: (65535)
 msgid "Unchanged node"
@@ -9848,7 +10187,9 @@ msgstr "Неверзионирано"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
-msgstr "Неверзионирани датотеки го означуваат главниот директориум како изменет"
+msgstr ""
+"Неверзионирани датотеки го означуваат главниот директориум како "
+"изменет"
 
 #. Resource IDs: (265)
 msgid "Unversioned obstruction"
@@ -10240,7 +10581,9 @@ msgstr ""
 "денови, ке биде отстранет автоматски."
 
 #. Resource IDs: (198)
-msgid "When activated, hold down the SHIFT key when right-clicking to get the TortoiseSVN menus added to the context menu"
+msgid ""
+"When activated, hold down the SHIFT key when right-clicking to get the "
+"TortoiseSVN menus added to the context menu"
 msgstr ""
 
 #. Resource IDs: (344)
@@ -10254,8 +10597,12 @@ msgstr ""
 "Подесете го основното однесување тука."
 
 #. Resource IDs: (197)
-msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
-msgstr "Кога е овозможено, верзионираните ставки во дијалогот се автоматски изберени"
+msgid ""
+"When enabled, the versioned items listed in the commit dialog are "
+"automatically selected"
+msgstr ""
+"Кога е овозможено, верзионираните ставки во дијалогот се автоматски "
+"изберени"
 
 #. Resource IDs: (197)
 msgid ""
