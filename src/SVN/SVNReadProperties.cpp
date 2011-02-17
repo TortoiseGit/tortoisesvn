@@ -128,8 +128,9 @@ svn_error_t*    SVNReadProperties::Refresh()
     }
     if(Err != NULL)
         return Err;
-
-    m_propCount = apr_hash_count(m_props);
+    
+    if (m_props)
+        m_propCount = apr_hash_count(m_props);
 
     return NULL;
 }
@@ -186,6 +187,8 @@ SVNReadProperties::SVNReadProperties(bool bRevProps)
     : SVNBase()
     , m_bRevProps (bRevProps)
 #endif
+    , m_propCount(0)
+    , m_props(NULL)
 {
     Construct();
 }
@@ -203,6 +206,8 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps)
     , m_path (filepath)
 #endif
     , m_bRevProps (bRevProps)
+    , m_propCount(0)
+    , m_props(NULL)
 {
     Construct();
     Refresh();
@@ -217,6 +222,8 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, S
     , m_bRevProps (false)
     , m_pProgress(NULL)
     , m_prompt (suppressUI)
+    , m_propCount(0)
+    , m_props(NULL)
 {
     Construct();
     Refresh();
