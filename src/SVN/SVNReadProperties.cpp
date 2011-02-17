@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,7 +74,6 @@ svn_error_t*    SVNReadProperties::Refresh()
     if (m_propCount > 0)
     {
         m_propCount = 0;
-        m_props.clear();
         // don't clear or even destroy the m_pool here, since
         // there are still subpools of that pool alive!
     }
@@ -110,7 +109,7 @@ svn_error_t*    SVNReadProperties::Refresh()
             svnPath
         )
 
-        m_props[std::string("")] = apr_hash_copy(m_pool, props);
+        m_props = apr_hash_copy(m_pool, props);
     }
     else
     {
@@ -130,11 +129,8 @@ svn_error_t*    SVNReadProperties::Refresh()
     if(Err != NULL)
         return Err;
 
+    m_propCount = apr_hash_count(m_props);
 
-    for (std::map<std::string, apr_hash_t *>::iterator it = m_props.begin(); it != m_props.end(); ++it)
-    {
-        m_propCount += apr_hash_count(it->second);
-    }
     return NULL;
 }
 
@@ -251,7 +247,7 @@ std::string SVNReadProperties::GetItem(int index, BOOL name) const
     svn_string_t *propval = NULL;
     const char *pname_utf8 = "";
 
-    if (m_props.size() == 0)
+    if (m_propCount == 0)
     {
         return "";
     }
@@ -262,20 +258,17 @@ std::string SVNReadProperties::GetItem(int index, BOOL name) const
 
     long ind = 0;
 
-    for (std::map<std::string, apr_hash_t *>::const_iterator it = m_props.begin(); it != m_props.end(); ++it)
+    apr_hash_index_t *hi;
+
+    for (hi = apr_hash_first(m_pool, m_props); hi; hi = apr_hash_next(hi))
     {
-        apr_hash_index_t *hi;
+        if (ind++ != index)
+            continue;
 
-        for (hi = apr_hash_first(m_pool, it->second); hi; hi = apr_hash_next(hi))
-        {
-            if (ind++ != index)
-                continue;
-
-            apr_hash_this(hi, &key, NULL, &val);
-            propval = (svn_string_t *)val;
-            pname_utf8 = (char *)key;
-            break;
-        }
+        apr_hash_this(hi, &key, NULL, &val);
+        propval = (svn_string_t *)val;
+        pname_utf8 = (char *)key;
+        break;
     }
 
     if (name)
@@ -343,22 +336,19 @@ int SVNReadProperties::IndexOf (const std::string& name) const
         return -1;
 
     long index = 0;
-    for (std::map<std::string, apr_hash_t *>::const_iterator it = m_props.begin(); it != m_props.end(); ++it)
+    apr_hash_index_t *hi;
+
+    for (hi = apr_hash_first(m_pool, m_props); hi; hi = apr_hash_next(hi))
     {
-        apr_hash_index_t *hi;
+        const void *key = NULL;
+        void *val = NULL;
 
-        for (hi = apr_hash_first(m_pool, it->second); hi; hi = apr_hash_next(hi))
-        {
-            const void *key = NULL;
-            void *val = NULL;
+        apr_hash_this(hi, &key, NULL, &val);
+        const char* pname_utf8 = (char *)key;
+        if (strcmp (pname_utf8, name.c_str()) == 0)
+            return index;
 
-            apr_hash_this(hi, &key, NULL, &val);
-            const char* pname_utf8 = (char *)key;
-            if (strcmp (pname_utf8, name.c_str()) == 0)
-                return index;
-
-            ++index;
-        }
+        ++index;
     }
 
     return -1;
@@ -416,27 +406,24 @@ std::string SVNReadProperties::GetSerializedForm() const
     std::string properties;
     result.reserve (m_propCount * 100);
 
-    for (std::map<std::string, apr_hash_t *>::const_iterator it = m_props.begin(); it != m_props.end(); ++it)
+    properties.clear();
+    for (apr_hash_index_t *hi = apr_hash_first(m_pool, m_props); hi; hi = apr_hash_next(hi))
     {
-        properties.clear();
-        for (apr_hash_index_t *hi = apr_hash_first(m_pool, it->second); hi; hi = apr_hash_next(hi))
-        {
-            const void *key = NULL;
-            void *val = NULL;
-            apr_ssize_t keyLength = 0;
+        const void *key = NULL;
+        void *val = NULL;
+        apr_ssize_t keyLength = 0;
 
-            apr_hash_this(hi, &key, &keyLength, &val);
+        apr_hash_this(hi, &key, &keyLength, &val);
 
-            const char* pname_utf8 = static_cast<const char *>(key);
-            svn_string_t* propval = static_cast<svn_string_t *>(val);
+        const char* pname_utf8 = static_cast<const char *>(key);
+        svn_string_t* propval = static_cast<svn_string_t *>(val);
 
-            AddKeyValue (pname_utf8, keyLength, propval->data, propval->len, properties);
-        }
-
-        AddKeyValue ("name", it->first, result);
-        AddKeyValue ("properties", properties, result);
-
+        AddKeyValue (pname_utf8, keyLength, propval->data, propval->len, properties);
     }
+
+    AddKeyValue ("name", m_path.GetSVNApiPath(m_pool), result);
+    AddKeyValue ("properties", properties, result);
+
 
     return result;
 }
@@ -449,7 +436,7 @@ svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path
         svn_error_t * error;
         const char *node_name_native;
         error = svn_utf_cstring_from_utf8 (&node_name_native, path, pool);
-        pThis->m_props[std::string(node_name_native)] = apr_hash_copy(pThis->m_pool, prop_hash);
+        pThis->m_props = apr_hash_copy(pThis->m_pool, prop_hash);
         return error;
     }
     return SVN_NO_ERROR;

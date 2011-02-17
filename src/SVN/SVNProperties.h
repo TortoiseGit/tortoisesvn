@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
  * \ingroup SVN
  * Subversion Properties.
  * Use this class to retrieve, add and remove Subversion properties
- * for files and directories.
+ * for single files and directories.
  *
  * A property value is represented in std::string. If a property is a
  * known text property (like svn:* or bugtraq:* or tsvn:*), the value

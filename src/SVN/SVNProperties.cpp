@@ -310,11 +310,7 @@ namespace
 void SVNProperties::SetFromSerializedForm (const std::string& text)
 {
     // clear properties list
-
-    for (std::map<std::string, apr_hash_t *>::iterator it = m_props.begin(); it != m_props.end(); ++it)
-        apr_hash_clear (it->second);
-
-    m_props.clear();
+    apr_hash_clear (m_props);
 
     // read all file contents
 
@@ -324,8 +320,7 @@ void SVNProperties::SetFromSerializedForm (const std::string& text)
 
         std::pair<std::string, std::string> props = GetKeyValue (text, offset);
 
-        apr_hash_t*& hash = m_props[props.first];
-        hash = apr_hash_make (m_pool);
+        m_props = apr_hash_make (m_pool);
 
         // read all prop entries into hash
 
@@ -337,7 +332,7 @@ void SVNProperties::SetFromSerializedForm (const std::string& text)
             svn_string_t* value = svn_string_ncreate ( prop.second.c_str()
                                                      , prop.second.length()
                                                      , m_pool);
-            apr_hash_set (hash, prop.first.c_str(), prop.first.length(), value);
+            apr_hash_set (m_props, prop.first.c_str(), prop.first.length(), value);
         }
     }
 }

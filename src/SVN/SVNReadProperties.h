@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,8 +33,8 @@
 /**
  * \ingroup SVN
  * Read access to Subversion Properties.
- * Use this class to retrieve, add and remove Subversion properties
- * for files and directories.
+ * Use this class to retrieve Subversion properties
+ * for single files and directories.
  *
  * A property value is represented in std::string. If a property is a
  * known text property (like svn:* or bugtraq:* or tsvn:*), the value
@@ -136,7 +136,7 @@ public:
     /**
      * Create a string containing all properties in
      * K / V notation suitable to be written in a file.
-     * Formatting follows RFC 822 - the ususal key /
+     * Formatting follows RFC 822 - the usual key /
      * value notation used throughout subversion:
      * https://svn.apache.org/repos/asf/subversion/trunk/notes/dump-load-format.txt
      * \return serialized text
@@ -159,7 +159,7 @@ private:        //methods
 protected:        //members
     apr_pool_t *                m_pool;             ///< memory pool baton
     CTSVNPath                   m_path;             ///< the path to the file/directory this properties object acts upon
-    std::map<std::string, apr_hash_t*>      m_props;
+    apr_hash_t *                m_props;
     int                         m_propCount;        ///< number of properties found
     SVNRev                      m_rev;
     bool                        m_bRevProps;
