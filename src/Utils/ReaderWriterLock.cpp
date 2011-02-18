@@ -461,6 +461,8 @@ bool CReaderWriterLock::AcquireWriterLock(DWORD dwTimeout)
         blCanWrite = m_impl._UpgradeToWriterLockAndLeaveCS(dwTimeout);
         if(blCanWrite)
         {
+            m_impl.EnterCS();
+            ite = m_map.find(dwCurrentThreadId);
             ite->second += WRITER_RECURRENCE_UNIT;
             m_impl.LeaveCS();
         }
@@ -549,14 +551,14 @@ DWORD CReaderWriterLock::GetCurrentThreadStatus() const throw()
     CMapThreadToState::const_iterator ite = m_map.find(dwCurrentThreadId);
     if(ite != m_map.end())
     {
-        m_impl.LeaveCS();
         dwThreadState = ite->second;
+        m_impl.LeaveCS();
         _ASSERT(dwThreadState > 0);
     }
     else
     {
-        m_impl.LeaveCS();
         dwThreadState = 0;
+        m_impl.LeaveCS();
     }
 
     return dwThreadState;
