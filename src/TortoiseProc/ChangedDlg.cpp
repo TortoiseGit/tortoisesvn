@@ -73,6 +73,7 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SHOWEXTERNALS, &CChangedDlg::OnBnClickedShowexternals)
     ON_BN_CLICKED(IDC_SHOWFOLDERS, &CChangedDlg::OnBnClickedShowfolders)
     ON_BN_CLICKED(IDC_SHOWFILES, &CChangedDlg::OnBnClickedShowfiles)
+    ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 BOOL CChangedDlg::OnInitDialog()
@@ -157,6 +158,7 @@ UINT CChangedDlg::ChangedStatusThreadEntry(LPVOID pVoid)
 UINT CChangedDlg::ChangedStatusThread()
 {
     InterlockedExchange(&m_bBlock, TRUE);
+    RefreshCursor();
     m_bCanceled = false;
     SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
     DialogEnableWindow(IDC_REFRESH, FALSE);
@@ -264,6 +266,7 @@ DWORD CChangedDlg::UpdateShowFlags()
 void CChangedDlg::OnBnClickedShowunversioned()
 {
     UpdateData();
+    CWaitCursor wait;
     m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
     m_regAddBeforeCommit = m_bShowUnversioned;
     UpdateStatistics();
@@ -272,6 +275,7 @@ void CChangedDlg::OnBnClickedShowunversioned()
 void CChangedDlg::OnBnClickedShowUnmodified()
 {
     UpdateData();
+    CWaitCursor wait;
     m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
     m_regAddBeforeCommit = m_bShowUnversioned;
     UpdateStatistics();
@@ -300,6 +304,7 @@ void CChangedDlg::OnBnClickedShowUserProps()
 void CChangedDlg::OnBnClickedShowfolders()
 {
     UpdateData();
+    CWaitCursor wait;
     m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
     UpdateStatistics();
 }
@@ -307,6 +312,7 @@ void CChangedDlg::OnBnClickedShowfolders()
 void CChangedDlg::OnBnClickedShowfiles()
 {
     UpdateData();
+    CWaitCursor wait;
     m_FileListCtrl.Show(UpdateShowFlags(), CTSVNPathList(), 0, !!m_bShowDirs, !!m_bShowFiles);
     UpdateStatistics();
 }
@@ -375,4 +381,18 @@ void CChangedDlg::UpdateStatistics()
     temp.Replace(_T("\n"), _T(", "));
     SetDlgItemText(IDC_INFOLABEL, temp);
     GetDlgItem(IDC_INFOLABEL)->Invalidate();
+}
+
+
+BOOL CChangedDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+    if (m_bBlock)
+    {
+        HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+        SetCursor(hCur);
+        return TRUE;
+    }
+    HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+    SetCursor(hCur);
+    return __super::OnSetCursor(pWnd, nHitTest, message);
 }
