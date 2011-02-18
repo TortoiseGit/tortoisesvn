@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,26 +33,31 @@ public:
      */
     virtual bool            Execute()
     {
-        SVN svn;
-        CProgressDlg progress;
-        CString tmp;
-        progress.SetTitle(IDS_PROC_UPGRADE);
-        progress.SetShowProgressBar(false);
-        for (int i = 0; i < pathList.GetCount(); ++i)
+        int ret = MessageBox(GetExplorerHWND(), IDS_PROC_UPGRADECONFIRMATION, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO);
+        if (ret == IDYES)
         {
-            tmp.FormatMessage(IDS_PROC_UPGRADE_INFO, pathList[i].GetWinPath());
-            progress.SetLine(1, tmp);
-            progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
-            progress.ShowModeless(GetExplorerHWND());
-            if (!svn.Upgrade(pathList[i]))
+            SVN svn;
+            CProgressDlg progress;
+            CString tmp;
+            progress.SetTitle(IDS_PROC_UPGRADE);
+            progress.SetShowProgressBar(false);
+            for (int i = 0; i < pathList.GetCount(); ++i)
             {
-                progress.Stop();
-                svn.ShowErrorDialog(GetExplorerHWND());
-                return false;
+                tmp.FormatMessage(IDS_PROC_UPGRADE_INFO, pathList[i].GetWinPath());
+                progress.SetLine(1, tmp);
+                progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
+                progress.ShowModeless(GetExplorerHWND());
+                if (!svn.Upgrade(pathList[i]))
+                {
+                    progress.Stop();
+                    svn.ShowErrorDialog(GetExplorerHWND());
+                    return false;
+                }
             }
+            progress.Stop();
+            return true;
         }
-        progress.Stop();
-        return true;
+        return false;
     }
 };
 
