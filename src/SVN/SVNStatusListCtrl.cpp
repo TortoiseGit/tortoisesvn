@@ -1139,6 +1139,9 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
 void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DWORD dwCheck, bool bShowFolders, bool bShowFiles)
 {
     m_bWaitCursor = true;
+    POINT pt;
+    GetCursorPos(&pt);
+    SetCursorPos(pt.x, pt.y);
     m_dwShow = dwShow;
     m_bShowFolders = bShowFolders;
     m_bShowFiles = bShowFiles;
@@ -1290,6 +1293,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     }
 
     m_bWaitCursor = false;
+    GetCursorPos(&pt);
+    SetCursorPos(pt.x, pt.y);
 
     m_bEmpty = (GetItemCount() == 0);
     Invalidate();
