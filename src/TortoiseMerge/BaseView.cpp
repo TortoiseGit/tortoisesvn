@@ -2300,43 +2300,33 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 
 BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 {
-    // need to handle both ANSI and UNICODE versions of the message
-    TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
-    TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
-    CString strTipText;
-    UINT nID = (UINT)pNMHDR->idFrom;
-    if (pNMHDR->code == TTN_NEEDTEXTA && (pTTTA->uFlags & TTF_IDISHWND) ||
-        pNMHDR->code == TTN_NEEDTEXTW && (pTTTW->uFlags & TTF_IDISHWND))
-    {
-        // idFrom is actually the HWND of the tool
-        nID = ::GetDlgCtrlID((HWND)nID);
-    }
+    if (pNMHDR->idFrom != (UINT)m_hWnd)
+        return FALSE;
 
-    if (pNMHDR->idFrom == (UINT)m_hWnd)
+    CString strTipText;
+    if (m_sWindowName.Left(2).Compare(_T("* "))==0)
     {
-        if (m_sWindowName.Left(2).Compare(_T("* "))==0)
-        {
-            strTipText = m_sWindowName.Mid(2) + _T("\r\n") + m_sFullFilePath;
-        }
-        else
-        {
-            strTipText = m_sWindowName + _T("\r\n") + m_sFullFilePath;
-        }
+        strTipText = m_sWindowName.Mid(2) + _T("\r\n") + m_sFullFilePath;
     }
     else
-        return FALSE;
+    {
+        strTipText = m_sWindowName + _T("\r\n") + m_sFullFilePath;
+    }
 
     *pResult = 0;
     if (strTipText.IsEmpty())
         return TRUE;
 
+    // need to handle both ANSI and UNICODE versions of the message
     if (pNMHDR->code == TTN_NEEDTEXTA)
     {
+        TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
         pTTTA->lpszText = m_szTip;
         WideCharToMultiByte(CP_ACP, 0, strTipText, -1, m_szTip, strTipText.GetLength()+1, 0, 0);
     }
     else
     {
+        TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
         lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
         pTTTW->lpszText = m_wszTip;
     }

@@ -49,6 +49,7 @@ private:
     // (re-)size management
 
     void Reserve (size_t newCapacity);
+    void Append (const char* string, size_t length);
 
     // copying is not supported
 

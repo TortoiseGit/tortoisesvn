@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -137,25 +137,24 @@ INT_PTR CHintListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
 
 BOOL CHintListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * pResult)
 {
-    TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
-    TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
-
     if (pProvider == NULL)
         return FALSE;
+
+    TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
+    TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
 
     // Ignore messages from the built in tooltip, we are processing them internally
     if( (pNMHDR->idFrom == (UINT)m_hWnd) &&
         ( ((pNMHDR->code == TTN_NEEDTEXTA) && (pTTTA->uFlags & TTF_IDISHWND)) ||
         ((pNMHDR->code == TTN_NEEDTEXTW) && (pTTTW->uFlags & TTF_IDISHWND)) ) )
     {
-            return FALSE;
+        return FALSE;
     }
 
     *pResult = 0;
 
     //Get the mouse position
-    const MSG* pMessage;
-    pMessage = GetCurrentMessage();
+    const MSG* pMessage = GetCurrentMessage();
 
     CPoint pt;
     pt = pMessage->pt;
@@ -192,4 +191,3 @@ BOOL CHintListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * pResult
     return FALSE; //We didn't handle the message,
     //let the framework continue propagating the message
 }
-

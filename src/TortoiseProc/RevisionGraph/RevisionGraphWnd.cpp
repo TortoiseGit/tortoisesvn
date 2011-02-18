@@ -631,10 +631,6 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
     if (pNMHDR->idFrom != (UINT)m_hWnd)
         return FALSE;
 
-    // need to handle both ANSI and UNICODE versions of the message
-    TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
-    TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
-
     POINT point;
     DWORD ptW = GetMessagePos();
     point.x = GET_X_LPARAM(ptW);
@@ -650,14 +646,17 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
     CSize tooltipSize = UsableTooltipRect();
     strTipText = DisplayableText (strTipText, tooltipSize);
 
+    // need to handle both ANSI and UNICODE versions of the message
     if (pNMHDR->code == TTN_NEEDTEXTA)
     {
+        TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
         ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, tooltipSize.cx);
         pTTTA->lpszText = m_szTip;
         WideCharToMultiByte(CP_ACP, 0, strTipText, -1, m_szTip, strTipText.GetLength()+1, 0, 0);
     }
     else
     {
+        TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
         ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, tooltipSize.cx);
         lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
         pTTTW->lpszText = m_wszTip;

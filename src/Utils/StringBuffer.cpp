@@ -58,19 +58,19 @@ CStringBuffer::~CStringBuffer()
 
 void CStringBuffer::Append (const std::string& s)
 {
-    if (size + s.size() >= capacity)
-        Reserve (2 * max (s.size(), capacity));
-
-    memcpy (buffer + size, s.c_str(), s.size()+1);
-    size += s.size();
+    Append (s.c_str(), s.size());
 }
 
 void CStringBuffer::Append (const char* s)
 {
-    size_t size = strlen (s);
-    if (this->size + size >= capacity)
-        Reserve (2 * max (size, capacity));
+    Append (s, strlen (s));
+}
 
-    memcpy (buffer + this->size, s, size+1);
-    this->size += size;
+void CStringBuffer::Append (const char* string, size_t length)
+{
+    if (size + length >= capacity)
+        Reserve (2 * max (length, capacity));
+
+    memcpy (buffer + size, string, length+1);
+    size += length;
 }

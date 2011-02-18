@@ -81,7 +81,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
     case WM_CREATE:
         {
             // create a slider control
-             CreateTrackbar(hwnd);
+            CreateTrackbar(hwnd);
             ShowWindow(m_AlphaSlider.GetWindow(), SW_HIDE);
             //Create the tooltips
             TOOLINFO ti;
@@ -444,9 +444,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
             {
                 if ((HWND)wParam == m_AlphaSlider.GetWindow())
                 {
-                    LPTOOLTIPTEXT lpttt;
-
-                    lpttt = (LPTOOLTIPTEXT) lParam;
+                    LPTOOLTIPTEXT lpttt = (LPTOOLTIPTEXT) lParam;
                     lpttt->hinst = hResource;
                     TCHAR stringbuf[MAX_PATH] = {0};
                     _stprintf_s(stringbuf, _T("%i%% alpha"), (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
@@ -454,15 +452,15 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
                 }
                 else
                 {
-                    NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
-                    NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
                     BuildInfoString(m_wszTip, _countof(m_wszTip), true);
                     if (pNMHDR->code == TTN_NEEDTEXTW)
                     {
+                        NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
                         pTTTW->lpszText = m_wszTip;
                     }
                     else
                     {
+                        NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
                         pTTTA->lpszText = m_szTip;
                         ::WideCharToMultiByte(CP_ACP, 0, m_wszTip, -1, m_szTip, 8192, NULL, NULL);
                     }

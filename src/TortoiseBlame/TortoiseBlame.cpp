@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1754,9 +1754,6 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
         {
         case TTN_GETDISPINFO:
             {
-                LPNMHDR pNMHDR = (LPNMHDR)lParam;
-                NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
-                NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
                 POINT point;
                 DWORD ptW = GetMessagePos();
                 point.x = GET_X_LPARAM(ptW);
@@ -1786,7 +1783,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                     }
                     if (!ShowDate)
                     {
-                        if (!ShowAuthor) msg += _T("  ");
+                        if (!ShowAuthor)
+                            msg += _T("  ");
                         msg += app.m_dates[line];
                     }
                     if (!ShowAuthor || !ShowDate)
@@ -1813,14 +1811,17 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                     if (msg.empty())
                         msg = _T(" ");
 
+                    LPNMHDR pNMHDR = (LPNMHDR)lParam;
                     if (pNMHDR->code == TTN_NEEDTEXTA)
                     {
+                        NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
                         lstrcpynA(app.m_szTip, CUnicodeUtils::StdGetUTF8(msg).c_str(), MAX_LOG_LENGTH*2);
                         app.StringExpand(app.m_szTip);
                         pTTTA->lpszText = app.m_szTip;
                     }
                     else
                     {
+                        NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
                         pTTTW->lpszText = app.m_wszTip;
                         lstrcpyn(app.m_wszTip, msg.c_str(), MAX_LOG_LENGTH*2);
                         app.StringExpand(app.m_wszTip);
