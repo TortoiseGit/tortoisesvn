@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007,2009-2010 - TortoiseSVN
+// Copyright (C) 2007,2009-2011 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
@@ -218,15 +218,15 @@ int CShellExt::GetInstalledOverlays()
         TCHAR keystring[2048];
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
-            DWORD size = _countof(value );
+            DWORD size = _countof(value);
             FILETIME last_write_time;
             rc = RegEnumKeyEx(hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
             if (rc == ERROR_SUCCESS)
             {
-                DWORD dwType = 0;
                 // check if there's a 'default' entry with a guid
                 _tcscpy_s(keystring, _T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\"));
                 _tcscat_s(keystring, value);
+                DWORD dwType = 0;
                 DWORD dwSize = _countof(value); // the API docs only specify "The size of the destination data buffer", 
                                                 // but better be safe than sorry using _countof instead of sizeof
                 if (SHGetValue(HKEY_LOCAL_MACHINE,
@@ -239,14 +239,13 @@ int CShellExt::GetInstalledOverlays()
                 }
             }
         }
+        RegCloseKey(hKey);
     }
-    RegCloseKey(hKey);
     return nInstalledOverlayhandlers;
 }
 
 void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
-    HKEY hKey;
     wstring name;
     switch (m_State)
     {
@@ -260,6 +259,8 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
     case FileStateIgnored       : name = _T("Software\\TortoiseOverlays\\Ignored"); break;
     case FileStateUnversioned   : name = _T("Software\\TortoiseOverlays\\Unversioned"); break;
     }
+
+    HKEY hKey;
     if (RegOpenKeyEx(HKEY_LOCAL_MACHINE,
         name.c_str(),
         0, KEY_READ, &hKey)==ERROR_SUCCESS)
@@ -284,23 +285,24 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
                 }
             }
         }
+        RegCloseKey(hKey);
     }
-    RegCloseKey(hKey);
 }
 
-void CShellExt::LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR clsid, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
+void CShellExt::LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR classIdString, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
     static const char GetClassObject[] = "DllGetClassObject";
     static const char CanUnloadNow[] = "DllCanUnloadNow";
 
+    IID classId;
+    if (IIDFromString((LPOLESTR)classIdString, &classId) != S_OK)
+        return;
+
     DLLPointers pointers;
 
     pointers.hDll = LoadLibraryEx(ModuleName, NULL, LOAD_WITH_ALTERED_SEARCH_PATH);
-    if (!pointers.hDll)
-    {
-        pointers.hDll = NULL;
+    if (pointers.hDll == NULL)
         return;
-    }
 
     pointers.pDllGetClassObject = NULL;
     pointers.pDllCanUnloadNow = NULL;
@@ -308,39 +310,33 @@ void CShellExt::LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR clsid, LPWSTR pwszIc
     if (pointers.pDllGetClassObject == NULL)
     {
         FreeLibrary(pointers.hDll);
-        pointers.hDll = NULL;
         return;
     }
     pointers.pDllCanUnloadNow = (LPFNCANUNLOADNOW)GetProcAddress(pointers.hDll, CanUnloadNow);
     if (pointers.pDllCanUnloadNow == NULL)
     {
         FreeLibrary(pointers.hDll);
-        pointers.hDll = NULL;
         return;
     }
 
-    IID c;
-    if (IIDFromString((LPOLESTR)clsid, &c) == S_OK)
+    IClassFactory * pClassFactory = NULL;
+    if (SUCCEEDED(pointers.pDllGetClassObject(classId, IID_IClassFactory, (LPVOID*)&pClassFactory)))
     {
-        IClassFactory * pClassFactory = NULL;
-        if (SUCCEEDED(pointers.pDllGetClassObject(c, IID_IClassFactory, (LPVOID*)&pClassFactory)))
+        IShellIconOverlayIdentifier * pShellIconOverlayIdentifier = NULL;
+        if (SUCCEEDED(pClassFactory->CreateInstance(NULL, IID_IShellIconOverlayIdentifier, (LPVOID*)&pShellIconOverlayIdentifier)))
         {
-            IShellIconOverlayIdentifier * pShellIconOverlayIdentifier = NULL;
-            if (SUCCEEDED(pClassFactory->CreateInstance(NULL, IID_IShellIconOverlayIdentifier, (LPVOID*)&pShellIconOverlayIdentifier)))
+            pointers.pShellIconOverlayIdentifier = pShellIconOverlayIdentifier;
+            if (pointers.pShellIconOverlayIdentifier->GetOverlayInfo(pwszIconFile, cchMax, pIndex, pdwFlags) != S_OK)
             {
-                pointers.pShellIconOverlayIdentifier = pShellIconOverlayIdentifier;
-                if (pointers.pShellIconOverlayIdentifier->GetOverlayInfo(pwszIconFile, cchMax, pIndex, pdwFlags) != S_OK)
-                {
-                    // the overlay handler refused to be properly initialized
-                    FreeLibrary(pointers.hDll);
-                    pointers.hDll = NULL;
-                    pClassFactory->Release();
-                    pointers.pShellIconOverlayIdentifier->Release();
-                    return;
-                }
+                // the overlay handler refused to be properly initialized
+                // Release obtained objects and then unload the module
+                pClassFactory->Release();
+                pointers.pShellIconOverlayIdentifier->Release();
+                FreeLibrary(pointers.hDll);
+                return;
             }
-            pClassFactory->Release();
         }
+        pClassFactory->Release();
     }
 
     m_dllpointers.push_back(pointers);
