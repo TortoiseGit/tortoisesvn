@@ -323,88 +323,6 @@
               <RegistryValue Root="HKLM" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
               <RegistryValue Root="HKLM" Key="Software\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
               <RegistryValue Root="HKLM" Key="Software\Classes\Directory\shellex\CopyHookHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Drive\shellex\PropertySheetHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Drive\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\shellex\DragDropHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidDropHandler)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\shellex\PropertySheetHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\Background\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\Background\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Folder\shellex\ColumnHandlers\{$(var.GuidUncontrolled)}" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Folder\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Folder\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidDropHandler)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\LibraryLocation\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\LibraryLocation\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\LibraryFolder\background\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\LibraryFolder\background\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidAdded)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidAdded)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidLocked)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidLocked)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDeleted)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDeleted)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidNormal)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidNormal)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidNormal)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidReadonly)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidReadonly)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidReadonly)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUncontrolled)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUncontrolled)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUncontrolled)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUncontrolled)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUncontrolled)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidModified)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidModified)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidModified)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDropHandler)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDropHandler)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidDropHandler)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidConflict)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidConflict)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidConflict)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidIgnored)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidIgnored)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUnversioned)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Classes\CLSID\{$(var.GuidUnversioned)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Classes\Directory\shellex\CopyHookHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
               <?endif ?>
 
               <!-- set paths we use to find the executables -->
@@ -416,17 +334,6 @@
               <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Name="Path" Value="[INSTALLDIR]bin" Type="string" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Value="[INSTALLDIR]bin\SubWCRev.exe" Type="string" />
-
-              <?if $(env.Platform) = "x64" ?>
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\[Manufacturer]" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\[Manufacturer]" Name="ProcPath" Value="[INSTALLDIR]bin\TortoiseProc.exe" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\[Manufacturer]" Name="CachePath" Value="[INSTALLDIR]bin\TSVNCache.exe" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\[Manufacturer]" Name="TMergePath" Value="[INSTALLDIR]bin\TortoiseMerge.exe" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\[Manufacturer]" Name="Directory" Value="[INSTALLDIR]" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Name="Path" Value="[INSTALLDIR]bin" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Value="[INSTALLDIR]bin\SubWCRev.exe" Type="string" />
-              <?endif ?>
 
               <!-- Register the overlays -->
               <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Normal" Action="create" />
@@ -447,28 +354,6 @@
               <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Ignored" Name="SVN" Value="{$(var.GuidIgnored)}" Type="string" />
               <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Action="create" />
               <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Name="SVN" Value="{$(var.GuidUnversioned)}" Type="string" />
-
-              <?if $(env.Platform) = "x64" ?>
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Normal" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Normal" Name="SVN" Value="{$(var.GuidNormal)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Modified" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Modified" Name="SVN" Value="{$(var.GuidModified)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Conflict" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Conflict" Name="SVN" Value="{$(var.GuidConflict)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Deleted" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Deleted" Name="SVN" Value="{$(var.GuidDeleted)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\ReadOnly" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\ReadOnly" Name="SVN" Value="{$(var.GuidReadonly)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Locked" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Locked" Name="SVN" Value="{$(var.GuidLocked)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Added" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Added" Name="SVN" Value="{$(var.GuidAdded)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Ignored" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Ignored" Name="SVN" Value="{$(var.GuidIgnored)}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Unversioned" Action="create" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\TortoiseOverlays\Unversioned" Name="SVN" Value="{$(var.GuidUnversioned)}" Type="string" />
-              <?endif ?>
-
 
               <!-- Register the Win7 SVN library  -->
               <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Action="createAndRemoveOnUninstall" />
@@ -557,94 +442,6 @@
               <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Name="OverrideParentTopViews" Value="1" Type="integer" />
 
-              <?if $(env.Platform) = "x64" ?>
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="CanonicalName" Value="SVNWCs" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="class" Value="SVNWCs" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="LayoutType" Value="7" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="MostRelevant" Value="prop:System.Author;System.StructuredQuery.Virtual.Type;System.DateModified;System.Size;System.ItemNameDisplay;System.ItemFolderPathDisplay;System.Keywords;System.Title" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="PerceivedType" Value="6" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="theme" Value="SVNWCs" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="Library" Value="$(var.GuidLibraryTypeSVN)" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="LibraryFolder" Value="$(var.GuidLibraryFolderSVN)" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="SearchResults" Value="{36011842-dccc-40fe-aa3d-6177ea401788}" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="ColumnList" Value="prop:0(34)System.ItemNameDisplay;0System.DateModified;0System.ItemTypeText;0System.Size;1System.DateCreated;1System.Author;1System.Category;1System.Keywords;1System.Title" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="Name" Value="NoName" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="SortByList" Value="prop:System.ItemNameDisplay" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="LogicalViewMode" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="Order" Value="0" Type="integer" />
-
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Name="CanonicalName" Value="SVNWCs.Library" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Name="Parent" Value="$(var.GuidFolderTypeSVN)" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="ChildViewID" Value="$(var.GuidTopView6)" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.Size;0System.FileCount;0System.ItemTypeText" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="IconSize" Value="96" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="LogicalViewMode" Value="3" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="Name" Value="@shell32.dll,-34821" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="Order" Value="5" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="PrimaryProperty" Value="System.ItemTypeText" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="QueryType" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="SortByList" Value="prop:System.DefaultGroupOrder" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="StackBy" Value="System.ItemTypeText" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.Size;0System.FileCount;0System.ItemTypeText" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="LogicalViewMode" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="Name" Value="@shell32.dll,-34817" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="Order" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="PrimaryProperty" Value="System.ItemSearchLocation" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="SortByList" Value="prop:System.ItemNameDisplay;-System.DateModified" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="GroupBy" Value="System.ItemSearchLocation" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="ChildViewID" Value="$(var.GuidTopView6)" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.Size;0System.FileCount;0System.Author" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="IconSize" Value="96" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="LogicalViewMode" Value="3" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="Name" Value="@shell32.dll,-34818" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="Order" Value="2" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="PrimaryProperty" Value="System.Author" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="QueryType" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="SortByList" Value="prop:System.DefaultGroupOrder" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="StackBy" Value="System.Author" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="ChildViewID" Value="$(var.GuidTopView6)" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.Size;0System.FileCount;0System.Keywords" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="IconSize" Value="96" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="LogicalViewMode" Value="3" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="Name" Value="@shell32.dll,-34820" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="Order" Value="4" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="PrimaryProperty" Value="System.Keywords" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="QueryType" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="SortByList" Value="prop:System.DefaultGroupOrder" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="StackBy" Value="System.Keywords" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="GroupAscending" Value="0" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.ItemTypeText;0System.Size;0System.Keywords;0System.Author;1System.DateCreated;1System.ItemFolderPathDisplay;1System.Category;1System.Title" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="GroupBy" Value="System.DateModified" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="LogicalViewMode" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="Name" Value="@shell32.dll,-34819" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="Order" Value="3" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="PrimaryProperty" Value="System.DateModified" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="QueryType" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="SortByList" Value="prop:-System.DateModified" Type="string" />
-              <RegistryKey Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="ColumnList" Value="prop:0(34)System.ItemNameDisplay;0System.DateModified;0System.ItemTypeText;0System.Size;1System.DateCreated;1System.ItemFolderPathDisplay;1System.Author;1System.Category;1System.Keywords;1System.Title" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="LogicalViewMode" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="Name" Value="@shell32.dll,-34839" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="Order" Value="6" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="QueryType" Value="1" Type="integer" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="SortByList" Value="prop:System.ItemNameDisplay;-System.DateModified" Type="string" />
-
-              <RegistryKey   Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="CanonicalName" Value="SVNWCs.LibraryFolder" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="Parent" Value="$(var.GuidLibraryTypeSVN)" Type="string" />
-              <RegistryKey   Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Name="OverrideParentTopViews" Value="1" Type="integer" />
-              <?endif ?>
-
               <!-- no need to create these on x64 in the Wow6432Node too: these are only used by the explorer, and that one is 64-bit. If 
                    a user really starts the 32-bit explorer on win64 and these buttons aren't there, it won't be that bad -->
               <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TasksItemsSelected\0\$(var.GuidFolderTypeCmd0)" Action="createAndRemoveOnUninstall" />
@@ -708,20 +505,6 @@
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
-              <?if $(env.Platform) = "x64" ?>
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidConflict)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidModified)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidDropHandler)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidNormal)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidUncontrolled)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidReadonly)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
-              <?endif ?>
-
 
               <!-- Register custom protocol handlers -->
               <RegistryValue Root="HKLM" Key="Software\Classes\svn" Value="URL:SVN Protocol" Type="string" />
@@ -744,6 +527,219 @@
               <RegistryValue Root="HKLM" Key="Software\Classes\tsvncmd\DefaultIcon" Value="[INSTALLDIR]bin\TortoiseProc.exe" Type="string" />
               <RegistryValue Root="HKLM" Key="Software\Classes\tsvncmd\shell\open\command" Value="[INSTALLDIR]bin\TortoiseProc.exe /urlcmd:&quot;%1&quot;" Type="string" />
             </Component>
+
+            <?if $(env.Platform) = "x64" ?>
+            <Component Id="C__TortoiseSVN32" Guid="$(var.GuidTortoiseSVN32)" Win64="no">
+              <RegistryKey Root="HKLM" Key="Software\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Drive\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\Drive\shellex\PropertySheetHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Drive\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\Directory\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Directory\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\Directory\shellex\DragDropHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Directory\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidDropHandler)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\Directory\shellex\PropertySheetHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Directory\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\Directory\Background\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Directory\Background\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\Folder\shellex\ColumnHandlers\{$(var.GuidUncontrolled)}" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\Folder\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Folder\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{$(var.GuidDropHandler)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\LibraryLocation\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\LibraryLocation\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\LibraryFolder\background\shellex\ContextMenuHandlers\TortoiseSVN" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\LibraryFolder\background\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUncontrolled)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub32.dll" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\shellex\NoRecentDocs" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\Directory\shellex\CopyHookHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+
+              <RegistryKey Root="HKLM" Key="Software\[Manufacturer]" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[INSTALLDIR]bin\TortoiseProc.exe" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\[Manufacturer]" Name="CachePath" Value="[INSTALLDIR]bin\TSVNCache.exe" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[INSTALLDIR]bin\TortoiseMerge.exe" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Value="[INSTALLDIR]" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Name="Path" Value="[INSTALLDIR]bin" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Value="[INSTALLDIR]bin\SubWCRev.exe" Type="string" />
+
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Normal" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Normal" Name="SVN" Value="{$(var.GuidNormal)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Modified" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Modified" Name="SVN" Value="{$(var.GuidModified)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Conflict" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Conflict" Name="SVN" Value="{$(var.GuidConflict)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Deleted" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Deleted" Name="SVN" Value="{$(var.GuidDeleted)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\ReadOnly" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\ReadOnly" Name="SVN" Value="{$(var.GuidReadonly)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Locked" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Locked" Name="SVN" Value="{$(var.GuidLocked)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Added" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Added" Name="SVN" Value="{$(var.GuidAdded)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Ignored" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Ignored" Name="SVN" Value="{$(var.GuidIgnored)}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Action="create" />
+              <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Name="SVN" Value="{$(var.GuidUnversioned)}" Type="string" />
+
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="CanonicalName" Value="SVNWCs" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="class" Value="SVNWCs" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="LayoutType" Value="7" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="MostRelevant" Value="prop:System.Author;System.StructuredQuery.Virtual.Type;System.DateModified;System.Size;System.ItemNameDisplay;System.ItemFolderPathDisplay;System.Keywords;System.Title" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="PerceivedType" Value="6" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)" Name="theme" Value="SVNWCs" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="Library" Value="$(var.GuidLibraryTypeSVN)" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="LibraryFolder" Value="$(var.GuidLibraryFolderSVN)" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\Modifiers" Name="SearchResults" Value="{36011842-dccc-40fe-aa3d-6177ea401788}" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="ColumnList" Value="prop:0(34)System.ItemNameDisplay;0System.DateModified;0System.ItemTypeText;0System.Size;1System.DateCreated;1System.Author;1System.Category;1System.Keywords;1System.Title" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="Name" Value="NoName" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="SortByList" Value="prop:System.ItemNameDisplay" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="LogicalViewMode" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidFolderTypeSVN)\TopViews\{00000000-0000-0000-0000-000000000000}" Name="Order" Value="0" Type="integer" />
+
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Name="CanonicalName" Value="SVNWCs.Library" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)" Name="Parent" Value="$(var.GuidFolderTypeSVN)" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="ChildViewID" Value="$(var.GuidTopView6)" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.Size;0System.FileCount;0System.ItemTypeText" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="IconSize" Value="96" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="LogicalViewMode" Value="3" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="Name" Value="@shell32.dll,-34821" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="Order" Value="5" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="PrimaryProperty" Value="System.ItemTypeText" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="QueryType" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="SortByList" Value="prop:System.DefaultGroupOrder" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView1)" Name="StackBy" Value="System.ItemTypeText" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.Size;0System.FileCount;0System.ItemTypeText" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="LogicalViewMode" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="Name" Value="@shell32.dll,-34817" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="Order" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="PrimaryProperty" Value="System.ItemSearchLocation" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="SortByList" Value="prop:System.ItemNameDisplay;-System.DateModified" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView2)" Name="GroupBy" Value="System.ItemSearchLocation" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="ChildViewID" Value="$(var.GuidTopView6)" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.Size;0System.FileCount;0System.Author" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="IconSize" Value="96" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="LogicalViewMode" Value="3" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="Name" Value="@shell32.dll,-34818" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="Order" Value="2" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="PrimaryProperty" Value="System.Author" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="QueryType" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="SortByList" Value="prop:System.DefaultGroupOrder" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView3)" Name="StackBy" Value="System.Author" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="ChildViewID" Value="$(var.GuidTopView6)" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.Size;0System.FileCount;0System.Keywords" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="IconSize" Value="96" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="LogicalViewMode" Value="3" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="Name" Value="@shell32.dll,-34820" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="Order" Value="4" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="PrimaryProperty" Value="System.Keywords" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="QueryType" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="SortByList" Value="prop:System.DefaultGroupOrder" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView4)" Name="StackBy" Value="System.Keywords" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="GroupAscending" Value="0" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="ColumnList" Value="prop:0System.ItemNameDisplay;0System.DateModified;0System.ItemTypeText;0System.Size;0System.Keywords;0System.Author;1System.DateCreated;1System.ItemFolderPathDisplay;1System.Category;1System.Title" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="GroupBy" Value="System.DateModified" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="LogicalViewMode" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="Name" Value="@shell32.dll,-34819" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="Order" Value="3" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="PrimaryProperty" Value="System.DateModified" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="QueryType" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView5)" Name="SortByList" Value="prop:-System.DateModified" Type="string" />
+              <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="ColumnList" Value="prop:0(34)System.ItemNameDisplay;0System.DateModified;0System.ItemTypeText;0System.Size;1System.DateCreated;1System.ItemFolderPathDisplay;1System.Author;1System.Category;1System.Keywords;1System.Title" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="LogicalViewMode" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="Name" Value="@shell32.dll,-34839" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="Order" Value="6" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="QueryType" Value="1" Type="integer" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryTypeSVN)\TopViews\$(var.GuidTopView6)" Name="SortByList" Value="prop:System.ItemNameDisplay;-System.DateModified" Type="string" />
+
+              <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="CanonicalName" Value="SVNWCs.LibraryFolder" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)" Name="Parent" Value="$(var.GuidLibraryTypeSVN)" Type="string" />
+              <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Name="OverrideParentTopViews" Value="1" Type="integer" />
+
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidConflict)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidModified)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidDropHandler)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidNormal)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidUncontrolled)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidReadonly)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
+
+            </Component>
+            <?endif ?>
 
             <Component Id="C__TortoiseSVNShortcuts" Guid="$(var.GuidTortoiseSVNShortcuts)" Win64="$(var.Win64YesNo)">
               <RegistryValue Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />

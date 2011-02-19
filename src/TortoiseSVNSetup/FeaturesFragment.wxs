@@ -9,6 +9,9 @@
       <ComponentRef Id="C__gettext" />
       <ComponentRef Id="C__help_en" />
       <ComponentRef Id="C__TortoiseSVN" />
+      <?if $(env.Platform) = "x64" ?>
+      <ComponentRef Id="C__TortoiseSVN32" />
+      <?endif ?>
       <ComponentRef Id="C__TortoiseSVNShortcuts" />
       <ComponentRef Id="C__TortoiseMerge" />
       <ComponentRef Id="C__TortoiseMergeShortcuts" />
