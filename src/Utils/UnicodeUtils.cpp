@@ -157,7 +157,6 @@ char* CUnicodeUtils::UTF16ToUTF8
     else
     {
         *target = 0;
-        ++target;
     }
 
     return target-1;
@@ -284,7 +283,6 @@ wchar_t* CUnicodeUtils::UTF8ToUTF16
     else
     {
         *target = 0;
-        ++target;
     }
 
     return target-1;
