@@ -1982,15 +1982,15 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         return;
 
     int nLine = GetLineFromPoint(point);
-    if (nLine >= (int)m_Screen2View.size())
+    if (nLine > (int)m_Screen2View.size())
         return;
 
-    int viewLine = m_Screen2View[nLine];
+    int viewLine = m_Screen2View[nLine-1];
     if (m_nSelBlockEnd >= GetLineCount())
         m_nSelBlockEnd = GetLineCount()-1;
     if ((viewLine <= m_pViewData->GetCount())&&(nLine > m_nTopLine))
     {
-        int nIndex = viewLine - 1;
+        int nIndex = viewLine;
         int nLineIndex = nLine - 1;
         DiffStates state = m_pViewData->GetState(nIndex);
         if ((state != DIFFSTATE_NORMAL) && (state != DIFFSTATE_UNKNOWN))
