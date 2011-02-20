@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,17 +72,24 @@ bool DropExportCommand::Execute()
     }
     else
     {
+        bool bOverwrite = !!parser.HasKey(L"overwrite");
+        bool bAutorename = !!parser.HasKey(L"autorename");
+
         for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
         {
             CString dropper = droppath + _T("\\") + pathList[nPath].GetFileOrDirectoryName();
-            if (PathFileExists(dropper))
+            if ((!bOverwrite)||(PathFileExists(dropper)))
             {
                 CString sMsg;
                 CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
                 CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_RENAME));
                 CString sBtn3(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
                 sMsg.Format(IDS_PROC_OVERWRITEEXPORT, (LPCTSTR)dropper);
-                const UINT ret = CMessageBox::Show(GetExplorerHWND(), sMsg, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sBtn1, sBtn2, sBtn3);
+                UINT ret = 1;
+                if (bAutorename)
+                    ret = 2;
+                else
+                    ret = CMessageBox::Show(GetExplorerHWND(), sMsg, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sBtn1, sBtn2, sBtn3);
                 if (ret == 3)
                     return false;
                 if (ret==2)

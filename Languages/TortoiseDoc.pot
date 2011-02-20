@@ -1,22 +1,10 @@
-# Translation of the TortoiseSVN manual
-# Copyright (C) 2004-2011 the TortoiseSVN team
-# 
-# This file is distributed under the same license as TortoiseSVN
-# 
-# Last commit by:
-# $Author: luebbe.tortoisesvn $
-# $Date: 2010-11-19 08:33:50 +0100 (Fr, 19. Nov 2010) $
-# $Rev: 20507 $
-# 
-# Authors:
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
-"POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-02-17 07:26+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: TortoiseSVN <translators@tortoisesvn.tigris.org>\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-02-20 09:07 +0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11118,6 +11106,7 @@ msgstr ""
 #. (option)
 #. (option)
 #. (option)
+#. (option)
 msgid "/path"
 msgstr ""
 
@@ -11299,6 +11288,22 @@ msgstr ""
 
 #. (entry)
 msgid "Exports the working copy in <placeholder-1/> to another directory. If the <placeholder-2/> points to an unversioned directory, a dialog will ask for an URL to export to the directory in <placeholder-3/>. If you specify the key <placeholder-4/>, the automatic export path adjustments are blocked."
+msgstr ""
+
+#. (option)
+msgid "/droptarget"
+msgstr ""
+
+#. (option)
+msgid "/overwrite"
+msgstr ""
+
+#. (option)
+msgid "/autorename"
+msgstr ""
+
+#. (entry)
+msgid "Exports the working copy in <placeholder-1/> to the directory specified in <placeholder-2/>. This exporting does not use the export dialog but executes directly. The option <placeholder-3/> specifies that existing files are overwritten without user confirmation, and the option <placeholder-4/> specifies that if files already exist, the exported files get automatically renamed to avoid overwriting them."
 msgstr ""
 
 #. (option)

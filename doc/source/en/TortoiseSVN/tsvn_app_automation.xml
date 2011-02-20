@@ -306,6 +306,20 @@ Don't touch these lines:
                             </entry>
                         </row>
                         <row>
+                            <entry condition="pot">:dropexport</entry>
+                            <entry>
+                                Exports the working copy in <option>/path</option>
+                                to the directory specified in <option>/droptarget</option>.
+                                This exporting does not use the export dialog but
+                                executes directly. The option <option>/overwrite</option>
+                                specifies that existing files are overwritten without
+                                user confirmation, and the option <option>/autorename</option>
+                                specifies that if files already exist, the exported
+                                files get automatically renamed to avoid overwriting
+                                them.
+                            </entry>
+                        </row>
+                        <row>
                             <entry condition="pot">:merge</entry>
                             <entry>
                                 Opens the merge dialog. The <option>/path</option> specifies the
