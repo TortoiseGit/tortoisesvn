@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -184,6 +184,9 @@ LRESULT CMainWindow::DoCommand(int id)
     case ID_FILE_SAVEAS:
         loadOrSaveFile(false);
         break;
+    case ID_FILE_SAVE:
+        loadOrSaveFile(false, m_filename);
+        break;
     case ID_FILE_EXIT:
         ::PostQuitMessage(0);
         return 0;
@@ -335,6 +338,7 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
     }
     fclose(fp);
     SetupWindow(bUTF8);
+    m_filename = filename;
     return true;
 }
 
@@ -484,7 +488,7 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
     return false;
 }
 
-void CMainWindow::loadOrSaveFile(bool doLoad)
+void CMainWindow::loadOrSaveFile(bool doLoad, const wstring& filename /* = L"" */)
 {
     OPENFILENAME ofn = {0};             // common dialog box structure
     TCHAR szFile[MAX_PATH] = {0};       // buffer for file name
@@ -519,9 +523,14 @@ void CMainWindow::loadOrSaveFile(bool doLoad)
     }
     else
     {
-        if (GetSaveFileName(&ofn)==TRUE)
+        if (filename.empty())
         {
-            SaveFile(ofn.lpstrFile);
+            if (GetSaveFileName(&ofn)==TRUE)
+            {
+                SaveFile(ofn.lpstrFile);
+            }
         }
+        else
+            SaveFile(filename.c_str());
     }
 }
