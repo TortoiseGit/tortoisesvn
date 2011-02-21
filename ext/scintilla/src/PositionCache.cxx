@@ -30,6 +30,7 @@
 #include "ViewStyle.h"
 #include "CharClassify.h"
 #include "Decoration.h"
+#include "ILexer.h"
 #include "Document.h"
 #include "Selection.h"
 #include "PositionCache.h"
@@ -67,6 +68,8 @@ LineLayout::LineLayout(int maxLineLength_) :
 	widthLine(wrapWidthInfinite),
 	lines(1),
 	wrapIndent(0) {
+	bracePreviousStyles[0] = 0;
+	bracePreviousStyles[1] = 0;
 	Resize(maxLineLength_);
 }
 

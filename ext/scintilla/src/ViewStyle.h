@@ -20,6 +20,7 @@ public:
 	int width;
 	int mask;
 	bool sensitive;
+	int cursor;
 	MarginStyle();
 };
 
@@ -106,6 +107,7 @@ public:
 	int caretStyle;
 	int caretWidth;
 	bool someStylesProtected;
+	bool someStylesForceCase;
 	int extraFontFlag;
 	int extraAscent;
 	int extraDescent;
