@@ -569,33 +569,12 @@ static ENGINE *engine_capi(void)
 
 void ENGINE_load_capi(void)
 	{
-	DWORD dwType = 0;
-	DWORD dwData = 0;
-	DWORD dwDataSize = 4;
-	int bLoad = 1;
-#ifdef _WIN64
-	if (SHGetValue(HKEY_CURRENT_USER, L"Software\\TortoiseSVN", L"OpenSSLCapi", &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
-#else
-	if (SHGetValue(HKEY_CURRENT_USER, "Software\\TortoiseSVN", "OpenSSLCapi", &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
-#endif
-	{
-		if (dwType == REG_DWORD)
-		{
-			if (dwData == 0)
-			{
-				bLoad = 0;
-			}
-		}
-	}
-	if (bLoad)
-	{
-		/* Copied from eng_[openssl|dyn].c */
-		ENGINE *toadd = engine_capi();
-		if(!toadd) return;
-		ENGINE_add(toadd);
-		ENGINE_free(toadd);
-		ERR_clear_error();
-	}
+	/* Copied from eng_[openssl|dyn].c */
+	ENGINE *toadd = engine_capi();
+	if(!toadd) return;
+	ENGINE_add(toadd);
+	ENGINE_free(toadd);
+	ERR_clear_error();
 	}
 #endif
 
@@ -1837,6 +1816,8 @@ static int cert_select_dialog(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
 #else /* !__COMPILE_CAPIENG */
 #include <openssl/engine.h>
 #ifndef OPENSSL_NO_DYNAMIC_ENGINE
+OPENSSL_EXPORT
+int bind_engine(ENGINE *e, const char *id, const dynamic_fns *fns);
 OPENSSL_EXPORT
 int bind_engine(ENGINE *e, const char *id, const dynamic_fns *fns) { return 0; }
 IMPLEMENT_DYNAMIC_CHECK_FN()
