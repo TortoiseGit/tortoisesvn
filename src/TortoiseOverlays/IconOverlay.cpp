@@ -10,6 +10,21 @@
 //  that file. The Shell then adds the icon overlay to the system image list."
 STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
+    if(pwszIconFile == 0)
+        return E_POINTER;
+    if(pIndex == 0)
+        return E_POINTER;
+    if(pdwFlags == 0)
+        return E_POINTER;
+    if(cchMax < 1)
+        return E_INVALIDARG;
+
+    // Set "out parameters" in case we return S_FALSE or any code called from here
+    // forgets to set them.
+    *pwszIconFile = 0;
+    *pIndex = 0;
+    *pdwFlags = 0;
+
     int nInstalledOverlays = GetInstalledOverlays();
 
     // only a limited number of overlay slots can be used (determined by testing,
@@ -22,7 +37,6 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     // * UAC shield (Windows Vista+ only)
 
     const int nOverlayLimit = 12;
-
 
     bool dropIgnored = DropHandler(_T("ShowIgnoredOverlay"));
     if (dropIgnored)
@@ -83,16 +97,8 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     if ((m_State == FileStateLocked)&&(nInstalledOverlays > nOverlayLimit))
         return S_FALSE;     // don't show the 'locked' overlay
 
-    // Get folder icons from registry
-    // Default icons are stored in LOCAL MACHINE
-    // User selected icons are stored in CURRENT USER
-    TCHAR regVal[1024];
-    DWORD len = 1024;
-
-    wstring icon;
     wstring iconName;
 
-    HKEY hkeys [] = { HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE };
     switch (m_State)
     {
         case FileStateNormal        : iconName = _T("NormalIcon"); break;
@@ -106,28 +112,41 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
         case FileStateUnversioned   : iconName = _T("UnversionedIcon"); break;
     }
 
-    for (int i = 0; i < 2; ++i)
-    {
-        HKEY hkey = 0;
+    // Get folder icons from registry
+    // Default icons are stored in LOCAL MACHINE
+    // User selected icons are stored in CURRENT USER
+    TCHAR regVal[1024];
 
+    wstring icon;
+    HKEY hkeys [] = { HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE };
+    for (int i = 0; i < _countof(hkeys); ++i)
+    {
+        if (!icon.empty())
+            continue;
+
+        HKEY hkey = 0;
         if (::RegOpenKeyEx (hkeys[i],
             _T("Software\\TortoiseOverlays"),
                     0,
                     KEY_QUERY_VALUE,
                     &hkey) != ERROR_SUCCESS)
+        {
             continue;
+        }
 
-        if (icon.empty() == true
-            && (::RegQueryValueEx (hkey,
+        // in-out parameter, needs to be reinitialized prior to the call
+        DWORD len = _countof(regVal);
+        if (::RegQueryValueEx (hkey,
                              iconName.c_str(),
                              NULL,
                              NULL,
                              (LPBYTE) regVal,
-                             &len)) == ERROR_SUCCESS)
+                             &len) == ERROR_SUCCESS)
+        {
             icon.assign (regVal, len);
+        }
 
         ::RegCloseKey(hkey);
-
     }
 
     // now load the Tortoise handlers and call their GetOverlayInfo method
@@ -136,15 +155,18 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     LoadHandlers(pwszIconFile, cchMax, pIndex, pdwFlags);
 
     // Add name of appropriate icon
-    if (icon.empty() == false)
-        wcsncpy_s (pwszIconFile, cchMax, icon.c_str(), cchMax);
-    else
+    if (icon.empty())
         return S_FALSE;
+
+    if (icon.size() >= cchMax)
+        return E_INVALIDARG;
+
+    wcsncpy_s (pwszIconFile, cchMax, icon.c_str(), cchMax);
 
     *pIndex = 0;
     *pdwFlags = ISIOI_ICONFILE;
     return S_OK;
-};
+}
 
 STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 {

@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2010 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011 - TortoiseSVN
 
 #pragma once
 #include <vector>
@@ -25,9 +25,8 @@ enum FileState
     FileStateInvalid
 };
 
-class DLLPointers
+struct DLLPointers
 {
-public:
     DLLPointers() : hDll(NULL)
         , pDllGetClassObject(NULL)
         , pDllCanUnloadNow(NULL)

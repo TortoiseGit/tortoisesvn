@@ -29,9 +29,21 @@
 //  the name of the file containing the overlay image, and its index within
 //  that file. The Shell then adds the icon overlay to the system image list."
 
-STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR /*pwszIconFile*/, int /*cchMax*/, int * /*pIndex*/, DWORD * /*pdwFlags*/)
+STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int* pIndex, DWORD* pdwFlags)
 {
-    PreserveChdir preserveChdir;
+    if(pwszIconFile == 0)
+        return E_POINTER;
+    if(pIndex == 0)
+        return E_POINTER;
+    if(pdwFlags == 0)
+        return E_POINTER;
+    if(cchMax < 1)
+        return E_INVALIDARG;
+
+    // Set "out parameters" since we return S_OK later.
+    *pwszIconFile = 0;
+    *pIndex = 0;
+    *pdwFlags = 0;
 
     // Now here's where we can find out if due to lack of enough overlay
     // slots some of our overlays won't be shown.
@@ -53,7 +65,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR /*pwszIconFile*/, int /*cchMax*/, 
     // we don't have to set the icon file and/or the index here:
     // the icons are handled by the TortoiseOverlays dll.
     return S_OK;
-};
+}
 
 STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 {
