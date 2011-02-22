@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="all">
 
-  <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2008'}"/>
   <property name="solutionname" value="TortoiseSVN_VS10.sln" if="${studioversion == '2010'}"/>
 
   <target name="clean">
