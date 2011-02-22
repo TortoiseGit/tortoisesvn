@@ -63,7 +63,6 @@
     <cl outputdir="${configuration}${static}_${platform}">
       <arg value="/Ox" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration != 'release'}" />
-      <arg value="/GF" if="${configuration == 'release'}" />
       <arg value="/Gs" if="${configuration == 'release'}" />
       <arg value="/FD" />
       <arg value="/EHa-" />
@@ -78,6 +77,7 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/errorReport:prompt" />
+      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="buckets\*.c" />
         <include name="crypto\*.c" />
@@ -125,10 +125,11 @@
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
+    <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
     <if test="${static == 'static'}">
       <lib
                 output="${configuration}${static}_${platform}\libaprutil_tsvn.lib"
-                options='/NOLOGO /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil.pdb" /SUBSYSTEM:WINDOWS'>
+                options='/NOLOGO /DEBUG ${ltcg} /PDB:".\${configuration}${static}_${platform}/libaprutil.pdb" /SUBSYSTEM:WINDOWS'>
         <sources>
           <include name="${configuration}${static}_${platform}\*.obj" />
         </sources>
@@ -137,7 +138,7 @@
     <if test="${static != 'static'}">
       <link
                 output="${configuration}${static}_${platform}\libaprutil_tsvn${platext}.dll"
-                options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}${static}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+                options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}${static}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
         <sources>
           <include name="${configuration}${static}_${platform}\*.obj" />
         </sources>
