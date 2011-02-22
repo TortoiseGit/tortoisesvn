@@ -110,6 +110,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
         case FileStateAdded         : iconName = _T("AddedIcon"); break;
         case FileStateIgnored       : iconName = _T("IgnoredIcon"); break;
         case FileStateUnversioned   : iconName = _T("UnversionedIcon"); break;
+        default: return S_FALSE;
     }
 
     // Get folder icons from registry
@@ -280,6 +281,7 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
     case FileStateAdded         : name = _T("Software\\TortoiseOverlays\\Added"); break;
     case FileStateIgnored       : name = _T("Software\\TortoiseOverlays\\Ignored"); break;
     case FileStateUnversioned   : name = _T("Software\\TortoiseOverlays\\Unversioned"); break;
+    default: return;
     }
 
     HKEY hKey;
