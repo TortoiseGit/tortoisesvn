@@ -252,6 +252,7 @@ enum {
     KEX_DHGROUP1,
     KEX_DHGROUP14,
     KEX_DHGEX,
+    KEX_RSA,
     KEX_MAX
 };
 
@@ -347,6 +348,19 @@ enum {
     SER_FLOW_NONE, SER_FLOW_XONXOFF, SER_FLOW_RTSCTS, SER_FLOW_DSRDTR
 };
 
+/*
+ * Tables of string <-> enum value mappings used in settings.c.
+ * Defined here so that backends can export their GSS library tables
+ * to the cross-platform settings code.
+ */
+struct keyval { char *s; int v; };
+
+#ifndef NO_GSSAPI
+extern const int ngsslibs;
+extern const char *const gsslibnames[];/* for displaying in configuration */
+extern const struct keyval gsslibkeywords[];   /* for storing by settings.c */
+#endif
+
 extern const char *const ttymodes[];
 
 enum {
@@ -388,14 +402,12 @@ struct backend_tag {
      */
     void (*unthrottle) (void *handle, int);
     int (*cfg_info) (void *handle);
+    char *name;
+    int protocol;
     int default_port;
 };
 
-extern struct backend_list {
-    int protocol;
-    char *name;
-    Backend *backend;
-} backends[];
+extern Backend *backends[];
 
 /*
  * Suggested default protocol provided by the backend link module.
@@ -428,6 +440,7 @@ struct config_tag {
     int ping_interval;		       /* in seconds */
     int tcp_nodelay;
     int tcp_keepalives;
+    char loghost[512];  /* logical host being contacted, for host key check */
     /* Proxy options */
     char proxy_exclude_list[512];
     int proxy_dns;
@@ -457,8 +470,13 @@ struct config_tag {
     int sshprot;		       /* use v1 or v2 when both available */
     int ssh2_des_cbc;		       /* "des-cbc" unrecommended SSH-2 cipher */
     int ssh_no_userauth;	       /* bypass "ssh-userauth" (SSH-2 only) */
+    int ssh_show_banner;	       /* show USERAUTH_BANNERs (SSH-2 only) */
     int try_tis_auth;
     int try_ki_auth;
+    int try_gssapi_auth;               /* attempt gssapi auth */
+    int gssapifwd;                     /* forward tgt via gss */
+    int ssh_gsslist[4];		       /* preference order for local GSS libs */
+    Filename ssh_gss_custom;
     int ssh_subsys;		       /* run a subsystem rather than a command */
     int ssh_subsys2;		       /* fallback to go with remote_cmd_ptr2 */
     int ssh_no_shell;		       /* avoid running a shell */
@@ -470,6 +488,7 @@ struct config_tag {
     char ttymodes[768];		       /* MODE\tVvalue\0MODE\tA\0\0 */
     char environmt[1024];	       /* VAR\tvalue\0VAR\tvalue\0\0 */
     char username[100];
+    int username_from_env;
     char localusername[100];
     int rfc_environ;
     int passive_telnet;
@@ -570,6 +589,7 @@ struct config_tag {
     int x11_forward;
     char x11_display[128];
     int x11_auth;
+    Filename xauthfile;
     /* port forwarding */
     int lport_acceptall; /* accept conns from hosts other than localhost */
     int rport_acceptall; /* same for remote forwarded ports (SSH-2 only) */
@@ -588,7 +608,14 @@ struct config_tag {
     /* SSH bug compatibility modes */
     int sshbug_ignore1, sshbug_plainpw1, sshbug_rsa1,
 	sshbug_hmac2, sshbug_derivekey2, sshbug_rsapad2,
-	sshbug_pksessid2, sshbug_rekey2;
+	sshbug_pksessid2, sshbug_rekey2, sshbug_maxpkt2,
+	sshbug_ignore2;
+    /*
+     * ssh_simple means that we promise never to open any channel other
+     * than the main one, which means it can safely use a very large
+     * window in SSH-2.
+     */
+    int ssh_simple;
     /* Options for pterm. Should split out into platform-dependent part. */
     int stamp_utmp;
     int login_shell;
@@ -598,6 +625,8 @@ struct config_tag {
     FontSpec widefont;
     FontSpec wideboldfont;
     int shadowboldoffset;
+    int crhaslf;
+    char winclass[256];
 };
 
 /*
@@ -639,6 +668,10 @@ GLOBAL int default_port;
  * This is set TRUE by cmdline.c iff a session is loaded with "-load".
  */
 GLOBAL int loaded_session;
+/*
+ * This is set to the name of the loaded session.
+ */
+GLOBAL char *cmdline_session_name;
 
 struct RSAKey;			       /* be a little careful of scope */
 
@@ -677,7 +710,8 @@ typedef struct {
     int name_reqd;	/* Display of `name' required or optional? */
     char *instruction;	/* Long description, maybe with embedded newlines */
     int instr_reqd;	/* Display of `instruction' required or optional? */
-    size_t n_prompts;
+    size_t n_prompts;   /* May be zero (in which case display the foregoing,
+                         * if any, and return success) */
     prompt_t **prompts;
     void *frontend;
     void *data;		/* slot for housekeeping data, managed by
@@ -777,6 +811,9 @@ void random_destroy_seed(void);
 /*
  * Exports from settings.c.
  */
+Backend *backend_from_name(const char *name);
+Backend *backend_from_proto(int proto);
+int get_remote_username(Config *cfg, char *user, size_t len);
 char *save_settings(char *section, Config * cfg);
 void save_open_settings(void *sesskey, Config *cfg);
 void load_settings(char *section, Config * cfg);
@@ -810,6 +847,7 @@ void term_free(Terminal *);
 void term_size(Terminal *, int, int, int);
 void term_paint(Terminal *, Context, int, int, int, int, int);
 void term_scroll(Terminal *, int, int);
+void term_scroll_to_selection(Terminal *, int);
 void term_pwron(Terminal *, int);
 void term_clrsb(Terminal *);
 void term_mouse(Terminal *, Mouse_Button, Mouse_Button, Mouse_Action,
@@ -839,6 +877,8 @@ char *term_get_ttymode(Terminal *term, const char *mode);
 int term_get_userpass_input(Terminal *term, prompts_t *p,
 			    unsigned char *in, int inlen);
 
+int format_arrow_key(char *buf, Terminal *term, int xkey, int ctrl);
+
 /*
  * Exports from logging.c.
  */
@@ -858,8 +898,9 @@ struct logblank_t {
     int type;
 };
 void log_packet(void *logctx, int direction, int type,
-		char *texttype, void *data, int len,
-		int n_blanks, const struct logblank_t *blanks);
+		char *texttype, const void *data, int len,
+		int n_blanks, const struct logblank_t *blanks,
+		const unsigned long *sequence);
 
 /*
  * Exports from testback.c
@@ -1210,5 +1251,16 @@ long schedule_timer(int ticks, timer_fn_t fn, void *ctx);
 void expire_timer_context(void *ctx);
 int run_timers(long now, long *next);
 void timer_change_notify(long next);
+
+/*
+ * Define no-op macros for the jump list functions, on platforms that
+ * don't support them. (This is a bit of a hack, and it'd be nicer to
+ * localise even the calls to those functions into the Windows front
+ * end, but it'll do for the moment.)
+ */
+#ifndef JUMPLIST_SUPPORTED
+#define add_session_to_jumplist(x) ((void)0)
+#define remove_session_from_jumplist(x) ((void)0)
+#endif
 
 #endif
