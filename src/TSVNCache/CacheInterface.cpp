@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007,2009-2010 - TortoiseSVN
+// External Cache Copyright (C) 2007,2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,10 +39,10 @@ CString GetCacheID()
 {
     CString t;
     HANDLE token;
-    DWORD len;
     BOOL result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token);
     if(result)
     {
+        DWORD len = 0;
         GetTokenInformation(token, TokenStatistics, NULL, 0, &len);
         if (len >= sizeof (TOKEN_STATISTICS))
         {

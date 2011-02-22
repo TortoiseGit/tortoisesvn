@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -101,68 +101,64 @@ void CShellUpdater::UpdateShell()
         NULL);                          // no template file
 
 
-    if (hPipe != INVALID_HANDLE_VALUE)
+    if (hPipe == INVALID_HANDLE_VALUE)
+        return;
+
+    // The pipe connected; change to message-read mode.
+    DWORD dwMode = PIPE_READMODE_MESSAGE;
+    if(SetNamedPipeHandleState(
+         hPipe,    // pipe handle
+         &dwMode,  // new pipe mode
+         NULL,     // don't set maximum bytes
+         NULL) == 0)    // don't set maximum time
     {
-        // The pipe connected; change to message-read mode.
-        DWORD dwMode;
+        ATLTRACE("SetNamedPipeHandleState failed");
+        CloseHandle(hPipe);
+        return;
+    }
 
-        dwMode = PIPE_READMODE_MESSAGE;
-        if(SetNamedPipeHandleState(
-            hPipe,    // pipe handle
-            &dwMode,  // new pipe mode
-            NULL,     // don't set maximum bytes
-            NULL))    // don't set maximum time
+    for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
+    {
+        ATLTRACE(_T("Cache Item Update for %s (%d)\n"), m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
+        if (!m_pathsForUpdating[nPath].IsDirectory())
         {
-            for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
-            {
-                ATLTRACE(_T("Cache Item Update for %s (%d)\n"), m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
-                if (!m_pathsForUpdating[nPath].IsDirectory())
-                {
-                    // send notifications to the shell for changed files - folders are updated by the cache itself.
-                    SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_pathsForUpdating[nPath].GetWinPath(), NULL);
-                }
-                DWORD cbWritten;
-                TSVNCacheCommand cmd;
-                cmd.command = TSVNCACHECOMMAND_CRAWL;
-                wcsncpy_s(cmd.path, m_pathsForUpdating[nPath].GetDirectory().GetWinPath(), _countof(cmd.path)-1);
-                BOOL fSuccess = WriteFile(
-                    hPipe,          // handle to pipe
-                    &cmd,           // buffer to write from
-                    sizeof(cmd),    // number of bytes to write
-                    &cbWritten,     // number of bytes written
-                    NULL);          // not overlapped I/O
-
-                if (! fSuccess || sizeof(cmd) != cbWritten)
-                {
-                    DisconnectNamedPipe(hPipe);
-                    CloseHandle(hPipe);
-                    hPipe = INVALID_HANDLE_VALUE;
-                    break;
-                }
-            }
-            if (hPipe != INVALID_HANDLE_VALUE)
-            {
-                // now tell the cache we don't need it's command thread anymore
-                DWORD cbWritten;
-                TSVNCacheCommand cmd;
-                cmd.command = TSVNCACHECOMMAND_END;
-                WriteFile(
-                    hPipe,          // handle to pipe
-                    &cmd,           // buffer to write from
-                    sizeof(cmd),    // number of bytes to write
-                    &cbWritten,     // number of bytes written
-                    NULL);          // not overlapped I/O
-                DisconnectNamedPipe(hPipe);
-                CloseHandle(hPipe);
-                hPipe = INVALID_HANDLE_VALUE;
-            }
+            // send notifications to the shell for changed files - folders are updated by the cache itself.
+            SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_pathsForUpdating[nPath].GetWinPath(), NULL);
         }
-        else
+        TSVNCacheCommand cmd;
+        cmd.command = TSVNCACHECOMMAND_CRAWL;
+        wcsncpy_s(cmd.path, m_pathsForUpdating[nPath].GetDirectory().GetWinPath(), _countof(cmd.path)-1);
+        DWORD cbWritten;
+        BOOL fSuccess = WriteFile(
+            hPipe,          // handle to pipe
+            &cmd,           // buffer to write from
+            sizeof(cmd),    // number of bytes to write
+            &cbWritten,     // number of bytes written
+            NULL);          // not overlapped I/O
+
+        if (! fSuccess || sizeof(cmd) != cbWritten)
         {
-            ATLTRACE("SetNamedPipeHandleState failed");
+            DisconnectNamedPipe(hPipe);
             CloseHandle(hPipe);
+            hPipe = INVALID_HANDLE_VALUE;
+            break;
         }
     }
+    if (hPipe == INVALID_HANDLE_VALUE)
+        return;
+
+    // now tell the cache we don't need it's command thread anymore
+    TSVNCacheCommand cmd;
+    cmd.command = TSVNCACHECOMMAND_END;
+    DWORD cbWritten;
+    WriteFile(
+        hPipe,          // handle to pipe
+        &cmd,           // buffer to write from
+        sizeof(cmd),    // number of bytes to write
+        &cbWritten,     // number of bytes written
+        NULL);          // not overlapped I/O
+    DisconnectNamedPipe(hPipe);
+    CloseHandle(hPipe);
 }
 
 bool CShellUpdater::RebuildIcons()

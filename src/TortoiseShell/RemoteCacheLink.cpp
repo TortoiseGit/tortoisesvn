@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -330,28 +330,23 @@ bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
 
 DWORD CRemoteCacheLink::GetProcessIntegrityLevel()
 {
-    HANDLE hToken;
-    HANDLE hProcess;
-
-    DWORD dwLengthNeeded;
-    DWORD dwError = ERROR_SUCCESS;
-
-    PTOKEN_MANDATORY_LABEL pTIL = NULL;
     DWORD dwIntegrityLevel = SECURITY_MANDATORY_MEDIUM_RID;
 
-    hProcess = GetCurrentProcess();
+    HANDLE hProcess = GetCurrentProcess();
+    HANDLE hToken;
     if (OpenProcessToken(hProcess, TOKEN_QUERY |
         TOKEN_QUERY_SOURCE, &hToken))
     {
         // Get the Integrity level.
+        DWORD dwLengthNeeded;
         if (!GetTokenInformation(hToken, TokenIntegrityLevel,
             NULL, 0, &dwLengthNeeded))
         {
-            dwError = GetLastError();
+            DWORD dwError = GetLastError();
             if (dwError == ERROR_INSUFFICIENT_BUFFER)
             {
-                pTIL = (PTOKEN_MANDATORY_LABEL)LocalAlloc(0,
-                    dwLengthNeeded);
+                PTOKEN_MANDATORY_LABEL pTIL =
+                    (PTOKEN_MANDATORY_LABEL)LocalAlloc(0, dwLengthNeeded);
                 if (pTIL != NULL)
                 {
                     if (GetTokenInformation(hToken, TokenIntegrityLevel,

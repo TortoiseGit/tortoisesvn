@@ -131,6 +131,21 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
     return NULL;    // never reached, only to silence compiler warning
 }
 
+static HWND CreateHiddenWindow(HINSTANCE hInstance)
+{
+    TCHAR szWindowClass[] = {TSVN_CACHE_WINDOW_NAME};
+
+    WNDCLASSEX wcex = {};
+    wcex.cbSize = sizeof(WNDCLASSEX);
+    wcex.style          = CS_HREDRAW | CS_VREDRAW;
+    wcex.lpfnWndProc    = (WNDPROC)WndProc;
+    wcex.hInstance      = hInstance;
+    wcex.lpszClassName  = szWindowClass;
+    RegisterClassEx(&wcex);
+    HWND hWnd = CreateWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME, WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
+    return hWnd;
+}
+
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
     SetDllDirectory(L"");
@@ -157,27 +172,8 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
     SecureZeroMemory(szCurrentCrawledPath, sizeof(szCurrentCrawledPath));
 
-    HANDLE hPipeThread;
-    HANDLE hCommandWaitThread;
-    MSG msg;
-    TCHAR szWindowClass[] = {TSVN_CACHE_WINDOW_NAME};
-
     // create a hidden window to receive window messages.
-    WNDCLASSEX wcex;
-    wcex.cbSize = sizeof(WNDCLASSEX);
-    wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = (WNDPROC)WndProc;
-    wcex.cbClsExtra     = 0;
-    wcex.cbWndExtra     = 0;
-    wcex.hInstance      = hInstance;
-    wcex.hIcon          = 0;
-    wcex.hCursor        = 0;
-    wcex.hbrBackground  = 0;
-    wcex.lpszMenuName   = NULL;
-    wcex.lpszClassName  = szWindowClass;
-    wcex.hIconSm        = 0;
-    RegisterClassEx(&wcex);
-    hWnd = CreateWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME, WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
+    hWnd = CreateHiddenWindow(hInstance);
     hTrayWnd = hWnd;
     if (hWnd == NULL)
     {
@@ -221,28 +217,26 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
     // Create a thread which waits for incoming pipe connections
     unsigned int threadId = 0;
-    hPipeThread = (HANDLE)_beginthreadex(NULL, 0, PipeThread, &bRun, 0, &threadId);
 
+    HANDLE hPipeThread = (HANDLE)_beginthreadex(NULL, 0, PipeThread, &bRun, 0, &threadId);
     if (hPipeThread == NULL)
-    {
         return 0;
-    }
-    else CloseHandle(hPipeThread);
+    else
+        CloseHandle(hPipeThread);
 
     // Create a thread which waits for incoming pipe connections
-    hCommandWaitThread = (HANDLE)_beginthreadex(NULL, 0, CommandWaitThread, &bRun, 0, &threadId);
+    HANDLE hCommandWaitThread =
+        (HANDLE)_beginthreadex(NULL, 0, CommandWaitThread, &bRun, 0, &threadId);
     if (hCommandWaitThread == NULL)
-    {
         return 0;
-    }
-    else CloseHandle(hCommandWaitThread);
-
+    else
+        CloseHandle(hCommandWaitThread);
 
     // loop to handle window messages.
-    BOOL bLoopRet;
+    MSG msg;
     while (bRun)
     {
-        bLoopRet = GetMessage(&msg, NULL, 0, 0);
+        const BOOL bLoopRet = GetMessage(&msg, NULL, 0, 0);
         if ((bLoopRet != -1)&&(bLoopRet != 0))
         {
             DispatchMessage(&msg);
@@ -276,11 +270,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case WM_MOUSEMOVE:
             {
                 CString sInfoTip;
-                NOTIFYICONDATA SystemTray;
                 sInfoTip.Format(_T("Cached Directories : %ld\nWatched paths : %ld"),
                     CSVNStatusCache::Instance().GetCacheSize(),
                     CSVNStatusCache::Instance().GetNumberOfWatchedPaths());
 
+                NOTIFYICONDATA SystemTray = {};
                 SystemTray.cbSize = sizeof(NOTIFYICONDATA);
                 SystemTray.hWnd   = hTrayWnd;
                 SystemTray.uID    = TRAY_ID;
