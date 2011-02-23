@@ -155,7 +155,7 @@
           </sources>
         </lib>
       </do>
-    </foreach> -->
+    </foreach>
     <copy file="subversion\svn_private_config.hw" tofile="subversion\svn_private_config.h" overwrite="true" />
     <foreach item="Folder" property="foldername">
       <in>
