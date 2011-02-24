@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2007, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -199,7 +199,7 @@ void TestHuffman()
 
         assert (memcmp (origBuffer.get(), decodedBuffer.get(), dataSize) == 0);
 
-        delete encodedBuffer.first;
+        delete[] encodedBuffer.first;
     }
 }
 
@@ -217,7 +217,7 @@ void BenchmarkHuffman()
     CHighResClock clock1;
     for (int i = 0; i < RUN_COUNT; ++i)
     {
-        delete CHuffmanEncoder().Encode (data, DATA_SIZE).first;
+        delete[] CHuffmanEncoder().Encode (data, DATA_SIZE).first;
     }
     clock1.Stop();
 
@@ -236,7 +236,7 @@ void BenchmarkHuffman()
     }
     clock2.Stop();
 
-    delete compressed.first;
+    delete[] compressed.first;
 
     CStringA s;
     s.Format ("compressed %d MB in %5.3f secs = %5.2f MB/sec (%2.1f ticks / byte)\n"
