@@ -97,7 +97,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     if ((m_State == FileStateLocked)&&(nInstalledOverlays > nOverlayLimit))
         return S_FALSE;     // don't show the 'locked' overlay
 
-    wstring iconName;
+    const TCHAR* iconName = 0;
 
     switch (m_State)
     {
@@ -138,7 +138,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
         // in-out parameter, needs to be reinitialized prior to the call
         DWORD len = _countof(regVal);
         if (::RegQueryValueEx (hkey,
-                             iconName.c_str(),
+                             iconName,
                              NULL,
                              NULL,
                              (LPBYTE) regVal,
@@ -159,7 +159,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     if (icon.empty())
         return S_FALSE;
 
-    if (icon.size() >= cchMax)
+    if (icon.size() >= (size_t)cchMax)
         return E_INVALIDARG;
 
     wcsncpy_s (pwszIconFile, cchMax, icon.c_str(), cchMax);
@@ -269,7 +269,7 @@ int CShellExt::GetInstalledOverlays()
 
 void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
-    wstring name;
+    const TCHAR* name = 0;
     switch (m_State)
     {
     case FileStateNormal        : name = _T("Software\\TortoiseOverlays\\Normal"); break;
@@ -286,7 +286,7 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
 
     HKEY hKey;
     if (RegOpenKeyEx(HKEY_LOCAL_MACHINE,
-        name.c_str(),
+        name,
         0, KEY_READ, &hKey)==ERROR_SUCCESS)
     {
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
