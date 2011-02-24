@@ -1200,6 +1200,8 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
 {
     m_Revision = SVNRev(_T("HEAD"));
     m_RevisionEnd = 0;
+    m_bLockWarning = false;
+    m_bLockExists = false;
     m_bCancelled = FALSE;
     m_nConflicts = 0;
     m_bConflictWarningShown = false;
@@ -1227,6 +1229,9 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
     m_ProgList.SetRedraw(TRUE);
 
     m_bNoHooks = true;
+
+    SetTimer(VISIBLETIMER, 300, NULL);
+    SetDlgItemText(IDC_INFOTEXT, L"");
 
     m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
     if (m_pThread==NULL)
