@@ -164,15 +164,13 @@ void CShellUpdater::UpdateShell()
 bool CShellUpdater::RebuildIcons()
 {
     const int BUFFER_SIZE = 1024;
-    TCHAR *buf = NULL;
+    TCHAR buf[BUFFER_SIZE];
     HKEY hRegKey = 0;
     DWORD dwRegValue;
     DWORD dwRegValueTemp;
     DWORD dwSize;
     DWORD_PTR dwResult;
     LONG lRegResult;
-    std::wstring sRegValueName;
-    std::wstring sDefaultIconSize;
     bool bResult = false;
 
     lRegResult = RegOpenKeyEx(HKEY_CURRENT_USER, _T("Control Panel\\Desktop\\WindowMetrics"),
@@ -180,16 +178,12 @@ bool CShellUpdater::RebuildIcons()
     if (lRegResult != ERROR_SUCCESS)
         goto Cleanup;
 
-    buf = new TCHAR[BUFFER_SIZE];
-    if(buf == NULL)
-        goto Cleanup;
-
     // we're going to change the Shell Icon Size value
-    sRegValueName = _T("Shell Icon Size");
+    const TCHAR* sRegValueName = _T("Shell Icon Size");
 
     // Read registry value
     dwSize = BUFFER_SIZE;
-    lRegResult = RegQueryValueEx(hRegKey, sRegValueName.c_str(), NULL, NULL,
+    lRegResult = RegQueryValueEx(hRegKey, sRegValueName, NULL, NULL,
         (LPBYTE) buf, &dwSize);
     if (lRegResult != ERROR_FILE_NOT_FOUND)
     {
@@ -207,7 +201,7 @@ bool CShellUpdater::RebuildIcons()
     dwRegValueTemp = dwRegValue-1;
 
     dwSize = _sntprintf_s(buf, BUFFER_SIZE, BUFFER_SIZE, _T("%d"), dwRegValueTemp) + sizeof(TCHAR);
-    lRegResult = RegSetValueEx(hRegKey, sRegValueName.c_str(), 0, REG_SZ,
+    lRegResult = RegSetValueEx(hRegKey, sRegValueName, 0, REG_SZ,
         (LPBYTE) buf, dwSize);
     if (lRegResult != ERROR_SUCCESS)
         goto Cleanup;
@@ -219,7 +213,7 @@ bool CShellUpdater::RebuildIcons()
 
     // Reset registry value
     dwSize = _sntprintf_s(buf, BUFFER_SIZE, BUFFER_SIZE, _T("%d"), dwRegValue) + sizeof(TCHAR);
-    lRegResult = RegSetValueEx(hRegKey, sRegValueName.c_str(), 0, REG_SZ,
+    lRegResult = RegSetValueEx(hRegKey, sRegValueName, 0, REG_SZ,
         (LPBYTE) buf, dwSize);
     if(lRegResult != ERROR_SUCCESS)
         goto Cleanup;
@@ -235,7 +229,5 @@ Cleanup:
     {
         RegCloseKey(hRegKey);
     }
-    delete [] buf;
-
     return bResult;
 }
