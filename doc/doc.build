@@ -253,8 +253,13 @@ All user/site specific configuration is stored in doc.build.user.
     <!-- Could be smart to replace the comma delimiters in potemplates by spaces 
          and use this instead on the command line -->
     <exec program="msgcat"
-          commandline="TortoiseSVN.pot TortoiseMerge.pot --use-first --no-wrap -o ../Languages/TortoiseDoc.pot"
+          commandline="../Languages/TortoiseDocPotHeader.txt TortoiseSVN.pot TortoiseMerge.pot --use-first --no-wrap -o ../Languages/TortoiseDoc.pot"
           basedir="${path.gettext}"
+          verbose="false"/>
+
+    <exec program="unix2dos"
+          commandline="../Languages/TortoiseDoc.pot"
+          basedir="../Languages/"
           verbose="false"/>
 
     <delete file="TortoiseSVN.pot"/>
