@@ -143,11 +143,11 @@
               <RegistryValue Root="HKLM" Key="Software\Classes\SubWCRev.object.1\CLSID" Value="{$(var.GuidSubWCRev)}" Type="string" />
 
               <RegistryKey Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}" Action="createAndRemoveOnUninstall" />
-              <RegistryValue Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0" Value="LibSubWCRev" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0" Value="SubWCRev Type Library" Type="string" />
               <RegistryKey Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\0" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\0\win32" Value="[INSTALLDIR]bin\SubWCRevCOM.exe" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\FLAGS" Value="0" Type="string" />
-              <RegistryValue Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\HELPDIR" Value="[INSTALLDIR]" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\FLAGS" Value="0" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Classes\TypeLib\{$(var.GuidSubWCRevTypeLib)}\1.0\HELPDIR" Value="[INSTALLDIR]" Type="string" />
 
               <RegistryKey Root="HKLM" Key="Software\Classes\Interface\{$(var.GuidSubWCRevInterface)}" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Classes\Interface\{$(var.GuidSubWCRevInterface)}" Value="ISubWCRev" Type="string" />
