@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -198,11 +198,14 @@ std::string SVNExternals::GetValue(const CTSVNPath& path)
             else
                 peg.Empty();
 
+            CString targetDir = it->targetDir;
+            if (targetDir.Find(' ')>=0)
+                targetDir = L"'" + targetDir + L"'";
             CString temp;
             if (rev.IsValid() && !rev.IsHead())
-                temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, it->targetDir);
+                temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, targetDir);
             else
-                temp.Format(_T("%s%s %s"), it->url, (LPCTSTR)peg, it->targetDir);
+                temp.Format(_T("%s%s %s"), it->url, (LPCTSTR)peg, targetDir);
             if (ret.size())
                 ret += "\n";
             ret += CUnicodeUtils::StdGetUTF8((LPCTSTR)temp);
