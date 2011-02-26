@@ -572,9 +572,11 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                                     false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                                 if (!ret)
                                 {
+                                    prog.Stop();
                                     props.ShowErrorDialog(m_hWnd, props.GetPath().GetDirectory());
                                     if (props.GetSVNError()->apr_err == SVN_ERR_CANCELLED)
                                         break;
+                                    prog.ShowModeless(m_hWnd);
                                 }
                                 else
                                 {
@@ -603,7 +605,9 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                                 false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
                             if (!ret)
                             {
+                                prog.Stop();
                                 props.ShowErrorDialog(m_hWnd, props.GetPath().GetDirectory());
+                                prog.ShowModeless(m_hWnd);
                             }
                             else
                             {
