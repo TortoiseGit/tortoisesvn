@@ -169,7 +169,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
     ::ShowWindow(wEditor, SW_HIDE);
 
     FILE * File = NULL;
-    int retrycount = 5;
+    int retrycount = 10;
     while (retrycount)
     {
         _tfopen_s(&File, fileName, _T("rb"));
