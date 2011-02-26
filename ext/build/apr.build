@@ -113,6 +113,7 @@
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
+    <property name="ltcg" value ="" if="${configuration != 'release'}" />
     <if test="${static == 'static'}">
       <lib
                 output="${configuration}${static}_${platform}\libapr_tsvn.lib"

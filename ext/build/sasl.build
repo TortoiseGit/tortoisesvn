@@ -81,6 +81,7 @@
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
     <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
+    <property name="ltcg" value ="" if="${configuration != 'release'}" />
 
     <lib
       output="${configuration}${static}_${platform}\libsasls.lib"
@@ -156,6 +157,7 @@
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
     <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
+    <property name="ltcg" value ="" if="${configuration != 'release'}" />
     <link
       output="${configuration}${static}_${platform}\libsasl.dll"
       options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libsasl.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/libsasl.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
@@ -241,6 +243,7 @@
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
     <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
+    <property name="ltcg" value ="" if="${configuration != 'release'}" />
 
     <link
       output="${configuration}${static}_${platform}\saslANONYMOUS.dll"

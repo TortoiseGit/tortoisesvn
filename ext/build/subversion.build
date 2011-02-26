@@ -145,6 +145,7 @@
           </defines>
         </cl>
         <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
+        <property name="ltcg" value ="" if="${configuration != 'release'}" />
         <lib
           output="${configuration}${static}_${platform}\${fname}-nonet.lib"
           options='/NOLOGO ${ltcg} /SUBSYSTEM:WINDOWS ${machineoption}'>
@@ -235,6 +236,7 @@
           </defines>
         </cl>
         <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
+        <property name="ltcg" value ="" if="${configuration != 'release'}" />
         <lib
           output="${configuration}${static}_${platform}\${fname}.lib"
           options='/NOLOGO ${ltcg} /SUBSYSTEM:WINDOWS ${machineoption}'>
@@ -339,6 +341,7 @@
           <property name="confletter" value="D" />
         </if>
         <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
+        <property name="ltcg" value ="" if="${configuration != 'release'}" />
         <link
           output="${configuration}${static}_${platform}\${toolname}.exe"
           options='/INCREMENTAL:NO ${ltcg} /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\${toolname}.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/${toolname}.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}${static}_${platform}\libsvn_client.lib ${configuration}${static}_${platform}\libsvn_delta.lib ${configuration}${static}_${platform}\libsvn_diff.lib ${configuration}${static}_${platform}\libsvn_fs.lib ${configuration}${static}_${platform}\libsvn_fs_fs.lib ${configuration}${static}_${platform}\libsvn_fs_util.lib ${configuration}${static}_${platform}\libsvn_ra.lib ${configuration}${static}_${platform}\libsvn_ra_neon.lib ${configuration}${static}_${platform}\libsvn_ra_serf.lib ${configuration}${static}_${platform}\libsvn_ra_local.lib ${configuration}${static}_${platform}\libsvn_ra_svn.lib ${configuration}${static}_${platform}\libsvn_repos.lib ${configuration}${static}_${platform}\libsvn_subr.lib ${configuration}${static}_${platform}\libsvn_wc.lib ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}${static}_${platform}\libaprutil_tsvn.lib ..\neon\${configuration}${static}_${platform}\libneon.lib ..\serf\${configuration}${static}_${platform}\libserf.lib ..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\libintl\${configuration}_${platform}\lib\intl3_tsvn.lib ..\cyrus-SASL\${configuration}${static}_${platform}\libsasl.lib ${machineoption} ${configuration}${static}_${platform}\svn.res ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib Secur32.lib Crypt32.lib'>
