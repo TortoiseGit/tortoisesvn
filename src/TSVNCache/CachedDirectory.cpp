@@ -21,9 +21,10 @@
 #include "SVNHelpers.h"
 #include "SVNStatusCache.h"
 #include "SVNStatus.h"
+#include "UnicodeUtils.h"
 #include <set>
 
-#define CACHEDIRECTORYDISKVERSION 2
+#define CACHEDIRECTORYDISKVERSION 3
 
 CCachedDirectory::CCachedDirectory(void)
     : m_wcDbFileTime(0)
@@ -64,12 +65,12 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
     // now iterate through the maps and save every entry.
     for (CacheEntryMap::iterator I = m_entryCache.begin(); I != m_entryCache.end(); ++I)
     {
-        const CString& key = I->first;
+        const CStringA& key = I->first;
         value = key.GetLength();
         WRITEVALUETOFILE(value);
         if (value)
         {
-            if (fwrite((LPCTSTR)key, sizeof(TCHAR), value, pFile)!=value)
+            if (fwrite((LPCSTR)key, sizeof(char), value, pFile)!=value)
                 return false;
             if (!I->second.SaveToDisk(pFile))
                 return false;
@@ -79,12 +80,11 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
     WRITEVALUETOFILE(value);
     for (ChildDirStatus::iterator I = m_childDirectories.begin(); I != m_childDirectories.end(); ++I)
     {
-        const CString& path = I->first.GetWinPathString();
-        value = path.GetLength();
+        value = I->first.GetLength();
         WRITEVALUETOFILE(value);
         if (value)
         {
-            if (fwrite((LPCTSTR)path, sizeof(TCHAR), value, pFile)!=value)
+            if (fwrite((LPCSTR)I->first, sizeof(char), value, pFile)!=value)
                 return false;
             svn_wc_status_kind status = I->second;
             WRITEVALUETOFILE(status);
@@ -115,6 +115,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
         LOADVALUEFROMFILE(value);
         if (value != CACHEDIRECTORYDISKVERSION)
             return false;       // not the correct version
+
         int mapsize = 0;
         LOADVALUEFROMFILE(mapsize);
         for (int i=0; i<mapsize; ++i)
@@ -124,7 +125,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
                 return false;
             if (value)
             {
-                CString sKey;
+                CStringA sKey;
                 if (fread(sKey.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
                 {
                     sKey.ReleaseBuffer(0);
@@ -145,8 +146,8 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
                 return false;
             if (value)
             {
-                CString sPath;
-                if (fread(sPath.GetBuffer(value), sizeof(TCHAR), value, pFile)!=value)
+                CStringA sPath;
+                if (fread(sPath.GetBuffer(value), sizeof(char), value, pFile)!=value)
                 {
                     sPath.ReleaseBuffer(0);
                     return false;
@@ -154,7 +155,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
                 sPath.ReleaseBuffer(value);
                 svn_wc_status_kind status;
                 LOADVALUEFROMFILE(status);
-                m_childDirectories[CTSVNPath(sPath)] = status;
+                m_childDirectories[sPath] = status;
             }
         }
         LOADVALUEFROMFILE(m_wcDbFileTime);
@@ -188,7 +189,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 
 CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bool bRecursive,  bool bFetch /* = true */)
 {
-    CString strCacheKey;
+    CStringA strCacheKey;
     bool bThisDirectoryIsUnversioned = false;
     bool bRequestForSelf = false;
     if(path.IsEquivalentToWithoutCase(m_directoryPath))
@@ -263,7 +264,11 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
                     ChildDirStatus::const_iterator it;
                     for(it = dirEntry->m_childDirectories.begin(); it != dirEntry->m_childDirectories.end(); ++it)
                     {
-                        CSVNStatusCache::Instance().AddFolderForCrawling(it->first);
+                        CTSVNPath path;
+                        CString winPath = CUnicodeUtils::GetUnicode (it->first);
+                        path.SetFromWin(winPath, true);
+
+                        CSVNStatusCache::Instance().AddFolderForCrawling(path);
                     }
                 }
 
@@ -430,7 +435,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSV
     }
     else
     {
-        CString cachekey = GetCacheKey(path);
+        CStringA cachekey = GetCacheKey(path);
         CacheEntryMap::iterator entry_it = m_entryCache.lower_bound(cachekey);
         if (entry_it != m_entryCache.end() && entry_it->first == cachekey)
         {
@@ -453,18 +458,22 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSV
 }
 
 
-CString
+CStringA
 CCachedDirectory::GetCacheKey(const CTSVNPath& path)
 {
     // All we put into the cache as a key is just the end portion of the pathname
     // There's no point storing the path of the containing directory for every item
-    return path.GetWinPathString().Mid(m_directoryPath.GetWinPathString().GetLength());
+    CString lastElement 
+        = path.GetWinPathString().Mid(m_directoryPath.GetWinPathString().GetLength());
+    return CUnicodeUtils::GetUTF8 (lastElement);
 }
 
 CString
-CCachedDirectory::GetFullPathString(const CString& cacheKey)
+CCachedDirectory::GetFullPathString(const CStringA& cacheKey)
 {
-    return m_directoryPath.GetWinPathString() + _T("\\") + cacheKey;
+    return m_directoryPath.GetWinPathString() 
+        + _T("\\") 
+        + CUnicodeUtils::GetUnicode (cacheKey);
 }
 
 
@@ -577,6 +586,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 
         if(svnPath.IsDirectory())
         {
+            CStringA winPath = CUnicodeUtils::GetUTF8 (svnPath.GetWinPathString());
             if(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))
             {
                 // Make sure we know about this child directory
@@ -591,7 +601,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                     // So ask this dir about its recursive status
                     svn_wc_status_kind st = SVNStatus::GetMoreImportant(s, cdir->GetCurrentFullStatus());
                     AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[svnPath] = st;
+                    pThis->m_childDirectories[winPath] = st;
                 }
                 else
                 {
@@ -600,7 +610,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                     // means the cache will be updated soon.
                     CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
                     AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[svnPath] = s;
+                    pThis->m_childDirectories[winPath] = s;
                 }
             }
         }
@@ -620,6 +630,8 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
     else
     {
         svnPath.SetFromSVN(path, status->kind == svn_node_dir);
+        CStringA winPath = CUnicodeUtils::GetUTF8 (svnPath.GetWinPathString());
+
         // Subversion returns no 'entry' field for versioned folders if they're
         // part of another working copy (nested layouts).
         // So we have to make sure that such an 'unversioned' folder really
@@ -633,7 +645,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                 // This initial value will be overwritten from below some time later
                 {
                     AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+                    pThis->m_childDirectories[winPath] = svn_wc_status_normal;
                 }
                 // Make sure the entry is also in the cache
                 CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
@@ -645,7 +657,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                 if (svnPath.IsDirectory())
                 {
                     AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[svnPath] = status->node_status;
+                    pThis->m_childDirectories[winPath] = status->node_status;
                 }
             }
         }
@@ -659,7 +671,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                 // This initial value will be overwritten from below some time later
                 {
                     AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+                    pThis->m_childDirectories[winPath] = svn_wc_status_normal;
                 }
                 // we have added a directory to the child-directory list of this
                 // directory. We now must make sure that this directory also has
@@ -677,7 +689,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                 svn_wc_status_kind s = status->node_status;
                 if (status->conflicted)
                     s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
-                pThis->m_childDirectories[svnPath] = s;
+                pThis->m_childDirectories[winPath] = s;
             }
         }
     }
@@ -776,16 +788,17 @@ void CCachedDirectory::UpdateCurrentStatus()
 // Receive a notification from a child that its status has changed
 void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus)
 {
+    CStringA winPath = CUnicodeUtils::GetUTF8 (childDir.GetWinPathString());
     svn_wc_status_kind currentStatus = svn_wc_status_none;
     {
         AutoLocker lock(m_critSec);
-        currentStatus = m_childDirectories[childDir];
+        currentStatus = m_childDirectories[winPath];
     }
     if ((currentStatus != childStatus)||(!IsOwnStatusValid()))
     {
         {
             AutoLocker lock(m_critSec);
-            m_childDirectories[childDir] = childStatus;
+            m_childDirectories[winPath] = childStatus;
         }
         UpdateCurrentStatus();
     }
@@ -821,7 +834,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
         // get the file write times with FindFirstFile/FindNextFile since those
         // APIs only access the folder, not each file individually.
         // This reduces the disk access a *lot*.
-        std::map<CString, ULONGLONG> filetimes;
+        std::map<CStringA, ULONGLONG> filetimes;
         WIN32_FIND_DATA FindFileData;
         HANDLE hFind = FindFirstFile(m_directoryPath.GetWinPathString() + L"\\*.*", &FindFileData);
         if (hFind != INVALID_HANDLE_VALUE) 
@@ -831,7 +844,12 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
                 ULARGE_INTEGER ft;
                 ft.LowPart = FindFileData.ftLastWriteTime.dwLowDateTime;
                 ft.HighPart = FindFileData.ftLastWriteTime.dwHighDateTime;
-                filetimes[CString(FindFileData.cFileName)] = ft.QuadPart;
+
+                char nameUTF8 [3 * MAX_PATH];
+                CUnicodeUtils::UTF16ToUTF8 ( FindFileData.cFileName
+                                           , _tcslen (FindFileData.cFileName)
+                                           , nameUTF8);
+                filetimes[nameUTF8] = ft.QuadPart;
             }
             FindClose(hFind);
         }
@@ -842,14 +860,13 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
         {
             if ((itMembers->first)&&(!itMembers->first.IsEmpty()))
             {
-                CTSVNPath filePath(m_directoryPath);
-                filePath.AppendPathString(itMembers->first);
+                CTSVNPath filePath (GetFullPathString (itMembers->first));
                 if (!filePath.IsEquivalentToWithoutCase(m_directoryPath))
                 {
                     // we only have file members in our entry cache
                     ATLASSERT(!itMembers->second.IsDirectory());
 
-                    std::map<CString, ULONGLONG>::iterator ftIt = filetimes.find(itMembers->first.Mid(1));
+                    auto ftIt = filetimes.find(itMembers->first.Mid(1));
                     if (ftIt != filetimes.end())
                     {
                         ULONGLONG ft = ftIt->second;
@@ -869,7 +886,11 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
             // tree which has changed won't get propagated up the tree.
             for(ChildDirStatus::const_iterator it = m_childDirectories.begin(); it != m_childDirectories.end(); ++it)
             {
-                crawlPathList.AddPath(it->first);
+                CTSVNPath path;
+                CString winPath = CUnicodeUtils::GetUnicode (it->first);
+                path.SetFromWin (winPath, true);
+
+                crawlPathList.AddPath(path);
             }
         }
     }

@@ -50,8 +50,8 @@ public:
 private:
     static svn_error_t* GetStatusCallback(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
     void AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool needsLock, bool forceNormal);
-    CString GetCacheKey(const CTSVNPath& path);
-    CString GetFullPathString(const CString& cacheKey);
+    CStringA GetCacheKey(const CTSVNPath& path);
+    CString GetFullPathString(const CStringA& cacheKey);
     CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);
     void UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus);
     bool SvnUpdateMembersStatus();
@@ -68,11 +68,11 @@ private:
 
     volatile LONG       m_FetchingStatus;
     // The cache of files and directories within this directory
-    typedef std::map<CString, CStatusCacheEntry> CacheEntryMap;
+    typedef std::map<CStringA, CStatusCacheEntry> CacheEntryMap;
     CacheEntryMap m_entryCache;
 
     /// A vector if iterators to child directories - used to put-together recursive status
-    typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
+    typedef std::map<CStringA, svn_wc_status_kind>  ChildDirStatus;
     ChildDirStatus m_childDirectories;
 
     // The timestamp of the .SVN\wc.db file. For an unversioned directory, this will be zero

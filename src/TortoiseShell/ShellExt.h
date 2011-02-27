@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -188,7 +188,8 @@ protected:
     tstring uuidTarget;
     int space;
     TCHAR stringtablebuffer[255];
-    tstring columnfilepath;     ///< holds the last file/dir path for the column provider
+    tstring maincolumnfilepath;     ///< holds the last file/dir path for the column provider
+    tstring extracolumnfilepath;    ///< holds the last file/dir path for the column provider
     tstring columnauthor;           ///< holds the corresponding author of the file/dir above
     tstring itemurl;
     tstring itemshorturl;
@@ -212,7 +213,9 @@ private:
     tstring         WriteFileListToTempFile();
     bool            WriteClipboardPathsToTempFile(tstring& tempfile);
     LPCTSTR         GetMenuTextFromResource(int id);
-    void            GetColumnStatus(const TCHAR * path, BOOL bIsDir);
+    void            SetExtraColumnStatus(const TCHAR * path, const FileStatusCacheEntry * status);
+    void            GetExtraColumnStatus(const TCHAR * path, BOOL bIsDir);
+    void            GetMainColumnStatus(const TCHAR * path, BOOL bIsDir);
     STDMETHODIMP    QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu);
     bool            IsIllegalFolder(std::wstring folder, int * csidlarray);
     static void     RunCommand( const tstring& path, const tstring& command, const tstring& folder, LPCTSTR errorMessage );

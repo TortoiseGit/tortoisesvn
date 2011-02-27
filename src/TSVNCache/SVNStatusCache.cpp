@@ -21,6 +21,7 @@
 #include "SVNStatus.h"
 #include "Svnstatuscache.h"
 #include "CacheInterface.h"
+#include "UnicodeUtils.h"
 #include "shlobj.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -362,13 +363,16 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 {
     if (cdir == NULL)
         return false;
-    typedef std::map<CTSVNPath, svn_wc_status_kind>  ChildDirStatus;
     if (cdir->m_childDirectories.size())
     {
-        ChildDirStatus::iterator it = cdir->m_childDirectories.begin();
+        auto it = cdir->m_childDirectories.begin();
         for (; it != cdir->m_childDirectories.end(); )
         {
-            CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(it->first);
+            CTSVNPath path;
+            CString winPath = CUnicodeUtils::GetUnicode (it->first);
+            path.SetFromWin (winPath, true);
+
+            CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(path);
             if ((childdir)&&(!cdir->m_directoryPath.IsEquivalentTo(childdir->m_directoryPath)))
                 RemoveCacheForDirectory(childdir);
             cdir->m_childDirectories.erase(it->first);

@@ -49,21 +49,35 @@ private:
     void SetAsUnversioned();
 
 private:
-    long                m_discardAtTime;
-    svn_wc_status_kind  m_highestPriorityLocalStatus;
-    svn_client_status_t m_svnStatus;
     __int64             m_lastWriteTime;
-    bool                m_bSet;
-    svn_node_kind_t     m_kind;
-    bool                m_treeconflict;
-
-    // Values copied from the 'entries' structure
-    bool                m_bSVNEntryFieldSet;
-    CStringA            m_sUrl;
-    CStringA            m_sOwner;
-    CStringA            m_sAuthor;
-    bool                m_needsLock;
+    long                m_discardAtTime;
     svn_revnum_t        m_commitRevision;
 
+    struct
+    {
+        svn_wc_status_kind node_status:5;
+        svn_wc_status_kind text_status:5;
+        svn_wc_status_kind prop_status:5;
+
+        svn_boolean_t locked:1;
+        svn_boolean_t copied:1;
+        svn_boolean_t switched:1;
+
+        svn_wc_status_kind repos_text_status:5;
+        svn_wc_status_kind repos_prop_status:5;
+    } m_svnStatus;
+
+    struct
+    {
+        svn_wc_status_kind  m_highestPriorityLocalStatus:5;
+        svn_node_kind_t     m_kind:3;
+        svn_boolean_t       m_bSet:1;
+        svn_boolean_t       m_treeconflict:1;
+
+        // Values copied from the 'entries' structure
+        svn_boolean_t       m_bSVNEntryFieldSet:1;
+        svn_boolean_t       m_bHasOwner:1;
+        svn_boolean_t       m_needsLock:1;
+    };
 //  friend class CSVNStatusCache;
 };
