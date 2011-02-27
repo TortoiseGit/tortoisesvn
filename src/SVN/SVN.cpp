@@ -1966,7 +1966,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 
     // use cached information, if allowed
 
-    if (LogCache::CSettings::GetEnabled())
+    if (url.IsUrl() && LogCache::CSettings::GetEnabled())
     {
         // look up in cached repository properties
         // (missing entries will be added automatically)
