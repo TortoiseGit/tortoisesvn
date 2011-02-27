@@ -2655,11 +2655,6 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (m_url.IsEquivalentTo(m_url2))
     {
-        CString sSuggestedMessage;
-        CString sMergedLogMessage;
-        CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
-        CString temp;
-
         // Merging revisions %s of %s to %s into %s, %s%s
         CString sCmdInfo;
         sCmdInfo.Format(IDS_PROGRS_CMD_MERGEPEG,
@@ -2694,6 +2689,66 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
                 ReportSVNError();
                 bFailed = true;
             }
+        }
+        if (!bFailed)
+        {
+            CString sUUID = GetUUIDFromPath(m_targetPathList[0]);
+            CString sRepositoryRoot = GetRepositoryRoot(m_targetPathList[0]);
+            CString relUrl = m_url.GetSVNPathString().Mid(sRepositoryRoot.GetLength()+1);
+            CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
+            CString sRevList;
+            CString sLogMessages;
+            try
+            {
+                CLogCacheUtility logUtil(GetLogCachePool()->GetCache(sUUID, sRepositoryRoot), &m_ProjectProperties);
+                for (int ranges = 0; ranges < m_revisionArray.GetCount(); ++ranges)
+                {
+                    SVNRevRange range = m_revisionArray[ranges];
+                    svn_revnum_t startRev = range.GetStartRevision();
+                    svn_revnum_t endRev = range.GetEndRevision();
+                    bool bReverse = startRev > endRev;
+                    if (bReverse)
+                        --endRev;
+                    else
+                        ++startRev;
+                    if (!sRevList.IsEmpty())
+                        sRevList += L", ";
+                    if (startRev == endRev)
+                        sRevList += SVNRev(startRev).ToString();
+                    else
+                        sRevList += SVNRev(startRev).ToString() + L"-" + SVNRev(endRev).ToString();
+                    for (svn_revnum_t rev = range.GetStartRevision(); rev <= range.GetEndRevision(); rev += (bReverse ? -1 : 1))
+                    {
+                        if (logUtil.IsCached(rev))
+                        {
+                            PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
+                            if (pLogItem)
+                            {
+                                sLogMessages += pLogItem->GetMessageW().c_str();
+                                sLogMessages += L"\n";
+                                sLogMessages += sSeparator;
+                                sLogMessages += L"\n";
+                            }
+                        }
+                    }
+                }
+            }
+            catch (CException* e)
+            {
+                e->Delete();
+            }
+
+            CString sSuggestedMessage;
+            sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGRANGE, sRevList, (LPCTSTR)relUrl);
+            sSuggestedMessage += sLogMessages;
+
+            CRegHistory history;
+            history.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+            CString reg;
+            reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), GetUUIDFromPath(m_targetPathList[0]));
+            history.Load(reg, _T("logmsgs"));
+            history.AddEntry(sSuggestedMessage);
+            history.Save();
         }
     }
     else
