@@ -472,7 +472,6 @@ CString
 CCachedDirectory::GetFullPathString(const CStringA& cacheKey)
 {
     return m_directoryPath.GetWinPathString() 
-        + _T("\\") 
         + CUnicodeUtils::GetUnicode (cacheKey);
 }
 
