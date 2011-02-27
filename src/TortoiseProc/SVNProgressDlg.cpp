@@ -2698,6 +2698,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
             CString sRevList;
             CString sLogMessages;
+            UINT fmtMsg = IDS_SVNPROGRESS_MERGELOGRANGE;
             try
             {
                 CLogCacheUtility logUtil(GetLogCachePool()->GetCache(sUUID, sRepositoryRoot), &m_ProjectProperties);
@@ -2708,7 +2709,10 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
                     svn_revnum_t endRev = range.GetEndRevision();
                     bool bReverse = startRev > endRev;
                     if (bReverse)
-                        --endRev;
+                    {
+                        ++endRev;
+                        fmtMsg = IDS_SVNPROGRESS_MERGELOGRANGEREVERSE;
+                    }
                     else
                         ++startRev;
                     if (!sRevList.IsEmpty())
@@ -2717,7 +2721,13 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
                         sRevList += SVNRev(startRev).ToString();
                     else
                         sRevList += SVNRev(startRev).ToString() + L"-" + SVNRev(endRev).ToString();
-                    for (svn_revnum_t rev = range.GetStartRevision(); rev <= range.GetEndRevision(); rev += (bReverse ? -1 : 1))
+                    if (bReverse)
+                    {
+                        svn_revnum_t r = startRev;
+                        startRev = endRev;
+                        endRev = r;
+                    }
+                    for (svn_revnum_t rev = startRev; rev <= endRev; ++rev)
                     {
                         if (logUtil.IsCached(rev))
                         {
@@ -2739,7 +2749,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             }
 
             CString sSuggestedMessage;
-            sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGRANGE, sRevList, (LPCTSTR)relUrl);
+            sSuggestedMessage.Format(fmtMsg, sRevList, (LPCTSTR)relUrl);
             sSuggestedMessage += sLogMessages;
 
             CRegHistory history;
