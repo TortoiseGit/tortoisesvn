@@ -369,9 +369,9 @@ void CShellExt::LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR classIdString, LPWST
 bool CShellExt::DropHandler(LPCWSTR registryKey)
 {
     bool drop = false;
-    DWORD dwType = 0;
+    DWORD dwType = REG_NONE;
     DWORD dwData = 0;
-    DWORD dwDataSize = 4;
+    DWORD dwDataSize = sizeof(dwData);
     if (SHGetValue(HKEY_CURRENT_USER, _T("Software\\TortoiseOverlays"), registryKey, &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
     {
         if (dwType == REG_DWORD)
