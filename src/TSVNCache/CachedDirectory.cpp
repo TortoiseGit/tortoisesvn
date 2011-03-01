@@ -126,7 +126,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
             if (value)
             {
                 CStringA sKey;
-                if (fread(sKey.GetBuffer(value+1), sizeof(TCHAR), value, pFile)!=value)
+                if (fread(sKey.GetBuffer(value+1), sizeof(char), value, pFile)!=value)
                 {
                     sKey.ReleaseBuffer(0);
                     return false;
