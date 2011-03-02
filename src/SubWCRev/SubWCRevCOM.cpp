@@ -41,7 +41,8 @@
 
 STDAPI DllRegisterServer();
 STDAPI DllUnregisterServer();
-void AutomationMain();
+static void AutomationMain();
+static void RunOutprocServer();
 
 int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
                        HINSTANCE /*hPrevInstance*/,
@@ -71,10 +72,13 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
     return 0;
 }
 
-void AutomationMain()
+static void AutomationMain()
 {
     // initialize the COM library
-    ::CoInitialize(NULL);
+    HRESULT hr = ::CoInitialize(NULL);
+    if( FAILED( hr ) ) {
+        return;
+    }
 
     apr_initialize();
     svn_dso_initialize2();
@@ -89,22 +93,7 @@ void AutomationMain()
         svn_wc_set_adm_dir("_svn", pool);
     }
 
-    // register ourself as a class object against the internal COM table
-    DWORD nToken = CoEXEInitialize();
-
-    //
-    // (loop ends if WM_QUIT message is received)
-    //
-    MSG msg;
-    while (GetMessage(&msg, 0, 0, 0) > 0)
-    {
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
-    }
-
-
-    // unregister from the known table of class objects
-    CoEXEUninitialize(nToken);
+    RunOutprocServer();
 
     apr_pool_destroy(pool);
     apr_terminate2();
@@ -580,67 +569,38 @@ HRESULT __stdcall CFactory::LockServer(BOOL bLock)
     return S_OK ;
 }
 
-///////////////////////////////////////////////////////////
-//
-// Exported functions
-//
 
-//
-// Can DLL unload now?
-//
-STDAPI DllCanUnloadNow()
-{
-    if ((g_cComponents == 0) && (g_cServerLocks == 0))
-    {
-        return S_OK ;
-    }
-    return S_FALSE;
-}
-
-//
-// Get class factory
-//
-STDAPI DllGetClassObject(const CLSID& clsid,
-                         const IID& iid,
-                         void** ppv)
-{
-    if (ppv == 0)
-        return E_POINTER;
-
-    // Can we create this component?
-    if (clsid != CLSID_SubWCRev)
-    {
-        return CLASS_E_CLASSNOTAVAILABLE ;
-    }
-
-    // Create class factory.
-    ATL::CComPtr<CFactory> pFactory;
-    pFactory.Attach(new (std::nothrow) CFactory);  // Reference count set to 1
-    // in constructor
-    if (pFactory == NULL)
-    {
-        return E_OUTOFMEMORY ;
-    }
-    return pFactory->QueryInterface(iid, ppv) ;
-}
-
+// Refcount set to 1 in constructor.
 CFactory gClassFactory;
 
-DWORD CoEXEInitialize()
-{
-    DWORD nReturn;
 
-    ::CoRegisterClassObject(CLSID_SubWCRev,
+static void RunOutprocServer()
+{
+    // register ourself as a class object against the internal COM table
+    DWORD nToken = 0;
+    HRESULT hr = ::CoRegisterClassObject(CLSID_SubWCRev,
         &gClassFactory,
         CLSCTX_SERVER,
         REGCLS_MULTIPLEUSE,
-        &nReturn);
+        &nToken);
 
-    return nReturn;
-}
+    // If the class factory is not registered no object will ever be instantiated,
+    // hence no object will ever be released, hence WM_QUIT never appears in the
+    // message queue and the message loop below will run forever.
+    if(FAILED(hr))
+        return;
 
-void CoEXEUninitialize(DWORD nToken)
-{
+    //
+    // (loop ends if WM_QUIT message is received)
+    //
+    MSG msg;
+    while (GetMessage(&msg, 0, 0, 0) > 0)
+    {
+        TranslateMessage(&msg);
+        DispatchMessage(&msg);
+    }
+
+    // unregister from the known table of class objects
     ::CoRevokeClassObject(nToken);
 }
 

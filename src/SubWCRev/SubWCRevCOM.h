@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -94,11 +94,6 @@ private:
     SubWCRev_t SubStat;
 };
 
-
-
-
-
-
 /**
  * \ingroup SubWCRev
  * Implements the IClassFactory interface of the SubWCRev COM object.
@@ -126,9 +121,3 @@ public:
 private:
     long m_cRef ;
 } ;
-
-
-
-DWORD CoEXEInitialize();
-void CoEXEUninitialize(DWORD nToken);
-
