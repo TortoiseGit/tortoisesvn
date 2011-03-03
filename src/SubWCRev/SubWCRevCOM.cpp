@@ -102,17 +102,31 @@ static void AutomationMain()
     ::CoUninitialize();
 }
 
-static long g_cComponents = 0 ;     // Count of active components
-static long g_cServerLocks = 0 ;    // Count of locks
+// Count of locks to the server - one for each non-factory live object
+// plus one for each call of IClassFactory::LockServer(true) not yet
+// followed by IClassFactory::LockServer(false)
+static long g_cServerLocks = 0;
 
 static HMODULE g_hModule = NULL ;   // DLL module handle
+
+static void LockServer(bool doLock)
+{
+    if (doLock)
+    {
+        InterlockedIncrement(&g_cServerLocks);
+        return;
+    }
+    long newLockCount = InterlockedDecrement(&g_cServerLocks);
+    if (newLockCount == 0)
+        ::PostMessage(NULL,WM_QUIT,0,0);
+}
 
 //
 // Constructor
 //
 SubWCRev::SubWCRev() : m_cRef(1)
 {
-    InterlockedIncrement(&g_cComponents) ;
+    LockServer(true);
 
     m_ptinfo = NULL;
     LoadTypeInfo(&m_ptinfo, LIBID_LibSubWCRev, IID_ISubWCRev, 0);
@@ -123,7 +137,7 @@ SubWCRev::SubWCRev() : m_cRef(1)
 //
 SubWCRev::~SubWCRev()
 {
-    InterlockedDecrement(&g_cComponents) ;
+    LockServer(false);
 }
 
 //
@@ -156,11 +170,7 @@ ULONG __stdcall SubWCRev::Release()
 {
     const LONG refCount = InterlockedDecrement(&m_cRef);
     if (refCount == 0)
-    {
         delete this;
-        if (g_cComponents == 0)
-            ::PostMessage(NULL,WM_QUIT,0,0);
-    }
     return refCount;
 }
 
@@ -558,17 +568,9 @@ HRESULT __stdcall CFactory::CreateInstance(IUnknown* pUnknownOuter,
 // LockServer
 HRESULT __stdcall CFactory::LockServer(BOOL bLock)
 {
-    if (bLock)
-    {
-        InterlockedIncrement(&g_cServerLocks) ;
-    }
-    else
-    {
-        InterlockedDecrement(&g_cServerLocks) ;
-    }
+    ::LockServer(bLock != 0);
     return S_OK ;
 }
-
 
 // Refcount set to 1 in constructor.
 CFactory gClassFactory;
@@ -640,20 +642,4 @@ STDAPI DllUnregisterServer()
         UnRegisterTypeLib( g_hModule, NULL);
     }
     return hr;
-}
-
-///////////////////////////////////////////////////////////
-//
-// DLL module information
-//
-BOOL APIENTRY DllMain(HANDLE hModule,
-                      DWORD dwReason,
-                      void* /*lpReserved*/)
-{
-    if (dwReason == DLL_PROCESS_ATTACH)
-    {
-        g_hModule = (HMODULE)hModule ;
-    }
-
-    return TRUE ;
 }
