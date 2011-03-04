@@ -117,6 +117,8 @@ public:
 
     static bool FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
 
+    static bool AddClipboardUrlToWindow(HWND hWnd);
+
 protected:
     CCommonAppUtils(void){};
     ~CCommonAppUtils(void){};

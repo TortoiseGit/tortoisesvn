@@ -22,7 +22,7 @@
 #include "URLDlg.h"
 #include ".\urldlg.h"
 #include "ControlsBridge.h"
-#include "ClipboardHelper.h"
+#include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CURLDlg, CResizableStandAloneDialog)
 CURLDlg::CURLDlg(CWnd* pParent /*=NULL*/)
@@ -75,24 +75,7 @@ BOOL CURLDlg::OnInitDialog()
     m_URLCombo.SetFocus();
 
     // if there is an url on the clipboard, use that url as the default.
-    if (IsClipboardFormatAvailable(CF_UNICODETEXT))
-    {
-        CClipboardHelper clipboard;
-        clipboard.Open(m_hWnd);
-        HGLOBAL hglb = GetClipboardData(CF_UNICODETEXT);
-        if (hglb)
-        {
-            LPCWSTR lpstr = (LPCWSTR)GlobalLock(hglb);
-            CString sUrl = lpstr;
-            GlobalUnlock(hglb);
-
-            sUrl.Trim();
-            if (PathIsURL(sUrl))
-            {
-                m_URLCombo.SetWindowText(sUrl);
-            }
-        }
-    }
+    CAppUtils::AddClipboardUrlToWindow(m_URLCombo.GetSafeHwnd());
 
     return FALSE;
 }

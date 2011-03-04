@@ -22,6 +22,7 @@
 #include "Registry.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
+#include "ClipboardHelper.h"
 #include <intshcut.h>
 #include "CreateProcessHelper.h"
 #include "SelectFileFilter.h"
@@ -615,6 +616,30 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title,
             if (filterindex)
                 *filterindex = ofn.nFilterIndex;
             return true;
+        }
+    }
+    return false;
+}
+
+bool CCommonAppUtils::AddClipboardUrlToWindow( HWND hWnd )
+{
+    if (IsClipboardFormatAvailable(CF_UNICODETEXT))
+    {
+        CClipboardHelper clipboard;
+        clipboard.Open(hWnd);
+        HGLOBAL hglb = GetClipboardData(CF_UNICODETEXT);
+        if (hglb)
+        {
+            LPCWSTR lpstr = (LPCWSTR)GlobalLock(hglb);
+            CString sUrl = lpstr;
+            GlobalUnlock(hglb);
+
+            sUrl.Trim();
+            if (PathIsURL(sUrl))
+            {
+                ::SetWindowText(hWnd, (LPCTSTR)sUrl);
+                return true;
+            }
         }
     }
     return false;
