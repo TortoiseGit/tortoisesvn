@@ -24,6 +24,7 @@
 #include "PathUtils.h"
 #include "BrowseFolder.h"
 #include "AppUtils.h"
+#include "ClipboardHelper.h"
 #include "SVNInfo.h"
 
 IMPLEMENT_DYNAMIC(CCheckoutDlg, CResizableStandAloneDialog)
@@ -172,6 +173,28 @@ BOOL CCheckoutDlg::OnInitDialog()
     {
         SetDlgItemText(IDC_CHECKOUTDIRECTORY, m_sCheckoutDirOrig);
         m_URLCombo.SetWindowText(sUrlSave);
+    }
+    else
+    {
+        // if there is an url on the clipboard, use that url as the default.
+        if (IsClipboardFormatAvailable(CF_UNICODETEXT))
+        {
+            CClipboardHelper clipboard;
+            clipboard.Open(m_hWnd);
+            HGLOBAL hglb = GetClipboardData(CF_UNICODETEXT);
+            if (hglb)
+            {
+                LPCWSTR lpstr = (LPCWSTR)GlobalLock(hglb);
+                CString sUrl = lpstr;
+                GlobalUnlock(hglb);
+
+                sUrl.Trim();
+                if (PathIsURL(sUrl))
+                {
+                    m_URLCombo.SetWindowText(sUrl);
+                }
+            }
+        }
     }
 
     m_tooltips.Create(this);

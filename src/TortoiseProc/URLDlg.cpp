@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "URLDlg.h"
 #include ".\urldlg.h"
 #include "ControlsBridge.h"
+#include "ClipboardHelper.h"
 
 IMPLEMENT_DYNAMIC(CURLDlg, CResizableStandAloneDialog)
 CURLDlg::CURLDlg(CWnd* pParent /*=NULL*/)
@@ -72,6 +73,26 @@ BOOL CURLDlg::OnInitDialog()
     // in the edit box of the combo.
     m_URLCombo.SetCurSel(0);
     m_URLCombo.SetFocus();
+
+    // if there is an url on the clipboard, use that url as the default.
+    if (IsClipboardFormatAvailable(CF_UNICODETEXT))
+    {
+        CClipboardHelper clipboard;
+        clipboard.Open(m_hWnd);
+        HGLOBAL hglb = GetClipboardData(CF_UNICODETEXT);
+        if (hglb)
+        {
+            LPCWSTR lpstr = (LPCWSTR)GlobalLock(hglb);
+            CString sUrl = lpstr;
+            GlobalUnlock(hglb);
+
+            sUrl.Trim();
+            if (PathIsURL(sUrl))
+            {
+                m_URLCombo.SetWindowText(sUrl);
+            }
+        }
+    }
 
     return FALSE;
 }

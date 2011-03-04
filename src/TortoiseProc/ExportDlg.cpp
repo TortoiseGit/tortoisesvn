@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include "PathUtils.h"
 #include "BrowseFolder.h"
 #include "AppUtils.h"
+#include "ClipboardHelper.h"
 
 
 IMPLEMENT_DYNAMIC(CExportDlg, CResizableStandAloneDialog)
@@ -113,12 +114,6 @@ BOOL CExportDlg::OnInitDialog()
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
     m_URLCombo.SetCurSel(0);
 
-    if (!origurl.IsEmpty())
-    {
-        m_URLCombo.SetWindowText(origurl);
-    }
-    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
-
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES)));
@@ -132,6 +127,29 @@ BOOL CExportDlg::OnInitDialog()
 
     if (!origurl.IsEmpty())
         m_URLCombo.SetWindowText(origurl);
+    else
+    {
+        // if there is an url on the clipboard, use that url as the default.
+        if (IsClipboardFormatAvailable(CF_UNICODETEXT))
+        {
+            CClipboardHelper clipboard;
+            clipboard.Open(m_hWnd);
+            HGLOBAL hglb = GetClipboardData(CF_UNICODETEXT);
+            if (hglb)
+            {
+                LPCWSTR lpstr = (LPCWSTR)GlobalLock(hglb);
+                CString sUrl = lpstr;
+                GlobalUnlock(hglb);
+
+                sUrl.Trim();
+                if (PathIsURL(sUrl))
+                {
+                    m_URLCombo.SetWindowText(sUrl);
+                }
+            }
+        }
+    }
+    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
     m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);

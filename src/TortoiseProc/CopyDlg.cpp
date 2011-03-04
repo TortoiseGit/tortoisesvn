@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,7 @@
 #include "TSVNPath.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
+#include "StringUtils.h"
 #include "HistoryDlg.h"
 #include "SVNStatus.h"
 #include "SVNProperties.h"
@@ -395,6 +396,7 @@ void CCopyDlg::OnOK()
         if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
             return;
     }
+    CStringUtils::WriteAsciiStringToClipboard(m_URL);
 
     // now let the bugtraq plugin check the commit message
     CComPtr<IBugTraqProvider2> pProvider2 = NULL;
