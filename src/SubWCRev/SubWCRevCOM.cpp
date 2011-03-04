@@ -107,8 +107,6 @@ static void AutomationMain()
 // followed by IClassFactory::LockServer(false)
 static long g_cServerLocks = 0;
 
-static HMODULE g_hModule = NULL ;   // DLL module handle
-
 static void LockServer(bool doLock)
 {
     if (doLock)
@@ -611,9 +609,9 @@ static void RunOutprocServer()
 //
 STDAPI DllRegisterServer()
 {
-    g_hModule = ::GetModuleHandle(NULL);
+    const HMODULE hModule = ::GetModuleHandle(NULL);
 
-    HRESULT hr = RegisterServer(g_hModule,
+    HRESULT hr = RegisterServer(hModule,
         CLSID_SubWCRev,
         _T("SubWCRev Server Object"),
         _T("SubWCRev.object"),
@@ -621,7 +619,7 @@ STDAPI DllRegisterServer()
         LIBID_LibSubWCRev) ;
     if (SUCCEEDED(hr))
     {
-        RegisterTypeLib( g_hModule, NULL);
+        RegisterTypeLib(hModule, NULL);
     }
     return hr;
 }
@@ -631,7 +629,7 @@ STDAPI DllRegisterServer()
 //
 STDAPI DllUnregisterServer()
 {
-    g_hModule = ::GetModuleHandle(NULL);
+    const HMODULE hModule = ::GetModuleHandle(NULL);
 
     HRESULT hr = UnregisterServer(CLSID_SubWCRev,
         _T("SubWCRev.object"),
@@ -639,7 +637,7 @@ STDAPI DllUnregisterServer()
         LIBID_LibSubWCRev) ;
     if (SUCCEEDED(hr))
     {
-        UnRegisterTypeLib( g_hModule, NULL);
+        UnRegisterTypeLib(hModule, NULL);
     }
     return hr;
 }
