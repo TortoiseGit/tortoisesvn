@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,6 +72,9 @@ BOOL CImportDlg::OnInitDialog()
     {
         m_URLCombo.SetWindowText(m_url);
     }
+    else
+        CAppUtils::AddClipboardUrlToWindow(m_URLCombo.GetSafeHwnd());
+
     GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
     m_tooltips.Create(this);
