@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2008,2010 - TortoiseSVN
+// Copyright (C) 2005-2008,2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,10 +72,10 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
                        const CLSID &libid)       //   Type lib ID
 {
     // Get server location.
-    TCHAR szModule[1024];
+    TCHAR szModule[1024] = {0};
     ::GetModuleFileName(hModule,
                         szModule,
-                        _countof(szModule)) ;
+                        _countof(szModule) - 1);
 
     _tcscat_s(szModule, _T(" /automation"));
     // Convert the CLSID into a TCHAR.
@@ -139,10 +139,10 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
                        const IID &iid)
 {
     // Get server location.
-    TCHAR szModule[512] ;
+    TCHAR szModule[512] = {0};
     ::GetModuleFileName(hModule,
                         szModule,
-                        _countof(szModule)) ;
+                        _countof(szModule) - 1);
 
     // Convert the CLSID into a TCHAR.
     TCHAR szCLSID[CLSID_STRING_SIZE] ;
@@ -278,7 +278,7 @@ LONG recursiveDeleteKey(HKEY hKeyParent,           // Parent of key to delete
     // Enumerate all of the descendants of this child.
     FILETIME time ;
     TCHAR szBuffer[256] ;
-    DWORD dwSize = 256 ;
+    DWORD dwSize = _countof(szBuffer);
     while (RegEnumKeyEx(hKeyChild, 0, szBuffer, &dwSize, NULL,
                         NULL, NULL, &time) == S_OK)
     {
@@ -290,7 +290,7 @@ LONG recursiveDeleteKey(HKEY hKeyParent,           // Parent of key to delete
             RegCloseKey(hKeyChild) ;
             return lRes;
         }
-        dwSize = 256 ;
+        dwSize = _countof(szBuffer);
     }
 
     // Close the child.
@@ -394,7 +394,7 @@ HRESULT LoadTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex, BSTR* pbstrPath
 
     USES_CONVERSION;
     ATLASSERT(hInstTypeLib != NULL);
-    TCHAR szModule[MAX_PATH+10];
+    TCHAR szModule[MAX_PATH+10] = {0};
 
     DWORD dwFLen = ::GetModuleFileName(hInstTypeLib, szModule, MAX_PATH);
     if( dwFLen == 0 )
@@ -403,9 +403,7 @@ HRESULT LoadTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex, BSTR* pbstrPath
         return HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER);
 
     // get the extension pointer in case of fail
-    LPTSTR lpszExt = NULL;
-
-    lpszExt = ::PathFindExtension(szModule);
+    LPTSTR lpszExt = ::PathFindExtension(szModule);
 
     if (lpszIndex != NULL)
         lstrcat(szModule, OLE2CT(lpszIndex));
@@ -445,7 +443,6 @@ static inline UINT WINAPI GetDirLen(LPCOLESTR lpszPathName) throw()
     return UINT( lpszTemp-lpszPathName );
 }
 
-
 HRESULT RegisterTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex)
 {
     CComBSTR bstrPath;
@@ -476,9 +473,9 @@ HRESULT UnRegisterTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex)
     HRESULT hr = LoadTypeLib(hInstTypeLib, lpszIndex, &bstrPath, &pTypeLib);
     if (SUCCEEDED(hr))
     {
-        TLIBATTR* ptla;
+        TLIBATTR* ptla = 0;
         hr = pTypeLib->GetLibAttr(&ptla);
-        if (SUCCEEDED(hr))
+        if ((SUCCEEDED(hr)) && (ptla != 0))
         {
             hr = ::UnRegisterTypeLib(ptla->guid, ptla->wMajorVerNum, ptla->wMinorVerNum, ptla->lcid, ptla->syskind);
             pTypeLib->ReleaseTLibAttr(ptla);
@@ -486,4 +483,3 @@ HRESULT UnRegisterTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex)
     }
     return hr;
 }
-
