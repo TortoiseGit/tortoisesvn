@@ -120,6 +120,8 @@ bool CRemoteCacheLink::EnsurePipeOpen()
         m_hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
         if (m_hEvent)
             return true;
+        // change to INVALID_HANDLE_VALUE to do not close invalid valid handle (0)
+        m_hEvent = INVALID_HANDLE_VALUE;
 
         ATLTRACE("CreateEvent failed");
         ClosePipe();
@@ -141,9 +143,12 @@ void CRemoteCacheLink::ClosePipe()
     if(m_hPipe != INVALID_HANDLE_VALUE)
     {
         CloseHandle(m_hPipe);
-        CloseHandle(m_hEvent);
         m_hPipe = INVALID_HANDLE_VALUE;
-        m_hEvent = INVALID_HANDLE_VALUE;
+        if(m_hEvent != INVALID_HANDLE_VALUE)
+        {
+            CloseHandle(m_hEvent);
+            m_hEvent = INVALID_HANDLE_VALUE;
+        }
     }
 }
 
