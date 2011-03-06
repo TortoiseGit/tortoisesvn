@@ -2,7 +2,7 @@
 <project name="subversion" default="build" basedir="..\subversion">
 
   <!-- ====================================================================== -->
-  <!-- Project targets														-->
+  <!-- Project targets                                                        -->
   <!-- ====================================================================== -->
   <target name="rebuild" depends="clean,build" />
 
@@ -35,6 +35,30 @@
       </filterchain>
     </loadfile>
     <echo file="subversion\svn_private_config.h" message="${configfile}" />
+
+    <copy file="subversion\include\svn_version.h" tofile="subversion\include\svn_version_orig.h" overwrite="true" />
+    <loadfile file="subversion\include\svn_version.h" property="svnverfile">
+      <filterchain>
+        <replacestring from='#define SVN_VER_TAG        " (dev build)"' to='#define SVN_VER_TAG        " (dev build r$WCREV$)"' />
+        <replacestring from='#define SVN_VER_NUMTAG     "-dev"'         to='#define SVN_VER_NUMTAG     "-dev(r$WCREV$)"' />
+        <replacestring from='#define SVN_VER_REVISION   0'              to='#define SVN_VER_REVISION   $WCREV$' />
+      </filterchain>
+    </loadfile>
+    <echo file="subversion\include\svn_version.h" message="${svnverfile}" />
+    <if test="${not property::exists('SubWCRevFileName')}">
+      <exec program="SubWCRev.exe" failonerror="false">
+        <arg value="." />
+        <arg value="subversion\include\svn_version.h" />
+        <arg value="subversion\include\svn_version.h" />
+      </exec>
+    </if>
+    <if test="${property::exists('SubWCRevFileName')}">
+      <exec program="${SubWCRevFileName}" failonerror="false">
+        <arg value="." />
+        <arg value="subversion\include\svn_version.h" />
+        <arg value="subversion\include\svn_version.h" />
+      </exec>
+    </if>
 
     <exec program="python.exe">
       <arg value="build\transform_sql.py" />
@@ -357,6 +381,8 @@
         </exec>
       </do>
     </foreach>
+    <copy file="subversion\include\svn_version_orig.h" tofile="subversion\include\svn_version.h" overwrite="true" failonerror="false" />
+    <delete file="subversion\include\svn_version_orig.h" />
   </target>
 
 </project>
