@@ -39,6 +39,7 @@
     <cl outputdir="${configuration}${static}_${platform}">
       <arg value="/Ox" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
       <arg value="/Gs" if="${configuration == 'release'}" />
       <arg value="/FD" />
       <arg value="/EHa-" />
@@ -53,7 +54,6 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/errorReport:prompt" />
-      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="network_io\win32\*.c" />
         <include name="network_io\unix\inet_ntop.c" />
@@ -112,12 +112,10 @@
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
-    <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
-    <property name="ltcg" value ="" if="${configuration != 'release'}" />
     <if test="${static == 'static'}">
       <lib
                 output="${configuration}${static}_${platform}\libapr_tsvn.lib"
-                options='/NOLOGO /DEBUG ${ltcg} /PDB:".\${configuration}${static}_${platform}/libapr.pdb" /SUBSYSTEM:WINDOWS"'>
+                options='/NOLOGO /DEBUG /PDB:".\${configuration}${static}_${platform}/libapr.pdb" /SUBSYSTEM:WINDOWS"'>
         <sources>
           <include name="${configuration}${static}_${platform}\*.obj" />
         </sources>
@@ -126,7 +124,7 @@
     <if test="${static != 'static'}">
       <link
                 output="${configuration}${static}_${platform}\libapr_tsvn${platext}.dll"
-                options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libapr_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}${static}_${platform}/libapr_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib Shell32.lib'>
+                options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libapr_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}${static}_${platform}/libapr_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib Shell32.lib'>
         <sources>
           <include name="${configuration}${static}_${platform}\*.obj" />
         </sources>

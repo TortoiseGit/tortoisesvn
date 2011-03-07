@@ -28,6 +28,7 @@
     <cl outputdir="${configuration}${static}_${platform}">
       <arg value="/Ox" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
       <arg value="/Gs" if="${configuration == 'release'}" />
       <arg value="/FD" />
       <arg value="/EHa-" />
@@ -42,7 +43,6 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/errorReport:prompt" />
-      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="lib\auxprop.c" />
         <include name="lib\canonusr.c" />
@@ -80,12 +80,10 @@
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-    <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
-    <property name="ltcg" value ="" if="${configuration != 'release'}" />
 
     <lib
       output="${configuration}${static}_${platform}\libsasls.lib"
-      options='/NOLOGO ${ltcg} /SUBSYSTEM:WINDOWS ${machineoption}'>
+      options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
       <sources>
         <include name="${configuration}${static}_${platform}\*.obj" />
       </sources>
@@ -100,6 +98,7 @@
     <cl outputdir="${configuration}${static}_${platform}">
       <arg value="/Ox" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
       <arg value="/Gs" if="${configuration == 'release'}" />
       <arg value="/FD" />
       <arg value="/EHa-" />
@@ -114,7 +113,6 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/errorReport:prompt" />
-      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="lib\auxprop.c" />
         <include name="lib\canonusr.c" />
@@ -156,11 +154,9 @@
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-    <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
-    <property name="ltcg" value ="" if="${configuration != 'release'}" />
     <link
       output="${configuration}${static}_${platform}\libsasl.dll"
-      options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libsasl.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/libsasl.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libsasl.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/libsasl.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <sources>
         <include name="${configuration}${static}_${platform}\*.obj" />
       </sources>
@@ -181,6 +177,7 @@
     <cl outputdir="${configuration}${static}_${platform}">
       <arg value="/Ox" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
       <arg value="/Gs" if="${configuration == 'release'}" />
       <arg value="/FD" />
       <arg value="/EHa-" />
@@ -195,7 +192,6 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/errorReport:prompt" />
-      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="plugins\plugin_common.c" />
         <include name="plugins\anonymous.c" />
@@ -242,12 +238,10 @@
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-    <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
-    <property name="ltcg" value ="" if="${configuration != 'release'}" />
 
     <link
       output="${configuration}${static}_${platform}\saslANONYMOUS.dll"
-      options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslANONYMOUS.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslANONYMOUS.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslANONYMOUS.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslANONYMOUS.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslANONYMOUS.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslANONYMOUS.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <sources>
         <include name="${configuration}${static}_${platform}\plugin_common.obj" />
         <include name="${configuration}${static}_${platform}\anonymous*.obj" />
@@ -262,7 +256,7 @@
 
     <link
       output="${configuration}${static}_${platform}\saslCRAMMD5.dll"
-      options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslCRAMMD5.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslCRAMMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslCRAMMD5.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslCRAMMD5.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslCRAMMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslCRAMMD5.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <sources>
         <include name="${configuration}${static}_${platform}\plugin_common.obj" />
         <include name="${configuration}${static}_${platform}\cram*.obj" />
@@ -277,7 +271,7 @@
 
     <link
       output="${configuration}${static}_${platform}\saslDIGESTMD5.dll"
-      options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslDIGESTMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslDIGESTMD5.lib" ${machineoption} ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslDIGESTMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslDIGESTMD5.lib" ${machineoption} ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <sources>
         <include name="${configuration}${static}_${platform}\plugin_common.obj" />
         <include name="${configuration}${static}_${platform}\digest*.obj" />
@@ -292,7 +286,7 @@
 
     <link
       output="${configuration}${static}_${platform}\saslLOGIN.dll"
-      options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslLOGIN.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslLOGIN.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslLOGIN.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslLOGIN.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslLOGIN.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslLOGIN.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <sources>
         <include name="${configuration}${static}_${platform}\plugin_common.obj" />
         <include name="${configuration}${static}_${platform}\login*.obj" />
@@ -307,7 +301,7 @@
 
     <link
       output="${configuration}${static}_${platform}\saslNTLM.dll"
-      options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslNTLM.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslNTLM.lib" ${machineoption} ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}${static}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslNTLM.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslNTLM.lib" ${machineoption} ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}${static}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <sources>
         <include name="${configuration}${static}_${platform}\plugin_common.obj" />
         <include name="${configuration}${static}_${platform}\ntlm*.obj" />
@@ -322,7 +316,7 @@
 
     <link
       output="${configuration}${static}_${platform}\saslPLAIN.dll"
-      options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslPLAIN.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslPLAIN.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslPLAIN.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslPLAIN.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslPLAIN.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslPLAIN.lib" ${machineoption} ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <sources>
         <include name="${configuration}${static}_${platform}\plugin_common.obj" />
         <include name="${configuration}${static}_${platform}\plain*.obj" />
@@ -337,7 +331,7 @@
 
     <link 
       output="${configuration}${static}_${platform}\saslGSSAPI.dll" 
-      options='/INCREMENTAL:NO /NOLOGO ${ltcg} /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslGSSAPI.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}${static}_${platform}\gssapiu.lib" ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/saslGSSAPI.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}${static}_${platform}/saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}${static}_${platform}\gssapiu.lib" ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}${static}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <sources>
         <include name="${configuration}${static}_${platform}\plugin_common.obj" />
         <include name="${configuration}${static}_${platform}\gssapi*.obj" />

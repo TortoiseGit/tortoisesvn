@@ -25,6 +25,7 @@
     <cl outputdir="${configuration}${static}_${platform}">
       <arg value="/Ox" if="${configuration == 'release'}" />
       <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
       <arg value="/Gs" if="${configuration == 'release'}" />
       <arg value="/FD" />
       <arg value="/EHa-" />
@@ -39,7 +40,6 @@
       <arg value="/Zi" />
       <arg value="/MP" />
       <arg value="/errorReport:prompt" />
-      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="context.c" />
         <include name="incoming.c" />
@@ -81,11 +81,9 @@
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-    <property name="ltcg" value ="/LTCG" if="${configuration == 'release'}" />
-    <property name="ltcg" value ="" if="${configuration != 'release'}" />
     <lib
       output="${configuration}${static}_${platform}\libserf.lib"
-      options='/NOLOGO ${ltcg} /SUBSYSTEM:WINDOWS ${machineoption}'>
+      options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
       <sources>
         <include name="${configuration}${static}_${platform}\*.obj" />
         <include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" if="${static != 'static'}" />
