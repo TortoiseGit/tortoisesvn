@@ -14,14 +14,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-02-22 00:00+0000\n"
+"PO-Revision-Date: 2011-03-04 18:32+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for
 #. you.
@@ -107,6 +107,14 @@ msgid ""
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
 msgstr ""
+"ТортоисеСВН је бесплатан Виндоуз клијент отвореног кода за "
+"<firstterm>Apache™ Subversion®</firstterm> систем контроле верзија. Тако да "
+"ТортоисеСВН рукује фајловима и именицима у току времена. Фајлови су смештени"
+" у централно <firstterm>спремиште</firstterm>. Спремиште личи на обичан фајл"
+" сервер осим што памти сваку промену урађену на фајловима и именицима. Ово "
+"вам омогућава да вратите стару верзију својих фајлова и прегледате историју "
+"промена података и ко их је мењао. То је због чега многи људи мисле да је "
+"Субверзија и систем контроле верзија врста <quote>временске машине</quote>."
 
 #. (para)
 msgid ""
@@ -23915,15 +23923,15 @@ msgstr ""
 
 #. (option)
 msgid "/droptarget"
-msgstr ""
+msgstr "/droptarget"
 
 #. (option)
 msgid "/overwrite"
-msgstr ""
+msgstr "/overwrite"
 
 #. (option)
 msgid "/autorename"
-msgstr ""
+msgstr "/autorename"
 
 #. (entry)
 msgid ""
@@ -23934,6 +23942,12 @@ msgid ""
 "specifies that if files already exist, the exported files get automatically "
 "renamed to avoid overwriting them."
 msgstr ""
+"Извози радну копију у <placeholder-1/> у именик специфициран у "
+"<placeholder-2/>. Ово извожење не користи дијалог извоза већ се извршава "
+"директно. Опција <placeholder-3/> специфицира да се постојећи фајлови "
+"прекрију без корисникове потврде и опција  <placeholder-4/> специфицира да "
+"ако фајлови већ постоје извезени фајлови се аутоматски преименују да би се "
+"избегло њихово преписивање."
 
 #. (option)
 #. (option)
