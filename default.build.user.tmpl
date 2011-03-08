@@ -33,7 +33,7 @@
     
   </target>
 
-  <target name="env">
+  <target name="env" depends="VSNET">
     <!-- 
       WiX3 installer already sets an environment variable to 
       its target folder. We need to move it to the \bin folder 
