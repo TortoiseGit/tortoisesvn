@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -109,13 +109,13 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         {
             typedef HRESULT (WINAPI *SHCIFPN)(PCWSTR pszPath, IBindCtx * pbc, REFIID riid, void ** ppv);
 
-            IShellItem *psiDefault;
             HMODULE hLib = LoadLibrary(L"shell32.dll");
             if (hLib)
             {
                 SHCIFPN pSHCIFPN = (SHCIFPN)GetProcAddress(hLib, "SHCreateItemFromParsingName");
                 if (pSHCIFPN)
                 {
+                    IShellItem *psiDefault = 0;
                     hr = pSHCIFPN(m_sDefaultPath, NULL, IID_PPV_ARGS(&psiDefault));
                     if (SUCCEEDED(hr))
                     {
@@ -129,7 +129,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 
         if (_tcslen(m_CheckText))
         {
-            IFileDialogCustomize *  pfdCustomize;
+            IFileDialogCustomize* pfdCustomize = 0;
             hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
             if (SUCCEEDED(hr))
             {
