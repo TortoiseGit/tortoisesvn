@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -101,10 +101,9 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 
 BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save)
 {
-    CPromptDlg dlg;
+    CPromptDlg dlg(CWnd::FromHandle(FindParentWindow(m_hParentWnd)));
     dlg.SetHide(hide);
     dlg.m_info = promptphrase;
-    dlg.m_hParentWnd = m_hParentWnd;
     INT_PTR nResponse = dlg.DoModal();
     m_bPromptShown = true;
     if (nResponse == IDOK)
@@ -125,8 +124,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
 
 BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString& Realm, BOOL& may_save)
 {
-    CSimplePrompt dlg;
-    dlg.m_hParentWnd = m_hParentWnd;
+    CSimplePrompt dlg(CWnd::FromHandle(FindParentWindow(m_hParentWnd)));
     dlg.m_sRealm = Realm;
     INT_PTR nResponse = dlg.DoModal();
     m_bPromptShown = true;
@@ -150,7 +148,7 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString
 void SVNPrompt::ShowErrorMessage()
 {
     CFormatMessageWrapper errorDetails;
-    MessageBox( NULL, errorDetails, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
+    MessageBox( FindParentWindow(m_hParentWnd), errorDetails, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
 }
 
 svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton, const char * realm, svn_boolean_t may_save, apr_pool_t *pool)
