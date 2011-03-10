@@ -27,7 +27,7 @@ CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CUpdateDlg::IDD, pParent)
     , Revision(_T("HEAD"))
     , m_bNoExternals(FALSE)
-    , m_bStickyDepth(FALSE)
+    , m_bStickyDepth(TRUE)
     , m_pLogDlg(NULL)
 {
 }
