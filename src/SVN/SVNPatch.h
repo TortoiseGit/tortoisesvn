@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,6 +78,16 @@ public:
     int                     GetFailedHunks(int index) const { return m_filePaths[index].rejects; }
 
     /**
+     * Returns true if there are content modifications for the path
+     */
+    bool                    GetContentMods(int index) const { return m_filePaths[index].content; }
+
+    /**
+     * Returns true if there are property modifications for the path
+     */
+    bool                    GetPropMods(int index) const { return m_filePaths[index].props; }
+
+    /**
      * Returns the path of the affected file, stripped by m_nStrip.
      */
     CString                 GetStrippedPath(int nIndex) const;
@@ -113,6 +123,8 @@ private:
         int         rejects;
         CString     resultPath;
         CString     rejectsPath;
+        bool        content;
+        bool        props;
     };
     std::vector<PathRejects> m_filePaths;
     int                     m_nStrip;

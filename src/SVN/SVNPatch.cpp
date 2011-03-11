@@ -62,9 +62,10 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
     SVNPatch * pThis = (SVNPatch*)baton;
     if (pThis && notify)
     {
+        PathRejects * pInfo = &pThis->m_filePaths[pThis->m_filePaths.size()-1];
         if ((notify->action == svn_wc_notify_skip)||(notify->action == svn_wc_notify_patch_rejected_hunk))
         {
-            pThis->m_filePaths[pThis->m_filePaths.size()-1].rejects++;
+            pInfo->rejects++;
         }
         if (notify->action != svn_wc_notify_add)
         {
@@ -74,6 +75,9 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
             else
                 pThis->m_testPath = abspath;
         }
+        pInfo->content = pInfo->content || (notify->content_state != svn_wc_notify_state_unknown);
+        pInfo->props   = pInfo->props   || (notify->prop_state    != svn_wc_notify_state_unknown);
+
         if (((notify->action == svn_wc_notify_patch)||(notify->action == svn_wc_notify_add))&&(pThis->m_pProgDlg))
         {
             pThis->m_pProgDlg->FormatPathLine(2, IDS_PATCH_PATHINGFILE, (LPCTSTR)CUnicodeUtils::GetUnicode(notify->path));
@@ -97,7 +101,20 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
         pr.resultPath.Replace('/', '\\');
         pr.rejectsPath = CUnicodeUtils::GetUnicode(reject_abspath);
         pr.rejectsPath.Replace('/', '\\');
-        pThis->m_filePaths.push_back(pr);
+        pr.content = false;
+        pr.props = false;
+        // only add this entry if it hasn't been added already
+        bool bExists = false;
+        for (auto it = pThis->m_filePaths.rbegin(); it != pThis->m_filePaths.rend(); ++it)
+        {
+            if (it->path.Compare(pr.path) == 0)
+            {
+                bExists = true;
+                break;
+            }
+        }
+        if (!bExists)
+            pThis->m_filePaths.push_back(pr);
         pThis->m_nRejected = 0;
         *filtered = false;
 
