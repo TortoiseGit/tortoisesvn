@@ -115,10 +115,10 @@ HWND FindParentWindow(HWND hWnd)
 {
     if (hWnd)
         return hWnd;
-    if (GetExplorerHWND())
-        return GetExplorerHWND();
+    if (theApp.m_pMainWnd->GetSafeHwnd())
+        return theApp.m_pMainWnd->GetSafeHwnd();
 
-    return theApp.m_pMainWnd->GetSafeHwnd();
+    return GetExplorerHWND();
 }
 
 CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
