@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -74,7 +74,7 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
             else
                 pThis->m_testPath = abspath;
         }
-        if ((notify->action == svn_wc_notify_patch)&&(pThis->m_pProgDlg))
+        if (((notify->action == svn_wc_notify_patch)||(notify->action == svn_wc_notify_add))&&(pThis->m_pProgDlg))
         {
             pThis->m_pProgDlg->FormatPathLine(2, IDS_PATCH_PATHINGFILE, (LPCTSTR)CUnicodeUtils::GetUnicode(notify->path));
         }
