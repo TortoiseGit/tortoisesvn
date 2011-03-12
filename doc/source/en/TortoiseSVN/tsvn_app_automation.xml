@@ -536,8 +536,30 @@ Don't touch these lines:
                         <row>
                             <entry condition="pot">:revisiongraph</entry>
                             <entry>
+                                <para>
                                 Shows the revision graph for the path given in
                                 <option>/path</option>.
+                                </para>
+                                <para>
+                                To create an image file without showing the graph,
+                                pass <option>/output:path</option> with the path
+                                to the output file. The output file must have
+                                an extension that the revision graph can actually
+                                export to. These are: .svn, .wmf, .png, .jpg,
+                                .bmp and .gif.
+                                </para>
+                                <para>
+                                Since the revision graph has many options that
+                                affect how it is shown, you can also set the options
+                                to use when creating the output image file.
+                                Pass these options with <option>/options:XXXX</option>,
+                                where XXXX is a decimal value. The best way to
+                                find the required options is to start the revision
+                                graph the usual way, set all UI options and
+                                close the graph. Then the options you need to
+                                pass on the command line can be read from
+                                the registry <literal>HKCU\Software\TortoiseSVN\RevisionGraphOptions</literal>.
+                                </para>
                             </entry>
                         </row>
                         <row>

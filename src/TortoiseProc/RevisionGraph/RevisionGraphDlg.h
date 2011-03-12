@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,6 +60,11 @@ public:
     void            UpdateFullHistory();
     void            StartWorkerThread();
 
+    void            StartHidden() { m_bVisible = false; }
+    void            SetOutputFile(const CString& path) { m_outputPath = path; }
+    CString         GetOutputFile() const { return m_outputPath; }
+    void            SetOptions(DWORD options) { m_Graph.m_state.GetOptions()->SetRegistryFlags(options, 0x407fbf); }
+
 protected:
     bool            m_bFetchLogs;
     char            m_szTip[MAX_TT_LENGTH+1];
@@ -97,6 +102,7 @@ protected:
     afx_msg BOOL    OnToggleReloadOption (UINT controlID);
     afx_msg BOOL    OnToggleRedrawOption (UINT controlID);
     afx_msg BOOL    OnToolTipNotify (UINT id, NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void    OnWindowPosChanging(WINDOWPOS* lpwndpos);
 
     DECLARE_MESSAGE_MAP()
 
@@ -113,10 +119,12 @@ private:
 
     bool            UpdateData();
 
-    float           m_fZoomFactor;
-    CRevisionGraphWnd   m_Graph;
-    CStatusBarCtrl      m_StatusBar;
-    CRevGraphToolBar    m_ToolBar;
-    ULONG_PTR       m_gdiPlusToken;
-    CComPtr<ITaskbarList3>  m_pTaskbarList;
+    float                       m_fZoomFactor;
+    CRevisionGraphWnd           m_Graph;
+    CStatusBarCtrl              m_StatusBar;
+    CRevGraphToolBar            m_ToolBar;
+    bool                        m_bVisible;
+    CString                     m_outputPath;
+    ULONG_PTR                   m_gdiPlusToken;
+    CComPtr<ITaskbarList3>      m_pTaskbarList;
 };

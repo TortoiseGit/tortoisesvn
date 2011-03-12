@@ -1530,6 +1530,13 @@ LRESULT CRevisionGraphWnd::OnWorkerThreadDone(WPARAM, LPARAM)
             , false));
     }
 
+    if (m_parent && !m_parent->GetOutputFile().IsEmpty())
+    {
+        // save the graph to the output file and exit
+        SaveGraphAs(m_parent->GetOutputFile());
+        PostQuitMessage(0);
+    }
+
     return 0;
 }
 

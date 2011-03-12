@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,6 +48,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
     , m_hAccel(NULL)
     , m_bFetchLogs(true)
     , m_fZoomFactor(DEFAULT_ZOOM)
+    , m_bVisible(true)
 {
     // GDI+ initialization
 
@@ -118,6 +119,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
     ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
     ON_COMMAND(ID_VIEW_FILTER, OnViewFilter)
     ON_COMMAND(ID_VIEW_SHOWOVERVIEW, OnViewShowoverview)
+    ON_WM_WINDOWPOSCHANGING()
 END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::InitializeToolbar()
@@ -279,10 +281,16 @@ bool CRevisionGraphDlg::UpdateData()
                             : (svn_revnum_t)-1;
 
         if (!m_Graph.FetchRevisionData (m_Graph.m_sPath, pegRev, &progress, m_pTaskbarList, m_hWnd))
-            CMessageBox::Show ( m_hWnd
-                              , m_Graph.m_state.GetLastErrorMessage()
-                              , _T("TortoiseSVN")
-                              , MB_ICONERROR);
+        {
+            // only show the error dialog if we're not in hidden mode
+            if (m_bVisible)
+            {
+                CMessageBox::Show ( m_hWnd
+                                    , m_Graph.m_state.GetLastErrorMessage()
+                                    , _T("TortoiseSVN")
+                                    , MB_ICONERROR);
+            }
+        }
 
         progress.Stop();
         if (m_pTaskbarList)
@@ -844,3 +852,13 @@ void CRevisionGraphDlg::UpdateOptionAvailability()
     UpdateOptionAvailability (ID_VIEW_SHOWWCMODIFICATION, isWCPath);
 }
 
+
+
+void CRevisionGraphDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
+{
+    if (!m_bVisible)
+    {
+        lpwndpos->flags &= ~SWP_SHOWWINDOW;
+    }
+    CResizableStandAloneDialog::OnWindowPosChanging(lpwndpos);
+}
