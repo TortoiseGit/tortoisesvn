@@ -3922,6 +3922,13 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
     // force the root item to be  checked
     if ((!bChecked)&&(pNMTVItemChange->hItem == m_RepoTree.GetRootItem()))
     {
+        // uncheck all children
+        HTREEITEM hChild = m_RepoTree.GetChildItem(pNMTVItemChange->hItem);
+        while (hChild)
+        {
+            m_RepoTree.SetCheck(hChild, FALSE);
+            hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+        }
         m_RepoTree.SetCheck(pNMTVItemChange->hItem);
     }
     else if (bChecked)
