@@ -2569,7 +2569,13 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 
         LPCTSTR line = GetLineChars(m_ptCaretPos.y);
         if ((m_ptSelectionEndPos.x - m_ptSelectionStartPos.x) > 0)
-            m_sMarkedWord = CString(&line[m_ptSelectionStartPos.x], m_ptSelectionEndPos.x - m_ptSelectionStartPos.x);
+        {
+            CString sNewMarkedWord = CString(&line[m_ptSelectionStartPos.x], m_ptSelectionEndPos.x - m_ptSelectionStartPos.x);
+            if (m_sMarkedWord.Compare(sNewMarkedWord) == 0)
+                m_sMarkedWord.Empty();
+            else
+                m_sMarkedWord = sNewMarkedWord;
+        }
         else
         {
             m_sMarkedWord.Empty();
