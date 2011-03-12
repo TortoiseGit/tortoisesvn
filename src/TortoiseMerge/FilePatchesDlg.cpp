@@ -263,7 +263,7 @@ void CFilePatchesDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     {
         if (m_arFileStates.GetAt(pNMLV->iItem)!=FPDLG_FILESTATE_PATCHED)
         {
-            m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(pNMLV->iItem), _T(""));
+            m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(pNMLV->iItem), m_pPatch->GetContentMods(pNMLV->iItem), m_pPatch->GetPropMods(pNMLV->iItem), _T(""));
             m_ShownIndex = pNMLV->iItem;
             m_cFileList.Invalidate();
         }
@@ -363,7 +363,7 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
             int nIndex = m_cFileList.GetSelectionMark();
             if ( m_arFileStates.GetAt(nIndex)!=FPDLG_FILESTATE_PATCHED)
             {
-                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(nIndex), _T(""));
+                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(nIndex), m_pPatch->GetContentMods(nIndex), m_pPatch->GetPropMods(nIndex), _T(""));
                 m_ShownIndex = nIndex;
                 m_cFileList.Invalidate();
             }
@@ -457,7 +457,7 @@ void CFilePatchesDlg::PatchAll()
             if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
             {
                 progDlg.SetLine(2, GetFullPath(i), true);
-                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(i), _T(""), TRUE);
+                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(i), m_pPatch->GetContentMods(i), m_pPatch->GetPropMods(i), _T(""), TRUE);
                 m_ShownIndex = i;
                 m_cFileList.Invalidate();
             }
@@ -488,7 +488,7 @@ void CFilePatchesDlg::PatchSelected()
             if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
             {
                 progDlg.SetLine(2, GetFullPath(index), true);
-                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(index), _T(""), TRUE);
+                m_pCallBack->PatchFile(m_pPatch->GetStrippedPath(index), m_pPatch->GetContentMods(index), m_pPatch->GetPropMods(index), _T(""), TRUE);
                 m_ShownIndex = index;
                 m_cFileList.Invalidate();
             }

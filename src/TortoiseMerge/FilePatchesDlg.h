@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008, 2010 - TortoiseSVN
+// Copyright (C) 2006, 2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ public:
      * \param sVersion the revision number of the file to patch
      * \return TRUE if patching was successful
      */
-    virtual BOOL PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch = FALSE) = 0;
+    virtual BOOL PatchFile(CString sFilePath, bool bContentMods, bool bPropMods, CString sVersion, BOOL bAutoPatch = FALSE) = 0;
 
     /**
      * Callback function. Called when the user double clicks on a

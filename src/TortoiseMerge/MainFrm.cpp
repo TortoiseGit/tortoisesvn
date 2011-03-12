@@ -409,7 +409,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
 }
 
 // Callback function
-BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
+BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropMods, CString sVersion, BOOL bAutoPatch)
 {
     CString sDummy;
     //"dry run" was successful, so save the patched file somewhere...
@@ -454,6 +454,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
         m_Data.m_yourFile.SetDescriptiveName(temp);
         m_Data.m_theirFile.SetOutOfUse();
         m_Data.m_mergedFile.SetFileName(sFilePath);
+        m_Data.m_bPatchRequired = bPropMods;
     }
     TRACE(_T("comparing %s\nwith the patched result %s\n"), (LPCTSTR)sFilePath, (LPCTSTR)sTempFile);
 
@@ -1070,6 +1071,10 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
     {
         MoveFileEx(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"), MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
+    }
+    if (m_Data.m_bPatchRequired)
+    {
+        m_Patch.PatchPath(m_Data.m_mergedFile.GetFilename());
     }
     if (SaveFile(m_Data.m_mergedFile.GetFilename())==0)
     {

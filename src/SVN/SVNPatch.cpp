@@ -124,6 +124,21 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
     return NULL;
 }
 
+svn_error_t * SVNPatch::patchfile_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile, 
+                                        const char * /*patch_abspath*/, 
+                                        const char * /*reject_abspath*/, 
+                                        apr_pool_t * /*scratch_pool*/ )
+{
+    SVNPatch * pThis = (SVNPatch*)baton;
+    if (pThis)
+    {
+        CString relpath = CUnicodeUtils::GetUnicode(canon_path_from_patchfile);
+        relpath = PathIsRelative(relpath) ? relpath : relpath.Mid(pThis->m_targetpath.GetLength());
+        *filtered = relpath.CompareNoCase(pThis->m_filetopatch) != 0;
+    }
+    return NULL;
+}
+
 int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgressDlg *pPprogDlg )
 {
     svn_error_t *               err         = NULL;
@@ -234,6 +249,50 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
 
     return (int)m_filePaths.size();
 }
+
+bool SVNPatch::PatchPath( const CString& path )
+{
+    svn_error_t *               err         = NULL;
+    apr_pool_t *                scratchpool = NULL;
+    svn_client_ctx_t *          ctx         = NULL;
+
+    m_errorStr.Empty();
+
+    m_patchfile.Replace('\\', '/');
+    m_targetpath.Replace('\\', '/');
+
+    m_filetopatch = path.Mid(m_targetpath.GetLength()+1);
+    m_filetopatch.Replace('\\', '/');
+
+    apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
+    svn_error_clear(svn_client_create_context(&ctx, scratchpool));
+
+    m_nRejected = 0;
+    m_nStrip = 0;
+    err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile),     // patch_abspath
+        CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
+        false,                                   // dry_run
+        m_nStrip,                                // strip_count
+        false,                                   // reverse
+        true,                                    // ignore_whitespace
+        true,                                    // remove_tempfiles
+        patchfile_func,                          // patch_func
+        this,                                    // patch_baton
+        ctx,                                     // client context
+        m_pool, scratchpool);
+
+    apr_pool_destroy(scratchpool);
+
+    if (err)
+    {
+        m_errorStr = GetErrorMessage(err);
+        svn_error_clear(err);
+        return false;
+    }
+
+    return true;
+}
+
 
 int SVNPatch::GetPatchResult(const CString& sPath, CString& sSavePath, CString& sRejectPath) const
 {
@@ -445,3 +504,4 @@ CString	 SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
     }
     return msg;
 }
+

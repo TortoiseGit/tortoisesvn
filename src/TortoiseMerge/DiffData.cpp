@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,6 +40,7 @@ int CDiffData::abort_on_pool_failure (int /*retcode*/)
 
 CDiffData::CDiffData(void)
     : m_bViewMovedBlocks(false)
+    , m_bPatchRequired(false)
 {
     apr_initialize();
     svn_dso_initialize2();

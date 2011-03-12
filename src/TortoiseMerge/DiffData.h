@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2010 - TortoiseSVN
+// Copyright (C) 2006-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,6 +84,7 @@ public:
     CString                     m_sPatchPath;
     CString                     m_sPatchOriginal;
     CString                     m_sPatchPatched;
+    bool                        m_bPatchRequired;
 
 public:
     CFileTextLines              m_arBaseFile;

@@ -56,6 +56,11 @@ public:
     CString                 CheckPatchPath(const CString& path);
 
     /**
+     * Applies the patch for the given \c path, including property changes if necessary.
+     */
+    bool                    PatchPath(const CString& path);
+
+    /**
      * Returns the paths of the patch result for the \c sPath.
      * The patch is applied in the Init() method.
      * \return the number of failed hunks, 0 if everything was applied successfully, -1 on error
@@ -112,6 +117,10 @@ private:
                                         const char *patch_abspath, 
                                         const char *reject_abspath, 
                                         apr_pool_t * scratch_pool );
+    static svn_error_t *    patchfile_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile, 
+                                            const char *patch_abspath, 
+                                            const char *reject_abspath, 
+                                            apr_pool_t * scratch_pool );
     static void             notify(void *baton,
                                    const svn_wc_notify_t *notify,
                                    apr_pool_t *pool);
@@ -133,6 +142,7 @@ private:
     CString                 m_patchfile;
     CString                 m_targetpath;
     CString                 m_testPath;
+    CString                 m_filetopatch;
     CString                 m_errorStr;
     CProgressDlg *          m_pProgDlg;
 };
