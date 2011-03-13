@@ -31,6 +31,7 @@ CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CAddDlg::IDD, pParent)
     , m_bThreadRunning(FALSE)
     , m_bCancelled(false)
+    , m_UseAutoprops(true)
 {
 }
 
@@ -43,6 +44,7 @@ void CAddDlg::DoDataExchange(CDataExchange* pDX)
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_ADDLIST, m_addListCtrl);
     DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+    DDX_Check(pDX, IDC_USEAUTOPROPS, m_UseAutoprops);
 }
 
 BEGIN_MESSAGE_MAP(CAddDlg, CResizableStandAloneDialog)
@@ -60,6 +62,7 @@ BOOL CAddDlg::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_ADDLIST, IDC_ADDLIST, IDC_ADDLIST, IDC_ADDLIST);
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);
+    m_aeroControls.SubclassControl(this, IDC_USEAUTOPROPS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     // initialize the svn status list control
@@ -77,6 +80,7 @@ BOOL CAddDlg::OnInitDialog()
 
     AddAnchor(IDC_ADDLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
+    AddAnchor(IDC_USEAUTOPROPS, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);

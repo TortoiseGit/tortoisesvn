@@ -3514,7 +3514,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
                     ProjectProperties props;
                     props.ReadPropsPathList(itemsToAdd);
-                    if (svn.Add(itemsToAdd, &props, svn_depth_empty, true, true, true))
+                    if (svn.Add(itemsToAdd, &props, svn_depth_empty, true, true, true, true))
                     {
                         // The add went ok, but we now need to run through the selected items again
                         // and update their status
@@ -3688,7 +3688,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                             ProjectProperties props;
                                             props.ReadPropsPathList(CTSVNPathList(entry1->GetPath()));
 
-                                            svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, true, false, true);
+                                            svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, true, true, false, true);
                                         }
                                         if (!svn.Move(CTSVNPathList(entry1->GetPath()), entry2->GetPath()))
                                         {
@@ -3769,7 +3769,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                             ProjectProperties props;
                                             props.ReadPropsPathList(CTSVNPathList(entry1->GetPath()));
 
-                                            svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, true, false, true);
+                                            svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, true, true, false, true);
                                         }
                                         if (!svn.Copy(CTSVNPathList(entry1->GetPath()), entry2->GetPath(), SVNRev(), SVNRev()))
                                         {

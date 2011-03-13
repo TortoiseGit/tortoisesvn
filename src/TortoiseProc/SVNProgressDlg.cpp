@@ -2115,7 +2115,7 @@ bool CSVNProgressDlg::CmdAdd(CString& sWindowTitle, bool& localoperation)
     SetWindowText(sWindowTitle);
     SetBackgroundImage(IDI_ADD_BKG);
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_ADD)));
-    if (!Add(m_targetPathList, &m_ProjectProperties, svn_depth_empty, (m_options & ProgOptForce) != 0, true, true))
+    if (!Add(m_targetPathList, &m_ProjectProperties, svn_depth_empty, (m_options & ProgOptForce) != 0, (m_options & ProgOptUseAutoprops) != 0, true, true))
     {
         ReportSVNError();
         return false;
@@ -2561,7 +2561,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
         m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(),
         m_options & ProgOptIncludeIgnored ? (LPCTSTR)(_T(", ") + sIgnoredIncluded) : _T(""));
     ReportCmd(sCmdInfo);
-    if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, svn_depth_infinity, m_options & ProgOptIncludeIgnored ? true : false, false, m_revProps))
+    if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, svn_depth_infinity, (m_options & ProgOptUseAutoprops) != 0, m_options & ProgOptIncludeIgnored ? true : false, false, m_revProps))
     {
         ReportSVNError();
         return false;

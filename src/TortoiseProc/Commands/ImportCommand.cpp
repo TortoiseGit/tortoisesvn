@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,7 +48,10 @@ bool ImportCommand::Execute()
         theApp.m_pMainWnd = &progDlg;
         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Import);
         progDlg.SetAutoClose (parser);
-        progDlg.SetOptions(dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : ProgOptNone);
+        DWORD dwOpts = dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : ProgOptNone;
+        if (dlg.m_UseAutoprops)
+            dwOpts |= ProgOptUseAutoprops;
+        progDlg.SetOptions(dwOpts);
         progDlg.SetPathList(pathList);
         progDlg.SetUrl(dlg.m_url);
         progDlg.SetCommitMessage(dlg.m_sMessage);

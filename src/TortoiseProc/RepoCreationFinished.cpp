@@ -83,7 +83,7 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
 
     // import the folder structure into the new repository
     SVN svn;
-    if (!svn.Import(tempDir, CTSVNPath(url), CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTURE)), NULL, svn_depth_infinity, true, false))
+    if (!svn.Import(tempDir, CTSVNPath(url), CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTURE)), NULL, svn_depth_infinity, true, true, false))
     {
         svn.ShowErrorDialog(m_hWnd);
         return;

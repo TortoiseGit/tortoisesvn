@@ -193,7 +193,7 @@ public:
      *                   If found, add all intermediate paths between it and path.
      * \return TRUE if successful
      */
-    bool Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_depth_t depth, bool force, bool no_ignore, bool addparents);
+    bool Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_depth_t depth, bool force, bool bUseAutoprops, bool no_ignore, bool addparents);
     /**
      * Assigns the files/folders in \c pathList to a \c changelist.
      * \return TRUE if successful
@@ -406,7 +406,7 @@ public:
      * \return TRUE if successful
      */
     bool Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message,
-        ProjectProperties * props, svn_depth_t depth, bool no_ignore, bool ignore_unknown, const RevPropHash& revProps = RevPropHash());
+        ProjectProperties * props, svn_depth_t depth, bool bUseAutoprops, bool no_ignore, bool ignore_unknown, const RevPropHash& revProps = RevPropHash());
     /**
      * Merge changes from path1/revision1 to path2/revision2 into the
      * working-copy path localPath.  path1 and path2 can be either

@@ -346,7 +346,7 @@ bool SVN::Revert(const CTSVNPathList& pathlist, const CStringArray& changelists,
 }
 
 
-bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_depth_t depth, bool force, bool no_ignore, bool addparents)
+bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_depth_t depth, bool force, bool bUseAutoprops, bool no_ignore, bool addparents)
 {
     SVNTRACE_BLOCK
 
@@ -357,18 +357,23 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 
     svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
         APR_HASH_KEY_STRING);
-    svn_config_get(opt, &mimetypes_file,
-        SVN_CONFIG_SECTION_MISCELLANY,
-        SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
-    if (mimetypes_file && *mimetypes_file)
+    if (bUseAutoprops)
     {
-        Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
-            mimetypes_file, pool);
-        if (Err)
-            return false;
+        svn_config_get(opt, &mimetypes_file,
+            SVN_CONFIG_SECTION_MISCELLANY,
+            SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
+        if (mimetypes_file && *mimetypes_file)
+        {
+            Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
+                mimetypes_file, pool);
+            if (Err)
+                return false;
+        }
+        if (props)
+            props->InsertAutoProps(opt);
     }
-    if (props)
-        props->InsertAutoProps(opt);
+    else
+        svn_config_set_bool(opt, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, false);
 
     for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
     {
@@ -846,7 +851,8 @@ bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
 }
 
 bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message,
-                 ProjectProperties * props, svn_depth_t depth, bool no_ignore, bool ignore_unknown,
+                 ProjectProperties * props, svn_depth_t depth, bool bUseAutoprops,
+                 bool no_ignore, bool ignore_unknown,
                  const RevPropHash& revProps)
 {
     // the import command should use the mime-type file
@@ -855,18 +861,23 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
     Err = NULL;
     svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
         APR_HASH_KEY_STRING);
-    svn_config_get(opt, &mimetypes_file,
-        SVN_CONFIG_SECTION_MISCELLANY,
-        SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
-    if (mimetypes_file && *mimetypes_file)
+    if (bUseAutoprops)
     {
-        Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
-            mimetypes_file, pool);
-        if (Err)
-            return FALSE;
+        svn_config_get(opt, &mimetypes_file,
+            SVN_CONFIG_SECTION_MISCELLANY,
+            SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
+        if (mimetypes_file && *mimetypes_file)
+        {
+            Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
+                mimetypes_file, pool);
+            if (Err)
+                return FALSE;
+        }
+        if (props)
+            props->InsertAutoProps(opt);
     }
-    if (props)
-        props->InsertAutoProps(opt);
+    else
+        svn_config_set_bool(opt, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, false);
 
     SVNPool subpool(pool);
     m_pctx->log_msg_baton3 = logMessage(message);

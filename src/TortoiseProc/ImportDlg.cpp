@@ -31,6 +31,7 @@ IMPLEMENT_DYNAMIC(CImportDlg, CResizableStandAloneDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CImportDlg::IDD, pParent)
     , m_bIncludeIgnored(FALSE)
+    , m_UseAutoprops(TRUE)
 {
 }
 
@@ -45,6 +46,7 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
     DDX_Control(pDX, IDC_MESSAGE, m_cMessage);
     DDX_Check(pDX, IDC_IMPORTIGNORED, m_bIncludeIgnored);
+    DDX_Check(pDX, IDC_USEAUTOPROPS, m_UseAutoprops);
 }
 
 BEGIN_MESSAGE_MAP(CImportDlg, CResizableStandAloneDialog)
@@ -61,6 +63,7 @@ BOOL CImportDlg::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_MSGGROUP);
     m_aeroControls.SubclassControl(this, IDC_IMPORTIGNORED);
+    m_aeroControls.SubclassControl(this, IDC_USEAUTOPROPS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
@@ -103,6 +106,7 @@ BOOL CImportDlg::OnInitDialog()
     AddAnchor(IDC_MESSAGE, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_HISTORY, TOP_LEFT);
     AddAnchor(IDC_IMPORTIGNORED, BOTTOM_LEFT);
+    AddAnchor(IDC_USEAUTOPROPS, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);

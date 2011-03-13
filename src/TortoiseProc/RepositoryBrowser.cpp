@@ -2680,7 +2680,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                 CString filename = pathlist[importindex].GetFileOrDirectoryName();
                 if (!Import(pathlist[importindex],
                     CTSVNPath(target.GetSVNPathString()+_T("/")+filename),
-                    input.GetLogMessage(), &m_ProjectProperties, svn_depth_infinity, TRUE, FALSE))
+                    input.GetLogMessage(), &m_ProjectProperties, svn_depth_infinity, true, true, false))
                 {
                     ShowErrorDialog(m_hWnd);
                     return false;
@@ -3348,7 +3348,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             input.GetLogMessage(),
                             &m_ProjectProperties,
                             svn_depth_infinity,
-                            FALSE, FALSE))
+                            true, false, false))
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
@@ -3397,7 +3397,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             input.GetLogMessage(),
                             &m_ProjectProperties,
                             svn_depth_empty,
-                            TRUE, FALSE))
+                            true, true, false))
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);

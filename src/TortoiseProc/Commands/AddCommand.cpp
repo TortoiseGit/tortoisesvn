@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,7 +33,7 @@ bool AddCommand::Execute()
         SVN svn;
         ProjectProperties props;
         props.ReadPropsPathList(pathList);
-        bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, false, true);
+        bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, true, false, true);
         CShellUpdater::Instance().AddPathsForUpdate(pathList);
     }
     else
@@ -81,7 +81,7 @@ bool AddCommand::Execute()
             SVN svn;
             ProjectProperties props;
             props.ReadPropsPathList(pathList);
-            bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, false, true);
+            bRet = !!svn.Add(pathList, &props, svn_depth_empty, true, true, false, true);
             if (!bRet)
             {
                 svn.ShowErrorDialog(GetExplorerHWND(), pathList.GetCommonDirectory());
@@ -99,7 +99,10 @@ bool AddCommand::Execute()
                 CSVNProgressDlg progDlg;
                 theApp.m_pMainWnd = &progDlg;
                 progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
-                progDlg.SetOptions(ProgOptForce);
+                DWORD dwOpts = ProgOptForce;
+                if (dlg.m_UseAutoprops)
+                    dwOpts |= ProgOptUseAutoprops;
+                progDlg.SetOptions(dwOpts);
                 progDlg.SetAutoClose (parser);
                 progDlg.SetPathList(dlg.m_pathList);
                 ProjectProperties props;

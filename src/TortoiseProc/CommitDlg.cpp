@@ -515,7 +515,7 @@ void CCommitDlg::OnOK()
     // are added before their children
     itemsToAdd.SortByPathname();
     SVN svn;
-    if (!svn.Add(itemsToAdd, &m_ProjectProperties, svn_depth_empty, false, false, true))
+    if (!svn.Add(itemsToAdd, &m_ProjectProperties, svn_depth_empty, false, true, false, true))
     {
         svn.ShowErrorDialog(m_hWnd);
         InterlockedExchange(&m_bBlock, FALSE);
@@ -994,7 +994,7 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
     // if the item is versioned, the add will fail but nothing
     // more will happen.
     SVN svn;
-    svn.Add(CTSVNPathList(path), &m_ProjectProperties, svn_depth_empty, false, true, true);
+    svn.Add(CTSVNPathList(path), &m_ProjectProperties, svn_depth_empty, false, true, true, true);
 
     if (!m_ListCtrl.HasPath(path))
     {
