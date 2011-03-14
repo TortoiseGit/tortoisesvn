@@ -1450,7 +1450,7 @@ void CLogDlg::StatusThread()
     }
 }
 
-void CLogDlg::CopySelectionToClipBoard()
+void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
 {
     CString sClipdata;
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
@@ -1467,33 +1467,41 @@ void CLogDlg::CopySelectionToClipBoard()
         while (pos)
         {
             CString sLogCopyText;
-            CString sPaths;
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-            const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
-            for (size_t cpPathIndex = 0; cpPathIndex < cpatharray.GetCount(); ++cpPathIndex)
+            if (bIncludeChangedList)
             {
-                const CLogChangedPath& cpath = cpatharray[cpPathIndex];
-                sPaths += CUnicodeUtils::GetUnicode (cpath.GetActionString().c_str())
-                        + _T(" : ") + cpath.GetPath();
-                if (cpath.GetCopyFromPath().IsEmpty())
-                    sPaths += _T("\r\n");
-                else
+                CString sPaths;
+                const CLogChangedPathArray& cpatharray = pLogEntry->GetChangedPaths();
+                for (size_t cpPathIndex = 0; cpPathIndex < cpatharray.GetCount(); ++cpPathIndex)
                 {
-                    CString sCopyFrom;
-                    sCopyFrom.Format(_T(" (%s: %s, %s, %ld)\r\n"), (LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)),
-                        (LPCTSTR)cpath.GetCopyFromPath(),
-                        (LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_REVISION)),
-                        cpath.GetCopyFromRev());
-                    sPaths += sCopyFrom;
+                    const CLogChangedPath& cpath = cpatharray[cpPathIndex];
+                    sPaths += CUnicodeUtils::GetUnicode (cpath.GetActionString().c_str())
+                        + _T(" : ") + cpath.GetPath();
+                    if (cpath.GetCopyFromPath().IsEmpty())
+                        sPaths += _T("\r\n");
+                    else
+                    {
+                        CString sCopyFrom;
+                        sCopyFrom.Format(_T(" (%s: %s, %s, %ld)\r\n"), (LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)),
+                            (LPCTSTR)cpath.GetCopyFromPath(),
+                            (LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_REVISION)),
+                            cpath.GetCopyFromRev());
+                        sPaths += sCopyFrom;
+                    }
                 }
+                sPaths.Trim();
+                sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
+                    (LPCTSTR)sRev, pLogEntry->GetRevision(),
+                    (LPCTSTR)sAuthor,  (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetAuthor().c_str()),
+                    (LPCTSTR)sDate, (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetDateString().c_str()),
+                    (LPCTSTR)sMessage, (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str()),
+                    (LPCTSTR)sPaths);
             }
-            sPaths.Trim();
-            sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
-                (LPCTSTR)sRev, pLogEntry->GetRevision(),
-                (LPCTSTR)sAuthor,  (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetAuthor().c_str()),
-                (LPCTSTR)sDate, (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetDateString().c_str()),
-                (LPCTSTR)sMessage, (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str()),
-                (LPCTSTR)sPaths);
+            else
+            {
+                sLogCopyText.Format(_T("%s\r\n----\r\n"),
+                    (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str()));
+            }
             sClipdata +=  sLogCopyText;
         }
         CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
@@ -4869,7 +4877,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_COPYCLIPBOARD:
             {
-                CopySelectionToClipBoard();
+                CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
             }
             break;
         case ID_EXPORT:
@@ -5565,7 +5573,7 @@ void CLogDlg::OnEditCopy()
     if (GetFocus() == &m_ChangedFileListCtrl)
         CopyChangedSelectionToClipBoard();
     else
-        CopySelectionToClipBoard();
+        CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
 }
 
 void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)

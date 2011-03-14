@@ -164,7 +164,7 @@ private:
     void AdjustMinSize();
     void SetSplitterRange();
     void SetFilterCueText();
-    void CopySelectionToClipBoard();
+    void CopySelectionToClipBoard(bool bIncludeChangedList);
     void CopyChangedSelectionToClipBoard();
     CTSVNPathList GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch);
     void RecalculateShownList(svn_revnum_t revToKeep = -1);
