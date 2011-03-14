@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:32+0000\n"
+"PO-Revision-Date: 2011-03-13 17:12+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1468,7 +1468,7 @@ msgstr "Problém, kterému je třeba se vyvarovat."
 #. (title)
 #. (title)
 msgid "The Lock-Modify-Unlock Solution"
-msgstr "Řešení pomocí modelu Zamknout-Změnit-Odemknout"
+msgstr "Řešení Zamknout-Změnit-Odemknout"
 
 #. (para)
 msgid ""
@@ -1555,7 +1555,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "The Copy-Modify-Merge Solution"
-msgstr "Řešení pomocí modelu Kopírovat-Změnit-Sloučit"
+msgstr "Řešení Kopírovat-Změnit-Sloučit"
 
 #. (para)
 msgid ""
@@ -4186,7 +4186,7 @@ msgstr ""
 "  #AuthzSVNAccessFile svnaccessfile\n"
 "  Require valid-user\n"
 "&lt;/ Location&gt;\n"
-"</screen> Takto konfigurujeme Apache tak, aby všechny vaše úložiště Subversion byly fyzicky umístěny pod <filename>D:\\SVN</filename>. Repozitáře jsou k dispozici vnějšímu světu z URL: <systemitem class=\"url\">http://MujServer/svn/</systemitem>. Přístup je omezen na známé uživatele/hesla, které jsou uvedeny v souboru <filename>passwd</filename>."
+"</screen> Takto konfigurujeme Apache tak, aby všechny vaše úložiště Subversion byly fyzicky umístěny pod <filename>D:\\SVN</filename>. Úložiště jsou k dispozici vnějšímu světu z URL: <systemitem class=\"url\">http://MujServer/svn/</systemitem>. Přístup je omezen na známé uživatele/hesla, které jsou uvedeny v souboru <filename>passwd</filename>."
 
 #. (para)
 msgid ""
@@ -4283,7 +4283,7 @@ msgid ""
 "the available repositories under <placeholder-1/>."
 msgstr ""
 "Pro verzi Subversion 1.3 a vyšší, tento příkaz povoluje seznam všech "
-"dostupných repozitářů v <placeholder-1/> ."
+"dostupných úložišť v <placeholder-1/>."
 
 #. (filename)
 msgid "D:\\SVN"
@@ -4307,7 +4307,7 @@ msgid ""
 "the user what the authentication is for"
 msgstr ""
 "se používá jako informace, kdykoliv se objeví dialogové okno ověření, aby "
-"sdělilo uživateli, na co je to ověření"
+"sdělilo uživateli, na co je toto ověření"
 
 #. (entry)
 msgid "specifies which password file to use for authentication"
@@ -14931,7 +14931,7 @@ msgstr ""
 
 #. (title)
 msgid "Making Non-locked Files Read-Only"
-msgstr "Udělat z Neuzamčených Souborů Soubory Pouze Pro Čtení"
+msgstr "Převést Neuzamčené Soubory na Pouze Pro Čtení"
 
 #. (para)
 msgid ""
@@ -23349,9 +23349,9 @@ msgid ""
 " DO NOT USE THIS!"
 msgstr ""
 "Upozorňujeme, že tento hack je nutný pouze, pokud stále používáte "
-"VS.NET2002. Všechny pozdější verze Visual Studio tento hack "
-"<emphasis>nevyžadují</emphasis>, aby byl aktivován! Takže pokud nepoužíváte "
-"tento starověký nástroj, TOTO NEPOUŽÍVEJTE!"
+"VS.NET2002. Všechny pozdější verze Visual Studio "
+"<emphasis>nevyžadují</emphasis>, aby byl tento hack aktivován! Takže pokud "
+"nepoužíváte tento starověký nástroj, TOTO NEPOUŽÍVEJTE!"
 
 #. (title)
 msgid "Disable context menu entries"
@@ -28478,7 +28478,7 @@ msgid ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
-"Většina přepínačů požaduje další informace, jako cestu, nebo nějaký jiný řetězec. V těchto případech do přepínače přidejte ':' a řetězec/cesta zadejte po něm. Příklad: <screen>\n"
+"Většina přepínačů požaduje další informace, jako cestu, nebo nějaký jiný řetězec. V těchto případech do přepínače přidejte ':' a řetězec/cestu zadejte po něm. Příklad: <screen>\n"
 "/base:\"c:\\adresář\\můjpůvodsoubor.txt\"\n"
 "</screen>"
 
