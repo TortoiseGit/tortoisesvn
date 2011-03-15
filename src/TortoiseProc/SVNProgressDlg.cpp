@@ -1646,10 +1646,10 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
                 if (GetKeyState(VK_CONTROL)&0x8000)
                 {
                     //Ctrl-C -> copy to clipboard
-                    CString sClipdata;
                     POSITION pos = m_ProgList.GetFirstSelectedItemPosition();
                     if (pos != NULL)
                     {
+                        CString sClipdata;
                         while (pos)
                         {
                             int nItem = m_ProgList.GetNextSelectedItem(pos);

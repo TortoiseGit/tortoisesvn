@@ -271,11 +271,11 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     if(bToClipboard)
     {
         // The user actually asked for the patch to be written to the clipboard
-        CStringA sClipdata;
-        FILE * inFile;
+        FILE * inFile = 0;
         _tfopen_s(&inFile, tempPatchFilePath.GetWinPath(), _T("rb"));
         if(inFile)
         {
+            CStringA sClipdata;
             char chunkBuffer[16384];
             while(!feof(inFile))
             {

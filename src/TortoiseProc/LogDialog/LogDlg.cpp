@@ -1450,12 +1450,17 @@ void CLogDlg::StatusThread()
     }
 }
 
+void CLogDlg::CopySelectionToClipBoard()
+{
+    CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
+}
+
 void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
 {
-    CString sClipdata;
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
     if (pos != NULL)
     {
+        CString sClipdata;
         CString sRev;
         sRev.LoadString(IDS_LOG_REVISION);
         CString sAuthor;
@@ -4876,9 +4881,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             }
             break;
         case ID_COPYCLIPBOARD:
-            {
-                CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
-            }
+            CopySelectionToClipBoard();
             break;
         case ID_EXPORT:
             {
@@ -5573,7 +5576,7 @@ void CLogDlg::OnEditCopy()
     if (GetFocus() == &m_ChangedFileListCtrl)
         CopyChangedSelectionToClipBoard();
     else
-        CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
+        CopySelectionToClipBoard();
 }
 
 void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
