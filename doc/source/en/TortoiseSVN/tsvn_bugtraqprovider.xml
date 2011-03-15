@@ -41,6 +41,33 @@
             </para>
         </important>
     </simplesect>
+    <sect1 id="tsvn-bugtraqnaming">
+        <title>Naming conventions</title>
+        <para>
+            If you release an issue tracker plugin for TortoiseSVN, please do 
+            <emphasis>not</emphasis> name it <emphasis>Tortoise&lt;Something&gt;</emphasis>.
+            We'd like to reserve the <emphasis>Tortoise</emphasis> prefix for a version control
+            client integrated into the windows shell. For example: TortoiseCVS, TortoiseSVN,
+            TortoiseHg, TortoiseGit and TortoiseBzr are all version control clients.
+        </para>
+        <para>
+            Please name your plugin for a Tortoise client <emphasis>Turtle&lt;Something&gt;</emphasis>,
+            where <emphasis>&lt;Something&gt;</emphasis> refers to the issue tracker that you are connecting to. 
+            Alternatively choose a name that sounds like <emphasis>Turtle</emphasis> but has 
+            a different first letter. Nice examples are:
+            <itemizedlist>
+                <listitem>
+                    <para>Gurtle - An issue tracker plugin for Google code</para>
+                </listitem>
+                <listitem>
+                    <para>TurtleMine - An issue tracker plugin for Redmine</para>
+                </listitem>
+                <listitem>
+                    <para>VurtleOne - An issue tracker plugin for VersionOne</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </sect1>
     <!-- ================================================================= -->
     <!-- ======================== SECTION 1 ============================== -->
     <!-- ================================================================= -->
