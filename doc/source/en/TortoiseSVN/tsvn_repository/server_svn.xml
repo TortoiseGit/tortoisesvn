@@ -201,6 +201,18 @@ obj= "NT AUTHORITY\LocalService"
                     as well as any applications which are used by hook scripts.
                     The built-in group for this is called "LOCAL SERVICE".
                 </para>
+                <para>
+                    To give the Local Service or Network Service account full
+                    access to the folder where you store your repositories and/or
+                    your hook scripts, follow the instructions in the
+                    <ulink
+                        url="http://support.microsoft.com/kb/308419">
+                        <citetitle>knowledge base article kb308419</citetitle>
+                    </ulink>
+                    If you fail to set the permissions, you will get 
+                    <literal>access denied</literal> errors when you try to
+                    access the repository!
+                </para>
             </tip>
             <para>
                 Once you have installed the service, you need to go to the services
