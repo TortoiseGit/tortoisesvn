@@ -104,6 +104,7 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     AddAnchor(IDC_SHOW_LOG, TOP_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    AddAnchor(IDHELP, BOTTOM_RIGHT);
 
     return TRUE;
 }

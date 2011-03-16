@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -105,6 +105,7 @@ BOOL CEditPropExternals::OnInitDialog()
     AddAnchor(IDC_REMOVE, BOTTOM_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    AddAnchor(IDHELP, BOTTOM_RIGHT);
 
     return TRUE;
 }
