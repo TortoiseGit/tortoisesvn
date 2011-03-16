@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -345,32 +345,9 @@ BOOL CTortoiseMergeApp::InitInstance()
                 else
                 {
                     // no result, which means we closed the dialog in our button handler
-
-                    UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
-                    if ((cFormat)&&(OpenClipboard(NULL)))
-                    {
-                        HGLOBAL hglb = GetClipboardData(cFormat);
-                        LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
-
-                        DWORD len = GetTempPath(0, NULL);
-                        auto_buffer<TCHAR> path(len+1);
-                        auto_buffer<TCHAR> tempF(len+100);
-                        GetTempPath (len+1, path);
-                        GetTempFileName (path, TEXT("tsm"), 0, tempF);
-                        std::wstring sTempFile = std::wstring(tempF);
-
-                        FILE * outFile;
-                        size_t patchlen = strlen(lpstr);
-                        _tfopen_s(&outFile, sTempFile.c_str(), _T("wb"));
-                        if(outFile)
-                        {
-                            fwrite(lpstr, sizeof(char), patchlen, outFile);
-                            fclose(outFile);
-                        }
-                        GlobalUnlock(hglb);
-                        CloseClipboard();
+                    std::wstring sTempFile;
+                    if (TrySavePatchFromClipboard(sTempFile))
                         pFrame->m_Data.m_sDiffFile = sTempFile.c_str();
-                    }
                 }
             }
             else
@@ -551,34 +528,11 @@ CTortoiseMergeApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam,
 
         // if there's a patchfile in the clipboard, we save it
         // to a temporary file and tell TortoiseMerge to use that one
-        UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
-        if ((cFormat)&&(OpenClipboard(NULL)))
+        std::wstring sTempFile;
+        if (TrySavePatchFromClipboard(sTempFile))
         {
-            HGLOBAL hglb = GetClipboardData(cFormat);
-            LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
-
-            DWORD len = GetTempPath(0, NULL);
-            auto_buffer<TCHAR> path(len+1);
-            auto_buffer<TCHAR> tempF(len+100);
-            GetTempPath (len+1, path);
-            GetTempFileName (path, TEXT("tsm"), 0, tempF);
-            std::wstring sTempFile = std::wstring(tempF);
-
-            FILE * outFile;
-            size_t patchlen = strlen(lpstr);
-            _tfopen_s(&outFile, sTempFile.c_str(), _T("wb"));
-            if(outFile)
-            {
-                size_t size = fwrite(lpstr, sizeof(char), patchlen, outFile);
-                if (size == patchlen)
-                {
-                    CommDlg_OpenSave_SetControlText(hFileDialog, edt1, sTempFile.c_str());
-                    PostMessage(hFileDialog, WM_COMMAND, MAKEWPARAM(IDOK, BM_CLICK), (LPARAM)(GetDlgItem(hDlg, IDOK)));
-                }
-                fclose(outFile);
-            }
-            GlobalUnlock(hglb);
-            CloseClipboard();
+            CommDlg_OpenSave_SetControlText(hFileDialog, edt1, sTempFile.c_str());
+            PostMessage(hFileDialog, WM_COMMAND, MAKEWPARAM(IDOK, BM_CLICK), (LPARAM)(GetDlgItem(hDlg, IDOK)));
         }
     }
     return 0;
@@ -615,4 +569,41 @@ bool CTortoiseMergeApp::HasClipboardPatch()
     CloseClipboard();
 
     return containsPatch;
+}
+
+bool CTortoiseMergeApp::TrySavePatchFromClipboard(std::wstring& resultFile)
+{
+    resultFile.clear();
+
+    UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+    if (cFormat == 0)
+        return false;
+    if (OpenClipboard(NULL) == 0)
+        return false;
+
+    HGLOBAL hglb = GetClipboardData(cFormat);
+    LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
+
+    DWORD len = GetTempPath(0, NULL);
+    auto_buffer<TCHAR> path(len+1);
+    auto_buffer<TCHAR> tempF(len+100);
+    GetTempPath (len+1, path);
+    GetTempFileName (path, TEXT("tsm"), 0, tempF);
+    std::wstring sTempFile = std::wstring(tempF);
+
+    FILE* outFile = 0;
+    _tfopen_s(&outFile, sTempFile.c_str(), _T("wb"));
+    if (outFile != 0)
+    {
+        size_t patchlen = strlen(lpstr);
+        size_t size = fwrite(lpstr, sizeof(char), patchlen, outFile);
+        if (size == patchlen)
+             resultFile = sTempFile;
+
+        fclose(outFile);
+    }
+    GlobalUnlock(hglb);
+    CloseClipboard();
+
+    return resultFile.empty();
 }

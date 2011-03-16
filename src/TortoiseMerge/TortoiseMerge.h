@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2010 - TortoiseSVN
+// Copyright (C) 2006-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,6 +51,7 @@ protected:
 private:
     static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
     bool HasClipboardPatch();
+    static bool TrySavePatchFromClipboard(std::wstring& resultFile);
 };
 
 extern CTortoiseMergeApp theApp;
