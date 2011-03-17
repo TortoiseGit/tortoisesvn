@@ -605,5 +605,5 @@ bool CTortoiseMergeApp::TrySavePatchFromClipboard(std::wstring& resultFile)
     GlobalUnlock(hglb);
     CloseClipboard();
 
-    return resultFile.empty();
+    return !resultFile.empty();
 }
