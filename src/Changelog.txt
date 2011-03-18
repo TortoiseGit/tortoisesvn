@@ -122,6 +122,11 @@
 - BUG: Relative Webviewer urls didn't work from the 
        repository browser. (Stefan)
 
+Version 1.6.14
+- BUG: wrong manifest which lead to SxS errors on some systems after
+       a Windows update. (Stefan)
+- BUG: handle leak in the shell extension. (Stefan)
+
 Version 1.6.13
 - CHG: Updated dependencies (apr, openssl, zlib, ...)
 - CHG: Increase the load retries in TBlame.
