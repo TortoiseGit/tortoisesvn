@@ -543,7 +543,7 @@ void CSVNStatusListCtrl::FetchUserProperties()
     const size_t step = 1;
     for (size_t i = 0, count = m_targetPathList.GetCount(); i < count; i += step)
     {
-        size_t next = min (i+step, m_targetPathList.GetCount());
+        size_t next = min (i+step, static_cast<size_t>(m_targetPathList.GetCount()));
         new async::CAsyncCall ( this
                               , &CSVNStatusListCtrl::FetchUserProperties
                               , i
