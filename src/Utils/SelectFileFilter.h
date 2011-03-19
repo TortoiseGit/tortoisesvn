@@ -9,17 +9,18 @@ public:
     CSelectFileFilter() {}
     ~CSelectFileFilter() {}
 
-    operator TCHAR*() { return buffer; }
+    operator const TCHAR*() { return buffer; }
     void Load(UINT stringId);
     UINT GetCount() { return (UINT)filternames.size(); }
-    operator COMDLG_FILTERSPEC*() { return filterspec; }
+    operator const COMDLG_FILTERSPEC*() { return filterspec; }
 
 private:
     auto_buffer<TCHAR> buffer;
-    UINT count;
     auto_buffer<COMDLG_FILTERSPEC> filterspec;
     std::vector<CString> filternames;
     std::vector<CString> filtermasks;
+
+    void ResetAll();
 };
 
 inline CSelectFileFilter::CSelectFileFilter(UINT stringId)
@@ -29,7 +30,7 @@ inline CSelectFileFilter::CSelectFileFilter(UINT stringId)
 
 inline void CSelectFileFilter::Load(UINT stringId)
 {
-    buffer.reset();
+    ResetAll();
     CString sFilter;
     sFilter.LoadString(stringId);
     const int bufferLength = sFilter.GetLength()+4;
@@ -56,4 +57,13 @@ inline void CSelectFileFilter::Load(UINT stringId)
         filterspec[i].pszName = filternames[i];
         filterspec[i].pszSpec = filtermasks[i];
     }
+}
+
+inline void CSelectFileFilter::ResetAll()
+{
+    buffer.reset();
+    // First release the struct that references the vectors, then clear the vectors
+    filterspec.reset();
+    filternames.clear();
+    filtermasks.clear();
 }
