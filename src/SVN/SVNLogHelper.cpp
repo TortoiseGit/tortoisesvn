@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007,2009 - TortoiseSVN
+// Copyright (C) 2007,2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,15 +30,13 @@ SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyf
 
     if (pegrev.IsHead())
         pegrev = GetHEADRevision (url);
+    if (!pegrev.IsNumber())
+        return SVNRev();
 
     std::auto_ptr<const CCacheLogQuery> query
-        (ReceiveLog (CTSVNPathList(url), pegrev, SVNRev::REV_HEAD, 1, 0, TRUE, FALSE, false));
+        (ReceiveLog (CTSVNPathList(url), pegrev, SVNRev::REV_HEAD, 1, 0, TRUE, FALSE, true));
     if (query.get() == NULL)
         return result;
-
-    // get a concrete revision for the log start
-
-    assert (pegrev.IsNumber());
 
     // construct the path object
     // (URLs are always escaped, so we must unescape them)
