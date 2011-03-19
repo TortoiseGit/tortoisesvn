@@ -55,6 +55,7 @@
 #include "Future.h"
 #include "svntrace.h"
 #include "LogDlgFilter.h"
+#include "SVNLogHelper.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
 
@@ -160,6 +161,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_nSortColumnPathList(0)
     , m_bAscendingPathList(false)
     , m_bHideNonMergeables(FALSE)
+    , m_copyfromrev(0)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
@@ -776,6 +778,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
                 , false
                 , &m_mergedRevs
                 , !!m_bHideNonMergeables
+                , m_copyfromrev
                 , 0);
 
             info.ranges = filter.GetMatchRanges (info.text);
@@ -1313,6 +1316,13 @@ void CLogDlg::LogThread()
                         break;
                     }
                 }
+                // TODO: uncomment this someday
+                //SVNLogHelper helper;
+                //CString sCopyFrom;
+                //CTSVNPath mergeUrl = CTSVNPath(GetURLFromPath(m_mergePath)+L"/");
+                //SVNRev rev = helper.GetCopyFromRev(mergeUrl, SVNRev::REV_HEAD, sCopyFrom);
+                //if (sCopyFrom.Compare(m_sURL) == 0)
+                //    m_copyfromrev = rev;
             }
         }
     }
@@ -1711,6 +1721,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
                              , scanRelevantPathsOnly
                              , &m_mergedRevs
                              , !!m_bHideNonMergeables
+                             , m_copyfromrev
                              , -1);
 
         for (size_t i = m_nSearchIndex; i < m_logEntries.GetVisibleCount(); i++)
@@ -3426,7 +3437,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
     FillLogMessageCtrl(false);
 
     // reset the time filter too
-    m_logEntries.ClearFilter(!!m_bHideNonMergeables, &m_mergedRevs);
+    m_logEntries.ClearFilter(!!m_bHideNonMergeables, &m_mergedRevs, m_copyfromrev);
     m_timFrom = m_logEntries.GetMinDate();
     m_timTo = m_logEntries.GetMaxDate();
     m_DateFrom.SetTime(&m_timFrom);
@@ -3751,7 +3762,7 @@ void CLogDlg::OnEnChangeSearchedit()
         KillTimer(LOGFILTER_TIMER);
         FillLogMessageCtrl(false);
         m_filter = CLogDlgFilter();
-        m_logEntries.Filter (m_tFrom, m_tTo, !!m_bHideNonMergeables, &m_mergedRevs);
+        m_logEntries.Filter (m_tFrom, m_tTo, !!m_bHideNonMergeables, &m_mergedRevs, m_copyfromrev);
         m_LogList.SetItemCountEx(0);
         m_LogList.SetItemCountEx(ShownCountWithStopped());
         m_LogList.RedrawItems(0, ShownCountWithStopped());
@@ -3811,6 +3822,7 @@ bool CLogDlg::FilterConditionChanged()
                          , scanRelevantPathsOnly
                          , &m_mergedRevs
                          , !!m_bHideNonMergeables
+                         , m_copyfromrev
                          , NO_REVISION);
 
     return m_filter != filter;
@@ -3830,6 +3842,7 @@ void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
                          , scanRelevantPathsOnly
                          , &m_mergedRevs
                          , !!m_bHideNonMergeables
+                         , m_copyfromrev
                          , revToKeep);
     m_filter = filter;
     m_logEntries.Filter (filter);

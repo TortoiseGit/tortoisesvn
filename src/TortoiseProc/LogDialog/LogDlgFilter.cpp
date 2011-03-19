@@ -341,6 +341,7 @@ CLogDlgFilter::CLogDlgFilter()
     , fastLowerCase(false)
     , hideNonMergeable(false)
     , mergedrevs(nullptr)
+    , minrev(0)
     , scratch (0xfff0)
 {
 }
@@ -360,6 +361,7 @@ CLogDlgFilter::CLogDlgFilter
     , bool scanRelevantPathsOnly
     , std::set<svn_revnum_t> * mergedrevs
     , bool hideNonMergeable
+    , svn_revnum_t minrev
     , svn_revnum_t revToKeep)
 
     : negate (false)
@@ -372,6 +374,7 @@ CLogDlgFilter::CLogDlgFilter
     , mergedrevs(mergedrevs)
     , hideNonMergeable(hideNonMergeable)
     , revToKeep (revToKeep)
+    , minrev(minrev)
     , scratch (0xfff0)
 {
     // decode string matching spec
@@ -529,6 +532,8 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
     {
         if (mergedrevs->find(entry.GetRevision()) != mergedrevs->end())
             return false;
+        if (entry.GetRevision() < minrev)
+            return false;
     }
     // we need to perform expensive string / pattern matching
 
@@ -602,6 +607,7 @@ CLogDlgFilter& CLogDlgFilter::operator= (const CLogDlgFilter& rhs)
 
         hideNonMergeable = rhs.hideNonMergeable;
         mergedrevs = rhs.mergedrevs;
+        minrev = rhs.minrev;
 
         scratch.Clear();
     }

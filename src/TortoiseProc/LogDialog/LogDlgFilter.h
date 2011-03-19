@@ -114,6 +114,9 @@ private:
 
     bool hideNonMergeable;
 
+    /// the lowest revision to keep, revisions below that are filtered out
+    svn_revnum_t minrev;
+
     bool ValidateRegexp
         ( const char* regexp_str
         , vector<tr1::regex>& patterns);
@@ -138,6 +141,7 @@ public:
         , bool scanRelevantPathsOnly
         , std::set<svn_revnum_t> * mergedrevs
         , bool hideNonMergeable
+        , svn_revnum_t minrev
         , svn_revnum_t revToKeep);
 
     /// apply filter
