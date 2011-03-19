@@ -328,7 +328,7 @@ public:
     /// filter support
 
     void Filter (const CLogDlgFilter& filter);
-    void Filter (__time64_t from, __time64_t to);
+    void Filter (__time64_t from, __time64_t to, bool includeMergedRevs, std::set<svn_revnum_t> * mergedrevs);
 
-    void ClearFilter();
+    void ClearFilter(bool includeMergedRevs, std::set<svn_revnum_t> * mergedrevs);
 };

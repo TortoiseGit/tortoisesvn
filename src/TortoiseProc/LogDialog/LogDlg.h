@@ -252,6 +252,7 @@ private:
     bool                m_bStrictStopped;
     BOOL                m_bIncludeMerges;
     BOOL                m_bSaveStrict;
+    BOOL                m_bHideNonMergeables;
 
     bool                m_bSingleRevision;
     CLogChangedPathArray m_currentChangedArray;
@@ -290,6 +291,7 @@ private:
     bool                m_bShowBugtraqColumn;
     CString             m_sLogInfo;
     std::set<svn_revnum_t> m_mergedRevs;
+    SVNRev              m_copyfromrev;
 
     CToolTips           m_tooltips;
 

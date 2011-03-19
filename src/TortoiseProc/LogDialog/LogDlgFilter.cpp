@@ -339,6 +339,8 @@ CLogDlgFilter::CLogDlgFilter()
     , revToKeep(0)
     , negate(false)
     , fastLowerCase(false)
+    , hideNonMergeable(false)
+    , mergedrevs(nullptr)
     , scratch (0xfff0)
 {
 }
@@ -356,6 +358,8 @@ CLogDlgFilter::CLogDlgFilter
     , __time64_t from
     , __time64_t to
     , bool scanRelevantPathsOnly
+    , std::set<svn_revnum_t> * mergedrevs
+    , bool hideNonMergeable
     , svn_revnum_t revToKeep)
 
     : negate (false)
@@ -365,6 +369,8 @@ CLogDlgFilter::CLogDlgFilter
     , from (from)
     , to (to)
     , scanRelevantPathsOnly (scanRelevantPathsOnly)
+    , mergedrevs(mergedrevs)
+    , hideNonMergeable(hideNonMergeable)
     , revToKeep (revToKeep)
     , scratch (0xfff0)
 {
@@ -519,6 +525,11 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
     if (patterns.empty() && subStringConditions.empty())
         return !negate;
 
+    if (hideNonMergeable && mergedrevs && mergedrevs->size())
+    {
+        if (mergedrevs->find(entry.GetRevision()) != mergedrevs->end())
+            return false;
+    }
     // we need to perform expensive string / pattern matching
 
     scratch.Clear();
@@ -589,6 +600,9 @@ CLogDlgFilter& CLogDlgFilter::operator= (const CLogDlgFilter& rhs)
         subStringConditions = rhs.subStringConditions;
         patterns = rhs.patterns;
 
+        hideNonMergeable = rhs.hideNonMergeable;
+        mergedrevs = rhs.mergedrevs;
+
         scratch.Clear();
     }
 
@@ -613,6 +627,7 @@ bool CLogDlgFilter::operator== (const CLogDlgFilter& rhs) const
         || from != rhs.from
         || to != rhs.to
         || scanRelevantPathsOnly != rhs.scanRelevantPathsOnly
+        || hideNonMergeable != rhs.hideNonMergeable
         || revToKeep != rhs.revToKeep)
         return false;
 

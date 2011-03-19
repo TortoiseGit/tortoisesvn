@@ -159,6 +159,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_head(-1)
     , m_nSortColumnPathList(0)
     , m_bAscendingPathList(false)
+    , m_bHideNonMergeables(FALSE)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
@@ -207,6 +208,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_LOGINFO, m_sLogInfo);
     DDX_Check(pDX, IDC_INCLUDEMERGE, m_bIncludeMerges);
     DDX_Control(pDX, IDC_SEARCHEDIT, m_cFilter);
+    DDX_Check(pDX, IDC_HIDENONMERGEABLE, m_bHideNonMergeables);
 }
 
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
@@ -241,6 +243,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_WM_SIZE()
     ON_BN_CLICKED(IDC_INCLUDEMERGE, &CLogDlg::OnBnClickedIncludemerge)
     ON_BN_CLICKED(IDC_REFRESH, &CLogDlg::OnBnClickedRefresh)
+    ON_BN_CLICKED(IDC_HIDENONMERGEABLE, &CLogDlg::OnEnChangeSearchedit)
     ON_BN_CLICKED(IDC_LOGCANCEL,&CLogDlg::OnLogCancel)
     ON_COMMAND(ID_LOGDLG_REFRESH,&CLogDlg::OnRefresh)
     ON_COMMAND(ID_LOGDLG_FIND,&CLogDlg::OnFind)
@@ -291,6 +294,7 @@ BOOL CLogDlg::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
     m_aeroControls.SubclassControl(this, IDC_LOGINFO);
+    m_aeroControls.SubclassControl(this, IDC_HIDENONMERGEABLE);
     m_aeroControls.SubclassControl(this, IDC_SHOWPATHS);
     m_aeroControls.SubclassControl(this, IDC_STATBUTTON);
     m_aeroControls.SubclassControl(this, IDC_CHECK_STOPONCOPY);
@@ -441,6 +445,7 @@ BOOL CLogDlg::OnInitDialog()
     AdjustControlSize(IDC_SHOWPATHS);
     AdjustControlSize(IDC_CHECK_STOPONCOPY);
     AdjustControlSize(IDC_INCLUDEMERGE);
+    AdjustControlSize(IDC_HIDENONMERGEABLE);
 
     GetClientRect(m_DlgOrigRect);
     m_LogList.GetClientRect(m_LogListOrigRect);
@@ -469,6 +474,7 @@ BOOL CLogDlg::OnInitDialog()
     AddAnchor(IDC_NEXTHUNDRED, BOTTOM_LEFT);
     AddAnchor(IDC_REFRESH, BOTTOM_LEFT);
     AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
+    AddAnchor(IDC_HIDENONMERGEABLE, BOTTOM_LEFT);
     AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDC_LOGCANCEL, BOTTOM_RIGHT);
@@ -768,6 +774,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
                 , m_tFrom
                 , m_tTo
                 , false
+                , &m_mergedRevs
+                , !!m_bHideNonMergeables
                 , 0);
 
             info.ranges = filter.GetMatchRanges (info.text);
@@ -1171,6 +1179,7 @@ void CLogDlg::LogThread()
     //log messages.
     DialogEnableWindow(IDC_GETALL, FALSE);
     DialogEnableWindow(IDC_NEXTHUNDRED, FALSE);
+    DialogEnableWindow(IDC_HIDENONMERGEABLE, FALSE);
     DialogEnableWindow(IDC_SHOWPATHS, FALSE);
     DialogEnableWindow(IDC_CHECK_STOPONCOPY, FALSE);
     DialogEnableWindow(IDC_INCLUDEMERGE, FALSE);
@@ -1190,6 +1199,7 @@ void CLogDlg::LogThread()
     // We use a progress bar while getting the logs
     m_LogProgress.SetRange32(0, 100);
     m_LogProgress.SetPos(0);
+    GetDlgItem(IDC_HIDENONMERGEABLE)->ShowWindow(FALSE);
     GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
 
     // we need the UUID to unambiguously identify the log cache
@@ -1386,6 +1396,7 @@ void CLogDlg::LogThread()
 
     if (!m_bShowedAll)
         DialogEnableWindow(IDC_NEXTHUNDRED, TRUE);
+    DialogEnableWindow(IDC_HIDENONMERGEABLE, TRUE);
     DialogEnableWindow(IDC_SHOWPATHS, TRUE);
     DialogEnableWindow(IDC_CHECK_STOPONCOPY, TRUE);
     DialogEnableWindow(IDC_INCLUDEMERGE, TRUE);
@@ -1396,6 +1407,7 @@ void CLogDlg::LogThread()
     SetDlgTitle(cachedProperties.IsOffline (m_sUUID, m_sRepositoryRoot, false));
 
     GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
+    GetDlgItem(IDC_HIDENONMERGEABLE)->ShowWindow(m_mergedRevs.size()>0);
     if (m_pTaskbarList)
     {
         m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
@@ -1697,6 +1709,8 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
                              , m_tFrom
                              , m_tTo
                              , scanRelevantPathsOnly
+                             , &m_mergedRevs
+                             , !!m_bHideNonMergeables
                              , -1);
 
         for (size_t i = m_nSearchIndex; i < m_logEntries.GetVisibleCount(); i++)
@@ -3412,7 +3426,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
     FillLogMessageCtrl(false);
 
     // reset the time filter too
-    m_logEntries.ClearFilter();
+    m_logEntries.ClearFilter(!!m_bHideNonMergeables, &m_mergedRevs);
     m_timFrom = m_logEntries.GetMinDate();
     m_timTo = m_logEntries.GetMaxDate();
     m_DateFrom.SetTime(&m_timFrom);
@@ -3737,7 +3751,7 @@ void CLogDlg::OnEnChangeSearchedit()
         KillTimer(LOGFILTER_TIMER);
         FillLogMessageCtrl(false);
         m_filter = CLogDlgFilter();
-        m_logEntries.Filter (m_tFrom, m_tTo);
+        m_logEntries.Filter (m_tFrom, m_tTo, !!m_bHideNonMergeables, &m_mergedRevs);
         m_LogList.SetItemCountEx(0);
         m_LogList.SetItemCountEx(ShownCountWithStopped());
         m_LogList.RedrawItems(0, ShownCountWithStopped());
@@ -3795,6 +3809,8 @@ bool CLogDlg::FilterConditionChanged()
                          , m_tFrom
                          , m_tTo
                          , scanRelevantPathsOnly
+                         , &m_mergedRevs
+                         , !!m_bHideNonMergeables
                          , NO_REVISION);
 
     return m_filter != filter;
@@ -3812,6 +3828,8 @@ void CLogDlg::RecalculateShownList(svn_revnum_t revToKeep)
                          , m_tFrom
                          , m_tTo
                          , scanRelevantPathsOnly
+                         , &m_mergedRevs
+                         , !!m_bHideNonMergeables
                          , revToKeep);
     m_filter = filter;
     m_logEntries.Filter (filter);
@@ -5673,7 +5691,7 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
         }
 
         sToolTipText = CUnicodeUtils::GetUnicode (actionText.c_str());
-        if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
+        if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) == m_mergedRevs.end()))
         {
             if (!sToolTipText.IsEmpty())
                 sToolTipText += _T("\r\n");
@@ -5720,9 +5738,9 @@ CString CLogDlg::GetListviewHelpString(HWND hControl, int index)
             PLOGENTRYDATA data = m_logEntries.GetVisible(index);
             if (data)
             {
-                if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
+                if ((data->GetDepth())||(m_mergedRevs.find(data->GetRevision()) == m_mergedRevs.end()))
                 {
-                    // this revision was already merged
+                    // this revision was already merged or is not mergeable
                     sHelpText = CString(MAKEINTRESOURCE(IDS_ACC_LOGENTRYALREADYMERGED));
                 }
                 if (data->GetRevision() == m_wcRev)
@@ -5828,3 +5846,4 @@ void CLogDlg::ReportNoUrlOfFile(LPCTSTR filepath) const
     messageString.Format(IDS_ERR_NOURLOFFILE, filepath);
     ::MessageBox(this->m_hWnd, messageString, _T("TortoiseSVN"), MB_ICONERROR);
 }
+

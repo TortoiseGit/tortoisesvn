@@ -106,6 +106,14 @@ private:
 
     /// called to parse a (potentially incorrect) regex spec
 
+    /// a set of already merged revisions
+
+    std::set<svn_revnum_t> * mergedrevs;
+
+    /// whether to filter out revisions that can't be merged
+
+    bool hideNonMergeable;
+
     bool ValidateRegexp
         ( const char* regexp_str
         , vector<tr1::regex>& patterns);
@@ -128,6 +136,8 @@ public:
         , __time64_t from
         , __time64_t to
         , bool scanRelevantPathsOnly
+        , std::set<svn_revnum_t> * mergedrevs
+        , bool hideNonMergeable
         , svn_revnum_t revToKeep);
 
     /// apply filter

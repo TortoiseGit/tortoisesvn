@@ -836,7 +836,7 @@ void CLogDataVector::Filter (const CLogDlgFilter& filter)
     }
 }
 
-void CLogDataVector::Filter (__time64_t from, __time64_t to)
+void CLogDataVector::Filter (__time64_t from, __time64_t to, bool hideNonMergeable, std::set<svn_revnum_t> * mergedrevs)
 {
     visible.clear();
     for (size_t i=0, count = size(); i < count; ++i)
@@ -845,16 +845,32 @@ void CLogDataVector::Filter (__time64_t from, __time64_t to)
         __time64_t date = entry->GetDate();
 
         if ((date >= from) && (date <= to))
-            visible.push_back (i);
+        {
+            if (hideNonMergeable && mergedrevs && mergedrevs->size())
+            {
+                if (mergedrevs->find(entry->GetRevision()) == mergedrevs->end())
+                    visible.push_back (i);
+            }
+            else
+                visible.push_back (i);
+        }
     }
 }
 
-void CLogDataVector::ClearFilter()
+void CLogDataVector::ClearFilter(bool hideNonMergeables, std::set<svn_revnum_t> * mergedrevs)
 {
     visible.clear();
     visible.reserve (size());
 
     for (size_t i=0, count = size(); i < count; ++i)
-        visible.push_back (i);
+    {
+        if (hideNonMergeables && mergedrevs && mergedrevs->size())
+        {
+            if (mergedrevs->find(inherited::operator[](i)->GetRevision()) == mergedrevs->end())
+                visible.push_back (i);
+        }
+        else
+            visible.push_back (i);
+    }
 }
 
