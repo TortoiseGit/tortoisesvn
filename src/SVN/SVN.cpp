@@ -2081,7 +2081,7 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, C
     return CString(returl);
 }
 
-svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path)
+svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path, bool cacheAllowed)
 {
     svn_ra_session_t *ra_session;
     const char * urla;
@@ -2107,22 +2107,41 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path)
     if (Err)
         return -1;
 
-    CHooks::Instance().PreConnect(CTSVNPathList(path));
-    /* use subpool to create a temporary RA session */
-    SVNTRACE (
-        Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool),
-        urla
-    );
-    if (Err)
-        return -1;
+    // use cached information, if allowed
 
-    SVNTRACE (
-        Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool),
-        urla
-    );
-    if (Err)
-        return -1;
-    return rev;
+    if (cacheAllowed && LogCache::CSettings::GetEnabled())
+    {
+        // look up in cached repository properties
+        // (missing entries will be added automatically)
+
+        CTSVNPath canonicalURL;
+        canonicalURL.SetFromSVN (urla);
+
+        CRepositoryInfo& cachedProperties = GetLogCachePool()->GetRepositoryInfo();
+        CString uuid = cachedProperties.GetRepositoryUUID (canonicalURL);
+        return cachedProperties.GetHeadRevision (uuid, canonicalURL);
+    }
+    else
+    {
+        // non-cached access
+
+        CHooks::Instance().PreConnect(CTSVNPathList(path));
+        /* use subpool to create a temporary RA session */
+        SVNTRACE (
+            Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool),
+            urla
+        );
+        if (Err)
+            return -1;
+
+        SVNTRACE (
+            Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool),
+            urla
+        );
+        if (Err)
+            return -1;
+        return rev;
+    }
 }
 
 bool SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& rev)

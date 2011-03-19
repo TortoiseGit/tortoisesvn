@@ -693,9 +693,10 @@ public:
 
     /**
      * Returns the HEAD revision of the URL or WC-Path.
+     * Set @a cacheAllowed to @n false to force repository access.
      * Or -1 if the function failed.
      */
-    svn_revnum_t GetHEADRevision(const CTSVNPath& path);
+    svn_revnum_t GetHEADRevision(const CTSVNPath& path, bool cacheAllowed = true);
 
     /**
      * Returns the revision the last commit/add/mkdir/... command created
