@@ -264,6 +264,11 @@ public:
         return index != NO_INDEX;
     }
 
+    void Invalidate()
+    {
+        index = (index_t)NO_INDEX;
+    }
+
     CDictionaryBasedPath GetParent() const
     {
         return CDictionaryBasedPath ( dictionary

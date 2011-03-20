@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -205,7 +205,7 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
                     // /trunk/project
                     // is added first (usually without a copy from path)
                     //
-                    // Stop iteration only if we found and ADD of
+                    // Stop iteration only if we found an ADD of
                     // the exact search path.
 
                     if (searchPath == changedPath)
@@ -213,6 +213,7 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
                         // the path we are following actually started here.
 
                         searchRevision = (revision_t)NO_REVISION;
+                        searchPath.Invalidate();
                         return true;
                     }
                 }
