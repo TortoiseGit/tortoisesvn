@@ -2729,6 +2729,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 {
     if (m_bSparseCheckoutMode)
         return;
+
     HTREEITEM hSelectedTreeItem = NULL;
     HTREEITEM hChosenTreeItem = NULL;
     if ((point.x == -1) && (point.y == -1))
@@ -2961,6 +2962,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         popup.AppendMenuIcon(ID_CREATELINK, IDS_REPOBROWSE_CREATELINK, IDI_LINK);
         int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 
+        auto stopJobs (m_lister.SuspendJobs());
         if (pWnd == &m_RepoTree)
         {
             UINT uFlags;

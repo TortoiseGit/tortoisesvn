@@ -423,7 +423,7 @@ CTSVNPath CRepositoryLister::EscapeUrl (const CString& url)
 // simple construction
 
 CRepositoryLister::CRepositoryLister()
-    : scheduler (32, 0, true, false)
+    : scheduler (8, 0, true, false)
     , fetchingExternalsEnabled (_T("Software\\TortoiseSVN\\ShowExternalsInBrowser"), TRUE)
 {
 }
@@ -580,6 +580,14 @@ void CRepositoryLister::Cancel()
 void CRepositoryLister::WaitForJobsToFinish()
 {
     scheduler.WaitForEmptyQueue();
+}
+
+// wait for all jobs to be finished
+
+std::auto_ptr<async::CSchedulerSuspension> CRepositoryLister::SuspendJobs()
+{
+    return std::auto_ptr<async::CSchedulerSuspension>
+            (new async::CSchedulerSuspension (scheduler));
 }
 
 // don't return results from previous or still running requests
