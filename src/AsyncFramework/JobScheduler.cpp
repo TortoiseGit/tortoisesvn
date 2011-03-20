@@ -656,8 +656,9 @@ long CJobScheduler::Resume()
 
     if (--threads.stopCount == 0)
     {
-        while (   aggressiveThreading
-               || (    (queue.size() > 2 * threads.runningCount)
+        while (   (    (queue.size() > threads.runningCount)
+                    && aggressiveThreading)
+               || (    (queue.size() > 4 * threads.runningCount)
                     && (threads.unusedCount > 0)))
         {
             if (!AllocateThread())
