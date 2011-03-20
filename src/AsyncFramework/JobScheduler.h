@@ -370,7 +370,7 @@ private:
         size_t unusedCount;
 
         /// if set, we registered at shared pool as "starved"
-        mutable bool starved;
+        volatile bool starved;
     };
 
     SThreads threads;
