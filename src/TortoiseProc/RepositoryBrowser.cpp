@@ -3112,37 +3112,24 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                         ? selection.GetURLEscaped(0, 1)
                                         : m_diffURL;
 
-                    // get log of first URL
-                    CString sCopyFrom1, sCopyFrom2;
-                    SVNLogHelper helper;
-                    SVNRev rev1 = helper.GetCopyFromRev(firstPath, pegRevision, sCopyFrom1);
-                    if (!rev1.IsValid())
-                    {
-                        helper.ShowErrorDialog(m_hWnd);
-                        break;
-                    }
-                    SVNRev rev2 = helper.GetCopyFromRev(secondUrl, pegRevision, sCopyFrom2);
-                    if (!rev2.IsValid())
-                    {
-                        helper.ShowErrorDialog(m_hWnd);
-                        break;
-                    }
-                    if ((sCopyFrom1.IsEmpty())||(sCopyFrom1.Compare(sCopyFrom2)!=0)||(svn_revnum_t(rev1) == 0)||(svn_revnum_t(rev1) == 0))
+                    // get last common URL and revision
+                    auto commonSource = SVNLogHelper().GetCommonSource 
+                                            (firstPath, pegRevision, secondUrl, pegRevision);
+                    if (!commonSource.second.IsNumber())
                     {
                         // no common copy from URL, so showing a log between
                         // the two urls is not possible.
                         ::MessageBox(m_hWnd, IDS_ERR_NOCOMMONCOPYFROM, IDS_APPNAME, MB_ICONERROR);
                         break;
                     }
-                    if ((LONG)rev1 < (LONG)rev2)
-                    {
-                        SVNRev temp = rev1;
-                        rev1 = rev2;
-                        rev2 = temp;
-                    }
+
+                    // show log from pegrev to there
+
                     CString sCmd;
                     sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%s /endrev:%s"),
-                        (LPCTSTR)sCopyFrom1, (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString());
+                        (LPCTSTR)firstPath.GetSVNPathString(), 
+                        (LPCTSTR)pegRevision.ToString(), 
+                        (LPCTSTR)commonSource.second.ToString());
 
                     ATLTRACE(sCmd);
                     if (!m_path.IsUrl())
