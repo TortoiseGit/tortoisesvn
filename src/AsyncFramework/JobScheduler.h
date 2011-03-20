@@ -371,6 +371,9 @@ private:
 
         /// if set, we registered at shared pool as "starved"
         volatile bool starved;
+
+        /// if > 0, queued jobs won't get assigned execution threads
+        volatile long stopCount;
     };
 
     SThreads threads;
@@ -407,6 +410,11 @@ private:
     /// register as "starving" if that failed
 
     bool AllocateSharedThread();
+
+    /// try to resume or create a private thread.
+    /// If that fails, try to allocate a shared thread.
+
+    bool AllocateThread();
 
     /// Unregister from "starving" list, if we are registered.
     /// This is non-trival as it may race with CThreadPool::Release
@@ -477,6 +485,18 @@ public:
     /// number drops to or below the given watermark.
 
     std::vector<IJob*> RemoveJobFromQueue (size_t watermark, bool oldest = true);
+
+    /// increment the internal stop counter. Until @ref Resume() was called
+    /// just as often, no further jobs will be sent to the processing threads.
+    /// Returns the new value of the stop counter;
+
+    long Stop();
+
+    /// decrement the internal stop counter. If it reaches 0, jobs will
+    /// be sent to processing threads again.
+    /// Returns the new value of the stop counter;
+
+    long Resume();
 
     /// access properties of the \ref CThreadPool instances.
 

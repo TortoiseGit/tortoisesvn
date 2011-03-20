@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009-2010 by Stefan Fuhrmann                            *
+ *   Copyright (C) 2009-2011 by Stefan Fuhrmann                            *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -224,7 +224,7 @@ CJobScheduler::TJob CJobScheduler::AssignJob (SThreadInfo* info)
 
     // suspend this thread if there is no work left
 
-    if (queue.empty())
+    if (queue.empty() || (threads.stopCount != 0))
     {
         // suspend
 
@@ -319,6 +319,51 @@ bool CJobScheduler::AllocateSharedThread()
     return false;
 }
 
+bool CJobScheduler::AllocateThread()
+{
+    if (threads.suspendedCount > 0)
+    {
+        // recycle suspended, private thread
+
+        SThreadInfo* info = threads.suspended.back();
+        threads.suspended.pop_back();
+
+        --threads.suspendedCount;
+        --threads.unusedCount;
+        ++threads.runningCount;
+
+        threads.running.push_back (info);
+        info->thread->Resume();
+    }
+    else if (threads.yetToCreate > 0)
+    {
+        // time to start a new private thread
+
+        --threads.yetToCreate;
+
+        --threads.unusedCount;
+        ++threads.runningCount;
+
+        SThreadInfo* info = new SThreadInfo;
+        info->owner = this;
+        info->thread = new CThread (&ThreadFunc, info, true);
+        threads.running.push_back (info);
+
+        info->thread->Resume();
+    }
+    else
+    {
+        // try to allocate a shared thread
+
+        if (threads.fromShared < threads.maxFromShared)
+            return AllocateSharedThread();
+
+        return false;
+    }
+
+    return true;
+}
+
 // unregister from "starving" list.
 // This may race with CThreadPool::Release -> must loop here.
 
@@ -349,7 +394,7 @@ bool CJobScheduler::ThreadFunc (void* arg)
 
         job.first->OnUnSchedule (info->owner);
 
-        // is it our job to clean up this job?
+        // is it our responsibility to clean up this job?
 
         if (job.second)
             delete job.first;
@@ -386,6 +431,7 @@ CJobScheduler::CJobScheduler
     threads.yetToCreate = threadCount;
 
     threads.starved = false;
+    threads.stopCount = 0;
 
     queue.set_fifo (fifo);
 
@@ -398,7 +444,6 @@ CJobScheduler::CJobScheduler
 CJobScheduler::~CJobScheduler(void)
 {
     StopStarvation();
-
     WaitForEmptyQueue();
 
     assert (threads.running.empty());
@@ -434,51 +479,15 @@ void CJobScheduler::Schedule (IJob* job, bool transferOwnership)
         emptyEvent.Reset();
 
     queue.push (toAdd);
+    if (threads.stopCount != 0)
+        return;
 
     bool addThread = aggressiveThreading
                  || (   (queue.size() > 2 * threads.runningCount)
                      && (threads.unusedCount > 0));
 
     if (addThread)
-    {
-        if (threads.suspendedCount > 0)
-        {
-            // recycle suspended, private thread
-
-            SThreadInfo* info = threads.suspended.back();
-            threads.suspended.pop_back();
-
-            --threads.suspendedCount;
-            --threads.unusedCount;
-            ++threads.runningCount;
-
-            threads.running.push_back (info);
-            info->thread->Resume();
-        }
-        else if (threads.yetToCreate > 0)
-        {
-            // time to start a new private thread
-
-            --threads.yetToCreate;
-
-            --threads.unusedCount;
-            ++threads.runningCount;
-
-            SThreadInfo* info = new SThreadInfo;
-            info->owner = this;
-            info->thread = new CThread (&ThreadFunc, info, true);
-            threads.running.push_back (info);
-
-            info->thread->Resume();
-        }
-        else
-        {
-            // try to allocate a shared thread
-
-            if (threads.fromShared < threads.maxFromShared)
-                AllocateSharedThread();
-        }
-    }
+        AllocateThread();
 }
 
 // notification that a new thread may be available
@@ -488,7 +497,8 @@ void CJobScheduler::ThreadAvailable()
     CCriticalSectionLock lock (mutex);
     threads.starved = false;
 
-    while (   (queue.size() > 2 * threads.runningCount)
+    while (   (threads.stopCount != 0)
+           && (queue.size() > 2 * threads.runningCount)
            && (threads.suspendedCount == 0)
            && (threads.yetToCreate == 0)
            && (threads.fromShared < threads.maxFromShared))
@@ -502,20 +512,7 @@ void CJobScheduler::ThreadAvailable()
 
 void CJobScheduler::WaitForEmptyQueue()
 {
-    while (true)
-    {
-        {
-            CCriticalSectionLock lock (mutex);
-            if ((threads.runningCount == 0) && queue.empty())
-                return;
-
-            // we will be woken up as soon as both containers are empty
-
-            emptyEvent.Reset();
-        }
-
-        emptyEvent.WaitFor();
-    }
+    WaitForEmptyQueueOrTimeout(INFINITE);
 }
 
 bool CJobScheduler::WaitForEmptyQueueOrTimeout(DWORD milliSeconds)
@@ -524,6 +521,22 @@ bool CJobScheduler::WaitForEmptyQueueOrTimeout(DWORD milliSeconds)
     {
         {
             CCriticalSectionLock lock (mutex);
+
+            // if the scheduler has been stopped, we need to remove
+            // the waiting jobs manually
+
+            if (threads.stopCount != 0)
+                while (!queue.empty())
+                {
+                    const TJob& job = queue.pop();
+
+                    job.first->OnUnSchedule(this);
+                    if (job.second)
+                        delete job.first;
+                }
+
+            // empty queue and no jobs still being processed?
+
             if ((threads.runningCount == 0) && queue.empty())
                 return true;
 
@@ -629,6 +642,33 @@ std::vector<IJob*> CJobScheduler::RemoveJobFromQueue
 
     return removed;
 }
+
+long CJobScheduler::Stop()
+{
+    CCriticalSectionLock lock (mutex);
+    return ++threads.stopCount;
+}
+
+long CJobScheduler::Resume()
+{
+    CCriticalSectionLock lock (mutex);
+    assert (threads.stopCount > 0);
+
+    if (--threads.stopCount == 0)
+    {
+        while (   aggressiveThreading
+               || (    (queue.size() > 2 * threads.runningCount)
+                    && (threads.unusedCount > 0)))
+        {
+            if (!AllocateThread())
+                break;
+        }
+    }
+
+    return threads.stopCount;
+}
+
+
 
 // set max. number of concurrent threads
 
