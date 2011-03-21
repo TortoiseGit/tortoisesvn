@@ -1599,6 +1599,10 @@ msgid ""
 msgstr ""
 
 #. (para)
+msgid "To give the Local Service or Network Service account full access to the folder where you store your repositories and/or your hook scripts, follow the instructions in the <ulink url=\"http://support.microsoft.com/kb/308419\"><citetitle>knowledge base article kb308419</citetitle></ulink> If you fail to set the permissions, you will get <literal>access denied</literal> errors when you try to access the repository!"
+msgstr ""
+
+#. (para)
 msgid "Once you have installed the service, you need to go to the services manager to start it (this time only; it will start automatically when the server reboots)."
 msgstr ""
 
@@ -11503,7 +11507,7 @@ msgid "Shows the revision graph for the path given in <option>/path</option>."
 msgstr ""
 
 #. (para)
-msgid "To create an image file without showing the graph, pass <option>/output:path</option> with the path to the output file. The output file must have an extension that the revision graph can actually export to. These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+msgid "To create an image file of the revision graph for a specific path, but without showing the graph window, pass <option>/output:path</option> with the path to the output file. The output file must have an extension that the revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, .bmp and .gif."
 msgstr ""
 
 #. (para)
