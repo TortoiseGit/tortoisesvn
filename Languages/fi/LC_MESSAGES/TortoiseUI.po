@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:36+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-03-21 00:39+0000\n"
+"Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -806,7 +806,7 @@ msgstr "&Tuo..."
 
 #. Resource IDs: (1562)
 msgid "&Include externals"
-msgstr ""
+msgstr "&Sisällytä ulkoiset viitteet"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -2564,7 +2564,7 @@ msgstr "Valitse kohde:"
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr ""
+msgstr "Valitse kohteet ..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3153,7 +3153,7 @@ msgstr "Tiedoston %1 luonti epäonnistui, koska hakemisto on täynnä."
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "TEMP-hakemiston luonti epäonnistui!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3389,7 +3389,7 @@ msgstr "Mukautettu"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
-msgstr ""
+msgstr "Omat syvyydet"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -4797,7 +4797,7 @@ msgstr "Piilota &poistetut polut"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
-msgstr ""
+msgstr "Piilota valikot versioimattomille poluille"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -4998,7 +4998,7 @@ msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -6529,6 +6529,8 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
+"Huomaa: Jos muunnat työkopiosi, et voi enää käyttää sitä versiota 1.7 vanhemmilla SVN-ohjelmilla!\n"
+"Haluatko todella muuntaa  tämän työkopion?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7763,7 +7765,7 @@ msgstr "Yritä uudestaan"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "Versio(t) %s yhdistetty käänteisesti paikasta %s:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -7936,7 +7938,7 @@ msgstr "Rivi ylöspäin"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr ""
+msgstr "Siivoa työkopio &nyt"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -8722,7 +8724,7 @@ msgstr "Lähdepaikannin:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr ""
+msgstr "Harva päivitys %1!s!, syvyys \"%2!s!\""
 
 #. Resource IDs: (196)
 msgid ""
@@ -8983,7 +8985,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion raportoi virheen:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9814,6 +9816,8 @@ msgid ""
 "This product includes software from Apache™ Subversion® "
 "(http://subversion.apache.org)"
 msgstr ""
+"Tämä tuote sisältää osia Apache™ Subversion® -ohjelmistosta "
+"(http://subversion.apache.org)"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10353,7 +10357,7 @@ msgstr "Päivittää työkopion nykyiseen versioon"
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr ""
+msgstr "Päivittämässä"
 
 #. Resource IDs: (226)
 #, c-format
@@ -10707,6 +10711,9 @@ msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
 msgstr ""
+"Kun toiminto on aktivoitu, saat TortoiseSVN-valikot lisätyksi "
+"kontekstivalikkoon pitämällä SHIFT-näppäintä painettuna napsauttaessasi "
+"hiiren oikeaa painiketta."
 
 #. Resource IDs: (344)
 msgid ""
@@ -11276,6 +11283,9 @@ msgid ""
 "old size: %s\r\n"
 "change: %s"
 msgstr ""
+"nykyinen koko: %s\n"
+"vanha koko: %s\n"
+"muutos: %s"
 
 #. Resource IDs: (245)
 msgid "day"

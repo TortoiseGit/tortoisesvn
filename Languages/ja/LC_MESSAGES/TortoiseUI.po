@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:36+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-03-16 11:38+0000\n"
+"Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6431,6 +6431,8 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
+"注意：作業コピーをアップグレードすると、アップグレード後の作業コピーにはバージョン1.7以前のSVNクライアントからアクセスできなくなります。\n"
+"本当にこの作業コピーをアップグレードしてもよろしいですか？"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7648,7 +7650,7 @@ msgstr "再試行"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "マージされたリビジョン %s を %s から取り消す:\n"
 
 #. Resource IDs: (264)
 #, c-format

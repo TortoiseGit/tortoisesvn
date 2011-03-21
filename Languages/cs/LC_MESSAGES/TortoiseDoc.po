@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-13 17:12+0000\n"
+"PO-Revision-Date: 2011-03-18 20:32+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -21780,6 +21780,56 @@ msgstr ""
 "Protože verze x64 TortoiseSVN nemůže použít 32bitový zásuvný modul a naopak."
 
 #. (title)
+msgid "Naming conventions"
+msgstr "Úmluva pro pojmenování"
+
+#. (para)
+msgid ""
+"If you release an issue tracker plugin for TortoiseSVN, please do "
+"<emphasis>not</emphasis> name it "
+"<emphasis>Tortoise&lt;Something&gt;</emphasis>. We'd like to reserve the "
+"<emphasis>Tortoise</emphasis> prefix for a version control client integrated"
+" into the windows shell. For example: TortoiseCVS, TortoiseSVN, TortoiseHg, "
+"TortoiseGit and TortoiseBzr are all version control clients."
+msgstr ""
+"Pokud vydáte zásuvný modul systému pro sledování problémů pro TortoiseSVN, "
+"<emphasis>nenazývejte</emphasis> ho, prosím, "
+"<emphasis>Tortoise&lt;Něco&gt;</emphasis>. Rádi bychom si šetřili předponu "
+"<emphasis>Tortoise</emphasis> pro klienta správy verzí zavedeného do "
+"rozhraní Windows. Například: TortoiseCVS, TortoiseSVN, TortoiseHg, "
+"TortoiseGit a TortoiseBzr jsou všichni klienty pro správu verzí."
+
+#. (para)
+msgid "Gurtle - An issue tracker plugin for Google code"
+msgstr "Gurtle - zásuvný modul systému pro sledování problémů v Google code"
+
+#. (para)
+msgid "TurtleMine - An issue tracker plugin for Redmine"
+msgstr "Gurtle - zásuvný modul systému pro sledování problémů v Redmine"
+
+#. (para)
+msgid "VurtleOne - An issue tracker plugin for VersionOne"
+msgstr ""
+"VurtleOne - Gurtle - zásuvný modul systému pro sledování problémů ve "
+"VersionOne"
+
+#. (para)
+msgid ""
+"Please name your plugin for a Tortoise client "
+"<emphasis>Turtle&lt;Something&gt;</emphasis>, where "
+"<emphasis>&lt;Something&gt;</emphasis> refers to the issue tracker that you "
+"are connecting to. Alternatively choose a name that sounds like "
+"<emphasis>Turtle</emphasis> but has a different first letter. Nice examples "
+"are: <placeholder-1/>"
+msgstr ""
+"Prosím pojmenujte Váš zásuvný modul pro klienta Tortoise "
+"<emphasis>Turtle&lt;Něco&gt;</emphasis>, kde "
+"<emphasis>&lt;Něco&gt;</emphasis> odkazuje na systém, ke kterému se "
+"připojujete. Nebo si vyberte jméno, které zní jako "
+"<emphasis>Turtle</emphasis> ale má odlišné první písmeno. Hezké příklady "
+"jsou: <placeholder-1/>"
+
+#. (title)
 msgid "The IBugtraqProvider interface"
 msgstr "Rozhraní IBugtraqProvider"
 
@@ -23831,7 +23881,6 @@ msgstr ""
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -24434,9 +24483,41 @@ msgstr ""
 msgid "Creates a patch file for the path given in <placeholder-1/>."
 msgstr "Vytvoří záplatový soubor pro cestu zadanou v <placeholder-1/>."
 
-#. (entry)
-msgid "Shows the revision graph for the path given in <placeholder-1/>."
-msgstr "Zobrazí graf revizí pro cesty uvedené v <placeholder-1/>."
+#. (para)
+msgid "Shows the revision graph for the path given in <option>/path</option>."
+msgstr "Zobrazí graf revizí pro cesty uvedené v <option>/cesta</option>."
+
+#. (para)
+msgid ""
+"To create an image file without showing the graph, pass "
+"<option>/output:path</option> with the path to the output file. The output "
+"file must have an extension that the revision graph can actually export to. "
+"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+msgstr ""
+"Chcete-li vytvořit soubor s obrázkem bez zobrazení grafu, předejte cestou k "
+"výstupnímu souboru do <option>/output:cesta</option>. Výstupní soubor musí "
+"mít příponu, kterou graf revizí může opravdu exportovat. Jsou to: .svn, "
+".wmf, .png, .jpg, .bmp a .gif."
+
+#. (para)
+msgid ""
+"Since the revision graph has many options that affect how it is shown, you "
+"can also set the options to use when creating the output image file. Pass "
+"these options with <option>/options:XXXX</option>, where XXXX is a decimal "
+"value. The best way to find the required options is to start the revision "
+"graph the usual way, set all UI options and close the graph. Then the "
+"options you need to pass on the command line can be read from the registry "
+"<literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>."
+msgstr ""
+"Vzhledem k tomu, že graf revizí má mnoho možností, které ovlivňují to, jak "
+"je zobrazen, můžete také nastavit možnosti, které jsou použity při tvorbě "
+"výstupního souboru s obrázkem. Předejte tyto možnosti pomocí "
+"<option>/options:XXXX</option>, kde XXXX je desítková hodnota. Nejlepším "
+"způsobem, jak najít požadované možnosti je spustit graf revizí obvyklým "
+"způsobem, nastavit všechny možnosti uživatelského rozhraní a graf uzavřít. "
+"Pak možnosti, které potřebujete předat na příkazové řádce lze vyčíst z "
+"registru "
+"<literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>."
 
 #. (entry)
 msgid ""

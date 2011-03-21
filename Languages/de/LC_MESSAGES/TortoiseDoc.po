@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:32+0000\n"
+"PO-Revision-Date: 2011-03-21 08:25+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -22521,6 +22521,55 @@ msgstr ""
 " verwenden kann und umgekehrt."
 
 #. (title)
+msgid "Naming conventions"
+msgstr "Namenskonventionen"
+
+#. (para)
+msgid ""
+"If you release an issue tracker plugin for TortoiseSVN, please do "
+"<emphasis>not</emphasis> name it "
+"<emphasis>Tortoise&lt;Something&gt;</emphasis>. We'd like to reserve the "
+"<emphasis>Tortoise</emphasis> prefix for a version control client integrated"
+" into the windows shell. For example: TortoiseCVS, TortoiseSVN, TortoiseHg, "
+"TortoiseGit and TortoiseBzr are all version control clients."
+msgstr ""
+"Wir möchten Sie bitten, Ihr Modul für ein Fehlerverfolgungssystem "
+"<emphasis>nicht Tortoise&lt;Modul&gt;</emphasis> zu nennen, denn wir würden "
+"den Präfix <emphasis>Tortoise</emphasis> gerne den Versionskontrollsystemen "
+"vorbehalten, die in die Windows Explorer Shell integriert sind. Beispiele "
+"dafür sind: TortoiseCVS, TortoiseSVN, TortoiseHg, TortoiseGit und "
+"TortoiseBzr."
+
+#. (para)
+msgid "Gurtle - An issue tracker plugin for Google code"
+msgstr "Gurtle - Ein Modul für das Google Code Fehlerverfolgungssystem"
+
+#. (para)
+msgid "TurtleMine - An issue tracker plugin for Redmine"
+msgstr "TurtleMine - Ein Modul für Redmine"
+
+#. (para)
+msgid "VurtleOne - An issue tracker plugin for VersionOne"
+msgstr "VurtleOne - Ein Modul für VersionOne"
+
+#. (para)
+msgid ""
+"Please name your plugin for a Tortoise client "
+"<emphasis>Turtle&lt;Something&gt;</emphasis>, where "
+"<emphasis>&lt;Something&gt;</emphasis> refers to the issue tracker that you "
+"are connecting to. Alternatively choose a name that sounds like "
+"<emphasis>Turtle</emphasis> but has a different first letter. Nice examples "
+"are: <placeholder-1/>"
+msgstr ""
+"Bitte nennen Sie Ihr Modul für einen Tortoise Client "
+"<emphasis>Turtle&lt;Modul&gt;</emphasis>, wobei "
+"<emphasis>&lt;Modul&gt;</emphasis> sich auf das Fehlerverfolgungssystem "
+"bezieht, mit dem sich Ihr Modul verbindet. Wenn Ihnen das nicht gefällt, "
+"wählen Sie als Alternative einen Namen, der wie <emphasis>Turtle</emphasis> "
+"klingt, aber einen anderen Anfangsbuchstaben hat. Schöne Beispiele sind: "
+"<placeholder-1/>"
+
+#. (title)
 msgid "The IBugtraqProvider interface"
 msgstr "Die IBugtraqProvider Schnittstelle"
 
@@ -24621,7 +24670,6 @@ msgstr ""
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -25233,10 +25281,42 @@ msgstr ""
 msgid "Creates a patch file for the path given in <placeholder-1/>."
 msgstr "Erzeugt eine Patchdatei für den in <placeholder-1/> angegebenen Pfad."
 
-#. (entry)
-msgid "Shows the revision graph for the path given in <placeholder-1/>."
+#. (para)
+msgid "Shows the revision graph for the path given in <option>/path</option>."
 msgstr ""
-"Zeigt den Revisionsgraphen für den in <placeholder-1/> angegebenen Pfad."
+"Zeigt den Revisionsgraphen für den in <option>/path</option> angegebenen "
+"Pfad."
+
+#. (para)
+msgid ""
+"To create an image file without showing the graph, pass "
+"<option>/output:path</option> with the path to the output file. The output "
+"file must have an extension that the revision graph can actually export to. "
+"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+msgstr ""
+"Um ein Bild zu erstellen, ohne den Graphen anzuzeigen, übergeben Sie mittels"
+" <option>/output:path</option> den Pfad zur Ausgabedatei. Die Ausgabedatei "
+"muss eine Erweiterung mit einem Bildtypen haben, den der Revisionsgraph auch"
+" erstellen kann. Diese sind: .svg, .wmf, .png, .jpg und .gif."
+
+#. (para)
+msgid ""
+"Since the revision graph has many options that affect how it is shown, you "
+"can also set the options to use when creating the output image file. Pass "
+"these options with <option>/options:XXXX</option>, where XXXX is a decimal "
+"value. The best way to find the required options is to start the revision "
+"graph the usual way, set all UI options and close the graph. Then the "
+"options you need to pass on the command line can be read from the registry "
+"<literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>."
+msgstr ""
+"Da der Revisionsgraph viele Optionen hat, die sein Aussehen beeinflussen, "
+"können Sie diese auch verwenden, wenn Sie das Ausgabebild erzeugen. "
+"Übergeben Sie die Optionen mittels <option>/options:XXXX</option>, wobei "
+"XXXX ein Dezimalwert ist. Die beste Methode, um die nötigen Optionen zu "
+"ermitteln, besteht darin, den Revisionsgraphen auf die übliche Art zu "
+"starten, alle UI Optionen einzustellen und den Graphen zu schließen. Die "
+"Kommandozeilenparameter finden Sie dann in der Registrierung unter "
+"<literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>."
 
 #. (entry)
 msgid ""

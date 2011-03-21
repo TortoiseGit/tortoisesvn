@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:32+0000\n"
+"PO-Revision-Date: 2011-03-21 08:52+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -108,6 +108,16 @@ msgid ""
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
 msgstr ""
+"TortoiseSVN on ilmainen, avoimeen lähdekoodiin perustuva Windows-"
+"käyttöliittymä <firstterm>Apache™ Subversion®</firstterm>-versionhallintaan."
+" TortoiseSVN pitää kirjaa tiedostoihin ja hakemistoihin ajan mittaan "
+"tehdyistä muutoksista.  Tiedostot talletetaan keskitettyyn "
+"<firstterm>arkistoon</firstterm>. Arkisto muistuttaa tavallista "
+"tiedostopalvelinta, mutta kykenee lisäksi muistamaan kaikki tiedostoihin ja "
+"hakemistoihin ajan mittaan tehdyt muutokset. Tämän ansiosta voit palauttaa "
+"vanhoja versioita tiedostoistasi ja tutkia, miten, milloin ja kenen toimesta"
+" ne ovat muuttuneet.  Subversionia (ja versionhallintajärjestelmiä yleensä) "
+"voikin pitää eräänlaisena tiedostojärjestelmien <quote>aikakoneena</quote>."
 
 #. (para)
 msgid ""
@@ -21849,6 +21859,54 @@ msgstr ""
 "64-bittiset versiot."
 
 #. (title)
+msgid "Naming conventions"
+msgstr "Nimeäminen"
+
+#. (para)
+msgid ""
+"If you release an issue tracker plugin for TortoiseSVN, please do "
+"<emphasis>not</emphasis> name it "
+"<emphasis>Tortoise&lt;Something&gt;</emphasis>. We'd like to reserve the "
+"<emphasis>Tortoise</emphasis> prefix for a version control client integrated"
+" into the windows shell. For example: TortoiseCVS, TortoiseSVN, TortoiseHg, "
+"TortoiseGit and TortoiseBzr are all version control clients."
+msgstr ""
+"Mikäli julkaiset vikaseurantaohjelman TortoiseSVN-ohjelmalle, ole hyvä "
+"<emphasis>äläkä</emphasis>  nimeä sitä muotoon "
+"<emphasis>Tortoise<Jotakin></emphasis>. Haluamme varata  "
+"<emphasis>Tortoise</emphasis> -etuliitteen Windows-resurssienhallintaan "
+"integroiduille versionhallintaohjelmille. Esimerkiksi TortoiseCVS, "
+"TortoiseSVN, TortoiseHg, TortoiseGit ja TortoiseBzr ovat kaikki "
+"versionhallintaohjelmia."
+
+#. (para)
+msgid "Gurtle - An issue tracker plugin for Google code"
+msgstr "Gurtle - vikaseurantaohjelma Google code -ympäristöön"
+
+#. (para)
+msgid "TurtleMine - An issue tracker plugin for Redmine"
+msgstr "TurtleMine - vikaseurantaohjelma Redmine-ympäristöön"
+
+#. (para)
+msgid "VurtleOne - An issue tracker plugin for VersionOne"
+msgstr "VurtleOne - vikaseurantaohjelma VersionOne-ympäristöön"
+
+#. (para)
+msgid ""
+"Please name your plugin for a Tortoise client "
+"<emphasis>Turtle&lt;Something&gt;</emphasis>, where "
+"<emphasis>&lt;Something&gt;</emphasis> refers to the issue tracker that you "
+"are connecting to. Alternatively choose a name that sounds like "
+"<emphasis>Turtle</emphasis> but has a different first letter. Nice examples "
+"are: <placeholder-1/>"
+msgstr ""
+"Ole hyvä ja nimeä Tortoise-laajennuksesi muodossa "
+"<emphasis>Turtle<Jotain></emphasis>, missä <emphasis><Jotain></emphasis> "
+"viittaa ympäristöön, johon laajennuksesi kytkeytyy. Vaihtoehtoisesti voit "
+"myös muuttaa sanan <emphasis>Turtle</emphasis> ensimmäisen kirjaimen. "
+"Esimerkkejä: <placeholder-1/>"
+
+#. (title)
 msgid "The IBugtraqProvider interface"
 msgstr "IBugtraqProvider-rajapinta"
 
@@ -23881,7 +23939,6 @@ msgstr "Näyttää Tietoja-ikkunan. Tämä aukeaa myös, jos komentoa ei anneta.
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -24167,15 +24224,15 @@ msgstr ""
 
 #. (option)
 msgid "/droptarget"
-msgstr ""
+msgstr "/droptarget"
 
 #. (option)
 msgid "/overwrite"
-msgstr ""
+msgstr "/overwrite"
 
 #. (option)
 msgid "/autorename"
-msgstr ""
+msgstr "/autorename"
 
 #. (entry)
 msgid ""
@@ -24186,6 +24243,11 @@ msgid ""
 "specifies that if files already exist, the exported files get automatically "
 "renamed to avoid overwriting them."
 msgstr ""
+"Vie työkopion hakemistosta <placeholder-1/> hakemistoon <placeholder-2/>. "
+"Toimenpide ei avaa vienti-ikkunaa. Valitsin <placeholder-3/> määrittää, että"
+" olemassa olevat tiedostot ylikirjoitetaan ilman käyttäjän vahvistusta. "
+"Valitsin <placeholder-4/> puolestaan määrittää, että olemassa olevat "
+"tiedostot nimetään uudelleen ylikirjoituksen välttämiseksi."
 
 #. (option)
 #. (option)
@@ -24484,10 +24546,39 @@ msgstr ""
 msgid "Creates a patch file for the path given in <placeholder-1/>."
 msgstr "Luo paikkatiedoston valitsimella <placeholder-1/> annetusta polusta."
 
-#. (entry)
-msgid "Shows the revision graph for the path given in <placeholder-1/>."
+#. (para)
+msgid "Shows the revision graph for the path given in <option>/path</option>."
 msgstr ""
-"Näyttää versiograafin valitsimella <placeholder-1/> annetusta polusta."
+"Näytä versiograafi valitsimella <option>/path</option> annetulle polulle."
+
+#. (para)
+msgid ""
+"To create an image file without showing the graph, pass "
+"<option>/output:path</option> with the path to the output file. The output "
+"file must have an extension that the revision graph can actually export to. "
+"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+msgstr ""
+"Valitsin <option>/output:path</option> luo kuvatiedoston annettuun paikkaan "
+"näyttämättä graafia. Kohdetiedoston laajennusosan on oltava jokin "
+"seuraavista: svn, .wmf, .png, .jpg, .bmp tai .gif."
+
+#. (para)
+msgid ""
+"Since the revision graph has many options that affect how it is shown, you "
+"can also set the options to use when creating the output image file. Pass "
+"these options with <option>/options:XXXX</option>, where XXXX is a decimal "
+"value. The best way to find the required options is to start the revision "
+"graph the usual way, set all UI options and close the graph. Then the "
+"options you need to pass on the command line can be read from the registry "
+"<literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>."
+msgstr ""
+"Versiograafissa on useita asetuksia, jotka vaikuttavat sen esitystapaan. "
+"Voit muuttaa näitä asetuksia myös komentoriviltä valitsimella "
+"<option>/options:XXXX</option>, missä XXXX on kokonaisluku. Paras tapa "
+"löytää tarvittavat arvot on avata versiograafi normaalisti, kytkeä kaikki "
+"asetukset päälle ja sulkea graafi. Tämän jälkeen voit tarkistaa tarvittavat "
+"arvot rekisteriavaimesta "
+"<literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>."
 
 #. (entry)
 msgid ""

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:32+0000\n"
+"PO-Revision-Date: 2011-03-18 00:02+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -19660,6 +19660,42 @@ msgid ""
 msgstr ""
 
 #. (title)
+msgid "Naming conventions"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you release an issue tracker plugin for TortoiseSVN, please do "
+"<emphasis>not</emphasis> name it "
+"<emphasis>Tortoise&lt;Something&gt;</emphasis>. We'd like to reserve the "
+"<emphasis>Tortoise</emphasis> prefix for a version control client integrated"
+" into the windows shell. For example: TortoiseCVS, TortoiseSVN, TortoiseHg, "
+"TortoiseGit and TortoiseBzr are all version control clients."
+msgstr ""
+
+#. (para)
+msgid "Gurtle - An issue tracker plugin for Google code"
+msgstr ""
+
+#. (para)
+msgid "TurtleMine - An issue tracker plugin for Redmine"
+msgstr ""
+
+#. (para)
+msgid "VurtleOne - An issue tracker plugin for VersionOne"
+msgstr ""
+
+#. (para)
+msgid ""
+"Please name your plugin for a Tortoise client "
+"<emphasis>Turtle&lt;Something&gt;</emphasis>, where "
+"<emphasis>&lt;Something&gt;</emphasis> refers to the issue tracker that you "
+"are connecting to. Alternatively choose a name that sounds like "
+"<emphasis>Turtle</emphasis> but has a different first letter. Nice examples "
+"are: <placeholder-1/>"
+msgstr ""
+
+#. (title)
 msgid "The IBugtraqProvider interface"
 msgstr ""
 
@@ -21345,7 +21381,6 @@ msgstr ""
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -21871,9 +21906,28 @@ msgstr ""
 msgid "Creates a patch file for the path given in <placeholder-1/>."
 msgstr "Ustvari popravek za pot <placeholder-1/>."
 
-#. (entry)
-msgid "Shows the revision graph for the path given in <placeholder-1/>."
-msgstr "Prikaže graf revizij za pot, podano v <placeholder-1/>."
+#. (para)
+msgid "Shows the revision graph for the path given in <option>/path</option>."
+msgstr ""
+
+#. (para)
+msgid ""
+"To create an image file without showing the graph, pass "
+"<option>/output:path</option> with the path to the output file. The output "
+"file must have an extension that the revision graph can actually export to. "
+"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+msgstr ""
+
+#. (para)
+msgid ""
+"Since the revision graph has many options that affect how it is shown, you "
+"can also set the options to use when creating the output image file. Pass "
+"these options with <option>/options:XXXX</option>, where XXXX is a decimal "
+"value. The best way to find the required options is to start the revision "
+"graph the usual way, set all UI options and close the graph. Then the "
+"options you need to pass on the command line can be read from the registry "
+"<literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>."
+msgstr ""
 
 #. (entry)
 msgid ""

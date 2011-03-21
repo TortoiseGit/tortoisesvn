@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:36+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-03-18 12:57+0000\n"
+"Last-Translator: slabrou <stavros.labrou@gmail.com>\n"
 "Language-Team: Greek <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -211,77 +211,78 @@ msgstr "%s : Βασικό αντίγραφο πάνω στο οποίο δουλ
 #. Resource IDs: (3887)
 #, c-format
 msgid "%s [Recovered]"
-msgstr ""
+msgstr "%s [Επανήλθαν]"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory already exists unversioned locally."
-msgstr ""
+msgstr "%s, αλλά ο κατάλογος υπάρχει ήδη τοπικά χωρίς έκδοση."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
-msgstr ""
+msgstr "%s, αλλά ο κατάλογος δεν υπάρχει τοπικά."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already added locally."
-msgstr ""
+msgstr "%s, αλλά ο κατάλογος προστέθηκε ήδη τοπικά."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already edited."
-msgstr ""
+msgstr "%s, αλλά ο κατάλογος έχει ήδη επεξεργαστεί."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr ""
+"%s, αλλά ο κατάλογος έχει διαγραφεί, μετακινηθεί ή μετονομαστεί τοπικά."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr ""
+msgstr "%s, αλλά ο κατάλογος παρεμποδίστηκε από το αντίγραφο εργασίας."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was replaced"
-msgstr ""
+msgstr "%s, αλλά ο κατάλογος έχει αντικατασταθεί"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
-msgstr ""
+msgstr "%s, αλλά το αρχείο υπάρχει τοπικά χωρίς έκδοση."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file is missing locally."
-msgstr ""
+msgstr "%s, αλλά το αρχείο λείπει τοπικά."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already added locally."
-msgstr ""
+msgstr "%s, αλλά το αρχείο έχει ήδη προστεθεί τοπικά."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already edited."
-msgstr ""
+msgstr "%s, αλλά το αρχείο έχει ήδη επεξεργαστεί."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
-msgstr ""
+msgstr "%s, αλλά το αρχείο έχει διαγραφεί, μετακινηθεί ή μετονομαστεί τοπικά."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
-msgstr ""
+msgstr "%s, αλλά το αρχείο παρεμποδίστηκε από το αντίγραφο εργασίας."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was replaced"
-msgstr ""
+msgstr "%s, αλλά το αρχείο έχει αντικατασταθεί"
 
 #. Resource IDs: (376)
 #, c-format
@@ -359,7 +360,7 @@ msgstr "&Ενεργοποίηση"
 
 #. Resource IDs: (15)
 msgid "&Add"
-msgstr ""
+msgstr "&Προσθήκη"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
@@ -375,7 +376,7 @@ msgstr "&Προσθήκη..."
 
 #. Resource IDs: (32849)
 msgid "&Advanced"
-msgstr ""
+msgstr "&Προηγμένες"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -391,7 +392,7 @@ msgstr "&Εμφάνιση Εφαρμογής"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
-msgstr ""
+msgstr "&Εφαρμογή ιδιότητας αναδρομικά"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -475,7 +476,7 @@ msgstr "&Αναζήτηση..."
 
 #. Resource IDs: (32850)
 msgid "&Bugtraq (Issue tracker integration)"
-msgstr ""
+msgstr "&Bugtrack (Ενσωμάτωση ανιχνευτή θεμάτων)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -575,7 +576,7 @@ msgstr "&Αντιγραφή προς"
 
 #. Resource IDs: (1542)
 msgid "&Create folder structure"
-msgstr ""
+msgstr "&Δημιουργία δομής καταλόγου"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -583,7 +584,7 @@ msgstr "&Πάγια προτίμηση"
 
 #. Resource IDs: (1610, 1613)
 msgid "&Date"
-msgstr ""
+msgstr "&Ημερομηνία"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
@@ -663,7 +664,7 @@ msgstr "&Εισάγετε μία σημείωση γιατί κλειδώσατ�
 
 #. Resource IDs: (1554)
 msgid "&Executable"
-msgstr ""
+msgstr "&Εκτελέσιμο"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -723,7 +724,7 @@ msgstr "&Από URL:"
 
 #. Resource IDs: (1259)
 msgid "&From WC / URL:"
-msgstr ""
+msgstr "&Από WC / URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -801,7 +802,7 @@ msgstr "&Εισαγωγή..."
 
 #. Resource IDs: (1562)
 msgid "&Include externals"
-msgstr ""
+msgstr "&Συμπεριλαμβάνονται εξωτερικά"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -829,7 +830,7 @@ msgstr "&Εκκίνηση με την πρώτη διαφορά όταν γίν�
 
 #. Resource IDs: (32852)
 msgid "&Keywords"
-msgstr ""
+msgstr "&λέξεις-κλειδιά"
 
 #. Resource IDs: (65535)
 msgid "&Language:"
@@ -869,11 +870,11 @@ msgstr "&Απαιτείται κλείδωμα"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
-msgstr ""
+msgstr "&Μέγεθος αρχείων καταγραφής"
 
 #. Resource IDs: (65535)
 msgid "&Luminence:"
-msgstr ""
+msgstr "&Φωτεινότητα:"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -917,7 +918,7 @@ msgstr "&Διαδικασία συγχώνευσης"
 
 #. Resource IDs: (32847)
 msgid "&Mime-Type"
-msgstr ""
+msgstr "&Τύπος Mime"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
@@ -933,7 +934,7 @@ msgstr "&Αλλαγή χρώματος στα αντίγραφα κορμών"
 
 #. Resource IDs: (32880)
 msgid "&Moved blocks"
-msgstr ""
+msgstr "&Μπλοκ που μετακινήθηκαν"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1026,7 +1027,7 @@ msgstr "&Μόνιμα εκτός σύνδεσης"
 
 #. Resource IDs: (1588)
 msgid "&Platform dependent (native)"
-msgstr ""
+msgstr "&Εξαρτώμενο σε πλατφόρμα (εγγενή)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1291,7 +1292,7 @@ msgstr "&Μπάρες εργαλείων"
 
 #. Resource IDs: (1567)
 msgid "&Top"
-msgstr ""
+msgstr "&Κορυφή"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
@@ -1339,7 +1340,7 @@ msgstr "&Ενημέρωση"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
-msgstr ""
+msgstr "&Ενημέρωση στοιχείου σε αναθεώρηση..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
@@ -1376,7 +1377,7 @@ msgstr "&Ολόκληρη λέξη"
 
 #. Resource IDs: (1589)
 msgid "&Windows (CRLF)"
-msgstr ""
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
@@ -1575,6 +1576,8 @@ msgid ""
 "A newer version is available.\r\n"
 "Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
+"Μια νέα έκδοση είναι διαθέσιμη.\n"
+"Παρακαλώ επισκευθείται το http://tortoisesvn.net για να κατεβάσετε την τρέχουσα έκδοση."
 
 #. Resource IDs: (195)
 msgid ""
