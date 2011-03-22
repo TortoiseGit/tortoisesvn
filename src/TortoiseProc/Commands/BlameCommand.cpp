@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "BlameDlg.h"
 #include "Blame.h"
 #include "SVN.h"
+#include "SVNInfo.h"
 #include "AppUtils.h"
 #include "MessageBox.h"
 
@@ -42,6 +43,16 @@ bool BlameCommand::Execute()
         {
             options = SVN::GetOptionsString(!!parser.HasKey(_T("ignoreeol")), !!parser.HasKey(_T("ignorespaces")), !!parser.HasKey(_T("ignoreallspaces")));
         }
+    }
+    else
+    {
+        // if the file has been moved/deleted/renamed in HEAD, the default
+        // range from 1 to HEAD won't work so we find the WC revision
+        // of the file and use that as the default end revision
+        SVNInfo info;
+        const SVNInfoData * idata = info.GetFirstFileInfo(cmdLinePath, SVNRev(), SVNRev());
+        if (idata)
+            dlg.EndRev = idata->rev;
     }
     if ((!bShowDialog)||(dlg.DoModal() == IDOK))
     {
