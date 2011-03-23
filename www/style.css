@@ -33,6 +33,7 @@ h3 {
 p, ul, ol {
 	margin-top: 0;
 	line-height: 180%;
+    text-shadow: 0 0 1px #B7B7B7;
 }
 
 ul, ol {
@@ -156,6 +157,22 @@ blockquote.style2 {
     vertical-align: super;
 }
 
+.pullquote {
+    color: #111111;
+    float: right;
+    font-size: 18px;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 24px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    text-align: right;
+    text-shadow: 0 0 2px #B7B7B7;
+    width: 40%;
+}
+
 #wrapper {
 	width: 910px;
 	margin: 0 auto;
@@ -176,6 +193,7 @@ blockquote.style2 {
 	float: left;
 	width: 640px;
 	color: #FFFFFF;
+    text-shadow: 0 0 2px #FFFFFF;
 }
 
 #logo h1 {
@@ -231,6 +249,7 @@ blockquote.style2 {
 	margin: 0 auto;
 	padding: 0;
 	background: #565F68 url(images/img.jpg) no-repeat left top;
+    text-shadow: 0 0 2px #B7B7B7;
 }
 
 #menu ul {
@@ -354,6 +373,7 @@ blockquote.style2 {
 #sidebar h2 {
 	letter-spacing: -.5px;
 	color: #417FDA;
+    text-shadow: 0 0 2px #B7B7B7;
 }
 
 #sidebar p {
