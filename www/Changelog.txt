@@ -1,3 +1,7 @@
+Version 1.6.15
+- BUG: Fixed problem with an invalid handle which caused
+       file-open/save dialogs to throw an exception. (Stefan)
+
 Version 1.6.14
 - BUG: wrong manifest which lead to SxS errors on some systems after
        a Windows update. (Stefan)

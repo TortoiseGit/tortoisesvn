@@ -19,16 +19,20 @@
 		<div id="content">
         
 			<div class="post">
-				<h1 class="title"><a href="#">TortoiseSVN 1.6.14 released</a></h1>
-				<p class="meta">Posted on March 18, 2011
+				<h1 class="title"><a href="#">TortoiseSVN 1.6.15 released</a></h1>
+				<p class="meta">Posted on March 23, 2011
 					&nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
                 $ADSENSE_TOP$
 				<div class="entry">
-                    <p>TortoiseSVN 1.6.14 has been released.</p>
+                    <p>TortoiseSVN 1.6.15 has been released.</p>
                     <p>This is a bugfix release/maintenance release,  
                     linked with Subversion 1.6.16. The release contains a fix
-                    for a handle leak in the shell extension and solves a
-                    problem with side-by-side assemblies on some machines.</p>
+                    for a first-chance exception in the file open/save dialogs.
+                    This only affects applications which are run under a debugger
+                    which must also be configured to catch first-chance exceptions.
+                    But since TortoiseSVN is mostly used by developers, this
+                    is annoying so that's why we made this release only a few
+                    days after the last release. Sorry about that.</p>
                     <p>We recommend that you update your TortoiseSVN client to 
                     this latest version. You can get it from our 
                     <a href="/downloads.html">download</a> page.</p>
@@ -39,23 +43,6 @@
                     <p>If you want to know why the repair install is required, 
                     you can read about the technical details in my 
                     <a href="majorupgrade.html">earlier post</a>.</p>
-				</div>
-			</div>
-			<div class="post">
-				<h1 class="title"><a href="#">TortoiseSVN 1.6.13 released</a></h1>
-				<p class="meta">Posted on March 03, 2011
-					&nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
-				<div class="entry">
-                    <p>TortoiseSVN 1.6.13 has been released.</p>
-                    <p>This is a bugfix release/maintenance release,  
-                    linked with Subversion 1.6.16.</p>
-                    <p>Note: Subversion 1.6.16 contains a security fix 
-                    <a href="http://subversion.apache.org/security/CVE-2011-0715-advisory.txt">CVE-2011-0715</a>,
-                    but the issue only applies to servers. TortoiseSVN is not
-                    affected by that issue.</p>
-                    <p>We recommend that you update your TortoiseSVN client to 
-                    this latest version. You can get it from our 
-                    <a href="/downloads.html">download</a> page.</p>
 				</div>
 			</div>
 			<div class="post">
