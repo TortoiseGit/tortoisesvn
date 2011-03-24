@@ -39,7 +39,6 @@
     <copy file="subversion\include\svn_version.h" tofile="subversion\include\svn_version_orig.h" overwrite="true" />
     <loadfile file="subversion\include\svn_version.h" property="svnverfile">
       <filterchain>
-        <replacestring from='#define SVN_VER_TAG        " (dev build)"' to='#define SVN_VER_TAG        " (dev build r$WCREV$)"' />
         <replacestring from='#define SVN_VER_NUMTAG     "-dev"'         to='#define SVN_VER_NUMTAG     "-dev(r$WCREV$)"' />
         <replacestring from='#define SVN_VER_REVISION   0'              to='#define SVN_VER_REVISION   $WCREV$' />
       </filterchain>
