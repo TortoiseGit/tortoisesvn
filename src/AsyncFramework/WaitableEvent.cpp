@@ -102,7 +102,7 @@ namespace
     void CWaitableEventPool::AutoAlloc (HANDLE& handle)
     {
         CCriticalSectionLock lock (mutex);
-        if (handle != INVALID_HANDLE_VALUE)
+        if (handle != NULL)
             return;
 
         if (!handles.empty())
@@ -136,14 +136,14 @@ namespace
 // construction / destruction: manage event handle
 
 COneShotEvent::COneShotEvent()
-    : event (INVALID_HANDLE_VALUE)
+    : event (NULL)
     , state (FALSE)
 {
 }
 
 COneShotEvent::~COneShotEvent()
 {
-    if (event != INVALID_HANDLE_VALUE)
+    if (event != NULL)
         CWaitableEventPool::GetInstance()->Release (event);
 }
 
@@ -152,7 +152,7 @@ COneShotEvent::~COneShotEvent()
 void COneShotEvent::Set()
 {
     if (InterlockedExchange (&state, TRUE) == FALSE)
-        if (event != INVALID_HANDLE_VALUE)
+        if (event != NULL)
             SetEvent (event);
 }
 
