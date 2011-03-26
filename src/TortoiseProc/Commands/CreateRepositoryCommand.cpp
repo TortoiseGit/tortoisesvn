@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include "TempFile.h"
 #include "IconExtractor.h"
 #include "RepoCreationFinished.h"
+#include "SmartHandle.h"
 
 bool CreateRepositoryCommand::Execute()
 {
@@ -41,12 +42,11 @@ bool CreateRepositoryCommand::Execute()
         if (svnIconResource.ExtractIcon(NULL, MAKEINTRESOURCE(IDI_SVNFOLDER), cmdLinePath.GetWinPathString() + _T("\\svn.ico")) == 0)
         {
             DWORD dwWritten = 0;
-            HANDLE hFile = CreateFile(cmdLinePath.GetWinPathString() + _T("\\Desktop.ini"), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_HIDDEN, NULL);
-            if (hFile != INVALID_HANDLE_VALUE)
+            CAutoFile hFile = CreateFile(cmdLinePath.GetWinPathString() + _T("\\Desktop.ini"), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_HIDDEN, NULL);
+            if (hFile)
             {
                 CString sIni = _T("[.ShellClassInfo]\nConfirmFileOp=0\nIconFile=svn.ico\nIconIndex=0\nInfoTip=Subversion Repository\n");
                 WriteFile(hFile, (LPCTSTR)sIni,  sIni.GetLength()*sizeof(TCHAR), &dwWritten, NULL);
-                CloseHandle(hFile);
             }
             PathMakeSystemFolder(cmdLinePath.GetWinPath());
         }

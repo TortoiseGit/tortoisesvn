@@ -45,6 +45,7 @@
 #include "auto_buffer.h"
 #include "Libraries.h"
 #include "TempFile.h"
+#include "SmartHandle.h"
 
 #define APPID (_T("TSVN.TSVN.1") _T(TSVN_PLATFORM))
 
@@ -365,7 +366,7 @@ BOOL CTortoiseProcApp::InitInstance()
     // Note that SASL doesn't have to be initialized yet for this to work
     sasl_set_path(SASL_PATH_TYPE_PLUGIN, (LPSTR)(LPCSTR)CUnicodeUtils::GetUTF8(CPathUtils::GetAppDirectory().TrimRight('\\')));
 
-    HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));
+    CAutoGeneralHandle TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));
     {
         CString err = SVN::CheckConfigFile();
         if (!err.IsEmpty())
@@ -398,8 +399,6 @@ BOOL CTortoiseProcApp::InitInstance()
         delete cmd;
     }
 
-    if (TSVNMutex)
-        ::CloseHandle(TSVNMutex);
 
     // Look for temporary files left around by TortoiseSVN and
     // remove them. But only delete 'old' files because some

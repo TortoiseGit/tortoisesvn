@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "CacheInterface.h"
 #include "auto_buffer.h"
+#include "SmartHandle.h"
 
 CString GetCachePipeName()
 {
@@ -38,8 +39,8 @@ CString GetCacheMutexName()
 CString GetCacheID()
 {
     CString t;
-    HANDLE token;
-    BOOL result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token);
+    CAutoGeneralHandle token;
+    BOOL result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, token.GetPointer());
     if(result)
     {
         DWORD len = 0;
@@ -51,8 +52,6 @@ CString GetCacheID()
             LUID uid = ((PTOKEN_STATISTICS)data.get())->AuthenticationId;
             t.Format(_T("-%08x%08x"), uid.HighPart, uid.LowPart);
         }
-
-        CloseHandle(token);
     }
     return t;
 }
@@ -60,10 +59,10 @@ CString GetCacheID()
 bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 {
     int retrycount = 2;
-    HANDLE hPipe = INVALID_HANDLE_VALUE;
+    CAutoFile hPipe;
     do 
     {
-        HANDLE hPipe = CreateFile(
+        hPipe = CreateFile(
             GetCacheCommandPipeName(),      // pipe name
             GENERIC_READ |                  // read and write access
             GENERIC_WRITE,
@@ -73,11 +72,11 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
             FILE_FLAG_OVERLAPPED,           // default attributes
             NULL);                          // no template file
         retrycount--;
-        if (hPipe == INVALID_HANDLE_VALUE)
+        if (!hPipe)
             Sleep(10);
-    } while ((hPipe == INVALID_HANDLE_VALUE) && (retrycount));
+    } while ((!hPipe) && (retrycount));
 
-    if (hPipe == INVALID_HANDLE_VALUE)
+    if (!hPipe)
         return false;
 
     // The pipe connected; change to message-read mode.
@@ -113,8 +112,6 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
         if (! fSuccess || sizeof(cmd) != cbWritten)
         {
             DisconnectNamedPipe(hPipe);
-            CloseHandle(hPipe);
-            hPipe = INVALID_HANDLE_VALUE;
             return false;
         }
         // now tell the cache we don't need it's command thread anymore
@@ -127,12 +124,10 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
             &cbWritten,     // number of bytes written
             NULL);          // not overlapped I/O
         DisconnectNamedPipe(hPipe);
-        CloseHandle(hPipe);
     }
     else
     {
         ATLTRACE("SetNamedPipeHandleState failed");
-        CloseHandle(hPipe);
         return false;
     }
 

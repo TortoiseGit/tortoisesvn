@@ -22,6 +22,7 @@
 #include <locale>
 #include <algorithm>
 #include "Picture.h"
+#include "SmartHandle.h"
 
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "gdiplus.lib")
@@ -173,8 +174,8 @@ bool CPicture::Load(tstring sFilePathName)
                 bIsIcon = true;
             }
 
-            HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-            if (hFile != INVALID_HANDLE_VALUE)
+            CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+            if (hFile)
             {
                 BY_HANDLE_FILE_INFORMATION fileinfo;
                 if (GetFileInformationByHandle(hFile, &fileinfo))
@@ -184,7 +185,6 @@ bool CPicture::Load(tstring sFilePathName)
                     if (ReadFile(hFile, lpIcons, fileinfo.nFileSizeLow, &readbytes, NULL))
                     {
                         // we have the icon. Now gather the information we need later
-                        CloseHandle(hFile);
                         if (readbytes >= sizeof(ICONDIR))
                         {
                             nCurrentIcon = 0;
@@ -212,11 +212,8 @@ bool CPicture::Load(tstring sFilePathName)
                     {
                         delete [] lpIcons;
                         lpIcons = NULL;
-                        CloseHandle(hFile);
                     }
                 }
-                else
-                    CloseHandle(hFile);
             }
         }
         else if (pBitmap)   // Image loaded successfully with GDI+
@@ -344,8 +341,8 @@ bool CPicture::Load(tstring sFilePathName)
     {
         int nSize = 0;
         pBitmap = NULL;
-        HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
-        if (hFile != INVALID_HANDLE_VALUE)
+        CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
+        if (hFile)
         {
             BY_HANDLE_FILE_INFORMATION fileinfo;
             if (GetFileInformationByHandle(hFile, &fileinfo))
@@ -362,7 +359,6 @@ bool CPicture::Load(tstring sFilePathName)
                 }
                 delete [] buffer;
             }
-            CloseHandle(hFile);
         }
         else
             return bResult;
@@ -388,15 +384,14 @@ bool CPicture::Load(tstring sFilePathName)
 
     if ((bResult)&&(m_nSize == 0))
     {
-        HANDLE hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
-        if (hFile != INVALID_HANDLE_VALUE)
+        CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
+        if (hFile)
         {
             BY_HANDLE_FILE_INFORMATION fileinfo;
             if (GetFileInformationByHandle(hFile, &fileinfo))
             {
                 m_nSize = fileinfo.nFileSizeLow;
             }
-            CloseHandle(hFile);
         }
     }
 

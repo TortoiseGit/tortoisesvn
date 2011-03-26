@@ -22,6 +22,7 @@
 #include "StringUtils.h"
 #include "TempFile.h"
 #include "SVN.h"
+#include "SmartHandle.h"
 
 CHooks* CHooks::m_pInstance = NULL;
 
@@ -428,9 +429,9 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
         curDir.SetFromWin(buf, true);
     }
 
-    HANDLE hOut   = INVALID_HANDLE_VALUE;
-    HANDLE hRedir = INVALID_HANDLE_VALUE;
-    HANDLE hErr   = INVALID_HANDLE_VALUE;
+    CAutoFile hOut ;
+    CAutoFile hRedir;
+    CAutoFile hErr;
 
     // clear the error string
     error.Empty();
@@ -447,7 +448,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     // redirect handle must be READ mode, share WRITE
     hErr   = CreateFile(szErr, GENERIC_WRITE, FILE_SHARE_READ, &sa, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY,    0);
 
-    if (hErr  == INVALID_HANDLE_VALUE)
+    if (!hErr)
     {
         error = CFormatMessageWrapper();
         return (DWORD)-1;
@@ -455,21 +456,18 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 
     hRedir = CreateFile(szErr, GENERIC_READ, FILE_SHARE_WRITE, 0, OPEN_EXISTING, 0, 0);
 
-    if (hRedir  == INVALID_HANDLE_VALUE)
+    if (!hRedir)
     {
         error = CFormatMessageWrapper();
-        CloseHandle(hErr);
         return (DWORD)-1;
     }
 
     GetTempFileName(szTempPath, _T("svn"), 0, szOutput);
     hOut   = CreateFile(szOutput, GENERIC_WRITE, FILE_SHARE_READ, &sa, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, 0);
 
-    if (hOut  == INVALID_HANDLE_VALUE)
+    if (!hOut)
     {
         error = CFormatMessageWrapper();
-        CloseHandle(hErr);
-        CloseHandle(hRedir);
         return (DWORD)-1;
     }
 
@@ -489,13 +487,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     if (!CreateProcess(NULL, cmd.GetBuffer(), NULL, NULL, TRUE, 0, NULL, curDir.IsEmpty() ? NULL : curDir.GetWinPath(), &si, &pi))
     {
         const DWORD err = GetLastError();  // preserve the CreateProcess error
-        if (hErr != INVALID_HANDLE_VALUE)
-        {
-            error = CFormatMessageWrapper(err);
-            CloseHandle(hErr);
-            CloseHandle(hRedir);
-            CloseHandle(hOut);
-        }
+        error = CFormatMessageWrapper(err);
         SetLastError(err);
         cmd.ReleaseBuffer();
         return (DWORD)-1;
@@ -535,9 +527,6 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
         GetExitCodeProcess(pi.hProcess, &exitcode);
     }
     CloseHandle(pi.hProcess);
-    CloseHandle(hErr);
-    CloseHandle(hOut);
-    CloseHandle(hRedir);
     DeleteFile(szOutput);
     DeleteFile(szErr);
 

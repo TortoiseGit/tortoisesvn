@@ -25,9 +25,6 @@
 #include "CreateProcessHelper.h"
 
 CRemoteCacheLink::CRemoteCacheLink(void)
-    : m_hPipe(INVALID_HANDLE_VALUE)
-    , m_hCommandPipe(INVALID_HANDLE_VALUE)
-    , m_hEvent(INVALID_HANDLE_VALUE)
 {
     SecureZeroMemory(&m_dummyStatus, sizeof(m_dummyStatus));
     m_dummyStatus.node_status = svn_wc_status_none;
@@ -47,10 +44,10 @@ CRemoteCacheLink::~CRemoteCacheLink(void)
     m_critSec.Term();
 }
 
-bool CRemoteCacheLink::InternalEnsurePipeOpen ( HANDLE& hPipe
+bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe
                                               , const CString& pipeName)
 {
-    if (hPipe != INVALID_HANDLE_VALUE)
+    if (hPipe)
     {
         return true;
     }
@@ -65,7 +62,7 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( HANDLE& hPipe
         FILE_FLAG_OVERLAPPED,           // default attributes
         NULL);                          // no template file
 
-    if (hPipe == INVALID_HANDLE_VALUE && GetLastError() == ERROR_PIPE_BUSY)
+    if ((!hPipe) && (GetLastError() == ERROR_PIPE_BUSY))
     {
         // TSVNCache is running but is busy connecting a different client.
         // Do not give up immediately but wait for a few milliseconds until
@@ -84,7 +81,7 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( HANDLE& hPipe
         }
     }
 
-    if (hPipe != INVALID_HANDLE_VALUE)
+    if (hPipe)
     {
         // The pipe connected; change to message-read mode.
         DWORD dwMode;
@@ -97,8 +94,7 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( HANDLE& hPipe
             NULL))    // don't set maximum time
         {
             ATLTRACE("SetNamedPipeHandleState failed");
-            CloseHandle(hPipe);
-            hPipe = INVALID_HANDLE_VALUE;
+            hPipe.CloseHandle();
             return false;
         }
 
@@ -115,14 +111,12 @@ bool CRemoteCacheLink::EnsurePipeOpen()
     if (InternalEnsurePipeOpen (m_hPipe, GetCachePipeName()))
     {
         // create an unnamed (=local) manual reset event for use in the overlapped structure
-        if (m_hEvent != INVALID_HANDLE_VALUE)
+        if (m_hEvent)
             return true;
 
         m_hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
         if (m_hEvent)
             return true;
-        // change to INVALID_HANDLE_VALUE to do not close invalid valid handle (0)
-        m_hEvent = INVALID_HANDLE_VALUE;
 
         ATLTRACE("CreateEvent failed");
         ClosePipe();
@@ -141,23 +135,15 @@ void CRemoteCacheLink::ClosePipe()
 {
     AutoLocker lock(m_critSec);
 
-    if(m_hPipe != INVALID_HANDLE_VALUE)
-    {
-        CloseHandle(m_hPipe);
-        m_hPipe = INVALID_HANDLE_VALUE;
-        if(m_hEvent != INVALID_HANDLE_VALUE)
-        {
-            CloseHandle(m_hEvent);
-            m_hEvent = INVALID_HANDLE_VALUE;
-        }
-    }
+    m_hPipe.CloseHandle();
+    m_hEvent.CloseHandle();
 }
 
 void CRemoteCacheLink::CloseCommandPipe()
 {
     AutoLocker lock(m_critSec);
 
-    if(m_hCommandPipe != INVALID_HANDLE_VALUE)
+    if(m_hCommandPipe)
     {
         // now tell the cache we don't need it's command thread anymore
         DWORD cbWritten;
@@ -171,8 +157,7 @@ void CRemoteCacheLink::CloseCommandPipe()
             &cbWritten,     // number of bytes written
             NULL);          // not overlapped I/O
         DisconnectNamedPipe(m_hCommandPipe);
-        CloseHandle(m_hCommandPipe);
-        m_hCommandPipe = INVALID_HANDLE_VALUE;
+        m_hCommandPipe.CloseHandle();
     }
 }
 
@@ -274,7 +259,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
 {
     EnsureCommandPipeOpen();
-    if (m_hCommandPipe != INVALID_HANDLE_VALUE)
+    if (m_hCommandPipe)
     {
         DWORD cbWritten;
         TSVNCacheCommand cmd;
@@ -301,10 +286,10 @@ DWORD CRemoteCacheLink::GetProcessIntegrityLevel()
 {
     DWORD dwIntegrityLevel = SECURITY_MANDATORY_MEDIUM_RID;
 
-    HANDLE hProcess = GetCurrentProcess();
-    HANDLE hToken;
+    CAutoGeneralHandle hProcess = GetCurrentProcess();
+    CAutoGeneralHandle hToken;
     if (OpenProcessToken(hProcess, TOKEN_QUERY |
-        TOKEN_QUERY_SOURCE, &hToken))
+        TOKEN_QUERY_SOURCE, hToken.GetPointer()))
     {
         // Get the Integrity level.
         DWORD dwLengthNeeded;
@@ -328,7 +313,6 @@ DWORD CRemoteCacheLink::GetProcessIntegrityLevel()
                 }
             }
         }
-        CloseHandle(hToken);
     }
 
     return dwIntegrityLevel;

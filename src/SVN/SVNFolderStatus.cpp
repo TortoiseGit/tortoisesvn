@@ -22,6 +22,7 @@
 #include "UnicodeUtils.h"
 #include "..\TSVNCache\CacheInterface.h"
 #include "SVNGlobal.h"
+#include "SmartHandle.h"
 
 extern ShellCache g_ShellCache;
 
@@ -105,7 +106,6 @@ SVNFolderStatus::SVNFolderStatus(void)
 SVNFolderStatus::~SVNFolderStatus(void)
 {
     svn_pool_destroy(rootpool);
-    CloseHandle(m_hInvalidationEvent);
 }
 
 const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder)
@@ -119,15 +119,13 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     //access of the .svn directory).
     if (g_ShellCache.BlockStatus())
     {
-        HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));
+        CAutoGeneralHandle TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));
         if (TSVNMutex != NULL)
         {
             if (::GetLastError() == ERROR_ALREADY_EXISTS)
             {
-                ::CloseHandle(TSVNMutex);
                 return &invalidstatus;
             }
-            ::CloseHandle(TSVNMutex);
         }
     }
 

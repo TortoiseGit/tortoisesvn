@@ -683,25 +683,23 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
     GetTempFileName (path, _T("svn"), 0, tempFile);
     tempfile = tstring(tempFile);
 
-    HANDLE file = ::CreateFile (tempFile,
-        GENERIC_WRITE,
-        FILE_SHARE_READ,
-        0,
-        CREATE_ALWAYS,
-        FILE_ATTRIBUTE_TEMPORARY,
-        0);
+    CAutoFile file = ::CreateFile (tempFile,
+                                   GENERIC_WRITE,
+                                   FILE_SHARE_READ,
+                                   0,
+                                   CREATE_ALWAYS,
+                                   FILE_ATTRIBUTE_TEMPORARY,
+                                   0);
 
-    if (file == INVALID_HANDLE_VALUE)
+    if (!file)
         return false;
 
     if (!IsClipboardFormatAvailable(CF_HDROP))
     {
-        ::CloseHandle(file);
         return false;
     }
     if (!OpenClipboard(NULL))
     {
-        ::CloseHandle(file);
         return false;
     }
 
@@ -726,7 +724,6 @@ bool CShellExt::WriteClipboardPathsToTempFile(tstring& tempfile)
     GlobalUnlock(hglb);
 
     CloseClipboard();
-    ::CloseHandle(file);
 
     return bRet;
 }
@@ -742,15 +739,15 @@ tstring CShellExt::WriteFileListToTempFile()
     GetTempFileName (path, _T("svn"), 0, tempFile);
     tstring retFilePath = tstring(tempFile);
 
-    HANDLE file = ::CreateFile (tempFile,
-                                GENERIC_WRITE,
-                                FILE_SHARE_READ,
-                                0,
-                                CREATE_ALWAYS,
-                                FILE_ATTRIBUTE_TEMPORARY,
-                                0);
+    CAutoFile file = ::CreateFile (tempFile,
+                                   GENERIC_WRITE,
+                                   FILE_SHARE_READ,
+                                   0,
+                                   CREATE_ALWAYS,
+                                   FILE_ATTRIBUTE_TEMPORARY,
+                                   0);
 
-    if (file == INVALID_HANDLE_VALUE)
+    if (!file)
         return tstring();
 
     DWORD written = 0;
@@ -765,7 +762,6 @@ tstring CShellExt::WriteFileListToTempFile()
         ::WriteFile (file, I->c_str(), (DWORD)I->size()*sizeof(TCHAR), &written, 0);
         ::WriteFile (file, _T("\n"), 2, &written, 0);
     }
-    ::CloseHandle(file);
     return retFilePath;
 }
 

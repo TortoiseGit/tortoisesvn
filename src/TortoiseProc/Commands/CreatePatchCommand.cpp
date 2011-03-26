@@ -27,6 +27,7 @@
 #include "TempFile.h"
 #include "ProgressDlg.h"
 #include "SelectFileFilter.h"
+#include "SmartHandle.h"
 
 #define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME      _T(".TSVNPatchToClipboard")
 
@@ -101,7 +102,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             {
                 typedef HRESULT (WINAPI *SHCIFPN)(PCWSTR pszPath, IBindCtx * pbc, REFIID riid, void ** ppv);
 
-                HMODULE hLib = LoadLibrary(L"shell32.dll");
+                CAutoLibrary hLib = LoadLibrary(L"shell32.dll");
                 if (hLib)
                 {
                     SHCIFPN pSHCIFPN = (SHCIFPN)GetProcAddress(hLib, "SHCreateItemFromParsingName");
@@ -115,7 +116,6 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
                             psiDefault->Release();
                         }
                     }
-                    FreeLibrary(hLib);
                 }
             }
             bool bAdvised = false;

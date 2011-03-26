@@ -37,6 +37,7 @@
 #include "DirFileEnum.h"
 #include "SysInfo.h"
 #include "SelectFileFilter.h"
+#include "SmartHandle.h"
 
 bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 {
@@ -400,11 +401,10 @@ BOOL CAppUtils::StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2
 BOOL CAppUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
 {
     DWORD length = 0;
-    HANDLE hFile = ::CreateFile(sDiffPath.GetWinPath(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);
-    if (hFile == INVALID_HANDLE_VALUE)
+    CAutoFile hFile = ::CreateFile(sDiffPath.GetWinPath(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);
+    if (!hFile)
         return TRUE;
     length = ::GetFileSize(hFile, NULL);
-    ::CloseHandle(hFile);
     if (length < 4)
         return TRUE;
     return FALSE;

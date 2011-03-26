@@ -35,6 +35,7 @@
 #include "COMError.h"
 #include "..\version.h"
 #include "BstrSafeVector.h"
+#include "SmartHandle.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -1176,21 +1177,19 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
     static std::map<CString, tr1::wregex> regexmap;
 
     wstring sFileContent;
-    HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
-    if (hFile != INVALID_HANDLE_VALUE)
+    CAutoFile hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+    if (hFile)
     {
         DWORD size = GetFileSize(hFile, NULL);
         if (size > 300000L)
         {
             // no files bigger than 300k
-            CloseHandle(hFile);
             return;
         }
         // allocate memory to hold file contents
         auto_buffer<char> buffer(size);
         DWORD readbytes;
         ReadFile(hFile, buffer, size, &readbytes, NULL);
-        CloseHandle(hFile);
         int opts = 0;
         IsTextUnicode(buffer, readbytes, &opts);
         if (opts & IS_TEXT_UNICODE_NULL_BYTES)

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "registry.h"
 #include ".\filetextlines.h"
 #include "FormatMessageWrapper.h"
+#include "SmartHandle.h"
 
 CFileTextLines::CFileTextLines(void)
     : m_UnicodeType(CFileTextLines::AUTOTYPE)
@@ -206,8 +207,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         return TRUE;
     }
 
-    HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
-    if (hFile == INVALID_HANDLE_VALUE)
+    CAutoFile hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+    if (!hFile)
     {
         SetErrorString();
         return FALSE;
@@ -217,13 +218,11 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     if (!GetFileSizeEx(hFile, &fsize))
     {
         SetErrorString();
-        CloseHandle(hFile);
         return false;
     }
     if (fsize.HighPart)
     {
         // file is way too big for us
-        CloseHandle(hFile);
         m_sErrorString.LoadString(IDS_ERR_FILE_TOOBIG);
         return FALSE;
     }
@@ -237,7 +236,6 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     {
         delete [] pFileBuf;
         SetErrorString();
-        CloseHandle(hFile);
         return FALSE;
     }
     if (m_UnicodeType == CFileTextLines::AUTOTYPE)
@@ -248,7 +246,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     {
         m_LineEndings = CheckLineEndings(pFileBuf, min(10000, dwReadBytes));
     }
-    CloseHandle(hFile);
+    hFile.CloseHandle();
 
     if (m_UnicodeType == CFileTextLines::BINARY)
     {

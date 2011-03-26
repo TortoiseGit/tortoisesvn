@@ -31,6 +31,7 @@
 #include "ioevent.h"
 #include "..\version.h"
 #include "svn_dso.h"
+#include "SmartHandle.h"
 
 #include <ShellAPI.h>
 
@@ -62,14 +63,12 @@ CComAutoCriticalSection critSec;
 #define PACKVERSION(major,minor) MAKELONG(minor,major)
 DWORD GetDllVersion(LPCTSTR lpszDllName)
 {
-
-    HINSTANCE hinstDll;
     DWORD dwVersion = 0;
 
     /* For security purposes, LoadLibrary should be provided with a
     fully-qualified path to the DLL. The lpszDllName variable should be
     tested to ensure that it is a fully qualified path before it is used. */
-    hinstDll = LoadLibrary(lpszDllName);
+    CAutoLibrary hinstDll = LoadLibrary(lpszDllName);
 
     if(hinstDll)
     {
@@ -97,8 +96,6 @@ DWORD GetDllVersion(LPCTSTR lpszDllName)
                 dwVersion = PACKVERSION(dvi.dwMajorVersion, dvi.dwMinorVersion);
             }
         }
-
-        FreeLibrary(hinstDll);
     }
     return dwVersion;
 }
@@ -149,9 +146,9 @@ static HWND CreateHiddenWindow(HINSTANCE hInstance)
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
     SetDllDirectory(L"");
-    HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, GetCacheMutexName());
+    CAutoGeneralHandle hReloadProtection = ::CreateMutex(NULL, FALSE, GetCacheMutexName());
 
-    if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)
+    if ((!hReloadProtection) || (GetLastError() == ERROR_ALREADY_EXISTS))
     {
         // An instance of TSVNCache is already running
         ATLTRACE("TSVNCache ignoring restart\n");
@@ -218,19 +215,15 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     // Create a thread which waits for incoming pipe connections
     unsigned int threadId = 0;
 
-    HANDLE hPipeThread = (HANDLE)_beginthreadex(NULL, 0, PipeThread, &bRun, 0, &threadId);
-    if (hPipeThread == NULL)
+    CAutoGeneralHandle hPipeThread = (HANDLE)_beginthreadex(NULL, 0, PipeThread, &bRun, 0, &threadId);
+    if (!hPipeThread)
         return 0;
-    else
-        CloseHandle(hPipeThread);
 
     // Create a thread which waits for incoming pipe connections
-    HANDLE hCommandWaitThread =
+    CAutoGeneralHandle hCommandWaitThread =
         (HANDLE)_beginthreadex(NULL, 0, CommandWaitThread, &bRun, 0, &threadId);
-    if (hCommandWaitThread == NULL)
+    if (!hCommandWaitThread)
         return 0;
-    else
-        CloseHandle(hCommandWaitThread);
 
     // loop to handle window messages.
     MSG msg;
@@ -425,7 +418,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 else
                 {
                     CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
-                    CSVNStatusCache::Instance().CloseWatcherHandles(INVALID_HANDLE_VALUE);
+                    CSVNStatusCache::Instance().CloseWatcherHandles(0);
                 }
                 break;
             }
@@ -477,8 +470,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
     // with that client, and the loop is repeated.
     unsigned int dwThreadId;
     BOOL fConnected;
-    HANDLE hPipe = INVALID_HANDLE_VALUE;
-    HANDLE hInstanceThread = INVALID_HANDLE_VALUE;
+    CAutoFile hPipe;
 
     while (*bRun)
     {
@@ -494,7 +486,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
             NMPWAIT_USE_DEFAULT_WAIT, // client time-out
             NULL);                    // NULL DACL
 
-        if (hPipe == INVALID_HANDLE_VALUE)
+        if (!hPipe)
         {
             //OutputDebugStringA("TSVNCache: CreatePipe failed\n");
             //DebugOutputLastError();
@@ -510,28 +502,28 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
         if (fConnected)
         {
             // Create a thread for this client.
-            hInstanceThread = (HANDLE)_beginthreadex(NULL, 0, InstanceThread, hPipe, 0, &dwThreadId);
+            CAutoGeneralHandle hInstanceThread = (HANDLE)_beginthreadex(NULL, 0, InstanceThread, &hPipe, 0, &dwThreadId);
 
-            if (hInstanceThread == NULL)
+            if (!hInstanceThread)
             {
                 //OutputDebugStringA("TSVNCache: Could not create Instance thread\n");
                 //DebugOutputLastError();
                 DisconnectNamedPipe(hPipe);
-                CloseHandle(hPipe);
                 // since we're now closing this thread, we also have to close the whole application!
                 // otherwise the thread is dead, but the app is still running, refusing new instances
                 // but no pipe will be available anymore.
                 PostMessage(hWnd, WM_CLOSE, 0, 0);
                 return 1;
             }
-            else CloseHandle(hInstanceThread);
+            // detach the handle, since we passed it to the thread
+            hPipe.Detach();
         }
         else
         {
             // The client could not connect, so close the pipe.
             //OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
             //DebugOutputLastError();
-            CloseHandle(hPipe);
+            hPipe.CloseHandle();
             if (*bRun)
                 Sleep(200);
             continue;   // don't end the thread!
@@ -551,8 +543,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
     // with that client, and the loop is repeated.
     unsigned int dwThreadId;
     BOOL fConnected;
-    HANDLE hPipe = INVALID_HANDLE_VALUE;
-    HANDLE hCommandThread = INVALID_HANDLE_VALUE;
+    CAutoFile hPipe;
 
     while (*bRun)
     {
@@ -568,7 +559,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
             NMPWAIT_USE_DEFAULT_WAIT, // client time-out
             NULL);                // NULL DACL
 
-        if (hPipe == INVALID_HANDLE_VALUE)
+        if (!hPipe)
         {
             //OutputDebugStringA("TSVNCache: CreatePipe failed\n");
             //DebugOutputLastError();
@@ -584,28 +575,28 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
         if (fConnected)
         {
             // Create a thread for this client.
-            hCommandThread = (HANDLE)_beginthreadex(NULL, 0, CommandThread, hPipe, 0, &dwThreadId);
+            CAutoGeneralHandle hCommandThread = (HANDLE)_beginthreadex(NULL, 0, CommandThread, &hPipe, 0, &dwThreadId);
 
             if (hCommandThread == NULL)
             {
                 //OutputDebugStringA("TSVNCache: Could not create Command thread\n");
                 //DebugOutputLastError();
                 DisconnectNamedPipe(hPipe);
-                CloseHandle(hPipe);
                 // since we're now closing this thread, we also have to close the whole application!
                 // otherwise the thread is dead, but the app is still running, refusing new instances
                 // but no pipe will be available anymore.
                 PostMessage(hWnd, WM_CLOSE, 0, 0);
                 return 1;
             }
-            else CloseHandle(hCommandThread);
+            // detach the handle, since we passed it to the thread
+            hPipe.Detach();
         }
         else
         {
             // The client could not connect, so close the pipe.
             //OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
             //DebugOutputLastError();
-            CloseHandle(hPipe);
+            hPipe.CloseHandle();
             if (*bRun)
                 Sleep(200);
             continue;   // don't end the thread!
@@ -621,11 +612,11 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
     TSVNCacheResponse response;
     DWORD cbBytesRead, cbWritten;
     BOOL fSuccess;
-    HANDLE hPipe;
+    CAutoFile hPipe;
 
     // The thread's parameter is a handle to a pipe instance.
 
-    hPipe = (HANDLE) lpvParam;
+    hPipe = *(CAutoFile*) lpvParam;
 
     while (bRun)
     {
@@ -641,7 +632,6 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
         if (! fSuccess || cbBytesRead == 0)
         {
             DisconnectNamedPipe(hPipe);
-            CloseHandle(hPipe);
             ATLTRACE("Instance thread exited\n");
             return 1;
         }
@@ -677,7 +667,6 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
         if (! fSuccess || responseLength != cbWritten)
         {
             DisconnectNamedPipe(hPipe);
-            CloseHandle(hPipe);
             ATLTRACE("Instance thread exited\n");
             return 1;
         }
@@ -689,7 +678,6 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
 
     FlushFileBuffers(hPipe);
     DisconnectNamedPipe(hPipe);
-    CloseHandle(hPipe);
     ATLTRACE("Instance thread exited\n");
     return 0;
 }
@@ -699,11 +687,11 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
     ATLTRACE("CommandThread started\n");
     DWORD cbBytesRead;
     BOOL fSuccess;
-    HANDLE hPipe;
+    CAutoFile hPipe;
 
     // The thread's parameter is a handle to a pipe instance.
 
-    hPipe = (HANDLE) lpvParam;
+    hPipe = *(CAutoFile*) lpvParam;
 
     while (bRun)
     {
@@ -719,7 +707,6 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
         if (! fSuccess || cbBytesRead == 0)
         {
             DisconnectNamedPipe(hPipe);
-            CloseHandle(hPipe);
             ATLTRACE("Command thread exited\n");
             return 1;
         }
@@ -743,7 +730,6 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
             case TSVNCACHECOMMAND_END:
                 FlushFileBuffers(hPipe);
                 DisconnectNamedPipe(hPipe);
-                CloseHandle(hPipe);
                 ATLTRACE("Command thread exited\n");
                 return 0;
             case TSVNCACHECOMMAND_CRAWL:
@@ -800,7 +786,6 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
 
     FlushFileBuffers(hPipe);
     DisconnectNamedPipe(hPipe);
-    CloseHandle(hPipe);
     ATLTRACE("Command thread exited\n");
     return 0;
 }

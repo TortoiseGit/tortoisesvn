@@ -20,6 +20,7 @@
 
 #include "SVNStatus.h"
 #include "TSVNPath.h"
+#include "SmartHandle.h"
 
 /**
  * \ingroup TortoiseShell
@@ -138,7 +139,7 @@ private:
 
     tstring     sCacheKey;
 
-    HANDLE          m_hInvalidationEvent;
+    CAutoGeneralHandle  m_hInvalidationEvent;
 
     // The item we most recently supplied status for
     CTSVNPath       m_mostRecentPath;

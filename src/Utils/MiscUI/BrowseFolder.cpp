@@ -20,6 +20,7 @@
 #include <windowsx.h>
 #include "BrowseFolder.h"
 #include "PathUtils.h"
+#include "SmartHandle.h"
 
 BOOL CBrowseFolder::m_bCheck = FALSE;
 BOOL CBrowseFolder::m_bCheck2 = FALSE;
@@ -109,7 +110,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         {
             typedef HRESULT (WINAPI *SHCIFPN)(PCWSTR pszPath, IBindCtx * pbc, REFIID riid, void ** ppv);
 
-            HMODULE hLib = LoadLibrary(L"shell32.dll");
+            CAutoLibrary hLib = LoadLibrary(L"shell32.dll");
             if (hLib)
             {
                 SHCIFPN pSHCIFPN = (SHCIFPN)GetProcAddress(hLib, "SHCreateItemFromParsingName");
@@ -123,7 +124,6 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
                         psiDefault->Release();
                     }
                 }
-                FreeLibrary(hLib);
             }
         }
 

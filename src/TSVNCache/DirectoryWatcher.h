@@ -20,6 +20,7 @@
 #include "TSVNPath.h"
 #include "FolderCrawler.h"
 #include "ShellCache.h"
+#include "SmartHandle.h"
 
 #define READ_DIR_CHANGE_BUFFER_SIZE 4096
 
@@ -102,8 +103,8 @@ private:
 
 private:
     CComAutoCriticalSection m_critSec;
-    HANDLE                  m_hThread;
-    HANDLE                  m_hCompPort;
+    CAutoGeneralHandle      m_hThread;
+    CAutoGeneralHandle      m_hCompPort;
     volatile LONG           m_bRunning;
 
     CFolderCrawler *        m_FolderCrawler;    ///< where the change reports go to
@@ -130,7 +131,7 @@ private:
     public:
         bool    CloseDirectoryHandle();
 
-        HANDLE      m_hDir;         ///< handle to the directory that we're watching
+        CAutoFile   m_hDir;         ///< handle to the directory that we're watching
         CTSVNPath   m_DirName;      ///< the directory that we're watching
         CHAR        m_Buffer[READ_DIR_CHANGE_BUFFER_SIZE]; ///< buffer for ReadDirectoryChangesW
         DWORD       m_dwBufLength;  ///< length or returned data from ReadDirectoryChangesW -- ignored?...

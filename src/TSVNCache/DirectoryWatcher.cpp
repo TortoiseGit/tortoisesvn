@@ -19,13 +19,13 @@
 #include "StdAfx.h"
 #include "Dbt.h"
 #include "SVNStatusCache.h"
-#include ".\directorywatcher.h"
+#include "directorywatcher.h"
+#include "SmartHandle.h"
 
 extern HWND hWnd;
 
 CDirectoryWatcher::CDirectoryWatcher(void)
-    : m_hCompPort(NULL)
-    , m_bRunning(TRUE)
+    : m_bRunning(TRUE)
     , m_FolderCrawler(NULL)
     , blockTickCount(0)
 {
@@ -38,8 +38,8 @@ CDirectoryWatcher::CDirectoryWatcher(void)
 
     for (int i=0; i<(sizeof(arPrivelegeNames)/sizeof(LPCTSTR)); ++i)
     {
-        HANDLE hToken;
-        if (OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, &hToken))
+        CAutoGeneralHandle hToken;
+        if (OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, hToken.GetPointer()))
         {
             TOKEN_PRIVILEGES tp = { 1 };
 
@@ -49,7 +49,6 @@ CDirectoryWatcher::CDirectoryWatcher(void)
 
                 AdjustTokenPrivileges(hToken, FALSE, &tp, sizeof(tp), NULL, NULL);
             }
-            CloseHandle(hToken);
         }
     }
 
@@ -60,11 +59,7 @@ CDirectoryWatcher::CDirectoryWatcher(void)
 CDirectoryWatcher::~CDirectoryWatcher(void)
 {
     InterlockedExchange(&m_bRunning, FALSE);
-    if (m_hThread != INVALID_HANDLE_VALUE)
-    {
-        CloseHandle(m_hThread);
-        m_hThread = INVALID_HANDLE_VALUE;
-    }
+    m_hThread.CloseHandle();
     AutoLocker lock(m_critSec);
     ClearInfoMap();
     CleanupWatchInfo();
@@ -72,11 +67,7 @@ CDirectoryWatcher::~CDirectoryWatcher(void)
 
 void CDirectoryWatcher::CloseCompletionPort()
 {
-    if (m_hCompPort != INVALID_HANDLE_VALUE)
-        if (CloseHandle (m_hCompPort) == FALSE)
-            ATLTRACE (_T("Closing completion port failed\n"));
-
-    m_hCompPort = INVALID_HANDLE_VALUE;
+    m_hCompPort.CloseHandle();
 }
 
 void CDirectoryWatcher::ScheduleForDeletion (CDirWatchInfo* info)
@@ -98,9 +89,7 @@ void CDirectoryWatcher::CleanupWatchInfo()
 void CDirectoryWatcher::Stop()
 {
     InterlockedExchange(&m_bRunning, FALSE);
-    if (m_hThread != INVALID_HANDLE_VALUE)
-        CloseHandle(m_hThread);
-    m_hThread = INVALID_HANDLE_VALUE;
+    m_hThread.CloseHandle();
 
     CloseWatchHandles();
 }
@@ -261,7 +250,7 @@ void CDirectoryWatcher::WorkerThread()
 
             pdi = NULL;
             numBytes = 0;
-            if (   (m_hCompPort == INVALID_HANDLE_VALUE)
+            if (   (!m_hCompPort)
                 || !GetQueuedCompletionStatus(m_hCompPort,
                                               &numBytes,
                                               (PULONG_PTR) &pdi,
@@ -274,8 +263,7 @@ void CDirectoryWatcher::WorkerThread()
                     return;
 
                 CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: restarting watcher\n"));
-                CloseHandle(m_hCompPort);
-                m_hCompPort = INVALID_HANDLE_VALUE;
+                m_hCompPort.CloseHandle();
 
                 // We must sync the whole section because other threads may
                 // receive "AddPath" calls that will delete the completion
@@ -293,7 +281,7 @@ void CDirectoryWatcher::WorkerThread()
                 {
                     CTSVNPath watchedPath = watchedPaths[i];
 
-                    HANDLE hDir = CreateFile(watchedPath.GetWinPath(),
+                    CAutoFile hDir = CreateFile(watchedPath.GetWinPath(),
                                             FILE_LIST_DIRECTORY,
                                             FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
                                             NULL, //security attributes
@@ -301,7 +289,7 @@ void CDirectoryWatcher::WorkerThread()
                                             FILE_FLAG_BACKUP_SEMANTICS | //required privileges: SE_BACKUP_NAME and SE_RESTORE_NAME.
                                             FILE_FLAG_OVERLAPPED,
                                             NULL);
-                    if (hDir == INVALID_HANDLE_VALUE)
+                    if (!hDir)
                     {
                         // this could happen if a watched folder has been removed/renamed
                         ATLTRACE(_T("CDirectoryWatcher: CreateFile failed. Can't watch directory %s\n"), watchedPaths[i].GetWinPath());
@@ -327,7 +315,6 @@ void CDirectoryWatcher::WorkerThread()
                     // if that happened, we have to restart watching all paths again.
                     if ((numPaths != watchedPaths.GetCount()) || (numWatch != watchInfoMap.size()))
                     {
-                        CloseHandle(hDir);
                         ClearInfoMap();
                         CleanupWatchInfo();
                         Sleep(200);
@@ -335,15 +322,11 @@ void CDirectoryWatcher::WorkerThread()
                     }
 
                     CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPath);
+                    hDir.Detach();  // the new CDirWatchInfo object owns the handle now
                     pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;
 
-                    // Since we pass m_hCompPort to CreateIoCompletionPort, we
-                    // have to set this to NULL to have that API create a new
-                    // handle.
-                    if (m_hCompPort == INVALID_HANDLE_VALUE)
-                        m_hCompPort = NULL;
 
-                    HANDLE port = CreateIoCompletionPort(hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
+                    HANDLE port = CreateIoCompletionPort(pDirInfo->m_hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
                     if (port == NULL)
                     {
                         ATLTRACE(_T("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
@@ -403,7 +386,7 @@ void CDirectoryWatcher::WorkerThread()
 
                     {
                         AutoLocker lock(m_critSec);
-                        if (   (pdi->m_hDir == INVALID_HANDLE_VALUE)
+                        if (   (!pdi->m_hDir)
                             || (watchInfoMap.find(pdi->m_hDir) == watchInfoMap.end()))
                         {
                             continue;
@@ -582,17 +565,17 @@ bool CDirectoryWatcher::CloseHandlesForPath(const CTSVNPath& path)
     return true;
 }
 
-CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName) :
-    m_hDir(hDir),
-    m_DirName(DirectoryName)
+CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName)
+    : m_hDir(hDir)
+    , m_DirName(DirectoryName)
 {
-    ATLASSERT( hDir != INVALID_HANDLE_VALUE
-        && !DirectoryName.IsEmpty());
+    ATLASSERT(hDir && !DirectoryName.IsEmpty());
+    m_Buffer[0] = 0;
     SecureZeroMemory(&m_Overlapped, sizeof(m_Overlapped));
     m_DirPath = m_DirName.GetWinPathString();
     if (m_DirPath.GetAt(m_DirPath.GetLength()-1) != '\\')
         m_DirPath += _T("\\");
-    m_hDevNotify = INVALID_HANDLE_VALUE;
+    m_hDevNotify = 0;
 }
 
 CDirectoryWatcher::CDirWatchInfo::~CDirWatchInfo()
@@ -602,16 +585,12 @@ CDirectoryWatcher::CDirWatchInfo::~CDirWatchInfo()
 
 bool CDirectoryWatcher::CDirWatchInfo::CloseDirectoryHandle()
 {
-    bool b = TRUE;
-    if( m_hDir != INVALID_HANDLE_VALUE )
-    {
-        b = !!CloseHandle(m_hDir);
-        m_hDir = INVALID_HANDLE_VALUE;
-    }
-    if (m_hDevNotify != INVALID_HANDLE_VALUE)
+    bool b = m_hDir.CloseHandle();;
+
+    if (m_hDevNotify)
     {
         UnregisterDeviceNotification(m_hDevNotify);
-        m_hDevNotify = INVALID_HANDLE_VALUE;
+        m_hDevNotify = 0;
     }
     return b;
 }

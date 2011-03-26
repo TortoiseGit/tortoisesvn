@@ -16,6 +16,7 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "stdafx.h"
+#include "SmartHandle.h"
 
 #include <iostream>
 #include <tchar.h>
@@ -499,12 +500,11 @@ int _tmain(int argc, _TCHAR* argv[])
     DWORD readlength = 0;
     size_t filelength = 0;
     size_t maxlength  = 0;
-    HANDLE hFile = INVALID_HANDLE_VALUE;
     if (dst != NULL)
     {
         // open the file and read the contents
-        hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
-        if (hFile == INVALID_HANDLE_VALUE)
+        CAutoFile hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+        if (!hFile)
         {
             _tprintf(_T("Unable to open input file '%s'\n"), src);
             delete [] wc;
@@ -519,7 +519,6 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
-            CloseHandle(hFile);
             return ERR_READ;
         }
         maxlength = filelength+4096;    // We might be increasing file size.
@@ -530,7 +529,6 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
-            CloseHandle(hFile);
             return ERR_ALLOC;
         }
         if (!ReadFile(hFile, pBuf, (DWORD)filelength, &readlength, NULL))
@@ -550,10 +548,8 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
-            CloseHandle(hFile);
             return ERR_READ;
         }
-        CloseHandle(hFile);
 
     }
     // Now check the status of every file in the working copy
@@ -731,8 +727,8 @@ int _tmain(int argc, _TCHAR* argv[])
     index = 0;
     while (InsertUrl(LOCKCOMMENT, pBuf, index, filelength, maxlength, SubStat.LockData.Comment));
 
-    hFile = CreateFile(dst, GENERIC_WRITE|GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
-    if (hFile == INVALID_HANDLE_VALUE)
+    CAutoFile hFile = CreateFile(dst, GENERIC_WRITE|GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
+    if (!hFile)
     {
         _tprintf(_T("Unable to open output file '%s' for writing\n"), dst);
         delete [] pBuf;
@@ -755,7 +751,6 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
-            CloseHandle(hFile);
             return ERR_READ;
         }
         if (readlengthExisting != filelengthExisting)
@@ -765,7 +760,6 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
-            CloseHandle(hFile);
             return ERR_READ;
         }
         sameFileContent = (memcmp(pBuf, pBufExisting, filelength) == 0);
@@ -786,7 +780,6 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
-            CloseHandle(hFile);
             return ERR_READ;
         }
 
@@ -797,11 +790,9 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
-            CloseHandle(hFile);
             return ERR_READ;
         }
     }
-    CloseHandle(hFile);
     delete [] pBuf;
     delete [] wc;
     delete [] dst;

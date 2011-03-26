@@ -195,15 +195,15 @@ void CSVNPropertyPage::PageProcOnCommand(WPARAM wParam)
         GetTempFileName (path, _T("svn"), 0, tempFile);
         tstring retFilePath = tstring(tempFile);
 
-        HANDLE file = ::CreateFile (tempFile,
-            GENERIC_WRITE,
-            FILE_SHARE_READ,
-            0,
-            CREATE_ALWAYS,
-            FILE_ATTRIBUTE_TEMPORARY,
-            0);
+        CAutoFile file = ::CreateFile (tempFile,
+                                       GENERIC_WRITE,
+                                       FILE_SHARE_READ,
+                                       0,
+                                       CREATE_ALWAYS,
+                                       FILE_ATTRIBUTE_TEMPORARY,
+                                       0);
 
-        if (file != INVALID_HANDLE_VALUE)
+        if (file)
         {
             DWORD written = 0;
             for (std::vector<tstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
@@ -211,7 +211,6 @@ void CSVNPropertyPage::PageProcOnCommand(WPARAM wParam)
                 ::WriteFile (file, I->c_str(), (DWORD)I->size()*sizeof(TCHAR), &written, 0);
                 ::WriteFile (file, _T("\n"), 2, &written, 0);
             }
-            ::CloseHandle(file);
 
             tstring svnCmd = _T(" /command:");
             svnCmd += _T("properties /pathfile:\"");

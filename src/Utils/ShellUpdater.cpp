@@ -20,6 +20,7 @@
 #include "Shellupdater.h"
 #include "../TSVNCache/CacheInterface.h"
 #include "Registry.h"
+#include "SmartHandle.h"
 
 CShellUpdater::CShellUpdater(void)
 {
@@ -90,7 +91,7 @@ void CShellUpdater::UpdateShell()
 
     // if we use the external cache, we tell the cache directly that something
     // has changed, without the detour via the shell.
-    HANDLE hPipe = CreateFile(
+    CAutoFile hPipe = CreateFile(
         GetCacheCommandPipeName(),      // pipe name
         GENERIC_READ |                  // read and write access
         GENERIC_WRITE,
@@ -101,7 +102,7 @@ void CShellUpdater::UpdateShell()
         NULL);                          // no template file
 
 
-    if (hPipe == INVALID_HANDLE_VALUE)
+    if (!hPipe)
         return;
 
     // The pipe connected; change to message-read mode.
@@ -113,7 +114,6 @@ void CShellUpdater::UpdateShell()
          NULL) == 0)    // don't set maximum time
     {
         ATLTRACE("SetNamedPipeHandleState failed");
-        CloseHandle(hPipe);
         return;
     }
 
@@ -139,12 +139,10 @@ void CShellUpdater::UpdateShell()
         if (! fSuccess || sizeof(cmd) != cbWritten)
         {
             DisconnectNamedPipe(hPipe);
-            CloseHandle(hPipe);
-            hPipe = INVALID_HANDLE_VALUE;
             break;
         }
     }
-    if (hPipe == INVALID_HANDLE_VALUE)
+    if (!hPipe)
         return;
 
     // now tell the cache we don't need it's command thread anymore
@@ -158,7 +156,6 @@ void CShellUpdater::UpdateShell()
         &cbWritten,     // number of bytes written
         NULL);          // not overlapped I/O
     DisconnectNamedPipe(hPipe);
-    CloseHandle(hPipe);
 }
 
 bool CShellUpdater::RebuildIcons()

@@ -21,6 +21,7 @@
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
+#include "SmartHandle.h"
 #include <Commctrl.h>
 
 #ifdef HAVE_APPUTILS
@@ -192,7 +193,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
 
     CString sError = GetErrorString(Err);
 
-    HMODULE hLib = LoadLibrary(L"Comctl32.dll");
+    CAutoLibrary hLib = LoadLibrary(L"Comctl32.dll");
     if (hLib)
     {
         TDLG pTDLG = (TDLG)GetProcAddress(hLib, "TaskDialogIndirect");
@@ -236,10 +237,8 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
                 CAppUtils::RunTortoiseProc(sCmd);
             }
 #endif
-            FreeLibrary(hLib);
             return ret;
         }
-        FreeLibrary(hLib);
     }
 
     ret = MessageBox(hParent, (LPCTSTR)sError, L"TortoiseSVN", MB_ICONERROR);

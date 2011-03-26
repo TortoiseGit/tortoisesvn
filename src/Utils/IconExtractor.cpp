@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "IconExtractor.h"
+#include "SmartHandle.h"
 
 #define WIDTHBYTES(bits)      ((((bits) + 31)>>5)<<2)
 
@@ -98,11 +99,11 @@ DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCTSTR id, LPCTSTR Targe
 
 DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName)
 {
-    HANDLE  hFile           = INVALID_HANDLE_VALUE;
-    DWORD   dwBytesWritten  = 0;
+    DWORD       dwBytesWritten  = 0;
 
+    CAutoFile hFile = CreateFile(szFileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
     // open the file
-    if ((hFile = CreateFile(szFileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL)) == INVALID_HANDLE_VALUE)
+    if (!hFile)
     {
         return GetLastError();
     }
@@ -110,7 +111,6 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
     // Write the header
     if (WriteICOHeader(hFile, lpIR->nNumImages))
     {
-        CloseHandle(hFile);
         return GetLastError();
     }
 
@@ -137,13 +137,11 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
         if (!WriteFile(hFile, &ide, sizeof(ICONDIRENTRY), &dwBytesWritten, NULL))
         {
             DWORD lastError = GetLastError();
-            CloseHandle(hFile);
             return lastError;
         }
         if (dwBytesWritten != sizeof(ICONDIRENTRY))
         {
             DWORD lastError = GetLastError();
-            CloseHandle(hFile);
             return lastError;
         }
     }
@@ -158,19 +156,16 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
         if (!WriteFile( hFile, lpIR->IconImages[i].lpBits, lpIR->IconImages[i].dwNumBytes, &dwBytesWritten, NULL))
         {
             DWORD lastError = GetLastError();
-            CloseHandle(hFile);
             return lastError;
         }
         if (dwBytesWritten != lpIR->IconImages[i].dwNumBytes)
         {
             DWORD lastError = GetLastError();
-            CloseHandle(hFile);
             return lastError;
         }
         // set it back
         lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = dwTemp;
     }
-    CloseHandle(hFile);
     return NO_ERROR;
 }
 

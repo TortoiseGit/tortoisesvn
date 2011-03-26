@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "SVG.h"
+#include "SmartHandle.h"
 
 SVG::SVG() 
     : viewportWidth(1000)
@@ -33,8 +34,8 @@ SVG::~SVG()
 bool SVG::Save( const CString& path )
 {
     DWORD dwWritten = 0;
-    HANDLE hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_DELETE, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-    if (hFile == INVALID_HANDLE_VALUE)
+    CAutoFile hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_DELETE, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (!hFile)
         return false;
 
     CStringA header;
@@ -42,31 +43,18 @@ bool SVG::Save( const CString& path )
     CStringA footer = "\r\n</svg>";
 
     if (!WriteFile(hFile, header, (DWORD)header.GetLength(), &dwWritten, NULL))
-    {
-        CloseHandle(hFile);
         return false;
-    }
 
     for (std::vector<CStringA>::const_iterator it = objects.begin(); it != objects.end(); ++it)
     {
         if (!WriteFile(hFile, *it, (DWORD)it->GetLength(), &dwWritten, NULL))
-        {
-            CloseHandle(hFile);
             return false;
-        }
         if (!WriteFile(hFile, "\r\n", (DWORD)2, &dwWritten, NULL))
-        {
-            CloseHandle(hFile);
             return false;
-        }
     }
     if (!WriteFile(hFile, footer, (DWORD)footer.GetLength(), &dwWritten, NULL))
-    {
-        CloseHandle(hFile);
         return false;
-    }
 
-    CloseHandle(hFile);
     return true;
 }
 

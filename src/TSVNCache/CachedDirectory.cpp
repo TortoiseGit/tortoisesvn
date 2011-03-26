@@ -22,6 +22,7 @@
 #include "SVNStatusCache.h"
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
+#include "SmartHandle.h"
 #include <set>
 
 #define CACHEDIRECTORYDISKVERSION 3
@@ -835,8 +836,8 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
         // This reduces the disk access a *lot*.
         std::map<CStringA, ULONGLONG> filetimes;
         WIN32_FIND_DATA FindFileData;
-        HANDLE hFind = FindFirstFile(m_directoryPath.GetWinPathString() + L"\\*.*", &FindFileData);
-        if (hFind != INVALID_HANDLE_VALUE) 
+        CAutoFindFile hFind = FindFirstFile(m_directoryPath.GetWinPathString() + L"\\*.*", &FindFileData);
+        if (hFind) 
         {
             while (FindNextFile(hFind, &FindFileData))
             {
@@ -850,7 +851,6 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
                                            , nameUTF8);
                 filetimes[nameUTF8] = ft.QuadPart;
             }
-            FindClose(hFind);
         }
 
         AutoLocker lock(m_critSec);

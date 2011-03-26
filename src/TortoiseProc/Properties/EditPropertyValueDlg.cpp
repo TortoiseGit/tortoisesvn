@@ -24,6 +24,7 @@
 #include "StringUtils.h"
 #include "EditPropertyValueDlg.h"
 #include "auto_buffer.h"
+#include "SmartHandle.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertyValueDlg, CResizableStandAloneDialog)
 
@@ -403,8 +404,8 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
         return;
     }
     // first check the size of the file
-    HANDLE hFile = CreateFile(openPath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-    if (hFile != INVALID_HANDLE_VALUE)
+    CAutoFile hFile = CreateFile(openPath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile)
     {
         DWORD size = GetFileSize(hFile, NULL);
         FILE * stream;
@@ -418,7 +419,6 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
         // see if the loaded file contents are binary
         SetPropertyValue(m_PropValue);
         UpdateData(FALSE);
-        CloseHandle(hFile);
         m_bChanged = true;
     }
 

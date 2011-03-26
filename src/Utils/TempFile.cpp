@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "auto_buffer.h"
 #include "PathUtils.h"
 #include "DirFileEnum.h"
+#include "SmartHandle.h"
 
 CTempFiles::CTempFiles(void)
 {
@@ -108,15 +109,14 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
         }
         else
         {
-            HANDLE hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
-            if (hFile== INVALID_HANDLE_VALUE)
+            CAutoFile hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+            if (!hFile)
             {
                 if (GetLastError() != ERROR_ALREADY_EXISTS)
                     return CTSVNPath();
             }
             else
             {
-                CloseHandle(hFile);
                 succeeded = true;
             }
         }
@@ -167,15 +167,15 @@ void CTempFiles::DeleteOldTempFiles(LPCTSTR wildCard)
     while (finder.FindNextFileNoDirectories())
     {
         CString filepath = finder.GetFilePath();
-        HANDLE hFile = ::CreateFile(filepath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
-        if (hFile == INVALID_HANDLE_VALUE)
+        CAutoFile hFile = ::CreateFile(filepath, GENERIC_READ, FILE_SHARE_READ|FILE_SHARE_DELETE|FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);
+        if (!hFile)
             continue;
 
         FILETIME createtime_;
         const bool timeObtained = ::GetFileTime(hFile, &createtime_, NULL, NULL) != 0;
-        ::CloseHandle(hFile);
         if(!timeObtained)
             continue;
+        hFile.CloseHandle();
 
         __int64 createtime = ((ULARGE_INTEGER&)createtime_).QuadPart;
         if ((createtime + 864000000000) < systime)      //only delete files older than a day

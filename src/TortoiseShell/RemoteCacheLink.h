@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "SmartHandle.h"
 
 struct TSVNCacheResponse;
 class CTSVNPath;
@@ -36,7 +37,7 @@ public:
     bool ReleaseLockForPath(const CTSVNPath& path);
 
 private:
-    bool InternalEnsurePipeOpen ( HANDLE& hPipe, const CString& pipeName);
+    bool InternalEnsurePipeOpen ( CAutoFile& hPipe, const CString& pipeName);
 
     bool EnsurePipeOpen();
     void ClosePipe();
@@ -49,11 +50,11 @@ private:
     CString GetTsvnCachePath();
 
 private:
-    HANDLE m_hPipe;
+    CAutoFile m_hPipe;
     OVERLAPPED m_Overlapped;
-    HANDLE m_hEvent;
+    CAutoGeneralHandle m_hEvent;
 
-    HANDLE m_hCommandPipe;
+    CAutoFile m_hCommandPipe;
 
 
     CComCriticalSection m_critSec;

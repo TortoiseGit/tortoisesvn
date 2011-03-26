@@ -21,6 +21,7 @@
 #include "TSVNPath.h"
 #include "CacheInterface.h"
 #include "UniqueQueue.h"
+#include "SmartHandle.h"
 #include <set>
 //////////////////////////////////////////////////////////////////////////
 
@@ -53,11 +54,11 @@ private:
 
 private:
     CComAutoCriticalSection m_critSec;
-    HANDLE m_hThread;
+    CAutoGeneralHandle m_hThread;
     UniqueQueue<CTSVNPath> m_foldersToUpdate;
     UniqueQueue<CTSVNPath> m_pathsToUpdate;
-    HANDLE m_hTerminationEvent;
-    HANDLE m_hWakeEvent;
+    CAutoGeneralHandle m_hTerminationEvent;
+    CAutoGeneralHandle m_hWakeEvent;
 
     // This will be *asynchronously* modified by CCrawlInhibitor.
     // So, we have to mark it volatile, preparing compiler and

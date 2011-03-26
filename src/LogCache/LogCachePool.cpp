@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 
 #include "DirFileEnum.h"
 #include "PathUtils.h"
+#include "SmartHandle.h"
 
 // begin namespace LogCache
 
@@ -87,8 +88,8 @@ void CLogCachePool::AutoRemoveUnused()
         = repositoryInfo->GetFileName().Mid (cacheFolderPath.GetLength());
 
     WIN32_FIND_DATA dirEntry;
-    HANDLE handle = FindFirstFile (cacheFolderPath + _T("*.*"), &dirEntry);
-    if (handle != INVALID_HANDLE_VALUE)
+    CAutoFindFile handle = FindFirstFile (cacheFolderPath + _T("*.*"), &dirEntry);
+    if (handle)
     {
         do
         {
@@ -128,8 +129,6 @@ void CLogCachePool::AutoRemoveUnused()
             }
         }
         while (FindNextFile (handle, &dirEntry));
-
-        FindClose (handle);
     }
 
     // try to remove old locks
