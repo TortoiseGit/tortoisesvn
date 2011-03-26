@@ -315,10 +315,11 @@ CLogEntryData::CLogEntryData
     , sAuthor (author)
     , projectProperties (projectProperties)
     , checked (false)
+    , bugIDsPending (true)
 {
     // derived header info
 
-    SetMessage (message, projectProperties);
+    SetMessage (message);
 
     // update nesting info
 
@@ -344,9 +345,7 @@ namespace
     }
 }
 
-void CLogEntryData::SetMessage
-    ( const std::string& message
-    , ProjectProperties* projectProperties)
+void CLogEntryData::SetMessage (const std::string& message)
 {
     // split multi line log entries and concatenate them
     // again but this time with \r\n as line separators
@@ -369,16 +368,7 @@ void CLogEntryData::SetMessage
 
     // derived data
 
-    if (projectProperties && projectProperties->MightContainABugID (message))
-    {
-        CString unicodeMessage = CUnicodeUtils::GetUnicode (message.c_str());
-        CString unicodeBugIDs = projectProperties->FindBugID (unicodeMessage);
-        sBugIDs = (const char*)CUnicodeUtils::GetUTF8 (unicodeBugIDs);
-    }
-    else
-    {
-        sBugIDs.clear();
-    }
+    bugIDsPending = true;
 }
 
 void CLogEntryData::SetChecked
@@ -426,12 +416,36 @@ void CLogEntryData::InitDateStrings() const
     }
 }
 
+void CLogEntryData::InitBugIDs() const
+{
+    if (projectProperties && projectProperties->MightContainABugID (sMessage))
+    {
+        CString unicodeMessage = CUnicodeUtils::GetUnicode (sMessage.c_str());
+        CString unicodeBugIDs = projectProperties->FindBugID (unicodeMessage);
+        sBugIDs = (const char*)CUnicodeUtils::GetUTF8 (unicodeBugIDs);
+    }
+    else
+    {
+        sBugIDs.clear();
+    }
+
+    bugIDsPending = false;
+}
+
 const std::string& CLogEntryData::GetDateString() const
 {
     if (sDate.empty())
         InitDateStrings();
 
     return sDate;
+}
+
+const std::string& CLogEntryData::GetBugIDs() const
+{
+    if (bugIDsPending)
+        InitBugIDs();
+        
+    return sBugIDs;
 }
 
 CString CLogEntryData::GetShortMessageUTF16() const

@@ -1152,7 +1152,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string
     else if (m_startrev.IsNumber() && m_endrev.IsNumber())
     {
         svn_revnum_t range = (svn_revnum_t)m_startrev - (svn_revnum_t)m_endrev;
-        if ((rev > m_temprev) || (m_temprev - rev) > (range / 1000))
+        if ((rev > m_temprev) || (m_temprev - rev) > (range / 100))
         {
             m_temprev = rev;
             m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
@@ -2338,8 +2338,7 @@ void CLogDlg::EditLogMessage(int index)
         else
         {
             pLogEntry->SetMessage (CUnicodeUtils::StdGetUTF8 
-                                     ( (LPCTSTR)dlg.m_sInputText)
-                                     , &m_ProjectProperties);
+                                     ( (LPCTSTR)dlg.m_sInputText));
 
             CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
             pMsgView->SetWindowText(_T(" "));

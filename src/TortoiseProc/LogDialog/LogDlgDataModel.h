@@ -151,19 +151,24 @@ private:
     CLogChangedPathArray changedPaths;
 
     mutable std::string sDate;
+    mutable std::string sBugIDs;
+
     std::string sAuthor;
     std::string sMessage;
-    std::string sBugIDs;
     svn_revnum_t revision;
     __time64_t tmDate;
 
     CLogEntryData* parent;
-    bool hasChildren;
-    DWORD childStackDepth;
 
     ProjectProperties* projectProperties;
 
-    bool checked;
+    struct
+    {
+        unsigned childStackDepth:24;
+        int checked:1;
+        int hasChildren:1;
+        mutable int bugIDsPending:1;
+    };
 
     /// no copy support
 
@@ -172,6 +177,7 @@ private:
 
     /// initialization utility
     void InitDateStrings() const;
+    void InitBugIDs() const;
 
 public:
 
@@ -193,8 +199,7 @@ public:
     void SetAuthor
         ( const std::string& author);
     void SetMessage
-        ( const std::string& message
-        , ProjectProperties* projectProperties);
+        ( const std::string& message);
     void SetChecked
         ( bool newState);
 
@@ -208,7 +213,7 @@ public:
 
     CLogEntryData* GetParent() {return parent;}
     const CLogEntryData* GetParent() const {return parent;}
-    bool HasChildren() const {return hasChildren;}
+    bool HasChildren() const {return hasChildren != FALSE;}
     DWORD GetDepth() const {return childStackDepth;}
 
     svn_revnum_t GetRevision() const {return revision;}
@@ -217,12 +222,12 @@ public:
     const std::string& GetDateString() const;
     const std::string& GetAuthor() const {return sAuthor;}
     const std::string& GetMessage() const {return sMessage;}
-    const std::string& GetBugIDs() const {return sBugIDs;}
+    const std::string& GetBugIDs() const;
     CString GetShortMessageUTF16() const;
 
     const CLogChangedPathArray& GetChangedPaths() const {return changedPaths;}
 
-    bool GetChecked() const {return checked;}
+    bool GetChecked() const {return checked != FALSE;}
 };
 
 typedef CLogEntryData LOGENTRYDATA, *PLOGENTRYDATA;
