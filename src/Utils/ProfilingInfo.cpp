@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2008,2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,38 +102,12 @@ CProfilingInfo::CProfilingInfo()
 
 CProfilingInfo::~CProfilingInfo(void)
 {
-    if (records.size() > 0)
-    {
-        // write profile to file
+    DumpReport();
 
-#ifdef _WIN32
-        char buffer [MAX_PATH];
-        if (GetModuleFileNameExA (GetCurrentProcess(), NULL, buffer, _countof(buffer)) > 0)
-#else
-        const char* buffer = "application";
-#endif
-            try
-            {
-                std::string fileName (buffer);
-                fileName += ".profile";
+    // free data
 
-                std::string report = GetInstance()->GetReport();
-
-                std::ofstream file;
-                file.open (fileName.c_str(), std::ios::binary | std::ios::out);
-                file.write (report.c_str(), report.size());
-            }
-            catch (...)
-            {
-                // ignore all file errors etc.
-            }
-
-
-        // free data
-
-        for (size_t i = 0; i < records.size(); ++i)
-            delete records[i];
-    }
+    for (size_t i = 0; i < records.size(); ++i)
+        delete records[i];
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -144,6 +118,37 @@ CProfilingInfo* CProfilingInfo::GetInstance()
 {
     static CProfilingInfo instance;
     return &instance;
+}
+
+void CProfilingInfo::DumpReport()
+{
+    if (records.size() > 0)
+    {
+        // write profile to file
+
+#ifdef _WIN32
+        char buffer [MAX_PATH];
+        if (GetModuleFileNameExA (GetCurrentProcess(), NULL, buffer, _countof(buffer)) > 0)
+#else
+        const char* buffer = "application";
+#endif
+
+        try
+        {
+            std::string fileName (buffer);
+            fileName += ".profile";
+
+            std::string report = GetInstance()->GetReport();
+
+            std::ofstream file;
+            file.open (fileName.c_str(), std::ios::binary | std::ios::out);
+            file.write (report.c_str(), report.size());
+        }
+        catch (...)
+        {
+            // ignore all file errors etc.
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
