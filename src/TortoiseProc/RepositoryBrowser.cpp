@@ -1081,6 +1081,14 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     temp.LoadString(IDS_STATUSLIST_COLLOCK);
     m_RepoList.InsertColumn(c++, temp);
 
+    // auto-size columns to match the header text width
+
+    for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
+    {
+        m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+        m_arColumnAutoWidths[col] = m_RepoList.GetColumnWidth(col);
+    }
+
     // special case: error to show
 
     if (!pTreeItem->error.IsEmpty() && pTreeItem->children.empty())
@@ -1145,29 +1153,20 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
 
         ListView_SortItemsEx(m_RepoList, ListSort, this);
         SetSortArrow();
+    }
 
-        for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
-        {
-            m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-        }
-        for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
-        {
-            m_arColumnAutoWidths[col] = m_RepoList.GetColumnWidth(col);
-        }
+    CRegString regColWidths(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
+    if (!CString(regColWidths).IsEmpty())
+    {
+        StringToWidthArray(regColWidths, m_arColumnWidths);
 
-        CRegString regColWidths(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
-        if (!CString(regColWidths).IsEmpty())
+        int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+        for (int col = 0; col <= maxcol; col++)
         {
-            StringToWidthArray(regColWidths, m_arColumnWidths);
-
-            int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
-            for (int col = 1; col <= maxcol; col++)
-            {
-                if (m_arColumnWidths[col] == 0)
-                    m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-                else
-                    m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
-            }
+            if (m_arColumnWidths[col] == 0)
+                m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+            else
+                m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
         }
     }
 
