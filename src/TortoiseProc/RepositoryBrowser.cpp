@@ -1055,39 +1055,36 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     //
     // column 0: contains tree
     temp.LoadString(IDS_LOG_FILE);
-    m_RepoList.InsertColumn(c++, temp);
+    m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
     //
     // column 1: file extension
     temp.LoadString(IDS_STATUSLIST_COLEXT);
-    m_RepoList.InsertColumn(c++, temp);
+    m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
     //
     // column 2: revision number
     temp.LoadString(IDS_LOG_REVISION);
-    m_RepoList.InsertColumn(c++, temp, LVCFMT_RIGHT);
+    m_RepoList.InsertColumn(c++, temp, LVCFMT_RIGHT, LVSCW_AUTOSIZE_USEHEADER);
     //
     // column 3: author
     temp.LoadString(IDS_LOG_AUTHOR);
-    m_RepoList.InsertColumn(c++, temp);
+    m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
     //
     // column 4: size
     temp.LoadString(IDS_LOG_SIZE);
-    m_RepoList.InsertColumn(c++, temp, LVCFMT_RIGHT);
+    m_RepoList.InsertColumn(c++, temp, LVCFMT_RIGHT, LVSCW_AUTOSIZE_USEHEADER);
     //
     // column 5: date
     temp.LoadString(IDS_LOG_DATE);
-    m_RepoList.InsertColumn(c++, temp);
+    m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
     //
     // column 6: lock owner
     temp.LoadString(IDS_STATUSLIST_COLLOCK);
-    m_RepoList.InsertColumn(c++, temp);
+    m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
 
     // auto-size columns to match the header text width
 
     for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
-    {
-        m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
         m_arColumnAutoWidths[col] = m_RepoList.GetColumnWidth(col);
-    }
 
     // special case: error to show
 
