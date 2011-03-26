@@ -525,17 +525,14 @@ void CRepositoryLister::Enqueue
 
         std::sort (dumpster.begin(), dumpster.end());
         std::sort (deletedQueries.begin(), deletedQueries.end());
-        dumpster.erase
-            ( std::set_difference
-                ( dumpster.begin(), dumpster.end()
-                , deletedQueries.begin(), deletedQueries.end()
-                , dumpster.begin())
-            , dumpster.end());
 
-        dumpster.insert
-            ( dumpster.end()
-            , deletedQueries.begin()
-            , deletedQueries.end());
+        std::vector<CListQuery*> toDump;
+        std::set_difference
+            ( deletedQueries.begin(), deletedQueries.end()
+            , dumpster.begin(), dumpster.end()
+            , std::back_inserter (toDump));
+
+        dumpster.insert (dumpster.end(), toDump.begin(), toDump.end());
     }
 
     // add the query whose result we will probably need

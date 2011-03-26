@@ -320,7 +320,7 @@ private:
                     , svn_revnum_t rev)
             : path (path)
             , rev (rev)
-            , peg_rev (peg_rev)
+            , peg_rev (peg_rev == SVNRev::REV_UNSPECIFIED ? rev : peg_rev)
         {
         }
 
