@@ -1214,6 +1214,10 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
     if (pTreeItem->children_fetched)
         return;
 
+    // block new background queries just for now to maximize foreground speed
+
+    auto queryBlocker = m_lister.SuspendJobs();
+
     // standard list plus immediate externals
 
     std::deque<CItem>& children = pTreeItem->children;
@@ -1826,22 +1830,30 @@ void CRepositoryBrowser::OnRefresh()
             SEntry entry = urls.front();
             urls.pop_front();
 
-            // enqueue sub-nodes for listing
+            // get / query node list & externals for this node 
+            // as fast as possible by preventing new queries from
+            // being started in the background
 
             std::deque<CItem> children;
-            m_lister.GetList ( entry.url
-                             , entry.pegRev
-                             , entry.repository
-                             , true
-                             , children);
+            {
+                auto queryBlocker = m_lister.SuspendJobs();
 
-            // just prefetching -> we don't need to filter children
+                // enqueue sub-nodes for listing
 
-            m_lister.AddSubTreeExternals ( entry.url
-                                         , entry.pegRev
-                                         , entry.repository
-                                         , CString()
-                                         , children);
+                m_lister.GetList ( entry.url
+                                 , entry.pegRev
+                                 , entry.repository
+                                 , true
+                                 , children);
+
+                // just prefetching -> we don't need to filter children
+
+                m_lister.AddSubTreeExternals ( entry.url
+                                             , entry.pegRev
+                                             , entry.repository
+                                             , CString()
+                                             , children);
+            }
 
             for (size_t i = 0, count = children.size(); i < count; ++i)
             {
