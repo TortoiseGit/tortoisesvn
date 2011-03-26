@@ -59,7 +59,7 @@ const SVNRev& CRepositoryLister::CQuery::GetRevision() const
 
 const SVNRev& CRepositoryLister::CQuery::GetPegRevision() const
 {
-    return pegRevision;
+    return pegRevision.IsValid() ? pegRevision : GetRevision();
 }
 
 // result access. Automatically waits for execution to be finished.
