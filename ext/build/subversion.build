@@ -273,6 +273,7 @@
           <include name="subversion\svn" />
           <include name="subversion\svnadmin" />
           <include name="subversion\svnserve" />
+          <include name="subversion\svnversion" />
           <exclude name="subversion\libsvn_auth_gnome_keyring" />
           <exclude name="subversion\libsvn_auth_kwallet" />
         </items>

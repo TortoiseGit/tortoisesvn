@@ -73,6 +73,7 @@
         <include name="..\ext\Subversion\${configuration}_${platform}\svn.exe" />
         <include name="..\ext\Subversion\${configuration}_${platform}\svnadmin.exe" />
         <include name="..\ext\Subversion\${configuration}_${platform}\svnserve.exe" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\svnversion.exe" />
       </fileset>
     </copy>
     <copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false" >
