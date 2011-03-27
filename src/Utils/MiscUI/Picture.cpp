@@ -174,7 +174,7 @@ bool CPicture::Load(tstring sFilePathName)
                 bIsIcon = true;
             }
 
-            CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+            CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
             if (hFile)
             {
                 BY_HANDLE_FILE_INFORMATION fileinfo;
@@ -187,6 +187,9 @@ bool CPicture::Load(tstring sFilePathName)
                         // we have the icon. Now gather the information we need later
                         if (readbytes >= sizeof(ICONDIR))
                         {
+                            // we are going to open same file second time so we have to close the file now
+                            hFile.CloseHandle();
+
                             nCurrentIcon = 0;
                             LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
                             hIcons = new HICON[lpIconDir->idCount];
