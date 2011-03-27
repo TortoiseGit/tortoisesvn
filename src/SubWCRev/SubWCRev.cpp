@@ -538,7 +538,6 @@ int _tmain(int argc, _TCHAR* argv[])
             delete [] wc;
             delete [] dst;
             delete [] src;
-            CloseHandle(hFile);
             return ERR_READ;
         }
         if (readlength != filelength)
