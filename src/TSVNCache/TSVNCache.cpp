@@ -222,17 +222,17 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     // Create a thread which waits for incoming pipe connections
     CAutoGeneralHandle hCommandWaitThread =
         (HANDLE)_beginthreadex(NULL, 0, CommandWaitThread, &bRun, 0, &threadId);
-    if (!hCommandWaitThread)
-        return 0;
-
-    // loop to handle window messages.
-    MSG msg;
-    while (bRun)
+    if (hCommandWaitThread)
     {
-        const BOOL bLoopRet = GetMessage(&msg, NULL, 0, 0);
-        if ((bLoopRet != -1)&&(bLoopRet != 0))
+        // loop to handle window messages.
+        MSG msg;
+        while (bRun)
         {
-            DispatchMessage(&msg);
+            const BOOL bLoopRet = GetMessage(&msg, NULL, 0, 0);
+            if ((bLoopRet != -1)&&(bLoopRet != 0))
+            {
+                DispatchMessage(&msg);
+            }
         }
     }
 
@@ -502,7 +502,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
         if (fConnected)
         {
             // Create a thread for this client.
-            CAutoGeneralHandle hInstanceThread = (HANDLE)_beginthreadex(NULL, 0, InstanceThread, &hPipe, 0, &dwThreadId);
+            CAutoGeneralHandle hInstanceThread = (HANDLE)_beginthreadex(NULL, 0, InstanceThread, (HANDLE)hPipe, 0, &dwThreadId);
 
             if (!hInstanceThread)
             {
@@ -575,9 +575,9 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
         if (fConnected)
         {
             // Create a thread for this client.
-            CAutoGeneralHandle hCommandThread = (HANDLE)_beginthreadex(NULL, 0, CommandThread, &hPipe, 0, &dwThreadId);
+            CAutoGeneralHandle hCommandThread = (HANDLE)_beginthreadex(NULL, 0, CommandThread, (HANDLE)hPipe, 0, &dwThreadId);
 
-            if (hCommandThread == NULL)
+            if (!hCommandThread)
             {
                 //OutputDebugStringA("TSVNCache: Could not create Command thread\n");
                 //DebugOutputLastError();
@@ -616,7 +616,7 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
 
     // The thread's parameter is a handle to a pipe instance.
 
-    hPipe = *(CAutoFile*) lpvParam;
+    hPipe = (HANDLE) lpvParam;
 
     while (bRun)
     {
@@ -691,7 +691,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
 
     // The thread's parameter is a handle to a pipe instance.
 
-    hPipe = *(CAutoFile*) lpvParam;
+    hPipe = (HANDLE) lpvParam;
 
     while (bRun)
     {
