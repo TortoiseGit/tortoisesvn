@@ -851,6 +851,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
                                            , nameUTF8);
                 filetimes[nameUTF8] = ft.QuadPart;
             }
+            hFind.CloseHandle(); // explicit close handle to shorten its life time
         }
 
         AutoLocker lock(m_critSec);
