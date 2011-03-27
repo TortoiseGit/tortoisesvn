@@ -139,11 +139,9 @@ void CShellUpdater::UpdateShell()
         if (! fSuccess || sizeof(cmd) != cbWritten)
         {
             DisconnectNamedPipe(hPipe);
-            break;
+            return;
         }
     }
-    if (!hPipe)
-        return;
 
     // now tell the cache we don't need it's command thread anymore
     TSVNCacheCommand cmd;

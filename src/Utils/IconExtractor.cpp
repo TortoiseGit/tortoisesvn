@@ -39,7 +39,6 @@ DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCTSTR id, LPCTSTR Targe
     if (hRsrc == NULL)
         return GetLastError();
 
-
     if ((hGlobal = LoadResource(hResource, hRsrc)) == NULL)
         return GetLastError();
 
@@ -104,15 +103,11 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
     CAutoFile hFile = CreateFile(szFileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
     // open the file
     if (!hFile)
-    {
         return GetLastError();
-    }
 
     // Write the header
     if (WriteICOHeader(hFile, lpIR->nNumImages))
-    {
         return GetLastError();
-    }
 
     // Write the ICONDIRENTRY's
     for (UINT i = 0; i < lpIR->nNumImages; ++i)
@@ -135,36 +130,30 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
  
         // Write the ICONDIRENTRY to disk
         if (!WriteFile(hFile, &ide, sizeof(ICONDIRENTRY), &dwBytesWritten, NULL))
-        {
-            DWORD lastError = GetLastError();
-            return lastError;
-        }
+            return GetLastError();
+
         if (dwBytesWritten != sizeof(ICONDIRENTRY))
-        {
-            DWORD lastError = GetLastError();
-            return lastError;
-        }
+            return GetLastError();
     }
 
     // Write the image bits for each image
     for (UINT i = 0; i < lpIR->nNumImages; ++i)
     {
         DWORD dwTemp = lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage;
+        bool bError = false; // fix size even on error
 
         // Set the sizeimage member to zero
         lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = 0;
         if (!WriteFile( hFile, lpIR->IconImages[i].lpBits, lpIR->IconImages[i].dwNumBytes, &dwBytesWritten, NULL))
-        {
-            DWORD lastError = GetLastError();
-            return lastError;
-        }
+            bError = true;
+
         if (dwBytesWritten != lpIR->IconImages[i].dwNumBytes)
-        {
-            DWORD lastError = GetLastError();
-            return lastError;
-        }
+            bError = true;
+
         // set it back
         lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = dwTemp;
+        if (bError)
+            return GetLastError();
     }
     return NO_ERROR;
 }

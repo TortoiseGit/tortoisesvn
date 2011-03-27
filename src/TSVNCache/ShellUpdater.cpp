@@ -44,10 +44,10 @@ void CShellUpdater::Stop()
         {
             ATLTRACE("Error terminating shell updater thread\n");
         }
-        m_hThread.CloseHandle();
-        m_hTerminationEvent.CloseHandle();
-        m_hWakeEvent.CloseHandle();
     }
+    m_hThread.CloseHandle();
+    m_hTerminationEvent.CloseHandle();
+    m_hWakeEvent.CloseHandle();
 }
 
 void CShellUpdater::Initialise()

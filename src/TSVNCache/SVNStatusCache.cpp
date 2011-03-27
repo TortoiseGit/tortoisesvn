@@ -557,7 +557,7 @@ void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
 void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
 {
     CTSVNPath path;
-    if (hdev == 0)
+    if (!hdev)
         watcher.ClearInfoMap();
     else
     {

@@ -48,36 +48,31 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe
                                               , const CString& pipeName)
 {
     if (hPipe)
-    {
         return true;
-    }
 
-    hPipe = CreateFile(
-        pipeName,                       // pipe name
-        GENERIC_READ |                  // read and write access
-        GENERIC_WRITE,
-        0,                              // no sharing
-        NULL,                           // default security attributes
-        OPEN_EXISTING,                  // opens existing pipe
-        FILE_FLAG_OVERLAPPED,           // default attributes
-        NULL);                          // no template file
+    int tryleft = 2;
 
-    if ((!hPipe) && (GetLastError() == ERROR_PIPE_BUSY))
+    while (!hPipe && tryleft--)
     {
-        // TSVNCache is running but is busy connecting a different client.
-        // Do not give up immediately but wait for a few milliseconds until
-        // the server has created the next pipe instance
-        if (WaitNamedPipe (pipeName, 50))
+
+        hPipe = CreateFile(
+                            pipeName,                       // pipe name
+                            GENERIC_READ |                  // read and write access
+                            GENERIC_WRITE,
+                            0,                              // no sharing
+                            NULL,                           // default security attributes
+                            OPEN_EXISTING,                  // opens existing pipe
+                            FILE_FLAG_OVERLAPPED,           // default attributes
+                            NULL);                          // no template file
+        if ((!hPipe) && (GetLastError() == ERROR_PIPE_BUSY))
         {
-            hPipe = CreateFile(
-                pipeName,                       // pipe name
-                GENERIC_READ |                  // read and write access
-                GENERIC_WRITE,
-                0,                              // no sharing
-                NULL,                           // default security attributes
-                OPEN_EXISTING,                  // opens existing pipe
-                FILE_FLAG_OVERLAPPED,           // default attributes
-                NULL);                          // no template file
+            // TSVNCache is running but is busy connecting a different client.
+            // Do not give up immediately but wait for a few milliseconds until
+            // the server has created the next pipe instance
+            if (!WaitNamedPipe (pipeName, 50))
+            {
+                continue;
+            } 
         }
     }
 
@@ -95,13 +90,10 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe
         {
             ATLTRACE("SetNamedPipeHandleState failed");
             hPipe.CloseHandle();
-            return false;
         }
-
-        return true;
     }
 
-    return false;
+    return hPipe;
 }
 
 bool CRemoteCacheLink::EnsurePipeOpen()

@@ -42,8 +42,11 @@ public:
     HandleType operator=(HandleType h) 
     {
         if (m_Handle != h)
-            CleanUp(); 
-        m_Handle = h;
+        {
+            CleanUp();
+            m_Handle = h;
+        }
+
         return(*this);  
     }
 

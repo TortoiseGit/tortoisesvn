@@ -52,10 +52,10 @@ void CFolderCrawler::Stop()
         {
             ATLTRACE("Error terminating crawler thread\n");
         }
-        m_hThread.CloseHandle();
-        m_hTerminationEvent.CloseHandle();
-        m_hWakeEvent.CloseHandle();
     }
+    m_hThread.CloseHandle();
+    m_hTerminationEvent.CloseHandle();
+    m_hWakeEvent.CloseHandle();
 }
 
 void CFolderCrawler::Initialise()
