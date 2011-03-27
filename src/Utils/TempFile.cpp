@@ -167,17 +167,8 @@ void CTempFiles::DeleteOldTempFiles(LPCTSTR wildCard)
     while (finder.FindNextFileNoDirectories())
     {
         CString filepath = finder.GetFilePath();
-        CAutoFile hFile = ::CreateFile(filepath, GENERIC_READ, FILE_SHARE_READ|FILE_SHARE_DELETE|FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);
-        if (!hFile)
-            continue;
 
-        FILETIME createtime_;
-        const bool timeObtained = ::GetFileTime(hFile, &createtime_, NULL, NULL) != 0;
-        if(!timeObtained)
-            continue;
-        hFile.CloseHandle();
-
-        __int64 createtime = ((ULARGE_INTEGER&)createtime_).QuadPart;
+        __int64 createtime = ((ULARGE_INTEGER&)finder.GetLastWriteTime()).QuadPart;
         if ((createtime + 864000000000) < systime)      //only delete files older than a day
         {
             ::SetFileAttributes(filepath, FILE_ATTRIBUTE_NORMAL);
