@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-18 00:02+0000\n"
+"PO-Revision-Date: 2011-03-22 15:30+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3107,6 +3107,17 @@ msgstr ""
 "現在 Microsoft はサービスを、ローカルサービスアカウントかネットワークサービスアカウントのどちらかで動作させるのを推奨しています。<ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>サービスおよびサービス アカウントのセキュリティ計画ガイド</citetitle></ulink> をご覧ください。ローカルサービスアカウントで動作するサービスを作成するには、上記の例に以下を加えてください。<screen>\n"
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen> ローカルサービスアカウントには、Subversion とそのリポジトリに適切な権限を与え、またフックスクリプトで使用するアプリケーションにも同様に権限を与える必要があることに注意してください。ビルトイングループは、\"LOCAL SERVICE\" と呼ばれています。"
+
+#. (para)
+msgid ""
+"To give the Local Service or Network Service account full access to the "
+"folder where you store your repositories and/or your hook scripts, follow "
+"the instructions in the <ulink "
+"url=\"http://support.microsoft.com/kb/308419\"><citetitle>knowledge base "
+"article kb308419</citetitle></ulink> If you fail to set the permissions, you"
+" will get <literal>access denied</literal> errors when you try to access the"
+" repository!"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20982,10 +20993,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To create an image file without showing the graph, pass "
-"<option>/output:path</option> with the path to the output file. The output "
-"file must have an extension that the revision graph can actually export to. "
-"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+"To create an image file of the revision graph for a specific path, but "
+"without showing the graph window, pass <option>/output:path</option> with "
+"the path to the output file. The output file must have an extension that the"
+" revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, "
+".bmp and .gif."
 msgstr ""
 
 #. (para)

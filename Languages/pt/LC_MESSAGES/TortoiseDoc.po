@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-18 00:02+0000\n"
+"PO-Revision-Date: 2011-03-22 15:30+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3632,6 +3632,17 @@ msgstr ""
 "A Microsoft agora recomenda que os serviços corram sobre uma conta Serviço Local ou Serviço de Rede. Consulta o <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. Para criar o serviço sob uma conta Serviço Local, anexa o seguinte ao exemplo acima citado. <screen>\n"
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen> Tem atenção que terás de dar à conta de Serviço Local, direitos de acesso apropriados para o Subversion e para os teus repositórios, tal como para qualquer aplicação que seja usada por qualquer script de gancho. O grupo integrado para este propósito chama-se \"LOCAL SERVICE\"."
+
+#. (para)
+msgid ""
+"To give the Local Service or Network Service account full access to the "
+"folder where you store your repositories and/or your hook scripts, follow "
+"the instructions in the <ulink "
+"url=\"http://support.microsoft.com/kb/308419\"><citetitle>knowledge base "
+"article kb308419</citetitle></ulink> If you fail to set the permissions, you"
+" will get <literal>access denied</literal> errors when you try to access the"
+" repository!"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -25207,10 +25218,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To create an image file without showing the graph, pass "
-"<option>/output:path</option> with the path to the output file. The output "
-"file must have an extension that the revision graph can actually export to. "
-"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+"To create an image file of the revision graph for a specific path, but "
+"without showing the graph window, pass <option>/output:path</option> with "
+"the path to the output file. The output file must have an extension that the"
+" revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, "
+".bmp and .gif."
 msgstr ""
 
 #. (para)

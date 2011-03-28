@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-18 00:02+0000\n"
+"PO-Revision-Date: 2011-03-24 10:16+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "Windows 平台的 Subversion 客戶端程式"
 
 #. (edition)
 msgid "First"
-msgstr ""
+msgstr "第一"
 
 #. (firstname)
 msgid "Stefan"
@@ -102,6 +102,10 @@ msgid ""
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
 msgstr ""
+"TortoiseSVN 是 <firstterm>Apache™ Subversion®</firstterm>版本控管系統的一個免費且開放原始碼的 "
+"Windows 客戶端程式。也就是說，TortoiseSVN "
+"管理著檔案和目錄。檔案被集中儲存在<firstterm>檔案庫（repository）</firstterm>裡。檔案庫就好像常見的檔案伺服器一樣，除了它會記錄每個您對檔案或目錄所作的變更。這使您可以回復您就版本的檔案，並且驗證何時做了變更、哪些被變動了、以及誰改了它。這也就是為什麼人們覺得"
+" Subversion 和版本控管系統就好像一種<quote>時光機器</quote>一樣。"
 
 #. (para)
 msgid ""
@@ -248,7 +252,7 @@ msgid ""
 "attached. You can invent and store any arbitrary key/value pairs you wish. "
 "Properties are versioned over time, just like file contents."
 msgstr ""
-"每個檔案和目錄都有一組<quote>性質（properties）</quote>依附在其上。您可以建立並儲存任意組合的鍵值。性質如同其他的內容一樣，也隨時會被版本所控制與記錄。"
+"每個檔案和目錄都有一組<quote>屬性（properties）</quote>依附在其上。您可以建立並儲存任意組合的鍵值。屬性如同其他的內容一樣，也隨時會被版本所控制與記錄。"
 
 #. (term)
 msgid "Choice of network layers"
@@ -658,14 +662,16 @@ msgid ""
 "TortoiseSVN and set up a local repository, and it walks you through the most"
 " commonly used operations."
 msgstr ""
+"這個章節主要針對那些想要了解 TortoiseSVN 是什麼的人們，並且給予他們一些簡單的練習。它將說明如何安裝 "
+"TortoiseSVN、設定一個本地檔案庫、並且把常用的指令帶著您練習一次。"
 
 #. (title)
 msgid "Installing TortoiseSVN"
-msgstr ""
+msgstr "安裝 TortoiseSVN"
 
 #. (title)
 msgid "System requirements"
-msgstr ""
+msgstr "系統需求"
 
 #. (para)
 msgid ""
@@ -675,13 +681,15 @@ msgid ""
 " to install the 32-bit version separately to get the TortoiseSVN context "
 "menu and overlays in 32-bit applications."
 msgstr ""
+"TortoiseSVN 須安裝在 Windows XP SP3（或更新版本）上，32 位元或是 64 位元皆可。64 位元的安裝程式也包含了 32 "
+"位元的支援。也就是說您不需要為了您 32 位元的程式支援而在安裝 64 位元的 TortoiseSVN 後又安裝了 32 位元版本。"
 
 #. (para)
 msgid ""
 "If you're using Windows XP, you <emphasis>must</emphasis> have at least the "
 "service pack 3 installed. It won't work if you haven't installed that SP "
 "yet!"
-msgstr ""
+msgstr "若您是使用 Windows XP，您<emphasis>必須</emphasis>至少安裝系統更新到 SP3。否則程式將不會正常運作。"
 
 #. (para)
 msgid ""
@@ -689,6 +697,8 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
 "can still download and install older versions if you need them."
 msgstr ""
+"對於 Windows 98、Windows ME、和 Windows NT4 的支援，已從 1.2.0 版開始不再支援，此外 Windows 2000 "
+"與 Windows XP SP2 也從 1.7.0 版開始不再支援。若您需要，您還是可以下載舊的版本。"
 
 #. (title)
 msgid "Installation"
@@ -725,6 +735,8 @@ msgid ""
 "refer to our online FAQ at <ulink "
 "url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
 msgstr ""
+"如果您在安裝 TortoiseSVN 時，或安裝後遇到任何的問題，請這訪我們的線上常見問題解答：<ulink "
+"url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>。"
 
 #. (title)
 msgid "Basic Concepts"
@@ -882,6 +894,13 @@ msgid ""
 "there are 3 slashes after <filename>file:</filename> and that the forward "
 "slashes are used throughout."
 msgstr ""
+"現在我們有一個檔案庫了，但目前它還是空的。假設我有一批檔案在 <filename>C:\\Projects\\Widget1</filename> "
+"下面，並且我想要新增它到檔案庫。在檔案總管裡，瀏覽到<filename>Widget1</filename> 目錄，然後在其上按下滑鼠右鍵。然後選擇 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>匯入...</guimenuitem></menuchoice>"
+" ，這將會開啟一個對話方塊 <placeholder-1/> 。Subversion 的一個檔案庫對應到一個 "
+"URL，這可讓我們指定網際網路上的任何一個檔案庫位址。因此，在我們的例子裡，我們必須以 "
+"<filename>file:///c:/svn_repos/Widget1</filename> 的形式來作為我們本地檔案庫的位址。要注意在 "
+"<filename>file:</filename> 後面有三個斜線。"
 
 #. (para)
 msgid ""
@@ -893,10 +912,12 @@ msgid ""
 "project</quote>. Click on <guibutton>OK</guibutton> and the folder is added "
 "to your repository."
 msgstr ""
+"在這個對話方塊裡還有一個重要的功能是<guilabel>匯入訊息</guilabel>文字方塊允許您輸入文字以描述您想要做的事情。當您在檢視您專案的歷史記錄時，這些伴隨著歷次送交所輸入的訊息便是一個很有價值的參考，引導您了解什麼被變動了，以及為什麼做了那些變動。在這樣的狀況下，我們可以像這樣簡單的描述<quote>匯入"
+" Widget1 專案</quote>。按下 <guibutton>OK</guibutton> 按鈕，然後這目錄便會新增到您的檔案庫。"
 
 #. (title)
 msgid "Checking out a Working Copy"
-msgstr ""
+msgstr "取出一個工作複本"
 
 #. (para)
 msgid ""
@@ -914,6 +935,13 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr ""
+"現在我們在檔案庫裡已經有一個專案，我們需要建立一個工作複本以供我們每天的工作使用。注意，匯入一個專案目錄的動作並不會把該目錄轉為一個工作複本。在 "
+"Subversion 裡我們把建立一個新的工作複本稱作<literal>取出（Checkout）</literal>。我們將要從檔案庫裡取出 "
+"Widget1 目錄，然後把它存放在我們個人電腦的 <filename>C:\\Projects\\Widget1-Dev</filename> "
+"裡以作為我們的開發目錄。建立這個目錄，然後在其上按下滑鼠右鍵，然後選擇 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>取出...</guimenuitem></menuchoice>。在檔案庫"
+" URL 欄位輸入 <filename>file:///c:/svn_repos/Widget1</filename> 然後按下 "
+"<guibutton>OK</guibutton>。這樣我們的開發目錄就會被加入來自檔案庫的專案檔案。"
 
 #. (para)
 msgid ""
@@ -923,10 +951,12 @@ msgid ""
 "working copy. The green state indicates that the file is unchanged from the "
 "version in the repository."
 msgstr ""
+"您將會發現這個目錄的外貌與其他目錄不一樣。每一個檔案的圖示的左下角都會有一個綠色的勾勾。那些是 TortoiseSVN "
+"的狀態圖示，僅在工作複本裡出現。綠色的狀態表示該檔案自檔案庫裡取出後沒有變動。"
 
 #. (title)
 msgid "Making Changes"
-msgstr ""
+msgstr "進行更改"
 
 #. (para)
 msgid ""
@@ -936,10 +966,13 @@ msgid ""
 "files have now changed to red, indicating that changes have been made "
 "locally."
 msgstr ""
+"要開始工作了。在 <filename>Widget1-Dev</filename> 目錄下，我們要開始編輯檔案。假設我們已經對 "
+"<filename>Widget1.c</filename> 和<filename>ReadMe.txt</filename> "
+"進行了更改。注意到這兩個檔案的圖示現在轉為紅色，顯示本地的檔案已被更改。"
 
 #. (title)
 msgid "File Difference Viewer"
-msgstr ""
+msgstr "檔案差異檢視器"
 
 #. (para)
 msgid ""
@@ -949,6 +982,9 @@ msgid ""
 " TortoiseSVN's file compare tool starts, showing you exactly which lines "
 "have changed. <placeholder-1/>"
 msgstr ""
+"但究竟什麼被更改了？右鍵點選被更改的檔案，然後選擇 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>比對差異</guimenuitem></menuchoice>。TortoiseSVN"
+" 的檔案比較工具會開始執行，把詳細的哪些行被更改了顯示給您看。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -962,10 +998,14 @@ msgid ""
 " change is all about and click on <guibutton>OK</guibutton>. The progress "
 "dialog shows the files being uploaded to the repository and you're done."
 msgstr ""
+"好，現在我們對所作的更改感到滿意，讓我們把它更新到檔案庫。這對應的動作是<literal>送交（Commit）</literal>所變動的檔案。右鍵點擊"
+" <filename>Widget1-Dev</filename> 目錄，然後選擇 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>送交</guimenuitem></menuchoice>。送交的對話方塊會列出已被更改的檔案，每個檔案都有一個核取方塊。您也許只想選擇某部份的檔案來送交，但在我們的例子裡，我們將要送交這兩個被更改的檔案出去。填入文字來描述我們更改了什麼，然後按下"
+" <guibutton>OK</guibutton> 按鍵。進度對話方塊接著會顯示檔案被上傳的狀態，然後我們就完成送交的動作了。"
 
 #. (title)
 msgid "Adding More Files"
-msgstr ""
+msgstr "加入更多檔案"
 
 #. (para)
 msgid ""
@@ -978,6 +1018,11 @@ msgid ""
 "on the file itself and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
 msgstr ""
+"專案開發過程中，您將會需要新增更多檔案。我們假設說您新增了一些新的功能到 <filename>Extras.c</filename> "
+"裡面，並且新增了檔案參照到 <filename>Makefile</filename>。右鍵點擊目錄然後選擇 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>加入</guimenuitem></menuchoice>。加入的對話方塊會列出所有無版本控管的檔案，您可以選擇哪些檔案是要加入的。另一個加入檔案的方式是直接在該檔案上右鍵點擊然後選擇"
+" "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>加入</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -986,14 +1031,15 @@ msgid ""
 "<emphasis>Modified</emphasis>. Note that you can double click on the "
 "modified file to check exactly what changes were made."
 msgstr ""
+"當您送交目錄時，新的檔案會顯示<emphasis>已加入</emphasis>，既有的檔案會顯示<emphasis>異動</emphasis>。您可以在異動的檔案上按兩下以檢視詳細的變動。"
 
 #. (title)
 msgid "Viewing the Project History"
-msgstr ""
+msgstr "檢視專案歷史"
 
 #. (title)
 msgid "The Log Dialog"
-msgstr ""
+msgstr "紀錄對話方塊"
 
 #. (para)
 msgid ""
@@ -1002,6 +1048,8 @@ msgid ""
 " detailed commit messages that you entered ;-) <placeholder-1/> OK, so I "
 "cheated a little here and used a screenshot from the TortoiseSVN repository."
 msgstr ""
+"TortoiseSVN 最常用的一個功能就是紀錄對話方塊。它會列出您針對一個檔案或目錄所作的所有送交，以及顯示所有您填入的送交訊息。<placeholder-1/>\n"
+"在這裡我們用這個視窗截圖來說明。"
 
 #. (para)
 msgid ""
@@ -1009,7 +1057,7 @@ msgid ""
 " commit message. If you select one of these revisions, the middle pane will "
 "show the full log message for that revision and the bottom pane will show a "
 "list of changed files and folders."
-msgstr ""
+msgstr "上方的窗格顯示版本送交的列表。如果您選擇其中一個版本，中間的窗格會顯示該次送交的詳細描述訊息，而下方的窗格會顯示該次送交的檔案或目錄清單。"
 
 #. (para)
 msgid ""
@@ -1018,17 +1066,19 @@ msgid ""
 "click</action> on a file to see exactly what changes were made in that "
 "revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
 msgstr ""
+"每一個窗格都有階層市選單以提供您更多的方式來使用這些資訊。在下面的窗格，您可以在檔案上<action>按兩下</action>以檢視詳細的變動。閱讀<xref"
+" linkend=\"tsvn-dug-showlog\"/>以了解詳細的細節。"
 
 #. (title)
 msgid "Undoing Changes"
-msgstr ""
+msgstr "復原變更"
 
 #. (para)
 msgid ""
 "One feature of all revision control systems is that they let you undo "
 "changes that you made previously. As you would expect, TortoiseSVN makes "
 "this easy to access."
-msgstr ""
+msgstr "版本控管系統的其中一項功能就是它可以讓您還原您之前所作的變更。如同您所預期的，TortoiseSVN 讓這變得更容易。"
 
 #. (para)
 msgid ""
@@ -1040,6 +1090,9 @@ msgid ""
 "get rid of just some of the changes, you can use TortoiseMerge to view the "
 "differences and selectively revert changed lines."
 msgstr ""
+"如果您想要放棄那些您尚未送交的變更，並且把它重設到您開始進行變更以前的狀態，按下 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>復原（Revert）</guimenuitem></menuchoice>來加以進行。這將會捨棄您的變更（到資源回收筒），並且把它還原到您上一次的送交的狀態。如果您只想要捨棄部份的變更，您可以使用"
+" TortoiseMerge 來檢視差異，並且選擇想要還原的行。"
 
 #. (para)
 msgid ""
@@ -1048,10 +1101,12 @@ msgid ""
 " Menu</guimenu><guimenuitem>Revert changes from this "
 "revision</guimenuitem></menuchoice> and those changes will be undone."
 msgstr ""
+"如果您想要還原特定版本的變更，從記錄對話方塊理去尋找有問題的版本。從快顯功能表選擇<menuchoice><guimenuitem>復原自此版本以來的變更</guimenuitem></menuchoice>"
+" 以還原該版本之後的變更。"
 
 #. (title)
 msgid "Moving On ..."
-msgstr ""
+msgstr "下一步..."
 
 #. (para)
 msgid ""
@@ -1061,6 +1116,9 @@ msgid ""
 "rest of this manual, especially <xref linkend=\"tsvn-dug\"/> which gives you"
 " a lot more detail on day-to-day operations."
 msgstr ""
+"這個指引提供給您一些 TortoiseSVN "
+"重要且有用的功能的簡短且快速的導覽，當然我們還有相當多內容尚未介紹給您。我們強烈建議您花點時間閱讀其他的章節，特別是<xref linkend"
+"=\"tsvn-dug\"/>這個章節，它提供給您日常操作上更詳盡的細節。"
 
 #. (para)
 msgid ""
@@ -1069,14 +1127,15 @@ msgid ""
 " don't be afraid to try things out on a test repository as you go along. The"
 " best way to learn is by using it."
 msgstr ""
+"雖然我們已經盡量確保這些導覽兼具內容豐富與易讀性，但我們知道這內容相當的多。慢慢來，並且不要害怕在本機的測試檔案庫上進行測試。最好的學習方式就是去嘗試與使用它。"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
-msgstr ""
+msgstr "基本的檔案控管概念"
 
 #. (primary)
 msgid "Subversion book"
-msgstr ""
+msgstr "Subversion 書籍"
 
 #. (para)
 msgid ""
@@ -1085,6 +1144,9 @@ msgid ""
 " <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-"
 "bean.com/</citetitle></ulink>."
 msgstr ""
+"這個章節是改自 Subversion 書籍的相同章節。線上的 Subversion 書籍可以在以下連結找到：<ulink "
+"url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-"
+"bean.com/</citetitle></ulink>。"
 
 #. (para)
 msgid ""
@@ -1094,6 +1156,8 @@ msgid ""
 "specific ideas behind Subversion, and show some simple examples of "
 "Subversion in use."
 msgstr ""
+"這個章節將簡單介紹 Subversion 。如果版本控管對於您來講是新的知識，那麼這個章節正好適合您。我們從版本控管的基本概念開始討論，然後進一步針對 "
+"Subversion 背後的一些特定想法加以介紹，並且示範一些 Subversion 使用的簡單範例。"
 
 #. (para)
 msgid ""
@@ -2622,6 +2686,17 @@ msgid ""
 "Microsoft now recommend services to be run as under either the Local Service or Network Service account. Refer to <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. To create the service under the Local Service account, append the following to the example above. <screen>\n"
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen> Note that you would have to give the Local Service account appropriate rights to both Subversion and your repositories, as well as any applications which are used by hook scripts. The built-in group for this is called \"LOCAL SERVICE\"."
+msgstr ""
+
+#. (para)
+msgid ""
+"To give the Local Service or Network Service account full access to the "
+"folder where you store your repositories and/or your hook scripts, follow "
+"the instructions in the <ulink "
+"url=\"http://support.microsoft.com/kb/308419\"><citetitle>knowledge base "
+"article kb308419</citetitle></ulink> If you fail to set the permissions, you"
+" will get <literal>access denied</literal> errors when you try to access the"
+" repository!"
 msgstr ""
 
 #. (para)
@@ -17728,10 +17803,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To create an image file without showing the graph, pass "
-"<option>/output:path</option> with the path to the output file. The output "
-"file must have an extension that the revision graph can actually export to. "
-"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+"To create an image file of the revision graph for a specific path, but "
+"without showing the graph window, pass <option>/output:path</option> with "
+"the path to the output file. The output file must have an extension that the"
+" revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, "
+".bmp and .gif."
 msgstr ""
 
 #. (para)

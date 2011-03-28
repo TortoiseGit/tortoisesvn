@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-21 07:19+0000\n"
+"PO-Revision-Date: 2011-03-22 15:39+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgstr "%1 含有不正確的路徑."
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 含有不正確的綱要."
+msgstr "%1 含有不正確的結構描述."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -329,7 +329,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "是目錄, 不是檔案!\n"
-"TortoiseMerge無法比對目錄差異."
+"TortoiseMerge 無法比對目錄差異."
 
 #. Resource IDs: (286)
 #, c-format
@@ -382,7 +382,7 @@ msgstr "進階設定(&A)..."
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
-msgstr "允許模糊的URL(&A)"
+msgstr "允許模糊的 URL(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Application Look"
@@ -562,7 +562,7 @@ msgstr "複製按鈕影像(&C)"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
-msgstr "複製紀錄訊息至剪貼簿(&C)"
+msgstr "複製記錄訊息至剪貼簿(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Copy to clipboard"
@@ -654,7 +654,7 @@ msgstr "啟用 Proxy 伺服器(&E)"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr "啟動訊息快取(&E)"
+msgstr "啟動記錄快取(&E)"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -710,7 +710,7 @@ msgstr "浮動(&F)"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
-msgstr "訊息紀錄字型(&F):"
+msgstr "記錄訊息字型(&F):"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
@@ -867,7 +867,7 @@ msgstr "需要鎖定[唯讀更新](&L)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
-msgstr "紀錄檔大小(&L)"
+msgstr "記錄檔大小(&L)"
 
 #. Resource IDs: (65535)
 msgid "&Luminence:"
@@ -952,7 +952,7 @@ msgstr "新增(&N)..."
 #. Resource IDs: (115, 1208)
 #, c-format
 msgid "&Next %ld"
-msgstr "下 %ld(&N)"
+msgstr "下 %ld 筆(&N)"
 
 #. Resource IDs: (332)
 msgid "&Next >"
@@ -1056,7 +1056,7 @@ msgstr "屬性(&P)..."
 
 #. Resource IDs: (1246)
 msgid "&Recent messages"
-msgstr "最近的紀錄訊息(&R)"
+msgstr "最近的記錄訊息(&R)"
 
 #. Resource IDs: (65535)
 msgid "&Red:"
@@ -1100,7 +1100,7 @@ msgstr "重設工具列(&R)"
 
 #. Resource IDs: (16657)
 msgid "&Reset my usage data"
-msgstr "重設個人使用紀錄(&R)"
+msgstr "重設個人使用記錄(&R)"
 
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
@@ -1172,7 +1172,7 @@ msgstr "顯示最新版本(&S)"
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
-msgstr "顯示紀錄訊息(&S)"
+msgstr "顯示記錄訊息(&S)"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
@@ -1232,7 +1232,7 @@ msgstr "分頁的文件(&T)"
 
 #. Resource IDs: (65535)
 msgid "&Tags"
-msgstr "&Tags"
+msgstr "標記(&T)"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
@@ -1260,7 +1260,7 @@ msgstr "至版本(&T)"
 
 #. Resource IDs: (1305, 1384)
 msgid "&To URL:"
-msgstr "至URL(&T):"
+msgstr "至 URL(&T):"
 
 #. Resource IDs: (1305, 1384)
 msgid "&To path:"
@@ -1268,7 +1268,7 @@ msgstr "至路徑(&T):"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
-msgstr "至(&T): (合併結束的URL及版本)"
+msgstr "至(&T): (合併結束的 URL 及版本)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -1460,9 +1460,17 @@ msgstr "(無此值)"
 msgid "(not found)"
 msgstr "(找不到)"
 
+#. Resource IDs: (176)
+msgid "(properties only)"
+msgstr "(僅屬性)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(僅屬性改變)"
+
+#. Resource IDs: (176)
+msgid "(props and content)"
+msgstr "(屬性和內容)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -1499,7 +1507,7 @@ msgstr "..."
 
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
-msgstr "...正在檢查快取並準備查詢紀錄"
+msgstr "...正在檢查快取並準備查詢記錄"
 
 #. Resource IDs: (270)
 msgid "... reading working copy status"
@@ -1583,7 +1591,7 @@ msgid ""
 "An empty list will allow the context menu on all paths."
 msgstr ""
 "以換行分隔的列表, 列出的目錄不顯示圖示覆蓋.\r\n"
-"如果你在路徑後面加上 '*', 那麼此路徑下的所有檔案及子目錄也都不會顯示.\r\n"
+"如果您在路徑後面加上 '*', 那麼此路徑下的所有檔案及子目錄也都不會顯示.\r\n"
 "列表為空時表示所有路徑都顯示圖示覆蓋."
 
 #. Resource IDs: (194)
@@ -1649,15 +1657,15 @@ msgstr "拒絕存取 %1."
 
 #. Resource IDs: (77, 319)
 msgid "Action"
-msgstr "行動"
+msgstr "動作"
 
 #. Resource IDs: (65535)
 msgid "Action log"
-msgstr "行為紀錄"
+msgstr "動作記錄"
 
 #. Resource IDs: (117)
 msgid "Actions"
-msgstr "行動"
+msgstr "動作"
 
 #. Resource IDs: (3826)
 msgid "Activate Task List"
@@ -1765,7 +1773,7 @@ msgid ""
 "%s\n"
 "to the ignore list."
 msgstr ""
-"加入檔名樣式(們)\n"
+"加入檔名樣式\n"
 "%s\n"
 "至忽略列表"
 
@@ -1898,11 +1906,10 @@ msgid ""
 "%base : the base file\r\n"
 "%mine : the modified file"
 msgstr ""
-"用來比對不同版本間檔案差\r\n"
-"異的外部程式.\r\n"
+"用來比對不同版本間檔案差異的外部程式.\r\n"
 "\r\n"
-"你可以指定以下的參數至路徑中:\r\n"
-"%base : 檔案名稱\r\n"
+"您可以指定以下的參數至路徑中:\r\n"
+"%base : 基礎檔案名稱\r\n"
 "%mine : 異動過的檔案."
 
 #. Resource IDs: (79)
@@ -1917,14 +1924,12 @@ msgid ""
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
 msgstr ""
-"用來解決衝突檔案\r\n"
-"的外部程式, \r\n"
-"\r\n"
-"你可以指定以下參數至路徑中:\r\n"
+"用來解決衝突檔案的外部程式. \r\n"
+"您可以指定以下參數至路徑中:\r\n"
 "%merged : 發生衝突的檔案存放位置\r\n"
 "%theirs : 檔案庫中存放的檔案\r\n"
-"%mine : 包含你所做變更的檔案\r\n"
-"%base : 不包含你所做變更的原始檔"
+"%mine : 包含您所做變更的檔案\r\n"
+"%base : 不包含您所做變更的原始檔"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1987,7 +1992,7 @@ msgstr "任意文字(&I)"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "確定要把衝突的檔案(們)標記為已解決嗎?"
+msgstr "確定要把衝突的檔案標記為已解決嗎?"
 
 #. Resource IDs: (199)
 #, c-format
@@ -2103,8 +2108,8 @@ msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
-"在輸入記錄訊息時, 自動從這次有修改的檔案內\r\n"
-"容中提示單字(通常是類別或成員的名字)."
+"在輸入記錄訊息時, 自動從這次有修改的檔案\n"
+"內容中提示單字(通常是類別或成員的名字)."
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2208,23 +2213,23 @@ msgstr "瀏覽..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
-msgstr "Bug編號 / 問題編號(&I):"
+msgstr "Bug 編號 / 問題編號(&I):"
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
-msgstr "Bug編號"
+msgstr "Bug 編號"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr "Bug編號表示式(&X)"
+msgstr "Bug 編號表示式(&X)"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
-msgstr "Bug編號:"
+msgstr "Bug 編號:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
-msgstr "Bug編號"
+msgstr "Bug 編號"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2276,7 +2281,7 @@ msgstr "快取中的檔案庫"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
-msgstr "將紀錄訊息存入快取以加快讀取速度"
+msgstr "將記錄訊息存入快取以加快讀取速度"
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
@@ -2448,33 +2453,31 @@ msgstr "從檔案庫中取出工作複本"
 msgid ""
 "Check the files which you want to\n"
 "delete before importing."
-msgstr ""
-"勾選你要在匯入之前刪除\n"
-"的檔案."
+msgstr "勾選您要在匯入之前刪除的檔案."
 
 #. Resource IDs: (612)
 msgid ""
 "Check the log to find out how the file/folder got renamed/moved and decide "
 "whether you want to keep your rename/move or the one from the repository. "
 "Then mark the conflict as resolved."
-msgstr "檢查紀錄訊息並找出檔案/目錄是如何被重新命名/移動的, 並決定是否要保留此檔案庫中的這項操作. 然後將衝突視為已解決."
+msgstr "檢查記錄訊息並找出檔案/目錄是如何被重新命名/移動的, 並決定是否要保留此檔案庫中的這項操作. 然後將衝突標記為已解決."
 
 #. Resource IDs: (612)
 msgid ""
 "Check the log to find out how the file/folder got renamed/moved and decide "
 "whether you want to merge the change into your renamed file, or restore the "
 "original file."
-msgstr "檢查紀錄訊息並找出檔案/目錄是如何被重新命名/移動的, 並決定是否要合併變更至重新命名後的檔案, 或是復原先前的檔案."
+msgstr "檢查記錄訊息並找出檔案/目錄是如何被重新命名/移動的, 並決定是否要合併變更至重新命名後的檔案, 或是復原先前的檔案."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
-msgstr "請檢查你輸入的路徑或 URL."
+msgstr "請檢查您輸入的路徑或 URL."
 
 #. Resource IDs: (194)
 msgid ""
 "Check those menu entries you want to appear in the top context menu instead "
 "of the TortoiseSVN submenu"
-msgstr "勾選你希望出現在第一層選單, 而不是子選單中的選單項目"
+msgstr "勾選您希望出現在第一層選單, 而不是子選單中的選單項目"
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
@@ -2588,7 +2591,7 @@ msgstr "自 %2!ld! 份工作複本中清除了 %1!ld! 組 URL"
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
-msgstr "自 %2!ld! 份工作複本中清除了 %1!ld! 組訊息紀錄"
+msgstr "自 %2!ld! 份工作複本中清除了 %1!ld! 組記錄訊息"
 
 #. Resource IDs: (196)
 #, c-format
@@ -2600,7 +2603,7 @@ msgstr "清除了 %1!ld! 組帳號密碼, %2!ld! 份 SSL 憑證, 以及 %3!ld! �
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr "從 %ld 個檔案庫中清除快取紀錄訊息"
+msgstr "從 %ld 個檔案庫中清除快取記錄訊息"
 
 #. Resource IDs: (195)
 msgid ""
@@ -2608,7 +2611,7 @@ msgid ""
 "You will have to enter your username/password again for all repositories."
 msgstr ""
 "清除儲存的認證.\r\n"
-"你需要為全部的檔案庫重新輸入帳號和密碼."
+"您需要為全部的檔案庫重新輸入帳號和密碼."
 
 #. Resource IDs: (196)
 #, c-format
@@ -2753,11 +2756,11 @@ msgstr "送交..."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
-msgstr "依作者排序的送交紀錄"
+msgstr "依作者排序的送交記錄"
 
 #. Resource IDs: (244)
 msgid "Commits by date"
-msgstr "依日期排序的送交紀錄"
+msgstr "依日期排序的送交記錄"
 
 #. Resource IDs: (247)
 #, c-format
@@ -2770,7 +2773,7 @@ msgstr "每週送交:"
 
 #. Resource IDs: (9)
 msgid "Commits your changes to the repository"
-msgstr "將你所做的修改送交至檔案庫"
+msgstr "將您所做的修改送交至檔案庫"
 
 #. Resource IDs: (170)
 msgid ""
@@ -2824,7 +2827,7 @@ msgstr ""
 msgid ""
 "Compares the file with the last committed revision to show you the changes "
 "you made"
-msgstr "比對此檔案與上次送交的版本並列出你所做的異動"
+msgstr "比對此檔案與上次送交的版本並列出您所做的異動"
 
 #. Resource IDs: (17)
 msgid "Compares the selected file with a file in the repository"
@@ -2887,7 +2890,7 @@ msgstr "衝突: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr "連線至檔案庫並下載缺少的紀錄訊息資料"
+msgstr "連線至檔案庫並下載缺少的記錄訊息資料"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -3300,7 +3303,7 @@ msgstr "在目前位址建立檔案資料庫"
 
 #. Resource IDs: (14)
 msgid "Creates a unified diff file with all changes you made"
-msgstr "建立包含你所有修改的單一異動檔"
+msgstr "建立包含您所有修改的單一異動檔"
 
 #. Resource IDs: (65535)
 msgid "Credits:"
@@ -3377,7 +3380,7 @@ msgstr "預設"
 
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
-msgstr "預設的紀錄訊息數目(&N)"
+msgstr "預設的記錄訊息數目(&N)"
 
 #. Resource IDs: (1007)
 msgid "Default Menu"
@@ -3452,7 +3455,7 @@ msgstr "從版本控制樹中刪除但保留檔案"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
-msgstr "刪除行為紀錄"
+msgstr "刪除動作記錄"
 
 #. Resource IDs: (263)
 msgid "Deleting"
@@ -3524,7 +3527,7 @@ msgstr "差異比對選項"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
-msgstr "以URL比對"
+msgstr "以 URL 比對"
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -3555,7 +3558,7 @@ msgid ""
 "Disable this option if you have really big working copies and experience\r\n"
 "too much disk access when browsing the working copy."
 msgstr ""
-"如果你有很大的工作複本, 在瀏覽工作複本目錄時\r\n"
+"如果您有很大的工作複本, 在瀏覽工作複本目錄時\r\n"
 "曾經發生過大量磁碟動作. 建議取消此選項."
 
 #. Resource IDs: (596)
@@ -3677,7 +3680,7 @@ msgstr "確定真的要移除這個屬性 %s 嗎(包含子資料夾)?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
-msgstr "是否要儲存你所做的異動?"
+msgstr "是否要儲存您所做的異動?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -3698,10 +3701,9 @@ msgid ""
 "working copies next to each other.\n"
 "This works for directory URLs only."
 msgstr ""
-"不將取出用的目錄做成稀疏的\n"
-"工作複本. 而是將所有 URL 取出\n"
-"至分別排列的工作複本. 這項設\n"
-"定僅對目錄URL 有作用."
+"不將取出用的目錄做成稀疏的工作複本. \n"
+"而是將所有 URL 取出至分別排列的工作複本. \n"
+"這項設定僅對目錄 URL 有作用."
 
 #. Resource IDs: (3887)
 msgid ""
@@ -3822,7 +3824,7 @@ msgstr "編輯語系設定"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
-msgstr "編輯紀錄訊息"
+msgstr "編輯記錄訊息"
 
 #. Resource IDs: (127)
 #, c-format
@@ -3861,16 +3863,20 @@ msgstr ""
 msgid "Empty"
 msgstr "空的"
 
+#. Resource IDs: (1562)
+msgid "Enable Auto-Properties"
+msgstr "啟用自動屬性設定"
+
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
-msgstr "啟用紀錄訊息快取以加速顯示紀錄和版本圖"
+msgstr "啟用記錄訊息快取以加速顯示記錄和版本圖"
 
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\r\n"
 "You must restart the system for this setting to take effect."
 msgstr ""
-"如果你使用 TSVN 與 VS.NET2003的網頁專案, 請啟用本選項.\r\n"
+"如果您使用 TSVN 與 VS.NET2003 的網頁專案, 請啟用本選項.\r\n"
 "必須要重新開機後這項設定才會生效."
 
 #. Resource IDs: (65535)
@@ -3924,7 +3930,7 @@ msgstr "將視窗放到最大"
 
 #. Resource IDs: (241)
 msgid "Enter Log Message"
-msgstr "輸入紀錄訊息"
+msgstr "輸入記錄訊息"
 
 #. Resource IDs: (80)
 msgid "Enter URL"
@@ -3990,11 +3996,11 @@ msgstr "輸入檔案內容以測試:"
 
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
-msgstr "輸入紀錄訊息(&M):"
+msgstr "輸入記錄訊息(&M):"
 
 #. Resource IDs: (126)
 msgid "Enter log message:"
-msgstr "輸入紀錄訊息:"
+msgstr "輸入記錄訊息:"
 
 #. Resource IDs: (3858)
 #, c-format
@@ -4009,7 +4015,7 @@ msgstr "輸入 regex 指令:"
 msgid ""
 "Enter the regular expression patterns for filtering out the bug-ID from a "
 "commit message."
-msgstr "請輸入從送交紀錄中過濾出 bug 編號的正規表示式."
+msgstr "請輸入從送交記錄中過濾出 bug 編號的正規表示式."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4152,7 +4158,7 @@ msgstr "副檔名"
 
 #. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
-msgstr "根據副檔名或mime-類型的程式"
+msgstr "根據副檔名或 mime-type 類型指定的程式"
 
 #. Resource IDs: (74)
 msgid "External"
@@ -4506,7 +4512,7 @@ msgstr "請按 F1 以取得說明. 使用 Ctrl-捲動可進行橫向捲動."
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
-msgstr "要列出完整歷程紀錄請勿選擇 '複製/重新命名時停止'"
+msgstr "要列出完整歷程記錄請勿選擇 '複製/重新命名時停止'"
 
 #. Resource IDs: (279)
 msgid "Force"
@@ -4539,7 +4545,7 @@ msgstr "無法初始化 GDI+ !"
 #. Resource IDs: (273)
 msgid ""
 "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
-msgstr "GDI+ 無法建立點陣圖物件. 你可能沒有足夠的記憶體."
+msgstr "GDI+ 無法建立點陣圖物件. 您可能沒有足夠的記憶體."
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -4575,7 +4581,7 @@ msgstr "取得鎖定(&K)..."
 
 #. Resource IDs: (114)
 msgid "Get merge logs"
-msgstr "取得合併紀錄"
+msgstr "取得合併記錄"
 
 #. Resource IDs: (89)
 msgid ""
@@ -4613,7 +4619,7 @@ msgstr "正在從檔案庫取得資訊..."
 
 #. Resource IDs: (132)
 msgid "Getting log info..."
-msgstr "正在取得紀錄資訊..."
+msgstr "正在取得記錄資訊..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
@@ -4734,7 +4740,7 @@ msgstr "隱藏所有未修改此項目的分支"
 
 #. Resource IDs: (2053)
 msgid "Hide all tags"
-msgstr "隱藏所有 tag"
+msgstr "隱藏所有標記"
 
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
@@ -4743,6 +4749,10 @@ msgstr "隱藏已刪除的分支和標記"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "隱藏停駐的視窗"
+
+#. Resource IDs: (1562)
+msgid "Hide non-mergeable revisions"
+msgstr "隱藏無法合併的版本"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -4943,6 +4953,10 @@ msgstr "ID:57604:V CS+S"
 msgid "ID:57634:V C +C"
 msgstr "ID:57634:V C +C"
 
+#. Accelerator Entry for Menu ID:57634; ''
+msgid "ID:57634:V CS+C"
+msgstr "ID:57634:V CS+C"
+
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
 msgstr "ID:57635:V C +X"
@@ -5015,7 +5029,7 @@ msgstr ""
 msgid ""
 "If activated, prevents the overlays and the context menu from showing in "
 "'save as...' or 'open' dialogs"
-msgstr "勾選此選項時, 在 '另存新檔' 或是 '開啟' 的對話盒中不顯示圖示覆蓋及快顯式選單."
+msgstr "勾選此選項時, 在 '另存新檔' 或是 '開啟' 的對話筐中不顯示圖示覆蓋及快顯式選單."
 
 #. Resource IDs: (198)
 msgid ""
@@ -5041,23 +5055,23 @@ msgstr "勾選此選項時, TortoiseSVN 會建立工作基礎版本的暫存檔�
 msgid ""
 "If checked, double-clicking on a revision in the log list compares it with "
 "the previous revision"
-msgstr "勾選此選項時, 在紀錄列表中的版本上雙擊滑鼠會自動比較該版本與前一版的差異."
+msgstr "勾選此選項時, 在記錄列表中的版本上雙擊滑鼠會自動比較該版本與前一版的差異."
 
 #. Resource IDs: (196)
 msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr ""
-"勾選此選項時, 在送交中發生錯誤後, 會自動重新顯示送交視窗,\r\n"
-"並保留先前的選項與送交訊息."
+"勾選此選項時, 在送交中發生錯誤後, 會自動重新顯示送交視窗,\n"
+"並保留先前的選項與送交記錄訊息."
 
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"啟用時, 合併視窗使用工作複本的URL做為一開始的來源URL.\r\n"
-"否則使用前一次使用的URL."
+"啟用時, 合併視窗使用工作複本的 URL 做為一開始的來源 URL.\n"
+"否則使用前一次使用的 URL."
 
 #. Resource IDs: (195)
 msgid ""
@@ -5116,15 +5130,15 @@ msgid ""
 "If you're not sure about this, then please read the docs.\n"
 "Are you absolutely sure you want to do this?"
 msgstr ""
-"如果你修改了這項設定, 現有的工作複本將無法辨識!\n"
-"你必須重新取出工作複本才會正常.\n"
-"如果你不確定這個的作用, 請先閱讀說明文件.\n"
-"你真的確定要這麼做了嗎?"
+"如果您修改了這項設定, 現有的工作複本將無法辨識!\n"
+"您必須重新取出工作複本才會正常.\n"
+"如果您不確定這個的作用, 請先閱讀說明文件.\n"
+"您真的確定要這麼做了嗎?"
 
 #. Resource IDs: (251)
 msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "如果你想要強制解開鎖定, 請使用 '檢查異動' 視窗."
+msgstr "如果您想要強制解開鎖定, 請使用 '檢查異動' 視窗."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5332,7 +5346,7 @@ msgstr ""
 
 #. Resource IDs: (1575)
 msgid "Insert message at:"
-msgstr "插入紀錄訊息於:"
+msgstr "插入記錄訊息於:"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -5630,7 +5644,7 @@ msgstr ""
 
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
-msgstr "紀錄訊息已快取的檔案庫列表"
+msgstr "記錄訊息已快取的檔案庫列表"
 
 #. Resource IDs: (16631, 16992)
 msgid "List1"
@@ -5648,9 +5662,7 @@ msgstr "本地狀態"
 msgid ""
 "Location where the contents of the\n"
 "repository URL(s) will be saved to."
-msgstr ""
-"儲存檔案庫 URL 內容\n"
-"的位置."
+msgstr "儲存檔案庫 URL 內容的位置."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5712,51 +5724,51 @@ msgid ""
 "Do you want to update and try again?"
 msgstr ""
 "鎖定失敗! 檔案已有更新的版本.\n"
-"你要更新並再試一次嗎?"
+"您要更新並再試一次嗎?"
 
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
-msgstr "鎖定某些檔案, 只能由你修改."
+msgstr "鎖定某些檔案, 只能由您修改."
 
 #. Resource IDs: (126)
 msgid "Log"
-msgstr "紀錄"
+msgstr "記錄"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
-msgstr "紀錄訊息快取統計"
+msgstr "記錄訊息快取統計"
 
 #. Resource IDs: (281)
 msgid "Log Caching"
-msgstr "紀錄訊息快取"
+msgstr "記錄訊息快取"
 
 #. Resource IDs: (295)
 msgid "Log Caching::Cached Repositories"
-msgstr "訊息快取::快取的檔案庫"
+msgstr "記錄訊息快取::快取的檔案庫"
 
 #. Resource IDs: (211)
 msgid "Log History"
-msgstr "訊息紀錄"
+msgstr "歷史記錄"
 
 #. Resource IDs: (130)
 msgid "Log Messages"
-msgstr "紀錄訊息"
+msgstr "記錄訊息"
 
 #. Resource IDs: (1386)
 msgid "Log message"
-msgstr "紀錄訊息"
+msgstr "記錄訊息"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
-msgstr "紀錄訊息"
+msgstr "記錄訊息"
 
 #. Resource IDs: (1274)
 msgid "Log messages (Input dialog)"
-msgstr "紀錄訊息(輸入視窗)"
+msgstr "記錄訊息(輸入視窗)"
 
 #. Resource IDs: (1280)
 msgid "Log messages (Show log dialog)"
-msgstr "紀錄訊息 (顯示紀錄視窗)"
+msgstr "記錄訊息 (顯示記錄視窗)"
 
 #. Resource IDs: (238)
 #, c-format
@@ -5838,11 +5850,11 @@ msgstr "最大"
 
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
-msgstr "訊息紀錄最大保留筆數"
+msgstr "記錄訊息最大保留筆數"
 
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
-msgstr "行為紀錄最大行數"
+msgstr "動作記錄最大行數"
 
 #. Resource IDs: (1487)
 msgid "Maximum number of tool &failures until cache removal"
@@ -6306,9 +6318,8 @@ msgid ""
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
 msgstr ""
-"從上次送交以來沒有任何檔案\n"
-"異動或加入. TortoiseSVN 沒有\n"
-"什麼事可做."
+"從上次送交以來沒有任何檔案異動或加入. \n"
+"TortoiseSVN 沒有什麼事可做."
 
 #. Resource IDs: (170)
 msgid ""
@@ -6317,9 +6328,8 @@ msgid ""
 "for TortoiseSVN to do here...\n"
 "Do you want to see the unversioned files?"
 msgstr ""
-"從上次送交以來沒有任何檔案\n"
-"異動或加入. TortoiseSVN 沒有\n"
-"什麼事可做...\n"
+"從上次送交以來沒有任何檔案異動或加入. \n"
+"TortoiseSVN 沒有什麼事可做...\n"
 "要檢視未加入版本控制的檔案嗎?"
 
 #. Resource IDs: (273)
@@ -6376,7 +6386,7 @@ msgstr "正常"
 
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "並未移除全部的登錄紀錄 (或 INI 檔案)."
+msgstr "並未移除全部的登錄記錄 (或 INI 檔案)."
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -6428,7 +6438,7 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
-"注意: 如果您更新了你的工作複本, 您將不能再以 SVN 1.7 版以前的客戶端程式對您的工作複本進行更新! \n"
+"注意: 如果您更新了您的工作複本, 您將不能再以 SVN 1.7 版以前的客戶端程式對您的工作複本進行更新! \n"
 "您確定要更新這個工作複本嗎?"
 
 #. Resource IDs: (247)
@@ -6472,7 +6482,7 @@ msgstr "用戶版本屬性尚未快取的快取中版本總數"
 #. Resource IDs: (338)
 msgid ""
 "Number of different paths shown in the log dialog, including parent paths"
-msgstr "在紀錄視窗中顯示的不同路徑總數, 包含上層路徑."
+msgstr "在記錄視窗中顯示的不同路徑總數, 包含上層路徑."
 
 #. Resource IDs: (338)
 msgid "Number of different words used in log messages"
@@ -6543,7 +6553,7 @@ msgid ""
 "\n"
 "Are you sure you want to move the selected paths?"
 msgstr ""
-"你想要移動的路徑中可能有特殊路徑\n"
+"您想要移動的路徑中可能有特殊路徑\n"
 "(例如 'branches', 'tags', 或 'trunk').\n"
 "\n"
 "確定要移動選定的路徑嗎?"
@@ -6558,7 +6568,7 @@ msgstr "尚有一個以上的檔案處於衝突狀態."
 
 #. Resource IDs: (1424)
 msgid "Onl&y record the merge (block revisions from getting merged)"
-msgstr "僅紀錄合併(&Y) (阻止版本被合併)"
+msgstr "僅記錄合併(&Y) (阻止版本被合併)"
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
@@ -6572,9 +6582,7 @@ msgstr "僅包含檔案"
 msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
-msgstr ""
-"只可以輸入數字(可以用逗\n"
-"點分隔)!"
+msgstr "只可以輸入數字(可以用逗點分隔)!"
 
 #. Resource IDs: (626)
 msgid "Only properties changed"
@@ -6634,7 +6642,7 @@ msgstr "開啟檔案庫瀏覽器, 進行線上調校檔案庫"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
-msgstr "目前暫時從紀錄訊息快取中作業"
+msgstr "目前暫時從記錄訊息快取中作業"
 
 #. Resource IDs: (348)
 msgid "Option"
@@ -6842,8 +6850,8 @@ msgid ""
 "Use the Switch command to do that."
 msgstr ""
 "請注意:\n"
-"你的工作複本還是設為先前的路徑. 如果你想要之後的異動\n"
-"改送交到剛才建立的複本, 你必須先切換到新的路徑.\n"
+"您的工作複本還是設為先前的路徑. 如果您想要之後的異動\n"
+"改送交到剛才建立的複本, 您必須先切換到新的路徑.\n"
 "請使用切換指令."
 
 #. Resource IDs: (1287)
@@ -7185,7 +7193,7 @@ msgstr "版本(&V)"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr "在你卡住之前, 請先閱讀日常使用指南..."
+msgstr "在您卡住之前, 請先閱讀日常使用指南..."
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -7197,31 +7205,31 @@ msgstr "最近異動過的行"
 
 #. Resource IDs: (276)
 msgid "Record Only"
-msgstr "僅紀錄"
+msgstr "僅記錄"
 
 #. Resource IDs: (265)
 msgid "Recording mergeinfo for merge between URLs"
-msgstr "正在紀錄 URL 間合併的合併資訊"
+msgstr "正在記錄 URL 間合併的合併資訊"
 
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
-msgstr "正在紀錄版本 %1!ld! ~ %2!ld! 的合併資訊"
+msgstr "正在記錄版本 %1!ld! ~ %2!ld! 的合併資訊"
 
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for merge of r%ld"
-msgstr "正在紀錄版本 r%ld 的合併資訊"
+msgstr "正在記錄版本 r%ld 的合併資訊"
 
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
-msgstr "正在紀錄反向合併版本資訊 r%1!ld! 到 r%2!ld! "
+msgstr "正在記錄反向合併版本資訊 r%1!ld! 到 r%2!ld! "
 
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for reverse merge of r%ld"
-msgstr "正在紀錄版本 r%ld 的反向合併資訊"
+msgstr "正在記錄版本 r%ld 的反向合併資訊"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -7304,9 +7312,9 @@ msgstr ""
 "[aei0-9] : 匹配a, e, i, 及 0到9\r\n"
 "[^aei0-9] : 匹配除了a, e, i, 和 0到9 之外的字\r\n"
 "\r\n"
-"\\w : 匹配 a到z, A到Z, 0到9, 以及 _\r\n"
+"\\w : 匹配 a 到 z, A 到 Z, 0 到 9, 以及 _\r\n"
 "\\W : 匹配任何非英文, 數字的字元\r\n"
-"\\d : 數字 0到9\r\n"
+"\\d : 數字 0 到 9\r\n"
 "\\s : 空白字元"
 
 #. Resource IDs: (595)
@@ -7334,7 +7342,7 @@ msgstr "解除鎖定(&K)..."
 #. Resource IDs: (16)
 msgid ""
 "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "強制解除鎖定, 即使你不是持有人(破壞鎖定)."
+msgstr "強制解除鎖定, 即使您不是持有人(破壞鎖定)."
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
@@ -7437,7 +7445,7 @@ msgstr "移除選擇的快取"
 
 #. Resource IDs: (1352)
 msgid "Remove the whole subtree(s)"
-msgstr "移除選擇的完整子樹(們)"
+msgstr "移除選擇的完整子樹"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -7974,7 +7982,7 @@ msgstr "已存資料"
 
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
-msgstr "設定為0秒以上時可節省昂貴的與伺服器通訊時間"
+msgstr "設定為 0 秒以上時可節省昂貴的與伺服器通訊時間"
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
@@ -8104,7 +8112,7 @@ msgid ""
 "You might need to create a new folder before performing this export."
 msgstr ""
 "選擇要匯出至的目錄.\n"
-"你可能需要在進行匯出之前先建立新目錄."
+"您可能需要在進行匯出之前先建立新目錄."
 
 #. Resource IDs: (197)
 msgid "Select folder to run script for"
@@ -8281,7 +8289,7 @@ msgstr "顯示全部(&A)"
 
 #. Resource IDs: (1132)
 msgid "Show &Log"
-msgstr "顯示紀錄訊息(&L)"
+msgstr "顯示記錄訊息(&L)"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -8326,7 +8334,7 @@ msgstr "顯示於功能區下方"
 
 #. Resource IDs: (1542)
 msgid "Show Branch L&og"
-msgstr "顯示分支紀錄訊息(&O)"
+msgstr "顯示分支記錄訊息(&O)"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -8402,7 +8410,7 @@ msgstr "在短暫延遲後顯示完整選單(&U)"
 
 #. Resource IDs: (1034, 1037)
 msgid "Show l&og"
-msgstr "顯示紀錄訊息(&O)"
+msgstr "顯示記錄訊息(&O)"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -8476,7 +8484,7 @@ msgstr ""
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
-msgstr "顯示選擇的紀錄快取的統計資料"
+msgstr "顯示選擇的記錄快取的統計資料"
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
@@ -8524,7 +8532,7 @@ msgstr "顯示關於 TortoiseSVN 的資訊"
 
 #. Resource IDs: (198)
 msgid "Shows the action log file in the default text editor"
-msgstr "用預設的文字編輯器顯示行為紀錄"
+msgstr "用預設的文字編輯器顯示動作記錄"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -8556,7 +8564,7 @@ msgstr "所有快取中文字資訊的大小"
 
 #. Resource IDs: (320)
 msgid "Size of log messages"
-msgstr "紀錄訊息大小"
+msgstr "記錄訊息大小"
 
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
@@ -8603,7 +8611,7 @@ msgstr "稀疏更新 %1!s!, 深度 \"%2!s!\""
 msgid ""
 "Specifies how many items you want to keep in the most recent log messages "
 "dialog."
-msgstr "指定最近訊息紀錄要保留幾筆資料."
+msgstr "指定最近記錄訊息要保留幾筆資料."
 
 #. Resource IDs: (1572)
 msgid ""
@@ -8611,7 +8619,7 @@ msgid ""
 "the placeholder %BUGID% for the real bug-ID. If you leave these settings "
 "empty, TortoiseSVN will use the regular expressions instead."
 msgstr ""
-"指定如何由輸入的 Bug 編號產生送交紀錄. 使用 %BUGID% 表示輸入的 Bug 編號. 如果沒有設定, TortoiseSVN "
+"指定如何由輸入的 Bug 編號產生送交記錄. 使用 %BUGID% 表示輸入的 Bug 編號. 如果沒有設定, TortoiseSVN "
 "會使用正規表示式."
 
 #. Resource IDs: (1305)
@@ -8700,7 +8708,7 @@ msgstr "狀態列設定"
 
 #. Resource IDs: (65535)
 msgid "Status and action colors"
-msgstr "狀態與行為的顏色"
+msgstr "狀態與動作的顏色"
 
 #. Resource IDs: (65535)
 msgid "Status cache"
@@ -8794,10 +8802,8 @@ msgid ""
 msgstr ""
 "Subversion 發生嚴重錯誤.\n"
 "請回報至我們的郵件討論串\n"
-"(users@subversion.apache.org)並盡量提供您發生此問題時\n"
-"的詳細情況.\n"
-"但是請先搜尋郵件討論串以避免\n"
-"重複回報相同的問題.\n"
+"(users@subversion.apache.org)並盡量提供您發生此問題時的詳細情況.\n"
+"但是請先搜尋郵件討論串以避免重複回報相同的問題.\n"
 "郵件討論串的內容全部保存於\n"
 "http://subversion.apache.org/mailing-lists.html\n"
 "\n"
@@ -8822,10 +8828,8 @@ msgstr ""
 "Subversion 發生嚴重錯誤.\n"
 "請回報至我們的郵件討論串\n"
 "(users@subversion.apache.org)\n"
-"並盡量提供您發生此問題時\n"
-"的詳細情況.\n"
-"但是請先搜尋郵件討論串以避免\n"
-"重複回報相同的問題.\n"
+"並盡量提供您發生此問題時的詳細情況.\n"
+"但是請先搜尋郵件討論串以避免重複回報相同的問題.\n"
 "郵件討論串的內容全部保存於\n"
 "http://subversion.apache.org/mailing-lists.html\n"
 "\n"
@@ -8941,7 +8945,7 @@ msgstr "系統音效(&S)"
 msgid ""
 "System registry entries have been removed and the INI file (if any) was "
 "deleted."
-msgstr "系統登錄紀錄及 INI 檔案(如果有) 移除完成."
+msgstr "系統登錄記錄及 INI 檔案(如果有) 移除完成."
 
 #. Resource IDs: (7)
 msgid "TORTOISEBLAME"
@@ -8961,7 +8965,7 @@ msgstr "Tab 寬度:"
 
 #. Resource IDs: (65535)
 msgid "Tag nodes"
-msgstr "Tag 節點"
+msgstr "標記節點"
 
 #. Resource IDs: (79)
 #, c-format
@@ -9293,7 +9297,7 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr ""
-"行為紀錄的最大保留行數.\n"
+"動作記錄的最大保留行數.\n"
 "超過上限的時候會從最舊的開始移除."
 
 #. Resource IDs: (63)
@@ -9341,7 +9345,7 @@ msgid ""
 "\n"
 "Do you want to proceed anyway?"
 msgstr ""
-"您輸入的路徑/URL在Windows上有錯誤!\n"
+"您輸入的路徑或 URL 在 Windows 上有錯誤!\n"
 "您可以照用, 但之後可能發生問題.\n"
 "\n"
 "檔案名稱中不可以包含下列字元 '<>|\"?*:' 或是下列的裝置名稱:\n"
@@ -9383,7 +9387,7 @@ msgstr ""
 "路徑\n"
 "%1!s!\n"
 "與補綴檔中的路徑不相符.\n"
-"TortoiseMerge找到了\n"
+"TortoiseMerge 找到了\n"
 "%2!s!\n"
 "可能是正確的路徑. 要改用找到的路徑嗎?"
 
@@ -9422,7 +9426,7 @@ msgid ""
 "Are you sure you want to mark the file resolved?"
 msgstr ""
 "選擇的檔案尚有一個以上的衝突標記.\n"
-"你確定要將之視為已解決?"
+"您確定要將之視為已解決?"
 
 #. Resource IDs: (102)
 #, c-format
@@ -9489,7 +9493,7 @@ msgid ""
 "It's not possible to show the log messages between them!"
 msgstr ""
 "選擇的兩個 URL 不是由同樣的來源建立的.\n"
-"無法顯示兩者之間的紀錄訊息."
+"無法顯示兩者之間的記錄訊息."
 
 #. Resource IDs: (16)
 msgid "The user who did the last commit"
@@ -9505,7 +9509,7 @@ msgid ""
 "Please commit your changes first or revert."
 msgstr ""
 "工作複本已更動!\n"
-"請先送交你的變更或是復原."
+"請先送交您的變更或是復原."
 
 #. Resource IDs: (81)
 msgid ""
@@ -9545,8 +9549,8 @@ msgid ""
 msgstr ""
 "%d 行還有尚未處理的衝突!\n"
 "請在儲存之前先解決它們.\n"
-"你確定要在還有衝突時儲存檔案嗎?\n"
-"如果你選擇 \"是\", 之後必須自行在其它編輯器中處理衝突!"
+"您確定要在還有衝突時儲存檔案嗎?\n"
+"如果您選擇 \"是\", 之後必須自行在其它編輯器中處理衝突!"
 
 #. Resource IDs: (313)
 msgid ""
@@ -9554,7 +9558,7 @@ msgid ""
 "Do you want to save your changes?"
 msgstr ""
 "還有尚未儲存的變更!\n"
-"是否要儲存你所做的異動?"
+"是否要儲存您所做的異動?"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -9601,7 +9605,7 @@ msgid ""
 "Please enter an URL here."
 msgstr ""
 "URL 錯誤.\n"
-"請輸入正確的URL."
+"請輸入正確的 URL."
 
 #. Resource IDs: (82)
 msgid ""
@@ -9625,7 +9629,7 @@ msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
-msgstr "這個方式用在對一個分支(或主幹)建立了一個以上的版本, 而你想要從不同的分支合併變更時."
+msgstr "這個方式用在對一個分支(或主幹)建立了一個以上的版本, 而您想要從不同的分支合併變更時."
 
 #. Resource IDs: (594)
 msgid ""
@@ -9670,7 +9674,7 @@ msgid ""
 "This will delete the record of commands you've used in this application and "
 "restore the default set of visible commands to the menus and toolbars. It "
 "will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "這個動作會刪除你在本程式中的所有命令紀錄, 並將所有選單和工具列設為預設值. 它不會消除任何外部設定值. 你確定要繼續嗎?"
+msgstr "這個動作會刪除您在本程式中的所有命令記錄, 並將所有選單和工具列設為預設值. 它不會消除任何外部設定值. 您確定要繼續嗎?"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -9761,7 +9765,7 @@ msgstr ""
 "不能直接執行 TortoiseBlame.exe!\n"
 "請由命令列輸入並參照以下語法： TortoiseProc.exe /command:blame /path:\"檔案\\的\\路徑\"\n"
 "\n"
-"TortoiseBlame.exe 檔名 [[紀錄檔] [視窗標題]] [/line:行號] [/path:原始路徑] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"TortoiseBlame.exe 檔名 [[記錄檔] [視窗標題]] [/line:行號] [/path:原始路徑] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -9874,7 +9878,7 @@ msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
-msgstr "總分析送交紀錄:"
+msgstr "總分析送交記錄:"
 
 #. Resource IDs: (1163)
 msgid "Total file changes:"
@@ -9919,7 +9923,7 @@ msgstr "Trunk 節點"
 
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr "試試 '清理'. 如果它沒有效, 你需要重新取出檔案."
+msgstr "試試 '清理'. 如果它沒有效, 您需要重新取出檔案."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -9939,7 +9943,7 @@ msgstr "URL"
 
 #. Resource IDs: (1272)
 msgid "URL history"
-msgstr "URL 紀錄"
+msgstr "URL 記錄"
 
 #. Resource IDs: (199)
 #, c-format
@@ -10007,8 +10011,7 @@ msgid ""
 msgstr ""
 "無法重建工作複本路徑!\n"
 "如果檔案名稱有變動, 可能造成這個問題.\n"
-"請對特定檔案查詢紀錄, 並從紀錄視窗上方將變更\n"
-"復原."
+"請對特定檔案查詢記錄, 並從記錄視窗上方將變更復原."
 
 #. Resource IDs: (3865)
 msgid "Unable to write read-only property."
@@ -10112,8 +10115,8 @@ msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
 msgstr ""
-"未使用的訊息快取只會在相關的檔案小於指定\n"
-"的大小時被移除, 單位是 kBytes."
+"未使用的記錄訊息快取只會在相關的檔案小於\n"
+"指定的大小時被移除, 單位是 kBytes."
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -10191,7 +10194,7 @@ msgstr "更新並重試鎖定中..."
 
 #. Resource IDs: (199)
 msgid "Updating log cache"
-msgstr "正在更新紀錄訊息快取"
+msgstr "正在更新記錄訊息快取"
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -10234,11 +10237,11 @@ msgstr ""
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
-msgstr "使用 Aero 風格視窗"
+msgstr "使用 Aero 風格半透明視窗"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "使用工作複本的URL做為預設的來源URL(&W)"
+msgstr "使用工作複本的 URL 做為預設的來源URL(&W)"
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
@@ -10392,7 +10395,7 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"這個視窗用來選擇你想要合併的版本, 或是輸入以逗號分隔的版本列表. 版本範圍可以使用 - 號表示.\r\n"
+"這個視窗用來選擇您想要合併的版本, 或是輸入以逗號分隔的版本列表. 版本範圍可以使用 - 號表示.\r\n"
 "\r\n"
 "例如: 4-7,9,11,15-HEAD\r\n"
 "\r\n"
@@ -10520,8 +10523,8 @@ msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
 msgstr ""
-"當訊息快取在指定的天數內沒用到時,\n"
-"自動移除它."
+"當記錄訊息快取在指定的天數內沒用到時,\n"
+"它將會被自動移除."
 
 #. Resource IDs: (198)
 msgid ""
@@ -10613,7 +10616,7 @@ msgstr "全部皆是"
 
 #. Resource IDs: (201)
 msgid "You already have the latest version installed."
-msgstr "你已經安裝了最新版."
+msgstr "您已經安裝了最新版."
 
 #. Resource IDs: (144)
 msgid ""
@@ -10641,8 +10644,8 @@ msgid ""
 "Are you absolutely sure that you want to move\n"
 "the trunk folder?"
 msgstr ""
-"你正嘗試移動主幹目錄!\n"
-"你確定真的要移動主幹目錄嗎?"
+"您正嘗試移動主幹目錄!\n"
+"您確定真的要移動主幹目錄嗎?"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -10669,7 +10672,7 @@ msgid ""
 "you must activate the 'recursive' checkbox."
 msgstr ""
 "這個屬性不能設定在目錄上, 只能用在檔案上!\n"
-"如果你想要套用在目錄內的所有檔案, 請勾選「遞迴」."
+"如果您想要套用在目錄內的所有檔案, 請勾選「遞迴」."
 
 #. Resource IDs: (105)
 msgid ""
@@ -10679,7 +10682,7 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
-"你一次拖曳了多個檔案或目錄加入檔案庫.\n"
+"您一次拖曳了多個檔案或目錄加入檔案庫.\n"
 "這些動作不能一次完成, TortoiseSVN 會單獨加入每個檔案/目錄, 並為每個動作建立新的版號.\n"
 "\n"
 "確定要進行嗎?"
@@ -10694,31 +10697,31 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
-msgstr "你必須先更新工作複本."
+msgstr "您必須先更新工作複本."
 
 #. Resource IDs: (169)
 msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
 msgstr ""
-"你尚未輸入問題編號!\n"
+"您尚未輸入問題編號!\n"
 "確定要進行提交嗎?"
 
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
-msgstr "你可以定義最多 %d 組工具."
+msgstr "您可以定義最多 %d 組工具."
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
-msgstr "你需要重新開機後讓這些修改生效."
+msgstr "您需要重新開機後讓這些修改生效."
 
 #. Resource IDs: (77)
 msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
-"你選擇了無版本控制的檔案.\n"
+"您選擇了無版本控制的檔案.\n"
 "它會在送交之前被加入版本控制."
 
 #. Resource IDs: (1001)
@@ -10741,7 +10744,7 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
-"你正嘗試要新增項目\n"
+"您正嘗試要新增項目\n"
 "'%1!s!',\n"
 "但是項目\n"
 "'%2!s!'\n"
@@ -10756,7 +10759,7 @@ msgid ""
 "You've changed the icon set from %s to %s.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
 msgstr ""
-"你已經將圖示組從 %s 變更為 %s.\n"
+"您已經將圖示組從 %s 變更為 %s.\n"
 "在重新登出登入或是重新開機之前變更並不會生效!"
 
 #. Resource IDs: (170)
@@ -10764,17 +10767,17 @@ msgid ""
 "Your previously entered log messages have been saved.\n"
 "Click here to read and insert them again."
 msgstr ""
-"你之前輸入的紀錄訊息已經儲存.\n"
+"您之前輸入的記錄訊息已經儲存.\n"
 "點擊這裡可以閱讀或再次使用它們."
 
 #. Resource IDs: (1112)
 msgid "Your version is:"
-msgstr "你的版本是:"
+msgstr "您的版本是:"
 
 #. Resource IDs: (201)
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
-msgstr "你的版本是: %d.%d.%d.%d"
+msgstr "您的版本是: %d.%d.%d.%d"
 
 #. Resource IDs: (78)
 msgid ""
@@ -10783,7 +10786,7 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"你的工作複本位於標記(tag)路徑下!\n"
+"您的工作複本位於標記(tag)路徑下!\n"
 "建議先切換至分枝(branch)或是主幹(trunk)後再送交.\n"
 "\n"
 "確定要送交嗎？"
@@ -10805,7 +10808,7 @@ msgid ""
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
-"你的工作複本已有異動!\n"
+"您的工作複本已有異動!\n"
 "注意:更新至其它版本不會失去目前工作複本的變更.\n"
 "所以更新後不會得到與目標版本完全相同的檔案!"
 
@@ -10815,8 +10818,8 @@ msgid ""
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
 msgstr ""
-"你的工作複本有本地端的更動.\n"
-"如果你從 HEAD 版本分支或標記, 本地的更動將\n"
+"您的工作複本有本地端的更動.\n"
+"如果您從 HEAD 版本分支或標記, 本地的更動將\n"
 "不會作用在檔案庫中!"
 
 #. Resource IDs: (32783)
@@ -10981,17 +10984,17 @@ msgid ""
 "log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
-"bugtraq:append\r\n"
-"設為 'false' 時, bug 編號會加在記錄訊息最\r\n"
-"開頭. 預設值是 'true', 表示 bug 編號是加在記錄訊息的最後."
+"bugtraq:append\n"
+"設為 'false' 時, bug 編號會加在記錄訊息最開頭. \n"
+"預設值是 'true', 表示 bug 編號是加在記錄訊息的最後."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
-"bugtraq:label\r\n"
-"用來提示使用者輸入bug編號的訊息."
+"bugtraq:label\n"
+"用來提示使用者輸入 bug 編號的訊息."
 
 #. Resource IDs: (577)
 msgid ""
@@ -11000,10 +11003,10 @@ msgid ""
 "The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
-"bugtraq:logregex\r\n"
-"以換行分隔的兩組正規表示式.\r\n"
-"第一組用於找出代表該問題的字串,\r\n"
-"第二組用於從該字串中取得bug編號."
+"bugtraq:logregex\n"
+"以換行分隔的兩組正規表示式.\n"
+"第一組用於找出代表該問題的字串,\n"
+"第二組用於從該字串中取得 bug 編號."
 
 #. Resource IDs: (577)
 #, c-format
@@ -11012,9 +11015,9 @@ msgid ""
 "String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
-"bugtraq:message\r\n"
-"輸入bug編號時, 要附加在後面的字串.\r\n"
-"必須含有 '%BUGID%', 用來代換bug編號."
+"bugtraq:message\n"
+"輸入 bug 編號時, 要附加在後面的字串.\n"
+"必須含有 '%BUGID%', 用來代換 bug 編號."
 
 #. Resource IDs: (577)
 msgid ""
@@ -11022,7 +11025,7 @@ msgid ""
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
-"如果你的錯誤追蹤系統不是以數字編號來管理問題, 請設為 'false'"
+"如果您的錯誤追蹤系統不是以數字編號來管理問題, 請設為 'false'"
 
 #. Resource IDs: (577)
 msgid ""
@@ -11047,9 +11050,9 @@ msgid ""
 "URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
-"bugtraq:url\r\n"
-"指向問題追蹤的 URL. 必須含有 '%BUGID%', \r\n"
-"用來代換bug編號."
+"bugtraq:url\n"
+"指向問題追蹤的 URL. 必須含有 '%BUGID%', \n"
+"用來代換 bug 編號."
 
 #. Resource IDs: (65535)
 msgid "changes total: "
@@ -11057,7 +11060,7 @@ msgstr "變更總數:"
 
 #. Resource IDs: (244, 245)
 msgid "commits"
-msgstr "送交紀錄"
+msgstr "送交記錄"
 
 #. Resource IDs: (277)
 msgid "committed revision"
@@ -11194,7 +11197,7 @@ msgstr "鎖定:"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"
-msgstr "紀錄文字編輯器(&E)"
+msgstr "記錄文字編輯器(&E)"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
@@ -11461,7 +11464,7 @@ msgid ""
 "/trunk:123-125,129"
 msgstr ""
 "svn:mergeinfo\r\n"
-"以換行分隔的列表, 用於追縱合併紀錄. 每行的內容是\r\n"
+"以換行分隔的列表, 用於追縱合併記錄. 每行的內容是\r\n"
 "絕對路徑加上冒號以及一串用逗號分隔的版本號碼.\r\n"
 "例如:\r\n"
 "/trunk:123-125,129"
@@ -11575,7 +11578,7 @@ msgid ""
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
-"如果你不想要異動檔案列表以英文貼入送交對話窗,\r\n"
+"如果您不想要異動檔案列表以英文貼入送交對話窗,\r\n"
 "請設定為 'false'."
 
 #. Resource IDs: (578)
@@ -11591,16 +11594,16 @@ msgid ""
 "tsvn:logrevregex\r\n"
 "A regular expression matching revision numbers in a log message"
 msgstr ""
-"tsvn:logrevregex\r\n"
-"從紀錄訊息中匹配版本編號用的正規表示式"
+"tsvn:logrevregex\n"
+"從記錄訊息中匹配版本編號用的正規表示式"
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
-"tsvn:logsummary\r\n"
-"一組正規表示式, 表示式中的第一個群組表示紀錄訊息中的摘要."
+"tsvn:logsummary\n"
+"一組正規表示式, 表示式中的第一個群組表示記錄訊息中的摘要."
 
 #. Resource IDs: (578)
 msgid ""
@@ -11708,9 +11711,9 @@ msgid ""
 "Set this to the language number you want your log messages written in.\r\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
-"tsvn:projectlanguage\r\n"
-"設定撰寫紀錄訊息時要使用的語系編號.\r\n"
-"TortoiseSVN會根據這個設定載入適當的拼字檢查模組.(如果有)."
+"tsvn:projectlanguage\n"
+"設定撰寫記錄訊息時要使用的語系編號.\n"
+"TortoiseSVN 會根據這個設定載入適當的拼字檢查模組.(如果有)."
 
 #. Resource IDs: (581)
 msgid ""
@@ -11737,8 +11740,8 @@ msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
-"tsvn:warnifnoissue\r\n"
-"如果設為 'yes'', 在送交對話窗沒有輸入bug相關資訊時, 會顯示警告訊息."
+"tsvn:warnifnoissue\n"
+"如果設為 'yes'', 在送交對話窗沒有輸入 bug 相關資訊時, 會顯示警告訊息."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
@@ -11760,9 +11763,9 @@ msgid ""
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
-"webviewer:pathrevision\r\n"
-"指向檔案庫中特定檔案及版本的URL, 供網頁瀏覽器使用.\r\n"
-"URL 中的 %REVISION% 會以版號取代, \r\n"
+"webviewer:pathrevision\n"
+"指向檔案庫中特定檔案及版本的 URL, 供網頁瀏覽器使用.\n"
+"URL 中的 %REVISION% 會以版號取代, \n"
 "而 %PATH% 則會以相對於檔案庫根目錄的相對路徑取代."
 
 #. Resource IDs: (579)

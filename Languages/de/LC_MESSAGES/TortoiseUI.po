@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:36+0000\n"
+"PO-Revision-Date: 2011-03-23 07:51+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1468,9 +1468,17 @@ msgstr "(Kein Wert)"
 msgid "(not found)"
 msgstr "(nicht gefunden)"
 
+#. Resource IDs: (176)
+msgid "(properties only)"
+msgstr "(nur Eigenschaften)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(Nur Eigenschaftsänderung)"
+
+#. Resource IDs: (176)
+msgid "(props and content)"
+msgstr "(Eigenschaften und Inhalt)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -3929,6 +3937,10 @@ msgstr ""
 msgid "Empty"
 msgstr "Leer"
 
+#. Resource IDs: (1562)
+msgid "Enable Auto-Properties"
+msgstr "Auto-Eigenschaften aktivieren"
+
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr "Logpuffer aktivieren, um Log und Revisionsgraph zu beschleunigen"
@@ -4822,6 +4834,10 @@ msgstr "Gelöschte Zweige und Marken ausblenden"
 msgid "Hide docked window"
 msgstr "Angedocktes Fenster verbergen"
 
+#. Resource IDs: (1562)
+msgid "Hide non-mergeable revisions"
+msgstr "Nicht zusammenführbare Revisionen ausblenden"
+
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
 msgstr "M&arken verbergen"
@@ -5024,6 +5040,10 @@ msgstr "ID:57604:V CS+S"
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
 msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57634; ''
+msgid "ID:57634:V CS+C"
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"

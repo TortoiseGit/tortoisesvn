@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-18 12:57+0000\n"
+"PO-Revision-Date: 2011-03-22 15:39+0000\n"
 "Last-Translator: slabrou <stavros.labrou@gmail.com>\n"
 "Language-Team: Greek <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1145,7 +1145,7 @@ msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Saturation:"
-msgstr ""
+msgstr "&Κορεσμός χρώματος:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -1165,7 +1165,7 @@ msgstr "&Αποθήκευση λίστας επιλεγμένων αρχείων
 
 #. Resource IDs: (1308)
 msgid "&Save value..."
-msgstr ""
+msgstr "&Αποθήκευση τιμής"
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1271,7 +1271,7 @@ msgstr "& Προς URL:"
 
 #. Resource IDs: (1305, 1384)
 msgid "&To path:"
-msgstr ""
+msgstr "&Σε κατάλογο:"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -1469,9 +1469,17 @@ msgstr "(χωρίς τιμή)"
 msgid "(not found)"
 msgstr "(δεν βρέθηκε)"
 
+#. Resource IDs: (176)
+msgid "(properties only)"
+msgstr ""
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(αλλαγή ιδιότητας μόνο)"
+
+#. Resource IDs: (176)
+msgid "(props and content)"
+msgstr ""
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -1885,6 +1893,8 @@ msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
 msgstr ""
+"Να επιτρέπεται διαφορετικές αποθήκες να χρησιμοποιούν το ίδιο URL, δηλ. "
+"http://localhost/myrepos/"
 
 #. Resource IDs: (345)
 msgid ""
@@ -1982,7 +1992,7 @@ msgstr ""
 
 #. Resource IDs: (313)
 msgid "Apply Patch..."
-msgstr ""
+msgstr "Εφαρμογή διόρθωσης..."
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
@@ -2019,7 +2029,7 @@ msgstr "&Κάθετη Διάταξη"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr ""
+msgstr "Όπως &είναι (χωρίς συγκεκριμένο τέλος γραμμής)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2142,7 +2152,7 @@ msgstr "Πίσω"
 
 #. Resource IDs: (65535)
 msgid "Background"
-msgstr ""
+msgstr "Φόντο"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2906,6 +2916,7 @@ msgstr "Διιστάσεις: %d"
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
 msgstr ""
+"Σύνδεηση στο διακομιστή αποθηκών και λήψη χαμένων δεδομένων καταγραφής"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -3018,7 +3029,7 @@ msgstr "Αντιγραφή και μετονομασία αντικειμένω�
 
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
-msgstr ""
+msgstr "Αντιγραφή στήλης στο πρόχειρο"
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
@@ -3178,12 +3189,12 @@ msgstr ""
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace '%s' because"
-msgstr ""
+msgstr "Δεν μπορεί να αντικατασταθεί '%s' γιατί"
 
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace property '%1!s!' on '%2!s!' because"
-msgstr ""
+msgstr "Δεν μπορεί να αντικατασταθεί η ιδιότητα '%1!s!' on '%2!s!' γιατί"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3214,6 +3225,8 @@ msgid ""
 "Could not start diff viewer!\n"
 "%s"
 msgstr ""
+"Δεν μπορεί να ανοίξει ο επεξεργαστής διαφορών!\n"
+"%s"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3243,6 +3256,8 @@ msgid ""
 "Could not start text viewer!\n"
 "%s"
 msgstr ""
+"Δεν μπορεί να ανοίξει ο κειμενογράφος!\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not start thread!"
@@ -3250,7 +3265,7 @@ msgstr "Δεν γινόταν να ξεκινίσει η διεργασία!"
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
-msgstr ""
+msgstr "Δημιουργία &βιβλιοθήκης"
 
 #. Resource IDs: (13)
 msgid "Create &patch..."
@@ -3864,6 +3879,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Άδειο"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-Properties"
+msgstr ""
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4701,6 +4720,10 @@ msgstr "Απόκρυψη των σβησμένων κλάδων και ετικ�
 msgid "Hide docked window"
 msgstr "Απόκρυψη παράπλευρων παραθύρων"
 
+#. Resource IDs: (1562)
+msgid "Hide non-mergeable revisions"
+msgstr ""
+
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
 msgstr ""
@@ -4903,6 +4926,10 @@ msgstr "ID:57604:V CS+S"
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
 msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57634; ''
+msgid "ID:57634:V CS+C"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"

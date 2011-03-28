@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:36+0000\n"
+"PO-Revision-Date: 2011-03-24 09:21+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1460,9 +1460,17 @@ msgstr "(값이 없음)"
 msgid "(not found)"
 msgstr "(없음)"
 
+#. Resource IDs: (176)
+msgid "(properties only)"
+msgstr "(속성들만)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(속성만 변경)"
+
+#. Resource IDs: (176)
+msgid "(props and content)"
+msgstr "(속성들과 내용)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -3080,7 +3088,6 @@ msgstr "'%s' 을/를 추가할 수 없습니다. 사유:"
 #, c-format
 msgid "Could not add property '%1!s!' on '%2!s!' because"
 msgstr ""
-"'%2!s!'에 '%1!s!' 속성을 추가할 수 없습니다. 사유:속성 '%s' ('%s' 소유)을/를 추가할 수 없습니다. 사유:"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -3862,6 +3869,10 @@ msgstr ""
 msgid "Empty"
 msgstr "비어있음"
 
+#. Resource IDs: (1562)
+msgid "Enable Auto-Properties"
+msgstr "자동-속성들 활성화"
+
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr "로그 보기와 리비전 그래프 다이얼로그의 스피드를 증가시키기 위해 로그 캐싱를 활성화합니다"
@@ -4193,7 +4204,7 @@ msgstr "강제로 병합하기(&O)"
 
 #. Resource IDs: (1070)
 msgid "Fade"
-msgstr ""
+msgstr "페이드"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4745,6 +4756,10 @@ msgstr "삭제된 브랜치나 태그를 숨기기"
 msgid "Hide docked window"
 msgstr "붙어있는 윈도우를 숨기기"
 
+#. Resource IDs: (1562)
+msgid "Hide non-mergeable revisions"
+msgstr "병합할 수 없는 리비전들 숨기기"
+
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
 msgstr "태그 숨기기(&G)"
@@ -4943,6 +4958,10 @@ msgstr "ID:57604:V CS+S"
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
 msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57634; ''
+msgid "ID:57634:V CS+C"
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
@@ -6429,6 +6448,8 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
+"주의: 작업 사본을 업그레이드한다면, SVN 클라이언트 1.7 이전 버전으로는 업그레이드된 작업 사본에 더 이상 접근할 수 없을 것입니다!\n"
+"정말로 이 작업 사본을 업그레이드하시겠습니까?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7648,7 +7669,7 @@ msgstr "재시도"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "역방향으로 병합된 리비스 %s (%s로 부터)"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8575,7 +8596,7 @@ msgstr "없는 개체는 건너뜀"
 
 #. Resource IDs: (1070)
 msgid "Slide"
-msgstr ""
+msgstr "슬라이드"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10520,6 +10541,8 @@ msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
 msgstr ""
+"활설화되면, 컨텍스트 메뉴에 추가된 TortoiseSVN 메뉴를 보기 위해서 오른쪽 버튼을 클릭할 때, SHIFT 키를 누르고 "
+"있으십시오."
 
 #. Resource IDs: (344)
 msgid ""

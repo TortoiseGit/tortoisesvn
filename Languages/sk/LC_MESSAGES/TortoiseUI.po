@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-04 18:36+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-03-26 14:37+0000\n"
+"Last-Translator: otik <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1465,9 +1465,17 @@ msgstr "(bez hodnoty)"
 msgid "(not found)"
 msgstr "(nenájdené)"
 
+#. Resource IDs: (176)
+msgid "(properties only)"
+msgstr "(iba vlastnosti)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(zmenená iba vlastnosť)"
+
+#. Resource IDs: (176)
+msgid "(props and content)"
+msgstr "(vlastnosti a obsah)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -2551,7 +2559,7 @@ msgstr "Vybrať položku:"
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr ""
+msgstr "Vybrať objekty ..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3136,7 +3144,7 @@ msgstr "%1 nemohol byť vytvorený, pretože je plný adresár."
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť dočasný adresár!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3373,7 +3381,7 @@ msgstr "Prispôsobenie"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
-msgstr ""
+msgstr "Voliteľná hĺbka"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -3904,6 +3912,10 @@ msgstr ""
 msgid "Empty"
 msgstr "Prázdne"
 
+#. Resource IDs: (1562)
+msgid "Enable Auto-Properties"
+msgstr "Povoliť automatické vlastnosti"
+
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr "Povoliť zásobník denníka na zrýchlenie dialógov denníka a  grafu"
@@ -4238,7 +4250,7 @@ msgstr "&Vynútiť zlúčenie"
 
 #. Resource IDs: (1070)
 msgid "Fade"
-msgstr ""
+msgstr "Zoslabiť"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4778,7 +4790,7 @@ msgstr "Skryť &vymazané cesty"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
-msgstr ""
+msgstr "Skryť ponuku pre neverziované cesty"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -4795,6 +4807,10 @@ msgstr "Skryť vymazané vetvy a značky"
 #. Resource IDs: (1001)
 msgid "Hide docked window"
 msgstr "Skryť zakotvené okno"
+
+#. Resource IDs: (1562)
+msgid "Hide non-mergeable revisions"
+msgstr "Skryť nezlučiteľné revízie"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -4977,7 +4993,7 @@ msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID: 32883: VC +"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -4996,6 +5012,10 @@ msgstr "ID:57604:V CS+S"
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
 msgstr "ID:57634:V C +C"
+
+#. Accelerator Entry for Menu ID:57634; ''
+msgid "ID:57634:V CS+C"
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
@@ -6508,6 +6528,10 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
+"Upozornenie: ak aktualizujete vašu pracovnú kópiu na vyššiu verziu, nebudete"
+" môcť získať prístup k takto modernizovanej pracovnej kópii s klientmi SVN "
+"pre verziou 1.7! Naozaj chcete vykonať modernizovanie na tejto pracovnej "
+"kópii?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7736,7 +7760,7 @@ msgstr "Znova"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "Spätne zlúčená(é) revízia(e) %s z %s:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -7909,7 +7933,7 @@ msgstr "Riadok hore"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr ""
+msgstr "Spustiť čistenie &teraz"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -8692,7 +8716,7 @@ msgstr "Zdrojová URL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr ""
+msgstr "Rozptílená aktualizácia %1!s!, hĺbka \"%2!s!\""
 
 #. Resource IDs: (196)
 msgid ""
@@ -8951,7 +8975,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion oznámil chybu:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9775,6 +9799,8 @@ msgid ""
 "This product includes software from Apache™ Subversion® "
 "(http://subversion.apache.org)"
 msgstr ""
+"Tento produkt obsahuje softvér od Apache™ Subversion® "
+"(http://subversion.apache.org)"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10313,7 +10339,7 @@ msgstr "Aktualizuje pracovnú kópiu na aktuálnu revíziu"
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr ""
+msgstr "Aktualizovanie"
 
 #. Resource IDs: (226)
 #, c-format
@@ -10667,6 +10693,8 @@ msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
 msgstr ""
+"Keď je aktivné podržte pri stlačení pravého tlačítka myši klávesu SHIFT, aby"
+" ste do kontextového menu pridali TortoiseSVN menu."
 
 #. Resource IDs: (344)
 msgid ""
@@ -11241,6 +11269,9 @@ msgid ""
 "old size: %s\r\n"
 "change: %s"
 msgstr ""
+"aktuálna veľkosť: %s\n"
+"stará veľkosť: %s\n"
+"zmena(rozdiel): %s"
 
 #. Resource IDs: (245)
 msgid "day"

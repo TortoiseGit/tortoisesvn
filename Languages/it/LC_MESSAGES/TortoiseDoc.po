@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-18 19:40+0000\n"
+"PO-Revision-Date: 2011-03-25 19:14+0000\n"
 "Last-Translator: RobertoCaszza <roberto.casazza@alice.it>\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -415,6 +415,13 @@ msgid ""
 " a base for TortoiseSVN. He then started the project, registered the domain "
 "<literal>tortoisesvn.org</literal> and put the source code online."
 msgstr ""
+"Nel 2002 Tim Kemp si accorse che non esisteva un client per Subversion con "
+"un'interfaccia utente valida, sebbene questo fosse un ottimo tool. L'idea di"
+" creare un client di Subversion come estensione della shell di Windows fu "
+"suggerita da un client per CVS simile, chiamato TortoiseCVS. Tim studiò il "
+"codice sorgente di TortoiseCVS e lo usò come base di partenza per "
+"TortoiseSVN. Quindi avviò il progetto, registrò il dominio  "
+"<literal>tortoisesvn.org</literal> e mise il codice sorgente online."
 
 #. (para)
 msgid ""
@@ -425,6 +432,12 @@ msgid ""
 "commands and features, up to a point where nothing of the original code "
 "remained."
 msgstr ""
+"In quel periodo, Stefan Küng stava ricercando un tool per il controllo di "
+"versione valido e gratuito e trovò Subversion e il codice sorgente di "
+"TortoiseSVN. Dal momento che TortoiseSVN non era ancora pronto per l'uso, si"
+" unì al progetto e iniziò a programmare. In breve riscrisse la maggior parte"
+" del codice esistente e iniziò ad aggiungere comandi e funzionalità, fino al"
+" punto che non rimase più nulla del codice originale."
 
 #. (para)
 msgid ""
@@ -434,94 +447,108 @@ msgid ""
 " help out with some nice icons and a logo for TortoiseSVN. He now takes care"
 " of the website and manages the many translations."
 msgstr ""
+"Appena Subversion divenne più stabile, attirò sempre più utenti che pure "
+"iniziarono ad usare TortoiseSVN come client per Subversion. Gli utilizzatori"
+" crebbero rapidamente (e stanno ancora crescendo ogni giorno). Fu allora che"
+" Lübbe Onken offrì il suo aiuto aggiungendo diverse spendide icone e un logo"
+" per TortoiseSVN. Ora sta curando il sito web e organizza molte traduzioni."
 
 #. (title)
 msgid "Acknowledgments"
-msgstr ""
+msgstr "Ringraziamenti"
 
 #. (term)
 msgid "Tim Kemp"
-msgstr ""
+msgstr "Tim Kemp"
 
 #. (para)
 msgid "for starting the TortoiseSVN project"
-msgstr ""
+msgstr "per aver dato inizio al progetto TortoiseSVN"
 
 #. (term)
 msgid "Stefan Küng"
-msgstr ""
+msgstr "Stefan Küng"
 
 #. (para)
 msgid ""
 "for the hard work to get TortoiseSVN to what it is now, and his leadership "
 "of the project"
 msgstr ""
+"per il duro lavoro fatto per rendere TortoiseSVN ciò che è diventato e per "
+"la sua leadership nel progetto"
 
 #. (term)
 msgid "Lübbe Onken"
-msgstr ""
+msgstr "Lübbe Onken"
 
 #. (para)
 msgid ""
 "for the beautiful icons, logo, bug hunting, translating and managing the "
 "translations"
 msgstr ""
+"per le bellisime icone, per il logo, per la correzione di bug, per aver "
+"fatto e organizzato traduzioni"
 
 #. (term)
 msgid "Simon Large"
-msgstr ""
+msgstr "Simon Large"
 
 #. (para)
 msgid "for maintaining the documentation"
-msgstr ""
+msgstr "per la manutenzione della documentazione"
 
 #. (term)
 msgid "Stefan Fuhrmann"
-msgstr ""
+msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
-msgstr ""
+msgstr "per la cache dei log ed il grafo delle revisioni"
 
 #. (term)
 msgid "The Subversion Book"
-msgstr ""
+msgstr "Il Libro di Subversion"
 
 #. (para)
 msgid ""
 "for the great introduction to Subversion and its chapter 2 which we copied "
 "here"
 msgstr ""
+"per la grandiosa introduzione a Subversion e il suo capitolo 2 che abbiamo "
+"copiato qui"
 
 #. (term)
 msgid "The Tigris Style project"
-msgstr ""
+msgstr "Il progetto Tigris Style"
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
 msgstr ""
+"per alcuni degli stili che sono stati riutilizzati in questa documentazione"
 
 #. (term)
 msgid "Our Contributors"
-msgstr ""
+msgstr "I Nostri Collaboratori"
 
 #. (para)
 msgid ""
 "for the patches, bug reports and new ideas, and for helping others by "
 "answering questions on our mailing list"
 msgstr ""
+"per le patch, le segnalazioni di bug e le nuove idee, e per aver aiutato gli"
+" altri rispondendo alle domande nella nostra mailing list"
 
 #. (term)
 msgid "Our Donators"
-msgstr ""
+msgstr "I Nostri Sostenitori"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr ""
+msgstr "per le ore di gioia con la musica che ci hanno mandato"
 
 #. (title)
 msgid "Reading Guide"
-msgstr ""
+msgstr "Guida alla Lettura"
 
 #. (para)
 msgid ""
@@ -530,6 +557,11 @@ msgid ""
 "line client. TortoiseSVN is a windows shell extension and it is assumed that"
 " the user is familiar with the windows explorer and how to use it."
 msgstr ""
+"Questo libro è scritto per persone con conoscenze di informatica che "
+"vogliono usare Subversion per gestire i propri dati, ma preferiscono usare "
+"un'interfaccia grafica piuttosto che la linea di comando. TortoiseSVN è "
+"un'estensione della shell di Windows e si presume che l'utente sia abituato "
+"all'uso di explorer e sappia come usarlo."
 
 #. (para)
 msgid ""
@@ -537,12 +569,17 @@ msgid ""
 " about the TortoiseSVN project and the community of people who work on it, "
 "and the licensing conditions for using it and distributing it."
 msgstr ""
+"Questa <xref linkend=\"tsvn-preface\"/> spiega cos'è il progetto "
+"TortoiseSVN, qualcosa sul progetto TortoiseSVN e sulla community di persone "
+"che ci lavorano, le condizioni di licenza e di distribuzione."
 
 #. (para)
 msgid ""
 "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN"
 " on your PC, and how to start using it straight away."
 msgstr ""
+"La <xref linkend=\"tsvn-quick-start\"/> spiega come installare TortoiseSVN "
+"sul tuo PC e come iniziare ad usarlo in un lampo."
 
 #. (para)
 msgid ""
@@ -2616,6 +2653,17 @@ msgid ""
 "Microsoft now recommend services to be run as under either the Local Service or Network Service account. Refer to <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>. To create the service under the Local Service account, append the following to the example above. <screen>\n"
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen> Note that you would have to give the Local Service account appropriate rights to both Subversion and your repositories, as well as any applications which are used by hook scripts. The built-in group for this is called \"LOCAL SERVICE\"."
+msgstr ""
+
+#. (para)
+msgid ""
+"To give the Local Service or Network Service account full access to the "
+"folder where you store your repositories and/or your hook scripts, follow "
+"the instructions in the <ulink "
+"url=\"http://support.microsoft.com/kb/308419\"><citetitle>knowledge base "
+"article kb308419</citetitle></ulink> If you fail to set the permissions, you"
+" will get <literal>access denied</literal> errors when you try to access the"
+" repository!"
 msgstr ""
 
 #. (para)
@@ -17722,10 +17770,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To create an image file without showing the graph, pass "
-"<option>/output:path</option> with the path to the output file. The output "
-"file must have an extension that the revision graph can actually export to. "
-"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+"To create an image file of the revision graph for a specific path, but "
+"without showing the graph window, pass <option>/output:path</option> with "
+"the path to the output file. The output file must have an extension that the"
+" revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, "
+".bmp and .gif."
 msgstr ""
 
 #. (para)

@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-18 00:01+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-03-27 19:36+0000\n"
+"Last-Translator: field977 <field977@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,6 +103,11 @@ msgid ""
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
 msgstr ""
+"TortoiseSVN 是一个 Windows 下的版本控制系统 <firstterm>Apache™ Subversion®</firstterm> "
+"的客户端工具。就是说，TortoiseSVN "
+"常年管理文件和目录。文件存储于一个中央<firstterm>版本库</firstterm>中。版本库就像一个常见的文件服务器，除了它保存你对文件和目录所有的改变"
+"。这一特性使得你可以恢复文件的旧版本并查看历史-谁在什么时间如何进行的修改。这就是为什么很多人认为 Subversion "
+"和版本控制系统是一种<quote>时间机器</quote>。"
 
 #. (para)
 msgid ""
@@ -147,6 +152,8 @@ msgid ""
 "familiar with. And you do not have to change into a different application "
 "each time you need the functions of version control."
 msgstr ""
+"TortoiseSVN 无缝地整合进 Windows "
+"的外壳(例如资源管理器)。这意味着你可以继续使用已经熟悉的工具。而且当需要版本控制功能时你不用切换到不同的应用程序。"
 
 #. (para)
 msgid ""
@@ -157,6 +164,9 @@ msgid ""
 " the Windows Explorer. Thus it is possible that in other applications the "
 "integration is not as complete and e.g. the icon overlays may not be shown."
 msgstr ""
+"而且你并没有被限制在 Windows 资源管理器中; TortoiseSVN 的右键菜单可以在很多其它文件管理器中以及标准 Windows 程序的 "
+"文件/打开 对话框中被调出。不过，你应该记住 TortoiseSVN 是专门作为 Windows "
+"资源管理器的扩展进行开发的。因此，有可能在其它程序中整合的不那么完整，例如重载图标可能不显示。"
 
 #. (term)
 msgid "Icon overlays"
@@ -178,7 +188,7 @@ msgid ""
 "When you list the changes to a file or folder, you can click on a revision "
 "to see the comments for that commit. You can also see a list of changed "
 "files - just double click on a file to see exactly what changed."
-msgstr ""
+msgstr "当你列出文件或文件夹的更改时，你可以点击任意版本查看提交注释。也可以看到更改过的文件列表 - 只要双击文件就可以查看更改内容。"
 
 #. (para)
 msgid ""
@@ -187,6 +197,7 @@ msgid ""
 " Unversioned files can also be listed, in case you forgot to add that new "
 "file."
 msgstr ""
+"提交对话框列出了本次提交将要包括的条目，每一个条目有一个复选框，所以你可以选择包括哪些条目。未版本控制的文件也会被列出，以防你忘记添加新文件。"
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -293,7 +304,7 @@ msgstr ""
 
 #. (title)
 msgid "License"
-msgstr ""
+msgstr "许可协议"
 
 #. (para)
 msgid ""
@@ -301,6 +312,8 @@ msgid ""
 " License (GPL). It is free to download and free to use, either personally or"
 " commercially, on any number of PCs."
 msgstr ""
+"TortoiseSVN 是一个基于 GNU 通用公共许可协议 (GPL) "
+"开发的开源软件。它可以免费下载和使用，无论是个人或是商业目的，并且没有安装数量的限制。"
 
 #. (para)
 msgid ""
@@ -311,17 +324,20 @@ msgid ""
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
 msgstr ""
+"尽管大多数人只下载安装文件，但你可以取得它的全部源代码。你可以访问以下链接得到源代码: <ulink "
+"url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>。我们当前正在开发的最新的版本放在"
+" <filename>/trunk/</filename> 目录下，而已发布版本放在 <filename>/tags/</filename> 下。"
 
 #. (title)
 msgid "Development"
-msgstr ""
+msgstr "开发"
 
 #. (para)
 msgid ""
 "Both TortoiseSVN and Subversion are developed by a community of people who "
 "are working on those projects. They come from different countries all over "
 "the world, working together to create great software."
-msgstr ""
+msgstr "TortoiseSVN 和 Subversion 均由参与项目工作的社区人员开发。他们来自于遍布全球的各个国家，一起致力于创造伟大的软件。"
 
 #. (title)
 msgid "TortoiseSVN's History"
@@ -336,6 +352,10 @@ msgid ""
 " a base for TortoiseSVN. He then started the project, registered the domain "
 "<literal>tortoisesvn.org</literal> and put the source code online."
 msgstr ""
+"2002年，Tim Kemp 发现 Subversion 是一个非常好的版本管理系统，但是缺乏一个好的图形界面客户端程序。做一个与 Windows "
+"外壳整合的 Subversion 客户端程序的想法是受一个叫 TortoiseCVS 的 CVS 客户端程序所启发的。Tim 研究了 "
+"TortoiseCVS 的源码并以此为 TortoiseSVN 的基础。他开始运作这个项目，注册了域名 "
+"<literal>tortoisesvn.org</literal> 并且将源码放在了网上。"
 
 #. (para)
 msgid ""
@@ -346,6 +366,9 @@ msgid ""
 "commands and features, up to a point where nothing of the original code "
 "remained."
 msgstr ""
+"就在同时， Stefan Küng 正在寻找一个好用的并且免费的版本控制系统。他找到了 Subversion 和 TortoiseSVN 的源码。因为 "
+"TortoiseSVN "
+"还不能使用，他加入了项目并开始编码。很快，他就重写了现有的大部分代码并开始添加命令和功能，到了某个时段，最初的代码已经都被改写了。"
 
 #. (para)
 msgid ""
@@ -355,6 +378,9 @@ msgid ""
 " help out with some nice icons and a logo for TortoiseSVN. He now takes care"
 " of the website and manages the many translations."
 msgstr ""
+"由于 Subversion 变得越来越稳定，它吸引了越来越多用户，他们同时也开始使用 TortoiseSVN 作为 Subversion "
+"的客户端程序。用户数量快速增长(并且每天还在增长)。这时候，Lübbe Onken 提出帮助项目提供精美的图标和 TortoiseSVN "
+"的标志。现在他负责照看网站和管理多语言翻译。"
 
 #. (title)
 msgid "Acknowledgments"
@@ -366,7 +392,7 @@ msgstr "Tim Kemp"
 
 #. (para)
 msgid "for starting the TortoiseSVN project"
-msgstr ""
+msgstr "启动 TortoiseSVN 项目"
 
 #. (term)
 msgid "Stefan Küng"
@@ -376,7 +402,7 @@ msgstr "Stefan Küng"
 msgid ""
 "for the hard work to get TortoiseSVN to what it is now, and his leadership "
 "of the project"
-msgstr ""
+msgstr "辛苦工作使 TortoiseSVN 达到现在的样子，并领导整个项目。"
 
 #. (term)
 msgid "Lübbe Onken"
@@ -386,7 +412,7 @@ msgstr "Lübbe Onken"
 msgid ""
 "for the beautiful icons, logo, bug hunting, translating and managing the "
 "translations"
-msgstr "制作了漂亮的图标，Logo，跟踪错误，翻译并且维护翻译结果"
+msgstr "制作了漂亮的图标，标志，跟踪错误，翻译并且维护翻译结果"
 
 #. (term)
 msgid "Simon Large"
@@ -394,7 +420,7 @@ msgstr "Simon Large"
 
 #. (para)
 msgid "for maintaining the documentation"
-msgstr ""
+msgstr "维护文档"
 
 #. (term)
 msgid "Stefan Fuhrmann"
@@ -402,7 +428,7 @@ msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
-msgstr ""
+msgstr "日志缓存和版本图"
 
 #. (term)
 msgid "The Subversion Book"
@@ -430,7 +456,7 @@ msgstr "我们的贡献者"
 msgid ""
 "for the patches, bug reports and new ideas, and for helping others by "
 "answering questions on our mailing list"
-msgstr ""
+msgstr "提供了补丁、错误汇报及新的想法，并且在邮件列表上回答了其他人的问题"
 
 #. (term)
 msgid "Our Donators"
@@ -451,6 +477,8 @@ msgid ""
 "line client. TortoiseSVN is a windows shell extension and it is assumed that"
 " the user is familiar with the windows explorer and how to use it."
 msgstr ""
+"本手册是为那些想使用 Subversion 来管理数据，并且喜欢使用图形界面客户端程序替代命令行程序的电脑用户编写的。TortoiseSVN 是 "
+"Windows 外壳扩展，并且假设用户熟悉和使用 Windows 资源管理器。"
 
 #. (para)
 msgid ""
@@ -458,12 +486,16 @@ msgid ""
 " about the TortoiseSVN project and the community of people who work on it, "
 "and the licensing conditions for using it and distributing it."
 msgstr ""
+"在 <xref linkend=\"tsvn-preface\"/> 一章里解释了什么是 TortoiseSVN，一些关于 TortoiseSVN "
+"项目和开发人员社区的消息，以及使用和分发它的许可条件。"
 
 #. (para)
 msgid ""
 "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN"
 " on your PC, and how to start using it straight away."
 msgstr ""
+"在 <xref linkend=\"tsvn-quick-start\"/> 一章里解释了如何在电脑中安装 "
+"TortoiseSVN，以及如何立刻开始使用。"
 
 #. (para)
 msgid ""
@@ -554,7 +586,7 @@ msgid ""
 "from the <emphasis>TortoiseSVN</emphasis> context menu."
 msgstr ""
 "菜单选择使用箭头显示。<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>显示日志</guimenuitem></menuchoice>的含义是:"
-" 从<emphasis>TortoiseSVN</emphasis>右键菜单选择<emphasis>显示日志</emphasis>。"
+" 从 <emphasis>TortoiseSVN</emphasis> 右键菜单选择<emphasis>显示日志</emphasis>。"
 
 #. (para)
 msgid ""
@@ -580,6 +612,9 @@ msgid ""
 " the right mouse button and while holding it down <emphasis>drag</emphasis> "
 "the items to the new location."
 msgstr ""
+"用户动作使用粗体字表示。<keycap>Alt+A</keycap>: 表示按住键盘上的 <keycap>Alt</keycap> 键同时按下 "
+"<keycap>A</keycap> 键。<action>右键拖拽</action>: "
+"表示按住鼠标右键同时<emphasis>拖拽</emphasis>条目到新位置。"
 
 #. (para)
 msgid ""
@@ -603,7 +638,7 @@ msgstr "操作时需要小心的地方。"
 msgid ""
 "Where extreme care has to be taken. Data corruption or other nasty things "
 "may occur if these warnings are ignored."
-msgstr ""
+msgstr "需要非常小心操作的地方。如果忽略警告内容将会导致数据损坏或其它严重后果。"
 
 #. (title)
 #. (title)
@@ -617,6 +652,8 @@ msgid ""
 "TortoiseSVN and set up a local repository, and it walks you through the most"
 " commonly used operations."
 msgstr ""
+"这一节面向那些想要了解 TortoiseSVN 的用途并且想试用一下它的人。介绍了如何安装 TortoiseSVN "
+"及设置本地版本库，还将展示最常用的操作。"
 
 #. (title)
 msgid "Installing TortoiseSVN"
@@ -634,6 +671,9 @@ msgid ""
 " to install the 32-bit version separately to get the TortoiseSVN context "
 "menu and overlays in 32-bit applications."
 msgstr ""
+"TortoiseSVN 运行于 Windows XP SP3 "
+"或更高版本，并支持32位和64位系统。64位的安装程序也包含了32位的扩展部件。这意味着你不需要额外安装32位版就可以在32位程序中使用 "
+"TortoiseSVN 右键菜单和图标重载。"
 
 #. (para)
 msgid ""
@@ -641,6 +681,8 @@ msgid ""
 "service pack 3 installed. It won't work if you haven't installed that SP "
 "yet!"
 msgstr ""
+"如果你使用 Windows XP，你<emphasis>必须</emphasis>安装 SP3 或以上版本的补丁。如果没有安装该 SP 补丁会导致 "
+"TortoiseSVN 无法运行。"
 
 #. (para)
 msgid ""
@@ -648,6 +690,8 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
 "can still download and install older versions if you need them."
 msgstr ""
+"自 1.2.0 版起放弃对 Windows 98， Windows ME 和 Windows NT 的支持。自 1.7.0 版起放弃对 Windows "
+"2000 和 XP SP2 的支持。如果需要，仍然可以下载、安装旧版本。"
 
 #. (title)
 msgid "Installation"
@@ -662,7 +706,7 @@ msgid ""
 "TortoiseSVN comes with an easy to use installer. Double click on the "
 "installer file and follow the instructions. The installer will take care of "
 "the rest. Don't forget to reboot after installation."
-msgstr ""
+msgstr "TortoiseSVN 以简单易用的安装包的形式发布。双击安装文件并按照提示操作。安装文件会照顾其余的事情。安装结束后不要忘记重启电脑。"
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
@@ -674,6 +718,8 @@ msgid ""
 "into many different languages. Please check <xref linkend=\"tsvn-lang\"/> "
 "for more information on how to install these."
 msgstr ""
+"TortoiseSVN 提供语言补丁(Language pack)，它可以将用户界面翻译成多种文字。请查看 <xref linkend=\"tsvn-"
+"lang\"/> 获得更多关于安装语言补丁的信息。"
 
 #. (para)
 msgid ""
@@ -681,6 +727,8 @@ msgid ""
 "refer to our online FAQ at <ulink "
 "url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
 msgstr ""
+"如果在安装 TortoiseSVN 过程中或结束后遇到任何问题，情参考我们的在线常见问题: <ulink "
+"url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>"
 
 #. (title)
 msgid "Basic Concepts"
@@ -690,7 +738,7 @@ msgstr "基本概念"
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how subversion works and the terms that are used."
-msgstr ""
+msgstr "在我们开始实地操作之前，非常有必要对 subversion 如何工作和用到的术语做一个大致了解。"
 
 #. (term)
 #. (title)
@@ -709,6 +757,10 @@ msgid ""
 "thing, back up your repository as it is the definitive master copy of all "
 "your data."
 msgstr ""
+"Subversion "
+"使用集中的数据库，它包含了所有的版本控制文件及其完整历史。这个数据库就是<emphasis>版本库</emphasis>。版本库通常位于运行 "
+"Subversion 服务器的文件服务器上，向 Subversion 客户端(例如 "
+"TortoiseSVN)提供需要的数据。如果只备份一个东西，请备份版本库，因为它是你数据的主副本。"
 
 #. (term)
 #. (glossterm)
@@ -723,6 +775,7 @@ msgid ""
 "anyone else, then when you are happy with the changes you made commit them "
 "back to the repository."
 msgstr ""
+"这是实际工作的地方。每一个开发者在自己的电脑上都有属于自己的工作副本，有时可以将其理解为沙箱。你可以将最新的版本从版本库上取下来，在本地的副本上工作而不影响其他人，如果对更改满意就可以将其提交到版本库中。"
 
 #. (para)
 msgid ""
@@ -731,6 +784,8 @@ msgid ""
 "started making changes. This means that it is easy to check exactly what "
 "changes you have made."
 msgstr ""
+"Subversion 工作副本不包含项目的历史， "
+"但是它保存了你修改前的本件的副本，就像这些文件在版本库中的状态一样。这意味着你可以轻而易举的准确检查出都做了哪些改动。"
 
 #. (title)
 #. (title)
@@ -745,10 +800,12 @@ msgid ""
 " and you should see some new entries in the context menu like this: "
 "<placeholder-1/>"
 msgstr ""
+"你还要知道从哪里开始运行 TortoiseSVN，因为在开始菜单中看不到。这是因为 TortoiseSVN 是一个外壳扩展，所以第一步，打开 "
+"Windows 资源管理器。在资源管理器中用右键单击一个文件夹，然后就会发现在右键菜单中出现一些新的条目，就像这样: <placeholder-1/>"
 
 #. (title)
 msgid "Go for a Test Drive"
-msgstr ""
+msgstr "开始试用"
 
 #. (para)
 msgid ""
@@ -759,10 +816,13 @@ msgid ""
 "you through things in much more detail. It also explains more about setting "
 "up a proper Subversion server."
 msgstr ""
+"这一节通过一个小的实验版本库向你展示如何开始一些最普通的用途。实际上这里没有介绍全部功能 - "
+"这只是一个快速开始向导而已。一旦你开始使用，你应该花点时间读一下本手册的其它部分，在那里将会详细地介绍本软件的方方面面。也会介绍更多关于设置一个全功能 "
+"Subversion 服务器的内容。"
 
 #. (title)
 msgid "Creating a Repository"
-msgstr ""
+msgstr "创建版本库"
 
 #. (para)
 msgid ""
@@ -772,6 +832,8 @@ msgid ""
 "access to a repository created on your hard drive without needing a server "
 "at all."
 msgstr ""
+"对于一个实际的项目，需要在一个安全的地方创建版本库并设置 Subversion 服务器来控制它。而对于本教程而言，我们将会使用 Subversion "
+"的本机版本库功能，该特性使得用户可以直接访问本机硬盘上的版本库而不需要服务器。"
 
 #. (para)
 msgid ""
@@ -782,6 +844,10 @@ msgid ""
 "here...</guimenuitem></menuchoice>. The repository is then created inside "
 "the folder, ready for you to use."
 msgstr ""
+"首先在电脑中新建一个空文件夹。可以在任何地方创建，不过在本教程中将会使用: <filename>C:\\svn_repos</filename>。 "
+"现在用右键单击新文件夹并选择右键菜单中的 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository "
+"here...</guimenuitem></menuchoice>。版本库这就建好了，马上就可以使用。"
 
 #. (para)
 msgid ""
@@ -793,10 +859,13 @@ msgid ""
 "repository-local-share\"/> to find out why this is a bad idea, and how to "
 "set up a server."
 msgstr ""
+"对于测试和评估用途来说，本机版本库功能非常有用，但除非你是一个只使用自己电脑进行独自工作的开发者，否则你应该使用全功能的 Subversion "
+"服务器。有些小公司为了避免设置服务器的工作，就通过网络共享来存取版本库。不要这样做。这样会丢失数据。阅读 <xref linkend=\"tsvn-"
+"repository-local-share\"/> 了解为什么这是一个坏主意，以及如何设置服务器。"
 
 #. (title)
 msgid "Importing a Project"
-msgstr ""
+msgstr "导入项目"
 
 #. (title)
 #. (title)
@@ -817,6 +886,13 @@ msgid ""
 "there are 3 slashes after <filename>file:</filename> and that the forward "
 "slashes are used throughout."
 msgstr ""
+"现在我们有了版本库，但是它还是空的。假设我有一组文件放在 <filename>C:\\Projects\\Widget1</filename> "
+"，我想要将其添加到版本库中。在资源管理器中找到 <filename>Widget1</filename> 文件夹，并且用右键单击它。选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>导入...</guimenuitem></menuchoice>，这将会打开一个对话框"
+" <placeholder-1/> Subversion 版本库使用 URL "
+"定位，我们可以指定因特网上任意地方的版本库。在这个例子中，我们需要指定本机版本库，它的 URL 是: "
+"<filename>file:///c:/svn_repos/Widget1</filename> 。注意，在 "
+"<filename>file:</filename> 后面有 3 条斜线并且全都是正斜线。"
 
 #. (para)
 msgid ""
@@ -828,10 +904,12 @@ msgid ""
 "project</quote>. Click on <guibutton>OK</guibutton> and the folder is added "
 "to your repository."
 msgstr ""
+"这个对话框中另一个重要的功能就是<guilabel>导入信息</guilabel>文本框，你可以输入一段信息来描述你的操作。当你查看项目的历史时，这些提交信息是记录了你修改什么和为什么修改的宝贵资料。在这个例子中，我们可以简单的写一下，例如<quote>导入"
+" Widget1 项目</quote>。点击<guibutton>确定</guibutton>，文件夹就加入到版本库中了。"
 
 #. (title)
 msgid "Checking out a Working Copy"
-msgstr ""
+msgstr "检出工作副本"
 
 #. (para)
 msgid ""
@@ -849,6 +927,13 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr ""
+"现在我们有一个项目在版本库中，我们需要为日复一日的工作创建一个工作副本。注意，导入一个文件夹并不会自动地将该文件夹转换为工作副本。创建一个全新工作副本的"
+" Subversion 术语叫<literal>检出</literal>。我们将要从版本库中检出文件夹 widget1 "
+"到本机开发用的文件夹中，将该文件夹命名为: "
+"<filename>C:\\Projects\\Widget1-Dev</filename>。创建这个文件夹，然后用右键单击该文件夹选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检出...</guimenuitem></menuchoice>。输入需要检出的"
+" URL，在这个例子中就是 <filename>file:///c:/svn_repos/Widget1</filename> 然后单击 "
+"<guibutton>确定</guibutton>。我们的开发文件夹此时就加入了来自版本库的文件。"
 
 #. (para)
 msgid ""
@@ -858,10 +943,12 @@ msgid ""
 "working copy. The green state indicates that the file is unchanged from the "
 "version in the repository."
 msgstr ""
+"你会注意到，这个文件夹看起来与我们原来的文件夹不一样。每一个文件的左下角都有一个绿色的对钩。它们就是只出现在工作副本中的 TortoiseSVN "
+"状态图标。绿色的图标表示文件未被修改，和版本库中的文件版本一致。"
 
 #. (title)
 msgid "Making Changes"
-msgstr ""
+msgstr "进行修改"
 
 #. (para)
 msgid ""
@@ -871,10 +958,13 @@ msgid ""
 "files have now changed to red, indicating that changes have been made "
 "locally."
 msgstr ""
+"工作时间到了。 在 <filename>Widget-Dev</filename> 中，我们开始编辑文件 - 假设我们对 "
+"<filename>Widget1.c</filename> 和 <filename>ReadMe.txt</filename> "
+"进行了修改。注意，这些文件的重载图标变成了红色，这说明本机文件被修改了。"
 
 #. (title)
 msgid "File Difference Viewer"
-msgstr ""
+msgstr "文件差异查看器"
 
 #. (para)
 msgid ""
@@ -884,6 +974,9 @@ msgid ""
 " TortoiseSVN's file compare tool starts, showing you exactly which lines "
 "have changed. <placeholder-1/>"
 msgstr ""
+"但是我们做了哪些更改？右键单击任意一个修改过的文件然后选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>比较差异</guimenuitem></menuchoice>。启动"
+" TortoiseSVN 的文件比较工具，准确地显示哪些行被修改了。 <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -897,10 +990,14 @@ msgid ""
 " change is all about and click on <guibutton>OK</guibutton>. The progress "
 "dialog shows the files being uploaded to the repository and you're done."
 msgstr ""
+"好的，我们对这些更改很满意，让我们更新版本库。这个动作叫 <literal>提交</literal> 更改。右键单击文件夹 "
+"<filename>Widget1-Dev</filename> 然后选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>提交</guimenuitem></menuchoice>。提交对话框列出了修改过的文件，每一个都有一个复选框。你可以选中列表中的部分文件，但在这个例子中我们将要提交全部修改过文件。输入一段信息来描述做了什么修改然后单击"
+" <guibutton>确定</guibutton>。进度对话框显示被上传到版本库中的文件并且完成提交。"
 
 #. (title)
 msgid "Adding More Files"
-msgstr ""
+msgstr "添加更多的文件"
 
 #. (para)
 msgid ""
@@ -913,6 +1010,11 @@ msgid ""
 "on the file itself and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
 msgstr ""
+"随着项目的发展，需要添加新文件 - 例如说你要添加新功能，有了新文件 <filename>Extras.c</filename> 还要在现有的文件 "
+"<filename>Makefile</filename> 中加入起对该文件的引用。右键单击文件夹然后选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>增加</guimenuitem></menuchoice>。"
+" 加入对话框显示了所有未被版本控制的文件，你可以选择哪些文件要被添加。另一个增加文件的方法是右键单击文件自身然后选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>加入</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -921,14 +1023,15 @@ msgid ""
 "<emphasis>Modified</emphasis>. Note that you can double click on the "
 "modified file to check exactly what changes were made."
 msgstr ""
+"现在当你提交文件夹时，新文件会显示为<emphasis>增加</emphasis>，原有的文件显示为<emphasis>修改</emphasis>。注意你可以双击修改的文件查看做了哪些改动。"
 
 #. (title)
 msgid "Viewing the Project History"
-msgstr ""
+msgstr "查看项目历史"
 
 #. (title)
 msgid "The Log Dialog"
-msgstr ""
+msgstr "日志对话框"
 
 #. (para)
 msgid ""
@@ -937,6 +1040,8 @@ msgid ""
 " detailed commit messages that you entered ;-) <placeholder-1/> OK, so I "
 "cheated a little here and used a screenshot from the TortoiseSVN repository."
 msgstr ""
+"TortoiseSVN 最有用的功能之一便是日志对话框。它显示针对文件或文件夹所有的提交记录列表，并显示提交者输入的那些详细的提交信息。 ;-) "
+"<placeholder-1/> 好吧，我在这里小小的作弊一下，使用一张显示 TortoiseSVN 版本库的屏幕截图。"
 
 #. (para)
 msgid ""
@@ -945,6 +1050,7 @@ msgid ""
 "show the full log message for that revision and the bottom pane will show a "
 "list of changed files and folders."
 msgstr ""
+"对话框的上部显示提交的版本列表以及提交信息的开头。如果选中版本列表中的任意一个，对话框的中部显示该版本完整的日志消息，对话框的底部显示更改的文件和文件夹列表。"
 
 #. (para)
 msgid ""
@@ -953,17 +1059,19 @@ msgid ""
 "click</action> on a file to see exactly what changes were made in that "
 "revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
 msgstr ""
+"对话框的每一部分都有右键菜单提供很多使用这些信息的方法。在底部可以 <action>双击</action> 文件来完整的查看该版本所做的修改。参阅 "
+"<xref linkend=\"tsvn-dug-showlog\"/> 获得完整的内容。"
 
 #. (title)
 msgid "Undoing Changes"
-msgstr ""
+msgstr "撤消更改"
 
 #. (para)
 msgid ""
 "One feature of all revision control systems is that they let you undo "
 "changes that you made previously. As you would expect, TortoiseSVN makes "
 "this easy to access."
-msgstr ""
+msgstr "所有的版本控制系统都有的功能就是让你可以撤销之前做的更改。如你预料的一样，TortoiseSVN 非常容易做到这一点。"
 
 #. (para)
 msgid ""
@@ -975,6 +1083,10 @@ msgid ""
 "get rid of just some of the changes, you can use TortoiseMerge to view the "
 "differences and selectively revert changed lines."
 msgstr ""
+"如果你想抛弃还没有提交的更改并将文件复原到修改之前的状态，<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>SVN"
+" 还原</guimenuitem></menuchoice> "
+"就是你的好伙伴。它抛弃了所做的更改(扔到回收站里)并复原到修改之前的版本。如果你想抛弃更改的一部分，可以使用 TortoiseMerge "
+"来查看区别并有选择的复原被修改的文件行。"
 
 #. (para)
 msgid ""
@@ -983,10 +1095,13 @@ msgid ""
 " Menu</guimenu><guimenuitem>Revert changes from this "
 "revision</guimenuitem></menuchoice> and those changes will be undone."
 msgstr ""
+"如果你要撤销某一个特定版本的影响，启动日志对话框，找到不想要的版本。选择 "
+"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>复原此版本作出的修改</guimenuitem></menuchoice>"
+" 然后这些更改就会被撤销。"
 
 #. (title)
 msgid "Moving On ..."
-msgstr ""
+msgstr "继续前进 ..."
 
 #. (para)
 msgid ""
@@ -996,6 +1111,9 @@ msgid ""
 "rest of this manual, especially <xref linkend=\"tsvn-dug\"/> which gives you"
 " a lot more detail on day-to-day operations."
 msgstr ""
+"这个向导提供一个非常短小的例子来展示 TortoiseSVN "
+"的最重要和最有用的功能，当然，这里很有很多内容没有被覆盖。我们强烈推荐你花点时间阅读这本手册剩余的部分，尤其是 <xref linkend"
+"=\"tsvn-dug\"/> ，这一章展示了很多日常工作的详细内容。"
 
 #. (para)
 msgid ""
@@ -1004,6 +1122,8 @@ msgid ""
 " don't be afraid to try things out on a test repository as you go along. The"
 " best way to learn is by using it."
 msgstr ""
+"我们已经不辞劳苦的确保本手册有丰富的信息并容易阅读，但我们也承认在使用过程中还有很多的困难! "
+"花点时间，独自用测试版本库练练手。最好的方法就是在实践中学习。"
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -1148,6 +1268,11 @@ msgid ""
 "release his lock. After Harry unlocks the file, his turn is over, and now "
 "Sally can take her turn by locking and editing."
 msgstr ""
+"许多版本控系统使用 <firstterm>锁定-修改-解锁</firstterm> "
+"模型来解决这个问题，这是一个简单的解决方案。在这种系统中，在同一时间版本库只允许一个用户修改一个文件。首先，Barry 必须在修改前 "
+"<emphasis>锁定</emphasis> 该文件。锁定文件有点像从图书馆结束; 如果 Harry 锁定了一个文件，那么 Sally "
+"就修改该文件。如果她试图锁定该文件，版本库会拒绝这个请求。她只能读取这个文件，并等待 Harry 结束修改并释放文件锁。在 Harry "
+"解锁文件后，他的任务就完成了，现在 Sally 可以接手工作 - 锁定并编辑文件。"
 
 #. (para)
 msgid ""
@@ -1211,8 +1336,9 @@ msgid ""
 " assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
 msgstr ""
-"Subversion，CVS 和一些版本控制系统使用<firstterm>复制-修改-"
-"合并</firstterm>模型，在这种模型里，每一个客户读取项目版本库建立一个私有<firstterm>工作副本</firstterm>&mdash;版本库中文件和目录的本地映射。用户并行工作，修改各自的工作副本，最终，各个私有的复制合并在一起，成为最终的版本，这种系统通常可以辅助合并操作，但是最终要靠人工去确定正误。"
+"Subversion，CVS 和一些版本控制系统使用 <firstterm>复制-修改-合并</firstterm> "
+"模型，在这种模型里，每一个客户读取项目版本库建立一个私有<firstterm>工作副本</firstterm> - "
+"版本库中文件和目录的本地映射。用户并行工作，修改各自的工作副本，最终，各个私有的复制合并在一起，成为最终的版本，这种系统通常可以辅助合并操作，但是最终要靠人工去确定正误。"
 
 #. (para)
 msgid ""
@@ -1228,6 +1354,12 @@ msgid ""
 "his own; so once he has both sets of changes integrated, he saves his "
 "working copy back to the repository."
 msgstr ""
+"这儿有一个例子。比如说 Harry 和 Sally "
+"参加同一个项目每人都有各自的工作副本，从同一个版本库复制出来的。他们同时工作，在自己的副本中修改同一个文件 "
+"<filename>A</filename>。Sally 先将她的更改保存到版本库中。 稍后，当 Harry 尝试提交他的更改时，版本库提示他的文件 A"
+" 已经<firstterm>过时</firstterm>。换句话说，自从他上次复制文件后，无论如何版本库中的文件 A 已经被修改了。所以 Harry "
+"要用客户端程序将版本库中文件 A 的新更改 <firstterm>合并</firstterm> 到他的工作副本中。碰巧的是 Sally "
+"的更改和他的不重合; 所以一旦他整合了两人的更改，他就可以把他的工作副本复制回版本库。"
 
 #. (title)
 msgid "...Copy-Modify-Merge Continued"
@@ -1348,6 +1480,9 @@ msgid ""
 "their own changes, Subversion provides you with commands to merge those "
 "changes into your working directory (by reading from the repository)."
 msgstr ""
+"当对工作副本中的文件做了一些更改并确认他们能够正常工作后，Subversion "
+"提供将这些更改<emphasis>公布</emphasis>给同项目的其他人员的命令(通过写入版本库)。如果其他人公布他们的更改，Subversion "
+"提供将这些更改合并到工作副本的命令(通过读取本版本库)。"
 
 #. (para)
 msgid ""
@@ -1399,6 +1534,8 @@ msgid ""
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
 msgstr ""
+"要获得工作副本，必须通过 <firstterm>检出</firstterm> 版本库中的某个子树。(术语 <emphasis>检出</emphasis>"
+" 听起来好像会锁定和保留资源，但实际上不是这样; 它只是给项目创建了一个私有的副本。)"
 
 #. (para)
 msgid ""
@@ -1551,6 +1688,13 @@ msgid ""
 "paths normally appear with three slashes, <systemitem "
 "class=\"url\">file:///path/to/repos</systemitem>."
 msgstr ""
+"对于大多数情况，Subversion 的 URL 使用标准格式，允许服务器名称和端口作为 URL "
+"的一部分明确的指出来。<literal>files://</literal> 访问方式一般用于本地访问，尽管它可以使用 UNC 路径来引用网络主机。因此"
+" URL 使用这种格式 <systemitem "
+"class=\"url\">file://hostname/path/to/repos</systemitem>。对于本机而言，URL 中的 "
+"<literal>hostname</literal> 部分必须省略或者使用 "
+"<literal>localhost</literal>。就是因为这个原因，本机路径通常含有 3 个斜线，<systemitem "
+"class=\"url\">file:///path/to/repos</systemitem>。"
 
 #. (para)
 msgid ""
@@ -1561,6 +1705,8 @@ msgid ""
 "URL path syntaxes will work where <literal>X</literal> is the drive on which"
 " the repository resides:"
 msgstr ""
+"同样，在 Windows 平台上使用 <literal>fiel://</literal> 方案的用户需要使用一种非官方的 "
+"<quote>标准</quote> 格式来访问哪些位于本机但是和客户端当前运行的硬盘分区不同的分区中的版本库。"
 
 #. (screen)
 #, no-wrap
@@ -1846,6 +1992,9 @@ msgid ""
 "plausible way automatically, it leaves it to the user to resolve the "
 "conflict."
 msgstr ""
+"这个文件在工作副本和版本库中都被修改了。<command>提交</command> 该文件将会因为 <emphasis>过时</emphasis> "
+"而失败。该文件应该先更新; <command>更新</command> 命令将会尝试合并公共更改和本机更改。如果 Subversion "
+"不能顺利的自动完成合并，则需要用户解决冲突。"
 
 #. (title)
 msgid "Summary"
@@ -1909,6 +2058,12 @@ msgid ""
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
 msgstr ""
+"你可以创建一个使用 FSFS 后台数据格式的版本库，或者比较老的伯克利数据库(BDB)格式的版本库。 FSFS "
+"格式通常运行更快更易于管理，而且它可以运行于网络共享和 Windows 98 而不会出问题。BDB 格式曾经被认为更稳定，因为它使用的更久。但是因为 "
+"FSFS 在这个领域已经使用了很多年，BDB 现在有点弱了。参阅 Subversion 手册中的 <ulink url=\"http://svnbook"
+".red-"
+"bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>选择数据存储</citetitle></ulink>"
+" 一章获得更多信息。"
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
@@ -1972,6 +2127,8 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository "
 "here...</guimenuitem></menuchoice>."
 msgstr ""
+"<action>右键单击</action> 新建的文件夹并选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>在此创建版本库...</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -1987,6 +2144,8 @@ msgid ""
 "within the repository. Find out about layout options in <xref linkend"
 "=\"tsvn-repository-layout\"/>."
 msgstr ""
+"你会被询问是否要在版本库中创建目录结构。要获得关于目录结构的选项情参阅 <xref linkend=\"tsvn-repository-"
+"layout\"/>。"
 
 #. (para)
 msgid ""
@@ -1994,6 +2153,7 @@ msgid ""
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
 msgstr ""
+"TortoiseSVN 将会在创建版本库时为其设置一个特定的文件夹图标，便于辨别本地版本库。如果使用官方的命令行客户端创建版本库则不会设置文件夹图标。"
 
 #. (para)
 msgid ""
@@ -2014,6 +2174,9 @@ msgid ""
 " <literal>svn://</literal>, <literal>http://</literal> or "
 "<literal>https://</literal> protocols."
 msgstr ""
+"因为兼容性问题，TortoiseSVN 不支持使用 <literal>file://</literal> 方式访问 BDB 版本库。不过通过 "
+"<literal>svn://</literal> ， <literal>http://</literal> 或 "
+"<literal>https://</literal> 协议访问位于服务器端的 BDB 格式版本库肯定是长期支持的。"
 
 #. (para)
 msgid ""
@@ -2021,6 +2184,8 @@ msgid ""
 "access at all, apart from local testing purposes. Using a server is more "
 "secure and more reliable for all but single-developer use."
 msgstr ""
+"当然，我们推荐你根本就不要使用 <literal>field://</literal> "
+"访问，除非是基于本机测试的目的。对于除独立开发者以外的人而言，使用服务器更安全更可靠。"
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -2072,9 +2237,9 @@ msgid ""
 "mysterious errors right away, or it may be months before you discover that "
 "your repository database is subtly corrupted."
 msgstr ""
-"不要创建和访问网络共享上的 Berkeley DB "
-"版本库。它<emphasis>不能</emphasis>存在于远程文件系统。即使是映射到盘符的共享。如果你尝试在网络共享使用 Berkeley "
-"DB，结果难以预料 － 你可能会立刻看到奇怪的错误，也有可能几个月之后才发现数据库已经损坏了。"
+"不要创建和访问网络共享上的伯克利数据库 (BDB) "
+"版本库。它<emphasis>不能</emphasis>存在于远程文件系统。即使是映射到盘符的共享。如果你尝试在网络共享使用伯克利数据库 "
+"(BDB)，结果难以预料 － 你可能会立刻看到奇怪的错误，也有可能几个月之后才发现数据库已经损坏了。"
 
 #. (title)
 msgid "Accessing a Repository on a Network Share"
@@ -2150,6 +2315,9 @@ msgid ""
 "tag copies. If a repository holds only one project, then often people create"
 " these top-level directories:"
 msgstr ""
+"有一些标准的，推荐使用的组织版本库结构的方法。大多数人创建一个 <filename>trunk</filename> 目录掌管开发的 "
+"<quote>主干</quote>，一个 <filename>branches</filename> 目录存放分支副本，以及一个 "
+"<filename>tags</filename> 目录存放标记副本。如果一个版本库只掌管一个项目，那么人们通常创建这些顶级目录： "
 
 #. (screen)
 #, no-wrap
@@ -2169,7 +2337,7 @@ msgid ""
 "Because this layout is so commonly used, when you create a new repository "
 "using TortoiseSVN, it will also offer to create the directory structure for "
 "you."
-msgstr ""
+msgstr "因为这个布局非常通用，所以当使用 TortoiseSVN 创建版本库时，它会提出帮你创建这个目录结构。"
 
 #. (para)
 msgid ""
@@ -2260,7 +2428,8 @@ msgid ""
 "your repository at any time. Because branches and tags are ordinary "
 "directories, TortoiseSVN can move or rename them however you wish."
 msgstr ""
-"当然，你完全可以不理会上面提及的通用布局。你可以自由改变，来满足你和你团队的需要。请记住，不管你选择哪种布局，它都不是永久的。你可以在随时重新组织你的版本库。因为分支和标签是普通的目录，只要你愿意，TortoiseSVN可以将它们移动或重命名。"
+"当然，你完全可以不理会上面提及的通用布局。你可以自由改变，来满足你和你团队的需要。请记住，不管你选择哪种布局，它都不是永久的。你可以在随时重新组织你的版本库。因为分支和标签是普通的目录，只要你愿意，TortoiseSVN"
+" 可以将它们移动或重命名。"
 
 #. (para)
 msgid ""
@@ -2288,6 +2457,9 @@ msgid ""
 "will import your temp folder into the repository root to create the basic "
 "repository layout."
 msgstr ""
+"将这个结构导入版本库中，只需 <action>右键单击</action> 包含这个结构的文件夹并选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>导入...</guimenuitem></menuchoice>。在导入对话框中输入版本库的"
+" URL 并单击确定。这样就会将临时文件夹导入版本库中创建基本布局。"
 
 #. (para)
 msgid ""
@@ -2375,6 +2547,10 @@ msgid ""
 "the Subversion command line client from <ulink "
 "url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
 msgstr ""
+"当安装 Subversion 命令行客户端时 <literal>svnadmin</literal> 会自动被安装。如果要在 Windows "
+"电脑中安装命令行工具，最好的方法是下载 Windows 安装包。它比 <filename>.zip</filename> "
+"文件的压缩率更高，因此下载量更小，并且安装包能够设定好路径信息。最新的 Subversion 命令行客户端可以从这里下载: <ulink "
+"url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>"
 
 #. (title)
 msgid "Server side hook scripts"
@@ -2406,6 +2582,10 @@ msgid ""
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
 msgstr ""
+"钩子脚本就是被某些版本库事件触发的程序，例如创建新版本或修改未被版本控制的属性。每个钩子都能掌管足够的信息来了解发生了什么事件，操作对象是什么以及触发事件用户的帐号。根据钩子的输出或者返回状态，钩子程序能够以某种方式控制该动作继续执行，停止或者挂起。请参阅"
+" Subversion 手册中的 <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>钩子脚本</citetitle></ulink>"
+" 一章获得关于已实现的钩子的完整信息。"
 
 #. (para)
 msgid ""
@@ -2426,10 +2606,16 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
 msgstr ""
+"钩子脚本的例子位于版本库的 <filename>hooks</filename> 目录下。这些示例版本适用于 Unix/Linux 服务器，需要修改后才能用于基于 Windows 的服务器。钩子可以是批处理文件或者可执行文件。下面是一个可以用作版本属性更改之前 (pre-revprop-change) 钩子的批处理文件。<screen>\n"
+"rem Only allow log messages to be changed.\n"
+"if \"%4\" == \"svn:log\" exit 0\n"
+"echo Property '%4' cannot be changed &gt;&amp;2\n"
+"exit 1\n"
+"</screen> 注意，任何送到标准输出 (stdout) 的内容都会被丢弃。如果想要在拒绝提交对话框中显示信息，必须将该信息送到标准错误 (stderr)。在批处理文件中，通过使用 <filename>&gt;&amp;2</filename> 来实现。"
 
 #. (title)
 msgid "Overriding Hooks"
-msgstr "覆盖钩子"
+msgstr "跨越钩子"
 
 #. (para)
 msgid ""
@@ -2442,6 +2628,9 @@ msgid ""
 "it can block the commit with a message like <quote>You didn't say the magic "
 "word</quote>. :-)"
 msgstr ""
+"如果一个钩子脚本拒绝你的提交，那这就是它的最终决定。但是你可以在脚本中使用 <emphasis>魔咒</emphasis> "
+"来构建一种跨越机制。如果脚本要拒接操作，它首先在日志信息中扫描某个特定的通关短语，可以是一个固定的短语或者带有某个前缀的文件名。如果它找到了魔咒则允许提交继续进行。如果没有找到则阻挡提交并返回一条消息，例如"
+" <quote>你没有念魔咒</quote>。 :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -2489,12 +2678,15 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
+"&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
 "To include such a link in your own html page, you need to add code which "
 "looks something like this: <placeholder-1/>"
-msgstr ""
+msgstr "想要在你个人的 html 页面中加入这样的链结，只需要添加像这样的代码即可: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2503,6 +2695,9 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
+"&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -2512,6 +2707,9 @@ msgid ""
 " logo</citetitle></ulink> or you can provide your own image. "
 "<placeholder-1/>"
 msgstr ""
+"当然，如果能插入一张合适的图片会看起来更好。你可以使用 <ulink "
+"url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN"
+" 标志</citetitle></ulink> 或者你自己的图片。 <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2520,6 +2718,9 @@ msgid ""
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
 "&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
+"&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -2529,7 +2730,7 @@ msgstr "你同样可以使链接指向一个特定的版本，例如 <placeholde
 
 #. (title)
 msgid "Accessing the Repository"
-msgstr ""
+msgstr "访问版本库"
 
 #. (para)
 msgid ""
@@ -2542,6 +2743,10 @@ msgid ""
 "or <literal>svn+ssh://</literal>, or you can use <literal>svn://</literal> "
 "with SASL."
 msgstr ""
+"要使用 TortoiseSVN (或其它 Subversion 客户端程序)，需要定位版本库的所在之处。版本库可以位于本机使用 "
+"<literal>file://</literal> 协议访问，或者位于服务器端使用 <literal>http://</literal> 或 "
+"<literal>svn://</literal> 协议访问。这两个服务器协议都可以加密。那就是 <literal>https://</literal>"
+" 或 <literal>svn+ssh://</literal>， 抑或带 SASL 加密的 <literal>svn://</literal>。"
 
 #. (para)
 msgid ""
@@ -2565,6 +2770,10 @@ msgid ""
 "rest of this chapter and go directly to <xref linkend=\"tsvn-dug\"/> to find"
 " out how to start using it."
 msgstr ""
+"如果你没有服务器并且独自工作，或者只是想在独立的环境下评估 Subversion 和 TortoiseSVN，那么本地版本库可能是你最好的选择。只要按照"
+" <xref linkend=\"tsvn-repository\"/> "
+"中先前描述的那样在你自己的电脑中创建一个版本库就好了。你可以跳过本章剩余的内容，进入 <xref linkend=\"tsvn-dug\"/> "
+"了解如何开始用它。"
 
 #. (para)
 msgid ""
@@ -2587,6 +2796,10 @@ msgid ""
 "bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
 msgstr ""
+"下一节是一个手把手教你如何在 Windows 系统下设置这样一个服务器的教程。当然你也可以在 Linux "
+"系统下设置服务器，不过这些内容超出本手册的范围。更多关于设置 Subversion 服务器过的详细内容，请参阅 Subversion 手册中的 "
+"<ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.serverconfig.html\"><citetitle>服务器配置</citetitle></ulink>。"
 
 #. (title)
 msgid "Svnserve Based Server"
@@ -2612,6 +2825,8 @@ msgid ""
 "based server, although it doesn't have some of the advanced features. And "
 "now that SASL support is included it is easy to secure as well."
 msgstr ""
+"尽管 svnserve 不能提供一些高级功能，但是在大多数情况下，它比基于 Apache 的服务器设置更简单，运行速度更快。而且支持 SASL "
+"加密使得安全也不是一件困难的事情。"
 
 #. (title)
 msgid "Installing svnserve"
@@ -2642,7 +2857,7 @@ msgstr "如果你已经安装了 Subversion，svnserve 已经运行，你需要�
 msgid ""
 "Run the Subversion installer. If you run the installer on your server "
 "(recommended) you can skip step 4."
-msgstr "运行 Subversion 安装程序，如果你在你的服务器(推荐)上运行，可以跳过第 4 步。"
+msgstr "运行 Subversion 安装程序，如果在你的服务器上运行(推荐你这样做)，可以跳过第 4 步。"
 
 #. (para)
 msgid ""
@@ -2657,6 +2872,14 @@ msgid ""
 "directory, into a directory on your server e.g. "
 "<filename>c:\\svnserve</filename>."
 msgstr ""
+"打开 Windows  资源管理器，进入 Subversion 的安装目录(通常是 <filename>C:\\Program "
+"Files\\Subversion</filename>)，并在 <filename>bin</filename> 目录下找到文件  "
+"<filename>svnserve.exe</filename>， <filename>intl3_svn.dll</filename>， "
+"<filename>libapr.dll</filename>，  <filename>libapriconv.dll</filename>，  "
+"<filename>libapriutil.dll</filename>， <filename>libdb*.dll</filename>， "
+"<filename>libeay32.dll</filename> 以及 <filename>ssleay32.dll</filename> - "
+"复制这些文件，或者复制整个 <filename>bin</filename> 目录，到服务器上的某个目录中，例如 "
+"<filename>C:\\svnserver</filename>。"
 
 #. (title)
 msgid "Running svnserve"
@@ -2753,6 +2976,18 @@ msgid ""
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
 msgstr ""
+"要将 svnserver 添加为 windows 服务，执行下面的命令(这是一行命令，因为排版的关系才显示为多行)创建服务并且当 Windows 系统启动时可以自动启动。<screen>\n"
+"sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service\n"
+"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip\n"
+"    start= auto\n"
+"</screen> 如果路径中含有空格，必须使用(转义的)引号将其括起来，就像这样: <screen>\n"
+"sc create svnserve binpath= \"\n"
+"    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
+"    --service --root c:\\repos\" displayname= \"Subversion\"\n"
+"    depend= tcpip start= auto\n"
+"</screen> 创建服务后还可以给它添加描述信息。这些信息将会在 Windows 服务管理器中显示。 <screen>\n"
+"sc description svnserve \"Subversion server (svnserve)\"\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -2773,6 +3008,21 @@ msgstr ""
 "Microsoft 现在建议服务程序使用本地服务或网络服务帐户运行，参考 <ulink url=\"http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx\"><citetitle>The Services and Service Accounts Security Planning Guide</citetitle></ulink>。以本地服务帐户创建服务，需要在上面的例子里追加下面几行。<screen>\n"
 "obj= \"NT AUTHORITY\\LocalService\"\n"
 "</screen>请注意需要给本地服务帐户一些目录的适当权限，包括的 Subversion 和你的版本库，还有所有钩子脚本使用的应用。此帐号的内置组名是\"LOCAL SERVICE\"。"
+
+#. (para)
+msgid ""
+"To give the Local Service or Network Service account full access to the "
+"folder where you store your repositories and/or your hook scripts, follow "
+"the instructions in the <ulink "
+"url=\"http://support.microsoft.com/kb/308419\"><citetitle>knowledge base "
+"article kb308419</citetitle></ulink> If you fail to set the permissions, you"
+" will get <literal>access denied</literal> errors when you try to access the"
+" repository!"
+msgstr ""
+"需要给本地服务或网路服务帐号赋予对存储版本库和钩子脚本的文件夹完全的访问许可权限。请参考该文章中的指示: <ulink "
+"url=\"http://support.microsoft.com/kb/308419\"><citetitle>knowledge base "
+"article kb308419</citetitle></ulink>。 如果没有设置适当的权限，当访问版本库时将会得到错误信息 "
+"<literal>拒绝访问</literal>！"
 
 #. (para)
 msgid ""
@@ -2813,6 +3063,8 @@ msgid ""
 " use the repo-browser in TortoiseSVN to view the repository, but you won't "
 "be able to commit any changes."
 msgstr ""
+"缺省的 svnserve 设置会赋予匿名用户 (anonymous) 只读权限。这意味着你可以使用 <literal>svn://</literal> "
+"URL 来检出并更新，或者使用 TortoiseSVN 的版本库浏览器查看版本库，但你不能提交任何更改。"
 
 #. (para)
 msgid ""
@@ -2873,6 +3125,12 @@ msgid ""
 "bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>Client"
 " Credentials Caching</citetitle></ulink>."
 msgstr ""
+"如果要维护多个使用同一套密码数据库的版本库，使用验证领域将会减轻用户的负担，因为只需输入一次 TortoiseSVN "
+"就能够缓存你的登陆凭据。更多的信息请参阅 Subversion 手册，尤其是这一节: <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.auth.users\"><citetitle>创建‘用户’文件和领域</citetitle></ulink>"
+" 以及 <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache\"><citetitle>"
+" 客户端凭据缓存</citetitle></ulink>。"
 
 #. (title)
 msgid "Better Security with SASL"
@@ -3109,6 +3367,8 @@ msgid ""
 "repository as a <quote>Web folder</quote> in the Windows explorer and then "
 "access it like any other folder in the file system."
 msgstr ""
+"基于 Apache 的 Subversion 服务器使用 WebDAV 协议，很多其它程序也支持该协议。例如，你可以在 Windows "
+"资源管理器中将版本库加挂为 <quote>Web 文件夹</quote>，然后就可以像访问文件系统中的普通文件夹一样的访问它。"
 
 #. (term)
 msgid "Browsing The Repository"
@@ -3119,7 +3379,7 @@ msgid ""
 "You can point your browser to the URL of your repository and browse the "
 "contents of it without having a Subversion client installed. This gives "
 "access to your data to a much wider circle of users."
-msgstr "你可以将浏览器指向版本库的URL，无需安装Subversion客户端就可以浏览内容，这样可以扩大访问你数据的用户圈。"
+msgstr "你可以将浏览器指向版本库的 URL，无需安装 Subversion 客户端就可以浏览内容，这样可以扩大访问你数据的用户圈。"
 
 #. (term)
 #. (title)
@@ -3130,7 +3390,7 @@ msgstr "认证"
 msgid ""
 "You can use any authentication mechanism Apache supports, including SSPI and"
 " LDAP."
-msgstr "你可以使用所有Apache支持的认证机制，包括SSPI和LDAP。"
+msgstr "你可以使用所有 Apache 支持的认证机制，包括 SSPI 和 LDAP。"
 
 #. (term)
 msgid "Security"
@@ -3140,7 +3400,7 @@ msgstr "安全"
 msgid ""
 "Since Apache is very stable and secure, you automatically get the same "
 "security for your repository. This includes SSL encryption."
-msgstr "因为Apache非常稳定和安全，你的版本库可以自动获得同样的安全性，包括SSL加密。"
+msgstr "因为 Apache 非常稳定和安全，你的版本库可以自动获得同样的安全性，包括 SSL 加密。"
 
 #. (title)
 msgid "Installing Apache"
@@ -3205,13 +3465,17 @@ msgid ""
 "you need to include that in the URL. In that case you would point your "
 "browser at <systemitem class=\"url\">http://localhost:81/</systemitem>."
 msgstr ""
+"现在测试一下，如果 Apache Web 服务器正常运行，将浏览器定位至 <systemitem "
+"class=\"url\">http://localhost/</systemitem> 就能显示一个预先配置的 Web "
+"站点。如果你使用另一个端口，例如 81，那么需要在 URL 中加入端口。在这个例子中，就需要将浏览器定位至 <systemitem "
+"class=\"url\">http://localhost:81/</systemitem>。"
 
 #. (para)
 msgid ""
 "If you decide to install Apache as a service, be warned that by default it "
 "will run as the local system account. It would be a more secure practice for"
 " you to create a separate account for Apache to run as."
-msgstr "如果你决定将Apache安装为服务，缺省情况以本地系统帐户运行会发出警告，更安全的方法是为Apache创建一个单独的运行帐户。"
+msgstr "如果你决定将 Apache 安装为服务，缺省情况以本地系统帐户运行会发出警告，更安全的方法是为 Apache 创建一个单独的运行帐户。"
 
 #. (para)
 msgid ""
@@ -3220,12 +3484,14 @@ msgid ""
 "click directory | properties | security), with full control. Otherwise, "
 "users will not be able to commit their changes."
 msgstr ""
+"确保 Apache 服务的运行帐户对版本库目录有完整的许可权限，即在目录的访问许可控制列表(右键单击目录 | 属性 | "
+"安全)中有明确的条目定义完整权限。否则用户不能提交他们的更改。"
 
 #. (para)
 msgid ""
 "Even if Apache runs as local system, you still need such an entry (which "
 "will be the SYSTEM account in this case)."
-msgstr "即使Apache运行于本地系统，你仍然需要这个条目(这种情况下将是SYSTEM帐户)。"
+msgstr "即使 Apache 运行于本地系统，你仍然需要这样的一个条目(这种情况下将是 SYSTEM 帐户)。"
 
 #. (para)
 msgid ""
@@ -3233,8 +3499,8 @@ msgid ""
 "<quote>Access denied</quote> error messages, which show up in the Apache "
 "error log as error 500."
 msgstr ""
-"如果没有配置 Apache 的此访问权限，你的用户会得到<quote>拒绝访问(Access denied)</quote>的错误信息，在 Apache"
-" 的错误日志中的错误代码是 500。"
+"如果没有配置 Apache 的此访问权限，你的用户会得到<quote>拒绝访问 (Access denied)</quote>的错误信息，在 "
+"Apache 的错误日志中的错误代码是 500。"
 
 #. (para)
 msgid ""
@@ -3242,7 +3508,7 @@ msgid ""
 " 2000, Windows XP+SP1, Windows 2003, Vista or Server 2008. "
 "<warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 msgstr ""
-"安装 Apache 的先决条件是有一台安装了 Windows 2000，Windows XP SP1+，Windows 2003，Vista 或 "
+"安装 Apache 的先决条件是有一台安装了 Windows 2000，Windows XP+SP1，Windows 2003，Vista 或 "
 "Windows Server 2008 "
 "的计算机。<warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 
@@ -3258,6 +3524,9 @@ msgid ""
 "you have Apache 2.2.x go to <ulink "
 "url=\"http://subversion.apache.org/packages.html\"><citetitle>http://subversion.apache.org/packages.html</citetitle></ulink>."
 msgstr ""
+"下载最新版本的为 Apache 编译的 Win32 Subversion 二进制文件。确保下载的文件适用于你所使用的 Apache 的版本，否则启动 "
+"Apache 时会得到一个晦涩的错误信息。如果使用 Apache 2.2.x 请在这里下载 <ulink "
+"url=\"http://subversion.apache.org/packages.html\"><citetitle>http://subversion.apache.org/packages.html</citetitle></ulink>。"
 
 #. (para)
 msgid ""
@@ -3266,7 +3535,8 @@ msgid ""
 "If it couldn't find an Apache server then you have to do some additional "
 "steps."
 msgstr ""
-"运行Subversion安装程序，并根据指导安装，如果Subversion认识到你安装了Apache，你就几乎完成了工作，如果它没有找到Apache服务器，你还有额外的步骤。"
+"运行 Subversion 安装程序，并根据指导安装，如果 Subversion 找到了你安装的 Apache，你就几乎完成了工作，如果它没有找到 "
+"Apache 服务器，你还有额外的步骤。"
 
 #. (primary)
 #. (primary)
@@ -3282,9 +3552,11 @@ msgid ""
 "modules directory (usually <filename>c:\\program files\\apache "
 "group\\apache2\\modules </filename>)."
 msgstr ""
-"使用Windwos资源管理器，来到Subversion的安装目录(通常是<filename>c:\\program "
-"files\\Subversion</filename>)，找到文件<filename>/httpd/mod_dav_svn.so</filename>和<filename>mod_authz_svn.so</filename>，复制这些文件到Apache的模块目录(通常是<filename>c:\\program"
-" files\\apache group\\apache2\\modules </filename>)。"
+"使用 Windwos 资源管理器，进入 Subversion 的安装目录(通常是 <filename>c:\\program "
+"files\\Subversion</filename>)，找到文件 "
+"<filename>/httpd/mod_dav_svn.so</filename> 和 "
+"<filename>mod_authz_svn.so</filename>，复制这些文件到 Apache 的模块目录(通常是 "
+"<filename>c:\\program files\\apache group\\apache2\\modules </filename>)。"
 
 #. (para)
 msgid ""
@@ -3301,7 +3573,7 @@ msgid ""
 "Files\\Apache Group\\Apache2\\conf\\httpd.conf</filename>) with a text "
 "editor such as Notepad and make the following changes:"
 msgstr ""
-"使用记事本之类的文本编辑器修改Apache的配置文件(通常是<filename> C:\\Program Files\\Apache "
+"使用记事本之类的文本编辑器修改 Apache 的配置文件(通常是<filename> C:\\Program Files\\Apache "
 "Group\\Apache2\\conf\\httpd.conf</filename>)，做出如下修改: "
 
 #. (para)
@@ -3317,7 +3589,7 @@ msgstr ""
 "去掉以下几行的注释(删除 '<literal>#</literal>'标记): <screen>\n"
 "#LoadModule dav_fs_module modules/mod_dav_fs.so\n"
 "#LoadModule dav_module modules/mod_dav.so\n"
-"</screen> 将以下两行到 <literal>LoadModule</literal> 节的末尾。<screen>\n"
+"</screen> 将以下两行加到 <literal>LoadModule</literal> 节的末尾。<screen>\n"
 "LoadModule dav_svn_module modules/mod_dav_svn.so\n"
 "LoadModule authz_svn_module modules/mod_authz_svn.so\n"
 "</screen>"
@@ -3342,6 +3614,19 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen> This configures Apache so that all your Subversion repositories are physically located below <filename>D:\\SVN</filename>. The repositories are served to the outside world from the URL: <systemitem class=\"url\"> http://MyServer/svn/ </systemitem>. Access is restricted to known users/passwords listed in the <filename>passwd</filename> file."
 msgstr ""
+"在配置文件的末尾加入下列内容: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNListParentPath on\n"
+"  SVNParentPath D:\\SVN\n"
+"  #SVNIndexXSLT \"/svnindex.xsl\"\n"
+"  AuthType Basic\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthUserFile passwd\n"
+"  #AuthzSVNAccessFile svnaccessfile\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen> 这样配置 Apache 使得你可以将所有的版本库放在 <filename>D:\\SVN</filename> 中。在其它机器中可以通过这个 URL 访问版本库: <systemitem class=\"url\">http://MyServer/svn/</systemitem>。通过 <filename>passwd</filename> 文件中列出的用户名/密码来限制访问许可。"
 
 #. (para)
 msgid ""
@@ -3490,6 +3775,9 @@ msgid ""
 "#AuthzSVNAccessFile svnaccessfile\n"
 "</screen> and create a Subversion access file. Apache will make sure that only valid users are able to access your <filename>/svn</filename> location, and will then pass the username to Subversion's <literal>AuthzSVNAccessFile</literal> module so that it can enforce more granular access based upon rules listed in the Subversion access file. Note that paths are specified either as <literal>repos:path</literal> or simply <literal>path</literal>. If you don't specify a particular repository, that access rule will apply to all repositories under <literal>SVNParentPath</literal>. The format of the authorization-policy file used by <literal>mod_authz_svn</literal> is described in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>."
 msgstr ""
+"使用 <filename>passwd</filename> 文件以版本库为单位限制和分配访问许可。如果需要更进一步对版本库中的文件夹进行许可控制，请将这一行的注释去掉 <screen>\n"
+"#AuthzSVNAccessFile svnaccessfile\n"
+"</screen> 并创建一个 Subversion 许可文件。Apache 将会确保只有通过验证的用户才能访问位置 <filename>/svn</filename>，并且将用户名传递给 Subversion 的 <literal>AuthzSVNAccessFile</literal> 模块，这样就可以基于 Subversion 许可文件中列出的规则强制进行更精细的许可控制。注意，路径可以使用 <litera>版本库:路径</literal> 或者简单的 <literal>路径</literal> 格式来指定。如果没有明确指定版本库，那么许可规则将对 <literal>SVNParentPath</literal> 下的所有版本库适用。<literal>mod_authz_svn</literal> 文件所使用的授权规则在这里 <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> 有详细的描述。"
 
 #. (para)
 msgid ""
@@ -3508,6 +3796,9 @@ msgid ""
 " (<xref linkend=\"tsvn-preface-source\"/> explains how to access the "
 "TortoiseSVN source repository)."
 msgstr ""
+"你可以从我们的源码版本库(<ulink "
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex\"><citetitle>http://tortoisesvn.googlecode.com/svn/trunk/contrib/svnindex</citetitle></ulink>)直接获得这三个文件。(<xref"
+" linkend=\"tsvn-preface-source\"/> 说明了如何访问 TortoiseSVN 源码版本库)"
 
 #. (para)
 msgid ""
@@ -3785,7 +4076,7 @@ msgstr "只有使用 SSL 加密连接(https)时才可以启用 SSPI 认证。如
 msgid ""
 "To enable SSL on your server, see the chapter: <xref linkend=\"tsvn-"
 "serversetup-apache-7\"/>."
-msgstr ""
+msgstr "要为你的服务器启用 SSL 机密，请参阅: <xref linkend=\"tsvn-serversetup-apache-7\"/>"
 
 #. (para)
 msgid ""
@@ -3853,8 +4144,8 @@ msgid ""
 " non-authoritative, so that Apache will check multiple sources for a "
 "matching username/password."
 msgstr ""
-"也可以为Subversion使用不止一个的认证源，为此，你需要将每一种认证设置为non-"
-"authoritative，这样Apache会在多个源检查用户名/密码。"
+"也可以为 Subversion 使用不止一个的认证源，为此，你需要将每一种认证设置为非权威(non-"
+"authoritative)，这样Apache会在多个源检查用户名/密码。"
 
 #. (para)
 msgid ""
@@ -3862,7 +4153,8 @@ msgid ""
 "<literal>passwd</literal> file, so that you can provide SVN access to users "
 "who don't have a Windows domain login."
 msgstr ""
-"一个常见的场景就是同时使用Windows域和<literal>passwd</literal>文件认证，这样你可以为没有Windows域帐户的用户提供访问SVN的权限。"
+"一个常见的场景就是同时使用 Windows 域和 <literal>passwd</literal> 文件认证，这样你可以为没有 Windows "
+"域帐户的用户提供访问SVN的权限。"
 
 #. (para)
 msgid ""
@@ -3871,6 +4163,10 @@ msgid ""
 "SSPIAuthoritative Off\n"
 "</screen>"
 msgstr ""
+"要同时启用 Windows 域和 <filename>passwd</filename> 文件认证，将下列内容加入 Apache 配置文件的 <literal>&lt;Location&gt;</literal> 段中: <screen>\n"
+"AuthBasicAuthoritative Off\n"
+"SSPIAuthoritative Off\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -3899,6 +4195,30 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"这里有一个完整的整合 Windows 域和 <literal>passwd</literal> 文件认证的 Apache 配置文件:  <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNListParentPath on\n"
+"  SVNParentPath D:\\SVN\n"
+"\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthzSVNAccessFile svnaccessfile.txt\n"
+"\n"
+"# Windows 域登录.\n"
+"  AuthType SSPI\n"
+"  SSPIAuth On\n"
+"  SSPIAuthoritative Off\n"
+"  SSPIDomain &lt;domaincontroller&gt;\n"
+"  SSPIOfferBasic On\n"
+"\n"
+"# passwd 登录.\n"
+"  AuthType Basic\n"
+"  AuthBasicAuthoritative Off\n"
+"  AuthUserFile passwd\n"
+"\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Securing the server with SSL"
@@ -3944,6 +4264,9 @@ msgid ""
 "bin\\openssl req -config conf\\openssl.cnf -new -out my-server.csr\n"
 "</screen> You will be asked for a passphrase. Please don't use simple words but whole sentences, e.g. a part of a poem. The longer the phrase the better. Also you have to enter the URL of your server. All other questions are optional but we recommend you fill those in too."
 msgstr ""
+"下一步需要创建 SSL 证书。先打开命令提示符(DOS 窗口)并切换到 Apache 文件夹(例如 <filename>C:\\program files\\apache group\\apache2</filename>)然后键入下列命令:<screen>\n"
+"bin\\openssl req -config conf\\openssl.cnf -new -out my-server.csr\n"
+"</screen> 你要输入一个密语(passphrase)。请不要使用简单的单词而是输入完整的句子， 例如一段诗。越长越好。同时你还需要输入服务器的 URL。其余的问题都不是必填的，但我们建议你也能填写。"
 
 #. (para)
 msgid ""
@@ -3951,6 +4274,9 @@ msgid ""
 "bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
 "</screen>"
 msgstr ""
+"正常情况下 <filename>privkey.pem</filename> 文件会自动生成，如果没有，则需要键入下列命令来生成它: <screen>\n"
+"bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -3967,6 +4293,18 @@ msgid ""
 "                 -outform DER\n"
 "</screen> These commands created some files in the Apache <filename>conf</filename> folder (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 msgstr ""
+"接着键入命令: <screen>\n"
+"bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
+"</screen> 以及(这是一行命令): <screen>\n"
+"bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
+"-config conf\\openssl.cnf\n"
+"</screen> 还有(这是一行): <screen>\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.cert\n"
+"                 -req -signkey conf\\server.key -days 4000\n"
+"</screen> 这样将会创建一有效期为 4000 天的证书。最后键入(这是一行): <screen>\n"
+"bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
+"                 -outform DER\n"
+"</screen> 这些命令在 Apache 的 <filename>conf</filename> 文件夹下创建了一些文件 (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)。"
 
 #. (para)
 msgid "Restart the Apache service."
@@ -3977,7 +4315,7 @@ msgid ""
 "Point your browser to <systemitem "
 "class=\"url\">https://servername/svn/project</systemitem> ..."
 msgstr ""
-"将你的浏览器指向<systemitem "
+"将你的浏览器指向 <systemitem "
 "class=\"url\">https://servername/svn/project</systemitem> ..."
 
 #. (title)
@@ -3993,7 +4331,8 @@ msgid ""
 "problem and TortoiseSVN and any other Subversion client are still able to "
 "authenticate."
 msgstr ""
-"如果你使用SSL保护你的服务器，并使用windows域来进行认证，你会发现不能使用IE浏览版本库了，不需要担心－那只是因为IE没有经过认证，其他浏览器没有这个问题，TortoiseSVN和其他Subversion客户端仍然可以得到认证。"
+"如果你使用 SSL 保护你的服务器，并使用 Windows 域来进行认证，你会发现不能使用 IE 浏览版本库了，不需要担心－那只是因为 IE "
+"没有经过认证，其他浏览器没有这个问题，TortoiseSVN 和其他 Subversion 客户端仍然可以得到认证。"
 
 #. (para)
 msgid ""
@@ -4011,7 +4350,7 @@ msgid ""
 "Offer browsing with unencrypted authentication (without SSL) too. Strangely "
 "IE doesn't have any problems with authenticating if the connection is not "
 "secured with SSL."
-msgstr "也提供未加密(没有SSL)认证的浏览，奇怪的IE在没有使用SSL的认证时没有任何问题。"
+msgstr "也提供未加密(没有 SSL)认证的浏览，奇怪的是 IE 在没有使用 SSL 认证时没有任何问题。"
 
 #. (para)
 msgid ""
@@ -4062,6 +4401,18 @@ msgid ""
 "&lt;/Location&gt;\n"
 "</screen>"
 msgstr ""
+"一个 <literal>&lt;Location&gt;</literal> 段的示例是这样的: <screen>\n"
+"&lt;Location /svn&gt;\n"
+"  DAV svn\n"
+"  SVNParentPath D:\\SVN\n"
+"  SSLRequireSSL\n"
+"  AuthType Basic\n"
+"  AuthName \"Subversion repositories\"\n"
+"  AuthUserFile passwd\n"
+"  #AuthzSVNAccessFile svnaccessfile\n"
+"  Require valid-user\n"
+"&lt;/Location&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Using client certificates with virtual SSL hosts"
@@ -4134,6 +4485,30 @@ msgid ""
 "&lt;/VirtualHost&gt;\n"
 "</screen>"
 msgstr ""
+"总结一下，Apache 配置文件中相关的设置如下: <screen>\n"
+"SSLVerifyClient Optional\n"
+"\n"
+"### 为公共主机设置虚拟主机\n"
+"### (不需要证书)\n"
+"\n"
+"&lt;VirtualHost 127.0.0.1:443&gt;\n"
+"  &lt;Directory \"pathtopublicfileroot\"&gt;\n"
+"  &lt;/Directory&gt;\n"
+"&lt;/VirtualHost&gt;\n"
+"\n"
+"### 为 Subversion 设置虚拟主机\n"
+"### (需要客户端证书)\n"
+"&lt;VirtualHost 127.0.0.1:443&gt;\n"
+"  &lt;Directory \"subversion host root path\"&gt;\n"
+"    SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
+"  &lt;/Directory&gt;\n"
+"\n"
+"  &lt;Location /svn&gt;\n"
+"    DAV svn\n"
+"    SVNParentPath /pathtorepository\n"
+"  &lt;/Location&gt;\n"
+"&lt;/VirtualHost&gt;\n"
+"</screen>"
 
 #. (title)
 msgid "Daily Use Guide"
@@ -4225,7 +4600,7 @@ msgstr "右键菜单"
 
 #. (primary)
 msgid "right click"
-msgstr ""
+msgstr "右键单击"
 
 #. (title)
 msgid "Context menu for a directory under version control"
@@ -4249,6 +4624,8 @@ msgid ""
 "context menu. To bring up the extended context menu, hold down the "
 "<keycap>Shift</keycap> key when you <action>right click</action>."
 msgstr ""
+"某些很少被用到的命令只出现在扩展右键菜单中。要想打开扩展右键菜单，需要在 <action>右键单击</action> 时按住 "
+"<keycap>Shift</keycap> 键。"
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -4372,7 +4749,7 @@ msgstr "认证"
 
 #. (primary)
 msgid "authentication cache"
-msgstr ""
+msgstr "认证缓存"
 
 #. (title)
 msgid "Authentication Dialog"
@@ -4438,12 +4815,16 @@ msgid ""
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
 msgstr ""
+"有些人希望在注销 Windows 或者关机时删除认证数据。完成这个愿望的方法是使用关机脚本来删除 <filename>%APPDATA%\\Subversion\\auth</filename> 目录，例如: <screen>\n"
+"@echo off\n"
+"rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
+"</screen> 关于如何安装这种脚本的详细说明请参阅: <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>。"
 
 #. (para)
 msgid ""
 "For more information on how to set up your server for authentication and "
 "access control, refer to <xref linkend=\"tsvn-serversetup\"/>."
-msgstr ""
+msgstr "更多的关于如何设置服务器进行认证和授权控制的信息，请参考: <xref linkend=\"tsvn-serversetup\"/>"
 
 #. (title)
 msgid "Maximizing Windows"
@@ -4497,6 +4878,8 @@ msgid ""
 "time to think about how it will be organised. Read <xref linkend=\"tsvn-"
 "repository-layout\"/> for further advice."
 msgstr ""
+"如果将项目导入一个已经含有其它项目的版本库中，那么版本库的结构已经确定了。如果要导入一个新的版本库中，那么最好花点时间来想一下如何设置版本库的结构。阅读"
+" <xref linkend=\"tsvn-repository-layout\"/> 获得更多建议。"
 
 #. (para)
 msgid ""
@@ -4747,32 +5130,32 @@ msgstr "检出完整的目录树，包含所有的文件或子目录。"
 
 #. (term)
 msgid "Immediate children, including folders"
-msgstr "直接节点，包含目录。"
+msgstr "直接子节点，包含文件夹"
 
 #. (para)
 msgid ""
 "Checkout the specified directory, including all files and child folders, but"
 " do not populate the child folders."
-msgstr "检出目录，包含其中的文件或子目录，但是不递归展开子目录。"
+msgstr "检出目录，包含其中的文件或子文件夹，但是不递归展开子文件夹。"
 
 #. (term)
 msgid "Only file children"
-msgstr "文件子节电"
+msgstr "仅文件子节点"
 
 #. (para)
 msgid ""
 "Checkout the specified directory, including all files but do not checkout "
 "any child folders."
-msgstr "检出指定目录，包含所有文件，但是不检出任何子目录。"
+msgstr "检出指定目录，包含所有文件，但是不检出任何子文件夹。"
 
 #. (term)
 msgid "Only this item"
-msgstr "仅此项。"
+msgstr "仅此项"
 
 #. (para)
 msgid ""
 "Checkout the directory only. Do not populate it with files or child folders."
-msgstr "只检出目录。不包含其中的文件或子目录。"
+msgstr "只检出目录。不包含其中的文件或子文件夹。"
 
 #. (term)
 #. (term)
@@ -4818,6 +5201,9 @@ msgid ""
 "not fetch the missing files and folders but only update what you already "
 "have in your working copy."
 msgstr ""
+"要想在检出时只选择想要的内容并使得工作副本只保留这些内容，单击 <guibutton>选择项目...</guibutton> "
+"按钮。这样就会打开一个新的对话框，在这里你可以选中所用你想要签入工作副本的内容，不要选中那些你不想要的。这种生成工作副本的操作叫做 "
+"<literal>稀疏检出</literal>。更新这样的工作副本不会抓取缺失的文件和文件夹，只更新已经位于版本库中的内容。"
 
 #. (para)
 msgid ""
@@ -4827,6 +5213,9 @@ msgid ""
 "linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
 "(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 msgstr ""
+"如果检出了一个稀疏工作副本(例如，在检出深度一栏中选择了除<literal>全递归</literal>以外的其它项)，以后可以通过版本库浏览器(<xref"
+" linkend=\"tsvn-dug-repobrowser\"/>)或检查修改对话框(<xref linkend=\"tsvn-dug-"
+"wcstatus-2\"/>)来抓取额外的的子文件夹。"
 
 #. (para)
 msgid ""
@@ -4837,6 +5226,10 @@ msgid ""
 "<menuchoice><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
 msgstr ""
+"在 Windows 资源管理器中，<action>右键单击</action> 检出的文件夹，然后使用 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>版本库浏览器</guimenuitem></menuchoice>"
+" 打开版本库浏览器。找到你想要添加到工作副本中的子文件夹，然后选择 "
+"<menuchoice><guimenuitem>更新该项至版本</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -4859,6 +5252,10 @@ msgid ""
 "want to checkout <literal>Project03</literal>, <literal>Project25</literal> "
 "and <literal>Project76/SubProj</literal>. Use these steps:"
 msgstr ""
+"当你想要检出一个很大的文件树的某些部分而且想要方便的只更新单一的工作副本时，该功能非常有用。假设有一个很大的文件树，其中包含 99 个子文件夹从 "
+"<literal>Project01</literal> 到 <literal>Project99</literal>，你只想检出 "
+"<literal>Project03</literal>，<literal>Project25</literal> 和 "
+"<literal>Project76/SubProj</literal>。按下列步骤操作: "
 
 #. (para)
 msgid ""
@@ -4872,6 +5269,9 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo "
 "browser</guimenuitem></menuchoice> to display the repository content."
 msgstr ""
+"选中新文件夹，使用 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>版本库浏览器</guimenuitem></menuchoice>"
+" 来显示版本库的内容。"
 
 #. (para)
 msgid ""
@@ -4911,6 +5311,9 @@ msgid ""
 "revision...</guimenuitem></menuchoice>. In that dialog, be sure to check the"
 " <guilabel>Make depth sticky</guilabel> checkbox."
 msgstr ""
+"一旦以某个深度检出了工作副本后，以后还可以修改这个深度来获得更多或更少的内容，使用 "
+"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>更新该项至版本</guimenuitem></menuchoice>。在弹出的对话框中，确认选中了"
+" <guilabel>粘滞深度</guilabel> 复选框。"
 
 #. (title)
 msgid "Using an older server"
@@ -4924,6 +5327,9 @@ msgid ""
 "what is not required, which may mean a lot of network traffic. If possible "
 "you should upgrade your server to at least 1.5."
 msgstr ""
+"1.5 "
+"版之前的服务器不支持工作副本深度请求。所以不能有效的处理这种请求。不过该命令仍然可以使用，但是旧版本的服务器会发送所有的数据，让客户端来过滤掉哪些是不需要的，这就意味着大量的网络传输。如果可能，应该将服务器升级到"
+" 1.5 版以上。"
 
 #. (para)
 msgid ""
@@ -4942,6 +5348,11 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
 " The standard update will include all externals and keep the existing depth."
 msgstr ""
+"如果选中了 <guilabel>忽略外部项目</guilabel>，或者想要增加深度值，你应该使用 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新至版本...</guimenuitem></menuchoice>"
+" 替代 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新</guimenuitem></menuchoice>"
+" 来对工作副本进行更新。标准的更新操作会包含外部项目并保持深度。"
 
 #. (para)
 msgid ""
@@ -5099,6 +5510,8 @@ msgid ""
 "the item. For directories you can use "
 "<keycap>Shift</keycap>-<action>select</action> to make the action recursive."
 msgstr ""
+"可以通过单击条目左侧的复选框来选中或不选该条目。对于目录，可以按下 <keycap>Shift</keycap> 键再 "
+"<action>选择</action> 就可以递归该动作。"
 
 #. (para)
 msgid ""
@@ -17729,7 +18142,8 @@ msgid ""
 " files you want to update locally, then use the context menu to update just "
 "those files."
 msgstr ""
-"选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>查看更新</guimenuitem></menuchoice>，然后点击<guibutton>查看版本库</guibutton>按钮，就能够看到上次更新以后版本库里发生了哪些变化。选中想更新到本地的文件，然后用右键菜单更新这些文件。"
+"选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>查看更新</guimenuitem></menuchoice>，然后点击<guibutton>查看版本库</guibutton>按钮，就能够看到上次更新以后版本库里发生了哪些变化。选中想更新到本地的文件，然后用右键菜单更新这些文件。"
 
 #. (title)
 msgid "Roll back (Undo) revisions in the repository"
@@ -17817,7 +18231,8 @@ msgid ""
 "In your working copy select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge</guimenuitem></menuchoice>."
 msgstr ""
-"在工作副本上选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>合并</guimenuitem></menuchoice>。"
+"在工作副本上选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>合并</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -17995,7 +18410,8 @@ msgid ""
 " for the new folder and checkout a copy of the common code into it. You now "
 "have a separate working copy nested within your main working copy."
 msgstr ""
-"在新目录下选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检出</guimenuitem></menuchoice>，在其中检出普通代码的副本，现在你在主要的工作副本有了一个独立的嵌套的工作副本。"
+"在新目录下选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检出</guimenuitem></menuchoice>，在其中检出普通代码的副本，现在你在主要的工作副本有了一个独立的嵌套的工作副本。"
 
 #. (para)
 msgid ""
@@ -19173,10 +19589,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To create an image file without showing the graph, pass "
-"<option>/output:path</option> with the path to the output file. The output "
-"file must have an extension that the revision graph can actually export to. "
-"These are: .svn, .wmf, .png, .jpg, .bmp and .gif."
+"To create an image file of the revision graph for a specific path, but "
+"without showing the graph window, pass <option>/output:path</option> with "
+"the path to the output file. The output file must have an extension that the"
+" revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, "
+".bmp and .gif."
 msgstr ""
 
 #. (para)
