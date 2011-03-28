@@ -585,7 +585,7 @@ CDirectoryWatcher::CDirWatchInfo::~CDirWatchInfo()
 
 bool CDirectoryWatcher::CDirWatchInfo::CloseDirectoryHandle()
 {
-    bool b = m_hDir.CloseHandle();;
+    bool b = m_hDir.CloseHandle();
 
     if (m_hDevNotify)
     {
