@@ -923,6 +923,34 @@
                   </Component>
                 </Directory>
 
+                <Directory Id="D__iconsdechenesxp" Name="DechenesXP" >
+                  <Component Id="C__iconsdechenesxp" Guid="$(var.GuidIconsDechenesXP)" Win64="$(var.Win64YesNo)">
+                    <File Id="F__DechenesXPConflictIcon" Name="ConflictIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\ConflictIcon.ico" KeyPath="yes" />
+                    <File Id="F__DechenesXPInSubversionIcon" Name="NormalIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\NormalIcon.ico" />
+                    <File Id="F__DechenesXPModifiedIcon" Name="ModifiedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\ModifiedIcon.ico" />
+                    <File Id="F__DechenesXPReadOnlyIcon" Name="ReadOnlyIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\ReadOnlyIcon.ico" />
+                    <File Id="F__DechenesXPDeletedIcon" Name="DeletedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\DeletedIcon.ico" />
+                    <File Id="F__DechenesXPLockedIcon" Name="LockedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\LockedIcon.ico" />
+                    <File Id="F__DechenesXPAddedIcon" Name="AddedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\AddedIcon.ico" />
+                    <File Id="F__DechenesXPIgnoredIcon" Name="IgnoredIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\IgnoredIcon.ico" />
+                    <File Id="F__DechenesXPUnversionedIcon" Name="UnversionedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesXP\UnversionedIcon.ico" />
+                  </Component>
+                </Directory>
+
+                <Directory Id="D__iconsdechenesvista" Name="DechenesVista" >
+                  <Component Id="C__iconsdechenesvista" Guid="$(var.GuidIconsDechenesVista)" Win64="$(var.Win64YesNo)">
+                    <File Id="F__DechenesVistaConflictIcon" Name="ConflictIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\ConflictIcon.ico" KeyPath="yes" />
+                    <File Id="F__DechenesVistaInSubversionIcon" Name="NormalIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\NormalIcon.ico" />
+                    <File Id="F__DechenesVistaModifiedIcon" Name="ModifiedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\ModifiedIcon.ico" />
+                    <File Id="F__DechenesVistaReadOnlyIcon" Name="ReadOnlyIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\ReadOnlyIcon.ico" />
+                    <File Id="F__DechenesVistaDeletedIcon" Name="DeletedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\DeletedIcon.ico" />
+                    <File Id="F__DechenesVistaLockedIcon" Name="LockedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\LockedIcon.ico" />
+                    <File Id="F__DechenesVistaAddedIcon" Name="AddedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\AddedIcon.ico" />
+                    <File Id="F__DechenesVistaIgnoredIcon" Name="IgnoredIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\IgnoredIcon.ico" />
+                    <File Id="F__DechenesVistaUnversionedIcon" Name="UnversionedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\UnversionedIcon.ico" />
+                  </Component>
+                </Directory>
+              
               </Directory>
             </Directory>
           </Directory>

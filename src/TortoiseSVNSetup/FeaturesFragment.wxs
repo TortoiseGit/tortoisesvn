@@ -53,6 +53,8 @@
         <ComponentRef Id="C__iconsmarkphippard" />
         <ComponentRef Id="C__iconsstraight" />
         <ComponentRef Id="C__iconsfunction" />
+        <ComponentRef Id="C__iconsdechenesxp" />
+        <ComponentRef Id="C__iconsdechenesvista" />
       </Feature>
 
       <Feature Id="UDiffAssoc" Level="1" Title="Register diff/patch files" Description="Associate .diff and .patch files with TortoiseUDiff" TypicalDefault="install" Absent="allow">
