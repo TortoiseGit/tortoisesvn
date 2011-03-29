@@ -982,7 +982,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
     else
     {
         // nothing to save!
-        return -1;
+        return 1;
     }
     if ((pViewData)&&(pOriginFile))
     {
@@ -1044,7 +1044,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
         CUndo::GetInstance().MarkAsOriginalState();
         return file.GetCount();
     }
-    return -1;
+    return 1;
 }
 
 void CMainFrame::OnFileSave()
@@ -1076,7 +1076,8 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     {
         m_Patch.PatchPath(m_Data.m_mergedFile.GetFilename());
     }
-    if (SaveFile(m_Data.m_mergedFile.GetFilename())==0)
+    int saveret = SaveFile(m_Data.m_mergedFile.GetFilename());
+    if (saveret==0)
     {
         // file was saved with 0 lines!
         // ask the user if the file should be deleted
@@ -1087,6 +1088,11 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
             DeleteFile(m_Data.m_mergedFile.GetFilename());
         }
     }
+    else if (saveret < 0)
+    {
+        // error while saving the file
+        return false;
+    }
 
     if ((bDoesNotExist)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE))))
     {
@@ -1094,7 +1100,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         CString cmd = _T("/command:add /noui /path:\"");
         cmd += m_Data.m_mergedFile.GetFilename() + _T("\"");
         if(!CAppUtils::RunTortoiseProc(cmd))
-            return FALSE;
+            return false;
     }
     return true;
 }
@@ -1920,7 +1926,8 @@ int CMainFrame::CheckForSave()
 
         if (ret == IDYES)
         {
-            FileSave();
+            if (!FileSave())
+                ret = IDCANCEL;
         }
     }
     return ret;
