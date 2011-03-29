@@ -1990,8 +1990,11 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
     if (!m_pViewData)
         return;
-
-    int nLine = GetLineFromPoint(point);
+    int nLine = -1;
+    if ((point.x < 0)||(point.y < 0))
+        nLine = m_nSelBlockStart+1;
+    else
+        nLine = GetLineFromPoint(point);
     if (nLine > (int)m_Screen2View.size())
         return;
 
@@ -2003,45 +2006,43 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         int nIndex = viewLine;
         int nLineIndex = nLine - 1;
         DiffStates state = m_pViewData->GetState(nIndex);
-        if ((state != DIFFSTATE_NORMAL) && (state != DIFFSTATE_UNKNOWN))
+        // select the diff block under the cursor.
+        if (((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0))||
+            ((m_nSelBlockEnd < m_nTopLine)||(m_nSelBlockStart > m_nTopLine+m_nScreenLines))||
+            ((m_nSelBlockEnd > nLineIndex)||(m_nSelBlockStart < nLineIndex))
+            )
         {
-            // if there's nothing selected, or if the selection is outside the window then
-            // select the diff block under the cursor.
-            if (((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0))||
-                ((m_nSelBlockEnd < m_nTopLine)||(m_nSelBlockStart > m_nTopLine+m_nScreenLines)))
+            while (nIndex >= 0)
             {
-                while (nIndex >= 0)
+                if (nIndex == 0)
                 {
-                    if (nIndex == 0)
-                    {
-                        nIndex--;
-                        nLineIndex--;
-                        break;
-                    }
-                    const DiffStates lineState = m_pViewData->GetState(--nIndex);
+                    nIndex--;
                     nLineIndex--;
-                    if (!LinesInOneChange(-1, state, lineState))
-                        break;
+                    break;
                 }
-                m_nSelBlockStart = nLineIndex + 1;
-                if (0 <= m_nSelBlockStart && m_nSelBlockStart < (int)m_Screen2View.size()-1)
-                    state = m_pViewData->GetState (m_Screen2View[m_nSelBlockStart]);
-                while (nIndex < (m_pViewData->GetCount()-1))
-                {
-                    const DiffStates lineState = m_pViewData->GetState(++nIndex);
-                    nLineIndex++;
-                    if (!LinesInOneChange(1, state, lineState))
-                        break;
-                }
-                if ((nIndex == (m_pViewData->GetCount()-1)) && LinesInOneChange(1, state, m_pViewData->GetState(nIndex)))
-                    m_nSelBlockEnd = nLineIndex;
-                else
-                    m_nSelBlockEnd = nLineIndex-1;
-                SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
-                m_ptCaretPos.x = 0;
-                m_ptCaretPos.y = nLine - 1;
-                UpdateCaret();
+                const DiffStates lineState = m_pViewData->GetState(--nIndex);
+                nLineIndex--;
+                if (!LinesInOneChange(-1, state, lineState))
+                    break;
             }
+            m_nSelBlockStart = nLineIndex + 1;
+            if (0 <= m_nSelBlockStart && m_nSelBlockStart < (int)m_Screen2View.size()-1)
+                state = m_pViewData->GetState (m_Screen2View[m_nSelBlockStart]);
+            while (nIndex < (m_pViewData->GetCount()-1))
+            {
+                const DiffStates lineState = m_pViewData->GetState(++nIndex);
+                nLineIndex++;
+                if (!LinesInOneChange(1, state, lineState))
+                    break;
+            }
+            if ((nIndex == (m_pViewData->GetCount()-1)) && LinesInOneChange(1, state, m_pViewData->GetState(nIndex)))
+                m_nSelBlockEnd = nLineIndex;
+            else
+                m_nSelBlockEnd = nLineIndex-1;
+            SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
+            m_ptCaretPos.x = 0;
+            m_ptCaretPos.y = nLine - 1;
+            UpdateCaret();
         }
         if (((state == DIFFSTATE_NORMAL)||(state == DIFFSTATE_UNKNOWN)) &&
             (m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
