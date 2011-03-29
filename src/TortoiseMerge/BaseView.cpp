@@ -683,7 +683,10 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
     
     FilterWhitespaces(mine, other);
     if (mine == other)
+    {
+        bIdentical = true;
         return true;
+    }
 
     int nStartBlock1, nEndBlock1;
     int nStartBlock2, nEndBlock2;
