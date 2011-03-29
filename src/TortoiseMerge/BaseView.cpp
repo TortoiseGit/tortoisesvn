@@ -2823,7 +2823,7 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
         m_pwndBottom->m_pViewData->SetLine(viewline, m_pwndLeft->m_pViewData->GetLine(viewline));
         bottomstate.linestates[viewline] = m_pwndBottom->m_pViewData->GetState(viewline);
         m_pwndBottom->m_pViewData->SetState(viewline, m_pwndLeft->m_pViewData->GetState(viewline));
-        m_pwndBottom->m_pViewData->SetLineEnding(viewline, EOL_AUTOLINE);
+        m_pwndBottom->m_pViewData->SetLineEnding(viewline, m_pwndBottom->lineendings);
         if (m_pwndBottom->IsViewLineConflicted(i))
         {
             if (m_pwndLeft->m_pViewData->GetState(viewline) == DIFFSTATE_CONFLICTEMPTY)
@@ -2887,7 +2887,7 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
         bottomstate.linestates[viewline] = m_pwndBottom->m_pViewData->GetState(viewline);
         m_pwndBottom->m_pViewData->SetState(viewline, m_pwndRight->m_pViewData->GetState(viewline));
         rightstate.linestates[viewline] = m_pwndRight->m_pViewData->GetState(viewline);
-        m_pwndBottom->m_pViewData->SetLineEnding(viewline, EOL_AUTOLINE);
+        m_pwndBottom->m_pViewData->SetLineEnding(viewline, m_pwndBottom->lineendings);
         if (m_pwndBottom->IsViewLineConflicted(viewline))
         {
             if (m_pwndRight->m_pViewData->GetState(viewline) == DIFFSTATE_CONFLICTEMPTY)
@@ -3137,7 +3137,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         m_pViewData->SetLine(viewLine, sLine);
         m_pViewData->SetState(viewLine, DIFFSTATE_EDITED);
         if (m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING)
-            m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
+            m_pViewData->SetLineEnding(viewLine, lineendings);
         m_ptCaretPos.x++;
         m_nCachedWrappedLine = -1;
         UpdateGoalPos();
@@ -3208,10 +3208,10 @@ void CBaseView::AddEmptyLine(int nLineIndex)
         CString sPartLine = GetLineChars(nLineIndex);
         m_pViewData->SetLine(viewLine, sPartLine.Left(m_ptCaretPos.x));
         sPartLine = sPartLine.Mid(m_ptCaretPos.x);
-        m_pViewData->InsertData(viewLine+1, sPartLine, DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(viewLine), HIDESTATE_SHOWN, -1);
+        m_pViewData->InsertData(viewLine+1, sPartLine, DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING ? lineendings : m_pViewData->GetLineEnding(viewLine), HIDESTATE_SHOWN, -1);
     }
     else
-        m_pViewData->InsertData(viewLine+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING ? EOL_AUTOLINE : m_pViewData->GetLineEnding(viewLine), HIDESTATE_SHOWN, -1);
+        m_pViewData->InsertData(viewLine+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING ? lineendings : m_pViewData->GetLineEnding(viewLine), HIDESTATE_SHOWN, -1);
     m_Screen2View.insert(m_Screen2View.begin()+nLineIndex, viewLine+1);
 }
 
@@ -3267,7 +3267,7 @@ void CBaseView::RemoveSelectedText()
             m_pViewData->SetLine(viewLine, newLine);
             m_pViewData->SetState(viewLine, DIFFSTATE_EDITED);
             if (m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING)
-                m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
+                m_pViewData->SetLineEnding(viewLine, lineendings);
             SetModified();
         }
         else

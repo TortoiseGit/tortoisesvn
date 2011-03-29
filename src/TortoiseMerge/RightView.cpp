@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -214,7 +214,7 @@ void CRightView::UseBlock(bool refreshViews /* = true */)
             m_pwndBottom->m_pViewData->SetLine(viewLine, m_pViewData->GetLine(viewLine));
             bottomstate.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
             m_pwndBottom->m_pViewData->SetState(viewLine, m_pViewData->GetState(viewLine));
-            m_pwndBottom->m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
+            m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
             if (m_pwndBottom->IsViewLineConflicted(viewLine))
             {
                 if (m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
@@ -234,7 +234,7 @@ void CRightView::UseBlock(bool refreshViews /* = true */)
             int viewLine = m_Screen2View[i];
             rightstate.difflines[viewLine] = m_pViewData->GetLine(viewLine);
             m_pViewData->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
-            m_pViewData->SetLineEnding(viewLine, EOL_AUTOLINE);
+            m_pViewData->SetLineEnding(viewLine, lineendings);
             DiffStates state = m_pwndLeft->m_pViewData->GetState(viewLine);
             switch (state)
             {
