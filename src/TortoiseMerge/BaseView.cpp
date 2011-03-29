@@ -664,6 +664,7 @@ CString CBaseView::GetWhitespaceString(CViewData *viewData, int nStartBlock, int
 
 bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 {
+    bIdentical = false;
     CheckOtherView();
     if (!m_pOtherViewData)
         return false;
@@ -673,20 +674,26 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
         (m_pOtherViewData->GetLine(viewLine) == m_pViewData->GetLine(viewLine))
         )
     {
+        bIdentical = true;
         return false;
     }
     // first check whether the line itself only has whitespace changes
     CString mine = m_pViewData->GetLine(viewLine);
     CString other = m_pOtherViewData->GetLine(min(viewLine, m_pOtherViewData->GetCount() - 1));
     if (mine.IsEmpty() && other.IsEmpty())
+    {
+        bIdentical = true;
         return false;
+    }
     
-    FilterWhitespaces(mine, other);
     if (mine == other)
     {
         bIdentical = true;
         return true;
     }
+    FilterWhitespaces(mine, other);
+    if (mine == other)
+        return true;
 
     int nStartBlock1, nEndBlock1;
     int nStartBlock2, nEndBlock2;
