@@ -1653,7 +1653,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
     int nWidth = rc.right - origin.x;
     int savedx = origin.x;
     bool bInlineDiffDrawn =
-        nWidth > 0 && diffState != DIFFSTATE_NORMAL &&
+        (nWidth > 0) && (diffState != DIFFSTATE_NORMAL) &&
         DrawInlineDiff(pDC, rc, nLineIndex, line, origin);
 
     if (!bInlineDiffDrawn)
