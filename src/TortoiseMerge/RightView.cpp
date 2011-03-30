@@ -33,14 +33,14 @@ CRightView::~CRightView(void)
 {
 }
 
-bool CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
+void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 {
     if (!this->IsWindowVisible())
-        return false;
+        return;
 
     CMenu popup;
     if (!popup.CreatePopupMenu())
-        return false;
+        return;
 
 #define ID_USEBLOCK 1
 #define ID_USEFILE 2
@@ -96,14 +96,14 @@ bool CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     {
     case ID_EDIT_COPY:
         OnEditCopy();
-        return true;
+        return;
     case ID_EDIT_CUT:
         OnEditCopy();
         RemoveSelectedText();
-        return false;
+        return;
     case ID_EDIT_PASTE:
         PasteText();
-        return false;
+        return;
     case ID_USEFILE:
         UseFile(false);
         break;
@@ -127,9 +127,9 @@ bool CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
         CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
         break;
     default:
-        return false;
+        return;
     } // switch (cmd)
-    return false;
+    return;
 }
 
 void CRightView::UseFile(bool refreshViews /* = true */)

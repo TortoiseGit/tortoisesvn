@@ -229,8 +229,7 @@ protected:
     static void     GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock);
     static CString  GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock);
 
-    /// Returns true if selection should be kept
-    virtual bool    OnContextMenu(CPoint point, int nLine, DiffStates state);
+    virtual void    OnContextMenu(CPoint point, int nLine, DiffStates state);
     /**
      * Updates the status bar pane. Call this if the document changed.
      */

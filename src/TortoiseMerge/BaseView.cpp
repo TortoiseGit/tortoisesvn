@@ -1981,9 +1981,8 @@ int CBaseView::GetLineFromPoint(CPoint point)
     return (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 }
 
-bool CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/, DiffStates /*state*/)
+void CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/, DiffStates /*state*/)
 {
-    return false;
 }
 
 void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
@@ -2006,12 +2005,10 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         int nIndex = viewLine;
         int nLineIndex = nLine - 1;
         DiffStates state = m_pViewData->GetState(nIndex);
-        // select the diff block under the cursor.
-        if (((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0))||
-            ((m_nSelBlockEnd < m_nTopLine)||(m_nSelBlockStart > m_nTopLine+m_nScreenLines))||
-            ((m_nSelBlockEnd > nLineIndex)||(m_nSelBlockStart < nLineIndex))
-            )
+        // If cursor is not over selection, select the diff block under the cursor.
+        if ((m_nSelBlockEnd < nLineIndex)||(m_nSelBlockStart > nLineIndex))
         {
+            ClearSelection(); // Clear text-copy selection 
             while (nIndex >= 0)
             {
                 if (nIndex == 0)
@@ -2055,9 +2052,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                     break;
             }
         }
-        bool bKeepSelection = OnContextMenu(point, nLine, state);
-        if (! bKeepSelection)
-            ClearSelection();
+        OnContextMenu(point, nLine, state);
         RefreshViews();
     }
 }

@@ -33,14 +33,14 @@ CBottomView::~CBottomView(void)
 {
 }
 
-bool CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
+void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 {
     if (!this->IsWindowVisible())
-        return false;
+        return;
 
     CMenu popup;
     if (!popup.CreatePopupMenu())
-        return false;
+        return;
 
 #define ID_USETHEIRBLOCK 1
 #define ID_USEYOURBLOCK 2
@@ -84,7 +84,7 @@ bool CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
         break;
     case ID_EDIT_COPY:
         OnEditCopy();
-        return true;
+        return;
     case ID_EDIT_CUT:
         OnEditCopy();
         RemoveSelectedText();
@@ -93,7 +93,7 @@ bool CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
         PasteText();
         break;
     }
-    return false;
+    return;
 }
 
 void CBottomView::UseTheirTextBlock()

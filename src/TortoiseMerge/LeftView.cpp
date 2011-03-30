@@ -33,14 +33,14 @@ CLeftView::~CLeftView(void)
 {
 }
 
-bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
+void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 {
     if (!m_pwndRight->IsWindowVisible())
-        return false;
+        return;
 
     CMenu popup;
     if (!popup.CreatePopupMenu())
-        return false;
+        return;
 
 #define ID_USEBLOCK 1
 #define ID_USEFILE 2
@@ -86,14 +86,14 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     {
     case ID_EDIT_COPY:
         OnEditCopy();
-        return true;
+        return;
     case ID_EDIT_CUT:
         OnEditCopy();
         RemoveSelectedText();
-        return false;
+        return;
     case ID_EDIT_PASTE:
         PasteText();
-        return false;
+        return;
     case ID_USEFILE:
         if (m_pwndBottom->IsWindowVisible())
         {
@@ -239,8 +239,8 @@ bool CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
         UseBothLeftFirst(rightstate, leftstate);
         break;
     default:
-        return false;
+        return;
     } // switch (cmd)
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-    return false;
+    return;
 }

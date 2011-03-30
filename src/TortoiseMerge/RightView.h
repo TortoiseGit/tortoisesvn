@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2008, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,6 +36,6 @@ public:
     void    UseLeftBeforeRight(bool refreshViews = true);
     void    UseRightBeforeLeft(bool refreshViews = true);
 protected:
-    bool    OnContextMenu(CPoint point, int nLine, DiffStates state);
+    void    OnContextMenu(CPoint point, int nLine, DiffStates state);
 
 };
