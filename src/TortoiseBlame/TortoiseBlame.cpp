@@ -218,6 +218,8 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             stringbuf[strLen] = 0;
             m_authors.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
         }
+        else
+            m_authors.push_back(L"");
         // date
         len = fread(&strLen, sizeof(int), 1, File);
         if (len == 0)
@@ -231,6 +233,8 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             stringbuf[strLen] = 0;
             m_dates.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
         }
+        else
+            m_dates.push_back(L"");
         // merged revision
         len = fread(&merged_rev, sizeof(svn_revnum_t), 1, File);
         if (len == 0)
@@ -259,6 +263,8 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             stringbuf[strLen] = 0;
             m_mergedAuthors.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
         }
+        else
+            m_mergedAuthors.push_back(L"");
         // merged date
         len = fread(&strLen, sizeof(int), 1, File);
         if (len == 0)
@@ -272,6 +278,8 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             stringbuf[strLen] = 0;
             m_mergedDates.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
         }
+        else
+            m_mergedDates.push_back(L"");
         // merged path
         len = fread(&strLen, sizeof(int), 1, File);
         if (len == 0)
@@ -285,6 +293,8 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             stringbuf[strLen] = 0;
             m_mergedPaths.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
         }
+        else
+            m_mergedPaths.push_back(L"");
         // text line
         len = fread(&strLen, sizeof(int), 1, File);
         if (strLen)
@@ -1075,7 +1085,9 @@ void TortoiseBlame::DrawBlame(HDC hDC)
                 oldfont = (HFONT)::SelectObject(hDC, m_font);
             ::SetBkColor(hDC, m_windowColor);
             ::SetTextColor(hDC, m_textColor);
-            tstring author = bUseMerged ? m_mergedAuthors[i] : m_authors[i];
+            tstring author;
+            if (i < (int)m_authors.size())
+                author = bUseMerged ? m_mergedAuthors[i] : m_authors[i];
             if (author.size() > 0)
             {
                 if (author.compare(m_mouseAuthor)==0)
@@ -1095,7 +1107,10 @@ void TortoiseBlame::DrawBlame(HDC hDC)
                 ::SetBkColor(hDC, m_selectedRevColor);
                 ::SetTextColor(hDC, m_textHighLightColor);
             }
-            _stprintf_s(buf, _T("%8ld       "), rev);
+            if (rev >= 0)
+                _stprintf_s(buf, _T("%8ld       "), rev);
+            else
+                _tcscpy_s(buf, L"    ----       ");
             rc.right = rc.left + m_revWidth;
             ::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
             int Left = m_revWidth;
