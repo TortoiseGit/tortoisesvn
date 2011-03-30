@@ -35,6 +35,7 @@ CResModule::CResModule(void)
     , m_hUpdateRes(NULL)
     , m_bQuiet(false)
     , m_bRTL(false)
+    , m_bAdjustEOLs(false)
 {
 }
 
@@ -83,7 +84,7 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
 
         // parse a probably existing file and update the translations which are
         // already done
-        m_StringEntries.ParseFile(lpszPOFilePath, !bNoUpdate);
+        m_StringEntries.ParseFile(lpszPOFilePath, !bNoUpdate, m_bAdjustEOLs);
 
         FreeLibrary(m_hResDll);
         continue;
@@ -134,7 +135,7 @@ BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFile
 
     // parse a probably existing file and update the translations which are
     // already done
-    m_StringEntries.ParseFile(lpszPoFilePath, !bNoUpdate);
+    m_StringEntries.ParseFile(lpszPoFilePath, !bNoUpdate, m_bAdjustEOLs);
 
     // at last, save the new file
     if (!m_StringEntries.SaveFile(lpszPoFilePath, lpszHeaderFile))
@@ -169,7 +170,7 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
     sDestFile = std::wstring(lpszDestLangDllPath);
 
     // get all translated strings
-    if (!m_StringEntries.ParseFile(lpszPOFilePath, FALSE))
+    if (!m_StringEntries.ParseFile(lpszPOFilePath, FALSE, m_bAdjustEOLs))
         goto DONE_ERROR;
     m_bTranslatedStrings = 0;
     m_bDefaultStrings = 0;

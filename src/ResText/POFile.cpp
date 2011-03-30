@@ -23,6 +23,8 @@
 #include "ResModule.h"
 #include ".\pofile.h"
 
+#include <cctype>
+
 #define MYERROR {CUtils::Error(); return FALSE;}
 
 CPOFile::CPOFile()
@@ -33,10 +35,12 @@ CPOFile::~CPOFile(void)
 {
 }
 
-BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
+BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
 {
     if (!PathFileExists(szPath))
         return FALSE;
+
+    m_bAdjustEOLs = bAdjustEOLs;
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("parsing file %s...\n"), szPath);
@@ -128,7 +132,13 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
             if ((bUpdateExisting)&&(this->count(msgid) == 0))
                 nDeleted++;
             else
+            {
+                if ((m_bAdjustEOLs)&&(msgid.find(L"\\r\\n") != std::string::npos))
+                {
+                    AdjustEOLs(resEntry.msgstr);
+                }
                 (*this)[msgid] = resEntry;
+            }
             msgid.clear();
         }
         else
@@ -247,3 +257,43 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
         _ftprintf(stdout, _T("File %s saved, containing %d entries\n"), szPath, nEntries);
     return TRUE;
 }
+
+void CPOFile::AdjustEOLs(std::wstring& str)
+{
+    std::wstring result;
+    std::wstring::size_type pos = 0;
+    for ( ; ; ) // while (true)
+    {
+        std::wstring::size_type next = str.find(L"\\r\\n", pos);
+        result.append(str, pos, next-pos);
+        if( next != std::string::npos ) 
+        {
+            result.append(L"\\n");
+            pos = next + 4; // 4 = sizeof("\\r\\n")
+        } 
+        else 
+        {
+            break;  // exit loop
+        }
+    }
+    str.swap(result);
+    result.clear();
+    pos = 0;
+
+    for ( ; ; ) // while (true)
+    {
+        std::wstring::size_type next = str.find(L"\\n", pos);
+        result.append(str, pos, next-pos);
+        if( next != std::string::npos ) 
+        {
+            result.append(L"\\r\\n");
+            pos = next + 2; // 2 = sizeof("\\n")
+        } 
+        else 
+        {
+            break;  // exit loop
+        }
+    }
+    str.swap(result);
+}
+

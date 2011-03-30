@@ -45,9 +45,12 @@ public:
     CPOFile();
     ~CPOFile(void);
 
-    BOOL ParseFile(LPCTSTR szPath, BOOL bUpdateExisting = TRUE);
+    BOOL ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs);
     BOOL SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile);
     void SetQuiet(BOOL bQuiet = TRUE) {m_bQuiet = bQuiet;}
+
 private:
+    void AdjustEOLs(std::wstring& str);
     BOOL m_bQuiet;
+    bool m_bAdjustEOLs;
 };

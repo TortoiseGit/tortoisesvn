@@ -32,6 +32,7 @@ int _tmain(int argc, _TCHAR* argv[])
     bool bNoUpdate = false;
     bool bRTL = false;
     bool bUseHeader = false;
+    bool bAdjustEOLs = false;
     //parse the command line
     std::vector<tstring> arguments;
     std::vector<tstring> switches;
@@ -63,6 +64,8 @@ int _tmain(int argc, _TCHAR* argv[])
             bRTL = true;
         if (_tcscmp(I->c_str(), _T("useheaderfile"))==0)
             bUseHeader = true;
+        if (_tcscmp(I->c_str(), _T("adjusteols"))==0)
+            bAdjustEOLs = true;
     }
     std::vector<tstring>::iterator arg = arguments.begin();
 
@@ -122,6 +125,7 @@ int _tmain(int argc, _TCHAR* argv[])
             module.SetQuiet(bQuiet);
             module.SetLanguage(wLang);
             module.SetRTL(bRTL);
+            module.SetAdjustEOLs(bAdjustEOLs);
             if (!module.CreateTranslatedResources(sSrcDllFile.c_str(), sDstDllFile.c_str(), sPoFile.c_str()))
                 return -1;
             bShowHelp = false;
@@ -142,6 +146,7 @@ int _tmain(int argc, _TCHAR* argv[])
         _ftprintf(stdout, _T("Replaces all strings in the dst resource.dll with the po-file translations\n"));
         _ftprintf(stdout, _T("-quiet: don't print progress messages\n"));
         _ftprintf(stdout, _T("-rtl  : change the controls to RTL reading\n"));
+        _ftprintf(stdout, _T("-adjusteols : if the msgid string has \\r\\n eols, enforce those for the translation too.\n"));
         _ftprintf(stdout, _T("\n"));
     }
 
