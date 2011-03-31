@@ -163,13 +163,15 @@ void CTempFiles::DeleteOldTempFiles(LPCTSTR wildCard)
     CSimpleFileFind finder = CSimpleFileFind(path.get(), wildCard);
     FILETIME systime_;
     ::GetSystemTimeAsFileTime(&systime_);
-    __int64 systime = ((ULARGE_INTEGER&)systime_).QuadPart;
+    __int64 systime = (__int64)systime_.dwLowDateTime | (__int64)systime_.dwHighDateTime << 32LL;
     while (finder.FindNextFileNoDirectories())
     {
         CString filepath = finder.GetFilePath();
 
-        __int64 createtime = ((ULARGE_INTEGER&)finder.GetLastWriteTime()).QuadPart;
-        if ((createtime + 864000000000) < systime)      //only delete files older than a day
+        FILETIME createtime_ = finder.GetCreateTime();
+        __int64 createtime = (__int64)createtime_.dwLowDateTime | (__int64)createtime_.dwHighDateTime << 32LL;
+        createtime += 864000000000LL;      //only delete files older than a day
+        if (createtime < systime)
         {
             ::SetFileAttributes(filepath, FILE_ATTRIBUTE_NORMAL);
             ::DeleteFile(filepath);
