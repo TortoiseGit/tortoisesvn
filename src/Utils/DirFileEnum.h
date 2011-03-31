@@ -193,6 +193,10 @@ public:
    {
        return m_FindFileData.ftLastWriteTime;
    }
+   FILETIME GetCreateTime() const
+   {
+       return m_FindFileData.ftCreationTime;
+   }
 
    /**
     * Check if the current file is the "." or ".."
