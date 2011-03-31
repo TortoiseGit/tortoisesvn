@@ -1102,7 +1102,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
             svn_revnum_t rev = bUseMerged ? m_mergedRevs[i] : m_revs[i];
             if ((rev == m_mouseRev)&&(!sel))
                 ::SetBkColor(hDC, m_mouseRevColor);
-            if (rev == m_selectedRev)
+            if ((rev == m_selectedRev)&&(rev >= 0))
             {
                 ::SetBkColor(hDC, m_selectedRevColor);
                 ::SetTextColor(hDC, m_textHighLightColor);
