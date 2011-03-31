@@ -2822,6 +2822,11 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 {
     if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
         return;
+
+    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    if (m_nSelBlockEnd + 1 < m_Screen2View.size())
+        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
@@ -2841,11 +2846,11 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
     }
 
     // your block is done, now insert their block
-    int viewindex = m_Screen2View[m_nSelBlockEnd+1];
+    int viewindex = viewIndexAfterSelection;
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
-        bottomstate.addedlines.push_back(m_Screen2View[m_nSelBlockEnd+1]);
+        bottomstate.addedlines.push_back(viewIndexAfterSelection);
         m_pwndBottom->m_pViewData->InsertData(viewindex, m_pwndRight->m_pViewData->GetData(viewline));
         if (m_pwndBottom->IsViewLineConflicted(viewindex))
         {
@@ -2871,8 +2876,8 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
     {
         rightstate.addedlines.push_back(m_Screen2View[m_nSelBlockStart]);
         m_pwndRight->m_pViewData->InsertData(m_Screen2View[m_nSelBlockStart], _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-        m_pwndLeft->m_pViewData->InsertData(m_Screen2View[m_nSelBlockEnd+1], _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-        leftstate.addedlines.push_back(m_Screen2View[m_nSelBlockEnd+1]);
+        m_pwndLeft->m_pViewData->InsertData(viewIndexAfterSelection, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+        leftstate.addedlines.push_back(viewIndexAfterSelection);
     }
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
@@ -2885,6 +2890,11 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 {
     if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
         return;
+
+    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    if (m_nSelBlockEnd + 1 < m_Screen2View.size())
+        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
@@ -2905,11 +2915,11 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
     }
 
     // your block is done, now insert their block
-    int viewindex = m_Screen2View[m_nSelBlockEnd+1];
+    int viewindex = viewIndexAfterSelection;
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
-        bottomstate.addedlines.push_back(m_Screen2View[m_nSelBlockEnd+1]);
+        bottomstate.addedlines.push_back(viewIndexAfterSelection);
         m_pwndBottom->m_pViewData->InsertData(viewindex, m_pwndLeft->m_pViewData->GetData(viewline));
         leftstate.linestates[i] = m_pwndLeft->m_pViewData->GetState(viewline);
         if (m_pwndBottom->IsViewLineConflicted(viewindex))
@@ -2936,8 +2946,8 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
     {
         leftstate.addedlines.push_back(m_Screen2View[m_nSelBlockStart]);
         m_pwndLeft->m_pViewData->InsertData(m_Screen2View[m_nSelBlockStart], _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-        m_pwndRight->m_pViewData->InsertData(m_Screen2View[m_nSelBlockEnd+1], _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-        rightstate.addedlines.push_back(m_Screen2View[m_nSelBlockEnd+1]);
+        m_pwndRight->m_pViewData->InsertData(viewIndexAfterSelection, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+        rightstate.addedlines.push_back(viewIndexAfterSelection);
     }
 
     BuildAllScreen2ViewVector();
@@ -2951,6 +2961,11 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 {
     if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
         return;
+
+    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    if (m_nSelBlockEnd + 1 < m_Screen2View.size())
+        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
@@ -2959,11 +2974,11 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
     }
 
     // your block is done, now insert their block
-    int viewindex = m_Screen2View[m_nSelBlockEnd+1];
+    int viewindex = viewIndexAfterSelection;
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
-        rightstate.addedlines.push_back(m_Screen2View[m_nSelBlockEnd+1]);
+        rightstate.addedlines.push_back(viewIndexAfterSelection);
         m_pwndRight->m_pViewData->InsertData(viewindex, m_pwndLeft->m_pViewData->GetData(viewline));
         m_pwndRight->m_pViewData->SetState(viewindex++, DIFFSTATE_THEIRSADDED);
     }
@@ -2994,6 +3009,11 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 {
     if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
         return;
+
+    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    if (m_nSelBlockEnd + 1 < m_Screen2View.size())
+        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+
     // get line number from just before the block
     long linenumber = 0;
     if (m_nSelBlockStart > 0)
@@ -3017,8 +3037,8 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
     // now insert an empty block in left view
     for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
     {
-        leftstate.addedlines.push_back(m_Screen2View[m_nSelBlockEnd + 1]);
-        m_pwndLeft->m_pViewData->InsertData(m_Screen2View[m_nSelBlockEnd + 1], _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+        leftstate.addedlines.push_back(viewIndexAfterSelection);
+        m_pwndLeft->m_pViewData->InsertData(viewIndexAfterSelection, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
     }
 
     BuildAllScreen2ViewVector();
