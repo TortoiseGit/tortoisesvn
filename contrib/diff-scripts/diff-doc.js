@@ -11,6 +11,7 @@
 // $Rev$
 //
 // Authors:
+// Stefan Kueng, 2011
 // Jared Silva, 2008
 // Davide Orlandi and Hans-Emil Skogh, 2005
 //
@@ -134,9 +135,18 @@ try
 }
 catch(e)
 {
-    WScript.Echo("Error opening " + sNewDoc);
-    // Quit
-    WScript.Quit(1);
+    try
+    {
+        // open empty document to prevent bug where first Open() call fails
+        word.Documents.Add();
+        destination = word.Documents.Open(sNewDoc, true, true);
+    }
+    catch(e)
+    {
+        WScript.Echo("Error opening " + sNewDoc);
+        // Quit
+        WScript.Quit(1);
+    }
 }
 
 // If the Type property returns either wdOutlineView or wdMasterView and the Count property returns zero, the current document is an outline.
