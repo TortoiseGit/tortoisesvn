@@ -38,6 +38,7 @@
 #define ID_EXPORT 4
 #define ID_CLIPBOARD 5
 #define ID_UNIFIEDDIFF 6
+#define ID_LOG 7
 
 BOOL    CFileDiffDlg::m_bAscending = FALSE;
 int     CFileDiffDlg::m_nSortedColumn = -1;
@@ -595,6 +596,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
     popup.AppendMenuIcon(ID_UNIFIEDDIFF, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
     popup.AppendMenuIcon(ID_BLAME, IDS_FILEDIFF_POPBLAME, IDI_BLAME);
+    popup.AppendMenuIcon(ID_LOG, IDS_REPOBROWSE_SHOWLOG, IDI_LOG);
     popup.AppendMenu(MF_SEPARATOR, NULL);
     popup.AppendMenuIcon(ID_SAVEAS, IDS_FILEDIFF_POPSAVELIST, IDI_SAVEAS);
     popup.AppendMenuIcon(ID_CLIPBOARD, IDS_FILEDIFF_POPCLIPBOARD, IDI_COPYCLIP);
@@ -644,6 +646,18 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 int index = m_cFileList.GetNextSelectedItem(pos);
                 DoDiff(index, true);
             }
+        }
+        break;
+    case ID_LOG:
+        {
+            POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+            int index = m_cFileList.GetNextSelectedItem(pos);
+            CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
+            CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+            CString sCmd;
+            sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%s /pegrev:%s"),
+                (LPCTSTR)url1.GetSVNPathString(), (LPCTSTR)m_rev1.ToString(), (LPCTSTR)m_peg.ToString());
+            CAppUtils::RunTortoiseProc(sCmd);
         }
         break;
     case ID_SAVEAS:
