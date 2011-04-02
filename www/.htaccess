@@ -50,10 +50,10 @@ IndexIgnore *
   RewriteRule ^(.*)$ http://tortoisesvn.net/$1 [L,R=301]
 
   # Redirect traffic to www.tortoisesvn.net to tortoisesvn.net
-  RewriteCond %{HTTP_HOST} !^tortoisesvn.net$ [NC]
-  RewriteRule ^(.*)$ http://tortoisesvn.net/$1 [L,R=301]
+  RewriteCond %{HTTP_HOST} !^tortoisesvn.net/?$ [NC]
+  RewriteRule ^(.*)$ http://tortoisesvn.net$1 [L,R=301]
 
-  RewriteRule ^downloads$ downloads.html [R,NC]
+  RewriteRule ^downloads/?$ downloads.html [R,NC]
   RewriteRule ^community$ community.html [R,NC]
   RewriteRule ^support$ support.html [R,NC]
   RewriteRule ^issuetrackerplugins$ issuetrackerplugins.html [R,NC]
@@ -67,6 +67,9 @@ IndexIgnore *
   RewriteRule ^majorupgrade$ majorupgrade.html [R,NC]
   RewriteRule ^blog/(.*)$ blogposts.html [R,NC]
   RewriteRule ^doc_release$ support.html [R,NC]
+  RewriteRule ^faq/?$ faq.html [R,NC]
+  RewriteRule ^docs/?$ support.html [R,NC]
+  RewriteRule ^howpaypalscrewsopensourceprojects$ howpaypalscrewsopensourceprojects.html [R,NC]
   RewriteRule ^StExBar$ http://tools.tortoisesvn.net/StExBar.html [R,NC]
 
   RewriteBase /
