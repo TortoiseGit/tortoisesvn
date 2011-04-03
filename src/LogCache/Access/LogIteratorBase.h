@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,6 +54,11 @@ protected:
     revision_t revision;
     CDictionaryBasedTempPath path;
 
+    // last position before we hit the last copy operation
+
+    revision_t addRevision;
+    CDictionaryBasedTempPath addPath;
+
     // construction
     // (copy construction & assignment use default methods)
 
@@ -92,12 +97,10 @@ protected:
 
     // return true, searchPath / searchRevision have been modified
 
-    static bool InternalHandleCopyAndDelete
+    bool InternalHandleCopyAndDelete
         ( const CRevisionInfoContainer::CChangesIterator& first
         , const CRevisionInfoContainer::CChangesIterator& last
-        , const CDictionaryBasedPath& revisionRootPath
-        , CDictionaryBasedTempPath& searchPath
-        , revision_t& searchRevision);
+        , const CDictionaryBasedPath& revisionRootPath);
 
     // log scanning sub-routines
 
@@ -123,7 +126,9 @@ public:
 
     virtual bool DataIsMissing() const;
     virtual revision_t GetRevision() const;
+    virtual revision_t GetAddRevision() const;
     virtual const CDictionaryBasedTempPath& GetPath() const;
+    virtual const CDictionaryBasedTempPath& GetAddPath() const;
     virtual bool EndOfPath() const;
 
     virtual void Advance (revision_t last = 0);
@@ -156,9 +161,19 @@ inline revision_t CLogIteratorBase::GetRevision() const
     return revision;
 }
 
+inline revision_t CLogIteratorBase::GetAddRevision() const
+{
+    return addRevision;
+}
+
 inline const CDictionaryBasedTempPath& CLogIteratorBase::GetPath() const
 {
     return path;
+}
+
+inline const CDictionaryBasedTempPath& CLogIteratorBase::GetAddPath() const
+{
+    return addPath;
 }
 
 inline bool CLogIteratorBase::EndOfPath() const

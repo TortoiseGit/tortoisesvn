@@ -38,9 +38,7 @@ bool CStrictLogIterator::HandleCopyAndDelete()
 
     bool result = InternalHandleCopyAndDelete ( revisionInfo.GetChangesBegin (index)
                                               , revisionInfo.GetChangesEnd (index)
-                                              , revisionInfo.GetRootPath (index)
-                                              , path
-                                              , revision);
+                                              , revisionInfo.GetRootPath (index));
     if (result)
     {
         // stop on copy

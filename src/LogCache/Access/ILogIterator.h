@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,7 +49,9 @@ public:
 
     virtual bool DataIsMissing() const = 0;
     virtual revision_t GetRevision() const = 0;
+    virtual revision_t GetAddRevision() const = 0;
     virtual const CDictionaryBasedTempPath& GetPath() const = 0;
+    virtual const CDictionaryBasedTempPath& GetAddPath() const = 0;
     virtual bool EndOfPath() const = 0;
 
     /// to next / previous revision for our path

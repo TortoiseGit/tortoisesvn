@@ -134,16 +134,14 @@ bool CLogIteratorBase::ContainsCopyOrDelete
 bool CLogIteratorBase::InternalHandleCopyAndDelete
     ( const CRevisionInfoContainer::CChangesIterator& first
     , const CRevisionInfoContainer::CChangesIterator& last
-    , const CDictionaryBasedPath& revisionRootPath
-    , CDictionaryBasedTempPath& searchPath
-    , revision_t& searchRevision)
+    , const CDictionaryBasedPath& revisionRootPath)
 {
     // any chance that this revision affects our search path?
 
     if (!revisionRootPath.IsValid())
         return false;
 
-    if (!revisionRootPath.IsSameOrParentOf (searchPath.GetBasePath()))
+    if (!revisionRootPath.IsSameOrParentOf (path.GetBasePath()))
         return false;
 
     // close examination of all changes
@@ -164,7 +162,7 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
         // -> skip, if our search path is not affected (only some sub-path)
 
         CDictionaryBasedPath changedPath = iter->GetPath();
-        if (!changedPath.IsSameOrParentOf (searchPath.GetBasePath()))
+        if (!changedPath.IsSameOrParentOf (path.GetBasePath()))
             continue;
 
         // now, this is serious
@@ -208,12 +206,15 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
                     // Stop iteration only if we found an ADD of
                     // the exact search path.
 
-                    if (searchPath == changedPath)
+                    if (path == changedPath)
                     {
                         // the path we are following actually started here.
 
-                        searchRevision = (revision_t)NO_REVISION;
-                        searchPath.Invalidate();
+                        addRevision = revision;
+                        addPath = path;
+
+                        revision = (revision_t)NO_REVISION;
+                        path.Invalidate();
                         return true;
                     }
                 }
@@ -240,9 +241,12 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 
     if (bestRename != last)
     {
-        searchPath = searchPath.ReplaceParent ( bestRename.GetPath()
-                                              , bestRename.GetFromPath());
-        searchRevision = bestRename.GetFromRevision();
+        addRevision = revision;
+        addPath = path;
+
+        path = path.ReplaceParent ( bestRename.GetPath()
+                                  , bestRename.GetFromPath());
+        revision = bestRename.GetFromRevision();
 
         return true;
     }
@@ -308,7 +312,9 @@ CLogIteratorBase::CLogIteratorBase ( const CCachedLogInfo* cachedLog
     , revisionIndices (cachedLog->GetRevisions())
     , skipRevisionInfo (cachedLog->GetSkippedRevisions())
     , revision (startRevision)
+    , addRevision ((revision_t)NO_REVISION)
     , path (startPath)
+    , addPath (startPath.GetDictionary())
 {
 }
 
