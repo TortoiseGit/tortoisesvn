@@ -1961,6 +1961,12 @@ BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
             ::SetCursor(m_margincursor);
             return TRUE;
         }
+        if (HasCaret())
+        {
+            ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_IBEAM)));    // Set To Edit Cursor
+            return TRUE;
+        }
+
         ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));    // Set To Arrow Cursor
         return TRUE;
     }
