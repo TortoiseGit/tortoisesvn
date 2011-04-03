@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1035,7 +1035,7 @@ CRevisionInfoContainer::CUserRevPropsIterator::IsValid() const
 
 inline void CRevisionInfoContainer::CheckIndex (index_t index) const
 {
-#if !defined (_SECURE_SCL)
+#ifdef _DEBUG
     if (index >= (index_t)size())
         throw CContainerException ("revision info index out of range");
 #else

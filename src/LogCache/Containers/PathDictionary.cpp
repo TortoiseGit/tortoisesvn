@@ -36,7 +36,7 @@ namespace LogCache
 
 void CPathDictionary::CheckParentIndex (index_t index) const
 {
-#if !defined (_SECURE_SCL)
+#ifdef _DEBUG
     if (index >= paths.size())
         throw CContainerException ("parent path index out of range");
 #else
@@ -49,6 +49,18 @@ void CPathDictionary::CheckParentIndex (index_t index) const
 void CPathDictionary::Initialize()
 {
     paths.Insert (std::make_pair ( (index_t) NO_INDEX, 0));
+}
+
+void CPathDictionary::Validate()
+{
+    index_t maxElement = pathElements.size();
+    for (index_t i = 0, count = paths.size(); i < count; ++i)
+    {
+        const std::pair<index_t, index_t>& entry = paths[i];
+        if (   ((entry.first >= count) && (entry.first != NO_INDEX))
+            || ((entry.second >= maxElement) && (entry.second != NO_INDEX)))
+            throw CContainerException ("path dictionary is corrupt");
+    }
 }
 
 // construction (create root path) / destruction
@@ -172,6 +184,10 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
     *pathsStream >> dictionary.paths;
 
     // ready
+
+#ifdef _DEBUG
+    dictionary.Validate();
+#endif
 
     return stream;
 }

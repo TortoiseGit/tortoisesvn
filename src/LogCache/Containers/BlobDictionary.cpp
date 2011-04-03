@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -185,7 +185,7 @@ index_t CBlobDictionary::Find (const SBlob& blob) const
 
 SBlob CBlobDictionary::operator[] (index_t index) const
 {
-#if !defined (_SECURE_SCL)
+#ifdef _DEBUG
     if (index+1 < (index_t) offsets.size())
         throw CContainerException ("dictionary string index out of range");
 #endif

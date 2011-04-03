@@ -70,6 +70,7 @@ private:
     /// construction utility
 
     void Initialize();
+    void Validate();
 
 public:
 
@@ -213,6 +214,8 @@ public:
     {
     #ifdef _DEBUG
         _path = index == NO_INDEX ? noPath : GetPath();
+        if ((index != NO_INDEX) && (dictionary->size() < index))
+            throw CContainerException ("Invalid path index");
     #endif
     }
 

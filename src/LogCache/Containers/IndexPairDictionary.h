@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009,2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -142,7 +142,7 @@ public:
 
     const std::pair<index_t, index_t>& operator[](index_t index) const
     {
-    #if !defined (_SECURE_SCL)
+    #ifdef _DEBUG
         if (index >= data.size())
             throw CContainerException ("pair dictionary index out of range");
     #endif

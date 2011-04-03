@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -507,7 +507,7 @@ void CTokenizedStringContainer::Append (const std::string& s)
 
 void CTokenizedStringContainer::CheckIndex (index_t index) const
 {
-#if !defined (_SECURE_SCL)
+#ifdef _DEBUG
     if (index >= offsets.size()-1)
         throw CContainerException ("string container index out of range");
 #else
