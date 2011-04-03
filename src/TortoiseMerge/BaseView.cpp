@@ -83,6 +83,7 @@ CBaseView::CBaseView()
     m_nOffsetChar = 0;
     m_nDigits = 0;
     m_nMouseLine = -1;
+    m_mouseInMargin = false;
     m_bMouseWithin = FALSE;
     m_bIsHidden = FALSE;
     lineendings = EOL_AUTOLINE;
@@ -123,6 +124,7 @@ CBaseView::CBaseView()
     m_hLineEndingLF = LoadIcon(IDI_LINEENDINGLF);
     m_hEditedIcon = LoadIcon(IDI_LINEEDITED);
     m_hMovedIcon = LoadIcon(IDI_MOVEDLINE);
+    m_margincursor = (HCURSOR)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_MARGINCURSOR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
     m_nCachedWrappedLine = -1;
 
@@ -147,6 +149,7 @@ CBaseView::~CBaseView()
     DestroyIcon(m_hLineEndingLF);
     DestroyIcon(m_hEditedIcon);
     DestroyIcon(m_hMovedIcon);
+    DestroyCursor(m_margincursor);
 }
 
 BEGIN_MESSAGE_MAP(CBaseView, CView)
@@ -1953,6 +1956,11 @@ BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
                 }
             }
         }
+        if (m_mouseInMargin)
+        {
+            ::SetCursor(m_margincursor);
+            return TRUE;
+        }
         ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));    // Set To Arrow Cursor
         return TRUE;
     }
@@ -2485,6 +2493,12 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
         {
             ClearSelection();
             SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
+            if (point.x < GetMarginWidth())
+            {
+                // select the whole line
+                m_ptSelectionStartPos = m_ptSelectionEndPos = m_ptCaretPos;
+                m_ptSelectionEndPos.x = GetLineLength(m_ptSelectionEndPos.y);
+            }
         }
 
         UpdateViewsCaretPosition();
@@ -2678,16 +2692,17 @@ void CBaseView::OnEditCopy()
 
 void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 {
-    if (m_pMainFrame->m_nMoveMovesToIgnore > 0) {
+    if (m_pMainFrame->m_nMoveMovesToIgnore > 0)
+    {
         --m_pMainFrame->m_nMoveMovesToIgnore;
         CView::OnMouseMove(nFlags, point);
         return;
     }
     int nMouseLine = GetButtonEventLineIndex(point);
     if (nMouseLine < -1)
-    {
         nMouseLine = -1;
-    }
+    m_mouseInMargin = point.x < GetMarginWidth();
+
     ShowDiffLines(nMouseLine);
 
     KillTimer(IDT_SCROLLTIMER);
@@ -3581,6 +3596,7 @@ void CBaseView::AdjustSelection()
     {
         m_ptSelectionStartPos = m_ptSelectionOrigin;
         m_ptSelectionEndPos = m_ptCaretPos;
+        m_ptSelectionEndPos.x = GetLineLength(m_ptCaretPos.y);
     }
 
     SetupSelection(min(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y), max(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y));

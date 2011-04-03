@@ -299,6 +299,8 @@ protected:
     int             m_nSelBlockEnd;
 
     int             m_nMouseLine;
+    bool            m_mouseInMargin;
+    HCURSOR         m_margincursor;
 
     bool            m_bCaretHidden;
     POINT           m_ptCaretPos;
