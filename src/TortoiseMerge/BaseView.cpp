@@ -219,6 +219,7 @@ void CBaseView::DocumentUpdated()
     DeleteFonts();
     m_nSelBlockStart = -1;
     m_nSelBlockEnd = -1;
+    ClearCurrentSelection();
     BuildAllScreen2ViewVector();
     RecalcVertScrollBar();
     RecalcHorzScrollBar();
