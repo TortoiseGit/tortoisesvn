@@ -23,6 +23,7 @@
 #include "Undo.h"
 #include "LocatorBar.h"
 #include "LineColors.h"
+#include "TripleClick.h"
 
 typedef struct inlineDiffPos
 {
@@ -38,7 +39,7 @@ typedef struct inlineDiffPos
  * showing diffs. Has three parent classes which inherit
  * from this base class: CLeftView, CRightView and CBottomView.
  */
-class CBaseView : public CView
+class CBaseView : public CView, public CTripleClick
 {
     DECLARE_DYNCREATE(CBaseView)
 friend class CLineDiffBar;
@@ -136,6 +137,7 @@ protected:
     virtual BOOL    PreCreateWindow(CREATESTRUCT& cs);
     virtual void    OnDraw(CDC * pDC);
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+    virtual BOOL    PreTranslateMessage(MSG* pMsg);
     BOOL            OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void    OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
     afx_msg void    OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
@@ -158,6 +160,7 @@ protected:
     afx_msg void    OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
     afx_msg void    OnLButtonDown(UINT nFlags, CPoint point);
     afx_msg void    OnLButtonDblClk(UINT nFlags, CPoint point);
+    virtual void    OnLButtonTrippleClick(UINT nFlags, CPoint point);
     afx_msg void    OnEditCopy();
     afx_msg void    OnMouseMove(UINT nFlags, CPoint point);
     afx_msg void    OnTimer(UINT_PTR nIDEvent);

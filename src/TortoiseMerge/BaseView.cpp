@@ -2633,6 +2633,30 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
     CView::OnLButtonDblClk(nFlags, point);
 }
 
+void CBaseView::OnLButtonTrippleClick( UINT /*nFlags*/, CPoint point )
+{
+    const int nClickedLine = GetButtonEventLineIndex(point);
+    m_ptCaretPos.y = nClickedLine;
+    m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+    UpdateGoalPos();
+    m_sMarkedWord.Empty();
+    if (m_pwndLeft)
+        m_pwndLeft->SetMarkedWord(m_sMarkedWord);
+    if (m_pwndRight)
+        m_pwndRight->SetMarkedWord(m_sMarkedWord);
+    if (m_pwndBottom)
+        m_pwndBottom->SetMarkedWord(m_sMarkedWord);
+    ClearSelection();
+    m_ptSelectionStartPos.x = 0;
+    m_ptSelectionStartPos.y = nClickedLine;
+    m_ptSelectionEndPos.x = GetLineLength(nClickedLine);
+    m_ptSelectionEndPos.y = nClickedLine;
+    UpdateViewsCaretPosition();
+    Invalidate();
+    if (m_pwndLocator)
+        m_pwndLocator->Invalidate();
+}
+
 void CBaseView::OnEditCopy()
 {
     POINT start = m_ptSelectionStartPos;
@@ -4019,3 +4043,12 @@ int CBaseView::GetButtonEventLineIndex(const POINT& point)
     nEventLine--;     //we need the index
     return nEventLine;
 }
+
+
+BOOL CBaseView::PreTranslateMessage(MSG* pMsg)
+{
+    if (RelayTrippleClick(pMsg))
+        return TRUE;
+    return CView::PreTranslateMessage(pMsg);
+}
+
