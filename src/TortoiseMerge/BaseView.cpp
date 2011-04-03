@@ -2615,11 +2615,18 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 
 void CBaseView::OnEditCopy()
 {
+    POINT start = m_ptSelectionStartPos;
+    POINT end = m_ptSelectionEndPos;
     if ((m_ptSelectionStartPos.x == m_ptSelectionEndPos.x)&&(m_ptSelectionStartPos.y == m_ptSelectionEndPos.y))
-        return;
+    {
+        if ((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0))
+            return;
+        start.y = m_nSelBlockStart; start.x = 0;
+        end.y = m_nSelBlockEnd; end.x = GetLineLength(m_nSelBlockEnd);
+    }
     // first store the selected lines in one CString
     CString sCopyData;
-    for (int i=m_ptSelectionStartPos.y; i<=m_ptSelectionEndPos.y; i++)
+    for (int i=start.y; i<=end.y; i++)
     {
         int viewIndex = m_Screen2View[i];
         switch (m_pViewData->GetState(viewIndex))
@@ -2656,13 +2663,13 @@ void CBaseView::OnEditCopy()
     // remove the last \r\n
     sCopyData = sCopyData.Left(sCopyData.GetLength()-2);
     // remove the non-selected chars from the first line
-    sCopyData = sCopyData.Mid(m_ptSelectionStartPos.x);
+    sCopyData = sCopyData.Mid(start.x);
     // remove the non-selected chars from the last line
     int lastLinePos = sCopyData.ReverseFind('\n');
     lastLinePos += 1;
     if (lastLinePos == 0)
-        lastLinePos -= m_ptSelectionStartPos.x;
-    sCopyData = sCopyData.Left(lastLinePos+m_ptSelectionEndPos.x);
+        lastLinePos -= start.x;
+    sCopyData = sCopyData.Left(lastLinePos+end.x);
     if (!sCopyData.IsEmpty())
     {
         CStringUtils::WriteAsciiStringToClipboard(sCopyData, m_hWnd);
