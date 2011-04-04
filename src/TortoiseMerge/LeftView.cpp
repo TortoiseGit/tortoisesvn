@@ -137,6 +137,8 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
                 case DIFFSTATE_NORMAL:
                 case DIFFSTATE_THEIRSADDED:
                 case DIFFSTATE_ADDED:
+                case DIFFSTATE_MOVED_TO:
+                case DIFFSTATE_MOVED_FROM:
                 case DIFFSTATE_CONFLICTADDED:
                 case DIFFSTATE_CONFLICTED:
                 case DIFFSTATE_CONFLICTED_IGNORED:
@@ -197,6 +199,8 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
                 switch (state2)
                 {
                 case DIFFSTATE_ADDED:
+                case DIFFSTATE_MOVED_TO:
+                case DIFFSTATE_MOVED_FROM:
                 case DIFFSTATE_CONFLICTADDED:
                 case DIFFSTATE_CONFLICTED:
                 case DIFFSTATE_CONFLICTED_IGNORED:

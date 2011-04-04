@@ -172,6 +172,8 @@ void CRightView::UseFile(bool refreshViews /* = true */)
             case DIFFSTATE_NORMAL:
             case DIFFSTATE_THEIRSADDED:
             case DIFFSTATE_ADDED:
+            case DIFFSTATE_MOVED_TO:
+            case DIFFSTATE_MOVED_FROM:
             case DIFFSTATE_CONFLICTADDED:
             case DIFFSTATE_CONFLICTED:
             case DIFFSTATE_CONFLICTED_IGNORED:
@@ -239,6 +241,8 @@ void CRightView::UseBlock(bool refreshViews /* = true */)
             switch (state)
             {
             case DIFFSTATE_ADDED:
+            case DIFFSTATE_MOVED_TO:
+            case DIFFSTATE_MOVED_FROM:
             case DIFFSTATE_CONFLICTADDED:
             case DIFFSTATE_CONFLICTED:
             case DIFFSTATE_CONFLICTED_IGNORED:
