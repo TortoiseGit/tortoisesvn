@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-22 15:39+0000\n"
+"PO-Revision-Date: 2011-04-04 00:16+0000\n"
 "Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1462,7 +1462,7 @@ msgstr "(見つかりません)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
-msgstr ""
+msgstr "(properties only)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1470,7 +1470,7 @@ msgstr "（属性の変更のみ）"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(props and content)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -3873,7 +3873,7 @@ msgstr "空"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
-msgstr ""
+msgstr "属性の自動付与を有効化"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4760,7 +4760,7 @@ msgstr "ドッキングしているウィンドウを隠す"
 
 #. Resource IDs: (1562)
 msgid "Hide non-mergeable revisions"
-msgstr ""
+msgstr "マージ不可能なリビジョンを隠す"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -4963,7 +4963,7 @@ msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
-msgstr ""
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
@@ -5912,6 +5912,10 @@ msgstr "リビジョンの範囲をマージ(&R)"
 msgid "Merge all"
 msgstr "すべてマージ"
 
+#. Resource IDs: (10)
+msgid "Merge changes into the working copy"
+msgstr ""
+
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
 msgstr "非対話的なマージ"
@@ -5957,10 +5961,6 @@ msgstr "マージ"
 #, c-format
 msgid "Merged revision(s) %s from %s:\n"
 msgstr "リビジョン %s を %s からマージ:\n"
-
-#. Resource IDs: (10)
-msgid "Merges a branch into the main trunk"
-msgstr "ブランチを trunk にマージする"
 
 #. Resource IDs: (14)
 msgid ""

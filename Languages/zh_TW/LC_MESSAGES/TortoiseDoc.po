@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-24 10:16+0000\n"
+"PO-Revision-Date: 2011-03-29 07:54+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1156,8 +1156,8 @@ msgid ""
 "specific ideas behind Subversion, and show some simple examples of "
 "Subversion in use."
 msgstr ""
-"這個章節將簡單介紹 Subversion 。如果版本控管對於您來講是新的知識，那麼這個章節正好適合您。我們從版本控管的基本概念開始討論，然後進一步針對 "
-"Subversion 背後的一些特定想法加以介紹，並且示範一些 Subversion 使用的簡單範例。"
+"本章對 Subversion 有簡短與非正式的描述。如果您是版本控制的新手，本章相當適合您。我們一開始會討論一般性的版本控制，慢慢導向 "
+"Subversion 背後的概念，並且利用 Subversion 舉出簡單的例子。"
 
 #. (para)
 msgid ""
@@ -1165,11 +1165,13 @@ msgid ""
 "program source code, keep in mind that Subversion can manage any sort of "
 "file collection - it's not limited to helping computer programmers."
 msgstr ""
+"即使在這章節的範例裡我們示範了人們所分享的程式範例集，但請記得 Subversion "
+"可以管理任何類型的檔案集合，也就是說它不僅限於提供給程式設計師幫助。"
 
 #. (primary)
 #. (primary)
 msgid "repository"
-msgstr ""
+msgstr "檔案庫"
 
 #. (para)
 msgid ""
@@ -1182,10 +1184,12 @@ msgid ""
 "available to others; by reading data, the client receives information from "
 "others."
 msgstr ""
+"Subversion 是一個集中式的資訊分享系統。它的核心是一個<firstterm>檔案庫\n"
+"</firstterm>，集中儲存所有的資料。檔案庫以<firstterm>樹狀檔案系統</firstterm>形式儲存資訊，其為典型的檔案與目錄的階層。任意數量的<firstterm>客戶端</firstterm>程式連結上檔案庫，然後讀取或寫入那些檔案。客戶端程式藉由寫入資料來將資訊傳遞給其他人；藉由讀取資料來取得其他人寫入的資訊。"
 
 #. (title)
 msgid "A Typical Client/Server System"
-msgstr ""
+msgstr "典型的主從式系統"
 
 #. (para)
 msgid ""
@@ -1197,6 +1201,8 @@ msgid ""
 "changes to the directory tree itself, such as the addition, deletion, and "
 "rearrangement of files and directories."
 msgstr ""
+"這有什麼有趣的呢？到目前為止，這聽起來像是個典型的檔案伺服器。的確，檔案庫<emphasis>確實是</emphasis>一種檔案伺服器，但不是一般的那種。Subversion 的檔案庫之所以特別，在於<emphasis>它會記得每一個發生在它身上的變動\n"
+"</emphasis>，包含每個檔案的每一個變動，甚至是發生在目錄身上的，例如新增、刪除、或是檔案與目錄的重新安排等。"
 
 #. (para)
 msgid ""
@@ -1210,10 +1216,11 @@ msgid ""
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
 msgstr ""
+"當客戶端從檔案庫讀取資料時，通常它只會看見樹狀檔案系統上的最新版本。但客戶端程式也具備有檢視檔案系統上<emphasis>上一版</emphasis>的能力。舉例來說，客戶端程式可以提出像是<quote>這個目錄在上週三時有什麼檔案？</quote>或是<quote>是誰最後更新了這個檔案，並且改了什麼？</quote>之類的問題請求。這類的問題便是任何<firstterm>版本控管系統</firstterm>的核心，也就是系統本身被設計成隨時的在追蹤所有的變更。"
 
 #. (title)
 msgid "Versioning Models"
-msgstr ""
+msgstr "各種版本控制的模型"
 
 #. (para)
 msgid ""
@@ -1222,10 +1229,12 @@ msgid ""
 "accidentally stepping on each other's feet? It's all too easy for users to "
 "accidentally overwrite each other's changes in the repository."
 msgstr ""
+"所有的版本控制系統都必須解決同樣的基本問題：如何讓使用者分享資料，但是不讓他們不小心成為彼此的阻礙？使用者要不小心覆寫掉彼此在檔案庫裡的更動，實在是太容易了."
+" "
 
 #. (title)
 msgid "The Problem of File-Sharing"
-msgstr ""
+msgstr "檔案分享的問題"
 
 #. (para)
 msgid ""
@@ -1240,15 +1249,19 @@ msgid ""
 "effectively lost - or at least missing from the latest version of the file -"
 " and probably by accident. This is definitely a situation we want to avoid!"
 msgstr ""
+"考慮一下以下的情景：假設我們有兩個協同工作人員：Harry 與 Sally。他們決定同時編輯同一個儲存在檔案庫的檔案。如果 Harry "
+"先存入檔案庫，（幾個月之後）Sally 很有可能以她自己的新版檔案覆寫過去。雖然 Harry 的版本並不會就此消失（因為系統記得每一次的更動），但是任何"
+" Harry 所作的更動不會出現在 Sally 的新版檔案中，因為她打從一開始就沒看過 Harry 的更動。總地來說, Harry "
+"的心血就這麼消失了—至少從該檔案的最新版就遺漏掉了。這絕對是我們想要避免的情況！"
 
 #. (title)
 msgid "The Problem to Avoid"
-msgstr ""
+msgstr "應避免的問題"
 
 #. (title)
 #. (title)
 msgid "The Lock-Modify-Unlock Solution"
-msgstr ""
+msgstr "鎖定-修改-解鎖的解決方案"
 
 #. (para)
 msgid ""
@@ -1263,12 +1276,17 @@ msgid ""
 "release his lock. After Harry unlocks the file, his turn is over, and now "
 "Sally can take her turn by locking and editing."
 msgstr ""
+"許多版本控制系統以<firstterm>鎖定-修改-"
+"解鎖</firstterm>的方式來解決這個問題，這是個很簡單的解決方案。在這樣的系統中，檔案庫在同一時間只允許一個人修改一個檔案。首先 Harry "
+"必須在他開始更動之前，先<emphasis>鎖定</emphasis>該檔案。鎖定檔案就像從圖書館借書；如果 Harry 已鎖定一個檔案，那麼 "
+"Sally 就無法對其進行任何更動。如果她想要鎖定該檔案，檔案庫會拒絕她的要求。她所能作的，就只是讀取這個檔案，然後等著 Harry "
+"完成他的更動，解除他設下的鎖定。在 Harry 解除該檔案的鎖定之後，他的回合就結束了，現在輪到 Sally 可以對其進行鎖定並編輯內容。"
 
 #. (para)
 msgid ""
 "The problem with the lock-modify-unlock model is that it's a bit "
 "restrictive, and often becomes a roadblock for users:"
-msgstr ""
+msgstr "鎖定-修改-解鎖模型的問題，在於它的限制多了點，而且經常會成為使用者的絆腳石："
 
 #. (para)
 msgid ""
@@ -1278,6 +1296,9 @@ msgid ""
 "vacation. Now Sally has to get an administrator to release Harry's lock. The"
 " situation ends up causing a lot of unnecessary delay and wasted time."
 msgstr ""
+"<emphasis>鎖定可能會造成管理上的問題。</emphasis>有的時候 Harry 在鎖定一個檔案之後，然後就忘了這件事。在此同時，由於 "
+"Sally 還在等著編輯這個檔案，她什麼事也不能作，然後 Harry 就跑去休假了。現在 Sally 必須找個管理員，才能解除 Harry "
+"的鎖定。這樣狀況，最後導致了許多不需要的延遲與時間的浪費。"
 
 #. (para)
 msgid ""
@@ -1288,6 +1309,8 @@ msgid ""
 "assuming the changes were properly merged together. There's no need for them"
 " to take turns in this situation."
 msgstr ""
+"<emphasis>鎖定可能造成不必要的工作瓶頸。</emphasis>如果 Harry 編輯的是文字檔的開頭部份，而 Sally "
+"只是要修改同一檔案的結尾部份呢？這樣的更動完全不會重疊在一起。他們可以同時修改同一個檔案，而不會造成任何的傷害，只要這些更動適當地合併在一起。像這樣的情況，他們並不需要輪流進行才能完成。"
 
 #. (para)
 msgid ""
@@ -1301,11 +1324,15 @@ msgid ""
 "insulated task, and thus inhibits them from discussing their incompatible "
 "changes early on."
 msgstr ""
+"<emphasis>鎖定可能會造成安全的假象。</emphasis>假設 Harry 鎖定並編輯檔案 A，同時 Sally 鎖定並編輯檔案 B。但是假設"
+" A 與 B 彼此相依，而對各檔案所作的修改是完全不相容的語意。突然之間 A 與 B 彼此無法執行。鎖定系統完全無法避免這樣的狀況 "
+"—但是它在某種程度上提供了一種安全的假象。它很容易讓 Harry 與 Sally "
+"認為藉由鎖定檔案，每個人都有個好的開始，工作互不干涉，如此讓他們不會在早期就討論他們互不相容的更動 "
 
 #. (title)
 #. (title)
 msgid "The Copy-Modify-Merge Solution"
-msgstr ""
+msgstr "複製-修改-合併的解決方案"
 
 #. (para)
 msgid ""
@@ -1318,6 +1345,8 @@ msgid ""
 " assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
 msgstr ""
+"Subversion，CVS，還有其它的版本控制系統使用一種<firstterm>複製-修改-"
+"合併</firstterm>的模型，作為鎖定的取代方法。在這種模型下，每一個使用者用戶端會讀取檔案庫，然後建立檔案或計畫的<firstterm>工作複本</firstterm>。然後使用者進行各自的工作，修改他們自己的私有複本。最後，私有複本會合併在一起，以產生一個新的，最後的版本。版本控制系統通常會協助合併的動作，但是最後人類還是負有讓它能夠產生正確結果的責任。"
 
 #. (para)
 msgid ""
@@ -1333,15 +1362,21 @@ msgid ""
 "his own; so once he has both sets of changes integrated, he saves his "
 "working copy back to the repository."
 msgstr ""
+"這裡舉個例子。假設 Harry 與 Sally 各自從檔案庫 建立同一個專案的工作複本。他們同時工作，並對同一個複本中的檔案 "
+"<filename>A</filename> 作了修改。Sally 先將她的更動送回檔案庫。當 Harry "
+"試著要存回他的更動時，檔案庫會通知他，他的檔案 A 已經<firstterm>過時</firstterm>。換句話說，檔案庫裡的檔案 A "
+"在他上次產生複本後已經更動過了。所以 Harry 要求他的用戶端程式，將檔案庫裡新的更動與他的檔案 A "
+"工作複本<firstterm>合併</firstterm>起來。通常 Sally "
+"的更動與他的更動不會重疊；所以只要讓兩組更動整合在一起，他就可以將他的工作複本回存至檔案庫。"
 
 #. (title)
 msgid "...Copy-Modify-Merge Continued"
-msgstr ""
+msgstr "…複製-修改-合併的解決方案 (續)"
 
 #. (primary)
 #. (primary)
 msgid "conflict"
-msgstr ""
+msgstr "衝突"
 
 #. (para)
 msgid ""
@@ -1357,6 +1392,11 @@ msgid ""
 "overlapping changes (perhaps by discussing the conflict with Sally!), he can"
 " safely save the merged file back to the repository."
 msgstr ""
+"要是 Sally 的更動<emphasis>真的</emphasis>與 Harry "
+"的更動重疊的話呢？這該怎麼辦呢？這種情況稱為<firstterm>衝突（conflict）</firstterm>，通常也不會是多大的問題。當 "
+"Harry 要求用戶端程式將最新的檔案庫更動，合併到他自己的工作複本時，他自己的檔案 A "
+"會被標示為衝突的狀態：他可以看到兩邊互相衝突的更動，然後手動在這兩者之間作選擇。請注意，軟體不會自動地解決衝突；只有人類才有理解能力，進而作出明智的決定。當"
+" Harry 手動地解決重疊的更動之後（也許就是和 Sally 討論這個衝突！），他就可以安全地將手動合併的檔案存回檔案庫。"
 
 #. (para)
 msgid ""
@@ -1367,6 +1407,8 @@ msgid ""
 "amount of time it takes to resolve conflicts is far less than the time lost "
 "by a locking system."
 msgstr ""
+"複製-修改-"
+"合併模型聽起來有點混亂，但是實務上跑起來可是相當地平順。使用者可以同時各自工作，不需等待他人。當他們同時處理同一個檔案時，大多數的情況下，這些同時產生的更動都不會互相重疊；衝突是相當少見的。而且解決衝突所需要的時間，也遠低於鎖定系統所損失的時間。"
 
 #. (para)
 msgid ""
@@ -1377,6 +1419,7 @@ msgid ""
 "false promise that a locking system will somehow prevent conflicts; in "
 "practice, locking seems to inhibit productivity more than anything else."
 msgstr ""
+"最後，這些通通都回歸到一個最重要的因素：使用者溝通。當使用者彼此溝通不良時，語法與語意衝突都會增加。沒有任何系統能夠強迫使用者完美地溝通，而且也沒有任何系統能夠偵測出語意衝突。所以並沒有任何論點，能夠導出鎖定系統可減少衝突發生的虛假承諾；實務上，鎖定系統似乎比其它系統對生產力有更大的傷害。"
 
 #. (para)
 msgid ""
@@ -1386,10 +1429,13 @@ msgid ""
 "the same time, there is no way for those changes to be merged together. "
 "Either Harry or Sally will lose their changes."
 msgstr ""
+"有一種常見的情況是鎖定-修改-"
+"解鎖模式會運作的更好，那就是您有不能合併的檔案存在。舉例來說，若您的檔案庫包含有一些圖檔，而有兩個人同時對那些圖檔做了變更，沒有任何方式可以將這些變更合併在一起。不是"
+" Harry 就是 Sally 將會損失他/她所作的變更。"
 
 #. (title)
 msgid "What does Subversion Do?"
-msgstr ""
+msgstr "Subversion 可以做些什麼"
 
 #. (para)
 msgid ""
@@ -1399,24 +1445,26 @@ msgid ""
 "simply forced into a locking policy by management, Subversion will still "
 "provide the features you need."
 msgstr ""
+"Subversion 預設將會使用複製-修改-合併方案，並且這也是絕大多數狀況之下您將會採用的方案。然而，從 1.2 版開始，Subversion "
+"也支援檔案鎖定。所以，當您有無法合併的檔案時，或是您基於檔案管理需求而必須強制將檔案鎖定時，Subversion 將一樣提供您所需要的功能。"
 
 #. (title)
 msgid "Subversion in Action"
-msgstr ""
+msgstr "Subversion 實務"
 
 #. (title)
 msgid "Working Copies"
-msgstr ""
+msgstr "工作複本"
 
 #. (primary)
 msgid "working copy"
-msgstr ""
+msgstr "工作複本"
 
 #. (para)
 msgid ""
 "You've already read about working copies; now we'll demonstrate how the "
 "Subversion client creates and uses them."
-msgstr ""
+msgstr "你已經讀過有關工作複本的部份；現在我們要示範 Subversion 如何建立並使用它。"
 
 #. (para)
 msgid ""
@@ -1427,6 +1475,9 @@ msgid ""
 " Subversion will never incorporate other people's changes, nor make your own"
 " changes available to others, until you explicitly tell it to do so."
 msgstr ""
+"Subversion "
+"工作複本就只一個普通的目錄樹，位於你的本地系統中，其中包含了一堆檔案。你可以依你喜好，自由地編輯這些檔案。而且如果這些是源碼檔，你可以依一般的方法編譯它們。你的工作複本就是你自己的私有工作空間：Subversion"
+" 不會將其它人的更動合併進來，也不會讓你的更動讓他人取得，除非你明確地要求要這樣作。"
 
 #. (para)
 msgid ""
@@ -1437,6 +1488,9 @@ msgid ""
 "their own changes, Subversion provides you with commands to merge those "
 "changes into your working directory (by reading from the repository)."
 msgstr ""
+"你在自己的工作複本檔案中作了一些更動，並且確認它們都能正常地工作，此時 Subversion "
+"提供你許多命令，讓你將這些更動（藉由寫至檔案庫）<emphasis>發佈</emphasis>給同一計畫的其他人使用。如果別人發表了他們的更動，Subversion"
+" 提供你許多命令，可將這些更動（藉由讀取檔案庫）合併至你的工作目錄中。"
 
 #. (para)
 msgid ""
@@ -1449,6 +1503,10 @@ msgid ""
 "unpublished changes, and which files are out-of-date with respect to others'"
 " work."
 msgstr ""
+"工作複本也包含了其它額外的檔案，Subversion 建立並維護這些檔案，讓它自己可以執行這些命令。特別一提，工作複本中的每個目錄都會有一個名為 "
+"<filename>.svn</filename> "
+"的子目錄，也就是工作複本的<firstterm>管理目錄</firstterm>。每個工作目錄中的檔案，都能夠幫助 Subversion "
+"了解哪些檔案有未出版的更動，哪些與其他人的工作相比是過時的檔案。"
 
 #. (para)
 msgid ""
@@ -1457,22 +1515,25 @@ msgid ""
 "repository's filesystem tree. In this arrangement, a user's working copy "
 "will usually correspond to a particular subtree of the repository."
 msgstr ""
+"一個典型的 Subversion "
+"檔案庫通常會包含數個專案使用的檔案（或原始程式碼）；一般來講，每一個專案是檔案庫檔案樹中的子目錄。在這樣的安排中，一個使用者的工作複本，通常對應到檔案庫裡的某一特定的子目錄。"
 
 #. (para)
 msgid ""
 "For example, suppose you have a repository that contains two software "
 "projects."
-msgstr ""
+msgstr "舉例來說，假設你有一個包含兩個軟體專案的檔案庫。"
 
 #. (title)
 msgid "The Repository's Filesystem"
-msgstr ""
+msgstr "檔案庫的檔案系統"
 
 #. (para)
 msgid ""
 "In other words, the repository's root directory has two subdirectories: "
 "<filename>paint</filename> and <filename>calc</filename>."
 msgstr ""
+"換句話說，檔案庫的根目錄有兩個子目錄：<filename>paint</filename> 與 <filename>calc</filename>。"
 
 #. (para)
 msgid ""
@@ -1481,6 +1542,9 @@ msgid ""
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
 msgstr ""
+"要取得一個工作複本，你必須<firstterm>取出（check out）</firstterm>某個檔案庫裡的子目錄。（<emphasis>check"
+" out</emphasis> 聽起來有點像是要鎖定或預約某項資源，但是它不是；它就只是為你建立一個計畫的私有複本。）舉個例子，如果你取出 "
+"/calc，你會得到一個像這樣的工作複本："
 
 #. (para)
 msgid ""
@@ -1492,12 +1556,16 @@ msgid ""
 "<firstterm>committing</firstterm> (or <firstterm>checking in</firstterm>) "
 "changes to the repository."
 msgstr ""
+"假設你更動了 <filename>button.c</filename>。由於 <filename>.svn</filename> "
+"目錄會記得檔案的修改日期與原始的內容，Subversion 能夠知道你改了這個檔案。但是 Subversion "
+"不會讓你的更動公諸於世，除非你明確地表明要這麼作。發表你的更動的行為，通常稱為<firstterm>送交（committing）</firstterm>或<firstterm>存入（check"
+" in）</firstterm>更動至檔案庫。"
 
 #. (para)
 msgid ""
 "To publish your changes to others, you can use Subversion's "
 "<command>commit</command> command."
-msgstr ""
+msgstr "要發表你的更動讓其他人知道，可以使用 Subversion 的 <command>commit</command> 命令："
 
 #. (para)
 msgid ""
@@ -1506,6 +1574,8 @@ msgid ""
 "<filename>/calc</filename>, they will see your changes in the latest version"
 " of the file."
 msgstr ""
+"現在對 <filename>button.c</filename> 所作的更動，已經送交至檔案庫了；如果其他使用者取出 "
+"<filename>/calc</filename> 的工作複本，他們會在最新版的檔案中看到你的更動。"
 
 #. (para)
 msgid ""
@@ -1514,6 +1584,9 @@ msgid ""
 "change to <filename>button.c</filename>, Sally's working copy is left "
 "unchanged; Subversion only modifies working copies at the user's request."
 msgstr ""
+"假設你有個合作伙伴 Sally，他和你同一時間取出 <filename>/calc</filename> 的工作複本。當你送交你對 "
+"<filename>button.c</filename> 的更動，Felix 的工作複本並沒有改變；Subversion "
+"只會依使用者要求來變更工作複本。"
 
 #. (para)
 msgid ""
@@ -1523,6 +1596,8 @@ msgid ""
 "her working copy, as well as any others that have been committed since she "
 "checked it out."
 msgstr ""
+"要讓她的專案也能跟上變動，Sally 可以藉由使用 Subversion 的 <firstterm>更新（update）</firstterm> "
+"命令，要求 Subversion 更新他的工作複本。這會讓你的更動合併到她的工作複本中，外加他人自上次取出檔案以後所送交的更動。"
 
 #. (para)
 msgid ""
@@ -1531,10 +1606,12 @@ msgid ""
 " information in the repository, to decide which files need to be brought up "
 "to date."
 msgstr ""
+"注意，Sally 並不需要指定哪些檔案要更新；Subversion 會使用儲存在 <filename>.svn</filename> "
+"目錄底下以及在檔案庫上的資訊來判斷哪些檔案需要被更新。"
 
 #. (title)
 msgid "Repository URLs"
-msgstr ""
+msgstr "檔案庫 URL"
 
 #. (para)
 msgid ""
@@ -1542,70 +1619,72 @@ msgid ""
 "local disk, or through various network protocols. A repository location, "
 "however, is always a URL. The URL schema indicates the access method:"
 msgstr ""
+"Subversion 的檔案庫可以經由數種不同的方法存取—本地端磁碟，或是經由不同的網路協定。但是一個檔案庫位置，一定都是 URL。URL schema"
+" 說明了存取的方法："
 
 #. (title)
 msgid "Repository Access URLs"
-msgstr ""
+msgstr "檔案庫存取的 URL"
 
 #. (entry)
 msgid "Schema"
-msgstr ""
+msgstr "Schema"
 
 #. (entry)
 msgid "Access Method"
-msgstr ""
+msgstr "存取方法"
 
 #. (literal)
 msgid "file://"
-msgstr ""
+msgstr "file://"
 
 #. (entry)
 msgid "Direct repository access on local or network drive."
-msgstr ""
+msgstr "直接存取檔案庫（位於本地端磁碟上）"
 
 #. (literal)
 #. (literal)
 msgid "http://"
-msgstr ""
+msgstr "http://"
 
 #. (entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
-msgstr ""
+msgstr "經由 WebDAV 通訊協定，連接到 Subversion 支援的 Apache 伺服器。"
 
 #. (literal)
 msgid "https://"
-msgstr ""
+msgstr "https://"
 
 #. (entry)
 msgid "Same as <placeholder-1/>, but with SSL encryption."
-msgstr ""
+msgstr "與 <placeholder-1/> 相同，但是有 SSL 加密。"
 
 #. (literal)
 msgid "svn://"
-msgstr ""
+msgstr "svn://"
 
 #. (literal)
 #. (literal)
 #. (primary)
 #. (primary)
 msgid "svnserve"
-msgstr ""
+msgstr "svnserve"
 
 #. (entry)
 msgid ""
 "Unauthenticated TCP/IP access via custom protocol to a <placeholder-1/> "
 "server."
-msgstr ""
+msgstr "經由自訂通訊協定的未授權 TCP/IP 連線，連接到 <placeholder-1/> 伺服器。"
 
 #. (literal)
 msgid "svn+ssh://"
-msgstr ""
+msgstr "svn+ssh://"
 
 #. (entry)
 msgid ""
 "authenticated, encrypted TCP/IP access via custom protocol to a "
 "<placeholder-1/> server."
-msgstr ""
+msgstr "經由自訂通訊協定的已認證加密 TCP/IP 連線，連接到 <placeholder-1/> 伺服器。"
 
 #. (para)
 msgid ""
@@ -1620,6 +1699,12 @@ msgid ""
 "paths normally appear with three slashes, <systemitem "
 "class=\"url\">file:///path/to/repos</systemitem>."
 msgstr ""
+"大多數的情況下，Subversion 的 URL 使用標準的語法，可讓主機名稱與連接埠編號被指定為 URL "
+"的一部份。<literal>file://</literal> 存取方法通常用於本機存取，即使它也可以藉由輸入一個遠端網路主機的 UNC "
+"路徑來存取遠端主機的本機檔案庫。若是這樣，URL 便會像這樣：<systemitem "
+"class=\"url\">file://hostname/path/to/repos</systemitem>。對於本機而言，<literal>hostname</literal>"
+" 可以省略，或是用 <literal>localhost</literal>取代。因此，本地的路徑變成：<systemitem "
+"class=\"url\">file:///path/to/repos</systemitem>。"
 
 #. (para)
 msgid ""
@@ -1630,6 +1715,9 @@ msgid ""
 "URL path syntaxes will work where <literal>X</literal> is the drive on which"
 " the repository resides:"
 msgstr ""
+"另外，在 Windows 平台的 <literal>file://</literal> schema "
+"使用者，必須使用非正式的<quote>標準</quote>語法，以存取在同一台機器上，但是在不同磁碟機的檔案庫。以下兩種語法的 URL "
+"路徑語法，都可用來存取位在 <literal>X</literal> 磁碟機上的檔案庫："
 
 #. (screen)
 #, no-wrap
@@ -1640,18 +1728,23 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 msgstr ""
+"\n"
+"file:///X:/path/to/repos\n"
+"...\n"
+"file:///X|/path/to/repos\n"
+"...\n"
 
 #. (para)
 msgid ""
 "Note that a URL uses ordinary slashes even though the native (non-URL) form "
 "of a path on Windows uses backslashes."
-msgstr ""
+msgstr "請注意，即使 Windows 上的路徑使用的是倒斜線（\\），URL 還是使用一般的斜線（/）。"
 
 #. (para)
 msgid ""
 "You can safely access a FSFS repository via a network share, but you "
 "<emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr ""
+msgstr "您可以藉由網路磁碟分享來存取 FSFS 檔案庫，但您<emphasis>不能</phasis>用這方式來存取 BDB 形式的檔案庫。"
 
 #. (para)
 #. (para)
@@ -1663,15 +1756,18 @@ msgid ""
 "mysterious errors right away, or it may be months before you discover that "
 "your repository database is subtly corrupted."
 msgstr ""
+"不要試圖在網路分享磁碟上建立或存取 Berkeley DB "
+"檔案庫。它<emphasis>不可以</emphasis>存在於一個遠端檔案系統。不管您是不是將其對應成一個網路磁碟機。若您嘗試在一個網路分享磁碟上使用"
+" Berkeley DB，結果將無法預期 - 您也許立即會看到明顯的錯誤，或者是您可能在數月後才發現您的檔案庫已經損毀！"
 
 #. (title)
 msgid "Revisions"
-msgstr ""
+msgstr "修訂版本"
 
 #. (primary)
 #. (primary)
 msgid "revision"
-msgstr ""
+msgstr "修訂版本"
 
 #. (para)
 msgid ""
@@ -1680,6 +1776,8 @@ msgid ""
 "copy, you can change files' contents, create, delete, rename and copy files "
 "and directories, and then commit the complete set of changes as a unit."
 msgstr ""
+"<command>svn commit</command> "
+"的動作，可以將不限數目的檔案與目錄的更動，視為單一不可分割的異動以進行發表。在你的工作複本中，你可以修改檔案的內容，建立，刪除，更名，以及複製檔案與目錄，然後將所有的更動視為一個單位，一口氣送交回去。"
 
 #. (para)
 msgid ""
@@ -1688,6 +1786,8 @@ msgid ""
 "retains this atomicity in the face of program crashes, system crashes, "
 "network problems, and other users' actions."
 msgstr ""
+"在檔案庫中，每一次的送交都被視為是一個不可分割的異動：不是所有送交的更動都成功，就是全部都不成功。Subversion "
+"會試著維持這樣的不可分割特性，不管是遭遇程式失敗，系統當機，網路有問題，還是其它使用者進行的動作。"
 
 #. (para)
 msgid ""
@@ -1697,6 +1797,7 @@ msgid ""
 "previous revision. The initial revision of a freshly created repository is "
 "numbered zero, and consists of nothing but an empty root directory."
 msgstr ""
+"每一次檔案庫接受一個送交的更動，就會讓檔案樹進入一個新的狀態，稱之為<firstterm>修訂版本（revision）</firstterm>。每一個修訂版本都會被賦與一個唯一的、比前一個修訂版號大一的自然數。一個新建立的檔案庫的修訂版號為零，其中除了空的根目錄外，什麼都沒有。"
 
 #. (para)
 msgid ""
@@ -1706,10 +1807,12 @@ msgid ""
 "is a <quote>snapshot</quote> of the way the repository looked after each "
 "commit."
 msgstr ""
+"有一個把檔案庫具象化的好方法，就是將之視為一系列的樹。想像有一系列的修訂版號，自左至右，由 0 "
+"開始。每一個修訂版號下都有一個檔案系統的樹狀結構，每一個檔案樹都是每一次送交之後的檔案庫<quote>快照</quote>。"
 
 #. (title)
 msgid "Global Revision Numbers"
-msgstr ""
+msgstr "全域性的修訂版號"
 
 #. (para)
 msgid ""
@@ -1723,6 +1826,11 @@ msgid ""
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
 msgstr ""
+"不同於許多其它的版本控制系統，Subversion "
+"的修訂版號是對<emphasis>整個目錄樹</emphasis>有效，而不僅只於個別的檔案。每一個修訂版號都可選取整個樹，它對應到某個更動送交之後的特定狀態的檔案庫。另一個思考的方式，就是版號"
+" N 表示是第 N 次送交之後的檔案庫的檔案系統狀態。當一個 Subversion 使用者說 ``<filename>foo.c</filename> "
+"的修訂 5 版'' 時，實際上的意義是 ``出現在修訂 5 版的 <filename>foo.c</filename>''。請注意，基本上一個檔案的修訂"
+" N 與 M 版<emphasis>並不見得</emphasis>是不同的！"
 
 #. (para)
 msgid ""
@@ -1731,6 +1839,8 @@ msgid ""
 "different revisions. For example, suppose you check out a working copy from "
 "a repository whose most recent revision is 4:"
 msgstr ""
+"請特別注意，工作複本並不見得一定會符合檔案庫某一特定的修訂版；每個檔案可能會對應到不同的修訂版本。舉個例子，假設你的工作目錄，是從檔案庫取出了 4 "
+"號修訂版："
 
 #. (screen)
 #, no-wrap
@@ -1740,6 +1850,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:4\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:4\n"
 
 #. (para)
 msgid ""
@@ -1749,6 +1863,9 @@ msgid ""
 "commits have taken place, your commit will create revision 5 of the "
 "repository, and your working copy will now look like this:"
 msgstr ""
+"此時工作目錄對應的是檔案庫的 4 號修訂版。不過要是你修改了 "
+"<filename>button.c</filename>，送交這個更動。假設此時其他人都沒有送交任何更動，你所送交的更動就會變成檔案庫的第 5 "
+"號修訂版，然後你的工作複本就會變成像這樣："
 
 #. (screen)
 #, no-wrap
@@ -1758,6 +1875,10 @@ msgid ""
 "     integer.c:4\n"
 "     button.c:5\n"
 msgstr ""
+"\n"
+"calc/Makefile:4\n"
+"     integer.c:4\n"
+"     button.c:5\n"
 
 #. (para)
 msgid ""
@@ -1766,6 +1887,8 @@ msgid ""
 " update</command> to bring your working copy up to date, then it will look "
 "like this:"
 msgstr ""
+"假設在這個時候，Sally 送交了 <filename>integer.c</filename> 的更動，產生了 6 號修訂版。如果你以 "
+"<command>svn update</command> 更新你的工作目錄，它看起來就會像這樣："
 
 #. (screen)
 #, no-wrap
@@ -1775,6 +1898,10 @@ msgid ""
 "     integer.c:6\n"
 "     button.c:6\n"
 msgstr ""
+"\n"
+"calc/Makefile:6\n"
+"     integer.c:6\n"
+"     button.c:6\n"
 
 #. (para)
 msgid ""
@@ -1787,38 +1914,43 @@ msgid ""
 "update at the top of your working copy, it will generally correspond to "
 "exactly one revision in the repository."
 msgstr ""
+"Sally 對 <filename>integer.c</filename> 的更動會出現在你的工作複本中，而你的更動還是在 "
+"<filename>button.c</filename> 之中。在這個例子中，版本 4，5，6 的 "
+"<filename>Makefile</filename> 內容都是一樣的，不過 Subversion 會將工作複本中的 Makefile 標示為版本 "
+"6，表示它還是最新版本。所以，在你對工作複本作了一次完整更新之後，它基本上就是完全對應到檔案庫的某一個版本。"
 
 #. (title)
 msgid "How Working Copies Track the Repository"
-msgstr ""
+msgstr "工作複本如何追蹤檔案庫"
 
 #. (para)
 msgid ""
 "For each file in a working directory, Subversion records two essential "
 "pieces of information in the <filename>.svn/</filename> administrative area:"
 msgstr ""
+"對每個工作目錄中的檔案，Subversion 會在管理區域 </filename>.svn/</filename> 中，記錄兩個重要的資訊："
 
 #. (para)
 msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm>working revision</firstterm>), and"
-msgstr ""
+msgstr "工作檔案的基本修訂版本（亦稱為檔案的<firstterm>工作版本（working revision）</firstterm>，以及"
 
 #. (para)
 msgid ""
 "a timestamp recording when the local copy was last updated by the "
 "repository."
-msgstr ""
+msgstr "時間戳記，記錄本地複本最近一次被檔案庫更新的時間。"
 
 #. (para)
 msgid ""
 "Given this information, by talking to the repository, Subversion can tell "
 "which of the following four states a working file is in:"
-msgstr ""
+msgstr "有了這些資訊，再藉由諮詢檔案庫，Subversion 就可以決定某個工作檔案是處於下列四個狀態何者之一："
 
 #. (term)
 msgid "Unchanged, and current"
-msgstr ""
+msgstr "未更動，現行版本"
 
 #. (para)
 msgid ""
@@ -1827,10 +1959,12 @@ msgid ""
 "<command>commit</command> of the file will do nothing, and an "
 "<command>update</command> of the file will do nothing."
 msgstr ""
+"本檔案在工作目錄中未被更動，而且自工作版本之後，也沒有任何該檔案的更動被送交回去。對它執行 <command>svn commit</command> "
+"不會發生任何事，執行 <command>svn update</command> 也不會發生任何事。"
 
 #. (term)
 msgid "Locally changed, and current"
-msgstr ""
+msgstr "本地修改，現行版本"
 
 #. (para)
 msgid ""
@@ -1840,10 +1974,12 @@ msgid ""
 "<command>commit</command> of the file will succeed in publishing your "
 "changes, and an <command>update</command> of the file will do nothing."
 msgstr ""
+"這個檔案在工作目錄中被修改過，而自其基礎修訂版號後，也沒有任何更動送交回檔案庫。由於有尚未送交回去的本地端修改，所以對它的 <command>svn "
+"commit</command> 會成功地發表你的更動，而 <command>svn update</command> 則不會作任何事。"
 
 #. (term)
 msgid "Unchanged, and out-of-date"
-msgstr ""
+msgstr "未更動，過時版本"
 
 #. (para)
 msgid ""
@@ -1853,10 +1989,12 @@ msgid ""
 "will do nothing, and an <command>update</command> of the file will fold the "
 "latest changes into your working copy."
 msgstr ""
+"這個檔案在工作目錄中並未更動，但是檔案庫已被更動。本檔案應該要更新，以符合公開修訂版。對它的 <command>svn commit</command>"
+" 不會發生任何事，而 <command>svn update</command> 會讓工作目錄中的檔案更新至最新版本。"
 
 #. (term)
 msgid "Locally changed, and out-of-date"
-msgstr ""
+msgstr "本地修改，過時版本"
 
 #. (para)
 msgid ""
@@ -1868,34 +2006,37 @@ msgid ""
 "plausible way automatically, it leaves it to the user to resolve the "
 "conflict."
 msgstr ""
+"這個檔案在工作目錄與檔案庫都受到了更動。對它執行 <command>svn commit</command> 會產生 <emphasis>out-of-"
+"date</emphasis> 錯誤。這個檔案應該要先被更新；<command>svn update</command> "
+"會試著將已發表的更動，與本地的更動合併在一起。如果 Subversion 無法自動無誤地完成它，那麼就會留給使用者，讓他來解決這個衝突。"
 
 #. (title)
 msgid "Summary"
-msgstr ""
+msgstr "摘要"
 
 #. (para)
 msgid ""
 "We've covered a number of fundamental Subversion concepts in this chapter:"
-msgstr ""
+msgstr "本章涵蓋了幾個 Subversion 的基本概念："
 
 #. (para)
 msgid ""
 "We've introduced the notions of the central repository, the client working "
 "copy, and the array of repository revision trees."
-msgstr ""
+msgstr "我們介紹了中央檔案庫、用戶端工作複本、以及檔案庫修訂版樹的陣列。"
 
 #. (para)
 msgid ""
 "We've seen some simple examples of how two collaborators can use Subversion "
 "to publish and receive changes from one another, using the 'copy-modify-"
 "merge' model."
-msgstr ""
+msgstr "本章示範幾個例子，說明兩個協同工作者如何利用 '複製-修改-合併' 模式，透過 Subversion 來發表並接收彼此所作的更動."
 
 #. (para)
 msgid ""
 "We've talked a bit about the way Subversion tracks and manages information "
 "in a working copy."
-msgstr ""
+msgstr "我們也談了一些有關 Subversion 如何追蹤與管理工作複本的資料。"
 
 #. (para)
 msgid ""
@@ -1903,20 +2044,21 @@ msgid ""
 "need to create at least one repository. This can either be done with the "
 "Subversion command line client or with TortoiseSVN."
 msgstr ""
+"不管您想要使用哪種通訊協定來存取您的檔案庫，你至少必須建立一個檔案庫。這可以藉由 Subversion 或是 TortoiseSVN 的指令來達成。"
 
 #. (para)
 msgid ""
 "If you haven't created a Subversion repository yet, it's time to do that "
 "now."
-msgstr ""
+msgstr "如果您尚未建立一個 Subversion 檔案庫，現在是時候來建立它了。"
 
 #. (title)
 msgid "Repository Creation"
-msgstr ""
+msgstr "建立檔案庫"
 
 #. (primary)
 msgid "create repository"
-msgstr ""
+msgstr "建立檔案庫"
 
 #. (para)
 msgid ""
@@ -1931,28 +2073,35 @@ msgid ""
 " a Data Store</citetitle></ulink> in the Subversion book for more "
 "information."
 msgstr ""
+"您可以建立以 FSFS 為基礎或是以舊的 Berkeley DB（BDB）為基礎的檔案庫。FSFS 的格式一般而言較快且較易管理，並且他在網路磁碟以及 "
+"Windows 98 上的運作也沒有問題。BDB 格式在過去被認為較為穩定，僅僅是因為他已被使用多年；但自從 FSFS "
+"也已被使用多年之後，這個立論變顯得薄弱了。您可閱讀 Subversion 書籍 <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.reposadmin.planning.html#svn.reposadmin.basics.backends\"><citetitle>Choosing"
+" a Data Store</citetitle></ulink>的章節來得知更多資訊。"
 
 #. (title)
 msgid "Creating a Repository with the Command Line Client"
-msgstr ""
+msgstr "從命令列客戶端程式來建立檔案庫"
 
 #. (primary)
 #. (primary)
 msgid "Create"
-msgstr ""
+msgstr "建立"
 
 #. (para)
 msgid ""
 "Create an empty folder with the name SVN (e.g. "
 "<filename>D:\\SVN\\</filename>), which is used as root for all your "
 "repositories."
-msgstr ""
+msgstr "以 SVN 為名來建立一個空的目錄（例如 <filename>D:\\SVN\\</filename>），這將成為您檔案庫的根目錄。"
 
 #. (para)
 msgid ""
 "Create another folder <filename>MyNewRepository</filename> inside "
 "<filename>D:\\SVN\\</filename>."
 msgstr ""
+"在 <filename>D:\\SVN\\</filename> 底下建立另外一個名為 "
+"<filename>MyNewRepository</filename> 的目錄。"
 
 #. (para)
 msgid ""
@@ -1962,25 +2111,30 @@ msgid ""
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "</screen>"
 msgstr ""
+"在命令列提示（或 DOS 視窗）下，切換到 <filename>D:\\SVN\\</filename> 然後輸入 <screen>\n"
+"svnadmin create --fs-type bdb MyNewRepository\n"
+"</screen> 或<screen>\n"
+"svnadmin create --fs-type fsfs MyNewRepository\n"
+"</screen>"
 
 #. (para)
 msgid ""
 "Now you've got a new repository located at "
 "<filename>D:\\SVN\\MyNewRepository</filename>."
-msgstr ""
+msgstr "現在，您已在 <filename>D:\\SVN\\MyNewRepository</filename> 下面建立好一個新的檔案庫了。"
 
 #. (title)
 msgid "Creating The Repository With TortoiseSVN"
-msgstr ""
+msgstr "使用 TortoiseSVN 建立檔案庫"
 
 #. (para)
 msgid "Open the windows explorer"
-msgstr ""
+msgstr "開啟檔案總管"
 
 #. (para)
 msgid ""
 "Create a new folder and name it e.g. <filename>SVNRepository</filename>"
-msgstr ""
+msgstr "建立一個新的目錄（例如 <filename>SVNRepository</filename>）"
 
 #. (para)
 msgid ""
@@ -1988,6 +2142,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository "
 "here...</guimenuitem></menuchoice>."
 msgstr ""
+"在新建立的目錄上<action>右鍵點選</action>，然後從選單選取<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>在此建立檔案庫</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -1995,6 +2150,7 @@ msgid ""
 "those files yourself!!!</emphasis>. If you get any errors make sure that the"
 " folder is empty and not write protected."
 msgstr ""
+"在這個新目錄下，一個新的檔案庫便會被建立。<emphasis>請勿手動編輯其下的任何檔案！</emphasis>若有任何錯誤發生，請確認該目錄是空目錄，並且沒有被設為唯讀。"
 
 #. (para)
 msgid ""
@@ -2002,6 +2158,8 @@ msgid ""
 "within the repository. Find out about layout options in <xref linkend"
 "=\"tsvn-repository-layout\"/>."
 msgstr ""
+"您將會被詢問是否要在該檔案庫下建立目錄結構。察看以下章節以獲取更多有關目錄佈局的選項：<xref linkend=\"tsvn-repository-"
+"layout\"/>。"
 
 #. (para)
 msgid ""

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-03-22 15:30+0000\n"
+"PO-Revision-Date: 2011-04-03 22:45+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3643,6 +3643,13 @@ msgid ""
 " will get <literal>access denied</literal> errors when you try to access the"
 " repository!"
 msgstr ""
+"Pra dar à conta Local Service ou Network Service acesso total à pasta onde "
+"guardas os teus repositórios e/ou o teus scripts de gancho, segue as "
+"instruções em  <ulink "
+"url=\"http://support.microsoft.com/kb/308419\"><citetitle>knowledge base "
+"article kb308419</citetitle></ulink>. Se nõ conseguires configurar as "
+"permissões, irás obter erros de <literal> acesso negado</literal>, quand "
+"tentares aceder ao repositório!"
 
 #. (para)
 msgid ""
@@ -22472,7 +22479,7 @@ msgstr ""
 
 #. (title)
 msgid "Naming conventions"
-msgstr ""
+msgstr "Convenções de nomenclatura"
 
 #. (para)
 msgid ""
@@ -22483,18 +22490,25 @@ msgid ""
 " into the windows shell. For example: TortoiseCVS, TortoiseSVN, TortoiseHg, "
 "TortoiseGit and TortoiseBzr are all version control clients."
 msgstr ""
+"Se publicares um plugin de rastreador de problemas para o TortoiseSVN, por "
+"favor <emphasis>não</emphasis> lhe dês o nome de "
+"<emphasis>Tortoise&lt;QualquerCoisa&gt;</emphasis>. Gostariamos de reservar "
+"o perfixo  <emphasis>Tortoise</emphasis> para um cliente de controlo de "
+"versões integrado na shell do Windows. Por exemplo: TortoiseCVS, "
+"TortoiseSVN, TortoiseHg, TortoiseGit e o TortoiseBzr são todos clientes de "
+"controlo de versões."
 
 #. (para)
 msgid "Gurtle - An issue tracker plugin for Google code"
-msgstr ""
+msgstr "Grutle - Um plugin de rastreador de problemas para o código Google"
 
 #. (para)
 msgid "TurtleMine - An issue tracker plugin for Redmine"
-msgstr ""
+msgstr "TurtleMine - Um plugin de rastreador de problemas para o Redmine"
 
 #. (para)
 msgid "VurtleOne - An issue tracker plugin for VersionOne"
-msgstr ""
+msgstr "VurtleOne - Um plugin de rastreador de problemas para o VersionOne"
 
 #. (para)
 msgid ""
@@ -25215,6 +25229,7 @@ msgstr "Cria um ficheiro de correção para o caminho dado em <placeholder-1/>."
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."
 msgstr ""
+"Mostra o gráfico de revisões para o caminho dado em  <option>/path</option>."
 
 #. (para)
 msgid ""
@@ -25224,6 +25239,11 @@ msgid ""
 " revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, "
 ".bmp and .gif."
 msgstr ""
+"Para criar um ficheiro de imagem do gráfico de revisões para um caminho "
+"específico, mas sem mostrar a janela do gráfico, passa com o caminho para o "
+"ficheiro de destino o parâmetro <option>/output:path</option>. O ficheiro "
+"destino terá de ter uma extensão para a qual possa o gráfico de revisões "
+"exportar. Esses são: .svg, .wmf, .png, .jpg, .bmp and .gif."
 
 #. (para)
 msgid ""
