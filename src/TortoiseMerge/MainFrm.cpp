@@ -582,10 +582,10 @@ bool CMainFrame::LoadViews(int line)
     m_Data.SetMovedBlocks(m_bViewMovedBlocks);
     m_bHasConflicts = false;
     CBaseView* pwndActiveView = m_pwndLeftView;
-    int nOldLine = m_pwndLeftView ? m_pwndLeftView->m_nTopLine : -1;
+    int nOldLine = m_pwndRightView ? m_pwndRightView->m_nTopLine : -1;
     int nOldLineNumber =
-        m_pwndLeftView && m_pwndLeftView->m_pViewData ?
-        m_pwndLeftView->m_pViewData->GetLineNumber(m_pwndLeftView->m_nTopLine) : -1;
+        m_pwndRightView && m_pwndRightView->m_pViewData ?
+        m_pwndRightView->m_pViewData->GetLineNumber(m_pwndRightView->m_nTopLine) : -1;
     int nOldCaretPos = -1;
     if (m_pwndRightView && m_pwndRightView->HasCaret())
         nOldCaretPos = m_pwndRightView->GetCaretPosition().y;
