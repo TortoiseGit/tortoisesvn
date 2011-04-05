@@ -366,7 +366,8 @@ BOOL CRepositoryBrowser::OnInitDialog()
         m_bThreadRunning = false;
         OnCantStartThread();
     }
-    return TRUE;
+    m_barRepository.SetFocusToURL();
+    return FALSE;
 }
 
 void CRepositoryBrowser::InitRepo()
