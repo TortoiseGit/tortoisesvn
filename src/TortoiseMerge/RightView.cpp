@@ -19,7 +19,8 @@
 #include "StdAfx.h"
 #include "Resource.h"
 #include "AppUtils.h"
-#include ".\rightview.h"
+
+#include "rightview.h"
 
 IMPLEMENT_DYNCREATE(CRightView, CBaseView)
 
@@ -56,21 +57,9 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     if (m_pwndBottom->IsWindowVisible())
     {
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-    }
-    else
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERBLOCK);
-    popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
-
-    if (m_pwndBottom->IsWindowVisible())
-    {
+        popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
-    }
-    else
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERFILE);
-    popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
-
-    if (m_pwndBottom->IsWindowVisible())
-    {
+        popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
         popup.AppendMenu(uFlags, ID_USEYOURANDTHEIRBLOCK, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
@@ -78,6 +67,10 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     }
     else
     {
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERBLOCK);
+        popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERFILE);
+        popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
         popup.AppendMenu(uFlags, ID_USEBOTHTHISFIRST, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
@@ -106,29 +99,26 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
         return;
     case ID_USEFILE:
         UseFile(false);
-        break;
+        return;
     case ID_USEBLOCK:
         UseBlock(false);
-        break;
+        return;
     case ID_USEYOURANDTHEIRBLOCK:
         UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
-        CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
         break;
     case ID_USETHEIRANDYOURBLOCK:
         UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
-        CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
         break;
     case ID_USEBOTHTHISFIRST:
         UseBothRightFirst(rightstate, leftstate);
-        CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
         break;
     case ID_USEBOTHTHISLAST:
         UseBothLeftFirst(rightstate, leftstate);
-        CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
         break;
     default:
         return;
     } // switch (cmd)
+    CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
     return;
 }
 

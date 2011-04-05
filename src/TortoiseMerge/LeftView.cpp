@@ -19,7 +19,8 @@
 #include "StdAfx.h"
 #include "Resource.h"
 #include "AppUtils.h"
-#include ".\leftview.h"
+
+#include "leftview.h"
 
 IMPLEMENT_DYNCREATE(CLeftView, CBaseView)
 
@@ -35,7 +36,7 @@ CLeftView::~CLeftView(void)
 
 void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 {
-    if (!m_pwndRight->IsWindowVisible())
+    if (!this->IsWindowVisible())
         return;
 
     CMenu popup;
@@ -49,18 +50,16 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 #define ID_USEBOTHTHISFIRST 5
 #define ID_USEBOTHTHISLAST 6
 
-    const UINT uFlags = GetMenuFlags(state);
+    const UINT uFlags = GetMenuFlags( state );
 
     CString temp;
 
-    temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-    popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
-
-    temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
-    popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
-
     if (m_pwndBottom->IsWindowVisible())
     {
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
+        popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
+        popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
         popup.AppendMenu(uFlags, ID_USEYOURANDTHEIRBLOCK, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
@@ -68,6 +67,10 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     }
     else
     {
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
+        popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
+        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
+        popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
         popup.AppendMenu(uFlags, ID_USEBOTHTHISFIRST, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
@@ -79,9 +82,9 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     CompensateForKeyboard(point);
 
     int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-    viewstate leftstate;
-    viewstate bottomstate;
     viewstate rightstate;
+    viewstate bottomstate;
+    viewstate leftstate;
     switch (cmd)
     {
     case ID_EDIT_COPY:

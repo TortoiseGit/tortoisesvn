@@ -19,7 +19,8 @@
 #include "StdAfx.h"
 #include "Resource.h"
 #include "AppUtils.h"
-#include ".\bottomview.h"
+
+#include "bottomview.h"
 
 IMPLEMENT_DYNCREATE(CBottomView, CBaseView)
 
@@ -46,6 +47,7 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 #define ID_USEYOURBLOCK 2
 #define ID_USETHEIRANDYOURBLOCK 3
 #define ID_USEYOURANDTHEIRBLOCK 4
+
     const UINT uFlags = GetMenuFlags( state );
 
     CString temp;
@@ -70,17 +72,15 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     {
     case ID_USETHEIRBLOCK:
         UseTheirTextBlock();
-        break;
+        return;
     case ID_USEYOURBLOCK:
         UseMyTextBlock();
-        break;
+        return;
     case ID_USEYOURANDTHEIRBLOCK:
         UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
-        CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
         break;
     case ID_USETHEIRANDYOURBLOCK:
-        UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
-        CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+        UseTheirAndYourBlock(rightstate, bottomstate, leftstate); // should be undo part of method?
         break;
     case ID_EDIT_COPY:
         OnEditCopy();
@@ -88,11 +88,12 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     case ID_EDIT_CUT:
         OnEditCopy();
         RemoveSelectedText();
-        break;
+        return;
     case ID_EDIT_PASTE:
         PasteText();
-        break;
+        return;
     }
+    CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
     return;
 }
 
