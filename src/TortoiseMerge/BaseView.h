@@ -67,6 +67,8 @@ public:
     void            ScrollSide(int delta);
     void            ScrollAllSide(int delta);
     void            ScrollVertical(short delta);
+    void            RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
+    void            RecalcAllHorzScrollBars(BOOL bPositionOnly = FALSE);
     void            GoToLine(int nNewLine, BOOL bAll = TRUE);
     void            ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
     void            ScrollAllToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
@@ -194,9 +196,7 @@ protected:
     void            ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
 
     void            RecalcVertScrollBar(BOOL bPositionOnly = FALSE);
-    void            RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
     void            RecalcHorzScrollBar(BOOL bPositionOnly = FALSE);
-    void            RecalcAllHorzScrollBars(BOOL bPositionOnly = FALSE);
 
     void            OnDoMouseWheel(UINT nFlags, short zDelta, CPoint pt);
     void            OnDoMouseHWheel(UINT nFlags, short zDelta, CPoint pt);

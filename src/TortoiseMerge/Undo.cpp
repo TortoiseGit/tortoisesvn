@@ -86,6 +86,8 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
     if (pActiveView) {
         pActiveView->ClearSelection();
         pActiveView->BuildAllScreen2ViewVector();
+        pActiveView->RecalcAllVertScrollBars();
+        pActiveView->RecalcAllHorzScrollBars();
         pActiveView->EnsureCaretVisible();
         pActiveView->UpdateCaret();
         pActiveView->SetModified(m_viewstates.size() != m_originalstate);
