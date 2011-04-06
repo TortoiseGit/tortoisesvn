@@ -29,6 +29,9 @@ class CLeftView : public CBaseView
 public:
     CLeftView(void);
     ~CLeftView(void);
+
+    void    UseFile(bool refreshViews = true);
+    void    UseBlock(bool refreshViews = true);
 protected:
     void    OnContextMenu(CPoint point, int nLine, DiffStates state);
 

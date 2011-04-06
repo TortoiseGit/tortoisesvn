@@ -44,11 +44,6 @@
 #define new DEBUG_NEW
 #endif
 
-// as 1.6.99 we require WINNT 0x0600+
-//#if (_WIN32_WINNT < 0x0600)
-//#define WM_MOUSEHWHEEL                  0x020E
-//#endif
-
 #define MARGINWIDTH 20
 #define HEADERHEIGHT 10
 

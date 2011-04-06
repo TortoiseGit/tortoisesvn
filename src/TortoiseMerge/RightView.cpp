@@ -199,7 +199,7 @@ void CRightView::UseBlock(bool refreshViews /* = true */)
     viewstate leftstate;
     if (m_pwndBottom->IsWindowVisible())
     {
-        for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+        for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
         {
             int viewLine = m_Screen2View[i];
             bottomstate.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
@@ -221,7 +221,7 @@ void CRightView::UseBlock(bool refreshViews /* = true */)
     }
     else
     {
-        for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+        for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
         {
             int viewLine = m_Screen2View[i];
             rightstate.difflines[viewLine] = m_pViewData->GetLine(viewLine);
