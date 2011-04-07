@@ -99,30 +99,30 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 
 void CBottomView::UseTheirTextBlock()
 {
-    if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
+    if (!HasSelection())
         return;
 
-    viewstate leftstate;
     viewstate rightstate;
     viewstate bottomstate;
+    viewstate leftstate;
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
         int viewLine = m_Screen2View[i];
-        bottomstate.difflines[viewLine] = m_pViewData->GetLine(viewLine);
-        m_pViewData->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
-        bottomstate.linestates[viewLine] = m_pViewData->GetState(viewLine);
-        m_pViewData->SetState(viewLine, m_pwndLeft->m_pViewData->GetState(viewLine));
-        m_pViewData->SetLineEnding(viewLine, lineendings);
-        if (IsViewLineConflicted(viewLine))
+        bottomstate.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
+        m_pwndBottom->m_pViewData->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
+        bottomstate.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
+        m_pwndBottom->m_pViewData->SetState(viewLine, m_pwndLeft->m_pViewData->GetState(viewLine));
+        m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
+        if (m_pwndBottom->IsViewLineConflicted(viewLine))
         {
             if (m_pwndLeft->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
-                m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+                m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
             else
-                m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
+                m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
         }
     }
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-    SetModified();
+    m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     RefreshViews();
@@ -130,27 +130,27 @@ void CBottomView::UseTheirTextBlock()
 
 void CBottomView::UseMyTextBlock()
 {
-    if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
+    if (!HasSelection())
         return;
 
-    viewstate leftstate;
     viewstate rightstate;
     viewstate bottomstate;
+    viewstate leftstate;
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
         int viewLine = m_Screen2View[i];
-        bottomstate.difflines[viewLine] = m_pViewData->GetLine(viewLine);
-        m_pViewData->SetLine(viewLine, m_pwndRight->m_pViewData->GetLine(viewLine));
-        bottomstate.linestates[viewLine] = m_pViewData->GetState(viewLine);
-        m_pViewData->SetState(viewLine, m_pwndRight->m_pViewData->GetState(viewLine));
-        m_pViewData->SetLineEnding(viewLine, lineendings);
+        bottomstate.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
+        m_pwndBottom->m_pViewData->SetLine(viewLine, m_pwndRight->m_pViewData->GetLine(viewLine));
+        bottomstate.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
+        m_pwndBottom->m_pViewData->SetState(viewLine, m_pwndRight->m_pViewData->GetState(viewLine));
+        m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
         if (m_pwndRight->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
-            m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+            m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
         else
-            m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
+            m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
     }
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-    SetModified();
+    m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     RefreshViews();
@@ -158,9 +158,9 @@ void CBottomView::UseMyTextBlock()
 
 void CBottomView::UseTheirThenMyTextBlock()
 {
-    viewstate leftstate;
     viewstate rightstate;
     viewstate bottomstate;
+    viewstate leftstate;
     UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
     RefreshViews();
@@ -168,9 +168,9 @@ void CBottomView::UseTheirThenMyTextBlock()
 
 void CBottomView::UseMyThenTheirTextBlock()
 {
-    viewstate leftstate;
     viewstate rightstate;
     viewstate bottomstate;
+    viewstate leftstate;
     UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
     RefreshViews();

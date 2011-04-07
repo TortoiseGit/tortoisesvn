@@ -153,16 +153,16 @@ void CLeftView::UseFile(bool refreshViews /* = true */)
         for (int i = 0; i < m_pViewData->GetCount(); i++)
         {
             rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
-            m_pwndRight->m_pViewData->SetLine(i, m_pViewData->GetLine(i));
-            m_pwndRight->m_pViewData->SetLineEnding(i, m_pViewData->GetLineEnding(i));
-            DiffStates state2 = m_pViewData->GetState(i);
-            switch (state2)
+            m_pwndRight->m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
+            m_pwndRight->m_pViewData->SetLineEnding(i, m_pwndLeft->m_pViewData->GetLineEnding(i));
+            DiffStates state = m_pwndLeft->m_pViewData->GetState(i);
+            switch (state)
             {
             case DIFFSTATE_CONFLICTEMPTY:
             case DIFFSTATE_UNKNOWN:
             case DIFFSTATE_EMPTY:
                 rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-                m_pwndRight->m_pViewData->SetState(i, state2);
+                m_pwndRight->m_pViewData->SetState(i, state);
                 break;
             case DIFFSTATE_YOURSADDED:
             case DIFFSTATE_IDENTICALADDED:
@@ -180,8 +180,8 @@ void CLeftView::UseFile(bool refreshViews /* = true */)
             case DIFFSTATE_YOURSREMOVED:
                 rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
                 m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_NORMAL);
-                leftstate.linestates[i] = m_pViewData->GetState(i);
-                m_pViewData->SetState(i, DIFFSTATE_NORMAL);
+                leftstate.linestates[i] = m_pwndLeft->m_pViewData->GetState(i);
+                m_pwndLeft->m_pViewData->SetState(i, DIFFSTATE_NORMAL);
                 break;
             default:
                 break;
@@ -200,7 +200,7 @@ void CLeftView::UseFile(bool refreshViews /* = true */)
 
 void CLeftView::UseBlock(bool refreshViews /* = true */)
 {
-    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+    if (!HasSelection())
         return;
 
     viewstate rightstate;
@@ -212,13 +212,13 @@ void CLeftView::UseBlock(bool refreshViews /* = true */)
         {
             int viewLine = m_Screen2View[i];
             bottomstate.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
-            m_pwndBottom->m_pViewData->SetLine(viewLine, m_pViewData->GetLine(viewLine));
+            m_pwndBottom->m_pViewData->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
             bottomstate.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
-            m_pwndBottom->m_pViewData->SetState(viewLine, m_pViewData->GetState(viewLine));
+            m_pwndBottom->m_pViewData->SetState(viewLine, m_pwndLeft->m_pViewData->GetState(viewLine));
             m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
             if (m_pwndBottom->IsViewLineConflicted(viewLine))
             {
-                if (m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
+                if (m_pwndLeft->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
                     m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
                 else
                     m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
@@ -234,9 +234,9 @@ void CLeftView::UseBlock(bool refreshViews /* = true */)
         {
             int viewLine = m_Screen2View[i];
             rightstate.difflines[viewLine] = m_pwndRight->m_pViewData->GetLine(viewLine);
-            m_pwndRight->m_pViewData->SetLine(viewLine, m_pViewData->GetLine(viewLine));
+            m_pwndRight->m_pViewData->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
             m_pwndRight->m_pViewData->SetLineEnding(viewLine, m_pwndRight->lineendings);
-            DiffStates state = m_pViewData->GetState(viewLine);
+            DiffStates state = m_pwndLeft->m_pViewData->GetState(viewLine);
             switch (state)
             {
             case DIFFSTATE_ADDED:
