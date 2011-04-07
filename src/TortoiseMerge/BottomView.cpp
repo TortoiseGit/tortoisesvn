@@ -146,7 +146,7 @@ void CBottomView::UseMyTextBlock()
         m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
         if (m_pwndBottom->IsViewLineConflicted(viewLine))
         {
-            if (m_pwndLeft->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
+            if (m_pwndRight->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
                 m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
             else
                 m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
