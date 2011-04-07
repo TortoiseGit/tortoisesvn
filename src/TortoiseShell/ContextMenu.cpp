@@ -383,6 +383,14 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             fetchedstatus = status;
                             if (stat.status->lock && stat.status->lock->token)
                                 itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
+                            if (stat.status->conflicted)
+                                itemStates |= ITEMIS_CONFLICTED;
+                            if (stat.status->repos_root_url)
+                                repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
+                            if (stat.status->file_external)
+                                itemStates |= ITEMIS_FILEEXTERNAL;
+                            if (stat.status->copied)
+                                itemStates |= ITEMIS_ADDEDWITHHISTORY;
                             if (stat.status->kind == svn_node_dir)
                             {
                                 itemStates |= ITEMIS_FOLDER;
@@ -391,16 +399,16 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 if (strpath.IsWCRoot())
                                     itemStates |= ITEMIS_WCROOT;
                             }
-                            if (stat.status->conflicted)
-                                itemStates |= ITEMIS_CONFLICTED;
-                            if (stat.status->repos_root_url)
-                                repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
-                            if (stat.status->file_external)
-                                itemStates |= ITEMIS_FILEEXTERNAL;
-                            if (stat.status->conflicted)
-                                itemStates |= ITEMIS_CONFLICTED;
-                            if (stat.status->copied)
-                                itemStates |= ITEMIS_ADDEDWITHHISTORY;
+                            else
+                            {
+                                if ( (status == svn_wc_status_normal) &&
+                                    g_ShellCache.IsGetLockTop() )
+                                {
+                                    SVNProperties props(strpath, false);
+                                    if (props.HasProperty("svn:needs-lock"))
+                                        itemStates |= ITEMIS_NEEDSLOCK;
+                                }
+                            }
                         }
                         else
                         {
