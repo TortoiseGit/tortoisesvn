@@ -135,6 +135,7 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
 
         m_svnStatus.repos_text_status = pSVNStatus->repos_text_status;
         m_svnStatus.repos_prop_status = pSVNStatus->repos_prop_status;
+        m_kind = pSVNStatus->kind;
 
         if ((pSVNStatus->node_status == svn_wc_status_incomplete)&&(pSVNStatus->local_abspath))
         {
