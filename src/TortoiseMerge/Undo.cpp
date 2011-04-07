@@ -51,11 +51,19 @@ CUndo::~CUndo()
 {
 }
 
+/** \note for backward compatibility only */
 void CUndo::AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate, POINT pt)
 {
-    m_viewstates.push_back(bottomstate);
-    m_viewstates.push_back(rightstate);
-    m_viewstates.push_back(leftstate);
+    allviewstate allstate;
+    allstate.bottom = bottomstate;
+    allstate.right = rightstate;
+    allstate.left = leftstate;
+    AddState(allstate, pt);
+}
+
+void CUndo::AddState(const allviewstate& allstate, POINT pt)
+{
+    m_viewstates.push_back(allstate);
     m_caretpoints.push_back(pt);
 }
 
@@ -75,13 +83,23 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
     else
         UndoOne(pLeft, pRight, pBottom);
 
-    CBaseView * pActiveView = pLeft;
-
-    if (pRight && pRight->HasCaret())
-        pActiveView = pRight;
+    CBaseView * pActiveView = NULL;
 
     if (pBottom && pBottom->HasCaret())
+    {
         pActiveView = pBottom;
+    }
+    else
+    if (pRight && pRight->HasCaret())
+    {
+        pActiveView = pRight;
+    }
+    else
+    //if (pLeft && pLeft->HasCaret())
+    {
+        pActiveView = pLeft;
+    }
+
 
     if (pActiveView) {
         pActiveView->ClearSelection();
@@ -96,40 +114,25 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 
     if (m_viewstates.size() < m_originalstate)
         // Can never get back to original state now
-        m_originalstate = 1; // size() is always a multiple of 3
+        m_originalstate = (size_t)-1;
 
     return true;
 }
 
 void CUndo::UndoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 {
-    viewstate state = m_viewstates.back();
-    Undo(state, pLeft);
+    allviewstate allstate = m_viewstates.back();
+    POINT pt = m_caretpoints.back();
+
+    Undo(allstate.left, pLeft, pt);
+    Undo(allstate.right, pRight, pt);
+    Undo(allstate.bottom, pBottom, pt);
+
     m_viewstates.pop_back();
-    state = m_viewstates.back();
-    Undo(state, pRight);
-    m_viewstates.pop_back();
-    state = m_viewstates.back();
-    Undo(state, pBottom);
-    m_viewstates.pop_back();
-    if ((pLeft)&&(pLeft->HasCaret()))
-    {
-        pLeft->SetCaretPosition(m_caretpoints.back());
-        pLeft->EnsureCaretVisible();
-    }
-    if ((pRight)&&(pRight->HasCaret()))
-    {
-        pRight->SetCaretPosition(m_caretpoints.back());
-        pRight->EnsureCaretVisible();
-    }
-    if ((pBottom)&&(pBottom->HasCaret()))
-    {
-        pBottom->SetCaretPosition(m_caretpoints.back());
-        pBottom->EnsureCaretVisible();
-    }
     m_caretpoints.pop_back();
 }
 
+/** \note interface kept for compatibility, can be merged with Undo(const viewstate& state, CBaseView * pView, const POINT& pt) */
 void CUndo::Undo(const viewstate& state, CBaseView * pView)
 {
     if (!pView)
@@ -163,6 +166,22 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
     {
         viewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending, it->second.hidestate, it->second.movedIndex);
     }
+}
+
+void CUndo::Undo(const viewstate& state, CBaseView * pView, const POINT& pt)
+{
+    Undo(state, pView);
+
+    if (!pView)
+        return;
+
+    if (pView->HasCaret())
+    {
+        pView->SetCaretPosition(pt);
+        pView->EnsureCaretVisible();
+    }
+
+
 }
 
 void CUndo::Clear()

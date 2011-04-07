@@ -42,6 +42,17 @@ typedef struct viewstate
 
 /**
  * \ingroup TortoiseMerge
+ * this struct holds all the information of a single change in TortoiseMerge for all(3) views.
+ */
+struct allviewstate
+{
+    viewstate right;
+    viewstate bottom;
+    viewstate left;
+};
+
+/**
+ * \ingroup TortoiseMerge
  * Holds all the information of previous changes made to a view content.
  * Of course, can undo those changes.
  */
@@ -52,6 +63,7 @@ public:
 
     bool Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
     void AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate, POINT pt);
+    void AddState(const allviewstate& allstate, POINT pt);
     bool CanUndo() {return (m_viewstates.size() > 0);}
 
     bool IsGrouping() { return m_groups.size() % 2 == 1; }
@@ -61,8 +73,9 @@ public:
     void MarkAsOriginalState() { m_originalstate = m_viewstates.size(); }
 protected:
     void Undo(const viewstate& state, CBaseView * pView);
+    void Undo(const viewstate& state, CBaseView * pView, const POINT& pt);
     void UndoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
-    std::list<viewstate> m_viewstates;
+    std::list<allviewstate> m_viewstates;
     std::list<POINT> m_caretpoints;
     std::list< std::list<int>::size_type > m_groups;
     size_t m_originalstate;
