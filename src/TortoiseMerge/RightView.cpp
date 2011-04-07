@@ -140,6 +140,8 @@ void CRightView::UseFile(bool refreshViews /* = true */)
                 m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
         }
         m_pwndBottom->SetModified();
+        BuildAllScreen2ViewVector();
+        RecalcAllVertScrollBars();
     }
     else
     {
