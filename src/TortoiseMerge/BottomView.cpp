@@ -144,10 +144,13 @@ void CBottomView::UseMyTextBlock()
         bottomstate.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
         m_pwndBottom->m_pViewData->SetState(viewLine, m_pwndRight->m_pViewData->GetState(viewLine));
         m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
-        if (m_pwndRight->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
-            m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
-        else
-            m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
+        if (m_pwndBottom->IsViewLineConflicted(viewLine))
+        {
+            if (m_pwndLeft->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
+                m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+            else
+                m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
+        }
     }
     CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
     m_pwndBottom->SetModified();
