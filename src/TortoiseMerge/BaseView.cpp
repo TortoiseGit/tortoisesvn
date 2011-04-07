@@ -3623,7 +3623,6 @@ void CBaseView::AdjustSelection()
     {
         m_ptSelectionStartPos = m_ptSelectionOrigin;
         m_ptSelectionEndPos = m_ptCaretPos;
-        m_ptSelectionEndPos.x = GetLineLength(m_ptCaretPos.y);
     }
 
     SetupSelection(min(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y), max(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y));
