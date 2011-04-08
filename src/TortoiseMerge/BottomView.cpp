@@ -70,16 +70,16 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     {
     case ID_USETHEIRBLOCK:
         UseTheirTextBlock();
-        break;
+        return;
     case ID_USEYOURBLOCK:
         UseMyTextBlock();
-        break;
+        return;
     case ID_USEYOURANDTHEIRBLOCK:
         UseYourAndTheirBlock();
-        break;
+        return;
     case ID_USETHEIRANDYOURBLOCK:
         UseTheirAndYourBlock();
-        break;
+        return;
     case ID_EDIT_COPY:
         OnEditCopy();
         break;
@@ -121,6 +121,7 @@ void CBottomView::UseTheirTextBlock(bool refreshViews /* = true */)
     RecalcAllVertScrollBars();
     if (refreshViews)
         RefreshViews();
+    SaveUndoStep();
 }
 
 void CBottomView::UseMyTextBlock(bool refreshViews /* = true */)
@@ -149,20 +150,6 @@ void CBottomView::UseMyTextBlock(bool refreshViews /* = true */)
     RecalcAllVertScrollBars();
     if (refreshViews)
         RefreshViews();
+    SaveUndoStep();
 }
 
-void CBottomView::UseTheirThenMyTextBlock()
-{
-    ResetUndoStep();
-    UseTheirAndYourBlock();
-    SaveUndoStep();
-    RefreshViews();
-}
-
-void CBottomView::UseMyThenTheirTextBlock()
-{
-    ResetUndoStep();
-    UseYourAndTheirBlock();
-    SaveUndoStep();
-    RefreshViews();
-}

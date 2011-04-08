@@ -33,8 +33,6 @@ public:
 
     void    UseFile(bool refreshViews = true);
     void    UseBlock(bool refreshViews = true);
-    void    UseLeftBeforeRight(bool refreshViews = true);
-    void    UseRightBeforeLeft(bool refreshViews = true);
 protected:
     void    OnContextMenu(CPoint point, int nLine, DiffStates state);
 

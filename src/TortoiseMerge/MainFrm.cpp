@@ -1549,7 +1549,7 @@ void CMainFrame::OnUpdateEditUsemyblock(CCmdUI *pCmdUI)
 void CMainFrame::OnEditUseTheirsThenMine()
 {
     if (m_pwndBottomView)
-        m_pwndBottomView->UseTheirThenMyTextBlock();
+        m_pwndBottomView->UseTheirAndYourBlock();
 }
 
 void CMainFrame::OnUpdateEditUsetheirthenmyblock(CCmdUI *pCmdUI)
@@ -1560,7 +1560,7 @@ void CMainFrame::OnUpdateEditUsetheirthenmyblock(CCmdUI *pCmdUI)
 void CMainFrame::OnEditUseMineThenTheirs()
 {
     if (m_pwndBottomView)
-        m_pwndBottomView->UseMyThenTheirTextBlock();
+        m_pwndBottomView->UseYourAndTheirBlock();
 }
 
 void CMainFrame::OnUpdateEditUseminethentheirblock(CCmdUI *pCmdUI)
@@ -1593,7 +1593,7 @@ void CMainFrame::OnUpdateEditUseleftfile(CCmdUI *pCmdUI)
 void CMainFrame::OnEditUseblockfromleftbeforeright()
 {
     if (m_pwndRightView)
-        m_pwndRightView->UseLeftBeforeRight();
+        m_pwndRightView->UseBothLeftFirst();
 }
 
 void CMainFrame::OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI)
@@ -1604,7 +1604,7 @@ void CMainFrame::OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI)
 void CMainFrame::OnEditUseblockfromrightbeforeleft()
 {
     if (m_pwndRightView)
-        m_pwndRightView->UseRightBeforeLeft();
+        m_pwndRightView->UseBothRightFirst();
 }
 
 void CMainFrame::OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI)

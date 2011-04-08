@@ -97,23 +97,23 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
         PasteText();
         break;
     case ID_USEFILE:
-        UseFile(false);
-        break;
+        UseFile();
+        return;
     case ID_USEBLOCK:
-        UseBlock(false);
-        break;
+        UseBlock();
+        return;
     case ID_USEYOURANDTHEIRBLOCK:
         UseYourAndTheirBlock();
-        break;
+        return;
     case ID_USETHEIRANDYOURBLOCK:
         UseTheirAndYourBlock();
-        break;
+        return;
     case ID_USEBOTHTHISLAST:
         UseBothRightFirst();
-        break;
+        return;
     case ID_USEBOTHTHISFIRST:
         UseBothLeftFirst();
-        break;
+        return;
     default:
         return;
     } // switch (cmd)
@@ -191,6 +191,7 @@ void CLeftView::UseFile(bool refreshViews /* = true */)
     }
     if (refreshViews)
         RefreshViews();
+    SaveUndoStep();
 }
 
 void CLeftView::UseBlock(bool refreshViews /* = true */)
@@ -247,4 +248,5 @@ void CLeftView::UseBlock(bool refreshViews /* = true */)
     }
     if (refreshViews)
         RefreshViews();
+    SaveUndoStep();
 }

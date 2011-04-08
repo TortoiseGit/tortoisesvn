@@ -112,6 +112,11 @@ public:
     bool            HasNextInlineDiff();
     bool            HasPrevInlineDiff();
 
+    void            UseTheirAndYourBlock();
+    void            UseYourAndTheirBlock();
+    void            UseBothLeftFirst();
+    void            UseBothRightFirst();
+
     CViewData *     m_pViewData;
     CViewData *     m_pOtherViewData;
     CBaseView *     m_pOtherView;
@@ -237,11 +242,6 @@ protected:
      * Updates the status bar pane. Call this if the document changed.
      */
     void            UpdateStatusBar();
-
-    void            UseTheirAndYourBlock();
-    void            UseYourAndTheirBlock();
-    void            UseBothLeftFirst();
-    void            UseBothRightFirst();
 
     bool            IsViewGood(const CBaseView* view ) const { return (view != 0) && view->IsWindowVisible(); }
     bool            IsLeftViewGood() const {return IsViewGood(m_pwndLeft);}

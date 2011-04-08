@@ -97,23 +97,23 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
         PasteText();
         break;
     case ID_USEFILE:
-        UseFile(false);
-        break;
+        UseFile();
+        return;
     case ID_USEBLOCK:
-        UseBlock(false);
-        break;
+        UseBlock();
+        return;
     case ID_USEYOURANDTHEIRBLOCK:
         UseYourAndTheirBlock();
-        break;
+        return;
     case ID_USETHEIRANDYOURBLOCK:
         UseTheirAndYourBlock();
-        break;
+        return;
     case ID_USEBOTHTHISFIRST:
         UseBothRightFirst();
-        break;
+        return;
     case ID_USEBOTHTHISLAST:
         UseBothLeftFirst();
-        break;
+        return;
     default:
         return;
     } // switch (cmd)
@@ -184,6 +184,7 @@ void CRightView::UseFile(bool refreshViews /* = true */)
     }
     if (refreshViews)
         RefreshViews();
+    SaveUndoStep();
 }
 
 void CRightView::UseBlock(bool refreshViews /* = true */)
@@ -240,22 +241,6 @@ void CRightView::UseBlock(bool refreshViews /* = true */)
     }
     if (refreshViews)
         RefreshViews();
+    SaveUndoStep();
 }
 
-void CRightView::UseLeftBeforeRight(bool refreshViews /* = true */)
-{
-    ResetUndoStep();
-    UseBothLeftFirst();
-    SaveUndoStep();
-    if (refreshViews)
-        RefreshViews();
-}
-
-void CRightView::UseRightBeforeLeft(bool refreshViews /* = true */)
-{
-    ResetUndoStep();
-    UseBothRightFirst();
-    SaveUndoStep();
-    if (refreshViews)
-        RefreshViews();
-}

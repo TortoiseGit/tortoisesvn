@@ -2066,7 +2066,6 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             }
         }
         OnContextMenu(point, nLine, state);
-        RefreshViews();
     }
 }
 
@@ -2936,6 +2935,8 @@ void CBaseView::UseTheirAndYourBlock()
     m_pwndBottom->SetModified();
     m_pwndLeft->SetModified();
     m_pwndRight->SetModified();
+    SaveUndoStep();
+    RefreshViews();
 }
 
 void CBaseView::UseYourAndTheirBlock()
@@ -3008,6 +3009,8 @@ void CBaseView::UseYourAndTheirBlock()
     m_pwndBottom->SetModified();
     m_pwndLeft->SetModified();
     m_pwndRight->SetModified();
+    SaveUndoStep();
+    RefreshViews();
 }
 
 void CBaseView::UseBothRightFirst()
@@ -3056,6 +3059,8 @@ void CBaseView::UseBothRightFirst()
     RecalcAllVertScrollBars();
     m_pwndLeft->SetModified();
     m_pwndRight->SetModified();
+    SaveUndoStep();
+    RefreshViews();
 }
 
 void CBaseView::UseBothLeftFirst()
@@ -3098,6 +3103,8 @@ void CBaseView::UseBothLeftFirst()
     RecalcAllVertScrollBars();
     m_pwndLeft->SetModified();
     m_pwndRight->SetModified();
+    SaveUndoStep();
+    RefreshViews();
 }
 
 void CBaseView::UpdateCaret()

@@ -31,9 +31,7 @@ public:
     ~CBottomView(void);
 
     void UseMyTextBlock(bool refreshViews = true);
-    void UseMyThenTheirTextBlock();
     void UseTheirTextBlock(bool refreshViews = true);
-    void UseTheirThenMyTextBlock();
 
 protected:
     void    OnContextMenu(CPoint point, int nLine, DiffStates state);
