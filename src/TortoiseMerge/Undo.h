@@ -38,6 +38,7 @@ typedef struct viewstate
     std::map<int, viewdata> removedlines;
 
     void    AddViewLineFormView(CBaseView *pView, int nLine, int nViewLine, bool bAddEmptyLine);
+    bool    IsEmpty() { return (difflines.size()==0) && (linestates.size()==0) && (linelines.size()==0) && (linesEOL.size()==0) && (addedlines.size()==0) && (removedlines.size()==0); }
 } viewstate;
 
 /**
@@ -49,6 +50,8 @@ struct allviewstate
     viewstate right;
     viewstate bottom;
     viewstate left;
+
+    bool    IsEmpty() { return right.IsEmpty() && bottom.IsEmpty() && left.IsEmpty(); }
 };
 
 /**

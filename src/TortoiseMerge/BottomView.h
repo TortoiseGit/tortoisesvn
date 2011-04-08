@@ -30,9 +30,9 @@ public:
     CBottomView(void);
     ~CBottomView(void);
 
-    void UseMyTextBlock();
+    void UseMyTextBlock(bool refreshViews = true);
     void UseMyThenTheirTextBlock();
-    void UseTheirTextBlock();
+    void UseTheirTextBlock(bool refreshViews = true);
     void UseTheirThenMyTextBlock();
 
 protected:

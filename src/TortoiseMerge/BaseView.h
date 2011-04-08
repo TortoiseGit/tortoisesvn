@@ -238,10 +238,10 @@ protected:
      */
     void            UpdateStatusBar();
 
-    void            UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate);
-    void            UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate);
-    void            UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate);
-    void            UseBothRightFirst(viewstate &rightstate, viewstate &leftstate);
+    void            UseTheirAndYourBlock();
+    void            UseYourAndTheirBlock();
+    void            UseBothLeftFirst();
+    void            UseBothRightFirst();
 
     bool            IsViewGood(const CBaseView* view ) const { return (view != 0) && view->IsWindowVisible(); }
     bool            IsLeftViewGood() const {return IsViewGood(m_pwndLeft);}
@@ -366,4 +366,10 @@ protected:
     static void FilterWhitespaces(CString& first, CString& second);
     static void FilterWhitespaces(CString& line);
     int GetButtonEventLineIndex(const POINT& point);
+
+
+    static allviewstate m_AllState;
+    static void     AddUndoStep(allviewstate & allviewstate, POINT & m_ptCaretPos);
+    static void     ResetUndoStep();
+    void            SaveUndoStep();
 };
