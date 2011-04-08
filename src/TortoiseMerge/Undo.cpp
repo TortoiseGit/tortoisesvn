@@ -108,7 +108,13 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
         pActiveView->RecalcAllHorzScrollBars();
         pActiveView->EnsureCaretVisible();
         pActiveView->UpdateCaret();
-        pActiveView->SetModified(m_viewstates.size() != m_originalstate);
+        bool bModified = m_viewstates.size() != m_originalstate;
+        if (pLeft)
+            pLeft->SetModified(bModified);
+        if (pRight)
+            pRight->SetModified(bModified);
+        if (pBottom)
+            pBottom->SetModified(bModified);
         pActiveView->RefreshViews();
     }
 
