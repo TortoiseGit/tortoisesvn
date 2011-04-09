@@ -184,6 +184,8 @@ void CRightView::UseFile(bool refreshViews /* = true */)
             }
         }
         m_pwndRight->SetModified();
+        BuildAllScreen2ViewVector();
+        RecalcAllVertScrollBars();
         if (m_pwndLocator)
             m_pwndLocator->DocumentUpdated();
     }
