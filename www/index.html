@@ -18,11 +18,37 @@
 
 		<div id="content">
         
+            <div class="post">
+				<h1 class="title"><a href="#">Auto Aero Colors</a></h1>
+				<p class="meta">Posted on April 9, 2011
+					&nbsp;&bull;&nbsp; <a href="http://tools.tortoisesvn.net/AAClr.html" class="permalink">Full article</a></p>
+                $ADSENSE_TOP$
+				<div class="entry">
+                    <p>Windows 8 (or whatever its name will be when it's released)
+                    will have a new feature where the Aero colors can be 
+                    <a href="http://www.withinwindows.com/2011/04/06/windows-8-secrets-aero-auto-colorization/">
+                    automatically adjusted according to the selected wallpaper</a>.</p>
+                    <p>This seems to be a nice feature, and there's even a tool available
+                    that offers that feature for Windows 7: <a href="http://aura.codeplex.com/">Aura</a>.</p>
+                    <p>But there are some things about Aura that bother me, so I hacked together
+                    my own tool which offers that feature.</p>
+                    <p>Unlike Aura, AAClr is written in plain C++ and doesn't 
+                    use the .NET framework. For tools that are supposed to be started
+                    automatically on logon, this ensures that the whole startup time
+                    doesn't increase by several seconds.</p>
+                    <p>AAClr also detects changes in wallpapers by catching events
+                    from the system and doesn't use timers that access the wallpaper file
+                    several times a second (like Aura does). That means that AAClr is idle
+                    most of the time and only wakes up when necessary.</p>
+                    <p>And about resource usage: AAClr uses less than 2MB of 
+                    private bytes - I think that's not too much.</p>
+                    <p>The link to the download can be found on the <a href="http://tools.tortoisesvn.net/AAClr.html">project page</a>.</p>
+                </div>
+            </div>
 			<div class="post">
 				<h1 class="title"><a href="#">TortoiseSVN 1.6.15 released</a></h1>
 				<p class="meta">Posted on March 23, 2011
 					&nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p>
-                $ADSENSE_TOP$
 				<div class="entry">
                     <p>TortoiseSVN 1.6.15 has been released.</p>
                     <p>This is a bugfix release/maintenance release,  
