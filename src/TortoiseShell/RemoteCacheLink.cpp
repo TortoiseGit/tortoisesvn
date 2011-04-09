@@ -184,6 +184,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
                 return false;
             }
         }
+        m_lastTimeout = (long)GetTickCount()+10000;
     }
 
     AutoLocker lock(m_critSec);
