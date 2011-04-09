@@ -1427,7 +1427,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
     {
         // This is a modified file which has been merged on update. Diff it against base
         CTSVNPath temporaryFile;
-        SVNDiff diff(this, this->m_hWnd, true);
+        SVNDiff diff(NULL, this->m_hWnd, true); // do not pass 'this' as the SVN instance since that would make the diff command invode this notify handler
         diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
         svn_revnum_t baseRev = 0;
         diff.DiffFileAgainstBase(data->path, baseRev);
