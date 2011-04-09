@@ -133,7 +133,12 @@ void CRightView::UseFile(bool refreshViews /* = true */)
             m_pwndBottom->m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
             m_pwndBottom->m_pViewData->SetLineEnding(i, m_pwndRight->m_pViewData->GetLineEnding(i));
             if (m_pwndBottom->IsViewLineConflicted(i))
-                m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+            {
+                if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+                    m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+                else
+                    m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+            }
         }
         m_pwndBottom->SetModified();
         BuildAllScreen2ViewVector();
