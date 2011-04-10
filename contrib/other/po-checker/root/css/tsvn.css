@@ -177,6 +177,16 @@ table.system-status-report tr.ok,table.system-status-report tr.ok th{background-
 .elerror {color:red; font-weight:bold; }
 .elmark {color:blue; font-weight:bold; }
 .elwarning {color:#ee8822; font-weight:bold; }
-a.linkerror {color:red; };
-a.linkwarning {color:yellow; };
+a.linkerror {color:red; }
+a.linkwarning {color:yellow; }
+
+.history {
+	width: 1040px;
+	height: 220px;
+}
+
+.progress {
+	width: 22px;
+	height: 220px;
+}
 

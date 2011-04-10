@@ -1,5 +1,20 @@
 <?php
 
+define("PO_NONE", 'PO_NONE');
+define("PO_MSGID", 'PO_MSGID');
+define("PO_MSGSTR", 'PO_MSGSTR');
+define("PO_DATA", 'PO_DATA');
+define("PO_COMMENT", 'PO_COMMENT');
+define("PO_EXTCMNT", 'PO_EXTCMNT');
+define("PO_REFERENCE", 'PO_REFERENCE');
+define("PO_FLAGS", 'PO_FLAGS');
+define("PO_EMPTY", 'PO_EMPTY');
+define("PO_UNKNOWN", 'PO_UNKNOWN');
+
+define("MARK_OK", 'MARK_OK');
+define("MARK_ERROR", 'MARK_ERROR');
+define("PO_UNKNOWN", 'PO_UNKNOWN');
+
 function IsDebugOn() {
 	return $_SERVER['REMOTE_ADDR']=="217.75.82.130";
 }
@@ -100,7 +115,11 @@ class po {
 			 default:
 //			 case PO_MSGID:
 //			 case PO_MSGSTR:
-				$block[$lineType].=$data;
+				if (isset($block[$lineType])) {
+					$block[$lineType].=$data;
+				} else {
+					$block[$lineType]=$data;
+				}
 				if (!isset($blockFirstLine)) {
 					$blockFirstLine=$linenum;
 				}
@@ -116,19 +135,12 @@ class po {
 					$msgid=$block[PO_MSGID];
 					$msgstr=$block[PO_MSGSTR];
 					$flags=array();
-					$flagsString=$block[PO_FLAGS];
+					$flagsString=isset( $block[PO_FLAGS]) ? $block[PO_FLAGS] : "";
 					$flagsStrings=explode(",", $flagsString);
 					foreach ($flagsStrings as &$value) {
 						$value=trim($value);
 					}
 					$flags=array_flip($flagsStrings);
-					if (count($flagsStrings)>1 && false) {
-						echo "$flagsString :";
-						var_dump($flagsStrings);
-						echo "<br />";
-						var_dump($flags);
-						echo "<br />";
-					}
 /*					while ($flagString=="") {
 						$len=strpos($flagString, ",");
 						if (!$len) {
@@ -157,7 +169,7 @@ class po {
 			$this->pot=new po;
 			$this->pot->Load($pot);
 		} else {
-			echo "<i>Internal warning</i>: <b>unsupporter pot type</b>";
+			echo "<i>Internal warning</i>: <b>unsupported pot type</b>";
 		}
 	}
 
@@ -167,7 +179,6 @@ class po {
 
 
 	function buildPotReport() {
-
 		$report=array();
 		$report["type"]="pot";
 		$report["tot"]=$this->getStringCount();
@@ -271,7 +282,7 @@ class po {
 			return false;
 		}
 
-		// no report no created && are there data to create report ?
+		// no report was created && are there data to create report ?
 		if (isNonEmptyArray($this->report) || !isNonEmptyArray($this->dictionary)) {
 			return true;
 		}
@@ -388,7 +399,7 @@ class po {
 			}
 		}
 		$table=new Table;
-		$table->name="Wrong Newlines";
+		$table->name="Wrong Newline style";
 		$table->header=array("Index", "Line", "English", "Line", "Native");
 		$table->data=$data;
 		$report["nls"]=$table;
@@ -464,7 +475,7 @@ class po {
 		$data=array();
 		if (isset($potFile)) {
 			//todo: check only "c-format" strings -> speed up
-			$regexp="/%([1-9]|[0-9*]*[diouxXsS]|[+\\-]*[0-9*]*?l?d|I64d|[+\\-]?[0-9]*\\.?[0-9]*f)/";
+			$regexp="/%([1-9]![l]?[diouxXsS]!|[1-9]|[0-9*]*[diouxXsS]|[+\\-]*[0-9*]*?l?d|I64d|[+\\-]?[0-9]*\\.?[0-9]*f)/";
 			foreach ($potFile->dictionary as $key=>$value) {
 				$orig=$key;
 				if (!isset($orig) || $orig=="") {
@@ -477,20 +488,63 @@ class po {
 				$engMatch=preg_match_all($regexp, $orig, $matchesOnEng, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
 				$natMatch=preg_match_all($regexp, $native, $matchesOnNat, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
 				if ($engMatch || $natMatch) {
+					$usesNumbered=false;
+					$usesOrdered=false;
+					$note="";
 					$match=(count($matchesOnEng[0])==count($matchesOnNat[0]) ? true : false);
 					foreach ($matchesOnEng[0] as $key2=>$value2) {
-						$ok=($matchesOnEng[0][$key2][0]==$matchesOnNat[0][$key2][0]);
+						$origParstr=$matchesOnEng[0][$key2][0];
+						if (strpos($origParstr, "!")===false) {
+							$usesOrdered=true;
+							$ok=($origParstr==$matchesOnNat[0][$key2][0]);
+						} else {
+							$usesNumbered=true;
+							$count=0;
+							foreach ($matchesOnNat[0] as $rec) {
+								if ($origParstr==$rec[0]) {
+									$count++;
+								}
+							}
+							$count2=0;
+							foreach ($matchesOnEng[0] as $rec) {
+								if ($origParstr==$rec[0]) {
+									$count2++;
+								}
+							}
+							$ok=($count==1) && ($count2==1);
+						}
 						if (!$ok) {
 							$match=false;
 						}
 						$matchesOnEng[0][$key2][2]=$ok;
 					}
 					foreach ($matchesOnNat[0] as $key2=>$value2) {
-						$ok=($matchesOnEng[0][$key2][0]==$matchesOnNat[0][$key2][0]);
+						$nativeParstr=$matchesOnNat[0][$key2][0];
+						if (strpos($nativeParstr, "!")===false) {
+							$ok=($nativeParstr==$matchesOnEng[0][$key2][0]);
+						} else {
+							$count=0;
+							foreach ($matchesOnEng[0] as $rec) {
+								if ($nativeParstr==$rec[0]) {
+									$count++;
+								}
+							}
+							$count2=0;
+							foreach ($matchesOnNat[0] as $rec) {
+								if ($nativeParstr==$rec[0]) {
+									$count2++;
+								}
+							}
+							$ok=($count==1) && ($count2==1);
+						}
 						if (!$ok) {
 							$match=false;
 						}
 						$matchesOnNat[0][$key2][2]=$ok;
+					}
+					if (isset($usesNumber) && $usesNumber && $UsedOrdered) {
+						$match=false;
+						$note="Ordered and Numbered params found!";
 					}
 					if (!$match) {
 						for ($i=count($matchesOnEng[0])-1; $i>=0; $i--) {
@@ -513,7 +567,7 @@ class po {
 							$lineN.="(Fuzzy)";
 						}
 						$data[]=array(count($data)+1, $lineE, $orig, $lineN, $native);
-					}
+					}//*/
 				}
 			}
 		}
@@ -525,7 +579,7 @@ class po {
 
 
 		// wrong parameters
-		$data=array();
+/*		$data=array();
 		if (isset($potFile)) {
 			// todo: check only "c-format" strings -> speed up
 			$regexp="/(%(%|[1-9]|[0-9*]*[diouxXsS]|[+\\-]*[0-9*]*?l?d|I64d|[+\\-]?[0-9]*\\.?[0-9]*f|[A-Z]*%))/";
@@ -602,7 +656,7 @@ class po {
 		$table->name="Wrong Params Line";
 		$table->header=array("Index", "Line", "English", "Line", "Native");
 		$table->data=$data;
-//		$report["p2l"]=$table;
+//		$report["p2l"]=$table;//*/
 
 
 		// non traslated
@@ -610,8 +664,12 @@ class po {
 		if (isset($potFile)) {
 			foreach ($potFile->dictionary as $key=>$value) {
 				$orig=$key;
-				$native=$this->dictionary[$key]["text"];
-				if (!isset($native) || $native=="") {
+				if (isset($this->dictionary[$key]["text"])) {
+					$native=$this->dictionary[$key]["text"];
+				} else {
+					$native="";
+				}
+				if ($native=="") {
 					$lineN=$this->dictionary[$key]["line"];
 					$lineE=$potFile->dictionary[$key]["line"];
 					$orig=str_replace($search, $replace, $orig);
@@ -654,6 +712,9 @@ class po {
 
 	function buildReportFor($report) {
 		switch ($report) {
+		 case "acc":
+			$this->checkAcc();
+			break;
 		 case "spl":
 			$this->checkSpl();
 			break;
@@ -661,7 +722,72 @@ class po {
 	}
 
 
-	// wrong spelling
+	// check for accelerators mishmash
+	function checkAcc() {
+		if (isset($this->pot)) {
+			$potFile=$this->pot;
+		} else {
+			return;
+		}
+		$lang=$this->lang;
+
+
+
+
+
+
+
+
+		$data=array();
+		$regexp="/(&.)/u";
+		foreach ($this->dictionary as $orig=>$value) { // check all phrases
+			$native=$value["text"];
+			if (!isset($native) || $native=="" || $orig=="") { // no translation -> no test
+				continue;
+			}
+			// native and eng did not match in containing of '&'
+			if (substr_count($orig, "&")!==substr_count($native, "&")) {
+				$oriMatch=preg_match_all($regexp, $orig, $matchesOnOri, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
+				$natMatch=preg_match_all($regexp, $native, $matchesOnNat, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE);
+				$oriMarks=array();
+				$natMarks=array();
+				for ($i=count($matchesOnOri[0])-1; $i>=0; $i--) {
+					$mark['start']=$matchesOnOri[0][$i][1];
+					$mark['length']=strlen($matchesOnOri[0][$i][0]);
+					$mark['type']=$matchesOnOri[0][$i][2] ? MARK_OK : MARK_ERROR;
+					$oriMarks[]=$mark;
+				}
+				for ($i=count($matchesOnNat[0])-1; $i>=0; $i--) {
+					$mark['start']=$matchesOnNat[0][$i][1];
+					$mark['length']=strlen($matchesOnNat[0][$i][0]);
+					$mark['type']=$matchesOnNat[0][$i][2] ? MARK_OK : MARK_WARNING;
+					$natMarks[]=$mark;
+				}
+				$orig=po::CreateHtmlFromMarks($oriMarks, $orig);
+				$native=po::CreateHtmlFromMarks($natMarks, $native);
+
+				$natLine=$value["line"];
+				if (isset($value["flag"]["fuzzy"])) {
+					$natLine.="(Fuzzy)";
+				}
+				$oriLine=isset($potFile) ? $potFile->dictionary[$orig]["line"] : ":";
+				$index=count($data)+1;
+				$data[]=array($index, $oriLine, array('html'=>$orig), $natLine, array('html'=>$native));
+			}
+		}
+		$table=new Table;
+		$table->name="Misssing/Unexpected Accs";
+//		$table->description="<p>Testing spelling of translation. We use ASPELL dictionaris for PSPELL. <b><i>in development</i></b> </p>";
+		$table->header=array("Index", "Line", "English", "Line", "Native");
+		$table->data=$data;
+		$this->report["acc"]=$table;
+//		$this->report["spl"]["error"]="Dictionary not found.";
+//		$this->report["spl"]["error"]="Internal error";
+	}
+
+
+
+	// check for wrong spelling
 	function checkSpl() {
 		if (isset($this->pot)) {
 			$potFile=$this->pot;
@@ -672,8 +798,9 @@ class po {
 
 		//var_dump($this->spellDictFiles);
 		$data=array();
-		if ($this->lang) {
+		if (false && $this->lang) {
 			$suggestEnabled=$this->lang != "hu";
+			$suggestEnabled=$suggestEnabled && $this->lang != "de";
 			echo "<!--";
 			$pspell_link = pspell_new($this->lang, "", "", "utf-8", PSPELL_FAST);
 			$pspell_links=array();
@@ -881,7 +1008,9 @@ class po {
 		$result="";
 		foreach ($breaks as $pos=>$break) {
 			$substring=substr($string, $position, $pos-$position);
-			$substring=str_replace($postprocessSearch, $postprocessReplace, $substring);
+			if (isset($postprocessSearch) && isset($postprocessReplace)) {
+				$substring=str_replace($postprocessSearch, $postprocessReplace, $substring);
+			}
 			$substring=htmlspecialchars($substring);
 			$result .= $substring . $break;
 			$position=$pos;
@@ -942,6 +1071,7 @@ class po {
 	}
 
 	function getAllOrigs(){
+		return $this->dictionary;
 	}
 
 	function getProgress(){
@@ -962,9 +1092,13 @@ class po {
 			$this->report["param"]->output();
 		} else {
 		}
+		
+		if (!isset($lang)) {
+			$lang="";
+		}
 
 		if ($this->report["type"]=="pot") {
-			echo "<a name=\"nls$lang\"></a><h3>Differences in new line style within one string</h3>\n";
+			echo "<a name=\"nls\"></a><a name=\"nls$lang\"></a><h3>Differences in new line style within one string</h3>\n";
 //			echo "<p>
 //				</p>\n";
 			$table=$this->report["nls"];
@@ -980,7 +1114,7 @@ class po {
 				echo "<p><i>Internal error</i></p>";
 			}
 
-			echo "<a name=\"esc$lang\"></a><h3>Escaped chars</h3>\n";
+			echo "<a name=\"esc\"></a><a name=\"esc$lang\"></a><h3>Escaped chars</h3>\n";
 //			echo "<p>
 //				</p>\n";
 			$table=$this->report["esc"];
@@ -1006,7 +1140,7 @@ class po {
 
 		$lang=$this->lang;
 
-		echo "<a name=\"par$lang\"></a><h3>Parameter strings test</h3>\n";
+		echo "<a name=\"par\"></a><a name=\"par$lang\"></a><h3>Parameter strings test</h3>\n";
 		echo "<p>This test is necessary to pass or you can expect crashing of TSVN - specially true when you use 
 				longer type as is in English like %s instead of %d, %ld instead of %d, etc. Also having more parameters lead to crash TSVN.
 				When TSVN not crash, the information is still wrong. For example number instead of text.</p>\n";
@@ -1038,7 +1172,7 @@ class po {
 			echo "<p><i>Internal error</i></p>";
 		}//*/
 
-		echo "<a name=\"acc$lang\"></a><h3>Missing/Unexpected Key Accelerator test</h3>\n";
+		echo "<a name=\"acc\"></a><a name=\"acc$lang\"></a><h3>Missing/Unexpected Key Accelerator test</h3>\n";
 		echo "<p>This is accessibility test. Passing this test is recommended. 
 			If you are interesting in more details about accelerator key overlapping I may enable such test for your language, but in fact there not too much to do against it.
 			According <a href=\"http://tortoisesvn.net/user/2\">Luebbe</a> and <a href=\"http://tortoisesvn.net/user/3\">Stefan</a> 
@@ -1057,7 +1191,7 @@ class po {
 			echo "<p><i>Internal error</i></p>";
 		}
 
-		echo "<a name=\"nls$lang\"></a><h3>Differences in new line style</h3>\n";
+		echo "<a name=\"nls\"></a><a name=\"nls$lang\"></a><h3>Differences in new line style</h3>\n";
 		echo "<p>This tests if new line style from pot match localized new line style. <b>This test may have false positives when English text has new line style inconsistence.</b> 
 				Using more lines for Native when English use just one is also alowed for most of translation even here reported.
 			</p>\n";
@@ -1074,7 +1208,7 @@ class po {
 			echo "<p><i>Internal error</i></p>";
 		}
 
-		echo "<a name=\"unt$lang\"></a><h3>Not translated strings test</h3>\n";
+		echo "<a name=\"unt\"></a><a name=\"unt$lang\"></a><h3>Not translated strings test</h3>\n";
 		echo "<p>This tests if all strings has been translated. Translated mean that there in native string set. If English and native are same it is not marked as not translated, this just can happen.</p>\n";
 		$table=$this->report["unt"];
 		if (isset($table)) {
@@ -1089,7 +1223,7 @@ class po {
 			echo "<p><i>Internal error</i></p>";
 		}
 
-		echo "<a name=\"fuz$lang\" /><h3>Fuzzy mark test</h3>\n";
+		echo "<a name=\"fuz\" /><a name=\"fuz$lang\" /><h3>Fuzzy mark test</h3>\n";
 		echo "<p>String marked as fuzzy is not in final shape.</p>\n";
 		$table=$this->report["fuz"];
 		if (isset($table)) {
@@ -1104,7 +1238,7 @@ class po {
 			echo "<p><i>Internal error or not implemented</i></p>";
 		}
 
-		echo "<a name=\"esc$lang\" /><h3>Escaped chars test</h3>\n";
+		echo "<a name=\"esc\" /><a name=\"esc$lang\" /><h3>Escaped chars test</h3>\n";
 		echo "<p>This test check if all escaped chars are known and its using match with English. Even you get red here it may be legal for your language.<br/>This test is in developing now. Ignored are: \\r \\n (wee new line style test) and \\\".</p>\n";
 		$table=$this->report["esc"];
 		if (isset($table)) {
@@ -1137,4 +1271,3 @@ class po {
 }
 
 //php?>
-

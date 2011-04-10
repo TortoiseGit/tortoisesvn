@@ -1,113 +1,5 @@
 <?php // $Id$
-define("MODULE_PATH", "../modules/");
-define("EXT_PATH", MODULE_PATH."ext/");
-define("LIB_PATH", MODULE_PATH."lib/");
 
-#include("../scripts/session.php");
-#include("mysql.php");
-
-// common modules
-include_once (EXT_PATH."Html.php");
-#include_once (EXT_PATH."tools.php");
-include_once (EXT_PATH."Table.php");
-#include_once (MODULE_PATH."csv.php");
-require_once (LIB_PATH."parsecsv/parsecsv.lib.php");
-
-// local modules
-include_once MODULE_PATH."po.php";
-#include_once MODULE_PATH."rc.php";
-
-
-#open html
-$html = new Html;
-$html->SetTitle("TortoiseSVN | The coolest Interface to (Sub)Version Control - Translation check");
-$html->AddCssFile("/css/tsvn.css", "all");
-$html->AddCssFile("/css/print.css", "print");
-$html->AddMetaHttpEquiv("content-type", "text/html; charset=utf-8");
-$html->AddMeta("keywords", "");
-$html->AddMeta("description", "");
-echo $html->openBody();
-
-#log
-include "log.hp";
-
-
-#load intro texts
-//include MODULE_PATH."intro_0.php";
-//include MODULE_PATH."intro_1.php";
-//include MODULE_PATH."intro_2.php";
-//include MODULE_PATH."intro_3.php";
-
-#eliminate crawlers
-if ($crawler) {
-	echo '<div><center><hr/>Icons by: <a href="http://dryicons.com" class="link">DryIcons</a></center></div>';
-	exit;
-}
-
-//include MODULE_PATH."intro_4.php";
-//include MODULE_PATH."intro_5.php";
-//include MODULE_PATH."intro_6.php";
-//include MODULE_PATH."intro_7.php";
-//include MODULE_PATH."intro_8.php";
-//include MODULE_PATH."intro_9.php";
-
-# get and fix parameters
-$lang=$_GET["l"]; // language
-if ($lang=="") {
-	$lang="";
-}
-
-$stable=$_GET["stable"]; // stable(branch) vs. trunk
-if ($stable) {
-	$stable=1;
-} else {
-	$stable=0;
-}
-
-$tx=$_GET["tx"]; // transifex vs. svn
-if ($tx) {
-	$tx=1;
-} else {
-	$tx=0;
-}
-
-$gx=$_GET["gx"]; // graph x axis type
-switch ($gx) {
- case "date":
-	break;
- default:
-	$gx="rev";
-}
-
-$m=$_GET["m"]; // module
-switch ($m) {
- case 'g':
- case 's':
- case 'm':
-	break;
- case 'd':
-	$m='s';
-	break;
- default:
-	$m='g';
-}
-
-
-
-# determine mode
-include MODULE_PATH."trunk.php";
-
-
-
-#load mode module
-
-
-
-echo "ok".__LINE__;
-flush();
-
-exit;
-/*
 $iconSize="32x32";
 $icons=array(
 	'ok' => "/images/classy/$iconSize/accept.png",
@@ -127,52 +19,136 @@ $icons=array(
 	'info' => "/images/classy/$iconSize/info.png",
 	'gui' => "/images/classy/$iconSize/application.png"
 	);
-// predefine header info
 
 
 
-// find translations
-
-
+// show version infos
+$target=$dirTarget;
 $dirBase="/srv/www/sites/tsvn.e-posta.sk/data/";
-
-$dirTarget="trunk";
-if ($stable) {
-	echo "Using BRANCH";
-	$dirTarget="branches/1.6.x";
-	$revFileName=$dirBase."branches.rev";
-}
 $dir=$dirBase.$dirTarget;
-$revFileName=$dirBase.$target.".rev";
+$revFileName=$dirBase."info/".$target.".rev";
 
 $dirLocation=$dir."/Languages";
 $dirDoc=$dir."/doc/po";
 $revFileLines=file($revFileName);
 
-echo "<h1>".$revFileLines[0]."of $dirTarget</h1>";
-if (false) { // if replaying
-	$rev=substr($revFileLines[0], strpos($revFileLines[0], " "))+0;
-	$sec=(16330-$rev)*8;
-	$min=round($sec*10/60)/10;
-	$hour=round($min*10/60)/10;
-	if ($hour>=1) {
-		$timeToGo=$hour."h";
-	} else if ($min>=1) {
-		$timeToGo=$min."m";
-	} else if ($sec>0) {
-		$timeToGo=$sec."s";
-	}
-	echo "<b>!!! PLEASE return in couple of minutes - trunk replay in progress !!! Appx. $timeToGo to go.</b> - branch is working -<br />";
-}
+
+//echo $revFileName;
+echo "<h1>".$revFileLines[0]."of $targetDisplayName</h1>";
 echo "<p>Last update: ".date("F d Y H:i", filemtime($revFileName))." CET (GMT+1/GMT+2(DST)) <br />";
 if ($stable) {
 	echo 'Go to <a href="/?l='.$lang.'">TRUNK</a>.</p>';
 } else {
-	echo 'Go to <a href="/?stable=1&amp;l='.$lang.'">STABLE</a>.</p>';
+	echo 'Go to <a href="/?stable=1amp;l='.$lang.'">STABLE</a>.</p>';
 }
 
 
-	$potGui=new po;
+function BuildLanguageList($languagelistFileName) {
+	$langToFlag=array(
+			"sk" => "Slovakia",
+			"cs" => "Czech%20Republic",
+			"bg" => "Bulgaria",
+			"fi" => "Finland",
+			"sl" => "Slovenia",
+			"sv" => "Sweden",
+			"da" => "Denmark",
+			"pl" => "Poland",
+			"ko" => "South%20Korea",
+			"hu" => "Hungary",
+			"fr" => "France",
+			"pt_BR" => "Brazil",
+			"ru" => "Russian%20Federation",
+			"sp" => "Spain",
+			"nl" => "Netherlands",
+			"zh_CN" => "China",
+			"zh_TW" => "Taiwan",
+			"id" => "Indonezia",
+			"uk" => "Ukraine",
+			"pt_PT" => "Portugal",
+			"de" => "Germany",
+			"sr@latin" => "Serbia(Yugoslavia)",
+			"sr_spc" => "Serbia(Yugoslavia)",
+			"sr_spl" => "Serbia(Yugoslavia)",
+			"tr" => "Turkey",
+			"ja" => "Japan",
+			"hr" => "Croatia",
+			"el" => "Greece",
+			"ro" => "Romania",
+			"es" => "Spain",
+			"nb" => "Norway",
+			"it" => "Italy",
+			"mk" => "Macedonia",
+			"fa" => "Iran",
+			"ka" => "Georgia",
+			"ml_IN" => "India",
+			"" => "");
+
+
+	// load language.txt
+	$csv = new parseCSV();
+	// ...or if you know the delimiter, set the delimiter character if its not the default comma...
+	$csv->delimiter = ";";
+	// ...and then use the parse() function.
+	$csv->parse($languagelistFileName);
+
+
+	function AnalyseLanguagesTxtLine($csvLine) {
+		if (!isset($csvLine) || !is_array($csvLine) || count($csvLine)<1) {
+			return false;
+		}
+		$indexedArray=array_values($csvLine);
+		if ($indexedArray[0][0]=='#') {
+			return false;
+		}
+		$ret=array();
+		switch (count($csvLine)) {
+		 case 6:
+		 	if (preg_match("/^[-01]/", $indexedArray[0])) {
+				$ret['Enabled']=$indexedArray[0];
+				$ret['Lang']=$indexedArray[1];
+				$ret['Code']=$indexedArray[2];
+				$ret['Flags']=$indexedArray[3];
+				$ret['LangName']=$indexedArray[4];
+				$ret['Credits']=$indexedArray[5];
+			} else {
+				$ret['Lang']=$indexedArray[0];
+				$ret['Code']=$indexedArray[1];
+				$ret['Enabled']=$indexedArray[2];
+				//$ret['Flags']=$indexedArray[3];
+				$ret['LangName']=$indexedArray[4];
+				//$ret['Credits']=$indexedArray[5];
+				// Credits should be loaded from other file ... (vars)
+			}
+			break;
+
+		 case 7:
+			$ret['Enabled']=$indexedArray[0];
+			$ret['Lang']=$indexedArray[1];
+			$ret['WixLang']=$indexedArray[2];
+			$ret['Code']=$indexedArray[3];
+			$ret['Flags']=$indexedArray[4];
+			$ret['LangName']=$indexedArray[5];
+			$ret['Credits']=$indexedArray[6];
+		}
+		return $ret;
+	}
+
+
+	$list=array();
+	foreach ($csv->data as $row) {
+		$rowArray=AnalyseLanguagesTxtLine($row);
+		if ($rowArray===false) {
+			continue;
+		}
+		$rowArray['Flag']=$langToFlag[$rowArray['Lang']];
+		$list[]=$rowArray;
+	}
+	return $list;
+}
+
+$list=BuildLanguageList("$dirLocation/Languages.txt");
+
+/*	$potGui=new po;
 	$potGui->load("$dirLocation/Tortoise.pot", NULL);
 	$potMerge=new po;
 	$potMerge->load("$dirDoc/TortoiseMerge.pot", NULL);
@@ -182,14 +158,14 @@ if ($stable) {
 	$potSvn->load("$dirLocation/TortoiseDoc.pot", NULL);
 	$pos=array();
 
-	$data=array();
+	$data=array();//*/
 
-	// load language.txt
-	$csv = new parseCSV();
-	// ...or if you know the delimiter, set the delimiter character if its not the default comma...
-	$csv->delimiter = ";";
-	// ...and then use the parse() function.
-	$csv->parse("$dirLocation/Languages.txt");
+	$potGui=new po;
+	$potGui->load("$dirLocation/TortoiseUI.pot", NULL);
+	$potDoc=new po;
+	$potDoc->load("$dirLocation/TortoiseDoc.pot", NULL);
+
+
 
 	// iterate over lines
 	unset($msgid);
@@ -197,7 +173,7 @@ if ($stable) {
 	echo '<table border="1"><thead><tr>
 		<td rowspan="2"><acronym title="Native language name in English"><img src="'.$icons['language'].'" alt="" />Language</acronym></td>
 		<td colspan="8"><img src="'.$icons['gui'].'" alt="" />GUI check</td>
-		<td colspan="2"><img src="'.$icons['doc'].'" alt="" />DOC</td>
+		<td colspan="3"><img src="'.$icons['doc'].'" alt="" />DOC</td>
 		<td rowspan="2"><img src='.$icons['authors'].' alt="" />Author(s)</td>
 	</tr><tr>
 		<td><img src="'.$icons['flag'].'" />Flag</td>
@@ -208,6 +184,7 @@ if ($stable) {
 		<td><acronym title="Fuzzy mark test (Severity: Low - appearance)"><img src="'.$icons['unknown'].'" alt="" />FUZ</acronym></td>
 		<td><acronym title="Escaped chars (Severity: Low - appearance)"><img src="'.$icons['info'].'" alt="" />ESC</acronym></td>
 		<td><img src="'.$icons['note'].'" alt="" />Note</td>
+		<td><img src="'.$icons['doc'].'" title="Tortoise DOC" /></td>
 		<td><img src="/images/32/tsvn.jpg" title="TortoiseSVN DOC" /></td>
 		<td><img src="/images/32/tmerge.jpg" title="TortoiseMerge DOC" /></td>
 	</tr></thead>
@@ -296,43 +273,6 @@ if ($stable) {
 		}
 		return $statDoc;
 	}
-	$langtocolor=array(
-			"sk" => "Slovakia",
-			"cs" => "Czech%20Republic",
-			"bg" => "Bulgaria",
-			"fi" => "Finland",
-			"sl" => "Slovenia",
-			"sv" => "Sweden",
-			"da" => "Denmark",
-			"pl" => "Poland",
-			"ko" => "South%20Korea",
-			"hu" => "Hungary",
-			"fr" => "France",
-			"pt_BR" => "Brazil",
-			"ru" => "Russian%20Federation",
-			"sp" => "Spain",
-			"nl" => "Netherlands",
-			"zh_CN" => "China",
-			"zh_TW" => "Taiwan",
-			"id" => "Indonezia",
-			"uk" => "Ukraine",
-			"pt_PT" => "Portugal",
-			"de" => "Germany",
-			"sr_spc" => "Serbia(Yugoslavia)",
-			"sr_spl" => "Serbia(Yugoslavia)",
-			"tr" => "Turkey",
-			"ja" => "Japan",
-			"hr" => "Croatia",
-			"el" => "Greece",
-			"ro" => "Romania",
-			"es" => "Spain",
-			"nb" => "Norway",
-			"it" => "Italy",
-			"mk" => "Macedonia",
-			"fa" => "Iran",
-			"ka" => "Georgia",
-			"ml_IN" => "India",
-			"" => "");
 
 	$langSelected=($lang!="");
 	$classIndex=0;
@@ -352,91 +292,40 @@ if ($stable) {
 		return $ret;
 	}
 
-	function AnalyseLanguagesTxtLine($csvLine) {
-		if (!isset($csvLine) || !is_array($csvLine) || count($csvLine)<1) {
-			return false;
-		}
-		$indexedArray=array_values($csvLine);
-		if ($indexedArray[0][0]=='#') {
-			return false;
-		}
-		$ret=array();
-		switch (count($csvLine)) {
-		 case 6:
-		 	if (preg_match("/^[-01]/", $indexedArray[0])) {
-				$ret['Enabled']=$indexedArray[0];
-				$ret['Lang']=$indexedArray[1];
-				$ret['Code']=$indexedArray[2];
-				$ret['Flags']=$indexedArray[3];
-				$ret['LangName']=$indexedArray[4];
-				$ret['Credits']=$indexedArray[5];
-			} else {
-				$ret['Lang']=$indexedArray[0];
-				$ret['Code']=$indexedArray[1];
-				$ret['Enabled']=$indexedArray[2];
-				//$ret['Flags']=$indexedArray[3];
-				$ret['LangName']=$indexedArray[4];
-				//$ret['Credits']=$indexedArray[5];
-				// Credits should be loaded from other file ... (vars)
-			}
-			break;
-
-		 case 7:
-			$ret['Enabled']=$indexedArray[0];
-			$ret['Lang']=$indexedArray[1];
-			$ret['WixLang']=$indexedArray[2];
-			$ret['Code']=$indexedArray[3];
-			$ret['Flags']=$indexedArray[4];
-			$ret['LangName']=$indexedArray[5];
-			$ret['Credits']=$indexedArray[6];
-		}
-		return $ret;
-	}
 
 	// prefill variables used in loop
-	$reportCodeList=array("par", "acc", "nls", "unt", "fuz", "esc"/*, "spl"* /);
-	if (!$langSelected && !$stable) { // this is a hack ! - redesign !
+	$reportCodeList=array("par", "acc", "nls", "unt", "fuz", "esc"/*, "spl"*/);
+/*	if (!$langSelected && !$stable) { // this is a hack ! - redesign !
 		if ($m='g') { // this i a hack ! - redesign !
 			$dbLink1=$db;
 		} else {
 			$dbLink1=NULL;
 		}
 		$dbLink2=$db;
-	} else {
+	} else //*/ {
 		$dbLink1=NULL;
 		$dbLink2=NULL;
 	}
 
-	foreach ($csv->data as $row) {
-		$rowArray=AnalyseLanguagesTxtLine($row);
-		if ($rowArray===false) {
-			continue;
-		}
-
+	foreach ($list as $rowArray) {
 		$state=$rowArray['Enabled'];
 		$code=$rowArray['Lang'];
 		$language=$rowArray['LangName'];
 		$language=findCoutriesParam($countries, $code, 3, $language);
-		$rowArray['Flags'];
+		$flag=$rowArray['Flags'];
 		$rowArray['LangName'];
 		$author=$rowArray['Credits'];
 		$author=findCoutriesParam($countries, $code, 4, $author);
 
 		$pos[$code]=NULL;
+		$file=$dirLocation."/$code/LC_MESSAGES/TortoiseUI.po";
+		$pot=$potGui;
+		$fileDoc=$dirLocation."/$code/LC_MESSAGES/TortoiseDoc.po";
 		$fileGui=$dirLocation."/Tortoise_$code.po";
 		$fileSvn=$dirDoc."/TortoiseSVN_$code.po";
 		$fileMerge=$dirDoc."/TortoiseMerge_$code.po";
-		if (isset($forceCode)) {
-			if ($forceCode!=$code) {
-				continue;
-			}
-			$m=$forceMode;
-			$fileGui=$forcePoFileName;
-			$lang=$forceCode;
-			echo "lang=$lang";
-			echo "m=$m";
-		}
-		switch ($m) {
+
+/*		switch ($m) {
 		 default:
 		 case 'g':
 			$file=$fileGui;
@@ -452,7 +341,7 @@ if ($stable) {
 			$file=$fileMerge;
 			$pot=$potMerge;
 			break;
-		}
+		}//*/;
 
 		{
 			if (file_exists($file) && ($lang=="" || $lang==$code)) {
@@ -467,7 +356,7 @@ if ($stable) {
 				echo "<td>".$language."</td>\n";
 				$link="?stable=$stable&amp;m=$m&amp;l=$code";
 				$imagesrc="http://tortoisesvn.net/flags/world.small/$flagcode.png";
-				$imagesrc2=$langtocolor[$flagcode];
+				$imagesrc2=$flag;
 				if (isset($imagesrc2)) {
 					$imagesrc2="/images/flags/$imagesrc2.png";
 					echo "<td><a href=\"$link#TAB$code\"><img src=\"$imagesrc2\" alt=\"$code\" height=\"48\" width=\"48\" /></a></td>\n";
@@ -489,6 +378,16 @@ if ($stable) {
 					echo "<td />";
 				}
 
+				$statDoc=GetDocStatus($fileDoc, $code, $potDoc, $dbLink2, 'd');
+				if ($statDoc=="-") {
+				} else {
+					if ($statDocTsvn=="OK") {
+						$statDocTsvn='<img src="'.$icons['ok'].'" alt="o.k." title="OK"/>';
+					}
+					$statDocTsvn='<a href="/?stable='.$stable.'&amp;l='.$code.'&amp;m=s">'.$statDocTsvn.'</a>';
+				}
+				echo "<td>$statDoc</td>\n";
+
 				$statDocTsvn=GetDocStatus($fileSvn, $code, $potSvn, $dbLink2, 'd');
 				if ($statDocTsvn=="-") {
 				} else {
@@ -498,7 +397,6 @@ if ($stable) {
 					$statDocTsvn='<a href="/?stable='.$stable.'&amp;l='.$code.'&amp;m=s">'.$statDocTsvn.'</a>';
 				}
 				echo "<td>$statDocTsvn</td>\n";
-
 				$statDocMerge=GetDocStatus($fileMerge, $code, $potMerge, $dbLink2, 'm');
 				if ($statDocMerge=="-") {
 				} else {
