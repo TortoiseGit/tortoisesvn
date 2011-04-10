@@ -262,6 +262,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->merge_range = *range;
     switch (data->action)
     {
+    case svn_wc_notify_update_shadowed_add:
     case svn_wc_notify_add:
     case svn_wc_notify_update_add:
         if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
@@ -290,8 +291,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->sActionColumnText.LoadString(IDS_SVNACTION_MODIFIED);
         data->color = m_Colors.GetColor(CColors::Modified);
         break;
-    case svn_wc_notify_update_add_deleted:
-    case svn_wc_notify_update_update_deleted:
+    case svn_wc_notify_update_shadowed_delete:
     case svn_wc_notify_delete:
     case svn_wc_notify_update_delete:
         data->sActionColumnText.LoadString(IDS_SVNACTION_DELETE);
@@ -341,6 +341,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_update_started:
         data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATING);
         break;
+    case svn_wc_notify_update_shadowed_update:
     case svn_wc_notify_merge_record_info:
     case svn_wc_notify_update_update:
         // if this is an inoperative dir change, don't show the notification.
@@ -475,6 +476,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->color = m_Colors.GetColor(CColors::Conflict);
         }
         break;
+    case svn_wc_notify_update_skip_working_only:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_SKIPNOPARENT);
+        data->color = m_Colors.GetColor(CColors::Conflict);
+        data->bConflictedActionItem = true;
+        m_nConflicts++;
+        m_bConflictWarningShown = false;
+        break;
     case svn_wc_notify_locked:
         if ((lock)&&(lock->owner))
             data->sActionColumnText.Format(IDS_SVNACTION_LOCKEDBY, (LPCTSTR)data->owner);
@@ -537,7 +545,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_revprop_deleted:
         data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, (LPCTSTR)data->propertyName);
         break;
-    case svn_wc_notify_update_obstruction:
+    case svn_wc_notify_update_skip_obstruction:
         data->sActionColumnText.LoadString(IDS_SVNACTION_OBSTRUCTED);
         data->color = m_Colors.GetColor(CColors::Conflict);
         data->bConflictedActionItem = true;
@@ -2472,14 +2480,14 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
             m_targetPathList[0].GetWinPath(),
             (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
         ReportCmd(sCmdInfo);
-        if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
+        if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), (m_options & ProgOptIgnoreAncestry) != 0))
         {
             if (m_ProgList.GetItemCount()>1)
             {
                 ReportSVNError();
                 return false;
             }
-            else if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
+            else if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), (m_options & ProgOptIgnoreAncestry) != 0))
             {
                 ReportSVNError();
                 return false;
@@ -3038,7 +3046,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     }
 
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
-    if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true))))
+    if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), (m_options & ProgOptIgnoreAncestry) != 0))
     {
         ReportSVNError();
         return false;

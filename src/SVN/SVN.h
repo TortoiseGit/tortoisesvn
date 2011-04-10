@@ -381,7 +381,7 @@ public:
      */
     bool Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision,
         const SVNRev& pegrev, svn_depth_t depth, bool depthIsSticky,
-        bool ignore_externals, bool allow_unver_obstruction);
+        bool ignore_externals, bool allow_unver_obstruction, bool ignore_ancestry);
     /**
      * Import file or directory path into repository directory url at
      * head and using LOG_MSG as the log message for the (implied)

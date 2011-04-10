@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,5 +95,6 @@ public:
     SVNRev          Revision;
     BOOL            m_bNoExternals;
     BOOL            m_bStickyDepth;
+    BOOL            m_bIgnoreAncestry;
     svn_depth_t     m_depth;
 };

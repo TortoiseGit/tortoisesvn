@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,6 +39,10 @@ bool SwitchCommand::Execute()
             options |= ProgOptStickyDepth;
         else
             options &= ~ProgOptStickyDepth;
+        if (dlg.m_bIgnoreAncestry)
+            options |= ProgOptIgnoreAncestry;
+        else
+            options &= ~ProgOptIgnoreAncestry;
         CSVNProgressDlg progDlg;
         theApp.m_pMainWnd = &progDlg;
         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Switch);

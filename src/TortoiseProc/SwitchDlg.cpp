@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,7 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
     , m_pLogDlg(NULL)
     , m_bNoExternals(FALSE)
     , m_bStickyDepth(FALSE)
+    , m_bIgnoreAncestry(TRUE)
 {
 }
 
@@ -51,6 +52,7 @@ void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_SRCURL, m_SrcUrl);
     DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
     DDX_Check(pDX, IDC_STICKYDEPTH, m_bStickyDepth);
+    DDX_Check(pDX, IDC_IGNOREANCESTRY, m_bIgnoreAncestry);
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
 
@@ -80,6 +82,7 @@ BOOL CSwitchDlg::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
 
     ExtendFrameIntoClientArea(IDC_REVGROUP);
+    m_aeroControls.SubclassControl(this, IDC_IGNOREANCESTRY);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     CTSVNPath svnPath(m_path);
@@ -127,6 +130,8 @@ BOOL CSwitchDlg::OnInitDialog()
     m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_STICKYDEPTH, IDS_SWITCH_STICKYDEPTH_TT);
 
+    UpdateData(FALSE);
+
     RECT rect;
     GetWindowRect(&rect);
     m_height = rect.bottom - rect.top;
@@ -149,6 +154,7 @@ BOOL CSwitchDlg::OnInitDialog()
     AddAnchor(IDC_DEPTH, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_STICKYDEPTH, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_NOEXTERNALS, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_IGNOREANCESTRY, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);

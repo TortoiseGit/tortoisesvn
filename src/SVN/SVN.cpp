@@ -824,7 +824,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
     return true;
 }
 
-bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool depthIsSticky, bool ignore_externals, bool allow_unver_obstruction)
+bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool depthIsSticky, bool ignore_externals, bool allow_unver_obstruction, bool ignore_ancestry)
 {
     SVNPool subpool(pool);
     svn_error_clear(Err);
@@ -833,7 +833,7 @@ bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
     const char* svnPath = path.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE (
-        Err = svn_client_switch2(NULL,
+        Err = svn_client_switch3(NULL,
                                  svnPath,
                                  url.GetSVNApiPath(subpool),
                                  pegrev,
@@ -842,6 +842,7 @@ bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
                                  depthIsSticky,
                                  ignore_externals,
                                  allow_unver_obstruction,
+                                 ignore_ancestry,
                                  m_pctx,
                                  subpool),
         svnPath
