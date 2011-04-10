@@ -95,22 +95,45 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     return;
 }
 
-void CBottomView::UseTheirTextBlock(bool refreshViews /* = true */)
+void CBottomView::UseLeftBlock()
 {
     if (!HasSelection())
         return;
 
-    for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+     UseViewBlock(m_pwndLeft);
+}
+
+void CBottomView::UseLeftFile()
+{
+     UseViewFile(m_pwndLeft);
+}
+
+void CBottomView::UseRightBlock()
+{
+    if (!HasSelection())
+        return;
+
+    UseViewBlock(m_pwndRight);
+}
+
+void CBottomView::UseRightFile()
+{
+    UseViewFile(m_pwndRight);
+}
+
+void CBottomView::UseViewFile(CBaseView * pwndView)
+{
+    for (int i = 0; i < pwndView->m_pViewData->GetCount(); i++)
     {
-        int viewLine = m_Screen2View[i];
+        int viewLine = i;
         m_AllState.bottom.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
-        m_pwndBottom->m_pViewData->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
+        m_pwndBottom->m_pViewData->SetLine(viewLine, pwndView->m_pViewData->GetLine(viewLine));
         m_AllState.bottom.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
-        m_pwndBottom->m_pViewData->SetState(viewLine, m_pwndLeft->m_pViewData->GetState(viewLine));
-        m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
+        m_pwndBottom->m_pViewData->SetState(viewLine, pwndView->m_pViewData->GetState(viewLine));
+        m_pwndBottom->m_pViewData->SetLineEnding(viewLine, pwndView->m_pViewData->GetLineEnding(viewLine));
         if (m_pwndBottom->IsViewLineConflicted(viewLine))
         {
-            if (m_pwndLeft->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
+            if (pwndView->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
                 m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
             else
                 m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
@@ -119,27 +142,25 @@ void CBottomView::UseTheirTextBlock(bool refreshViews /* = true */)
     m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
-    if (refreshViews)
-        RefreshViews();
+    RefreshViews();
     SaveUndoStep();
 }
 
-void CBottomView::UseMyTextBlock(bool refreshViews /* = true */)
-{
-    if (!HasSelection())
-        return;
 
+void CBottomView::UseViewBlock(CBaseView * pwndView)
+{
+    bool bView = true;
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
-        int viewLine = m_Screen2View[i];
+        int viewLine = bView ? m_Screen2View[i] : i;
         m_AllState.bottom.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
-        m_pwndBottom->m_pViewData->SetLine(viewLine, m_pwndRight->m_pViewData->GetLine(viewLine));
+        m_pwndBottom->m_pViewData->SetLine(viewLine, pwndView->m_pViewData->GetLine(viewLine));
         m_AllState.bottom.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
-        m_pwndBottom->m_pViewData->SetState(viewLine, m_pwndRight->m_pViewData->GetState(viewLine));
+        m_pwndBottom->m_pViewData->SetState(viewLine, pwndView->m_pViewData->GetState(viewLine));
         m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
         if (m_pwndBottom->IsViewLineConflicted(viewLine))
         {
-            if (m_pwndRight->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
+            if (pwndView->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
                 m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
             else
                 m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
@@ -148,8 +169,6 @@ void CBottomView::UseMyTextBlock(bool refreshViews /* = true */)
     m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
-    if (refreshViews)
-        RefreshViews();
+    RefreshViews();
     SaveUndoStep();
 }
-

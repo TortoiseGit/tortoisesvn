@@ -30,10 +30,15 @@ public:
     CBottomView(void);
     ~CBottomView(void);
 
-    void UseMyTextBlock(bool refreshViews = true);
-    void UseTheirTextBlock(bool refreshViews = true);
+    void    UseLeftBlock();     ///< Use Block from Left
+    void    UseLeftFile();      ///< Use File from Left
+    void    UseRightBlock();    ///< Use Block from Right
+    void    UseRightFile();     ///< Use File from Right
 
+    void    UseMyTextBlock() {UseRightBlock(); };
+    void    UseTheirTextBlock() {UseLeftBlock(); };
 protected:
     void    OnContextMenu(CPoint point, int nLine, DiffStates state);
-
+    void    UseViewBlock(CBaseView * pwndView);
+    void    UseViewFile(CBaseView * pwndView);
 };

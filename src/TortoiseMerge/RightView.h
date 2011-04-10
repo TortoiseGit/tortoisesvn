@@ -31,8 +31,10 @@ public:
     CRightView(void);
     ~CRightView(void);
 
-    void    UseFile(bool refreshViews = true);
-    void    UseBlock(bool refreshViews = true);
+    void    UseFile();
+    void    UseLeftFile(); ///< Use File from Left
+    void    UseBlock();
+    void    UseLeftBlock(); ///< Use Block from Left
 protected:
     void    OnContextMenu(CPoint point, int nLine, DiffStates state);
 

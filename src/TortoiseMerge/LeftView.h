@@ -30,8 +30,8 @@ public:
     CLeftView(void);
     ~CLeftView(void);
 
-    void    UseFile(bool refreshViews = true);
-    void    UseBlock(bool refreshViews = true);
+    void    UseFile();
+    void    UseBlock();
 protected:
     void    OnContextMenu(CPoint point, int nLine, DiffStates state);
 

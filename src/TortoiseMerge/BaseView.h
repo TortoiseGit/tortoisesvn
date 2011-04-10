@@ -117,6 +117,11 @@ public:
     void            UseBothLeftFirst();
     void            UseBothRightFirst();
 
+    virtual void    UseLeftBlock() {};
+    virtual void    UseRightBlock() {};
+    virtual void    UseLeftFile() {};
+    virtual void    UseRightFile() {};
+
     CViewData *     m_pViewData;
     CViewData *     m_pOtherViewData;
     CBaseView *     m_pOtherView;
