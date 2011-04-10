@@ -542,7 +542,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
     }
     AutoLocker lock(m_critSec);
     m_mostRecentStatus = CStatusCacheEntry();
-    if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.IsVersioned(path.GetWinPath(), true))
+    if (m_shellCache.ShowExcludedAsNormal() && path.IsDirectory() && m_shellCache.IsVersioned(path.GetWinPath(), true, true))
     {
         m_mostRecentStatus.ForceStatus(svn_wc_status_normal);
     }

@@ -294,7 +294,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(const CTSVNPath& fil
 {
     const FileStatusCacheEntry * ret = NULL;
 
-    BOOL bHasAdminDir = g_ShellCache.IsVersioned(filepath.GetWinPath(), bIsFolder);
+    BOOL bHasAdminDir = g_ShellCache.IsVersioned(filepath.GetWinPath(), !!bIsFolder, false);
 
     //no overlay for unversioned folders
     if ((!bColumnProvider)&&(!bHasAdminDir))

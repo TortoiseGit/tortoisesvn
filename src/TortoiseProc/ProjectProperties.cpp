@@ -344,7 +344,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         path = path.GetContainingDirectory();
         if (!bFoundLogRevRegex)
             sLogRevRegex = LOG_REVISIONREGEX;
-        if ((!SVNHelper::IsVersioned(path))||(path.IsEmpty()))
+        if ((!SVNHelper::IsVersioned(path, true))||(path.IsEmpty()))
         {
             if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
                 | bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth

@@ -320,7 +320,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             // sometimes, svn_client_status() returns with an error.
                             // in that case, we have to check if the working copy is versioned
                             // anyway to show the 'correct' context menu
-                            if (g_ShellCache.IsVersioned(str.c_str(), true))
+                            if (g_ShellCache.IsVersioned(str.c_str(), true, false))
                                 status = svn_wc_status_normal;
                         }
                     }
@@ -419,7 +419,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             // sometimes, svn_client_status() returns with an error.
                             // in that case, we have to check if the working copy is versioned
                             // anyway to show the 'correct' context menu
-                            if (g_ShellCache.IsVersioned(strpath.GetWinPath(), strpath.IsDirectory()))
+                            if (g_ShellCache.IsVersioned(strpath.GetWinPath(), strpath.IsDirectory(), false))
                             {
                                 status = svn_wc_status_normal;
                                 fetchedstatus = status;
@@ -462,7 +462,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         itemStates |= ITEMIS_DELETED;
                 } // for (int i = 0; i < count; ++i)
                 ItemIDList child (GetPIDLItem (cida, 0), &parent);
-                if (g_ShellCache.IsVersioned(child.toString().c_str(), FALSE))
+                if (g_ShellCache.IsVersioned(child.toString().c_str(), false, false))
                     itemStates |= ITEMIS_INVERSIONEDFOLDER;
                 GlobalUnlock(medium.hGlobal);
 
@@ -539,7 +539,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         // sometimes, svn_client_status() returns with an error.
                         // in that case, we have to check if the working copy is versioned
                         // anyway to show the 'correct' context menu
-                        if (g_ShellCache.IsVersioned(folder_.c_str(), true))
+                        if (g_ShellCache.IsVersioned(folder_.c_str(), true, false))
                             status = svn_wc_status_normal;
                     }
                 }
@@ -937,7 +937,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         // It would only show the standard menu items
         // which are already shown for the lnk-file.
         CString path = files_.front().c_str();
-        if ( !g_ShellCache.IsVersioned(path, PathIsDirectory(path)) )
+        if ( !g_ShellCache.IsVersioned(path, !!PathIsDirectory(path), false) )
         {
             return S_OK;
         }

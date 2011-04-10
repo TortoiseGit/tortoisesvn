@@ -401,7 +401,7 @@ NUMBERFMT * ShellCache::GetNumberFmt()
     return &columnrevformat;
 }
 
-BOOL ShellCache::IsVersioned(LPCTSTR path, BOOL bIsDir)
+BOOL ShellCache::IsVersioned(LPCTSTR path, bool bIsDir, bool mustbeok)
 {
     tstring folder (path);
     if (! bIsDir)
@@ -420,7 +420,7 @@ BOOL ShellCache::IsVersioned(LPCTSTR path, BOOL bIsDir)
     BoolTimeout bt;
     CTSVNPath p;
     p.SetFromWin(folder.c_str());
-    bt.bBool = SVNHelper::IsVersioned(p);
+    bt.bBool = SVNHelper::IsVersioned(p, mustbeok);
     bt.timeout = GetTickCount();
     Locker lock(m_critSec);
     admindircache[folder] = bt;

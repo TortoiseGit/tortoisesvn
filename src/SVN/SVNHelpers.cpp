@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -101,7 +101,7 @@ svn_error_t * SVNHelper::cancelfunc(void * cancelbaton)
 }
 
 #ifndef SVN_NONET
-bool SVNHelper::IsVersioned( const CTSVNPath& path )
+bool SVNHelper::IsVersioned( const CTSVNPath& path, bool mustbeok )
 {
     if (!path.Exists())
         return false;
@@ -127,6 +127,12 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path )
         case SVN_ERR_WC_NOT_WORKING_COPY:
         case SVN_ERR_WC_NOT_FILE:
         case SVN_ERR_WC_PATH_NOT_FOUND:
+            {
+                svn_error_clear(err);
+                svn_wc_context_destroy(pctx);
+                return false;
+            }
+            break;
         case SVN_ERR_WC_CORRUPT:
         case SVN_ERR_WC_CORRUPT_TEXT_BASE:
         case SVN_ERR_WC_UNSUPPORTED_FORMAT:
@@ -138,7 +144,9 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path )
             {
                 svn_error_clear(err);
                 svn_wc_context_destroy(pctx);
-                return false;
+                if (mustbeok)
+                    return false;
+                return true;
             }
             break;
         default:

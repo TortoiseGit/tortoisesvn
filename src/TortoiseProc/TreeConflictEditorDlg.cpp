@@ -156,7 +156,7 @@ void CTreeConflictEditorDlg::OnBnClickedShowlog()
     if (m_bThreadRunning)
         return;
     CTSVNPath logPath = m_path;
-    if (SVNHelper::IsVersioned(logPath.GetContainingDirectory()))
+    if (SVNHelper::IsVersioned(logPath.GetContainingDirectory(), true))
         logPath = logPath.GetContainingDirectory();
     CString sCmd;
     sCmd.Format(_T("/command:log /path:\"%s\""), logPath.GetWinPath());

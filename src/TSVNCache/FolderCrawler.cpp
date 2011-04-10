@@ -205,7 +205,7 @@ void CFolderCrawler::WorkerThread()
                 if (!CSVNStatusCache::Instance().IsPathGood(workingPath))
                     continue;
                 // check if the changed path is inside an .svn folder
-                if ((workingPath.IsDirectory()&&(SVNHelper::IsVersioned(workingPath)))||workingPath.IsAdminDir())
+                if ((workingPath.IsDirectory()&&(SVNHelper::IsVersioned(workingPath, true)))||workingPath.IsAdminDir())
                 {
                     // we don't crawl for paths changed in a tmp folder inside an .svn folder.
                     // Because we also get notifications for those even if we just ask for the status!
@@ -277,7 +277,7 @@ void CFolderCrawler::WorkerThread()
                     AutoLocker lock(m_critSec);
                     m_pathsToUpdate.erase(workingPath);
                 }
-                else if (SVNHelper::IsVersioned(workingPath))
+                else if (SVNHelper::IsVersioned(workingPath, true))
                 {
                     if (!workingPath.Exists())
                     {
@@ -372,7 +372,7 @@ void CFolderCrawler::WorkerThread()
                     // for that path and add it to the watcher.
                     if (!CSVNStatusCache::Instance().IsPathWatched(workingPath))
                     {
-                        if (SVNHelper::IsVersioned(workingPath))
+                        if (SVNHelper::IsVersioned(workingPath, true))
                             CSVNStatusCache::Instance().AddPathToWatch(workingPath);
                         if (cachedDir)
                             cachedDir->Invalidate();

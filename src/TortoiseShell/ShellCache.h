@@ -79,7 +79,7 @@ public:
     BOOL IsPathAllowed(LPCTSTR path);
     DWORD GetLangID();
     NUMBERFMT * GetNumberFmt();
-    BOOL IsVersioned(LPCTSTR path, BOOL bIsDir);
+    BOOL IsVersioned(LPCTSTR path, bool bIsDir, bool mustbeok);
     bool IsColumnsEveryWhere();
 
 private:
