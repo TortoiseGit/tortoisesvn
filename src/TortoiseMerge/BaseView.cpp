@@ -2877,6 +2877,7 @@ void CBaseView::UseTheirAndYourBlock()
     if (m_nSelBlockEnd + 1 < m_Screen2View.size())
         viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
 
+    // use their block
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
@@ -2885,7 +2886,8 @@ void CBaseView::UseTheirAndYourBlock()
         m_AllState.bottom.linestates[viewline] = m_pwndBottom->m_pViewData->GetState(viewline);
         m_pwndBottom->m_pViewData->SetState(viewline, m_pwndLeft->m_pViewData->GetState(viewline));
         m_pwndBottom->m_pViewData->SetLineEnding(viewline, m_pwndBottom->lineendings);
-        if (m_pwndBottom->IsViewLineConflicted(i))
+        m_AllState.left.linestates[viewline] = m_pwndLeft->m_pViewData->GetState(viewline);
+        if (m_pwndBottom->IsViewLineConflicted(viewline))
         {
             if (m_pwndLeft->m_pViewData->GetState(viewline) == DIFFSTATE_CONFLICTEMPTY)
                 m_pwndBottom->m_pViewData->SetState(viewline, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
@@ -2895,13 +2897,14 @@ void CBaseView::UseTheirAndYourBlock()
         m_pwndLeft->m_pViewData->SetState(viewline, DIFFSTATE_YOURSADDED);
     }
 
-    // your block is done, now insert their block
+    // their block is done, now insert your block
     int viewindex = viewIndexAfterSelection;
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
         m_AllState.bottom.addedlines.push_back(viewIndexAfterSelection);
         m_pwndBottom->m_pViewData->InsertData(viewindex, m_pwndRight->m_pViewData->GetData(viewline));
+        m_AllState.right.linestates[viewline] = m_pwndRight->m_pViewData->GetState(viewline);
         if (m_pwndBottom->IsViewLineConflicted(viewindex))
         {
             if (m_pwndRight->m_pViewData->GetState(viewline) == DIFFSTATE_CONFLICTEMPTY)
@@ -2930,6 +2933,7 @@ void CBaseView::UseTheirAndYourBlock()
         m_pwndLeft->m_pViewData->InsertData(viewIndexAfterSelection, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
         m_AllState.left.addedlines.push_back(viewIndexAfterSelection);
     }
+
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     m_pwndBottom->SetModified();
@@ -2948,6 +2952,7 @@ void CBaseView::UseYourAndTheirBlock()
     if (m_nSelBlockEnd + 1 < m_Screen2View.size())
         viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
 
+    // use your block
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewline = m_Screen2View[i];
