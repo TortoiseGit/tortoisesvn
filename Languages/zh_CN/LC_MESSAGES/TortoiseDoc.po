@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-04 06:12+0000\n"
-"Last-Translator: pluwen <pluwen@gmail.com>\n"
+"PO-Revision-Date: 2011-04-06 20:37+0000\n"
+"Last-Translator: ziangsong <songziang@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9893,7 +9893,7 @@ msgstr ""
 msgid ""
 "If you want to undo a deletion or a rename, you need to use Revert on the "
 "parent folder as the deleted item does not exist for you to right click on."
-msgstr ""
+msgstr "如果你想撤销删除或者更名操作，因为被删除的条目已经不存在了，你需要右键点击上一层文件夹来进行还原操作。"
 
 #. (para)
 msgid ""
@@ -11823,7 +11823,7 @@ msgstr "合并选项"
 msgid ""
 "This page of the wizard lets you specify advanced options, before starting "
 "the merge process. Most of the time you can just use the default settings."
-msgstr ""
+msgstr "此向导页可以指定合并进程开始前的高级选项。一般情况下你可以直接使用默认设置。"
 
 #. (para)
 msgid ""
@@ -12108,7 +12108,7 @@ msgstr ""
 
 #. (title)
 msgid "Merge a Completed Branch"
-msgstr ""
+msgstr "合并已完成的分支"
 
 #. (primary)
 msgid "merge reintegrate"
@@ -12966,7 +12966,7 @@ msgstr "复制这个文件，目的可以是版本库中的其它地方，也可
 
 #. (para)
 msgid "View/Edit the file's properties."
-msgstr ""
+msgstr "查看/编辑文件属性。"
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
@@ -13171,7 +13171,7 @@ msgstr ""
 
 #. (term)
 msgid "Deleted items"
-msgstr ""
+msgstr "已删除的节点"
 
 #. (para)
 msgid ""
@@ -13204,7 +13204,7 @@ msgstr ""
 
 #. (term)
 msgid "Working copy revision"
-msgstr ""
+msgstr "当前工作副本的版本"
 
 #. (para)
 msgid ""
@@ -13215,7 +13215,7 @@ msgstr ""
 
 #. (term)
 msgid "Modified working copy"
-msgstr ""
+msgstr "已修改的工作副本"
 
 #. (para)
 msgid ""
@@ -13227,7 +13227,7 @@ msgstr ""
 
 #. (term)
 msgid "Normal item"
-msgstr ""
+msgstr "一般的文件/文件夹"
 
 #. (para)
 msgid "All other items are shown using a plain rectangle."
@@ -13392,7 +13392,7 @@ msgstr ""
 
 #. (term)
 msgid "Hide deleted paths"
-msgstr ""
+msgstr "隐藏已删除的路径"
 
 #. (para)
 msgid ""
@@ -13402,7 +13402,7 @@ msgstr ""
 
 #. (term)
 msgid "Hide unchanged branches"
-msgstr ""
+msgstr "隐藏未更改的分支"
 
 #. (para)
 msgid ""
@@ -13413,7 +13413,7 @@ msgstr ""
 
 #. (term)
 msgid "Show WC revision"
-msgstr ""
+msgstr "显示最新版本"
 
 #. (para)
 msgid ""
@@ -13504,6 +13504,7 @@ msgid ""
 " creation points, but usually you will want to show the differences at the "
 "branch end points, i.e. at the HEAD revision."
 msgstr ""
+"选择两个版本(用<keycap>ctrl</keycap>+<action>左击</action>)，你可以在右键菜单下查看这两个版本的差异。你可以在分支的起始点查看差异，但一般你会在一个分支的结束点来查看，比如，在最新版本。"
 
 #. (para)
 msgid ""
@@ -14042,6 +14043,8 @@ msgid ""
 "not be resized to fit this label, so keep the size of the label below 20-25 "
 "characters."
 msgstr ""
+"是TortoiseSVN的提交对话框中用来输入问题单号码的输入项，如果没有设置，将会显示&lt;literal&gt;Bug-ID / Issue-"
+"Nr:&lt;/literal&gt;，要记住窗口不会为适应标签而改变大小，所以请保持标签的小于20-25个字符。"
 
 #. (para)
 msgid ""
@@ -17542,7 +17545,7 @@ msgstr "您需要同时提供32位和64位的插件。因为x64版本的Tortoise
 
 #. (title)
 msgid "Naming conventions"
-msgstr ""
+msgstr "命名规范"
 
 #. (para)
 msgid ""
@@ -17556,15 +17559,15 @@ msgstr ""
 
 #. (para)
 msgid "Gurtle - An issue tracker plugin for Google code"
-msgstr ""
+msgstr "Gurtle - 用于Google code的问题跟踪插件"
 
 #. (para)
 msgid "TurtleMine - An issue tracker plugin for Redmine"
-msgstr ""
+msgstr "TurtleMine - 用于Redmine的问题跟踪插件"
 
 #. (para)
 msgid "VurtleOne - An issue tracker plugin for VersionOne"
-msgstr ""
+msgstr "VurtleOne - 用于VersionOne的问题跟踪插件"
 
 #. (para)
 msgid ""
@@ -19434,15 +19437,15 @@ msgstr ""
 
 #. (option)
 msgid "/droptarget"
-msgstr ""
+msgstr "/droptarget"
 
 #. (option)
 msgid "/overwrite"
-msgstr ""
+msgstr "/overwrite"
 
 #. (option)
 msgid "/autorename"
-msgstr ""
+msgstr "/autorename"
 
 #. (entry)
 msgid ""
@@ -19687,7 +19690,7 @@ msgstr "创建<placeholder-1/>下的补丁文件。"
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."
-msgstr ""
+msgstr "按照在<option>/path</option>中给出的路径显示版本分支图。"
 
 #. (para)
 msgid ""
@@ -19788,7 +19791,7 @@ msgstr ""
 msgid ""
 "The following commands are allowed with <literal>tsvncmd:</literal> URLs: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "下列命令可以使用<literal>tsvncmd:</literal> URLs: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -20016,6 +20019,9 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 msgstr ""
+"\n"
+"svn info URL_of_WC\n"
+"svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 
 #. (para)
 msgid ""
@@ -20083,6 +20089,8 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 msgstr ""
+"\n"
+"svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH..."
 
 #. (para)
 #. (para)
@@ -20399,7 +20407,7 @@ msgstr ""
 msgid ""
 "The <guibutton>Test Merge</guibutton> performs the same merge with the "
 "<literal>--dry-run</literal> switch."
-msgstr ""
+msgstr "<guibutton>测试合并</guibutton>与使用<literal>--dry-run</literal>选项的合并相同。"
 
 #. (screen)
 #, no-wrap
@@ -20505,7 +20513,7 @@ msgid ""
 "If you use TortoiseBlame to view the blame info, the file log is also "
 "required to show log messages in a tooltip. If you view blame as a text "
 "file, this information is not required."
-msgstr ""
+msgstr "如果你使用TortoiseBlame来查看追溯信息，文件日志也需要在工具提示上显示日志信息，如果你以文件方式查看追溯，这个信息是不需要的。"
 
 #. (title)
 msgid "Add to Ignore List"
@@ -20529,7 +20537,7 @@ msgid ""
 "Because the <literal>svn:ignore</literal> property is often a multi-line "
 "value, it is shown here as being changed via a text file rather than "
 "directly on the command line."
-msgstr ""
+msgstr "因为<literal>svn:ignore</literal>属性通常是多行的，这里是通过文件显示所修改的内容，而不是直接使用命令行操作。"
 
 #. (screen)
 #, no-wrap
@@ -20735,7 +20743,7 @@ msgstr ""
 msgid ""
 "<emphasis>Locked</emphasis> is loaded if possible, but falls back to "
 "<emphasis>Normal</emphasis> if there are not enough slots."
-msgstr ""
+msgstr "<literal>只读</literal>只要有可能就载入，但如果没有足够的空位就使用<literal>正常</literal>来代替。"
 
 #. (para)
 msgid ""
@@ -21107,7 +21115,7 @@ msgstr ""
 
 #. (title)
 msgid "Language Packs and Spell Checkers"
-msgstr ""
+msgstr "语言包和拼写检查器"
 
 #. (para)
 msgid ""
@@ -21409,7 +21417,7 @@ msgstr ""
 
 #. (para)
 msgid "Group policy object."
-msgstr ""
+msgstr "组策略对象。"
 
 #. (glossterm)
 msgid "HEAD revision"
@@ -21640,6 +21648,7 @@ msgstr ""
 #. (None)
 msgid "translator-credits"
 msgstr ""
+"Ziang Song <songziang@gmail.com> 2011\n"
 "amo <amosir@gmail.com>, 2006\n"
 "Dongsheng Song <dongsheng.song@gmail.com>, 2006, 2007, 2008, 2009, 2010\n"
 "Garfield Yao <field977@gmail.com>, 2009\n"
@@ -22263,7 +22272,7 @@ msgstr ""
 msgid ""
 "<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only "
 "changes."
-msgstr ""
+msgstr "<guilabel>忽略全部空白字符</guilabel> 隐藏所有空白字符的变化。"
 
 #. (para)
 msgid ""
@@ -22763,7 +22772,7 @@ msgstr "快捷键"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
-msgstr ""
+msgstr "Ctrl-Q, Ctrl-W, Escape"
 
 #. (para)
 msgid "Quit the program"
@@ -22775,27 +22784,27 @@ msgstr "复制选定的文本到剪贴板"
 
 #. (term)
 msgid "Ctrl-X, Shift-Del"
-msgstr ""
+msgstr "Ctrl-X, Shift-Del"
 
 #. (para)
 msgid "Cut the selected text to the clipboard"
-msgstr ""
+msgstr "剪切至剪贴板"
 
 #. (term)
 msgid "Ctrl-V, Shift-Insert"
-msgstr ""
+msgstr "Ctrl-V, Shift-Insert"
 
 #. (para)
 msgid "Paste the selected text from the clipboard"
-msgstr ""
+msgstr "从剪贴板粘贴所选内容"
 
 #. (term)
 msgid "Ctrl-Z, Alt-Backspace"
-msgstr ""
+msgstr "Ctrl-Z, Alt-Backspace"
 
 #. (para)
 msgid "Undo the last edits"
-msgstr ""
+msgstr "撤销当前操作"
 
 #. (term)
 msgid "Ctrl-F"
@@ -22887,19 +22896,19 @@ msgstr "切换是否显示空白字符"
 
 #. (term)
 msgid "Ctrl-L"
-msgstr ""
+msgstr "Ctrl-L"
 
 #. (para)
 msgid "Toggles between collapsing unchanged sections or not"
-msgstr ""
+msgstr "未修改部分显示切换"
 
 #. (term)
 msgid "Ctrl-P"
-msgstr ""
+msgstr "Ctrl-P"
 
 #. (para)
 msgid "Toggles between line wrapping"
-msgstr ""
+msgstr "切换自动换行"
 
 #. (term)
 msgid "Ctrl-mousewheel"
