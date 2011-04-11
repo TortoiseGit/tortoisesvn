@@ -1570,8 +1570,10 @@ void CMainFrame::OnUpdateEditUseminethentheirblock(CCmdUI *pCmdUI)
 
 void CMainFrame::OnEditUseleftblock()
 {
-    if (m_pwndRightView)
-        m_pwndRightView->UseBlock();
+    if (m_pwndBottomView->IsWindowVisible())
+        m_pwndBottomView->UseRightBlock();
+    else
+        m_pwndRightView->UseLeftBlock();
 }
 
 void CMainFrame::OnUpdateEditUseleftblock(CCmdUI *pCmdUI)
@@ -1581,8 +1583,10 @@ void CMainFrame::OnUpdateEditUseleftblock(CCmdUI *pCmdUI)
 
 void CMainFrame::OnEditUseleftfile()
 {
-    if (m_pwndRightView)
-        m_pwndRightView->UseFile();
+    if (m_pwndBottomView->IsWindowVisible())
+        m_pwndBottomView->UseRightFile();
+    else
+        m_pwndRightView->UseLeftFile();
 }
 
 void CMainFrame::OnUpdateEditUseleftfile(CCmdUI *pCmdUI)

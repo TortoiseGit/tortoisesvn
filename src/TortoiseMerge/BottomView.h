@@ -38,7 +38,7 @@ public:
     void    UseMyTextBlock() {UseRightBlock(); };
     void    UseTheirTextBlock() {UseLeftBlock(); };
 protected:
-    void    OnContextMenu(CPoint point, int nLine, DiffStates state);
+    void    AddContextItems(CMenu& popup, DiffStates state);
     void    UseViewBlock(CBaseView * pwndView);
     void    UseViewFile(CBaseView * pwndView);
 };

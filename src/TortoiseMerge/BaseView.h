@@ -242,7 +242,9 @@ protected:
     static void     GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock);
     static CString  GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock);
 
-    virtual void    OnContextMenu(CPoint point, int nLine, DiffStates state);
+    void            OnContextMenu(CPoint point, int nLine, DiffStates state);
+    void            AddContextItems(CMenu& popup);
+
     /**
      * Updates the status bar pane. Call this if the document changed.
      */
@@ -363,6 +365,7 @@ protected:
     std::vector<int> m_MultiLineVector;
 
     UINT GetMenuFlags(DiffStates state) const;
+    virtual void AddContextItems(CMenu& /*popup*/, DiffStates /*state*/) {};
     void AddCutCopyAndPaste(CMenu& popup);
     void CompensateForKeyboard(CPoint& point);
     static HICON LoadIcon(WORD iconId);
@@ -377,4 +380,19 @@ protected:
     static void     AddUndoStep(allviewstate & allviewstate, POINT & m_ptCaretPos);
     static void     ResetUndoStep();
     void            SaveUndoStep();
+
+    enum PopupCommands {
+        // 2-pane view commands
+        POPUPCOMMAND_USELEFTBLOCK = 1,      // 0 means the context menu was dismissed
+        POPUPCOMMAND_USELEFTFILE,
+        POPUPCOMMAND_USEBOTHLEFTFIRST,
+        POPUPCOMMAND_USEBOTHRIGHTFIRST,
+        // 3-pane view commands
+        POPUPCOMMAND_USEYOURANDTHEIRBLOCK,
+        POPUPCOMMAND_USETHEIRANDYOURBLOCK,
+        POPUPCOMMAND_USEYOURBLOCK,
+        POPUPCOMMAND_USEYOURFILE,
+        POPUPCOMMAND_USETHEIRBLOCK,
+        POPUPCOMMAND_USETHEIRFILE,
+    };
 };

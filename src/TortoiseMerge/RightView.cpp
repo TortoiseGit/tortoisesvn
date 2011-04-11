@@ -35,22 +35,8 @@ CRightView::~CRightView(void)
 {
 }
 
-void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
+void CRightView::AddContextItems(CMenu& popup, DiffStates state)
 {
-    if (!this->IsWindowVisible())
-        return;
-
-    CMenu popup;
-    if (!popup.CreatePopupMenu())
-        return;
-
-#define ID_USEBLOCK 1
-#define ID_USEFILE 2
-#define ID_USETHEIRANDYOURBLOCK 3
-#define ID_USEYOURANDTHEIRBLOCK 4
-#define ID_USEBOTHTHISFIRST 5
-#define ID_USEBOTHTHISLAST 6
-
     const UINT uFlags = GetMenuFlags( state );
 
     CString temp;
@@ -58,79 +44,27 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
     if (m_pwndBottom->IsWindowVisible())
     {
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-        popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
+        popup.AppendMenu(uFlags, POPUPCOMMAND_USEYOURBLOCK, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
-        popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
+        popup.AppendMenu(MF_STRING | MF_ENABLED, POPUPCOMMAND_USEYOURFILE, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-        popup.AppendMenu(uFlags, ID_USEYOURANDTHEIRBLOCK, temp);
+        popup.AppendMenu(uFlags, POPUPCOMMAND_USEYOURANDTHEIRBLOCK, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-        popup.AppendMenu(uFlags, ID_USETHEIRANDYOURBLOCK, temp);
+        popup.AppendMenu(uFlags, POPUPCOMMAND_USETHEIRANDYOURBLOCK, temp);
     }
     else
     {
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERBLOCK);
-        popup.AppendMenu(uFlags, ID_USEBLOCK, temp);
+        popup.AppendMenu(uFlags, POPUPCOMMAND_USELEFTBLOCK, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERFILE);
-        popup.AppendMenu(MF_STRING | MF_ENABLED, ID_USEFILE, temp);
+        popup.AppendMenu(MF_STRING | MF_ENABLED, POPUPCOMMAND_USELEFTFILE, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
-        popup.AppendMenu(uFlags, ID_USEBOTHTHISFIRST, temp);
+        popup.AppendMenu(uFlags, POPUPCOMMAND_USEBOTHRIGHTFIRST, temp);
         temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
-        popup.AppendMenu(uFlags, ID_USEBOTHTHISLAST, temp);
+        popup.AppendMenu(uFlags, POPUPCOMMAND_USEBOTHLEFTFIRST, temp);
     }
 
-    AddCutCopyAndPaste(popup);
-
-    CompensateForKeyboard(point);
-
-    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-    ResetUndoStep();
-    switch (cmd)
-    {
-    case ID_EDIT_COPY:
-        OnEditCopy();
-        break;
-    case ID_EDIT_CUT:
-        OnEditCopy();
-        RemoveSelectedText();
-        break;
-    case ID_EDIT_PASTE:
-        PasteText();
-        break;
-    case ID_USEFILE:
-        UseFile();
-        return;
-    case ID_USEBLOCK:
-        UseBlock();
-        return;
-    case ID_USEYOURANDTHEIRBLOCK:
-        UseYourAndTheirBlock();
-        return;
-    case ID_USETHEIRANDYOURBLOCK:
-        UseTheirAndYourBlock();
-        return;
-    case ID_USEBOTHTHISFIRST:
-        UseBothRightFirst();
-        return;
-    case ID_USEBOTHTHISLAST:
-        UseBothLeftFirst();
-        return;
-    default:
-        return;
-    } // switch (cmd)
-    SaveUndoStep();
-    return;
-}
-
-void CRightView::UseFile()
-{
-    if (m_pwndBottom->IsWindowVisible())
-    {
-        m_pwndBottom->UseRightFile();
-    }
-    else
-    {
-        m_pwndRight->UseLeftFile();
-    }
+    CBaseView::AddContextItems(popup, state);
 }
 
 void CRightView::UseLeftFile()
@@ -179,18 +113,6 @@ void CRightView::UseLeftFile()
         m_pwndLocator->DocumentUpdated();
     RefreshViews();
     SaveUndoStep();
-}
-
-void CRightView::UseBlock()
-{
-    if (m_pwndBottom->IsWindowVisible())
-    {
-        m_pwndBottom->UseRightBlock();
-    }
-    else
-    {
-        m_pwndRight->UseLeftBlock();
-    }
 }
 
 void CRightView::UseLeftBlock()

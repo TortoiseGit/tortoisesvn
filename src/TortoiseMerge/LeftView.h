@@ -30,9 +30,7 @@ public:
     CLeftView(void);
     ~CLeftView(void);
 
-    void    UseFile();
-    void    UseBlock();
 protected:
-    void    OnContextMenu(CPoint point, int nLine, DiffStates state);
+    void    AddContextItems(CMenu& popup, DiffStates state);
 
 };

@@ -1994,8 +1994,71 @@ int CBaseView::GetLineFromPoint(CPoint point)
     return (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 }
 
-void CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/, DiffStates /*state*/)
+void CBaseView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 {
+    if (!this->IsWindowVisible())
+        return;
+
+    CMenu popup;
+    if (!popup.CreatePopupMenu())
+        return;
+
+    AddContextItems(popup, state);
+
+    CompensateForKeyboard(point);
+
+    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+    ResetUndoStep();
+    switch (cmd)
+    {
+    // 2-pane view commands; target is right view
+    case POPUPCOMMAND_USELEFTBLOCK:
+        m_pwndRight->UseLeftBlock();
+        break;
+    case POPUPCOMMAND_USELEFTFILE:
+        m_pwndRight->UseLeftFile();
+        break;
+    case POPUPCOMMAND_USEBOTHLEFTFIRST:
+        m_pwndRight->UseBothLeftFirst();
+        break;
+    case POPUPCOMMAND_USEBOTHRIGHTFIRST:
+        m_pwndRight->UseBothRightFirst();
+        break;
+    // 3-pane view commands; target is bottom view
+    case POPUPCOMMAND_USEYOURANDTHEIRBLOCK:
+        m_pwndBottom->UseYourAndTheirBlock();
+        break;
+    case POPUPCOMMAND_USETHEIRANDYOURBLOCK:
+        m_pwndBottom->UseTheirAndYourBlock();
+        break;
+    case POPUPCOMMAND_USEYOURBLOCK:
+        m_pwndBottom->UseRightBlock();
+        break;
+    case POPUPCOMMAND_USEYOURFILE:
+        m_pwndBottom->UseRightFile();
+        break;
+    case POPUPCOMMAND_USETHEIRBLOCK:
+        m_pwndBottom->UseLeftBlock();
+        break;
+    case POPUPCOMMAND_USETHEIRFILE:
+        m_pwndBottom->UseLeftFile();
+        break;
+    // copy, cut and paste commands
+    case ID_EDIT_COPY:
+        OnEditCopy();
+        break;
+    case ID_EDIT_CUT:
+        OnEditCopy();
+        RemoveSelectedText();
+        break;
+    case ID_EDIT_PASTE:
+        PasteText();
+        break;
+    default:
+        return;
+    } // switch (cmd)
+    SaveUndoStep(); // all except copy, cut  paste save undo step, but this should not be harmfull as step is empty alredy and thus not saved
+    return;
 }
 
 void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
@@ -3699,6 +3762,11 @@ UINT CBaseView::GetMenuFlags(DiffStates state) const
         return uFlags | MF_ENABLED;
 
     return uFlags | MF_DISABLED | MF_GRAYED;
+}
+
+void CBaseView::AddContextItems(CMenu& popup)
+{
+    AddCutCopyAndPaste(popup);
 }
 
 void CBaseView::AddCutCopyAndPaste(CMenu& popup)

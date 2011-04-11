@@ -34,65 +34,21 @@ CBottomView::~CBottomView(void)
 {
 }
 
-void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
+void CBottomView::AddContextItems(CMenu& popup, DiffStates state)
 {
-    if (!this->IsWindowVisible())
-        return;
-
-    CMenu popup;
-    if (!popup.CreatePopupMenu())
-        return;
-
-#define ID_USETHEIRBLOCK 1
-#define ID_USEYOURBLOCK 2
-#define ID_USETHEIRANDYOURBLOCK 3
-#define ID_USEYOURANDTHEIRBLOCK 4
-
     const UINT uFlags = GetMenuFlags( state );
 
     CString temp;
     temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRBLOCK);
-    popup.AppendMenu(uFlags, ID_USETHEIRBLOCK, temp);
+    popup.AppendMenu(uFlags, POPUPCOMMAND_USETHEIRBLOCK, temp);
     temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURBLOCK);
-    popup.AppendMenu(uFlags, ID_USEYOURBLOCK, temp);
+    popup.AppendMenu(uFlags, POPUPCOMMAND_USEYOURBLOCK, temp);
     temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-    popup.AppendMenu(uFlags, ID_USEYOURANDTHEIRBLOCK, temp);
+    popup.AppendMenu(uFlags, POPUPCOMMAND_USEYOURANDTHEIRBLOCK, temp);
     temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-    popup.AppendMenu(uFlags, ID_USETHEIRANDYOURBLOCK, temp);
+    popup.AppendMenu(uFlags, POPUPCOMMAND_USETHEIRANDYOURBLOCK, temp);
 
-    AddCutCopyAndPaste(popup);
-
-    CompensateForKeyboard(point);
-
-    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-    ResetUndoStep();
-    switch (cmd)
-    {
-    case ID_USETHEIRBLOCK:
-        UseTheirTextBlock();
-        return;
-    case ID_USEYOURBLOCK:
-        UseMyTextBlock();
-        return;
-    case ID_USEYOURANDTHEIRBLOCK:
-        UseYourAndTheirBlock();
-        return;
-    case ID_USETHEIRANDYOURBLOCK:
-        UseTheirAndYourBlock();
-        return;
-    case ID_EDIT_COPY:
-        OnEditCopy();
-        break;
-    case ID_EDIT_CUT:
-        OnEditCopy();
-        RemoveSelectedText();
-        break;
-    case ID_EDIT_PASTE:
-        PasteText();
-        break;
-    }
-    SaveUndoStep();
-    return;
+    CBaseView::AddContextItems(popup, state);
 }
 
 void CBottomView::UseLeftBlock()
