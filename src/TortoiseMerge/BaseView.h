@@ -112,6 +112,7 @@ public:
     bool            HasNextInlineDiff();
     bool            HasPrevInlineDiff();
 
+    virtual void    UseBothBlocks(CViewData * pwndFirst, CViewData * pwndLast, viewstate & stateFirst, viewstate & stateLast);
     void            UseTheirAndYourBlock();
     void            UseYourAndTheirBlock();
     void            UseBothLeftFirst();
@@ -243,8 +244,6 @@ protected:
     static CString  GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock);
 
     void            OnContextMenu(CPoint point, int nLine, DiffStates state);
-    void            AddContextItems(CMenu& popup);
-
     /**
      * Updates the status bar pane. Call this if the document changed.
      */
@@ -365,7 +364,7 @@ protected:
     std::vector<int> m_MultiLineVector;
 
     UINT GetMenuFlags(DiffStates state) const;
-    virtual void AddContextItems(CMenu& /*popup*/, DiffStates /*state*/) {};
+    virtual void AddContextItems(CMenu& popup, DiffStates state);
     void AddCutCopyAndPaste(CMenu& popup);
     void CompensateForKeyboard(CPoint& point);
     static HICON LoadIcon(WORD iconId);
