@@ -164,7 +164,7 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
         ret->may_save = may_save;
         *cred = ret;
         Creds c;
-        c.username = username;
+        c.SetUsername(CStringA(username));
         tsvn_creds[realm] = c;
     }
     else
@@ -188,8 +188,8 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
         ret->may_save = may_save;
         *cred = ret;
         Creds c;
-        c.username = ret->username;
-        c.password = ret->password;
+        c.SetUsername(ret->username);
+        c.SetPassword(ret->password);
         tsvn_creds[realm] = c;
     }
     else

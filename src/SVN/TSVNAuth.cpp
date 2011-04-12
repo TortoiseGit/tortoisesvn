@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008 - TortoiseSVN
+// Copyright (C) 2008, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,8 +34,13 @@ svn_error_t * tsvn_simple_first_creds(void **credentials,
     {
         Creds cr = tsvn_creds[realmstring];
         svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)apr_pcalloc(pool, sizeof(*creds));
-        creds->username = cr.username;
-        creds->password = cr.password;
+        CStringA t = cr.GetUsername();
+        creds->username = (char *)apr_pcalloc(pool, t.GetLength()+1);
+        strcpy_s((char*)creds->username, t.GetLength()+1, (LPCSTR)t);
+        t = cr.GetPassword();
+        creds->password = (char *)apr_pcalloc(pool, t.GetLength()+1);
+        strcpy_s((char*)creds->password, t.GetLength()+1, (LPCSTR)t);
+        t.Empty();
         creds->may_save = false;
         *credentials = creds;
     }
@@ -62,3 +67,44 @@ void svn_auth_get_tsvn_simple_provider(svn_auth_provider_object_t **provider,
     *provider = po;
 }
 
+
+CStringA Creds::Decrypt( const CStringA& text )
+{
+    DATA_BLOB blobin;
+    DATA_BLOB blobout;
+    LPWSTR descr;
+    DWORD dwLen = 0;
+    CryptStringToBinaryA(text, text.GetLength(), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL);
+    BYTE * strIn = new BYTE[dwLen + 1];
+    CryptStringToBinaryA(text, text.GetLength(), CRYPT_STRING_HEX, strIn, &dwLen, NULL, NULL);
+
+    blobin.cbData = dwLen;
+    blobin.pbData = strIn;
+    CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
+
+    CStringA result = CStringA((char*)blobout.pbData, blobout.cbData);
+    LocalFree(blobout.pbData);
+    LocalFree(descr);
+    return result;
+}
+
+CStringA Creds::Encrypt( const CStringA& text )
+{
+    DATA_BLOB blobin;
+    DATA_BLOB blobout;
+    CStringA result;
+
+    blobin.cbData = text.GetLength();
+    blobin.pbData = (BYTE*) (LPCSTR)text;
+    CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
+    DWORD dwLen = 0;
+    CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen);
+    char * strOut = new char[dwLen + 1];
+    CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut, &dwLen);
+    LocalFree(blobout.pbData);
+
+    result = strOut;
+    delete [] strOut;
+
+    return result;
+}
