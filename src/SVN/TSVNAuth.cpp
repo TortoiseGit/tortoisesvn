@@ -34,13 +34,16 @@ svn_error_t * tsvn_simple_first_creds(void **credentials,
     {
         Creds cr = tsvn_creds[realmstring];
         svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)apr_pcalloc(pool, sizeof(*creds));
-        CStringA t = cr.GetUsername();
-        creds->username = (char *)apr_pcalloc(pool, t.GetLength()+1);
-        strcpy_s((char*)creds->username, t.GetLength()+1, (LPCSTR)t);
+        char * t = cr.GetUsername();
+        creds->username = (char *)apr_pcalloc(pool, strlen(t)+1);
+        strcpy_s((char*)creds->username, strlen(t)+1, t);
+        SecureZeroMemory(t, strlen(t));
+        delete [] t;
         t = cr.GetPassword();
-        creds->password = (char *)apr_pcalloc(pool, t.GetLength()+1);
-        strcpy_s((char*)creds->password, t.GetLength()+1, (LPCSTR)t);
-        t.Empty();
+        creds->password = (char *)apr_pcalloc(pool, strlen(t)+1);
+        strcpy_s((char*)creds->password, strlen(t)+1, t);
+        SecureZeroMemory(t, strlen(t));
+        delete [] t;
         creds->may_save = false;
         *credentials = creds;
     }
@@ -68,33 +71,36 @@ void svn_auth_get_tsvn_simple_provider(svn_auth_provider_object_t **provider,
 }
 
 
-CStringA Creds::Decrypt( const CStringA& text )
+char * Creds::Decrypt( const char * text )
 {
     DATA_BLOB blobin;
     DATA_BLOB blobout;
     LPWSTR descr;
     DWORD dwLen = 0;
-    CryptStringToBinaryA(text, text.GetLength(), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL);
+    CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL);
     BYTE * strIn = new BYTE[dwLen + 1];
-    CryptStringToBinaryA(text, text.GetLength(), CRYPT_STRING_HEX, strIn, &dwLen, NULL, NULL);
+    CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn, &dwLen, NULL, NULL);
 
     blobin.cbData = dwLen;
     blobin.pbData = strIn;
     CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
+    SecureZeroMemory(blobin.pbData, blobin.cbData);
+    delete [] strIn;
 
-    CStringA result = CStringA((char*)blobout.pbData, blobout.cbData);
+    char * result = new char[blobout.cbData+1];
+    strncpy_s(result, blobout.cbData+1, (const char*)blobout.pbData, blobout.cbData);
+    SecureZeroMemory(blobout.pbData, blobout.cbData);
     LocalFree(blobout.pbData);
     LocalFree(descr);
     return result;
 }
 
-CStringA Creds::Encrypt( const CStringA& text )
+CStringA Creds::Encrypt( const char * text )
 {
     DATA_BLOB blobin;
     DATA_BLOB blobout;
-    CStringA result;
 
-    blobin.cbData = text.GetLength();
+    blobin.cbData = (DWORD)strlen(text);
     blobin.pbData = (BYTE*) (LPCSTR)text;
     CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
     DWORD dwLen = 0;
@@ -103,7 +109,7 @@ CStringA Creds::Encrypt( const CStringA& text )
     CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut, &dwLen);
     LocalFree(blobout.pbData);
 
-    result = strOut;
+    CStringA result = strOut;
     delete [] strOut;
 
     return result;

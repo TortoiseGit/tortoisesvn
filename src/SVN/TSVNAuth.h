@@ -21,13 +21,13 @@
 class Creds
 {
 public:
-    CStringA        GetUsername() { return Decrypt(username); }
-    void            SetUsername(const CStringA& user) { username = Encrypt(user); }
-    CStringA        GetPassword() { return Decrypt(password); }
-    void            SetPassword(const CStringA& pass) { password = Encrypt(pass); }
+    char *          GetUsername() { return Decrypt(username); }
+    void            SetUsername(const char * user) { username = Encrypt(user); }
+    char *          GetPassword() { return Decrypt(password); }
+    void            SetPassword(const char * pass) { password = Encrypt(pass); }
 private:
-    CStringA        Decrypt(const CStringA& text);
-    CStringA        Encrypt(const CStringA& text);
+    char *          Decrypt(const char * text);
+    CStringA        Encrypt(const char * text);
     CStringA        username;
     CStringA        password;
 };
