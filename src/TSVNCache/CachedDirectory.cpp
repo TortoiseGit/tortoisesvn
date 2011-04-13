@@ -777,10 +777,14 @@ void CCachedDirectory::UpdateCurrentStatus()
     CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
     if(!parentPath.IsEmpty())
     {
-        // We have a parent
-        CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath);
-        if (cachedDir)
-            cachedDir->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
+        // We have a parent, but if we're a wc root ourselves, we must not
+        // propagate the status to our parent.
+        if (!m_directoryPath.IsWCRoot())
+        {
+            CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath);
+            if (cachedDir)
+                cachedDir->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
+        }
     }
 }
 
