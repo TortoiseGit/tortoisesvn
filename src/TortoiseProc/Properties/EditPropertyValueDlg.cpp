@@ -64,6 +64,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
     m_aeroControls.SubclassOkCancelHelp(this);
 
+    GetDlgItem(IDC_PROPVALUE)->SendMessage(EM_LIMITTEXT, 0x7FFFFFFE, 0);
     CString resToken;
 
     // get the property values for user defined property files
