@@ -3491,7 +3491,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             }
                             else
                             {
-                                fentry->status = svn_wc_status_modified;
+                                if (fentry->status != svn_wc_status_deleted)
+                                    fentry->status = svn_wc_status_modified;
                                 fentry->textstatus = svn_wc_status_modified;
                                 fentry->isConflicted = false;
                             }
