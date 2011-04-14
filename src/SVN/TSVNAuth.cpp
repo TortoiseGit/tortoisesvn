@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "TSVNAuth.h"
+#include "auto_buffer.h"
 
 std::map<CStringA,Creds> tsvn_creds;
 
@@ -73,19 +74,19 @@ void svn_auth_get_tsvn_simple_provider(svn_auth_provider_object_t **provider,
 
 char * Creds::Decrypt( const char * text )
 {
-    DATA_BLOB blobin;
-    DATA_BLOB blobout;
-    LPWSTR descr;
     DWORD dwLen = 0;
     CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL);
-    BYTE * strIn = new BYTE[dwLen + 1];
+
+    auto_buffer<BYTE> strIn(dwLen + 1);
     CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn, &dwLen, NULL, NULL);
 
+    DATA_BLOB blobin;
     blobin.cbData = dwLen;
     blobin.pbData = strIn;
+    LPWSTR descr;
+    DATA_BLOB blobout;
     CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
     SecureZeroMemory(blobin.pbData, blobin.cbData);
-    delete [] strIn;
 
     char * result = new char[blobout.cbData+1];
     strncpy_s(result, blobout.cbData+1, (const char*)blobout.pbData, blobout.cbData);
@@ -105,12 +106,11 @@ CStringA Creds::Encrypt( const char * text )
     CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
     DWORD dwLen = 0;
     CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen);
-    char * strOut = new char[dwLen + 1];
+    auto_buffer<char> strOut(dwLen + 1);
     CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut, &dwLen);
     LocalFree(blobout.pbData);
 
     CStringA result = strOut;
-    delete [] strOut;
 
     return result;
 }
