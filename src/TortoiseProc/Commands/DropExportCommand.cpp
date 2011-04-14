@@ -78,7 +78,7 @@ bool DropExportCommand::Execute()
         for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
         {
             CString dropper = droppath + _T("\\") + pathList[nPath].GetFileOrDirectoryName();
-            if ((!bOverwrite)||(PathFileExists(dropper)))
+            if ((!bOverwrite)&&(PathFileExists(dropper)))
             {
                 CString sMsg;
                 CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
