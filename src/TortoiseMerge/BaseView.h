@@ -112,7 +112,7 @@ public:
     bool            HasNextInlineDiff();
     bool            HasPrevInlineDiff();
 
-    virtual void    UseBothBlocks(CViewData * pwndFirst, CViewData * pwndLast, viewstate & stateFirst, viewstate & stateLast);
+    virtual void    UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast);
     void            UseTheirAndYourBlock();
     void            UseYourAndTheirBlock();
     void            UseBothLeftFirst();
@@ -376,9 +376,58 @@ protected:
 
 
     static allviewstate m_AllState;
+    viewstate * m_pState;
     static void     AddUndoStep(allviewstate & allviewstate, POINT & m_ptCaretPos);
     static void     ResetUndoStep();
     void            SaveUndoStep();
+
+    //void            AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
+    //void            AddData(const viewdata& data);
+    void            InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline) {
+        m_pState->addedlines.push_back(index);
+        m_pViewData->InsertData(index, sLine, state, linenumber, ending, hide, movedline);
+    }
+    void            InsertData(int index, const viewdata& data) {
+        m_pState->addedlines.push_back(index);
+        m_pViewData->InsertData(index, data);
+    }
+
+    //void            RemoveData(int index) {m_data.erase(m_data.begin() + index);}
+
+    const viewdata& GetData(int index) {
+        return m_pViewData->GetData(index);
+    }
+    const CString&  GetLine(int index) const {return m_pViewData->GetLine(index);}
+    DiffStates      GetState(int index) const {return m_pViewData->GetState(index);}
+    //HIDESTATE       GetHideState(int index) {return m_data[index].hidestate;}
+    int             GetLineNumber(int index) {return m_pViewData->GetLineNumber(index);}
+    //int             GetMovedIndex(int index) {return m_data.size() ? m_data[index].movedIndex: 0;}
+    //int             FindLineNumber(int number);
+    //EOL             GetLineEnding(int index) const {return m_data[index].ending;}
+
+    //int             GetCount() const {return (int)m_data.size();}
+
+    void            SetState(int index, DiffStates state) {
+        m_pState->linestates[index] = m_pViewData->GetState(index);
+        m_pViewData->SetState(index, state);
+    }
+    void            SetLine(int index, const CString& sLine) {
+        m_pState->difflines[index] = m_pViewData->GetLine(index);
+        m_pViewData->SetLine(index, sLine);
+    }
+    void            SetLineNumber(int index, int linenumber) {
+        m_pState->linelines[index] = m_pViewData->GetLineNumber(index);
+        m_pViewData->SetLineNumber(index, linenumber);
+    }
+    void            SetLineEnding(int index, EOL ending) {
+        m_pState->linesEOL[index] = m_pViewData->GetLineEnding(index);
+        m_pViewData->SetLineEnding(index, ending);
+    }
+    //void            SetMovedIndex(int index, int movedIndex) {m_data[index].movedIndex = movedIndex;}
+    //void            SetLineHideState(int index, HIDESTATE state) {m_data[index].hidestate = state;}
+
+    //void            Clear() {m_data.clear();}
+    //void            Reserve(int length) {m_data.reserve(length);}
 
     enum PopupCommands {
         // 2-pane view commands

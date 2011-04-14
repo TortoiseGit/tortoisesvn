@@ -27,6 +27,7 @@ IMPLEMENT_DYNCREATE(CBottomView, CBaseView)
 CBottomView::CBottomView(void)
 {
     m_pwndBottom = this;
+    m_pState = &m_AllState.bottom;
     m_nStatusBarID = ID_INDICATOR_BOTTOMVIEW;
 }
 
