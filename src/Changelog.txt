@@ -122,6 +122,11 @@
 - BUG: Relative Webviewer urls didn't work from the 
        repository browser. (Stefan)
 
+Version 1.6.16
+- BUG: The bugtraq:number property was not added
+       automatically to new folders. (Stefan)
+- CHG: the auth cache is now encrypted. (Stefan)
+
 Version 1.6.15
 - BUG: Fixed problem with an invalid handle which caused
        file-open/save dialogs to throw an exception. (Stefan)
