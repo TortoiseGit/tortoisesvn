@@ -71,7 +71,6 @@ bool AddCommand::Execute()
                                 }
                                 else if (ret != IDCUSTOM2)
                                     return false;
-                                break;
                             }
                         }
                     }
