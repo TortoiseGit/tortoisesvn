@@ -265,7 +265,9 @@
     <ClCompile Include="..\Utils\IconExtractor.cpp" />
     <ClCompile Include="..\Utils\Libraries.cpp" />
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp" />
     <ClCompile Include="..\Utils\MiscUI\SVG.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp" />
     <ClCompile Include="..\Utils\ReaderWriterLock.cpp" />
     <ClCompile Include="..\Utils\StringBuffer.cpp" />
     <ClCompile Include="AppUtils.cpp" />
@@ -320,12 +322,10 @@
     <ClCompile Include="..\Utils\MiscUI\Gradient.cpp" />
     <ClCompile Include="..\Utils\MiscUI\HintListCtrl.cpp" />
     <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\HTMLFormatter.cpp" />
     <ClCompile Include="..\Utils\MiscUI\HyperLink.cpp" />
     <ClCompile Include="..\Utils\MiscUI\IconBitmapUtils.cpp" />
     <ClCompile Include="..\Utils\MiscUI\IconMenu.cpp" />
     <ClCompile Include="..\Utils\MiscUI\LinkControl.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp" />
     <ClCompile Include="..\Utils\MiscUI\MyGraph.cpp" />
     <ClCompile Include="..\Utils\MiscUI\OddButton.cpp" />
     <ClCompile Include="..\Utils\MiscUI\PathEdit.cpp" />
@@ -747,8 +747,10 @@
     <ClInclude Include="..\Utils\Libraries.h" />
     <ClInclude Include="..\Utils\MiscUI\ControlsBridge.h" />
     <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h" />
+    <ClInclude Include="..\Utils\MiscUI\MessageBox.h" />
     <ClInclude Include="..\Utils\MiscUI\SVG.h" />
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h" />
+    <ClInclude Include="..\Utils\MiscUI\XMessageBox.h" />
     <ClInclude Include="..\Utils\ReaderWriterLock.h" />
     <ClInclude Include="..\Utils\SmartHandle.h" />
     <ClInclude Include="..\Utils\StringBuffer.h" />
@@ -806,12 +808,10 @@
     <ClInclude Include="..\Utils\MiscUI\Gradient.h" />
     <ClInclude Include="..\Utils\MiscUI\HintListCtrl.h" />
     <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h" />
-    <ClInclude Include="..\Utils\MiscUI\HTMLFormatter.h" />
     <ClInclude Include="..\Utils\MiscUI\HyperLink.h" />
     <ClInclude Include="..\Utils\MiscUI\IconBitmapUtils.h" />
     <ClInclude Include="..\Utils\MiscUI\IconMenu.h" />
     <ClInclude Include="..\Utils\MiscUI\LinkControl.h" />
-    <ClInclude Include="..\Utils\MiscUI\MessageBox.h" />
     <ClInclude Include="..\Utils\MiscUI\MyGraph.h" />
     <ClInclude Include="..\Utils\MiscUI\OddButton.h" />
     <ClInclude Include="..\Utils\MiscUI\PathEdit.h" />

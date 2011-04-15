@@ -1083,7 +1083,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         // ask the user if the file should be deleted
         CString sTemp;
         sTemp.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
-        if (CMessageBox::ShowCheck(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO, _T("DeleteFileWhenEmpty")) == IDYES)
+        if (TSVNMessageBox(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO) == IDYES)
         {
             DeleteFile(m_Data.m_mergedFile.GetFilename());
         }

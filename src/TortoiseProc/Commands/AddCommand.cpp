@@ -61,15 +61,15 @@ bool AddCommand::Execute()
                                 CString sAddAnyway(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_ADD));
                                 CString sCancel(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL));
 
-                                UINT ret = CMessageBox::Show(GetExplorerHWND(), sMessage, sTitle, 1, IDI_WARNING, sFixRenaming, sAddAnyway, sCancel);
-                                if (ret == 1)
+                                UINT ret = TSVNMessageBox(GetExplorerHWND(), sMessage, sTitle, MB_ICONWARNING, sFixRenaming, sAddAnyway, sCancel);
+                                if (ret == IDCUSTOM1)
                                 {
                                     // fix case of filename
                                     MoveFileEx(pathList[i].GetWinPath(), retPath.GetWinPath(), MOVEFILE_REPLACE_EXISTING|MOVEFILE_COPY_ALLOWED);
                                     // remove it from the list
                                     pathList.RemovePath(pathList[i]);
                                 }
-                                else if (ret != 2)
+                                else if (ret != IDCUSTOM2)
                                     return false;
                                 break;
                             }

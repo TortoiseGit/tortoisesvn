@@ -659,10 +659,10 @@ void CEditPropertiesDlg::RemoveProps()
 
         if ((m_pathlist.GetCount()>1)||((m_pathlist.GetCount()==1)&&(PathIsDirectory(m_pathlist[0].GetWinPath()))))
         {
-            int ret = CMessageBox::Show(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sRecursive, sNotRecursive, sCancel);
-            if (ret == 1)
+            int ret = TSVNMessageBox(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sRecursive, sNotRecursive, sCancel);
+            if (ret == IDCUSTOM1)
                 bRecurse = true;
-            else if (ret == 2)
+            else if (ret == IDCUSTOM2)
                 bRecurse = false;
             else
                 break;

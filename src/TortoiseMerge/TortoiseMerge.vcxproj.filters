@@ -135,9 +135,6 @@
     <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\HTMLFormatter.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\HyperLink.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
@@ -198,8 +195,11 @@
     <ClCompile Include="..\SVN\TSVNPath.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\SVN\SVNRev.cpp">
-      <Filter>Utils</Filter>
+      <Filter>Utils\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -320,9 +320,6 @@
     <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\HTMLFormatter.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\HyperLink.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
@@ -387,6 +384,9 @@
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\XMessageBox.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

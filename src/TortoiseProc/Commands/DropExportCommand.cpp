@@ -85,14 +85,14 @@ bool DropExportCommand::Execute()
                 CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_RENAME));
                 CString sBtn3(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
                 sMsg.Format(IDS_PROC_OVERWRITEEXPORT, (LPCTSTR)dropper);
-                UINT ret = 1;
+                UINT ret = IDCUSTOM1;
                 if (bAutorename)
-                    ret = 2;
+                    ret = IDCUSTOM2;
                 else
-                    ret = CMessageBox::Show(GetExplorerHWND(), sMsg, _T("TortoiseSVN"), MB_DEFBUTTON1, IDI_QUESTION, sBtn1, sBtn2, sBtn3);
-                if (ret == 3)
+                    ret = TSVNMessageBox(GetExplorerHWND(), sMsg, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sBtn1, sBtn2, sBtn3);
+                if (ret == IDCUSTOM3)
                     return false;
-                if (ret==2)
+                if (ret==IDCUSTOM2)
                 {
                     dropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME, (LPCTSTR)droppath, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
                     int exportcount = 1;

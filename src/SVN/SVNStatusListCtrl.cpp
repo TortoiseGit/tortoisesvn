@@ -2261,13 +2261,9 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
         if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
             (svn.GetSVNError()->apr_err == SVN_ERR_CLIENT_MODIFIED))
         {
-            CString msg, yes, no, yestoall;
+            CString msg;
             msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
-            yes.LoadString(IDS_MSGBOX_YES);
-            no.LoadString(IDS_MSGBOX_NO);
-            yestoall.LoadString(IDS_PROC_YESTOALL);
-            UINT ret = CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
-            if ((ret == 1)||(ret==3))
+            if (TSVNMessageBox(m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO|MB_ICONQUESTION) == IDYES)
             {
                 if (!svn.Remove(itemsToRemove, TRUE, bKeepLocal))
                 {

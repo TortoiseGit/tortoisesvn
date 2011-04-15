@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,7 +60,7 @@ bool RenameCommand::Execute()
         //rename to the same file!
         CString sHelpPath = theApp.m_pszHelpFilePath;
         sHelpPath += _T("::/tsvn-dug-rename.html#tsvn-dug-renameincase");
-        CMessageBox::Show(GetExplorerHWND(), IDS_PROC_CASERENAME, IDS_APPNAME, MB_OK|MB_HELP, sHelpPath);
+        TSVNMessageBox(GetExplorerHWND(), IDS_PROC_CASERENAME, IDS_APPNAME, MB_OK|MB_HELP, sHelpPath);
     }
     else
     {

@@ -126,7 +126,7 @@ bool RelocateCommand::Execute()
         sWarningTitle.LoadString(IDS_WARN_RELOCATEREALLYTITLE);
         sHelpPath = theApp.m_pszHelpFilePath;
         sHelpPath += _T("::/tsvn-dug-relocate.html");
-        if ((!bPossibleSwitch)||(CMessageBox::Show((GetExplorerHWND()), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2|MB_HELP, sHelpPath)==IDYES))
+        if ((!bPossibleSwitch)||(TSVNMessageBox((GetExplorerHWND()), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2|MB_HELP, sHelpPath)==IDYES))
         {
             SVN s;
 

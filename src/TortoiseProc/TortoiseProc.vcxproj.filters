@@ -302,9 +302,6 @@
     <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\HTMLFormatter.cpp">
-      <Filter>Utils\UI</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\HyperLink.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
@@ -315,9 +312,6 @@
       <Filter>Utils\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\LinkControl.cpp">
-      <Filter>Utils\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\MyGraph.cpp">
@@ -1055,6 +1049,12 @@
     <ClCompile Include="..\Utils\StringBuffer.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp">
+      <Filter>Utils\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp">
+      <Filter>Utils\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1216,9 +1216,6 @@
     <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\HTMLFormatter.h">
-      <Filter>Utils\UI</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\HyperLink.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
@@ -1229,9 +1226,6 @@
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\LinkControl.h">
-      <Filter>Utils\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\MessageBox.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\MyGraph.h">
@@ -2018,6 +2012,12 @@
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\XMessageBox.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\MessageBox.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
   </ItemGroup>

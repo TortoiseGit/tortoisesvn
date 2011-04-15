@@ -285,10 +285,10 @@ bool CRevisionGraphDlg::UpdateData()
             // only show the error dialog if we're not in hidden mode
             if (m_bVisible)
             {
-                CMessageBox::Show ( m_hWnd
-                                    , m_Graph.m_state.GetLastErrorMessage()
-                                    , _T("TortoiseSVN")
-                                    , MB_ICONERROR);
+                TSVNMessageBox( m_hWnd
+                              , m_Graph.m_state.GetLastErrorMessage()
+                              , _T("TortoiseSVN")
+                              , MB_ICONERROR);
             }
         }
 

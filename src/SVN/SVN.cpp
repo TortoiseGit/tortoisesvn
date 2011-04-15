@@ -760,15 +760,12 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
                     if ((lastError == ERROR_ALREADY_EXISTS)||(lastError == ERROR_FILE_EXISTS))
                     {
                         lastError = 0;
-                        CString sQuestion, yes, no, yestoall;
+                        CString sQuestion;
                         sQuestion.Format(IDS_PROC_OVERWRITE_CONFIRM, it->second.GetWinPath());
-                        yes.LoadString(IDS_MSGBOX_YES);
-                        no.LoadString(IDS_MSGBOX_NO);
-                        yestoall.LoadString(IDS_PROC_YESTOALL);
-                        UINT ret = CMessageBox::Show(hWnd, sQuestion, _T("TortoiseSVN"), 2, IDI_QUESTION, yes, no, yestoall);
-                        if (ret == 3)
+                        UINT ret = TSVNMessageBox(hWnd, sQuestion, _T("TortoiseSVN"), MB_YESNO|MB_YESTOALL|MB_ICONQUESTION);
+                        if (ret == IDYESTOALL)
                             force = true;
-                        if ((ret == 1)||(ret == 3))
+                        if ((ret == IDYESTOALL)||(ret == IDYES))
                         {
                             if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), FALSE))
                             {

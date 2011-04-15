@@ -254,14 +254,14 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             sAcceptTemp.LoadString(IDS_SSL_ACCEPTTEMP);
             sReject.LoadString(IDS_SSL_REJECT);
             int ret = 0;
-            ret = CMessageBox::Show(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3, IDI_QUESTION, sAcceptAlways, sAcceptTemp, sReject);
-            if (ret == 1)
+            ret = TSVNMessageBox(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3|MB_ICONQUESTION, sAcceptAlways, sAcceptTemp, sReject);
+            if (ret == IDCUSTOM1)
             {
                 *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
                 (*cred_p)->may_save = TRUE;
                 (*cred_p)->accepted_failures = failures;
             }
-            else if (ret == 2)
+            else if (ret == IDCUSTOM2)
             {
                 *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
                 (*cred_p)->may_save = FALSE;
@@ -270,7 +270,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
         }
         else
         {
-            if (CMessageBox::Show(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+            if (TSVNMessageBox(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
             {
                 *cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
                 (*cred_p)->may_save = FALSE;

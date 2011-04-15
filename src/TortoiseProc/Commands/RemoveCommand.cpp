@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,7 +90,7 @@ bool RemoveCommand::Execute()
                 if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
                     (svn.GetSVNError()->apr_err == SVN_ERR_CLIENT_MODIFIED))
                 {
-                    CString msg, yes, no, yestoall;
+                    CString msg;
                     if (pathList[nPath].IsDirectory())
                     {
                         msg.Format(IDS_PROC_REMOVEFORCEFOLDER, pathList[nPath].GetWinPath());
@@ -99,13 +99,10 @@ bool RemoveCommand::Execute()
                     {
                         msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
                     }
-                    yes.LoadString(IDS_MSGBOX_YES);
-                    no.LoadString(IDS_MSGBOX_NO);
-                    yestoall.LoadString(IDS_PROC_YESTOALL);
-                    UINT ret = CMessageBox::Show(GetExplorerHWND(), msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
-                    if (ret == 3)
+                    UINT ret = TSVNMessageBox(GetExplorerHWND(), msg, _T("TortoiseSVN"), MB_YESNO|MB_YESTOALL|MB_ICONQUESTION);
+                    if (ret == IDYESTOALL)
                         bForce = true;
-                    if ((ret == 1)||(ret==3))
+                    if ((ret == IDYES)||(ret==IDYESTOALL))
                     {
                         if (!parser.HasKey(_T("keep")))
                         {
