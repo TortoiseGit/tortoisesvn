@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "Resource.h"
 #include "StandAloneDlg.h"
-#include "MessageBox.h"
 
 BEGIN_TEMPLATE_MESSAGE_MAP(CStandAloneDialogTmpl, BaseType, BaseType)
     ON_WM_ERASEBKGND()
@@ -139,7 +138,7 @@ void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point)
 
 void CResizableStandAloneDialog::OnCantStartThread()
 {
-    CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+    ::MessageBox(this->m_hWnd, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)), (LPCTSTR)CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_OK | MB_ICONERROR);
 }
 
 bool CResizableStandAloneDialog::OnEnterPressed()
