@@ -20,7 +20,7 @@
 #include "SVG.h"
 #include "SmartHandle.h"
 
-SVG::SVG() 
+SVG::SVG()
     : viewportWidth(1000)
     , viewportHeight(1000)
 {

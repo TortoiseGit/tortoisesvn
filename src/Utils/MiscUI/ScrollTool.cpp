@@ -20,7 +20,7 @@
 #include "ScrollTool.h"
 
 
-CScrollTool::CScrollTool() 
+CScrollTool::CScrollTool()
     : m_bInitCalled(false)
     , m_bRightAligned(false)
 {
