@@ -51,16 +51,6 @@ CUndo::~CUndo()
 {
 }
 
-/** \note for backward compatibility only */
-void CUndo::AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate, POINT pt)
-{
-    allviewstate allstate;
-    allstate.bottom = bottomstate;
-    allstate.right = rightstate;
-    allstate.left = leftstate;
-    AddState(allstate, pt);
-}
-
 void CUndo::AddState(const allviewstate& allstate, POINT pt)
 {
     m_viewstates.push_back(allstate);
@@ -138,8 +128,7 @@ void CUndo::UndoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
     m_caretpoints.pop_back();
 }
 
-/** \note interface kept for compatibility, can be merged with Undo(const viewstate& state, CBaseView * pView, const POINT& pt) */
-void CUndo::Undo(const viewstate& state, CBaseView * pView)
+void CUndo::Undo(const viewstate& state, CBaseView * pView, const POINT& pt)
 {
     if (!pView)
         return;
@@ -148,7 +137,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
     if (!viewData)
         return;
 
-    for (std::list<int>::const_iterator it = state.addedlines.begin(); it != state.addedlines.end(); ++it)
+    for (std::list<int>::const_reverse_iterator it = state.addedlines.rbegin(); it != state.addedlines.rend(); ++it)
     {
         viewData->RemoveData(*it);
     }
@@ -170,16 +159,12 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
     }
     for (std::map<int, viewdata>::const_iterator it = state.removedlines.begin(); it != state.removedlines.end(); ++it)
     {
-        viewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending, it->second.hidestate, it->second.movedIndex);
+        viewData->InsertData(it->first, it->second);
     }
-}
-
-void CUndo::Undo(const viewstate& state, CBaseView * pView, const POINT& pt)
-{
-    Undo(state, pView);
-
-    if (!pView)
-        return;
+    for (std::map<int, viewdata>::const_iterator it = state.replacedlines.begin(); it != state.replacedlines.end(); ++it)
+    {
+        viewData->SetData(it->first, it->second);
+    }
 
     if (pView->HasCaret())
     {

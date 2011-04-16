@@ -102,6 +102,12 @@ public:
     void            SetMarkedWord(const CString& word) {m_sMarkedWord = word; BuildMarkedWordArray();}
     LPCTSTR         GetMarkedWord() {return (LPCTSTR)m_sMarkedWord;}
 
+    // state classifying methods; note: state may belong to more classes
+    static bool     IsStateConflicted(DiffStates state);
+    static bool     IsStateEmpty(DiffStates state);
+    static bool     IsStateRemoved(DiffStates state);
+    static DiffStates  ResolveState(DiffStates state);
+
     BOOL            IsLineRemoved(int nLineIndex);
     bool            IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
     bool            IsViewLineConflicted(int nLineIndex);
@@ -112,11 +118,13 @@ public:
     bool            HasNextInlineDiff();
     bool            HasPrevInlineDiff();
 
+    static const viewdata& GetEmptyLineData();
+
     virtual void    UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast);
     void            UseTheirAndYourBlock();
     void            UseYourAndTheirBlock();
-    void            UseBothLeftFirst();
-    void            UseBothRightFirst();
+    virtual void    UseBothLeftFirst();
+    virtual void    UseBothRightFirst();
 
     virtual void    UseLeftBlock() {};
     virtual void    UseRightBlock() {};
@@ -381,6 +389,9 @@ protected:
     static void     ResetUndoStep();
     void            SaveUndoStep();
 
+public:
+    // view manipulation with undo saving
+    // todo: clean up this mess
     //void            AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
     //void            AddData(const viewdata& data);
     void            InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline) {
@@ -399,14 +410,18 @@ protected:
     }
     const CString&  GetLine(int index) const {return m_pViewData->GetLine(index);}
     DiffStates      GetState(int index) const {return m_pViewData->GetState(index);}
-    //HIDESTATE       GetHideState(int index) {return m_data[index].hidestate;}
+    HIDESTATE       GetHideState(int index) {return m_pViewData->GetHideState(index);}
     int             GetLineNumber(int index) {return m_pViewData->GetLineNumber(index);}
-    //int             GetMovedIndex(int index) {return m_data.size() ? m_data[index].movedIndex: 0;}
-    //int             FindLineNumber(int number);
-    //EOL             GetLineEnding(int index) const {return m_data[index].ending;}
+    int             GetMovedIndex(int index) {return m_pViewData->GetMovedIndex(index);}
+    int             FindLineNumber(int number);
+    EOL             GetLineEnding(int index) const {return m_pViewData->GetLineEnding(index);}
 
-    //int             GetCount() const {return (int)m_data.size();}
+    int             GetCount() const {return m_pViewData->GetCount();}
 
+    void            SetData(int index, const viewdata& data) {
+        m_pState->replacedlines[index] = m_pViewData->GetData(index);
+        m_pViewData->SetData(index, data);
+    }
     void            SetState(int index, DiffStates state) {
         m_pState->linestates[index] = m_pViewData->GetState(index);
         m_pViewData->SetState(index, state);
@@ -416,19 +431,23 @@ protected:
         m_pViewData->SetLine(index, sLine);
     }
     void            SetLineNumber(int index, int linenumber) {
-        m_pState->linelines[index] = m_pViewData->GetLineNumber(index);
-        m_pViewData->SetLineNumber(index, linenumber);
+        int oldLineNumber = m_pViewData->GetLineNumber(index);
+        if (oldLineNumber != linenumber) {
+            m_pState->linelines[index] = oldLineNumber;
+            m_pViewData->SetLineNumber(index, linenumber);
+        }
     }
     void            SetLineEnding(int index, EOL ending) {
         m_pState->linesEOL[index] = m_pViewData->GetLineEnding(index);
         m_pViewData->SetLineEnding(index, ending);
     }
-    //void            SetMovedIndex(int index, int movedIndex) {m_data[index].movedIndex = movedIndex;}
-    //void            SetLineHideState(int index, HIDESTATE state) {m_data[index].hidestate = state;}
+    //void            SetMovedIndex(int index, int movedIndex) {m_pViewData->SetMovedIndex(index, movedIndex);}
+    //void            SetLineHideState(int index, HIDESTATE state) {m_pViewData->SetLineHideState(index, state);}
 
-    //void            Clear() {m_data.clear();}
-    //void            Reserve(int length) {m_data.reserve(length);}
+    //void            Clear() {m_pViewData->Clear();}
+    //void            Reserve(int length) {m_pViewData->Reserve(length);}
 
+protected:
     enum PopupCommands {
         // 2-pane view commands
         POPUPCOMMAND_USELEFTBLOCK = 1,      // 0 means the context menu was dismissed

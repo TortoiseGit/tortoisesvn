@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,6 +80,7 @@ public:
 
     int             GetCount() const {return (int)m_data.size();}
 
+    void            SetData(int index, const viewdata& data) {m_data[index] = data;};
     void            SetState(int index, DiffStates state) {m_data[index].state = state;}
     void            SetLine(int index, const CString& sLine) {m_data[index].sLine = sLine;}
     void            SetLineNumber(int index, int linenumber) {m_data[index].linenumber = linenumber;}

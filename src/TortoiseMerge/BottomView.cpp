@@ -54,9 +54,6 @@ void CBottomView::AddContextItems(CMenu& popup, DiffStates state)
 
 void CBottomView::UseLeftBlock()
 {
-    if (!HasSelection())
-        return;
-
      UseViewBlock(m_pwndLeft);
 }
 
@@ -67,9 +64,6 @@ void CBottomView::UseLeftFile()
 
 void CBottomView::UseRightBlock()
 {
-    if (!HasSelection())
-        return;
-
     UseViewBlock(m_pwndRight);
 }
 
@@ -78,23 +72,24 @@ void CBottomView::UseRightFile()
     UseViewFile(m_pwndRight);
 }
 
+
 void CBottomView::UseViewFile(CBaseView * pwndView)
 {
     for (int i = 0; i < pwndView->m_pViewData->GetCount(); i++)
     {
         int viewLine = i;
-        m_AllState.bottom.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
-        m_pwndBottom->m_pViewData->SetLine(viewLine, pwndView->m_pViewData->GetLine(viewLine));
-        m_AllState.bottom.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
-        m_pwndBottom->m_pViewData->SetState(viewLine, pwndView->m_pViewData->GetState(viewLine));
-        m_pwndBottom->m_pViewData->SetLineEnding(viewLine, pwndView->m_pViewData->GetLineEnding(viewLine));
+        m_pwndBottom->SetLine(viewLine, pwndView->GetLine(viewLine));
+        m_pwndBottom->SetLineEnding(viewLine, pwndView->GetLineEnding(viewLine));
+        DiffStates oldViewState = pwndView->GetState(viewLine);
+        DiffStates newTargetState = oldViewState;
         if (m_pwndBottom->IsViewLineConflicted(viewLine))
         {
-            if (pwndView->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
-                m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+            if (oldViewState == DIFFSTATE_CONFLICTEMPTY)
+                newTargetState = DIFFSTATE_CONFLICTRESOLVEDEMPTY;
             else
-                m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
+                newTargetState = DIFFSTATE_CONFLICTRESOLVED;
         }
+        m_pwndBottom->SetState(viewLine, newTargetState);
     }
     m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();
@@ -103,25 +98,28 @@ void CBottomView::UseViewFile(CBaseView * pwndView)
     SaveUndoStep();
 }
 
-
+// note :differs to UseViewFile in EOL source, view range and using Screen2View
 void CBottomView::UseViewBlock(CBaseView * pwndView)
 {
+    if (!HasSelection())
+        return;
+
     bool bView = true;
-    for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewLine = bView ? m_Screen2View[i] : i;
-        m_AllState.bottom.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
-        m_pwndBottom->m_pViewData->SetLine(viewLine, pwndView->m_pViewData->GetLine(viewLine));
-        m_AllState.bottom.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
-        m_pwndBottom->m_pViewData->SetState(viewLine, pwndView->m_pViewData->GetState(viewLine));
-        m_pwndBottom->m_pViewData->SetLineEnding(viewLine, m_pwndBottom->lineendings);
+        m_pwndBottom->SetLine(viewLine, pwndView->GetLine(viewLine));
+        m_pwndBottom->SetLineEnding(viewLine, m_pwndBottom->lineendings);
+        DiffStates oldViewState = pwndView->GetState(viewLine);
+        DiffStates newTargetState = oldViewState;
         if (m_pwndBottom->IsViewLineConflicted(viewLine))
         {
-            if (pwndView->m_pViewData->GetState(viewLine) == DIFFSTATE_CONFLICTEMPTY)
-                m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+            if (oldViewState == DIFFSTATE_CONFLICTEMPTY)
+                newTargetState = DIFFSTATE_CONFLICTRESOLVEDEMPTY;
             else
-                m_pwndBottom->m_pViewData->SetState(viewLine, DIFFSTATE_CONFLICTRESOLVED);
+                newTargetState = DIFFSTATE_CONFLICTRESOLVED;
         }
+        m_pwndBottom->SetState(viewLine, newTargetState);
     }
     m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();

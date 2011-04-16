@@ -20,7 +20,7 @@
 #include "Resource.h"
 #include "AppUtils.h"
 
-#include "rightview.h"
+#include "RightView.h"
 #include "BottomView.h"
 
 IMPLEMENT_DYNCREATE(CRightView, CBaseView)
@@ -72,17 +72,16 @@ void CRightView::UseLeftFile()
 {
     for (int i = 0; i < m_pwndRight->m_pViewData->GetCount(); i++)
     {
-        m_AllState.right.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
-        m_pwndRight->m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
-        m_pwndRight->m_pViewData->SetLineEnding(i, m_pwndLeft->m_pViewData->GetLineEnding(i));
-        DiffStates state = m_pwndLeft->m_pViewData->GetState(i);
-        switch (state)
+        m_pwndRight->SetLine(i, m_pwndLeft->GetLine(i));
+        m_pwndRight->SetLineEnding(i, m_pwndLeft->GetLineEnding(i));
+        DiffStates oldLeftState = m_pwndLeft->GetState(i);
+        DiffStates newRightState = m_pwndRight->GetState(i);
+        switch (oldLeftState)
         {
         case DIFFSTATE_CONFLICTEMPTY:
         case DIFFSTATE_UNKNOWN:
         case DIFFSTATE_EMPTY:
-            m_AllState.right.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-            m_pwndRight->m_pViewData->SetState(i, state);
+            newRightState = oldLeftState;
             break;
         case DIFFSTATE_YOURSADDED:
         case DIFFSTATE_IDENTICALADDED:
@@ -98,14 +97,13 @@ void CRightView::UseLeftFile()
         case DIFFSTATE_REMOVED:
         case DIFFSTATE_THEIRSREMOVED:
         case DIFFSTATE_YOURSREMOVED:
-            m_AllState.right.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-            m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_NORMAL);
-            m_AllState.left.linestates[i] = m_pwndLeft->m_pViewData->GetState(i);
-            m_pwndLeft->m_pViewData->SetState(i, DIFFSTATE_NORMAL);
+            newRightState = DIFFSTATE_NORMAL;
+            m_pwndLeft->SetState(i, DIFFSTATE_NORMAL);
             break;
         default:
             break;
         }
+        m_pwndRight->SetState(i, newRightState);
     }
     m_pwndRight->SetModified();
     BuildAllScreen2ViewVector();
@@ -123,12 +121,12 @@ void CRightView::UseLeftBlock()
 
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
-         int viewLine = m_Screen2View[i];
-        m_AllState.right.difflines[viewLine] = m_pwndRight->m_pViewData->GetLine(viewLine);
-        m_pwndRight->m_pViewData->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
-        m_pwndRight->m_pViewData->SetLineEnding(viewLine, m_pwndRight->lineendings);
-        DiffStates state = m_pwndLeft->m_pViewData->GetState(viewLine);
-        switch (state)
+        int viewLine = m_Screen2View[i];
+        m_pwndRight->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
+        m_pwndRight->SetLineEnding(viewLine, m_pwndRight->lineendings);
+        DiffStates oldLeftState = m_pwndLeft->GetState(viewLine);
+        DiffStates newRightState = m_pwndRight->GetState(viewLine);
+        switch (oldLeftState)
         {
         case DIFFSTATE_ADDED:
         case DIFFSTATE_MOVED_TO:
@@ -143,19 +141,18 @@ void CRightView::UseLeftBlock()
         case DIFFSTATE_UNKNOWN:
         case DIFFSTATE_YOURSADDED:
         case DIFFSTATE_EMPTY:
-            m_AllState.right.linestates[viewLine] = m_pwndRight->m_pViewData->GetState(viewLine);
-            m_pwndRight->m_pViewData->SetState(viewLine, state);
+            newRightState = oldLeftState;
             break;
         case DIFFSTATE_IDENTICALREMOVED:
         case DIFFSTATE_REMOVED:
         case DIFFSTATE_THEIRSREMOVED:
         case DIFFSTATE_YOURSREMOVED:
-            m_AllState.right.linestates[viewLine] = m_pwndRight->m_pViewData->GetState(viewLine);
-            m_pwndRight->m_pViewData->SetState(viewLine, DIFFSTATE_ADDED);
+            newRightState = DIFFSTATE_ADDED;
             break;
         default:
             break;
         }
+        m_pwndRight->SetState(viewLine, newRightState);
     }
     m_pwndRight->SetModified();
     BuildAllScreen2ViewVector();
@@ -164,4 +161,98 @@ void CRightView::UseLeftBlock()
         m_pwndLocator->DocumentUpdated();
     RefreshViews();
     SaveUndoStep();
+}
+
+void CRightView::UseBothRightFirst()
+{
+    if (!HasSelection())
+        return;
+
+    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
+        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+
+    for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+    {
+        int viewline = m_Screen2View[i];
+        m_AllState.right.linestates[i] = m_pwndRight->m_pViewData->GetState(viewline);
+        m_pwndRight->m_pViewData->SetState(viewline, DIFFSTATE_YOURSADDED);
+    }
+
+    // your block is done, now insert their block
+    int viewindex = viewIndexAfterSelection;
+    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
+    {
+        int viewline = m_Screen2View[i];
+        m_AllState.right.addedlines.push_back(viewIndexAfterSelection);
+        m_pwndRight->m_pViewData->InsertData(viewindex, m_pwndLeft->m_pViewData->GetData(viewline));
+        m_pwndRight->m_pViewData->SetState(viewindex++, DIFFSTATE_THEIRSADDED);
+    }
+    // adjust line numbers
+    viewindex--;
+    for (int i = m_nSelBlockEnd+1; i < m_pwndRight->GetLineCount(); ++i)
+    {
+        int viewline = m_Screen2View[i];
+        long oldline = (long)m_pwndRight->m_pViewData->GetLineNumber(viewline);
+        if (oldline >= 0)
+            m_pwndRight->m_pViewData->SetLineNumber(i, oldline+(viewindex-m_Screen2View[m_nSelBlockEnd]));
+    }
+
+    // now insert an empty block in the left view
+    for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
+    {
+        m_AllState.left.addedlines.push_back(m_Screen2View[m_nSelBlockStart]);
+        m_pwndLeft->m_pViewData->InsertData(m_Screen2View[m_nSelBlockStart], _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+    }
+
+    BuildAllScreen2ViewVector();
+    RecalcAllVertScrollBars();
+    m_pwndLeft->SetModified();
+    m_pwndRight->SetModified();
+    SaveUndoStep();
+    RefreshViews();
+}
+
+void CRightView::UseBothLeftFirst()
+{
+    if (!HasSelection())
+        return;
+
+    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
+        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+
+    // get line number from just before the block
+    long linenumber = 0;
+    if (m_nSelBlockStart > 0)
+        linenumber = m_pwndRight->m_pViewData->GetLineNumber(m_nSelBlockStart-1);
+    linenumber++;
+    for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+    {
+        int viewline = m_Screen2View[i];
+        m_AllState.right.addedlines.push_back(m_Screen2View[m_nSelBlockStart]);
+        m_pwndRight->m_pViewData->InsertData(i, m_pwndLeft->m_pViewData->GetLine(viewline), DIFFSTATE_THEIRSADDED, linenumber++, m_pwndLeft->m_pViewData->GetLineEnding(viewline), HIDESTATE_SHOWN, -1);
+    }
+    // adjust line numbers
+    for (int i = m_nSelBlockEnd + 1; i < m_pwndRight->GetLineCount(); ++i)
+    {
+        int viewline = m_Screen2View[i];
+        long oldline = (long)m_pwndRight->m_pViewData->GetLineNumber(viewline);
+        if (oldline >= 0)
+            m_pwndRight->m_pViewData->SetLineNumber(viewline, oldline+(m_nSelBlockEnd-m_nSelBlockStart)+1);
+    }
+
+    // now insert an empty block in left view
+    for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
+    {
+        m_AllState.left.addedlines.push_back(viewIndexAfterSelection);
+        m_pwndLeft->m_pViewData->InsertData(viewIndexAfterSelection, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+    }
+
+    BuildAllScreen2ViewVector();
+    RecalcAllVertScrollBars();
+    m_pwndLeft->SetModified();
+    m_pwndRight->SetModified();
+    SaveUndoStep();
+    RefreshViews();
 }

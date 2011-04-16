@@ -1284,23 +1284,65 @@ void CBaseView::OnDraw(CDC * pDC)
     cacheDC.DeleteDC();
 }
 
+bool CBaseView::IsStateConflicted(DiffStates state)
+{
+    switch (state)
+    {
+     case DIFFSTATE_CONFLICTED:
+     case DIFFSTATE_CONFLICTED_IGNORED:
+     case DIFFSTATE_CONFLICTEMPTY:
+     case DIFFSTATE_CONFLICTADDED:
+        return true;
+    }
+    return false;
+}
+
+bool CBaseView::IsStateEmpty(DiffStates state)
+{
+    switch (state)
+    {
+     case DIFFSTATE_CONFLICTEMPTY:
+     case DIFFSTATE_UNKNOWN:
+     case DIFFSTATE_EMPTY:
+        return true;
+    }
+    return false;
+}
+
+bool CBaseView::IsStateRemoved(DiffStates state)
+{
+    switch (state)
+    {
+     case DIFFSTATE_REMOVED:
+     case DIFFSTATE_MOVED_FROM:
+     case DIFFSTATE_THEIRSREMOVED:
+     case DIFFSTATE_YOURSREMOVED:
+     case DIFFSTATE_IDENTICALREMOVED:
+        return true;
+    }
+    return false;
+}
+
+DiffStates CBaseView::ResolveState(DiffStates state)
+{
+    if (IsStateConflicted(state))
+    {
+        if (state == DIFFSTATE_CONFLICTEMPTY)
+            return DIFFSTATE_CONFLICTRESOLVEDEMPTY;
+        else
+            return DIFFSTATE_CONFLICTRESOLVED;
+    }
+    return state;
+}
+
+
 BOOL CBaseView::IsLineRemoved(int nLineIndex)
 {
     if (m_pViewData == 0)
         return FALSE;
     int viewLine = m_Screen2View[nLineIndex];
     const DiffStates state = m_pViewData->GetState(viewLine);
-    switch (state)
-    {
-    case DIFFSTATE_REMOVED:
-    case DIFFSTATE_MOVED_FROM:
-    case DIFFSTATE_THEIRSREMOVED:
-    case DIFFSTATE_YOURSREMOVED:
-    case DIFFSTATE_IDENTICALREMOVED:
-        return TRUE;
-    default:
-        return FALSE;
-    }
+    return IsStateRemoved(state);
 }
 
 bool CBaseView::IsViewLineConflicted(int nLineIndex)
@@ -1308,16 +1350,7 @@ bool CBaseView::IsViewLineConflicted(int nLineIndex)
     if (m_pViewData == 0)
         return false;
     const DiffStates state = m_pViewData->GetState(nLineIndex);
-    switch (state)
-    {
-    case DIFFSTATE_CONFLICTED:
-    case DIFFSTATE_CONFLICTED_IGNORED:
-    case DIFFSTATE_CONFLICTEMPTY:
-    case DIFFSTATE_CONFLICTADDED:
-        return true;
-    default:
-        return false;
-    }
+    return IsStateConflicted(state);
 }
 
 COLORREF CBaseView::InlineDiffColor(int nLineIndex)
@@ -2027,10 +2060,10 @@ void CBaseView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
         break;
     // 3-pane view commands; target is bottom view
     case POPUPCOMMAND_USEYOURANDTHEIRBLOCK:
-        m_pwndBottom->UseYourAndTheirBlock();
+        m_pwndBottom->UseBothRightFirst();
         break;
     case POPUPCOMMAND_USETHEIRANDYOURBLOCK:
-        m_pwndBottom->UseTheirAndYourBlock();
+        m_pwndBottom->UseBothLeftFirst();
         break;
     case POPUPCOMMAND_USEYOURBLOCK:
         m_pwndBottom->UseRightBlock();
@@ -2932,64 +2965,80 @@ void CBaseView::ShowDiffLines(int nLine)
     m_pMainFrame->m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
 
+const viewdata& CBaseView::GetEmptyLineData()
+{
+    static viewdata emptyLine;
+    if (emptyLine.ending != EOL_NOENDING)
+    {
+        emptyLine.ending = EOL_NOENDING;
+        emptyLine.hidestate = HIDESTATE_SHOWN;
+        emptyLine.linenumber = -1;
+        emptyLine.movedIndex = -1;
+        emptyLine.sLine = _T("");
+        emptyLine.state = DIFFSTATE_EMPTY;
+    }
+    return emptyLine;
+}
+
+/// \todo move to CBottomView::UseBothBlocks
 void CBaseView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
 {
     if (!HasSelection())
         return;
+
+    // start group undo
+    CUndo::GetInstance().BeginGrouping();
 
     int viewIndexSelectionStart = m_Screen2View[m_nSelBlockStart];
     int viewIndexAfterSelection = m_Screen2View.back() + 1;
     if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
         viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
 
-    // use first block
+    // use (copy) first block
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
-        int viewline = m_Screen2View[i];
-        m_pwndBottom->SetLine(viewline, pwndFirst->GetLine(viewline));
-        m_pwndBottom->SetLineEnding(viewline, m_pwndBottom->lineendings);
-        if (m_pwndBottom->IsViewLineConflicted(viewline))
-        {
-            DiffStates newTargetState = DIFFSTATE_CONFLICTRESOLVED;
-            if (pwndFirst->GetState(viewline) == DIFFSTATE_CONFLICTEMPTY)
-                newTargetState = DIFFSTATE_CONFLICTRESOLVEDEMPTY;
-            m_pwndBottom->SetState(viewline, newTargetState);
-        }
-        pwndFirst->SetState(viewline, DIFFSTATE_YOURSADDED);
+        int viewLine = m_Screen2View[i];
+        viewdata lineData = pwndFirst->GetData(viewLine);
+        lineData.ending = m_pwndBottom->lineendings;
+        lineData.state = ResolveState(lineData.state);
+        m_pwndBottom->SetData(viewLine, lineData);
+        pwndFirst->SetState(viewLine, DIFFSTATE_YOURSADDED); // this is improper but seems not to produce any visible bug
     }
+    SaveUndoStep();
 
-    // now insert last block
-    int viewindex = viewIndexAfterSelection;
-    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
+    // use (insert) last block
+    int viewIndex = viewIndexAfterSelection;
+    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++, viewIndex++)
     {
-        int viewline = m_Screen2View[i];
-        m_pwndBottom->InsertData(viewindex, pwndLast->GetData(viewline));
-        if (m_pwndBottom->IsViewLineConflicted(viewindex))
-        {
-            DiffStates newTargetState = DIFFSTATE_CONFLICTRESOLVED;
-            if (pwndLast->GetState(viewline) == DIFFSTATE_CONFLICTEMPTY)
-                newTargetState = DIFFSTATE_CONFLICTRESOLVEDEMPTY;
-            m_pwndBottom->SetState(viewindex, newTargetState);
-        }
-        pwndLast->SetState(viewline, DIFFSTATE_THEIRSADDED);
-        viewindex++;
+        int viewLine = m_Screen2View[i];
+        viewdata lineData = pwndLast->GetData(viewLine);
+        lineData.state = ResolveState(lineData.state);
+        m_pwndBottom->InsertData(viewIndex, lineData);
+        pwndLast->SetState(viewLine, DIFFSTATE_THEIRSADDED); // this is improper but seems not to produce any visible bug
     }
+    SaveUndoStep();
 
     // adjust line numbers in target
-    for (int i = m_nSelBlockEnd+1; i < GetLineCount(); ++i)
+    // we fix all line numbers to handle exotic cases
+    int nLineNumber = 0;
+    for (int i = 0; i < GetLineCount(); ++i)
     {
         int viewline = m_Screen2View[i];
-        long oldline = (long)m_pwndBottom->m_pViewData->GetLineNumber(viewline);
+        long oldline = (long)m_pwndBottom->GetLineNumber(viewline);
         if (oldline >= 0)
-            m_pwndBottom->SetLineNumber(viewline, oldline+(viewindex-m_Screen2View[m_nSelBlockEnd]));
+            m_pwndBottom->SetLineNumber(viewline, nLineNumber++);
     }
+    SaveUndoStep();
 
     // now insert an empty block in both first and last
     for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
     {
-        pwndLast->InsertData(viewIndexSelectionStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-        pwndFirst->InsertData(viewIndexAfterSelection, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+        pwndLast->InsertData(viewIndexSelectionStart, GetEmptyLineData());
+        pwndFirst->InsertData(viewIndexAfterSelection, GetEmptyLineData());
     }
+
+    SaveUndoStep();
+    CUndo::GetInstance().EndGrouping();
 
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
@@ -3000,109 +3049,28 @@ void CBaseView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     RefreshViews();
 }
 
+/// \note for backward compatibility
 void CBaseView::UseTheirAndYourBlock()
 {
-    UseBothBlocks(m_pwndLeft, m_pwndRight);
+    UseBothLeftFirst();
 }
 
+/// \note for backward compatibility
 void CBaseView::UseYourAndTheirBlock()
 {
-    UseBothBlocks(m_pwndRight, m_pwndLeft);
-}
-
-void CBaseView::UseBothRightFirst()
-{
-    if (!HasSelection())
-        return;
-
-    int viewIndexAfterSelection = m_Screen2View.back() + 1;
-    if (m_nSelBlockEnd + 1 < m_Screen2View.size())
-        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
-
-    for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-    {
-        int viewline = m_Screen2View[i];
-        m_AllState.right.linestates[i] = m_pwndRight->m_pViewData->GetState(viewline);
-        m_pwndRight->m_pViewData->SetState(viewline, DIFFSTATE_YOURSADDED);
-    }
-
-    // your block is done, now insert their block
-    int viewindex = viewIndexAfterSelection;
-    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
-    {
-        int viewline = m_Screen2View[i];
-        m_AllState.right.addedlines.push_back(viewIndexAfterSelection);
-        m_pwndRight->m_pViewData->InsertData(viewindex, m_pwndLeft->m_pViewData->GetData(viewline));
-        m_pwndRight->m_pViewData->SetState(viewindex++, DIFFSTATE_THEIRSADDED);
-    }
-    // adjust line numbers
-    viewindex--;
-    for (int i = m_nSelBlockEnd+1; i < m_pwndRight->GetLineCount(); ++i)
-    {
-        int viewline = m_Screen2View[i];
-        long oldline = (long)m_pwndRight->m_pViewData->GetLineNumber(viewline);
-        if (oldline >= 0)
-            m_pwndRight->m_pViewData->SetLineNumber(i, oldline+(viewindex-m_Screen2View[m_nSelBlockEnd]));
-    }
-
-    // now insert an empty block in the left view
-    for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
-    {
-        m_AllState.left.addedlines.push_back(m_Screen2View[m_nSelBlockStart]);
-        m_pwndLeft->m_pViewData->InsertData(m_Screen2View[m_nSelBlockStart], _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-    }
-
-    BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
-    m_pwndLeft->SetModified();
-    m_pwndRight->SetModified();
-    SaveUndoStep();
-    RefreshViews();
+    UseBothRightFirst();
 }
 
 void CBaseView::UseBothLeftFirst()
 {
-    if (!HasSelection())
-        return;
-
-    int viewIndexAfterSelection = m_Screen2View.back() + 1;
-    if (m_nSelBlockEnd + 1 < m_Screen2View.size())
-        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
-
-    // get line number from just before the block
-    long linenumber = 0;
-    if (m_nSelBlockStart > 0)
-        linenumber = m_pwndRight->m_pViewData->GetLineNumber(m_nSelBlockStart-1);
-    linenumber++;
-    for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-    {
-        int viewline = m_Screen2View[i];
-        m_AllState.right.addedlines.push_back(m_Screen2View[m_nSelBlockStart]);
-        m_pwndRight->m_pViewData->InsertData(i, m_pwndLeft->m_pViewData->GetLine(viewline), DIFFSTATE_THEIRSADDED, linenumber++, m_pwndLeft->m_pViewData->GetLineEnding(viewline), HIDESTATE_SHOWN, -1);
-    }
-    // adjust line numbers
-    for (int i = m_nSelBlockEnd + 1; i < m_pwndRight->GetLineCount(); ++i)
-    {
-        int viewline = m_Screen2View[i];
-        long oldline = (long)m_pwndRight->m_pViewData->GetLineNumber(viewline);
-        if (oldline >= 0)
-            m_pwndRight->m_pViewData->SetLineNumber(viewline, oldline+(m_nSelBlockEnd-m_nSelBlockStart)+1);
-    }
-
-    // now insert an empty block in left view
-    for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
-    {
-        m_AllState.left.addedlines.push_back(viewIndexAfterSelection);
-        m_pwndLeft->m_pViewData->InsertData(viewIndexAfterSelection, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-    }
-
-    BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
-    m_pwndLeft->SetModified();
-    m_pwndRight->SetModified();
-    SaveUndoStep();
-    RefreshViews();
+    UseBothBlocks(m_pwndLeft, m_pwndRight);
 }
+
+void CBaseView::UseBothRightFirst()
+{
+    UseBothBlocks(m_pwndRight, m_pwndLeft);
+}
+
 
 void CBaseView::UpdateCaret()
 {

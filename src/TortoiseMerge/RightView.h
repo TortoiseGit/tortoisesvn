@@ -33,6 +33,8 @@ public:
 
     void    UseLeftFile(); ///< Use File from Left
     void    UseLeftBlock(); ///< Use Block from Left
+    void    UseBothRightFirst();
+    void    UseBothLeftFirst();
 protected:
     void    AddContextItems(CMenu& popup, DiffStates state);
 

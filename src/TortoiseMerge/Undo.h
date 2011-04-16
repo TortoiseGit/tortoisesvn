@@ -36,9 +36,10 @@ typedef struct viewstate
     std::list<int> addedlines;
 
     std::map<int, viewdata> removedlines;
+    std::map<int, viewdata> replacedlines;
 
     void    AddViewLineFormView(CBaseView *pView, int nLine, int nViewLine, bool bAddEmptyLine);
-    bool    IsEmpty() { return (difflines.size()==0) && (linestates.size()==0) && (linelines.size()==0) && (linesEOL.size()==0) && (addedlines.size()==0) && (removedlines.size()==0); }
+    bool    IsEmpty() { return (difflines.size()==0) && (linestates.size()==0) && (linelines.size()==0) && (linesEOL.size()==0) && (addedlines.size()==0) && (removedlines.size()==0) && (replacedlines.size()==0); }
 } viewstate;
 
 /**
@@ -65,7 +66,6 @@ public:
     static CUndo& GetInstance();
 
     bool Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
-    void AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate, POINT pt);
     void AddState(const allviewstate& allstate, POINT pt);
     bool CanUndo() {return (m_viewstates.size() > 0);}
 
@@ -75,7 +75,6 @@ public:
     void Clear();
     void MarkAsOriginalState() { m_originalstate = m_viewstates.size(); }
 protected:
-    void Undo(const viewstate& state, CBaseView * pView);
     void Undo(const viewstate& state, CBaseView * pView, const POINT& pt);
     void UndoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
     std::list<allviewstate> m_viewstates;
