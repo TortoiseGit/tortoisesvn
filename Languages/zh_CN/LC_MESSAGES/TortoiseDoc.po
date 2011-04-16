@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-11 06:00+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-04-13 06:37+0000\n"
+"Last-Translator: zhugscn <huasoft@163.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12036,6 +12036,9 @@ msgid ""
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
 msgstr ""
+"从Subversion中了解更多有关合并追踪的信息<ulink "
+"url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-"
+"tracking/index.html\"><citetitle>合并追踪文档</citetitle></ulink> 。"
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -18061,6 +18064,10 @@ msgid ""
 "<email>dev@tortoisesvn.tigris.org</email> and "
 "<email>users@tortoisesvn.tigris.org</email>."
 msgstr ""
+"因为TortoiseSVN一直在开发过程中，有的时候真的很难控制文档的版本完全是最新的。我们维护一个<ulink "
+"url=\"http://tortoisesvn.net/faq.html\"><citetitle>在线常见问题集(FAQ)</citetitle></ulink>"
+" 这里包括一些在TortoiseSVN邮件列表中提问的常见问题集合<email>dev@tortoisesvn.tigris.org</email> "
+"and <email>users@tortoisesvn.tigris.org</email>."
 
 #. (para)
 msgid ""
@@ -19700,6 +19707,8 @@ msgid ""
 " revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, "
 ".bmp and .gif."
 msgstr ""
+"如果要创建一个特定的路径的版本图示文件的修改而不显示图示窗口，则将路径以<option>/output:path</option>的形式设定输出文件的路径。输出文件必须有一个版本图示可以实际指向的扩展名。这些扩展名是：.svg,"
+" .wmf, .png, .jpg, .bmp 和.gif"
 
 #. (para)
 msgid ""
@@ -20552,7 +20561,7 @@ msgstr ""
 msgid ""
 "TortoiseSVN creates a patch file in unified diff format by comparing the "
 "working copy with its BASE version."
-msgstr ""
+msgstr "TortoiseSVN通过比较工作拷贝和基础版本(BASE version),使用统一的diff(差异)格式创一个补丁文件。"
 
 #. (para)
 msgid ""
@@ -20571,7 +20580,7 @@ msgstr "实现细节"
 msgid ""
 "This appendix contains a more detailed discussion of the implementation of "
 "some of TortoiseSVN's features."
-msgstr ""
+msgstr "这篇附录包括更详细的关于TortoiseSVN特性实现的讨论"
 
 #. (primary)
 msgid "overlay priority"
@@ -20961,6 +20970,7 @@ msgid ""
 "prompt. Use <literal>svnuser</literal> as the user name and if all is well "
 "you should connect directly without being prompted for a password."
 msgstr ""
+"点击<guilabel>打开</guilabel>你应该看到一个telnet样式的登录提示。使用<literal>svnuser</literal>作为用户名，如果一切正常，你可以不用密码直接连接上。"
 
 #. (para)
 msgid ""
@@ -20971,6 +20981,9 @@ msgid ""
 "ChallengeResponseAuthentication no\n"
 "</screen>"
 msgstr ""
+"你可能需要在服务器上编辑这个文件<filename>/etc/sshd_config</filename>编辑以下几行之后，重新启动SSH服务<screen>⏎"
+" PubkeyAuthentication yes⏎ PasswordAuthentication no⏎ PermitEmptyPasswords "
+"no⏎ ChallengeResponseAuthentication no⏎ </screen>"
 
 #. (title)
 msgid "Testing SSH with TortoiseSVN"
@@ -20986,6 +20999,9 @@ msgid ""
 "login but a different authentication key, thus you have to add one line for "
 "every author."
 msgstr ""
+"到现在为止我们只是测试了使用SSH登录。现在我们需要确认SSH连接是真否实现了运行svnserve。在服务器上修改<filename>/home/svnuser/.ssh/authorized_keys</filename>"
+" 的以下内容，通过这样操作来允许很多subversion的创作者来使用同一个系统帐户 <literal>svnuser</literal> "
+"注意：每一个subversion创作者使用同样的登录但是却使用不一样的认证密码,这样你需要为每一个创作者来添加一行。"
 
 #. (para)
 msgid ""
@@ -21017,7 +21033,7 @@ msgstr ""
 msgid ""
 "<literal>&lt;PublicKey&gt;</literal> should be replaced with the public key "
 "that you generated earlier."
-msgstr ""
+msgstr "<literal>&lt;PublicKey&gt;</literal>应替换为您早些时候生成的公钥(public key)。"
 
 #. (para)
 msgid ""
@@ -21112,6 +21128,7 @@ msgid ""
 " in this case. To remove the default user, simply clear "
 "<filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>."
 msgstr ""
+"如果你使用这最后一个方法，确保你在PuTTY中没有默认的用户名设置。我们有个报告说在PuTTY里有一个Bug，在这种情况下会导致连接关闭。移除默认用户的方法很简单，清空<filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>即可"
 
 #. (title)
 msgid "Language Packs and Spell Checkers"
@@ -21123,6 +21140,8 @@ msgid ""
 "separate language packs and spell check dictionaries separately after "
 "installation."
 msgstr ""
+"标准的安装包是只支持英文的,但是你可以在安装好之后。下载分别的安装包(language packs)以及拼写词典(spell check "
+"dictionaries)。"
 
 #. (title)
 msgid "Language Packs"

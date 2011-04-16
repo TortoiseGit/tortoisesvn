@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-04 19:57+0000\n"
+"PO-Revision-Date: 2011-04-12 00:26+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -783,6 +783,10 @@ msgstr "&Kuvakejoukko:"
 #, c-format
 msgid "&Ignore %d items by name"
 msgstr "&Ohita %d kohdetta nimen perusteella"
+
+#. Resource IDs: (1267)
+msgid "&Ignore ancestry"
+msgstr ""
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -8721,6 +8725,14 @@ msgstr "Hypätty yli"
 msgid "Skipped missing target"
 msgstr "Ohitettiin puuttuva kohde"
 
+#. Resource IDs: (265)
+msgid "Skipped no versioned parent"
+msgstr ""
+
+#. Resource IDs: (265)
+msgid "Skipped obstructing working copy"
+msgstr ""
+
 #. Resource IDs: (1070)
 msgid "Slide"
 msgstr "Liu’utus"
@@ -10333,10 +10345,6 @@ msgstr "Versioimaton"
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Versioimattomat tiedostot merkitsevät yläkansion muutetuksi"
-
-#. Resource IDs: (265)
-msgid "Unversioned obstruction"
-msgstr "Versioimaton este"
 
 #. Resource IDs: (286)
 #, c-format

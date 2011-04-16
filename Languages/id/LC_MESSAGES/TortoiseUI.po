@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-04 00:16+0000\n"
+"PO-Revision-Date: 2011-04-12 00:26+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -774,6 +774,10 @@ msgstr "Set &Ikon:"
 #, c-format
 msgid "&Ignore %d items by name"
 msgstr "&Abaikan %d item menutur nama"
+
+#. Resource IDs: (1267)
+msgid "&Ignore ancestry"
+msgstr ""
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -8697,6 +8701,14 @@ msgstr "Dilewati"
 msgid "Skipped missing target"
 msgstr "target yang hilang dilewati"
 
+#. Resource IDs: (265)
+msgid "Skipped no versioned parent"
+msgstr ""
+
+#. Resource IDs: (265)
+msgid "Skipped obstructing working copy"
+msgstr ""
+
 #. Resource IDs: (1070)
 msgid "Slide"
 msgstr ""
@@ -10291,10 +10303,6 @@ msgstr "Tak Berversi"
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Berkas tidak berversi menandai folder leluhur sebagai diubah"
-
-#. Resource IDs: (265)
-msgid "Unversioned obstruction"
-msgstr ""
 
 #. Resource IDs: (286)
 #, c-format

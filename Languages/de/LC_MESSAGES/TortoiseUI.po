@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-06 12:18+0000\n"
+"PO-Revision-Date: 2011-04-12 08:13+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -782,6 +782,10 @@ msgstr "&Symbole"
 #, c-format
 msgid "&Ignore %d items by name"
 msgstr "&Ignoriere %d Objekte nach Name"
+
+#. Resource IDs: (1267)
+msgid "&Ignore ancestry"
+msgstr "Ignoriere &Vorfahren"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -8766,6 +8770,14 @@ msgstr "Übersprungen"
 msgid "Skipped missing target"
 msgstr "Fehlendes Ziel übersprungen"
 
+#. Resource IDs: (265)
+msgid "Skipped no versioned parent"
+msgstr "Kein versioniertes Elternobjekt übersprungen"
+
+#. Resource IDs: (265)
+msgid "Skipped obstructing working copy"
+msgstr "Versperrende Arbeitskopie übersprungen"
+
 #. Resource IDs: (1070)
 msgid "Slide"
 msgstr "Gleiten"
@@ -10419,10 +10431,6 @@ msgstr "Unversioniert"
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Nicht versionierte Dateien markieren Elternordner als modifiziert"
-
-#. Resource IDs: (265)
-msgid "Unversioned obstruction"
-msgstr "Versionslose Versperrung"
 
 #. Resource IDs: (286)
 #, c-format

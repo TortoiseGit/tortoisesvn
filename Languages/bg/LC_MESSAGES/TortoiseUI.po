@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-04 00:15+0000\n"
+"PO-Revision-Date: 2011-04-12 00:26+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -778,6 +778,10 @@ msgstr "&Комплект с иконки:"
 #, c-format
 msgid "&Ignore %d items by name"
 msgstr "&Игнориране на %d обекта по име"
+
+#. Resource IDs: (1267)
+msgid "&Ignore ancestry"
+msgstr ""
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -8751,6 +8755,14 @@ msgstr "Прескочен"
 msgid "Skipped missing target"
 msgstr "Прескочени липсващи цели"
 
+#. Resource IDs: (265)
+msgid "Skipped no versioned parent"
+msgstr ""
+
+#. Resource IDs: (265)
+msgid "Skipped obstructing working copy"
+msgstr ""
+
 #. Resource IDs: (1070)
 msgid "Slide"
 msgstr "Плъзване"
@@ -10367,10 +10379,6 @@ msgstr "Неконтролирани"
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Неконтролираните файлове бележат съдържащата ги папка като променена"
-
-#. Resource IDs: (265)
-msgid "Unversioned obstruction"
-msgstr ""
 
 #. Resource IDs: (286)
 #, c-format
