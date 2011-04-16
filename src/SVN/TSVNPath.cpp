@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,6 @@
 #include "auto_buffer.h"
 
 #if defined(_MFC_VER)
-#include "MessageBox.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
 #endif
