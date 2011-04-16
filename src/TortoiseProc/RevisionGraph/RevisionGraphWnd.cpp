@@ -866,7 +866,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
             hbm = CreateDIBSection(ddc.m_hDC, &bmi, DIB_RGB_COLORS,(void **)&pBits, NULL, 0);
             if (hbm==0)
             {
-                ::MessageBox(m_hWnd, IDS_REVGRAPH_ERR_NOMEMORY, IDS_APPNAME, MB_ICONERROR);
+                TSVNMessageBox(m_hWnd, IDS_REVGRAPH_ERR_NOMEMORY, IDS_APPNAME, MB_ICONERROR);
                 return;
             }
             HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);

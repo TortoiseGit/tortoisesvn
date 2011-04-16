@@ -851,7 +851,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
         bool bFailed = false;
         if ((nProperties < 0)||(nProperties > 4096))
         {
-            ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+            TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
             bFailed = true;
         }
         CProgressDlg prog;
@@ -871,7 +871,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                 if ((nNameBytes < 0)||(nNameBytes > 4096))
                 {
                     prog.Stop();
-                    ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                    TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                     bFailed = true;
                     continue;
                 }
@@ -925,28 +925,28 @@ void CEditPropertiesDlg::OnBnClickedImport()
                         else
                         {
                             prog.Stop();
-                            ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                            TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                             bFailed = true;
                         }
                     }
                     else
                     {
                         prog.Stop();
-                        ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                        TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                         bFailed = true;
                     }
                 }
                 else
                 {
                     prog.Stop();
-                    ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                    TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                     bFailed = true;
                 }
             }
             else
             {
                 prog.Stop();
-                ::MessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+                TSVNMessageBox(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
                 bFailed = true;
             }
         }

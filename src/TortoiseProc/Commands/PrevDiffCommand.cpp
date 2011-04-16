@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,11 +49,11 @@ bool PrevDiffCommand::Execute()
         {
             if (st.GetLastErrorMessage().IsEmpty())
             {
-                MessageBox(GetExplorerHWND(), IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
+                TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
             }
             else
             {
-                MessageBox(GetExplorerHWND(), IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
+                TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
             }
         }
     }

@@ -4518,9 +4518,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
-                CString msg;
-                msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPath());
-                if (::MessageBox(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+
+                if (ConfirmRevert(m_path.GetUIPathString()))
                 {
                     CSVNProgressDlg dlg;
                     dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
@@ -4569,9 +4568,26 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     {
                         if (bmodified)
                         {
-                            if (::MessageBox(this->m_hWnd, IDS_MERGE_WCDIRTYASK, IDS_APPNAME, MB_YESNO | MB_ICONWARNING) != IDYES)
+                            if (CTaskDialog::IsSupported())
                             {
-                                break;
+                                CString sTask1;
+                                sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, (LPCTSTR)path);
+                                CTaskDialog taskdlg(sTask1, 
+                                                    CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)), 
+                                                    L"TortoiseSVN",
+                                                    0,
+                                                    TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
+                                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
+                                taskdlg.SetDefaultCommandControl(2);
+                                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                                if (taskdlg.DoModal(m_hWnd) != 1)
+                                    return;
+                            }
+                            else
+                            {
+                                if (TSVNMessageBox(this->m_hWnd, IDS_MERGE_WCDIRTYASK, IDS_APPNAME, MB_YESNO | MB_ICONWARNING) != IDYES)
+                                    break;
                             }
                         }
                     }
@@ -4597,9 +4613,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     break;      //exit
                 }
 
-                CString msg;
-                msg.Format(IDS_LOG_REVERTTOREV_CONFIRM, m_path.GetWinPath());
-                if (::MessageBox(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+                if (ConfirmRevert(m_path.GetWinPath(), true))
                 {
                     CSVNProgressDlg dlg;
                     dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
@@ -4636,7 +4650,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     if (!Copy(CTSVNPathList(CTSVNPath(pathURL)), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_CopyRev, dlg.m_sLogMessage))
                         ShowErrorDialog(m_hWnd);
                     else
-                        ::MessageBox(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
+                        TSVNMessageBox(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
                 }
             }
             break;
@@ -5201,7 +5215,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     {
                         // seems the path got renamed
                         // tell the user how to work around this.
-                        ::MessageBox(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
+                        TSVNMessageBox(this->m_hWnd, IDS_LOG_REVERTREV_ERROR, IDS_APPNAME, MB_ICONERROR);
                         EnableOKButton();
                         theApp.DoWaitCursor(-1);
                         break;      //exit
@@ -5215,9 +5229,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     revarray.AddRevRange(rev1, rev2);
                     dlg.SetRevisionRanges(revarray);
                 }
-                CString msg;
-                msg.Format(IDS_LOG_REVERT_CONFIRM, (LPCTSTR)wcPath);
-                if (::MessageBox(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+                if (ConfirmRevert(wcPath))
                 {
                     dlg.DoModal();
                 }
@@ -5857,5 +5869,33 @@ void CLogDlg::ReportNoUrlOfFile(LPCTSTR filepath) const
     CString messageString;
     messageString.Format(IDS_ERR_NOURLOFFILE, filepath);
     ::MessageBox(this->m_hWnd, messageString, _T("TortoiseSVN"), MB_ICONERROR);
+}
+
+bool CLogDlg::ConfirmRevert( const CString& path, bool bToRev /*= false*/ )
+{
+    CString msg;
+    if (CTaskDialog::IsSupported())
+    {
+        if (bToRev)
+            msg.Format(IDS_LOG_REVERT_CONFIRM_TASK6, (LPCTSTR)path);
+        else
+            msg.Format(IDS_LOG_REVERT_CONFIRM_TASK1, (LPCTSTR)path);
+        CTaskDialog taskdlg(msg, 
+                            CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK2)), 
+                            L"TortoiseSVN",
+                            0,
+                            TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
+        taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK5)));
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_INFORMATION_ICON);
+        return (taskdlg.DoModal(m_hWnd) == 1);
+    }
+    if (bToRev)
+        msg.Format(IDS_LOG_REVERTTOREV_CONFIRM, m_path.GetWinPath());
+    else
+        msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPath());
+    return (::MessageBox(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES);
 }
 

@@ -273,7 +273,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     {
         progDlg.Stop();
         m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-        ::MessageBox(GetHWND(), IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+        TSVNMessageBox(GetHWND(), IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     progDlg.Stop();

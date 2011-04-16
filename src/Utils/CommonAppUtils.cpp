@@ -645,7 +645,3 @@ bool CCommonAppUtils::AddClipboardUrlToWindow( HWND hWnd )
     return false;
 }
 
-int MessageBox( HWND hWnd, UINT idText, UINT idCaption, UINT uType )
-{
-    return ::MessageBox(hWnd, CString(MAKEINTRESOURCE(idText)), CString(MAKEINTRESOURCE(idCaption)), uType);
-}

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,8 +79,10 @@ bool CommitCommand::AskToUpdate(CSVNProgressDlg& progDlg) const
     title.LoadString (IDS_MSG_NEEDSUPDATE_TITLE);
     CString question;
     question.Format (IDS_MSG_NEEDSUPDATE_QUESTION, (LPCTSTR)progDlg.GetLastErrorMessage());
-    const UINT result = MessageBox(NULL, question, title, MB_YESNO | MB_ICONQUESTION);
-    return result == IDYES;
+    const UINT result = TSVNMessageBox(NULL, question, title, MB_DEFBUTTON1|MB_ICONQUESTION, 
+        CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)), 
+        CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
+    return result == IDCUSTOM1;
 }
 
 bool CommitCommand::Execute()
@@ -90,7 +92,7 @@ bool CommitCommand::Execute()
     CTSVNPathList selectedList;
     if (parser.HasKey(_T("logmsg")) && (parser.HasKey(_T("logmsgfile"))))
     {
-        MessageBox(GetExplorerHWND(), IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
+        TSVNMessageBox(GetExplorerHWND(), IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     CString sLogMsg = LoadLogMessage();

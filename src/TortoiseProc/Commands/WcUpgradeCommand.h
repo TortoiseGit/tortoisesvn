@@ -33,8 +33,27 @@ public:
      */
     virtual bool            Execute()
     {
-        int ret = MessageBox(GetExplorerHWND(), IDS_PROC_UPGRADECONFIRMATION, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO);
-        if (ret == IDYES)
+        bool bUpgrade = false;
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK1)),
+                                CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK2)),
+                                L"TortoiseSVN",
+                                0,
+                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK4)));
+            taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK5)));
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskdlg.DoModal(GetExplorerHWND()) == 1)
+                bUpgrade = true;
+        }
+        else
+        {
+            bUpgrade = (TSVNMessageBox(GetExplorerHWND(), IDS_PROC_UPGRADECONFIRMATION, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO) == IDYES);
+        }
+        if (bUpgrade)
         {
             SVN svn;
             CProgressDlg progress;

@@ -208,6 +208,7 @@ private:
 	void NotifyTargetOnOk();
     void CreateFindDialog();
     void DoOpenFileWith(bool bOpenWith, const CTSVNPath& tempfile);
+    bool ConfirmRevert(const CString& path, bool bToRev = false);
 
     // selection management
 

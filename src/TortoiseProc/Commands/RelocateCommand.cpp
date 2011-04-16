@@ -121,12 +121,38 @@ bool RelocateCommand::Execute()
                     bPossibleSwitch = false;
             }
         }
-        CString sWarning, sWarningTitle, sHelpPath;
-        sWarning.FormatMessage(IDS_WARN_RELOCATEREALLY, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
-        sWarningTitle.LoadString(IDS_WARN_RELOCATEREALLYTITLE);
-        sHelpPath = theApp.m_pszHelpFilePath;
-        sHelpPath += _T("::/tsvn-dug-relocate.html");
-        if ((!bPossibleSwitch)||(TSVNMessageBox((GetExplorerHWND()), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2|MB_HELP, sHelpPath)==IDYES))
+        if (bPossibleSwitch)
+        {
+            if (CTaskDialog::IsSupported())
+            {
+                CString sInfo;
+                sInfo.FormatMessage(IDS_WARN_RELOCATEREALLY_TASK1, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
+                CTaskDialog taskdlg(sInfo, 
+                                    CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK2)), 
+                                    L"TortoiseSVN",
+                                    0,
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK3)));
+                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK4)));
+                taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK5)));
+                taskdlg.SetDefaultCommandControl(2);
+                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                if (taskdlg.DoModal(GetExplorerHWND()) == 1)
+                    bPossibleSwitch = false;
+            }
+            else
+            {
+                CString sWarning, sWarningTitle, sHelpPath;
+                sWarning.FormatMessage(IDS_WARN_RELOCATEREALLY, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
+                sWarningTitle.LoadString(IDS_WARN_RELOCATEREALLYTITLE);
+                sHelpPath = theApp.m_pszHelpFilePath;
+                sHelpPath += _T("::/tsvn-dug-relocate.html");
+                if (TSVNMessageBox((GetExplorerHWND()), sWarning, sWarningTitle, MB_YESNO|MB_ICONWARNING|MB_DEFBUTTON2|MB_HELP, sHelpPath)==IDYES)
+                    bPossibleSwitch = false;
+            }
+        }
+
+        if (!bPossibleSwitch)
         {
             SVN s;
 

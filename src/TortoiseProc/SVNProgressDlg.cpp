@@ -2365,10 +2365,32 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
         sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
         SetWindowText(sWindowTitle);
     }
-    if (IsCommittingToTag())
+    CString commitUrl;
+    if (IsCommittingToTag(commitUrl))
     {
-        if (::MessageBox(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_YESNO | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDNO)
-            return false;
+        if (CTaskDialog::IsSupported())
+        {
+            CString sTask1;
+            WCHAR outUrl[MAX_PATH] = {0};
+            PathCompactPathEx(outUrl, commitUrl.GetBufferSetLength(MAX_PATH), 50, 0);
+            sTask1.Format(IDS_PROGRS_COMMITT_TRUNK_TASK1, outUrl);
+            CTaskDialog taskdlg(sTask1, 
+                                CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK2)), 
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK4)));
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskdlg.DoModal(m_hWnd) != 1)
+                return false;
+        }
+        else
+        {
+            if (TSVNMessageBox(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_YESNO | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDNO)
+                return false;
+        }
     }
     DWORD exitcode = 0;
     CString error;
@@ -2603,7 +2625,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
     {
         // the lock failed, because the file was outdated.
         // ask the user whether to update the file and try again
-        if (::MessageBox(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
+        if (TSVNMessageBox(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
         {
             ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
             if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
@@ -2977,7 +2999,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
     UINT showRet = IDYES;   // default to yes
     if (bMarkers)
     {
-        showRet = ::MessageBox(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION);
+        showRet = TSVNMessageBox(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION);
     }
     if (showRet == IDYES)
     {
@@ -3228,11 +3250,10 @@ LRESULT CSVNProgressDlg::OnTaskbarBtnCreated(WPARAM /*wParam*/, LPARAM /*lParam*
     return 0;
 }
 
-bool CSVNProgressDlg::IsCommittingToTag()
+bool CSVNProgressDlg::IsCommittingToTag(CString& url)
 {
     bool isTag = false;
     bool bURLFetched = false;
-    CString url;
     for (int i=0; i<m_targetPathList.GetCount(); ++i)
     {
         if (bURLFetched)

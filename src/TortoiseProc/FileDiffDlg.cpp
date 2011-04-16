@@ -168,7 +168,7 @@ BOOL CFileDiffDlg::OnInitDialog()
     if (AfxBeginThread(DiffThreadEntry, this)==NULL)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
-        ::MessageBox(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+        TSVNMessageBox(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
     }
 
     // Start with focus on file list

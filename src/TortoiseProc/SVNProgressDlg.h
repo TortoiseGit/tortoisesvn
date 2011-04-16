@@ -252,7 +252,7 @@ private:
     void        AddItemToList(NotificationData * data);
     CString     BuildInfoString();
     CString     GetPathFromColumnText(const CString& sColumnText);
-    bool        IsCommittingToTag();
+    bool        IsCommittingToTag(CString& url);
     void        OnCommitFinished();
 
     /**

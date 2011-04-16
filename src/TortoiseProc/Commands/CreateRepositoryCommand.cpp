@@ -30,7 +30,7 @@ bool CreateRepositoryCommand::Execute()
 {
     if (!SVN::CreateRepository(cmdLinePath))
     {
-        MessageBox(GetExplorerHWND(), IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
+        TSVNMessageBox(GetExplorerHWND(), IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
         return false;
     }
     else

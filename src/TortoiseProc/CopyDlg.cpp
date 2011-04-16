@@ -137,7 +137,7 @@ BOOL CCopyDlg::OnInitDialog()
         CString Wrong_URL=path.GetSVNPathString();
         CString temp;
         temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)Wrong_URL);
-        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+        ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
         TRACE(_T("could not retrieve the URL of the file!"));
         this->EndDialog(IDCANCEL);      //exit
     }
@@ -359,8 +359,25 @@ void CCopyDlg::OnOK()
     m_sLogMessage = m_cLogMessage.GetText();
     if ((m_ProjectProperties.bWarnIfNoIssue) && (id.IsEmpty() && !m_ProjectProperties.HasBugID(m_sLogMessage)))
     {
-        if (::MessageBox(this->m_hWnd, IDS_COMMITDLG_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
-            return;
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)), 
+                                        CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)), 
+                                        L"TortoiseSVN",
+                                        0,
+                                        TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskdlg.DoModal(m_hWnd) != 1)
+                return;
+        }
+        else
+        {
+            if (TSVNMessageBox(this->m_hWnd, IDS_COMMITDLG_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+                return;
+        }
     }
     UpdateData(TRUE);
 
@@ -393,8 +410,28 @@ void CCopyDlg::OnOK()
     m_URL = CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetString());
     if (!CTSVNPath(m_URL).IsValidOnWindows())
     {
-        if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
-            return;
+        if (CTaskDialog::IsSupported())
+        {
+            CString sInfo;
+            sInfo.Format(IDS_WARN_NOVALIDPATH_TASK1, (LPCTSTR)m_URL);
+            CTaskDialog taskdlg(sInfo, 
+                                CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK2)), 
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK4)));
+            taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK5)));
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskdlg.DoModal(m_hWnd) != 1)
+                return;
+        }
+        else
+        {
+            if (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) != IDYES)
+                return;
+        }
     }
     CStringUtils::WriteAsciiStringToClipboard(m_URL);
 

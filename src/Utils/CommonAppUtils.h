@@ -123,5 +123,3 @@ protected:
     CCommonAppUtils(void){};
     ~CCommonAppUtils(void){};
 };
-
-int MessageBox( HWND hWnd, UINT idText, UINT idCaption, UINT uType );

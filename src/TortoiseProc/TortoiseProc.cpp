@@ -266,7 +266,7 @@ BOOL CTortoiseProcApp::InitInstance()
         CString newCmdLine = p.GetCommandLine();
         if (newCmdLine.IsEmpty())
         {
-            ::MessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+            TSVNMessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
             return FALSE;
         }
         CCmdLineParser p2(newCmdLine);
@@ -274,7 +274,7 @@ BOOL CTortoiseProcApp::InitInstance()
     }
     if ( parser.HasKey(_T("path")) && parser.HasKey(_T("pathfile")))
     {
-        ::MessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+        TSVNMessageBox(GetExplorerHWND(), IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
         return FALSE;
     }
 
@@ -285,7 +285,7 @@ BOOL CTortoiseProcApp::InitInstance()
         CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
         if (sPathfileArgument.IsEmpty())
         {
-            ::MessageBox(GetExplorerHWND(), IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
+            TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
             return FALSE;
         }
         cmdLinePath.SetFromUnknown(sPathfileArgument);

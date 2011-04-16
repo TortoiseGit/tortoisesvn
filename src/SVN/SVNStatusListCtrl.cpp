@@ -3471,7 +3471,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         result = svn_wc_conflict_choose_merged;
                         break;
                     }
-                    if (::MessageBox(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
+                    if (TSVNMessageBox(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
                     {
                         CAutoWriteLock locker(m_guard);
                         SVN svn;
