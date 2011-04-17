@@ -36,17 +36,12 @@ CSetMainPage::CSetMainPage()
     : ISettingsPropPage(CSetMainPage::IDD)
     , m_sTempExtensions(_T(""))
     , m_bLastCommitTime(FALSE)
-    , m_bUseDotNetHack(FALSE)
     , m_bUseAero(TRUE)
 {
     m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
     CString temp(SVN_CONFIG_DEFAULT_GLOBAL_IGNORES);
     m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"), temp);
     m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
-    if ((GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)==0)&&(GetLastError()==ERROR_ENVVAR_NOT_FOUND))
-        m_bUseDotNetHack = false;
-    else
-        m_bUseDotNetHack = true;
     m_regUseAero = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
 }
 
@@ -61,7 +56,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
     m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
     DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
     DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
-    DDX_Check(pDX, IDC_ASPDOTNETHACK, m_bUseDotNetHack);
     DDX_Check(pDX, IDC_AERODWM, m_bUseAero);
 }
 
@@ -74,7 +68,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, ISettingsPropPage)
     ON_BN_CLICKED(IDC_CHECKNEWERBUTTON, OnBnClickedChecknewerbutton)
     ON_BN_CLICKED(IDC_COMMITFILETIMES, OnModified)
     ON_BN_CLICKED(IDC_SOUNDS, OnBnClickedSounds)
-    ON_BN_CLICKED(IDC_ASPDOTNETHACK, OnASPHACK)
     ON_BN_CLICKED(IDC_AERODWM, OnModified)
     ON_BN_CLICKED(IDC_CREATELIB, &CSetMainPage::OnBnClickedCreatelib)
 END_MESSAGE_MAP()
@@ -101,7 +94,6 @@ BOOL CSetMainPage::OnInitDialog()
     m_tooltips.AddTool(IDC_TEMPEXTENSIONSLABEL, IDS_SETTINGS_TEMPEXTENSIONS_TT);
     m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
     m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
-    m_tooltips.AddTool(IDC_ASPDOTNETHACK, IDS_SETTINGS_DOTNETHACK_TT);
     m_tooltips.AddTool(IDC_CREATELIB, IDS_SETTINGS_CREATELIB_TT);
 
     DialogEnableWindow(IDC_CREATELIB, SysInfo::Instance().IsWin7OrLater());
@@ -163,21 +155,6 @@ void CSetMainPage::OnModified()
     SetModified();
 }
 
-// TODO: remove this - if someone *really* is still using VS.NET, they can set the variable manually
-void CSetMainPage::OnASPHACK()
-{
-    if (TSVNMessageBox(m_hWnd, IDS_SETTINGS_ASPHACKWARNING, IDS_APPNAME, MB_ICONWARNING|MB_YESNO) == IDYES)
-    {
-        SetModified();
-    }
-    else
-    {
-        UpdateData();
-        m_bUseDotNetHack = !m_bUseDotNetHack;
-        UpdateData(FALSE);
-    }
-}
-
 BOOL CSetMainPage::OnApply()
 {
     UpdateData();
@@ -190,31 +167,6 @@ BOOL CSetMainPage::OnApply()
     Store ((m_bLastCommitTime ? _T("yes") : _T("no")), m_regLastCommitTime);
     Store (m_bUseAero, m_regUseAero);
 
-    CRegString asphack_local(_T("System\\CurrentControlSet\\Control\\Session Manager\\Environment\\SVN_ASP_DOT_NET_HACK"), _T(""), FALSE, HKEY_LOCAL_MACHINE);
-    CRegString asphack_user(_T("Environment\\SVN_ASP_DOT_NET_HACK"));
-    if (m_bUseDotNetHack)
-    {
-        asphack_local = _T("*");
-        if (asphack_local.GetLastError() != ERROR_SUCCESS)
-            asphack_user = _T("*");
-        if ((GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)==0)&&(GetLastError()==ERROR_ENVVAR_NOT_FOUND))
-        {
-            DWORD_PTR dwRet = 0;
-            SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, (LPARAM)_T("Environment"), SMTO_ABORTIFHUNG, 1000, &dwRet);
-            m_restart = Restart_System;
-        }
-    }
-    else
-    {
-        asphack_local.removeValue();
-        asphack_user.removeValue();
-        if (GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)!=0)
-        {
-            DWORD_PTR dwRet = 0;
-            SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, (LPARAM)_T("Environment"), SMTO_ABORTIFHUNG, 1000, &dwRet);
-            m_restart = Restart_System;
-        }
-    }
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
 }
