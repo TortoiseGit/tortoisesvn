@@ -450,6 +450,7 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
                                 depthIsSticky,
                                 ignoreexternals,
                                 bAllow_unver_obstructions,
+                                true,       // adds_as_modifications (why would anyone want a tree conflict? Set to true unconditionally)
                                 makeParents,
                                 m_pctx,
                                 localpool),
