@@ -1906,6 +1906,10 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
     m_nScreenChars = -1;
     if (m_nLastScreenChars != GetScreenChars())
     {
+        // Since the line indexes change now, the
+        // selection points are no longer valid:
+        // clear the selection
+        ClearCurrentSelection();
         BuildAllScreen2ViewVector();
         m_nLastScreenChars = m_nScreenChars;
     }
