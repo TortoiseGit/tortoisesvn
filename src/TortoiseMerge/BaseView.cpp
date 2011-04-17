@@ -2131,8 +2131,8 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                     nLineIndex--;
                     break;
                 }
-                const DiffStates lineState = m_pViewData->GetState(--nIndex);
-                nLineIndex--;
+                const DiffStates lineState = m_pViewData->GetState(m_Screen2View[--nLineIndex]);
+                nIndex--;
                 if (!LinesInOneChange(-1, state, lineState))
                     break;
             }
@@ -2141,8 +2141,8 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 state = m_pViewData->GetState (m_Screen2View[m_nSelBlockStart]);
             while (nIndex < (m_pViewData->GetCount()-1))
             {
-                const DiffStates lineState = m_pViewData->GetState(++nIndex);
-                nLineIndex++;
+                const DiffStates lineState = m_pViewData->GetState(m_Screen2View[++nLineIndex]);
+                nIndex++;
                 if (!LinesInOneChange(1, state, lineState))
                     break;
             }
