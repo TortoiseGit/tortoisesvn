@@ -54,12 +54,12 @@ void CBottomView::AddContextItems(CMenu& popup, DiffStates state)
 
 void CBottomView::UseLeftBlock()
 {
-     UseViewBlock(m_pwndLeft);
+    UseViewBlock(m_pwndLeft);
 }
 
 void CBottomView::UseLeftFile()
 {
-     UseViewFile(m_pwndLeft);
+    UseViewFile(m_pwndLeft);
 }
 
 void CBottomView::UseRightBlock()

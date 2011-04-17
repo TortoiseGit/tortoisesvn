@@ -1451,7 +1451,7 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
 
 void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
-    if ((m_nSelBlockEnd < 0) || (m_nSelBlockStart < 0))
+    if (!HasSelection())
         return;
     if ((m_nSelBlockStart >= (int)m_Screen2View.size()) || (m_nSelBlockEnd >= (int)m_Screen2View.size()))
         return;
@@ -2104,7 +2104,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         nLine = m_nSelBlockStart+1;
     else
         nLine = GetLineFromPoint(point);
-    if (nLine > (int)m_Screen2View.size())
+    if ((nLine < 1) || (nLine > (int)m_Screen2View.size()))
         return;
 
     int viewLine = m_Screen2View[nLine-1];
@@ -2152,7 +2152,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             UpdateCaret();
         }
         if (((state == DIFFSTATE_NORMAL)||(state == DIFFSTATE_UNKNOWN)) &&
-            (m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
+            HasSelection())
         {
             // find a more 'relevant' state in the selection
             for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; ++i)
@@ -2758,7 +2758,7 @@ void CBaseView::OnEditCopy()
     POINT end = m_ptSelectionEndPos;
     if ((m_ptSelectionStartPos.x == m_ptSelectionEndPos.x)&&(m_ptSelectionStartPos.y == m_ptSelectionEndPos.y))
     {
-        if ((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0))
+        if (!HasSelection())
             return;
         start.y = m_nSelBlockStart; start.x = 0;
         end.y = m_nSelBlockEnd; end.x = GetLineLength(m_nSelBlockEnd);
@@ -2836,7 +2836,7 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
         int saveMouseLine = nMouseLine >= 0 ? nMouseLine : 0;
         saveMouseLine = saveMouseLine < GetLineCount() ? saveMouseLine : GetLineCount() - 1;
         int charIndex = CalculateCharIndex(saveMouseLine, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
-        if (((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))&&
+        if (HasSelection() &&
             ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
         {
             m_ptCaretPos.y = nMouseLine;
@@ -3652,7 +3652,7 @@ void CBaseView::OnCaretMove(bool isShiftPressed)
 UINT CBaseView::GetMenuFlags(DiffStates state) const
 {
     UINT uFlags = MF_ENABLED | MF_STRING;
-    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+    if (!HasSelection())
         uFlags |= MF_DISABLED | MF_GRAYED;
 
     const bool bImportantBlock = state != DIFFSTATE_UNKNOWN;
@@ -3998,12 +3998,13 @@ int CBaseView::CountMultiLines( int nLine )
 void CBaseView::OnEditSelectall()
 {
     int nCount = GetLineCount();
-    SetupSelection(0, nCount);
+    int nLastLine = nCount-1;
+    SetupSelection(0, nLastLine);
     m_ptSelectionStartPos.x = 0;
     m_ptSelectionStartPos.y = 0;
 
-    m_ptSelectionEndPos.y = nCount-1;
-    CString sLine = GetLineChars(nCount-1);
+    m_ptSelectionEndPos.y = nLastLine;
+    CString sLine = GetLineChars(nLastLine);
     m_ptSelectionEndPos.x = sLine.GetLength();
 
     UpdateWindow();
