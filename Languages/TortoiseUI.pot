@@ -1539,8 +1539,17 @@ msgstr ""
 msgid "A newline separated list of paths for which no icon overlays are shown.\r\nIf you add an '?' char at the end of a path, then only this path will be excluded.\r\nIf you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\nAn empty list will allow overlays on all paths."
 msgstr ""
 
+#. Resource IDs: (90)
+msgid "A relocate is only needed if the path to a repository has changed.\nChanging to a different path inside a repository is done by a switch operation.\n\nIf you are not sure what to do, try a switch operation first."
+msgstr ""
+
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
+msgstr ""
+
+#. Resource IDs: (89)
+#, c-format
+msgid "A valid path on windows must not contain '<>|\"\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn\nSee the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
 
 #. Resource IDs: (79)
@@ -2175,6 +2184,42 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#. Resource IDs: (221)
+msgid "Cancel\nDo not commit to a tag."
+msgstr ""
+
+#. Resource IDs: (119)
+msgid "Cancel\nDo not revert."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid "Cancel\nGo back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid "Cancel\nI will enter a different path/URL."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid "Cancel\nKeep the current URL."
+msgstr ""
+
+#. Resource IDs: (105)
+msgid "Cancel\nThe items are not imported."
+msgstr ""
+
+#. Resource IDs: (107)
+msgid "Cancel\nThe items are not moved."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid "Cancel\nYou have to add the folder manually."
+msgstr ""
+
+#. Resource IDs: (100)
+msgid "Cancel\nkeep the current format."
+msgstr ""
+
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
 msgstr ""
@@ -2557,12 +2602,20 @@ msgstr ""
 msgid "Commit failed - Update needed"
 msgstr ""
 
+#. Resource IDs: (173)
+msgid "Commit only the folder\nFiles inside the folder won't get committed."
+msgstr ""
+
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr ""
 
 #. Resource IDs: (209)
 msgid "Commit..."
+msgstr ""
+
+#. Resource IDs: (221)
+msgid "Commit\nCommit the changes to the target."
 msgstr ""
 
 #. Resource IDs: (244)
@@ -2586,8 +2639,16 @@ msgstr ""
 msgid "Commits your changes to the repository"
 msgstr ""
 
+#. Resource IDs: (173)
+msgid "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the 'Add...' context menu item."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the 'Add...' context menu item.\n\nAre you sure that you want to continue the commit?"
+msgstr ""
+
+#. Resource IDs: (221)
+msgid "Committing to a tag"
 msgstr ""
 
 #. Resource IDs: (274, 32784)
@@ -3324,6 +3385,10 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr ""
 
+#. Resource IDs: (173)
+msgid "Do this for all selected unversioned folders"
+msgstr ""
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
@@ -3365,6 +3430,16 @@ msgstr ""
 msgid "Do you want to remove the property %s recursively?"
 msgstr ""
 
+#. Resource IDs: (120)
+#, c-format
+msgid "Do you want to revert all changes in\n%s\nand go back to this revision?"
+msgstr ""
+
+#. Resource IDs: (120)
+#, c-format
+msgid "Do you want to revert all changes in\n%s\nwhich were made in this revision?"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
 msgstr ""
@@ -3377,6 +3452,10 @@ msgstr ""
 msgid "Documentation : Simon Large\nCode : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
 
+#. Resource IDs: (564)
+msgid "Don't ask me again"
+msgstr ""
+
 #. Resource IDs: (94)
 msgid "Don't make the checkout directory a sparse working copy.\nInstead, all URLs get checked out into a separate\nworking copies next to each other.\nThis works for directory URLs only."
 msgstr ""
@@ -3387,6 +3466,10 @@ msgstr ""
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
+msgstr ""
+
+#. Resource IDs: (564)
+msgid "Don't tell me again"
 msgstr ""
 
 #. Resource IDs: (1002)
@@ -3533,10 +3616,6 @@ msgstr ""
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
-msgstr ""
-
-#. Resource IDs: (196)
-msgid "Enable this only if you're working with web projects on VS.NET2003!\r\nYou must restart the system for this setting to take effect."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -3695,6 +3774,10 @@ msgstr ""
 #. Resource IDs: (70)
 #, c-format
 msgid "Error while reading/writing the registry key %1!s!\n%2!s!"
+msgstr ""
+
+#. Resource IDs: (172)
+msgid "Every commit should be assigned to an issue."
 msgstr ""
 
 #. Resource IDs: (32853)
@@ -4561,8 +4644,8 @@ msgstr ""
 msgid "If the repository can not be contacted"
 msgstr ""
 
-#. Resource IDs: (196)
-msgid "If you change this value, your existing working copies won't be recognized anymore!\nYou must check out your working copies again.\nIf you're not sure about this, then please read the docs.\nAre you absolutely sure you want to do this?"
+#. Resource IDs: (100)
+msgid "If you use other SVN clients besides TortoiseSVN on this computer, you have to upgrade those clients too. Otherwise those clients won't be able to access the working copy with the new format."
 msgstr ""
 
 #. Resource IDs: (251)
@@ -4584,6 +4667,10 @@ msgstr ""
 
 #. Resource IDs: (1267)
 msgid "Ignore &ancestry"
+msgstr ""
+
+#. Resource IDs: (564)
+msgid "Ignore all"
 msgstr ""
 
 #. Resource IDs: (32873)
@@ -4632,6 +4719,10 @@ msgstr ""
 
 #. Resource IDs: (2055)
 msgid "Ignores changes in whitespaces when diffing\nIgnore whitespace changes"
+msgstr ""
+
+#. Resource IDs: (89)
+msgid "Illegal path"
 msgstr ""
 
 #. Resource IDs: (16916)
@@ -4694,6 +4785,10 @@ msgstr ""
 #. Resource IDs: (613)
 #, c-format
 msgid "Import to %1"
+msgstr ""
+
+#. Resource IDs: (105)
+msgid "Import\nThe items are imported, creating a new revision for each item."
 msgstr ""
 
 #. Resource IDs: (80)
@@ -4787,6 +4882,11 @@ msgstr ""
 
 #. Resource IDs: (145)
 msgid "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
+msgstr ""
+
+#. Resource IDs: (89)
+#, c-format
+msgid "It seems you are trying to relocate your working copy to a different path inside the same repository.\nFrom: %1!s!\nTo: %2!s!\n\nImproper use of relocate will corrupt your working copy!"
 msgstr ""
 
 #. Resource IDs: (88)
@@ -5358,6 +5458,10 @@ msgstr ""
 msgid "More colors..."
 msgstr ""
 
+#. Resource IDs: (105)
+msgid "More than one item dropped."
+msgstr ""
+
 #. Resource IDs: (438)
 msgid "More..."
 msgstr ""
@@ -5408,6 +5512,10 @@ msgstr ""
 msgid "Move items to here"
 msgstr ""
 
+#. Resource IDs: (106)
+msgid "Move special file or directory"
+msgstr ""
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Move to %1"
@@ -5424,6 +5532,10 @@ msgstr ""
 #. Resource IDs: (98)
 #, c-format
 msgid "Move: New name for %s"
+msgstr ""
+
+#. Resource IDs: (106)
+msgid "Move\nThe items are moved to the target path."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -5602,6 +5714,10 @@ msgstr ""
 msgid "No thesaurus suggestions"
 msgstr ""
 
+#. Resource IDs: (564)
+msgid "No to all"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Node Status:"
 msgstr ""
@@ -5761,6 +5877,10 @@ msgstr ""
 
 #. Resource IDs: (145)
 msgid "Omit externals"
+msgstr ""
+
+#. Resource IDs: (106)
+msgid "One of the paths you are attempting to move appears to be a special path\n(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
 
 #. Resource IDs: (63)
@@ -6158,6 +6278,18 @@ msgstr ""
 msgid "Printing"
 msgstr ""
 
+#. Resource IDs: (89)
+msgid "Proceed with the entered path\nI'm aware of the possible problems."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid "Proceed with the merge."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid "Proceed without an issue number\nThe commit won't be assigned to an issue."
+msgstr ""
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %1!d! of %2!d!..."
@@ -6481,6 +6613,14 @@ msgstr ""
 msgid "Relocate Warning"
 msgstr ""
 
+#. Resource IDs: (89)
+msgid "Relocate where a switch might be intended"
+msgstr ""
+
+#. Resource IDs: (89)
+msgid "Relocate\nThe working copy is relocated to the new URL."
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr ""
@@ -6635,6 +6775,10 @@ msgstr ""
 msgid "Replacing"
 msgstr ""
 
+#. Resource IDs: (564)
+msgid "Report"
+msgstr ""
+
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
 msgstr ""
@@ -6763,8 +6907,16 @@ msgstr ""
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
 
+#. Resource IDs: (119)
+msgid "Revert\nChanges will be applied to the working copy."
+msgstr ""
+
 #. Resource IDs: (73)
 msgid "Reverted"
+msgstr ""
+
+#. Resource IDs: (119)
+msgid "Reverting changes"
 msgstr ""
 
 #. Resource IDs: (9)
@@ -7565,6 +7717,14 @@ msgstr ""
 msgid "Size of the cache if it were not compressed"
 msgstr ""
 
+#. Resource IDs: (564)
+msgid "Skip"
+msgstr ""
+
+#. Resource IDs: (564)
+msgid "Skip all"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr ""
@@ -7574,11 +7734,11 @@ msgid "Skipped missing target"
 msgstr ""
 
 #. Resource IDs: (265)
-msgid "Skipped no versioned parent"
+msgid "Skipped obstructing working copy"
 msgstr ""
 
 #. Resource IDs: (265)
-msgid "Skipped obstructing working copy"
+msgid "Skipped, no versioned parent"
 msgstr ""
 
 #. Resource IDs: (1070)
@@ -7874,6 +8034,10 @@ msgstr ""
 msgid "Text status"
 msgstr ""
 
+#. Resource IDs: (120)
+msgid "The changes will be applied to your working copy with a reverse merge operation. The repository won't be affected. You can review the changes before you commit them."
+msgstr ""
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr ""
@@ -8138,6 +8302,11 @@ msgstr ""
 msgid "The patch seems outdated! The file line\n%1!s!\nand the patchline\n%2!s!\ndo not match!"
 msgstr ""
 
+#. Resource IDs: (89)
+#, c-format
+msgid "The path/URL \"%s\" seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later."
+msgstr ""
+
 #. Resource IDs: (88)
 msgid "The path/URL you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n\nDo you want to proceed anyway?"
 msgstr ""
@@ -8182,6 +8351,15 @@ msgstr ""
 #. Resource IDs: (88)
 #, c-format
 msgid "The target folder \n%s\nis not empty!\nAre you sure you want to checkout/export into that folder?"
+msgstr ""
+
+#. Resource IDs: (279)
+msgid "The target has local modifications"
+msgstr ""
+
+#. Resource IDs: (279)
+#, c-format
+msgid "The target working copy \"%s\" has local modifications. It is recommended to commit those changes first before merging new changes."
 msgstr ""
 
 #. Resource IDs: (279)
@@ -8313,6 +8491,10 @@ msgstr ""
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
+msgstr ""
+
+#. Resource IDs: (99)
+msgid "This will upgrade your working copy to the new 1.7 format and make it unusable for older clients."
 msgstr ""
 
 #. Resource IDs: (16928)
@@ -8717,6 +8899,10 @@ msgstr ""
 msgid "Updating log cache"
 msgstr ""
 
+#. Resource IDs: (99)
+msgid "Upgrade the working copy\nto the new 1.7 format."
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
 msgstr ""
@@ -8760,10 +8946,6 @@ msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
-msgstr ""
-
-#. Resource IDs: (1296)
-msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr ""
 
 #. Resource IDs: (2054)
@@ -9057,10 +9239,6 @@ msgstr ""
 msgid "You are trying to access a repository via file:// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
 msgstr ""
 
-#. Resource IDs: (105)
-msgid "You are trying to move the trunk folder!\nAre you absolutely sure that you want to move\nthe trunk folder?"
-msgstr ""
-
 #. Resource IDs: (65535)
 msgid "You can disable specific Overlay handlers here.\nDisabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
 msgstr ""
@@ -9080,6 +9258,10 @@ msgid "You can't set this property on folders, only on files!\nIf you want to se
 msgstr ""
 
 #. Resource IDs: (105)
+msgid "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that in one step, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item."
+msgstr ""
+
+#. Resource IDs: (105)
 msgid "You dropped more than one file or folder to add to the repository.\nIt's not possible to do that in one step, so TortoiseSVN will add each file/folder\nindividually, creating a new revision for every added item.\n\nDo you still want to do this?"
 msgstr ""
 
@@ -9095,6 +9277,10 @@ msgstr ""
 msgid "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
 msgstr ""
 
+#. Resource IDs: (173)
+msgid "You haven't entered an issue number."
+msgstr ""
+
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
@@ -9106,6 +9292,10 @@ msgstr ""
 
 #. Resource IDs: (77)
 msgid "You selected an unversioned file.\nThe file will be added to version control when you commit."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid "You selected an unversioned folder for a commit!"
 msgstr ""
 
 #. Resource IDs: (1001)
@@ -9154,6 +9344,11 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Your working copy has local modifications.\nIf you branch/tag from the HEAD revision, your local changes won't\nshow up in the branch/tag!"
+msgstr ""
+
+#. Resource IDs: (221)
+#, c-format
+msgid "Your working copy points to %s which appears to be a tag!\nYou should first switch to a branch or the main trunk before committing."
 msgstr ""
 
 #. Resource IDs: (32783)
