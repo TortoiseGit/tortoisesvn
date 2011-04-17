@@ -83,6 +83,7 @@ public:
     void            RefreshViews();
     void            BuildAllScreen2ViewVector();
     void            BuildScreen2ViewVector();
+    void            UpdateViewLineNumbers();
     int             GetLineCount() const;
     int             Screen2View(int screenLine) const { return m_Screen2View[screenLine]; }
     int             FindScreenLineForViewLine(int viewLine);
@@ -119,6 +120,7 @@ public:
     bool            HasPrevInlineDiff();
 
     static const viewdata& GetEmptyLineData();
+    void            AddViewEmptyLines(int nFirstView, int nCount);
 
     virtual void    UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast);
     void            UseTheirAndYourBlock();
@@ -392,60 +394,63 @@ protected:
 public:
     // view manipulation with undo saving
     // todo: clean up this mess
-    //void            AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
-    //void            AddData(const viewdata& data);
-    void            InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline) {
+    //void            AddViewData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
+    //void            AddViewData(const viewdata& data);
+    void            InsertViewData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline) {
         m_pState->addedlines.push_back(index);
         m_pViewData->InsertData(index, sLine, state, linenumber, ending, hide, movedline);
     }
-    void            InsertData(int index, const viewdata& data) {
+    void            InsertViewData(int index, const viewdata& data) {
         m_pState->addedlines.push_back(index);
         m_pViewData->InsertData(index, data);
     }
 
-    //void            RemoveData(int index) {m_data.erase(m_data.begin() + index);}
+    void            RemoveViewData(int index) {
+        m_pState->removedlines[index] = m_pViewData->GetData(index);
+        m_pViewData->RemoveData(index);
+    }
 
-    const viewdata& GetData(int index) {
+    const viewdata& GetViewData(int index) {
         return m_pViewData->GetData(index);
     }
-    const CString&  GetLine(int index) const {return m_pViewData->GetLine(index);}
-    DiffStates      GetState(int index) const {return m_pViewData->GetState(index);}
-    HIDESTATE       GetHideState(int index) {return m_pViewData->GetHideState(index);}
-    int             GetLineNumber(int index) {return m_pViewData->GetLineNumber(index);}
-    int             GetMovedIndex(int index) {return m_pViewData->GetMovedIndex(index);}
-    int             FindLineNumber(int number);
-    EOL             GetLineEnding(int index) const {return m_pViewData->GetLineEnding(index);}
+    const CString&  GetViewLine(int index) const {return m_pViewData->GetLine(index);}
+    DiffStates      GetViewState(int index) const {return m_pViewData->GetState(index);}
+    HIDESTATE       GetViewHideState(int index) {return m_pViewData->GetHideState(index);}
+    int             GetViewLineNumber(int index) {return m_pViewData->GetLineNumber(index);}
+    int             GetViewMovedIndex(int index) {return m_pViewData->GetMovedIndex(index);}
+    int             FindViewLineNumber(int number) {return m_pViewData->FindLineNumber(number);};
+    EOL             GetViewLineEnding(int index) const {return m_pViewData->GetLineEnding(index);}
 
-    int             GetCount() const {return m_pViewData->GetCount();}
+    int             GetViewCount() const {return m_pViewData->GetCount();}
 
-    void            SetData(int index, const viewdata& data) {
+    void            SetViewData(int index, const viewdata& data) {
         m_pState->replacedlines[index] = m_pViewData->GetData(index);
         m_pViewData->SetData(index, data);
     }
-    void            SetState(int index, DiffStates state) {
+    void            SetViewState(int index, DiffStates state) {
         m_pState->linestates[index] = m_pViewData->GetState(index);
         m_pViewData->SetState(index, state);
     }
-    void            SetLine(int index, const CString& sLine) {
+    void            SetViewLine(int index, const CString& sLine) {
         m_pState->difflines[index] = m_pViewData->GetLine(index);
         m_pViewData->SetLine(index, sLine);
     }
-    void            SetLineNumber(int index, int linenumber) {
+    void            SetViewLineNumber(int index, int linenumber) {
         int oldLineNumber = m_pViewData->GetLineNumber(index);
         if (oldLineNumber != linenumber) {
             m_pState->linelines[index] = oldLineNumber;
             m_pViewData->SetLineNumber(index, linenumber);
         }
     }
-    void            SetLineEnding(int index, EOL ending) {
+    void            SetViewLineEnding(int index, EOL ending) {
         m_pState->linesEOL[index] = m_pViewData->GetLineEnding(index);
         m_pViewData->SetLineEnding(index, ending);
     }
-    //void            SetMovedIndex(int index, int movedIndex) {m_pViewData->SetMovedIndex(index, movedIndex);}
-    //void            SetLineHideState(int index, HIDESTATE state) {m_pViewData->SetLineHideState(index, state);}
+    //void            SetViewMovedIndex(int index, int movedIndex) {m_pViewData->SetMovedIndex(index, movedIndex);}
+    //void            SetViewLineHideState(int index, HIDESTATE state) {m_pViewData->SetLineHideState(index, state);}
 
-    //void            Clear() {m_pViewData->Clear();}
-    //void            Reserve(int length) {m_pViewData->Reserve(length);}
+    //void            ClearView() {m_pViewData->Clear();}
+    //void            ReserveView(int length) {m_pViewData->Reserve(length);}
 
 protected:
     enum PopupCommands {

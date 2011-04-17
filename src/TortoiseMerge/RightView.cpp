@@ -70,18 +70,18 @@ void CRightView::AddContextItems(CMenu& popup, DiffStates state)
 
 void CRightView::UseLeftFile()
 {
-    for (int i = 0; i < m_pwndRight->m_pViewData->GetCount(); i++)
+    CUndo::GetInstance().BeginGrouping();
+
+    for (int i = 0; i < m_pwndRight->GetViewCount(); i++)
     {
-        m_pwndRight->SetLine(i, m_pwndLeft->GetLine(i));
-        m_pwndRight->SetLineEnding(i, m_pwndLeft->GetLineEnding(i));
-        DiffStates oldLeftState = m_pwndLeft->GetState(i);
-        DiffStates newRightState = m_pwndRight->GetState(i);
-        switch (oldLeftState)
+        int viewLine = i;
+        viewdata line = m_pwndLeft->GetViewData(viewLine);
+        switch (line.state)
         {
         case DIFFSTATE_CONFLICTEMPTY:
         case DIFFSTATE_UNKNOWN:
         case DIFFSTATE_EMPTY:
-            newRightState = oldLeftState;
+            line.state = DIFFSTATE_EMPTY;
             break;
         case DIFFSTATE_YOURSADDED:
         case DIFFSTATE_IDENTICALADDED:
@@ -97,21 +97,30 @@ void CRightView::UseLeftFile()
         case DIFFSTATE_REMOVED:
         case DIFFSTATE_THEIRSREMOVED:
         case DIFFSTATE_YOURSREMOVED:
-            newRightState = DIFFSTATE_NORMAL;
-            m_pwndLeft->SetState(i, DIFFSTATE_NORMAL);
+            line.state = DIFFSTATE_NORMAL;
+            m_pwndLeft->SetViewState(viewLine, DIFFSTATE_NORMAL);
             break;
         default:
             break;
         }
-        m_pwndRight->SetState(i, newRightState);
+        m_pwndRight->SetViewData(viewLine, line);
     }
+    SaveUndoStep();
+
+    CleanEmptyLines();
+    SaveUndoStep();
+    m_pwndRight->UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    CUndo::GetInstance().EndGrouping();
+
     m_pwndRight->SetModified();
+    m_pwndLeft->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     if (m_pwndLocator)
         m_pwndLocator->DocumentUpdated();
     RefreshViews();
-    SaveUndoStep();
 }
 
 void CRightView::UseLeftBlock()
@@ -119,48 +128,57 @@ void CRightView::UseLeftBlock()
     if (!HasSelection())
         return;
 
+    CUndo::GetInstance().BeginGrouping();
+
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewLine = m_Screen2View[i];
-        m_pwndRight->SetLine(viewLine, m_pwndLeft->m_pViewData->GetLine(viewLine));
-        m_pwndRight->SetLineEnding(viewLine, m_pwndRight->lineendings);
-        DiffStates oldLeftState = m_pwndLeft->GetState(viewLine);
-        DiffStates newRightState = m_pwndRight->GetState(viewLine);
-        switch (oldLeftState)
+        viewdata line = m_pwndLeft->GetViewData(viewLine);
+        line.ending = m_pwndRight->lineendings;
+        switch (line.state)
         {
+        case DIFFSTATE_CONFLICTEMPTY:
+        case DIFFSTATE_UNKNOWN:
+        case DIFFSTATE_EMPTY:
+            line.state = DIFFSTATE_EMPTY;
+            break;
         case DIFFSTATE_ADDED:
         case DIFFSTATE_MOVED_TO:
         case DIFFSTATE_MOVED_FROM:
         case DIFFSTATE_CONFLICTADDED:
         case DIFFSTATE_CONFLICTED:
         case DIFFSTATE_CONFLICTED_IGNORED:
-        case DIFFSTATE_CONFLICTEMPTY:
         case DIFFSTATE_IDENTICALADDED:
         case DIFFSTATE_NORMAL:
         case DIFFSTATE_THEIRSADDED:
-        case DIFFSTATE_UNKNOWN:
         case DIFFSTATE_YOURSADDED:
-        case DIFFSTATE_EMPTY:
-            newRightState = oldLeftState;
             break;
         case DIFFSTATE_IDENTICALREMOVED:
         case DIFFSTATE_REMOVED:
         case DIFFSTATE_THEIRSREMOVED:
         case DIFFSTATE_YOURSREMOVED:
-            newRightState = DIFFSTATE_ADDED;
+            line.state = DIFFSTATE_ADDED;
             break;
         default:
             break;
         }
-        m_pwndRight->SetState(viewLine, newRightState);
+        m_pwndRight->SetViewData(viewLine, line);
     }
+
+    CleanEmptyLines();
+    SaveUndoStep();
+    m_pwndRight->UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    CUndo::GetInstance().EndGrouping();
+
     m_pwndRight->SetModified();
+    m_pwndLeft->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     if (m_pwndLocator)
         m_pwndLocator->DocumentUpdated();
     RefreshViews();
-    SaveUndoStep();
 }
 
 void CRightView::UseBothRightFirst()
@@ -168,48 +186,53 @@ void CRightView::UseBothRightFirst()
     if (!HasSelection())
         return;
 
+    CUndo::GetInstance().BeginGrouping();
+
     int viewIndexAfterSelection = m_Screen2View.back() + 1;
     if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
         viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
 
+    // right original become added
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
-        int viewline = m_Screen2View[i];
-        m_AllState.right.linestates[i] = m_pwndRight->m_pViewData->GetState(viewline);
-        m_pwndRight->m_pViewData->SetState(viewline, DIFFSTATE_YOURSADDED);
+        int viewLine = m_Screen2View[i];
+        if (!IsStateEmpty(m_pwndRight->GetViewState(viewLine)))
+        {
+            m_pwndRight->SetViewState(viewLine, DIFFSTATE_ADDED);
+        }
     }
 
     // your block is done, now insert their block
     int viewindex = viewIndexAfterSelection;
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
-        int viewline = m_Screen2View[i];
-        m_AllState.right.addedlines.push_back(viewIndexAfterSelection);
-        m_pwndRight->m_pViewData->InsertData(viewindex, m_pwndLeft->m_pViewData->GetData(viewline));
-        m_pwndRight->m_pViewData->SetState(viewindex++, DIFFSTATE_THEIRSADDED);
+        int viewLine = m_Screen2View[i];
+        viewdata line = m_pwndLeft->GetViewData(viewLine);
+        if (IsStateEmpty(line.state))
+        {
+            line.state = DIFFSTATE_EMPTY;
+        }
+        else
+        {
+            line.state = DIFFSTATE_THEIRSADDED;
+        }
+        m_pwndRight->InsertViewData(viewindex++, line);
     }
-    // adjust line numbers
-    viewindex--;
-    for (int i = m_nSelBlockEnd+1; i < m_pwndRight->GetLineCount(); ++i)
-    {
-        int viewline = m_Screen2View[i];
-        long oldline = (long)m_pwndRight->m_pViewData->GetLineNumber(viewline);
-        if (oldline >= 0)
-            m_pwndRight->m_pViewData->SetLineNumber(i, oldline+(viewindex-m_Screen2View[m_nSelBlockEnd]));
-    }
+    SaveUndoStep();
 
-    // now insert an empty block in the left view
-    for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
-    {
-        m_AllState.left.addedlines.push_back(m_Screen2View[m_nSelBlockStart]);
-        m_pwndLeft->m_pViewData->InsertData(m_Screen2View[m_nSelBlockStart], _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-    }
+    m_pwndLeft->AddViewEmptyLines(m_Screen2View[m_nSelBlockStart], m_nSelBlockEnd - m_nSelBlockStart + 1);
+    SaveUndoStep();
+    CleanEmptyLines();
+    SaveUndoStep();
+    m_pwndRight->UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    CUndo::GetInstance().EndGrouping();
 
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     m_pwndLeft->SetModified();
     m_pwndRight->SetModified();
-    SaveUndoStep();
     RefreshViews();
 }
 
@@ -222,37 +245,67 @@ void CRightView::UseBothLeftFirst()
     if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
         viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
 
-    // get line number from just before the block
-    long linenumber = 0;
-    if (m_nSelBlockStart > 0)
-        linenumber = m_pwndRight->m_pViewData->GetLineNumber(m_nSelBlockStart-1);
-    linenumber++;
+    CUndo::GetInstance().BeginGrouping();
+
+    // right original become added
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
-        int viewline = m_Screen2View[i];
-        m_AllState.right.addedlines.push_back(m_Screen2View[m_nSelBlockStart]);
-        m_pwndRight->m_pViewData->InsertData(i, m_pwndLeft->m_pViewData->GetLine(viewline), DIFFSTATE_THEIRSADDED, linenumber++, m_pwndLeft->m_pViewData->GetLineEnding(viewline), HIDESTATE_SHOWN, -1);
+        int viewLine = m_Screen2View[i];
+        if (!IsStateEmpty(m_pwndRight->GetViewState(viewLine)))
+        {
+            m_pwndRight->SetViewState(viewLine, DIFFSTATE_YOURSADDED);
+        }
     }
-    // adjust line numbers
-    for (int i = m_nSelBlockEnd + 1; i < m_pwndRight->GetLineCount(); ++i)
+
+    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
-        int viewline = m_Screen2View[i];
-        long oldline = (long)m_pwndRight->m_pViewData->GetLineNumber(viewline);
-        if (oldline >= 0)
-            m_pwndRight->m_pViewData->SetLineNumber(viewline, oldline+(m_nSelBlockEnd-m_nSelBlockStart)+1);
+        int viewLine = m_Screen2View[i];
+        viewdata line = m_pwndLeft->GetViewData(viewLine);
+        if (IsStateEmpty(line.state))
+        {
+            line.state = DIFFSTATE_EMPTY;
+        }
+        else
+        {
+            line.state = DIFFSTATE_THEIRSADDED;
+        }
+        m_pwndRight->InsertViewData(viewLine, line);
     }
 
     // now insert an empty block in left view
-    for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
-    {
-        m_AllState.left.addedlines.push_back(viewIndexAfterSelection);
-        m_pwndLeft->m_pViewData->InsertData(viewIndexAfterSelection, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-    }
+    m_pwndLeft->AddViewEmptyLines(viewIndexAfterSelection, m_nSelBlockEnd - m_nSelBlockStart + 1);
+    SaveUndoStep();
+    CleanEmptyLines();
+    SaveUndoStep();
+    m_pwndRight->UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    CUndo::GetInstance().EndGrouping();
 
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     m_pwndLeft->SetModified();
     m_pwndRight->SetModified();
-    SaveUndoStep();
     RefreshViews();
+}
+
+
+void CRightView::CleanEmptyLines()
+{
+   for (int viewLine = 0; viewLine < m_pwndRight->GetViewCount(); )
+    {
+        DiffStates rightState = m_pwndRight->GetViewState(viewLine);
+        DiffStates leftState = m_pwndLeft->GetViewState(viewLine);
+        if (IsStateEmpty(leftState) && IsStateEmpty(rightState))
+        {
+            m_pwndRight->RemoveViewData(viewLine);
+            m_pwndLeft->RemoveViewData(viewLine);
+            if (CUndo::GetInstance().IsGrouping()) // if use group undo -> ensure back adding goes in right (reversed) order
+            {
+                SaveUndoStep();
+            }
+            continue;
+        }
+        viewLine++;
+    }
 }

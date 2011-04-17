@@ -37,5 +37,5 @@ public:
     void    UseBothLeftFirst();
 protected:
     void    AddContextItems(CMenu& popup, DiffStates state);
-
+    void    CleanEmptyLines();
 };

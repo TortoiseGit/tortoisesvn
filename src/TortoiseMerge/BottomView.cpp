@@ -78,9 +78,9 @@ void CBottomView::UseViewFile(CBaseView * pwndView)
     for (int i = 0; i < pwndView->m_pViewData->GetCount(); i++)
     {
         int viewLine = i;
-        m_pwndBottom->SetLine(viewLine, pwndView->GetLine(viewLine));
-        m_pwndBottom->SetLineEnding(viewLine, pwndView->GetLineEnding(viewLine));
-        DiffStates oldViewState = pwndView->GetState(viewLine);
+        m_pwndBottom->SetViewLine(viewLine, pwndView->GetViewLine(viewLine));
+        m_pwndBottom->SetViewLineEnding(viewLine, pwndView->GetViewLineEnding(viewLine));
+        DiffStates oldViewState = pwndView->GetViewState(viewLine);
         DiffStates newTargetState = oldViewState;
         if (m_pwndBottom->IsViewLineConflicted(viewLine))
         {
@@ -89,7 +89,7 @@ void CBottomView::UseViewFile(CBaseView * pwndView)
             else
                 newTargetState = DIFFSTATE_CONFLICTRESOLVED;
         }
-        m_pwndBottom->SetState(viewLine, newTargetState);
+        m_pwndBottom->SetViewState(viewLine, newTargetState);
     }
     m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();
@@ -108,9 +108,9 @@ void CBottomView::UseViewBlock(CBaseView * pwndView)
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewLine = bView ? m_Screen2View[i] : i;
-        m_pwndBottom->SetLine(viewLine, pwndView->GetLine(viewLine));
-        m_pwndBottom->SetLineEnding(viewLine, m_pwndBottom->lineendings);
-        DiffStates oldViewState = pwndView->GetState(viewLine);
+        m_pwndBottom->SetViewLine(viewLine, pwndView->GetViewLine(viewLine));
+        m_pwndBottom->SetViewLineEnding(viewLine, m_pwndBottom->lineendings);
+        DiffStates oldViewState = pwndView->GetViewState(viewLine);
         DiffStates newTargetState = oldViewState;
         if (m_pwndBottom->IsViewLineConflicted(viewLine))
         {
@@ -119,7 +119,7 @@ void CBottomView::UseViewBlock(CBaseView * pwndView)
             else
                 newTargetState = DIFFSTATE_CONFLICTRESOLVED;
         }
-        m_pwndBottom->SetState(viewLine, newTargetState);
+        m_pwndBottom->SetViewState(viewLine, newTargetState);
     }
     m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();

@@ -2980,6 +2980,14 @@ const viewdata& CBaseView::GetEmptyLineData()
     return emptyLine;
 }
 
+void CBaseView::AddViewEmptyLines(int nFirstView, int nCount)
+{
+    for (int i = 0; i < nCount; i++)
+    {
+        m_pwndLeft->InsertViewData(nFirstView, GetEmptyLineData());
+    }
+}
+
 /// \todo move to CBottomView::UseBothBlocks
 void CBaseView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
 {
@@ -2998,11 +3006,11 @@ void CBaseView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
         int viewLine = m_Screen2View[i];
-        viewdata lineData = pwndFirst->GetData(viewLine);
+        viewdata lineData = pwndFirst->GetViewData(viewLine);
         lineData.ending = m_pwndBottom->lineendings;
         lineData.state = ResolveState(lineData.state);
-        m_pwndBottom->SetData(viewLine, lineData);
-        pwndFirst->SetState(viewLine, DIFFSTATE_YOURSADDED); // this is improper but seems not to produce any visible bug
+        m_pwndBottom->SetViewData(viewLine, lineData);
+        pwndFirst->SetViewState(viewLine, DIFFSTATE_YOURSADDED); // this is improper but seems not to produce any visible bug
     }
     SaveUndoStep();
 
@@ -3011,30 +3019,23 @@ void CBaseView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++, viewIndex++)
     {
         int viewLine = m_Screen2View[i];
-        viewdata lineData = pwndLast->GetData(viewLine);
+        viewdata lineData = pwndLast->GetViewData(viewLine);
         lineData.state = ResolveState(lineData.state);
-        m_pwndBottom->InsertData(viewIndex, lineData);
-        pwndLast->SetState(viewLine, DIFFSTATE_THEIRSADDED); // this is improper but seems not to produce any visible bug
+        m_pwndBottom->InsertViewData(viewIndex, lineData);
+        pwndLast->SetViewState(viewLine, DIFFSTATE_THEIRSADDED); // this is improper but seems not to produce any visible bug
     }
     SaveUndoStep();
 
     // adjust line numbers in target
     // we fix all line numbers to handle exotic cases
-    int nLineNumber = 0;
-    for (int i = 0; i < GetLineCount(); ++i)
-    {
-        int viewline = m_Screen2View[i];
-        long oldline = (long)m_pwndBottom->GetLineNumber(viewline);
-        if (oldline >= 0)
-            m_pwndBottom->SetLineNumber(viewline, nLineNumber++);
-    }
+    UpdateViewLineNumbers();
     SaveUndoStep();
 
     // now insert an empty block in both first and last
     for (int emptyblocks = 0; emptyblocks < m_nSelBlockEnd - m_nSelBlockStart + 1; ++emptyblocks)
     {
-        pwndLast->InsertData(viewIndexSelectionStart, GetEmptyLineData());
-        pwndFirst->InsertData(viewIndexAfterSelection, GetEmptyLineData());
+        pwndLast->InsertViewData(viewIndexSelectionStart, GetEmptyLineData());
+        pwndFirst->InsertViewData(viewIndexAfterSelection, GetEmptyLineData());
     }
 
     SaveUndoStep();
@@ -3940,6 +3941,19 @@ void CBaseView::BuildScreen2ViewVector()
                 m_Screen2View.push_back(i);
             }
         }
+    }
+}
+
+// apply it on view as screen2view is not build yet in most cases
+void CBaseView::UpdateViewLineNumbers()
+{
+    int nLineNumber = 0;
+    for (int i = 0; i < GetViewCount(); ++i)
+    {
+        int viewLine = i;
+        int oldLine = (int)GetViewLineNumber(viewLine);
+        if (oldLine >= 0)
+            SetViewLineNumber(viewLine, nLineNumber++);
     }
 }
 
