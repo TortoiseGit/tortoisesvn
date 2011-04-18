@@ -1551,18 +1551,27 @@ void CBaseView::DrawText(
     }
 
     std::map<int, linecolors_t>::const_iterator lastIt = lineCols.begin();
+    int nLeft = coords.x;
     for (std::map<int, linecolors_t>::const_iterator it = lastIt; it != lineCols.end(); ++it)
     {
-        pDC->SetBkColor(lastIt->second.background);
-        pDC->SetTextColor(lastIt->second.text);
-        pDC->ExtTextOut(coords.x + lastIt->first * GetCharWidth(), coords.y, ETO_CLIPPED, &rc, text + lastIt->first, it->first - lastIt->first, NULL);
+        int nBlockLength = it->first - lastIt->first;
+        if (nBlockLength > 0)
+        {
+            pDC->SetBkColor(lastIt->second.background);
+            pDC->SetTextColor(lastIt->second.text);
+            LPCTSTR p_zBlockText = text + lastIt->first;
+            pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, p_zBlockText, nBlockLength, NULL);
+            SIZE Size;
+            GetTextExtentPoint32(pDC->operator HDC(), p_zBlockText, nBlockLength, &Size);
+            nLeft += Size.cx;
+        }
         lastIt = it;
     }
     if (lastIt != lineCols.end())
     {
         pDC->SetBkColor(lastIt->second.background);
         pDC->SetTextColor(lastIt->second.text);
-        pDC->ExtTextOut(coords.x + lastIt->first * GetCharWidth(), coords.y, ETO_CLIPPED, &rc, text + lastIt->first, textlength - lastIt->first, NULL);
+        pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, text + lastIt->first, textlength - lastIt->first, NULL);
     }
 }
 
@@ -3067,11 +3076,27 @@ int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
 POINT CBaseView::TextToClient(const POINT& point)
 {
     POINT pt;
-    pt.y = max(0, (point.y - m_nTopLine));
-    pt.y *= GetLineHeight();
+    int nOffsetScreenLine = max(0, (point.y - m_nTopLine));
+    pt.y = nOffsetScreenLine * GetLineHeight();
     pt.x = CalculateActualOffset(point.y, point.x);
 
-    pt.x = (pt.x - m_nOffsetChar) * GetCharWidth() + GetMarginWidth();
+    int nLeft = GetMarginWidth() - m_nOffsetChar * GetCharWidth();
+    CDC * pDC = GetDC();
+    if (pDC)
+    {
+        pDC->SelectObject(GetFont()); // is this right font ?
+        int nScreenLine = nOffsetScreenLine + m_nTopLine;
+        LPCTSTR p_sLine = GetLineChars(nScreenLine);
+        int nBlockLength = pt.x;
+        SIZE Size;
+        GetTextExtentPoint32(pDC->operator HDC(), p_sLine, nBlockLength, &Size);
+        ReleaseDC(pDC);
+        nLeft += Size.cx;
+    } else {
+        nLeft += pt.x * GetCharWidth();
+    }
+
+    pt.x =  nLeft;
     pt.y = (pt.y + GetLineHeight() + HEADERHEIGHT);
     return pt;
 }
