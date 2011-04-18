@@ -1679,6 +1679,7 @@ void CSVNStatusListCtrl::Sort()
         SetRedraw (FALSE);
 
         DeleteAllItems();
+        m_nSelected = 0;
         int line = 0;
         for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
         {
@@ -1688,6 +1689,8 @@ void CSVNStatusListCtrl::Sort()
                 AddEntry (m_arStatusArray[i], line++);
             }
         }
+        GetStatisticsString();
+        NotifyCheck();
     }
 
     SetRedraw (TRUE);
