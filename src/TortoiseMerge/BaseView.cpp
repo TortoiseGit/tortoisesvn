@@ -825,8 +825,6 @@ void CBaseView::OnDoVScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBa
     int nPageLines = GetScreenLines();
     int nLineCount = GetLineCount();
 
-    RECT thumbrect;
-    POINT thumbpoint;
     int nNewTopLine;
 
     static LONG textwidth = 0;
@@ -860,8 +858,11 @@ void CBaseView::OnDoVScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBa
         nNewTopLine = si.nTrackPos;
         if (GetFocus() == this)
         {
+            RECT thumbrect;
             GetClientRect(&thumbrect);
             ClientToScreen(&thumbrect);
+
+            POINT thumbpoint;
             thumbpoint.x = thumbrect.right;
             thumbpoint.y = thumbrect.top + ((thumbrect.bottom-thumbrect.top)*si.nTrackPos)/(si.nMax-si.nMin);
             m_ScrollTool.Init(&thumbpoint);
@@ -1191,17 +1192,15 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
     }
     else
     {
-
         if (this == m_pwndRight)
         {
             CDiffColors::GetInstance().GetColors(DIFFSTATE_ADDED, crBk, crFg);
-            pdc->SetBkColor(crBk);
         }
         else
         {
             CDiffColors::GetInstance().GetColors(DIFFSTATE_REMOVED, crBk, crFg);
-            pdc->SetBkColor(crBk);
         }
+        pdc->SetBkColor(crBk);
     }
     pdc->FillSolidRect(textrect, crBk);
 
@@ -3784,7 +3783,6 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
 
     size_t lineoffset = 0;
     size_t position = 0;
-    std::deque<size_t> removedPositions;
     while (diff)
     {
         apr_off_t len = diff->original_length;
